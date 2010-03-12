@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"POT-Creation-Date: 2010-03-12 09:27+0100\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: danish <da@li.org>\n"
@@ -12,11 +12,13 @@ msgstr ""
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: libraries/auth/config.auth.lib.php:107
-#, possible-php-format
+#, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
 msgstr ""
+"Sandsynlig årsag til dette er at du ikke har oprettet en konfigurationsfil. "
+"Du kan bruge %1$sopsætningsscriptet%2$s til at oprette en."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -25,18 +27,22 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
+"phpMyAdmin forsøgte at forbinde til MySQL-serveren, og serveren afviste "
+"forbindelsen. Du bør tjekke host, brugernavn og kodeord i config.inc.php og "
+"sikre dig at de svarer til den information du har fået af administratoren af "
+"MySQL-serveren."
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:15
@@ -55,129 +61,129 @@ msgstr ","
 
 #: libraries/messages.inc.php:21
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: libraries/messages.inc.php:21
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: libraries/messages.inc.php:21
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: libraries/messages.inc.php:21
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: libraries/messages.inc.php:21
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 #: libraries/messages.inc.php:21
 msgid "PiB"
-msgstr ""
+msgstr "PiB"
 
 #: libraries/messages.inc.php:21
 msgid "EiB"
-msgstr ""
+msgstr "EiB"
 
 #: libraries/messages.inc.php:23
 msgid "Sun"
-msgstr ""
+msgstr "søn"
 
 #: libraries/messages.inc.php:23
 msgid "Mon"
-msgstr ""
+msgstr "man"
 
 #: libraries/messages.inc.php:23
 msgid "Tue"
-msgstr ""
+msgstr "tir"
 
 #: libraries/messages.inc.php:23
 msgid "Wed"
-msgstr ""
+msgstr "ons"
 
 #: libraries/messages.inc.php:23
 msgid "Thu"
-msgstr ""
+msgstr "tor"
 
 #: libraries/messages.inc.php:23
 msgid "Fri"
-msgstr ""
+msgstr "fre"
 
 #: libraries/messages.inc.php:23
 msgid "Sat"
-msgstr ""
+msgstr "lør"
 
 #: libraries/messages.inc.php:24
 msgid "Jan"
-msgstr ""
+msgstr "jan"
 
 #: libraries/messages.inc.php:24
 msgid "Feb"
-msgstr ""
+msgstr "feb"
 
 #: libraries/messages.inc.php:24
 msgid "Mar"
-msgstr ""
+msgstr "mar"
 
 #: libraries/messages.inc.php:24
 msgid "Apr"
-msgstr ""
+msgstr "apr"
 
 #: libraries/messages.inc.php:24
 msgid "May"
-msgstr ""
+msgstr "maj"
 
 #: libraries/messages.inc.php:24
 msgid "Jun"
-msgstr ""
+msgstr "jun"
 
 #: libraries/messages.inc.php:24
 msgid "Jul"
-msgstr ""
+msgstr "jul"
 
 #: libraries/messages.inc.php:24
 msgid "Aug"
-msgstr ""
+msgstr "aug"
 
 #: libraries/messages.inc.php:24
 msgid "Sep"
-msgstr ""
+msgstr "sep"
 
 #: libraries/messages.inc.php:24
 msgid "Oct"
-msgstr ""
+msgstr "okt"
 
 #: libraries/messages.inc.php:24
 msgid "Nov"
-msgstr ""
+msgstr "nov"
 
 #: libraries/messages.inc.php:24
 msgid "Dec"
-msgstr ""
+msgstr "dec"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/messages.inc.php:26
 msgid "%B %d, %Y at %I:%M %p"
-msgstr ""
+msgstr "%d. %m %Y kl. %H:%M:%S"
 
 #: libraries/messages.inc.php:27
-#, possible-php-format
+#, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr ""
+msgstr "%s dage, %s timer, %s minutter og %s sekunder"
 
 #: libraries/messages.inc.php:29
 msgid "Aborted"
-msgstr ""
+msgstr "Afbrudt"
 
 #: libraries/messages.inc.php:30
 msgid "Access denied"
-msgstr ""
+msgstr "Adgang Nægtet"
 
 #: libraries/messages.inc.php:31
 msgid "Action"
-msgstr ""
+msgstr "Handling"
 
 #: libraries/messages.inc.php:32
 msgid "Actions"
@@ -185,95 +191,95 @@ msgstr ""
 
 #: libraries/messages.inc.php:33
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "Tilføj AUTO_INCREMENT værdi"
 
 #: libraries/messages.inc.php:34
-#, possible-php-format
+#, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Tilføj %s"
 
 #: libraries/messages.inc.php:35
 msgid "Add constraints"
-msgstr ""
+msgstr "Tilføj begrænsninger"
 
 #: libraries/messages.inc.php:36
 msgid "Add/Delete Field Columns"
-msgstr ""
+msgstr "Tilføj/Slet felt-kolonne"
 
 #: libraries/messages.inc.php:37
 msgid "Add/Delete Criteria Row"
-msgstr ""
+msgstr "Tilføj/Slet kriterie-række"
 
 #: libraries/messages.inc.php:38
-#, possible-php-format
+#, php-format
 msgid "Add %s field(s)"
-msgstr ""
+msgstr "Tilføj %s felt(er)"
 
 #: libraries/messages.inc.php:39
 msgid "Add custom comment into header (\\n splits lines)"
-msgstr ""
+msgstr "Tilføj tilpassede kommentarer i headeren (\\n deler linjer)"
 
 #: libraries/messages.inc.php:40
 msgid "Add into comments"
-msgstr ""
+msgstr "Tilføj til kommentarer"
 
 #: libraries/messages.inc.php:41
 msgid "Add new field"
-msgstr ""
+msgstr "Tilføj nyt felt"
 
 #: libraries/messages.inc.php:42
 msgid "Add privileges on the following database"
-msgstr ""
+msgstr "Tilføj privilegier på følgende database"
 
 #: libraries/messages.inc.php:43
 msgid "Add privileges on the following table"
-msgstr ""
+msgstr "Tilføj privileges på følgende tabel"
 
 #: libraries/messages.inc.php:44
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr ""
+msgstr "Tilføj søgekriterier (kroppen af \"WHERE\" sætningen):"
 
 #: libraries/messages.inc.php:45
-#, possible-php-format
+#, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr ""
+msgstr "Føj til indeks &nbsp;%s&nbsp;kolonne(r)"
 
 #: libraries/messages.inc.php:46
 msgid "Add a new User"
-msgstr ""
+msgstr "Tilføj en ny bruger"
 
 #: libraries/messages.inc.php:47
 msgid "You have added a new user."
-msgstr ""
+msgstr "Du har tilføjet en ny bruger."
 
 #: libraries/messages.inc.php:48
 msgid "Administration"
-msgstr ""
+msgstr "Administration"
 
 #: libraries/messages.inc.php:49
-#, possible-php-format
+#, php-format
 msgid "After %s"
-msgstr ""
+msgstr "Efter %s"
 
 #: libraries/messages.inc.php:50
 msgid "Go back to previous page"
-msgstr ""
+msgstr "Tilbage til foregående side"
 
 #: libraries/messages.inc.php:51
 msgid "Insert another new row"
-msgstr ""
+msgstr "Indsæt endnu en ny række"
 
 #: libraries/messages.inc.php:52
 msgid "Edit next row"
-msgstr ""
+msgstr "Redigér næste række"
 
 #: libraries/messages.inc.php:53
 msgid "Go back to this page"
-msgstr ""
+msgstr "Gå tilbage til denne side"
 
 #: libraries/messages.inc.php:54
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: libraries/messages.inc.php:55
 msgid ""
@@ -281,14 +287,17 @@ msgid ""
 "to the PHP timeout limit. This might be good way to import large files, "
 "however it can break transactions."
 msgstr ""
+"Tillad afbrydelse af import hvis scriptet er tæt på tidsgrænsen. Dette kan "
+"være en god metode til at importere større filer, men kan knække "
+"transaktioner."
 
 #: libraries/messages.inc.php:56
 msgid "Display all tables with the same width"
-msgstr ""
+msgstr "vis alle tabeller med samme bredde?"
 
 #: libraries/messages.inc.php:57
 msgid "Alter table order by"
-msgstr ""
+msgstr "Arrangér tabelrækkefølge efter"
 
 #: libraries/messages.inc.php:58
 msgid "Analyze"
@@ -296,11 +305,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:59
 msgid "Analyze table"
-msgstr ""
+msgstr "Analysér tabel"
 
 #: libraries/messages.inc.php:60
 msgid "And"
-msgstr ""
+msgstr "Og"
 
 #: libraries/messages.inc.php:61
 msgid "and"
@@ -308,28 +317,28 @@ msgstr ""
 
 #: libraries/messages.inc.php:62
 msgid "and then"
-msgstr ""
+msgstr "og derefter"
 
 #: libraries/messages.inc.php:63
 msgid "Angular links"
-msgstr ""
+msgstr "Angulære links"
 
 #: libraries/messages.inc.php:64
-#, possible-php-format
+#, php-format
 msgid "An index has been added on %s"
-msgstr ""
+msgstr "Der er tilføjet et indeks til %s"
 
 #: libraries/messages.inc.php:65
 msgid "Any"
-msgstr ""
+msgstr "Enhver"
 
 #: libraries/messages.inc.php:66
 msgid "Any host"
-msgstr ""
+msgstr "Enhver vært"
 
 #: libraries/messages.inc.php:67
 msgid "Any user"
-msgstr ""
+msgstr "Enhver bruger"
 
 #: libraries/messages.inc.php:68
 msgid "Apply Selected Changes"
@@ -339,24 +348,24 @@ msgstr ""
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
-msgstr ""
+msgstr "Kan være anslået. Se FAQ 3.11"
 
 #: libraries/messages.inc.php:70
-#, possible-php-format
+#, php-format
 msgid "A primary key has been added on %s"
-msgstr ""
+msgstr "En primær nøgle er blevet tilføjet til %s"
 
 #: libraries/messages.inc.php:71
 msgid "Arabic"
-msgstr ""
+msgstr "Arabisk"
 
 #: libraries/messages.inc.php:72
 msgid "Armenian"
-msgstr ""
+msgstr "Armensk"
 
 #: libraries/messages.inc.php:73
 msgid "Ascending"
-msgstr ""
+msgstr "Stigende"
 
 #: libraries/messages.inc.php:74
 msgid "As defined:"
@@ -364,71 +373,71 @@ msgstr ""
 
 #: libraries/messages.inc.php:75
 msgid "At Beginning of Table"
-msgstr ""
+msgstr "I begyndelsen af tabel"
 
 #: libraries/messages.inc.php:76
 msgid "At End of Table"
-msgstr ""
+msgstr "I slutningen af tabel"
 
 #: libraries/messages.inc.php:77
 msgid "Attributes"
-msgstr ""
+msgstr "Attributter"
 
 #: libraries/messages.inc.php:78
 msgid "Automatic layout"
-msgstr ""
+msgstr "Automatisk layout"
 
 #: libraries/messages.inc.php:80
 msgid "Back"
-msgstr ""
+msgstr "Tilbage"
 
 #: libraries/messages.inc.php:81
 msgid "Baltic"
-msgstr ""
+msgstr "Baltisk"
 
 #: libraries/messages.inc.php:82
 msgid "BEGIN CUT"
-msgstr ""
+msgstr "BEGYND KLIP"
 
 #: libraries/messages.inc.php:83
 msgid "BEGIN RAW"
-msgstr ""
+msgstr "BEGYND RÅ"
 
 #: libraries/messages.inc.php:84
 msgid "Binary"
-msgstr ""
+msgstr " Binært "
 
 #: libraries/messages.inc.php:85
 msgid "Binary - do not edit"
-msgstr ""
+msgstr " Binært - må ikke ændres "
 
 #: libraries/messages.inc.php:86
 msgid "Binary log"
-msgstr ""
+msgstr "Binær log"
 
 #: libraries/messages.inc.php:87
 msgid "Event type"
-msgstr ""
+msgstr "Hændelsestype"
 
 #: libraries/messages.inc.php:88
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: libraries/messages.inc.php:89
 msgid "Log name"
-msgstr ""
+msgstr "Lognavn"
 
 #: libraries/messages.inc.php:90
 msgid "Original position"
-msgstr ""
+msgstr "Original position"
 
 #: libraries/messages.inc.php:91
 msgid "Position"
-msgstr ""
+msgstr "Position"
 
 #: libraries/messages.inc.php:92
 msgid "Server ID"
-msgstr ""
+msgstr "Server ID"
 
 #: libraries/messages.inc.php:93
 msgid "BLOB Repository"
@@ -439,7 +448,7 @@ msgid "Damaged"
 msgstr ""
 
 #: libraries/messages.inc.php:95
-#, possible-php-format
+#, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
 
@@ -480,115 +489,117 @@ msgstr ""
 
 #: libraries/messages.inc.php:104
 msgid "Let every user access this bookmark"
-msgstr ""
+msgstr "Lad alle brugere bruge dette bogmærke"
 
 #: libraries/messages.inc.php:105
-#, possible-php-format
+#, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "Bogmærke %s oprettet"
 
 #: libraries/messages.inc.php:106
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "Bogmærket er fjernet."
 
 #: libraries/messages.inc.php:107
 msgid "Label"
-msgstr ""
+msgstr "Mærke"
 
 #: libraries/messages.inc.php:108
 msgid "Bookmarked SQL query"
-msgstr ""
+msgstr "SQL-forespørgsel med bogmærke"
 
 #: libraries/messages.inc.php:109
 msgid "Replace existing bookmark of same name"
-msgstr ""
+msgstr "Erstat eksisterende bogmærke af samme navn"
 
 #: libraries/messages.inc.php:110
 msgid "Bookmark this SQL query"
-msgstr ""
+msgstr "Lav bogmærke til denne SQL-forespørgsel"
 
 #: libraries/messages.inc.php:111
 msgid "View only"
-msgstr ""
+msgstr "Kun oversigt"
 
 #: libraries/messages.inc.php:112
 msgid "Browse"
-msgstr ""
+msgstr "Vis"
 
 #: libraries/messages.inc.php:113
 msgid "Browse distinct values"
-msgstr ""
+msgstr "Gennemse bestemte værdier"
 
 #: libraries/messages.inc.php:114
 msgid "Browse foreign values"
-msgstr ""
+msgstr "Bladre i fremmedværdier"
 
 #: libraries/messages.inc.php:115
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "Buffer Pool Aktivitet"
 
 #: libraries/messages.inc.php:116
 msgid "Buffer Pool"
-msgstr ""
+msgstr "Buffer Pool"
 
 #: libraries/messages.inc.php:117
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "Buffer Pool Forbrug"
 
 #: libraries/messages.inc.php:118
 msgid "Read misses in %"
-msgstr ""
+msgstr "Read misses i %"
 
 #: libraries/messages.inc.php:119
 msgid "Read misses"
-msgstr ""
+msgstr "Read misses"
 
 #: libraries/messages.inc.php:120
 msgid "Write waits in %"
-msgstr ""
+msgstr "Write waits i %"
 
 #: libraries/messages.inc.php:121
 msgid "Write waits"
-msgstr ""
+msgstr "Write waits"
 
 #: libraries/messages.inc.php:122
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgarsk"
 
 #: libraries/messages.inc.php:123
 msgid "Busy pages"
-msgstr ""
+msgstr "Travle sider"
 
 #: libraries/messages.inc.php:124
 msgid "\"bzipped\""
-msgstr ""
+msgstr "\"bzipped\""
 
 #: libraries/messages.inc.php:126
 msgid "Calendar"
-msgstr ""
+msgstr "Kalender"
 
 #: libraries/messages.inc.php:127
 msgid "Cancel"
-msgstr ""
+msgstr "Annuller"
 
 #: libraries/messages.inc.php:128
 msgid "Could not load export plugins, please check your installation!"
-msgstr ""
+msgstr "Kunne ikke indlæse eksportplugins, check venligst din installation!"
 
 #: libraries/messages.inc.php:129
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "Kunne ikke indlæse importplugins, check venligst din installation!"
 
 #: libraries/messages.inc.php:130
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "Kan ikke logge ind på MySQL-serveren"
 
 #: libraries/messages.inc.php:131
-#, possible-php-format
+#, php-format
 msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 "extension. Please check your PHP configuration."
 msgstr ""
+"Kan ikke indlæse [a@http://php.net/%1$s@Dokumentation][em]%1$s[/em][/a] "
+"udvidelsen. Tjek venligst din PHP-konfiguration."
 
 #: libraries/messages.inc.php:132
 msgid ""
@@ -596,91 +607,100 @@ msgid ""
 "Either configure PHP to enable these extensions or disable charset "
 "conversion in phpMyAdmin."
 msgstr ""
+"Kan ikke indlæse iconv eller omkode nødvendig udvidelse til tegnsæt-"
+"konvertering, konfigurer PHP til at tillade brug af disse udvidelser eller "
+"slå tegnsæt-konvertering fra i phpMyAdmin."
 
 #: libraries/messages.inc.php:133
 msgid "Can't rename index to PRIMARY!"
-msgstr ""
+msgstr "Kan ikke omdøbe indeks til PRIMARY!"
 
 #: libraries/messages.inc.php:134
 msgid ""
 "Couldn't use the iconv, libiconv, or recode_string functions, although the "
 "necessary extensions appear to be loaded. Check your PHP configuration."
 msgstr ""
+"Kan ikke bruge iconv ejheller libiconv eller recode_string funktionen omend "
+"udvidelsen ser ud til at være indlæst. Check din PHP-konfiguration."
 
 #: libraries/messages.inc.php:135
 msgid "Cardinality"
-msgstr ""
+msgstr "Kardinalitet"
 
 #: libraries/messages.inc.php:136
 msgid "case-insensitive"
-msgstr ""
+msgstr "ingen forskel på store/små bogstaver"
 
 #: libraries/messages.inc.php:137
 msgid "case-sensitive"
-msgstr ""
+msgstr "forskel på store/små bogstaver"
 
 #: libraries/messages.inc.php:138
 msgid "Central European"
-msgstr ""
+msgstr "Centraleuropæisk"
 
 #: libraries/messages.inc.php:139
 msgid "Change"
-msgstr ""
+msgstr "Ændre"
 
 #: libraries/messages.inc.php:140
 msgid "... keep the old one."
-msgstr ""
+msgstr "... behold den gamle."
 
 #: libraries/messages.inc.php:141
 msgid "Create a new user with the same privileges and ..."
-msgstr ""
+msgstr "Opret en bruger med samme privilegier og ..."
 
 #: libraries/messages.inc.php:142
 msgid ""
 " ... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
+" ... slet den gamle fra brugertabellerne og genindlæs privilegierne "
+"efterfølgende."
 
 #: libraries/messages.inc.php:143
 msgid " ... delete the old one from the user tables."
-msgstr ""
+msgstr " ... slet den gamle fra brugertabellerne."
 
 #: libraries/messages.inc.php:144
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
+" ... tilbagekald alle aktive privilegier fra den gamle og slet den "
+"efterfølgende."
 
 #: libraries/messages.inc.php:145
 msgid "Change Login Information / Copy User"
-msgstr ""
+msgstr "Ret Login-information / Kopiér bruger"
 
 #: libraries/messages.inc.php:146
 msgid "Choose field to display"
-msgstr ""
+msgstr "Vælg felt der skal vises"
 
 #: libraries/messages.inc.php:147
 msgid "Change password"
-msgstr ""
+msgstr "Ændre kodeord"
 
 #: libraries/messages.inc.php:148
 msgid "Charset"
-msgstr ""
+msgstr "Tegnsæt"
 
 #: libraries/messages.inc.php:149
 msgid "Character set of the file:"
-msgstr ""
+msgstr "Tegnsæt for filen:"
 
 #: libraries/messages.inc.php:150
 msgid "Character Sets and Collations"
-msgstr ""
+msgstr "Tegnsæt og kollationer (Collations)"
 
 #: libraries/messages.inc.php:151
 msgid "Charsets"
-msgstr ""
+msgstr "Tegnsæt"
 
 #: libraries/messages.inc.php:152
 msgid "Check All"
-msgstr ""
+msgstr "Afmærk alt"
 
 #: libraries/messages.inc.php:153
 msgid "Check"
@@ -688,24 +708,24 @@ msgstr ""
 
 #: libraries/messages.inc.php:154
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "Check tabeller der har overhead"
 
 #: libraries/messages.inc.php:155
 msgid "Check Privileges"
-msgstr ""
+msgstr "Check Privilegier"
 
 #: libraries/messages.inc.php:156
-#, possible-php-format
+#, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr ""
+msgstr "Check privilegier for database &quot;%s&quot;."
 
 #: libraries/messages.inc.php:157
 msgid "Check table"
-msgstr ""
+msgstr "Tjek tabel"
 
 #: libraries/messages.inc.php:158
 msgid "Please choose a page to edit"
-msgstr ""
+msgstr "Vælg en side der skal redigeres"
 
 #: libraries/messages.inc.php:159
 msgid "Click to select"
@@ -717,23 +737,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:161
 msgid "Displaying Column Comments"
-msgstr ""
+msgstr "Viser kolonne-kommentarer"
 
 #: libraries/messages.inc.php:162
 msgid "Collation"
-msgstr ""
+msgstr "Kollation (Collation)"
 
 #: libraries/messages.inc.php:163
 msgid "Column names"
-msgstr ""
+msgstr "Kolonnenavne"
 
 #: libraries/messages.inc.php:164
 msgid "Column-specific privileges"
-msgstr ""
+msgstr "Kolonne-specifikke privilegier"
 
 #: libraries/messages.inc.php:165
 msgid "Command"
-msgstr ""
+msgstr "Kommando"
 
 #: libraries/messages.inc.php:166
 msgid "Comment"
@@ -741,29 +761,29 @@ msgstr ""
 
 #: libraries/messages.inc.php:167
 msgid "Comments"
-msgstr ""
+msgstr "Kommentarer"
 
 #: libraries/messages.inc.php:168
 msgid "MySQL&nbsp;4.0 compatible"
-msgstr ""
+msgstr "MySQL&nbsp;4.0 kompatibel"
 
 #: libraries/messages.inc.php:169
 msgid "Complete inserts"
-msgstr ""
+msgstr "Komplette inserts"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
 msgid "Compression"
 msgstr ""
 
 #: libraries/messages.inc.php:171
-#, possible-php-format
+#, php-format
 msgid "Imported file compression will be automatically detected from: %s"
-msgstr ""
+msgstr "Importeret fil-komprimering vil blive automatisk registreret fra: %s"
 
 #: libraries/messages.inc.php:172
-#, possible-php-format
+#, php-format
 msgid "Could not load default configuration from: \"%1$s\""
-msgstr ""
+msgstr "Kunne ikke indlæse standardkonfiguration fra: \"%1$s\""
 
 #: libraries/messages.inc.php:173
 msgid ""
@@ -781,57 +801,63 @@ msgid ""
 "semicolon is missing somewhere.<br />If you receive a blank page, everything "
 "is fine."
 msgstr ""
+"phpMyAdmin kunne ikke læse din konfigurationsfil!<br />Dette kan ske hvis "
+"PHP finder en parser-fejl i den, eller PHP ikke kan finde filen.<br />Kald "
+"konfigurationsfilen direkte fra nedenstående link og læs de(n) PHP-"
+"fejlmeddelelse(r) du får. I de fleste tilfælde mangler der et anførselstegn "
+"eller et semikolon et sted.<br />Hvis du får en blank side, er alt i orden."
 
 #: libraries/messages.inc.php:175
-#, possible-php-format
+#, php-format
 msgid "Please configure the coordinates for table %s"
-msgstr ""
+msgstr "Konfigurér venligst koordinaterne for tabel %s"
 
 #: libraries/messages.inc.php:176
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "Kan ikke forbinde: ugyldige indstillinger."
 
 #: libraries/messages.inc.php:177
 msgid "Connections"
-msgstr ""
+msgstr "Forbindelser"
 
 #: libraries/messages.inc.php:178
 msgid "Constraints for dumped tables"
-msgstr ""
+msgstr "Begrænsninger for dumpede tabeller"
 
 #: libraries/messages.inc.php:179
 msgid "Constraints for table"
-msgstr ""
+msgstr "Begrænsninger for tabel"
 
 #: libraries/messages.inc.php:180
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
+"Forbindelse for kontrolbruger som defineret i din konfiguration slog fejl."
 
 #: libraries/messages.inc.php:181
 msgid "Cookies must be enabled past this point."
-msgstr ""
+msgstr "Herefter skal cookies være slået til."
 
 #: libraries/messages.inc.php:182
 msgid "Copy"
-msgstr ""
+msgstr "Kopi"
 
 #: libraries/messages.inc.php:183
-#, possible-php-format
+#, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "Database %s er blevet kopieret til %s"
 
 #: libraries/messages.inc.php:184
 msgid "Copy table to (database<b>.</b>table):"
-msgstr ""
+msgstr "Kopier tabel til (database<b>.</b>tabel):"
 
 #: libraries/messages.inc.php:185
-#, possible-php-format
+#, php-format
 msgid "Table %s has been copied to %s."
-msgstr ""
+msgstr "Tabellen %s er nu kopieret til: %s."
 
 #: libraries/messages.inc.php:186
 msgid "Can't copy table to same one!"
-msgstr ""
+msgstr "Kan ikke kopiere tabellen til den samme!"
 
 #: libraries/messages.inc.php:187
 msgid "Could not connect to the source"
@@ -842,48 +868,49 @@ msgid "Could not connect to the target"
 msgstr ""
 
 #: libraries/messages.inc.php:189
-#, possible-php-format
+#, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
+"phpMyAdmin kunne ikke dræbe tråden %s. Den er sandsynligvis allerede lukket."
 
 #: libraries/messages.inc.php:190
 msgid "Create"
-msgstr ""
+msgstr "Opret"
 
 #: libraries/messages.inc.php:191
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "CREATE DATABASE før kopiering"
 
 #: libraries/messages.inc.php:192
-#, possible-php-format
+#, php-format
 msgid "Create an index on&nbsp;%s&nbsp;columns"
-msgstr ""
+msgstr "Dan et indeks på&nbsp;%s&nbsp;kolonner"
 
 #: libraries/messages.inc.php:193
 msgid "Create a new index"
-msgstr ""
+msgstr "Lav et nyt indeks"
 
 #: libraries/messages.inc.php:194
 msgid "Create new database"
-msgstr ""
+msgstr "Opret ny database"
 
 #: libraries/messages.inc.php:195
-#, possible-php-format
+#, php-format
 msgid "Create table on database %s"
-msgstr ""
+msgstr "Opret ny tabel i database %s"
 
 #: libraries/messages.inc.php:196
 msgid "Create a page"
-msgstr ""
+msgstr "Opret en ny side"
 
 #: libraries/messages.inc.php:197
 msgid "Creation of PDFs"
-msgstr ""
+msgstr "Oprettelse af PDFer"
 
 #: libraries/messages.inc.php:198
 msgid "Create relation"
-msgstr ""
+msgstr "Opret relation"
 
 #: libraries/messages.inc.php:199
 msgid "Create table"
@@ -896,11 +923,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:201
 msgid "Database for user"
-msgstr ""
+msgstr "Database for bruger"
 
 #: libraries/messages.inc.php:202
 msgid "Create database with same name and grant all privileges"
-msgstr ""
+msgstr "Opret database med samme navn og tildel alle privilegier"
 
 #: libraries/messages.inc.php:203
 msgctxt "$strCreateUserDatabaseNone"
@@ -908,25 +935,25 @@ msgid "None"
 msgstr ""
 
 #: libraries/messages.inc.php:204
-#, possible-php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr ""
 
 #: libraries/messages.inc.php:205
 msgid "Grant all privileges on wildcard name (username\\_%)"
-msgstr ""
+msgstr "Tildel alle privilegier til jokertegn-navn (brugernavn_%)"
 
 #: libraries/messages.inc.php:206
 msgid "Creation/Update/Check dates"
-msgstr ""
+msgstr "Oprettet/Opdateret/Check datoer"
 
 #: libraries/messages.inc.php:207
 msgid "Criteria"
-msgstr ""
+msgstr "Kriterier"
 
 #: libraries/messages.inc.php:208
 msgid "Croatian"
-msgstr ""
+msgstr "Kroatisk"
 
 #: libraries/messages.inc.php:209
 msgid "CSV"
@@ -942,44 +969,44 @@ msgstr ""
 
 #: libraries/messages.inc.php:212
 msgid "Cyrillic"
-msgstr ""
+msgstr "Kyrillisk"
 
 #: libraries/messages.inc.php:213
 msgid "Czech"
-msgstr ""
+msgstr "Tjekkisk"
 
 #: libraries/messages.inc.php:214
 msgid "Czech-Slovak"
-msgstr ""
+msgstr "Tjekkisk-Slovakisk"
 
 #: libraries/messages.inc.php:216
 msgid "Danish"
-msgstr ""
+msgstr "Dansk"
 
 #: libraries/messages.inc.php:217
 msgid "Database"
-msgstr ""
+msgstr "Database"
 
 #: libraries/messages.inc.php:218
 msgid "The database name is empty!"
-msgstr ""
+msgstr "Databasenavnet er tomt!"
 
 #: libraries/messages.inc.php:219
 msgid "Database export options"
-msgstr ""
+msgstr "Database eksportindstillinger"
 
 #: libraries/messages.inc.php:220
-#, possible-php-format
+#, php-format
 msgid "Database %1$s has been created."
 msgstr ""
 
 #: libraries/messages.inc.php:221
-#, possible-php-format
+#, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "Database %s er slettet."
 
 #: libraries/messages.inc.php:222
-#, possible-php-format
+#, php-format
 msgid "'%s' database does not exist."
 msgstr ""
 
@@ -988,9 +1015,9 @@ msgid "Databases"
 msgstr ""
 
 #: libraries/messages.inc.php:224
-#, possible-php-format
+#, php-format
 msgid "%s databases have been dropped successfully."
-msgstr ""
+msgstr "%s databaser er blevet droppet korrekt."
 
 #: libraries/messages.inc.php:225
 msgid "Source database"
@@ -998,21 +1025,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:226
 msgid "Databases statistics"
-msgstr ""
+msgstr "Databasestatistik"
 
 #: libraries/messages.inc.php:227
 msgid "Disable Statistics"
-msgstr ""
+msgstr "Slå Statistikker fra"
 
 #: libraries/messages.inc.php:228
 msgid "Enable Statistics"
-msgstr ""
+msgstr "Slå Statistikker til"
 
 #: libraries/messages.inc.php:229
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
+"Bemærk: Aktivering af databasestatistikkerne hér kan forårsage tung trafik "
+"mellem webserveren og MySQL-serveren."
 
 #: libraries/messages.inc.php:230
 msgid "Target database"
@@ -1020,11 +1049,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:231
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 #: libraries/messages.inc.php:232
 msgid "Data Dictionary"
-msgstr ""
+msgstr "Data Dictionary"
 
 #: libraries/messages.inc.php:233
 msgid "Data Difference"
@@ -1032,11 +1061,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:234
 msgid "Data only"
-msgstr ""
+msgstr "Kun data"
 
 #: libraries/messages.inc.php:235
 msgid "Pages containing data"
-msgstr ""
+msgstr "Sider der indeholder data"
 
 #: libraries/messages.inc.php:236
 msgid "Data Synchronization"
@@ -1044,98 +1073,104 @@ msgstr ""
 
 #: libraries/messages.inc.php:237
 msgid "Database comment: "
-msgstr ""
+msgstr "Databasekommentar: "
 
 #: libraries/messages.inc.php:238
 msgid "Copy database to"
-msgstr ""
+msgstr "Kopiér database til"
 
 #: libraries/messages.inc.php:239
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "Database ser ud til at være tom!"
 
 #: libraries/messages.inc.php:240
 msgid "Database-specific privileges"
-msgstr ""
+msgstr "Database-specifikke privilegier"
 
 #: libraries/messages.inc.php:241
 msgid "Rename database to"
-msgstr ""
+msgstr "Omdøb database til"
 
 #: libraries/messages.inc.php:242
 msgid "database-specific"
-msgstr ""
+msgstr "database-specifik"
 
 #: libraries/messages.inc.php:243
 msgid "Default"
-msgstr ""
+msgstr "Standardværdi"
 
 #: libraries/messages.inc.php:244
-#, possible-php-format
+#, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s er standard datalageret på denne MySQL-server."
 
 #: libraries/messages.inc.php:245
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
+"For standardværdier, indtast venligst kun en enkelt værdi, uden backslash "
+"escaping eller quotes, ud fra følgende format: a"
 
 #: libraries/messages.inc.php:246
 msgid "Defragment table"
-msgstr ""
+msgstr "Defragmentér tabel"
 
 #: libraries/messages.inc.php:247
 msgid "Use delayed inserts"
-msgstr ""
+msgstr "Brug forsinkede indsættelser"
 
 #: libraries/messages.inc.php:248
 msgid "Delete the users and reload the privileges afterwards."
-msgstr ""
+msgstr "Slet brugerne og genindlæs privilegier bagefter."
 
 #: libraries/messages.inc.php:249
 msgid ""
 "This is the cleanest way, but reloading the privileges may take a while."
 msgstr ""
+"Dette er den sikreste metode, men genindlæsning af privilegierne kan tage "
+"noget tid."
 
 #: libraries/messages.inc.php:250
 msgid "Delete"
-msgstr ""
+msgstr "Slet"
 
 #: libraries/messages.inc.php:251
 msgid "The row has been deleted"
-msgstr ""
+msgstr "Rækken er slettet!"
 
 #: libraries/messages.inc.php:252
 msgid "No users selected for deleting!"
-msgstr ""
+msgstr "Ingen brugere valgt til sletning!"
 
 #: libraries/messages.inc.php:253
 msgid "Delete relation"
-msgstr ""
+msgstr "Slet relation"
 
 #: libraries/messages.inc.php:254
 msgid "Delete tracking data for this table"
 msgstr ""
 
 #: libraries/messages.inc.php:255
-#, possible-php-format
+#, php-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Sletter %s"
 
 #: libraries/messages.inc.php:256
 msgid "Delimiter"
-msgstr ""
+msgstr "Adskiller"
 
 #: libraries/messages.inc.php:257
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
 msgstr ""
+"Nuværende side har referencer til tabeller der ikke længere eksisterer. Vil "
+"du slette disse referencer?"
 
 #: libraries/messages.inc.php:258
 msgid "Descending"
-msgstr ""
+msgstr "Faldende"
 
 #: libraries/messages.inc.php:259
 msgid "Description"
@@ -1143,7 +1178,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:260
 msgid "Designer"
-msgstr ""
+msgstr "Designer"
 
 #: libraries/messages.inc.php:261
 msgid ""
@@ -1151,6 +1186,9 @@ msgid ""
 "field, click the \"Choose field to display\" icon, then click on the "
 "appropriate field name."
 msgstr ""
+"Visningsfeltet er vist som pink. For at sætte/fjerne et felt som "
+"visningsfelt, klik på \"Vælg felt der skal vises\" ikonet, og klik derefter "
+"på det pågældende feltnavn."
 
 #: libraries/messages.inc.php:262
 msgid "Details..."
@@ -1158,7 +1196,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:263
 msgid "dictionary"
-msgstr ""
+msgstr "ordbog"
 
 #: libraries/messages.inc.php:264
 msgid "Difference"
@@ -1166,11 +1204,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:265
 msgid "Direct links"
-msgstr ""
+msgstr "Direkte links"
 
 #: libraries/messages.inc.php:266
 msgid "Dirty pages"
-msgstr ""
+msgstr "Beskidte sider"
 
 #: libraries/messages.inc.php:267
 msgid "Disabled"
@@ -1178,31 +1216,31 @@ msgstr ""
 
 #: libraries/messages.inc.php:268
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "Slå fremmednøgle-checks fra"
 
 #: libraries/messages.inc.php:269
 msgid "Display Features"
-msgstr ""
+msgstr "Vis muligheder"
 
 #: libraries/messages.inc.php:270
 msgid "Display order:"
-msgstr ""
+msgstr "Rækkefølge af visning:"
 
 #: libraries/messages.inc.php:271
 msgid "Display PDF schema"
-msgstr ""
+msgstr "Vis PDF-skematik"
 
 #: libraries/messages.inc.php:272
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr ""
+msgstr "Kør en forespørgsel på felter (jokertegn: \"%\")"
 
 #: libraries/messages.inc.php:273
 msgid "DocSQL"
-msgstr ""
+msgstr "DocSQL"
 
 #: libraries/messages.inc.php:274
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
 #: libraries/messages.inc.php:275
 msgid "Do not use AUTO_INCREMENT for zero values"
@@ -1214,19 +1252,19 @@ msgstr ""
 
 #: libraries/messages.inc.php:277
 msgid "Do you really want to "
-msgstr ""
+msgstr "Er du sikker på at du vil "
 
 #: libraries/messages.inc.php:278
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "Du er ved at DESTRUERE en komplet database!"
 
 #: libraries/messages.inc.php:279
 msgid "Drop"
-msgstr ""
+msgstr "Slet"
 
 #: libraries/messages.inc.php:280
 msgid "Drop the databases that have the same names as the users."
-msgstr ""
+msgstr "Drop databaser der har samme navne som brugernes."
 
 #: libraries/messages.inc.php:281
 msgid "Dump all rows"
@@ -1234,21 +1272,21 @@ msgstr ""
 
 #: libraries/messages.inc.php:282
 msgid "Dumping data for table"
-msgstr ""
+msgstr "Data dump for tabellen"
 
 #: libraries/messages.inc.php:283
-#, possible-php-format
+#, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "Dump er blevet gemt i filen %s."
 
 #: libraries/messages.inc.php:284
-#, possible-php-format
+#, php-format
 msgid "Dump %s row(s) starting at record # %s"
-msgstr ""
+msgstr "Dump %s rækker startende med række %s."
 
 #: libraries/messages.inc.php:285
 msgid "dynamic"
-msgstr ""
+msgstr "dynamisk"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
 msgid "Edit"
@@ -1256,23 +1294,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
-msgstr ""
+msgstr "Redigér PDF-sider"
 
 #: libraries/messages.inc.php:289
 msgid "Edit Privileges"
-msgstr ""
+msgstr "Ret privilegier"
 
 #: libraries/messages.inc.php:290
 msgid "Effective"
-msgstr ""
+msgstr "Effektiv"
 
 #: libraries/messages.inc.php:291
 msgid "Empty"
-msgstr ""
+msgstr "Tøm"
 
 #: libraries/messages.inc.php:292
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr ""
+msgstr "MySQL returnerede ingen data (fx ingen rækker)."
 
 #: libraries/messages.inc.php:293
 msgid "Enabled"
@@ -1280,79 +1318,79 @@ msgstr ""
 
 #: libraries/messages.inc.php:294
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "Inkludér eksport i en transaktion"
 
 #: libraries/messages.inc.php:295
 msgid "END CUT"
-msgstr ""
+msgstr "SLUT KLIP"
 
 #: libraries/messages.inc.php:296
 msgid "End"
-msgstr ""
+msgstr "Slut"
 
 #: libraries/messages.inc.php:297
 msgid "END RAW"
-msgstr ""
+msgstr "SLUT RÅ"
 
 #: libraries/messages.inc.php:298
-#, possible-php-format
+#, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "%s er tilgængelig på denne MySQL-server."
 
 #: libraries/messages.inc.php:299
-#, possible-php-format
+#, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s er slået fra på denne MySQL-server."
 
 #: libraries/messages.inc.php:300
 msgid "Engines"
-msgstr ""
+msgstr "Lagre"
 
 #: libraries/messages.inc.php:301
-#, possible-php-format
+#, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "Denne MySQL-server understøtter ikke %s datalager."
 
 #: libraries/messages.inc.php:302
 msgid "English"
-msgstr ""
+msgstr "Engelsk"
 
 #: libraries/messages.inc.php:303
 msgid " Note: MySQL privilege names are expressed in English "
-msgstr ""
+msgstr " NB: Navne på MySQL privilegier er på engelsk "
 
 #: libraries/messages.inc.php:304
 msgid "Error"
-msgstr ""
+msgstr "Fejl"
 
 #: libraries/messages.inc.php:305
 msgid "Error in ZIP archive:"
-msgstr ""
+msgstr "Fejl i ZIP arkiv:"
 
 #: libraries/messages.inc.php:306
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "Fejl: Relation ikke tilføjet."
 
 #: libraries/messages.inc.php:307
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Fejl: Relation findes allerede."
 
 #: libraries/messages.inc.php:308
-#, possible-php-format
+#, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Fejl ved omdøbning af tabel  %1$s til %2$s"
 
 #: libraries/messages.inc.php:309
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "Fejl ved lagring af koordinater for Designer."
 
 #: libraries/messages.inc.php:310
 msgid "Esperanto"
-msgstr ""
+msgstr "Esperanto"
 
 #: libraries/messages.inc.php:311
 msgid "Estonian"
-msgstr ""
+msgstr "Estisk"
 
 #: libraries/messages.inc.php:312
 msgid "Event"
@@ -1364,11 +1402,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:314
 msgid "Excel edition"
-msgstr ""
+msgstr "Excel-udgave"
 
 #: libraries/messages.inc.php:315
 msgid "Execute bookmarked query"
-msgstr ""
+msgstr "Udfør forespørgsel iflg. bogmærke"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
 msgid "Explain SQL"
@@ -1376,132 +1414,142 @@ msgstr ""
 
 #: libraries/messages.inc.php:317
 msgid "Export"
-msgstr ""
+msgstr "Eksport"
 
 #: libraries/messages.inc.php:318
 msgid "Export/Import to scale"
-msgstr ""
+msgstr "Eksporter/Importer til skala"
 
 #: libraries/messages.inc.php:319
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Valgte eksporttype skal gemmes som fil!"
 
 #: libraries/messages.inc.php:320
 msgid "Extended inserts"
-msgstr ""
+msgstr "Udvidede inserts"
 
 #: libraries/messages.inc.php:321
 msgid "Extra"
-msgstr ""
+msgstr "Ekstra"
 
 #: libraries/messages.inc.php:323
 msgid "Failed attempts"
-msgstr ""
+msgstr "Mislykkede forsøg"
 
 #: libraries/messages.inc.php:324
 msgid "Field"
-msgstr ""
+msgstr "Feltnavn"
 
 #: libraries/messages.inc.php:325
-#, possible-php-format
+#, php-format
 msgid "Field %s has been dropped"
-msgstr ""
+msgstr "Felt %s er slettet"
 
 #: libraries/messages.inc.php:326
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
+msgstr "Fejl ved flytning af den uploadede fil, se FAQ 1.11"
 
 #: libraries/messages.inc.php:327
 msgid "Fields enclosed by"
-msgstr ""
+msgstr "Felter indrammet med"
 
 #: libraries/messages.inc.php:328
 msgid "Fields escaped by"
-msgstr ""
+msgstr "Felter escaped med"
 
 #: libraries/messages.inc.php:329
 msgid "Fields"
-msgstr ""
+msgstr "Felter"
 
 #: libraries/messages.inc.php:330
 msgid "Fields terminated by"
-msgstr ""
+msgstr "Felter afsluttet med"
 
 #: libraries/messages.inc.php:331
-#, possible-php-format
+#, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"Filen %s findes allerede på serveren, lav filnavnet om eller tillad at der "
+"overskrives."
 
 #: libraries/messages.inc.php:332
 msgid "File could not be read"
-msgstr ""
+msgstr "Filen kunne ikke læses"
 
 #: libraries/messages.inc.php:333
 msgid "database name"
-msgstr ""
+msgstr "databasenavn"
 
 #: libraries/messages.inc.php:334
 msgid "server name"
-msgstr ""
+msgstr "servernavn"
 
 #: libraries/messages.inc.php:335
 msgid "table name"
-msgstr ""
+msgstr "tabelnavn"
 
 #: libraries/messages.inc.php:336
-#, possible-php-format
+#, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 "formatting strings. Additionally the following transformations will happen: %"
 "3$s. Other text will be kept as is."
 msgstr ""
+"Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
+"strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
+"vil blive bevaret som det er."
 
 #: libraries/messages.inc.php:337
 msgid "File name template"
-msgstr ""
+msgstr "Skabelon for filnavn"
 
 #: libraries/messages.inc.php:338
 msgid "remember template"
-msgstr ""
+msgstr "husk skabelonen"
 
 #: libraries/messages.inc.php:339
 msgid "Files"
-msgstr ""
+msgstr "Filer"
 
 #: libraries/messages.inc.php:340
 msgid "File to import"
-msgstr ""
+msgstr "Fil til import"
 
 #: libraries/messages.inc.php:341
-#, possible-php-format
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should %"
 "sreload the privileges%s before you continue."
 msgstr ""
+"Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs "
+"privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra "
+"privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle "
+"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%"
+"s før du fortsætter."
 
 #: libraries/messages.inc.php:342
 msgid "Flush query cache"
-msgstr ""
+msgstr "Flush forespørgsel-mellemlager (query cache)"
 
 #: libraries/messages.inc.php:343
 msgid "Flush the table (\"FLUSH\")"
-msgstr ""
+msgstr "Flush tabellen (\"FLUSH\")"
 
 #: libraries/messages.inc.php:344
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "Flush (luk) alle tabeller"
 
 #: libraries/messages.inc.php:345
 msgid "Font size"
-msgstr ""
+msgstr "Skriftstørrelse"
 
 #: libraries/messages.inc.php:346
-#, possible-php-format
+#, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
@@ -1515,11 +1563,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:349
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "Ingen værdi i formularen !"
 
 #: libraries/messages.inc.php:350
 msgid "Free pages"
-msgstr ""
+msgstr "Frie sider"
 
 #: libraries/messages.inc.php:351
 msgid "Full start"
@@ -1531,43 +1579,43 @@ msgstr ""
 
 #: libraries/messages.inc.php:353
 msgid "Full Texts"
-msgstr ""
+msgstr "Komplette tekster"
 
 #: libraries/messages.inc.php:354
 msgid "Function"
-msgstr ""
+msgstr "Funktion"
 
 #: libraries/messages.inc.php:355
 msgid "Functions"
-msgstr ""
+msgstr "Funktioner"
 
 #: libraries/messages.inc.php:357
 msgid "Generated by"
-msgstr ""
+msgstr "Genereret af"
 
 #: libraries/messages.inc.php:358
 msgid "General relation features"
-msgstr ""
+msgstr "Generelle relationsmuligheder"
 
 #: libraries/messages.inc.php:359
 msgid "Generate"
-msgstr ""
+msgstr "Generér"
 
 #: libraries/messages.inc.php:360
 msgid "Generate Password"
-msgstr ""
+msgstr "Generér Kodeord"
 
 #: libraries/messages.inc.php:361
 msgid "Generation Time"
-msgstr ""
+msgstr "Genereringstid"
 
 #: libraries/messages.inc.php:362
 msgid "Georgian"
-msgstr ""
+msgstr "Georgisk"
 
 #: libraries/messages.inc.php:363
 msgid "German"
-msgstr ""
+msgstr "Tysk"
 
 #: libraries/messages.inc.php:364
 msgid "Get more themes!"
@@ -1575,19 +1623,19 @@ msgstr ""
 
 #: libraries/messages.inc.php:365
 msgid "global"
-msgstr ""
+msgstr "global"
 
 #: libraries/messages.inc.php:366
 msgid "Global privileges"
-msgstr ""
+msgstr "Globale privilegier"
 
 #: libraries/messages.inc.php:367
 msgid "Global value"
-msgstr ""
+msgstr "Global værdi"
 
 #: libraries/messages.inc.php:368
 msgid "Go"
-msgstr ""
+msgstr "Udfør"
 
 #: libraries/messages.inc.php:369
 msgid "Go to database"
@@ -1603,23 +1651,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:372
 msgid "Grant"
-msgstr ""
+msgstr "Tildel"
 
 #: libraries/messages.inc.php:373
 msgid "Greek"
-msgstr ""
+msgstr "Græsk"
 
 #: libraries/messages.inc.php:374
 msgid "\"gzipped\""
-msgstr ""
+msgstr "\"gzipped\""
 
 #: libraries/messages.inc.php:376
 msgid "Handler"
-msgstr ""
+msgstr "Handler"
 
 #: libraries/messages.inc.php:377
 msgid "has been altered."
-msgstr ""
+msgstr "er ændret."
 
 #: libraries/messages.inc.php:378
 msgid "Selected target tables have been synchronized with source tables."
@@ -1627,47 +1675,47 @@ msgstr ""
 
 #: libraries/messages.inc.php:379
 msgid "You have to choose at least one column to display"
-msgstr ""
+msgstr "Du skal vælge mindst en kolonne der skal vises"
 
 #: libraries/messages.inc.php:380
 msgid "Hebrew"
-msgstr ""
+msgstr "Hebræisk"
 
 #: libraries/messages.inc.php:381
 msgid "Help"
-msgstr ""
+msgstr "Hjælp"
 
 #: libraries/messages.inc.php:382
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Brug heksadecimal for BLOB"
 
 #: libraries/messages.inc.php:383
 msgid "Hide"
-msgstr ""
+msgstr "Skjul"
 
 #: libraries/messages.inc.php:384
 msgid "Hide/Show all"
-msgstr ""
+msgstr "Skjul/Vis alle"
 
 #: libraries/messages.inc.php:385
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "Skjul/Vis tabeller uden relation"
 
 #: libraries/messages.inc.php:386
 msgid "Home"
-msgstr ""
+msgstr "Hjem"
 
 #: libraries/messages.inc.php:387
 msgid "Official Homepage"
-msgstr ""
+msgstr "Officiel phpMyAdmin hjemmeside "
 
 #: libraries/messages.inc.php:388
 msgid "The host name is empty!"
-msgstr ""
+msgstr "Der er intet værtsnavn!"
 
 #: libraries/messages.inc.php:389
 msgid "Host"
-msgstr ""
+msgstr "Vært"
 
 #: libraries/messages.inc.php:390
 msgid ""
@@ -1677,43 +1725,43 @@ msgstr ""
 
 #: libraries/messages.inc.php:391
 msgid "Microsoft Excel 2000"
-msgstr ""
+msgstr "Microsoft Excel 2000"
 
 #: libraries/messages.inc.php:392
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/messages.inc.php:393
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungarsk"
 
 #: libraries/messages.inc.php:395
 msgid "Icelandic"
-msgstr ""
+msgstr "Islandsk"
 
 #: libraries/messages.inc.php:396
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: libraries/messages.inc.php:397
 msgid "Fulltext"
-msgstr ""
+msgstr "Fuldtekst"
 
 #: libraries/messages.inc.php:398
 msgid "Internet Explorer does not support this function."
-msgstr ""
+msgstr "Internet Explorer understøtter ikke denne funktion."
 
 #: libraries/messages.inc.php:399
 msgid "Ignore duplicate rows"
-msgstr ""
+msgstr "Ignorér gentagne rækker"
 
 #: libraries/messages.inc.php:400
 msgid "Ignore"
-msgstr ""
+msgstr "Ignorer"
 
 #: libraries/messages.inc.php:401
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "Brug ignorér inserts"
 
 #: libraries/messages.inc.php:402
 msgid "Column names in first row"
@@ -1725,11 +1773,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:404
 msgid "Import/Export coordinates for PDF schema"
-msgstr ""
+msgstr "Importer/Eksporter koordinater for PDF-opstilling"
 
 #: libraries/messages.inc.php:405
 msgid "Import files"
-msgstr ""
+msgstr "Importér filer"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
 msgid "Format of imported file"
@@ -1737,7 +1785,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:407
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 #: libraries/messages.inc.php:408
 msgid ""
@@ -1781,9 +1829,9 @@ msgid "The file is being processed, please be patient."
 msgstr ""
 
 #: libraries/messages.inc.php:417
-#, possible-php-format
+#, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "Importen er korrekt gennemført, %d forespørgsler udført."
 
 #: libraries/messages.inc.php:418
 msgid ""
@@ -1801,76 +1849,80 @@ msgstr ""
 
 #: libraries/messages.inc.php:421
 msgid "Indexes"
-msgstr ""
+msgstr "Indeks"
 
 #: libraries/messages.inc.php:422
-#, possible-php-format
+#, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
 
 #: libraries/messages.inc.php:423
-#, possible-php-format
+#, php-format
 msgid "Index %s has been dropped"
-msgstr ""
+msgstr "Indeks %s er blevet slettet"
 
 #: libraries/messages.inc.php:424
 msgid "Index"
-msgstr ""
+msgstr "Indeks"
 
 #: libraries/messages.inc.php:425
 msgid "Index name:"
-msgstr ""
+msgstr "Indeksnavn&nbsp;:"
 
 #: libraries/messages.inc.php:426
 msgid "Index type:"
-msgstr ""
+msgstr "Indekstype&nbsp;:"
 
 #: libraries/messages.inc.php:427
-#, possible-php-format
+#, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr ""
+msgstr "Problemer med indeksene på tabel `%s`"
 
 #: libraries/messages.inc.php:428
 msgid "Autoextend increment"
-msgstr ""
+msgstr "Autoextend forøgelse"
 
 #: libraries/messages.inc.php:429
 msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
+" Størrelsen på den udvidelse der vil forekomme, når pladsen i en "
+"autoudvidende tabel udvides fordi den løber fuld."
 
 #: libraries/messages.inc.php:430
 msgid "Buffer pool size"
-msgstr ""
+msgstr "Buffer pool størrelse"
 
 #: libraries/messages.inc.php:431
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
+"Størrelse på memorybufferen InnoDB bruger til at mellemlagre data og indeks "
+"på dens tabeller."
 
 #: libraries/messages.inc.php:432
 msgid "Data files"
-msgstr ""
+msgstr "Datafiler"
 
 #: libraries/messages.inc.php:433
 msgid "Data home directory"
-msgstr ""
+msgstr "Data hovedmappe"
 
 #: libraries/messages.inc.php:434
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "Den fælles del af stien til mappen med alle InnoDB datafiler."
 
 #: libraries/messages.inc.php:435
 msgid "pages"
-msgstr ""
+msgstr "sider"
 
 #: libraries/messages.inc.php:436
 msgid "InnoDB Status"
-msgstr ""
+msgstr "InnoDB status"
 
 #: libraries/messages.inc.php:437
 msgid ""
@@ -1879,13 +1931,17 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
+"Din konfigurationsfil indeholder indstillinger (root og intet kodeord) som "
+"svarer til en standard MySQL-priviligeret brugerkonto. Din MySQL server "
+"kører med denne standardindstilling, <u>er åben for indtrængen</u>, og du "
+"opfordres stærkt til at gøre noget ved dette sikkerhedshul."
 
 #: libraries/messages.inc.php:438
 msgid "Insert as new row"
-msgstr ""
+msgstr "Indsæt som ny række"
 
 #: libraries/messages.inc.php:439
-#, possible-php-format
+#, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
@@ -1895,7 +1951,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:441
 msgid "Insert"
-msgstr ""
+msgstr "Indsæt"
 
 #: libraries/messages.inc.php:442
 msgid "Interface"
@@ -1909,82 +1965,83 @@ msgstr ""
 
 #: libraries/messages.inc.php:444
 msgid "Internal relation added"
-msgstr ""
+msgstr "Intern relation tilføjet"
 
 #: libraries/messages.inc.php:445
 msgid "Internal relations"
-msgstr ""
+msgstr "Interne relationer"
 
 #: libraries/messages.inc.php:446
 msgid "in use"
-msgstr ""
+msgstr "i brug"
 
 #: libraries/messages.inc.php:447
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "Ugyldig autorisationsmetode sat i konfiguration:"
 
 #: libraries/messages.inc.php:448
 msgid "Column count has to be larger than zero."
-msgstr ""
+msgstr "Kolonneantal skal være større end nul."
 
 #: libraries/messages.inc.php:449
-#, possible-php-format
+#, php-format
 msgid "Invalid column (%s) specified!"
-msgstr ""
+msgstr "Ugyldig kolonne (%s) angivet!"
 
 #: libraries/messages.inc.php:450
-#, possible-php-format
+#, php-format
 msgid "Invalid field count in CSV input on line %d."
-msgstr ""
+msgstr "Ugyldigt feltantal i CSV-input på linie %d."
 
 #: libraries/messages.inc.php:451
-#, possible-php-format
+#, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "Ugyldigt format for CSV-input på linie %d."
 
 #: libraries/messages.inc.php:452
-#, possible-php-format
+#, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "Ugyldigt parameter for CSV-import: %s"
 
 #: libraries/messages.inc.php:453
 msgid "Invalid database"
-msgstr ""
+msgstr "Ugyldig database"
 
 #: libraries/messages.inc.php:454
 msgid "You have to add at least one field."
-msgstr ""
+msgstr "Du skal tilføje mindst ét felt."
 
 #: libraries/messages.inc.php:455
 msgid "Table must have at least one field."
-msgstr ""
+msgstr "Tabellen skal indeholde mindst ét felt."
 
 #: libraries/messages.inc.php:456
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "Denne plugin understøtter ikke komprimeret import!"
 
 #: libraries/messages.inc.php:457
-#, possible-php-format
+#, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d er ikke et gyldigt rækkenummer."
 
 #: libraries/messages.inc.php:458
-#, possible-php-format
+#, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
+"Ugyldigt hostnavn for server %1$s. Gennemgå venligst din konfiguration."
 
 #: libraries/messages.inc.php:459
-#, possible-php-format
+#, php-format
 msgid "Invalid server index: \"%s\""
-msgstr ""
+msgstr "Ugyldigt server indeks: \"%s\""
 
 #: libraries/messages.inc.php:460
 msgid "Invalid table name"
-msgstr ""
+msgstr "Ugyldigt tabelnavn"
 
 #: libraries/messages.inc.php:462
 msgid "Japanese"
-msgstr ""
+msgstr "Japansk"
 
 #: libraries/messages.inc.php:463
 msgid ""
@@ -1995,148 +2052,150 @@ msgstr ""
 
 #: libraries/messages.inc.php:464
 msgid "Joins"
-msgstr ""
+msgstr "Joins"
 
 #: libraries/messages.inc.php:465
-#, possible-php-format
+#, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr ""
+msgstr "Hop til database &quot;%s&quot;."
 
 #: libraries/messages.inc.php:466
 msgid ""
 "The &quot;deleted&quot; users will still be able to access the server as "
 "usual until the privileges are reloaded."
 msgstr ""
+"De &quot;slettede&quot; brugere kan stadig tilgå serveren som de plejer "
+"indtil privilegierne genindlæses."
 
 #: libraries/messages.inc.php:467
 msgid "Just delete the users from the privilege tables."
-msgstr ""
+msgstr "Bare slet brugerne fra privilegietabellerne."
 
 #: libraries/messages.inc.php:469
 msgid "Do not change the password"
-msgstr ""
+msgstr "Kodeord må ikke ændres"
 
 #: libraries/messages.inc.php:470
 msgid "Key cache"
-msgstr ""
+msgstr "Nøglemellemlager (key cache)"
 
 #: libraries/messages.inc.php:471
 msgid "Keyname"
-msgstr ""
+msgstr "Nøglenavn"
 
 #: libraries/messages.inc.php:472
 msgid "Kill"
-msgstr ""
+msgstr "Dræb (Kill)"
 
 #: libraries/messages.inc.php:473
-#, possible-php-format
+#, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "Funktionaliteten af %s er påvirket af en kendt fejl, se %s"
 
 #: libraries/messages.inc.php:474
 msgid "Korean"
-msgstr ""
+msgstr "Koreansk"
 
 #: libraries/messages.inc.php:476
 msgid "Landscape"
-msgstr ""
+msgstr "Liggende"
 
 #: libraries/messages.inc.php:477
 msgid "Language"
-msgstr ""
+msgstr "Sprog"
 
 #: libraries/messages.inc.php:478
-#, possible-php-format
+#, php-format
 msgid "Unknown language: %1$s."
-msgstr ""
+msgstr "Ukendt sprog: %1$s."
 
 #: libraries/messages.inc.php:479
 msgid "Latched pages"
-msgstr ""
+msgstr "Eksklusivt låste (latched) sider"
 
 #: libraries/messages.inc.php:480
 msgid "Table caption"
-msgstr ""
+msgstr "Tabeloverskrift"
 
 #: libraries/messages.inc.php:481
 msgid "Content of table __TABLE__"
-msgstr ""
+msgstr "Indhold af tabel __TABLE__"
 
 #: libraries/messages.inc.php:482
 msgid "Continued table caption"
-msgstr ""
+msgstr "Fortsat tabeloverskrift"
 
 #: libraries/messages.inc.php:483
 msgid "(continued)"
-msgstr ""
+msgstr "(fortsættes)"
 
 #: libraries/messages.inc.php:484
 msgid "Include table caption"
-msgstr ""
+msgstr "Inkluder tabeloverskrift"
 
 #: libraries/messages.inc.php:485
 msgid "Label key"
-msgstr ""
+msgstr "Mærke nøgle"
 
 #: libraries/messages.inc.php:486
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 #: libraries/messages.inc.php:487
 msgid "Structure of table __TABLE__"
-msgstr ""
+msgstr "Struktur for tabel __TABLE__"
 
 #: libraries/messages.inc.php:488
 msgid "Latvian"
-msgstr ""
+msgstr "Lettisk"
 
 #: libraries/messages.inc.php:489
 msgid "CSV using LOAD DATA"
-msgstr ""
+msgstr "CSV vha. LOAD DATA"
 
 #: libraries/messages.inc.php:490
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "Brug LOCAL nøgleord"
 
 #: libraries/messages.inc.php:491
 msgid "Length/Values"
-msgstr ""
+msgstr "Længde/Værdi*"
 
 #: libraries/messages.inc.php:492
 msgid "Number of rows per page"
-msgstr ""
+msgstr "poster pr. side"
 
 #: libraries/messages.inc.php:493
 msgid "Lines terminated by"
-msgstr ""
+msgstr "Linjer afsluttet med"
 
 #: libraries/messages.inc.php:494
 msgid "Link not found"
-msgstr ""
+msgstr "Link ikke fundet"
 
 #: libraries/messages.inc.php:495
 msgid "Links to"
-msgstr ""
+msgstr "Linker til"
 
 #: libraries/messages.inc.php:496
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litauisk"
 
 #: libraries/messages.inc.php:497
 msgid "Local"
-msgstr ""
+msgstr "Lokal"
 
 #: libraries/messages.inc.php:498
 msgid "Location of the text file"
-msgstr ""
+msgstr "Tekstfilens placering"
 
 #: libraries/messages.inc.php:499
 msgid "Login Information"
-msgstr ""
+msgstr "Login-information"
 
 #: libraries/messages.inc.php:500
 msgid "Log in"
-msgstr ""
+msgstr "Login"
 
 #: libraries/messages.inc.php:501
 msgid ""
@@ -2145,11 +2204,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:502
 msgid "Log out"
-msgstr ""
+msgstr "Log af"
 
 #: libraries/messages.inc.php:503
 msgid "Password:"
-msgstr ""
+msgstr "Kodeord:"
 
 #: libraries/messages.inc.php:504
 msgid "You can enter hostname/IP address and port separated by space."
@@ -2157,28 +2216,28 @@ msgstr ""
 
 #: libraries/messages.inc.php:505
 msgid "Server:"
-msgstr ""
+msgstr "Server"
 
 #: libraries/messages.inc.php:506
 msgid "Username:"
-msgstr ""
+msgstr "Brugernavn:"
 
 #: libraries/messages.inc.php:507
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "Denne operation kan tage lang tid. Fortsæt alligevel?"
 
 #: libraries/messages.inc.php:509
 msgid "max. concurrent connections"
-msgstr ""
+msgstr "maks. samtidige forbindelser"
 
 #: libraries/messages.inc.php:510
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "Maksimal længde på oprettet forespørgsel"
 
 #: libraries/messages.inc.php:511
-#, possible-php-format
+#, php-format
 msgid "Max: %s%s"
-msgstr ""
+msgstr "Maksimum størrelse: %s%s"
 
 #: libraries/messages.inc.php:512
 msgid ""
@@ -2186,6 +2245,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"PHP-udvidelsen mbstring blev ikke fundet og du ser ud til at bruge et "
+"multibyte tegnsæt. Uden mbstring-udvidelsen er phpMyAdmin ude af stand til "
+"at opdele strenge korrekt og dette kan forårsage uventede resultater"
 
 #: libraries/messages.inc.php:513
 msgid ""
@@ -2193,6 +2255,9 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"Du har mbstring.func_overload slået til i din PHP-konfiguration. Denne "
+"indstilling er ikke kompatibel med phpMyAdmin og kan forårsage ødelæggelse "
+"af nogle data!"
 
 #: libraries/messages.inc.php:514
 msgid "MediaWiki Table"
@@ -2200,38 +2265,42 @@ msgstr ""
 
 #: libraries/messages.inc.php:515
 msgid "Available MIME types"
-msgstr ""
+msgstr "Tilgængelige MIME-typer"
 
 #: libraries/messages.inc.php:516
 msgid "Available transformations"
-msgstr ""
+msgstr "Tilgængelige transformationer"
 
 #: libraries/messages.inc.php:517
 msgctxt "$strMIME_description"
 msgid "Description"
-msgstr ""
+msgstr "Beskrivelse"
 
 #: libraries/messages.inc.php:518
 msgid "MIME type"
-msgstr ""
+msgstr "MIME-type"
 
 #: libraries/messages.inc.php:519
-#, possible-php-format
+#, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
+"Der er ingen beskrivelse af denne transformation.<br />Spørg venligst "
+"forfatteren, hvad %s gør."
 
 #: libraries/messages.inc.php:520
 msgid "Browser transformation"
-msgstr ""
+msgstr "Browser transformation"
 
 #: libraries/messages.inc.php:521
-#, possible-php-format
+#, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
+"For en liste over mulige transformationsindstillinger og deres MIME-type "
+"transformationer, klik på %stransformationsbeskrivelser%s"
 
 #: libraries/messages.inc.php:522
 msgid ""
@@ -2240,62 +2309,69 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
+"Indtast værdier for transformationsindstillinger ud fra følgende format: "
+"'a', 100, b,'c'...<br />Skulle du få brug for at indsætte en backslash (\"\\"
+"\") eller en apostrof (\"'\") i værdierne, backslash det (for eksempel '\\"
+"\\xyz' eller 'a\\'b')."
 
 #: libraries/messages.inc.php:523
 msgid "Transformation options"
-msgstr ""
+msgstr "Transformationsindstillinger"
 
 #: libraries/messages.inc.php:524
 msgid "MIME TYPES FOR TABLE"
-msgstr ""
+msgstr "MIME TYPES FOR TABLE (MIME-typer for tabellen)"
 
 #: libraries/messages.inc.php:525
 msgid ""
 "MIME types printed in italics do not have a separate transformation function"
 msgstr ""
+"MIME-typer skrevet med kursiv har ikke en separat transformationsfunktion"
 
 #: libraries/messages.inc.php:526
 msgid "Modifications have been saved"
-msgstr ""
+msgstr "Rettelserne er gemt!"
 
 #: libraries/messages.inc.php:527
 msgid "Modify an index"
-msgstr ""
+msgstr "Ændring af et indeks"
 
 #: libraries/messages.inc.php:528
 msgid "Modify"
-msgstr ""
+msgstr "Ret"
 
 #: libraries/messages.inc.php:529
 msgid "Move Menu"
-msgstr ""
+msgstr "Flyt Menu"
 
 #: libraries/messages.inc.php:530
 msgid "Move table to (database<b>.</b>table):"
-msgstr ""
+msgstr "Flyt tabel til (database<b>.</b>tabel):"
 
 #: libraries/messages.inc.php:531
-#, possible-php-format
+#, php-format
 msgid "Table %s has been moved to %s."
-msgstr ""
+msgstr "Tabel %s er flyttet til %s."
 
 #: libraries/messages.inc.php:532
 msgid "Can't move table to same one!"
-msgstr ""
+msgstr "Kan ikke flytte tabellen til den samme!"
 
 #: libraries/messages.inc.php:533
 msgid "multilingual"
-msgstr ""
+msgstr "flersproget"
 
 #: libraries/messages.inc.php:534
 msgid "Data pointer size"
-msgstr ""
+msgstr "Data pointer størrelse"
 
 #: libraries/messages.inc.php:535
 msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
+"Standard pointerstørrelse i bytes, til brug ved CREATE TABLE for MyISAM "
+"tabeller når der ikke er specificeret nogen MAX_ROWS indstilling."
 
 #: libraries/messages.inc.php:536
 msgid ""
@@ -2303,10 +2379,13 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"Hvis den midlertidige fil der bruges til hurtig MyISAM indeks-oprettelse "
+"ville være større end ved brug af key cache med størrelsen angivet her, "
+"foretræk key cache-metoden."
 
 #: libraries/messages.inc.php:537
 msgid "Maximum size for temporary files on index creation"
-msgstr ""
+msgstr "Maksimal størrelse for midlertidige filer ved oprettelse af indeks"
 
 #: libraries/messages.inc.php:538
 msgid ""
@@ -2314,71 +2393,82 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
+"Maksimal størrelse for den midlertidige fil MySQL har lov til at bruge under "
+"genetablering af et MyISAM indeks (under REPAIR TABLE, ALTER TABLE, eller "
+"LOAD DATA INFILE)."
 
 #: libraries/messages.inc.php:539
 msgid "Maximum size for temporary sort files"
-msgstr ""
+msgstr "Maksimal størrelse for midlertidige sorteringsfiler"
 
 #: libraries/messages.inc.php:540
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "Automatisk genopretnings-modus"
 
 #: libraries/messages.inc.php:541
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
+"Modus for automatisk genetablering af crashede MyISAM tabeller, som sat via "
+"--myisam-recover server opstartsindstillingen."
 
 #: libraries/messages.inc.php:542
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"Hvis denne værdi er større end 1, oprettes MyISAM tabel-indeks parallelt "
+"(hvert indeks i dets egen tråd) under Reparation ved sortering-processen."
 
 #: libraries/messages.inc.php:543
 msgid "Repair threads"
-msgstr ""
+msgstr "Reparér tråde"
 
 #: libraries/messages.inc.php:544
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
+"Bufferen der allokeres ved sortering af MyISAM indeks under en REPAIR TABLE "
+"eller når indeks oprettes med CREATE INDEX eller ALTER TABLE."
 
 #: libraries/messages.inc.php:545
 msgid "Sort buffer size"
-msgstr ""
+msgstr "Sorterings-bufferstørrelse"
 
 #: libraries/messages.inc.php:546
 msgid "MySQL charset"
-msgstr ""
+msgstr "MySQL Tegnsæt"
 
 #: libraries/messages.inc.php:547
 msgid "MySQL client version"
-msgstr ""
+msgstr "MySQL klientversion"
 
 #: libraries/messages.inc.php:548
 msgid "MySQL connection collation"
-msgstr ""
+msgstr "MySQL forbindelses-sammenkøring"
 
 #: libraries/messages.inc.php:549
-#, possible-php-format
+#, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"Din PHP MySQL-biblioteks version %s afviger fra din MySQL server version %s. "
+"Dette kan forårsage uforudsigelige resultater."
 
 #: libraries/messages.inc.php:550
 msgid "MySQL said: "
-msgstr ""
+msgstr "MySQL returnerede: "
 
 #: libraries/messages.inc.php:551
 msgid "Show processes"
-msgstr ""
+msgstr "Vis tråde"
 
 #: libraries/messages.inc.php:553
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 #: libraries/messages.inc.php:554
 msgid "Filter"
@@ -2390,20 +2480,21 @@ msgstr ""
 
 #: libraries/messages.inc.php:556
 msgid "Next"
-msgstr ""
+msgstr "Næste"
 
 #: libraries/messages.inc.php:557
-#, possible-php-format
+#, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
+"Ingen aktivitet i de seneste %s sekunder eller mere, log venligst ind igen"
 
 #: libraries/messages.inc.php:558
 msgid "No databases"
-msgstr ""
+msgstr "Ingen databaser"
 
 #: libraries/messages.inc.php:559
 msgid "No databases selected."
-msgstr ""
+msgstr "Ingen databaser valgt."
 
 #: libraries/messages.inc.php:560
 msgid ""
@@ -2411,43 +2502,49 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"Der blev ikke modtaget nogen data til import. Enten blev der ikke indsendt "
+"et filnavn, eller filstørrelsen kan have overskredet maksimalstørrelsen "
+"tilladt af din PHP-konfiguration. Se FAQ 1.16."
 
 #: libraries/messages.inc.php:561
 msgid "no description"
-msgstr ""
+msgstr "ingen beskrivelse"
 
 #: libraries/messages.inc.php:562
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
+"Der er ingen detaljerede statusinformationer tilgængelige for dette "
+"datalager."
 
 #: libraries/messages.inc.php:563
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "\"DROP DATABASE\" erklæringer kan ikke bruges."
 
 #: libraries/messages.inc.php:564
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "Spring over Forklar SQL"
 
 #: libraries/messages.inc.php:565
 msgid "No files found inside ZIP archive!"
-msgstr ""
+msgstr "Ingen filer fundet i ZIP arkivet!"
 
 #: libraries/messages.inc.php:566
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
+"phpMyAdmin er mere brugervenlig med en browser, der kan klare <b>frames</b>."
 
 #: libraries/messages.inc.php:567
 msgid "No index defined!"
-msgstr ""
+msgstr "Intet indeks defineret!"
 
 #: libraries/messages.inc.php:568
 msgid "No index parts defined!"
-msgstr ""
+msgstr "Ingen dele af indeks er defineret!"
 
 #: libraries/messages.inc.php:569
 msgid "No change"
-msgstr ""
+msgstr "Ingen ændring"
 
 #: libraries/messages.inc.php:570
 msgctxt "$strNoneDefault"
@@ -2460,99 +2557,101 @@ msgstr ""
 
 #: libraries/messages.inc.php:572
 msgid "No"
-msgstr ""
+msgstr "Nej"
 
 #: libraries/messages.inc.php:573
 msgid "This format has no options"
-msgstr ""
+msgstr "Dette format har ingen indstillinger"
 
 #: libraries/messages.inc.php:574
 msgid "No Password"
-msgstr ""
+msgstr "Intet kodeord"
 
 #: libraries/messages.inc.php:575
-#, possible-php-format
+#, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "Webserveren har ikke tilladelse til at gemme filen %s."
 
 #: libraries/messages.inc.php:576
 msgid "Without PHP Code"
-msgstr ""
+msgstr "uden PHP-kode"
 
 #: libraries/messages.inc.php:577
 msgid "No Privileges"
-msgstr ""
+msgstr "Ingen privilegier"
 
 #: libraries/messages.inc.php:578
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at være her!"
 
 #: libraries/messages.inc.php:579
 msgid "No rows selected"
-msgstr ""
+msgstr "Ingen rækker valgt"
 
 #: libraries/messages.inc.php:580
-#, possible-php-format
+#, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "Utilstrækkeligt plads til at gemme filen %s."
 
 #: libraries/messages.inc.php:581
 msgid "No tables found in database."
-msgstr ""
+msgstr "Ingen tabeller fundet i databasen."
 
 #: libraries/messages.inc.php:582
-#, possible-php-format
+#, php-format
 msgid ""
 "No themes support; please check your configuration and/or your themes in "
 "directory %s."
 msgstr ""
+"Ingen tema/layout-understøttelse, tjek venligst din konfiguration og/eller "
+"dine temaer i mappen %s."
 
 #: libraries/messages.inc.php:583
 msgid "This is not a number!"
-msgstr ""
+msgstr "Dette er ikke et tal!"
 
 #: libraries/messages.inc.php:584
 msgid "not OK"
-msgstr ""
+msgstr "ikke OK"
 
 #: libraries/messages.inc.php:585
 msgid "not present"
 msgstr ""
 
 #: libraries/messages.inc.php:586
-#, possible-php-format
+#, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr ""
+msgstr "Tabel <b>%s</b> findes ikke eller er ikke sat i %s"
 
 #: libraries/messages.inc.php:587
 msgid "No user(s) found."
-msgstr ""
+msgstr "Ingen bruger(e) fundet."
 
 #: libraries/messages.inc.php:588
 msgid "Skip Validate SQL"
-msgstr ""
+msgstr "Spring over Validér SQL"
 
 #: libraries/messages.inc.php:589
 msgid "Null"
-msgstr ""
+msgstr "Nulværdi"
 
 #: libraries/messages.inc.php:590
 msgid "Number of fields"
-msgstr ""
+msgstr "Antal felter"
 
 #: libraries/messages.inc.php:591
 msgid "Number of tables"
-msgstr ""
+msgstr "Antal tabeller"
 
 #: libraries/messages.inc.php:592
-#, possible-php-format
+#, php-format
 msgid "%s match(es) inside table <i>%s</i>"
-msgstr ""
+msgstr "%s hit(s) i tabel <i>%s</i>"
 
 #: libraries/messages.inc.php:593
-#, possible-php-format
+#, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr ""
+msgstr "<b>Total:</b> <i>%s</i> hit(s)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
 msgid "Tables"
@@ -2560,23 +2659,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:596
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: libraries/messages.inc.php:598
 msgid "Open Document Text"
-msgstr ""
+msgstr "Open Document tekst"
 
 #: libraries/messages.inc.php:599
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Åbn nyt phpMyAdmin vindue"
 
 #: libraries/messages.inc.php:600
 msgid "Operations"
-msgstr ""
+msgstr "Operationer"
 
 #: libraries/messages.inc.php:601
 msgid "Operator"
-msgstr ""
+msgstr "Operatør"
 
 #: libraries/messages.inc.php:602
 msgid "Optimize"
@@ -2584,19 +2683,19 @@ msgstr ""
 
 #: libraries/messages.inc.php:603
 msgid "Optimize table"
-msgstr ""
+msgstr "Optimer tabel"
 
 #: libraries/messages.inc.php:604
 msgid "Options"
-msgstr ""
+msgstr "Indstillinger"
 
 #: libraries/messages.inc.php:605
 msgid "Or"
-msgstr ""
+msgstr "Eller"
 
 #: libraries/messages.inc.php:606
 msgid "Overhead"
-msgstr ""
+msgstr "Overhead"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
 msgid "Overwrite existing file(s)"
@@ -2608,23 +2707,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:610
 msgid "Page number:"
-msgstr ""
+msgstr "Side nummer:"
 
 #: libraries/messages.inc.php:611
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "Sider der står til at blive tømt"
 
 #: libraries/messages.inc.php:612
 msgid "Paper size"
-msgstr ""
+msgstr "Papirstørrelse"
 
 #: libraries/messages.inc.php:613
 msgid "Partial import"
-msgstr ""
+msgstr "Delvis import"
 
 #: libraries/messages.inc.php:614
 msgid "Partial Texts"
-msgstr ""
+msgstr "Delvise tekster"
 
 #: libraries/messages.inc.php:615
 msgid "PARTITION definition"
@@ -2639,30 +2738,30 @@ msgid "Partition maintenance"
 msgstr ""
 
 #: libraries/messages.inc.php:618
-#, possible-php-format
+#, php-format
 msgid "Partition %s"
 msgstr ""
 
 #: libraries/messages.inc.php:619
-#, possible-php-format
+#, php-format
 msgid "The password for %s was changed successfully."
-msgstr ""
+msgstr "Kodeordet for %s blev korrekt udskiftet."
 
 #: libraries/messages.inc.php:620
 msgid "The password is empty!"
-msgstr ""
+msgstr "Der er ikke angivet noget kodeord!"
 
 #: libraries/messages.inc.php:621
 msgid "Password Hashing"
-msgstr ""
+msgstr "Kodeord Hashing"
 
 #: libraries/messages.inc.php:622
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "De to kodeord er ikke ens!"
 
 #: libraries/messages.inc.php:623
 msgid "Password"
-msgstr ""
+msgstr "Kodeord"
 
 #: libraries/messages.inc.php:624
 msgid "Checkpoint frequency"
@@ -2787,18 +2886,18 @@ msgid "Transaction buffer size"
 msgstr ""
 
 #: libraries/messages.inc.php:648
-#, possible-php-format
+#, php-format
 msgid "Schema of the \"%s\" database - Page %s"
-msgstr ""
+msgstr "Skematik for databasen \"%s\" - Side %s"
 
 #: libraries/messages.inc.php:649
-#, possible-php-format
+#, php-format
 msgid "The \"%s\" table doesn't exist!"
-msgstr ""
+msgstr "Tabellen \"%s\" findes ikke!"
 
 #: libraries/messages.inc.php:650
 msgid "No tables"
-msgstr ""
+msgstr "Ingen tabeller"
 
 #: libraries/messages.inc.php:651
 msgid "Page has been created"
@@ -2810,35 +2909,35 @@ msgstr ""
 
 #: libraries/messages.inc.php:653
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: libraries/messages.inc.php:654
 msgid "(Generates a report containing the data of a single table)"
-msgstr ""
+msgstr "(Genererer en rapport indeholdende dataene fra en enkelt tabel)"
 
 #: libraries/messages.inc.php:655
 msgid "Report title"
-msgstr ""
+msgstr "Rapporttitel"
 
 #: libraries/messages.inc.php:656
 msgid "per hour"
-msgstr ""
+msgstr "pr. time"
 
 #: libraries/messages.inc.php:657
 msgid "per minute"
-msgstr ""
+msgstr "pr. minut"
 
 #: libraries/messages.inc.php:658
 msgid "per second"
-msgstr ""
+msgstr "pr. sekund"
 
 #: libraries/messages.inc.php:659
 msgid "Persian"
-msgstr ""
+msgstr "Persisk"
 
 #: libraries/messages.inc.php:660
 msgid "phone book"
-msgstr ""
+msgstr "telefonbog"
 
 #: libraries/messages.inc.php:661
 msgid "PHP array"
@@ -2854,7 +2953,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:664
 msgid "PHP Version"
-msgstr ""
+msgstr "PHP-version"
 
 #: libraries/messages.inc.php:665
 msgid "Play audio"
@@ -2862,7 +2961,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:666
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "Vælg venligst den primære nøgle eller en unik nøgle"
 
 #: libraries/messages.inc.php:667
 msgid ""
@@ -2889,17 +2988,19 @@ msgstr ""
 
 #: libraries/messages.inc.php:672
 msgid "phpMyAdmin documentation"
-msgstr ""
+msgstr "phpMyAdmin dokumentation"
 
 #: libraries/messages.inc.php:673
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
+"<tt>$cfg['PmaAbsoluteUri']</tt> direktivet SKAL være sat i din "
+"konfigurationsfil!"
 
 #: libraries/messages.inc.php:674
 msgid "Polish"
-msgstr ""
+msgstr "Polsk"
 
 #: libraries/messages.inc.php:675
 msgid "Port"
@@ -2907,92 +3008,93 @@ msgstr ""
 
 #: libraries/messages.inc.php:676
 msgid "Portrait"
-msgstr ""
+msgstr "Stående"
 
 #: libraries/messages.inc.php:677
 msgid "Begin"
-msgstr ""
+msgstr "Start"
 
 #: libraries/messages.inc.php:678
 msgid "Previous"
-msgstr ""
+msgstr "Forrige"
 
 #: libraries/messages.inc.php:679
 msgid "The primary key has been dropped"
-msgstr ""
+msgstr "Primærnøglen er slettet"
 
 #: libraries/messages.inc.php:680
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr ""
+msgstr "Navnet på primærnøglen skal være... PRIMARY!"
 
 #: libraries/messages.inc.php:681
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
+"(\"PRIMARY\" <b>skal</b> være navnet på og <b>kun på</b> en primær nøgle!)"
 
 #: libraries/messages.inc.php:682
 msgid "Primary"
-msgstr ""
+msgstr "Primær"
 
 #: libraries/messages.inc.php:683
 msgid "Print"
-msgstr ""
+msgstr "Print"
 
 #: libraries/messages.inc.php:684
 msgid "Print view (with full texts)"
-msgstr ""
+msgstr "Udskrift-visning (med fulde tekster)"
 
 #: libraries/messages.inc.php:685
 msgid "Print view"
-msgstr ""
+msgstr "Vis (udskriftvenlig)"
 
 #: libraries/messages.inc.php:686
 msgid "Includes all privileges except GRANT."
-msgstr ""
+msgstr "Inkluderer alle privilegier pånær GRANT."
 
 #: libraries/messages.inc.php:687
 msgid "Allows altering the structure of existing tables."
-msgstr ""
+msgstr "Tillader ændring af strukturen på eksisterende tabeller."
 
 #: libraries/messages.inc.php:688
 msgid "Allows altering and dropping stored routines."
-msgstr ""
+msgstr "Tillader ændring og sletning af gemte rutiner."
 
 #: libraries/messages.inc.php:689
 msgid "Allows creating new databases and tables."
-msgstr ""
+msgstr "Tillader oprettelse af nye databaser og tabeller."
 
 #: libraries/messages.inc.php:690
 msgid "Allows creating stored routines."
-msgstr ""
+msgstr "Tillader oprettelse af gemte rutiner."
 
 #: libraries/messages.inc.php:691
 msgid "Allows creating new tables."
-msgstr ""
+msgstr "Tillader oprettelse af nye tabeller."
 
 #: libraries/messages.inc.php:692
 msgid "Allows creating temporary tables."
-msgstr ""
+msgstr "Tillader oprettelse af midlertidige tabeller."
 
 #: libraries/messages.inc.php:693
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr ""
+msgstr "Tillader oprettelse, sletning og omdøbning af brugerkonti."
 
 #: libraries/messages.inc.php:694
 msgid "Allows creating new views."
-msgstr ""
+msgstr "Tillader oprettelse af nye Allows creating new views."
 
 #: libraries/messages.inc.php:695
 msgid "Allows deleting data."
-msgstr ""
+msgstr "Tillader sletning af data."
 
 #: libraries/messages.inc.php:696
 msgid "Allows dropping databases and tables."
-msgstr ""
+msgstr "Tillader at droppe databaser og tabeller."
 
 #: libraries/messages.inc.php:697
 msgid "Allows dropping tables."
-msgstr ""
+msgstr "Tillader at droppe tabeller."
 
 #: libraries/messages.inc.php:698
 msgid "Allows to set up events for the event scheduler"
@@ -3000,50 +3102,56 @@ msgstr ""
 
 #: libraries/messages.inc.php:699
 msgid "Allows executing stored routines."
-msgstr ""
+msgstr "Tillader udførelse af gemte rutiner."
 
 #: libraries/messages.inc.php:700
 msgid "Allows running stored procedures; has no effect in this MySQL version."
 msgstr ""
+"Tillader kørsel af gemte procedurer; Har ingen effekt i denne MySQL-version."
 
 #: libraries/messages.inc.php:701
 msgid "Allows importing data from and exporting data into files."
-msgstr ""
+msgstr "Tillader import af data fra og eksport af data til filer."
 
 #: libraries/messages.inc.php:702
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
+"Tillader oprettelse af brugere og privilegier uden at genindlæse privilegie-"
+"tabellerne."
 
 #: libraries/messages.inc.php:703
 msgid "Allows creating and dropping indexes."
-msgstr ""
+msgstr "Tillader at skabe og droppe indeks."
 
 #: libraries/messages.inc.php:704
 msgid "Allows inserting and replacing data."
-msgstr ""
+msgstr "Tillader indsættelse og erstatning af data."
 
 #: libraries/messages.inc.php:705
 msgid "Allows locking tables for the current thread."
-msgstr ""
+msgstr "Tillader låsning af tabeller for nuværende tråd."
 
 #: libraries/messages.inc.php:706
 msgid "Limits the number of new connections the user may open per hour."
-msgstr ""
+msgstr "Begrænser antallet af nye forbindelser brugeren må åbne pr. time."
 
 #: libraries/messages.inc.php:707
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
+"Begrænser antallet af forespørgsler brugeren må sende til serveren pr. time."
 
 #: libraries/messages.inc.php:708
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
+"Begrænser antallet af kommandoer som ændrer enhver tabel eller database "
+"brugeren må udføre pr. time."
 
 #: libraries/messages.inc.php:709
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr ""
+msgstr "Begrænser antallet af samtidige forbindelser brugere må have."
 
 #: libraries/messages.inc.php:710
 msgid "Allows viewing processes of all users"
@@ -3051,35 +3159,35 @@ msgstr ""
 
 #: libraries/messages.inc.php:711
 msgid "Has no effect in this MySQL version."
-msgstr ""
+msgstr "Har ingen effekt i denne MySQL version."
 
 #: libraries/messages.inc.php:712
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr ""
+msgstr "Tillader genindlæsning af serverindstillinger og tømning af caches."
 
 #: libraries/messages.inc.php:713
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr ""
+msgstr "Giver brugeren rettigheder til at spørge hvor Slaves / Masters er."
 
 #: libraries/messages.inc.php:714
 msgid "Needed for the replication slaves."
-msgstr ""
+msgstr "Nødvendigt for replikationsslaverne."
 
 #: libraries/messages.inc.php:715
 msgid "Allows reading data."
-msgstr ""
+msgstr "Tillader læsning af data."
 
 #: libraries/messages.inc.php:716
 msgid "Gives access to the complete list of databases."
-msgstr ""
+msgstr "Giver adgang til den fuldstændige liste over databaser."
 
 #: libraries/messages.inc.php:717
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr ""
+msgstr "Tillader udførelse af SHOW CREATE VIEW forespørgsler."
 
 #: libraries/messages.inc.php:718
 msgid "Allows shutting down the server."
-msgstr ""
+msgstr "Tillader nedlukning af serveren."
 
 #: libraries/messages.inc.php:719
 msgid ""
@@ -3087,6 +3195,9 @@ msgid ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
+"Tillader forbindelse, selv hvis maksimalt antal forbindelser er nået; "
+"Nødvendigt for de fleste administrative operationer som indstilling af "
+"globale variabler eller for at dræbe andre brugeres tråde."
 
 #: libraries/messages.inc.php:720
 msgid "Allows creating and dropping triggers"
@@ -3094,31 +3205,31 @@ msgstr ""
 
 #: libraries/messages.inc.php:721
 msgid "Allows changing data."
-msgstr ""
+msgstr "Tillader ændring af data."
 
 #: libraries/messages.inc.php:722
 msgid "No privileges."
-msgstr ""
+msgstr "Ingen privilegier."
 
 #: libraries/messages.inc.php:723
 msgid "Privileges"
-msgstr ""
+msgstr "Privilegier"
 
 #: libraries/messages.inc.php:724
 msgid "The privileges were reloaded successfully."
-msgstr ""
+msgstr "Privilegierne blev korrekt genindlæst."
 
 #: libraries/messages.inc.php:725
 msgid "Procedures"
-msgstr ""
+msgstr "Procedurer"
 
 #: libraries/messages.inc.php:726
 msgid "Processes"
-msgstr ""
+msgstr "Processer"
 
 #: libraries/messages.inc.php:727
 msgid "Process list"
-msgstr ""
+msgstr "Procesliste"
 
 #: libraries/messages.inc.php:728
 msgid "Profiling"
@@ -3126,23 +3237,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:729
 msgid "Protocol version"
-msgstr ""
+msgstr "Protokolversion"
 
 #: libraries/messages.inc.php:730
 msgid "Put fields names in the first row"
-msgstr ""
+msgstr "Indsæt feltnavne i første række"
 
 #: libraries/messages.inc.php:732
 msgid "Del"
-msgstr ""
+msgstr "Del (Slet)"
 
 #: libraries/messages.inc.php:733
 msgid "Ins"
-msgstr ""
+msgstr "Ins (Indsæt)"
 
 #: libraries/messages.inc.php:734
 msgid "Query"
-msgstr ""
+msgstr "Foresp. via eks."
 
 #: libraries/messages.inc.php:735
 msgid "The following queries have been executed:"
@@ -3150,48 +3261,50 @@ msgstr ""
 
 #: libraries/messages.inc.php:736
 msgid "Query cache"
-msgstr ""
+msgstr "Forespørgsel-mellemlager"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
 msgid "Query window"
 msgstr ""
 
 #: libraries/messages.inc.php:738
-#, possible-php-format
+#, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "SQL-forespørgsel til database <b>%s</b>:"
 
 #: libraries/messages.inc.php:739
 msgid "Query results operations"
-msgstr ""
+msgstr "Forespørgselsresultat operationer"
 
 #: libraries/messages.inc.php:740
 msgid "SQL history"
-msgstr ""
+msgstr "SQL-historik"
 
 #: libraries/messages.inc.php:741
-#, possible-php-format
+#, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
 msgstr ""
+"<b>Forespørgselsstatistikker</b>: Siden opstarten er der blevet sendt %s "
+"forespørgsler til serveren."
 
 #: libraries/messages.inc.php:742
-#, possible-php-format
+#, php-format
 msgid "Query took %01.4f sec"
-msgstr ""
+msgstr "Forepørgsel tog %01.4f sek"
 
 #: libraries/messages.inc.php:743
 msgid "Query type"
-msgstr ""
+msgstr "Forespørgselstype"
 
 #: libraries/messages.inc.php:744
 msgid "Do not overwrite this query from outside the window"
-msgstr ""
+msgstr "Overskriv ikke denne forespørgsel fra udenfor vinduet"
 
 #: libraries/messages.inc.php:746
 msgid "Read requests"
-msgstr ""
+msgstr "Read-anmodninger"
 
 #: libraries/messages.inc.php:747
 msgid "Rebuild"
@@ -3199,19 +3312,19 @@ msgstr ""
 
 #: libraries/messages.inc.php:748
 msgid "Received"
-msgstr ""
+msgstr "Modtaget"
 
 #: libraries/messages.inc.php:749
 msgid "recommended"
-msgstr ""
+msgstr "anbefalet"
 
 #: libraries/messages.inc.php:750
 msgid "Records"
-msgstr ""
+msgstr "Poster"
 
 #: libraries/messages.inc.php:751
 msgid "Check referential integrity:"
-msgstr ""
+msgstr "Check reference-integriteten"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
 msgid "Refresh"
@@ -3227,34 +3340,36 @@ msgstr ""
 
 #: libraries/messages.inc.php:755
 msgid "Relational schema"
-msgstr ""
+msgstr "Relationel skematik"
 
 #: libraries/messages.inc.php:756
 msgid "Relation deleted"
-msgstr ""
+msgstr "Relation slettet"
 
 #: libraries/messages.inc.php:757
-#, possible-php-format
+#, php-format
 msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 msgstr ""
+"De ekstra features for at arbejde med linkede tabeller er deaktiveret. For "
+"at se hvorfor, klik %sher%s."
 
 #: libraries/messages.inc.php:758
 msgid "RELATIONS FOR TABLE"
-msgstr ""
+msgstr "RELATIONS FOR TABLE (Relationer for tabellen)"
 
 #: libraries/messages.inc.php:759
 msgid "Relations"
-msgstr ""
+msgstr "Relationer"
 
 #: libraries/messages.inc.php:760
 msgid "Relation view"
-msgstr ""
+msgstr "Se Relationer"
 
 #: libraries/messages.inc.php:761
 msgid "Reloading the privileges"
-msgstr ""
+msgstr "Genindlæs privilegierne"
 
 #: libraries/messages.inc.php:762
 msgid "Reload navigation frame"
@@ -3262,11 +3377,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:763
 msgid "Reload privileges"
-msgstr ""
+msgstr "Genindlæs privilegier"
 
 #: libraries/messages.inc.php:764
 msgid "Reload"
-msgstr ""
+msgstr "Genindlæs"
 
 #: libraries/messages.inc.php:765
 msgid "Remote server"
@@ -3282,21 +3397,21 @@ msgstr ""
 
 #: libraries/messages.inc.php:768
 msgid "Remove selected users"
-msgstr ""
+msgstr "Fjern valgte brugere"
 
 #: libraries/messages.inc.php:769
-#, possible-php-format
+#, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "Database %s er blevet omdøbt til %s"
 
 #: libraries/messages.inc.php:770
-#, possible-php-format
+#, php-format
 msgid "Table %s has been renamed to %s"
-msgstr ""
+msgstr "Tabellen %s er nu omdøbt til %s"
 
 #: libraries/messages.inc.php:771
 msgid "Rename table to"
-msgstr ""
+msgstr "Omdøb tabel til"
 
 #: libraries/messages.inc.php:772
 msgid "Rename view to"
@@ -3308,15 +3423,15 @@ msgstr ""
 
 #: libraries/messages.inc.php:774
 msgid "Repair table"
-msgstr ""
+msgstr "Reparer tabel"
 
 #: libraries/messages.inc.php:775
 msgid "Replace NULL by"
-msgstr ""
+msgstr "Erstat NULL med"
 
 #: libraries/messages.inc.php:776
 msgid "Replace table data with file"
-msgstr ""
+msgstr "Erstat data i tabellen med filens data"
 
 #: libraries/messages.inc.php:777
 msgid ""
@@ -3329,7 +3444,7 @@ msgid "Add slave replication user"
 msgstr ""
 
 #: libraries/messages.inc.php:779
-#, possible-php-format
+#, php-format
 msgid "Master server changed succesfully to %s"
 msgstr ""
 
@@ -3347,7 +3462,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:783
-#, possible-php-format
+#, php-format
 msgid "Unable to connect to master %s."
 msgstr ""
 
@@ -3378,7 +3493,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:789
 msgid "Replication"
-msgstr ""
+msgstr "Replikering"
 
 #: libraries/messages.inc.php:790
 msgid ""
@@ -3392,7 +3507,7 @@ msgid "Please select databases:"
 msgstr ""
 
 #: libraries/messages.inc.php:792
-#, possible-php-format
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
@@ -3434,7 +3549,7 @@ msgid "Error management:"
 msgstr ""
 
 #: libraries/messages.inc.php:801
-#, possible-php-format
+#, php-format
 msgid "IO Thread %s only"
 msgstr ""
 
@@ -3443,7 +3558,7 @@ msgid "Slave IO Thread not running!"
 msgstr ""
 
 #: libraries/messages.inc.php:803
-#, possible-php-format
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
@@ -3478,12 +3593,12 @@ msgid "Slave SQL Thread not running!"
 msgstr ""
 
 #: libraries/messages.inc.php:811
-#, possible-php-format
+#, php-format
 msgid "SQL Thread %s only"
 msgstr ""
 
 #: libraries/messages.inc.php:812
-#, possible-php-format
+#, php-format
 msgid ""
 "This MySQL server works as %s in <b>replication</b> process. For further "
 "information about replication status on the server, please visit the <a href="
@@ -3520,143 +3635,147 @@ msgstr ""
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
-msgstr ""
+msgstr "Ressourcebegrænsninger"
 
 #: libraries/messages.inc.php:821
-#, possible-php-format
+#, php-format
 msgid "Restart insertion with %s rows"
 msgstr ""
 
 #: libraries/messages.inc.php:822
 msgid "Re-type"
-msgstr ""
+msgstr "Skriv igen"
 
 #: libraries/messages.inc.php:823
 msgid ""
 "The users will still have the USAGE privilege until the privileges are "
 "reloaded."
 msgstr ""
+"Bruger(e) vil fortsat have USAGE-privilegiet indtil privilegierne "
+"genindlæses."
 
 #: libraries/messages.inc.php:824
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
+"Tilbagekald alle aktive privilegier fra brugerne og slet dem efterfølgende."
 
 #: libraries/messages.inc.php:825
-#, possible-php-format
+#, php-format
 msgid "You have revoked the privileges for %s"
-msgstr ""
+msgstr "Du har tilbagekaldt privilegierne for %s"
 
 #: libraries/messages.inc.php:826
 msgid "Revoke"
-msgstr ""
+msgstr "Tilbagekald"
 
 #: libraries/messages.inc.php:827
 msgid "Romanian"
-msgstr ""
+msgstr "Rumænsk"
 
 #: libraries/messages.inc.php:828
 msgid "Return type"
-msgstr ""
+msgstr "Retur type"
 
 #: libraries/messages.inc.php:829
 msgid "Routines"
-msgstr ""
+msgstr "Rutiner"
 
 #: libraries/messages.inc.php:830
 msgid "Row length"
-msgstr ""
+msgstr "Rækkelængde"
 
 #: libraries/messages.inc.php:831
-#, possible-php-format
+#, php-format
 msgid "%1$d row(s) affected."
 msgstr ""
 
 #: libraries/messages.inc.php:832
-#, possible-php-format
+#, php-format
 msgid "%1$d row(s) deleted."
 msgstr ""
 
 #: libraries/messages.inc.php:833
 msgid "row(s) starting from record #"
-msgstr ""
+msgstr "rækker startende fra post #"
 
 #: libraries/messages.inc.php:834
-#, possible-php-format
+#, php-format
 msgid "%1$d row(s) inserted."
 msgstr ""
 
 #: libraries/messages.inc.php:835
 msgid " Row size "
-msgstr ""
+msgstr " Rækkestørrelse "
 
 #: libraries/messages.inc.php:836
 msgid "horizontal (rotated headers)"
-msgstr ""
+msgstr "horisontalt (roterede overskrifter)"
 
 #: libraries/messages.inc.php:837
 msgid "horizontal"
-msgstr ""
+msgstr "vandret"
 
 #: libraries/messages.inc.php:838
-#, possible-php-format
+#, php-format
 msgid "in %s mode and repeat headers after %s cells"
-msgstr ""
+msgstr "%s og gentag overskrifter efter %s celler"
 
 #: libraries/messages.inc.php:839
 msgid "vertical"
-msgstr ""
+msgstr "lodret"
 
 #: libraries/messages.inc.php:840
 msgid "Rows"
-msgstr ""
+msgstr "Rækker"
 
 #: libraries/messages.inc.php:841
 msgid "Row Statistics"
-msgstr ""
+msgstr "Række-statistik"
 
 #: libraries/messages.inc.php:842
-#, possible-php-format
+#, php-format
 msgid "running on %s"
-msgstr ""
+msgstr "kører på %s"
 
 #: libraries/messages.inc.php:843
 msgid "Submit Query"
-msgstr ""
+msgstr "Send forespørgsel"
 
 #: libraries/messages.inc.php:844
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr ""
+msgstr "Kør SQL-forespørgsel/forespørgsler på server %s"
 
 #: libraries/messages.inc.php:845
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr ""
+msgstr "Kør SQL-forspørgsel(er) på database %s"
 
 #: libraries/messages.inc.php:846
 msgid "Russian"
-msgstr ""
+msgstr "Russisk"
 
 #: libraries/messages.inc.php:848
-#, possible-php-format
+#, php-format
 msgid "Save on server in %s directory"
-msgstr ""
+msgstr "Gem på serveren i mappen %s "
 
 #: libraries/messages.inc.php:849
 msgid "Save position"
-msgstr ""
+msgstr "Gem position"
 
 #: libraries/messages.inc.php:850
 msgid "Save"
-msgstr ""
+msgstr "Gem"
 
 #: libraries/messages.inc.php:851
 msgid "The scale factor is too small to fit the schema on one page"
 msgstr ""
+"Skaleringsfaktoren er for lille til at tilpasse skematikken til en side"
 
 #: libraries/messages.inc.php:852
 msgid "Search in database"
-msgstr ""
+msgstr "Søg i databasen"
 
 #: libraries/messages.inc.php:853
 msgid "Inside field:"
@@ -3664,76 +3783,77 @@ msgstr ""
 
 #: libraries/messages.inc.php:854
 msgid "Inside table(s):"
-msgstr ""
+msgstr "Indeni tabel(ler):"
 
 #: libraries/messages.inc.php:855
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr ""
+msgstr "Ord eller værdi(er) (jokertegn: \"%\"):"
 
 #: libraries/messages.inc.php:856
 msgid "at least one of the words"
-msgstr ""
+msgstr "mindst et af ordene"
 
 #: libraries/messages.inc.php:857
 msgid "all words"
-msgstr ""
+msgstr "alle ordene"
 
 #: libraries/messages.inc.php:858
 msgid "the exact phrase"
-msgstr ""
+msgstr "den nøjagtige sætning"
 
 #: libraries/messages.inc.php:859
 msgid "as regular expression"
-msgstr ""
+msgstr "som regulært udtryk"
 
 #: libraries/messages.inc.php:860
-#, possible-php-format
+#, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr ""
+msgstr "Søgeresultater for \"<i>%s</i>\" %s:"
 
 #: libraries/messages.inc.php:861
 msgid "Search"
-msgstr ""
+msgstr "Søg"
 
 #: libraries/messages.inc.php:862
 msgid "Find:"
-msgstr ""
+msgstr "Find:"
 
 #: libraries/messages.inc.php:863
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
+"Konfigurationsfilen skal nu bruge et hemmeligt kodeord (blowfish_secret)."
 
 #: libraries/messages.inc.php:864
 msgid "Please select a database"
-msgstr ""
+msgstr "Vælg en database"
 
 #: libraries/messages.inc.php:865
 msgid "Select All"
-msgstr ""
+msgstr "Vælg alle"
 
 #: libraries/messages.inc.php:866
 msgid "Select binary log to view"
-msgstr ""
+msgstr "Vælg binærlog til gennemsyn"
 
 #: libraries/messages.inc.php:867
 msgid "Select fields (at least one):"
-msgstr ""
+msgstr "Vælg mindst eet felt:"
 
 #: libraries/messages.inc.php:868
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Vælg fremmednøgle"
 
 #: libraries/messages.inc.php:869
 msgid "in query"
-msgstr ""
+msgstr "i forespørgsel"
 
 #: libraries/messages.inc.php:870
 msgid "Select referenced key"
-msgstr ""
+msgstr "Vælg refereret nøgle"
 
 #: libraries/messages.inc.php:871
 msgid "Select Tables"
-msgstr ""
+msgstr "Vælg Tabeller"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
 msgid "Save as file"
@@ -3741,19 +3861,19 @@ msgstr ""
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
-msgstr ""
+msgstr "Sendt"
 
 #: libraries/messages.inc.php:874
 msgid "Server Choice"
-msgstr ""
+msgstr "Server valg"
 
 #: libraries/messages.inc.php:875
 msgid "The server is not responding"
-msgstr ""
+msgstr "Serveren svarer ikke"
 
 #: libraries/messages.inc.php:876
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
 msgid "Servers"
@@ -3761,34 +3881,36 @@ msgstr ""
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
-msgstr ""
+msgstr "Forsinkede inserts"
 
 #: libraries/messages.inc.php:879
 msgid "Runtime Information"
-msgstr ""
+msgstr "Runtime-information"
 
 #: libraries/messages.inc.php:880
-#, possible-php-format
+#, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
-msgstr ""
+msgstr "Denne MySQL-server har kørt i %s. Den startede op den %s."
 
 #: libraries/messages.inc.php:881
 msgid "Variables"
-msgstr ""
+msgstr "Variabler"
 
 #: libraries/messages.inc.php:882
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
 msgstr ""
+"<b>Servertrafik</b>: Disse tabeller viser netværkstrafik-statistikkerne for "
+"denne MySQL-server siden dens opstart."
 
 #: libraries/messages.inc.php:883
 msgid "Server variables and settings"
-msgstr ""
+msgstr "Server-variabler og indstillinger"
 
 #: libraries/messages.inc.php:884
 msgid "Server version"
-msgstr ""
+msgstr "Serverversion"
 
 #: libraries/messages.inc.php:885
 msgid ""
@@ -3803,10 +3925,12 @@ msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."
 msgstr ""
+"Kan ikke starte session uden fejl, tjek venligst fejl i din PHP og/eller "
+"webserver log fil og konfigurer din PHP installation ordentligt."
 
 #: libraries/messages.inc.php:887
 msgid "Session value"
-msgstr ""
+msgstr "Sessionsværdi"
 
 #: libraries/messages.inc.php:888
 msgid ""
@@ -3815,6 +3939,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
+"Hvis et felt er af typen \"enum\" eller \"set\", skal værdierne angives på "
+"formen: 'a','b','c'...<br />Skulle du få brug for en backslash (\"\\\") "
+"eller et enkelt anførselstegn (\"'\") blandt disse værdier, så tilføj en "
+"ekstra backslash (fx '\\\\xyz' eller 'a\\'b')."
 
 #: libraries/messages.inc.php:889
 msgid "settings"
@@ -3899,7 +4027,7 @@ msgid "Bzip2"
 msgstr ""
 
 #: libraries/messages.inc.php:906
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
 "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -4083,7 +4211,7 @@ msgid "Submitted form contains errors"
 msgstr ""
 
 #: libraries/messages.inc.php:948
-#, possible-php-format
+#, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
 
@@ -4096,7 +4224,7 @@ msgid "Incorrect value"
 msgstr ""
 
 #: libraries/messages.inc.php:951
-#, possible-php-format
+#, php-format
 msgid "Missing data for %s"
 msgstr ""
 
@@ -4370,7 +4498,7 @@ msgid "GZip"
 msgstr ""
 
 #: libraries/messages.inc.php:1023
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -4435,7 +4563,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1037
-#, possible-php-format
+#, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
@@ -4751,7 +4879,7 @@ msgid "Save directory"
 msgstr ""
 
 #: libraries/messages.inc.php:1110
-#, possible-php-format
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -4902,7 +5030,7 @@ msgid "Disable use of INFORMATION_SCHEMA"
 msgstr ""
 
 #: libraries/messages.inc.php:1143
-#, possible-php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - [a@?"
 "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication"
@@ -5100,7 +5228,7 @@ msgid "Verbose name of this server"
 msgstr ""
 
 #: libraries/messages.inc.php:1188
-#, possible-php-format
+#, php-format
 msgid "Set value: %s"
 msgstr ""
 
@@ -5281,14 +5409,14 @@ msgid "Check for latest version"
 msgstr ""
 
 #: libraries/messages.inc.php:1231
-#, possible-php-format
+#, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
 
 #: libraries/messages.inc.php:1232
-#, possible-php-format
+#, php-format
 msgid ""
 "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
 "latest stable version is %s, released on %s."
@@ -5322,14 +5450,14 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1239
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 "requires functions (%s) which are unavailable on this system."
 msgstr ""
 
 #: libraries/messages.inc.php:1240
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
 "requires functions (%s) which are unavailable on this system."
@@ -5341,7 +5469,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1242
 msgid "Show all"
-msgstr ""
+msgstr "Vis alle"
 
 #: libraries/messages.inc.php:1243
 msgid "Show binary contents as HEX"
@@ -5357,39 +5485,39 @@ msgstr ""
 
 #: libraries/messages.inc.php:1246
 msgid "Show color"
-msgstr ""
+msgstr "Vis farve"
 
 #: libraries/messages.inc.php:1247
 msgid "Data Dictionary Format"
-msgstr ""
+msgstr "Data Dictionary-format"
 
 #: libraries/messages.inc.php:1248
 msgid "Show Full Queries"
-msgstr ""
+msgstr "Vis fuldstændige forespørgsler"
 
 #: libraries/messages.inc.php:1249
 msgid "Show grid"
-msgstr ""
+msgstr "Vis gitter"
 
 #: libraries/messages.inc.php:1250
 msgid "Show/Hide left menu"
-msgstr ""
+msgstr "Vis/skjul venstre menu"
 
 #: libraries/messages.inc.php:1251
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Viser bogmærke"
 
 #: libraries/messages.inc.php:1252
 msgid "Showing as PHP code"
-msgstr ""
+msgstr "Viser som PHP-kode"
 
 #: libraries/messages.inc.php:1253
 msgid "Showing rows"
-msgstr ""
+msgstr "Viser poster "
 
 #: libraries/messages.inc.php:1254
 msgid "Showing SQL query"
-msgstr ""
+msgstr "Viser SQL-forespørgsel"
 
 #: libraries/messages.inc.php:1255
 msgid "Show insert query"
@@ -5401,23 +5529,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:1258
 msgid "Show open tables"
-msgstr ""
+msgstr "Vis åbne tabeller"
 
 #: libraries/messages.inc.php:1259
 msgid "Show PHP information"
-msgstr ""
+msgstr "Vis PHP-information"
 
 #: libraries/messages.inc.php:1260
 msgid "Show"
-msgstr ""
+msgstr "Vis"
 
 #: libraries/messages.inc.php:1261
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Vis slaveværter"
 
 #: libraries/messages.inc.php:1262
 msgid "Show slave status"
-msgstr ""
+msgstr "Vis slavestatus"
 
 #: libraries/messages.inc.php:1263
 msgid ""
@@ -5425,10 +5553,14 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
+"Antal transaktioner der brugte det midlertidige binære log mellemlager, men "
+"overskred værdien for binlog_cache_size og brugte en midlertidig fil til at "
+"gemme statements fra transaktionen."
 
 #: libraries/messages.inc.php:1264
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
+"Antal transaktioner der brugte det midlertidige binære log mellemlager."
 
 #: libraries/messages.inc.php:1265
 msgid ""
@@ -5437,44 +5569,54 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
+"Antal midlertidige tabeller på disken oprettet automatisk af serveren under "
+"udførelse af statements. Hvis Created_tmp_disk_tables er stor, skal du "
+"overveje at forøge tmp_table_size værdien for at gøre midlertidige tabeller "
+"hukommelses-baserede i stedet for disk-baserede."
 
 #: libraries/messages.inc.php:1266
 msgid "How many temporary files mysqld has created."
-msgstr ""
+msgstr "Hvor mange midlertidige filer mysqld har oprettet."
 
 #: libraries/messages.inc.php:1267
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
+"Antal i-hukommelsen midlertidige tabeller oprettet automatisk af serveren "
+"under udførelse af statements."
 
 #: libraries/messages.inc.php:1268
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
+"Antal rækker skrevet med INSERT DELAYED (forsinket indsættelse) under hvilke "
+"der opstod fejl (sandsynligvis dublerede nøgler)."
 
 #: libraries/messages.inc.php:1269
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
+"Antallet af INSERT DELAYED handler-tråde i brug. Hver forskellig tabel "
+"hvorpå en bruger INSERT DELAYED får sin egen tråd."
 
 #: libraries/messages.inc.php:1270
 msgid "The number of INSERT DELAYED rows written."
-msgstr ""
+msgstr "Antallet af INSERT DELAYED rækker skrevet."
 
 #: libraries/messages.inc.php:1271
 msgid "The number of executed FLUSH statements."
-msgstr ""
+msgstr "Antallet af udførte FLUSH statements."
 
 #: libraries/messages.inc.php:1272
 msgid "The number of internal COMMIT statements."
-msgstr ""
+msgstr "Antallet af interne COMMIT statements."
 
 #: libraries/messages.inc.php:1273
 msgid "The number of times a row was deleted from a table."
-msgstr ""
+msgstr "Antallet af gange en række blev slettet fra en tabel."
 
 #: libraries/messages.inc.php:1274
 msgid ""
@@ -5482,6 +5624,9 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
+"MySQL serveren kan spørge en NDB Cluster storage engine om den kender til en "
+"tabel med et givent navn. Dette kaldes opdagelse. Handler_discover indikerer "
+"antallet af gange tabeller er blevet opdaget."
 
 #: libraries/messages.inc.php:1275
 msgid ""
@@ -5489,12 +5634,18 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
+"Antallet af gange første indlæg blev læst fra et indeks. Hvis denne er høj, "
+"antyder det at serveren laver mange fulde indeks scans; for eksempel, SELECT "
+"col1 FROM foo, antagende at col1 er indekseret."
 
 #: libraries/messages.inc.php:1276
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
+"Antallet af anmodninger om at læse en række baseret på en nøgle. Hvis denne "
+"er høj, er det en god indikation af at dine forespørgsler og tabeller er "
+"ordentligt indekserede."
 
 #: libraries/messages.inc.php:1277
 msgid ""
@@ -5502,12 +5653,17 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
+"Antallet af anmodninger om at læse næste række i nøgleorden. Denne forøges "
+"hvis du forespørger på en indekskolonne med en range-begrænsning eller hvis "
+"du udfører et indeks scan."
 
 #: libraries/messages.inc.php:1278
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
+"Antallet af anmodninger om at læse foregående række i nøgleorden. Denne "
+"læsemetode bruges hovedsageligt til at optimere ORDER BY ... DESC."
 
 #: libraries/messages.inc.php:1279
 msgid ""
@@ -5516,6 +5672,10 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
+"Antallet af anmodninger om at læse en række baseret på en fast position. "
+"Denne er høj hvis du laver mange forespørgsler der kræver sortering af "
+"resultatet. Du har sandsynligvis mange forespørgsler der forlanger at MySQL "
+"scanner hele tabeller eller du har joins der ikke bruger nøgler ordentligt."
 
 #: libraries/messages.inc.php:1280
 msgid ""
@@ -5524,34 +5684,38 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
+"Antallet af anmodninger om læsning af næste række i datafilen. Denne er høj "
+"hvis du laver mange tabelscanninger. Generelt antyder dette at dine tabeller "
+"enten ikke er ordentligt indekserede eller at dine forespørgsler ikke er "
+"skrevet til at drage fordel af de indeks du har."
 
 #: libraries/messages.inc.php:1281
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "Antallet af interne ROLLBACK statements."
 
 #: libraries/messages.inc.php:1282
 msgid "The number of requests to update a row in a table."
-msgstr ""
+msgstr "Antallet af anmodninger om at opdatere en række i en tabel."
 
 #: libraries/messages.inc.php:1283
 msgid "The number of requests to insert a row in a table."
-msgstr ""
+msgstr "Antallet af anmodninger om at indsætte en række i en tabel."
 
 #: libraries/messages.inc.php:1284
 msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
+msgstr "Antallet af sider der indeholder data (beskidte eller rene)."
 
 #: libraries/messages.inc.php:1285
 msgid "The number of pages currently dirty."
-msgstr ""
+msgstr "Antallet af såkaldt beskidte sider."
 
 #: libraries/messages.inc.php:1286
 msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr ""
+msgstr "Antallet af buffer pool sider der er anmodet om at skulle flushes."
 
 #: libraries/messages.inc.php:1287
 msgid "The number of free pages."
-msgstr ""
+msgstr "Antallet af frie sider."
 
 #: libraries/messages.inc.php:1288
 msgid ""
@@ -5559,6 +5723,9 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
+"Antallet af eksklusivt låste (latched) sider i InnoDB buffer pool. Dette er "
+"sider der i øjeblikket læses eller skrives eller som ikke kan flushes eller "
+"fjernes af andre årsager."
 
 #: libraries/messages.inc.php:1289
 msgid ""
@@ -5567,32 +5734,43 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
+"Antallet af travle sider fordi de er blevet allokeret til administrativ "
+"overhead så som rækkelåse eller det adaptive hash indeks. Denne værdi kan "
+"også beregnes som  Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
 #: libraries/messages.inc.php:1290
 msgid "Total size of buffer pool, in pages."
-msgstr ""
+msgstr "Total størrelse på buffer pool, i sider."
 
 #: libraries/messages.inc.php:1291
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
+"Antallet af \"tilfældige\" read-aheads InnoDB initierede. Dette sker når en "
+"forespørgsel skal scanne en større del af en tabel men i tilfældig "
+"rækkefølge."
 
 #: libraries/messages.inc.php:1292
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
+"Antallet af sekventielle read-aheads InnoDB initierede. Dette sker når "
+"InnoDB laver en sekventiel fuld tabelscanning."
 
 #: libraries/messages.inc.php:1293
 msgid "The number of logical read requests InnoDB has done."
-msgstr ""
+msgstr "Antallet af logiske read anmodninger InnoDB har lavet."
 
 #: libraries/messages.inc.php:1294
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
+"Antallet af logiske reads som InnoDB ikke kunne tilfredsstille fra buffer "
+"pool og måtte lave en enkelt-side read."
 
 #: libraries/messages.inc.php:1295
 msgid ""
@@ -5602,146 +5780,164 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
+"Normalt sker skrivninger til InnoDB buffer poolen i baggrunden. Men, hvis "
+"der er brug for at læse eller oprette en side og der ikke er nogen rene "
+"sider tilgængelige, er det nødvendigt at vente på at der bliver flushet "
+"sider først. Denne tæller tæller hvor mange gange det er sket. Hvis buffer "
+"pool størrelsen er sat ordentligt, skulle denne værdi være lille."
 
 #: libraries/messages.inc.php:1296
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr ""
+msgstr "Antallet af skrivninger til InnoDB buffer poolen."
 
 #: libraries/messages.inc.php:1297
 msgid "The number of fsync() operations so far."
-msgstr ""
+msgstr "Antallet af fsync() operationer indtil nu."
 
 #: libraries/messages.inc.php:1298
 msgid "The current number of pending fsync() operations."
-msgstr ""
+msgstr "Nuværende antal ventende fsync() operationer."
 
 #: libraries/messages.inc.php:1299
 msgid "The current number of pending reads."
-msgstr ""
+msgstr "Nuværende antal af ventende reads."
 
 #: libraries/messages.inc.php:1300
 msgid "The current number of pending writes."
-msgstr ""
+msgstr "Nuværende antal af ventende writes."
 
 #: libraries/messages.inc.php:1301
 msgid "The amount of data read so far, in bytes."
-msgstr ""
+msgstr "Mængden af data læst indtil nu, i bytes."
 
 #: libraries/messages.inc.php:1302
 msgid "The total number of data reads."
-msgstr ""
+msgstr "Det totale antal af data reads."
 
 #: libraries/messages.inc.php:1303
 msgid "The total number of data writes."
-msgstr ""
+msgstr "Det totale antal af data writes."
 
 #: libraries/messages.inc.php:1304
 msgid "The amount of data written so far, in bytes."
-msgstr ""
+msgstr "Mængden af data skrevet indtil nu, i bytes."
 
 #: libraries/messages.inc.php:1305
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
+"Antallet af doublewrite skrivninger der er udført og antallet af sider der "
+"er blevet skrevet til dette formål."
 
 #: libraries/messages.inc.php:1306
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
+"Antallet af doublewrite skrivninger der er udført og antallet af sider der "
+"er blevet skrevet til dette formål."
 
 #: libraries/messages.inc.php:1307
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
+"Antallet af waits vi har haft fordi log buffer var for lille og vi skulle "
+"vente på at den blev flushed før vi kunne fortsætte."
 
 #: libraries/messages.inc.php:1308
 msgid "The number of log write requests."
-msgstr ""
+msgstr "Antallet af log write anmodninger."
 
 #: libraries/messages.inc.php:1309
 msgid "The number of physical writes to the log file."
-msgstr ""
+msgstr "Antallet af fysiske skrivninger til log filen."
 
 #: libraries/messages.inc.php:1310
 msgid "The number of fsync() writes done to the log file."
-msgstr ""
+msgstr "Antallet af fsyncs skrivninger lavet til log filen."
 
 #: libraries/messages.inc.php:1311
 msgid "The number of pending log file fsyncs."
-msgstr ""
+msgstr "Antallet af ventende log fil fsyncs."
 
 #: libraries/messages.inc.php:1312
 msgid "Pending log file writes."
-msgstr ""
+msgstr "Ventende log fil skrivninger."
 
 #: libraries/messages.inc.php:1313
 msgid "The number of bytes written to the log file."
-msgstr ""
+msgstr "Antallet af bytes skrevet til log filen."
 
 #: libraries/messages.inc.php:1314
 msgid "The number of pages created."
-msgstr ""
+msgstr "Antallet af sider oprettet."
 
 #: libraries/messages.inc.php:1315
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
+"Den indkompilerede InnoDB sidestørrelse (standard 16KB). Mange værdier "
+"tælles i sider; sidestørrelsen gør at man let kan omregne dem til bytes."
 
 #: libraries/messages.inc.php:1316
 msgid "The number of pages read."
-msgstr ""
+msgstr "Antallet af sider læst."
 
 #: libraries/messages.inc.php:1317
 msgid "The number of pages written."
-msgstr ""
+msgstr "Antallet af sider skrevet."
 
 #: libraries/messages.inc.php:1318
 msgid "The number of row locks currently being waited for."
-msgstr ""
+msgstr "Antallet af rækkelåse der ventes på i øjeblikket."
 
 #: libraries/messages.inc.php:1319
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "Gennemsnitstiden for at få en rækkelås, i millisekunder."
 
 #: libraries/messages.inc.php:1320
 msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr ""
+msgstr "Total tid brugt på at hente rækkelåse, i millisekunder."
 
 #: libraries/messages.inc.php:1321
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "Maksimale tid for at hente en rækkelås, i millisekunder."
 
 #: libraries/messages.inc.php:1322
 msgid "The number of times a row lock had to be waited for."
-msgstr ""
+msgstr "Antallet af gange der skulle ventes på en rækkelås."
 
 #: libraries/messages.inc.php:1323
 msgid "The number of rows deleted from InnoDB tables."
-msgstr ""
+msgstr "Antallet af rækker slettet fra InnoDB tabeller."
 
 #: libraries/messages.inc.php:1324
 msgid "The number of rows inserted in InnoDB tables."
-msgstr ""
+msgstr "Antallet af rækker indsat i InnoDB tabeller."
 
 #: libraries/messages.inc.php:1325
 msgid "The number of rows read from InnoDB tables."
-msgstr ""
+msgstr "Antallet af rækker læst fra InnoDB tables."
 
 #: libraries/messages.inc.php:1326
 msgid "The number of rows updated in InnoDB tables."
-msgstr ""
+msgstr "Antallet af rækker opdateret i InnoDB tabeller."
 
 #: libraries/messages.inc.php:1327
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
+"Antallet af nøgleblokeringer i nøglemellemlageret der har ændret sig men "
+"endnu ikke er blevet flushet til disk. Det hed tidligere "
+"Not_flushed_key_blocks."
 
 #: libraries/messages.inc.php:1328
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
+"Antallet af ubrugte blokke i nøglemellemlageret. Du kan bruge denne værdi "
+"til at fastslå hvor meget af nøglemellemlagere der er i brug."
 
 #: libraries/messages.inc.php:1329
 msgid ""
@@ -5749,10 +5945,13 @@ msgid ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
+"Antallet af brugte blokke i nøglemellemlageret. Denne værdi er et højvande-"
+"mærke der indikerer det maksimale antal blokke der på noget tidspunkt har "
+"været i brug på en gang."
 
 #: libraries/messages.inc.php:1330
 msgid "The number of requests to read a key block from the cache."
-msgstr ""
+msgstr "Antallet af anmodninger om at læse en nøgleblok fra mellemlageret."
 
 #: libraries/messages.inc.php:1331
 msgid ""
@@ -5760,14 +5959,17 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"Antallet af fysiske læsninger af en nøgleblok fra disk. Hvis Key_reads er "
+"stor, er din key_buffer_size værdi sandsynligvis for lille. Mellemlager miss "
+"raten kan beregnes som  Key_reads/Key_read_requests."
 
 #: libraries/messages.inc.php:1332
 msgid "The number of requests to write a key block to the cache."
-msgstr ""
+msgstr "Antallet af anmodninger om at skrive en nøgleblok til mellemlageret."
 
 #: libraries/messages.inc.php:1333
 msgid "The number of physical writes of a key block to disk."
-msgstr ""
+msgstr "Antallet af fysiske skrivninger af en nøgleblok til disk."
 
 #: libraries/messages.inc.php:1334
 msgid ""
@@ -5775,44 +5977,52 @@ msgid ""
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
+"Totale omkostninger for den seneste kompilerede forespørgsel som beregnet af "
+"forespørgsels-optimeringsrutinen. Brugbart til at sammenligne omkostninger "
+"på forskellige forespørgselsplaner for den samme forespørgsel. En "
+"standardværdi på 0 betyder at der ikke er kompileret nogen forespørgsler "
+"endnu."
 
 #: libraries/messages.inc.php:1335
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
+"Antallet af rækker der venter på at blive skrevet i INSERT DELAYED køer."
 
 #: libraries/messages.inc.php:1336
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
+"Antallet af tabeller der er blevet åbnet. Hvis åbnede tabeller er stor, er "
+"dit tabelmellemlager sandsynligvis for lille."
 
 #: libraries/messages.inc.php:1337
 msgid "The number of files that are open."
-msgstr ""
+msgstr "Antallet af filer der er åbne."
 
 #: libraries/messages.inc.php:1338
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
+msgstr "Antallet af streams der er åbne (bruges hovedsageligt til logning)."
 
 #: libraries/messages.inc.php:1339
 msgid "The number of tables that are open."
-msgstr ""
+msgstr "Antallet af tabeller der er åbne."
 
 #: libraries/messages.inc.php:1340
 msgid "The number of free memory blocks in query cache."
-msgstr ""
+msgstr "Antallet af frie hukommelsesblokke i forespørgsels-mellemlageret."
 
 #: libraries/messages.inc.php:1341
 msgid "The amount of free memory for query cache."
-msgstr ""
+msgstr "Mængden af fri hukommelse til forespørgselsmellemlageret."
 
 #: libraries/messages.inc.php:1342
 msgid "The number of cache hits."
-msgstr ""
+msgstr "Antallet af mellemlager hits."
 
 #: libraries/messages.inc.php:1343
 msgid "The number of queries added to the cache."
-msgstr ""
+msgstr "Antallet af forespørgsler tilføjet til mellemlageret."
 
 #: libraries/messages.inc.php:1344
 msgid ""
@@ -5821,80 +6031,99 @@ msgid ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
+"Antallet af forespørgsler der er blevet fjernet fra mellemlageret for at "
+"rydde hukommelse til mellemlagring af nye forespørgsler. Denne information "
+"kan hjælpe dig med at tune forespørgselsmellemlagerets størrelse. "
+"Forespørgselsmellemlageret bruger en mindst nyligt brugt (LRU) strategi til "
+"at afgøre hvilke forespørgsler der skal fjernes fra mellemlageret."
 
 #: libraries/messages.inc.php:1345
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
+"Antallet af ikke-mellemlagrede forespørgsler (ikke mulige at mellemlagre "
+"eller ikke mellemlagret grundet query_cache_type indstillingen)."
 
 #: libraries/messages.inc.php:1346
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "Antallet af forespørgsler registreret i mellemlageret."
 
 #: libraries/messages.inc.php:1347
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "Totalt antal blokke i forespørgsels-mellemlageret."
 
 #: libraries/messages.inc.php:1348
 msgctxt "$strShowStatusReset"
 msgid "Reset"
-msgstr ""
+msgstr "Nulstil"
 
 #: libraries/messages.inc.php:1349
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr ""
+msgstr "Status på failsafe replikering (endnu ikke implementeret)."
 
 #: libraries/messages.inc.php:1350
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
+"Antallet af joins der ikke bruger indeks. Hvis denne værdi ikke er 0, bør du "
+"nøje tjekke indeksene på dine tabeller."
 
 #: libraries/messages.inc.php:1351
 msgid "The number of joins that used a range search on a reference table."
-msgstr ""
+msgstr "Antallet af joins der brugte en range søgning på en reference tabel."
 
 #: libraries/messages.inc.php:1352
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
+"Antallet af joins uden nøgler der tjekker for nøglebrug efter hver række. "
+"(Hvis denne ikke er 0, bør du nøje tjekke indeks på dine tabeller.)"
 
 #: libraries/messages.inc.php:1353
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
+"Antallet af joins der brugte ranges på den første tabel. (Normalt ikke "
+"kritisk selvom tallet er stort.)"
 
 #: libraries/messages.inc.php:1354
 msgid "The number of joins that did a full scan of the first table."
-msgstr ""
+msgstr "Antallet af joins som lavede en fuld scan af den første tabel."
 
 #: libraries/messages.inc.php:1355
 msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr ""
+msgstr "Antallet af midlertidige tabeller i øjeblikket åbne af SQL tråden."
 
 #: libraries/messages.inc.php:1356
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
+"Totalt (siden opstart) antal gange replikeringsslave SQL tråden har gen-"
+"forsøgt transaktioner."
 
 #: libraries/messages.inc.php:1357
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
+"Dette er TIL hvis denne server er en slave der er forbundet til en master."
 
 #: libraries/messages.inc.php:1358
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
+"Antallet af tråde der har taget mere end slow_launch_time sekunder at "
+"oprette."
 
 #: libraries/messages.inc.php:1359
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
+"Antallet af forespørgsler der har taget mere end long_query_time sekunder."
 
 #: libraries/messages.inc.php:1360
 msgid ""
@@ -5902,22 +6131,25 @@ msgid ""
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
+"Antallet af sammenlægningskørsler sorteringsalgoritmen skulle lave. Hvis "
+"denne værdi er høj, bør du overveje at forøge værdien af  sort_buffer_size "
+"systemvariablen."
 
 #: libraries/messages.inc.php:1361
 msgid "The number of sorts that were done with ranges."
-msgstr ""
+msgstr "Antallet af sorteringer lavet med ranges."
 
 #: libraries/messages.inc.php:1362
 msgid "The number of sorted rows."
-msgstr ""
+msgstr "Antallet af sorterede rækker."
 
 #: libraries/messages.inc.php:1363
 msgid "The number of sorts that were done by scanning the table."
-msgstr ""
+msgstr "Antallet af sorteringer udført ved scanning af tabellen."
 
 #: libraries/messages.inc.php:1364
 msgid "The number of times that a table lock was acquired immediately."
-msgstr ""
+msgstr "Antallet af gange en tabellås blev givet øjeblikkeligt."
 
 #: libraries/messages.inc.php:1365
 msgid ""
@@ -5926,6 +6158,10 @@ msgid ""
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
+"Antallet af gange en tabellås ikke kunne fås øjeblikkeligt og en wait var "
+"nødvendig. Hvis denne er høj, og du har ydelsesproblemer, bør du først "
+"optimere dine forespørgsler, og derefter enten opdele din tabel eller "
+"tabeller, eller bruge replikering."
 
 #: libraries/messages.inc.php:1366
 msgid ""
@@ -5933,10 +6169,13 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
+"Antallet af tråde i tråd-mellemlageret. Mellemlager-hitraten kan udregnes "
+"som Threads_created/Forbindelser. Hvis denne værdi er rød bør du forøge din "
+"thread_cache_size."
 
 #: libraries/messages.inc.php:1367
 msgid "The number of currently open connections."
-msgstr ""
+msgstr "Antallet af i øjeblikket åbne forbindelser."
 
 #: libraries/messages.inc.php:1368
 msgid ""
@@ -5945,34 +6184,38 @@ msgid ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
+"Antallet af tråde oprettet til at håndtere forbindelser. Hvis "
+"Threads_created er stor, kan du vælge at forøge thread_cache_size værdien. "
+"(Normalt giver dette ingen nævneværdig ydelsesforbedring hvis du har god "
+"tråd-implementering.)"
 
 #: libraries/messages.inc.php:1369
 msgid "The number of threads that are not sleeping."
-msgstr ""
+msgstr "Antallet af tråde der ikke sover."
 
 #: libraries/messages.inc.php:1370
 msgid "Show dimension of tables"
-msgstr ""
+msgstr "Vis tabellernes dimensioner"
 
 #: libraries/messages.inc.php:1371
 msgid "Show tables"
-msgstr ""
+msgstr "Vis tabeller"
 
 #: libraries/messages.inc.php:1372
 msgid " Show this query here again "
-msgstr ""
+msgstr " Vis forespørgslen her igen "
 
 #: libraries/messages.inc.php:1373
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "Simplificeret Kinesisk"
 
 #: libraries/messages.inc.php:1374
 msgid "(singly)"
-msgstr ""
+msgstr "(enkeltvis)"
 
 #: libraries/messages.inc.php:1375
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 #: libraries/messages.inc.php:1377
 msgid ""
@@ -5982,23 +6225,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:1378
 msgid "Slovak"
-msgstr ""
+msgstr "Slovakisk"
 
 #: libraries/messages.inc.php:1379
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovensk"
 
 #: libraries/messages.inc.php:1380
 msgid "Small/Big All"
-msgstr ""
+msgstr "Små/store alle"
 
 #: libraries/messages.inc.php:1381
 msgid "Snap to grid"
-msgstr ""
+msgstr "Snap til gitter"
 
 #: libraries/messages.inc.php:1382
 msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
+msgstr "(eller den lokale MySQL servers socket er ikke korrekt konfigureret)"
 
 #: libraries/messages.inc.php:1383
 msgid "Socket"
@@ -6006,35 +6249,35 @@ msgstr ""
 
 #: libraries/messages.inc.php:1384
 msgid "Sort by key"
-msgstr ""
+msgstr "Sorteringsnøgle"
 
 #: libraries/messages.inc.php:1385
 msgid "Sorting"
-msgstr ""
+msgstr "Sortering"
 
 #: libraries/messages.inc.php:1386
 msgid "Sort"
-msgstr ""
+msgstr "Sorter"
 
 #: libraries/messages.inc.php:1387
 msgid "Space usage"
-msgstr ""
+msgstr "Pladsforbrug"
 
 #: libraries/messages.inc.php:1388
 msgid "Spanish"
-msgstr ""
+msgstr "Spansk"
 
 #: libraries/messages.inc.php:1389
 msgid "Words are separated by a space character (\" \")."
-msgstr ""
+msgstr "Ord adskilles af mellemrums-karakter (\" \")."
 
 #: libraries/messages.inc.php:1390
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "SQL-kompatibilitetsmodus"
 
 #: libraries/messages.inc.php:1391
 msgid "Export type"
-msgstr ""
+msgstr "Eksporttype"
 
 #: libraries/messages.inc.php:1392
 msgid "Export time in UTC"
@@ -6052,40 +6295,53 @@ msgid ""
 "please reduce your SQL query input to the single query that causes problems, "
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
+"Det er muligt at du har fundet en fejl i SQL-parseren. Undersøg venligst din "
+"forespørgsel nøje, og check at anførselstegn er rigtige og ikke giver "
+"konflikter. Andre fejlårsager kan være at du uploader en fil med binær "
+"udenfor et lukket tekstområde. Du kan også prøve din forespørgsel i MySQL "
+"kommandolinje-interfacet. MySQL-serverens fejlmelding der følger herunder, "
+"hvis der er nogen, kan også hjælpe dig med at finde problemet. Hvis du "
+"stadig har probemer eller hvis parseren fejler hvor kommandolinjeinterfacet "
+"lykkes, reducer din SQL-forespørgselsinput til den ene forespørgsel der "
+"forårsager problemet, og indsend en fejlrapport med datablokken i KLIP-"
+"sektionen herunder:"
 
 #: libraries/messages.inc.php:1394
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
+"Der ser ud til at være en fejl i din SQL-forespørgsel. MySQL-serverens "
+"fejlmelding der følger herunder, hvis der er nogen, kan også hjælpe dig med "
+"at finde problemet."
 
 #: libraries/messages.inc.php:1395
 msgid "SQL query"
-msgstr ""
+msgstr "SQL-forespørgsel"
 
 #: libraries/messages.inc.php:1396
 msgid "SQL result"
-msgstr ""
+msgstr "SQL-resultat"
 
 #: libraries/messages.inc.php:1397
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/messages.inc.php:1398
 msgid "Invalid Identifer"
-msgstr ""
+msgstr "Ugyldig identifikator"
 
 #: libraries/messages.inc.php:1399
 msgid "Unclosed quote"
-msgstr ""
+msgstr "Ikke-lukket quote"
 
 #: libraries/messages.inc.php:1400
 msgid "Unknown Punctuation String"
-msgstr ""
+msgstr "Ukendt tegnsætnings-streng"
 
 #: libraries/messages.inc.php:1401
 msgid "Stand-in structure for view"
-msgstr ""
+msgstr "Stand-in-struktur for visning"
 
 #: libraries/messages.inc.php:1402
 msgid "Start"
@@ -6093,15 +6349,15 @@ msgstr ""
 
 #: libraries/messages.inc.php:1403
 msgid "Last check"
-msgstr ""
+msgstr "Sidste check"
 
 #: libraries/messages.inc.php:1404
 msgid "Creation"
-msgstr ""
+msgstr "Oprettelse"
 
 #: libraries/messages.inc.php:1405
 msgid "Statements"
-msgstr ""
+msgstr "Erklæringer"
 
 #: libraries/messages.inc.php:1406
 msgid "static"
@@ -6112,14 +6368,16 @@ msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
+"På en travl server er der risiko for at bytetællerne løber over, så disse "
+"statistikker som rapporteret af MySQL-serveren kan være forkerte."
 
 #: libraries/messages.inc.php:1408
 msgid "Last update"
-msgstr ""
+msgstr "Sidste opdatering"
 
 #: libraries/messages.inc.php:1409
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: libraries/messages.inc.php:1410
 msgid "Stop"
@@ -6127,36 +6385,36 @@ msgstr ""
 
 #: libraries/messages.inc.php:1411
 msgid "Storage Engines"
-msgstr ""
+msgstr "Datalagre"
 
 #: libraries/messages.inc.php:1412
 msgid "Storage Engine"
-msgstr ""
+msgstr "Datalager"
 
 #: libraries/messages.inc.php:1413
 msgctxt "$strStrucCSV"
 msgid "CSV"
-msgstr ""
+msgstr "CSV-data"
 
 #: libraries/messages.inc.php:1414
 msgid "Structure and data"
-msgstr ""
+msgstr "Struktur og data"
 
 #: libraries/messages.inc.php:1415
 msgid "CSV for MS Excel"
-msgstr ""
+msgstr "CSV til MS Excel-data"
 
 #: libraries/messages.inc.php:1416
 msgid "Native MS Excel format"
-msgstr ""
+msgstr "Fødte MS Excel-data"
 
 #: libraries/messages.inc.php:1417
 msgid "Structure only"
-msgstr ""
+msgstr "Kun strukturen"
 
 #: libraries/messages.inc.php:1418
 msgid "Propose table structure"
-msgstr ""
+msgstr "Foreslå tabelstruktur"
 
 #: libraries/messages.inc.php:1419
 msgid "Structure Difference"
@@ -6164,7 +6422,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1420
 msgid "Structure for view"
-msgstr ""
+msgstr "Struktur for visning"
 
 #: libraries/messages.inc.php:1421
 msgid "structure"
@@ -6172,7 +6430,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1422
 msgid "Structure"
-msgstr ""
+msgstr "Struktur"
 
 #: libraries/messages.inc.php:1423
 msgid "Structure Synchronization"
@@ -6180,14 +6438,14 @@ msgstr ""
 
 #: libraries/messages.inc.php:1424
 msgid "Submit"
-msgstr ""
+msgstr "Send"
 
 #: libraries/messages.inc.php:1425
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "Din SQL-forespørgsel blev udført korrekt"
 
 #: libraries/messages.inc.php:1426
-#, possible-php-format
+#, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
@@ -6195,11 +6453,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:1427
 msgid "Sum"
-msgstr ""
+msgstr "Sum"
 
 #: libraries/messages.inc.php:1428
 msgid "Swedish"
-msgstr ""
+msgstr "Svensk"
 
 #: libraries/messages.inc.php:1429
 msgid "Authenticating..."
@@ -6210,7 +6468,7 @@ msgid "Hardware authentication failed"
 msgstr ""
 
 #: libraries/messages.inc.php:1431
-#, possible-php-format
+#, php-format
 msgid "File %s does not contain any key id"
 msgstr ""
 
@@ -6220,11 +6478,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:1433
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Skift til den kopierede database"
 
 #: libraries/messages.inc.php:1434
 msgid "Switch to copied table"
-msgstr ""
+msgstr "Skift til den kopierede tabel"
 
 #: libraries/messages.inc.php:1435
 msgid ""
@@ -6245,16 +6503,16 @@ msgid "Add column(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1440
-#, possible-php-format
+#, php-format
 msgid "Table %s already exists!"
-msgstr ""
+msgstr "Table %s already exists!"
 
 #: libraries/messages.inc.php:1441
 msgid "Alter column(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1442
-#, possible-php-format
+#, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr ""
 
@@ -6268,7 +6526,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1445
 msgid "Table comments"
-msgstr ""
+msgstr "Tabel kommentarer"
 
 #: libraries/messages.inc.php:1446
 msgid "Would you like to delete all the previous rows from target tables?"
@@ -6276,27 +6534,27 @@ msgstr ""
 
 #: libraries/messages.inc.php:1447
 msgid "The table name is empty!"
-msgstr ""
+msgstr "Intet tabelnavn!"
 
 #: libraries/messages.inc.php:1448
-#, possible-php-format
+#, php-format
 msgid "Table %1$s has been created."
 msgstr ""
 
 #: libraries/messages.inc.php:1449
-#, possible-php-format
+#, php-format
 msgid "Table %s has been dropped"
-msgstr ""
+msgstr "Tabel %s er slettet"
 
 #: libraries/messages.inc.php:1450
-#, possible-php-format
+#, php-format
 msgid "Table %s has been emptied"
-msgstr ""
+msgstr "Tabel %s er tømt"
 
 #: libraries/messages.inc.php:1451
-#, possible-php-format
+#, php-format
 msgid "Table %s has been flushed"
-msgstr ""
+msgstr "Tabel %s er blevet flushet"
 
 #: libraries/messages.inc.php:1452
 msgid "Insert row(s)"
@@ -6304,23 +6562,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:1453
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "Tabel ser ud til at være tom"
 
 #: libraries/messages.inc.php:1454
 msgid "Table maintenance"
-msgstr ""
+msgstr "Tabelvedligeholdelse"
 
 #: libraries/messages.inc.php:1455
 msgid "Table name"
-msgstr ""
+msgstr "Tabelnavn"
 
 #: libraries/messages.inc.php:1456
 msgid "Table of contents"
-msgstr ""
+msgstr "Indholdsfortegnelse"
 
 #: libraries/messages.inc.php:1457
 msgid "Table options"
-msgstr ""
+msgstr "Tabel-indstillinger"
 
 #: libraries/messages.inc.php:1458
 msgid "Remove column(s)"
@@ -6331,17 +6589,17 @@ msgid "Remove index(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1460
-#, possible-php-format
+#, php-format
 msgid "%s table(s)"
-msgstr ""
+msgstr "%s tabel(ler)"
 
 #: libraries/messages.inc.php:1461
 msgid "Table structure for table"
-msgstr ""
+msgstr "Struktur-dump for tabellen"
 
 #: libraries/messages.inc.php:1462
 msgid "Table"
-msgstr ""
+msgstr "Tabel"
 
 #: libraries/messages.inc.php:1463
 msgid "Update row(s)"
@@ -6349,7 +6607,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1464
 msgid "take it"
-msgstr ""
+msgstr "Vælg dette"
 
 #: libraries/messages.inc.php:1465
 msgid "Target database has been synchronized with source database"
@@ -6357,15 +6615,15 @@ msgstr ""
 
 #: libraries/messages.inc.php:1466
 msgid "Table-specific privileges"
-msgstr ""
+msgstr "Tabel-specifikke privilegier"
 
 #: libraries/messages.inc.php:1467
 msgid "Temporary data"
-msgstr ""
+msgstr "Midlertidige data"
 
 #: libraries/messages.inc.php:1468
 msgid " Because of its length,<br /> this field might not be editable "
-msgstr ""
+msgstr " På grund af feltets længde,<br /> kan det muligvis ikke ændres "
 
 #: libraries/messages.inc.php:1469
 msgid "Texy! text"
@@ -6373,97 +6631,104 @@ msgstr ""
 
 #: libraries/messages.inc.php:1470
 msgid "Thai"
-msgstr ""
+msgstr "Thai"
 
 #: libraries/messages.inc.php:1471
-#, possible-php-format
+#, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "Standardtema %s ikke fundet!"
 
 #: libraries/messages.inc.php:1472
 msgid "No preview available."
-msgstr ""
+msgstr "Intet billede til rådighed."
 
 #: libraries/messages.inc.php:1473
-#, possible-php-format
+#, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "Tema %s ikke fundet!"
 
 #: libraries/messages.inc.php:1474
-#, possible-php-format
+#, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "Ingen gyldig billedsti for tema %s fundet!"
 
 #: libraries/messages.inc.php:1475
-#, possible-php-format
+#, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "Sti til tema ikke fundet for tema %s!"
 
 #: libraries/messages.inc.php:1476
 msgid "Theme / Style"
-msgstr ""
+msgstr "Tema / Layout"
 
 #: libraries/messages.inc.php:1477
 msgid "This Host"
-msgstr ""
+msgstr "Denne Host"
 
 #: libraries/messages.inc.php:1478
 msgid "Threads"
-msgstr ""
+msgstr "Tråde"
 
 #: libraries/messages.inc.php:1479
-#, possible-php-format
+#, php-format
 msgid "Thread %s was successfully killed."
-msgstr ""
+msgstr "Tråd %s blev stoppet."
 
 #: libraries/messages.inc.php:1480
-#, possible-php-format
+#, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"Foregående import timede ud, efter genindsendelse vil fortsætte fra position "
+"%d."
 
 #: libraries/messages.inc.php:1481
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Desværre blev der ikke parset nogen data ved sidste kørsel, dette betyder "
+"normalt at phpMyAdmin ikke vil være i stand til at gennemføre importen med "
+"mindre du forøger PHP-tidsbegrænsningerne."
 
 #: libraries/messages.inc.php:1482
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"Script timeout nået, hvis du vil afslutte importen, indsend venligst samme "
+"fil igen og importen vil fortsætte hvor den slap."
 
 #: libraries/messages.inc.php:1483
 msgid "Time"
-msgstr ""
+msgstr "Tid"
 
 #: libraries/messages.inc.php:1484
 msgid "to/from page"
-msgstr ""
+msgstr "til/fra side"
 
 #: libraries/messages.inc.php:1485
 msgid "Toggle scratchboard"
-msgstr ""
+msgstr "tegnebræt til/fra"
 
 #: libraries/messages.inc.php:1486
 msgid "Toggle small/big"
-msgstr ""
+msgstr "Skift mellem små/store"
 
 #: libraries/messages.inc.php:1487
 msgid "To select relation, click :"
-msgstr ""
+msgstr "For at vælge relation, klik :"
 
 #: libraries/messages.inc.php:1488
 msgid "total"
-msgstr ""
+msgstr "total"
 
 #: libraries/messages.inc.php:1489
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #: libraries/messages.inc.php:1490
-#, possible-php-format
+#, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr ""
 
@@ -6472,7 +6737,7 @@ msgid "Activate now"
 msgstr ""
 
 #: libraries/messages.inc.php:1492
-#, possible-php-format
+#, php-format
 msgid "Activate tracking for %s.%s"
 msgstr ""
 
@@ -6485,7 +6750,7 @@ msgid "Create version"
 msgstr ""
 
 #: libraries/messages.inc.php:1495
-#, possible-php-format
+#, php-format
 msgid "Create version %s of %s.%s"
 msgstr ""
 
@@ -6510,12 +6775,12 @@ msgid "Deactivate now"
 msgstr ""
 
 #: libraries/messages.inc.php:1501
-#, possible-php-format
+#, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1502
-#, possible-php-format
+#, php-format
 msgid "Export as %s"
 msgstr ""
 
@@ -6536,7 +6801,7 @@ msgid "Close"
 msgstr ""
 
 #: libraries/messages.inc.php:1507
-#, possible-php-format
+#, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
@@ -6545,7 +6810,7 @@ msgid "Tracking report"
 msgstr ""
 
 #: libraries/messages.inc.php:1509
-#, possible-php-format
+#, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
@@ -6638,22 +6903,22 @@ msgid "Username"
 msgstr ""
 
 #: libraries/messages.inc.php:1532
-#, possible-php-format
+#, php-format
 msgid "Tracking for %s.%s , version %s is activated."
 msgstr ""
 
 #: libraries/messages.inc.php:1533
-#, possible-php-format
+#, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
 msgstr ""
 
 #: libraries/messages.inc.php:1534
-#, possible-php-format
+#, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
 msgstr ""
 
 #: libraries/messages.inc.php:1535
-#, possible-php-format
+#, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
@@ -6669,19 +6934,19 @@ msgstr ""
 
 #: libraries/messages.inc.php:1538
 msgid "Traditional Chinese"
-msgstr ""
+msgstr "Traditionelt Kinesisk"
 
 #: libraries/messages.inc.php:1539
 msgid "Traditional Spanish"
-msgstr ""
+msgstr "Traditionelt Spansk"
 
 #: libraries/messages.inc.php:1540
 msgid "Traffic"
-msgstr ""
+msgstr "Trafik"
 
 #: libraries/messages.inc.php:1541
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "Transaktionskoordinator"
 
 #: libraries/messages.inc.php:1542
 msgid ""
@@ -6690,26 +6955,34 @@ msgid ""
 "of a field which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
+"Viser et link til at downloade et felts binære data. Første indstilling er "
+"filnavnet på den binære fil. Anden indstilling er et muligt feltnavn fra en "
+"tabelrække indeholdende filnavnet. Hvis du bruger anden indstilling, skal "
+"feltet i den første indstilling være sat til en tom streng."
 
 #: libraries/messages.inc.php:1543
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
+"Viser hexadecimal udgave af data. Valgfrit førsteparameter angiver hvor "
+"meget plads der tilføjes (standard er 2 nibbles)."
 
 #: libraries/messages.inc.php:1544
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
+"Viser et klikbart minibillede; indstillinger: bredde,højde i pixel. Det "
+"originale perspektiv bevares."
 
 #: libraries/messages.inc.php:1545
 msgid "Displays a link to download this image."
-msgstr ""
+msgstr "Viser et link til dette billede (f.eks. direkte blob-download)."
 
 #: libraries/messages.inc.php:1546
 msgid "See image/jpeg: inline"
-msgstr ""
+msgstr "Se under image/jpeg: inline"
 
 #: libraries/messages.inc.php:1547
 msgid ""
@@ -6722,6 +6995,14 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
+"Viser et TIME, TIMESTAMP, DATETIME eller numerisk unix tidsstempel-felt som "
+"formatteret dato. Den første indstilling er offset (i timer) som vil blive "
+"lagt til tidsstemplet (Standard: 0). Brug anden indstilling til at angive en "
+"anderledes dato-/tidsformatstreng. Tredje indstilling fastsætter om du vil "
+"se lokal dato eller UTC (brug \"local\" eller \"utc\" strenge) til dette. Ud "
+"fra dette har datoformatet forskellig værdi - for \"local\" se "
+"dokumentationen for PHP's strftime() funktion og for \"utc\" sker det ved "
+"brug af gmdate() funktionen."
 
 #: libraries/messages.inc.php:1548
 msgid ""
@@ -6736,12 +7017,23 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
+"KUN LINUX: Starter en ekstern applikation og føder feltdata via standard "
+"input. Returnerer standardoutputtet for applikationen. Standard er Tidy, for "
+"korrekt udskrivning af HTML-kode. Af sikkerhedsårsager er du nødt til "
+"manuelt at redigere filen libraries/transformations/text_plain__external.inc."
+"php og indsætte de værktøjer du vil tillade kørsel af. Første indstilling er "
+"så nummeret på det program du vil bruge og den anden indstilling er "
+"parametrene for dette program. Tredie parameter vil, hvis sat til 1, "
+"konvertere outputtet vha. htmlspecialchars() (Standard er 1). Et fjerde "
+"parameter vil, hvis sat til 1, sætte et NOWRAP om cellens indhold så hele "
+"outputtet bliver vist uden omformattering (Standard 1)"
 
 #: libraries/messages.inc.php:1549
 msgid ""
 "Displays the contents of the field as-is, without running it through "
 "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgstr ""
+"Bevarer original formattering af feltet. Der laves ikke nogen Escaping."
 
 #: libraries/messages.inc.php:1550
 msgid ""
@@ -6749,6 +7041,9 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
+"Viser et billede og et link, feltet indeholder filnavnet; første indstilling "
+"er et præfiks som \"http://domain.com/\", anden indstilling er bredde i "
+"pixel, tredie er højden."
 
 #: libraries/messages.inc.php:1551
 msgid ""
@@ -6756,10 +7051,12 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
+"Viser et link, feltet indeholder filnavnet; første indstilling er et præfiks "
+"som \"http://domain.com/\", anden indstilling er en titel på linket."
 
 #: libraries/messages.inc.php:1552
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "Formatterer tekst som SQL-forespørgsel med syntaks farvemarkering."
 
 #: libraries/messages.inc.php:1553
 msgid ""
@@ -6769,6 +7066,11 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"...\")."
 msgstr ""
+"Viser en del af en streng. Første parameter er antal tegn der skal springes "
+"over fra begyndelsen af en streng (Standard 0). Andet parameter er antal "
+"tegn der returneres (Standard indtil enden af strengen). Det tredie "
+"parameter definerer hvilke tegn der skal føjes til foran eller efter "
+"outputtet når en substring (understreng) returneres (Standard: \"...\") ."
 
 #: libraries/messages.inc.php:1554
 msgid "Triggers"
@@ -6776,216 +7078,230 @@ msgstr ""
 
 #: libraries/messages.inc.php:1555
 msgid "Truncate Shown Queries"
-msgstr ""
+msgstr "Trunkér viste forespørgsler"
 
 #: libraries/messages.inc.php:1556
 msgid "Turkish"
-msgstr ""
+msgstr "Tyrkisk"
 
 #: libraries/messages.inc.php:1557
 msgid "Type"
-msgstr ""
+msgstr "Datatype"
 
 #: libraries/messages.inc.php:1559
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainsk"
 
 #: libraries/messages.inc.php:1560
 msgid "Uncheck All"
-msgstr ""
+msgstr "Fjern alle mærker"
 
 #: libraries/messages.inc.php:1561
 msgid "Unicode"
-msgstr ""
+msgstr "Unicode"
 
 #: libraries/messages.inc.php:1562
 msgid "Unique"
-msgstr ""
+msgstr "Unik"
 
 #: libraries/messages.inc.php:1563
 msgid "unknown"
-msgstr ""
+msgstr "ukendt"
 
 #: libraries/messages.inc.php:1564
 msgid "Unselect All"
-msgstr ""
+msgstr "Fravælg alle"
 
 #: libraries/messages.inc.php:1565
-#, possible-php-format
+#, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Du forsøgte at indlæse en fil med u-understøttet komprimering (%s). "
+"Understøttelse af denne funktion er ikke implementeret eller ikke slået til "
+"for din konfiguration."
 
 #: libraries/messages.inc.php:1566
-#, possible-php-format
+#, php-format
 msgid "You have updated the privileges for %s."
-msgstr ""
+msgstr "Du har opdateret privilegierne for %s."
 
 #: libraries/messages.inc.php:1567
 msgid "The profile has been updated."
-msgstr ""
+msgstr "Profilen er blevet opdateret."
 
 #: libraries/messages.inc.php:1568
 msgid "Update Query"
-msgstr ""
+msgstr "Opdater forespørgsel"
 
 #: libraries/messages.inc.php:1569
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
+"Se venligst Dokumentationen for oplysninger om hvordan du opdaterer din "
+"Column_comments (kolonne-kommentarer) tabel"
 
 #: libraries/messages.inc.php:1570
-#, possible-php-format
+#, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "Du burde opdatere til %s %s eller senere."
 
 #: libraries/messages.inc.php:1571
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Kunne ikke skrive fil til disk."
 
 #: libraries/messages.inc.php:1572
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Filupload stoppet af udvidelse."
 
 #: libraries/messages.inc.php:1573
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Den uploadede fil overstiger MAX_FILE_SIZE direktivet som angivet i HTML-"
+"formularen."
 
 #: libraries/messages.inc.php:1574
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "Den uploadede fil overstiger upload_max_filesize direktivet i php.ini."
 
 #: libraries/messages.inc.php:1575
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Mangler en midlertidig mappe."
 
 #: libraries/messages.inc.php:1576
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Den uploadede fil blev kun delvist uploaded."
 
 #: libraries/messages.inc.php:1577
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Ukendt fejl i filupload."
 
 #: libraries/messages.inc.php:1578
-#, possible-php-format
+#, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
 msgstr ""
+"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst %"
+"sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
+"begrænsning."
 
 #: libraries/messages.inc.php:1579
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "Fil-uploads er ikke tilladte på denne server."
 
 #: libraries/messages.inc.php:1580
 msgid "Usage"
-msgstr ""
+msgstr "Benyttelse"
 
 #: libraries/messages.inc.php:1581
 msgid "Enclose table and field names with backquotes"
-msgstr ""
+msgstr "Brug \"backquotes\" omkring tabeller og felters navne"
 
 #: libraries/messages.inc.php:1582
 msgid "Use Host Table"
-msgstr ""
+msgstr "Brug Host Tabel"
 
 #: libraries/messages.inc.php:1583
-#, possible-php-format
+#, php-format
 msgid "The user %s already exists!"
-msgstr ""
+msgstr "Brugeren %s findes i forvejen!"
 
 #: libraries/messages.inc.php:1584
 msgid "The user name is empty!"
-msgstr ""
+msgstr "Intet brugernavn!"
 
 #: libraries/messages.inc.php:1585
 msgid "User name"
-msgstr ""
+msgstr "Brugernavn"
 
 #: libraries/messages.inc.php:1586
 msgid "The selected user was not found in the privilege table."
-msgstr ""
+msgstr "Den valgte bruger blev ikke fundet i privilegietabellen."
 
 #: libraries/messages.inc.php:1587
 msgid "User overview"
-msgstr ""
+msgstr "Brugeroversigt"
 
 #: libraries/messages.inc.php:1588
 msgid "The selected users have been deleted successfully."
-msgstr ""
+msgstr "De valgte brugere er blevet korrekt slettet."
 
 #: libraries/messages.inc.php:1589
-#, possible-php-format
+#, php-format
 msgid "Users having access to &quot;%s&quot;"
-msgstr ""
+msgstr "Brugere med adgang til &quot;%s&quot;"
 
 #: libraries/messages.inc.php:1590
 msgid "User"
-msgstr ""
+msgstr "Bruger"
 
 #: libraries/messages.inc.php:1591
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
+"Brug TAB-tasten for at flytte dig fra værdi til værdi, eller CTRL"
+"+piletasterne til at flytte frit omkring"
 
 #: libraries/messages.inc.php:1592
 msgid "Use Tables"
-msgstr ""
+msgstr "Benyt tabeller"
 
 #: libraries/messages.inc.php:1593
 msgid "Use text field"
-msgstr ""
+msgstr "Brug tekstfelt"
 
 #: libraries/messages.inc.php:1594
 msgid "Use this value"
-msgstr ""
+msgstr "Brug denne værdi"
 
 #: libraries/messages.inc.php:1597
-#, possible-php-format
+#, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
+"SQL-validatoren kunne ikke initialiseres. Check venligst at du har de "
+"nødvendige PHP-udvidelser installeret som beskrevet i %sdokumentationen%s."
 
 #: libraries/messages.inc.php:1598
 msgid "Value"
-msgstr ""
+msgstr "Værdi"
 
 #: libraries/messages.inc.php:1599
 msgid "Variable"
-msgstr ""
+msgstr "Variabel"
 
 #: libraries/messages.inc.php:1600
 msgid "Version information"
-msgstr ""
+msgstr "Versionsinformation"
 
 #: libraries/messages.inc.php:1601
 msgid "View dump (schema) of databases"
-msgstr ""
+msgstr "Vis dump (skema) for databaser"
 
 #: libraries/messages.inc.php:1602
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "Vis dump (skema) af database"
 
 #: libraries/messages.inc.php:1603
 msgid "View dump (schema) of table"
-msgstr ""
+msgstr "Vis dump (skema) over tabel"
 
 #: libraries/messages.inc.php:1604
-#, possible-php-format
+#, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
 
 #: libraries/messages.inc.php:1605
-#, possible-php-format
+#, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "Visning %s er blevet droppet"
 
 #: libraries/messages.inc.php:1606
 msgid "View image"
@@ -6993,7 +7309,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1607
 msgid "VIEW name"
-msgstr ""
+msgstr "VIEW navn"
 
 #: libraries/messages.inc.php:1608
 msgid "View video"
@@ -7001,28 +7317,28 @@ msgstr ""
 
 #: libraries/messages.inc.php:1609
 msgid "View"
-msgstr ""
+msgstr "Visning"
 
 #: libraries/messages.inc.php:1611
 msgid "The directory you set for upload work cannot be reached"
-msgstr ""
+msgstr "Mappen du har sat til upload-arbejde kan ikke findes"
 
 #: libraries/messages.inc.php:1612
 msgid "web server upload directory"
-msgstr ""
+msgstr "webserver upload-mappe"
 
 #: libraries/messages.inc.php:1613
 msgid "Web server"
 msgstr ""
 
 #: libraries/messages.inc.php:1614
-#, possible-php-format
+#, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Velkommen til %s"
 
 #: libraries/messages.inc.php:1615
 msgid "West European"
-msgstr ""
+msgstr "Vesteuropæisk"
 
 #: libraries/messages.inc.php:1616
 msgid "Wiki"
@@ -7030,7 +7346,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1617
 msgid "wildcard"
-msgstr ""
+msgstr "jokertegn"
 
 #: libraries/messages.inc.php:1618
 msgid ""
@@ -7038,18 +7354,21 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"Det angivne browservindue kunne ikke opdateres. Måske har du lukket det "
+"overliggende vindue eller din browser blokerer for tvær-vindue opdateringer "
+"i sikkerhedsindstillingerne"
 
 #: libraries/messages.inc.php:1619
 msgid "With selected:"
-msgstr ""
+msgstr "Med det markerede:"
 
 #: libraries/messages.inc.php:1620
 msgid "Write requests"
-msgstr ""
+msgstr "Write-anmodninger"
 
 #: libraries/messages.inc.php:1621
 msgid "Wrong username/password. Access denied."
-msgstr ""
+msgstr "Forkert brugernavn/kodeord. Adgang nægtet."
 
 #: libraries/messages.inc.php:1623
 msgid ""
@@ -7087,19 +7406,20 @@ msgstr ""
 
 #: libraries/messages.inc.php:1631
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 #: libraries/messages.inc.php:1633
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: libraries/messages.inc.php:1635
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
+"Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen."
 
 #: libraries/messages.inc.php:1636
 msgid "\"zipped\""
-msgstr ""
+msgstr "\"zippet\""
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
