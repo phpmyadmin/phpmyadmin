@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-12 10:59+0200\n"
+"PO-Revision-Date: 2010-03-12 11:00+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -3486,7 +3486,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:778
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Přidat replikačního uživatele pro podřízený server"
 
 #: libraries/messages.inc.php:779
 #, php-format
