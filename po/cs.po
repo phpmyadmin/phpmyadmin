@@ -1264,7 +1264,7 @@ msgstr "Stáhnout soubor"
 
 #: libraries/messages.inc.php:277
 msgid "Do you really want to "
-msgstr "Opravdu si přejete vykonat příkaz"
+msgstr "Opravdu si přejete vykonat příkaz "
 
 #: libraries/messages.inc.php:278
 msgid "You are about to DESTROY a complete database!"
