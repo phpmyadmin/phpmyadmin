@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-12 11:16+0200\n"
-"Last-Translator: Michal <michal@cihar.com>\n"
+"PO-Revision-Date: 2010-03-12 17:49+0200\n"
+"Last-Translator:  <olivier.tetard@miskin.fr>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -460,10 +460,9 @@ msgstr ""
 "base %s?"
 
 #: libraries/messages.inc.php:96
-#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "désactivé"
+msgstr "Désactivé"
 
 #: libraries/messages.inc.php:97
 msgid "Disable"
@@ -474,10 +473,9 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "Vous allez DÉSACTIVER un dépôt BLOB!"
 
 #: libraries/messages.inc.php:99
-#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
-msgstr "activé"
+msgstr "Activé"
 
 #: libraries/messages.inc.php:100
 msgid "Enable"
@@ -488,7 +486,6 @@ msgid "Remove BLOB Repository Reference"
 msgstr "Supprimer les références au dépôt BLOB"
 
 #: libraries/messages.inc.php:102
-#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Réparer"
@@ -978,7 +975,6 @@ msgid "Croatian"
 msgstr "croate"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1034,7 +1030,6 @@ msgid "'%s' database does not exist."
 msgstr "La base de données '%s' n'existe pas."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Bases de données"
 

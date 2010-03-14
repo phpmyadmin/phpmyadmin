@@ -4,13 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-12 09:17+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-03-13 00:41+0200\n"
+"Last-Translator:  <ronaldinia@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -30,8 +33,9 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin a încercat să se conecteze la serverul MySQL, dar acesta a "
-"respins conexiunea. Ar trebui verificat dacă datele din config.inc.php sînt "
-"corecte."
+"respins conexiunea. Verificați numele hostului, utilizatorul și parola în "
+"fișierul de configurare și asigurați-vă că ele corespund informațiilor "
+"furnizate de administratorul serverului MySQL."
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
@@ -91,31 +95,31 @@ msgstr "EiO"
 
 #: libraries/messages.inc.php:23
 msgid "Sun"
-msgstr "Lun"
+msgstr "Dum"
 
 #: libraries/messages.inc.php:23
 msgid "Mon"
-msgstr "Mar"
+msgstr "Lun"
 
 #: libraries/messages.inc.php:23
 msgid "Tue"
-msgstr "Mie"
+msgstr "Mar"
 
 #: libraries/messages.inc.php:23
 msgid "Wed"
-msgstr "Joi"
+msgstr "Mie"
 
 #: libraries/messages.inc.php:23
 msgid "Thu"
-msgstr "Vin"
+msgstr "Joi"
 
 #: libraries/messages.inc.php:23
 msgid "Fri"
-msgstr "Sîm"
+msgstr "Vin"
 
 #: libraries/messages.inc.php:23
 msgid "Sat"
-msgstr "Dum"
+msgstr "Sâm"
 
 #: libraries/messages.inc.php:24
 msgid "Jan"
@@ -345,7 +349,7 @@ msgstr "Oricare utilizator"
 
 #: libraries/messages.inc.php:68
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Faceți modificările selectate"
 
 #: libraries/messages.inc.php:69
 msgid ""
