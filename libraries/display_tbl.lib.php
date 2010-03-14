@@ -1365,12 +1365,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
                         $row[$i]     = PMA_printable_bit_value($row[$i], $meta->length);
-                    } elseif (stristr($field_flags, 'BINARY') && $meta->type == 'string') {
-                        if ($_SESSION['tmp_user_values']['display_binary'] || (isset($GLOBALS['is_analyse']) && $GLOBALS['is_analyse'])) {
+                        // some results of PROCEDURE ANALYSE() are reported as
+                        // being BINARY but they are quite readable,
+                        // so don't treat them as BINARY
+                    } elseif (stristr($field_flags, 'BINARY') && $meta->type == 'string' && !(isset($GLOBALS['is_analyse']) && $GLOBALS['is_analyse'])) {
+                        if ($_SESSION['tmp_user_values']['display_binary']) {
                             // user asked to see the real contents of BINARY
-                            // fields, or we detected a PROCEDURE ANALYSE in
-                            // the query (results are reported as being
-                            // binary strings)
+                            // fields
                             if ($_SESSION['tmp_user_values']['display_binary_as_hex']) {
                             	$row[$i] = bin2hex($row[$i]);
 							}
