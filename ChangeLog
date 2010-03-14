@@ -53,6 +53,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 3.3.2.0 (not yet released)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
   MySQL version, thanks to Dieter Adriaenssens - ruleant
+- bug #2966078 [browse] Incorrect LIMIT is saved and sticks while browsing
 
 3.3.1.0 (not yet released)
 - bug #2941037 [core] Database structure not sorted by table correctly 

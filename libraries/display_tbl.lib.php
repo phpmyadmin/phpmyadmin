@@ -1674,7 +1674,11 @@ function PMA_displayTable_checkConfigParams()
         $_SESSION['tmp_user_values']['query'][$sql_key]['repeat_cells'] = $GLOBALS['cfg']['RepeatCells'];
     }
 
-    if (PMA_isValid($_REQUEST['session_max_rows'], 'numeric') || $_REQUEST['session_max_rows'] == 'all') {
+    // as this is a form value, the type is always string so we cannot
+    // use PMA_isValid($_REQUEST['session_max_rows'], 'integer')
+    if ((PMA_isValid($_REQUEST['session_max_rows'], 'numeric') 
+        && (int) $_REQUEST['session_max_rows'] == $_REQUEST['session_max_rows']) 
+        || $_REQUEST['session_max_rows'] == 'all') {
         $_SESSION['tmp_user_values']['query'][$sql_key]['max_rows'] = $_REQUEST['session_max_rows'];
         unset($_REQUEST['session_max_rows']);
     } elseif (empty($_SESSION['tmp_user_values']['query'][$sql_key]['max_rows'])) {
