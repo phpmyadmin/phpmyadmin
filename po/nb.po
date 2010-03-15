@@ -922,7 +922,6 @@ msgid "Create table"
 msgstr "Opprett tabell"
 
 #: libraries/messages.inc.php:200
-#, fuzzy
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Opprett tabell"
