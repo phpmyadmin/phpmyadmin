@@ -3423,7 +3423,6 @@ msgid "Reloading the privileges"
 msgstr "Oppfrisker privilegiene"
 
 #: libraries/messages.inc.php:762
-#, fuzzy
 msgid "Reload navigation frame"
 msgstr "Endre navigasjonsrammen"
 
