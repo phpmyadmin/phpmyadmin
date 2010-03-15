@@ -106,6 +106,8 @@ for lang in lang/*.inc.php ; do
             s/FULL NAME <EMAIL@ADDRESS>/Automatically generated/;
             s/Report-Msgid-Bugs-To: .*\\\\n/Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\\\\n/;
             " po/$langcode-update.po
+        ./scripts/mergepo.py po/$langcode.po po/$langcode-update.po
         msgmerge -U -C po/$langcode-update.po po/$langcode.po po/phpmyadmin.pot
+        rm po/$langcode-update.po po/$loc.php
     fi
 done
