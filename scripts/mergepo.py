@@ -11,6 +11,7 @@ for origentry in po.fuzzy_entries():
         if origentry.msgctxt is None and origentry.msgid == updateentry.msgid:
             origentry.msgstr = updateentry.msgstr
             origentry.flags.remove('fuzzy')
+            break
 
 po.save()
 
