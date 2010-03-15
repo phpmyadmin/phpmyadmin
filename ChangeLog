@@ -16,6 +16,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Dieter Adriaenssens - ruleant
 - bug #2961198 [parser] Querying a table named "data"
 - bug #2931429 [structure] Editing long triggers
+- bug #2970769 [structure] Incorrect reference to mootools-more.js 
 
 3.3.0.0 (2010-03-07)
 + rfe #2308632 [edit] Use hex for (var)binary fields,
