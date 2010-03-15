@@ -429,6 +429,7 @@ foreach ($rows as $row_id => $vrow) {
         $real_null_value = FALSE;
         $special_chars_encoded = '';
         if (isset($vrow)) {
+            // (we are editing)
             // On a BLOB that can have a NULL value, the is_null() returns
             // true if it has no content but for me this is different than
             // having been set explicitely to NULL so I put an exception here
@@ -464,6 +465,7 @@ foreach ($rows as $row_id => $vrow) {
                 . $field_name_appendix . '" value="'
                 . htmlspecialchars($vrow[$field['Field']]) . '" />';
         } else {
+            // (we are inserting)
             // loic1: display default values
             if (!isset($field['Default'])) {
                 $field['Default'] = '';
@@ -479,6 +481,10 @@ foreach ($rows as $row_id => $vrow) {
             }
             $backup_field  = '';
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
+            // this will select the UNHEX function while inserting
+            if (($field['is_binary'] || $field['is_blob']) && $_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
+                $field['display_binary_as_hex'] = true;
+            }
         }
 
         $idindex  = ($o_rows * $fields_cnt) + $i + 1;
