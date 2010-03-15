@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-15 16:27+0200\n"
+"PO-Revision-Date: 2010-03-15 16:28+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -3018,7 +3018,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:668
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Raske steg for å sette opp avansert funksjonalitet:"
 
 #: libraries/messages.inc.php:669
 msgid ""
