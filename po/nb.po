@@ -3624,7 +3624,7 @@ msgid "Slave IO Thread not running!"
 msgstr "Slave IO Thread kjører ikke!"
 
 #: libraries/messages.inc.php:803
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
