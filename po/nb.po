@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-15 16:14+0200\n"
+"PO-Revision-Date: 2010-03-15 16:15+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -483,7 +483,6 @@ msgid "Remove BLOB Repository Reference"
 msgstr "Fjern BLOB lager referanse"
 
 #: libraries/messages.inc.php:102
-#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Reparer"
