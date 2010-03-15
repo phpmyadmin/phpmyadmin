@@ -428,6 +428,7 @@ foreach ($rows as $row_id => $vrow) {
         $real_null_value = FALSE;
         $special_chars_encoded = '';
         if (isset($vrow)) {
+            // (we are editing)
             if (is_null($vrow[$field['Field']])) {
                 $real_null_value = TRUE;
                 $vrow[$field['Field']]    = '';
@@ -460,6 +461,7 @@ foreach ($rows as $row_id => $vrow) {
                 . $field_name_appendix . '" value="'
                 . htmlspecialchars($vrow[$field['Field']]) . '" />';
         } else {
+            // (we are inserting)
             // display default values
             if (!isset($field['Default'])) {
                 $field['Default'] = '';
@@ -475,6 +477,10 @@ foreach ($rows as $row_id => $vrow) {
             }
             $backup_field  = '';
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
+            // this will select the UNHEX function while inserting
+            if (($field['is_binary'] || $field['is_blob']) && $_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields'] && ! $cfg['ProtectBinary']) {
+                $field['display_binary_as_hex'] = true;
+            }
         }
 
         $idindex  = ($o_rows * $fields_cnt) + $i + 1;
