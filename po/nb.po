@@ -2949,7 +2949,7 @@ msgstr "Siden har blitt opprettet"
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
-msgstr ""
+msgstr "Sideopprettelsen feilet"
 
 #: libraries/messages.inc.php:653
 msgid "PDF"
