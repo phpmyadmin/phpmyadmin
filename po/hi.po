@@ -986,7 +986,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
 msgid "Databases"
-msgstr ""
+msgstr " डाटाबेस"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1142,7 +1142,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:259
 msgid "Description"
-msgstr ""
+msgstr "वर्णन"
 
 #: libraries/messages.inc.php:260
 msgid "Designer"
@@ -1255,7 +1255,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
 msgid "Edit"
-msgstr ""
+msgstr "एडिट"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1375,7 +1375,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
 msgid "Explain SQL"
-msgstr ""
+msgstr "SQL की   व्याख्या "
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2849,7 +2849,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
 msgid "Create PHP Code"
-msgstr ""
+msgstr "PHP Code बनाओ"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3159,7 +3159,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
 msgid "Query window"
-msgstr ""
+msgstr "क्वरी पेज"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3744,7 +3744,7 @@ msgstr " टेबल चुनिये"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
 msgid "Save as file"
-msgstr ""
+msgstr "फाईल मे सेव करें"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"

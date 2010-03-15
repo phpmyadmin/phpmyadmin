@@ -776,7 +776,7 @@ msgstr "完全な INSERT 文を作成する"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
 msgid "Compression"
-msgstr ""
+msgstr "圧縮"
 
 #: libraries/messages.inc.php:171
 #, php-format
@@ -915,7 +915,7 @@ msgstr "リレーションを作成"
 
 #: libraries/messages.inc.php:199
 msgid "Create table"
-msgstr ""
+msgstr "テーブルを作成"
 
 #: libraries/messages.inc.php:200
 msgctxt "$strCreateTableShort"
@@ -958,7 +958,7 @@ msgstr "クロアチア語"
 
 #: libraries/messages.inc.php:209
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -1013,7 +1013,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
 msgid "Databases"
-msgstr ""
+msgstr "データベース"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1175,7 +1175,7 @@ msgstr "降順"
 
 #: libraries/messages.inc.php:259
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: libraries/messages.inc.php:260
 msgid "Designer"
@@ -1213,7 +1213,7 @@ msgstr "ダーティページ"
 
 #: libraries/messages.inc.php:267
 msgid "Disabled"
-msgstr ""
+msgstr "無効"
 
 #: libraries/messages.inc.php:268
 msgid "Disable foreign key checks"
@@ -1291,7 +1291,7 @@ msgstr "動的"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1315,7 +1315,7 @@ msgstr "返り値が空でした(行数0)"
 
 #: libraries/messages.inc.php:293
 msgid "Enabled"
-msgstr ""
+msgstr "有効"
 
 #: libraries/messages.inc.php:294
 msgid "Enclose export in a transaction"
@@ -1411,7 +1411,7 @@ msgstr "ブックマークされたクエリを実行する"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
 msgid "Explain SQL"
-msgstr ""
+msgstr "EXPLAIN で確認"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1562,7 +1562,7 @@ msgstr "外部キーを追加しました"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
 msgid "Format"
-msgstr ""
+msgstr "フォーマット"
 
 #: libraries/messages.inc.php:349
 msgid "Missing value in the form!"
@@ -1784,7 +1784,7 @@ msgstr "インポートファイル"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
 msgid "Format of imported file"
-msgstr ""
+msgstr "インポートするファイルの形式"
 
 #: libraries/messages.inc.php:407
 msgid "Import"
@@ -1821,7 +1821,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "Openスプレッドシート"
 
 #: libraries/messages.inc.php:415
 msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -2550,7 +2550,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:571
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 #: libraries/messages.inc.php:572
 msgid "No"
@@ -2651,7 +2651,7 @@ msgstr "<b>合計:</b> <i>%s</i> 件"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
 msgid "Tables"
-msgstr ""
+msgstr "テーブル"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2695,7 +2695,7 @@ msgstr "オーバーヘッド"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "既存のファイルは上書き"
 
 #: libraries/messages.inc.php:609
 msgid "Packed"
@@ -2966,7 +2966,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
 msgid "Create PHP Code"
-msgstr ""
+msgstr "PHP コードの作成"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3283,7 +3283,7 @@ msgstr "クエリキャッシュ"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
 msgid "Query window"
-msgstr ""
+msgstr "クエリウィンドウ"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3345,7 +3345,7 @@ msgstr "参照整合性の確認:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
 msgid "Refresh"
-msgstr ""
+msgstr "再描画"
 
 #: libraries/messages.inc.php:753
 msgid "Relational display field"
@@ -3436,7 +3436,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
-msgstr ""
+msgstr "修復"
 
 #: libraries/messages.inc.php:774
 msgid "Repair table"
@@ -3648,7 +3648,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:819
 msgid "Reset"
-msgstr ""
+msgstr "リセット"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3871,7 +3871,7 @@ msgstr "テーブルを選択してください"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
 msgid "Save as file"
-msgstr ""
+msgstr "ファイルに保存する"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -3891,7 +3891,7 @@ msgstr "サーバ"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
 msgid "Servers"
-msgstr ""
+msgstr "サーバ"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
@@ -4561,7 +4561,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
 msgid "Number of records (queries) to skip from start"
-msgstr ""
+msgstr "先頭から数えたスキップするレコード(クエリ)の数"
 
 #: libraries/messages.inc.php:1034
 msgid "Partial import: skip queries"
@@ -5357,7 +5357,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
 msgid "Validate SQL"
-msgstr ""
+msgstr "SQL の検証"
 
 #: libraries/messages.inc.php:1217
 msgid ""

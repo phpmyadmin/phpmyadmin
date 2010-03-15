@@ -768,7 +768,7 @@ msgstr "Повна вставка"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
 msgid "Compression"
-msgstr ""
+msgstr "Стискання"
 
 #: libraries/messages.inc.php:171
 #, php-format
@@ -952,7 +952,7 @@ msgstr "Кроатське"
 
 #: libraries/messages.inc.php:209
 msgid "CSV"
-msgstr ""
+msgstr "CSV дані"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -1007,7 +1007,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
 msgid "Databases"
-msgstr ""
+msgstr "Бази Даних"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1168,7 +1168,7 @@ msgstr "Спадаючий"
 
 #: libraries/messages.inc.php:259
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #: libraries/messages.inc.php:260
 msgid "Designer"
@@ -1203,7 +1203,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:267
 msgid "Disabled"
-msgstr ""
+msgstr "заблоковано"
 
 #: libraries/messages.inc.php:268
 msgid "Disable foreign key checks"
@@ -1281,7 +1281,7 @@ msgstr "динамічний"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
 msgid "Edit"
-msgstr ""
+msgstr "Редагувати"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1305,7 +1305,7 @@ msgstr "MySQL повернула пустий результат (тобто н�
 
 #: libraries/messages.inc.php:293
 msgid "Enabled"
-msgstr ""
+msgstr "дозволено"
 
 #: libraries/messages.inc.php:294
 msgid "Enclose export in a transaction"
@@ -1401,7 +1401,7 @@ msgstr "Виконати збережений запит"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
 msgid "Explain SQL"
-msgstr ""
+msgstr "Тлумачити SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1546,7 +1546,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 #: libraries/messages.inc.php:349
 msgid "Missing value in the form!"
@@ -2504,7 +2504,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:571
 msgid "None"
-msgstr ""
+msgstr "Немає"
 
 #: libraries/messages.inc.php:572
 msgid "No"
@@ -2604,7 +2604,7 @@ msgstr "<b>Разом:</b> <i>%s</i> співпадіння"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
 msgid "Tables"
-msgstr ""
+msgstr "Таблиць"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2648,7 +2648,7 @@ msgstr "Надмірні видатки"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "Заміняти існуючі файли"
 
 #: libraries/messages.inc.php:609
 msgid "Packed"
@@ -2894,7 +2894,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
 msgid "Create PHP Code"
-msgstr ""
+msgstr "Створити PHP код"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3215,7 +3215,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
 msgid "Query window"
-msgstr ""
+msgstr "Вікно запиту"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3581,7 +3581,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:819
 msgid "Reset"
-msgstr ""
+msgstr "Перевстановити"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3804,7 +3804,7 @@ msgstr "Вибрати таблиці"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
 msgid "Save as file"
-msgstr ""
+msgstr "Відіслати"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -5284,7 +5284,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
 msgid "Validate SQL"
-msgstr ""
+msgstr "Перевірити SQL"
 
 #: libraries/messages.inc.php:1217
 msgid ""

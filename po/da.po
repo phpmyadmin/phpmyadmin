@@ -774,7 +774,7 @@ msgstr "Komplette inserts"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
 msgid "Compression"
-msgstr ""
+msgstr "Komprimering"
 
 #: libraries/messages.inc.php:171
 #, php-format
@@ -915,7 +915,7 @@ msgstr "Opret relation"
 
 #: libraries/messages.inc.php:199
 msgid "Create table"
-msgstr ""
+msgstr "Opret tabel"
 
 #: libraries/messages.inc.php:200
 msgctxt "$strCreateTableShort"
@@ -958,7 +958,7 @@ msgstr "Kroatisk"
 
 #: libraries/messages.inc.php:209
 msgid "CSV"
-msgstr ""
+msgstr "CSV (kommasepareret)"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -1013,7 +1013,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
 msgid "Databases"
-msgstr ""
+msgstr "Databaser"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1175,7 +1175,7 @@ msgstr "Faldende"
 
 #: libraries/messages.inc.php:259
 msgid "Description"
-msgstr ""
+msgstr "Beskrivelse"
 
 #: libraries/messages.inc.php:260
 msgid "Designer"
@@ -1213,7 +1213,7 @@ msgstr "Beskidte sider"
 
 #: libraries/messages.inc.php:267
 msgid "Disabled"
-msgstr ""
+msgstr "Slået fra"
 
 #: libraries/messages.inc.php:268
 msgid "Disable foreign key checks"
@@ -1291,7 +1291,7 @@ msgstr "dynamisk"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
 msgid "Edit"
-msgstr ""
+msgstr "Ret"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1315,7 +1315,7 @@ msgstr "MySQL returnerede ingen data (fx ingen rækker)."
 
 #: libraries/messages.inc.php:293
 msgid "Enabled"
-msgstr ""
+msgstr "Slået til"
 
 #: libraries/messages.inc.php:294
 msgid "Enclose export in a transaction"
@@ -1411,7 +1411,7 @@ msgstr "Udfør forespørgsel iflg. bogmærke"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
 msgid "Explain SQL"
-msgstr ""
+msgstr "Forklar SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1560,7 +1560,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: libraries/messages.inc.php:349
 msgid "Missing value in the form!"
@@ -1782,7 +1782,7 @@ msgstr "Importér filer"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
 msgid "Format of imported file"
-msgstr ""
+msgstr "Format på importeret fil"
 
 #: libraries/messages.inc.php:407
 msgid "Import"
@@ -1819,7 +1819,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "Open Document regneark"
 
 #: libraries/messages.inc.php:415
 msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -2554,7 +2554,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:571
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: libraries/messages.inc.php:572
 msgid "No"
@@ -2656,7 +2656,7 @@ msgstr "<b>Total:</b> <i>%s</i> hit(s)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
 msgid "Tables"
-msgstr ""
+msgstr "Tabeller"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2700,7 +2700,7 @@ msgstr "Overhead"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "Overskriv eksisterende fil(er)"
 
 #: libraries/messages.inc.php:609
 msgid "Packed"
@@ -2946,7 +2946,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
 msgid "Create PHP Code"
-msgstr ""
+msgstr "Fremstil PHP-kode"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3266,7 +3266,7 @@ msgstr "Forespørgsel-mellemlager"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
 msgid "Query window"
-msgstr ""
+msgstr "Foresp. vindue"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3329,7 +3329,7 @@ msgstr "Check reference-integriteten"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
 msgid "Refresh"
-msgstr ""
+msgstr "Opdatér"
 
 #: libraries/messages.inc.php:753
 msgid "Relational display field"
@@ -3632,7 +3632,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:819
 msgid "Reset"
-msgstr ""
+msgstr "Nulstil"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3858,7 +3858,7 @@ msgstr "Vælg Tabeller"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
 msgid "Save as file"
-msgstr ""
+msgstr "Send (download)"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -3878,7 +3878,7 @@ msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
 msgid "Servers"
-msgstr ""
+msgstr "Servere"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
@@ -4547,7 +4547,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
 msgid "Number of records (queries) to skip from start"
-msgstr ""
+msgstr "Antal poster (queries) der skal springes over fra start"
 
 #: libraries/messages.inc.php:1034
 msgid "Partial import: skip queries"
@@ -5340,7 +5340,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
 msgid "Validate SQL"
-msgstr ""
+msgstr "Validér SQL"
 
 #: libraries/messages.inc.php:1217
 msgid ""

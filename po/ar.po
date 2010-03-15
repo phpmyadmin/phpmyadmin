@@ -762,7 +762,7 @@ msgstr "لقد اكتمل الإدخال"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
 msgid "Compression"
-msgstr ""
+msgstr "الضغط"
 
 #: libraries/messages.inc.php:171
 #, php-format
@@ -901,7 +901,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:199
 msgid "Create table"
-msgstr ""
+msgstr "أنشئ الجدول"
 
 #: libraries/messages.inc.php:200
 msgctxt "$strCreateTableShort"
@@ -944,7 +944,7 @@ msgstr "الكرواتية"
 
 #: libraries/messages.inc.php:209
 msgid "CSV"
-msgstr ""
+msgstr "سي إس في"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -999,7 +999,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
 msgid "Databases"
-msgstr ""
+msgstr "قاعدة بيانات"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1158,7 +1158,7 @@ msgstr "تنازليا"
 
 #: libraries/messages.inc.php:259
 msgid "Description"
-msgstr ""
+msgstr "الوصف"
 
 #: libraries/messages.inc.php:260
 msgid "Designer"
@@ -1193,7 +1193,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:267
 msgid "Disabled"
-msgstr ""
+msgstr "معطل"
 
 #: libraries/messages.inc.php:268
 msgid "Disable foreign key checks"
@@ -1271,7 +1271,7 @@ msgstr "ديناميكي"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
 msgid "Edit"
-msgstr ""
+msgstr "تحرير"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1295,7 +1295,7 @@ msgstr "MySQL قام بإرجاع نتيجة إعداد فارغه (مثلا ص�
 
 #: libraries/messages.inc.php:293
 msgid "Enabled"
-msgstr ""
+msgstr "مفعل"
 
 #: libraries/messages.inc.php:294
 msgid "Enclose export in a transaction"
@@ -1391,7 +1391,7 @@ msgstr "نفذ استعلام محفوظ بعلامة مرجعية"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
 msgid "Explain SQL"
-msgstr ""
+msgstr "اشرح SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1536,7 +1536,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
 msgid "Format"
-msgstr ""
+msgstr "صيغة"
 
 #: libraries/messages.inc.php:349
 msgid "Missing value in the form!"
@@ -2492,7 +2492,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:571
 msgid "None"
-msgstr ""
+msgstr "لا شيء"
 
 #: libraries/messages.inc.php:572
 msgid "No"
@@ -2592,7 +2592,7 @@ msgstr "<b>المجموع:</b> <i>%s</i>مطابقة"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
 msgid "Tables"
-msgstr ""
+msgstr "جداول"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2636,7 +2636,7 @@ msgstr "الفوقي"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "خزن على الملفات الموجودة أصلا"
 
 #: libraries/messages.inc.php:609
 msgid "Packed"
@@ -2882,7 +2882,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
 msgid "Create PHP Code"
-msgstr ""
+msgstr "أنشئ شيفرة PHP"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3199,7 +3199,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
 msgid "Query window"
-msgstr ""
+msgstr "نافذة الاستعلام"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3260,7 +3260,7 @@ msgstr "تحديد التكامل المرجعي:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
 msgid "Refresh"
-msgstr ""
+msgstr "حدث"
 
 #: libraries/messages.inc.php:753
 msgid "Relational display field"
@@ -3351,7 +3351,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
-msgstr ""
+msgstr "صلح"
 
 #: libraries/messages.inc.php:774
 msgid "Repair table"
@@ -3563,7 +3563,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:819
 msgid "Reset"
-msgstr ""
+msgstr "إلغاء"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3784,7 +3784,7 @@ msgstr "اختر الجداول"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
 msgid "Save as file"
-msgstr ""
+msgstr "حفظ كملف"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -3804,7 +3804,7 @@ msgstr "خادم"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
 msgid "Servers"
-msgstr ""
+msgstr "خوادم"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
@@ -5264,7 +5264,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
 msgid "Validate SQL"
-msgstr ""
+msgstr "التحقق من استعلام SQL"
 
 #: libraries/messages.inc.php:1217
 msgid ""
