@@ -470,7 +470,6 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "Du er i ferd med å SLÅ AV et BLOB lager!"
 
 #: libraries/messages.inc.php:99
-#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Påslått"
