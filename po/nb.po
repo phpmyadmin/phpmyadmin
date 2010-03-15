@@ -1964,7 +1964,7 @@ msgstr "Insatt rad id: %1$d"
 
 #: libraries/messages.inc.php:440
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Sett inn som ny rad og ignorer feil"
 
 #: libraries/messages.inc.php:441
 msgid "Insert"
