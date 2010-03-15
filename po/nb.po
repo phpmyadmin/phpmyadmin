@@ -935,7 +935,6 @@ msgid "Create database with same name and grant all privileges"
 msgstr "Opprett database med samme navn og gi alle rettigheter"
 
 #: libraries/messages.inc.php:203
-#, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Ingen"
