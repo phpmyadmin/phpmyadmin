@@ -457,7 +457,6 @@ msgstr ""
 "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen %s?"
 
 #: libraries/messages.inc.php:96
-#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Avslått"
