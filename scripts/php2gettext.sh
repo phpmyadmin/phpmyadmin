@@ -111,3 +111,4 @@ for lang in lang/*.inc.php ; do
         rm po/$langcode-update.po po/$loc.php
     fi
 done
+rm po/english.php po/phpmyadmin-update.pot
