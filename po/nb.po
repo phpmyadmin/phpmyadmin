@@ -3465,7 +3465,6 @@ msgid "Rename table to"
 msgstr "Endre tabellens navn"
 
 #: libraries/messages.inc.php:772
-#, fuzzy
 msgid "Rename view to"
 msgstr "Endre tabellens navn"
 
