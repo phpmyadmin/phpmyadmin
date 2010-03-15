@@ -922,7 +922,6 @@ msgid "Create relation"
 msgstr "Create relation"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "ცხრილის შექმნა"
 
@@ -969,7 +968,6 @@ msgid "Croatian"
 msgstr "ხორვატული"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1025,7 +1023,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "მონაცემთა ბაზები"
 
@@ -1190,7 +1187,6 @@ msgid "Descending"
 msgstr "კლებადობით"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "აღწერილობა"
 
@@ -1307,7 +1303,6 @@ msgid "dynamic"
 msgstr "დინამიური"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
 msgstr "რედაქტირება"
 
@@ -1428,7 +1423,6 @@ msgid "Execute bookmarked query"
 msgstr "ჩანიშნული მოთხოვნის გაშვება"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
 msgstr "SQL-ის ახსნა"
 
@@ -1578,7 +1572,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relation added"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "ფორმატი"
 
@@ -1805,9 +1798,8 @@ msgid "Import files"
 msgstr "ფაილების შემოტანა"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
-msgstr "შემოტანილი ფაილის ფორმატი"
+msgstr "შემოტანილი ფაილების ფორმატი"
 
 #: libraries/messages.inc.php:407
 msgid "Import"
@@ -1843,7 +1835,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
@@ -2685,7 +2676,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> match(es)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "ცხრილები"
 
@@ -2730,7 +2720,6 @@ msgid "Overhead"
 msgstr "Overhead"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
 msgstr "Overwrite existing file(s)"
 
@@ -3004,7 +2993,6 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
 msgstr "PHP კოდის შექმნა"
 
@@ -3323,9 +3311,8 @@ msgid "Query cache"
 msgstr "Query cache"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
-msgstr "მოთხოვნების ფანჯარა"
+msgstr "Query window"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3387,7 +3374,6 @@ msgid "Check referential integrity:"
 msgstr "Check referential integrity:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "განახლება"
 
@@ -3704,9 +3690,8 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
-msgstr "Reset"
+msgstr "დაბრუნება"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3930,9 +3915,8 @@ msgid "Select Tables"
 msgstr "ცხრილების არჩევა"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
-msgstr "ფაილად შენახვა"
+msgstr "ფაილის სახის შენახვა"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -3951,7 +3935,6 @@ msgid "Server"
 msgstr "სერვერი"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "სერვერები"
 
@@ -4548,7 +4531,6 @@ msgstr ""
 "documentation"
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
 msgstr "PMA-ის მონაცემთა ბაზა"
 
@@ -4682,7 +4664,6 @@ msgstr ""
 "table) and only SQL is always available"
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Number of records (queries) to skip from start"
 
@@ -4930,7 +4911,6 @@ msgid "Memory limit"
 msgstr "მეხსიერების შეზღუდვა"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
 msgstr "Use only icons, only text or both"
 
@@ -5297,7 +5277,6 @@ msgid "Show only listed databases"
 msgstr "Show only listed databases"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Leave empty if not using config auth"
 
@@ -5565,7 +5544,6 @@ msgid "Skip locked tables"
 msgstr "დაბლოკილი ცხრილების გამოტოვება"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Validate SQL"
 

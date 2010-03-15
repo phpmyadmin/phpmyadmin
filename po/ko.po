@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -1014,9 +1015,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "데이터베이스"
+msgstr "데이터베이스 "
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1413,9 +1413,8 @@ msgid "Execute bookmarked query"
 msgstr ""
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "해석(EXPLAIN) 생략"
+msgstr "SQL 해석"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2622,9 +2621,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr ""
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "테이블 "
+msgstr "테이블 수"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2918,9 +2916,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "새 페이지 만들기"
+msgstr "PHP 코드 보기"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3607,7 +3604,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "리세트"
 

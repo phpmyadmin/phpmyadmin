@@ -923,7 +923,6 @@ msgid "Create relation"
 msgstr "Utwórz związek"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Utwórz tabelę"
 
@@ -971,9 +970,8 @@ msgid "Croatian"
 msgstr "Chorwacki"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
-msgstr "Dane CSV"
+msgstr "CSV"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -1027,7 +1025,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Bazy danych"
 
@@ -1193,7 +1190,6 @@ msgid "Descending"
 msgstr "Malejąco"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Opis"
 
@@ -1427,9 +1423,8 @@ msgid "Execute bookmarked query"
 msgstr "Wykonaj zapamiętanego zapytania"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Pomiń wyjaśnienie SQL"
+msgstr "Wyjaśnij SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1578,7 +1573,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "Relacja FOREIGN KEY została dodana."
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Format"
 
@@ -1842,7 +1836,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Arkusz kalkulacyjny w formacie Open Document"
 
@@ -2684,7 +2677,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>W sumie:</b> <i>%s</i> trafień"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Tabele"
 
@@ -2993,9 +2985,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Utwórz nową stronę"
+msgstr "Utwórz kod PHP"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3319,9 +3310,8 @@ msgid "Query cache"
 msgstr "Pamięć podręczna zapytań"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
-msgstr "Okno zapytania"
+msgstr "Okienko zapytania"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3699,9 +3689,8 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
-msgstr "Zresetuj"
+msgstr "Resetuj"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3926,7 +3915,6 @@ msgid "Select Tables"
 msgstr "Wybierz tabele"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
 msgstr "Zapisz jako plik"
 
@@ -3947,7 +3935,6 @@ msgid "Server"
 msgstr "Serwer"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Serwery"
 
@@ -4545,7 +4532,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
 msgstr "Baza danych PMA"
 
@@ -4676,7 +4662,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Liczba rekordów (zapytań), które należy z początku pominąć"
 
@@ -5284,7 +5269,6 @@ msgid "Show only listed databases"
 msgstr "Pokaż tylko wymienione bazy danych"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr ""
 "Należy pozostawić puste w przypadku innego niż config typu uwierzytelniania"
@@ -5533,7 +5517,6 @@ msgid "Skip locked tables"
 msgstr "Pomiń zablokowane tabele"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Sprawdź poprawność SQL"
 

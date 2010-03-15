@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -964,9 +965,8 @@ msgid "Croatian"
 msgstr "Kroatça"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
-msgstr "CSV bireme"
+msgstr "CSV"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -1020,9 +1020,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "Biremlek"
+msgstr "Biremleklär"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1184,7 +1183,6 @@ msgid "Descending"
 msgstr "Kimep"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Açıqlama"
 
@@ -1420,9 +1418,8 @@ msgid "Execute bookmarked query"
 msgstr "Tamğalanğan soraw cibärü"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "SQL Centeklämäskä"
+msgstr "SQL Centekläw"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2660,7 +2657,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Tulayım:</b> <i>%s</i> kileşü"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Tüşämä"
 
@@ -2956,9 +2952,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Yaña Bit yaratu"
+msgstr "PHP-Kod yasa"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3650,7 +3645,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Awdar"
 
@@ -3895,9 +3889,8 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
-msgstr "Server"
+msgstr "Serverlär"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
@@ -4588,7 +4581,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Baştan ütep kitäse yazma sanı"
 
@@ -5403,7 +5395,6 @@ msgid "Skip locked tables"
 msgstr "Açıq tüşämä tezmäse"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "SQL'nı Tikşer"
 

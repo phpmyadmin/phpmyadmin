@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -922,7 +923,6 @@ msgid "Create relation"
 msgstr "Vytvoriť relaciu"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Vytvoriť tabuľku"
 
@@ -1023,9 +1023,8 @@ msgid "'%s' database does not exist."
 msgstr "'%s' databáza neexistuje."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "Databáza"
+msgstr "Databázy"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1419,9 +1418,8 @@ msgid "Execute bookmarked query"
 msgstr "Spustiť obľúbený dopyt"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Preskočiť vysvetlenie SQL"
+msgstr "Vysvetliť SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2669,9 +2667,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Celkovo:</b> <i>%s</i> výskyt(ov)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "Tabuľka"
+msgstr "Tabuľky"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2963,9 +2960,8 @@ msgid "PHP array"
 msgstr "PHP pole"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Vytvoriť novú Stránku"
+msgstr "Vytvoriť PHP kód"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3549,9 +3545,8 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
-#, fuzzy
 msgid "Show master status"
-msgstr "Zobraziť stav podriadených hostov"
+msgstr "Zobraziť stav master replikácie"
 
 #: libraries/messages.inc.php:796
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
@@ -3914,9 +3909,8 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
-msgstr "Server"
+msgstr "Servery"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"

@@ -928,7 +928,6 @@ msgid "Create relation"
 msgstr "İlişki oluştur"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Tablo oluştur"
 
@@ -974,7 +973,6 @@ msgid "Croatian"
 msgstr "Hırvatça"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1030,7 +1028,6 @@ msgid "'%s' database does not exist."
 msgstr "'%s' veritabanı mevcut değil."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Veritabanları"
 
@@ -1191,7 +1188,6 @@ msgid "Descending"
 msgstr "Büyükten Küçüğe"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Açıklama"
 
@@ -1308,7 +1304,6 @@ msgid "dynamic"
 msgstr "değişken"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
 msgstr "Düzenle"
 
@@ -1429,7 +1424,6 @@ msgid "Execute bookmarked query"
 msgstr "İşaretlenmiş sorguyu çalıştır"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
 msgstr "SQL'i açıkla"
 
@@ -1579,7 +1573,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY bağlantısı eklendi"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Biçim"
 
@@ -1804,9 +1797,8 @@ msgid "Import files"
 msgstr "Dosyaları içeri aktar"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
-msgstr "İçeri aktarılan dosyanın biçimi"
+msgstr "İçeri aktarılmış dosyanın biçimi"
 
 #: libraries/messages.inc.php:407
 msgid "Import"
@@ -1847,9 +1839,8 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Parasalları içeri aktar ($5.00'dan 5.00'a)"
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
-msgstr "Açık Belge Hesap Çizelgesi"
+msgstr "Açık Kaynaklı Tablolama Belgesi"
 
 #: libraries/messages.inc.php:415
 msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -2698,7 +2689,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Toplam:</b> <i>%s</i> eşleşme"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Tablolar"
 
@@ -2743,9 +2733,8 @@ msgid "Overhead"
 msgstr "Ek Yük"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
-msgstr "Var olan dosya(ların)nın üzerine yaz"
+msgstr "Mevcut dosya(ların)nın üzerine yaz"
 
 #: libraries/messages.inc.php:609
 msgid "Packed"
@@ -3017,7 +3006,6 @@ msgid "PHP array"
 msgstr "PHP düzeni"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
 msgstr "PHP Kodu oluştur"
 
@@ -3349,7 +3337,6 @@ msgid "Query cache"
 msgstr "Sorgu önbelleği"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
 msgstr "Sorgu penceresi"
 
@@ -3412,7 +3399,6 @@ msgid "Check referential integrity:"
 msgstr "İlgili bütünlük kontrolü:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Yenile"
 
@@ -3626,7 +3612,6 @@ msgid "Show connected slaves"
 msgstr "Bağlı slave'leri göster"
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
-#, fuzzy
 msgid "Show master status"
 msgstr "Master durumunu göster"
 
@@ -3740,7 +3725,6 @@ msgid "Unknown error"
 msgstr "Bilinmeyen hata"
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Sıfırla"
 
@@ -3966,9 +3950,8 @@ msgid "Select Tables"
 msgstr "Tabloları seç"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
-msgstr "Dosyayı farklı kaydet"
+msgstr "Dosya olarak kaydet"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -3987,7 +3970,6 @@ msgid "Server"
 msgstr "Sunucu"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Sunucular"
 
@@ -4594,7 +4576,6 @@ msgstr ""
 "altyapısına[/a] bakın"
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
 msgstr "PMA veritabanı"
 
@@ -4727,9 +4708,8 @@ msgstr ""
 "her zaman SQL vardır"
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
-msgstr "Başlangıçtan atlamak için kayıt(sorgu) sayısı:"
+msgstr "Başlangıçtan atlanacak kayıt (sorgu) sayısı"
 
 #: libraries/messages.inc.php:1034
 msgid "Partial import: skip queries"
@@ -4982,7 +4962,6 @@ msgid "Memory limit"
 msgstr "Bellek sınırı"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
 msgstr "Sadece simgeleri, sadece metni veya her ikisinide kullanır"
 
@@ -5356,7 +5335,6 @@ msgid "Show only listed databases"
 msgstr "Sadece listelenmiş veritabanları göster"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Eğer yapılandırma kimlik denetimi kullanılmıyorsa boş bırakın"
 
@@ -5633,7 +5611,6 @@ msgid "Skip locked tables"
 msgstr "Kilitli tabloları atla"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "SQL'i onayla"
 

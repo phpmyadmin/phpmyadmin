@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -1022,7 +1023,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Databazat"
 
@@ -1422,9 +1422,8 @@ msgid "Execute bookmarked query"
 msgstr "Zbaton query nga libërshënuesi"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Mos shpjego SQL"
+msgstr "Shpjego SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2641,7 +2640,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Gjithsej:</b> <i>%s</i> korrispondues(ë)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Tabela"
 
@@ -2937,9 +2935,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Krijo një faqe të re"
+msgstr "Krijo kodin PHP"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3648,7 +3645,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Rinis"
 

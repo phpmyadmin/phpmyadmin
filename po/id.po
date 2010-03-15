@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -1017,7 +1018,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Database"
 
@@ -1414,9 +1414,8 @@ msgid "Execute bookmarked query"
 msgstr "Eksekusikan pencarian dengan mengikuti penunjuk halaman"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Melewati keterangan SQL"
+msgstr "Terangkan SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2663,7 +2662,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Jumlah:</b> <i>%s</i> rekord"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Tabel"
 
@@ -2958,9 +2956,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Ciptakan halaman baru"
+msgstr "Ciptakan kode PHP"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3667,7 +3664,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Reset"
 

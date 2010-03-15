@@ -926,7 +926,6 @@ msgid "Create relation"
 msgstr "Δημιουργία συσχέτισης"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Δημιουργία πίνακα"
 
@@ -973,9 +972,8 @@ msgid "Croatian"
 msgstr "Κροατικά"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
-msgstr "Δεδομένα CSV"
+msgstr "CSV"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -1029,9 +1027,8 @@ msgid "'%s' database does not exist."
 msgstr "Η βάση δεδομένων «%s» δεν υπάρχει."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "Βάσεις δεδομένων"
+msgstr "Βάσεις Δεδομένων"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1193,7 +1190,6 @@ msgid "Descending"
 msgstr "Φθίνουσα"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Περιγραφή"
 
@@ -1310,7 +1306,6 @@ msgid "dynamic"
 msgstr "δυναμικά"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
 msgstr "Επεξεργασία"
 
@@ -1432,9 +1427,8 @@ msgid "Execute bookmarked query"
 msgstr "Εκτέλεση αποθηκευμένου ερωτήματος"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Επεξήγηση SQL"
+msgstr "Ανάλυση SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1585,9 +1579,8 @@ msgid "FOREIGN KEY relation added"
 msgstr "Προστέθηκε η συσχέτιση ΜΗ ΔΙΑΚΡΙΤΟΥ ΚΛΕΙΔΙΟΥ (FOREIGN KEY)"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
-msgstr "Μορφή"
+msgstr "Μορφοποίηση"
 
 #: libraries/messages.inc.php:349
 msgid "Missing value in the form!"
@@ -1812,7 +1805,6 @@ msgid "Import files"
 msgstr "Εισαγωγή αρχείων"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
 msgstr "Μορφή εισαχθέντος αρχείου"
 
@@ -1853,7 +1845,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Εισαγωγή νομισμάτων (€5,00 αντί 5,00)"
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Έγγραφο Λογιστικού Φύλλου Ανοιχτού Κώδικα (ODS)"
 
@@ -2710,7 +2701,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Πίνακες"
 
@@ -2755,9 +2745,8 @@ msgid "Overhead"
 msgstr "Επιβάρυνση"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
-msgstr "Αντικατάσταση υπάρχοντος(ων) αρχείου(ων)"
+msgstr "Αντικατάσταση υπαρχόντων αρχείων"
 
 #: libraries/messages.inc.php:609
 msgid "Packed"
@@ -3033,7 +3022,6 @@ msgid "PHP array"
 msgstr "σειρά PHP"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
 msgstr "Δημιουργία κώδικα PHP"
 
@@ -3364,7 +3352,6 @@ msgid "Query cache"
 msgstr "Λανθάνουσα μνήμη ερωτήματος"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
 msgstr "Παράθυρο ερωτήματος"
 
@@ -3428,7 +3415,6 @@ msgid "Check referential integrity:"
 msgstr "Έλεγχος ακεραιότητας συσχετίσεων:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Ανανέωση"
 
@@ -3647,9 +3633,8 @@ msgid "Show connected slaves"
 msgstr "Προβολή συνδεδεμένων δευτερευόντων"
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
-#, fuzzy
 msgid "Show master status"
-msgstr "Εμφάνιση κατάστασης πρωτεύοντος"
+msgstr "Προβολή κατάστασης πρωτεύοντος"
 
 #: libraries/messages.inc.php:796
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
@@ -3763,7 +3748,6 @@ msgid "Unknown error"
 msgstr "Άγνωστο σφάλμα"
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Επαναφορά"
 
@@ -3990,9 +3974,8 @@ msgid "Select Tables"
 msgstr "Επιλογή Πινάκων"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
-msgstr "Αποθήκευση ως αρχείο"
+msgstr "Αποστολή"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -4011,7 +3994,6 @@ msgid "Server"
 msgstr "Διακομιστής"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Διακομιστές"
 
@@ -4622,7 +4604,6 @@ msgstr ""
 "συνδεδεμένων πινάκων[/a] στην τεκμηρίωση"
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
 msgstr "Βάση δεδομένων PMA"
 
@@ -4758,7 +4739,6 @@ msgstr ""
 "τοποθεσία (βάση δεδομένων, πίνακας) και ότι μόνο η SQL είναι πάντα διαθέσιμη"
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Αριθμός εγγραφών (ερωτημάτων) που θα παραβλεφθούν από την αρχή"
 
@@ -5012,7 +4992,6 @@ msgid "Memory limit"
 msgstr "Όριο μνήμης"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
 msgstr "Χρήση μόνο εικονιδίων, μόνο κειμένου ή και τα δύο"
 
@@ -5388,9 +5367,8 @@ msgid "Show only listed databases"
 msgstr "Εμφάνιση μόνο των βάσεων δεδομένων από λίστα"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
-msgstr "Αφήστε το κενό για μη χρήση ρυθμισμένης επικύρωσης"
+msgstr "Αφήστε το άδειο αν δεν χρησιμοποιείτε ρύθμισμένη επικύρωση"
 
 #: libraries/messages.inc.php:1159
 msgid "Password for config auth"
@@ -5667,7 +5645,6 @@ msgid "Skip locked tables"
 msgstr "Παράβλεψη κλειδωμένων πινάκων"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Επικύρωση SQL"
 

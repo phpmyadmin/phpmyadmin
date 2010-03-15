@@ -922,7 +922,6 @@ msgid "Create relation"
 msgstr "Skapa relation"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Skapa tabell"
 
@@ -968,7 +967,6 @@ msgid "Croatian"
 msgstr "Kroatisk"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1024,7 +1022,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Databaser"
 
@@ -1189,7 +1186,6 @@ msgid "Descending"
 msgstr "Fallande"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -1305,7 +1301,6 @@ msgid "dynamic"
 msgstr "dynamisk"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
 msgstr "Ändra"
 
@@ -1426,7 +1421,6 @@ msgid "Execute bookmarked query"
 msgstr "Utför bokmärkt fråga"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
 msgstr "Förklara SQL-kod"
 
@@ -1575,7 +1569,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "Främmande nyckel-relation tillagd"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Format"
 
@@ -1804,7 +1797,6 @@ msgid "Import files"
 msgstr "Importera filer"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
 msgstr "Format på importerad fil"
 
@@ -1845,7 +1837,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "OpenDocument-kalkylblad"
 
@@ -2688,7 +2679,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Totalt:</b> <i>%s</i> träff(ar)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Tabeller"
 
@@ -2733,7 +2723,6 @@ msgid "Overhead"
 msgstr "Outnyttjat"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
 msgstr "Skriv över befintlig fil(er)"
 
@@ -3006,7 +2995,6 @@ msgid "PHP array"
 msgstr "PHP-array"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
 msgstr "Skapa PHP-kod"
 
@@ -3330,7 +3318,6 @@ msgid "Query cache"
 msgstr "Frågecache"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
 msgstr "Frågefönster"
 
@@ -3394,7 +3381,6 @@ msgid "Check referential integrity:"
 msgstr "Kontrollera referensintegritet:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Uppdatera"
 
@@ -3711,7 +3697,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Återställ"
 
@@ -3936,7 +3921,6 @@ msgid "Select Tables"
 msgstr "Välj tabeller"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
 msgstr "Spara som fil"
 
@@ -3957,7 +3941,6 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Servrar"
 
@@ -4557,7 +4540,6 @@ msgstr ""
 "a] i dokumentationen"
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
 msgstr "PMA databas"
 
@@ -4691,7 +4673,6 @@ msgstr ""
 "och endast SQL är alltid tillgängligt"
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Antal poster (frågor) att hoppa över från början"
 
@@ -4940,7 +4921,6 @@ msgid "Memory limit"
 msgstr "Minnesgräns"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
 msgstr "Använd endast ikoner, endast text eller båda"
 
@@ -5312,7 +5292,6 @@ msgid "Show only listed databases"
 msgstr "Visa endast listade databaser"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Lämna tomt om inte autentisering config används"
 
@@ -5580,7 +5559,6 @@ msgid "Skip locked tables"
 msgstr "Hoppa över låsta tabeller"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Validera SQL-kod"
 

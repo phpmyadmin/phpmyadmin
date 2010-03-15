@@ -981,7 +981,6 @@ msgid "Croatian"
 msgstr "Xorvatcha"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1037,7 +1036,6 @@ msgid "'%s' database does not exist."
 msgstr "'%s' nomli baza mavjud emas."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Ma`lumotlar bazalari"
 
@@ -1200,9 +1198,8 @@ msgid "Descending"
 msgstr "Kamayish tartibida"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
-msgstr "Tavsif"
+msgstr "Tavsifi"
 
 #: libraries/messages.inc.php:260
 msgid "Designer"
@@ -1318,7 +1315,6 @@ msgid "dynamic"
 msgstr "dinamik"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
 msgstr "Tahrirlash"
 
@@ -1439,9 +1435,8 @@ msgid "Execute bookmarked query"
 msgstr "Belgilangan so‘rovni bajarish"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "SQL tahlili"
+msgstr "So‘rov tahlili"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1592,9 +1587,8 @@ msgid "FOREIGN KEY relation added"
 msgstr "Tashqi kalitga (FOREIGN KEY) aloqa o‘rnatildi"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
-msgstr "Format nomi"
+msgstr "Format"
 
 #: libraries/messages.inc.php:349
 msgid "Missing value in the form!"
@@ -1817,9 +1811,8 @@ msgid "Import files"
 msgstr "Fayllarni import qilish"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
-msgstr "Import fayl formati"
+msgstr "Import qilinayotgan fayl formati"
 
 #: libraries/messages.inc.php:407
 msgid "Import"
@@ -1860,9 +1853,8 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Pul birliklarini import qilish (masalan, $5.00 ni 5.00 ga)"
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
-msgstr "OpenDocument jadval"
+msgstr "Open Document jadvali"
 
 #: libraries/messages.inc.php:415
 msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -2728,7 +2720,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Jami:</b> <i>\"%s\"</i> o‘xshashlik"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Jadvallar"
 
@@ -2773,7 +2764,6 @@ msgid "Overhead"
 msgstr "Fragmentlangan"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
 msgstr "Mavjud fayl(lar) ustidan yozish"
 
@@ -3047,9 +3037,8 @@ msgid "PHP array"
 msgstr "PHP massivi"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "PHP kod tuzish"
+msgstr "PHP-kod"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3389,7 +3378,6 @@ msgid "Query cache"
 msgstr "So‘rovlar keshi"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
 msgstr "So‘rovlar oynasi"
 
@@ -3453,7 +3441,6 @@ msgid "Check referential integrity:"
 msgstr "Ma`lumotlar yaxlitligini tekshirish:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Yangilash"
 
@@ -3669,9 +3656,8 @@ msgid "Show connected slaves"
 msgstr "Ulangan tobе sеrvеrlarni ko‘rsatish"
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
-#, fuzzy
 msgid "Show master status"
-msgstr "Bosh sеrvеr statusini ko‘rsatish"
+msgstr "Ulangan bosh sеrvеrlarni ko‘rsatish"
 
 #: libraries/messages.inc.php:796
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
@@ -3786,9 +3772,8 @@ msgid "Unknown error"
 msgstr "Noma’lum xatolik"
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
-msgstr "Bekor qilish"
+msgstr "Tozalash"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -4016,9 +4001,8 @@ msgid "Select Tables"
 msgstr "Jadvallarni tanlang"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
-msgstr "Fayl shaklida saqlash"
+msgstr "Fayl kabi saqlash"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -4037,7 +4021,6 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Serverlar"
 
@@ -4659,9 +4642,8 @@ msgstr ""
 "qarab chiqing"
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
-msgstr "PMA bazasi"
+msgstr "PMA ma`lumotlar bazasi"
 
 #: libraries/messages.inc.php:1007
 msgid "Customization"
@@ -4794,9 +4776,9 @@ msgstr ""
 "jadval) joylashishiga bog‘liq va faqat SQL ishlaydi"
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
-msgstr "Boshidan beri tashlab ketilgan so‘rovlar soni"
+msgstr ""
+"Fayl boshidagi e`tibor berish kerak bo‘lmagan qatorlar (so‘rovlar) soni"
 
 #: libraries/messages.inc.php:1034
 msgid "Partial import: skip queries"
@@ -5049,9 +5031,8 @@ msgid "Memory limit"
 msgstr "Xotira miqdori"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
-msgstr "Faqat piktogrammalar, faqat matn yoki har ikkisidan foydalanish"
+msgstr "Faqat piktogramma, faqat matn yoki har ikkisini ishlatish"
 
 #: libraries/messages.inc.php:1083
 msgid "Iconic navigation bar"
@@ -5433,7 +5414,6 @@ msgid "Show only listed databases"
 msgstr "Faqat ro‘yxatdagi bazalarni ko‘rsatish"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr ""
 "Agar \"config\" autentifikatsiya usulidan foydalanmasangiz, bo‘sh qoldiring"
@@ -5711,9 +5691,8 @@ msgid "Skip locked tables"
 msgstr "Qulflangan jadvallarni tashlab ketishlik"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
-msgstr "SQL sintaksisini tekshirish"
+msgstr "SQL to‘g‘riligini tekshirish"
 
 #: libraries/messages.inc.php:1217
 msgid ""

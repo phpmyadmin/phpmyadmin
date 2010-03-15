@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -1021,9 +1022,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "Datubāze"
+msgstr "Datubāzes"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1419,9 +1419,8 @@ msgid "Execute bookmarked query"
 msgstr "Izpildīt iegrāmatoto vaicājumu"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Neizskaidrot SQL"
+msgstr "Izskaidrot SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2641,9 +2640,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Kopumā:</b> <i>%s</i> rezultāti"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "Tabula"
+msgstr "Tabulas"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2936,9 +2934,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Izveidot jaunu lapu"
+msgstr "Izveidot PHP kodu"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3642,7 +3639,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Atcelt"
 

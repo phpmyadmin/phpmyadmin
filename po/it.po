@@ -930,7 +930,6 @@ msgid "Create relation"
 msgstr "Crea relazioni"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Crea tabelle"
 
@@ -976,9 +975,8 @@ msgid "Croatian"
 msgstr "Croato"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
-msgstr "dati CSV"
+msgstr "CSV"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -1032,7 +1030,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Database"
 
@@ -1198,7 +1195,6 @@ msgid "Descending"
 msgstr "Decrescente"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Descrizione"
 
@@ -1315,7 +1311,6 @@ msgid "dynamic"
 msgstr "dinamico"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
 msgstr "Modifica"
 
@@ -1436,9 +1431,8 @@ msgid "Execute bookmarked query"
 msgstr "Esegue la query dalle preferite"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Non Spiegare SQL"
+msgstr "Spiega SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1587,7 +1581,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "Relazione \"FOREIGN KEY\" aggiunta"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Formato"
 
@@ -1851,7 +1844,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Foglio di calcolo nel formato Open Document"
 
@@ -2699,9 +2691,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Totale:</b> <i>%s</i> corrispondenza/e"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "tabelle"
+msgstr "Tabelle"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -3021,9 +3012,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Crea codice PHP"
+msgstr "Crea il codice PHP"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3413,7 +3403,6 @@ msgid "Check referential integrity:"
 msgstr "Controlla l'integrità delle referenze:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Aggiorna"
 
@@ -3729,9 +3718,8 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
-msgstr "Reset"
+msgstr "Riavvia"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3976,9 +3964,8 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
-msgstr "Server"
+msgstr "Servers"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
@@ -4548,9 +4535,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
-msgstr "Nessun database"
+msgstr "Database di PMA"
 
 #: libraries/messages.inc.php:1007
 msgid "Customization"
@@ -4677,7 +4663,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Numero di record (query) da saltare a partire dall'inizio"
 
@@ -5493,7 +5478,6 @@ msgid "Skip locked tables"
 msgstr "Mostra le tabelle aperte"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Valida SQL"
 

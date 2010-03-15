@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -6,10 +7,10 @@ msgstr ""
 "PO-Revision-Date: 2010-03-12 11:15+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -907,7 +908,6 @@ msgid "Create relation"
 msgstr "创建关系"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "新建数据表"
 
@@ -953,7 +953,6 @@ msgid "Croatian"
 msgstr "克罗地亚语"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1009,7 +1008,6 @@ msgid "'%s' database does not exist."
 msgstr "数据库 '%s' 不存在。"
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "数据库"
 
@@ -1400,9 +1398,8 @@ msgid "Execute bookmarked query"
 msgstr "执行书签中的查询"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "略过解释 SQL"
+msgstr "解释 SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -3393,7 +3390,6 @@ msgid "Rename view to"
 msgstr ""
 
 #: libraries/messages.inc.php:773
-#, fuzzy
 msgid "Repair"
 msgstr "修复"
 

@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -922,7 +923,6 @@ msgid "Create relation"
 msgstr "Suhte loomine (relation)"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Loo tabel"
 
@@ -968,9 +968,8 @@ msgid "Croatian"
 msgstr "Horvaatia"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
-msgstr "CSV andmed"
+msgstr "CSV"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -1024,9 +1023,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "Andmebaas"
+msgstr "Andmebaasid"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1189,7 +1187,6 @@ msgid "Descending"
 msgstr "Kahanev"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Kirjeldus"
 
@@ -1425,9 +1422,8 @@ msgid "Execute bookmarked query"
 msgstr "Käivita salvestatud päring"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Jäta SQL-i seletamine vahele"
+msgstr "Seleta SQL-i"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1839,7 +1835,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Ava dokumendi arvutustabel"
 
@@ -2671,9 +2666,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Kokku:</b> <i>%s</i> vaste(t)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "Tabel"
+msgstr "Tabelid"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2967,9 +2961,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Loo uus leht"
+msgstr "Loo PHP kood"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3665,9 +3658,8 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
-msgstr "Nulli"
+msgstr "Tühista"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3909,9 +3901,8 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
-msgstr "Server"
+msgstr "Serverid"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
@@ -4607,7 +4598,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Käske (päringuid) mida algusest vahele jätta"
 
@@ -5422,7 +5412,6 @@ msgid "Skip locked tables"
 msgstr "Näita avatud tabeleid"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Kontrolli SQL-i"
 

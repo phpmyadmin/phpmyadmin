@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -973,7 +974,6 @@ msgid "Croatian"
 msgstr "Croata"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "Dados CSV"
 
@@ -1030,7 +1030,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Base de Dados"
 
@@ -1194,7 +1193,6 @@ msgid "Descending"
 msgstr "Descendente"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Descrição"
 
@@ -1431,9 +1429,8 @@ msgid "Execute bookmarked query"
 msgstr "Executar um query marcado(do marcador)"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Saltar Explicar SQL"
+msgstr "Explicar SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2656,9 +2653,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> resultado(s)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "Tabela"
+msgstr "Tabelas"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2955,9 +2951,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Criar uma Página nova"
+msgstr "Criar código PHP"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3658,7 +3653,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Limpa"
 
@@ -5407,7 +5401,6 @@ msgid "Skip locked tables"
 msgstr "Mostra tabelas"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Validar SQL"
 

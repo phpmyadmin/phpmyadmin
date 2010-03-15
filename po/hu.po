@@ -933,7 +933,6 @@ msgid "Create relation"
 msgstr "Kapcsolat létrehozása"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Tábla létrehozása"
 

@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -3695,7 +3696,7 @@ msgid "Run SQL query/queries on server %s"
 msgstr ""
 
 #: libraries/messages.inc.php:845
-#, fuzzy, php-format
+#, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Виконати SQL запит(и) до БД %і"
 
@@ -6924,7 +6925,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1566
-#, fuzzy, php-format
+#, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Було змінено привілеї для"
 

@@ -925,7 +925,6 @@ msgid "Create relation"
 msgstr "Создать связь"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Создать таблицу"
 
@@ -975,7 +974,6 @@ msgid "Croatian"
 msgstr "Хорватский"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1031,7 +1029,6 @@ msgid "'%s' database does not exist."
 msgstr "База данных '%s' не существует."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Базы данных"
 
@@ -1193,7 +1190,6 @@ msgid "Descending"
 msgstr "По убыванию"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Описание"
 
@@ -1310,9 +1306,8 @@ msgid "dynamic"
 msgstr "динамический"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
-msgstr "Редактировать"
+msgstr "Изменить"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1431,7 +1426,6 @@ msgid "Execute bookmarked query"
 msgstr "Выполнить отмеченный запрос"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
 msgstr "Анализ запроса"
 
@@ -1580,7 +1574,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "Добавлена связь на внешний ключ (FOREIGN KEY)"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Формат"
 
@@ -1806,9 +1799,8 @@ msgid "Import files"
 msgstr "Импорт файлов"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
-msgstr "Формат импортируемых файлов"
+msgstr "Формат импортируемого файла"
 
 #: libraries/messages.inc.php:407
 msgid "Import"
@@ -1847,9 +1839,8 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Импортировать денежные единицы ($5.00 в 5.00)"
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
-msgstr "OpenDocument таблица"
+msgstr "Open Document Spreadsheet"
 
 #: libraries/messages.inc.php:415
 msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -2697,7 +2688,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Итого:</b> <i>%s</i> вхождения(ий)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Таблицы"
 
@@ -2742,9 +2732,8 @@ msgid "Overhead"
 msgstr "Фрагментировано"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
-msgstr "Перезаписать существующий файл(ы)"
+msgstr "Перезаписать существующий(е) файл(ы)"
 
 #: libraries/messages.inc.php:609
 msgid "Packed"
@@ -3017,9 +3006,8 @@ msgid "PHP array"
 msgstr "Массив PHP"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Генерировать PHP-код"
+msgstr "PHP-код"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3345,9 +3333,8 @@ msgid "Query cache"
 msgstr "Кеш запросов"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
-msgstr "Окно запросов"
+msgstr "Окно запроса"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3409,7 +3396,6 @@ msgid "Check referential integrity:"
 msgstr "Проверить целостность данных:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Обновить"
 
@@ -3625,7 +3611,6 @@ msgid "Show connected slaves"
 msgstr "Показать соединённые подчиненные сервера"
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
-#, fuzzy
 msgid "Show master status"
 msgstr "Показать состояние головного сервера"
 
@@ -3741,7 +3726,6 @@ msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Сбросить"
 
@@ -3967,7 +3951,6 @@ msgid "Select Tables"
 msgstr "Выберите таблицы"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
 msgstr "Сохранить как файл"
 
@@ -3988,7 +3971,6 @@ msgid "Server"
 msgstr "Сервер"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Сервера"
 
@@ -4605,9 +4587,8 @@ msgstr ""
 "tables]инфраструктуру связанных таблиц[/a]"
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
-msgstr "База данных PMA"
+msgstr "Расширения PMA"
 
 #: libraries/messages.inc.php:1007
 msgid "Customization"
@@ -4740,9 +4721,8 @@ msgstr ""
 "положения (база данных, таблица) и только SQL доступен в любом случае"
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
-msgstr "Количество запросов, пропущенных от начала"
+msgstr "Количество запросов пропускаемых от начала импорта"
 
 #: libraries/messages.inc.php:1034
 msgid "Partial import: skip queries"
@@ -4994,10 +4974,8 @@ msgid "Memory limit"
 msgstr "Лимит памяти"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
-msgstr ""
-"Использовать для ссылок операций над таблицами иконки, текст, или все вместе"
+msgstr "Использовать только иконки, только текст, или все вместе"
 
 #: libraries/messages.inc.php:1083
 msgid "Iconic navigation bar"
@@ -5373,7 +5351,6 @@ msgid "Show only listed databases"
 msgstr "Показывать только базы данных из списка"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Если не используется идентификация config, оставьте поле пустым"
 
@@ -5651,9 +5628,8 @@ msgid "Skip locked tables"
 msgstr "Пропускать заблокированные таблицы"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
-msgstr "Проверка синтаксиса SQL"
+msgstr "Проверка синтаксиса"
 
 #: libraries/messages.inc.php:1217
 msgid ""

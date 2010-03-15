@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -1021,9 +1022,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "Me'lumat Bazası"
+msgstr "Me'lumat Bazaları"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1423,9 +1423,8 @@ msgid "Execute bookmarked query"
 msgstr ""
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "SQL İzah Et-i Keç"
+msgstr "SQL-i İzah Et"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1533,7 +1532,7 @@ msgid "File to import"
 msgstr ""
 
 #: libraries/messages.inc.php:341
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -2645,9 +2644,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Cemi:</b> <i>%s</i> uyğunluq"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "Cedvel"
+msgstr "Cedveller"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2943,9 +2941,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Yeni Sehife qur"
+msgstr "PHP Kodunu Hazırla"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3642,7 +3639,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Yenile"
 

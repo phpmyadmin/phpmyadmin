@@ -5,12 +5,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
 "PO-Revision-Date: 2010-03-13 00:41+0200\n"
-"Last-Translator:  <ronaldinia@yahoo.com>\n"
+"Last-Translator: <ronaldinia@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
-"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
 "X-Generator: Pootle 2.0.1\n"
@@ -929,7 +929,6 @@ msgid "Create relation"
 msgstr "Creare relație"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Creare tabel"
 
@@ -975,9 +974,8 @@ msgid "Croatian"
 msgstr "Croat"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
-msgstr "Date CSV"
+msgstr "CSV"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -1031,7 +1029,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Baze de date"
 
@@ -1197,7 +1194,6 @@ msgid "Descending"
 msgstr "Descrescător"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Descriere"
 
@@ -1314,9 +1310,8 @@ msgid "dynamic"
 msgstr "dinamic"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
-msgstr "Editează"
+msgstr "Editare"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1435,7 +1430,6 @@ msgid "Execute bookmarked query"
 msgstr "Executare comandă marcată"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
 msgstr "Explică SQL"
 
@@ -1584,7 +1578,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relation added"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Format"
 
@@ -1848,7 +1841,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Foaie de calcul Open Document"
 
@@ -2695,7 +2687,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> rezultat(e)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Tabele"
 
@@ -3013,7 +3004,6 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
 msgstr "Creează cod PHP"
 
@@ -3342,9 +3332,8 @@ msgid "Query cache"
 msgstr "Cache interogări"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
-msgstr "Fereastra interogării"
+msgstr "Fereastra de comandă"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3406,9 +3395,8 @@ msgid "Check referential integrity:"
 msgstr "Verificarea integrității referinței:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
-msgstr "Actualizează"
+msgstr "Reîncarcă"
 
 #: libraries/messages.inc.php:753
 msgid "Relational display field"
@@ -3718,9 +3706,8 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
-msgstr "Reinițializare"
+msgstr "Resetare"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3946,9 +3933,8 @@ msgid "Select Tables"
 msgstr "Selectează tabele"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
-msgstr "Salvează ca fișier"
+msgstr "Trimite"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -3967,7 +3953,6 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Servere"
 
@@ -4666,7 +4651,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Number of records(queries) to skip from start"
 
@@ -5237,7 +5221,6 @@ msgid "Show only listed databases"
 msgstr ""
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Lăsați gol dacă nu utilizați „config auth”"
 
@@ -5482,7 +5465,6 @@ msgid "Skip locked tables"
 msgstr "Afișează tabele deschise"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Validează SQL"
 

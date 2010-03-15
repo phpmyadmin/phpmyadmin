@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -1009,9 +1010,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "מאגר נתונים"
+msgstr "מאגרי נתונים"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1406,9 +1406,8 @@ msgid "Execute bookmarked query"
 msgstr "הרצת שאילתה מועדפת"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Skip Explain SQL"
+msgstr "הסברת SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2621,9 +2620,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>סה\"כ:</b> <i>%s</i> פריטים"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "טבלה"
+msgstr "טבלאות"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2916,9 +2914,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "יצירת עמוד חדש"
+msgstr "ייצור קוד PHP"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3606,7 +3603,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "איפוס"
 

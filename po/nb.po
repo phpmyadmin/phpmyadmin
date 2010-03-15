@@ -921,7 +921,6 @@ msgid "Create relation"
 msgstr "Opprett relasjon"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Opprett tabell"
 

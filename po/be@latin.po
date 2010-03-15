@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -920,7 +921,6 @@ msgid "Create relation"
 msgstr "Stvaryć suviaź"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Stvaryć tablicu"
 
@@ -968,7 +968,6 @@ msgid "Croatian"
 msgstr "Charvackaja"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1024,9 +1023,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "Baza dadzienych"
+msgstr "Bazy dadzienych"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1190,7 +1188,6 @@ msgid "Descending"
 msgstr "advarotny"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Apisańnie"
 
@@ -1428,9 +1425,8 @@ msgid "Execute bookmarked query"
 msgstr "Vykanać zapyt z zakładak"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Nie tłumačyć SQL"
+msgstr "Tłumačyć SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1841,7 +1837,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Specyfikacyja Open Document"
 
@@ -2313,7 +2308,7 @@ msgid "MIME type"
 msgstr "MIME-typ"
 
 #: libraries/messages.inc.php:519
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
@@ -2690,9 +2685,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "Ahułam: %s supadzieńniaŭ"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "Tablica"
+msgstr "Tablic"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -3014,9 +3008,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Stvaryć novuju staronku"
+msgstr "Stvaryć PHP-kod"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3713,9 +3706,8 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
-msgstr "Skinuć statystyku"
+msgstr "Skinuć"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3958,9 +3950,8 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
-msgstr "Server"
+msgstr "Servery"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
@@ -4658,7 +4649,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Kolkaść (zapytaŭ), jakija treba prapuścić ad pačatku"
 
@@ -5479,7 +5469,6 @@ msgid "Skip locked tables"
 msgstr "Pakazać adkrytyja tablicy"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Pravieryć SQL"
 

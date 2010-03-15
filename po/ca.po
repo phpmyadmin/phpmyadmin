@@ -925,7 +925,6 @@ msgid "Create relation"
 msgstr "Crea una relació"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Crea una taula"
 

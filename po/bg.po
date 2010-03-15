@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -1026,9 +1027,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "БД"
+msgstr "Бази от данни"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1427,9 +1427,8 @@ msgid "Execute bookmarked query"
 msgstr "Стартиране на запазена SQL-заявка"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Пропусни Explain SQL"
+msgstr "Explain SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2650,9 +2649,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Общо:</b> <i>%s</i> съвпадение(я)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "Таблица "
+msgstr "Таблици"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2946,9 +2944,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Създай нова Страница"
+msgstr "Създаване на PHP код"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3652,7 +3649,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Изчистване"
 
@@ -3897,9 +3893,8 @@ msgid "Server"
 msgstr "Сървър"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
-msgstr "Сървър"
+msgstr "Сървъри"
 
 #: libraries/messages.inc.php:878
 #, fuzzy

@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -6,10 +7,10 @@ msgstr ""
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -117,9 +118,8 @@ msgid "Sat"
 msgstr "土"
 
 #: libraries/messages.inc.php:24
-#, fuzzy
 msgid "Jan"
-msgstr "日"
+msgstr "1 月','2 月','3 月','4 月','5 月','6 月"
 
 #: libraries/messages.inc.php:24
 msgid "Feb"
@@ -138,9 +138,8 @@ msgid "May"
 msgstr "10 月"
 
 #: libraries/messages.inc.php:24
-#, fuzzy
 msgid "Jun"
-msgstr "日"
+msgstr "11 月"
 
 #: libraries/messages.inc.php:24
 #, fuzzy
@@ -3887,9 +3886,8 @@ msgid "The server is not responding"
 msgstr "サーバが応答しません"
 
 #: libraries/messages.inc.php:876
-#, fuzzy
 msgid "Server"
-msgstr "[1. サーバ]"
+msgstr "サーバ"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
 msgid "Servers"
@@ -6250,9 +6248,8 @@ msgid "Sorting"
 msgstr "ソート中"
 
 #: libraries/messages.inc.php:1386
-#, fuzzy
 msgid "Sort"
-msgstr "土"
+msgstr "ソート"
 
 #: libraries/messages.inc.php:1387
 msgid "Space usage"
@@ -6448,9 +6445,8 @@ msgstr ""
 "ント%sをご覧ください。"
 
 #: libraries/messages.inc.php:1427
-#, fuzzy
 msgid "Sum"
-msgstr "日"
+msgstr "合計"
 
 #: libraries/messages.inc.php:1428
 msgid "Swedish"

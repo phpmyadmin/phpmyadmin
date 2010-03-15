@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -1011,9 +1012,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "Databasis"
+msgstr "databasisse"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1407,9 +1407,8 @@ msgid "Execute bookmarked query"
 msgstr ""
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Ignoreer SQL Verduideliking"
+msgstr "Verduidelik SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2909,9 +2908,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Skep 'n nuwe bladsy"
+msgstr "Skep PHP Kode"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3601,7 +3599,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Herstel"
 

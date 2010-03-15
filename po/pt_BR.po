@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -6,10 +7,10 @@ msgstr ""
 "PO-Revision-Date: 2010-03-12 09:47+0200\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -918,7 +919,6 @@ msgid "Create relation"
 msgstr "Criar relacionamento"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Criar tabela"
 
@@ -1017,7 +1017,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Banco de Dados"
 
@@ -1419,9 +1418,8 @@ msgid "Execute bookmarked query"
 msgstr "Executar consulta marcada"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Pular Explicação SQL"
+msgstr "Explicar SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2673,9 +2671,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> resultado(s)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "Tabela"
+msgstr "Tabelas"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2967,9 +2964,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Criar uma nova página"
+msgstr "Criar código PHP"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3908,9 +3904,8 @@ msgid "Server"
 msgstr "Servidor"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
-msgstr "Servidor"
+msgstr "Servidores"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
@@ -4608,7 +4603,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Número de registros (consultas) ignoradas no início"
 
@@ -5754,7 +5748,7 @@ msgid ""
 "method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
 "O número de requisições para ler a linha precedente na ordem da chave. Este "
-"método de leitura é usado principalmente para otimizar ORDER BY DESC."
+"método de leitura é usado principalmente para otimizar ORDER B"
 
 #: libraries/messages.inc.php:1279
 msgid ""

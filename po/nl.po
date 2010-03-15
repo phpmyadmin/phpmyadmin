@@ -5,12 +5,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
 "PO-Revision-Date: 2010-03-12 12:22+0200\n"
-"Last-Translator:  <rink@initfour.nl>\n"
+"Last-Translator: <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -932,7 +932,6 @@ msgid "Create relation"
 msgstr "Maak relatie"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Maak tabel"
 

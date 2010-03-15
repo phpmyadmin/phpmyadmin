@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -1010,9 +1011,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "پايگاه داده"
+msgstr "پايگاههاي داده"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1172,7 +1172,6 @@ msgid "Descending"
 msgstr "نزولي"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "توضیحات"
 
@@ -2618,9 +2617,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr ""
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "جدول"
+msgstr "جدولها"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2913,9 +2911,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "ساخت يك صفحه جديد"
+msgstr "ساخت كد PHP"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3593,7 +3590,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Reset"
 

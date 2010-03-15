@@ -923,7 +923,6 @@ msgid "Create relation"
 msgstr "Paskutinė versija"
 
 #: libraries/messages.inc.php:199
-#, fuzzy
 msgid "Create table"
 msgstr "Sukurti lentelę"
 
@@ -969,9 +968,8 @@ msgid "Croatian"
 msgstr "Kroatų"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
-msgstr "Duomenys CSV formatu"
+msgstr "CSV"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
@@ -1025,9 +1023,8 @@ msgid "'%s' database does not exist."
 msgstr "'%s' duomenų bazė neegzistuoja."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "Duomenų bazės"
+msgstr "Duombazės"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1192,7 +1189,6 @@ msgid "Descending"
 msgstr "Mažėjimo tvarka"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Paaiškinimas"
 
@@ -1428,9 +1424,8 @@ msgid "Execute bookmarked query"
 msgstr "Įvykdyti išsaugotą užklausą"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Praleisti SQL užklausos aiškinimą"
+msgstr "Paaiškinti"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1577,7 +1572,6 @@ msgid "FOREIGN KEY relation added"
 msgstr ""
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Formatas"
 
@@ -1802,7 +1796,6 @@ msgid "Import files"
 msgstr "Importuoti failus"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
 msgstr "Įkelto failo formatas"
 
@@ -1840,7 +1833,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Open Document skaičiuoklė"
 
@@ -2664,7 +2656,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Viso:</b> <i>%s</i> atitikmuo(enys)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Lentelės"
 
@@ -2709,7 +2700,6 @@ msgid "Overhead"
 msgstr "Perteklius"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
 msgstr "Perrašyti esamus failus"
 
@@ -2961,9 +2951,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "Sukurti naują puslapį"
+msgstr "PHP kodas"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3285,7 +3274,6 @@ msgid "Query cache"
 msgstr "Užklausų saugykla"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
 msgstr "Užklausų langas"
 
@@ -3661,7 +3649,6 @@ msgid "Unknown error"
 msgstr "Nežinoma klaida"
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Atstatyti į pradinę būseną"
 
@@ -3885,9 +3872,8 @@ msgid "Select Tables"
 msgstr "Pasirinkite lenteles"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
-msgstr "Išsaugoti kaip failą"
+msgstr "Išsaugoti į failą"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -3906,7 +3892,6 @@ msgid "Server"
 msgstr "Serveris"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Serveriai"
 
@@ -4466,9 +4451,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
-msgstr "Nėra duombazių"
+msgstr "PMA duomenų bazė"
 
 #: libraries/messages.inc.php:1007
 msgid "Customization"
@@ -4595,7 +4579,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Praleisti įrašų(užklausų) skaičių nuo pradžios"
 
@@ -5412,7 +5395,6 @@ msgid "Skip locked tables"
 msgstr "Rodyti lentelės"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Patikrinti SQL užklausą"
 

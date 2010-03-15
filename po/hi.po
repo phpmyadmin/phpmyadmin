@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -869,7 +870,7 @@ msgid "Create new database"
 msgstr " नया डाटाबेस बनाओ"
 
 #: libraries/messages.inc.php:195
-#, fuzzy, php-format
+#, php-format
 msgid "Create table on database %s"
 msgstr " डाटाबेस मे नया टेबल बनाओ"
 

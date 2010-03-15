@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -1010,7 +1011,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "資料庫"
 
@@ -1401,9 +1401,8 @@ msgid "Execute bookmarked query"
 msgstr "執行書籤查詢"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "略過說明 SQL"
+msgstr "說明 SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -2616,9 +2615,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>總計:</b> <i>%s</i> 項資料符合"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "資料表"
+msgstr "個資料表"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2911,9 +2909,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "建立新一頁"
+msgstr "建立 PHP 程式碼"
 
 #: libraries/messages.inc.php:663
 #, fuzzy

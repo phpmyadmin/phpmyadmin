@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
@@ -967,7 +968,6 @@ msgid "Croatian"
 msgstr "ක්‍රොයේශියානු"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1023,9 +1023,8 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
-msgstr "දත්තගබඩාව"
+msgstr "දත්තගබඩා"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1186,7 +1185,6 @@ msgid "Descending"
 msgstr "අවරෝහන"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "විස්තරය"
 
@@ -1422,9 +1420,8 @@ msgid "Execute bookmarked query"
 msgstr "Execute bookmarked query"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
-msgstr "Skip Explain SQL"
+msgstr "SQL ය පහදන්න "
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1836,7 +1833,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
@@ -2673,9 +2669,8 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> match(es)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
-msgstr "වගුව"
+msgstr "වගු"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2969,9 +2964,8 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
-msgstr "නව පිටුවක් සාදන්න"
+msgstr "PHP කේත සාදන්න"
 
 #: libraries/messages.inc.php:663
 #, fuzzy
@@ -3665,9 +3659,8 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
-msgstr "Reset"
+msgstr "ප්‍රතිසකසන්න"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3911,9 +3904,8 @@ msgid "Server"
 msgstr "සර්වරය"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
-msgstr "සර්වරය"
+msgstr "සර්වරයන්"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
@@ -4609,7 +4601,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Number of records(queries) to skip from start"
 
@@ -5424,7 +5415,6 @@ msgid "Skip locked tables"
 msgstr "විවෘත වගු පෙන්වන්න"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Validate SQL"
 
