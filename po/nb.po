@@ -3658,7 +3658,7 @@ msgstr "Slavereplikasjon"
 
 #: libraries/messages.inc.php:810
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Slave SQL Thread kjører ikke!"
 
 #: libraries/messages.inc.php:811
 #, php-format
