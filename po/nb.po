@@ -3023,7 +3023,7 @@ msgstr "Raske steg for å sette opp avansert funksjonalitet:"
 #: libraries/messages.inc.php:669
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
+msgstr "Opprett nødvendige tabeller med <code>script/create_tables.sql</code>."
 
 #: libraries/messages.inc.php:670
 msgid "Create a pma user and give access to these tables."
