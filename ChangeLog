@@ -56,8 +56,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2966078 [browse] Incorrect LIMIT is saved and sticks while browsing
 - bug #2967366 [Structure] Some results of Propose table structure are
   shown in hex
+- bug #2967565 [insert] UNHEX not selected by default when inserting BINARY
 
-3.3.1.0 (not yet released)
+3.3.1.0 (2010-03-16)
 - bug #2941037 [core] Database structure not sorted by table correctly 
 - bug #2948492 [interface] Slide effect masks some fields on search page
 - bug #2959746 [interface] Unknown table status: TABLE_TYPE 
