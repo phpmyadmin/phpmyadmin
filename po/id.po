@@ -924,7 +924,7 @@ msgstr "Buat tabel"
 
 #: libraries/messages.inc.php:201
 msgid "Database for user"
-msgstr ""
+msgstr "Database untuk pengguna"
 
 #: libraries/messages.inc.php:202
 msgid "Create database with same name and grant all privileges"
