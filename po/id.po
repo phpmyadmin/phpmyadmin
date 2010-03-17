@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-17 18:26+0200\n"
+"PO-Revision-Date: 2010-03-17 18:32+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -702,9 +702,8 @@ msgid "Check All"
 msgstr "Pilih semua"
 
 #: libraries/messages.inc.php:153
-#, fuzzy
 msgid "Check"
-msgstr "Bahasa Ceko"
+msgstr "Tandai"
 
 #: libraries/messages.inc.php:154
 msgid "Check tables having overhead"
