@@ -7337,7 +7337,7 @@ msgstr "Ekspor fungsi"
 
 #: libraries/messages.inc.php:1626
 msgid "Export procedures"
-msgstr ""
+msgstr "Ekspor prosedur"
 
 #: libraries/messages.inc.php:1627
 msgid "Export Structure Schemas (recommended)"
