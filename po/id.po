@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-17 18:24+0200\n"
+"PO-Revision-Date: 2010-03-17 18:25+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -587,7 +587,7 @@ msgstr "Batal"
 
 #: libraries/messages.inc.php:128
 msgid "Could not load export plugins, please check your installation!"
-msgstr ""
+msgstr "Tidak dapat memuat plugin export, silahkan periksa instalasi Anda!"
 
 #: libraries/messages.inc.php:129
 msgid "Could not load import plugins, please check your installation!"
