@@ -7255,7 +7255,7 @@ msgstr "Pandangan %s telah dibubarkan"
 
 #: libraries/messages.inc.php:1606
 msgid "View image"
-msgstr "Lihat gambar"
+msgstr "Tampilan View"
 
 #: libraries/messages.inc.php:1607
 msgid "VIEW name"
