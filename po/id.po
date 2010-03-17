@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-17 18:10+0200\n"
+"PO-Revision-Date: 2010-03-17 18:14+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -480,7 +480,7 @@ msgstr "Aktif"
 
 #: libraries/messages.inc.php:101
 msgid "Remove BLOB Repository Reference"
-msgstr ""
+msgstr "Hapus Referensi Repositori BLOB"
 
 #: libraries/messages.inc.php:102
 #, fuzzy
