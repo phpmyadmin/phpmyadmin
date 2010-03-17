@@ -312,7 +312,6 @@ msgid "And"
 msgstr "Dan"
 
 #: libraries/messages.inc.php:61
-#, fuzzy
 msgid "and"
 msgstr "dan"
 
