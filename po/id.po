@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-17 17:27+0200\n"
+"PO-Revision-Date: 2010-03-17 17:28+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -7280,7 +7280,7 @@ msgstr "direktori upload pada web-server"
 
 #: libraries/messages.inc.php:1613
 msgid "Web server"
-msgstr ""
+msgstr "Server web"
 
 #: libraries/messages.inc.php:1614
 #, php-format
