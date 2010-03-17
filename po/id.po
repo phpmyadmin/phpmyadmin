@@ -7333,7 +7333,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1625
 msgid "Export functions"
-msgstr ""
+msgstr "Ekspor fungsi"
 
 #: libraries/messages.inc.php:1626
 msgid "Export procedures"
