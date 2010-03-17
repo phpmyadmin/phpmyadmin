@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-17 18:03+0200\n"
+"PO-Revision-Date: 2010-03-17 18:04+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -375,7 +375,7 @@ msgstr "Seperti yang didefinisikan"
 
 #: libraries/messages.inc.php:75
 msgid "At Beginning of Table"
-msgstr "pada awal tabel"
+msgstr "Pada Awal Tabel"
 
 #: libraries/messages.inc.php:76
 msgid "At End of Table"
