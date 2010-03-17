@@ -6520,7 +6520,7 @@ msgstr "Eksporttype"
 
 #: libraries/messages.inc.php:1392
 msgid "Export time in UTC"
-msgstr ""
+msgstr "Eksport tid i UTC"
 
 #: libraries/messages.inc.php:1393
 msgid ""
