@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-17 17:33+0200\n"
+"PO-Revision-Date: 2010-03-17 17:46+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -36,10 +36,9 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
-#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr "Pengiriman"
+msgstr "id"
 
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
