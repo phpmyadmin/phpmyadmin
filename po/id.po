@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-17 17:46+0200\n"
+"PO-Revision-Date: 2010-03-17 17:57+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -301,7 +301,7 @@ msgstr "Urutkan tabel berdasarkan"
 
 #: libraries/messages.inc.php:58
 msgid "Analyze"
-msgstr ""
+msgstr "Analisa"
 
 #: libraries/messages.inc.php:59
 msgid "Analyze table"
