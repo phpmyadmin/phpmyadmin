@@ -732,7 +732,7 @@ msgstr "Klik untuk memilih"
 
 #: libraries/messages.inc.php:160
 msgid "Click to unselect"
-msgstr ""
+msgstr "Klik untuk batal memilih"
 
 #: libraries/messages.inc.php:161
 msgid "Displaying Column Comments"
