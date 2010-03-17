@@ -462,7 +462,11 @@ foreach ($rows as $row_id => $vrow) {
                 . htmlspecialchars($vrow[$field['Field']]) . '" />';
         } else {
             // (we are inserting)
+<<<<<<< HEAD
             // display default values
+=======
+            // loic1: display default values
+>>>>>>> QA_3_3
             if (!isset($field['Default'])) {
                 $field['Default'] = '';
                 $real_null_value          = TRUE;
@@ -478,7 +482,11 @@ foreach ($rows as $row_id => $vrow) {
             $backup_field  = '';
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
             // this will select the UNHEX function while inserting
+<<<<<<< HEAD
             if (($field['is_binary'] || $field['is_blob']) && $_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields'] && ! $cfg['ProtectBinary']) {
+=======
+            if (($field['is_binary'] || $field['is_blob']) && $_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
+>>>>>>> QA_3_3
                 $field['display_binary_as_hex'] = true;
             }
         }
