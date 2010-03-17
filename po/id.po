@@ -379,7 +379,7 @@ msgstr "Pada Awal Tabel"
 
 #: libraries/messages.inc.php:76
 msgid "At End of Table"
-msgstr "pada akhir tabel"
+msgstr "Pada Akhir Tabel"
 
 #: libraries/messages.inc.php:77
 msgid "Attributes"
