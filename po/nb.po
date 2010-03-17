@@ -5760,7 +5760,6 @@ msgid "Showing SQL query"
 msgstr "Viser SQL spørring"
 
 #: libraries/messages.inc.php:1255
-#, fuzzy
 msgid "Show insert query"
 msgstr "Viser SQL spørring"
 
