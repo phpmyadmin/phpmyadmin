@@ -7259,7 +7259,7 @@ msgstr "Lihat gambar"
 
 #: libraries/messages.inc.php:1607
 msgid "VIEW name"
-msgstr ""
+msgstr "Nama VIEW"
 
 #: libraries/messages.inc.php:1608
 msgid "View video"
