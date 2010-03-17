@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-17 17:23+0200\n"
+"PO-Revision-Date: 2010-03-17 17:24+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -7348,9 +7348,8 @@ msgid "Export tables"
 msgstr "Ekspor tabel"
 
 #: libraries/messages.inc.php:1629
-#, fuzzy
 msgid "Export triggers"
-msgstr "Jenis Ekspor"
+msgstr "Ekspor triggers"
 
 #: libraries/messages.inc.php:1630
 msgid "Export views"
