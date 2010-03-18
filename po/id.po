@@ -6823,9 +6823,8 @@ msgid "Updated"
 msgstr ""
 
 #: libraries/messages.inc.php:1524
-#, fuzzy
 msgid "Version"
-msgstr "Persia"
+msgstr "Versi"
 
 #: libraries/messages.inc.php:1525
 msgid "Track these data definition statements:"
