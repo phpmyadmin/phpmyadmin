@@ -113,7 +113,7 @@ msgstr "శుక్ర"
 
 #: libraries/messages.inc.php:23
 msgid "Sat"
-msgstr ""
+msgstr "శని"
 
 #: libraries/messages.inc.php:24
 msgid "Jan"
