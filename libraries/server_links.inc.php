@@ -87,9 +87,9 @@ $tabs['import']['icon'] = 'b_import.png';
 $tabs['import']['link'] = 'server_import.php';
 $tabs['import']['text'] = $strImport;
 
-$tabs['import']['icon'] = 's_sync.png';
-$tabs['import']['link'] = 'server_synchronize.php';
-$tabs['import']['text'] = $strSynchronize;
+$tabs['synchronize']['icon'] = 's_sync.png';
+$tabs['synchronize']['link'] = 'server_synchronize.php';
+$tabs['synchronize']['text'] = $strSynchronize;
 
 echo PMA_generate_html_tabs($tabs, array());
 unset($tabs);

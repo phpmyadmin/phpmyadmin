@@ -411,9 +411,11 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
             $message->addParam($executed_queries);
 
             $message->addString($import_notice);
+            $message->addString('(' . $_FILES['import_file']['name'] . ')');
         } else {
             $message = PMA_Message::success('strImportSuccessfullyFinished');
             $message->addParam($executed_queries);
+            $message->addString('(' . $_FILES['import_file']['name'] . ')');
         }
     }
 }
