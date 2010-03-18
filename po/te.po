@@ -97,7 +97,7 @@ msgstr "సోమ"
 
 #: libraries/messages.inc.php:23
 msgid "Tue"
-msgstr ""
+msgstr "మంగళ"
 
 #: libraries/messages.inc.php:23
 msgid "Wed"
