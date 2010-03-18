@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-18 16:54+0200\n"
+"PO-Revision-Date: 2010-03-18 16:56+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -993,9 +993,9 @@ msgid "Database export options"
 msgstr "Pilihan cara untuk mengekspor Database"
 
 #: libraries/messages.inc.php:220
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "Database %s telah dihapus."
+msgstr "Database %1%s telah dibuat."
 
 #: libraries/messages.inc.php:221
 #, php-format
