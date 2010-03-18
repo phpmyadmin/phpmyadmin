@@ -6809,9 +6809,8 @@ msgid "Structure snapshot"
 msgstr "Struktur snapshot"
 
 #: libraries/messages.inc.php:1521
-#, fuzzy
 msgid "Created"
-msgstr "Ciptakan"
+msgstr "Dibuat"
 
 #: libraries/messages.inc.php:1522
 msgid "Last version"
