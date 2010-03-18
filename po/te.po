@@ -187,7 +187,7 @@ msgstr "చర్య"
 
 #: libraries/messages.inc.php:32
 msgid "Actions"
-msgstr ""
+msgstr "చర్యలు"
 
 #: libraries/messages.inc.php:33
 msgid "Add AUTO_INCREMENT value"
