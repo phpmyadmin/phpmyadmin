@@ -157,7 +157,7 @@ msgstr "అక్టో"
 
 #: libraries/messages.inc.php:24
 msgid "Nov"
-msgstr ""
+msgstr "నవం"
 
 #: libraries/messages.inc.php:24
 msgid "Dec"
