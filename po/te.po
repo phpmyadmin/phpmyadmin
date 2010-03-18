@@ -418,7 +418,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:88
 msgid "Information"
-msgstr ""
+msgstr "సమాచారం"
 
 #: libraries/messages.inc.php:89
 msgid "Log name"
