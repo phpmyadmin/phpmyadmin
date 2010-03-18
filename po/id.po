@@ -6849,7 +6849,7 @@ msgstr "Lacak tabel"
 
 #: libraries/messages.inc.php:1530
 msgid "Untracked tables"
-msgstr ""
+msgstr "Batal lacak tabel"
 
 #: libraries/messages.inc.php:1531
 msgid "Username"
