@@ -310,7 +310,7 @@ msgstr "మరియు"
 
 #: libraries/messages.inc.php:61
 msgid "and"
-msgstr ""
+msgstr "మరియు"
 
 #: libraries/messages.inc.php:62
 msgid "and then"
