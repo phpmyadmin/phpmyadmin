@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-18 16:57+0200\n"
+"PO-Revision-Date: 2010-03-18 16:58+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1041,9 +1041,8 @@ msgstr ""
 "mengakibatkan traffic yang cukup tinggi antara webserver dan server MySQL."
 
 #: libraries/messages.inc.php:230
-#, fuzzy
 msgid "Target database"
-msgstr "Cari dalam database"
+msgstr "Database target"
 
 #: libraries/messages.inc.php:231
 msgid "Data"
