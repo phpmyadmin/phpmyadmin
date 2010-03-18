@@ -105,7 +105,7 @@ msgstr "బుధ"
 
 #: libraries/messages.inc.php:23
 msgid "Thu"
-msgstr ""
+msgstr "గురు"
 
 #: libraries/messages.inc.php:23
 msgid "Fri"
