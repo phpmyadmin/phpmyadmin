@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-18 16:56+0200\n"
+"PO-Revision-Date: 2010-03-18 16:57+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1005,7 +1005,7 @@ msgstr "Database %s telah dihapus."
 #: libraries/messages.inc.php:222
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "Database %s tidak ditemukan."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
 msgid "Databases"
