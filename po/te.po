@@ -93,7 +93,7 @@ msgstr "ఆది"
 
 #: libraries/messages.inc.php:23
 msgid "Mon"
-msgstr ""
+msgstr "సోమ"
 
 #: libraries/messages.inc.php:23
 msgid "Tue"
