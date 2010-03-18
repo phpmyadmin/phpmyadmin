@@ -133,7 +133,7 @@ msgstr "ఏప్రి"
 
 #: libraries/messages.inc.php:24
 msgid "May"
-msgstr ""
+msgstr "మే"
 
 #: libraries/messages.inc.php:24
 msgid "Jun"
