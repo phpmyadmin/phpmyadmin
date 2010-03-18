@@ -6814,7 +6814,7 @@ msgstr "Dibuat"
 
 #: libraries/messages.inc.php:1522
 msgid "Last version"
-msgstr ""
+msgstr "Versi terakhir"
 
 #: libraries/messages.inc.php:1523
 msgid "Updated"
