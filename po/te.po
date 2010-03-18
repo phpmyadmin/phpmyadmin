@@ -354,7 +354,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:71
 msgid "Arabic"
-msgstr ""
+msgstr "అరబిక్"
 
 #: libraries/messages.inc.php:72
 msgid "Armenian"
