@@ -1054,7 +1054,7 @@ msgstr "Kamus Data"
 
 #: libraries/messages.inc.php:233
 msgid "Data Difference"
-msgstr ""
+msgstr "Perbedaan data"
 
 #: libraries/messages.inc.php:234
 msgid "Data only"
