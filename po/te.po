@@ -306,7 +306,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:60
 msgid "And"
-msgstr ""
+msgstr "మరియు"
 
 #: libraries/messages.inc.php:61
 msgid "and"
