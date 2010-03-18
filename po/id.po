@@ -1017,9 +1017,8 @@ msgid "%s databases have been dropped successfully."
 msgstr "Sukses menghapus database %s."
 
 #: libraries/messages.inc.php:225
-#, fuzzy
 msgid "Source database"
-msgstr "Cari dalam database"
+msgstr "Database cumber"
 
 #: libraries/messages.inc.php:226
 msgid "Databases statistics"
