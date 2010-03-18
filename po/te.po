@@ -149,7 +149,7 @@ msgstr "ఆగ"
 
 #: libraries/messages.inc.php:24
 msgid "Sep"
-msgstr ""
+msgstr "సెప్టె"
 
 #: libraries/messages.inc.php:24
 msgid "Oct"
