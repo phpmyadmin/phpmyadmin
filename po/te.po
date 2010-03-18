@@ -362,7 +362,7 @@ msgstr "ఆర్మేనియన్"
 
 #: libraries/messages.inc.php:73
 msgid "Ascending"
-msgstr ""
+msgstr "ఆరోహణ"
 
 #: libraries/messages.inc.php:74
 msgid "As defined:"
