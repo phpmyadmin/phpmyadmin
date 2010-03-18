@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-18 08:47+0200\n"
+"PO-Revision-Date: 2010-03-18 08:52+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -7067,6 +7067,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Anda mencoba untuk memuat file dengan kompresi yang tidak didukung (%s). "
+"Dukungan belum diimplementasi atau tidak aktif di dalam konfigurasi Anda."
 
 #: libraries/messages.inc.php:1566
 #, php-format
