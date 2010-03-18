@@ -471,10 +471,9 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "Chystáte se vypnout skladiště BLOBů!"
 
 #: libraries/messages.inc.php:99
-#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
-msgstr "Zapnuto"
+msgstr "Zapnuté"
 
 #: libraries/messages.inc.php:100
 msgid "Enable"
