@@ -1140,7 +1140,7 @@ msgstr "Tidak ada pengguna yang dipilih untuk dihapus!"
 
 #: libraries/messages.inc.php:253
 msgid "Delete relation"
-msgstr ""
+msgstr "Hapus relasi"
 
 #: libraries/messages.inc.php:254
 msgid "Delete tracking data for this table"
