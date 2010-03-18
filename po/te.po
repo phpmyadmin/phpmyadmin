@@ -141,7 +141,7 @@ msgstr "జూన్"
 
 #: libraries/messages.inc.php:24
 msgid "Jul"
-msgstr ""
+msgstr "జూలై"
 
 #: libraries/messages.inc.php:24
 msgid "Aug"
