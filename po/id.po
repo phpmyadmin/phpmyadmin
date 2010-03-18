@@ -6853,9 +6853,8 @@ msgid "Untracked tables"
 msgstr ""
 
 #: libraries/messages.inc.php:1531
-#, fuzzy
 msgid "Username"
-msgstr "Nama Pengguna:"
+msgstr "Nama Pengguna"
 
 #: libraries/messages.inc.php:1532
 #, php-format
