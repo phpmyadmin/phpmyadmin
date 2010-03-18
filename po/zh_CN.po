@@ -466,7 +466,6 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "您正准备禁用 BLOB 容器！"
 
 #: libraries/messages.inc.php:99
-#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "已启用"
