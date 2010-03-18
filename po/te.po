@@ -109,7 +109,7 @@ msgstr "గురు"
 
 #: libraries/messages.inc.php:23
 msgid "Fri"
-msgstr ""
+msgstr "శుక్ర"
 
 #: libraries/messages.inc.php:23
 msgid "Sat"
