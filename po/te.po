@@ -161,7 +161,7 @@ msgstr "నవం"
 
 #: libraries/messages.inc.php:24
 msgid "Dec"
-msgstr ""
+msgstr "డిసెం"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/messages.inc.php:26
