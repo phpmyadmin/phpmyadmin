@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-18 16:58+0200\n"
+"PO-Revision-Date: 2010-03-18 17:01+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1066,7 +1066,7 @@ msgstr "Halaman yang berisi data"
 
 #: libraries/messages.inc.php:236
 msgid "Data Synchronization"
-msgstr ""
+msgstr "Sinkronisasi Data"
 
 #: libraries/messages.inc.php:237
 msgid "Database comment: "
