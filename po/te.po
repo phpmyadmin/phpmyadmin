@@ -183,7 +183,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:31
 msgid "Action"
-msgstr ""
+msgstr "చర్య"
 
 #: libraries/messages.inc.php:32
 msgid "Actions"
