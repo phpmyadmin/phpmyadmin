@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-18 09:01+0200\n"
+"PO-Revision-Date: 2010-03-18 09:02+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -6870,7 +6870,7 @@ msgstr "Versi %s telah dibuat, pelacakan untuk %s.%s diaktifkan."
 #: libraries/messages.inc.php:1534
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr "Pelacakan untuk %4.%s , versi %s dinonaktifkan."
+msgstr "Pelacakan untuk %s.%s , versi %s dinonaktifkan."
 
 #: libraries/messages.inc.php:1535
 #, php-format
