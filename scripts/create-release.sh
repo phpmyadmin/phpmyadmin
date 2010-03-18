@@ -35,37 +35,6 @@ shift
 branch=$1
 shift
 
-# Create working copy
-mkdir -p release
-workdir=release/phpMyAdmin-$version
-if [ -d $workdir ] ; then
-    echo "Working directory '$workdir' already exists, please move it out of way"
-    exit 1
-fi
-git clone --local . $workdir
-cd $workdir
-
-# Checkout branch
-git checkout $branch
-
-# Check release version
-if ! grep -q "'PMA_VERSION', '$version'" libraries/Config.class.php ; then
-    echo "There seems to be wrong version in libraries/Config.class.php!"
-    exit 2
-fi
-if ! grep -q "phpMyAdmin $version - Documentation" Documentation.html ; then
-    echo "There seems to be wrong version in Documentation.html"
-    exit 2
-fi
-if ! grep -q "phpMyAdmin $version - Official translators" translators.html ; then
-    echo "There seems to be wrong version in translators.html"
-    exit 2
-fi
-if ! grep -q "Version $version\$" README ; then
-    echo "There seems to be wrong version in README"
-    exit 2
-fi
-
 cat <<END
 
 Please ensure you have:
@@ -88,6 +57,36 @@ if [ "$do_release" != 'y' ]; then
     exit 100
 fi
 
+# Checkout branch
+git checkout $branch
+
+# Check release version
+if ! grep -q "'PMA_VERSION', '$version'" libraries/Config.class.php ; then
+    echo "There seems to be wrong version in libraries/Config.class.php!"
+    exit 2
+fi
+if ! grep -q "phpMyAdmin $version - Documentation" Documentation.html ; then
+    echo "There seems to be wrong version in Documentation.html"
+    exit 2
+fi
+if ! grep -q "phpMyAdmin $version - Official translators" translators.html ; then
+    echo "There seems to be wrong version in translators.html"
+    exit 2
+fi
+if ! grep -q "Version $version\$" README ; then
+    echo "There seems to be wrong version in README"
+    exit 2
+fi
+
+# Create working copy
+mkdir -p release
+workdir=release/phpMyAdmin-$version
+if [ -d $workdir ] ; then
+    echo "Working directory '$workdir' already exists, please move it out of way"
+    exit 1
+fi
+git clone --local . $workdir
+cd $workdir
 
 # Cleanup release dir
 LC_ALL=C date -u > RELEASE-DATE-${version}
@@ -216,8 +215,8 @@ cat <<END
 Todo now:
 ---------
 
- 1. tag the repository with the new revision number for a plain release
-    or a release candidate:
+1. If not already done, tag the repository with the new revision number 
+   for a plain release or a release candidate:
     version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1 and TESTING
 

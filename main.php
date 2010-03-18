@@ -239,8 +239,8 @@ PMA_printListItem($strHomepageOfficial, 'li_pma_homepage', 'http://www.phpMyAdmi
 ?>
     <li><bdo xml:lang="en" dir="ltr">
         [<a href="changelog.php" target="_blank">ChangeLog</a>]
-        [<a href="http://phpmyadmin.svn.sourceforge.net/viewvc/phpmyadmin/"
-            target="_blank">Subversion</a>]
+        [<a href="http://phpmyadmin.git.sourceforge.net/git/gitweb-index.cgi"
+            target="_blank">Git</a>]
         [<a href="http://sourceforge.net/mail/?group_id=23067"
             target="_blank">Lists</a>]
         </bdo>

@@ -13,7 +13,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/Table.class.php';
 
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'mootools-more.js';
+$GLOBALS['js_include'][] = 'mootools.js';
 require_once './libraries/header.inc.php';
 
 // Check parameters
