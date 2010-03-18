@@ -198,7 +198,7 @@ msgstr "Menambahkan nilai AUTO_INCREMENT"
 #: libraries/messages.inc.php:34
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Tambah %s"
 
 #: libraries/messages.inc.php:35
 msgid "Add constraints"
