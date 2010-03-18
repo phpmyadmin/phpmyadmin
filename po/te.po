@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 01:26+0200\n"
+"PO-Revision-Date: 2010-03-19 01:27+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -153,7 +153,7 @@ msgstr "సెప్టె"
 
 #: libraries/messages.inc.php:24
 msgid "Oct"
-msgstr ""
+msgstr "అక్టో"
 
 #: libraries/messages.inc.php:24
 msgid "Nov"
