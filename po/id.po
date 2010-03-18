@@ -472,7 +472,6 @@ msgid "Enabled"
 msgstr "Aktifkan"
 
 #: libraries/messages.inc.php:100
-#, fuzzy
 msgid "Enable"
 msgstr "Aktif"
 
