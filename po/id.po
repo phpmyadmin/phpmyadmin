@@ -6865,7 +6865,7 @@ msgstr "Pelacakan untuk %s.%s , versi %s diaktifkan."
 #: libraries/messages.inc.php:1533
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "Versi %s telah dibuat, pelacakan untuk %s.%s diaktifkan."
 
 #: libraries/messages.inc.php:1534
 #, php-format
