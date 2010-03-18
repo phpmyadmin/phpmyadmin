@@ -1078,7 +1078,7 @@ msgstr "Salin database ke"
 
 #: libraries/messages.inc.php:239
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "Database kosong"
 
 #: libraries/messages.inc.php:240
 msgid "Database-specific privileges"
