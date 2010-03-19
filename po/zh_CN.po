@@ -909,7 +909,6 @@ msgid "Create table"
 msgstr "新建数据表"
 
 #: libraries/messages.inc.php:200
-#, fuzzy
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "新建数据表"
