@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 18:28+0200\n"
+"PO-Revision-Date: 2010-03-19 18:29+0200\n"
 "Last-Translator: చక్రవర్తి <varthy@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -6005,9 +6005,10 @@ msgstr "స్లోవాక్"
 msgid "Slovenian"
 msgstr "స్లోవాక్ దేశరి"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:1380
 msgid "Small/Big All"
-msgstr ""
+msgstr "చిన్నవి / పెద్దవి అన్నియు"
 
 #: libraries/messages.inc.php:1381
 msgid "Snap to grid"
