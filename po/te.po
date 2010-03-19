@@ -6687,9 +6687,10 @@ msgstr ""
 msgid "Traditional Chinese"
 msgstr "సాంప్రదాయ చైనీస్"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:1539
 msgid "Traditional Spanish"
-msgstr ""
+msgstr "సాంప్రదాయ స్పానిష్"
 
 #: libraries/messages.inc.php:1540
 msgid "Traffic"
