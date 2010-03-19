@@ -1365,7 +1365,7 @@ msgstr "Kesalahan dalam arsip ZIP:"
 
 #: libraries/messages.inc.php:306
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "Kesalahan: Relasi tidak ditambahkan."
 
 #: libraries/messages.inc.php:307
 msgid "Error: relation already exists."
