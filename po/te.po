@@ -747,7 +747,7 @@ msgstr "వ్యాఖ్య"
 
 #: libraries/messages.inc.php:167
 msgid "Comments"
-msgstr ""
+msgstr "వ్యాఖ్యలు"
 
 #: libraries/messages.inc.php:168
 msgid "MySQL&nbsp;4.0 compatible"
