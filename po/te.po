@@ -1676,9 +1676,10 @@ msgstr ""
 msgid "Hide"
 msgstr "దాచు"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:384
 msgid "Hide/Show all"
-msgstr ""
+msgstr "అన్నింటిని చూపుము/దాచుము"
 
 #: libraries/messages.inc.php:385
 msgid "Hide/Show Tables with no relation"
