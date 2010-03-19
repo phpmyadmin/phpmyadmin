@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-19 03:30+0200\n"
+"PO-Revision-Date: 2010-03-19 03:31+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6386,7 +6386,6 @@ msgid "Storage Engine"
 msgstr "存储引擎"
 
 #: libraries/messages.inc.php:1413
-#, fuzzy
 msgctxt "$strStrucCSV"
 msgid "CSV"
 msgstr "CSV"
