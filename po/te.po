@@ -266,9 +266,10 @@ msgstr "పరిపాలన"
 msgid "After %s"
 msgstr "%s మార్లు తరువాత"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:50
 msgid "Go back to previous page"
-msgstr ""
+msgstr "మునుపటి పుటకు వెళ్ళు"
 
 #: libraries/messages.inc.php:51
 msgid "Insert another new row"
