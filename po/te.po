@@ -6030,9 +6030,10 @@ msgstr ""
 msgid "Sorting"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:1386
 msgid "Sort"
-msgstr ""
+msgstr "క్రమంలో పేర్చు"
 
 #: libraries/messages.inc.php:1387
 msgid "Space usage"
