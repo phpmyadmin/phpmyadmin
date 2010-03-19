@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 12:39+0200\n"
+"PO-Revision-Date: 2010-03-19 12:40+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -6040,7 +6040,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1391
 msgid "Export type"
-msgstr ""
+msgstr "ఎగుమతి రకం"
 
 #: libraries/messages.inc.php:1392
 msgid "Export time in UTC"
