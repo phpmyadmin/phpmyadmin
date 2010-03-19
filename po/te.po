@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 19:04+0200\n"
+"PO-Revision-Date: 2010-03-19 19:05+0200\n"
 "Last-Translator: చక్రవర్తి <varthy@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -2950,9 +2950,10 @@ msgstr ""
 msgid "Portrait"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:677
 msgid "Begin"
-msgstr ""
+msgstr "మొదలు"
 
 #: libraries/messages.inc.php:678
 msgid "Previous"
