@@ -960,7 +960,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:216
 msgid "Danish"
-msgstr ""
+msgstr "డానిష్"
 
 #: libraries/messages.inc.php:217
 msgid "Database"
