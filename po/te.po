@@ -3654,7 +3654,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:850
 msgid "Save"
-msgstr ""
+msgstr "భద్రపరచు"
 
 #: libraries/messages.inc.php:851
 msgid "The scale factor is too small to fit the schema on one page"
