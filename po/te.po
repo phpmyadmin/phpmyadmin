@@ -246,9 +246,10 @@ msgstr ""
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:46
 msgid "Add a new User"
-msgstr ""
+msgstr "క్రొత్త వినియోగదారుని చేర్చు"
 
 #: libraries/messages.inc.php:47
 msgid "You have added a new user."
