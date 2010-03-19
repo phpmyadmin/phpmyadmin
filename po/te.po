@@ -6959,7 +6959,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1598
 msgid "Value"
-msgstr ""
+msgstr "విలువ"
 
 #: libraries/messages.inc.php:1599
 msgid "Variable"
