@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 18:07+0200\n"
+"PO-Revision-Date: 2010-03-19 18:08+0200\n"
 "Last-Translator:  <varthy@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -279,9 +279,10 @@ msgstr ""
 msgid "Edit next row"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:53
 msgid "Go back to this page"
-msgstr ""
+msgstr "ఈ పుటకు తిరిగి వెళ్ళుము"
 
 #: libraries/messages.inc.php:54
 msgid "All"
