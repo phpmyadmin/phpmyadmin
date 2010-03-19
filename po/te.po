@@ -6509,7 +6509,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1499
 msgid "Date"
-msgstr ""
+msgstr "తేదీ"
 
 #: libraries/messages.inc.php:1500
 msgid "Deactivate now"
