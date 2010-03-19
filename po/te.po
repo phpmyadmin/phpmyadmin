@@ -5703,9 +5703,10 @@ msgid ""
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:1316
 msgid "The number of pages read."
-msgstr ""
+msgstr "చదివిన పుటల సంఖ్య"
 
 #: libraries/messages.inc.php:1317
 msgid "The number of pages written."
