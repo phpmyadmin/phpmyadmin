@@ -2566,7 +2566,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:596
 msgid "OK"
-msgstr ""
+msgstr "సరే"
 
 #: libraries/messages.inc.php:598
 msgid "Open Document Text"
