@@ -6794,7 +6794,7 @@ msgstr "రకం"
 
 #: libraries/messages.inc.php:1559
 msgid "Ukrainian"
-msgstr ""
+msgstr "ఉక్రేనియన్"
 
 #: libraries/messages.inc.php:1560
 msgid "Uncheck All"
