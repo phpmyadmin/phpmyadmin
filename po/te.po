@@ -646,9 +646,10 @@ msgstr ""
 msgid "Change"
 msgstr "మార్చుము"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:140
 msgid "... keep the old one."
-msgstr ""
+msgstr "... పాతదే ఉంచుము"
 
 #: libraries/messages.inc.php:141
 msgid "Create a new user with the same privileges and ..."
