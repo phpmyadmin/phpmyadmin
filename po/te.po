@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 12:29+0200\n"
+"PO-Revision-Date: 2010-03-19 12:30+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -4465,7 +4465,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1042
 msgid "Display logo"
-msgstr ""
+msgstr "చిహ్నాన్ని చూపించు"
 
 #: libraries/messages.inc.php:1043
 msgid "Display server choice at the top of the left frame"
