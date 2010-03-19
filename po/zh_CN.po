@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-19 03:33+0200\n"
+"PO-Revision-Date: 2010-03-19 03:34+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -612,7 +612,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:133
 msgid "Can't rename index to PRIMARY!"
-msgstr "无法将索改为主键 (PRIMARY) ！"
+msgstr "无法将索引改为主键 (PRIMARY) ！"
 
 #: libraries/messages.inc.php:134
 msgid ""
