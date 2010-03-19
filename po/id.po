@@ -1378,7 +1378,7 @@ msgstr "Kesalahan mengganti nama table %1$s ke %2$s"
 
 #: libraries/messages.inc.php:309
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "Kesalahan menyimpan koordinat untuk Perancang."
 
 #: libraries/messages.inc.php:310
 msgid "Esperanto"
