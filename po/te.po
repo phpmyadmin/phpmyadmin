@@ -284,9 +284,10 @@ msgstr ""
 msgid "Go back to this page"
 msgstr "ఈ పుటకు తిరిగి వెళ్ళుము"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:54
 msgid "All"
-msgstr ""
+msgstr "అన్నియు"
 
 #: libraries/messages.inc.php:55
 msgid ""
