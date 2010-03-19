@@ -2839,9 +2839,10 @@ msgstr ""
 msgid "No tables"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:651
 msgid "Page has been created"
-msgstr ""
+msgstr "పుటను సృష్టించడమైనది"
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
