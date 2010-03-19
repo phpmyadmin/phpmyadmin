@@ -6910,7 +6910,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1585
 msgid "User name"
-msgstr ""
+msgstr "వాడుకరి పేరు"
 
 #: libraries/messages.inc.php:1586
 msgid "The selected user was not found in the privilege table."
