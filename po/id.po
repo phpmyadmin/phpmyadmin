@@ -1244,7 +1244,7 @@ msgstr "Jangan gunakan AUTO_INCREMENT untuk nilai nol"
 
 #: libraries/messages.inc.php:276
 msgid "Download file"
-msgstr ""
+msgstr "Unduh file"
 
 #: libraries/messages.inc.php:277
 msgid "Do you really want to "
