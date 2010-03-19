@@ -3699,7 +3699,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:861
 msgid "Search"
-msgstr ""
+msgstr "వెతుకు"
 
 #: libraries/messages.inc.php:862
 msgid "Find:"
