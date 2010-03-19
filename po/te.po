@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 18:58+0200\n"
+"PO-Revision-Date: 2010-03-19 18:59+0200\n"
 "Last-Translator: చక్రవర్తి <varthy@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1948,9 +1948,10 @@ msgstr ""
 msgid "Internal relations"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:446
 msgid "in use"
-msgstr ""
+msgstr "వాడుకలో ఉన్నది"
 
 #: libraries/messages.inc.php:447
 msgid "Invalid authentication method set in configuration:"
