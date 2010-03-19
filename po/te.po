@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 12:04+0200\n"
+"PO-Revision-Date: 2010-03-19 12:11+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1641,7 +1641,7 @@ msgstr "హిబ్రూ"
 
 #: libraries/messages.inc.php:381
 msgid "Help"
-msgstr ""
+msgstr "సహాయం"
 
 #: libraries/messages.inc.php:382
 msgid "Use hexadecimal for BLOB"
