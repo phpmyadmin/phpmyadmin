@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 12:30+0200\n"
+"PO-Revision-Date: 2010-03-19 12:33+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -5178,7 +5178,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1204
 msgid "Show statistics"
-msgstr ""
+msgstr "గణాంకాలను చూపించు"
 
 #: libraries/messages.inc.php:1205
 msgid ""
