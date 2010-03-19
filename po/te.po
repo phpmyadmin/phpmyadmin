@@ -7017,9 +7017,10 @@ msgstr "నామధేయమును చూపుము"
 msgid "View video"
 msgstr "వీడియోను చూపుము"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:1609
 msgid "View"
-msgstr ""
+msgstr "చూపుము"
 
 #: libraries/messages.inc.php:1611
 msgid "The directory you set for upload work cannot be reached"
