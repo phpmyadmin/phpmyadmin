@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 18:31+0200\n"
+"PO-Revision-Date: 2010-03-19 18:32+0200\n"
 "Last-Translator: చక్రవర్తి <varthy@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -5708,9 +5708,10 @@ msgstr ""
 msgid "The number of pages read."
 msgstr "చదివిన పుటల సంఖ్య"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:1317
 msgid "The number of pages written."
-msgstr ""
+msgstr "వ్రాసిన పుటల సంఖ్య"
 
 #: libraries/messages.inc.php:1318
 msgid "The number of row locks currently being waited for."
