@@ -5347,7 +5347,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1242
 msgid "Show all"
-msgstr ""
+msgstr "అన్నీ చూపించు"
 
 #: libraries/messages.inc.php:1243
 msgid "Show binary contents as HEX"
