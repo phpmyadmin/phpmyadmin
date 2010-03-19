@@ -6362,9 +6362,10 @@ msgstr ""
 msgid "Update row(s)"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:1464
 msgid "take it"
-msgstr ""
+msgstr "తీసుకొనుము"
 
 #: libraries/messages.inc.php:1465
 msgid "Target database has been synchronized with source database"
