@@ -979,9 +979,10 @@ msgstr ""
 msgid "Danish"
 msgstr "డానిష్"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:217
 msgid "Database"
-msgstr ""
+msgstr "డేటాబేస్"
 
 #: libraries/messages.inc.php:218
 msgid "The database name is empty!"
