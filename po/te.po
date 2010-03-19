@@ -4272,7 +4272,7 @@ msgstr "భద్రత"
 
 #: libraries/messages.inc.php:999
 msgid "Basic settings"
-msgstr ""
+msgstr "ప్రాధమిక అమరికలు"
 
 #: libraries/messages.inc.php:1000
 msgid ""
