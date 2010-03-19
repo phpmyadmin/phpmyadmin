@@ -6802,7 +6802,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1561
 msgid "Unicode"
-msgstr ""
+msgstr "యూనికోడ్"
 
 #: libraries/messages.inc.php:1562
 msgid "Unique"
