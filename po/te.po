@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 18:40+0200\n"
+"PO-Revision-Date: 2010-03-19 18:41+0200\n"
 "Last-Translator: చక్రవర్తి <varthy@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -641,9 +641,10 @@ msgstr ""
 msgid "Central European"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:139
 msgid "Change"
-msgstr ""
+msgstr "మార్చుము"
 
 #: libraries/messages.inc.php:140
 msgid "... keep the old one."
