@@ -1232,7 +1232,7 @@ msgstr "cari berdasarkan data contoh (\"query by example\") (wildcard: \"%\")"
 
 #: libraries/messages.inc.php:273
 msgid "DocSQL"
-msgstr ""
+msgstr "DocSQL"
 
 #: libraries/messages.inc.php:274
 msgid "Documentation"
