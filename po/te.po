@@ -869,9 +869,10 @@ msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:190
 msgid "Create"
-msgstr ""
+msgstr "సృష్టించు"
 
 #: libraries/messages.inc.php:191
 msgid "CREATE DATABASE before copying"
