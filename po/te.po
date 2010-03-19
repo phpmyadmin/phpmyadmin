@@ -1160,7 +1160,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:262
 msgid "Details..."
-msgstr ""
+msgstr "వివరాలు..."
 
 #: libraries/messages.inc.php:263
 msgid "dictionary"
