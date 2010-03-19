@@ -6790,7 +6790,7 @@ msgstr "టర్కిష్"
 
 #: libraries/messages.inc.php:1557
 msgid "Type"
-msgstr ""
+msgstr "రకం"
 
 #: libraries/messages.inc.php:1559
 msgid "Ukrainian"
