@@ -1369,7 +1369,7 @@ msgstr "Kesalahan: Relasi tidak ditambahkan."
 
 #: libraries/messages.inc.php:307
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Kesalahan: relasi sudah ada."
 
 #: libraries/messages.inc.php:308
 #, php-format
