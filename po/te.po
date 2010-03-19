@@ -4097,9 +4097,10 @@ msgstr ""
 msgid "Download"
 msgstr "దించుకొనుము"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:940
 msgid "End of line"
-msgstr ""
+msgstr "వాక్యాంతము"
 
 #: libraries/messages.inc.php:941
 msgid "Could not connect to MySQL server"
