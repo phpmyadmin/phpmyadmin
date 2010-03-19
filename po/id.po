@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-19 13:05+0200\n"
+"PO-Revision-Date: 2010-03-19 13:06+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -942,7 +942,7 @@ msgstr "Berikan semua hak untuk database &quot;%s&quot;."
 
 #: libraries/messages.inc.php:205
 msgid "Grant all privileges on wildcard name (username\\_%)"
-msgstr ""
+msgstr "Berikan semua hak untuk nama wildcard (pengguna\\_%)"
 
 #: libraries/messages.inc.php:206
 msgid "Creation/Update/Check dates"
