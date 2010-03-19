@@ -1141,7 +1141,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:258
 msgid "Descending"
-msgstr ""
+msgstr "అవరోహణ"
 
 #: libraries/messages.inc.php:259
 msgid "Description"
