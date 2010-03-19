@@ -1661,7 +1661,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:386
 msgid "Home"
-msgstr ""
+msgstr "ముంగిలి"
 
 #: libraries/messages.inc.php:387
 msgid "Official Homepage"
