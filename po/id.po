@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-19 13:16+0200\n"
+"PO-Revision-Date: 2010-03-19 13:17+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1394,7 +1394,7 @@ msgstr "Kejadian"
 
 #: libraries/messages.inc.php:313
 msgid "Events"
-msgstr ""
+msgstr "Kejadian"
 
 #: libraries/messages.inc.php:314
 msgid "Excel edition"
