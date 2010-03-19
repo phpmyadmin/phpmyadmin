@@ -335,9 +335,10 @@ msgstr ""
 msgid "An index has been added on %s"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:65
 msgid "Any"
-msgstr ""
+msgstr "ఏదైనను"
 
 #: libraries/messages.inc.php:66
 msgid "Any host"
