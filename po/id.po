@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-19 13:13+0200\n"
+"PO-Revision-Date: 2010-03-19 13:14+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1374,7 +1374,7 @@ msgstr "Kesalahan: relasi sudah ada."
 #: libraries/messages.inc.php:308
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Kesalahan mengganti nama table %1$s ke %2$s"
 
 #: libraries/messages.inc.php:309
 msgid "Error saving coordinates for Designer."
