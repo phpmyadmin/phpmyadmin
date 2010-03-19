@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 18:04+0200\n"
+"PO-Revision-Date: 2010-03-19 18:05+0200\n"
 "Last-Translator:  <varthy@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -224,9 +224,10 @@ msgstr ""
 msgid "Add into comments"
 msgstr "స్పందనలకు చేర్చు"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:41
 msgid "Add new field"
-msgstr ""
+msgstr "క్రొత్త ఫీల్డ్ చేర్చు"
 
 #: libraries/messages.inc.php:42
 msgid "Add privileges on the following database"
