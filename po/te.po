@@ -2016,9 +2016,10 @@ msgstr ""
 msgid "Invalid table name"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:462
 msgid "Japanese"
-msgstr ""
+msgstr "జాపనీస్"
 
 #: libraries/messages.inc.php:463
 msgid ""
