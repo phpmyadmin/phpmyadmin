@@ -6213,9 +6213,10 @@ msgstr ""
 msgid "Sum"
 msgstr "మొత్తము"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:1428
 msgid "Swedish"
-msgstr ""
+msgstr "స్వీడీష్"
 
 #: libraries/messages.inc.php:1429
 msgid "Authenticating..."
