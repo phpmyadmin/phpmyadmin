@@ -2955,9 +2955,10 @@ msgstr ""
 msgid "Begin"
 msgstr "మొదలు"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:678
 msgid "Previous"
-msgstr ""
+msgstr "క్రితము"
 
 #: libraries/messages.inc.php:679
 msgid "The primary key has been dropped"
