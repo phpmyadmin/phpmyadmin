@@ -1164,7 +1164,7 @@ msgstr "వివరాలు..."
 
 #: libraries/messages.inc.php:263
 msgid "dictionary"
-msgstr ""
+msgstr "నిఘంటువు"
 
 #: libraries/messages.inc.php:264
 msgid "Difference"
