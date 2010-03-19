@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 18:42+0200\n"
+"PO-Revision-Date: 2010-03-19 18:43+0200\n"
 "Last-Translator: చక్రవర్తి <varthy@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -832,9 +832,10 @@ msgstr ""
 msgid "Cookies must be enabled past this point."
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:182
 msgid "Copy"
-msgstr ""
+msgstr "నకలు"
 
 #: libraries/messages.inc.php:183
 #, possible-php-format
