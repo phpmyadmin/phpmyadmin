@@ -2151,7 +2151,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:502
 msgid "Log out"
-msgstr ""
+msgstr "నిష్క్రమించు"
 
 #: libraries/messages.inc.php:503
 msgid "Password:"
