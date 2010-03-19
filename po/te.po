@@ -6462,7 +6462,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1488
 msgid "total"
-msgstr ""
+msgstr "మొత్తం"
 
 #: libraries/messages.inc.php:1489
 msgid "Total"
