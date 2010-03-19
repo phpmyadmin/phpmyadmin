@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 12:27+0200\n"
+"PO-Revision-Date: 2010-03-19 12:29+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -4268,7 +4268,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:998
 msgid "Security"
-msgstr ""
+msgstr "భద్రత"
 
 #: libraries/messages.inc.php:999
 msgid "Basic settings"
