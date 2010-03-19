@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 18:05+0200\n"
+"PO-Revision-Date: 2010-03-19 18:06+0200\n"
 "Last-Translator:  <varthy@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -251,9 +251,10 @@ msgstr ""
 msgid "Add a new User"
 msgstr "క్రొత్త వినియోగదారుని చేర్చు"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:47
 msgid "You have added a new user."
-msgstr ""
+msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
 
 #: libraries/messages.inc.php:48
 msgid "Administration"
