@@ -967,9 +967,10 @@ msgstr ""
 msgid "Cyrillic"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:213
 msgid "Czech"
-msgstr ""
+msgstr "ఛెక్"
 
 # మొదటి అనువాదము
 #: libraries/messages.inc.php:214
