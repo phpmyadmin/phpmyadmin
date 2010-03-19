@@ -1264,7 +1264,7 @@ msgstr "Hapus database yang memiliki nama yang sama dengan pengguna."
 
 #: libraries/messages.inc.php:281
 msgid "Dump all rows"
-msgstr ""
+msgstr "Dump semua row"
 
 #: libraries/messages.inc.php:282
 msgid "Dumping data for table"
