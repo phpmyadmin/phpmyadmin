@@ -6000,9 +6000,10 @@ msgstr ""
 msgid "Slovak"
 msgstr "స్లోవాక్"
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:1379
 msgid "Slovenian"
-msgstr ""
+msgstr "స్లోవాక్ దేశరి"
 
 #: libraries/messages.inc.php:1380
 msgid "Small/Big All"
