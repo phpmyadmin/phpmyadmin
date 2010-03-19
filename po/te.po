@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 18:59+0200\n"
+"PO-Revision-Date: 2010-03-19 19:00+0200\n"
 "Last-Translator: చక్రవర్తి <varthy@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -2194,9 +2194,10 @@ msgstr ""
 msgid "Server:"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:506
 msgid "Username:"
-msgstr ""
+msgstr "వాడుకరి పేరు"
 
 #: libraries/messages.inc.php:507
 msgid "This operation could take a long time. Proceed anyway?"
