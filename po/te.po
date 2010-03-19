@@ -304,9 +304,10 @@ msgstr ""
 msgid "Alter table order by"
 msgstr ""
 
+# మొదటి అనువాదము
 #: libraries/messages.inc.php:58
 msgid "Analyze"
-msgstr ""
+msgstr "విశదీకరించు"
 
 #: libraries/messages.inc.php:59
 msgid "Analyze table"
