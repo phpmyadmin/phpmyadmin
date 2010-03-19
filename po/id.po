@@ -1389,9 +1389,8 @@ msgid "Estonian"
 msgstr "Bahasa Estonia"
 
 #: libraries/messages.inc.php:312
-#, fuzzy
 msgid "Event"
-msgstr "Pengiriman"
+msgstr "Kejadian"
 
 #: libraries/messages.inc.php:313
 msgid "Events"
