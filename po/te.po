@@ -1593,7 +1593,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:368
 msgid "Go"
-msgstr ""
+msgstr "వెళ్ళు"
 
 #: libraries/messages.inc.php:369
 msgid "Go to database"
