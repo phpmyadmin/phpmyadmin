@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-19 13:09+0200\n"
+"PO-Revision-Date: 2010-03-19 13:10+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1200,7 +1200,7 @@ msgstr "Perbedaan"
 
 #: libraries/messages.inc.php:265
 msgid "Direct links"
-msgstr ""
+msgstr "Link langsung"
 
 #: libraries/messages.inc.php:266
 msgid "Dirty pages"
