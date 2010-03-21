@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-21 05:09+0200\n"
+"PO-Revision-Date: 2010-03-21 05:11+0200\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -938,9 +938,9 @@ msgid "None"
 msgstr "Nenhum"
 
 #: libraries/messages.inc.php:204
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Verificar privilégios para a Banco de Dados &quot;%s&quot;."
+msgstr "Conceder todos os privilégios no banco de dados &quot;%s&quot;"
 
 #: libraries/messages.inc.php:205
 msgid "Grant all privileges on wildcard name (username\\_%)"
