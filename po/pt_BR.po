@@ -3015,9 +3015,8 @@ msgid "Polish"
 msgstr "Polonês"
 
 #: libraries/messages.inc.php:675
-#, fuzzy
 msgid "Port"
-msgstr "Ordenar"
+msgstr "Porta"
 
 #: libraries/messages.inc.php:676
 msgid "Portrait"
