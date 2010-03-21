@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-21 05:13+0200\n"
+"PO-Revision-Date: 2010-03-21 05:14+0200\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -2488,9 +2488,8 @@ msgid "Filter"
 msgstr "Filtro"
 
 #: libraries/messages.inc.php:555
-#, fuzzy
 msgid "New table"
-msgstr "Sem tabelas"
+msgstr "Nova tabela"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
