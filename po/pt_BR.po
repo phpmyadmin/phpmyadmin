@@ -461,9 +461,8 @@ msgid "Disabled"
 msgstr "Desabilitado"
 
 #: libraries/messages.inc.php:97
-#, fuzzy
 msgid "Disable"
-msgstr "Desabilitado"
+msgstr "Desabilitar"
 
 #: libraries/messages.inc.php:98
 msgid "You are about to DISABLE a BLOB Repository!"
