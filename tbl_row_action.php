@@ -43,7 +43,7 @@ if (isset($_REQUEST['submit_mult'])) {
     $submit_mult = 'row_export';
 }
 
-// garvin: If the 'Ask for confirmation' button was pressed, this can only come
+// If the 'Ask for confirmation' button was pressed, this can only come
 // from 'delete' mode, so we set it straight away.
 if (isset($_REQUEST['mult_btn'])) {
     $submit_mult = 'row_delete';

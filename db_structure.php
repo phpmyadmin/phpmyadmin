@@ -300,9 +300,11 @@ foreach ($tables as $keyname => $each_table) {
     if ($each_table['TABLE_ROWS'] > 0) {
         $browse_table = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $titles['Browse'] . '</a>';
         $search_table = '<a href="tbl_select.php?' . $tbl_url_query . '">' . $titles['Search'] . '</a>';
+        $browse_table_label = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $truename . '</a>';
     } else {
         $browse_table = $titles['NoBrowse'];
         $search_table = $titles['NoSearch'];
+        $browse_table_label = '<a href="tbl_structure.php?' . $tbl_url_query . '">' . $truename . '</a>';
     }
 
     if (! $db_is_information_schema) {
@@ -382,8 +384,7 @@ foreach ($tables as $keyname => $each_table) {
         <input type="checkbox" name="selected_tbl[]"
             value="<?php echo htmlspecialchars($each_table['TABLE_NAME']); ?>"
             id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> /></td>
-    <th><label for="checkbox_tbl_<?php echo $i; ?>"
-            title="<?php echo $alias; ?>" style="<?php echo $ignored ? ' ignored' : ''; ?>"><?php echo $truename; ?></label>
+    <th><?php echo $browse_table_label; ?>
         <?php echo (! empty($tracking_icon) ? $tracking_icon : ''); ?>
     </th>
    <?php if ($server_slave_status) { ?><td align="center"><?php echo $ignored ? ' <img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="NOT REPLICATED" />' : ''. $do ? ' <img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="REPLICATED" />' : ''; ?></td><?php } ?>
