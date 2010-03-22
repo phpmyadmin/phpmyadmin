@@ -15,7 +15,7 @@ require_once './libraries/Table.class.php';
 require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
-$GLOBALS['js_include'][] = 'mootools-more.js';
+$GLOBALS['js_include'][] = 'jquery.js';
 
 /**
  * Defines the url to return to in case of error in a sql statement

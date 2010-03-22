@@ -2424,7 +2424,7 @@ function PMA_generate_html_dropdown($select_name, $choices, $active_choice, $id)
 }
 
 /**
- * Generates a slider effect (Mootools)
+ * Generates a slider effect (jQjuery)
  * Takes care of generating the initial <div> and the link
  * controlling the slider; you have to generate the </div> yourself
  * after the sliding section.
@@ -2440,48 +2440,33 @@ function PMA_generate_slider_effect($id, $message)
         return;
     }
     ?>
-<script type="text/javascript">
+    <script type="text/javascript">
 // <![CDATA[
-window.addEvent('domready', function(){
-    var status = {
-        'true': '- ',
-        'false': '+ '
-    };
-
-    var anchor<?php echo $id; ?> = new Element('a', {
-        'id': 'toggle_<?php echo $id; ?>',
-        'href': 'javascript:void(0)',
-        'events': {
-            'click': function(){
-                mySlide<?php echo $id; ?>.toggle();
-            }
-        }
-    });
-
-    anchor<?php echo $id; ?>.appendText('<?php echo $message; ?>');
-    anchor<?php echo $id; ?>.injectBefore('<?php echo $id; ?>');
-
-    var slider_status<?php echo $id; ?> = new Element('span', {
-        'id': 'slider_status_<?php echo $id; ?>'
-    });
-    slider_status<?php echo $id; ?>.appendText('<?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? '+' : '-';?> ');
-    slider_status<?php echo $id; ?>.injectBefore('toggle_<?php echo $id; ?>');
-
-    var mySlide<?php echo $id; ?> = new Fx.Slide('<?php echo $id; ?>');
-    <?php
-    if ($GLOBALS['cfg']['InitialSlidersState'] == 'closed') {
-        ?>
-    mySlide<?php echo $id; ?>.hide();
-        <?php
-    }
-    ?>
-    mySlide<?php echo $id; ?>.addEvent('complete', function() {
-                $('slider_status_<?php echo $id; ?>').set('html', status[mySlide<?php echo $id; ?>.open]);
-                    });
-
-    $('<?php echo $id; ?>').style.display="block";
-});
     document.write('<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none;"' : ''; ?>>');
+
+    function PMA_set_status_label_<?php echo $id; ?>() {
+        if ($('#<?php echo $id; ?>').css('display') == 'none') {
+            $('#anchor_status_<?php echo $id; ?>').text('+ ');
+        } else {
+            $('#anchor_status_<?php echo $id; ?>').text('- ');
+        }
+    }
+
+    $(document).ready(function() {
+
+        $('<span id="anchor_status_<?php echo $id; ?>"><span>')
+            .insertBefore('#<?php echo $id; ?>')
+
+        PMA_set_status_label_<?php echo $id; ?>();
+
+        $('<a href="#" id="anchor_<?php echo $id; ?>"><?php echo htmlspecialchars($message); ?></a>')
+            .insertBefore('#<?php echo $id; ?>')
+            .click(function() {
+                $('#<?php echo $id; ?>').slideToggle('normal', function() {
+                    PMA_set_status_label_<?php echo $id; ?>();
+                });
+            });
+    });
     //]]>
     </script>
     <noscript>
