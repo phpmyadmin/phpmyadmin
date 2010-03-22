@@ -4326,20 +4326,23 @@ chmod o+rwx tmp
 
 <p> The following method is preferred for new developers:</p>
 
-<ol><li>fetch the current SVN tree over anonymous SVN:<br />
-    <tt>svn co https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin</tt><br />
+<ol><li>fetch the current git repository over anonymous git:<br />
+    <tt>git clone
+        git://phpmyadmin.git.sourceforge.net/gitroot/phpmyadmin/phpmyadmin</tt><br />
     </li>
     <li>add your stuff</li>
     <li>generate patch with your changes:
-    <tt>svn diff</tt><br />
+    <tt>git diff > xxx.diff</tt><br />
     </li>
-    <li>put the patch inside the <a
+    <li>submit your patch via the <a
         href="https://sourceforge.net/tracker/?group_id=23067&amp;atid=377410">patch
         tracker of the phpMyAdmin project</a>.
     </li>
 </ol>
 
-<p> Write access to the SVN tree is granted only to experienced developers who
+<p>More details on git are available on <a href="http://wiki.phpmyadmin.net/pma/Devel:git">our wiki</a>.</p>
+
+<p> Write access to the repository is granted only to experienced developers who
     have already contributed something useful to phpMyAdmin.<br />
     Also, have a look at the <a href="#developers">Developers section</a>.</p>
 
