@@ -51,6 +51,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Uzbek update, thanks to Orzu Samarqandiy
 + rfe #2958013 [import] After import, also list uploaded filename, thanks
   to Pavel Konnikov and Herman van Rink
++ patch #2974341 [structure] Clicking on table name in db Structure should 
+  Browse the table if possible, thanks to bhdouglass - dougboybhd
 
 3.3.2.0 (not yet released)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
