@@ -2467,7 +2467,9 @@ function PMA_generate_slider_effect($id, $message)
         $('<a href="#" id="anchor_<?php echo $id; ?>"><?php echo htmlspecialchars($message); ?></a>')
             .insertBefore('#<?php echo $id; ?>')
             .click(function() {
-                $('#<?php echo $id; ?>').slideToggle('normal', function() {
+                // the callback should be the 4th parameter but
+                // it only works as the second parameter
+                $('#<?php echo $id; ?>').toggle('drop', function() {
                     PMA_set_status_label_<?php echo $id; ?>();
                 });
             });
