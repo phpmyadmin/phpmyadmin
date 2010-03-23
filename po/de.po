@@ -1727,7 +1727,7 @@ msgstr "Verstecken"
 
 #: libraries/messages.inc.php:384
 msgid "Hide/Show all"
-msgstr "Zeige/Verstecke alles"
+msgstr "Alles ein-/ausblenden"
 
 #: libraries/messages.inc.php:385
 msgid "Hide/Show Tables with no relation"
