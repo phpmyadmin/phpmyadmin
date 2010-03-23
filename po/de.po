@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-23 21:04+0200\n"
+"PO-Revision-Date: 2010-03-23 21:05+0200\n"
 "Last-Translator:  <me@michaelkeck.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1672,9 +1672,8 @@ msgid "Go to database"
 msgstr "Gehe zur Datenbank"
 
 #: libraries/messages.inc.php:370
-#, fuzzy
 msgid "Go to table"
-msgstr "Keine Datenbanken"
+msgstr "Gehe zur Tabelle"
 
 #: libraries/messages.inc.php:371
 msgid "Go to view"
