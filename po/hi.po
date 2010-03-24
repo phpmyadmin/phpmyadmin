@@ -870,7 +870,7 @@ msgid "Create new database"
 msgstr " नया डाटाबेस बनाओ"
 
 #: libraries/messages.inc.php:195
-#, php-format
+#, php-format, fuzzy
 msgid "Create table on database %s"
 msgstr " डाटाबेस मे नया टेबल बनाओ"
 

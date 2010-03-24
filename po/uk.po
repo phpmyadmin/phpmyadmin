@@ -3698,7 +3698,7 @@ msgstr ""
 #: libraries/messages.inc.php:845
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Виконати SQL запит(и) до БД %і"
+msgstr "Виконати SQL запит(и) до БД %s"
 
 #: libraries/messages.inc.php:846
 msgid "Russian"
@@ -6925,7 +6925,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1566
-#, php-format
+#, php-format, fuzzy
 msgid "You have updated the privileges for %s."
 msgstr "Було змінено привілеї для"
 

@@ -999,7 +999,7 @@ msgstr "Pilihan cara untuk mengekspor Database"
 #: libraries/messages.inc.php:220
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Database %1%s telah dibuat."
+msgstr "Database %1$s telah dibuat."
 
 #: libraries/messages.inc.php:221
 #, php-format

@@ -1516,7 +1516,7 @@ msgstr ""
 "Тэмдэглэл: phpMyAdmin нь MySQL-ийн онцгой эрхийн хүснэгтээс хэрэглэгчдийн "
 "онцгой эрхийг авна. Хэрэв тэд гараар өөрчлөгдсөн бол эдгээр хүснэгтийн "
 "агуулга нь сервэрт хэрэглэгдэж буйгаас өөр байна. Энэ тохиолдолд %sдахин "
-"дуудаж үргэлжлүүлнэ үү."
+"дуудаж%s үргэлжлүүлнэ үү."
 
 #: libraries/messages.inc.php:342
 msgid "Flush query cache"
@@ -1535,9 +1535,9 @@ msgid "Font size"
 msgstr "Үсгийн хэмжээ"
 
 #: libraries/messages.inc.php:346
-#, php-format
+#, php-format, fuzzy
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr "Гадаад түлхүүр үүсгэхэд алдаа гарлаа (өгөгдлийн төрлөө шалга)"
+msgstr "Гадаад түлхүүр үүсгэхэд алдаа гарлаа %1$s (өгөгдлийн төрлөө шалга)"
 
 #: libraries/messages.inc.php:347
 msgid "FOREIGN KEY relation added"
@@ -6994,7 +6994,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1566
-#, php-format
+#, php-format, fuzzy
 msgid "You have updated the privileges for %s."
 msgstr "Онцгой эрх шинэчлэгдлээ"
 

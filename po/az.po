@@ -1532,7 +1532,7 @@ msgid "File to import"
 msgstr ""
 
 #: libraries/messages.inc.php:341
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -1542,7 +1542,7 @@ msgstr ""
 "Qeyd: phpMyAdmin istifadeçi selahiyyetlerini birbaşa MySQL-in selahiyyetler "
 "cedvellerinden almaqdadır. Eger elle nizamlamalar edilmişse, bu cedvellerin "
 "içerisindekiler webserver-in istifade etdiklerinden ferqli ola biler. Bu "
-"halda, davam etmeden evvel, selahiyyetleri yeniden yüklemelisiniz."
+"halda, davam etmeden evvel, selahiyyetleri %syeniden yüklemelisiniz%s."
 
 #: libraries/messages.inc.php:342
 msgid "Flush query cache"
