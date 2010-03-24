@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-24 04:57+0200\n"
+"PO-Revision-Date: 2010-03-24 04:59+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -6721,7 +6721,7 @@ msgstr "Nonaktifkan sekarang"
 #: libraries/messages.inc.php:1501
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Nonaktifkan pelacakan untuk %s.%s"
 
 #: libraries/messages.inc.php:1502
 #, php-format
