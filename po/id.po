@@ -6699,9 +6699,8 @@ msgid "Create version %s of %s.%s"
 msgstr "Membuat versi %s dari %s.%s"
 
 #: libraries/messages.inc.php:1496
-#, fuzzy
 msgid "Database Log"
-msgstr "Database"
+msgstr "Log Database"
 
 #: libraries/messages.inc.php:1497
 msgid "Data definition statement"
