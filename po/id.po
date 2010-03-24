@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-24 04:53+0200\n"
+"PO-Revision-Date: 2010-03-24 04:54+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -7018,7 +7018,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1554
 msgid "Triggers"
-msgstr ""
+msgstr "Trigger"
 
 #: libraries/messages.inc.php:1555
 msgid "Truncate Shown Queries"
