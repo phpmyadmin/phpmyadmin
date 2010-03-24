@@ -29,6 +29,24 @@ then
 fi
 
 
+# Checks whether remote branch has local tracking branch
+ensure_local_branch() {
+    if ! git branch | grep -q '^..'"$1"'$' ; then
+        git branch --track $1 origin/$1
+    fi
+}
+
+# Marks current head of given branch as head of other branch
+# Used for STABLE/TESTING tracking
+mark_as_release() {
+    branch=$1
+    rel_branch=$2
+    echo "* Marking release as $rel_branch"
+    ensure_local_branch $rel_branch
+    git checkout $rel_branch
+    git merge $branch
+}
+
 # Read required parameters
 version=$1
 shift
@@ -58,6 +76,7 @@ if [ "$do_release" != 'y' ]; then
 fi
 
 # Checkout branch
+ensure_local_branch $branch
 git checkout $branch
 
 # Check release version
@@ -179,11 +198,12 @@ if [ $# -gt 0 ] ; then
                 echo "* Tagging release as $tagname"
                 git tag -a -m "Released $version" $tagname $branch
                 if echo $version | grep '[a-z_-]' ; then
-                    echo "* Tagging release as TESTING"
-                    git tag -a -f -m "Released $version" TESTING $branch
+                    mark_as_release $brach TESTING
                 else
-                    echo "* Tagging release as STABLE"
-                    git tag -a -f -m "Released $version" STABLE $branch
+                    # We update both branches here
+                    # As it does not make sense to have older testing than stable
+                    mark_as_release $brach TESTING
+                    mark_as_release $brach STABLE
                 fi
                 echo "   Dont forget to push tags using: git push --tags"
                 ;;
@@ -202,7 +222,7 @@ cat <<END
 Todo now:
 ---------
 
-1. If not already done, tag the repository with the new revision number 
+1. If not already done, tag the repository with the new revision number
    for a plain release or a release candidate:
     version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1 and TESTING
