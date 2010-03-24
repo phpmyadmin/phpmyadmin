@@ -75,6 +75,19 @@ if [ "$do_release" != 'y' ]; then
     exit 100
 fi
 
+# Ensure we have tracking branch
+ensure_local_branch $branch
+
+# Create working copy
+mkdir -p release
+workdir=release/phpMyAdmin-$version
+if [ -d $workdir ] ; then
+    echo "Working directory '$workdir' already exists, please move it out of way"
+    exit 1
+fi
+git clone --local . $workdir
+cd $workdir
+
 # Checkout branch
 ensure_local_branch $branch
 git checkout $branch
@@ -96,16 +109,6 @@ if ! grep -q "Version $version\$" README ; then
     echo "There seems to be wrong version in README"
     exit 2
 fi
-
-# Create working copy
-mkdir -p release
-workdir=release/phpMyAdmin-$version
-if [ -d $workdir ] ; then
-    echo "Working directory '$workdir' already exists, please move it out of way"
-    exit 1
-fi
-git clone --local . $workdir
-cd $workdir
 
 # Cleanup release dir
 LC_ALL=C date -u > RELEASE-DATE-${version}
@@ -198,12 +201,12 @@ if [ $# -gt 0 ] ; then
                 echo "* Tagging release as $tagname"
                 git tag -a -m "Released $version" $tagname $branch
                 if echo $version | grep '[a-z_-]' ; then
-                    mark_as_release $brach TESTING
+                    mark_as_release $branch TESTING
                 else
                     # We update both branches here
                     # As it does not make sense to have older testing than stable
-                    mark_as_release $brach TESTING
-                    mark_as_release $brach STABLE
+                    mark_as_release $branch TESTING
+                    mark_as_release $branch STABLE
                 fi
                 echo "   Dont forget to push tags using: git push --tags"
                 ;;
