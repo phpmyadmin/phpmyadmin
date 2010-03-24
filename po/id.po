@@ -6716,7 +6716,7 @@ msgstr "Tanggal"
 
 #: libraries/messages.inc.php:1500
 msgid "Deactivate now"
-msgstr ""
+msgstr "Nonaktifkan sekarang"
 
 #: libraries/messages.inc.php:1501
 #, php-format
