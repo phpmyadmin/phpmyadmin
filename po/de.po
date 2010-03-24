@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-12 11:16+0200\n"
-"Last-Translator: Michal <michal@cihar.com>\n"
+"PO-Revision-Date: 2010-03-23 21:07+0200\n"
+"Last-Translator:  <me@michaelkeck.de>\n"
 "Language-Team: german <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -1042,10 +1042,10 @@ msgstr "Datenbanken"
 msgid "%s databases have been dropped successfully."
 msgstr "Es wurden %s Datenbanken gelöscht."
 
+# source != search / Source != Suche
 #: libraries/messages.inc.php:225
-#, fuzzy
 msgid "Source database"
-msgstr "Durchsuche die Datenbank"
+msgstr "Quell-Datenbank"
 
 #: libraries/messages.inc.php:226
 msgid "Databases statistics"
@@ -1668,18 +1668,16 @@ msgid "Go"
 msgstr "OK"
 
 #: libraries/messages.inc.php:369
-#, fuzzy
 msgid "Go to database"
-msgstr "Keine Datenbanken"
+msgstr "Gehe zur Datenbank"
 
 #: libraries/messages.inc.php:370
-#, fuzzy
 msgid "Go to table"
-msgstr "Keine Datenbanken"
+msgstr "Gehe zur Tabelle"
 
 #: libraries/messages.inc.php:371
 msgid "Go to view"
-msgstr ""
+msgstr "Gehe zum View"
 
 #: libraries/messages.inc.php:372
 msgid "Grant"
@@ -1721,17 +1719,19 @@ msgstr "Hilfe"
 msgid "Use hexadecimal for BLOB"
 msgstr "Benutze hexadecimal für BLOB"
 
+# Hide heist im deutschen in der EDV ausblenden
 #: libraries/messages.inc.php:383
+#, fuzzy
 msgid "Hide"
 msgstr "Verstecken"
 
 #: libraries/messages.inc.php:384
 msgid "Hide/Show all"
-msgstr "Zeige/Verstecke alles"
+msgstr "Alles ein-/ausblenden"
 
 #: libraries/messages.inc.php:385
 msgid "Hide/Show Tables with no relation"
-msgstr "Zeige/Verstecke Tabellen ohne Verknüpfung"
+msgstr "Tabellen ohne Verknüpfung aus-/einblenden"
 
 #: libraries/messages.inc.php:386
 msgid "Home"

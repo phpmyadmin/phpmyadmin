@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-19 13:17+0200\n"
+"PO-Revision-Date: 2010-03-24 04:59+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -6690,41 +6690,38 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1494
-#, fuzzy
 msgid "Create version"
-msgstr "Versi Server"
+msgstr "Membuat versi"
 
 #: libraries/messages.inc.php:1495
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Membuat versi %s dari %s.%s"
 
 #: libraries/messages.inc.php:1496
-#, fuzzy
 msgid "Database Log"
-msgstr "Database"
+msgstr "Log Database"
 
 #: libraries/messages.inc.php:1497
 msgid "Data definition statement"
-msgstr ""
+msgstr "Pernyataan definisi data"
 
 #: libraries/messages.inc.php:1498
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Penyataan manipulasi data"
 
 #: libraries/messages.inc.php:1499
-#, fuzzy
 msgid "Date"
-msgstr "Data"
+msgstr "Tanggal"
 
 #: libraries/messages.inc.php:1500
 msgid "Deactivate now"
-msgstr ""
+msgstr "Nonaktifkan sekarang"
 
 #: libraries/messages.inc.php:1501
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Nonaktifkan pelacakan untuk %s.%s"
 
 #: libraries/messages.inc.php:1502
 #, php-format
@@ -6895,7 +6892,7 @@ msgstr "Lalu-Lintas"
 
 #: libraries/messages.inc.php:1541
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "Koordinator transaksi"
 
 #: libraries/messages.inc.php:1542
 msgid ""
@@ -6914,6 +6911,8 @@ msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
+"Tampilkan representasi hexadecimal dari data. Parameter opsional pertama "
+"menentukan seberapa sering space akan ditambahkan (default 2 nibble)"
 
 #: libraries/messages.inc.php:1544
 msgid ""
@@ -7016,7 +7015,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1554
 msgid "Triggers"
-msgstr ""
+msgstr "Trigger"
 
 #: libraries/messages.inc.php:1555
 msgid "Truncate Shown Queries"
