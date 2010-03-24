@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-19 19:10+0200\n"
-"Last-Translator: చక్రవర్తి <varthy@gmail.com>\n"
+"PO-Revision-Date: 2010-03-24 16:47+0200\n"
+"Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
@@ -166,7 +166,7 @@ msgstr "డిసెం"
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/messages.inc.php:26
 msgid "%B %d, %Y at %I:%M %p"
-msgstr ""
+msgstr "%B %d, %Y at %I:%M %p"
 
 #: libraries/messages.inc.php:27
 #, possible-php-format
