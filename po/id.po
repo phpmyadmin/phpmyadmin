@@ -6711,9 +6711,8 @@ msgid "Data manipulation statement"
 msgstr "Penyataan manipulasi data"
 
 #: libraries/messages.inc.php:1499
-#, fuzzy
 msgid "Date"
-msgstr "Data"
+msgstr "Tanggal"
 
 #: libraries/messages.inc.php:1500
 msgid "Deactivate now"
