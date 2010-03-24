@@ -6696,7 +6696,7 @@ msgstr "Membuat versi"
 #: libraries/messages.inc.php:1495
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Membuat versi %s dari %s.%s"
 
 #: libraries/messages.inc.php:1496
 #, fuzzy
