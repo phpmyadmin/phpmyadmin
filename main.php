@@ -9,11 +9,11 @@
 /**
  * Gets some core libraries and displays a top message if required
  */
-define('PMA_MOORAINBOW', true);
+define('PMA_COLORPICKER', true);
 require_once './libraries/common.inc.php';
-$GLOBALS['js_include'][] = 'mootools-more.js';
-$GLOBALS['js_include'][] = 'mooRainbow/mooRainbow.js';
-$GLOBALS['js_include'][] = 'mootools-domready-rainbow.js';
+
+$GLOBALS['js_include'][] = 'jquery/jquery-1.4.2-min.js';
+$GLOBALS['js_include'][] = 'colorpicker/js/colorpicker.js';
 
 // Handles some variables that may have been sent by the calling script
 $GLOBALS['db'] = '';
@@ -159,14 +159,37 @@ if ($GLOBALS['cfg']['ThemeManager']) {
     //<![CDATA[
     document.write('<li id="li_custom_color">');
     document.write('<?php echo PMA_escapeJsString($strCustomColor) . ': '; ?>');
-    document.write('<img id="myRainbow" src="js/mooRainbow/images/rainbow.png" alt="[r]" width="16" height="16" />');
-    document.write('<form name="rainbowform" id="rainbowform" method="post" action="index.php" target="_parent">');
+    document.write('<form name="colorform" id="colorform" method="post" action="index.php" target="_parent">');
     document.write('<?php echo PMA_generate_common_hidden_inputs(); ?>');
-    document.write('<input type="hidden" name="custom_color" />');
-    document.write('<input type="hidden" name="custom_color_rgb" />');
+    document.write('<input type="hidden" id="custom_color" name="custom_color" value="" />');
     document.write('<input type="submit" name="custom_color_reset" value="<?php echo $strReset; ?>" />');
     document.write('</form>');
+    document.write('<div id="colorSelector">');
+    document.write('</div>');
     document.write('</li>');
+
+    $(document).ready(function() {
+        // Choosing another id does not work! 
+        $('#colorSelector').ColorPicker({
+            color: '#0000ff',
+            onShow: function (colpkr) {
+                $(colpkr).fadeIn(500);
+                return false;
+            },
+            onHide: function (colpkr) {
+                $(colpkr).fadeOut(500);
+                return false;
+            },
+            onChange: function(hsb, hex, rgb) {
+                top.frame_content.document.body.style.backgroundColor = '#' + hex;
+                top.frame_navigation.document.body.style.backgroundColor = '#' + hex;
+            },
+            onSubmit: function(hsb, hex, rgb) {
+                $('#custom_color').val('#' + hex);
+                $('#colorform').submit();
+            }
+        });
+    });
     //]]>
     </script>
     <?php

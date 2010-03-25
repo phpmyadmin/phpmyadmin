@@ -666,10 +666,8 @@ unset($default_server);
 
 if (isset($_REQUEST['custom_color_reset'])) {
     unset($_SESSION['tmp_user_values']['custom_color']);
-    unset($_SESSION['tmp_user_values']['custom_color_rgb']);
 } elseif (isset($_REQUEST['custom_color'])) {
     $_SESSION['tmp_user_values']['custom_color'] = $_REQUEST['custom_color'];
-    $_SESSION['tmp_user_values']['custom_color_rgb'] = $_REQUEST['custom_color_rgb'];
 }
 /**
  * @global PMA_Theme_Manager $_SESSION['PMA_Theme_Manager']
