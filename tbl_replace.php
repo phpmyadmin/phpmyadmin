@@ -430,7 +430,8 @@ if (isset($return_to_sql_query)) {
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'functions.js';
 // in case we call sql.php which needs those:
-$GLOBALS['js_include'][] = 'mootools-more.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-1.4.2-min.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.min.js';
 
 $active_page = $goto_include;
 
