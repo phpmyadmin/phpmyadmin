@@ -56,7 +56,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     }
 }
 
-// garvin: For re-usability, moved http-headers and stylesheets
+// For re-usability, moved http-headers and stylesheets
 // to a seperate file. It can now be included by libraries/header.inc.php,
 // querywindow.php.
 

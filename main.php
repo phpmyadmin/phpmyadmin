@@ -147,7 +147,6 @@ if (empty($cfg['Lang'])) {
     echo '</li>';
 }
 
-// added by Michael Keck <mail_at_michaelkeck_dot_de>
 // ThemeManager if available
 
 if ($GLOBALS['cfg']['ThemeManager']) {

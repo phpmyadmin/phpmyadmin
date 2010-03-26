@@ -302,7 +302,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         session_write_close();
     }
 
-    // garvin: Measure query time.
+    // Measure query time.
     // TODO-Item http://sourceforge.net/tracker/index.php?func=detail&aid=571934&group_id=23067&atid=377411
     $querytime_before = array_sum(explode(' ', microtime()));
 
@@ -458,7 +458,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
          $unlim_num_rows         = 0;
     } // end rows total count
 
-    // garvin: if a table or database gets dropped, check column comments.
+    // if a table or database gets dropped, check column comments.
     if (isset($purge) && $purge == '1') {
         /**
          * Cleanup relations.
@@ -470,11 +470,11 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         } elseif (strlen($db)) {
             PMA_relationsCleanupDatabase($db);
         } else {
-            // garvin: VOID. No DB/Table gets deleted.
+            // VOID. No DB/Table gets deleted.
         } // end if relation-stuff
     } // end if ($purge)
 
-    // garvin: If a column gets dropped, do relation magic.
+    // If a column gets dropped, do relation magic.
     if (isset($cpurge) && $cpurge == '1' && isset($purgekey)
      && strlen($db) && strlen($table) && !empty($purgekey)) {
         require_once './libraries/relation_cleanup.lib.php';

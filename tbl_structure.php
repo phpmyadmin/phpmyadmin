@@ -282,7 +282,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $field_charset = '';
     }
 
-    // garvin: Display basic mimetype [MIME]
+    // Display basic mimetype [MIME]
     if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME'] && isset($mime_map[$row['Field']]['mimetype'])) {
         $type_mime = '<br />MIME: ' . str_replace('_', '/', $mime_map[$row['Field']]['mimetype']);
     } else {
@@ -326,7 +326,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $field_name    = htmlspecialchars($row['Field']);
     $displayed_field_name = $field_name;
 
-    // garvin: underline commented fields and display a hover-title (CSS only)
+    // underline commented fields and display a hover-title (CSS only)
 
     $comment_style = '';
     if (isset($comments_map[$row['Field']])) {

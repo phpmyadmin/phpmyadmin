@@ -22,7 +22,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     require_once './libraries/ob.lib.php';
     PMA_outBufferPre();
 
-    // garvin: For re-usability, moved http-headers and stylesheets
+    // For re-usability, moved http-headers and stylesheets
     // to a seperate file. It can now be included by header.inc.php,
     // querywindow.php.
 

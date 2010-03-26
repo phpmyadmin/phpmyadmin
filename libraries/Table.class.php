@@ -720,7 +720,7 @@ class PMA_Table
 
                 $GLOBALS['sql_query'] .= "\n" . $drop_query . ';';
 
-                // garvin: If an existing table gets deleted, maintain any
+                // If an existing table gets deleted, maintain any
                 // entries for the PMA_* tables
                 $maintain_relations = true;
             }
@@ -800,7 +800,7 @@ class PMA_Table
             $sql_drop_query .= ' ' . $source;
             PMA_DBI_query($sql_drop_query);
 
-            // garvin: Move old entries from PMA-DBs to new table
+            // Move old entries from PMA-DBs to new table
             if ($GLOBALS['cfgRelation']['commwork']) {
                 $remove_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
                               . ' SET     table_name = \'' . PMA_sqlAddslashes($target_table) . '\', '
@@ -811,7 +811,7 @@ class PMA_Table
                 unset($remove_query);
             }
 
-            // garvin: updating bookmarks is not possible since only a single table is moved,
+            // updating bookmarks is not possible since only a single table is moved,
             // and not the whole DB.
 
             if ($GLOBALS['cfgRelation']['displaywork']) {
@@ -843,7 +843,7 @@ class PMA_Table
             }
 
             /**
-             * @todo garvin: Can't get moving PDFs the right way. The page numbers
+             * @todo Can't get moving PDFs the right way. The page numbers
              * always get screwed up independently from duplication because the
              * numbers do not seem to be stored on a per-database basis. Would
              * the author of pdf support please have a look at it?
@@ -890,7 +890,7 @@ class PMA_Table
         // end if ($move)
         } else {
             // we are copying
-            // garvin: Create new entries as duplicates from old PMA DBs
+            // Create new entries as duplicates from old PMA DBs
             if ($what != 'dataonly' && !isset($maintain_relations)) {
                 if ($GLOBALS['cfgRelation']['commwork']) {
                     // Get all comments and MIME-Types for current table
@@ -951,7 +951,7 @@ class PMA_Table
                 PMA_Table::duplicateInfo('designerwork', 'designer_coords', $get_fields, $where_fields, $new_fields);
 
                 /**
-                 * @todo garvin: Can't get duplicating PDFs the right way. The
+                 * @todo Can't get duplicating PDFs the right way. The
                  * page numbers always get screwed up independently from
                  * duplication because the numbers do not seem to be stored on a
                  * per-database basis. Would the author of pdf support please
@@ -1057,7 +1057,7 @@ class PMA_Table
         /**
          * @todo move into extra function PMA_Relation::renameTable($new_name, $old_name, $new_db, $old_db)
          */
-        // garvin: Move old entries from comments to new table
+        // Move old entries from comments to new table
         require_once './libraries/relation.lib.php';
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         if ($GLOBALS['cfgRelation']['commwork']) {

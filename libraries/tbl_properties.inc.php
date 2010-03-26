@@ -146,9 +146,9 @@ if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
         . PMA_showHint($strMIME_transformation_options_note . $hint);
 }
 
-// garvin: workaround for field_fulltext, because its submitted indizes contain
-//         the index as a value, not a key. Inserted here for easier maintaineance
-//         and less code to change in existing files.
+//  workaround for field_fulltext, because its submitted indizes contain
+//  the index as a value, not a key. Inserted here for easier maintaineance
+//  and less code to change in existing files.
 if (isset($field_fulltext) && is_array($field_fulltext)) {
     foreach ($field_fulltext as $fulltext_nr => $fulltext_indexkey) {
         $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;

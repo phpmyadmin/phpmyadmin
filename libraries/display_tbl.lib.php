@@ -173,7 +173,7 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
         //   so don't test this number here, it would remove the possibility
         //   of sorting VIEW results.
         if (isset($unlim_num_rows) && $unlim_num_rows < 2 && ! PMA_Table::isView($db, $table)) {
-            // garvin: force display of navbar for vertical/horizontal display-choice.
+            // force display of navbar for vertical/horizontal display-choice.
             // $do_display['nav_bar']  = (string) '0';
             $do_display['sort_lnk'] = (string) '0';
         }
@@ -723,8 +723,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         $select_expr = $analyzed_sql[0]['select_expr_clause'];
     }
 
-    // garvin: See if we have to highlight any header fields of a WHERE query.
-    //  Uses SQL-Parser results.
+    // See if we have to highlight any header fields of a WHERE query.
+    // Uses SQL-Parser results.
     $highlight_columns = array();
     if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
         isset($analyzed_sql[0]['where_clause_identifiers'])) {
@@ -738,7 +738,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     }
 
     for ($i = 0; $i < $fields_cnt; $i++) {
-        // garvin: See if this column should get highlight because it's used in the
+        //  See if this column should get highlight because it's used in the
         //  where-query.
         if (isset($highlight_columns[$fields_meta[$i]->name]) || isset($highlight_columns[PMA_backquote($fields_meta[$i]->name)])) {
             $condition_field = true;
@@ -841,8 +841,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             $order_url  = 'sql.php' . PMA_generate_common_url($_url_params);
 
             // 2.1.5 Displays the sorting URL
-            // added 20004-06-09: Michael Keck <mail@michaelkeck.de>
-            //                    enable sort order swapping for image
+            // enable sort order swapping for image
             $order_link_params = array();
             if (isset($order_img) && $order_img!='') {
                 if (strstr($order_img, 'asc')) {
@@ -1191,7 +1190,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         for ($i = 0; $i < $fields_cnt; ++$i) {
             $meta    = $fields_meta[$i];
             $pointer = $i;
-            // garvin: See if this column should get highlight because it's used in the
+            //  See if this column should get highlight because it's used in the
             //  where-query.
             if (isset($highlight_columns) && (isset($highlight_columns[$meta->name]) || isset($highlight_columns[PMA_backquote($meta->name)]))) {
                 $condition_field = true;
@@ -1212,7 +1211,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 }
             }// end if
 
-            // garvin: Wrap MIME-transformations. [MIME]
+            // Wrap MIME-transformations. [MIME]
             $default_function = 'default_function'; // default_function
             $transform_function = $default_function;
             $transform_options = array();
@@ -1334,7 +1333,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     if (!isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
                     } elseif ($row[$i] != '') {
-                        // garvin: if a transform function for blob is set, none of these replacements will be made
+                        // if a transform function for blob is set, none of these replacements will be made
                         if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && $_SESSION['tmp_user_values']['display_text'] == 'P') {
                             $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                         }
@@ -1385,7 +1384,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         }
                     }
 
-                    // garvin: transform functions may enable no-wrapping:
+                    // transform functions may enable no-wrapping:
                     $function_nowrap = $transform_function . '_nowrap';
                     $bool_nowrap = (($default_function != $transform_function && function_exists($function_nowrap)) ? $function_nowrap($transform_options) : false);
 

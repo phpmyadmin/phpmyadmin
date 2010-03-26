@@ -3,16 +3,16 @@
 /**
  * handle field values (possibly uploaded from a file)
  *
- * garvin: original if-clause checked, whether input was stored in a possible
+ * original if-clause checked, whether input was stored in a possible
  * fields_upload_XX var. Now check, if the field is set. If it is empty or a
  * malicious file, do not alter fields contents. If an empty or invalid file is
  * specified, the binary data gets deleter. Maybe a nice new text-variable is
  * appropriate to document this behaviour.
  *
- * garvin: security cautions! You could trick the form and submit any file the
+ * security cautions! You could trick the form and submit any file the
  * webserver has access to for upload to a binary field. Shouldn't be that easy! ;)
  *
- * garvin: default is to advance to the field-value parsing. Will only be set to
+ * default is to advance to the field-value parsing. Will only be set to
  * true when a binary file is uploaded, thus bypassing further manipulation of $val.
  *
  * note: grab_globals has extracted the fields from _FILES or HTTP_POST_FILES
@@ -93,7 +93,7 @@ if (false !== $possibly_uploaded_val) {
                 // fields array, so we do not change the field value
                 // but we can still handle field upload
 
-                // garvin: when in UPDATE mode, do not alter field's contents. When in INSERT
+                // when in UPDATE mode, do not alter field's contents. When in INSERT
                 // mode, insert empty field because no values were submitted. If protected
                 // blobs where set, insert original fields content.
                 if (! empty($prot_row[$me_fields_name[$key]])) {
