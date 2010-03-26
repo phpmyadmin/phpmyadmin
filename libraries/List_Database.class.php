@@ -295,7 +295,7 @@ require_once './libraries/List.class.php';
         }
 
         foreach ($this->getLimitedItems($offset, $count) as $key => $db) {
-            // garvin: Get comments from PMA comments table
+            // Get comments from PMA comments table
             $db_tooltip = '';
 
             if (isset($db_tooltips[$db])) {

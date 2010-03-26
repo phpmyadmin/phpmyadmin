@@ -507,7 +507,7 @@ foreach ($rows as $row_id => $vrow) {
                 <?php
                 $selected     = '';
 
-                // garvin: Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
+                // Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
                 // or something similar. Then directly look up the entry in the RestrictFunctions array,
                 // which will then reveal the available dropdown options
                 if (isset($cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])])
@@ -550,7 +550,7 @@ foreach ($rows as $row_id => $vrow) {
                 	$default_function = 'UNHEX';
 				}
 				
-                // garvin: loop on the dropdown array and print all available options for that field.
+                // loop on the dropdown array and print all available options for that field.
                 foreach ($dropdown as $each_dropdown){
                     echo '<option';
                     if ($default_function === $each_dropdown) {
@@ -561,7 +561,7 @@ foreach ($rows as $row_id => $vrow) {
                     $op_spacing_needed = TRUE;
                 }
 
-                // garvin: For compatibility's sake, do not let out all other functions. Instead
+                // For compatibility's sake, do not let out all other functions. Instead
                 // print a separator (blank) and then show ALL functions which weren't shown
                 // yet.
                 $cnt_functions = count($cfg['Functions']);

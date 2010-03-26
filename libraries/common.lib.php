@@ -596,7 +596,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             $error_msg_output .= '<br />' . "\n";
         }
         // ---
-        // modified to show me the help on sql errors (Michael Keck)
+        // modified to show the help on sql errors
         $error_msg_output .= '    <p><strong>' . $GLOBALS['strSQLQuery'] . ':</strong>' . "\n";
         if (strstr(strtolower($formatted_sql), 'select')) { // please show me help to the error on select
             $error_msg_output .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
@@ -633,7 +633,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         $error_message = htmlspecialchars($error_message);
         $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
     }
-    // modified to show me the help on error-returns (Michael Keck)
+    // modified to show the help on error-returns
     // (now error-messages-server)
     $error_msg_output .= '<p>' . "\n"
             . '    <strong>' . $GLOBALS['strMySQLSaid'] . '</strong>'
@@ -2150,7 +2150,7 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
             $pages[] = $i;
         }
 
-        // garvin: Based on the number of results we add the specified
+        // Based on the number of results we add the specified
         // $percent percentage to each page number,
         // so that we have a representing page number every now and then to
         // immediately jump to specific pages.

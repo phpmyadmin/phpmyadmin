@@ -332,7 +332,7 @@ while ($temp_sh_page = @PMA_DBI_fetch_assoc($page_rs)) {
     $array_sh_page[] = $temp_sh_page;
 }
 
-// garvin: Display WYSIWYG-PDF parts?
+// Display WYSIWYG-PDF parts?
 if ($cfg['WYSIWYG-PDF']) {
     if (!isset($_POST['with_field_names']) && !isset($_POST['showwysiwyg'])) {
         $with_field_names = TRUE;

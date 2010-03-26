@@ -79,7 +79,7 @@ require_once './libraries/header.inc.php';
 if (!empty($submit_mult)) {
     switch($submit_mult) {
         case 'row_edit':
-            // garvin: As we got the fields to be edited from the 
+            // As we got the fields to be edited from the 
             // 'rows_to_delete' checkbox, we use the index of it as the
             // indicating WHERE clause. Then we build the array which is used 
             // for the tbl_change.php script.
@@ -96,7 +96,7 @@ if (!empty($submit_mult)) {
             // Needed to allow SQL export
             $single_table = TRUE;
 
-            // garvin: As we got the fields to be edited from the 
+            // As we got the fields to be edited from the 
             // 'rows_to_delete' checkbox, we use the index of it as the
             // indicating WHERE clause. Then we build the array which is used 
             // for the tbl_change.php script.
