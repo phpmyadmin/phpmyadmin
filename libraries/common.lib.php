@@ -1591,6 +1591,11 @@ function PMA_generate_html_tab($tab, $url_params = array())
         $tab['attr'] .= ' title="' . htmlspecialchars($tab['warning']) . '"';
     }
 
+	// If there are any tab specific URL parameters, merge those with the general URL parameters
+	if(! empty($tab['url_params']) && is_array($tab['url_params'])) {
+		$url_params = array_merge($url_params, $tab['url_params']);
+	}
+
     // build the link
     if (!empty($tab['link'])) {
         $tab['link'] = htmlentities($tab['link']);
