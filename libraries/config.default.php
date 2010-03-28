@@ -578,7 +578,8 @@ $cfg['ShowSQL'] = true;
 $cfg['AllowUserDropDatabase'] = false;
 
 /**
- * confirm 'DROP TABLE' & 'DROP DATABASE'
+ * confirm some commands that can result in loss of data 
+ * (see "need_confirm" in the parser)
  *
  * @global boolean $cfg['Confirm']
  */
