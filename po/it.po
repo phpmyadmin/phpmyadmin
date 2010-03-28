@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-29 00:25+0200\n"
+"PO-Revision-Date: 2010-03-29 00:26+0200\n"
 "Last-Translator:  <rebeluca@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -537,7 +537,7 @@ msgstr "Naviga tra i valori DISTINCT"
 
 #: libraries/messages.inc.php:114
 msgid "Browse foreign values"
-msgstr "Sfoglia le opzioni straniere"
+msgstr "Naviga tra i valori esterni"
 
 #: libraries/messages.inc.php:115
 msgid "Buffer Pool Activity"
