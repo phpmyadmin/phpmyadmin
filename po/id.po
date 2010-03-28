@@ -6751,7 +6751,7 @@ msgstr "Laporan pelacakan untuk table '%s'"
 
 #: libraries/messages.inc.php:1508
 msgid "Tracking report"
-msgstr ""
+msgstr "Laporan pelacakan"
 
 #: libraries/messages.inc.php:1509
 #, php-format
