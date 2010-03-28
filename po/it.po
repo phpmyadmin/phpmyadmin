@@ -492,7 +492,7 @@ msgstr "Ripara"
 
 #: libraries/messages.inc.php:103
 msgid "Upload to BLOB repository"
-msgstr ""
+msgstr "Carica nella repository BLOB"
 
 #: libraries/messages.inc.php:104
 msgid "Let every user access this bookmark"
