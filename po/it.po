@@ -577,7 +577,7 @@ msgstr "Pagine occupate"
 
 #: libraries/messages.inc.php:124
 msgid "\"bzipped\""
-msgstr "\"compresso con bzip2\""
+msgstr "\"compresso con bzip\""
 
 #: libraries/messages.inc.php:126
 msgid "Calendar"
