@@ -6683,7 +6683,7 @@ msgstr "Aktifkan sekarang"
 #: libraries/messages.inc.php:1492
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "Aktifkan pelacakan untuk %s.%s"
 
 #: libraries/messages.inc.php:1493
 msgid "Comment out these two lines if you do not need them."
