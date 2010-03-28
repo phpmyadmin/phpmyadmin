@@ -457,6 +457,7 @@ msgstr "Danneggiato"
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
+"Sei sicuro di voler disabilitare tutte le referenze BLOB per il database %s?"
 
 #: libraries/messages.inc.php:96
 #, fuzzy
