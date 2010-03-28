@@ -348,7 +348,7 @@ msgstr "Qualsiasi utente"
 
 #: libraries/messages.inc.php:68
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Applica i cambiamenti selezionati"
 
 #: libraries/messages.inc.php:69
 msgid ""
