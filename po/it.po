@@ -484,7 +484,7 @@ msgstr "Abilita"
 
 #: libraries/messages.inc.php:101
 msgid "Remove BLOB Repository Reference"
-msgstr ""
+msgstr "Rimuovi le referenze al REPOSITORY BLOB"
 
 #: libraries/messages.inc.php:102
 #, fuzzy
