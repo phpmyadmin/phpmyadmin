@@ -55,6 +55,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   Browse the table if possible, thanks to bhdouglass - dougboybhd
 + patch #2975533 [search] New search operators, thanks to
   Martynas Mickevičius
++ patch #2967320 [designer] Colored relations based on the primary key,
+  thanks to GreenRover - greenrover
 
 3.3.2.0 (not yet released)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
