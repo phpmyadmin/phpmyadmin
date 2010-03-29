@@ -1,10 +1,11 @@
 # Automatically generated <>, 2010.
+# Michal <michal@cihar.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-19 01:24+0200\n"
+"PO-Revision-Date: 2010-03-29 09:27+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3530,7 +3531,7 @@ msgstr "Nastavení serveru"
 
 #: libraries/messages.inc.php:788
 msgid "Master replication"
-msgstr ""
+msgstr "Replikace nadřízeného"
 
 #: libraries/messages.inc.php:789
 msgid "Replication"
@@ -3544,9 +3545,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:791
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Prosím vyberte databázi"
+msgstr "Prosím vyberte databáze:"
 
 #: libraries/messages.inc.php:792
 #, php-format
@@ -3563,7 +3563,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:794
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Zobrazit připojené podřízené"
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
 msgid "Show master status"
@@ -3664,14 +3664,12 @@ msgid "Slave status"
 msgstr "Stav podřízeného"
 
 #: libraries/messages.inc.php:816
-#, fuzzy
 msgid "Synchronize databases with master"
-msgstr "Synchronovat databáze"
+msgstr "Synchronovat databáze s nadřízeným"
 
 #: libraries/messages.inc.php:817
-#, fuzzy
 msgid "Unable to change master"
-msgstr "Nepodařilo se připojit k nadřízenému %s."
+msgstr "Nepodařilo se změnit nadřízeného"
 
 #: libraries/messages.inc.php:818
 msgid "Unknown error"
@@ -5357,9 +5355,8 @@ msgid "Server socket"
 msgstr "Socket serveru"
 
 #: libraries/messages.inc.php:1176
-#, fuzzy
 msgid "Enable SSL for connection to MySQL server"
-msgstr "Zda se má komprimovat připojení k MySQL serveru."
+msgstr "Zda se má použít SSL pro připojení k MySQL serveru"
 
 #: libraries/messages.inc.php:1177
 msgid "Use SSL"
