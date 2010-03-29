@@ -4,13 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-12 09:16+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-03-29 00:26+0200\n"
+"Last-Translator:  <rebeluca@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -35,10 +37,9 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
-#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr "Spediti"
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
@@ -347,7 +348,7 @@ msgstr "Qualsiasi utente"
 
 #: libraries/messages.inc.php:68
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Applica i cambiamenti selezionati"
 
 #: libraries/messages.inc.php:69
 msgid ""
@@ -446,7 +447,7 @@ msgstr "ID del server"
 
 #: libraries/messages.inc.php:93
 msgid "BLOB Repository"
-msgstr ""
+msgstr "Repository BLOB"
 
 #: libraries/messages.inc.php:94
 msgid "Damaged"
@@ -456,9 +457,9 @@ msgstr "Danneggiato"
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
+"Sei sicuro di voler disabilitare tutte le referenze BLOB per il database %s?"
 
 #: libraries/messages.inc.php:96
-#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Disabilitato"
@@ -469,10 +470,9 @@ msgstr "Disabilita"
 
 #: libraries/messages.inc.php:98
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "Stai per DISABILITARE una repository BLOB!"
 
 #: libraries/messages.inc.php:99
-#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Abilitato"
@@ -483,17 +483,16 @@ msgstr "Abilita"
 
 #: libraries/messages.inc.php:101
 msgid "Remove BLOB Repository Reference"
-msgstr ""
+msgstr "Rimuovi le referenze al REPOSITORY BLOB"
 
 #: libraries/messages.inc.php:102
-#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Ripara"
 
 #: libraries/messages.inc.php:103
 msgid "Upload to BLOB repository"
-msgstr ""
+msgstr "Carica nella repository BLOB"
 
 #: libraries/messages.inc.php:104
 msgid "Let every user access this bookmark"
@@ -518,7 +517,7 @@ msgstr "Query SQL aggiunte ai preferiti"
 
 #: libraries/messages.inc.php:109
 msgid "Replace existing bookmark of same name"
-msgstr "Sostituzione dei segnalibri esistenti con lo stesso nome"
+msgstr "Sostituisci segnalibro esistente se con lo stesso nome"
 
 #: libraries/messages.inc.php:110
 msgid "Bookmark this SQL query"
@@ -538,7 +537,7 @@ msgstr "Naviga tra i valori DISTINCT"
 
 #: libraries/messages.inc.php:114
 msgid "Browse foreign values"
-msgstr "Sfoglia le opzioni straniere"
+msgstr "Naviga tra i valori esterni"
 
 #: libraries/messages.inc.php:115
 msgid "Buffer Pool Activity"
@@ -578,7 +577,7 @@ msgstr "Pagine occupate"
 
 #: libraries/messages.inc.php:124
 msgid "\"bzipped\""
-msgstr "\"compresso con bzip2\""
+msgstr "\"compresso con bzip\""
 
 #: libraries/messages.inc.php:126
 msgid "Calendar"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-24 04:59+0200\n"
+"PO-Revision-Date: 2010-03-28 13:56+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -6520,7 +6520,7 @@ msgstr "Pemeliharaan tabel"
 
 #: libraries/messages.inc.php:1455
 msgid "Table name"
-msgstr ""
+msgstr "Nama tabel"
 
 #: libraries/messages.inc.php:1456
 msgid "Table of contents"
@@ -6674,16 +6674,16 @@ msgstr "Jumlah"
 #: libraries/messages.inc.php:1490
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "Pelacakan dari %s.%s diaktifkan"
 
 #: libraries/messages.inc.php:1491
 msgid "Activate now"
-msgstr ""
+msgstr "Aktifkan sekarang"
 
 #: libraries/messages.inc.php:1492
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "Aktifkan pelacakan untuk %s.%s"
 
 #: libraries/messages.inc.php:1493
 msgid "Comment out these two lines if you do not need them."
@@ -6726,32 +6726,32 @@ msgstr "Nonaktifkan pelacakan untuk %s.%s"
 #: libraries/messages.inc.php:1502
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Ekspor sebagai %s"
 
 #: libraries/messages.inc.php:1503
 msgid "Tracking is active."
-msgstr ""
+msgstr "Pelacakan aktif"
 
 #: libraries/messages.inc.php:1504
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Pelacakan tidak aktif."
 
 #: libraries/messages.inc.php:1505
 msgid "Tracking Mechanism"
-msgstr ""
+msgstr "Mekanisme pelacakan"
 
 #: libraries/messages.inc.php:1506
 msgid "Close"
-msgstr ""
+msgstr "Tutup"
 
 #: libraries/messages.inc.php:1507
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Laporan pelacakan untuk table '%s'"
 
 #: libraries/messages.inc.php:1508
 msgid "Tracking report"
-msgstr ""
+msgstr "Laporan pelacakan"
 
 #: libraries/messages.inc.php:1509
 #, php-format
