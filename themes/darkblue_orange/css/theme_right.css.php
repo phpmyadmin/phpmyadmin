@@ -1227,6 +1227,11 @@ code.sql {
     margin-top:         0;
 }
 
+/* for elements that should be revealed only via js */
+.hide {
+    display:            none;
+}
+
 #li_select_server {
     padding-bottom:     0.3em;
     border-bottom:      0.3em solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
