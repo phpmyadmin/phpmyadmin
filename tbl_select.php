@@ -408,7 +408,23 @@ else {
                     $func_type = 'REGEXP';
                     $fields[$i] = '^' . $fields[$i] . '$';
                 }
-                $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;
+
+                if ($func_type == 'IN (...)' || $func_type == 'NOT IN (...)' || $func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
+                    $func_type = str_replace(' (...)', '', $func_type);
+
+                    // quote values one by one
+                    $values = explode(',', $fields[$i]);
+                    foreach ($values as &$value)
+                        $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
+
+                    if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN')
+                        $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
+                    else
+                        $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' (' . implode(',', $values) . ')';
+                }
+                else {
+                    $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;;
+                }
 
             } // end if
         } // end for
