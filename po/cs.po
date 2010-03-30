@@ -1708,7 +1708,7 @@ msgstr "Vybrané cílové tabulky byly synchronizovány se zdrojovými."
 
 #: libraries/messages.inc.php:379
 msgid "You have to choose at least one column to display"
-msgstr "Musíte zvolit alespoň jeden sloupec, který chcete zobrazit."
+msgstr "Musíte zvolit alespoň jeden sloupec, který chcete zobrazit"
 
 #: libraries/messages.inc.php:380
 msgid "Hebrew"
