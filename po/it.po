@@ -1000,7 +1000,7 @@ msgstr "CSV"
 
 #: libraries/messages.inc.php:210
 msgid "Current server"
-msgstr ""
+msgstr "Server attuale"
 
 #: libraries/messages.inc.php:211
 msgid "Custom color"
