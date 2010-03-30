@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 14:59+0200\n"
-"PO-Revision-Date: 2010-03-30 14:51+0200\n"
+"PO-Revision-Date: 2010-03-30 15:25+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3517,9 +3517,8 @@ msgid "This server is configured as master in a replication process."
 msgstr ""
 
 #: libraries/messages.inc.php:781
-#, fuzzy
 msgid "Control slave:"
-msgstr "Kontrolní uživatel"
+msgstr "Ovládání podřízeného:"
 
 #: libraries/messages.inc.php:782
 msgid ""
@@ -3549,9 +3548,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:787
-#, fuzzy
 msgid "Master configuration"
-msgstr "Nastavení serveru"
+msgstr "Nastavení nadřízeného"
 
 #: libraries/messages.inc.php:788
 msgid "Master replication"
@@ -3651,9 +3649,8 @@ msgid "Skip next"
 msgstr "Přeskočit dalších"
 
 #: libraries/messages.inc.php:809
-#, fuzzy
 msgid "Slave replication"
-msgstr "Nastavení podřízeného"
+msgstr "Replikace podřízeného"
 
 #: libraries/messages.inc.php:810
 msgid "Slave SQL Thread not running!"
@@ -7234,12 +7231,11 @@ msgid "Password for config auth"
 msgstr "Heslo pro autentizaci config"
 
 #: setup/lib/messages.inc.php:281
-#, fuzzy
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Nechte prázdné pro žádné komentaře či mime typy sloupců, výchozí nastavení: "
-"[kbd]pma_column_info[/kbd]."
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
+"pma_table_pages[/kbd]."
 
 #: setup/lib/messages.inc.php:282
 msgid "PDF schema: pages table"
@@ -7262,14 +7258,12 @@ msgid "Server port"
 msgstr "Port serveru"
 
 #: setup/lib/messages.inc.php:287
-#, fuzzy
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"Nechte prázdné pro žádnou podporu Leave blank for no [a@http://wiki."
-"phpmyadmin.net/pma/bookmark]záložek[/a], výchozí nastavení: [kbd]"
-"pma_bookmarks[/kbd]."
+"Nechte prázdné pro vypnutí podpory pro [a@http://wiki.phpmyadmin.net/pma/"
+"relation]relace[/a], výchozí nastavení: [kbd]pma_relation[/kbd]."
 
 #: setup/lib/messages.inc.php:288
 msgid "Relation table"
@@ -7319,12 +7313,11 @@ msgid "Use SSL"
 msgstr "Použít SSL"
 
 #: setup/lib/messages.inc.php:299
-#, fuzzy
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"Nechte prázdné pro žádné komentaře či mime typy sloupců, výchozí nastavení: "
-"[kbd]pma_column_info[/kbd]."
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
+"pma_table_coords[/kbd]."
 
 #: setup/lib/messages.inc.php:300
 msgid "PDF schema: table coordinates"
@@ -7530,9 +7523,8 @@ msgid ""
 msgstr ""
 
 #: setup/lib/messages.inc.php:348
-#, fuzzy
 msgid "Verbose multiple statements"
-msgstr "Ignorovat chyby ve víceprvkových dotazech"
+msgstr "Podrobné víceprvkové dotazy"
 
 #: setup/lib/messages.inc.php:349
 msgid ""
@@ -7558,7 +7550,7 @@ msgstr ""
 "je %s a byla vydána %s."
 
 #: setup/lib/messages.inc.php:353
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
 #| "latest stable version is %s, released on %s."
@@ -7566,8 +7558,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Používáte verzi ze subversion, pro aktualizaci spusťte [kbd]svn update[/"
-"kbd] :-)[br]Poslední stabilní verze je %s a byla vydána %s."
+"Používáte verzi z Gitu, pro aktualizaci spusťte [kbd]git pull[/kbd] :-)[br]"
+"Poslední stabilní verze je %s a byla vydána %s."
 
 #: setup/lib/messages.inc.php:354
 msgid "No newer stable version is available"
@@ -7592,13 +7584,12 @@ msgid "Warning"
 msgstr "Varování"
 
 #: setup/lib/messages.inc.php:359
-#, fuzzy
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Povolí [a@http://cs.wikipedia.org/wiki/Gzip]gzip[/a] kompresi pro "
-"importování a exportování."
+"Povolí [a@http://cs.wikipedia.org/wiki/ZIP_%28souborov%C3%BD_form%C3%A1t%29]"
+"ZIP[/a] kompresi pro importování a exportování."
 
 #: setup/lib/messages.inc.php:360
 #, fuzzy, php-format
