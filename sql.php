@@ -486,8 +486,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 // No rows returned -> move back to the calling page
 if (0 == $num_rows || $is_affected) {
     if ($is_delete) {
-        $message = PMA_Message::success('strRowsDeleted');
-        $message->addParam($num_rows);
+        $message = PMA_Message::deleted_rows($num_rows);
     } elseif ($is_insert) {
         if ($is_replace) {
             /* For replace we get DELETED + INSERTED row count, so we have to call it affected */

@@ -828,7 +828,6 @@ $strRomanian = __('Romanian');
 $strRoutineReturnType = __('Return type');
 $strRoutines = __('Routines');
 $strRowLength = __('Row length');
-$strRowsDeleted = __('%1$d row(s) deleted.');
 $strRowsFrom = __('row(s) starting from record #');
 $strRowsInserted = __('%1$d row(s) inserted.');
 $strRowSize = __(' Row size ');
