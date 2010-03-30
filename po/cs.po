@@ -6584,7 +6584,7 @@ msgid ""
 "if one of the queries failed"
 msgstr ""
 "Pokud je povoleno, PMA pokračuje ve zpracování víceprvkových dotazů, i když "
-"jeden z nich selhal."
+"jeden z nich selhal"
 
 #: setup/lib/messages.inc.php:149
 msgid "Ignore multiple statement errors"
