@@ -7048,7 +7048,7 @@ msgstr "Konfigurační soubor SweKey"
 
 #: setup/lib/messages.inc.php:245
 msgid "Authentication method to use"
-msgstr "Která autentizační metoda se má použít."
+msgstr "Která autentizační metoda se má použít"
 
 #: setup/lib/messages.inc.php:246
 msgid "Authentication type"
