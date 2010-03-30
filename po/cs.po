@@ -6902,7 +6902,7 @@ msgstr "Přehled"
 
 #: setup/lib/messages.inc.php:213
 msgid "Use persistent connections to MySQL databases"
-msgstr "Použije trvalé (persistentní) připojení k MySQL databázi."
+msgstr "Použije trvalé (persistentní) připojení k MySQL databázi"
 
 #: setup/lib/messages.inc.php:214
 msgid "Persistent connections"
