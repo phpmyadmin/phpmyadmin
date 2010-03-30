@@ -7343,7 +7343,7 @@ msgid ""
 "compatibility checks and thereby increases performance"
 msgstr ""
 "Vypněte, pokud víte, že vaše tabulky pma_* jsou v pořádku. Tím zabráníte "
-"kontrolám kompatibility a urychlíte zobrazování stránek."
+"kontrolám kompatibility a urychlíte zobrazování stránek"
 
 #: setup/lib/messages.inc.php:306
 msgid "Verbose check"
