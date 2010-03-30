@@ -7,7 +7,7 @@ fi
 
 for x in po/*.po  ; do 
     lang=`echo $x | sed 's@po/\(.*\)\.po@\1@'`
-    if [ ! -z "$stas" ] ; then
+    if [ ! -z "$stats" ] ; then
         echo -n "$lang: "
     fi
     mkdir -p locale/$lang/LC_MESSAGES
