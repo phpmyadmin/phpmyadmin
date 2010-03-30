@@ -231,7 +231,7 @@ msgstr "Pridėti apribojimą"
 
 #: libraries/messages.inc.php:36
 msgid "Add/Delete Field Columns"
-msgstr "Įterpti/Trinti stulpelius"
+msgstr "Įterpti/trinti laukus"
 
 #: libraries/messages.inc.php:37
 msgid "Add/Delete Criteria Row"
