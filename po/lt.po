@@ -156,7 +156,7 @@ msgstr "kovo"
 
 #: libraries/messages.inc.php:24
 msgid "Apr"
-msgstr "Balandžio"
+msgstr "balandžio"
 
 #: libraries/messages.inc.php:24
 msgid "May"
