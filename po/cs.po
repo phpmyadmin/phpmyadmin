@@ -6564,7 +6564,7 @@ msgid ""
 "system."
 msgstr ""
 "[a@?page=form&amp;formset=features#tab_Import_export]GZip komprese a "
-"dekomprese[/a] vyžaduje funkce (%s) které nejsou dostupné na tomto systému"
+"dekomprese[/a] vyžaduje funkce (%s) které nejsou dostupné na tomto systému."
 
 #: setup/lib/messages.inc.php:145
 msgid "phpMyAdmin homepage"
