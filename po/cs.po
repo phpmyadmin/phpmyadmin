@@ -7089,7 +7089,7 @@ msgstr "Komprimovat připojení"
 
 #: setup/lib/messages.inc.php:253
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr "Jak se připojit k serveru, ponechte tcp pokud si nejste jistí."
+msgstr "Jak se připojit k serveru, ponechte tcp pokud si nejste jistí"
 
 #: setup/lib/messages.inc.php:254
 msgid "Connection type"
