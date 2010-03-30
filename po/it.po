@@ -764,7 +764,7 @@ msgstr "Prego scegliere una Page da modificare"
 
 #: libraries/messages.inc.php:159
 msgid "Click to select"
-msgstr ""
+msgstr "Clicca per selezionare"
 
 #: libraries/messages.inc.php:160
 msgid "Click to unselect"
