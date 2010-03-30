@@ -3769,7 +3769,7 @@ msgstr "vodorovném"
 #: libraries/messages.inc.php:835
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
-msgstr "ve %s režimu a opakovat hlavičky po %s řádcích."
+msgstr "ve %s režimu a opakovat hlavičky po %s řádcích"
 
 #: libraries/messages.inc.php:836
 msgid "vertical"
