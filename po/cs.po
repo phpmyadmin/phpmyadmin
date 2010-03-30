@@ -4701,8 +4701,8 @@ msgid ""
 "implementation.)"
 msgstr ""
 "Počet vláken vytvořených pro obsluhu připojení. Pokud je hodnota příliš "
-"velká, můžete zvětšit parametr thread_cache_size. Na platformách, které mají "
-"dobrou implementaci vláken však toto nemá příliš velký vliv."
+"velká, můžete zvětšit parametr thread_cache_size. (Na platformách, které "
+"mají dobrou implementaci vláken však toto nemá příliš velký vliv.)"
 
 #: libraries/messages.inc.php:1014
 msgid "The number of threads that are not sleeping."
