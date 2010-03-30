@@ -6874,7 +6874,7 @@ msgstr "Žádné servery nejsou nastaveny"
 
 #: setup/lib/messages.inc.php:207
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr "Použije mezipaměť pro GZip výstup, čímž zvýší rychlost HTTP přenosů."
+msgstr "Použije mezipaměť pro GZip výstup, čímž zvýší rychlost HTTP přenosů"
 
 #: setup/lib/messages.inc.php:208
 msgid "GZip output buffering"
