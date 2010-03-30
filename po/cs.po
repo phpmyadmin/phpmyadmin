@@ -6766,7 +6766,7 @@ msgid ""
 "authentication mode"
 msgstr ""
 "Určuje, zda se má pamatovat předchozí přihlášení, při použití autentizace "
-"pomocí cookies."
+"pomocí cookies"
 
 #: setup/lib/messages.inc.php:187
 msgid "Recall user name"
