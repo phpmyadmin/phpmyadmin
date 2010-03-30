@@ -6244,7 +6244,7 @@ msgstr "Prázdné přihlašovací URL při použití autentizace signon"
 #: setup/lib/messages.inc.php:67
 msgid "Empty username while using config authentication method"
 msgstr ""
-"Při použití nastavené autentizační metody nebylo vyplněno uživatelské jméno."
+"Při použití nastavené autentizační metody nebylo vyplněno uživatelské jméno"
 
 #: setup/lib/messages.inc.php:68
 msgid "Submitted form contains errors"
