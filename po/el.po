@@ -4,13 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-12 09:14+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-03-30 11:04+0200\n"
+"Last-Translator: Panagiotis <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -36,17 +38,15 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
-#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr "Εστάλησαν"
+msgstr "el"
 
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
-#, fuzzy
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr "Εστάλησαν"
+msgstr "el"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:15
@@ -458,7 +458,6 @@ msgstr ""
 "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων %s;"
 
 #: libraries/messages.inc.php:96
-#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Απενεργοποιημένη"
@@ -472,7 +471,6 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "Πρόκειτε να ΑΠΕΝΕΡΓΟΠΟΙΉΣΕΤΕ μια Αποθήκη BLOB!"
 
 #: libraries/messages.inc.php:99
-#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Ενεργοποιημένη"
@@ -486,7 +484,6 @@ msgid "Remove BLOB Repository Reference"
 msgstr "Απομάκρυνση της Αναφοράς Αποθήκης BLOB"
 
 #: libraries/messages.inc.php:102
-#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Επισκευή"
@@ -930,7 +927,6 @@ msgid "Create table"
 msgstr "Δημιουργία πίνακα"
 
 #: libraries/messages.inc.php:200
-#, fuzzy
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Δημιουργία πίνακα"
@@ -945,7 +941,6 @@ msgstr ""
 "Δημιουργία βάσης δεδομένων με το ίδιο όνομα και με πλήρη δικαιώματα χρήσης"
 
 #: libraries/messages.inc.php:203
-#, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Καμία"
@@ -1980,7 +1975,7 @@ msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
 
 #: libraries/messages.inc.php:440
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Εισαγωγή ως νέα γραμμή και παράβλεψη σφαλμάτων"
 
 #: libraries/messages.inc.php:441
 msgid "Insert"
@@ -2085,6 +2080,9 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
+"Η υποστήριξη Javascript λείπει ή είναι απενεργοποιημένη στον φυλλομετρητή "
+"σας. Μερικές λειτουργίες του phpMyAdmin δεν θα υφίσταται. Για παράδειγμα το "
+"πλαίσιο πλοήγησης δεν θα ανανεώνεται αυτόματα."
 
 #: libraries/messages.inc.php:464
 msgid "Joins"
@@ -2520,9 +2518,8 @@ msgid "Filter"
 msgstr "Φίλτρο"
 
 #: libraries/messages.inc.php:555
-#, fuzzy
 msgid "New table"
-msgstr "Δεν υπάρχουν πίνακες"
+msgstr "Νέος πίνακας"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2977,13 +2974,12 @@ msgid "No tables"
 msgstr "Δεν υπάρχουν πίνακες"
 
 #: libraries/messages.inc.php:651
-#, fuzzy
 msgid "Page has been created"
-msgstr "Ο πίνακας %1$s έχει δημιουργηθεί."
+msgstr "Η σελίδα δημιουργήθηκε"
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
-msgstr ""
+msgstr "Η δημιουργία σελίδας απέτυχε"
 
 #: libraries/messages.inc.php:653
 msgid "PDF"
