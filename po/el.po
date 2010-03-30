@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-30 11:00+0200\n"
+"PO-Revision-Date: 2010-03-30 11:01+0200\n"
 "Last-Translator: Panagiotis <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -458,7 +458,6 @@ msgstr ""
 "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων %s;"
 
 #: libraries/messages.inc.php:96
-#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Απενεργοποιημένη"
