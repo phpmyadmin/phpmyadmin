@@ -7073,7 +7073,7 @@ msgid ""
 "pma_column_info[/kbd]"
 msgstr ""
 "Nechte prázdné pro žádné komentáře či mime typy sloupců, výchozí nastavení: "
-"[kbd]pma_column_info[/kbd]."
+"[kbd]pma_column_info[/kbd]"
 
 #: setup/lib/messages.inc.php:250
 msgid "Column information table"
