@@ -298,7 +298,7 @@ class PMA_Message
      */
     static public function deleted_rows($rows)
     {
-        $message = PMA_Message::success(_ngettext('%1$d row delete.', '%1$d rows deleted.', $rows));
+        $message = PMA_Message::success(_ngettext('%1$d row deleted.', '%1$d rows deleted.', $rows));
         $message->addParam($rows);
         return $message;
     }
