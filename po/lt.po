@@ -622,7 +622,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:130
 msgid "Cannot log in to the MySQL server"
-msgstr "Neprisijungia prie MySQL darbinės stoties"
+msgstr "Nepavyksta prisijungti prie MySQL darbinės stoties"
 
 #: libraries/messages.inc.php:131
 #, php-format
