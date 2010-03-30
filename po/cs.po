@@ -6089,7 +6089,7 @@ msgstr "Editace polí typu CHAR"
 
 #: setup/lib/messages.inc.php:32
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr "Počet sloupců textových oblastí typu CHAR/VARCHAR."
+msgstr "Počet sloupců textových oblastí typu CHAR/VARCHAR"
 
 #: setup/lib/messages.inc.php:33
 msgid "CHAR textarea columns"
