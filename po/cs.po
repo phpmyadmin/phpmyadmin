@@ -6610,7 +6610,7 @@ msgid ""
 "table) and only SQL is always available"
 msgstr ""
 "Výchozí formát; vemte v potaz, že toto závisí na umístění (databáze, "
-"tabulka) a pouze SQL je vždy dostupný."
+"tabulka) a pouze SQL je vždy dostupný"
 
 #: setup/lib/messages.inc.php:155
 msgid "Partial import: skip queries"
