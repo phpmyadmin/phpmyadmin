@@ -6097,7 +6097,7 @@ msgstr "Sloupce pro textové oblasti typu CHAR"
 
 #: setup/lib/messages.inc.php:34
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr "Počet řádků textových oblastí typu CHAR/VARCHAR."
+msgstr "Počet řádků textových oblastí typu CHAR/VARCHAR"
 
 #: setup/lib/messages.inc.php:35
 msgid "CHAR textarea rows"
