@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-29 09:27+0200\n"
+"PO-Revision-Date: 2010-03-30 12:18+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3486,7 +3486,7 @@ msgstr "Přidat replikačního uživatele pro podřízený server"
 #: libraries/messages.inc.php:779
 #, php-format
 msgid "Master server changed succesfully to %s"
-msgstr ""
+msgstr "Nadřízený server bych úspěšně změněn na %s"
 
 #: libraries/messages.inc.php:780
 msgid "This server is configured as master in a replication process."
@@ -5074,11 +5074,11 @@ msgstr "Povolit přihlašování uživatele root"
 
 #: libraries/messages.inc.php:1120
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
+msgstr "Název pro zobrazení při HTTP autentizace"
 
 #: libraries/messages.inc.php:1121
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP doméma"
 
 #: libraries/messages.inc.php:1122
 msgid ""
@@ -5120,7 +5120,7 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
-"Nechte prázdné pro žádné komentaře či mime typy sloupců, výchozí nastavení: "
+"Nechte prázdné pro žádné komentáře či mime typy sloupců, výchozí nastavení: "
 "[kbd]pma_column_info[/kbd]."
 
 #: libraries/messages.inc.php:1129
@@ -5287,7 +5287,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1161
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "PDF schémata: tabulka stránek"
 
 #: libraries/messages.inc.php:1162
 msgid ""
@@ -5372,7 +5372,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1179
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "PDF schéma: tabulka souřadnic"
 
 #: libraries/messages.inc.php:1180
 msgid ""
@@ -5382,7 +5382,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1181
 msgid "Display fields table"
-msgstr ""
+msgstr "Tabulka s popisem sloupců"
 
 #: libraries/messages.inc.php:1183
 msgid "User for config auth"
