@@ -6935,7 +6935,7 @@ msgstr "Nepřetržitá historie dotazů"
 
 #: setup/lib/messages.inc.php:221
 msgid "How many queries are kept in history"
-msgstr "Kolik dotazů se má držet v historii."
+msgstr "Kolik dotazů se má držet v historii"
 
 #: setup/lib/messages.inc.php:222
 msgid "Query history length"
