@@ -510,7 +510,18 @@ class PMA_RT_Table {
     var $height_cell = 6;
     var $x, $y;
     var $primary = array();
+    var $show_info = false;
 
+    /**
+     * Returns title of the current table,
+     * title can have the dimensions of the table
+     *
+     * @access private
+     */
+    function getTitle()
+    {
+        return ($this->show_info ? sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->height) : '') . ' ' . $this->table_name;
+    } // end of the "getTitle" function
     /**
      * Sets the width of the table
      *
@@ -521,8 +532,6 @@ class PMA_RT_Table {
      */
     function PMA_RT_Table_setWidth($ff)
     {
-        // this looks buggy to me... does it really work if
-        // there are fields that require wider cells than the name of the table?
         global $pdf;
 
         foreach ($this->fields AS $field) {
@@ -530,7 +539,11 @@ class PMA_RT_Table {
         }
         $this->width += $pdf->GetStringWidth('  ');
         $pdf->SetFont($ff, 'B');
-        $this->width = max($this->width, $pdf->GetStringWidth('  ' . $this->table_name));
+        // it is unknown what value must be added, because
+        // table title is affected by the tabe width value
+        while ($this->width < $pdf->GetStringWidth($this->getTitle())) {
+            $this->width += 5;
+        }
         $pdf->SetFont($ff, '');
     } // end of the "PMA_RT_Table_setWidth()" method
     /**
@@ -545,7 +558,6 @@ class PMA_RT_Table {
     /**
      * Do draw the table
      *
-     * @param boolean $ Whether to display table position or not
      * @param integer $ The font size
      * @param boolean $ Whether to display color
      * @param integer $ The max. with among tables
@@ -553,7 +565,7 @@ class PMA_RT_Table {
      * @access private
      * @see PMA_PDF
      */
-    function PMA_RT_Table_draw($show_info, $ff, $setcolor = 0)
+    function PMA_RT_Table_draw($ff, $setcolor = 0)
     {
         global $pdf, $with_doc;
 
@@ -569,11 +581,7 @@ class PMA_RT_Table {
             $pdf->PMA_links['doc'][$this->table_name]['-'] = '';
         }
 
-        if ($show_info) {
-            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->height) . ' ' . $this->table_name, 1, 1, 'C', $setcolor, $pdf->PMA_links['doc'][$this->table_name]['-']);
-        } else {
-            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, $this->table_name, 1, 1, 'C', $setcolor, $pdf->PMA_links['doc'][$this->table_name]['-']);
-        }
+        $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, $this->getTitle(), 1, 1, 'C', $setcolor, $pdf->PMA_links['doc'][$this->table_name]['-']);
         $pdf->PMA_PDF_setXScale($this->x);
         $pdf->SetFont($ff, '');
         $pdf->SetTextColor(0);
@@ -608,6 +616,8 @@ class PMA_RT_Table {
      * @param string $ The table name
      * @param integer $ The font size
      * @param integer $ The max. with among tables
+     * @param boolean $ Whether to display keys or not
+     * @param boolean $ Whether to display table position or not
      * @global object    The current PDF document
      * @global integer   The current page number (from the
      *                     $cfg['Servers'][$i]['table_coords'] table)
@@ -617,7 +627,7 @@ class PMA_RT_Table {
      * @see PMA_PDF, PMA_RT_Table::PMA_RT_Table_setWidth,
           PMA_RT_Table::PMA_RT_Table_setHeight
      */
-    function __construct($table_name, $ff, &$same_wide_width, $show_keys)
+    function __construct($table_name, $ff, &$same_wide_width, $show_keys = false, $show_info = false)
     {
         global $pdf, $pdf_page_number, $cfgRelation, $db;
 
@@ -641,9 +651,14 @@ class PMA_RT_Table {
                 $this->fields[] = $row[0];
             }
         }
+
+        $this->show_info = $show_info;
+
         // height and width
-        $this->PMA_RT_Table_setWidth($ff);
         $this->PMA_RT_Table_setHeight();
+        // setWidth must me after setHeight, because title
+        // can include table height which changes table width
+        $this->PMA_RT_Table_setWidth($ff);
         if ($same_wide_width < $this->width) {
             $same_wide_width = $this->width;
         }
@@ -847,17 +862,18 @@ class PMA_RT {
      * @param string $ The relation field in the master table
      * @param string $ The foreign table name
      * @param string $ The relation field in the foreign table
+     * @param boolean $ Whether to display table position or not
      * @access private
      * @see PMA_RT_setMinMax
      */
-    function PMA_RT_addRelation($master_table, $master_field, $foreign_table, $foreign_field)
+    function PMA_RT_addRelation($master_table, $master_field, $foreign_table, $foreign_field, $show_info)
     {
         if (!isset($this->tables[$master_table])) {
-            $this->tables[$master_table] = new PMA_RT_Table($master_table, $this->ff, $this->tablewidth);
+            $this->tables[$master_table] = new PMA_RT_Table($master_table, $this->ff, $this->tablewidth, false, $show_info);
             $this->PMA_RT_setMinMax($this->tables[$master_table]);
         }
         if (!isset($this->tables[$foreign_table])) {
-            $this->tables[$foreign_table] = new PMA_RT_Table($foreign_table, $this->ff, $this->tablewidth);
+            $this->tables[$foreign_table] = new PMA_RT_Table($foreign_table, $this->ff, $this->tablewidth, false, $show_info);
             $this->PMA_RT_setMinMax($this->tables[$foreign_table]);
         }
         $this->relations[] = new PMA_RT_Relation($this->tables[$master_table], $master_field, $this->tables[$foreign_table], $foreign_field);
@@ -915,10 +931,10 @@ class PMA_RT {
      * @access private
      * @see PMA_RT_Table::PMA_RT_Table_draw()
      */
-    function PMA_RT_drawTables($show_info, $draw_color = 0)
+    function PMA_RT_drawTables($draw_color = 0)
     {
         foreach ($this->tables AS $table) {
-            $table->PMA_RT_Table_draw($show_info, $this->ff, $draw_color);
+            $table->PMA_RT_Table_draw($this->ff, $draw_color);
         }
     } // end of the "PMA_RT_drawTables()" method
     /**
@@ -1026,7 +1042,7 @@ class PMA_RT {
 
         foreach ($alltables AS $table) {
             if (!isset($this->tables[$table])) {
-                $this->tables[$table] = new PMA_RT_Table($table, $this->ff, $this->tablewidth, $show_keys);
+                $this->tables[$table] = new PMA_RT_Table($table, $this->ff, $this->tablewidth, $show_keys, $show_info);
             }
 
             if ($this->same_wide) {
@@ -1071,7 +1087,7 @@ class PMA_RT {
                     // (do not use array_search() because we would have to
                     // to do a === FALSE and this is not PHP3 compatible)
                     if (in_array($rel['foreign_table'], $alltables)) {
-                        $this->PMA_RT_addRelation($one_table, $master_field, $rel['foreign_table'], $rel['foreign_field']);
+                        $this->PMA_RT_addRelation($one_table, $master_field, $rel['foreign_table'], $rel['foreign_field'], $show_info);
                     }
                 } // end while
             } // end if
@@ -1089,7 +1105,7 @@ class PMA_RT {
             $this->PMA_RT_drawRelations($change_color);
         }
 
-        $this->PMA_RT_drawTables($show_info, $change_color);
+        $this->PMA_RT_drawTables($change_color);
 
         $this->PMA_RT_showRt();
     } // end of the "PMA_RT()" method
