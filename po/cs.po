@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 14:59+0200\n"
+"POT-Creation-Date: 2010-03-30 23:18+0200\n"
 "PO-Revision-Date: 2010-03-30 15:48+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -36,13 +36,13 @@ msgstr ""
 "php a ujistěte se, že jsou totožné s těmi, které máte od administrátora "
 "MySQL serveru."
 
-#. l10n: Language to use for MySQL 5.1 documentation
+#. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:411
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "en"
 
-#. l10n: Language to use for MySQL 5.0 documentation
+#. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:415
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
@@ -377,8 +377,8 @@ msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
-"Počet nemusí být přesný, viz "
-"[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
+"Počet nemusí být přesný, viz [a@./Documentation.html#faq3_11@Documentation]"
+"FAQ 3.11[/a]"
 
 #: libraries/messages.inc.php:70
 #, php-format
@@ -630,8 +630,8 @@ msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 "extension. Please check your PHP configuration."
 msgstr ""
-"Nelze nahrát rozšíření [a@http://php.net/%1$s@Documentation][em]%"
-"1$s[/em][/a], prosím zkontrolujte nastavení PHP."
+"Nelze nahrát rozšíření [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/"
+"a], prosím zkontrolujte nastavení PHP."
 
 #: libraries/messages.inc.php:132
 msgid ""
@@ -6080,8 +6080,8 @@ msgid ""
 "kbd] - allows newlines in fields"
 msgstr ""
 "Definuje, který typ ovládacích prvků má být použit při editaci polí typu "
-"CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje omezit délku vstupu, "
-"[kbd]textová oblast[/kbd] - umožní použít odřádkování"
+"CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje omezit délku vstupu, [kbd]"
+"textová oblast[/kbd] - umožní použít odřádkování"
 
 #: setup/lib/messages.inc.php:31
 msgid "CHAR fields editing"
@@ -6450,8 +6450,7 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
-"Pokročilé nastavení serveru, neměňte tyto volby, pokud nevíte, čeho se "
-"týkají"
+"Pokročilé nastavení serveru, neměňte tyto volby, pokud nevíte, čeho se týkají"
 
 #: setup/lib/messages.inc.php:122
 msgid "Server configuration"
@@ -6476,8 +6475,8 @@ msgid ""
 "documentation"
 msgstr ""
 "Nastavení databáze phpMyAdmina tak, aby získal přístup k dodatečným funkcím, "
-"viz [a@../Documentation.html#linked-tables]infrastruktura propojených "
-"tabulek[/a] v dokumentaci"
+"viz [a@../Documentation.html#linked-tables]infrastruktura propojených tabulek"
+"[/a] v dokumentaci"
 
 #: setup/lib/messages.inc.php:127 setup/lib/messages.inc.php:284
 msgid "PMA database"
@@ -6521,8 +6520,8 @@ msgid ""
 "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
 msgstr ""
 "Nastavení SQL dotazů, pro nastavení políček pro SQL dotazy si prohlédněte "
-"nastavení [a@?page=form&amp;formset=main_frame#tab_Sql_box]navigačního "
-"rámu[/a]"
+"nastavení [a@?page=form&amp;formset=main_frame#tab_Sql_box]navigačního rámu[/"
+"a]"
 
 #: setup/lib/messages.inc.php:137
 msgid "SQL queries"
@@ -6816,7 +6815,8 @@ msgstr "Nejvyšší délka zobrazeného SQL dotazu"
 
 #: setup/lib/messages.inc.php:195
 msgid "Maximum number of databases displayed in left frame and database list"
-msgstr "Nejvyšší počet databází zobrazovaných v levém rámu a v seznamu databází"
+msgstr ""
+"Nejvyšší počet databází zobrazovaných v levém rámu a v seznamu databází"
 
 #: setup/lib/messages.inc.php:196
 msgid "Maximum databases"
@@ -7059,9 +7059,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Nechte prázdné pro žádnou podporu Leave blank for no "
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]záložek[/a], výchozí nastavení: "
-"[kbd]pma_bookmarks[/kbd]"
+"Nechte prázdné pro žádnou podporu Leave blank for no [a@http://wiki."
+"phpmyadmin.net/pma/bookmark]záložek[/a], výchozí nastavení: [kbd]"
+"pma_bookmarks[/kbd]"
 
 #: setup/lib/messages.inc.php:248
 msgid "Bookmark table"
@@ -7104,8 +7104,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
-"Zvláštní MySQL uživatel s omezenými právy, více informací na "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"Zvláštní MySQL uživatel s omezenými právy, více informací na [a@http://wiki."
+"phpmyadmin.net/pma/controluser]wiki[/a]"
 
 #: setup/lib/messages.inc.php:257
 msgid "Control user"
@@ -7233,8 +7233,8 @@ msgstr "Heslo pro autentizaci config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: "
-"[kbd]pma_table_pages[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
+"pma_table_pages[/kbd]"
 
 #: setup/lib/messages.inc.php:282
 msgid "PDF schema: pages table"
@@ -7261,9 +7261,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro "
-"[a@http://wiki.phpmyadmin.net/pma/relation]relace[/a], výchozí nastavení: "
-"[kbd]pma_relation[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro [a@http://wiki.phpmyadmin.net/pma/"
+"relation]relace[/a], výchozí nastavení: [kbd]pma_relation[/kbd]"
 
 #: setup/lib/messages.inc.php:288
 msgid "Relation table"
@@ -7316,8 +7315,8 @@ msgstr "Použít SSL"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: "
-"[kbd]pma_table_coords[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: setup/lib/messages.inc.php:300
 msgid "PDF schema: table coordinates"
@@ -7551,9 +7550,6 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:353
 #, php-format
-#| msgid ""
-#| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-#| "latest stable version is %s, released on %s."
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
@@ -7588,8 +7584,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Povolí [a@http://cs.wikipedia.org/wiki/ZIP_%28souborov%C3%BD_form%C3%A1t%"
-"29]ZIP[/a] kompresi pro importování a exportování"
+"Povolí [a@http://cs.wikipedia.org/wiki/ZIP_%28souborov%C3%BD_form%C3%A1t%29]"
+"ZIP[/a] kompresi pro importování a exportování"
 
 #: setup/lib/messages.inc.php:360
 #, php-format

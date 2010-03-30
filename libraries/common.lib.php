@@ -303,7 +303,7 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
     // well, not quite
     // first check for the SQL parser having hit an error
     if (PMA_SQP_isError()) {
-        return htmlspecialchars($parsed_sql['raw']); 
+        return htmlspecialchars($parsed_sql['raw']);
     }
     // then check for an array
     if (!is_array($parsed_sql)) {
@@ -407,11 +407,11 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
             if (defined('PMA_MYSQL_INT_VERSION')) {
                 if (PMA_MYSQL_INT_VERSION >= 50100) {
                     $mysql = '5.1';
-                    /* l10n: Language to use for MySQL 5.1 documentation */
+                    /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
                     $lang = _pgettext('$mysql_5_1_doc_lang', 'en');
                 } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
                     $mysql = '5.0';
-                    /* l10n: Language to use for MySQL 5.0 documentation */
+                    /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
                     $lang = _pgettext('$mysql_5_0_doc_lang', 'en');
                 }
             }
@@ -660,19 +660,19 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             } else {
                 $back_url .= '?no_history=true';
             }
-	    
+
 	     $_SESSION['Import_message']['go_back_url'] = $back_url;
-	    
+
             $error_msg_output .= '<fieldset class="tblFooters">';
             $error_msg_output .= '[ <a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a> ]';
             $error_msg_output .= '</fieldset>' . "\n\n";
         }
-    
+
         echo $error_msg_output;
         /**
          * display footer and exit
          */
-	
+
         require_once './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
@@ -1002,7 +1002,7 @@ if (typeof(window.parent) != 'undefined'
 <?php
 if (!$jsonly)
   echo '</script>' . PHP_EOL;
-        
+
         unset($GLOBALS['reload']);
     }
 }
@@ -1014,7 +1014,7 @@ if (!$jsonly)
  * @param   string  $message    the message to display
  * @param   string  $sql_query  the query to display
  * @param   string  $type       the type (level) of the message
- * @param   boolean $is_view    is this a message after a VIEW operation? 
+ * @param   boolean $is_view    is this a message after a VIEW operation?
  * @global  array   the configuration array
  * @uses    $cfg
  * @access  public
@@ -1768,7 +1768,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
                     . implode(' ', $tag_params_strings)
                     . ' src="' . preg_replace(
                         '/^.*\ssrc="([^"]*)".*$/si', '\1', $message) . '"'
-                    . ' value="' . $displayed_message . '" title="' . $displayed_message . '" />'; 
+                    . ' value="' . $displayed_message . '" title="' . $displayed_message . '" />';
             }
         } else {
             $message = trim(strip_tags($message));
@@ -1941,7 +1941,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
  * @param   boolean     $force_unique   generate condition only on pk or unique
  *
  * @access  public
- * @return  string     the calculated condition and whether condition is unique 
+ * @return  string     the calculated condition and whether condition is unique
  */
 function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force_unique=false)
 {
@@ -2570,8 +2570,8 @@ function PMA_printable_bit_value($value, $length) {
 }
 
 /**
- * Converts a BIT type default value  
- * for example, b'010' becomes 010 
+ * Converts a BIT type default value
+ * for example, b'010' becomes 010
  *
  * @uses    strtr()
  * @param   string $bit_default_value
@@ -2721,7 +2721,7 @@ function PMA_getTitleForTarget($target) {
     return $GLOBALS[$GLOBALS['cfg']['DefaultTabTranslationMapping'][$target]];
 }
 
-/** 
+/**
   * The function creates javascript and html code, which run given mootools/JS code when DOM is ready
   *
   * @param String $code - Mootools/JS code, which will be run
