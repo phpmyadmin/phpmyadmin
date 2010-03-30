@@ -6723,7 +6723,7 @@ msgstr "Cíl odkazu loga"
 
 #: setup/lib/messages.inc.php:178
 msgid "Highlight server under the mouse cursor"
-msgstr "Zvýrazní server pod kurzorem myši."
+msgstr "Zvýrazní server pod kurzorem myši"
 
 #: setup/lib/messages.inc.php:179
 msgid "Enable highlighting"
