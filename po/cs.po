@@ -7104,8 +7104,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
-"Zvláštní MySQL uživatel s omezenými právy, více informací na [a@http://wiki."
-"phpmyadmin.net/pma/controluser]wiki[/a]."
+"Zvláštní MySQL uživatel s omezenými právy, více informací na "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
 #: setup/lib/messages.inc.php:257
 msgid "Control user"
