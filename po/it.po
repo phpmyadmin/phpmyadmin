@@ -903,7 +903,7 @@ msgstr "Impossibile connettersi all'origine"
 
 #: libraries/messages.inc.php:188
 msgid "Could not connect to the target"
-msgstr ""
+msgstr "Impossibile connettersi alla destinazione"
 
 #: libraries/messages.inc.php:189
 #, php-format
