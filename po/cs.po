@@ -6715,7 +6715,7 @@ msgid ""
 "([kbd]new[/kbd])"
 msgstr ""
 "Zda se má odkazovaná stránka otevřít v hlavním okně ([kbd]hlavní[/kbd]) nebo "
-"v novém ([kbd]nové[/kbd])."
+"v novém ([kbd]nové[/kbd])"
 
 #: setup/lib/messages.inc.php:177
 msgid "Logo link target"
