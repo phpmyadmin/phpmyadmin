@@ -6790,7 +6790,7 @@ msgstr "Uložení přihlašovací cookie"
 
 #: setup/lib/messages.inc.php:190
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "Určuje, jak dlouho (v sekundách) je přihlašovací cookie platná."
+msgstr "Určuje, jak dlouho (v sekundách) je přihlašovací cookie platná"
 
 #: setup/lib/messages.inc.php:191
 msgid ""
