@@ -1047,7 +1047,7 @@ msgstr "Il Database %s è stato eliminato."
 #: libraries/messages.inc.php:222
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "database '%s' non esistente."
 
 #: libraries/messages.inc.php:223 setup/lib/messages.inc.php:105
 msgid "Databases"
