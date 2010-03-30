@@ -7354,7 +7354,7 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
-"Přívětivý popis tohoto serveru. Pokud necháte prázné, zobrazí se jeho jméno"
+"Přívětivý popis tohoto serveru. Pokud necháte prázné, zobrazí se jeho jméno."
 
 #: setup/lib/messages.inc.php:308
 msgid "Verbose name of this server"
