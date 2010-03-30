@@ -248,7 +248,7 @@ class PMA_Table
      * @return  boolean  true if it is a merge table 
      * @access  public
      */
-    public function isMerge($db = null, $table = null)
+    static public function isMerge($db = null, $table = null)
     {
         // if called static, with parameters
         if (! empty($db) && ! empty($table)) {
