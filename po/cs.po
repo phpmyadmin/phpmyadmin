@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 14:33+0200\n"
-"PO-Revision-Date: 2010-03-30 12:18+0200\n"
+"PO-Revision-Date: 2010-03-30 14:35+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -49,13 +49,13 @@ msgid "en"
 msgstr "en"
 
 #: libraries/import.lib.php:147 libraries/Message.class.php:282
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Ovlivněno %1$d řádků."
-msgstr[1] "Ovlivněno %1$d řádků."
-msgstr[2] "Ovlivněno %1$d řádků."
+msgstr[0] "Ovlivněn %1$d řádek."
+msgstr[1] "Ovlivněny %1$d řádky."
+msgstr[2] "Ovlivněno %1$d řádek."
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:15
