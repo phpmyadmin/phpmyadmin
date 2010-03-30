@@ -4602,7 +4602,7 @@ msgid ""
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 "Počet spojení bez klíčů, které kontrolovaly použití klíčů po každém řádku. "
-"Pokud tato hodnota není 0, měli byste zkontrolovat indexy tabulek."
+"(Pokud tato hodnota není 0, měli byste zkontrolovat indexy tabulek.)"
 
 #: libraries/messages.inc.php:998
 msgid ""
