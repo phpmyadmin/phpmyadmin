@@ -152,7 +152,7 @@ msgstr "vasario"
 
 #: libraries/messages.inc.php:24
 msgid "Mar"
-msgstr "Kovo"
+msgstr "kovo"
 
 #: libraries/messages.inc.php:24
 msgid "Apr"
