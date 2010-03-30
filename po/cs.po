@@ -6080,8 +6080,8 @@ msgid ""
 "kbd] - allows newlines in fields"
 msgstr ""
 "Definuje, který typ ovládacích prvků má být použit při editaci polí typu "
-"CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje omezit délku vstupu, [kbd]"
-"textová oblast[/kbd] - umožní použít odřádkování."
+"CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje omezit délku vstupu, "
+"[kbd]textová oblast[/kbd] - umožní použít odřádkování"
 
 #: setup/lib/messages.inc.php:31
 msgid "CHAR fields editing"
