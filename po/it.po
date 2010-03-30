@@ -1083,9 +1083,8 @@ msgstr ""
 "traffico intenso fra il server web e MySQL."
 
 #: libraries/messages.inc.php:230
-#, fuzzy
 msgid "Target database"
-msgstr "Cerca nel database"
+msgstr "Database di destinazione"
 
 #: libraries/messages.inc.php:231
 msgid "Data"
