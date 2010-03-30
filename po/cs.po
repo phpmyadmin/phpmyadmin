@@ -6808,7 +6808,7 @@ msgstr "Platnost přihlašovací cookie"
 
 #: setup/lib/messages.inc.php:193
 msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr "Nejvyšší počet znaků SQL dotazu, které se ještě zobrazí."
+msgstr "Nejvyšší počet znaků SQL dotazu, které se ještě zobrazí"
 
 #: setup/lib/messages.inc.php:194
 msgid "Maximum displayed SQL length"
