@@ -7081,7 +7081,7 @@ msgstr "Tabulka informací o sloupcích"
 
 #: setup/lib/messages.inc.php:251
 msgid "Compress connection to MySQL server"
-msgstr "Zda se má komprimovat připojení k MySQL serveru."
+msgstr "Zda se má komprimovat připojení k MySQL serveru"
 
 #: setup/lib/messages.inc.php:252
 msgid "Compress connection"
