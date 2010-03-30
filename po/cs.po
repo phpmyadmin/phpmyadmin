@@ -2131,7 +2131,7 @@ msgstr "Ukončit"
 #: libraries/messages.inc.php:473
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr "Funkčnost %s je omezena známou chybou, viz %s."
+msgstr "Funkčnost %s je omezena známou chybou, viz %s"
 
 #: libraries/messages.inc.php:474
 msgid "Korean"
