@@ -492,8 +492,7 @@ if (0 == $num_rows || $is_affected) {
             /* For replace we get DELETED + INSERTED row count, so we have to call it affected */
             $message = PMA_Message::affected_rows($num_rows);
         } else {
-            $message = PMA_Message::success('strRowsInserted');
-            $message->addParam($num_rows);
+            $message = PMA_Message::inserted_rows($num_rows);
         }
         $insert_id = PMA_DBI_insert_id();
         if ($insert_id != 0) {

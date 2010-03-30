@@ -829,7 +829,6 @@ $strRoutineReturnType = __('Return type');
 $strRoutines = __('Routines');
 $strRowLength = __('Row length');
 $strRowsFrom = __('row(s) starting from record #');
-$strRowsInserted = __('%1$d row(s) inserted.');
 $strRowSize = __(' Row size ');
 $strRowsModeFlippedHorizontal = __('horizontal (rotated headers)');
 $strRowsModeHorizontal = __('horizontal');

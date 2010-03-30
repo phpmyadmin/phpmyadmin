@@ -400,8 +400,7 @@ foreach ($query as $single_query) {
 unset($single_query, $query);
 
 if ($is_insert && count($value_sets) > 0) {
-    $message = PMA_Message::success('strRowsInserted');
-    $message->addParam($total_affected_rows);
+    $message = PMA_Message::inserted_rows($total_affected_rows);
 } else {
     $message = PMA_Message::affected_rows($total_affected_rows);
 }
