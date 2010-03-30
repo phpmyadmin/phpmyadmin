@@ -305,7 +305,7 @@ function PMA_langDetails($lang) {
         case 'zh_CN':
             return array('zh|chinese simplified', 'chinese_simplified-utf-8', 'zh', '&#20013;&#25991;');
     }
-    return array($lang, $lang, $lang, '');
+    return array("$lang|$lang", $lang, $lang);
 }
 
 /**
