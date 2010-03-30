@@ -160,7 +160,7 @@ msgstr "balandžio"
 
 #: libraries/messages.inc.php:24
 msgid "May"
-msgstr "Gegužio"
+msgstr "gegužės"
 
 #: libraries/messages.inc.php:24
 msgid "Jun"
