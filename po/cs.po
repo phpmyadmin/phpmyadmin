@@ -6951,7 +6951,7 @@ msgstr "Výchozí panel okna dotazů"
 
 #: setup/lib/messages.inc.php:225
 msgid "Select which functions will be used for character set conversion"
-msgstr "Vybere, které funkce budou použity pro konverzi znakových sad."
+msgstr "Vybere, které funkce budou použity pro konverzi znakových sad"
 
 #: setup/lib/messages.inc.php:226
 msgid "Recoding engine"
