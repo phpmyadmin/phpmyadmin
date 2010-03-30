@@ -7010,7 +7010,7 @@ msgstr "Příkaz pro autentizaci serverů"
 
 #: setup/lib/messages.inc.php:237
 msgid "Leave blank for defaults"
-msgstr "Nechte volbu prázdnou pro výchozí nastavení."
+msgstr "Nechte volbu prázdnou pro výchozí nastavení"
 
 #: setup/lib/messages.inc.php:238
 msgid "Host authentication rules"
