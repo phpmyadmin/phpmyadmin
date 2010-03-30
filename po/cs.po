@@ -6509,7 +6509,7 @@ msgstr "Přizpůsobení hlavního rámu"
 
 #: setup/lib/messages.inc.php:134
 msgid "Customize links shown in SQL Query boxes"
-msgstr "Přizpůsobení odkazů zobrazených v políčcích pro SQL dotazy."
+msgstr "Přizpůsobení odkazů zobrazených v políčcích pro SQL dotazy"
 
 #: setup/lib/messages.inc.php:135
 msgid "SQL Query box"
