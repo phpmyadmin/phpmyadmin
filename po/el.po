@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-19 00:28+0100\n"
-"PO-Revision-Date: 2010-03-30 11:01+0200\n"
+"PO-Revision-Date: 2010-03-30 11:02+0200\n"
 "Last-Translator: Panagiotis <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1975,7 +1975,7 @@ msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
 
 #: libraries/messages.inc.php:440
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Εισαγωγή ως νέα γραμμή και παράβλεψη σφαλμάτων"
 
 #: libraries/messages.inc.php:441
 msgid "Insert"
