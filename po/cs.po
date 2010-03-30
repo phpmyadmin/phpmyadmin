@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 14:43+0200\n"
+"POT-Creation-Date: 2010-03-30 14:47+0200\n"
 "PO-Revision-Date: 2010-03-30 14:43+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -48,7 +48,7 @@ msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "en"
 
-#: libraries/import.lib.php:147 libraries/Message.class.php:282
+#: libraries/Message.class.php:282
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
@@ -58,8 +58,6 @@ msgstr[2] "Ovlivněno %1$d řádek."
 
 #: libraries/Message.class.php:301
 #, php-format
-#| msgid "%1$d row delete."
-#| msgid_plural "%1$d rows deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "Smazán %1$d řádek."

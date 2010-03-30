@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 14:43+0200\n"
+"POT-Creation-Date: 2010-03-30 14:47+0200\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: basque <eu@li.org>\n"
@@ -45,7 +45,7 @@ msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "Bidalita"
 
-#: libraries/import.lib.php:147 libraries/Message.class.php:282
+#: libraries/Message.class.php:282
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
