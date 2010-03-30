@@ -7233,8 +7233,8 @@ msgstr "Heslo pro autentizaci config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
-"pma_table_pages[/kbd]."
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: "
+"[kbd]pma_table_pages[/kbd]"
 
 #: setup/lib/messages.inc.php:282
 msgid "PDF schema: pages table"
