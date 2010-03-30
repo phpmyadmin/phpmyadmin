@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 14:59+0200\n"
-"PO-Revision-Date: 2010-03-30 20:24+0200\n"
+"PO-Revision-Date: 2010-03-30 20:25+0200\n"
 "Last-Translator: Rytis <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -57,12 +57,13 @@ msgstr[1] "Pakeistos %1$d eilutės."
 msgstr[2] "Pakeistos %1$d eilučių."
 
 #: libraries/Message.class.php:301
-#, fuzzy, php-format
+#, php-format
 #| msgid "No rows selected"
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Nepasirinkti įrašai"
-msgstr[1] "Nepasirinkti įrašai"
+msgstr[0] "Ištrinta %1$d eilutė."
+msgstr[1] "Ištrintos %1$d eilutės."
+msgstr[2] "Ištrinta %1$d eilučių."
 
 #: libraries/Message.class.php:320
 #, fuzzy, php-format
