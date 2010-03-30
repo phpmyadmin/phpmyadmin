@@ -74,9 +74,6 @@ if (!$is_https) {
     // create language list
     $lang_list = array();
     foreach ($all_languages as $each_lang_key => $each_lang) {
-        if (!file_exists($GLOBALS['lang_path'] . $each_lang[1] . '.inc.php')) {
-            continue;
-        }
 
         $lang_name = ucfirst(substr(strrchr($each_lang[0], '|'), 1));
         // Include native name if non empty
@@ -175,9 +172,6 @@ $opts = array(
     'values' => array(),
     'values_escaped' => true);
 foreach ($all_languages as $each_lang_key => $each_lang) {
-    if (!file_exists($GLOBALS['lang_path'] . $each_lang[1] . '.inc.php')) {
-        continue;
-    }
     $lang_name = ucfirst(substr(strrchr($each_lang[0], '|'), 1));
     // Include native name if non empty
     if (!empty($each_lang[3])) {
