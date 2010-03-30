@@ -6838,7 +6838,7 @@ msgstr "Nejvyšší počet zobrazených řádků"
 
 #: setup/lib/messages.inc.php:199
 msgid "Maximum number of tables displayed in table list"
-msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek."
+msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek"
 
 #: setup/lib/messages.inc.php:200
 msgid "Maximum tables"
