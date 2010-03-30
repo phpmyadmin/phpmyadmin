@@ -172,7 +172,7 @@ msgstr "liepos"
 
 #: libraries/messages.inc.php:24
 msgid "Aug"
-msgstr "Rugpjūčio"
+msgstr "rugpjūčio"
 
 #: libraries/messages.inc.php:24
 msgid "Sep"
