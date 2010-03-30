@@ -5132,7 +5132,7 @@ msgstr "zvolit"
 
 #: libraries/messages.inc.php:1110
 msgid "Target database has been synchronized with source database"
-msgstr "Cílová databáze byla synchronizována se zdrojovou."
+msgstr "Cílová databáze byla synchronizována se zdrojovou"
 
 #: libraries/messages.inc.php:1111
 msgid "Table-specific privileges"
