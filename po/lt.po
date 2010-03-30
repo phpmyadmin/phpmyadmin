@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 14:59+0200\n"
-"PO-Revision-Date: 2010-03-30 20:26+0200\n"
+"PO-Revision-Date: 2010-03-30 20:27+0200\n"
 "Last-Translator: Rytis <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -739,7 +739,7 @@ msgstr "Pažymėti visus"
 #: libraries/messages.inc.php:153
 #, fuzzy
 msgid "Check"
-msgstr "Čekų"
+msgstr "Pažymėti"
 
 #: libraries/messages.inc.php:154
 msgid "Check tables having overhead"
