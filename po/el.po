@@ -2979,7 +2979,7 @@ msgstr "Η σελίδα δημιουργήθηκε"
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
-msgstr ""
+msgstr "Η δημιουργία σελίδας απέτυχε"
 
 #: libraries/messages.inc.php:653
 msgid "PDF"
