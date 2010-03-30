@@ -129,7 +129,7 @@ function PMA_langSet(&$lang)
  *
  * @access  private
  */
-function PMA_langDetect(&$str, $envType)
+function PMA_langDetect($str, $envType)
 {
     if (empty($str)) {
         return false;
