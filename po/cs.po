@@ -630,8 +630,8 @@ msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 "extension. Please check your PHP configuration."
 msgstr ""
-"nelze nahrát rozšíření [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/"
-"a], prosím zkontrolujte nastavení PHP"
+"Nelze nahrát rozšíření [a@http://php.net/%1$s@Documentation][em]%"
+"1$s[/em][/a], prosím zkontrolujte nastavení PHP."
 
 #: libraries/messages.inc.php:132
 msgid ""
