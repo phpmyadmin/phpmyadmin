@@ -6476,8 +6476,8 @@ msgid ""
 "documentation"
 msgstr ""
 "Nastavení databáze phpMyAdmina tak, aby získal přístup k dodatečným funkcím, "
-"viz [a@../Documentation.html#linked-tables]infrastruktura propojených tabulek"
-"[/a] v dokumentaci."
+"viz [a@../Documentation.html#linked-tables]infrastruktura propojených "
+"tabulek[/a] v dokumentaci"
 
 #: setup/lib/messages.inc.php:127 setup/lib/messages.inc.php:284
 msgid "PMA database"
