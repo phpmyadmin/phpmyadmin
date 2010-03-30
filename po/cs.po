@@ -6890,7 +6890,7 @@ msgid ""
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
 "[kbd]SMART[/kbd] - t.j. řazení sestupně pro políčka typu TIME, DATE, "
-"DATETIME a TIMESTAMP, v ostatních případech se použije vzestupné řazení."
+"DATETIME a TIMESTAMP, v ostatních případech se použije vzestupné řazení"
 
 #: setup/lib/messages.inc.php:211
 msgid "Default sorting order"
