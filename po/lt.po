@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 14:59+0200\n"
-"PO-Revision-Date: 2010-03-30 20:27+0200\n"
+"PO-Revision-Date: 2010-03-30 20:28+0200\n"
 "Last-Translator: Rytis <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -818,7 +818,7 @@ msgstr "Importuoto failo suspaudimo tipas bus automatiškai nustatytas iš: %s"
 #: libraries/messages.inc.php:172
 #, php-format
 msgid "Could not load default configuration from: \"%1$s\""
-msgstr ""
+msgstr "Nepavyko užkrauti nustatymų failo iš \"%1$s\""
 
 #: libraries/messages.inc.php:173
 msgid ""
