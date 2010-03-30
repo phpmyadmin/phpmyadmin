@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 14:51+0200\n"
+"POT-Creation-Date: 2010-03-30 14:56+0200\n"
 "PO-Revision-Date: 2010-03-30 11:04+0200\n"
 "Last-Translator: Panagiotis <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -800,7 +800,7 @@ msgstr "Συμβατό με MySQL 4.0"
 msgid "Complete inserts"
 msgstr "Πλήρεις εντολές «Insert»"
 
-#: libraries/messages.inc.php:170 libraries/messages.inc.php:955
+#: libraries/messages.inc.php:170 setup/lib/messages.inc.php:79
 msgid "Compression"
 msgstr "Συμπίεση"
 
@@ -1045,7 +1045,7 @@ msgstr "Η βάση δεδομένων %s διεγράφη."
 msgid "'%s' database does not exist."
 msgstr "Η βάση δεδομένων «%s» δεν υπάρχει."
 
-#: libraries/messages.inc.php:223 libraries/messages.inc.php:981
+#: libraries/messages.inc.php:223 setup/lib/messages.inc.php:105
 msgid "Databases"
 msgstr "Βάσεις Δεδομένων"
 
@@ -1324,7 +1324,7 @@ msgstr "Εμφάνιση %s εγγραφών ξεκινώντας από την 
 msgid "dynamic"
 msgstr "δυναμικά"
 
-#: libraries/messages.inc.php:287 libraries/messages.inc.php:1209
+#: libraries/messages.inc.php:287 setup/lib/messages.inc.php:333
 msgid "Edit"
 msgstr "Επεξεργασία"
 
@@ -1445,7 +1445,7 @@ msgstr "Έκδοση Excel"
 msgid "Execute bookmarked query"
 msgstr "Εκτέλεση αποθηκευμένου ερωτήματος"
 
-#: libraries/messages.inc.php:316 libraries/messages.inc.php:1210
+#: libraries/messages.inc.php:316 setup/lib/messages.inc.php:334
 msgid "Explain SQL"
 msgstr "Ανάλυση SQL"
 
@@ -1597,7 +1597,7 @@ msgstr ""
 msgid "FOREIGN KEY relation added"
 msgstr "Προστέθηκε η συσχέτιση ΜΗ ΔΙΑΚΡΙΤΟΥ ΚΛΕΙΔΙΟΥ (FOREIGN KEY)"
 
-#: libraries/messages.inc.php:348 libraries/messages.inc.php:959
+#: libraries/messages.inc.php:348 setup/lib/messages.inc.php:83
 msgid "Format"
 msgstr "Μορφοποίηση"
 
@@ -1823,7 +1823,7 @@ msgstr "Εισαγωγή/Εξαγωγή συντεταγμένων για σχέ
 msgid "Import files"
 msgstr "Εισαγωγή αρχείων"
 
-#: libraries/messages.inc.php:406 libraries/messages.inc.php:1029
+#: libraries/messages.inc.php:406 setup/lib/messages.inc.php:153
 msgid "Format of imported file"
 msgstr "Μορφή εισαχθέντος αρχείου"
 
@@ -2721,7 +2721,7 @@ msgstr "%s αποτελέσματα στον πίνακα <i>%s</i>"
 msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
 
-#: libraries/messages.inc.php:594 libraries/messages.inc.php:988
+#: libraries/messages.inc.php:594 setup/lib/messages.inc.php:112
 msgid "Tables"
 msgstr "Πίνακες"
 
@@ -2765,7 +2765,7 @@ msgstr "Ή"
 msgid "Overhead"
 msgstr "Επιβάρυνση"
 
-#: libraries/messages.inc.php:607 libraries/messages.inc.php:961
+#: libraries/messages.inc.php:607 setup/lib/messages.inc.php:85
 msgid "Overwrite existing file(s)"
 msgstr "Αντικατάσταση υπαρχόντων αρχείων"
 
@@ -3041,7 +3041,7 @@ msgstr "τηλ. κατάλογος"
 msgid "PHP array"
 msgstr "σειρά PHP"
 
-#: libraries/messages.inc.php:662 libraries/messages.inc.php:1212
+#: libraries/messages.inc.php:662 setup/lib/messages.inc.php:336
 msgid "Create PHP Code"
 msgstr "Δημιουργία κώδικα PHP"
 
@@ -3371,7 +3371,7 @@ msgstr "Τα ακόλουθα ερωτήματα εκτελέστηκαν:"
 msgid "Query cache"
 msgstr "Λανθάνουσα μνήμη ερωτήματος"
 
-#: libraries/messages.inc.php:737 libraries/messages.inc.php:993
+#: libraries/messages.inc.php:737 setup/lib/messages.inc.php:117
 msgid "Query window"
 msgstr "Παράθυρο ερωτήματος"
 
@@ -3434,7 +3434,7 @@ msgstr "Εγγραφές"
 msgid "Check referential integrity:"
 msgstr "Έλεγχος ακεραιότητας συσχετίσεων:"
 
-#: libraries/messages.inc.php:752 libraries/messages.inc.php:1211
+#: libraries/messages.inc.php:752 setup/lib/messages.inc.php:335
 msgid "Refresh"
 msgstr "Ανανέωση"
 
@@ -3652,7 +3652,7 @@ msgstr ""
 msgid "Show connected slaves"
 msgstr "Προβολή συνδεδεμένων δευτερευόντων"
 
-#: libraries/messages.inc.php:795 libraries/messages.inc.php:1254
+#: libraries/messages.inc.php:795 libraries/messages.inc.php:902
 msgid "Show master status"
 msgstr "Προβολή κατάστασης πρωτεύοντος"
 
@@ -3978,7 +3978,7 @@ msgstr "Επιλέξτε αναφερθέν κλειδί"
 msgid "Select Tables"
 msgstr "Επιλογή Πινάκων"
 
-#: libraries/messages.inc.php:869 libraries/messages.inc.php:953
+#: libraries/messages.inc.php:869 setup/lib/messages.inc.php:77
 msgid "Save as file"
 msgstr "Αποστολή"
 
@@ -3998,7 +3998,7 @@ msgstr "Ο διακομιστής δεν αποκρίνεται"
 msgid "Server"
 msgstr "Διακομιστής"
 
-#: libraries/messages.inc.php:874 libraries/messages.inc.php:986
+#: libraries/messages.inc.php:874 setup/lib/messages.inc.php:110
 msgid "Servers"
 msgstr "Διακομιστές"
 
@@ -4077,1814 +4077,87 @@ msgid "settings"
 msgstr "ρυθμίσεις"
 
 #: libraries/messages.inc.php:887
-msgid "Allow character set conversion"
-msgstr "Άδεια μετατροπής συνόλου χαρακτήρων"
-
-#: libraries/messages.inc.php:888
-msgid ""
-"If enabled user can enter any MySQL server in login form for cookie auth"
-msgstr ""
-"Αν ενεργοποιηθεί, ο χρήστης μπορεί να συνδεθεί σε οποιοδήποτε διακομιστή "
-"MySQL μέσω φόρμας σύνδεσης για επικύρωση cookie"
-
-#: libraries/messages.inc.php:889
-msgid ""
-"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-"disabled as it allows attackers to bruteforce login to any MySQL server. If "
-"you feel this is necessary, use [a@?page=form&amp;"
-"formset=features#tab_Security]trusted proxies list[/a]. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
-msgstr ""
-"Αυτή η [a@?page=form&amp;formset=features#tab_Security]επιλογή[/a] πρέπει να "
-"απενεργοποιηθεί καθώς επιτρέπει σε κακόβουλους να εισβάλουν συνδεόμενοι σε "
-"οποιοδήποτε διακομιστή MySQL. Αν νομίζετε ότι είναι απαραίτητο, "
-"χρησιμοποιείστε [a@?page=form&amp;formset=features#tab_Security]λίστα "
-"διευθύνσεων που εμπιστεύεστε[/a]. Ωστόσο, η βασισμένη σε IP προστασία ίσως "
-"να μην είναι αξιόπιστη αν η IP σας ανήκει σε έναν ISP όπου χιλιάδες χρήστες, "
-"μαζί με εσάς, είναι συνδεδεμένοι σε αυτόν."
-
-#: libraries/messages.inc.php:890
-msgid "Allow login to any MySQL server"
-msgstr "Δικαίωμα σύνδεσης σε οποιοδήποτε διακομιστή MySQL"
-
-#: libraries/messages.inc.php:891
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Προβολή συνδέσμου «Διαγραφής βάσης δεδομένων» σε κανονικούς χρήστες"
-
-#: libraries/messages.inc.php:892
-msgid "Key should contain letters, numbers [em]and[/em] special characters"
-msgstr ""
-"Το κλειδί πρέπει να περιέχει γράμματα, αριθμούς [em]και[/em] ειδικούς "
-"χαρακτήρες"
-
-#: libraries/messages.inc.php:893
-msgid ""
-"Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
-"authentication"
-msgstr ""
-"Μυστική φράση πρόσβασης χρησιμοποιήθηκε για την κρυπτογράφηση των cookies "
-"στην επικύρωση του [kbd]cookie[/kbd]"
-
-#: libraries/messages.inc.php:894
-msgid "Key is too short, it should have at least 8 characters"
-msgstr "Το κλειδί είναι πολύ μικρό. Πρέπει να έχει τουλάχιστον 8 χαρακτήρες"
-
-#: libraries/messages.inc.php:895
-msgid ""
-"You didn't have blowfish secret set and have enabled cookie authentication, "
-"so a key was automatically generated for you. It is used to encrypt cookies; "
-"you don't need to remember it."
-msgstr ""
-"Δεν ορίσατε το μυστικό κολιτσίδας και ενεργοποιήσατε την επικύρωση cookie. "
-"Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. Χρησιμοποιήθηκε για την "
-"κρυπτογράφηση cookies. Δεν χρειάζεται να το θυμάστε."
-
-#: libraries/messages.inc.php:896
-msgid "Blowfish secret"
-msgstr "Μυστικό κολιτσίδας"
-
-#: libraries/messages.inc.php:897
-msgid "Highlight selected rows"
-msgstr "Επισήμανση επιλεγμένων γραμμών"
-
-#: libraries/messages.inc.php:898
-msgid "Row marker"
-msgstr "Επισημαντής γραμμής"
-
-#: libraries/messages.inc.php:899
-msgid "Highlight row pointed by the mouse cursor"
-msgstr "Επισήμανση γραμμής που δείχνει ο δείκτης του ποντικιού"
-
-#: libraries/messages.inc.php:900
-msgid "Highlight pointer"
-msgstr "Δείκτης επισήμανσης"
-
-#: libraries/messages.inc.php:901
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-"import and export operations"
-msgstr ""
-"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"για λειτουργίες εισαγωγής και εξαγωγής"
-
-#: libraries/messages.inc.php:902
-msgid "Bzip2"
-msgstr "Bzip2"
-
-#: libraries/messages.inc.php:903
-#, php-format
-msgid ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
-"decompression[/a] requires functions (%s) which are unavailable on this "
-"system."
-msgstr ""
-"Η [a@?page=form&amp;formset=features#tab_Import_export]συμπίεση και "
-"αποσυμπίεση Bzip2[/a] απαιτεί λειτουργίες (%s) που δεν είναι διαθεσιμες σε "
-"αυτό το σύστημα."
-
-#: libraries/messages.inc.php:904
-msgid "Cannot load or save configuration"
-msgstr "Αδύνατη η φόρτωση ή η αποθήκευση ρυθμίσεων"
-
-#: libraries/messages.inc.php:905
-msgid ""
-"Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@../Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
-msgstr ""
-"Δημιουργήστε εγγράψιμο φάκελο διακομιστή ιστού [em]config[/em] στο φάκελο "
-"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην [a@../Documentation."
-"html#setup_script]τεκμηρίωση[/a]. Διαφορετικά, θα μπορείτε μόνο να τον "
-"λάβετε ή να τον προβάλετε."
-
-#: libraries/messages.inc.php:906
-msgid ""
-"Defines which type of editing controls should be used for CHAR and VARCHAR "
-"fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
-"kbd] - allows newlines in fields"
-msgstr ""
-"Ορίζει ποιος τύπος επεξεργασμένων ελέγχων πρέπει να χρησιμοποιηθεί για πεδία "
-"CHAR και VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, [kbd]"
-"textarea[/kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
-
-#: libraries/messages.inc.php:907
-msgid "CHAR fields editing"
-msgstr "Επεξεργασία πεδίων CHAR"
-
-#: libraries/messages.inc.php:908
-msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr "Αριθμός στηλών για περιοχές κειμένου CHAR/VARCHAR"
-
-#: libraries/messages.inc.php:909
-msgid "CHAR textarea columns"
-msgstr "Στήλες περιοχής κειμένου (textarea) CHAR"
-
-#: libraries/messages.inc.php:910
-msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr "Αριθμός γραμμών για περιοχές κειμένου CHAR/VARCHAR"
-
-#: libraries/messages.inc.php:911
-msgid "CHAR textarea rows"
-msgstr "Γραμμές περιοχής κειμένου (textarea) CHAR"
-
-#: libraries/messages.inc.php:912
-msgid "Check config file permissions"
-msgstr "Ελέξτε τα δικαιώματα του αρχείου ρυθμίσεων"
-
-#: libraries/messages.inc.php:913
-msgid "Clear"
-msgstr "Καθάρισμα"
-
-#: libraries/messages.inc.php:914
-msgid ""
-"Compress gzip/bzip2 exports on the fly without the need for much memory; if "
-"you encounter problems with created gzip/bzip2 files disable this feature"
-msgstr ""
-"Η συμπίεση gzip/bzip2 εξάγει άμεσα χωρίς την ανάγκη για πολύ μνήμη. Αν "
-"παρουσιάστηκαν προβλήματα με τα δημιουργηθέντα αρχεία gzip/bzip2 "
-"απενεργοποιήστε αυτό το χαρακτηριστικό"
-
-#: libraries/messages.inc.php:915
-msgid "Compress on the fly"
-msgstr "Άμεση συμπίεση"
-
-#: libraries/messages.inc.php:916
-msgid "Configuration file"
-msgstr "Αρχείο ρυθμίσεων"
-
-#: libraries/messages.inc.php:917
-msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
-"when you're about to lose data"
-msgstr ""
-"Όταν μια προειδοποίηση («Είστε σίγουρος/η...») πρέπει να προβάλετε αν "
-"πρόκειται να χαθούν δεδομένα"
-
-#: libraries/messages.inc.php:918
-msgid "Confirm DROP queries"
-msgstr "Επιβεβαίωση ερωτημάτων ΔΙΑΓΡΑΦΗΣ (DROP)"
-
-#: libraries/messages.inc.php:919
-msgid "Default character set used for conversions"
-msgstr "Προεπιλεγμένο σύνολο χαρακτήρων για μετατροπές"
-
-#: libraries/messages.inc.php:920
-msgid "Default character set"
-msgstr "Προεπιλεγμένο σύνολο χαρακτήρων"
-
-#: libraries/messages.inc.php:921
-msgid "Default language"
-msgstr "Προεπιλεγμένη γλώσσα"
-
-#: libraries/messages.inc.php:922
-msgid "Default server"
-msgstr "Προεπιλεγμένος διακομιστής"
-
-#: libraries/messages.inc.php:923
-msgid "Tab that is displayed when entering a database"
-msgstr "Προβαλόμενη καρτέλα κατά το άνοιγμα της βάσης δεδομένων"
-
-#: libraries/messages.inc.php:924
-msgid "Default database tab"
-msgstr "Προεπιλεγμένη καρτέλα βάσης δεδομένων"
-
-#: libraries/messages.inc.php:925
-msgid "Tab that is displayed when entering a server"
-msgstr "Προβαλόμενη καρτέλα κατά το άνοιγμα του διακομιστή"
-
-#: libraries/messages.inc.php:926
-msgid "Default server tab"
-msgstr "Προεπιλεγμένη καρτέλα διακομιστή"
-
-#: libraries/messages.inc.php:927
-msgid "Tab that is displayed when entering a table"
-msgstr "Προβαλόμενη καρτέλα κατά το άνοιγμα ενός πίνακα"
-
-#: libraries/messages.inc.php:928
-msgid "Default table tab"
-msgstr "Προεπιλεγμένη καρτέλα πίνακα"
-
-#: libraries/messages.inc.php:929
-msgid ""
-"This value should be double checked to ensure that this directory is neither "
-"world accessible nor readable or writable by other users on your server."
-msgstr ""
-"Αυτή η τιμή πρέπει να διπλοελεχθεί για διασφάλιση ότι αυτός ο φάκελος δεν "
-"είναι καθολικά προσβάσιμος ούτε αναγνώσιμος ούτε εγγράψιμος από άλλους "
-"χρήστες στο διακομιστή σας."
-
-#: libraries/messages.inc.php:930
-msgid "Show database listing as a list instead of a drop down"
-msgstr "Εμφάνιση λίστας βάσεων δεδομένων ως λίστα και όχι ως αναδυόμενο μενού"
-
-#: libraries/messages.inc.php:931
-msgid "Display databases as a list"
-msgstr "Προβολή βάσεων δεδομένων ως λίστα"
-
-#: libraries/messages.inc.php:932
-msgid "Display"
-msgstr "Προβολή"
-
-#: libraries/messages.inc.php:933
-msgid "Show server listing as a list instead of a drop down"
-msgstr "Εμφάνιση λίστας διακομιστών ως λίστα και όχι ως αναδυόμενο μενού"
-
-#: libraries/messages.inc.php:934
-msgid "Display servers as a list"
-msgstr "Προβολή διακομιστών ως λίστα"
-
-#: libraries/messages.inc.php:935
-msgid "Donate"
-msgstr "Δωρεά"
-
-#: libraries/messages.inc.php:936
-msgid "Download"
-msgstr "Λήψη"
-
-#: libraries/messages.inc.php:937
-msgid "End of line"
-msgstr "Τέλος γραμμής"
-
-#: libraries/messages.inc.php:938
-msgid "Could not connect to MySQL server"
-msgstr "Αδύνατη η σύνδεση στο διακομιστή MySQL"
-
-#: libraries/messages.inc.php:939
-msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr ""
-"Άδειασμα ελέγχου κωδικού πρόσβασης του phpMyAdmin ενώ χρησιμοποιείτε pmadb"
-
-#: libraries/messages.inc.php:940
-msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr "Άδειασμα ελέγχου χρήστη του phpMyAdmin ενώ χρησιμοποιείτε pmadb"
-
-#: libraries/messages.inc.php:941
-msgid "Empty signon session name while using signon authentication method"
-msgstr ""
-"Άδειασμα ονομασίας συνεδρίας σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
-"σύνδεσης"
-
-#: libraries/messages.inc.php:942
-msgid "Empty signon URL while using signon authentication method"
-msgstr ""
-"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης σύνδεσης"
-
-#: libraries/messages.inc.php:943
-msgid "Empty username while using config authentication method"
-msgstr ""
-"Άδειασμα ονόματος χρήστη ενώ χρησιμοποιείτε ρυθμισμένη μέθοδο επικύρωσης"
-
-#: libraries/messages.inc.php:944
-msgid "Submitted form contains errors"
-msgstr "Η υποβλειθείσα φόρμα περιέχει σφάλματα"
-
-#: libraries/messages.inc.php:945
-#, php-format
-msgid "Incorrect IP address: %s"
-msgstr "Εσφαλμένη διεύθυνση IP: %s"
-
-#: libraries/messages.inc.php:946
-msgid "Not a valid port number"
-msgstr "Μη έγκυρος αριθμός θύρας"
-
-#: libraries/messages.inc.php:947
-msgid "Incorrect value"
-msgstr "Εσφαλμένη τιμή"
-
-#: libraries/messages.inc.php:948
-#, php-format
-msgid "Missing data for %s"
-msgstr "Απολεσθέντα δεδομένα για %s"
-
-#: libraries/messages.inc.php:949
-msgid "Not a non-negative number"
-msgstr "Δεν είναι μη αρνητικός αριθμός"
-
-#: libraries/messages.inc.php:950
-msgid "Not a positive number"
-msgstr "Δεν είναι θετικός αριθμός"
-
-#: libraries/messages.inc.php:951
-msgid ""
-"Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
-"limit)"
-msgstr ""
-"Ορίστε τον αριθμό των δευτερολέπτων που επιτρέπεται να εκτελεστεί κώδικας "
-"([kbd]0[/kbd] για εκτέλεση χωρίς όριο)"
-
-#: libraries/messages.inc.php:952
-msgid "Maximum execution time"
-msgstr "Μέγιστος χρόνος εκτέλεσης"
-
-#: libraries/messages.inc.php:954
-msgid "Character set of the file"
-msgstr "Σύνολο χαρακτήρων αρχείου"
-
-#: libraries/messages.inc.php:956
-msgid "Database name template"
-msgstr "Πρότυπο ονόματος βάσης δεδομένων"
-
-#: libraries/messages.inc.php:957
-msgid "Server name template"
-msgstr "Πρότυπο ονόματος διακομιστή"
-
-#: libraries/messages.inc.php:958
-msgid "Table name template"
-msgstr "Πρότυπο ονόματος πίνακα"
-
-#: libraries/messages.inc.php:960
-msgid "Save on server"
-msgstr "Αποθήκευση στο διακομιστή"
-
-#: libraries/messages.inc.php:962
-msgid "Remember file name template"
-msgstr "Πρότυπο απομνημόνευσης ονοματος αρχείου"
-
-#: libraries/messages.inc.php:963
-msgid "no"
-msgstr "όχι"
-
-#: libraries/messages.inc.php:964
-msgid "Force secured connection while using phpMyAdmin"
-msgstr "Εξαναγκασμένη ασφαλής σύνδεση όσο χρησιμοποιείται το phpMyAdmin"
-
-#: libraries/messages.inc.php:965
-msgid ""
-"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-"enabled if your web server supports it"
-msgstr ""
-"Αύτη η [a@?page=form&amp;formset=features#tab_Security]επιλογή[/a] πρέπει να "
-"είναι ενεργή αν την υποστηρίζει ο διακομιστής σας"
-
-#: libraries/messages.inc.php:966
-msgid "Force SSL connection"
-msgstr "Εξαναγκασμένη σύνδεση SSL"
-
-#: libraries/messages.inc.php:967
-msgid ""
-"Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
-"the referenced data, [kbd]id[/kbd] is the key value"
-msgstr ""
-"Ταξινόμηση για αντικείμενα σε αναδυόμενο μενού μη διακριτού κλειδιού "
-"(foreing key); [kbd]content[/kbd] είναι τα αναφερθέντα δεδομένα, [kbd]id[/"
-"kbd] είναι η τιμή κλειδιού"
-
-#: libraries/messages.inc.php:968
-msgid "Foreign key dropdown order"
-msgstr "Αναδυόμενη σειρά μη διακριτού κλειδιού"
-
-#: libraries/messages.inc.php:969
-msgid "A dropdown will be used if fewer items are present"
-msgstr "Μια αναδυόμενη λίστα θα χρησιμοποιηθεί, αν υπάρχουν λίγα αντικείμενα"
-
-#: libraries/messages.inc.php:970
-msgid "Foreign key limit"
-msgstr "Όριο μη διακριτού κλειδιού"
-
-#: libraries/messages.inc.php:971
-msgid "Browse mode"
-msgstr "Κατάσταση αναζήτησης"
-
-#: libraries/messages.inc.php:972
-msgid "Customize browse mode"
-msgstr "Προσαρμοσμένη κατάσταση αναζήτησης"
-
-#: libraries/messages.inc.php:973
-msgid "Customize edit mode"
-msgstr "Προσαρμοσμένη κατάσταση επεξεργασίας"
-
-#: libraries/messages.inc.php:974
-msgid "Edit mode"
-msgstr "Κατάσταση επεξεργασίας"
-
-#: libraries/messages.inc.php:975
-msgid "Customize default export options"
-msgstr "Προσαρμογή προεπιλεγμένων επιλογών εξαγωγής"
-
-#: libraries/messages.inc.php:976
-msgid "Export defaults"
-msgstr "Προεπιλογές εξαγωγής"
-
-#: libraries/messages.inc.php:977
-msgid "Customize default common import options"
-msgstr "Προσαρμογή προεπιλεγμένων επιλογών εισαγωγής"
-
-#: libraries/messages.inc.php:978
-msgid "Import defaults"
-msgstr "Προεπιλογές εισαγωγής"
-
-#: libraries/messages.inc.php:979
-msgid "Set import and export directories and compression options"
-msgstr "Ορισμός φακέλων εισαγωγής-εξαγωγής και επιλογές συμπίεσης"
-
-#: libraries/messages.inc.php:980
-msgid "Import / export"
-msgstr "Εισαγωγή / Εξαγωγή"
-
-#: libraries/messages.inc.php:982
-msgid "Databases display options"
-msgstr "Επιλογές προβολής βάσεων δεδομένων"
-
-#: libraries/messages.inc.php:983
-msgid "Customize appearance of the navigation frame"
-msgstr "Προσαρμογή εμφάνισης του πλαισίου πλοήγησης"
-
-#: libraries/messages.inc.php:984
-msgid "Navigation frame"
-msgstr "Πλαίσιο πλοήγησης"
-
-#: libraries/messages.inc.php:985
-msgid "Servers display options"
-msgstr "Επιλογές προβολής διακομιστών"
-
-#: libraries/messages.inc.php:987
-msgid "Tables display options"
-msgstr "Επιλογές προβολής πινάκων"
-
-#: libraries/messages.inc.php:989
-msgid "Main frame"
-msgstr "Βασικό πλαίσιο"
-
-#: libraries/messages.inc.php:990
-msgid "Settings that didn't fit enywhere else"
-msgstr "Ρυθμίσεις που δεν ανήκουν κάπου αλλού"
-
-#: libraries/messages.inc.php:991
-msgid "Other core settings"
-msgstr "Άλλες ρυθμίσεις πυρήνα"
-
-#: libraries/messages.inc.php:992
-msgid "Customize query window options"
-msgstr "Προσαρμόστε επιλογές παραθύρου ερωτήματος"
-
-#: libraries/messages.inc.php:994
-msgid ""
-"Please note that phpMyAdmin is just a user interface and its features do not "
-"limit MySQL"
-msgstr ""
-"Σημειώστε ότι το phpMyAdmin είναι απλά ένα περιβάλλον εργασίας και τα "
-"χαρακτηριστικά του δεν περιορίζουν τη MySQL"
-
-#: libraries/messages.inc.php:995
-msgid "Security"
-msgstr "Ασφάλεια"
-
-#: libraries/messages.inc.php:996
-msgid "Basic settings"
-msgstr "Βασικές ρυθμίσεις"
-
-#: libraries/messages.inc.php:997
-msgid ""
-"Advanced server configuration, do not change these options unless you know "
-"what they are for"
-msgstr ""
-"Προχωρημένη ρύθμιση διακομιστή, μην αλλάξετε αυτές τις ρυθμίσεις εκτός και "
-"αν ξέρετε που παραπέμπουν"
-
-#: libraries/messages.inc.php:998
-msgid "Server configuration"
-msgstr "Προσαρμογή διακομιστή"
-
-#: libraries/messages.inc.php:999
-msgid "Enter server connection parameters"
-msgstr "Εισάγετε παραμέτρους σύνδεσης διακομιστή"
-
-#: libraries/messages.inc.php:1000
-msgid "Enter login options for signon authentication"
-msgstr "Εισάγετε επιλογές σύνδεσης για επικύρωσης σύνδεσης"
-
-#: libraries/messages.inc.php:1001
-msgid "Signon login options"
-msgstr "Επιλογές σύνδεσης"
-
-#: libraries/messages.inc.php:1002
-msgid ""
-"Configure phpMyAdmin database to gain access to additional features, see "
-"[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
-"documentation"
-msgstr ""
-"Προσαρμογή βάσης δεδομένων phpMyAdmin για παροχή πρόσβασης σε πρόσθετα "
-"χαρακτηριστικά. Δείτε  την [a@../Documentation.html#linked-tables]υποδομή "
-"συνδεδεμένων πινάκων[/a] στην τεκμηρίωση"
-
-#: libraries/messages.inc.php:1003 libraries/messages.inc.php:1160
-msgid "PMA database"
-msgstr "Βάση δεδομένων PMA"
-
-#: libraries/messages.inc.php:1004
-msgid "Customization"
-msgstr "Προσαρμογή"
-
-#: libraries/messages.inc.php:1005
-msgid "Customize export options"
-msgstr "Προσαρμογή επιλογών εξαγωγής"
-
-#: libraries/messages.inc.php:1006
-msgid "Features"
-msgstr "Χαρακτηριστικά"
-
-#: libraries/messages.inc.php:1007
-msgid "Customize import defaults"
-msgstr "Προσαρμογή επιλογών εισαγωγής"
-
-#: libraries/messages.inc.php:1008
-msgid "Customize navigation frame"
-msgstr "Προσαρμογή πλαισίου πλοήγησης"
-
-#: libraries/messages.inc.php:1009
-msgid "Customize main frame"
-msgstr "Προσαρμογή βασικού πλαισίου"
-
-#: libraries/messages.inc.php:1010
-msgid "Customize links shown in SQL Query boxes"
-msgstr "Προσαρμογή εμφανιζόμενων συνδέσμων στους χώρους ερωτημάτων SQL"
-
-#: libraries/messages.inc.php:1011
-msgid "SQL Query box"
-msgstr "Χώρος Ερωτήματος SQL"
-
-#: libraries/messages.inc.php:1012
-msgid ""
-"SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-"formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
-msgstr ""
-"Ρυθμίσεις ερωτημάτων SQL, για επιλογές χώρου Ερωτήματος SQL δείτε τις "
-"ρυθμίσεις [a@?page=form&amp;formset=main_frame#tab_Sql_box]πλαισίου Πλοήγησης"
-"[/a]"
-
-#: libraries/messages.inc.php:1013
-msgid "SQL queries"
-msgstr "Ερωτήματα SQL"
-
-#: libraries/messages.inc.php:1014
-msgid "Customize startup page"
-msgstr "Προσαρμογή σελίδας εκκίνησης"
-
-#: libraries/messages.inc.php:1015
-msgid "Startup"
-msgstr "Εκκίνηση"
-
-#: libraries/messages.inc.php:1016
-msgid "Choose how you want tabs to work"
-msgstr "Επιλέξτε πως θα λειτουργούν οι καρτέλες"
-
-#: libraries/messages.inc.php:1017
-msgid "Tabs"
-msgstr "Καρτέλες"
-
-#: libraries/messages.inc.php:1018
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
-"and export operations"
-msgstr ""
-"Ενεργοποιήστε τη συμπίεση [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] για "
-"τις λειτουργίες εισαγωγής και εξαγωγής"
-
-#: libraries/messages.inc.php:1019
-msgid "GZip"
-msgstr "GZip"
-
-#: libraries/messages.inc.php:1020
-#, php-format
-msgid ""
-"[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
-"decompression[/a] requires functions (%s) which are unavailable on this "
-"system."
-msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Συμπίεση και "
-"αποσυμπίεση GZip[/a] απαιτεί λειτουργίες (%s) που δεν είναι διαθέσιμες σε "
-"αυτό το σύστημα."
-
-#: libraries/messages.inc.php:1021
-msgid "phpMyAdmin homepage"
-msgstr "Ιστοσελίδα phpMyAdmin"
-
-#: libraries/messages.inc.php:1022
-msgid "Extra parameters for iconv"
-msgstr "Επιπλέον παράμετροι για την iconv"
-
-#: libraries/messages.inc.php:1023
-msgid "Ignore errors"
-msgstr "Παράβλεψη σφαλμάτων"
-
-#: libraries/messages.inc.php:1024
-msgid ""
-"If enabled, phpMyAdmin continues computing multiple-statement queries even "
-"if one of the queries failed"
-msgstr ""
-"Αν ενεργοποιηθεί, το phpMyAdmin συνεχίζει να υπολογίζει ερωτήματα πολλαπλών "
-"δηλώσεων ακόμα και αν ένα από τα ερωτήματα αποτύχει"
-
-#: libraries/messages.inc.php:1025
-msgid "Ignore multiple statement errors"
-msgstr "Παράβλεψη σφαλμάτων πολλαπλών δηλώσεων"
-
-#: libraries/messages.inc.php:1026
-msgid ""
-"Allow interrupt of import in case script detects it is close to time limit. "
-"This might be good way to import large files, however it can break "
-"transactions."
-msgstr ""
-"Επιτρέπει τη διακοπή της εισαγωγής σε περίπτωση που ανιχνευτεί ότι ο χρόνος "
-"εκτέλεσης του κώδικα προσεγγίζει το χρονικό όριο. Αυτό ίσως είναι καλό για "
-"την εισαγωγή μεγάλων αρχείων, αν και μπορεί να μπορεί να διακόψει τις "
-"διαδικασίες."
-
-#: libraries/messages.inc.php:1027
-msgid "Partial import: allow interrupt"
-msgstr "Μερική εισαγωγή: να επιτρέπεται η διακοπή"
-
-#: libraries/messages.inc.php:1028
-msgid ""
-"Default format; be aware that this list depends on location (database, "
-"table) and only SQL is always available"
-msgstr ""
-"Προεπιλεγμένη μορφή; να ληφθεί υπόψη ότι αυτή η λίστα εξαρτάται από την "
-"τοποθεσία (βάση δεδομένων, πίνακας) και ότι μόνο η SQL είναι πάντα διαθέσιμη"
-
-#: libraries/messages.inc.php:1030 libraries/messages.inc.php:1373
-msgid "Number of records (queries) to skip from start"
-msgstr "Αριθμός εγγραφών (ερωτημάτων) που θα παραβλεφθούν από την αρχή"
-
-#: libraries/messages.inc.php:1031
-msgid "Partial import: skip queries"
-msgstr "Μερική εισαγωγή: παράβλεψη ερωτημάτων"
-
-#: libraries/messages.inc.php:1032
-msgid "Insecure connection"
-msgstr "Μη ασφαλής σύνδεση"
-
-#: libraries/messages.inc.php:1033
-msgid ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-"Δεν χρησιμοποιείτε ασφαλή σύνδεση: όλα τα δεδομένα (ακόμα και δυνητικά "
-"ευαίσθητες πληροφορίες, όπως οι κωδικοί πρόσβασης) διακινούνται "
-"ακρυπτογράφητα!"
-
-#: libraries/messages.inc.php:1034
-#, php-format
-msgid ""
-"If your server is also configured to accept HTTPS requests follow [a@%s]this "
-"link[/a] to use a secure connection."
-msgstr ""
-"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@%s]"
-"αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
-
-#: libraries/messages.inc.php:1035
-msgid "How many rows can be inserted at one time"
-msgstr "Πόσες γραμμές μπορούν να εισαχθούν μονομιάς"
-
-#: libraries/messages.inc.php:1036
-msgid "Number of inserted rows"
-msgstr "Αριθμός εισαχθέντων γραμμών"
-
-#: libraries/messages.inc.php:1037
-msgid "Target for quick access icon"
-msgstr "Προορισμός για εικονίδιο γρήγορης πρόσβασης"
-
-#: libraries/messages.inc.php:1038
-msgid "Show logo in left frame"
-msgstr "Προβολή λογοτύπου στο αριστερό πλαίσιο"
-
-#: libraries/messages.inc.php:1039
-msgid "Display logo"
-msgstr "Προβολή λογοτύπου"
-
-#: libraries/messages.inc.php:1040
-msgid "Display server choice at the top of the left frame"
-msgstr "Προβολή επιλεγμένου διακομιστή επάνω στο αριστερό πλαίσιο"
-
-#: libraries/messages.inc.php:1041
-msgid "Display servers selection"
-msgstr "Προβολή επιλογής διακομιστών"
-
-#: libraries/messages.inc.php:1042
-msgid "String that separates databases into different tree levels"
-msgstr "Κείμενο που διαχωρίζει τις βάσεις δεδομένων σε διαφορετικά επίπεδα"
-
-#: libraries/messages.inc.php:1043
-msgid "Database tree separator"
-msgstr "Διαχωριστικό δέντρου βάσης δεδομένων"
-
-#: libraries/messages.inc.php:1044
-msgid ""
-"Only light version; display databases in a tree (determined by the separator "
-"defined below)"
-msgstr ""
-"Μόνο απλή έκδοση; δενδροειδής προβολή βάσεων δεδομένων (προσδορίζεται από το "
-"διαχωριστικό που ορίζεται παρακάτω)"
-
-#: libraries/messages.inc.php:1045
-msgid "Display databases in a tree"
-msgstr "Δενδροειδής προβολή βάσεων δεδομένων"
-
-#: libraries/messages.inc.php:1046
-msgid "Disable this if you want to see all databases at once"
-msgstr ""
-"Απενεργοποιήστε το αν θέλετε να δείτε όλες τις βάσεις δεδομένων μονομιάς"
-
-#: libraries/messages.inc.php:1047
-msgid "Use light version"
-msgstr "Χρήση απλής έκδοσης"
-
-#: libraries/messages.inc.php:1048
-msgid "Maximum table tree depth"
-msgstr "Μέγιστο βάθος δέντρου πίνακα"
-
-#: libraries/messages.inc.php:1049
-msgid "String that separates tables into different tree levels"
-msgstr "Κείμενο που διαχωρίζει τους πίνακες σε διαφορετικά επίπεδα"
-
-#: libraries/messages.inc.php:1050
-msgid "Table tree separator"
-msgstr "Διαχωριστικό δέντρου πινάκων"
-
-#: libraries/messages.inc.php:1051
-msgid "Logo link URL"
-msgstr "Διεύθυνση URL συνδέσμου λογοτύπου"
-
-#: libraries/messages.inc.php:1052
-msgid ""
-"Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-"([kbd]new[/kbd])"
-msgstr ""
-"Ανοίγει τη συνδεδεμένη σελίδα στο κύριο παράθυρο ([kbd]main[/kbd]) ή σε νέο "
-"([kbd]new[/kbd])"
-
-#: libraries/messages.inc.php:1053
-msgid "Logo link target"
-msgstr "Προορισμός συνδέσμου λογοτύπου"
-
-#: libraries/messages.inc.php:1054
-msgid "Highlight server under the mouse cursor"
-msgstr "Επισήμανση διακομιστή με τον δείκτη του ποντικιού"
-
-#: libraries/messages.inc.php:1055
-msgid "Enable highlighting"
-msgstr "Ενεργοποίηση επισήμανσης"
-
-#: libraries/messages.inc.php:1056
-msgid "let the user choose"
-msgstr "Δικαίωμα επιλογής στο χρήστη"
-
-#: libraries/messages.inc.php:1057
-msgid "Use less graphically intense tabs"
-msgstr "Χρήση καρτελών με λιγότερα γραφικά"
-
-#: libraries/messages.inc.php:1058
-msgid "Light tabs"
-msgstr "Απλές καρτέλες"
-
-#: libraries/messages.inc.php:1059
-msgid "Load"
-msgstr "Φόρτωση"
-
-#: libraries/messages.inc.php:1060
-msgid ""
-"If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
-"only occurs for the current server. Setting this to FALSE makes it easy to "
-"forget to log out from other servers when connected to multiple servers."
-msgstr ""
-"Αν οριστεί ως ΑΛΗΘΕΙΑ (TRUE), με την αποσύνδεση διαγράφονται τα cookies για "
-"όλους τους διακομιστές; όταν οριστεί ως ΨΕΥΔΟΣ (FALSE), η αποσύνδεση "
-"επηρεάζει μόνο τον τρέχοντα διακομιστή. Ορίζοντάς το σε ΨΕΥΔΟΣ είναι εύκολο "
-"να ξεχάσετε να αποσυνδεθείτε από άλλους διακομιστές όταν συνδέεστε σε "
-"πολλούς."
-
-#: libraries/messages.inc.php:1061
-msgid "Delete all cookies on logout"
-msgstr "Διαγραφή όλων των cookies με την αποσύνδεση"
-
-#: libraries/messages.inc.php:1062
-msgid ""
-"Define whether the previous login should be recalled or not in cookie "
-"authentication mode"
-msgstr ""
-"Ορίζει αν η προηγούμενη σύνδεση πρέπει να επανακληθεί ή όχι σε κατάσταση "
-"επικύρωσης cookie"
-
-#: libraries/messages.inc.php:1063
-msgid "Recall user name"
-msgstr "Επανάκληση ονόματος χρήστη"
-
-#: libraries/messages.inc.php:1064
-msgid ""
-"Defines how long (in seconds) a login cookie should be stored in browser. "
-"The default of 0 means that it will be kept for the existing session only, "
-"and will be deleted as soon as you close the browser window. This is "
-"recommended for non-trusted environments."
-msgstr ""
-"Ορίζει για πόσο χρόνο (σε δευτερόλεπτα) ένα cookie σύνδεσης πρέπει να να "
-"αποθηκεύεται στο φυλλομετρητή. Η προεπιλογή 0 σημαίνει ότι θα κρατηθεί μόνο "
-"για την τρέχουσα συνεδρία και θα διαγραφεί μόλις κλείσετε τον φυλλομετρητή. "
-"Αυτό προτείνεται για μη αξιόπιστα περιβάλλοντα."
-
-#: libraries/messages.inc.php:1065
-msgid "Login cookie store"
-msgstr "Αποθήκευση cookie σύνδεσης"
-
-#: libraries/messages.inc.php:1066
-msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "Ορίστε χρονικά (σε δευτερόλεπτα) την ισχύ ενός cookie σύνδεσης"
-
-#: libraries/messages.inc.php:1067
-msgid ""
-"[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
-"be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
-"pose a security risk such as impersonation."
-msgstr ""
-"Η [a@?page=form&formset=features#tab_Security]Ισχύς του cookie σύνδεσης[/a] "
-"πρέπει να οριστεί σε 1800 δευτερόλεπτα (30 λεπτά) το περισσότερο. Τιμές "
-"μεγαλύτερες από 1800 ίσως παρουσιάσουν προβλήματα ασφάλειας όπως μίμηση."
-
-#: libraries/messages.inc.php:1068
-msgid "Login cookie validity"
-msgstr "Εγκυρότητα cookie σύνδεσης"
-
-#: libraries/messages.inc.php:1069
-msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr "Μέγιστος αριθμός χαρακτήρων όταν προβάλεται ένα ερώτημα SQL"
-
-#: libraries/messages.inc.php:1070
-msgid "Maximum displayed SQL length"
-msgstr "Μέγιστο μήκος προβολής SQL"
-
-#: libraries/messages.inc.php:1071
-msgid "Maximum number of databases displayed in left frame and database list"
-msgstr ""
-"Μέγιστος αριθμός βάσεων δεδομένων που προβάλονται στο αριστερό πλαίσιο και "
-"στη λίστα βάσεων δεδομένων"
-
-#: libraries/messages.inc.php:1072
-msgid "Maximum databases"
-msgstr "Μέγιστος αριθμός βάσεων δεδομένων"
-
-#: libraries/messages.inc.php:1073
-msgid ""
-"Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
-"shown."
-msgstr ""
-"Αριθμός γραμμών που θα προβάλονται όταν γίνεται περιήγηση σε κάποιο "
-"αποτέλεσμα. Αν το αποτέλεσμα περιέχει περισσότερες γραμμές, θα εμφανίζονται "
-"σύνδεσμοι «Προηγούμενο» και «Επόμενο»."
-
-#: libraries/messages.inc.php:1074
-msgid "Maximum number of rows to display"
-msgstr "Μέγιστος αριθμός γραμμών για προβολή"
-
-#: libraries/messages.inc.php:1075
-msgid "Maximum number of tables displayed in table list"
-msgstr "Μέγιστος αριθμός πινάκες που θα προβάλονται σε λίστα πινάκων"
-
-#: libraries/messages.inc.php:1076
-msgid "Maximum tables"
-msgstr "Μέγιστος αριθμός πινάκων"
-
-#: libraries/messages.inc.php:1077
-msgid ""
-"The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] for no limit)"
-msgstr ""
-"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. [kbd]32M"
-"[/kbd] ([kbd]0[/kbd] για απεριόριστη)"
-
-#: libraries/messages.inc.php:1078
-msgid "Memory limit"
-msgstr "Όριο μνήμης"
-
-#: libraries/messages.inc.php:1079 libraries/messages.inc.php:1091
-msgid "Use only icons, only text or both"
-msgstr "Χρήση μόνο εικονιδίων, μόνο κειμένου ή και τα δύο"
-
-#: libraries/messages.inc.php:1080
-msgid "Iconic navigation bar"
-msgstr "Γραμμή πλοήγησης με εικονίδια"
-
-#: libraries/messages.inc.php:1081
-msgid "New server"
-msgstr "Νέος διακομιστής"
-
-#: libraries/messages.inc.php:1082
-msgid "There are no configured servers"
-msgstr "Δεν υπάρχουν ρυθμισμένοι διακομιστές"
-
-#: libraries/messages.inc.php:1083
-msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr ""
-"Χρήση εξαγόμενου GZip buffering για αυξημένη ταχύτητα σε μεταφορές HTTP"
-
-#: libraries/messages.inc.php:1084
-msgid "GZip output buffering"
-msgstr "Εξαγόμενο GZip buffering"
-
-#: libraries/messages.inc.php:1085
-msgid "- none -"
-msgstr "- καμία -"
-
-#: libraries/messages.inc.php:1086
-msgid ""
-"[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
-"DATETIME and TIMESTAMP, ascending order otherwise"
-msgstr ""
-"[kbd]SMART[/kbd] - π.χ. φθίνουσα ταξινόμηση για πεδία τύπου TIME, DATE, "
-"DATETIME και TIMESTAMP, αύξουσα ταξινόμηση στα υπόλοιπα"
-
-#: libraries/messages.inc.php:1087
-msgid "Default sorting order"
-msgstr "Προεπιλεγμένη ταξινόμηση"
-
-#: libraries/messages.inc.php:1088
-msgid "Overview"
-msgstr "Επισκόπηση"
-
-#: libraries/messages.inc.php:1089
-msgid "Use persistent connections to MySQL databases"
-msgstr "Χρήση εξαναγκασμένων συνδέσεων στις βάσεις δεδομένων MySQL"
-
-#: libraries/messages.inc.php:1090
-msgid "Persistent connections"
-msgstr "Επιμένουσες συνδέσεις"
-
-#: libraries/messages.inc.php:1092
-msgid "Iconic table operations"
-msgstr "Λειτουργίες πίνακα με εικονίδια"
-
-#: libraries/messages.inc.php:1093
-msgid "Disallow BLOB and BINARY fields from editing"
-msgstr "Αποτροπή επεξεργασίας πεδίων BLOB και BINARY"
-
-#: libraries/messages.inc.php:1094
-msgid "Protect binary fields"
-msgstr "Προστασία δυαδικών πεδίων"
-
-#: libraries/messages.inc.php:1095
-msgid ""
-"Enable if you want DB-based query history (requires pmadb). If disabled, "
-"this utilizes JS-routines to display query history (lost by window close)."
-msgstr ""
-"Ενεργοποιήστε το αν θέλετε ιστορικό ανά βάση δεδομένων (απαιτεί pmadb). Αν "
-"απενεργοποιηθεί, λειτουργούν ρουτίνες JS για προβολή του ιστορικού "
-"ερωτημάτων (χάνεται με το κλείσιμο του παραθύρου)."
-
-#: libraries/messages.inc.php:1096
-msgid "Permanent query history"
-msgstr "Μόνιμο ιστορικό ερωτημάτων"
-
-#: libraries/messages.inc.php:1097
-msgid "How many queries are kept in history"
-msgstr "Πόσα ερωτήματα παραμένουν στο ιστορικό"
-
-#: libraries/messages.inc.php:1098
-msgid "Query history length"
-msgstr "Μέγεθος ιστορικού ερωτημάτων"
-
-#: libraries/messages.inc.php:1099
-msgid "Tab displayed when opening a new query window"
-msgstr "Προβολή καρτέλας με το άνοιγμα νέου παραθύρου ερωτήματος"
-
-#: libraries/messages.inc.php:1100
-msgid "Default query window tab"
-msgstr "Προεπιλεγμένη καρτέλα παραθύρου ερωτήματος"
-
-#: libraries/messages.inc.php:1101
-msgid "Select which functions will be used for character set conversion"
-msgstr ""
-"Επιλέξτε ποιες συναρτήσεις θα χρησιμοποιηθούν για μετατροπή συνόλων "
-"χαρακτήρων"
-
-#: libraries/messages.inc.php:1102
-msgid "Recoding engine"
-msgstr "Μηχανή επανακωδικοποίησης"
-
-#: libraries/messages.inc.php:1103
-msgid "Restore default value"
-msgstr "Επαναφορά προεπιλεγμένης τιμής"
-
-#: libraries/messages.inc.php:1104
-msgid "Try to revert erroneous fields to their default values"
-msgstr "Δοκιμή μετατροπής εσφαλμένων πεδίων στις προεπιλεγμένες τιμές τους"
-
-#: libraries/messages.inc.php:1105
-msgid "Directory where exports can be saved on server"
-msgstr "Ο φάκελος στον διακομιστή όπου οι εξαγωγές μπορούν να αποθηκευτούν"
-
-#: libraries/messages.inc.php:1106
-msgid "Save directory"
-msgstr "Φάκελος αποθήκευσης"
-
-#: libraries/messages.inc.php:1107
-#, php-format
-msgid ""
-"You set the [kbd]config[/kbd] authentication type and included username and "
-"password for auto-login, which is not a desirable option for live hosts. "
-"Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]"
-"authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd]."
-msgstr ""
-"Ορίζετε τον τύπο επικύρωσης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
-"χρήστη και κωδικό πρόσβασης για αυτόματη σύνδεση, αν και δεν προτείνεται. "
-"Όποιος γνωρίζει ή υποθέτει τη διεύθυνση URL του phpMyAdmin μπορεί να έχει "
-"άμεση πρόσβαση. Ορίστε τον [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]τύπο επικύρωσης[/a] σε [kbd]cookie[/kbd] ή [kbd]http[/kbd]."
-
-#: libraries/messages.inc.php:1108
-msgid "You should use mysqli for performance reasons"
-msgstr "Πρέπει να χρησιμοποιείτε την mysqli για λόγους απόδοσης"
-
-#: libraries/messages.inc.php:1109
-msgid "You allow for connecting to the server without a password."
-msgstr "Επιτρέπετε την σύνδεση στο διακομιστή χωρίς κωδικό πρόσβασης."
-
-#: libraries/messages.inc.php:1110
-msgid "Add a new server"
-msgstr "Προσθήκη ενός νέου διακομιστή"
-
-#: libraries/messages.inc.php:1111
-msgid "Leave blank if not used"
-msgstr "Αφήστε το άδειο αν δεν χρησιμοποιηθεί"
-
-#: libraries/messages.inc.php:1112
-msgid "Host authentication order"
-msgstr "Σειρά επικύρωσης"
-
-#: libraries/messages.inc.php:1113
-msgid "Leave blank for defaults"
-msgstr "Αφήστε κενό για προεπιλογές"
-
-#: libraries/messages.inc.php:1114
-msgid "Host authentication rules"
-msgstr "Κανόνες επικύρωσης"
-
-#: libraries/messages.inc.php:1115
-msgid "Allow logins without a password"
-msgstr "Δικαίωμα συνδέσεων χωρίς κωδικό πρόσβασης"
-
-#: libraries/messages.inc.php:1116
-msgid "Allow root login"
-msgstr "Δικαίωμα ριζικής σύνδεσης"
-
-#: libraries/messages.inc.php:1117
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: libraries/messages.inc.php:1118
-msgid "HTTP Realm"
-msgstr ""
-
-#: libraries/messages.inc.php:1119
-msgid ""
-"The path for the config file for [a@http://swekey.com]SweKey hardware "
-"authentication[/a] (not located in your document root; suggested: /etc/"
-"swekey.conf)"
-msgstr ""
-"Η διαδρομή για το αρχείο ρυθμίσεων για την [a@http://swekey.com]επικύρωση "
-"υλικού SweKey[/a] (δεν βρίσκεται στο ριζικό φάκελο του εγγράφου; "
-"προτείνεται: /etc/swekey.conf)"
-
-#: libraries/messages.inc.php:1120
-msgid "SweKey config file"
-msgstr "Αρχείο ρυθμίσεων SweKey"
-
-#: libraries/messages.inc.php:1121
-msgid "Authentication method to use"
-msgstr "Μέθοδος επικύρωσης για χρήση"
-
-#: libraries/messages.inc.php:1122
-msgid "Authentication type"
-msgstr "Τύπος επικύρωσης"
-
-#: libraries/messages.inc.php:1123
-msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
-"support, suggested: [kbd]pma_bookmark[/kbd]"
-msgstr ""
-"Αφήστε κενό αν δεν υπάρχει [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"σελιδοδείκτης[/a] υποστήριξης, προτείνεται: [kbd]pma_bookmark[/kbd]"
-
-#: libraries/messages.inc.php:1124
-msgid "Bookmark table"
-msgstr "Πίνακας σελιδοδεικτών"
-
-#: libraries/messages.inc.php:1125
-msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma_column_info[/kbd]"
-msgstr ""
-"Αφήστε κενό για να μη υπάρχουν σχόλια/τύποι mime στις στήλες. Προτείνεται: "
-"[kbd]pma_column_info[/kbd]"
-
-#: libraries/messages.inc.php:1126
-msgid "Column information table"
-msgstr "Πίνακας πληροφοριών στήλης"
-
-#: libraries/messages.inc.php:1127
-msgid "Compress connection to MySQL server"
-msgstr "Συνδεση συμπίεσης στο διακομιστή MySQL"
-
-#: libraries/messages.inc.php:1128
-msgid "Compress connection"
-msgstr "Σύνδεση συμπίεσης"
-
-#: libraries/messages.inc.php:1129
-msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr ""
-"Πως να συνδεθείτε στο διακομιστή, κρατήστε το tcp αν δεν είστε σίγουρος/η"
-
-#: libraries/messages.inc.php:1130
-msgid "Connection type"
-msgstr "Τύπος σύνδεσης"
-
-#: libraries/messages.inc.php:1131
-msgid "Control user password"
-msgstr "Έλεγχος κωδικού πρόσβασης χρήστη"
-
-#: libraries/messages.inc.php:1132
-msgid ""
-"A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
-msgstr ""
-"Ρυθμίστηκε ένας ειδικός χρήστης MySQL με περιορισμένα δικαιώματα. "
-"Περισσότερες πληροφορίες είναι διαθέσιμες στο [a@http://wiki.phpmyadmin.net/"
-"pma/controluser]wiki[/a]"
-
-#: libraries/messages.inc.php:1133
-msgid "Control user"
-msgstr "Έλεγχος χρήστη"
-
-#: libraries/messages.inc.php:1134
-msgid "Count tables when showing database list"
-msgstr "Απαρίθμηση πινάκων όταν εμφανίζεται η λίστα βάσεων δεδομένων"
-
-#: libraries/messages.inc.php:1135
-msgid "Count tables"
-msgstr "Απαρίθμηση πινάκων"
-
-#: libraries/messages.inc.php:1136
-msgid ""
-"Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
-"kbd]"
-msgstr ""
-"Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή. Προτείνεται: [kbd]"
-"pma_designer_coords[/kbd]"
-
-#: libraries/messages.inc.php:1137
-msgid "Designer table"
-msgstr "Πίνακας σχεδιαστή"
-
-#: libraries/messages.inc.php:1138
-msgid ""
-"More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
-"tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
-msgstr ""
-"Περισσότερες πληροφορίες στο [a@http://sf.net/support/tracker.php?"
-"aid=1849494]PMA bug tracker[/a] και στο [a@http://bugs.mysql.com/19588]MySQL "
-"Bugs[/a]"
-
-#: libraries/messages.inc.php:1139
-msgid "Disable use of INFORMATION_SCHEMA"
-msgstr "Απενεργοποίηση χρήσης του INFORMATION_SCHEMA"
-
-#: libraries/messages.inc.php:1140
-#, php-format
-msgid ""
-"If you feel this is necessary, use additional protection settings - [a@?"
-"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication"
-"[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted "
-"proxies list[/a]. However, IP-based protection may not be reliable if your "
-"IP belongs to an ISP where thousands of users, including you, are connected "
-"to."
-msgstr ""
-"Αν νομίζετε ότι είναι απαραίτητο, χρησιμοποιήστε πρόσθετες ρυθμίσεις "
-"προστασίας - ρυθμίσεις [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]επικύρωση διακομιστή[/a] και [a@?page=form&amp;"
-"formset=features#tab_Security]λίστα αξιόπιστων διακομιστών[/a]. Ωστόσο, η "
-"βασισμένη στις ΙΡ προστασία δεν είναι αξιόπιστη αν ο πάροχός έχει χιλιάδες "
-"χρήστες που συνδέονται."
-
-#: libraries/messages.inc.php:1141
-msgid "Edit server"
-msgstr "Επεξεργασία διακομιστή"
-
-#: libraries/messages.inc.php:1142
-msgid "What PHP extension to use; you should use mysqli if supported"
-msgstr ""
-"Ποια επέκταση PHP να χρησιμοποιήσετε. Προτείνεται η mysqli αν υποστηρίζεται"
-
-#: libraries/messages.inc.php:1143
-msgid "PHP extension to use"
-msgstr "Επέκταση PHP για χρήση"
-
-#: libraries/messages.inc.php:1144
-msgid "Hide databases matching regular expression (PCRE)"
-msgstr "Απόκρυψη βάσεων δεδομένων που ταιριάζουν την κανονική έκφραση (PCRE)"
-
-#: libraries/messages.inc.php:1145
-msgid "Hide databases"
-msgstr "Απόκρυψη βάσεων δεδομένων"
-
-#: libraries/messages.inc.php:1146
-msgid ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
-"kbd]"
-msgstr ""
-"Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL , προτείνεται: "
-"[kbd]pma_history[/kbd]"
-
-#: libraries/messages.inc.php:1147
-msgid "SQL query history table"
-msgstr "Πίνακας ιστορικού ερωτημάτων SQL"
-
-#: libraries/messages.inc.php:1148
-msgid "Hostname where MySQL server is running"
-msgstr "Ονομασία θέσης όπου εκτελείται ο διακομιστής MySQL"
-
-#: libraries/messages.inc.php:1149
-msgid "Server hostname"
-msgstr "Ονομασία θέσης διακομιστή"
-
-#: libraries/messages.inc.php:1150
-msgid "Logout URL"
-msgstr "Διεύθυνση URL αποσύνδεσης"
-
-#: libraries/messages.inc.php:1151
-msgid "Try to connect without password"
-msgstr "Δοκιμάστε να συνδεθείτε χωρίς κωδικό πρόσβασης"
-
-#: libraries/messages.inc.php:1152
-msgid "Connect without password"
-msgstr "Σύνδεση χωρίς κωδικό πρόσβασης"
-
-#: libraries/messages.inc.php:1153
-msgid ""
-"You can use MySQL wildcard characters (% and _), escape them if you want to "
-"use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
-msgstr ""
-"Μπορείτε να χρησιμοποιήσετε χαρακτήρες μπαλαντέρ MySQL (% και _), με ανάποδη "
-"κάθετο χρησιμοποιήστε τα ως κανονικούς χαρακτήρες, π.χ. χρησιμοποιήστε «my"
-"\\_db» και όχι «my_db»"
-
-#: libraries/messages.inc.php:1154
-msgid "Show only listed databases"
-msgstr "Εμφάνιση μόνο των βάσεων δεδομένων από λίστα"
-
-#: libraries/messages.inc.php:1155 libraries/messages.inc.php:1179
-msgid "Leave empty if not using config auth"
-msgstr "Αφήστε το άδειο αν δεν χρησιμοποιείτε ρύθμισμένη επικύρωση"
-
-#: libraries/messages.inc.php:1156
-msgid "Password for config auth"
-msgstr "Κωδικός πρόσβασης για ρυθμισμένη επικύρωση"
-
-#: libraries/messages.inc.php:1157
-msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
-msgstr ""
-"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: [kbd]pma_pdf_pages"
-"[/kbd]"
-
-#: libraries/messages.inc.php:1158
-msgid "PDF schema: pages table"
-msgstr "Σχέδιο PDF: πίνακας σελίδων"
-
-#: libraries/messages.inc.php:1159
-msgid ""
-"Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
-"phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
-"no support. Suggested: [kbd]phpmyadmin[/kbd]"
-msgstr ""
-"Η βάση δεδομένων που χρησιμοποιείται για συσχετίσεις, σελιδοδείκτες και "
-"χαρακτηριστικά PDF. Δείτε το [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
-"a] για λεπτομέρειες. Αφήστε κενό για να μην υπάρχει υποστήριξη. Προτείνεται: "
-"[kbd]phpmyadmin[/kbd]"
-
-#: libraries/messages.inc.php:1161
-msgid "Port on which MySQL server is listening, leave empty for default"
-msgstr ""
-"Θύρα που αποκρίνεται ο διακομιστής MySQL. Αφήστε το άδειο για προεπιλογή"
-
-#: libraries/messages.inc.php:1162
-msgid "Server port"
-msgstr "Θύρα διακομιστή"
-
-#: libraries/messages.inc.php:1163
-msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma_relation[/kbd]"
-msgstr ""
-"Αφήστε το κενό για να μην υπάρχει υποστήριξη [a@http://wiki.phpmyadmin.net/"
-"pma/relation]σύνδεσμοι συσχετίσεων[/a]. Προτείνεται: [kbd]pma_relation[/kbd]"
-
-#: libraries/messages.inc.php:1164
-msgid "Relation table"
-msgstr "Πίνακας συσχετίσεων"
-
-#: libraries/messages.inc.php:1165
-msgid "SQL command to fetch available databases"
-msgstr "Εντολή SQL που φέρνει τις διαθέσιμες βάσεις δεδομένων"
-
-#: libraries/messages.inc.php:1166
-msgid "SHOW DATABASES command"
-msgstr "Εντολή SHOW DATABASES"
-
-#: libraries/messages.inc.php:1167
-msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
-msgstr ""
-"Δείτε τους  [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]τύπους "
-"επικύρωσης[/a] για ένα παράδειγμα"
-
-#: libraries/messages.inc.php:1168
-msgid "Signon session name"
-msgstr "Ονομάσία συνεδρίας σύνδεσης"
-
-#: libraries/messages.inc.php:1169
-msgid "Signon URL"
-msgstr "Διεύθυνση URL σύνδεσης"
-
-#: libraries/messages.inc.php:1170
-msgid "You should use SSL connections if your web server supports it"
-msgstr ""
-"Πρέπει να χρησιμοποιήσετε συνδέσεις SSL αν ο διακομιστής ιστού σας τις "
-"υποστηρίζει"
-
-#: libraries/messages.inc.php:1171
-msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr ""
-"Η υποδοχή στην οποία ο διακομιστής MySQL αποκρίνεται. Αφήστε το κενό για "
-"προεπιλογή"
-
-#: libraries/messages.inc.php:1172
-msgid "Server socket"
-msgstr "Υποδοχή διακομιστή"
-
-#: libraries/messages.inc.php:1173
-msgid "Enable SSL for connection to MySQL server"
-msgstr "Ενεργοποιήση SSL για σύνδεση στο διακομιστή MySQL"
-
-#: libraries/messages.inc.php:1174
-msgid "Use SSL"
-msgstr "Χρήση SSL"
-
-#: libraries/messages.inc.php:1175
-msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
-msgstr ""
-"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: [kbd]"
-"pma_table_coords[/kbd]"
-
-#: libraries/messages.inc.php:1176
-msgid "PDF schema: table coordinates"
-msgstr "Σχέδιο PDF: συντεταγμένες πίνακα"
-
-#: libraries/messages.inc.php:1177
-msgid ""
-"Table to describe the display fields, leave blank for no support; suggested: "
-"[kbd]pma_table_info[/kbd]"
-msgstr ""
-"Ο πίνακας που περιγράφει τα προβαλόμενα πεδία. Αφήστε το κενό για να μην "
-"υποστηρίζεται. Προτείνεται: [kbd]pma_table_info[/kbd]"
-
-#: libraries/messages.inc.php:1178
-msgid "Display fields table"
-msgstr "Πίνακας προβολής πεδίων"
-
-#: libraries/messages.inc.php:1180
-msgid "User for config auth"
-msgstr "Χρήστης για ρυθμισμένη επικύρωση"
-
-#: libraries/messages.inc.php:1181
-msgid ""
-"Disable if you know that your pma_* tables are up to date. This prevents "
-"compatibility checks and thereby increases performance"
-msgstr ""
-"Απενεργοποιήστε το αν γνωρίζεται ότι οι πίνακες pma_* είναι ενημερωμένοι. "
-"Αυτό αποτρέπει ελέγχους συμβατότητας και αυξάνει την απόδοση"
-
-#: libraries/messages.inc.php:1182
-msgid "Verbose check"
-msgstr "Φιλοχρηστικός έλεγχος"
-
-#: libraries/messages.inc.php:1183
-msgid ""
-"A user-friendly description of this server. Leave blank to display the "
-"hostname instead."
-msgstr ""
-"Μια φιλοχρηστική περιγραφή αυτού του διακομιστή. Αφήστε το κενό για να "
-"εμφανίζεται το όνομα."
-
-#: libraries/messages.inc.php:1184
-msgid "Verbose name of this server"
-msgstr "Φιλοχρηστικό όνομα διακομιστή"
-
-#: libraries/messages.inc.php:1185
-#, php-format
-msgid "Set value: %s"
-msgstr "Ορισμός τιμής: %s"
-
-#: libraries/messages.inc.php:1186
-msgid ""
-"Whether a user should be displayed a &quot;show all (records)&quot; button"
-msgstr "Αν θα εμφανίζεται στο χρήστη ένα κουμπί «Εμφάνιση όλων (εγγραφές)»"
-
-#: libraries/messages.inc.php:1187
-msgid "Allow to display all the rows"
-msgstr "Δικαίωμα προβολή όλων των γραμμών"
-
-#: libraries/messages.inc.php:1188
-msgid ""
-"Please note that enabling this has no effect with [kbd]config[/kbd] "
-"authentication mode because the password is hard coded in the configuration "
-"file; this does not limit the ability to execute the same command directly"
-msgstr ""
-"Σημειώστε ότι ενεργοποιώντας αυτή δεν έχει καμιά επίδραση στην κατάσταση "
-"επικύρωσης [kbd]ρύθμισης[/kbd] γιατί έχει πολύ κωδικοποίηση στο αρχείο "
-"ρυθμίσεων. Αυτό δεν περιορίζει τη δυνατότητα άμεσης εκτέλεσης της ίδιας "
-"εντολής"
-
-#: libraries/messages.inc.php:1189
-msgid "Show password change form"
-msgstr "Εμφάνιση φόρμας αλλαγής κωδικού πρόσβασης"
-
-#: libraries/messages.inc.php:1190
-msgid "Show create database form"
-msgstr "Εμφάνιση φόρμας δημιουργίας βάσης δεδομένων"
-
-#: libraries/messages.inc.php:1191
-msgid "Show form"
-msgstr "Εμφάνιση φόρμας"
-
-#: libraries/messages.inc.php:1192
-msgid "Display the function fields in edit/insert mode"
-msgstr "Προβολή των πεδίων συναρτήσεων σε κατάσταση επεξεργασίας εισαγωγής"
-
-#: libraries/messages.inc.php:1193
-msgid "Show function fields"
-msgstr "Εμφάνιση πεδίων συναρτήσεων"
-
-#: libraries/messages.inc.php:1194
-msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "Εμφάνιση κρυφών μηνυμάτων (#MSG_COUNT)"
-
-#: libraries/messages.inc.php:1195
-msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
-"output"
-msgstr ""
-"Εμφανίζει σύνδεσμο για την τεκμηρίωση της συνάρτησης [a@http://php.net/"
-"manual/function.phpinfo.php]phpinfo()[/a]"
-
-#: libraries/messages.inc.php:1196
-msgid "Show phpinfo() link"
-msgstr "Εμφάνιση συνδέσμου phpinfo()"
-
-#: libraries/messages.inc.php:1197
-msgid "Show detailed MySQL server information"
-msgstr "Εμφάνιση λεπτομερών πληροφοριών διακομιστή MySQL"
-
-#: libraries/messages.inc.php:1198
-msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
-msgstr ""
-"Ορίζει αν τα δημιουργημένα ερωτήματα SQL από το phpMyAdmin πρέπει να "
-"προβάλονται"
-
-#: libraries/messages.inc.php:1199
-msgid "Show SQL queries"
-msgstr "Εμφάνιση ερωτημάτων SQL"
-
-#: libraries/messages.inc.php:1200
-msgid "Allow to display database and table statistics (eg. space usage)"
-msgstr ""
-"Δικαίωμα προβολής στατιστικών βάσης δεδομένων και πινάκων (π.χ. χρήση χώρου "
-"στο δίσκο)"
-
-#: libraries/messages.inc.php:1201
-msgid "Show statistics"
-msgstr "Εμφάνιση στατιστικών"
-
-#: libraries/messages.inc.php:1202
-msgid ""
-"If tooltips are enabled and a database comment is set, this will flip the "
-"comment and the real name"
-msgstr ""
-"Αν οι επεξηγήσεις είναι ενεργοποιημένες και έχει οριστεί σχόλιο για τη βάση "
-"δεδομένων, αυτή η επιλογή θα αντικαταστήσει το όνομα με το σχόλιο."
-
-#: libraries/messages.inc.php:1203
-msgid "Display database comment instead of its name"
-msgstr "Προβολή σχολίου βάσης δεδομένων αντί για το όνομα"
-
-#: libraries/messages.inc.php:1204
-msgid ""
-"When setting this to [kbd]nested[/kbd], the alias of the table name is only "
-"used to split/nest the tables according to the $cfg"
-"['LeftFrameTableSeparator'] directive, so only the folder is called like the "
-"alias, the table name itself stays unchanged"
-msgstr ""
-"Όταν οριστεί αυτό σε [kbd]nested[/kbd], η ετικέτα του ονόματος του πίνακα "
-"χρησιμοποιείτε μόνο για το χώρισμα/μάζεμα των πινάκων σύμφωνα με την οδηγία "
-"$cfg['LeftFrameTableSeparator'], έτσι μόνο ο φάκελος καλείται όπως η "
-"ετικέτα, ενώ το όνομα του πίνακα δεν αλλάζει"
-
-#: libraries/messages.inc.php:1205
-msgid "Display table comment instead of its name"
-msgstr "Προβολή σχολίου πίνακα αντί για το όνομά του"
-
-#: libraries/messages.inc.php:1206
-msgid "Display table comments in tooltips"
-msgstr "Προβολή σχολίων πινάκων στις επεξηγήσεις"
-
-#: libraries/messages.inc.php:1207
-msgid ""
-"Mark used tables and make it possible to show databases with locked tables"
-msgstr ""
-"Επισήμανση χρησιμοποιημένων πινάκων και ενεργοποίηση της δυνατότητας "
-"προβολής των βάσεων δεδομένων με κλειδωμένους πίνακες"
-
-#: libraries/messages.inc.php:1208
-msgid "Skip locked tables"
-msgstr "Παράβλεψη κλειδωμένων πινάκων"
-
-#: libraries/messages.inc.php:1213 libraries/messages.inc.php:1593
-msgid "Validate SQL"
-msgstr "Επικύρωση SQL"
-
-#: libraries/messages.inc.php:1214
-msgid ""
-"Suggest a database name on the &quot;Create Database&quot; form (if "
-"possible) or keep the text field empty"
-msgstr ""
-"Προτείνεται ένα όνομα βάσης δεδομένων στη φόρμα «Δημιουργία Βάσης "
-"δεδομένων» (αν είναι δυνατό) ή διατήρηση του πεδίου άδειου"
-
-#: libraries/messages.inc.php:1215
-msgid "Suggest new database name"
-msgstr "Πρόταση νέου ονόματος βάσης δεδομένων"
-
-#: libraries/messages.inc.php:1216
-msgid "yes"
-msgstr "ναι"
-
-#: libraries/messages.inc.php:1217
-msgid ""
-"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
-"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]"
-msgstr ""
-"Εισάγει διευθύνσεις ως [kbd]IP: αξιόπιστη κεφαλίδα HTTP[/kbd]. Το παρακάτω "
-"παράδειγμα ορίζει ότι το phpMyAdmin πρέπει να εμπιστεύεται μια κεφαλίδα "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) προερχόμενη από τη διεύθυνση 1.2.3.4:"
-"[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
-
-#: libraries/messages.inc.php:1218
-msgid "List of trusted proxies for IP allow/deny"
-msgstr "Λίστα αξιόπιστων διευθύνσεων IP για να επιτρέπεται/απαγορεύεται"
-
-#: libraries/messages.inc.php:1219
-msgid "Directory on server where you can upload files for import"
-msgstr ""
-"Φάκελος στο διακομιστή όπου μπορείτε να αποστείλετε αρχεία για εισαγωγή"
-
-#: libraries/messages.inc.php:1220
-msgid "Upload directory"
-msgstr "Φάκελος αποστολής"
-
-#: libraries/messages.inc.php:1221
-msgid "Allow for searching inside the entire database"
-msgstr "Επιτρέπει την αναζήτηση εντός ολόκληρης της βάσης δεδομένων"
-
-#: libraries/messages.inc.php:1222
-msgid "Use database search"
-msgstr "Χρήση αναζήτησης βάσης δεδομένων"
-
-#: libraries/messages.inc.php:1223
-msgid ""
-"Show affected rows of each statement on multiple-statement queries. See "
-"libraries/import.lib.php for defaults on how many queries a statement may "
-"contain."
-msgstr ""
-"Εμφανίζει της επηρρεασμένες γραμμές από καθε δήλωση σε ερωτήματα πολλαπλών "
-"δηλώσεων. Δείτε στο libraries/import.lib.php τις προεπιλογές για το πόσες "
-"δηλώσεις μπορεί να περιέχει ένα ερώτημα."
-
-#: libraries/messages.inc.php:1224
-msgid "Verbose multiple statements"
-msgstr "Φιλοχρηστικές πολλαπλές δηλώσεις"
-
-#: libraries/messages.inc.php:1225
-msgid ""
-"Reading of version failed. Maybe you're offline or the upgrade server does "
-"not respond."
-msgstr ""
-"Η ανάγνωση της έκδοσης απέτυχε. Ίσως είστε εκτός δικτύου ή ο αναβαθμισμένος "
-"διακομιστής δεν αποκρίνεται."
-
-#: libraries/messages.inc.php:1226
-msgid "Got invalid version string from server"
-msgstr "Ελήφθει μη έγκυρη έκδοση από τον διακομιστή"
-
-#: libraries/messages.inc.php:1227
-msgid "Check for latest version"
-msgstr "Έλεγχος για τελευταία έκδοση"
-
-#: libraries/messages.inc.php:1228
-#, php-format
-msgid ""
-"A newer version of phpMyAdmin is available and you should consider "
-"upgrading. The newest version is %s, released on %s."
-msgstr ""
-"Μια νεότερη έκδοση του phpMyAdmin είναι διαθέσιμη και καλό θα είναι να την "
-"εγκαταστήσετε. Η νεότερη έκδοση είναι η %s και δημοσιεύτηκε την %s."
-
-#: libraries/messages.inc.php:1229
-#, php-format
-msgid ""
-"You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-"latest stable version is %s, released on %s."
-msgstr ""
-"Χρησιμοποιείτε υποέκδοση έκδοσης. Εκτελέστε την [kbd]ενημέρωση svn[/kbd] :-)"
-"[br]Η τελευταία τελική έκδοση είναι η %s και δημοσιεύτηκε την %s."
-
-#: libraries/messages.inc.php:1230
-msgid "No newer stable version is available"
-msgstr "Δεν υπάρχει νεότερη έκδοση (μη δοκιμαστική) διαθέσιμη"
-
-#: libraries/messages.inc.php:1231
-msgid "Unparsable version string"
-msgstr "Μη αναγνώσιμος αριθμός έκδοσης"
-
-#: libraries/messages.inc.php:1232
-msgid "Version check"
-msgstr "Έλεγχος έκδοσης"
-
-#: libraries/messages.inc.php:1233
-msgid ""
-"Neither URL wrapper nor CURL is available. Version check is not possible."
-msgstr ""
-"Ούτε διεύθυνση URL ούτε CURL είναι διαθέσιμα. Ο έλεγχος της έκδοσης δεν "
-"είναι δυνατό να γίνει."
-
-#: libraries/messages.inc.php:1234
-msgid "Warning"
-msgstr "Προειδοποίηση"
-
-#: libraries/messages.inc.php:1235
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
-"for import and export operations"
-msgstr ""
-"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]"
-"ZIP[/a] για λειτουργίες εισαγωγής και εξαγωγής"
-
-#: libraries/messages.inc.php:1236
-#, php-format
-msgid ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
-"requires functions (%s) which are unavailable on this system."
-msgstr ""
-"Η [a@?page=form&amp;formset=features#tab_Import_export]συμπίεση Zip[/a] "
-"απαιτεί συναρτήσεις (%s) οι οποίες δεν είναι διαθέσιμες σε αυτό το σύστημα."
-
-#: libraries/messages.inc.php:1237
-#, php-format
-msgid ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
-"requires functions (%s) which are unavailable on this system."
-msgstr ""
-"Η [a@?page=form&amp;formset=features#tab_Import_export]αποσυμπίεση Zip[/a] "
-"απαιτεί συναρτήσεις (%s) οι οποίες δεν είναι διαθέσιμες σε αυτό το σύστημα."
-
-#: libraries/messages.inc.php:1238
-msgid "ZIP"
-msgstr "ZIP"
-
-#: libraries/messages.inc.php:1239
 msgid "Show all"
 msgstr "Εμφάνιση όλων"
 
-#: libraries/messages.inc.php:1240
+#: libraries/messages.inc.php:888
 msgid "Show binary contents as HEX"
 msgstr "Εμφάνιση δυαδικών περιεχομένων ως Δεκαεξαδικά"
 
-#: libraries/messages.inc.php:1241
+#: libraries/messages.inc.php:889
 msgid "Show binary contents"
 msgstr "Εμφάνιση δυαδικών περιεχομένων"
 
-#: libraries/messages.inc.php:1242
+#: libraries/messages.inc.php:890
 msgid "Show BLOB contents"
 msgstr "Εμφάνιση περιεχομένων BLOB"
 
-#: libraries/messages.inc.php:1243
+#: libraries/messages.inc.php:891
 msgid "Show color"
 msgstr "Εμφάνιση χρωμάτων"
 
-#: libraries/messages.inc.php:1244
+#: libraries/messages.inc.php:892
 msgid "Data Dictionary Format"
 msgstr "Μορφή λεξικού δεδομένων"
 
-#: libraries/messages.inc.php:1245
+#: libraries/messages.inc.php:893
 msgid "Show Full Queries"
 msgstr "Πλήρης εμφάνιση ερωτημάτων"
 
-#: libraries/messages.inc.php:1246
+#: libraries/messages.inc.php:894
 msgid "Show grid"
 msgstr "Εμφάνιση πλέγματος"
 
-#: libraries/messages.inc.php:1247
+#: libraries/messages.inc.php:895
 msgid "Show/Hide left menu"
 msgstr "Εμφάνιση/Απόκρυψη αριστερού μενού"
 
-#: libraries/messages.inc.php:1248
+#: libraries/messages.inc.php:896
 msgid "Showing bookmark"
 msgstr "Εμφάνιση σελιδοδείκτη"
 
-#: libraries/messages.inc.php:1249
+#: libraries/messages.inc.php:897
 msgid "Showing as PHP code"
 msgstr "Εμφάνιση ως κώδικά PHP"
 
-#: libraries/messages.inc.php:1250
+#: libraries/messages.inc.php:898
 msgid "Showing rows"
 msgstr "Εμφάνιση εγγραφής "
 
-#: libraries/messages.inc.php:1251
+#: libraries/messages.inc.php:899
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: libraries/messages.inc.php:1252
+#: libraries/messages.inc.php:900
 #, fuzzy
 msgid "Show insert query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: libraries/messages.inc.php:1253
+#: libraries/messages.inc.php:901
 msgid "Only show keys"
 msgstr "Μόνο ερφάνιση κλειδιών"
 
-#: libraries/messages.inc.php:1255
+#: libraries/messages.inc.php:903
 msgid "Show open tables"
 msgstr "Εμφάνιση ανοιχτών πινάκων"
 
-#: libraries/messages.inc.php:1256
+#: libraries/messages.inc.php:904
 msgid "Show PHP information"
 msgstr "Εμφάνιση πληροφοριών της PHP"
 
-#: libraries/messages.inc.php:1257
+#: libraries/messages.inc.php:905
 msgid "Show"
 msgstr "Εμφάνιση"
 
-#: libraries/messages.inc.php:1258
+#: libraries/messages.inc.php:906
 msgid "Show slave hosts"
 msgstr "Εμφάνιση δευτερευόντων διακομιστών"
 
-#: libraries/messages.inc.php:1259
+#: libraries/messages.inc.php:907
 msgid "Show slave status"
 msgstr "Εμφάνιση κατάστασης δευτερεύοντος"
 
-#: libraries/messages.inc.php:1260
+#: libraries/messages.inc.php:908
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -5894,13 +4167,13 @@ msgstr ""
 "μνήμη καταγραφής που υπερβαίνει την τιμή binlog_cache_size και χρησιμοποιούν "
 "ένα προσωρινό αρχείο για αποθήκευση δηλώσεων από τη συναλλαγή."
 
-#: libraries/messages.inc.php:1261
+#: libraries/messages.inc.php:909
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Ο αριθμός των συναλλαγών που χρησιμοποίησαν την προσωρινή δυαδική λανθάνουσα "
 "μνήμη καταγραφής."
 
-#: libraries/messages.inc.php:1262
+#: libraries/messages.inc.php:910
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -5912,11 +4185,11 @@ msgstr ""
 "είναι μεγάλο, ίσως θέλετε να αυξήσετε την τιμή tmp_table_size ώστε οι "
 "προσωρινοί πίνακες να είναι στη μνήμη και όχι στο δίσκο."
 
-#: libraries/messages.inc.php:1263
+#: libraries/messages.inc.php:911
 msgid "How many temporary files mysqld has created."
 msgstr "Πόσα προσωρινά αρχεία δημιούργησε το mysqld."
 
-#: libraries/messages.inc.php:1264
+#: libraries/messages.inc.php:912
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -5924,7 +4197,7 @@ msgstr ""
 "Ο αριθμός των προσωρινών πινάκων στη μνήμη που δημιουργήθηκαν αυτόματα από "
 "τον διακομιστή κατά την εκτέλεσε δηλώσεων."
 
-#: libraries/messages.inc.php:1265
+#: libraries/messages.inc.php:913
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -5932,7 +4205,7 @@ msgstr ""
 "Ο αριθμός των εγεγγραμμένων γραμμών με την εντολή INSERT DELAYED για τις "
 "οποίες υπήρξε κάποιο σφάλμα (πιθανόν διπλό κλειδί)."
 
-#: libraries/messages.inc.php:1266
+#: libraries/messages.inc.php:914
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -5941,25 +4214,25 @@ msgstr ""
 "διαφορετικός πίνακας στον οποίο κάποιος χρησιμοποιεί την εντολή INSERT "
 "DELAYED χρησιμοποιεί της δική του διεργασία."
 
-#: libraries/messages.inc.php:1267
+#: libraries/messages.inc.php:915
 msgid "The number of INSERT DELAYED rows written."
 msgstr ""
 "Ο αριθμός των ΚΑΘΥΣΤΕΡΗΜΕΝΑ ΕΙΣΕΡΧΟΜΕΝΩΝ (INSERT DELAYED) γραμμών που "
 "εγγράφτηκαν."
 
-#: libraries/messages.inc.php:1268
+#: libraries/messages.inc.php:916
 msgid "The number of executed FLUSH statements."
 msgstr "Ο αριθμός των εκτελεσθέντων δηλώσεων ΕΚΚΑΘΑΡΙΣΗΣ (FLUSH)."
 
-#: libraries/messages.inc.php:1269
+#: libraries/messages.inc.php:917
 msgid "The number of internal COMMIT statements."
 msgstr "Ο αριθμός των εσωτερικών δηλώσεων ΠΑΡΑΠΟΜΠΗΣ (COMMIT)."
 
-#: libraries/messages.inc.php:1270
+#: libraries/messages.inc.php:918
 msgid "The number of times a row was deleted from a table."
 msgstr "Οι φορές που διαγράφτηκε μια γραμμή από έναν πίνακα."
 
-#: libraries/messages.inc.php:1271
+#: libraries/messages.inc.php:919
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -5970,7 +4243,7 @@ msgstr ""
 "ανακάλυψη. Το Handler_discover δείχνει τον αριθμό των πινάκων χρόνου που "
 "βρέθηκαν."
 
-#: libraries/messages.inc.php:1272
+#: libraries/messages.inc.php:920
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -5981,7 +4254,7 @@ msgstr ""
 "ευρετηρίου. Παράδειγμα: SELECT col1 FROM foo, υποθέτοντας ότι το col1 έχει "
 "ευρετήριο."
 
-#: libraries/messages.inc.php:1273
+#: libraries/messages.inc.php:921
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -5990,7 +4263,7 @@ msgstr ""
 "είναι υψηλός, είναι ένας καλός δείκτης ότι τα ερωτήματά σας και οι πίνακές "
 "σας έχουν κάνει σωστά ευρετήρια."
 
-#: libraries/messages.inc.php:1274
+#: libraries/messages.inc.php:922
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -6000,7 +4273,7 @@ msgstr ""
 "κλειδιού. Αυτό αυξάνετε αν κάνετε ερώτημα σε μια στήλη ευρετηρίου με ένα "
 "περιορισμό ευρετηρίου ή αν κάνετε μια σάρωση ευρετηρίου."
 
-#: libraries/messages.inc.php:1275
+#: libraries/messages.inc.php:923
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -6009,7 +4282,7 @@ msgstr ""
 "η μέθοδος ανάγνωσης χρησιμοποιείτε κυρίως για βελτιστοποίηση της εντολής "
 "ORDER BY ... DESC."
 
-#: libraries/messages.inc.php:1276
+#: libraries/messages.inc.php:924
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -6022,7 +4295,7 @@ msgstr ""
 "σαρώνει ολόκληρους πίνακες ή έχετε ενώσεις που δεν χρησιμοποιούν σωστά τα "
 "κλειδιά."
 
-#: libraries/messages.inc.php:1277
+#: libraries/messages.inc.php:925
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -6034,37 +4307,37 @@ msgstr ""
 "ότι οι πίνακες σας δεν έχουν σωστά ευρετήρια ή ότι τα ερωτήματά σας δεν "
 "έχουν γραφτεί ώστε να λαμβάνουν υπόψη τα ευρετήρια που έχετε."
 
-#: libraries/messages.inc.php:1278
+#: libraries/messages.inc.php:926
 msgid "The number of internal ROLLBACK statements."
 msgstr "Ο αριθμός των εσωτερικών δηλώσεων ΕΠΙΣΤΡΟΦΗΣ (ROLLBACK)."
 
-#: libraries/messages.inc.php:1279
+#: libraries/messages.inc.php:927
 msgid "The number of requests to update a row in a table."
 msgstr "Ο αριθμός των αιτήσεων για ενημέρωση μιας γραμμής σε έναν πίνακα."
 
-#: libraries/messages.inc.php:1280
+#: libraries/messages.inc.php:928
 msgid "The number of requests to insert a row in a table."
 msgstr "Ο αριθμός των αιτήσεων για εισαγωγή μιας γραμμής σε έναν πίνακα."
 
-#: libraries/messages.inc.php:1281
+#: libraries/messages.inc.php:929
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Ο αριθμός των σελίδων που περιέχουν δεδομένα (καθαρά και μη)."
 
-#: libraries/messages.inc.php:1282
+#: libraries/messages.inc.php:930
 msgid "The number of pages currently dirty."
 msgstr "Ο αριθμός των μη καθαρώ σελίδων."
 
-#: libraries/messages.inc.php:1283
+#: libraries/messages.inc.php:931
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 "Ο αριθμός των σελίδων του buffer pool για τις οποίες υπήρξε αίτηση για "
 "εκκαθάριση."
 
-#: libraries/messages.inc.php:1284
+#: libraries/messages.inc.php:932
 msgid "The number of free pages."
 msgstr "Ο αριθμός των ελεύθερων σελίδων."
 
-#: libraries/messages.inc.php:1285
+#: libraries/messages.inc.php:933
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -6074,7 +4347,7 @@ msgstr ""
 "σελίδες που έχουν ήδη αναγνωστεί ή εγγραφεί ή που δεν μπορούν να "
 "εκκαθαριστούν ή απομακρυνθούν για κάποιο άλλο λόγο."
 
-#: libraries/messages.inc.php:1286
+#: libraries/messages.inc.php:934
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -6086,11 +4359,11 @@ msgstr ""
 "τιμή μπορεί να υπολογιστεί ως Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: libraries/messages.inc.php:1287
+#: libraries/messages.inc.php:935
 msgid "Total size of buffer pool, in pages."
 msgstr "Συνολικό μέγεθος του buffer pool, σε σελίδες."
 
-#: libraries/messages.inc.php:1288
+#: libraries/messages.inc.php:936
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -6099,7 +4372,7 @@ msgstr ""
 "συμβαίνει όταν ένα ερώτημα πρόκειται να σαρώσει ένα μεγάλο τμήμα πίνακα αλλά "
 "με τυχαία σειρά."
 
-#: libraries/messages.inc.php:1289
+#: libraries/messages.inc.php:937
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -6107,11 +4380,11 @@ msgstr ""
 "Ο αριθμός των διαδοχικών αναγνώσεων κεφαλίδων της InnoDB που ξεκίνησαν. Αυτό "
 "συμβείναι όταν η InnoDB εκτελεί μια διαδοχική πλήρη σάρωση πίνακα."
 
-#: libraries/messages.inc.php:1290
+#: libraries/messages.inc.php:938
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Ο αριθμός των λογικών αιτήσεων ανάγνωσης που έκαν η InnoDB."
 
-#: libraries/messages.inc.php:1291
+#: libraries/messages.inc.php:939
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -6119,7 +4392,7 @@ msgstr ""
 "Ο αριθμός των λογικών αναγνώσεων που η InnoDB δεν μπόρεσε να ικανοποιήσει "
 "από το buffer pool και έπρεπε να κάνει ανάγνωση μονής σελίδας."
 
-#: libraries/messages.inc.php:1292
+#: libraries/messages.inc.php:940
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -6134,55 +4407,55 @@ msgstr ""
 "αναμονών. Αν το μέγεθος του buffer pool έχει οριστεί σωστά, αυτή η τιμή "
 "πρέπει να είναι μικρή."
 
-#: libraries/messages.inc.php:1293
+#: libraries/messages.inc.php:941
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Ο αριθμός των εγγραφών που έγιναν στο buffer pool της InnoDB."
 
-#: libraries/messages.inc.php:1294
+#: libraries/messages.inc.php:942
 msgid "The number of fsync() operations so far."
 msgstr "Ο αριθμός των λειτουργιών του fsync() μέχρι στιγμής."
 
-#: libraries/messages.inc.php:1295
+#: libraries/messages.inc.php:943
 msgid "The current number of pending fsync() operations."
 msgstr "Ο τρέχων αριθμός των εκκρεμών λειτουργιών του fsync()."
 
-#: libraries/messages.inc.php:1296
+#: libraries/messages.inc.php:944
 msgid "The current number of pending reads."
 msgstr "Ο τρέχων αριθμός των εκκρεμών αναγνώσεων."
 
-#: libraries/messages.inc.php:1297
+#: libraries/messages.inc.php:945
 msgid "The current number of pending writes."
 msgstr "Ο τρέχων αριθμός των εκκρεμών εγγραφών."
 
-#: libraries/messages.inc.php:1298
+#: libraries/messages.inc.php:946
 msgid "The amount of data read so far, in bytes."
 msgstr "Το πλήθος των δεδομένων που αναγνώστηκε μέχρι στιγμής σε bytes."
 
-#: libraries/messages.inc.php:1299
+#: libraries/messages.inc.php:947
 msgid "The total number of data reads."
 msgstr "Ο συνολικός αριθμός των αναγνώσεων δεδομένων."
 
-#: libraries/messages.inc.php:1300
+#: libraries/messages.inc.php:948
 msgid "The total number of data writes."
 msgstr "Ο συνολικός αριθμός των εγγραφών δεδομένων."
 
-#: libraries/messages.inc.php:1301
+#: libraries/messages.inc.php:949
 msgid "The amount of data written so far, in bytes."
 msgstr "Το πλήθος των εγεγγραμμένων δεδομένων μέχρι στιγμής, σε bytes."
 
-#: libraries/messages.inc.php:1302
+#: libraries/messages.inc.php:950
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Ο αριθμός των εγγραφών διπλοεγγραφής που έγιναν και ο αριθμός των σελίδων "
 "που γράφτηκαν για αυτό το σκοπό."
 
-#: libraries/messages.inc.php:1303
+#: libraries/messages.inc.php:951
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Ο αριθμός των εγγραφών διπλοεγγραφής που έγιναν και ο αριθμός των σελίδων "
 "που γράφτηκαν για αυτό το σκοπό."
 
-#: libraries/messages.inc.php:1304
+#: libraries/messages.inc.php:952
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -6190,35 +4463,35 @@ msgstr ""
 "Ο αριθμός των αναμονών που έγιναν εξαιτίας του μικρού μεγέθος του buffer "
 "καταγραφής και και έπρεπε να αναμένεται να εκκαθαριστεί πριν συνεχίσει."
 
-#: libraries/messages.inc.php:1305
+#: libraries/messages.inc.php:953
 msgid "The number of log write requests."
 msgstr "Ο αριθμός των αιτήσεων εγγραφής καταγραφής."
 
-#: libraries/messages.inc.php:1306
+#: libraries/messages.inc.php:954
 msgid "The number of physical writes to the log file."
 msgstr "Ο αριθμός των φυσικών εγγραφών στο αρχείο καταγραφής."
 
-#: libraries/messages.inc.php:1307
+#: libraries/messages.inc.php:955
 msgid "The number of fsync() writes done to the log file."
 msgstr "Ο αριθμός των εγγραφών fsyncs που ολοκληρώθηκαν στο αρχείο καταγραφής."
 
-#: libraries/messages.inc.php:1308
+#: libraries/messages.inc.php:956
 msgid "The number of pending log file fsyncs."
 msgstr "Ο αριθμός των εκκρεμών fsyncs στο αρχείο καταγραφής."
 
-#: libraries/messages.inc.php:1309
+#: libraries/messages.inc.php:957
 msgid "Pending log file writes."
 msgstr "Εκκρεμείς εγγραφές αρχείου καταγραφής."
 
-#: libraries/messages.inc.php:1310
+#: libraries/messages.inc.php:958
 msgid "The number of bytes written to the log file."
 msgstr "Ο αριθμός των εγεγγραμμένων bytes στο αρχείο καταγραφής."
 
-#: libraries/messages.inc.php:1311
+#: libraries/messages.inc.php:959
 msgid "The number of pages created."
 msgstr "Ο αριθμός των δημιουργηθέντων σελίδων."
 
-#: libraries/messages.inc.php:1312
+#: libraries/messages.inc.php:960
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -6227,56 +4500,56 @@ msgstr ""
 "υπολογίζονται σε σελίδες. Το μέγεθος της σελίδας επιτρέπει την εύκολη "
 "μετατροπή σε bytes."
 
-#: libraries/messages.inc.php:1313
+#: libraries/messages.inc.php:961
 msgid "The number of pages read."
 msgstr "Ο αριθμός των αναγνωσμένων σελίδων."
 
-#: libraries/messages.inc.php:1314
+#: libraries/messages.inc.php:962
 msgid "The number of pages written."
 msgstr "Ο αριθμός των εγεγγραμμένων σελίδων."
 
-#: libraries/messages.inc.php:1315
+#: libraries/messages.inc.php:963
 msgid "The number of row locks currently being waited for."
 msgstr "Ο αριθμός των κλειδωμάτων γραμμής που είναι τώρα σε αναμονή."
 
-#: libraries/messages.inc.php:1316
+#: libraries/messages.inc.php:964
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
 "Ο μέσος χρόνος απόκτησης ενός κλειδώματος γραμμής σε χιλιοστοδευτερόλεπτα."
 
-#: libraries/messages.inc.php:1317
+#: libraries/messages.inc.php:965
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 "Ο συνολικός απαιτούμενος χρόνος απόκτησης κλειδώματος γραμμής σε "
 "χιλιοστοδευτερόλεπτα."
 
-#: libraries/messages.inc.php:1318
+#: libraries/messages.inc.php:966
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
 "Ο μέγιστος χρόνος απόκτησης ενός κλειδώματος γραμμής σε "
 "χιλιοστοδευτερόλεπτα.."
 
-#: libraries/messages.inc.php:1319
+#: libraries/messages.inc.php:967
 msgid "The number of times a row lock had to be waited for."
 msgstr "Οι φορές που πρέπει να αναμένεται ένα κλείδωμα γραμμής."
 
-#: libraries/messages.inc.php:1320
+#: libraries/messages.inc.php:968
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Ο αριθμός των διαγραμμένων γραμμών από πίνακες InnoDB."
 
-#: libraries/messages.inc.php:1321
+#: libraries/messages.inc.php:969
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Ο αριθμός των εισαχθέντων γραμμών σε πίνακες InnoDB."
 
-#: libraries/messages.inc.php:1322
+#: libraries/messages.inc.php:970
 msgid "The number of rows read from InnoDB tables."
 msgstr "Ο αριθμός των αναγνωσμένων γραμμών από πίνακες InnoDB."
 
-#: libraries/messages.inc.php:1323
+#: libraries/messages.inc.php:971
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Ο αριθμός των ενημερωμένων γραμμών σε πίνακες InnoDB."
 
-#: libraries/messages.inc.php:1324
+#: libraries/messages.inc.php:972
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -6285,7 +4558,7 @@ msgstr ""
 "αλλά δεν έχει ακόμα εκκαθαριστεί στο δίσκο. Ήταν γνωστός ως "
 "Not_flushed_key_blocks."
 
-#: libraries/messages.inc.php:1325
+#: libraries/messages.inc.php:973
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -6294,7 +4567,7 @@ msgstr ""
 "Μπορείτε να χρησιμοποιήσετε αυτή τη τιμή για να προσδιορίσετε πόση "
 "λανθάνουσα μνήμη κλειδιού χρησιμοποιείται."
 
-#: libraries/messages.inc.php:1326
+#: libraries/messages.inc.php:974
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -6304,12 +4577,12 @@ msgstr ""
 "τιμή είναι ένα έντονο σημάδι που δείχνει τον μέγιστο αριθμό μπλοκς που είναι "
 "σε χρήση με μια φορά."
 
-#: libraries/messages.inc.php:1327
+#: libraries/messages.inc.php:975
 msgid "The number of requests to read a key block from the cache."
 msgstr ""
 "Ο αριθμός των αιτήσεων ανάγνωσης ενός μπλοκ κλειδιού από τη λανθάνουσα μνήμη."
 
-#: libraries/messages.inc.php:1328
+#: libraries/messages.inc.php:976
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -6320,16 +4593,16 @@ msgstr ""
 "μικρή. Ο βαθμό απώλειας λανθάνουσας μνήμης μπορεί να υπολογιστεί ως "
 "Key_reads/Key_read_requests."
 
-#: libraries/messages.inc.php:1329
+#: libraries/messages.inc.php:977
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
 "Ο αριθμός των αιτήσεων εγγραφής ενός μπλοκ κλειδιού στη λανθάνουσα μνήμη."
 
-#: libraries/messages.inc.php:1330
+#: libraries/messages.inc.php:978
 msgid "The number of physical writes of a key block to disk."
 msgstr "Ο αριθμός των φυσικών εγγραφών ενός κλειδιού στο δίσκο."
 
-#: libraries/messages.inc.php:1331
+#: libraries/messages.inc.php:979
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -6340,13 +4613,13 @@ msgstr ""
 "διαφορετικών σχεδίων ερωτημάτων για το ίδιο ερώτημα. Η προεπιλεγμένη τιμή 0 "
 "σημαίνει ότι κανένα ερώτημα δεν μεταφράστηκε ακόμα."
 
-#: libraries/messages.inc.php:1332
+#: libraries/messages.inc.php:980
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Ο αριθμός των γραμμών σε αναμονή για εγγραφή στις σειρές ΚΑΘΥΣΤΕΡΗΜΕΝΩΝ "
 "ΕΙΣΑΓΩΓΩΝ (INSERT DELAYED)."
 
-#: libraries/messages.inc.php:1333
+#: libraries/messages.inc.php:981
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -6354,37 +4627,37 @@ msgstr ""
 "Ο αριθμός των πινάκων που ανοίχτηκαν. Αν οι ανοιγμένοι πίνακες είναι "
 "μεγάλοι, η τιμή λανθάνουσας μνήμης πινάκων είναι πιθανον μικρή."
 
-#: libraries/messages.inc.php:1334
+#: libraries/messages.inc.php:982
 msgid "The number of files that are open."
 msgstr "Ο αριθμός των αρχείων που είναι ανοιχτά."
 
-#: libraries/messages.inc.php:1335
+#: libraries/messages.inc.php:983
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Ο αριθμός των ροών που είναι ανοιχτές (χρησιμοποιούνται κυρίως για "
 "καταγραφή)."
 
-#: libraries/messages.inc.php:1336
+#: libraries/messages.inc.php:984
 msgid "The number of tables that are open."
 msgstr "Ο αριθμός των πινάκων που είναι ανοιχτοί."
 
-#: libraries/messages.inc.php:1337
+#: libraries/messages.inc.php:985
 msgid "The number of free memory blocks in query cache."
 msgstr "Ο αριθμός των ελεύθερων μπλοκ μνήμης στη λανθάνουσα μνήμη ερωτημάτων."
 
-#: libraries/messages.inc.php:1338
+#: libraries/messages.inc.php:986
 msgid "The amount of free memory for query cache."
 msgstr "Το μέγεθος της ελεύθερης μνήμης για λανθάνουσα μνήμη ερωτημάτων."
 
-#: libraries/messages.inc.php:1339
+#: libraries/messages.inc.php:987
 msgid "The number of cache hits."
 msgstr "Ο αριθμός των προσπελάσεων λανθάνουσας μνήμης."
 
-#: libraries/messages.inc.php:1340
+#: libraries/messages.inc.php:988
 msgid "The number of queries added to the cache."
 msgstr "Ο αριθμός των ερωτημάτων που προστέθηκαν στην λανθάνουσα μνήμη."
 
-#: libraries/messages.inc.php:1341
+#: libraries/messages.inc.php:989
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -6398,7 +4671,7 @@ msgstr ""
 "χρησιμοποιούμενη στρατηγική (LRU) για να αποφασίσει ποια ερωτήματα να "
 "απομακρύνει από τη λανθάνουσα μνήμη."
 
-#: libraries/messages.inc.php:1342
+#: libraries/messages.inc.php:990
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -6406,24 +4679,24 @@ msgstr ""
 "Ο αριθμός των μη λανθανόντων ερωτημάτων (μη απομνημονεύσιμα ή δεν "
 "απομνημονεύονται λόγω της ρύθμισης query_cache_type)."
 
-#: libraries/messages.inc.php:1343
+#: libraries/messages.inc.php:991
 msgid "The number of queries registered in the cache."
 msgstr "Ο αριθμός των καταχωρημένων ερωτημάτων στη λανθάνουσα μνήμη."
 
-#: libraries/messages.inc.php:1344
+#: libraries/messages.inc.php:992
 msgid "The total number of blocks in the query cache."
 msgstr "Ο συνολικός αριθμός των μπλοκς στη λανθάνουσα μνήμη ερωτημάτων."
 
-#: libraries/messages.inc.php:1345
+#: libraries/messages.inc.php:993
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Επαναφορά"
 
-#: libraries/messages.inc.php:1346
+#: libraries/messages.inc.php:994
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Η κατάσταση της ασφαλούς αναπαραγωγής (δεν έχει εφαρμοστεί)."
 
-#: libraries/messages.inc.php:1347
+#: libraries/messages.inc.php:995
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -6431,13 +4704,13 @@ msgstr ""
 "Ο αριθμός των ενώσεων που δεν χρησιμοποιούν ευρετήρια. Αν η τιμή είναι 0, "
 "πρέπει να ελέγχετε προσεκτικά τα ευρετήρια των πινάκων σας."
 
-#: libraries/messages.inc.php:1348
+#: libraries/messages.inc.php:996
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Ο αριθμός των ενώσεων που χρησιμοποιήσαν μια αναζήτηση εύρους σε έναν πίνακα "
 "παραπομπής."
 
-#: libraries/messages.inc.php:1349
+#: libraries/messages.inc.php:997
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -6448,7 +4721,7 @@ msgstr ""
 "(If this is not 0, πρέπει να ελέγχετε προσεκτικά τα ευρετήρια των πινάκων "
 "σας.)"
 
-#: libraries/messages.inc.php:1350
+#: libraries/messages.inc.php:998
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -6456,17 +4729,17 @@ msgstr ""
 "Ο αριθμός των ενώσεων που χρησιμοποιούν εύρη στον πρώτο πίνακα. (Κανονικά "
 "δεν είναι κρίσιμος αν δεν είναι μεγάλος.)"
 
-#: libraries/messages.inc.php:1351
+#: libraries/messages.inc.php:999
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Ο αριθμός των ενώσεων που έκαναν μια πλήρη σάρωση του πρώτου πίνακα."
 
-#: libraries/messages.inc.php:1352
+#: libraries/messages.inc.php:1000
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 "Ο αριθμός των προσωρινών πινάκων που είναι τώρα ανοιχτοί από τη δευτερεύουσα "
 "συνεργασία SQL."
 
-#: libraries/messages.inc.php:1353
+#: libraries/messages.inc.php:1001
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -6474,13 +4747,13 @@ msgstr ""
 "Συνολικές φορές (από την εκκίνηση) που η διεργασία δευτερεύουσας "
 "αναπαραγωγής SQL έχει ξαναδοκιμάσει συναλλαγές."
 
-#: libraries/messages.inc.php:1354
+#: libraries/messages.inc.php:1002
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Αυτό είναι ΑΝΟΙΧΤΟ, αν αυτός ο διακομιστής είναι δευτερεύων που συνδέεται σε "
 "πρωτεύωντα."
 
-#: libraries/messages.inc.php:1355
+#: libraries/messages.inc.php:1003
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -6488,14 +4761,14 @@ msgstr ""
 "Ο αριθμός των διεργασιών που έλαβαν περισσότερα από slow_launch_time "
 "δευτερόλεπτα να δημιουργηθούν."
 
-#: libraries/messages.inc.php:1356
+#: libraries/messages.inc.php:1004
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Ο αριθμός των ερωτημάτων που έλαβαν περισσότερα από long_query_time "
 "δευτερόλεπτα."
 
-#: libraries/messages.inc.php:1357
+#: libraries/messages.inc.php:1005
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -6505,23 +4778,23 @@ msgstr ""
 "ταξινόμησης. Αν ο αριθμός είναι μεγάλος, πρέπει να αυξήσετε την τιμή της "
 "μεταβλητής συστήματος sort_buffer_size."
 
-#: libraries/messages.inc.php:1358
+#: libraries/messages.inc.php:1006
 msgid "The number of sorts that were done with ranges."
 msgstr "Ο αριθμός των ταξινομήσεων που έγιναν με εύρη."
 
-#: libraries/messages.inc.php:1359
+#: libraries/messages.inc.php:1007
 msgid "The number of sorted rows."
 msgstr "Ο αριθμός των ταξινομημένων γραμμών."
 
-#: libraries/messages.inc.php:1360
+#: libraries/messages.inc.php:1008
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Ο αριθμός των ταξινομήσεων που έγιναν σαρώνοντας τον πίνακα."
 
-#: libraries/messages.inc.php:1361
+#: libraries/messages.inc.php:1009
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Οι φορές που ένα κλείδωμα πινακα ανακτήθηκε άμεσα.."
 
-#: libraries/messages.inc.php:1362
+#: libraries/messages.inc.php:1010
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -6533,7 +4806,7 @@ msgstr ""
 "απόδοσης, πρέπει πρώτα να βελτιώσετε τα ερωτήματά σας και μετά χωρίστε τον "
 "πίνακα ή τους πίνακες ή χρησιμοποιείστε αναπαραγωγή."
 
-#: libraries/messages.inc.php:1363
+#: libraries/messages.inc.php:1011
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -6543,11 +4816,11 @@ msgstr ""
 "λανθάνουσας μνήμης μπορεί να υπολογιστεί ως Threads_created/Connections. Αν "
 "η τιμή είναι κόκκινη πρέπει να αυξήσετε την τιμή thread_cache_size."
 
-#: libraries/messages.inc.php:1364
+#: libraries/messages.inc.php:1012
 msgid "The number of currently open connections."
 msgstr "Ο αριθμός των τρέχοντων ανοιγμένων συνδέσεων."
 
-#: libraries/messages.inc.php:1365
+#: libraries/messages.inc.php:1013
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -6559,35 +4832,39 @@ msgstr ""
 "thread_cache_size. (Κανονικά αυτό δεν δίνει μια σημαντική βελτίωση απόδοσης "
 "αν έχετε μια καλή εφαρμογή διεργασίας.)"
 
-#: libraries/messages.inc.php:1366
+#: libraries/messages.inc.php:1014
 msgid "The number of threads that are not sleeping."
 msgstr "Ο αριθμός των διεργασιών που δεν είναι σε νάρκη."
 
-#: libraries/messages.inc.php:1367
+#: libraries/messages.inc.php:1015
 msgid "Show dimension of tables"
 msgstr "Εμφάνιση διαστάσεων πινάκων"
 
-#: libraries/messages.inc.php:1368
+#: libraries/messages.inc.php:1016
 msgid "Show tables"
 msgstr "Εμφάνιση πινάκων"
 
-#: libraries/messages.inc.php:1369
+#: libraries/messages.inc.php:1017
 msgid " Show this query here again "
 msgstr " Εμφάνιση εδώ ξανά αυτού του ερώτηματος"
 
-#: libraries/messages.inc.php:1370
+#: libraries/messages.inc.php:1018
 msgid "Simplified Chinese"
 msgstr "Απλοποιημένα Κινεζικά"
 
-#: libraries/messages.inc.php:1371
+#: libraries/messages.inc.php:1019
 msgid "(singly)"
 msgstr "(μοναδικά)"
 
-#: libraries/messages.inc.php:1372
+#: libraries/messages.inc.php:1020
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: libraries/messages.inc.php:1374
+#: libraries/messages.inc.php:1021 setup/lib/messages.inc.php:154
+msgid "Number of records (queries) to skip from start"
+msgstr "Αριθμός εγγραφών (ερωτημάτων) που θα παραβλεφθούν από την αρχή"
+
+#: libraries/messages.inc.php:1022
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -6595,67 +4872,67 @@ msgstr ""
 "Σιγουρευτείτε ότι έχετε μοναδική ταυτότητα διακομιστή στο αρχείο ρυθμίσεων "
 "(my.cnf). Αν όχι, προσθέστε την παρακάτω γραμμή στον τομέα [mysqld]:"
 
-#: libraries/messages.inc.php:1375
+#: libraries/messages.inc.php:1023
 msgid "Slovak"
 msgstr "Σλοβάκικα"
 
-#: libraries/messages.inc.php:1376
+#: libraries/messages.inc.php:1024
 msgid "Slovenian"
 msgstr "Σλοβένικα"
 
-#: libraries/messages.inc.php:1377
+#: libraries/messages.inc.php:1025
 msgid "Small/Big All"
 msgstr "Όλα Μικρά/Μεγάλα"
 
-#: libraries/messages.inc.php:1378
+#: libraries/messages.inc.php:1026
 msgid "Snap to grid"
 msgstr "Συγκράτηση στο πλέγμα"
 
-#: libraries/messages.inc.php:1379
+#: libraries/messages.inc.php:1027
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(ή η τοπική υποδοχή του διακομιστή MySQL δεν έχει ρυθμιστεί σωστά)"
 
-#: libraries/messages.inc.php:1380
+#: libraries/messages.inc.php:1028
 msgid "Socket"
 msgstr "Υποδοχή"
 
-#: libraries/messages.inc.php:1381
+#: libraries/messages.inc.php:1029
 msgid "Sort by key"
 msgstr "Ταξινόμηση ανά κλειδί"
 
-#: libraries/messages.inc.php:1382
+#: libraries/messages.inc.php:1030
 msgid "Sorting"
 msgstr "Ταξινόμηση"
 
-#: libraries/messages.inc.php:1383
+#: libraries/messages.inc.php:1031
 msgid "Sort"
 msgstr "Ταξινόμηση"
 
-#: libraries/messages.inc.php:1384
+#: libraries/messages.inc.php:1032
 msgid "Space usage"
 msgstr "Χρήση χώρου"
 
-#: libraries/messages.inc.php:1385
+#: libraries/messages.inc.php:1033
 msgid "Spanish"
 msgstr "Ισπανικά"
 
-#: libraries/messages.inc.php:1386
+#: libraries/messages.inc.php:1034
 msgid "Words are separated by a space character (\" \")."
 msgstr "Οι λέξεις χωρίζονται από τον χαρακτήρα διαστήματος (« »)."
 
-#: libraries/messages.inc.php:1387
+#: libraries/messages.inc.php:1035
 msgid "SQL compatibility mode"
 msgstr "Κατάσταση συμβατότητας SQL"
 
-#: libraries/messages.inc.php:1388
+#: libraries/messages.inc.php:1036
 msgid "Export type"
 msgstr "Τύπος εξαγωγής"
 
-#: libraries/messages.inc.php:1389
+#: libraries/messages.inc.php:1037
 msgid "Export time in UTC"
 msgstr ""
 
-#: libraries/messages.inc.php:1390
+#: libraries/messages.inc.php:1038
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -6677,7 +4954,7 @@ msgstr ""
 "πρόβλημα και στείλτε αναφορά λάθους με τα δεδομένα που βρίσκονται στο τμήμα "
 "CUT που ακολουθεί:"
 
-#: libraries/messages.inc.php:1391
+#: libraries/messages.inc.php:1039
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
@@ -6686,55 +4963,55 @@ msgstr ""
 "MySQL, εάν υπάρχει κάποιο, μπορεί επίσης να σας βοηθήσει να διαγνώσετε το "
 "πρόβλημα."
 
-#: libraries/messages.inc.php:1392
+#: libraries/messages.inc.php:1040
 msgid "SQL query"
 msgstr "Εντολή SQL"
 
-#: libraries/messages.inc.php:1393
+#: libraries/messages.inc.php:1041
 msgid "SQL result"
 msgstr "αποτέλεσμα SQL"
 
-#: libraries/messages.inc.php:1394
+#: libraries/messages.inc.php:1042
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/messages.inc.php:1395
+#: libraries/messages.inc.php:1043
 msgid "Invalid Identifer"
 msgstr "Άγνωστο Αναγνωριστικό"
 
-#: libraries/messages.inc.php:1396
+#: libraries/messages.inc.php:1044
 msgid "Unclosed quote"
 msgstr "Ανοιχτά εισαγωγικά"
 
-#: libraries/messages.inc.php:1397
+#: libraries/messages.inc.php:1045
 msgid "Unknown Punctuation String"
 msgstr "Άγνωστο σημείο στίξης"
 
-#: libraries/messages.inc.php:1398
+#: libraries/messages.inc.php:1046
 msgid "Stand-in structure for view"
 msgstr "Στημένη δομή για προβολή"
 
-#: libraries/messages.inc.php:1399
+#: libraries/messages.inc.php:1047
 msgid "Start"
 msgstr "Εκκίνηση"
 
-#: libraries/messages.inc.php:1400
+#: libraries/messages.inc.php:1048
 msgid "Last check"
 msgstr "τελευταίος έλεγχος"
 
-#: libraries/messages.inc.php:1401
+#: libraries/messages.inc.php:1049
 msgid "Creation"
 msgstr "Δημιουργία"
 
-#: libraries/messages.inc.php:1402
+#: libraries/messages.inc.php:1050
 msgid "Statements"
 msgstr "Δηλώσεις"
 
-#: libraries/messages.inc.php:1403
+#: libraries/messages.inc.php:1051
 msgid "static"
 msgstr "στατικό"
 
-#: libraries/messages.inc.php:1404
+#: libraries/messages.inc.php:1052
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -6743,80 +5020,80 @@ msgstr ""
 "έτσι αυτές οι στατιστικές όπως αναφέρονται από τον διακομιστή μπορεί να "
 "είναι εσφαλμένες."
 
-#: libraries/messages.inc.php:1405
+#: libraries/messages.inc.php:1053
 msgid "Last update"
 msgstr "Τελευταία ενημέρωση"
 
-#: libraries/messages.inc.php:1406
+#: libraries/messages.inc.php:1054
 msgid "Status"
 msgstr "Κατάσταση"
 
-#: libraries/messages.inc.php:1407
+#: libraries/messages.inc.php:1055
 msgid "Stop"
 msgstr "Σταμάτημα"
 
-#: libraries/messages.inc.php:1408
+#: libraries/messages.inc.php:1056
 msgid "Storage Engines"
 msgstr "Μηχανές αποθήκευσης"
 
-#: libraries/messages.inc.php:1409
+#: libraries/messages.inc.php:1057
 msgid "Storage Engine"
 msgstr "Μηχανή αποθήκευσης"
 
-#: libraries/messages.inc.php:1410
+#: libraries/messages.inc.php:1058
 msgctxt "$strStrucCSV"
 msgid "CSV"
 msgstr "Δεδομένα CSV"
 
-#: libraries/messages.inc.php:1411
+#: libraries/messages.inc.php:1059
 msgid "Structure and data"
 msgstr "Δομή και δεδομένα"
 
-#: libraries/messages.inc.php:1412
+#: libraries/messages.inc.php:1060
 msgid "CSV for MS Excel"
 msgstr "Μορφή CSV για δεδομένα MS Excel"
 
-#: libraries/messages.inc.php:1413
+#: libraries/messages.inc.php:1061
 msgid "Native MS Excel format"
 msgstr "Αρχικά δεδομένα MS Excel"
 
-#: libraries/messages.inc.php:1414
+#: libraries/messages.inc.php:1062
 msgid "Structure only"
 msgstr "Μόνο η δομή"
 
-#: libraries/messages.inc.php:1415
+#: libraries/messages.inc.php:1063
 msgid "Propose table structure"
 msgstr "Προτεινόμενη δομή πίνακα"
 
-#: libraries/messages.inc.php:1416
+#: libraries/messages.inc.php:1064
 msgid "Structure Difference"
 msgstr "Διαφορά δομής"
 
-#: libraries/messages.inc.php:1417
+#: libraries/messages.inc.php:1065
 msgid "Structure for view"
 msgstr "Δομή για προβολή"
 
-#: libraries/messages.inc.php:1418
+#: libraries/messages.inc.php:1066
 msgid "structure"
 msgstr "δομή"
 
-#: libraries/messages.inc.php:1419
+#: libraries/messages.inc.php:1067
 msgid "Structure"
 msgstr "Δομή"
 
-#: libraries/messages.inc.php:1420
+#: libraries/messages.inc.php:1068
 msgid "Structure Synchronization"
 msgstr "Συγχρονισμός δομής"
 
-#: libraries/messages.inc.php:1421
+#: libraries/messages.inc.php:1069
 msgid "Submit"
 msgstr "Αποστολή"
 
-#: libraries/messages.inc.php:1422
+#: libraries/messages.inc.php:1070
 msgid "Your SQL query has been executed successfully"
 msgstr "Η SQL εντολή σας εκτελέσθηκε επιτυχώς"
 
-#: libraries/messages.inc.php:1423
+#: libraries/messages.inc.php:1071
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -6825,40 +5102,40 @@ msgstr ""
 "Ο διακομιστής εκτελείται με Suhosin. Αναφερθείτε στην %sτεκμηρίωση%s για "
 "πιθανά ζητήματα."
 
-#: libraries/messages.inc.php:1424
+#: libraries/messages.inc.php:1072
 msgid "Sum"
 msgstr "Σύνολο"
 
-#: libraries/messages.inc.php:1425
+#: libraries/messages.inc.php:1073
 msgid "Swedish"
 msgstr "Σουηδικά"
 
-#: libraries/messages.inc.php:1426
+#: libraries/messages.inc.php:1074
 msgid "Authenticating..."
 msgstr "Επικύρωση..."
 
-#: libraries/messages.inc.php:1427
+#: libraries/messages.inc.php:1075
 msgid "Hardware authentication failed"
 msgstr "Η επικύρωση του υλικού απέτυχε"
 
-#: libraries/messages.inc.php:1428
+#: libraries/messages.inc.php:1076
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "Το αρχείο %s δεν περιέχει καμιά ταυτότητα κλειδιού"
 
-#: libraries/messages.inc.php:1429
+#: libraries/messages.inc.php:1077
 msgid "No valid authentication key plugged"
 msgstr "Δεν τοποθετήθηκε κανένα έγκυρο κλειδί επικύρωσης"
 
-#: libraries/messages.inc.php:1430
+#: libraries/messages.inc.php:1078
 msgid "Switch to copied database"
 msgstr "Αλλαγή στο αντίγραφο της βάσης δεδομένων"
 
-#: libraries/messages.inc.php:1431
+#: libraries/messages.inc.php:1079
 msgid "Switch to copied table"
 msgstr "Μεταφορά στον αντεγραμμένο πίνακα"
 
-#: libraries/messages.inc.php:1432
+#: libraries/messages.inc.php:1080
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -6866,196 +5143,196 @@ msgstr ""
 "Η βάση δεδομένων προορισμού θα συγχρονιστεί πλήρως με τη βάση δεδομένων "
 "προέλευσης. Η βάση δεδομένων προέλευσης θα παραμείνει ως έχει."
 
-#: libraries/messages.inc.php:1433
+#: libraries/messages.inc.php:1081
 msgid "Synchronize Databases"
 msgstr "Συγχρονισμός Βάσεων δεδομένων"
 
-#: libraries/messages.inc.php:1434
+#: libraries/messages.inc.php:1082
 msgid "Synchronize"
 msgstr "Συγχρονισμός"
 
-#: libraries/messages.inc.php:1436
+#: libraries/messages.inc.php:1084
 msgid "Add column(s)"
 msgstr "Προσθήκη στήλης(ών)"
 
-#: libraries/messages.inc.php:1437
+#: libraries/messages.inc.php:1085
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Ο πίνακας %s υπάρχει ήδη!"
 
-#: libraries/messages.inc.php:1438
+#: libraries/messages.inc.php:1086
 msgid "Alter column(s)"
 msgstr "Αλλαγή στήλης(ών)"
 
-#: libraries/messages.inc.php:1439
+#: libraries/messages.inc.php:1087
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς"
 
-#: libraries/messages.inc.php:1440
+#: libraries/messages.inc.php:1088
 msgid "Alter index(s)"
 msgstr "Αλλαγή ευρετηρίου(ων)"
 
-#: libraries/messages.inc.php:1441
+#: libraries/messages.inc.php:1089
 msgid "Apply index(s)"
 msgstr "Εφαρμογή ευρετηρίου(ων)"
 
-#: libraries/messages.inc.php:1442
+#: libraries/messages.inc.php:1090
 msgid "Table comments"
 msgstr "Σχόλια Πίνακα"
 
-#: libraries/messages.inc.php:1443
+#: libraries/messages.inc.php:1091
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr ""
 "Θέλετε να διαγράψετε όλες τις προηγούμενες γραμμές από τους πίνακες "
 "προορισμού;"
 
-#: libraries/messages.inc.php:1444
+#: libraries/messages.inc.php:1092
 msgid "The table name is empty!"
 msgstr "Το όνομα του Πίνακα είναι κενό!"
 
-#: libraries/messages.inc.php:1445
+#: libraries/messages.inc.php:1093
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "Ο πίνακας %1$s έχει δημιουργηθεί."
 
-#: libraries/messages.inc.php:1446
+#: libraries/messages.inc.php:1094
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Ο Πίνακας %s διεγράφη"
 
-#: libraries/messages.inc.php:1447
+#: libraries/messages.inc.php:1095
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Ο Πίνακας %s άδειασε"
 
-#: libraries/messages.inc.php:1448
+#: libraries/messages.inc.php:1096
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Ο Πίνακας %s εκκαθαρίστηκε («FLUSH»)"
 
-#: libraries/messages.inc.php:1449
+#: libraries/messages.inc.php:1097
 msgid "Insert row(s)"
 msgstr "Εισαγωγή γραμμής(ών)"
 
-#: libraries/messages.inc.php:1450
+#: libraries/messages.inc.php:1098
 msgid "Table seems to be empty!"
 msgstr "Ο πίνακας φαίνεται να είναι άδειος!"
 
-#: libraries/messages.inc.php:1451
+#: libraries/messages.inc.php:1099
 msgid "Table maintenance"
 msgstr "Συντήρηση Πίνακα"
 
-#: libraries/messages.inc.php:1452
+#: libraries/messages.inc.php:1100
 msgid "Table name"
 msgstr "Ονομασία πίνακας"
 
-#: libraries/messages.inc.php:1453
+#: libraries/messages.inc.php:1101
 msgid "Table of contents"
 msgstr "Πίνακας περιεχομένων"
 
-#: libraries/messages.inc.php:1454
+#: libraries/messages.inc.php:1102
 msgid "Table options"
 msgstr "Επιλογές πίνακα"
 
-#: libraries/messages.inc.php:1455
+#: libraries/messages.inc.php:1103
 msgid "Remove column(s)"
 msgstr "Απομάκρυνση στήλης(ών)"
 
-#: libraries/messages.inc.php:1456
+#: libraries/messages.inc.php:1104
 msgid "Remove index(s)"
 msgstr "Απομάκρυνση ευρετηρίου(ων)"
 
-#: libraries/messages.inc.php:1457
+#: libraries/messages.inc.php:1105
 #, php-format
 msgid "%s table(s)"
 msgstr "%s Πίνακας/Πίνακες"
 
-#: libraries/messages.inc.php:1458
+#: libraries/messages.inc.php:1106
 msgid "Table structure for table"
 msgstr "Δομή Πίνακα για τον Πίνακα"
 
-#: libraries/messages.inc.php:1459
+#: libraries/messages.inc.php:1107
 msgid "Table"
 msgstr "Πίνακας "
 
-#: libraries/messages.inc.php:1460
+#: libraries/messages.inc.php:1108
 msgid "Update row(s)"
 msgstr "Ενημέρωση γραμμής(ών)"
 
-#: libraries/messages.inc.php:1461
+#: libraries/messages.inc.php:1109
 msgid "take it"
 msgstr "πάρτε το"
 
-#: libraries/messages.inc.php:1462
+#: libraries/messages.inc.php:1110
 msgid "Target database has been synchronized with source database"
 msgstr ""
 "Η βάση δεδομένων προορισμού συγχρονίστηκε με τη βάση δεδομένων προέλευσης"
 
-#: libraries/messages.inc.php:1463
+#: libraries/messages.inc.php:1111
 msgid "Table-specific privileges"
 msgstr "Δικαιώματα πινάκων"
 
-#: libraries/messages.inc.php:1464
+#: libraries/messages.inc.php:1112
 msgid "Temporary data"
 msgstr "Προσωρινά δεδομένα"
 
-#: libraries/messages.inc.php:1465
+#: libraries/messages.inc.php:1113
 msgid " Because of its length,<br /> this field might not be editable "
 msgstr ""
 " Εξαιτίας του μεγέθος του,<br /> αυτό το πεδίο ίσως να μη μπορεί να "
 "διορθωθεί "
 
-#: libraries/messages.inc.php:1466
+#: libraries/messages.inc.php:1114
 msgid "Texy! text"
 msgstr "Κείμενο Texy!"
 
-#: libraries/messages.inc.php:1467
+#: libraries/messages.inc.php:1115
 msgid "Thai"
 msgstr "Ταϊλανδικά"
 
-#: libraries/messages.inc.php:1468
+#: libraries/messages.inc.php:1116
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Το προεπιλεγμένο θέμα %s δεν βρέθηκε!"
 
-#: libraries/messages.inc.php:1469
+#: libraries/messages.inc.php:1117
 msgid "No preview available."
 msgstr "Προεπισκόπηση μη διαθέσιμη."
 
-#: libraries/messages.inc.php:1470
+#: libraries/messages.inc.php:1118
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Το θέμα %s δεν βρέθηκε!"
 
-#: libraries/messages.inc.php:1471
+#: libraries/messages.inc.php:1119
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Βρέθηκε μη έγκυρη διαδρομή εικόνας για το θέμα %s!"
 
-#: libraries/messages.inc.php:1472
+#: libraries/messages.inc.php:1120
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Η διαδρομή θέματος δεν βρέθηκε για το θέμα %s!"
 
-#: libraries/messages.inc.php:1473
+#: libraries/messages.inc.php:1121
 msgid "Theme / Style"
 msgstr "Θέμα / Στυλ"
 
-#: libraries/messages.inc.php:1474
+#: libraries/messages.inc.php:1122
 msgid "This Host"
 msgstr "Αυτός ο διακομιστής"
 
-#: libraries/messages.inc.php:1475
+#: libraries/messages.inc.php:1123
 msgid "Threads"
 msgstr "Διεργασίες"
 
-#: libraries/messages.inc.php:1476
+#: libraries/messages.inc.php:1124
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Η λειτουργία %s διεκόπη."
 
-#: libraries/messages.inc.php:1477
+#: libraries/messages.inc.php:1125
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -7063,7 +5340,7 @@ msgstr ""
 "Η προηγούμενη εισαγωγή εξάντλησε το χρονικό όριο, μετά την επανυποβολή θα "
 "συνεχίσει από τη θέση %d."
 
-#: libraries/messages.inc.php:1478
+#: libraries/messages.inc.php:1126
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -7072,7 +5349,7 @@ msgstr ""
 "σημαίνει ότι το phpMyAdmin δεν θα μπορέσει να τελειώσει την εισαγωγή εκτός "
 "και αν αυξήσετε τα χρονικά όρια της php."
 
-#: libraries/messages.inc.php:1479
+#: libraries/messages.inc.php:1127
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -7080,235 +5357,235 @@ msgstr ""
 "Το χρονικό όριο του κώδικα εξαντλήθηκε. Αν θέλετε να τελειώσετε την "
 "εισαγωγή, επανυποβάλτε το ίδιο αρχείο και η εισαγωγή θα συνεχίσει."
 
-#: libraries/messages.inc.php:1480
+#: libraries/messages.inc.php:1128
 msgid "Time"
 msgstr "Χρόνος"
 
-#: libraries/messages.inc.php:1481
+#: libraries/messages.inc.php:1129
 msgid "to/from page"
 msgstr "από/προς τη σελίδα"
 
-#: libraries/messages.inc.php:1482
+#: libraries/messages.inc.php:1130
 msgid "Toggle scratchboard"
 msgstr "(Απ)ενεργοποίηση πίνακα σχεδιασμού"
 
-#: libraries/messages.inc.php:1483
+#: libraries/messages.inc.php:1131
 msgid "Toggle small/big"
 msgstr "Εναλλαγή μικρά/μεγάλα"
 
-#: libraries/messages.inc.php:1484
+#: libraries/messages.inc.php:1132
 msgid "To select relation, click :"
 msgstr "Για να επιλέξετε συσχέτιση, πατήστε :"
 
-#: libraries/messages.inc.php:1485
+#: libraries/messages.inc.php:1133
 msgid "total"
 msgstr "συνολικά"
 
-#: libraries/messages.inc.php:1486
+#: libraries/messages.inc.php:1134
 msgid "Total"
 msgstr "Σύνολο"
 
-#: libraries/messages.inc.php:1487
+#: libraries/messages.inc.php:1135
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr "Παρακολούθηση του %s.%s ενεργοποιήθηκε."
 
-#: libraries/messages.inc.php:1488
+#: libraries/messages.inc.php:1136
 msgid "Activate now"
 msgstr "Ενεργοποιήση τώρα"
 
-#: libraries/messages.inc.php:1489
+#: libraries/messages.inc.php:1137
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr "Ενεργοποίηση παρακολούθησης για το %s.%s"
 
-#: libraries/messages.inc.php:1490
+#: libraries/messages.inc.php:1138
 msgid "Comment out these two lines if you do not need them."
 msgstr "Κάντε σχόλια αυτές τις δύο γραμμές αν δεν τις χρειάζεστε."
 
-#: libraries/messages.inc.php:1491
+#: libraries/messages.inc.php:1139
 msgid "Create version"
 msgstr "Δημιουργία έκδοσης"
 
-#: libraries/messages.inc.php:1492
+#: libraries/messages.inc.php:1140
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr "Δημιουργία έκδοσης %s του %s.%s"
 
-#: libraries/messages.inc.php:1493
+#: libraries/messages.inc.php:1141
 msgid "Database Log"
 msgstr "Καταγραφή Βάσης Δεδομένων"
 
-#: libraries/messages.inc.php:1494
+#: libraries/messages.inc.php:1142
 msgid "Data definition statement"
 msgstr "Δήλωση ορισμού δεδομένων"
 
-#: libraries/messages.inc.php:1495
+#: libraries/messages.inc.php:1143
 msgid "Data manipulation statement"
 msgstr "Δήλωση χειρισμού δεδομένων"
 
-#: libraries/messages.inc.php:1496
+#: libraries/messages.inc.php:1144
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: libraries/messages.inc.php:1497
+#: libraries/messages.inc.php:1145
 msgid "Deactivate now"
 msgstr "Απενεργοποιήση τώρα"
 
-#: libraries/messages.inc.php:1498
+#: libraries/messages.inc.php:1146
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "Απενεργοποιήση παρακολούθησης για το %s.%s"
 
-#: libraries/messages.inc.php:1499
+#: libraries/messages.inc.php:1147
 #, php-format
 msgid "Export as %s"
 msgstr "Εξαγωγή ως %s"
 
-#: libraries/messages.inc.php:1500
+#: libraries/messages.inc.php:1148
 msgid "Tracking is active."
 msgstr "Η παρακολούθηση είναι ενεργοποιημένη."
 
-#: libraries/messages.inc.php:1501
+#: libraries/messages.inc.php:1149
 msgid "Tracking is not active."
 msgstr "Η παρακολούθηση δεν έιναι ενεργοποιημένη."
 
-#: libraries/messages.inc.php:1502
+#: libraries/messages.inc.php:1150
 msgid "Tracking Mechanism"
 msgstr "Μηχανισμός παρακολούθησης"
 
-#: libraries/messages.inc.php:1503
+#: libraries/messages.inc.php:1151
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: libraries/messages.inc.php:1504
+#: libraries/messages.inc.php:1152
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Αναφορά παρακολούθησης για τον πίνακα «%s»"
 
-#: libraries/messages.inc.php:1505
+#: libraries/messages.inc.php:1153
 msgid "Tracking report"
 msgstr "Αναφορά παρακολούθησης"
 
-#: libraries/messages.inc.php:1506
+#: libraries/messages.inc.php:1154
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Εμφάνιση %s με ημερομηνίες από %s έως %s από χρήστη %s %s"
 
-#: libraries/messages.inc.php:1507
+#: libraries/messages.inc.php:1155
 msgid "Show versions"
 msgstr "Εμφάνιση εκδόσεων"
 
-#: libraries/messages.inc.php:1508
+#: libraries/messages.inc.php:1156
 msgid "SQL dump (file download)"
 msgstr "Κάδος SQL (λήψη αρχείου)"
 
-#: libraries/messages.inc.php:1509
+#: libraries/messages.inc.php:1157
 msgid "SQL dump"
 msgstr "Κάδος SQL"
 
-#: libraries/messages.inc.php:1510
+#: libraries/messages.inc.php:1158
 msgid "SQL statements executed."
 msgstr "Οι δηλώσεις SQL εκτελέστηκαν."
 
-#: libraries/messages.inc.php:1511
+#: libraries/messages.inc.php:1159
 msgid "This option will replace your table and contained data."
 msgstr ""
 "Αυτή η επιλογή θα αντικαταστήσει τον πίνακα και τα περιεχόμενά δεδομένα."
 
-#: libraries/messages.inc.php:1512
+#: libraries/messages.inc.php:1160
 msgid "SQL execution"
 msgstr "Εκτέλεση SQL"
 
-#: libraries/messages.inc.php:1513
+#: libraries/messages.inc.php:1161
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "Οι δηλώσεις SQL εξήχθησαν. Αντιγράψτε τον κάδο ή εκτελέστε τον."
 
-#: libraries/messages.inc.php:1514
+#: libraries/messages.inc.php:1162
 msgid "Tracking statements"
 msgstr "Δηλώσεις παρακολούθησης"
 
-#: libraries/messages.inc.php:1515
+#: libraries/messages.inc.php:1163
 msgid "active"
 msgstr "ενεργή"
 
-#: libraries/messages.inc.php:1516
+#: libraries/messages.inc.php:1164
 msgid "not active"
 msgstr "μη ενεργή"
 
-#: libraries/messages.inc.php:1517
+#: libraries/messages.inc.php:1165
 msgid "Structure snapshot"
 msgstr "Στιγμιότυπο δομής"
 
-#: libraries/messages.inc.php:1518
+#: libraries/messages.inc.php:1166
 msgid "Created"
 msgstr "Δημιουργήθηκε"
 
-#: libraries/messages.inc.php:1519
+#: libraries/messages.inc.php:1167
 msgid "Last version"
 msgstr "Τελευταία έκδοση"
 
-#: libraries/messages.inc.php:1520
+#: libraries/messages.inc.php:1168
 msgid "Updated"
 msgstr "Ενημερώθηκε"
 
-#: libraries/messages.inc.php:1521
+#: libraries/messages.inc.php:1169
 msgid "Version"
 msgstr "Έκδοση"
 
-#: libraries/messages.inc.php:1522
+#: libraries/messages.inc.php:1170
 msgid "Track these data definition statements:"
 msgstr "Παρακολούθηση αυτών των δηλώσεων ορισμού δεδομένων:"
 
-#: libraries/messages.inc.php:1523
+#: libraries/messages.inc.php:1171
 msgid "Track these data manipulation statements:"
 msgstr "Παρακολούθηση αυτών των δηλώσεων χειρισμού δεδομένων:"
 
-#: libraries/messages.inc.php:1524
+#: libraries/messages.inc.php:1172
 msgid "Tracked tables"
 msgstr "Παρακολουθούμενοι πίνακες"
 
-#: libraries/messages.inc.php:1525
+#: libraries/messages.inc.php:1173
 msgid "Tracking"
 msgstr "Παρακολούθηση"
 
-#: libraries/messages.inc.php:1526
+#: libraries/messages.inc.php:1174
 msgid "Track table"
 msgstr "Παρακολούθηση πίνακα"
 
-#: libraries/messages.inc.php:1527
+#: libraries/messages.inc.php:1175
 msgid "Untracked tables"
 msgstr "Μη παρακολουθούμενοι πίνακες"
 
-#: libraries/messages.inc.php:1528
+#: libraries/messages.inc.php:1176
 msgid "Username"
 msgstr "Όνομα χρήστη"
 
-#: libraries/messages.inc.php:1529
+#: libraries/messages.inc.php:1177
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
 msgstr "Η παρακολούθηση του %s.%s , η έκδοση %s είναι ενεργοποιημένη."
 
-#: libraries/messages.inc.php:1530
+#: libraries/messages.inc.php:1178
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
 msgstr "Η έκδοση %s δημιουργήθηκε, η παρακολούθηση του %s.%s ενεργοποιήθηκε."
 
-#: libraries/messages.inc.php:1531
+#: libraries/messages.inc.php:1179
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
 msgstr "Η παρακολούθηση του %s.%s , η έκδοση %s είναι απενεργοποιημένη."
 
-#: libraries/messages.inc.php:1532
+#: libraries/messages.inc.php:1180
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Στιγμιότυπο έκδοσης %s (κώδικας SQL)"
 
-#: libraries/messages.inc.php:1533
+#: libraries/messages.inc.php:1181
 msgid "Versions"
 msgstr "Εκδόσεις"
 
-#: libraries/messages.inc.php:1534
+#: libraries/messages.inc.php:1182
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -7316,23 +5593,23 @@ msgstr ""
 "Μπορείτε να εκτελέσετε τον κάδο δημιουργώντας και χρησιμοποιώντας μι "
 "προσωρινή βάση δεδομένων. Σιγουρευτείτε ότι έχετε τα δικαιώματα για αυτό."
 
-#: libraries/messages.inc.php:1535
+#: libraries/messages.inc.php:1183
 msgid "Traditional Chinese"
 msgstr "Παραδοσιακά Κινεζικά"
 
-#: libraries/messages.inc.php:1536
+#: libraries/messages.inc.php:1184
 msgid "Traditional Spanish"
 msgstr "Παραδοσιακά Ισπανικά"
 
-#: libraries/messages.inc.php:1537
+#: libraries/messages.inc.php:1185
 msgid "Traffic"
 msgstr "Κίνηση"
 
-#: libraries/messages.inc.php:1538
+#: libraries/messages.inc.php:1186
 msgid "Transaction coordinator"
 msgstr "Συντονιστής κινήσεων"
 
-#: libraries/messages.inc.php:1539
+#: libraries/messages.inc.php:1187
 msgid ""
 "Displays a link to download the binary data of the field. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -7345,7 +5622,7 @@ msgstr ""
 "αρχείου. Αν δώσετε μια δεύτερη επιλογή πρέπει να έχετε ορίσει την πρώτη "
 "επιλογή ως κενό"
 
-#: libraries/messages.inc.php:1540
+#: libraries/messages.inc.php:1188
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
@@ -7354,7 +5631,7 @@ msgstr ""
 "παράμετρος ορίζει πόσο συχνά θα προστείθεται διάστημα (η προεπιλογή στις 2 "
 "στιγμές)."
 
-#: libraries/messages.inc.php:1541
+#: libraries/messages.inc.php:1189
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
@@ -7362,15 +5639,15 @@ msgstr ""
 "Εμφανίζει μια εικόνα προεπισκόπησης με σύνδεσμο; επιλογές: πλάτος, ύψος σε "
 "εικονοστοιχεία (διατηρεί τις αρχικές αναλογίες)"
 
-#: libraries/messages.inc.php:1542
+#: libraries/messages.inc.php:1190
 msgid "Displays a link to download this image."
 msgstr "Εμφανίζει έναν σύνδεσμο για αυτήν την εικόνα."
 
-#: libraries/messages.inc.php:1543
+#: libraries/messages.inc.php:1191
 msgid "See image/jpeg: inline"
 msgstr "Δείτε image/jpeg: inline"
 
-#: libraries/messages.inc.php:1544
+#: libraries/messages.inc.php:1192
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -7391,7 +5668,7 @@ msgstr ""
 "τη συνάρτηση strftime() της PHP και για το «utc» γίνεται χρησιμοποιώντας τη "
 "συνάρτηση gmdate()."
 
-#: libraries/messages.inc.php:1545
+#: libraries/messages.inc.php:1193
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the field data via "
 "standard input. Returns the standard output of the application. The default "
@@ -7417,7 +5694,7 @@ msgstr ""
 "ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην διάταξη "
 "(Προεπιλεγμένη τιμή: 1)"
 
-#: libraries/messages.inc.php:1546
+#: libraries/messages.inc.php:1194
 msgid ""
 "Displays the contents of the field as-is, without running it through "
 "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -7425,7 +5702,7 @@ msgstr ""
 "Διατηρεί την αρχική μορφοποίηση του πεδίου. Δεν χρησιμοποιούνται χαρακτήρες "
 "διαφυγής."
 
-#: libraries/messages.inc.php:1547
+#: libraries/messages.inc.php:1195
 msgid ""
 "Displays an image and a link; the field contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -7435,7 +5712,7 @@ msgstr ""
 "πρώτη επιλογή είναι ένα πρόθεμα όπως «http://domain.com/», η δεύτερη επιλογή "
 "είναι το πλάτος σε εικονοστοιχεία, η τρίτη είναι το ύψος."
 
-#: libraries/messages.inc.php:1548
+#: libraries/messages.inc.php:1196
 msgid ""
 "Displays a link; the field contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
@@ -7445,11 +5722,11 @@ msgstr ""
 "είναι ένα πρόθεμα όπως «http://domain.com/», η δεύτερη επιλογή είναι ένας "
 "τίτλος για τον σύνδεσμο."
 
-#: libraries/messages.inc.php:1549
+#: libraries/messages.inc.php:1197
 msgid "Formats text as SQL query with syntax highlighting."
 msgstr "Μορφοποιεί το κείμενο ως ερώτημα SQL με συντακτική επισήμανση."
 
-#: libraries/messages.inc.php:1550
+#: libraries/messages.inc.php:1198
 msgid ""
 "Displays a part of a string. The first option is the number of characters to "
 "skip from the beginning of the string (Default 0). The second option is the "
@@ -7463,47 +5740,47 @@ msgstr ""
 "αλφαριθμητικό. Η τρίτη επιλογή καθορίζει ποιοι χαρακτήρες θα ακολουθούν το "
 "κείμενο όταν εμφανίζεται μέρος του (Προεπιλογή: ...) ."
 
-#: libraries/messages.inc.php:1551
+#: libraries/messages.inc.php:1199
 msgid "Triggers"
 msgstr "Δείκτες"
 
-#: libraries/messages.inc.php:1552
+#: libraries/messages.inc.php:1200
 msgid "Truncate Shown Queries"
 msgstr "Αποκοπή εμφανιζόμενων ερωτημάτων"
 
-#: libraries/messages.inc.php:1553
+#: libraries/messages.inc.php:1201
 msgid "Turkish"
 msgstr "Τουρκικά"
 
-#: libraries/messages.inc.php:1554
+#: libraries/messages.inc.php:1202
 msgid "Type"
 msgstr "Τύπος"
 
-#: libraries/messages.inc.php:1556
+#: libraries/messages.inc.php:1204
 msgid "Ukrainian"
 msgstr "Ουκρανικά"
 
-#: libraries/messages.inc.php:1557
+#: libraries/messages.inc.php:1205
 msgid "Uncheck All"
 msgstr "Απεπιλογή όλων"
 
-#: libraries/messages.inc.php:1558
+#: libraries/messages.inc.php:1206
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/messages.inc.php:1559
+#: libraries/messages.inc.php:1207
 msgid "Unique"
 msgstr "Μοναδικό"
 
-#: libraries/messages.inc.php:1560
+#: libraries/messages.inc.php:1208
 msgid "unknown"
 msgstr "άγνωστο"
 
-#: libraries/messages.inc.php:1561
+#: libraries/messages.inc.php:1209
 msgid "Unselect All"
 msgstr "Απεπιλογή όλων"
 
-#: libraries/messages.inc.php:1562
+#: libraries/messages.inc.php:1210
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -7513,40 +5790,40 @@ msgstr ""
 "υποστήριξη για αυτή δεν έχει εφαρμοστεί ή απενεργοποιηθεί από τις ρυθμίσεις "
 "σας."
 
-#: libraries/messages.inc.php:1563
+#: libraries/messages.inc.php:1211
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Τα δικαιώματα του χρήστη %s ενημερώθηκαν."
 
-#: libraries/messages.inc.php:1564
+#: libraries/messages.inc.php:1212
 msgid "The profile has been updated."
 msgstr "Τα στοιχεία ανανεώθηκαν."
 
-#: libraries/messages.inc.php:1565
+#: libraries/messages.inc.php:1213
 msgid "Update Query"
 msgstr "Ενημέρωση της εντολής"
 
-#: libraries/messages.inc.php:1566
+#: libraries/messages.inc.php:1214
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "Παρακαλώ διαβάστε στην τεκμηρίωση για το πως μπορείτε να ανανεώσετε τον "
 "πίνακα Column_comments"
 
-#: libraries/messages.inc.php:1567
+#: libraries/messages.inc.php:1215
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Πρέπει να αναβαθμίσετε σε %s %s ή νεότερη."
 
-#: libraries/messages.inc.php:1568
+#: libraries/messages.inc.php:1216
 msgid "Failed to write file to disk."
 msgstr "Αποτυχία εγγραφής του αρχείου στο δίσκο."
 
-#: libraries/messages.inc.php:1569
+#: libraries/messages.inc.php:1217
 msgid "File upload stopped by extension."
 msgstr "Η αποστολή του αρχείου σταμάτησε λόγω επέκτασης."
 
-#: libraries/messages.inc.php:1570
+#: libraries/messages.inc.php:1218
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -7554,25 +5831,25 @@ msgstr ""
 "Το προς αποστολή αρχείο υπερβαίνει την οδηγία MAX_FILE_SIZE όπως ορίστηκε "
 "στη φόρμα HTML."
 
-#: libraries/messages.inc.php:1571
+#: libraries/messages.inc.php:1219
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Το προς αποστολή αρχείο υπερβαίνει την οδηγία upload_max_filesize στο php."
 "ini."
 
-#: libraries/messages.inc.php:1572
+#: libraries/messages.inc.php:1220
 msgid "Missing a temporary folder."
 msgstr "Χάθηκε ένας προσωρινός φάκελος."
 
-#: libraries/messages.inc.php:1573
+#: libraries/messages.inc.php:1221
 msgid "The uploaded file was only partially uploaded."
 msgstr "Το απεσταλμένο αρχείο εστάλει μόνο μερικώς."
 
-#: libraries/messages.inc.php:1574
+#: libraries/messages.inc.php:1222
 msgid "Unknown error in file upload."
 msgstr "Άγνωστο σφάλμα στην αποστολή αρχείου."
 
-#: libraries/messages.inc.php:1575
+#: libraries/messages.inc.php:1223
 #, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
@@ -7581,76 +5858,80 @@ msgstr ""
 "Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
 "sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
-#: libraries/messages.inc.php:1576
+#: libraries/messages.inc.php:1224
 msgid "File uploads are not allowed on this server."
 msgstr "Οι αποστολές αρχείων δεν επιτρέπονται σε αυτό τον διακομιστή."
 
-#: libraries/messages.inc.php:1577
+#: libraries/messages.inc.php:1225
 msgid "Usage"
 msgstr "Χρήση"
 
-#: libraries/messages.inc.php:1578
+#: libraries/messages.inc.php:1226
 msgid "Enclose table and field names with backquotes"
 msgstr "Χρήση ανάποδων εισαγωγικών στα ονόματα των Πινάκων και των Πεδίων"
 
-#: libraries/messages.inc.php:1579
+#: libraries/messages.inc.php:1227
 msgid "Use Host Table"
 msgstr "Χρήση Οικείου Πίνακα"
 
-#: libraries/messages.inc.php:1580
+#: libraries/messages.inc.php:1228
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Ο χρήστης %s υπάρχει ήδη!"
 
-#: libraries/messages.inc.php:1581
+#: libraries/messages.inc.php:1229
 msgid "The user name is empty!"
 msgstr "Το όνομα του χρήστη είναι κενό!"
 
-#: libraries/messages.inc.php:1582
+#: libraries/messages.inc.php:1230
 msgid "User name"
 msgstr "Όνομα χρήστη"
 
-#: libraries/messages.inc.php:1583
+#: libraries/messages.inc.php:1231
 msgid "The selected user was not found in the privilege table."
 msgstr "Ο επιλεγμένος χρήστης δεν βρέθηκε στον πίνακα δικαιωμάτων."
 
-#: libraries/messages.inc.php:1584
+#: libraries/messages.inc.php:1232
 msgid "User overview"
 msgstr "Περίληψη χρηστών"
 
-#: libraries/messages.inc.php:1585
+#: libraries/messages.inc.php:1233
 msgid "The selected users have been deleted successfully."
 msgstr "Οι επιλεγμένοι χρήστες διεγράφησαν επιτυχώς."
 
-#: libraries/messages.inc.php:1586
+#: libraries/messages.inc.php:1234
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Χρήστες με πρόσβαση στη βάση «%s»"
 
-#: libraries/messages.inc.php:1587
+#: libraries/messages.inc.php:1235
 msgid "User"
 msgstr "Χρήστης"
 
-#: libraries/messages.inc.php:1588
+#: libraries/messages.inc.php:1236
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Χρήση του πλήκτρου TAB για μετακίνηση από τιμή σε τιμή ή CTRL+βέλη για "
 "μετακίνηση παντού"
 
-#: libraries/messages.inc.php:1589
+#: libraries/messages.inc.php:1237
 msgid "Use Tables"
 msgstr "Χρήση Πινάκων"
 
-#: libraries/messages.inc.php:1590
+#: libraries/messages.inc.php:1238
 msgid "Use text field"
 msgstr "Χρησιμοποιήστε το πεδίο κειμένου"
 
-#: libraries/messages.inc.php:1591
+#: libraries/messages.inc.php:1239
 msgid "Use this value"
 msgstr "Χρήση αυτής της τιμής"
 
-#: libraries/messages.inc.php:1594
+#: libraries/messages.inc.php:1241 setup/lib/messages.inc.php:337
+msgid "Validate SQL"
+msgstr "Επικύρωση SQL"
+
+#: libraries/messages.inc.php:1242
 #, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
@@ -7660,31 +5941,31 @@ msgstr ""
 "εγκαταστήσει της απαραίτητες επεκτάσεις της php όπως περιγράφεται στην %"
 "sτεκμηρίωση%s."
 
-#: libraries/messages.inc.php:1595
+#: libraries/messages.inc.php:1243
 msgid "Value"
 msgstr "Τιμή"
 
-#: libraries/messages.inc.php:1596
+#: libraries/messages.inc.php:1244
 msgid "Variable"
 msgstr "Μεταβλητή"
 
-#: libraries/messages.inc.php:1597
+#: libraries/messages.inc.php:1245
 msgid "Version information"
 msgstr "Πληροφορίες έκδοσης"
 
-#: libraries/messages.inc.php:1598
+#: libraries/messages.inc.php:1246
 msgid "View dump (schema) of databases"
 msgstr "Εμφάνισης σχήματος βάσεων"
 
-#: libraries/messages.inc.php:1599
+#: libraries/messages.inc.php:1247
 msgid "View dump (schema) of database"
 msgstr "Εμφάνιση σχήματος της βάσης δεδομένων"
 
-#: libraries/messages.inc.php:1600
+#: libraries/messages.inc.php:1248
 msgid "View dump (schema) of table"
 msgstr "Εμφάνιση σχήματος του πίνακα"
 
-#: libraries/messages.inc.php:1601
+#: libraries/messages.inc.php:1249
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -7693,58 +5974,58 @@ msgstr ""
 "Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
 "sτεκμηρίωση%s."
 
-#: libraries/messages.inc.php:1602
+#: libraries/messages.inc.php:1250
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Η προβολή %s διαγράφτηκε"
 
-#: libraries/messages.inc.php:1603
+#: libraries/messages.inc.php:1251
 msgid "View image"
 msgstr "Προβολή εικόνας"
 
-#: libraries/messages.inc.php:1604
+#: libraries/messages.inc.php:1252
 msgid "VIEW name"
 msgstr "ΠΡΟΒΟΛΗ ονόματος"
 
-#: libraries/messages.inc.php:1605
+#: libraries/messages.inc.php:1253
 msgid "View video"
 msgstr "Προβολή βίντεο"
 
-#: libraries/messages.inc.php:1606
+#: libraries/messages.inc.php:1254
 msgid "View"
 msgstr "Προβολή"
 
-#: libraries/messages.inc.php:1608
+#: libraries/messages.inc.php:1256
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 "Ο υποκατάλογος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί"
 
-#: libraries/messages.inc.php:1609
+#: libraries/messages.inc.php:1257
 msgid "web server upload directory"
 msgstr "Υποκατάλογος αποθήκευσης αρχείων διακομιστή"
 
-#: libraries/messages.inc.php:1610
+#: libraries/messages.inc.php:1258
 msgid "Web server"
 msgstr "Διακομιστής ιστού"
 
-#: libraries/messages.inc.php:1611
+#: libraries/messages.inc.php:1259
 #, php-format
 msgid "Welcome to %s"
 msgstr "Καλωσήρθατε στο %s"
 
-#: libraries/messages.inc.php:1612
+#: libraries/messages.inc.php:1260
 msgid "West European"
 msgstr "Δυτικής Ευρώπης"
 
-#: libraries/messages.inc.php:1613
+#: libraries/messages.inc.php:1261
 msgid "Wiki"
 msgstr "Wiki"
 
-#: libraries/messages.inc.php:1614
+#: libraries/messages.inc.php:1262
 msgid "wildcard"
 msgstr "μπαλαντέρ"
 
-#: libraries/messages.inc.php:1615
+#: libraries/messages.inc.php:1263
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -7754,19 +6035,19 @@ msgstr ""
 "κλείσατε το μητρικό παράθυρο ή ο περιηγητής σας δεν επιτρέπει τις ανανεώσεις "
 "μεταξύ παραθύρων λόγω ρυθμίσεων ασφαλείας."
 
-#: libraries/messages.inc.php:1616
+#: libraries/messages.inc.php:1264
 msgid "With selected:"
 msgstr "Με τους επιλεγμένους:"
 
-#: libraries/messages.inc.php:1617
+#: libraries/messages.inc.php:1265
 msgid "Write requests"
 msgstr "Αιτήσεις εγγραφής"
 
-#: libraries/messages.inc.php:1618
+#: libraries/messages.inc.php:1266
 msgid "Wrong username/password. Access denied."
 msgstr "Λανθασμένο όνομα χρήστη/κωδικός πρόσβασης. Άρνηση πρόσβασης."
 
-#: libraries/messages.inc.php:1620
+#: libraries/messages.inc.php:1268
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -7774,48 +6055,48 @@ msgstr ""
 "Το αρχείο XML που ορίστηκε ήταν σε λανθασμένη μορφή ή ανεπαρκές. Διορθώστε "
 "το θέμα και δοκιμάστε ξανά."
 
-#: libraries/messages.inc.php:1621
+#: libraries/messages.inc.php:1269
 msgid "Export contents"
 msgstr "Εξαγωγή περιεχομένων"
 
-#: libraries/messages.inc.php:1622
+#: libraries/messages.inc.php:1270
 msgid "Export functions"
 msgstr "Εξαγωγή συναρτήσεων"
 
-#: libraries/messages.inc.php:1623
+#: libraries/messages.inc.php:1271
 msgid "Export procedures"
 msgstr "Εξαγωγή διεργασιών"
 
-#: libraries/messages.inc.php:1624
+#: libraries/messages.inc.php:1272
 msgid "Export Structure Schemas (recommended)"
 msgstr "Εξαγωγή Σχεδίων Δομής (προτείνεται)"
 
-#: libraries/messages.inc.php:1625
+#: libraries/messages.inc.php:1273
 msgid "Export tables"
 msgstr "Εξαγωγή πινάκων"
 
-#: libraries/messages.inc.php:1626
+#: libraries/messages.inc.php:1274
 msgid "Export triggers"
 msgstr "Εξαγωγή δεικτών"
 
-#: libraries/messages.inc.php:1627
+#: libraries/messages.inc.php:1275
 msgid "Export views"
 msgstr "Εξαγωγή προβολών"
 
-#: libraries/messages.inc.php:1628
+#: libraries/messages.inc.php:1276
 msgid "XML"
 msgstr "XML"
 
-#: libraries/messages.inc.php:1630
+#: libraries/messages.inc.php:1278
 msgid "Yes"
 msgstr "Ναι"
 
-#: libraries/messages.inc.php:1632
+#: libraries/messages.inc.php:1280
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο περιορισμός."
 
-#: libraries/messages.inc.php:1633
+#: libraries/messages.inc.php:1281
 msgid "\"zipped\""
 msgstr "συμπίεση «zip»"
 
@@ -7824,6 +6105,1725 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Οι χαρακτήρες μπαλαντέρ _ και % πρέπει να γραφούν μπροστά με \\ για να "
 "χρησιμοποιηθούν"
+
+#: setup/lib/messages.inc.php:11
+msgid "Allow character set conversion"
+msgstr "Άδεια μετατροπής συνόλου χαρακτήρων"
+
+#: setup/lib/messages.inc.php:12
+msgid ""
+"If enabled user can enter any MySQL server in login form for cookie auth"
+msgstr ""
+"Αν ενεργοποιηθεί, ο χρήστης μπορεί να συνδεθεί σε οποιοδήποτε διακομιστή "
+"MySQL μέσω φόρμας σύνδεσης για επικύρωση cookie"
+
+#: setup/lib/messages.inc.php:13
+msgid ""
+"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
+"disabled as it allows attackers to bruteforce login to any MySQL server. If "
+"you feel this is necessary, use [a@?page=form&amp;"
+"formset=features#tab_Security]trusted proxies list[/a]. However, IP-based "
+"protection may not be reliable if your IP belongs to an ISP where thousands "
+"of users, including you, are connected to."
+msgstr ""
+"Αυτή η [a@?page=form&amp;formset=features#tab_Security]επιλογή[/a] πρέπει να "
+"απενεργοποιηθεί καθώς επιτρέπει σε κακόβουλους να εισβάλουν συνδεόμενοι σε "
+"οποιοδήποτε διακομιστή MySQL. Αν νομίζετε ότι είναι απαραίτητο, "
+"χρησιμοποιείστε [a@?page=form&amp;formset=features#tab_Security]λίστα "
+"διευθύνσεων που εμπιστεύεστε[/a]. Ωστόσο, η βασισμένη σε IP προστασία ίσως "
+"να μην είναι αξιόπιστη αν η IP σας ανήκει σε έναν ISP όπου χιλιάδες χρήστες, "
+"μαζί με εσάς, είναι συνδεδεμένοι σε αυτόν."
+
+#: setup/lib/messages.inc.php:14
+msgid "Allow login to any MySQL server"
+msgstr "Δικαίωμα σύνδεσης σε οποιοδήποτε διακομιστή MySQL"
+
+#: setup/lib/messages.inc.php:15
+msgid "Show &quot;Drop database&quot; link to normal users"
+msgstr "Προβολή συνδέσμου «Διαγραφής βάσης δεδομένων» σε κανονικούς χρήστες"
+
+#: setup/lib/messages.inc.php:16
+msgid "Key should contain letters, numbers [em]and[/em] special characters"
+msgstr ""
+"Το κλειδί πρέπει να περιέχει γράμματα, αριθμούς [em]και[/em] ειδικούς "
+"χαρακτήρες"
+
+#: setup/lib/messages.inc.php:17
+msgid ""
+"Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+"authentication"
+msgstr ""
+"Μυστική φράση πρόσβασης χρησιμοποιήθηκε για την κρυπτογράφηση των cookies "
+"στην επικύρωση του [kbd]cookie[/kbd]"
+
+#: setup/lib/messages.inc.php:18
+msgid "Key is too short, it should have at least 8 characters"
+msgstr "Το κλειδί είναι πολύ μικρό. Πρέπει να έχει τουλάχιστον 8 χαρακτήρες"
+
+#: setup/lib/messages.inc.php:19
+msgid ""
+"You didn't have blowfish secret set and have enabled cookie authentication, "
+"so a key was automatically generated for you. It is used to encrypt cookies; "
+"you don't need to remember it."
+msgstr ""
+"Δεν ορίσατε το μυστικό κολιτσίδας και ενεργοποιήσατε την επικύρωση cookie. "
+"Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. Χρησιμοποιήθηκε για την "
+"κρυπτογράφηση cookies. Δεν χρειάζεται να το θυμάστε."
+
+#: setup/lib/messages.inc.php:20
+msgid "Blowfish secret"
+msgstr "Μυστικό κολιτσίδας"
+
+#: setup/lib/messages.inc.php:21
+msgid "Highlight selected rows"
+msgstr "Επισήμανση επιλεγμένων γραμμών"
+
+#: setup/lib/messages.inc.php:22
+msgid "Row marker"
+msgstr "Επισημαντής γραμμής"
+
+#: setup/lib/messages.inc.php:23
+msgid "Highlight row pointed by the mouse cursor"
+msgstr "Επισήμανση γραμμής που δείχνει ο δείκτης του ποντικιού"
+
+#: setup/lib/messages.inc.php:24
+msgid "Highlight pointer"
+msgstr "Δείκτης επισήμανσης"
+
+#: setup/lib/messages.inc.php:25
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
+"import and export operations"
+msgstr ""
+"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
+"για λειτουργίες εισαγωγής και εξαγωγής"
+
+#: setup/lib/messages.inc.php:26
+msgid "Bzip2"
+msgstr "Bzip2"
+
+#: setup/lib/messages.inc.php:27
+#, php-format
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
+"decompression[/a] requires functions (%s) which are unavailable on this "
+"system."
+msgstr ""
+"Η [a@?page=form&amp;formset=features#tab_Import_export]συμπίεση και "
+"αποσυμπίεση Bzip2[/a] απαιτεί λειτουργίες (%s) που δεν είναι διαθεσιμες σε "
+"αυτό το σύστημα."
+
+#: setup/lib/messages.inc.php:28
+msgid "Cannot load or save configuration"
+msgstr "Αδύνατη η φόρτωση ή η αποθήκευση ρυθμίσεων"
+
+#: setup/lib/messages.inc.php:29
+msgid ""
+"Please create web server writable folder [em]config[/em] in phpMyAdmin top "
+"level directory as described in [a@../Documentation.html#setup_script]"
+"documentation[/a]. Otherwise you will be only able to download or display it."
+msgstr ""
+"Δημιουργήστε εγγράψιμο φάκελο διακομιστή ιστού [em]config[/em] στο φάκελο "
+"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην [a@../Documentation."
+"html#setup_script]τεκμηρίωση[/a]. Διαφορετικά, θα μπορείτε μόνο να τον "
+"λάβετε ή να τον προβάλετε."
+
+#: setup/lib/messages.inc.php:30
+msgid ""
+"Defines which type of editing controls should be used for CHAR and VARCHAR "
+"fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
+"kbd] - allows newlines in fields"
+msgstr ""
+"Ορίζει ποιος τύπος επεξεργασμένων ελέγχων πρέπει να χρησιμοποιηθεί για πεδία "
+"CHAR και VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, [kbd]"
+"textarea[/kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
+
+#: setup/lib/messages.inc.php:31
+msgid "CHAR fields editing"
+msgstr "Επεξεργασία πεδίων CHAR"
+
+#: setup/lib/messages.inc.php:32
+msgid "Number of columns for CHAR/VARCHAR textareas"
+msgstr "Αριθμός στηλών για περιοχές κειμένου CHAR/VARCHAR"
+
+#: setup/lib/messages.inc.php:33
+msgid "CHAR textarea columns"
+msgstr "Στήλες περιοχής κειμένου (textarea) CHAR"
+
+#: setup/lib/messages.inc.php:34
+msgid "Number of rows for CHAR/VARCHAR textareas"
+msgstr "Αριθμός γραμμών για περιοχές κειμένου CHAR/VARCHAR"
+
+#: setup/lib/messages.inc.php:35
+msgid "CHAR textarea rows"
+msgstr "Γραμμές περιοχής κειμένου (textarea) CHAR"
+
+#: setup/lib/messages.inc.php:36
+msgid "Check config file permissions"
+msgstr "Ελέξτε τα δικαιώματα του αρχείου ρυθμίσεων"
+
+#: setup/lib/messages.inc.php:37
+msgid "Clear"
+msgstr "Καθάρισμα"
+
+#: setup/lib/messages.inc.php:38
+msgid ""
+"Compress gzip/bzip2 exports on the fly without the need for much memory; if "
+"you encounter problems with created gzip/bzip2 files disable this feature"
+msgstr ""
+"Η συμπίεση gzip/bzip2 εξάγει άμεσα χωρίς την ανάγκη για πολύ μνήμη. Αν "
+"παρουσιάστηκαν προβλήματα με τα δημιουργηθέντα αρχεία gzip/bzip2 "
+"απενεργοποιήστε αυτό το χαρακτηριστικό"
+
+#: setup/lib/messages.inc.php:39
+msgid "Compress on the fly"
+msgstr "Άμεση συμπίεση"
+
+#: setup/lib/messages.inc.php:40
+msgid "Configuration file"
+msgstr "Αρχείο ρυθμίσεων"
+
+#: setup/lib/messages.inc.php:41
+msgid ""
+"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"when you're about to lose data"
+msgstr ""
+"Όταν μια προειδοποίηση («Είστε σίγουρος/η...») πρέπει να προβάλετε αν "
+"πρόκειται να χαθούν δεδομένα"
+
+#: setup/lib/messages.inc.php:42
+msgid "Confirm DROP queries"
+msgstr "Επιβεβαίωση ερωτημάτων ΔΙΑΓΡΑΦΗΣ (DROP)"
+
+#: setup/lib/messages.inc.php:43
+msgid "Default character set used for conversions"
+msgstr "Προεπιλεγμένο σύνολο χαρακτήρων για μετατροπές"
+
+#: setup/lib/messages.inc.php:44
+msgid "Default character set"
+msgstr "Προεπιλεγμένο σύνολο χαρακτήρων"
+
+#: setup/lib/messages.inc.php:45
+msgid "Default language"
+msgstr "Προεπιλεγμένη γλώσσα"
+
+#: setup/lib/messages.inc.php:46
+msgid "Default server"
+msgstr "Προεπιλεγμένος διακομιστής"
+
+#: setup/lib/messages.inc.php:47
+msgid "Tab that is displayed when entering a database"
+msgstr "Προβαλόμενη καρτέλα κατά το άνοιγμα της βάσης δεδομένων"
+
+#: setup/lib/messages.inc.php:48
+msgid "Default database tab"
+msgstr "Προεπιλεγμένη καρτέλα βάσης δεδομένων"
+
+#: setup/lib/messages.inc.php:49
+msgid "Tab that is displayed when entering a server"
+msgstr "Προβαλόμενη καρτέλα κατά το άνοιγμα του διακομιστή"
+
+#: setup/lib/messages.inc.php:50
+msgid "Default server tab"
+msgstr "Προεπιλεγμένη καρτέλα διακομιστή"
+
+#: setup/lib/messages.inc.php:51
+msgid "Tab that is displayed when entering a table"
+msgstr "Προβαλόμενη καρτέλα κατά το άνοιγμα ενός πίνακα"
+
+#: setup/lib/messages.inc.php:52
+msgid "Default table tab"
+msgstr "Προεπιλεγμένη καρτέλα πίνακα"
+
+#: setup/lib/messages.inc.php:53
+msgid ""
+"This value should be double checked to ensure that this directory is neither "
+"world accessible nor readable or writable by other users on your server."
+msgstr ""
+"Αυτή η τιμή πρέπει να διπλοελεχθεί για διασφάλιση ότι αυτός ο φάκελος δεν "
+"είναι καθολικά προσβάσιμος ούτε αναγνώσιμος ούτε εγγράψιμος από άλλους "
+"χρήστες στο διακομιστή σας."
+
+#: setup/lib/messages.inc.php:54
+msgid "Show database listing as a list instead of a drop down"
+msgstr "Εμφάνιση λίστας βάσεων δεδομένων ως λίστα και όχι ως αναδυόμενο μενού"
+
+#: setup/lib/messages.inc.php:55
+msgid "Display databases as a list"
+msgstr "Προβολή βάσεων δεδομένων ως λίστα"
+
+#: setup/lib/messages.inc.php:56
+msgid "Display"
+msgstr "Προβολή"
+
+#: setup/lib/messages.inc.php:57
+msgid "Show server listing as a list instead of a drop down"
+msgstr "Εμφάνιση λίστας διακομιστών ως λίστα και όχι ως αναδυόμενο μενού"
+
+#: setup/lib/messages.inc.php:58
+msgid "Display servers as a list"
+msgstr "Προβολή διακομιστών ως λίστα"
+
+#: setup/lib/messages.inc.php:59
+msgid "Donate"
+msgstr "Δωρεά"
+
+#: setup/lib/messages.inc.php:60
+msgid "Download"
+msgstr "Λήψη"
+
+#: setup/lib/messages.inc.php:61
+msgid "End of line"
+msgstr "Τέλος γραμμής"
+
+#: setup/lib/messages.inc.php:62
+msgid "Could not connect to MySQL server"
+msgstr "Αδύνατη η σύνδεση στο διακομιστή MySQL"
+
+#: setup/lib/messages.inc.php:63
+msgid "Empty phpMyAdmin control user password while using pmadb"
+msgstr ""
+"Άδειασμα ελέγχου κωδικού πρόσβασης του phpMyAdmin ενώ χρησιμοποιείτε pmadb"
+
+#: setup/lib/messages.inc.php:64
+msgid "Empty phpMyAdmin control user while using pmadb"
+msgstr "Άδειασμα ελέγχου χρήστη του phpMyAdmin ενώ χρησιμοποιείτε pmadb"
+
+#: setup/lib/messages.inc.php:65
+msgid "Empty signon session name while using signon authentication method"
+msgstr ""
+"Άδειασμα ονομασίας συνεδρίας σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
+"σύνδεσης"
+
+#: setup/lib/messages.inc.php:66
+msgid "Empty signon URL while using signon authentication method"
+msgstr ""
+"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης σύνδεσης"
+
+#: setup/lib/messages.inc.php:67
+msgid "Empty username while using config authentication method"
+msgstr ""
+"Άδειασμα ονόματος χρήστη ενώ χρησιμοποιείτε ρυθμισμένη μέθοδο επικύρωσης"
+
+#: setup/lib/messages.inc.php:68
+msgid "Submitted form contains errors"
+msgstr "Η υποβλειθείσα φόρμα περιέχει σφάλματα"
+
+#: setup/lib/messages.inc.php:69
+#, php-format
+msgid "Incorrect IP address: %s"
+msgstr "Εσφαλμένη διεύθυνση IP: %s"
+
+#: setup/lib/messages.inc.php:70
+msgid "Not a valid port number"
+msgstr "Μη έγκυρος αριθμός θύρας"
+
+#: setup/lib/messages.inc.php:71
+msgid "Incorrect value"
+msgstr "Εσφαλμένη τιμή"
+
+#: setup/lib/messages.inc.php:72
+#, php-format
+msgid "Missing data for %s"
+msgstr "Απολεσθέντα δεδομένα για %s"
+
+#: setup/lib/messages.inc.php:73
+msgid "Not a non-negative number"
+msgstr "Δεν είναι μη αρνητικός αριθμός"
+
+#: setup/lib/messages.inc.php:74
+msgid "Not a positive number"
+msgstr "Δεν είναι θετικός αριθμός"
+
+#: setup/lib/messages.inc.php:75
+msgid ""
+"Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
+"limit)"
+msgstr ""
+"Ορίστε τον αριθμό των δευτερολέπτων που επιτρέπεται να εκτελεστεί κώδικας "
+"([kbd]0[/kbd] για εκτέλεση χωρίς όριο)"
+
+#: setup/lib/messages.inc.php:76
+msgid "Maximum execution time"
+msgstr "Μέγιστος χρόνος εκτέλεσης"
+
+#: setup/lib/messages.inc.php:78
+msgid "Character set of the file"
+msgstr "Σύνολο χαρακτήρων αρχείου"
+
+#: setup/lib/messages.inc.php:80
+msgid "Database name template"
+msgstr "Πρότυπο ονόματος βάσης δεδομένων"
+
+#: setup/lib/messages.inc.php:81
+msgid "Server name template"
+msgstr "Πρότυπο ονόματος διακομιστή"
+
+#: setup/lib/messages.inc.php:82
+msgid "Table name template"
+msgstr "Πρότυπο ονόματος πίνακα"
+
+#: setup/lib/messages.inc.php:84
+msgid "Save on server"
+msgstr "Αποθήκευση στο διακομιστή"
+
+#: setup/lib/messages.inc.php:86
+msgid "Remember file name template"
+msgstr "Πρότυπο απομνημόνευσης ονοματος αρχείου"
+
+#: setup/lib/messages.inc.php:87
+msgid "no"
+msgstr "όχι"
+
+#: setup/lib/messages.inc.php:88
+msgid "Force secured connection while using phpMyAdmin"
+msgstr "Εξαναγκασμένη ασφαλής σύνδεση όσο χρησιμοποιείται το phpMyAdmin"
+
+#: setup/lib/messages.inc.php:89
+msgid ""
+"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
+"enabled if your web server supports it"
+msgstr ""
+"Αύτη η [a@?page=form&amp;formset=features#tab_Security]επιλογή[/a] πρέπει να "
+"είναι ενεργή αν την υποστηρίζει ο διακομιστής σας"
+
+#: setup/lib/messages.inc.php:90
+msgid "Force SSL connection"
+msgstr "Εξαναγκασμένη σύνδεση SSL"
+
+#: setup/lib/messages.inc.php:91
+msgid ""
+"Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
+"the referenced data, [kbd]id[/kbd] is the key value"
+msgstr ""
+"Ταξινόμηση για αντικείμενα σε αναδυόμενο μενού μη διακριτού κλειδιού "
+"(foreing key); [kbd]content[/kbd] είναι τα αναφερθέντα δεδομένα, [kbd]id[/"
+"kbd] είναι η τιμή κλειδιού"
+
+#: setup/lib/messages.inc.php:92
+msgid "Foreign key dropdown order"
+msgstr "Αναδυόμενη σειρά μη διακριτού κλειδιού"
+
+#: setup/lib/messages.inc.php:93
+msgid "A dropdown will be used if fewer items are present"
+msgstr "Μια αναδυόμενη λίστα θα χρησιμοποιηθεί, αν υπάρχουν λίγα αντικείμενα"
+
+#: setup/lib/messages.inc.php:94
+msgid "Foreign key limit"
+msgstr "Όριο μη διακριτού κλειδιού"
+
+#: setup/lib/messages.inc.php:95
+msgid "Browse mode"
+msgstr "Κατάσταση αναζήτησης"
+
+#: setup/lib/messages.inc.php:96
+msgid "Customize browse mode"
+msgstr "Προσαρμοσμένη κατάσταση αναζήτησης"
+
+#: setup/lib/messages.inc.php:97
+msgid "Customize edit mode"
+msgstr "Προσαρμοσμένη κατάσταση επεξεργασίας"
+
+#: setup/lib/messages.inc.php:98
+msgid "Edit mode"
+msgstr "Κατάσταση επεξεργασίας"
+
+#: setup/lib/messages.inc.php:99
+msgid "Customize default export options"
+msgstr "Προσαρμογή προεπιλεγμένων επιλογών εξαγωγής"
+
+#: setup/lib/messages.inc.php:100
+msgid "Export defaults"
+msgstr "Προεπιλογές εξαγωγής"
+
+#: setup/lib/messages.inc.php:101
+msgid "Customize default common import options"
+msgstr "Προσαρμογή προεπιλεγμένων επιλογών εισαγωγής"
+
+#: setup/lib/messages.inc.php:102
+msgid "Import defaults"
+msgstr "Προεπιλογές εισαγωγής"
+
+#: setup/lib/messages.inc.php:103
+msgid "Set import and export directories and compression options"
+msgstr "Ορισμός φακέλων εισαγωγής-εξαγωγής και επιλογές συμπίεσης"
+
+#: setup/lib/messages.inc.php:104
+msgid "Import / export"
+msgstr "Εισαγωγή / Εξαγωγή"
+
+#: setup/lib/messages.inc.php:106
+msgid "Databases display options"
+msgstr "Επιλογές προβολής βάσεων δεδομένων"
+
+#: setup/lib/messages.inc.php:107
+msgid "Customize appearance of the navigation frame"
+msgstr "Προσαρμογή εμφάνισης του πλαισίου πλοήγησης"
+
+#: setup/lib/messages.inc.php:108
+msgid "Navigation frame"
+msgstr "Πλαίσιο πλοήγησης"
+
+#: setup/lib/messages.inc.php:109
+msgid "Servers display options"
+msgstr "Επιλογές προβολής διακομιστών"
+
+#: setup/lib/messages.inc.php:111
+msgid "Tables display options"
+msgstr "Επιλογές προβολής πινάκων"
+
+#: setup/lib/messages.inc.php:113
+msgid "Main frame"
+msgstr "Βασικό πλαίσιο"
+
+#: setup/lib/messages.inc.php:114
+msgid "Settings that didn't fit enywhere else"
+msgstr "Ρυθμίσεις που δεν ανήκουν κάπου αλλού"
+
+#: setup/lib/messages.inc.php:115
+msgid "Other core settings"
+msgstr "Άλλες ρυθμίσεις πυρήνα"
+
+#: setup/lib/messages.inc.php:116
+msgid "Customize query window options"
+msgstr "Προσαρμόστε επιλογές παραθύρου ερωτήματος"
+
+#: setup/lib/messages.inc.php:118
+msgid ""
+"Please note that phpMyAdmin is just a user interface and its features do not "
+"limit MySQL"
+msgstr ""
+"Σημειώστε ότι το phpMyAdmin είναι απλά ένα περιβάλλον εργασίας και τα "
+"χαρακτηριστικά του δεν περιορίζουν τη MySQL"
+
+#: setup/lib/messages.inc.php:119
+msgid "Security"
+msgstr "Ασφάλεια"
+
+#: setup/lib/messages.inc.php:120
+msgid "Basic settings"
+msgstr "Βασικές ρυθμίσεις"
+
+#: setup/lib/messages.inc.php:121
+msgid ""
+"Advanced server configuration, do not change these options unless you know "
+"what they are for"
+msgstr ""
+"Προχωρημένη ρύθμιση διακομιστή, μην αλλάξετε αυτές τις ρυθμίσεις εκτός και "
+"αν ξέρετε που παραπέμπουν"
+
+#: setup/lib/messages.inc.php:122
+msgid "Server configuration"
+msgstr "Προσαρμογή διακομιστή"
+
+#: setup/lib/messages.inc.php:123
+msgid "Enter server connection parameters"
+msgstr "Εισάγετε παραμέτρους σύνδεσης διακομιστή"
+
+#: setup/lib/messages.inc.php:124
+msgid "Enter login options for signon authentication"
+msgstr "Εισάγετε επιλογές σύνδεσης για επικύρωσης σύνδεσης"
+
+#: setup/lib/messages.inc.php:125
+msgid "Signon login options"
+msgstr "Επιλογές σύνδεσης"
+
+#: setup/lib/messages.inc.php:126
+msgid ""
+"Configure phpMyAdmin database to gain access to additional features, see "
+"[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
+"documentation"
+msgstr ""
+"Προσαρμογή βάσης δεδομένων phpMyAdmin για παροχή πρόσβασης σε πρόσθετα "
+"χαρακτηριστικά. Δείτε  την [a@../Documentation.html#linked-tables]υποδομή "
+"συνδεδεμένων πινάκων[/a] στην τεκμηρίωση"
+
+#: setup/lib/messages.inc.php:127 setup/lib/messages.inc.php:284
+msgid "PMA database"
+msgstr "Βάση δεδομένων PMA"
+
+#: setup/lib/messages.inc.php:128
+msgid "Customization"
+msgstr "Προσαρμογή"
+
+#: setup/lib/messages.inc.php:129
+msgid "Customize export options"
+msgstr "Προσαρμογή επιλογών εξαγωγής"
+
+#: setup/lib/messages.inc.php:130
+msgid "Features"
+msgstr "Χαρακτηριστικά"
+
+#: setup/lib/messages.inc.php:131
+msgid "Customize import defaults"
+msgstr "Προσαρμογή επιλογών εισαγωγής"
+
+#: setup/lib/messages.inc.php:132
+msgid "Customize navigation frame"
+msgstr "Προσαρμογή πλαισίου πλοήγησης"
+
+#: setup/lib/messages.inc.php:133
+msgid "Customize main frame"
+msgstr "Προσαρμογή βασικού πλαισίου"
+
+#: setup/lib/messages.inc.php:134
+msgid "Customize links shown in SQL Query boxes"
+msgstr "Προσαρμογή εμφανιζόμενων συνδέσμων στους χώρους ερωτημάτων SQL"
+
+#: setup/lib/messages.inc.php:135
+msgid "SQL Query box"
+msgstr "Χώρος Ερωτήματος SQL"
+
+#: setup/lib/messages.inc.php:136
+msgid ""
+"SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
+"formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
+msgstr ""
+"Ρυθμίσεις ερωτημάτων SQL, για επιλογές χώρου Ερωτήματος SQL δείτε τις "
+"ρυθμίσεις [a@?page=form&amp;formset=main_frame#tab_Sql_box]πλαισίου Πλοήγησης"
+"[/a]"
+
+#: setup/lib/messages.inc.php:137
+msgid "SQL queries"
+msgstr "Ερωτήματα SQL"
+
+#: setup/lib/messages.inc.php:138
+msgid "Customize startup page"
+msgstr "Προσαρμογή σελίδας εκκίνησης"
+
+#: setup/lib/messages.inc.php:139
+msgid "Startup"
+msgstr "Εκκίνηση"
+
+#: setup/lib/messages.inc.php:140
+msgid "Choose how you want tabs to work"
+msgstr "Επιλέξτε πως θα λειτουργούν οι καρτέλες"
+
+#: setup/lib/messages.inc.php:141
+msgid "Tabs"
+msgstr "Καρτέλες"
+
+#: setup/lib/messages.inc.php:142
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
+"and export operations"
+msgstr ""
+"Ενεργοποιήστε τη συμπίεση [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] για "
+"τις λειτουργίες εισαγωγής και εξαγωγής"
+
+#: setup/lib/messages.inc.php:143
+msgid "GZip"
+msgstr "GZip"
+
+#: setup/lib/messages.inc.php:144
+#, php-format
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
+"decompression[/a] requires functions (%s) which are unavailable on this "
+"system."
+msgstr ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Συμπίεση και "
+"αποσυμπίεση GZip[/a] απαιτεί λειτουργίες (%s) που δεν είναι διαθέσιμες σε "
+"αυτό το σύστημα."
+
+#: setup/lib/messages.inc.php:145
+msgid "phpMyAdmin homepage"
+msgstr "Ιστοσελίδα phpMyAdmin"
+
+#: setup/lib/messages.inc.php:146
+msgid "Extra parameters for iconv"
+msgstr "Επιπλέον παράμετροι για την iconv"
+
+#: setup/lib/messages.inc.php:147
+msgid "Ignore errors"
+msgstr "Παράβλεψη σφαλμάτων"
+
+#: setup/lib/messages.inc.php:148
+msgid ""
+"If enabled, phpMyAdmin continues computing multiple-statement queries even "
+"if one of the queries failed"
+msgstr ""
+"Αν ενεργοποιηθεί, το phpMyAdmin συνεχίζει να υπολογίζει ερωτήματα πολλαπλών "
+"δηλώσεων ακόμα και αν ένα από τα ερωτήματα αποτύχει"
+
+#: setup/lib/messages.inc.php:149
+msgid "Ignore multiple statement errors"
+msgstr "Παράβλεψη σφαλμάτων πολλαπλών δηλώσεων"
+
+#: setup/lib/messages.inc.php:150
+msgid ""
+"Allow interrupt of import in case script detects it is close to time limit. "
+"This might be good way to import large files, however it can break "
+"transactions."
+msgstr ""
+"Επιτρέπει τη διακοπή της εισαγωγής σε περίπτωση που ανιχνευτεί ότι ο χρόνος "
+"εκτέλεσης του κώδικα προσεγγίζει το χρονικό όριο. Αυτό ίσως είναι καλό για "
+"την εισαγωγή μεγάλων αρχείων, αν και μπορεί να μπορεί να διακόψει τις "
+"διαδικασίες."
+
+#: setup/lib/messages.inc.php:151
+msgid "Partial import: allow interrupt"
+msgstr "Μερική εισαγωγή: να επιτρέπεται η διακοπή"
+
+#: setup/lib/messages.inc.php:152
+msgid ""
+"Default format; be aware that this list depends on location (database, "
+"table) and only SQL is always available"
+msgstr ""
+"Προεπιλεγμένη μορφή; να ληφθεί υπόψη ότι αυτή η λίστα εξαρτάται από την "
+"τοποθεσία (βάση δεδομένων, πίνακας) και ότι μόνο η SQL είναι πάντα διαθέσιμη"
+
+#: setup/lib/messages.inc.php:155
+msgid "Partial import: skip queries"
+msgstr "Μερική εισαγωγή: παράβλεψη ερωτημάτων"
+
+#: setup/lib/messages.inc.php:156
+msgid "Insecure connection"
+msgstr "Μη ασφαλής σύνδεση"
+
+#: setup/lib/messages.inc.php:157
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+"Δεν χρησιμοποιείτε ασφαλή σύνδεση: όλα τα δεδομένα (ακόμα και δυνητικά "
+"ευαίσθητες πληροφορίες, όπως οι κωδικοί πρόσβασης) διακινούνται "
+"ακρυπτογράφητα!"
+
+#: setup/lib/messages.inc.php:158
+#, php-format
+msgid ""
+"If your server is also configured to accept HTTPS requests follow [a@%s]this "
+"link[/a] to use a secure connection."
+msgstr ""
+"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@%s]"
+"αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
+
+#: setup/lib/messages.inc.php:159
+msgid "How many rows can be inserted at one time"
+msgstr "Πόσες γραμμές μπορούν να εισαχθούν μονομιάς"
+
+#: setup/lib/messages.inc.php:160
+msgid "Number of inserted rows"
+msgstr "Αριθμός εισαχθέντων γραμμών"
+
+#: setup/lib/messages.inc.php:161
+msgid "Target for quick access icon"
+msgstr "Προορισμός για εικονίδιο γρήγορης πρόσβασης"
+
+#: setup/lib/messages.inc.php:162
+msgid "Show logo in left frame"
+msgstr "Προβολή λογοτύπου στο αριστερό πλαίσιο"
+
+#: setup/lib/messages.inc.php:163
+msgid "Display logo"
+msgstr "Προβολή λογοτύπου"
+
+#: setup/lib/messages.inc.php:164
+msgid "Display server choice at the top of the left frame"
+msgstr "Προβολή επιλεγμένου διακομιστή επάνω στο αριστερό πλαίσιο"
+
+#: setup/lib/messages.inc.php:165
+msgid "Display servers selection"
+msgstr "Προβολή επιλογής διακομιστών"
+
+#: setup/lib/messages.inc.php:166
+msgid "String that separates databases into different tree levels"
+msgstr "Κείμενο που διαχωρίζει τις βάσεις δεδομένων σε διαφορετικά επίπεδα"
+
+#: setup/lib/messages.inc.php:167
+msgid "Database tree separator"
+msgstr "Διαχωριστικό δέντρου βάσης δεδομένων"
+
+#: setup/lib/messages.inc.php:168
+msgid ""
+"Only light version; display databases in a tree (determined by the separator "
+"defined below)"
+msgstr ""
+"Μόνο απλή έκδοση; δενδροειδής προβολή βάσεων δεδομένων (προσδορίζεται από το "
+"διαχωριστικό που ορίζεται παρακάτω)"
+
+#: setup/lib/messages.inc.php:169
+msgid "Display databases in a tree"
+msgstr "Δενδροειδής προβολή βάσεων δεδομένων"
+
+#: setup/lib/messages.inc.php:170
+msgid "Disable this if you want to see all databases at once"
+msgstr ""
+"Απενεργοποιήστε το αν θέλετε να δείτε όλες τις βάσεις δεδομένων μονομιάς"
+
+#: setup/lib/messages.inc.php:171
+msgid "Use light version"
+msgstr "Χρήση απλής έκδοσης"
+
+#: setup/lib/messages.inc.php:172
+msgid "Maximum table tree depth"
+msgstr "Μέγιστο βάθος δέντρου πίνακα"
+
+#: setup/lib/messages.inc.php:173
+msgid "String that separates tables into different tree levels"
+msgstr "Κείμενο που διαχωρίζει τους πίνακες σε διαφορετικά επίπεδα"
+
+#: setup/lib/messages.inc.php:174
+msgid "Table tree separator"
+msgstr "Διαχωριστικό δέντρου πινάκων"
+
+#: setup/lib/messages.inc.php:175
+msgid "Logo link URL"
+msgstr "Διεύθυνση URL συνδέσμου λογοτύπου"
+
+#: setup/lib/messages.inc.php:176
+msgid ""
+"Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
+"([kbd]new[/kbd])"
+msgstr ""
+"Ανοίγει τη συνδεδεμένη σελίδα στο κύριο παράθυρο ([kbd]main[/kbd]) ή σε νέο "
+"([kbd]new[/kbd])"
+
+#: setup/lib/messages.inc.php:177
+msgid "Logo link target"
+msgstr "Προορισμός συνδέσμου λογοτύπου"
+
+#: setup/lib/messages.inc.php:178
+msgid "Highlight server under the mouse cursor"
+msgstr "Επισήμανση διακομιστή με τον δείκτη του ποντικιού"
+
+#: setup/lib/messages.inc.php:179
+msgid "Enable highlighting"
+msgstr "Ενεργοποίηση επισήμανσης"
+
+#: setup/lib/messages.inc.php:180
+msgid "let the user choose"
+msgstr "Δικαίωμα επιλογής στο χρήστη"
+
+#: setup/lib/messages.inc.php:181
+msgid "Use less graphically intense tabs"
+msgstr "Χρήση καρτελών με λιγότερα γραφικά"
+
+#: setup/lib/messages.inc.php:182
+msgid "Light tabs"
+msgstr "Απλές καρτέλες"
+
+#: setup/lib/messages.inc.php:183
+msgid "Load"
+msgstr "Φόρτωση"
+
+#: setup/lib/messages.inc.php:184
+msgid ""
+"If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
+"only occurs for the current server. Setting this to FALSE makes it easy to "
+"forget to log out from other servers when connected to multiple servers."
+msgstr ""
+"Αν οριστεί ως ΑΛΗΘΕΙΑ (TRUE), με την αποσύνδεση διαγράφονται τα cookies για "
+"όλους τους διακομιστές; όταν οριστεί ως ΨΕΥΔΟΣ (FALSE), η αποσύνδεση "
+"επηρεάζει μόνο τον τρέχοντα διακομιστή. Ορίζοντάς το σε ΨΕΥΔΟΣ είναι εύκολο "
+"να ξεχάσετε να αποσυνδεθείτε από άλλους διακομιστές όταν συνδέεστε σε "
+"πολλούς."
+
+#: setup/lib/messages.inc.php:185
+msgid "Delete all cookies on logout"
+msgstr "Διαγραφή όλων των cookies με την αποσύνδεση"
+
+#: setup/lib/messages.inc.php:186
+msgid ""
+"Define whether the previous login should be recalled or not in cookie "
+"authentication mode"
+msgstr ""
+"Ορίζει αν η προηγούμενη σύνδεση πρέπει να επανακληθεί ή όχι σε κατάσταση "
+"επικύρωσης cookie"
+
+#: setup/lib/messages.inc.php:187
+msgid "Recall user name"
+msgstr "Επανάκληση ονόματος χρήστη"
+
+#: setup/lib/messages.inc.php:188
+msgid ""
+"Defines how long (in seconds) a login cookie should be stored in browser. "
+"The default of 0 means that it will be kept for the existing session only, "
+"and will be deleted as soon as you close the browser window. This is "
+"recommended for non-trusted environments."
+msgstr ""
+"Ορίζει για πόσο χρόνο (σε δευτερόλεπτα) ένα cookie σύνδεσης πρέπει να να "
+"αποθηκεύεται στο φυλλομετρητή. Η προεπιλογή 0 σημαίνει ότι θα κρατηθεί μόνο "
+"για την τρέχουσα συνεδρία και θα διαγραφεί μόλις κλείσετε τον φυλλομετρητή. "
+"Αυτό προτείνεται για μη αξιόπιστα περιβάλλοντα."
+
+#: setup/lib/messages.inc.php:189
+msgid "Login cookie store"
+msgstr "Αποθήκευση cookie σύνδεσης"
+
+#: setup/lib/messages.inc.php:190
+msgid "Define how long (in seconds) a login cookie is valid"
+msgstr "Ορίστε χρονικά (σε δευτερόλεπτα) την ισχύ ενός cookie σύνδεσης"
+
+#: setup/lib/messages.inc.php:191
+msgid ""
+"[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
+"be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
+"pose a security risk such as impersonation."
+msgstr ""
+"Η [a@?page=form&formset=features#tab_Security]Ισχύς του cookie σύνδεσης[/a] "
+"πρέπει να οριστεί σε 1800 δευτερόλεπτα (30 λεπτά) το περισσότερο. Τιμές "
+"μεγαλύτερες από 1800 ίσως παρουσιάσουν προβλήματα ασφάλειας όπως μίμηση."
+
+#: setup/lib/messages.inc.php:192
+msgid "Login cookie validity"
+msgstr "Εγκυρότητα cookie σύνδεσης"
+
+#: setup/lib/messages.inc.php:193
+msgid "Maximum number of characters used when a SQL query is displayed"
+msgstr "Μέγιστος αριθμός χαρακτήρων όταν προβάλεται ένα ερώτημα SQL"
+
+#: setup/lib/messages.inc.php:194
+msgid "Maximum displayed SQL length"
+msgstr "Μέγιστο μήκος προβολής SQL"
+
+#: setup/lib/messages.inc.php:195
+msgid "Maximum number of databases displayed in left frame and database list"
+msgstr ""
+"Μέγιστος αριθμός βάσεων δεδομένων που προβάλονται στο αριστερό πλαίσιο και "
+"στη λίστα βάσεων δεδομένων"
+
+#: setup/lib/messages.inc.php:196
+msgid "Maximum databases"
+msgstr "Μέγιστος αριθμός βάσεων δεδομένων"
+
+#: setup/lib/messages.inc.php:197
+msgid ""
+"Number of rows displayed when browsing a result set. If the result set "
+"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"shown."
+msgstr ""
+"Αριθμός γραμμών που θα προβάλονται όταν γίνεται περιήγηση σε κάποιο "
+"αποτέλεσμα. Αν το αποτέλεσμα περιέχει περισσότερες γραμμές, θα εμφανίζονται "
+"σύνδεσμοι «Προηγούμενο» και «Επόμενο»."
+
+#: setup/lib/messages.inc.php:198
+msgid "Maximum number of rows to display"
+msgstr "Μέγιστος αριθμός γραμμών για προβολή"
+
+#: setup/lib/messages.inc.php:199
+msgid "Maximum number of tables displayed in table list"
+msgstr "Μέγιστος αριθμός πινάκες που θα προβάλονται σε λίστα πινάκων"
+
+#: setup/lib/messages.inc.php:200
+msgid "Maximum tables"
+msgstr "Μέγιστος αριθμός πινάκων"
+
+#: setup/lib/messages.inc.php:201
+msgid ""
+"The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
+"([kbd]0[/kbd] for no limit)"
+msgstr ""
+"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. [kbd]32M"
+"[/kbd] ([kbd]0[/kbd] για απεριόριστη)"
+
+#: setup/lib/messages.inc.php:202
+msgid "Memory limit"
+msgstr "Όριο μνήμης"
+
+#: setup/lib/messages.inc.php:203 setup/lib/messages.inc.php:215
+msgid "Use only icons, only text or both"
+msgstr "Χρήση μόνο εικονιδίων, μόνο κειμένου ή και τα δύο"
+
+#: setup/lib/messages.inc.php:204
+msgid "Iconic navigation bar"
+msgstr "Γραμμή πλοήγησης με εικονίδια"
+
+#: setup/lib/messages.inc.php:205
+msgid "New server"
+msgstr "Νέος διακομιστής"
+
+#: setup/lib/messages.inc.php:206
+msgid "There are no configured servers"
+msgstr "Δεν υπάρχουν ρυθμισμένοι διακομιστές"
+
+#: setup/lib/messages.inc.php:207
+msgid "use GZip output buffering for increased speed in HTTP transfers"
+msgstr ""
+"Χρήση εξαγόμενου GZip buffering για αυξημένη ταχύτητα σε μεταφορές HTTP"
+
+#: setup/lib/messages.inc.php:208
+msgid "GZip output buffering"
+msgstr "Εξαγόμενο GZip buffering"
+
+#: setup/lib/messages.inc.php:209
+msgid "- none -"
+msgstr "- καμία -"
+
+#: setup/lib/messages.inc.php:210
+msgid ""
+"[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
+"DATETIME and TIMESTAMP, ascending order otherwise"
+msgstr ""
+"[kbd]SMART[/kbd] - π.χ. φθίνουσα ταξινόμηση για πεδία τύπου TIME, DATE, "
+"DATETIME και TIMESTAMP, αύξουσα ταξινόμηση στα υπόλοιπα"
+
+#: setup/lib/messages.inc.php:211
+msgid "Default sorting order"
+msgstr "Προεπιλεγμένη ταξινόμηση"
+
+#: setup/lib/messages.inc.php:212
+msgid "Overview"
+msgstr "Επισκόπηση"
+
+#: setup/lib/messages.inc.php:213
+msgid "Use persistent connections to MySQL databases"
+msgstr "Χρήση εξαναγκασμένων συνδέσεων στις βάσεις δεδομένων MySQL"
+
+#: setup/lib/messages.inc.php:214
+msgid "Persistent connections"
+msgstr "Επιμένουσες συνδέσεις"
+
+#: setup/lib/messages.inc.php:216
+msgid "Iconic table operations"
+msgstr "Λειτουργίες πίνακα με εικονίδια"
+
+#: setup/lib/messages.inc.php:217
+msgid "Disallow BLOB and BINARY fields from editing"
+msgstr "Αποτροπή επεξεργασίας πεδίων BLOB και BINARY"
+
+#: setup/lib/messages.inc.php:218
+msgid "Protect binary fields"
+msgstr "Προστασία δυαδικών πεδίων"
+
+#: setup/lib/messages.inc.php:219
+msgid ""
+"Enable if you want DB-based query history (requires pmadb). If disabled, "
+"this utilizes JS-routines to display query history (lost by window close)."
+msgstr ""
+"Ενεργοποιήστε το αν θέλετε ιστορικό ανά βάση δεδομένων (απαιτεί pmadb). Αν "
+"απενεργοποιηθεί, λειτουργούν ρουτίνες JS για προβολή του ιστορικού "
+"ερωτημάτων (χάνεται με το κλείσιμο του παραθύρου)."
+
+#: setup/lib/messages.inc.php:220
+msgid "Permanent query history"
+msgstr "Μόνιμο ιστορικό ερωτημάτων"
+
+#: setup/lib/messages.inc.php:221
+msgid "How many queries are kept in history"
+msgstr "Πόσα ερωτήματα παραμένουν στο ιστορικό"
+
+#: setup/lib/messages.inc.php:222
+msgid "Query history length"
+msgstr "Μέγεθος ιστορικού ερωτημάτων"
+
+#: setup/lib/messages.inc.php:223
+msgid "Tab displayed when opening a new query window"
+msgstr "Προβολή καρτέλας με το άνοιγμα νέου παραθύρου ερωτήματος"
+
+#: setup/lib/messages.inc.php:224
+msgid "Default query window tab"
+msgstr "Προεπιλεγμένη καρτέλα παραθύρου ερωτήματος"
+
+#: setup/lib/messages.inc.php:225
+msgid "Select which functions will be used for character set conversion"
+msgstr ""
+"Επιλέξτε ποιες συναρτήσεις θα χρησιμοποιηθούν για μετατροπή συνόλων "
+"χαρακτήρων"
+
+#: setup/lib/messages.inc.php:226
+msgid "Recoding engine"
+msgstr "Μηχανή επανακωδικοποίησης"
+
+#: setup/lib/messages.inc.php:227
+msgid "Restore default value"
+msgstr "Επαναφορά προεπιλεγμένης τιμής"
+
+#: setup/lib/messages.inc.php:228
+msgid "Try to revert erroneous fields to their default values"
+msgstr "Δοκιμή μετατροπής εσφαλμένων πεδίων στις προεπιλεγμένες τιμές τους"
+
+#: setup/lib/messages.inc.php:229
+msgid "Directory where exports can be saved on server"
+msgstr "Ο φάκελος στον διακομιστή όπου οι εξαγωγές μπορούν να αποθηκευτούν"
+
+#: setup/lib/messages.inc.php:230
+msgid "Save directory"
+msgstr "Φάκελος αποθήκευσης"
+
+#: setup/lib/messages.inc.php:231
+#, php-format
+msgid ""
+"You set the [kbd]config[/kbd] authentication type and included username and "
+"password for auto-login, which is not a desirable option for live hosts. "
+"Anyone who knows or guesses your phpMyAdmin URL can directly access your "
+"phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]"
+"authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd]."
+msgstr ""
+"Ορίζετε τον τύπο επικύρωσης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
+"χρήστη και κωδικό πρόσβασης για αυτόματη σύνδεση, αν και δεν προτείνεται. "
+"Όποιος γνωρίζει ή υποθέτει τη διεύθυνση URL του phpMyAdmin μπορεί να έχει "
+"άμεση πρόσβαση. Ορίστε τον [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server]τύπο επικύρωσης[/a] σε [kbd]cookie[/kbd] ή [kbd]http[/kbd]."
+
+#: setup/lib/messages.inc.php:232
+msgid "You should use mysqli for performance reasons"
+msgstr "Πρέπει να χρησιμοποιείτε την mysqli για λόγους απόδοσης"
+
+#: setup/lib/messages.inc.php:233
+msgid "You allow for connecting to the server without a password."
+msgstr "Επιτρέπετε την σύνδεση στο διακομιστή χωρίς κωδικό πρόσβασης."
+
+#: setup/lib/messages.inc.php:234
+msgid "Add a new server"
+msgstr "Προσθήκη ενός νέου διακομιστή"
+
+#: setup/lib/messages.inc.php:235
+msgid "Leave blank if not used"
+msgstr "Αφήστε το άδειο αν δεν χρησιμοποιηθεί"
+
+#: setup/lib/messages.inc.php:236
+msgid "Host authentication order"
+msgstr "Σειρά επικύρωσης"
+
+#: setup/lib/messages.inc.php:237
+msgid "Leave blank for defaults"
+msgstr "Αφήστε κενό για προεπιλογές"
+
+#: setup/lib/messages.inc.php:238
+msgid "Host authentication rules"
+msgstr "Κανόνες επικύρωσης"
+
+#: setup/lib/messages.inc.php:239
+msgid "Allow logins without a password"
+msgstr "Δικαίωμα συνδέσεων χωρίς κωδικό πρόσβασης"
+
+#: setup/lib/messages.inc.php:240
+msgid "Allow root login"
+msgstr "Δικαίωμα ριζικής σύνδεσης"
+
+#: setup/lib/messages.inc.php:241
+msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr ""
+
+#: setup/lib/messages.inc.php:242
+msgid "HTTP Realm"
+msgstr ""
+
+#: setup/lib/messages.inc.php:243
+msgid ""
+"The path for the config file for [a@http://swekey.com]SweKey hardware "
+"authentication[/a] (not located in your document root; suggested: /etc/"
+"swekey.conf)"
+msgstr ""
+"Η διαδρομή για το αρχείο ρυθμίσεων για την [a@http://swekey.com]επικύρωση "
+"υλικού SweKey[/a] (δεν βρίσκεται στο ριζικό φάκελο του εγγράφου; "
+"προτείνεται: /etc/swekey.conf)"
+
+#: setup/lib/messages.inc.php:244
+msgid "SweKey config file"
+msgstr "Αρχείο ρυθμίσεων SweKey"
+
+#: setup/lib/messages.inc.php:245
+msgid "Authentication method to use"
+msgstr "Μέθοδος επικύρωσης για χρήση"
+
+#: setup/lib/messages.inc.php:246
+msgid "Authentication type"
+msgstr "Τύπος επικύρωσης"
+
+#: setup/lib/messages.inc.php:247
+msgid ""
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"support, suggested: [kbd]pma_bookmark[/kbd]"
+msgstr ""
+"Αφήστε κενό αν δεν υπάρχει [a@http://wiki.phpmyadmin.net/pma/bookmark]"
+"σελιδοδείκτης[/a] υποστήριξης, προτείνεται: [kbd]pma_bookmark[/kbd]"
+
+#: setup/lib/messages.inc.php:248
+msgid "Bookmark table"
+msgstr "Πίνακας σελιδοδεικτών"
+
+#: setup/lib/messages.inc.php:249
+msgid ""
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma_column_info[/kbd]"
+msgstr ""
+"Αφήστε κενό για να μη υπάρχουν σχόλια/τύποι mime στις στήλες. Προτείνεται: "
+"[kbd]pma_column_info[/kbd]"
+
+#: setup/lib/messages.inc.php:250
+msgid "Column information table"
+msgstr "Πίνακας πληροφοριών στήλης"
+
+#: setup/lib/messages.inc.php:251
+msgid "Compress connection to MySQL server"
+msgstr "Συνδεση συμπίεσης στο διακομιστή MySQL"
+
+#: setup/lib/messages.inc.php:252
+msgid "Compress connection"
+msgstr "Σύνδεση συμπίεσης"
+
+#: setup/lib/messages.inc.php:253
+msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
+msgstr ""
+"Πως να συνδεθείτε στο διακομιστή, κρατήστε το tcp αν δεν είστε σίγουρος/η"
+
+#: setup/lib/messages.inc.php:254
+msgid "Connection type"
+msgstr "Τύπος σύνδεσης"
+
+#: setup/lib/messages.inc.php:255
+msgid "Control user password"
+msgstr "Έλεγχος κωδικού πρόσβασης χρήστη"
+
+#: setup/lib/messages.inc.php:256
+msgid ""
+"A special MySQL user configured with limited permissions, more information "
+"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+msgstr ""
+"Ρυθμίστηκε ένας ειδικός χρήστης MySQL με περιορισμένα δικαιώματα. "
+"Περισσότερες πληροφορίες είναι διαθέσιμες στο [a@http://wiki.phpmyadmin.net/"
+"pma/controluser]wiki[/a]"
+
+#: setup/lib/messages.inc.php:257
+msgid "Control user"
+msgstr "Έλεγχος χρήστη"
+
+#: setup/lib/messages.inc.php:258
+msgid "Count tables when showing database list"
+msgstr "Απαρίθμηση πινάκων όταν εμφανίζεται η λίστα βάσεων δεδομένων"
+
+#: setup/lib/messages.inc.php:259
+msgid "Count tables"
+msgstr "Απαρίθμηση πινάκων"
+
+#: setup/lib/messages.inc.php:260
+msgid ""
+"Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
+"kbd]"
+msgstr ""
+"Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή. Προτείνεται: [kbd]"
+"pma_designer_coords[/kbd]"
+
+#: setup/lib/messages.inc.php:261
+msgid "Designer table"
+msgstr "Πίνακας σχεδιαστή"
+
+#: setup/lib/messages.inc.php:262
+msgid ""
+"More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
+"tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+msgstr ""
+"Περισσότερες πληροφορίες στο [a@http://sf.net/support/tracker.php?"
+"aid=1849494]PMA bug tracker[/a] και στο [a@http://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
+
+#: setup/lib/messages.inc.php:263
+msgid "Disable use of INFORMATION_SCHEMA"
+msgstr "Απενεργοποίηση χρήσης του INFORMATION_SCHEMA"
+
+#: setup/lib/messages.inc.php:264
+#, php-format
+msgid ""
+"If you feel this is necessary, use additional protection settings - [a@?"
+"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication"
+"[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted "
+"proxies list[/a]. However, IP-based protection may not be reliable if your "
+"IP belongs to an ISP where thousands of users, including you, are connected "
+"to."
+msgstr ""
+"Αν νομίζετε ότι είναι απαραίτητο, χρησιμοποιήστε πρόσθετες ρυθμίσεις "
+"προστασίας - ρυθμίσεις [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server_config]επικύρωση διακομιστή[/a] και [a@?page=form&amp;"
+"formset=features#tab_Security]λίστα αξιόπιστων διακομιστών[/a]. Ωστόσο, η "
+"βασισμένη στις ΙΡ προστασία δεν είναι αξιόπιστη αν ο πάροχός έχει χιλιάδες "
+"χρήστες που συνδέονται."
+
+#: setup/lib/messages.inc.php:265
+msgid "Edit server"
+msgstr "Επεξεργασία διακομιστή"
+
+#: setup/lib/messages.inc.php:266
+msgid "What PHP extension to use; you should use mysqli if supported"
+msgstr ""
+"Ποια επέκταση PHP να χρησιμοποιήσετε. Προτείνεται η mysqli αν υποστηρίζεται"
+
+#: setup/lib/messages.inc.php:267
+msgid "PHP extension to use"
+msgstr "Επέκταση PHP για χρήση"
+
+#: setup/lib/messages.inc.php:268
+msgid "Hide databases matching regular expression (PCRE)"
+msgstr "Απόκρυψη βάσεων δεδομένων που ταιριάζουν την κανονική έκφραση (PCRE)"
+
+#: setup/lib/messages.inc.php:269
+msgid "Hide databases"
+msgstr "Απόκρυψη βάσεων δεδομένων"
+
+#: setup/lib/messages.inc.php:270
+msgid ""
+"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
+"kbd]"
+msgstr ""
+"Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL , προτείνεται: "
+"[kbd]pma_history[/kbd]"
+
+#: setup/lib/messages.inc.php:271
+msgid "SQL query history table"
+msgstr "Πίνακας ιστορικού ερωτημάτων SQL"
+
+#: setup/lib/messages.inc.php:272
+msgid "Hostname where MySQL server is running"
+msgstr "Ονομασία θέσης όπου εκτελείται ο διακομιστής MySQL"
+
+#: setup/lib/messages.inc.php:273
+msgid "Server hostname"
+msgstr "Ονομασία θέσης διακομιστή"
+
+#: setup/lib/messages.inc.php:274
+msgid "Logout URL"
+msgstr "Διεύθυνση URL αποσύνδεσης"
+
+#: setup/lib/messages.inc.php:275
+msgid "Try to connect without password"
+msgstr "Δοκιμάστε να συνδεθείτε χωρίς κωδικό πρόσβασης"
+
+#: setup/lib/messages.inc.php:276
+msgid "Connect without password"
+msgstr "Σύνδεση χωρίς κωδικό πρόσβασης"
+
+#: setup/lib/messages.inc.php:277
+msgid ""
+"You can use MySQL wildcard characters (% and _), escape them if you want to "
+"use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
+msgstr ""
+"Μπορείτε να χρησιμοποιήσετε χαρακτήρες μπαλαντέρ MySQL (% και _), με ανάποδη "
+"κάθετο χρησιμοποιήστε τα ως κανονικούς χαρακτήρες, π.χ. χρησιμοποιήστε «my"
+"\\_db» και όχι «my_db»"
+
+#: setup/lib/messages.inc.php:278
+msgid "Show only listed databases"
+msgstr "Εμφάνιση μόνο των βάσεων δεδομένων από λίστα"
+
+#: setup/lib/messages.inc.php:279 setup/lib/messages.inc.php:303
+msgid "Leave empty if not using config auth"
+msgstr "Αφήστε το άδειο αν δεν χρησιμοποιείτε ρύθμισμένη επικύρωση"
+
+#: setup/lib/messages.inc.php:280
+msgid "Password for config auth"
+msgstr "Κωδικός πρόσβασης για ρυθμισμένη επικύρωση"
+
+#: setup/lib/messages.inc.php:281
+msgid ""
+"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
+msgstr ""
+"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: [kbd]pma_pdf_pages"
+"[/kbd]"
+
+#: setup/lib/messages.inc.php:282
+msgid "PDF schema: pages table"
+msgstr "Σχέδιο PDF: πίνακας σελίδων"
+
+#: setup/lib/messages.inc.php:283
+msgid ""
+"Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
+"phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
+"no support. Suggested: [kbd]phpmyadmin[/kbd]"
+msgstr ""
+"Η βάση δεδομένων που χρησιμοποιείται για συσχετίσεις, σελιδοδείκτες και "
+"χαρακτηριστικά PDF. Δείτε το [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
+"a] για λεπτομέρειες. Αφήστε κενό για να μην υπάρχει υποστήριξη. Προτείνεται: "
+"[kbd]phpmyadmin[/kbd]"
+
+#: setup/lib/messages.inc.php:285
+msgid "Port on which MySQL server is listening, leave empty for default"
+msgstr ""
+"Θύρα που αποκρίνεται ο διακομιστής MySQL. Αφήστε το άδειο για προεπιλογή"
+
+#: setup/lib/messages.inc.php:286
+msgid "Server port"
+msgstr "Θύρα διακομιστή"
+
+#: setup/lib/messages.inc.php:287
+msgid ""
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma_relation[/kbd]"
+msgstr ""
+"Αφήστε το κενό για να μην υπάρχει υποστήριξη [a@http://wiki.phpmyadmin.net/"
+"pma/relation]σύνδεσμοι συσχετίσεων[/a]. Προτείνεται: [kbd]pma_relation[/kbd]"
+
+#: setup/lib/messages.inc.php:288
+msgid "Relation table"
+msgstr "Πίνακας συσχετίσεων"
+
+#: setup/lib/messages.inc.php:289
+msgid "SQL command to fetch available databases"
+msgstr "Εντολή SQL που φέρνει τις διαθέσιμες βάσεις δεδομένων"
+
+#: setup/lib/messages.inc.php:290
+msgid "SHOW DATABASES command"
+msgstr "Εντολή SHOW DATABASES"
+
+#: setup/lib/messages.inc.php:291
+msgid ""
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
+msgstr ""
+"Δείτε τους  [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]τύπους "
+"επικύρωσης[/a] για ένα παράδειγμα"
+
+#: setup/lib/messages.inc.php:292
+msgid "Signon session name"
+msgstr "Ονομάσία συνεδρίας σύνδεσης"
+
+#: setup/lib/messages.inc.php:293
+msgid "Signon URL"
+msgstr "Διεύθυνση URL σύνδεσης"
+
+#: setup/lib/messages.inc.php:294
+msgid "You should use SSL connections if your web server supports it"
+msgstr ""
+"Πρέπει να χρησιμοποιήσετε συνδέσεις SSL αν ο διακομιστής ιστού σας τις "
+"υποστηρίζει"
+
+#: setup/lib/messages.inc.php:295
+msgid "Socket on which MySQL server is listening, leave empty for default"
+msgstr ""
+"Η υποδοχή στην οποία ο διακομιστής MySQL αποκρίνεται. Αφήστε το κενό για "
+"προεπιλογή"
+
+#: setup/lib/messages.inc.php:296
+msgid "Server socket"
+msgstr "Υποδοχή διακομιστή"
+
+#: setup/lib/messages.inc.php:297
+msgid "Enable SSL for connection to MySQL server"
+msgstr "Ενεργοποιήση SSL για σύνδεση στο διακομιστή MySQL"
+
+#: setup/lib/messages.inc.php:298
+msgid "Use SSL"
+msgstr "Χρήση SSL"
+
+#: setup/lib/messages.inc.php:299
+msgid ""
+"Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
+msgstr ""
+"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: [kbd]"
+"pma_table_coords[/kbd]"
+
+#: setup/lib/messages.inc.php:300
+msgid "PDF schema: table coordinates"
+msgstr "Σχέδιο PDF: συντεταγμένες πίνακα"
+
+#: setup/lib/messages.inc.php:301
+msgid ""
+"Table to describe the display fields, leave blank for no support; suggested: "
+"[kbd]pma_table_info[/kbd]"
+msgstr ""
+"Ο πίνακας που περιγράφει τα προβαλόμενα πεδία. Αφήστε το κενό για να μην "
+"υποστηρίζεται. Προτείνεται: [kbd]pma_table_info[/kbd]"
+
+#: setup/lib/messages.inc.php:302
+msgid "Display fields table"
+msgstr "Πίνακας προβολής πεδίων"
+
+#: setup/lib/messages.inc.php:304
+msgid "User for config auth"
+msgstr "Χρήστης για ρυθμισμένη επικύρωση"
+
+#: setup/lib/messages.inc.php:305
+msgid ""
+"Disable if you know that your pma_* tables are up to date. This prevents "
+"compatibility checks and thereby increases performance"
+msgstr ""
+"Απενεργοποιήστε το αν γνωρίζεται ότι οι πίνακες pma_* είναι ενημερωμένοι. "
+"Αυτό αποτρέπει ελέγχους συμβατότητας και αυξάνει την απόδοση"
+
+#: setup/lib/messages.inc.php:306
+msgid "Verbose check"
+msgstr "Φιλοχρηστικός έλεγχος"
+
+#: setup/lib/messages.inc.php:307
+msgid ""
+"A user-friendly description of this server. Leave blank to display the "
+"hostname instead."
+msgstr ""
+"Μια φιλοχρηστική περιγραφή αυτού του διακομιστή. Αφήστε το κενό για να "
+"εμφανίζεται το όνομα."
+
+#: setup/lib/messages.inc.php:308
+msgid "Verbose name of this server"
+msgstr "Φιλοχρηστικό όνομα διακομιστή"
+
+#: setup/lib/messages.inc.php:309
+#, php-format
+msgid "Set value: %s"
+msgstr "Ορισμός τιμής: %s"
+
+#: setup/lib/messages.inc.php:310
+msgid ""
+"Whether a user should be displayed a &quot;show all (records)&quot; button"
+msgstr "Αν θα εμφανίζεται στο χρήστη ένα κουμπί «Εμφάνιση όλων (εγγραφές)»"
+
+#: setup/lib/messages.inc.php:311
+msgid "Allow to display all the rows"
+msgstr "Δικαίωμα προβολή όλων των γραμμών"
+
+#: setup/lib/messages.inc.php:312
+msgid ""
+"Please note that enabling this has no effect with [kbd]config[/kbd] "
+"authentication mode because the password is hard coded in the configuration "
+"file; this does not limit the ability to execute the same command directly"
+msgstr ""
+"Σημειώστε ότι ενεργοποιώντας αυτή δεν έχει καμιά επίδραση στην κατάσταση "
+"επικύρωσης [kbd]ρύθμισης[/kbd] γιατί έχει πολύ κωδικοποίηση στο αρχείο "
+"ρυθμίσεων. Αυτό δεν περιορίζει τη δυνατότητα άμεσης εκτέλεσης της ίδιας "
+"εντολής"
+
+#: setup/lib/messages.inc.php:313
+msgid "Show password change form"
+msgstr "Εμφάνιση φόρμας αλλαγής κωδικού πρόσβασης"
+
+#: setup/lib/messages.inc.php:314
+msgid "Show create database form"
+msgstr "Εμφάνιση φόρμας δημιουργίας βάσης δεδομένων"
+
+#: setup/lib/messages.inc.php:315
+msgid "Show form"
+msgstr "Εμφάνιση φόρμας"
+
+#: setup/lib/messages.inc.php:316
+msgid "Display the function fields in edit/insert mode"
+msgstr "Προβολή των πεδίων συναρτήσεων σε κατάσταση επεξεργασίας εισαγωγής"
+
+#: setup/lib/messages.inc.php:317
+msgid "Show function fields"
+msgstr "Εμφάνιση πεδίων συναρτήσεων"
+
+#: setup/lib/messages.inc.php:318
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr "Εμφάνιση κρυφών μηνυμάτων (#MSG_COUNT)"
+
+#: setup/lib/messages.inc.php:319
+msgid ""
+"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"output"
+msgstr ""
+"Εμφανίζει σύνδεσμο για την τεκμηρίωση της συνάρτησης [a@http://php.net/"
+"manual/function.phpinfo.php]phpinfo()[/a]"
+
+#: setup/lib/messages.inc.php:320
+msgid "Show phpinfo() link"
+msgstr "Εμφάνιση συνδέσμου phpinfo()"
+
+#: setup/lib/messages.inc.php:321
+msgid "Show detailed MySQL server information"
+msgstr "Εμφάνιση λεπτομερών πληροφοριών διακομιστή MySQL"
+
+#: setup/lib/messages.inc.php:322
+msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
+msgstr ""
+"Ορίζει αν τα δημιουργημένα ερωτήματα SQL από το phpMyAdmin πρέπει να "
+"προβάλονται"
+
+#: setup/lib/messages.inc.php:323
+msgid "Show SQL queries"
+msgstr "Εμφάνιση ερωτημάτων SQL"
+
+#: setup/lib/messages.inc.php:324
+msgid "Allow to display database and table statistics (eg. space usage)"
+msgstr ""
+"Δικαίωμα προβολής στατιστικών βάσης δεδομένων και πινάκων (π.χ. χρήση χώρου "
+"στο δίσκο)"
+
+#: setup/lib/messages.inc.php:325
+msgid "Show statistics"
+msgstr "Εμφάνιση στατιστικών"
+
+#: setup/lib/messages.inc.php:326
+msgid ""
+"If tooltips are enabled and a database comment is set, this will flip the "
+"comment and the real name"
+msgstr ""
+"Αν οι επεξηγήσεις είναι ενεργοποιημένες και έχει οριστεί σχόλιο για τη βάση "
+"δεδομένων, αυτή η επιλογή θα αντικαταστήσει το όνομα με το σχόλιο."
+
+#: setup/lib/messages.inc.php:327
+msgid "Display database comment instead of its name"
+msgstr "Προβολή σχολίου βάσης δεδομένων αντί για το όνομα"
+
+#: setup/lib/messages.inc.php:328
+msgid ""
+"When setting this to [kbd]nested[/kbd], the alias of the table name is only "
+"used to split/nest the tables according to the $cfg"
+"['LeftFrameTableSeparator'] directive, so only the folder is called like the "
+"alias, the table name itself stays unchanged"
+msgstr ""
+"Όταν οριστεί αυτό σε [kbd]nested[/kbd], η ετικέτα του ονόματος του πίνακα "
+"χρησιμοποιείτε μόνο για το χώρισμα/μάζεμα των πινάκων σύμφωνα με την οδηγία "
+"$cfg['LeftFrameTableSeparator'], έτσι μόνο ο φάκελος καλείται όπως η "
+"ετικέτα, ενώ το όνομα του πίνακα δεν αλλάζει"
+
+#: setup/lib/messages.inc.php:329
+msgid "Display table comment instead of its name"
+msgstr "Προβολή σχολίου πίνακα αντί για το όνομά του"
+
+#: setup/lib/messages.inc.php:330
+msgid "Display table comments in tooltips"
+msgstr "Προβολή σχολίων πινάκων στις επεξηγήσεις"
+
+#: setup/lib/messages.inc.php:331
+msgid ""
+"Mark used tables and make it possible to show databases with locked tables"
+msgstr ""
+"Επισήμανση χρησιμοποιημένων πινάκων και ενεργοποίηση της δυνατότητας "
+"προβολής των βάσεων δεδομένων με κλειδωμένους πίνακες"
+
+#: setup/lib/messages.inc.php:332
+msgid "Skip locked tables"
+msgstr "Παράβλεψη κλειδωμένων πινάκων"
+
+#: setup/lib/messages.inc.php:338
+msgid ""
+"Suggest a database name on the &quot;Create Database&quot; form (if "
+"possible) or keep the text field empty"
+msgstr ""
+"Προτείνεται ένα όνομα βάσης δεδομένων στη φόρμα «Δημιουργία Βάσης "
+"δεδομένων» (αν είναι δυνατό) ή διατήρηση του πεδίου άδειου"
+
+#: setup/lib/messages.inc.php:339
+msgid "Suggest new database name"
+msgstr "Πρόταση νέου ονόματος βάσης δεδομένων"
+
+#: setup/lib/messages.inc.php:340
+msgid "yes"
+msgstr "ναι"
+
+#: setup/lib/messages.inc.php:341
+msgid ""
+"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
+"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
+"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]"
+msgstr ""
+"Εισάγει διευθύνσεις ως [kbd]IP: αξιόπιστη κεφαλίδα HTTP[/kbd]. Το παρακάτω "
+"παράδειγμα ορίζει ότι το phpMyAdmin πρέπει να εμπιστεύεται μια κεφαλίδα "
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) προερχόμενη από τη διεύθυνση 1.2.3.4:"
+"[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+
+#: setup/lib/messages.inc.php:342
+msgid "List of trusted proxies for IP allow/deny"
+msgstr "Λίστα αξιόπιστων διευθύνσεων IP για να επιτρέπεται/απαγορεύεται"
+
+#: setup/lib/messages.inc.php:343
+msgid "Directory on server where you can upload files for import"
+msgstr ""
+"Φάκελος στο διακομιστή όπου μπορείτε να αποστείλετε αρχεία για εισαγωγή"
+
+#: setup/lib/messages.inc.php:344
+msgid "Upload directory"
+msgstr "Φάκελος αποστολής"
+
+#: setup/lib/messages.inc.php:345
+msgid "Allow for searching inside the entire database"
+msgstr "Επιτρέπει την αναζήτηση εντός ολόκληρης της βάσης δεδομένων"
+
+#: setup/lib/messages.inc.php:346
+msgid "Use database search"
+msgstr "Χρήση αναζήτησης βάσης δεδομένων"
+
+#: setup/lib/messages.inc.php:347
+msgid ""
+"Show affected rows of each statement on multiple-statement queries. See "
+"libraries/import.lib.php for defaults on how many queries a statement may "
+"contain."
+msgstr ""
+"Εμφανίζει της επηρρεασμένες γραμμές από καθε δήλωση σε ερωτήματα πολλαπλών "
+"δηλώσεων. Δείτε στο libraries/import.lib.php τις προεπιλογές για το πόσες "
+"δηλώσεις μπορεί να περιέχει ένα ερώτημα."
+
+#: setup/lib/messages.inc.php:348
+msgid "Verbose multiple statements"
+msgstr "Φιλοχρηστικές πολλαπλές δηλώσεις"
+
+#: setup/lib/messages.inc.php:349
+msgid ""
+"Reading of version failed. Maybe you're offline or the upgrade server does "
+"not respond."
+msgstr ""
+"Η ανάγνωση της έκδοσης απέτυχε. Ίσως είστε εκτός δικτύου ή ο αναβαθμισμένος "
+"διακομιστής δεν αποκρίνεται."
+
+#: setup/lib/messages.inc.php:350
+msgid "Got invalid version string from server"
+msgstr "Ελήφθει μη έγκυρη έκδοση από τον διακομιστή"
+
+#: setup/lib/messages.inc.php:351
+msgid "Check for latest version"
+msgstr "Έλεγχος για τελευταία έκδοση"
+
+#: setup/lib/messages.inc.php:352
+#, php-format
+msgid ""
+"A newer version of phpMyAdmin is available and you should consider "
+"upgrading. The newest version is %s, released on %s."
+msgstr ""
+"Μια νεότερη έκδοση του phpMyAdmin είναι διαθέσιμη και καλό θα είναι να την "
+"εγκαταστήσετε. Η νεότερη έκδοση είναι η %s και δημοσιεύτηκε την %s."
+
+#: setup/lib/messages.inc.php:353
+#, php-format
+msgid ""
+"You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
+"latest stable version is %s, released on %s."
+msgstr ""
+"Χρησιμοποιείτε υποέκδοση έκδοσης. Εκτελέστε την [kbd]ενημέρωση svn[/kbd] :-)"
+"[br]Η τελευταία τελική έκδοση είναι η %s και δημοσιεύτηκε την %s."
+
+#: setup/lib/messages.inc.php:354
+msgid "No newer stable version is available"
+msgstr "Δεν υπάρχει νεότερη έκδοση (μη δοκιμαστική) διαθέσιμη"
+
+#: setup/lib/messages.inc.php:355
+msgid "Unparsable version string"
+msgstr "Μη αναγνώσιμος αριθμός έκδοσης"
+
+#: setup/lib/messages.inc.php:356
+msgid "Version check"
+msgstr "Έλεγχος έκδοσης"
+
+#: setup/lib/messages.inc.php:357
+msgid ""
+"Neither URL wrapper nor CURL is available. Version check is not possible."
+msgstr ""
+"Ούτε διεύθυνση URL ούτε CURL είναι διαθέσιμα. Ο έλεγχος της έκδοσης δεν "
+"είναι δυνατό να γίνει."
+
+#: setup/lib/messages.inc.php:358
+msgid "Warning"
+msgstr "Προειδοποίηση"
+
+#: setup/lib/messages.inc.php:359
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
+"for import and export operations"
+msgstr ""
+"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]"
+"ZIP[/a] για λειτουργίες εισαγωγής και εξαγωγής"
+
+#: setup/lib/messages.inc.php:360
+#, php-format
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
+"requires functions (%s) which are unavailable on this system."
+msgstr ""
+"Η [a@?page=form&amp;formset=features#tab_Import_export]συμπίεση Zip[/a] "
+"απαιτεί συναρτήσεις (%s) οι οποίες δεν είναι διαθέσιμες σε αυτό το σύστημα."
+
+#: setup/lib/messages.inc.php:361
+#, php-format
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
+"requires functions (%s) which are unavailable on this system."
+msgstr ""
+"Η [a@?page=form&amp;formset=features#tab_Import_export]αποσυμπίεση Zip[/a] "
+"απαιτεί συναρτήσεις (%s) οι οποίες δεν είναι διαθέσιμες σε αυτό το σύστημα."
+
+#: setup/lib/messages.inc.php:362
+msgid "ZIP"
+msgstr "ZIP"
 
 #~ msgid "%1$d row(s) affected."
 #~ msgstr "Επηρεάστηκε(αν) %1$d γραμμή(ές)."
