@@ -2974,9 +2974,8 @@ msgid "No tables"
 msgstr "Δεν υπάρχουν πίνακες"
 
 #: libraries/messages.inc.php:651
-#, fuzzy
 msgid "Page has been created"
-msgstr "Ο πίνακας %1$s έχει δημιουργηθεί."
+msgstr "Η σελίδα δημιουργήθηκε"
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
