@@ -6118,7 +6118,7 @@ msgid ""
 msgstr ""
 "Komprimovat exporty pomocí gzip/bzip2 za letu bez velkých nároků na paměť; "
 "pokud narazíte na problémy s takto vytvořenými gzip/bzip2 archivy, zakažte "
-"tuto funkci."
+"tuto funkci"
 
 #: setup/lib/messages.inc.php:39
 msgid "Compress on the fly"
