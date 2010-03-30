@@ -4610,7 +4610,7 @@ msgid ""
 "critical even if this is big.)"
 msgstr ""
 "Počet spojení, které používaly intervalové vyhledávání na první tabulce. "
-"Tato hodnota obvykle není kritická i když je vysoká."
+"(Tato hodnota obvykle není kritická i když je vysoká.)"
 
 #: libraries/messages.inc.php:999
 msgid "The number of joins that did a full scan of the first table."
