@@ -1,6 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Various helper scripts, using mootools.
+ * Various helper scripts, using jQuery.
  *
  * @version $Id$
  */
@@ -14,7 +14,7 @@ var hash_init_done = 0;
  * one.
  */
 function setURLHash(hash) {
-    if (Browser.Engine.webkit) {
+    if (jQuery.browser.webkit) {
         /* 
          * Setting hash leads to reload in webkit: 
          * http://www.quirksmode.org/bugreports/archives/2005/05/Safari_13_visual_anomaly_with_windowlocationhref.html
@@ -25,7 +25,8 @@ function setURLHash(hash) {
         window.parent.setURLHash(hash);
     } else {
         /* Do not set if we're not updating frameset */
-        if (window.location.pathname.substring(-9, 9) != "index.php") {
+        var path = window.location.pathname;
+        if (path.substring(path.length - 9, path.length) != "index.php") {
             return;
         }
         if (hash_init_done) {
@@ -40,7 +41,7 @@ function setURLHash(hash) {
  * Handler for changing url according to the hash part, which is updated
  * on each page to allow bookmarks.
  */
-window.addEvent('load', function() {
+jQuery(document).ready(function(){
     /* Don't do anything if we're not root Window */
     if (window.parent != window && window.parent.setURLHash) {
         return;
