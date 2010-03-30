@@ -54,7 +54,7 @@ msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "Pakeista %1$d eilutė."
 msgstr[1] "Pakeistos %1$d eilutės."
-msgstr[2] "Pakeistos %1$d eilučių."
+msgstr[2] "Pakeista %1$d eilučių."
 
 #: libraries/Message.class.php:301
 #, php-format
