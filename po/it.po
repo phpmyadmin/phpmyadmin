@@ -65,12 +65,12 @@ msgstr[0] "%1$d riga cancellata."
 msgstr[1] "%1$d righe cancellate."
 
 #: libraries/Message.class.php:320
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d riga/e inserita."
-msgstr[1] "%1$d riga/e inserita."
+msgstr[0] "%1$d riga inserita."
+msgstr[1] "%1$d righe inserite."
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:15
