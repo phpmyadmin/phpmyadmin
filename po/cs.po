@@ -6639,7 +6639,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:159
 msgid "How many rows can be inserted at one time"
-msgstr "Kolik řádků může být vloženo naráz."
+msgstr "Kolik řádků může být vloženo naráz"
 
 #: setup/lib/messages.inc.php:160
 msgid "Number of inserted rows"
