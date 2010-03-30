@@ -184,7 +184,7 @@ msgstr "spalio"
 
 #: libraries/messages.inc.php:24
 msgid "Nov"
-msgstr "Lapkričio"
+msgstr "lapkričio"
 
 #: libraries/messages.inc.php:24
 msgid "Dec"
