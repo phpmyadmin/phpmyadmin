@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-03-30 23:21+0200\n"
+"PO-Revision-Date: 2010-03-30 23:22+0200\n"
 "Last-Translator:  <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -57,12 +57,12 @@ msgstr[0] "%1$d riga modificata."
 msgstr[1] "%1$d righe modificate."
 
 #: libraries/Message.class.php:301
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d riga/e cancellata."
-msgstr[1] "%1$d riga/e cancellata."
+msgstr[0] "%1$d riga cancellata."
+msgstr[1] "%1$d righe cancellate."
 
 #: libraries/Message.class.php:320
 #, fuzzy, php-format
