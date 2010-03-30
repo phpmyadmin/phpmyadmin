@@ -6735,7 +6735,7 @@ msgstr "Nechat uživatele, aby si vybral"
 
 #: setup/lib/messages.inc.php:181
 msgid "Use less graphically intense tabs"
-msgstr "Použije graficky méně náročné panely."
+msgstr "Použije graficky méně náročné panely"
 
 #: setup/lib/messages.inc.php:182
 msgid "Light tabs"
