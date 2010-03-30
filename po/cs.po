@@ -6914,7 +6914,7 @@ msgstr "Zobrazení ikon pro operace s tabulkami"
 
 #: setup/lib/messages.inc.php:217
 msgid "Disallow BLOB and BINARY fields from editing"
-msgstr "Zakáže úpravu políček BLOB a BINARY."
+msgstr "Zakáže úpravu políček BLOB a BINARY"
 
 #: setup/lib/messages.inc.php:218
 msgid "Protect binary fields"
