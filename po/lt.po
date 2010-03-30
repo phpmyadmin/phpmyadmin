@@ -100,7 +100,7 @@ msgstr "MiB"
 
 #: libraries/messages.inc.php:21
 msgid "GiB"
-msgstr "GB"
+msgstr "GiB"
 
 #: libraries/messages.inc.php:21
 msgid "TiB"
