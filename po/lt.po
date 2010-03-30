@@ -144,7 +144,7 @@ msgstr "Šeštadienis"
 
 #: libraries/messages.inc.php:24
 msgid "Jan"
-msgstr "Sausio"
+msgstr "sausio"
 
 #: libraries/messages.inc.php:24
 msgid "Feb"
