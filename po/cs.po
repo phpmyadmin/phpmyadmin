@@ -6816,8 +6816,7 @@ msgstr "Nejvyšší délka zobrazeného SQL dotazu"
 
 #: setup/lib/messages.inc.php:195
 msgid "Maximum number of databases displayed in left frame and database list"
-msgstr ""
-"Nejvyšší počet databází zobrazovaných v levém rámu a v seznamu databází."
+msgstr "Nejvyšší počet databází zobrazovaných v levém rámu a v seznamu databází"
 
 #: setup/lib/messages.inc.php:196
 msgid "Maximum databases"
