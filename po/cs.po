@@ -1314,7 +1314,7 @@ msgstr "Výpis byl uložen do souboru %s."
 #: libraries/messages.inc.php:284
 #, php-format
 msgid "Dump %s row(s) starting at record # %s"
-msgstr "Vypsat %s řádků od %s."
+msgstr "Vypsat %s řádků od %s"
 
 #: libraries/messages.inc.php:285
 msgid "dynamic"
