@@ -5765,7 +5765,7 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Použijte klávesu TAB pro pohyb mezi hodnotami nebo CTRL+šipky po pohyb všemi "
-"směry."
+"směry"
 
 #: libraries/messages.inc.php:1237
 msgid "Use Tables"
