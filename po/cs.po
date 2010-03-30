@@ -7002,7 +7002,7 @@ msgstr "Přidat nový server"
 
 #: setup/lib/messages.inc.php:235
 msgid "Leave blank if not used"
-msgstr "Pokud tuto volbu nepoužíváte, nechte ji prázdnou."
+msgstr "Pokud tuto volbu nepoužíváte, nechte ji prázdnou"
 
 #: setup/lib/messages.inc.php:236
 msgid "Host authentication order"
