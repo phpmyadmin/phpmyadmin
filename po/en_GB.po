@@ -7601,7 +7601,7 @@ msgstr ""
 "upgrading. The newest version is %s, released on %s."
 
 #: setup/lib/messages.inc.php:353
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
 #| "latest stable version is %s, released on %s."
@@ -7609,8 +7609,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-"latest stable version is %s, released on %s."
+"You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
+"version is %s, released on %s."
 
 #: setup/lib/messages.inc.php:354
 msgid "No newer stable version is available"
