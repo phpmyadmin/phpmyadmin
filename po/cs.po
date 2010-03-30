@@ -1911,7 +1911,7 @@ msgstr "Index"
 
 #: libraries/messages.inc.php:425
 msgid "Index name:"
-msgstr "Jméno indexu :"
+msgstr "Jméno indexu:"
 
 #: libraries/messages.inc.php:426
 msgid "Index type:"
