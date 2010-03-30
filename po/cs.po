@@ -6659,7 +6659,7 @@ msgstr "Zobrazit logo"
 
 #: setup/lib/messages.inc.php:164
 msgid "Display server choice at the top of the left frame"
-msgstr "Zobrazí volbu serveru v horní části levého rámu."
+msgstr "Zobrazí volbu serveru v horní části levého rámu"
 
 #: setup/lib/messages.inc.php:165
 msgid "Display servers selection"
