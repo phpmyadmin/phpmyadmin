@@ -41,10 +41,9 @@ msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
-#, fuzzy
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr "Dërguar"
+msgstr "en"
 
 #: libraries/Message.class.php:282
 #, php-format
