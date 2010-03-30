@@ -6870,7 +6870,7 @@ msgstr "Nový server"
 
 #: setup/lib/messages.inc.php:206
 msgid "There are no configured servers"
-msgstr "Žádné servery nejsou nastaveny."
+msgstr "Žádné servery nejsou nastaveny"
 
 #: setup/lib/messages.inc.php:207
 msgid "use GZip output buffering for increased speed in HTTP transfers"
