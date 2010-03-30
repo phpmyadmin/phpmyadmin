@@ -7113,7 +7113,7 @@ msgstr "Kontrolní uživatel"
 
 #: setup/lib/messages.inc.php:258
 msgid "Count tables when showing database list"
-msgstr "Zda počítat tabulky, když se zobrazuje seznam databází."
+msgstr "Zda počítat tabulky, když se zobrazuje seznam databází"
 
 #: setup/lib/messages.inc.php:259
 msgid "Count tables"
