@@ -3677,7 +3677,7 @@ msgstr "Neznámá chyba"
 
 #: libraries/messages.inc.php:819
 msgid "Reset"
-msgstr "Vynulovat statistiky"
+msgstr "Původní"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
