@@ -6158,7 +6158,7 @@ msgstr "Výchozí server"
 
 #: setup/lib/messages.inc.php:47
 msgid "Tab that is displayed when entering a database"
-msgstr "Panel, který je zobrazen při přístupu k databázi."
+msgstr "Panel, který je zobrazen při přístupu k databázi"
 
 #: setup/lib/messages.inc.php:48
 msgid "Default database tab"
