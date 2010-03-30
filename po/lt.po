@@ -206,7 +206,7 @@ msgstr "Nutraukta"
 
 #: libraries/messages.inc.php:30
 msgid "Access denied"
-msgstr "Jungtis neįmanoma"
+msgstr "Priėjimas uždraustas"
 
 #: libraries/messages.inc.php:31
 msgid "Action"
