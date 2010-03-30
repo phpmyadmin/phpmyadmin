@@ -210,7 +210,7 @@ msgstr "Priėjimas uždraustas"
 
 #: libraries/messages.inc.php:31
 msgid "Action"
-msgstr "Valdymo veiksmai"
+msgstr "Veiksmas"
 
 #: libraries/messages.inc.php:32
 msgid "Actions"
