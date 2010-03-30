@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 14:56+0200\n"
+"POT-Creation-Date: 2010-03-30 14:59+0200\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: estonian <et@li.org>\n"
@@ -7457,8 +7457,8 @@ msgstr ""
 #: setup/lib/messages.inc.php:353
 #, php-format
 msgid ""
-"You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-"latest stable version is %s, released on %s."
+"You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
+"version is %s, released on %s."
 msgstr ""
 
 #: setup/lib/messages.inc.php:354
