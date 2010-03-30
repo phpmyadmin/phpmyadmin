@@ -198,7 +198,7 @@ msgstr "%Y m. %B %d d. %H:%M"
 #: libraries/messages.inc.php:27
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s d., %s val., %s min. ir %s s."
+msgstr "%s d., %s val., %s min. ir %s s"
 
 #: libraries/messages.inc.php:29
 msgid "Aborted"
