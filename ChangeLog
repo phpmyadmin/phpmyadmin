@@ -69,6 +69,7 @@ $Id$
 - patch #2976790 [menu] Go to the upper level after table DROP,
   thanks to Kaarel Nummert - kaarelnu
 - patch #2978815 [pdf] Fix generating PDF with table dimensions, thanks to BlinK_
+- patch #2977725 [export] XML wrongly encoded, thanks to Victor Volkov - hanut
 
 3.3.1.0 (2010-03-16)
 - bug #2941037 [core] Database structure not sorted by table correctly 

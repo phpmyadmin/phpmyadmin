@@ -337,7 +337,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                 if (!isset($record[$i]) || is_null($record[$i])) {
                     $record[$i] = 'NULL';
                 }
-                $buffer .= '            <column name="' . $columns[$i] . '">' . htmlspecialchars(utf8_encode((string)$record[$i]))
+                $buffer .= '            <column name="' . $columns[$i] . '">' . htmlspecialchars((string)$record[$i])
                         .  '</column>' . $crlf;
             }
             $buffer         .= '        </table>' . $crlf;
