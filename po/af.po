@@ -39,7 +39,7 @@ msgstr "en"
 #: libraries/common.lib.php:415
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #: libraries/Message.class.php:282
 #, php-format
