@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-03-30 23:26+0200\n"
+"PO-Revision-Date: 2010-03-30 23:27+0200\n"
 "Last-Translator:  <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1059,9 +1059,8 @@ msgid "%s databases have been dropped successfully."
 msgstr "%s databases sono stati cancellati correttamente."
 
 #: libraries/messages.inc.php:225
-#, fuzzy
 msgid "Source database"
-msgstr "Cerca nel database"
+msgstr "Database di origine"
 
 #: libraries/messages.inc.php:226
 msgid "Databases statistics"
