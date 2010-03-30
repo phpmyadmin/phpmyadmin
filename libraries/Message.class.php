@@ -266,6 +266,25 @@ class PMA_Message
     }
 
     /**
+     * get PMA_Message for number of affected rows
+     *
+     * shorthand for getting a customized message
+     *
+     * @static
+     * @uses    PMA_Message as returned object
+     * @uses    PMA_Message::success()
+     * @uses    PMA_Message::addParam()
+     * @param   integer   $rows Number of rows
+     * @return  PMA_Message
+     */
+    static public function affected_rows($rows)
+    {
+        $message = PMA_Message::success(_ngettext('%1$d row affected.', '%1$d rows affected.', $rows));
+        $message->addParam($rows);
+        return $message;
+    }
+
+    /**
      * get PMA_Message of type error with custom content
      *
      * shorthand for getting a customized error message

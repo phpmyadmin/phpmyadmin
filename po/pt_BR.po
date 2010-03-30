@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-19 00:28+0100\n"
+"POT-Creation-Date: 2010-03-30 14:28+0200\n"
 "PO-Revision-Date: 2010-03-21 05:17+0200\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -46,6 +46,14 @@ msgstr "en"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "en"
+
+#: libraries/Message.class.php:282
+#, fuzzy, php-format
+#| msgid "%1$d row(s) affected."
+msgid "%1$d row affected."
+msgid_plural "%1$d rows affected."
+msgstr[0] "%1$d linha(s) afetadas."
+msgstr[1] "%1$d linha(s) afetadas."
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:15

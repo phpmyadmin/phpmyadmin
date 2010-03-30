@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-19 00:28+0100\n"
+"POT-Creation-Date: 2010-03-30 14:28+0200\n"
 "PO-Revision-Date: 2010-03-19 03:34+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -43,6 +43,13 @@ msgstr "en"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "zh"
+
+#: libraries/Message.class.php:282
+#, fuzzy, php-format
+#| msgid "%1$d row(s) affected."
+msgid "%1$d row affected."
+msgid_plural "%1$d rows affected."
+msgstr[0] "影响了 %1$d 行。"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:15
@@ -598,8 +605,8 @@ msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 "extension. Please check your PHP configuration."
 msgstr ""
-"无法加载 [a@http://php.net/%1$s@Documentation][em]%1$s (外链，英语)[/em][/a] 扩展，请检查您的 "
-"PHP 配置。"
+"无法加载 [a@http://php.net/%1$s@Documentation][em]%1$s (外链，英语)[/em][/a] "
+"扩展，请检查您的 PHP 配置。"
 
 #: libraries/messages.inc.php:132
 msgid ""

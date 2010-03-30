@@ -326,11 +326,7 @@ if ($is_insert && count($value_sets) > 0) {
     unset($insert_command);
 
     unset($query_fields, $value_sets);
-
-    $message = PMA_Message::success('strRowsInserted');
-} elseif (! empty($query)) {
-    $message = PMA_Message::success('strRowsAffected');
-} else {
+} elseif (empty($query)) {
     // No change -> move back to the calling script
     $message = PMA_Message::success('strNoModification');
     $GLOBALS['js_include'][] = 'functions.js';
@@ -403,7 +399,13 @@ foreach ($query as $single_query) {
 }
 unset($single_query, $query);
 
-$message->addParam($total_affected_rows);
+if ($is_insert && count($value_sets) > 0) {
+    $message = PMA_Message::success('strRowsInserted');
+    $message->addParam($total_affected_rows);
+} else {
+    $message = PMA_Message::affected_rows($total_affected_rows);
+}
+
 $message->addMessages($last_messages, '<br />');
 
 if (! empty($warning_messages)) {
