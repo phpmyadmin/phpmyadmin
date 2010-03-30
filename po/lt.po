@@ -176,7 +176,7 @@ msgstr "rugpjūčio"
 
 #: libraries/messages.inc.php:24
 msgid "Sep"
-msgstr "Rugsėjo"
+msgstr "rugsėjo"
 
 #: libraries/messages.inc.php:24
 msgid "Oct"
