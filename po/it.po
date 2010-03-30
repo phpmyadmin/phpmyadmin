@@ -1109,7 +1109,7 @@ msgstr "Pagine contenenti dati"
 
 #: libraries/messages.inc.php:236
 msgid "Data Synchronization"
-msgstr ""
+msgstr "Sincronizzazione dati"
 
 #: libraries/messages.inc.php:237
 msgid "Database comment: "
