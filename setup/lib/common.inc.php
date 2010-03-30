@@ -17,6 +17,7 @@ chdir('..');
 
 require_once './libraries/common.inc.php';
 require_once './libraries/url_generating.lib.php';
+require_once './setup/lib/messages.inc.php';
 require_once './setup/lib/ConfigFile.class.php';
 
 // use default error handler
