@@ -291,7 +291,7 @@ function Re_load()
                         + height_field;
 
                     //alert(y1 + ' - ' + key2 + "." + key3);
-                    Line0(x1 - sm_x, y1 - sm_y, x2 - sm_x, y2 - sm_y, "rgba(0,100,150,1)");
+                    Line0(x1 - sm_x, y1 - sm_y, x2 - sm_x, y2 - sm_y, getColorByTarget( contr[K][key][key2][key3][0]+'.'+contr[K][key][key2][key3][1] ) );
                 }
 }
 
@@ -315,8 +315,8 @@ function Line(x1, y1, x2, y2, color_line)
  */
 function Line0(x1, y1, x2, y2, color_line)
 {
-    Circle(x1, y1, 3, 3, "rgba(0,0,255,1)");
-    Rect(x2 - 1, y2 - 2, 4, 4, "rgba(0,0,255,1)");
+    Circle(x1, y1, 3, 3, color_line);
+    Rect(x2 - 1, y2 - 2, 4, 4, color_line);
 
     if (ON_angular_direct) {
         Line2(x1, y1, x2, y2, color_line);
@@ -717,7 +717,7 @@ function Canvas_click(id)
                         Key2 = key2; Key3 = key3;
                         Key = K;
                     } else {
-                        Line0(x1 - sm_x, y1 - sm_y, x2 - sm_x, y2 - sm_y, "rgba(0,100,150,1)");
+                        Line0(x1 - sm_x, y1 - sm_y, x2 - sm_x, y2 - sm_y, getColorByTarget( contr[K][key][key2][key3][0]+'.'+contr[K][key][key2][key3][1] ));
                     }
                 }
     if (selected) {
@@ -919,4 +919,49 @@ function Start_display_field()
         document.getElementById('display_field_button').className = 'M_butt';
         ON_display_field = 0;
     }
+}
+//------------------------------------------------------------------------------
+var TargetColors = new Array();
+function getColorByTarget( target ) 
+{ 
+  var color = '';  //"rgba(0,100,150,1)";
+
+  for (i in TargetColors)
+   if (TargetColors[i][0]==target) {
+    color = TargetColors[i][1];
+    break; 
+   } 
+
+
+  if (color.length==0)
+  {  
+   var i = TargetColors.length+1;
+   var d = i % 6;
+   var j = (i - d) / 6;
+   j = j % 4;
+   j++;
+   var color_case = new Array(
+                        new Array(1, 0, 0),
+                        new Array(0, 1, 0),
+                        new Array(0, 0, 1),
+                        new Array(1, 1, 0),
+                        new Array(1, 0, 1),
+                        new Array(0, 1, 1)
+                        );
+    var a = color_case[d][0];
+    var b = color_case[d][1];
+    var c = color_case[d][2];
+    e = (1 - (j - 1) / 6);
+                    
+    var r = Math.round(a * 200 * e);
+    var g = Math.round(b * 200 * e);
+    var b = Math.round(c * 200 * e);
+    var color = "rgba("+r+","+g+","+b+",1)";
+
+    TargetColors.push( new Array(target, color) );
+
+    
+  }
+
+  return color;    
 }

@@ -112,6 +112,11 @@ $GLOBALS['js_events'][] = array(
     'function'  => 'PMA_TT_init',
 );
 
+/**
+ * Here we add a timestamp when loading the file, so that users who
+ * upgrade phpMyAdmin are not stuck with older .js files in their
+ * browser cache. This produces an HTTP 304 request for each file.
+ */
 foreach ($GLOBALS['js_include'] as $js_script_file) {
     echo '<script src="./js/' . $js_script_file . '?ts=' . filemtime('./js/' . $js_script_file) . '" type="text/javascript"></script>' . "\n";
 }

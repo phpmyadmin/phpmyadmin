@@ -2990,6 +2990,10 @@ $cfg['NumOperators'] = array(
    '!=',
    'LIKE',
    'NOT LIKE',
+   'IN (...)',
+   'NOT IN (...)',
+   'BETWEEN',
+   'NOT BETWEEN',
 );
 
 /**
@@ -3007,7 +3011,11 @@ $cfg['TextOperators'] = array(
    'REGEXP ^...$',
    'NOT REGEXP',
    "= ''",
-   "!= ''"
+   "!= ''",
+   'IN (...)',
+   'NOT IN (...)',
+   'BETWEEN',
+   'NOT BETWEEN',
 );
 
 /**
