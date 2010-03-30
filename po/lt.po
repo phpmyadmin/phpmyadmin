@@ -108,7 +108,7 @@ msgstr "TiB"
 
 #: libraries/messages.inc.php:21
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #: libraries/messages.inc.php:21
 msgid "EiB"
