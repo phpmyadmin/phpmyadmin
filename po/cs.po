@@ -7588,8 +7588,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Povolí [a@http://cs.wikipedia.org/wiki/ZIP_%28souborov%C3%BD_form%C3%A1t%29]"
-"ZIP[/a] kompresi pro importování a exportování."
+"Povolí [a@http://cs.wikipedia.org/wiki/ZIP_%28souborov%C3%BD_form%C3%A1t%"
+"29]ZIP[/a] kompresi pro importování a exportování"
 
 #: setup/lib/messages.inc.php:360
 #, fuzzy, php-format
