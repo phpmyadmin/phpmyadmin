@@ -1648,8 +1648,9 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt id="cfg_DefaultLang">$cfg['DefaultLang'] string</dt>
     <dd>Defines the default language to use, if not browser-defined or
         user-defined.<br />
-        See the <i>select_lang.lib.php</i> script to know the valid values for
-        this setting.</dd>
+        The corresponding language file needs to be in
+        locale/<i>code</i>/LC_MESSAGES/phpmyadmin.mo.
+        </dd>
 
     <dt id="cfg_DefaultConnectionCollation">$cfg['DefaultConnectionCollation'] string</dt>
     <dd>Defines the default connection collation to use, if not
@@ -1658,8 +1659,9 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         documentation</a> for list of possible values.</dd>
 
     <dt id="cfg_Lang">$cfg['Lang'] string</dt>
-    <dd>Force: always use this language (must be defined in the
-        <i>select_lang.lib.php</i> script).</dd>
+    <dd>Force language to use.<br />
+        The corresponding language file needs to be in
+        locale/<i>code</i>/LC_MESSAGES/phpmyadmin.mo.
 
     <dt id="cfg_FilterLanguages">$cfg['FilterLanguages'] string</dt>
     <dd>Limit list of available languages to those matching the given regular
