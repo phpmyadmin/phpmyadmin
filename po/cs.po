@@ -6990,7 +6990,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:232
 msgid "You should use mysqli for performance reasons"
-msgstr "Měl byste použít mysqli z výkonostních důvodů."
+msgstr "Měl byste použít mysqli z výkonostních důvodů"
 
 #: setup/lib/messages.inc.php:233
 msgid "You allow for connecting to the server without a password."
