@@ -941,7 +941,6 @@ msgstr ""
 "Δημιουργία βάσης δεδομένων με το ίδιο όνομα και με πλήρη δικαιώματα χρήσης"
 
 #: libraries/messages.inc.php:203
-#, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Καμία"
