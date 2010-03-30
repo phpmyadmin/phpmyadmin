@@ -6451,7 +6451,7 @@ msgid ""
 "what they are for"
 msgstr ""
 "Pokročilé nastavení serveru, neměňte tyto volby, pokud nevíte, čeho se "
-"týkají."
+"týkají"
 
 #: setup/lib/messages.inc.php:122
 msgid "Server configuration"
