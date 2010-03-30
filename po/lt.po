@@ -164,7 +164,7 @@ msgstr "gegužės"
 
 #: libraries/messages.inc.php:24
 msgid "Jun"
-msgstr "Birželio"
+msgstr "birželio"
 
 #: libraries/messages.inc.php:24
 msgid "Jul"
