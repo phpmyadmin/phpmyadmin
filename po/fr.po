@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-03-31 14:03+0200\n"
+"PO-Revision-Date: 2010-03-31 14:04+0200\n"
 "Last-Translator:  <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6283,7 +6283,7 @@ msgstr "Onglet par défaut pour bases de données"
 
 #: setup/lib/messages.inc.php:49
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "L'onglet initial dans l'affichage serveur"
 
 #: setup/lib/messages.inc.php:50
 msgid "Default server tab"
