@@ -398,7 +398,7 @@ msgstr "Taularen hasieran"
 
 #: libraries/messages.inc.php:76
 msgid "At End of Table"
-msgstr "Taularen amaiera"
+msgstr "Taularen amaieran"
 
 #: libraries/messages.inc.php:77
 msgid "Attributes"
