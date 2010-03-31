@@ -235,9 +235,9 @@ msgid "Add/Delete Criteria Row"
 msgstr "Gehitu/ezabatu irizpide-errenkada"
 
 #: libraries/messages.inc.php:38
-#, fuzzy, php-format
+#, php-format
 msgid "Add %s field(s)"
-msgstr "Eremu berria gehitu"
+msgstr "Gehitu %s zutabe"
 
 #: libraries/messages.inc.php:39
 msgid "Add custom comment into header (\\n splits lines)"
