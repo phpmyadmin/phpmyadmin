@@ -47,8 +47,8 @@ if (empty($GLOBALS['is_header_sent'])) {
     <?php
 
     // Include possible custom headers
-    if (file_exists('./config.header.inc.php')) {
-        require './config.header.inc.php';
+    if (file_exists(CUSTOM_HEADER_FILE)) {
+        require CUSTOM_HEADER_FILE;
     }
 
 

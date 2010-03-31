@@ -288,7 +288,7 @@ if (! function_exists('preg_replace')) {
  * force reading of config file, because we removed sensitive values
  * in the previous iteration
  */
-$GLOBALS['PMA_Config'] = new PMA_Config('./config.inc.php');
+$GLOBALS['PMA_Config'] = new PMA_Config(CONFIG_FILE);
 
 if (!defined('PMA_MINIMUM_COMMON')) {
     $GLOBALS['PMA_Config']->checkPmaAbsoluteUri();
@@ -589,7 +589,7 @@ require_once './libraries/select_lang.lib.php';
 if ($GLOBALS['PMA_Config']->error_config_file) {
     $error = $strConfigFileError
         . '<br /><br />'
-        . ($GLOBALS['PMA_Config']->getSource() == './config.inc.php' ?
+        . ($GLOBALS['PMA_Config']->getSource() == CONFIG_FILE ?
         '<a href="show_config_errors.php"'
         .' target="_blank">' . $GLOBALS['PMA_Config']->getSource() . '</a>'
         :

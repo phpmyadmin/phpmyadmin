@@ -56,6 +56,7 @@ $Id$
   Martynas Mickevičius
 + patch #2967320 [designer] Colored relations based on the primary key,
   thanks to GreenRover - greenrover
+- [core] Provide way for vendors to easily change paths to config files.
 
 3.3.2.0 (not yet released)
 - patch #2969449 [core] Name for MERGE engine varies depending on the

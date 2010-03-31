@@ -200,8 +200,8 @@ setURLHash("<?php echo PMA_generate_common_url($url_params, 'text', ''); ?>");
 }
 
 // Include possible custom footers
-if (file_exists('./config.footer.inc.php')) {
-    require './config.footer.inc.php';
+if (file_exists(CUSTOM_FOOTER_FILE)) {
+    require CUSTOM_FOOTER_FILE;
 }
 
 

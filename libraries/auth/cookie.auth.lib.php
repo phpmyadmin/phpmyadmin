@@ -199,8 +199,8 @@ if (top != self) {
 <body class="loginform">
 
     <?php
-    if (file_exists('./config.header.inc.php')) {
-          require './config.header.inc.php';
+    if (file_exists(CUSTOM_HEADER_FILE)) {
+        require CUSTOM_HEADER_FILE;
     }
     ?>
 
@@ -343,8 +343,8 @@ window.setTimeout('PMA_focusInput()', 500);
 // ]]>
 </script>
     <?php
-    if (file_exists('./config.footer.inc.php')) {
-         require './config.footer.inc.php';
+    if (file_exists(CUSTOM_FOOTER_FILE)) {
+        require CUSTOM_FOOTER_FILE;
     }
     ?>
 </body>
@@ -682,7 +682,7 @@ function PMA_auth_fails()
             }
         }
     } elseif (PMA_DBI_getError()) {
-        $conn_error = '#' . $GLOBALS['errno'] . ' ' . $GLOBALS['strCannotLogin']; 
+        $conn_error = '#' . $GLOBALS['errno'] . ' ' . $GLOBALS['strCannotLogin'];
     } else {
         $conn_error = $GLOBALS['strCannotLogin'];
     }

@@ -55,8 +55,8 @@ function PMA_auth()
 </head>
 <body>
     <?php
-    if (file_exists('./config.header.inc.php')) {
-        require './config.header.inc.php';
+    if (file_exists(CUSTOM_HEADER_FILE)) {
+        require CUSTOM_HEADER_FILE;
     }
     ?>
 
@@ -69,8 +69,8 @@ function PMA_auth()
     <?php
     PMA_Message::error('strWrongUser')->display();
 
-    if (file_exists('./config.footer.inc.php')) {
-        require './config.footer.inc.php';
+    if (file_exists(CUSTOM_FOOTER_FILE)) {
+        require CUSTOM_FOOTER_FILE;
     }
     ?>
 
