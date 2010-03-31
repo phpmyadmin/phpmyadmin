@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-03-31 13:50+0200\n"
+"PO-Revision-Date: 2010-03-31 14:02+0200\n"
 "Last-Translator:  <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6147,9 +6147,8 @@ msgid "Row marker"
 msgstr "Activer le marqueur d'enregistrements"
 
 #: setup/lib/messages.inc.php:23
-#, fuzzy
 msgid "Highlight row pointed by the mouse cursor"
-msgstr "...dans le panneau de navigation"
+msgstr "Mettre en surbrillance l'enregistrement sur lequel pointe la souris"
 
 #: setup/lib/messages.inc.php:24
 msgid "Highlight pointer"
