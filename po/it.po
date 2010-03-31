@@ -1239,7 +1239,7 @@ msgstr "dizionario"
 
 #: libraries/messages.inc.php:264
 msgid "Difference"
-msgstr ""
+msgstr "Differenza"
 
 #: libraries/messages.inc.php:265
 msgid "Direct links"
