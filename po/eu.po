@@ -4,13 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-03-12 09:12+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-03-31 10:40+0200\n"
+"Last-Translator:  <hey_neken@mundurat.net>\n"
 "Language-Team: basque <eu@li.org>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -33,17 +35,15 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:411
-#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr "Bidalita"
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:415
-#, fuzzy
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr "Bidalita"
+msgstr "en"
 
 #: libraries/Message.class.php:282
 #, php-format
@@ -208,9 +208,8 @@ msgid "Action"
 msgstr "Ekintza"
 
 #: libraries/messages.inc.php:32
-#, fuzzy
 msgid "Actions"
-msgstr "Ekintza"
+msgstr "Ekintzak"
 
 #: libraries/messages.inc.php:33
 msgid "Add AUTO_INCREMENT value"
@@ -219,7 +218,7 @@ msgstr "Gehitu AUTO_INCREMENT balioa"
 #: libraries/messages.inc.php:34
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "%s gehitu"
 
 #: libraries/messages.inc.php:35
 msgid "Add constraints"
@@ -234,9 +233,9 @@ msgid "Add/Delete Criteria Row"
 msgstr "Gehitu/ezabatu irizpide-errenkada"
 
 #: libraries/messages.inc.php:38
-#, fuzzy, php-format
+#, php-format
 msgid "Add %s field(s)"
-msgstr "Eremu berria gehitu"
+msgstr "Gehitu %s zutabe"
 
 #: libraries/messages.inc.php:39
 msgid "Add custom comment into header (\\n splits lines)"
@@ -294,12 +293,11 @@ msgstr "Erregistro berria gehitu"
 
 #: libraries/messages.inc.php:52
 msgid "Edit next row"
-msgstr ""
+msgstr "Editatu hurrengo lerroa"
 
 #: libraries/messages.inc.php:53
-#, fuzzy
 msgid "Go back to this page"
-msgstr "Itzuli"
+msgstr "Egin atzera orri honetara"
 
 #: libraries/messages.inc.php:54
 msgid "All"
@@ -322,7 +320,7 @@ msgstr "Taularen \"Order By\" aldatu"
 
 #: libraries/messages.inc.php:58
 msgid "Analyze"
-msgstr ""
+msgstr "Aztertu"
 
 #: libraries/messages.inc.php:59
 msgid "Analyze table"
@@ -330,33 +328,32 @@ msgstr "Taula aztertu"
 
 #: libraries/messages.inc.php:60
 msgid "And"
-msgstr "eta"
+msgstr "Eta"
 
 #: libraries/messages.inc.php:61
-#, fuzzy
 msgid "and"
 msgstr "eta"
 
 #: libraries/messages.inc.php:62
 msgid "and then"
-msgstr ""
+msgstr "eta orduan"
 
 #: libraries/messages.inc.php:63
 msgid "Angular links"
-msgstr ""
+msgstr "Esteka angularrak"
 
 #: libraries/messages.inc.php:64
 #, php-format
 msgid "An index has been added on %s"
-msgstr "Indize bat gehitu da hemen: %s"
+msgstr "Indize bat gehitu gehitu zaio %s-(r)i"
 
 #: libraries/messages.inc.php:65
 msgid "Any"
-msgstr "edozein"
+msgstr "Edozein"
 
 #: libraries/messages.inc.php:66
 msgid "Any host"
-msgstr "Edozein zerbitzari"
+msgstr "Edozein ostalari"
 
 #: libraries/messages.inc.php:67
 msgid "Any user"
@@ -364,7 +361,7 @@ msgstr "Edozein erabiltzaile"
 
 #: libraries/messages.inc.php:68
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Aplikatu aukeratutako aldaketak"
 
 #: libraries/messages.inc.php:69
 msgid ""
@@ -375,7 +372,7 @@ msgstr ""
 #: libraries/messages.inc.php:70
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr "Lehen mailako gakoa gehitu da hemen: %s"
+msgstr "Lehen mailako gakoa gehitu zaio %s-(r)i"
 
 #: libraries/messages.inc.php:71
 msgid "Arabic"
@@ -391,19 +388,19 @@ msgstr "Goranzko"
 
 #: libraries/messages.inc.php:74
 msgid "As defined:"
-msgstr ""
+msgstr "Honela definitua:"
 
 #: libraries/messages.inc.php:75
 msgid "At Beginning of Table"
-msgstr "Taularen hasiera"
+msgstr "Taularen hasieran"
 
 #: libraries/messages.inc.php:76
 msgid "At End of Table"
-msgstr "Taularen amaiera"
+msgstr "Taularen amaieran"
 
 #: libraries/messages.inc.php:77
 msgid "Attributes"
-msgstr "Ezaugarriak"
+msgstr "Atributuak"
 
 #: libraries/messages.inc.php:78
 msgid "Automatic layout"
@@ -3250,7 +3247,7 @@ msgstr "Pribilegiorik ez."
 
 #: libraries/messages.inc.php:723
 msgid "Privileges"
-msgstr "Probilegioak"
+msgstr "Pribilegioak"
 
 #: libraries/messages.inc.php:724
 msgid "The privileges were reloaded successfully."
