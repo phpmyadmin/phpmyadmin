@@ -59,6 +59,7 @@ function PMA_exportFooter() {
     $tmp_filename = tempnam(realpath($GLOBALS['cfg']['TempDir']), 'pma_xls_');
     
     $workbookWriter = new PHPExcel_Writer_Excel5($workbook);
+    $workbookWriter->setTempDir(realpath($GLOBALS['cfg']['TempDir']));
     $workbookWriter->save($tmp_filename);
     
     if (!PMA_exportOutputHandler(file_get_contents($tmp_filename))) {
