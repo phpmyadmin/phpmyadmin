@@ -374,7 +374,7 @@ msgstr ""
 #: libraries/messages.inc.php:70
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr "Lehen mailako gakoa gehitu da hemen: %s"
+msgstr "Lehen mailako gakoa gehitu zaio %s-(r)i"
 
 #: libraries/messages.inc.php:71
 msgid "Arabic"
