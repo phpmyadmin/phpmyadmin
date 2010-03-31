@@ -333,7 +333,6 @@ msgid "And"
 msgstr "eta"
 
 #: libraries/messages.inc.php:61
-#, fuzzy
 msgid "and"
 msgstr "eta"
 
