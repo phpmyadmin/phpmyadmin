@@ -210,9 +210,8 @@ msgid "Action"
 msgstr "Ekintza"
 
 #: libraries/messages.inc.php:32
-#, fuzzy
 msgid "Actions"
-msgstr "Ekintza"
+msgstr "Ekintzak"
 
 #: libraries/messages.inc.php:33
 msgid "Add AUTO_INCREMENT value"
