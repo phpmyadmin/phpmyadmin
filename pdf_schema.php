@@ -893,7 +893,7 @@ class PMA_RT {
         $pdf->SetDrawColor(200, 200, 200);
         // Draws horizontal lines
         for ($l = 0; $l < 21; $l++) {
-            $pdf->line(0, $l * 10, $pdf->fh, $l * 10);
+            $pdf->line(0, $l * 10, $pdf->getFh(), $l * 10);
             // Avoid duplicates
             if ($l > 0) {
                 $pdf->SetXY(0, $l * 10);
@@ -903,7 +903,7 @@ class PMA_RT {
         } // end for
         // Draws vertical lines
         for ($j = 0; $j < 30 ;$j++) {
-            $pdf->line($j * 10, 0, $j * 10, $pdf->fw);
+            $pdf->line($j * 10, 0, $j * 10, $pdf->getFw());
             $pdf->SetXY($j * 10, 0);
             $label = (string) sprintf('%.0f', ($j * 10 - $this->l_marg) * $this->scale + $this->x_min);
             $pdf->Cell(5, 7, $label);
