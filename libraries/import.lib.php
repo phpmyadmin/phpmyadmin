@@ -947,7 +947,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
                     $tempSQLStr .= ", ";
                 }
             }
-            $tempSQLStr .= ") ENGINE=MyISAM;";
+            $tempSQLStr .= ") ENGINE=MyISAM DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation . ";";
             
             /**
              * Each SQL statement is executed immediately
