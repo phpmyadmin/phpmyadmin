@@ -394,7 +394,7 @@ msgstr "Honela definitua:"
 
 #: libraries/messages.inc.php:75
 msgid "At Beginning of Table"
-msgstr "Taularen hasiera"
+msgstr "Taularen hasieran"
 
 #: libraries/messages.inc.php:76
 msgid "At End of Table"
