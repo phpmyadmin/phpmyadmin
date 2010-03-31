@@ -1661,7 +1661,7 @@ msgstr "Tedesco"
 
 #: libraries/messages.inc.php:364
 msgid "Get more themes!"
-msgstr ""
+msgstr "Ottieni altri temi!"
 
 #: libraries/messages.inc.php:365
 msgid "global"
