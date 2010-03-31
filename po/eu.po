@@ -295,7 +295,7 @@ msgstr "Erregistro berria gehitu"
 
 #: libraries/messages.inc.php:52
 msgid "Edit next row"
-msgstr ""
+msgstr "Editatu hurrengo lerroa"
 
 #: libraries/messages.inc.php:53
 #, fuzzy
