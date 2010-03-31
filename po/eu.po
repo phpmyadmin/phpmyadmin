@@ -330,7 +330,7 @@ msgstr "Taula aztertu"
 
 #: libraries/messages.inc.php:60
 msgid "And"
-msgstr "eta"
+msgstr "Eta"
 
 #: libraries/messages.inc.php:61
 msgid "and"
