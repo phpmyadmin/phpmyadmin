@@ -1688,7 +1688,7 @@ msgstr "Vai alla tabella"
 
 #: libraries/messages.inc.php:371
 msgid "Go to view"
-msgstr ""
+msgstr "Vai alla visualizzazione"
 
 #: libraries/messages.inc.php:372
 msgid "Grant"
