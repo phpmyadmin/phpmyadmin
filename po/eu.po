@@ -363,7 +363,7 @@ msgstr "Edozein erabiltzaile"
 
 #: libraries/messages.inc.php:68
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Aplikatu aukeratutako aldaketak"
 
 #: libraries/messages.inc.php:69
 msgid ""
