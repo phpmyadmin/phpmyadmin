@@ -71,6 +71,9 @@ $Id$
   thanks to Kaarel Nummert - kaarelnu
 - patch #2978815 [pdf] Fix generating PDF with table dimensions, thanks to BlinK_
 - patch #2977725 [export] XML wrongly encoded, thanks to Victor Volkov - hanut
+- patch #2979234 [import] Create tables with current charset and collation.
+- patch #2979234, bug #2960105 [import] Properly import unicode text from ODS.
+- bug #2973280 [export] Proper handling of temporary directory in XLS export.
 
 3.3.1.0 (2010-03-16)
 - bug #2941037 [core] Database structure not sorted by table correctly 
