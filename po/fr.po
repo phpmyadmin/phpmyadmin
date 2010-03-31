@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-03-30 18:30+0200\n"
+"PO-Revision-Date: 2010-03-31 13:50+0200\n"
 "Last-Translator:  <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -62,12 +62,12 @@ msgstr[0] "%1$d enregistrement supprimé."
 msgstr[1] "%1$d enregistrements supprimés."
 
 #: libraries/Message.class.php:320
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d enregistrement(s) inséré(s)."
-msgstr[1] "%1$d enregistrement(s) inséré(s)."
+msgstr[0] "%1$d enregistrement inséré."
+msgstr[1] "%1$d enregistrements insérés."
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:15
