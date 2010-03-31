@@ -1811,7 +1811,7 @@ msgstr "Utilizza gli IGNORE INSERTS"
 
 #: libraries/messages.inc.php:402
 msgid "Column names in first row"
-msgstr ""
+msgstr "I nomi delle colonne in prima fila"
 
 #: libraries/messages.inc.php:403
 msgid "Do not import empty rows"
