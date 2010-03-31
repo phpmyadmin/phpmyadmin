@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-03-31 10:36+0200\n"
+"PO-Revision-Date: 2010-03-31 10:37+0200\n"
 "Last-Translator:  <hey_neken@mundurat.net>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -355,7 +355,7 @@ msgstr "Edozein"
 
 #: libraries/messages.inc.php:66
 msgid "Any host"
-msgstr "Edozein zerbitzari"
+msgstr "Edozein ostalari"
 
 #: libraries/messages.inc.php:67
 msgid "Any user"
