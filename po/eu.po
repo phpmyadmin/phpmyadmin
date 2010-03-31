@@ -322,7 +322,7 @@ msgstr "Taularen \"Order By\" aldatu"
 
 #: libraries/messages.inc.php:58
 msgid "Analyze"
-msgstr ""
+msgstr "Aztertu"
 
 #: libraries/messages.inc.php:59
 msgid "Analyze table"
