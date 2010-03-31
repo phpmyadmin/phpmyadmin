@@ -347,7 +347,7 @@ msgstr "Esteka angularrak"
 #: libraries/messages.inc.php:64
 #, php-format
 msgid "An index has been added on %s"
-msgstr "Indize bat gehitu da hemen: %s"
+msgstr "Indize bat gehitu gehitu zaio %s-(r)i"
 
 #: libraries/messages.inc.php:65
 msgid "Any"
