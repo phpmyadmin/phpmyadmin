@@ -314,7 +314,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     }
     echo '</a></p>';
     if ($table_count) {
-        echo '<span id=\'NavFilter\' style="display:none;"><span onclick="document.getElementById(\'fast_filter\').value=\'\'; fast_filter(\'\');document.getElementById(\'fast_filter\').focus();" style="background:white;color:black;cursor:pointer;padding:2px;margin:0 0 0 -20px;position:relative;float:right;" title="' . $strReset . '">X</span><input type="text" name="fast_filter" id="fast_filter" title="' . $strNavTableFilter . '" onkeyup="setTimeout(function(word){ return function(){ fast_filter(word);}}(this.value),1000);" style="width:100%;padding:0 -20px 0 0; padding:2px;"  onfocus="this.select();" /></span><script type="text/javascript">document.getElementById(\'NavFilter\').style.display=\'\';</script>';
+        echo '<span id=\'NavFilter\' style="display:none;"><span onclick="document.getElementById(\'fast_filter\').value=\'\'; fast_filter(\'\');document.getElementById(\'fast_filter\').focus();" style="background:white;color:black;cursor:pointer;padding:2px;margin:0 0 0 -20px;position:relative;float:right;" title="' . $strReset . '">X</span><input type="text" name="fast_filter" id="fast_filter" title="' . $strNavTableFilter . '" onkeyup="setTimeout(function(word){ return function(){ fast_filter(word);}}(this.value),1000);" style="width:90%;padding:0 -20px 0 0; padding:2px;"  onfocus="this.select();" /></span><script type="text/javascript">document.getElementById(\'NavFilter\').style.display=\'\';</script>';
     }
 
     /**
