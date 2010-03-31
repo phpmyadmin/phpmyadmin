@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-03-31 10:34+0200\n"
+"PO-Revision-Date: 2010-03-31 10:35+0200\n"
 "Last-Translator:  <hey_neken@mundurat.net>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -298,9 +298,8 @@ msgid "Edit next row"
 msgstr "Editatu hurrengo lerroa"
 
 #: libraries/messages.inc.php:53
-#, fuzzy
 msgid "Go back to this page"
-msgstr "Itzuli"
+msgstr "Egin atzera orri honetara"
 
 #: libraries/messages.inc.php:54
 msgid "All"
