@@ -6291,7 +6291,7 @@ msgstr "Onglet par défaut pour serveur"
 
 #: setup/lib/messages.inc.php:51
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "L'onglet initial lors de l'accès à une table"
 
 #: setup/lib/messages.inc.php:52
 msgid "Default table tab"
