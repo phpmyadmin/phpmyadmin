@@ -1282,7 +1282,7 @@ msgstr "Documentazione"
 
 #: libraries/messages.inc.php:275
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Non usare AUTO_INCREMENT per il valore zero"
 
 #: libraries/messages.inc.php:276
 msgid "Download file"
