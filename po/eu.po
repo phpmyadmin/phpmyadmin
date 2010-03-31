@@ -338,7 +338,7 @@ msgstr "eta"
 
 #: libraries/messages.inc.php:62
 msgid "and then"
-msgstr ""
+msgstr "eta orduan"
 
 #: libraries/messages.inc.php:63
 msgid "Angular links"
