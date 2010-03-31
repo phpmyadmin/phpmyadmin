@@ -402,7 +402,7 @@ msgstr "Taularen amaieran"
 
 #: libraries/messages.inc.php:77
 msgid "Attributes"
-msgstr "Ezaugarriak"
+msgstr "Atributuak"
 
 #: libraries/messages.inc.php:78
 msgid "Automatic layout"
