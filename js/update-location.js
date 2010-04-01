@@ -1,6 +1,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Various helper scripts, using jQuery.
+ * Scripts to update location to allow bookmarking of frameset
+ * and restoring the bookmark once the page is loaded.
  *
  * @version $Id$
  */

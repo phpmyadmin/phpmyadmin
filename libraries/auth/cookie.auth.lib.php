@@ -185,7 +185,7 @@ function PMA_auth()
     require './libraries/header_meta_style.inc.php';
     ?>
 <script src="./js/mootools.js" type="text/javascript"></script>
-<script src="./js/helper.js" type="text/javascript"></script>
+<script src="./js/update-location.js" type="text/javascript"></script>
 <script type="text/javascript">
 //<![CDATA[
 // show login form in top frame
