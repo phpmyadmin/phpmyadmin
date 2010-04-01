@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 23:18+0200\n"
+"POT-Creation-Date: 2010-04-01 14:29+0200\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: arabic <ar@li.org>\n"
@@ -41,6 +41,24 @@ msgstr ""
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr ""
+
+#: libraries/common.lib.php:1274
+msgid "Click here to Inline Edit Your SQL Query."
+msgstr ""
+
+#: libraries/common.lib.php:1276
+#, fuzzy
+#| msgid "Engines"
+msgid "Inline"
+msgstr "محركات"
+
+#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "&nbsp;تنفيذ&nbsp;"
+
+#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr "ألغ"
 
 #: libraries/Message.class.php:282
 #, php-format
@@ -591,10 +609,6 @@ msgstr "\"bzipped\""
 #: libraries/messages.inc.php:126
 msgid "Calendar"
 msgstr "نتيجة"
-
-#: libraries/messages.inc.php:127
-msgid "Cancel"
-msgstr "ألغ"
 
 #: libraries/messages.inc.php:128
 msgid "Could not load export plugins, please check your installation!"
@@ -1630,10 +1644,6 @@ msgstr "صلاحيات عامة"
 #: libraries/messages.inc.php:367
 msgid "Global value"
 msgstr "قيمة عامة"
-
-#: libraries/messages.inc.php:368
-msgid "Go"
-msgstr "&nbsp;تنفيذ&nbsp;"
 
 #: libraries/messages.inc.php:369
 msgid "Go to database"

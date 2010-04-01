@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 23:18+0200\n"
+"POT-Creation-Date: 2010-04-01 14:29+0200\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: catalan <ca@li.org>\n"
@@ -46,6 +46,24 @@ msgstr "Enviat"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "Enviat"
+
+#: libraries/common.lib.php:1274
+msgid "Click here to Inline Edit Your SQL Query."
+msgstr ""
+
+#: libraries/common.lib.php:1276
+#, fuzzy
+#| msgid "Engines"
+msgid "Inline"
+msgstr "Motors"
+
+#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "Executa"
+
+#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr "Cancel.lar"
 
 #: libraries/Message.class.php:282
 #, fuzzy, php-format
@@ -607,10 +625,6 @@ msgstr "\"comprimit amb bzip\""
 #: libraries/messages.inc.php:126
 msgid "Calendar"
 msgstr "Calendari"
-
-#: libraries/messages.inc.php:127
-msgid "Cancel"
-msgstr "Cancel.lar"
 
 #: libraries/messages.inc.php:128
 msgid "Could not load export plugins, please check your installation!"
@@ -1671,10 +1685,6 @@ msgstr "Permisos generals"
 #: libraries/messages.inc.php:367
 msgid "Global value"
 msgstr "Valor global"
-
-#: libraries/messages.inc.php:368
-msgid "Go"
-msgstr "Executa"
 
 #: libraries/messages.inc.php:369
 msgid "Go to database"

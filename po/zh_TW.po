@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 23:18+0200\n"
+"POT-Creation-Date: 2010-04-01 14:29+0200\n"
 "PO-Revision-Date: 2010-03-12 09:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
@@ -43,6 +43,24 @@ msgstr "zh"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "zh"
+
+#: libraries/common.lib.php:1274
+msgid "Click here to Inline Edit Your SQL Query."
+msgstr ""
+
+#: libraries/common.lib.php:1276
+#, fuzzy
+#| msgid "Engines"
+msgid "Inline"
+msgstr "引擎"
+
+#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "執行"
+
+#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr ""
 
 #: libraries/Message.class.php:282
 #, php-format
@@ -602,10 +620,6 @@ msgstr "\"bzipped\""
 #: libraries/messages.inc.php:126
 msgid "Calendar"
 msgstr "日曆"
-
-#: libraries/messages.inc.php:127
-msgid "Cancel"
-msgstr ""
 
 #: libraries/messages.inc.php:128
 #, fuzzy
@@ -1644,10 +1658,6 @@ msgstr "整體權限"
 #: libraries/messages.inc.php:367
 msgid "Global value"
 msgstr "整體值"
-
-#: libraries/messages.inc.php:368
-msgid "Go"
-msgstr "執行"
 
 #: libraries/messages.inc.php:369
 #, fuzzy

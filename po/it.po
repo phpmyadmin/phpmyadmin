@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 23:18+0200\n"
+"POT-Creation-Date: 2010-04-01 14:29+0200\n"
 "PO-Revision-Date: 2010-03-31 18:42+0200\n"
 "Last-Translator:  <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -47,9 +47,26 @@ msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "en"
 
+#: libraries/common.lib.php:1274
+msgid "Click here to Inline Edit Your SQL Query."
+msgstr ""
+
+#: libraries/common.lib.php:1276
+#, fuzzy
+#| msgid "Engines"
+msgid "Inline"
+msgstr "Motori"
+
+#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "Esegui"
+
+#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr "Annulla"
+
 #: libraries/Message.class.php:282
 #, php-format
-#| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d riga modificata."
@@ -57,7 +74,6 @@ msgstr[1] "%1$d righe modificate."
 
 #: libraries/Message.class.php:301
 #, php-format
-#| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d riga cancellata."
@@ -65,7 +81,6 @@ msgstr[1] "%1$d righe cancellate."
 
 #: libraries/Message.class.php:320
 #, php-format
-#| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d riga inserita."
@@ -604,10 +619,6 @@ msgstr "\"compresso con bzip\""
 #: libraries/messages.inc.php:126
 msgid "Calendar"
 msgstr "Calendario"
-
-#: libraries/messages.inc.php:127
-msgid "Cancel"
-msgstr "Annulla"
 
 #: libraries/messages.inc.php:128
 msgid "Could not load export plugins, please check your installation!"
@@ -1674,10 +1685,6 @@ msgstr "Privilegi globali"
 #: libraries/messages.inc.php:367
 msgid "Global value"
 msgstr "Valore globale"
-
-#: libraries/messages.inc.php:368
-msgid "Go"
-msgstr "Esegui"
 
 #: libraries/messages.inc.php:369
 msgid "Go to database"
