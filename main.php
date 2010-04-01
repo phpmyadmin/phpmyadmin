@@ -12,7 +12,6 @@
 define('PMA_COLORPICKER', true);
 require_once './libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'jquery/jquery-1.4.2-min.js';
 $GLOBALS['js_include'][] = 'colorpicker/js/colorpicker.js';
 $GLOBALS['js_include'][] = 'main_custom_color.js';
 

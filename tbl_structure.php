@@ -14,7 +14,6 @@ require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/relation.lib.php';
 
-$GLOBALS['js_include'][] = 'jquery/jquery-1.4.2-min.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.min.js';
 
 /**
@@ -117,7 +116,7 @@ foreach (PMA_Index::getFromTable($table, $db) as $index) {
         $columns = $index->getColumns();
         foreach ($columns as $column_name => $dummy) {
             $columns_with_unique_index[$column_name] = 1;
-        } 
+        }
     }
 }
 unset($index, $columns, $column_name, $dummy);
@@ -519,20 +518,20 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     echo $strStructPropose;
     ?></a><?php
     echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
-    
-    
+
+
     if(PMA_Tracker::isActive())
     {
         echo '<a href="tbl_tracking.php?' . $url_query . '">';
-        
-        if ($cfg['PropertiesIconic']) 
+
+        if ($cfg['PropertiesIconic'])
         {
             echo '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . $strTrackingTrackTable . '" /> ';
         }
         echo $strTrackingTrackTable . '</a>';
     }
     ?>
-    
+
     <br />
 <form method="post" action="tbl_addfield.php"
     onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']); ?>', 1)">

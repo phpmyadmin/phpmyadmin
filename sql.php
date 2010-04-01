@@ -15,7 +15,6 @@ require_once './libraries/Table.class.php';
 require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
-$GLOBALS['js_include'][] = 'jquery/jquery-1.4.2-min.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.min.js';
 
 /**
@@ -296,7 +295,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     }
 
     // fisharebest: release the session lock, otherwise we won't be able to run other
-    // scripts until the query has finished (which could take a very long time). 
+    // scripts until the query has finished (which could take a very long time).
     // Note: footer.inc.php writes debug info to $_SESSION, so debuggers will have to wait.
     if (empty($_SESSION['debug'])) {
         session_write_close();
@@ -388,7 +387,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
         // If we are "just browsing", there is only one table,
         // and no WHERE clause (or just 'WHERE 1 '),
-        // we do a quick count (which uses MaxExactCount) because 
+        // we do a quick count (which uses MaxExactCount) because
         // SQL_CALC_FOUND_ROWS is not quick on large InnoDB tables
 
         // However, do not count again if we did it previously

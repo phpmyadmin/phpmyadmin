@@ -12,7 +12,6 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/Table.class.php';
 
-$GLOBALS['js_include'][] = 'jquery/jquery-1.4.2-min.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.min.js';
 
 /**
@@ -195,7 +194,7 @@ foreach ($tables as $keyname => $each_table) {
                 $each_table['Rows'] = PMA_Table::countRecords($db,
                     $each_table['Name']);
             }
-                
+
             if ($is_show_stats) {
                 $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
                 $sum_size                   += $tblsize;
@@ -348,15 +347,15 @@ foreach ($tables as $keyname => $each_table) {
         <?php
         PMA_TableHeader(false, $server_slave_status);
     }
-    
+
     $ignored = false;
     $do = false;
-    
+
     if ($server_slave_status) {
         ////////////////////////////////////////////////////////////////
 
-        if ((strlen(array_search($truename, $server_slave_Do_Table)) > 0) 
-            || (strlen(array_search($db, $server_slave_Do_DB)) > 0) 
+        if ((strlen(array_search($truename, $server_slave_Do_Table)) > 0)
+            || (strlen(array_search($db, $server_slave_Do_DB)) > 0)
             || (count($server_slave_Do_DB) == 1 && count($server_slave_Ignore_DB) == 1)
         ) {
             $do = true;

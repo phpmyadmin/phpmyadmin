@@ -96,7 +96,7 @@ if (isset($_REQUEST['after_insert'])
                 // must find a unique condition based on unique key,
                 // not a combination of all fields
                 list($unique_condition, $clause_is_unique) = PMA_getUniqueCondition($res, count($meta), $meta, $row, true);
-                if (! empty($unique_condition)) { 
+                if (! empty($unique_condition)) {
                     $_SESSION['edit_next'] = $unique_condition;
                 }
                 unset($unique_condition, $clause_is_unique);
@@ -346,7 +346,7 @@ if (! empty($GLOBALS['sql_query'])) {
     $return_to_sql_query = $GLOBALS['sql_query'];
 }
 $GLOBALS['sql_query'] = implode('; ', $query) . ';';
-// to ensure that the query is displayed in case of 
+// to ensure that the query is displayed in case of
 // "insert as new row" and then "insert another new row"
 $GLOBALS['display_query'] = $GLOBALS['sql_query'];
 
@@ -431,7 +431,6 @@ if (isset($return_to_sql_query)) {
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'functions.js';
 // in case we call sql.php which needs those:
-$GLOBALS['js_include'][] = 'jquery/jquery-1.4.2-min.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.min.js';
 
 $active_page = $goto_include;
