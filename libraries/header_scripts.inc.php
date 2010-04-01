@@ -65,49 +65,12 @@ $title = str_replace(
 // here, the function does not exist with this configuration: $cfg['ServerDefault'] = 0;
 $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 
-if (in_array('functions.js', $GLOBALS['js_include'])) {
-    $GLOBALS['js_messages']['strFormEmpty'] = $GLOBALS['strFormEmpty'];
-    $GLOBALS['js_messages']['strNotNumber'] = $GLOBALS['strNotNumber'];
-    $GLOBALS['js_messages']['strClickToSelect'] = $GLOBALS['strClickToSelect'];
-    $GLOBALS['js_messages']['strClickToUnselect'] = $GLOBALS['strClickToUnselect'];
-
-    if (!$is_superuser && !$GLOBALS['cfg']['AllowUserDropDatabase']) {
-        $GLOBALS['js_messages']['strNoDropDatabases'] = $GLOBALS['strNoDropDatabases'];
-    } else {
-        $GLOBALS['js_messages']['strNoDropDatabases'] = '';
-    }
-
-    if ($GLOBALS['cfg']['Confirm']) {
-        $GLOBALS['js_messages']['strDoYouReally'] = $GLOBALS['strDoYouReally'];
-        $GLOBALS['js_messages']['strDropDatabaseStrongWarning'] = $GLOBALS['strDropDatabaseStrongWarning'];
-
-        // rajk - for blobstreaming
-        $GLOBALS['js_messages']['strBLOBRepositoryDisableStrongWarning'] = $GLOBALS['strBLOBRepositoryDisableStrongWarning'];
-        $GLOBALS['js_messages']['strBLOBRepositoryDisableAreYouSure'] = sprintf($GLOBALS['strBLOBRepositoryDisableAreYouSure'], $GLOBALS['db']);
-    } else {
-        $GLOBALS['js_messages']['strDoYouReally'] = '';
-        $GLOBALS['js_messages']['strDropDatabaseStrongWarning'] = '';
-
-        // rajk - for blobstreaming
-        $GLOBALS['js_messages']['strBLOBRepositoryDisableStrongWarning'] = '';
-        $GLOBALS['js_messages']['strBLOBRepositoryDisableAreYouSure'] = '';
-    }
-} elseif (in_array('indexes.js', $GLOBALS['js_include'])) {
-    $GLOBALS['js_messages']['strFormEmpty'] = $GLOBALS['strFormEmpty'];
-    $GLOBALS['js_messages']['strNotNumber'] = $GLOBALS['strNotNumber'];
-}
-
-if (in_array('server_privileges.js', $GLOBALS['js_include'])) {
-    $GLOBALS['js_messages']['strHostEmpty'] = $GLOBALS['strHostEmpty'];
-    $GLOBALS['js_messages']['strUserEmpty'] = $GLOBALS['strUserEmpty'];
-    $GLOBALS['js_messages']['strPasswordEmpty'] = $GLOBALS['strPasswordEmpty'];
-    $GLOBALS['js_messages']['strPasswordNotSame'] = $GLOBALS['strPasswordNotSame'];
-}
-
-$GLOBALS['js_messages']['strGo'] = __('Go');
-$GLOBALS['js_messages']['strCancel'] = __('Cancel');
-
 $GLOBALS['js_include'][] = 'tooltip.js';
+$params = array('lang' => $GLOBALS['lang']);
+if (isset($GLOBALS['db'])) {
+    $params['db'] = $GLOBALS['db'];
+}
+$GLOBALS['js_include'][] = 'messages.php' . PMA_generate_common_url($params);
 
 $GLOBALS['js_events'][] = array(
     'object'    => 'window',
@@ -121,7 +84,11 @@ $GLOBALS['js_events'][] = array(
  * browser cache. This produces an HTTP 304 request for each file.
  */
 foreach ($GLOBALS['js_include'] as $js_script_file) {
-    echo '<script src="./js/' . $js_script_file . '?ts=' . filemtime('./js/' . $js_script_file) . '" type="text/javascript"></script>' . "\n";
+    if (strpos($js_script_file, '?') === FALSE) {
+        echo '<script src="./js/' . $js_script_file . '?ts=' . filemtime('./js/' . $js_script_file) . '" type="text/javascript"></script>' . "\n";
+    } else {
+        echo '<script src="./js/' . $js_script_file . '" type="text/javascript"></script>' . "\n";
+    }
 }
 ?>
 <script type="text/javascript">
@@ -132,12 +99,7 @@ if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknow
     parent.document.title = '<?php echo PMA_sanitize(PMA_escapeJsString($title)); ?>';
 }
 
-var PMA_messages = new Array();
 <?php
-foreach ($GLOBALS['js_messages'] as $name => $js_message) {
-    echo "PMA_messages['" . $name . "'] = '" . PMA_escapeJsString($js_message) . "';\n";
-}
-
 foreach ($GLOBALS['js_events'] as $js_event) {
     echo "window.parent.addEvent(" . $js_event['object'] . ", '" . $js_event['event'] . "', "
         . $js_event['function'] . ");\n";

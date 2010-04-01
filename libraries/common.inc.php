@@ -550,12 +550,6 @@ $GLOBALS['js_include'][] = 'jquery/jquery-1.4.2-min.js';
 $GLOBALS['js_include'][] = 'update-location.js';
 
 /**
- * holds locale messages required by JavaScript function
- * @global array $js_messages
- */
-$GLOBALS['js_messages'] = array();
-
-/**
  * JavaScript events that will be registered
  * @global array $js_events
  */
