@@ -143,6 +143,10 @@ if (isset($server_status['Threads_created'])
       * 100;
 }
 
+// Format Uptime_since_flush_status : show as days, hours, minutes, seconds
+if (isset($server_status['Uptime_since_flush_status'])) {
+    $server_status['Uptime_since_flush_status'] = PMA_timespanFormat($server_status['Uptime_since_flush_status']);
+}
 
 /**
  * define some alerts
