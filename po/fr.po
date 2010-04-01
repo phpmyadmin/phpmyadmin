@@ -60,10 +60,9 @@ msgid "Inline edit of this query"
 msgstr "Éditer cette requête en ligne"
 
 #: libraries/common.lib.php:1276
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Moteurs"
+msgstr "En ligne"
 
 #: libraries/Message.class.php:282
 #, php-format
