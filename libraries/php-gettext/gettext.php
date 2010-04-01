@@ -409,7 +409,12 @@ class gettext_reader {
 
   function pgettext($context, $msgid) {
     $key = $context . chr(4) . $msgid;
-    return $this->translate($key);
+    $ret = $this->translate($key);
+    if (strpos($ret, "\004") !== FALSE) {
+      return $msgid;
+    } else {
+      return $ret;
+    }
   }
 
   function npgettext($context, $singular, $plural, $number) {
