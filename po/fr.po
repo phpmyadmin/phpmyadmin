@@ -921,7 +921,7 @@ msgstr "Faire CREATE DATABASE avant la copie"
 #: libraries/messages.inc.php:192
 #, php-format
 msgid "Create an index on&nbsp;%s&nbsp;columns"
-msgstr "Créer un index sur&nbsp;%s&nbsp;colonne(s)"
+msgstr "Créer un index sur&nbsp;%s&nbsp;colonnes"
 
 #: libraries/messages.inc.php:193
 msgid "Create a new index"
