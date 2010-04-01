@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-01 09:24-0400\n"
-"PO-Revision-Date: 2010-04-01 15:18+0200\n"
+"PO-Revision-Date: 2010-04-01 15:47+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -57,7 +57,7 @@ msgstr "fr"
 
 #: libraries/common.lib.php:1274
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Éditer cette requête en ligne"
 
 #: libraries/common.lib.php:1276
 #, fuzzy
