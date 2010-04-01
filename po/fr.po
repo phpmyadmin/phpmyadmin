@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-01 09:24-0400\n"
-"PO-Revision-Date: 2010-04-01 15:18+0200\n"
+"PO-Revision-Date: 2010-04-01 15:51+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -57,13 +57,12 @@ msgstr "fr"
 
 #: libraries/common.lib.php:1274
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Éditer cette requête en ligne"
 
 #: libraries/common.lib.php:1276
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Moteurs"
+msgstr "En ligne"
 
 #: libraries/Message.class.php:282
 #, php-format
@@ -1951,8 +1950,8 @@ msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-"  La valeur de l'incrément lors de l'agrandissement du fichier auto-"
-"croissant lorsqu'il devient plein."
+"La valeur de l'incrément lors de l'agrandissement du fichier auto-croissant "
+"lorsqu'il devient plein."
 
 #: libraries/messages.inc.php:430
 msgid "Buffer pool size"
@@ -4935,9 +4934,9 @@ msgid ""
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
 "Il semble que vous ayez trouvé une anomalie dans l'analyseur syntaxique SQL. "
-"Veuillez examiner votre requête attentivement, et vérifier que vos "
+"Veuillez examiner votre requête attentivement et vérifier que vos "
 "apostrophes sont conformes. Il se pourrait aussi que vous ayez chargé un "
-"fichier dont le contenu binaire n'est pas entre apostrophes.  Si vous avez "
+"fichier dont le contenu binaire n'est pas entre apostrophes. Si vous avez "
 "accès à MySQL via son interface de commande en mode ligne, vous pouvez y "
 "essayer votre requête. Le message d'erreur présenté plus bas pourrait vous "
 "indiquer la source du problème. En dernier recours, veuillez trouver la plus "
