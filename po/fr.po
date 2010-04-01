@@ -1942,8 +1942,8 @@ msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-"La valeur de l'incrément lors de l'agrandissement du fichier auto-croissant "
-"lorsqu'il devient plein."
+"  La valeur de l'incrément lors de l'agrandissement du fichier auto-"
+"croissant lorsqu'il devient plein."
 
 #: libraries/messages.inc.php:430
 msgid "Buffer pool size"
