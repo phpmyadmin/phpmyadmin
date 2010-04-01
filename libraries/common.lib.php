@@ -1270,7 +1270,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($refresh_link)) {
             PMA_profilingCheckbox($sql_query);
         }
-		$inline_edit="<script language=\"javascript\">document.write('[<a href=\"#\" title=\"Click here to Inline Edit Your SQL Query.\" id=\"inline_edit\">Inline</a>]');</script>";
+        $inline_edit = "<script language=\"javascript\">document.write('[<a href=\"#\" title=\"" .
+            PMA_escapeJsString(__('Click here to Inline Edit Your SQL Query.')) .
+            "\" id=\"inline_edit\">" .
+            PMA_escapeJsString(__('Inline')) .
+            "</a>]');</script>";
         echo $inline_edit . $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
         echo '</div>';
     }
