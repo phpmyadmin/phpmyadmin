@@ -1271,7 +1271,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             PMA_profilingCheckbox($sql_query);
         }
         $inline_edit = "<script language=\"javascript\">document.write('[<a href=\"#\" title=\"" .
-            PMA_escapeJsString(__('Click here to Inline Edit Your SQL Query.')) .
+            PMA_escapeJsString(__('Inline edit of this query')) .
             "\" id=\"inline_edit\">" .
             PMA_escapeJsString(__('Inline')) .
             "</a>]');</script>";

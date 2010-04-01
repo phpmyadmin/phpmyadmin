@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-01 15:10+0200\n"
+"POT-Creation-Date: 2010-04-01 09:24-0400\n"
 "PO-Revision-Date: 2010-03-31 10:40+0200\n"
 "Last-Translator:  <hey_neken@mundurat.net>\n"
 "Language-Team: basque <eu@li.org>\n"
@@ -54,7 +54,7 @@ msgid "en"
 msgstr "en"
 
 #: libraries/common.lib.php:1274
-msgid "Click here to Inline Edit Your SQL Query."
+msgid "Inline edit of this query"
 msgstr ""
 
 #: libraries/common.lib.php:1276
