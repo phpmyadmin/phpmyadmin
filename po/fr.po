@@ -233,7 +233,7 @@ msgstr "Ajouter/effacer x colonnes"
 
 #: libraries/messages.inc.php:37
 msgid "Add/Delete Criteria Row"
-msgstr "Ajouter/effacer x ligne(s)"
+msgstr "Ajouter/effacer x lignes"
 
 #: libraries/messages.inc.php:38
 #, php-format
