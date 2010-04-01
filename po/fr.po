@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-04-01 14:15+0200\n"
+"PO-Revision-Date: 2010-04-01 14:16+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -229,7 +229,7 @@ msgstr "Inclure les contraintes de clés étrangères"
 
 #: libraries/messages.inc.php:36
 msgid "Add/Delete Field Columns"
-msgstr "Ajouter/effacer x colonne(s)"
+msgstr "Ajouter/effacer x colonnes"
 
 #: libraries/messages.inc.php:37
 msgid "Add/Delete Criteria Row"
