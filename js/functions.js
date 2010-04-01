@@ -1667,8 +1667,6 @@ $(document).ready(function(){
         $token=$("input[name='token']").val();
         $sql_query=$("input[name='sql_query']").val();
         $(".syntax").replaceWith("<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">"+ $sql_query +"</textarea><input type=\"button\" id=\"btnSave\" value=\"" + PMA_messages['strGo'] + "\"><input type=\"button\" id=\"btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">");
-        // to help seeing the buttons without scrolling
-        $('#sql_query_edit').css({height: '6em', width: '75%'});
         return false;
     });
 
