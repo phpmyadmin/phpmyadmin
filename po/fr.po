@@ -7442,7 +7442,7 @@ msgstr "Utiliser SSL"
 #: setup/lib/messages.inc.php:299
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
-msgstr "Laisser vider pour désactiver, suggéré :  [kbd]pma_table_coords[/kbd]"
+msgstr "Laisser vider pour désactiver, suggéré : [kbd]pma_table_coords[/kbd]"
 
 #: setup/lib/messages.inc.php:300
 msgid "PDF schema: table coordinates"
