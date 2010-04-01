@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-03-31 14:04+0200\n"
-"Last-Translator:  <marc@infomarc.info>\n"
+"PO-Revision-Date: 2010-04-01 13:49+0200\n"
+"Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -968,7 +968,6 @@ msgstr ""
 "privilèges sur cette base"
 
 #: libraries/messages.inc.php:203
-#, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "aucune"
