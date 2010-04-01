@@ -4256,7 +4256,7 @@ msgid ""
 msgstr ""
 "Le nombre de fois que la première entrée a été lue depuis un index. Si c'est "
 "élevé, ceci suggère que le serveur effectue beaucoup de parcours complets "
-"d'un index; par exemple, SELECT col1 FROM foo, en assumant que coll est une "
+"d'un index; par exemple, SELECT col1 FROM foo, en assumant que col1 est une "
 "colonne indexée."
 
 #: libraries/messages.inc.php:921
