@@ -5331,9 +5331,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Cependant lors du dernier traitement, aucune section n\\a été analysée; ceci "
+"Cependant lors du dernier traitement, aucune section n'a été analysée; ceci "
 "signifie que phpMyAdmin ne pourra terminer cette importation, à moins que la "
-"limite de temps de PHP ne soit augmentée"
+"limite de temps de PHP ne soit augmentée."
 
 #: libraries/messages.inc.php:1127
 msgid ""
