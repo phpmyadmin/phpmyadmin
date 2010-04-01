@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-01 14:29+0200\n"
+"POT-Creation-Date: 2010-04-01 15:10+0200\n"
 "PO-Revision-Date: 2010-04-01 14:39+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -13,6 +13,14 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
+
+#: js/messages.php:45 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "Exécuter"
+
+#: js/messages.php:46 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr "Annuler"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -56,14 +64,6 @@ msgstr ""
 #| msgid "Engines"
 msgid "Inline"
 msgstr "Moteurs"
-
-#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
-msgid "Go"
-msgstr "Exécuter"
-
-#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
-msgid "Cancel"
-msgstr "Annuler"
 
 #: libraries/Message.class.php:282
 #, php-format
@@ -642,8 +642,8 @@ msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 "extension. Please check your PHP configuration."
 msgstr ""
-"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%"
-"1$s[/em][/a], veuillez vérifier votre configuration de PHP."
+"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%1$s"
+"[/em][/a], veuillez vérifier votre configuration de PHP."
 
 #: libraries/messages.inc.php:132
 msgid ""
@@ -851,9 +851,9 @@ msgstr ""
 "phpMyAdmin n'a pu lire votre fichier de configuration!<br />Il est possible "
 "qu'il contienne une erreur de syntaxe, ou que PHP soit incapable de le "
 "trouver<br />À l'aide du lien suivant, vous pouvez vérifier le message "
-"d'erreur généré par PHP;<br />la plupart du temps, un apostrophe ou un "
-"point-virgule sont manquants.<br />Si vous recevez une page blanche, aucune "
-"erreur n'a été détectée."
+"d'erreur généré par PHP;<br />la plupart du temps, un apostrophe ou un point-"
+"virgule sont manquants.<br />Si vous recevez une page blanche, aucune erreur "
+"n'a été détectée."
 
 #: libraries/messages.inc.php:175
 #, php-format
@@ -2384,8 +2384,8 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Veuillez entrer les valeurs des options de transformation en suivant ce "
-"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") ou "
-"une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
+"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") "
+"ou une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
 
 #: libraries/messages.inc.php:523
@@ -5666,15 +5666,14 @@ msgid ""
 msgstr ""
 "(Linux seulement) Exécute un programme externe et lui envoie le contenu du "
 "champ via l'entrée standard. Puis capture la sortie standard de ce programme "
-"externe. Le programme par défaut est tidy, pour un affichage embelli du "
-"code HTML. Pour des raisons de sécurité, vous devez éditer le script "
-"libraries/transformations/text_plain__external.inc.php et y insérer les noms "
-"de programme externe possibles. La première option est le numéro du "
-"programme que vous voulez utiliser, la seconde option contient les "
-"paramètres pour ce programme. En troisième option, une valeur de 1 va "
-"convertir le résultat avec la fonction htmlspecialchars() (par défaut, 1). "
-"En option 4, une valeur de 1 va ajouter NOWRAP à la cellule affichée (par "
-"défaut, 1)."
+"externe. Le programme par défaut est tidy, pour un affichage embelli du code "
+"HTML. Pour des raisons de sécurité, vous devez éditer le script libraries/"
+"transformations/text_plain__external.inc.php et y insérer les noms de "
+"programme externe possibles. La première option est le numéro du programme "
+"que vous voulez utiliser, la seconde option contient les paramètres pour ce "
+"programme. En troisième option, une valeur de 1 va convertir le résultat "
+"avec la fonction htmlspecialchars() (par défaut, 1). En option 4, une valeur "
+"de 1 va ajouter NOWRAP à la cellule affichée (par défaut, 1)."
 
 #: libraries/messages.inc.php:1194
 msgid ""
@@ -7115,9 +7114,9 @@ msgstr ""
 "La méthode d'authentification [kbd]config[/kbd] permet une connexion "
 "automatique, ce qui n'est pas souhaitable dans un environnement réel. Toute "
 "personne qui connaît l'URL d'accès peut entrer dans votre phpMyAdmin. Il est "
-"suggéré de régler votre [a@?page=servers&amp;mode=edit&amp;id=%"
-"1$d#tab_Server]type d'authentification[/a] à [kbd]cookie[/kbd] ou "
-"[kbd]http[/kbd]."
+"suggéré de régler votre [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server]type d'authentification[/a] à [kbd]cookie[/kbd] ou [kbd]http[/"
+"kbd]."
 
 #: setup/lib/messages.inc.php:232
 msgid "You should use mysqli for performance reasons"
@@ -7709,9 +7708,6 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:353
 #, php-format
-#| msgid ""
-#| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-#| "latest stable version is %s, released on %s."
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."

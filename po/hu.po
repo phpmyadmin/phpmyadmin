@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-01 14:29+0200\n"
+"POT-Creation-Date: 2010-04-01 15:10+0200\n"
 "PO-Revision-Date: 2010-03-12 09:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -11,6 +11,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 1.5.3\n"
+
+#: js/messages.php:45 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "Indítás"
+
+#: js/messages.php:46 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr "Mégse"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -55,14 +63,6 @@ msgstr ""
 #| msgid "Engines"
 msgid "Inline"
 msgstr "Motorok"
-
-#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
-msgid "Go"
-msgstr "Indítás"
-
-#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
-msgid "Cancel"
-msgstr "Mégse"
 
 #: libraries/Message.class.php:282
 #, fuzzy, php-format

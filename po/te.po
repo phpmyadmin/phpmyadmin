@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-01 14:29+0200\n"
+"POT-Creation-Date: 2010-04-01 15:10+0200\n"
 "PO-Revision-Date: 2010-03-24 16:47+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
+
+#: js/messages.php:45 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "వెళ్ళు"
+
+#: js/messages.php:46 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr ""
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -50,14 +58,6 @@ msgstr ""
 
 #: libraries/common.lib.php:1276
 msgid "Inline"
-msgstr ""
-
-#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
-msgid "Go"
-msgstr "వెళ్ళు"
-
-#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
-msgid "Cancel"
 msgstr ""
 
 #: libraries/Message.class.php:282

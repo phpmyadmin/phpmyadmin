@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-01 14:29+0200\n"
+"POT-Creation-Date: 2010-04-01 15:10+0200\n"
 "PO-Revision-Date: 2010-03-30 23:14+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: tatarish <tt@li.org>\n"
@@ -13,6 +13,14 @@ msgstr ""
 "Language: tt\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
+
+#: js/messages.php:45 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "Äydä"
+
+#: js/messages.php:46 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr ""
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -54,14 +62,6 @@ msgstr ""
 #| msgid "Engines"
 msgid "Inline"
 msgstr "Engine"
-
-#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
-msgid "Go"
-msgstr "Äydä"
-
-#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
-msgid "Cancel"
-msgstr ""
 
 #: libraries/Message.class.php:282
 #, php-format
