@@ -641,8 +641,8 @@ ul#topmenu li {
     background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     border:             1pt solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
     border-bottom:      0;
-    border-top-left-radius: 0.4em;
-    border-top-right-radius: 0.4em;
+    -moz-border-radius: 0.4em 0.4em 0 0;
+    border-radius:      0.4em 0.4em 0 0;
 }
 
 /* enabled hover/active tabs */
