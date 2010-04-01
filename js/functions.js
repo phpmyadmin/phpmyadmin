@@ -1654,7 +1654,10 @@ function changeMIMEType(db, table, reference, mime_type)
     var chgRequest = new Request({ method: 'post', url: mime_chg_url, data: params, evalScripts: true });
     chgRequest.send();
 }
-// Jquery Coding for inline editing SQL_QUERY
+
+/**
+ * Jquery Coding for inline editing SQL_QUERY
+ */
 $(document).ready(function(){
     var $oldText,$db,$table,$token,$sql_query;
     $oldText=$(".syntax").html();
