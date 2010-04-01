@@ -456,7 +456,7 @@ class FormDisplay
                         break;
                     case 'select':
                         if (!$this->_validateSelect($_POST[$key], $form->getOptionValueList($system_path))) {
-                            $this->errors[$work_path][] = $GLOBALS["strstrSetuperror_incorrect_value"];
+                            $this->errors[$work_path][] = $GLOBALS["strSetuperror_incorrect_value"];
                             $result = false;
                             continue;
                         }
