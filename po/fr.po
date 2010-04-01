@@ -7653,7 +7653,7 @@ msgstr "Répertoire de téléchargement"
 
 #: setup/lib/messages.inc.php:345
 msgid "Allow for searching inside the entire database"
-msgstr ""
+msgstr "Permet la recherche dans la base de données au complet"
 
 #: setup/lib/messages.inc.php:346
 msgid "Use database search"
