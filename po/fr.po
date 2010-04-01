@@ -4847,9 +4847,9 @@ msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
-"Assurez-vous d'avoir un server-id unique dans votre fichier de "
-"configuration  (my.cnf). Sinon, veuillez ajouter la ligne suivante dans la "
-"section [mysqld] :"
+"Assurez-vous d'avoir un server-id unique dans votre fichier de configuration "
+"(my.cnf). Sinon, veuillez ajouter la ligne suivante dans la section "
+"[mysqld] :"
 
 #: libraries/messages.inc.php:1023
 msgid "Slovak"
