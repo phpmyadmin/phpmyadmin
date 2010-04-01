@@ -929,7 +929,11 @@ textarea#sqlquery {
     width: 100%;
     /* height: 100%; */
 }
-
+textarea#sql_query_edit{
+height:7em;
+width: 95%;
+display:block;
+}
 div#queryboxcontainer div#bookmarkoptions {
     margin-top: 0.5em;
 }
