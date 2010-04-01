@@ -104,6 +104,9 @@ if (in_array('server_privileges.js', $GLOBALS['js_include'])) {
     $GLOBALS['js_messages']['strPasswordNotSame'] = $GLOBALS['strPasswordNotSame'];
 }
 
+$GLOBALS['js_messages']['strGo'] = __('Go');
+$GLOBALS['js_messages']['strCancel'] = __('Cancel');
+
 $GLOBALS['js_include'][] = 'tooltip.js';
 
 $GLOBALS['js_events'][] = array(
