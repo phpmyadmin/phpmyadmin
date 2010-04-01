@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-01 15:10+0200\n"
-"PO-Revision-Date: 2010-04-01 14:39+0200\n"
+"PO-Revision-Date: 2010-04-01 15:15+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -992,7 +992,7 @@ msgstr "Donner tous les privilèges sur la base de données &quot;%s&quot;"
 
 #: libraries/messages.inc.php:205
 msgid "Grant all privileges on wildcard name (username\\_%)"
-msgstr "Donner les privilèges passepartout (\"%\")"
+msgstr "Donner les privilèges passepartout (utilisateur\\_%)"
 
 #: libraries/messages.inc.php:206
 msgid "Creation/Update/Check dates"
