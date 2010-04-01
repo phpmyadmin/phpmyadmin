@@ -981,7 +981,11 @@ textarea#sqlquery {
     width: 100%;
     /* height: 100%; */
 }
-
+textarea#sql_query_edit{
+    height:7em;
+    width: 95%;
+    display:block;
+}
 div#queryboxcontainer div#bookmarkoptions {
     margin-top: 0.5em;
 }
@@ -1243,21 +1247,21 @@ code.sql {
   */
 div.upload_progress_bar_outer
 {
-    border: 1px solid black; 
+    border: 1px solid black;
     width: 202px;
 }
 
 div.upload_progress_bar_inner
 {
-    background-color: <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>; 
-    width: 0px; 
-    height: 12px; 
+    background-color: <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
+    width: 0px;
+    height: 12px;
     margin: 1px;
 }
 
-table#serverconnection_src_remote, 
+table#serverconnection_src_remote,
 table#serverconnection_trg_remote,
-table#serverconnection_src_local, 
+table#serverconnection_src_local,
 table#serverconnection_trg_local  {
   float:left;
 }

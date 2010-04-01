@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 23:18+0200\n"
+"POT-Creation-Date: 2010-04-01 14:29+0200\n"
 "PO-Revision-Date: 2010-03-24 16:47+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -42,6 +42,22 @@ msgstr ""
 #: libraries/common.lib.php:415
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
+msgstr ""
+
+#: libraries/common.lib.php:1274
+msgid "Click here to Inline Edit Your SQL Query."
+msgstr ""
+
+#: libraries/common.lib.php:1276
+msgid "Inline"
+msgstr ""
+
+#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "వెళ్ళు"
+
+#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
+msgid "Cancel"
 msgstr ""
 
 #: libraries/Message.class.php:282
@@ -604,10 +620,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:126
 msgid "Calendar"
-msgstr ""
-
-#: libraries/messages.inc.php:127
-msgid "Cancel"
 msgstr ""
 
 #: libraries/messages.inc.php:128
@@ -1635,10 +1647,6 @@ msgstr ""
 #: libraries/messages.inc.php:367
 msgid "Global value"
 msgstr ""
-
-#: libraries/messages.inc.php:368
-msgid "Go"
-msgstr "వెళ్ళు"
 
 #: libraries/messages.inc.php:369
 msgid "Go to database"

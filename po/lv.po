@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 23:18+0200\n"
+"POT-Creation-Date: 2010-04-01 14:29+0200\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: latvian <lv@li.org>\n"
@@ -44,6 +44,22 @@ msgstr "Nosūtīts"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "Nosūtīts"
+
+#: libraries/common.lib.php:1274
+msgid "Click here to Inline Edit Your SQL Query."
+msgstr ""
+
+#: libraries/common.lib.php:1276
+msgid "Inline"
+msgstr ""
+
+#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "Aiziet!"
+
+#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr ""
 
 #: libraries/Message.class.php:282
 #, php-format
@@ -604,10 +620,6 @@ msgstr "Arhivēts ar bzip"
 #: libraries/messages.inc.php:126
 msgid "Calendar"
 msgstr "Kalendārs"
-
-#: libraries/messages.inc.php:127
-msgid "Cancel"
-msgstr ""
 
 #: libraries/messages.inc.php:128
 msgid "Could not load export plugins, please check your installation!"
@@ -1667,10 +1679,6 @@ msgstr "Globālās privilēģijas"
 #: libraries/messages.inc.php:367
 msgid "Global value"
 msgstr "Globālā vērtība"
-
-#: libraries/messages.inc.php:368
-msgid "Go"
-msgstr "Aiziet!"
 
 #: libraries/messages.inc.php:369
 #, fuzzy

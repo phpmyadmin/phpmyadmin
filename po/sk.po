@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 23:18+0200\n"
+"POT-Creation-Date: 2010-04-01 14:29+0200\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: slovak <sk@li.org>\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -45,6 +45,24 @@ msgstr "en"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "en"
+
+#: libraries/common.lib.php:1274
+msgid "Click here to Inline Edit Your SQL Query."
+msgstr ""
+
+#: libraries/common.lib.php:1276
+#, fuzzy
+#| msgid "Engines"
+msgid "Inline"
+msgstr "Systémy"
+
+#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "Vykonaj"
+
+#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr "Zrušiť"
 
 #: libraries/Message.class.php:282
 #, fuzzy, php-format
@@ -606,10 +624,6 @@ msgstr "\"bzipped\""
 #: libraries/messages.inc.php:126
 msgid "Calendar"
 msgstr "Kalendár"
-
-#: libraries/messages.inc.php:127
-msgid "Cancel"
-msgstr "Zrušiť"
 
 #: libraries/messages.inc.php:128
 msgid "Could not load export plugins, please check your installation!"
@@ -1665,10 +1679,6 @@ msgstr "Globálne práva"
 #: libraries/messages.inc.php:367
 msgid "Global value"
 msgstr "Globálna hodnota"
-
-#: libraries/messages.inc.php:368
-msgid "Go"
-msgstr "Vykonaj"
 
 #: libraries/messages.inc.php:369
 msgid "Go to database"

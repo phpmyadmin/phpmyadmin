@@ -57,6 +57,7 @@ $Id$
 + patch #2967320 [designer] Colored relations based on the primary key,
   thanks to GreenRover - greenrover
 - [core] Provide way for vendors to easily change paths to config files.
++ patch #2979922, rfe #2804874 [interface] Add inline query editing, thanks to Muhammd Adnan.
 
 3.3.2.0 (not yet released)
 - patch #2969449 [core] Name for MERGE engine varies depending on the

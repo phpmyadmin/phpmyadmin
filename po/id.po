@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-30 23:18+0200\n"
+"POT-Creation-Date: 2010-04-01 14:29+0200\n"
 "PO-Revision-Date: 2010-03-28 13:56+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
@@ -45,6 +45,24 @@ msgstr "id"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "id"
+
+#: libraries/common.lib.php:1274
+msgid "Click here to Inline Edit Your SQL Query."
+msgstr ""
+
+#: libraries/common.lib.php:1276
+#, fuzzy
+#| msgid "Engines"
+msgid "Inline"
+msgstr "Mesin"
+
+#: libraries/header_scripts.inc.php:107 libraries/messages.inc.php:368
+msgid "Go"
+msgstr "Go"
+
+#: libraries/header_scripts.inc.php:108 libraries/messages.inc.php:127
+msgid "Cancel"
+msgstr "Batal"
 
 #: libraries/Message.class.php:282
 #, php-format
@@ -597,10 +615,6 @@ msgstr "\"Dikompress dengan BZip\""
 #: libraries/messages.inc.php:126
 msgid "Calendar"
 msgstr "Kalender"
-
-#: libraries/messages.inc.php:127
-msgid "Cancel"
-msgstr "Batal"
 
 #: libraries/messages.inc.php:128
 msgid "Could not load export plugins, please check your installation!"
@@ -1650,10 +1664,6 @@ msgstr "Hak Istimewa (Privileges) Global"
 #: libraries/messages.inc.php:367
 msgid "Global value"
 msgstr "Nilai Global"
-
-#: libraries/messages.inc.php:368
-msgid "Go"
-msgstr "Go"
 
 #: libraries/messages.inc.php:369
 #, fuzzy
