@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-30 23:18+0200\n"
-"PO-Revision-Date: 2010-04-01 13:49+0200\n"
+"PO-Revision-Date: 2010-04-01 13:51+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6757,7 +6757,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:159
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "Le nombre d'enregistrements qui peuvent être insérés à la fois."
 
 #: setup/lib/messages.inc.php:160
 msgid "Number of inserted rows"
