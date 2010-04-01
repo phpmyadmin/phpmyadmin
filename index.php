@@ -159,7 +159,6 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     };
 // ]]>
 </script>
-<script src="./js/mootools.js" type="text/javascript"></script>
 <script src="./js/jquery/jquery-1.4.2-min.js" type="text/javascript"></script>
 <script src="./js/update-location.js" type="text/javascript"></script>
 <script src="./js/common.js" type="text/javascript"></script>
