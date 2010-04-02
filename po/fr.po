@@ -7462,10 +7462,9 @@ msgstr ""
 "tables et les vues."
 
 #: setup/lib/messages.inc.php:304
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Mode de recouvrement automatique"
+msgstr "Création automatique de versions"
 
 #: setup/lib/messages.inc.php:305
 #, fuzzy
