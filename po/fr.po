@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-02 16:03+0200\n"
+"PO-Revision-Date: 2010-04-02 16:04+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7467,14 +7467,13 @@ msgid "Automatically create versions"
 msgstr "Création automatique de versions"
 
 #: setup/lib/messages.inc.php:305
-#, fuzzy
 #| msgid ""
 #| "Defines the list of statements the auto-creation uses for new versions. "
 #| "Default value is"
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
-"Définit la liste des déclarations que le mécanisme d'auto-création utilise "
-"pour les nouvelles versions. La valeur par défaut est"
+"Définit la liste des énoncés que le mécanisme d'auto-création utilise pour "
+"les nouvelles versions."
 
 #: setup/lib/messages.inc.php:306
 #, fuzzy
