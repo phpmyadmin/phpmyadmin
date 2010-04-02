@@ -475,7 +475,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:94
 msgid "Original position"
-msgstr ""
+msgstr "అసలు స్థానం"
 
 #: libraries/messages.inc.php:95
 msgid "Position"
