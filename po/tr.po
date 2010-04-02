@@ -4,13 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-03-12 09:19+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-04-02 21:25+0200\n"
+"Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: js/messages.php:45 libraries/messages.inc.php:372
 msgid "Go"
@@ -65,12 +67,11 @@ msgid "Inline"
 msgstr "Motorlar"
 
 #: libraries/Message.class.php:282
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d satır etkilendi."
-msgstr[1] "%1$d satır etkilendi."
 
 #: libraries/Message.class.php:301
 #, fuzzy, php-format
