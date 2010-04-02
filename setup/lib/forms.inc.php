@@ -62,6 +62,7 @@ $forms['Server_pmadb'] = array('Servers' => array(1 => array(
     'pdf_pages' => 'pma_pdf_pages',
     'column_info' => 'pma_column_info',
     'history' => 'pma_history',
+    'tracking' => 'pma_tracking',
     'designer_coords' => 'pma_designer_coords')));
 $forms['Import_export'] = array(
     'UploadDir',
