@@ -5594,7 +5594,7 @@ msgstr "%sకి స్వాగతం"
 
 #: libraries/messages.inc.php:1264
 msgid "West European"
-msgstr ""
+msgstr "పశ్చిమ ఐరోపియన్"
 
 #: libraries/messages.inc.php:1265
 msgid "Wiki"
