@@ -3540,7 +3540,7 @@ msgstr "Replikovat všechny databáze kromě:"
 
 #: libraries/messages.inc.php:788
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Nereplikovat databáze s výjimkou:"
 
 #: libraries/messages.inc.php:789
 msgid ""
