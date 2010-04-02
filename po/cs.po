@@ -7334,10 +7334,9 @@ msgid ""
 msgstr ""
 
 #: setup/lib/messages.inc.php:304
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Automatický režim obnovy"
+msgstr "Automaticky vytvářet verze"
 
 #: setup/lib/messages.inc.php:305
 msgid "Defines the list of statements the auto-creation uses for new versions."
