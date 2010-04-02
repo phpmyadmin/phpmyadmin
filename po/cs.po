@@ -7355,7 +7355,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:308
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Přidat DROP VIEW"
 
 #: setup/lib/messages.inc.php:309
 msgid ""
