@@ -247,6 +247,6 @@ div#left_tableList ul ul {
 }
 
 #fast_filter {
-    width: 90%;
+    width: 85%;
     padding: 0.1em;
 }

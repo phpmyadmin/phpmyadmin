@@ -555,7 +555,6 @@ $strMySQLSaid = __('MySQL said: ');
 $strMySQLShowProcess = __('Show processes');
 
 $strName = __('Name');
-$strNavTableFilter = __('Filter');
 $strNewTable = __('New table');
 $strNext = __('Next');
 $strNoActivity = __('No activity within %s seconds; please log in again');

@@ -1281,6 +1281,6 @@ table#serverconnection_trg_local  {
 }
 
 #fast_filter {
-    width: 90%;
+    width: 85%;
     padding: 0.1em;
 }

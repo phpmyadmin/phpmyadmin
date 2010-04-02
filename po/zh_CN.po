@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-02 10:09+0200\n"
+"POT-Creation-Date: 2010-04-02 13:41+0200\n"
 "PO-Revision-Date: 2010-03-19 03:34+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -1832,7 +1832,7 @@ msgstr "点击“结构”链接编辑它的结构"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "转换货币 (如: $5.00 将被转换为 5.00)"
 
-#: libraries/messages.inc.php:418 libraries/messages.inc.php:601
+#: libraries/messages.inc.php:418 libraries/messages.inc.php:600
 msgid "Open Document Spreadsheet"
 msgstr "OpenOffice 表格"
 
@@ -2469,31 +2469,27 @@ msgid "Name"
 msgstr "名字"
 
 #: libraries/messages.inc.php:558
-msgid "Filter"
-msgstr "快速搜索"
-
-#: libraries/messages.inc.php:559
 msgid "New table"
 msgstr "新数据表"
 
-#: libraries/messages.inc.php:560
+#: libraries/messages.inc.php:559
 msgid "Next"
 msgstr "下一个"
 
-#: libraries/messages.inc.php:561
+#: libraries/messages.inc.php:560
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "登录超时 (%s 秒未活动)，请重新登录"
 
-#: libraries/messages.inc.php:562
+#: libraries/messages.inc.php:561
 msgid "No databases"
 msgstr "无数据库"
 
-#: libraries/messages.inc.php:563
+#: libraries/messages.inc.php:562
 msgid "No databases selected."
 msgstr "未选中数据库。"
 
-#: libraries/messages.inc.php:564
+#: libraries/messages.inc.php:563
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -2502,281 +2498,281 @@ msgstr ""
 "没有接收到要导入的数据。可能是文件名没有提交，也可能是文件大小超出 PHP 限制。"
 "参见 [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]。"
 
-#: libraries/messages.inc.php:565
+#: libraries/messages.inc.php:564
 msgid "no description"
 msgstr "无说明"
 
-#: libraries/messages.inc.php:566
+#: libraries/messages.inc.php:565
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "没有该存储引擎的详细信息。"
 
-#: libraries/messages.inc.php:567
+#: libraries/messages.inc.php:566
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "已经禁用删除数据库 (“DROP DATABASE”) 语句。"
 
-#: libraries/messages.inc.php:568
+#: libraries/messages.inc.php:567
 msgid "Skip Explain SQL"
 msgstr "略过解释 SQL"
 
-#: libraries/messages.inc.php:569
+#: libraries/messages.inc.php:568
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP 包中未找到文件！"
 
-#: libraries/messages.inc.php:570
+#: libraries/messages.inc.php:569
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "phpMyAdmin 更适合在支持<b>框架</b>的浏览器中使用。"
 
-#: libraries/messages.inc.php:571
+#: libraries/messages.inc.php:570
 msgid "No index defined!"
 msgstr "没有已定义的索引！"
 
-#: libraries/messages.inc.php:572
+#: libraries/messages.inc.php:571
 msgid "No index parts defined!"
 msgstr "没有定义的索引部分！"
 
-#: libraries/messages.inc.php:573
+#: libraries/messages.inc.php:572
 msgid "No change"
 msgstr "无更改"
 
-#: libraries/messages.inc.php:574
+#: libraries/messages.inc.php:573
 msgctxt "$strNoneDefault"
 msgid "None"
 msgstr "无"
 
-#: libraries/messages.inc.php:575
+#: libraries/messages.inc.php:574
 msgid "None"
 msgstr "无"
 
-#: libraries/messages.inc.php:576
+#: libraries/messages.inc.php:575
 msgid "No"
 msgstr "否"
 
-#: libraries/messages.inc.php:577
+#: libraries/messages.inc.php:576
 msgid "This format has no options"
 msgstr "此格式没有选项"
 
-#: libraries/messages.inc.php:578
+#: libraries/messages.inc.php:577
 msgid "No Password"
 msgstr "无密码"
 
-#: libraries/messages.inc.php:579
+#: libraries/messages.inc.php:578
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "网站服务器没有保存文件 %s 的权限。"
 
-#: libraries/messages.inc.php:580
+#: libraries/messages.inc.php:579
 msgid "Without PHP Code"
 msgstr "无 PHP 代码"
 
-#: libraries/messages.inc.php:581
+#: libraries/messages.inc.php:580
 msgid "No Privileges"
 msgstr "无权限"
 
-#: libraries/messages.inc.php:582
+#: libraries/messages.inc.php:581
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "权限不足！"
 
-#: libraries/messages.inc.php:583
+#: libraries/messages.inc.php:582
 msgid "No rows selected"
 msgstr "没有选中任何行"
 
-#: libraries/messages.inc.php:584
+#: libraries/messages.inc.php:583
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "没有足够的空间保存文件 %s。"
 
-#: libraries/messages.inc.php:585
+#: libraries/messages.inc.php:584
 msgid "No tables found in database."
 msgstr "数据库中没有表。"
 
-#: libraries/messages.inc.php:586
+#: libraries/messages.inc.php:585
 #, php-format
 msgid ""
 "No themes support; please check your configuration and/or your themes in "
 "directory %s."
 msgstr "不支持主题，请检查你的设置和主题文件夹 %s 。"
 
-#: libraries/messages.inc.php:587
+#: libraries/messages.inc.php:586
 msgid "This is not a number!"
 msgstr "这不是一个数字！"
 
-#: libraries/messages.inc.php:588
+#: libraries/messages.inc.php:587
 msgid "not OK"
 msgstr "错误"
 
-#: libraries/messages.inc.php:589
+#: libraries/messages.inc.php:588
 msgid "not present"
 msgstr "未找到"
 
-#: libraries/messages.inc.php:590
+#: libraries/messages.inc.php:589
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "找不到 <b>%s</b> 表或还未在 %s 设置"
 
-#: libraries/messages.inc.php:591
+#: libraries/messages.inc.php:590
 msgid "No user(s) found."
 msgstr "找不到用户。"
 
-#: libraries/messages.inc.php:592
+#: libraries/messages.inc.php:591
 msgid "Skip Validate SQL"
 msgstr "略过校验 SQL"
 
-#: libraries/messages.inc.php:593
+#: libraries/messages.inc.php:592
 msgid "Null"
 msgstr "空"
 
-#: libraries/messages.inc.php:594
+#: libraries/messages.inc.php:593
 msgid "Number of fields"
 msgstr "字段数"
 
-#: libraries/messages.inc.php:595
+#: libraries/messages.inc.php:594
 msgid "Number of tables"
 msgstr "数据表数量"
 
-#: libraries/messages.inc.php:596
+#: libraries/messages.inc.php:595
 #, php-format
 msgid "%s match(es) inside table <i>%s</i>"
 msgstr "%s 个匹配 - 于表 <i>%s</i> 中"
 
-#: libraries/messages.inc.php:597
+#: libraries/messages.inc.php:596
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>总计：</b> <i>%s</i> 个匹配"
 
-#: libraries/messages.inc.php:598 setup/lib/messages.inc.php:117
+#: libraries/messages.inc.php:597 setup/lib/messages.inc.php:117
 msgid "Tables"
 msgstr "数据表"
 
-#: libraries/messages.inc.php:600
+#: libraries/messages.inc.php:599
 msgid "OK"
 msgstr "确定"
 
-#: libraries/messages.inc.php:602
+#: libraries/messages.inc.php:601
 msgid "Open Document Text"
 msgstr "OpenOffice 文档"
 
-#: libraries/messages.inc.php:603
+#: libraries/messages.inc.php:602
 msgid "Open new phpMyAdmin window"
 msgstr "打开新 phpMyAdmin 窗口"
 
-#: libraries/messages.inc.php:604
+#: libraries/messages.inc.php:603
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/messages.inc.php:605
+#: libraries/messages.inc.php:604
 msgid "Operator"
 msgstr "操作符"
 
-#: libraries/messages.inc.php:606
+#: libraries/messages.inc.php:605
 msgid "Optimize"
 msgstr "优化"
 
-#: libraries/messages.inc.php:607
+#: libraries/messages.inc.php:606
 msgid "Optimize table"
 msgstr "优化表"
 
-#: libraries/messages.inc.php:608
+#: libraries/messages.inc.php:607
 msgid "Options"
 msgstr "选项"
 
-#: libraries/messages.inc.php:609
+#: libraries/messages.inc.php:608
 msgid "Or"
 msgstr "或"
 
-#: libraries/messages.inc.php:610
+#: libraries/messages.inc.php:609
 msgid "Overhead"
 msgstr "多余"
 
-#: libraries/messages.inc.php:611 setup/lib/messages.inc.php:90
+#: libraries/messages.inc.php:610 setup/lib/messages.inc.php:90
 msgid "Overwrite existing file(s)"
 msgstr "覆盖已有文件"
 
-#: libraries/messages.inc.php:613
+#: libraries/messages.inc.php:612
 msgid "Packed"
 msgstr "紧凑"
 
-#: libraries/messages.inc.php:614
+#: libraries/messages.inc.php:613
 msgid "Page number:"
 msgstr "页码："
 
-#: libraries/messages.inc.php:615
+#: libraries/messages.inc.php:614
 msgid "Pages to be flushed"
 msgstr "要刷新的页"
 
-#: libraries/messages.inc.php:616
+#: libraries/messages.inc.php:615
 msgid "Paper size"
 msgstr "纸张大小"
 
-#: libraries/messages.inc.php:617
+#: libraries/messages.inc.php:616
 msgid "Partial import"
 msgstr "部分导入"
 
-#: libraries/messages.inc.php:618
+#: libraries/messages.inc.php:617
 msgid "Partial Texts"
 msgstr "部分文字"
 
-#: libraries/messages.inc.php:619
+#: libraries/messages.inc.php:618
 msgid "PARTITION definition"
 msgstr "分区定义"
 
-#: libraries/messages.inc.php:620
+#: libraries/messages.inc.php:619
 msgid "partitioned"
 msgstr "已分区"
 
-#: libraries/messages.inc.php:621
+#: libraries/messages.inc.php:620
 msgid "Partition maintenance"
 msgstr "分区维护"
 
-#: libraries/messages.inc.php:622
+#: libraries/messages.inc.php:621
 #, php-format
 msgid "Partition %s"
 msgstr "分区 %s"
 
-#: libraries/messages.inc.php:623
+#: libraries/messages.inc.php:622
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s 的密码已修改。"
 
-#: libraries/messages.inc.php:624
+#: libraries/messages.inc.php:623
 msgid "The password is empty!"
 msgstr "密码不能为空！"
 
-#: libraries/messages.inc.php:625
+#: libraries/messages.inc.php:624
 msgid "Password Hashing"
 msgstr "密码加密方式"
 
-#: libraries/messages.inc.php:626
+#: libraries/messages.inc.php:625
 msgid "The passwords aren't the same!"
 msgstr "两次密码不一致！"
 
-#: libraries/messages.inc.php:627
+#: libraries/messages.inc.php:626
 msgid "Password"
 msgstr "密码"
 
-#: libraries/messages.inc.php:628
+#: libraries/messages.inc.php:627
 msgid "Checkpoint frequency"
 msgstr "检查点频率"
 
-#: libraries/messages.inc.php:629
+#: libraries/messages.inc.php:628
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr "在检查点前最大可以写入事务日志的最大数据大小。默认值为 24MB。"
 
-#: libraries/messages.inc.php:630
+#: libraries/messages.inc.php:629
 msgid "Data file grow size"
 msgstr "数据文件增长大小"
 
-#: libraries/messages.inc.php:631
+#: libraries/messages.inc.php:630
 msgid "The grow size of the handle data (.xtd) files."
 msgstr "句柄数据文件 (*.xtd) 增长大小。"
 
-#: libraries/messages.inc.php:632
+#: libraries/messages.inc.php:631
 msgid "Data log threshold"
 msgstr "数据日志阈值"
 
-#: libraries/messages.inc.php:633
+#: libraries/messages.inc.php:632
 msgid ""
 "The maximum size of a data log file. The default value is 64MB. PBXT can "
 "create a maximum of 32000 data logs, which are used by all tables. So the "
@@ -2786,27 +2782,27 @@ msgstr ""
 "数据日志文件的最大大小。默认值为 64MB。PBXT 最多可以创建 32000 个数据日志，可"
 "用于所有的表。增加该值可以增加数据库所能存储数据的大小。"
 
-#: libraries/messages.inc.php:634
+#: libraries/messages.inc.php:633
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr "数据日志文件中压缩前无效数据所占的比率。值域为 1 到 99，默认值为50。"
 
-#: libraries/messages.inc.php:635
+#: libraries/messages.inc.php:634
 msgid "Garbage threshold"
 msgstr "垃圾阈值"
 
-#: libraries/messages.inc.php:636
+#: libraries/messages.inc.php:635
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr "用于索引缓存的内存大小。默认值为 32MB。该缓存仅用于缓存索引页。"
 
-#: libraries/messages.inc.php:637
+#: libraries/messages.inc.php:636
 msgid "Index cache size"
 msgstr "索引缓存大小"
 
-#: libraries/messages.inc.php:638
+#: libraries/messages.inc.php:637
 msgid ""
 "The size of the buffer used when writing a data log. The default is 256MB. "
 "The engine allocates one buffer per thread, but only if the thread is "
@@ -2815,21 +2811,21 @@ msgstr ""
 "写入数据日志时使用的缓存大小。默认值为 256MB。数据引擎会为每一个需要进行数据"
 "日志写入的线程分配一个缓冲区。"
 
-#: libraries/messages.inc.php:639
+#: libraries/messages.inc.php:638
 msgid "Log buffer size"
 msgstr "日志缓存大小"
 
-#: libraries/messages.inc.php:640
+#: libraries/messages.inc.php:639
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr "用于缓存事务日志的内存缓冲区大小。默认值为 16MB。"
 
-#: libraries/messages.inc.php:641
+#: libraries/messages.inc.php:640
 msgid "Log cache size"
 msgstr "日志缓存大小"
 
-#: libraries/messages.inc.php:642
+#: libraries/messages.inc.php:641
 msgid ""
 "This is the number of transaction log files (pbxt/system/xlog*.xt) the "
 "system will maintain. If the number of logs exceeds this value then old logs "
@@ -2839,21 +2835,21 @@ msgstr ""
 "系统维护的事务日志数量 (pbxt/system/*.xt)。如果日志数量大于此值，旧的日志将会"
 "被删除，或者被以升序数字序列重命名。"
 
-#: libraries/messages.inc.php:643
+#: libraries/messages.inc.php:642
 msgid "Log file count"
 msgstr "日志文件总数"
 
-#: libraries/messages.inc.php:644
+#: libraries/messages.inc.php:643
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr "回滚和新日志创建前事务日志的大小。默认值为 16MB。"
 
-#: libraries/messages.inc.php:645
+#: libraries/messages.inc.php:644
 msgid "Log file threshold"
 msgstr "日志文件阈值"
 
-#: libraries/messages.inc.php:646
+#: libraries/messages.inc.php:645
 msgid ""
 "This is the amount of memory allocated to the record cache used to cache "
 "table data. The default value is 32MB. This memory is used to cache changes "
@@ -2862,107 +2858,107 @@ msgstr ""
 "用于缓存表数据的缓存内存大小。默认值为 32MB。该缓存用于记录句柄数据 (*.xtd) "
 "和行指针 (*.xtr) 文件。"
 
-#: libraries/messages.inc.php:647
+#: libraries/messages.inc.php:646
 msgid "Record cache size"
 msgstr "记录缓存大小"
 
-#: libraries/messages.inc.php:648
+#: libraries/messages.inc.php:647
 msgid "The grow size of the row pointer (.xtr) files."
 msgstr "行指针文件 (*.xtr) 增长大小。"
 
-#: libraries/messages.inc.php:649
+#: libraries/messages.inc.php:648
 msgid "Row file grow size"
 msgstr "行文件增长大小"
 
-#: libraries/messages.inc.php:650
+#: libraries/messages.inc.php:649
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr "全局事务日志缓存 (数据引擎会分配两个该大小的缓冲区)。默认值为 1MB。"
 
-#: libraries/messages.inc.php:651
+#: libraries/messages.inc.php:650
 msgid "Transaction buffer size"
 msgstr "事务缓存大小"
 
-#: libraries/messages.inc.php:652
+#: libraries/messages.inc.php:651
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
 msgstr "数据库“%s”的大纲 - 第 %s 页"
 
-#: libraries/messages.inc.php:653
+#: libraries/messages.inc.php:652
 #, php-format
 msgid "The \"%s\" table doesn't exist!"
 msgstr "表“%s”不存在！"
 
-#: libraries/messages.inc.php:654
+#: libraries/messages.inc.php:653
 msgid "No tables"
 msgstr "没有表"
 
-#: libraries/messages.inc.php:655
+#: libraries/messages.inc.php:654
 msgid "Page has been created"
 msgstr "已创建页面"
 
-#: libraries/messages.inc.php:656
+#: libraries/messages.inc.php:655
 msgid "Page creation failed"
 msgstr "页面创建失败"
 
-#: libraries/messages.inc.php:657
+#: libraries/messages.inc.php:656
 msgid "PDF"
 msgstr "PDF"
 
-#: libraries/messages.inc.php:658
+#: libraries/messages.inc.php:657
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(根据一张表的数据生成报告)"
 
-#: libraries/messages.inc.php:659
+#: libraries/messages.inc.php:658
 msgid "Report title"
 msgstr "报告标题"
 
-#: libraries/messages.inc.php:660
+#: libraries/messages.inc.php:659
 msgid "per hour"
 msgstr "每小时"
 
-#: libraries/messages.inc.php:661
+#: libraries/messages.inc.php:660
 msgid "per minute"
 msgstr "每分钟"
 
-#: libraries/messages.inc.php:662
+#: libraries/messages.inc.php:661
 msgid "per second"
 msgstr "每秒"
 
-#: libraries/messages.inc.php:663
+#: libraries/messages.inc.php:662
 msgid "Persian"
 msgstr "波斯语"
 
-#: libraries/messages.inc.php:664
+#: libraries/messages.inc.php:663
 msgid "phone book"
 msgstr "电话本"
 
-#: libraries/messages.inc.php:665
+#: libraries/messages.inc.php:664
 msgid "PHP array"
 msgstr "PHP 数组"
 
-#: libraries/messages.inc.php:666 setup/lib/messages.inc.php:355
+#: libraries/messages.inc.php:665 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
 msgstr "创建 PHP 代码"
 
-#: libraries/messages.inc.php:667
+#: libraries/messages.inc.php:666
 msgid "PHP extension"
 msgstr "PHP 扩展"
 
-#: libraries/messages.inc.php:668
+#: libraries/messages.inc.php:667
 msgid "PHP Version"
 msgstr "PHP 版本"
 
-#: libraries/messages.inc.php:669
+#: libraries/messages.inc.php:668
 msgid "Play audio"
 msgstr "播放音频"
 
-#: libraries/messages.inc.php:670
+#: libraries/messages.inc.php:669
 msgid "Please select the primary key or a unique key"
 msgstr "请选择主键或唯一键"
 
-#: libraries/messages.inc.php:671
+#: libraries/messages.inc.php:670
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -2970,218 +2966,218 @@ msgstr ""
 "在配置文件 (<code>config.inc.php</code>) 中启用高级功能，参见 <code>config."
 "sample.inc.php</code> 中的范例。"
 
-#: libraries/messages.inc.php:672
+#: libraries/messages.inc.php:671
 msgid "Quick steps to setup advanced features:"
 msgstr "快速设置高级功能:"
 
-#: libraries/messages.inc.php:673
+#: libraries/messages.inc.php:672
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgstr "通过 <code>script/create_tables.sql</code> 创建必需的数据表。"
 
-#: libraries/messages.inc.php:674
+#: libraries/messages.inc.php:673
 msgid "Create a pma user and give access to these tables."
 msgstr "创建一个用户并授予其访问上一步操作中创建的数据表的权限。"
 
-#: libraries/messages.inc.php:675
+#: libraries/messages.inc.php:674
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "请重新登录 phpMyAdmin 以加载新配置并使其生效。"
 
-#: libraries/messages.inc.php:676
+#: libraries/messages.inc.php:675
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 文档"
 
-#: libraries/messages.inc.php:677
+#: libraries/messages.inc.php:676
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr "必须在您的配置文件中设置 <tt>$cfg['PmaAbsoluteUri']</tt> ！"
 
-#: libraries/messages.inc.php:678
+#: libraries/messages.inc.php:677
 msgid "Polish"
 msgstr "波兰语"
 
-#: libraries/messages.inc.php:679
+#: libraries/messages.inc.php:678
 msgid "Port"
 msgstr "端口"
 
-#: libraries/messages.inc.php:680
+#: libraries/messages.inc.php:679
 msgid "Portrait"
 msgstr "纵向"
 
-#: libraries/messages.inc.php:681
+#: libraries/messages.inc.php:680
 msgid "Begin"
 msgstr "开始"
 
-#: libraries/messages.inc.php:682
+#: libraries/messages.inc.php:681
 msgid "Previous"
 msgstr "上一个"
 
-#: libraries/messages.inc.php:683
+#: libraries/messages.inc.php:682
 msgid "The primary key has been dropped"
 msgstr "已删除主键"
 
-#: libraries/messages.inc.php:684
+#: libraries/messages.inc.php:683
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "主键的名称必须称为 “PRIMARY”！"
 
-#: libraries/messages.inc.php:685
+#: libraries/messages.inc.php:684
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr "(“PRIMARY”<b>必须</b>而且<b>只能</b>作为主键的名称！)"
 
-#: libraries/messages.inc.php:686
+#: libraries/messages.inc.php:685
 msgid "Primary"
 msgstr "主键"
 
-#: libraries/messages.inc.php:687
+#: libraries/messages.inc.php:686
 msgid "Print"
 msgstr "打印"
 
-#: libraries/messages.inc.php:688
+#: libraries/messages.inc.php:687
 msgid "Print view (with full texts)"
 msgstr "打印预览 (全文显示)"
 
-#: libraries/messages.inc.php:689
+#: libraries/messages.inc.php:688
 msgid "Print view"
 msgstr "打印预览"
 
-#: libraries/messages.inc.php:690
+#: libraries/messages.inc.php:689
 msgid "Includes all privileges except GRANT."
 msgstr "除了授权 (GRANT) 以外的所有权限。"
 
-#: libraries/messages.inc.php:691
+#: libraries/messages.inc.php:690
 msgid "Allows altering the structure of existing tables."
 msgstr "允许修改现有数据表的结构。"
 
-#: libraries/messages.inc.php:692
+#: libraries/messages.inc.php:691
 msgid "Allows altering and dropping stored routines."
 msgstr "允许修改或删除储存过程。"
 
-#: libraries/messages.inc.php:693
+#: libraries/messages.inc.php:692
 msgid "Allows creating new databases and tables."
 msgstr "允许创建新数据库和数据表。"
 
-#: libraries/messages.inc.php:694
+#: libraries/messages.inc.php:693
 msgid "Allows creating stored routines."
 msgstr "允许创建存储过程。"
 
-#: libraries/messages.inc.php:695
+#: libraries/messages.inc.php:694
 msgid "Allows creating new tables."
 msgstr "允许创建新数据表。"
 
-#: libraries/messages.inc.php:696
+#: libraries/messages.inc.php:695
 msgid "Allows creating temporary tables."
 msgstr "允许创建临时表。"
 
-#: libraries/messages.inc.php:697
+#: libraries/messages.inc.php:696
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "允许创建、删除和重命名用户账户。"
 
-#: libraries/messages.inc.php:698
+#: libraries/messages.inc.php:697
 msgid "Allows creating new views."
 msgstr "允许创建视图。"
 
-#: libraries/messages.inc.php:699
+#: libraries/messages.inc.php:698
 msgid "Allows deleting data."
 msgstr "允许删除数据。"
 
-#: libraries/messages.inc.php:700
+#: libraries/messages.inc.php:699
 msgid "Allows dropping databases and tables."
 msgstr "允许删除数据库和数据表。"
 
-#: libraries/messages.inc.php:701
+#: libraries/messages.inc.php:700
 msgid "Allows dropping tables."
 msgstr "允许删除数据表。"
 
-#: libraries/messages.inc.php:702
+#: libraries/messages.inc.php:701
 msgid "Allows to set up events for the event scheduler"
 msgstr "允许为事件触发器设置事件"
 
-#: libraries/messages.inc.php:703
+#: libraries/messages.inc.php:702
 msgid "Allows executing stored routines."
 msgstr "允许运行存储过程。"
 
-#: libraries/messages.inc.php:704
+#: libraries/messages.inc.php:703
 msgid "Allows running stored procedures; has no effect in this MySQL version."
 msgstr "允许运行存储过程；在此版本的 MySQL 中无效。"
 
-#: libraries/messages.inc.php:705
+#: libraries/messages.inc.php:704
 msgid "Allows importing data from and exporting data into files."
 msgstr "允许从文件中导入数据以及将数据导出至文件。"
 
-#: libraries/messages.inc.php:706
+#: libraries/messages.inc.php:705
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr "允许添加用户和权限，而不允许重新载入权限表。"
 
-#: libraries/messages.inc.php:707
+#: libraries/messages.inc.php:706
 msgid "Allows creating and dropping indexes."
 msgstr "允许创建和删除索引。"
 
-#: libraries/messages.inc.php:708
+#: libraries/messages.inc.php:707
 msgid "Allows inserting and replacing data."
 msgstr "允许插入和替换数据。"
 
-#: libraries/messages.inc.php:709
+#: libraries/messages.inc.php:708
 msgid "Allows locking tables for the current thread."
 msgstr "允许锁定当前线程的表。"
 
-#: libraries/messages.inc.php:710
+#: libraries/messages.inc.php:709
 msgid "Limits the number of new connections the user may open per hour."
 msgstr "限制用户每小时打开的新连接数。"
 
-#: libraries/messages.inc.php:711
+#: libraries/messages.inc.php:710
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr "限制用户每小时可发送到服务器的查询数。"
 
-#: libraries/messages.inc.php:712
+#: libraries/messages.inc.php:711
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr "限制用户每小时可执行的修改任何数据表或数据库的命令数。"
 
-#: libraries/messages.inc.php:713
+#: libraries/messages.inc.php:712
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "限制该用户的并发连接数。"
 
-#: libraries/messages.inc.php:714
+#: libraries/messages.inc.php:713
 msgid "Allows viewing processes of all users"
 msgstr "允许查看所有用户的进程"
 
-#: libraries/messages.inc.php:715
+#: libraries/messages.inc.php:714
 msgid "Has no effect in this MySQL version."
 msgstr "在此版本的 MySQL 中无效。"
 
-#: libraries/messages.inc.php:716
+#: libraries/messages.inc.php:715
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "允许重新载入服务器设置并刷新服务器的缓存。"
 
-#: libraries/messages.inc.php:717
+#: libraries/messages.inc.php:716
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "用户有权询问附属者/控制者在哪里。"
 
-#: libraries/messages.inc.php:718
+#: libraries/messages.inc.php:717
 msgid "Needed for the replication slaves."
 msgstr "回复附属者所需。"
 
-#: libraries/messages.inc.php:719
+#: libraries/messages.inc.php:718
 msgid "Allows reading data."
 msgstr "允许读取数据。"
 
-#: libraries/messages.inc.php:720
+#: libraries/messages.inc.php:719
 msgid "Gives access to the complete list of databases."
 msgstr "允许访问完整的数据库列表。"
 
-#: libraries/messages.inc.php:721
+#: libraries/messages.inc.php:720
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "允许执行 SHOW CREATE VIEW 查询。"
 
-#: libraries/messages.inc.php:722
+#: libraries/messages.inc.php:721
 msgid "Allows shutting down the server."
 msgstr "允许关闭服务器。"
 
-#: libraries/messages.inc.php:723
+#: libraries/messages.inc.php:722
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -3190,278 +3186,278 @@ msgstr ""
 "允许在达到最大连接数时连接，对于大多数像设置全局变量或杀死其它用户线程这样的"
 "管理操作是必需的。"
 
-#: libraries/messages.inc.php:724
+#: libraries/messages.inc.php:723
 msgid "Allows creating and dropping triggers"
 msgstr "允许创建和删除触发器"
 
-#: libraries/messages.inc.php:725
+#: libraries/messages.inc.php:724
 msgid "Allows changing data."
 msgstr "允许修改数据。"
 
-#: libraries/messages.inc.php:726
+#: libraries/messages.inc.php:725
 msgid "No privileges."
 msgstr "无权限。"
 
-#: libraries/messages.inc.php:727
+#: libraries/messages.inc.php:726
 msgid "Privileges"
 msgstr "权限"
 
-#: libraries/messages.inc.php:728
+#: libraries/messages.inc.php:727
 msgid "The privileges were reloaded successfully."
 msgstr "已成功重新载入权限。"
 
-#: libraries/messages.inc.php:729
+#: libraries/messages.inc.php:728
 msgid "Procedures"
 msgstr "存储过程"
 
-#: libraries/messages.inc.php:730
+#: libraries/messages.inc.php:729
 msgid "Processes"
 msgstr "进程"
 
-#: libraries/messages.inc.php:731
+#: libraries/messages.inc.php:730
 msgid "Process list"
 msgstr "进程列表"
 
-#: libraries/messages.inc.php:732
+#: libraries/messages.inc.php:731
 msgid "Profiling"
 msgstr "概要"
 
-#: libraries/messages.inc.php:733
+#: libraries/messages.inc.php:732
 msgid "Protocol version"
 msgstr "协议版本"
 
-#: libraries/messages.inc.php:734
+#: libraries/messages.inc.php:733
 msgid "Put fields names in the first row"
 msgstr "将字段名放在第一行"
 
-#: libraries/messages.inc.php:736
+#: libraries/messages.inc.php:735
 msgid "Del"
 msgstr "删除"
 
-#: libraries/messages.inc.php:737
+#: libraries/messages.inc.php:736
 msgid "Ins"
 msgstr "插入"
 
-#: libraries/messages.inc.php:738
+#: libraries/messages.inc.php:737
 msgid "Query"
 msgstr "查询"
 
-#: libraries/messages.inc.php:739
+#: libraries/messages.inc.php:738
 msgid "The following queries have been executed:"
 msgstr "下列查询被执行:"
 
-#: libraries/messages.inc.php:740
+#: libraries/messages.inc.php:739
 msgid "Query cache"
 msgstr "查询缓存"
 
-#: libraries/messages.inc.php:741 setup/lib/messages.inc.php:122
+#: libraries/messages.inc.php:740 setup/lib/messages.inc.php:122
 msgid "Query window"
 msgstr "查询窗口"
 
-#: libraries/messages.inc.php:742
+#: libraries/messages.inc.php:741
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "在数据库 <b>%s</b> 执行 SQL 语句："
 
-#: libraries/messages.inc.php:743
+#: libraries/messages.inc.php:742
 msgid "Query results operations"
 msgstr "查询结果选项"
 
-#: libraries/messages.inc.php:744
+#: libraries/messages.inc.php:743
 msgid "SQL history"
 msgstr "SQL 历史"
 
-#: libraries/messages.inc.php:745
+#: libraries/messages.inc.php:744
 #, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
 msgstr "<b>查询统计</b>：自启动后，服务器共收到了 %s 次查询。"
 
-#: libraries/messages.inc.php:746
+#: libraries/messages.inc.php:745
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "查询花费 %01.4f 秒"
 
-#: libraries/messages.inc.php:747
+#: libraries/messages.inc.php:746
 msgid "Query type"
 msgstr "查询方式"
 
-#: libraries/messages.inc.php:748
+#: libraries/messages.inc.php:747
 msgid "Do not overwrite this query from outside the window"
 msgstr "不从窗口外覆盖此查询"
 
-#: libraries/messages.inc.php:750
+#: libraries/messages.inc.php:749
 msgid "Read requests"
 msgstr "读请求"
 
-#: libraries/messages.inc.php:751
+#: libraries/messages.inc.php:750
 msgid "Rebuild"
 msgstr "重建"
 
-#: libraries/messages.inc.php:752
+#: libraries/messages.inc.php:751
 msgid "Received"
 msgstr "已接收"
 
-#: libraries/messages.inc.php:753
+#: libraries/messages.inc.php:752
 msgid "recommended"
 msgstr "推荐"
 
-#: libraries/messages.inc.php:754
+#: libraries/messages.inc.php:753
 msgid "Records"
 msgstr "记录数"
 
-#: libraries/messages.inc.php:755
+#: libraries/messages.inc.php:754
 msgid "Check referential integrity:"
 msgstr "检查引用完整性："
 
-#: libraries/messages.inc.php:756 setup/lib/messages.inc.php:354
+#: libraries/messages.inc.php:755 setup/lib/messages.inc.php:354
 msgid "Refresh"
 msgstr "刷新"
 
-#: libraries/messages.inc.php:757
+#: libraries/messages.inc.php:756
 msgid "Relational display field"
 msgstr "关联显示字段"
 
-#: libraries/messages.inc.php:758
+#: libraries/messages.inc.php:757
 msgid "Relational key"
 msgstr "关联键"
 
-#: libraries/messages.inc.php:759
+#: libraries/messages.inc.php:758
 msgid "Relational schema"
 msgstr "关系大纲"
 
-#: libraries/messages.inc.php:760
+#: libraries/messages.inc.php:759
 msgid "Relation deleted"
 msgstr "已删除关系"
 
-#: libraries/messages.inc.php:761
+#: libraries/messages.inc.php:760
 #, php-format
 msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 msgstr "链接表的附加功能尚未激活。要查出原因，请点击%s此处%s。"
 
-#: libraries/messages.inc.php:762
+#: libraries/messages.inc.php:761
 msgid "RELATIONS FOR TABLE"
 msgstr "表的关联"
 
-#: libraries/messages.inc.php:763
+#: libraries/messages.inc.php:762
 msgid "Relations"
 msgstr "关系"
 
-#: libraries/messages.inc.php:764
+#: libraries/messages.inc.php:763
 msgid "Relation view"
 msgstr "关系查看"
 
-#: libraries/messages.inc.php:765
+#: libraries/messages.inc.php:764
 msgid "Reloading the privileges"
 msgstr "重新载入权限"
 
-#: libraries/messages.inc.php:766
+#: libraries/messages.inc.php:765
 msgid "Reload navigation frame"
 msgstr "刷新导航框架"
 
-#: libraries/messages.inc.php:767
+#: libraries/messages.inc.php:766
 msgid "Reload privileges"
 msgstr "重新载入权限"
 
-#: libraries/messages.inc.php:768
+#: libraries/messages.inc.php:767
 msgid "Reload"
 msgstr "重新载入"
 
-#: libraries/messages.inc.php:769
+#: libraries/messages.inc.php:768
 msgid "Remote server"
 msgstr "远程服务器"
 
-#: libraries/messages.inc.php:770
+#: libraries/messages.inc.php:769
 msgid "Remove CRLF characters within fields"
 msgstr "删除字段中的换行符"
 
-#: libraries/messages.inc.php:771
+#: libraries/messages.inc.php:770
 msgid "Remove partitioning"
 msgstr "删除分区"
 
-#: libraries/messages.inc.php:772
+#: libraries/messages.inc.php:771
 msgid "Remove selected users"
 msgstr "删除选中的用户"
 
-#: libraries/messages.inc.php:773
+#: libraries/messages.inc.php:772
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "已将数据库 %s 改名为 %s"
 
-#: libraries/messages.inc.php:774
+#: libraries/messages.inc.php:773
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "已将数据表 %s 改名为 %s"
 
-#: libraries/messages.inc.php:775
+#: libraries/messages.inc.php:774
 msgid "Rename table to"
 msgstr "将表改名为"
 
-#: libraries/messages.inc.php:776
+#: libraries/messages.inc.php:775
 msgid "Rename view to"
 msgstr "将视图改名为"
 
-#: libraries/messages.inc.php:777
+#: libraries/messages.inc.php:776
 msgid "Repair"
 msgstr "修复"
 
-#: libraries/messages.inc.php:778
+#: libraries/messages.inc.php:777
 msgid "Repair table"
 msgstr "修复表"
 
-#: libraries/messages.inc.php:779
+#: libraries/messages.inc.php:778
 msgid "Replace NULL by"
 msgstr "将 NULL 替换为"
 
-#: libraries/messages.inc.php:780
+#: libraries/messages.inc.php:779
 msgid "Replace table data with file"
 msgstr "将表的数据用此文件替换"
 
-#: libraries/messages.inc.php:781
+#: libraries/messages.inc.php:780
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr "现在，将下列行添加到你的 my.cnf 文件最后，然后重新启动 MySQL 服务器。"
 
-#: libraries/messages.inc.php:782
+#: libraries/messages.inc.php:781
 msgid "Add slave replication user"
 msgstr "添加从复制用户"
 
-#: libraries/messages.inc.php:783
+#: libraries/messages.inc.php:782
 #, php-format
 msgid "Master server changed succesfully to %s"
 msgstr "成功修改主服务器为 %s"
 
-#: libraries/messages.inc.php:784
+#: libraries/messages.inc.php:783
 msgid "This server is configured as master in a replication process."
 msgstr "此服务器已被配置为一个复制进程中的主服务器。"
 
-#: libraries/messages.inc.php:785
+#: libraries/messages.inc.php:784
 msgid "Control slave:"
 msgstr "控制从服务器:"
 
-#: libraries/messages.inc.php:786
+#: libraries/messages.inc.php:785
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr "无法读取主服务器日志。主服务器的权限设置可能有问题。"
 
-#: libraries/messages.inc.php:787
+#: libraries/messages.inc.php:786
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "无法连接到主服务器 %s 。"
 
-#: libraries/messages.inc.php:788
+#: libraries/messages.inc.php:787
 msgid "Replicate all databases; Ignore:"
 msgstr "复制所有数据库，除了:"
 
-#: libraries/messages.inc.php:789
+#: libraries/messages.inc.php:788
 msgid "Ignore all databases; Replicate:"
 msgstr "仅复制:"
 
-#: libraries/messages.inc.php:790
+#: libraries/messages.inc.php:789
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -3472,19 +3468,19 @@ msgstr ""
 "此服务器尚未配置为一个复制进程中的主服务器。你可以选择复制所有但忽略某些数据"
 "库 (当你想复制大多数数据库时很有用) 或者仅复制某些数据库。请选择模式:"
 
-#: libraries/messages.inc.php:791
+#: libraries/messages.inc.php:790
 msgid "Master configuration"
 msgstr "主服务器配置"
 
-#: libraries/messages.inc.php:792
+#: libraries/messages.inc.php:791
 msgid "Master replication"
 msgstr "主复制"
 
-#: libraries/messages.inc.php:793
+#: libraries/messages.inc.php:792
 msgid "Replication"
 msgstr "复制"
 
-#: libraries/messages.inc.php:794
+#: libraries/messages.inc.php:793
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
@@ -3493,11 +3489,11 @@ msgstr ""
 "当 MySQL 服务器重新启动后，请点击 执行 按钮。你应该看见一条提示信息说此服务器"
 "<b>已经</b>被配置为主服务器"
 
-#: libraries/messages.inc.php:795
+#: libraries/messages.inc.php:794
 msgid "Please select databases:"
 msgstr "请选择数据库:"
 
-#: libraries/messages.inc.php:796
+#: libraries/messages.inc.php:795
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -3506,51 +3502,51 @@ msgstr ""
 "此服务器尚未配置为一个复制进程中的主服务器。你想现在<a href=\"%s\">配置</a>"
 "吗？"
 
-#: libraries/messages.inc.php:797
+#: libraries/messages.inc.php:796
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr "仅通过 --report-host=主机名 参数启动的从服务器可见。"
 
-#: libraries/messages.inc.php:798
+#: libraries/messages.inc.php:797
 msgid "Show connected slaves"
 msgstr "查看已连接的从服务器"
 
-#: libraries/messages.inc.php:799 libraries/messages.inc.php:906
+#: libraries/messages.inc.php:798 libraries/messages.inc.php:905
 msgid "Show master status"
 msgstr "查看主服务器状态"
 
-#: libraries/messages.inc.php:800
+#: libraries/messages.inc.php:799
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgstr "忽略错误可能导致主从服务器间不同步！"
 
-#: libraries/messages.inc.php:801
+#: libraries/messages.inc.php:800
 msgid "Change or reconfigure master server"
 msgstr "修改或重新配置主服务器"
 
-#: libraries/messages.inc.php:802
+#: libraries/messages.inc.php:801
 msgid "Slave configuration"
 msgstr "从服务器配置"
 
-#: libraries/messages.inc.php:803
+#: libraries/messages.inc.php:802
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr "服务器已被配置为一个复制进程中的从服务器。你是否要:"
 
-#: libraries/messages.inc.php:804
+#: libraries/messages.inc.php:803
 msgid "Error management:"
 msgstr "错误管理:"
 
-#: libraries/messages.inc.php:805
+#: libraries/messages.inc.php:804
 #, php-format
 msgid "IO Thread %s only"
 msgstr "仅%s IO 线程"
 
-#: libraries/messages.inc.php:806
+#: libraries/messages.inc.php:805
 msgid "Slave IO Thread not running!"
 msgstr "从 IO 线程未启动！"
 
-#: libraries/messages.inc.php:807
+#: libraries/messages.inc.php:806
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -3559,40 +3555,40 @@ msgstr ""
 "此服务器尚未配置为一个复制进程中的从服务器。你想现在<a href=\"%s\">配置</a>"
 "吗？"
 
-#: libraries/messages.inc.php:808
+#: libraries/messages.inc.php:807
 msgid "Reset slave"
 msgstr "重置从服务器"
 
-#: libraries/messages.inc.php:809
+#: libraries/messages.inc.php:808
 msgid "See slave status table"
 msgstr "查看从服务器状态"
 
-#: libraries/messages.inc.php:810
+#: libraries/messages.inc.php:809
 msgid "Skip current error"
 msgstr "忽略当前错误"
 
-#: libraries/messages.inc.php:811
+#: libraries/messages.inc.php:810
 msgid "errors."
 msgstr "个错误。"
 
-#: libraries/messages.inc.php:812
+#: libraries/messages.inc.php:811
 msgid "Skip next"
 msgstr "忽略下"
 
-#: libraries/messages.inc.php:813
+#: libraries/messages.inc.php:812
 msgid "Slave replication"
 msgstr "从复制"
 
-#: libraries/messages.inc.php:814
+#: libraries/messages.inc.php:813
 msgid "Slave SQL Thread not running!"
 msgstr "从 SQL 线程未启动！"
 
-#: libraries/messages.inc.php:815
+#: libraries/messages.inc.php:814
 #, php-format
 msgid "SQL Thread %s only"
 msgstr "仅%s SQL 线程"
 
-#: libraries/messages.inc.php:816
+#: libraries/messages.inc.php:815
 #, php-format
 msgid ""
 "This MySQL server works as %s in <b>replication</b> process. For further "
@@ -3602,293 +3598,293 @@ msgstr ""
 "此 MySQL 服务器运行于 %s <b>复制</b> 进程。要获得更多关于此服务器的复制状态，"
 "请浏览 <a href=\"#replication\">复制状态信息</a>."
 
-#: libraries/messages.inc.php:817
+#: libraries/messages.inc.php:816
 msgid "Master status"
 msgstr "主服务器状态"
 
-#: libraries/messages.inc.php:818
+#: libraries/messages.inc.php:817
 msgid "Replication status"
 msgstr "复制状态"
 
-#: libraries/messages.inc.php:819
+#: libraries/messages.inc.php:818
 msgid "Slave status"
 msgstr "从服务器状态"
 
-#: libraries/messages.inc.php:820
+#: libraries/messages.inc.php:819
 msgid "Synchronize databases with master"
 msgstr "根据主服务器同步数据库"
 
-#: libraries/messages.inc.php:821
+#: libraries/messages.inc.php:820
 msgid "Unable to change master"
 msgstr "无法修改主服务器"
 
-#: libraries/messages.inc.php:822
+#: libraries/messages.inc.php:821
 msgid "Unknown error"
 msgstr "未知错误"
 
-#: libraries/messages.inc.php:823
+#: libraries/messages.inc.php:822
 msgid "Reset"
 msgstr "重置"
 
-#: libraries/messages.inc.php:824
+#: libraries/messages.inc.php:823
 msgid "Resource limits"
 msgstr "资源限制"
 
-#: libraries/messages.inc.php:825
+#: libraries/messages.inc.php:824
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr "重新进行插入操作，共 %s 行"
 
-#: libraries/messages.inc.php:826
+#: libraries/messages.inc.php:825
 msgid "Re-type"
 msgstr "重新输入"
 
-#: libraries/messages.inc.php:827
+#: libraries/messages.inc.php:826
 msgid ""
 "The users will still have the USAGE privilege until the privileges are "
 "reloaded."
 msgstr "直到重新载入权限之前，该用户仍有 USAGE 权限。"
 
-#: libraries/messages.inc.php:828
+#: libraries/messages.inc.php:827
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "撤销用户所有权限，然后删除用户。"
 
-#: libraries/messages.inc.php:829
+#: libraries/messages.inc.php:828
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "您已撤销 %s 的权限"
 
-#: libraries/messages.inc.php:830
+#: libraries/messages.inc.php:829
 msgid "Revoke"
 msgstr "撤销"
 
-#: libraries/messages.inc.php:831
+#: libraries/messages.inc.php:830
 msgid "Romanian"
 msgstr "罗马尼亚语"
 
-#: libraries/messages.inc.php:832
+#: libraries/messages.inc.php:831
 msgid "Return type"
 msgstr "返回类型"
 
-#: libraries/messages.inc.php:833
+#: libraries/messages.inc.php:832
 msgid "Routines"
 msgstr "常规"
 
-#: libraries/messages.inc.php:834
+#: libraries/messages.inc.php:833
 msgid "Row length"
 msgstr "行长度"
 
-#: libraries/messages.inc.php:835
+#: libraries/messages.inc.php:834
 msgid "row(s) starting from record #"
 msgstr "行，开始行数："
 
-#: libraries/messages.inc.php:836
+#: libraries/messages.inc.php:835
 msgid " Row size "
 msgstr " 行大小 "
 
-#: libraries/messages.inc.php:837
+#: libraries/messages.inc.php:836
 msgid "horizontal (rotated headers)"
 msgstr "水平 (旋转标题)"
 
-#: libraries/messages.inc.php:838
+#: libraries/messages.inc.php:837
 msgid "horizontal"
 msgstr "水平"
 
-#: libraries/messages.inc.php:839
+#: libraries/messages.inc.php:838
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
 msgstr "以 %s 模式显示，并且在 %s 行后重复标题"
 
-#: libraries/messages.inc.php:840
+#: libraries/messages.inc.php:839
 msgid "vertical"
 msgstr "垂直"
 
-#: libraries/messages.inc.php:841
+#: libraries/messages.inc.php:840
 msgid "Rows"
 msgstr "行数"
 
-#: libraries/messages.inc.php:842
+#: libraries/messages.inc.php:841
 msgid "Row Statistics"
 msgstr "行统计"
 
-#: libraries/messages.inc.php:843
+#: libraries/messages.inc.php:842
 #, php-format
 msgid "running on %s"
 msgstr "运行于 %s"
 
-#: libraries/messages.inc.php:844
+#: libraries/messages.inc.php:843
 msgid "Submit Query"
 msgstr "提交查询"
 
-#: libraries/messages.inc.php:845
+#: libraries/messages.inc.php:844
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "在服务器 %s 运行 SQL 查询"
 
-#: libraries/messages.inc.php:846
+#: libraries/messages.inc.php:845
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "在数据库 %s 运行 SQL 查询"
 
-#: libraries/messages.inc.php:847
+#: libraries/messages.inc.php:846
 msgid "Russian"
 msgstr "俄语"
 
-#: libraries/messages.inc.php:849
+#: libraries/messages.inc.php:848
 #, php-format
 msgid "Save on server in %s directory"
 msgstr "保存于服务器的 %s 文件夹"
 
-#: libraries/messages.inc.php:850
+#: libraries/messages.inc.php:849
 msgid "Save position"
 msgstr "保存位置"
 
-#: libraries/messages.inc.php:851
+#: libraries/messages.inc.php:850
 msgid "Save"
 msgstr "保存"
 
-#: libraries/messages.inc.php:852
+#: libraries/messages.inc.php:851
 msgid "The scale factor is too small to fit the schema on one page"
 msgstr "比例因子太小，无法在一页中显示大纲"
 
-#: libraries/messages.inc.php:853
+#: libraries/messages.inc.php:852
 msgid "Search in database"
 msgstr "在数据库中搜索"
 
-#: libraries/messages.inc.php:854
+#: libraries/messages.inc.php:853
 msgid "Inside field:"
 msgstr "包含字段："
 
-#: libraries/messages.inc.php:855
+#: libraries/messages.inc.php:854
 msgid "Inside table(s):"
 msgstr "于以下表："
 
-#: libraries/messages.inc.php:856
+#: libraries/messages.inc.php:855
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgstr "要查找的文字或数值 (通配符：“%”)："
 
-#: libraries/messages.inc.php:857
+#: libraries/messages.inc.php:856
 msgid "at least one of the words"
 msgstr "至少一个词"
 
-#: libraries/messages.inc.php:858
+#: libraries/messages.inc.php:857
 msgid "all words"
 msgstr "所有词"
 
-#: libraries/messages.inc.php:859
+#: libraries/messages.inc.php:858
 msgid "the exact phrase"
 msgstr "精确短语"
 
-#: libraries/messages.inc.php:860
+#: libraries/messages.inc.php:859
 msgid "as regular expression"
 msgstr "使用正则表达式"
 
-#: libraries/messages.inc.php:861
+#: libraries/messages.inc.php:860
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "“<i>%s</i>”的搜索结果 %s："
 
-#: libraries/messages.inc.php:862
+#: libraries/messages.inc.php:861
 msgid "Search"
 msgstr "搜索"
 
-#: libraries/messages.inc.php:863
+#: libraries/messages.inc.php:862
 msgid "Find:"
 msgstr "查找："
 
-#: libraries/messages.inc.php:864
+#: libraries/messages.inc.php:863
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "配置文件现在需要一个短语密码。"
 
-#: libraries/messages.inc.php:865
+#: libraries/messages.inc.php:864
 msgid "Please select a database"
 msgstr "请选择数据库"
 
-#: libraries/messages.inc.php:866
+#: libraries/messages.inc.php:865
 msgid "Select All"
 msgstr "全选"
 
-#: libraries/messages.inc.php:867
+#: libraries/messages.inc.php:866
 msgid "Select binary log to view"
 msgstr "选择要查看的二进制日志"
 
-#: libraries/messages.inc.php:868
+#: libraries/messages.inc.php:867
 msgid "Select fields (at least one):"
 msgstr "至少选择一个字段："
 
-#: libraries/messages.inc.php:869
+#: libraries/messages.inc.php:868
 msgid "Select Foreign Key"
 msgstr "选择外键"
 
-#: libraries/messages.inc.php:870
+#: libraries/messages.inc.php:869
 msgid "in query"
 msgstr "查询中"
 
-#: libraries/messages.inc.php:871
+#: libraries/messages.inc.php:870
 msgid "Select referenced key"
 msgstr "选择外键"
 
-#: libraries/messages.inc.php:872
+#: libraries/messages.inc.php:871
 msgid "Select Tables"
 msgstr "选择表"
 
-#: libraries/messages.inc.php:873 setup/lib/messages.inc.php:82
+#: libraries/messages.inc.php:872 setup/lib/messages.inc.php:82
 msgid "Save as file"
 msgstr "另存为文件"
 
-#: libraries/messages.inc.php:874
+#: libraries/messages.inc.php:873
 msgid "Sent"
 msgstr "已发送"
 
-#: libraries/messages.inc.php:875
+#: libraries/messages.inc.php:874
 msgid "Server Choice"
 msgstr "选择服务器"
 
-#: libraries/messages.inc.php:876
+#: libraries/messages.inc.php:875
 msgid "The server is not responding"
 msgstr "服务器没有响应"
 
-#: libraries/messages.inc.php:877
+#: libraries/messages.inc.php:876
 msgid "Server"
 msgstr "服务器"
 
-#: libraries/messages.inc.php:878 setup/lib/messages.inc.php:115
+#: libraries/messages.inc.php:877 setup/lib/messages.inc.php:115
 msgid "Servers"
 msgstr "服务器"
 
-#: libraries/messages.inc.php:879
+#: libraries/messages.inc.php:878
 msgid "Delayed inserts"
 msgstr "延迟插入"
 
-#: libraries/messages.inc.php:880
+#: libraries/messages.inc.php:879
 msgid "Runtime Information"
 msgstr "运行信息"
 
-#: libraries/messages.inc.php:881
+#: libraries/messages.inc.php:880
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "此 MySQL 服务器已经运行了 %s，启动时间为 %s。"
 
-#: libraries/messages.inc.php:882
+#: libraries/messages.inc.php:881
 msgid "Variables"
 msgstr "变量"
 
-#: libraries/messages.inc.php:883
+#: libraries/messages.inc.php:882
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
 msgstr ""
 "<b>服务器流量</b>：这些表显示了此 MySQL 服务器自启动以来的网络流量统计。"
 
-#: libraries/messages.inc.php:884
+#: libraries/messages.inc.php:883
 msgid "Server variables and settings"
 msgstr "服务器变量和设置"
 
-#: libraries/messages.inc.php:885
+#: libraries/messages.inc.php:884
 msgid "Server version"
 msgstr "服务器版本"
 
-#: libraries/messages.inc.php:886
+#: libraries/messages.inc.php:885
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -3900,18 +3896,18 @@ msgstr ""
 "phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 "
 "phpMyAdmin 中设置的时间要更短。"
 
-#: libraries/messages.inc.php:887
+#: libraries/messages.inc.php:886
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."
 msgstr ""
 "无法在发生错误时创建会话，请检查 PHP 或网站服务器日志，并正确配置 PHP 安装。"
 
-#: libraries/messages.inc.php:888
+#: libraries/messages.inc.php:887
 msgid "Session value"
 msgstr "会话值"
 
-#: libraries/messages.inc.php:889
+#: libraries/messages.inc.php:888
 msgid ""
 "If field type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -3922,91 +3918,91 @@ msgstr ""
 "要在值中输入反斜线(“\\”)或者单引号(“'”)，请在前面加上反斜线(如 '\\\\xyz' 或 "
 "'a\\'b')。"
 
-#: libraries/messages.inc.php:890
+#: libraries/messages.inc.php:889
 msgid "settings"
 msgstr "设置"
 
-#: libraries/messages.inc.php:891
+#: libraries/messages.inc.php:890
 msgid "Show all"
 msgstr "全部显示"
 
-#: libraries/messages.inc.php:892
+#: libraries/messages.inc.php:891
 msgid "Show binary contents as HEX"
 msgstr "以十六进制显示二进制内容"
 
-#: libraries/messages.inc.php:893
+#: libraries/messages.inc.php:892
 msgid "Show binary contents"
 msgstr "显示二进制内容"
 
-#: libraries/messages.inc.php:894
+#: libraries/messages.inc.php:893
 msgid "Show BLOB contents"
 msgstr "显示 BLOB 内容"
 
-#: libraries/messages.inc.php:895
+#: libraries/messages.inc.php:894
 msgid "Show color"
 msgstr "显示颜色"
 
-#: libraries/messages.inc.php:896
+#: libraries/messages.inc.php:895
 msgid "Data Dictionary Format"
 msgstr "数据字典格式"
 
-#: libraries/messages.inc.php:897
+#: libraries/messages.inc.php:896
 msgid "Show Full Queries"
 msgstr "显示完整查询"
 
-#: libraries/messages.inc.php:898
+#: libraries/messages.inc.php:897
 msgid "Show grid"
 msgstr "显示网格"
 
-#: libraries/messages.inc.php:899
+#: libraries/messages.inc.php:898
 msgid "Show/Hide left menu"
 msgstr "显示/隐藏左侧菜单"
 
-#: libraries/messages.inc.php:900
+#: libraries/messages.inc.php:899
 msgid "Showing bookmark"
 msgstr "显示书签"
 
-#: libraries/messages.inc.php:901
+#: libraries/messages.inc.php:900
 msgid "Showing as PHP code"
 msgstr "显示为 PHP 代码"
 
-#: libraries/messages.inc.php:902
+#: libraries/messages.inc.php:901
 msgid "Showing rows"
 msgstr "显示行"
 
-#: libraries/messages.inc.php:903
+#: libraries/messages.inc.php:902
 msgid "Showing SQL query"
 msgstr "显示 SQL 查询"
 
-#: libraries/messages.inc.php:904
+#: libraries/messages.inc.php:903
 msgid "Show insert query"
 msgstr "显示插入语句"
 
-#: libraries/messages.inc.php:905
+#: libraries/messages.inc.php:904
 msgid "Only show keys"
 msgstr "仅显示键"
 
-#: libraries/messages.inc.php:907
+#: libraries/messages.inc.php:906
 msgid "Show open tables"
 msgstr "显示打开的表"
 
-#: libraries/messages.inc.php:908
+#: libraries/messages.inc.php:907
 msgid "Show PHP information"
 msgstr "显示 PHP 信息"
 
-#: libraries/messages.inc.php:909
+#: libraries/messages.inc.php:908
 msgid "Show"
 msgstr "显示"
 
-#: libraries/messages.inc.php:910
+#: libraries/messages.inc.php:909
 msgid "Show slave hosts"
 msgstr "显示从服务器"
 
-#: libraries/messages.inc.php:911
+#: libraries/messages.inc.php:910
 msgid "Show slave status"
 msgstr "显示从服务器状态"
 
-#: libraries/messages.inc.php:912
+#: libraries/messages.inc.php:911
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -4015,11 +4011,11 @@ msgstr ""
 "因事务使用的临时二进制日志缓存超出 binlog_cache_size 的设置而使用临时文件存储"
 "的数量。"
 
-#: libraries/messages.inc.php:913
+#: libraries/messages.inc.php:912
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "事务所用的临时二进制日志缓存的数量。"
 
-#: libraries/messages.inc.php:914
+#: libraries/messages.inc.php:913
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -4029,17 +4025,17 @@ msgstr ""
 "服务器执行语句时自动在磁盘上创建的临时表的数量。如果 Created_tmp_disk_tables "
 "很大，你可以增加 tmp_table_size 的值，让服务器使用内存来存储临时表而非磁盘。"
 
-#: libraries/messages.inc.php:915
+#: libraries/messages.inc.php:914
 msgid "How many temporary files mysqld has created."
 msgstr "mysqld 已创建的临时文件的数量。"
 
-#: libraries/messages.inc.php:916
+#: libraries/messages.inc.php:915
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr "服务器执行语句时自动在内存中创建的临时表的数量。"
 
-#: libraries/messages.inc.php:917
+#: libraries/messages.inc.php:916
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -4047,29 +4043,29 @@ msgstr ""
 "发生错误的延迟插入 (INSERT DELAYED) 行数 (可能是因为在唯一字段中存在重复"
 "值) 。"
 
-#: libraries/messages.inc.php:918
+#: libraries/messages.inc.php:917
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr "正在使用的延迟插入处理线程的数量。每张使用延迟插入的表都有自己的线程。"
 
-#: libraries/messages.inc.php:919
+#: libraries/messages.inc.php:918
 msgid "The number of INSERT DELAYED rows written."
 msgstr "延迟插入已写入的行数。"
 
-#: libraries/messages.inc.php:920
+#: libraries/messages.inc.php:919
 msgid "The number of executed FLUSH statements."
 msgstr "已执行的强制更新 (FLUSH) 语句数。"
 
-#: libraries/messages.inc.php:921
+#: libraries/messages.inc.php:920
 msgid "The number of internal COMMIT statements."
 msgstr "已执行的内部提交 (COMMIT) 语句数。"
 
-#: libraries/messages.inc.php:922
+#: libraries/messages.inc.php:921
 msgid "The number of times a row was deleted from a table."
 msgstr "从表中删除行的次数。"
 
-#: libraries/messages.inc.php:923
+#: libraries/messages.inc.php:922
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -4078,7 +4074,7 @@ msgstr ""
 "如果知道一张表的名字，MySQL 服务器可以询问 NDB 集群存储引擎，这被称为“发现”。"
 "Handler_discovery 表明了一张表被发现的次数。"
 
-#: libraries/messages.inc.php:924
+#: libraries/messages.inc.php:923
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -4087,14 +4083,14 @@ msgstr ""
 "读取一个索引入口点的次数。如果该值很大，说明你的服务器执行了很多完整索引扫"
 "描。例如，假设字段 col1 已经建立了索引，然后执行 SELECT col1 FROM foo 。"
 
-#: libraries/messages.inc.php:925
+#: libraries/messages.inc.php:924
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
 "根据索引读取行的请求数。如果该值很大，说明你的查询和表都建立了很好的索引。"
 
-#: libraries/messages.inc.php:926
+#: libraries/messages.inc.php:925
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -4103,7 +4099,7 @@ msgstr ""
 "根据索引顺序读取下一行的请求数。如果你在查询一个已索引的字段且限制了范围，或"
 "进行完整表扫描，该值将会不断增长。"
 
-#: libraries/messages.inc.php:927
+#: libraries/messages.inc.php:926
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -4111,7 +4107,7 @@ msgstr ""
 "根据索引顺序读取上一行的请求数。这种读取方式通常用于优化带有 ORDER BY ... "
 "DESC 的查询。"
 
-#: libraries/messages.inc.php:928
+#: libraries/messages.inc.php:927
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -4121,7 +4117,7 @@ msgstr ""
 "根据固定位置读取行的请求数。如果你执行很多需要排序的查询，该值会很高。你可能"
 "有很多需要完整表扫描的查询，或者你使用了不正确的索引用来多表查询。"
 
-#: libraries/messages.inc.php:929
+#: libraries/messages.inc.php:928
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -4131,35 +4127,35 @@ msgstr ""
 "从数据文件中读取行的请求数。如果你在扫描很多表，该值会很大。通常情况下这意味"
 "着你的表没有做好索引，或者你的查询语句没有使用好索引字段。"
 
-#: libraries/messages.inc.php:930
+#: libraries/messages.inc.php:929
 msgid "The number of internal ROLLBACK statements."
 msgstr "内部回滚 (ROLLBACK) 语句数。"
 
-#: libraries/messages.inc.php:931
+#: libraries/messages.inc.php:930
 msgid "The number of requests to update a row in a table."
 msgstr "表中更新行的请求数。"
 
-#: libraries/messages.inc.php:932
+#: libraries/messages.inc.php:931
 msgid "The number of requests to insert a row in a table."
 msgstr "表中插入行的请求数。"
 
-#: libraries/messages.inc.php:933
+#: libraries/messages.inc.php:932
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "非空页数 (含脏页) 。"
 
-#: libraries/messages.inc.php:934
+#: libraries/messages.inc.php:933
 msgid "The number of pages currently dirty."
 msgstr "当前脏页数。"
 
-#: libraries/messages.inc.php:935
+#: libraries/messages.inc.php:934
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "请求更新的缓冲池页数。"
 
-#: libraries/messages.inc.php:936
+#: libraries/messages.inc.php:935
 msgid "The number of free pages."
 msgstr "空闲页数。"
 
-#: libraries/messages.inc.php:937
+#: libraries/messages.inc.php:936
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -4168,7 +4164,7 @@ msgstr ""
 "InnoDB 缓冲池中锁定页的数量。这些页是正在被读取或写入的，或者是因其他原因不能"
 "被刷新或删除的。"
 
-#: libraries/messages.inc.php:938
+#: libraries/messages.inc.php:937
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -4179,11 +4175,11 @@ msgstr ""
 "公式计算： Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data 。"
 
-#: libraries/messages.inc.php:939
+#: libraries/messages.inc.php:938
 msgid "Total size of buffer pool, in pages."
 msgstr "缓冲池总大小 (单位：页)。"
 
-#: libraries/messages.inc.php:940
+#: libraries/messages.inc.php:939
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -4191,24 +4187,24 @@ msgstr ""
 "InnoDB 初始化的“随机”预读数。这通常会在对一张表进行大范围的随机排序查询时发"
 "生。"
 
-#: libraries/messages.inc.php:941
+#: libraries/messages.inc.php:940
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
 "InnoDB 初始化的顺序预读数。这会在 InnoDB 执行一个顺序完整表扫描时发生。"
 
-#: libraries/messages.inc.php:942
+#: libraries/messages.inc.php:941
 msgid "The number of logical read requests InnoDB has done."
 msgstr "InnoDB 完成的逻辑读请求数。"
 
-#: libraries/messages.inc.php:943
+#: libraries/messages.inc.php:942
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr "InnoDB 进行逻辑读取时无法从缓冲池中获取而执行单页读取的次数。"
 
-#: libraries/messages.inc.php:944
+#: libraries/messages.inc.php:943
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -4220,85 +4216,85 @@ msgstr ""
 "必要先等待页被刷新。该计数器统计了这种等待的数量。如果缓冲池大小设置正确，这"
 "个值应该会很小。"
 
-#: libraries/messages.inc.php:945
+#: libraries/messages.inc.php:944
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "写入 InnoDB 缓冲池的次数。"
 
-#: libraries/messages.inc.php:946
+#: libraries/messages.inc.php:945
 msgid "The number of fsync() operations so far."
 msgstr "fsync() 总操作的次数。"
 
-#: libraries/messages.inc.php:947
+#: libraries/messages.inc.php:946
 msgid "The current number of pending fsync() operations."
 msgstr "当前挂起 fsync() 操作的数量。"
 
-#: libraries/messages.inc.php:948
+#: libraries/messages.inc.php:947
 msgid "The current number of pending reads."
 msgstr "当前挂起的读操作数。"
 
-#: libraries/messages.inc.php:949
+#: libraries/messages.inc.php:948
 msgid "The current number of pending writes."
 msgstr "当前挂起的写操作数。"
 
-#: libraries/messages.inc.php:950
+#: libraries/messages.inc.php:949
 msgid "The amount of data read so far, in bytes."
 msgstr "读取的总数据量 (单位：字节)。"
 
-#: libraries/messages.inc.php:951
+#: libraries/messages.inc.php:950
 msgid "The total number of data reads."
 msgstr "数据读取总数。"
 
-#: libraries/messages.inc.php:952
+#: libraries/messages.inc.php:951
 msgid "The total number of data writes."
 msgstr "数据写入总数。"
 
-#: libraries/messages.inc.php:953
+#: libraries/messages.inc.php:952
 msgid "The amount of data written so far, in bytes."
 msgstr "写入的总数据量 (单位：字节)。"
 
-#: libraries/messages.inc.php:954
+#: libraries/messages.inc.php:953
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "以双写入操作写入的页数。"
 
-#: libraries/messages.inc.php:955
+#: libraries/messages.inc.php:954
 msgid "The number of doublewrite operations that have been performed."
 msgstr "已经执行的双写入次数。"
 
-#: libraries/messages.inc.php:956
+#: libraries/messages.inc.php:955
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr "因日志缓存太小而必须等待其被写入所造成的等待数。"
 
-#: libraries/messages.inc.php:957
+#: libraries/messages.inc.php:956
 msgid "The number of log write requests."
 msgstr "日志写入请求数。"
 
-#: libraries/messages.inc.php:958
+#: libraries/messages.inc.php:957
 msgid "The number of physical writes to the log file."
 msgstr "日志物理写入次数。"
 
-#: libraries/messages.inc.php:959
+#: libraries/messages.inc.php:958
 msgid "The number of fsync() writes done to the log file."
 msgstr "使用 fsync() 写入日志文件的次数。"
 
-#: libraries/messages.inc.php:960
+#: libraries/messages.inc.php:959
 msgid "The number of pending log file fsyncs."
 msgstr "当前挂起的使用 fsync() 写入日志文件数。"
 
-#: libraries/messages.inc.php:961
+#: libraries/messages.inc.php:960
 msgid "Pending log file writes."
 msgstr "当前挂起的日志写入数。"
 
-#: libraries/messages.inc.php:962
+#: libraries/messages.inc.php:961
 msgid "The number of bytes written to the log file."
 msgstr "写入日志文件的字节数。"
 
-#: libraries/messages.inc.php:963
+#: libraries/messages.inc.php:962
 msgid "The number of pages created."
 msgstr "创建的页数。"
 
-#: libraries/messages.inc.php:964
+#: libraries/messages.inc.php:963
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -4306,75 +4302,75 @@ msgstr ""
 "编译的 InnoDB 页大小 (默认 16KB)。许多值都以页为单位进行统计，页大小可以很方"
 "便地将这些值转化为字节数。"
 
-#: libraries/messages.inc.php:965
+#: libraries/messages.inc.php:964
 msgid "The number of pages read."
 msgstr "读取的页数。"
 
-#: libraries/messages.inc.php:966
+#: libraries/messages.inc.php:965
 msgid "The number of pages written."
 msgstr "写入的页数。"
 
-#: libraries/messages.inc.php:967
+#: libraries/messages.inc.php:966
 msgid "The number of row locks currently being waited for."
 msgstr "正在等待行锁的数量。"
 
-#: libraries/messages.inc.php:968
+#: libraries/messages.inc.php:967
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "等待获得行锁的平均时间 (单位：毫秒)。"
 
-#: libraries/messages.inc.php:969
+#: libraries/messages.inc.php:968
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "等待获得行锁的总时间 (单位：毫秒)。"
 
-#: libraries/messages.inc.php:970
+#: libraries/messages.inc.php:969
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "等待获得行锁的最大时间 (单位：毫秒)。"
 
-#: libraries/messages.inc.php:971
+#: libraries/messages.inc.php:970
 msgid "The number of times a row lock had to be waited for."
 msgstr "等待行锁的次数。"
 
-#: libraries/messages.inc.php:972
+#: libraries/messages.inc.php:971
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "从 InnoDB 表中删除的行数。"
 
-#: libraries/messages.inc.php:973
+#: libraries/messages.inc.php:972
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "插入到 InnoDB 表中的行数。"
 
-#: libraries/messages.inc.php:974
+#: libraries/messages.inc.php:973
 msgid "The number of rows read from InnoDB tables."
 msgstr "从 InnoDB 表中读取的行数。"
 
-#: libraries/messages.inc.php:975
+#: libraries/messages.inc.php:974
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB 中更新的行数。"
 
-#: libraries/messages.inc.php:976
+#: libraries/messages.inc.php:975
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
 "键缓存中还没有被写入到磁盘的键块数。该值过去名为 Not_flushed_key_blocks 。"
 
-#: libraries/messages.inc.php:977
+#: libraries/messages.inc.php:976
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr "键缓存中未使用的块数。你可以根据这个值判断当前使用了多少键缓存。"
 
-#: libraries/messages.inc.php:978
+#: libraries/messages.inc.php:977
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr "键缓存中已经使用的块数。该值指示在某个时刻使用了最多块数的数量。"
 
-#: libraries/messages.inc.php:979
+#: libraries/messages.inc.php:978
 msgid "The number of requests to read a key block from the cache."
 msgstr "从缓存中读取键块的请求次数。"
 
-#: libraries/messages.inc.php:980
+#: libraries/messages.inc.php:979
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -4383,15 +4379,15 @@ msgstr ""
 "从磁盘中物理读取键块的次数。如果 Key_reads 很大，则说明您的 key_buffer_size "
 "可能设置得太小了。缓存缺失率可以由 Key_reads/Key_read_requests 计算得出。"
 
-#: libraries/messages.inc.php:981
+#: libraries/messages.inc.php:980
 msgid "The number of requests to write a key block to the cache."
 msgstr "将一个键块写入缓存的请求数。"
 
-#: libraries/messages.inc.php:982
+#: libraries/messages.inc.php:981
 msgid "The number of physical writes of a key block to disk."
 msgstr "将键块物理写入到磁盘的次数。"
 
-#: libraries/messages.inc.php:983
+#: libraries/messages.inc.php:982
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -4400,45 +4396,45 @@ msgstr ""
 "最后编译的查询的总开销由查询优化器计算得出，可用于比较使用不同的查询语句进行"
 "相同的查询时的效率差异。默认值0表示还没有查询被编译。"
 
-#: libraries/messages.inc.php:984
+#: libraries/messages.inc.php:983
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "等待写入延迟插入队列的行数。"
 
-#: libraries/messages.inc.php:985
+#: libraries/messages.inc.php:984
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr "已经打开的表个数。如果该值很大，则说明表缓冲大小可能设置过小。"
 
-#: libraries/messages.inc.php:986
+#: libraries/messages.inc.php:985
 msgid "The number of files that are open."
 msgstr "打开的文件个数。"
 
-#: libraries/messages.inc.php:987
+#: libraries/messages.inc.php:986
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "打开的流个数 (主要用于日志记录)。"
 
-#: libraries/messages.inc.php:988
+#: libraries/messages.inc.php:987
 msgid "The number of tables that are open."
 msgstr "打开的数据表个数。"
 
-#: libraries/messages.inc.php:989
+#: libraries/messages.inc.php:988
 msgid "The number of free memory blocks in query cache."
 msgstr "查询缓存中空闲的内存块数。"
 
-#: libraries/messages.inc.php:990
+#: libraries/messages.inc.php:989
 msgid "The amount of free memory for query cache."
 msgstr "查询缓存中空闲的内存总数。"
 
-#: libraries/messages.inc.php:991
+#: libraries/messages.inc.php:990
 msgid "The number of cache hits."
 msgstr "缓存命中数。"
 
-#: libraries/messages.inc.php:992
+#: libraries/messages.inc.php:991
 msgid "The number of queries added to the cache."
 msgstr "加入到缓存的查询数。"
 
-#: libraries/messages.inc.php:993
+#: libraries/messages.inc.php:992
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -4448,7 +4444,7 @@ msgstr ""
 "为缓存新的查询而被删除的已缓存查询的个数，由最近最少使用算法 (LRU) 确定应删除"
 "哪个已缓存的查询。该信息可帮助您调整查询缓存大小。"
 
-#: libraries/messages.inc.php:994
+#: libraries/messages.inc.php:993
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -4456,24 +4452,24 @@ msgstr ""
 "未缓存的查询数 (包括不能被缓存，或因为 query_cache_type 的设置而没有被缓存的"
 "查询)。"
 
-#: libraries/messages.inc.php:995
+#: libraries/messages.inc.php:994
 msgid "The number of queries registered in the cache."
 msgstr "在缓存中注册的查询数。"
 
-#: libraries/messages.inc.php:996
+#: libraries/messages.inc.php:995
 msgid "The total number of blocks in the query cache."
 msgstr "查询缓存中的总块数。"
 
-#: libraries/messages.inc.php:997
+#: libraries/messages.inc.php:996
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "重设"
 
-#: libraries/messages.inc.php:998
+#: libraries/messages.inc.php:997
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "失败保护器的状态 (尚未应用)。"
 
-#: libraries/messages.inc.php:999
+#: libraries/messages.inc.php:998
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -4481,11 +4477,11 @@ msgstr ""
 "没有使用索引的多表查询数。如果该值不为0，您应该仔细检查是否已经为表建立了适当"
 "的索引。"
 
-#: libraries/messages.inc.php:1000
+#: libraries/messages.inc.php:999
 msgid "The number of joins that used a range search on a reference table."
 msgstr "使用在关联表上使用范围搜索的多表查询的数量。"
 
-#: libraries/messages.inc.php:1001
+#: libraries/messages.inc.php:1000
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -4493,7 +4489,7 @@ msgstr ""
 "没有使用索引但在每行之后检查索引使用的多表查询数。(如果该值不为 0，您应该仔细"
 "检查是否已经为表建立了适当的索引。)"
 
-#: libraries/messages.inc.php:1002
+#: libraries/messages.inc.php:1001
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -4501,36 +4497,36 @@ msgstr ""
 "在第一张表上使用范围查询的多表查询数。(即使该值很大，通常也不会有致命的影"
 "响。)"
 
-#: libraries/messages.inc.php:1003
+#: libraries/messages.inc.php:1002
 msgid "The number of joins that did a full scan of the first table."
 msgstr "在第一张表上进行了完整表扫描的多表查询数。"
 
-#: libraries/messages.inc.php:1004
+#: libraries/messages.inc.php:1003
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "当前由从 SQL 线程打开的临时表的数量。"
 
-#: libraries/messages.inc.php:1005
+#: libraries/messages.inc.php:1004
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr "从 SQL 线程总共重试事务复制数。"
 
-#: libraries/messages.inc.php:1006
+#: libraries/messages.inc.php:1005
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr "如果该值为 ON，则这台服务器是一台已经连接到主服务器的从服务器。"
 
-#: libraries/messages.inc.php:1007
+#: libraries/messages.inc.php:1006
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr "使用了比 slow_launch_time 更多的时间来启动的线程数量。"
 
-#: libraries/messages.inc.php:1008
+#: libraries/messages.inc.php:1007
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "使用了比 long_query_time 更多时间的查询数。"
 
-#: libraries/messages.inc.php:1009
+#: libraries/messages.inc.php:1008
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -4539,23 +4535,23 @@ msgstr ""
 "排序算法使用归并的次数。如果该值很大，您应该考虑增加系统变量 "
 "sort_buffer_size 的值。"
 
-#: libraries/messages.inc.php:1010
+#: libraries/messages.inc.php:1009
 msgid "The number of sorts that were done with ranges."
 msgstr "局部范围完成的排序次数。"
 
-#: libraries/messages.inc.php:1011
+#: libraries/messages.inc.php:1010
 msgid "The number of sorted rows."
 msgstr "排序的行数。"
 
-#: libraries/messages.inc.php:1012
+#: libraries/messages.inc.php:1011
 msgid "The number of sorts that were done by scanning the table."
 msgstr "扫描表完成的排序次数。"
 
-#: libraries/messages.inc.php:1013
+#: libraries/messages.inc.php:1012
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "立即需要锁定表的次数。"
 
-#: libraries/messages.inc.php:1014
+#: libraries/messages.inc.php:1013
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -4565,7 +4561,7 @@ msgstr ""
 "无法立即获得锁定表而必须等待的次数。如果该值很高，且您遇到了性能方面的问题，"
 "则应该首先检查您的查询语句，然后使用复制操作来分开表。"
 
-#: libraries/messages.inc.php:1015
+#: libraries/messages.inc.php:1014
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -4574,11 +4570,11 @@ msgstr ""
 "线程缓存中线程的数量。缓存命中率可以由 Threads_created/Connections 计算得出。"
 "如果该值是红色的，则应该增加 thread_cache_size 的值。"
 
-#: libraries/messages.inc.php:1016
+#: libraries/messages.inc.php:1015
 msgid "The number of currently open connections."
 msgstr "当前打开的连接数。"
 
-#: libraries/messages.inc.php:1017
+#: libraries/messages.inc.php:1016
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -4589,39 +4585,39 @@ msgstr ""
 "thread_cache_size 的值 (如果线程状况良好，这么做通常并不会带来显著的性能提"
 "升)。"
 
-#: libraries/messages.inc.php:1018
+#: libraries/messages.inc.php:1017
 msgid "The number of threads that are not sleeping."
 msgstr "非睡眠状态的线程数量。"
 
-#: libraries/messages.inc.php:1019
+#: libraries/messages.inc.php:1018
 msgid "Show dimension of tables"
 msgstr "显示表格大小"
 
-#: libraries/messages.inc.php:1020
+#: libraries/messages.inc.php:1019
 msgid "Show tables"
 msgstr "显示表"
 
-#: libraries/messages.inc.php:1021
+#: libraries/messages.inc.php:1020
 msgid " Show this query here again "
 msgstr " 在此再次显示此查询 "
 
-#: libraries/messages.inc.php:1022
+#: libraries/messages.inc.php:1021
 msgid "Simplified Chinese"
 msgstr "简体中文"
 
-#: libraries/messages.inc.php:1023
+#: libraries/messages.inc.php:1022
 msgid "(singly)"
 msgstr "(逐一)"
 
-#: libraries/messages.inc.php:1024
+#: libraries/messages.inc.php:1023
 msgid "Size"
 msgstr "大小"
 
-#: libraries/messages.inc.php:1025 setup/lib/messages.inc.php:161
+#: libraries/messages.inc.php:1024 setup/lib/messages.inc.php:161
 msgid "Number of records (queries) to skip from start"
 msgstr "跳过查询的数量"
 
-#: libraries/messages.inc.php:1026
+#: libraries/messages.inc.php:1025
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -4629,67 +4625,67 @@ msgstr ""
 "请确保在你的配置文件 (my.cnf) 中具有唯一的服务器标识 (server-id) 。若没有，请"
 "添加此行到 [mysqld] 一节中:"
 
-#: libraries/messages.inc.php:1027
+#: libraries/messages.inc.php:1026
 msgid "Slovak"
 msgstr "斯洛伐克语"
 
-#: libraries/messages.inc.php:1028
+#: libraries/messages.inc.php:1027
 msgid "Slovenian"
 msgstr "斯洛文尼亚语"
 
-#: libraries/messages.inc.php:1029
+#: libraries/messages.inc.php:1028
 msgid "Small/Big All"
 msgstr "全部收缩/展开"
 
-#: libraries/messages.inc.php:1030
+#: libraries/messages.inc.php:1029
 msgid "Snap to grid"
 msgstr "对齐网格"
 
-#: libraries/messages.inc.php:1031
+#: libraries/messages.inc.php:1030
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(或者本地 MySQL 服务器的套接字没有正确配置)"
 
-#: libraries/messages.inc.php:1032
+#: libraries/messages.inc.php:1031
 msgid "Socket"
 msgstr "套接字"
 
-#: libraries/messages.inc.php:1033
+#: libraries/messages.inc.php:1032
 msgid "Sort by key"
 msgstr "主键排序"
 
-#: libraries/messages.inc.php:1034
+#: libraries/messages.inc.php:1033
 msgid "Sorting"
 msgstr "排序"
 
-#: libraries/messages.inc.php:1035
+#: libraries/messages.inc.php:1034
 msgid "Sort"
 msgstr "排序"
 
-#: libraries/messages.inc.php:1036
+#: libraries/messages.inc.php:1035
 msgid "Space usage"
 msgstr "已用空间"
 
-#: libraries/messages.inc.php:1037
+#: libraries/messages.inc.php:1036
 msgid "Spanish"
 msgstr "西班牙语"
 
-#: libraries/messages.inc.php:1038
+#: libraries/messages.inc.php:1037
 msgid "Words are separated by a space character (\" \")."
 msgstr "每个单词用空格 (“ ”) 分隔。"
 
-#: libraries/messages.inc.php:1039
+#: libraries/messages.inc.php:1038
 msgid "SQL compatibility mode"
 msgstr "SQL 兼容模式"
 
-#: libraries/messages.inc.php:1040
+#: libraries/messages.inc.php:1039
 msgid "Export type"
 msgstr "导出类型"
 
-#: libraries/messages.inc.php:1041
+#: libraries/messages.inc.php:1040
 msgid "Export time in UTC"
 msgstr "以协调世界时 (UTC) 导出时间"
 
-#: libraries/messages.inc.php:1042
+#: libraries/messages.inc.php:1041
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -4708,7 +4704,7 @@ msgstr ""
 "面执行成功而解析器出错，请将您的 SQL 查询缩减到导致问题的某一条语句，然后和下"
 "面剪切区中的数据一起提交一个缺陷 (bug) 报告："
 
-#: libraries/messages.inc.php:1043
+#: libraries/messages.inc.php:1042
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
@@ -4716,55 +4712,55 @@ msgstr ""
 "您的 SQL 查询可能有错。如果可能的话，以下会列出 MySQL 服务器的错误输出，这可"
 "能对您解决问题有一定的帮助。"
 
-#: libraries/messages.inc.php:1044
+#: libraries/messages.inc.php:1043
 msgid "SQL query"
 msgstr "SQL 查询"
 
-#: libraries/messages.inc.php:1045
+#: libraries/messages.inc.php:1044
 msgid "SQL result"
 msgstr "SQL 查询结果"
 
-#: libraries/messages.inc.php:1046
+#: libraries/messages.inc.php:1045
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/messages.inc.php:1047
+#: libraries/messages.inc.php:1046
 msgid "Invalid Identifer"
 msgstr "无效的标识符"
 
-#: libraries/messages.inc.php:1048
+#: libraries/messages.inc.php:1047
 msgid "Unclosed quote"
 msgstr "引号不配对"
 
-#: libraries/messages.inc.php:1049
+#: libraries/messages.inc.php:1048
 msgid "Unknown Punctuation String"
 msgstr "未知的标点符号字符串"
 
-#: libraries/messages.inc.php:1050
+#: libraries/messages.inc.php:1049
 msgid "Stand-in structure for view"
 msgstr "替换视图以便查看"
 
-#: libraries/messages.inc.php:1051
+#: libraries/messages.inc.php:1050
 msgid "Start"
 msgstr "开始"
 
-#: libraries/messages.inc.php:1052
+#: libraries/messages.inc.php:1051
 msgid "Last check"
 msgstr "最后检查"
 
-#: libraries/messages.inc.php:1053
+#: libraries/messages.inc.php:1052
 msgid "Creation"
 msgstr "创建时间"
 
-#: libraries/messages.inc.php:1054
+#: libraries/messages.inc.php:1053
 msgid "Statements"
 msgstr "说明"
 
-#: libraries/messages.inc.php:1055
+#: libraries/messages.inc.php:1054
 msgid "static"
 msgstr "静态"
 
-#: libraries/messages.inc.php:1056
+#: libraries/messages.inc.php:1055
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -4772,316 +4768,316 @@ msgstr ""
 "在高负载的服务器上，字节计数器可能会溢出，因此由 MySQL 返回的统计值可能会不正"
 "确"
 
-#: libraries/messages.inc.php:1057
+#: libraries/messages.inc.php:1056
 msgid "Last update"
 msgstr "最后更新"
 
-#: libraries/messages.inc.php:1058
+#: libraries/messages.inc.php:1057
 msgid "Status"
 msgstr "状态"
 
-#: libraries/messages.inc.php:1059
+#: libraries/messages.inc.php:1058
 msgid "Stop"
 msgstr "停止"
 
-#: libraries/messages.inc.php:1060
+#: libraries/messages.inc.php:1059
 msgid "Storage Engines"
 msgstr "存储引擎"
 
-#: libraries/messages.inc.php:1061
+#: libraries/messages.inc.php:1060
 msgid "Storage Engine"
 msgstr "存储引擎"
 
-#: libraries/messages.inc.php:1062
+#: libraries/messages.inc.php:1061
 msgctxt "$strStrucCSV"
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/messages.inc.php:1063
+#: libraries/messages.inc.php:1062
 msgid "Structure and data"
 msgstr "结构和数据"
 
-#: libraries/messages.inc.php:1064
+#: libraries/messages.inc.php:1063
 msgid "CSV for MS Excel"
 msgstr "MS Excel 的 CSV 格式"
 
-#: libraries/messages.inc.php:1065
+#: libraries/messages.inc.php:1064
 msgid "Native MS Excel format"
 msgstr "原生 MS Excel 格式"
 
-#: libraries/messages.inc.php:1066
+#: libraries/messages.inc.php:1065
 msgid "Structure only"
 msgstr "仅结构"
 
-#: libraries/messages.inc.php:1067
+#: libraries/messages.inc.php:1066
 msgid "Propose table structure"
 msgstr "规划表结构"
 
-#: libraries/messages.inc.php:1068
+#: libraries/messages.inc.php:1067
 msgid "Structure Difference"
 msgstr "结构差异"
 
-#: libraries/messages.inc.php:1069
+#: libraries/messages.inc.php:1068
 msgid "Structure for view"
 msgstr "视图结构"
 
-#: libraries/messages.inc.php:1070
+#: libraries/messages.inc.php:1069
 msgid "structure"
 msgstr "结构"
 
-#: libraries/messages.inc.php:1071
+#: libraries/messages.inc.php:1070
 msgid "Structure"
 msgstr "结构"
 
-#: libraries/messages.inc.php:1072
+#: libraries/messages.inc.php:1071
 msgid "Structure Synchronization"
 msgstr "结构同步"
 
-#: libraries/messages.inc.php:1073
+#: libraries/messages.inc.php:1072
 msgid "Submit"
 msgstr "提交"
 
-#: libraries/messages.inc.php:1074
+#: libraries/messages.inc.php:1073
 msgid "Your SQL query has been executed successfully"
 msgstr "您的 SQL 语句已成功运行"
 
-#: libraries/messages.inc.php:1075
+#: libraries/messages.inc.php:1074
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "服务器上运行了 Suhosin。请先查看%s文档%s中是否有类似的情况。"
 
-#: libraries/messages.inc.php:1076
+#: libraries/messages.inc.php:1075
 msgid "Sum"
 msgstr "总计"
 
-#: libraries/messages.inc.php:1077
+#: libraries/messages.inc.php:1076
 msgid "Swedish"
 msgstr "瑞典语"
 
-#: libraries/messages.inc.php:1078
+#: libraries/messages.inc.php:1077
 msgid "Authenticating..."
 msgstr "正在认证..."
 
-#: libraries/messages.inc.php:1079
+#: libraries/messages.inc.php:1078
 msgid "Hardware authentication failed"
 msgstr "硬件认证失败"
 
-#: libraries/messages.inc.php:1080
+#: libraries/messages.inc.php:1079
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "文件 %s 未包含任何密钥"
 
-#: libraries/messages.inc.php:1081
+#: libraries/messages.inc.php:1080
 msgid "No valid authentication key plugged"
 msgstr "没有可用的密钥插入"
 
-#: libraries/messages.inc.php:1082
+#: libraries/messages.inc.php:1081
 msgid "Switch to copied database"
 msgstr "切换到复制的数据库"
 
-#: libraries/messages.inc.php:1083
+#: libraries/messages.inc.php:1082
 msgid "Switch to copied table"
 msgstr "切换到复制的数据表"
 
-#: libraries/messages.inc.php:1084
+#: libraries/messages.inc.php:1083
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr "目标数据库将完全根据源数据库同步。源数据库将保持不变。"
 
-#: libraries/messages.inc.php:1085
+#: libraries/messages.inc.php:1084
 msgid "Synchronize Databases"
 msgstr "同步数据库"
 
-#: libraries/messages.inc.php:1086
+#: libraries/messages.inc.php:1085
 msgid "Synchronize"
 msgstr "同步"
 
-#: libraries/messages.inc.php:1088
+#: libraries/messages.inc.php:1087
 msgid "Add column(s)"
 msgstr "增加字段"
 
-#: libraries/messages.inc.php:1089
+#: libraries/messages.inc.php:1088
 #, php-format
 msgid "Table %s already exists!"
 msgstr "数据表 %s 已存在！"
 
-#: libraries/messages.inc.php:1090
+#: libraries/messages.inc.php:1089
 msgid "Alter column(s)"
 msgstr "修改字段"
 
-#: libraries/messages.inc.php:1091
+#: libraries/messages.inc.php:1090
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "已成功修改表 %1$s "
 
-#: libraries/messages.inc.php:1092
+#: libraries/messages.inc.php:1091
 msgid "Alter index(s)"
 msgstr "修改索引"
 
-#: libraries/messages.inc.php:1093
+#: libraries/messages.inc.php:1092
 msgid "Apply index(s)"
 msgstr "增加索引"
 
-#: libraries/messages.inc.php:1094
+#: libraries/messages.inc.php:1093
 msgid "Table comments"
 msgstr "表注释"
 
-#: libraries/messages.inc.php:1095
+#: libraries/messages.inc.php:1094
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr "你希望删除当前目标表中的所有数据吗？"
 
-#: libraries/messages.inc.php:1096
+#: libraries/messages.inc.php:1095
 msgid "The table name is empty!"
 msgstr "表名不能为空！"
 
-#: libraries/messages.inc.php:1097
+#: libraries/messages.inc.php:1096
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "创建数据表 %1$s 成功。"
 
-#: libraries/messages.inc.php:1098
+#: libraries/messages.inc.php:1097
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "已删除表 %s "
 
-#: libraries/messages.inc.php:1099
+#: libraries/messages.inc.php:1098
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "已清空表 %s "
 
-#: libraries/messages.inc.php:1100
+#: libraries/messages.inc.php:1099
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "已强制更新表 %s "
 
-#: libraries/messages.inc.php:1101
+#: libraries/messages.inc.php:1100
 msgid "Insert row(s)"
 msgstr "增加行"
 
-#: libraries/messages.inc.php:1102
+#: libraries/messages.inc.php:1101
 msgid "Table seems to be empty!"
 msgstr "数据表是空的！"
 
-#: libraries/messages.inc.php:1103
+#: libraries/messages.inc.php:1102
 msgid "Table maintenance"
 msgstr "表维护"
 
-#: libraries/messages.inc.php:1104
+#: libraries/messages.inc.php:1103
 msgid "Table name"
 msgstr "数据表名"
 
-#: libraries/messages.inc.php:1105
+#: libraries/messages.inc.php:1104
 msgid "Table of contents"
 msgstr "目录"
 
-#: libraries/messages.inc.php:1106
+#: libraries/messages.inc.php:1105
 msgid "Table options"
 msgstr "表选项"
 
-#: libraries/messages.inc.php:1107
+#: libraries/messages.inc.php:1106
 msgid "Remove column(s)"
 msgstr "删除字段"
 
-#: libraries/messages.inc.php:1108
+#: libraries/messages.inc.php:1107
 msgid "Remove index(s)"
 msgstr "删除索引"
 
-#: libraries/messages.inc.php:1109
+#: libraries/messages.inc.php:1108
 #, php-format
 msgid "%s table(s)"
 msgstr "%s 张表"
 
-#: libraries/messages.inc.php:1110
+#: libraries/messages.inc.php:1109
 msgid "Table structure for table"
 msgstr "表的结构"
 
-#: libraries/messages.inc.php:1111
+#: libraries/messages.inc.php:1110
 msgid "Table"
 msgstr "表"
 
-#: libraries/messages.inc.php:1112
+#: libraries/messages.inc.php:1111
 msgid "Update row(s)"
 msgstr "更新行"
 
-#: libraries/messages.inc.php:1113
+#: libraries/messages.inc.php:1112
 msgid "take it"
 msgstr "确定"
 
-#: libraries/messages.inc.php:1114
+#: libraries/messages.inc.php:1113
 msgid "Target database has been synchronized with source database"
 msgstr "已根据源数据库同步目标数据库"
 
-#: libraries/messages.inc.php:1115
+#: libraries/messages.inc.php:1114
 msgid "Table-specific privileges"
 msgstr "按表指定权限"
 
-#: libraries/messages.inc.php:1116
+#: libraries/messages.inc.php:1115
 msgid "Temporary data"
 msgstr "临时数据"
 
-#: libraries/messages.inc.php:1117
+#: libraries/messages.inc.php:1116
 msgid " Because of its length,<br /> this field might not be editable "
 msgstr " 由于长度限制<br />此字段可能无法编辑 "
 
-#: libraries/messages.inc.php:1118
+#: libraries/messages.inc.php:1117
 msgid "Texy! text"
 msgstr "Texy! 文本"
 
-#: libraries/messages.inc.php:1119
+#: libraries/messages.inc.php:1118
 msgid "Thai"
 msgstr "泰语"
 
-#: libraries/messages.inc.php:1120
+#: libraries/messages.inc.php:1119
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "未找到默认主题 %s ！"
 
-#: libraries/messages.inc.php:1121
+#: libraries/messages.inc.php:1120
 msgid "No preview available."
 msgstr "没有可用的预览。"
 
-#: libraries/messages.inc.php:1122
+#: libraries/messages.inc.php:1121
 #, php-format
 msgid "Theme %s not found!"
 msgstr "未找到主题 %s ！"
 
-#: libraries/messages.inc.php:1123
+#: libraries/messages.inc.php:1122
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "找不到主题 %s 对应的图片路径！"
 
-#: libraries/messages.inc.php:1124
+#: libraries/messages.inc.php:1123
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "找不到主题 %s 的路径"
 
-#: libraries/messages.inc.php:1125
+#: libraries/messages.inc.php:1124
 msgid "Theme / Style"
 msgstr "主题 / 风格"
 
-#: libraries/messages.inc.php:1126
+#: libraries/messages.inc.php:1125
 msgid "This Host"
 msgstr "此主机"
 
-#: libraries/messages.inc.php:1127
+#: libraries/messages.inc.php:1126
 msgid "Threads"
 msgstr "线程"
 
-#: libraries/messages.inc.php:1128
+#: libraries/messages.inc.php:1127
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "已杀死线程 %s 。"
 
-#: libraries/messages.inc.php:1129
+#: libraries/messages.inc.php:1128
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr "上一个导入操作超时，随后重新提交将会从 %d 处开始。"
 
-#: libraries/messages.inc.php:1130
+#: libraries/messages.inc.php:1129
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5089,262 +5085,262 @@ msgstr ""
 "在最后一次执行时没有数据被解析，建议您增加 PHP 运行时间限制，否则 phpMyAdmin "
 "将无法完成导入操作。"
 
-#: libraries/messages.inc.php:1131
+#: libraries/messages.inc.php:1130
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr "脚本超时，如果你要完成导入，请重新提交相同的文件，导入将会继续进行。"
 
-#: libraries/messages.inc.php:1132
+#: libraries/messages.inc.php:1131
 msgid "Time"
 msgstr "时间"
 
-#: libraries/messages.inc.php:1133
+#: libraries/messages.inc.php:1132
 msgid "to/from page"
 msgstr "到/从 页"
 
-#: libraries/messages.inc.php:1134
+#: libraries/messages.inc.php:1133
 msgid "Toggle scratchboard"
 msgstr "切换刮板"
 
-#: libraries/messages.inc.php:1135
+#: libraries/messages.inc.php:1134
 msgid "Toggle small/big"
 msgstr "反向收缩/展开"
 
-#: libraries/messages.inc.php:1136
+#: libraries/messages.inc.php:1135
 msgid "To select relation, click :"
 msgstr "要选择关系，点击："
 
-#: libraries/messages.inc.php:1137
+#: libraries/messages.inc.php:1136
 msgid "total"
 msgstr "总计"
 
-#: libraries/messages.inc.php:1138
+#: libraries/messages.inc.php:1137
 msgid "Total"
 msgstr "总计"
 
-#: libraries/messages.inc.php:1139
+#: libraries/messages.inc.php:1138
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr "%s.%s 的追踪已启用。"
 
-#: libraries/messages.inc.php:1140
+#: libraries/messages.inc.php:1139
 msgid "Activate now"
 msgstr "立即启用"
 
-#: libraries/messages.inc.php:1141
+#: libraries/messages.inc.php:1140
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr "启用 %s.%s 的追踪"
 
-#: libraries/messages.inc.php:1142
+#: libraries/messages.inc.php:1141
 msgid "Comment out these two lines if you do not need them."
 msgstr "如果你不需要，请注释以下两行。"
 
-#: libraries/messages.inc.php:1143
+#: libraries/messages.inc.php:1142
 msgid "Create version"
 msgstr "创建版本"
 
-#: libraries/messages.inc.php:1144
+#: libraries/messages.inc.php:1143
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr "为 %2$s.%3$s 创建版本 %1$s"
 
-#: libraries/messages.inc.php:1145
+#: libraries/messages.inc.php:1144
 msgid "Database Log"
 msgstr "数据库日志"
 
-#: libraries/messages.inc.php:1146
+#: libraries/messages.inc.php:1145
 msgid "Data definition statement"
 msgstr "数据定义语句"
 
-#: libraries/messages.inc.php:1147
+#: libraries/messages.inc.php:1146
 msgid "Data manipulation statement"
 msgstr "数据操作语句"
 
-#: libraries/messages.inc.php:1148
+#: libraries/messages.inc.php:1147
 msgid "Date"
 msgstr "日期"
 
-#: libraries/messages.inc.php:1149
+#: libraries/messages.inc.php:1148
 msgid "Deactivate now"
 msgstr "立即禁用"
 
-#: libraries/messages.inc.php:1150
+#: libraries/messages.inc.php:1149
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "禁用 %s.%s 的追踪"
 
-#: libraries/messages.inc.php:1151
+#: libraries/messages.inc.php:1150
 #, php-format
 msgid "Export as %s"
 msgstr "导出为 %s"
 
-#: libraries/messages.inc.php:1152
+#: libraries/messages.inc.php:1151
 msgid "Tracking is active."
 msgstr "追踪已启用。"
 
-#: libraries/messages.inc.php:1153
+#: libraries/messages.inc.php:1152
 msgid "Tracking is not active."
 msgstr "追踪已禁用。"
 
-#: libraries/messages.inc.php:1154
+#: libraries/messages.inc.php:1153
 msgid "Tracking Mechanism"
 msgstr ""
 
-#: libraries/messages.inc.php:1155
+#: libraries/messages.inc.php:1154
 msgid "Close"
 msgstr "关闭"
 
-#: libraries/messages.inc.php:1156
+#: libraries/messages.inc.php:1155
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "`%s` 的追踪报告"
 
-#: libraries/messages.inc.php:1157
+#: libraries/messages.inc.php:1156
 msgid "Tracking report"
 msgstr "追踪报告"
 
-#: libraries/messages.inc.php:1158
+#: libraries/messages.inc.php:1157
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "显示自 %2$s 起至 %3$s 用户 %4$s 执行的 %1$s %5$s"
 
-#: libraries/messages.inc.php:1159
+#: libraries/messages.inc.php:1158
 msgid "Show versions"
 msgstr "查看版本"
 
-#: libraries/messages.inc.php:1160
+#: libraries/messages.inc.php:1159
 msgid "SQL dump (file download)"
 msgstr "SQL 转储 (文件下载)"
 
-#: libraries/messages.inc.php:1161
+#: libraries/messages.inc.php:1160
 msgid "SQL dump"
 msgstr "SQL 转储"
 
-#: libraries/messages.inc.php:1162
+#: libraries/messages.inc.php:1161
 msgid "SQL statements executed."
 msgstr "SQL 语句已执行。"
 
-#: libraries/messages.inc.php:1163
+#: libraries/messages.inc.php:1162
 msgid "This option will replace your table and contained data."
 msgstr "该选项将导致当前表的结构和数据被替换。"
 
-#: libraries/messages.inc.php:1164
+#: libraries/messages.inc.php:1163
 msgid "SQL execution"
 msgstr "执行 SQL 语句"
 
-#: libraries/messages.inc.php:1165
+#: libraries/messages.inc.php:1164
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "SQL 语句已导出。请复制保存或运行它。"
 
-#: libraries/messages.inc.php:1166
+#: libraries/messages.inc.php:1165
 msgid "Tracking statements"
 msgstr "追踪语句"
 
-#: libraries/messages.inc.php:1167
+#: libraries/messages.inc.php:1166
 msgid "active"
 msgstr "启用"
 
-#: libraries/messages.inc.php:1168
+#: libraries/messages.inc.php:1167
 msgid "not active"
 msgstr "禁用"
 
-#: libraries/messages.inc.php:1169
+#: libraries/messages.inc.php:1168
 msgid "Structure snapshot"
 msgstr "结构快照"
 
-#: libraries/messages.inc.php:1170
+#: libraries/messages.inc.php:1169
 msgid "Created"
 msgstr "创建"
 
-#: libraries/messages.inc.php:1171
+#: libraries/messages.inc.php:1170
 msgid "Last version"
 msgstr "最新版本"
 
-#: libraries/messages.inc.php:1172
+#: libraries/messages.inc.php:1171
 msgid "Updated"
 msgstr "更新"
 
-#: libraries/messages.inc.php:1173
+#: libraries/messages.inc.php:1172
 msgid "Version"
 msgstr "版本"
 
-#: libraries/messages.inc.php:1174
+#: libraries/messages.inc.php:1173
 msgid "Track these data definition statements:"
 msgstr "追踪下列数据定义语句:"
 
-#: libraries/messages.inc.php:1175
+#: libraries/messages.inc.php:1174
 msgid "Track these data manipulation statements:"
 msgstr "追踪下列数据操作语句:"
 
-#: libraries/messages.inc.php:1176
+#: libraries/messages.inc.php:1175
 msgid "Tracked tables"
 msgstr "已追踪的表"
 
-#: libraries/messages.inc.php:1177
+#: libraries/messages.inc.php:1176
 msgid "Tracking"
 msgstr "追踪"
 
-#: libraries/messages.inc.php:1178
+#: libraries/messages.inc.php:1177
 msgid "Track table"
 msgstr "追踪表"
 
-#: libraries/messages.inc.php:1179
+#: libraries/messages.inc.php:1178
 msgid "Untracked tables"
 msgstr "未追踪的表"
 
-#: libraries/messages.inc.php:1180
+#: libraries/messages.inc.php:1179
 msgid "Username"
 msgstr "用户名"
 
-#: libraries/messages.inc.php:1181
+#: libraries/messages.inc.php:1180
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
 msgstr "%s.%s 的追踪，版本 %s 已启用。"
 
-#: libraries/messages.inc.php:1182
+#: libraries/messages.inc.php:1181
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
 msgstr "已创建版本 %s，%s.%s 的追踪已启用。"
 
-#: libraries/messages.inc.php:1183
+#: libraries/messages.inc.php:1182
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
 msgstr "%s.%s 的追踪，版本 %s 已禁用。"
 
-#: libraries/messages.inc.php:1184
+#: libraries/messages.inc.php:1183
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "版本 %s 的快照 (SQL 代码)"
 
-#: libraries/messages.inc.php:1185
+#: libraries/messages.inc.php:1184
 msgid "Versions"
 msgstr "版本"
 
-#: libraries/messages.inc.php:1186
+#: libraries/messages.inc.php:1185
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr "你可以通过创建一个临时数据库来执行这个转储。请确保你有足够的权限。"
 
-#: libraries/messages.inc.php:1187
+#: libraries/messages.inc.php:1186
 msgid "Traditional Chinese"
 msgstr "正体中文"
 
-#: libraries/messages.inc.php:1188
+#: libraries/messages.inc.php:1187
 msgid "Traditional Spanish"
 msgstr "传统西班牙语"
 
-#: libraries/messages.inc.php:1189
+#: libraries/messages.inc.php:1188
 msgid "Traffic"
 msgstr "流量"
 
-#: libraries/messages.inc.php:1190
+#: libraries/messages.inc.php:1189
 msgid "Transaction coordinator"
 msgstr "事务协调"
 
-#: libraries/messages.inc.php:1191
+#: libraries/messages.inc.php:1190
 msgid ""
 "Displays a link to download the binary data of the field. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -5354,28 +5350,28 @@ msgstr ""
 "字段中显示一个二进制数据的下载连接。第一个选项是文件名，或使用第二个选项，用"
 "表中的一个字段作为文件名。如果你使用第二个选项那么第一个选项必须留空。"
 
-#: libraries/messages.inc.php:1192
+#: libraries/messages.inc.php:1191
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
 "显示十六进制的数据。第一个参数设置需要增加多少个空格 (默认值为一个字节宽度)。"
 
-#: libraries/messages.inc.php:1193
+#: libraries/messages.inc.php:1192
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr "显示可点击的缩略图。在原比例不变的情况下，可按像素指定最大宽度或高度。"
 
-#: libraries/messages.inc.php:1194
+#: libraries/messages.inc.php:1193
 msgid "Displays a link to download this image."
 msgstr "显示下载此图像的链接。"
 
-#: libraries/messages.inc.php:1195
+#: libraries/messages.inc.php:1194
 msgid "See image/jpeg: inline"
 msgstr "参见 image/jpeg: inline"
 
-#: libraries/messages.inc.php:1196
+#: libraries/messages.inc.php:1195
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -5392,7 +5388,7 @@ msgstr ""
 "填“local”(参见 PHP 的 strftime() 函数文档)和“utc”(参见 PHP 的 gmdate() 函数文"
 "档)所到的结果是不一样的。"
 
-#: libraries/messages.inc.php:1197
+#: libraries/messages.inc.php:1196
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the field data via "
 "standard input. Returns the standard output of the application. The default "
@@ -5412,13 +5408,13 @@ msgstr ""
 "果设为 1 的话将会用 htmlspecialchars() 转换其输出 (默认为 1)。第四个参数如果"
 "设为 1 的话，将禁止换行，确保所有内容显示在一行中 (默认为 1)"
 
-#: libraries/messages.inc.php:1198
+#: libraries/messages.inc.php:1197
 msgid ""
 "Displays the contents of the field as-is, without running it through "
 "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgstr "保留字段的原始格式。不进行转码。也就是假定字段中不包含 HTML 代码。"
 
-#: libraries/messages.inc.php:1199
+#: libraries/messages.inc.php:1198
 msgid ""
 "Displays an image and a link; the field contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -5427,7 +5423,7 @@ msgstr ""
 "显示图像和链接，字段内包含文件名。第一个选项是类似“http://www.example.com/”这"
 "样的 URL 前缀，第二和第三个选项是以像素为单位的宽度和高度。"
 
-#: libraries/messages.inc.php:1200
+#: libraries/messages.inc.php:1199
 msgid ""
 "Displays a link; the field contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
@@ -5436,11 +5432,11 @@ msgstr ""
 "显示链接，字段内包含文件名。第一个选项是类似“http://www.example.com/”这样的 "
 "URL 前缀，第二个选项是链接的标题 (title)。"
 
-#: libraries/messages.inc.php:1201
+#: libraries/messages.inc.php:1200
 msgid "Formats text as SQL query with syntax highlighting."
 msgstr "将文本以 SQL 语法高亮显示。"
 
-#: libraries/messages.inc.php:1202
+#: libraries/messages.inc.php:1201
 msgid ""
 "Displays a part of a string. The first option is the number of characters to "
 "skip from the beginning of the string (Default 0). The second option is the "
@@ -5452,47 +5448,47 @@ msgstr ""
 "返回的字数 (默认直到结尾)。第三个选项是当发生截取的时候，将会加在字符串之前/"
 "后的输出 (默认为：“...”)。"
 
-#: libraries/messages.inc.php:1203
+#: libraries/messages.inc.php:1202
 msgid "Triggers"
 msgstr "触发器"
 
-#: libraries/messages.inc.php:1204
+#: libraries/messages.inc.php:1203
 msgid "Truncate Shown Queries"
 msgstr "截断显示的查询"
 
-#: libraries/messages.inc.php:1205
+#: libraries/messages.inc.php:1204
 msgid "Turkish"
 msgstr "土耳其语"
 
-#: libraries/messages.inc.php:1206
+#: libraries/messages.inc.php:1205
 msgid "Type"
 msgstr "类型"
 
-#: libraries/messages.inc.php:1208
+#: libraries/messages.inc.php:1207
 msgid "Ukrainian"
 msgstr "乌克兰语"
 
-#: libraries/messages.inc.php:1209
+#: libraries/messages.inc.php:1208
 msgid "Uncheck All"
 msgstr "全不选"
 
-#: libraries/messages.inc.php:1210
+#: libraries/messages.inc.php:1209
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/messages.inc.php:1211
+#: libraries/messages.inc.php:1210
 msgid "Unique"
 msgstr "唯一"
 
-#: libraries/messages.inc.php:1212
+#: libraries/messages.inc.php:1211
 msgid "unknown"
 msgstr "未知"
 
-#: libraries/messages.inc.php:1213
+#: libraries/messages.inc.php:1212
 msgid "Unselect All"
 msgstr "全不选"
 
-#: libraries/messages.inc.php:1214
+#: libraries/messages.inc.php:1213
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -5500,138 +5496,138 @@ msgid ""
 msgstr ""
 "您正在载入不支持的压缩格式 (%s)。配置文件中没有对应这种格式的配置说明。"
 
-#: libraries/messages.inc.php:1215
+#: libraries/messages.inc.php:1214
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "您已更新了 %s 的权限。"
 
-#: libraries/messages.inc.php:1216
+#: libraries/messages.inc.php:1215
 msgid "The profile has been updated."
 msgstr "配置文件己更新。"
 
-#: libraries/messages.inc.php:1217
+#: libraries/messages.inc.php:1216
 msgid "Update Query"
 msgstr "更新查询"
 
-#: libraries/messages.inc.php:1218
+#: libraries/messages.inc.php:1217
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr "请参见文档中关于如何更新您的 column_comments 表"
 
-#: libraries/messages.inc.php:1219
+#: libraries/messages.inc.php:1218
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
 
-#: libraries/messages.inc.php:1220
+#: libraries/messages.inc.php:1219
 msgid "Failed to write file to disk."
 msgstr "将文件写入磁盘失败。"
 
-#: libraries/messages.inc.php:1221
+#: libraries/messages.inc.php:1220
 msgid "File upload stopped by extension."
 msgstr "因扩展而停止文件上传。"
 
-#: libraries/messages.inc.php:1222
+#: libraries/messages.inc.php:1221
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr "上传文件的大小超过 HTML 表单中指定的 MAX_FILE_SIZE 值。"
 
-#: libraries/messages.inc.php:1223
+#: libraries/messages.inc.php:1222
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "上传文件的大小超过 php.ini 文件中 upload_max_filesize 的限制。"
 
-#: libraries/messages.inc.php:1224
+#: libraries/messages.inc.php:1223
 msgid "Missing a temporary folder."
 msgstr "找不到临时文件夹。"
 
-#: libraries/messages.inc.php:1225
+#: libraries/messages.inc.php:1224
 msgid "The uploaded file was only partially uploaded."
 msgstr "仅上传了文件的一部分内容。"
 
-#: libraries/messages.inc.php:1226
+#: libraries/messages.inc.php:1225
 msgid "Unknown error in file upload."
 msgstr "上传文件时发生未知错误。"
 
-#: libraries/messages.inc.php:1227
+#: libraries/messages.inc.php:1226
 #, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
 msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
 
-#: libraries/messages.inc.php:1228
+#: libraries/messages.inc.php:1227
 msgid "File uploads are not allowed on this server."
 msgstr "此服务器禁止了文件上传。"
 
-#: libraries/messages.inc.php:1229
+#: libraries/messages.inc.php:1228
 msgid "Usage"
 msgstr "已用"
 
-#: libraries/messages.inc.php:1230
+#: libraries/messages.inc.php:1229
 msgid "Enclose table and field names with backquotes"
 msgstr "给数据表名及字段名加上反引号"
 
-#: libraries/messages.inc.php:1231
+#: libraries/messages.inc.php:1230
 msgid "Use Host Table"
 msgstr "使用主机表"
 
-#: libraries/messages.inc.php:1232
+#: libraries/messages.inc.php:1231
 #, php-format
 msgid "The user %s already exists!"
 msgstr "用户 %s 己存在！"
 
-#: libraries/messages.inc.php:1233
+#: libraries/messages.inc.php:1232
 msgid "The user name is empty!"
 msgstr "用户名不能为空！"
 
-#: libraries/messages.inc.php:1234
+#: libraries/messages.inc.php:1233
 msgid "User name"
 msgstr "用户名"
 
-#: libraries/messages.inc.php:1235
+#: libraries/messages.inc.php:1234
 msgid "The selected user was not found in the privilege table."
 msgstr "在权限表内找不到选中的用户。"
 
-#: libraries/messages.inc.php:1236
+#: libraries/messages.inc.php:1235
 msgid "User overview"
 msgstr "查看用户"
 
-#: libraries/messages.inc.php:1237
+#: libraries/messages.inc.php:1236
 msgid "The selected users have been deleted successfully."
 msgstr "已成功删除选中的用户。"
 
-#: libraries/messages.inc.php:1238
+#: libraries/messages.inc.php:1237
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "用户可以访问“%s”"
 
-#: libraries/messages.inc.php:1239
+#: libraries/messages.inc.php:1238
 msgid "User"
 msgstr "用户"
 
-#: libraries/messages.inc.php:1240
+#: libraries/messages.inc.php:1239
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr "按 TAB 键跳到下一个数值，或 CTRL+方向键 作随意移动"
 
-#: libraries/messages.inc.php:1241
+#: libraries/messages.inc.php:1240
 msgid "Use Tables"
 msgstr "使用表"
 
-#: libraries/messages.inc.php:1242
+#: libraries/messages.inc.php:1241
 msgid "Use text field"
 msgstr "使用文本域"
 
-#: libraries/messages.inc.php:1243
+#: libraries/messages.inc.php:1242
 msgid "Use this value"
 msgstr "使用此值"
 
-#: libraries/messages.inc.php:1245 setup/lib/messages.inc.php:356
+#: libraries/messages.inc.php:1244 setup/lib/messages.inc.php:356
 msgid "Validate SQL"
 msgstr "校验 SQL"
 
-#: libraries/messages.inc.php:1246
+#: libraries/messages.inc.php:1245
 #, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
@@ -5639,88 +5635,88 @@ msgid ""
 msgstr ""
 "SQL 校验程序无法初始化。请检查是否已经安装了%s文档%s内说明的必需 PHP 扩展。"
 
-#: libraries/messages.inc.php:1247
+#: libraries/messages.inc.php:1246
 msgid "Value"
 msgstr "值"
 
-#: libraries/messages.inc.php:1248
+#: libraries/messages.inc.php:1247
 msgid "Variable"
 msgstr "变量"
 
-#: libraries/messages.inc.php:1249
+#: libraries/messages.inc.php:1248
 msgid "Version information"
 msgstr "版本信息"
 
-#: libraries/messages.inc.php:1250
+#: libraries/messages.inc.php:1249
 msgid "View dump (schema) of databases"
 msgstr "查看数据库的转存(大纲)"
 
-#: libraries/messages.inc.php:1251
+#: libraries/messages.inc.php:1250
 msgid "View dump (schema) of database"
 msgstr "查看数据库的转存(大纲)。"
 
-#: libraries/messages.inc.php:1252
+#: libraries/messages.inc.php:1251
 msgid "View dump (schema) of table"
 msgstr "查看数据表的转存(大纲)。"
 
-#: libraries/messages.inc.php:1253
+#: libraries/messages.inc.php:1252
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
-#: libraries/messages.inc.php:1254
+#: libraries/messages.inc.php:1253
 #, php-format
 msgid "View %s has been dropped"
 msgstr "已删除视图 %s"
 
-#: libraries/messages.inc.php:1255
+#: libraries/messages.inc.php:1254
 msgid "View image"
 msgstr "查看图像"
 
-#: libraries/messages.inc.php:1256
+#: libraries/messages.inc.php:1255
 msgid "VIEW name"
 msgstr "视图名"
 
-#: libraries/messages.inc.php:1257
+#: libraries/messages.inc.php:1256
 msgid "View video"
 msgstr "播放视频"
 
-#: libraries/messages.inc.php:1258
+#: libraries/messages.inc.php:1257
 msgid "View"
 msgstr "视图"
 
-#: libraries/messages.inc.php:1260
+#: libraries/messages.inc.php:1259
 msgid "The directory you set for upload work cannot be reached"
 msgstr "用于上传的文件夹出错，无法使用"
 
-#: libraries/messages.inc.php:1261
+#: libraries/messages.inc.php:1260
 msgid "web server upload directory"
 msgstr "网站服务器上传文件夹"
 
-#: libraries/messages.inc.php:1262
+#: libraries/messages.inc.php:1261
 msgid "Web server"
 msgstr "网站服务器"
 
-#: libraries/messages.inc.php:1263
+#: libraries/messages.inc.php:1262
 #, php-format
 msgid "Welcome to %s"
 msgstr "欢迎使用 %s"
 
-#: libraries/messages.inc.php:1264
+#: libraries/messages.inc.php:1263
 msgid "West European"
 msgstr "西欧"
 
-#: libraries/messages.inc.php:1265
+#: libraries/messages.inc.php:1264
 msgid "Wiki"
 msgstr "维基 (Wiki) (外链，英文)"
 
-#: libraries/messages.inc.php:1266
+#: libraries/messages.inc.php:1265
 msgid "wildcard"
 msgstr "通配符"
 
-#: libraries/messages.inc.php:1267
+#: libraries/messages.inc.php:1266
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -5729,67 +5725,75 @@ msgstr ""
 "无法更新目标浏览窗口。可能你已经关闭了父窗口或您浏览器的安全设置阻止了跨窗口"
 "更新。"
 
-#: libraries/messages.inc.php:1268
+#: libraries/messages.inc.php:1267
 msgid "With selected:"
 msgstr "选中项："
 
-#: libraries/messages.inc.php:1269
+#: libraries/messages.inc.php:1268
 msgid "Write requests"
 msgstr "写请求"
 
-#: libraries/messages.inc.php:1270
+#: libraries/messages.inc.php:1269
 msgid "Wrong username/password. Access denied."
 msgstr "用户名/密码错误。拒绝访问。"
 
-#: libraries/messages.inc.php:1272
+#: libraries/messages.inc.php:1271
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr "该 XML 文件有错误或者不完整。请修复错误后重试。"
 
-#: libraries/messages.inc.php:1273
+#: libraries/messages.inc.php:1272
 msgid "Export contents"
 msgstr "导出内容"
 
-#: libraries/messages.inc.php:1274
+#: libraries/messages.inc.php:1273
 msgid "Export functions"
 msgstr "导出函数"
 
-#: libraries/messages.inc.php:1275
+#: libraries/messages.inc.php:1274
 msgid "Export procedures"
 msgstr "导出存储过程"
 
-#: libraries/messages.inc.php:1276
+#: libraries/messages.inc.php:1275
 msgid "Export Structure Schemas (recommended)"
 msgstr "导出结构大纲 (推荐)"
 
-#: libraries/messages.inc.php:1277
+#: libraries/messages.inc.php:1276
 msgid "Export tables"
 msgstr "导出数据表"
 
-#: libraries/messages.inc.php:1278
+#: libraries/messages.inc.php:1277
 msgid "Export triggers"
 msgstr "导出触发器"
 
-#: libraries/messages.inc.php:1279
+#: libraries/messages.inc.php:1278
 msgid "Export views"
 msgstr "导出视图"
 
-#: libraries/messages.inc.php:1280
+#: libraries/messages.inc.php:1279
 msgid "XML"
 msgstr "XML"
 
-#: libraries/messages.inc.php:1282
+#: libraries/messages.inc.php:1281
 msgid "Yes"
 msgstr "是"
 
-#: libraries/messages.inc.php:1284
+#: libraries/messages.inc.php:1283
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "注意：若将这些选项设为 0(零) 即不限制。"
 
-#: libraries/messages.inc.php:1285
+#: libraries/messages.inc.php:1284
 msgid "\"zipped\""
 msgstr "zip 压缩"
+
+#: navigation.php:318
+msgid "Filter"
+msgstr "快速搜索"
+
+#: navigation.php:319 setup/lib/messages.inc.php:42
+msgid "Clear"
+msgstr "清除"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -5936,10 +5940,6 @@ msgstr "CHAR 文本框行"
 #: setup/lib/messages.inc.php:41
 msgid "Check config file permissions"
 msgstr "检查配置文件权限"
-
-#: setup/lib/messages.inc.php:42
-msgid "Clear"
-msgstr "清除"
 
 #: setup/lib/messages.inc.php:43
 msgid ""
