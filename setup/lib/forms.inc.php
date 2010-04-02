@@ -64,6 +64,13 @@ $forms['Server_pmadb'] = array('Servers' => array(1 => array(
     'history' => 'pma_history',
     'tracking' => 'pma_tracking',
     'designer_coords' => 'pma_designer_coords')));
+$forms['Server_tracking'] = array('Servers' => array(1 => array(
+    'tracking_version_auto_create',
+    'tracking_default_statements',
+    'tracking_add_drop_view',
+    'tracking_add_drop_table',
+    'tracking_add_drop_database',
+)));
 $forms['Import_export'] = array(
     'UploadDir',
     'SaveDir',

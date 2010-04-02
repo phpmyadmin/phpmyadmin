@@ -45,5 +45,6 @@ $form_display->registerForm('Server', $id);
 $form_display->registerForm('Server_login_options', $id);
 $form_display->registerForm('Server_config', $id);
 $form_display->registerForm('Server_pmadb', $id);
+$form_display->registerForm('Server_tracking', $id);
 process_formset($form_display);
 ?>
