@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 10:09+0200\n"
-"PO-Revision-Date: 2010-04-02 11:35+0200\n"
+"PO-Revision-Date: 2010-04-02 11:37+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -3239,7 +3239,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:744
 msgid "SQL history"
-msgstr ""
+msgstr "SQL చరిత్ర"
 
 #: libraries/messages.inc.php:745
 #, php-format
