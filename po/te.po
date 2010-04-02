@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 10:09+0200\n"
-"PO-Revision-Date: 2010-04-02 11:41+0200\n"
+"PO-Revision-Date: 2010-04-02 11:43+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -3915,7 +3915,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: libraries/messages.inc.php:899
 msgid "Show/Hide left menu"
-msgstr "ఎడమవైపున మెనుని చూపించు/దాచుము"
+msgstr "ఎడమవైపున మెనుని చూపించు/దాచు"
 
 #: libraries/messages.inc.php:900
 msgid "Showing bookmark"
