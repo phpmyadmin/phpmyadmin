@@ -1351,7 +1351,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:300
 msgid "End"
-msgstr ""
+msgstr "ముగింపు"
 
 #: libraries/messages.inc.php:301
 msgid "END RAW"
