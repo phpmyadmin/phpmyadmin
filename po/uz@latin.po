@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-02 10:02+0200\n"
+"POT-Creation-Date: 2010-04-02 10:09+0200\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
@@ -1352,7 +1352,7 @@ msgstr "# %s yozuvidan boshlab %s satrni damp qilish."
 msgid "dynamic"
 msgstr "dinamik"
 
-#: libraries/messages.inc.php:291 setup/lib/messages.inc.php:350
+#: libraries/messages.inc.php:291 setup/lib/messages.inc.php:352
 msgid "Edit"
 msgstr "Tahrirlash"
 
@@ -1472,7 +1472,7 @@ msgstr "Excel-versiyasi"
 msgid "Execute bookmarked query"
 msgstr "Belgilangan so‘rovni bajarish"
 
-#: libraries/messages.inc.php:320 setup/lib/messages.inc.php:351
+#: libraries/messages.inc.php:320 setup/lib/messages.inc.php:353
 msgid "Explain SQL"
 msgstr "So‘rov tahlili"
 
@@ -1844,7 +1844,7 @@ msgstr "PDF-sxemaga/sxemadan jadval koordinatalarini import/eksport qilish"
 msgid "Import files"
 msgstr "Fayllarni import qilish"
 
-#: libraries/messages.inc.php:410 setup/lib/messages.inc.php:158
+#: libraries/messages.inc.php:410 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
 msgstr "Import qilinayotgan fayl formati"
 
@@ -3070,7 +3070,7 @@ msgstr "telefonlar kitobi"
 msgid "PHP array"
 msgstr "PHP massivi"
 
-#: libraries/messages.inc.php:666 setup/lib/messages.inc.php:353
+#: libraries/messages.inc.php:666 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
 msgstr "PHP-kod"
 
@@ -3474,7 +3474,7 @@ msgstr "Yozuvlar soni"
 msgid "Check referential integrity:"
 msgstr "Ma`lumotlar yaxlitligini tekshirish:"
 
-#: libraries/messages.inc.php:756 setup/lib/messages.inc.php:352
+#: libraries/messages.inc.php:756 setup/lib/messages.inc.php:354
 msgid "Refresh"
 msgstr "Yangilash"
 
@@ -4883,7 +4883,7 @@ msgstr "(ustun)"
 msgid "Size"
 msgstr "Hajmi"
 
-#: libraries/messages.inc.php:1025 setup/lib/messages.inc.php:159
+#: libraries/messages.inc.php:1025 setup/lib/messages.inc.php:161
 msgid "Number of records (queries) to skip from start"
 msgstr ""
 "Fayl boshidagi e`tibor berish kerak bo‘lmagan qatorlar (so‘rovlar) soni"
@@ -5952,7 +5952,7 @@ msgstr "Matnmaydonini ishlatish"
 msgid "Use this value"
 msgstr "Ushbu qiymatni ishlatish"
 
-#: libraries/messages.inc.php:1245 setup/lib/messages.inc.php:354
+#: libraries/messages.inc.php:1245 setup/lib/messages.inc.php:356
 msgid "Validate SQL"
 msgstr "SQL to‘g‘riligini tekshirish"
 
@@ -6673,43 +6673,51 @@ msgstr ""
 "Documentation.html#linked-tables]ulangan jadvallar infratuzilmasini[/a] "
 "qarab chiqing"
 
-#: setup/lib/messages.inc.php:132 setup/lib/messages.inc.php:291
+#: setup/lib/messages.inc.php:132 setup/lib/messages.inc.php:293
 msgid "PMA database"
 msgstr "PMA ma`lumotlar bazasi"
 
 #: setup/lib/messages.inc.php:133
+msgid "Tracking of changes made in database. Requires configured PMA database."
+msgstr ""
+
+#: setup/lib/messages.inc.php:134
+msgid "Changes tracking"
+msgstr ""
+
+#: setup/lib/messages.inc.php:135
 msgid "Customization"
 msgstr "Moslashlar"
 
-#: setup/lib/messages.inc.php:134
+#: setup/lib/messages.inc.php:136
 msgid "Customize export options"
 msgstr "Eksport tanlovlarini moslashtirish"
 
-#: setup/lib/messages.inc.php:135
+#: setup/lib/messages.inc.php:137
 msgid "Features"
 msgstr "Funksiyalar"
 
-#: setup/lib/messages.inc.php:136
+#: setup/lib/messages.inc.php:138
 msgid "Customize import defaults"
 msgstr "Import tanlovlarini moslashtirish"
 
-#: setup/lib/messages.inc.php:137
+#: setup/lib/messages.inc.php:139
 msgid "Customize navigation frame"
 msgstr "Navigatsiya panelini moslashtirish"
 
-#: setup/lib/messages.inc.php:138
+#: setup/lib/messages.inc.php:140
 msgid "Customize main frame"
 msgstr "Asosiy ramkani moslashtirish"
 
-#: setup/lib/messages.inc.php:139
+#: setup/lib/messages.inc.php:141
 msgid "Customize links shown in SQL Query boxes"
 msgstr "SQL so‘rovlari qutisida ko‘rsatiladigan bog‘larni sozlash"
 
-#: setup/lib/messages.inc.php:140
+#: setup/lib/messages.inc.php:142
 msgid "SQL Query box"
 msgstr "SQL so‘rovlari qutisi"
 
-#: setup/lib/messages.inc.php:141
+#: setup/lib/messages.inc.php:143
 msgid ""
 "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
 "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
@@ -6718,27 +6726,27 @@ msgstr ""
 "[a@?page=form&amp;formset=main_frame#tab_Sql_box]Navigatsiya paneli[/a] "
 "sozlanishlari"
 
-#: setup/lib/messages.inc.php:142
+#: setup/lib/messages.inc.php:144
 msgid "SQL queries"
 msgstr "SQL so‘rovlari"
 
-#: setup/lib/messages.inc.php:143
+#: setup/lib/messages.inc.php:145
 msgid "Customize startup page"
 msgstr "Boshlang‘ich sahifani sozlash"
 
-#: setup/lib/messages.inc.php:144
+#: setup/lib/messages.inc.php:146
 msgid "Startup"
 msgstr "Boshlang‘ich"
 
-#: setup/lib/messages.inc.php:145
+#: setup/lib/messages.inc.php:147
 msgid "Choose how you want tabs to work"
 msgstr "Yorliqlar qanday ishlashini tanlang"
 
-#: setup/lib/messages.inc.php:146
+#: setup/lib/messages.inc.php:148
 msgid "Tabs"
 msgstr "Yorliqlar"
 
-#: setup/lib/messages.inc.php:147
+#: setup/lib/messages.inc.php:149
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
@@ -6746,11 +6754,11 @@ msgstr ""
 "Import va eksport operatsiyalarida    [a@http://en.wikipedia.org/wiki/Gzip]"
 "gzip[/a] yordamida siqishni yoqish"
 
-#: setup/lib/messages.inc.php:148
+#: setup/lib/messages.inc.php:150
 msgid "GZip"
 msgstr "GZip"
 
-#: setup/lib/messages.inc.php:149
+#: setup/lib/messages.inc.php:151
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
@@ -6761,19 +6769,19 @@ msgstr ""
 "va tiklash[/a] uchun maxsus funksiyalar (\"%s\") kerak, lekin ular "
 "tizimingizda topilmadi."
 
-#: setup/lib/messages.inc.php:150
+#: setup/lib/messages.inc.php:152
 msgid "phpMyAdmin homepage"
 msgstr "phpMyAdmin sayti"
 
-#: setup/lib/messages.inc.php:151
+#: setup/lib/messages.inc.php:153
 msgid "Extra parameters for iconv"
 msgstr "iconv uchun qo‘shimcha parametrlar"
 
-#: setup/lib/messages.inc.php:152
+#: setup/lib/messages.inc.php:154
 msgid "Ignore errors"
 msgstr "Xatolarga e`tibor bermaslik"
 
-#: setup/lib/messages.inc.php:153
+#: setup/lib/messages.inc.php:155
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
@@ -6781,11 +6789,11 @@ msgstr ""
 "Agar yoqilgan bo‘lsa, phpMyAdmin, hatto so‘rovlardan biri barbod bo‘lganda "
 "ham, ko‘p qismli so‘rovlarni hisoblashni davom etadi"
 
-#: setup/lib/messages.inc.php:154
+#: setup/lib/messages.inc.php:156
 msgid "Ignore multiple statement errors"
 msgstr "Ko‘p qismli so‘rovlardagi xatolarga e`tibor bermaslik"
 
-#: setup/lib/messages.inc.php:155
+#: setup/lib/messages.inc.php:157
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
@@ -6795,11 +6803,11 @@ msgstr ""
 "ruxsat berish. Bu katta fayllarni yuklash uchun yaxshi usul, lekin u "
 "tranzaksiyalarni buzishi mumkin."
 
-#: setup/lib/messages.inc.php:156
+#: setup/lib/messages.inc.php:158
 msgid "Partial import: allow interrupt"
 msgstr "Qisman import: uzishga ruxsat berish"
 
-#: setup/lib/messages.inc.php:157
+#: setup/lib/messages.inc.php:159
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
@@ -6807,15 +6815,15 @@ msgstr ""
 "Import fayl formati; yodda tutingki, ushbu ro‘yxat (ma`lumotlar bazasi, "
 "jadval) joylashishiga bog‘liq va faqat SQL ishlaydi"
 
-#: setup/lib/messages.inc.php:160
+#: setup/lib/messages.inc.php:162
 msgid "Partial import: skip queries"
 msgstr "Qisman import: so‘rovlarga e`tibor bermaslik"
 
-#: setup/lib/messages.inc.php:161
+#: setup/lib/messages.inc.php:163
 msgid "Insecure connection"
 msgstr "Noxavfsiz ulanish"
 
-#: setup/lib/messages.inc.php:162
+#: setup/lib/messages.inc.php:164
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -6823,7 +6831,7 @@ msgstr ""
 "Sizning ulanishingiz xavfsiz emas; barcha ma`lumotlar (shu jumladan, sirli "
 "ma`lumotlar, masalan, parollar) shifrlanmagan holda uzatiladi!"
 
-#: setup/lib/messages.inc.php:163
+#: setup/lib/messages.inc.php:165
 #, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
@@ -6832,43 +6840,43 @@ msgstr ""
 "Agar serveringiz HTTPS talablariga javob bera olsa, unda xavfsiz ulanishni "
 "ishlatish uchun [a@\"%s\"]ushbu bog‘dan[/a] foydalaning."
 
-#: setup/lib/messages.inc.php:164
+#: setup/lib/messages.inc.php:166
 msgid "How many rows can be inserted at one time"
 msgstr "Bir vaqtning o‘zidanechta qator qo‘yilishi mumkin"
 
-#: setup/lib/messages.inc.php:165
+#: setup/lib/messages.inc.php:167
 msgid "Number of inserted rows"
 msgstr "Qo‘yilgan qatorlar soni"
 
-#: setup/lib/messages.inc.php:166
+#: setup/lib/messages.inc.php:168
 msgid "Target for quick access icon"
 msgstr "Tezkor murojaat piktogrammasi uchun nishon"
 
-#: setup/lib/messages.inc.php:167
+#: setup/lib/messages.inc.php:169
 msgid "Show logo in left frame"
 msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: setup/lib/messages.inc.php:168
+#: setup/lib/messages.inc.php:170
 msgid "Display logo"
 msgstr "Logotipni ko‘rsatish"
 
-#: setup/lib/messages.inc.php:169
+#: setup/lib/messages.inc.php:171
 msgid "Display server choice at the top of the left frame"
 msgstr "Chap ramkaning yuqori qismida server tanlovini ko‘rsatish"
 
-#: setup/lib/messages.inc.php:170
+#: setup/lib/messages.inc.php:172
 msgid "Display servers selection"
 msgstr "Server tanlovini ko‘rsatish"
 
-#: setup/lib/messages.inc.php:171
+#: setup/lib/messages.inc.php:173
 msgid "String that separates databases into different tree levels"
 msgstr "Ma`lumotlar bazalarini daraxtning turli darajalariga bo‘luvchi satr"
 
-#: setup/lib/messages.inc.php:172
+#: setup/lib/messages.inc.php:174
 msgid "Database tree separator"
 msgstr "Ma`lumotlar bazasi daraxtining bo‘luvchisi"
 
-#: setup/lib/messages.inc.php:173
+#: setup/lib/messages.inc.php:175
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
@@ -6876,37 +6884,37 @@ msgstr ""
 "Yengil versiya; ma`lumotlar bazalarini daraxtda ko‘rsatish (quyida "
 "belgilangan satr bilan bo‘linadi)"
 
-#: setup/lib/messages.inc.php:174
+#: setup/lib/messages.inc.php:176
 msgid "Display databases in a tree"
 msgstr "Ma`lumotlar bazalarini daraxtda ko‘rsatish"
 
-#: setup/lib/messages.inc.php:175
+#: setup/lib/messages.inc.php:177
 msgid "Disable this if you want to see all databases at once"
 msgstr ""
 "Agar barcha ma`lumotlar bazalarini ko‘rmoqchi bo‘lsangiz, ushbu tanlovni "
 "o‘chiring"
 
-#: setup/lib/messages.inc.php:176
+#: setup/lib/messages.inc.php:178
 msgid "Use light version"
 msgstr "Yengil versiyadan foydalanish"
 
-#: setup/lib/messages.inc.php:177
+#: setup/lib/messages.inc.php:179
 msgid "Maximum table tree depth"
 msgstr "Jadvallar daraxtining maksimum chuqurligi"
 
-#: setup/lib/messages.inc.php:178
+#: setup/lib/messages.inc.php:180
 msgid "String that separates tables into different tree levels"
 msgstr "Jadvallarni daraxtning turli darajalariga bo‘luvchi satr"
 
-#: setup/lib/messages.inc.php:179
+#: setup/lib/messages.inc.php:181
 msgid "Table tree separator"
 msgstr "Jadval daraxtining bo‘luvchisi"
 
-#: setup/lib/messages.inc.php:180
+#: setup/lib/messages.inc.php:182
 msgid "Logo link URL"
 msgstr "Logotip bog‘langan URL"
 
-#: setup/lib/messages.inc.php:181
+#: setup/lib/messages.inc.php:183
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
@@ -6914,35 +6922,35 @@ msgstr ""
 "Bog‘langan sahifani bosh oynada ([kbd]bosh[/kbd]) yoki yangi oynada ([kbd]"
 "yangi[/kbd]) ochish"
 
-#: setup/lib/messages.inc.php:182
+#: setup/lib/messages.inc.php:184
 msgid "Logo link target"
 msgstr "Logotip bog‘langan nishon"
 
-#: setup/lib/messages.inc.php:183
+#: setup/lib/messages.inc.php:185
 msgid "Highlight server under the mouse cursor"
 msgstr "Sichqoncha kursori turgan serverni belgilash"
 
-#: setup/lib/messages.inc.php:184
+#: setup/lib/messages.inc.php:186
 msgid "Enable highlighting"
 msgstr "Belgilashni yoqish"
 
-#: setup/lib/messages.inc.php:185
+#: setup/lib/messages.inc.php:187
 msgid "let the user choose"
 msgstr "foydalanuvchiga tanlash imkonini berish"
 
-#: setup/lib/messages.inc.php:186
+#: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
 msgstr "Kamroq grafikali yorliqlarni ishlatish"
 
-#: setup/lib/messages.inc.php:187
+#: setup/lib/messages.inc.php:189
 msgid "Light tabs"
 msgstr "Yengil yorliqlar"
 
-#: setup/lib/messages.inc.php:188
+#: setup/lib/messages.inc.php:190
 msgid "Load"
 msgstr "Yuklash"
 
-#: setup/lib/messages.inc.php:189
+#: setup/lib/messages.inc.php:191
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -6954,11 +6962,11 @@ msgstr ""
 "ulanganbo‘lsa, unda YOLG‘ON (FALSE) tanlovi boshqa serverlardan chiqish "
 "unitilishiga olib kelishi mumkin."
 
-#: setup/lib/messages.inc.php:190
+#: setup/lib/messages.inc.php:192
 msgid "Delete all cookies on logout"
 msgstr "Chiqishda barcha \"cookies\"larni o‘chirish"
 
-#: setup/lib/messages.inc.php:191
+#: setup/lib/messages.inc.php:193
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
@@ -6966,11 +6974,11 @@ msgstr ""
 "cookie-autentifikatsiya usulidan foydalanilganda oldingi login sessiyasi "
 "qayta chaqirilib olinishi kerakmi?"
 
-#: setup/lib/messages.inc.php:192
+#: setup/lib/messages.inc.php:194
 msgid "Recall user name"
 msgstr "Foydalanuvchi nomini chaqirib olish"
 
-#: setup/lib/messages.inc.php:193
+#: setup/lib/messages.inc.php:195
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -6982,16 +6990,16 @@ msgstr ""
 "sessiya uchun saqlanadi va brauzer oynasi yopilgan zahoti o‘chiriladi. Bu "
 "qiymat ishonchsiz muhitlar uchun tavsiya etiladi."
 
-#: setup/lib/messages.inc.php:194
+#: setup/lib/messages.inc.php:196
 msgid "Login cookie store"
 msgstr "Login ma`lumotini cookie-da saqlash"
 
-#: setup/lib/messages.inc.php:195
+#: setup/lib/messages.inc.php:197
 msgid "Define how long (in seconds) a login cookie is valid"
 msgstr ""
 "cookie-login usuli qancha vaqt (sekundlarda) yaroqli bo‘lishini belgilang"
 
-#: setup/lib/messages.inc.php:196
+#: setup/lib/messages.inc.php:198
 msgid ""
 "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
 "be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
@@ -7001,29 +7009,29 @@ msgstr ""
 "bilan 1800 sekund (30 minut) bo‘lishi kerak. 1800 dan katta qiymatlar "
 "xavfsizlik riskiga va huquqlar o‘zlashtirilishiga olib kelishi mumkin."
 
-#: setup/lib/messages.inc.php:197
+#: setup/lib/messages.inc.php:199
 msgid "Login cookie validity"
 msgstr "cookie-login yaroqligi"
 
-#: setup/lib/messages.inc.php:198
+#: setup/lib/messages.inc.php:200
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr "SQL so‘rovi ko‘rsatilganda ishlatiladigan belgilarning maksimal soni"
 
-#: setup/lib/messages.inc.php:199
+#: setup/lib/messages.inc.php:201
 msgid "Maximum displayed SQL length"
 msgstr "SQL so‘rovining maksimal uzunligi"
 
-#: setup/lib/messages.inc.php:200
+#: setup/lib/messages.inc.php:202
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
 "Chap ramkada va bazalar ro‘yxatida ko‘rsatiladigan ma`lumotlar bazalarining "
 "maksimal soni"
 
-#: setup/lib/messages.inc.php:201
+#: setup/lib/messages.inc.php:203
 msgid "Maximum databases"
 msgstr "Ma`lumotlar bazalarining maksimal soni"
 
-#: setup/lib/messages.inc.php:202
+#: setup/lib/messages.inc.php:204
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
@@ -7033,19 +7041,19 @@ msgstr ""
 "ko‘rsatilgan qiymatdan ko‘p bo‘lsa, \"Oldingi\" va \"Keyingi\" bog‘lanishlar "
 "ko‘rsatiladi."
 
-#: setup/lib/messages.inc.php:203
+#: setup/lib/messages.inc.php:205
 msgid "Maximum number of rows to display"
 msgstr "Ko‘rsatiladigan qatorlarning maksimal soni"
 
-#: setup/lib/messages.inc.php:204
+#: setup/lib/messages.inc.php:206
 msgid "Maximum number of tables displayed in table list"
 msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
 
-#: setup/lib/messages.inc.php:205
+#: setup/lib/messages.inc.php:207
 msgid "Maximum tables"
 msgstr "Maksimal jadvallar soni"
 
-#: setup/lib/messages.inc.php:206
+#: setup/lib/messages.inc.php:208
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
@@ -7053,41 +7061,41 @@ msgstr ""
 "Skript uchun ajratiladigan baylardagi xotira miqdori, masalan [kbd]32M[/kbd] "
 "([kbd]0[/kbd] - chegaralanmagan)."
 
-#: setup/lib/messages.inc.php:207
+#: setup/lib/messages.inc.php:209
 msgid "Memory limit"
 msgstr "Xotira miqdori"
 
-#: setup/lib/messages.inc.php:208 setup/lib/messages.inc.php:220
+#: setup/lib/messages.inc.php:210 setup/lib/messages.inc.php:222
 msgid "Use only icons, only text or both"
 msgstr "Faqat piktogramma, faqat matn yoki har ikkisini ishlatish"
 
-#: setup/lib/messages.inc.php:209
+#: setup/lib/messages.inc.php:211
 msgid "Iconic navigation bar"
 msgstr "Piktogrammali navigatsiya menyusi"
 
-#: setup/lib/messages.inc.php:210
+#: setup/lib/messages.inc.php:212
 msgid "New server"
 msgstr "Yangi server"
 
-#: setup/lib/messages.inc.php:211
+#: setup/lib/messages.inc.php:213
 msgid "There are no configured servers"
 msgstr "Bironta ham konfiguratsiyalangan server mavjud emas"
 
-#: setup/lib/messages.inc.php:212
+#: setup/lib/messages.inc.php:214
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
 "HTTP orqali ma`lumot uzatishda yuqori tezlikka erishish uchun GZip "
 "buferizatsiyadan foydalaning"
 
-#: setup/lib/messages.inc.php:213
+#: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
 msgstr "GZip buferizatsiya"
 
-#: setup/lib/messages.inc.php:214
+#: setup/lib/messages.inc.php:216
 msgid "- none -"
 msgstr "- yo‘q -"
 
-#: setup/lib/messages.inc.php:215
+#: setup/lib/messages.inc.php:217
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -7095,35 +7103,35 @@ msgstr ""
 "[kbd]SMART[/kbd] – ya`ni, TIME, DATE, DATETIME va TIMESTAMP turidagi "
 "maydonlar uchun kamayish tartibida, aks holda ko‘payish tartibida"
 
-#: setup/lib/messages.inc.php:216
+#: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
 msgstr "Asl tartiblash qoidasi"
 
-#: setup/lib/messages.inc.php:217
+#: setup/lib/messages.inc.php:219
 msgid "Overview"
 msgstr "Ko‘rib chiqish"
 
-#: setup/lib/messages.inc.php:218
+#: setup/lib/messages.inc.php:220
 msgid "Use persistent connections to MySQL databases"
 msgstr "MySQL ma`lumotlar bazalarida doimiy ulanishlardan foydalanish"
 
-#: setup/lib/messages.inc.php:219
+#: setup/lib/messages.inc.php:221
 msgid "Persistent connections"
 msgstr "Doimiy ulanishlar"
 
-#: setup/lib/messages.inc.php:221
+#: setup/lib/messages.inc.php:223
 msgid "Iconic table operations"
 msgstr "Jadval operatsiyalarini piktogrammalar yordamida amalga oshirish"
 
-#: setup/lib/messages.inc.php:222
+#: setup/lib/messages.inc.php:224
 msgid "Disallow BLOB and BINARY fields from editing"
 msgstr "BLOB va BINARY maydonlarini tahirlashni man etish"
 
-#: setup/lib/messages.inc.php:223
+#: setup/lib/messages.inc.php:225
 msgid "Protect binary fields"
 msgstr "Binar (ikkilik) maydonlarni himoyalash"
 
-#: setup/lib/messages.inc.php:224
+#: setup/lib/messages.inc.php:226
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
 "this utilizes JS-routines to display query history (lost by window close)."
@@ -7132,52 +7140,52 @@ msgstr ""
 "tanlovni yoqing (pmadb talab etiladi). Ushbu tanlov o‘chirilgan bo‘lsa, oyna "
 "yopilgan zahoti so‘rovlar tarixi yo‘qoladi."
 
-#: setup/lib/messages.inc.php:225
+#: setup/lib/messages.inc.php:227
 msgid "Permanent query history"
 msgstr "Doimiy so‘rovlar tarixi"
 
-#: setup/lib/messages.inc.php:226
+#: setup/lib/messages.inc.php:228
 msgid "How many queries are kept in history"
 msgstr "Jurnalda saqlanadigan so‘rovlar soni"
 
-#: setup/lib/messages.inc.php:227
+#: setup/lib/messages.inc.php:229
 msgid "Query history length"
 msgstr "So‘rovlar tarixi uzunligi"
 
-#: setup/lib/messages.inc.php:228
+#: setup/lib/messages.inc.php:230
 msgid "Tab displayed when opening a new query window"
 msgstr "Yangi so‘rovlar oynasi ochilganda ko‘rsatiladigan yorliq"
 
-#: setup/lib/messages.inc.php:229
+#: setup/lib/messages.inc.php:231
 msgid "Default query window tab"
 msgstr "So‘rovlar oynasining yorlig‘i"
 
-#: setup/lib/messages.inc.php:230
+#: setup/lib/messages.inc.php:232
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
 "Kodirovkalarni bir-biriga o‘tkazishda foydalaniladigan funksiyalarni tanlang"
 
-#: setup/lib/messages.inc.php:231
+#: setup/lib/messages.inc.php:233
 msgid "Recoding engine"
 msgstr "Kodirovkalash funksiyasi"
 
-#: setup/lib/messages.inc.php:232
+#: setup/lib/messages.inc.php:234
 msgid "Restore default value"
 msgstr "Asl qiymatlarni tiklash"
 
-#: setup/lib/messages.inc.php:233
+#: setup/lib/messages.inc.php:235
 msgid "Try to revert erroneous fields to their default values"
 msgstr "Yanglish maydonlarni asl qiymatiga qaytarishga urinish"
 
-#: setup/lib/messages.inc.php:234
+#: setup/lib/messages.inc.php:236
 msgid "Directory where exports can be saved on server"
 msgstr "Serverdagi eksport fayllar saqlanadigan direktoriya"
 
-#: setup/lib/messages.inc.php:235
+#: setup/lib/messages.inc.php:237
 msgid "Save directory"
 msgstr "Saqlash direktoriyasi"
 
-#: setup/lib/messages.inc.php:236
+#: setup/lib/messages.inc.php:238
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -7196,53 +7204,53 @@ msgstr ""
 "$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki [kbd]http[/"
 "kbd] deb belgilash tavsiya etiladi."
 
-#: setup/lib/messages.inc.php:237
+#: setup/lib/messages.inc.php:239
 msgid "You should use mysqli for performance reasons"
 msgstr "Unumdorlikni oshirish maqsadida \"mysqli\"dan foydalaning"
 
-#: setup/lib/messages.inc.php:238
+#: setup/lib/messages.inc.php:240
 msgid "You allow for connecting to the server without a password."
 msgstr "Serverga parolsiz ulanishga ruxsat berasizmi?"
 
-#: setup/lib/messages.inc.php:239
+#: setup/lib/messages.inc.php:241
 msgid "Add a new server"
 msgstr "Yangi foydalanuvchi qo‘shish"
 
-#: setup/lib/messages.inc.php:240
+#: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
 msgstr "Agar ishlatilmasa bo‘sh qoldiring"
 
-#: setup/lib/messages.inc.php:241
+#: setup/lib/messages.inc.php:243
 msgid "Host authentication order"
 msgstr "Autentifikatsiya tartibi"
 
-#: setup/lib/messages.inc.php:242
+#: setup/lib/messages.inc.php:244
 msgid "Leave blank for defaults"
 msgstr "Asl qoidalarni ishlatish uchun bo‘sh qoldiring"
 
-#: setup/lib/messages.inc.php:243
+#: setup/lib/messages.inc.php:245
 msgid "Host authentication rules"
 msgstr "Autentifikatsiya qoidalari"
 
-#: setup/lib/messages.inc.php:244
+#: setup/lib/messages.inc.php:246
 msgid "Allow logins without a password"
 msgstr "Parolsiz qirishga ruxsat bеrish"
 
-#: setup/lib/messages.inc.php:245
+#: setup/lib/messages.inc.php:247
 msgid "Allow root login"
 msgstr "\"root\"ga kirishga ruxsat berish"
 
-#: setup/lib/messages.inc.php:246
+#: setup/lib/messages.inc.php:248
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
 "HTTP Avtorizatsiya vaqtida ko‘rsatiladigan Oddiy HTTP Avtorizatsiya Bo‘limi "
 "nomi"
 
-#: setup/lib/messages.inc.php:247
+#: setup/lib/messages.inc.php:249
 msgid "HTTP Realm"
 msgstr "HTTP Bo‘limi"
 
-#: setup/lib/messages.inc.php:248
+#: setup/lib/messages.inc.php:250
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -7252,19 +7260,19 @@ msgstr ""
 "konfiguratsion fayl yo‘li (hujjatlar katalogiga joylashtirilmagan; tavsiya "
 "etiladi: /etc/swekey.conf)"
 
-#: setup/lib/messages.inc.php:249
+#: setup/lib/messages.inc.php:251
 msgid "SweKey config file"
 msgstr "\"SweKey\" konfiguratsiya fayli"
 
-#: setup/lib/messages.inc.php:250
+#: setup/lib/messages.inc.php:252
 msgid "Authentication method to use"
 msgstr "Foydalaniladigan autentifikatsiya usuli"
 
-#: setup/lib/messages.inc.php:251
+#: setup/lib/messages.inc.php:253
 msgid "Authentication type"
 msgstr "Autentifikatsiya usuli"
 
-#: setup/lib/messages.inc.php:252
+#: setup/lib/messages.inc.php:254
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -7272,11 +7280,11 @@ msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/bookmark]Xatcho‘p[/a] ishlatmaslik uchun "
 "bo‘sh qoldiring, asli: [kbd]pma_bookmark[/kbd]"
 
-#: setup/lib/messages.inc.php:253
+#: setup/lib/messages.inc.php:255
 msgid "Bookmark table"
 msgstr "Xatcho‘plar jadvali"
 
-#: setup/lib/messages.inc.php:254
+#: setup/lib/messages.inc.php:256
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
@@ -7284,31 +7292,31 @@ msgstr ""
 "Ustun izohlari/\"mime\"-turlari haqidagi ma`lumotlarni ishlatmaslik uchun "
 "bo‘sh qoldiring, asli: [kbd]pma_column_info[/kbd]"
 
-#: setup/lib/messages.inc.php:255
+#: setup/lib/messages.inc.php:257
 msgid "Column information table"
 msgstr "Ustun ma`lumotlari jadvali"
 
-#: setup/lib/messages.inc.php:256
+#: setup/lib/messages.inc.php:258
 msgid "Compress connection to MySQL server"
 msgstr "MySQL serveiga ulanishni qisish"
 
-#: setup/lib/messages.inc.php:257
+#: setup/lib/messages.inc.php:259
 msgid "Compress connection"
 msgstr "Ulanishni qisish"
 
-#: setup/lib/messages.inc.php:258
+#: setup/lib/messages.inc.php:260
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr "Serverga ulanish turi, agar bilmasangiz, \"tcp\" deb qoldiring"
 
-#: setup/lib/messages.inc.php:259
+#: setup/lib/messages.inc.php:261
 msgid "Connection type"
 msgstr "Ulanish turi"
 
-#: setup/lib/messages.inc.php:260
+#: setup/lib/messages.inc.php:262
 msgid "Control user password"
 msgstr "Nazorat foydalanuvchisi paroli"
 
-#: setup/lib/messages.inc.php:261
+#: setup/lib/messages.inc.php:263
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -7317,19 +7325,19 @@ msgstr ""
 "batafsil ma`lumot [a@http://wiki.phpmyadmin.net/pma/controluser]\"wiki\"[/a]"
 "da mavjud"
 
-#: setup/lib/messages.inc.php:262
+#: setup/lib/messages.inc.php:264
 msgid "Control user"
 msgstr "Nazorat foydalanuvchisi"
 
-#: setup/lib/messages.inc.php:263
+#: setup/lib/messages.inc.php:265
 msgid "Count tables when showing database list"
 msgstr "Ma`lumotlar bazalari ro‘yxati ko‘rsatilganda jadvallarni sanash"
 
-#: setup/lib/messages.inc.php:264
+#: setup/lib/messages.inc.php:266
 msgid "Count tables"
 msgstr "Jadvallarni sanash"
 
-#: setup/lib/messages.inc.php:265
+#: setup/lib/messages.inc.php:267
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
@@ -7337,11 +7345,11 @@ msgstr ""
 "Dizayner ishlatmaslik uchun bo‘sh qoldiring, asl qiymati: [kbd]"
 "pma_designer_coords[/kbd]"
 
-#: setup/lib/messages.inc.php:266
+#: setup/lib/messages.inc.php:268
 msgid "Designer table"
 msgstr "Dizayner jadvali"
 
-#: setup/lib/messages.inc.php:267
+#: setup/lib/messages.inc.php:269
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -7350,11 +7358,11 @@ msgstr ""
 "\"PMA bug tracker\"[/a] va [a@http://bugs.mysql.com/19588]\"MySQL Bugs\"[/a]"
 "larga qarang"
 
-#: setup/lib/messages.inc.php:268
+#: setup/lib/messages.inc.php:270
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "INFORMATION_SCHEMA ishlatishni o‘chirish"
 
-#: setup/lib/messages.inc.php:269
+#: setup/lib/messages.inc.php:271
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - [a@?"
@@ -7372,30 +7380,30 @@ msgstr ""
 "foydalanuvchilar ulangan provayderga tegishli bo‘lsa, IP-adresga asoslangan "
 "himoya usuli ishonarli bo‘lmasligi mumkin."
 
-#: setup/lib/messages.inc.php:270
+#: setup/lib/messages.inc.php:272
 msgid "Edit server"
 msgstr "Serverlarni tahrirlash"
 
-#: setup/lib/messages.inc.php:271
+#: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 "Qaysi PHP kengaytmasidan foydalanmoqchisiz; iloji bo‘lsa, \"mysqli\" "
 "kengaytmasidan foydalaning"
 
-#: setup/lib/messages.inc.php:272
+#: setup/lib/messages.inc.php:274
 msgid "PHP extension to use"
 msgstr "Foydalaniladigan PHP kengaytmasi"
 
-#: setup/lib/messages.inc.php:273
+#: setup/lib/messages.inc.php:275
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 "Muntazam iboralar(PCRE)ga to‘g‘ri keladigan ma`lumotlar bazalarini yashirish"
 
-#: setup/lib/messages.inc.php:274
+#: setup/lib/messages.inc.php:276
 msgid "Hide databases"
 msgstr "Bazalarni yashirish"
 
-#: setup/lib/messages.inc.php:275
+#: setup/lib/messages.inc.php:277
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
@@ -7403,11 +7411,11 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: setup/lib/messages.inc.php:276
+#: setup/lib/messages.inc.php:278
 msgid "SQL query history table"
 msgstr "SQL so‘rovlari tarixi jadvali"
 
-#: setup/lib/messages.inc.php:277
+#: setup/lib/messages.inc.php:279
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
@@ -7419,33 +7427,33 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: setup/lib/messages.inc.php:278
+#: setup/lib/messages.inc.php:280
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL so‘rovlari tarixi jadvali"
 
-#: setup/lib/messages.inc.php:279
+#: setup/lib/messages.inc.php:281
 msgid "Hostname where MySQL server is running"
 msgstr "MySQL sеrvеri ishlayotgan xost nomi"
 
-#: setup/lib/messages.inc.php:280
+#: setup/lib/messages.inc.php:282
 msgid "Server hostname"
 msgstr "Sеrvеr xost nomi"
 
-#: setup/lib/messages.inc.php:281
+#: setup/lib/messages.inc.php:283
 msgid "Logout URL"
 msgstr "Chiqish URL"
 
-#: setup/lib/messages.inc.php:282
+#: setup/lib/messages.inc.php:284
 msgid "Try to connect without password"
 msgstr "Parolsiz ulanishga harakat qilish"
 
-#: setup/lib/messages.inc.php:283
+#: setup/lib/messages.inc.php:285
 msgid "Connect without password"
 msgstr "Parolsiz ulanish"
 
-#: setup/lib/messages.inc.php:284
+#: setup/lib/messages.inc.php:286
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -7454,31 +7462,31 @@ msgstr ""
 "oldiga teskari egri chiziq (\\) qo‘yishingiz kerak, masalan \\\"my\\_db\\"
 "\" (lekin \"my_db\" emas)"
 
-#: setup/lib/messages.inc.php:285
+#: setup/lib/messages.inc.php:287
 msgid "Show only listed databases"
 msgstr "Faqat ro‘yxatdagi bazalarni ko‘rsatish"
 
-#: setup/lib/messages.inc.php:286 setup/lib/messages.inc.php:320
+#: setup/lib/messages.inc.php:288 setup/lib/messages.inc.php:322
 msgid "Leave empty if not using config auth"
 msgstr ""
 "Agar \"config\" autentifikatsiya usulidan foydalanmasangiz, bo‘sh qoldiring"
 
-#: setup/lib/messages.inc.php:287
+#: setup/lib/messages.inc.php:289
 msgid "Password for config auth"
 msgstr "\"config\" autentifikatsiya usuli paroli"
 
-#: setup/lib/messages.inc.php:288
+#: setup/lib/messages.inc.php:290
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 "Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: [kbd]"
 "\"pma_pdf_pages\"[/kbd]"
 
-#: setup/lib/messages.inc.php:289
+#: setup/lib/messages.inc.php:291
 msgid "PDF schema: pages table"
 msgstr "PDF-sxema: sahifalar jadvali"
 
-#: setup/lib/messages.inc.php:290
+#: setup/lib/messages.inc.php:292
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -7489,16 +7497,16 @@ msgstr ""
 "ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: [kbd]"
 "\"phpmyadmin\"[/kbd]"
 
-#: setup/lib/messages.inc.php:292
+#: setup/lib/messages.inc.php:294
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "MySQL serveri tinglaydigan port, asl qiymatni qoldirish uchun bo‘sh qoldiring"
 
-#: setup/lib/messages.inc.php:293
+#: setup/lib/messages.inc.php:295
 msgid "Server port"
 msgstr "Server porti"
 
-#: setup/lib/messages.inc.php:294
+#: setup/lib/messages.inc.php:296
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -7506,19 +7514,19 @@ msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/relation]Aloqa bog‘lanishlari[/a]ni "
 "ishlatmaslik uchun, bo‘sh qoldiring, asl qiymati: [kbd]\"pma_relation\"[/kbd]"
 
-#: setup/lib/messages.inc.php:295
+#: setup/lib/messages.inc.php:297
 msgid "Relation table"
 msgstr "Aloqalar jadvali"
 
-#: setup/lib/messages.inc.php:296
+#: setup/lib/messages.inc.php:298
 msgid "SQL command to fetch available databases"
 msgstr "Mavjud jadvallarni ko‘rsatish uchun ishlatiladigan SQL buyrug‘i"
 
-#: setup/lib/messages.inc.php:297
+#: setup/lib/messages.inc.php:299
 msgid "SHOW DATABASES command"
 msgstr "SHOW DATABASES buyrug‘i"
 
-#: setup/lib/messages.inc.php:298
+#: setup/lib/messages.inc.php:300
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -7526,100 +7534,100 @@ msgstr ""
 "Namuna  uchun [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
 "autentifikatsiya usullari[/a]ga qarang"
 
-#: setup/lib/messages.inc.php:299
+#: setup/lib/messages.inc.php:301
 msgid "Signon session name"
 msgstr "Kirish sessiyasi nomi"
 
-#: setup/lib/messages.inc.php:300
+#: setup/lib/messages.inc.php:302
 msgid "Signon URL"
 msgstr "Kirish URL"
 
-#: setup/lib/messages.inc.php:301
+#: setup/lib/messages.inc.php:303
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: setup/lib/messages.inc.php:302
+#: setup/lib/messages.inc.php:304
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Avtomatik tiklash rejimi"
 
-#: setup/lib/messages.inc.php:303
+#: setup/lib/messages.inc.php:305
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: setup/lib/messages.inc.php:304
+#: setup/lib/messages.inc.php:306
 #, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
 msgstr "Tavsif"
 
-#: setup/lib/messages.inc.php:305
+#: setup/lib/messages.inc.php:307
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: setup/lib/messages.inc.php:306
+#: setup/lib/messages.inc.php:308
 msgid "Add DROP VIEW"
 msgstr ""
 
-#: setup/lib/messages.inc.php:307
+#: setup/lib/messages.inc.php:309
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
-#: setup/lib/messages.inc.php:308
+#: setup/lib/messages.inc.php:310
 msgid "Add DROP TABLE"
 msgstr ""
 
-#: setup/lib/messages.inc.php:309
+#: setup/lib/messages.inc.php:311
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
-#: setup/lib/messages.inc.php:310
+#: setup/lib/messages.inc.php:312
 msgid "Add DROP DATABASE"
 msgstr ""
 
-#: setup/lib/messages.inc.php:311
+#: setup/lib/messages.inc.php:313
 msgid "You should use SSL connections if your web server supports it"
 msgstr "Agar veb-serveringiz imkon bersa, SSL-ulanishdan foydalaning"
 
-#: setup/lib/messages.inc.php:312
+#: setup/lib/messages.inc.php:314
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr "MySQL serveri tinglaydigan soket, asl qiymati uchun bo‘sh qoldiring"
 
-#: setup/lib/messages.inc.php:313
+#: setup/lib/messages.inc.php:315
 msgid "Server socket"
 msgstr "Server soketi"
 
-#: setup/lib/messages.inc.php:314
+#: setup/lib/messages.inc.php:316
 msgid "Enable SSL for connection to MySQL server"
 msgstr ""
 "SSL (Secure Sockets Layer - himoyalangan soketlar protokoli) ulanishdan "
 "foydalanish"
 
-#: setup/lib/messages.inc.php:315
+#: setup/lib/messages.inc.php:317
 msgid "Use SSL"
 msgstr "SSL ulanishdan foydalanish"
 
-#: setup/lib/messages.inc.php:316
+#: setup/lib/messages.inc.php:318
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 "PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: [kbd]"
 "\"pma_table_coords\"[/kbd]"
 
-#: setup/lib/messages.inc.php:317
+#: setup/lib/messages.inc.php:319
 msgid "PDF schema: table coordinates"
 msgstr "PDF-sxema: jadval koordinatalari"
 
-#: setup/lib/messages.inc.php:318
+#: setup/lib/messages.inc.php:320
 msgid ""
 "Table to describe the display fields, leave blank for no support; suggested: "
 "[kbd]pma_table_info[/kbd]"
@@ -7627,15 +7635,15 @@ msgstr ""
 "Ko‘rsatiladigan maydonlar sharhlari saqlanadigan jadval, ishlatmaslik uchun "
 "bo‘sh qoldiring, asl qiymati: [kbd]\"pma_table_info\"[/kbd]"
 
-#: setup/lib/messages.inc.php:319
+#: setup/lib/messages.inc.php:321
 msgid "Display fields table"
 msgstr "Maydonlar jadvalini ko‘rsatish"
 
-#: setup/lib/messages.inc.php:321
+#: setup/lib/messages.inc.php:323
 msgid "User for config auth"
 msgstr "\"config\" autentifikatsiya usuli foydalanuvchisi"
 
-#: setup/lib/messages.inc.php:322
+#: setup/lib/messages.inc.php:324
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
@@ -7645,36 +7653,36 @@ msgstr ""
 "tekshiruvlarning oldini olgan bo‘lasiz va ishlash unumdorligini oshirgan "
 "bo‘lasiz"
 
-#: setup/lib/messages.inc.php:323
+#: setup/lib/messages.inc.php:325
 msgid "Verbose check"
 msgstr "Kengaytirilgan tekshiruv"
 
-#: setup/lib/messages.inc.php:324
+#: setup/lib/messages.inc.php:326
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "MySQL serveri ishlayotgan xost server nomi"
 
-#: setup/lib/messages.inc.php:325
+#: setup/lib/messages.inc.php:327
 msgid "Verbose name of this server"
 msgstr "Ushbu serverning kengaytirilgan nomi"
 
-#: setup/lib/messages.inc.php:326
+#: setup/lib/messages.inc.php:328
 #, php-format
 msgid "Set value: %s"
 msgstr "Quyidagi qiymatni o‘rnatish: \"%s\""
 
-#: setup/lib/messages.inc.php:327
+#: setup/lib/messages.inc.php:329
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgstr ""
 "Foydalanuvchiga \"barcha (yozuvlar)ni ko‘rsatish\" tugmasi ko‘rsatilsinmi?"
 
-#: setup/lib/messages.inc.php:328
+#: setup/lib/messages.inc.php:330
 msgid "Allow to display all the rows"
 msgstr "Barcha qatorlarni ko‘rsatishga ruxsat berish"
 
-#: setup/lib/messages.inc.php:329
+#: setup/lib/messages.inc.php:331
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -7683,31 +7691,31 @@ msgstr ""
 "Esda tuting, ushbu tanlovni yoqishingiz [kbd]\"config\"[/kbd] "
 "autentifikatsiya usulidagi parolga ta`sir etmaydi"
 
-#: setup/lib/messages.inc.php:330
+#: setup/lib/messages.inc.php:332
 msgid "Show password change form"
 msgstr "Parolni o‘zgartirish formasini ko‘rsatish"
 
-#: setup/lib/messages.inc.php:331
+#: setup/lib/messages.inc.php:333
 msgid "Show create database form"
 msgstr "Ma`lumotlar bazasi tuzish formasini ko‘rsatish"
 
-#: setup/lib/messages.inc.php:332
+#: setup/lib/messages.inc.php:334
 msgid "Show form"
 msgstr "Formani ko‘rsatish"
 
-#: setup/lib/messages.inc.php:333
+#: setup/lib/messages.inc.php:335
 msgid "Display the function fields in edit/insert mode"
 msgstr "Tahrirlash/qo‘yish rejimida funksiyalar maydonini ko‘rsatish"
 
-#: setup/lib/messages.inc.php:334
+#: setup/lib/messages.inc.php:336
 msgid "Show function fields"
 msgstr "Fuknsiyalarmaydonini ko‘rsatish"
 
-#: setup/lib/messages.inc.php:335
+#: setup/lib/messages.inc.php:337
 msgid "Show hidden messages (#MSG_COUNT)"
 msgstr "Yashirin xabarlarni ko‘rsatish (#MSG_COUNT)"
 
-#: setup/lib/messages.inc.php:336
+#: setup/lib/messages.inc.php:338
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -7715,35 +7723,35 @@ msgstr ""
 "[a@http://php.net/manual/function.phpinfo.php]\"phpinfo()\"[/a] funksiyasi "
 "natijasiga bog‘ ko‘rsatish"
 
-#: setup/lib/messages.inc.php:337
+#: setup/lib/messages.inc.php:339
 msgid "Show phpinfo() link"
 msgstr "\"phpinfo()\" funksiyasiga bog‘ ko‘rsatish"
 
-#: setup/lib/messages.inc.php:338
+#: setup/lib/messages.inc.php:340
 msgid "Show detailed MySQL server information"
 msgstr "MySQL serveri haqida batafsil ma`lumot ko‘rsatish"
 
-#: setup/lib/messages.inc.php:339
+#: setup/lib/messages.inc.php:341
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 "phpMyAdmin tomonidan generatsiya qilingan SQL so‘rovlarini ko‘rsatish "
 "kerakmi?"
 
-#: setup/lib/messages.inc.php:340
+#: setup/lib/messages.inc.php:342
 msgid "Show SQL queries"
 msgstr "Show SQL so‘rovlarini ko‘rsatish"
 
-#: setup/lib/messages.inc.php:341
+#: setup/lib/messages.inc.php:343
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 "Ma`lumotlar bazalari va jadvallar statiskasini (masalan, diskda egallagan "
 "joyi) ko‘rsatish"
 
-#: setup/lib/messages.inc.php:342
+#: setup/lib/messages.inc.php:344
 msgid "Show statistics"
 msgstr "Statiskani ko‘rsatish"
 
-#: setup/lib/messages.inc.php:343
+#: setup/lib/messages.inc.php:345
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
@@ -7752,11 +7760,11 @@ msgstr ""
 "sharh o‘rnatilgan bo‘lsa, ushbu tanlov baza sharhi va haqiqiy nomi o‘rnini "
 "almashtiradi"
 
-#: setup/lib/messages.inc.php:344
+#: setup/lib/messages.inc.php:346
 msgid "Display database comment instead of its name"
 msgstr "Baza nomi o‘rniga uning sharhini ko‘rsatish"
 
-#: setup/lib/messages.inc.php:345
+#: setup/lib/messages.inc.php:347
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -7768,26 +7776,26 @@ msgstr ""
 "direktivasida ko‘rsatilgan usulda jadvallar bo‘linadi, lekin jadval nomlari "
 "o‘zgarishsiz qoladi"
 
-#: setup/lib/messages.inc.php:346
+#: setup/lib/messages.inc.php:348
 msgid "Display table comment instead of its name"
 msgstr "Jadval nomi o‘rniga uning sharhini ko‘rsatish"
 
-#: setup/lib/messages.inc.php:347
+#: setup/lib/messages.inc.php:349
 msgid "Display table comments in tooltips"
 msgstr "Jadval sharhlarini ko‘rsatgich kontekst oynasida ko‘rsatish"
 
-#: setup/lib/messages.inc.php:348
+#: setup/lib/messages.inc.php:350
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Ishlatilayotgan jadvallarni belgilash va qulflangan jadvallari mavjud "
 "bo‘lgan ma`lumotlar bazalarini ko‘rishga imkon berish"
 
-#: setup/lib/messages.inc.php:349
+#: setup/lib/messages.inc.php:351
 msgid "Skip locked tables"
 msgstr "Qulflangan jadvallarni tashlab ketishlik"
 
-#: setup/lib/messages.inc.php:355
+#: setup/lib/messages.inc.php:357
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
@@ -7795,15 +7803,15 @@ msgstr ""
 "\"Baza tuzish\" formasida ma`lumotlar bazasi nomini taklif eting yoki matn "
 "maydonini bo‘sh qoldiring"
 
-#: setup/lib/messages.inc.php:356
+#: setup/lib/messages.inc.php:358
 msgid "Suggest new database name"
 msgstr "Yangi baza nomini taklif etish"
 
-#: setup/lib/messages.inc.php:357
+#: setup/lib/messages.inc.php:359
 msgid "yes"
 msgstr "to‘g‘ri"
 
-#: setup/lib/messages.inc.php:358
+#: setup/lib/messages.inc.php:360
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -7815,30 +7823,30 @@ msgstr ""
 "kelayotgan HTTP_X_FORWARDED_FOR (X-Forwarded-For) sarlavhani ishonchli deb "
 "qabul qilishini ta`minlaydi: [br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: setup/lib/messages.inc.php:359
+#: setup/lib/messages.inc.php:361
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 "IP bo‘yicha ruxsat berish/rad etish uchun ishonarli proksi-serverlar ro‘yxati"
 
-#: setup/lib/messages.inc.php:360
+#: setup/lib/messages.inc.php:362
 msgid "Directory on server where you can upload files for import"
 msgstr "Serverda import fayllari saqlanadigan direktoriya"
 
-#: setup/lib/messages.inc.php:361
+#: setup/lib/messages.inc.php:363
 msgid "Upload directory"
 msgstr "Import  direktoriyasi"
 
-#: setup/lib/messages.inc.php:362
+#: setup/lib/messages.inc.php:364
 msgid "Allow for searching inside the entire database"
 msgstr ""
 "Ma`lumotlar bazasi ichidagi ma`lumotlarni to‘laligicha qidirishga ruxsat "
 "berish"
 
-#: setup/lib/messages.inc.php:363
+#: setup/lib/messages.inc.php:365
 msgid "Use database search"
 msgstr "Bazani qidirishdan foydalanish"
 
-#: setup/lib/messages.inc.php:364
+#: setup/lib/messages.inc.php:366
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -7848,11 +7856,11 @@ msgstr ""
 "necha so‘rovnio‘z ichiga olishi mumkinligi \"libraries/import.lib.php\" "
 "faylida belgilangan."
 
-#: setup/lib/messages.inc.php:365
+#: setup/lib/messages.inc.php:367
 msgid "Verbose multiple statements"
 msgstr "Kengaytirilgan ibora"
 
-#: setup/lib/messages.inc.php:366
+#: setup/lib/messages.inc.php:368
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
@@ -7860,15 +7868,15 @@ msgstr ""
 "Versiyani aniqlab bo‘lmadi. Balki Siz offlayndasiz yoki server javob bera "
 "olmayapti."
 
-#: setup/lib/messages.inc.php:367
+#: setup/lib/messages.inc.php:369
 msgid "Got invalid version string from server"
 msgstr "Serverdar versiya haqida noo‘rin ma`lumot olindi"
 
-#: setup/lib/messages.inc.php:368
+#: setup/lib/messages.inc.php:370
 msgid "Check for latest version"
 msgstr "Oxirgi versiyani tekshirish"
 
-#: setup/lib/messages.inc.php:369
+#: setup/lib/messages.inc.php:371
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -7878,7 +7886,7 @@ msgstr ""
 "yangilashingizni tavsiya etamiz. Eng yangi versiya \"%s\" bo‘lib, u \"%s\" "
 "sanada chiqarilgan."
 
-#: setup/lib/messages.inc.php:370
+#: setup/lib/messages.inc.php:372
 #, fuzzy, php-format
 #| msgid ""
 #| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
@@ -7890,28 +7898,28 @@ msgstr ""
 "Siz subversiyadan foydalanmoqdasiz. O‘z versiyangizni yangilashingizni "
 "tavsiya etamiz. Eng yangi versiya \"%s\" bo‘lib, u \"%s\" sanada chiqarilgan."
 
-#: setup/lib/messages.inc.php:371
+#: setup/lib/messages.inc.php:373
 msgid "No newer stable version is available"
 msgstr "Yangiroq versiya hali mavjud emas"
 
-#: setup/lib/messages.inc.php:372
+#: setup/lib/messages.inc.php:374
 msgid "Unparsable version string"
 msgstr "Versiya haqida tushunarsiz ma`lumot"
 
-#: setup/lib/messages.inc.php:373
+#: setup/lib/messages.inc.php:375
 msgid "Version check"
 msgstr "Versiyani tekshirish"
 
-#: setup/lib/messages.inc.php:374
+#: setup/lib/messages.inc.php:376
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr "Na URL qodoqlagich va na CURL mavjud. Versiyani tekshirib bo‘lmadi."
 
-#: setup/lib/messages.inc.php:375
+#: setup/lib/messages.inc.php:377
 msgid "Warning"
 msgstr "Ogohlantirish"
 
-#: setup/lib/messages.inc.php:376
+#: setup/lib/messages.inc.php:378
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -7919,7 +7927,7 @@ msgstr ""
 "Import va eksport operatsiyalari uchun  [a@http://en.wikipedia.org/wiki/ZIP_"
 "(file_format)]ZIP[/a] qisishni yoqish"
 
-#: setup/lib/messages.inc.php:377
+#: setup/lib/messages.inc.php:379
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
@@ -7928,7 +7936,7 @@ msgstr ""
 "[a@?page=form&amp;formset=features#tab_Import_export]ZIP yordamida qisish[/"
 "a] tizimda mavjud bo‘lmagan (\"%s\") funksiyalarini talab etadi."
 
-#: setup/lib/messages.inc.php:378
+#: setup/lib/messages.inc.php:380
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
@@ -7937,7 +7945,7 @@ msgstr ""
 "[a@?page=form&amp;formset=features#tab_Import_export]ZIP yordamida ochish [/"
 "a] tizimda mavjud bo‘lmagan (\"%s\") funksiyalarini talab etadi."
 
-#: setup/lib/messages.inc.php:379
+#: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr "ZIP"
 
