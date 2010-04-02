@@ -1265,3 +1265,22 @@ table#serverconnection_src_local,
 table#serverconnection_trg_local  {
   float:left;
 }
+
+#NavFilter {
+    display: none;
+}
+
+#clear_fast_filter {
+    background: white;
+    color: black;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    right: 3ex;
+}
+
+#fast_filter {
+    width: 90%;
+    padding: 0.1em;
+}
