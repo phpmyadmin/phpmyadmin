@@ -2188,7 +2188,7 @@ msgstr "లిథుయేనియన్"
 
 #: libraries/messages.inc.php:501
 msgid "Local"
-msgstr ""
+msgstr "స్థానిక"
 
 #: libraries/messages.inc.php:502
 msgid "Location of the text file"
