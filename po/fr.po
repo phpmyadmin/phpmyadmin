@@ -1894,7 +1894,7 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
-"Veuillez patienter, le fichier est téléchargé; les détails sur le chargement "
+"Veuillez patienter, le fichier est téléchargé. Les détails sur le chargement "
 "ne sont pas disponibles."
 
 #: libraries/messages.inc.php:423
