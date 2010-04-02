@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-02 18:22+0200\n"
+"PO-Revision-Date: 2010-04-02 18:24+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -313,7 +313,7 @@ msgstr "Sugrįžti į buvusį puslapį"
 
 #: libraries/messages.inc.php:55
 msgid "Insert another new row"
-msgstr "Įterpti sekančią naują eilutę"
+msgstr "Įterpti kitą naują eilutę"
 
 #: libraries/messages.inc.php:56
 msgid "Edit next row"
