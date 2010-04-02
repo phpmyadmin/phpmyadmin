@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 10:09+0200\n"
-"PO-Revision-Date: 2010-04-02 11:15+0200\n"
+"PO-Revision-Date: 2010-04-02 11:16+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -1228,7 +1228,7 @@ msgstr "తేడా"
 
 #: libraries/messages.inc.php:269
 msgid "Direct links"
-msgstr ""
+msgstr "నేరు లంకెలు"
 
 #: libraries/messages.inc.php:270
 msgid "Dirty pages"
