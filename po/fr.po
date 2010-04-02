@@ -2883,7 +2883,8 @@ msgid ""
 "a value between 1 and 99. The default is 50."
 msgstr ""
 "Le pourcentage d'information parasites dans un journal de données au-delà "
-"duquel il est comprimé. Il s'agit d'une valeur entre 1 et 99, par défaut 50."
+"duquel il est comprimé. Il s'agit d'une valeur entre 1 et 99. La valeur par "
+"défaut est 50."
 
 #: libraries/messages.inc.php:634
 msgid "Garbage threshold"
