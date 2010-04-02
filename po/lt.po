@@ -317,7 +317,7 @@ msgstr "Įterpti kitą naują eilutę"
 
 #: libraries/messages.inc.php:56
 msgid "Edit next row"
-msgstr "Redaguoti sekantį įrašą"
+msgstr "Redaguoti kitą įrašą"
 
 #: libraries/messages.inc.php:57
 msgid "Go back to this page"
