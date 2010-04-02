@@ -2192,7 +2192,7 @@ msgstr "స్థానిక"
 
 #: libraries/messages.inc.php:502
 msgid "Location of the text file"
-msgstr ""
+msgstr "పాఠ్యపు దస్త్రం యొక్క ప్రాంతం"
 
 #: libraries/messages.inc.php:503
 msgid "Login Information"
