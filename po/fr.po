@@ -4350,9 +4350,9 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
-"Le nombre de pages dans la réserve InnoDB qui sont actuellement en train "
-"d'être lues ou écrites, ou qui ne peuvent être supprimées pour une autre "
-"raison."
+"Le nombre de pages dans la réserve InnoDB. Ce sont des pages actuellement en "
+"train d'être lues ou écrites, ou qui ne peuvent être supprimées pour une "
+"autre raison."
 
 #: libraries/messages.inc.php:937
 msgid ""
