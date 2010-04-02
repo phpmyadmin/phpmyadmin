@@ -5598,7 +5598,7 @@ msgstr "పశ్చిమ ఐరోపియన్"
 
 #: libraries/messages.inc.php:1265
 msgid "Wiki"
-msgstr ""
+msgstr "వికీ"
 
 #: libraries/messages.inc.php:1266
 msgid "wildcard"
