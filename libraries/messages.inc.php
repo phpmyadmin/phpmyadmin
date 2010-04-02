@@ -8,6 +8,10 @@
  * file.
  */
 
+if (!function_exists('__')) {
+    die('Bad invocation!');
+}
+
 /* We use only utf-8 */
 $charset = 'utf-8';
 
