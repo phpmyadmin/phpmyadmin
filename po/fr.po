@@ -2962,9 +2962,9 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"La quantité de mémoire allouée au cache des enregistrements (valeur par "
-"défaut de 32 Mio). Utilisé pour le cache des changements aux fichiers de "
-"données (.xtd) et pointeurs (.xtr)."
+"La quantité de mémoire allouée au cache des enregistrements. La valeur par "
+"défaut est de 32 Mio. Cette mémoire est utilisée pour le cache des "
+"changements aux fichiers de données (.xtd) et pointeurs (.xtr)."
 
 #: libraries/messages.inc.php:646
 msgid "Record cache size"
