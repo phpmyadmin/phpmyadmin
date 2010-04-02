@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-02 16:04+0200\n"
+"PO-Revision-Date: 2010-04-02 16:05+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7481,14 +7481,12 @@ msgid "Statements to track"
 msgstr "Énoncés à suivre"
 
 #: setup/lib/messages.inc.php:307
-#, fuzzy
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
-"Définit si une déclaration «&nbsp;DROP VIEW IF EXISTS&nbsp;» sera ajoutée en "
-"première ligne dans le journal lors de la création de la vue. La valeur par "
-"défaut est «&nbsp;true&nbsp;»."
+"Définit si un énoncé DROP VIEW IF EXISTS sera ajoutée en première ligne dans "
+"le journal lors de la création de la vue."
 
 #: setup/lib/messages.inc.php:308
 msgid "Add DROP VIEW"
