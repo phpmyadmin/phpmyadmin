@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-02 13:51+0200\n"
+"PO-Revision-Date: 2010-04-02 13:52+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6495,6 +6495,7 @@ msgstr "Databáze PMA"
 #: setup/lib/messages.inc.php:133
 msgid "Tracking of changes made in database. Requires configured PMA database."
 msgstr ""
+"Sledování změn provedených v databazí. Vyžaduje nastavenou databázi PMA."
 
 #: setup/lib/messages.inc.php:134
 msgid "Changes tracking"
