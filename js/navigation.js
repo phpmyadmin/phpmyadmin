@@ -187,4 +187,5 @@ function clear_fast_filter() {
 jQuery(document).ready(function(){
     /* Display filter */
     jQuery('#NavFilter').css('display', 'inline');
+    jQuery('#clear_fast_filter').click(clear_fast_filter);
 });

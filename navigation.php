@@ -321,9 +321,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
             title="<?php echo $strNavTableFilter; ?>"
             onkeyup="setTimeout(function(word){ return function(){ fast_filter(word);}}(this.value),1000);"
             onfocus="this.select();" />
-        <span id="clear_fast_filter"
-            onclick="clear_fast_filter();"
-            title="<?php echo $strReset; ?>">X</span>
+        <span id="clear_fast_filter" title="<?php echo $strReset; ?>">X</span>
         </span>
         <?php
     }
