@@ -2718,7 +2718,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:624
 msgid "The password is empty!"
-msgstr ""
+msgstr "సంకేతపదం ఖాళీగా ఉంది!"
 
 #: libraries/messages.inc.php:625
 msgid "Password Hashing"
