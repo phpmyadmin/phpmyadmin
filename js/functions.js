@@ -576,7 +576,6 @@ function validateConnection(form_name, form_obj)
     {
         // All the text fields are checked excluding the port field because the default port can be used.
         if ((form_name.elements[i].type == 'text') && (form_name.elements[i].name != 'src_port') && (form_name.elements[i].name != 'trg_port')) {
-            check = true;
             check = emptyFormElements(form_obj, form_name.elements[i].name);
             if (check==false) {
                 element = form_name.elements[i].name;
@@ -592,7 +591,6 @@ function validateConnection(form_name, form_obj)
                     break;
                 else
                     continue;
-                break;
             }
         }
     }
