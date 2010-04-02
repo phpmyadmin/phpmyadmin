@@ -5,6 +5,6 @@
  */
 $(document).ready(function() {
     $('.server_selector').change(function() {
-        $(this).parent().parent().parent().children('.toggler').toggle(); 
+        $(this).closest('tbody').children('.toggler').toggle(); 
         });
 });
