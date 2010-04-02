@@ -3536,7 +3536,7 @@ msgstr "Nepodařilo se připojit k nadřízenému %s."
 
 #: libraries/messages.inc.php:787
 msgid "Replicate all databases; Ignore:"
-msgstr "Replikovat všechny databáze kromě:"
+msgstr "Replikovat všechny databáze s výjimkou::"
 
 #: libraries/messages.inc.php:788
 msgid "Ignore all databases; Replicate:"
