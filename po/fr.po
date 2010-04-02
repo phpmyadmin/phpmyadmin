@@ -6617,7 +6617,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:134
 msgid "Changes tracking"
-msgstr ""
+msgstr "Suivi des changements"
 
 #: setup/lib/messages.inc.php:135
 msgid "Customization"
