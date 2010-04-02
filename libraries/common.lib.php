@@ -2750,8 +2750,8 @@ function PMA_js_mootools_domready($code, $print=true)
   $out .= "\n" . '// ]]>' . "\n";
   $out .= '</script>';
 
-  if ($print)
-    echo $out;
+  //if ($print)
+  //  echo $out;
 
   return $out;
 }
