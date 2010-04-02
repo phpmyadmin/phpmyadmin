@@ -68,9 +68,9 @@ function PMA_langCheck()
     if (! empty($_COOKIE['pma_lang'])) {
         if (PMA_langSet($_COOKIE['pma_lang'])) {
             return true;
-        } elseif (!is_string($_COOKIE['lang'])) {
+        } elseif (!is_string($_COOKIE['pma_lang'])) {
             /* Faked request, don't care on localisation */
-            $GLOBALS['lang_failed_request'] = 'Yes';
+            $GLOBALS['lang_failed_cookie'] = 'Yes';
         } else {
             $GLOBALS['lang_failed_cookie'] = $_COOKIE['pma_lang'];
         }
