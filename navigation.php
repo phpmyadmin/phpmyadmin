@@ -14,8 +14,6 @@
  * @uses $GLOBALS['text_dir']
  * @uses $GLOBALS['charset']
  * @uses $GLOBALS['pmaThemeImage']
- * @uses $GLOBALS['strNavTableFilter']
- * @uses $GLOBALS['strReset']
  * @uses $GLOBALS['strNoDatabases']
  * @uses $GLOBALS['strDatabase']
  * @uses $GLOBALS['strGo']
@@ -317,8 +315,8 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     if ($table_count) {
         ?>
         <span id="NavFilter">
-        <input type="text" name="fast_filter" id="fast_filter" title="<?php echo $strNavTableFilter; ?>" />
-        <span id="clear_fast_filter" title="<?php echo $strReset; ?>">X</span>
+        <input type="text" name="fast_filter" id="fast_filter" title="<?php echo __('Filter'); ?>" />
+        <span id="clear_fast_filter" title="<?php echo __('Clear'); ?>">X</span>
         </span>
         <?php
     }
