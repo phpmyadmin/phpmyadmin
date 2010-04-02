@@ -463,7 +463,7 @@ msgstr "Binarinis logas"
 
 #: libraries/messages.inc.php:91
 msgid "Event type"
-msgstr "Event'o tipas"
+msgstr "Įvykio tipas"
 
 #: libraries/messages.inc.php:92
 msgid "Information"
