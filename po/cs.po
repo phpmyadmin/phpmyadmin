@@ -7362,6 +7362,7 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"Jestli přidat příkaz DROP TABLE IF EXISTS jako první při vytváření tabulky."
 
 #: setup/lib/messages.inc.php:310
 msgid "Add DROP TABLE"
