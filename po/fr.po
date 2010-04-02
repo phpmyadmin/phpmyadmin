@@ -2922,8 +2922,8 @@ msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
-"La quantité de mémoire allouée au cache du journal des transactions (valeur "
-"par défaut de 16 Mio)."
+"La quantité de mémoire allouée au cache du journal des transactions. La "
+"valeur par défaut est de 16 Mio."
 
 #: libraries/messages.inc.php:640
 msgid "Log cache size"
