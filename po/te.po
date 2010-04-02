@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 10:09+0200\n"
-"PO-Revision-Date: 2010-04-02 11:28+0200\n"
+"PO-Revision-Date: 2010-04-02 11:30+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -2684,7 +2684,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:616
 msgid "Paper size"
-msgstr ""
+msgstr "కాగితపు పరిమాణం"
 
 #: libraries/messages.inc.php:617
 msgid "Partial import"
