@@ -16,7 +16,7 @@ require_once './libraries/common.inc.php';
  * Does the common work
  */
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'mootools-more.js';
+$GLOBALS['js_include'][] = 'server_synchronize.js';
 require_once './libraries/server_common.inc.php';
 
 /**
@@ -1124,37 +1124,37 @@ if (isset($_REQUEST['synchronize_db'])) {
       </tr>
       <tr class="odd">
 	  <td colspan="2" style="text-align: center">
-	     <select name="' . $type . '_type" id="' . $type . '_type">
+	     <select name="' . $type . '_type" id="' . $type . '_type" class="server_selector">
 	      <option value="rmt">' . $GLOBALS['strRemoteServer'] . '</option>
 	      <option value="cur">' . $GLOBALS['strCurrentServer'] . '</option>
 	     </select>
 	  </td>
       </tr>
-	<tr class="even" id="' . $type . 'tr1">
+	<tr class="even toggler">
 	    <td>' . $GLOBALS['strHost'] . '</td>
 	    <td><input type="text" name="' . $type . '_host" /></td>
 	</tr>
-	<tr class="odd" id="' . $type . 'tr2">
+	<tr class="odd toggler">
 	    <td>' . $GLOBALS['strPort'] . '</td>
 	    <td><input type="text" name="' . $type . '_port" value="3306" maxlength="5" size="5" /></td>
 	</tr>
-	<tr class="even" id="' . $type . 'tr3">
+	<tr class="even toggler">
 	    <td>' . $GLOBALS['strSocket'] . '</td>
 	    <td><input type="text" name="' . $type . '_socket" /></td>
 	</tr>
-	<tr class="odd" id="'.$type.'tr4">
+	<tr class="odd toggler">
 	    <td>' . $GLOBALS['strUserName']. '</td>
 	    <td><input type="text" name="'. $type . '_username" /></td>
 	</tr>
-	<tr class="even" id="' . $type . 'tr5">
+	<tr class="even toggler">
 	    <td>' . $GLOBALS['strPassword'] . '</td>
 	    <td><input type="password" name="' . $type . '_pass" /> </td>
 	</tr>
-	<tr class="odd" id="' . $type . 'tr6">
+	<tr class="odd toggler">
 	    <td>' . $GLOBALS['strDatabase'] . '</td>
 	    <td><input type="text" name="' . $type . '_db" /></td>
 	</tr>
-	<tr class="even" id="' . $type . 'tr7" style="display: none;">
+	<tr class="even toggler" style="display: none;">
 	    <td>' . $GLOBALS['strDatabase'] . '</td>
 	    <td>';
       // these unset() do not complain if the elements do not exist
@@ -1174,22 +1174,6 @@ if (isset($_REQUEST['synchronize_db'])) {
 	}
 	echo '</td> </tr>
       </table>';
-
-    // Add JS to show/hide rows based on the selection
-      PMA_js(''.
-	'$(\'' . $type . '_type\').addEvent(\'change\',function() {' .
-	'    if ($(\'' . $type . 'tr1\').getStyle(\'display\')=="none") {' .
-	'	for (var i=1; i<7; i++)' .
-	'		$(\'' . $type . 'tr\'+i).tween(\'display\', \'table-row\');' .
-	'	$(\'' . $type . 'tr7\').tween(\'display\', \'none\');' .
-	'    }' .
-	'   else {' .
-	'	for (var i=1; i<7; i++)'.
-	'		$(\'' . $type . 'tr\'+i).tween(\'display\', \'none\');' .
-	'	$(\'' . $type . 'tr7\').tween(\'display\', \'table-row\');'.
-	'    }' .
-	'});'
-	);
    }
    unset ($types, $type);
 
