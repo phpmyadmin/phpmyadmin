@@ -17,7 +17,6 @@ require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'mootools-more.js';
-$GLOBALS['js_include'][] = 'mootools_common.js';
 
 require './libraries/server_common.inc.php';
 require './libraries/replication.inc.php';
