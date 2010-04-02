@@ -343,7 +343,7 @@ msgstr "rodyti visas lenteles vienodo pločio?"
 
 #: libraries/messages.inc.php:61
 msgid "Alter table order by"
-msgstr "Pakeisti lentelės rūšiavimą pagal:"
+msgstr "Pakeisti lentelės rikiavimą pagal:"
 
 #: libraries/messages.inc.php:62
 msgid "Analyze"
