@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 10:09+0200\n"
-"PO-Revision-Date: 2010-04-02 11:46+0200\n"
+"PO-Revision-Date: 2010-04-02 11:47+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -4827,7 +4827,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1094
 msgid "Table comments"
-msgstr ""
+msgstr "పట్టిక వ్యాఖ్యలు"
 
 #: libraries/messages.inc.php:1095
 msgid "Would you like to delete all the previous rows from target tables?"
