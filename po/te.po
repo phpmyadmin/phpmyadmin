@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 10:09+0200\n"
-"PO-Revision-Date: 2010-03-24 16:47+0200\n"
+"PO-Revision-Date: 2010-04-02 11:13+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -23,7 +23,7 @@ msgstr "వెళ్ళు"
 
 #: js/messages.php:46 libraries/messages.inc.php:131
 msgid "Cancel"
-msgstr ""
+msgstr "రద్దుచేయి"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
