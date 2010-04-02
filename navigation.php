@@ -318,7 +318,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         ?>
         <span id="NavFilter" style="display:none;">
         <span
-            onclick="document.getElementById('fast_filter').value=''; fast_filter('');document.getElementById('fast_filter').focus();"
+            onclick="clear_fast_filter();"
             style="background:white;color:black;cursor:pointer;padding:2px;margin:0 0 0 -20px;position:relative;float:right;"
             title="<?php echo $strReset; ?>">X</span>
         <input type="text" name="fast_filter" id="fast_filter"

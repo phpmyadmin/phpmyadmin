@@ -173,6 +173,16 @@ function fast_filter(value){
 	document.getElementById('fast_filter').disabled=false;
 }
 
+/**
+ * Clears fast filter.
+ */
+function clear_fast_filter() {
+    var elm = jQuery('#NavFilter input');
+    elm.val('');
+    fast_filter('');
+    elm.focus();
+}
+
 /* Performed on load */
 jQuery(document).ready(function(){
     /* Display filter */
