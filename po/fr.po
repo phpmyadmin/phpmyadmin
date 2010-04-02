@@ -7476,10 +7476,9 @@ msgstr ""
 "les nouvelles versions."
 
 #: setup/lib/messages.inc.php:306
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Information"
+msgstr "Énoncés à suivre"
 
 #: setup/lib/messages.inc.php:307
 #, fuzzy
