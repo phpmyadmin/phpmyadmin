@@ -470,14 +470,6 @@ $cfg['Servers'][$i]['tracking_add_drop_table'] = true;
 $cfg['Servers'][$i]['tracking_add_drop_database'] = true;
 
 /**
- * Whether a DROP DATABASE IF EXISTS statement will be added as first line to the log when creating a database.
- *
- * @global bool $cfg['Servers'][$i]['tracking_version_drop_database']
- */
-
-$cfg['Servers'][$i]['tracking_version_drop_database'] = true;
-
-/**
  * Default server (0 = no default server)
  *
  * If you have more than one server configured, you can set $cfg['ServerDefault']
@@ -578,7 +570,7 @@ $cfg['ShowSQL'] = true;
 $cfg['AllowUserDropDatabase'] = false;
 
 /**
- * confirm some commands that can result in loss of data 
+ * confirm some commands that can result in loss of data
  * (see "need_confirm" in the parser)
  *
  * @global boolean $cfg['Confirm']
@@ -873,7 +865,7 @@ $cfg['SuggestDBName'] = true;
 $cfg['NavigationBarIconic'] = true;
 
 /**
- * Defines whether a user should be displayed a "show all (records)" 
+ * Defines whether a user should be displayed a "show all (records)"
  * button in browse mode or not.
  *
  * @global boolean $cfg['ShowAll']
@@ -881,7 +873,7 @@ $cfg['NavigationBarIconic'] = true;
 $cfg['ShowAll'] = false;
 
 /**
- * Number of rows displayed when browsing a result set. If the result 
+ * Number of rows displayed when browsing a result set. If the result
  * set contains more rows, "Previous" and "Next".
  *
  * @global integer $cfg['MaxRows']
@@ -898,7 +890,7 @@ $cfg['MaxRows'] = 30;
 $cfg['Order'] = 'ASC';
 
 /**
- * default for 'Show binary contents as HEX' 
+ * default for 'Show binary contents as HEX'
  *
  * @global string $cfg['DisplayBinaryAsHex']
  */
