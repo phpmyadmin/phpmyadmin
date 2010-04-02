@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-02 16:06+0200\n"
+"PO-Revision-Date: 2010-04-02 16:07+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7505,14 +7505,12 @@ msgid "Add DROP TABLE"
 msgstr "Ajouter DROP TABLE"
 
 #: setup/lib/messages.inc.php:311
-#, fuzzy
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"Définit si une déclaration «&nbsp;DROP DATABASE IF EXISTS&nbsp;» sera ajoutée "
-"en première du journal lors de la création d'une table. La valeur par d"
-"\"faut est «&nbsp;true&nbsp;»."
+"Définit si un énoncé DROP DATABASE IF EXISTS sera ajouté en première ligne "
+"du journal lors de la création d'une base de données."
 
 #: setup/lib/messages.inc.php:312
 msgid "Add DROP DATABASE"
