@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-02 16:02+0200\n"
+"PO-Revision-Date: 2010-04-02 16:03+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7451,7 +7451,6 @@ msgid "Signon URL"
 msgstr "URL pour connexion"
 
 #: setup/lib/messages.inc.php:303
-#, fuzzy
 #| msgid ""
 #| "Whether the tracking mechanism creates versions for tables and views "
 #| "automatically. Default value is false."
@@ -7459,8 +7458,8 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
-"Définit si le mécanisme de suivi crée des versions pour les tables et les "
-"vues automatiquement. La valeur par défaut est «&nbsp;false&nbsp;»."
+"Définit si le mécanisme de suivi crée automatiquement des versions pour les "
+"tables et les vues."
 
 #: setup/lib/messages.inc.php:304
 #, fuzzy
