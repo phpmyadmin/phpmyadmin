@@ -7339,10 +7339,9 @@ msgstr ""
 ": [kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
-msgstr "Tables pour historique des requêtes SQL"
+msgstr "Table pour le suivi des changements SQL"
 
 #: setup/lib/messages.inc.php:281
 msgid "Hostname where MySQL server is running"
