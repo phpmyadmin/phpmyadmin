@@ -7460,7 +7460,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #~ msgid "utf-8"
 #~ msgstr "utf-8"
