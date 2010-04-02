@@ -576,26 +576,25 @@ function validateConnection(form_name, form_obj)
     {
         // All the text fields are checked excluding the port field because the default port can be used.
         if ((form_name.elements[i].type == 'text') && (form_name.elements[i].name != 'src_port') && (form_name.elements[i].name != 'trg_port')) {
-	    check = true;
+            check = true;
             check = emptyFormElements(form_obj, form_name.elements[i].name);
-
-	    if (check==false) {
-	      element = form_name.elements[i].name;
-	      if (form_name.elements[i].name == 'src_host') {
-		src_hostfilled = false;
-		continue;
-	      }
-	      if (form_name.elements[i].name == 'trg_host') {
-		trg_hostfilled = false;
-		continue;
-	      }
-	      if ((form_name.elements[i].name == 'src_socket' && src_hostfilled==false) || (form_name.elements[i].name == 'trg_socket' && trg_hostfilled==false))
-		break;
-	      else
-		continue;
-	      break;
-	    }
-	} 
+            if (check==false) {
+                element = form_name.elements[i].name;
+                if (form_name.elements[i].name == 'src_host') {
+                    src_hostfilled = false;
+                    continue;
+                }
+                if (form_name.elements[i].name == 'trg_host') {
+                    trg_hostfilled = false;
+                    continue;
+                }
+                if ((form_name.elements[i].name == 'src_socket' && src_hostfilled==false) || (form_name.elements[i].name == 'trg_socket' && trg_hostfilled==false))
+                    break;
+                else
+                    continue;
+                break;
+            }
+        }
     }
     if (!check) {
         form_obj.reset();
@@ -1686,10 +1685,10 @@ $(document).ready(function(){
  */
 
 function divShowHideFunc(ahref, id) {
-      $(ahref).addEvent('click', function() {
-      if ($(id).getStyle('display')=="none")
-	$(id).tween('display', 'block');
-      else
-	$(id).tween('display', 'none');
+    $(ahref).addEvent('click', function() {
+        if ($(id).getStyle('display')=="none")
+            $(id).tween('display', 'block');
+        else
+            $(id).tween('display', 'none');
     });
 }
