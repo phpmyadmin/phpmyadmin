@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 10:09+0200\n"
-"PO-Revision-Date: 2010-03-24 16:47+0200\n"
+"PO-Revision-Date: 2010-04-02 12:04+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -23,7 +23,7 @@ msgstr "వెళ్ళు"
 
 #: js/messages.php:46 libraries/messages.inc.php:131
 msgid "Cancel"
-msgstr ""
+msgstr "రద్దుచేయి"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -324,7 +324,7 @@ msgstr "ఈ పుటకు తిరిగి వెళ్ళుము"
 # మొదటి అనువాదము
 #: libraries/messages.inc.php:58
 msgid "All"
-msgstr "అన్నియు"
+msgstr "అన్నీ"
 
 #: libraries/messages.inc.php:59
 msgid ""
@@ -475,7 +475,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:94
 msgid "Original position"
-msgstr ""
+msgstr "అసలు స్థానం"
 
 #: libraries/messages.inc.php:95
 msgid "Position"
@@ -848,7 +848,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:181
 msgid "Connections"
-msgstr ""
+msgstr "అనుసంధానాలు"
 
 #: libraries/messages.inc.php:182
 msgid "Constraints for dumped tables"
@@ -1228,7 +1228,7 @@ msgstr "తేడా"
 
 #: libraries/messages.inc.php:269
 msgid "Direct links"
-msgstr ""
+msgstr "నేరు లంకెలు"
 
 #: libraries/messages.inc.php:270
 msgid "Dirty pages"
@@ -1314,7 +1314,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:291 setup/lib/messages.inc.php:352
 msgid "Edit"
-msgstr ""
+msgstr "మార్చు"
 
 #: libraries/messages.inc.php:292
 msgid "Edit PDF Pages"
@@ -1351,7 +1351,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:300
 msgid "End"
-msgstr ""
+msgstr "ముగింపు"
 
 #: libraries/messages.inc.php:301
 msgid "END RAW"
@@ -1646,7 +1646,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:371
 msgid "Global value"
-msgstr ""
+msgstr "సార్వత్రిక విలువ"
 
 #: libraries/messages.inc.php:373
 msgid "Go to database"
@@ -1746,7 +1746,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:397
 msgid "Hungarian"
-msgstr ""
+msgstr "హంగేరియన్"
 
 #: libraries/messages.inc.php:399
 msgid "Icelandic"
@@ -1975,7 +1975,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:449
 msgid "Internal relations"
-msgstr ""
+msgstr "అంతర్గత సంబంధాలు"
 
 # మొదటి అనువాదము
 #: libraries/messages.inc.php:450
@@ -2184,15 +2184,15 @@ msgstr ""
 
 #: libraries/messages.inc.php:500
 msgid "Lithuanian"
-msgstr ""
+msgstr "లిథుయేనియన్"
 
 #: libraries/messages.inc.php:501
 msgid "Local"
-msgstr ""
+msgstr "స్థానిక"
 
 #: libraries/messages.inc.php:502
 msgid "Location of the text file"
-msgstr ""
+msgstr "పాఠ్యపు దస్త్రం యొక్క ప్రాంతం"
 
 #: libraries/messages.inc.php:503
 msgid "Login Information"
@@ -2243,7 +2243,7 @@ msgstr ""
 #: libraries/messages.inc.php:515
 #, php-format
 msgid "Max: %s%s"
-msgstr ""
+msgstr "గరిష్ఠం: %s%s"
 
 #: libraries/messages.inc.php:516
 msgid ""
@@ -2619,7 +2619,7 @@ msgstr ""
 #: libraries/messages.inc.php:597
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr ""
+msgstr "<b>మొత్తం:</b> <i>%s</i> పోలిక(లు)"
 
 #: libraries/messages.inc.php:598 setup/lib/messages.inc.php:117
 msgid "Tables"
@@ -2684,7 +2684,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:616
 msgid "Paper size"
-msgstr ""
+msgstr "కాగితపు పరిమాణం"
 
 #: libraries/messages.inc.php:617
 msgid "Partial import"
@@ -2692,7 +2692,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:618
 msgid "Partial Texts"
-msgstr ""
+msgstr "పాక్షిక పాఠ్యాలు"
 
 #: libraries/messages.inc.php:619
 msgid "PARTITION definition"
@@ -2718,7 +2718,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:624
 msgid "The password is empty!"
-msgstr ""
+msgstr "సంకేతపదం ఖాళీగా ఉంది!"
 
 #: libraries/messages.inc.php:625
 msgid "Password Hashing"
@@ -2726,7 +2726,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:626
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "సంకేతపదాలు సరిపోలలేదు!"
 
 #: libraries/messages.inc.php:627
 msgid "Password"
@@ -2892,19 +2892,19 @@ msgstr ""
 
 #: libraries/messages.inc.php:660
 msgid "per hour"
-msgstr ""
+msgstr "గంటకి"
 
 #: libraries/messages.inc.php:661
 msgid "per minute"
-msgstr ""
+msgstr "నిమిషానికి"
 
 #: libraries/messages.inc.php:662
 msgid "per second"
-msgstr ""
+msgstr "క్షణానికి"
 
 #: libraries/messages.inc.php:663
 msgid "Persian"
-msgstr ""
+msgstr "పెర్షియన్"
 
 #: libraries/messages.inc.php:664
 msgid "phone book"
@@ -2969,7 +2969,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:678
 msgid "Polish"
-msgstr ""
+msgstr "పోలిష్"
 
 #: libraries/messages.inc.php:679
 msgid "Port"
@@ -3239,7 +3239,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:744
 msgid "SQL history"
-msgstr ""
+msgstr "SQL చరిత్ర"
 
 #: libraries/messages.inc.php:745
 #, php-format
@@ -3318,7 +3318,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:763
 msgid "Relations"
-msgstr ""
+msgstr "సంబంధాలు"
 
 #: libraries/messages.inc.php:764
 msgid "Relation view"
@@ -3624,7 +3624,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:831
 msgid "Romanian"
-msgstr ""
+msgstr "రొమేనియన్"
 
 #: libraries/messages.inc.php:832
 msgid "Return type"
@@ -3669,7 +3669,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:842
 msgid "Row Statistics"
-msgstr ""
+msgstr "వరుసల గణాంకాలు"
 
 #: libraries/messages.inc.php:843
 #, php-format
@@ -3733,7 +3733,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:858
 msgid "all words"
-msgstr ""
+msgstr "అన్ని పదాలూ"
 
 #: libraries/messages.inc.php:859
 msgid "the exact phrase"
@@ -3915,7 +3915,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: libraries/messages.inc.php:899
 msgid "Show/Hide left menu"
-msgstr "ఎడమవైపున మెనుని చూపించు/దాచుము"
+msgstr "ఎడమవైపున మెనుని చూపించు/దాచు"
 
 #: libraries/messages.inc.php:900
 msgid "Showing bookmark"
@@ -4511,7 +4511,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: libraries/messages.inc.php:1022
 msgid "Simplified Chinese"
-msgstr "సాధారణ చైనీస్"
+msgstr "సరళ చైనీసు"
 
 #: libraries/messages.inc.php:1023
 msgid "(singly)"
@@ -4737,7 +4737,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1073
 msgid "Submit"
-msgstr ""
+msgstr "దాఖలుచేయి"
 
 #: libraries/messages.inc.php:1074
 msgid "Your SQL query has been executed successfully"
@@ -4827,7 +4827,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1094
 msgid "Table comments"
-msgstr ""
+msgstr "పట్టిక వ్యాఖ్యలు"
 
 #: libraries/messages.inc.php:1095
 msgid "Would you like to delete all the previous rows from target tables?"
@@ -5590,15 +5590,15 @@ msgstr ""
 #: libraries/messages.inc.php:1263
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "%sకి స్వాగతం"
 
 #: libraries/messages.inc.php:1264
 msgid "West European"
-msgstr ""
+msgstr "పశ్చిమ ఐరోపియన్"
 
 #: libraries/messages.inc.php:1265
 msgid "Wiki"
-msgstr ""
+msgstr "వికీ"
 
 #: libraries/messages.inc.php:1266
 msgid "wildcard"
@@ -6004,7 +6004,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:92
 msgid "no"
-msgstr ""
+msgstr "కాదు"
 
 #: setup/lib/messages.inc.php:93
 msgid "Force secured connection while using phpMyAdmin"
@@ -6136,7 +6136,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:127
 msgid "Server configuration"
-msgstr ""
+msgstr "సేవకి స్వరూపణం"
 
 #: setup/lib/messages.inc.php:128
 msgid "Enter server connection parameters"
@@ -6528,7 +6528,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:216
 msgid "- none -"
-msgstr ""
+msgstr "- ఏమీలేదు -"
 
 #: setup/lib/messages.inc.php:217
 msgid ""
@@ -6721,7 +6721,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:261
 msgid "Connection type"
-msgstr ""
+msgstr "అనుసంధాన రకం"
 
 #: setup/lib/messages.inc.php:262
 msgid "Control user password"
