@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-02 16:01+0200\n"
+"PO-Revision-Date: 2010-04-02 16:02+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7328,14 +7328,15 @@ msgid "SQL query history table"
 msgstr "Tables pour historique des requêtes SQL"
 
 #: setup/lib/messages.inc.php:279
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
-msgstr "Laisser vider pour désactiver, suggéré : [kbd]pma_history[/kbd]"
+msgstr ""
+"Laisser vider pour désactiver le suivi des changements SQL, valeur suggérée "
+": [kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
 #, fuzzy
