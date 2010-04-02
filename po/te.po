@@ -2904,7 +2904,7 @@ msgstr "క్షణానికి"
 
 #: libraries/messages.inc.php:663
 msgid "Persian"
-msgstr ""
+msgstr "పెర్షియన్"
 
 #: libraries/messages.inc.php:664
 msgid "phone book"
