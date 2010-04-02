@@ -188,4 +188,6 @@ jQuery(document).ready(function(){
     /* Display filter */
     jQuery('#NavFilter').css('display', 'inline');
     jQuery('#clear_fast_filter').click(clear_fast_filter);
+    jQuery('#fast_filter').focus(function (evt) {evt.target.select();});
+    jQuery('#fast_filter').keyup(function (evt) {fast_filter(evt.target.value);});
 });
