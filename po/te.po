@@ -3669,7 +3669,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:842
 msgid "Row Statistics"
-msgstr ""
+msgstr "వరుసల గణాంకాలు"
 
 #: libraries/messages.inc.php:843
 #, php-format
