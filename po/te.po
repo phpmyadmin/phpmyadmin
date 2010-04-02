@@ -2900,7 +2900,7 @@ msgstr "నిమిషానికి"
 
 #: libraries/messages.inc.php:662
 msgid "per second"
-msgstr ""
+msgstr "క్షణానికి"
 
 #: libraries/messages.inc.php:663
 msgid "Persian"
