@@ -1746,7 +1746,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:397
 msgid "Hungarian"
-msgstr ""
+msgstr "హంగేరియన్"
 
 #: libraries/messages.inc.php:399
 msgid "Icelandic"
