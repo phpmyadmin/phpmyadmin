@@ -2896,7 +2896,7 @@ msgstr "గంటకి"
 
 #: libraries/messages.inc.php:661
 msgid "per minute"
-msgstr ""
+msgstr "నిమిషానికి"
 
 #: libraries/messages.inc.php:662
 msgid "per second"
