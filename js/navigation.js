@@ -172,3 +172,9 @@ function fast_filter(value){
 	}
 	document.getElementById('fast_filter').disabled=false;
 }
+
+/* Performed on load */
+jQuery(document).ready(function(){
+    /* Display filter */
+    jQuery('#NavFilter').css('display', 'inline');
+});

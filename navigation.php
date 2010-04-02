@@ -326,7 +326,6 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
             onkeyup="setTimeout(function(word){ return function(){ fast_filter(word);}}(this.value),1000);"
             style="width:90%;padding:0 -20px 0 0; padding:2px;"
             onfocus="this.select();" />
-        <script type="text/javascript">document.getElementById('NavFilter').style.display='';</script>
         </span>
         <?php
     }
