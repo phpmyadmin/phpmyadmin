@@ -100,6 +100,7 @@ if (! empty($_SESSION['debug'])) {
 <?php
 if (empty($GLOBALS['error_message'])) {
     ?>
+jQuery(document).ready(function(){
 // updates current settings
 if (window.parent.setAll) {
     window.parent.setAll('<?php
@@ -154,6 +155,7 @@ if (window.parent.frame_content) {
     //window.parent.frame_content.setAttribute('name', 'frame_content');
     //window.parent.frame_content.setAttribute('id', 'frame_content');
 }
+});
 
 //]]>
 </script>
