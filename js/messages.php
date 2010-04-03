@@ -15,7 +15,12 @@ header('Content-Type: text/javascript; charset=UTF-8');
 // file is reloaded when config changes
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
+// Avoid loading the full common.inc.php because this would add many
+// non-js-compatible stuff like DOCTYPE 
+define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
+// But this one is needed for PMA_escapeJsString()
+require_once './libraries/js_escape.lib.php';
 
 $js_messages['strFormEmpty'] = $GLOBALS['strFormEmpty'];
 $js_messages['strNotNumber'] = $GLOBALS['strNotNumber'];
