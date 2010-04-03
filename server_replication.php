@@ -17,6 +17,7 @@ require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'mootools-more.js';
+$GLOBALS['js_include'][] = 'replication.js';
 
 require './libraries/server_common.inc.php';
 require './libraries/replication.inc.php';
@@ -177,7 +178,6 @@ if (isset($_SESSION['replication']['sr_action_status']) && isset($_SESSION['repl
 
 if ($server_master_status) {
     if (! isset($GLOBALS['repl_clear_scr'])) {
-        echo PMA_js_mootools_domready($jscode['master_replication']);
         echo '<fieldset>';
         echo '<legend>' . $GLOBALS['strReplicationMaster'] . '</legend>';
         echo $GLOBALS['strReplicationConfiguredMaster'];
@@ -249,7 +249,6 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
     echo '<fieldset>';
     echo '<legend>' . $GLOBALS['strReplicationSlave'] . '</legend>';
     if ($server_slave_status) {
-        echo PMA_js_mootools_domready($jscode['slave_control']);
         echo '<div id="slave_configuration_gui">';
 
         $_url_params = $GLOBALS['url_params'];
@@ -311,7 +310,6 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         echo ' <li><a href="#" id="slave_status_href">' . $GLOBALS['strReplicationSlaveSeeStatus'] . '</a></li>';
         echo PMA_replication_print_status_table('slave', true, false);
         if (isset($_SESSION['replication']['m_correct']) && $_SESSION['replication']['m_correct'] == true) {
-            echo PMA_js_mootools_domready($jscode['slave_control_sync']);
             echo ' <li><a href="#" id="slave_synchronization_href">' . $GLOBALS['strReplicationSynchronize'] . '</a></li>';
             echo ' <div id="slave_synchronization_gui" style="display: none">';
             echo '  <form method="post" action="server_replication.php">';

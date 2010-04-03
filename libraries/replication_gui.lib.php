@@ -9,9 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$jscode['master_replication'] = 'divShowHideFunc(\'master_status_href\', \'replication_master_section\');' . "\n"
-    . 'divShowHideFunc(\'master_slaves_href\', \'replication_slaves_section\');' . "\n";
-
 // Add JS events to generate example my.cnf config lines
 $jscode['configure_master'] = 
     'var c_output = "";' . "\n" .
@@ -52,14 +49,6 @@ $jscode['configure_master'] =
     '	      }' . "\n" .
     ' });' . "\n" .
     '});' . "\n";
-
-$jscode['slave_control'] = 
-    'divShowHideFunc(\'slave_status_href\', \'replication_slave_section\');' . "\n" .
-    'divShowHideFunc(\'slave_control_href\', \'slave_control_gui\');' . "\n" .
-    'divShowHideFunc(\'slave_errormanagement_href\',\'slave_errormanagement_gui\'); ' . "\n";
-
-$jscode['slave_control_sync']  = 
-    'divShowHideFunc(\'slave_synchronization_href\', \'slave_synchronization_gui\');' . "\n";
 
 /**
  * returns code for selecting databases
