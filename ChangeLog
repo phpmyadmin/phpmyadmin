@@ -77,6 +77,8 @@ $Id$
 - patch #2979234, bug #2960105 [import] Properly import unicode text from ODS.
 - bug #2973280 [export] Proper handling of temporary directory in XLS export.
 - bug #2980582 [interface] Properly format server status parameter.
+- bug #2973949 [session] SQL History broken (revert patch #2899969),
+  thanks to Dieter Adriaenssens - ruleant
 
 3.3.1.0 (2010-03-16)
 - bug #2941037 [core] Database structure not sorted by table correctly 
