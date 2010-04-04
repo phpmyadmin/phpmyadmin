@@ -294,13 +294,6 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         PMA_DBI_query('SET PROFILING=1;');
     }
 
-    // fisharebest: release the session lock, otherwise we won't be able to run other
-    // scripts until the query has finished (which could take a very long time). 
-    // Note: footer.inc.php writes debug info to $_SESSION, so debuggers will have to wait.
-    if (empty($_SESSION['debug'])) {
-        session_write_close();
-    }
-
     // garvin: Measure query time.
     // TODO-Item http://sourceforge.net/tracker/index.php?func=detail&aid=571934&group_id=23067&atid=377411
     $querytime_before = array_sum(explode(' ', microtime()));
