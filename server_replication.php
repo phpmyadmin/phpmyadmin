@@ -16,7 +16,6 @@ require_once './libraries/common.inc.php';
  */
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'mootools-more.js';
 $GLOBALS['js_include'][] = 'replication.js';
 
 require './libraries/server_common.inc.php';
@@ -214,7 +213,6 @@ if ($server_master_status) {
 
 if (isset($GLOBALS['mr_configure'])) {
     // Render the 'Master configuration' section
-    echo PMA_js_mootools_domready($jscode['configure_master']);
     echo '<fieldset>';
     echo '<legend>' . $GLOBALS['strReplicationMasterConfiguration'] . '</legend>';
     echo $GLOBALS['strReplicationMasterChooseMode'] . '<br /><br />';
@@ -228,7 +226,7 @@ if (isset($GLOBALS['mr_configure'])) {
     echo PMA_replication_db_multibox();
     echo '<br /><br />';
     echo $GLOBALS['strReplicationAddLines'] . '<br />';
-    echo '<pre id="rep">server-id='. $serverid . '<br />log-bin=mysql-bin<br />log-error=mysql-bin.err<br /></pre>';
+    echo '<pre id="rep"></pre>';
     echo $GLOBALS['strReplicationRestartServer'];
     echo '</fieldset>';
     echo '<fieldset class="tblFooters">';

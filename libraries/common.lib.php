@@ -2730,32 +2730,6 @@ function PMA_getTitleForTarget($target) {
     return $GLOBALS[$GLOBALS['cfg']['DefaultTabTranslationMapping'][$target]];
 }
 
-/**
-  * The function creates javascript and html code, which run given mootools/JS code when DOM is ready
-  *
-  * @param String $code - Mootools/JS code, which will be run
-  * @param boolena $print - If true, then the code is printed, otherwise is returned
-  *
-  * @return String - the code
-  */
-function PMA_js_mootools_domready($code, $print=true)
-{
-    // these generated newlines are needed
-  $out  = '';
-  $out .= '<script type="text/javascript">';
-  $out .= "\n" . '// <![CDATA[' . "\n";
-  $out .= 'window.addEvent(\'domready\',function() {';
-  $out .= $code;
-  $out .= '});';
-  $out .= "\n" . '// ]]>' . "\n";
-  $out .= '</script>';
-
-  //if ($print)
-  //  echo $out;
-
-  return $out;
-}
-
 function PMA_js($code, $print=true)
 {
     // these generated newlines are needed

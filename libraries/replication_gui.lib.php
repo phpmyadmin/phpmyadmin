@@ -9,47 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-// Add JS events to generate example my.cnf config lines
-$jscode['configure_master'] = 
-    'var c_output = "";' . "\n" .
-    'var c_text = "server-id=' . $serverid . '<br />log-bin=mysql-bin<br />log-error=mysql-bin.err<br />";' . "\n" .
-    'var c_ignore = "binlog_ignore_db=";' . "\n" .
-    'var c_do = "binlog_do_db=";' . "\n" .
-
-    '$(\'db_reset_href\').addEvent(\'click\', function() {' . "\n" .
-    '   $(\'db_select\').getSelected().each(function(el) {' . "\n" .
-    '	  el.selected = false;' . "\n" .
-    '	});' . "\n" .
-    '	$(\'rep\').set(\'html\', c_text);' . "\n" .
-    '});' . "\n" .
-    '$(\'db_type\').addEvent(\'change\',function() {' . "\n" .
-    '	if ($(\'db_type\').getSelected().get(\'value\')=="all")' . "\n" .
-    '	  $(\'rep\').set(\'html\', c_text+c_ignore+c_output);' . "\n" .
-    '	else' . "\n" . 
-    '	  $(\'rep\').set(\'html\', c_text+c_do+c_output);' . "\n" .
-    '});' . "\n" .
-
-    '$(\'db_select\').addEvent(\'change\',function() {' . "\n" .
-    '  var count = 0;' . "\n" .
-
-    '  $(\'db_select\').getSelected().each(function(el) {      ' . "\n" .
-    '	      if (count==0)' . "\n" .
-    '		c_output = el.get(\'value\');' . "\n" .
-    '	      else' . "\n" .
-    '		c_output = c_output + \',\' +el.get(\'value\');' . "\n" .
-
-    '	      count=count+1;' . "\n" .
-
-    '	      if ($(\'db_select\').getSelected().length==count) {' . "\n" .
-    '		if ($(\'db_type\').getSelected().get(\'value\')=="all")' . "\n" .
-    '		  $(\'rep\').set(\'html\', c_text+c_ignore+c_output);' . "\n" .
-    '		else' . "\n" . 
-    '		  $(\'rep\').set(\'html\', c_text+c_do+c_output);' . "\n" .
-    '		count = 0;' . "\n" .
-    '	      }' . "\n" .
-    ' });' . "\n" .
-    '});' . "\n";
-
 /**
  * returns code for selecting databases
  *

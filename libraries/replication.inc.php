@@ -90,8 +90,6 @@ $slave_variables_oks = array(
     'Slave_SQL_Running' => 'Yes',
 );
 
-$serverid = time();
-
 // check which replication is available and set $server_{master/slave}_status and assign values
 foreach ($replication_types as $type) {
     if (count(${"server_{$type}_replication"}) > 0) {
