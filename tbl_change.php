@@ -41,6 +41,9 @@ if (isset($_REQUEST['sql_query'])) {
 if (isset($_REQUEST['ShowFunctionFields'])) {
     $cfg['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
 }
+if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
+    $cfg['ShowFieldTypesInDataEditView'] = $_REQUEST['ShowFieldTypesInDataEditView'];
+}
 
 /**
  * load relation data, foreign keys
@@ -268,10 +271,18 @@ if (! empty($sql_query)) {
     $url_params['sql_query'] = $sql_query;
 }
 
+if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
+    echo $strShow;
+}
 if (! $cfg['ShowFunctionFields']) {
     $this_url_params = array_merge($url_params,
-        array('ShowFunctionFields' => 1, 'goto' => 'sql.php'));
-    echo $strShow . ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . $strFunction . '</a>' . "\n";
+        array('ShowFunctionFields' => 1, 'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'], 'goto' => 'sql.php'));
+    echo ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . $strFunction . '</a>' . "\n";
+}
+if (! $cfg['ShowFieldTypesInDataEditView']) {
+    $this_other_url_params = array_merge($url_params,
+        array('ShowFieldTypesInDataEditView' => 1, 'ShowFunctionFields' => $cfg['ShowFunctionFields'], 'goto' => 'sql.php'));
+    echo ' : <a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '">' . $strType . '</a>' . "\n";
 }
 
 foreach ($rows as $row_id => $vrow) {
@@ -293,11 +304,17 @@ foreach ($rows as $row_id => $vrow) {
     <thead>
         <tr>
             <th><?php echo $strField; ?></th>
-            <th><?php echo $strType; ?></th>
-<?php
+ 
+ <?php
+     if ($cfg['ShowFieldTypesInDataEditView']) {
+        $this_url_params = array_merge($url_params,
+            array('ShowFieldTypesInDataEditView' => 0, 'ShowFunctionFields' => $cfg['ShowFunctionFields'], 'goto' => 'sql.php'));
+        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . $strHide . '">' . $strType . '</a></th>' . "\n";
+    }
+
     if ($cfg['ShowFunctionFields']) {
         $this_url_params = array_merge($url_params,
-            array('ShowFunctionFields' => 0, 'goto' => 'sql.php'));
+            array('ShowFunctionFields' => 0, 'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'], 'goto' => 'sql.php'));
         echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . $strHide . '">' . $strFunction . '</a></th>' . "\n";
     }
 ?>
@@ -418,11 +435,12 @@ foreach ($rows as $row_id => $vrow) {
                 <?php echo $field['Field_title']; ?>
                 <input type="hidden" name="fields_name<?php echo $field_name_appendix; ?>" value="<?php echo $field['Field_html']; ?>"/>
             </td>
-            <td align="center"<?php echo $field['wrap']; ?>>
-                <?php echo $field['pma_type']; ?>
-            </td>
-
-        <?php
+<?php if ($cfg['ShowFieldTypesInDataEditView']) { ?>
+             <td align="center"<?php echo $field['wrap']; ?>>
+                 <?php echo $field['pma_type']; ?>
+             </td>
+ 
+         <?php } //End if
 
         // Prepares the field value
         $real_null_value = FALSE;

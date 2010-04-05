@@ -920,6 +920,13 @@ $cfg['ProtectBinary'] = 'blob';
 $cfg['ShowFunctionFields'] = true;
 
 /**
+ * Display the type fields in edit/insert mode
+ *
+ * @global boolean $cfg['ShowFieldTypesInDataEditView']
+ */
+$cfg['ShowFieldTypesInDataEditView'] = true;
+
+/**
  * Which editor should be used for CHAR/VARCHAR fields:
  *  input - allows limiting of input length
  *  textarea - allows newlines in fields
