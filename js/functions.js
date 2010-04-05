@@ -1588,7 +1588,7 @@ function pdfPaperSize(format, axis) {
 }
 
 /**
- * rajk - for playing media from the BLOB repository
+ * for playing media from the BLOB repository
  *
  * @param   var     
  * @param   var     url_params  main purpose is to pass the token 
@@ -1612,7 +1612,7 @@ function popupBSMedia(url_params, bs_ref, m_type, is_cust_type, w_width, w_heigh
 }
 
 /**
- * rajk - popups a request for changing MIME types for files in the BLOB repository
+ * popups a request for changing MIME types for files in the BLOB repository
  *
  * @param   var     db                      database name
  * @param   var     table                   table name
@@ -1634,7 +1634,7 @@ function requestMIMETypeChange(db, table, reference, current_mime_type)
 }
 
 /**
- * rajk - changes MIME types for files in the BLOB repository
+ * changes MIME types for files in the BLOB repository
  *
  * @param   var     db              database name
  * @param   var     table           table name
