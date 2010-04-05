@@ -151,7 +151,7 @@ $hidden_fields = array();
 $odd_row       = true;
 $sum_row_count_pre = '';
 
-// added by rajk - for blobstreaming
+// for blobstreaming
 $PMA_Config = $GLOBALS['PMA_Config'];
 
 if (!empty($PMA_Config))
@@ -473,7 +473,7 @@ if ($is_show_stats) {
     <th align="center" nowrap="nowrap">
         <?php
             // for blobstreaming - if the number of tables is 0, set tableReductionCount to 0
-            // (we don't want negative numbers here) - rajk
+            // (we don't want negative numbers here)
             if ($num_tables == 0)
                 $tableReductionCount = 0;
 

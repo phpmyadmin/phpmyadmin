@@ -793,7 +793,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
 
     $table_groups = array();
 
-    // for blobstreaming - list of blobstreaming tables - rajk
+    // for blobstreaming - list of blobstreaming tables
 
     // load PMA configuration
     $PMA_Config = $GLOBALS['PMA_Config'];

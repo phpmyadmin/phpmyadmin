@@ -283,7 +283,7 @@ class PMA_File
             $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple($file, $primary);
         }
 
-        // rajk - for blobstreaming
+        // for blobstreaming
         $is_bs_upload = FALSE;
 
         // check if this field requires a repository upload
@@ -491,7 +491,7 @@ class PMA_File
             if (! empty($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary])
              && is_string($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary])) {
                 // ... whether with multiple rows ...
-                // rajk - for blobstreaming
+                // for blobstreaming
                 $is_bs_upload = FALSE;
 
                 // check if this field requires a repository upload
@@ -631,7 +631,7 @@ class PMA_File
             }
         } elseif (! empty($_REQUEST['fields_uploadlocal_' . $key])
          && is_string($_REQUEST['fields_uploadlocal_' . $key])) {
-            // rajk - for blobstreaming
+            // for blobstreaming
             $is_bs_upload = FALSE;
 
             // check if this field requires a repository upload

@@ -818,7 +818,7 @@ foreach ($rows as $row_id => $vrow) {
             if (($cfg['ProtectBinary'] && $field['is_blob'])
                 || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
                 echo "\n";
-                    // rajk - for blobstreaming
+                    // for blobstreaming
                     $bs_reference_exists = FALSE;
 
                     if (isset ($tbl_type) && strlen ($tbl_type) > 0)
@@ -917,7 +917,6 @@ foreach ($rows as $row_id => $vrow) {
             // (displayed whatever value the ProtectBinary has)
 
             if ($is_upload && $field['is_blob']) {
-                // added by rajk
                 // check if field type is of longblob
                 if ($field['pma_type'] == "longblob")
                 {

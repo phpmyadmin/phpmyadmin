@@ -226,7 +226,7 @@ foreach ($loop_array as $rowcount => $where_clause) {
 
         require './libraries/tbl_replace_fields.inc.php';
 
-        // rajk - for blobstreaming
+        // for blobstreaming
         if ($blob_streaming_active && (NULL != $primary_field || strlen($primary_field) > 0)) {
             $remove_blob_repo = isset($_REQUEST['remove_blob_repo_' . $key]) ? $_REQUEST['remove_blob_repo_' . $key] : NULL;
             $upload_blob_repo = isset($_REQUEST['upload_blob_repo_' . $key]) ? $_REQUEST['upload_blob_repo_' . $key] : NULL;

@@ -1278,7 +1278,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     if (!isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
                     } else {
-                        // rajk - for blobstreaming
+                        // for blobstreaming
 
                         $bs_reference_exists = $allBSTablesExist = FALSE;
 

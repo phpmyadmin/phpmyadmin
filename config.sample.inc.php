@@ -36,7 +36,7 @@ $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['extension'] = 'mysql';
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
-/* rajk - for blobstreaming */
+/* for blobstreaming */
 $cfg['Servers'][$i]['bs_garbage_threshold'] = 50;
 $cfg['Servers'][$i]['bs_repository_threshold'] = '32M';
 $cfg['Servers'][$i]['bs_temp_blob_timeout'] = 600;

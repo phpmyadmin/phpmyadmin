@@ -138,7 +138,7 @@ $cfg['Servers'][$i]['connect_type'] = 'tcp';
  */
 $cfg['Servers'][$i]['extension'] = 'mysql';
 
-/* rajk - added for blobstreaming */
+/* added for blobstreaming */
 $cfg['Servers'][$i]['bs_garbage_threshold'] = '';
 $cfg['Servers'][$i]['bs_repository_threshold'] = '';
 $cfg['Servers'][$i]['bs_temp_blob_timeout'] = '';

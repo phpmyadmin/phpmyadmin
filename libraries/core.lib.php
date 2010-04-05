@@ -298,7 +298,7 @@ function PMA_getTableCount($db)
         $num_tables = PMA_DBI_num_rows($tables);
 
         // for blobstreaming - get blobstreaming tables
-        // for use in determining if a table here is a blobstreaming table - rajk
+        // for use in determining if a table here is a blobstreaming table
 
         // load PMA configuration
         $PMA_Config = $GLOBALS['PMA_Config'];

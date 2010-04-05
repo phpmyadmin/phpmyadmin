@@ -471,9 +471,9 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
         'pma_lang', 'pma_charset', 'pma_collation_connection',
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
-        /* rajk - for playing blobstreamable media */
+        /* for playing blobstreamable media */
         'media_type', 'custom_type', 'bs_reference',
-        /* rajk - for changing BLOB repository file MIME type */
+        /* for changing BLOB repository file MIME type */
         'bs_db', 'bs_table', 'bs_ref', 'bs_new_mime_type'
     );
     /**
@@ -966,10 +966,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         unset($_SESSION['profiling']);
     }
 
-    // rajk - library file for blobstreaming
+    // library file for blobstreaming
     require_once './libraries/blobstreaming.lib.php';
 
-    // rajk - checks for blobstreaming plugins and databases that support
+    // checks for blobstreaming plugins and databases that support
     // blobstreaming (by having the necessary tables for blobstreaming)
     if (checkBLOBStreamingPlugins()) {
         checkBLOBStreamableDatabases();
