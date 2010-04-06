@@ -101,16 +101,23 @@ ul#databaseList {
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
     padding-<?php echo $left; ?>:     1.5em;
+    font-style: italic;
 }
 
 ul#databaseList a {
     display: block;
+    font-style: normal;
 }
 
 div#navidbpageselector a,
 ul#databaseList a {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+
+ul#databaseList ul {
+    padding-left: 1em;
+    padding-right: 0;
 }
 
 ul#databaseList a:hover {
@@ -132,10 +139,10 @@ div#reloadlink a img,
 div#leftframelinks a img.icon {
     margin:             0;
     padding:            0.2em;
-    border:             0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    border:             0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
-div#leftframelinks a:hover {
+div#leftframelinks a:hover img {
     background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
