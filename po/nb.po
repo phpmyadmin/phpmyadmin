@@ -7251,7 +7251,6 @@ msgid "SQL query history table"
 msgstr "SQL spørringshistorietabell"
 
 #: setup/lib/messages.inc.php:279
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -7259,7 +7258,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_history[/kbd]"
+"La stå tom for ingen SQL spørringshistorie, anbefalt: "
+"[kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
 #, fuzzy
