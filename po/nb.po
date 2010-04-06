@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-06 14:24+0200\n"
+"PO-Revision-Date: 2010-04-06 14:25+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -81,12 +81,12 @@ msgstr[0] "%1$d rader slettet."
 msgstr[1] "%1$d rader slettet."
 
 #: libraries/Message.class.php:320
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d rad(er) innsatt."
-msgstr[1] "%1$d rad(er) innsatt."
+msgstr[0] "%1$d rader innsatt."
+msgstr[1] "%1$d rader innsatt."
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
