@@ -60,10 +60,9 @@ msgid "Inline edit of this query"
 msgstr "Inline redigering av denne spørringa"
 
 #: libraries/common.lib.php:1278
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Motorer"
+msgstr "Inline"
 
 #: libraries/Message.class.php:282
 #, fuzzy, php-format
