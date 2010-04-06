@@ -7,7 +7,6 @@
  * All directives are explained in Documentation.html and on phpMyAdmin
  * wiki <http://wiki.phpmyadmin.net>.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -70,31 +69,84 @@ $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
 
 /**
- * Defines whether a user should be displayed a "show all (records)" 
+ * Defines whether a user should be displayed a "show all (records)"
  * button in browse mode or not.
+ * default = false
  */
-//$cfg['ShowAll'] = false;
+//$cfg['ShowAll'] = true;
 
 /**
- * Number of rows displayed when browsing a result set. If the result 
+ * Number of rows displayed when browsing a result set. If the result
  * set contains more rows, "Previous" and "Next".
+ * default = 30
  */
-//$cfg['MaxRows'] = 30;
+//$cfg['MaxRows'] = 50;
 
 /**
  * Use graphically less intense menu tabs
+ * default = false
  */
-//$cfg['LightTabs'] = false;
+//$cfg['LightTabs'] = true;
+
+/**
+ * default for 'ORDER BY' clause (valid values are 'ASC', 'DESC' or 'SMART' -ie
+ * descending order for fields of type TIME, DATE, DATETIME & TIMESTAMP,
+ * ascending order else-)
+ * default = ASC
+ */
+//$cfg['Order'] = 'SMART';
+
+/**
+ * disallow editing of binary fields
+ * valid values are:
+ *   false  allow editing
+ *   'blob' allow editing except for BLOB fields
+ *   'all'  disallow editing
+ * default = blob
+ */
+//$cfg['ProtectBinary'] = 'false';
+
+/**
+ * Default language to use, if not browser-defined or user-defined
+ * (you find all languages in the file libraries/select_lang.lib.php)
+ * uncomment the desired line:
+ * default = 'en-utf-8'
+ */
+//$cfg['DefaultLang'] = 'en';
+//$cfg['DefaultLang'] = 'de';
+
+/**
+ * default display direction (horizontal|vertical|horizontalflipped)
+ */
+//$cfg['DefaultDisplay'] = 'vertical';
+
+
+/**
+ * How many columns should be used for table display of a database?
+ * (a value larger than 1 results in some information being hidden)
+ * default = 1
+ */
+//$cfg['PropertiesNumColumns'] = 2;
 
 /**
  * Set to true if you want DB-based query history.If false, this utilizes
  * JS-routines to display query history (lost by window close)
  *
  * This requires advanced features enabled, see above.
+ * default = false
  */
-//$cfg['QueryHistoryDB'] = false;
+//$cfg['QueryHistoryDB'] = true;
+
+/**
+ * When using DB-based query history, how many entries should be kept?
+ *
+ * @global integer $cfg['QueryHistoryMax']
+ * default = 25
+ */
+//$cfg['QueryHistoryMax'] = 100;
 
 /*
  * You can find more configuration options in Documentation.html
+ * or here: http://wiki.phpmyadmin.net/pma/Config
  */
 ?>
