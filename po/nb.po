@@ -6537,6 +6537,7 @@ msgstr "PMA database"
 #: setup/lib/messages.inc.php:133
 msgid "Tracking of changes made in database. Requires configured PMA database."
 msgstr ""
+"Sporing av endringer utført i databasen. PMA database må være konfigurert."
 
 #: setup/lib/messages.inc.php:134
 msgid "Changes tracking"
