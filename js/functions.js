@@ -840,7 +840,7 @@ function PMA_markRowsInit() {
 
             // Somehow IE8 has this not set
             if (!event) var event = window.event
-			
+
             checkbox = this.getElementsByTagName( 'input' )[0];
             if ( checkbox && checkbox.type == 'checkbox' ) {
                 unique_id = checkbox.name + checkbox.value;
