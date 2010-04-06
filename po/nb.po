@@ -7379,10 +7379,9 @@ msgstr ""
 "automatisk."
 
 #: setup/lib/messages.inc.php:304
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Automatisk gjennopprettignsmodus"
+msgstr "Automatisk opprette versjoner"
 
 #: setup/lib/messages.inc.php:305
 msgid "Defines the list of statements the auto-creation uses for new versions."
