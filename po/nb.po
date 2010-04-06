@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-06 14:26+0200\n"
+"PO-Revision-Date: 2010-04-06 14:27+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -7389,10 +7389,9 @@ msgstr ""
 "Definerer lista med spørringer autoopprettinga bruker for nye versjoner."
 
 #: setup/lib/messages.inc.php:306
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Oversikt"
+msgstr "Spørringer som skal spores"
 
 #: setup/lib/messages.inc.php:307
 msgid ""
