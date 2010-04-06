@@ -7398,6 +7398,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"Om en DROP VIEW IF EXISTS spørring vil bli lagt til som første linje i "
+"loggen når opprettes en visning."
 
 #: setup/lib/messages.inc.php:308
 msgid "Add DROP VIEW"
