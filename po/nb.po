@@ -7386,6 +7386,7 @@ msgstr "Automatisk opprette versjoner"
 #: setup/lib/messages.inc.php:305
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Definerer lista med spørringer autoopprettinga bruker for nye versjoner."
 
 #: setup/lib/messages.inc.php:306
 #, fuzzy
