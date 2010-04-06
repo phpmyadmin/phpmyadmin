@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-06 13:52+0200\n"
+"PO-Revision-Date: 2010-04-06 13:55+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -7589,7 +7589,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:361
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "Seznam důvěryhodných proxy pro ověření IP adresy"
 
 #: setup/lib/messages.inc.php:362
 msgid "Directory on server where you can upload files for import"
