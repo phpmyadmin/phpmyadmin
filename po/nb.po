@@ -7375,6 +7375,8 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"Om sporingsmekanismen oppretter versjoner for tabeller og visninger "
+"automatisk."
 
 #: setup/lib/messages.inc.php:304
 #, fuzzy
