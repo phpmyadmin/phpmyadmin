@@ -833,7 +833,7 @@ function PMA_markRowsInit() {
             continue;
         }
         // ... and to mark the row on click ...
-        rows[i].onmousedown = function(event) {
+        $(rows[i]).bind('mousedown', function(event) {
             var unique_id;
             var checkbox;
             var table;
@@ -895,7 +895,7 @@ function PMA_markRowsInit() {
                     table.lastClicked = this.rowIndex;
                 }
             }
-        }
+        });
 
         // ... and disable label ...
         var labeltag = rows[i].getElementsByTagName('label')[0];
