@@ -65,12 +65,12 @@ msgid "Inline"
 msgstr "Inline"
 
 #: libraries/Message.class.php:282
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d rad(er) berørt."
-msgstr[1] "%1$d rad(er) berørt."
+msgstr[0] "%1$d rad berørt."
+msgstr[1] "%1$d rader berørt."
 
 #: libraries/Message.class.php:301
 #, fuzzy, php-format
