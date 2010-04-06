@@ -7422,6 +7422,8 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"Om en DROP DATABASE IF EXISTS spørring skal bli lagt til som første linje i "
+"loggen når oppretter en database."
 
 #: setup/lib/messages.inc.php:312
 msgid "Add DROP DATABASE"
