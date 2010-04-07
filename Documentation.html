@@ -3059,7 +3059,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 </p>
 <p>
     Suhosin configuration might lead to malfunction in some cases and it can
-    not be fully obeyed as phpMyAdmin is kind of application which needs to
+    not be fully avoided as phpMyAdmin is kind of application which needs to
     transfer big amounts of fields in single HTTP request, what is something
     what Suhosin tries to prevent. If you have problems, please adjust at
     least following parameters:
