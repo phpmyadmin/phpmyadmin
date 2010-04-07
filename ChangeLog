@@ -63,6 +63,8 @@ $Id$
   thanks to Brian Douglass - bhdouglass
 
 3.3.3.0 (not yet released)
+- patch #2982480 [navi] Do not group if there would be one table in group,
+  thanks to Lorikeet Lee.
 
 3.3.2.0 (not yet released)
 - patch #2969449 [core] Name for MERGE engine varies depending on the

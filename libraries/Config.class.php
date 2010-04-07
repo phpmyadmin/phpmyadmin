@@ -330,7 +330,7 @@ class PMA_Config
 
     /**
      * loads configuration from $source, usally the config file
-     * should be called on object creation 
+     * should be called on object creation
      *
      * @param   string $source  config file
      */
@@ -462,7 +462,7 @@ class PMA_Config
     }
 
     /**
-     * verifies the permissions on config file (if asked by configuration) 
+     * verifies the permissions on config file (if asked by configuration)
      * (must be called after config.inc.php has been merged)
      */
     function checkPermissions()
@@ -535,11 +535,11 @@ class PMA_Config
             $fontsize = 0;
         }
         return (
-            $fontsize + 
-            $this->source_mtime + 
-            $this->default_source_mtime + 
-            $_SESSION['PMA_Theme']->mtime_info + 
-            $_SESSION['PMA_Theme']->filesize_info) 
+            $fontsize +
+            $this->source_mtime +
+            $this->default_source_mtime +
+            $_SESSION['PMA_Theme']->mtime_info +
+            $_SESSION['PMA_Theme']->filesize_info)
             . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'],1,6) : '');
     }
 
@@ -835,7 +835,7 @@ class PMA_Config
                 $url = array();
             }
         }
- 
+
         // If we don't have scheme, we didn't have full URL so we need to
         // dig deeper
         if (empty($url['scheme'])) {
