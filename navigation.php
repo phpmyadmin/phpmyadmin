@@ -554,7 +554,8 @@ function PMA_displayTableList($tables, $visible = false,
         echo '<ul id="subel' . $element_counter . '" style="display: none">';
     }
     foreach ($tables as $group => $table) {
-        if (isset($table['is' . $sep . 'group'])) {
+        // only allow grouping if the group has more than 1 table	
+        if (isset($table['is' . $sep . 'group']) && $table['tab' . $sep . 'count'] > 1) {
             $common_url_query = $GLOBALS['common_url_query']
                 . '&amp;tbl_group=' . urlencode($tab_group_full . $group);
 
@@ -610,6 +611,15 @@ function PMA_displayTableList($tables, $visible = false,
             }
             echo '</li>' . "\n";
         } elseif (is_array($table)) {
+            // the table was not grouped because it is the only one with its prefix
+            if (isset($table['is' . $sep . 'group'])) {
+                // get the array with the actual table information
+                foreach ($table as $value) {
+                    if(is_array($value)) {
+                        $table = $value;
+                    }
+                }
+            }
             $link_title = PMA_getTitleForTarget($GLOBALS['cfg']['LeftDefaultTabTable']);
             // quick access icon next to each table name
             echo '<li>' . "\n";
