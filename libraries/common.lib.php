@@ -2456,7 +2456,7 @@ function PMA_generate_slider_effect($id, $message)
     ?>
     <script type="text/javascript">
 // <![CDATA[
-    document.write('<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none;"' : ''; ?>>');
+    document.write('<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?>>');
 
     function PMA_set_status_label_<?php echo $id; ?>() {
         if ($('#<?php echo $id; ?>').css('display') == 'none') {
@@ -2473,7 +2473,7 @@ function PMA_generate_slider_effect($id, $message)
 
         PMA_set_status_label_<?php echo $id; ?>();
 
-        $('<a href="#" id="anchor_<?php echo $id; ?>"><?php echo htmlspecialchars($message); ?></a>')
+        $('<a href="#<?php echo $id; ?>" id="anchor_<?php echo $id; ?>"><?php echo htmlspecialchars($message); ?></a>')
             .insertBefore('#<?php echo $id; ?>')
             .click(function() {
                 // the callback should be the 4th parameter but

@@ -831,6 +831,10 @@ if ($cfg['ShowStats']) {
     ?>
     </tbody>
     </table>
+
+    <!-- close slider div -->
+    </div>
+
     <?php
 }
 // END - Calc Table Space
