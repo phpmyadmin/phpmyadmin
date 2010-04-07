@@ -1643,13 +1643,12 @@ function requestMIMETypeChange(db, table, reference, current_mime_type)
  */
 function changeMIMEType(db, table, reference, mime_type)
 {
-    // specify url and parameters for mootools AJAx request
+    // specify url and parameters for jQuery POST 
     var mime_chg_url = 'bs_change_mime_type.php';
     var params = { bs_db: db, bs_table: table, bs_reference: reference, bs_new_mime_type: mime_type };
 
-    // create AJAX object with above options and execute request
-    var chgRequest = new Request({ method: 'post', url: mime_chg_url, data: params, evalScripts: true });
-    chgRequest.send();
+    // jQuery POST
+    jQuery.post(mime_chg_url, params); 
 }
 
 /**
