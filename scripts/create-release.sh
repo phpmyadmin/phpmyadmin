@@ -44,7 +44,7 @@ mark_as_release() {
     echo "* Marking release as $rel_branch"
     ensure_local_branch $rel_branch
     git checkout $rel_branch
-    git merge $branch
+    git merge -s recursive -X theirs $branch
 }
 
 # Read required parameters
