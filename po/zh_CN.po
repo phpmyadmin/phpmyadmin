@@ -6996,10 +6996,9 @@ msgid ""
 msgstr "不使用 SQL 查询追踪功能请留空，默认：[kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
-msgstr "SQL 查询历史表"
+msgstr "SQL 查询追踪表"
 
 #: setup/lib/messages.inc.php:281
 msgid "Hostname where MySQL server is running"
