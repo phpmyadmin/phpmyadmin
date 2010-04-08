@@ -7124,10 +7124,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "定义自动创建新版的命令列表。"
 
 #: setup/lib/messages.inc.php:306
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "说明"
+msgstr "要追踪的命令"
 
 #: setup/lib/messages.inc.php:307
 #, fuzzy
