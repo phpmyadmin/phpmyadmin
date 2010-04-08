@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-08 12:56+0200\n"
+"PO-Revision-Date: 2010-04-08 12:57+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -7112,10 +7112,9 @@ msgid ""
 msgstr "设置追踪系统是否自动为数据表和视图创建版本。"
 
 #: setup/lib/messages.inc.php:304
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "自动恢复模式"
+msgstr "自动创建版本"
 
 #: setup/lib/messages.inc.php:305
 #, fuzzy
