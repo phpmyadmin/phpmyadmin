@@ -57,13 +57,12 @@ msgstr "en"
 
 #: libraries/common.lib.php:1276
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Inline edit of this query"
 
 #: libraries/common.lib.php:1278
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Engines"
+msgstr "Inline"
 
 #: libraries/Message.class.php:282
 #, php-format
@@ -6518,11 +6517,11 @@ msgstr "PMA database"
 
 #: setup/lib/messages.inc.php:133
 msgid "Tracking of changes made in database. Requires configured PMA database."
-msgstr ""
+msgstr "Tracking of changes made in database. Requires configured PMA database."
 
 #: setup/lib/messages.inc.php:134
 msgid "Changes tracking"
-msgstr ""
+msgstr "Changes tracking"
 
 #: setup/lib/messages.inc.php:135
 msgid "Customization"
@@ -7231,7 +7230,6 @@ msgid "SQL query history table"
 msgstr "SQL query history table"
 
 #: setup/lib/messages.inc.php:279
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -7239,14 +7237,13 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
-"kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
-msgstr "SQL query history table"
+msgstr "SQL query tracking table"
 
 #: setup/lib/messages.inc.php:281
 msgid "Hostname where MySQL server is running"
@@ -7353,7 +7350,6 @@ msgid "Signon URL"
 msgstr "Signon URL"
 
 #: setup/lib/messages.inc.php:303
-#, fuzzy
 #| msgid ""
 #| "Whether the tracking mechanism creates versions for tables and views "
 #| "automatically. Default value is false."
@@ -7362,68 +7358,60 @@ msgid ""
 "automatically."
 msgstr ""
 "Whether the tracking mechanism creates versions for tables and views "
-"automatically. Default value is false."
+"automatically."
 
 #: setup/lib/messages.inc.php:304
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Automatic recovery mode"
+msgstr "Automatically create versions"
 
 #: setup/lib/messages.inc.php:305
-#, fuzzy
 #| msgid ""
 #| "Defines the list of statements the auto-creation uses for new versions. "
 #| "Default value is"
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr ""
-"Defines the list of statements the auto-creation uses for new versions. "
-"Default value is"
+msgstr "Defines the list of statements the auto-creation uses for new versions."
 
 #: setup/lib/messages.inc.php:306
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Statements"
+msgstr "Statements to track"
 
 #: setup/lib/messages.inc.php:307
-#, fuzzy
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
-"Whether a DROP VIEW IF EXISTS statement will added as first line to the log "
-"when creating a view. Default value is true."
+"Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
+"log when creating a view."
 
 #: setup/lib/messages.inc.php:308
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Add DROP VIEW"
 
 #: setup/lib/messages.inc.php:309
-#, fuzzy
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
-"Whether a DROP TABLE IF EXISTS statement will added as first line to the log "
-"when creating a table. Default value is true."
+"Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
+"log when creating a table."
 
 #: setup/lib/messages.inc.php:310
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Add DROP TABLE"
 
 #: setup/lib/messages.inc.php:311
-#, fuzzy
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"Whether a DROP DATABASE IF EXISTS statement will added as first line to the "
-"log when creating a database. Default value is true."
+"Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
+"the log when creating a database."
 
 #: setup/lib/messages.inc.php:312
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Add DROP DATABASE"
 
 #: setup/lib/messages.inc.php:313
 msgid "You should use SSL connections if your web server supports it"
