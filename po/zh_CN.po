@@ -7149,13 +7149,10 @@ msgid "Add DROP TABLE"
 msgstr "添加 DROP TABLE"
 
 #: setup/lib/messages.inc.php:311
-#, fuzzy
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
-msgstr ""
-"设置当记录数据库创建时，是否在前面加上 DROP DATABASE IF EXISTS 命令。默认为 "
-"true 。"
+msgstr "设置当记录数据库创建时，是否在前面加上 DROP DATABASE IF EXISTS 命令。"
 
 #: setup/lib/messages.inc.php:312
 msgid "Add DROP DATABASE"
