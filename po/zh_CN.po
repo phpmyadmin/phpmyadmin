@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-08 12:53+0200\n"
+"PO-Revision-Date: 2010-04-08 12:54+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -76,11 +76,11 @@ msgid_plural "%1$d rows deleted."
 msgstr[0] "删除了 %1$d 行。"
 
 #: libraries/Message.class.php:320
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "已插入 %1$d 行。"
+msgstr[0] "插入了 %1$d 行。"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
