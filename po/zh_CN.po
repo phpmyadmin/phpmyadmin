@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-08 13:05+0200\n"
+"PO-Revision-Date: 2010-04-08 13:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -7420,16 +7420,14 @@ msgid ""
 msgstr "有新的 phpMyAdmin 可用，请考虑升级。最新的版本是 %s，于 %s 发布。"
 
 #: setup/lib/messages.inc.php:372
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
 #| "latest stable version is %s, released on %s."
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
-msgstr ""
-"你现在使用的是开发版，请通过 [kbd]svn update[/kbd] 检查更新 :-)[br]最新正式版"
-"为 %s，于 %s 发布。"
+msgstr "你现在使用的是开发版，请通过 [kbd]git pull[/kbd] 检查更新 :-)[br]最新正式版为 %s，于 %s 发布。"
 
 #: setup/lib/messages.inc.php:373
 msgid "No newer stable version is available"
