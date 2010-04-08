@@ -69,11 +69,11 @@ msgid_plural "%1$d rows affected."
 msgstr[0] "影响了 %1$d 行。"
 
 #: libraries/Message.class.php:301
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "已删除 %1$d 行。"
+msgstr[0] "删除了 %1$d 行。"
 
 #: libraries/Message.class.php:320
 #, fuzzy, php-format
