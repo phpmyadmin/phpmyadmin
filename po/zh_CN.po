@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-08 12:54+0200\n"
+"PO-Revision-Date: 2010-04-08 12:56+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6987,14 +6987,13 @@ msgid "SQL query history table"
 msgstr "SQL 查询历史表"
 
 #: setup/lib/messages.inc.php:279
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
-msgstr "不使用 SQL 查询历史功能请留空，默认：[kbd]pma_history[/kbd]"
+msgstr "不使用 SQL 查询追踪功能请留空，默认：[kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
 #, fuzzy
