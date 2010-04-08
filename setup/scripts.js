@@ -21,11 +21,13 @@ var PMA_messages = {};
  * @param Element field
  */
 function getFieldType(field) {
-    if (field.tagName == 'INPUT') {
-        return field.getProperty('type');
-    } else if (field.tagName == 'SELECT') {
+	field = $(field);
+    var tagName = field.attr('tagName');
+	if (tagName == 'INPUT') {
+        return field.attr('type');
+    } else if (tagName == 'SELECT') {
         return 'select';
-    } else if (field.tagName == 'TEXTAREA') {
+    } else if (tagName == 'TEXTAREA') {
         return 'text';
     }
     return '';
@@ -36,31 +38,33 @@ function getFieldType(field) {
  *
  * value must be of type:
  * o undefined (omitted) - restore default value (form default, not PMA default)
- * o String - if type is 'text'
- * o boolean - if type is 'checkbox'
- * o Array of values - if type is 'select'
+ * o String - if field_type is 'text'
+ * o boolean - if field_type is 'checkbox'
+ * o Array of values - if field_type is 'select'
  *
  * @param Element field
  * @param String  field_type  see getFieldType
  * @param mixed   value
  */
 function setFieldValue(field, field_type, value) {
+	field = $(field);
     switch (field_type) {
         case 'text':
-            field.value = $defined(value) ? value : field.defaultValue;
+            field.attr('value', (value != undefined ? value : field.attr('defaultValue')));
             break;
         case 'checkbox':
-            field.checked = $defined(value) ? value : field.defaultChecked;
+            field.attr('checked', (value != undefined ? value : field.attr('defaultChecked')));
             break;
         case 'select':
-            var i, imax = field.options.length;
-            if (!$defined(value)) {
+            var options = field.attr('options');
+        	var i, imax = options.length;
+            if (value == undefined) {
                 for (i = 0; i < imax; i++) {
-                    field.options[i].selected = field.options[i].defaultSelected;
+                	options[i].selected = options[i].defaultSelected;
                 }
             } else {
                 for (i = 0; i < imax; i++) {
-                    field.options[i].selected = (value.indexOf(field.options[i].value) != -1);
+                	options[i].selected = (value.indexOf(options[i].value) != -1);
                 }
             }
             break;
@@ -81,16 +85,18 @@ function setFieldValue(field, field_type, value) {
  * @return mixed
  */
 function getFieldValue(field, field_type) {
+	field = $(field);
     switch (field_type) {
         case 'text':
-            return field.value;
+            return field.attr('value');
         case 'checkbox':
-            return field.checked;
+            return field.attr('checked');
         case 'select':
-            var i, imax = field.options.length, items = [];
+        	var options = field.attr('options');
+            var i, imax = options.length, items = [];
             for (i = 0; i < imax; i++) {
-                if (field.options[i].selected) {
-                    items.push(field.options[i].value);
+                if (options[i].selected) {
+                    items.push(options[i].value);
                 }
             }
             return items;
@@ -101,8 +107,8 @@ function getFieldValue(field, field_type) {
  * Returns values for all fields in fieldsets
  */
 function getAllValues() {
-    var elements = $$('fieldset input, fieldset select, fieldset textarea');
-    var values = {}
+    var elements = $('fieldset input, fieldset select, fieldset textarea');
+    var values = {};
     var type, value;
     for (var i = 0; i < elements.length; i++) {
         type = getFieldType(elements[i]);
@@ -126,21 +132,23 @@ function getAllValues() {
  * @return boolean
  */
 function checkFieldDefault(field, type) {
-    if (!$defined(defaultValues[field.id])) {
+    field = $(field);
+    var field_id = field.attr('id');
+    if (typeof defaultValues[field_id] == 'undefined') {
         return true;
     }
-    var isDefault = true
+    var isDefault = true;
     var currentValue = getFieldValue(field, type);
     if (type != 'select') {
-        isDefault = currentValue == defaultValues[field.id];
+        isDefault = currentValue == defaultValues[field_id];
     } else {
         // compare arrays, will work for our representation of select values
-        if (currentValue.length != defaultValues[field.id].length) {
+        if (currentValue.length != defaultValues[field_id].length) {
             isDefault = false;
         }
         else {
             for (var i = 0; i < currentValue.length; i++) {
-                if (currentValue[i] != defaultValues[field.id][i]) {
+                if (currentValue[i] != defaultValues[field_id][i]) {
                     isDefault = false;
                     break;
                 }
@@ -155,7 +163,7 @@ function checkFieldDefault(field, type) {
  * @param Element element
  */
 function getIdPrefix(element) {
-    return element.id.replace(/[^-]+$/, '');
+    return $(element).attr('id').replace(/[^-]+$/, '');
 }
 
 // ------------------------------------------------------------------
@@ -165,22 +173,22 @@ function getIdPrefix(element) {
 // stores hidden message ids
 var hiddenMessages = [];
 
-window.addEvent('domready', function() {
+$(function() {
     var hidden = hiddenMessages.length;
     for (var i = 0; i < hidden; i++) {
-        $(hiddenMessages[i]).style.display = 'none';
+        $('#'+hiddenMessages[i]).css('display', 'none');
     }
     if (hidden > 0) {
-        var link = $('show_hidden_messages');
-        link.addEvent('click', function(e) {
-            e.stop();
+        var link = $('#show_hidden_messages');
+        link.click(function(e) {
+            e.preventDefault();
             for (var i = 0; i < hidden; i++) {
-                $(hiddenMessages[i]).style.display = '';
+                $('#'+hiddenMessages[i]).show(500);
             }
-            this.dispose();
+            $(this).remove();
         });
-        link.set('html', link.get('html').replace('#MSG_COUNT', hidden));
-        link.style.display = '';
+        link.html(link.html().replace('#MSG_COUNT', hidden));
+        link.css('display', '');
     }
 });
 
@@ -197,13 +205,15 @@ var validate = {};
 
 // form validator list
 var validators = {
+    // regexp: numeric value
+    _regexp_numeric: new RegExp('^[0-9]*$'),
     /**
      * Validates positive number
      *
      * @param boolean isKeyUp
      */
     validate_positive_number: function (isKeyUp) {
-        var result = this.value.test('^[0-9]*$') && this.value != '0';
+        var result = this.value != '0' && validators._regexp_numeric.test(this.value);
         return result ? true : PMA_messages['error_nan_p'];
     },
     /**
@@ -212,7 +222,7 @@ var validators = {
      * @param boolean isKeyUp
      */
     validate_non_negative_number: function (isKeyUp) {
-        var result = this.value.test('^[0-9]*$');
+        var result = validators._regexp_numeric.test(this.value);
         return result ? true : PMA_messages['error_nan_nneg'];
     },
     /**
@@ -221,7 +231,7 @@ var validators = {
      * @param boolean isKeyUp
      */
     validate_port_number: function(isKeyUp) {
-        var result = this.value.test('^[0-9]*$') && this.value != '0';
+        var result = validators._regexp_numeric.test(this.value) && this.value != '0';
         if (!result || this.value > 65536) {
             result = PMA_messages['error_incorrect_port'];
         }
@@ -254,7 +264,7 @@ var validators = {
                 ajaxValidate(this, 'TrustedProxies', data);
             }
             return true;
-        },
+        }
     },
     // fieldset validators
     _fieldset: {
@@ -275,7 +285,7 @@ var validators = {
          * @param boolean isKeyUp
          */
         Server_login_options: function(isKeyUp) {
-            return validators._fieldset.Server.bind(this)(isKeyUp);
+            return validators._fieldset.Server.apply(this, [isKeyUp]);
         },
         /**
          * Validates Server_pmadb fieldset
@@ -287,8 +297,8 @@ var validators = {
                 return true;
             }
 
-            var prefix = getIdPrefix(this.getElement('input'));
-            var pmadb_active = $(prefix + 'pmadb').value != '';
+            var prefix = getIdPrefix($(this).find('input'));
+            var pmadb_active = $('#' + prefix + 'pmadb').val() != '';
             if (pmadb_active) {
                 ajaxValidate(this, 'Server_pmadb', getAllValues());
             }
@@ -296,7 +306,7 @@ var validators = {
             return true;
         }
     }
-}
+};
 
 /**
  * Calls server-side validation procedures
@@ -306,45 +316,50 @@ var validators = {
  * @param Object values   values hash (element_id: value)
  */
 function ajaxValidate(parent, id, values) {
+	parent = $(parent);
     // ensure that parent is a fieldset
-    if (parent.tagName != 'FIELDSET') {
-        parent = parent.getParent('fieldset');
-        if (!parent) {
+    if (parent.attr('tagName') != 'FIELDSET') {
+        parent = parent.closest('fieldset');
+        if (parent.length == 0) {
             return false;
         }
     }
-    // ensure that we have a Request object
-    if (typeof parent.request == 'undefined') {
-        parent.validate = {
-            request: new Request.JSON({
-                url: 'validate.php',
-                autoCancel: true,
-                onSuccess: function(response) {
-                    if (response == null) {
-                        return;
-                    }
-                    var error = {};
-                    if ($type(response) != 'object') {
-                        error[parent.id] = [response];
-                    } else if (typeof response['error'] != 'undefined') {
-                        error[parent.id] = [response['error']];
-                    } else {
-                        $each(response, function(value, key) {
-                            error[key] = $type(value) == 'array' ? value : [value];
-                        });
-                    }
-                    displayErrors(error);
-                }}),
-            token: parent.getParent('form').token.value
-        };
+ 
+    if (parent.data('ajax') != null) {
+    	parent.data('ajax').abort();
     }
 
-    parent.validate.request.send({
+    parent.data('ajax', $.ajax({
+        url: 'validate.php',
+        cache: false,
+        type: 'POST',
         data: {
-            token: parent.validate.token,
+            token: parent.closest('form').find('input[name=token]').val(),
             id: id,
-            values: JSON.encode(values)}
-    });
+            values: $.toJSON(values)
+        },
+        success: function(response) {
+            if (response == null) {
+                return;
+            }
+
+            var error = {};
+            if (typeof response != 'object') {
+                error[parent.id] = [response];
+            } else if (typeof response['error'] != 'undefined') {
+                error[parent.id] = [response['error']];
+            } else {
+                for (key in response) {
+                	var value = response[key];
+                    error[key] = jQuery.isArray(value) ? value : [value];
+                }
+            }
+            displayErrors(error);
+        },
+        complete: function() {
+            parent.removeData('ajax');
+        }
+    }));
 
     return true;
 }
@@ -404,32 +419,29 @@ function getFieldValidators(field_id, onKeyUpOnly) {
  *
  * @param Object  error list (key: field id, value: error array)
  */
-function displayErrors(errors) {
-    $each(errors, function(errors, field_id) {
-        var field = $(field_id);
-        var isFieldset = field.tagName == 'FIELDSET';
+function displayErrors(error_list) {
+    for (field_id in error_list) {
+        var errors = error_list[field_id];
+        var field = $('#'+field_id);
+        var isFieldset = field.attr('tagName') == 'FIELDSET';
         var errorCnt = isFieldset
-            ? field.getElement('dl.errors')
-            : field.getNext('.inline_errors');
+            ? field.find('dl.errors')
+            : field.siblings('.inline_errors');
 
         // remove empty errors (used to clear error list)
-        errors = errors.filter(function(item) {
+        errors = $.grep(errors, function(item) {
             return item != '';
         });
 
         if (errors.length) {
             // if error container doesn't exist, create it
-            if (errorCnt === null) {
+            if (errorCnt.length == 0) {
                 if (isFieldset) {
-                    errorCnt = new Element('dl', {
-                        'class': 'errors'
-                    });
-                    errorCnt.inject(field.getElement('table'), 'before');
+                    errorCnt = $('<dl class="errors" />');
+                    field.find('table').before(errorCnt);
                 } else {
-                    errorCnt = new Element('dl', {
-                        'class': 'inline_errors'
-                    });
-                    errorCnt.inject(field.getParent('td'), 'bottom');
+                    errorCnt = $('<dl class="inline_errors" />');
+                    field.closest('td').append(errorCnt);
                 }
             }
 
@@ -437,12 +449,12 @@ function displayErrors(errors) {
             for (var i = 0, imax = errors.length; i < imax; i++) {
                 html += '<dd>' + errors[i] + '</dd>';
             }
-            errorCnt.set('html', html);
+            errorCnt.html(html);
         } else if (errorCnt !== null) {
             // remove useless error container
-            errorCnt.dispose();
+            errorCnt.remove();
         }
-    });
+    }
 }
 
 /**
@@ -453,14 +465,18 @@ function displayErrors(errors) {
  * @param Object  errors
  */
 function validate_fieldset(fieldset, isKeyUp, errors) {
-    if (fieldset && typeof validators._fieldset[fieldset.id] != 'undefined') {
-        var fieldset_errors = validators._fieldset[fieldset.id].bind(fieldset)(isKeyUp);
-        $each(fieldset_errors, function(field_errors, field_id) {
+	fieldset = $(fieldset);
+    if (fieldset.length && typeof validators._fieldset[fieldset.attr('id')] != 'undefined') {
+        var fieldset_errors = validators._fieldset[fieldset.attr('id')].apply(fieldset[0], [isKeyUp]);
+        for (field_id in fieldset_errors) {
             if (typeof errors[field_id] == 'undefined') {
                 errors[field_id] = [];
             }
-            errors[field_id][$type(field_errors) == 'array' ? 'extend' : 'push'](field_errors);
-        });
+            if (typeof fieldset_errors[field_id] == 'string') {
+                fieldset_errors[field_id] = [fieldset_errors[field_id]];
+            }
+            $.merge(errors[field_id], fieldset_errors[field_id]);
+        }
     }
 }
 
@@ -472,12 +488,17 @@ function validate_fieldset(fieldset, isKeyUp, errors) {
  * @param Object  errors
  */
 function validate_field(field, isKeyUp, errors) {
-    errors[field.id] = [];
-    var functions = getFieldValidators(field.id, isKeyUp);
+	field = $(field);
+	var field_id = field.attr('id');
+    errors[field_id] = [];
+    var functions = getFieldValidators(field_id, isKeyUp);
     for (var i = 0; i < functions.length; i++) {
-        var result = functions[i][0].bind(field)(isKeyUp, functions[i][1]);
+        var result = functions[i][0].apply(field[0], [isKeyUp, functions[i][1]]);
         if (result !== true) {
-            errors[field.id][$type(result) == 'array' ? 'extend' : 'push'](result);
+            if (typeof result == 'string') {
+            	result = [result];
+            }
+            $.merge(errors[field_id], result);
         }
     }
 }
@@ -489,9 +510,10 @@ function validate_field(field, isKeyUp, errors) {
  * @param boolean isKeyUp
  */
 function validate_field_and_fieldset(field, isKeyUp) {
+	field = $(field);
     var errors = {};
     validate_field(field, isKeyUp, errors);
-    validate_fieldset(field.getParent('fieldset'), isKeyUp, errors);
+    validate_fieldset(field.closest('fieldset'), isKeyUp, errors);
     displayErrors(errors);
 }
 
@@ -501,11 +523,12 @@ function validate_field_and_fieldset(field, isKeyUp) {
  * @param Element field
  */
 function markField(field) {
+	field = $(field);
     var type = getFieldType(field);
     var isDefault = checkFieldDefault(field, type);
 
     // checkboxes uses parent <span> for marking
-    var fieldMarker = (type == 'checkbox') ? field.getParent() : field;
+    var fieldMarker = (type == 'checkbox') ? field.parent() : field;
     setRestoreDefaultBtn(field, !isDefault);
     fieldMarker[isDefault ? 'removeClass' : 'addClass']('custom');
 }
@@ -517,55 +540,51 @@ function markField(field) {
  * @param bool    display
  */
 function setRestoreDefaultBtn(field, display) {
-    var td = field.getParent('td');
-    if (!td) return;
-    var el = td.getElement('.restore-default');
-    if (!el) return;
-    el.style.display = (display ? '' : 'none');
+    var el = $(field).closest('td').find('.restore-default');
+    el.css('display', (el.css('display') ? '' : 'none'));
 }
 
-window.addEvent('domready', function() {
-    var elements = $$('input[id], select[id], textarea[id]');
-    var elements_count = elements.length;
-
+$(function() {
     // register validators and mark custom values
-    for (var i = 0; i < elements_count; i++) {
-        var el = elements[i];
-        markField(el);
-        el.addEvent('change', function(e) {
+	var elements = $('input[id], select[id], textarea[id]');
+    $('input[id], select[id], textarea[id]').each(function(){
+        markField(this);
+        var el = $(this);
+        el.bind('change', function() {
             validate_field_and_fieldset(this, false);
             markField(this);
         });
+        var tagName = el.attr('tagName');
         // text fields can be validated after each change
-        if (el.tagName == 'INPUT' && el.type == 'text') {
-            el.addEvent('keyup', function(e) {
-                validate_field_and_fieldset(this, true);
+        if (tagName == 'INPUT' && el.attr('type') == 'text') {
+        	el.keyup(function() {
+                validate_field_and_fieldset(el, true);
                 markField(el);
             });
         }
         // disable textarea spellcheck
-        if (el.tagName == 'TEXTAREA') {
-            el.setProperty('spellcheck', false)
-        }
-    }
+        if (tagName == 'TEXTAREA') {
+        	el.attr('spellcheck', false);
+        }    	
+    });
 
 	// check whether we've refreshed a page and browser remembered modified
 	// form values
-	var check_page_refresh = $('check_page_refresh');
-	if (!check_page_refresh || check_page_refresh.value == '1') {
+	var check_page_refresh = $('#check_page_refresh');
+	if (check_page_refresh.length == 0 || check_page_refresh.val() == '1') {
 		// run all field validators
 		var errors = {};
-		for (var i = 0; i < elements_count; i++) {
+		for (var i = 0; i < elements.length; i++) {
 			validate_field(elements[i], false, errors);
 		}
 		// run all fieldset validators
-		$$('fieldset').each(function(el){
-			validate_fieldset(el, false, errors);
+		$('fieldset').each(function(){
+			validate_fieldset(this, false, errors);
 		});
 		
 		displayErrors(errors);
 	} else if (check_page_refresh) {
-		check_page_refresh.value = '1';
+		check_page_refresh.val('1');
 	}
 });
 
@@ -583,37 +602,38 @@ window.addEvent('domready', function() {
  * @param Element tab_link
  */
 function setTab(tab_link) {
-    var tabs_menu = tab_link.getParent('.tabs');
+    var tabs_menu = $(tab_link).closest('.tabs');
 
-    var links = tabs_menu.getElements('a');
-    var contents;
+    var links = tabs_menu.find('a');
+    var contents, link;
     for (var i = 0, imax = links.length; i < imax; i++) {
-        contents = $(links[i].getProperty('href').substr(1));
+    	link = $(links[i]);
+        contents = $(link.attr('href'));
         if (links[i] == tab_link) {
-            links[i].addClass('active');
-            contents.style.display = 'block';
+        	link.addClass('active');
+            contents.css('display', 'block');
         } else {
-            links[i].removeClass('active');
-            contents.style.display = 'none';
+            link.removeClass('active');
+            contents.css('display', 'none');
         }
     }
-    location.hash = 'tab_' + tab_link.getProperty('href').substr(1);
+    location.hash = 'tab_' + $(tab_link).attr('href').substr(1);
 }
 
-window.addEvent('domready', function() {
-    var tabs = $$('.tabs');
+$(function() {
+    var tabs = $('.tabs');
     var url_tab = location.hash.match(/^#tab_.+/)
-        ? $$('a[href$="' + location.hash.substr(5) + '"]') : null;
+        ? $('a[href$="' + location.hash.substr(5) + '"]') : null;
     if (url_tab) {
         url_tab = url_tab[0];
     }
     // add tabs events and activate one tab (the first one or indicated by location hash)
     for (var i = 0, imax = tabs.length; i < imax; i++) {
-        var links = tabs[i].getElements('a');
+        var links = $(tabs[i]).find('a');
         var selected_tab = links[0];
         for (var j = 0, jmax = links.length; j < jmax; j++) {
-            links[j].addEvent('click', function(e) {
-                e.stop();
+            $(links[j]).click(function(e) {
+                e.preventDefault();
                 setTab(this);
             });
             if (links[j] == url_tab) {
@@ -625,16 +645,16 @@ window.addEvent('domready', function() {
     // tab links handling, check each 200ms
     // (works with history in FF, further browser support here would be an overkill)
     var prev_hash = location.hash;
-    (function() {
+    setInterval(function() {
         if (location.hash != prev_hash) {
             prev_hash = location.hash;
             var url_tab = location.hash.match(/^#tab_.+/)
-                ? $$('a[href$="' + location.hash.substr(5) + '"]') : null;
+                ? $('a[href$="' + location.hash.substr(5) + '"]') : null;
             if (url_tab) {
                 setTab(url_tab[0]);
             }
         }
-    }).periodical(200);
+    }, 200);
 });
 
 //
@@ -645,16 +665,13 @@ window.addEvent('domready', function() {
 // Form reset buttons
 //
 
-window.addEvent('domready', function() {
-    var buttons = $$('input[type=button]');
-    for (var i = 0, imax = buttons.length; i < imax; i++) {
-        buttons[i].addEvent('click', function(e) {
-            var fields = this.getParent('fieldset').getElements('input, select, textarea');
-            for (var i = 0, imax = fields.length; i < imax; i++) {
-                setFieldValue(fields[i], getFieldType(fields[i]));
-            }
-        });
-    }
+$(function() {
+    $('input[type=button]').click(function(e) {
+        var fields = $(this).closest('fieldset').find('input, select, textarea');
+        for (var i = 0, imax = fields.length; i < imax; i++) {
+            setFieldValue(fields[i], getFieldType(fields[i]));
+        }
+    });
 });
 
 //
@@ -671,45 +688,40 @@ window.addEvent('domready', function() {
  * @param String field_id
  */
 function restoreField(field_id) {
-    var field = $(field_id);
-    if (!field || !$defined(defaultValues[field_id])) {
+    var field = $('#'+field_id);
+    if (field.length == 0 || defaultValues[field_id] == undefined) {
         return;
     }
     setFieldValue(field, getFieldType(field), defaultValues[field_id]);
 }
 
-window.addEvent('domready', function() {
-    var buttons = $$('.restore-default, .set-value');
-    var fixIE = Browser.Engine.name == 'trident' && Browser.Engine.version == 4;
-    for (var i = 0, imax = buttons.length; i < imax; i++) {
-        buttons[i].set('opacity', 0.25);
-        if (!buttons[i].hasClass('restore-default')) {
+$(function() {
+    $('.restore-default, .set-value').each(function() {
+        var link = $(this);
+        link.css('opacity', 0.25);
+        if (!link.hasClass('restore-default')) {
             // restore-default is handled by markField
-            buttons[i].style.display = '';
+        	link.css('display', '');
         }
-        buttons[i].addEvents({
-            mouseenter: function(e) {this.set('opacity', 1);},
-            mouseleave: function(e) {this.set('opacity', 0.25);},
+        link.bind({
+            mouseenter: function() {$(this).css('opacity', 1);},
+            mouseleave: function() {$(this).css('opacity', 0.25);},
             click: function(e) {
-                e.stop();
-                var href = this.getProperty('href').substr(1);
+                e.preventDefault();
+                var href = $(this).attr('href').substr(1);
                 var field_id;
-                if (this.hasClass('restore-default')) {
+                if ($(this).hasClass('restore-default')) {
                     field_id = href;
                     restoreField(field_id);
                 } else {
                     field_id = href.match(/^[^=]+/)[0];
                     var value = href.match(/=(.+)$/)[1];
-                    setFieldValue($(field_id), 'text', value);
+                    setFieldValue($('#'+field_id), 'text', value);
                 }
-                $(field_id).fireEvent('change');
+                $('#'+field_id).trigger('change');
             }
         });
-        // fix IE showing <img> alt text instead of link title
-        if (fixIE) {
-            buttons[i].getChildren('img')[0].alt = buttons[i].title;
-        }
-    }
+    });
 });
 
 //

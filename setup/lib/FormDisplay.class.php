@@ -227,10 +227,10 @@ class FormDisplay
                     : filter_input($GLOBALS["str$str"]); // null if not set
                 $js_lang[] = "'$str': '" . PMA_jsFormat($lang, false) . '\'';
             }
-            $js[] = '$extend(PMA_messages, {' . implode(",\n\t", $js_lang) . '})';
+            $js[] = '$.extend(PMA_messages, {' . implode(",\n\t", $js_lang) . '})';
         }
 
-        $js[] = '$extend(defaultValues, {' . implode(",\n\t", $js_default) . '})';
+        $js[] = '$.extend(defaultValues, {' . implode(",\n\t", $js_default) . '})';
         display_js($js);
     }
 

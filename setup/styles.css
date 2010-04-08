@@ -111,6 +111,15 @@ div.notice h4 {
     border-color: #FFD700;
 }
 
+div.notice[id^=version_check] {
+    border-color: #002DFF;
+    background-color: #EEF;    
+}
+
+div.notice[id^=version_check] h4 {
+    border-color: #002DFF;
+}
+
 div.warning {
     border-color: #C00;
     background-color: #FFC;
@@ -229,6 +238,7 @@ fieldset .inline_errors { /* field error list */
     padding: 0;
     list-style: none;
     color: #9A0000;
+	font-size: small;
 }
 
 fieldset table {
