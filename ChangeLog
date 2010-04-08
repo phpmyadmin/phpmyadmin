@@ -8,6 +8,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,
   thanks to Lorikeet Lee.
+- patch #2983492 [sync] When asking to synchronize Structure and Data,
+  only Structure is done, thanks to Ankit Gupta - ankitgupta3
 
 3.3.2.0 (not yet released)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
