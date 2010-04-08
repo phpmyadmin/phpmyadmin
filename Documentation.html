@@ -4486,8 +4486,12 @@ now synchronize your databases placed on the same server or some remote server.
     <li>Please try to keep up the file-naming conventions. Table-related stuff
         goes to <i>tbl_*.php</i>, db-related code to <i>db_*.php</i>,
         server-related tools to <i>server_*.php</i> and so on.</li>
-    <li>Please don't put message strings in your code, instead add the string
-        (at least) to <i>english-utf-8.inc.php</i> and print() it out.</li>
+    <li>Please use gettext wrappers around all messages 
+        (<code>__('Some text')</code> or <code>_ngettext()</code> function).
+        To translate them, you need to call <code>scripts/update-po</code>
+        script. To use translated messages, call
+        <code>scripts/generate-mo</code>, which generates binary files read by
+        Gettext.</li>
     <li>If you want to be really helpful, write an entry for the ChangeLog.</li>
     <li id="developersdbg">
         The DBG extension (<a href="http://dd.cron.ru/dbg/">PHP
