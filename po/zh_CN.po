@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-08 12:59+0200\n"
+"PO-Revision-Date: 2010-04-08 13:00+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -7117,12 +7117,11 @@ msgid "Automatically create versions"
 msgstr "自动创建版本"
 
 #: setup/lib/messages.inc.php:305
-#, fuzzy
 #| msgid ""
 #| "Defines the list of statements the auto-creation uses for new versions. "
 #| "Default value is"
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr "定义自动创建新版的命令列表。默认值为"
+msgstr "定义自动创建新版的命令列表。"
 
 #: setup/lib/messages.inc.php:306
 #, fuzzy
