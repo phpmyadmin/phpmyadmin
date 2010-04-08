@@ -7103,14 +7103,13 @@ msgid "Signon URL"
 msgstr "登录地址"
 
 #: setup/lib/messages.inc.php:303
-#, fuzzy
 #| msgid ""
 #| "Whether the tracking mechanism creates versions for tables and views "
 #| "automatically. Default value is false."
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr "设置追踪系统是否自动为数据表和视图创建版本。默认为 false 。"
+msgstr "设置追踪系统是否自动为数据表和视图创建版本。"
 
 #: setup/lib/messages.inc.php:304
 #, fuzzy
