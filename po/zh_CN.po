@@ -7149,7 +7149,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:310
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "添加 DROP TABLE"
 
 #: setup/lib/messages.inc.php:311
 #, fuzzy
