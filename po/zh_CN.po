@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-02 13:41+0200\n"
-"PO-Revision-Date: 2010-04-08 12:57+0200\n"
+"PO-Revision-Date: 2010-04-08 12:59+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -54,7 +54,7 @@ msgstr "zh"
 
 #: libraries/common.lib.php:1276
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "在本页面编辑此查询"
 
 #: libraries/common.lib.php:1278
 #| msgid "Engines"
