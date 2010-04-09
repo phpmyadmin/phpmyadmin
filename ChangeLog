@@ -61,6 +61,8 @@ $Id$
 - bug #2966752 [setup] Allow to configure changes tracking in setup script.
 + patch #2981165 [edit] Optionally disable the Type column, 
   thanks to Brian Douglass - bhdouglass
++ patch #2984058 [edit] Buttons for quicky creating common SQL queries, thanks
+  to sutharshan.
 
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,

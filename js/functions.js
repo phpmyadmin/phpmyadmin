@@ -1304,6 +1304,51 @@ function setSelectOptions(the_form, the_select, do_check)
     return true;
 } // end of the 'setSelectOptions()' function
 
+
+/**
+  * Create quick sql statements.
+  *
+  */
+function insertQuery(queryType) {
+    var myQuery = document.sqlform.sql_query;
+    var myListBox = document.sqlform.dummy;
+    var query = "";
+    var table = document.sqlform.table.value;
+
+    if (myListBox.options.length > 0) {
+        sql_box_locked = true;
+        var chaineAj = "";
+        var valDis = "";
+        var editDis = "";
+        var NbSelect = 0;
+        for (var i=0; i < myListBox.options.length; i++) {
+            NbSelect++;
+            if (NbSelect > 1) {
+                chaineAj += ", ";
+                valDis += ",";
+                editDis += ",";
+            }
+            chaineAj += myListBox.options[i].value;
+            valDis += "[value-" + NbSelect + "]";
+            editDis += myListBox.options[i].value + "=[value-" + NbSelect + "]";
+        }
+    if (queryType == "selectall") {
+        query = "SELECT * FROM `" + table + "` WHERE 1";
+    } else if (queryType == "select") {
+        query = "SELECT " + chaineAj + " FROM `" + table + "` WHERE 1";
+    } else if (queryType == "insert") {
+           query = "INSERT INTO `" + table + "`(" + chaineAj + ") VALUES (" + valDis + ")";
+    } else if (queryType == "update") {
+        query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
+    } else if(queryType == "delete") {
+        query = "DELETE FROM `" + table + "` WHERE 1";
+    }
+    document.sqlform.sql_query.value = query;
+    sql_box_locked = false;
+    }
+}
+
+
 /**
   * Inserts multiple fields.
   *
