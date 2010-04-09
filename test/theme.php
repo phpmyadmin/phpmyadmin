@@ -15,7 +15,7 @@ chdir('..');
  */
 require_once './libraries/common.inc.php';
 
-$lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][2];
+$lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
 
 // start output
 header('Content-Type: text/html; charset=' . $GLOBALS['charset']);

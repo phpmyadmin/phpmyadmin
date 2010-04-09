@@ -65,8 +65,8 @@ function PMA_select_language($use_fieldset = FALSE, $show_doc = TRUE) {
         $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
 
         // Include native name if non empty
-        if (!empty($tmplang[3])) {
-            $lang_name = $tmplang[3] . ' - '
+        if (!empty($tmplang[2])) {
+            $lang_name = $tmplang[2] . ' - '
                 . $lang_name;
         }
 

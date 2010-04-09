@@ -1949,7 +1949,7 @@ $cfg['PDFDefaultPageSize'] = 'A4';
  *
  * @global string $cfg['DefaultLang']
  */
-$cfg['DefaultLang'] = 'en-utf-8';
+$cfg['DefaultLang'] = 'en';
 
 /**
  * Default connection collation
@@ -1961,7 +1961,7 @@ $cfg['DefaultConnectionCollation'] = 'utf8_general_ci';
 /**
  * Force: always use this language - must be defined in
  *        libraries/select_lang.lib.php
- * $cfg['Lang'] = 'en-utf-8';
+ * $cfg['Lang'] = 'en';
  *
  * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
  * English only

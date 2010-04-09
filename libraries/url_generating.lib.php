@@ -145,7 +145,7 @@ function PMA_getHiddenFields($values, $pre = '')
  * // produces with cookies enabled:
  * // script.php?db=mysql&amp;table=rights
  * // with cookies disabled:
- * // script.php?server=1&amp;lang=en-utf-8&amp;db=mysql&amp;table=rights
+ * // script.php?server=1&amp;lang=en&amp;db=mysql&amp;table=rights
  *
  * // NEW style
  * $params['myparam'] = 'myvalue';
@@ -156,14 +156,14 @@ function PMA_getHiddenFields($values, $pre = '')
  * // produces with cookies enabled:
  * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
  * // with cookies disabled:
- * // script.php?server=1&amp;lang=en-utf-8&amp;myparam=myvalue&amp;db=mysql&amp;table=rights
+ * // script.php?server=1&amp;lang=en&amp;myparam=myvalue&amp;db=mysql&amp;table=rights
  *
  * // note the missing ?
  * echo 'script.php' . PMA_generate_common_url();
  * // produces with cookies enabled:
  * // script.php
  * // with cookies disabled:
- * // script.php?server=1&amp;lang=en-utf-8
+ * // script.php?server=1&amp;lang=en
  * </code>
  *
  * @uses    $GLOBALS['server']

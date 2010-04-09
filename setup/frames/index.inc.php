@@ -77,8 +77,8 @@ if (!$is_https) {
 
         $lang_name = ucfirst(substr(strrchr($each_lang[0], '|'), 1));
         // Include native name if non empty
-        if (!empty($each_lang[3])) {
-            $lang_name = $each_lang[3] . ' - ' . $lang_name;
+        if (!empty($each_lang[2])) {
+            $lang_name = $each_lang[2] . ' - ' . $lang_name;
         }
 
         //Is current one active?
@@ -174,8 +174,8 @@ $opts = array(
 foreach ($all_languages as $each_lang_key => $each_lang) {
     $lang_name = ucfirst(substr(strrchr($each_lang[0], '|'), 1));
     // Include native name if non empty
-    if (!empty($each_lang[3])) {
-        $lang_name = $each_lang[3] . ' - ' . $lang_name;
+    if (!empty($each_lang[2])) {
+        $lang_name = $each_lang[2] . ' - ' . $lang_name;
     }
     $opts['values'][$each_lang_key] = $lang_name;
 }

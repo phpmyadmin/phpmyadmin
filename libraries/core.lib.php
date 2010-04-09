@@ -225,7 +225,7 @@ function PMA_fatalError($error_message, $message_args = null)
     // it could happen PMA_fatalError() is called before language file is loaded
     if (! isset($GLOBALS['available_languages'])) {
         $GLOBALS['cfg'] = array(
-            'DefaultLang'           => 'en-utf-8',
+            'DefaultLang'           => 'en',
             'AllowAnywhereRecoding' => false);
 
         // Loads the language file
@@ -237,7 +237,7 @@ function PMA_fatalError($error_message, $message_args = null)
             $GLOBALS['strError'] = 'Error';
         }
 
-        // $text_dir is set in lang/language-utf-8.inc.php
+        // $text_dir is set in po file
         if (isset($text_dir)) {
             $GLOBALS['text_dir'] = $text_dir;
         }
@@ -262,7 +262,7 @@ function PMA_fatalError($error_message, $message_args = null)
     // Displays the error message
     // (do not use &amp; for parameters sent by header)
     $query_params = array(
-        'lang'  => $GLOBALS['available_languages'][$GLOBALS['lang']][2],
+        'lang'  => $GLOBALS['available_languages'][$GLOBALS['lang']][1],
         'dir'   => $GLOBALS['text_dir'],
         'type'  => $GLOBALS['strError'],
         'error' => $error_message,

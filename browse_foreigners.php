@@ -87,8 +87,8 @@ if (is_array($foreignData['disp_row'])) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xml:lang="<?php echo $available_languages[$lang][2]; ?>"
-    lang="<?php echo $available_languages[$lang][2]; ?>"
+    xml:lang="<?php echo $available_languages[$lang][1]; ?>"
+    lang="<?php echo $available_languages[$lang][1]; ?>"
     dir="<?php echo $text_dir; ?>">
 
 <head>

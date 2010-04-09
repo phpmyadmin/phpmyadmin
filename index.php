@@ -92,7 +92,7 @@ if (isset($GLOBALS['target']) && is_string($GLOBALS['target']) && !empty($GLOBAL
 
 $main_target .= $url_query;
 
-$lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][2];
+$lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
 
 
 // start output

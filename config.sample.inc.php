@@ -110,7 +110,7 @@ $cfg['SaveDir'] = '';
  * Default language to use, if not browser-defined or user-defined
  * (you find all languages in the file libraries/select_lang.lib.php)
  * uncomment the desired line:
- * default = 'en-utf-8'
+ * default = 'en'
  */
 //$cfg['DefaultLang'] = 'en';
 //$cfg['DefaultLang'] = 'de';

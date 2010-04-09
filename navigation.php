@@ -136,8 +136,8 @@ require_once './libraries/header_http.inc.php';
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xml:lang="<?php echo $available_languages[$lang][2]; ?>"
-    lang="<?php echo $available_languages[$lang][2]; ?>"
+    xml:lang="<?php echo $available_languages[$lang][1]; ?>"
+    lang="<?php echo $available_languages[$lang][1]; ?>"
     dir="<?php echo $GLOBALS['text_dir']; ?>">
 
 <head>
@@ -577,7 +577,7 @@ function PMA_displayTableList($tables, $visible = false,
         echo '<ul id="subel' . $element_counter . '" style="display: none">';
     }
     foreach ($tables as $group => $table) {
-        // only allow grouping if the group has more than 1 table	
+        // only allow grouping if the group has more than 1 table
         if (isset($table['is' . $sep . 'group']) && $table['tab' . $sep . 'count'] > 1) {
             $common_url_query = $GLOBALS['common_url_query']
                 . '&amp;tbl_group=' . urlencode($tab_group_full . $group);

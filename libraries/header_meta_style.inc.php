@@ -34,7 +34,7 @@ if ($GLOBALS['text_dir'] == 'ltr') {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>" lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][1]; ?>" lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][1]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
@@ -46,7 +46,7 @@ if ($GLOBALS['text_dir'] == 'ltr') {
         echo 'phpMyAdmin';
     }
 ?></title>
-<?php 
+<?php
 // goes before our themed CSS
     if (defined('PMA_COLORPICKER')) { ?>
     <link rel="stylesheet" type="text/css" href="js/colorpicker/css/colorpicker.css" />

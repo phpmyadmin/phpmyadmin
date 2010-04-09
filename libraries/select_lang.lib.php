@@ -172,11 +172,9 @@ function PMA_langDetect($str, $envType)
  *      be specified first;
  *    - the '|' character (it means 'OR');
  *    - the full language name.
- * 3. The second value associated to the key is the name of the file to load
- *    without the 'inc.php' extension.
- * 4. The third value associated to the key is the language code as defined by
+ * 3. The second value associated to the key is the language code as defined by
  *    the RFC1766.
- * 5. The fourth value is its native name in html entities.
+ * 4. The third value is its native name in html entities or UTF-8.
  *
  * Beware that the sorting order (first values associated to keys by
  * alphabetical reverse order in the array) is important: 'zh-tw' (chinese
@@ -187,129 +185,129 @@ function PMA_langDetect($str, $envType)
 function PMA_langDetails($lang) {
     switch ($lang) {
         case 'en':
-            return array('en|english',  'english-utf-8', 'en', '');
+            return array('en|english', 'en', '');
         case 'af':
-            return array('af|afrikaans', 'afrikaans-utf-8', 'af', '');
+            return array('af|afrikaans', 'af', '');
         case 'ar':
-            return array('ar|arabic', 'arabic-utf-8', 'ar', '&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;');
+            return array('ar|arabic', 'ar', '&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;');
         case 'az':
-            return array('az|azerbaijani', 'azerbaijani-utf-8', 'az', 'Az&#601;rbaycanca');
+            return array('az|azerbaijani', 'az', 'Az&#601;rbaycanca');
         case 'bn':
-            return array('bn|bangla', 'bangla-utf-8', 'bn', '');
+            return array('bn|bangla', 'bn', '');
         case 'be':
-            return array('be|belarusian', 'belarusian_cyrillic-utf-8', 'be', '&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1072;&#1103;');
+            return array('be|belarusian', 'be', '&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1072;&#1103;');
         case 'be@latin':
-            return array('be[-_]lat|belarusian latin', 'belarusian_latin-utf-8', 'be-lat', 'Bie&#0322;aruskaja');
+            return array('be[-_]lat|belarusian latin', 'be-lat', 'Bie&#0322;aruskaja');
         case 'bg':
-            return array('bg|bulgarian', 'bulgarian-utf-8', 'bg', '&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;');
+            return array('bg|bulgarian', 'bg', '&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;');
         case 'bs':
-            return array('bs|bosnian', 'bosnian-utf-8', 'bs', 'Bosanski');
+            return array('bs|bosnian', 'bs', 'Bosanski');
         case 'ca':
-            return array('ca|catalan', 'catalan-utf-8', 'ca', 'Catal&agrave;');
+            return array('ca|catalan', 'ca', 'Catal&agrave;');
         case 'cs':
-            return array('cs|czech', 'czech-utf-8', 'cs', '&#268;esky');
+            return array('cs|czech', 'cs', '&#268;esky');
         case 'da':
-            return array('da|danish', 'danish-utf-8', 'da', 'Dansk');
+            return array('da|danish', 'da', 'Dansk');
         case 'de':
-            return array('de|german', 'german-utf-8', 'de', 'Deutsch');
+            return array('de|german', 'de', 'Deutsch');
         case 'el':
-            return array('el|greek',  'greek-utf-8', 'el', '&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&#940;');
+            return array('el|greek', 'el', '&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&#940;');
         case 'en':
-            return array('en|english',  'english-utf-8', 'en', '');
+            return array('en|english', 'en', '');
         case 'en_GB':
-            return array('en[_-]gb|english (United Kingdom)',  'english-gb-utf-8', 'en', '');
+            return array('en[_-]gb|english (United Kingdom)', 'en-gb', '');
         case 'es':
-            return array('es|spanish', 'spanish-utf-8', 'es', 'Espa&ntilde;ol');
+            return array('es|spanish', 'es', 'Espa&ntilde;ol');
         case 'et':
-            return array('et|estonian', 'estonian-utf-8', 'et', 'Eesti');
+            return array('et|estonian', 'et', 'Eesti');
         case 'eu':
-            return array('eu|basque', 'basque-utf-8', 'eu', 'Euskara');
+            return array('eu|basque', 'eu', 'Euskara');
         case 'fa':
-            return array('fa|persian', 'persian-utf-8', 'fa', '&#1601;&#1575;&#1585;&#1587;&#1740;');
+            return array('fa|persian', 'fa', '&#1601;&#1575;&#1585;&#1587;&#1740;');
         case 'fi':
-            return array('fi|finnish', 'finnish-utf-8', 'fi', 'Suomi');
+            return array('fi|finnish', 'fi', 'Suomi');
         case 'fr':
-            return array('fr|french', 'french-utf-8', 'fr', 'Fran&ccedil;ais');
+            return array('fr|french', 'fr', 'Fran&ccedil;ais');
         case 'gl':
-            return array('gl|galician', 'galician-utf-8', 'gl', 'Galego');
+            return array('gl|galician', 'gl', 'Galego');
         case 'he':
-            return array('he|hebrew', 'hebrew-utf-8', 'he', '&#1506;&#1489;&#1512;&#1497;&#1514;');
+            return array('he|hebrew', 'he', '&#1506;&#1489;&#1512;&#1497;&#1514;');
         case 'hi':
-            return array('hi|hindi', 'hindi-utf-8', 'hi', '&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;');
+            return array('hi|hindi', 'hi', '&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;');
         case 'hr':
-            return array('hr|croatian', 'croatian-utf-8', 'hr', 'Hrvatski');
+            return array('hr|croatian', 'hr', 'Hrvatski');
         case 'hu':
-            return array('hu|hungarian', 'hungarian-utf-8', 'hu', 'Magyar');
+            return array('hu|hungarian', 'hu', 'Magyar');
         case 'id':
-            return array('id|indonesian', 'indonesian-utf-8', 'id', 'Bahasa Indonesia');
+            return array('id|indonesian', 'id', 'Bahasa Indonesia');
         case 'it':
-            return array('it|italian', 'italian-utf-8', 'it', 'Italiano');
+            return array('it|italian', 'it', 'Italiano');
         case 'ja':
-            return array('ja|japanese', 'japanese-utf-8', 'ja', '&#26085;&#26412;&#35486;');
+            return array('ja|japanese', 'ja', '&#26085;&#26412;&#35486;');
         case 'ko':
-            return array('ko|korean', 'korean-utf-8', 'ko', '&#54620;&#44397;&#50612;');
+            return array('ko|korean', 'ko', '&#54620;&#44397;&#50612;');
         case 'ka':
-            return array('ka|georgian', 'georgian-utf-8', 'ka', '&#4325;&#4304;&#4320;&#4311;&#4323;&#4314;&#4312;');
+            return array('ka|georgian', 'ka', '&#4325;&#4304;&#4320;&#4311;&#4323;&#4314;&#4312;');
         case 'lt':
-            return array('lt|lithuanian', 'lithuanian-utf-8', 'lt', 'Lietuvi&#371;');
+            return array('lt|lithuanian', 'lt', 'Lietuvi&#371;');
         case 'lv':
-            return array('lv|latvian', 'latvian-utf-8', 'lv', 'Latvie&scaron;u');
+            return array('lv|latvian', 'lv', 'Latvie&scaron;u');
         case 'mk':
-            return array('mk|macedonian', 'macedonian_cyrillic-utf-8', 'mk', 'Macedonian');
+            return array('mk|macedonian', 'mk', 'Macedonian');
         case 'mn':
-            return array('mn|mongolian', 'mongolian-utf-8', 'mn', '&#1052;&#1086;&#1085;&#1075;&#1086;&#1083;');
+            return array('mn|mongolian', 'mn', '&#1052;&#1086;&#1085;&#1075;&#1086;&#1083;');
         case 'ms':
-            return array('ms|malay', 'malay-utf-8', 'ms', 'Bahasa Melayu');
+            return array('ms|malay', 'ms', 'Bahasa Melayu');
         case 'nl':
-            return array('nl|dutch', 'dutch-utf-8', 'nl', 'Nederlands');
+            return array('nl|dutch', 'nl', 'Nederlands');
         case 'nb':
-            return array('nb|norwegian', 'norwegian-utf-8', 'nb', 'Norsk');
+            return array('nb|norwegian', 'nb', 'Norsk');
         case 'pl':
-            return array('pl|polish', 'polish-utf-8', 'pl', 'Polski');
+            return array('pl|polish', 'pl', 'Polski');
         case 'pt_BR':
-            return array('pt[-_]br|brazilian portuguese', 'brazilian_portuguese-utf-8', 'pt-BR', 'Portugu&ecirc;s');
+            return array('pt[-_]br|brazilian portuguese', 'pt-BR', 'Portugu&ecirc;s');
         case 'pt':
-            return array('pt|portuguese', 'portuguese-utf-8', 'pt', 'Portugu&ecirc;s');
+            return array('pt|portuguese', 'pt', 'Portugu&ecirc;s');
         case 'ro':
-            return array('ro|romanian', 'romanian-utf-8', 'ro', 'Rom&acirc;n&#259;');
+            return array('ro|romanian', 'ro', 'Rom&acirc;n&#259;');
         case 'ru':
-            return array('ru|russian', 'russian-utf-8', 'ru', '&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;');
+            return array('ru|russian', 'ru', '&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;');
         case 'si':
-            return array('si|sinhala', 'sinhala-utf-8', 'si', '&#3523;&#3538;&#3458;&#3524;&#3517;');
+            return array('si|sinhala', 'si', '&#3523;&#3538;&#3458;&#3524;&#3517;');
         case 'sk':
-            return array('sk|slovak', 'slovak-utf-8', 'sk', 'Sloven&#269;ina');
+            return array('sk|slovak', 'sk', 'Sloven&#269;ina');
         case 'sl':
-            return array('sl|slovenian', 'slovenian-utf-8', 'sl', 'Sloven&scaron;&#269;ina');
+            return array('sl|slovenian', 'sl', 'Sloven&scaron;&#269;ina');
         case 'sq':
-            return array('sq|albanian', 'albanian-utf-8', 'sq', 'Shqip');
+            return array('sq|albanian', 'sq', 'Shqip');
         case 'sr@latin':
-            return array('sr[-_]lat|serbian latin', 'serbian_latin-utf-8', 'sr-lat', 'Srpski');
+            return array('sr[-_]lat|serbian latin', 'sr-lat', 'Srpski');
         case 'sr':
-            return array('sr|serbian', 'serbian_cyrillic-utf-8', 'sr', '&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;');
+            return array('sr|serbian', 'sr', '&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;');
         case 'sv':
-            return array('sv|swedish', 'swedish-utf-8', 'sv', 'Svenska');
+            return array('sv|swedish', 'sv', 'Svenska');
         case 'ta':
-            return array('ta|tamil', 'tamil-utf-8', 'ta', 'தமிழ்');
+            return array('ta|tamil', 'ta', 'தமிழ்');
         case 'te':
-            return array('te|telugu', 'telugu-utf-8', 'te', 'తెలుగు');
+            return array('te|telugu', 'te', 'తెలుగు');
         case 'th':
-            return array('th|thai', 'thai-utf-8', 'th', '&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;');
+            return array('th|thai', 'th', '&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;');
         case 'tr':
-            return array('tr|turkish', 'turkish-utf-8', 'tr', 'T&uuml;rk&ccedil;e');
+            return array('tr|turkish', 'tr', 'T&uuml;rk&ccedil;e');
         case 'tt':
-            return array('tt|tatarish', 'tatarish-utf-8', 'tt', 'Tatar&ccedil;a');
+            return array('tt|tatarish', 'tt', 'Tatar&ccedil;a');
         case 'uk':
-            return array('uk|ukrainian', 'ukrainian-utf-8', 'uk', '&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;');
+            return array('uk|ukrainian', 'uk', '&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;');
         case 'ur':
-            return array('ur|urdu', 'urdu-utf-8', 'ur', 'اُردوُ');
+            return array('ur|urdu', 'ur', 'اُردوُ');
         case 'uz@latin':
-            return array('uz[-_]lat|uzbek-latin', 'uzbek_latin-utf-8', 'uz-lat', 'O&lsquo;zbekcha');
+            return array('uz[-_]lat|uzbek-latin', 'uz-lat', 'O&lsquo;zbekcha');
         case 'uz':
-            return array('uz[-_]cyr|uzbek-cyrillic', 'uzbek_cyrillic-utf-8', 'uz-cyr', '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;');
+            return array('uz[-_]cyr|uzbek-cyrillic', 'uz-cyr', '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;');
         case 'zh_TW':
-            return array('zh[-_](tw|hk)|chinese traditional', 'chinese_traditional-utf-8', 'zh-TW', '&#20013;&#25991;');
+            return array('zh[-_](tw|hk)|chinese traditional', 'zh-TW', '&#20013;&#25991;');
         case 'zh_CN':
-            return array('zh|chinese simplified', 'chinese_simplified-utf-8', 'zh', '&#20013;&#25991;');
+            return array('zh|chinese simplified', 'zh', '&#20013;&#25991;');
     }
     return array("$lang|$lang", $lang, $lang);
 }
@@ -322,7 +320,7 @@ function PMA_langDetails($lang) {
 function PMA_langList()
 {
     /* We can always speak English */
-    $result = array('en-utf-8' => PMA_langDetails('en'));
+    $result = array('en' => PMA_langDetails('en'));
 
     /* Open the directory */
     $handle = @opendir($GLOBALS['lang_path']);
@@ -440,7 +438,7 @@ if (empty($GLOBALS['convcharset'])) {
 
 if (! PMA_langCheck()) {
     // fallback language
-    $fall_back_lang = 'en-utf-8';
+    $fall_back_lang = 'en';
     $line = __LINE__;
     if (! PMA_langSet($fall_back_lang)) {
         trigger_error('phpMyAdmin-ERROR: invalid lang code: '
