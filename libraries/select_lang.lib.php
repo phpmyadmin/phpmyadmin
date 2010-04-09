@@ -300,6 +300,8 @@ function PMA_langDetails($lang) {
             return array('tt|tatarish', 'tatarish-utf-8', 'tt', 'Tatar&ccedil;a');
         case 'uk':
             return array('uk|ukrainian', 'ukrainian-utf-8', 'uk', '&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;');
+        case 'ur':
+            return array('ur|urdu', 'urdu-utf-8', 'ur', 'اُردوُ');
         case 'uz@latin':
             return array('uz[-_]lat|uzbek-latin', 'uzbek_latin-utf-8', 'uz-lat', 'O&lsquo;zbekcha');
         case 'uz':
