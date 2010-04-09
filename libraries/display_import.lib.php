@@ -29,7 +29,7 @@ if (empty($import_list)) {
 <iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none"></iframe>
 <div id="import_form_status" style="display: none;"></div>
 <div id="importmain">
-<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" /> 
+<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
 <script type="text/javascript">
 //<![CDATA[
 window.addEvent('domready', function() {
@@ -42,12 +42,12 @@ window.addEvent('domready', function() {
     if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 ?>
     $('upload_form_status').set('html', '<div class="upload_progress_bar_outer"><div id="status" class="upload_progress_bar_inner"></div></div>'); // add the progress bar
-  
+
     var finished = false;
     var percent  = 0.0;
     var total    = 0;
     var complete = 0;
-    
+
     var perform_upload;
     var periodical_upload;
 
@@ -57,9 +57,9 @@ window.addEvent('domready', function() {
       update: 'upload_form_status',
       onComplete: function(response) {
 	   objectsReturned = JSON.decode(response);
-	
+
 	$each(objectsReturned, function(item, index) {
-					    
+
 	  if (index=="finished") {
 	    finished = item;
 	    if (finished==true) {
@@ -68,19 +68,19 @@ window.addEvent('domready', function() {
 	      $('import_form_status').setStyle('display', 'inline');
 	      $('import_form_status').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportProceedingFile; ?> ');
 	      $('import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(); ?>'); // loads the message, either success or mysql error
-	      <?php  
+	      <?php
 		// reload the left sidebar when the import is finished
-		$GLOBALS['reload']=true; 
-		PMA_reloadNavigation(true); 
+		$GLOBALS['reload']=true;
+		PMA_reloadNavigation(true);
 	      ?>
 	    } // if finished==item
-	  } // if index==finished    
+	  } // if index==finished
 	  if (index=="percent")
 	    percent = item;
 	  if (index=="total")
 	    total = item;
 	  if (index=="complete")
-	    complete = item;			    
+	    complete = item;
 	}); // $each
 	 if (total==0 && complete==0 && percent==0) {
 	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat($strImportLargeFileUploading); ?>');
@@ -91,8 +91,8 @@ window.addEvent('domready', function() {
 	 } // else
     } // onComplete
    }); // [equest
-   perform_upload = function () { 
-     request_upload.send('r=' + $time() + $random(0, 100)); // hack for IE7,8 & webkit (Safari, Chrome, Arora...) 
+   perform_upload = function () {
+     request_upload.send('r=' + $time() + $random(0, 100)); // hack for IE7,8 & webkit (Safari, Chrome, Arora...)
    }
    periodical_upload = perform_upload.periodical(1000);
 	<?php
@@ -101,8 +101,8 @@ window.addEvent('domready', function() {
 	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportUploadInfoNotAvailable . PMA_showDocu('faq2_9'); ?>');
 	  $('upload_form_status').setStyle("display", "none");
 	<?php
-	} // else 
-	?> 
+	} // else
+	?>
   }); // if click
 }); // domready
 
@@ -112,7 +112,7 @@ window.addEvent('domready', function() {
 <noscript>
   <form action="import.php" method="post" enctype="multipart/form-data" name="import">
 </noscript>
-<input type="hidden" name="<?php echo $ID_KEY; ?>" value="<?php echo $upload_id ; ?>" /> 
+<input type="hidden" name="<?php echo $ID_KEY; ?>" value="<?php echo $upload_id ; ?>" />
 <?php
 if ($import_type == 'server') {
     echo PMA_generate_common_hidden_inputs('', '', 1);
