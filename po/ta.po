@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 21:18+0200\n"
+"PO-Revision-Date: 2010-04-09 21:19+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -223,7 +223,7 @@ msgstr "அனுமதி நிராகரிக்கப்பட்டு�
 
 #: libraries/messages.inc.php:35
 msgid "Action"
-msgstr ""
+msgstr "செயல் "
 
 #: libraries/messages.inc.php:36
 msgid "Actions"
