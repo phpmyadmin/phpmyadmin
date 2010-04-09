@@ -5,13 +5,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 12:01+0200\n"
+"PO-Revision-Date: 2010-04-09 14:13+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -3604,6 +3604,8 @@ msgstr "Zobrazit stav nadřízeného"
 #: libraries/messages.inc.php:799
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgstr ""
+"Přeskakování chyb může vést k rozdílným datům na nadřízeném a podřízeném "
+"serveru."
 
 #: libraries/messages.inc.php:800
 msgid "Change or reconfigure master server"
@@ -7722,53 +7724,3 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr "ZIP"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "Vybrat vše"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "Vybrat vše"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "Vložit"
-
-#, fuzzy
-#~| msgid "Updated"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "Aktualizováno"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "Odstranit"
-
-#~ msgid "%1$d row(s) affected."
-#~ msgstr "Ovlivněno %1$d řádků."
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
-
-#~ msgid "Jan0"
-#~ msgstr "ledna0"
-
-#~ msgid "Jan1"
-#~ msgstr "ledna1"
-
-#~ msgid "Jan2"
-#~ msgstr "ledna2"
-
-#~ msgid ""
-#~ "Structure Difference' ;\n"
-#~ "$strStructureForView = 'Structure for view"
-#~ msgstr "Rozdíly ve struktuře"
