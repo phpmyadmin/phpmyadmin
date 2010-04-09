@@ -137,7 +137,7 @@ msgstr "திங்கள் "
 
 #: libraries/messages.inc.php:27
 msgid "Tue"
-msgstr ""
+msgstr "செவ்வாய் "
 
 #: libraries/messages.inc.php:27
 msgid "Wed"
