@@ -173,7 +173,7 @@ msgstr "சித்திரை "
 
 #: libraries/messages.inc.php:28
 msgid "May"
-msgstr ""
+msgstr "வைகாசி "
 
 #: libraries/messages.inc.php:28
 msgid "Jun"
