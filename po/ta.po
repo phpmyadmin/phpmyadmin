@@ -125,7 +125,7 @@ msgstr "PiB"
 
 #: libraries/messages.inc.php:25
 msgid "EiB"
-msgstr ""
+msgstr "EiB"
 
 #: libraries/messages.inc.php:27
 msgid "Sun"
