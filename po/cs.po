@@ -3666,7 +3666,7 @@ msgstr "Replikace podřízeného"
 
 #: libraries/messages.inc.php:813
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Vlákno pro podřízený SQL server neběží!"
 
 #: libraries/messages.inc.php:814
 #, php-format
