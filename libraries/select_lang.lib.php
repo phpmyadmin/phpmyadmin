@@ -11,6 +11,20 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Returns language name
+ */
+function PMA_langName($tmplang) {
+    $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
+
+    // Include native name if non empty
+    if (!empty($tmplang[2])) {
+        $lang_name = $tmplang[2] . ' - ' . $lang_name;
+    }
+
+    return $lang_name;
+}
+
+/**
  * tries to find the language to use
  *
  * @uses    $GLOBALS['cfg']['lang']

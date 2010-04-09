@@ -62,13 +62,7 @@ function PMA_select_language($use_fieldset = FALSE, $show_doc = TRUE) {
 
     uasort($GLOBALS['available_languages'], 'PMA_language_cmp');
     foreach ($GLOBALS['available_languages'] as $id => $tmplang) {
-        $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
-
-        // Include native name if non empty
-        if (!empty($tmplang[2])) {
-            $lang_name = $tmplang[2] . ' - '
-                . $lang_name;
-        }
+        $lang_name = PMA_langName($tmplang);
 
         //Is current one active?
         if ($lang == $id) {
