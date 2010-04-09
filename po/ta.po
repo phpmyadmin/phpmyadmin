@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 21:19+0200\n"
+"PO-Revision-Date: 2010-04-09 21:21+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -231,7 +231,7 @@ msgstr "செயல்கள் "
 
 #: libraries/messages.inc.php:37
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்க்க "
 
 #: libraries/messages.inc.php:38
 #, php-format
