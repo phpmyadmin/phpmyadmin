@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 21:14+0200\n"
+"PO-Revision-Date: 2010-04-09 21:15+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -197,7 +197,7 @@ msgstr "ஐப்பசி "
 
 #: libraries/messages.inc.php:28
 msgid "Nov"
-msgstr ""
+msgstr "காத்திகை "
 
 #: libraries/messages.inc.php:28
 msgid "Dec"
