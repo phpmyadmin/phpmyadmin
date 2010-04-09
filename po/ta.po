@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 21:04+0200\n"
+"PO-Revision-Date: 2010-04-09 21:07+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -67,8 +67,8 @@ msgstr "உள்வரிசை "
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d வரிசை மாற்றப்பட்டுள்ளது "
+msgstr[1] "%1$d வரிசைகள்   மாற்றப்பட்டுள்ளன "
 
 #: libraries/Message.class.php:301
 #, php-format
