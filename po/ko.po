@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 11:51+0200\n"
+"POT-Creation-Date: 2010-04-09 11:57+0200\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -5725,39 +5725,24 @@ msgid "\"zipped\""
 msgstr "zip 압축"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
-#| msgid "Select All"
-msgctxt "Create SELECT * query"
-msgid "Select all"
-msgstr "모두 선택"
+msgid "SELECT *"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:302
-#, fuzzy
-#| msgid "Select All"
-msgctxt "Create SELECT ... query"
-msgid "Select"
-msgstr "모두 선택"
+msgid "SELECT"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:303
-#, fuzzy
-#| msgid "Insert"
-msgctxt "Create INSERT query"
-msgid "Insert"
-msgstr "삽입"
+msgid "INSERT"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:304
-#, fuzzy
-#| msgid "Update Query"
-msgctxt "Create UPDATE query"
-msgid "Update"
-msgstr "질의 업데이트"
+msgid "UPDATE"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:305
-#, fuzzy
-#| msgid "Delete"
-msgctxt "Create DELETE query"
-msgid "Delete"
-msgstr "삭제"
+msgid "DELETE"
+msgstr ""
 
 #: navigation.php:318
 msgid "Filter"
@@ -7373,6 +7358,36 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT * query"
+#~ msgid "Select all"
+#~ msgstr "모두 선택"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT ... query"
+#~ msgid "Select"
+#~ msgstr "모두 선택"
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgctxt "Create INSERT query"
+#~ msgid "Insert"
+#~ msgstr "삽입"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgctxt "Create UPDATE query"
+#~ msgid "Update"
+#~ msgstr "질의 업데이트"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgctxt "Create DELETE query"
+#~ msgid "Delete"
+#~ msgstr "삭제"
 
 #~ msgid "utf-8"
 #~ msgstr "utf-8"

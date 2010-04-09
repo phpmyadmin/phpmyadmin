@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 11:51+0200\n"
+"POT-Creation-Date: 2010-04-09 11:57+0200\n"
 "PO-Revision-Date: 2010-03-30 23:14+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: tatarish <tt@li.org>\n"
@@ -5822,39 +5822,24 @@ msgid "\"zipped\""
 msgstr "\"ziple\""
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
-#| msgid "Select All"
-msgctxt "Create SELECT * query"
-msgid "Select all"
-msgstr "Saylap Beter"
+msgid "SELECT *"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:302
-#, fuzzy
-#| msgid "Select All"
-msgctxt "Create SELECT ... query"
-msgid "Select"
-msgstr "Saylap Beter"
+msgid "SELECT"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:303
-#, fuzzy
-#| msgid "Insert"
-msgctxt "Create INSERT query"
-msgid "Insert"
-msgstr "Östäw"
+msgid "INSERT"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:304
-#, fuzzy
-#| msgid "Update Query"
-msgctxt "Create UPDATE query"
-msgid "Update"
-msgstr "Sorawnı Yañart"
+msgid "UPDATE"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:305
-#, fuzzy
-#| msgid "Delete"
-msgctxt "Create DELETE query"
-msgid "Delete"
-msgstr "Sal"
+msgid "DELETE"
+msgstr ""
 
 #: navigation.php:318
 #, fuzzy
@@ -7495,6 +7480,36 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT * query"
+#~ msgid "Select all"
+#~ msgstr "Saylap Beter"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT ... query"
+#~ msgid "Select"
+#~ msgstr "Saylap Beter"
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgctxt "Create INSERT query"
+#~ msgid "Insert"
+#~ msgstr "Östäw"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgctxt "Create UPDATE query"
+#~ msgid "Update"
+#~ msgstr "Sorawnı Yañart"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgctxt "Create DELETE query"
+#~ msgid "Delete"
+#~ msgstr "Sal"
 
 #~ msgid "utf-8"
 #~ msgstr "utf-8"

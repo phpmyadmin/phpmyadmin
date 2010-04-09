@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 11:51+0200\n"
+"POT-Creation-Date: 2010-04-09 11:57+0200\n"
 "PO-Revision-Date: 2010-03-12 09:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -5610,39 +5610,24 @@ msgid "\"zipped\""
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
-#| msgid "Select All"
-msgctxt "Create SELECT * query"
-msgid "Select all"
-msgstr " सभी को सेल्कट करें"
+msgid "SELECT *"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:302
-#, fuzzy
-#| msgid "Select All"
-msgctxt "Create SELECT ... query"
-msgid "Select"
-msgstr " सभी को सेल्कट करें"
+msgid "SELECT"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:303
-#, fuzzy
-#| msgid "Insert"
-msgctxt "Create INSERT query"
-msgid "Insert"
-msgstr "इनसर्ट"
+msgid "INSERT"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:304
-#, fuzzy
-#| msgid "Update Query"
-msgctxt "Create UPDATE query"
-msgid "Update"
-msgstr " क्वरी अपडेट करो"
+msgid "UPDATE"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:305
-#, fuzzy
-#| msgid "Delete"
-msgctxt "Create DELETE query"
-msgid "Delete"
-msgstr "डिलीट"
+msgid "DELETE"
+msgstr ""
 
 #: navigation.php:318
 msgid "Filter"
@@ -7228,6 +7213,36 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT * query"
+#~ msgid "Select all"
+#~ msgstr " सभी को सेल्कट करें"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT ... query"
+#~ msgid "Select"
+#~ msgstr " सभी को सेल्कट करें"
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgctxt "Create INSERT query"
+#~ msgid "Insert"
+#~ msgstr "इनसर्ट"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgctxt "Create UPDATE query"
+#~ msgid "Update"
+#~ msgstr " क्वरी अपडेट करो"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgctxt "Create DELETE query"
+#~ msgid "Delete"
+#~ msgstr "डिलीट"
 
 #~ msgid "utf-8"
 #~ msgstr "utf-8"

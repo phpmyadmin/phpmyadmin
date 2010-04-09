@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 11:51+0200\n"
+"POT-Creation-Date: 2010-04-09 11:57+0200\n"
 "PO-Revision-Date: 2010-03-13 00:41+0200\n"
 "Last-Translator: <ronaldinia@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
@@ -6016,39 +6016,24 @@ msgid "\"zipped\""
 msgstr "„arhivat”"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
-#| msgid "Select All"
-msgctxt "Create SELECT * query"
-msgid "Select all"
-msgstr "Selectează tot"
+msgid "SELECT *"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:302
-#, fuzzy
-#| msgid "Select All"
-msgctxt "Create SELECT ... query"
-msgid "Select"
-msgstr "Selectează tot"
+msgid "SELECT"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:303
-#, fuzzy
-#| msgid "Insert"
-msgctxt "Create INSERT query"
-msgid "Insert"
-msgstr "Inserare"
+msgid "INSERT"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:304
-#, fuzzy
-#| msgid "Update Query"
-msgctxt "Create UPDATE query"
-msgid "Update"
-msgstr "Reînnoire comandă"
+msgid "UPDATE"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:305
-#, fuzzy
-#| msgid "Delete"
-msgctxt "Create DELETE query"
-msgid "Delete"
-msgstr "Șterge"
+msgid "DELETE"
+msgstr ""
 
 #: navigation.php:318
 #, fuzzy
@@ -7690,6 +7675,36 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr "ZIP"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT * query"
+#~ msgid "Select all"
+#~ msgstr "Selectează tot"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT ... query"
+#~ msgid "Select"
+#~ msgstr "Selectează tot"
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgctxt "Create INSERT query"
+#~ msgid "Insert"
+#~ msgstr "Inserare"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgctxt "Create UPDATE query"
+#~ msgid "Update"
+#~ msgstr "Reînnoire comandă"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgctxt "Create DELETE query"
+#~ msgid "Delete"
+#~ msgstr "Șterge"
 
 #~ msgid "%1$d row(s) affected."
 #~ msgstr "%1$d rînd(uri) afectat(e)."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 11:51+0200\n"
+"POT-Creation-Date: 2010-04-09 11:57+0200\n"
 "PO-Revision-Date: 2010-04-08 13:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -5783,39 +5783,24 @@ msgid "\"zipped\""
 msgstr "zip 压缩"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
-#| msgid "Select All"
-msgctxt "Create SELECT * query"
-msgid "Select all"
-msgstr "全选"
+msgid "SELECT *"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:302
-#, fuzzy
-#| msgid "Select All"
-msgctxt "Create SELECT ... query"
-msgid "Select"
-msgstr "全选"
+msgid "SELECT"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:303
-#, fuzzy
-#| msgid "Insert"
-msgctxt "Create INSERT query"
-msgid "Insert"
-msgstr "插入"
+msgid "INSERT"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:304
-#, fuzzy
-#| msgid "Updated"
-msgctxt "Create UPDATE query"
-msgid "Update"
-msgstr "更新"
+msgid "UPDATE"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:305
-#, fuzzy
-#| msgid "Delete"
-msgctxt "Create DELETE query"
-msgid "Delete"
-msgstr "删除"
+msgid "DELETE"
+msgstr ""
 
 #: navigation.php:318
 msgid "Filter"
@@ -7497,6 +7482,36 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr "ZIP"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT * query"
+#~ msgid "Select all"
+#~ msgstr "全选"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT ... query"
+#~ msgid "Select"
+#~ msgstr "全选"
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgctxt "Create INSERT query"
+#~ msgid "Insert"
+#~ msgstr "插入"
+
+#, fuzzy
+#~| msgid "Updated"
+#~ msgctxt "Create UPDATE query"
+#~ msgid "Update"
+#~ msgstr "更新"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgctxt "Create DELETE query"
+#~ msgid "Delete"
+#~ msgstr "删除"
 
 #~ msgid "%1$d row(s) affected."
 #~ msgstr "影响了 %1$d 行。"

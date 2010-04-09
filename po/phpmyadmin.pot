@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 11:51+0200\n"
+"POT-Creation-Date: 2010-04-09 11:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5607,28 +5607,23 @@ msgid "\"zipped\""
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:301
-msgctxt "Create SELECT * query"
-msgid "Select all"
+msgid "SELECT *"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:302
-msgctxt "Create SELECT ... query"
-msgid "Select"
+msgid "SELECT"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:303
-msgctxt "Create INSERT query"
-msgid "Insert"
+msgid "INSERT"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:304
-msgctxt "Create UPDATE query"
-msgid "Update"
+msgid "UPDATE"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:305
-msgctxt "Create DELETE query"
-msgid "Delete"
+msgid "DELETE"
 msgstr ""
 
 #: navigation.php:318
