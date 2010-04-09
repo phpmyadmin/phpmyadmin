@@ -161,7 +161,7 @@ msgstr "தை "
 
 #: libraries/messages.inc.php:28
 msgid "Feb"
-msgstr ""
+msgstr "மாசி "
 
 #: libraries/messages.inc.php:28
 msgid "Mar"
