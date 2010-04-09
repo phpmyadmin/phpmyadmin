@@ -298,11 +298,11 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         .$auto_sel . $locking . '>' . htmlspecialchars($query) . '</textarea>' . "\n";
     // Add buttons to generate query easily for select all,single select,insert,update and delete
     if(count($fields_list)) {
-        echo '<input type="button" value="' . _pgettext('Create SELECT * query', 'Select all') . '" id="selectall" onclick="insertQuery(this.id)" />';
-        echo '<input type="button" value="' . _pgettext('Create SELECT ... query', 'Select') . '" id="select" onclick="insertQuery(this.id)" />';
-        echo '<input type="button" value="' . _pgettext('Create INSERT query', 'Insert') . '" id="insert" onclick="insertQuery(this.id)" />';
-        echo '<input type="button" value="' . _pgettext('Create UPDATE query', 'Update') . '" id="update" onclick="insertQuery(this.id)" />';
-        echo '<input type="button" value="' . _pgettext('Create DELETE query', 'Delete') . '" id="delete" onclick="insertQuery(this.id)" />';
+        echo '<input type="button" value="' . __('SELECT *') . '" id="selectall" onclick="insertQuery(this.id)" />';
+        echo '<input type="button" value="' . __('SELECT') . '" id="select" onclick="insertQuery(this.id)" />';
+        echo '<input type="button" value="' . __('INSERT') . '" id="insert" onclick="insertQuery(this.id)" />';
+        echo '<input type="button" value="' . __('UPDATE') . '" id="update" onclick="insertQuery(this.id)" />';
+        echo '<input type="button" value="' . __('DELETE') . '" id="delete" onclick="insertQuery(this.id)" />';
     }
     echo '</div>' . "\n";
 
