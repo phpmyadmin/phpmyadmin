@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 21:09+0200\n"
+"PO-Revision-Date: 2010-04-09 21:10+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -92,7 +92,7 @@ msgstr "ltr"
 #. l10n: Thousands separator
 #: libraries/messages.inc.php:21
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/messages.inc.php:23
