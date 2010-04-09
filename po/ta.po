@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 21:07+0200\n"
+"PO-Revision-Date: 2010-04-09 21:08+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -74,8 +74,8 @@ msgstr[1] "%1$d வரிசைகள்   மாற்றப்பட்டு�
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d வரிசை அகற்றப்பட்டுள்ளது "
+msgstr[1] "%1$d வரிசைகள்   அகற்றப்பட்டுள்ளன "
 
 #: libraries/Message.class.php:320
 #, php-format
