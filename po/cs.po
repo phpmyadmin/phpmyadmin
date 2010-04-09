@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 11:57+0200\n"
-"PO-Revision-Date: 2010-04-06 13:55+0200\n"
+"PO-Revision-Date: 2010-04-09 12:01+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3584,6 +3584,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Tento server není nastaven jako nadřízený v replikačním procesu. Přejete si "
+"ho <a href=\"%s\">nastavit</a>?"
 
 #: libraries/messages.inc.php:796
 msgid ""
@@ -3642,7 +3644,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:808
 msgid "See slave status table"
-msgstr ""
+msgstr "Zobrazit tabulku se stavem podřízených"
 
 #: libraries/messages.inc.php:809
 msgid "Skip current error"
@@ -5958,23 +5960,23 @@ msgstr "„zazipováno“"
 
 #: libraries/sql_query_form.lib.php:301
 msgid "SELECT *"
-msgstr ""
+msgstr "SELECT *"
 
 #: libraries/sql_query_form.lib.php:302
 msgid "SELECT"
-msgstr ""
+msgstr "SELECT"
 
 #: libraries/sql_query_form.lib.php:303
 msgid "INSERT"
-msgstr ""
+msgstr "INSERT"
 
 #: libraries/sql_query_form.lib.php:304
 msgid "UPDATE"
-msgstr ""
+msgstr "UPDATE"
 
 #: libraries/sql_query_form.lib.php:305
 msgid "DELETE"
-msgstr ""
+msgstr "DELETE"
 
 #: navigation.php:318
 msgid "Filter"
