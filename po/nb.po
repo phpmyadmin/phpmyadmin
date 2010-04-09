@@ -3,22 +3,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-02 13:41+0200\n"
+"POT-Creation-Date: 2010-04-09 11:51+0200\n"
 "PO-Revision-Date: 2010-04-06 14:28+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
-"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: js/messages.php:45 libraries/messages.inc.php:372
+#: js/messages.php:50 libraries/messages.inc.php:372
 msgid "Go"
 msgstr "Utfør"
 
-#: js/messages.php:46 libraries/messages.inc.php:131
+#: js/messages.php:51 libraries/messages.inc.php:131
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -60,13 +60,11 @@ msgid "Inline edit of this query"
 msgstr "Inline redigering av denne spørringa"
 
 #: libraries/common.lib.php:1278
-#| msgid "Engines"
 msgid "Inline"
 msgstr "Inline"
 
 #: libraries/Message.class.php:282
 #, php-format
-#| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d rad berørt."
@@ -74,7 +72,6 @@ msgstr[1] "%1$d rader berørt."
 
 #: libraries/Message.class.php:301
 #, php-format
-#| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d rader slettet."
@@ -82,7 +79,6 @@ msgstr[1] "%1$d rader slettet."
 
 #: libraries/Message.class.php:320
 #, php-format
-#| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d rader innsatt."
@@ -6000,6 +5996,41 @@ msgstr "Merk: Ved å sette disse til 0 (null) fjernes begrensningen."
 msgid "\"zipped\""
 msgstr "Komprimert (zip)"
 
+#: libraries/sql_query_form.lib.php:301
+#, fuzzy
+#| msgid "Select All"
+msgctxt "Create SELECT * query"
+msgid "Select all"
+msgstr "Velg alle"
+
+#: libraries/sql_query_form.lib.php:302
+#, fuzzy
+#| msgid "Select All"
+msgctxt "Create SELECT ... query"
+msgid "Select"
+msgstr "Velg alle"
+
+#: libraries/sql_query_form.lib.php:303
+#, fuzzy
+#| msgid "Insert"
+msgctxt "Create INSERT query"
+msgid "Insert"
+msgstr "Sett inn"
+
+#: libraries/sql_query_form.lib.php:304
+#, fuzzy
+#| msgid "Updated"
+msgctxt "Create UPDATE query"
+msgid "Update"
+msgstr "Oppdatert"
+
+#: libraries/sql_query_form.lib.php:305
+#, fuzzy
+#| msgid "Delete"
+msgctxt "Create DELETE query"
+msgid "Delete"
+msgstr "Slett"
+
 #: navigation.php:318
 msgid "Filter"
 msgstr "Filter"
@@ -7251,18 +7282,13 @@ msgid "SQL query history table"
 msgstr "SQL spørringshistorietabell"
 
 #: setup/lib/messages.inc.php:279
-#| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"La stå tom for ingen SQL spørringshistorie, anbefalt: "
-"[kbd]pma_tracking[/kbd]"
+"La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
-#| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL spørringssporingstabell"
 
@@ -7379,7 +7405,6 @@ msgstr ""
 "automatisk."
 
 #: setup/lib/messages.inc.php:304
-#| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Automatisk opprette versjoner"
 
@@ -7389,7 +7414,6 @@ msgstr ""
 "Definerer lista med spørringer autoopprettinga bruker for nye versjoner."
 
 #: setup/lib/messages.inc.php:306
-#| msgid "Statements"
 msgid "Statements to track"
 msgstr "Spørringer som skal spores"
 
@@ -7710,9 +7734,6 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:372
 #, php-format
-#| msgid ""
-#| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-#| "latest stable version is %s, released on %s."
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."

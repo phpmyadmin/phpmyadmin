@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-02 13:41+0200\n"
+"POT-Creation-Date: 2010-04-09 11:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: js/messages.php:45 libraries/messages.inc.php:372
+#: js/messages.php:50 libraries/messages.inc.php:372
 msgid "Go"
 msgstr ""
 
-#: js/messages.php:46 libraries/messages.inc.php:131
+#: js/messages.php:51 libraries/messages.inc.php:131
 msgid "Cancel"
 msgstr ""
 
@@ -5604,6 +5604,31 @@ msgstr ""
 
 #: libraries/messages.inc.php:1284
 msgid "\"zipped\""
+msgstr ""
+
+#: libraries/sql_query_form.lib.php:301
+msgctxt "Create SELECT * query"
+msgid "Select all"
+msgstr ""
+
+#: libraries/sql_query_form.lib.php:302
+msgctxt "Create SELECT ... query"
+msgid "Select"
+msgstr ""
+
+#: libraries/sql_query_form.lib.php:303
+msgctxt "Create INSERT query"
+msgid "Insert"
+msgstr ""
+
+#: libraries/sql_query_form.lib.php:304
+msgctxt "Create UPDATE query"
+msgid "Update"
+msgstr ""
+
+#: libraries/sql_query_form.lib.php:305
+msgctxt "Create DELETE query"
+msgid "Delete"
 msgstr ""
 
 #: navigation.php:318

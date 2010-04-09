@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-02 13:41+0200\n"
+"POT-Creation-Date: 2010-04-09 11:51+0200\n"
 "PO-Revision-Date: 2010-03-31 10:40+0200\n"
 "Last-Translator:  <hey_neken@mundurat.net>\n"
 "Language-Team: basque <eu@li.org>\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: js/messages.php:45 libraries/messages.inc.php:372
+#: js/messages.php:50 libraries/messages.inc.php:372
 msgid "Go"
 msgstr "Joan"
 
-#: js/messages.php:46 libraries/messages.inc.php:131
+#: js/messages.php:51 libraries/messages.inc.php:131
 msgid "Cancel"
 msgstr ""
 
@@ -5817,6 +5817,41 @@ msgstr "Oharra: Aukera hauek zerora ezarriz gero muga kentzen da."
 #: libraries/messages.inc.php:1284
 msgid "\"zipped\""
 msgstr "\"zipatuta\""
+
+#: libraries/sql_query_form.lib.php:301
+#, fuzzy
+#| msgid "Select All"
+msgctxt "Create SELECT * query"
+msgid "Select all"
+msgstr "Dena hautatu"
+
+#: libraries/sql_query_form.lib.php:302
+#, fuzzy
+#| msgid "Select All"
+msgctxt "Create SELECT ... query"
+msgid "Select"
+msgstr "Dena hautatu"
+
+#: libraries/sql_query_form.lib.php:303
+#, fuzzy
+#| msgid "Insert"
+msgctxt "Create INSERT query"
+msgid "Insert"
+msgstr "Txertatu"
+
+#: libraries/sql_query_form.lib.php:304
+#, fuzzy
+#| msgid "Update Query"
+msgctxt "Create UPDATE query"
+msgid "Update"
+msgstr "Kontsulta eguneratu"
+
+#: libraries/sql_query_form.lib.php:305
+#, fuzzy
+#| msgid "Delete"
+msgctxt "Create DELETE query"
+msgid "Delete"
+msgstr "Ezabatu"
 
 #: navigation.php:318
 msgid "Filter"

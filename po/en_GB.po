@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-02 13:41+0200\n"
+"POT-Creation-Date: 2010-04-09 11:51+0200\n"
 "PO-Revision-Date: 2010-03-30 16:04+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: js/messages.php:45 libraries/messages.inc.php:372
+#: js/messages.php:50 libraries/messages.inc.php:372
 msgid "Go"
 msgstr "Go"
 
-#: js/messages.php:46 libraries/messages.inc.php:131
+#: js/messages.php:51 libraries/messages.inc.php:131
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -60,7 +60,6 @@ msgid "Inline edit of this query"
 msgstr "Inline edit of this query"
 
 #: libraries/common.lib.php:1278
-#| msgid "Engines"
 msgid "Inline"
 msgstr "Inline"
 
@@ -5984,6 +5983,41 @@ msgstr "Note: Setting these options to 0 (zero) removes the limit."
 msgid "\"zipped\""
 msgstr "\"zipped\""
 
+#: libraries/sql_query_form.lib.php:301
+#, fuzzy
+#| msgid "Select All"
+msgctxt "Create SELECT * query"
+msgid "Select all"
+msgstr "Select All"
+
+#: libraries/sql_query_form.lib.php:302
+#, fuzzy
+#| msgid "Select All"
+msgctxt "Create SELECT ... query"
+msgid "Select"
+msgstr "Select All"
+
+#: libraries/sql_query_form.lib.php:303
+#, fuzzy
+#| msgid "Insert"
+msgctxt "Create INSERT query"
+msgid "Insert"
+msgstr "Insert"
+
+#: libraries/sql_query_form.lib.php:304
+#, fuzzy
+#| msgid "Updated"
+msgctxt "Create UPDATE query"
+msgid "Update"
+msgstr "Updated"
+
+#: libraries/sql_query_form.lib.php:305
+#, fuzzy
+#| msgid "Delete"
+msgctxt "Create DELETE query"
+msgid "Delete"
+msgstr "Delete"
+
 #: navigation.php:318
 msgid "Filter"
 msgstr "Filter"
@@ -6517,7 +6551,8 @@ msgstr "PMA database"
 
 #: setup/lib/messages.inc.php:133
 msgid "Tracking of changes made in database. Requires configured PMA database."
-msgstr "Tracking of changes made in database. Requires configured PMA database."
+msgstr ""
+"Tracking of changes made in database. Requires configured PMA database."
 
 #: setup/lib/messages.inc.php:134
 msgid "Changes tracking"
@@ -7230,18 +7265,14 @@ msgid "SQL query history table"
 msgstr "SQL query history table"
 
 #: setup/lib/messages.inc.php:279
-#| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma_tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
+"kbd]"
 
 #: setup/lib/messages.inc.php:280
-#| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL query tracking table"
 
@@ -7350,9 +7381,6 @@ msgid "Signon URL"
 msgstr "Signon URL"
 
 #: setup/lib/messages.inc.php:303
-#| msgid ""
-#| "Whether the tracking mechanism creates versions for tables and views "
-#| "automatically. Default value is false."
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -7361,19 +7389,15 @@ msgstr ""
 "automatically."
 
 #: setup/lib/messages.inc.php:304
-#| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Automatically create versions"
 
 #: setup/lib/messages.inc.php:305
-#| msgid ""
-#| "Defines the list of statements the auto-creation uses for new versions. "
-#| "Default value is"
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr "Defines the list of statements the auto-creation uses for new versions."
+msgstr ""
+"Defines the list of statements the auto-creation uses for new versions."
 
 #: setup/lib/messages.inc.php:306
-#| msgid "Statements"
 msgid "Statements to track"
 msgstr "Statements to track"
 

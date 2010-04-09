@@ -3,22 +3,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-02 13:41+0200\n"
+"POT-Creation-Date: 2010-04-09 11:51+0200\n"
 "PO-Revision-Date: 2010-04-02 16:23+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: js/messages.php:45 libraries/messages.inc.php:372
+#: js/messages.php:50 libraries/messages.inc.php:372
 msgid "Go"
 msgstr "Exécuter"
 
-#: js/messages.php:46 libraries/messages.inc.php:131
+#: js/messages.php:51 libraries/messages.inc.php:131
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -640,8 +640,8 @@ msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 "extension. Please check your PHP configuration."
 msgstr ""
-"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%"
-"1$s[/em][/a]. Veuillez vérifier votre configuration de PHP."
+"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%1$s"
+"[/em][/a]. Veuillez vérifier votre configuration de PHP."
 
 #: libraries/messages.inc.php:136
 msgid ""
@@ -849,9 +849,9 @@ msgstr ""
 "phpMyAdmin n'a pu lire votre fichier de configuration!<br />Il est possible "
 "qu'il contienne une erreur de syntaxe, ou que PHP soit incapable de le "
 "trouver.<br />À l'aide du lien suivant, vous pouvez vérifier le message "
-"d'erreur généré par PHP.<br />La plupart du temps, un apostrophe ou un "
-"point-virgule sont manquants.<br />Si vous recevez une page blanche, aucune "
-"erreur n'a été détectée."
+"d'erreur généré par PHP.<br />La plupart du temps, un apostrophe ou un point-"
+"virgule sont manquants.<br />Si vous recevez une page blanche, aucune erreur "
+"n'a été détectée."
 
 #: libraries/messages.inc.php:179
 #, php-format
@@ -5691,9 +5691,9 @@ msgid ""
 "third options are the width and the height in pixels."
 msgstr ""
 "Affiche une image et un lien, le champ contient le nom du fichier. La "
-"première option est un préfixe URL tel que \"http://domaine.com/\". La seconde "
-"option est la largeur en pixels et la troisième option est la hauteur en "
-"pixels."
+"première option est un préfixe URL tel que \"http://domaine.com/\". La "
+"seconde option est la largeur en pixels et la troisième option est la "
+"hauteur en pixels."
 
 #: libraries/messages.inc.php:1199
 msgid ""
@@ -6078,6 +6078,41 @@ msgstr "Note: Une valeur de 0 (zero) enlève la limite."
 #: libraries/messages.inc.php:1284
 msgid "\"zipped\""
 msgstr "\"zippé\""
+
+#: libraries/sql_query_form.lib.php:301
+#, fuzzy
+#| msgid "Select All"
+msgctxt "Create SELECT * query"
+msgid "Select all"
+msgstr "Tout sélectionner"
+
+#: libraries/sql_query_form.lib.php:302
+#, fuzzy
+#| msgid "Select All"
+msgctxt "Create SELECT ... query"
+msgid "Select"
+msgstr "Tout sélectionner"
+
+#: libraries/sql_query_form.lib.php:303
+#, fuzzy
+#| msgid "Insert"
+msgctxt "Create INSERT query"
+msgid "Insert"
+msgstr "Insérer"
+
+#: libraries/sql_query_form.lib.php:304
+#, fuzzy
+#| msgid "Updated"
+msgctxt "Create UPDATE query"
+msgid "Update"
+msgstr "Mis à jour"
+
+#: libraries/sql_query_form.lib.php:305
+#, fuzzy
+#| msgid "Delete"
+msgctxt "Create DELETE query"
+msgid "Delete"
+msgstr "Effacer"
 
 #: navigation.php:318
 msgid "Filter"
@@ -7336,18 +7371,14 @@ msgid "SQL query history table"
 msgstr "Tables pour historique des requêtes SQL"
 
 #: setup/lib/messages.inc.php:279
-#| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Laisser vider pour désactiver le suivi des changements SQL, valeur suggérée "
-": [kbd]pma_tracking[/kbd]"
+"Laisser vider pour désactiver le suivi des changements SQL, valeur "
+"suggérée : [kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
-#| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "Table pour le suivi des changements SQL"
 
@@ -7459,9 +7490,6 @@ msgid "Signon URL"
 msgstr "URL pour connexion"
 
 #: setup/lib/messages.inc.php:303
-#| msgid ""
-#| "Whether the tracking mechanism creates versions for tables and views "
-#| "automatically. Default value is false."
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -7470,21 +7498,16 @@ msgstr ""
 "tables et les vues."
 
 #: setup/lib/messages.inc.php:304
-#| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Création automatique de versions"
 
 #: setup/lib/messages.inc.php:305
-#| msgid ""
-#| "Defines the list of statements the auto-creation uses for new versions. "
-#| "Default value is"
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Définit la liste des énoncés que le mécanisme d'auto-création utilise pour "
 "les nouvelles versions."
 
 #: setup/lib/messages.inc.php:306
-#| msgid "Statements"
 msgid "Statements to track"
 msgstr "Énoncés à suivre"
 
