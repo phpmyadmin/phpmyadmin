@@ -84,7 +84,7 @@ msgstr[1] ""
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
 msgid "ltr"
-msgstr ""
+msgstr "ltr"
 
 #. l10n: Thousands separator
 #: libraries/messages.inc.php:21
