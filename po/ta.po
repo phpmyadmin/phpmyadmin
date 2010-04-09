@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 21:16+0200\n"
+"PO-Revision-Date: 2010-04-09 21:18+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -215,7 +215,7 @@ msgstr "%s நாட்கள் %s மணித்தியாலங்கள�
 
 #: libraries/messages.inc.php:33
 msgid "Aborted"
-msgstr ""
+msgstr "நிறுத்தப்பட்டுள்ளது "
 
 #: libraries/messages.inc.php:34
 msgid "Access denied"
