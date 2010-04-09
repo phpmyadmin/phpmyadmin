@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 14:13+0200\n"
+"PO-Revision-Date: 2010-04-09 14:15+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -3642,7 +3642,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:807
 msgid "Reset slave"
-msgstr ""
+msgstr "Resetovat podřízený server"
 
 #: libraries/messages.inc.php:808
 msgid "See slave status table"
