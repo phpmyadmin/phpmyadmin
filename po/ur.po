@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 11:57+0200\n"
-"PO-Revision-Date: 2010-04-09 14:01+0200\n"
+"PO-Revision-Date: 2010-04-09 14:02+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -84,7 +84,7 @@ msgstr[1] ""
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
 msgid "ltr"
-msgstr ""
+msgstr "rtl"
 
 #. l10n: Thousands separator
 #: libraries/messages.inc.php:21
