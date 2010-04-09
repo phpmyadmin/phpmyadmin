@@ -177,7 +177,7 @@ msgstr "வைகாசி "
 
 #: libraries/messages.inc.php:28
 msgid "Jun"
-msgstr ""
+msgstr "ஆணி "
 
 #: libraries/messages.inc.php:28
 msgid "Jul"
