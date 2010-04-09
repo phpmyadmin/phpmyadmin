@@ -23,7 +23,7 @@ msgstr ""
 
 #: js/messages.php:51 libraries/messages.inc.php:131
 msgid "Cancel"
-msgstr ""
+msgstr "விலக்கு"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
