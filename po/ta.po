@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 21:23+0200\n"
+"PO-Revision-Date: 2010-04-09 21:25+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -248,7 +248,7 @@ msgstr "கள நிரல்களை சேர்க்க/ நீக்க�
 
 #: libraries/messages.inc.php:41
 msgid "Add/Delete Criteria Row"
-msgstr ""
+msgstr "விதி  நிரைகளை சேர்க்க/ நீக்குக "
 
 #: libraries/messages.inc.php:42
 #, php-format
