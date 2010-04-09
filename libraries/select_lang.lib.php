@@ -288,6 +288,8 @@ function PMA_langDetails($lang) {
             return array('sr|serbian', 'serbian_cyrillic-utf-8', 'sr', '&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;');
         case 'sv':
             return array('sv|swedish', 'swedish-utf-8', 'sv', 'Svenska');
+        case 'ta':
+            return array('ta|tamil', 'tamil-utf-8', 'ta', 'தமிழ்');
         case 'te':
             return array('te|telugu', 'telugu-utf-8', 'te', 'తెలుగు');
         case 'th':
