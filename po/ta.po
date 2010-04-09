@@ -193,7 +193,7 @@ msgstr "புரட்டாதி "
 
 #: libraries/messages.inc.php:28
 msgid "Oct"
-msgstr ""
+msgstr "ஐப்பசி "
 
 #: libraries/messages.inc.php:28
 msgid "Nov"
