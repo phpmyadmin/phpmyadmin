@@ -219,7 +219,7 @@ msgstr "நிறுத்தப்பட்டுள்ளது "
 
 #: libraries/messages.inc.php:34
 msgid "Access denied"
-msgstr ""
+msgstr "அனுமதி நிராகரிக்கப்பட்டுள்ளது "
 
 #: libraries/messages.inc.php:35
 msgid "Action"
