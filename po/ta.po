@@ -206,7 +206,7 @@ msgstr "மார்கழி "
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/messages.inc.php:30
 msgid "%B %d, %Y at %I:%M %p"
-msgstr ""
+msgstr "%B %d, %Y at %I:%M %p"
 
 #: libraries/messages.inc.php:31
 #, php-format
