@@ -101,7 +101,7 @@ msgstr ","
 
 #: libraries/messages.inc.php:25
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: libraries/messages.inc.php:25
 msgid "KiB"
