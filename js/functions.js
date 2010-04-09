@@ -1718,5 +1718,10 @@ $(document).ready(function(){
     $("#btnDiscard").live("click",function(){
         $(".sql").html("<span class=\"syntax\">"+$oldText+"</span>");
     });
+
+    jQuery('.sqlbutton').click(function(evt){
+        insertQuery(evt.target.id);
+        return false;
+    });
 });
 
