@@ -189,7 +189,7 @@ msgstr "ஆவணி "
 
 #: libraries/messages.inc.php:28
 msgid "Sep"
-msgstr ""
+msgstr "புரட்டாதி "
 
 #: libraries/messages.inc.php:28
 msgid "Oct"
