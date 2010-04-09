@@ -97,7 +97,7 @@ msgstr ","
 #. l10n: Decimal separator
 #: libraries/messages.inc.php:23
 msgid "."
-msgstr ""
+msgstr ","
 
 #: libraries/messages.inc.php:25
 msgid "B"
