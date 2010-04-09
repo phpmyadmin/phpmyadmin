@@ -265,7 +265,7 @@ msgstr "கருதிட்குள் சேர்க்க "
 
 #: libraries/messages.inc.php:45
 msgid "Add new field"
-msgstr ""
+msgstr "புதிய களத்தை சேர்க்க "
 
 #: libraries/messages.inc.php:46
 msgid "Add privileges on the following database"
