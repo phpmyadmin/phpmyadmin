@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-09 14:15+0200\n"
+"PO-Revision-Date: 2010-04-09 16:57+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -3592,6 +3592,8 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"V tomto seznamu jsou zobrazeny jen podřízené servery spuštěné s parametrem --"
+"report-host=host_name."
 
 #: libraries/messages.inc.php:797
 msgid "Show connected slaves"
@@ -3618,7 +3620,7 @@ msgstr "Nastavení podřízeného"
 #: libraries/messages.inc.php:802
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
+msgstr "Server je nastaven jako podřízený v replikačním procesu. Přejete si:"
 
 #: libraries/messages.inc.php:803
 msgid "Error management:"
@@ -3627,11 +3629,11 @@ msgstr "Práce s chybami:"
 #: libraries/messages.inc.php:804
 #, php-format
 msgid "IO Thread %s only"
-msgstr ""
+msgstr "%s jen IO vlákno"
 
 #: libraries/messages.inc.php:805
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "IO vlákno pro podřízený server neběží!"
 
 #: libraries/messages.inc.php:806
 #, php-format
@@ -3666,12 +3668,12 @@ msgstr "Replikace podřízeného"
 
 #: libraries/messages.inc.php:813
 msgid "Slave SQL Thread not running!"
-msgstr "Vlákno pro podřízený SQL server neběží!"
+msgstr "SQL vlákno pro podřízený server neběží!"
 
 #: libraries/messages.inc.php:814
 #, php-format
 msgid "SQL Thread %s only"
-msgstr ""
+msgstr "%s jen SQL vlákno"
 
 #: libraries/messages.inc.php:815
 #, php-format
@@ -7169,6 +7171,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
+"Nechte prázné pro vypnutí návrháře, výchozí nastavení: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: setup/lib/messages.inc.php:268
 msgid "Designer table"
@@ -7229,21 +7233,22 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
+"Nechte prázné pro vypnutí SQL historie, výchozí hodnota [kbd]pma_history[/"
+"kbd]"
 
 #: setup/lib/messages.inc.php:278
 msgid "SQL query history table"
 msgstr "Tabulka pro historii SQL dotazů"
 
 #: setup/lib/messages.inc.php:279
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
-"pma_table_pages[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro sledování SQL dotazů, výchozí "
+"nastavení: [kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
 msgid "SQL query tracking table"
@@ -7441,6 +7446,8 @@ msgid ""
 "Table to describe the display fields, leave blank for no support; suggested: "
 "[kbd]pma_table_info[/kbd]"
 msgstr ""
+"Tabulka obsahující popisy sloupců, nechte prázdnou pro vypnutí této funkce. "
+"Výchozí hodnota: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
 msgid "Display fields table"
@@ -7523,6 +7530,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
+"Zobrazí link na výstup funkce [a@http://php.net/manual/function.phpinfo.php]"
+"phpinfo()[/a]"
 
 #: setup/lib/messages.inc.php:339
 msgid "Show phpinfo() link"
