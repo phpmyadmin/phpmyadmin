@@ -5940,7 +5940,7 @@ msgstr "Schéma et/ou contenu des bases de données"
 
 #: libraries/messages.inc.php:1250
 msgid "View dump (schema) of database"
-msgstr "Schéma et données de la base "
+msgstr "Schéma et données de la base"
 
 #: libraries/messages.inc.php:1251
 msgid "View dump (schema) of table"
