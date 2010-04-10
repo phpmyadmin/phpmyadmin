@@ -109,7 +109,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
                 'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
             ),
             'innodb_table_locks' => array(
-                'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
+                'type'  => PMA_ENGINE_DETAILS_TYPE_BOOLEAN,
             ),
             'innodb_thread_concurrency' => array(
                 'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
