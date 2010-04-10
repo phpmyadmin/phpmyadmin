@@ -229,7 +229,7 @@ msgstr "செயல்"
 
 #: libraries/messages.inc.php:36
 msgid "Actions"
-msgstr "செயல்கள் "
+msgstr "செயல்கள்"
 
 #: libraries/messages.inc.php:37
 msgid "Add AUTO_INCREMENT value"
