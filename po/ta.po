@@ -69,8 +69,8 @@ msgstr "உள்வரிசை"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d வரிசை மாற்றப்பட்டுள்ளது "
-msgstr[1] "%1$d வரிசைகள்   மாற்றப்பட்டுள்ளன "
+msgstr[0] "%1$d வரிசை மாற்றப்பட்டுள்ளது"
+msgstr[1] "%1$d வரிசைகள்   மாற்றப்பட்டுள்ளன"
 
 #: libraries/Message.class.php:301
 #, php-format
