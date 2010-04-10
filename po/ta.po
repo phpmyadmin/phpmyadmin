@@ -292,7 +292,7 @@ msgstr "புதிய பயனாளரை சேர்க்க"
 
 #: libraries/messages.inc.php:51
 msgid "You have added a new user."
-msgstr "நீங்கள் புதிய பயனாளரை  சேர்த்துள்ளீர்கள் "
+msgstr "நீங்கள் புதிய பயனாளரை சேர்த்துள்ளீர்கள்"
 
 #: libraries/messages.inc.php:52
 msgid "Administration"
