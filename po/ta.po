@@ -246,7 +246,7 @@ msgstr "தடைகளை சேர்க்க"
 
 #: libraries/messages.inc.php:40
 msgid "Add/Delete Field Columns"
-msgstr "கள நிரல்களை சேர்க்க/ நீக்குக "
+msgstr "கள நிரல்களை சேர்க்க/ நீக்குக"
 
 #: libraries/messages.inc.php:41
 msgid "Add/Delete Criteria Row"
