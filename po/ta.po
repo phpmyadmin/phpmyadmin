@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-10 07:34+0200\n"
+"PO-Revision-Date: 2010-04-10 07:35+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -301,7 +301,7 @@ msgstr ""
 #: libraries/messages.inc.php:53
 #, php-format
 msgid "After %s"
-msgstr "%s பின் "
+msgstr "%s பின்"
 
 #: libraries/messages.inc.php:54
 msgid "Go back to previous page"
