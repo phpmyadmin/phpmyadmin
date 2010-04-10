@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-10 05:36+0200\n"
+"PO-Revision-Date: 2010-04-10 05:41+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -271,7 +271,7 @@ msgstr "புதிய களத்தை சேர்க்க "
 
 #: libraries/messages.inc.php:46
 msgid "Add privileges on the following database"
-msgstr ""
+msgstr "பின்வரும் கொட்பிட்கான புதிய அனுமதியை சேர்க்க "
 
 #: libraries/messages.inc.php:47
 msgid "Add privileges on the following table"
