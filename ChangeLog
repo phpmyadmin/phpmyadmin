@@ -69,6 +69,8 @@ $Id$
   thanks to Lorikeet Lee.
 - patch #2983492 [sync] When asking to synchronize Structure and Data,
   only Structure is done, thanks to Ankit Gupta - ankitgupta3
+- patch #2984893 [engines] InnoDB storage page emits a warning,
+  thanks to Madhura Jayaratne - madhuracj
 
 3.3.2.0 (not yet released)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
