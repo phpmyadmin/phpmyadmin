@@ -238,7 +238,7 @@ msgstr "தானாக அதிகரிக்கும் பெறுமத�
 #: libraries/messages.inc.php:38
 #, php-format
 msgid "Add %s"
-msgstr "%sஐ சேர்க்க "
+msgstr "%sஐ சேர்க்க"
 
 #: libraries/messages.inc.php:39
 msgid "Add constraints"
