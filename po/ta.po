@@ -32,7 +32,7 @@ msgid ""
 "1$ssetup script%2$s to create one."
 msgstr ""
 "நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க "
-"கோவையை %2$s  பயன்படுத்தலாம்"
+"கோவையை %2$s பயன்படுத்தலாம்"
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
