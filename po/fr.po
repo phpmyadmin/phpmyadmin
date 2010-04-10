@@ -2537,7 +2537,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:554
 msgid "MySQL said: "
-msgstr "MySQL a répondu:"
+msgstr "MySQL a répondu: "
 
 #: libraries/messages.inc.php:555
 msgid "Show processes"
