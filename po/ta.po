@@ -255,7 +255,7 @@ msgstr "விதி நிரைகளை சேர்க்க/ நீக்�
 #: libraries/messages.inc.php:42
 #, php-format
 msgid "Add %s field(s)"
-msgstr "%s களத்தை சேர்க்க "
+msgstr "%s களத்தை சேர்க்க"
 
 #: libraries/messages.inc.php:43
 msgid "Add custom comment into header (\\n splits lines)"
