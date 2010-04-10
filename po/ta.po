@@ -42,7 +42,7 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin சேவருடன் தொடர்பு கொள்ள முயன்றது. சேவர் அதனை தடுத்து விட்டது. "
-"உங்களது சேவர்,  பயனாளர் பெயர், கடவுச் சொல் என்பவை MySql நிர்வாகியால் "
+"உங்களது சேவர், பயனாளர் பெயர், கடவுச் சொல் என்பவை MySql நிர்வாகியால் "
 "வழங்கப்பட்ட தரவுகளுடன் பொருந்துகின்றதா என சரி பாருங்கள்."
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
