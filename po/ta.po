@@ -171,7 +171,7 @@ msgstr "பங்குனி"
 
 #: libraries/messages.inc.php:28
 msgid "Apr"
-msgstr "சித்திரை "
+msgstr "சித்திரை"
 
 #: libraries/messages.inc.php:28
 msgid "May"
