@@ -143,7 +143,7 @@ msgstr "செவ்வாய்"
 
 #: libraries/messages.inc.php:27
 msgid "Wed"
-msgstr "புதன் "
+msgstr "புதன்"
 
 #: libraries/messages.inc.php:27
 msgid "Thu"
