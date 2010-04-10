@@ -384,7 +384,7 @@ for ($y = 0; $y <= $row; $y++) {
                 $or = 'Or' . $w . '[' . $z . ']';
                 ?>
     <td align="center">
-        <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>" dir="<?php echo $text_dir; ?>"></textarea>
+        <input type="text" name="Or<?php echo $or; ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
                 <?php
                 $z++;
@@ -397,7 +397,7 @@ for ($y = 0; $y <= $row; $y++) {
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
     <td align="center">
-        <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>" dir="<?php echo $text_dir; ?>"></textarea>
+        <input type="text" name="Or<?php echo $or; ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
             <?php
             $z++;
@@ -464,7 +464,7 @@ for ($y = 0; $y <= $row; $y++) {
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
     <td align="center">
-        <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>" dir="<?php echo $text_dir; ?>"></textarea>
+        <input type="text" name="Or<?php echo $or; ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
             <?php
             $z++;
@@ -485,7 +485,7 @@ for ($y = 0; $y <= $row; $y++) {
         }
         ?>
     <td align="center">
-        <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="Or<?php echo $w . '[' . $z . ']'; ?>" dir="<?php echo $text_dir; ?>"><?php echo htmlspecialchars($stripped_or); ?></textarea>
+        <input type="text" name="Or<?php echo $w . '[' . $z . ']'; ?>" value="<?php echo htmlspecialchars($stripped_or); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
         <?php
         if (!empty(${$or}) && isset(${$or}[$x])) {
