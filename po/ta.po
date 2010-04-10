@@ -131,7 +131,7 @@ msgstr "EiB"
 
 #: libraries/messages.inc.php:27
 msgid "Sun"
-msgstr "ஞாயிறு "
+msgstr "ஞாயிறு"
 
 #: libraries/messages.inc.php:27
 msgid "Mon"
