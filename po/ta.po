@@ -183,7 +183,7 @@ msgstr "ஆணி"
 
 #: libraries/messages.inc.php:28
 msgid "Jul"
-msgstr "ஆடி "
+msgstr "ஆடி"
 
 #: libraries/messages.inc.php:28
 msgid "Aug"
