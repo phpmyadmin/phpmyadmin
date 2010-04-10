@@ -155,7 +155,7 @@ msgstr "வெள்ளி"
 
 #: libraries/messages.inc.php:27
 msgid "Sat"
-msgstr "சனி "
+msgstr "சனி"
 
 #: libraries/messages.inc.php:28
 msgid "Jan"
