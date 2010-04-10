@@ -6093,7 +6093,7 @@ msgstr "INSERT"
 
 #: libraries/sql_query_form.lib.php:304
 msgid "UPDATE"
-msgstr ""
+msgstr "UPDATE"
 
 #: libraries/sql_query_form.lib.php:305
 msgid "DELETE"
