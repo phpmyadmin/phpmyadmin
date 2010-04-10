@@ -242,7 +242,7 @@ msgstr "%sஐ சேர்க்க"
 
 #: libraries/messages.inc.php:39
 msgid "Add constraints"
-msgstr "தடைகளை சேர்க்க "
+msgstr "தடைகளை சேர்க்க"
 
 #: libraries/messages.inc.php:40
 msgid "Add/Delete Field Columns"
