@@ -179,7 +179,7 @@ msgstr "வைகாசி"
 
 #: libraries/messages.inc.php:28
 msgid "Jun"
-msgstr "ஆணி "
+msgstr "ஆணி"
 
 #: libraries/messages.inc.php:28
 msgid "Jul"
