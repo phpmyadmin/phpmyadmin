@@ -2295,7 +2295,7 @@ msgstr "Utilisateur&nbsp;:"
 
 #: libraries/messages.inc.php:511
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Cette opération pourrait être longue. Procéder quand même? "
+msgstr "Cette opération pourrait être longue. Procéder quand même?"
 
 #: libraries/messages.inc.php:513
 msgid "max. concurrent connections"
