@@ -159,7 +159,7 @@ msgstr "சனி"
 
 #: libraries/messages.inc.php:28
 msgid "Jan"
-msgstr "தை "
+msgstr "தை"
 
 #: libraries/messages.inc.php:28
 msgid "Feb"
