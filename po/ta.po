@@ -225,7 +225,7 @@ msgstr "அனுமதி நிராகரிக்கப்பட்டு�
 
 #: libraries/messages.inc.php:35
 msgid "Action"
-msgstr "செயல் "
+msgstr "செயல்"
 
 #: libraries/messages.inc.php:36
 msgid "Actions"
