@@ -6081,7 +6081,7 @@ msgstr "\"zippé\""
 
 #: libraries/sql_query_form.lib.php:301
 msgid "SELECT *"
-msgstr ""
+msgstr "SELECT *"
 
 #: libraries/sql_query_form.lib.php:302
 msgid "SELECT"
