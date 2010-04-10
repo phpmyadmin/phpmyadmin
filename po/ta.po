@@ -263,7 +263,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:44
 msgid "Add into comments"
-msgstr "கருதிட்குள் சேர்க்க "
+msgstr "கருதிட்குள் சேர்க்க"
 
 #: libraries/messages.inc.php:45
 msgid "Add new field"
