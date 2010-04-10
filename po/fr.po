@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-10 15:56+0200\n"
+"PO-Revision-Date: 2010-04-10 15:57+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5991,7 +5991,7 @@ msgstr "Serveur web"
 #: libraries/messages.inc.php:1262
 #, php-format
 msgid "Welcome to %s"
-msgstr "Bienvenue à %s "
+msgstr "Bienvenue à %s"
 
 #: libraries/messages.inc.php:1263
 msgid "West European"
