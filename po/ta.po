@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-10 07:31+0200\n"
+"PO-Revision-Date: 2010-04-10 07:32+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -213,7 +213,7 @@ msgstr "%B %d, %Y at %I:%M %p"
 #: libraries/messages.inc.php:31
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s நாட்கள் %s மணித்தியாலங்கள் %s  நிமிடங்கள் மற்றும் %s  செக்கன்கள்"
+msgstr "%s நாட்கள் %s மணித்தியாலங்கள் %s நிமிடங்கள் மற்றும் %s செக்கன்கள்"
 
 #: libraries/messages.inc.php:33
 msgid "Aborted"
