@@ -2329,7 +2329,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:518
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabella MediaWiki"
 
 #: libraries/messages.inc.php:519
 msgid "Available MIME types"
