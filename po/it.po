@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-11 11:05+0200\n"
+"PO-Revision-Date: 2010-04-11 11:07+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1883,7 +1883,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:420
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Il file è in fase di elaborazione, vi preghiamo di essere pazienti."
 
 #: libraries/messages.inc.php:421
 #, php-format
