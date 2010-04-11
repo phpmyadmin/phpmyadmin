@@ -3001,7 +3001,7 @@ msgstr "La pagina è stata creata"
 
 #: libraries/messages.inc.php:655
 msgid "Page creation failed"
-msgstr ""
+msgstr "Creazione della pagina fallita"
 
 #: libraries/messages.inc.php:656
 msgid "PDF"
