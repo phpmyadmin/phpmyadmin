@@ -298,11 +298,11 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         .$auto_sel . $locking . '>' . htmlspecialchars($query) . '</textarea>' . "\n";
     // Add buttons to generate query easily for select all,single select,insert,update and delete
     if(count($fields_list)) {
-        echo '<input type="button" value="' . __('SELECT *') . '" id="selectall" class="sqlbutton" />';
-        echo '<input type="button" value="' . __('SELECT') . '" id="select" class="sqlbutton" />';
-        echo '<input type="button" value="' . __('INSERT') . '" id="insert" class="sqlbutton" />';
-        echo '<input type="button" value="' . __('UPDATE') . '" id="update" class="sqlbutton" />';
-        echo '<input type="button" value="' . __('DELETE') . '" id="delete" class="sqlbutton" />';
+        echo '<input type="button" value="SELECT *" id="selectall" class="sqlbutton" />';
+        echo '<input type="button" value="SELECT" id="select" class="sqlbutton" />';
+        echo '<input type="button" value="INSERT" id="insert" class="sqlbutton" />';
+        echo '<input type="button" value="UPDATE" id="update" class="sqlbutton" />';
+        echo '<input type="button" value="DELETE" id="delete" class="sqlbutton" />';
     }
     echo '</div>' . "\n";
 
