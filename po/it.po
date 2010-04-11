@@ -2682,7 +2682,7 @@ msgstr "non OK"
 
 #: libraries/messages.inc.php:588
 msgid "not present"
-msgstr ""
+msgstr "non presente"
 
 #: libraries/messages.inc.php:589
 #, php-format
