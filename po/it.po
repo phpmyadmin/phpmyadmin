@@ -3037,7 +3037,7 @@ msgstr "rubrica"
 
 #: libraries/messages.inc.php:664
 msgid "PHP array"
-msgstr ""
+msgstr "Array PHP"
 
 #: libraries/messages.inc.php:665 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
