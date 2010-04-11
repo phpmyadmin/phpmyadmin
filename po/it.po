@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-11 11:01+0200\n"
+"PO-Revision-Date: 2010-04-11 11:02+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1857,7 +1857,7 @@ msgstr "Le seguenti strutture sono state create o modificate. Qui tu puoi:"
 
 #: libraries/messages.inc.php:414
 msgid "View a structure`s contents by clicking on its name"
-msgstr ""
+msgstr "Visualizza i contenuti delle strutture facendo click sul loro nome"
 
 #: libraries/messages.inc.php:415
 msgid ""
