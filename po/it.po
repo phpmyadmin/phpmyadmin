@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-11 11:18+0200\n"
+"PO-Revision-Date: 2010-04-11 11:19+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -3079,7 +3079,7 @@ msgstr "Crea le tabelle necessarie <code>script/create_tables.sql</code>."
 
 #: libraries/messages.inc.php:673
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Crea l'utente pma e dagli accesso a queste tabelle."
 
 #: libraries/messages.inc.php:674
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
