@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 14:06+0200\n"
+"POT-Creation-Date: 2010-04-11 11:34+0200\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: arabic <ar@li.org>\n"
@@ -5686,26 +5686,6 @@ msgstr "ملاحظة: تغيير هذه الخيارات للرقم 0 )صفر( �
 #: libraries/messages.inc.php:1284
 msgid "\"zipped\""
 msgstr "\"مضغوط\""
-
-#: libraries/sql_query_form.lib.php:301
-msgid "SELECT *"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:302
-msgid "SELECT"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:303
-msgid "INSERT"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:304
-msgid "UPDATE"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:305
-msgid "DELETE"
-msgstr ""
 
 #: navigation.php:318
 msgid "Filter"

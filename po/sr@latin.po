@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 14:06+0200\n"
+"POT-Creation-Date: 2010-04-11 11:34+0200\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: serbian_latin <sr@latin@li.org>\n"
@@ -5959,26 +5959,6 @@ msgstr "Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja ograničenja."
 #: libraries/messages.inc.php:1284
 msgid "\"zipped\""
 msgstr "\"zipovano\""
-
-#: libraries/sql_query_form.lib.php:301
-msgid "SELECT *"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:302
-msgid "SELECT"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:303
-msgid "INSERT"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:304
-msgid "UPDATE"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:305
-msgid "DELETE"
-msgstr ""
 
 #: navigation.php:318
 #, fuzzy

@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 14:06+0200\n"
+"POT-Creation-Date: 2010-04-11 11:34+0200\n"
 "PO-Revision-Date: 2010-04-10 07:38+0200\n"
 "Last-Translator:  <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
-"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -31,8 +31,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
 msgstr ""
-"நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க "
-"கோவையை %2$s பயன்படுத்தலாம்"
+"நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க கோவையை %2$s "
+"பயன்படுத்தலாம்"
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -41,9 +41,9 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin சேவருடன் தொடர்பு கொள்ள முயன்றது. சேவர் அதனை தடுத்து விட்டது. "
-"உங்களது சேவர், பயனாளர் பெயர், கடவுச் சொல் என்பவை MySql நிர்வாகியால் "
-"வழங்கப்பட்ட தரவுகளுடன் பொருந்துகின்றதா என சரி பாருங்கள்."
+"phpMyAdmin சேவருடன் தொடர்பு கொள்ள முயன்றது. சேவர் அதனை தடுத்து விட்டது. உங்களது "
+"சேவர், பயனாளர் பெயர், கடவுச் சொல் என்பவை MySql நிர்வாகியால் வழங்கப்பட்ட தரவுகளுடன் "
+"பொருந்துகின்றதா என சரி பாருங்கள்."
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:411
@@ -5609,26 +5609,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:1284
 msgid "\"zipped\""
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:301
-msgid "SELECT *"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:302
-msgid "SELECT"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:303
-msgid "INSERT"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:304
-msgid "UPDATE"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:305
-msgid "DELETE"
 msgstr ""
 
 #: navigation.php:318

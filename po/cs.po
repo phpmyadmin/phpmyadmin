@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 14:06+0200\n"
+"POT-Creation-Date: 2010-04-11 11:34+0200\n"
 "PO-Revision-Date: 2010-04-09 16:57+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -5962,26 +5962,6 @@ msgstr "Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.
 msgid "\"zipped\""
 msgstr "„zazipováno“"
 
-#: libraries/sql_query_form.lib.php:301
-msgid "SELECT *"
-msgstr "SELECT *"
-
-#: libraries/sql_query_form.lib.php:302
-msgid "SELECT"
-msgstr "SELECT"
-
-#: libraries/sql_query_form.lib.php:303
-msgid "INSERT"
-msgstr "INSERT"
-
-#: libraries/sql_query_form.lib.php:304
-msgid "UPDATE"
-msgstr "UPDATE"
-
-#: libraries/sql_query_form.lib.php:305
-msgid "DELETE"
-msgstr "DELETE"
-
 #: navigation.php:318
 msgid "Filter"
 msgstr "Filtr"
@@ -7241,8 +7221,6 @@ msgid "SQL query history table"
 msgstr "Tabulka pro historii SQL dotazů"
 
 #: setup/lib/messages.inc.php:279
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
@@ -7733,3 +7711,18 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr "ZIP"
+
+#~ msgid "SELECT *"
+#~ msgstr "SELECT *"
+
+#~ msgid "SELECT"
+#~ msgstr "SELECT"
+
+#~ msgid "INSERT"
+#~ msgstr "INSERT"
+
+#~ msgid "UPDATE"
+#~ msgstr "UPDATE"
+
+#~ msgid "DELETE"
+#~ msgstr "DELETE"
