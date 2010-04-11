@@ -1900,7 +1900,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:423
 msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
+msgstr "Excel 97-2003 XLS Workbook"
 
 #: libraries/messages.inc.php:424
 msgid "Excel 2007 XLSX Workbook"
