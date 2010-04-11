@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-11 11:09+0200\n"
+"PO-Revision-Date: 2010-04-11 11:10+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2008,7 +2008,7 @@ msgstr "Inserita riga id: %1$d"
 
 #: libraries/messages.inc.php:444
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Inserisci come nuova riga e ignora gli errori"
 
 #: libraries/messages.inc.php:445
 msgid "Insert"
