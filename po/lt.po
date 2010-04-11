@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 14:06+0200\n"
+"POT-Creation-Date: 2010-04-11 11:34+0200\n"
 "PO-Revision-Date: 2010-04-02 18:26+0200\n"
 "Last-Translator:  <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
@@ -5831,26 +5831,6 @@ msgstr "Pastaba: nėra jokių apribojimų jeigu reikšmė nurodyta lygi 0 (nuliu
 #: libraries/messages.inc.php:1284
 msgid "\"zipped\""
 msgstr "\"zip\""
-
-#: libraries/sql_query_form.lib.php:301
-msgid "SELECT *"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:302
-msgid "SELECT"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:303
-msgid "INSERT"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:304
-msgid "UPDATE"
-msgstr ""
-
-#: libraries/sql_query_form.lib.php:305
-msgid "DELETE"
-msgstr ""
 
 #: navigation.php:318
 msgid "Filter"

@@ -279,8 +279,3 @@ echo "\n";
     </fieldset>
 </form>
 </div>
-<script type="text/javascript">
-//<![CDATA[
-    init_options();
-//]]>
-</script>

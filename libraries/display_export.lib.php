@@ -98,11 +98,6 @@ echo PMA_pluginGetJavascript($export_list);
 </div>
 </td></tr></table>
 
-<script type="text/javascript">
-//<![CDATA[
-    init_options();
-//]]>
-</script>
 
 <?php if (strlen($table) && ! isset($num_tables) && ! PMA_Table::isMerge($db, $table)) { ?>
     <div class="formelementrow">

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-09 14:06+0200\n"
+"POT-Creation-Date: 2010-04-11 11:34+0200\n"
 "PO-Revision-Date: 2010-04-10 16:00+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -849,9 +849,9 @@ msgstr ""
 "phpMyAdmin n'a pu lire votre fichier de configuration!<br />Il est possible "
 "qu'il contienne une erreur de syntaxe, ou que PHP soit incapable de le "
 "trouver.<br />À l'aide du lien suivant, vous pouvez vérifier le message "
-"d'erreur généré par PHP.<br />La plupart du temps, un apostrophe ou un "
-"point-virgule sont manquants.<br />Si vous recevez une page blanche, aucune "
-"erreur n'a été détectée."
+"d'erreur généré par PHP.<br />La plupart du temps, un apostrophe ou un point-"
+"virgule sont manquants.<br />Si vous recevez une page blanche, aucune erreur "
+"n'a été détectée."
 
 #: libraries/messages.inc.php:179
 #, php-format
@@ -6079,26 +6079,6 @@ msgstr "Note: Une valeur de 0 (zero) enlève la limite."
 msgid "\"zipped\""
 msgstr "\"zippé\""
 
-#: libraries/sql_query_form.lib.php:301
-msgid "SELECT *"
-msgstr "SELECT *"
-
-#: libraries/sql_query_form.lib.php:302
-msgid "SELECT"
-msgstr "SELECT"
-
-#: libraries/sql_query_form.lib.php:303
-msgid "INSERT"
-msgstr "INSERT"
-
-#: libraries/sql_query_form.lib.php:304
-msgid "UPDATE"
-msgstr "UPDATE"
-
-#: libraries/sql_query_form.lib.php:305
-msgid "DELETE"
-msgstr "DELETE"
-
 #: navigation.php:318
 msgid "Filter"
 msgstr "Filtre"
@@ -7873,3 +7853,18 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr "ZIP"
+
+#~ msgid "SELECT *"
+#~ msgstr "SELECT *"
+
+#~ msgid "SELECT"
+#~ msgstr "SELECT"
+
+#~ msgid "INSERT"
+#~ msgstr "INSERT"
+
+#~ msgid "UPDATE"
+#~ msgstr "UPDATE"
+
+#~ msgid "DELETE"
+#~ msgstr "DELETE"
