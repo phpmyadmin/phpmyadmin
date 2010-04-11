@@ -370,6 +370,8 @@ function PMA_pluginGetJavascript(&$list) {
             }
         }
     }
+
+    $(document).ready(init_options);
     //]]>
     </script>
     ';
