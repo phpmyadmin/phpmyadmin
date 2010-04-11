@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-09 14:06+0200\n"
-"PO-Revision-Date: 2010-04-11 11:03+0200\n"
+"PO-Revision-Date: 2010-04-11 11:05+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1867,7 +1867,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:416
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
+msgstr "Modifica la sua struttura seguendo il link \"Struttura\""
 
 #: libraries/messages.inc.php:417
 msgid "Import currencies ($5.00 to 5.00)"
