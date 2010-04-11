@@ -1904,7 +1904,7 @@ msgstr "Excel 97-2003 XLS Workbook"
 
 #: libraries/messages.inc.php:424
 msgid "Excel 2007 XLSX Workbook"
-msgstr ""
+msgstr "Excel 2007 XLSX Workbook"
 
 #: libraries/messages.inc.php:425
 msgid "Indexes"
