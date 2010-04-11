@@ -2613,7 +2613,6 @@ msgid "No change"
 msgstr "Nessun cambiamento"
 
 #: libraries/messages.inc.php:573
-#, fuzzy
 msgctxt "$strNoneDefault"
 msgid "None"
 msgstr "Nessuno"
