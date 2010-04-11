@@ -2542,9 +2542,8 @@ msgid "Name"
 msgstr "Nome"
 
 #: libraries/messages.inc.php:558
-#, fuzzy
 msgid "New table"
-msgstr "Nessuna Tabella"
+msgstr "Nuova tabella"
 
 #: libraries/messages.inc.php:559
 msgid "Next"
