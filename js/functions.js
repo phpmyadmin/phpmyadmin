@@ -465,7 +465,7 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
       //The case when the row showing the details need to be removed from the table i.e. the difference button is deselected now.
         var table_rows = table_body.getElementsByTagName("tr");
         var j;
-        var index; 
+        var index = 0;
         for (j=0; j < table_rows.length; j++) 
         {   
             if (table_rows[j].id == i) { 
