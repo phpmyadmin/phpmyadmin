@@ -113,8 +113,8 @@ if (false !== $possibly_uploaded_val) {
     } elseif ($type == 'bit') {
         $val = preg_replace('/[^01]/', '0', $val);
         $val = "b'" . PMA_sqlAddslashes($val) . "'";
-    } elseif (! ($type == 'timestamp' && $val == 'CURRENT_TIMESTAMP')) {
-        $val = "'" . PMA_sqlAddslashes($val) . "'";
+    } elseif (! (($type == 'datetime' || $type == 'timestamp') && $val == 'CURRENT_TIMESTAMP')) {
+        $val = "'" . PMA_sqlAddslashes($val) . "' /*" . $type . " */";
     }
 
     // Was the Null checkbox checked for this field?

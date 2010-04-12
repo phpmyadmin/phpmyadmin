@@ -65,6 +65,7 @@ $Id$
   to sutharshan.
 + patch #2984337 [interface] Convert loading of export/import to jQuery ready
   event, thanks to sutharshan.
+- [edit] CURRENT_TIMESTAMP is also valid for datetime fields.
 
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,
