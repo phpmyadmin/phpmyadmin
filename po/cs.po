@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-11 11:34+0200\n"
-"PO-Revision-Date: 2010-04-09 16:57+0200\n"
+"PO-Revision-Date: 2010-04-12 13:58+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -7348,6 +7348,8 @@ msgstr "Automaticky vytvářet verze"
 #: setup/lib/messages.inc.php:305
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Určuje seznam příkazů které se automaticky používají pro vytvoření nových "
+"verzí."
 
 #: setup/lib/messages.inc.php:306
 msgid "Statements to track"
