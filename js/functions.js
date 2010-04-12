@@ -1668,7 +1668,7 @@ function requestMIMETypeChange(db, table, reference, current_mime_type)
 {
     // no mime type specified, set to default (nothing)
     if (undefined == current_mime_type)
-        current_mime_type == "";
+        current_mime_type = "";
 
     // prompt user for new mime type
     var new_mime_type = prompt("Enter custom MIME type", current_mime_type);
