@@ -97,7 +97,11 @@ class PHPExcel_Shared_String
 			return self::$_isIconvEnabled;
 		}
 
-		self::$_isIconvEnabled = function_exists('iconv') ?
+                // IBM AIX iconv() does not work
+		self::$_isIconvEnabled = function_exists('iconv') &&
+				!(defined('PHP_OS') && @stristr(PHP_OS, 'AIX') && defined('ICONV_IMPL') 
+				&& (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && defined('ICONV_VERSION') 
+				&& (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) ? 
 			true : false;
 
 		return self::$_isIconvEnabled;

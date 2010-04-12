@@ -12,6 +12,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   only Structure is done, thanks to Ankit Gupta - ankitgupta3
 - patch #2984893 [engines] InnoDB storage page emits a warning,
   thanks to Madhura Jayaratne - madhuracj
+- bug #2974687, bug #2974692 [compatibility] PHPExcel : IBM AIX iconv() does not work,
+  thanks to Björn Wiberg - bwiberg
 
 3.3.2.0 (not yet released)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
