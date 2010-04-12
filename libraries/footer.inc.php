@@ -100,7 +100,7 @@ if (! empty($_SESSION['debug'])) {
 <?php
 if (empty($GLOBALS['error_message'])) {
     ?>
-jQuery(document).ready(function(){
+$(document).ready(function(){
 // updates current settings
 if (window.parent.setAll) {
     window.parent.setAll('<?php

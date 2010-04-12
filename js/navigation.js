@@ -177,17 +177,17 @@ function fast_filter(value){
  * Clears fast filter.
  */
 function clear_fast_filter() {
-    var elm = jQuery('#NavFilter input');
+    var elm = $('#NavFilter input');
     elm.val('');
     fast_filter('');
     elm.focus();
 }
 
 /* Performed on load */
-jQuery(document).ready(function(){
+$(document).ready(function(){
     /* Display filter */
-    jQuery('#NavFilter').css('display', 'inline');
-    jQuery('#clear_fast_filter').click(clear_fast_filter);
-    jQuery('#fast_filter').focus(function (evt) {evt.target.select();});
-    jQuery('#fast_filter').keyup(function (evt) {fast_filter(evt.target.value);});
+    $('#NavFilter').css('display', 'inline');
+    $('#clear_fast_filter').click(clear_fast_filter);
+    $('#fast_filter').focus(function (evt) {evt.target.select();});
+    $('#fast_filter').keyup(function (evt) {fast_filter(evt.target.value);});
 });

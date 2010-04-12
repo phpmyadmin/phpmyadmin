@@ -1719,7 +1719,7 @@ $(document).ready(function(){
         $(".sql").html("<span class=\"syntax\">"+$oldText+"</span>");
     });
 
-    jQuery('.sqlbutton').click(function(evt){
+    $('.sqlbutton').click(function(evt){
         insertQuery(evt.target.id);
         return false;
     });

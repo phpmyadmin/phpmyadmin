@@ -42,7 +42,7 @@ function setURLHash(hash) {
  * Handler for changing url according to the hash part, which is updated
  * on each page to allow bookmarks.
  */
-jQuery(document).ready(function(){
+$(document).ready(function(){
     /* Don't do anything if we're not root Window */
     if (window.parent != window && window.parent.setURLHash) {
         return;
