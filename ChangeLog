@@ -193,5 +193,5 @@ $Id$
 
 # vim: et ts=4 sw=4 sts=4
 # vim: ft=changelog fenc=utf-8 encoding=utf-8
-# vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>8&&getline(v\:lnum)!~'^#'
+# vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>6&&getline(v\:lnum)!~'^#'
 # vim: fdn=1 fdm=expr
