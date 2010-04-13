@@ -1399,7 +1399,7 @@ function PMA_formatByteDown($value, $limes = 6, $comma = 0)
         $return_value = PMA_formatNumber($value, 0);
     }
 
-    return array($return_value, $unit);
+    return array(trim($return_value), $unit);
 } // end of the 'PMA_formatByteDown' function
 
 /**
