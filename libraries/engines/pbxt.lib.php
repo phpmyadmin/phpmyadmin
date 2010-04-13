@@ -81,6 +81,20 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
             ),
         );
     }
+
+    /**
+     * returns the pbxt engine specific handling for
+     * PMA_ENGINE_DETAILS_TYPE_SIZE variables.
+     *
+     * @return string the formatted value and its unit
+     */
+    function resolveTypeSize($value)
+    {
+        if (preg_match('/^[0-9]+[a-zA-Z]+$/', $value)){
+            $value = PMA_getBytes($value);
+        }
+        return PMA_formatByteDown($value);
+    }
 }
 
 ?>

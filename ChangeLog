@@ -66,6 +66,7 @@ $Id$
 + patch #2984337 [interface] Convert loading of export/import to jQuery ready
   event, thanks to sutharshan.
 - [edit] CURRENT_TIMESTAMP is also valid for datetime fields.
+- patch #2985068 [engines] Fix parsing of PBXT status, thanks to Madhura Jayaratne.
 
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,

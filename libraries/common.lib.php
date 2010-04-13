@@ -1271,7 +1271,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             PMA_profilingCheckbox($sql_query);
         }
         $inline_edit = "<script type=\"text/javascript\">\n" .
-            "//<![CDATA[\n" . 
+            "//<![CDATA[\n" .
             "document.write('[<a href=\"#\" title=\"" .
             PMA_escapeJsString(__('Inline edit of this query')) .
             "\" id=\"inline_edit\">" .
@@ -1502,6 +1502,27 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function
+
+/**
+ * Returns the number of bytes when a formatted size is given
+ *
+ * @param   double   $value     the value that should be converted to bytes
+ * @uses    PMA_pow()
+ * @return  integer  The number of bytes corresponding to the formatted size given
+ */
+function PMA_getBytes($value)
+{
+    $return_value = -1;
+
+    if (preg_match('/^[0-9]+GB$/', $value)) {
+        $return_value = substr($value, 0, -2) * PMA_pow(1024, 3);
+    } elseif (preg_match('/^[0-9]+MB$/', $value)) {
+        $return_value = substr($value, 0, -2) * PMA_pow(1024, 2);
+    } elseif (preg_match('/^[0-9]+K$/', $value)) {
+        $return_value = substr($value, 0, -1) * PMA_pow(1024, 1);
+    }
+    return $return_value;
+}// end of the 'PMA_getBytes' function
 
 /**
  * Writes localised date

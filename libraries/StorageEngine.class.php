@@ -178,7 +178,7 @@ class PMA_StorageEngine
                   . '    <td class="value">';
             switch ($details['type']) {
                 case PMA_ENGINE_DETAILS_TYPE_SIZE:
-                    $parsed_size = PMA_formatByteDown($details['value']);
+                    $parsed_size = $this->resolveTypeSize($details['value']);
                     $ret .= $parsed_size[0] . '&nbsp;' . $parsed_size[1];
                     unset($parsed_size);
                 break;
@@ -203,6 +203,21 @@ class PMA_StorageEngine
 
         return $ret;
     }
+
+	/**
+	 * returns the engine specific handling for
+	 * PMA_ENGINE_DETAILS_TYPE_SIZE type variables.
+	 *
+	 * This function should be overridden when
+	 * PMA_ENGINE_DETAILS_TYPE_SIZE type needs to be
+	 * handled differently for a particular engine.
+	 *
+	 * @return string the formatted value and its unit
+	 */
+	function resolveTypeSize($value)
+	{
+		return PMA_formatByteDown($value);
+	}
 
     /**
      * returns array with detailed info about engine specific server variables
