@@ -1506,23 +1506,23 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
 /**
  * Returns the number of bytes when a formatted size is given
  *
- * @param   double   $value     the value that should be converted to bytes
+ * @param   string   $size     the size expression (for example 8MB)
  * @uses    PMA_pow()
- * @return  integer  The number of bytes corresponding to the formatted size given
+ * @return  integer  The numerical part of the expression (for example 8) 
  */
-function PMA_getBytes($value)
+function PMA_extractValueFromFormattedSize($formatted_size)
 {
     $return_value = -1;
 
-    if (preg_match('/^[0-9]+GB$/', $value)) {
-        $return_value = substr($value, 0, -2) * PMA_pow(1024, 3);
-    } elseif (preg_match('/^[0-9]+MB$/', $value)) {
-        $return_value = substr($value, 0, -2) * PMA_pow(1024, 2);
-    } elseif (preg_match('/^[0-9]+K$/', $value)) {
-        $return_value = substr($value, 0, -1) * PMA_pow(1024, 1);
+    if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
+        $return_value = substr($formatted_size, 0, -2) * PMA_pow(1024, 3);
+    } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
+        $return_value = substr($formatted_size, 0, -2) * PMA_pow(1024, 2);
+    } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
+        $return_value = substr($formatted_size, 0, -1) * PMA_pow(1024, 1);
     }
     return $return_value;
-}// end of the 'PMA_getBytes' function
+}// end of the 'PMA_extractValueFromFormattedSize' function
 
 /**
  * Writes localised date
