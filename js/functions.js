@@ -1421,8 +1421,8 @@ function getElement(e,f){
   * Refresh the WYSIWYG-PDF scratchboard after changes have been made
   */
 function refreshDragOption(e) {
-    myid = getElement(e);
-    if (myid.style.visibility == 'visible') {
+    var elm = $('#' + e);
+    if (elm.css('visibility') == 'visible') {
         refreshLayout();
     }
 }
@@ -1431,35 +1431,35 @@ function refreshDragOption(e) {
   * Refresh/resize the WYSIWYG-PDF scratchboard
   */
 function refreshLayout() {
-        myid = getElement('pdflayout');
+    var elm = $('#pdflayout')
+    var orientation = $('#orientation_opt').val();
+    var paper = $('#paper_opt').val();
 
-        if (document.pdfoptions.orientation.value == 'P') {
-            posa = 'x';
-            posb = 'y';
-        } else {
-            posa = 'y';
-            posb = 'x';
-        }
-
-        myid.style.width = pdfPaperSize(document.pdfoptions.paper.value, posa) + 'px';
-        myid.style.height = pdfPaperSize(document.pdfoptions.paper.value, posb) + 'px';
+    if (orientation == 'P') {
+        posa = 'x';
+        posb = 'y';
+    } else {
+        posa = 'y';
+        posb = 'x';
+    }
+    elm.css('width', pdfPaperSize(paper, posa) + 'px');
+    elm.css('height', pdfPaperSize(paper, posb) + 'px');
 }
 
 /**
   * Show/hide the WYSIWYG-PDF scratchboard
   */
 function ToggleDragDrop(e) {
-    myid = getElement(e);
-
-    if (myid.style.visibility == 'hidden') {
-        init();
-        myid.style.visibility = 'visible';
-        myid.style.display = 'block';
-        document.edcoord.showwysiwyg.value = '1';
+    var elm = $('#' + e);
+    if (elm.css('visibility') == 'hidden') {
+        PDFinit(); /* Defined in pdf_pages.php */
+        elm.css('visibility', 'visible');
+        elm.css('display', 'block');
+        $('#showwysiwyg').val('1')
     } else {
-        myid.style.visibility = 'hidden';
-        myid.style.display = 'none';
-        document.edcoord.showwysiwyg.value = '0';
+        elm.css('visibility', 'hidden');
+        elm.css('display', 'none');
+        $('#showwysiwyg').val('0')
     }
 }
 
@@ -1468,10 +1468,11 @@ function ToggleDragDrop(e) {
   * the fields inside the scratchboard.
   */
 function dragPlace(no, axis, value) {
+    var elm = $('#table_' + no);
     if (axis == 'x') {
-        getElement("table_" + no).style.left = value + 'px';
+        elm.css('left', value + 'px');
     } else {
-        getElement("table_" + no).style.top  = value + 'px';
+        elm.css('top', value + 'px');
     }
 }
 

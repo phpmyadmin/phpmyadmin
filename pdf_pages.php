@@ -381,7 +381,7 @@ foreach ($array_sh_page AS $key => $temp_sh_page) {
 </div>
 <script type="text/javascript">
 //<![CDATA[
-function init() {
+function PDFinit() {
     refreshLayout();
     myid = getElement('pdflayout');
     <?php echo $draginit; ?>
@@ -479,7 +479,7 @@ function resetDrag() {
         echo "\n" . '    </table>' . "\n";
 
         echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
-        echo ($cfg['WYSIWYG-PDF'] ? "\n" . '    <input type="hidden" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />' : '');
+        echo ($cfg['WYSIWYG-PDF'] ? "\n" . '    <input type="hidden" id="showwysiwyg" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />' : '');
         echo "\n" . '    <input type="checkbox" name="with_field_names" ' . (isset($with_field_names) ? 'checked="checked"' : ''). ' />' . $strColumnNames . '<br />';
         echo "\n" . '    <input type="submit" value="' . $strSave . '" />';
         echo "\n" . '</form>' . "\n\n";
