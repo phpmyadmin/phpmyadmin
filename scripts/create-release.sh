@@ -130,9 +130,17 @@ if [ $GETTEXT -eq 1 ] ; then
     ./scripts/generate-mo
 fi
 
+if [ -f ./scripts/compress-js ] ; then
+    echo "* Compressing javascript files"
+    ./scripts/compress-js
+fi
+
 # Remove test directory from package to avoid Path disclosure messages
 # if someone runs /test/wui.php and there are test failures
 rm -rf test
+
+# Remove javascript compiler, no need to ship it
+rm -rf scripts/google-javascript-compiler/
 
 # Remove git metadata
 rm -rf .git

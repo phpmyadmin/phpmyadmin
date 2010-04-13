@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for file in `find js -name '*.js' -not -name '*min.js' -not -name 'mootools*'` ; do
+    mkdir -p sources/`dirname $file`
+    mv $file sources/$file
+    java -jar ./scripts/google-javascript-compiler/compiler.jar --js sources/$file --js_output_file $file --compilation_level ADVANCED_OPTIMIZATIONS
+done

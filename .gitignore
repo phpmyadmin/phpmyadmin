@@ -24,3 +24,5 @@ phpmyadmin.wpj
 locale
 # Backups
 *~
+# Javascript sources
+sources
