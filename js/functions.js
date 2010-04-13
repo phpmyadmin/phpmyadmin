@@ -914,7 +914,7 @@ function PMA_markRowsInit() {
         }
     }
 }
-window.onload=PMA_markRowsInit;
+$(document).ready(PMA_markRowsInit);
 
 /**
  * marks all rows and selects its first checkbox inside the given element
