@@ -78,7 +78,7 @@ $Id$
 - bug #2974687, bug #2974692 [compatibility] PHPExcel : IBM AIX iconv() does not work,
   thanks to Björn Wiberg - bwiberg
 
-3.3.2.0 (not yet released)
+3.3.2.0 (2010-04-13)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
   MySQL version, thanks to Dieter Adriaenssens - ruleant
 - bug #2966078 [browse] Incorrect LIMIT is saved and sticks while browsing
