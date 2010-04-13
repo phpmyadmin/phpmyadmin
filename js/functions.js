@@ -702,13 +702,14 @@ function checkTableEditForm(theForm, fieldsCnt)
 
     for (i=0; i<fieldsCnt; i++)
     {
-        id = "field_" + i + "_2";
-        elm = getElement(id);
-        if (elm.value == 'VARCHAR' || elm.value == 'CHAR' || elm.value == 'BIT' || elm.value == 'VARBINARY' || elm.value == 'BINARY') {
-            elm2 = getElement("field_" + i + "_3");
-            val = parseInt(elm2.value);
-            elm3 = getElement("field_" + i + "_1");
-            if (isNaN(val) && elm3.value != "") {
+        id = "#field_" + i + "_2";
+        elm = $(id);
+        val = elm.val()
+        if (val == 'VARCHAR' || val == 'CHAR' || val == 'BIT' || val == 'VARBINARY' || val == 'BINARY') {
+            elm2 = $("#field_" + i + "_3");
+            val = parseInt(elm2.val());
+            elm3 = $("#field_" + i + "_1");
+            if (isNaN(val) && elm3.val() != "") {
                 elm2.select();
                 alert(PMA_messages['strNotNumber']);
                 elm2.focus();
