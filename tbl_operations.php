@@ -193,7 +193,7 @@ unset($reread_info);
  */
 require_once './libraries/tbl_links.inc.php';
 
-if (isset($result)) {
+if (isset($result) && empty($zero_rows)) {
     // set to success by default, because result set could be empty
     // (for example, a table rename)
     $_type = 'success';
