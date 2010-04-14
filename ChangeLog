@@ -77,6 +77,8 @@ $Id$
   thanks to Madhura Jayaratne - madhuracj
 - bug #2974687, bug #2974692 [compatibility] PHPExcel : IBM AIX iconv() does not work,
   thanks to Björn Wiberg - bwiberg
+- bug #2983066 [interface] Flush table on table operations shows the query twice, 
+  thanks to Martynas Mickevičius - BlinK_
 
 3.3.2.0 (2010-04-13)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
