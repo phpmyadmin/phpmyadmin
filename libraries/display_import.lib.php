@@ -61,7 +61,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                         finished = response.finished;
                         percent = response.percent;
                         total = response.total;
-                        complete = total.complete;
+                        complete = response.complete;
 
                           if (total==0 && complete==0 && percent==0) {
                               $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat($strImportLargeFileUploading); ?>');
