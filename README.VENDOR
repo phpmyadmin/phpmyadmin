@@ -24,7 +24,6 @@ one we ship.
 
 Currently known list of external libraries:
 
-js/mootools.js - Mootools js framework
 js/jquery - jQuery js framework
 js/colorpicker - jQuery based color picker
 
