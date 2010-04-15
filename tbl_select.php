@@ -19,7 +19,7 @@ require_once './libraries/relation.lib.php'; // foreign keys
 require_once './libraries/mysql_charsets.lib.php';
 
 $GLOBALS['js_include'][] = 'tbl_change.js';
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.min.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
 if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
     $titles['Browse'] =

@@ -14,7 +14,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/relation.lib.php';
 
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.min.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
 /**
  * handle multiple field commands if required

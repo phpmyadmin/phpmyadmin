@@ -431,7 +431,7 @@ if (isset($return_to_sql_query)) {
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'functions.js';
 // in case we call sql.php which needs those:
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.min.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
 $active_page = $goto_include;
 
