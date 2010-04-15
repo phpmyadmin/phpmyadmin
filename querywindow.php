@@ -171,14 +171,12 @@ $js_include[] = 'querywindow.js';
 
 if (PMA_isValid($_REQUEST['auto_commit'], 'identical', 'true')) {
     $js_events[] = array(
-        'object'    => 'window',
         'event'     => 'load',
         'function'  => 'PMA_queryAutoCommit',
     );
 }
 if (PMA_isValid($_REQUEST['init'])) {
     $js_events[] = array(
-        'object'    => 'window',
         'event'     => 'load',
         'function'  => 'PMA_querywindowResize',
     );
@@ -186,7 +184,6 @@ if (PMA_isValid($_REQUEST['init'])) {
 // always set focus to the textarea
 if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
     $js_events[] = array(
-        'object'    => 'window',
         'event'     => 'load',
         'function'  => 'PMA_querywindowSetFocus',
     );
