@@ -73,7 +73,6 @@ if (isset($GLOBALS['db'])) {
 $GLOBALS['js_include'][] = 'messages.php' . PMA_generate_common_url($params);
 
 $GLOBALS['js_events'][] = array(
-    'object'    => 'window',
     'event'     => 'load',
     'function'  => 'PMA_TT_init',
 );
@@ -101,7 +100,7 @@ if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknow
 
 <?php
 foreach ($GLOBALS['js_events'] as $js_event) {
-    echo "window.parent.addEvent(" . $js_event['object'] . ", '" . $js_event['event'] . "', "
+    echo "$(window.parent).bind('" . $js_event['event'] . "', "
         . $js_event['function'] . ");\n";
 }
 ?>

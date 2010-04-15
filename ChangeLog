@@ -67,6 +67,8 @@ $Id$
   event, thanks to sutharshan.
 - [edit] CURRENT_TIMESTAMP is also valid for datetime fields.
 - patch #2985068 [engines] Fix parsing of PBXT status, thanks to Madhura Jayaratne.
+- patch #2986073 [interface] Convert upload progress bar to jQuery, thanks to
+  Philip Frank.
 
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,
