@@ -183,14 +183,14 @@ function Validator(urlField, multi_edit,theType){
                 else if(theType=="datetime"||theType=="timestamp")
                 {
                     tmstmp=false;
+                    if(dt.value=="CURRENT_TIMESTAMP")
+                    {
+                        dt.className="";
+                        return true;
+                    }
                     if(theType=="timestamp")
                     {
                         tmstmp=true;
-                        if(dt.value=="CURRENT_TIMESTAMP")
-                        {
-                            dt.className="";
-                            return true;
-                        }
                     }
                     if(dt.value=="0000-00-00 00:00:00")
                         return true;
