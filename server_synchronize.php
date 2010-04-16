@@ -1126,35 +1126,65 @@ if (isset($_REQUEST['synchronize_db'])) {
 	  <td colspan="2" style="text-align: center">
 	     <select name="' . $type . '_type" id="' . $type . '_type" class="server_selector">
 	      <option value="rmt">' . $GLOBALS['strRemoteServer'] . '</option>
-	      <option value="cur">' . $GLOBALS['strCurrentServer'] . '</option>
+	      <option value="cur">' . $GLOBALS['strCurrentServer'] . '</option>';
+        foreach ($GLOBALS['cfg']['Servers'] as $key => $tmp_server) {
+            if (empty($tmp_server['host'])) {
+                continue;
+            }
+
+            if (!empty($tmp_server['verbose'])) {
+                $label = $tmp_server['verbose'];
+            } else {
+                $label = $tmp_server['host'];
+                if (!empty($tmp_server['port'])) {
+                    $label .= ':' . $tmp_server['port'];
+                }
+            }
+            $value = $tmp_server['host'];
+            $value .= '||||';
+            if (empty($tmp_server['port']) && empty($tmp_server['socket'])) {
+                $value .= '3306';
+            } else {
+                $value .= $tmp_server['port'];
+            }
+            $value .= '||||';
+            $value .= $tmp_server['socket'];
+            $value .= '||||';
+            $value .= $tmp_server['user'];
+            $value .= '||||';
+            $value .= $tmp_server['only_db'];
+            echo '<option value="' . $value . '">'
+                . htmlspecialchars(sprintf(__('Configuration: %s'), $label)) . '</option>' . "\n";
+        } // end foreach
+      echo '
 	     </select>
 	  </td>
       </tr>
-	<tr class="even toggler">
+	<tr class="even toggler remote-server">
 	    <td>' . $GLOBALS['strHost'] . '</td>
-	    <td><input type="text" name="' . $type . '_host" /></td>
+	    <td><input type="text" name="' . $type . '_host" class="server-host" /></td>
 	</tr>
-	<tr class="odd toggler">
+	<tr class="odd toggler remote-server">
 	    <td>' . $GLOBALS['strPort'] . '</td>
-	    <td><input type="text" name="' . $type . '_port" value="3306" maxlength="5" size="5" /></td>
+	    <td><input type="text" name="' . $type . '_port" class="server-port" value="3306" maxlength="5" size="5" /></td>
 	</tr>
-	<tr class="even toggler">
+	<tr class="even toggler remote-server">
 	    <td>' . $GLOBALS['strSocket'] . '</td>
-	    <td><input type="text" name="' . $type . '_socket" /></td>
+	    <td><input type="text" name="' . $type . '_socket" class="server-socket" /></td>
 	</tr>
-	<tr class="odd toggler">
+	<tr class="odd toggler remote-server">
 	    <td>' . $GLOBALS['strUserName']. '</td>
-	    <td><input type="text" name="'. $type . '_username" /></td>
+	    <td><input type="text" name="'. $type . '_username" class="server-user" /></td>
 	</tr>
-	<tr class="even toggler">
+	<tr class="even toggler remote-server">
 	    <td>' . $GLOBALS['strPassword'] . '</td>
-	    <td><input type="password" name="' . $type . '_pass" /> </td>
+	    <td><input type="password" name="' . $type . '_pass" class="server-pass" /> </td>
 	</tr>
-	<tr class="odd toggler">
+	<tr class="odd toggler remote-server">
 	    <td>' . $GLOBALS['strDatabase'] . '</td>
-	    <td><input type="text" name="' . $type . '_db" /></td>
+	    <td><input type="text" name="' . $type . '_db" class="server-db" /></td>
 	</tr>
-	<tr class="even toggler" style="display: none;">
+	<tr class="even toggler current-server" style="display: none;">
 	    <td>' . $GLOBALS['strDatabase'] . '</td>
 	    <td>';
       // these unset() do not complain if the elements do not exist
