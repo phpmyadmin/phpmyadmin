@@ -70,7 +70,7 @@ $Id$
 - patch #2986073 [interface] Convert upload progress bar to jQuery, thanks to
   Philip Frank.
 - patch #2983960 [interface] Add javascript validation of datetime input,
-  thanks to 
+  thanks to Sutharshan Balachandren.
 
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,
