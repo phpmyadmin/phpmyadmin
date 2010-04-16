@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-11 11:34+0200\n"
-"PO-Revision-Date: 2010-04-16 10:38+0200\n"
+"PO-Revision-Date: 2010-04-16 10:40+0200\n"
 "Last-Translator: Sutharshan <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -7170,7 +7170,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:377
 msgid "Warning"
-msgstr ""
+msgstr "எச்சரிக்கை"
 
 #: setup/lib/messages.inc.php:378
 msgid ""
