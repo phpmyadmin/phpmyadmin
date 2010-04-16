@@ -56,6 +56,175 @@ function nullify(theType, urlField, md5Field, multi_edit)
 
 
 /**
+ * javascript DateTime format validation.
+ * its used to prevent adding default (0000-00-00 00:00:00) to database when user enter wrong values
+ * Start of validation part
+ */
+//function checks the number of days in febuary
+function daysInFebruary (year){
+    return (((year % 4 == 0) && ( (!(year % 100 == 0)) || (year % 400 == 0))) ? 29 : 28 );
+}
+//function to convert single digit to double digit
+function fractionReplace(num)
+{
+    num=parseInt(num);
+    var res="00";
+    switch(num)
+    {
+        case 1:res= "01";break;
+        case 2:res= "02";break;
+        case 3:res= "03";break;
+        case 4:res= "04";break;
+        case 5:res= "05";break;
+        case 6:res= "06";break;
+        case 7:res= "07";break;
+        case 8:res= "08";break;
+        case 9:res= "09";break;
+        }
+    return res;    
+}
+
+/* function to check the validity of date
+* The following patterns are accepted in this validation (accepted in mysql as well)
+* 1) 2001-12-23
+* 2) 2001-1-2
+* 3) 02-12-23
+* 4) And instead of using '-' the following punctuations can be used (+,.,*,^,@,/) All these are accepted by mysql as well. Therefore no issues
+*/
+function isDate(val,tmstmp)
+{
+    val=val.replace(/[.|*|^|+|//|@]/g,'-');
+    var arrayVal=val.split("-");
+    for(var a=0;a<arrayVal.length;a++)
+    {    
+        if(arrayVal[a].length==1)
+            arrayVal[a]=fractionReplace(arrayVal[a]);
+    }
+    val=arrayVal.join("-");
+    var pos=2;
+            dtexp=new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30)))$/);
+        if(val.length==8)
+        {
+            dtexp=new RegExp(/^([0-9]{2})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30)))$/);
+            pos=0;
+        }
+        if(dtexp.test(val))
+        {
+            var month=parseInt(val.substring(pos+3,pos+5));
+            var day=parseInt(val.substring(pos+6,pos+8));
+            var year=parseInt(val.substring(0,pos+2));
+            if(month==2&&day>daysInFebruary(year))
+                return false;
+            if(val.substring(0,pos+2).length==2)
+            {
+                if(val.substring(0,pos+2).length==2)
+                    year=parseInt("20"+val.substring(0,pos+2));
+                else
+                    year=parseInt("19"+val.substring(0,pos+2));
+            }
+            if(tmstmp==true)
+            {
+                if(year<1978) return false;
+                if(year>2038||(year>2037&&day>19&&month>=1)||(year>2037&&month>1)) return false;
+                }
+        }
+        else
+            return false;
+        return true;
+}
+
+/* function to check the validity of time
+* The following patterns are accepted in this validation (accepted in mysql as well)
+* 1) 2:3:4
+* 2) 2:23:43
+*/
+function isTime(val)
+{
+    var arrayVal=val.split(":");
+    for(var a=0;a<arrayVal.length;a++)
+    {    
+        if(arrayVal[a].length==1)
+            arrayVal[a]=fractionReplace(arrayVal[a]);
+    }
+    val=arrayVal.join(":");
+    tmexp=new RegExp(/^(([0-1][0-9])|(2[0-3])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))$/);
+        if(!tmexp.test(val))
+            return false;
+        return true;
+}
+//validate the datetime and integer
+function Validator(urlField, multi_edit,theType){
+    var rowForm = document.forms['insertForm'];
+    var evt = window.event || arguments.callee.caller.arguments[0];
+    var target = evt.target || evt.srcElement;
+    unNullify(urlField, multi_edit);
+    
+    if(target.name.substring(0,6)=="fields")
+    {
+        var dt=rowForm.elements['fields[multi_edit][' + multi_edit + '][' + urlField + ']'];
+        // validate for date time
+        if(theType=="datetime"||theType=="time"||theType=="date"||theType=="timestamp")
+        {
+            if(theType=="date"){
+                if(!isDate(dt.value))
+                    {
+                        dt.className="invalid_value";
+                        return false;
+                    }
+                }
+                else if(theType=="time")
+                {
+                    if(!isTime(dt.value))
+                    {
+                        dt.className="invalid_value";
+                        return false;
+                    }
+                }
+                else if(theType=="datetime"||theType=="timestamp")
+                {
+                    tmstmp=false;
+                    if(theType=="timestamp")
+                    {
+                        tmstmp=true;
+                        if(dt.value=="CURRENT_TIMESTAMP")
+                        {
+                            dt.className="";
+                            return true;
+                        }
+                    }
+                    if(dt.value=="0000-00-00 00:00:00")
+                        return true;
+                    var dv=dt.value.indexOf(" ");
+                    if(dv==-1)
+                    {
+                        dt.className="invalid_value";
+                        return false;
+                    }
+                    else
+                    {
+                        if(!(isDate(dt.value.substring(0,dv),tmstmp)&&isTime(dt.value.substring(dv+1))))
+                        {
+                            dt.className="invalid_value";
+                            return false;
+                        }    
+                    }
+                }
+        }
+        //validate for integer type
+        if(theType.substring(0,3)=="int"){
+            
+            if(isNaN(dt.value)){
+                    dt.className="invalid_value";
+                    return false;
+            }
+        }
+    }
+    
+    dt.className="";
+ }
+ /* End of datetime validation*/
+
+/**
  * Unchecks the "NULL" control when a function has been selected or a value
  * entered
  *
@@ -351,6 +520,7 @@ function returnDate(d) {
     }
 
     window.opener.dateField.value = txt;
+     window.opener.dateField.className='';
     if (typeof(window.opener.dateFieldNull) != 'undefined') {
         window.opener.dateFieldNull.checked = false;
     }
