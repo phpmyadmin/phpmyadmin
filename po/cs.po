@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-11 11:34+0200\n"
-"PO-Revision-Date: 2010-04-12 13:58+0200\n"
+"PO-Revision-Date: 2010-04-16 15:02+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3554,6 +3554,10 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
+"Tento server není nastaven jako nadřízený v replikačním procesu. Můžete si "
+"vybrat zda replikovat všechny databáze a přeskočit vybrané (vhodné pokud "
+"chcete replikovat většinu databází) nebo můžete zvolit opačný přístup - jen "
+"vybrat databáze, které chcete synchronizovat. Prosím zvolte požadovaný režim:"
 
 #: libraries/messages.inc.php:790
 msgid "Master configuration"
@@ -3573,6 +3577,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
+"Prosím klikněte na tlačítko po restartování MySQL serveru. Poté byste měli "
+"vidět zprávu informující vás že server <b>je</b> nastaven jako nadřízený"
 
 #: libraries/messages.inc.php:794
 msgid "Please select databases:"
@@ -3641,6 +3647,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Tento server není nastaven jako podřízený v replikačním procesu. Přejete si "
+"ho <a href=\"%s\">nastavit</a>?"
 
 #: libraries/messages.inc.php:807
 msgid "Reset slave"
@@ -4755,6 +4763,8 @@ msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
+"Ujistěte se, že máte unikátní ID serveru ve vašem konfiguračním souboru (my."
+"cnf). Pokud ne, prosím přidejte následující řádek to sekce [mysqld]:"
 
 #: libraries/messages.inc.php:1026
 msgid "Slovak"
@@ -7171,7 +7181,7 @@ msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Zakázat použití INFORMATION_SCHEMA"
 
 #: setup/lib/messages.inc.php:271
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - [a@?"
 "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication"
@@ -7180,13 +7190,12 @@ msgid ""
 "IP belongs to an ISP where thousands of users, including you, are connected "
 "to."
 msgstr ""
-"Tato [a@?page=form&amp;formset=features#tab_Security]volba[/a] by měla být "
-"zakázána, protože umožňuje útočníkům prolomit přihlašování k libovolnému "
-"MySQL serveru útokem hrobou silou. V případě nutnosti použijte [a@?"
-"page=form&amp;formset=features#tab_Security]seznam důvěryhodných proxy[/a]. "
-"Nicméně ochrana založená na kotrole IP adres, nemusí být spolehlivá, pokud "
-"Vaše IP adresa patří poskytovateli internetových služeb, ke kterému jsou "
-"připojeny tisíce uživatelů."
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - [a@?"
+"page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]omezení počítačů[/"
+"a] a [a@?page=form&amp;formset=features#tab_Security]seznam důvěryhodných "
+"proxy[/a]. Nicméně zabezpečení založené na IP adresách nemusí být "
+"spolehlivé, pokud je vaše IP adresa dynamicky přidělována poskytovatelem "
+"spolu s mnoha dalšími uživateli."
 
 #: setup/lib/messages.inc.php:272
 msgid "Edit server"
@@ -7289,6 +7298,10 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
+"Databáze používaná pro relace, záložky a PDF stránky. Více informací "
+"naleznete na [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Pokud "
+"ponecháte prázdné, budou tyto funkce vypnuté. Doporučená hodnota: [kbd]"
+"phpmyadmin[/kbd]"
 
 #: setup/lib/messages.inc.php:294
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -7340,6 +7353,7 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"Jestli má sledování tabulek automaticky vytvářet verze pro tabulky a pohledy."
 
 #: setup/lib/messages.inc.php:304
 msgid "Automatically create versions"
@@ -7480,6 +7494,10 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
+"Tato volba nemá žádný efekt s přihlašovací metodou [kbd]config[/kbd], "
+"protože v tomto případě je heslo uloženo v konfiguračním souboru; tato volba "
+"neomezuje možnost spustit daný příkaz přímo, jen ovlivňuje zobrazení "
+"formuláře"
 
 #: setup/lib/messages.inc.php:332
 msgid "Show password change form"
@@ -7543,6 +7561,8 @@ msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
+"Pokud jsou povoleny tooltipy a je nastaven komentář databáze, tato volba "
+"prohodí komentář a skutečné jméno"
 
 #: setup/lib/messages.inc.php:346
 msgid "Display database comment instead of its name"
@@ -7555,6 +7575,9 @@ msgid ""
 "['LeftFrameTableSeparator'] directive, so only the folder is called like the "
 "alias, the table name itself stays unchanged"
 msgstr ""
+"Při nastavení na [kbd]nested[/kbd], bude komentář použit pro zanoření a "
+"rozdělení podle nastavení $cfg['LeftFrameTableSeparator']. Takže komentář se "
+"použije jen pro zanoření, ale jména tabulek zůstanou nezměněná"
 
 #: setup/lib/messages.inc.php:348
 msgid "Display table comment instead of its name"
@@ -7568,6 +7591,7 @@ msgstr "Zobrazit komentáře tabulky v tooltipu"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
+"Označí používané tabulky a umožní zobrazit databáze se zamčenými tabulkami."
 
 #: setup/lib/messages.inc.php:351
 msgid "Skip locked tables"
@@ -7596,6 +7620,10 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
+"Zadejte proxy ve tvaru [kbd]IP: důvěryhodná hlavička s adresou[/kbd]. "
+"Následující příklad povolí používání hlavičky HTTP_X_FORWARDED_FOR (X-"
+"Forwarded-For) přicházející od proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: setup/lib/messages.inc.php:361
 msgid "List of trusted proxies for IP allow/deny"
@@ -7623,6 +7651,9 @@ msgid ""
 "libraries/import.lib.php for defaults on how many queries a statement may "
 "contain."
 msgstr ""
+"Zobrazí počet ovlivněných řádek pro každý dotaz při zadání více dotazů. V "
+"souboru libraries/import.lib.php naleznete kolik dotazů můžete najednou "
+"zadat."
 
 #: setup/lib/messages.inc.php:367
 msgid "Verbose multiple statements"
