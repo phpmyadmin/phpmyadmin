@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-11 11:34+0200\n"
+"POT-Creation-Date: 2010-04-16 16:27+0200\n"
 "PO-Revision-Date: 2010-04-08 13:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -5793,6 +5793,12 @@ msgstr "清除"
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "要使用通配符 _ 和 % 本身，应使用用 \\ 转义"
+
+#: server_synchronize.php:1157
+#, fuzzy, php-format
+#| msgid "Configuration"
+msgid "Configuration: %s"
+msgstr "设置"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"

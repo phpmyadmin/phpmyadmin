@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-11 11:34+0200\n"
+"POT-Creation-Date: 2010-04-16 16:27+0200\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: serbian_cyrillic <sr@li.org>\n"
@@ -5967,6 +5967,11 @@ msgstr "Календар"
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Пре џокера _ и % треба ставити знак \\ ако их користите самостално"
+
+#: server_synchronize.php:1157
+#, php-format
+msgid "Configuration: %s"
+msgstr ""
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-11 11:34+0200\n"
+"POT-Creation-Date: 2010-04-16 16:27+0200\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
@@ -6054,6 +6054,11 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Сымбалі падстаноўкі _ і % мусяць быць экранаванымі сымбалем \\ для іх "
 "літаральнага выкарыстаньня"
+
+#: server_synchronize.php:1157
+#, php-format
+msgid "Configuration: %s"
+msgstr ""
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-11 11:34+0200\n"
+"POT-Creation-Date: 2010-04-16 16:27+0200\n"
 "PO-Revision-Date: 2010-03-21 05:17+0200\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -5986,6 +5986,12 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Coringas _ e % precisam ser precedidos com uma \\ para serem usados "
 "literalmente"
+
+#: server_synchronize.php:1157
+#, fuzzy, php-format
+#| msgid "Configuration"
+msgid "Configuration: %s"
+msgstr "Configuração"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"

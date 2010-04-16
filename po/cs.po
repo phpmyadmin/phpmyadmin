@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-11 11:34+0200\n"
-"PO-Revision-Date: 2010-04-16 15:02+0200\n"
+"POT-Creation-Date: 2010-04-16 16:27+0200\n"
+"PO-Revision-Date: 2010-04-16 16:28+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -5985,6 +5985,12 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Zástupné znaky _ a % by měly být escapovány pomocí \\, pokud je chcete "
 "použít jako znak"
+
+#: server_synchronize.php:1157
+#, php-format
+#| msgid "Configuration"
+msgid "Configuration: %s"
+msgstr "Konfigurace: %s"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
