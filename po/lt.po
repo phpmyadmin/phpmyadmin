@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-16 16:27+0200\n"
-"PO-Revision-Date: 2010-04-16 19:51+0200\n"
+"PO-Revision-Date: 2010-04-16 19:52+0200\n"
 "Last-Translator: Rytis <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -415,7 +415,7 @@ msgstr "Didėjimo tvarka"
 
 #: libraries/messages.inc.php:78
 msgid "As defined:"
-msgstr ""
+msgstr "Kaip nurodyta:"
 
 #: libraries/messages.inc.php:79
 msgid "At Beginning of Table"
