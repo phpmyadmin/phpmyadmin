@@ -89,14 +89,6 @@ $cfg['SaveDir'] = '';
 //$cfg['LightTabs'] = true;
 
 /**
- * default for 'ORDER BY' clause (valid values are 'ASC', 'DESC' or 'SMART' -ie
- * descending order for fields of type TIME, DATE, DATETIME & TIMESTAMP,
- * ascending order else-)
- * default = ASC
- */
-//$cfg['Order'] = 'SMART';
-
-/**
  * disallow editing of binary fields
  * valid values are:
  *   false  allow editing
