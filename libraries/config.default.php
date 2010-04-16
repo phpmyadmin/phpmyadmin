@@ -887,7 +887,7 @@ $cfg['MaxRows'] = 30;
  *
  * @global string $cfg['Order']
  */
-$cfg['Order'] = 'ASC';
+$cfg['Order'] = 'SMART';
 
 /**
  * default for 'Show binary contents as HEX'
