@@ -509,7 +509,7 @@ msgstr "Išjungti"
 
 #: libraries/messages.inc.php:102
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "Jūs ruošiatės IŠJUNGTI BLOB saugyklą!"
 
 #: libraries/messages.inc.php:103
 msgctxt "$strBLOBRepositoryEnabled"
