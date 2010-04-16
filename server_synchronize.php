@@ -1110,23 +1110,25 @@ if (isset($_REQUEST['synchronize_db'])) {
     . PMA_generate_common_hidden_inputs('', '');
     echo '<fieldset>';
     echo '<legend>' . $GLOBALS['strSynchronize'] . '</legend>';
- /**
-  * Displays the forms
-  */
+    /**
+     * Displays the forms
+     */
 
     $databases = PMA_DBI_get_databases_full(null, false, null, 'SCHEMA_NAME',
         'ASC', 0, true);
 
     foreach ($cons as $type) {
-      echo '<table id="serverconnection_' . $type . '_remote" class="data">
+?>
+      <table id="serverconnection_<?php echo $type; ?>_remote" class="data">
       <tr>
-	  <th colspan="2">' . $GLOBALS['strDatabase_'.$type] . '</th>
+	  <th colspan="2"><?php echo $GLOBALS['strDatabase_'.$type]; ?></th>
       </tr>
       <tr class="odd">
 	  <td colspan="2" style="text-align: center">
-	     <select name="' . $type . '_type" id="' . $type . '_type" class="server_selector">
-	      <option value="rmt">' . $GLOBALS['strRemoteServer'] . '</option>
-	      <option value="cur">' . $GLOBALS['strCurrentServer'] . '</option>';
+	     <select name="<?php echo $type; ?>_type" id="<?php echo $type; ?>_type" class="server_selector">
+	      <option value="rmt"><?php echo $GLOBALS['strRemoteServer']; ?></option>
+	      <option value="cur"><?php echo $GLOBALS['strCurrentServer']; ?></option>
+<?php
         foreach ($GLOBALS['cfg']['Servers'] as $key => $tmp_server) {
             if (empty($tmp_server['host'])) {
                 continue;
@@ -1156,37 +1158,38 @@ if (isset($_REQUEST['synchronize_db'])) {
             echo '<option value="' . $value . '">'
                 . htmlspecialchars(sprintf(__('Configuration: %s'), $label)) . '</option>' . "\n";
         } // end foreach
-      echo '
+?>
 	     </select>
 	  </td>
       </tr>
 	<tr class="even toggler remote-server">
-	    <td>' . $GLOBALS['strHost'] . '</td>
-	    <td><input type="text" name="' . $type . '_host" class="server-host" /></td>
+	    <td><?php echo $GLOBALS['strHost']; ?></td>
+	    <td><input type="text" name="<?php echo $type; ?>_host" class="server-host" /></td>
 	</tr>
 	<tr class="odd toggler remote-server">
-	    <td>' . $GLOBALS['strPort'] . '</td>
-	    <td><input type="text" name="' . $type . '_port" class="server-port" value="3306" maxlength="5" size="5" /></td>
+	    <td><?php echo $GLOBALS['strPort']; ?></td>
+	    <td><input type="text" name="<?php echo $type; ?>_port" class="server-port" value="3306" maxlength="5" size="5" /></td>
 	</tr>
 	<tr class="even toggler remote-server">
-	    <td>' . $GLOBALS['strSocket'] . '</td>
-	    <td><input type="text" name="' . $type . '_socket" class="server-socket" /></td>
+	    <td><?php echo $GLOBALS['strSocket']; ?></td>
+	    <td><input type="text" name="<?php echo $type; ?>_socket" class="server-socket" /></td>
 	</tr>
 	<tr class="odd toggler remote-server">
-	    <td>' . $GLOBALS['strUserName']. '</td>
-	    <td><input type="text" name="'. $type . '_username" class="server-user" /></td>
+	    <td><?php echo $GLOBALS['strUserName']; ?></td>
+	    <td><input type="text" name="<?php echo $type; ?>_username" class="server-user" /></td>
 	</tr>
 	<tr class="even toggler remote-server">
-	    <td>' . $GLOBALS['strPassword'] . '</td>
-	    <td><input type="password" name="' . $type . '_pass" class="server-pass" /> </td>
+	    <td><?php echo $GLOBALS['strPassword']; ?></td>
+	    <td><input type="password" name="<?php echo $type; ?>_pass" class="server-pass" /> </td>
 	</tr>
 	<tr class="odd toggler remote-server">
-	    <td>' . $GLOBALS['strDatabase'] . '</td>
-	    <td><input type="text" name="' . $type . '_db" class="server-db" /></td>
+	    <td><?php echo $GLOBALS['strDatabase']; ?></td>
+	    <td><input type="text" name="<?php echo $type; ?>_db" class="server-db" /></td>
 	</tr>
 	<tr class="even toggler current-server" style="display: none;">
-	    <td>' . $GLOBALS['strDatabase'] . '</td>
-	    <td>';
+	    <td><?php echo $GLOBALS['strDatabase']; ?></td>
+	    <td>
+<?php
       // these unset() do not complain if the elements do not exist
     unset($databases['mysql']);
     unset($databases['information_schema']);
