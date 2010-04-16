@@ -1216,3 +1216,8 @@ table#serverconnection_src_local,
 table#serverconnection_trg_local  {
   float:left;
 }
+/**
+  *  Validation error message styles
+  */
+.invalid_value
+{background:#F00;}

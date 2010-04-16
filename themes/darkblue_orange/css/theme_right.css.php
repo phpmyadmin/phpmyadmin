@@ -1284,3 +1284,8 @@ table#serverconnection_trg_local  {
     width: 85%;
     padding: 0.1em;
 }
+/**
+  *  Validation error message styles
+  */
+.invalid_value
+{background:#F00;}

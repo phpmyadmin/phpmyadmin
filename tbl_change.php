@@ -183,7 +183,7 @@ if (isset($where_clause)) {
         } else { // end if (no row returned)
             $meta = PMA_DBI_get_fields_meta($result[$key_id]);
             list($unique_condition, $tmp_clause_is_unique) = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
-            if (! empty($unique_condition)) {
+            if (! empty($unique_condition)) { 
                 $found_unique_key = true;
             }
             unset($unique_condition, $tmp_clause_is_unique);
@@ -242,6 +242,7 @@ if (isset($clause_is_unique)) {
 }
 
 ?>
+
 <!-- Insert/Edit form -->
 <form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
 <?php
@@ -304,7 +305,7 @@ foreach ($rows as $row_id => $vrow) {
     <thead>
         <tr>
             <th><?php echo $strField; ?></th>
-
+ 
  <?php
      if ($cfg['ShowFieldTypesInDataEditView']) {
         $this_url_params = array_merge($url_params,
@@ -345,8 +346,8 @@ foreach ($rows as $row_id => $vrow) {
             // d a t e t i m e
             //
             // Current date should not be set as default if the field is NULL
-            // for the current row, but do not put here the current datetime
-            // if there is a default value (the real default value will be set
+            // for the current row, but do not put here the current datetime 
+            // if there is a default value (the real default value will be set 
             // in the Default value logic below)
 
             // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
@@ -411,10 +412,9 @@ foreach ($rows as $row_id => $vrow) {
         if (-1 === $field['len']) {
             $field['len'] = PMA_DBI_field_len($vresult, $i);
         }
-
-        $unnullify_trigger = $chg_evt_handler . "=\"return unNullify('"
-            . PMA_escapeJsString($field['Field_md5']) . "', '"
-            . PMA_escapeJsString($jsvkey) . "')\"";
+        //Call validation when the form submited...
+        $unnullify_trigger = $chg_evt_handler . "=\"return Validator('". PMA_escapeJsString($field['Field_md5']) . "', '"
+            . PMA_escapeJsString($jsvkey) . "','".$field['pma_type']."')\"";
 
         // Use an MD5 as an array index to avoid having special characters in the name atttibute (see bug #1746964 )
         $field_name_appendix =  $vkey . '[' . $field['Field_md5'] . ']';
@@ -439,7 +439,7 @@ foreach ($rows as $row_id => $vrow) {
              <td align="center"<?php echo $field['wrap']; ?>>
                  <?php echo $field['pma_type']; ?>
              </td>
-
+ 
          <?php } //End if
 
         // Prepares the field value
@@ -562,12 +562,12 @@ foreach ($rows as $row_id => $vrow) {
                 ) {
                      $default_function = $cfg['DefaultFunctions']['pk_char36'];
                 }
-
+                
                 // this is set only when appropriate and is always true
 				if (isset($field['display_binary_as_hex'])) {
                 	$default_function = 'UNHEX';
 				}
-
+                
                 // loop on the dropdown array and print all available options for that field.
                 foreach ($dropdown as $each_dropdown){
                     echo '<option';
@@ -639,7 +639,7 @@ foreach ($rows as $row_id => $vrow) {
                 // foreign key in a drop-down
                 $onclick     .= '4, ';
             } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == true) {
-                // foreign key with a browsing icon
+                // foreign key with a browsing icon 
                 $onclick     .= '6, ';
             } else {
                 $onclick     .= '5, ';
