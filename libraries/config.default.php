@@ -2179,12 +2179,12 @@ $cfg['DefaultDisplay'] = 'horizontal';
 $cfg['DefaultPropDisplay'] = 3;
 
 /**
- * table-header rotation via faking or CSS? (css|fake)
+ * table-header rotation via faking or CSS? (css|fake|auto)
  * NOTE: CSS only works in IE browsers!
  *
  * @global string $cfg['HeaderFlipType']
  */
-$cfg['HeaderFlipType'] = 'css';
+$cfg['HeaderFlipType'] = 'auto';
 
 /**
  * shows stored relation-comments in 'browse' mode.

@@ -72,6 +72,7 @@ $Id$
 - patch #2983960 [interface] Add javascript validation of datetime input,
   thanks to Sutharshan Balachandren.
 - rfe #2981999 [interface] Default sort order is now SMART.
+- rfe #2972969 [interface] Fix flipping of headers in non-IE browsers.
 
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,

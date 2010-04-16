@@ -187,16 +187,16 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
 
 
 /**
- * Displays a navigation button 
+ * Displays a navigation button
  *
  * @uses    $GLOBALS['cfg']['NavigationBarIconic']
- * @uses    PMA_generate_common_hidden_inputs() 
+ * @uses    PMA_generate_common_hidden_inputs()
  *
  * @param   string   iconic caption for button
- * @param   string   text for button 
- * @param   integer  position for next query 
- * @param   string   query ready for display 
- * @param   string   optional onsubmit clause 
+ * @param   string   text for button
+ * @param   integer  position for next query
+ * @param   string   query ready for display
+ * @param   string   optional onsubmit clause
  * @param   string   optional hidden field for special treatment
  * @param   string   optional onclick clause
  *
@@ -246,7 +246,7 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
  * @param   integer  the offset for the "next" page
  * @param   integer  the offset for the "previous" page
  * @param   string   the URL-encoded query
- * @param   string   the id for the direction dropdown 
+ * @param   string   the id for the direction dropdown
  *
  * @global  string   $db             the database name
  * @global  string   $table          the table name
@@ -334,9 +334,9 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
         && $_SESSION['tmp_user_values']['max_rows'] != 'all') {
 
         // display the Next button
-        PMA_displayTableNavigationOneButton('&gt;', 
-            $GLOBALS['strNext'], 
-            $pos_next, 
+        PMA_displayTableNavigationOneButton('&gt;',
+            $GLOBALS['strNext'],
+            $pos_next,
             $html_sql_query);
 
         // prepare some options for the End button
@@ -349,9 +349,9 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
         }
 
         // display the End button
-        PMA_displayTableNavigationOneButton('&gt;&gt;', 
-            $GLOBALS['strEnd'], 
-            @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows'])- 1) * $_SESSION['tmp_user_values']['max_rows']), 
+        PMA_displayTableNavigationOneButton('&gt;&gt;',
+            $GLOBALS['strEnd'],
+            @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows'])- 1) * $_SESSION['tmp_user_values']['max_rows']),
             $html_sql_query,
             'onsubmit="return ' . (($_SESSION['tmp_user_values']['pos'] + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows && $num_rows >= $_SESSION['tmp_user_values']['max_rows']) ? 'true' : 'false') . '"',
             $input_for_real_end,
@@ -442,7 +442,7 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
  * @param   integer  the total number of fields returned by the SQL query
  * @param   array    the analyzed query
  *
- * @return  boolean  $clause_is_unique 
+ * @return  boolean  $clause_is_unique
  *
  * @global  string   $db               the database name
  * @global  string   $table            the table name
@@ -564,7 +564,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         echo '</div>';
 
         // prepare full/partial text button or link
-        if ($_SESSION['tmp_user_values']['display_text']=='F') { 
+        if ($_SESSION['tmp_user_values']['display_text']=='F') {
             // currently in fulltext mode so show the opposite link
             $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_partialtext.png';
             $tmp_txt = $GLOBALS['strPartialText'];
@@ -789,7 +789,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 // Field name may be preceded by a space, or any number
                 // of characters followed by a dot (tablename.fieldname)
                 // so do a direct comparison for the sort expression;
-                // this avoids problems with queries like 
+                // this avoids problems with queries like
                 // "SELECT id, count(id)..." and clicking to sort
                 // on id or on count(id).
                 // Another query to test this:
@@ -850,6 +850,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 } elseif (strstr($order_img, 'desc')) {
                     $order_link_params['onmouseover'] = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
                     $order_link_params['onmouseout']  = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
+                }
+            }
+            if ($GLOBALS['cfg']['HeaderFlipType'] == 'auto') {
+                if (PMA_USR_BROWSER_AGENT == 'IE') {
+                    $GLOBALS['cfg']['HeaderFlipType'] = 'css';
+                } else {
+                    $GLOBALS['cfg']['HeaderFlipType'] = 'fake';
                 }
             }
             if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
@@ -1141,7 +1148,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
 
                 $del_query = 'DELETE FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
-                    . ' WHERE ' . $where_clause . ($clause_is_unique ? '' : ' LIMIT 1'); 
+                    . ' WHERE ' . $where_clause . ($clause_is_unique ? '' : ' LIMIT 1');
 
                 $_url_params = array(
                     'db'        => $db,
@@ -1154,7 +1161,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                 $js_conf  = 'DELETE FROM ' . PMA_jsFormat($db) . '.' . PMA_jsFormat($table)
                           . ' WHERE ' . PMA_jsFormat($where_clause, false)
-                          . ($clause_is_unique ? '' : ' LIMIT 1'); 
+                          . ($clause_is_unique ? '' : ' LIMIT 1');
                 $del_str = PMA_getIcon('b_drop.png', $GLOBALS['strDelete'], true);
             } elseif ($is_display['del_lnk'] == 'kp') { // kill process case
 
@@ -1346,7 +1353,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
                     }
                 }
-            // n o t   n u m e r i c   a n d   n o t   B L O B 
+            // n o t   n u m e r i c   a n d   n o t   B L O B
             } else {
                 if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
@@ -1676,8 +1683,8 @@ function PMA_displayTable_checkConfigParams()
 
     // as this is a form value, the type is always string so we cannot
     // use PMA_isValid($_REQUEST['session_max_rows'], 'integer')
-    if ((PMA_isValid($_REQUEST['session_max_rows'], 'numeric') 
-        && (int) $_REQUEST['session_max_rows'] == $_REQUEST['session_max_rows']) 
+    if ((PMA_isValid($_REQUEST['session_max_rows'], 'numeric')
+        && (int) $_REQUEST['session_max_rows'] == $_REQUEST['session_max_rows'])
         || $_REQUEST['session_max_rows'] == 'all') {
         $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'] = $_REQUEST['session_max_rows'];
         unset($_REQUEST['session_max_rows']);
@@ -1718,7 +1725,7 @@ function PMA_displayTable_checkConfigParams()
         // according to low-level field flags
         $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary'] = true;
     }
-    
+
     if (isset($_REQUEST['display_binary_as_hex'])) {
         $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary_as_hex'] = true;
         unset($_REQUEST['display_binary_as_hex']);
