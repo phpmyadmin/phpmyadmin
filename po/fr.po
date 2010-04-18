@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-16 16:27+0200\n"
-"PO-Revision-Date: 2010-04-18 14:08+0200\n"
+"PO-Revision-Date: 2010-04-18 14:09+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -895,7 +895,7 @@ msgstr "La base de données %s a été copiée sur %s"
 
 #: libraries/messages.inc.php:188
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "<b>Copier</b> la table vers (base<b>.</b>table)&nbsp; :"
+msgstr "Copier la table vers (base<b>.</b>table) :"
 
 #: libraries/messages.inc.php:189
 #, php-format
