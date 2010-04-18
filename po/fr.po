@@ -5702,8 +5702,8 @@ msgid ""
 "the link."
 msgstr ""
 "Affiche un lien, le champ contient le nom du fichier; en première option, un "
-"préfixe comme \"http://domaine.com/\", en seconde option, un titre pour le "
-"lien."
+"préfixe comme \"http://www.example.com/\", en seconde option, un titre pour "
+"le lien."
 
 #: libraries/messages.inc.php:1200
 msgid "Formats text as SQL query with syntax highlighting."
