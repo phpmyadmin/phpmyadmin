@@ -75,6 +75,7 @@ $Id$
 - rfe #2972969 [interface] Fix flipping of headers in non-IE browsers.
 + rfe #2964518 [interface] Allow to choose servers from configuration for
   synchronisation.
++ rfe #2988633 [relation] Improve ON DELETE/ON UPDATE drop-downs
 
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,

@@ -18,6 +18,8 @@
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
+$GLOBALS['js_include'][] = 'tbl_relation.js';
+
 require_once './libraries/tbl_common.php';
 $url_query .= '&amp;goto=tbl_sql.php';
 
@@ -61,7 +63,6 @@ function PMA_generate_dropdown($dropdown_question, $select_name, $choices, $sele
     echo htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;';
 
     echo '<select name="' . htmlspecialchars($select_name) . '">' . "\n";
-    echo '<option value=""></option>' . "\n";
 
     foreach ($choices as $one_value => $one_label) {
         echo '<option value="' . htmlspecialchars($one_value) . '"';
@@ -471,7 +472,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             if (!empty($save_row[$i]['Key'])) {
                 ?>
             <span class="formelement">
-            <select name="destination_foreign[<?php echo $myfield_md5; ?>]">
+            <select name="destination_foreign[<?php echo $myfield_md5; ?>]" class="referenced_column_dropdown">
                 <?php
                 if (isset($existrel_foreign[$myfield])) {
                     // need to backquote to support a dot character inside
@@ -508,10 +509,13 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             </span>
             <span class="formelement">
                 <?php
+                // For ON DELETE and ON UPDATE, the default action 
+                // is RESTRICT as per MySQL doc; however, a SHOW CREATE TABLE
+                // won't display the clause if it's set as RESTRICT. 
                 PMA_generate_dropdown('ON DELETE',
                     'on_delete[' . $myfield_md5 . ']',
                     $options_array,
-                    isset($existrel_foreign[$myfield]['on_delete']) ? $existrel_foreign[$myfield]['on_delete']: '');
+                    isset($existrel_foreign[$myfield]['on_delete']) ? $existrel_foreign[$myfield]['on_delete']: 'RESTRICT');
 
                 echo '</span>' . "\n"
                     .'<span class="formelement">' . "\n";
@@ -519,7 +523,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
                 PMA_generate_dropdown('ON UPDATE',
                     'on_update[' . $myfield_md5 . ']',
                     $options_array,
-                    isset($existrel_foreign[$myfield]['on_update']) ? $existrel_foreign[$myfield]['on_update']: '');
+                    isset($existrel_foreign[$myfield]['on_update']) ? $existrel_foreign[$myfield]['on_update']: 'RESTRICT');
                 echo '</span>' . "\n";
             } else {
                 echo $strNoIndex;
