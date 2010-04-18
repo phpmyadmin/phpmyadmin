@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-16 16:27+0200\n"
-"PO-Revision-Date: 2010-04-18 14:09+0200\n"
+"PO-Revision-Date: 2010-04-18 14:10+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2419,7 +2419,7 @@ msgstr "Déplacer le menu"
 
 #: libraries/messages.inc.php:534
 msgid "Move table to (database<b>.</b>table):"
-msgstr "<b>Déplacer</b> la table vers (base<b>.</b>table)&nbsp;:"
+msgstr "Déplacer la table vers (base<b>.</b>table) : "
 
 #: libraries/messages.inc.php:535
 #, php-format
