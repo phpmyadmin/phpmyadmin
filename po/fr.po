@@ -895,7 +895,7 @@ msgstr "La base de données %s a été copiée sur %s"
 
 #: libraries/messages.inc.php:188
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "<b>Copier</b> la table vers (base<b>.</b>table)&nbsp;:"
+msgstr "<b>Copier</b> la table vers (base<b>.</b>table)&nbsp; :"
 
 #: libraries/messages.inc.php:189
 #, php-format
