@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-16 16:27+0200\n"
+"POT-Creation-Date: 2010-04-18 08:42-0400\n"
 "PO-Revision-Date: 2010-04-11 11:19+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -2030,7 +2030,7 @@ msgstr ""
 msgid "Internal relation added"
 msgstr "Aggiunte relazioni internet"
 
-#: libraries/messages.inc.php:449
+#: libraries/messages.inc.php:449 tbl_relation.php:405
 msgid "Internal relations"
 msgstr "Relazioni interne"
 
@@ -3465,7 +3465,7 @@ msgstr ""
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/messages.inc.php:762
+#: libraries/messages.inc.php:762 tbl_relation.php:399
 msgid "Relations"
 msgstr "Relazioni"
 
@@ -6075,7 +6075,7 @@ msgstr ""
 "I caratteri jolly _ e % dovrebbero essere preceduti da un \\ per l'utilizzo "
 "letterale"
 
-#: server_synchronize.php:1157
+#: server_synchronize.php:1159
 #, fuzzy, php-format
 #| msgid "Configuration"
 msgid "Configuration: %s"
@@ -7708,3 +7708,8 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Internal relation"
+#~ msgstr "Relazioni interne"

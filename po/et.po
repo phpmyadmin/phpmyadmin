@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-16 16:27+0200\n"
+"POT-Creation-Date: 2010-04-18 08:42-0400\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: estonian <et@li.org>\n"
@@ -2018,7 +2018,7 @@ msgstr ""
 msgid "Internal relation added"
 msgstr "Sisemine suhe loodud"
 
-#: libraries/messages.inc.php:449
+#: libraries/messages.inc.php:449 tbl_relation.php:405
 msgid "Internal relations"
 msgstr "Sisesed seosed"
 
@@ -3408,7 +3408,7 @@ msgstr ""
 msgid "RELATIONS FOR TABLE"
 msgstr "SEOSED TABELILE"
 
-#: libraries/messages.inc.php:762
+#: libraries/messages.inc.php:762 tbl_relation.php:399
 msgid "Relations"
 msgstr "Suhted"
 
@@ -5957,7 +5957,7 @@ msgstr ""
 "Metamärgid _ ja % peaksid olema varjestatud märgiga \\, kui soovite neid "
 "sisestada"
 
-#: server_synchronize.php:1157
+#: server_synchronize.php:1159
 #, php-format
 msgid "Configuration: %s"
 msgstr ""
@@ -7590,6 +7590,11 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Internal relation"
+#~ msgstr "Sisesed seosed"
 
 #, fuzzy
 #~| msgid "Select All"
