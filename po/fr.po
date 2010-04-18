@@ -1281,7 +1281,7 @@ msgstr "<b>Afficher le schéma</b> en PDF"
 
 #: libraries/messages.inc.php:276
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Recherche par valeur (passepartout: \"%\")"
+msgstr "Recherche par valeur (passepartout: \"%\") "
 
 #: libraries/messages.inc.php:277
 msgid "DocSQL"
