@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-19 07:48-0400\n"
+"POT-Creation-Date: 2010-04-19 14:26+0200\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
-#: js/messages.php:50 libraries/messages.inc.php:372
+#: js/messages.php:50 libraries/messages.inc.php:369
 msgid "Go"
 msgstr "OK"
 
@@ -896,209 +896,205 @@ msgid "Cookies must be enabled past this point."
 msgstr "Brauzerda \"cookies\" faollashtirilgan bo‘lishi shart."
 
 #: libraries/messages.inc.php:186
-msgid "Copy"
-msgstr "Nusxa ko‘chirish"
-
-#: libraries/messages.inc.php:187
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "\"%s\" ma`lumotlar bazasidan \"%s\" ga nusxa ko‘chirildi."
 
-#: libraries/messages.inc.php:188
+#: libraries/messages.inc.php:187
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Jadvaldan (ma`lumotlar ombori<b>.</b>jadval) ga nusxa ko‘chirish:"
 
-#: libraries/messages.inc.php:189
+#: libraries/messages.inc.php:188
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "\"%s\" jadvalidan \"%s\" ga nusxa ko‘chirildi."
 
-#: libraries/messages.inc.php:190
+#: libraries/messages.inc.php:189
 msgid "Can't copy table to same one!"
 msgstr "Jadvalning o‘zidan o‘ziga nusxa ko‘chirish mumkin emas!"
 
-#: libraries/messages.inc.php:191
+#: libraries/messages.inc.php:190
 msgid "Could not connect to the source"
 msgstr "Manbaga ulanib bo‘lmadi"
 
-#: libraries/messages.inc.php:192
+#: libraries/messages.inc.php:191
 msgid "Could not connect to the target"
 msgstr "Nishonga ulanib bo‘lmadi"
 
-#: libraries/messages.inc.php:193
+#: libraries/messages.inc.php:192
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 "phpMyAdmin \"%s\" oqim ishini tuguta olmadi. Ehtimol, u allaqachon yopiq."
 
-#: libraries/messages.inc.php:194
+#: libraries/messages.inc.php:193
 msgid "Create"
 msgstr "Tuzish"
 
-#: libraries/messages.inc.php:195
+#: libraries/messages.inc.php:194
 msgid "CREATE DATABASE before copying"
 msgstr "Nusxa ko‘chirishdan oldin ma`lumotlar bazasi tuzing (CREATE DATABASE)"
 
-#: libraries/messages.inc.php:196
+#: libraries/messages.inc.php:195
 #, php-format
 msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgstr "\"%s\" maydon uchun indeks tuzish"
 
-#: libraries/messages.inc.php:197
+#: libraries/messages.inc.php:196
 msgid "Create a new index"
 msgstr "Yangi indeks tuzish"
 
-#: libraries/messages.inc.php:198
+#: libraries/messages.inc.php:197
 msgid "Create new database"
 msgstr "Yangi ma`lumotlar bazasi tuzish"
 
-#: libraries/messages.inc.php:199
+#: libraries/messages.inc.php:198
 #, php-format
 msgid "Create table on database %s"
 msgstr "\"%s\" ma`lumotlar bazasida yangi jadval tuzish"
 
-#: libraries/messages.inc.php:200
+#: libraries/messages.inc.php:199
 msgid "Create a page"
 msgstr "Yangi sahifa tuzish"
 
-#: libraries/messages.inc.php:201
+#: libraries/messages.inc.php:200
 msgid "Creation of PDFs"
 msgstr "PDF-sxema tuzish"
 
-#: libraries/messages.inc.php:202
+#: libraries/messages.inc.php:201
 msgid "Create relation"
 msgstr "Bog‘liqlik o‘rnatish"
 
-#: libraries/messages.inc.php:203
+#: libraries/messages.inc.php:202
 msgid "Create table"
 msgstr "Jadval tuzish"
 
-#: libraries/messages.inc.php:204
+#: libraries/messages.inc.php:203
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Jadval tuzish"
 
-#: libraries/messages.inc.php:205
+#: libraries/messages.inc.php:204
 msgid "Database for user"
 msgstr "Foydalanuvchi uchun ma`lumotlar bazasi"
 
-#: libraries/messages.inc.php:206
+#: libraries/messages.inc.php:205
 msgid "Create database with same name and grant all privileges"
 msgstr ""
 "Foydalanuvchi nomi bilan atalgan ma`lumotlar bazasi tuzish va unga to‘liq "
 "privilegiyalarni berish."
 
-#: libraries/messages.inc.php:207
+#: libraries/messages.inc.php:206
 #, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Yo‘q"
 
-#: libraries/messages.inc.php:208
+#: libraries/messages.inc.php:207
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "\"%s\"&quot ma`lumotlar bazasiga barcha privilegiyalarni berish;"
 
-#: libraries/messages.inc.php:209
+#: libraries/messages.inc.php:208
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 "(foydalanuvchi\\_%) shabloniga to‘g‘ri keladigan barcha ma`lumotlar "
 "bazalariga to‘liq privilegiyalarni berish."
 
-#: libraries/messages.inc.php:210
+#: libraries/messages.inc.php:209
 msgid "Creation/Update/Check dates"
 msgstr "Tuzish, yangilash va tekshirish sanalari"
 
-#: libraries/messages.inc.php:211
+#: libraries/messages.inc.php:210
 msgid "Criteria"
 msgstr "Kriteriy"
 
-#: libraries/messages.inc.php:212
+#: libraries/messages.inc.php:211
 msgid "Croatian"
 msgstr "Xorvatcha"
 
-#: libraries/messages.inc.php:213
+#: libraries/messages.inc.php:212
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/messages.inc.php:214
+#: libraries/messages.inc.php:213
 msgid "Current server"
 msgstr "Joriy sеrvеr"
 
-#: libraries/messages.inc.php:215
+#: libraries/messages.inc.php:214
 msgid "Custom color"
 msgstr "Rangni tanlash"
 
-#: libraries/messages.inc.php:216
+#: libraries/messages.inc.php:215
 msgid "Cyrillic"
 msgstr "Kirillcha"
 
-#: libraries/messages.inc.php:217
+#: libraries/messages.inc.php:216
 msgid "Czech"
 msgstr "Chexcha"
 
-#: libraries/messages.inc.php:218
+#: libraries/messages.inc.php:217
 msgid "Czech-Slovak"
 msgstr "Chexoslovakcha"
 
-#: libraries/messages.inc.php:220
+#: libraries/messages.inc.php:219
 msgid "Danish"
 msgstr "Daniyacha"
 
-#: libraries/messages.inc.php:221
+#: libraries/messages.inc.php:220
 msgid "Database"
 msgstr "Ma`lumotlar bazasi"
 
-#: libraries/messages.inc.php:222
+#: libraries/messages.inc.php:221
 msgid "The database name is empty!"
 msgstr "Ma`lumotlar bazasi nomi bo‘sh!"
 
-#: libraries/messages.inc.php:223
+#: libraries/messages.inc.php:222
 msgid "Database export options"
 msgstr "Ma`lumotlar bazasi eksport parametrlari"
 
-#: libraries/messages.inc.php:224
+#: libraries/messages.inc.php:223
 #, php-format
 msgid "Database %1$s has been created."
 msgstr " %1$s ma`lumotlar bazasi tuzildi."
 
-#: libraries/messages.inc.php:225
+#: libraries/messages.inc.php:224
 #, php-format
 msgid "Database %s has been dropped."
 msgstr " \"%s\" ma`lumotlar ombori o‘chirildi."
 
-#: libraries/messages.inc.php:226
+#: libraries/messages.inc.php:225
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' nomli baza mavjud emas."
 
-#: libraries/messages.inc.php:227 setup/lib/messages.inc.php:110
+#: libraries/messages.inc.php:226 setup/lib/messages.inc.php:110
 msgid "Databases"
 msgstr "Ma`lumotlar bazalari"
 
-#: libraries/messages.inc.php:228
+#: libraries/messages.inc.php:227
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "\"%s\" ma`lumotlar bazasi muvaffaqiyatli o‘chirildi."
 
-#: libraries/messages.inc.php:229
+#: libraries/messages.inc.php:228
 msgid "Source database"
 msgstr "Manba baza"
 
-#: libraries/messages.inc.php:230
+#: libraries/messages.inc.php:229
 msgid "Databases statistics"
 msgstr "Ma`lumotlar bazasi statiskasi"
 
-#: libraries/messages.inc.php:231
+#: libraries/messages.inc.php:230
 msgid "Disable Statistics"
 msgstr "Statiskani o‘chirish"
 
-#: libraries/messages.inc.php:232
+#: libraries/messages.inc.php:231
 msgid "Enable Statistics"
 msgstr "Statiskani yoqish"
 
-#: libraries/messages.inc.php:233
+#: libraries/messages.inc.php:232
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -1106,68 +1102,68 @@ msgstr ""
 "IZOH: Statiskani yoqish veb-server va MySQL serveri o‘rtasida katta "
 "traffikka sabab bo‘lishi mumkin."
 
-#: libraries/messages.inc.php:234
+#: libraries/messages.inc.php:233
 msgid "Target database"
 msgstr "Nishon baza"
 
-#: libraries/messages.inc.php:235
+#: libraries/messages.inc.php:234
 msgid "Data"
 msgstr "Ma`lumotlar"
 
-#: libraries/messages.inc.php:236
+#: libraries/messages.inc.php:235
 msgid "Data Dictionary"
 msgstr "Ma`lumotlar lug‘ati"
 
-#: libraries/messages.inc.php:237
+#: libraries/messages.inc.php:236
 msgid "Data Difference"
 msgstr "Ma’lumotlar farqi"
 
-#: libraries/messages.inc.php:238
+#: libraries/messages.inc.php:237
 msgid "Data only"
 msgstr "Faqat ma`lumotlar"
 
-#: libraries/messages.inc.php:239
+#: libraries/messages.inc.php:238
 msgid "Pages containing data"
 msgstr "Ma`lumotlar mavjud sahifalar"
 
-#: libraries/messages.inc.php:240
+#: libraries/messages.inc.php:239
 msgid "Data Synchronization"
 msgstr "Ma’lumotlar sinxronizatsiyasi"
 
-#: libraries/messages.inc.php:241
+#: libraries/messages.inc.php:240
 msgid "Database comment: "
 msgstr "Ma`lumotlar bazasiga izoh:"
 
-#: libraries/messages.inc.php:242
+#: libraries/messages.inc.php:241
 msgid "Copy database to"
 msgstr "Ma`lumotlar bazasidan quyidagiga nusxa olish"
 
-#: libraries/messages.inc.php:243
+#: libraries/messages.inc.php:242
 msgid "Database seems to be empty!"
 msgstr "Ma`lumotlar bazasi bo‘sh!"
 
-#: libraries/messages.inc.php:244
+#: libraries/messages.inc.php:243
 msgid "Database-specific privileges"
 msgstr "Ma`lumotlar bazasi privilegiyalari"
 
-#: libraries/messages.inc.php:245
+#: libraries/messages.inc.php:244
 msgid "Rename database to"
 msgstr "Ma`lumotlar bazasi nomini quyidagiga o‘zgartirish"
 
-#: libraries/messages.inc.php:246
+#: libraries/messages.inc.php:245
 msgid "database-specific"
 msgstr "Ma`lumotlar bazasi darajasida"
 
-#: libraries/messages.inc.php:247
+#: libraries/messages.inc.php:246
 msgid "Default"
 msgstr "Andoza"
 
-#: libraries/messages.inc.php:248
+#: libraries/messages.inc.php:247
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "\"%s\" - MySQL serveridagi andozaviy ma`lumotlar jadvali turi."
 
-#: libraries/messages.inc.php:249
+#: libraries/messages.inc.php:248
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
@@ -1175,55 +1171,44 @@ msgstr ""
 "\"Andozaviy\" maydonlar qiymatlarida teskari egri chiziq va qo‘shtirnoqlarni "
 "ishlatmang."
 
-#: libraries/messages.inc.php:250
+#: libraries/messages.inc.php:249
 msgid "Defragment table"
 msgstr "Jadvalni defragmentatsiyalash"
 
-#: libraries/messages.inc.php:251
+#: libraries/messages.inc.php:250
 msgid "Use delayed inserts"
 msgstr "Kechiktirilgan qo‘yish (DELAYED INSERTS) dan foydalanish"
 
-#: libraries/messages.inc.php:252
-msgid "Delete the users and reload the privileges afterwards."
-msgstr "Barcha foydalanuvchilarni o‘chirish va privilegiyalarni qayta yuklash."
-
-#: libraries/messages.inc.php:253
-msgid ""
-"This is the cleanest way, but reloading the privileges may take a while."
-msgstr ""
-"Bu eng yaxshi usul, lekin privilegiyalarni qayta yuklash vaqt talab etishi "
-"mumkin."
-
-#: libraries/messages.inc.php:254
+#: libraries/messages.inc.php:251
 msgid "Delete"
 msgstr "O‘chirish"
 
-#: libraries/messages.inc.php:255
+#: libraries/messages.inc.php:252
 msgid "The row has been deleted"
 msgstr "Yozuv o‘chirildi"
 
-#: libraries/messages.inc.php:256
+#: libraries/messages.inc.php:253
 msgid "No users selected for deleting!"
 msgstr "O‘chirish lozim bo‘lgan foydalanuvchilar tanlanmagan!"
 
-#: libraries/messages.inc.php:257
+#: libraries/messages.inc.php:254
 msgid "Delete relation"
 msgstr "Bog‘liqlikni o‘chirish"
 
-#: libraries/messages.inc.php:258
+#: libraries/messages.inc.php:255
 msgid "Delete tracking data for this table"
 msgstr "Ushbu jadval uchun kuzatuv ma’lumotlari o‘chirish"
 
-#: libraries/messages.inc.php:259
+#: libraries/messages.inc.php:256
 #, php-format
 msgid "Deleting %s"
 msgstr "\"%s\" o‘chirilmoqda"
 
-#: libraries/messages.inc.php:260
+#: libraries/messages.inc.php:257
 msgid "Delimiter"
 msgstr "Taqsimlovchi"
 
-#: libraries/messages.inc.php:261
+#: libraries/messages.inc.php:258
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -1231,19 +1216,19 @@ msgstr ""
 "Ushbu sahifada mavjud bo‘lmagan jadvallar uchun murojaatlar mavjud. Ushbu "
 "murojaatlarni o‘chirishni xohlaysizmi?"
 
-#: libraries/messages.inc.php:262
+#: libraries/messages.inc.php:259
 msgid "Descending"
 msgstr "Kamayish tartibida"
 
-#: libraries/messages.inc.php:263
+#: libraries/messages.inc.php:260
 msgid "Description"
 msgstr "Tavsifi"
 
-#: libraries/messages.inc.php:264
+#: libraries/messages.inc.php:261
 msgid "Designer"
 msgstr "Dizayner"
 
-#: libraries/messages.inc.php:265
+#: libraries/messages.inc.php:262
 msgid ""
 "The display field is shown in pink. To set/unset a field as the display "
 "field, click the \"Choose field to display\" icon, then click on the "
@@ -1253,263 +1238,263 @@ msgstr ""
 "qilish uchun \"Ko‘rsatiladigan maydonni tanlash\" bo‘limidan mos maydonni "
 "tanlang."
 
-#: libraries/messages.inc.php:266
+#: libraries/messages.inc.php:263
 msgid "Details..."
 msgstr "Tafsilotlar..."
 
-#: libraries/messages.inc.php:267
+#: libraries/messages.inc.php:264
 msgid "dictionary"
 msgstr "lug‘at"
 
-#: libraries/messages.inc.php:268
+#: libraries/messages.inc.php:265
 msgid "Difference"
 msgstr "Farq"
 
-#: libraries/messages.inc.php:269
+#: libraries/messages.inc.php:266
 msgid "Direct links"
 msgstr "To‘g‘ridan-to‘g‘ri bog‘lanishlar"
 
-#: libraries/messages.inc.php:270
+#: libraries/messages.inc.php:267
 msgid "Dirty pages"
 msgstr "Kir sahifalar"
 
-#: libraries/messages.inc.php:271
+#: libraries/messages.inc.php:268
 msgid "Disabled"
 msgstr "Faolsizlantirilgan"
 
-#: libraries/messages.inc.php:272
+#: libraries/messages.inc.php:269
 msgid "Disable foreign key checks"
 msgstr "Tashqi kalitlarni tekshirishni o‘chirish"
 
-#: libraries/messages.inc.php:273
+#: libraries/messages.inc.php:270
 msgid "Display Features"
 msgstr "Imkoniyatlarni ko‘rsatish"
 
-#: libraries/messages.inc.php:274
+#: libraries/messages.inc.php:271
 msgid "Display order:"
 msgstr "Sortirovka:"
 
-#: libraries/messages.inc.php:275
+#: libraries/messages.inc.php:272
 msgid "Display PDF schema"
 msgstr "PDF-sxemani ko‘rsatish"
 
-#: libraries/messages.inc.php:276
+#: libraries/messages.inc.php:273
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "\"Namunadagi so‘rovni bajarish\" (o‘rniga qo‘yish belgisi: \"%\")"
 
-#: libraries/messages.inc.php:277
+#: libraries/messages.inc.php:274
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/messages.inc.php:278
+#: libraries/messages.inc.php:275
 msgid "Documentation"
 msgstr "Dokumentatsiya"
 
-#: libraries/messages.inc.php:279
+#: libraries/messages.inc.php:276
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Nol qiymatlari uchun \"AUTO_INCREMENT\" ishlatmaslik"
 
-#: libraries/messages.inc.php:280
+#: libraries/messages.inc.php:277
 msgid "Download file"
 msgstr "Faylni yuklab olish"
 
-#: libraries/messages.inc.php:281
+#: libraries/messages.inc.php:278
 msgid "Do you really want to "
 msgstr "Haqiqatan ham so‘rovni bajarmoqchimisiz?"
 
-#: libraries/messages.inc.php:282
+#: libraries/messages.inc.php:279
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ma`lumotlar bazasi to‘liq O‘CHIRILADI!"
 
-#: libraries/messages.inc.php:283
+#: libraries/messages.inc.php:280
 msgid "Drop"
 msgstr "O‘chirish"
 
-#: libraries/messages.inc.php:284
+#: libraries/messages.inc.php:281
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
 "Foydalanuvchilar nomlari bilan atalgan ma`lumotlar bazalarini o‘chirish."
 
-#: libraries/messages.inc.php:285
+#: libraries/messages.inc.php:282
 msgid "Dump all rows"
 msgstr "Barcha qatorlarni damp qilish"
 
-#: libraries/messages.inc.php:286
+#: libraries/messages.inc.php:283
 msgid "Dumping data for table"
 msgstr "Jadval ma`lumotlarini damp qilish"
 
-#: libraries/messages.inc.php:287
+#: libraries/messages.inc.php:284
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Damp \"%s\" faylida saqlandi."
 
-#: libraries/messages.inc.php:288
+#: libraries/messages.inc.php:285
 #, php-format
 msgid "Dump %s row(s) starting at record # %s"
 msgstr "# %s yozuvidan boshlab %s satrni damp qilish."
 
-#: libraries/messages.inc.php:289
+#: libraries/messages.inc.php:286
 msgid "dynamic"
 msgstr "dinamik"
 
-#: libraries/messages.inc.php:291 setup/lib/messages.inc.php:352
+#: libraries/messages.inc.php:288 setup/lib/messages.inc.php:352
 msgid "Edit"
 msgstr "Tahrirlash"
 
-#: libraries/messages.inc.php:292
+#: libraries/messages.inc.php:289
 msgid "Edit PDF Pages"
 msgstr "PDF-sahifalarni tahrirlash"
 
-#: libraries/messages.inc.php:293
+#: libraries/messages.inc.php:290
 msgid "Edit Privileges"
 msgstr "Privilegiyalarni tahrirlash"
 
-#: libraries/messages.inc.php:294
+#: libraries/messages.inc.php:291
 msgid "Effective"
 msgstr "Effektivlik"
 
-#: libraries/messages.inc.php:295
+#: libraries/messages.inc.php:292
 msgid "Empty"
 msgstr "Tozalash"
 
-#: libraries/messages.inc.php:296
+#: libraries/messages.inc.php:293
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL bo‘sh natija berdi (ya`ni nolta satr)."
 
-#: libraries/messages.inc.php:297
+#: libraries/messages.inc.php:294
 msgid "Enabled"
 msgstr "Faollashtirilgan"
 
-#: libraries/messages.inc.php:298
+#: libraries/messages.inc.php:295
 msgid "Enclose export in a transaction"
 msgstr "Tranzaksiyaga eksportni qo‘shish"
 
-#: libraries/messages.inc.php:299
+#: libraries/messages.inc.php:296
 msgid "END CUT"
 msgstr "END CUT"
 
-#: libraries/messages.inc.php:300
+#: libraries/messages.inc.php:297
 msgid "End"
 msgstr "Oxiri"
 
-#: libraries/messages.inc.php:301
+#: libraries/messages.inc.php:298
 msgid "END RAW"
 msgstr "END RAW"
 
-#: libraries/messages.inc.php:302
+#: libraries/messages.inc.php:299
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "Ushbu MySQL serveri \"%s\" turdagi jadvallar bilan ishlay oladi."
 
-#: libraries/messages.inc.php:303
+#: libraries/messages.inc.php:300
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "\"%s\" turidagi jadvallar ushbu MySQL serverda faolsizlantirilgan."
 
-#: libraries/messages.inc.php:304
+#: libraries/messages.inc.php:301
 msgid "Engines"
 msgstr "Jadval turlari"
 
-#: libraries/messages.inc.php:305
+#: libraries/messages.inc.php:302
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ushbu MySQL serveri \"%s\" turdagi jadvallar bilan ishlay olmaydi."
 
-#: libraries/messages.inc.php:306
+#: libraries/messages.inc.php:303
 msgid "English"
 msgstr "Inglizcha"
 
-#: libraries/messages.inc.php:307
+#: libraries/messages.inc.php:304
 msgid " Note: MySQL privilege names are expressed in English "
 msgstr "IZOH: MySQL privilegiyalari turlari ingliz tilida ko‘rsatiladi."
 
-#: libraries/messages.inc.php:308
+#: libraries/messages.inc.php:305
 msgid "Error"
 msgstr "Xatolik"
 
-#: libraries/messages.inc.php:309
+#: libraries/messages.inc.php:306
 msgid "Error in ZIP archive:"
 msgstr "Ushbu ZIP arxivda xatolik:"
 
-#: libraries/messages.inc.php:310
+#: libraries/messages.inc.php:307
 msgid "Error: Relation not added."
 msgstr "Xatolik: Bog‘liqlik o‘rnatilmadi."
 
-#: libraries/messages.inc.php:311
+#: libraries/messages.inc.php:308
 msgid "Error: relation already exists."
 msgstr "Xatolik: Bog‘liqlik allaqachon mavjud."
 
-#: libraries/messages.inc.php:312
+#: libraries/messages.inc.php:309
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "%1$s jadvalini %2$s deb qayta nomlashda xatolik"
 
-#: libraries/messages.inc.php:313
+#: libraries/messages.inc.php:310
 msgid "Error saving coordinates for Designer."
 msgstr "Koordinatalarni saqlashda xatolik."
 
-#: libraries/messages.inc.php:314
+#: libraries/messages.inc.php:311
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/messages.inc.php:315
+#: libraries/messages.inc.php:312
 msgid "Estonian"
 msgstr "Estoncha"
 
-#: libraries/messages.inc.php:316
+#: libraries/messages.inc.php:313
 msgid "Event"
 msgstr "Hodisa"
 
-#: libraries/messages.inc.php:317
+#: libraries/messages.inc.php:314
 msgid "Events"
 msgstr "Hodisalar"
 
-#: libraries/messages.inc.php:318
+#: libraries/messages.inc.php:315
 msgid "Excel edition"
 msgstr "Excel-versiyasi"
 
-#: libraries/messages.inc.php:319
+#: libraries/messages.inc.php:316
 msgid "Execute bookmarked query"
 msgstr "Belgilangan so‘rovni bajarish"
 
-#: libraries/messages.inc.php:320 setup/lib/messages.inc.php:353
+#: libraries/messages.inc.php:317 setup/lib/messages.inc.php:353
 msgid "Explain SQL"
 msgstr "So‘rov tahlili"
 
-#: libraries/messages.inc.php:321
+#: libraries/messages.inc.php:318
 msgid "Export"
 msgstr "Eksport"
 
-#: libraries/messages.inc.php:322
+#: libraries/messages.inc.php:319
 msgid "Export/Import to scale"
 msgstr "Masshtab"
 
-#: libraries/messages.inc.php:323
+#: libraries/messages.inc.php:320
 msgid "Selected export type has to be saved in file!"
 msgstr "Belgilangan eksport turi faylga saqlanishi shart!"
 
-#: libraries/messages.inc.php:324
+#: libraries/messages.inc.php:321
 msgid "Extended inserts"
 msgstr "Kengaytirilgan qo‘yilmalar"
 
-#: libraries/messages.inc.php:325
+#: libraries/messages.inc.php:322
 msgid "Extra"
 msgstr "Qo‘shimcha"
 
-#: libraries/messages.inc.php:327
+#: libraries/messages.inc.php:324
 msgid "Failed attempts"
 msgstr "Muvaffaqiyatsiz urinishlar soni: "
 
-#: libraries/messages.inc.php:328
+#: libraries/messages.inc.php:325
 msgid "Field"
 msgstr "Maydon"
 
-#: libraries/messages.inc.php:329
+#: libraries/messages.inc.php:326
 #, php-format
 msgid "Field %s has been dropped"
 msgstr "\"%s\" maydoni o‘chirildi"
 
-#: libraries/messages.inc.php:330
+#: libraries/messages.inc.php:327
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1517,23 +1502,23 @@ msgstr ""
 "Yuklangan fayl joyini o‘zgartirishda xatolik, [a@./Documentation."
 "html#faq1_11@Documentation]\"FAQ 1.11\"[/a]ga qarang"
 
-#: libraries/messages.inc.php:331
+#: libraries/messages.inc.php:328
 msgid "Fields enclosed by"
 msgstr "Maydon qiymatlari quyidagi belgi ichiga olingan "
 
-#: libraries/messages.inc.php:332
+#: libraries/messages.inc.php:329
 msgid "Fields escaped by"
 msgstr "Belgi oldida quyidagi belgi mavjud "
 
-#: libraries/messages.inc.php:333
+#: libraries/messages.inc.php:330
 msgid "Fields"
 msgstr "Maydonlar"
 
-#: libraries/messages.inc.php:334
+#: libraries/messages.inc.php:331
 msgid "Fields terminated by"
 msgstr "Maydonlar quyidagi belgi bilan bo‘lingan "
 
-#: libraries/messages.inc.php:335
+#: libraries/messages.inc.php:332
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -1541,23 +1526,23 @@ msgstr ""
 "\"%s\" fayli serverda mavjud, uning nomini o‘zgartiring yoki qayta yozish "
 "parametrini yoqing."
 
-#: libraries/messages.inc.php:336
+#: libraries/messages.inc.php:333
 msgid "File could not be read"
 msgstr "Faylni o‘qib bo‘lmadi!!"
 
-#: libraries/messages.inc.php:337
+#: libraries/messages.inc.php:334
 msgid "database name"
 msgstr "ma`lumotlar bazasi nomi"
 
-#: libraries/messages.inc.php:338
+#: libraries/messages.inc.php:335
 msgid "server name"
 msgstr "server nomi"
 
-#: libraries/messages.inc.php:339
+#: libraries/messages.inc.php:336
 msgid "table name"
 msgstr "jadval nomi"
 
-#: libraries/messages.inc.php:340
+#: libraries/messages.inc.php:337
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -1568,23 +1553,23 @@ msgstr ""
 "hozirgi vaqt va sanani qo‘yish mumkin. Qo‘shimcha ravishda quyidagilar "
 "ishlatilishi mumkin: %3$s. Matnning boshqa qismlari o‘zgarishsiz qoladi."
 
-#: libraries/messages.inc.php:341
+#: libraries/messages.inc.php:338
 msgid "File name template"
 msgstr "Fayl nomi shabloni"
 
-#: libraries/messages.inc.php:342
+#: libraries/messages.inc.php:339
 msgid "remember template"
 msgstr " shablonni yodda tutish"
 
-#: libraries/messages.inc.php:343
+#: libraries/messages.inc.php:340
 msgid "Files"
 msgstr "Fayllar soni "
 
-#: libraries/messages.inc.php:344
+#: libraries/messages.inc.php:341
 msgid "File to import"
 msgstr "Import qilinayotgan fayl "
 
-#: libraries/messages.inc.php:345
+#: libraries/messages.inc.php:342
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -1597,190 +1582,186 @@ msgstr ""
 "ma`lumotlar server tomonidan ishlatilayotgan privilegiyalardan farq qilishi "
 "mumkin. Bu holda %sprivilegiyalarni qayta yuklash%s kerak."
 
-#: libraries/messages.inc.php:346
+#: libraries/messages.inc.php:343
 msgid "Flush query cache"
 msgstr "So‘rovlar keshini defragmentatsiya qilish"
 
-#: libraries/messages.inc.php:347
+#: libraries/messages.inc.php:344
 msgid "Flush the table (\"FLUSH\")"
 msgstr "Jadval keshini yangilash (\"FLUSH\")"
 
-#: libraries/messages.inc.php:348
+#: libraries/messages.inc.php:345
 msgid "Flush (close) all tables"
 msgstr "Barcha jadvallarni yopish"
 
-#: libraries/messages.inc.php:349
+#: libraries/messages.inc.php:346
 msgid "Font size"
 msgstr "Shrift o‘lchami"
 
-#: libraries/messages.inc.php:350
+#: libraries/messages.inc.php:347
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 " %1$s da tashqi kalit (FOREIGN KEY) tuzishda xatolik (ma`lumot turini "
 "tekshiring)"
 
-#: libraries/messages.inc.php:351
+#: libraries/messages.inc.php:348
 msgid "FOREIGN KEY relation added"
 msgstr "Tashqi kalitga (FOREIGN KEY) aloqa o‘rnatildi"
 
-#: libraries/messages.inc.php:352 setup/lib/messages.inc.php:88
+#: libraries/messages.inc.php:349 setup/lib/messages.inc.php:88
 msgid "Format"
 msgstr "Format"
 
-#: libraries/messages.inc.php:353
+#: libraries/messages.inc.php:350
 msgid "Missing value in the form!"
 msgstr "Formaning kerakli maydonlari to‘ldirilmagan!"
 
-#: libraries/messages.inc.php:354
+#: libraries/messages.inc.php:351
 msgid "Free pages"
 msgstr "Bo‘sh sahifalar soni "
 
-#: libraries/messages.inc.php:355
+#: libraries/messages.inc.php:352
 msgid "Full start"
 msgstr "Barchasini boshlash"
 
-#: libraries/messages.inc.php:356
+#: libraries/messages.inc.php:353
 msgid "Full stop"
 msgstr "Barchasini to‘xtatish"
 
-#: libraries/messages.inc.php:357
+#: libraries/messages.inc.php:354
 msgid "Full Texts"
 msgstr "Ma`lumotlarni kengaytirilgan holda ko‘rsatish"
 
-#: libraries/messages.inc.php:358
+#: libraries/messages.inc.php:355
 msgid "Function"
 msgstr "Funksiya"
 
-#: libraries/messages.inc.php:359
+#: libraries/messages.inc.php:356
 msgid "Functions"
 msgstr "Funksiyalar"
 
-#: libraries/messages.inc.php:361
+#: libraries/messages.inc.php:358
 msgid "Generated by"
 msgstr "Tuzilgan"
 
-#: libraries/messages.inc.php:362
+#: libraries/messages.inc.php:359
 msgid "General relation features"
 msgstr "Aloqalarning asosiy imkoniyatlari"
 
-#: libraries/messages.inc.php:363
+#: libraries/messages.inc.php:360
 msgid "Generate"
 msgstr "Generatsiya qilish"
 
-#: libraries/messages.inc.php:364
+#: libraries/messages.inc.php:361
 msgid "Generate Password"
 msgstr "Parol o‘rnatish"
 
-#: libraries/messages.inc.php:365
+#: libraries/messages.inc.php:362
 msgid "Generation Time"
 msgstr "Tuzilgan sana "
 
-#: libraries/messages.inc.php:366
+#: libraries/messages.inc.php:363
 msgid "Georgian"
 msgstr "Gruzincha"
 
-#: libraries/messages.inc.php:367
+#: libraries/messages.inc.php:364
 msgid "German"
 msgstr "Nemischa"
 
-#: libraries/messages.inc.php:368
+#: libraries/messages.inc.php:365
 msgid "Get more themes!"
 msgstr "Ko‘proq mavzuga ega bo‘ling!"
 
-#: libraries/messages.inc.php:369
+#: libraries/messages.inc.php:366
 msgid "global"
 msgstr "Global"
 
-#: libraries/messages.inc.php:370
+#: libraries/messages.inc.php:367
 msgid "Global privileges"
 msgstr "Global privilegiyalar"
 
-#: libraries/messages.inc.php:371
+#: libraries/messages.inc.php:368
 msgid "Global value"
 msgstr "Global qiymat"
 
-#: libraries/messages.inc.php:373
+#: libraries/messages.inc.php:370
 msgid "Go to database"
 msgstr "Ushbu bazaga o‘tish"
 
-#: libraries/messages.inc.php:374
+#: libraries/messages.inc.php:371
 msgid "Go to table"
 msgstr "Ushbu jadvalga o‘tish"
 
-#: libraries/messages.inc.php:375
+#: libraries/messages.inc.php:372
 msgid "Go to view"
 msgstr "Ushbu ko‘rinishga o‘tish"
 
-#: libraries/messages.inc.php:376
+#: libraries/messages.inc.php:373
 msgid "Grant"
 msgstr "GRANT"
 
-#: libraries/messages.inc.php:377
+#: libraries/messages.inc.php:374
 msgid "Greek"
 msgstr "Grekcha"
 
-#: libraries/messages.inc.php:378
+#: libraries/messages.inc.php:375
 msgid "\"gzipped\""
 msgstr "gzip"
 
-#: libraries/messages.inc.php:380
+#: libraries/messages.inc.php:377
 msgid "Handler"
 msgstr "Qayta ishlovchi dastur"
 
-#: libraries/messages.inc.php:381
-msgid "has been altered."
-msgstr " o‘zgartirildi."
-
-#: libraries/messages.inc.php:382
+#: libraries/messages.inc.php:378
 msgid "Selected target tables have been synchronized with source tables."
 msgstr "Tanlangan jadvallar manba jadvallar bilan sinxronizatsiya qilindi."
 
-#: libraries/messages.inc.php:383
+#: libraries/messages.inc.php:379
 msgid "You have to choose at least one column to display"
 msgstr "So‘rovni bajarish uchun, maydon/maydonlar tanlangan bo‘lishi kerak."
 
-#: libraries/messages.inc.php:384
+#: libraries/messages.inc.php:380
 msgid "Hebrew"
 msgstr "Yahudiycha"
 
-#: libraries/messages.inc.php:385
+#: libraries/messages.inc.php:381
 msgid "Help"
 msgstr "Yordam"
 
-#: libraries/messages.inc.php:386
+#: libraries/messages.inc.php:382
 msgid "Use hexadecimal for BLOB"
 msgstr "BLOB turidagi ma`lumotlarni o‘n oltilik shaklda namoyish etish"
 
-#: libraries/messages.inc.php:387
+#: libraries/messages.inc.php:383
 msgid "Hide"
 msgstr "Yashirish"
 
-#: libraries/messages.inc.php:388
+#: libraries/messages.inc.php:384
 msgid "Hide/Show all"
 msgstr "Barcha jadvallarni yashirish/ko‘rsatish"
 
-#: libraries/messages.inc.php:389
+#: libraries/messages.inc.php:385
 msgid "Hide/Show Tables with no relation"
 msgstr "Aloqa mavjud bo‘lmagan jadvallarni yashirish/ko‘rsatish"
 
-#: libraries/messages.inc.php:390
+#: libraries/messages.inc.php:386
 msgid "Home"
 msgstr "Bosh sahifa"
 
-#: libraries/messages.inc.php:391
+#: libraries/messages.inc.php:387
 msgid "Official Homepage"
 msgstr " phpMyAdmin rasmiy veb-sahifasi"
 
-#: libraries/messages.inc.php:392
+#: libraries/messages.inc.php:388
 msgid "The host name is empty!"
 msgstr "Xost nomi bo‘sh!"
 
-#: libraries/messages.inc.php:393
+#: libraries/messages.inc.php:389
 msgid "Host"
 msgstr "Xost"
 
-#: libraries/messages.inc.php:394
+#: libraries/messages.inc.php:390
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -1788,71 +1769,63 @@ msgstr ""
 "Agar Xostlar jadvalidan foydalanilsa, ushbu maydonga e`tibor berilmaydi va "
 "uning o‘rniga Xostlar jadvalidagi qiymatlar ishlatiladi."
 
-#: libraries/messages.inc.php:395
-msgid "Microsoft Excel 2000"
-msgstr "Microsoft Excel 2000"
-
-#: libraries/messages.inc.php:396
+#: libraries/messages.inc.php:391
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/messages.inc.php:397
+#: libraries/messages.inc.php:392
 msgid "Hungarian"
 msgstr "Vengercha"
 
-#: libraries/messages.inc.php:399
+#: libraries/messages.inc.php:394
 msgid "Icelandic"
 msgstr "Islandcha"
 
-#: libraries/messages.inc.php:400
+#: libraries/messages.inc.php:395
 msgid "ID"
 msgstr "ID"
 
-#: libraries/messages.inc.php:401
+#: libraries/messages.inc.php:396
 msgid "Fulltext"
 msgstr "Matn to‘laligicha"
 
-#: libraries/messages.inc.php:402
-msgid "Internet Explorer does not support this function."
-msgstr "Internet Explorer dasturida ushbu funksiya mavjud emas."
-
-#: libraries/messages.inc.php:403
+#: libraries/messages.inc.php:397
 msgid "Ignore duplicate rows"
 msgstr "Takroriy qatorlarga e`tibor bermaslik"
 
-#: libraries/messages.inc.php:404
+#: libraries/messages.inc.php:398
 msgid "Ignore"
 msgstr "E`tibor bermaslik"
 
-#: libraries/messages.inc.php:405
+#: libraries/messages.inc.php:399
 msgid "Use ignore inserts"
 msgstr "E`tibor bermaslik (IGNORE) qo‘yilmalardan foydalanish"
 
-#: libraries/messages.inc.php:406
+#: libraries/messages.inc.php:400
 msgid "Column names in first row"
 msgstr "Birinchi qatorga ustun nomlari"
 
-#: libraries/messages.inc.php:407
+#: libraries/messages.inc.php:401
 msgid "Do not import empty rows"
 msgstr "Bo‘sh qatorlarni import qilmaslik"
 
-#: libraries/messages.inc.php:408
+#: libraries/messages.inc.php:402
 msgid "Import/Export coordinates for PDF schema"
 msgstr "PDF-sxemaga/sxemadan jadval koordinatalarini import/eksport qilish"
 
-#: libraries/messages.inc.php:409
+#: libraries/messages.inc.php:403
 msgid "Import files"
 msgstr "Fayllarni import qilish"
 
-#: libraries/messages.inc.php:410 setup/lib/messages.inc.php:160
+#: libraries/messages.inc.php:404 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
 msgstr "Import qilinayotgan fayl formati"
 
-#: libraries/messages.inc.php:411
+#: libraries/messages.inc.php:405
 msgid "Import"
 msgstr "Import"
 
-#: libraries/messages.inc.php:412
+#: libraries/messages.inc.php:406
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -1862,49 +1835,49 @@ msgstr ""
 "asoslangan brauzеrlarning (Safari, Google Chrome, Arora va hkz) ma’lum "
 "kamchiligi."
 
-#: libraries/messages.inc.php:413
+#: libraries/messages.inc.php:407
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Quyidagi tuzilishlar yo tuzildi yo o‘zgartirildi. Bu yerda siz quyidagi "
 "amallarni bajarishingiz mumkin:"
 
-#: libraries/messages.inc.php:414
+#: libraries/messages.inc.php:408
 msgid "View a structure`s contents by clicking on its name"
 msgstr "Tuzilmani ko‘rish uchun uning nomi ustiga sichqoncha tugmasini bosing"
 
-#: libraries/messages.inc.php:415
+#: libraries/messages.inc.php:409
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr "Quyidagi tanlovlarni o‘zgartirish uchun, \"Tanlovlar\" bog‘iga bosing"
 
-#: libraries/messages.inc.php:416
+#: libraries/messages.inc.php:410
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr "Tuzilmani o‘zgartirish uchun, \"Tuzilma\" bog‘iga kiring"
 
-#: libraries/messages.inc.php:417
+#: libraries/messages.inc.php:411
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Pul birliklarini import qilish (masalan, $5.00 ni 5.00 ga)"
 
-#: libraries/messages.inc.php:418 libraries/messages.inc.php:600
+#: libraries/messages.inc.php:412 libraries/messages.inc.php:592
 msgid "Open Document Spreadsheet"
 msgstr "Open Document jadvali"
 
-#: libraries/messages.inc.php:419
+#: libraries/messages.inc.php:413
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
 "Foizlarni mos o‘nli kasrlar kabi import qilish (masalan, 12.00% o‘rniga 0.12)"
 
-#: libraries/messages.inc.php:420
+#: libraries/messages.inc.php:414
 msgid "The file is being processed, please be patient."
 msgstr "Fayl qayta ishlanmoqda, iltimos, sabr qiling."
 
-#: libraries/messages.inc.php:421
+#: libraries/messages.inc.php:415
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import muvaffaqiyatli tugatildi, bajarilgan so‘rovlar soni: %d."
 
-#: libraries/messages.inc.php:422
+#: libraries/messages.inc.php:416
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -1912,52 +1885,52 @@ msgstr ""
 "Sabr qiling, fayl yuklanmoqda. Ushbu yuklanish haqida batafsil ma’lumot "
 "mavjud emas."
 
-#: libraries/messages.inc.php:423
+#: libraries/messages.inc.php:417
 msgid "Excel 97-2003 XLS Workbook"
 msgstr "Excel 97-2003 XLS ish kitobi"
 
-#: libraries/messages.inc.php:424
+#: libraries/messages.inc.php:418
 msgid "Excel 2007 XLSX Workbook"
 msgstr "Excel 2007 XLSX ish kitobi"
 
-#: libraries/messages.inc.php:425
+#: libraries/messages.inc.php:419
 msgid "Indexes"
 msgstr "Indekslar"
 
-#: libraries/messages.inc.php:426
+#: libraries/messages.inc.php:420
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr " %1$s va %2$s indekslari bir xil, ulardan birini o‘chirish mumkin."
 
-#: libraries/messages.inc.php:427
+#: libraries/messages.inc.php:421
 #, php-format
 msgid "Index %s has been dropped"
 msgstr " \"%s\" indeksi o‘chirildi"
 
-#: libraries/messages.inc.php:428
+#: libraries/messages.inc.php:422
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/messages.inc.php:429
+#: libraries/messages.inc.php:423
 msgid "Index name:"
 msgstr "Indeks nomi: "
 
-#: libraries/messages.inc.php:430
+#: libraries/messages.inc.php:424
 msgid "Index type:"
 msgstr "Indeks turi: "
 
-#: libraries/messages.inc.php:431
+#: libraries/messages.inc.php:425
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr " `\"%s\"` jadvalidagi indekslarda muammo mavjud"
 
-#: libraries/messages.inc.php:432
+#: libraries/messages.inc.php:426
 msgid "Autoextend increment"
 msgstr "Avtomatik oshirib borish"
 
-#: libraries/messages.inc.php:433
+#: libraries/messages.inc.php:427
 msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
@@ -1965,11 +1938,11 @@ msgstr ""
 "Jadvalda joy tugaganda ma`lumotlar fayli hajmini avtomatik oshirish "
 "(megabaytlarda) "
 
-#: libraries/messages.inc.php:434
+#: libraries/messages.inc.php:428
 msgid "Buffer pool size"
 msgstr "Bufer puli hajmi"
 
-#: libraries/messages.inc.php:435
+#: libraries/messages.inc.php:429
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -1977,28 +1950,28 @@ msgstr ""
 "Ma`lumotlarni va jadval indekslarini keshlashda InnoDB ishlatadigan xotira "
 "buferi hajmi"
 
-#: libraries/messages.inc.php:436
+#: libraries/messages.inc.php:430
 msgid "Data files"
 msgstr "Ma`lumotlar fayli"
 
-#: libraries/messages.inc.php:437
+#: libraries/messages.inc.php:431
 msgid "Data home directory"
 msgstr "Ma`lumotlar uchun uy katalog"
 
-#: libraries/messages.inc.php:438
+#: libraries/messages.inc.php:432
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 "InnoDB ma`lumotlar fayllari saqlanadigan katalog yo‘lining umumiy qismi"
 
-#: libraries/messages.inc.php:439
+#: libraries/messages.inc.php:433
 msgid "pages"
 msgstr "sahifalar soni "
 
-#: libraries/messages.inc.php:440
+#: libraries/messages.inc.php:434
 msgid "InnoDB Status"
 msgstr "InnoDB ahvoli"
 
-#: libraries/messages.inc.php:441
+#: libraries/messages.inc.php:435
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -2011,28 +1984,28 @@ msgstr ""
 "shuning uchun \"root\" superfoydalanuvchisiga parol o‘rnatish qat`iyan "
 "tavsiya etiladi."
 
-#: libraries/messages.inc.php:442
+#: libraries/messages.inc.php:436
 msgid "Insert as new row"
 msgstr "Yozuv kiritish"
 
-#: libraries/messages.inc.php:443
+#: libraries/messages.inc.php:437
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Kiritilgan qator identifikatori: %1$d"
 
-#: libraries/messages.inc.php:444
+#: libraries/messages.inc.php:438
 msgid "Insert as new row and ignore errors"
 msgstr "Yangi qator sifatida qo‘shish va xatoliklarga e’tibor bеrmaslik"
 
-#: libraries/messages.inc.php:445
+#: libraries/messages.inc.php:439
 msgid "Insert"
 msgstr "Qo‘yish"
 
-#: libraries/messages.inc.php:446
+#: libraries/messages.inc.php:440
 msgid "Interface"
 msgstr "Interfeys"
 
-#: libraries/messages.inc.php:447
+#: libraries/messages.inc.php:441
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -2040,93 +2013,93 @@ msgstr ""
 "Agar tashqi kalit (FOREIGN KEY) orqali aloqa mavjud bo‘lsa, ichki aloqa "
 "o‘rnatish shart emas."
 
-#: libraries/messages.inc.php:448
+#: libraries/messages.inc.php:442
 msgid "Internal relation added"
 msgstr "Ichki aloqa o‘rnatildi"
 
-#: libraries/messages.inc.php:449
+#: libraries/messages.inc.php:443
 msgid "Internal relations"
 msgstr "Ichki aloqalar"
 
-#: libraries/messages.inc.php:450
+#: libraries/messages.inc.php:444
 msgid "in use"
 msgstr "ishlatilmoqda"
 
-#: libraries/messages.inc.php:451
+#: libraries/messages.inc.php:445
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "phpMyAdmin konfiguratsion faylida noto‘g‘ri autentifikatsiya usuli "
 "belgilangan:"
 
-#: libraries/messages.inc.php:452
+#: libraries/messages.inc.php:446
 msgid "Column count has to be larger than zero."
 msgstr "Ustunlar soni noldan ko‘p bo‘lishi shart."
 
-#: libraries/messages.inc.php:453
+#: libraries/messages.inc.php:447
 #, php-format
 msgid "Invalid column (%s) specified!"
 msgstr "Noto‘g‘ri ustun (\"%s\") tanlangan!"
 
-#: libraries/messages.inc.php:454
+#: libraries/messages.inc.php:448
 #, php-format
 msgid "Invalid field count in CSV input on line %d."
 msgstr ""
 "Kiritilayotgan CSV ma`lumotlarning %d qatoridagi maydonlar soni noto‘g‘ri."
 
-#: libraries/messages.inc.php:455
+#: libraries/messages.inc.php:449
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 "Kiritilayotgan CSV ma`lumotlarning %d qatoridagi ma`lumotlar formati "
 "noto‘g‘ri."
 
-#: libraries/messages.inc.php:456
+#: libraries/messages.inc.php:450
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV importidagi paramert noto‘g‘ri: \"%s\""
 
-#: libraries/messages.inc.php:457
+#: libraries/messages.inc.php:451
 msgid "Invalid database"
 msgstr "Noto‘g‘ri ma`lumotlar bazasi"
 
-#: libraries/messages.inc.php:458
+#: libraries/messages.inc.php:452
 msgid "You have to add at least one field."
 msgstr "Hech bo‘lmaganda bitta maydon kiritish shart."
 
-#: libraries/messages.inc.php:459
+#: libraries/messages.inc.php:453
 msgid "Table must have at least one field."
 msgstr "Jadvalda, hech bo‘lmaganda, bitta maydon bo‘lishi shart."
 
-#: libraries/messages.inc.php:460
+#: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
 msgstr "Ushbu modul qisilgan ma`lumotlarni import qila olmaydi!"
 
-#: libraries/messages.inc.php:461
+#: libraries/messages.inc.php:455
 #, php-format
 msgid "%d is not valid row number."
 msgstr " %d soni to‘g‘ri qator raqami emas!"
 
-#: libraries/messages.inc.php:462
+#: libraries/messages.inc.php:456
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 " %1$s serveri uchun noto‘g‘ri xost nomi ko‘rsatilgan. phpMyAdmin "
 "konfiguratsion faylida belgilangan sozlashlarni to‘g‘irlang."
 
-#: libraries/messages.inc.php:463
+#: libraries/messages.inc.php:457
 #, php-format
 msgid "Invalid server index: \"%s\""
 msgstr "Server raqami noto‘g‘ri: \"%s\""
 
-#: libraries/messages.inc.php:464
+#: libraries/messages.inc.php:458
 msgid "Invalid table name"
 msgstr "Jadval nomi noto‘g‘ri"
 
-#: libraries/messages.inc.php:466
+#: libraries/messages.inc.php:460
 msgid "Japanese"
 msgstr "Yaponcha"
 
-#: libraries/messages.inc.php:467
+#: libraries/messages.inc.php:461
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -2136,201 +2109,189 @@ msgstr ""
 "dasturining ba’zi funktsiyalari ishlamaydi. Masalan, navigatsiya oynasi "
 "avtomatik tarzda yangilanib turmaydi."
 
-#: libraries/messages.inc.php:468
+#: libraries/messages.inc.php:462
 msgid "Joins"
 msgstr "Birlashishlar"
 
-#: libraries/messages.inc.php:469
+#: libraries/messages.inc.php:463
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr " \"%s\" ma`lumotlar bazasiga o‘tish"
 
-#: libraries/messages.inc.php:470
-msgid ""
-"The &quot;deleted&quot; users will still be able to access the server as "
-"usual until the privileges are reloaded."
-msgstr ""
-"Privilegiyalar qayta yuklanmaguncha \"o‘chirilgan\" foydalanuvchilar "
-"serverga kirish huquqiga ega bo‘ladilar."
-
-#: libraries/messages.inc.php:471
-msgid "Just delete the users from the privilege tables."
-msgstr "Faqat privilegiyalar jadvalidan foydalanuvchini o‘chirish."
-
-#: libraries/messages.inc.php:473
+#: libraries/messages.inc.php:465
 msgid "Do not change the password"
 msgstr "Parolni o‘zgartirmaslik"
 
-#: libraries/messages.inc.php:474
+#: libraries/messages.inc.php:466
 msgid "Key cache"
 msgstr "Indeks keshi"
 
-#: libraries/messages.inc.php:475
+#: libraries/messages.inc.php:467
 msgid "Keyname"
 msgstr "Indeks nomi"
 
-#: libraries/messages.inc.php:476
+#: libraries/messages.inc.php:468
 msgid "Kill"
 msgstr "Tugatish"
 
-#: libraries/messages.inc.php:477
+#: libraries/messages.inc.php:469
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 " \"%s\" parametrining ishi ma`lum xatolikka olib kelishi mumkin, batafsil "
 "ma`lumot uchun qarang \"%s\""
 
-#: libraries/messages.inc.php:478
+#: libraries/messages.inc.php:470
 msgid "Korean"
 msgstr "Koreyscha"
 
-#: libraries/messages.inc.php:480
+#: libraries/messages.inc.php:472
 msgid "Landscape"
 msgstr "Albom shaklida"
 
-#: libraries/messages.inc.php:481
+#: libraries/messages.inc.php:473
 msgid "Language"
 msgstr "Til"
 
-#: libraries/messages.inc.php:482
+#: libraries/messages.inc.php:474
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Noma`lum til: %1$s."
 
-#: libraries/messages.inc.php:483
+#: libraries/messages.inc.php:475
 msgid "Latched pages"
 msgstr "Blokirovka qilingan sahifalar soni: "
 
-#: libraries/messages.inc.php:484
+#: libraries/messages.inc.php:476
 msgid "Table caption"
 msgstr "Jadval sarlavhasi"
 
-#: libraries/messages.inc.php:485
+#: libraries/messages.inc.php:477
 msgid "Content of table __TABLE__"
 msgstr " __TABLE__ jadvalining mundarijasi"
 
-#: libraries/messages.inc.php:486
+#: libraries/messages.inc.php:478
 msgid "Continued table caption"
 msgstr "Jadval sarlavhasi (davomi)"
 
-#: libraries/messages.inc.php:487
+#: libraries/messages.inc.php:479
 msgid "(continued)"
 msgstr "(davomi)"
 
-#: libraries/messages.inc.php:488
+#: libraries/messages.inc.php:480
 msgid "Include table caption"
 msgstr "Jadvalga sarlavha qo‘shish"
 
-#: libraries/messages.inc.php:489
+#: libraries/messages.inc.php:481
 msgid "Label key"
 msgstr "Belgi identifikatori"
 
-#: libraries/messages.inc.php:490
+#: libraries/messages.inc.php:482
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/messages.inc.php:491
+#: libraries/messages.inc.php:483
 msgid "Structure of table __TABLE__"
 msgstr " __TABLE__ jadvalining tuzilishi"
 
-#: libraries/messages.inc.php:492
+#: libraries/messages.inc.php:484
 msgid "Latvian"
 msgstr "Latishcha"
 
-#: libraries/messages.inc.php:493
+#: libraries/messages.inc.php:485
 msgid "CSV using LOAD DATA"
 msgstr "\"LOAD DATA\" ishlatilgan CSV"
 
-#: libraries/messages.inc.php:494
+#: libraries/messages.inc.php:486
 msgid "Use LOCAL keyword"
 msgstr "\"LOCAL\" kalit so‘zini ishlatish"
 
-#: libraries/messages.inc.php:495
+#: libraries/messages.inc.php:487
 msgid "Length/Values"
 msgstr "Uzunlik/qiymatlar"
 
-#: libraries/messages.inc.php:496
+#: libraries/messages.inc.php:488
 msgid "Number of rows per page"
 msgstr "Sahifadagi qatorlar soni "
 
-#: libraries/messages.inc.php:497
+#: libraries/messages.inc.php:489
 msgid "Lines terminated by"
 msgstr "Qatorlar bo‘luvchisi"
 
-#: libraries/messages.inc.php:498
+#: libraries/messages.inc.php:490
 msgid "Link not found"
 msgstr "Aloqa topilmadi"
 
-#: libraries/messages.inc.php:499
+#: libraries/messages.inc.php:491
 msgid "Links to"
 msgstr "Aloqalar"
 
-#: libraries/messages.inc.php:500
+#: libraries/messages.inc.php:492
 msgid "Lithuanian"
 msgstr "Litvacha"
 
-#: libraries/messages.inc.php:501
+#: libraries/messages.inc.php:493
 msgid "Local"
 msgstr "Lokal"
 
-#: libraries/messages.inc.php:502
+#: libraries/messages.inc.php:494
 msgid "Location of the text file"
 msgstr "Faylni tanlash"
 
-#: libraries/messages.inc.php:503
+#: libraries/messages.inc.php:495
 msgid "Login Information"
 msgstr "Foydalanuvchi hisobi haqida ma`lumot"
 
-#: libraries/messages.inc.php:504
+#: libraries/messages.inc.php:496
 msgid "Log in"
 msgstr "Avtorizatsiya"
 
-#: libraries/messages.inc.php:505
+#: libraries/messages.inc.php:497
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Parolsiz autentifikatsiya konfiguratsiya tomonidan o‘chirilgan (qarang "
 "AllowNoPassword)"
 
-#: libraries/messages.inc.php:506
+#: libraries/messages.inc.php:498
 msgid "Log out"
 msgstr "Chiqish"
 
-#: libraries/messages.inc.php:507
+#: libraries/messages.inc.php:499
 msgid "Password:"
 msgstr "Parol:"
 
-#: libraries/messages.inc.php:508
+#: libraries/messages.inc.php:500
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Siz xost/IP adres va bo‘sh joy qoldirib portni kiritishingiz mumkin."
 
-#: libraries/messages.inc.php:509
+#: libraries/messages.inc.php:501
 msgid "Server:"
 msgstr "Server"
 
-#: libraries/messages.inc.php:510
+#: libraries/messages.inc.php:502
 msgid "Username:"
 msgstr "Foydalanuvchi:"
 
-#: libraries/messages.inc.php:511
+#: libraries/messages.inc.php:503
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr ""
 "Ushbu operatsiyani bajarish uzoq vaqt talab qilishi mumkin. Davom etsinmi? "
 
-#: libraries/messages.inc.php:513
+#: libraries/messages.inc.php:505
 msgid "max. concurrent connections"
 msgstr "Maksimal ulanishlar soni "
 
-#: libraries/messages.inc.php:514
+#: libraries/messages.inc.php:506
 msgid "Maximal length of created query"
 msgstr "Tuzilayogan so‘rovning maksimal uzunligi"
 
-#: libraries/messages.inc.php:515
+#: libraries/messages.inc.php:507
 #, php-format
 msgid "Max: %s%s"
 msgstr "Maksimal hajmi: \"%s\"%s\""
 
-#: libraries/messages.inc.php:516
+#: libraries/messages.inc.php:508
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -2341,7 +2302,7 @@ msgstr ""
 "navbatida ma`lumot yo‘qolishiga olib kelishi mumkin. PHP \"mbstring\" "
 "kengaytmasini o‘rnatish qat`iy tavsiya etiladi."
 
-#: libraries/messages.inc.php:517
+#: libraries/messages.inc.php:509
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -2351,28 +2312,28 @@ msgstr ""
 "func_overload parametri yoqilgan. Ma`lumot yo‘qolishi oldini olish uchun, "
 "ushbu parametr o‘chirilishi kerak!"
 
-#: libraries/messages.inc.php:518
+#: libraries/messages.inc.php:510
 msgid "MediaWiki Table"
 msgstr "MediaWiki jadvali"
 
-#: libraries/messages.inc.php:519
+#: libraries/messages.inc.php:511
 msgid "Available MIME types"
 msgstr "Mavjud MIME turlari"
 
-#: libraries/messages.inc.php:520
+#: libraries/messages.inc.php:512
 msgid "Available transformations"
 msgstr "Mavjud o‘girishlar"
 
-#: libraries/messages.inc.php:521
+#: libraries/messages.inc.php:513
 msgctxt "$strMIME_description"
 msgid "Description"
 msgstr "Tavsif"
 
-#: libraries/messages.inc.php:522
+#: libraries/messages.inc.php:514
 msgid "MIME type"
 msgstr "MIME turi"
 
-#: libraries/messages.inc.php:523
+#: libraries/messages.inc.php:515
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -2381,11 +2342,11 @@ msgstr ""
 "Hozirgi vatqda tavsif mavjud emas. <br /> Ishlatilayotgan \"%s\" o‘girishlar "
 "namoyishi funksiyalarining ishi yaqin orada tavsiflanadi. "
 
-#: libraries/messages.inc.php:524
+#: libraries/messages.inc.php:516
 msgid "Browser transformation"
 msgstr "O‘girish"
 
-#: libraries/messages.inc.php:525
+#: libraries/messages.inc.php:517
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
@@ -2394,7 +2355,7 @@ msgstr ""
 "Mavjud MIME turlari va o‘girishlar parametlarini ko‘rish uchun quyidagi "
 "bog‘lanishdan foydalaning: - \"%s\"o‘zgaririshlar tavsifi\"%s\""
 
-#: libraries/messages.inc.php:526
+#: libraries/messages.inc.php:518
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -2406,59 +2367,59 @@ msgstr ""
 "(\") belgilari oldidan teskari egri chiziq bo‘lishi kerak, masalan: \"\\\\xyz"
 "\" yoki \"a\\\"b\"."
 
-#: libraries/messages.inc.php:527
+#: libraries/messages.inc.php:519
 msgid "Transformation options"
 msgstr "O‘girishlar parametrlari"
 
-#: libraries/messages.inc.php:528
+#: libraries/messages.inc.php:520
 msgid "MIME TYPES FOR TABLE"
 msgstr "JADVAL UCHUN MIME TURLARI"
 
-#: libraries/messages.inc.php:529
+#: libraries/messages.inc.php:521
 msgid ""
 "MIME types printed in italics do not have a separate transformation function"
 msgstr ""
 "Kursiv bilan belgilangan MIME turlari alohida o‘girish funksiyalariga ega "
 "emas. "
 
-#: libraries/messages.inc.php:530
+#: libraries/messages.inc.php:522
 msgid "Modifications have been saved"
 msgstr "O‘zgaririshlar saqlandi"
 
-#: libraries/messages.inc.php:531
+#: libraries/messages.inc.php:523
 msgid "Modify an index"
 msgstr "Indeksni o‘zgarirish"
 
-#: libraries/messages.inc.php:532
+#: libraries/messages.inc.php:524
 msgid "Modify"
 msgstr "O‘zgarirish"
 
-#: libraries/messages.inc.php:533
+#: libraries/messages.inc.php:525
 msgid "Move Menu"
 msgstr "Menyuni ko‘chirish"
 
-#: libraries/messages.inc.php:534
+#: libraries/messages.inc.php:526
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Jadvalni (ma`lumotlar bazasi<b>.</b>jadval) ga ko‘chirish:"
 
-#: libraries/messages.inc.php:535
+#: libraries/messages.inc.php:527
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr " \"%s\" jadvali \"%s\" ga ko‘chirildi."
 
-#: libraries/messages.inc.php:536
+#: libraries/messages.inc.php:528
 msgid "Can't move table to same one!"
 msgstr "Jadvalni o‘z-o‘ziga ko‘chirib bo‘lmaydi!"
 
-#: libraries/messages.inc.php:537
+#: libraries/messages.inc.php:529
 msgid "multilingual"
 msgstr "ko‘p tildagi"
 
-#: libraries/messages.inc.php:538
+#: libraries/messages.inc.php:530
 msgid "Data pointer size"
 msgstr "Ma`lumotlar fayli ko‘rsatgichi hajmi"
 
-#: libraries/messages.inc.php:539
+#: libraries/messages.inc.php:531
 msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
@@ -2467,7 +2428,7 @@ msgstr ""
 "turidagi jadval tuzishda (CREATE TABLE) ishlatiladigan ma`lumotlar fayli "
 "ko‘rsatgichi hajmi (baytlarda)."
 
-#: libraries/messages.inc.php:540
+#: libraries/messages.inc.php:532
 msgid ""
 "If the temporary file used for fast MyISAM index creation would be larger "
 "than using the key cache by the amount specified here, prefer the key cache "
@@ -2477,11 +2438,11 @@ msgstr ""
 "vaqtinchalik fayl hajmi bu yerda ko‘rsatilgan hajmdan katta bo‘lsa, indeksni "
 "keshlashning sekinroq lekin barqarorroq usuliga afzallik beriladi."
 
-#: libraries/messages.inc.php:541
+#: libraries/messages.inc.php:533
 msgid "Maximum size for temporary files on index creation"
 msgstr "Indeksni tuzishda ishlatiladigan vaqtinchalik fayl hajmi"
 
-#: libraries/messages.inc.php:542
+#: libraries/messages.inc.php:534
 msgid ""
 "The maximum size of the temporary file MySQL is allowed to use while re-"
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
@@ -2493,15 +2454,15 @@ msgstr ""
 "yordamida indeks tuziladi (bunday algoritm sekinroq lekin barqarorroq "
 "ishlaydi)."
 
-#: libraries/messages.inc.php:543
+#: libraries/messages.inc.php:535
 msgid "Maximum size for temporary sort files"
 msgstr "Vaqtinchalik indeks fayllarining maksimal hajmi"
 
-#: libraries/messages.inc.php:544
+#: libraries/messages.inc.php:536
 msgid "Automatic recovery mode"
 msgstr "Avtomatik tiklash rejimi"
 
-#: libraries/messages.inc.php:545
+#: libraries/messages.inc.php:537
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
@@ -2509,7 +2470,7 @@ msgstr ""
 "Jadval buzilganda avtomatik tiklash rejimi. Server ishga tushirilganda, --"
 "myisam-recover parametri orqali belgilanadi."
 
-#: libraries/messages.inc.php:546
+#: libraries/messages.inc.php:538
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
@@ -2517,11 +2478,11 @@ msgstr ""
 "Agar qiymat birdan katta bo‘lsa, MyISAM turidagi jadval indekslari tiklash "
 "vaqtida parallel ravishda sortirovka (Repair by sorting) yordamida tuzilgan."
 
-#: libraries/messages.inc.php:547
+#: libraries/messages.inc.php:539
 msgid "Repair threads"
 msgstr "Oqimli tiklash"
 
-#: libraries/messages.inc.php:548
+#: libraries/messages.inc.php:540
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
@@ -2530,23 +2491,23 @@ msgstr ""
 "INDEX yoki ALTER TABLE buyruqlari yordamida indeks tuzish uchun kerak "
 "bo‘lgan bufer hajmi."
 
-#: libraries/messages.inc.php:549
+#: libraries/messages.inc.php:541
 msgid "Sort buffer size"
 msgstr "Sortirovka buferi hajmi"
 
-#: libraries/messages.inc.php:550
+#: libraries/messages.inc.php:542
 msgid "MySQL charset"
 msgstr "MySQL-kodirovka"
 
-#: libraries/messages.inc.php:551
+#: libraries/messages.inc.php:543
 msgid "MySQL client version"
 msgstr "MySQL-kliyent versiyasi"
 
-#: libraries/messages.inc.php:552
+#: libraries/messages.inc.php:544
 msgid "MySQL connection collation"
 msgstr "MySQL bilan ulanishni chog‘ishtirish"
 
-#: libraries/messages.inc.php:553
+#: libraries/messages.inc.php:545
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -2555,42 +2516,42 @@ msgstr ""
 "MySQL-kliyent versiyasi (\"%s\") o‘rnatilgan MySQL-server  versiyasi(\"%s\")"
 "dan farq qilmoqda. Bu holat noxush oqibatlarga olib kelishi mumkin."
 
-#: libraries/messages.inc.php:554
+#: libraries/messages.inc.php:546
 msgid "MySQL said: "
 msgstr "MySQL javobi: "
 
-#: libraries/messages.inc.php:555
+#: libraries/messages.inc.php:547
 msgid "Show processes"
 msgstr "Jarayonlar ro‘yxati"
 
-#: libraries/messages.inc.php:557
+#: libraries/messages.inc.php:549
 msgid "Name"
 msgstr "Nomi"
 
-#: libraries/messages.inc.php:558
+#: libraries/messages.inc.php:550
 msgid "New table"
 msgstr "Yangi jadval"
 
-#: libraries/messages.inc.php:559
+#: libraries/messages.inc.php:551
 msgid "Next"
 msgstr "Keyingi"
 
-#: libraries/messages.inc.php:560
+#: libraries/messages.inc.php:552
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "\"%s\" soniya davomida faollik kuzatilmadi, iltimos, qayta avtorizatsiyadan "
 "o‘ting. "
 
-#: libraries/messages.inc.php:561
+#: libraries/messages.inc.php:553
 msgid "No databases"
 msgstr "Ma`lumotlar bazasi mavjud emas"
 
-#: libraries/messages.inc.php:562
+#: libraries/messages.inc.php:554
 msgid "No databases selected."
 msgstr "Bironta ham ma`lumotlar bazasi tanlanmagan."
 
-#: libraries/messages.inc.php:563
+#: libraries/messages.inc.php:555
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -2601,99 +2562,99 @@ msgstr ""
 "qiymatdan katta. Qarang: [a@./Documentation.html#faq1_16@Documentation]FAQ "
 "1.16[/a]."
 
-#: libraries/messages.inc.php:564
+#: libraries/messages.inc.php:556
 msgid "no description"
 msgstr "tavsif mavjud emas"
 
-#: libraries/messages.inc.php:565
+#: libraries/messages.inc.php:557
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Ushbu turdagi jadvallar haqida qo‘shimcha ma`lumot mavjud emas. "
 
-#: libraries/messages.inc.php:566
+#: libraries/messages.inc.php:558
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""
 "\"DROP DATABASE\" (ma`lumotlar bazasini o‘chirish) buyrug‘i o‘chirilgan."
 
-#: libraries/messages.inc.php:567
+#: libraries/messages.inc.php:559
 msgid "Skip Explain SQL"
 msgstr "Tahlil kerak emas"
 
-#: libraries/messages.inc.php:568
+#: libraries/messages.inc.php:560
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP-arxiv ichida fayl mavjud emas!"
 
-#: libraries/messages.inc.php:569
+#: libraries/messages.inc.php:561
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "phpMyAdmin ishlashi uchun <b>freymlar</b> bilan ishlay oladigan brauzer "
 "kerak."
 
-#: libraries/messages.inc.php:570
+#: libraries/messages.inc.php:562
 msgid "No index defined!"
 msgstr "Indeks belgilanmagan!"
 
-#: libraries/messages.inc.php:571
+#: libraries/messages.inc.php:563
 msgid "No index parts defined!"
 msgstr "Indeks qismlari belgilanmagan!"
 
-#: libraries/messages.inc.php:572
+#: libraries/messages.inc.php:564
 msgid "No change"
 msgstr "O‘zgarish yo‘q"
 
-#: libraries/messages.inc.php:573
+#: libraries/messages.inc.php:565
 msgctxt "$strNoneDefault"
 msgid "None"
 msgstr "Yo‘q"
 
-#: libraries/messages.inc.php:574
+#: libraries/messages.inc.php:566
 msgid "None"
 msgstr "Yo‘q"
 
-#: libraries/messages.inc.php:575
+#: libraries/messages.inc.php:567
 msgid "No"
 msgstr "Yo‘q"
 
-#: libraries/messages.inc.php:576
+#: libraries/messages.inc.php:568
 msgid "This format has no options"
 msgstr "Ushbu format uchun sozlanadigan parametr mavjud emas"
 
-#: libraries/messages.inc.php:577
+#: libraries/messages.inc.php:569
 msgid "No Password"
 msgstr "Parol yo‘q"
 
-#: libraries/messages.inc.php:578
+#: libraries/messages.inc.php:570
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "\"%s\" faylini veb-serverga saqlash uchun huquqlar yetarli emas."
 
-#: libraries/messages.inc.php:579
+#: libraries/messages.inc.php:571
 msgid "Without PHP Code"
 msgstr "PHP-kod olib tashlash"
 
-#: libraries/messages.inc.php:580
+#: libraries/messages.inc.php:572
 msgid "No Privileges"
 msgstr "Privilegiyalar yo‘q"
 
-#: libraries/messages.inc.php:581
+#: libraries/messages.inc.php:573
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Ushbu sahifaga kirish uchun Sizda yetarli huquq mavjud emas!"
 
-#: libraries/messages.inc.php:582
+#: libraries/messages.inc.php:574
 msgid "No rows selected"
 msgstr ""
 "Amalni amalga oshirish uchun bitta yoki bir nechta qatorni tanlash kerak. "
 
-#: libraries/messages.inc.php:583
+#: libraries/messages.inc.php:575
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "\"%s\" faylini saqlash uchun diskda yetarli joy mavjud emas. "
 
-#: libraries/messages.inc.php:584
+#: libraries/messages.inc.php:576
 msgid "No tables found in database."
 msgstr "Ma`lumotlar bazasida bironta ham jadval mavjud emas."
 
-#: libraries/messages.inc.php:585
+#: libraries/messages.inc.php:577
 #, php-format
 msgid ""
 "No themes support; please check your configuration and/or your themes in "
@@ -2702,168 +2663,168 @@ msgstr ""
 "Mavzular ishlamayapti, konfiguratsiyani va \"%s\" katalogida mavzular "
 "mavjudligini tekshiring."
 
-#: libraries/messages.inc.php:586
+#: libraries/messages.inc.php:578
 msgid "This is not a number!"
 msgstr "Son kiriting!"
 
-#: libraries/messages.inc.php:587
+#: libraries/messages.inc.php:579
 msgid "not OK"
 msgstr "Tayyor emas"
 
-#: libraries/messages.inc.php:588
+#: libraries/messages.inc.php:580
 msgid "not present"
 msgstr "Mavjud emas"
 
-#: libraries/messages.inc.php:589
+#: libraries/messages.inc.php:581
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr " <b>\"%s\"</b> jadvali topilmadi yoki <b>\"%s\"</b>da o‘rnatilmagan"
 
-#: libraries/messages.inc.php:590
+#: libraries/messages.inc.php:582
 msgid "No user(s) found."
 msgstr "Bironta ham foydalanuvchi topilmadi."
 
-#: libraries/messages.inc.php:591
+#: libraries/messages.inc.php:583
 msgid "Skip Validate SQL"
 msgstr "SQL sintaksisi tekshiruvini olib tashlash"
 
-#: libraries/messages.inc.php:592
+#: libraries/messages.inc.php:584
 msgid "Null"
 msgstr "Null"
 
-#: libraries/messages.inc.php:593
+#: libraries/messages.inc.php:585
 msgid "Number of fields"
 msgstr "Maydonlar soni "
 
-#: libraries/messages.inc.php:594
+#: libraries/messages.inc.php:586
 msgid "Number of tables"
 msgstr "Jadvallar soni "
 
-#: libraries/messages.inc.php:595
+#: libraries/messages.inc.php:587
 #, php-format
 msgid "%s match(es) inside table <i>%s</i>"
 msgstr "<i>\"%s\"</i> jadvalida o‘xshashliklar soni \"%s\" ta"
 
-#: libraries/messages.inc.php:596
+#: libraries/messages.inc.php:588
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Jami:</b> <i>\"%s\"</i> o‘xshashlik"
 
-#: libraries/messages.inc.php:597 setup/lib/messages.inc.php:117
+#: libraries/messages.inc.php:589 setup/lib/messages.inc.php:117
 msgid "Tables"
 msgstr "Jadvallar"
 
-#: libraries/messages.inc.php:599
+#: libraries/messages.inc.php:591
 msgid "OK"
 msgstr "OK"
 
-#: libraries/messages.inc.php:601
+#: libraries/messages.inc.php:593
 msgid "Open Document Text"
 msgstr "OpenDocument matn"
 
-#: libraries/messages.inc.php:602
+#: libraries/messages.inc.php:594
 msgid "Open new phpMyAdmin window"
 msgstr "phpMyAdmin dasturini yangi oynada ochish"
 
-#: libraries/messages.inc.php:603
+#: libraries/messages.inc.php:595
 msgid "Operations"
 msgstr "Operatsiyalar"
 
-#: libraries/messages.inc.php:604
+#: libraries/messages.inc.php:596
 msgid "Operator"
 msgstr "Operator"
 
-#: libraries/messages.inc.php:605
+#: libraries/messages.inc.php:597
 msgid "Optimize"
 msgstr "Optimizatsiya"
 
-#: libraries/messages.inc.php:606
+#: libraries/messages.inc.php:598
 msgid "Optimize table"
 msgstr "Jadvalni optimallashtirish"
 
-#: libraries/messages.inc.php:607
+#: libraries/messages.inc.php:599
 msgid "Options"
 msgstr "Parametrlar"
 
-#: libraries/messages.inc.php:608
+#: libraries/messages.inc.php:600
 msgid "Or"
 msgstr "Yoki"
 
-#: libraries/messages.inc.php:609
+#: libraries/messages.inc.php:601
 msgid "Overhead"
 msgstr "Fragmentlangan"
 
-#: libraries/messages.inc.php:610 setup/lib/messages.inc.php:90
+#: libraries/messages.inc.php:602 setup/lib/messages.inc.php:90
 msgid "Overwrite existing file(s)"
 msgstr "Mavjud fayl(lar) ustidan yozish"
 
-#: libraries/messages.inc.php:612
+#: libraries/messages.inc.php:604
 msgid "Packed"
 msgstr "Qisilgan"
 
-#: libraries/messages.inc.php:613
+#: libraries/messages.inc.php:605
 msgid "Page number:"
 msgstr "Sahifa raqami: "
 
-#: libraries/messages.inc.php:614
+#: libraries/messages.inc.php:606
 msgid "Pages to be flushed"
 msgstr "Tozalash kerak bo‘lgan sahifalar soni: "
 
-#: libraries/messages.inc.php:615
+#: libraries/messages.inc.php:607
 msgid "Paper size"
 msgstr "Qog‘oz o‘lchami"
 
-#: libraries/messages.inc.php:616
+#: libraries/messages.inc.php:608
 msgid "Partial import"
 msgstr "Qisman import"
 
-#: libraries/messages.inc.php:617
+#: libraries/messages.inc.php:609
 msgid "Partial Texts"
 msgstr "Ma`lumotlarni qisqartirib ko‘rsatish"
 
-#: libraries/messages.inc.php:618
+#: libraries/messages.inc.php:610
 msgid "PARTITION definition"
 msgstr "Bo‘laklarni (PARTITIONS) belgilash"
 
-#: libraries/messages.inc.php:619
+#: libraries/messages.inc.php:611
 msgid "partitioned"
 msgstr "bo‘laklarga bo‘lingan"
 
-#: libraries/messages.inc.php:620
+#: libraries/messages.inc.php:612
 msgid "Partition maintenance"
 msgstr "bo‘laklarga xizmat ko‘rsatish"
 
-#: libraries/messages.inc.php:621
+#: libraries/messages.inc.php:613
 #, php-format
 msgid "Partition %s"
 msgstr "\"%s\" bo‘lagi"
 
-#: libraries/messages.inc.php:622
+#: libraries/messages.inc.php:614
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "\"%s\" foydalanuvchining paroli muvaffaqiyatli o‘zgartirildi."
 
-#: libraries/messages.inc.php:623
+#: libraries/messages.inc.php:615
 msgid "The password is empty!"
 msgstr "Parol belgilanmagan!"
 
-#: libraries/messages.inc.php:624
+#: libraries/messages.inc.php:616
 msgid "Password Hashing"
 msgstr "Parolni xeshlash"
 
-#: libraries/messages.inc.php:625
+#: libraries/messages.inc.php:617
 msgid "The passwords aren't the same!"
 msgstr "Kiritilgan parollar bir xil emas!"
 
-#: libraries/messages.inc.php:626
+#: libraries/messages.inc.php:618
 msgid "Password"
 msgstr "Parol"
 
-#: libraries/messages.inc.php:627
+#: libraries/messages.inc.php:619
 msgid "Checkpoint frequency"
 msgstr "Tekshiruv chastotasi"
 
-#: libraries/messages.inc.php:628
+#: libraries/messages.inc.php:620
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
@@ -2871,19 +2832,19 @@ msgstr ""
 "Tekshiruv amalga oshirilganga qadar tranzaksiyalar jurnalida yozilgan "
 "ma`lumotlar hajmi. Asl qiymati – 24 Mb."
 
-#: libraries/messages.inc.php:629
+#: libraries/messages.inc.php:621
 msgid "Data file grow size"
 msgstr "Ma`lumotlar fayllarining oshish hajmi"
 
-#: libraries/messages.inc.php:630
+#: libraries/messages.inc.php:622
 msgid "The grow size of the handle data (.xtd) files."
 msgstr "Ma`lumotlarni saqlash fayllari(.xtd)ning oshish hajmi."
 
-#: libraries/messages.inc.php:631
+#: libraries/messages.inc.php:623
 msgid "Data log threshold"
 msgstr "Ma`lumotlar jurnali ostonasi"
 
-#: libraries/messages.inc.php:632
+#: libraries/messages.inc.php:624
 msgid ""
 "The maximum size of a data log file. The default value is 64MB. PBXT can "
 "create a maximum of 32000 data logs, which are used by all tables. So the "
@@ -2896,7 +2857,7 @@ msgstr ""
 "ma`lumotlarning umumiy hajmini oshirish uchun ushbu o‘zgaruvchining "
 "qiymatini oshirish mumkin."
 
-#: libraries/messages.inc.php:633
+#: libraries/messages.inc.php:625
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
@@ -2904,11 +2865,11 @@ msgstr ""
 "Ixchamlashtirishdan oldin ma`lumotlar jurnali fayli axlatlanishining foiz "
 "nisbati. Qiymat 1 va 99 orasidabo‘lishi shart. Asl qiymati – 50."
 
-#: libraries/messages.inc.php:634
+#: libraries/messages.inc.php:626
 msgid "Garbage threshold"
 msgstr "Axlatlanish ostonasi"
 
-#: libraries/messages.inc.php:635
+#: libraries/messages.inc.php:627
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
@@ -2916,11 +2877,11 @@ msgstr ""
 "Indekslar keshiga ajratilgan xotira hajmi. Asl qiymati – 32 Mb. Bunda "
 "ajratilgan xotira faqatgina indeks sahifalarni keshlashda foydalaniladi."
 
-#: libraries/messages.inc.php:636
+#: libraries/messages.inc.php:628
 msgid "Index cache size"
 msgstr "Indeks keshi hajmi"
 
-#: libraries/messages.inc.php:637
+#: libraries/messages.inc.php:629
 msgid ""
 "The size of the buffer used when writing a data log. The default is 256MB. "
 "The engine allocates one buffer per thread, but only if the thread is "
@@ -2930,11 +2891,11 @@ msgstr ""
 "Mb. Agar oqim jurnal ma`lumotlarini yozish uchun kerak bo‘lsagina, dastur "
 "har bir oqimga bitta bufer ajratadi."
 
-#: libraries/messages.inc.php:638
+#: libraries/messages.inc.php:630
 msgid "Log buffer size"
 msgstr "Jurnal buferi hajmi"
 
-#: libraries/messages.inc.php:639
+#: libraries/messages.inc.php:631
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
@@ -2942,11 +2903,11 @@ msgstr ""
 "Tranzaksiyalar jurnali ma`lumotlarini keshlash uchun ajratilgan xotira "
 "hajmi. Asl qiymati – 16 Mb."
 
-#: libraries/messages.inc.php:640
+#: libraries/messages.inc.php:632
 msgid "Log cache size"
 msgstr "Jurnal keshi hajmi"
 
-#: libraries/messages.inc.php:641
+#: libraries/messages.inc.php:633
 msgid ""
 "This is the number of transaction log files (pbxt/system/xlog*.xt) the "
 "system will maintain. If the number of logs exceeds this value then old logs "
@@ -2958,11 +2919,11 @@ msgstr ""
 "jurnallar o‘chiriladi yoki ularning nomlari o‘zgartiriladi va quyidagi "
 "tartibda raqamlanadi."
 
-#: libraries/messages.inc.php:642
+#: libraries/messages.inc.php:634
 msgid "Log file count"
 msgstr "Jurnal fayllari soni"
 
-#: libraries/messages.inc.php:643
+#: libraries/messages.inc.php:635
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
@@ -2970,11 +2931,11 @@ msgstr ""
 "Tranzaksiyalar jurnalining qaytishgacha va yangi jurnal tuzishgacha hajmi. "
 "Asl qiymati – 26 Mb."
 
-#: libraries/messages.inc.php:644
+#: libraries/messages.inc.php:636
 msgid "Log file threshold"
 msgstr "Jurnal fayli ostonasi"
 
-#: libraries/messages.inc.php:645
+#: libraries/messages.inc.php:637
 msgid ""
 "This is the amount of memory allocated to the record cache used to cache "
 "table data. The default value is 32MB. This memory is used to cache changes "
@@ -2984,19 +2945,19 @@ msgstr ""
 "32 Mb. Ushbu xotira ma`lumotlarni saqlash fayllari(.xtd)dagi va qator "
 "ko‘rsatgichlari(.xtr)dagi o‘zgarishlarni keshlashda ishlatiladi. "
 
-#: libraries/messages.inc.php:646
+#: libraries/messages.inc.php:638
 msgid "Record cache size"
 msgstr "Yozish keshi hajmi"
 
-#: libraries/messages.inc.php:647
+#: libraries/messages.inc.php:639
 msgid "The grow size of the row pointer (.xtr) files."
 msgstr "Qator ko‘rsatgichlari fayllari(.xtr)ning oshish hajmi."
 
-#: libraries/messages.inc.php:648
+#: libraries/messages.inc.php:640
 msgid "Row file grow size"
 msgstr "Qator fayllarining oshish hajmi"
 
-#: libraries/messages.inc.php:649
+#: libraries/messages.inc.php:641
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
@@ -3004,90 +2965,90 @@ msgstr ""
 "Tranzaksiya jurnallari uchun global bufer hajmi (dastur shu hajmdagi 2 ta "
 "bufer ajratadi). Asl qiymati – 1 Mb."
 
-#: libraries/messages.inc.php:650
+#: libraries/messages.inc.php:642
 msgid "Transaction buffer size"
 msgstr "Tranzaksiyalar buferi hajmi"
 
-#: libraries/messages.inc.php:651
+#: libraries/messages.inc.php:643
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
 msgstr "\"%s\" ma`lumotlar bazasi tuzilishi - \"%s\" sahifa"
 
-#: libraries/messages.inc.php:652
+#: libraries/messages.inc.php:644
 #, php-format
 msgid "The \"%s\" table doesn't exist!"
 msgstr "\"%s\" jadvali mavjud emas!"
 
-#: libraries/messages.inc.php:653
+#: libraries/messages.inc.php:645
 msgid "No tables"
 msgstr "Jadval mavjud emas"
 
-#: libraries/messages.inc.php:654
+#: libraries/messages.inc.php:646
 msgid "Page has been created"
 msgstr "Sahifa tuzildi"
 
-#: libraries/messages.inc.php:655
+#: libraries/messages.inc.php:647
 msgid "Page creation failed"
 msgstr "Sahifa tuzib bo‘lmadi"
 
-#: libraries/messages.inc.php:656
+#: libraries/messages.inc.php:648
 msgid "PDF"
 msgstr "PDF"
 
-#: libraries/messages.inc.php:657
+#: libraries/messages.inc.php:649
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(Ma`lum bir jadval ma`lumotlarini o‘z ichiga olgan hisobot tuzish)"
 
-#: libraries/messages.inc.php:658
+#: libraries/messages.inc.php:650
 msgid "Report title"
 msgstr "Hisobot sarlavhasi"
 
-#: libraries/messages.inc.php:659
+#: libraries/messages.inc.php:651
 msgid "per hour"
 msgstr "soatiga"
 
-#: libraries/messages.inc.php:660
+#: libraries/messages.inc.php:652
 msgid "per minute"
 msgstr "minutiga"
 
-#: libraries/messages.inc.php:661
+#: libraries/messages.inc.php:653
 msgid "per second"
 msgstr "sekundiga"
 
-#: libraries/messages.inc.php:662
+#: libraries/messages.inc.php:654
 msgid "Persian"
 msgstr "Forscha"
 
-#: libraries/messages.inc.php:663
+#: libraries/messages.inc.php:655
 msgid "phone book"
 msgstr "telefonlar kitobi"
 
-#: libraries/messages.inc.php:664
+#: libraries/messages.inc.php:656
 msgid "PHP array"
 msgstr "PHP massivi"
 
-#: libraries/messages.inc.php:665 setup/lib/messages.inc.php:355
+#: libraries/messages.inc.php:657 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
 msgstr "PHP-kod"
 
-#: libraries/messages.inc.php:666
+#: libraries/messages.inc.php:658
 msgid "PHP extension"
 msgstr "PHP kengaytmasi"
 
-#: libraries/messages.inc.php:667
+#: libraries/messages.inc.php:659
 msgid "PHP Version"
 msgstr "PHP versiyasm"
 
-#: libraries/messages.inc.php:668
+#: libraries/messages.inc.php:660
 msgid "Play audio"
 msgstr "Audiofaylni o‘qish"
 
-#: libraries/messages.inc.php:669
+#: libraries/messages.inc.php:661
 msgid "Please select the primary key or a unique key"
 msgstr ""
 "Birlamchi (PRIMARY) yoki unikal (UNIQUE) indeks bo‘lgan maydonni tanlang!"
 
-#: libraries/messages.inc.php:670
+#: libraries/messages.inc.php:662
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -3095,33 +3056,33 @@ msgstr ""
 "(<code>config.inc.php</code>) faylidagi mufassal tanlovlarni faollashtirish, "
 "masalan, <code>config.sample.inc.php</code> dan boshlab."
 
-#: libraries/messages.inc.php:671
+#: libraries/messages.inc.php:663
 msgid "Quick steps to setup advanced features:"
 msgstr "Mufassal tanlovlarni tеz sozlash uchun qadamlars:"
 
-#: libraries/messages.inc.php:672
+#: libraries/messages.inc.php:664
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgstr ""
 "Kеrakli jadvallarni <code>script/create_tables.sql</code> kod yordamida "
 "tuzish."
 
-#: libraries/messages.inc.php:673
+#: libraries/messages.inc.php:665
 msgid "Create a pma user and give access to these tables."
 msgstr ""
 "phpMyAdmin foydalanuvchisi qo‘shish va ushbu jadvallarga ruxsat bеrish."
 
-#: libraries/messages.inc.php:674
+#: libraries/messages.inc.php:666
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Yangilangan konfiguratsiya fayli ishga tushishi uchun, phpMyAdmin dasturidan "
 "chiqib, qayta kiring."
 
-#: libraries/messages.inc.php:675
+#: libraries/messages.inc.php:667
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin dokumentatsiyasi"
 
-#: libraries/messages.inc.php:676
+#: libraries/messages.inc.php:668
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -3129,153 +3090,147 @@ msgstr ""
 "<tt>$cfg[\"PmaAbsoluteUrl\"]</tt> direktivasi konfiguratsion faylda "
 "sozlanishi SHART!"
 
-#: libraries/messages.inc.php:677
+#: libraries/messages.inc.php:669
 msgid "Polish"
 msgstr "Polyakcha"
 
-#: libraries/messages.inc.php:678
+#: libraries/messages.inc.php:670
 msgid "Port"
 msgstr "Port"
 
-#: libraries/messages.inc.php:679
+#: libraries/messages.inc.php:671
 msgid "Portrait"
 msgstr "Kitob shaklida"
 
-#: libraries/messages.inc.php:680
+#: libraries/messages.inc.php:672
 msgid "Begin"
 msgstr "Boshi"
 
-#: libraries/messages.inc.php:681
+#: libraries/messages.inc.php:673
 msgid "Previous"
 msgstr "Orqaga"
 
-#: libraries/messages.inc.php:682
+#: libraries/messages.inc.php:674
 msgid "The primary key has been dropped"
 msgstr "Birlamchi kalit o‘chirildi"
 
-#: libraries/messages.inc.php:683
+#: libraries/messages.inc.php:675
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Birlamchi indeks nomi \"PRIMARY\" bo‘lishi kerak!"
 
-#: libraries/messages.inc.php:684
+#: libraries/messages.inc.php:676
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr "(\"PRIMARY\" nomi <b>faqat</b> birlamchi indeksgaega bo‘lishi shart!)"
 
-#: libraries/messages.inc.php:685
+#: libraries/messages.inc.php:677
 msgid "Primary"
 msgstr "Birlamchi"
 
-#: libraries/messages.inc.php:686
+#: libraries/messages.inc.php:678
 msgid "Print"
 msgstr "Chop etish"
 
-#: libraries/messages.inc.php:687
+#: libraries/messages.inc.php:679
 msgid "Print view (with full texts)"
 msgstr "Chop etish versiyasi (to‘la)"
 
-#: libraries/messages.inc.php:688
+#: libraries/messages.inc.php:680
 msgid "Print view"
 msgstr "Chop etish versiyasi"
 
-#: libraries/messages.inc.php:689
+#: libraries/messages.inc.php:681
 msgid "Includes all privileges except GRANT."
 msgstr "GRANT dan tashqari barcha privilegiyalarni o‘z ichiga oladi"
 
-#: libraries/messages.inc.php:690
+#: libraries/messages.inc.php:682
 msgid "Allows altering the structure of existing tables."
 msgstr "Mavjud jadvallarning tuzilishini o‘zgartirishga ruxsat beradi"
 
-#: libraries/messages.inc.php:691
+#: libraries/messages.inc.php:683
 msgid "Allows altering and dropping stored routines."
 msgstr "Saqlanadigan muolajalarni o‘zgartirish va o‘chirishga ruxsat beradi"
 
-#: libraries/messages.inc.php:692
+#: libraries/messages.inc.php:684
 msgid "Allows creating new databases and tables."
 msgstr "Yangi ma`lumotlar bazalari va jadvallar tuzishga ruxsat beradi"
 
-#: libraries/messages.inc.php:693
+#: libraries/messages.inc.php:685
 msgid "Allows creating stored routines."
 msgstr "Saqlanadigan muolajalar tuzishga ruxsat beradi"
 
-#: libraries/messages.inc.php:694
+#: libraries/messages.inc.php:686
 msgid "Allows creating new tables."
 msgstr "Yangi jadvallar tuzishga ruxsat beradi"
 
-#: libraries/messages.inc.php:695
+#: libraries/messages.inc.php:687
 msgid "Allows creating temporary tables."
 msgstr "Vaqtinchalik jadvallar tuzishga ruxsat beradi"
 
-#: libraries/messages.inc.php:696
+#: libraries/messages.inc.php:688
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Foydalanuvchilar hisobini qo‘shish, o‘chirish va o‘zgartirishga ruxsat beradi"
 
-#: libraries/messages.inc.php:697
+#: libraries/messages.inc.php:689
 msgid "Allows creating new views."
 msgstr "Yangi namoyishlar tuzish(CREATE VIEW)ga ruxsat beradi"
 
-#: libraries/messages.inc.php:698
+#: libraries/messages.inc.php:690
 msgid "Allows deleting data."
 msgstr "Ma`lumotlarni o‘chirishga ruxsat beradi"
 
-#: libraries/messages.inc.php:699
+#: libraries/messages.inc.php:691
 msgid "Allows dropping databases and tables."
 msgstr "Ma`lumotlar bazalarini va jadvallarni o‘chirishga ruxsat beradi"
 
-#: libraries/messages.inc.php:700
+#: libraries/messages.inc.php:692
 msgid "Allows dropping tables."
 msgstr "Jadvallarni o‘chirishga rux`sat beradi"
 
-#: libraries/messages.inc.php:701
+#: libraries/messages.inc.php:693
 msgid "Allows to set up events for the event scheduler"
 msgstr "Kechiktirilgan hodisalarni sozlashga ruxsat beradi"
 
-#: libraries/messages.inc.php:702
+#: libraries/messages.inc.php:694
 msgid "Allows executing stored routines."
 msgstr "Saqlanadigan muolajalarni bajarishga ruxsat beradi"
 
-#: libraries/messages.inc.php:703
-msgid "Allows running stored procedures; has no effect in this MySQL version."
-msgstr ""
-"Saqlanadigan muolajalarni bajarishga ruxsat beradi (MySQL-serverning ushbu "
-"versiyada bunday xususiyat mavjud emas)"
-
-#: libraries/messages.inc.php:704
+#: libraries/messages.inc.php:695
 msgid "Allows importing data from and exporting data into files."
 msgstr "Ma`lumotlarni fayldan import va faylga eksport qilishga ruxsat beradi"
 
-#: libraries/messages.inc.php:705
+#: libraries/messages.inc.php:696
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Foydalanuvchilarni qo‘shish va privilegiyalar jadvalini qayta yuklamasdan "
 "privilegiyalar qo‘shishga ruxsat beradi"
 
-#: libraries/messages.inc.php:706
+#: libraries/messages.inc.php:697
 msgid "Allows creating and dropping indexes."
 msgstr "Indekslar qo‘shish va ularni o‘chirishga ruxsat beradi"
 
-#: libraries/messages.inc.php:707
+#: libraries/messages.inc.php:698
 msgid "Allows inserting and replacing data."
 msgstr "Ma`lumot qo‘yish va o‘zgartirishga ruxsat beradi"
 
-#: libraries/messages.inc.php:708
+#: libraries/messages.inc.php:699
 msgid "Allows locking tables for the current thread."
 msgstr "Joriy oqim uchun jadvalni blokirovku qilishga ruxsat beradi"
 
-#: libraries/messages.inc.php:709
+#: libraries/messages.inc.php:700
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Foydalanuvchi bir soat davomida o‘rnatishi mumkin bo‘lgan yangi ulanishlar "
 "soni"
 
-#: libraries/messages.inc.php:710
+#: libraries/messages.inc.php:701
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Foydalanuvchi bir soat davomida yuborishi mumkin bo‘lgan so‘rovlar soni"
 
-#: libraries/messages.inc.php:711
+#: libraries/messages.inc.php:702
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -3283,54 +3238,54 @@ msgstr ""
 "Foydalanuvchi bir soat davomida bajarishi mumkin bo‘lgan biron-bir jadval "
 "yoki ma`lumotlar bazasini o‘zgartiradigan buyruqlar soni"
 
-#: libraries/messages.inc.php:712
+#: libraries/messages.inc.php:703
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Bir foydalanuvchi tomonidan bir vaqtning o‘zida o‘rnatishi mumkin bo‘lgan "
 "ulanishlar soni"
 
-#: libraries/messages.inc.php:713
+#: libraries/messages.inc.php:704
 msgid "Allows viewing processes of all users"
 msgstr "Barcha foydalanuvchilarning jarayonlarini ko‘rishga ruxsat beradi"
 
-#: libraries/messages.inc.php:714
+#: libraries/messages.inc.php:705
 msgid "Has no effect in this MySQL version."
 msgstr "MySQL-serverning ushbu versiyada bunday xususiyat mavjud emas!"
 
-#: libraries/messages.inc.php:715
+#: libraries/messages.inc.php:706
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Server sozlanishlarini qayta yuklashga va uning keshlarini tozalashga ruxsat "
 "beradi"
 
-#: libraries/messages.inc.php:716
+#: libraries/messages.inc.php:707
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Bosh va tobe serverlarning joylashishi haqidagi ma`lumotni talab qilishga "
 "ruxsat beradi"
 
-#: libraries/messages.inc.php:717
+#: libraries/messages.inc.php:708
 msgid "Needed for the replication slaves."
 msgstr ""
 "Replikatsiya (zaxira nusxa ko‘chirish) vaqtida tobe serverlar uchun kerak"
 
-#: libraries/messages.inc.php:718
+#: libraries/messages.inc.php:709
 msgid "Allows reading data."
 msgstr "Ma`lumotlarni chaqirishga ruxsat beradi"
 
-#: libraries/messages.inc.php:719
+#: libraries/messages.inc.php:710
 msgid "Gives access to the complete list of databases."
 msgstr "Ma`lumotlar bazalarining to‘liq ro‘yxatiga ruxsat beradi"
 
-#: libraries/messages.inc.php:720
+#: libraries/messages.inc.php:711
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Namoyish tuzadigan so‘rov(SHOW CREATE VIEW)ni bajarishga ruxsat beradi"
 
-#: libraries/messages.inc.php:721
+#: libraries/messages.inc.php:712
 msgid "Allows shutting down the server."
 msgstr "Server ishini yakunlashga ruxsat beradi"
 
-#: libraries/messages.inc.php:722
+#: libraries/messages.inc.php:713
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -3341,90 +3296,86 @@ msgstr ""
 "global o‘zgaruvchilar o‘rnatish yoki boshqa foydalanuvchi jarayonini "
 "o‘chirish)"
 
-#: libraries/messages.inc.php:723
+#: libraries/messages.inc.php:714
 msgid "Allows creating and dropping triggers"
 msgstr ""
 "Triggerlar (ma`lum shartlar bajarilganda avtomatik ishga tushadigan "
 "jarayonlar) tuzish va ularni o‘chirishga ruxsat beradi"
 
-#: libraries/messages.inc.php:724
+#: libraries/messages.inc.php:715
 msgid "Allows changing data."
 msgstr "Ma`lumotlarni o‘zgartirishga ruxsat beradi"
 
-#: libraries/messages.inc.php:725
+#: libraries/messages.inc.php:716
 msgid "No privileges."
 msgstr "Privilegiyalar yo‘q"
 
-#: libraries/messages.inc.php:726
+#: libraries/messages.inc.php:717
 msgid "Privileges"
 msgstr "Privilegiyalar"
 
-#: libraries/messages.inc.php:727
+#: libraries/messages.inc.php:718
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegiyalar muvaffaqiyatli qayta yuklandi."
 
-#: libraries/messages.inc.php:728
+#: libraries/messages.inc.php:719
 msgid "Procedures"
 msgstr "Muolajalar"
 
-#: libraries/messages.inc.php:729
+#: libraries/messages.inc.php:720
 msgid "Processes"
 msgstr "Jarayonlar"
 
-#: libraries/messages.inc.php:730
-msgid "Process list"
-msgstr "Jarayonlar ro‘yxati"
-
-#: libraries/messages.inc.php:731
+#: libraries/messages.inc.php:721
 msgid "Profiling"
 msgstr "Profillashtirish"
 
-#: libraries/messages.inc.php:732
+#: libraries/messages.inc.php:722
 msgid "Protocol version"
 msgstr "Protokol versiyasi"
 
-#: libraries/messages.inc.php:733
+#: libraries/messages.inc.php:723
 msgid "Put fields names in the first row"
 msgstr "Maydon nomlarini birinchi qatorga joylashtirish"
 
-#: libraries/messages.inc.php:735
+#: libraries/messages.inc.php:725
 msgid "Del"
 msgstr "O‘chirish"
 
-#: libraries/messages.inc.php:736
+#: libraries/messages.inc.php:726
 msgid "Ins"
 msgstr "Qo‘yish"
 
-#: libraries/messages.inc.php:737
+#: libraries/messages.inc.php:727
 msgid "Query"
 msgstr "So‘rov"
 
-#: libraries/messages.inc.php:738
+#: libraries/messages.inc.php:728
 msgid "The following queries have been executed:"
 msgstr "Quyidagi so‘rovlar bajarildi:"
 
-#: libraries/messages.inc.php:739
+#: libraries/messages.inc.php:729
 msgid "Query cache"
 msgstr "So‘rovlar keshi"
 
-#: libraries/messages.inc.php:740 setup/lib/messages.inc.php:122
+#: libraries/messages.inc.php:730 setup/lib/messages.inc.php:122
 msgid "Query window"
 msgstr "So‘rovlar oynasi"
 
-#: libraries/messages.inc.php:741
+#: libraries/messages.inc.php:731
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "<b>\"%s\"</b> ma`lumotlar bazasiga SQL-so‘rov: "
 
-#: libraries/messages.inc.php:742
+#: libraries/messages.inc.php:732
 msgid "Query results operations"
 msgstr "So‘rov natijalarini ishlatish"
 
-#: libraries/messages.inc.php:743
+#: libraries/messages.inc.php:733
 msgid "SQL history"
 msgstr "SQL-so‘rovlar tarixi"
 
-#: libraries/messages.inc.php:744
+#: libraries/messages.inc.php:734
 #, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
@@ -3433,64 +3384,64 @@ msgstr ""
 "So‘rovlar statiskasi: ishga tushirilgandan vaqtdan boshlab serverga "
 "yuborilgan so‘rovlar soni - \"%s\"."
 
-#: libraries/messages.inc.php:745
+#: libraries/messages.inc.php:735
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "So‘rov %01.4f sekund vaqt oldi"
 
-#: libraries/messages.inc.php:746
+#: libraries/messages.inc.php:736
 msgid "Query type"
 msgstr "So‘rov turi"
 
-#: libraries/messages.inc.php:747
+#: libraries/messages.inc.php:737
 msgid "Do not overwrite this query from outside the window"
 msgstr "So‘rovlar oynasi ichidagi ma`lumotlarni blokirovka qilish"
 
-#: libraries/messages.inc.php:749
+#: libraries/messages.inc.php:739
 msgid "Read requests"
 msgstr "O‘qishga ruxsat so‘rash"
 
-#: libraries/messages.inc.php:750
+#: libraries/messages.inc.php:740
 msgid "Rebuild"
 msgstr "Qayta qurish"
 
-#: libraries/messages.inc.php:751
+#: libraries/messages.inc.php:741
 msgid "Received"
 msgstr "Qabul qilindi"
 
-#: libraries/messages.inc.php:752
+#: libraries/messages.inc.php:742
 msgid "recommended"
 msgstr "tavsiya etilgan"
 
-#: libraries/messages.inc.php:753
+#: libraries/messages.inc.php:743
 msgid "Records"
 msgstr "Yozuvlar soni"
 
-#: libraries/messages.inc.php:754
+#: libraries/messages.inc.php:744
 msgid "Check referential integrity:"
 msgstr "Ma`lumotlar yaxlitligini tekshirish:"
 
-#: libraries/messages.inc.php:755 setup/lib/messages.inc.php:354
+#: libraries/messages.inc.php:745 setup/lib/messages.inc.php:354
 msgid "Refresh"
 msgstr "Yangilash"
 
-#: libraries/messages.inc.php:756
+#: libraries/messages.inc.php:746
 msgid "Relational display field"
 msgstr "Aloqador maydon qiymati"
 
-#: libraries/messages.inc.php:757
+#: libraries/messages.inc.php:747
 msgid "Relational key"
 msgstr "Aloqador kalit"
 
-#: libraries/messages.inc.php:758
+#: libraries/messages.inc.php:748
 msgid "Relational schema"
 msgstr "Aloqalar sxemasi"
 
-#: libraries/messages.inc.php:759
+#: libraries/messages.inc.php:749
 msgid "Relation deleted"
 msgstr "Aloqa o‘chirildi"
 
-#: libraries/messages.inc.php:760
+#: libraries/messages.inc.php:750
 #, php-format
 msgid ""
 "The additional features for working with linked tables have been "
@@ -3499,85 +3450,81 @@ msgstr ""
 "Aloqador jadvallar bilan ishlash uchun qo‘shimcha imkoniyatlar mavjud emas. "
 "Sabablarini aniqlash uchun %sbu yerga%s bosing."
 
-#: libraries/messages.inc.php:761
+#: libraries/messages.inc.php:751
 msgid "RELATIONS FOR TABLE"
 msgstr "Jadval aloqalari"
 
-#: libraries/messages.inc.php:762 tbl_relation.php:399
+#: libraries/messages.inc.php:752 tbl_relation.php:399
 msgid "Relations"
 msgstr "Aloqalar"
 
-#: libraries/messages.inc.php:763
+#: libraries/messages.inc.php:753
 msgid "Relation view"
 msgstr "Aloqalarni ko‘rish"
 
-#: libraries/messages.inc.php:764
+#: libraries/messages.inc.php:754
 msgid "Reloading the privileges"
 msgstr "Privilegiyalar qayta yuklanmoqda"
 
-#: libraries/messages.inc.php:765
+#: libraries/messages.inc.php:755
 msgid "Reload navigation frame"
 msgstr "Navigatsiya oynasini qayta yuklash"
 
-#: libraries/messages.inc.php:766
-msgid "Reload privileges"
-msgstr "Privilegiyalarni qayta yuklash"
-
-#: libraries/messages.inc.php:767
+#: libraries/messages.inc.php:756
 msgid "Reload"
 msgstr "Qayta yuklash"
 
-#: libraries/messages.inc.php:768
+#: libraries/messages.inc.php:757
 msgid "Remote server"
 msgstr "Masofadagi sеrvеr"
 
-#: libraries/messages.inc.php:769
+#: libraries/messages.inc.php:758
 msgid "Remove CRLF characters within fields"
 msgstr "Maydonlar ichidagi satrdan-satrga ko‘chirish belgilarini olib tashlash"
 
-#: libraries/messages.inc.php:770
+#: libraries/messages.inc.php:759
 msgid "Remove partitioning"
 msgstr "Bo‘laklarni (PARTITIONS) o‘chirish"
 
-#: libraries/messages.inc.php:771
+#: libraries/messages.inc.php:760
 msgid "Remove selected users"
 msgstr "Belgilangan foydalanuvchilarni o‘chirish"
 
-#: libraries/messages.inc.php:772
+#: libraries/messages.inc.php:761
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr " `\"%s\"` ma`lumotlar bazasining nomi `\"%s\"` deb o‘zgartirildi."
 
-#: libraries/messages.inc.php:773
+#: libraries/messages.inc.php:762
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "`\"%s\"` jadvalining nomi `\"%s\"` deb o‘zgartirildi."
 
-#: libraries/messages.inc.php:774
+#: libraries/messages.inc.php:763
 msgid "Rename table to"
 msgstr "Jadval nomini o‘zgartirish"
 
-#: libraries/messages.inc.php:775
+#: libraries/messages.inc.php:764
 msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
 
-#: libraries/messages.inc.php:776
+#: libraries/messages.inc.php:765
 msgid "Repair"
 msgstr "Tiklash"
 
-#: libraries/messages.inc.php:777
+#: libraries/messages.inc.php:766
 msgid "Repair table"
 msgstr "Jadvalni tiklash"
 
-#: libraries/messages.inc.php:778
+#: libraries/messages.inc.php:767
 msgid "Replace NULL by"
 msgstr "NULL qiymatni quyidagiga almashtirish"
 
-#: libraries/messages.inc.php:779
+#: libraries/messages.inc.php:768
 msgid "Replace table data with file"
 msgstr "Jadval ma`lumotlarini fayl ma`lumotlari bilan almashtirish"
 
-#: libraries/messages.inc.php:780
+#: libraries/messages.inc.php:769
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
@@ -3585,45 +3532,45 @@ msgstr ""
 "Endi quyidagi qatorlarni \"my.cnf\" faylining oxiriga qo‘shing va MySQL "
 "sеrvеrini qayta yuklang."
 
-#: libraries/messages.inc.php:781
+#: libraries/messages.inc.php:770
 msgid "Add slave replication user"
 msgstr "Tobе rеplikatsiya foydalanuvchisini qo‘shish"
 
-#: libraries/messages.inc.php:782
+#: libraries/messages.inc.php:771
 #, php-format
 msgid "Master server changed succesfully to %s"
 msgstr "Bosh rеplikatsiya sеrvеri quyidagiga o‘zgartirildi: %s"
 
-#: libraries/messages.inc.php:783
+#: libraries/messages.inc.php:772
 msgid "This server is configured as master in a replication process."
 msgstr ""
 "Ushbu sеrvеr rеplikatsiya jarayonida \"bosh\" dеb konfiguratsiya qilingan."
 
-#: libraries/messages.inc.php:784
+#: libraries/messages.inc.php:773
 msgid "Control slave:"
 msgstr "Tobе sеrvеrni nazorat qilish:"
 
-#: libraries/messages.inc.php:785
+#: libraries/messages.inc.php:774
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 "Bosh sеrvеr pozitsiyasini o‘qib bo‘lmadi. Sеrvеrdagi privilеgilarda muammo "
 "bo‘lishi mumkin."
 
-#: libraries/messages.inc.php:786
+#: libraries/messages.inc.php:775
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "%s bosh sеrvеriga ulanib bo‘lmadi."
 
-#: libraries/messages.inc.php:787
+#: libraries/messages.inc.php:776
 msgid "Replicate all databases; Ignore:"
 msgstr "Barcha bazalarni rеplikatsiya qilish; Quyidagilardan tashqari:"
 
-#: libraries/messages.inc.php:788
+#: libraries/messages.inc.php:777
 msgid "Ignore all databases; Replicate:"
 msgstr "Barcha bazalarga e’tibor bеrmaslik; Quyidagilardan tashqari:"
 
-#: libraries/messages.inc.php:789
+#: libraries/messages.inc.php:778
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -3638,19 +3585,19 @@ msgstr ""
 "bazalarnigina rеplikatsiya qilishda foydali) tanlashingiz mumkin. "
 "Rеplikatsiya usulini tanlang:"
 
-#: libraries/messages.inc.php:790
+#: libraries/messages.inc.php:779
 msgid "Master configuration"
 msgstr "Bosh sеrvеr konfiguratsiyasi"
 
-#: libraries/messages.inc.php:791
+#: libraries/messages.inc.php:780
 msgid "Master replication"
 msgstr "Bosh sеrvеr rеplikatsiyasi"
 
-#: libraries/messages.inc.php:792
+#: libraries/messages.inc.php:781
 msgid "Replication"
 msgstr "Replikatsiya (zaxira nusxa ko‘chirish)"
 
-#: libraries/messages.inc.php:793
+#: libraries/messages.inc.php:782
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
@@ -3660,11 +3607,11 @@ msgstr ""
 "So‘ng, ushbu sеrvеr \"bosh sеrvеr\" dеb konfiguratsiya qilinganligi haqidagi "
 "ma’lumotni ko‘rishingiz kеrak."
 
-#: libraries/messages.inc.php:794
+#: libraries/messages.inc.php:783
 msgid "Please select databases:"
 msgstr "Bazalarni tanlang:"
 
-#: libraries/messages.inc.php:795
+#: libraries/messages.inc.php:784
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -3673,7 +3620,7 @@ msgstr ""
 "Ushbu sеrvеr rеplikatsiya jarayonida \"bosh sеrvеr\" dеb konfiguratsiya "
 "qilinmagan. Siz uni <a href=\"%s\">konfiguratsiya</a> qilmoqchimisiz?"
 
-#: libraries/messages.inc.php:796
+#: libraries/messages.inc.php:785
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -3681,49 +3628,49 @@ msgstr ""
 "Ro‘yxatda faqat \"--report-host=host_name\" tanlovi yordamda yuklangan tobе "
 "sеrvеrlar ko‘rsatilmoqda."
 
-#: libraries/messages.inc.php:797
+#: libraries/messages.inc.php:786
 msgid "Show connected slaves"
 msgstr "Ulangan tobе sеrvеrlarni ko‘rsatish"
 
-#: libraries/messages.inc.php:798 libraries/messages.inc.php:905
+#: libraries/messages.inc.php:787 libraries/messages.inc.php:893
 msgid "Show master status"
 msgstr "Ulangan bosh sеrvеrlarni ko‘rsatish"
 
-#: libraries/messages.inc.php:799
+#: libraries/messages.inc.php:788
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgstr ""
 "Xatolik(lar)ni tashlab kеtish bosh va tobе sеrvеrlarning to‘la "
 "sinxronizatsiya qilinmaganligiga olib kеlishi mumkin!"
 
-#: libraries/messages.inc.php:800
+#: libraries/messages.inc.php:789
 msgid "Change or reconfigure master server"
 msgstr "Bosh sеrvеrni o‘zgartirish yoki qayta konfiguratsiya qilish"
 
-#: libraries/messages.inc.php:801
+#: libraries/messages.inc.php:790
 msgid "Slave configuration"
 msgstr "Tobе sеrvеr konfiguratsiyasi"
 
-#: libraries/messages.inc.php:802
+#: libraries/messages.inc.php:791
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
 "Ushbu sеrvеr rеplikatsiya jarayonida \"tobе sеrvеr\" dеb konfiguratsiya "
 "qilingan. Quyidagi amallardan birini tanlang:"
 
-#: libraries/messages.inc.php:803
+#: libraries/messages.inc.php:792
 msgid "Error management:"
 msgstr "Xatoliklarni boshqarish:"
 
-#: libraries/messages.inc.php:804
+#: libraries/messages.inc.php:793
 #, php-format
 msgid "IO Thread %s only"
 msgstr "Faqat %s qirish/chiqish oqimini"
 
-#: libraries/messages.inc.php:805
+#: libraries/messages.inc.php:794
 msgid "Slave IO Thread not running!"
 msgstr "Tobе kirish/chiqish oqimi ishlamayapti!"
 
-#: libraries/messages.inc.php:806
+#: libraries/messages.inc.php:795
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -3732,40 +3679,40 @@ msgstr ""
 "Ushbu sеrvеr rеplikatsiya jarayonida \"tobе sеrvеr\" dеb konfiguratsiya "
 "qilinmagan. Siz uni <a href=\"%s\">konfiguratsiya</a> qilmoqchimisiz?"
 
-#: libraries/messages.inc.php:807
+#: libraries/messages.inc.php:796
 msgid "Reset slave"
 msgstr "Tobе sеrvеrni tiklash"
 
-#: libraries/messages.inc.php:808
+#: libraries/messages.inc.php:797
 msgid "See slave status table"
 msgstr "Tobе sеrvеr statusi jadvalini ko‘rish"
 
-#: libraries/messages.inc.php:809
+#: libraries/messages.inc.php:798
 msgid "Skip current error"
 msgstr "Joriy xatoliklarni tashlab kеtish"
 
-#: libraries/messages.inc.php:810
+#: libraries/messages.inc.php:799
 msgid "errors."
 msgstr " xatoliklar."
 
-#: libraries/messages.inc.php:811
+#: libraries/messages.inc.php:800
 msgid "Skip next"
 msgstr "Kеyingisini tashlab kеtish"
 
-#: libraries/messages.inc.php:812
+#: libraries/messages.inc.php:801
 msgid "Slave replication"
 msgstr "Tobе sеrvеr rеplikatsiyasi"
 
-#: libraries/messages.inc.php:813
+#: libraries/messages.inc.php:802
 msgid "Slave SQL Thread not running!"
 msgstr "Tobе SQL Oqimi ishlamayapti!"
 
-#: libraries/messages.inc.php:814
+#: libraries/messages.inc.php:803
 #, php-format
 msgid "SQL Thread %s only"
 msgstr "Faqat %s SQL kirish/chiqish oqimini"
 
-#: libraries/messages.inc.php:815
+#: libraries/messages.inc.php:804
 #, php-format
 msgid ""
 "This MySQL server works as %s in <b>replication</b> process. For further "
@@ -3777,287 +3724,279 @@ msgstr ""
 "uchun, &lt;a href=\"#replication\"&gt;replikatsiya bo‘limi&lt;/a&gt;ga "
 "kiring."
 
-#: libraries/messages.inc.php:816
+#: libraries/messages.inc.php:805
 msgid "Master status"
 msgstr "Bosh rеplikatsiya sеrvеri statusi"
 
-#: libraries/messages.inc.php:817
+#: libraries/messages.inc.php:806
 msgid "Replication status"
 msgstr "Replikatsiya statusi"
 
-#: libraries/messages.inc.php:818
+#: libraries/messages.inc.php:807
 msgid "Slave status"
 msgstr "Tobе rеplikatsiya sеrvеri statusi"
 
-#: libraries/messages.inc.php:819
+#: libraries/messages.inc.php:808
 msgid "Synchronize databases with master"
 msgstr "Bazalarni bosh sеrvеr bilan sinxronizatsiya qilish"
 
-#: libraries/messages.inc.php:820
+#: libraries/messages.inc.php:809
 msgid "Unable to change master"
 msgstr "Bosh sеrvеrni o‘zgartirib bo‘lmadi"
 
-#: libraries/messages.inc.php:821
+#: libraries/messages.inc.php:810
 msgid "Unknown error"
 msgstr "Noma’lum xatolik"
 
-#: libraries/messages.inc.php:822
+#: libraries/messages.inc.php:811
 msgid "Reset"
 msgstr "Tozalash"
 
-#: libraries/messages.inc.php:823
+#: libraries/messages.inc.php:812
 msgid "Resource limits"
 msgstr "Resurslardan foydalanishni cheklash"
 
-#: libraries/messages.inc.php:824
+#: libraries/messages.inc.php:813
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr "Qo‘yilayotgan qatorlar soni: \"%s\""
 
-#: libraries/messages.inc.php:825
+#: libraries/messages.inc.php:814
 msgid "Re-type"
 msgstr "Tasdiqlash"
 
-#: libraries/messages.inc.php:826
-msgid ""
-"The users will still have the USAGE privilege until the privileges are "
-"reloaded."
-msgstr ""
-"Privilegiyalar qayta yuklangunga qadar, foydalanuvchilarda USAGE kabi global "
-"privilegiyalar saqlanib qolinadi."
-
-#: libraries/messages.inc.php:827
+#: libraries/messages.inc.php:815
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Foydalanuvchilarning barcha faol privilegiyalarini bekor qilish, so‘ng "
 "ularni o‘chirish."
 
-#: libraries/messages.inc.php:828
+#: libraries/messages.inc.php:816
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr " \"%s\" foydalanuvchining privilegiyalari bekor qilindi."
 
-#: libraries/messages.inc.php:829
+#: libraries/messages.inc.php:817
 msgid "Revoke"
 msgstr "Bekor qilish"
 
-#: libraries/messages.inc.php:830
+#: libraries/messages.inc.php:818
 msgid "Romanian"
 msgstr "Rumincha"
 
-#: libraries/messages.inc.php:831
+#: libraries/messages.inc.php:819
 msgid "Return type"
 msgstr "Qaytariladigan tip"
 
-#: libraries/messages.inc.php:832
+#: libraries/messages.inc.php:820
 msgid "Routines"
 msgstr "Muolajalar"
 
-#: libraries/messages.inc.php:833
+#: libraries/messages.inc.php:821
 msgid "Row length"
 msgstr "Qator uzunligi"
 
-#: libraries/messages.inc.php:834
+#: libraries/messages.inc.php:822
 msgid "row(s) starting from record #"
 msgstr "ta qator quyidagi qatordan boshlab "
 
-#: libraries/messages.inc.php:835
+#: libraries/messages.inc.php:823
 msgid " Row size "
 msgstr "Qator hajmi"
 
-#: libraries/messages.inc.php:836
+#: libraries/messages.inc.php:824
 msgid "horizontal (rotated headers)"
 msgstr "gorizontal (aylantirilgan sarlavhalar)"
 
-#: libraries/messages.inc.php:837
+#: libraries/messages.inc.php:825
 msgid "horizontal"
 msgstr "gorizontal"
 
-#: libraries/messages.inc.php:838
+#: libraries/messages.inc.php:826
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
 msgstr ""
 "\"%s\" rejimida va sarlavhalarni har \"%s\" katakchadan keyin takrorlash"
 
-#: libraries/messages.inc.php:839
+#: libraries/messages.inc.php:827
 msgid "vertical"
 msgstr "vertikal"
 
-#: libraries/messages.inc.php:840
+#: libraries/messages.inc.php:828
 msgid "Rows"
 msgstr "Qatorlarsoni"
 
-#: libraries/messages.inc.php:841
+#: libraries/messages.inc.php:829
 msgid "Row Statistics"
 msgstr "Qatorlar statistikasi"
 
-#: libraries/messages.inc.php:842
+#: libraries/messages.inc.php:830
 #, php-format
 msgid "running on %s"
 msgstr "\"%s\" serverda ishlamoqda"
 
-#: libraries/messages.inc.php:843
+#: libraries/messages.inc.php:831
 msgid "Submit Query"
 msgstr "so‘rovni bajarish"
 
-#: libraries/messages.inc.php:844
+#: libraries/messages.inc.php:832
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "\"%s\" serverida SQL-so‘rov(lar)ni bajarish "
 
-#: libraries/messages.inc.php:845
+#: libraries/messages.inc.php:833
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "\"%s\" ma`lumotlar bazasida SQL-so‘rov(lar)ni bajarish"
 
-#: libraries/messages.inc.php:846
+#: libraries/messages.inc.php:834
 msgid "Russian"
 msgstr "Ruscha"
 
-#: libraries/messages.inc.php:848
+#: libraries/messages.inc.php:836
 #, php-format
 msgid "Save on server in %s directory"
 msgstr "Serverdagi \"%s\" katalokka saqlash"
 
-#: libraries/messages.inc.php:849
+#: libraries/messages.inc.php:837
 msgid "Save position"
 msgstr "Jadvallar joylashishini saqlash"
 
-#: libraries/messages.inc.php:850
+#: libraries/messages.inc.php:838
 msgid "Save"
 msgstr "Saqlash"
 
-#: libraries/messages.inc.php:851
+#: libraries/messages.inc.php:839
 msgid "The scale factor is too small to fit the schema on one page"
 msgstr "Sxema bitta sahifaga sig‘maydi. Masshtabni kichraytirish zarur."
 
-#: libraries/messages.inc.php:852
+#: libraries/messages.inc.php:840
 msgid "Search in database"
 msgstr "Ma`lumotlar bazasida qidirish"
 
-#: libraries/messages.inc.php:853
+#: libraries/messages.inc.php:841
 msgid "Inside field:"
 msgstr "Quyidagi maydon(lar)da qidirish: "
 
-#: libraries/messages.inc.php:854
+#: libraries/messages.inc.php:842
 msgid "Inside table(s):"
 msgstr "Quyidagi jadval(lar)da qidirish:"
 
-#: libraries/messages.inc.php:855
+#: libraries/messages.inc.php:843
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgstr ""
 "Qidirish uchun so‘z(lar) yoki qiymat(lar) (o‘rniga qo‘yish belgisi: \"%\"):"
 
-#: libraries/messages.inc.php:856
+#: libraries/messages.inc.php:844
 msgid "at least one of the words"
 msgstr "so‘zlardan biri"
 
-#: libraries/messages.inc.php:857
+#: libraries/messages.inc.php:845
 msgid "all words"
 msgstr "barcha so‘zlar"
 
-#: libraries/messages.inc.php:858
+#: libraries/messages.inc.php:846
 msgid "the exact phrase"
 msgstr "aniq moslik"
 
-#: libraries/messages.inc.php:859
+#: libraries/messages.inc.php:847
 msgid "as regular expression"
 msgstr "muntazam ibora"
 
-#: libraries/messages.inc.php:860
+#: libraries/messages.inc.php:848
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>\"%s\"</i>\" uchun qidiruv natijalari \"%s\":"
 
-#: libraries/messages.inc.php:861
+#: libraries/messages.inc.php:849
 msgid "Search"
 msgstr "Qidirish"
 
-#: libraries/messages.inc.php:862
+#: libraries/messages.inc.php:850
 msgid "Find:"
 msgstr "Izlash:"
 
-#: libraries/messages.inc.php:863
+#: libraries/messages.inc.php:851
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "cookie-autentifikatsiya ishlatilganda, konfiguratsion fayldagi $cfg"
 "[\"blowfish_secret\"] direktivasi qiymatini o‘rnatib parol belgilash kerak."
 
-#: libraries/messages.inc.php:864
+#: libraries/messages.inc.php:852
 msgid "Please select a database"
 msgstr "Ma`lumotlar bazasini tanlang"
 
-#: libraries/messages.inc.php:865
+#: libraries/messages.inc.php:853
 msgid "Select All"
 msgstr "Barchasini belgilash"
 
-#: libraries/messages.inc.php:866
+#: libraries/messages.inc.php:854
 msgid "Select binary log to view"
 msgstr "Ko‘rish uchun binar jurnalni tanlang"
 
-#: libraries/messages.inc.php:867
+#: libraries/messages.inc.php:855
 msgid "Select fields (at least one):"
 msgstr "Maydonni tanlang (kamida bitta):"
 
-#: libraries/messages.inc.php:868
+#: libraries/messages.inc.php:856
 msgid "Select Foreign Key"
 msgstr "Tashqi kalitni tanlang"
 
-#: libraries/messages.inc.php:869
+#: libraries/messages.inc.php:857
 msgid "in query"
 msgstr "so‘rov bo‘yicha"
 
-#: libraries/messages.inc.php:870
+#: libraries/messages.inc.php:858
 msgid "Select referenced key"
 msgstr "Bog‘liq kalitni tanlang"
 
-#: libraries/messages.inc.php:871
+#: libraries/messages.inc.php:859
 msgid "Select Tables"
 msgstr "Jadvallarni tanlang"
 
-#: libraries/messages.inc.php:872 setup/lib/messages.inc.php:82
+#: libraries/messages.inc.php:860 setup/lib/messages.inc.php:82
 msgid "Save as file"
 msgstr "Fayl kabi saqlash"
 
-#: libraries/messages.inc.php:873
+#: libraries/messages.inc.php:861
 msgid "Sent"
 msgstr "Yuborildi"
 
-#: libraries/messages.inc.php:874
+#: libraries/messages.inc.php:862
 msgid "Server Choice"
 msgstr "Serverni tanlang"
 
-#: libraries/messages.inc.php:875
+#: libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr "Server javob bermayapti"
 
-#: libraries/messages.inc.php:876
+#: libraries/messages.inc.php:864
 msgid "Server"
 msgstr "Server"
 
-#: libraries/messages.inc.php:877 setup/lib/messages.inc.php:115
+#: libraries/messages.inc.php:865 setup/lib/messages.inc.php:115
 msgid "Servers"
 msgstr "Serverlar"
 
-#: libraries/messages.inc.php:878
+#: libraries/messages.inc.php:866
 msgid "Delayed inserts"
 msgstr "Kechiktirilgan qo‘yilmalar"
 
-#: libraries/messages.inc.php:879
+#: libraries/messages.inc.php:867
 msgid "Runtime Information"
 msgstr "MySQL-serverning hozirgi holati"
 
-#: libraries/messages.inc.php:880
+#: libraries/messages.inc.php:868
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr ""
 "MySQL-server \"%s\" davomida ishlamoqda. Ishga tushirilgan vaqt: \"%s\"."
 
-#: libraries/messages.inc.php:881
+#: libraries/messages.inc.php:869
 msgid "Variables"
 msgstr "O‘zgaruvchilar"
 
-#: libraries/messages.inc.php:882
+#: libraries/messages.inc.php:870
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
@@ -4065,15 +4004,15 @@ msgstr ""
 "Trafik: MySQL-server ishga tushirilgandan vaqtdan boshlab tarmoq trafiki "
 "statistikasi."
 
-#: libraries/messages.inc.php:883
+#: libraries/messages.inc.php:871
 msgid "Server variables and settings"
 msgstr "Server o‘zgaruvchilari va sozlanishlari"
 
-#: libraries/messages.inc.php:884
+#: libraries/messages.inc.php:872
 msgid "Server version"
 msgstr "Server versiyasi"
 
-#: libraries/messages.inc.php:885
+#: libraries/messages.inc.php:873
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -4086,7 +4025,7 @@ msgstr ""
 "davomiyligidan kichikroq, shuning uchun login sessiyangiz phpMyAdmin "
 "dasturida konfiguratsiya qilganingizdan tezroq tugaydi."
 
-#: libraries/messages.inc.php:886
+#: libraries/messages.inc.php:874
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."
@@ -4094,11 +4033,11 @@ msgstr ""
 "Sessiya mexanizmi ishida xatolik yuz berdi.  PHP va/yoki Veb-server jurnali "
 "tekshirib ko‘ring va kerakli tuzatishlar kiriting."
 
-#: libraries/messages.inc.php:887
+#: libraries/messages.inc.php:875
 msgid "Session value"
 msgstr "Sessiya qiymatlari"
 
-#: libraries/messages.inc.php:888
+#: libraries/messages.inc.php:876
 msgid ""
 "If field type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -4110,91 +4049,91 @@ msgstr ""
 "va bittalik qo‘shtirnoq (\") belgilari oldidan teskari egri chiziq bo‘lishi "
 "kerak, masalan: \"\\\\xyz\" yoki \"a\\\"b\"."
 
-#: libraries/messages.inc.php:889
+#: libraries/messages.inc.php:877
 msgid "settings"
 msgstr "tanlovlar"
 
-#: libraries/messages.inc.php:890
+#: libraries/messages.inc.php:878
 msgid "Show all"
 msgstr "Barchasini ko‘rsatish"
 
-#: libraries/messages.inc.php:891
+#: libraries/messages.inc.php:879
 msgid "Show binary contents as HEX"
 msgstr "Ikkilik ma’lumotlarni o‘n oltilik shaklda ko‘rsatish"
 
-#: libraries/messages.inc.php:892
+#: libraries/messages.inc.php:880
 msgid "Show binary contents"
 msgstr "Ikkilik ma`lumotlarni ko‘rsatish"
 
-#: libraries/messages.inc.php:893
+#: libraries/messages.inc.php:881
 msgid "Show BLOB contents"
 msgstr "BLOB turidagi ma`lumotlarni ko‘rsatish"
 
-#: libraries/messages.inc.php:894
+#: libraries/messages.inc.php:882
 msgid "Show color"
 msgstr "Rangda ko‘rsatish"
 
-#: libraries/messages.inc.php:895
+#: libraries/messages.inc.php:883
 msgid "Data Dictionary Format"
 msgstr "Ma`lumotlar lug‘ati sahifasi yo‘nalishi"
 
-#: libraries/messages.inc.php:896
+#: libraries/messages.inc.php:884
 msgid "Show Full Queries"
 msgstr "So‘rovlarning kengaytirilgan ko‘rinishi"
 
-#: libraries/messages.inc.php:897
+#: libraries/messages.inc.php:885
 msgid "Show grid"
 msgstr "To‘rni ko‘rsatish"
 
-#: libraries/messages.inc.php:898
+#: libraries/messages.inc.php:886
 msgid "Show/Hide left menu"
 msgstr "Chap menyuni ko‘rsatish/yashirish"
 
-#: libraries/messages.inc.php:899
+#: libraries/messages.inc.php:887
 msgid "Showing bookmark"
 msgstr "Xatcho‘plarni ko‘rsatish"
 
-#: libraries/messages.inc.php:900
+#: libraries/messages.inc.php:888
 msgid "Showing as PHP code"
 msgstr "PHP-kod sifatida ko‘rsatish"
 
-#: libraries/messages.inc.php:901
+#: libraries/messages.inc.php:889
 msgid "Showing rows"
 msgstr "Yozuvlarni ko‘rsatish"
 
-#: libraries/messages.inc.php:902
+#: libraries/messages.inc.php:890
 msgid "Showing SQL query"
 msgstr "SQL-so‘rovni ko‘rsatish"
 
-#: libraries/messages.inc.php:903
+#: libraries/messages.inc.php:891
 msgid "Show insert query"
 msgstr "Kiritilgan so‘rovni ko‘rsatish"
 
-#: libraries/messages.inc.php:904
+#: libraries/messages.inc.php:892
 msgid "Only show keys"
 msgstr "Faqat kalitlarni ko‘rsatish"
 
-#: libraries/messages.inc.php:906
+#: libraries/messages.inc.php:894
 msgid "Show open tables"
 msgstr "Ochiq jadvallar ro‘yxati"
 
-#: libraries/messages.inc.php:907
+#: libraries/messages.inc.php:895
 msgid "Show PHP information"
 msgstr "PHP haqida ma`lumotni ko‘rsatish"
 
-#: libraries/messages.inc.php:908
+#: libraries/messages.inc.php:896
 msgid "Show"
 msgstr "Ko‘rsatish"
 
-#: libraries/messages.inc.php:909
+#: libraries/messages.inc.php:897
 msgid "Show slave hosts"
 msgstr "Tobe serverlar haqida ma`lumot"
 
-#: libraries/messages.inc.php:910
+#: libraries/messages.inc.php:898
 msgid "Show slave status"
 msgstr "Replikatsiya serveri ahvoli haqida ma`lumot"
 
-#: libraries/messages.inc.php:911
+#: libraries/messages.inc.php:899
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -4203,11 +4142,11 @@ msgstr ""
 "Binar jurnali keshini ishlatib, \"binlog_cache_size\" qiymatidan oshib, o‘z "
 "ichiga olgan SQL-jumlalari vaqtinchalik faylga saqlangan tranzaksiyalar soni."
 
-#: libraries/messages.inc.php:912
+#: libraries/messages.inc.php:900
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Binar jurnal keshini ishlatgan tranzaksiyalar soni."
 
-#: libraries/messages.inc.php:913
+#: libraries/messages.inc.php:901
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -4220,11 +4159,11 @@ msgstr ""
 "saqlanishini ta`minlash maqsadida tmp_table_size o‘zgaruvchisining qiymatini "
 "oshirish tavsiya etiladi."
 
-#: libraries/messages.inc.php:914
+#: libraries/messages.inc.php:902
 msgid "How many temporary files mysqld has created."
 msgstr "MySQL serveri (mysqld) tomonidan tuzilgan vaqtinchalik fayllar soni."
 
-#: libraries/messages.inc.php:915
+#: libraries/messages.inc.php:903
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -4232,7 +4171,7 @@ msgstr ""
 "Server tomonidan SQL-jumlalari bajarilayotgan vaqtda xotirada avtomatik "
 "tuzilgan vaqtinchalik jadvallar soni."
 
-#: libraries/messages.inc.php:916
+#: libraries/messages.inc.php:904
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -4240,31 +4179,31 @@ msgstr ""
 "\"INSERT DELAYED\" so‘rovlarini qayta ishlash jarayonida yuz bergan xatolar "
 "(masalan, kalitlar takrorlanishi oqibatida) soni."
 
-#: libraries/messages.inc.php:917
+#: libraries/messages.inc.php:905
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr "Bajariladigan \"INSERT DELAYED\" so‘rovlar soni."
 
-#: libraries/messages.inc.php:918
+#: libraries/messages.inc.php:906
 msgid "The number of INSERT DELAYED rows written."
 msgstr ""
 "Ma`lumotlarni kechiktirib qo‘yish (\"INSERT DELAYED\") rejimida yozilgan "
 "qatorlar soni."
 
-#: libraries/messages.inc.php:919
+#: libraries/messages.inc.php:907
 msgid "The number of executed FLUSH statements."
 msgstr "Bajarilgan \"FLUSH\" buyruqlar soni."
 
-#: libraries/messages.inc.php:920
+#: libraries/messages.inc.php:908
 msgid "The number of internal COMMIT statements."
 msgstr "Ichki \"COMMIT\" buyruqlari soni."
 
-#: libraries/messages.inc.php:921
+#: libraries/messages.inc.php:909
 msgid "The number of times a row was deleted from a table."
 msgstr "Jadvaldal yozuvlarni o‘chirish bo‘yicha sshrovlar soni."
 
-#: libraries/messages.inc.php:922
+#: libraries/messages.inc.php:910
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -4274,7 +4213,7 @@ msgstr ""
 "berishi mumkin. Bu jarayon topish deb nomlanadi. Handler_discover - topilgan "
 "jadvallar soni."
 
-#: libraries/messages.inc.php:923
+#: libraries/messages.inc.php:911
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -4283,7 +4222,7 @@ msgstr ""
 "Indeksdan birinchi yozuvni o‘qishga bo‘lgan so‘rovlar soni. O‘zgaruvchining "
 "qiymati katta bo‘lsa, server bir necha marotiba indeksni ko‘rib chiqadi."
 
-#: libraries/messages.inc.php:924
+#: libraries/messages.inc.php:912
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -4292,7 +4231,7 @@ msgstr ""
 "soni. O‘zgaruvchining qiymati kattaligi so‘rov va jadvallar to‘g‘ri "
 "indekslanganidan dalolat beradi."
 
-#: libraries/messages.inc.php:925
+#: libraries/messages.inc.php:913
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -4302,7 +4241,7 @@ msgstr ""
 "soni. Hajmi cheklangan indeks ustuniga bo‘lgan so‘rov yoki indeksni ko‘rib "
 "chiqish vaqtida o‘zgaruvchi qiymati oshadi."
 
-#: libraries/messages.inc.php:926
+#: libraries/messages.inc.php:914
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -4311,7 +4250,7 @@ msgstr ""
 "o‘qishga bo‘lgan so‘rovlar soni. Odatda optimallashtirish uchun "
 "qo‘llaniladi: ORDER BY ... DESC."
 
-#: libraries/messages.inc.php:927
+#: libraries/messages.inc.php:915
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -4325,7 +4264,7 @@ msgstr ""
 "bajarilishi; indekslardan noto‘g‘ri foydalanadigan birlashmalarning "
 "mavjudligi."
 
-#: libraries/messages.inc.php:928
+#: libraries/messages.inc.php:916
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -4337,35 +4276,35 @@ msgstr ""
 "jadvallar noto‘g‘ri indekslanganligini yoki so‘rovlar indekslarning "
 "afzalliklaridan foydalanmayotganligini bildiradi."
 
-#: libraries/messages.inc.php:929
+#: libraries/messages.inc.php:917
 msgid "The number of internal ROLLBACK statements."
 msgstr "ROLLBACK ichki buyruqlar soni."
 
-#: libraries/messages.inc.php:930
+#: libraries/messages.inc.php:918
 msgid "The number of requests to update a row in a table."
 msgstr "Jadvaldagi yozuvlarni yangilashga bo‘lgan so‘rovlar soni."
 
-#: libraries/messages.inc.php:931
+#: libraries/messages.inc.php:919
 msgid "The number of requests to insert a row in a table."
 msgstr "Jadvalga yozuv qo‘yishga bo‘lgan so‘rovlar soni."
 
-#: libraries/messages.inc.php:932
+#: libraries/messages.inc.php:920
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Ma`lumot mavjud bo‘lgan sahifalar soni (\"kir\" va \"toza\")."
 
-#: libraries/messages.inc.php:933
+#: libraries/messages.inc.php:921
 msgid "The number of pages currently dirty."
 msgstr "\"Kir\" sahifalarning joriy soni."
 
-#: libraries/messages.inc.php:934
+#: libraries/messages.inc.php:922
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Bufer pulidagi tozalash jarayoni (FLUSH) qo‘llanilgan sahifalar soni."
 
-#: libraries/messages.inc.php:935
+#: libraries/messages.inc.php:923
 msgid "The number of free pages."
 msgstr "Bo‘sh sahifalar soni."
 
-#: libraries/messages.inc.php:936
+#: libraries/messages.inc.php:924
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -4375,7 +4314,7 @@ msgstr ""
 "ustidan o‘qish yoki yozish jarayoni bajarilmoqda, yoki ularni boshqa "
 "sabablarga ko‘ra tozalash yoki o‘chirish imkoniyati yo‘q."
 
-#: libraries/messages.inc.php:937
+#: libraries/messages.inc.php:925
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -4387,11 +4326,11 @@ msgstr ""
 "mumkin: \"Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data\"."
 
-#: libraries/messages.inc.php:938
+#: libraries/messages.inc.php:926
 msgid "Total size of buffer pool, in pages."
 msgstr "Bufer pulining umumiy hajmi (sahifalarda)."
 
-#: libraries/messages.inc.php:939
+#: libraries/messages.inc.php:927
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -4400,7 +4339,7 @@ msgstr ""
 "o‘qishlar soni. Ushbu hol so‘rov jadvalni tasodifiy tartibda ko‘rib "
 "chiqayotganda ro‘y beradi."
 
-#: libraries/messages.inc.php:940
+#: libraries/messages.inc.php:928
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -4409,12 +4348,12 @@ msgstr ""
 "soni. Ushbu hol InnoDB jadvalni to‘laligicha ketma-ket ko‘rib chiqayotganda "
 "ro‘y beradi"
 
-#: libraries/messages.inc.php:941
+#: libraries/messages.inc.php:929
 msgid "The number of logical read requests InnoDB has done."
 msgstr ""
 "InnoDB tomonidan amalga oshirilgan o‘qishga bo‘lgan ketma-ket so‘rovlar soni."
 
-#: libraries/messages.inc.php:942
+#: libraries/messages.inc.php:930
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -4422,7 +4361,7 @@ msgstr ""
 "InnoDB bufer pulidan bajar olmagan va sahifalab o‘qishdan foydalangan "
 "o‘qishga bo‘lgan ketma-ket so‘rovlar soni."
 
-#: libraries/messages.inc.php:943
+#: libraries/messages.inc.php:931
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -4436,51 +4375,51 @@ msgstr ""
 "bufer pulining hajmi to‘g‘ri belgilangan bo‘lsa, unda kutishlar soni katta "
 "bo‘lmasligi kerak."
 
-#: libraries/messages.inc.php:944
+#: libraries/messages.inc.php:932
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "InnoDB bufer puliga amalga oshirilgan yozuvlar soni."
 
-#: libraries/messages.inc.php:945
+#: libraries/messages.inc.php:933
 msgid "The number of fsync() operations so far."
 msgstr "Joriy vaqtda amalga oshirilgan \"fsync()\" operatsiyalari soni."
 
-#: libraries/messages.inc.php:946
+#: libraries/messages.inc.php:934
 msgid "The current number of pending fsync() operations."
 msgstr "Tugallanmagan \"fsync()\" operatsiyalari soni."
 
-#: libraries/messages.inc.php:947
+#: libraries/messages.inc.php:935
 msgid "The current number of pending reads."
 msgstr "Tugallanmagan o‘qish operatsiyalari soni."
 
-#: libraries/messages.inc.php:948
+#: libraries/messages.inc.php:936
 msgid "The current number of pending writes."
 msgstr "Tugallanmagan yozish operatsiyalari soni."
 
-#: libraries/messages.inc.php:949
+#: libraries/messages.inc.php:937
 msgid "The amount of data read so far, in bytes."
 msgstr "Joriy vaqtda o‘qilgan ma`lumotlar yig‘indisi (baytlarda)."
 
-#: libraries/messages.inc.php:950
+#: libraries/messages.inc.php:938
 msgid "The total number of data reads."
 msgstr "Umumiy ma`lumotlarni o‘qish operatsiyalari soni."
 
-#: libraries/messages.inc.php:951
+#: libraries/messages.inc.php:939
 msgid "The total number of data writes."
 msgstr "Umumiy ma`lumotlarni yozish operatsiyalari soni."
 
-#: libraries/messages.inc.php:952
+#: libraries/messages.inc.php:940
 msgid "The amount of data written so far, in bytes."
 msgstr "Joriy vaqtda yozilgan ma`lumotlar yig‘indisi (baytlarda)."
 
-#: libraries/messages.inc.php:953
+#: libraries/messages.inc.php:941
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "\"doublewrite\" operatsiyalari uchun yozilgan sahifalar soni."
 
-#: libraries/messages.inc.php:954
+#: libraries/messages.inc.php:942
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Bajarilgan \"doublewrite\" operatsiyalari soni."
 
-#: libraries/messages.inc.php:955
+#: libraries/messages.inc.php:943
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -4488,35 +4427,35 @@ msgstr ""
 "Jurnal buferining hajmi kichik bo‘lganligi sababli, uning tozalanishi "
 "kutayotgan yozuvlar soni"
 
-#: libraries/messages.inc.php:956
+#: libraries/messages.inc.php:944
 msgid "The number of log write requests."
 msgstr "Jurnalga yozishga bo‘lgan so‘rovlarsoni."
 
-#: libraries/messages.inc.php:957
+#: libraries/messages.inc.php:945
 msgid "The number of physical writes to the log file."
 msgstr "Jurnal faylidagi jismoniy yozuvlar soni."
 
-#: libraries/messages.inc.php:958
+#: libraries/messages.inc.php:946
 msgid "The number of fsync() writes done to the log file."
 msgstr "Jurnal fayliga \"fsync()\" yordamida amalga oshirilgan yozuvlar soni."
 
-#: libraries/messages.inc.php:959
+#: libraries/messages.inc.php:947
 msgid "The number of pending log file fsyncs."
 msgstr "\"fsync()\" yordamida amalga oshirilishi kutilayotgan yozuvlar soni."
 
-#: libraries/messages.inc.php:960
+#: libraries/messages.inc.php:948
 msgid "Pending log file writes."
 msgstr "Tugallanmagan jurnalga yozish so‘rovlari soni."
 
-#: libraries/messages.inc.php:961
+#: libraries/messages.inc.php:949
 msgid "The number of bytes written to the log file."
 msgstr "Jurnal fayliga yozilgan ma`lumotlar hajmi (baytlarda)."
 
-#: libraries/messages.inc.php:962
+#: libraries/messages.inc.php:950
 msgid "The number of pages created."
 msgstr "Tuzilgan sahifalar soni."
 
-#: libraries/messages.inc.php:963
+#: libraries/messages.inc.php:951
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -4525,51 +4464,51 @@ msgstr ""
 "Ko‘pgina qiymatlar sahifalarda keltiriladi, lekin sahifa hajmi bilgan holda, "
 "ularni baytlarga o‘tkazish mumkin."
 
-#: libraries/messages.inc.php:964
+#: libraries/messages.inc.php:952
 msgid "The number of pages read."
 msgstr "O‘qilgan sahifalar soni."
 
-#: libraries/messages.inc.php:965
+#: libraries/messages.inc.php:953
 msgid "The number of pages written."
 msgstr "Yozilgan sahifalar soni."
 
-#: libraries/messages.inc.php:966
+#: libraries/messages.inc.php:954
 msgid "The number of row locks currently being waited for."
 msgstr "Hozirda kutilayotgan qator blokirovkalari soni."
 
-#: libraries/messages.inc.php:967
+#: libraries/messages.inc.php:955
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Qator blokirovkasini kutishning o‘rtacha vaqti (millisekundlarda)."
 
-#: libraries/messages.inc.php:968
+#: libraries/messages.inc.php:956
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Qator blokirovkasini kutishning umumiy vaqti (millisekundlarda)."
 
-#: libraries/messages.inc.php:969
+#: libraries/messages.inc.php:957
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Qator blokirovkasini kutishning maksimal vaqti (millisekundlarda)."
 
-#: libraries/messages.inc.php:970
+#: libraries/messages.inc.php:958
 msgid "The number of times a row lock had to be waited for."
 msgstr "Umumiy kutilayotgan qator blokirovkalari soni."
 
-#: libraries/messages.inc.php:971
+#: libraries/messages.inc.php:959
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "InnoDB jadvalidan o‘chirilgan qatorlar soni."
 
-#: libraries/messages.inc.php:972
+#: libraries/messages.inc.php:960
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "InnoDB jadvaliga yozilgan qatorlar soni."
 
-#: libraries/messages.inc.php:973
+#: libraries/messages.inc.php:961
 msgid "The number of rows read from InnoDB tables."
 msgstr "InnoDB jadvallaridan o‘qilgan qatorlar soni."
 
-#: libraries/messages.inc.php:974
+#: libraries/messages.inc.php:962
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB jadvallarida yangilangan qatorlar soni."
 
-#: libraries/messages.inc.php:975
+#: libraries/messages.inc.php:963
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -4577,7 +4516,7 @@ msgstr ""
 "Indeks keshidagi o‘zgartirilgan, lekin hali diskka yozilmagan bloklar soni. "
 "Ushbu parametr, shuningdek, \"Not_flushed_key_blocks\" nomi bilan ham ma`lum."
 
-#: libraries/messages.inc.php:976
+#: libraries/messages.inc.php:964
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -4585,7 +4524,7 @@ msgstr ""
 "Indeks keshidagi ishlatilmayotgan bloklar soni. Ushbu parametr indeks keshi "
 "ishlatilish darajasini belgilaydi."
 
-#: libraries/messages.inc.php:977
+#: libraries/messages.inc.php:965
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -4594,11 +4533,11 @@ msgstr ""
 "Indeks keshidagi ishlatilayotgan bloklar soni. Ushbu qiymat bir vaqtning "
 "o‘zida ishlatilishi mumkin bo‘lgan bloklar sonini bildiradi."
 
-#: libraries/messages.inc.php:978
+#: libraries/messages.inc.php:966
 msgid "The number of requests to read a key block from the cache."
 msgstr "Indeks keshidagi bloklarni o‘qishga bo‘lgan so‘rovlar soni."
 
-#: libraries/messages.inc.php:979
+#: libraries/messages.inc.php:967
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -4610,15 +4549,15 @@ msgstr ""
 "murojaatlar koeffitsiyenti quyidagicha hisoblandi: Key_reads/"
 "Key_read_requests."
 
-#: libraries/messages.inc.php:980
+#: libraries/messages.inc.php:968
 msgid "The number of requests to write a key block to the cache."
 msgstr "Blokni indeks keshiga yozishga bo‘lgan so‘rovlar soni."
 
-#: libraries/messages.inc.php:981
+#: libraries/messages.inc.php:969
 msgid "The number of physical writes of a key block to disk."
 msgstr "Diskdan indeks bloklarini jismoniy yozish operatsiyalari soni."
 
-#: libraries/messages.inc.php:982
+#: libraries/messages.inc.php:970
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -4629,13 +4568,13 @@ msgstr ""
 "effektivligini taqqoslashda foydali hisoblanadi. Asl nol qiymat hali so‘rov "
 "kompilyatsiya jarayoni bajarilmaganligini bildiradi."
 
-#: libraries/messages.inc.php:983
+#: libraries/messages.inc.php:971
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Kolichestvo strok, ojidayushix vstavki v zaprosax \"INSERT DELAYED\" "
 "so‘rovlarida qo‘yilishini kutayotgan qatorlar soni."
 
-#: libraries/messages.inc.php:984
+#: libraries/messages.inc.php:972
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -4643,39 +4582,39 @@ msgstr ""
 "Ochilayotgan jadvallarning umumiy soni. Agar o‘zgaruvchining qiymati katta "
 "bo‘lsa, jadval keshi (table_cache) hajmini oshirish tavsiya etiladi."
 
-#: libraries/messages.inc.php:985
+#: libraries/messages.inc.php:973
 msgid "The number of files that are open."
 msgstr "Ochiq fayllar soni."
 
-#: libraries/messages.inc.php:986
+#: libraries/messages.inc.php:974
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Ochiq oqimlar soni (jurnal fayllarida ko‘llaniladi). <b>Oqim</b> deb \"fopen"
 "()\" funksiyasi yordamida ochilgan faylga aytiladi."
 
-#: libraries/messages.inc.php:987
+#: libraries/messages.inc.php:975
 msgid "The number of tables that are open."
 msgstr "Ochiq jadvallar soni."
 
-#: libraries/messages.inc.php:988
+#: libraries/messages.inc.php:976
 msgid "The number of free memory blocks in query cache."
 msgstr "So‘rovlar keshidagi bo‘sh xotira bloklari soni."
 
-#: libraries/messages.inc.php:989
+#: libraries/messages.inc.php:977
 msgid "The amount of free memory for query cache."
 msgstr "So‘rovlar keshi uchun bo‘sh xotira hajmi"
 
-#: libraries/messages.inc.php:990
+#: libraries/messages.inc.php:978
 msgid "The number of cache hits."
 msgstr ""
 "So‘rovlar keshiga \"tushishlar\" soni, ya`ni keshda turgan so‘rovlar "
 "tomonidan qoniqtirilgan so‘rovlar soni."
 
-#: libraries/messages.inc.php:991
+#: libraries/messages.inc.php:979
 msgid "The number of queries added to the cache."
 msgstr "So‘rovlar keshiga qo‘shilgan so‘rovlar soni."
 
-#: libraries/messages.inc.php:992
+#: libraries/messages.inc.php:980
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -4687,7 +4626,7 @@ msgstr ""
 "beradi. So‘rovlar keshi keshdan so‘rovlarni o‘chirishda \"LRU\" (Least "
 "Recently Used - eng oldingi ishlatilgan) strategiyasidan foydalanadi"
 
-#: libraries/messages.inc.php:993
+#: libraries/messages.inc.php:981
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -4695,24 +4634,24 @@ msgstr ""
 "Keshlab bo‘lmaydigan yoki keshlash \"SQL_NO_CACHE\" kalit so‘zi yordamida "
 "so‘ndirilgan so‘rovlar soni."
 
-#: libraries/messages.inc.php:994
+#: libraries/messages.inc.php:982
 msgid "The number of queries registered in the cache."
 msgstr "Keshda registratsiya qilingan so‘rovlar soni."
 
-#: libraries/messages.inc.php:995
+#: libraries/messages.inc.php:983
 msgid "The total number of blocks in the query cache."
 msgstr "So‘rovlar keshiga ajratilgan xotira bloklarning umumiy soni."
 
-#: libraries/messages.inc.php:996
+#: libraries/messages.inc.php:984
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Bekor qilish"
 
-#: libraries/messages.inc.php:997
+#: libraries/messages.inc.php:985
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Barqaror replikatsiyalar soni (hali amalga oshirilmagan)."
 
-#: libraries/messages.inc.php:998
+#: libraries/messages.inc.php:986
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -4720,13 +4659,13 @@ msgstr ""
 "Indeks ishlatmasdan bajarilgan birlashma so‘rovlar soni. Agar o‘zgaruvchi "
 "qiymati 0 bo‘lmasa, jadval indekslarini tekshirish tavsiya etiladi."
 
-#: libraries/messages.inc.php:999
+#: libraries/messages.inc.php:987
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Bog‘lanish mavjud bo‘lgan jadvalda diapazon bo‘yicha qidiruv ishlatgan holda "
 "bajarilgan birlashma so‘rovlar soni."
 
-#: libraries/messages.inc.php:1000
+#: libraries/messages.inc.php:988
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -4736,7 +4675,7 @@ msgstr ""
 "o‘zgaruvchi qiymati 0 bo‘lmasa, jadval indekslarini tekshirish tavsiya "
 "etiladi."
 
-#: libraries/messages.inc.php:1001
+#: libraries/messages.inc.php:989
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -4745,17 +4684,17 @@ msgstr ""
 "birlashma so‘rovlar soni. Odatda, ushbu o‘zgaruvchining qiymati, hatto juda "
 "katta bo‘lsa ham, unchalik muhim emas."
 
-#: libraries/messages.inc.php:1002
+#: libraries/messages.inc.php:990
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 "Birinchi jadvalga nisbatan to‘laligicha qidiruv ishlatgan holda bajarilgan "
 "birlashma so‘rovlar soni."
 
-#: libraries/messages.inc.php:1003
+#: libraries/messages.inc.php:991
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "Tobe oqim tomonidan joriy vaqtda ochilgan vaqtinchalik jadvallar soni."
 
-#: libraries/messages.inc.php:1004
+#: libraries/messages.inc.php:992
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -4763,13 +4702,13 @@ msgstr ""
 "Ishga tushirilgandan buyon replikatsiyaning tobe oqimi tomonidan bajarilgan "
 "qayta tranzaksiyalarning umumiy soni."
 
-#: libraries/messages.inc.php:1005
+#: libraries/messages.inc.php:993
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Agar ushbu server bosh serverga ulangan holda tobe server sifatida "
 "ishlayotgan bo‘lsa, ushbu o‘zgaruvchiga \"ON\" qiymati belgilanadi."
 
-#: libraries/messages.inc.php:1006
+#: libraries/messages.inc.php:994
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -4777,12 +4716,12 @@ msgstr ""
 "Tuzilishi uchun slow_launch_time sekunddan ko‘proq vaqt talab etilgan "
 "oqimlar soni."
 
-#: libraries/messages.inc.php:1007
+#: libraries/messages.inc.php:995
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "long_query_time sekunddan ko‘proq vaqt bajarilgan so‘rovlar soni."
 
-#: libraries/messages.inc.php:1008
+#: libraries/messages.inc.php:996
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -4792,26 +4731,26 @@ msgstr ""
 "o‘zgaruvchi qiymati katta bo‘lsa, \"sort_buffer_size\" o‘zgaruvchisining "
 "qiymatini oshirish zarur."
 
-#: libraries/messages.inc.php:1009
+#: libraries/messages.inc.php:997
 msgid "The number of sorts that were done with ranges."
 msgstr "Diapazon yordamida bajarilgan sortirovka operatsiyalari soni."
 
-#: libraries/messages.inc.php:1010
+#: libraries/messages.inc.php:998
 msgid "The number of sorted rows."
 msgstr "Sortirovka qilingan qatorlar soni"
 
-#: libraries/messages.inc.php:1011
+#: libraries/messages.inc.php:999
 msgid "The number of sorts that were done by scanning the table."
 msgstr ""
 "Jadvalni to‘laligicha ko‘rib chiqish yordamida bajarilgan sortirovka "
 "operatsiyalari soni."
 
-#: libraries/messages.inc.php:1012
+#: libraries/messages.inc.php:1000
 msgid "The number of times that a table lock was acquired immediately."
 msgstr ""
 "Darhol qoniqtirilgan jadvalni blokirovka qilishga bo‘lgan so‘rovlar soni."
 
-#: libraries/messages.inc.php:1013
+#: libraries/messages.inc.php:1001
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -4824,7 +4763,7 @@ msgstr ""
 "so‘ngra esa jadval(lar)ni qismlarga bo‘lish yoki replikatsiya ishlatish "
 "kerak."
 
-#: libraries/messages.inc.php:1014
+#: libraries/messages.inc.php:1002
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -4835,11 +4774,11 @@ msgstr ""
 "Connections. Agar ushbu qiymat qizil rang bilan belgilangan bo‘lsa, unda "
 "\"thread_cache_size\" o‘zgaruvchisining qiymatini oshirish zarur."
 
-#: libraries/messages.inc.php:1015
+#: libraries/messages.inc.php:1003
 msgid "The number of currently open connections."
 msgstr "Ochiq joriy ulanishlar soni."
 
-#: libraries/messages.inc.php:1016
+#: libraries/messages.inc.php:1004
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -4851,40 +4790,40 @@ msgstr ""
 "o‘zgaruvchisining qiymatini oshirish mumkin (lekin u unumdorlikni unchalik "
 "ham oshirmaydi)."
 
-#: libraries/messages.inc.php:1017
+#: libraries/messages.inc.php:1005
 msgid "The number of threads that are not sleeping."
 msgstr "Faol holatda bo‘lgan jarayonlar soni."
 
-#: libraries/messages.inc.php:1018
+#: libraries/messages.inc.php:1006
 msgid "Show dimension of tables"
 msgstr "Jadval o‘lchamlarini ko‘rsatish"
 
-#: libraries/messages.inc.php:1019
+#: libraries/messages.inc.php:1007
 msgid "Show tables"
 msgstr "Jadvallarni ko‘rsatish"
 
-#: libraries/messages.inc.php:1020
+#: libraries/messages.inc.php:1008
 msgid " Show this query here again "
 msgstr "Ushbu so‘rovni qayta ko‘rsatish"
 
-#: libraries/messages.inc.php:1021
+#: libraries/messages.inc.php:1009
 msgid "Simplified Chinese"
 msgstr "Soddalashtirilgan xitoycha"
 
-#: libraries/messages.inc.php:1022
+#: libraries/messages.inc.php:1010
 msgid "(singly)"
 msgstr "(ustun)"
 
-#: libraries/messages.inc.php:1023
+#: libraries/messages.inc.php:1011
 msgid "Size"
 msgstr "Hajmi"
 
-#: libraries/messages.inc.php:1024 setup/lib/messages.inc.php:161
+#: libraries/messages.inc.php:1012 setup/lib/messages.inc.php:161
 msgid "Number of records (queries) to skip from start"
 msgstr ""
 "Fayl boshidagi e`tibor berish kerak bo‘lmagan qatorlar (so‘rovlar) soni"
 
-#: libraries/messages.inc.php:1025
+#: libraries/messages.inc.php:1013
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -4893,67 +4832,67 @@ msgstr ""
 "ishonch hosil qiling. Agar shunday bo‘lmasa, quyidagi qatorlarni [mysqld] "
 "bo‘limiga qo‘shing:"
 
-#: libraries/messages.inc.php:1026
+#: libraries/messages.inc.php:1014
 msgid "Slovak"
 msgstr "Slovakcha"
 
-#: libraries/messages.inc.php:1027
+#: libraries/messages.inc.php:1015
 msgid "Slovenian"
 msgstr "Slovencha"
 
-#: libraries/messages.inc.php:1028
+#: libraries/messages.inc.php:1016
 msgid "Small/Big All"
 msgstr "Barcha jadvallar ko‘rsatilishini Taxlash/Tiklash"
 
-#: libraries/messages.inc.php:1029
+#: libraries/messages.inc.php:1017
 msgid "Snap to grid"
 msgstr "To‘rga bog‘lab qo‘yish"
 
-#: libraries/messages.inc.php:1030
+#: libraries/messages.inc.php:1018
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(yoki lokal MySQL serverning soketi noto‘g‘ri sozlangan)"
 
-#: libraries/messages.inc.php:1031
+#: libraries/messages.inc.php:1019
 msgid "Socket"
 msgstr "Sokеt"
 
-#: libraries/messages.inc.php:1032
+#: libraries/messages.inc.php:1020
 msgid "Sort by key"
 msgstr "Indeks bo‘yicha sortirovka qilish"
 
-#: libraries/messages.inc.php:1033
+#: libraries/messages.inc.php:1021
 msgid "Sorting"
 msgstr "Sortirovka"
 
-#: libraries/messages.inc.php:1034
+#: libraries/messages.inc.php:1022
 msgid "Sort"
 msgstr "Sortirovka qilish"
 
-#: libraries/messages.inc.php:1035
+#: libraries/messages.inc.php:1023
 msgid "Space usage"
 msgstr "Foydalanilayotgan joy"
 
-#: libraries/messages.inc.php:1036
+#: libraries/messages.inc.php:1024
 msgid "Spanish"
 msgstr "Ispancha"
 
-#: libraries/messages.inc.php:1037
+#: libraries/messages.inc.php:1025
 msgid "Words are separated by a space character (\" \")."
 msgstr "So‘zlar bo‘sh joy (\" \") yordamida bo‘lingan."
 
-#: libraries/messages.inc.php:1038
+#: libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr "SQL bilan moslik rejimi"
 
-#: libraries/messages.inc.php:1039
+#: libraries/messages.inc.php:1027
 msgid "Export type"
 msgstr "Eskport turi"
 
-#: libraries/messages.inc.php:1040
+#: libraries/messages.inc.php:1028
 msgid "Export time in UTC"
 msgstr "Vaqtni UTC shaklda eksport qilish"
 
-#: libraries/messages.inc.php:1041
+#: libraries/messages.inc.php:1029
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -4975,7 +4914,7 @@ msgstr ""
 "aniqlang va quyida CUT seksiyasidagi ma`lumotlar bilan qo‘shib, xato "
 "tavsiflarini ishlab chiqaruvchilarga yuboring:"
 
-#: libraries/messages.inc.php:1042
+#: libraries/messages.inc.php:1030
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
@@ -4984,55 +4923,55 @@ msgstr ""
 "server xatolikni ko‘rsatadi va o‘sha xabar muammo yechimini topishga yordam "
 "beradi."
 
-#: libraries/messages.inc.php:1043
+#: libraries/messages.inc.php:1031
 msgid "SQL query"
 msgstr "SQL so‘rovi"
 
-#: libraries/messages.inc.php:1044
+#: libraries/messages.inc.php:1032
 msgid "SQL result"
 msgstr "SQL so‘rovi natijasi"
 
-#: libraries/messages.inc.php:1045
+#: libraries/messages.inc.php:1033
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/messages.inc.php:1046
+#: libraries/messages.inc.php:1034
 msgid "Invalid Identifer"
 msgstr "Noto‘g‘ri identifikator"
 
-#: libraries/messages.inc.php:1047
+#: libraries/messages.inc.php:1035
 msgid "Unclosed quote"
 msgstr "Yopilmagan qo‘shtirnoq"
 
-#: libraries/messages.inc.php:1048
+#: libraries/messages.inc.php:1036
 msgid "Unknown Punctuation String"
 msgstr "Noma`lum punktuatsiya"
 
-#: libraries/messages.inc.php:1049
+#: libraries/messages.inc.php:1037
 msgid "Stand-in structure for view"
 msgstr "Namoyish etish uchun tuzilma"
 
-#: libraries/messages.inc.php:1050
+#: libraries/messages.inc.php:1038
 msgid "Start"
 msgstr "Boshlash"
 
-#: libraries/messages.inc.php:1051
+#: libraries/messages.inc.php:1039
 msgid "Last check"
 msgstr "Oxirgi tekshiruv"
 
-#: libraries/messages.inc.php:1052
+#: libraries/messages.inc.php:1040
 msgid "Creation"
 msgstr "Tuzish"
 
-#: libraries/messages.inc.php:1053
+#: libraries/messages.inc.php:1041
 msgid "Statements"
 msgstr "Tavsif"
 
-#: libraries/messages.inc.php:1054
+#: libraries/messages.inc.php:1042
 msgid "static"
 msgstr "statik"
 
-#: libraries/messages.inc.php:1055
+#: libraries/messages.inc.php:1043
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -5041,80 +4980,76 @@ msgstr ""
 "shuning uchun, MySQL serveri bergan statistik ma`lumotlar noto‘g‘ri bo‘lishi "
 "mumkin."
 
-#: libraries/messages.inc.php:1056
+#: libraries/messages.inc.php:1044
 msgid "Last update"
 msgstr "Oxirgi yangilanish"
 
-#: libraries/messages.inc.php:1057
+#: libraries/messages.inc.php:1045
 msgid "Status"
 msgstr "Holat"
 
-#: libraries/messages.inc.php:1058
+#: libraries/messages.inc.php:1046
 msgid "Stop"
 msgstr "To‘xtatish"
 
-#: libraries/messages.inc.php:1059
+#: libraries/messages.inc.php:1047
 msgid "Storage Engines"
 msgstr "Jadval turlari"
 
-#: libraries/messages.inc.php:1060
+#: libraries/messages.inc.php:1048
 msgid "Storage Engine"
 msgstr "Jadval turi"
 
-#: libraries/messages.inc.php:1061
+#: libraries/messages.inc.php:1049
 msgctxt "$strStrucCSV"
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/messages.inc.php:1062
+#: libraries/messages.inc.php:1050
 msgid "Structure and data"
 msgstr "Tuzilishi va ma`lumotlari"
 
-#: libraries/messages.inc.php:1063
+#: libraries/messages.inc.php:1051
 msgid "CSV for MS Excel"
 msgstr "MS Excel uchun CSV"
 
-#: libraries/messages.inc.php:1064
-msgid "Native MS Excel format"
-msgstr "MS Excel formati"
-
-#: libraries/messages.inc.php:1065
+#: libraries/messages.inc.php:1052
 msgid "Structure only"
 msgstr "Faqat tuzilishi"
 
-#: libraries/messages.inc.php:1066
+#: libraries/messages.inc.php:1053
 msgid "Propose table structure"
 msgstr "Jadval tuzilishi tahlili"
 
-#: libraries/messages.inc.php:1067
+#: libraries/messages.inc.php:1054
 msgid "Structure Difference"
 msgstr "Tuzilishdagi farq"
 
-#: libraries/messages.inc.php:1068
+#: libraries/messages.inc.php:1055
 msgid "Structure for view"
 msgstr "Namoyish etish uchun tuzilma"
 
-#: libraries/messages.inc.php:1069
+#: libraries/messages.inc.php:1056
 msgid "structure"
 msgstr "tuzilish"
 
-#: libraries/messages.inc.php:1070
+#: libraries/messages.inc.php:1057
 msgid "Structure"
 msgstr "Tuzilishi"
 
-#: libraries/messages.inc.php:1071
+#: libraries/messages.inc.php:1058
 msgid "Structure Synchronization"
 msgstr "Tuzilishni sinxronizatsiya qilish"
 
-#: libraries/messages.inc.php:1072
+#: libraries/messages.inc.php:1059
 msgid "Submit"
 msgstr "Bajarish"
 
-#: libraries/messages.inc.php:1073
+#: libraries/messages.inc.php:1060
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL so‘rovi muvaffaqiyatli bajarildi"
 
-#: libraries/messages.inc.php:1074
+#: libraries/messages.inc.php:1061
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5123,40 +5058,40 @@ msgstr ""
 "Server \"Suhosin\" himoya tizimadan foydalanmoqda. Yuzaga kelgan muammolar "
 "yechimi uchun \"%s\"dokumentatsiya\"%s\" ga qarang."
 
-#: libraries/messages.inc.php:1075
+#: libraries/messages.inc.php:1062
 msgid "Sum"
 msgstr "Jami"
 
-#: libraries/messages.inc.php:1076
+#: libraries/messages.inc.php:1063
 msgid "Swedish"
 msgstr "Shvedcha"
 
-#: libraries/messages.inc.php:1077
+#: libraries/messages.inc.php:1064
 msgid "Authenticating..."
 msgstr "Autentifikatsiya..."
 
-#: libraries/messages.inc.php:1078
+#: libraries/messages.inc.php:1065
 msgid "Hardware authentication failed"
 msgstr "Uskunaviy autentifikatsiya muvaffaqiyatsiz yakunlandi"
 
-#: libraries/messages.inc.php:1079
+#: libraries/messages.inc.php:1066
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "\"%s\" faylida kalit identifikatori mavjud emas"
 
-#: libraries/messages.inc.php:1080
+#: libraries/messages.inc.php:1067
 msgid "No valid authentication key plugged"
 msgstr "To‘g‘ri autentifikatsiya kaliti ulanmagan"
 
-#: libraries/messages.inc.php:1081
+#: libraries/messages.inc.php:1068
 msgid "Switch to copied database"
 msgstr "Nusxa olingan ma`lumotlar bazasiga o‘tish"
 
-#: libraries/messages.inc.php:1082
+#: libraries/messages.inc.php:1069
 msgid "Switch to copied table"
 msgstr "Nusxa olingan jadvalga o‘tish"
 
-#: libraries/messages.inc.php:1083
+#: libraries/messages.inc.php:1070
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -5164,191 +5099,187 @@ msgstr ""
 "Nishon baza manba baza bilan to‘liq sinxronizatsiya qilinadi. Manba baza "
 "o‘zgarishsiz qoladi."
 
-#: libraries/messages.inc.php:1084
+#: libraries/messages.inc.php:1071
 msgid "Synchronize Databases"
 msgstr "Bazalarni sinxronizatsiya qilish"
 
-#: libraries/messages.inc.php:1085
+#: libraries/messages.inc.php:1072
 msgid "Synchronize"
 msgstr "Sinxronizatsiya qilish"
 
-#: libraries/messages.inc.php:1087
+#: libraries/messages.inc.php:1074
 msgid "Add column(s)"
 msgstr "Ustun(lar) qo‘shish"
 
-#: libraries/messages.inc.php:1088
+#: libraries/messages.inc.php:1075
 #, php-format
 msgid "Table %s already exists!"
 msgstr "\"%s\" nomli jadval mavjud!"
 
-#: libraries/messages.inc.php:1089
+#: libraries/messages.inc.php:1076
 msgid "Alter column(s)"
 msgstr "Ustun(lar)ni o‘zgartirish"
 
-#: libraries/messages.inc.php:1090
+#: libraries/messages.inc.php:1077
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "%1$s jadvali muvaffaqiyatli o‘zgartirildi"
 
-#: libraries/messages.inc.php:1091
-msgid "Alter index(s)"
-msgstr "Indеk(lar)ni o‘zgartirish"
-
-#: libraries/messages.inc.php:1092
+#: libraries/messages.inc.php:1078
 msgid "Apply index(s)"
 msgstr "Indеks(lar)ni saqlash"
 
-#: libraries/messages.inc.php:1093
+#: libraries/messages.inc.php:1079
 msgid "Table comments"
 msgstr "Jadval izohi"
 
-#: libraries/messages.inc.php:1094
+#: libraries/messages.inc.php:1080
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr "Nishon jadvaldagi barcha oldingi qatorlarni o‘chirmoqchimisiz?"
 
-#: libraries/messages.inc.php:1095
+#: libraries/messages.inc.php:1081
 msgid "The table name is empty!"
 msgstr "Jadval nomi ko‘rsatilmagan!"
 
-#: libraries/messages.inc.php:1096
+#: libraries/messages.inc.php:1082
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "%1$s jadvali tuzildi."
 
-#: libraries/messages.inc.php:1097
+#: libraries/messages.inc.php:1083
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "\"%s\" jadvali o‘chirildi"
 
-#: libraries/messages.inc.php:1098
+#: libraries/messages.inc.php:1084
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "\"%s\" jadvali tozalandi"
 
-#: libraries/messages.inc.php:1099
+#: libraries/messages.inc.php:1085
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "\"%s\" jadvali keshi yangilandi"
 
-#: libraries/messages.inc.php:1100
+#: libraries/messages.inc.php:1086
 msgid "Insert row(s)"
 msgstr "Qator(lar) qo‘shish"
 
-#: libraries/messages.inc.php:1101
+#: libraries/messages.inc.php:1087
 msgid "Table seems to be empty!"
 msgstr "Jadval - bo‘sh!"
 
-#: libraries/messages.inc.php:1102
+#: libraries/messages.inc.php:1088
 msgid "Table maintenance"
 msgstr "Jadvalga xizmat ko‘rsatish"
 
-#: libraries/messages.inc.php:1103
+#: libraries/messages.inc.php:1089
 msgid "Table name"
 msgstr "Jadval nomi"
 
-#: libraries/messages.inc.php:1104
+#: libraries/messages.inc.php:1090
 msgid "Table of contents"
 msgstr "Mundarija"
 
-#: libraries/messages.inc.php:1105
+#: libraries/messages.inc.php:1091
 msgid "Table options"
 msgstr "Jadval parametrlari"
 
-#: libraries/messages.inc.php:1106
+#: libraries/messages.inc.php:1092
 msgid "Remove column(s)"
 msgstr "Ustun(lar)ni olib tashlash"
 
-#: libraries/messages.inc.php:1107
+#: libraries/messages.inc.php:1093
 msgid "Remove index(s)"
 msgstr "Indеks(lar)ni olib tashlash"
 
-#: libraries/messages.inc.php:1108
+#: libraries/messages.inc.php:1094
 #, php-format
 msgid "%s table(s)"
 msgstr "Jadvallar soni: \"%s\""
 
-#: libraries/messages.inc.php:1109
+#: libraries/messages.inc.php:1095
 msgid "Table structure for table"
 msgstr "Jadval tuzilishi"
 
-#: libraries/messages.inc.php:1110
+#: libraries/messages.inc.php:1096
 msgid "Table"
 msgstr "Jadval "
 
-#: libraries/messages.inc.php:1111
+#: libraries/messages.inc.php:1097
 msgid "Update row(s)"
 msgstr "Qator(lar)ni yangilash"
 
-#: libraries/messages.inc.php:1112
+#: libraries/messages.inc.php:1098
 msgid "take it"
 msgstr "Tadbiq qilish"
 
-#: libraries/messages.inc.php:1113
+#: libraries/messages.inc.php:1099
 msgid "Target database has been synchronized with source database"
 msgstr "Nishon baza manba baza bilan sinxronizatsiya qilindi"
 
-#: libraries/messages.inc.php:1114
+#: libraries/messages.inc.php:1100
 msgid "Table-specific privileges"
 msgstr "Jadval darajasijagi privilegiyalar"
 
-#: libraries/messages.inc.php:1115
+#: libraries/messages.inc.php:1101
 msgid "Temporary data"
 msgstr "Vaqtinchalik ma`lumotlar"
 
-#: libraries/messages.inc.php:1116
+#: libraries/messages.inc.php:1102
 msgid " Because of its length,<br /> this field might not be editable "
 msgstr "Ma`lumotlar ko‘pligi sabali<br />o‘zgartirish qiyishlashishi mumkin"
 
-#: libraries/messages.inc.php:1117
+#: libraries/messages.inc.php:1103
 msgid "Texy! text"
 msgstr "Texy! matn"
 
-#: libraries/messages.inc.php:1118
+#: libraries/messages.inc.php:1104
 msgid "Thai"
 msgstr "Taycha"
 
-#: libraries/messages.inc.php:1119
+#: libraries/messages.inc.php:1105
 #, php-format
 msgid "Default theme %s not found!"
 msgstr " \"%s\" asl mavzusi topilmadi!"
 
-#: libraries/messages.inc.php:1120
+#: libraries/messages.inc.php:1106
 msgid "No preview available."
 msgstr "Oldindan ko‘rish mumkin emas."
 
-#: libraries/messages.inc.php:1121
+#: libraries/messages.inc.php:1107
 #, php-format
 msgid "Theme %s not found!"
 msgstr " \"%s\" mavzusi topilmadi!"
 
-#: libraries/messages.inc.php:1122
+#: libraries/messages.inc.php:1108
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr " \"%s\" mavzusi rasmlariga to‘g‘ri yo‘l topilmadi!"
 
-#: libraries/messages.inc.php:1123
+#: libraries/messages.inc.php:1109
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr " \"%s\" mavzusi fayllariga yo‘l topilmadi!"
 
-#: libraries/messages.inc.php:1124
+#: libraries/messages.inc.php:1110
 msgid "Theme / Style"
 msgstr "Mavzu / Uslub"
 
-#: libraries/messages.inc.php:1125
+#: libraries/messages.inc.php:1111
 msgid "This Host"
 msgstr "Ushbu xost"
 
-#: libraries/messages.inc.php:1126
+#: libraries/messages.inc.php:1112
 msgid "Threads"
 msgstr "Oqimlar"
 
-#: libraries/messages.inc.php:1127
+#: libraries/messages.inc.php:1113
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr " \"%s\" jarayoni muvaffaqiyatli yakunlandi."
 
-#: libraries/messages.inc.php:1128
+#: libraries/messages.inc.php:1114
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -5356,7 +5287,7 @@ msgstr ""
 "Chegaralangan vaqt yaqinlashganligi sababli, import jarayoni uzildi. Qayta "
 "ishga tushirilganda, import jarayoni %d pozitsiyadandavom etadi."
 
-#: libraries/messages.inc.php:1129
+#: libraries/messages.inc.php:1115
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5365,7 +5296,7 @@ msgstr ""
 "Odatda, bu hol, php-ssenariylar uchun ajratilgan vaqt oshirilmaguncha "
 "phpMyAdmin dasturi import jarayonini yakunla olmasligini bildiradi."
 
-#: libraries/messages.inc.php:1130
+#: libraries/messages.inc.php:1116
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -5374,235 +5305,231 @@ msgstr ""
 "unda o‘sha faylni tanlagan holda uni qayta ishga tushiring va jarayon "
 "uzilgan joydan boshlab davom etadi."
 
-#: libraries/messages.inc.php:1131
+#: libraries/messages.inc.php:1117
 msgid "Time"
 msgstr "Vaqt"
 
-#: libraries/messages.inc.php:1132
+#: libraries/messages.inc.php:1118
 msgid "to/from page"
 msgstr "Sahifa"
 
-#: libraries/messages.inc.php:1133
+#: libraries/messages.inc.php:1119
 msgid "Toggle scratchboard"
 msgstr "Ko‘rsatish"
 
-#: libraries/messages.inc.php:1134
+#: libraries/messages.inc.php:1120
 msgid "Toggle small/big"
 msgstr "Teskari ko‘rsatish"
 
-#: libraries/messages.inc.php:1135
+#: libraries/messages.inc.php:1121
 msgid "To select relation, click :"
 msgstr ""
 "Aloqani tanlash uchun rasmda ko‘rsatilganikabi ulanish nuqtasiga bosing:"
 
-#: libraries/messages.inc.php:1136
+#: libraries/messages.inc.php:1122
 msgid "total"
 msgstr "jami"
 
-#: libraries/messages.inc.php:1137
+#: libraries/messages.inc.php:1123
 msgid "Total"
 msgstr "Jami"
 
-#: libraries/messages.inc.php:1138
+#: libraries/messages.inc.php:1124
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr "\"%s.%s\" jadvalini kuzatish faollashtirildi."
 
-#: libraries/messages.inc.php:1139
+#: libraries/messages.inc.php:1125
 msgid "Activate now"
 msgstr "Hozir faollashtirish"
 
-#: libraries/messages.inc.php:1140
+#: libraries/messages.inc.php:1126
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr "\"%s.%s\" jadvalini kuzatishni faollashtirish"
 
-#: libraries/messages.inc.php:1141
+#: libraries/messages.inc.php:1127
 msgid "Comment out these two lines if you do not need them."
 msgstr "Agar kеrak bo‘lmasa, ushbu ikki qator oldiga sharh bеlgisini qo‘ying."
 
-#: libraries/messages.inc.php:1142
+#: libraries/messages.inc.php:1128
 msgid "Create version"
 msgstr "Vеrsiyasini tuzish"
 
-#: libraries/messages.inc.php:1143
+#: libraries/messages.inc.php:1129
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr "\"%s.%s\" jadvalining %s raqamli vеrsiyasini tuzish"
 
-#: libraries/messages.inc.php:1144
+#: libraries/messages.inc.php:1130
 msgid "Database Log"
 msgstr "Baza log faylini"
 
-#: libraries/messages.inc.php:1145
+#: libraries/messages.inc.php:1131
 msgid "Data definition statement"
 msgstr "Ma’lumotlar ta’rifi opеratorini"
 
-#: libraries/messages.inc.php:1146
+#: libraries/messages.inc.php:1132
 msgid "Data manipulation statement"
 msgstr "Ma’lumotlarni boshqarish opеratorini"
 
-#: libraries/messages.inc.php:1147
+#: libraries/messages.inc.php:1133
 msgid "Date"
 msgstr "Sanani"
 
-#: libraries/messages.inc.php:1148
+#: libraries/messages.inc.php:1134
 msgid "Deactivate now"
 msgstr "Hozir faolsizlantirish"
 
-#: libraries/messages.inc.php:1149
+#: libraries/messages.inc.php:1135
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "\"%s.%s\" jadvalini kuzatishni faolsizlantirish"
 
-#: libraries/messages.inc.php:1150
+#: libraries/messages.inc.php:1136
 #, php-format
 msgid "Export as %s"
 msgstr "\"%s\" dеb eksport qilish"
 
-#: libraries/messages.inc.php:1151
+#: libraries/messages.inc.php:1137
 msgid "Tracking is active."
 msgstr "Kuzatish faol."
 
-#: libraries/messages.inc.php:1152
+#: libraries/messages.inc.php:1138
 msgid "Tracking is not active."
 msgstr "Kuzatish faol emas."
 
-#: libraries/messages.inc.php:1153
-msgid "Tracking Mechanism"
-msgstr "Kuzatish mеxanizmi"
-
-#: libraries/messages.inc.php:1154
+#: libraries/messages.inc.php:1139
 msgid "Close"
 msgstr "Yopish"
 
-#: libraries/messages.inc.php:1155
+#: libraries/messages.inc.php:1140
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "\"%s\" jadvali uchun kuzatuv hisoboti"
 
-#: libraries/messages.inc.php:1156
+#: libraries/messages.inc.php:1141
 msgid "Tracking report"
 msgstr "Kuzatish hisoboti"
 
-#: libraries/messages.inc.php:1157
+#: libraries/messages.inc.php:1142
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "\"%s\"ni ko‘rsatish, %s dan %s sanagacha, foydalanuvchi %s %s"
 
-#: libraries/messages.inc.php:1158
+#: libraries/messages.inc.php:1143
 msgid "Show versions"
 msgstr "Vеrsiyalarni ko‘rsatish"
 
-#: libraries/messages.inc.php:1159
+#: libraries/messages.inc.php:1144
 msgid "SQL dump (file download)"
 msgstr "SQL dampi (faylni yuklab olish)"
 
-#: libraries/messages.inc.php:1160
+#: libraries/messages.inc.php:1145
 msgid "SQL dump"
 msgstr "SQL damp"
 
-#: libraries/messages.inc.php:1161
+#: libraries/messages.inc.php:1146
 msgid "SQL statements executed."
 msgstr "SQL so‘rovi bajarildi."
 
-#: libraries/messages.inc.php:1162
+#: libraries/messages.inc.php:1147
 msgid "This option will replace your table and contained data."
 msgstr "Ushbu tanlov jadval va uning tarkibini amashtiradi."
 
-#: libraries/messages.inc.php:1163
+#: libraries/messages.inc.php:1148
 msgid "SQL execution"
 msgstr "SQL bajaruvi"
 
-#: libraries/messages.inc.php:1164
+#: libraries/messages.inc.php:1149
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "SQL so‘rovi eksport qilindi. Dampdan nusxa oling yoki uni bajaring."
 
-#: libraries/messages.inc.php:1165
+#: libraries/messages.inc.php:1150
 msgid "Tracking statements"
 msgstr "Kuzatish opеratorlari"
 
-#: libraries/messages.inc.php:1166
+#: libraries/messages.inc.php:1151
 msgid "active"
 msgstr "faol"
 
-#: libraries/messages.inc.php:1167
+#: libraries/messages.inc.php:1152
 msgid "not active"
 msgstr "faol emas"
 
-#: libraries/messages.inc.php:1168
+#: libraries/messages.inc.php:1153
 msgid "Structure snapshot"
 msgstr "Tuzilma rasmi"
 
-#: libraries/messages.inc.php:1169
+#: libraries/messages.inc.php:1154
 msgid "Created"
 msgstr "Tuzildi"
 
-#: libraries/messages.inc.php:1170
+#: libraries/messages.inc.php:1155
 msgid "Last version"
 msgstr "Oxirgi vеrsiya"
 
-#: libraries/messages.inc.php:1171
+#: libraries/messages.inc.php:1156
 msgid "Updated"
 msgstr "Yangilandi"
 
-#: libraries/messages.inc.php:1172
+#: libraries/messages.inc.php:1157
 msgid "Version"
 msgstr "Vеrsiya"
 
-#: libraries/messages.inc.php:1173
+#: libraries/messages.inc.php:1158
 msgid "Track these data definition statements:"
 msgstr "Ushbu ma’lumotlar ta’rifi opеratorlarini kuzatish:"
 
-#: libraries/messages.inc.php:1174
+#: libraries/messages.inc.php:1159
 msgid "Track these data manipulation statements:"
 msgstr "Ushbu ma’lumotlar boshqaruvi opеratorlarini kuzatish:"
 
-#: libraries/messages.inc.php:1175
+#: libraries/messages.inc.php:1160
 msgid "Tracked tables"
 msgstr "Kuzatilgan jadvallar"
 
-#: libraries/messages.inc.php:1176
+#: libraries/messages.inc.php:1161
 msgid "Tracking"
 msgstr "Kuzatish"
 
-#: libraries/messages.inc.php:1177
+#: libraries/messages.inc.php:1162
 msgid "Track table"
 msgstr "Jadvalni kuzatish"
 
-#: libraries/messages.inc.php:1178
+#: libraries/messages.inc.php:1163
 msgid "Untracked tables"
 msgstr "Kuzatilmagan jadvallar"
 
-#: libraries/messages.inc.php:1179
+#: libraries/messages.inc.php:1164
 msgid "Username"
 msgstr "Foydalanuvchi"
 
-#: libraries/messages.inc.php:1180
+#: libraries/messages.inc.php:1165
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
 msgstr "\"%s.%s\" ni kuzatish, %s vеrsiya faollashtirilgan."
 
-#: libraries/messages.inc.php:1181
+#: libraries/messages.inc.php:1166
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
 msgstr "%s vеrsiya tuzildi, \"%s.%s\" ni kuzatishsh faollashtirilgan."
 
-#: libraries/messages.inc.php:1182
+#: libraries/messages.inc.php:1167
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
 msgstr "\"%s.%s\" ni kuzatish, %s vеrsiya faolsizlantirilgan."
 
-#: libraries/messages.inc.php:1183
+#: libraries/messages.inc.php:1168
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "%s vеrsiya rasmi (SQL kodi)"
 
-#: libraries/messages.inc.php:1184
+#: libraries/messages.inc.php:1169
 msgid "Versions"
 msgstr "Vеrsiyalar"
 
-#: libraries/messages.inc.php:1185
+#: libraries/messages.inc.php:1170
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -5610,23 +5537,23 @@ msgstr ""
 "Dampni bajarish uchun vaqtinchalik baza tuzing yo borini ishlating. Buning "
 "uchun yetarli privilеgiyalarga ega bo‘lishingiz kеrak."
 
-#: libraries/messages.inc.php:1186
+#: libraries/messages.inc.php:1171
 msgid "Traditional Chinese"
 msgstr "An`anaviy xitoycha"
 
-#: libraries/messages.inc.php:1187
+#: libraries/messages.inc.php:1172
 msgid "Traditional Spanish"
 msgstr "An`anaviy ispancha"
 
-#: libraries/messages.inc.php:1188
+#: libraries/messages.inc.php:1173
 msgid "Traffic"
 msgstr "Trafik"
 
-#: libraries/messages.inc.php:1189
+#: libraries/messages.inc.php:1174
 msgid "Transaction coordinator"
 msgstr "Tranzaksiyalar koordinatori"
 
-#: libraries/messages.inc.php:1190
+#: libraries/messages.inc.php:1175
 msgid ""
 "Displays a link to download the binary data of the field. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -5638,7 +5565,7 @@ msgstr ""
 "nomini o‘z ichiga olgan maydon nomi sifatida ishlatish mumkin. Ikkinchi "
 "parametr ishlatilganda, birinchisini bo‘sh satr sifatida belgilash zarur."
 
-#: libraries/messages.inc.php:1191
+#: libraries/messages.inc.php:1176
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
@@ -5647,7 +5574,7 @@ msgstr ""
 "parametr bo‘sh joy qo‘yilishi kerak bo‘lgan intervalni (asl qiymati har ikki "
 "yarimbaytdan keyin) ko‘rsatish uchun ishlatiladi."
 
-#: libraries/messages.inc.php:1192
+#: libraries/messages.inc.php:1177
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
@@ -5657,11 +5584,11 @@ msgstr ""
 "piksellarda berilgan maksimal bo‘yi va enini belgilash mumkin. Tomonlarning "
 "asl nisbati saqlanadi."
 
-#: libraries/messages.inc.php:1193
+#: libraries/messages.inc.php:1178
 msgid "Displays a link to download this image."
 msgstr "Rasmni yuklab olish uchun bog‘ ko‘rsatish"
 
-#: libraries/messages.inc.php:1194
+#: libraries/messages.inc.php:1179
 msgid "See image/jpeg: inline"
 msgstr ""
 "Ustiga bosilganda rasmni katalashtirib ko‘rish mumkin bo‘lgan "
@@ -5669,7 +5596,7 @@ msgstr ""
 "piksellarda berilgan maksimal bo‘yi va enini belgilash mumkin. Tomonlarning "
 "asl nisbati saqlanadi."
 
-#: libraries/messages.inc.php:1195
+#: libraries/messages.inc.php:1180
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -5688,7 +5615,7 @@ msgstr ""
 "\"local\" qiymat uchun \"strftime()\", \"utc\" qiymat uchun \"gmdate()\" "
 "funksiyaga mos ravishda o‘rnatilishi kerak."
 
-#: libraries/messages.inc.php:1196
+#: libraries/messages.inc.php:1181
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the field data via "
 "standard input. Returns the standard output of the application. The default "
@@ -5713,7 +5640,7 @@ msgstr ""
 "e`tibor berilmaydi va barcha ma`lumotlar bir satrda chiqariladi (asl "
 "qiymati: 1)."
 
-#: libraries/messages.inc.php:1197
+#: libraries/messages.inc.php:1182
 msgid ""
 "Displays the contents of the field as-is, without running it through "
 "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -5722,7 +5649,7 @@ msgstr ""
 "funksiyasi yordamida o‘zgartirilmasdan ko‘rsatadi. Bu holda maydon HTML "
 "kodni o‘z ichiga olgan bo‘lishi mumkin."
 
-#: libraries/messages.inc.php:1198
+#: libraries/messages.inc.php:1183
 msgid ""
 "Displays an image and a link; the field contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -5732,7 +5659,7 @@ msgstr ""
 "parametr - URL-prefiksdir, masalan \"http://www.example.com/\". Ikkinchi va "
 "uchinchi parametr - rasmning pmksellarda berilgan bo‘yi va eni."
 
-#: libraries/messages.inc.php:1199
+#: libraries/messages.inc.php:1184
 msgid ""
 "Displays a link; the field contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
@@ -5742,12 +5669,12 @@ msgstr ""
 "URL-prefiksdir, masalan \"http://www.example.com/\". Ikkinchi parametr - "
 "bog‘ sarlavhasi."
 
-#: libraries/messages.inc.php:1200
+#: libraries/messages.inc.php:1185
 msgid "Formats text as SQL query with syntax highlighting."
 msgstr ""
 "Matnni sintaksisi rang bilan belgilangan SQL so‘rov sifatida formatlaydi"
 
-#: libraries/messages.inc.php:1201
+#: libraries/messages.inc.php:1186
 msgid ""
 "Displays a part of a string. The first option is the number of characters to "
 "skip from the beginning of the string (Default 0). The second option is the "
@@ -5761,47 +5688,47 @@ msgstr ""
 "parametr - mavjud parcha boshi va/yoki oxiriga qo‘shiladigan matn (asl "
 "qiymati: \"...\")."
 
-#: libraries/messages.inc.php:1202
+#: libraries/messages.inc.php:1187
 msgid "Triggers"
 msgstr "Triggerlar"
 
-#: libraries/messages.inc.php:1203
+#: libraries/messages.inc.php:1188
 msgid "Truncate Shown Queries"
 msgstr "So‘rovlarni qisqartirib ko‘rsatish"
 
-#: libraries/messages.inc.php:1204
+#: libraries/messages.inc.php:1189
 msgid "Turkish"
 msgstr "Turkcha"
 
-#: libraries/messages.inc.php:1205
+#: libraries/messages.inc.php:1190
 msgid "Type"
 msgstr "Tur"
 
-#: libraries/messages.inc.php:1207
+#: libraries/messages.inc.php:1192
 msgid "Ukrainian"
 msgstr "Ukraincha"
 
-#: libraries/messages.inc.php:1208
+#: libraries/messages.inc.php:1193
 msgid "Uncheck All"
 msgstr "Belgilashni bekor qilish"
 
-#: libraries/messages.inc.php:1209
+#: libraries/messages.inc.php:1194
 msgid "Unicode"
 msgstr "Yunikod"
 
-#: libraries/messages.inc.php:1210
+#: libraries/messages.inc.php:1195
 msgid "Unique"
 msgstr "Unikal"
 
-#: libraries/messages.inc.php:1211
+#: libraries/messages.inc.php:1196
 msgid "unknown"
 msgstr "noma`lum"
 
-#: libraries/messages.inc.php:1212
+#: libraries/messages.inc.php:1197
 msgid "Unselect All"
 msgstr "Belgilashni bekor qilish"
 
-#: libraries/messages.inc.php:1213
+#: libraries/messages.inc.php:1198
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -5811,40 +5738,40 @@ msgstr ""
 "mavjud emas, shuning uchun ushbu faylni import qilib bo‘lmaydi. Agar dastur "
 "mavjud bo‘lsa, demak u konfiguratsiya vaqtida o‘chirib qo‘yilgan."
 
-#: libraries/messages.inc.php:1214
+#: libraries/messages.inc.php:1199
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr " \"%s\" uchun privilegiyalar o‘zgartirildi."
 
-#: libraries/messages.inc.php:1215
+#: libraries/messages.inc.php:1200
 msgid "The profile has been updated."
 msgstr "Profil yangilandi."
 
-#: libraries/messages.inc.php:1216
+#: libraries/messages.inc.php:1201
 msgid "Update Query"
 msgstr "So‘rovni yangilash"
 
-#: libraries/messages.inc.php:1217
+#: libraries/messages.inc.php:1202
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "\"column_comments\" jadvalini yangilash zarur. Batafsil ma`lumot uchun "
 "dokumentatsiyaga qarang."
 
-#: libraries/messages.inc.php:1218
+#: libraries/messages.inc.php:1203
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr " \"%s\" ni \"%s\" versiyaga yoki kattaroq versiyaga yangilash zarur."
 
-#: libraries/messages.inc.php:1219
+#: libraries/messages.inc.php:1204
 msgid "Failed to write file to disk."
 msgstr "Faylni diskka yozishdaxatolik yuz berdi."
 
-#: libraries/messages.inc.php:1220
+#: libraries/messages.inc.php:1205
 msgid "File upload stopped by extension."
 msgstr "Faylning yuklanishi uning kengaytmasi sabali to‘xtatildi."
 
-#: libraries/messages.inc.php:1221
+#: libraries/messages.inc.php:1206
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -5852,25 +5779,25 @@ msgstr ""
 "Yuklanayotgan fayl hajmi HTML formada ko‘rsatilgan \"MAX_FILE_SIZE\" "
 "direktivasi qiymatidan katta!"
 
-#: libraries/messages.inc.php:1222
+#: libraries/messages.inc.php:1207
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Yuklanayotgan fayl hajmi PHP konfiguratsion faylida (php.ini) ko‘rsatilgan "
 "\"upload_max_filesize\" direktivasi qiymatidan katta!"
 
-#: libraries/messages.inc.php:1223
+#: libraries/messages.inc.php:1208
 msgid "Missing a temporary folder."
 msgstr "Vaqtinchalik fayllarni saqlash uchun katalog topilmadi."
 
-#: libraries/messages.inc.php:1224
+#: libraries/messages.inc.php:1209
 msgid "The uploaded file was only partially uploaded."
 msgstr "Yuklanayotgan fayl faqatgina qisman yuklandi."
 
-#: libraries/messages.inc.php:1225
+#: libraries/messages.inc.php:1210
 msgid "Unknown error in file upload."
 msgstr "Fayl yuklanayotgan vaqtda noma`lum xatolik yuz berdi."
 
-#: libraries/messages.inc.php:1226
+#: libraries/messages.inc.php:1211
 #, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
@@ -5879,80 +5806,80 @@ msgstr ""
 "Ehtimol, yuklanayotgan fayl hajmi juda katta. Bu muammoni yechishning "
 "usullari %sdokumentatsiyada%s keltirilgan."
 
-#: libraries/messages.inc.php:1227
+#: libraries/messages.inc.php:1212
 msgid "File uploads are not allowed on this server."
 msgstr "Fayllarni serverga yuklab bo‘lmadi."
 
-#: libraries/messages.inc.php:1228
+#: libraries/messages.inc.php:1213
 msgid "Usage"
 msgstr "Ishlatilish"
 
-#: libraries/messages.inc.php:1229
+#: libraries/messages.inc.php:1214
 msgid "Enclose table and field names with backquotes"
 msgstr "Jadval va maydon nomlarini teskari qo‘shtirnoqqa olish"
 
-#: libraries/messages.inc.php:1230
+#: libraries/messages.inc.php:1215
 msgid "Use Host Table"
 msgstr "Xostlar jadvalidan foydalanish"
 
-#: libraries/messages.inc.php:1231
+#: libraries/messages.inc.php:1216
 #, php-format
 msgid "The user %s already exists!"
 msgstr " \"%s\" nomli foydalanuvchi mavjud!"
 
-#: libraries/messages.inc.php:1232
+#: libraries/messages.inc.php:1217
 msgid "The user name is empty!"
 msgstr "Foydalanuvchi nomi belgilanmagan!"
 
-#: libraries/messages.inc.php:1233
+#: libraries/messages.inc.php:1218
 msgid "User name"
 msgstr "Foydalanuvchi nomi"
 
-#: libraries/messages.inc.php:1234
+#: libraries/messages.inc.php:1219
 msgid "The selected user was not found in the privilege table."
 msgstr "Belgilangan foydalanuvchi privilegiyalar jadvalida topilmadi."
 
-#: libraries/messages.inc.php:1235
+#: libraries/messages.inc.php:1220
 msgid "User overview"
 msgstr "Foydalanuvchilar hisobini ko‘rib chiqish"
 
-#: libraries/messages.inc.php:1236
+#: libraries/messages.inc.php:1221
 msgid "The selected users have been deleted successfully."
 msgstr "Belgilangan foydalanuvchilar muvaffaqiyatli o‘chirildi."
 
-#: libraries/messages.inc.php:1237
+#: libraries/messages.inc.php:1222
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "\"%s\"ga ruxsati bo‘lgan foydalanuvchilar"
 
-#: libraries/messages.inc.php:1238
+#: libraries/messages.inc.php:1223
 msgid "User"
 msgstr "Foydalanuvchi"
 
-#: libraries/messages.inc.php:1239
+#: libraries/messages.inc.php:1224
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Maydonlararo o‘tish uchun TAB tugmasi yoki CTRL+strelka tugmalaridan "
 "foydalaning"
 
-#: libraries/messages.inc.php:1240
+#: libraries/messages.inc.php:1225
 msgid "Use Tables"
 msgstr "Jadvallarni ishlatish"
 
-#: libraries/messages.inc.php:1241
+#: libraries/messages.inc.php:1226
 msgid "Use text field"
 msgstr "Matnmaydonini ishlatish"
 
-#: libraries/messages.inc.php:1242
+#: libraries/messages.inc.php:1227
 msgid "Use this value"
 msgstr "Ushbu qiymatni ishlatish"
 
-#: libraries/messages.inc.php:1244 setup/lib/messages.inc.php:356
+#: libraries/messages.inc.php:1229 setup/lib/messages.inc.php:356
 msgid "Validate SQL"
 msgstr "SQL to‘g‘riligini tekshirish"
 
-#: libraries/messages.inc.php:1245
+#: libraries/messages.inc.php:1230
 #, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
@@ -5962,31 +5889,31 @@ msgstr ""
 "o‘rnatilganligini tekshiring, batafsil ma`lumot uchun %sdokumentatsiyaga%s "
 "qarang."
 
-#: libraries/messages.inc.php:1246
+#: libraries/messages.inc.php:1231
 msgid "Value"
 msgstr "Qiymati"
 
-#: libraries/messages.inc.php:1247
+#: libraries/messages.inc.php:1232
 msgid "Variable"
 msgstr "O‘zgaruvchi"
 
-#: libraries/messages.inc.php:1248
+#: libraries/messages.inc.php:1233
 msgid "Version information"
 msgstr "Versiya haqida ma`lumot"
 
-#: libraries/messages.inc.php:1249
+#: libraries/messages.inc.php:1234
 msgid "View dump (schema) of databases"
 msgstr "Ma`lumotlar bazalari dampini (sxemasini) namoyish etish"
 
-#: libraries/messages.inc.php:1250
+#: libraries/messages.inc.php:1235
 msgid "View dump (schema) of database"
 msgstr "Ma`lumotlar bazasi dampini (sxemasini) namoyish etish"
 
-#: libraries/messages.inc.php:1251
+#: libraries/messages.inc.php:1236
 msgid "View dump (schema) of table"
 msgstr "Jadval dampini (sxemasini) namoyish etish"
 
-#: libraries/messages.inc.php:1252
+#: libraries/messages.inc.php:1237
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -5995,57 +5922,57 @@ msgstr ""
 "Ushbu namoyish kamida ko‘rsatilgan miqdorda qatorlarga ega. Batafsil "
 "ma`lumot uchun %sdokumentatsiyaga%s qarang."
 
-#: libraries/messages.inc.php:1253
+#: libraries/messages.inc.php:1238
 #, php-format
 msgid "View %s has been dropped"
 msgstr " \"%s\" namoyishi o‘chirildi"
 
-#: libraries/messages.inc.php:1254
+#: libraries/messages.inc.php:1239
 msgid "View image"
 msgstr "Rasm ko‘rinishi"
 
-#: libraries/messages.inc.php:1255
+#: libraries/messages.inc.php:1240
 msgid "VIEW name"
 msgstr "Nom ko‘rinishi"
 
-#: libraries/messages.inc.php:1256
+#: libraries/messages.inc.php:1241
 msgid "View video"
 msgstr "Vidеo ko‘rinishi"
 
-#: libraries/messages.inc.php:1257
+#: libraries/messages.inc.php:1242
 msgid "View"
 msgstr "Namoyish"
 
-#: libraries/messages.inc.php:1259
+#: libraries/messages.inc.php:1244
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Ko‘rsatilgan katalokka yuklab bo‘lmadi"
 
-#: libraries/messages.inc.php:1260
+#: libraries/messages.inc.php:1245
 msgid "web server upload directory"
 msgstr "Yuklash katalogidan"
 
-#: libraries/messages.inc.php:1261
+#: libraries/messages.inc.php:1246
 msgid "Web server"
 msgstr "Veb server"
 
-#: libraries/messages.inc.php:1262
+#: libraries/messages.inc.php:1247
 #, php-format
 msgid "Welcome to %s"
 msgstr "\"%s\" dasturiga xush kelibsiz"
 
-#: libraries/messages.inc.php:1263
+#: libraries/messages.inc.php:1248
 msgid "West European"
 msgstr "G‘arbiy-Yevropacha"
 
-#: libraries/messages.inc.php:1264
+#: libraries/messages.inc.php:1249
 msgid "Wiki"
 msgstr "Viki"
 
-#: libraries/messages.inc.php:1265
+#: libraries/messages.inc.php:1250
 msgid "wildcard"
 msgstr "Guruhlash belgisi"
 
-#: libraries/messages.inc.php:1266
+#: libraries/messages.inc.php:1251
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -6055,19 +5982,19 @@ msgstr ""
 "yopilgan yoki brauzer xavfsizlik yuzasidan oynalararo yangilashni blokirovka "
 "qilmoqda"
 
-#: libraries/messages.inc.php:1267
+#: libraries/messages.inc.php:1252
 msgid "With selected:"
 msgstr "Belgilanganlarni: "
 
-#: libraries/messages.inc.php:1268
+#: libraries/messages.inc.php:1253
 msgid "Write requests"
 msgstr "Yozishga bo‘lgan so‘rovlar soni"
 
-#: libraries/messages.inc.php:1269
+#: libraries/messages.inc.php:1254
 msgid "Wrong username/password. Access denied."
 msgstr "Kiritilgan ma`lumotlar noto‘g‘ri. Kirish mumkin emas."
 
-#: libraries/messages.inc.php:1271
+#: libraries/messages.inc.php:1256
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -6075,49 +6002,49 @@ msgstr ""
 "Ko‘rsatilgan XML fayl yo noto‘g‘ri tuzilgan yo chala. Uni to‘g‘irlab, qayta "
 "harakat qilib ko‘ring."
 
-#: libraries/messages.inc.php:1272
+#: libraries/messages.inc.php:1257
 msgid "Export contents"
 msgstr "Tarkibini eksport qilish"
 
-#: libraries/messages.inc.php:1273
+#: libraries/messages.inc.php:1258
 msgid "Export functions"
 msgstr "Funktsiyalarni eksport qilish"
 
-#: libraries/messages.inc.php:1274
+#: libraries/messages.inc.php:1259
 msgid "Export procedures"
 msgstr "Protsеdularni eksport qilish"
 
-#: libraries/messages.inc.php:1275
+#: libraries/messages.inc.php:1260
 msgid "Export Structure Schemas (recommended)"
 msgstr "Tuzilma sxеmasini eksport qilish (tavsiya etiladi)"
 
-#: libraries/messages.inc.php:1276
+#: libraries/messages.inc.php:1261
 msgid "Export tables"
 msgstr "Jadvallarni eksport qilish"
 
-#: libraries/messages.inc.php:1277
+#: libraries/messages.inc.php:1262
 msgid "Export triggers"
 msgstr "Triggеrlarni eksport qilish"
 
-#: libraries/messages.inc.php:1278
+#: libraries/messages.inc.php:1263
 msgid "Export views"
 msgstr "Ko‘rinishlarni eksport qilish"
 
-#: libraries/messages.inc.php:1279
+#: libraries/messages.inc.php:1264
 msgid "XML"
 msgstr "XML"
 
-#: libraries/messages.inc.php:1281
+#: libraries/messages.inc.php:1266
 msgid "Yes"
 msgstr "Ha"
 
-#: libraries/messages.inc.php:1283
+#: libraries/messages.inc.php:1268
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "IZOH: parametr qiymatlarini 0 (nol) deb belgilash mavjud cheklashlarni bekor "
 "qiladi."
 
-#: libraries/messages.inc.php:1284
+#: libraries/messages.inc.php:1269
 msgid "\"zipped\""
 msgstr "zip"
 
@@ -7966,6 +7893,66 @@ msgstr "Ichki aloqalar"
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
 msgstr "Tashqi kalit chegaralari"
+
+#~ msgid "Copy"
+#~ msgstr "Nusxa ko‘chirish"
+
+#~ msgid "Delete the users and reload the privileges afterwards."
+#~ msgstr ""
+#~ "Barcha foydalanuvchilarni o‘chirish va privilegiyalarni qayta yuklash."
+
+#~ msgid ""
+#~ "This is the cleanest way, but reloading the privileges may take a while."
+#~ msgstr ""
+#~ "Bu eng yaxshi usul, lekin privilegiyalarni qayta yuklash vaqt talab "
+#~ "etishi mumkin."
+
+#~ msgid "has been altered."
+#~ msgstr " o‘zgartirildi."
+
+#~ msgid "Microsoft Excel 2000"
+#~ msgstr "Microsoft Excel 2000"
+
+#~ msgid "Internet Explorer does not support this function."
+#~ msgstr "Internet Explorer dasturida ushbu funksiya mavjud emas."
+
+#~ msgid ""
+#~ "The &quot;deleted&quot; users will still be able to access the server as "
+#~ "usual until the privileges are reloaded."
+#~ msgstr ""
+#~ "Privilegiyalar qayta yuklanmaguncha \"o‘chirilgan\" foydalanuvchilar "
+#~ "serverga kirish huquqiga ega bo‘ladilar."
+
+#~ msgid "Just delete the users from the privilege tables."
+#~ msgstr "Faqat privilegiyalar jadvalidan foydalanuvchini o‘chirish."
+
+#~ msgid ""
+#~ "Allows running stored procedures; has no effect in this MySQL version."
+#~ msgstr ""
+#~ "Saqlanadigan muolajalarni bajarishga ruxsat beradi (MySQL-serverning "
+#~ "ushbu versiyada bunday xususiyat mavjud emas)"
+
+#~ msgid "Process list"
+#~ msgstr "Jarayonlar ro‘yxati"
+
+#~ msgid "Reload privileges"
+#~ msgstr "Privilegiyalarni qayta yuklash"
+
+#~ msgid ""
+#~ "The users will still have the USAGE privilege until the privileges are "
+#~ "reloaded."
+#~ msgstr ""
+#~ "Privilegiyalar qayta yuklangunga qadar, foydalanuvchilarda USAGE kabi "
+#~ "global privilegiyalar saqlanib qolinadi."
+
+#~ msgid "Native MS Excel format"
+#~ msgstr "MS Excel formati"
+
+#~ msgid "Alter index(s)"
+#~ msgstr "Indеk(lar)ni o‘zgartirish"
+
+#~ msgid "Tracking Mechanism"
+#~ msgstr "Kuzatish mеxanizmi"
 
 #, fuzzy
 #~| msgid "Select All"

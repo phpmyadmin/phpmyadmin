@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-19 07:48-0400\n"
+"POT-Creation-Date: 2010-04-19 14:26+0200\n"
 "PO-Revision-Date: 2010-03-26 15:46+0200\n"
 "Last-Translator:  <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: js/messages.php:50 libraries/messages.inc.php:372
+#: js/messages.php:50 libraries/messages.inc.php:369
 msgid "Go"
 msgstr "Start"
 
@@ -891,36 +891,32 @@ msgid "Cookies must be enabled past this point."
 msgstr "Cookies moeten aan staan voorbij dit punt."
 
 #: libraries/messages.inc.php:186
-msgid "Copy"
-msgstr "Kopieer"
-
-#: libraries/messages.inc.php:187
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "Database %s is gekopieerd naar %s"
 
-#: libraries/messages.inc.php:188
+#: libraries/messages.inc.php:187
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Kopieer tabel naar (database<b>.</b>tabel):"
 
-#: libraries/messages.inc.php:189
+#: libraries/messages.inc.php:188
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabel %s is gekopieerd naar %s."
 
-#: libraries/messages.inc.php:190
+#: libraries/messages.inc.php:189
 msgid "Can't copy table to same one!"
 msgstr "Kan de tabel niet naar dezelfde kopiëren!"
 
-#: libraries/messages.inc.php:191
+#: libraries/messages.inc.php:190
 msgid "Could not connect to the source"
 msgstr "Verbinding naar de brondatabase is mislukt"
 
-#: libraries/messages.inc.php:192
+#: libraries/messages.inc.php:191
 msgid "Could not connect to the target"
 msgstr "Verbinding naar de bestemmingsdatabase is mislukt"
 
-#: libraries/messages.inc.php:193
+#: libraries/messages.inc.php:192
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -928,170 +924,170 @@ msgstr ""
 "phpMyAdmin is er niet in geslaagd om de %s te sluiten.Waarschijnlijk is het "
 "al gesloten."
 
-#: libraries/messages.inc.php:194
+#: libraries/messages.inc.php:193
 msgid "Create"
 msgstr "Aanmaken"
 
-#: libraries/messages.inc.php:195
+#: libraries/messages.inc.php:194
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE voor het kopiëren"
 
-#: libraries/messages.inc.php:196
+#: libraries/messages.inc.php:195
 #, php-format
 msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgstr "Creëer een index op kolommen&nbsp;%s&nbsp;"
 
-#: libraries/messages.inc.php:197
+#: libraries/messages.inc.php:196
 msgid "Create a new index"
 msgstr "Creëer een nieuwe index"
 
-#: libraries/messages.inc.php:198
+#: libraries/messages.inc.php:197
 msgid "Create new database"
 msgstr "Nieuwe database aanmaken"
 
-#: libraries/messages.inc.php:199
+#: libraries/messages.inc.php:198
 #, php-format
 msgid "Create table on database %s"
 msgstr "Nieuwe tabel aanmaken in database %s"
 
-#: libraries/messages.inc.php:200
+#: libraries/messages.inc.php:199
 msgid "Create a page"
 msgstr "Creëer een nieuwe pagina"
 
-#: libraries/messages.inc.php:201
+#: libraries/messages.inc.php:200
 msgid "Creation of PDFs"
 msgstr "Aanmaken van PDF bestanden"
 
-#: libraries/messages.inc.php:202
+#: libraries/messages.inc.php:201
 msgid "Create relation"
 msgstr "Maak relatie"
 
-#: libraries/messages.inc.php:203
+#: libraries/messages.inc.php:202
 msgid "Create table"
 msgstr "Maak tabel"
 
-#: libraries/messages.inc.php:204
+#: libraries/messages.inc.php:203
 #, fuzzy
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Maak tabel"
 
-#: libraries/messages.inc.php:205
+#: libraries/messages.inc.php:204
 msgid "Database for user"
 msgstr "Database voor gebruiker"
 
-#: libraries/messages.inc.php:206
+#: libraries/messages.inc.php:205
 msgid "Create database with same name and grant all privileges"
 msgstr "Maak een database met dezelfde naam en geef alle rechten hierop"
 
-#: libraries/messages.inc.php:207
+#: libraries/messages.inc.php:206
 #, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Geen"
 
-#: libraries/messages.inc.php:208
+#: libraries/messages.inc.php:207
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Geef alle rechten op de database &quot;%s&quot;"
 
-#: libraries/messages.inc.php:209
+#: libraries/messages.inc.php:208
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Geef alle rechten op de wildcard naam (gebruikersnaam\\_%)"
 
-#: libraries/messages.inc.php:210
+#: libraries/messages.inc.php:209
 msgid "Creation/Update/Check dates"
 msgstr "Creatie/Update/Controleer datum"
 
-#: libraries/messages.inc.php:211
+#: libraries/messages.inc.php:210
 msgid "Criteria"
 msgstr "Criteria"
 
-#: libraries/messages.inc.php:212
+#: libraries/messages.inc.php:211
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: libraries/messages.inc.php:213
+#: libraries/messages.inc.php:212
 msgid "CSV"
 msgstr "CSV gegevens"
 
-#: libraries/messages.inc.php:214
+#: libraries/messages.inc.php:213
 msgid "Current server"
 msgstr "Huidige server"
 
-#: libraries/messages.inc.php:215
+#: libraries/messages.inc.php:214
 msgid "Custom color"
 msgstr "Aangepaste kleur"
 
-#: libraries/messages.inc.php:216
+#: libraries/messages.inc.php:215
 msgid "Cyrillic"
 msgstr "Cyrillisch"
 
-#: libraries/messages.inc.php:217
+#: libraries/messages.inc.php:216
 msgid "Czech"
 msgstr "Tsjechisch"
 
-#: libraries/messages.inc.php:218
+#: libraries/messages.inc.php:217
 msgid "Czech-Slovak"
 msgstr "Tsjechische-Slowaak"
 
-#: libraries/messages.inc.php:220
+#: libraries/messages.inc.php:219
 msgid "Danish"
 msgstr "Deens"
 
-#: libraries/messages.inc.php:221
+#: libraries/messages.inc.php:220
 msgid "Database"
 msgstr "Database"
 
-#: libraries/messages.inc.php:222
+#: libraries/messages.inc.php:221
 msgid "The database name is empty!"
 msgstr "De database naam is leeg!"
 
-#: libraries/messages.inc.php:223
+#: libraries/messages.inc.php:222
 msgid "Database export options"
 msgstr "Database export opties"
 
-#: libraries/messages.inc.php:224
+#: libraries/messages.inc.php:223
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Database %1$s is aangemaakt."
 
-#: libraries/messages.inc.php:225
+#: libraries/messages.inc.php:224
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Database %s is vervallen."
 
-#: libraries/messages.inc.php:226
+#: libraries/messages.inc.php:225
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Database '%s' bestaat niet."
 
-#: libraries/messages.inc.php:227 setup/lib/messages.inc.php:110
+#: libraries/messages.inc.php:226 setup/lib/messages.inc.php:110
 msgid "Databases"
 msgstr "Databases"
 
-#: libraries/messages.inc.php:228
+#: libraries/messages.inc.php:227
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "%s databases zijn succesvol verwijderd."
 
-#: libraries/messages.inc.php:229
+#: libraries/messages.inc.php:228
 msgid "Source database"
 msgstr "Bron database"
 
-#: libraries/messages.inc.php:230
+#: libraries/messages.inc.php:229
 msgid "Databases statistics"
 msgstr "Database statistieken"
 
-#: libraries/messages.inc.php:231
+#: libraries/messages.inc.php:230
 msgid "Disable Statistics"
 msgstr "Statistieken uitzetten"
 
-#: libraries/messages.inc.php:232
+#: libraries/messages.inc.php:231
 msgid "Enable Statistics"
 msgstr "Statistieken aanzetten"
 
-#: libraries/messages.inc.php:233
+#: libraries/messages.inc.php:232
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -1099,68 +1095,68 @@ msgstr ""
 "Attentie: Het aanzeten van statistieken kan zorgen voor veel dataverkeer "
 "tussen de webserver en de MySQL-server."
 
-#: libraries/messages.inc.php:234
+#: libraries/messages.inc.php:233
 msgid "Target database"
 msgstr "Doel database"
 
-#: libraries/messages.inc.php:235
+#: libraries/messages.inc.php:234
 msgid "Data"
 msgstr "Data"
 
-#: libraries/messages.inc.php:236
+#: libraries/messages.inc.php:235
 msgid "Data Dictionary"
 msgstr "Data Woordenboek"
 
-#: libraries/messages.inc.php:237
+#: libraries/messages.inc.php:236
 msgid "Data Difference"
 msgstr "Gegevens verschillen"
 
-#: libraries/messages.inc.php:238
+#: libraries/messages.inc.php:237
 msgid "Data only"
 msgstr "Alleen data"
 
-#: libraries/messages.inc.php:239
+#: libraries/messages.inc.php:238
 msgid "Pages containing data"
 msgstr "Pages die data bevatten"
 
-#: libraries/messages.inc.php:240
+#: libraries/messages.inc.php:239
 msgid "Data Synchronization"
 msgstr "Gegevens synchronizatie"
 
-#: libraries/messages.inc.php:241
+#: libraries/messages.inc.php:240
 msgid "Database comment: "
 msgstr "Database commentaar: "
 
-#: libraries/messages.inc.php:242
+#: libraries/messages.inc.php:241
 msgid "Copy database to"
 msgstr "Kopieer database naar"
 
-#: libraries/messages.inc.php:243
+#: libraries/messages.inc.php:242
 msgid "Database seems to be empty!"
 msgstr "Database lijkt leeg!"
 
-#: libraries/messages.inc.php:244
+#: libraries/messages.inc.php:243
 msgid "Database-specific privileges"
 msgstr "Database-specifieke privileges"
 
-#: libraries/messages.inc.php:245
+#: libraries/messages.inc.php:244
 msgid "Rename database to"
 msgstr "Hernoem database naar"
 
-#: libraries/messages.inc.php:246
+#: libraries/messages.inc.php:245
 msgid "database-specific"
 msgstr "database-specifiek"
 
-#: libraries/messages.inc.php:247
+#: libraries/messages.inc.php:246
 msgid "Default"
 msgstr "Standaardwaarde"
 
-#: libraries/messages.inc.php:248
+#: libraries/messages.inc.php:247
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s is de standaard storage engine op deze MySQL-server."
 
-#: libraries/messages.inc.php:249
+#: libraries/messages.inc.php:248
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
@@ -1168,54 +1164,44 @@ msgstr ""
 "Voer voor standaard waarden aub een enkele waarde in, zonder backslash of "
 "aanhalingstekens, gebruik makend van dit formaat: a"
 
-#: libraries/messages.inc.php:250
+#: libraries/messages.inc.php:249
 msgid "Defragment table"
 msgstr "Defragmenteer tabel"
 
-#: libraries/messages.inc.php:251
+#: libraries/messages.inc.php:250
 msgid "Use delayed inserts"
 msgstr "Gebruik vertraagde inserts"
 
-#: libraries/messages.inc.php:252
-msgid "Delete the users and reload the privileges afterwards."
-msgstr "Verwijder de gebruikers en vernieuw de privileges daarna."
-
-#: libraries/messages.inc.php:253
-msgid ""
-"This is the cleanest way, but reloading the privileges may take a while."
-msgstr ""
-"Dit is de nette manier, maar het vernieuwen van de privileges kan even duren."
-
-#: libraries/messages.inc.php:254
+#: libraries/messages.inc.php:251
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: libraries/messages.inc.php:255
+#: libraries/messages.inc.php:252
 msgid "The row has been deleted"
 msgstr "De rij is verwijderd"
 
-#: libraries/messages.inc.php:256
+#: libraries/messages.inc.php:253
 msgid "No users selected for deleting!"
 msgstr "Geen gebruikers geselecteerd om te verwijderen!"
 
-#: libraries/messages.inc.php:257
+#: libraries/messages.inc.php:254
 msgid "Delete relation"
 msgstr "Relatie verwijderen"
 
-#: libraries/messages.inc.php:258
+#: libraries/messages.inc.php:255
 msgid "Delete tracking data for this table"
 msgstr "Verwijder tracking data voor deze tabel"
 
-#: libraries/messages.inc.php:259
+#: libraries/messages.inc.php:256
 #, php-format
 msgid "Deleting %s"
 msgstr "Verwijderen van %s"
 
-#: libraries/messages.inc.php:260
+#: libraries/messages.inc.php:257
 msgid "Delimiter"
 msgstr "Scheidingsteken"
 
-#: libraries/messages.inc.php:261
+#: libraries/messages.inc.php:258
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -1223,19 +1209,19 @@ msgstr ""
 "De huidige pagina heeft referenties met tabellen die niet langer bestaan. "
 "Wilt u deze referenties verwijderen?"
 
-#: libraries/messages.inc.php:262
+#: libraries/messages.inc.php:259
 msgid "Descending"
 msgstr "Aflopend"
 
-#: libraries/messages.inc.php:263
+#: libraries/messages.inc.php:260
 msgid "Description"
 msgstr "Beschrijving"
 
-#: libraries/messages.inc.php:264
+#: libraries/messages.inc.php:261
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/messages.inc.php:265
+#: libraries/messages.inc.php:262
 msgid ""
 "The display field is shown in pink. To set/unset a field as the display "
 "field, click the \"Choose field to display\" icon, then click on the "
@@ -1245,264 +1231,264 @@ msgstr ""
 "wijzigen, klik het \"Kies weer te geven veld\" icoon gevolgd door het weer "
 "te geven veld."
 
-#: libraries/messages.inc.php:266
+#: libraries/messages.inc.php:263
 msgid "Details..."
 msgstr "Details..."
 
-#: libraries/messages.inc.php:267
+#: libraries/messages.inc.php:264
 msgid "dictionary"
 msgstr "Woordenboek"
 
-#: libraries/messages.inc.php:268
+#: libraries/messages.inc.php:265
 msgid "Difference"
 msgstr "Verschil"
 
-#: libraries/messages.inc.php:269
+#: libraries/messages.inc.php:266
 msgid "Direct links"
 msgstr "Directe verbindingen"
 
-#: libraries/messages.inc.php:270
+#: libraries/messages.inc.php:267
 msgid "Dirty pages"
 msgstr "Dirty pages"
 
-#: libraries/messages.inc.php:271
+#: libraries/messages.inc.php:268
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
-#: libraries/messages.inc.php:272
+#: libraries/messages.inc.php:269
 msgid "Disable foreign key checks"
 msgstr "controle op vreemde sleutels uitschakelen"
 
-#: libraries/messages.inc.php:273
+#: libraries/messages.inc.php:270
 msgid "Display Features"
 msgstr "Toon Opties"
 
-#: libraries/messages.inc.php:274
+#: libraries/messages.inc.php:271
 msgid "Display order:"
 msgstr "Weergave volgorde:"
 
-#: libraries/messages.inc.php:275
+#: libraries/messages.inc.php:272
 msgid "Display PDF schema"
 msgstr "Geef het PDF-schema weer"
 
-#: libraries/messages.inc.php:276
+#: libraries/messages.inc.php:273
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Voer een query op basis van een vergelijking uit (wildcard: \"%\")"
 
-#: libraries/messages.inc.php:277
+#: libraries/messages.inc.php:274
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/messages.inc.php:278
+#: libraries/messages.inc.php:275
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: libraries/messages.inc.php:279
+#: libraries/messages.inc.php:276
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Gebruik geen AUTO_INCREMENT voor 0-waarden"
 
-#: libraries/messages.inc.php:280
+#: libraries/messages.inc.php:277
 msgid "Download file"
 msgstr "Download bestand"
 
-#: libraries/messages.inc.php:281
+#: libraries/messages.inc.php:278
 msgid "Do you really want to "
 msgstr "Weet u zeker dat u dit wilt "
 
-#: libraries/messages.inc.php:282
+#: libraries/messages.inc.php:279
 msgid "You are about to DESTROY a complete database!"
 msgstr "U staat op het punt een complete database te VERWIJDEREN!"
 
-#: libraries/messages.inc.php:283
+#: libraries/messages.inc.php:280
 msgid "Drop"
 msgstr "Verwijderen"
 
-#: libraries/messages.inc.php:284
+#: libraries/messages.inc.php:281
 msgid "Drop the databases that have the same names as the users."
 msgstr "Verwijder de databases die dezelfde naam hebben als de gebruikers."
 
-#: libraries/messages.inc.php:285
+#: libraries/messages.inc.php:282
 msgid "Dump all rows"
 msgstr "Dump alle rijen"
 
-#: libraries/messages.inc.php:286
+#: libraries/messages.inc.php:283
 msgid "Dumping data for table"
 msgstr "Gegevens worden uitgevoerd voor tabel"
 
-#: libraries/messages.inc.php:287
+#: libraries/messages.inc.php:284
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dump is bewaard als %s."
 
-#: libraries/messages.inc.php:288
+#: libraries/messages.inc.php:285
 #, php-format
 msgid "Dump %s row(s) starting at record # %s"
 msgstr "%s rijen aan het dumpen, start bij rij %s."
 
-#: libraries/messages.inc.php:289
+#: libraries/messages.inc.php:286
 msgid "dynamic"
 msgstr "dynamisch"
 
-#: libraries/messages.inc.php:291 setup/lib/messages.inc.php:352
+#: libraries/messages.inc.php:288 setup/lib/messages.inc.php:352
 msgid "Edit"
 msgstr "Wijzig"
 
-#: libraries/messages.inc.php:292
+#: libraries/messages.inc.php:289
 msgid "Edit PDF Pages"
 msgstr "PDF Pagina's aanpassen"
 
-#: libraries/messages.inc.php:293
+#: libraries/messages.inc.php:290
 msgid "Edit Privileges"
 msgstr "Wijzig rechten"
 
-#: libraries/messages.inc.php:294
+#: libraries/messages.inc.php:291
 msgid "Effective"
 msgstr "Effectief"
 
-#: libraries/messages.inc.php:295
+#: libraries/messages.inc.php:292
 msgid "Empty"
 msgstr "Legen"
 
-#: libraries/messages.inc.php:296
+#: libraries/messages.inc.php:293
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultaat set terug (0 rijen)."
 
-#: libraries/messages.inc.php:297
+#: libraries/messages.inc.php:294
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
-#: libraries/messages.inc.php:298
+#: libraries/messages.inc.php:295
 msgid "Enclose export in a transaction"
 msgstr "Sluit de export in een transactie"
 
-#: libraries/messages.inc.php:299
+#: libraries/messages.inc.php:296
 msgid "END CUT"
 msgstr "Einde KNIP"
 
-#: libraries/messages.inc.php:300
+#: libraries/messages.inc.php:297
 msgid "End"
 msgstr "Einde"
 
-#: libraries/messages.inc.php:301
+#: libraries/messages.inc.php:298
 msgid "END RAW"
 msgstr "Einde RAW"
 
-#: libraries/messages.inc.php:302
+#: libraries/messages.inc.php:299
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s is beschikbaar op deze MySQL-server."
 
-#: libraries/messages.inc.php:303
+#: libraries/messages.inc.php:300
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s is uitgeschakeld op deze MySQL-server."
 
-#: libraries/messages.inc.php:304
+#: libraries/messages.inc.php:301
 msgid "Engines"
 msgstr "Engines"
 
-#: libraries/messages.inc.php:305
+#: libraries/messages.inc.php:302
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Deze MySQL-server ondersteund de %s storage engine niet."
 
-#: libraries/messages.inc.php:306
+#: libraries/messages.inc.php:303
 msgid "English"
 msgstr "Engels"
 
-#: libraries/messages.inc.php:307
+#: libraries/messages.inc.php:304
 msgid " Note: MySQL privilege names are expressed in English "
 msgstr ""
 " Aantekening: de namen van de MySQL rechten zijn uitgedrukt in het Engels "
 
-#: libraries/messages.inc.php:308
+#: libraries/messages.inc.php:305
 msgid "Error"
 msgstr "Fout"
 
-#: libraries/messages.inc.php:309
+#: libraries/messages.inc.php:306
 msgid "Error in ZIP archive:"
 msgstr "Fout in ZIP-archief:"
 
-#: libraries/messages.inc.php:310
+#: libraries/messages.inc.php:307
 msgid "Error: Relation not added."
 msgstr "Fout: Relatie niet toegevoegd."
 
-#: libraries/messages.inc.php:311
+#: libraries/messages.inc.php:308
 msgid "Error: relation already exists."
 msgstr "Fout: relatie bestaat reeds."
 
-#: libraries/messages.inc.php:312
+#: libraries/messages.inc.php:309
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Fout bij het hernoemen van de tabel %1$s naar %2$s"
 
-#: libraries/messages.inc.php:313
+#: libraries/messages.inc.php:310
 msgid "Error saving coordinates for Designer."
 msgstr "Fout bij het opslaan van coördinaten voor de Designer."
 
-#: libraries/messages.inc.php:314
+#: libraries/messages.inc.php:311
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/messages.inc.php:315
+#: libraries/messages.inc.php:312
 msgid "Estonian"
 msgstr "Estlands"
 
-#: libraries/messages.inc.php:316
+#: libraries/messages.inc.php:313
 msgid "Event"
 msgstr "Gebeurtenis"
 
-#: libraries/messages.inc.php:317
+#: libraries/messages.inc.php:314
 msgid "Events"
 msgstr "Gebeurtenissen"
 
-#: libraries/messages.inc.php:318
+#: libraries/messages.inc.php:315
 msgid "Excel edition"
 msgstr "Excel editie"
 
-#: libraries/messages.inc.php:319
+#: libraries/messages.inc.php:316
 msgid "Execute bookmarked query"
 msgstr "Voor de gebookmarkte query uit"
 
-#: libraries/messages.inc.php:320 setup/lib/messages.inc.php:353
+#: libraries/messages.inc.php:317 setup/lib/messages.inc.php:353
 msgid "Explain SQL"
 msgstr "Verklaar SQL"
 
-#: libraries/messages.inc.php:321
+#: libraries/messages.inc.php:318
 msgid "Export"
 msgstr "Exporteer"
 
-#: libraries/messages.inc.php:322
+#: libraries/messages.inc.php:319
 msgid "Export/Import to scale"
 msgstr "Exporteer/Importeer naar schaal"
 
-#: libraries/messages.inc.php:323
+#: libraries/messages.inc.php:320
 msgid "Selected export type has to be saved in file!"
 msgstr ""
 "Het geselecteerde export type dient als een bestand te worden opgeslagen!"
 
-#: libraries/messages.inc.php:324
+#: libraries/messages.inc.php:321
 msgid "Extended inserts"
 msgstr "Uitgebreide invoegingen"
 
-#: libraries/messages.inc.php:325
+#: libraries/messages.inc.php:322
 msgid "Extra"
 msgstr "Extra"
 
-#: libraries/messages.inc.php:327
+#: libraries/messages.inc.php:324
 msgid "Failed attempts"
 msgstr "Mislukte pogingen"
 
-#: libraries/messages.inc.php:328
+#: libraries/messages.inc.php:325
 msgid "Field"
 msgstr "Veld"
 
-#: libraries/messages.inc.php:329
+#: libraries/messages.inc.php:326
 #, php-format
 msgid "Field %s has been dropped"
 msgstr "Veld %s is vervallen"
 
-#: libraries/messages.inc.php:330
+#: libraries/messages.inc.php:327
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1510,23 +1496,23 @@ msgstr ""
 "Fout bij het verplaatsen van het geuploade bestand, zie [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 
-#: libraries/messages.inc.php:331
+#: libraries/messages.inc.php:328
 msgid "Fields enclosed by"
 msgstr "Velden ingesloten door"
 
-#: libraries/messages.inc.php:332
+#: libraries/messages.inc.php:329
 msgid "Fields escaped by"
 msgstr "Velden ontweken door"
 
-#: libraries/messages.inc.php:333
+#: libraries/messages.inc.php:330
 msgid "Fields"
 msgstr "Velden"
 
-#: libraries/messages.inc.php:334
+#: libraries/messages.inc.php:331
 msgid "Fields terminated by"
 msgstr "Velden beëindigd door"
 
-#: libraries/messages.inc.php:335
+#: libraries/messages.inc.php:332
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -1534,23 +1520,23 @@ msgstr ""
 "Bestand %s bestaat al op de server, verander de bestandsnaam of activeer de "
 "overschrijven optie."
 
-#: libraries/messages.inc.php:336
+#: libraries/messages.inc.php:333
 msgid "File could not be read"
 msgstr "Bestand kon niet worden gelezen"
 
-#: libraries/messages.inc.php:337
+#: libraries/messages.inc.php:334
 msgid "database name"
 msgstr "databasenaam"
 
-#: libraries/messages.inc.php:338
+#: libraries/messages.inc.php:335
 msgid "server name"
 msgstr "servernaam"
 
-#: libraries/messages.inc.php:339
+#: libraries/messages.inc.php:336
 msgid "table name"
 msgstr "tabelnaam"
 
-#: libraries/messages.inc.php:340
+#: libraries/messages.inc.php:337
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -1561,23 +1547,23 @@ msgstr ""
 "gebruik van opmaakcodes is dan ook toegestaan. Daarnaast worden de volgende "
 "vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven."
 
-#: libraries/messages.inc.php:341
+#: libraries/messages.inc.php:338
 msgid "File name template"
 msgstr "Bestandsnaam template"
 
-#: libraries/messages.inc.php:342
+#: libraries/messages.inc.php:339
 msgid "remember template"
 msgstr "Onthoud template"
 
-#: libraries/messages.inc.php:343
+#: libraries/messages.inc.php:340
 msgid "Files"
 msgstr "bestanden"
 
-#: libraries/messages.inc.php:344
+#: libraries/messages.inc.php:341
 msgid "File to import"
 msgstr "Te importeren bestand"
 
-#: libraries/messages.inc.php:345
+#: libraries/messages.inc.php:342
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -1591,189 +1577,185 @@ msgstr ""
 "geval zijn dan moet men %sde privilege tabel vernieuwen%s voordat men verder "
 "gaat."
 
-#: libraries/messages.inc.php:346
+#: libraries/messages.inc.php:343
 msgid "Flush query cache"
 msgstr "Schoon query cache"
 
-#: libraries/messages.inc.php:347
+#: libraries/messages.inc.php:344
 msgid "Flush the table (\"FLUSH\")"
 msgstr "Schoon de tabel (\"FLUSH\")"
 
-#: libraries/messages.inc.php:348
+#: libraries/messages.inc.php:345
 msgid "Flush (close) all tables"
 msgstr "Schoon (sluit) alle tabellen"
 
-#: libraries/messages.inc.php:349
+#: libraries/messages.inc.php:346
 msgid "Font size"
 msgstr "Font formaat"
 
-#: libraries/messages.inc.php:350
+#: libraries/messages.inc.php:347
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "Fout bij het maken van vreemdesleutel naar %1$s (controleer data typen)"
 
-#: libraries/messages.inc.php:351
+#: libraries/messages.inc.php:348
 msgid "FOREIGN KEY relation added"
 msgstr "Vreemde sleutel(FOREIGN KEY) relatie toegevoegd"
 
-#: libraries/messages.inc.php:352 setup/lib/messages.inc.php:88
+#: libraries/messages.inc.php:349 setup/lib/messages.inc.php:88
 msgid "Format"
 msgstr "Opmaak"
 
-#: libraries/messages.inc.php:353
+#: libraries/messages.inc.php:350
 msgid "Missing value in the form!"
 msgstr "Er ontbreekt een waarde in het formulier!"
 
-#: libraries/messages.inc.php:354
+#: libraries/messages.inc.php:351
 msgid "Free pages"
 msgstr "Vrije pages"
 
-#: libraries/messages.inc.php:355
+#: libraries/messages.inc.php:352
 msgid "Full start"
 msgstr "Start volledig"
 
-#: libraries/messages.inc.php:356
+#: libraries/messages.inc.php:353
 msgid "Full stop"
 msgstr "Stop volledig"
 
-#: libraries/messages.inc.php:357
+#: libraries/messages.inc.php:354
 msgid "Full Texts"
 msgstr "Volledige teksten"
 
-#: libraries/messages.inc.php:358
+#: libraries/messages.inc.php:355
 msgid "Function"
 msgstr "Functie"
 
-#: libraries/messages.inc.php:359
+#: libraries/messages.inc.php:356
 msgid "Functions"
 msgstr "Functies"
 
-#: libraries/messages.inc.php:361
+#: libraries/messages.inc.php:358
 msgid "Generated by"
 msgstr "Gegenereerd door"
 
-#: libraries/messages.inc.php:362
+#: libraries/messages.inc.php:359
 msgid "General relation features"
 msgstr "Basis relatie opties"
 
-#: libraries/messages.inc.php:363
+#: libraries/messages.inc.php:360
 msgid "Generate"
 msgstr "Genereer"
 
-#: libraries/messages.inc.php:364
+#: libraries/messages.inc.php:361
 msgid "Generate Password"
 msgstr "Genereer wachtwoord"
 
-#: libraries/messages.inc.php:365
+#: libraries/messages.inc.php:362
 msgid "Generation Time"
 msgstr "Genereertijd"
 
-#: libraries/messages.inc.php:366
+#: libraries/messages.inc.php:363
 msgid "Georgian"
 msgstr "Georgisch"
 
-#: libraries/messages.inc.php:367
+#: libraries/messages.inc.php:364
 msgid "German"
 msgstr "Duits"
 
-#: libraries/messages.inc.php:368
+#: libraries/messages.inc.php:365
 msgid "Get more themes!"
 msgstr "Bekijk meer thema's!"
 
-#: libraries/messages.inc.php:369
+#: libraries/messages.inc.php:366
 msgid "global"
 msgstr "globaal"
 
-#: libraries/messages.inc.php:370
+#: libraries/messages.inc.php:367
 msgid "Global privileges"
 msgstr "Globale privileges"
 
-#: libraries/messages.inc.php:371
+#: libraries/messages.inc.php:368
 msgid "Global value"
 msgstr "Globale waarde"
 
-#: libraries/messages.inc.php:373
+#: libraries/messages.inc.php:370
 msgid "Go to database"
 msgstr "Ga naar database"
 
-#: libraries/messages.inc.php:374
+#: libraries/messages.inc.php:371
 msgid "Go to table"
 msgstr "Ga naar tabel"
 
-#: libraries/messages.inc.php:375
+#: libraries/messages.inc.php:372
 msgid "Go to view"
 msgstr "Ga naar view"
 
-#: libraries/messages.inc.php:376
+#: libraries/messages.inc.php:373
 msgid "Grant"
 msgstr "Toekennen"
 
-#: libraries/messages.inc.php:377
+#: libraries/messages.inc.php:374
 msgid "Greek"
 msgstr "Grieks"
 
-#: libraries/messages.inc.php:378
+#: libraries/messages.inc.php:375
 msgid "\"gzipped\""
 msgstr "\"ge-gzipt\""
 
-#: libraries/messages.inc.php:380
+#: libraries/messages.inc.php:377
 msgid "Handler"
 msgstr "Handler"
 
-#: libraries/messages.inc.php:381
-msgid "has been altered."
-msgstr "is veranderd."
-
-#: libraries/messages.inc.php:382
+#: libraries/messages.inc.php:378
 msgid "Selected target tables have been synchronized with source tables."
 msgstr "De geselecteerde tabellen zijn gesynchroniseerd met de bron tabellen."
 
-#: libraries/messages.inc.php:383
+#: libraries/messages.inc.php:379
 msgid "You have to choose at least one column to display"
 msgstr "Er moet ten minste 1 weer te geven kolom worden gekozen"
 
-#: libraries/messages.inc.php:384
+#: libraries/messages.inc.php:380
 msgid "Hebrew"
 msgstr "Hebreeuws"
 
-#: libraries/messages.inc.php:385
+#: libraries/messages.inc.php:381
 msgid "Help"
 msgstr "Help"
 
-#: libraries/messages.inc.php:386
+#: libraries/messages.inc.php:382
 msgid "Use hexadecimal for BLOB"
 msgstr "Gebruik hexadecimaal voor BLOB"
 
-#: libraries/messages.inc.php:387
+#: libraries/messages.inc.php:383
 msgid "Hide"
 msgstr "Verberg"
 
-#: libraries/messages.inc.php:388
+#: libraries/messages.inc.php:384
 msgid "Hide/Show all"
 msgstr "Toon/Verberg alles"
 
-#: libraries/messages.inc.php:389
+#: libraries/messages.inc.php:385
 msgid "Hide/Show Tables with no relation"
 msgstr "Verberg/Toon Tabellen zonder relatie"
 
-#: libraries/messages.inc.php:390
+#: libraries/messages.inc.php:386
 msgid "Home"
 msgstr "Home"
 
-#: libraries/messages.inc.php:391
+#: libraries/messages.inc.php:387
 msgid "Official Homepage"
 msgstr "Officiële phpMyAdmin Website"
 
-#: libraries/messages.inc.php:392
+#: libraries/messages.inc.php:388
 msgid "The host name is empty!"
 msgstr "De machinenaam is leeg!"
 
-#: libraries/messages.inc.php:393
+#: libraries/messages.inc.php:389
 msgid "Host"
 msgstr "Machine"
 
-#: libraries/messages.inc.php:394
+#: libraries/messages.inc.php:390
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -1781,71 +1763,63 @@ msgstr ""
 "Indien er gebruik wordt gemaakt van de Host tabel is dit veld niet van "
 "toepassing."
 
-#: libraries/messages.inc.php:395
-msgid "Microsoft Excel 2000"
-msgstr "Microsoft Excel 2000"
-
-#: libraries/messages.inc.php:396
+#: libraries/messages.inc.php:391
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/messages.inc.php:397
+#: libraries/messages.inc.php:392
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: libraries/messages.inc.php:399
+#: libraries/messages.inc.php:394
 msgid "Icelandic"
 msgstr "IJslands"
 
-#: libraries/messages.inc.php:400
+#: libraries/messages.inc.php:395
 msgid "ID"
 msgstr "ID"
 
-#: libraries/messages.inc.php:401
+#: libraries/messages.inc.php:396
 msgid "Fulltext"
 msgstr "Volledige tekst"
 
-#: libraries/messages.inc.php:402
-msgid "Internet Explorer does not support this function."
-msgstr "Internet Explorer ondersteurd deze functie niet."
-
-#: libraries/messages.inc.php:403
+#: libraries/messages.inc.php:397
 msgid "Ignore duplicate rows"
 msgstr "Negeer dubbele rijen"
 
-#: libraries/messages.inc.php:404
+#: libraries/messages.inc.php:398
 msgid "Ignore"
 msgstr "Negeer"
 
-#: libraries/messages.inc.php:405
+#: libraries/messages.inc.php:399
 msgid "Use ignore inserts"
 msgstr "Gebruik 'INSERT IGNORE'"
 
-#: libraries/messages.inc.php:406
+#: libraries/messages.inc.php:400
 msgid "Column names in first row"
 msgstr "Kolomnamen in eerste rij"
 
-#: libraries/messages.inc.php:407
+#: libraries/messages.inc.php:401
 msgid "Do not import empty rows"
 msgstr "Lege rijen niet importeren"
 
-#: libraries/messages.inc.php:408
+#: libraries/messages.inc.php:402
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Importeer/Exporteer coördinaten voor PDF-schema"
 
-#: libraries/messages.inc.php:409
+#: libraries/messages.inc.php:403
 msgid "Import files"
 msgstr "Bestanden importeren"
 
-#: libraries/messages.inc.php:410 setup/lib/messages.inc.php:160
+#: libraries/messages.inc.php:404 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
 msgstr "Formaat van het geïmporteerde bestand"
 
-#: libraries/messages.inc.php:411
+#: libraries/messages.inc.php:405
 msgid "Import"
 msgstr "Importeer"
 
-#: libraries/messages.inc.php:412
+#: libraries/messages.inc.php:406
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -1855,46 +1829,46 @@ msgstr ""
 "last van een een bekende bug in op webkit gebaseerde browsers(Safari, Google "
 "Chrome, Arora)."
 
-#: libraries/messages.inc.php:413
+#: libraries/messages.inc.php:407
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "De volgende structuren zijn aangemaakt of aangepast. Hier kunt u:"
 
-#: libraries/messages.inc.php:414
+#: libraries/messages.inc.php:408
 msgid "View a structure`s contents by clicking on its name"
 msgstr "De inhoud van een structuur bekijken door er op te klikken"
 
-#: libraries/messages.inc.php:415
+#: libraries/messages.inc.php:409
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr "Een instelling veranderen door op \"Opties\" te klikken"
 
-#: libraries/messages.inc.php:416
+#: libraries/messages.inc.php:410
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr "Klik op de \"Structuur\"-koppeling om de structuur aan te passen"
 
-#: libraries/messages.inc.php:417
+#: libraries/messages.inc.php:411
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Valuta importeren ($5.00 naar 5.00)"
 
-#: libraries/messages.inc.php:418 libraries/messages.inc.php:600
+#: libraries/messages.inc.php:412 libraries/messages.inc.php:592
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
-#: libraries/messages.inc.php:419
+#: libraries/messages.inc.php:413
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Percentages als decimalen importeren (12.00% naar .12)"
 
-#: libraries/messages.inc.php:420
+#: libraries/messages.inc.php:414
 msgid "The file is being processed, please be patient."
 msgstr "Het bestand wordt verwerkt, een ogenblik geduld."
 
-#: libraries/messages.inc.php:421
+#: libraries/messages.inc.php:415
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import is geslaagd, %d queries uitgevoerd."
 
-#: libraries/messages.inc.php:422
+#: libraries/messages.inc.php:416
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -1902,19 +1876,19 @@ msgstr ""
 "Een ogenblik geduld, het bestand wordt geupload. Details over de voortgang "
 "zijn niet beschikbaar."
 
-#: libraries/messages.inc.php:423
+#: libraries/messages.inc.php:417
 msgid "Excel 97-2003 XLS Workbook"
 msgstr "Excel 97-2003 XLS Werkboek"
 
-#: libraries/messages.inc.php:424
+#: libraries/messages.inc.php:418
 msgid "Excel 2007 XLSX Workbook"
 msgstr "Excel 2007 XLSX Werkboek"
 
-#: libraries/messages.inc.php:425
+#: libraries/messages.inc.php:419
 msgid "Indexes"
 msgstr "Indexen"
 
-#: libraries/messages.inc.php:426
+#: libraries/messages.inc.php:420
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -1923,33 +1897,33 @@ msgstr ""
 "De indexen %1$s en %2$s lijken hetzelfde, mogelijk kan een van beide worden "
 "verwijderd."
 
-#: libraries/messages.inc.php:427
+#: libraries/messages.inc.php:421
 #, php-format
 msgid "Index %s has been dropped"
 msgstr "Index %s is vervallen"
 
-#: libraries/messages.inc.php:428
+#: libraries/messages.inc.php:422
 msgid "Index"
 msgstr "Index"
 
-#: libraries/messages.inc.php:429
+#: libraries/messages.inc.php:423
 msgid "Index name:"
 msgstr "Index naam&nbsp;:"
 
-#: libraries/messages.inc.php:430
+#: libraries/messages.inc.php:424
 msgid "Index type:"
 msgstr "Index type&nbsp;:"
 
-#: libraries/messages.inc.php:431
+#: libraries/messages.inc.php:425
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemen met de index(en) van de tabel `%s`"
 
-#: libraries/messages.inc.php:432
+#: libraries/messages.inc.php:426
 msgid "Autoextend increment"
 msgstr "Zelfgroei stapgrootte"
 
-#: libraries/messages.inc.php:433
+#: libraries/messages.inc.php:427
 msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
@@ -1957,11 +1931,11 @@ msgstr ""
 "De hoeveelheid waarmee een zelfgroeiende tabelruimte groeit wanneer deze "
 "dreigt vol te raken (Autoextend increment)."
 
-#: libraries/messages.inc.php:434
+#: libraries/messages.inc.php:428
 msgid "Buffer pool size"
 msgstr "Buffer pool grootte"
 
-#: libraries/messages.inc.php:435
+#: libraries/messages.inc.php:429
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -1969,29 +1943,29 @@ msgstr ""
 "De grootte van de geheugenbuffer dat InnoDB gebruikt voor het cachen van "
 "data en indexen van zijn tabellen"
 
-#: libraries/messages.inc.php:436
+#: libraries/messages.inc.php:430
 msgid "Data files"
 msgstr "Data bestanden"
 
-#: libraries/messages.inc.php:437
+#: libraries/messages.inc.php:431
 msgid "Data home directory"
 msgstr "Data home directory"
 
-#: libraries/messages.inc.php:438
+#: libraries/messages.inc.php:432
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 "Het gemeenschappelijke deel van de directory waar alle InnoDB-data-bestanden "
 "staan."
 
-#: libraries/messages.inc.php:439
+#: libraries/messages.inc.php:433
 msgid "pages"
 msgstr "pages"
 
-#: libraries/messages.inc.php:440
+#: libraries/messages.inc.php:434
 msgid "InnoDB Status"
 msgstr "InnoDB Status"
 
-#: libraries/messages.inc.php:441
+#: libraries/messages.inc.php:435
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -2003,28 +1977,28 @@ msgstr ""
 "met deze standaard waardes, en is open voor ongewilde toegang. Het wordt dus "
 "aangeraden dit op te lossen."
 
-#: libraries/messages.inc.php:442
+#: libraries/messages.inc.php:436
 msgid "Insert as new row"
 msgstr "Voeg toe als nieuwe rij"
 
-#: libraries/messages.inc.php:443
+#: libraries/messages.inc.php:437
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rij nummer: %1$d"
 
-#: libraries/messages.inc.php:444
+#: libraries/messages.inc.php:438
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/messages.inc.php:445
+#: libraries/messages.inc.php:439
 msgid "Insert"
 msgstr "Invoegen"
 
-#: libraries/messages.inc.php:446
+#: libraries/messages.inc.php:440
 msgid "Interface"
 msgstr "Interface"
 
-#: libraries/messages.inc.php:447
+#: libraries/messages.inc.php:441
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -2032,286 +2006,274 @@ msgstr ""
 "Een interne relatie is niet noodzakelijk wanneer er reeds een vreemde sleutel"
 "(FOREIGN KEY) relatie bestaat."
 
-#: libraries/messages.inc.php:448
+#: libraries/messages.inc.php:442
 msgid "Internal relation added"
 msgstr "Interne relatie toegevoegd"
 
-#: libraries/messages.inc.php:449
+#: libraries/messages.inc.php:443
 msgid "Internal relations"
 msgstr "Interne relaties"
 
-#: libraries/messages.inc.php:450
+#: libraries/messages.inc.php:444
 msgid "in use"
 msgstr "in gebruik"
 
-#: libraries/messages.inc.php:451
+#: libraries/messages.inc.php:445
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ongeldige authenticatiemethode opgegeven in configuratie:"
 
-#: libraries/messages.inc.php:452
+#: libraries/messages.inc.php:446
 msgid "Column count has to be larger than zero."
 msgstr "Het aantal kolommen moet groter dan nul zijn."
 
-#: libraries/messages.inc.php:453
+#: libraries/messages.inc.php:447
 #, php-format
 msgid "Invalid column (%s) specified!"
 msgstr "Ongeldige kolom (%s) opgegeven!"
 
-#: libraries/messages.inc.php:454
+#: libraries/messages.inc.php:448
 #, php-format
 msgid "Invalid field count in CSV input on line %d."
 msgstr "Verkeerd aantal velden in CSV invoer op regel %d."
 
-#: libraries/messages.inc.php:455
+#: libraries/messages.inc.php:449
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Ongeldig formaat van CSV invoer op regel %d."
 
-#: libraries/messages.inc.php:456
+#: libraries/messages.inc.php:450
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Ongeldige parameter voor CSV import: %s"
 
-#: libraries/messages.inc.php:457
+#: libraries/messages.inc.php:451
 msgid "Invalid database"
 msgstr "Ongeldige database"
 
-#: libraries/messages.inc.php:458
+#: libraries/messages.inc.php:452
 msgid "You have to add at least one field."
 msgstr "U moet minimaal een veld toevoegen."
 
-#: libraries/messages.inc.php:459
+#: libraries/messages.inc.php:453
 msgid "Table must have at least one field."
 msgstr "Tabel moet minimaal een veld hebben."
 
-#: libraries/messages.inc.php:460
+#: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
 msgstr "Deze plugin heeft geen ondersteuning voor gecomprimeerde imports!"
 
-#: libraries/messages.inc.php:461
+#: libraries/messages.inc.php:455
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d is geen geldig rij-nummer."
 
-#: libraries/messages.inc.php:462
+#: libraries/messages.inc.php:456
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ongeldige machinenaam voor server %1$s. Controleer uw configuratie."
 
-#: libraries/messages.inc.php:463
+#: libraries/messages.inc.php:457
 #, php-format
 msgid "Invalid server index: \"%s\""
 msgstr "Ongeldige serverindex: \"%s\""
 
-#: libraries/messages.inc.php:464
+#: libraries/messages.inc.php:458
 msgid "Invalid table name"
 msgstr "Ongeldige tabel naam"
 
-#: libraries/messages.inc.php:466
+#: libraries/messages.inc.php:460
 msgid "Japanese"
 msgstr "Japans"
 
-#: libraries/messages.inc.php:467
+#: libraries/messages.inc.php:461
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: libraries/messages.inc.php:468
+#: libraries/messages.inc.php:462
 msgid "Joins"
 msgstr "Joins"
 
-#: libraries/messages.inc.php:469
+#: libraries/messages.inc.php:463
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Ga naar database &quot;%s&quot;."
 
-#: libraries/messages.inc.php:470
-msgid ""
-"The &quot;deleted&quot; users will still be able to access the server as "
-"usual until the privileges are reloaded."
-msgstr ""
-"De &quot;verwijderde&quot; gebruikers zullen de server kunnen gebruiken, "
-"zoals altijd, zolang de privileges nog niet zijn vernieuwd."
-
-#: libraries/messages.inc.php:471
-msgid "Just delete the users from the privilege tables."
-msgstr "Verwijder gewoon de gebruikers van de privileges tabel."
-
-#: libraries/messages.inc.php:473
+#: libraries/messages.inc.php:465
 msgid "Do not change the password"
 msgstr "Wijzig het wachtwoord niet"
 
-#: libraries/messages.inc.php:474
+#: libraries/messages.inc.php:466
 msgid "Key cache"
 msgstr "Sleutelcache"
 
-#: libraries/messages.inc.php:475
+#: libraries/messages.inc.php:467
 msgid "Keyname"
 msgstr "Sleutelnaam"
 
-#: libraries/messages.inc.php:476
+#: libraries/messages.inc.php:468
 msgid "Kill"
 msgstr "stop proces"
 
-#: libraries/messages.inc.php:477
+#: libraries/messages.inc.php:469
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "De %s functionaliteit heeft last van een bekend probleem, zie %s"
 
-#: libraries/messages.inc.php:478
+#: libraries/messages.inc.php:470
 msgid "Korean"
 msgstr "Koreaans"
 
-#: libraries/messages.inc.php:480
+#: libraries/messages.inc.php:472
 msgid "Landscape"
 msgstr "Landschap"
 
-#: libraries/messages.inc.php:481
+#: libraries/messages.inc.php:473
 msgid "Language"
 msgstr "Taal"
 
-#: libraries/messages.inc.php:482
+#: libraries/messages.inc.php:474
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Onbekende taal: %1$s."
 
-#: libraries/messages.inc.php:483
+#: libraries/messages.inc.php:475
 msgid "Latched pages"
 msgstr "Latched pages"
 
-#: libraries/messages.inc.php:484
+#: libraries/messages.inc.php:476
 msgid "Table caption"
 msgstr "Tabeltitel"
 
-#: libraries/messages.inc.php:485
+#: libraries/messages.inc.php:477
 msgid "Content of table __TABLE__"
 msgstr "Content van tabel __TABLE__"
 
-#: libraries/messages.inc.php:486
+#: libraries/messages.inc.php:478
 msgid "Continued table caption"
 msgstr "Vervolgde tabeltitel"
 
-#: libraries/messages.inc.php:487
+#: libraries/messages.inc.php:479
 msgid "(continued)"
 msgstr "(vervolgd)"
 
-#: libraries/messages.inc.php:488
+#: libraries/messages.inc.php:480
 msgid "Include table caption"
 msgstr "Voeg tabeltitel toe"
 
-#: libraries/messages.inc.php:489
+#: libraries/messages.inc.php:481
 msgid "Label key"
 msgstr "Labelsleutel"
 
-#: libraries/messages.inc.php:490
+#: libraries/messages.inc.php:482
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/messages.inc.php:491
+#: libraries/messages.inc.php:483
 msgid "Structure of table __TABLE__"
 msgstr "Structuur van de tabel __TABLE__"
 
-#: libraries/messages.inc.php:492
+#: libraries/messages.inc.php:484
 msgid "Latvian"
 msgstr "Lets"
 
-#: libraries/messages.inc.php:493
+#: libraries/messages.inc.php:485
 msgid "CSV using LOAD DATA"
 msgstr "CSV met behulp van LOAD DATA"
 
-#: libraries/messages.inc.php:494
+#: libraries/messages.inc.php:486
 msgid "Use LOCAL keyword"
 msgstr "Gebruik het LOCAL sleutelwoord"
 
-#: libraries/messages.inc.php:495
+#: libraries/messages.inc.php:487
 msgid "Length/Values"
 msgstr "Lengte/Waardes*"
 
-#: libraries/messages.inc.php:496
+#: libraries/messages.inc.php:488
 msgid "Number of rows per page"
 msgstr "records per pagina"
 
-#: libraries/messages.inc.php:497
+#: libraries/messages.inc.php:489
 msgid "Lines terminated by"
 msgstr "Regels beëindigd door"
 
-#: libraries/messages.inc.php:498
+#: libraries/messages.inc.php:490
 msgid "Link not found"
 msgstr "Link niet gevonden"
 
-#: libraries/messages.inc.php:499
+#: libraries/messages.inc.php:491
 msgid "Links to"
 msgstr "Gelinkt naar"
 
-#: libraries/messages.inc.php:500
+#: libraries/messages.inc.php:492
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: libraries/messages.inc.php:501
+#: libraries/messages.inc.php:493
 msgid "Local"
 msgstr "lokaal"
 
-#: libraries/messages.inc.php:502
+#: libraries/messages.inc.php:494
 msgid "Location of the text file"
 msgstr "Locatie van het tekstbestand"
 
-#: libraries/messages.inc.php:503
+#: libraries/messages.inc.php:495
 msgid "Login Information"
 msgstr "Inloginformatie"
 
-#: libraries/messages.inc.php:504
+#: libraries/messages.inc.php:496
 msgid "Log in"
 msgstr "Inloggen"
 
-#: libraries/messages.inc.php:505
+#: libraries/messages.inc.php:497
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Inloggen zonder wachtwoord is niet toegestaan vanuit de instellingen (zie "
 "AllowNoPassword)"
 
-#: libraries/messages.inc.php:506
+#: libraries/messages.inc.php:498
 msgid "Log out"
 msgstr "Uitloggen"
 
-#: libraries/messages.inc.php:507
+#: libraries/messages.inc.php:499
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: libraries/messages.inc.php:508
+#: libraries/messages.inc.php:500
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "U kunt een machinenaam/IP adres en poortnummer gescheiden door een spatie "
 "opgeven."
 
-#: libraries/messages.inc.php:509
+#: libraries/messages.inc.php:501
 msgid "Server:"
 msgstr "Server"
 
-#: libraries/messages.inc.php:510
+#: libraries/messages.inc.php:502
 msgid "Username:"
 msgstr "Gebruikersnaam:"
 
-#: libraries/messages.inc.php:511
+#: libraries/messages.inc.php:503
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Deze bewerking kan lang duren. Weet u het zeker?"
 
-#: libraries/messages.inc.php:513
+#: libraries/messages.inc.php:505
 msgid "max. concurrent connections"
 msgstr "Max. gelijktijdige verbindingen"
 
-#: libraries/messages.inc.php:514
+#: libraries/messages.inc.php:506
 msgid "Maximal length of created query"
 msgstr "Maximale lengte van de gemaakte query"
 
-#: libraries/messages.inc.php:515
+#: libraries/messages.inc.php:507
 #, php-format
 msgid "Max: %s%s"
 msgstr "Maximale grootte: %s%s"
 
-#: libraries/messages.inc.php:516
+#: libraries/messages.inc.php:508
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -2321,7 +2283,7 @@ msgstr ""
 "karakterset te gebruiken. Zonder de mbstring extensie kan phpMyAdmin strings "
 "niet correct splitsen, wat tot onverwachte resultaten kan leiden."
 
-#: libraries/messages.inc.php:517
+#: libraries/messages.inc.php:509
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -2331,28 +2293,28 @@ msgstr ""
 "optie is incompatibel met phpMyAdmin en kan ervoor zorgen dat sommige data "
 "corrupt raakt!"
 
-#: libraries/messages.inc.php:518
+#: libraries/messages.inc.php:510
 msgid "MediaWiki Table"
 msgstr "MediaWiki tabel"
 
-#: libraries/messages.inc.php:519
+#: libraries/messages.inc.php:511
 msgid "Available MIME types"
 msgstr "Beschikbare MIME-types"
 
-#: libraries/messages.inc.php:520
+#: libraries/messages.inc.php:512
 msgid "Available transformations"
 msgstr "Beschikbare transformaties"
 
-#: libraries/messages.inc.php:521
+#: libraries/messages.inc.php:513
 msgctxt "$strMIME_description"
 msgid "Description"
 msgstr "Beschrijving"
 
-#: libraries/messages.inc.php:522
+#: libraries/messages.inc.php:514
 msgid "MIME type"
 msgstr "MIME-type"
 
-#: libraries/messages.inc.php:523
+#: libraries/messages.inc.php:515
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -2361,11 +2323,11 @@ msgstr ""
 "Geen beschrijving beschikbaar voor deze transformatie.<br />Raadpleeg de "
 "maker over wat %s doet."
 
-#: libraries/messages.inc.php:524
+#: libraries/messages.inc.php:516
 msgid "Browser transformation"
 msgstr "Browser transformaties"
 
-#: libraries/messages.inc.php:525
+#: libraries/messages.inc.php:517
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
@@ -2374,7 +2336,7 @@ msgstr ""
 "Voor een lijst met beschikbare transformatie opties en MIME-type "
 "transformaties, klik op %sTransformatie opties%s"
 
-#: libraries/messages.inc.php:526
+#: libraries/messages.inc.php:518
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -2386,59 +2348,59 @@ msgstr ""
 "(\"'\") moet invoegen in deze waardes, plaats er dan een backslash voor "
 "(bijvoorbeeld '\\\\xyz' of 'a\\'b')."
 
-#: libraries/messages.inc.php:527
+#: libraries/messages.inc.php:519
 msgid "Transformation options"
 msgstr "Transformatieopties"
 
-#: libraries/messages.inc.php:528
+#: libraries/messages.inc.php:520
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES VOOR TABEL"
 
-#: libraries/messages.inc.php:529
+#: libraries/messages.inc.php:521
 msgid ""
 "MIME types printed in italics do not have a separate transformation function"
 msgstr ""
 "MIME-types die in schuingedrukt staan hebben geen aparte "
 "transformatiefuncties"
 
-#: libraries/messages.inc.php:530
+#: libraries/messages.inc.php:522
 msgid "Modifications have been saved"
 msgstr "Wijzigingen opgeslagen."
 
-#: libraries/messages.inc.php:531
+#: libraries/messages.inc.php:523
 msgid "Modify an index"
 msgstr "Wijzig een index"
 
-#: libraries/messages.inc.php:532
+#: libraries/messages.inc.php:524
 msgid "Modify"
 msgstr "Aanpassen"
 
-#: libraries/messages.inc.php:533
+#: libraries/messages.inc.php:525
 msgid "Move Menu"
 msgstr "Verplaats Menu"
 
-#: libraries/messages.inc.php:534
+#: libraries/messages.inc.php:526
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Verplaats tabel naar (database<b>.</b>tabel):"
 
-#: libraries/messages.inc.php:535
+#: libraries/messages.inc.php:527
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabel %s is verplaatst naar %s."
 
-#: libraries/messages.inc.php:536
+#: libraries/messages.inc.php:528
 msgid "Can't move table to same one!"
 msgstr "Kan de tabel niet naar dezelfde verplaatsen!"
 
-#: libraries/messages.inc.php:537
+#: libraries/messages.inc.php:529
 msgid "multilingual"
 msgstr "meertalig"
 
-#: libraries/messages.inc.php:538
+#: libraries/messages.inc.php:530
 msgid "Data pointer size"
 msgstr "Data pointer formaat"
 
-#: libraries/messages.inc.php:539
+#: libraries/messages.inc.php:531
 msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
@@ -2446,7 +2408,7 @@ msgstr ""
 "Het standaard pointerformaat in bytes, te gebruiken in de 'CREATE TABLE'-"
 "opdracht voor MyISAM-tabellen, als de 'MAX_ROWS'-optie niet is opgegeven"
 
-#: libraries/messages.inc.php:540
+#: libraries/messages.inc.php:532
 msgid ""
 "If the temporary file used for fast MyISAM index creation would be larger "
 "than using the key cache by the amount specified here, prefer the key cache "
@@ -2456,12 +2418,12 @@ msgstr ""
 "indexen groter is dan 'key cache' hier aangegeven, verkies dan de 'key "
 "cache'-methode"
 
-#: libraries/messages.inc.php:541
+#: libraries/messages.inc.php:533
 msgid "Maximum size for temporary files on index creation"
 msgstr ""
 "De maximale grote van het tijdelijke bestand voor het aanmaken van indexen"
 
-#: libraries/messages.inc.php:542
+#: libraries/messages.inc.php:534
 msgid ""
 "The maximum size of the temporary file MySQL is allowed to use while re-"
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
@@ -2471,15 +2433,15 @@ msgstr ""
 "tijdens het opnieuw aanmaken van MyISAM-indexen (tijdens 'REPAIR TABLE', "
 "'ALTER TABLE' of 'LOAD DATA INFILE')"
 
-#: libraries/messages.inc.php:543
+#: libraries/messages.inc.php:535
 msgid "Maximum size for temporary sort files"
 msgstr "Maximum grootte voor tijdelijke sorteer bestanden"
 
-#: libraries/messages.inc.php:544
+#: libraries/messages.inc.php:536
 msgid "Automatic recovery mode"
 msgstr "Automatische herstelmodus"
 
-#: libraries/messages.inc.php:545
+#: libraries/messages.inc.php:537
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
@@ -2488,7 +2450,7 @@ msgstr ""
 "zoals opgegeven met de schakeloptie --myisam-recover bij het opstarten van "
 "de server."
 
-#: libraries/messages.inc.php:546
+#: libraries/messages.inc.php:538
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
@@ -2497,11 +2459,11 @@ msgstr ""
 "aangemaakt tijdens het repareren door het sortereerproces (elke index in "
 "zijn eigen thread)."
 
-#: libraries/messages.inc.php:547
+#: libraries/messages.inc.php:539
 msgid "Repair threads"
 msgstr "Reparatie threads"
 
-#: libraries/messages.inc.php:548
+#: libraries/messages.inc.php:540
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
@@ -2510,23 +2472,23 @@ msgstr ""
 "van 'REPAIR TABLE' of bij het aanmaken van indexen met 'CREATE INDEX' of "
 "'ALTER TABLE'"
 
-#: libraries/messages.inc.php:549
+#: libraries/messages.inc.php:541
 msgid "Sort buffer size"
 msgstr "Sorteer buffer grootte"
 
-#: libraries/messages.inc.php:550
+#: libraries/messages.inc.php:542
 msgid "MySQL charset"
 msgstr "MySQL Karakterset"
 
-#: libraries/messages.inc.php:551
+#: libraries/messages.inc.php:543
 msgid "MySQL client version"
 msgstr "MySQL-client versie"
 
-#: libraries/messages.inc.php:552
+#: libraries/messages.inc.php:544
 msgid "MySQL connection collation"
 msgstr "MySQL verbindingscollatie"
 
-#: libraries/messages.inc.php:553
+#: libraries/messages.inc.php:545
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -2535,41 +2497,41 @@ msgstr ""
 "Uw PHP MySQL bibliotheek versie %s verschilt van uw MySQL-server versie %s. "
 "Dit kan onvoorspelbaar gedrag veroorzaken."
 
-#: libraries/messages.inc.php:554
+#: libraries/messages.inc.php:546
 msgid "MySQL said: "
 msgstr "MySQL retourneerde: "
 
-#: libraries/messages.inc.php:555
+#: libraries/messages.inc.php:547
 msgid "Show processes"
 msgstr "Laat processen zien"
 
-#: libraries/messages.inc.php:557
+#: libraries/messages.inc.php:549
 msgid "Name"
 msgstr "Naam"
 
-#: libraries/messages.inc.php:558
+#: libraries/messages.inc.php:550
 #, fuzzy
 msgid "New table"
 msgstr "Geen Tabellen"
 
-#: libraries/messages.inc.php:559
+#: libraries/messages.inc.php:551
 msgid "Next"
 msgstr "Volgende"
 
-#: libraries/messages.inc.php:560
+#: libraries/messages.inc.php:552
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Geen activiteit voor %s seconden of meer, log a.u.b. opnieuw in"
 
-#: libraries/messages.inc.php:561
+#: libraries/messages.inc.php:553
 msgid "No databases"
 msgstr "Geen databases"
 
-#: libraries/messages.inc.php:562
+#: libraries/messages.inc.php:554
 msgid "No databases selected."
 msgstr "Er zijn geen databases geselecteerd."
 
-#: libraries/messages.inc.php:563
+#: libraries/messages.inc.php:555
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -2580,99 +2542,99 @@ msgstr ""
 "maximale bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie [a@./"
 "Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
-#: libraries/messages.inc.php:564
+#: libraries/messages.inc.php:556
 msgid "no description"
 msgstr "Geen beschrijving aanwezig"
 
-#: libraries/messages.inc.php:565
+#: libraries/messages.inc.php:557
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Er is geen gedetailleerde status informatie beschikbaar voor deze opslag "
 "engine."
 
-#: libraries/messages.inc.php:566
+#: libraries/messages.inc.php:558
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-opdrachten zijn niet mogelijk."
 
-#: libraries/messages.inc.php:567
+#: libraries/messages.inc.php:559
 msgid "Skip Explain SQL"
 msgstr "Uitleg SQL overslaan"
 
-#: libraries/messages.inc.php:568
+#: libraries/messages.inc.php:560
 msgid "No files found inside ZIP archive!"
 msgstr "Geen bestanden gevonden in ZIP archief!"
 
-#: libraries/messages.inc.php:569
+#: libraries/messages.inc.php:561
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "phpMyAdmin werkt gebruiksvriendelijker met een browser die <b>frames</b> aan "
 "kan."
 
-#: libraries/messages.inc.php:570
+#: libraries/messages.inc.php:562
 msgid "No index defined!"
 msgstr "Geen index gedefinieerd!"
 
-#: libraries/messages.inc.php:571
+#: libraries/messages.inc.php:563
 msgid "No index parts defined!"
 msgstr "Geen index-delen gedefinieerd!"
 
-#: libraries/messages.inc.php:572
+#: libraries/messages.inc.php:564
 msgid "No change"
 msgstr "Geen verandering"
 
-#: libraries/messages.inc.php:573
+#: libraries/messages.inc.php:565
 msgctxt "$strNoneDefault"
 msgid "None"
 msgstr "Geen"
 
-#: libraries/messages.inc.php:574
+#: libraries/messages.inc.php:566
 msgid "None"
 msgstr "Geen"
 
-#: libraries/messages.inc.php:575
+#: libraries/messages.inc.php:567
 msgid "No"
 msgstr "Nee"
 
-#: libraries/messages.inc.php:576
+#: libraries/messages.inc.php:568
 msgid "This format has no options"
 msgstr "Dit format heeft geen opties"
 
-#: libraries/messages.inc.php:577
+#: libraries/messages.inc.php:569
 msgid "No Password"
 msgstr "Geen wachtwoord"
 
-#: libraries/messages.inc.php:578
+#: libraries/messages.inc.php:570
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "De web server heeft geen rechten om het bestand %s op te slaan."
 
-#: libraries/messages.inc.php:579
+#: libraries/messages.inc.php:571
 msgid "Without PHP Code"
 msgstr "zonder PHP-Code"
 
-#: libraries/messages.inc.php:580
+#: libraries/messages.inc.php:572
 msgid "No Privileges"
 msgstr "Geen rechten"
 
-#: libraries/messages.inc.php:581
+#: libraries/messages.inc.php:573
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "U heeft niet genoeg rechten om hier te zijn!"
 
-#: libraries/messages.inc.php:582
+#: libraries/messages.inc.php:574
 msgid "No rows selected"
 msgstr "Geen rijen geselecteerd"
 
-#: libraries/messages.inc.php:583
+#: libraries/messages.inc.php:575
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Onvoldoende ruimte om het bestand %s op te slaan."
 
-#: libraries/messages.inc.php:584
+#: libraries/messages.inc.php:576
 msgid "No tables found in database."
 msgstr "Geen tabellen gevonden in de database."
 
-#: libraries/messages.inc.php:585
+#: libraries/messages.inc.php:577
 #, php-format
 msgid ""
 "No themes support; please check your configuration and/or your themes in "
@@ -2681,168 +2643,168 @@ msgstr ""
 "Geen ondersteuning voor thema's, controleer uw configuratie en/of de thema's "
 "in de directory %s."
 
-#: libraries/messages.inc.php:586
+#: libraries/messages.inc.php:578
 msgid "This is not a number!"
 msgstr "Dit is geen cijfer!"
 
-#: libraries/messages.inc.php:587
+#: libraries/messages.inc.php:579
 msgid "not OK"
 msgstr "Niet Goed"
 
-#: libraries/messages.inc.php:588
+#: libraries/messages.inc.php:580
 msgid "not present"
 msgstr "niet aanwezig"
 
-#: libraries/messages.inc.php:589
+#: libraries/messages.inc.php:581
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> tabel niet gevonden of niet ingesteld in %s"
 
-#: libraries/messages.inc.php:590
+#: libraries/messages.inc.php:582
 msgid "No user(s) found."
 msgstr "Geen gebruiker(s) gevonden."
 
-#: libraries/messages.inc.php:591
+#: libraries/messages.inc.php:583
 msgid "Skip Validate SQL"
 msgstr "SQL-validatie overslaan"
 
-#: libraries/messages.inc.php:592
+#: libraries/messages.inc.php:584
 msgid "Null"
 msgstr "Null"
 
-#: libraries/messages.inc.php:593
+#: libraries/messages.inc.php:585
 msgid "Number of fields"
 msgstr "Aantal velden"
 
-#: libraries/messages.inc.php:594
+#: libraries/messages.inc.php:586
 msgid "Number of tables"
 msgstr "Aantal tabellen"
 
-#: libraries/messages.inc.php:595
+#: libraries/messages.inc.php:587
 #, php-format
 msgid "%s match(es) inside table <i>%s</i>"
 msgstr "%s overeenkomst(en) in de tabel <i>%s</i>"
 
-#: libraries/messages.inc.php:596
+#: libraries/messages.inc.php:588
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Totaal:</b> <i>%s</i> overeenkomst(en)"
 
-#: libraries/messages.inc.php:597 setup/lib/messages.inc.php:117
+#: libraries/messages.inc.php:589 setup/lib/messages.inc.php:117
 msgid "Tables"
 msgstr "Tabellen"
 
-#: libraries/messages.inc.php:599
+#: libraries/messages.inc.php:591
 msgid "OK"
 msgstr "Correct"
 
-#: libraries/messages.inc.php:601
+#: libraries/messages.inc.php:593
 msgid "Open Document Text"
 msgstr "Open Document Tekst"
 
-#: libraries/messages.inc.php:602
+#: libraries/messages.inc.php:594
 msgid "Open new phpMyAdmin window"
 msgstr "Open nieuw phpMyAdmin scherm"
 
-#: libraries/messages.inc.php:603
+#: libraries/messages.inc.php:595
 msgid "Operations"
 msgstr "Handelingen"
 
-#: libraries/messages.inc.php:604
+#: libraries/messages.inc.php:596
 msgid "Operator"
 msgstr "Operator"
 
-#: libraries/messages.inc.php:605
+#: libraries/messages.inc.php:597
 msgid "Optimize"
 msgstr "Optimaliseer"
 
-#: libraries/messages.inc.php:606
+#: libraries/messages.inc.php:598
 msgid "Optimize table"
 msgstr "Optimaliseer tabel"
 
-#: libraries/messages.inc.php:607
+#: libraries/messages.inc.php:599
 msgid "Options"
 msgstr "Opties"
 
-#: libraries/messages.inc.php:608
+#: libraries/messages.inc.php:600
 msgid "Or"
 msgstr "Of"
 
-#: libraries/messages.inc.php:609
+#: libraries/messages.inc.php:601
 msgid "Overhead"
 msgstr "Overhead"
 
-#: libraries/messages.inc.php:610 setup/lib/messages.inc.php:90
+#: libraries/messages.inc.php:602 setup/lib/messages.inc.php:90
 msgid "Overwrite existing file(s)"
 msgstr "Overschrijf bestaand(e) bestand(en)"
 
-#: libraries/messages.inc.php:612
+#: libraries/messages.inc.php:604
 msgid "Packed"
 msgstr "Gecomprimeerd"
 
-#: libraries/messages.inc.php:613
+#: libraries/messages.inc.php:605
 msgid "Page number:"
 msgstr "Paginanummer:"
 
-#: libraries/messages.inc.php:614
+#: libraries/messages.inc.php:606
 msgid "Pages to be flushed"
 msgstr "Pages te schonen"
 
-#: libraries/messages.inc.php:615
+#: libraries/messages.inc.php:607
 msgid "Paper size"
 msgstr "Papierformaat"
 
-#: libraries/messages.inc.php:616
+#: libraries/messages.inc.php:608
 msgid "Partial import"
 msgstr "Gedeeltelijke import"
 
-#: libraries/messages.inc.php:617
+#: libraries/messages.inc.php:609
 msgid "Partial Texts"
 msgstr "Gedeeltelijke teksten"
 
-#: libraries/messages.inc.php:618
+#: libraries/messages.inc.php:610
 msgid "PARTITION definition"
 msgstr "PARTITION definitie"
 
-#: libraries/messages.inc.php:619
+#: libraries/messages.inc.php:611
 msgid "partitioned"
 msgstr "gepartitioneerd"
 
-#: libraries/messages.inc.php:620
+#: libraries/messages.inc.php:612
 msgid "Partition maintenance"
 msgstr "Partitie onderhoud"
 
-#: libraries/messages.inc.php:621
+#: libraries/messages.inc.php:613
 #, php-format
 msgid "Partition %s"
 msgstr "Partitie %s"
 
-#: libraries/messages.inc.php:622
+#: libraries/messages.inc.php:614
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Het wachtwoord voor %s is succesvol veranderd."
 
-#: libraries/messages.inc.php:623
+#: libraries/messages.inc.php:615
 msgid "The password is empty!"
 msgstr "Het wachtwoord is leeg!"
 
-#: libraries/messages.inc.php:624
+#: libraries/messages.inc.php:616
 msgid "Password Hashing"
 msgstr "Wachtwoord Hashing"
 
-#: libraries/messages.inc.php:625
+#: libraries/messages.inc.php:617
 msgid "The passwords aren't the same!"
 msgstr "De wachtwoorden zijn niet gelijk!"
 
-#: libraries/messages.inc.php:626
+#: libraries/messages.inc.php:618
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: libraries/messages.inc.php:627
+#: libraries/messages.inc.php:619
 msgid "Checkpoint frequency"
 msgstr "Checkpoint frequentie"
 
-#: libraries/messages.inc.php:628
+#: libraries/messages.inc.php:620
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
@@ -2850,19 +2812,19 @@ msgstr ""
 "De hoeveelheid data die kan worden geschreven naar de transactielog voordat "
 "er een nieuw checkpoint wordt aangemaakt. De standaard waarde is 24MB."
 
-#: libraries/messages.inc.php:629
+#: libraries/messages.inc.php:621
 msgid "Data file grow size"
 msgstr "Data bestand groei stapgrootte"
 
-#: libraries/messages.inc.php:630
+#: libraries/messages.inc.php:622
 msgid "The grow size of the handle data (.xtd) files."
 msgstr "De groei stapgrootte van de handle data (.xtd) bestanden."
 
-#: libraries/messages.inc.php:631
+#: libraries/messages.inc.php:623
 msgid "Data log threshold"
 msgstr "Data log drempelwaarde"
 
-#: libraries/messages.inc.php:632
+#: libraries/messages.inc.php:624
 msgid ""
 "The maximum size of a data log file. The default value is 64MB. PBXT can "
 "create a maximum of 32000 data logs, which are used by all tables. So the "
@@ -2874,7 +2836,7 @@ msgstr ""
 "alle tabellen. Deze waarde kan dan ook worden verhoogd om de maximale "
 "opslagcapasiteit te verhogen."
 
-#: libraries/messages.inc.php:633
+#: libraries/messages.inc.php:625
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
@@ -2882,11 +2844,11 @@ msgstr ""
 "Het percentage van garbage in een data logbestand voor dat deze wordt "
 "geschoond. Dit is een waarde tussen 1 en 99. De standaard is 50."
 
-#: libraries/messages.inc.php:634
+#: libraries/messages.inc.php:626
 msgid "Garbage threshold"
 msgstr "Garbage drempelwaaarde"
 
-#: libraries/messages.inc.php:635
+#: libraries/messages.inc.php:627
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
@@ -2895,11 +2857,11 @@ msgstr ""
 "standaard is 32MB. Het geheugen dat hier is rereserveerd wordt enkel "
 "gebruikt voor het cachen van index pages."
 
-#: libraries/messages.inc.php:636
+#: libraries/messages.inc.php:628
 msgid "Index cache size"
 msgstr "Index cache grootte"
 
-#: libraries/messages.inc.php:637
+#: libraries/messages.inc.php:629
 msgid ""
 "The size of the buffer used when writing a data log. The default is 256MB. "
 "The engine allocates one buffer per thread, but only if the thread is "
@@ -2909,11 +2871,11 @@ msgstr ""
 "gebruikt. De standaard is 256MB. De engine reserveerd een buffer per thread, "
 "maar enkel indien de thread ook moet schrijven naar de data log."
 
-#: libraries/messages.inc.php:638
+#: libraries/messages.inc.php:630
 msgid "Log buffer size"
 msgstr "Log buffer grootte"
 
-#: libraries/messages.inc.php:639
+#: libraries/messages.inc.php:631
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
@@ -2921,11 +2883,11 @@ msgstr ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 
-#: libraries/messages.inc.php:640
+#: libraries/messages.inc.php:632
 msgid "Log cache size"
 msgstr "Log cache grootte"
 
-#: libraries/messages.inc.php:641
+#: libraries/messages.inc.php:633
 msgid ""
 "This is the number of transaction log files (pbxt/system/xlog*.xt) the "
 "system will maintain. If the number of logs exceeds this value then old logs "
@@ -2937,11 +2899,11 @@ msgstr ""
 "zullen oude bestanden worden verwijderd, anders worden oude logbestanden "
 "hernoemd met een opgehoogd volgnummer"
 
-#: libraries/messages.inc.php:642
+#: libraries/messages.inc.php:634
 msgid "Log file count"
 msgstr "Log file aantal"
 
-#: libraries/messages.inc.php:643
+#: libraries/messages.inc.php:635
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
@@ -2949,11 +2911,11 @@ msgstr ""
 "De groote van de transactielog waarbij deze zal worden vervangen door een "
 "nieuw bestand. De standaard is 16M."
 
-#: libraries/messages.inc.php:644
+#: libraries/messages.inc.php:636
 msgid "Log file threshold"
 msgstr "Log file drempelwaarde"
 
-#: libraries/messages.inc.php:645
+#: libraries/messages.inc.php:637
 msgid ""
 "This is the amount of memory allocated to the record cache used to cache "
 "table data. The default value is 32MB. This memory is used to cache changes "
@@ -2963,19 +2925,19 @@ msgstr ""
 "standaard is 32M. Dit geheugen wordt gebruikt om wijzigingen te cachen voor "
 "de handle data (.xtd) en rij pointer (.xtr) bestanden."
 
-#: libraries/messages.inc.php:646
+#: libraries/messages.inc.php:638
 msgid "Record cache size"
 msgstr "Record cache grootte"
 
-#: libraries/messages.inc.php:647
+#: libraries/messages.inc.php:639
 msgid "The grow size of the row pointer (.xtr) files."
 msgstr "De stapgroote waarmee de rij pointer (.xtr) bestanden groeien."
 
-#: libraries/messages.inc.php:648
+#: libraries/messages.inc.php:640
 msgid "Row file grow size"
 msgstr "Row file groei stapgrootte"
 
-#: libraries/messages.inc.php:649
+#: libraries/messages.inc.php:641
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
@@ -2983,117 +2945,117 @@ msgstr ""
 "De grootte van de globale transactie log buffer (de engine reserveert 2 "
 "buffers van dit formaat). De standaard is 1M"
 
-#: libraries/messages.inc.php:650
+#: libraries/messages.inc.php:642
 msgid "Transaction buffer size"
 msgstr "Transactie buffer grootte"
 
-#: libraries/messages.inc.php:651
+#: libraries/messages.inc.php:643
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
 msgstr "Schema van de \"%s\" database - Pagina %s"
 
-#: libraries/messages.inc.php:652
+#: libraries/messages.inc.php:644
 #, php-format
 msgid "The \"%s\" table doesn't exist!"
 msgstr "De tabel \"%s\" bestaat niet!"
 
-#: libraries/messages.inc.php:653
+#: libraries/messages.inc.php:645
 msgid "No tables"
 msgstr "Geen Tabellen"
 
-#: libraries/messages.inc.php:654
+#: libraries/messages.inc.php:646
 #, fuzzy
 msgid "Page has been created"
 msgstr "Tabel %1$s is aangemaakt."
 
-#: libraries/messages.inc.php:655
+#: libraries/messages.inc.php:647
 msgid "Page creation failed"
 msgstr ""
 
-#: libraries/messages.inc.php:656
+#: libraries/messages.inc.php:648
 msgid "PDF"
 msgstr "PDF"
 
-#: libraries/messages.inc.php:657
+#: libraries/messages.inc.php:649
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(Genereert een rapport met de gegevens van een enkele tabel)"
 
-#: libraries/messages.inc.php:658
+#: libraries/messages.inc.php:650
 msgid "Report title"
 msgstr "Report titel"
 
-#: libraries/messages.inc.php:659
+#: libraries/messages.inc.php:651
 msgid "per hour"
 msgstr "per uur"
 
-#: libraries/messages.inc.php:660
+#: libraries/messages.inc.php:652
 msgid "per minute"
 msgstr "per minuut"
 
-#: libraries/messages.inc.php:661
+#: libraries/messages.inc.php:653
 msgid "per second"
 msgstr "per seconde"
 
-#: libraries/messages.inc.php:662
+#: libraries/messages.inc.php:654
 msgid "Persian"
 msgstr "Perzisch"
 
-#: libraries/messages.inc.php:663
+#: libraries/messages.inc.php:655
 msgid "phone book"
 msgstr "Telefoonboek"
 
-#: libraries/messages.inc.php:664
+#: libraries/messages.inc.php:656
 msgid "PHP array"
 msgstr "PHP-array"
 
-#: libraries/messages.inc.php:665 setup/lib/messages.inc.php:355
+#: libraries/messages.inc.php:657 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
 msgstr "Genereer PHP-Code"
 
-#: libraries/messages.inc.php:666
+#: libraries/messages.inc.php:658
 msgid "PHP extension"
 msgstr "PHP uitbreiding"
 
-#: libraries/messages.inc.php:667
+#: libraries/messages.inc.php:659
 msgid "PHP Version"
 msgstr "PHP-Versie"
 
-#: libraries/messages.inc.php:668
+#: libraries/messages.inc.php:660
 msgid "Play audio"
 msgstr "Afspelen"
 
-#: libraries/messages.inc.php:669
+#: libraries/messages.inc.php:661
 msgid "Please select the primary key or a unique key"
 msgstr "Selecteer de primaire sleutel of een unieke sleutel"
 
-#: libraries/messages.inc.php:670
+#: libraries/messages.inc.php:662
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 
-#: libraries/messages.inc.php:671
+#: libraries/messages.inc.php:663
 msgid "Quick steps to setup advanced features:"
 msgstr ""
 
-#: libraries/messages.inc.php:672
+#: libraries/messages.inc.php:664
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgstr ""
 
-#: libraries/messages.inc.php:673
+#: libraries/messages.inc.php:665
 msgid "Create a pma user and give access to these tables."
 msgstr ""
 
-#: libraries/messages.inc.php:674
+#: libraries/messages.inc.php:666
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/messages.inc.php:675
+#: libraries/messages.inc.php:667
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin Documentatie"
 
-#: libraries/messages.inc.php:676
+#: libraries/messages.inc.php:668
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -3101,155 +3063,149 @@ msgstr ""
 "De <tt>$cfg['PmaAbsoluteUri']</tt> richtlijn MOET gezet zijn in het "
 "configuratiebestand!"
 
-#: libraries/messages.inc.php:677
+#: libraries/messages.inc.php:669
 msgid "Polish"
 msgstr "Pools"
 
-#: libraries/messages.inc.php:678
+#: libraries/messages.inc.php:670
 msgid "Port"
 msgstr "Poort"
 
-#: libraries/messages.inc.php:679
+#: libraries/messages.inc.php:671
 msgid "Portrait"
 msgstr "Portret"
 
-#: libraries/messages.inc.php:680
+#: libraries/messages.inc.php:672
 msgid "Begin"
 msgstr "Begin"
 
-#: libraries/messages.inc.php:681
+#: libraries/messages.inc.php:673
 msgid "Previous"
 msgstr "Vorige"
 
-#: libraries/messages.inc.php:682
+#: libraries/messages.inc.php:674
 msgid "The primary key has been dropped"
 msgstr "De primaire sleutel is vervallen"
 
-#: libraries/messages.inc.php:683
+#: libraries/messages.inc.php:675
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "De naam van de primaire sleutel moet PRIMARY zijn!"
 
-#: libraries/messages.inc.php:684
+#: libraries/messages.inc.php:676
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
 "(\"PRIMARY\" <b>moet</b> de naam van en <b>alleen van</b> een primaire "
 "sleutel zijn!)"
 
-#: libraries/messages.inc.php:685
+#: libraries/messages.inc.php:677
 msgid "Primary"
 msgstr "Primaire sleutel"
 
-#: libraries/messages.inc.php:686
+#: libraries/messages.inc.php:678
 msgid "Print"
 msgstr "Afdrukken"
 
-#: libraries/messages.inc.php:687
+#: libraries/messages.inc.php:679
 msgid "Print view (with full texts)"
 msgstr "Afdrukken (met volledige teksten)"
 
-#: libraries/messages.inc.php:688
+#: libraries/messages.inc.php:680
 msgid "Print view"
 msgstr "Afdrukken"
 
-#: libraries/messages.inc.php:689
+#: libraries/messages.inc.php:681
 msgid "Includes all privileges except GRANT."
 msgstr "Bevat alle privileges behalve GRANT."
 
-#: libraries/messages.inc.php:690
+#: libraries/messages.inc.php:682
 msgid "Allows altering the structure of existing tables."
 msgstr "Maakt het mogelijk de structuur van bestaande tabellen aan te passen."
 
-#: libraries/messages.inc.php:691
+#: libraries/messages.inc.php:683
 msgid "Allows altering and dropping stored routines."
 msgstr "Maakt het mogelijk om stored routines te bewerken en te verwijderen."
 
-#: libraries/messages.inc.php:692
+#: libraries/messages.inc.php:684
 msgid "Allows creating new databases and tables."
 msgstr "Maakt het mogelijk om nieuwe databases en tabellen te maken."
 
-#: libraries/messages.inc.php:693
+#: libraries/messages.inc.php:685
 msgid "Allows creating stored routines."
 msgstr "Maakt het mogelijk om stored routines aan te maken."
 
-#: libraries/messages.inc.php:694
+#: libraries/messages.inc.php:686
 msgid "Allows creating new tables."
 msgstr "Maakt het mogelijk nieuwe tabellen te maken."
 
-#: libraries/messages.inc.php:695
+#: libraries/messages.inc.php:687
 msgid "Allows creating temporary tables."
 msgstr "Maakt het mogelijk om tijdelijke tabellen te maken."
 
-#: libraries/messages.inc.php:696
+#: libraries/messages.inc.php:688
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Maakt het mogelijk om gebruikersaccounts te maken, hernoemen en verwijderen."
 
-#: libraries/messages.inc.php:697
+#: libraries/messages.inc.php:689
 msgid "Allows creating new views."
 msgstr "Maakt het mogelijk om nieuwe views te maken."
 
-#: libraries/messages.inc.php:698
+#: libraries/messages.inc.php:690
 msgid "Allows deleting data."
 msgstr "Maakt het mogelijk om data te verwijderen."
 
-#: libraries/messages.inc.php:699
+#: libraries/messages.inc.php:691
 msgid "Allows dropping databases and tables."
 msgstr "Maakt het mogelijk om databases en tabellen te verwijderen."
 
-#: libraries/messages.inc.php:700
+#: libraries/messages.inc.php:692
 msgid "Allows dropping tables."
 msgstr "Maakt het mogelijk tabellen te verwijderen."
 
-#: libraries/messages.inc.php:701
+#: libraries/messages.inc.php:693
 msgid "Allows to set up events for the event scheduler"
 msgstr "Maakt het mogelijk om gebeurtenissen in de planner te zetten"
 
-#: libraries/messages.inc.php:702
+#: libraries/messages.inc.php:694
 msgid "Allows executing stored routines."
 msgstr "Maakt het mogelijk om stored routines uit te voeren."
 
-#: libraries/messages.inc.php:703
-msgid "Allows running stored procedures; has no effect in this MySQL version."
-msgstr ""
-"Maakt het mogelijk om opgeslagen procedures uit te voeren; Heeft geen effect "
-"in deze MySQL versie."
-
-#: libraries/messages.inc.php:704
+#: libraries/messages.inc.php:695
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 "Maakt het mogelijk om data te importeren en te exporteren van en naar "
 "bestanden."
 
-#: libraries/messages.inc.php:705
+#: libraries/messages.inc.php:696
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Maakt het mogelijk dat gebruikers en privileges toe te voegen zonder de "
 "privilegestabel opnieuw op te vragen."
 
-#: libraries/messages.inc.php:706
+#: libraries/messages.inc.php:697
 msgid "Allows creating and dropping indexes."
 msgstr "Maakt het mogelijk om indexen te creëren en te verwijderen."
 
-#: libraries/messages.inc.php:707
+#: libraries/messages.inc.php:698
 msgid "Allows inserting and replacing data."
 msgstr "Maakt het mogelijk om data in te voegen en te vervangen."
 
-#: libraries/messages.inc.php:708
+#: libraries/messages.inc.php:699
 msgid "Allows locking tables for the current thread."
 msgstr "Maakt het mogelijk tabellen op slot te zetten voor de huidige thread."
 
-#: libraries/messages.inc.php:709
+#: libraries/messages.inc.php:700
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Limiteert het aantal nieuwe connecties die een gebruiker per uur mag openen."
 
-#: libraries/messages.inc.php:710
+#: libraries/messages.inc.php:701
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr "Limiteert het aantal queries dat een gebruiker mag versturen per uur."
 
-#: libraries/messages.inc.php:711
+#: libraries/messages.inc.php:702
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -3257,53 +3213,53 @@ msgstr ""
 "Limiteert het aantal commando's, welke een database of tabel veranderen, die "
 "een gebruiker per uur mag uitvoeren."
 
-#: libraries/messages.inc.php:712
+#: libraries/messages.inc.php:703
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Limiteert het aantal gelijktijdige verbindingen dat de gebruiker open kan "
 "hebben."
 
-#: libraries/messages.inc.php:713
+#: libraries/messages.inc.php:704
 msgid "Allows viewing processes of all users"
 msgstr "Maakt het mogelijk om processen van alle gebruikers te zien"
 
-#: libraries/messages.inc.php:714
+#: libraries/messages.inc.php:705
 msgid "Has no effect in this MySQL version."
 msgstr "Heeft geen effect in deze MySQL versie."
 
-#: libraries/messages.inc.php:715
+#: libraries/messages.inc.php:706
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Maakt het mogelijk om de serverinstellingen opnieuw op te vragen en de cache "
 "van de server leeg te maken."
 
-#: libraries/messages.inc.php:716
+#: libraries/messages.inc.php:707
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Geeft het recht aan de gebruiker om te vragen waar de 'slaves' / 'masters' "
 "zijn."
 
-#: libraries/messages.inc.php:717
+#: libraries/messages.inc.php:708
 msgid "Needed for the replication slaves."
 msgstr "Nodig om 'slaves' te repliceren."
 
-#: libraries/messages.inc.php:718
+#: libraries/messages.inc.php:709
 msgid "Allows reading data."
 msgstr "Maakt het lezen van data mogelijk."
 
-#: libraries/messages.inc.php:719
+#: libraries/messages.inc.php:710
 msgid "Gives access to the complete list of databases."
 msgstr "Geeft toegang tot de complete lijst van databases."
 
-#: libraries/messages.inc.php:720
+#: libraries/messages.inc.php:711
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Maakt het mogelijk om SHOW CREATE VIEW queries uit te voeren."
 
-#: libraries/messages.inc.php:721
+#: libraries/messages.inc.php:712
 msgid "Allows shutting down the server."
 msgstr "Maakt het mogelijk om de server te stoppen."
 
-#: libraries/messages.inc.php:722
+#: libraries/messages.inc.php:713
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -3314,88 +3270,84 @@ msgstr ""
 "opties zoals het instellen van globale variabelen of het stoppen van threads "
 "van andere gebruikers."
 
-#: libraries/messages.inc.php:723
+#: libraries/messages.inc.php:714
 msgid "Allows creating and dropping triggers"
 msgstr "Maakt het mogelijk om triggers maken en te verwijderen"
 
-#: libraries/messages.inc.php:724
+#: libraries/messages.inc.php:715
 msgid "Allows changing data."
 msgstr "Maakt het mogelijk data aan te passen."
 
-#: libraries/messages.inc.php:725
+#: libraries/messages.inc.php:716
 msgid "No privileges."
 msgstr "Geen privileges."
 
-#: libraries/messages.inc.php:726
+#: libraries/messages.inc.php:717
 msgid "Privileges"
 msgstr "Rechten"
 
-#: libraries/messages.inc.php:727
+#: libraries/messages.inc.php:718
 msgid "The privileges were reloaded successfully."
 msgstr "De privileges zijn succesvol vernieuwd"
 
-#: libraries/messages.inc.php:728
+#: libraries/messages.inc.php:719
 msgid "Procedures"
 msgstr "Procedures"
 
-#: libraries/messages.inc.php:729
+#: libraries/messages.inc.php:720
 msgid "Processes"
 msgstr "Processen"
 
-#: libraries/messages.inc.php:730
-msgid "Process list"
-msgstr "Processenlijst"
-
-#: libraries/messages.inc.php:731
+#: libraries/messages.inc.php:721
 msgid "Profiling"
 msgstr "Profiling"
 
-#: libraries/messages.inc.php:732
+#: libraries/messages.inc.php:722
 msgid "Protocol version"
 msgstr "Protocolversie"
 
-#: libraries/messages.inc.php:733
+#: libraries/messages.inc.php:723
 msgid "Put fields names in the first row"
 msgstr "Plaats veldnamen in de eerste rij"
 
-#: libraries/messages.inc.php:735
+#: libraries/messages.inc.php:725
 msgid "Del"
 msgstr "Verwijder"
 
-#: libraries/messages.inc.php:736
+#: libraries/messages.inc.php:726
 msgid "Ins"
 msgstr "Toevoegen"
 
-#: libraries/messages.inc.php:737
+#: libraries/messages.inc.php:727
 msgid "Query"
 msgstr "Query opbouwen"
 
-#: libraries/messages.inc.php:738
+#: libraries/messages.inc.php:728
 msgid "The following queries have been executed:"
 msgstr "De volgende queries zijn uitgevoerd:"
 
-#: libraries/messages.inc.php:739
+#: libraries/messages.inc.php:729
 msgid "Query cache"
 msgstr "Query cache"
 
-#: libraries/messages.inc.php:740 setup/lib/messages.inc.php:122
+#: libraries/messages.inc.php:730 setup/lib/messages.inc.php:122
 msgid "Query window"
 msgstr "Query-venster"
 
-#: libraries/messages.inc.php:741
+#: libraries/messages.inc.php:731
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-query op database <b>%s</b>:"
 
-#: libraries/messages.inc.php:742
+#: libraries/messages.inc.php:732
 msgid "Query results operations"
 msgstr "Query resultaat bewerkingen"
 
-#: libraries/messages.inc.php:743
+#: libraries/messages.inc.php:733
 msgid "SQL history"
 msgstr "SQL-geschiedenis"
 
-#: libraries/messages.inc.php:744
+#: libraries/messages.inc.php:734
 #, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
@@ -3404,64 +3356,64 @@ msgstr ""
 "<b>Query-statistieken</b>: Sinds het opstarten zijn er %s queries gestuurd "
 "naar de server."
 
-#: libraries/messages.inc.php:745
+#: libraries/messages.inc.php:735
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Query duurde %01.4f sec"
 
-#: libraries/messages.inc.php:746
+#: libraries/messages.inc.php:736
 msgid "Query type"
 msgstr "Query-type"
 
-#: libraries/messages.inc.php:747
+#: libraries/messages.inc.php:737
 msgid "Do not overwrite this query from outside the window"
 msgstr "Overschrijf deze query niet vanuit een ander scherm"
 
-#: libraries/messages.inc.php:749
+#: libraries/messages.inc.php:739
 msgid "Read requests"
 msgstr "Lees aanvragen"
 
-#: libraries/messages.inc.php:750
+#: libraries/messages.inc.php:740
 msgid "Rebuild"
 msgstr "Regenereer"
 
-#: libraries/messages.inc.php:751
+#: libraries/messages.inc.php:741
 msgid "Received"
 msgstr "Ontvangen"
 
-#: libraries/messages.inc.php:752
+#: libraries/messages.inc.php:742
 msgid "recommended"
 msgstr "aangeraden"
 
-#: libraries/messages.inc.php:753
+#: libraries/messages.inc.php:743
 msgid "Records"
 msgstr "Records"
 
-#: libraries/messages.inc.php:754
+#: libraries/messages.inc.php:744
 msgid "Check referential integrity:"
 msgstr "Controleer referentiële integriteit"
 
-#: libraries/messages.inc.php:755 setup/lib/messages.inc.php:354
+#: libraries/messages.inc.php:745 setup/lib/messages.inc.php:354
 msgid "Refresh"
 msgstr "Vernieuw"
 
-#: libraries/messages.inc.php:756
+#: libraries/messages.inc.php:746
 msgid "Relational display field"
 msgstr "Relationele weergave veld"
 
-#: libraries/messages.inc.php:757
+#: libraries/messages.inc.php:747
 msgid "Relational key"
 msgstr "Relationele sleutel"
 
-#: libraries/messages.inc.php:758
+#: libraries/messages.inc.php:748
 msgid "Relational schema"
 msgstr "Relationeel schema"
 
-#: libraries/messages.inc.php:759
+#: libraries/messages.inc.php:749
 msgid "Relation deleted"
 msgstr "Relatie verwijderd"
 
-#: libraries/messages.inc.php:760
+#: libraries/messages.inc.php:750
 #, php-format
 msgid ""
 "The additional features for working with linked tables have been "
@@ -3470,131 +3422,127 @@ msgstr ""
 "Extra opties om met tabellen te werken, die gelinkt zijn, zijn "
 "uitgeschakeld. Om te weten te komen waarom klik %shier%s."
 
-#: libraries/messages.inc.php:761
+#: libraries/messages.inc.php:751
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIES VOOR TABEL"
 
-#: libraries/messages.inc.php:762 tbl_relation.php:399
+#: libraries/messages.inc.php:752 tbl_relation.php:399
 msgid "Relations"
 msgstr "Relaties"
 
-#: libraries/messages.inc.php:763
+#: libraries/messages.inc.php:753
 msgid "Relation view"
 msgstr "Relatieoverzicht"
 
-#: libraries/messages.inc.php:764
+#: libraries/messages.inc.php:754
 msgid "Reloading the privileges"
 msgstr "Bezig de privileges te verversen"
 
-#: libraries/messages.inc.php:765
+#: libraries/messages.inc.php:755
 #, fuzzy
 msgid "Reload navigation frame"
 msgstr "Aanpassen navigatieframe"
 
-#: libraries/messages.inc.php:766
-msgid "Reload privileges"
-msgstr "Ververs rechten"
-
-#: libraries/messages.inc.php:767
+#: libraries/messages.inc.php:756
 msgid "Reload"
 msgstr "Verversen"
 
-#: libraries/messages.inc.php:768
+#: libraries/messages.inc.php:757
 msgid "Remote server"
 msgstr "Andere server"
 
-#: libraries/messages.inc.php:769
+#: libraries/messages.inc.php:758
 msgid "Remove CRLF characters within fields"
 msgstr "Verwijder CRLF tekens uit veld-waarden"
 
-#: libraries/messages.inc.php:770
+#: libraries/messages.inc.php:759
 msgid "Remove partitioning"
 msgstr "Verwijder partitionering"
 
-#: libraries/messages.inc.php:771
+#: libraries/messages.inc.php:760
 msgid "Remove selected users"
 msgstr "Verwijder de geselecteerde gebruikers"
 
-#: libraries/messages.inc.php:772
+#: libraries/messages.inc.php:761
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Database %s is hernoemd naar %s"
 
-#: libraries/messages.inc.php:773
+#: libraries/messages.inc.php:762
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "Tabel %s is hernoemd naar %s"
 
-#: libraries/messages.inc.php:774
+#: libraries/messages.inc.php:763
 msgid "Rename table to"
 msgstr "Tabel hernoemen naar"
 
-#: libraries/messages.inc.php:775
+#: libraries/messages.inc.php:764
 #, fuzzy
 msgid "Rename view to"
 msgstr "Tabel hernoemen naar"
 
-#: libraries/messages.inc.php:776
+#: libraries/messages.inc.php:765
 msgid "Repair"
 msgstr "Repareer"
 
-#: libraries/messages.inc.php:777
+#: libraries/messages.inc.php:766
 msgid "Repair table"
 msgstr "Repareer tabel"
 
-#: libraries/messages.inc.php:778
+#: libraries/messages.inc.php:767
 msgid "Replace NULL by"
 msgstr "Vervang NULL door"
 
-#: libraries/messages.inc.php:779
+#: libraries/messages.inc.php:768
 msgid "Replace table data with file"
 msgstr "Vervang tabelgegevens door het bestand"
 
-#: libraries/messages.inc.php:780
+#: libraries/messages.inc.php:769
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
 "Voeg nu de onderstaande regels aan uw my.cnf toe en herstart uw MySQL-server."
 
-#: libraries/messages.inc.php:781
+#: libraries/messages.inc.php:770
 msgid "Add slave replication user"
 msgstr "Voeg slave replicatie gebruiker toe"
 
-#: libraries/messages.inc.php:782
+#: libraries/messages.inc.php:771
 #, php-format
 msgid "Master server changed succesfully to %s"
 msgstr "Master server gewijzigd in %s"
 
-#: libraries/messages.inc.php:783
+#: libraries/messages.inc.php:772
 msgid "This server is configured as master in a replication process."
 msgstr "Deze server is ingesteld als master in een replicatie proces."
 
-#: libraries/messages.inc.php:784
+#: libraries/messages.inc.php:773
 msgid "Control slave:"
 msgstr "Beheer slave:"
 
-#: libraries/messages.inc.php:785
+#: libraries/messages.inc.php:774
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 "Het lezen van de master-positie is mislukt. Mogelijk gaat het om een rechten "
 "probleem op de master."
 
-#: libraries/messages.inc.php:786
+#: libraries/messages.inc.php:775
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "Het verbinden met de master %s is mislukt."
 
-#: libraries/messages.inc.php:787
+#: libraries/messages.inc.php:776
 msgid "Replicate all databases; Ignore:"
 msgstr "Repliceer alle databases; Negeer:"
 
-#: libraries/messages.inc.php:788
+#: libraries/messages.inc.php:777
 msgid "Ignore all databases; Replicate:"
 msgstr "Negeer alle databases; Repliceer enkel:"
 
-#: libraries/messages.inc.php:789
+#: libraries/messages.inc.php:778
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -3607,19 +3555,19 @@ msgstr ""
 "de meerderheid van uw databases wil repliceren) of u kiest ervoor om alleen "
 "enkele geselecteerde databases te repliceren."
 
-#: libraries/messages.inc.php:790
+#: libraries/messages.inc.php:779
 msgid "Master configuration"
 msgstr "Master instellingen"
 
-#: libraries/messages.inc.php:791
+#: libraries/messages.inc.php:780
 msgid "Master replication"
 msgstr "Master replicatie"
 
-#: libraries/messages.inc.php:792
+#: libraries/messages.inc.php:781
 msgid "Replication"
 msgstr "Replicatie"
 
-#: libraries/messages.inc.php:793
+#: libraries/messages.inc.php:782
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
@@ -3629,11 +3577,11 @@ msgstr ""
 "server heeft herstart klikt u op Start. Hierna zou u de melding moeten "
 "krijgen dat de server is ingesteld als master."
 
-#: libraries/messages.inc.php:794
+#: libraries/messages.inc.php:783
 msgid "Please select databases:"
 msgstr "Selecteer uit de onderstaande databases:"
 
-#: libraries/messages.inc.php:795
+#: libraries/messages.inc.php:784
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -3642,7 +3590,7 @@ msgstr ""
 "Deze server is niet ingesteld als master in een replicatie proces. Wilt u "
 "dit nu <a href=\"%s\">instellen</a>?"
 
-#: libraries/messages.inc.php:796
+#: libraries/messages.inc.php:785
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -3650,47 +3598,47 @@ msgstr ""
 "Enkel slaves gestart met de optie --report-host=host_name zijn zichtbaar in "
 "deze lijst."
 
-#: libraries/messages.inc.php:797
+#: libraries/messages.inc.php:786
 msgid "Show connected slaves"
 msgstr "Toon verbonden slaves"
 
-#: libraries/messages.inc.php:798 libraries/messages.inc.php:905
+#: libraries/messages.inc.php:787 libraries/messages.inc.php:893
 msgid "Show master status"
 msgstr "Toon master status"
 
-#: libraries/messages.inc.php:799
+#: libraries/messages.inc.php:788
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgstr ""
 "Het overslaan van error(s) kan leiden tot verschillen tussen de master en "
 "slave!"
 
-#: libraries/messages.inc.php:800
+#: libraries/messages.inc.php:789
 msgid "Change or reconfigure master server"
 msgstr "Wijzig master server"
 
-#: libraries/messages.inc.php:801
+#: libraries/messages.inc.php:790
 msgid "Slave configuration"
 msgstr "Slave instellingen"
 
-#: libraries/messages.inc.php:802
+#: libraries/messages.inc.php:791
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr "Server is ingesteld als slave in een replicatie proces."
 
-#: libraries/messages.inc.php:803
+#: libraries/messages.inc.php:792
 msgid "Error management:"
 msgstr "Fouten beheer:"
 
-#: libraries/messages.inc.php:804
+#: libraries/messages.inc.php:793
 #, php-format
 msgid "IO Thread %s only"
 msgstr "%s de IO Thread"
 
-#: libraries/messages.inc.php:805
+#: libraries/messages.inc.php:794
 msgid "Slave IO Thread not running!"
 msgstr "Slave IO Thread niet actief!"
 
-#: libraries/messages.inc.php:806
+#: libraries/messages.inc.php:795
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -3699,40 +3647,40 @@ msgstr ""
 "Deze server is niet ingesteld als slave in een replicatie proces. Wilt u dit "
 "nu <a href=\"%s\">instellen</a>?"
 
-#: libraries/messages.inc.php:807
+#: libraries/messages.inc.php:796
 msgid "Reset slave"
 msgstr ""
 
-#: libraries/messages.inc.php:808
+#: libraries/messages.inc.php:797
 msgid "See slave status table"
 msgstr "Slave status tabel"
 
-#: libraries/messages.inc.php:809
+#: libraries/messages.inc.php:798
 msgid "Skip current error"
 msgstr "Sla de huidige error over"
 
-#: libraries/messages.inc.php:810
+#: libraries/messages.inc.php:799
 msgid "errors."
 msgstr "errors over."
 
-#: libraries/messages.inc.php:811
+#: libraries/messages.inc.php:800
 msgid "Skip next"
 msgstr "Sla de volgende"
 
-#: libraries/messages.inc.php:812
+#: libraries/messages.inc.php:801
 msgid "Slave replication"
 msgstr "Slave replicatie"
 
-#: libraries/messages.inc.php:813
+#: libraries/messages.inc.php:802
 msgid "Slave SQL Thread not running!"
 msgstr "Slave SQL Thread niet actief!"
 
-#: libraries/messages.inc.php:814
+#: libraries/messages.inc.php:803
 #, php-format
 msgid "SQL Thread %s only"
 msgstr "%s de SQL Thread"
 
-#: libraries/messages.inc.php:815
+#: libraries/messages.inc.php:804
 #, php-format
 msgid ""
 "This MySQL server works as %s in <b>replication</b> process. For further "
@@ -3743,283 +3691,275 @@ msgstr ""
 "voor meer informatie over replicatie in de <a href=\"#replication"
 "\">replication status</a> sectie."
 
-#: libraries/messages.inc.php:816
+#: libraries/messages.inc.php:805
 msgid "Master status"
 msgstr "Master status"
 
-#: libraries/messages.inc.php:817
+#: libraries/messages.inc.php:806
 msgid "Replication status"
 msgstr "Replicatie status"
 
-#: libraries/messages.inc.php:818
+#: libraries/messages.inc.php:807
 msgid "Slave status"
 msgstr "Slave status"
 
-#: libraries/messages.inc.php:819
+#: libraries/messages.inc.php:808
 msgid "Synchronize databases with master"
 msgstr "Synchronizeer databases met master"
 
-#: libraries/messages.inc.php:820
+#: libraries/messages.inc.php:809
 msgid "Unable to change master"
 msgstr "Wijzigen master mislukt"
 
-#: libraries/messages.inc.php:821
+#: libraries/messages.inc.php:810
 msgid "Unknown error"
 msgstr "Onbekende fout"
 
-#: libraries/messages.inc.php:822
+#: libraries/messages.inc.php:811
 msgid "Reset"
 msgstr "Herstel"
 
-#: libraries/messages.inc.php:823
+#: libraries/messages.inc.php:812
 msgid "Resource limits"
 msgstr "Resource-beperkingen"
 
-#: libraries/messages.inc.php:824
+#: libraries/messages.inc.php:813
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr "Herstart het invoegen met %s rijen"
 
-#: libraries/messages.inc.php:825
+#: libraries/messages.inc.php:814
 msgid "Re-type"
 msgstr "Type opnieuw"
 
-#: libraries/messages.inc.php:826
-msgid ""
-"The users will still have the USAGE privilege until the privileges are "
-"reloaded."
-msgstr ""
-"De gebruikers zullen nog steeds het USAGE (gebruik) privilege hebben zolang "
-"de privileges nog niet zijn vernieuwd."
-
-#: libraries/messages.inc.php:827
+#: libraries/messages.inc.php:815
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Trek alle actieve privileges in van alle gebruikers en verwijder deze daarna."
 
-#: libraries/messages.inc.php:828
+#: libraries/messages.inc.php:816
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "U heeft de rechten ingetrokken voor %s"
 
-#: libraries/messages.inc.php:829
+#: libraries/messages.inc.php:817
 msgid "Revoke"
 msgstr "Ongedaan maken"
 
-#: libraries/messages.inc.php:830
+#: libraries/messages.inc.php:818
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: libraries/messages.inc.php:831
+#: libraries/messages.inc.php:819
 msgid "Return type"
 msgstr "Retour type"
 
-#: libraries/messages.inc.php:832
+#: libraries/messages.inc.php:820
 msgid "Routines"
 msgstr "Routines"
 
-#: libraries/messages.inc.php:833
+#: libraries/messages.inc.php:821
 msgid "Row length"
 msgstr "Lengte van de rij"
 
-#: libraries/messages.inc.php:834
+#: libraries/messages.inc.php:822
 msgid "row(s) starting from record #"
 msgstr "rijen beginnend bij"
 
-#: libraries/messages.inc.php:835
+#: libraries/messages.inc.php:823
 msgid " Row size "
 msgstr " Grootte van de rij"
 
-#: libraries/messages.inc.php:836
+#: libraries/messages.inc.php:824
 msgid "horizontal (rotated headers)"
 msgstr "horizontaal (omgedraaide headers)"
 
-#: libraries/messages.inc.php:837
+#: libraries/messages.inc.php:825
 msgid "horizontal"
 msgstr "horizontaal"
 
-#: libraries/messages.inc.php:838
+#: libraries/messages.inc.php:826
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
 msgstr "in %s modus en herhaal kopregels na %s cellen"
 
-#: libraries/messages.inc.php:839
+#: libraries/messages.inc.php:827
 msgid "vertical"
 msgstr "verticaal"
 
-#: libraries/messages.inc.php:840
+#: libraries/messages.inc.php:828
 msgid "Rows"
 msgstr "Rijen"
 
-#: libraries/messages.inc.php:841
+#: libraries/messages.inc.php:829
 msgid "Row Statistics"
 msgstr "Rij-statistiek"
 
-#: libraries/messages.inc.php:842
+#: libraries/messages.inc.php:830
 #, php-format
 msgid "running on %s"
 msgstr "wordt uitgevoerd op %s"
 
-#: libraries/messages.inc.php:843
+#: libraries/messages.inc.php:831
 msgid "Submit Query"
 msgstr "Query uitvoeren"
 
-#: libraries/messages.inc.php:844
+#: libraries/messages.inc.php:832
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "Voer SQL query/queries uit op de server %s"
 
-#: libraries/messages.inc.php:845
+#: libraries/messages.inc.php:833
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Draai SQL query/queries op database %s"
 
-#: libraries/messages.inc.php:846
+#: libraries/messages.inc.php:834
 msgid "Russian"
 msgstr "Russisch"
 
-#: libraries/messages.inc.php:848
+#: libraries/messages.inc.php:836
 #, php-format
 msgid "Save on server in %s directory"
 msgstr "Bewaar op de server in %s directory"
 
-#: libraries/messages.inc.php:849
+#: libraries/messages.inc.php:837
 msgid "Save position"
 msgstr "Posities opslaan"
 
-#: libraries/messages.inc.php:850
+#: libraries/messages.inc.php:838
 msgid "Save"
 msgstr "Opslaan"
 
-#: libraries/messages.inc.php:851
+#: libraries/messages.inc.php:839
 msgid "The scale factor is too small to fit the schema on one page"
 msgstr "De schaalfactor is te klein om het schema op een pagina te zetten"
 
-#: libraries/messages.inc.php:852
+#: libraries/messages.inc.php:840
 msgid "Search in database"
 msgstr "Zoeken in de database"
 
-#: libraries/messages.inc.php:853
+#: libraries/messages.inc.php:841
 msgid "Inside field:"
 msgstr "In het veld:"
 
-#: libraries/messages.inc.php:854
+#: libraries/messages.inc.php:842
 msgid "Inside table(s):"
 msgstr "In de tabel(len):"
 
-#: libraries/messages.inc.php:855
+#: libraries/messages.inc.php:843
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgstr "Woord(en) of waarde(s) waarnaar gezocht moet worden (wildcard: \"%\"):"
 
-#: libraries/messages.inc.php:856
+#: libraries/messages.inc.php:844
 msgid "at least one of the words"
 msgstr "ten minste een van de woorden"
 
-#: libraries/messages.inc.php:857
+#: libraries/messages.inc.php:845
 msgid "all words"
 msgstr "alle woorden"
 
-#: libraries/messages.inc.php:858
+#: libraries/messages.inc.php:846
 msgid "the exact phrase"
 msgstr "de exacte zin"
 
-#: libraries/messages.inc.php:859
+#: libraries/messages.inc.php:847
 msgid "as regular expression"
 msgstr "als een reguliere expressie"
 
-#: libraries/messages.inc.php:860
+#: libraries/messages.inc.php:848
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Zoek resultaten voor \"<i>%s</i>\" %s:"
 
-#: libraries/messages.inc.php:861
+#: libraries/messages.inc.php:849
 msgid "Search"
 msgstr "Zoeken"
 
-#: libraries/messages.inc.php:862
+#: libraries/messages.inc.php:850
 msgid "Find:"
 msgstr "Zoek:"
 
-#: libraries/messages.inc.php:863
+#: libraries/messages.inc.php:851
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Het configuratiebestand heeft nu een geheime wachtwoordzin nodig "
 "(blowfish_secret)."
 
-#: libraries/messages.inc.php:864
+#: libraries/messages.inc.php:852
 msgid "Please select a database"
 msgstr "Selecteer A.U.B. een database"
 
-#: libraries/messages.inc.php:865
+#: libraries/messages.inc.php:853
 msgid "Select All"
 msgstr "Selecteer alles"
 
-#: libraries/messages.inc.php:866
+#: libraries/messages.inc.php:854
 msgid "Select binary log to view"
 msgstr "Selecteer de te bekijken binaire log"
 
-#: libraries/messages.inc.php:867
+#: libraries/messages.inc.php:855
 msgid "Select fields (at least one):"
 msgstr "Selecteer velden (tenminste 1):"
 
-#: libraries/messages.inc.php:868
+#: libraries/messages.inc.php:856
 msgid "Select Foreign Key"
 msgstr "Selecteer vreemde sleutel"
 
-#: libraries/messages.inc.php:869
+#: libraries/messages.inc.php:857
 msgid "in query"
 msgstr "in query"
 
-#: libraries/messages.inc.php:870
+#: libraries/messages.inc.php:858
 msgid "Select referenced key"
 msgstr "Selecteer de gerefereerde sleutel"
 
-#: libraries/messages.inc.php:871
+#: libraries/messages.inc.php:859
 msgid "Select Tables"
 msgstr "Selecteer tabellen"
 
-#: libraries/messages.inc.php:872 setup/lib/messages.inc.php:82
+#: libraries/messages.inc.php:860 setup/lib/messages.inc.php:82
 msgid "Save as file"
 msgstr "Opslaan als bestand"
 
-#: libraries/messages.inc.php:873
+#: libraries/messages.inc.php:861
 msgid "Sent"
 msgstr "Verzonden"
 
-#: libraries/messages.inc.php:874
+#: libraries/messages.inc.php:862
 msgid "Server Choice"
 msgstr "Serverkeuze"
 
-#: libraries/messages.inc.php:875
+#: libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr "De server reageert niet"
 
-#: libraries/messages.inc.php:876
+#: libraries/messages.inc.php:864
 msgid "Server"
 msgstr "Server"
 
-#: libraries/messages.inc.php:877 setup/lib/messages.inc.php:115
+#: libraries/messages.inc.php:865 setup/lib/messages.inc.php:115
 msgid "Servers"
 msgstr "Servers"
 
-#: libraries/messages.inc.php:878
+#: libraries/messages.inc.php:866
 msgid "Delayed inserts"
 msgstr "Vertraagde inserts"
 
-#: libraries/messages.inc.php:879
+#: libraries/messages.inc.php:867
 msgid "Runtime Information"
 msgstr "Runtime-informatie"
 
-#: libraries/messages.inc.php:880
+#: libraries/messages.inc.php:868
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "Deze MySQL-server draait inmiddels %s. Hij is gestart op %s."
 
-#: libraries/messages.inc.php:881
+#: libraries/messages.inc.php:869
 msgid "Variables"
 msgstr "Variabelen"
 
-#: libraries/messages.inc.php:882
+#: libraries/messages.inc.php:870
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
@@ -4027,15 +3967,15 @@ msgstr ""
 "<b>Serververkeer</b>: Netwerkverkeer van deze MySQL-server, sinds deze is "
 "gestart"
 
-#: libraries/messages.inc.php:883
+#: libraries/messages.inc.php:871
 msgid "Server variables and settings"
 msgstr "Servervariabelen en -instellingen"
 
-#: libraries/messages.inc.php:884
+#: libraries/messages.inc.php:872
 msgid "Server version"
 msgstr "Serverversie"
 
-#: libraries/messages.inc.php:885
+#: libraries/messages.inc.php:873
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -4047,7 +3987,7 @@ msgstr ""
 "ingestelde cookie geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
 "eerder dan in phpMyAdmin is ingesteld."
 
-#: libraries/messages.inc.php:886
+#: libraries/messages.inc.php:874
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."
@@ -4055,11 +3995,11 @@ msgstr ""
 "De sessie kan niet foutloos worden gestart. Controleer op foutmeldingen in "
 "de PHP- en webserver-log, en herstel deze."
 
-#: libraries/messages.inc.php:887
+#: libraries/messages.inc.php:875
 msgid "Session value"
 msgstr "Sessievariabelen"
 
-#: libraries/messages.inc.php:888
+#: libraries/messages.inc.php:876
 msgid ""
 "If field type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -4071,92 +4011,92 @@ msgstr ""
 "enkel aanhalingsteken (\"'\") bij deze waardes, plaats er dan een backslash "
 "voor (voorbeeld '\\\\xyz' of 'a\\'b')."
 
-#: libraries/messages.inc.php:889
+#: libraries/messages.inc.php:877
 msgid "settings"
 msgstr "instellingen"
 
-#: libraries/messages.inc.php:890
+#: libraries/messages.inc.php:878
 msgid "Show all"
 msgstr "Toon alles"
 
-#: libraries/messages.inc.php:891
+#: libraries/messages.inc.php:879
 msgid "Show binary contents as HEX"
 msgstr "Toon binaire-inhoud als HEX"
 
-#: libraries/messages.inc.php:892
+#: libraries/messages.inc.php:880
 msgid "Show binary contents"
 msgstr "Toon binaire inhoud"
 
-#: libraries/messages.inc.php:893
+#: libraries/messages.inc.php:881
 msgid "Show BLOB contents"
 msgstr "Toon BLOB inhoud"
 
-#: libraries/messages.inc.php:894
+#: libraries/messages.inc.php:882
 msgid "Show color"
 msgstr "Toon kleur"
 
-#: libraries/messages.inc.php:895
+#: libraries/messages.inc.php:883
 msgid "Data Dictionary Format"
 msgstr "Data Dictionary Formaat"
 
-#: libraries/messages.inc.php:896
+#: libraries/messages.inc.php:884
 msgid "Show Full Queries"
 msgstr "Toon volledige Queries"
 
-#: libraries/messages.inc.php:897
+#: libraries/messages.inc.php:885
 msgid "Show grid"
 msgstr "Toon raster"
 
-#: libraries/messages.inc.php:898
+#: libraries/messages.inc.php:886
 msgid "Show/Hide left menu"
 msgstr "Toon/Verberg linker menu"
 
-#: libraries/messages.inc.php:899
+#: libraries/messages.inc.php:887
 msgid "Showing bookmark"
 msgstr "Toon bookmark"
 
-#: libraries/messages.inc.php:900
+#: libraries/messages.inc.php:888
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: libraries/messages.inc.php:901
+#: libraries/messages.inc.php:889
 msgid "Showing rows"
 msgstr "Toon Records"
 
-#: libraries/messages.inc.php:902
+#: libraries/messages.inc.php:890
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: libraries/messages.inc.php:903
+#: libraries/messages.inc.php:891
 #, fuzzy
 msgid "Show insert query"
 msgstr "Toont SQL-query"
 
-#: libraries/messages.inc.php:904
+#: libraries/messages.inc.php:892
 msgid "Only show keys"
 msgstr "Alleen sleutels tonen"
 
-#: libraries/messages.inc.php:906
+#: libraries/messages.inc.php:894
 msgid "Show open tables"
 msgstr "Toon open tabellen"
 
-#: libraries/messages.inc.php:907
+#: libraries/messages.inc.php:895
 msgid "Show PHP information"
 msgstr "Laat informatie over PHP zien"
 
-#: libraries/messages.inc.php:908
+#: libraries/messages.inc.php:896
 msgid "Show"
 msgstr "Toon"
 
-#: libraries/messages.inc.php:909
+#: libraries/messages.inc.php:897
 msgid "Show slave hosts"
 msgstr "Toon slave hosts"
 
-#: libraries/messages.inc.php:910
+#: libraries/messages.inc.php:898
 msgid "Show slave status"
 msgstr "Toon slave status"
 
-#: libraries/messages.inc.php:911
+#: libraries/messages.inc.php:899
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -4167,13 +4107,13 @@ msgstr ""
 "hebben gemaakt van een tijdelijkbestand om opdrachten uit de transactie op "
 "te slaan."
 
-#: libraries/messages.inc.php:912
+#: libraries/messages.inc.php:900
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Het aantal transactie dat gebruik maakte van het tijdelijke binaire log "
 "cache."
 
-#: libraries/messages.inc.php:913
+#: libraries/messages.inc.php:901
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -4186,11 +4126,11 @@ msgstr ""
 "waardoor meer tijdelijke tabellen in het geheugen blijven in plaats van op "
 "schijf."
 
-#: libraries/messages.inc.php:914
+#: libraries/messages.inc.php:902
 msgid "How many temporary files mysqld has created."
 msgstr "Het aantal tijdelijke bestanden dat door MySQL werd aangemaakt."
 
-#: libraries/messages.inc.php:915
+#: libraries/messages.inc.php:903
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -4198,7 +4138,7 @@ msgstr ""
 "Het aantal in het geheugen geplaatste tijdelijke tabellen dat automatisch "
 "door de server werd aangemaakt tijdens het uitvoeren van opdrachten."
 
-#: libraries/messages.inc.php:916
+#: libraries/messages.inc.php:904
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -4206,7 +4146,7 @@ msgstr ""
 "Het aantal met INSERT DELAYED opgeslagen rijen waarbij er een fout optrad "
 "(mogelijk een reeds bestaande sleutel)."
 
-#: libraries/messages.inc.php:917
+#: libraries/messages.inc.php:905
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -4215,23 +4155,23 @@ msgstr ""
 "afzonderlijke tabel waarop INSERT DELAYED wordt toegepast krijgt een eigen "
 "thread."
 
-#: libraries/messages.inc.php:918
+#: libraries/messages.inc.php:906
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Het aantal met INSERT DELAYED opgeslagen rijen."
 
-#: libraries/messages.inc.php:919
+#: libraries/messages.inc.php:907
 msgid "The number of executed FLUSH statements."
 msgstr "Het aantal uitgevoerde FLUSH opdrachten."
 
-#: libraries/messages.inc.php:920
+#: libraries/messages.inc.php:908
 msgid "The number of internal COMMIT statements."
 msgstr "Het aantal interne COMMIT opdrachten."
 
-#: libraries/messages.inc.php:921
+#: libraries/messages.inc.php:909
 msgid "The number of times a row was deleted from a table."
 msgstr "Het aantal keer dat een rij werd verwijderd uit een tabel."
 
-#: libraries/messages.inc.php:922
+#: libraries/messages.inc.php:910
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -4241,7 +4181,7 @@ msgstr ""
 "met een bepaalde naam. Dit wordt discovery genoemd. Handler_discover geeft "
 "aan hoeveel tabellen met discovery werden opgezocht."
 
-#: libraries/messages.inc.php:923
+#: libraries/messages.inc.php:911
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -4251,7 +4191,7 @@ msgstr ""
 "hoog geeft dit een indicatie dat de server veel scans doet op de volledige "
 "index; bijvoorbeeld SELECT kolom1 FROM foo, waarbij kolom een is geïndexeerd."
 
-#: libraries/messages.inc.php:924
+#: libraries/messages.inc.php:912
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -4260,7 +4200,7 @@ msgstr ""
 "hoog is dit een indicatie dat er goed gebruik wordt gemaakt van de aanwezige "
 "indexen."
 
-#: libraries/messages.inc.php:925
+#: libraries/messages.inc.php:913
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -4270,7 +4210,7 @@ msgstr ""
 "wordt verhoogd wanneer u een index kolom raadpleegt met een bereik beperking "
 "of bij het doen van een index scan."
 
-#: libraries/messages.inc.php:926
+#: libraries/messages.inc.php:914
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -4278,7 +4218,7 @@ msgstr ""
 "Het aantal leesopdrachten voor de voorgaande rij in de sleutel volgorde. Dit "
 "wordt hoofdzakelijk gebruikt voor het optimaliseren van ORDER BY ... DESC."
 
-#: libraries/messages.inc.php:927
+#: libraries/messages.inc.php:915
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -4291,7 +4231,7 @@ msgstr ""
 "gehele tabel moet scannen of er worden joins toegepast die niet goed "
 "gebruikmaken van sleutels."
 
-#: libraries/messages.inc.php:928
+#: libraries/messages.inc.php:916
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -4304,35 +4244,35 @@ msgstr ""
 "zijn voorzien of dat de toegepaste queries hier niet optimaal gebruik van "
 "maken."
 
-#: libraries/messages.inc.php:929
+#: libraries/messages.inc.php:917
 msgid "The number of internal ROLLBACK statements."
 msgstr "Het aantal interne ROLLBACK opdrachten."
 
-#: libraries/messages.inc.php:930
+#: libraries/messages.inc.php:918
 msgid "The number of requests to update a row in a table."
 msgstr "Het aantal update opdrachten voor een tabel rij."
 
-#: libraries/messages.inc.php:931
+#: libraries/messages.inc.php:919
 msgid "The number of requests to insert a row in a table."
 msgstr "Het aantal opdrachten om een rij aan een tabel toe te voegen."
 
-#: libraries/messages.inc.php:932
+#: libraries/messages.inc.php:920
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Het aantal pages dat data bevat (dirty en clean)."
 
-#: libraries/messages.inc.php:933
+#: libraries/messages.inc.php:921
 msgid "The number of pages currently dirty."
 msgstr "Het aantal pages dat momenteel dirty is."
 
-#: libraries/messages.inc.php:934
+#: libraries/messages.inc.php:922
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Het aantal buffer pool pages dat is geschoond."
 
-#: libraries/messages.inc.php:935
+#: libraries/messages.inc.php:923
 msgid "The number of free pages."
 msgstr "Het aantal vrije pages."
 
-#: libraries/messages.inc.php:936
+#: libraries/messages.inc.php:924
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -4342,7 +4282,7 @@ msgstr ""
 "momenteel wordt gelezen of geschreven, of die om een andere reden niet "
 "geschoond of verwijderd kunnen worden."
 
-#: libraries/messages.inc.php:937
+#: libraries/messages.inc.php:925
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -4354,11 +4294,11 @@ msgstr ""
 "Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data."
 
-#: libraries/messages.inc.php:938
+#: libraries/messages.inc.php:926
 msgid "Total size of buffer pool, in pages."
 msgstr "Totale formaat van de buffer pool, in pages."
 
-#: libraries/messages.inc.php:939
+#: libraries/messages.inc.php:927
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -4367,7 +4307,7 @@ msgstr ""
 "gebeurd wanneer een query een groot deel van een tabel laat scannen, maar in "
 "willekeurige volgorde."
 
-#: libraries/messages.inc.php:940
+#: libraries/messages.inc.php:928
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -4375,11 +4315,11 @@ msgstr ""
 "Het aantal sequentiele read-aheads dat door InnoDB werd geïnitieerd. Dit "
 "gebeurd wanneer er een volledige tabelscan wordt uitgevoerd."
 
-#: libraries/messages.inc.php:941
+#: libraries/messages.inc.php:929
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Het aantal logische read requests dat door InnoDB werd uitgevoerd."
 
-#: libraries/messages.inc.php:942
+#: libraries/messages.inc.php:930
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -4387,7 +4327,7 @@ msgstr ""
 "Het aantal logische lees operaties dat InnoDB niet kon doen vanuit de buffer "
 "pool maar waarvoor een extra page ingeladen moest worden."
 
-#: libraries/messages.inc.php:943
+#: libraries/messages.inc.php:931
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -4401,86 +4341,86 @@ msgstr ""
 "geschoond. Deze teller houd bij hoe vaak dit voorkomt. Indien het buffer "
 "pool formaat goed is ingesteld hoort deze waarde laag te zijn."
 
-#: libraries/messages.inc.php:944
+#: libraries/messages.inc.php:932
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Het aantal schrijf operaties uitgevoerd op de InnoDB buffer pool."
 
-#: libraries/messages.inc.php:945
+#: libraries/messages.inc.php:933
 msgid "The number of fsync() operations so far."
 msgstr "Het aantal fsync() operaties."
 
-#: libraries/messages.inc.php:946
+#: libraries/messages.inc.php:934
 msgid "The current number of pending fsync() operations."
 msgstr "Het aantal momenteel openstaande fsync() operaties."
 
-#: libraries/messages.inc.php:947
+#: libraries/messages.inc.php:935
 msgid "The current number of pending reads."
 msgstr "Het aantal momenteel openstaande lees operaties."
 
-#: libraries/messages.inc.php:948
+#: libraries/messages.inc.php:936
 msgid "The current number of pending writes."
 msgstr "Het aantal momenteel openstaande schrijf operaties."
 
-#: libraries/messages.inc.php:949
+#: libraries/messages.inc.php:937
 msgid "The amount of data read so far, in bytes."
 msgstr "De hoeveelheid gelezen data, in bytes."
 
-#: libraries/messages.inc.php:950
+#: libraries/messages.inc.php:938
 msgid "The total number of data reads."
 msgstr "Het totale aantal data lees operaties."
 
-#: libraries/messages.inc.php:951
+#: libraries/messages.inc.php:939
 msgid "The total number of data writes."
 msgstr "Het totale aantal data schrijf operaties."
 
-#: libraries/messages.inc.php:952
+#: libraries/messages.inc.php:940
 msgid "The amount of data written so far, in bytes."
 msgstr "De hoeveelheid geschreven data, in bytes."
 
-#: libraries/messages.inc.php:953
+#: libraries/messages.inc.php:941
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "Het aantal pages dat werd geschreven voor doublewrite operaties"
 
-#: libraries/messages.inc.php:954
+#: libraries/messages.inc.php:942
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Het aantal uitgevoerde doublewrite operaties"
 
-#: libraries/messages.inc.php:955
+#: libraries/messages.inc.php:943
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
 "Het aantal keer dat er gewacht moest worden vanwege een volle log buffer."
 
-#: libraries/messages.inc.php:956
+#: libraries/messages.inc.php:944
 msgid "The number of log write requests."
 msgstr "Het aantal log schrijf opdrachten."
 
-#: libraries/messages.inc.php:957
+#: libraries/messages.inc.php:945
 msgid "The number of physical writes to the log file."
 msgstr "Het aantal fysieke schrijf operaties op het log bestand."
 
-#: libraries/messages.inc.php:958
+#: libraries/messages.inc.php:946
 msgid "The number of fsync() writes done to the log file."
 msgstr "Het aantal fsync() schrijf operaties uitgevoerd op het log bestand."
 
-#: libraries/messages.inc.php:959
+#: libraries/messages.inc.php:947
 msgid "The number of pending log file fsyncs."
 msgstr "Het aantal momenteel openstaande fsync() operaties op het logbestand."
 
-#: libraries/messages.inc.php:960
+#: libraries/messages.inc.php:948
 msgid "Pending log file writes."
 msgstr "Het aantal momenteel openstaande schrijf operaties op het logbestand."
 
-#: libraries/messages.inc.php:961
+#: libraries/messages.inc.php:949
 msgid "The number of bytes written to the log file."
 msgstr "Het aantal bytes dat naar het logbestand werd geschreven."
 
-#: libraries/messages.inc.php:962
+#: libraries/messages.inc.php:950
 msgid "The number of pages created."
 msgstr "Het aantal pages dat werd aangemaakt."
 
-#: libraries/messages.inc.php:963
+#: libraries/messages.inc.php:951
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -4489,54 +4429,54 @@ msgstr ""
 "Veel waarden worden geteld in pages. Een vaste page grootte maakt het "
 "eenvoudig deze te converteren naar bytes."
 
-#: libraries/messages.inc.php:964
+#: libraries/messages.inc.php:952
 msgid "The number of pages read."
 msgstr "Het aantal gelezen pages."
 
-#: libraries/messages.inc.php:965
+#: libraries/messages.inc.php:953
 msgid "The number of pages written."
 msgstr "Het aantal geschreven pages."
 
-#: libraries/messages.inc.php:966
+#: libraries/messages.inc.php:954
 msgid "The number of row locks currently being waited for."
 msgstr "Het aantal gelockte rijen waar momenteel op wordt gewacht."
 
-#: libraries/messages.inc.php:967
+#: libraries/messages.inc.php:955
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
 "De gemiddelde tijd nodig om een rij lock te verkrijgen, in milliseconden."
 
-#: libraries/messages.inc.php:968
+#: libraries/messages.inc.php:956
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 "De totale tijd besteed aan het verkrijgen van rij locks, in milliseconden."
 
-#: libraries/messages.inc.php:969
+#: libraries/messages.inc.php:957
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
 "De maximale tijd nodig om een rij lock te verkrijgen, in milliseconden."
 
-#: libraries/messages.inc.php:970
+#: libraries/messages.inc.php:958
 msgid "The number of times a row lock had to be waited for."
 msgstr "Het aantal keer dat er op een rij lock moest worden gewacht."
 
-#: libraries/messages.inc.php:971
+#: libraries/messages.inc.php:959
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Het aantal rijen dat werd verwijderd uit InnoDB tabellen."
 
-#: libraries/messages.inc.php:972
+#: libraries/messages.inc.php:960
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Het aantal rijen dat werd ingevoegd in InnoDB tabellen."
 
-#: libraries/messages.inc.php:973
+#: libraries/messages.inc.php:961
 msgid "The number of rows read from InnoDB tables."
 msgstr "Het aantal rijen dat werd gelezen uit InnoDB tabellen."
 
-#: libraries/messages.inc.php:974
+#: libraries/messages.inc.php:962
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Het aantal rijen dat werd bijgewerkt in InnoDB tabellen."
 
-#: libraries/messages.inc.php:975
+#: libraries/messages.inc.php:963
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -4545,13 +4485,13 @@ msgstr ""
 "niet naar disk zijn geschreven. Dit stond voorheen bekend als "
 "Not_flushed_key_blocks."
 
-#: libraries/messages.inc.php:976
+#: libraries/messages.inc.php:964
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr "Het aantal ongebruikte blokken in het sleutelcache."
 
-#: libraries/messages.inc.php:977
+#: libraries/messages.inc.php:965
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -4560,11 +4500,11 @@ msgstr ""
 "Het aantal gebruikte blokken in het sleutelcache. Dit is de maximaal "
 "behaalde waarde sinds het starten van de server."
 
-#: libraries/messages.inc.php:978
+#: libraries/messages.inc.php:966
 msgid "The number of requests to read a key block from the cache."
 msgstr "Het aantal leesopdrachten voor een sleutelblok uit het cache."
 
-#: libraries/messages.inc.php:979
+#: libraries/messages.inc.php:967
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -4574,15 +4514,15 @@ msgstr ""
 "key_reads groot is, is de waarde van key_buffer_size mogelijk te laag. De "
 "cache miss rate kan worden berekend met Key_reads / Key_read_requests."
 
-#: libraries/messages.inc.php:980
+#: libraries/messages.inc.php:968
 msgid "The number of requests to write a key block to the cache."
 msgstr "Het aantal schrijf opdrachten voor een sleutelblok naar het cache."
 
-#: libraries/messages.inc.php:981
+#: libraries/messages.inc.php:969
 msgid "The number of physical writes of a key block to disk."
 msgstr "Het aantal fysieke schrijf opdrachten voor een sleutelblok naar disk."
 
-#: libraries/messages.inc.php:982
+#: libraries/messages.inc.php:970
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -4593,13 +4533,13 @@ msgstr ""
 "verschillende query plans voor dezelfde query. De standaardwaarde 0 betekend "
 "dat er nog geen query is gecompiled."
 
-#: libraries/messages.inc.php:983
+#: libraries/messages.inc.php:971
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Het aantal rijen dat klaar staan om te worden geschreven in INSERT DELAYED "
 "wachtrijen."
 
-#: libraries/messages.inc.php:984
+#: libraries/messages.inc.php:972
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -4607,36 +4547,36 @@ msgstr ""
 "Het aantal tabellen dat werd geopend. Indien hoog, is mogelijk de table "
 "cache waarde te laag."
 
-#: libraries/messages.inc.php:985
+#: libraries/messages.inc.php:973
 msgid "The number of files that are open."
 msgstr "Het totaal aantal geopende bestanden."
 
-#: libraries/messages.inc.php:986
+#: libraries/messages.inc.php:974
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Het aantal open streams (hoofdzakelijk gebruikt voor het schrijven van log)."
 
-#: libraries/messages.inc.php:987
+#: libraries/messages.inc.php:975
 msgid "The number of tables that are open."
 msgstr "Het totaal aantal open tabellen."
 
-#: libraries/messages.inc.php:988
+#: libraries/messages.inc.php:976
 msgid "The number of free memory blocks in query cache."
 msgstr "Het aantal vrije geheugen blokken in het query cache."
 
-#: libraries/messages.inc.php:989
+#: libraries/messages.inc.php:977
 msgid "The amount of free memory for query cache."
 msgstr "De hoeveelheid vrij geheugen voor het query cache."
 
-#: libraries/messages.inc.php:990
+#: libraries/messages.inc.php:978
 msgid "The number of cache hits."
 msgstr "Het aantal cache hits."
 
-#: libraries/messages.inc.php:991
+#: libraries/messages.inc.php:979
 msgid "The number of queries added to the cache."
 msgstr "Het aantal queries dat aan het cache werd toegevoegd."
 
-#: libraries/messages.inc.php:992
+#: libraries/messages.inc.php:980
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -4649,7 +4589,7 @@ msgstr ""
 "recent gebruikt (least recently used, LRU) strategie om te bepalen welke "
 "queries worden verwijderd."
 
-#: libraries/messages.inc.php:993
+#: libraries/messages.inc.php:981
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -4657,24 +4597,24 @@ msgstr ""
 "Het aantal niet gecachte queries (niet cachebaar, danwel niet gecached "
 "vanwege de query_cache_type instelling)."
 
-#: libraries/messages.inc.php:994
+#: libraries/messages.inc.php:982
 msgid "The number of queries registered in the cache."
 msgstr "Het aantal queries dat in het cache staat."
 
-#: libraries/messages.inc.php:995
+#: libraries/messages.inc.php:983
 msgid "The total number of blocks in the query cache."
 msgstr "Het totaal aantal blokken in het query cache."
 
-#: libraries/messages.inc.php:996
+#: libraries/messages.inc.php:984
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Herstel"
 
-#: libraries/messages.inc.php:997
+#: libraries/messages.inc.php:985
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "De status van failsafe replicatie (nog niet geïmplementeerd)."
 
-#: libraries/messages.inc.php:998
+#: libraries/messages.inc.php:986
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -4682,13 +4622,13 @@ msgstr ""
 "Het aantal joins dat geen gebruik maakt van een index. Indien dit geen 0 is, "
 "is het aan te raden om het gebruik van indexen te controleren."
 
-#: libraries/messages.inc.php:999
+#: libraries/messages.inc.php:987
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Het aantal joins dat een bereik beperking toepassen op een gerefereerde "
 "tabel."
 
-#: libraries/messages.inc.php:1000
+#: libraries/messages.inc.php:988
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -4697,7 +4637,7 @@ msgstr ""
 "van een sleutel. Indien dit geen 0 is, is het aan te raden om het gebruik "
 "van indexen te controleren."
 
-#: libraries/messages.inc.php:1001
+#: libraries/messages.inc.php:989
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -4705,17 +4645,17 @@ msgstr ""
 "Het aantal joins dat een bereik beperking gebruikt op de eerste tabel. (Dit "
 "hoeft geen groot probleem te zijn, zelfs niet bij grote tabellen.)"
 
-#: libraries/messages.inc.php:1002
+#: libraries/messages.inc.php:990
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Het aantal joins dat een volledige scan van de eerste tabel uitvoerde."
 
-#: libraries/messages.inc.php:1003
+#: libraries/messages.inc.php:991
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 "Het aantal momenteel openstaande tijdelijke tabellen voor de slave SQL "
 "threas."
 
-#: libraries/messages.inc.php:1004
+#: libraries/messages.inc.php:992
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -4723,13 +4663,13 @@ msgstr ""
 "Het totaal aantal transacties dat moest worden herhaald door de replicatie "
 "slave SQL thread, sinds het opstarten van de server."
 
-#: libraries/messages.inc.php:1005
+#: libraries/messages.inc.php:993
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Dit staat op 'ON' indien deze server als een replicatie slave verbonden is "
 "met een master server."
 
-#: libraries/messages.inc.php:1006
+#: libraries/messages.inc.php:994
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -4737,14 +4677,14 @@ msgstr ""
 "Het aantal threads waarvoor het opstarten langer dan slow_launch_time "
 "seconden duurde."
 
-#: libraries/messages.inc.php:1007
+#: libraries/messages.inc.php:995
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Het aantal queries waarvan het uitvoeren langer dan long_query_time seconden "
 "duurde."
 
-#: libraries/messages.inc.php:1008
+#: libraries/messages.inc.php:996
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -4754,24 +4694,24 @@ msgstr ""
 "uitvoeren. Indien deze waarde hoog is, is het een optie om de systeem "
 "variabele sort_buffer_size te vergroten."
 
-#: libraries/messages.inc.php:1009
+#: libraries/messages.inc.php:997
 msgid "The number of sorts that were done with ranges."
 msgstr "Het aantal sorteringen dat werd uitgevoerd met een bereikbeperking."
 
-#: libraries/messages.inc.php:1010
+#: libraries/messages.inc.php:998
 msgid "The number of sorted rows."
 msgstr "Het aantal gesorteerde rijen."
 
-#: libraries/messages.inc.php:1011
+#: libraries/messages.inc.php:999
 msgid "The number of sorts that were done by scanning the table."
 msgstr ""
 "Het aantal sorteringen dat werd uitgevoerd door het scannen van de tabel."
 
-#: libraries/messages.inc.php:1012
+#: libraries/messages.inc.php:1000
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Het aantal keer dat een tabel lock direct kon worden verkregen."
 
-#: libraries/messages.inc.php:1013
+#: libraries/messages.inc.php:1001
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -4783,7 +4723,7 @@ msgstr ""
 "problemen, kunt u het beste eerst uw queries optimalizeren. Daarna kunt u "
 "nog kijken naar het splitsen van tabellen en het gebruik van replicatie."
 
-#: libraries/messages.inc.php:1014
+#: libraries/messages.inc.php:1002
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -4793,11 +4733,11 @@ msgstr ""
 "berekend met Threads_created/Connections. Indien deze waarde rood staat "
 "aangegeven is het aan te raden om thread_cache_size te vergroten."
 
-#: libraries/messages.inc.php:1015
+#: libraries/messages.inc.php:1003
 msgid "The number of currently open connections."
 msgstr "Het aantal momenteel openstaande verbindingen."
 
-#: libraries/messages.inc.php:1016
+#: libraries/messages.inc.php:1004
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -4809,39 +4749,39 @@ msgstr ""
 "verhogen. Dit geeft echter in de meeste gevallen, bij gebruik van een goede "
 "thead implementatie, geen noemenswaardige prestatie verbetering."
 
-#: libraries/messages.inc.php:1017
+#: libraries/messages.inc.php:1005
 msgid "The number of threads that are not sleeping."
 msgstr "Het aantal threads dat actief bezig is."
 
-#: libraries/messages.inc.php:1018
+#: libraries/messages.inc.php:1006
 msgid "Show dimension of tables"
 msgstr "Geef de dimensies van de tabellen weer"
 
-#: libraries/messages.inc.php:1019
+#: libraries/messages.inc.php:1007
 msgid "Show tables"
 msgstr "Toon tabellen"
 
-#: libraries/messages.inc.php:1020
+#: libraries/messages.inc.php:1008
 msgid " Show this query here again "
 msgstr " Laat deze query hier zien "
 
-#: libraries/messages.inc.php:1021
+#: libraries/messages.inc.php:1009
 msgid "Simplified Chinese"
 msgstr "Vereenvoudigd Chinese"
 
-#: libraries/messages.inc.php:1022
+#: libraries/messages.inc.php:1010
 msgid "(singly)"
 msgstr "(apart)"
 
-#: libraries/messages.inc.php:1023
+#: libraries/messages.inc.php:1011
 msgid "Size"
 msgstr "Grootte"
 
-#: libraries/messages.inc.php:1024 setup/lib/messages.inc.php:161
+#: libraries/messages.inc.php:1012 setup/lib/messages.inc.php:161
 msgid "Number of records (queries) to skip from start"
 msgstr "Aantal queries die moeten worden overgeslagen vanaf het begin"
 
-#: libraries/messages.inc.php:1025
+#: libraries/messages.inc.php:1013
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -4850,67 +4790,67 @@ msgstr ""
 "Zoniet voeg dan de onderstaande regels toe aan de [mysqld] sectie in "
 "bijvoorbeeld my.cnf."
 
-#: libraries/messages.inc.php:1026
+#: libraries/messages.inc.php:1014
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: libraries/messages.inc.php:1027
+#: libraries/messages.inc.php:1015
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: libraries/messages.inc.php:1028
+#: libraries/messages.inc.php:1016
 msgid "Small/Big All"
 msgstr "Alles In/uitklappen"
 
-#: libraries/messages.inc.php:1029
+#: libraries/messages.inc.php:1017
 msgid "Snap to grid"
 msgstr "Kleef aan raster"
 
-#: libraries/messages.inc.php:1030
+#: libraries/messages.inc.php:1018
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(of de MySQL-server heeft het socket niet juist ingesteld)"
 
-#: libraries/messages.inc.php:1031
+#: libraries/messages.inc.php:1019
 msgid "Socket"
 msgstr "Socket"
 
-#: libraries/messages.inc.php:1032
+#: libraries/messages.inc.php:1020
 msgid "Sort by key"
 msgstr "Sorteren op sleutel"
 
-#: libraries/messages.inc.php:1033
+#: libraries/messages.inc.php:1021
 msgid "Sorting"
 msgstr "Sortering"
 
-#: libraries/messages.inc.php:1034
+#: libraries/messages.inc.php:1022
 msgid "Sort"
 msgstr "Sorteren"
 
-#: libraries/messages.inc.php:1035
+#: libraries/messages.inc.php:1023
 msgid "Space usage"
 msgstr "Ruimtegebruik"
 
-#: libraries/messages.inc.php:1036
+#: libraries/messages.inc.php:1024
 msgid "Spanish"
 msgstr "Spaans"
 
-#: libraries/messages.inc.php:1037
+#: libraries/messages.inc.php:1025
 msgid "Words are separated by a space character (\" \")."
 msgstr "Woorden worden gesplits door een spatiekarakter (\" \")."
 
-#: libraries/messages.inc.php:1038
+#: libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr "SQL-compatibiliteits mode"
 
-#: libraries/messages.inc.php:1039
+#: libraries/messages.inc.php:1027
 msgid "Export type"
 msgstr "Export type"
 
-#: libraries/messages.inc.php:1040
+#: libraries/messages.inc.php:1028
 msgid "Export time in UTC"
 msgstr ""
 
-#: libraries/messages.inc.php:1041
+#: libraries/messages.inc.php:1029
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -4932,7 +4872,7 @@ msgstr ""
 "MySQL, probeer dan de SQL-query in te korten en een bug report met het "
 "stukje data te sturen van het CUT gedeelte hieronder:"
 
-#: libraries/messages.inc.php:1042
+#: libraries/messages.inc.php:1030
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
@@ -4941,55 +4881,55 @@ msgstr ""
 "foutmelding hebben terug gegeven, probeer dan of u hiermee uw fout kunt "
 "oplossen."
 
-#: libraries/messages.inc.php:1043
+#: libraries/messages.inc.php:1031
 msgid "SQL query"
 msgstr "SQL-query"
 
-#: libraries/messages.inc.php:1044
+#: libraries/messages.inc.php:1032
 msgid "SQL result"
 msgstr "SQL-resultaat"
 
-#: libraries/messages.inc.php:1045
+#: libraries/messages.inc.php:1033
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/messages.inc.php:1046
+#: libraries/messages.inc.php:1034
 msgid "Invalid Identifer"
 msgstr "Ongeldig herkenningsteken"
 
-#: libraries/messages.inc.php:1047
+#: libraries/messages.inc.php:1035
 msgid "Unclosed quote"
 msgstr "Quote niet afgesloten"
 
-#: libraries/messages.inc.php:1048
+#: libraries/messages.inc.php:1036
 msgid "Unknown Punctuation String"
 msgstr "Onbekende Punctuatie String"
 
-#: libraries/messages.inc.php:1049
+#: libraries/messages.inc.php:1037
 msgid "Stand-in structure for view"
 msgstr "Stand-in structuur voor view"
 
-#: libraries/messages.inc.php:1050
+#: libraries/messages.inc.php:1038
 msgid "Start"
 msgstr "Start"
 
-#: libraries/messages.inc.php:1051
+#: libraries/messages.inc.php:1039
 msgid "Last check"
 msgstr "Laatst gecontroleerd"
 
-#: libraries/messages.inc.php:1052
+#: libraries/messages.inc.php:1040
 msgid "Creation"
 msgstr "Gecreëerd"
 
-#: libraries/messages.inc.php:1053
+#: libraries/messages.inc.php:1041
 msgid "Statements"
 msgstr "Opdrachten"
 
-#: libraries/messages.inc.php:1054
+#: libraries/messages.inc.php:1042
 msgid "static"
 msgstr "statisch"
 
-#: libraries/messages.inc.php:1055
+#: libraries/messages.inc.php:1043
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -4997,80 +4937,76 @@ msgstr ""
 "Op drukke servers kunnen de byte-tellers over hun maximum heengaan. Hierdoor "
 "kunnen de gerapporteerde statistieken afwijken."
 
-#: libraries/messages.inc.php:1056
+#: libraries/messages.inc.php:1044
 msgid "Last update"
 msgstr "Laatst bijgewerkt"
 
-#: libraries/messages.inc.php:1057
+#: libraries/messages.inc.php:1045
 msgid "Status"
 msgstr "Status"
 
-#: libraries/messages.inc.php:1058
+#: libraries/messages.inc.php:1046
 msgid "Stop"
 msgstr "Stop"
 
-#: libraries/messages.inc.php:1059
+#: libraries/messages.inc.php:1047
 msgid "Storage Engines"
 msgstr "Opslag Engines"
 
-#: libraries/messages.inc.php:1060
+#: libraries/messages.inc.php:1048
 msgid "Storage Engine"
 msgstr "Opslag Engine"
 
-#: libraries/messages.inc.php:1061
+#: libraries/messages.inc.php:1049
 msgctxt "$strStrucCSV"
 msgid "CSV"
 msgstr "CSV gegevens"
 
-#: libraries/messages.inc.php:1062
+#: libraries/messages.inc.php:1050
 msgid "Structure and data"
 msgstr "Structuur en gegevens"
 
-#: libraries/messages.inc.php:1063
+#: libraries/messages.inc.php:1051
 msgid "CSV for MS Excel"
 msgstr "CSV voor MS Excel data"
 
-#: libraries/messages.inc.php:1064
-msgid "Native MS Excel format"
-msgstr "Native MS Excel data"
-
-#: libraries/messages.inc.php:1065
+#: libraries/messages.inc.php:1052
 msgid "Structure only"
 msgstr "Alleen structuur"
 
-#: libraries/messages.inc.php:1066
+#: libraries/messages.inc.php:1053
 msgid "Propose table structure"
 msgstr "Tabelstructuur voorstellen"
 
-#: libraries/messages.inc.php:1067
+#: libraries/messages.inc.php:1054
 msgid "Structure Difference"
 msgstr "Structuur verschillen"
 
-#: libraries/messages.inc.php:1068
+#: libraries/messages.inc.php:1055
 msgid "Structure for view"
 msgstr "Structuur voor de view"
 
-#: libraries/messages.inc.php:1069
+#: libraries/messages.inc.php:1056
 msgid "structure"
 msgstr "structuur"
 
-#: libraries/messages.inc.php:1070
+#: libraries/messages.inc.php:1057
 msgid "Structure"
 msgstr "Structuur"
 
-#: libraries/messages.inc.php:1071
+#: libraries/messages.inc.php:1058
 msgid "Structure Synchronization"
 msgstr "Structuur synchronizatie"
 
-#: libraries/messages.inc.php:1072
+#: libraries/messages.inc.php:1059
 msgid "Submit"
 msgstr "Verzenden"
 
-#: libraries/messages.inc.php:1073
+#: libraries/messages.inc.php:1060
 msgid "Your SQL query has been executed successfully"
 msgstr "Uw SQL-query is succesvol uitgevoerd."
 
-#: libraries/messages.inc.php:1074
+#: libraries/messages.inc.php:1061
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5078,40 +5014,40 @@ msgid ""
 msgstr ""
 "De server gebruikt Suhosin. Zie de %sdocumentatie%s voor mogelijke problemen."
 
-#: libraries/messages.inc.php:1075
+#: libraries/messages.inc.php:1062
 msgid "Sum"
 msgstr "Som"
 
-#: libraries/messages.inc.php:1076
+#: libraries/messages.inc.php:1063
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: libraries/messages.inc.php:1077
+#: libraries/messages.inc.php:1064
 msgid "Authenticating..."
 msgstr "Authenticeren..."
 
-#: libraries/messages.inc.php:1078
+#: libraries/messages.inc.php:1065
 msgid "Hardware authentication failed"
 msgstr "Hardware authenticatie mislukt"
 
-#: libraries/messages.inc.php:1079
+#: libraries/messages.inc.php:1066
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "Bestand %s bevat geen sleutel id"
 
-#: libraries/messages.inc.php:1080
+#: libraries/messages.inc.php:1067
 msgid "No valid authentication key plugged"
 msgstr "Geen geldige authenticatie sleutel aanwezig"
 
-#: libraries/messages.inc.php:1081
+#: libraries/messages.inc.php:1068
 msgid "Switch to copied database"
 msgstr "Schakel naar de gekopieerde database"
 
-#: libraries/messages.inc.php:1082
+#: libraries/messages.inc.php:1069
 msgid "Switch to copied table"
 msgstr "Wissel naar de gekopieerde tabel"
 
-#: libraries/messages.inc.php:1083
+#: libraries/messages.inc.php:1070
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -5119,191 +5055,187 @@ msgstr ""
 "De bestemmingsdatabase zal volledig worden gesynchroniseerd met de bron. De "
 "bron zal niet worden gewijzigd."
 
-#: libraries/messages.inc.php:1084
+#: libraries/messages.inc.php:1071
 msgid "Synchronize Databases"
 msgstr "Synchronizeer databases"
 
-#: libraries/messages.inc.php:1085
+#: libraries/messages.inc.php:1072
 msgid "Synchronize"
 msgstr "Synchronizatie"
 
-#: libraries/messages.inc.php:1087
+#: libraries/messages.inc.php:1074
 msgid "Add column(s)"
 msgstr "Kolom(men) toevoegen"
 
-#: libraries/messages.inc.php:1088
+#: libraries/messages.inc.php:1075
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabel %s bestaat reeds!"
 
-#: libraries/messages.inc.php:1089
+#: libraries/messages.inc.php:1076
 msgid "Alter column(s)"
 msgstr "Kolom(men) wijzigen"
 
-#: libraries/messages.inc.php:1090
+#: libraries/messages.inc.php:1077
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Tabel %1$s is bijgewerkt"
 
-#: libraries/messages.inc.php:1091
-msgid "Alter index(s)"
-msgstr "Index(en) bijwerken"
-
-#: libraries/messages.inc.php:1092
+#: libraries/messages.inc.php:1078
 msgid "Apply index(s)"
 msgstr "Index(en) toepassen"
 
-#: libraries/messages.inc.php:1093
+#: libraries/messages.inc.php:1079
 msgid "Table comments"
 msgstr "Tabelopmerkingen"
 
-#: libraries/messages.inc.php:1094
+#: libraries/messages.inc.php:1080
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr "Verwijder alle huidige rij(en) uit de bestemmings tabellen"
 
-#: libraries/messages.inc.php:1095
+#: libraries/messages.inc.php:1081
 msgid "The table name is empty!"
 msgstr "De tabelnaam is leeg!"
 
-#: libraries/messages.inc.php:1096
+#: libraries/messages.inc.php:1082
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "Tabel %1$s is aangemaakt."
 
-#: libraries/messages.inc.php:1097
+#: libraries/messages.inc.php:1083
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Tabel %s is vervallen"
 
-#: libraries/messages.inc.php:1098
+#: libraries/messages.inc.php:1084
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Tabel %s is leeg gemaakt"
 
-#: libraries/messages.inc.php:1099
+#: libraries/messages.inc.php:1085
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Tabel %s is geschoond"
 
-#: libraries/messages.inc.php:1100
+#: libraries/messages.inc.php:1086
 msgid "Insert row(s)"
 msgstr "Rij(en) toevoegen"
 
-#: libraries/messages.inc.php:1101
+#: libraries/messages.inc.php:1087
 msgid "Table seems to be empty!"
 msgstr "Tabel lijkt leeg!"
 
-#: libraries/messages.inc.php:1102
+#: libraries/messages.inc.php:1088
 msgid "Table maintenance"
 msgstr "Tabelonderhoud"
 
-#: libraries/messages.inc.php:1103
+#: libraries/messages.inc.php:1089
 msgid "Table name"
 msgstr "Tabelnaam"
 
-#: libraries/messages.inc.php:1104
+#: libraries/messages.inc.php:1090
 msgid "Table of contents"
 msgstr "Inhoudsopgave"
 
-#: libraries/messages.inc.php:1105
+#: libraries/messages.inc.php:1091
 msgid "Table options"
 msgstr "Tabelopties"
 
-#: libraries/messages.inc.php:1106
+#: libraries/messages.inc.php:1092
 msgid "Remove column(s)"
 msgstr "Kolom(men) verwijderen"
 
-#: libraries/messages.inc.php:1107
+#: libraries/messages.inc.php:1093
 msgid "Remove index(s)"
 msgstr "Index(en) verwijderen"
 
-#: libraries/messages.inc.php:1108
+#: libraries/messages.inc.php:1094
 #, php-format
 msgid "%s table(s)"
 msgstr "%s tabel(len)"
 
-#: libraries/messages.inc.php:1109
+#: libraries/messages.inc.php:1095
 msgid "Table structure for table"
 msgstr "Tabelstructuur voor tabel"
 
-#: libraries/messages.inc.php:1110
+#: libraries/messages.inc.php:1096
 msgid "Table"
 msgstr "Tabel"
 
-#: libraries/messages.inc.php:1111
+#: libraries/messages.inc.php:1097
 msgid "Update row(s)"
 msgstr "Rij(en) bijwerken"
 
-#: libraries/messages.inc.php:1112
+#: libraries/messages.inc.php:1098
 msgid "take it"
 msgstr "neem het"
 
-#: libraries/messages.inc.php:1113
+#: libraries/messages.inc.php:1099
 msgid "Target database has been synchronized with source database"
 msgstr "De bestemmings database is gesynchronizeerd met de bron database"
 
-#: libraries/messages.inc.php:1114
+#: libraries/messages.inc.php:1100
 msgid "Table-specific privileges"
 msgstr "Tabel-specifieke privileges"
 
-#: libraries/messages.inc.php:1115
+#: libraries/messages.inc.php:1101
 msgid "Temporary data"
 msgstr "Tijdelijke data"
 
-#: libraries/messages.inc.php:1116
+#: libraries/messages.inc.php:1102
 msgid " Because of its length,<br /> this field might not be editable "
 msgstr " Vanwege z'n lengte,<br /> is dit veld misschien niet te wijzigen "
 
-#: libraries/messages.inc.php:1117
+#: libraries/messages.inc.php:1103
 msgid "Texy! text"
 msgstr "Texy! tekst"
 
-#: libraries/messages.inc.php:1118
+#: libraries/messages.inc.php:1104
 msgid "Thai"
 msgstr "Thais"
 
-#: libraries/messages.inc.php:1119
+#: libraries/messages.inc.php:1105
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Standaard thema %s niet gevonden!"
 
-#: libraries/messages.inc.php:1120
+#: libraries/messages.inc.php:1106
 msgid "No preview available."
 msgstr "Geen preview beschikbaar."
 
-#: libraries/messages.inc.php:1121
+#: libraries/messages.inc.php:1107
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Thema %s niet gevonden!"
 
-#: libraries/messages.inc.php:1122
+#: libraries/messages.inc.php:1108
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Geen geldig afbeeldingen pad voor thema %s gevonden!"
 
-#: libraries/messages.inc.php:1123
+#: libraries/messages.inc.php:1109
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Thema pad niet gevonden voor thema %s!"
 
-#: libraries/messages.inc.php:1124
+#: libraries/messages.inc.php:1110
 msgid "Theme / Style"
 msgstr "Thema / Stijl"
 
-#: libraries/messages.inc.php:1125
+#: libraries/messages.inc.php:1111
 msgid "This Host"
 msgstr "Deze machine"
 
-#: libraries/messages.inc.php:1126
+#: libraries/messages.inc.php:1112
 msgid "Threads"
 msgstr "Threads"
 
-#: libraries/messages.inc.php:1127
+#: libraries/messages.inc.php:1113
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Thread %s is succesvol afgesloten."
 
-#: libraries/messages.inc.php:1128
+#: libraries/messages.inc.php:1114
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -5311,7 +5243,7 @@ msgstr ""
 "Tijdslimiet voor de import is verlopen, na het opnieuw versturen zal er "
 "hervat worden vanaf positie %d"
 
-#: libraries/messages.inc.php:1129
+#: libraries/messages.inc.php:1115
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5320,7 +5252,7 @@ msgstr ""
 "dit dat phpMyAdmin dit niet af kan maken tenzij de tijdsrestricties van PHP "
 "worden versoepeld."
 
-#: libraries/messages.inc.php:1130
+#: libraries/messages.inc.php:1116
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -5328,236 +5260,232 @@ msgstr ""
 "De maximale uitvoertijd is verstreken, indien u de import wil afmaken kunt u "
 "het bestand opnieuw invoeren."
 
-#: libraries/messages.inc.php:1131
+#: libraries/messages.inc.php:1117
 msgid "Time"
 msgstr "Tijd"
 
-#: libraries/messages.inc.php:1132
+#: libraries/messages.inc.php:1118
 msgid "to/from page"
 msgstr "Van/tot pagina"
 
-#: libraries/messages.inc.php:1133
+#: libraries/messages.inc.php:1119
 msgid "Toggle scratchboard"
 msgstr "Aan/uit voorbeeldkader"
 
-#: libraries/messages.inc.php:1134
+#: libraries/messages.inc.php:1120
 msgid "Toggle small/big"
 msgstr "Wissel klein/groot"
 
-#: libraries/messages.inc.php:1135
+#: libraries/messages.inc.php:1121
 msgid "To select relation, click :"
 msgstr "Klik om een relatie te selecteren:"
 
-#: libraries/messages.inc.php:1136
+#: libraries/messages.inc.php:1122
 msgid "total"
 msgstr "totaal"
 
-#: libraries/messages.inc.php:1137
+#: libraries/messages.inc.php:1123
 msgid "Total"
 msgstr "Totaal"
 
-#: libraries/messages.inc.php:1138
+#: libraries/messages.inc.php:1124
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr "Tracking is ingeschakeld voor %s.%s."
 
-#: libraries/messages.inc.php:1139
+#: libraries/messages.inc.php:1125
 msgid "Activate now"
 msgstr "Nu inschakelen"
 
-#: libraries/messages.inc.php:1140
+#: libraries/messages.inc.php:1126
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr "Tracking inschakelen voor %s.%s"
 
-#: libraries/messages.inc.php:1141
+#: libraries/messages.inc.php:1127
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 "De onderstaande 2 regels kunt u in commentaar zetten indien ze niet nodig "
 "zijn."
 
-#: libraries/messages.inc.php:1142
+#: libraries/messages.inc.php:1128
 msgid "Create version"
 msgstr "Versie aanmaken"
 
-#: libraries/messages.inc.php:1143
+#: libraries/messages.inc.php:1129
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr "Versie %s van %s.%s aanmaken"
 
-#: libraries/messages.inc.php:1144
+#: libraries/messages.inc.php:1130
 msgid "Database Log"
 msgstr "Database-log"
 
-#: libraries/messages.inc.php:1145
+#: libraries/messages.inc.php:1131
 msgid "Data definition statement"
 msgstr "Definitie-statement"
 
-#: libraries/messages.inc.php:1146
+#: libraries/messages.inc.php:1132
 msgid "Data manipulation statement"
 msgstr "Manipulatie-statement"
 
-#: libraries/messages.inc.php:1147
+#: libraries/messages.inc.php:1133
 msgid "Date"
 msgstr "Datum"
 
-#: libraries/messages.inc.php:1148
+#: libraries/messages.inc.php:1134
 msgid "Deactivate now"
 msgstr "Nu uitschakelen"
 
-#: libraries/messages.inc.php:1149
+#: libraries/messages.inc.php:1135
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "Tracking uitschakelen voor %s.%s"
 
-#: libraries/messages.inc.php:1150
+#: libraries/messages.inc.php:1136
 #, php-format
 msgid "Export as %s"
 msgstr "Exporteren als %s"
 
-#: libraries/messages.inc.php:1151
+#: libraries/messages.inc.php:1137
 msgid "Tracking is active."
 msgstr "Tracking is ingeschakeld."
 
-#: libraries/messages.inc.php:1152
+#: libraries/messages.inc.php:1138
 msgid "Tracking is not active."
 msgstr "Tracking is niet actief."
 
-#: libraries/messages.inc.php:1153
-msgid "Tracking Mechanism"
-msgstr "Tracking-mechanisme"
-
-#: libraries/messages.inc.php:1154
+#: libraries/messages.inc.php:1139
 msgid "Close"
 msgstr "Sluiten"
 
-#: libraries/messages.inc.php:1155
+#: libraries/messages.inc.php:1140
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Tracking rapport voor tabel `%s`"
 
-#: libraries/messages.inc.php:1156
+#: libraries/messages.inc.php:1141
 msgid "Tracking report"
 msgstr "Tracking-rapport"
 
-#: libraries/messages.inc.php:1157
+#: libraries/messages.inc.php:1142
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Laat %s zien met datums van %s tot %s door gebruiker %s %s"
 
-#: libraries/messages.inc.php:1158
+#: libraries/messages.inc.php:1143
 msgid "Show versions"
 msgstr "Versies weergeven"
 
-#: libraries/messages.inc.php:1159
+#: libraries/messages.inc.php:1144
 msgid "SQL dump (file download)"
 msgstr "SQL-dump (naar bestand)"
 
-#: libraries/messages.inc.php:1160
+#: libraries/messages.inc.php:1145
 msgid "SQL dump"
 msgstr "SQL-dump"
 
-#: libraries/messages.inc.php:1161
+#: libraries/messages.inc.php:1146
 msgid "SQL statements executed."
 msgstr "SQL-statements uitgevoerd."
 
-#: libraries/messages.inc.php:1162
+#: libraries/messages.inc.php:1147
 msgid "This option will replace your table and contained data."
 msgstr "Deze optie vervangt de tabel en alle data van die tabel."
 
-#: libraries/messages.inc.php:1163
+#: libraries/messages.inc.php:1148
 msgid "SQL execution"
 msgstr "SQL-uitvoering"
 
-#: libraries/messages.inc.php:1164
+#: libraries/messages.inc.php:1149
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "SQL-statements geëxporteerd. Kopiëer de dump of voer de dump uit."
 
-#: libraries/messages.inc.php:1165
+#: libraries/messages.inc.php:1150
 msgid "Tracking statements"
 msgstr "Tracking-statements"
 
-#: libraries/messages.inc.php:1166
+#: libraries/messages.inc.php:1151
 msgid "active"
 msgstr "ingeschakeld"
 
-#: libraries/messages.inc.php:1167
+#: libraries/messages.inc.php:1152
 msgid "not active"
 msgstr "niet actief"
 
-#: libraries/messages.inc.php:1168
+#: libraries/messages.inc.php:1153
 msgid "Structure snapshot"
 msgstr "Structuur-snapshot"
 
-#: libraries/messages.inc.php:1169
+#: libraries/messages.inc.php:1154
 msgid "Created"
 msgstr "Aangemaakt"
 
-#: libraries/messages.inc.php:1170
+#: libraries/messages.inc.php:1155
 msgid "Last version"
 msgstr "Laatste versie"
 
-#: libraries/messages.inc.php:1171
+#: libraries/messages.inc.php:1156
 msgid "Updated"
 msgstr "Bijgewerkt"
 
-#: libraries/messages.inc.php:1172
+#: libraries/messages.inc.php:1157
 msgid "Version"
 msgstr "Versie"
 
-#: libraries/messages.inc.php:1173
+#: libraries/messages.inc.php:1158
 msgid "Track these data definition statements:"
 msgstr "Deze definitie-statements tracken:"
 
-#: libraries/messages.inc.php:1174
+#: libraries/messages.inc.php:1159
 msgid "Track these data manipulation statements:"
 msgstr "Deze manipulatie-statements tracken:"
 
-#: libraries/messages.inc.php:1175
+#: libraries/messages.inc.php:1160
 msgid "Tracked tables"
 msgstr "Tabellen met tracker"
 
-#: libraries/messages.inc.php:1176
+#: libraries/messages.inc.php:1161
 msgid "Tracking"
 msgstr "Tracking"
 
-#: libraries/messages.inc.php:1177
+#: libraries/messages.inc.php:1162
 msgid "Track table"
 msgstr "Tabel tracken"
 
-#: libraries/messages.inc.php:1178
+#: libraries/messages.inc.php:1163
 msgid "Untracked tables"
 msgstr "Tabellen zonder tracker"
 
-#: libraries/messages.inc.php:1179
+#: libraries/messages.inc.php:1164
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: libraries/messages.inc.php:1180
+#: libraries/messages.inc.php:1165
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
 msgstr "Tracking voor %s.%s , versie %s ingeschakeld."
 
-#: libraries/messages.inc.php:1181
+#: libraries/messages.inc.php:1166
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
 msgstr "Versie %s aangemaakt, tracking voor %s.%s ingeschakeld."
 
-#: libraries/messages.inc.php:1182
+#: libraries/messages.inc.php:1167
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
 msgstr "Tracking voor %s.%s , versie %s is uitgeschakeld."
 
-#: libraries/messages.inc.php:1183
+#: libraries/messages.inc.php:1168
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Versie %s snapshot (SQL-code)"
 
-#: libraries/messages.inc.php:1184
+#: libraries/messages.inc.php:1169
 msgid "Versions"
 msgstr "Versies"
 
-#: libraries/messages.inc.php:1185
+#: libraries/messages.inc.php:1170
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -5565,23 +5493,23 @@ msgstr ""
 "U kunt de dump gebruiken door deze in een een tijdelijke database te "
 "importeren. Let er wel op dat u hier rechten voor nodig heeft."
 
-#: libraries/messages.inc.php:1186
+#: libraries/messages.inc.php:1171
 msgid "Traditional Chinese"
 msgstr "Traditioneel Chinees"
 
-#: libraries/messages.inc.php:1187
+#: libraries/messages.inc.php:1172
 msgid "Traditional Spanish"
 msgstr "Traditioneel Spaans"
 
-#: libraries/messages.inc.php:1188
+#: libraries/messages.inc.php:1173
 msgid "Traffic"
 msgstr "Verkeer"
 
-#: libraries/messages.inc.php:1189
+#: libraries/messages.inc.php:1174
 msgid "Transaction coordinator"
 msgstr "Transactie coördinator"
 
-#: libraries/messages.inc.php:1190
+#: libraries/messages.inc.php:1175
 msgid ""
 "Displays a link to download the binary data of the field. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -5593,7 +5521,7 @@ msgstr ""
 "veldnaam van een rij van de tabel, welke de bestandsnaam bevat. Wanneer de "
 "tweede optie wordt gekozen is het vereist dat de eerste optie leeg is."
 
-#: libraries/messages.inc.php:1191
+#: libraries/messages.inc.php:1176
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
@@ -5601,7 +5529,7 @@ msgstr ""
 "Toont hexadecimale weergave van gegevens. De optionele parameter geeft aan "
 "wanneer er een spatie moet worden opgenomen (standaard elke 2 nibbles)."
 
-#: libraries/messages.inc.php:1192
+#: libraries/messages.inc.php:1177
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
@@ -5609,15 +5537,15 @@ msgstr ""
 "Toont een klikbare miniatuurweergave; opties: maximale breedte en hoogte in "
 "pixels (behoudt de originele verhouding)"
 
-#: libraries/messages.inc.php:1193
+#: libraries/messages.inc.php:1178
 msgid "Displays a link to download this image."
 msgstr "Toont een link naar deze afbeelding (directe blob download, i.e.)."
 
-#: libraries/messages.inc.php:1194
+#: libraries/messages.inc.php:1179
 msgid "See image/jpeg: inline"
 msgstr "Zie image/jpeg: inline"
 
-#: libraries/messages.inc.php:1195
+#: libraries/messages.inc.php:1180
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -5637,7 +5565,7 @@ msgstr ""
 "code - voor \"local\" zie de documentatie van PHP's strftime() functie en "
 "voor \"utc\" de gmdate() function."
 
-#: libraries/messages.inc.php:1196
+#: libraries/messages.inc.php:1181
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the field data via "
 "standard input. Returns the standard output of the application. The default "
@@ -5662,7 +5590,7 @@ msgstr ""
 "toevoegen, zodat de gehele output getoond zal worden zonder te "
 "herstructureren (Standaard 1)"
 
-#: libraries/messages.inc.php:1197
+#: libraries/messages.inc.php:1182
 msgid ""
 "Displays the contents of the field as-is, without running it through "
 "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -5670,7 +5598,7 @@ msgstr ""
 "Preserveert het originele formaat van het veld. Er wordt geen Escaping "
 "toegepast."
 
-#: libraries/messages.inc.php:1198
+#: libraries/messages.inc.php:1183
 msgid ""
 "Displays an image and a link; the field contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -5680,7 +5608,7 @@ msgstr ""
 "optie is een prefix als \"http://domein.com/\", de tweede optie is de "
 "breedte in pixels, de derde is de hoogte."
 
-#: libraries/messages.inc.php:1199
+#: libraries/messages.inc.php:1184
 msgid ""
 "Displays a link; the field contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
@@ -5689,11 +5617,11 @@ msgstr ""
 "Toont een link, het veld bevat de bestandsnaam. De eerste optie is een "
 "prefix als \"http://domein.com/\", de tweede optie is de titel voor de link."
 
-#: libraries/messages.inc.php:1200
+#: libraries/messages.inc.php:1185
 msgid "Formats text as SQL query with syntax highlighting."
 msgstr "Maakt de tekst op als een SQL-query met syntax markeringen."
 
-#: libraries/messages.inc.php:1201
+#: libraries/messages.inc.php:1186
 msgid ""
 "Displays a part of a string. The first option is the number of characters to "
 "skip from the beginning of the string (Default 0). The second option is the "
@@ -5708,47 +5636,47 @@ msgstr ""
 "welke karakters worden toegevoegd aan de output wanneer een substring wordt "
 "teruggegeven (Standaard: ...) ."
 
-#: libraries/messages.inc.php:1202
+#: libraries/messages.inc.php:1187
 msgid "Triggers"
 msgstr "Triggers"
 
-#: libraries/messages.inc.php:1203
+#: libraries/messages.inc.php:1188
 msgid "Truncate Shown Queries"
 msgstr "Getoonde queries afkappen"
 
-#: libraries/messages.inc.php:1204
+#: libraries/messages.inc.php:1189
 msgid "Turkish"
 msgstr "Turks"
 
-#: libraries/messages.inc.php:1205
+#: libraries/messages.inc.php:1190
 msgid "Type"
 msgstr "Type"
 
-#: libraries/messages.inc.php:1207
+#: libraries/messages.inc.php:1192
 msgid "Ukrainian"
 msgstr "Oekraïens"
 
-#: libraries/messages.inc.php:1208
+#: libraries/messages.inc.php:1193
 msgid "Uncheck All"
 msgstr "Deselecteer alles"
 
-#: libraries/messages.inc.php:1209
+#: libraries/messages.inc.php:1194
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/messages.inc.php:1210
+#: libraries/messages.inc.php:1195
 msgid "Unique"
 msgstr "Unieke waarde"
 
-#: libraries/messages.inc.php:1211
+#: libraries/messages.inc.php:1196
 msgid "unknown"
 msgstr "onbekend"
 
-#: libraries/messages.inc.php:1212
+#: libraries/messages.inc.php:1197
 msgid "Unselect All"
 msgstr "Deselecteer alles"
 
-#: libraries/messages.inc.php:1213
+#: libraries/messages.inc.php:1198
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -5758,39 +5686,39 @@ msgstr ""
 "uploaden. De ondersteuning is niet geïmplementeerd of uitgeschakeld in de "
 "configuratie."
 
-#: libraries/messages.inc.php:1214
+#: libraries/messages.inc.php:1199
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "U heeft de rechten aangepast voor %s."
 
-#: libraries/messages.inc.php:1215
+#: libraries/messages.inc.php:1200
 msgid "The profile has been updated."
 msgstr "Het profiel is aangepast."
 
-#: libraries/messages.inc.php:1216
+#: libraries/messages.inc.php:1201
 msgid "Update Query"
 msgstr "Wijzig Query"
 
-#: libraries/messages.inc.php:1217
+#: libraries/messages.inc.php:1202
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "Raadpleeg de Documentatie over hoe u uw Column_comments tabel bijwerkt."
 
-#: libraries/messages.inc.php:1218
+#: libraries/messages.inc.php:1203
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "U moet opwaarderen (upgraden) naar %s %s of hoger."
 
-#: libraries/messages.inc.php:1219
+#: libraries/messages.inc.php:1204
 msgid "Failed to write file to disk."
 msgstr "Opslaan van het bestand op de hardeschijf is mislukt."
 
-#: libraries/messages.inc.php:1220
+#: libraries/messages.inc.php:1205
 msgid "File upload stopped by extension."
 msgstr "Upload afgebroken vanwege de extensie."
 
-#: libraries/messages.inc.php:1221
+#: libraries/messages.inc.php:1206
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -5798,25 +5726,25 @@ msgstr ""
 "Het geuploade bestand overschrijd de MAX_FILE_SIZE-optie die was opgegeven "
 "in het HTML formulier."
 
-#: libraries/messages.inc.php:1222
+#: libraries/messages.inc.php:1207
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Het geuploade bestand overschrijd de 'upload_max_filesize' optie uit uw php."
 "ini."
 
-#: libraries/messages.inc.php:1223
+#: libraries/messages.inc.php:1208
 msgid "Missing a temporary folder."
 msgstr "De map voor tijdelijkebestanden ontbreekt."
 
-#: libraries/messages.inc.php:1224
+#: libraries/messages.inc.php:1209
 msgid "The uploaded file was only partially uploaded."
 msgstr "Het geuploade bestand was slechts gedeeltelijk ontvangen."
 
-#: libraries/messages.inc.php:1225
+#: libraries/messages.inc.php:1210
 msgid "Unknown error in file upload."
 msgstr "Onbekende fout bij het uploaden."
 
-#: libraries/messages.inc.php:1226
+#: libraries/messages.inc.php:1211
 #, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
@@ -5825,81 +5753,81 @@ msgstr ""
 "U probeerde waarschijnlijk een bestand dat te groot is te uploaden. Zie de %"
 "sdocumentatie%s voor mogelijkheden om dit te omzeilen."
 
-#: libraries/messages.inc.php:1227
+#: libraries/messages.inc.php:1212
 msgid "File uploads are not allowed on this server."
 msgstr "Het uploaden van bestanden is niet toegestaan op deze server."
 
-#: libraries/messages.inc.php:1228
+#: libraries/messages.inc.php:1213
 msgid "Usage"
 msgstr "Gebruik"
 
-#: libraries/messages.inc.php:1229
+#: libraries/messages.inc.php:1214
 msgid "Enclose table and field names with backquotes"
 msgstr "Gebruik backticks (`) bij tabellen- en veldnamen"
 
-#: libraries/messages.inc.php:1230
+#: libraries/messages.inc.php:1215
 msgid "Use Host Table"
 msgstr "Gebruik Host Tabel"
 
-#: libraries/messages.inc.php:1231
+#: libraries/messages.inc.php:1216
 #, php-format
 msgid "The user %s already exists!"
 msgstr "De gebruiker %s bestaat al!"
 
-#: libraries/messages.inc.php:1232
+#: libraries/messages.inc.php:1217
 msgid "The user name is empty!"
 msgstr "De gebruikersnaam is leeg!"
 
-#: libraries/messages.inc.php:1233
+#: libraries/messages.inc.php:1218
 msgid "User name"
 msgstr "Gebruikersnaam"
 
-#: libraries/messages.inc.php:1234
+#: libraries/messages.inc.php:1219
 msgid "The selected user was not found in the privilege table."
 msgstr ""
 "De geselecteerde gebruiker werd niet aangetroffen in de privileges tabel"
 
-#: libraries/messages.inc.php:1235
+#: libraries/messages.inc.php:1220
 msgid "User overview"
 msgstr "Gebruikers Overzicht"
 
-#: libraries/messages.inc.php:1236
+#: libraries/messages.inc.php:1221
 msgid "The selected users have been deleted successfully."
 msgstr "De geselecteerde gebruikers zijn met succes verwijderd."
 
-#: libraries/messages.inc.php:1237
+#: libraries/messages.inc.php:1222
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Gebruikers die toegang hebben tot &quot;%s&quot;"
 
-#: libraries/messages.inc.php:1238
+#: libraries/messages.inc.php:1223
 msgid "User"
 msgstr "Gebruiker"
 
-#: libraries/messages.inc.php:1239
+#: libraries/messages.inc.php:1224
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Gebruik de TAB-knop om van waarde naar waarde te navigeren of CTRL+pijltjes "
 "om vrijuit te navigeren"
 
-#: libraries/messages.inc.php:1240
+#: libraries/messages.inc.php:1225
 msgid "Use Tables"
 msgstr "Gebruik tabellen"
 
-#: libraries/messages.inc.php:1241
+#: libraries/messages.inc.php:1226
 msgid "Use text field"
 msgstr "Gebruik tekstveld"
 
-#: libraries/messages.inc.php:1242
+#: libraries/messages.inc.php:1227
 msgid "Use this value"
 msgstr "Gebruik deze waarde"
 
-#: libraries/messages.inc.php:1244 setup/lib/messages.inc.php:356
+#: libraries/messages.inc.php:1229 setup/lib/messages.inc.php:356
 msgid "Validate SQL"
 msgstr "Valideer SQL"
 
-#: libraries/messages.inc.php:1245
+#: libraries/messages.inc.php:1230
 #, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
@@ -5908,31 +5836,31 @@ msgstr ""
 "De SQL-validatie kon niet worden geïnitialiseerd. Controleer of u de nodige "
 "PHP-extensies heeft geïnstalleerd, zoals beschreven in de %sdocumentatie%s."
 
-#: libraries/messages.inc.php:1246
+#: libraries/messages.inc.php:1231
 msgid "Value"
 msgstr "Waarde"
 
-#: libraries/messages.inc.php:1247
+#: libraries/messages.inc.php:1232
 msgid "Variable"
 msgstr "Variabelen"
 
-#: libraries/messages.inc.php:1248
+#: libraries/messages.inc.php:1233
 msgid "Version information"
 msgstr "Versie informatie"
 
-#: libraries/messages.inc.php:1249
+#: libraries/messages.inc.php:1234
 msgid "View dump (schema) of databases"
 msgstr "Bekijk dump (schema) van de databases"
 
-#: libraries/messages.inc.php:1250
+#: libraries/messages.inc.php:1235
 msgid "View dump (schema) of database"
 msgstr "Bekijk een dump (schema) van database"
 
-#: libraries/messages.inc.php:1251
+#: libraries/messages.inc.php:1236
 msgid "View dump (schema) of table"
 msgstr "Bekijk een dump (schema) van tabel"
 
-#: libraries/messages.inc.php:1252
+#: libraries/messages.inc.php:1237
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -5940,58 +5868,58 @@ msgid ""
 msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
-#: libraries/messages.inc.php:1253
+#: libraries/messages.inc.php:1238
 #, php-format
 msgid "View %s has been dropped"
 msgstr "View %s is verwijderd"
 
-#: libraries/messages.inc.php:1254
+#: libraries/messages.inc.php:1239
 msgid "View image"
 msgstr "Bekijk afbeelding"
 
-#: libraries/messages.inc.php:1255
+#: libraries/messages.inc.php:1240
 msgid "VIEW name"
 msgstr "VIEW-naam"
 
-#: libraries/messages.inc.php:1256
+#: libraries/messages.inc.php:1241
 msgid "View video"
 msgstr "Bekijk video"
 
-#: libraries/messages.inc.php:1257
+#: libraries/messages.inc.php:1242
 msgid "View"
 msgstr "View"
 
-#: libraries/messages.inc.php:1259
+#: libraries/messages.inc.php:1244
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 "De directory die u heeft ingesteld om te uploaden kan niet worden bereikt."
 
-#: libraries/messages.inc.php:1260
+#: libraries/messages.inc.php:1245
 msgid "web server upload directory"
 msgstr "web-server upload directory"
 
-#: libraries/messages.inc.php:1261
+#: libraries/messages.inc.php:1246
 msgid "Web server"
 msgstr "Web server"
 
-#: libraries/messages.inc.php:1262
+#: libraries/messages.inc.php:1247
 #, php-format
 msgid "Welcome to %s"
 msgstr "Welkom op %s"
 
-#: libraries/messages.inc.php:1263
+#: libraries/messages.inc.php:1248
 msgid "West European"
 msgstr "West Europees"
 
-#: libraries/messages.inc.php:1264
+#: libraries/messages.inc.php:1249
 msgid "Wiki"
 msgstr "Wiki"
 
-#: libraries/messages.inc.php:1265
+#: libraries/messages.inc.php:1250
 msgid "wildcard"
 msgstr "jokerteken"
 
-#: libraries/messages.inc.php:1266
+#: libraries/messages.inc.php:1251
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -6000,19 +5928,19 @@ msgstr ""
 "Het doelvenster kon niet worden bijgewerkt. Misschien heeft u het venster "
 "afgesloten of uw browser blokkeert bijwerkingen van uw venster"
 
-#: libraries/messages.inc.php:1267
+#: libraries/messages.inc.php:1252
 msgid "With selected:"
 msgstr "Met geselecteerd:"
 
-#: libraries/messages.inc.php:1268
+#: libraries/messages.inc.php:1253
 msgid "Write requests"
 msgstr "Schrijf verzoeken"
 
-#: libraries/messages.inc.php:1269
+#: libraries/messages.inc.php:1254
 msgid "Wrong username/password. Access denied."
 msgstr "Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd."
 
-#: libraries/messages.inc.php:1271
+#: libraries/messages.inc.php:1256
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -6020,48 +5948,48 @@ msgstr ""
 "Het XML-bestand was beschadigd of onvolledig. Repareer het bestand en "
 "probeer opnieuw. "
 
-#: libraries/messages.inc.php:1272
+#: libraries/messages.inc.php:1257
 msgid "Export contents"
 msgstr "Exporteer inhoud"
 
-#: libraries/messages.inc.php:1273
+#: libraries/messages.inc.php:1258
 msgid "Export functions"
 msgstr "Exporteer functies"
 
-#: libraries/messages.inc.php:1274
+#: libraries/messages.inc.php:1259
 msgid "Export procedures"
 msgstr "Exporteer procedures"
 
-#: libraries/messages.inc.php:1275
+#: libraries/messages.inc.php:1260
 msgid "Export Structure Schemas (recommended)"
 msgstr "Exporteer structuurschema's (recommended)"
 
-#: libraries/messages.inc.php:1276
+#: libraries/messages.inc.php:1261
 msgid "Export tables"
 msgstr "Exporteer tabellen"
 
-#: libraries/messages.inc.php:1277
+#: libraries/messages.inc.php:1262
 msgid "Export triggers"
 msgstr "Exporteer triggers"
 
-#: libraries/messages.inc.php:1278
+#: libraries/messages.inc.php:1263
 msgid "Export views"
 msgstr "Exporteer views"
 
-#: libraries/messages.inc.php:1279
+#: libraries/messages.inc.php:1264
 msgid "XML"
 msgstr "XML"
 
-#: libraries/messages.inc.php:1281
+#: libraries/messages.inc.php:1266
 msgid "Yes"
 msgstr "Ja"
 
-#: libraries/messages.inc.php:1283
+#: libraries/messages.inc.php:1268
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Opmerking: Het instellen van deze waarden op 0 (nul) verwijdert de limiet."
 
-#: libraries/messages.inc.php:1284
+#: libraries/messages.inc.php:1269
 msgid "\"zipped\""
 msgstr "\"Gezipt\""
 
@@ -7894,6 +7822,65 @@ msgstr "Interne relaties"
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
 msgstr "Vreemdesleutel limiet"
+
+#~ msgid "Copy"
+#~ msgstr "Kopieer"
+
+#~ msgid "Delete the users and reload the privileges afterwards."
+#~ msgstr "Verwijder de gebruikers en vernieuw de privileges daarna."
+
+#~ msgid ""
+#~ "This is the cleanest way, but reloading the privileges may take a while."
+#~ msgstr ""
+#~ "Dit is de nette manier, maar het vernieuwen van de privileges kan even "
+#~ "duren."
+
+#~ msgid "has been altered."
+#~ msgstr "is veranderd."
+
+#~ msgid "Microsoft Excel 2000"
+#~ msgstr "Microsoft Excel 2000"
+
+#~ msgid "Internet Explorer does not support this function."
+#~ msgstr "Internet Explorer ondersteurd deze functie niet."
+
+#~ msgid ""
+#~ "The &quot;deleted&quot; users will still be able to access the server as "
+#~ "usual until the privileges are reloaded."
+#~ msgstr ""
+#~ "De &quot;verwijderde&quot; gebruikers zullen de server kunnen gebruiken, "
+#~ "zoals altijd, zolang de privileges nog niet zijn vernieuwd."
+
+#~ msgid "Just delete the users from the privilege tables."
+#~ msgstr "Verwijder gewoon de gebruikers van de privileges tabel."
+
+#~ msgid ""
+#~ "Allows running stored procedures; has no effect in this MySQL version."
+#~ msgstr ""
+#~ "Maakt het mogelijk om opgeslagen procedures uit te voeren; Heeft geen "
+#~ "effect in deze MySQL versie."
+
+#~ msgid "Process list"
+#~ msgstr "Processenlijst"
+
+#~ msgid "Reload privileges"
+#~ msgstr "Ververs rechten"
+
+#~ msgid ""
+#~ "The users will still have the USAGE privilege until the privileges are "
+#~ "reloaded."
+#~ msgstr ""
+#~ "De gebruikers zullen nog steeds het USAGE (gebruik) privilege hebben "
+#~ "zolang de privileges nog niet zijn vernieuwd."
+
+#~ msgid "Native MS Excel format"
+#~ msgstr "Native MS Excel data"
+
+#~ msgid "Alter index(s)"
+#~ msgstr "Index(en) bijwerken"
+
+#~ msgid "Tracking Mechanism"
+#~ msgstr "Tracking-mechanisme"
 
 #, fuzzy
 #~| msgid "Select All"
