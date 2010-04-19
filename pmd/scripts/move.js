@@ -484,7 +484,7 @@ function Start_relation()
     if (!ON_relation) {
         document.getElementById('foreign_relation').style.display = '';
         ON_relation = 1;
-        document.getElementById('hint').innerHTML = LangSelectReferencedKey;
+        document.getElementById('hint').innerHTML = PMA_messages['strSelectReferencedKey'];
         document.getElementById('hint').style.visibility = "visible";
         document.getElementById('rel_button').className = 'M_butt_Selected_down';
     } else {
@@ -502,7 +502,7 @@ function Click_field(T, f, PK) // table field
         if (!click_field) {
             //.style.display=='none'        .style.visibility = "hidden"
             if (!PK) {
-                alert(LangPleaseSelectPrimaryOrUniqueKey);
+                alert(PMA_messages['strPleaseSelectPrimaryOrUniqueKey']);
                 return;// 0;
             }//PK
             if (j_tabs[db + '.' + T] != '1') {
@@ -510,7 +510,7 @@ function Click_field(T, f, PK) // table field
             }
             click_field = 1;
             link_relation = "T1=" + T + "&F1=" + f;
-            document.getElementById('hint').innerHTML = LangSelectForeignKey;
+            document.getElementById('hint').innerHTML = PMA_messages['strSelectForeignKey'];
         } else {
             Start_relation(); // hidden hint...
             if (j_tabs[db + '.' + T] != '1' || !PK) {
@@ -906,7 +906,7 @@ function Start_display_field()
     }
     if (!ON_display_field) {
         ON_display_field = 1;
-        document.getElementById('hint').innerHTML = LangChangeDisplay;
+        document.getElementById('hint').innerHTML = PMA_messages['strChangeDisplay'];
         document.getElementById('hint').style.visibility = "visible";
         document.getElementById('display_field_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
 

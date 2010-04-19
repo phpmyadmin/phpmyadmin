@@ -59,6 +59,10 @@ $js_messages['strErrorRelationAdded'] = $GLOBALS['strErrorRelationAdded'];
 $js_messages['strErrorRelationExists'] = $GLOBALS['strErrorRelationExists'];
 $js_messages['strErrorSaveTable'] = $GLOBALS['strErrorSaveTable'];
 $js_messages['strGeneralRelationFeat:strDisabled'] = $GLOBALS['strGeneralRelationFeat'] . ': ' . $GLOBALS['strDisabled'];
+$js_messages['strSelectReferencedKey'] = $GLOBALS['strSelectReferencedKey'];
+$js_messages['strSelectForeignKey'] = $GLOBALS['strSelectForeignKey'];
+$js_messages['strPleaseSelectPrimaryOrUniqueKey'] = $GLOBALS['strPleaseSelectPrimaryOrUniqueKey'];
+$js_messages['strChangeDisplay'] = $GLOBALS['strChangeDisplay'];
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

@@ -34,12 +34,7 @@ $hidden           = "hidden";
 echo '
     var server = "' . PMA_escapeJsString($server) . '";
     var db = "' . PMA_escapeJsString($db) . '";
-    var token = "' . PMA_escapeJsString($token) . '";
-    var LangSelectReferencedKey = "' . PMA_escapeJsString($strSelectReferencedKey) . '";
-    var LangSelectForeignKey = "' . PMA_escapeJsString($strSelectForeignKey) . '";
-    var LangPleaseSelectPrimaryOrUniqueKey = "' . PMA_escapeJsString($strPleaseSelectPrimaryOrUniqueKey) . '";
-    var LangIEnotSupport = "' . PMA_escapeJsString($strIEUnsupported) . '";
-    var LangChangeDisplay = "' . PMA_escapeJsString($strChangeDisplay) . '";';
+    var token = "' . PMA_escapeJsString($token) . '";';
 ?>
 
     // ]]>
