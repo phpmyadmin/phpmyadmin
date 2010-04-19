@@ -396,13 +396,13 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     $saved_row_cnt  = count($save_row);
     ?>
     <fieldset>
-    <legend><?php echo $strLinksTo; ?></legend>
+    <legend><?php echo __('Relations'); ?></legend>
 
     <table>
-    <tr><th></th>
+    <tr><th><?php echo $strField; ?></th>
     <?php
     if ($cfgRelation['relwork']) {
-        echo '<th>' . $strInternalRelations;
+        echo '<th>' . __('Internal relation');
         if (PMA_foreignkey_supported($tbl_type)) {
             echo PMA_showHint($strInternalAndForeign);
         }
@@ -410,7 +410,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     }
     if (PMA_foreignkey_supported($tbl_type)) {
         // this does not have to be translated, it's part of the MySQL syntax
-        echo '<th colspan="2">FOREIGN KEY (' . $tbl_type . ')';
+        echo '<th colspan="2">REFERENCES (' . $tbl_type . ')';
         echo '</th>';
     }
     ?>

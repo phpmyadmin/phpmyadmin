@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-16 16:27+0200\n"
+"POT-Creation-Date: 2010-04-18 08:42-0400\n"
 "PO-Revision-Date: 2010-03-21 05:17+0200\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -2014,7 +2014,7 @@ msgstr ""
 msgid "Internal relation added"
 msgstr "Adicionado relacionamento Interno"
 
-#: libraries/messages.inc.php:449
+#: libraries/messages.inc.php:449 tbl_relation.php:405
 msgid "Internal relations"
 msgstr "Relações internas"
 
@@ -3404,7 +3404,7 @@ msgstr ""
 msgid "RELATIONS FOR TABLE"
 msgstr "RELAÇÕES PARA A TABELA"
 
-#: libraries/messages.inc.php:762
+#: libraries/messages.inc.php:762 tbl_relation.php:399
 msgid "Relations"
 msgstr "Relações"
 
@@ -5987,7 +5987,7 @@ msgstr ""
 "Coringas _ e % precisam ser precedidos com uma \\ para serem usados "
 "literalmente"
 
-#: server_synchronize.php:1157
+#: server_synchronize.php:1159
 #, fuzzy, php-format
 #| msgid "Configuration"
 msgid "Configuration: %s"
@@ -7625,6 +7625,11 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Internal relation"
+#~ msgstr "Relações internas"
 
 #, fuzzy
 #~| msgid "Select All"

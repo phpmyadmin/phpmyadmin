@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-16 16:27+0200\n"
+"POT-Creation-Date: 2010-04-18 08:42-0400\n"
 "PO-Revision-Date: 2010-04-06 14:28+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -2015,7 +2015,7 @@ msgstr ""
 msgid "Internal relation added"
 msgstr "Intern relasjon lagt til"
 
-#: libraries/messages.inc.php:449
+#: libraries/messages.inc.php:449 tbl_relation.php:405
 msgid "Internal relations"
 msgstr "Interne relasjoner"
 
@@ -3434,7 +3434,7 @@ msgstr ""
 msgid "RELATIONS FOR TABLE"
 msgstr "RELASJONER FOR TABELLEN"
 
-#: libraries/messages.inc.php:762
+#: libraries/messages.inc.php:762 tbl_relation.php:399
 msgid "Relations"
 msgstr "Relasjoner"
 
@@ -6008,7 +6008,7 @@ msgstr "Fjern"
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Jokertegnene _ og % må beskyttes med en \\ for å bruke dem direkte"
 
-#: server_synchronize.php:1157
+#: server_synchronize.php:1159
 #, fuzzy, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
@@ -7764,6 +7764,11 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr "ZIP"
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Internal relation"
+#~ msgstr "Interne relasjoner"
 
 #, fuzzy
 #~| msgid "Select All"

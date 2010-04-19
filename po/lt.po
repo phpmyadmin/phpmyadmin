@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-16 16:27+0200\n"
+"POT-Creation-Date: 2010-04-18 08:42-0400\n"
 "PO-Revision-Date: 2010-04-16 19:52+0200\n"
 "Last-Translator: Rytis <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
@@ -2014,7 +2014,7 @@ msgstr ""
 msgid "Internal relation added"
 msgstr "Vidiniai sąryšiai"
 
-#: libraries/messages.inc.php:449
+#: libraries/messages.inc.php:449 tbl_relation.php:405
 msgid "Internal relations"
 msgstr "Vidiniai sąryšiai"
 
@@ -3401,7 +3401,7 @@ msgstr ""
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/messages.inc.php:762
+#: libraries/messages.inc.php:762 tbl_relation.php:399
 msgid "Relations"
 msgstr "Sąryšiai"
 
@@ -5844,7 +5844,7 @@ msgstr "Išvalyti"
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Norint naudoti _ ir % simblius, juos reikėtų eskeipinti su \\"
 
-#: server_synchronize.php:1157
+#: server_synchronize.php:1159
 #, fuzzy, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
@@ -7467,3 +7467,50 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr "ZIP"
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Internal relation"
+#~ msgstr "Vidiniai sąryšiai"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT * query"
+#~ msgid "Select all"
+#~ msgstr "Pažymėti visus"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgctxt "Create SELECT ... query"
+#~ msgid "Select"
+#~ msgstr "Pažymėti visus"
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgctxt "Create INSERT query"
+#~ msgid "Insert"
+#~ msgstr "Įterpti"
+
+#, fuzzy
+#~| msgid "Updated"
+#~ msgctxt "Create UPDATE query"
+#~ msgid "Update"
+#~ msgstr "Atnaujinta"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgctxt "Create DELETE query"
+#~ msgid "Delete"
+#~ msgstr "Trinti"
+
+#~ msgid "utf-8"
+#~ msgstr "utf-8"
+
+#~ msgid "Jan0"
+#~ msgstr "Sausio0"
+
+#~ msgid "Jan1"
+#~ msgstr "Sausio1"
+
+#~ msgid "Jan2"
+#~ msgstr "Sausio2"

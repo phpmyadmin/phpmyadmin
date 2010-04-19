@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-16 16:27+0200\n"
+"POT-Creation-Date: 2010-04-18 08:42-0400\n"
 "PO-Revision-Date: 2010-03-12 11:23+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -2050,7 +2050,7 @@ msgstr ""
 msgid "Internal relation added"
 msgstr "Se añadió la relación interna"
 
-#: libraries/messages.inc.php:449
+#: libraries/messages.inc.php:449 tbl_relation.php:405
 msgid "Internal relations"
 msgstr "Relaciones internas"
 
@@ -3494,7 +3494,7 @@ msgstr ""
 msgid "RELATIONS FOR TABLE"
 msgstr "RELACIONES PARA LA TABLA"
 
-#: libraries/messages.inc.php:762
+#: libraries/messages.inc.php:762 tbl_relation.php:399
 msgid "Relations"
 msgstr "Relaciones"
 
@@ -6120,7 +6120,7 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Los comodines _ y % deben acompañarse de \\ para usarlos de manera literal"
 
-#: server_synchronize.php:1157
+#: server_synchronize.php:1159
 #, fuzzy, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
@@ -7875,6 +7875,11 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr "ZIP"
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Internal relation"
+#~ msgstr "Relaciones internas"
 
 #, fuzzy
 #~| msgid "Select All"
