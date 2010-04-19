@@ -109,7 +109,7 @@ function PMA_auth_fails()
         // if we display the "Server not responding" error, do not confuse users
         // by telling them they have a settings problem
         // (note: it's true that they could have a badly typed host name, but
-        //  anyway the current $strAccessDeniedExplanation tells that the server
+        //  anyway the current message tells that the server
         //  rejected the connection, which is not really what happened)
         // 2002 is the error given by mysqli
         // 2003 is the error given by mysql
