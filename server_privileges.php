@@ -168,7 +168,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         array('Create_routine_priv', 'CREATE ROUTINE', $GLOBALS['strPrivDescCreateRoutine']),
         array('Alter_routine_priv', 'ALTER ROUTINE', $GLOBALS['strPrivDescAlterRoutine']),
         array('Create_user_priv', 'CREATE USER', $GLOBALS['strPrivDescCreateUser']),
-        array('Execute_priv', 'EXECUTE', $GLOBALS['strPrivDescExecute5']),
+        array('Execute_priv', 'EXECUTE', $GLOBALS['strPrivDescExecute']),
     );
 
     if (!empty($row) && isset($row['Table_priv'])) {
