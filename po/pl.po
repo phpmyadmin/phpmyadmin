@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-18 08:42-0400\n"
+"POT-Creation-Date: 2010-04-19 07:48-0400\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: polish <pl@li.org>\n"
@@ -2022,7 +2022,7 @@ msgstr ""
 msgid "Internal relation added"
 msgstr "Dodano wewnętrzne powiązanie"
 
-#: libraries/messages.inc.php:449 tbl_relation.php:405
+#: libraries/messages.inc.php:449
 msgid "Internal relations"
 msgstr "Wewnętrzne relacje"
 
@@ -7749,10 +7749,15 @@ msgstr ""
 msgid "ZIP"
 msgstr "ZIP"
 
+#: tbl_relation.php:405
 #, fuzzy
-#~| msgid "Internal relations"
-#~ msgid "Internal relation"
-#~ msgstr "Wewnętrzne relacje"
+#| msgid "Internal relations"
+msgid "Internal relation"
+msgstr "Wewnętrzne relacje"
+
+#: tbl_relation.php:413
+msgid "Foreign key constraint"
+msgstr ""
 
 #, fuzzy
 #~| msgid "Select All"

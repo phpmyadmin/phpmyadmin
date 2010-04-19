@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-18 08:42-0400\n"
+"POT-Creation-Date: 2010-04-19 07:48-0400\n"
 "PO-Revision-Date: 2010-04-06 14:28+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -2015,7 +2015,7 @@ msgstr ""
 msgid "Internal relation added"
 msgstr "Intern relasjon lagt til"
 
-#: libraries/messages.inc.php:449 tbl_relation.php:405
+#: libraries/messages.inc.php:449
 msgid "Internal relations"
 msgstr "Interne relasjoner"
 
@@ -7765,10 +7765,17 @@ msgstr ""
 msgid "ZIP"
 msgstr "ZIP"
 
+#: tbl_relation.php:405
 #, fuzzy
-#~| msgid "Internal relations"
-#~ msgid "Internal relation"
-#~ msgstr "Interne relasjoner"
+#| msgid "Internal relations"
+msgid "Internal relation"
+msgstr "Interne relasjoner"
+
+#: tbl_relation.php:413
+#, fuzzy
+#| msgid "Foreign key limit"
+msgid "Foreign key constraint"
+msgstr "Fremmednøkkelbegrensning"
 
 #, fuzzy
 #~| msgid "Select All"

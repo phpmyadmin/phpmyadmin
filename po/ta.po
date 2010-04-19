@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-18 08:42-0400\n"
+"POT-Creation-Date: 2010-04-19 07:48-0400\n"
 "PO-Revision-Date: 2010-04-16 10:43+0200\n"
 "Last-Translator: Sutharshan <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -1951,7 +1951,7 @@ msgstr ""
 msgid "Internal relation added"
 msgstr ""
 
-#: libraries/messages.inc.php:449 tbl_relation.php:405
+#: libraries/messages.inc.php:449
 msgid "Internal relations"
 msgstr ""
 
@@ -7200,3 +7200,11 @@ msgstr ""
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
 msgstr "ZIP"
+
+#: tbl_relation.php:405
+msgid "Internal relation"
+msgstr ""
+
+#: tbl_relation.php:413
+msgid "Foreign key constraint"
+msgstr ""

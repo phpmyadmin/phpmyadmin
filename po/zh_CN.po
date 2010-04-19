@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-18 08:42-0400\n"
+"POT-Creation-Date: 2010-04-19 07:48-0400\n"
 "PO-Revision-Date: 2010-04-08 13:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -1973,7 +1973,7 @@ msgstr "不需要一个和外键关系一致的内联关系"
 msgid "Internal relation added"
 msgstr "已添加内联关系"
 
-#: libraries/messages.inc.php:449 tbl_relation.php:405
+#: libraries/messages.inc.php:449
 msgid "Internal relations"
 msgstr "内联"
 
@@ -7469,10 +7469,17 @@ msgstr ""
 msgid "ZIP"
 msgstr "ZIP"
 
+#: tbl_relation.php:405
 #, fuzzy
-#~| msgid "Internal relations"
-#~ msgid "Internal relation"
-#~ msgstr "内联"
+#| msgid "Internal relations"
+msgid "Internal relation"
+msgstr "内联"
+
+#: tbl_relation.php:413
+#, fuzzy
+#| msgid "Foreign key limit"
+msgid "Foreign key constraint"
+msgstr "外键限制"
 
 #, fuzzy
 #~| msgid "Select All"

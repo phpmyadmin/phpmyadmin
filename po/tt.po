@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-18 08:42-0400\n"
+"POT-Creation-Date: 2010-04-19 07:48-0400\n"
 "PO-Revision-Date: 2010-03-30 23:14+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: tatarish <tt@li.org>\n"
@@ -2011,7 +2011,7 @@ msgstr ""
 msgid "Internal relation added"
 msgstr "Eçke bäyläneş"
 
-#: libraries/messages.inc.php:449 tbl_relation.php:405
+#: libraries/messages.inc.php:449
 msgid "Internal relations"
 msgstr "Eçke bäyläneş"
 
@@ -7466,10 +7466,15 @@ msgstr ""
 msgid "ZIP"
 msgstr ""
 
+#: tbl_relation.php:405
 #, fuzzy
-#~| msgid "Internal relations"
-#~ msgid "Internal relation"
-#~ msgstr "Eçke bäyläneş"
+#| msgid "Internal relations"
+msgid "Internal relation"
+msgstr "Eçke bäyläneş"
+
+#: tbl_relation.php:413
+msgid "Foreign key constraint"
+msgstr ""
 
 #, fuzzy
 #~| msgid "Select All"

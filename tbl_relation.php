@@ -410,7 +410,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     }
     if (PMA_foreignkey_supported($tbl_type)) {
         // this does not have to be translated, it's part of the MySQL syntax
-        echo '<th colspan="2">REFERENCES (' . $tbl_type . ')';
+        echo '<th colspan="2">' . __('Foreign key constraint') . ' (' . $tbl_type . ')';
         echo '</th>';
     }
     ?>
