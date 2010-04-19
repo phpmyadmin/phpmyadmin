@@ -39,21 +39,18 @@ echo '
     var LangSelectForeignKey = "' . PMA_escapeJsString($strSelectForeignKey) . '";
     var LangPleaseSelectPrimaryOrUniqueKey = "' . PMA_escapeJsString($strPleaseSelectPrimaryOrUniqueKey) . '";
     var LangIEnotSupport = "' . PMA_escapeJsString($strIEUnsupported) . '";
-    var LangChangeDisplay = "' . PMA_escapeJsString($strChangeDisplay) . '";
-
-    var strLang = Array();
-    strLang["strModifications"] = "' . PMA_escapeJsString($strModifications) . '";
-    strLang["strRelationDeleted"] = "' . PMA_escapeJsString($strRelationDeleted) . '";
-    strLang["strForeignKeyRelationAdded"] = "' . PMA_escapeJsString($strForeignKeyRelationAdded). '";
-    strLang["strGeneralRelationFeat:strDisabled"] = "' . PMA_escapeJsString($strGeneralRelationFeat . ' : ' . $strDisabled) . '";
-    strLang["strInternalRelationAdded"] = "' . PMA_escapeJsString($strInternalRelationAdded) . '";
-    strLang["strErrorRelationAdded"] = "' . PMA_escapeJsString($strErrorRelationAdded) . '";
-    strLang["strErrorRelationExists"] = "' . PMA_escapeJsString($strErrorRelationExists) . '";
-    strLang["strErrorSaveTable"] = "' . PMA_escapeJsString($strErrorSaveTable) . '";';
+    var LangChangeDisplay = "' . PMA_escapeJsString($strChangeDisplay) . '";';
 ?>
 
     // ]]>
     </script>
+<?php
+$params = array('lang' => $GLOBALS['lang']);
+if (isset($GLOBALS['db'])) {
+    $params['db'] = $GLOBALS['db'];
+}
+?>
+    <script src="js/messages.php<?php echo PMA_generate_common_url($params); ?>" type="text/javascript"></script>
     <script src="pmd/scripts/ajax.js" type="text/javascript"></script>
     <script src="pmd/scripts/move.js" type="text/javascript"></script>
     <!--[if IE]>

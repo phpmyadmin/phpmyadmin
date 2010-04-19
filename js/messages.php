@@ -16,7 +16,7 @@ header('Content-Type: text/javascript; charset=UTF-8');
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
 // Avoid loading the full common.inc.php because this would add many
-// non-js-compatible stuff like DOCTYPE 
+// non-js-compatible stuff like DOCTYPE
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
 // But this one is needed for PMA_escapeJsString()
@@ -49,6 +49,16 @@ $js_messages['strPasswordNotSame'] = $GLOBALS['strPasswordNotSame'];
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');
+
+/* Designer */
+$js_messages['strModifications'] = $GLOBALS['strModifications'];
+$js_messages['strRelationDeleted'] = $GLOBALS['strRelationDeleted'];
+$js_messages['strForeignKeyRelationAdded'] = $GLOBALS['strForeignKeyRelationAdded'];
+$js_messages['strInternalRelationAdded'] = $GLOBALS['strInternalRelationAdded'];
+$js_messages['strErrorRelationAdded'] = $GLOBALS['strErrorRelationAdded'];
+$js_messages['strErrorRelationExists'] = $GLOBALS['strErrorRelationExists'];
+$js_messages['strErrorSaveTable'] = $GLOBALS['strErrorSaveTable'];
+$js_messages['strGeneralRelationFeat:strDisabled'] = $GLOBALS['strGeneralRelationFeat'] . ': ' . $GLOBALS['strDisabled'];
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
