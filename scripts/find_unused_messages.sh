@@ -10,7 +10,7 @@ tmp2=`mktemp`
 grep -o '^\$\<str[A-Z][a-zA-Z0-9_]*\>' libraries/messages.inc.php \
     | tr -d '$' \
     | grep -Ev '^str(Transformation_|ShowStatus)' | sort -u > $tmp1
-grep -ho '\<str[A-Z][a-zA-Z0-9_]*\>' `find . -type f -a -name '*.php' -a -not -path '*/lang/*'` \
+grep -ho '\<str[A-Z][a-zA-Z0-9_]*\>' `find . -type f -a -name '*.php' -a -not -path '*/libraries/messages.inc.php'` \
     | grep -Ev '^str(Transformation_|ShowStatus|Setup)' | sort -u > $tmp2
 
 echo Please note that you need to check results of this script, it doesn\'t
