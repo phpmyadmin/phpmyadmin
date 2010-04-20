@@ -6028,7 +6028,7 @@ msgid "Current connection"
 msgstr "Connexion actuelle"
 
 #: server_synchronize.php:1159
-#, fuzzy, php-format
+#, php-format
 #| msgid "Configuration"
 msgid "Configuration: %s"
 msgstr "Configuration : %s"
