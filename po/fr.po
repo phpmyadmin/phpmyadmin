@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-20 11:41+0200\n"
+"PO-Revision-Date: 2010-04-20 11:43+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7802,10 +7802,9 @@ msgid "Internal relation"
 msgstr "Relation interne"
 
 #: tbl_relation.php:413
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
-msgstr "Limite pour clé étrangère"
+msgstr "Contrainte de clé étrangère"
 
 #~ msgid "Copy"
 #~ msgstr "Copier"
