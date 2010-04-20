@@ -4,8 +4,8 @@
  *
  */
 $(document).ready(function() {
-    $('.server_selector').change(function() {
-        var server = $('.server_selector').val();
+    $('.server_selector').change(function(evt) {
+        var server = $(evt.target).val();
         if (server == 'cur') {
             $(this).closest('tbody').children('.current-server').css('display', '');
             $(this).closest('tbody').children('.remote-server').css('display', 'none');
