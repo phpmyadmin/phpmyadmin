@@ -60,7 +60,7 @@ if (! defined('MYSQLI_TYPE_BIT')) {
  * @param   string  $user           mysql user name
  * @param   string  $password       mysql user password
  * @param   boolean $is_controluser
- * @param   array   $server host/port/socket 
+ * @param   array   $server host/port/socket
  * @param   boolean $auxiliary_connection (when true, don't go back to login if connection fails)
  * @return  mixed   false on error or a mysqli object on success
  */
@@ -68,7 +68,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
 {
     if ($server) {
           $server_port   = (empty($server['port']))
-                   ? ''
+                   ? false
                    : (int)$server['port'];
 	  $server_socket = (empty($server['socket']))
                    ? ''
@@ -107,7 +107,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     if ($GLOBALS['cfg']['Server']['ssl'] && defined('MYSQLI_CLIENT_SSL')) {
         $client_flags |= MYSQLI_CLIENT_SSL;
     }
-    
+
     if (!$server) {
       $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
 
@@ -126,7 +126,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
 	    }
         // we could be calling PMA_DBI_connect() to connect to another
         // server, for example in the Synchronize feature, so do not
-        // go back to main login if it fails 
+        // go back to main login if it fails
         if (! $auxiliary_connection) {
 	        PMA_log_user($user, 'mysql-denied');
             PMA_auth_fails();
@@ -231,7 +231,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
     }
 
     if ($r != FALSE && PMA_Tracker::isActive() == TRUE ) {
-        PMA_Tracker::handleQuery($query); 
+        PMA_Tracker::handleQuery($query);
     }
 
     return $r;
