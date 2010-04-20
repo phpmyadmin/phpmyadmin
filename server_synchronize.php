@@ -83,17 +83,17 @@ if ((isset($_REQUEST['submit_connect']))) {
         ${"{$con}_connection"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"}, $auxiliary_connection = true);
     } // end foreach ($cons as $con)
 
-    if ((! $src_connection && $src_type == 'rmt') || (! $trg_connection && $trg_type == 'rmt')) {
+    if ((! $src_connection && $src_type != 'cur') || (! $trg_connection && $trg_type != 'cur')) {
         /**
         * Displays the connection error string if
         * connections are not established
         */
 
         echo '<div class="error">';
-        if(! $src_connection && $src_type == 'rmt') {
+        if(! $src_connection && $src_type != 'cur') {
             echo $GLOBALS['strCouldNotConnectSource'] . '<br />';
         }
-        if(! $trg_connection && $trg_type == 'rmt'){
+        if(! $trg_connection && $trg_type != 'cur'){
             echo $GLOBALS['strCouldNotConnectTarget'];
         }
         echo '</div>';
@@ -515,7 +515,7 @@ if (isset($_REQUEST['Table_ids'])) {
     * Creating link object for source and target databases
     */
     foreach ($cons as $con) {
-        if (${"{$con}_type"} == "rmt") {
+        if (${"{$con}_type"} != "cur") {
             ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
         } else {
             ${"{$con}_link"} = null;
@@ -993,7 +993,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     * connecting the source and target servers
     */
-    if ('rmt' == $_SESSION['src_type']) {
+    if ('cur' != $_SESSION['src_type']) {
         $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false, $_SESSION['src_server']);
     } else {
         $src_link = $GLOBALS['userlink'];
@@ -1001,7 +1001,7 @@ if (isset($_REQUEST['synchronize_db'])) {
         // (does not work if user defined current server as a remote one)
         $GLOBALS['db'] = $_SESSION['src_db'];
     }
-    if ('rmt' == $_SESSION['trg_type']) {
+    if ('cur' != $_SESSION['trg_type']) {
         $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false, $_SESSION['trg_server']);
     } else {
         $trg_link = $GLOBALS['userlink'];
