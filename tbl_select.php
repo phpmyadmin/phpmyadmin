@@ -20,7 +20,7 @@ require_once './libraries/mysql_charsets.lib.php';
 
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
-
+$GLOBALS['js_include'][] = 'jquery/timepicker.js';
 if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
     $titles['Browse'] =
         '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
@@ -231,11 +231,21 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
         $type = $fields_type[$i];
         if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
         ?>
-                    <script type="text/javascript">
-                    //<![CDATA[
-                    document.write('<a title="<?php echo $strCalendar;?>" href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($i); ?>\', \'<?php echo (substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\', \'\')"><img class="calendar" src="<?php echo $pmaThemeImage; ?>b_calendar.png" alt="<?php echo $strCalendar; ?>"/></a>');
-                    //]]>
-                    </script>
+<script type="text/javascript">
+//<![CDATA[
+$(function() {
+    $('#field_<?php echo $i; ?>').datepicker({
+    	duration: '',
+		time24h: true,
+		 stepMinutes: 1,
+        stepHours: 1,
+        <?php echo ($type == 'date' ? "showTime: false,":"showTime: true,"); ?>
+		altTimeField: '',
+        constrainInput: false
+     });
+});
+//]]>
+</script>
         <?php
         }
         ?>

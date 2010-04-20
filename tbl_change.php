@@ -114,7 +114,8 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
  * used in ./libraries/header.inc.php to load JavaScript library file
  */
 $GLOBALS['js_include'][] = 'tbl_change.js';
-
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'jquery/timepicker.js';
 /**
  * HTTP and HTML headers
  */
@@ -1056,7 +1057,7 @@ foreach ($rows as $row_id => $vrow) {
                 <input type="text" name="fields<?php echo $field_name_appendix; ?>"
                     value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
                     class="textfield" <?php echo $unnullify_trigger; ?>
-                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"                   
                     id="field_<?php echo ($idindex); ?>_3" />
                 <?php
                 if ($field['Extra'] == 'auto_increment') {
@@ -1083,15 +1084,21 @@ foreach ($rows as $row_id => $vrow) {
                     // the _3 suffix points to the date field
                     // the _2 suffix points to the corresponding NULL checkbox
                     ?>
-                    <script type="text/javascript">
-                    //<![CDATA[
-                    document.write('<a title="<?php echo $strCalendar;?>"');
-                    document.write(' href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (substr($field['pma_type'], 0, 9) == 'timestamp') ? 'datetime' : substr($field['pma_type'], 0, 9); ?>\', \'field_<?php echo ($idindex); ?>_2\')">');
-                    document.write('<img class="calendar"');
-                    document.write(' src="<?php echo $pmaThemeImage; ?>b_calendar.png"');
-                    document.write(' alt="<?php echo $strCalendar; ?>"/></a>');
-                    //]]>
-                    </script>
+<script type="text/javascript">
+//<![CDATA[
+$(function() {
+    $('#field_<?php echo ($idindex); ?>_3').datepicker({
+    	duration: '',
+		time24h: true,
+		 stepMinutes: 1,
+        stepHours: 1,
+        <?php echo ($field['pma_type'] == 'date' ? "showTime: false,":"showTime: true,"); ?>
+		altTimeField: '',
+        constrainInput: false
+     });
+});
+//]]>
+</script>
                     <?php
                 }
             }

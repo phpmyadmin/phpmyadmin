@@ -77,6 +77,8 @@ $Id$
   synchronisation.
 + rfe #2988633 [relation] Improve ON DELETE/ON UPDATE drop-downs
 + rfe #2988629 [relation] Improve labels in relation view 
++ rfe #2983207, patch #2988715 [interface] Use jQuery calendar dialog, thanks
+  to Muhammad Adnan.
 
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,
