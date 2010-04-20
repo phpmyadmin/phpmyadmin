@@ -95,6 +95,10 @@ if (isset($_REQUEST['submitoptions'])) {
         $tbl_type = $_REQUEST['new_tbl_type'];
         // reset the globals for the new engine
         PMA_set_global_variables_for_engine($tbl_type);
+        if ($is_maria) {
+            $transactional = (isset($transactional) && $transactional == '0') ? '0' : '1';
+            $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
+        }
     }
 
     if (! empty($_REQUEST['tbl_collation'])

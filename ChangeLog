@@ -93,6 +93,8 @@ $Id$
   thanks to Martynas Mickevičius - BlinK_
 - bug #2983060, patch #2987900 [interface] Fix initial state of tables in
   designer, thanks to Sutharshan Balachandren.
+- bug #2983062, patch #2989408 [engines] Fix warnings when changing table
+  engine to Maria, thanks to Madhura Jayaratne.
 
 3.3.2.0 (2010-04-13)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
