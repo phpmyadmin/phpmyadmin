@@ -3259,7 +3259,7 @@ the <tt>mysql_upgrade</tt> command on the server.</p>
     port-forwarding to another host, MySQL is not resolving the localhost
     as expected.<br />
     Erik Wasser explains: The solution is: if your host is &quot;localhost&quot;
-    MySQL (the commandline tool 'mysql' as well) always tries to use the socket
+    MySQL (the command line tool <code>mysql</code> as well) always tries to use the socket
     connection for speeding up things. And that doesn't work in this configuration
     with port forwarding.<br />
     If you enter "127.0.0.1" as hostname, everything is right and MySQL uses the
@@ -3385,7 +3385,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
     <a href="#faq3_4">3.4 I am unable to import dumps I created with the mysqldump tool
     bundled with the MySQL server distribution.</a></h4>
 
-<p> The problem is that older versions of mysqldump created invalid comments like this:</p>
+<p> The problem is that older versions of <code>mysqldump</code> created invalid comments like this:</p>
 
 <pre>
 -- MySQL dump 8.22
@@ -4526,7 +4526,7 @@ now synchronize your databases placed on the same server or some remote server.
 
 <pre>
 Copyright (C) 1998-2000 Tobias Ratschiller &lt;tobias_at_ratschiller.com&gt;
-Copyright (C) 2001-2009 Marc Delisle &lt;marc_at_infomarc.info&gt;
+Copyright (C) 2001-2010 Marc Delisle &lt;marc_at_infomarc.info&gt;
                         Olivier Müller &lt;om_at_omnis.ch&gt;
                         Robin Johnson &lt;robbat2_at_users.sourceforge.net&gt;
                         Alexander M. Turek &lt;me_at_derrabus.de&gt;
