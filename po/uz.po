@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-19 14:26+0200\n"
+"POT-Creation-Date: 2010-04-20 07:54+0200\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -6013,6 +6013,16 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Маълумотлар базалари номларида пастки чизиқ (_) ва фоиз (%) белгилари "
 "ишлатилганда улар олдига тескари эгри чизиқ (\\) қўйиш керак."
+
+#: server_synchronize.php:1129
+msgid "Enter manually"
+msgstr ""
+
+#: server_synchronize.php:1130
+#, fuzzy
+#| msgid "Insecure connection"
+msgid "Current connection"
+msgstr "Нохавфсиз уланиш"
 
 #: server_synchronize.php:1159
 #, fuzzy, php-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-19 14:26+0200\n"
+"POT-Creation-Date: 2010-04-20 07:54+0200\n"
 "PO-Revision-Date: 2010-04-18 14:10+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -6017,6 +6017,16 @@ msgstr "Vider"
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Préfixer avec \\ les passepartouts _ et % pour un usage littéral"
+
+#: server_synchronize.php:1129
+msgid "Enter manually"
+msgstr ""
+
+#: server_synchronize.php:1130
+#, fuzzy
+#| msgid "Insecure connection"
+msgid "Current connection"
+msgstr "Connexion non sécurisée"
 
 #: server_synchronize.php:1159
 #, fuzzy, php-format

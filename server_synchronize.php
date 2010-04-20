@@ -1126,8 +1126,8 @@ if (isset($_REQUEST['synchronize_db'])) {
       <tr class="odd">
 	  <td colspan="2" style="text-align: center">
 	     <select name="<?php echo $type; ?>_type" id="<?php echo $type; ?>_type" class="server_selector">
-	      <option value="rmt"><?php echo $GLOBALS['strRemoteServer']; ?></option>
-	      <option value="cur"><?php echo $GLOBALS['strCurrentServer']; ?></option>
+	      <option value="rmt"><?php echo __('Enter manually'); ?></option>
+	      <option value="cur"><?php echo __('Current connection'); ?></option>
 <?php
         foreach ($GLOBALS['cfg']['Servers'] as $key => $tmp_server) {
             if (empty($tmp_server['host'])) {

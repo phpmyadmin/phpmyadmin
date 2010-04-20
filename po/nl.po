@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-19 14:26+0200\n"
+"POT-Creation-Date: 2010-04-20 07:54+0200\n"
 "PO-Revision-Date: 2010-03-26 15:46+0200\n"
 "Last-Translator:  <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -6006,6 +6006,16 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Wildcards _ en % moeten worden ge-escaped met een \\ om ze letterlijk te "
 "gebruiken"
+
+#: server_synchronize.php:1129
+msgid "Enter manually"
+msgstr ""
+
+#: server_synchronize.php:1130
+#, fuzzy
+#| msgid "Insecure connection"
+msgid "Current connection"
+msgstr "Onveilige verbinding"
 
 #: server_synchronize.php:1159
 #, fuzzy, php-format

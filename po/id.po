@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-19 14:26+0200\n"
+"POT-Creation-Date: 2010-04-20 07:54+0200\n"
 "PO-Revision-Date: 2010-04-17 21:14+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
@@ -5776,6 +5776,16 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Wildcard _ dan % sebaiknya diakhiri dengan tanda \\ untuk mengunakannya "
 "secara harfiah"
+
+#: server_synchronize.php:1129
+msgid "Enter manually"
+msgstr ""
+
+#: server_synchronize.php:1130
+#, fuzzy
+#| msgid "Connections"
+msgid "Current connection"
+msgstr "Koneksi"
 
 #: server_synchronize.php:1159
 #, php-format

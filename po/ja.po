@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-19 14:26+0200\n"
+"POT-Creation-Date: 2010-04-20 07:54+0200\n"
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -5846,6 +5846,16 @@ msgstr ""
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
+
+#: server_synchronize.php:1129
+msgid "Enter manually"
+msgstr ""
+
+#: server_synchronize.php:1130
+#, fuzzy
+#| msgid "max. concurrent connections"
+msgid "Current connection"
+msgstr "最大同時接続数"
 
 #: server_synchronize.php:1159
 #, fuzzy, php-format

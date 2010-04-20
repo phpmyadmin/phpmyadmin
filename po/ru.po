@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-19 14:26+0200\n"
+"POT-Creation-Date: 2010-04-20 07:54+0200\n"
 "PO-Revision-Date: 2010-03-30 23:23+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -6007,6 +6007,16 @@ msgstr ""
 "При использовании в имени базы данных символов нижнего подчеркивания (_) и "
 "процента (%), необходимо экранировать их символом обратной косой черты (\\), "
 "в противном случае они будут интерпретированы как групповые символы"
+
+#: server_synchronize.php:1129
+msgid "Enter manually"
+msgstr ""
+
+#: server_synchronize.php:1130
+#, fuzzy
+#| msgid "Insecure connection"
+msgid "Current connection"
+msgstr "Небезопасное соединение"
 
 #: server_synchronize.php:1159
 #, fuzzy, php-format
