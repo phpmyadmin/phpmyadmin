@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-19 13:58+0200\n"
+"PO-Revision-Date: 2010-04-20 07:56+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -4980,7 +4980,7 @@ msgstr "Synchronovat databáze"
 
 #: libraries/messages.inc.php:1072
 msgid "Synchronize"
-msgstr "Synchronizovat"
+msgstr "Synchronizace"
 
 #: libraries/messages.inc.php:1074
 msgid "Add column(s)"
@@ -5919,13 +5919,12 @@ msgstr ""
 
 #: server_synchronize.php:1129
 msgid "Enter manually"
-msgstr ""
+msgstr "Zadat ručně"
 
 #: server_synchronize.php:1130
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Nezabezpečené připojení"
+msgstr "Současné připojení"
 
 #: server_synchronize.php:1159
 #, php-format
