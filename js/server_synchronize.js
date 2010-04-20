@@ -16,7 +16,6 @@ $(document).ready(function() {
             $(this).closest('tbody').children('.current-server').css('display', 'none');
             $(this).closest('tbody').children('.remote-server').css('display', '');
             var parts = server.split('||||');
-            $('#src_host').val(parts[0]);
             $(this).closest('tbody').find('.server-host').val(parts[0]);
             $(this).closest('tbody').find('.server-port').val(parts[1]);
             $(this).closest('tbody').find('.server-socket').val(parts[2]);
