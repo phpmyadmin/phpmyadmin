@@ -76,7 +76,7 @@ if ((isset($_REQUEST['submit_connect']))) {
         } else {
 	        ${"{$con}_server"}['host'] = ${"{$con}_host"};
 	        if (isset(${"{$con}_port"}) && ! empty(${"{$con}_port"}) && ((int)${"{$con}_port"} * 1) > 0) {
-	            ${"{$con}_server"}['port'] = ${"{$con}_port"};
+	            ${"{$con}_server"}['port'] = (int)${"{$con}_port"};
 	        }
         }
 
