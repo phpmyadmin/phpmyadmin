@@ -1580,9 +1580,8 @@ msgid "Free pages"
 msgstr "Proste strani"
 
 #: libraries/messages.inc.php:352
-#, fuzzy
 msgid "Full start"
-msgstr "Polno besedilo"
+msgstr "Polni začetek"
 
 #: libraries/messages.inc.php:353
 msgid "Full stop"
