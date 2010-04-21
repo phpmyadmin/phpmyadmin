@@ -2864,7 +2864,7 @@ msgstr "PDF"
 
 #: libraries/messages.inc.php:649
 msgid "(Generates a report containing the data of a single table)"
-msgstr ""
+msgstr "(Ustvari poročilo, ki vsebuje podatke tabele same)"
 
 #: libraries/messages.inc.php:650
 msgid "Report title"
