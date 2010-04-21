@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 21:04+0200\n"
+"PO-Revision-Date: 2010-04-21 21:05+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1519,7 +1519,7 @@ msgstr "Predloga datoteke"
 
 #: libraries/messages.inc.php:339
 msgid "remember template"
-msgstr "Shrani predlogo"
+msgstr "shrani predlogo"
 
 #: libraries/messages.inc.php:340
 msgid "Files"
