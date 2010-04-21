@@ -3337,7 +3337,7 @@ msgstr "Odstrani znake CRLF znotraj polj"
 
 #: libraries/messages.inc.php:759
 msgid "Remove partitioning"
-msgstr ""
+msgstr "Odstrani particioniranje"
 
 #: libraries/messages.inc.php:760
 msgid "Remove selected users"
