@@ -231,7 +231,7 @@ msgstr "Dejanja"
 
 #: libraries/messages.inc.php:37
 msgid "Add AUTO_INCREMENT value"
-msgstr "Dodaj AUTO_INCREMENT vrednost"
+msgstr "Dodaj vrednost AUTO_INCREMENT"
 
 #: libraries/messages.inc.php:38
 #, php-format
