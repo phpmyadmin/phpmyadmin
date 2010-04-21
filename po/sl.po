@@ -6190,9 +6190,8 @@ msgid "Customization"
 msgstr "Prilagoditev"
 
 #: setup/lib/messages.inc.php:136
-#, fuzzy
 msgid "Customize export options"
-msgstr "Možnosti za izvoz baze podatkov"
+msgstr "Prilagodi možnosti izvoza"
 
 #: setup/lib/messages.inc.php:137
 msgid "Features"
