@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:03+0200\n"
+"PO-Revision-Date: 2010-04-21 20:04+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2629,7 +2629,7 @@ msgstr "Operator"
 
 #: libraries/messages.inc.php:597
 msgid "Optimize"
-msgstr ""
+msgstr "Optimiziraj"
 
 #: libraries/messages.inc.php:598
 msgid "Optimize table"
