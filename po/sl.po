@@ -2613,7 +2613,7 @@ msgstr "V redu"
 
 #: libraries/messages.inc.php:593
 msgid "Open Document Text"
-msgstr ""
+msgstr "Besedilo Open Document"
 
 #: libraries/messages.inc.php:594
 msgid "Open new phpMyAdmin window"
