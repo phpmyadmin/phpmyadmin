@@ -1736,7 +1736,7 @@ msgstr "Madžarsko"
 
 #: libraries/messages.inc.php:394
 msgid "Icelandic"
-msgstr ""
+msgstr "Islandsko"
 
 #: libraries/messages.inc.php:395
 msgid "ID"
