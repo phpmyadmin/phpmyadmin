@@ -3056,7 +3056,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:694
 msgid "Allows executing stored routines."
-msgstr ""
+msgstr "Omogoča izvajanje shranjenih rutin."
 
 #: libraries/messages.inc.php:695
 msgid "Allows importing data from and exporting data into files."
