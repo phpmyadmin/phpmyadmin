@@ -5549,9 +5549,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1238
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped"
-msgstr "Polje %s je zavrženo"
+msgstr "Pogled %s je zavržen"
 
 #: libraries/messages.inc.php:1239
 msgid "View image"
