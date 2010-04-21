@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 18:50+0200\n"
+"PO-Revision-Date: 2010-04-21 18:51+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1045,7 +1045,7 @@ msgstr "Podatkovne zbirke"
 #: libraries/messages.inc.php:227
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "%s podatkovne baze so uspešno zavržene."
+msgstr "%s podatkovne zbirke so uspešno zavržene."
 
 #: libraries/messages.inc.php:228
 #, fuzzy
