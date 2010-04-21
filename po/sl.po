@@ -5676,9 +5676,8 @@ msgid "Filter"
 msgstr ""
 
 #: navigation.php:319 setup/lib/messages.inc.php:42
-#, fuzzy
 msgid "Clear"
-msgstr "Koledar"
+msgstr "Počisti"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
