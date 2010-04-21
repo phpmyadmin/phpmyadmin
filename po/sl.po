@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 21:22+0200\n"
+"PO-Revision-Date: 2010-04-21 21:23+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -801,7 +801,7 @@ msgstr "Združljivo z MySQL&nbsp;4.0"
 
 #: libraries/messages.inc.php:173
 msgid "Complete inserts"
-msgstr "Popolne 'insert' poizvedbe"
+msgstr "Popolne poizvedbe insert"
 
 #: libraries/messages.inc.php:174 setup/lib/messages.inc.php:84
 msgid "Compression"
