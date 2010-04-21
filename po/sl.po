@@ -311,7 +311,7 @@ msgstr "Vstavi še eno novo vrstico"
 
 #: libraries/messages.inc.php:56
 msgid "Edit next row"
-msgstr ""
+msgstr "Uredi naslednjo vrstico"
 
 #: libraries/messages.inc.php:57
 msgid "Go back to this page"
