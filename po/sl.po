@@ -1013,7 +1013,7 @@ msgstr "Dansko"
 
 #: libraries/messages.inc.php:220
 msgid "Database"
-msgstr "Podatkovna baza"
+msgstr "Podatkovna zbirka"
 
 #: libraries/messages.inc.php:221
 msgid "The database name is empty!"
