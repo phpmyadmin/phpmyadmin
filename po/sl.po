@@ -1073,9 +1073,8 @@ msgstr ""
 "povečan promet med spletnim in podatkovnim strežnikom."
 
 #: libraries/messages.inc.php:233
-#, fuzzy
 msgid "Target database"
-msgstr "Išči v podatkovni bazi"
+msgstr "Ciljna zbirka podatkov"
 
 #: libraries/messages.inc.php:234
 msgid "Data"
