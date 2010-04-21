@@ -1215,7 +1215,7 @@ msgstr "slovar"
 
 #: libraries/messages.inc.php:265
 msgid "Difference"
-msgstr ""
+msgstr "Razlika"
 
 #: libraries/messages.inc.php:266
 msgid "Direct links"
