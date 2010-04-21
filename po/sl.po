@@ -4552,9 +4552,8 @@ msgid "Space usage"
 msgstr "Poraba prostora"
 
 #: libraries/messages.inc.php:1024
-#, fuzzy
 msgid "Spanish"
-msgstr "Dansko"
+msgstr "Špansko"
 
 #: libraries/messages.inc.php:1025
 msgid "Words are separated by a space character (\" \")."
