@@ -251,9 +251,9 @@ msgid "Add/Delete Criteria Row"
 msgstr "Dodaj/Odstrani vrstico 'Kriterij'"
 
 #: libraries/messages.inc.php:42
-#, fuzzy, php-format
+#, php-format
 msgid "Add %s field(s)"
-msgstr "Dodaj novo polje"
+msgstr "Dodaj %s polj(e)"
 
 #: libraries/messages.inc.php:43
 msgid "Add custom comment into header (\\n splits lines)"
