@@ -989,7 +989,7 @@ msgstr "CSV-podatki"
 
 #: libraries/messages.inc.php:213
 msgid "Current server"
-msgstr ""
+msgstr "Trenutni strežnik"
 
 #: libraries/messages.inc.php:214
 msgid "Custom color"
