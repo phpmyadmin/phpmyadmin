@@ -1021,7 +1021,7 @@ msgstr "Ime podatkovne zbirke je prazno!"
 
 #: libraries/messages.inc.php:222
 msgid "Database export options"
-msgstr "Možnosti za izvoz baze podatkov"
+msgstr "Možnosti za izvoz zbirke podatkov"
 
 #: libraries/messages.inc.php:223
 #, php-format
