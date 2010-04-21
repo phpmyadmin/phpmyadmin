@@ -184,7 +184,7 @@ if (isset($where_clause)) {
         } else { // end if (no row returned)
             $meta = PMA_DBI_get_fields_meta($result[$key_id]);
             list($unique_condition, $tmp_clause_is_unique) = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
-            if (! empty($unique_condition)) { 
+            if (! empty($unique_condition)) {
                 $found_unique_key = true;
             }
             unset($unique_condition, $tmp_clause_is_unique);
@@ -306,7 +306,7 @@ foreach ($rows as $row_id => $vrow) {
     <thead>
         <tr>
             <th><?php echo $strField; ?></th>
- 
+
  <?php
      if ($cfg['ShowFieldTypesInDataEditView']) {
         $this_url_params = array_merge($url_params,
@@ -347,8 +347,8 @@ foreach ($rows as $row_id => $vrow) {
             // d a t e t i m e
             //
             // Current date should not be set as default if the field is NULL
-            // for the current row, but do not put here the current datetime 
-            // if there is a default value (the real default value will be set 
+            // for the current row, but do not put here the current datetime
+            // if there is a default value (the real default value will be set
             // in the Default value logic below)
 
             // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
@@ -440,7 +440,7 @@ foreach ($rows as $row_id => $vrow) {
              <td align="center"<?php echo $field['wrap']; ?>>
                  <?php echo $field['pma_type']; ?>
              </td>
- 
+
          <?php } //End if
 
         // Prepares the field value
@@ -563,12 +563,12 @@ foreach ($rows as $row_id => $vrow) {
                 ) {
                      $default_function = $cfg['DefaultFunctions']['pk_char36'];
                 }
-                
+
                 // this is set only when appropriate and is always true
 				if (isset($field['display_binary_as_hex'])) {
                 	$default_function = 'UNHEX';
 				}
-                
+
                 // loop on the dropdown array and print all available options for that field.
                 foreach ($dropdown as $each_dropdown){
                     echo '<option';
@@ -640,7 +640,7 @@ foreach ($rows as $row_id => $vrow) {
                 // foreign key in a drop-down
                 $onclick     .= '4, ';
             } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == true) {
-                // foreign key with a browsing icon 
+                // foreign key with a browsing icon
                 $onclick     .= '6, ';
             } else {
                 $onclick     .= '5, ';
@@ -1057,7 +1057,7 @@ foreach ($rows as $row_id => $vrow) {
                 <input type="text" name="fields<?php echo $field_name_appendix; ?>"
                     value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
                     class="textfield" <?php echo $unnullify_trigger; ?>
-                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"                   
+                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3" />
                 <?php
                 if ($field['Extra'] == 'auto_increment') {
