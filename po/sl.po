@@ -1094,7 +1094,7 @@ msgstr "Samo podatki"
 
 #: libraries/messages.inc.php:238
 msgid "Pages containing data"
-msgstr ""
+msgstr "Strani, ki vsebujejo podatke"
 
 #: libraries/messages.inc.php:239
 msgid "Data Synchronization"
