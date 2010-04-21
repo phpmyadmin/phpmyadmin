@@ -5997,9 +5997,8 @@ msgid "Character set of the file"
 msgstr "Nabor znakov datoteke"
 
 #: setup/lib/messages.inc.php:85
-#, fuzzy
 msgid "Database name template"
-msgstr "Predloga datoteke"
+msgstr "Predloga imena podatkovne zbirke"
 
 #: setup/lib/messages.inc.php:86
 #, fuzzy
