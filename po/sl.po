@@ -1017,7 +1017,7 @@ msgstr "Podatkovna zbirka"
 
 #: libraries/messages.inc.php:221
 msgid "The database name is empty!"
-msgstr "Ime podatkovne baze je prazno!"
+msgstr "Ime podatkovne zbirke je prazno!"
 
 #: libraries/messages.inc.php:222
 msgid "Database export options"
