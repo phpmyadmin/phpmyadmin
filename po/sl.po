@@ -944,10 +944,9 @@ msgid "Create table"
 msgstr "Ustvari tabelo"
 
 #: libraries/messages.inc.php:203
-#, fuzzy
 msgctxt "$strCreateTableShort"
 msgid "Create table"
-msgstr "Ustvari novo stran"
+msgstr "Ustvari tabelo"
 
 #: libraries/messages.inc.php:204
 msgid "Database for user"
