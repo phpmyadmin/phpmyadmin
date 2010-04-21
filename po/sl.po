@@ -5642,9 +5642,8 @@ msgid "Export Structure Schemas (recommended)"
 msgstr ""
 
 #: libraries/messages.inc.php:1261
-#, fuzzy
 msgid "Export tables"
-msgstr "Vrsta izvoza"
+msgstr "Izvozi tabele"
 
 #: libraries/messages.inc.php:1262
 #, fuzzy
