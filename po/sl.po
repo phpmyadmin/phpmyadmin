@@ -5327,7 +5327,7 @@ msgstr ""
 "prikazano besedilo (Privzeto: 0). Druga možnost je odmik, ki pove, koliko "
 "besedila bo prikazanega. Če ni določen, bo izpisano vse preostalo besedilo. "
 "Tretja možnost pa določa, kateri znaki bodo pripeti vrnjenemu podnizu "
-"(Privzeto: ...) ."
+"(Privzeto: \"...\")."
 
 #: libraries/messages.inc.php:1187
 msgid "Triggers"
