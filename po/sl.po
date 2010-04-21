@@ -3694,7 +3694,7 @@ msgstr "Faktor povečava je premajhen, da bi spravili shemo na eno stran"
 
 #: libraries/messages.inc.php:840
 msgid "Search in database"
-msgstr "Išči v podatkovni bazi"
+msgstr "Išči v podatkovni zbirki"
 
 #: libraries/messages.inc.php:841
 msgid "Inside field:"
