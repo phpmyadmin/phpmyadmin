@@ -925,7 +925,7 @@ msgstr "Ustvari novo zbirko podatkovno"
 #: libraries/messages.inc.php:198
 #, php-format
 msgid "Create table on database %s"
-msgstr "Ustvari novo tabelo v podatkovni bazi %s"
+msgstr "Ustvari novo tabelo v podatkovni zbirki %s"
 
 #: libraries/messages.inc.php:199
 msgid "Create a page"
