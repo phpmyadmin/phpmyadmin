@@ -5717,9 +5717,8 @@ msgid ""
 msgstr ""
 
 #: setup/lib/messages.inc.php:19
-#, fuzzy
 msgid "Allow login to any MySQL server"
-msgstr "Ne morem se prijaviti v MySQL strežnik"
+msgstr "Dovoli prijavo v kateri koli strežnik MySQL"
 
 #: setup/lib/messages.inc.php:20
 msgid "Show &quot;Drop database&quot; link to normal users"
