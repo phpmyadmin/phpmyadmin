@@ -6023,7 +6023,7 @@ msgstr "ne"
 
 #: setup/lib/messages.inc.php:93
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Vsili varno povezavo med uporabo phpMyAdmin"
 
 #: setup/lib/messages.inc.php:94
 msgid ""
