@@ -1258,7 +1258,7 @@ msgstr "Dokumentacija"
 
 #: libraries/messages.inc.php:276
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Ne uporabi AUTO_INCREMENT za ničelne vrednosti"
 
 #: libraries/messages.inc.php:277
 msgid "Download file"
