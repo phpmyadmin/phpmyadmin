@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 21:25+0200\n"
+"PO-Revision-Date: 2010-04-21 21:26+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5392,8 +5392,7 @@ msgstr "Osveži poizvedbo"
 #: libraries/messages.inc.php:1202
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr ""
-"Navodila za posodobitev tabele Column_comments' najdete v dokumentaciji"
+msgstr "Navodila za posodobitev tabele column_comments najdete v dokumentaciji"
 
 #: libraries/messages.inc.php:1203
 #, php-format
