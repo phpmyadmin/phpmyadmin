@@ -1054,7 +1054,7 @@ msgstr "Išči v podatkovni bazi"
 
 #: libraries/messages.inc.php:229
 msgid "Databases statistics"
-msgstr "Statistika podatkovnih baz"
+msgstr "Statistika zbirk podatkov"
 
 #: libraries/messages.inc.php:230
 msgid "Disable Statistics"
