@@ -2521,7 +2521,7 @@ msgstr "Brez gesla"
 #: libraries/messages.inc.php:570
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "Spletni strežnik nima dovoljenja za shranjevanje datoteke %s"
+msgstr "Spletni strežnik nima dovoljenja za shranjevanje datoteke %s."
 
 #: libraries/messages.inc.php:571
 msgid "Without PHP Code"
