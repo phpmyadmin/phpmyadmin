@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 19:32+0200\n"
+"PO-Revision-Date: 2010-04-21 19:33+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2010,7 +2010,7 @@ msgstr "Tabele morajo imeti vsaj eno polje."
 
 #: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "Ta vtičnik ne podpira kompresiranih uvozov!"
 
 #: libraries/messages.inc.php:455
 #, php-format
