@@ -2050,7 +2050,7 @@ msgstr ""
 #: libraries/messages.inc.php:463
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Preskoči na podatkovno bazo &quot;%s&quot;."
+msgstr "Preskoči na podatkovno zbirko &quot;%s&quot;."
 
 #: libraries/messages.inc.php:465
 msgid "Do not change the password"
