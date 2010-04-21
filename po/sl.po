@@ -1614,7 +1614,7 @@ msgstr "Ustvaril"
 
 #: libraries/messages.inc.php:361
 msgid "Generate Password"
-msgstr ""
+msgstr "Generiraj geslo"
 
 #: libraries/messages.inc.php:362
 msgid "Generation Time"
