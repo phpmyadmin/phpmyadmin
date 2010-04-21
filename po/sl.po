@@ -3997,7 +3997,7 @@ msgstr "Število izvedenih izjav FLUSH."
 
 #: libraries/messages.inc.php:908
 msgid "The number of internal COMMIT statements."
-msgstr ""
+msgstr "Število notranjih izvaj COMMIT."
 
 #: libraries/messages.inc.php:909
 msgid "The number of times a row was deleted from a table."
