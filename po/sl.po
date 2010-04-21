@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:33+0200\n"
+"PO-Revision-Date: 2010-04-21 20:34+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3766,7 +3766,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:857
 msgid "in query"
-msgstr "in poizvedba"
+msgstr "v poizvedbi"
 
 #: libraries/messages.inc.php:858
 msgid "Select referenced key"
