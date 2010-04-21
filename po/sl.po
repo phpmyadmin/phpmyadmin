@@ -1645,9 +1645,8 @@ msgid "Global value"
 msgstr "Skupna vrednost"
 
 #: libraries/messages.inc.php:370
-#, fuzzy
 msgid "Go to database"
-msgstr "Brez podatkovnih baz"
+msgstr "Pojdi v zbirko podatkov"
 
 #: libraries/messages.inc.php:371
 msgid "Go to table"
