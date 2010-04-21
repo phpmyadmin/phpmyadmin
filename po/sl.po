@@ -1833,6 +1833,8 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Prosim, bodite potrpežljivi, datoteka za nalaga. Podrobnosti o nalaganju "
+"niso na voljo."
 
 #: libraries/messages.inc.php:417
 msgid "Excel 97-2003 XLS Workbook"
