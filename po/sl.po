@@ -2670,7 +2670,7 @@ msgstr "Velikost papirja"
 
 #: libraries/messages.inc.php:608
 msgid "Partial import"
-msgstr ""
+msgstr "Delni uvoz"
 
 #: libraries/messages.inc.php:609
 msgid "Partial Texts"
