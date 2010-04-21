@@ -1979,7 +1979,7 @@ msgstr ""
 #: libraries/messages.inc.php:447
 #, php-format
 msgid "Invalid column (%s) specified!"
-msgstr ""
+msgstr "Določen neveljavni stolpec (%s)!"
 
 #: libraries/messages.inc.php:448
 #, php-format
