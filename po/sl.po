@@ -1503,7 +1503,7 @@ msgstr "ime strežnika"
 
 #: libraries/messages.inc.php:336
 msgid "table name"
-msgstr ""
+msgstr "ime tabele"
 
 #: libraries/messages.inc.php:337
 #, php-format
