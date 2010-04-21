@@ -22,6 +22,7 @@ $.extend($.datepicker._defaults, {
 		 'dateFormat': 'yy-mm-dd',
 		 'changeMonth': true,
 		'changeYear': true,
+    'stepSeconds': 1, // Number of seconds to step up/down
     'stepMinutes': 1, // Number of minutes to step up/down
     'stepHours': 1, // Number of hours to step up/down
     'time24h': false, // True if 24h time
@@ -186,9 +187,11 @@ Timepicker.prototype = {
         this._orgValue  = null;
         this._orgHour   = null;
         this._orgMinute = null;
+        this._orgSecond = null;
         this._colonPos  = -1;
+        this._scolonPos  = -1;
         this._visible   = false;
-        this.tpDiv      = $('<div id="' + this._mainDivId + '" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-helper-hidden-accessible" style="width: 100px; display: none; position: absolute;"></div>');
+        this.tpDiv      = $('<div id="' + this._mainDivId + '" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-helper-hidden-accessible" style="width: 170px; display: none; position: absolute;"></div>');
         this._generateHtml();
     },
 
@@ -200,9 +203,11 @@ Timepicker.prototype = {
         this._time24h = $.datepicker._get(inst, 'time24h');
         this._altTimeField = $.datepicker._get(inst, 'altTimeField');
 
+        var stepSeconds = parseInt($.datepicker._get(inst, 'stepSeconds'), 10) || 1;
         var stepMinutes = parseInt($.datepicker._get(inst, 'stepMinutes'), 10) || 1;
         var stepHours   = parseInt($.datepicker._get(inst, 'stepHours'), 10)   || 1;
 
+        if (60 % stepSeconds != 0) { stepSeconds = 1; }
         if (60 % stepMinutes != 0) { stepMinutes = 1; }
         if (24 % stepHours != 0)   { stepHours   = 1; }
 
@@ -211,6 +216,9 @@ Timepicker.prototype = {
 
         $('#minuteSlider').slider('option', 'max', 60 - stepMinutes);
         $('#minuteSlider').slider('option', 'step', stepMinutes);
+
+        $('#secondSlider').slider('option', 'max', 60 - stepSeconds);
+        $('#secondSlider').slider('option', 'step', stepSeconds);
 
         this._inputId = input.id;
 
@@ -241,7 +249,10 @@ Timepicker.prototype = {
     {
         var curTime = $('#' + this._mainDivId + ' span.fragHours').text()
                     + ':'
-                    + $('#' + this._mainDivId + ' span.fragMinutes').text();
+                    + $('#' + this._mainDivId + ' span.fragMinutes').text()
+                    + ':'
+                    + $('#' + this._mainDivId + ' span.fragSeconds').text()
+                    ;
 
         if (!this._time24h) {
             curTime += ' ' + $('#' + this._mainDivId + ' span.fragAmpm').text();
@@ -279,6 +290,7 @@ Timepicker.prototype = {
 
         $('#hourSlider').css('height',   this.tpDiv.height() - (3.5 * hdrHeight));
         $('#minuteSlider').css('height', this.tpDiv.height() - (3.5 * hdrHeight));
+        $('#secondSlider').css('height', this.tpDiv.height() - (3.5 * hdrHeight));
     },
 
     _generateHtml: function ()
@@ -287,9 +299,9 @@ Timepicker.prototype = {
 
         html += '<div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">';
         html += '<div class="ui-datepicker-title" style="margin:0">';
-        html += '<span class="fragHours">08</span><span class="delim">:</span><span class="fragMinutes">45</span> <span class="fragAmpm"></span></div></div><table>';
-        html += '<tr><th>Hour</th><th>Minute</th></tr>';
-        html += '<tr><td align="center"><div id="hourSlider" class="slider"></div></td><td align="center"><div id="minuteSlider" class="slider"></div></td></tr>';
+        html += '<span class="fragHours">08</span><span class="delim">:</span><span class="fragMinutes">45</span>:</span><span class="fragSeconds">45</span> <span class="fragAmpm"></span></div></div><table>';
+        html += '<tr><th>Hour</th><th>Minute</th><th>Second</th></tr>';
+        html += '<tr><td align="center"><div id="hourSlider" class="slider"></div></td><td align="center"><div id="minuteSlider" class="slider"></div></td><td align="center"><div id="secondSlider" class="slider"></div></td></tr>';
         html += '</table>';
 
         this.tpDiv.empty().append(html);
@@ -325,8 +337,23 @@ Timepicker.prototype = {
             }
         });
 
+        $('#secondSlider').slider({
+            orientation: "vertical",
+            range: 'min',
+            min: 0,
+            max: 59,
+            step: 1,
+            slide: function(event, ui) {
+                self._writeTime('second', ui.value);
+            },
+            stop: function(event, ui) {
+                $('#' + self._inputId).focus();
+            }
+        });
+
         $('#hourSlider > a').css('padding', 0);
         $('#minuteSlider > a').css('padding', 0);
+        $('#secondSlider > a').css('padding', 0);
     },
 
     _writeTime: function (type, value)
@@ -353,6 +380,11 @@ Timepicker.prototype = {
             if (value < 10) value = '0' + value;
             $('#' + this._mainDivId + ' span.fragMinutes').text(value);
         }
+
+        if (type == 'second') {
+            if (value < 10) value = '0' + value;
+            $('#' + this._mainDivId + ' span.fragSeconds').text(value);
+        }
     },
 
     _parseTime: function ()
@@ -361,12 +393,19 @@ Timepicker.prototype = {
 
         this._colonPos = dt.search(':');
 
-        var m = 0, h = 0, a = '';
+        var m = 0, h = 0, s = 0, a = '';
 
         if (this._colonPos != -1) {
+            this._scolonPos = dt.substring(this._colonPos + 1).search(':');
             h = parseInt(dt.substr(this._colonPos - 2, 2), 10);
             m = parseInt(dt.substr(this._colonPos + 1, 2), 10);
-            a = jQuery.trim(dt.substr(this._colonPos + 3, 3));
+            if (this._scolonPos != -1) {
+                this._scolonPos += this._colonPos + 1;
+                s = parseInt(dt.substr(this._scolonPos + 1, 2), 10);
+                a = jQuery.trim(dt.substr(this._scolonPos + 3, 3));
+            } else {
+                a = jQuery.trim(dt.substr(this._colonPos + 3, 3));
+            }
         }
 
         a = a.toLowerCase();
@@ -386,9 +425,11 @@ Timepicker.prototype = {
 
         this._setTime('hour',   h);
         this._setTime('minute', m);
+        this._setTime('second', s);
 
         this._orgHour   = h;
         this._orgMinute = m;
+        this._orgSecond = s;
     },
 
     _setTime: function (type, value)
@@ -397,6 +438,7 @@ Timepicker.prototype = {
         if (value < 0)    value = 0;
         if (value > 23 && type == 'hour')   value = 23;
         if (value > 59 && type == 'minute') value = 59;
+        if (value > 59 && type == 'second') value = 59;
 
         if (type == 'hour') {
             $('#hourSlider').slider('value', value);
@@ -404,6 +446,10 @@ Timepicker.prototype = {
 
         if (type == 'minute') {
             $('#minuteSlider').slider('value', value);
+        }
+
+        if (type == 'second') {
+            $('#secondSlider').slider('value', value);
         }
 
         this._writeTime(type, value);
