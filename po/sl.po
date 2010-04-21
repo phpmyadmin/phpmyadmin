@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 18:27+0200\n"
+"PO-Revision-Date: 2010-04-21 18:28+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -61,7 +61,7 @@ msgstr "Urejanje te poizvedbe v vrstici"
 
 #: libraries/common.lib.php:1278
 msgid "Inline"
-msgstr "V vrstivi"
+msgstr "V vrstici"
 
 #: libraries/Message.class.php:282
 #, php-format
