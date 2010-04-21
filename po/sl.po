@@ -1702,7 +1702,7 @@ msgstr "Skrij/Pokaži vse"
 
 #: libraries/messages.inc.php:385
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "Skrij/Pokaži tabele brez razmerij"
 
 #: libraries/messages.inc.php:386
 msgid "Home"
