@@ -6010,7 +6010,7 @@ msgstr "Predloga imena tabele"
 
 #: setup/lib/messages.inc.php:89
 msgid "Save on server"
-msgstr ""
+msgstr "Shrani na strežnik"
 
 #: setup/lib/messages.inc.php:91
 #, fuzzy
