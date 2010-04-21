@@ -4364,7 +4364,6 @@ msgid "The total number of blocks in the query cache."
 msgstr ""
 
 #: libraries/messages.inc.php:984
-#, fuzzy
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Ponastavi"
