@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 19:07+0200\n"
+"PO-Revision-Date: 2010-04-21 19:08+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1282,7 +1282,7 @@ msgstr "Izbriši podatkovne baze, ki imajo enako ime kot uporabniki."
 
 #: libraries/messages.inc.php:282
 msgid "Dump all rows"
-msgstr ""
+msgstr "Zavrzi vse vrstice"
 
 #: libraries/messages.inc.php:283
 msgid "Dumping data for table"
