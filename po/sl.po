@@ -1936,7 +1936,7 @@ msgstr "Vstavi kot novo vrstico"
 #: libraries/messages.inc.php:437
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "Vstavljena vrstica z id: %1$d"
 
 #: libraries/messages.inc.php:438
 msgid "Insert as new row and ignore errors"
