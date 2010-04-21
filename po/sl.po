@@ -3017,9 +3017,8 @@ msgid "Allows creating new databases and tables."
 msgstr "Omogoča ustvarjanje novih podatkovnih baz in tabel."
 
 #: libraries/messages.inc.php:685
-#, fuzzy
 msgid "Allows creating stored routines."
-msgstr "Omogoča ustvarjanje novih tabel."
+msgstr "Omogoča ustvarjanje shranjenih rutin."
 
 #: libraries/messages.inc.php:686
 msgid "Allows creating new tables."
