@@ -3881,7 +3881,7 @@ msgstr "Prikaži dvojiške vsebine"
 
 #: libraries/messages.inc.php:881
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Prikaži vsebine BLOB"
 
 #: libraries/messages.inc.php:882
 msgid "Show color"
