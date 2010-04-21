@@ -6187,7 +6187,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:135
 msgid "Customization"
-msgstr ""
+msgstr "Prilagoditev"
 
 #: setup/lib/messages.inc.php:136
 #, fuzzy
