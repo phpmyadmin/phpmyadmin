@@ -516,10 +516,9 @@ msgid "Remove BLOB Repository Reference"
 msgstr ""
 
 #: libraries/messages.inc.php:106
-#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
-msgstr "Popravi tabelo"
+msgstr "Popravi"
 
 #: libraries/messages.inc.php:107
 msgid "Upload to BLOB repository"
