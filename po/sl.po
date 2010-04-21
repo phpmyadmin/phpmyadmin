@@ -2883,9 +2883,8 @@ msgid "per second"
 msgstr "na sekundo"
 
 #: libraries/messages.inc.php:654
-#, fuzzy
 msgid "Persian"
-msgstr "Gruzijsko"
+msgstr "Perzijsko"
 
 #: libraries/messages.inc.php:655
 msgid "phone book"
