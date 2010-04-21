@@ -2860,7 +2860,7 @@ msgstr "Ustvarjanje strani je spodletelo"
 
 #: libraries/messages.inc.php:648
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: libraries/messages.inc.php:649
 msgid "(Generates a report containing the data of a single table)"
