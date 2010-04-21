@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 19:30+0200\n"
+"PO-Revision-Date: 2010-04-21 19:31+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1984,7 +1984,7 @@ msgstr "Določen neveljavni stolpec (%s)!"
 #: libraries/messages.inc.php:448
 #, php-format
 msgid "Invalid field count in CSV input on line %d."
-msgstr ""
+msgstr "Neveljavno število polj v vnosu CSV v vrstici %d."
 
 #: libraries/messages.inc.php:449
 #, php-format
