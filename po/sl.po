@@ -1223,7 +1223,7 @@ msgstr "Neposredne povezave"
 
 #: libraries/messages.inc.php:267
 msgid "Dirty pages"
-msgstr ""
+msgstr "Umazane strani"
 
 #: libraries/messages.inc.php:268
 msgid "Disabled"
