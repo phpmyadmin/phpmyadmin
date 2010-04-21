@@ -453,9 +453,8 @@ msgid "Binary log"
 msgstr "Binarni dnevnik"
 
 #: libraries/messages.inc.php:91
-#, fuzzy
 msgid "Event type"
-msgstr "Vrsta izvoza"
+msgstr "Vrsta dogodka"
 
 #: libraries/messages.inc.php:92
 #, fuzzy
