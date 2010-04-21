@@ -466,7 +466,7 @@ msgstr "Ime dnevnika"
 
 #: libraries/messages.inc.php:94
 msgid "Original position"
-msgstr ""
+msgstr "Izvirni položaj"
 
 #: libraries/messages.inc.php:95
 msgid "Position"
