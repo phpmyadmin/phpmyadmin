@@ -5138,9 +5138,8 @@ msgid "Updated"
 msgstr ""
 
 #: libraries/messages.inc.php:1157
-#, fuzzy
 msgid "Version"
-msgstr "Različica PHP"
+msgstr "Različica"
 
 #: libraries/messages.inc.php:1158
 msgid "Track these data definition statements:"
