@@ -6812,9 +6812,8 @@ msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 
 #: setup/lib/messages.inc.php:276
-#, fuzzy
 msgid "Hide databases"
-msgstr "Brez podatkovnih baz"
+msgstr "Skrij zbirke podatkov"
 
 #: setup/lib/messages.inc.php:277
 msgid ""
