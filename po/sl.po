@@ -3801,9 +3801,8 @@ msgid "Servers"
 msgstr "Strežniki"
 
 #: libraries/messages.inc.php:866
-#, fuzzy
 msgid "Delayed inserts"
-msgstr "Uporabi zakasnjeno vstavljanje"
+msgstr "Zakasnjena vstavljanja"
 
 #: libraries/messages.inc.php:867
 msgid "Runtime Information"
