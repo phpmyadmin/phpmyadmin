@@ -3683,7 +3683,7 @@ msgstr "Shrani na strežnik, v imenik %s"
 
 #: libraries/messages.inc.php:837
 msgid "Save position"
-msgstr ""
+msgstr "Shrani položaj"
 
 #: libraries/messages.inc.php:838
 msgid "Save"
