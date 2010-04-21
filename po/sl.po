@@ -1278,7 +1278,7 @@ msgstr "Zavrži"
 
 #: libraries/messages.inc.php:281
 msgid "Drop the databases that have the same names as the users."
-msgstr "Izbriši podatkovne baze, ki imajo enako ime kot uporabniki."
+msgstr "Izbriši podatkovne zbirke, ki imajo enako ime kot uporabniki."
 
 #: libraries/messages.inc.php:282
 msgid "Dump all rows"
