@@ -7255,7 +7255,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:377
 msgid "Warning"
-msgstr ""
+msgstr "Opozorilo"
 
 #: setup/lib/messages.inc.php:378
 msgid ""
