@@ -6761,9 +6761,8 @@ msgid "Count tables when showing database list"
 msgstr "Preštej tabele, ko prikazujem seznam podatkovnih zbirk"
 
 #: setup/lib/messages.inc.php:266
-#, fuzzy
 msgid "Count tables"
-msgstr "Ni tabel"
+msgstr "Preštej tabele"
 
 #: setup/lib/messages.inc.php:267
 msgid ""
