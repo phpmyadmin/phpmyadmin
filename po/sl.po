@@ -5526,9 +5526,8 @@ msgid "Variable"
 msgstr "Spremenljivka"
 
 #: libraries/messages.inc.php:1233
-#, fuzzy
 msgid "Version information"
-msgstr "Podatki o prijavi"
+msgstr "Podatki o različici"
 
 #: libraries/messages.inc.php:1234
 msgid "View dump (schema) of databases"
