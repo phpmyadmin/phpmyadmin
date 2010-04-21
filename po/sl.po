@@ -3321,7 +3321,7 @@ msgstr "Osvežujem privilegije"
 
 #: libraries/messages.inc.php:755
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Osveži okvir navigacije"
 
 #: libraries/messages.inc.php:756
 msgid "Reload"
