@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 19:10+0200\n"
+"PO-Revision-Date: 2010-04-21 19:11+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1400,7 +1400,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:311
 msgid "Esperanto"
-msgstr ""
+msgstr "Esperanto"
 
 #: libraries/messages.inc.php:312
 msgid "Estonian"
