@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:54+0200\n"
+"PO-Revision-Date: 2010-04-21 20:55+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6758,7 +6758,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:265
 msgid "Count tables when showing database list"
-msgstr ""
+msgstr "Preštej tabele, ko prikazujem seznam podatkovnih zbirk"
 
 #: setup/lib/messages.inc.php:266
 #, fuzzy
