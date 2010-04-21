@@ -4665,7 +4665,7 @@ msgstr "Stanje"
 
 #: libraries/messages.inc.php:1046
 msgid "Stop"
-msgstr ""
+msgstr "Ustavi"
 
 #: libraries/messages.inc.php:1047
 msgid "Storage Engines"
