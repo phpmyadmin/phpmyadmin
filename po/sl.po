@@ -1940,7 +1940,7 @@ msgstr "Id vstavljene vrstice: %1$d"
 
 #: libraries/messages.inc.php:438
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Vstavi kot novo vrstico in presliši napake"
 
 #: libraries/messages.inc.php:439
 msgid "Insert"
