@@ -1573,7 +1573,7 @@ msgstr "Oblika"
 
 #: libraries/messages.inc.php:350
 msgid "Missing value in the form!"
-msgstr "V obliki manjka vrednost !"
+msgstr "V obliki manjka vrednost!"
 
 #: libraries/messages.inc.php:351
 msgid "Free pages"
