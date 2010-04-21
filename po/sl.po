@@ -920,7 +920,7 @@ msgstr "Ustvari nov indeks"
 
 #: libraries/messages.inc.php:197
 msgid "Create new database"
-msgstr "Ustvari novo podatkovno bazo"
+msgstr "Ustvari novo zbirko podatkovno"
 
 #: libraries/messages.inc.php:198
 #, php-format
