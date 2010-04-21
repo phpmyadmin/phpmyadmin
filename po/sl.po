@@ -950,7 +950,7 @@ msgstr "Ustvari tabelo"
 
 #: libraries/messages.inc.php:204
 msgid "Database for user"
-msgstr "Podatkovna baza za uporabnika"
+msgstr "Podatkovna zbirka za uporabnika"
 
 #: libraries/messages.inc.php:205
 msgid "Create database with same name and grant all privileges"
