@@ -1354,7 +1354,7 @@ msgstr "%s je na voljo na tem strežniku MySQL."
 #: libraries/messages.inc.php:300
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s je onemogočeno za ta strežnik MySQL."
 
 #: libraries/messages.inc.php:301
 msgid "Engines"
