@@ -6001,9 +6001,8 @@ msgid "Database name template"
 msgstr "Predloga imena podatkovne zbirke"
 
 #: setup/lib/messages.inc.php:86
-#, fuzzy
 msgid "Server name template"
-msgstr "Predloga datoteke"
+msgstr "Predloga imena strežnika"
 
 #: setup/lib/messages.inc.php:87
 #, fuzzy
