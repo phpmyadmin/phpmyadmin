@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:57+0200\n"
+"PO-Revision-Date: 2010-04-21 20:58+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4070,7 +4070,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:921
 msgid "The number of pages currently dirty."
-msgstr ""
+msgstr "Število trenutno umazanih strani."
 
 #: libraries/messages.inc.php:922
 msgid "The number of buffer pool pages that have been requested to be flushed."
