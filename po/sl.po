@@ -2211,7 +2211,7 @@ msgstr "Ta operacija lahko traja dolgo časa. Vseeno nadaljujem?"
 
 #: libraries/messages.inc.php:505
 msgid "max. concurrent connections"
-msgstr ""
+msgstr "največ sočasnih povezav"
 
 #: libraries/messages.inc.php:506
 msgid "Maximal length of created query"
