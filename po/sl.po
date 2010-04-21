@@ -4058,7 +4058,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:918
 msgid "The number of requests to update a row in a table."
-msgstr ""
+msgstr "Število zahtev za posodobitev vrstice v tabeli."
 
 #: libraries/messages.inc.php:919
 msgid "The number of requests to insert a row in a table."
