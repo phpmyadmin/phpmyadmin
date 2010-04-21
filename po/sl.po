@@ -1262,7 +1262,7 @@ msgstr "Ne uporabi AUTO_INCREMENT za ničelne vrednosti"
 
 #: libraries/messages.inc.php:277
 msgid "Download file"
-msgstr ""
+msgstr "Prenesi datoteko"
 
 #: libraries/messages.inc.php:278
 msgid "Do you really want to "
