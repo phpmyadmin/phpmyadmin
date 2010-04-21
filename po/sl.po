@@ -4323,7 +4323,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:975
 msgid "The number of tables that are open."
-msgstr ""
+msgstr "Število odprtih tabel."
 
 #: libraries/messages.inc.php:976
 msgid "The number of free memory blocks in query cache."
