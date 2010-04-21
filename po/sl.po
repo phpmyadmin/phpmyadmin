@@ -2002,7 +2002,7 @@ msgstr "Neveljavna zbirka podatkov"
 
 #: libraries/messages.inc.php:452
 msgid "You have to add at least one field."
-msgstr ""
+msgstr "Dodati morate vsaj eno polje."
 
 #: libraries/messages.inc.php:453
 msgid "Table must have at least one field."
