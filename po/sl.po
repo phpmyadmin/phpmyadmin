@@ -4001,7 +4001,7 @@ msgstr "Število notranjih izjav COMMIT."
 
 #: libraries/messages.inc.php:909
 msgid "The number of times a row was deleted from a table."
-msgstr ""
+msgstr "Število izbrisov vrstice iz tabele."
 
 #: libraries/messages.inc.php:910
 msgid ""
