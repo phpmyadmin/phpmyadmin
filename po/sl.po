@@ -1915,7 +1915,7 @@ msgstr "strani"
 
 #: libraries/messages.inc.php:434
 msgid "InnoDB Status"
-msgstr "InnoDB stanje"
+msgstr "Stanje InnoDB"
 
 #: libraries/messages.inc.php:435
 msgid ""
