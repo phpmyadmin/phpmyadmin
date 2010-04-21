@@ -4545,7 +4545,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1022
 msgid "Sort"
-msgstr "Sortiraj"
+msgstr "Razvrsti"
 
 #: libraries/messages.inc.php:1023
 msgid "Space usage"
