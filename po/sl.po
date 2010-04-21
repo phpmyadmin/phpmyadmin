@@ -4705,9 +4705,8 @@ msgid "Structure for view"
 msgstr "Struktura pogleda"
 
 #: libraries/messages.inc.php:1056
-#, fuzzy
 msgid "structure"
-msgstr "Struktura"
+msgstr "struktura"
 
 #: libraries/messages.inc.php:1057
 msgid "Structure"
