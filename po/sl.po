@@ -2604,7 +2604,7 @@ msgstr "<b>Skupaj:</b> <i>%s</i> zadetek(ov)"
 
 #: libraries/messages.inc.php:589 setup/lib/messages.inc.php:117
 msgid "Tables"
-msgstr "Ttabel"
+msgstr "Tabele"
 
 #: libraries/messages.inc.php:591
 msgid "OK"
