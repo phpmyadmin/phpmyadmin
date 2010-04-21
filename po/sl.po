@@ -1068,7 +1068,7 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Obvestilo: Omogočitev statistike podatkovne baze lahko povzroči močno "
+"Obvestilo: Omogočitev statistike podatkovne zbirke lahko povzroči močno "
 "povečan promet med spletnim in podatkovnim strežnikom."
 
 #: libraries/messages.inc.php:233
