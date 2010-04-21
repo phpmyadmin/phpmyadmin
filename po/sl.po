@@ -2546,7 +2546,7 @@ msgstr "Ni dovolj prostora za shranjevanje datoteke %s."
 
 #: libraries/messages.inc.php:576
 msgid "No tables found in database."
-msgstr "V podatkovni bazi ni mogoče najti tabel."
+msgstr "V podatkovni zbirki ni mogoče najti tabel."
 
 #: libraries/messages.inc.php:577
 #, php-format
