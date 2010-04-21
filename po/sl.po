@@ -2851,9 +2851,8 @@ msgid "No tables"
 msgstr "Ni tabel"
 
 #: libraries/messages.inc.php:646
-#, fuzzy
 msgid "Page has been created"
-msgstr "Tabela %s je zavržena"
+msgstr "Stran je bila ustvarjena"
 
 #: libraries/messages.inc.php:647
 msgid "Page creation failed"
