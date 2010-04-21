@@ -3877,7 +3877,7 @@ msgstr "Prikaži dvojiške vsebine kot HEX"
 
 #: libraries/messages.inc.php:880
 msgid "Show binary contents"
-msgstr ""
+msgstr "Prikaži dvojiške vsebine"
 
 #: libraries/messages.inc.php:881
 msgid "Show BLOB contents"
