@@ -2838,7 +2838,7 @@ msgstr ""
 #: libraries/messages.inc.php:643
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
-msgstr "Shema podatkovne baze \"%s\" - Stran %s"
+msgstr "Shema podatkovne zbirke \"%s\" - Stran %s"
 
 #: libraries/messages.inc.php:644
 #, php-format
