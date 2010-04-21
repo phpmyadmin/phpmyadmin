@@ -1392,7 +1392,7 @@ msgstr "Napaka: razmerje že obstaja."
 #: libraries/messages.inc.php:309
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Napaka pri preimenovanju tabele %1$s v %2$s"
 
 #: libraries/messages.inc.php:310
 msgid "Error saving coordinates for Designer."
