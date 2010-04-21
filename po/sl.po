@@ -547,7 +547,7 @@ msgstr "Označena SQL-poizvedba"
 
 #: libraries/messages.inc.php:113
 msgid "Replace existing bookmark of same name"
-msgstr ""
+msgstr "Zamenjaj obstoječ zaznamek z istim imenom"
 
 #: libraries/messages.inc.php:114
 msgid "Bookmark this SQL query"
