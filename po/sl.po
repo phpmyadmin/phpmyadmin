@@ -1866,7 +1866,7 @@ msgstr "Indeks"
 
 #: libraries/messages.inc.php:423
 msgid "Index name:"
-msgstr "Ime indeksa&nbsp;:"
+msgstr "Ime indeksa:"
 
 #: libraries/messages.inc.php:424
 msgid "Index type:"
