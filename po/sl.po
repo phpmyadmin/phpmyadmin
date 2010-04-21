@@ -3519,7 +3519,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:798
 msgid "Skip current error"
-msgstr ""
+msgstr "Preskoči trenutno napako"
 
 #: libraries/messages.inc.php:799
 msgid "errors."
