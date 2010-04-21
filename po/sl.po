@@ -1962,7 +1962,7 @@ msgstr "Dodana notranja razmerja"
 
 #: libraries/messages.inc.php:443
 msgid "Internal relations"
-msgstr "Notranje relacije"
+msgstr "Notranja razmerja"
 
 #: libraries/messages.inc.php:444
 msgid "in use"
