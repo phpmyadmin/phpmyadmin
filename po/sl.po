@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 19:33+0200\n"
+"PO-Revision-Date: 2010-04-21 19:34+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2015,7 +2015,7 @@ msgstr "Ta vtičnik ne podpira kompresiranih uvozov!"
 #: libraries/messages.inc.php:455
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d ni veljavna številka vrstice."
 
 #: libraries/messages.inc.php:456
 #, php-format
