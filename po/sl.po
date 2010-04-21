@@ -349,9 +349,8 @@ msgid "And"
 msgstr "In"
 
 #: libraries/messages.inc.php:65
-#, fuzzy
 msgid "and"
-msgstr "In"
+msgstr "in"
 
 #: libraries/messages.inc.php:66
 msgid "and then"
