@@ -4701,9 +4701,8 @@ msgid "Structure Difference"
 msgstr ""
 
 #: libraries/messages.inc.php:1055
-#, fuzzy
 msgid "Structure for view"
-msgstr "Samo struktura"
+msgstr "Struktura pogleda"
 
 #: libraries/messages.inc.php:1056
 #, fuzzy
