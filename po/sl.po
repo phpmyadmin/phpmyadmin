@@ -503,7 +503,6 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr ""
 
 #: libraries/messages.inc.php:103
-#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Omogočeno"
