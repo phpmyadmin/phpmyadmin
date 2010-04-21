@@ -3252,7 +3252,7 @@ msgstr "Ne prepiši te poizvedbe od zunaj"
 
 #: libraries/messages.inc.php:739
 msgid "Read requests"
-msgstr ""
+msgstr "Preberi prošnje"
 
 #: libraries/messages.inc.php:740
 msgid "Rebuild"
