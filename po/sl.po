@@ -1768,7 +1768,7 @@ msgstr "Ne uvozi praznih vrstic"
 
 #: libraries/messages.inc.php:402
 msgid "Import/Export coordinates for PDF schema"
-msgstr ""
+msgstr "Uvozi/Izvozi koordinate za PDF-shemo"
 
 #: libraries/messages.inc.php:403
 msgid "Import files"
