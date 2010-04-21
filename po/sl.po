@@ -244,7 +244,7 @@ msgstr "Dodaj omejitve"
 
 #: libraries/messages.inc.php:40
 msgid "Add/Delete Field Columns"
-msgstr "Dodaj/Odstrani stolpec 'Polje'"
+msgstr "Dodaj/Odstrani stolpce polj"
 
 #: libraries/messages.inc.php:41
 msgid "Add/Delete Criteria Row"
