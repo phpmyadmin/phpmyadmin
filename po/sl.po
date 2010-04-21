@@ -1998,7 +1998,7 @@ msgstr "Neveljavni parameter za uvoz CSV: %s"
 
 #: libraries/messages.inc.php:451
 msgid "Invalid database"
-msgstr ""
+msgstr "Neveljavna zbirka podatkov"
 
 #: libraries/messages.inc.php:452
 msgid "You have to add at least one field."
