@@ -2084,7 +2084,7 @@ msgstr "Ležeče"
 
 #: libraries/messages.inc.php:473
 msgid "Language"
-msgstr ""
+msgstr "Jezik"
 
 #: libraries/messages.inc.php:474
 #, php-format
