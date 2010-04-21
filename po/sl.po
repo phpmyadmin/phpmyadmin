@@ -4054,7 +4054,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:917
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "Število notranjih izjav ROLLBACK."
 
 #: libraries/messages.inc.php:918
 msgid "The number of requests to update a row in a table."
