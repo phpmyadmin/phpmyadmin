@@ -3865,7 +3865,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:877
 msgid "settings"
-msgstr ""
+msgstr "nastavitve"
 
 #: libraries/messages.inc.php:878
 msgid "Show all"
