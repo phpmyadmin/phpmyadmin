@@ -354,7 +354,7 @@ msgstr "in"
 
 #: libraries/messages.inc.php:66
 msgid "and then"
-msgstr ""
+msgstr "in potem"
 
 #: libraries/messages.inc.php:67
 msgid "Angular links"
