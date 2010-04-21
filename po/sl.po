@@ -1694,7 +1694,7 @@ msgstr "Uporabi šestnajstiško za BLOB"
 
 #: libraries/messages.inc.php:383
 msgid "Hide"
-msgstr ""
+msgstr "Skrij"
 
 #: libraries/messages.inc.php:384
 #, fuzzy
