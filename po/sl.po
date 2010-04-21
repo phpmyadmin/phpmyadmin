@@ -1024,9 +1024,9 @@ msgid "Database export options"
 msgstr "Možnosti za izvoz baze podatkov"
 
 #: libraries/messages.inc.php:223
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "Podatkovna baza %s je zavržena."
+msgstr "Podatkovna baza %s je ustvarjena."
 
 #: libraries/messages.inc.php:224
 #, php-format
