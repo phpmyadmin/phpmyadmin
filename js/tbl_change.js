@@ -9,7 +9,7 @@
  * Modify from controls when the "NULL" checkbox is selected
  *
  * @param   string   the MySQL field type
- * @param   string   the urlencoded field name - OBSOLETE 
+ * @param   string   the urlencoded field name - OBSOLETE
  * @param   string   the md5 hashed field name
  * @param   string   the multi_edit row sequence number
  *
@@ -81,7 +81,7 @@ function fractionReplace(num)
         case 8:res= "08";break;
         case 9:res= "09";break;
         }
-    return res;    
+    return res;
 }
 
 /* function to check the validity of date
@@ -96,7 +96,7 @@ function isDate(val,tmstmp)
     val=val.replace(/[.|*|^|+|//|@]/g,'-');
     var arrayVal=val.split("-");
     for(var a=0;a<arrayVal.length;a++)
-    {    
+    {
         if(arrayVal[a].length==1)
             arrayVal[a]=fractionReplace(arrayVal[a]);
     }
@@ -142,7 +142,7 @@ function isTime(val)
 {
     var arrayVal=val.split(":");
     for(var a=0;a<arrayVal.length;a++)
-    {    
+    {
         if(arrayVal[a].length==1)
             arrayVal[a]=fractionReplace(arrayVal[a]);
     }
@@ -158,7 +158,7 @@ function Validator(urlField, multi_edit,theType){
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
     unNullify(urlField, multi_edit);
-    
+
     if(target.name.substring(0,6)=="fields")
     {
         var dt=rowForm.elements['fields[multi_edit][' + multi_edit + '][' + urlField + ']'];
@@ -171,55 +171,55 @@ function Validator(urlField, multi_edit,theType){
                         dt.className="invalid_value";
                         return false;
                     }
-                }
-                else if(theType=="time")
+            }
+            else if(theType=="time")
+            {
+                if(!isTime(dt.value))
                 {
-                    if(!isTime(dt.value))
+                    dt.className="invalid_value";
+                    return false;
+                }
+            }
+            else if(theType=="datetime"||theType=="timestamp")
+            {
+                tmstmp=false;
+                if(dt.value=="CURRENT_TIMESTAMP")
+                {
+                    dt.className="";
+                    return true;
+                }
+                if(theType=="timestamp")
+                {
+                    tmstmp=true;
+                }
+                if(dt.value=="0000-00-00 00:00:00")
+                    return true;
+                var dv=dt.value.indexOf(" ");
+                if(dv==-1)
+                {
+                    dt.className="invalid_value";
+                    return false;
+                }
+                else
+                {
+                    if(!(isDate(dt.value.substring(0,dv),tmstmp)&&isTime(dt.value.substring(dv+1))))
                     {
                         dt.className="invalid_value";
                         return false;
                     }
                 }
-                else if(theType=="datetime"||theType=="timestamp")
-                {
-                    tmstmp=false;
-                    if(dt.value=="CURRENT_TIMESTAMP")
-                    {
-                        dt.className="";
-                        return true;
-                    }
-                    if(theType=="timestamp")
-                    {
-                        tmstmp=true;
-                    }
-                    if(dt.value=="0000-00-00 00:00:00")
-                        return true;
-                    var dv=dt.value.indexOf(" ");
-                    if(dv==-1)
-                    {
-                        dt.className="invalid_value";
-                        return false;
-                    }
-                    else
-                    {
-                        if(!(isDate(dt.value.substring(0,dv),tmstmp)&&isTime(dt.value.substring(dv+1))))
-                        {
-                            dt.className="invalid_value";
-                            return false;
-                        }    
-                    }
-                }
+            }
         }
         //validate for integer type
         if(theType.substring(0,3)=="int"){
-            
+
             if(isNaN(dt.value)){
                     dt.className="invalid_value";
                     return false;
             }
         }
     }
-    
+
     dt.className="";
  }
  /* End of datetime validation*/
