@@ -2027,7 +2027,7 @@ msgstr ""
 #: libraries/messages.inc.php:457
 #, php-format
 msgid "Invalid server index: \"%s\""
-msgstr ""
+msgstr "Neveljaven indeks strežnika: \"%s\""
 
 #: libraries/messages.inc.php:458
 msgid "Invalid table name"
