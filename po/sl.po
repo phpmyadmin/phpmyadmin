@@ -3041,7 +3041,7 @@ msgstr "Omogoča brisanje podatkov."
 
 #: libraries/messages.inc.php:691
 msgid "Allows dropping databases and tables."
-msgstr "Omogoča brisanje podatkovnih baz in tabel."
+msgstr "Omogoča brisanje podatkovnih zbirk in tabel."
 
 #: libraries/messages.inc.php:692
 msgid "Allows dropping tables."
