@@ -3217,7 +3217,7 @@ msgstr "Okno za iskanje"
 #: libraries/messages.inc.php:731
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "SQL-poizvedba na podatkovni bazi <b>%s</b>:"
+msgstr "Poizvedba SQL na zbirki podatkov <b>%s</b>:"
 
 #: libraries/messages.inc.php:732
 msgid "Query results operations"
