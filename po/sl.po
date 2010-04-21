@@ -1105,9 +1105,8 @@ msgid "Database comment: "
 msgstr "Komentar zbirke podatkov: "
 
 #: libraries/messages.inc.php:241
-#, fuzzy
 msgid "Copy database to"
-msgstr "Preimenuj podatkovno bazo v"
+msgstr "Kopiraj zbirko podatkov v"
 
 #: libraries/messages.inc.php:242
 msgid "Database seems to be empty!"
