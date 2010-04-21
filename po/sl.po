@@ -2617,7 +2617,7 @@ msgstr "Besedilo Open Document"
 
 #: libraries/messages.inc.php:594
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Odpri novo okno phpMyAdmin"
 
 #: libraries/messages.inc.php:595
 msgid "Operations"
