@@ -3905,7 +3905,7 @@ msgstr "Pokaži/Skrij levi meni"
 
 #: libraries/messages.inc.php:887
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Prikazovanje zaznamka"
 
 #: libraries/messages.inc.php:888
 msgid "Showing as PHP code"
