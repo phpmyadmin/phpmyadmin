@@ -2405,7 +2405,7 @@ msgstr "Kodna tabela MySQL"
 
 #: libraries/messages.inc.php:543
 msgid "MySQL client version"
-msgstr ""
+msgstr "Različica odjemalca MySQL"
 
 #: libraries/messages.inc.php:544
 msgid "MySQL connection collation"
