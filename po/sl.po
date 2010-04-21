@@ -6013,9 +6013,8 @@ msgid "Save on server"
 msgstr "Shrani na strežnik"
 
 #: setup/lib/messages.inc.php:91
-#, fuzzy
 msgid "Remember file name template"
-msgstr "Predloga datoteke"
+msgstr "Zapomni si predlogo imena datoteke"
 
 #: setup/lib/messages.inc.php:92
 msgid "no"
