@@ -2538,7 +2538,7 @@ msgstr "Nimate dovolj pravic, da bi bili sedaj tukaj!"
 
 #: libraries/messages.inc.php:574
 msgid "No rows selected"
-msgstr ""
+msgstr "Ni izbranih vrstic"
 
 #: libraries/messages.inc.php:575
 #, php-format
