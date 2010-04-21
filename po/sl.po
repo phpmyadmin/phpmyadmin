@@ -5191,9 +5191,8 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: libraries/messages.inc.php:1169
-#, fuzzy
 msgid "Versions"
-msgstr "Operacije"
+msgstr "Različice"
 
 #: libraries/messages.inc.php:1170
 msgid ""
