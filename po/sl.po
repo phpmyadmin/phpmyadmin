@@ -7282,10 +7282,9 @@ msgid "ZIP"
 msgstr ""
 
 #: tbl_relation.php:405
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Notranje relacije"
+msgstr "Notranja relacija"
 
 #: tbl_relation.php:413
 msgid "Foreign key constraint"
