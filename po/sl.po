@@ -3013,7 +3013,7 @@ msgstr "Omogoča ustvarjanje in brisanje shranjenih rutin."
 
 #: libraries/messages.inc.php:684
 msgid "Allows creating new databases and tables."
-msgstr "Omogoča ustvarjanje novih podatkovnih baz in tabel."
+msgstr "Omogoča ustvarjanje novih podatkovnih zbirk in tabel."
 
 #: libraries/messages.inc.php:685
 msgid "Allows creating stored routines."
