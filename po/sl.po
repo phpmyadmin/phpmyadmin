@@ -3276,7 +3276,7 @@ msgstr "Preveri referenčno integriteto:"
 
 #: libraries/messages.inc.php:745 setup/lib/messages.inc.php:354
 msgid "Refresh"
-msgstr ""
+msgstr "Osveži"
 
 #: libraries/messages.inc.php:746
 msgid "Relational display field"
