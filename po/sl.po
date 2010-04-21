@@ -3128,7 +3128,7 @@ msgstr "Omogoča branje podatkov."
 
 #: libraries/messages.inc.php:710
 msgid "Gives access to the complete list of databases."
-msgstr "Omogoča dostop do popolnega spiska podatkovnih baz"
+msgstr "Omogoča dostop do popolnega spiska podatkovnih zbirk."
 
 #: libraries/messages.inc.php:711
 msgid "Allows performing SHOW CREATE VIEW queries."
