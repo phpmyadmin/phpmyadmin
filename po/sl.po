@@ -7279,7 +7279,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: tbl_relation.php:405
 #| msgid "Internal relations"
