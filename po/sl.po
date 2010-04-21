@@ -1498,9 +1498,8 @@ msgid "database name"
 msgstr "ime podatkovne zbirke"
 
 #: libraries/messages.inc.php:335
-#, fuzzy
 msgid "server name"
-msgstr "Uporabniško ime"
+msgstr "ime strežnika"
 
 #: libraries/messages.inc.php:336
 msgid "table name"
