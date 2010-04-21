@@ -4792,7 +4792,7 @@ msgid "Alter column(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1077
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Tabela %1$s je bila uspešno spremenjena"
 
