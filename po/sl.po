@@ -4783,9 +4783,9 @@ msgid "Add column(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1075
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s already exists!"
-msgstr "Uporabnik %s že obstaja!"
+msgstr "Tabela %s že obstaja!"
 
 #: libraries/messages.inc.php:1076
 msgid "Alter column(s)"
