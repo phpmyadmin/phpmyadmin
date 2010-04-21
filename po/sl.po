@@ -6224,9 +6224,8 @@ msgid ""
 msgstr ""
 
 #: setup/lib/messages.inc.php:144
-#, fuzzy
 msgid "SQL queries"
-msgstr "SQL-poizvedba"
+msgstr "SQL-poizvedbe"
 
 #: setup/lib/messages.inc.php:145
 msgid "Customize startup page"
