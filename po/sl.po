@@ -6005,9 +6005,8 @@ msgid "Server name template"
 msgstr "Predloga imena strežnika"
 
 #: setup/lib/messages.inc.php:87
-#, fuzzy
 msgid "Table name template"
-msgstr "Predloga datoteke"
+msgstr "Predloga imena tabele"
 
 #: setup/lib/messages.inc.php:89
 msgid "Save on server"
