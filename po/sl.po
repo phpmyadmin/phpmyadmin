@@ -1163,7 +1163,7 @@ msgstr "Ni izbranih uporabnikov za brisanje!"
 
 #: libraries/messages.inc.php:254
 msgid "Delete relation"
-msgstr ""
+msgstr "Izbriši razmerje"
 
 #: libraries/messages.inc.php:255
 msgid "Delete tracking data for this table"
