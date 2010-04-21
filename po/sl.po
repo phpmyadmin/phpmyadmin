@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 19:58+0200\n"
+"PO-Revision-Date: 2010-04-21 20:00+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2443,7 +2443,7 @@ msgstr "Naslednji"
 #: libraries/messages.inc.php:552
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr ""
+msgstr "Brez delovanja v %s sekundah; prosimo, ponovno se prijavite"
 
 #: libraries/messages.inc.php:553
 msgid "No databases"
