@@ -3989,7 +3989,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:906
 msgid "The number of INSERT DELAYED rows written."
-msgstr ""
+msgstr "Število zapisanih vrstic INSERT DELAYED."
 
 #: libraries/messages.inc.php:907
 msgid "The number of executed FLUSH statements."
