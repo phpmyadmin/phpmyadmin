@@ -4517,7 +4517,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1015
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovensko"
 
 #: libraries/messages.inc.php:1016
 msgid "Small/Big All"
