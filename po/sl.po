@@ -1436,7 +1436,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:320
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Izbrana vrsta izvoza mora biti shranjena v datoteko!"
 
 #: libraries/messages.inc.php:321
 msgid "Extended inserts"
