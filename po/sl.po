@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 21:28+0200\n"
+"PO-Revision-Date: 2010-04-21 21:29+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4647,7 +4647,7 @@ msgstr "Izjave"
 
 #: libraries/messages.inc.php:1042
 msgid "static"
-msgstr ""
+msgstr "statično"
 
 #: libraries/messages.inc.php:1043
 msgid ""
