@@ -2451,7 +2451,7 @@ msgstr "Brez zbirk podatkov"
 
 #: libraries/messages.inc.php:554
 msgid "No databases selected."
-msgstr "Ni izbranih podatkovnih baz."
+msgstr "Ni izbranih zbirk podatkov."
 
 #: libraries/messages.inc.php:555
 msgid ""
