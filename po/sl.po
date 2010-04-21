@@ -1690,7 +1690,7 @@ msgstr "Pomoč"
 
 #: libraries/messages.inc.php:382
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Uporabi šestnajstiško za BLOB"
 
 #: libraries/messages.inc.php:383
 msgid "Hide"
