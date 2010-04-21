@@ -2908,7 +2908,7 @@ msgstr "Različica PHP"
 
 #: libraries/messages.inc.php:660
 msgid "Play audio"
-msgstr ""
+msgstr "Predvajaj avdio"
 
 #: libraries/messages.inc.php:661
 msgid "Please select the primary key or a unique key"
