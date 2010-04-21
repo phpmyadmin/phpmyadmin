@@ -3663,9 +3663,9 @@ msgid "Submit Query"
 msgstr "Izvedi poizvedbo"
 
 #: libraries/messages.inc.php:832
-#, fuzzy, php-format
+#, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "Izvedi SQL poizvedbo/poizvedbe na podatkovni bazi %s"
+msgstr "Izvedi poizvedbo/poizvedbe SQL na strežniku %s"
 
 #: libraries/messages.inc.php:833
 #, php-format
