@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:00+0200\n"
+"PO-Revision-Date: 2010-04-21 20:01+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2475,7 +2475,7 @@ msgstr "\"DROP DATABASE\" poizvedbe so izključene."
 
 #: libraries/messages.inc.php:559
 msgid "Skip Explain SQL"
-msgstr "Preskoči razlago SQL stavka"
+msgstr "Preskoči razlago SQL-stavka"
 
 #: libraries/messages.inc.php:560
 msgid "No files found inside ZIP archive!"
