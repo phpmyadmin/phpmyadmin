@@ -632,7 +632,8 @@ msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 "extension. Please check your PHP configuration."
 msgstr ""
-"ne morem naložiti podaljška %s,<br />prosim preverite PHP konfiguracijo"
+"Ne morem naložiti podaljška [a@http://php.net/%1$s@Documentation][em]%"
+"1$s[/em][/a]. Prosim, preverite konfiguracijo PHP."
 
 #: libraries/messages.inc.php:136
 msgid ""
