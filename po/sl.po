@@ -4630,9 +4630,8 @@ msgid "Stand-in structure for view"
 msgstr ""
 
 #: libraries/messages.inc.php:1038
-#, fuzzy
 msgid "Start"
-msgstr "Sob"
+msgstr "Začetek"
 
 #: libraries/messages.inc.php:1039
 msgid "Last check"
