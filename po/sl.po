@@ -2896,7 +2896,7 @@ msgstr "PHP-polje"
 
 #: libraries/messages.inc.php:657 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
-msgstr "Ustvari PHP kodo"
+msgstr "Ustvari kodo PHP"
 
 #: libraries/messages.inc.php:658
 msgid "PHP extension"
