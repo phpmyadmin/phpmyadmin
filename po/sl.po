@@ -508,9 +508,8 @@ msgid "Enabled"
 msgstr "Omogočeno"
 
 #: libraries/messages.inc.php:104
-#, fuzzy
 msgid "Enable"
-msgstr "Omogočeno"
+msgstr "Omogoči"
 
 #: libraries/messages.inc.php:105
 msgid "Remove BLOB Repository Reference"
