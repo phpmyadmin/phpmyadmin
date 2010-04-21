@@ -3133,7 +3133,7 @@ msgstr "Omogoča dostop do popolnega spiska podatkovnih baz"
 
 #: libraries/messages.inc.php:711
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr ""
+msgstr "Omogoča izvajanje poizvedb SHOW CREATE VIEW."
 
 #: libraries/messages.inc.php:712
 msgid "Allows shutting down the server."
