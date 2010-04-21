@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 19:28+0200\n"
+"PO-Revision-Date: 2010-04-21 19:29+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1936,7 +1936,7 @@ msgstr "Vstavi kot novo vrstico"
 #: libraries/messages.inc.php:437
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr "Vstavljena vrstica z id: %1$d"
+msgstr "Id vstavljene vrstice: %1$d"
 
 #: libraries/messages.inc.php:438
 msgid "Insert as new row and ignore errors"
