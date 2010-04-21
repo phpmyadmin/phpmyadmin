@@ -1776,7 +1776,7 @@ msgstr "Uvozi datoteke"
 
 #: libraries/messages.inc.php:404 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
-msgstr ""
+msgstr "Oblika uvožene datoteke"
 
 #: libraries/messages.inc.php:405
 #, fuzzy
