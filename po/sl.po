@@ -3523,7 +3523,7 @@ msgstr "Preskoči trenutno napako"
 
 #: libraries/messages.inc.php:799
 msgid "errors."
-msgstr ""
+msgstr "napak."
 
 #: libraries/messages.inc.php:800
 msgid "Skip next"
