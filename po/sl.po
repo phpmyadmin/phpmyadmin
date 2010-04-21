@@ -6033,7 +6033,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:95
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Vsili povezavo SSL"
 
 #: setup/lib/messages.inc.php:96
 msgid ""
