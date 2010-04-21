@@ -3096,9 +3096,8 @@ msgstr ""
 "uporabnik lahko izvrši v eni uri."
 
 #: libraries/messages.inc.php:703
-#, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Omeji število povezav, ki jih uporabnik lahko odpre v eni uri."
+msgstr "Omeji število sočasnih povezav, ki jih lahko ima uporabnik."
 
 #: libraries/messages.inc.php:704
 msgid "Allows viewing processes of all users"
