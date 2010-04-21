@@ -3745,7 +3745,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:852
 msgid "Please select a database"
-msgstr "Prosimo, izberite podatkovno bazo"
+msgstr "Prosimo, izberite zbirko podatkov"
 
 #: libraries/messages.inc.php:853
 msgid "Select All"
