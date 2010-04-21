@@ -2956,9 +2956,8 @@ msgid "Polish"
 msgstr "Poljsko"
 
 #: libraries/messages.inc.php:670
-#, fuzzy
 msgid "Port"
-msgstr "Sortiraj"
+msgstr "Vrata"
 
 #: libraries/messages.inc.php:671
 msgid "Portrait"
