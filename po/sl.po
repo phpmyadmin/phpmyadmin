@@ -1654,7 +1654,7 @@ msgstr "Pojdi v tabelo"
 
 #: libraries/messages.inc.php:372
 msgid "Go to view"
-msgstr ""
+msgstr "Pojdi na pogled"
 
 #: libraries/messages.inc.php:373
 msgid "Grant"
