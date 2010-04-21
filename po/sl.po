@@ -1117,7 +1117,7 @@ msgstr "Privilegiji tipični za podatkovno zbirko"
 
 #: libraries/messages.inc.php:244
 msgid "Rename database to"
-msgstr "Preimenuj podatkovno bazo v"
+msgstr "Preimenuj zbirko podatkov v"
 
 #: libraries/messages.inc.php:245
 msgid "database-specific"
