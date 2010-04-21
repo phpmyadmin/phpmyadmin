@@ -2483,7 +2483,7 @@ msgstr "V arhivu ZIP ni bilo najdenih datotek!"
 
 #: libraries/messages.inc.php:561
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr "phpMyAdmin je prijaznejši z brskalnikom, ki podpira okvirje."
+msgstr "phpMyAdmin je prijaznejši z brskalnikom, ki <b>podpira okvirje</b>."
 
 #: libraries/messages.inc.php:562
 msgid "No index defined!"
