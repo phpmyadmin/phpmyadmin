@@ -2678,7 +2678,7 @@ msgstr "Delna besedila"
 
 #: libraries/messages.inc.php:610
 msgid "PARTITION definition"
-msgstr ""
+msgstr "Definicija PARTITION"
 
 #: libraries/messages.inc.php:611
 msgid "partitioned"
