@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:04+0200\n"
+"PO-Revision-Date: 2010-04-21 20:05+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2685,9 +2685,8 @@ msgid "partitioned"
 msgstr ""
 
 #: libraries/messages.inc.php:612
-#, fuzzy
 msgid "Partition maintenance"
-msgstr "Vzdrževanje tabele"
+msgstr "Vzdrževanje particij"
 
 #: libraries/messages.inc.php:613
 #, php-format
