@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:47+0200\n"
+"PO-Revision-Date: 2010-04-21 20:48+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6019,7 +6019,7 @@ msgstr "Predloga datoteke"
 
 #: setup/lib/messages.inc.php:92
 msgid "no"
-msgstr ""
+msgstr "ne"
 
 #: setup/lib/messages.inc.php:93
 msgid "Force secured connection while using phpMyAdmin"
