@@ -226,9 +226,8 @@ msgid "Action"
 msgstr "Dejanje"
 
 #: libraries/messages.inc.php:36
-#, fuzzy
 msgid "Actions"
-msgstr "Akcija"
+msgstr "Dejanja"
 
 #: libraries/messages.inc.php:37
 msgid "Add AUTO_INCREMENT value"
