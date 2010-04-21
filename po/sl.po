@@ -3329,7 +3329,7 @@ msgstr "Osveži"
 
 #: libraries/messages.inc.php:757
 msgid "Remote server"
-msgstr ""
+msgstr "Oddaljeni strežnik"
 
 #: libraries/messages.inc.php:758
 msgid "Remove CRLF characters within fields"
