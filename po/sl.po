@@ -933,7 +933,7 @@ msgstr "Ustvari novo stran"
 
 #: libraries/messages.inc.php:200
 msgid "Creation of PDFs"
-msgstr "Ustvarjanje PDF datotek"
+msgstr "Ustvarjanje datotek PDF"
 
 #: libraries/messages.inc.php:201
 msgid "Create relation"
