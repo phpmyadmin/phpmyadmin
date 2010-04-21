@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 19:19+0200\n"
+"PO-Revision-Date: 2010-04-21 19:21+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1809,7 +1809,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:411
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Uvozi denarne enote ($5.00 v 5.00)"
 
 #: libraries/messages.inc.php:412 libraries/messages.inc.php:592
 msgid "Open Document Spreadsheet"
