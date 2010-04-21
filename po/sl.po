@@ -4078,7 +4078,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:923
 msgid "The number of free pages."
-msgstr ""
+msgstr "Število prostih strani."
 
 #: libraries/messages.inc.php:924
 msgid ""
