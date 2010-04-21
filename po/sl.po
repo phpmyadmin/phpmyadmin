@@ -1989,7 +1989,7 @@ msgstr "Neveljavno število polj v vnosu CSV v vrstici %d."
 #: libraries/messages.inc.php:449
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "Neveljavna oblika vnosa CSV v vrstici %d."
 
 #: libraries/messages.inc.php:450
 #, php-format
