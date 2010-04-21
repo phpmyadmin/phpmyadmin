@@ -1565,7 +1565,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:348
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "Dodano razmerje FOREIGN KEY"
 
 #: libraries/messages.inc.php:349 setup/lib/messages.inc.php:88
 msgid "Format"
