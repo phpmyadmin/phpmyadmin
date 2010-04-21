@@ -248,7 +248,7 @@ msgstr "Dodaj/Odstrani stolpce polj"
 
 #: libraries/messages.inc.php:41
 msgid "Add/Delete Criteria Row"
-msgstr "Dodaj/Odstrani vrstico 'Kriterij'"
+msgstr "Dodaj/Odstrani vrstico kriterij"
 
 #: libraries/messages.inc.php:42
 #, php-format
