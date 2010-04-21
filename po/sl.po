@@ -1387,7 +1387,7 @@ msgstr "Napaka: Razmerje ni dodano."
 
 #: libraries/messages.inc.php:308
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Napaka: razmerje že obstaja."
 
 #: libraries/messages.inc.php:309
 #, php-format
