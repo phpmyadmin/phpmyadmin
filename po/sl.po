@@ -1250,7 +1250,7 @@ msgstr "Izvedi \"query by example\" (nadomestni znak: \"%\")"
 
 #: libraries/messages.inc.php:274
 msgid "DocSQL"
-msgstr ""
+msgstr "DocSQL"
 
 #: libraries/messages.inc.php:275
 msgid "Documentation"
