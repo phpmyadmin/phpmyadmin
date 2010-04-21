@@ -4978,7 +4978,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1119
 msgid "Toggle scratchboard"
-msgstr "preklopi odložišče (scratchboard)"
+msgstr "Preklopi odložišče (scratchboard)"
 
 #: libraries/messages.inc.php:1120
 msgid "Toggle small/big"
