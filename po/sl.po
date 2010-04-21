@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:58+0200\n"
+"PO-Revision-Date: 2010-04-21 20:59+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6937,9 +6937,8 @@ msgid ""
 msgstr ""
 
 #: setup/lib/messages.inc.php:304
-#, fuzzy
 msgid "Automatically create versions"
-msgstr "Različica strežnika"
+msgstr "Samodejno ustvari različice"
 
 #: setup/lib/messages.inc.php:305
 msgid "Defines the list of statements the auto-creation uses for new versions."
