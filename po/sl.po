@@ -1728,7 +1728,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:391
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/messages.inc.php:392
 msgid "Hungarian"
