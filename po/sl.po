@@ -4062,7 +4062,7 @@ msgstr "Število zahtev za posodobitev vrstice v tabeli."
 
 #: libraries/messages.inc.php:919
 msgid "The number of requests to insert a row in a table."
-msgstr ""
+msgstr "Število zahtev za vstavitev vrstice v tabelo."
 
 #: libraries/messages.inc.php:920
 msgid "The number of pages containing data (dirty or clean)."
