@@ -3901,7 +3901,7 @@ msgstr "Pokaži mrežo"
 
 #: libraries/messages.inc.php:886
 msgid "Show/Hide left menu"
-msgstr ""
+msgstr "Pokaži/Skrij levi meni"
 
 #: libraries/messages.inc.php:887
 msgid "Showing bookmark"
