@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 18:43+0200\n"
+"PO-Revision-Date: 2010-04-21 18:44+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -797,7 +797,7 @@ msgstr "Komentarji"
 
 #: libraries/messages.inc.php:172
 msgid "MySQL&nbsp;4.0 compatible"
-msgstr ""
+msgstr "Združljivo z MySQL&nbsp;4.0"
 
 #: libraries/messages.inc.php:173
 msgid "Complete inserts"
