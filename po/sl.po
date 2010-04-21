@@ -1650,7 +1650,7 @@ msgstr "Pojdi v zbirko podatkov"
 
 #: libraries/messages.inc.php:371
 msgid "Go to table"
-msgstr ""
+msgstr "Pojdi v tabelo"
 
 #: libraries/messages.inc.php:372
 msgid "Go to view"
