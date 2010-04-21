@@ -61,7 +61,7 @@ msgstr "Urejanje te poizvedbe v vrstici"
 
 #: libraries/common.lib.php:1278
 msgid "Inline"
-msgstr ""
+msgstr "V vrstivi"
 
 #: libraries/Message.class.php:282
 #, php-format
