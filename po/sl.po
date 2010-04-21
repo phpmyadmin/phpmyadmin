@@ -1764,7 +1764,7 @@ msgstr "Imena stolpcev v prvi vrstici"
 
 #: libraries/messages.inc.php:401
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Ne uvozi praznih vrstic"
 
 #: libraries/messages.inc.php:402
 msgid "Import/Export coordinates for PDF schema"
