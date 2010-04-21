@@ -5685,7 +5685,7 @@ msgstr ""
 
 #: server_synchronize.php:1129
 msgid "Enter manually"
-msgstr ""
+msgstr "Vnesite ročno"
 
 #: server_synchronize.php:1130
 #| msgid "Connections"
