@@ -985,7 +985,7 @@ msgstr "Hrvaško"
 
 #: libraries/messages.inc.php:212
 msgid "CSV"
-msgstr "CSV podatki"
+msgstr "CSV-podatki"
 
 #: libraries/messages.inc.php:213
 msgid "Current server"
