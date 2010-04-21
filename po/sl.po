@@ -5167,9 +5167,8 @@ msgid "Untracked tables"
 msgstr ""
 
 #: libraries/messages.inc.php:1164
-#, fuzzy
 msgid "Username"
-msgstr "Uporabniško ime:"
+msgstr "Uporabniško ime"
 
 #: libraries/messages.inc.php:1165
 #, php-format
