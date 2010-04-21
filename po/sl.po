@@ -2137,7 +2137,7 @@ msgstr "CSV z uporabo LOAD DATA"
 
 #: libraries/messages.inc.php:486
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "Uporabi ključno besedo LOCAL"
 
 #: libraries/messages.inc.php:487
 msgid "Length/Values"
