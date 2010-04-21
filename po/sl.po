@@ -4669,7 +4669,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1047
 msgid "Storage Engines"
-msgstr ""
+msgstr "Pogoni skladiščenja"
 
 #: libraries/messages.inc.php:1048
 msgid "Storage Engine"
