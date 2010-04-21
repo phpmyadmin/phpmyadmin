@@ -1870,7 +1870,7 @@ msgstr "Ime indeksa&nbsp;:"
 
 #: libraries/messages.inc.php:424
 msgid "Index type:"
-msgstr "Vrsta indeksa&nbsp;:"
+msgstr "Vrsta indeksa:"
 
 #: libraries/messages.inc.php:425
 #, php-format
