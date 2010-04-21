@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:56+0200\n"
+"PO-Revision-Date: 2010-04-21 20:57+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3997,7 +3997,7 @@ msgstr "Število izvedenih izjav FLUSH."
 
 #: libraries/messages.inc.php:908
 msgid "The number of internal COMMIT statements."
-msgstr "Število notranjih izvaj COMMIT."
+msgstr "Število notranjih izjav COMMIT."
 
 #: libraries/messages.inc.php:909
 msgid "The number of times a row was deleted from a table."
