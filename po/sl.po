@@ -1522,9 +1522,8 @@ msgid "remember template"
 msgstr "Shrani predlogo"
 
 #: libraries/messages.inc.php:340
-#, fuzzy
 msgid "Files"
-msgstr "Polja"
+msgstr "Datoteke"
 
 #: libraries/messages.inc.php:341
 msgid "File to import"
