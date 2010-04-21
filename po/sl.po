@@ -2691,7 +2691,7 @@ msgstr "Vzdrževanje particij"
 #: libraries/messages.inc.php:613
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Particija %s"
 
 #: libraries/messages.inc.php:614
 #, php-format
