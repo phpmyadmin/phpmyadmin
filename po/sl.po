@@ -3605,9 +3605,8 @@ msgid "Revoke"
 msgstr "Odvzemi"
 
 #: libraries/messages.inc.php:818
-#, fuzzy
 msgid "Romanian"
-msgstr "Armensko"
+msgstr "Romunsko"
 
 #: libraries/messages.inc.php:819
 msgid "Return type"
