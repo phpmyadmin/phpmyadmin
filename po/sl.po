@@ -3722,7 +3722,7 @@ msgstr "točno določeno frazo"
 
 #: libraries/messages.inc.php:847
 msgid "as regular expression"
-msgstr "kot 'regular expression'"
+msgstr "kot običajni izraz (regular expression)"
 
 #: libraries/messages.inc.php:848
 #, php-format
