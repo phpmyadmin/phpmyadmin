@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:25+0200\n"
+"PO-Revision-Date: 2010-04-21 20:26+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3171,9 +3171,8 @@ msgid "The privileges were reloaded successfully."
 msgstr "Uspešno sem osvežil privilegije."
 
 #: libraries/messages.inc.php:719
-#, fuzzy
 msgid "Procedures"
-msgstr "Procesi"
+msgstr "Procedure"
 
 #: libraries/messages.inc.php:720
 msgid "Processes"
