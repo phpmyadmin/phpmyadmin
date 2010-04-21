@@ -3264,7 +3264,7 @@ msgstr "Prejeto"
 
 #: libraries/messages.inc.php:742
 msgid "recommended"
-msgstr ""
+msgstr "priporočeno"
 
 #: libraries/messages.inc.php:743
 msgid "Records"
