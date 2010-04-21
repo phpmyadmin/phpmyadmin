@@ -1911,7 +1911,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:433
 msgid "pages"
-msgstr ""
+msgstr "strani"
 
 #: libraries/messages.inc.php:434
 msgid "InnoDB Status"
