@@ -2899,9 +2899,8 @@ msgid "Create PHP Code"
 msgstr "Ustvari PHP kodo"
 
 #: libraries/messages.inc.php:658
-#, fuzzy
 msgid "PHP extension"
-msgstr "Različica PHP"
+msgstr "Razširitev PHP"
 
 #: libraries/messages.inc.php:659
 msgid "PHP Version"
