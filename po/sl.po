@@ -6739,9 +6739,8 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 
 #: setup/lib/messages.inc.php:261
-#, fuzzy
 msgid "Connection type"
-msgstr "Povezave"
+msgstr "Vrsta povezave"
 
 #: setup/lib/messages.inc.php:262
 msgid "Control user password"
