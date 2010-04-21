@@ -2471,7 +2471,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:558
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "\"DROP DATABASE\" poizvedbe so izključene."
+msgstr "Poizvedbe \"DROP DATABASE\" so izključene."
 
 #: libraries/messages.inc.php:559
 msgid "Skip Explain SQL"
