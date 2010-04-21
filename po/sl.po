@@ -4220,7 +4220,7 @@ msgstr "Število prebranih strani."
 
 #: libraries/messages.inc.php:953
 msgid "The number of pages written."
-msgstr ""
+msgstr "Število zapisanih strani."
 
 #: libraries/messages.inc.php:954
 msgid "The number of row locks currently being waited for."
