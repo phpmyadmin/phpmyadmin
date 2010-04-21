@@ -1440,7 +1440,7 @@ msgstr "Izbrana vrsta izvoza mora biti shranjena v datoteko!"
 
 #: libraries/messages.inc.php:321
 msgid "Extended inserts"
-msgstr "Razširjene 'insert' poizvedbe"
+msgstr "Razširjene poizvedbe insert"
 
 #: libraries/messages.inc.php:322
 msgid "Extra"
