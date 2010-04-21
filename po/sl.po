@@ -3993,7 +3993,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:907
 msgid "The number of executed FLUSH statements."
-msgstr ""
+msgstr "Število izvedenih izjav FLUSH."
 
 #: libraries/messages.inc.php:908
 msgid "The number of internal COMMIT statements."
