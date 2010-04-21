@@ -2006,7 +2006,7 @@ msgstr "Dodati morate vsaj eno polje."
 
 #: libraries/messages.inc.php:453
 msgid "Table must have at least one field."
-msgstr ""
+msgstr "Tabele morajo imeti vsaj eno polje."
 
 #: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
