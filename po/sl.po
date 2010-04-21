@@ -3325,7 +3325,7 @@ msgstr "Osveži okvir navigacije"
 
 #: libraries/messages.inc.php:756
 msgid "Reload"
-msgstr ""
+msgstr "Osveži"
 
 #: libraries/messages.inc.php:757
 msgid "Remote server"
