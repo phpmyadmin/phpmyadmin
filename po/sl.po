@@ -1948,7 +1948,7 @@ msgstr "Vstavi"
 
 #: libraries/messages.inc.php:440
 msgid "Interface"
-msgstr ""
+msgstr "Vmesnik"
 
 #: libraries/messages.inc.php:441
 msgid ""
