@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 18:32+0200\n"
+"PO-Revision-Date: 2010-04-21 18:33+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -379,7 +379,7 @@ msgstr "Katerikoli uporabnik"
 
 #: libraries/messages.inc.php:72
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Uporabi izbrane spremembe"
 
 #: libraries/messages.inc.php:73
 msgid ""
