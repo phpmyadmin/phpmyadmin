@@ -3204,7 +3204,7 @@ msgstr "Poizvedba"
 
 #: libraries/messages.inc.php:728
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "Izvedene so bile naslednje poizvedbe:"
 
 #: libraries/messages.inc.php:729
 #, fuzzy
