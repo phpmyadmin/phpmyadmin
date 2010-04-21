@@ -4561,7 +4561,7 @@ msgstr "Besede so ločene s presledkom (\" \")."
 
 #: libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "Združljivostni način SQL"
 
 #: libraries/messages.inc.php:1027
 msgid "Export type"
