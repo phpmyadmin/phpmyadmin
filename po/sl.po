@@ -2591,7 +2591,7 @@ msgstr "Število polj"
 
 #: libraries/messages.inc.php:586
 msgid "Number of tables"
-msgstr ""
+msgstr "Število tabel"
 
 #: libraries/messages.inc.php:587
 #, php-format
