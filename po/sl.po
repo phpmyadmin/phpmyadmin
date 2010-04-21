@@ -3362,9 +3362,8 @@ msgid "Rename view to"
 msgstr "Preimenuj pogled v"
 
 #: libraries/messages.inc.php:765
-#, fuzzy
 msgid "Repair"
-msgstr "Popravi tabelo"
+msgstr "Popravi"
 
 #: libraries/messages.inc.php:766
 msgid "Repair table"
