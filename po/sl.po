@@ -1113,7 +1113,7 @@ msgstr "Zbirka podatkov se zdi prazna!"
 
 #: libraries/messages.inc.php:243
 msgid "Database-specific privileges"
-msgstr "Privilegiji tipični za podatkovno bazo"
+msgstr "Privilegiji tipični za podatkovno zbirko"
 
 #: libraries/messages.inc.php:244
 msgid "Rename database to"
