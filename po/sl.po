@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 19:08+0200\n"
+"PO-Revision-Date: 2010-04-21 19:09+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1358,7 +1358,7 @@ msgstr "%s je onemogočeno za ta strežnik MySQL."
 
 #: libraries/messages.inc.php:301
 msgid "Engines"
-msgstr ""
+msgstr "Pogoni"
 
 #: libraries/messages.inc.php:302
 #, php-format
