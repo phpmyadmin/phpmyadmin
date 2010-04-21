@@ -462,7 +462,7 @@ msgstr "Podatki"
 
 #: libraries/messages.inc.php:93
 msgid "Log name"
-msgstr ""
+msgstr "Ime dnevnika"
 
 #: libraries/messages.inc.php:94
 msgid "Original position"
