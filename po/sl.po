@@ -4686,7 +4686,7 @@ msgstr "Struktura in podatki"
 
 #: libraries/messages.inc.php:1051
 msgid "CSV for MS Excel"
-msgstr "CSV podatki za MS Excel"
+msgstr "CSV-podatki za MS Excel"
 
 #: libraries/messages.inc.php:1052
 msgid "Structure only"
