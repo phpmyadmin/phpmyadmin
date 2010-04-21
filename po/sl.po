@@ -1585,7 +1585,7 @@ msgstr "Polni začetek"
 
 #: libraries/messages.inc.php:353
 msgid "Full stop"
-msgstr ""
+msgstr "Polni konec"
 
 #: libraries/messages.inc.php:354
 msgid "Full Texts"
