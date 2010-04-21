@@ -2021,6 +2021,8 @@ msgstr "%d ni veljavna številka vrstice."
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
+"Neveljavno ime gostitelja za strežnik %1$s. Prosim, preglejte svojo "
+"konfiguracijo."
 
 #: libraries/messages.inc.php:457
 #, php-format
