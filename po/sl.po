@@ -7246,7 +7246,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:375
 msgid "Version check"
-msgstr ""
+msgstr "Preverjanje različice"
 
 #: setup/lib/messages.inc.php:376
 msgid ""
