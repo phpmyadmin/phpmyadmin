@@ -872,7 +872,7 @@ msgstr "Če želite še dalje uporabljati program, morate omogočiti piškotke."
 #: libraries/messages.inc.php:186
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Baza podatkov %s je kopirana v %s"
+msgstr "Zbirka podatkov %s je kopirana v %s"
 
 #: libraries/messages.inc.php:187
 msgid "Copy table to (database<b>.</b>table):"
