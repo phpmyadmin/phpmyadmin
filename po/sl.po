@@ -5695,7 +5695,7 @@ msgstr "Trenutna povezava"
 #: server_synchronize.php:1159
 #, php-format
 msgid "Configuration: %s"
-msgstr ""
+msgstr "Konfiguracija: %s"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
