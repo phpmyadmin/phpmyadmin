@@ -3184,7 +3184,7 @@ msgstr "Profiliranje"
 
 #: libraries/messages.inc.php:722
 msgid "Protocol version"
-msgstr ""
+msgstr "Različica protokola"
 
 #: libraries/messages.inc.php:723
 msgid "Put fields names in the first row"
