@@ -1219,7 +1219,7 @@ msgstr "Razlika"
 
 #: libraries/messages.inc.php:266
 msgid "Direct links"
-msgstr ""
+msgstr "Neposredne povezave"
 
 #: libraries/messages.inc.php:267
 msgid "Dirty pages"
