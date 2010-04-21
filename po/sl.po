@@ -2561,7 +2561,7 @@ msgstr "To ni število!"
 
 #: libraries/messages.inc.php:579
 msgid "not OK"
-msgstr "Ni v redu"
+msgstr "ni v redu"
 
 #: libraries/messages.inc.php:580
 msgid "not present"
