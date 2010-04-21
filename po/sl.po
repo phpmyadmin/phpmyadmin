@@ -7166,9 +7166,8 @@ msgid "Suggest new database name"
 msgstr ""
 
 #: setup/lib/messages.inc.php:359
-#, fuzzy
 msgid "yes"
-msgstr "Da"
+msgstr "da"
 
 #: setup/lib/messages.inc.php:360
 msgid ""
