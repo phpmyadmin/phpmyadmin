@@ -6652,9 +6652,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr ""
 
 #: setup/lib/messages.inc.php:241
-#, fuzzy
 msgid "Add a new server"
-msgstr "Dodaj novega uporabnika"
+msgstr "Dodaj nov strežnik"
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
