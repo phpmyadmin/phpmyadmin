@@ -1031,7 +1031,7 @@ msgstr "Podatkovna zbirka %1$s je ustvarjena."
 #: libraries/messages.inc.php:224
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Podatkovna baza %s je zavržena."
+msgstr "Podatkovna zbirka %s je zavržena."
 
 #: libraries/messages.inc.php:225
 #, php-format
