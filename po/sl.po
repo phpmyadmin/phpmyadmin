@@ -6894,9 +6894,8 @@ msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: setup/lib/messages.inc.php:295
-#, fuzzy
 msgid "Server port"
-msgstr "Izbira strežnika"
+msgstr "Vrata strežnika"
 
 #: setup/lib/messages.inc.php:296
 msgid ""
