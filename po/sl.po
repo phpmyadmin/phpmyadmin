@@ -6264,9 +6264,8 @@ msgid ""
 msgstr ""
 
 #: setup/lib/messages.inc.php:152
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin dokumentacija"
+msgstr "Domača stran phpMyAdmin"
 
 #: setup/lib/messages.inc.php:153
 msgid "Extra parameters for iconv"
