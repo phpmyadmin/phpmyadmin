@@ -473,9 +473,8 @@ msgid "Position"
 msgstr "Položaj"
 
 #: libraries/messages.inc.php:96
-#, fuzzy
 msgid "Server ID"
-msgstr "Strežnik"
+msgstr "ID strežnika"
 
 #: libraries/messages.inc.php:97
 msgid "BLOB Repository"
