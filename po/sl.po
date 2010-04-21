@@ -1363,7 +1363,7 @@ msgstr "Pogoni"
 #: libraries/messages.inc.php:302
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "Ta strežnik MySQL ne podpira skladiščnega pogona %s."
 
 #: libraries/messages.inc.php:303
 msgid "English"
