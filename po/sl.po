@@ -470,7 +470,7 @@ msgstr "Izvirni položaj"
 
 #: libraries/messages.inc.php:95
 msgid "Position"
-msgstr ""
+msgstr "Položaj"
 
 #: libraries/messages.inc.php:96
 #, fuzzy
