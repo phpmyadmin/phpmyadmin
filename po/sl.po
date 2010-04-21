@@ -3797,9 +3797,8 @@ msgid "Server"
 msgstr "Strežnik"
 
 #: libraries/messages.inc.php:865 setup/lib/messages.inc.php:115
-#, fuzzy
 msgid "Servers"
-msgstr "Strežnik"
+msgstr "Strežniki"
 
 #: libraries/messages.inc.php:866
 #, fuzzy
