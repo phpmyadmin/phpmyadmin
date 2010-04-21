@@ -749,7 +749,7 @@ msgstr "Preveri privilegije"
 #: libraries/messages.inc.php:160
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Preveri privilegije za podatkovno bazo &quot;%s&quot;."
+msgstr "Preveri privilegije za podatkovno zbirko &quot;%s&quot;."
 
 #: libraries/messages.inc.php:161
 msgid "Check table"
