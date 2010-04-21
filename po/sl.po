@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 20:52+0200\n"
+"PO-Revision-Date: 2010-04-21 20:53+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6214,9 +6214,8 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
 #: setup/lib/messages.inc.php:142
-#, fuzzy
 msgid "SQL Query box"
-msgstr "SQL-poizvedba"
+msgstr "Polje poizvedbe SQL"
 
 #: setup/lib/messages.inc.php:143
 msgid ""
