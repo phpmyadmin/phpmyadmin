@@ -3345,7 +3345,7 @@ msgstr "Izbriši izbrane uporabnike"
 #: libraries/messages.inc.php:761
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Baza podatkov %s je preimenovana v %s"
+msgstr "Zbirka podatkov %s je preimenovana v %s"
 
 #: libraries/messages.inc.php:762
 #, php-format
