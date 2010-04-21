@@ -3614,7 +3614,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:820
 msgid "Routines"
-msgstr ""
+msgstr "Rutina"
 
 #: libraries/messages.inc.php:821
 msgid "Row length"
