@@ -3283,9 +3283,8 @@ msgid "Relational display field"
 msgstr ""
 
 #: libraries/messages.inc.php:747
-#, fuzzy
 msgid "Relational key"
-msgstr "Relacijska shema"
+msgstr "Relacijski ključ"
 
 #: libraries/messages.inc.php:748
 msgid "Relational schema"
