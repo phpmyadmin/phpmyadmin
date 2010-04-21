@@ -2629,7 +2629,7 @@ msgstr "Operator"
 
 #: libraries/messages.inc.php:597
 msgid "Optimize"
-msgstr "Optimiziraj"
+msgstr "Optimiraj"
 
 #: libraries/messages.inc.php:598
 msgid "Optimize table"
