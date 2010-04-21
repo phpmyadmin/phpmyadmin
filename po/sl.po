@@ -765,7 +765,7 @@ msgstr "Kliknite za označitev"
 
 #: libraries/messages.inc.php:164
 msgid "Click to unselect"
-msgstr ""
+msgstr "Kliknite za odznačitev"
 
 #: libraries/messages.inc.php:165
 msgid "Displaying Column Comments"
