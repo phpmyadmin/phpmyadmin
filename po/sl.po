@@ -495,9 +495,8 @@ msgid "Disabled"
 msgstr "Onemogočeno"
 
 #: libraries/messages.inc.php:101
-#, fuzzy
 msgid "Disable"
-msgstr "Onemogočeno"
+msgstr "Onemogoči"
 
 #: libraries/messages.inc.php:102
 msgid "You are about to DISABLE a BLOB Repository!"
