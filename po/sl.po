@@ -2447,7 +2447,7 @@ msgstr "Brez delovanja v %s sekundah; prosimo, ponovno se prijavite"
 
 #: libraries/messages.inc.php:553
 msgid "No databases"
-msgstr "Brez podatkovnih baz"
+msgstr "Brez zbirk podatkov"
 
 #: libraries/messages.inc.php:554
 msgid "No databases selected."
