@@ -1379,7 +1379,7 @@ msgstr "Napaka"
 
 #: libraries/messages.inc.php:306
 msgid "Error in ZIP archive:"
-msgstr ""
+msgstr "Napaka v arhivu ZIP:"
 
 #: libraries/messages.inc.php:307
 msgid "Error: Relation not added."
