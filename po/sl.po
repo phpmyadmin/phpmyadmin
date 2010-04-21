@@ -1686,7 +1686,7 @@ msgstr "Hebrejsko"
 
 #: libraries/messages.inc.php:381
 msgid "Help"
-msgstr ""
+msgstr "Pomoč"
 
 #: libraries/messages.inc.php:382
 msgid "Use hexadecimal for BLOB"
