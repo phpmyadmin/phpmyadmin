@@ -2636,9 +2636,8 @@ msgid "Optimize table"
 msgstr "Optimiraj tabelo"
 
 #: libraries/messages.inc.php:599
-#, fuzzy
 msgid "Options"
-msgstr "Operacije"
+msgstr "Možnosti"
 
 #: libraries/messages.inc.php:600
 msgid "Or"
