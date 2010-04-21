@@ -3699,7 +3699,7 @@ msgstr "Išči v podatkovni bazi"
 
 #: libraries/messages.inc.php:841
 msgid "Inside field:"
-msgstr ""
+msgstr "Znotraj polja:"
 
 #: libraries/messages.inc.php:842
 msgid "Inside table(s):"
