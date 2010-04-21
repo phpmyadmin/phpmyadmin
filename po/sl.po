@@ -449,9 +449,8 @@ msgid "Binary - do not edit"
 msgstr "Binarno - ne urejaj"
 
 #: libraries/messages.inc.php:90
-#, fuzzy
 msgid "Binary log"
-msgstr "Binarno"
+msgstr "Binarni dnevnik"
 
 #: libraries/messages.inc.php:91
 #, fuzzy
