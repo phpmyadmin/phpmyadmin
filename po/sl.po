@@ -940,9 +940,8 @@ msgid "Create relation"
 msgstr "Ustvari razmerje"
 
 #: libraries/messages.inc.php:202
-#, fuzzy
 msgid "Create table"
-msgstr "Ustvari novo stran"
+msgstr "Ustvari tabelo"
 
 #: libraries/messages.inc.php:203
 #, fuzzy
