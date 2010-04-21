@@ -4541,7 +4541,7 @@ msgstr "Uredi po ključu"
 
 #: libraries/messages.inc.php:1021
 msgid "Sorting"
-msgstr ""
+msgstr "Razvrščanje"
 
 #: libraries/messages.inc.php:1022
 msgid "Sort"
