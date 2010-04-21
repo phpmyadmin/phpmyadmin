@@ -937,7 +937,7 @@ msgstr "Ustvarjanje datotek PDF"
 
 #: libraries/messages.inc.php:201
 msgid "Create relation"
-msgstr ""
+msgstr "Ustvari razmerje"
 
 #: libraries/messages.inc.php:202
 #, fuzzy
