@@ -2133,7 +2133,7 @@ msgstr "Latvijsko"
 
 #: libraries/messages.inc.php:485
 msgid "CSV using LOAD DATA"
-msgstr ""
+msgstr "CSV z uporabo LOAD DATA"
 
 #: libraries/messages.inc.php:486
 msgid "Use LOCAL keyword"
