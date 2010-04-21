@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 21:05+0200\n"
+"PO-Revision-Date: 2010-04-21 21:07+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2976,7 +2976,7 @@ msgstr "Primarni ključ je zavržen"
 
 #: libraries/messages.inc.php:675
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Ime primarnega ključa mora biti... PRIMARY!"
+msgstr "Ime primarnega ključa mora biti \"PRIMARY\"!"
 
 #: libraries/messages.inc.php:676
 msgid ""
