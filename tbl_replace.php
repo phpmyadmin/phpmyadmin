@@ -335,7 +335,7 @@ if ($is_insert && count($value_sets) > 0) {
     require './' . PMA_securePath($goto_include);
     exit;
 }
-unset($me_fields, $is_insert, $is_insertignore);
+unset($me_fields, $is_insertignore);
 
 /**
  * Executes the sql query and get the result, then move back to the calling
