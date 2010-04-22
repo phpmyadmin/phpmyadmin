@@ -325,7 +325,7 @@ if ($is_insert && count($value_sets) > 0) {
         . ' (' . implode(', ', $query_fields) . ') VALUES (' . implode('), (', $value_sets) . ')';
     unset($insert_command);
 
-    unset($query_fields, $value_sets);
+    unset($query_fields);
 } elseif (empty($query)) {
     // No change -> move back to the calling script
     $message = PMA_Message::success('strNoModification');
