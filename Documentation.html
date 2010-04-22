@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+<G!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <!-- 
 vim: expandtab ts=4 sw=4 sts=4 tw=78 
@@ -4467,7 +4467,53 @@ server host name, username, password, port and the name of the database. Therefo
 now synchronize your databases placed on the same server or some remote server.
 </p>
 
-<p>For more details see <a href="./documentation-gsoc/Synchronization_User_Manual.htm">How to synchronize</a>
+<p>
+This feature is helpful for developers who need to replicate their
+databases’ structure as well as data. Moreover, this feature not only
+helps replication but also facilitates the user to keep his/her database
+in sync with another database. Other than the full database, certain
+tables of the databases can also be synchronized.
+</p>
+
+<p>
+You need to fill in the host name of the server, the username and
+password of an user account already there in MySQL. Port is by default
+populated with 3306 (MySQL default port). Then the name of the database
+should be mentioned at the end.All the information other than the port
+needs to be filled explicitly for the source as well as target servers.
+</p>
+
+<p>
+After successfully by passing authentication phase, the source and
+target database table names will be displayed. It will be a tabular
+representation. 
+</p>
+
+<p>
+On the left, are listed the source database table names.  Some of the
+names have a ‘+’ plus sign preceding them. This shows that these tables
+are only present in source database and they need to be added to the
+target database in order to synchronize the target database.While those
+table name that are not preceded by a ‘+’ sign are also present in
+target database. 
+</p>
+
+<p>
+On the right, are listed the target database table names. There are few
+table names that have “(not present)” appended after their names. This
+means that these tables are to be created in target database in order to
+synchronize target database with source database. Some tables’ names
+have a ‘-’ minus sign preceding them. This shows that these tables are
+only present in target database and they will remain unchanged in the
+target database. The column in the middle shows the difference between
+the source and target corresponding tables.
+</p>
+
+<p>
+The difference is depicted by the red and green buttons with S and D
+letters. Indicating that either Structure or Data are not up to date. By
+clicking on them, they will turn grey, what means that no
+synchronisation will be done.
 </p>
 
 <!-- DEVELOPERS -->
