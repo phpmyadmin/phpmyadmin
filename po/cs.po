@@ -3659,7 +3659,7 @@ msgstr "Stav podřízeného"
 
 #: libraries/messages.inc.php:808
 msgid "Synchronize databases with master"
-msgstr "Synchronovat databáze s nadřízeným"
+msgstr "Synchronizovat databáze s nadřízeným"
 
 #: libraries/messages.inc.php:809
 msgid "Unable to change master"
@@ -4976,7 +4976,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1071
 msgid "Synchronize Databases"
-msgstr "Synchronovat databáze"
+msgstr "Synchronizovat databáze"
 
 #: libraries/messages.inc.php:1072
 msgid "Synchronize"
