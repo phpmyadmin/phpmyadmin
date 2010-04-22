@@ -90,7 +90,7 @@ if ($skip_queries > 0) {
 }
 if (strlen($ldi_columns) > 0) {
     $sql .= ' (';
-    $tmp   = split(',( ?)', $ldi_columns);
+    $tmp   = preg_split('/,( ?)/', $ldi_columns);
     $cnt_tmp = count($tmp);
     for ($i = 0; $i < $cnt_tmp; $i++) {
         if ($i > 0) {

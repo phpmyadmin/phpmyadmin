@@ -31,7 +31,7 @@ if (isset($plugin_list)) {
             ),
         'options_text' => 'strOptions',
         );
-    
+
     if ($plugin_param !== 'table') {
         $plugin_list['csv']['options'][] =
             array('type' => 'bool', 'name' => 'col_names', 'text' => 'strImportColNames');
@@ -39,7 +39,7 @@ if (isset($plugin_list)) {
         $plugin_list['csv']['options'][] =
             array('type' => 'text', 'name' => 'columns', 'text' => 'strColumnNames');
     }
-    
+
     /* We do not define function when plugin is just queried for information above */
     return;
 }
@@ -101,7 +101,7 @@ if (!$analyze) {
     } else {
         $sql_template .= ' (';
         $fields = array();
-        $tmp   = split(',( ?)', $csv_columns);
+        $tmp   = preg_split('/,( ?)/', $csv_columns);
         foreach ($tmp as $key => $val) {
             if (count($fields) > 0) {
                 $sql_template .= ', ';
@@ -126,7 +126,7 @@ if (!$analyze) {
         }
         $sql_template .= ') ';
     }
-    
+
     $required_fields = count($fields);
 
     $sql_template .= ' VALUES (';
@@ -287,18 +287,18 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             if (!$csv_finish) {
                 $values[] = '';
             }
-            
+
             if ($analyze) {
                 foreach ($values as $ley => $val) {
                     $tempRow[] = $val;
                     ++$col_count;
                 }
-                
+
                 if ($col_count > $max_cols) {
                     $max_cols = $col_count;
                 }
                 $col_count = 0;
-                
+
                 $rows[] = $tempRow;
                 $tempRow = array();
             } else {
@@ -315,7 +315,7 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
                         break;
                     }
                 }
-                
+
                 $first = TRUE;
                 $sql = $sql_template;
                 foreach ($values as $key => $val) {
@@ -331,13 +331,13 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
                     $first = FALSE;
                 }
                 $sql .= ')';
-                
+
                 /**
                  * @todo maybe we could add original line to verbose SQL in comment
                  */
                 PMA_importRunQuery($sql, $sql);
             }
-            
+
             $line++;
             $csv_finish = FALSE;
             $values = array();
@@ -358,26 +358,26 @@ if ($analyze) {
             $rows[$i][] = 'NULL';
         }
     }
-    
+
     if ($_REQUEST['csv_col_names']) {
         $col_names = array_splice($rows, 0, 1);
         $col_names = $col_names[0];
     }
-    
+
     if ((isset($col_names) && count($col_names) != $max_cols) || !isset($col_names)) {
         // Fill out column names
         for ($i = 0; $i < $max_cols; ++$i) {
             $col_names[] = 'COL '.($i+1);
         }
     }
-    
+
     if (strlen($db)) {
         $result = PMA_DBI_fetch_result('SHOW TABLES');
         $tbl_name = 'TABLE '.(count($result) + 1);
     } else {
         $tbl_name = 'TBL_NAME';
     }
-    
+
     $tables[] = array($tbl_name, $col_names, $rows);
 
     /* Obtain the best-fit MySQL types for each column */
