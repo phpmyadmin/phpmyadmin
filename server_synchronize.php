@@ -288,16 +288,16 @@ if ((isset($_REQUEST['submit_connect']))) {
                 /**
                 * Calculating the number of updates for each matching table
                 */
-                if (isset($update_array[$i])) {
-                    if (isset($update_array[$i][0][$matching_tables_keys[$i][0]])) {
-                        $num_of_updates = sizeof($update_array[$i]);
+                if (isset($update_array[$i]) && isset($update_array[$i][0]) &&
+                        isset($update_array[$i][0][$matching_tables_keys[$i][0]])) {
+                    $num_of_updates = sizeof($update_array[$i]);
                 }
                 /**
                 * Calculating the number of insertions for each matching table
                 */
-                if (isset($insert_array[$i])) {
-                    if (isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
-                        $num_of_insertions = sizeof($insert_array[$i]);
+                if (isset($insert_array[$i]) && isset($insert_array[$i][0]) &&
+                        isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
+                    $num_of_insertions = sizeof($insert_array[$i]);
                 }
                 /**
                 * Displays the name of the matching table
