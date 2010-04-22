@@ -4479,12 +4479,12 @@ tables of the databases can also be synchronized.
 You need to fill in the host name of the server, the username and
 password of an user account already there in MySQL. Port is by default
 populated with 3306 (MySQL default port). Then the name of the database
-should be mentioned at the end.All the information other than the port
+should be mentioned at the end. All the information other than the port
 needs to be filled explicitly for the source as well as target servers.
 </p>
 
 <p>
-After successfully by passing authentication phase, the source and
+After successfully passing through the authentication phase, the source and
 target database table names will be displayed. It will be a tabular
 representation. 
 </p>
@@ -4493,8 +4493,8 @@ representation.
 On the left, are listed the source database table names.  Some of the
 names have a ‘+’ plus sign preceding them. This shows that these tables
 are only present in source database and they need to be added to the
-target database in order to synchronize the target database.While those
-table name that are not preceded by a ‘+’ sign are also present in
+target database in order to synchronize the target database. The tables
+whose names are not preceded by a ‘+’ sign are already present in the
 target database. 
 </p>
 
@@ -4511,7 +4511,7 @@ the source and target corresponding tables.
 
 <p>
 The difference is depicted by the red and green buttons with S and D
-letters. Indicating that either Structure or Data are not up to date. By
+letters, indicating that either Structure or Data are not up to date. By
 clicking on them, they will turn grey, what means that no
 synchronisation will be done.
 </p>
