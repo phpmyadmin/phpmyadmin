@@ -370,7 +370,7 @@ msgstr "Pravoúhlé spoje"
 #: libraries/messages.inc.php:68
 #, php-format
 msgid "An index has been added on %s"
-msgstr "K tabulce %s byl přidán index"
+msgstr "Na sloupci %s byl vytvořen index"
 
 #: libraries/messages.inc.php:69
 msgid "Any"
