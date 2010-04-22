@@ -283,14 +283,14 @@ if ((isset($_REQUEST['submit_connect']))) {
             * Display the matching tables' names and difference, first
             */
             for($i = 0; $i < count($matching_tables); $i++) {
-                $num_of_updates = 0;
-                $num_of_insertions = 0;
                 /**
                 * Calculating the number of updates for each matching table
                 */
                 if (isset($update_array[$i]) && isset($update_array[$i][0]) &&
                         isset($update_array[$i][0][$matching_tables_keys[$i][0]])) {
                     $num_of_updates = sizeof($update_array[$i]);
+                } else {
+                    $num_of_updates = 0;
                 }
                 /**
                 * Calculating the number of insertions for each matching table
@@ -298,6 +298,8 @@ if ((isset($_REQUEST['submit_connect']))) {
                 if (isset($insert_array[$i]) && isset($insert_array[$i][0]) &&
                         isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
                     $num_of_insertions = sizeof($insert_array[$i]);
+                } else {
+                    $num_of_insertions = 0;
                 }
                 /**
                 * Displays the name of the matching table
