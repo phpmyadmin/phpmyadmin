@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-21 21:31+0200\n"
+"PO-Revision-Date: 2010-04-22 23:40+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -67,22 +67,28 @@ msgstr "V vrstici"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Spremenjena je %1$d vrstica."
+msgstr[1] "Spremenjeni sta %1$d vrstici."
+msgstr[2] "Spremenjene so %1$d vrstice."
+msgstr[3] "Spremenjenih je %1$d vrstic."
 
 #: libraries/Message.class.php:301
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Izbrisana je %1$d vrstica."
+msgstr[1] "Izbrisani sta %1$d vrstici."
+msgstr[2] "Izbrisane so %1$d vrstice."
+msgstr[3] "Izbrisanih je %1$d vrstic."
 
 #: libraries/Message.class.php:320
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Vstavljena je %1$d vrstica."
+msgstr[1] "Vstavljeni sta %1$d vrstici."
+msgstr[2] "Vstavljene so %1$d vrstice."
+msgstr[3] "Vstavljenih je %1$d vrstic."
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
@@ -386,6 +392,8 @@ msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
+"Lahko je približno. Glej [a@./Documentation.html#faq3_11@Documentation]FAQ "
+"3.11[/a]"
 
 #: libraries/messages.inc.php:74
 #, php-format
@@ -539,11 +547,11 @@ msgstr "Zaznamek je odstranjen."
 
 #: libraries/messages.inc.php:111
 msgid "Label"
-msgstr "Nalepka"
+msgstr "Oznaka"
 
 #: libraries/messages.inc.php:112
 msgid "Bookmarked SQL query"
-msgstr "Označena SQL-poizvedba"
+msgstr "Označena poizvedba SQL"
 
 #: libraries/messages.inc.php:113
 msgid "Replace existing bookmark of same name"
@@ -551,7 +559,7 @@ msgstr "Zamenjaj obstoječ zaznamek z istim imenom"
 
 #: libraries/messages.inc.php:114
 msgid "Bookmark this SQL query"
-msgstr "Označi to SQL-poizvedbo"
+msgstr "Označi to poizvedbo SQL"
 
 #: libraries/messages.inc.php:115
 msgid "View only"
@@ -810,7 +818,7 @@ msgstr "Stiskanje"
 #: libraries/messages.inc.php:175
 #, php-format
 msgid "Imported file compression will be automatically detected from: %s"
-msgstr ""
+msgstr "Stiskanje uvožene datoteke bo samodejno zaznano iz: %s"
 
 #: libraries/messages.inc.php:176
 #, php-format
@@ -876,7 +884,7 @@ msgstr "Zbirka podatkov %s je kopirana v %s"
 
 #: libraries/messages.inc.php:187
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "Kopiraj tabelo v (podatkovna_baza<b>.</b>tabela):"
+msgstr "Kopiraj tabelo v (podatkovna_zbirka<b>.</b>tabela):"
 
 #: libraries/messages.inc.php:188
 #, php-format
@@ -920,7 +928,7 @@ msgstr "Ustvari nov indeks"
 
 #: libraries/messages.inc.php:197
 msgid "Create new database"
-msgstr "Ustvari novo zbirko podatkovno"
+msgstr "Ustvari novo zbirko podatkov"
 
 #: libraries/messages.inc.php:198
 #, php-format
@@ -1081,7 +1089,7 @@ msgstr "Podatki"
 
 #: libraries/messages.inc.php:235
 msgid "Data Dictionary"
-msgstr "Podatkovni slovar"
+msgstr "Slovar podatkov"
 
 #: libraries/messages.inc.php:236
 msgid "Data Difference"
@@ -1195,7 +1203,7 @@ msgstr "Opis"
 
 #: libraries/messages.inc.php:261
 msgid "Designer"
-msgstr ""
+msgstr "Oblikovalnik"
 
 #: libraries/messages.inc.php:262
 msgid ""
@@ -1371,7 +1379,7 @@ msgstr "Angleško"
 
 #: libraries/messages.inc.php:304
 msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Opomba: Imena MySQL privilegijev so zapisana v angleščini "
+msgstr " Opomba: Imena privilegijev MySQL so zapisana v angleščini "
 
 #: libraries/messages.inc.php:305
 msgid "Error"
@@ -1396,7 +1404,7 @@ msgstr "Napaka pri preimenovanju tabele %1$s v %2$s"
 
 #: libraries/messages.inc.php:310
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "Napaka pri shranjevanju koordinat Oblikovalnika."
 
 #: libraries/messages.inc.php:311
 msgid "Esperanto"
@@ -1512,6 +1520,9 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: %"
 "3$s. Other text will be kept as is."
 msgstr ""
+"Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
+"nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
+"Ostalo besedilo bo ostalo takšno, kot je."
 
 #: libraries/messages.inc.php:338
 msgid "File name template"
@@ -1673,7 +1684,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:378
 msgid "Selected target tables have been synchronized with source tables."
-msgstr ""
+msgstr "Izbrane ciljne tabele so bile sinhronizirane z izvornimi tabelami."
 
 #: libraries/messages.inc.php:379
 msgid "You have to choose at least one column to display"
@@ -1812,7 +1823,7 @@ msgstr "Uvozi denarne enote ($5.00 v 5.00)"
 
 #: libraries/messages.inc.php:412 libraries/messages.inc.php:592
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "Preglednica Open Document"
 
 #: libraries/messages.inc.php:413
 msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -2168,7 +2179,7 @@ msgstr "Lokalno"
 
 #: libraries/messages.inc.php:494
 msgid "Location of the text file"
-msgstr "Lokacija datoteke z besedilom"
+msgstr "Mesto datoteke z besedilom"
 
 #: libraries/messages.inc.php:495
 msgid "Login Information"
@@ -2241,7 +2252,7 @@ msgstr "Tabela MediaWiki"
 
 #: libraries/messages.inc.php:511
 msgid "Available MIME types"
-msgstr "Razpoložljive MIME-vrste"
+msgstr "Razpoložljive vrste MIME"
 
 #: libraries/messages.inc.php:512
 msgid "Available transformations"
@@ -2254,7 +2265,7 @@ msgstr "Opis"
 
 #: libraries/messages.inc.php:514
 msgid "MIME type"
-msgstr "MIME-vrsta"
+msgstr "Vrsta MIME"
 
 #: libraries/messages.inc.php:515
 #, php-format
@@ -2275,7 +2286,7 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Seznam razpoložljivih možnosti pretvorbe in pretvorbe MIME-vrst boste "
+"Seznam razpoložljivih možnosti pretvorbe in pretvorbe vrst MIME boste "
 "videli, če kliknete na %sopise transformacij%s"
 
 #: libraries/messages.inc.php:518
@@ -2301,7 +2312,7 @@ msgstr "VRSTE MIME ZA TABELO"
 #: libraries/messages.inc.php:521
 msgid ""
 "MIME types printed in italics do not have a separate transformation function"
-msgstr "MIME-vrste, ki so napisano ležeče, nimajo lastne pretvorbene funkcije"
+msgstr "Vrste MIME, ki so napisane ležeče, nimajo lastne pretvorbene funkcije"
 
 #: libraries/messages.inc.php:522
 msgid "Modifications have been saved"
@@ -2321,7 +2332,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:526
 msgid "Move table to (database<b>.</b>table):"
-msgstr "Premakni tabelo v (podatkovna_baza<b>.</b>tabela):"
+msgstr "Premakni tabelo v (podatkovna_zbirka<b>.</b>tabela):"
 
 #: libraries/messages.inc.php:527
 #, php-format
@@ -2408,7 +2419,7 @@ msgstr "Različica odjemalca MySQL"
 
 #: libraries/messages.inc.php:544
 msgid "MySQL connection collation"
-msgstr ""
+msgstr "Razvrščanje znakov povezave MySQL"
 
 #: libraries/messages.inc.php:545
 #, php-format
@@ -2442,7 +2453,7 @@ msgstr "Naslednji"
 #: libraries/messages.inc.php:552
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr "Brez delovanja v %s sekundah; prosimo, ponovno se prijavite"
+msgstr "Brez aktivnosti v zadnjih %s sekundah; prosimo, prijavite se znova"
 
 #: libraries/messages.inc.php:553
 msgid "No databases"
@@ -2467,6 +2478,7 @@ msgstr "brez opisa"
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
+"Za ta skladiščni pogon ni na voljo nobenih podrobnejših informacij o stanju."
 
 #: libraries/messages.inc.php:558
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -2474,7 +2486,7 @@ msgstr "Poizvedbe \"DROP DATABASE\" so izključene."
 
 #: libraries/messages.inc.php:559
 msgid "Skip Explain SQL"
-msgstr "Preskoči razlago SQL-stavka"
+msgstr "Preskoči razlago stavka SQL"
 
 #: libraries/messages.inc.php:560
 msgid "No files found inside ZIP archive!"
@@ -2940,7 +2952,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:667
 msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin dokumentacija"
+msgstr "Dokumentacija phpMyAdmin"
 
 #: libraries/messages.inc.php:668
 msgid ""
@@ -2997,7 +3009,7 @@ msgstr "Pogled za tiskanje (s polnimi besedili)"
 
 #: libraries/messages.inc.php:680
 msgid "Print view"
-msgstr "Pogled postavitve tiskanja"
+msgstr "Pogled za tiskanje"
 
 #: libraries/messages.inc.php:681
 msgid "Includes all privileges except GRANT."
@@ -3212,7 +3224,7 @@ msgstr "Vrsta poizvedbe"
 
 #: libraries/messages.inc.php:730 setup/lib/messages.inc.php:122
 msgid "Query window"
-msgstr "Okno za iskanje"
+msgstr "Okno za poizvedbe"
 
 #: libraries/messages.inc.php:731
 #, php-format
@@ -3221,7 +3233,7 @@ msgstr "Poizvedba SQL na zbirki podatkov <b>%s</b>:"
 
 #: libraries/messages.inc.php:732
 msgid "Query results operations"
-msgstr ""
+msgstr "Dejanja rezultatov poizvedbe"
 
 #: libraries/messages.inc.php:733
 msgid "SQL history"
@@ -3435,9 +3447,8 @@ msgid "Master replication"
 msgstr ""
 
 #: libraries/messages.inc.php:781
-#, fuzzy
 msgid "Replication"
-msgstr "Relacije"
+msgstr "Podvojevanje"
 
 #: libraries/messages.inc.php:782
 msgid ""
@@ -3621,7 +3632,7 @@ msgstr "Dolžina vrstice"
 
 #: libraries/messages.inc.php:822
 msgid "row(s) starting from record #"
-msgstr "vrstice naprej od zapisa #"
+msgstr "vrstic naprej od zapisa #"
 
 #: libraries/messages.inc.php:823
 msgid " Row size "
@@ -3822,7 +3833,7 @@ msgid ""
 "this MySQL server since its startup."
 msgstr ""
 "<b>Promet na strežniku</b>: V teh tabelah je prikazana statistika "
-"obremenitve omrežja za ta MySQL strežnik, odkar je bil zagnan."
+"obremenitve omrežja za ta strežnik MySQL, odkar je bil zagnan."
 
 #: libraries/messages.inc.php:871
 msgid "Server variables and settings"
@@ -3920,7 +3931,7 @@ msgstr "Prikazovanje poizvedbe SQL"
 
 #: libraries/messages.inc.php:891
 msgid "Show insert query"
-msgstr ""
+msgstr "Prikaži poizvedbo insert"
 
 #: libraries/messages.inc.php:892
 msgid "Only show keys"
@@ -4583,15 +4594,15 @@ msgid ""
 "please reduce your SQL query input to the single query that causes problems, "
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
-"Obstaja možnost, da ste v SQL razčlenjevalniku naleteli na hrošča. Temeljito "
-"preglejte poizvedbo in preverite, če so citati pravilni in če se ujemajo. "
-"Možno je tudi, da prenašate binarno datoteko, ki je izven področja besedila "
-"citata. Poizvedbo lahko preizkusite tudi na vmesniku ukazne vrstice MySQL. "
-"Če je strežnik MySQL izpisal napako, vam le-ta lahko pomaga pri ugotavljanju "
-"težav. Če se bodo težave nadaljevale, ali če razčlenjevalniku ne uspe tam, "
-"kjer vmesniku ukazne vrstice uspe, potem zmanjšajte vnešeno SQL poizvedbo na "
-"tisto poizvedbo, ki povzroča težave in pošljite poročilo o napaki skupaj s "
-"podatki iz spodnjega odseka IZREZA."
+"Obstaja možnost, da ste v razčlenjevalniku SQL naleteli na hrošča. Temeljito "
+"preglejte poizvedbo in preverite, če so narekovaji pravilni in če se "
+"ujemajo. Možno je tudi, da prenašate binarno datoteko, ki je izven področja "
+"besedila citata. Poizvedbo lahko preizkusite tudi na vmesniku ukazne vrstice "
+"MySQL. Če je strežnik MySQL izpisal napako, vam le-ta lahko pomaga pri "
+"ugotavljanju težav. Če se bodo težave nadaljevale, ali če razčlenjevalniku "
+"ne uspe tam, kjer vmesniku ukazne vrstice uspe, potem zmanjšajte vnešeno "
+"poizvedbo SQL na tisto poizvedbo, ki povzroča težave in pošljite poročilo o "
+"napaki skupaj s podatki iz spodnjega odseka IZREZA:"
 
 #: libraries/messages.inc.php:1030
 msgid ""
@@ -4603,7 +4614,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1031
 msgid "SQL query"
-msgstr "SQL-poizvedba"
+msgstr "Poizvedba SQL"
 
 #: libraries/messages.inc.php:1032
 msgid "SQL result"
@@ -4714,7 +4725,7 @@ msgstr "Struktura"
 
 #: libraries/messages.inc.php:1058
 msgid "Structure Synchronization"
-msgstr ""
+msgstr "Sinhronizacija strukture"
 
 #: libraries/messages.inc.php:1059
 msgid "Submit"
@@ -4722,7 +4733,7 @@ msgstr "Pošlji"
 
 #: libraries/messages.inc.php:1060
 msgid "Your SQL query has been executed successfully"
-msgstr "SQL-poizvedba je bila uspešno izvedena"
+msgstr "Poizvedba SQL je bila uspešno izvedena"
 
 #: libraries/messages.inc.php:1061
 #, php-format
@@ -4769,14 +4780,16 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
+"Ciljna podatkovna zbirka bo popolnoma sinhronizirana z izvorno podatkovno "
+"zbirko. Izvorna podatkovna zbirka bo ostala nespremenjena."
 
 #: libraries/messages.inc.php:1071
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Sinhroniziraj zbirke podatkov"
 
 #: libraries/messages.inc.php:1072
 msgid "Synchronize"
-msgstr ""
+msgstr "Sinhroniziraj"
 
 #: libraries/messages.inc.php:1074
 msgid "Add column(s)"
@@ -4834,11 +4847,11 @@ msgstr "Tabela %s je osvežena"
 
 #: libraries/messages.inc.php:1086
 msgid "Insert row(s)"
-msgstr ""
+msgstr "Vstavi vrstico(-e)"
 
 #: libraries/messages.inc.php:1087
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "Tabela je prazna!"
 
 #: libraries/messages.inc.php:1088
 msgid "Table maintenance"
@@ -4846,7 +4859,7 @@ msgstr "Vzdrževanje tabele"
 
 #: libraries/messages.inc.php:1089
 msgid "Table name"
-msgstr ""
+msgstr "Ime tabele"
 
 #: libraries/messages.inc.php:1090
 msgid "Table of contents"
@@ -4858,7 +4871,7 @@ msgstr "Možnosti tabele"
 
 #: libraries/messages.inc.php:1092
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Odstrani stolpec(-ce)"
 
 #: libraries/messages.inc.php:1093
 msgid "Remove index(s)"
@@ -4879,7 +4892,7 @@ msgstr "Tabela"
 
 #: libraries/messages.inc.php:1097
 msgid "Update row(s)"
-msgstr ""
+msgstr "Posodobi vrstico(-e)"
 
 #: libraries/messages.inc.php:1098
 msgid "take it"
@@ -4887,7 +4900,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1099
 msgid "Target database has been synchronized with source database"
-msgstr ""
+msgstr "Ciljna zbirka podatkov je bila sinhronizirana z izvorno zbirko podatkov"
 
 #: libraries/messages.inc.php:1100
 msgid "Table-specific privileges"
@@ -4895,15 +4908,15 @@ msgstr "Privilegiji tipični za tabelo"
 
 #: libraries/messages.inc.php:1101
 msgid "Temporary data"
-msgstr ""
+msgstr "Začasni podatki"
 
 #: libraries/messages.inc.php:1102
 msgid " Because of its length,<br /> this field might not be editable "
-msgstr " Zaradi njegove dolžine<br /> polja ne bo mogoče urejati "
+msgstr " Zaradi njegove dolžine<br /> polja morda ne bo mogoče urejati "
 
 #: libraries/messages.inc.php:1103
 msgid "Texy! text"
-msgstr ""
+msgstr "Besedilo Texy!"
 
 #: libraries/messages.inc.php:1104
 msgid "Thai"
@@ -4912,30 +4925,30 @@ msgstr "Tajsko"
 #: libraries/messages.inc.php:1105
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "Privzeta tema %s ni bila najdena!"
 
 #: libraries/messages.inc.php:1106
 msgid "No preview available."
-msgstr ""
+msgstr "Predogled ni na voljo."
 
 #: libraries/messages.inc.php:1107
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "Tema %s ni bila najdena!"
 
 #: libraries/messages.inc.php:1108
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "Za temo %s ni bila najdena veljavna pot slik!"
 
 #: libraries/messages.inc.php:1109
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "Pot teme ni bila najdena za temo %s!"
 
 #: libraries/messages.inc.php:1110
 msgid "Theme / Style"
-msgstr ""
+msgstr "Tema / Slog"
 
 #: libraries/messages.inc.php:1111
 msgid "This Host"
@@ -5015,14 +5028,13 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1128
-#, fuzzy
 msgid "Create version"
-msgstr "Različica strežnika"
+msgstr "Ustvari različico"
 
 #: libraries/messages.inc.php:1129
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Ustvari različico %s tabele %s.%s"
 
 #: libraries/messages.inc.php:1130
 msgid "Database Log"
@@ -5042,47 +5054,47 @@ msgstr "Datum"
 
 #: libraries/messages.inc.php:1134
 msgid "Deactivate now"
-msgstr ""
+msgstr "Dezaktiviraj zdaj"
 
 #: libraries/messages.inc.php:1135
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Dezaktiviraj sledenje za %s.%s"
 
 #: libraries/messages.inc.php:1136
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Izvozi kot %s"
 
 #: libraries/messages.inc.php:1137
 msgid "Tracking is active."
-msgstr ""
+msgstr "Sledenje je aktivno."
 
 #: libraries/messages.inc.php:1138
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Sledenje ni aktivno."
 
 #: libraries/messages.inc.php:1139
 msgid "Close"
-msgstr ""
+msgstr "Zapri"
 
 #: libraries/messages.inc.php:1140
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Poročilo sledenja za tabelo `%s`"
 
 #: libraries/messages.inc.php:1141
 msgid "Tracking report"
-msgstr ""
+msgstr "Poročilo sledenja"
 
 #: libraries/messages.inc.php:1142
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr ""
+msgstr "Prikaži %s z datumi od %s do %s uporabnika %s %s"
 
 #: libraries/messages.inc.php:1143
 msgid "Show versions"
-msgstr ""
+msgstr "Prikaži različice"
 
 #: libraries/messages.inc.php:1144
 msgid "SQL dump (file download)"
@@ -5094,7 +5106,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1146
 msgid "SQL statements executed."
-msgstr ""
+msgstr "Stavki SQL so izvedeni."
 
 #: libraries/messages.inc.php:1147
 msgid "This option will replace your table and contained data."
@@ -5110,20 +5122,19 @@ msgstr ""
 
 #: libraries/messages.inc.php:1150
 msgid "Tracking statements"
-msgstr ""
+msgstr "Sledenje stavkom"
 
 #: libraries/messages.inc.php:1151
 msgid "active"
-msgstr ""
+msgstr "aktivno"
 
 #: libraries/messages.inc.php:1152
 msgid "not active"
-msgstr ""
+msgstr "ni aktivno"
 
 #: libraries/messages.inc.php:1153
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Samo struktura"
+msgstr "Posnetek strukture"
 
 #: libraries/messages.inc.php:1154
 msgid "Created"
@@ -5131,11 +5142,11 @@ msgstr "Ustvarjeno"
 
 #: libraries/messages.inc.php:1155
 msgid "Last version"
-msgstr ""
+msgstr "Zadnja različica"
 
 #: libraries/messages.inc.php:1156
 msgid "Updated"
-msgstr ""
+msgstr "Posodobljeno"
 
 #: libraries/messages.inc.php:1157
 msgid "Version"
@@ -5143,28 +5154,27 @@ msgstr "Različica"
 
 #: libraries/messages.inc.php:1158
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Sledi tem stavkom opredeljevanja podatkov:"
 
 #: libraries/messages.inc.php:1159
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Sledi tem stavkom upravljanja s podatki:"
 
 #: libraries/messages.inc.php:1160
 msgid "Tracked tables"
-msgstr ""
+msgstr "Sledene tabele"
 
 #: libraries/messages.inc.php:1161
 msgid "Tracking"
-msgstr ""
+msgstr "Sledenje"
 
 #: libraries/messages.inc.php:1162
-#, fuzzy
 msgid "Track table"
-msgstr "Preveri tabelo"
+msgstr "Sledi tabeli"
 
 #: libraries/messages.inc.php:1163
 msgid "Untracked tables"
-msgstr ""
+msgstr "Nesledene tabele"
 
 #: libraries/messages.inc.php:1164
 msgid "Username"
@@ -5173,17 +5183,17 @@ msgstr "Uporabniško ime"
 #: libraries/messages.inc.php:1165
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
+msgstr "Sledenje %s.%s, različice %s je aktivirano."
 
 #: libraries/messages.inc.php:1166
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "Različica %s je ustvarjena, sledenje %s.%s je aktivirano."
 
 #: libraries/messages.inc.php:1167
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "Sledenje %s.%s, različice %s je dezaktivirano."
 
 #: libraries/messages.inc.php:1168
 #, php-format
@@ -5284,7 +5294,7 @@ msgstr ""
 "nastavite na 1, bo s pomočjo htmlspecialchars() pretvoril izhod (Privzeto: "
 "1). Če nastavite četrti parameter na 1, bo v celico z vsebino (content cell) "
 "vnesel NOWRAP in tako prikazal celoten izhod brez preoblikovanja (Privzeto: "
-"1)"
+"1)."
 
 #: libraries/messages.inc.php:1182
 msgid ""
@@ -5578,7 +5588,7 @@ msgstr "imenik za nalaganje datotek"
 
 #: libraries/messages.inc.php:1246
 msgid "Web server"
-msgstr ""
+msgstr "Spletni strežnik"
 
 #: libraries/messages.inc.php:1247
 #, php-format
@@ -5772,7 +5782,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: setup/lib/messages.inc.php:32
 #, php-format
@@ -6224,16 +6234,15 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:144
 msgid "SQL queries"
-msgstr "SQL-poizvedbe"
+msgstr "Poizvedbe SQL"
 
 #: setup/lib/messages.inc.php:145
 msgid "Customize startup page"
-msgstr ""
+msgstr "Prilagodi začetno stran"
 
 #: setup/lib/messages.inc.php:146
-#, fuzzy
 msgid "Startup"
-msgstr "Stanje"
+msgstr "Zagon"
 
 #: setup/lib/messages.inc.php:147
 msgid "Choose how you want tabs to work"
@@ -6768,10 +6777,12 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
+"Pustite prazno, če ne želite podpore Oblikovalnika, predlagano: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: setup/lib/messages.inc.php:268
 msgid "Designer table"
-msgstr ""
+msgstr "Tabela Oblikovalnika"
 
 #: setup/lib/messages.inc.php:269
 msgid ""
@@ -6957,7 +6968,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:308
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Dodaj DROP VIEW"
 
 #: setup/lib/messages.inc.php:309
 msgid ""
