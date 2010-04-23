@@ -1368,7 +1368,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         if ($_SESSION['tmp_user_values']['display_binary']) {
                             // user asked to see the real contents of BINARY
                             // fields
-                            if ($_SESSION['tmp_user_values']['display_binary_as_hex']) {
+                            if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && PMA_contains_nonprintable_ascii($row[$i])) {
                             	$row[$i] = bin2hex($row[$i]);
 							}
 							else {

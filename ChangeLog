@@ -20,6 +20,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   designer, thanks to Sutharshan Balachandren.
 - bug #2983062, patch #2989408 [engines] Fix warnings when changing table
   engine to Maria, thanks to Madhura Jayaratne.
+- bug #2974067 [display] non-binary fields shown as hex
 
 3.3.2.0 (2010-04-13)
 - patch #2969449 [core] Name for MERGE engine varies depending on the

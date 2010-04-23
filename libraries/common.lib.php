@@ -2596,6 +2596,17 @@ function PMA_printable_bit_value($value, $length) {
 }
 
 /**
+ * Verifies whether the value contains a non-printable character 
+ *
+ * @uses    preg_match()
+ * @param   string $value 
+ * @return  boolean 
+ */
+function PMA_contains_nonprintable_ascii($value) {
+    return preg_match('@[^[:print:]]@', $value);
+}
+
+/**
  * Converts a BIT type default value  
  * for example, b'010' becomes 010 
  *
