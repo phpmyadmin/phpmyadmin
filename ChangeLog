@@ -80,6 +80,7 @@ $Id$
 + rfe #2983207, patch #2988715 [interface] Use jQuery calendar dialog, thanks
   to Muhammad Adnan.
 + [doc] Incorporate synchronisation docs into main document.
++ [core] Include Content Security Policy HTTP headers.
 
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,
