@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- SQL Commands to set up the pmadb as described in Documentation.html.
---
+-- 
 -- This file is meant for use with MySQL 5 and above!
---
+-- 
 -- This script expects the user pma to already be existing. If we would put a
 -- line here to create him too many users might just use this script and end
 -- up with having the same password for the controluser.
@@ -173,9 +173,11 @@ CREATE TABLE IF NOT EXISTS `pma_designer_coords` (
   ENGINE=MyISAM COMMENT='Table coordinates for Designer'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
---
+-- --------------------------------------------------------
+
+-- 
 -- Table structure for table `pma_tracking`
---
+-- 
 
 CREATE TABLE IF NOT EXISTS `pma_tracking` (
   `db_name` varchar(64) collate utf8_bin NOT NULL,
