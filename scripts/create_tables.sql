@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `pma_tracking` (
   `date_updated` datetime NOT NULL,
   `schema_snapshot` text collate utf8_bin NOT NULL,
   `schema_sql` text collate utf8_bin,
-  `data_sql` text collate utf8_bin,
+  `data_sql` longtext collate utf8_bin,
   `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') collate utf8_bin default NULL,
   `tracking_active` int(1) unsigned NOT NULL default '1',
   PRIMARY KEY  (`db_name`,`table_name`,`version`)
