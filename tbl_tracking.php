@@ -417,8 +417,11 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         <?php
         $style = 'odd';
         foreach ($data['ddlog'] as $entry) {
-            $parsed_sql = PMA_SQP_parse($entry['statement']);
-            $statement  = PMA_formatSql($parsed_sql);
+            if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+                $statement = substr($entry['statement'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+            } else {
+                $statement  = PMA_formatSql(PMA_SQP_parse($entry['statement']));
+            }
             $timestamp = strtotime($entry['date']);
 
             if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
@@ -465,8 +468,11 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         <?php
         $style = 'odd';
         foreach ($data['dmlog'] as $entry) {
-            $parsed_sql = PMA_SQP_parse($entry['statement']);
-            $statement  = PMA_formatSql($parsed_sql);
+            if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+                $statement = substr($entry['statement'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+            } else {
+                $statement  = PMA_formatSql(PMA_SQP_parse($entry['statement']));
+            }
             $timestamp = strtotime($entry['date']);
 
             if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
