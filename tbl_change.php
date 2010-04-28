@@ -497,7 +497,7 @@ foreach ($rows as $row_id => $vrow) {
             $backup_field  = '';
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
             // this will select the UNHEX function while inserting
-            if (($field['is_binary'] || $field['is_blob']) && $_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields'] && ! $cfg['ProtectBinary']) {
+            if (($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary'])) && $_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
                 $field['display_binary_as_hex'] = true;
             }
         }
