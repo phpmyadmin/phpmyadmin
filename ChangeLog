@@ -24,6 +24,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2983065 [operations] Error when changing from Maria to MyISAM engine
 - bug #2975408 [tracking] Data too long for column data_sql
 - bug [tracking] Tracking report should obey MaxCharactersInDisplayedSQL 
+- bug [edit] Avoid selecting UNHEX function by default for a BLOB column for
+  which editing is protected
 
 3.3.2.0 (2010-04-13)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
