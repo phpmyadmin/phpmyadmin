@@ -5,7 +5,9 @@
  * @package phpMyAdmin
  */
 
-// Run common work
+/**
+ * Run common work
+ */
 require_once './libraries/common.inc.php';
 require_once './libraries/Table.class.php';
 
@@ -95,7 +97,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
         $table_query = ' SELECT * FROM ' .
              PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
              PMA_backquote($GLOBALS['cfg']['Server']['tracking']) .
-             ' WHERE `db_name` = \'' . PMA_sqlAddslashes($_REQUEST['db']) . '\' AND `table_name`  = \'' . PMA_sqlAddslashes($table_name) . '\' AND `version` = \'' . $version_number . '\''; 
+             ' WHERE `db_name` = \'' . PMA_sqlAddslashes($_REQUEST['db']) . '\' AND `table_name`  = \'' . PMA_sqlAddslashes($table_name) . '\' AND `version` = \'' . $version_number . '\'';
 
         $table_result = PMA_query_as_controluser($table_query);
         $version_data = PMA_DBI_fetch_array($table_result);
@@ -122,7 +124,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
         </tr>
         <?php
         if ($style == 'even') {
-            $style = 'odd'; 
+            $style = 'odd';
         } else {
             $style = 'even';
         }
@@ -177,7 +179,7 @@ if (isset($my_tables)) {
             </tr>
         <?php
             if ($style == 'even') {
-                $style = 'odd'; 
+                $style = 'odd';
             } else {
                 $style = 'even';
             }
