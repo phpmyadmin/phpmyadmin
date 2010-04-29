@@ -1127,7 +1127,7 @@ function PMA_RT_DOC($alltables)
         $pdf->PMA_links['doc'][$table]['-'] = $pdf->AddLink();
         $pdf->SetX(10);
         // $pdf->Ln(1);
-        $pdf->Cell(0, 6, $GLOBALS['strPageNumber'] . ' {' . sprintf("%02d", $i) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$table]['-']);
+        $pdf->Cell(0, 6, $GLOBALS['strPageNumber'] . ' {' . sprintf("%02d", $i + 1) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$table]['-']);
         $pdf->SetX(10);
         $pdf->Cell(0, 6, $i . ' ' . $table, 0, 1, 'L', 0, $pdf->PMA_links['doc'][$table]['-']);
         // $pdf->Ln(1);
@@ -1143,9 +1143,9 @@ function PMA_RT_DOC($alltables)
     }
     $pdf->PMA_links['RT']['-'] = $pdf->AddLink();
     $pdf->SetX(10);
-    $pdf->Cell(0, 6, $GLOBALS['strPageNumber'] . ' {00}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$lasttable]['-']);
+    $pdf->Cell(0, 6, $GLOBALS['strPageNumber'] . ' {' . sprintf("%02d", $i + 1) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$lasttable]['-']);
     $pdf->SetX(10);
-    $pdf->Cell(0, 6, $i . ' ' . $GLOBALS['strRelationalSchema'], 0, 1, 'L', 0, $pdf->PMA_links['RT']['-']);
+    $pdf->Cell(0, 6, $i + 1 . ' ' . $GLOBALS['strRelationalSchema'], 0, 1, 'L', 0, $pdf->PMA_links['RT']['-']);
     $z = 0;
     foreach ($alltables AS $table) {
         $z++;

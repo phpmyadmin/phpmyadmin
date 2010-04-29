@@ -27,6 +27,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [edit] Avoid selecting UNHEX function by default for a BLOB column for
   which editing is protected
 - bug #2994168 [structure] Show auto_increment in uppercase 
+- bug #2993970 [pdf schema] Page numbering in Table of Contents 
 
 3.3.2.0 (2010-04-13)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
