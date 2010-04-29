@@ -103,6 +103,7 @@ $Id$
 - bug [tracking] Tracking report should obey MaxCharactersInDisplayedSQL 
 - bug [edit] Avoid selecting UNHEX function by default for a BLOB column for
   which editing is protected
+- bug #2994168 [structure] Show auto_increment in uppercase 
 
 3.3.2.0 (2010-04-13)
 - patch #2969449 [core] Name for MERGE engine varies depending on the
