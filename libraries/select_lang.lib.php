@@ -139,7 +139,7 @@ function PMA_langSet(&$lang)
  *
  * @return  bool    true on success, otherwise false
  *
- * @global  array $available_languages
+ * @uses    $GLOBALS['available_languages'] to check $lang
  *
  * @access  private
  */

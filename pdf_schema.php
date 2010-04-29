@@ -99,11 +99,11 @@ class PMA_PDF extends TCPDF {
     /**
      * Sets the scaling factor, defines minimum coordinates and margins
      *
-     * @param double $ The scaling factor
-     * @param double $ The minimum X coordinate
-     * @param double $ The minimum Y coordinate
-     * @param double $ The left margin
-     * @param double $ The top margin
+     * @param double scale The scaling factor
+     * @param double x_min The minimum X coordinate
+     * @param double y_min The minimum Y coordinate
+     * @param double l_marg The left margin
+     * @param double t_marg The top margin
      * @access public
      */
     function PMA_PDF_setScale($scale = 1, $x_min = 0, $y_min = 0, $l_marg = -1, $t_marg = -1)

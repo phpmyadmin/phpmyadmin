@@ -132,7 +132,6 @@ $cfg['SaveDir'] = '';
 /**
  * When using DB-based query history, how many entries should be kept?
  *
- * @global integer $cfg['QueryHistoryMax']
  * default = 25
  */
 //$cfg['QueryHistoryMax'] = 100;
