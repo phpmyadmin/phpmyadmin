@@ -141,7 +141,7 @@ $realwidth = $form_column_width . 'ex';
  * Enter description here...
  *
  * @param array     $columns
- * @param numeric   $column_number
+ * @param integer   $column_number
  * @param string    $selected
  */
 function showColumnSelectCell($columns, $column_number, $selected = '')
