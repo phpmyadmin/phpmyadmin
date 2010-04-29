@@ -458,7 +458,7 @@ foreach ($rows as $row_id => $vrow) {
             } else {
                 // special binary "characters"
                 if ($field['is_binary'] || $field['is_blob']) {
-                	if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields'] && !$cfg['ProtectBinary']) {
+                	if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
                 		$vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
                 		$field['display_binary_as_hex'] = true;
 					} else {
