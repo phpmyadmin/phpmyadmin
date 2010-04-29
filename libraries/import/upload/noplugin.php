@@ -12,10 +12,15 @@ if (! defined('PHPMYADMIN')) {
 
 $ID_KEY      = 'noplugin';
 
+/**
+ * Returns upload status.
+ *
+ * This is implementation when no webserver support exists, so it returns just zeroes.
+ */
 function PMA_getUploadStatus($id) {
     global $SESSION_KEY;
     global $ID_KEY;
-  
+
     if (trim($id) == "") {
         return;
     }
