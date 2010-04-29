@@ -346,7 +346,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     else {
         echo '<i>' . $strNoneDefault . '</i>';
     } ?></td>
-    <td nowrap="nowrap"><?php echo $row['Extra']; ?></td>
+    <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
     <td align="center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote($strRows) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
             <?php echo $titles['BrowseDistinctValues']; ?></a>
