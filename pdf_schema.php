@@ -99,11 +99,11 @@ class PMA_PDF extends TCPDF {
     /**
      * Sets the scaling factor, defines minimum coordinates and margins
      *
-     * @param double scale The scaling factor
-     * @param double x_min The minimum X coordinate
-     * @param double y_min The minimum Y coordinate
-     * @param double l_marg The left margin
-     * @param double t_marg The top margin
+     * @param float scale The scaling factor
+     * @param float x_min The minimum X coordinate
+     * @param float y_min The minimum Y coordinate
+     * @param float l_marg The left margin
+     * @param float t_marg The top margin
      * @access public
      */
     function PMA_PDF_setScale($scale = 1, $x_min = 0, $y_min = 0, $l_marg = -1, $t_marg = -1)
@@ -121,13 +121,13 @@ class PMA_PDF extends TCPDF {
     /**
      * Outputs a scaled cell
      *
-     * @param double $ The cell width
-     * @param double $ The cell height
-     * @param string $ The text to output
-     * @param mixed $ Whether to add borders or not
-     * @param integer $ Where to put the cursor once the output is done
-     * @param string $ Align mode
-     * @param integer $ Whether to fill the cell with a color or not
+     * @param float w The cell width
+     * @param float h The cell height
+     * @param string txt The text to output
+     * @param mixed border Whether to add borders or not
+     * @param integer ln Where to put the cursor once the output is done
+     * @param string align Align mode
+     * @param integer fill Whether to fill the cell with a color or not
      * @access public
      * @see FPDF::Cell()
      */
@@ -140,10 +140,10 @@ class PMA_PDF extends TCPDF {
     /**
      * Draws a scaled line
      *
-     * @param double $ The horizontal position of the starting point
-     * @param double $ The vertical position of the starting point
-     * @param double $ The horizontal position of the ending point
-     * @param double $ The vertical position of the ending point
+     * @param float x1 The horizontal position of the starting point
+     * @param float y1 The vertical position of the starting point
+     * @param float x2 The horizontal position of the ending point
+     * @param float y2 The vertical position of the ending point
      * @access public
      * @see FPDF::Line()
      */
@@ -158,8 +158,8 @@ class PMA_PDF extends TCPDF {
     /**
      * Sets x and y scaled positions
      *
-     * @param double $ The x position
-     * @param double $ The y position
+     * @param float x The x position
+     * @param float y The y position
      * @access public
      * @see FPDF::SetXY()
      */
@@ -172,7 +172,7 @@ class PMA_PDF extends TCPDF {
     /**
      * Sets the X scaled positions
      *
-     * @param double $ The x position
+     * @param float x The x position
      * @access public
      * @see FPDF::SetX()
      */
@@ -184,7 +184,7 @@ class PMA_PDF extends TCPDF {
     /**
      * Sets the scaled font size
      *
-     * @param double $ The font size (in points)
+     * @param float size The font size (in points)
      * @access public
      * @see FPDF::SetFontSize()
      */
@@ -197,7 +197,7 @@ class PMA_PDF extends TCPDF {
     /**
      * Sets the scaled line width
      *
-     * @param double $ The line width
+     * @param float width The line width
      * @access public
      * @see FPDF::SetLineWidth()
      */
@@ -209,7 +209,7 @@ class PMA_PDF extends TCPDF {
     /**
      * Displays an error message
      *
-     * @param string $ the error mesage
+     * @param string error_message the error mesage
      * @global array    the PMA configuration array
      * @global integer  the current server id
      * @global string   the current language
@@ -247,7 +247,7 @@ class PMA_PDF extends TCPDF {
      * Aliases the "Error()" function from the FPDF class to the
      * "PMA_PDF_die()" one
      *
-     * @param string $ the error mesage
+     * @param string error_message the error mesage
      * @access public
      * @see PMA_PDF_die
      */
@@ -525,7 +525,7 @@ class PMA_RT_Table {
     /**
      * Sets the width of the table
      *
-     * @param integer $ The font size
+     * @param integer ff The font size
      * @global object    The current PDF document
      * @access private
      * @see PMA_PDF
@@ -558,9 +558,8 @@ class PMA_RT_Table {
     /**
      * Do draw the table
      *
-     * @param integer $ The font size
-     * @param boolean $ Whether to display color
-     * @param integer $ The max. with among tables
+     * @param integer ff The font size
+     * @param boolean setcolortWhether to display color
      * @global object    The current PDF document
      * @access private
      * @see PMA_PDF
@@ -613,11 +612,11 @@ class PMA_RT_Table {
     /**
      * The "PMA_RT_Table" constructor
      *
-     * @param string $ The table name
-     * @param integer $ The font size
-     * @param integer $ The max. with among tables
-     * @param boolean $ Whether to display keys or not
-     * @param boolean $ Whether to display table position or not
+     * @param string table_name The table name
+     * @param integer ff The font size
+     * @param integer same_width The max. with among tables
+     * @param boolean show_keys Whether to display keys or not
+     * @param boolean show_info Whether to display table position or not
      * @global object    The current PDF document
      * @global integer   The current page number (from the
      *                     $cfg['Servers'][$i]['table_coords'] table)
@@ -709,8 +708,8 @@ class PMA_RT_Relation {
     /**
      * Gets arrows coordinates
      *
-     * @param string $ The current table name
-     * @param string $ The relation column name
+     * @param string table The current table name
+     * @param string column The relation column name
      * @return array Arrows coordinates
      * @access private
      */
@@ -723,8 +722,8 @@ class PMA_RT_Relation {
     /**
      * Do draws relation links
      *
-     * @param boolean $ Whether to use one color per relation or not
-     * @param integer $ The id of the link to draw
+     * @param boolean change_color Whether to use one color per relation or not
+     * @param integer i The id of the link to draw
      * @global object    The current PDF document
      * @access private
      * @see PMA_PDF
@@ -769,10 +768,10 @@ class PMA_RT_Relation {
     /**
      * The "PMA_RT_Relation" constructor
      *
-     * @param string $ The master table name
-     * @param string $ The relation field in the master table
-     * @param string $ The foreign table name
-     * @param string $ The relation field in the foreign table
+     * @param string master_table The master table name
+     * @param string master_field The relation field in the master table
+     * @param string foreign_table The foreign table name
+     * @param string foreigh_field The relation field in the foreign table
      * @access private
      * @see PMA_RT_Relation::PMA_RT_Relation_getXy
      */
@@ -845,7 +844,7 @@ class PMA_RT {
     /**
      * Sets X and Y minimum and maximum for a table cell
      *
-     * @param string $ The table name
+     * @param string table The table name
      * @access private
      */
     function PMA_RT_setMinMax($table)
@@ -858,11 +857,11 @@ class PMA_RT {
     /**
      * Defines relation objects
      *
-     * @param string $ The master table name
-     * @param string $ The relation field in the master table
-     * @param string $ The foreign table name
-     * @param string $ The relation field in the foreign table
-     * @param boolean $ Whether to display table position or not
+     * @param string master_table The master table name
+     * @param string master_field The relation field in the master table
+     * @param string foreign_table The foreign table name
+     * @param string foreign_field The relation field in the foreign table
+     * @param boolean show_info Whether to display table position or not
      * @access private
      * @see PMA_RT_setMinMax
      */
@@ -912,7 +911,7 @@ class PMA_RT {
     /**
      * Draws relation arrows
      *
-     * @param boolean $ Whether to use one color per relation or not
+     * @param boolean change_color Whether to use one color per relation or not
      * @access private
      * @see PMA_RT_Relation::PMA_RT_Relation_draw()
      */
@@ -927,7 +926,7 @@ class PMA_RT {
     /**
      * Draws tables
      *
-     * @param boolean $ Whether to display table position or not
+     * @param boolean draw_color Whether to display table position or not
      * @access private
      * @see PMA_RT_Table::PMA_RT_Table_draw()
      */
@@ -972,16 +971,15 @@ class PMA_RT {
     /**
      * The "PMA_RT" constructor
      *
-     * @param mixed $ The scaling factor
-     * @param integer $ The page number to draw (from the
+     * @param integer which_rel The page number to draw (from the
      *                    $cfg['Servers'][$i]['table_coords'] table)
-     * @param boolean $ Whether to display table position or not
-     * @param boolean $ Was originally whether to use one color per
+     * @param boolean show_info Whether to display table position or not
+     * @param boolean change_color Was originally whether to use one color per
      *                    relation or not, now enables/disables color
      *                    everywhere, due to some problems printing with color
-     * @param boolean $ Whether to draw grids or not
-     * @param boolean $ Whether all tables should have the same width or not
-     * @param boolean $ Wheter to show all field or only the keys
+     * @param boolean show_grid Whether to draw grids or not
+     * @param boolean all_tab_same_wide Whether all tables should have the same width or not
+     * @param boolean show_keys Wheter to show all field or only the keys
      * @global object   The current PDF document
      * @global string   The current db name
      * @global array    The relations settings
