@@ -28,8 +28,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
 msgstr ""
-"Tämä johtunee siitä ettet ole luonut asetustiedostoa. Voit luoda "
-"asetustiedoston %1$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %"
+"1$sasetusskriptillä%2$s."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
