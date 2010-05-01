@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-01 07:09+0200\n"
+"PO-Revision-Date: 2010-05-01 07:10+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -507,7 +507,7 @@ msgstr "दिसअबल "
 
 #: libraries/messages.inc.php:102
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "आप एक BLOB भंडार निष्क्रिय करने वाले हैं!"
 
 #: libraries/messages.inc.php:103
 msgctxt "$strBLOBRepositoryEnabled"
