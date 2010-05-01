@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-01 06:23+0200\n"
+"PO-Revision-Date: 2010-05-01 06:24+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -284,7 +284,7 @@ msgstr "खोज शर्तें जोडें (\"where\" खंड के
 #: libraries/messages.inc.php:49
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr ""
+msgstr "सूचकांक में जोडें &nbsp;%s&nbsp;column(s)"
 
 #: libraries/messages.inc.php:50
 msgid "Add a new User"
