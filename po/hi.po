@@ -339,7 +339,7 @@ msgstr "समान चौड़ाई के सभी टेबल को प
 
 #: libraries/messages.inc.php:61
 msgid "Alter table order by"
-msgstr " टेबल ओरडर को बदलिये "
+msgstr "टेबल क्रमांक को बदलिये "
 
 #: libraries/messages.inc.php:62
 msgid "Analyze"
