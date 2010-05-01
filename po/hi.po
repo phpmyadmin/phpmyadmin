@@ -421,7 +421,7 @@ msgstr "टेबल के शुरू में"
 
 #: libraries/messages.inc.php:80
 msgid "At End of Table"
-msgstr " टेबल के आखिर में"
+msgstr "टेबल के आखिर में"
 
 #: libraries/messages.inc.php:81
 msgid "Attributes"
