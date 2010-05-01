@@ -516,7 +516,7 @@ msgstr "सक्षम"
 
 #: libraries/messages.inc.php:104
 msgid "Enable"
-msgstr ""
+msgstr "सक्षम"
 
 #: libraries/messages.inc.php:105
 msgid "Remove BLOB Repository Reference"
