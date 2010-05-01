@@ -477,7 +477,7 @@ msgstr "मूल स्थिति"
 
 #: libraries/messages.inc.php:95
 msgid "Position"
-msgstr ""
+msgstr "स्थिति"
 
 #: libraries/messages.inc.php:96
 msgid "Server ID"
