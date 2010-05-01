@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-01 06:21+0200\n"
+"PO-Revision-Date: 2010-05-01 06:22+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -275,7 +275,7 @@ msgstr "इन डाटाबेसों के लिये विशेष�
 
 #: libraries/messages.inc.php:47
 msgid "Add privileges on the following table"
-msgstr "इन टेबल  के लिये विशेषाधिकार जोडें"
+msgstr "इन टेबल के लिये विशेषाधिकार जोडें"
 
 #: libraries/messages.inc.php:48
 msgid "Add search conditions (body of the \"where\" clause):"
