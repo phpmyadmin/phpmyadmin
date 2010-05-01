@@ -267,7 +267,7 @@ msgstr "इनटू टिप्पणियां जोडें"
 
 #: libraries/messages.inc.php:45
 msgid "Add new field"
-msgstr "नया फील्ड जोडो"
+msgstr "नया क्षेत्र जोडें"
 
 #: libraries/messages.inc.php:46
 msgid "Add privileges on the following database"
