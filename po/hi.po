@@ -4,13 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-03-12 09:15+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-05-01 05:39+0200\n"
+"Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: js/messages.php:50 libraries/messages.inc.php:369
 msgid "Go"
@@ -7152,36 +7154,3 @@ msgstr ""
 
 #~ msgid "has been altered."
 #~ msgstr "को बदला गया। "
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr " सभी को सेल्कट करें"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr " सभी को सेल्कट करें"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "इनसर्ट"
-
-#, fuzzy
-#~| msgid "Update Query"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr " क्वरी अपडेट करो"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "डिलीट"
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
