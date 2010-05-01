@@ -582,7 +582,7 @@ msgstr "बफर पूल गतिविधि"
 
 #: libraries/messages.inc.php:120
 msgid "Buffer Pool"
-msgstr ""
+msgstr "बफर पूल"
 
 #: libraries/messages.inc.php:121
 msgid "Buffer Pool Usage"
