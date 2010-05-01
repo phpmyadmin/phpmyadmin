@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-01 07:21+0200\n"
+"PO-Revision-Date: 2010-05-01 07:22+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -550,7 +550,7 @@ msgstr "लेबल"
 
 #: libraries/messages.inc.php:112
 msgid "Bookmarked SQL query"
-msgstr "Bookmark किया हुआ SQL-क्वरी"
+msgstr "बुकमार्क किया हुआ SQL-क्वरी"
 
 #: libraries/messages.inc.php:113
 msgid "Replace existing bookmark of same name"
