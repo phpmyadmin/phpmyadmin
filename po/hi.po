@@ -445,7 +445,7 @@ msgstr "BEGIN कट"
 
 #: libraries/messages.inc.php:87
 msgid "BEGIN RAW"
-msgstr ""
+msgstr "BEGIN रॉ"
 
 #: libraries/messages.inc.php:88
 msgid "Binary"
