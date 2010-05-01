@@ -429,7 +429,7 @@ msgstr "विशेषता"
 
 #: libraries/messages.inc.php:82
 msgid "Automatic layout"
-msgstr ""
+msgstr "स्वचालित लेआउट"
 
 #: libraries/messages.inc.php:84
 msgid "Back"
