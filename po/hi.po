@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-01 05:48+0200\n"
+"PO-Revision-Date: 2010-05-01 05:49+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -47,7 +47,7 @@ msgstr ""
 #: libraries/common.lib.php:411
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr "इंग्लिश "
+msgstr "इंग्लिश"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:415
