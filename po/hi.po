@@ -305,7 +305,7 @@ msgstr "%s के बाद"
 
 #: libraries/messages.inc.php:54
 msgid "Go back to previous page"
-msgstr "पिछले पृष्ट पर वापस जाओ"
+msgstr "पिछले पृष्ट पर वापस जाएँ"
 
 #: libraries/messages.inc.php:55
 msgid "Insert another new row"
