@@ -473,7 +473,7 @@ msgstr "लॉग नाम"
 
 #: libraries/messages.inc.php:94
 msgid "Original position"
-msgstr ""
+msgstr "मूल स्थिति"
 
 #: libraries/messages.inc.php:95
 msgid "Position"
