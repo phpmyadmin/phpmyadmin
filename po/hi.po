@@ -275,7 +275,7 @@ msgstr "इन डाटाबेसों के लिये विशेष�
 
 #: libraries/messages.inc.php:47
 msgid "Add privileges on the following table"
-msgstr "इन टेबल  के लिये प्रिविलेज  जोडिये"
+msgstr "इन टेबल  के लिये विशेषाधिकार जोडें"
 
 #: libraries/messages.inc.php:48
 msgid "Add search conditions (body of the \"where\" clause):"
