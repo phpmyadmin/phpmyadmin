@@ -413,7 +413,7 @@ msgstr "आरोही"
 
 #: libraries/messages.inc.php:78
 msgid "As defined:"
-msgstr "जैसे  परिभाषित:"
+msgstr "जैसे परिभाषित:"
 
 #: libraries/messages.inc.php:79
 msgid "At Beginning of Table"
