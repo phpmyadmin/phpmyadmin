@@ -558,7 +558,7 @@ msgstr "एक ही नाम के सभी बुकमार्क्स 
 
 #: libraries/messages.inc.php:114
 msgid "Bookmark this SQL query"
-msgstr "इस SQL-क्वरी को bookmark कीजिये "
+msgstr "इस SQL-क्वरी को बुकमार्क कीजिये "
 
 #: libraries/messages.inc.php:115
 msgid "View only"
