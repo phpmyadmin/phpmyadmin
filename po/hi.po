@@ -376,7 +376,7 @@ msgstr "कोई"
 
 #: libraries/messages.inc.php:70
 msgid "Any host"
-msgstr "कोई भी  होस्ट"
+msgstr "कोई भी होस्ट"
 
 #: libraries/messages.inc.php:71
 msgid "Any user"
