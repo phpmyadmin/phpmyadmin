@@ -368,7 +368,7 @@ msgstr "कोणीय लिंक"
 #: libraries/messages.inc.php:68
 #, php-format
 msgid "An index has been added on %s"
-msgstr " %s पर एक इन्डेक्स बनाया"
+msgstr "%s पर एक सूचकांक जोड़ा गया है"
 
 #: libraries/messages.inc.php:69
 msgid "Any"
