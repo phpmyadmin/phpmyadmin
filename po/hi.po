@@ -61,7 +61,7 @@ msgstr "इस कुएरी की इनलाइन एडिट"
 
 #: libraries/common.lib.php:1278
 msgid "Inline"
-msgstr ""
+msgstr "इनलाइन"
 
 #: libraries/Message.class.php:282
 #, php-format
