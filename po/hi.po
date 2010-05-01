@@ -437,7 +437,7 @@ msgstr "वापस"
 
 #: libraries/messages.inc.php:85
 msgid "Baltic"
-msgstr ""
+msgstr "बाल्टिक"
 
 #: libraries/messages.inc.php:86
 msgid "BEGIN CUT"
