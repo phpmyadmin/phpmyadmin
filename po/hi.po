@@ -189,7 +189,7 @@ msgstr "अगस्त"
 
 #: libraries/messages.inc.php:28
 msgid "Sep"
-msgstr " सितम्बर"
+msgstr "सितम्बर"
 
 #: libraries/messages.inc.php:28
 msgid "Oct"
