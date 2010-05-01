@@ -417,7 +417,7 @@ msgstr "जैसे  परिभाषित:"
 
 #: libraries/messages.inc.php:79
 msgid "At Beginning of Table"
-msgstr " टेबल के शुरू  में"
+msgstr "टेबल के शुरू में"
 
 #: libraries/messages.inc.php:80
 msgid "At End of Table"
