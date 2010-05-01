@@ -296,7 +296,7 @@ msgstr "आपने नया यूसर बना लिया"
 
 #: libraries/messages.inc.php:52
 msgid "Administration"
-msgstr ""
+msgstr "एडमिनिस्ट्रेशन"
 
 #: libraries/messages.inc.php:53
 #, php-format
