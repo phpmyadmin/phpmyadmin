@@ -317,7 +317,7 @@ msgstr "अगली रो को संपादित करें"
 
 #: libraries/messages.inc.php:57
 msgid "Go back to this page"
-msgstr ""
+msgstr "इस पृष्ठ पर वापस जाएँ"
 
 #: libraries/messages.inc.php:58
 msgid "All"
