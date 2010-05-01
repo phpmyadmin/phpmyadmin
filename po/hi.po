@@ -554,7 +554,7 @@ msgstr "बुकमार्क किया हुआ SQL-क्वरी"
 
 #: libraries/messages.inc.php:113
 msgid "Replace existing bookmark of same name"
-msgstr "एक  ही नाम के सभी बुकमार्क्स बदल दें"
+msgstr "एक ही नाम के सभी बुकमार्क्स बदल दें"
 
 #: libraries/messages.inc.php:114
 msgid "Bookmark this SQL query"
