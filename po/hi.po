@@ -520,7 +520,7 @@ msgstr "सक्षम"
 
 #: libraries/messages.inc.php:105
 msgid "Remove BLOB Repository Reference"
-msgstr ""
+msgstr "BLOB रिपोजिटरी संदर्भ हटायें"
 
 #: libraries/messages.inc.php:106
 msgctxt "$strBLOBRepositoryRepair"
