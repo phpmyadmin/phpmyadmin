@@ -355,7 +355,7 @@ msgstr "और"
 
 #: libraries/messages.inc.php:65
 msgid "and"
-msgstr ""
+msgstr "और"
 
 #: libraries/messages.inc.php:66
 msgid "and then"
