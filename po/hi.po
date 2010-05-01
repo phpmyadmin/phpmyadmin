@@ -16,7 +16,7 @@ msgstr ""
 
 #: js/messages.php:50 libraries/messages.inc.php:369
 msgid "Go"
-msgstr ""
+msgstr "आगे"
 
 #: js/messages.php:51 libraries/messages.inc.php:131
 msgid "Cancel"
