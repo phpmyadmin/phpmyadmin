@@ -380,7 +380,7 @@ msgstr "कोई भी होस्ट"
 
 #: libraries/messages.inc.php:71
 msgid "Any user"
-msgstr "कोई भी  यूसर"
+msgstr "कोई भी उपयोगकर्ता"
 
 #: libraries/messages.inc.php:72
 msgid "Apply Selected Changes"
