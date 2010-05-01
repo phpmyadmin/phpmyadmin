@@ -67,8 +67,8 @@ msgstr "इनलाइन"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "एकवचन %1$d रोव प्रभावित बहुवचन "
-msgstr[1] "बहुवचन  %1$d रोवस प्रभावित"
+msgstr[0] "एकवचन%1$d रोव प्रभावित "
+msgstr[1] "बहुवचन%1$d रोवस प्रभावित"
 
 #: libraries/Message.class.php:301
 #, php-format
