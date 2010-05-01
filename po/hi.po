@@ -405,7 +405,7 @@ msgstr "अरबी"
 
 #: libraries/messages.inc.php:76
 msgid "Armenian"
-msgstr ""
+msgstr "आर्मेनियन"
 
 #: libraries/messages.inc.php:77
 msgid "Ascending"
