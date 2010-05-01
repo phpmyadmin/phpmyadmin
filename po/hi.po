@@ -465,7 +465,7 @@ msgstr "इवेंट प्रकार "
 
 #: libraries/messages.inc.php:92
 msgid "Information"
-msgstr ""
+msgstr "सूचना"
 
 #: libraries/messages.inc.php:93
 msgid "Log name"
