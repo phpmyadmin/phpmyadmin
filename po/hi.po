@@ -538,7 +538,7 @@ msgstr "हर उपयोकर्ता को अनुमति दें �
 #: libraries/messages.inc.php:109
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "बुकमार्क %s बनाया"
 
 #: libraries/messages.inc.php:110
 msgid "The bookmark has been deleted."
