@@ -397,7 +397,7 @@ msgstr ""
 #: libraries/messages.inc.php:74
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr " %s  पर एक प्राईमरी की जोडें"
+msgstr " %s  पर एक प्राईमरी की जड़ी गयी है"
 
 #: libraries/messages.inc.php:75
 msgid "Arabic"
