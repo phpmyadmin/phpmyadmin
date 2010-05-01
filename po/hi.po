@@ -74,8 +74,8 @@ msgstr[1] "बहुवचन%1$d रोवस प्रभावित"
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "एकवचन%1$d रोव नष्ट"
+msgstr[1] "बहुवचन%1$d रोवस नष्ट"
 
 #: libraries/Message.class.php:320
 #, php-format
