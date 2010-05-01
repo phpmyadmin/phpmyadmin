@@ -347,7 +347,7 @@ msgstr "विश्लेषण"
 
 #: libraries/messages.inc.php:63
 msgid "Analyze table"
-msgstr " टेबल अनालैज करें"
+msgstr "टेबल का विश्लेषण करें"
 
 #: libraries/messages.inc.php:64
 msgid "And"
