@@ -129,7 +129,7 @@ msgstr "EB"
 
 #: libraries/messages.inc.php:27
 msgid "Sun"
-msgstr "रवी"
+msgstr "रविवार"
 
 #: libraries/messages.inc.php:27
 msgid "Mon"
