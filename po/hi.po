@@ -223,7 +223,7 @@ msgstr "प्रवेश निषेध"
 
 #: libraries/messages.inc.php:35
 msgid "Action"
-msgstr " कार्य"
+msgstr "कार्य"
 
 #: libraries/messages.inc.php:36
 msgid "Actions"
