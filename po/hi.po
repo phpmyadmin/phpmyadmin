@@ -578,7 +578,7 @@ msgstr "विदेशी मूल्य ब्राउस करें "
 
 #: libraries/messages.inc.php:119
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "बफर पूल गतिविधि"
 
 #: libraries/messages.inc.php:120
 msgid "Buffer Pool"
