@@ -409,7 +409,7 @@ msgstr "आर्मेनियन"
 
 #: libraries/messages.inc.php:77
 msgid "Ascending"
-msgstr ""
+msgstr "आरोही"
 
 #: libraries/messages.inc.php:78
 msgid "As defined:"
