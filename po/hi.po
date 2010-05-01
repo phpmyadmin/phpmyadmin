@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-01 06:58+0200\n"
+"PO-Revision-Date: 2010-05-01 06:59+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -441,7 +441,7 @@ msgstr "बाल्टिक"
 
 #: libraries/messages.inc.php:86
 msgid "BEGIN CUT"
-msgstr ""
+msgstr "BEGIN कट"
 
 #: libraries/messages.inc.php:87
 msgid "BEGIN RAW"
