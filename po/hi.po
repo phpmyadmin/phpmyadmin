@@ -141,7 +141,7 @@ msgstr "मन्गलवार"
 
 #: libraries/messages.inc.php:27
 msgid "Wed"
-msgstr "बुध"
+msgstr "बुधवार"
 
 #: libraries/messages.inc.php:27
 msgid "Thu"
