@@ -489,7 +489,7 @@ msgstr "BLOB भंडार गृह"
 
 #: libraries/messages.inc.php:98
 msgid "Damaged"
-msgstr ""
+msgstr "क्षतिग्रस्त"
 
 #: libraries/messages.inc.php:99
 #, php-format
