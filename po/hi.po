@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-01 07:38+0200\n"
+"PO-Revision-Date: 2010-05-01 07:40+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -590,7 +590,7 @@ msgstr "बफर पूल उपयोग"
 
 #: libraries/messages.inc.php:122
 msgid "Read misses in %"
-msgstr "% में गलतियाँ पढ़ें "
+msgstr "% में गलतियाँ पढ़ें"
 
 #: libraries/messages.inc.php:123
 msgid "Read misses"
