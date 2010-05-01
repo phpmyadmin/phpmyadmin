@@ -485,7 +485,7 @@ msgstr "सर्वर आईडी"
 
 #: libraries/messages.inc.php:97
 msgid "BLOB Repository"
-msgstr ""
+msgstr "BLOB भंडार गृह"
 
 #: libraries/messages.inc.php:98
 msgid "Damaged"
