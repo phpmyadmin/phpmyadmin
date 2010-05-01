@@ -457,7 +457,7 @@ msgstr "बइनरी - एडिट मत करिये"
 
 #: libraries/messages.inc.php:90
 msgid "Binary log"
-msgstr "सम्पादित लोग"
+msgstr "बाइनरी लोग"
 
 #: libraries/messages.inc.php:91
 msgid "Event type"
