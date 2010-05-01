@@ -292,7 +292,7 @@ msgstr "नया यूसर जोडें"
 
 #: libraries/messages.inc.php:51
 msgid "You have added a new user."
-msgstr "आपने नया यूसर बना लिया ।"
+msgstr "आपने नया यूसर बना लिया"
 
 #: libraries/messages.inc.php:52
 msgid "Administration"
