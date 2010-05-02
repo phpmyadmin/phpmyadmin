@@ -4792,7 +4792,7 @@ msgstr "Sinhroniziraj"
 
 #: libraries/messages.inc.php:1074
 msgid "Add column(s)"
-msgstr ""
+msgstr "Dodaj stolpec(-ce)"
 
 #: libraries/messages.inc.php:1075
 #, php-format
