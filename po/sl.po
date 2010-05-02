@@ -6907,7 +6907,7 @@ msgstr "Poskusi se povezati brez gesla"
 
 #: setup/lib/messages.inc.php:285
 msgid "Connect without password"
-msgstr ""
+msgstr "Poveži se brez gesla"
 
 #: setup/lib/messages.inc.php:286
 msgid ""
