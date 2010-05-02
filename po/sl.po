@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 22:27+0200\n"
+"PO-Revision-Date: 2010-05-02 22:28+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5518,7 +5518,7 @@ msgstr "Uporabi to vrednost"
 
 #: libraries/messages.inc.php:1229 setup/lib/messages.inc.php:356
 msgid "Validate SQL"
-msgstr "Preveri pravilnost SQL stavka"
+msgstr "Preveri pravilnost stavka SQL"
 
 #: libraries/messages.inc.php:1230
 #, php-format
