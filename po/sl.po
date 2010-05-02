@@ -6507,7 +6507,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:203
 msgid "Maximum databases"
-msgstr ""
+msgstr "Največ podatkovnih zbirk"
 
 #: setup/lib/messages.inc.php:204
 msgid ""
