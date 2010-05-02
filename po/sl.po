@@ -6431,7 +6431,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
-msgstr ""
+msgstr "Uporabi grafično manj zahtevne zavihke"
 
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
