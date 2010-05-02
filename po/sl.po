@@ -6459,7 +6459,7 @@ msgstr "Omogoči poudarjanje"
 
 #: setup/lib/messages.inc.php:187
 msgid "let the user choose"
-msgstr ""
+msgstr "naj uporabnik izbere"
 
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
