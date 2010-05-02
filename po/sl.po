@@ -6399,7 +6399,7 @@ msgstr "Niz, ki loči zbirke podatkov v drugi nivo drevesa"
 
 #: setup/lib/messages.inc.php:174
 msgid "Database tree separator"
-msgstr ""
+msgstr "Ločilo drevesa zbirke podatkov"
 
 #: setup/lib/messages.inc.php:175
 msgid ""
