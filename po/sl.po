@@ -6132,7 +6132,7 @@ msgstr "Možnosti prikaza tabel"
 
 #: setup/lib/messages.inc.php:118
 msgid "Main frame"
-msgstr ""
+msgstr "Glavni okvir"
 
 #: setup/lib/messages.inc.php:119
 msgid "Settings that didn't fit enywhere else"
