@@ -7291,6 +7291,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
+"Omogoči stiskanje [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
+"za posege uvoza in izvoza"
 
 #: setup/lib/messages.inc.php:379
 #, php-format
