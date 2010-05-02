@@ -5749,7 +5749,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:23
 msgid "Key is too short, it should have at least 8 characters"
-msgstr ""
+msgstr "Ključ je prekratek, ima naj vsaj 8 znakov."
 
 #: setup/lib/messages.inc.php:24
 msgid ""
