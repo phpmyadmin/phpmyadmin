@@ -6268,7 +6268,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:150
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: setup/lib/messages.inc.php:151
 #, php-format
