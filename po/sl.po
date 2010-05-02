@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 22:35+0200\n"
+"PO-Revision-Date: 2010-05-02 22:36+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5800,7 +5800,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:33
 msgid "Cannot load or save configuration"
-msgstr ""
+msgstr "Ne morem naložiti ali shraniti konfiguracije"
 
 #: setup/lib/messages.inc.php:34
 msgid ""
