@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 23:23+0200\n"
+"PO-Revision-Date: 2010-05-02 23:25+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7216,7 +7216,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:363
 msgid "Upload directory"
-msgstr ""
+msgstr "Mapa za nalaganje"
 
 #: setup/lib/messages.inc.php:364
 msgid "Allow for searching inside the entire database"
