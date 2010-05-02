@@ -6651,7 +6651,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:236
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Mapa, kamor se lahko na strežnik shranijo izvozi"
 
 #: setup/lib/messages.inc.php:237
 msgid "Save directory"
