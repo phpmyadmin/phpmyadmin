@@ -6413,7 +6413,7 @@ msgstr "Prikaži zbirke podatkov v drevesu"
 
 #: setup/lib/messages.inc.php:177
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "Onemogočite to, če želite videti vse zbirke podatkov naenkrat"
 
 #: setup/lib/messages.inc.php:178
 msgid "Use light version"
