@@ -5426,7 +5426,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1207
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "Naložena datotek presega napotek upload_max_filesize v php.ini."
 
 #: libraries/messages.inc.php:1208
 msgid "Missing a temporary folder."
