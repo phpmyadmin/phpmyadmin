@@ -5998,7 +5998,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:79
 msgid "Not a positive number"
-msgstr ""
+msgstr "Ni pozitivno število"
 
 #: setup/lib/messages.inc.php:80
 msgid ""
