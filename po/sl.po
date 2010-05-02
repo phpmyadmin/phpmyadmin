@@ -6545,7 +6545,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:212
 msgid "New server"
-msgstr ""
+msgstr "Nov strežnik"
 
 #: setup/lib/messages.inc.php:213
 msgid "There are no configured servers"
