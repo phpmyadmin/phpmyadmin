@@ -122,9 +122,13 @@ class PHPExcel_Shared_String
 		// we cannot use iconv when that happens
 		// Also, sometimes iconv_substr('A', 0, 1, 'UTF-8') just returns false in PHP 5.2.0
 		// we cannot use iconv in that case either (http://bugs.php.net/bug.php?id=37773)
+		// CUSTOM: IBM AIX iconv() does not work
 		if (function_exists('iconv')
 			&& @iconv('UTF-8', 'UTF-16LE', 'x')
-			&& @iconv_substr('A', 0, 1, 'UTF-8') ) {
+			&& @iconv_substr('A', 0, 1, 'UTF-8') 
+			&& !(defined('PHP_OS') && @stristr(PHP_OS, 'AIX') 
+				&& defined('ICONV_IMPL') && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) 
+				&& defined('ICONV_VERSION') && (@strcasecmp(ICONV_VERSION, 'unknown') == 0))) {
 
 			self::$_isIconvEnabled = true;
 		} else {
