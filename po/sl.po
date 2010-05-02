@@ -179,7 +179,7 @@ msgstr "apr"
 
 #: libraries/messages.inc.php:28
 msgid "May"
-msgstr "Maj"
+msgstr "maj"
 
 #: libraries/messages.inc.php:28
 msgid "Jun"
