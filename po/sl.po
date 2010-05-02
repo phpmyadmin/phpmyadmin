@@ -457,7 +457,7 @@ msgstr "Dvojiško"
 
 #: libraries/messages.inc.php:89
 msgid "Binary - do not edit"
-msgstr "Binarno - ne urejaj"
+msgstr "Dvojiško - ne urejaj"
 
 #: libraries/messages.inc.php:90
 msgid "Binary log"
