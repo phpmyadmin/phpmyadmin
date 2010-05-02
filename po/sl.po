@@ -6417,7 +6417,7 @@ msgstr "Onemogočite to, če želite videti vse zbirke podatkov naenkrat"
 
 #: setup/lib/messages.inc.php:178
 msgid "Use light version"
-msgstr ""
+msgstr "Uporabi lahko različico"
 
 #: setup/lib/messages.inc.php:179
 msgid "Maximum table tree depth"
