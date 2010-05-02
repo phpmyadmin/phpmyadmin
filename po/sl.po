@@ -6526,7 +6526,7 @@ msgstr "Največje število tabel prikazanih na seznamu tabel"
 
 #: setup/lib/messages.inc.php:207
 msgid "Maximum tables"
-msgstr ""
+msgstr "Največ tabel"
 
 #: setup/lib/messages.inc.php:208
 msgid ""
