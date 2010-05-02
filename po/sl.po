@@ -6958,9 +6958,8 @@ msgid ""
 msgstr ""
 
 #: setup/lib/messages.inc.php:297
-#, fuzzy
 msgid "Relation table"
-msgstr "Popravi tabelo"
+msgstr "Relacijska tabela"
 
 #: setup/lib/messages.inc.php:298
 msgid "SQL command to fetch available databases"
