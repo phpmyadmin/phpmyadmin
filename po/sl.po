@@ -5866,7 +5866,7 @@ msgstr "Potrdi poizvedbe DROP"
 
 #: setup/lib/messages.inc.php:48
 msgid "Default character set used for conversions"
-msgstr ""
+msgstr "Privzet nabor znakov uporabljen za pretvorbe"
 
 #: setup/lib/messages.inc.php:49
 msgid "Default character set"
