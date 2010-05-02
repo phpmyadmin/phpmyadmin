@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 23:08+0200\n"
+"PO-Revision-Date: 2010-05-02 23:09+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7117,7 +7117,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:339
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Prikaži povezavo phpinfo()"
 
 #: setup/lib/messages.inc.php:340
 msgid "Show detailed MySQL server information"
