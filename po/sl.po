@@ -5981,7 +5981,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:75
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Neveljavna številka vrat"
 
 #: setup/lib/messages.inc.php:76
 msgid "Incorrect value"
