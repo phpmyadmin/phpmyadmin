@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 22:47+0200\n"
+"PO-Revision-Date: 2010-05-02 22:48+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6348,7 +6348,7 @@ msgstr "Število vstavljenih vrstic"
 
 #: setup/lib/messages.inc.php:168
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Cilj ikone za hitri dostop"
 
 #: setup/lib/messages.inc.php:169
 msgid "Show logo in left frame"
