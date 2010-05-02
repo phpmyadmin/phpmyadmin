@@ -6086,7 +6086,7 @@ msgstr "Način urejanja"
 
 #: setup/lib/messages.inc.php:104
 msgid "Customize default export options"
-msgstr ""
+msgstr "Prilagodite privzete možnosti izvoza"
 
 #: setup/lib/messages.inc.php:105
 msgid "Export defaults"
