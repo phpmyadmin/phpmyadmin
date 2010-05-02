@@ -5862,7 +5862,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:47
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Potrdi poizvedbe DROP"
 
 #: setup/lib/messages.inc.php:48
 msgid "Default character set used for conversions"
