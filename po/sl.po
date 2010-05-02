@@ -6288,7 +6288,7 @@ msgstr "Dodatni parametri za iconv"
 
 #: setup/lib/messages.inc.php:154
 msgid "Ignore errors"
-msgstr ""
+msgstr "Prezri napake"
 
 #: setup/lib/messages.inc.php:155
 msgid ""
