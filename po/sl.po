@@ -5772,7 +5772,7 @@ msgstr "Označevalnik vrstic"
 
 #: setup/lib/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Poudari vrstico, na katero kaže kazalec miške"
 
 #: setup/lib/messages.inc.php:29
 msgid "Highlight pointer"
