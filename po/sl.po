@@ -6176,7 +6176,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:127
 msgid "Server configuration"
-msgstr ""
+msgstr "Konfiguracija strežnika"
 
 #: setup/lib/messages.inc.php:128
 msgid "Enter server connection parameters"
