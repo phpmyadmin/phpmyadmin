@@ -6155,6 +6155,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Pomnite, da je phpMyAdmin samo uporabniški vmesnik in njegove lastnosti ne "
+"omejujejo MySQL"
 
 #: setup/lib/messages.inc.php:124
 msgid "Security"
