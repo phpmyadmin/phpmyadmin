@@ -6078,7 +6078,7 @@ msgstr "Prilagodite način brskanja"
 
 #: setup/lib/messages.inc.php:102
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Prilagodite način urejanja"
 
 #: setup/lib/messages.inc.php:103
 msgid "Edit mode"
