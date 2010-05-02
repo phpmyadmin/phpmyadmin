@@ -5428,7 +5428,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1208
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Manjka začasna mapa."
 
 #: libraries/messages.inc.php:1209
 msgid "The uploaded file was only partially uploaded."
