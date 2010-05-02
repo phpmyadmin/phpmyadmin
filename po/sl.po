@@ -5972,7 +5972,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:73
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "Poslan obrazec vsebuje napake"
 
 #: setup/lib/messages.inc.php:74
 #, php-format
