@@ -6117,7 +6117,7 @@ msgstr "Možnosti za izvoz baze podatkov"
 
 #: setup/lib/messages.inc.php:112
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Prilagodite prikaz navigacijskega okvirja"
 
 #: setup/lib/messages.inc.php:113
 msgid "Navigation frame"
