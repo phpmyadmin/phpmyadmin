@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-03 00:28+0200\n"
+"PO-Revision-Date: 2010-05-03 00:29+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6395,7 +6395,7 @@ msgstr "Prikaži izbiro strežnikov"
 
 #: setup/lib/messages.inc.php:173
 msgid "String that separates databases into different tree levels"
-msgstr ""
+msgstr "Niz, ki loči zbirke podatkov v drugi nivo drevesa"
 
 #: setup/lib/messages.inc.php:174
 msgid "Database tree separator"
