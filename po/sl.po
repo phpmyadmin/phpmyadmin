@@ -5436,7 +5436,7 @@ msgstr "Naložena datoteka je bila naložena samo delno."
 
 #: libraries/messages.inc.php:1210
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Neznana napaka pri nalaganju datoteke."
 
 #: libraries/messages.inc.php:1211
 #, php-format
