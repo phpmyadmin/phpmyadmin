@@ -6424,7 +6424,7 @@ msgstr "Poudari strežnik pod miškinim kazalcem"
 
 #: setup/lib/messages.inc.php:186
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Omogoči poudarjanje"
 
 #: setup/lib/messages.inc.php:187
 msgid "let the user choose"
