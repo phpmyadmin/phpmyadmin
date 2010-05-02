@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-03 00:13+0200\n"
+"PO-Revision-Date: 2010-05-03 00:14+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6008,7 +6008,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:81
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Najdaljši čas izvajanja"
 
 #: setup/lib/messages.inc.php:83
 msgid "Character set of the file"
