@@ -7183,7 +7183,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:346
 msgid "Display database comment instead of its name"
-msgstr ""
+msgstr "Prikaži komentar zbirke podatkov namesto njenega imena"
 
 #: setup/lib/messages.inc.php:347
 msgid ""
