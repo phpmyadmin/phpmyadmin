@@ -5714,7 +5714,7 @@ msgstr "Konfiguracija: %s"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
-msgstr "Omogoča pretvarjanje nabora znakov"
+msgstr "Omogoči pretvarjanje nabora znakov"
 
 #: setup/lib/messages.inc.php:17
 msgid ""
