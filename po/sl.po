@@ -7052,7 +7052,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:317
 msgid "Use SSL"
-msgstr ""
+msgstr "Uporabi SSL"
 
 #: setup/lib/messages.inc.php:318
 msgid ""
