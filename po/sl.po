@@ -5887,9 +5887,8 @@ msgid "Tab that is displayed when entering a database"
 msgstr "Zavihek, ki se prikaže ob odprtju podatkovne zbirke"
 
 #: setup/lib/messages.inc.php:53
-#, fuzzy
 msgid "Default database tab"
-msgstr "Preimenuj podatkovno bazo v"
+msgstr "Privzet zavihek podatkovne zbirke"
 
 #: setup/lib/messages.inc.php:54
 msgid "Tab that is displayed when entering a server"
