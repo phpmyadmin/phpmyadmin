@@ -5927,7 +5927,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "Prikaži naštete strežnike kot seznam namesto spustnega menija"
 
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
