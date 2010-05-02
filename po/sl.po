@@ -6851,7 +6851,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:272
 msgid "Edit server"
-msgstr ""
+msgstr "Uredi strežnik"
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
