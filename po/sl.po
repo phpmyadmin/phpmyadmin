@@ -6891,7 +6891,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:281
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "Ime gostitelja, kjer teče strežnik MySQL"
 
 #: setup/lib/messages.inc.php:282
 msgid "Server hostname"
