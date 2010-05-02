@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-03 00:43+0200\n"
+"PO-Revision-Date: 2010-05-03 00:44+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7330,6 +7330,8 @@ msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 "requires functions (%s) which are unavailable on this system."
 msgstr ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Stiskanje Zip[/a] "
+"zahteva funkcije (%s), ki na tem sistemu niso na voljo."
 
 #: setup/lib/messages.inc.php:380
 #, php-format
