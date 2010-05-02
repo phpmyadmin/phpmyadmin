@@ -6620,7 +6620,7 @@ msgstr "Zavihek, ki se prikaže ob odprtju novega okna za poizvedbe"
 
 #: setup/lib/messages.inc.php:231
 msgid "Default query window tab"
-msgstr ""
+msgstr "Privzet zavihek okna za poizvedbe"
 
 #: setup/lib/messages.inc.php:232
 msgid "Select which functions will be used for character set conversion"
