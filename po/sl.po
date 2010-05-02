@@ -5874,7 +5874,7 @@ msgstr "Privzet nabor znakov"
 
 #: setup/lib/messages.inc.php:50
 msgid "Default language"
-msgstr ""
+msgstr "Privzet jezik"
 
 #: setup/lib/messages.inc.php:51
 msgid "Default server"
