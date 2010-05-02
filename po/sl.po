@@ -7199,7 +7199,7 @@ msgstr "Prikaži komentar tabele namesto njenega imena"
 
 #: setup/lib/messages.inc.php:349
 msgid "Display table comments in tooltips"
-msgstr ""
+msgstr "Prikaži komentarje tabel v zaslonskih namigih"
 
 #: setup/lib/messages.inc.php:350
 msgid ""
