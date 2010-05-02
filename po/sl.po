@@ -6180,7 +6180,7 @@ msgstr "Konfiguracija strežnika"
 
 #: setup/lib/messages.inc.php:128
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Vnesite parametre povezave s strežnikom"
 
 #: setup/lib/messages.inc.php:129
 msgid "Enter login options for signon authentication"
