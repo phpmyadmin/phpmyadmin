@@ -6344,7 +6344,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:167
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "Število vstavljenih vrstic"
 
 #: setup/lib/messages.inc.php:168
 msgid "Target for quick access icon"
