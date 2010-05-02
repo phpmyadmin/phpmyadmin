@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 22:05+0200\n"
+"PO-Revision-Date: 2010-05-02 22:07+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6565,7 +6565,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
-msgstr ""
+msgstr "Privzet vrstni red"
 
 #: setup/lib/messages.inc.php:219
 msgid "Overview"
