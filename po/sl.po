@@ -6229,7 +6229,7 @@ msgstr "Prilagodi privzete možnosti uvoza"
 
 #: setup/lib/messages.inc.php:139
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Prilagodi navigacijski okvir"
 
 #: setup/lib/messages.inc.php:140
 msgid "Customize main frame"
