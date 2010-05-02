@@ -5940,7 +5940,7 @@ msgstr "Daruj"
 
 #: setup/lib/messages.inc.php:65
 msgid "Download"
-msgstr ""
+msgstr "Prenesi"
 
 #: setup/lib/messages.inc.php:66
 msgid "End of line"
