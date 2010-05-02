@@ -6391,7 +6391,7 @@ msgstr "Prikaži izbrani strežnik na vrhu levega okvirja"
 
 #: setup/lib/messages.inc.php:172
 msgid "Display servers selection"
-msgstr ""
+msgstr "Prikaži izbiro strežnikov"
 
 #: setup/lib/messages.inc.php:173
 msgid "String that separates databases into different tree levels"
