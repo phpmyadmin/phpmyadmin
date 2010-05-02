@@ -6316,7 +6316,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:162
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Delni uvoz: preskoči poizvedbe"
 
 #: setup/lib/messages.inc.php:163
 msgid "Insecure connection"
