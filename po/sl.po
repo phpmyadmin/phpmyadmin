@@ -6352,7 +6352,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:169
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Prikaži logotip v levem okvirju"
 
 #: setup/lib/messages.inc.php:170
 msgid "Display logo"
