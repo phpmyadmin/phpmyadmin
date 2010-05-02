@@ -6311,6 +6311,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Če je omogočeno, phpMyAdmin nadaljuje z izvajanjem poizvedb z več izjavami, "
+"četudi ena od poizvedb spodleti"
 
 #: setup/lib/messages.inc.php:156
 msgid "Ignore multiple statement errors"
