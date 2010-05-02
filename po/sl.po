@@ -5943,7 +5943,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:66
 msgid "End of line"
-msgstr ""
+msgstr "Konec vrstice"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
