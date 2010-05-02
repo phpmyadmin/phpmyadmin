@@ -167,7 +167,7 @@ msgstr "jan"
 
 #: libraries/messages.inc.php:28
 msgid "Feb"
-msgstr "Feb"
+msgstr "feb"
 
 #: libraries/messages.inc.php:28
 msgid "Mar"
