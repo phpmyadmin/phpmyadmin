@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 22:08+0200\n"
+"PO-Revision-Date: 2010-05-02 22:09+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6603,7 +6603,7 @@ msgstr "Trajna zgodovina poizvedb"
 
 #: setup/lib/messages.inc.php:228
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "Koliko poizvedb je hranjenih v zgodovini"
 
 #: setup/lib/messages.inc.php:229
 msgid "Query history length"
