@@ -453,7 +453,7 @@ msgstr "BEGIN RAW"
 
 #: libraries/messages.inc.php:88
 msgid "Binary"
-msgstr "Binarno"
+msgstr "Dvojiško"
 
 #: libraries/messages.inc.php:89
 msgid "Binary - do not edit"
