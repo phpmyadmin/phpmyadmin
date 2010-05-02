@@ -6138,7 +6138,7 @@ msgstr "Nastavitve, ki se ne uvrščajo nikamor drugam"
 
 #: setup/lib/messages.inc.php:120
 msgid "Other core settings"
-msgstr ""
+msgstr "Druge nastavitve"
 
 #: setup/lib/messages.inc.php:121
 msgid "Customize query window options"
