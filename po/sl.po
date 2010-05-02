@@ -5768,7 +5768,7 @@ msgstr "Poudari izbrane vrstice"
 
 #: setup/lib/messages.inc.php:27
 msgid "Row marker"
-msgstr "Označevalec vrstic"
+msgstr "Označevalnik vrstic"
 
 #: setup/lib/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
