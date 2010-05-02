@@ -6599,7 +6599,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:227
 msgid "Permanent query history"
-msgstr ""
+msgstr "Trajna zgodovina poizvedb"
 
 #: setup/lib/messages.inc.php:228
 msgid "How many queries are kept in history"
