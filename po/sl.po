@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 22:12+0200\n"
+"PO-Revision-Date: 2010-05-02 22:14+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -212,7 +212,7 @@ msgstr "dec"
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/messages.inc.php:30
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d %B %Y ob %I:%M %p"
+msgstr "%d %B %Y ob %H.%M"
 
 #: libraries/messages.inc.php:31
 #, php-format
