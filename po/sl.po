@@ -183,7 +183,7 @@ msgstr "maj"
 
 #: libraries/messages.inc.php:28
 msgid "Jun"
-msgstr "Jun"
+msgstr "jun"
 
 #: libraries/messages.inc.php:28
 msgid "Jul"
