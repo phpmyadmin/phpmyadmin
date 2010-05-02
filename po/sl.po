@@ -5900,7 +5900,7 @@ msgstr "Privzet zavihek strežnika"
 
 #: setup/lib/messages.inc.php:56
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Zavihek, ki se prikaže ob odprtju tabele"
 
 #: setup/lib/messages.inc.php:57
 msgid "Default table tab"
