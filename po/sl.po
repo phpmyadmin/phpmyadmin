@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 22:14+0200\n"
+"PO-Revision-Date: 2010-05-02 22:19+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4513,7 +4513,7 @@ msgstr "Velikost"
 
 #: libraries/messages.inc.php:1012 setup/lib/messages.inc.php:161
 msgid "Number of records (queries) to skip from start"
-msgstr ""
+msgstr "Število zapisov (poizvedb), ki jih naj preskočim od začetka"
 
 #: libraries/messages.inc.php:1013
 msgid ""
