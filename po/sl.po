@@ -6124,7 +6124,7 @@ msgstr "Navigacijski okvir"
 
 #: setup/lib/messages.inc.php:114
 msgid "Servers display options"
-msgstr ""
+msgstr "Možnosti prikaza strežnikov"
 
 #: setup/lib/messages.inc.php:116
 msgid "Tables display options"
