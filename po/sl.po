@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 23:02+0200\n"
+"PO-Revision-Date: 2010-05-02 23:03+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6070,7 +6070,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:100
 msgid "Browse mode"
-msgstr ""
+msgstr "Način brskanja"
 
 #: setup/lib/messages.inc.php:101
 msgid "Customize browse mode"
