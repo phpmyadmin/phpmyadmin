@@ -175,7 +175,7 @@ msgstr "mar"
 
 #: libraries/messages.inc.php:28
 msgid "Apr"
-msgstr "Apr"
+msgstr "apr"
 
 #: libraries/messages.inc.php:28
 msgid "May"
