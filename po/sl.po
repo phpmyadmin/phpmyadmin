@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 22:55+0200\n"
+"PO-Revision-Date: 2010-05-02 22:56+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6537,7 +6537,7 @@ msgstr "Omejitev spomina"
 
 #: setup/lib/messages.inc.php:210 setup/lib/messages.inc.php:222
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "Uporabi samo ikone, samo besedilo ali oboje"
 
 #: setup/lib/messages.inc.php:211
 msgid "Iconic navigation bar"
