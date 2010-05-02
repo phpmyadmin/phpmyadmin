@@ -5414,7 +5414,7 @@ msgstr "Pisanje datoteke na disk je spodletelo."
 
 #: libraries/messages.inc.php:1205
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Nalaganje datoteke je ustavila razširitev."
 
 #: libraries/messages.inc.php:1206
 msgid ""
