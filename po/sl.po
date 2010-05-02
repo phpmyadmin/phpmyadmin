@@ -6164,7 +6164,7 @@ msgstr "Varnost"
 
 #: setup/lib/messages.inc.php:125
 msgid "Basic settings"
-msgstr ""
+msgstr "Osnovne nastavitve"
 
 #: setup/lib/messages.inc.php:126
 msgid ""
