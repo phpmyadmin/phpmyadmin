@@ -6585,7 +6585,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:224
 msgid "Disallow BLOB and BINARY fields from editing"
-msgstr ""
+msgstr "Prepeči urejanje polj BLOB in BINARY"
 
 #: setup/lib/messages.inc.php:225
 msgid "Protect binary fields"
