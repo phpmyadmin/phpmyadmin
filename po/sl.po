@@ -1434,7 +1434,7 @@ msgstr "Izvedi izbrano poizvedbo"
 
 #: libraries/messages.inc.php:317 setup/lib/messages.inc.php:353
 msgid "Explain SQL"
-msgstr "Razloži SQL stavek"
+msgstr "Razloži stavek SQL"
 
 #: libraries/messages.inc.php:318
 msgid "Export"
