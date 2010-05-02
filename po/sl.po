@@ -7218,7 +7218,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:358
 msgid "Suggest new database name"
-msgstr ""
+msgstr "Predlagaj novo ime zbirke podatkov"
 
 #: setup/lib/messages.inc.php:359
 msgid "yes"
