@@ -5904,7 +5904,7 @@ msgstr "Zavihek, ki se prikaže ob odprtju tabele"
 
 #: setup/lib/messages.inc.php:57
 msgid "Default table tab"
-msgstr ""
+msgstr "Privzet zavihek tabele"
 
 #: setup/lib/messages.inc.php:58
 msgid ""
