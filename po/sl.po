@@ -7073,7 +7073,7 @@ msgstr ""
 #: setup/lib/messages.inc.php:329
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
-msgstr ""
+msgstr "Ali se naj uporabniku prikaže gumb &quot;prikaži vse (zapise)&quot;"
 
 #: setup/lib/messages.inc.php:330
 msgid "Allow to display all the rows"
