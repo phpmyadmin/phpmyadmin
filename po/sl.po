@@ -4818,7 +4818,7 @@ msgstr "Komentar tabele"
 
 #: libraries/messages.inc.php:1080
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "Ali želite izbrisati vse prejšnje vrstice iz ciljnih tabel?"
 
 #: libraries/messages.inc.php:1081
 msgid "The table name is empty!"
