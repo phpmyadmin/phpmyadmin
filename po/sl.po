@@ -5878,7 +5878,7 @@ msgstr "Privzet jezik"
 
 #: setup/lib/messages.inc.php:51
 msgid "Default server"
-msgstr ""
+msgstr "Privzet strežnik"
 
 #: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
