@@ -5931,7 +5931,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Prikaži strežnike kot seznam"
 
 #: setup/lib/messages.inc.php:64
 msgid "Donate"
