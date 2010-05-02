@@ -4810,7 +4810,7 @@ msgstr "Tabela %1$s je bila uspešno spremenjena"
 
 #: libraries/messages.inc.php:1078
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Uveljavi indeks(e)"
 
 #: libraries/messages.inc.php:1079
 msgid "Table comments"
