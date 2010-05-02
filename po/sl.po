@@ -6435,7 +6435,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
-msgstr ""
+msgstr "Lahki zavihki"
 
 #: setup/lib/messages.inc.php:190
 #, fuzzy
