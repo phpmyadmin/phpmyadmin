@@ -6082,7 +6082,7 @@ msgstr "Prilagodite način urejanja"
 
 #: setup/lib/messages.inc.php:103
 msgid "Edit mode"
-msgstr ""
+msgstr "Način urejanja"
 
 #: setup/lib/messages.inc.php:104
 msgid "Customize default export options"
