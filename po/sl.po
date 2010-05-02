@@ -6111,9 +6111,8 @@ msgid "Import / export"
 msgstr "Uvoz / izvoz"
 
 #: setup/lib/messages.inc.php:111
-#, fuzzy
 msgid "Databases display options"
-msgstr "Možnosti za izvoz baze podatkov"
+msgstr "Možnosti prikaza podatkovnih zbirk"
 
 #: setup/lib/messages.inc.php:112
 msgid "Customize appearance of the navigation frame"
