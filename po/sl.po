@@ -5020,7 +5020,7 @@ msgstr "Aktiviraj zdaj"
 #: libraries/messages.inc.php:1126
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "Aktiviraj sledenje %s.%s"
 
 #: libraries/messages.inc.php:1127
 msgid "Comment out these two lines if you do not need them."
