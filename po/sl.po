@@ -7124,7 +7124,7 @@ msgstr "Prikaži obrazec za spremembo gesla"
 
 #: setup/lib/messages.inc.php:333
 msgid "Show create database form"
-msgstr ""
+msgstr "Prikaži obrazec za ustvarjanje zbirke podatkov"
 
 #: setup/lib/messages.inc.php:334
 #, fuzzy
