@@ -5024,7 +5024,7 @@ msgstr "Aktiviraj sledenje %s.%s"
 
 #: libraries/messages.inc.php:1127
 msgid "Comment out these two lines if you do not need them."
-msgstr ""
+msgstr "Če teh dveh vrstic ne potrebujete, ju dajte v komentar."
 
 #: libraries/messages.inc.php:1128
 msgid "Create version"
