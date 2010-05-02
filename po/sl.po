@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-03 00:06+0200\n"
+"PO-Revision-Date: 2010-05-03 00:08+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5384,6 +5384,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Poskušali ste naložiti datoteko z nepodprtim stiskanjem (%s). Bodisi podpora "
+"za njega ni vključena ali pa je onemogočena z vašo konfiguracijo."
 
 #: libraries/messages.inc.php:1199
 #, php-format
