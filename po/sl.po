@@ -6416,7 +6416,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:184
 msgid "Logo link target"
-msgstr ""
+msgstr "Cilj povezave logotipa"
 
 #: setup/lib/messages.inc.php:185
 msgid "Highlight server under the mouse cursor"
