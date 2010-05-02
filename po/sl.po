@@ -7120,7 +7120,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:332
 msgid "Show password change form"
-msgstr "Prikaži obrazec za spremembo gesla"
+msgstr "Pokaži obrazec za spremembo gesla"
 
 #: setup/lib/messages.inc.php:333
 msgid "Show create database form"
