@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-03 00:41+0200\n"
+"PO-Revision-Date: 2010-05-03 00:43+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7310,7 +7310,7 @@ msgstr "Preverjanje različice"
 #: setup/lib/messages.inc.php:376
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
-msgstr ""
+msgstr "Na voljo ni ne vmesnik URL ne CURL. Preverjanje različice ni mogoče."
 
 #: setup/lib/messages.inc.php:377
 msgid "Warning"
