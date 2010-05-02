@@ -5015,7 +5015,7 @@ msgstr "Sledenje %s.%s je aktivirano."
 
 #: libraries/messages.inc.php:1125
 msgid "Activate now"
-msgstr ""
+msgstr "Aktiviraj zdaj"
 
 #: libraries/messages.inc.php:1126
 #, php-format
