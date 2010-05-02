@@ -6233,7 +6233,7 @@ msgstr "Prilagodi navigacijski okvir"
 
 #: setup/lib/messages.inc.php:140
 msgid "Customize main frame"
-msgstr ""
+msgstr "Prilagodi glavni okvir"
 
 #: setup/lib/messages.inc.php:141
 msgid "Customize links shown in SQL Query boxes"
