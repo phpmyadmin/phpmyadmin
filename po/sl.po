@@ -6899,7 +6899,7 @@ msgstr "Ime gostitelja strežnika"
 
 #: setup/lib/messages.inc.php:283
 msgid "Logout URL"
-msgstr ""
+msgstr "Odjavni URL"
 
 #: setup/lib/messages.inc.php:284
 msgid "Try to connect without password"
