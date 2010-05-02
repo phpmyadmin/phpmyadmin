@@ -21,6 +21,8 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/JAMA/LUDecomposition.php';
 require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/JAMA/QRDecomposition.php';
 require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/JAMA/EigenvalueDecomposition.php';
 require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/JAMA/SingularValueDecomposition.php';
+require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/String.php';
+require_once PHPEXCEL_ROOT . 'PHPExcel/Calculation/Functions.php';
 
 /*
  *	Matrix class
@@ -760,7 +762,21 @@ class Matrix {
 			$this->checkMatrixDimensions($M);
 			for($i = 0; $i < $this->m; ++$i) {
 				for($j = 0; $j < $this->n; ++$j) {
-					$this->A[$i][$j] += $M->get($i, $j);
+					$validValues = True;
+					$value = $M->get($i, $j);
+					if ((is_string($this->A[$i][$j])) && (!is_numeric($this->A[$i][$j]))) {
+						$this->A[$i][$j] = trim($this->A[$i][$j],'"');
+						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($this->A[$i][$j]);
+					}
+					if ((is_string($value)) && (!is_numeric($value))) {
+						$value = trim($value,'"');
+						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($value);
+					}
+					if ($validValues) {
+						$this->A[$i][$j] += $value;
+					} else {
+						$this->A[$i][$j] = PHPExcel_Calculation_Functions::NaN();
+					}
 				}
 			}
 			return $this;
@@ -832,7 +848,21 @@ class Matrix {
 			$this->checkMatrixDimensions($M);
 			for($i = 0; $i < $this->m; ++$i) {
 				for($j = 0; $j < $this->n; ++$j) {
-					$this->A[$i][$j] -= $M->get($i, $j);
+					$validValues = True;
+					$value = $M->get($i, $j);
+					if ((is_string($this->A[$i][$j])) && (!is_numeric($this->A[$i][$j]))) {
+						$this->A[$i][$j] = trim($this->A[$i][$j],'"');
+						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($this->A[$i][$j]);
+					}
+					if ((is_string($value)) && (!is_numeric($value))) {
+						$value = trim($value,'"');
+						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($value);
+					}
+					if ($validValues) {
+						$this->A[$i][$j] -= $value;
+					} else {
+						$this->A[$i][$j] = PHPExcel_Calculation_Functions::NaN();
+					}
 				}
 			}
 			return $this;
@@ -906,7 +936,21 @@ class Matrix {
 			$this->checkMatrixDimensions($M);
 			for($i = 0; $i < $this->m; ++$i) {
 				for($j = 0; $j < $this->n; ++$j) {
-					$this->A[$i][$j] *= $M->get($i, $j);
+					$validValues = True;
+					$value = $M->get($i, $j);
+					if ((is_string($this->A[$i][$j])) && (!is_numeric($this->A[$i][$j]))) {
+						$this->A[$i][$j] = trim($this->A[$i][$j],'"');
+						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($this->A[$i][$j]);
+					}
+					if ((is_string($value)) && (!is_numeric($value))) {
+						$value = trim($value,'"');
+						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($value);
+					}
+					if ($validValues) {
+						$this->A[$i][$j] *= $value;
+					} else {
+						$this->A[$i][$j] = PHPExcel_Calculation_Functions::NaN();
+					}
 				}
 			}
 			return $this;
@@ -943,7 +987,26 @@ class Matrix {
 			$this->checkMatrixDimensions($M);
 			for($i = 0; $i < $this->m; ++$i) {
 				for($j = 0; $j < $this->n; ++$j) {
-					$M->set($i, $j, $this->A[$i][$j] / $M->get($i, $j));
+					$validValues = True;
+					$value = $M->get($i, $j);
+					if ((is_string($this->A[$i][$j])) && (!is_numeric($this->A[$i][$j]))) {
+						$this->A[$i][$j] = trim($this->A[$i][$j],'"');
+						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($this->A[$i][$j]);
+					}
+					if ((is_string($value)) && (!is_numeric($value))) {
+						$value = trim($value,'"');
+						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($value);
+					}
+					if ($validValues) {
+						if ($value == 0) {
+							//	Trap for Divide by Zero error
+							$M->set($i, $j, '#DIV/0!');
+						} else {
+							$M->set($i, $j, $this->A[$i][$j] / $value);
+						}
+					} else {
+						$this->A[$i][$j] = PHPExcel_Calculation_Functions::NaN();
+					}
 				}
 			}
 			return $M;
@@ -1181,7 +1244,21 @@ class Matrix {
 			$this->checkMatrixDimensions($M);
 			for($i = 0; $i < $this->m; ++$i) {
 				for($j = 0; $j < $this->n; ++$j) {
-					$this->A[$i][$j] = pow($this->A[$i][$j],$M->get($i, $j));
+					$validValues = True;
+					$value = $M->get($i, $j);
+					if ((is_string($this->A[$i][$j])) && (!is_numeric($this->A[$i][$j]))) {
+						$this->A[$i][$j] = trim($this->A[$i][$j],'"');
+						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($this->A[$i][$j]);
+					}
+					if ((is_string($value)) && (!is_numeric($value))) {
+						$value = trim($value,'"');
+						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($value);
+					}
+					if ($validValues) {
+						$this->A[$i][$j] = pow($this->A[$i][$j],$value);
+					} else {
+						$this->A[$i][$j] = PHPExcel_Calculation_Functions::NaN();
+					}
 				}
 			}
 			return $this;

@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel2007
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.2, 2010-01-11
  */
 
 
@@ -55,7 +55,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/XMLWriter.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel2007
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel2007_Rels extends PHPExcel_Writer_Excel2007_WriterPart
 {
@@ -219,13 +219,13 @@ class PHPExcel_Writer_Excel2007_Rels extends PHPExcel_Writer_Excel2007_WriterPar
 
 			// Write hyperlink relationships?
 			$i = 1;
-			foreach ($pWorksheet->getCellCollection() as $cell) {
-				if ($cell->hasHyperlink() && !$cell->getHyperlink()->isInternal()) {
+			foreach ($pWorksheet->getHyperlinkCollection() as $hyperlink) {
+				if (!$hyperlink->isInternal()) {
 					$this->_writeRelationship(
 						$objWriter,
 						'_hyperlink_' . $i,
 						'http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink',
-						$cell->getHyperlink()->getUrl(),
+						$hyperlink->getUrl(),
 						'External'
 					);
 
@@ -292,7 +292,7 @@ class PHPExcel_Writer_Excel2007_Rels extends PHPExcel_Writer_Excel2007_WriterPar
 		$objWriter->startElement('Relationships');
 		$objWriter->writeAttribute('xmlns', 'http://schemas.openxmlformats.org/package/2006/relationships');
 
-			// Loop trough images and write relationships
+			// Loop through images and write relationships
 			$i = 1;
 			$iterator = $pWorksheet->getDrawingCollection()->getIterator();
 			while ($iterator->valid()) {
@@ -341,7 +341,7 @@ class PHPExcel_Writer_Excel2007_Rels extends PHPExcel_Writer_Excel2007_WriterPar
 		$objWriter->startElement('Relationships');
 		$objWriter->writeAttribute('xmlns', 'http://schemas.openxmlformats.org/package/2006/relationships');
 
-			// Loop trough images and write relationships
+			// Loop through images and write relationships
 			foreach ($pWorksheet->getHeaderFooter()->getImages() as $key => $value) {
 				// Write relationship for image drawing
 				$this->_writeRelationship(

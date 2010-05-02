@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.0, 2009-08-10
+ * @version	1.7.2, 2010-01-11
  */
 
 
@@ -43,6 +43,9 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
 /** PHPExcel_HashTable */
 require_once PHPEXCEL_ROOT . 'PHPExcel/HashTable.php';
 
+/** PHPExcel_Shared_File */
+require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/File.php';
+
 /** PHPExcel_Shared_OLE_PPS_Root */
 require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE/OLE_Root.php';
 
@@ -61,10 +64,17 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel5/Workbook.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 {
+	/**
+	 * Pre-calculate formulas
+	 *
+	 * @var boolean
+	 */
+	private $_preCalculateFormulas;
+
 	/**
 	 * PHPExcel object
 	 *
@@ -108,6 +118,13 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 	private $_str_table;
 
 	/**
+	 * Color cache. Mapping between RGB value and color index.
+	 *
+	 * @var array
+	 */
+	private $_colors;
+
+	/**
 	 * Formula parser
 	 *
 	 * @var PHPExcel_Writer_Excel5_Parser
@@ -121,9 +138,10 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 	 * @param	PHPExcel	$phpExcel	PHPExcel object
 	 */
 	public function __construct(PHPExcel $phpExcel) {
+		$this->_preCalculateFormulas = true;
 		$this->_phpExcel		= $phpExcel;
 		$this->_BIFF_version	= 0x0600;
-		$this->_tempDir			= '';
+		$this->_tempDir			= PHPExcel_Shared_File::sys_get_temp_dir();
 		
 		$this->_str_total       = 0;
 		$this->_str_unique      = 0;
@@ -151,9 +169,12 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 		$saveDateReturnType = PHPExcel_Calculation_Functions::getReturnDateType();
 		PHPExcel_Calculation_Functions::setReturnDateType(PHPExcel_Calculation_Functions::RETURNDATE_EXCEL);
 
+		// initialize colors array
+		$this->_colors          = array();
+
 		// Initialise workbook writer
 		$this->_writerWorkbook = new PHPExcel_Writer_Excel5_Workbook($this->_phpExcel, $this->_BIFF_version,
-					$this->_str_total, $this->_str_unique, $this->_str_table, $this->_parser, $this->_tempDir);
+					$this->_str_total, $this->_str_unique, $this->_str_table, $this->_colors, $this->_parser, $this->_tempDir);
 
 		// Initialise worksheet writers
 		$countSheets = count($this->_phpExcel->getAllSheets());
@@ -162,8 +183,9 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 			
 			$writerWorksheet = new PHPExcel_Writer_Excel5_Worksheet($this->_BIFF_version,
 									   $this->_str_total, $this->_str_unique,
-									   $this->_str_table,
+									   $this->_str_table, $this->_colors,
 									   $this->_parser, $this->_tempDir,
+									   $this->_preCalculateFormulas,
 									   $phpSheet);
 			$this->_writerWorksheets[$i] = $writerWorksheet;
 		}
@@ -246,6 +268,24 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 			throw new Exception("Directory does not exist: $pValue");
 		}
 		return $this;
+	}
+
+	/**
+	 * Get Pre-Calculate Formulas
+	 *
+	 * @return boolean
+	 */
+	public function getPreCalculateFormulas() {
+		return $this->_preCalculateFormulas;
+	}
+
+	/**
+	 * Set Pre-Calculate Formulas
+	 *
+	 * @param boolean $pValue	Pre-Calculate Formulas?
+	 */
+	public function setPreCalculateFormulas($pValue = true) {
+		$this->_preCalculateFormulas = $pValue;
 	}
 
 }

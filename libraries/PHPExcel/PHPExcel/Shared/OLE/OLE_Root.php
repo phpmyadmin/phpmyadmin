@@ -248,7 +248,7 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 				  . pack("V", 0)
 				  . pack("V", 0x1000)
 				  . pack("V", $iSBDcnt ? 0 : -2)                  //Small Block Depot
-				  . pack("V", 1)
+				  . pack("V", $iSBDcnt)
 		  );
 		// Extra BDList Start, Count
 		if ($iBdCnt < $i1stBdL) {

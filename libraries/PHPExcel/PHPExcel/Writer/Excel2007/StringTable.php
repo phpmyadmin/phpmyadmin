@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel2007
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.2, 2010-01-11
  */
 
 
@@ -55,7 +55,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/String.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel2007
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel2007_StringTable extends PHPExcel_Writer_Excel2007_WriterPart
 {
@@ -83,7 +83,7 @@ class PHPExcel_Writer_Excel2007_StringTable extends PHPExcel_Writer_Excel2007_Wr
 			// Fill index array
 			$aFlippedStringTable = $this->flipStringTable($aStringTable);
 			
-	        // Loop trough cells
+	        // Loop through cells
 	        $cellCollection = $pSheet->getCellCollection();
 	        foreach ($cellCollection as $cell) {
 	        	if (!is_object($cell->getValue()) &&
@@ -137,7 +137,7 @@ class PHPExcel_Writer_Excel2007_StringTable extends PHPExcel_Writer_Excel2007_Wr
 			$objWriter->writeAttribute('xmlns', 'http://schemas.openxmlformats.org/spreadsheetml/2006/main');
 			$objWriter->writeAttribute('uniqueCount', count($pStringTable));
 			
-				// Loop trough string table
+				// Loop through string table
 				foreach ($pStringTable as $textElement) {
 					$objWriter->startElement('si');
 					
@@ -174,7 +174,7 @@ class PHPExcel_Writer_Excel2007_StringTable extends PHPExcel_Writer_Excel2007_Wr
 	 */
 	public function writeRichText(PHPExcel_Shared_XMLWriter $objWriter = null, PHPExcel_RichText $pRichText = null)
 	{
-		// Loop trough rich text elements
+		// Loop through rich text elements
 		$elements = $pRichText->getRichTextElements();
 		foreach ($elements as $element) {
 			// r
@@ -237,7 +237,7 @@ class PHPExcel_Writer_Excel2007_StringTable extends PHPExcel_Writer_Excel2007_Wr
 				// t
 				$objWriter->startElement('t');
 				$objWriter->writeAttribute('xml:space', 'preserve');
-				$objWriter->writeRaw(PHPExcel_Shared_String::ControlCharacterPHP2OOXML( htmlspecialchars($element->getText()) ));
+				$objWriter->writeRaw(PHPExcel_Shared_String::ControlCharacterPHP2OOXML( $element->getText() ));
 				$objWriter->endElement();
 					
 			$objWriter->endElement();
@@ -254,7 +254,7 @@ class PHPExcel_Writer_Excel2007_StringTable extends PHPExcel_Writer_Excel2007_Wr
 		// Return value
 		$returnValue = array();
 		
-		// Loop trough stringtable and add flipped items to $returnValue
+		// Loop through stringtable and add flipped items to $returnValue
 		foreach ($stringTable as $key => $value) {
 			if (! $value instanceof PHPExcel_RichText) {
 				$returnValue[$value] = $key;

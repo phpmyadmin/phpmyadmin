@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.2, 2010-01-11
  */
 
 
@@ -31,16 +31,36 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Shared_String
 {
+	/**	Constants				*/
+	/**	Regular Expressions		*/
+	//	Fraction
+	const STRING_REGEXP_FRACTION	= '(-?)(\d+)\s+(\d+\/\d+)';
+
+
 	/**
 	 * Control characters array
 	 *
 	 * @var string[]
 	 */
 	private static $_controlCharacters = array();
+
+	/**
+	 * Decimal separator
+	 *
+	 * @var string
+	 */
+	private static $_decimalSeparator;
+
+	/**
+	 * Thousands separator
+	 *
+	 * @var string
+	 */
+	private static $_thousandsSeparator;
 
 	/**
 	 * Is mbstring extension avalable?
@@ -60,7 +80,7 @@ class PHPExcel_Shared_String
 	 * Build control characters array
 	 */
 	private static function _buildControlCharacters() {
-		for ($i = 0; $i <= 19; ++$i) {
+		for ($i = 0; $i <= 31; ++$i) {
 			if ($i != 9 && $i != 10 && $i != 13) {
 				$find = '_x' . sprintf('%04s' , strtoupper(dechex($i))) . '_';
 				$replace = chr($i);
@@ -97,12 +117,19 @@ class PHPExcel_Shared_String
 			return self::$_isIconvEnabled;
 		}
 
-                // IBM AIX iconv() does not work
-		self::$_isIconvEnabled = function_exists('iconv') &&
-				!(defined('PHP_OS') && @stristr(PHP_OS, 'AIX') && defined('ICONV_IMPL') 
-				&& (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && defined('ICONV_VERSION') 
-				&& (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) ? 
-			true : false;
+		// Check that iconv exists
+		// Sometimes iconv is not working, and e.g. iconv('UTF-8', 'UTF-16LE', 'x') just returns false,
+		// we cannot use iconv when that happens
+		// Also, sometimes iconv_substr('A', 0, 1, 'UTF-8') just returns false in PHP 5.2.0
+		// we cannot use iconv in that case either (http://bugs.php.net/bug.php?id=37773)
+		if (function_exists('iconv')
+			&& @iconv('UTF-8', 'UTF-16LE', 'x')
+			&& @iconv_substr('A', 0, 1, 'UTF-8') ) {
+
+			self::$_isIconvEnabled = true;
+		} else {
+			self::$_isIconvEnabled = false;
+		}
 
 		return self::$_isIconvEnabled;
 	}
@@ -172,7 +199,7 @@ class PHPExcel_Shared_String
 		// else, no conversion
 		return $value;
 	}
-	
+
 	/**
 	 * Check if a string contains UTF8 data
 	 *
@@ -213,7 +240,7 @@ class PHPExcel_Shared_String
 		$ln = self::CountCharacters($value, 'UTF-8');
 
 		// option flags
-		$opt = (self::getIsIconvEnabled() || self::getIsMbstringEnabled()) ? 
+		$opt = (self::getIsIconvEnabled() || self::getIsMbstringEnabled()) ?
 			0x0001 : 0x0000;
 
 		// characters
@@ -239,7 +266,7 @@ class PHPExcel_Shared_String
 		$ln = self::CountCharacters($value, 'UTF-8');
 
 		// option flags
-		$opt = (self::getIsIconvEnabled() || self::getIsMbstringEnabled()) ? 
+		$opt = (self::getIsIconvEnabled() || self::getIsMbstringEnabled()) ?
 			0x0001 : 0x0000;
 
 		// characters
@@ -272,7 +299,7 @@ class PHPExcel_Shared_String
 		// else, no conversion
 		return $value;
 	}
-	
+
 	/**
 	 * Get character count. First try mbstring, then iconv, finally strlen
 	 *
@@ -320,6 +347,84 @@ class PHPExcel_Shared_String
 		// else substr
 		$string = substr($pValue, $pStart, $pLength);
 		return $string;
+	}
+
+
+	/**
+	 * Identify whether a string contains a fractional numeric value,
+	 *    and convert it to a numeric if it is
+	 *
+	 * @param string &$operand string value to test
+	 * @return boolean
+	 */
+	public static function convertToNumberIfFraction(&$operand) {
+		if (preg_match('/^'.self::STRING_REGEXP_FRACTION.'$/i', $operand, $match)) {
+			$sign = ($match[1] == '-') ? '-' : '+';
+			$fractionFormula = '='.$sign.$match[2].$sign.$match[3];
+			$operand = PHPExcel_Calculation::getInstance()->_calculateFormulaValue($fractionFormula);
+			return true;
+		}
+		return false;
+	}	//	function convertToNumberIfFraction()
+
+	/**
+	 * Get the decimal separator. If it has not yet been set explicitly, try to obtain number
+	 * formatting information from locale.
+	 *
+	 * @return string
+	 */
+	public static function getDecimalSeparator()
+	{
+		if (!isset(self::$_decimalSeparator)) {
+			$localeconv = localeconv();
+			self::$_decimalSeparator = $localeconv['decimal_point'] != ''
+				? $localeconv['decimal_point'] : $localeconv['mon_decimal_point'];
+				
+			if (self::$_decimalSeparator == '')
+			{
+				// Default to .
+				self::$_decimalSeparator = '.';
+			}
+		}
+		return self::$_decimalSeparator;
+	}
+
+	/**
+	 * Set the decimal separator. Only used by PHPExcel_Style_NumberFormat::toFormattedString()
+	 * to format output by PHPExcel_Writer_HTML and PHPExcel_Writer_PDF
+	 *
+	 * @param string $pValue Character for decimal separator
+	 */
+	public static function setDecimalSeparator($pValue = '.')
+	{
+		self::$_decimalSeparator = $pValue;
+	}
+
+	/**
+	 * Get the thousands separator. If it has not yet been set explicitly, try to obtain number
+	 * formatting information from locale.
+	 *
+	 * @return string
+	 */
+	public static function getThousandsSeparator()
+	{
+		if (!isset(self::$_thousandsSeparator)) {
+			$localeconv = localeconv();
+			self::$_thousandsSeparator = $localeconv['thousands_sep'] != ''
+				? $localeconv['thousands_sep'] : $localeconv['mon_thousands_sep'];
+		}
+		return self::$_thousandsSeparator;
+	}
+
+	/**
+	 * Set the thousands separator. Only used by PHPExcel_Style_NumberFormat::toFormattedString()
+	 * to format output by PHPExcel_Writer_HTML and PHPExcel_Writer_PDF
+	 *
+	 * @param string $pValue Character for thousands separator
+	 */
+	public static function setThousandsSeparator($pValue = ',')
+	{
+		self::$_thousandsSeparator = $pValue;
 	}
 
 }

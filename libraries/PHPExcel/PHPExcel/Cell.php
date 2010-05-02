@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category	PHPExcel
  * @package		PHPExcel_Cell
- * @copyright	Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright	Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license		http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version		1.7.0, 2009-08-10
+ * @version		1.7.2, 2010-01-11
  */
 
 
@@ -64,7 +64,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/String.php';
  *
  * @category   PHPExcel
  * @package	PHPExcel_Cell
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Cell
 {
@@ -136,11 +136,6 @@ class PHPExcel_Cell
 	 */
 	public function __construct($pColumn = 'A', $pRow = 1, $pValue = null, $pDataType = null, PHPExcel_Worksheet $pSheet = null)
 	{
-		// Set value binder?
-		if (is_null(self::$_valueBinder)) {
-			self::$_valueBinder = new PHPExcel_Cell_DefaultValueBinder();
-		}
-
 		// Initialise cell coordinate
 		$this->_column = strtoupper($pColumn);
 		$this->_row = $pRow;
@@ -171,7 +166,7 @@ class PHPExcel_Cell
 	 */
 	public function getColumn()
 	{
-		return strtoupper($this->_column);
+		return $this->_column;
 	}
 
 	/**
@@ -226,22 +221,42 @@ class PHPExcel_Cell
 	 * @param mixed 	$pValue			Value
 	 * @param string	$pDataType		Explicit data type
 	 * @return PHPExcel_Cell
+	 * @throws Exception
 	 */
 	public function setValueExplicit($pValue = null, $pDataType = PHPExcel_Cell_DataType::TYPE_STRING)
 	{
-		// check strings that they are ok
-		// TODO: fix also for RichText
-		if ($pDataType == PHPExcel_Cell_DataType::TYPE_STRING && !($pValue instanceof PHPExcel_RichText)) {
-			// string must never be longer than 32,767 characters, truncate if necessary
-			$pValue = PHPExcel_Shared_String::Substring($pValue, 0, 32767);
+		// set the value according to data type
+		switch ($pDataType) {
+			case PHPExcel_Cell_DataType::TYPE_STRING:
+			case PHPExcel_Cell_DataType::TYPE_NULL:
+			case PHPExcel_Cell_DataType::TYPE_INLINE:
+				$this->_value = PHPExcel_Cell_DataType::checkString($pValue);
+				break;
 
-			// we require that newline is represented as "\n" in core, not as "\r\n" or "\r"
-			$pValue = str_replace(array("\r\n", "\r"), "\n", $pValue);
+			case PHPExcel_Cell_DataType::TYPE_NUMERIC:
+				$this->_value = (float)$pValue;
+				break;
+
+			case PHPExcel_Cell_DataType::TYPE_FORMULA:
+				$this->_value = (string)$pValue;
+				break;
+
+			case PHPExcel_Cell_DataType::TYPE_BOOL:
+				$this->_value = (bool)$pValue;
+				break;
+
+			case PHPExcel_Cell_DataType::TYPE_ERROR:
+				$this->_value = PHPExcel_Cell_DataType::checkErrorCode($pValue);
+				break;
+
+			default:
+				throw new Exception('Invalid datatype: ' . $pDataType);
+				break;
 		}
 
-		$this->_value 		= $pValue;
-   		$this->_dataType 	= $pDataType;
-   		return $this;
+		// set the datatype
+		$this->_dataType = $pDataType;
+		return $this;
 	}
 
 	/**
@@ -492,22 +507,17 @@ class PHPExcel_Cell
 	{
 		if (strpos($pCoordinateString,':') !== false) {
 			throw new Exception('Cell coordinate string can not be a range of cells.');
+
 		} else if ($pCoordinateString == '') {
 			throw new Exception('Cell coordinate can not be zero-length string.');
-		} else {
-			// Column
-			$column = '';
 
-			// Row
-			$row = '';
-
-			// Convert a cell reference
-			if (preg_match("/([$]?[A-Z]+)([$]?\d+)/", $pCoordinateString, $matches)) {
-				list(, $column, $row) = $matches;
-			}
-
-			// Return array
+		} else if (preg_match("/([$]?[A-Z]+)([$]?\d+)/", $pCoordinateString, $matches)) {
+			list(, $column, $row) = $matches;
 			return array($column, $row);
+
+		} else {
+			throw new Exception('Invalid cell coordinate.');
+
 		}
 	}
 
@@ -745,6 +755,10 @@ class PHPExcel_Cell
 	 * @return PHPExcel_Cell_IValueBinder
 	 */
 	public static function getValueBinder() {
+		if (is_null(self::$_valueBinder)) {
+			self::$_valueBinder = new PHPExcel_Cell_DefaultValueBinder();
+		}
+
 		return self::$_valueBinder;
 	}
 
