@@ -5947,7 +5947,7 @@ msgstr "Konec vrstice"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Ne morem se povezati s strežnikom MySQL"
 
 #: setup/lib/messages.inc.php:68
 msgid "Empty phpMyAdmin control user password while using pmadb"
