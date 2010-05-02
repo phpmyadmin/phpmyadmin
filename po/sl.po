@@ -5990,7 +5990,7 @@ msgstr "Napačna vrednost"
 #: setup/lib/messages.inc.php:77
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "Manjkajoči podatki za %s"
 
 #: setup/lib/messages.inc.php:78
 msgid "Not a non-negative number"
