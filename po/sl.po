@@ -7268,7 +7268,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:373
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "Na voljo ni novejše stabilne različice"
 
 #: setup/lib/messages.inc.php:374
 msgid "Unparsable version string"
