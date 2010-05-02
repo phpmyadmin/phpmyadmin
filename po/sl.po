@@ -6431,7 +6431,7 @@ msgstr "Niz, ki loči tabele v različne stopnje drevesa"
 
 #: setup/lib/messages.inc.php:181
 msgid "Table tree separator"
-msgstr ""
+msgstr "Ločilo drevesa tabel"
 
 #: setup/lib/messages.inc.php:182
 msgid "Logo link URL"
