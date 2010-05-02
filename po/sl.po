@@ -6655,7 +6655,7 @@ msgstr "Mapa, kamor se lahko na strežnik shranijo izvozi"
 
 #: setup/lib/messages.inc.php:237
 msgid "Save directory"
-msgstr ""
+msgstr "Mapa za shranjevanje"
 
 #: setup/lib/messages.inc.php:238
 #, php-format
