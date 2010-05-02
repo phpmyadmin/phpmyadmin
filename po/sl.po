@@ -7048,7 +7048,7 @@ msgstr "Izbira strežnika"
 
 #: setup/lib/messages.inc.php:316
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Omogoči SSL za povezavo s strežnikom MySQL"
 
 #: setup/lib/messages.inc.php:317
 msgid "Use SSL"
