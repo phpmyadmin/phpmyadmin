@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_RichText
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.2, 2010-01-11
  */
 
 
@@ -60,7 +60,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Style/Font.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_RichText
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_RichText implements PHPExcel_IComparable
 {
@@ -157,7 +157,7 @@ class PHPExcel_RichText implements PHPExcel_IComparable
     	// Return value
     	$returnValue = '';
     	
-    	// Loop trough all PHPExcel_RichText_ITextElement
+    	// Loop through all PHPExcel_RichText_ITextElement
     	foreach ($this->_richTextElements as $text) {
     		$returnValue .= $text->getText();
     	}
@@ -256,37 +256,6 @@ class PHPExcel_RichText implements PHPExcel_IComparable
     		. __CLASS__
     	);
     }
-    
-    /**
-     * Hash index
-     *
-     * @var string
-     */
-    private $_hashIndex;
-    
-	/**
-	 * Get hash index
-	 * 
-	 * Note that this index may vary during script execution! Only reliable moment is
-	 * while doing a write of a workbook and when changes are not allowed.
-	 *
-	 * @return string	Hash index
-	 */
-	public function getHashIndex() {
-		return $this->_hashIndex;
-	}
-	
-	/**
-	 * Set hash index
-	 * 
-	 * Note that this index may vary during script execution! Only reliable moment is
-	 * while doing a write of a workbook and when changes are not allowed.
-	 *
-	 * @param string	$value	Hash index
-	 */
-	public function setHashIndex($value) {
-		$this->_hashIndex = $value;
-	}
     
 	/**
 	 * Implement PHP __clone to create a deep clone, not just a shallow copy.

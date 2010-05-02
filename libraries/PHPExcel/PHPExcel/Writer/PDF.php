@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.2, 2010-01-11
  */
 
 
@@ -49,6 +49,9 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/RichText.php';
 /** PHPExcel_Shared_Drawing */
 require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Drawing.php';
 
+/** PHPExcel_Shared_File */
+require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/File.php';
+
 /** PHPExcel_HashTable */
 require_once PHPEXCEL_ROOT . 'PHPExcel/HashTable.php';
 
@@ -61,7 +64,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/PDF.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 	/**
@@ -79,7 +82,7 @@ class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Write
 	public function __construct(PHPExcel $phpExcel) {
 		parent::__construct($phpExcel);
 		$this->setUseInlineCss(true);
-		$this->_tempDir = sys_get_temp_dir();
+		$this->_tempDir = PHPExcel_Shared_File::sys_get_temp_dir();
 	}
 
 	/**
@@ -129,7 +132,13 @@ class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Write
 		$pdf->setPrintHeader(false);
 		$pdf->setPrintFooter(false);
 		$pdf->AddPage();
+
+		// Set the appropriate font
 		$pdf->SetFont('freesans');
+		//$pdf->SetFont('arialunicid0-chinese-simplified');
+		//$pdf->SetFont('arialunicid0-chinese-traditional');
+		//$pdf->SetFont('arialunicid0-korean');
+		//$pdf->SetFont('arialunicid0-japanese');
 		$pdf->writeHTML($html);
 
 		// Document info

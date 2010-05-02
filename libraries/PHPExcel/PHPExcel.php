@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.2, 2010-01-11
  */
 
 
@@ -58,7 +58,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/WorksheetIterator.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel
 {
@@ -212,6 +212,8 @@ class PHPExcel
      * Add sheet
      *
      * @param PHPExcel_Worksheet $pSheet
+	 * @param int|null $iSheetIndex Index where sheet should go (0,1,..., or null for last)
+     * @return PHPExcel_Worksheet
      * @throws Exception
      */
     public function addSheet(PHPExcel_Worksheet $pSheet = null, $iSheetIndex = null)
@@ -229,7 +231,14 @@ class PHPExcel
                 0,
                 array($pSheet)
                 );
+
+			// Adjust active sheet index if necessary
+			if ($this->_activeSheetIndex >= $iSheetIndex) {
+				++$this->_activeSheetIndex;
+			}
+
         }
+		return $pSheet;
     }
 
 	/**
@@ -390,10 +399,11 @@ class PHPExcel
 	 * Add external sheet
 	 *
 	 * @param PHPExcel_Worksheet $pSheet External sheet to add
+	 * @param int|null $iSheetIndex Index where sheet should go (0,1,..., or null for last)
 	 * @throws Exception
 	 * @return PHPExcel_Worksheet
 	 */
-	public function addExternalSheet(PHPExcel_Worksheet $pSheet) {
+	public function addExternalSheet(PHPExcel_Worksheet $pSheet, $iSheetIndex = null) {
 		if (!is_null($this->getSheetByName($pSheet->getTitle()))) {
 			throw new Exception("Workbook already contains a worksheet named '{$pSheet->getTitle()}'. Rename the external sheet first.");
 		}
@@ -414,7 +424,7 @@ class PHPExcel
 			$cell->setXfIndex( $cell->getXfIndex() + $countCellXfs );
 		}
 
-		return $this->addSheet($pSheet);
+		return $this->addSheet($pSheet, $iSheetIndex);
 	}
 
 	/**
@@ -700,7 +710,8 @@ class PHPExcel
 	}
 
 	/**
-	 * Eliminate all unneeded cellXf and afterwards update the xfIndex for all cells in the workbook
+	 * Eliminate all unneeded cellXf and afterwards update the xfIndex for all cells
+	 * and columns in the workbook
 	 */
 	public function garbageCollect()
 	{
@@ -711,12 +722,27 @@ class PHPExcel
 		}
 
 		foreach ($this->getWorksheetIterator() as $sheet) {
+
+			// from cells
 			foreach ($sheet->getCellCollection(false) as $cell) {
 				++$countReferencesCellXf[$cell->getXfIndex()];
 			}
+
+			// from row dimensions
+			foreach ($sheet->getRowDimensions() as $rowDimension) {
+				if ($rowDimension->getXfIndex() !== null) {
+					++$countReferencesCellXf[$rowDimension->getXfIndex()];
+				}
+			}
+
+			// from column dimensions
+			foreach ($sheet->getColumnDimensions() as $columnDimension) {
+				++$countReferencesCellXf[$columnDimension->getXfIndex()];
+			}
 		}
 
-		// remove those cellXfs that have zero references and create mapping so we can update xfIndex for all cells
+		// remove cellXfs without references and create mapping so we can update xfIndex
+		// for all cells and columns
 		$countNeededCellXfs = 0;
 		foreach ($this->_cellXfCollection as $index => $cellXf) {
 			if ($countReferencesCellXf[$index] > 0 || $index == 0) { // we must never remove the first cellXf
@@ -728,15 +754,34 @@ class PHPExcel
 		}
 		$this->_cellXfCollection = array_values($this->_cellXfCollection);
 
-		// if we removed the first style by accident, recreate it
+		// update the index for all cellXfs
+		foreach ($this->_cellXfCollection as $i => $cellXf) {
+			echo $cellXf->setIndex($i);
+		}
+
+		// make sure there is always at least one cellXf (there should be)
 		if (count($this->_cellXfCollection) == 0) {
 			$this->_cellXfCollection[] = new PHPExcel_Style();
 		}
 
-		// update the xfIndex for all cells
+		// update the xfIndex for all cells, row dimensions, column dimensions
 		foreach ($this->getWorksheetIterator() as $sheet) {
+
+			// for all cells
 			foreach ($sheet->getCellCollection(false) as $cell) {
 				$cell->setXfIndex( $map[$cell->getXfIndex()] );
+			}
+
+			// for all row dimensions
+			foreach ($sheet->getRowDimensions() as $rowDimension) {
+				if ($rowDimension->getXfIndex() !== null) {
+					$rowDimension->setXfIndex( $map[$rowDimension->getXfIndex()] );
+				}
+			}
+
+			// for all column dimensions
+			foreach ($sheet->getColumnDimensions() as $columnDimension) {
+				$columnDimension->setXfIndex( $map[$columnDimension->getXfIndex()] );
 			}
 		}
 

@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.2, 2010-01-11
  */
 
 
@@ -55,10 +55,17 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/DefaultReadFilter.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 {
+	/**
+	 * Input encoding
+	 *
+	 * @var string
+	 */
+	private $_inputEncoding;
+
 	/**
 	 * Delimiter
 	 *
@@ -98,6 +105,7 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	 * Create a new PHPExcel_Reader_CSV
 	 */
 	public function __construct() {
+		$this->_inputEncoding = 'UTF-8';
 		$this->_delimiter 	= ',';
 		$this->_enclosure 	= '"';
 		$this->_lineEnding 	= PHP_EOL;
@@ -117,9 +125,8 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 		if (!file_exists($pFilename)) {
 			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
-		
-		// Check if it is a CSV file (using file name)
-		return (substr(strtolower($pFilename), -3) == 'csv');
+
+		return true;
 	}
 
 	/**
@@ -156,6 +163,26 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	}
 
 	/**
+	 * Set input encoding
+	 *
+	 * @param string $pValue Input encoding
+	 */
+	public function setInputEncoding($pValue = 'UTF-8')
+	{
+		$this->_inputEncoding = $pValue;
+	}
+
+	/**
+	 * Get input encoding
+	 *
+	 * @return string
+	 */
+	public function getInputEncoding()
+	{
+		return $this->_inputEncoding;
+	}
+
+	/**
 	 * Loads PHPExcel from file into PHPExcel instance
 	 *
 	 * @param 	string 		$pFilename
@@ -181,7 +208,18 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 			throw new Exception("Could not open file $pFilename for reading.");
 		}
 
-		// Loop trough file
+		// Skip BOM, if any
+		switch ($this->_inputEncoding) {
+			case 'UTF-8':
+				fgets($fileHandle, 4) == "\xEF\xBB\xBF" ?
+					fseek($fileHandle, 3) : fseek($fileHandle, 0);
+				break;
+
+			default:
+				break;
+		}
+
+		// Loop through file
 		$currentRow = 0;
 		$rowData = array();
 		while (($rowData = fgetcsv($fileHandle, 0, $this->_delimiter, $this->_enclosure)) !== FALSE) {
@@ -193,6 +231,11 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 					// Unescape enclosures
 					$rowData[$i] = str_replace("\\" . $this->_enclosure, $this->_enclosure, $rowData[$i]);
 					$rowData[$i] = str_replace($this->_enclosure . $this->_enclosure, $this->_enclosure, $rowData[$i]);
+					
+					// Convert encoding if necessary
+					if ($this->_inputEncoding !== 'UTF-8') {
+						$rowData[$i] = PHPExcel_Shared_String::ConvertEncoding($rowData[$i], 'UTF-8', $this->_inputEncoding);
+					}
 
 					// Set cell value
 					$objPHPExcel->getActiveSheet()->setCellValue(

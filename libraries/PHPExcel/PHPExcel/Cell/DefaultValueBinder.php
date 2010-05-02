@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Cell
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.2, 2010-01-11
  */
 
 
@@ -52,7 +52,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/String.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_Cell
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Cell_DefaultValueBinder implements PHPExcel_Cell_IValueBinder
 {
@@ -87,22 +87,31 @@ class PHPExcel_Cell_DefaultValueBinder implements PHPExcel_Cell_IValueBinder
 		// Match the value against a few data types
 		if (is_null($pValue)) {
 			return PHPExcel_Cell_DataType::TYPE_NULL;
+
 		} elseif ($pValue === '') {
 			return PHPExcel_Cell_DataType::TYPE_STRING;
+
 		} elseif ($pValue instanceof PHPExcel_RichText) {
 			return PHPExcel_Cell_DataType::TYPE_STRING;
+
 		} elseif ($pValue{0} === '=') {
 			return PHPExcel_Cell_DataType::TYPE_FORMULA;
+
 		} elseif (is_bool($pValue)) {
 			return PHPExcel_Cell_DataType::TYPE_BOOL;
+
 		} elseif (is_float($pValue) || is_int($pValue)) {
 			return PHPExcel_Cell_DataType::TYPE_NUMERIC;
-		} elseif (preg_match('/^\-?[0-9]*\\.?[0-9]*$/', $pValue)) {
+
+		} elseif (preg_match('/^\-?([0-9]+\\.?[0-9]*|[0-9]*\\.?[0-9]+)$/', $pValue)) {
 			return PHPExcel_Cell_DataType::TYPE_NUMERIC;
+
 		} elseif (is_string($pValue) && array_key_exists($pValue, PHPExcel_Cell_DataType::getErrorCodes())) {
 			return PHPExcel_Cell_DataType::TYPE_ERROR;
+
 		} else {
 			return PHPExcel_Cell_DataType::TYPE_STRING;
+
 		}
 	}
 }

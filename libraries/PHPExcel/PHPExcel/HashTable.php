@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.2, 2010-01-11
  */
 
 
@@ -43,7 +43,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/IComparable.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_HashTable
 {
@@ -101,26 +101,10 @@ class PHPExcel_HashTable
      * @throws 	Exception
      */
     public function add(PHPExcel_IComparable $pSource = null) {
-	    // Determine hashcode
-    	$hashCode 	= null;
-	    $hashIndex = $pSource->getHashIndex();
-	    if ( is_null ( $hashIndex ) ) {
-	        $hashCode = $pSource->getHashCode();
-	    } else if ( isset ( $this->_keyMap[$hashIndex] ) ) {
-	        $hashCode = $this->_keyMap[$hashIndex];
-	    } else {
-	        $hashCode = $pSource->getHashCode();
-	    }
-	        
-	    // Add value      
-   		if (!isset($this->_items[ $hashCode ])) {
-            $this->_items[ $hashCode ] = $pSource;
-            $index = count($this->_items) - 1;
-            $this->_keyMap[ $index  ] = $hashCode;
-            $pSource->setHashIndex( $index );
-   		} else {
-            $pSource->setHashIndex( $this->_items[ $hashCode ]->getHashIndex() );
-		}
+   		if (!isset($this->_items[  $pSource->getHashCode()  ])) {
+            $this->_items[  $pSource->getHashCode()  ] = $pSource;
+            $this->_keyMap[  count($this->_items) - 1  ] = $pSource->getHashCode();
+   		}
     }
     
     /**

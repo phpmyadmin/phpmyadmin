@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Worksheet
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.2, 2010-01-11
  */
 
 
@@ -51,7 +51,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_Worksheet
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Worksheet_CellIterator extends IteratorIterator
 {
@@ -115,20 +115,7 @@ class PHPExcel_Worksheet_CellIterator extends IteratorIterator
      * @return PHPExcel_Cell
      */
     public function current() {
-		$cellExists = $this->_subject->cellExistsByColumnAndRow($this->_position, $this->_rowIndex);
-    	if ( ($this->_onlyExistingCells && $cellExists) || (!$this->_onlyExistingCells) ) {
-    		return $this->_subject->getCellByColumnAndRow($this->_position, $this->_rowIndex);
-    	} else if ($this->_onlyExistingCells && !$cellExists) {
-			// Loop untill we find one
-			while ($this->valid()) {
-				$this->next();
-				if ($this->_subject->cellExistsByColumnAndRow($this->_position, $this->_rowIndex)) {
-					return $this->_subject->getCellByColumnAndRow($this->_position, $this->_rowIndex);
-				}
-			}
-		}
-    	
-    	return null;
+		return $this->_subject->getCellByColumnAndRow($this->_position, $this->_rowIndex);
     }
 
     /**
@@ -153,7 +140,23 @@ class PHPExcel_Worksheet_CellIterator extends IteratorIterator
      * @return boolean
      */
     public function valid() {
-        return $this->_position < PHPExcel_Cell::columnIndexFromString( $this->_subject->getHighestColumn() );
+        // columnIndexFromString() returns an index based at one,
+        // treat it as a count when comparing it to the base zero
+        // position.
+        $columnCount = PHPExcel_Cell::columnIndexFromString($this->_subject->getHighestColumn());
+
+        if ($this->_onlyExistingCells) {
+            // If we aren't looking at an existing cell, either
+            // because the first column doesn't exist or next() has
+            // been called onto a nonexistent cell, then loop until we
+            // find one, or pass the last column.
+            while ($this->_position < $columnCount &&
+                   !$this->_subject->cellExistsByColumnAndRow($this->_position, $this->_rowIndex)) {
+                ++$this->_position;
+            }
+        }
+
+        return $this->_position < $columnCount;
     }
     
 	/**
