@@ -3820,7 +3820,7 @@ msgstr "Podatki o izvajanju"
 #: libraries/messages.inc.php:868
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
-msgstr "MySQL strežnik deluje že %s. Zagnal se je %s."
+msgstr "Strežnik MySQL deluje že %s. Zagnal se je %s."
 
 #: libraries/messages.inc.php:869
 msgid "Variables"
