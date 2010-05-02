@@ -6406,6 +6406,8 @@ msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
+"Samo lahka različica; prikaže zbirke podatkov v drevesu (določeno z ločilom, "
+"navedenim spodaj)"
 
 #: setup/lib/messages.inc.php:176
 msgid "Display databases in a tree"
