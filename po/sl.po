@@ -6577,7 +6577,7 @@ msgstr "Uporabi vztrajne povezave s podatkovnimi zbirkami MySQL"
 
 #: setup/lib/messages.inc.php:221
 msgid "Persistent connections"
-msgstr ""
+msgstr "Vztrajne povezave"
 
 #: setup/lib/messages.inc.php:223
 msgid "Iconic table operations"
