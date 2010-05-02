@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 22:58+0200\n"
+"PO-Revision-Date: 2010-05-02 23:00+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6616,7 +6616,7 @@ msgstr "Dolžina zgodovine poizvedb"
 
 #: setup/lib/messages.inc.php:230
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "Zavihek, ki se prikaže ob odprtju novega okna za poizvedbe"
 
 #: setup/lib/messages.inc.php:231
 msgid "Default query window tab"
