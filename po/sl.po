@@ -6518,7 +6518,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:205
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Največje število vrstic za prikaz"
 
 #: setup/lib/messages.inc.php:206
 msgid "Maximum number of tables displayed in table list"
