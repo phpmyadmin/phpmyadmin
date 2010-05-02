@@ -6589,7 +6589,7 @@ msgstr "Prepeči urejanje polj BLOB in BINARY"
 
 #: setup/lib/messages.inc.php:225
 msgid "Protect binary fields"
-msgstr ""
+msgstr "Zaščiti dvojiška polja"
 
 #: setup/lib/messages.inc.php:226
 msgid ""
