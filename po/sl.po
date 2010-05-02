@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-05-02 22:33+0200\n"
+"PO-Revision-Date: 2010-05-02 22:34+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5768,7 +5768,7 @@ msgstr "Poudari izbrane vrstice"
 
 #: setup/lib/messages.inc.php:27
 msgid "Row marker"
-msgstr ""
+msgstr "Označevalec vrstic"
 
 #: setup/lib/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
