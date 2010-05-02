@@ -191,7 +191,7 @@ msgstr "jul"
 
 #: libraries/messages.inc.php:28
 msgid "Aug"
-msgstr "Avg"
+msgstr "avg"
 
 #: libraries/messages.inc.php:28
 msgid "Sep"
