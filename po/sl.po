@@ -6097,9 +6097,8 @@ msgid "Customize default common import options"
 msgstr "Prilagodite pogoste privzete možnosti uvoza"
 
 #: setup/lib/messages.inc.php:107
-#, fuzzy
 msgid "Import defaults"
-msgstr "Uvozi datoteke"
+msgstr "Privzete možnosti uvoza"
 
 #: setup/lib/messages.inc.php:108
 msgid "Set import and export directories and compression options"
