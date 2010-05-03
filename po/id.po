@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-04-20 07:54+0200\n"
+"POT-Creation-Date: 2010-05-03 14:00+0200\n"
 "PO-Revision-Date: 2010-04-17 21:14+0200\n"
 "Last-Translator: Azhari Harahap <azhari.harahap@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
@@ -4743,525 +4743,520 @@ msgid "Storage Engine"
 msgstr "Mesin Penyimpan"
 
 #: libraries/messages.inc.php:1049
-msgctxt "$strStrucCSV"
-msgid "CSV"
-msgstr "Data CSV"
-
-#: libraries/messages.inc.php:1050
 msgid "Structure and data"
 msgstr "Struktur dan data"
 
-#: libraries/messages.inc.php:1051
+#: libraries/messages.inc.php:1050
 msgid "CSV for MS Excel"
 msgstr "CSV untuk data MS Excel"
 
-#: libraries/messages.inc.php:1052
+#: libraries/messages.inc.php:1051
 msgid "Structure only"
 msgstr "Struktur saja"
 
-#: libraries/messages.inc.php:1053
+#: libraries/messages.inc.php:1052
 msgid "Propose table structure"
 msgstr "Menganalisa struktur tabel"
 
-#: libraries/messages.inc.php:1054
+#: libraries/messages.inc.php:1053
 msgid "Structure Difference"
 msgstr ""
 
-#: libraries/messages.inc.php:1055
+#: libraries/messages.inc.php:1054
 #, fuzzy
 msgid "Structure for view"
 msgstr "Struktur saja"
 
-#: libraries/messages.inc.php:1056
+#: libraries/messages.inc.php:1055
 #, fuzzy
 msgid "structure"
 msgstr "Struktur"
 
-#: libraries/messages.inc.php:1057
+#: libraries/messages.inc.php:1056
 msgid "Structure"
 msgstr "Struktur"
 
-#: libraries/messages.inc.php:1058
+#: libraries/messages.inc.php:1057
 msgid "Structure Synchronization"
 msgstr ""
 
-#: libraries/messages.inc.php:1059
+#: libraries/messages.inc.php:1058
 msgid "Submit"
 msgstr "Kirim"
 
-#: libraries/messages.inc.php:1060
+#: libraries/messages.inc.php:1059
 msgid "Your SQL query has been executed successfully"
 msgstr "Sukses menjalankan perintah SQL"
 
-#: libraries/messages.inc.php:1061
+#: libraries/messages.inc.php:1060
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
 
-#: libraries/messages.inc.php:1062
+#: libraries/messages.inc.php:1061
 msgid "Sum"
 msgstr "Jumlah"
 
-#: libraries/messages.inc.php:1063
+#: libraries/messages.inc.php:1062
 msgid "Swedish"
 msgstr "Bahasa Swedia"
 
-#: libraries/messages.inc.php:1064
+#: libraries/messages.inc.php:1063
 msgid "Authenticating..."
 msgstr ""
 
-#: libraries/messages.inc.php:1065
+#: libraries/messages.inc.php:1064
 msgid "Hardware authentication failed"
 msgstr ""
 
-#: libraries/messages.inc.php:1066
+#: libraries/messages.inc.php:1065
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr ""
 
-#: libraries/messages.inc.php:1067
+#: libraries/messages.inc.php:1066
 msgid "No valid authentication key plugged"
 msgstr ""
 
-#: libraries/messages.inc.php:1068
+#: libraries/messages.inc.php:1067
 msgid "Switch to copied database"
 msgstr "Pindah ke database yang disalin"
 
-#: libraries/messages.inc.php:1069
+#: libraries/messages.inc.php:1068
 msgid "Switch to copied table"
 msgstr "Pindah ke tabel salinan"
 
-#: libraries/messages.inc.php:1070
+#: libraries/messages.inc.php:1069
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
 
-#: libraries/messages.inc.php:1071
+#: libraries/messages.inc.php:1070
 msgid "Synchronize Databases"
 msgstr ""
 
-#: libraries/messages.inc.php:1072
+#: libraries/messages.inc.php:1071
 msgid "Synchronize"
 msgstr ""
 
-#: libraries/messages.inc.php:1074
+#: libraries/messages.inc.php:1073
 msgid "Add column(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1075
+#: libraries/messages.inc.php:1074
 #, fuzzy, php-format
 msgid "Table %s already exists!"
 msgstr "Pengguna %s telah terdaftar!"
 
-#: libraries/messages.inc.php:1076
+#: libraries/messages.inc.php:1075
 msgid "Alter column(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1077
+#: libraries/messages.inc.php:1076
 #, fuzzy, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Sukses menghapus Pengguna yang dipilih."
 
-#: libraries/messages.inc.php:1078
+#: libraries/messages.inc.php:1077
 msgid "Apply index(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1079
+#: libraries/messages.inc.php:1078
 msgid "Table comments"
 msgstr "Komentar tabel"
 
-#: libraries/messages.inc.php:1080
+#: libraries/messages.inc.php:1079
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr ""
 
-#: libraries/messages.inc.php:1081
+#: libraries/messages.inc.php:1080
 msgid "The table name is empty!"
 msgstr "Nama tabel kosong!"
 
-#: libraries/messages.inc.php:1082
+#: libraries/messages.inc.php:1081
 #, fuzzy, php-format
 msgid "Table %1$s has been created."
 msgstr "Tabel %s telah dihapus"
 
-#: libraries/messages.inc.php:1083
+#: libraries/messages.inc.php:1082
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Tabel %s telah dihapus"
 
-#: libraries/messages.inc.php:1084
+#: libraries/messages.inc.php:1083
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Tabel %s telah dikosongkan"
 
-#: libraries/messages.inc.php:1085
+#: libraries/messages.inc.php:1084
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Tabel %s telah dibuang"
 
-#: libraries/messages.inc.php:1086
+#: libraries/messages.inc.php:1085
 msgid "Insert row(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1087
+#: libraries/messages.inc.php:1086
 msgid "Table seems to be empty!"
 msgstr ""
 
-#: libraries/messages.inc.php:1088
+#: libraries/messages.inc.php:1087
 msgid "Table maintenance"
 msgstr "Pemeliharaan tabel"
 
-#: libraries/messages.inc.php:1089
+#: libraries/messages.inc.php:1088
 msgid "Table name"
 msgstr "Nama tabel"
 
-#: libraries/messages.inc.php:1090
+#: libraries/messages.inc.php:1089
 msgid "Table of contents"
 msgstr "Daftar Isi"
 
-#: libraries/messages.inc.php:1091
+#: libraries/messages.inc.php:1090
 msgid "Table options"
 msgstr "Pilihan untuk tabel"
 
-#: libraries/messages.inc.php:1092
+#: libraries/messages.inc.php:1091
 msgid "Remove column(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1093
+#: libraries/messages.inc.php:1092
 msgid "Remove index(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1094
+#: libraries/messages.inc.php:1093
 #, php-format
 msgid "%s table(s)"
 msgstr "tabel %s"
 
-#: libraries/messages.inc.php:1095
+#: libraries/messages.inc.php:1094
 msgid "Table structure for table"
 msgstr "Struktur dari tabel"
 
-#: libraries/messages.inc.php:1096
+#: libraries/messages.inc.php:1095
 msgid "Table"
 msgstr "Tabel"
 
-#: libraries/messages.inc.php:1097
+#: libraries/messages.inc.php:1096
 msgid "Update row(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1098
+#: libraries/messages.inc.php:1097
 msgid "take it"
 msgstr "ambil"
 
-#: libraries/messages.inc.php:1099
+#: libraries/messages.inc.php:1098
 msgid "Target database has been synchronized with source database"
 msgstr ""
 
-#: libraries/messages.inc.php:1100
+#: libraries/messages.inc.php:1099
 msgid "Table-specific privileges"
 msgstr "Hak (privileges) khusus terhadap tabel"
 
-#: libraries/messages.inc.php:1101
+#: libraries/messages.inc.php:1100
 msgid "Temporary data"
 msgstr ""
 
-#: libraries/messages.inc.php:1102
+#: libraries/messages.inc.php:1101
 msgid " Because of its length,<br /> this field might not be editable "
 msgstr ""
 " Disebabkan ukuran panjangnya,<br /> field ini tidak dapat di-edit ulang. "
 
-#: libraries/messages.inc.php:1103
+#: libraries/messages.inc.php:1102
 msgid "Texy! text"
 msgstr ""
 
-#: libraries/messages.inc.php:1104
+#: libraries/messages.inc.php:1103
 msgid "Thai"
 msgstr "Bahasa Thailand"
 
-#: libraries/messages.inc.php:1105
+#: libraries/messages.inc.php:1104
 #, php-format
 msgid "Default theme %s not found!"
 msgstr ""
 
-#: libraries/messages.inc.php:1106
+#: libraries/messages.inc.php:1105
 msgid "No preview available."
 msgstr ""
 
-#: libraries/messages.inc.php:1107
+#: libraries/messages.inc.php:1106
 #, php-format
 msgid "Theme %s not found!"
 msgstr ""
 
-#: libraries/messages.inc.php:1108
+#: libraries/messages.inc.php:1107
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr ""
 
-#: libraries/messages.inc.php:1109
+#: libraries/messages.inc.php:1108
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr ""
 
-#: libraries/messages.inc.php:1110
+#: libraries/messages.inc.php:1109
 msgid "Theme / Style"
 msgstr "Desain Penampilan"
 
-#: libraries/messages.inc.php:1111
+#: libraries/messages.inc.php:1110
 msgid "This Host"
 msgstr "Host yang ini"
 
-#: libraries/messages.inc.php:1112
+#: libraries/messages.inc.php:1111
 msgid "Threads"
 msgstr ""
 
-#: libraries/messages.inc.php:1113
+#: libraries/messages.inc.php:1112
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Sukses hentikan Thread %s."
 
-#: libraries/messages.inc.php:1114
+#: libraries/messages.inc.php:1113
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: libraries/messages.inc.php:1115
+#: libraries/messages.inc.php:1114
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: libraries/messages.inc.php:1116
+#: libraries/messages.inc.php:1115
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
 
-#: libraries/messages.inc.php:1117
+#: libraries/messages.inc.php:1116
 msgid "Time"
 msgstr "Jangka Waktu"
 
-#: libraries/messages.inc.php:1118
+#: libraries/messages.inc.php:1117
 msgid "to/from page"
 msgstr ""
 
-#: libraries/messages.inc.php:1119
+#: libraries/messages.inc.php:1118
 msgid "Toggle scratchboard"
 msgstr "pindah buku catatan (Scratchboard)"
 
-#: libraries/messages.inc.php:1120
+#: libraries/messages.inc.php:1119
 msgid "Toggle small/big"
 msgstr ""
 
-#: libraries/messages.inc.php:1121
+#: libraries/messages.inc.php:1120
 msgid "To select relation, click :"
 msgstr ""
 
-#: libraries/messages.inc.php:1122
+#: libraries/messages.inc.php:1121
 msgid "total"
 msgstr "jumlah"
 
-#: libraries/messages.inc.php:1123
+#: libraries/messages.inc.php:1122
 msgid "Total"
 msgstr "Jumlah"
 
-#: libraries/messages.inc.php:1124
+#: libraries/messages.inc.php:1123
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr "Pelacakan dari %s.%s diaktifkan"
 
-#: libraries/messages.inc.php:1125
+#: libraries/messages.inc.php:1124
 msgid "Activate now"
 msgstr "Aktifkan sekarang"
 
-#: libraries/messages.inc.php:1126
+#: libraries/messages.inc.php:1125
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr "Aktifkan pelacakan untuk %s.%s"
 
-#: libraries/messages.inc.php:1127
+#: libraries/messages.inc.php:1126
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: libraries/messages.inc.php:1128
+#: libraries/messages.inc.php:1127
 msgid "Create version"
 msgstr "Membuat versi"
 
-#: libraries/messages.inc.php:1129
+#: libraries/messages.inc.php:1128
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr "Membuat versi %s dari %s.%s"
 
-#: libraries/messages.inc.php:1130
+#: libraries/messages.inc.php:1129
 msgid "Database Log"
 msgstr "Log Database"
 
-#: libraries/messages.inc.php:1131
+#: libraries/messages.inc.php:1130
 msgid "Data definition statement"
 msgstr "Pernyataan definisi data"
 
-#: libraries/messages.inc.php:1132
+#: libraries/messages.inc.php:1131
 msgid "Data manipulation statement"
 msgstr "Penyataan manipulasi data"
 
-#: libraries/messages.inc.php:1133
+#: libraries/messages.inc.php:1132
 msgid "Date"
 msgstr "Tanggal"
 
-#: libraries/messages.inc.php:1134
+#: libraries/messages.inc.php:1133
 msgid "Deactivate now"
 msgstr "Nonaktifkan sekarang"
 
-#: libraries/messages.inc.php:1135
+#: libraries/messages.inc.php:1134
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "Nonaktifkan pelacakan untuk %s.%s"
 
-#: libraries/messages.inc.php:1136
+#: libraries/messages.inc.php:1135
 #, php-format
 msgid "Export as %s"
 msgstr "Ekspor sebagai %s"
 
-#: libraries/messages.inc.php:1137
+#: libraries/messages.inc.php:1136
 msgid "Tracking is active."
 msgstr "Pelacakan aktif"
 
-#: libraries/messages.inc.php:1138
+#: libraries/messages.inc.php:1137
 msgid "Tracking is not active."
 msgstr "Pelacakan tidak aktif."
 
-#: libraries/messages.inc.php:1139
+#: libraries/messages.inc.php:1138
 msgid "Close"
 msgstr "Tutup"
 
-#: libraries/messages.inc.php:1140
+#: libraries/messages.inc.php:1139
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Laporan pelacakan untuk table '%s'"
 
-#: libraries/messages.inc.php:1141
+#: libraries/messages.inc.php:1140
 msgid "Tracking report"
 msgstr "Laporan pelacakan"
 
-#: libraries/messages.inc.php:1142
+#: libraries/messages.inc.php:1141
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
-#: libraries/messages.inc.php:1143
+#: libraries/messages.inc.php:1142
 msgid "Show versions"
 msgstr ""
 
-#: libraries/messages.inc.php:1144
+#: libraries/messages.inc.php:1143
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: libraries/messages.inc.php:1145
+#: libraries/messages.inc.php:1144
 msgid "SQL dump"
 msgstr ""
 
-#: libraries/messages.inc.php:1146
+#: libraries/messages.inc.php:1145
 msgid "SQL statements executed."
 msgstr ""
 
-#: libraries/messages.inc.php:1147
+#: libraries/messages.inc.php:1146
 msgid "This option will replace your table and contained data."
 msgstr ""
 
-#: libraries/messages.inc.php:1148
+#: libraries/messages.inc.php:1147
 msgid "SQL execution"
 msgstr ""
 
-#: libraries/messages.inc.php:1149
+#: libraries/messages.inc.php:1148
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: libraries/messages.inc.php:1150
+#: libraries/messages.inc.php:1149
 msgid "Tracking statements"
 msgstr ""
 
-#: libraries/messages.inc.php:1151
+#: libraries/messages.inc.php:1150
 msgid "active"
 msgstr "aktif"
 
-#: libraries/messages.inc.php:1152
+#: libraries/messages.inc.php:1151
 msgid "not active"
 msgstr "tidak aktif"
 
-#: libraries/messages.inc.php:1153
+#: libraries/messages.inc.php:1152
 msgid "Structure snapshot"
 msgstr "Struktur snapshot"
 
-#: libraries/messages.inc.php:1154
+#: libraries/messages.inc.php:1153
 msgid "Created"
 msgstr "Dibuat"
 
-#: libraries/messages.inc.php:1155
+#: libraries/messages.inc.php:1154
 msgid "Last version"
 msgstr "Versi terakhir"
 
-#: libraries/messages.inc.php:1156
+#: libraries/messages.inc.php:1155
 msgid "Updated"
 msgstr "Diperbarui"
 
-#: libraries/messages.inc.php:1157
+#: libraries/messages.inc.php:1156
 msgid "Version"
 msgstr "Versi"
 
-#: libraries/messages.inc.php:1158
+#: libraries/messages.inc.php:1157
 msgid "Track these data definition statements:"
 msgstr "Lacak definisi data dari pernyataan berikut:"
 
-#: libraries/messages.inc.php:1159
+#: libraries/messages.inc.php:1158
 msgid "Track these data manipulation statements:"
 msgstr "Lacak manipulasi data dari pernyataan berikut:"
 
-#: libraries/messages.inc.php:1160
+#: libraries/messages.inc.php:1159
 msgid "Tracked tables"
 msgstr "Tabel-tabel yang dilacak"
 
-#: libraries/messages.inc.php:1161
+#: libraries/messages.inc.php:1160
 msgid "Tracking"
 msgstr "Pelacakan"
 
-#: libraries/messages.inc.php:1162
+#: libraries/messages.inc.php:1161
 msgid "Track table"
 msgstr "Lacak tabel"
 
-#: libraries/messages.inc.php:1163
+#: libraries/messages.inc.php:1162
 msgid "Untracked tables"
 msgstr "Batal lacak tabel"
 
-#: libraries/messages.inc.php:1164
+#: libraries/messages.inc.php:1163
 msgid "Username"
 msgstr "Nama Pengguna"
 
-#: libraries/messages.inc.php:1165
+#: libraries/messages.inc.php:1164
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
 msgstr "Pelacakan untuk %s.%s , versi %s diaktifkan."
 
-#: libraries/messages.inc.php:1166
+#: libraries/messages.inc.php:1165
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
 msgstr "Versi %s telah dibuat, pelacakan untuk %s.%s diaktifkan."
 
-#: libraries/messages.inc.php:1167
+#: libraries/messages.inc.php:1166
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
 msgstr "Pelacakan untuk %s.%s , versi %s dinonaktifkan."
 
-#: libraries/messages.inc.php:1168
+#: libraries/messages.inc.php:1167
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Versi %s snapshot (kode SQL)"
 
-#: libraries/messages.inc.php:1169
+#: libraries/messages.inc.php:1168
 msgid "Versions"
 msgstr "Versi"
 
-#: libraries/messages.inc.php:1170
+#: libraries/messages.inc.php:1169
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -5269,23 +5264,23 @@ msgstr ""
 "Anda dapat mengeksekusi dump dengan membuat dan menggunakan database "
 "sementara. Mohon pastikan Anda mempunyai hak untuk melakukannya."
 
-#: libraries/messages.inc.php:1171
+#: libraries/messages.inc.php:1170
 msgid "Traditional Chinese"
 msgstr "Bahasa Cina tradisional"
 
-#: libraries/messages.inc.php:1172
+#: libraries/messages.inc.php:1171
 msgid "Traditional Spanish"
 msgstr "Spanyol tradisional"
 
-#: libraries/messages.inc.php:1173
+#: libraries/messages.inc.php:1172
 msgid "Traffic"
 msgstr "Lalu-Lintas"
 
-#: libraries/messages.inc.php:1174
+#: libraries/messages.inc.php:1173
 msgid "Transaction coordinator"
 msgstr "Koordinator transaksi"
 
-#: libraries/messages.inc.php:1175
+#: libraries/messages.inc.php:1174
 msgid ""
 "Displays a link to download the binary data of the field. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -5297,7 +5292,7 @@ msgstr ""
 "sebuah baris tabel yang memiliki nama file. Bila Anda menetapkan pilihan "
 "kedua, pilihan pertama harus ditepatkan ke sebuah string yang kosong"
 
-#: libraries/messages.inc.php:1176
+#: libraries/messages.inc.php:1175
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
@@ -5305,7 +5300,7 @@ msgstr ""
 "Tampilkan representasi hexadecimal dari data. Parameter opsional pertama "
 "menentukan seberapa sering space akan ditambahkan (default 2 nibble)"
 
-#: libraries/messages.inc.php:1177
+#: libraries/messages.inc.php:1176
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
@@ -5313,15 +5308,15 @@ msgstr ""
 "Tampilkan Thumbnail yang bisa diklik; pilihan: lebar, tinggi dalam piksel "
 "(rasio asli dipertahankan)"
 
-#: libraries/messages.inc.php:1178
+#: libraries/messages.inc.php:1177
 msgid "Displays a link to download this image."
 msgstr "Tampilkan link ke gambar ini (direct blob download, i.e.)."
 
-#: libraries/messages.inc.php:1179
+#: libraries/messages.inc.php:1178
 msgid "See image/jpeg: inline"
 msgstr "Lihat image/jpeg: inline"
 
-#: libraries/messages.inc.php:1180
+#: libraries/messages.inc.php:1179
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -5333,7 +5328,7 @@ msgid ""
 "gmdate() function."
 msgstr ""
 
-#: libraries/messages.inc.php:1181
+#: libraries/messages.inc.php:1180
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the field data via "
 "standard input. Returns the standard output of the application. The default "
@@ -5359,13 +5354,13 @@ msgstr ""
 "output yang akan ditampilkan tanpa keperluan untuk me-format ulang (Default "
 "1)"
 
-#: libraries/messages.inc.php:1182
+#: libraries/messages.inc.php:1181
 msgid ""
 "Displays the contents of the field as-is, without running it through "
 "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgstr "Menyimpan format asli dari field. Escaping tidak dilakukan."
 
-#: libraries/messages.inc.php:1183
+#: libraries/messages.inc.php:1182
 msgid ""
 "Displays an image and a link; the field contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -5375,7 +5370,7 @@ msgstr ""
 "pilihan utama adalah awalan seperti \"http://domain.com/\", pilihan kedua "
 "adalah lebar dalam piksel, pilihan ketiga adalah tingginya."
 
-#: libraries/messages.inc.php:1184
+#: libraries/messages.inc.php:1183
 msgid ""
 "Displays a link; the field contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
@@ -5385,11 +5380,11 @@ msgstr ""
 "awalan seperti  \"http://domain.com/\", pilihan kedua adalah judul untuk "
 "Link tersebut."
 
-#: libraries/messages.inc.php:1185
+#: libraries/messages.inc.php:1184
 msgid "Formats text as SQL query with syntax highlighting."
 msgstr "Format teks sebagai query dengan penyorotan sintaks."
 
-#: libraries/messages.inc.php:1186
+#: libraries/messages.inc.php:1185
 msgid ""
 "Displays a part of a string. The first option is the number of characters to "
 "skip from the beginning of the string (Default 0). The second option is the "
@@ -5404,47 +5399,47 @@ msgstr ""
 "dibalikkan. Pilihan ketiga mendefinisikan Chars yang akan ditambahkan pada "
 "Output bila sebuah Substring dibalikkan (Default: ...) ."
 
-#: libraries/messages.inc.php:1187
+#: libraries/messages.inc.php:1186
 msgid "Triggers"
 msgstr "Trigger"
 
-#: libraries/messages.inc.php:1188
+#: libraries/messages.inc.php:1187
 msgid "Truncate Shown Queries"
 msgstr "Potongkan pencarian yang ditampilkan"
 
-#: libraries/messages.inc.php:1189
+#: libraries/messages.inc.php:1188
 msgid "Turkish"
 msgstr "Bahasa Turki"
 
-#: libraries/messages.inc.php:1190
+#: libraries/messages.inc.php:1189
 msgid "Type"
 msgstr "Jenis"
 
-#: libraries/messages.inc.php:1192
+#: libraries/messages.inc.php:1191
 msgid "Ukrainian"
 msgstr "Bahasa Ukrainia"
 
-#: libraries/messages.inc.php:1193
+#: libraries/messages.inc.php:1192
 msgid "Uncheck All"
 msgstr "Balik pilihan"
 
-#: libraries/messages.inc.php:1194
+#: libraries/messages.inc.php:1193
 msgid "Unicode"
 msgstr "Unikode"
 
-#: libraries/messages.inc.php:1195
+#: libraries/messages.inc.php:1194
 msgid "Unique"
 msgstr "Unik"
 
-#: libraries/messages.inc.php:1196
+#: libraries/messages.inc.php:1195
 msgid "unknown"
 msgstr "tidak diketahui"
 
-#: libraries/messages.inc.php:1197
+#: libraries/messages.inc.php:1196
 msgid "Unselect All"
 msgstr "Unselect semua"
 
-#: libraries/messages.inc.php:1198
+#: libraries/messages.inc.php:1197
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -5453,64 +5448,64 @@ msgstr ""
 "Anda mencoba untuk memuat file dengan kompresi yang tidak didukung (%s). "
 "Dukungan belum diimplementasi atau tidak aktif di dalam konfigurasi Anda."
 
-#: libraries/messages.inc.php:1199
+#: libraries/messages.inc.php:1198
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Hak Akses (privilege) untuk %s telah di-update."
 
-#: libraries/messages.inc.php:1200
+#: libraries/messages.inc.php:1199
 msgid "The profile has been updated."
 msgstr "Profil pengguna telah di-update."
 
-#: libraries/messages.inc.php:1201
+#: libraries/messages.inc.php:1200
 msgid "Update Query"
 msgstr "Update proses pencarian"
 
-#: libraries/messages.inc.php:1202
+#: libraries/messages.inc.php:1201
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "Mohon belajari dokumentasi untuk mengetahui cara meng-update tabel "
 "Column_comments Anda"
 
-#: libraries/messages.inc.php:1203
+#: libraries/messages.inc.php:1202
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Disarankan untuk meng-update ke %s versi %s atau lebih baru."
 
-#: libraries/messages.inc.php:1204
+#: libraries/messages.inc.php:1203
 msgid "Failed to write file to disk."
 msgstr "Gagal menulis file ke disk"
 
-#: libraries/messages.inc.php:1205
+#: libraries/messages.inc.php:1204
 msgid "File upload stopped by extension."
 msgstr "Upload file dihentikan oleh ekstensi."
 
-#: libraries/messages.inc.php:1206
+#: libraries/messages.inc.php:1205
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
 "File yang di upload melewati MAX_FILE_SIZE yang ditentukan dalam form HTML."
 
-#: libraries/messages.inc.php:1207
+#: libraries/messages.inc.php:1206
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "File yang di upload melewati ketentuan upload_max_filesize dalam php.ini."
 
-#: libraries/messages.inc.php:1208
+#: libraries/messages.inc.php:1207
 msgid "Missing a temporary folder."
 msgstr "Folder sementara tidak ditemukan."
 
-#: libraries/messages.inc.php:1209
+#: libraries/messages.inc.php:1208
 msgid "The uploaded file was only partially uploaded."
 msgstr "File yang di upload hanya ter-upload sebagian."
 
-#: libraries/messages.inc.php:1210
+#: libraries/messages.inc.php:1209
 msgid "Unknown error in file upload."
 msgstr "Kesalahan yang tidak diketahui dalam upload file."
 
-#: libraries/messages.inc.php:1211
+#: libraries/messages.inc.php:1210
 #, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
@@ -5519,81 +5514,81 @@ msgstr ""
 "Anda mungkin meng-upload file yang terlalu besar. Silahkan lihat %"
 "sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
-#: libraries/messages.inc.php:1212
+#: libraries/messages.inc.php:1211
 msgid "File uploads are not allowed on this server."
 msgstr "Upload file tidak diizinkan di server ini."
 
-#: libraries/messages.inc.php:1213
+#: libraries/messages.inc.php:1212
 msgid "Usage"
 msgstr "Penggunaan"
 
-#: libraries/messages.inc.php:1214
+#: libraries/messages.inc.php:1213
 msgid "Enclose table and field names with backquotes"
 msgstr "Nama tabel dan nama field dalam tanda kutip biasa"
 
-#: libraries/messages.inc.php:1215
+#: libraries/messages.inc.php:1214
 msgid "Use Host Table"
 msgstr "Gunakan Host Table"
 
-#: libraries/messages.inc.php:1216
+#: libraries/messages.inc.php:1215
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Pengguna %s telah terdaftar!"
 
-#: libraries/messages.inc.php:1217
+#: libraries/messages.inc.php:1216
 msgid "The user name is empty!"
 msgstr "Nama pengguna masih kosong!"
 
-#: libraries/messages.inc.php:1218
+#: libraries/messages.inc.php:1217
 msgid "User name"
 msgstr "Nama pengguna"
 
-#: libraries/messages.inc.php:1219
+#: libraries/messages.inc.php:1218
 msgid "The selected user was not found in the privilege table."
 msgstr ""
 "Pengguna yang dipilih tidak ditemukan pada tabel hak (privilege table)."
 
-#: libraries/messages.inc.php:1220
+#: libraries/messages.inc.php:1219
 msgid "User overview"
 msgstr "Pandangan Umum Pengguna"
 
-#: libraries/messages.inc.php:1221
+#: libraries/messages.inc.php:1220
 msgid "The selected users have been deleted successfully."
 msgstr "Sukses menghapus Pengguna yang dipilih."
 
-#: libraries/messages.inc.php:1222
+#: libraries/messages.inc.php:1221
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Pengguna memiliki akses ke &quot;%s&quot;"
 
-#: libraries/messages.inc.php:1223
+#: libraries/messages.inc.php:1222
 msgid "User"
 msgstr "Pengguna"
 
-#: libraries/messages.inc.php:1224
+#: libraries/messages.inc.php:1223
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Gunakan tombol TAB untuk maju dari angka ke angka atau gunakan CTRL+panah "
 "untuk maju kemana saja"
 
-#: libraries/messages.inc.php:1225
+#: libraries/messages.inc.php:1224
 msgid "Use Tables"
 msgstr "Gunakan tabel"
 
-#: libraries/messages.inc.php:1226
+#: libraries/messages.inc.php:1225
 msgid "Use text field"
 msgstr "Gunakan text field"
 
-#: libraries/messages.inc.php:1227
+#: libraries/messages.inc.php:1226
 msgid "Use this value"
 msgstr "gunakan nilai ini"
 
-#: libraries/messages.inc.php:1229 setup/lib/messages.inc.php:356
+#: libraries/messages.inc.php:1228 setup/lib/messages.inc.php:356
 msgid "Validate SQL"
 msgstr "Mengesahkan (validate) SQL"
 
-#: libraries/messages.inc.php:1230
+#: libraries/messages.inc.php:1229
 #, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
@@ -5602,31 +5597,31 @@ msgstr ""
 "Pengesahan SQL tidak dapat disahkan. Mohon periksa kembali ekstension PHP "
 "yang diperlukan seperti yang tercatat dalam %sdokumentasi%s."
 
-#: libraries/messages.inc.php:1231
+#: libraries/messages.inc.php:1230
 msgid "Value"
 msgstr "Nilai"
 
-#: libraries/messages.inc.php:1232
+#: libraries/messages.inc.php:1231
 msgid "Variable"
 msgstr "Variabel"
 
-#: libraries/messages.inc.php:1233
+#: libraries/messages.inc.php:1232
 msgid "Version information"
 msgstr "Informasi tentang versi"
 
-#: libraries/messages.inc.php:1234
+#: libraries/messages.inc.php:1233
 msgid "View dump (schema) of databases"
 msgstr "Tampilkan Dump (skema) dari database"
 
-#: libraries/messages.inc.php:1235
+#: libraries/messages.inc.php:1234
 msgid "View dump (schema) of database"
 msgstr "Tampilkan Dump (Skema) dari database"
 
-#: libraries/messages.inc.php:1236
+#: libraries/messages.inc.php:1235
 msgid "View dump (schema) of table"
 msgstr "Tampilkan Dump (Skema) dari tabel"
 
-#: libraries/messages.inc.php:1237
+#: libraries/messages.inc.php:1236
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -5635,58 +5630,58 @@ msgstr ""
 "Sebuah view setidaknya mempunyai jumlah kolom berikut. Silahkan lihat %"
 "sdokumentasi%s"
 
-#: libraries/messages.inc.php:1238
+#: libraries/messages.inc.php:1237
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Pandangan %s telah dibubarkan"
 
-#: libraries/messages.inc.php:1239
+#: libraries/messages.inc.php:1238
 msgid "View image"
 msgstr "Tampilan View"
 
-#: libraries/messages.inc.php:1240
+#: libraries/messages.inc.php:1239
 msgid "VIEW name"
 msgstr "Nama VIEW"
 
-#: libraries/messages.inc.php:1241
+#: libraries/messages.inc.php:1240
 msgid "View video"
 msgstr "Video View"
 
-#: libraries/messages.inc.php:1242
+#: libraries/messages.inc.php:1241
 msgid "View"
 msgstr "Gambarkan"
 
-#: libraries/messages.inc.php:1244
+#: libraries/messages.inc.php:1243
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 "Direktori yang telah ditetapkan untuk meng-upload tidak dapat dihubungi"
 
-#: libraries/messages.inc.php:1245
+#: libraries/messages.inc.php:1244
 msgid "web server upload directory"
 msgstr "direktori upload pada web-server"
 
-#: libraries/messages.inc.php:1246
+#: libraries/messages.inc.php:1245
 msgid "Web server"
 msgstr "Server web"
 
-#: libraries/messages.inc.php:1247
+#: libraries/messages.inc.php:1246
 #, php-format
 msgid "Welcome to %s"
 msgstr "Selamat Datang di %s"
 
-#: libraries/messages.inc.php:1248
+#: libraries/messages.inc.php:1247
 msgid "West European"
 msgstr "Eropa Barat"
 
-#: libraries/messages.inc.php:1249
+#: libraries/messages.inc.php:1248
 msgid "Wiki"
 msgstr "Wiki"
 
-#: libraries/messages.inc.php:1250
+#: libraries/messages.inc.php:1249
 msgid "wildcard"
 msgstr "wildcard"
 
-#: libraries/messages.inc.php:1251
+#: libraries/messages.inc.php:1250
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -5696,19 +5691,19 @@ msgstr ""
 "induknya atau pilihan keamanan pada browser Anda melarang untuk mengupdate "
 "dengan cara Cross-Window"
 
-#: libraries/messages.inc.php:1252
+#: libraries/messages.inc.php:1251
 msgid "With selected:"
 msgstr "yang ditandai:"
 
-#: libraries/messages.inc.php:1253
+#: libraries/messages.inc.php:1252
 msgid "Write requests"
 msgstr "Permintaan penulisan"
 
-#: libraries/messages.inc.php:1254
+#: libraries/messages.inc.php:1253
 msgid "Wrong username/password. Access denied."
 msgstr "Nama Pengguna/Kata Sandi salah. Akses ditolak."
 
-#: libraries/messages.inc.php:1256
+#: libraries/messages.inc.php:1255
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -5716,49 +5711,49 @@ msgstr ""
 "File XML yang ditentukan cacat atau tidak lengkap. Mohon perbaiki dan coba "
 "lagi."
 
-#: libraries/messages.inc.php:1257
+#: libraries/messages.inc.php:1256
 msgid "Export contents"
 msgstr "Ekspor isi"
 
-#: libraries/messages.inc.php:1258
+#: libraries/messages.inc.php:1257
 msgid "Export functions"
 msgstr "Ekspor fungsi"
 
-#: libraries/messages.inc.php:1259
+#: libraries/messages.inc.php:1258
 msgid "Export procedures"
 msgstr "Ekspor prosedur"
 
-#: libraries/messages.inc.php:1260
+#: libraries/messages.inc.php:1259
 msgid "Export Structure Schemas (recommended)"
 msgstr "Ekspor Skema Struktur (dianjurkan)"
 
-#: libraries/messages.inc.php:1261
+#: libraries/messages.inc.php:1260
 msgid "Export tables"
 msgstr "Ekspor tabel"
 
-#: libraries/messages.inc.php:1262
+#: libraries/messages.inc.php:1261
 msgid "Export triggers"
 msgstr "Ekspor triggers"
 
-#: libraries/messages.inc.php:1263
+#: libraries/messages.inc.php:1262
 msgid "Export views"
 msgstr "Ekspor views"
 
-#: libraries/messages.inc.php:1264
+#: libraries/messages.inc.php:1263
 msgid "XML"
 msgstr "XML"
 
-#: libraries/messages.inc.php:1266
+#: libraries/messages.inc.php:1265
 msgid "Yes"
 msgstr "Ya"
 
-#: libraries/messages.inc.php:1268
+#: libraries/messages.inc.php:1267
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Perhatian: Perubahan pilihan ini ke posisi 0 (zero) akan menghapus batas "
 "yang telah ditentukan."
 
-#: libraries/messages.inc.php:1269
+#: libraries/messages.inc.php:1268
 msgid "\"zipped\""
 msgstr "Dikompress dengan Zip"
 
@@ -5777,17 +5772,17 @@ msgstr ""
 "Wildcard _ dan % sebaiknya diakhiri dengan tanda \\ untuk mengunakannya "
 "secara harfiah"
 
-#: server_synchronize.php:1129
+#: server_synchronize.php:1117
 msgid "Enter manually"
 msgstr ""
 
-#: server_synchronize.php:1130
+#: server_synchronize.php:1118
 #, fuzzy
 #| msgid "Connections"
 msgid "Current connection"
 msgstr "Koneksi"
 
-#: server_synchronize.php:1159
+#: server_synchronize.php:1147
 #, php-format
 msgid "Configuration: %s"
 msgstr ""
@@ -7410,6 +7405,10 @@ msgstr "Relasi internal"
 #: tbl_relation.php:413
 msgid "Foreign key constraint"
 msgstr ""
+
+#~ msgctxt "$strStrucCSV"
+#~ msgid "CSV"
+#~ msgstr "Data CSV"
 
 #~ msgid "Copy"
 #~ msgstr "Salin"
