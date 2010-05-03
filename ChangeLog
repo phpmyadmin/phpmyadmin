@@ -83,6 +83,7 @@ $Id$
 + [core] Include Content Security Policy HTTP headers.
 
 3.3.4.0 (not yet released)
+- bug #2996161 [import] properly escape import value
 
 3.3.3.0 (not yet released)
 - patch #2982480 [navi] Do not group if there would be one table in group,

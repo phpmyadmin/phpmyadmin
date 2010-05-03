@@ -989,7 +989,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
                 }
                 
                 $tempSQLStr .= (($is_varchar) ? "'" : "");
-				$tempSQLStr .= (str_replace("'", "\'", (string)$tables[$i][ROWS][$j][$k]));
+				$tempSQLStr .= PMA_sqlAddslashes((string)$tables[$i][ROWS][$j][$k]);
 				$tempSQLStr .= (($is_varchar) ? "'" : "");
                 
 				if ($k != ($num_cols - 1)) {
