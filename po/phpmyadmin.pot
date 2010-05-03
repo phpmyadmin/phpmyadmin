@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 14:46+0200\n"
+"POT-Creation-Date: 2010-05-03 15:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -255,6 +255,18 @@ msgstr ""
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:176
 msgid "Wk"
+msgstr ""
+
+#: js/messages.php:178
+msgid "Hour"
+msgstr ""
+
+#: js/messages.php:179
+msgid "Minute"
+msgstr ""
+
+#: js/messages.php:180
+msgid "Second"
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:107

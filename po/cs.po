@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 14:46+0200\n"
-"PO-Revision-Date: 2010-05-03 14:46+0200\n"
+"POT-Creation-Date: 2010-05-03 15:03+0200\n"
+"PO-Revision-Date: 2010-05-03 15:04+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -113,7 +113,6 @@ msgstr "dub"
 
 #. l10n: Short month name
 #: js/messages.php:119
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "kvě"
@@ -255,6 +254,20 @@ msgstr "So"
 #: js/messages.php:176
 msgid "Wk"
 msgstr "Týd"
+
+#: js/messages.php:178
+msgid "Hour"
+msgstr "Hodiny"
+
+#: js/messages.php:179
+#| msgid "in use"
+msgid "Minute"
+msgstr "Minuty"
+
+#: js/messages.php:180
+#| msgid "per second"
+msgid "Second"
+msgstr "Sekundy"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 14:46+0200\n"
+"POT-Creation-Date: 2010-05-03 15:03+0200\n"
 "PO-Revision-Date: 2010-03-30 16:04+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -299,6 +299,22 @@ msgstr "Sat"
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
+
+#: js/messages.php:178
+msgid "Hour"
+msgstr ""
+
+#: js/messages.php:179
+#, fuzzy
+#| msgid "in use"
+msgid "Minute"
+msgstr "in use"
+
+#: js/messages.php:180
+#, fuzzy
+#| msgid "per second"
+msgid "Second"
+msgstr "per second"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format

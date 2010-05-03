@@ -174,5 +174,9 @@ PMA_printJsValue("$.datepicker.regional['']['dayNamesMin']",
         __('Sa')));
 /* l10n: Column header for week of the year in calendar */
 PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
+
+PMA_printJsValue("$.datepicker.regional['']['hourText']", __('Hour'));
+PMA_printJsValue("$.datepicker.regional['']['minuteText']", __('Minute'));
+PMA_printJsValue("$.datepicker.regional['']['secondText']", __('Second'));
 ?>
 $.extend($.datepicker._defaults, $.datepicker.regional['']);
