@@ -138,7 +138,7 @@ for ($i = 0; $i < $name_cnt; $i++) {
                 src="pmd/images/exec.png" alt="" /></td>
         <td width="1px">
             <input onclick="VisibleTab(this,'<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>')"
-                title="<?php echo $strHide ?>"
+                title="<?php echo __('Hide'); ?>"
                 id="check_vis_<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>"
                 style="margin:0px;" type="checkbox"
                 value="<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>"
