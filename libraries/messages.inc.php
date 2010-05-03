@@ -1046,7 +1046,6 @@ $strStatus = __('Status');
 $strStop = __('Stop');
 $strStorageEngines = __('Storage Engines');
 $strStorageEngine = __('Storage Engine');
-$strStrucCSV = _pgettext('$strStrucCSV', 'CSV');
 $strStrucData = __('Structure and data');
 $strStrucExcelCSV = __('CSV for MS Excel');
 $strStrucOnly = __('Structure only');
