@@ -108,11 +108,11 @@ if (isset($_REQUEST['nopass'])) {
 
         // Displays the page
         require_once './libraries/header.inc.php';
-        echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
-        PMA_showMessage($strUpdateProfileMessage, $sql_query, 'success');
+        echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
+        PMA_showMessage(__('The profile has been updated.'), $sql_query, 'success');
         ?>
         <a href="index.php<?php echo PMA_generate_common_url($_url_params); ?>" target="_parent">
-            <strong><?php echo $strBack; ?></strong></a>
+            <strong><?php echo __('Back'); ?></strong></a>
         <?php
         require_once './libraries/footer.inc.php';
     } // end if
@@ -126,7 +126,7 @@ if (isset($_REQUEST['nopass'])) {
 // Loads the headers
 $GLOBALS['js_include'][] = 'server_privileges.js';
 require_once './libraries/header.inc.php';
-echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
+echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
 
 // Displays an error message if required
 if (isset($message)) {

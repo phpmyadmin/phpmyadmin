@@ -45,21 +45,21 @@ $is_create_table_priv = true;
 if ($GLOBALS['cfg']['PropertiesIconic']) {
     echo '<img class="icon" src="' . $pmaThemeImage . 'b_newtbl.png" width="16" height="16" alt="" />';
 }
-echo sprintf($strCreateNewTable, PMA_getDbLink());
+echo sprintf(__('Create table on database %s'), PMA_getDbLink());
 ?>
     </legend>
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <div class="formelement">
-        <?php echo $strName; ?>:
+        <?php echo __('Name'); ?>:
         <input type="text" name="table" maxlength="64" size="30" />
     </div>
     <div class="formelement">
-        <?php echo $strNumberOfFields; ?>:
+        <?php echo __('Number of fields'); ?>:
         <input type="text" name="num_fields" size="2" />
     </div>
     <div class="clearfloat"></div>
 </fieldset>
 <fieldset class="tblFooters">
-    <input type="submit" value="<?php echo $strGo; ?>" />
+    <input type="submit" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>

@@ -262,14 +262,14 @@ if ((isset($_REQUEST['submit_connect']))) {
             ? '<img class="icon" src="' . $pmaThemeImage . 'new_struct.jpg" width="32"'
             . ' height="32" alt="" />'
             : '')
-            . $strStructureSyn
+            . __('Structure Synchronization')
             .'</h2>' .'</td>';
             echo '<td> <h2>'
             . ($GLOBALS['cfg']['MainPageIconic']
             ? '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="32"'
             . ' height="32" alt="" />'
             : '')
-            . $strDataSyn
+            . __('Data Synchronization')
             . '</h2>' .'</td>';
             echo '</tr>
             </table>';
@@ -420,20 +420,20 @@ if ((isset($_REQUEST['submit_connect']))) {
             <table>
                 <thead>
                 <tr style="width: 100%;">
-                    <th id="table_name" style="width: 10%;" colspan="1">' . $strTable . ' </th>
-                    <th id="str_diff"   style="width: 65%;" colspan="6">' . $strStructureDiff . ' </th>
-                    <th id="data_diff"  style="width: 20%;" colspan="2">' . $strDataDiff . '</th>
+                    <th id="table_name" style="width: 10%;" colspan="1">' . __('Table') . ' </th>
+                    <th id="str_diff"   style="width: 65%;" colspan="6">' . __('Structure Difference') . ' </th>
+                    <th id="data_diff"  style="width: 20%;" colspan="2">' . __('Data Difference') . '</th>
                 </tr>
                 <tr style="width: 100%;">
-                    <th style="width: 10%;">' . $strTableName . '</th>
-                    <th style="width: 10%;">' . $strCreateTable . '</th>
-                    <th style="width: 11%;">' . $strTableAddColumn . '</th>
-                    <th style="width: 13%;">' . $strTableRemoveColumn . '</th>
-                    <th style="width: 11%;">' . $strTableAlterColumn . '</th>
-                    <th style="width: 12%;">' . $strTableRemoveIndex . '</th>
-                    <th style="width: 11%;">' . $strTableApplyIndex . '</th>
-                    <th style="width: 10%;">'.  $strTableUpdateRow . '</th>
-                    <th style="width: 10%;">' . $strTableInsertRow . '</th>
+                    <th style="width: 10%;">' . __('Table name') . '</th>
+                    <th style="width: 10%;">' . __('Create table'). '</th>
+                    <th style="width: 11%;">' . __('Add column(s)') . '</th>
+                    <th style="width: 13%;">' . __('Remove column(s)') . '</th>
+                    <th style="width: 11%;">' . __('Alter column(s)') . '</th>
+                    <th style="width: 12%;">' . __('Remove index(s)') . '</th>
+                    <th style="width: 11%;">' . __('Apply index(s)') . '</th>
+                    <th style="width: 10%;">'.  __('Update row(s)') . '</th>
+                    <th style="width: 10%;">' . __('Insert row(s)') . '</th>
                 </tr>
                 </thead>
                 <tbody></tbody>
@@ -443,7 +443,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             *  This fieldset displays the checkbox to confirm deletion of previous rows from target tables
             */
             echo '<fieldset>
-            <p><input type= "checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">' . $strTableDeleteRows . '</label> </p>
+            <p><input type= "checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">' . __('Would you like to delete all the previous rows from target tables?') . '</label> </p>
             </fieldset>
             <fieldset class="tblFooters">';
             echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges']
@@ -863,20 +863,20 @@ if (isset($_REQUEST['Table_ids'])) {
     echo '<table>
           <thead>
             <tr style="width: 100%;">
-                <th id="table_name" style="width: 10%;" colspan="1">' . $strTable . ' </th>
-                <th id="str_diff"   style="width: 65%;" colspan="6">' . $strStructureDiff . ' </th>
-                <th id="data_diff"  style="width: 20%;" colspan="2">' . $strDataDiff . '</th>
+                <th id="table_name" style="width: 10%;" colspan="1">' . __('Table') . ' </th>
+                <th id="str_diff"   style="width: 65%;" colspan="6">' . __('Structure Difference') . ' </th>
+                <th id="data_diff"  style="width: 20%;" colspan="2">' . __('Data Difference') . '</th>
             </tr>
             <tr style="width: 100%;">
-                <th style="width: 10%;">' . $strTableName . '</th>
-                <th style="width: 10%;">' . $strCreateTable . '</th>
-                <th style="width: 11%;">' . $strTableAddColumn . '</th>
-                <th style="width: 13%;">' . $strTableRemoveColumn . '</th>
-                <th style="width: 11%;">' . $strTableAlterColumn . '</th>
-                <th style="width: 12%;">' . $strTableRemoveIndex . '</th>
-                <th style="width: 11%;">' . $strTableApplyIndex . '</th>
-                <th style="width: 10%;">' . $strTableUpdateRow . '</th>
-                <th style="width: 10%;">' . $strTableInsertRow . '</th>
+                <th style="width: 10%;">' . __('Table name') . '</th>
+                <th style="width: 10%;">' . __('Create table'). '</th>
+                <th style="width: 11%;">' . __('Add column(s)') . '</th>
+                <th style="width: 13%;">' . __('Remove column(s)') . '</th>
+                <th style="width: 11%;">' . __('Alter column(s)') . '</th>
+                <th style="width: 12%;">' . __('Remove index(s)') . '</th>
+                <th style="width: 11%;">' . __('Apply index(s)') . '</th>
+                <th style="width: 10%;">' . __('Update row(s)') . '</th>
+                <th style="width: 10%;">' . __('Insert row(s)') . '</th>
             </tr>
             </thead>
             <tbody></tbody>
@@ -887,7 +887,7 @@ if (isset($_REQUEST['Table_ids'])) {
     *  This fieldset displays the checkbox to confirm deletion of previous rows from target tables
     */
     echo '<fieldset>
-    <p><input type="checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">' . $strTableDeleteRows . '</label> </p>
+    <p><input type="checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">' . __('Would you like to delete all the previous rows from target tables?') . '</label> </p>
     </fieldset>';
 
     echo '<fieldset class="tblFooters">';
@@ -1089,7 +1089,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     ? '<img class="icon" src="' . $pmaThemeImage . 's_sync.png" width="18"'
         . ' height="18" alt="" />'
     : '')
-    . $strSynchronize
+    . __('Synchronize')
     .'</h2>';
 
     echo  '<div id="serverstatus">
@@ -1205,7 +1205,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     </fieldset>
     </form>
     </div>
-    <div class="notice">' . $strSynchronizationNote . '</div>';
+    <div class="notice">' . __('Target database will be completely synchronized with source database. Source database will remain unchanged.') . '</div>';
 }
 
  /**

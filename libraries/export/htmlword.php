@@ -289,15 +289,15 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             $unsigned     = preg_match('/UNSIGNED/i', $row['Type']);
             $zerofill     = preg_match('/ZEROFILL/i', $row['Type']);
         }
-        $strAttribute     = '&nbsp;';
+        $attribute     = '&nbsp;';
         if ($binary) {
-            $strAttribute = 'BINARY';
+            $attribute = 'BINARY';
         }
         if ($unsigned) {
-            $strAttribute = 'UNSIGNED';
+            $attribute = 'UNSIGNED';
         }
         if ($zerofill) {
-            $strAttribute = 'UNSIGNED ZEROFILL';
+            $attribute = 'UNSIGNED ZEROFILL';
         }
         if (! isset($row['Default'])) {
             if ($row['Null'] != 'NO') {

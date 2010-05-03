@@ -37,7 +37,7 @@ echo '<h2>' . "\n"
    . '    ' . ($GLOBALS['cfg']['MainPageIconic']
     ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_asci.png" alt="" />'
     : '')
-   . '' . $strCharsetsAndCollations . "\n"
+   . '' . __('Character Sets and Collations') . "\n"
    . '</h2>' . "\n";
 
 /**
@@ -51,8 +51,8 @@ require_once './libraries/mysql_charsets.lib.php';
  */
 echo '<div id="div_mysql_charset_collations">' . "\n"
    . '<table class="data">' . "\n"
-   . '<tr><th>' . $strCollation . '</th>' . "\n"
-   . '    <th>' . $strDescription . '</th>' . "\n"
+   . '<tr><th>' . __('Collation') . '</th>' . "\n"
+   . '    <th>' . __('Description') . '</th>' . "\n"
    . '</tr>' . "\n";
 
 $i = 0;
@@ -63,8 +63,8 @@ foreach ($mysql_charsets as $current_charset) {
         $i = 0;
         echo '</table>' . "\n"
            . '<table class="data">' . "\n"
-           . '<tr><th>' . $strCollation . '</th>' . "\n"
-           . '    <th>' . $strDescription . '</th>' . "\n"
+           . '<tr><th>' . __('Collation') . '</th>' . "\n"
+           . '    <th>' . __('Description') . '</th>' . "\n"
            . '</tr>' . "\n";
     }
     $i++;

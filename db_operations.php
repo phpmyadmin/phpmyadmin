@@ -375,12 +375,12 @@ if (!$is_information_schema) {
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <fieldset>
         <legend>
-        <?php echo PMA_getIcon('b_comment.png', $strDBComment, false, true); ?>
+        <?php echo PMA_getIcon('b_comment.png', __('Database comment: '), false, true); ?>
         </legend>
         <input type="text" name="comment" class="textfield" size="30"
             value="<?php
             echo htmlspecialchars(PMA_getDBComment($db)); ?>" />
-        <input type="submit" value="<?php echo $strGo; ?>" />
+        <input type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
     </form>
         <?php
@@ -407,12 +407,12 @@ if (!$is_information_schema) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
             .' alt="" width="16" height="16" />';
     }
-    echo $strDBRename . ':';
+    echo __('Rename database to') . ':';
     ?>
         </legend>
         <input type="text" name="newname" size="30" class="textfield" value="" />
         <?php
-    echo '(' . $strCommand . ': ';
+    echo '(' . __('Command') . ': ';
     /**
      * @todo (see explanations above in a previous todo)
      */
@@ -422,7 +422,7 @@ if (!$is_information_schema) {
         echo 'INSERT INTO ... SELECT';
     //}
     echo ')'; ?>
-        <input type="submit" value="<?php echo $strGo; ?>" onclick="return confirmLink(this, 'CREATE DATABASE ... <?php echo $strAndThen; ?> DROP DATABASE <?php echo PMA_jsFormat($db); ?>')" />
+        <input type="submit" value="<?php echo __('Go'); ?>" onclick="return confirmLink(this, 'CREATE DATABASE ... <?php echo __('and then'); ?> DROP DATABASE <?php echo PMA_jsFormat($db); ?>')" />
     </fieldset>
     </form>
 
@@ -448,16 +448,16 @@ if (!$is_information_schema) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
             .' alt="" width="16" height="16" />';
     }
-    echo $strDBCopy . ':';
+    echo __('Copy database to') . ':';
     $drop_clause = 'DROP TABLE / DROP VIEW';
     ?>
         </legend>
         <input type="text" name="newname" size="30" class="textfield" value="" /><br />
 <?php
         $choices = array(
-            'structure' => $strStrucOnly,
-            'data'      => $strStrucData,
-            'dataonly'  => $strDataOnly);
+            'structure' => __('Structure only'),
+            'data'      => __('Structure and data'),
+            'dataonly'  => __('Data only'));
         PMA_display_html_radio('what', $choices, 'data', true);
         unset($choices);
 ?>
@@ -465,18 +465,18 @@ if (!$is_information_schema) {
             id="checkbox_create_database_before_copying"
             style="vertical-align: middle" checked="checked" />
         <label for="checkbox_create_database_before_copying">
-            <?php echo $strCreateDatabaseBeforeCopying; ?></label><br />
+            <?php echo __('CREATE DATABASE before copying'); ?></label><br />
         <input type="checkbox" name="drop_if_exists" value="true"
             id="checkbox_drop" style="vertical-align: middle" />
-        <label for="checkbox_drop"><?php echo sprintf($strAddClause, $drop_clause); ?></label><br />
+        <label for="checkbox_drop"><?php echo sprintf(__('Add %s'), $drop_clause); ?></label><br />
         <input type="checkbox" name="sql_auto_increment" value="1" checked="checked"
             id="checkbox_auto_increment" style="vertical-align: middle" />
         <label for="checkbox_auto_increment">
-            <?php echo $strAddAutoIncrement; ?></label><br />
+            <?php echo __('Add AUTO_INCREMENT value'); ?></label><br />
         <input type="checkbox" name="add_constraints" value="1"
             id="checkbox_constraints" style="vertical-align: middle" />
         <label for="checkbox_constraints">
-            <?php echo $strAddConstraints; ?></label><br />
+            <?php echo __('Add constraints'); ?></label><br />
     <?php
     unset($drop_clause);
 
@@ -489,10 +489,10 @@ if (!$is_information_schema) {
             id="checkbox_switch"
             <?php echo ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true') ? ' checked="checked"' : ''); ?>
             style="vertical-align: middle" />
-        <label for="checkbox_switch"><?php echo $strSwitchToDatabase; ?></label>
+        <label for="checkbox_switch"><?php echo __('Switch to copied database'); ?></label>
     </fieldset>
     <fieldset class="tblFooters">
-        <input type="submit" name="submit_copy" value="<?php echo $strGo; ?>" />
+        <input type="submit" name="submit_copy" value="<?php echo __('Go'); ?>" />
     </fieldset>
     </form>
 
@@ -530,10 +530,10 @@ if (!$is_information_schema) {
                     <?php echo PMA_generate_common_hidden_inputs($db); ?>
                     <fieldset>
                     <legend>
-                    <?php echo PMA_getIcon('b_edit.png', $strBLOBRepository, false, true); ?>
+                    <?php echo PMA_getIcon('b_edit.png', __('BLOB Repository'), false, true); ?>
                     </legend>
 
-                    <?php echo $strStatus; ?>:
+                    <?php echo __('Status'); ?>:
 
                     <?php
 
@@ -541,11 +541,11 @@ if (!$is_information_schema) {
                     if ($allBSTablesExist)
                     {
                         ?>
-                            <?php echo $strBLOBRepositoryEnabled; ?>
+                            <?php echo _pgettext('BLOB repository', 'Enabled'); ?>
                             </fieldset>
                             <fieldset class="tblFooters">
                             <input type="hidden" name="db_blob_streaming_op" value="disable" />
-                            <input type="submit" onclick="return confirmDisableRepository('<?php echo $db; ?>');" value="<?php echo $strBLOBRepositoryDisable; ?>" />
+                            <input type="submit" onclick="return confirmDisableRepository('<?php echo $db; ?>');" value="<?php echo __('Disable'); ?>" />
                             </fieldset>
                             <?php
                     }
@@ -555,11 +555,11 @@ if (!$is_information_schema) {
                         if ($oneBSTableExists && !$allBSTablesExist)
                         {
                             ?>
-                                <?php echo $strBLOBRepositoryDamaged; ?>
+                                <?php echo __('Damaged'); ?>
                                 </fieldset>
                                 <fieldset class="tblFooters">
                                 <input type="hidden" name="db_blob_streaming_op" value="repair" />
-                                <input type="submit" value="<?php echo $strBLOBRepositoryRepair; ?>" />
+                                <input type="submit" value="<?php echo _pgettext('BLOB repository', 'Repair'); ?>" />
                                 </fieldset>
                                 <?php
                         }
@@ -567,11 +567,11 @@ if (!$is_information_schema) {
                         else
                         {
                             ?>
-                                <?php echo $strBLOBRepositoryDisabled; ?>
+                                <?php echo _pgettext('BLOB repository', 'Disabled'); ?>
                                 </fieldset>
                                 <fieldset class="tblFooters">
                                 <input type="hidden" name="db_blob_streaming_op" value="enable" />
-                                <input type="submit" value="<?php echo $strBLOBRepositoryEnable; ?>" />
+                                <input type="submit" value="<?php echo __('Enable'); ?>" />
                                 </fieldset>
                                 <?php
                         }
@@ -595,12 +595,12 @@ if (!$is_information_schema) {
         echo '<img class="icon" src="' . $pmaThemeImage . 's_asci.png"'
             .' alt="" width="16" height="16" />';
     }
-    echo '    <label for="select_db_collation">' . $strCollation . ':</label>' . "\n"
+    echo '    <label for="select_db_collation">' . __('Collation') . ':</label>' . "\n"
        . '    </legend>' . "\n"
        . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION,
             'db_collation', 'select_db_collation', $db_collation, false, 3)
        . '    <input type="submit" name="submitcollation"'
-       . ' value="' . $strGo . '" style="vertical-align: middle" />' . "\n"
+       . ' value="' . __('Go') . '" style="vertical-align: middle" />' . "\n"
        . '</fieldset>' . "\n"
        . '</form>' . "\n";
 
@@ -642,10 +642,10 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
             echo '<img class="icon" src="' . $pmaThemeImage . 'b_view.png"'
                 .' alt="" width="16" height="16" />';
         }
-        echo $strDisplayPDF;
+        echo __('Display PDF schema');
         ?>:
         </legend>
-        <label for="pdf_page_number_opt"><?php echo $strPageNumber; ?></label>
+        <label for="pdf_page_number_opt"><?php echo __('Page number:'); ?></label>
         <select name="pdf_page_number" id="pdf_page_number_opt">
         <?php
         while ($pages = @PMA_DBI_fetch_assoc($test_rs)) {
@@ -658,28 +658,28 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
         </select><br />
 
         <input type="checkbox" name="show_grid" id="show_grid_opt" />
-        <label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
+        <label for="show_grid_opt"><?php echo __('Show grid'); ?></label><br />
         <input type="checkbox" name="show_color" id="show_color_opt"
             checked="checked" />
-        <label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
+        <label for="show_color_opt"><?php echo __('Show color'); ?></label><br />
         <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
-        <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?>
+        <label for="show_table_dim_opt"><?php echo __('Show dimension of tables'); ?>
             </label><br />
         <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" />
-        <label for="all_tab_same_wide"><?php echo $strAllTableSameWidth; ?>
+        <label for="all_tab_same_wide"><?php echo __('Display all tables with the same width'); ?>
             </label><br />
         <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
-        <label for="with_doc"><?php echo $strDataDict; ?></label><br />
+        <label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />
 		<input type="checkbox" name="show_keys" id="show_keys" />
-        <label for="show_keys"><?php echo $strShowKeys; ?></label><br />
+        <label for="show_keys"><?php echo __('Only show keys'); ?></label><br />
 
-        <label for="orientation_opt"><?php echo $strShowDatadictAs; ?></label>
+        <label for="orientation_opt"><?php echo __('Data Dictionary Format'); ?></label>
         <select name="orientation" id="orientation_opt">
-            <option value="L"><?php echo $strLandscape;?></option>
-            <option value="P"><?php echo $strPortrait;?></option>
+            <option value="L"><?php echo __('Landscape');?></option>
+            <option value="P"><?php echo __('Portrait');?></option>
         </select><br />
 
-        <label for="paper_opt"><?php echo $strPaperSize; ?></label>
+        <label for="paper_opt"><?php echo __('Paper size'); ?></label>
         <select name="paper" id="paper_opt">
         <?php
             foreach ($cfg['PDFPageSizes'] AS $key => $val) {
@@ -693,7 +693,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
         </select>
     </fieldset>
     <fieldset class="tblFooters">
-        <input type="submit" value="<?php echo $strGo; ?>" />
+        <input type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
     </form>
         <?php
@@ -703,7 +703,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
             .' alt="" width="16" height="16" />';
     }
-    echo $strEditPDFPages . '</a>';
+    echo __('Edit PDF Pages') . '</a>';
 } // end if
 
 /**

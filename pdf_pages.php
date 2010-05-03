@@ -33,25 +33,25 @@ $query_default_option = PMA_DBI_QUERY_STORE;
  * complain ;-)
  */
 if (!$cfgRelation['relwork']) {
-    echo sprintf($strNotSet, 'relation', 'config.inc.php') . '<br />' . "\n"
-         . '<a href="./Documentation.html#relation" target="documentation">' . $strDocu . '</a>' . "\n";
+    echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'relation', 'config.inc.php') . '<br />' . "\n"
+         . '<a href="./Documentation.html#relation" target="documentation">' . __('Documentation') . '</a>' . "\n";
     require_once './libraries/footer.inc.php';
 }
 
 if (!$cfgRelation['displaywork']) {
-    echo sprintf($strNotSet, 'table_info', 'config.inc.php') . '<br />' . "\n"
-         . '<a href="./Documentation.html#table_info" target="documentation">' . $strDocu . '</a>' . "\n";
+    echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_info', 'config.inc.php') . '<br />' . "\n"
+         . '<a href="./Documentation.html#table_info" target="documentation">' . __('Documentation') . '</a>' . "\n";
     require_once './libraries/footer.inc.php';
 }
 
 if (!isset($cfgRelation['table_coords'])){
-    echo sprintf($strNotSet, 'table_coords', 'config.inc.php') . '<br />' . "\n"
-         . '<a href="./Documentation.html#table_coords" target="documentation">' . $strDocu . '</a>' . "\n";
+    echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_coords', 'config.inc.php') . '<br />' . "\n"
+         . '<a href="./Documentation.html#table_coords" target="documentation">' . __('Documentation') . '</a>' . "\n";
     exit();
 }
 if (!isset($cfgRelation['pdf_pages'])) {
-    echo sprintf($strNotSet, 'pdf_page', 'config.inc.php') . '<br />' . "\n"
-         . '<a href="./Documentation.html#pdf_pages" target="documentation">' . $strDocu . '</a>' . "\n";
+    echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'pdf_page', 'config.inc.php') . '<br />' . "\n"
+         . '<a href="./Documentation.html#pdf_pages" target="documentation">' . __('Documentation') . '</a>' . "\n";
     exit();
 }
 
@@ -258,7 +258,7 @@ if ($cfgRelation['pdfwork']) {
 <form method="get" action="pdf_pages.php" name="selpage">
     <fieldset>
      <legend>
-    <?php echo $strChoosePage . "\n"; ?>
+    <?php echo __('Please choose a page to edit') . "\n"; ?>
      </legend>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="choosepage" />
@@ -277,12 +277,12 @@ if ($cfgRelation['pdfwork']) {
     </select>
 <?php
     $choices = array(
-        '0' => $strEdit,
-        '1' => $strDelete);
+        '0' => __('Edit'),
+        '1' => __('Delete'));
         PMA_display_html_radio('action_choose', $choices, '0', false);
     unset($choices);
 ?>
-       <input type="submit" value="<?php echo $strGo; ?>" /><br />
+       <input type="submit" value="<?php echo __('Go'); ?>" /><br />
     </fieldset>
 </form>
         <?php
@@ -294,19 +294,19 @@ if ($cfgRelation['pdfwork']) {
 <form method="post" action="pdf_pages.php" name="crpage">
     <fieldset>
      <legend>
-    <?php echo $strCreatePage . "\n"; ?>
+    <?php echo __('Create a page') . "\n"; ?>
      </legend>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="createpage" />
     <input type="text" name="newpage" size="20" maxlength="50" />
        <input type="checkbox" name="auto_layout_internal" />
-<?php echo '(' . $strAutomaticLayout . ' / ' . $strInternalRelations . ')';
+<?php echo '(' . __('Automatic layout') . ' / ' . __('Internal relations') . ')';
     if (PMA_StorageEngine::isValid('InnoDB') || PMA_StorageEngine::isValid('PBXT')) {
         echo '<input type="checkbox" name="auto_layout_foreign" />'
-            . '(' . $strAutomaticLayout . ' / FOREIGN KEY)';
+            . '(' . __('Automatic layout') . ' / FOREIGN KEY)';
     }
 ?>
-        <input type="submit" value="<?php echo $strGo; ?>" />
+        <input type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
 </form>
     <?php
@@ -317,7 +317,7 @@ if ($cfgRelation['pdfwork']) {
         ?>
 <hr />
 
-<h2><?php echo $strSelectTables ;?></h2>
+<h2><?php echo __('Select Tables') ;?></h2>
 
 <?php
 $page_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
@@ -340,8 +340,8 @@ if ($cfg['WYSIWYG-PDF']) {
 ?>
 <script type="text/javascript" src="./js/dom-drag.js"></script>
 <form method="post" action="pdf_pages.php" name="dragdrop">
-<input type="button" name="dragdrop" value="<?php echo $strToggleScratchboard; ?>" onclick="ToggleDragDrop('pdflayout');" />
- <input type="button" name="dragdropreset" value="<?php echo $strReset; ?>" onclick="resetDrag();" />
+<input type="button" name="dragdrop" value="<?php echo __('Toggle scratchboard'); ?>" onclick="ToggleDragDrop('pdflayout');" />
+ <input type="button" name="dragdropreset" value="<?php echo __('Reset'); ?>" onclick="resetDrag();" />
 </form>
 <div id="pdflayout" class="pdflayout" style="visibility: hidden;">
 <?php
@@ -402,8 +402,8 @@ function resetDrag() {
     <input type="hidden" name="do" value="edcoord" />
     <table border="0">
     <tr>
-        <th><?php echo $strTable; ?></th>
-        <th><?php echo $strDelete; ?></th>
+        <th><?php echo __('Table'); ?></th>
+        <th><?php echo __('Delete'); ?></th>
         <th>X</th>
         <th>Y</th>
     </tr>
@@ -439,7 +439,7 @@ function resetDrag() {
             echo "\n" . '            </select>'
                  . "\n" . '        </td>';
             echo "\n" . '        <td>'
-                 . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . $strDelete;
+                 . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . __('Delete');
             echo "\n" . '        </td>';
             echo "\n" . '        <td>'
                  . "\n" . '            <input type="text" ' . ($cfg['WYSIWYG-PDF'] ? 'onchange="dragPlace(' . $i . ', \'x\', this.value)"' : '') . ' name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
@@ -467,7 +467,7 @@ function resetDrag() {
         echo "\n" . '            </select>'
              . "\n" . '        </td>';
         echo "\n" . '        <td>'
-             . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . $strDelete;
+             . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . __('Delete');
         echo "\n" . '        </td>';
         echo "\n" . '        <td>'
              . "\n" . '            <input type="text" name="c_table_' . $i . '[x]" value="' . (isset($sh_page['x'])?$sh_page['x']:'') . '" />';
@@ -480,8 +480,8 @@ function resetDrag() {
 
         echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
         echo ($cfg['WYSIWYG-PDF'] ? "\n" . '    <input type="hidden" id="showwysiwyg" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />' : '');
-        echo "\n" . '    <input type="checkbox" name="with_field_names" ' . (isset($with_field_names) ? 'checked="checked"' : ''). ' />' . $strColumnNames . '<br />';
-        echo "\n" . '    <input type="submit" value="' . $strSave . '" />';
+        echo "\n" . '    <input type="checkbox" name="with_field_names" ' . (isset($with_field_names) ? 'checked="checked"' : ''). ' />' . __('Column names') . '<br />';
+        echo "\n" . '    <input type="submit" value="' . __('Save') . '" />';
         echo "\n" . '</form>' . "\n\n";
     } // end if
 
@@ -503,12 +503,12 @@ function resetDrag() {
                . PMA_generate_common_hidden_inputs($db, $table)
                . '<input type="hidden" name="do" value="deleteCrap" />' . "\n"
                . '<input type="hidden" name="chpage" value="' . htmlspecialchars($chpage) . '" />' . "\n"
-               . $strDelOld
+               . __('The current page has references to tables that no longer exist. Would you like to delete those references?')
                . '<ul>' . "\n"
                . $_strname
                . '</ul>' . "\n"
                . $_strtrans
-               . '<input type="submit" value="' . $strGo . '" />' . "\n"
+               . '<input type="submit" value="' . __('Go') . '" />' . "\n"
                . '</form>';
         }
     }
@@ -525,20 +525,20 @@ function resetDrag() {
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="pdf_page_number" value="<?php echo htmlspecialchars($chpage); ?>" />
 
-    <?php echo '<br /><strong>' . $strDisplayPDF . '</strong>'; ?>:&nbsp;<br />
-    <input type="checkbox" name="show_grid" id="show_grid_opt" /><label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
-    <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" /><label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
-    <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" /><label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label><br />
-    <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" /><label for="all_tab_same_wide"><?php echo $strAllTableSameWidth; ?></label><br />
-    <input type="checkbox" name="with_doc" id="with_doc" checked="checked" /><label for="with_doc"><?php echo $strDataDict; ?></label><br />
-    <input type="checkbox" name="show_keys" id="show_keys" /><label for="show_keys"><?php echo $strShowKeys; ?></label><br />
-    <label for="orientation_opt"><?php echo $strShowDatadictAs; ?></label>
+    <?php echo '<br /><strong>' . __('Display PDF schema') . '</strong>'; ?>:&nbsp;<br />
+    <input type="checkbox" name="show_grid" id="show_grid_opt" /><label for="show_grid_opt"><?php echo __('Show grid'); ?></label><br />
+    <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" /><label for="show_color_opt"><?php echo __('Show color'); ?></label><br />
+    <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" /><label for="show_table_dim_opt"><?php echo __('Show dimension of tables'); ?></label><br />
+    <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" /><label for="all_tab_same_wide"><?php echo __('Display all tables with the same width'); ?></label><br />
+    <input type="checkbox" name="with_doc" id="with_doc" checked="checked" /><label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />
+    <input type="checkbox" name="show_keys" id="show_keys" /><label for="show_keys"><?php echo __('Only show keys'); ?></label><br />
+    <label for="orientation_opt"><?php echo __('Data Dictionary Format'); ?></label>
     <select id="orientation_opt" name="orientation" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
-        <option value="L"><?php echo $strLandscape;?></option>
-        <option value="P"><?php echo $strPortrait;?></option>
+        <option value="L"><?php echo __('Landscape');?></option>
+        <option value="P"><?php echo __('Portrait');?></option>
     </select><br />
 
-    <label for="paper_opt"><?php echo $strPaperSize; ?></label>
+    <label for="paper_opt"><?php echo __('Paper size'); ?></label>
     <select id="paper_opt" name="paper" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
 <?php
         foreach ($cfg['PDFPageSizes'] AS $key => $val) {
@@ -550,7 +550,7 @@ function resetDrag() {
         }
 ?>
     </select><br />
-    &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
+    &nbsp;&nbsp;<input type="submit" value="<?php echo __('Go'); ?>" />
 </form>
 <?php
         if ((isset($showwysiwyg) && $showwysiwyg == '1')) {

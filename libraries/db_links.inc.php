@@ -54,9 +54,9 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_info
  * export, search and qbe links if there is at least one table
  */
 if ($num_tables == 0) {
-    $tab_qbe['warning'] = $strDbIsEmpty;
-    $tab_search['warning'] = $strDbIsEmpty;
-    $tab_export['warning'] = $strDbIsEmpty;
+    $tab_qbe['warning'] = __('Database seems to be empty!');
+    $tab_search['warning'] = __('Database seems to be empty!');
+    $tab_export['warning'] = __('Database seems to be empty!');
 }
 
 $tab_structure['link']  = 'db_structure.php';

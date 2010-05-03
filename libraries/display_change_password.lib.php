@@ -49,7 +49,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
         </tr>
         <tr>
             <td>
-            <?php echo $strPasswordHashing; ?>:
+            <?php echo __('Password Hashing'); ?>:
         </td>
         <td>
             <input type="radio" name="pw_hash" id="radio_pw_hash_new" value="new" checked="checked" />
@@ -63,22 +63,22 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
         <td>
             <input type="radio" name="pw_hash" id="radio_pw_hash_old" value="old" />
             <label for="radio_pw_hash_old">
-                <?php echo $strCompatibleHashing; ?>
+                <?php echo __('MySQL 4.0 compatible'); ?>
             </label>
         </td>
         </tr>
         <tr>
         <td>
-            <?php echo $strGeneratePassword; ?>
+            <?php echo __('Generate Password'); ?>
         </td>
         <td>
-            <input type="button" id="button_generate_password" value="<?php echo $strGenerate; ?>" onclick="suggestPassword(this.form)" />
+            <input type="button" id="button_generate_password" value="<?php echo __('Generate'); ?>" onclick="suggestPassword(this.form)" />
             <input type="text" name="generated_pw" id="generated_pw" />
         </td>
         </tr>
         </table>
     </fieldset>
     <fieldset id="fieldset_change_password_footer" class="tblFooters">
-            <input type="submit" name="change_pw" value="<?php echo($strGo); ?>" />
+            <input type="submit" name="change_pw" value="<?php echo(__('Go')); ?>" />
     </fieldset>
 </form>

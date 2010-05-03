@@ -287,9 +287,9 @@ if (isset($_REQUEST['destination_foreign'])) {
     } // end foreach
     if (!empty($display_query)) {
         if ($seen_error) {
-            PMA_showMessage($strError, null, 'error');
+            PMA_showMessage(__('Error'), null, 'error');
         } else {
-            PMA_showMessage($strSuccess, null, 'success');
+            PMA_showMessage(__('Your SQL query has been executed successfully'), null, 'success');
         }
     }
 } // end if isset($destination_foreign)
@@ -399,12 +399,12 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     <legend><?php echo __('Relations'); ?></legend>
 
     <table>
-    <tr><th><?php echo $strField; ?></th>
+    <tr><th><?php echo __('Field'); ?></th>
     <?php
     if ($cfgRelation['relwork']) {
         echo '<th>' . __('Internal relation');
         if (PMA_foreignkey_supported($tbl_type)) {
-            echo PMA_showHint($strInternalAndForeign);
+            echo PMA_showHint(__('An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.'));
         }
         echo '</th>';
     }
@@ -526,7 +526,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
                     isset($existrel_foreign[$myfield]['on_update']) ? $existrel_foreign[$myfield]['on_update']: 'RESTRICT');
                 echo '</span>' . "\n";
             } else {
-                echo $strNoIndex;
+                echo __('No index defined!');
             } // end if (a key exists)
             echo '        </td>';
         } // end if (InnoDB)
@@ -545,7 +545,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         $disp = PMA_getDisplayField($db, $table);
         ?>
     <fieldset>
-        <label><?php echo $strChangeDisplay . ': '; ?></label>
+        <label><?php echo __('Choose field to display') . ': '; ?></label>
         <select name="display_field" style="vertical-align: middle">
             <option value="">---</option>
         <?php
@@ -563,7 +563,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     } // end if (displayworks)
     ?>
     <fieldset class="tblFooters">
-        <input type="submit" value="<?php echo $strSave; ?>" />
+        <input type="submit" value="<?php echo __('Save'); ?>" />
     </fieldset>
 </form>
     <?php

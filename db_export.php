@@ -26,7 +26,7 @@ require_once './libraries/db_info.inc.php';
 /**
  * Displays the form
  */
-$export_page_title = $strViewDumpDB;
+$export_page_title = __('View dump (schema) of database');
 
 // exit if no tables in db found
 if ($num_tables < 1) {
@@ -40,9 +40,9 @@ $checkall_url = 'db_export.php?'
               . '&amp;goto=db_export.php';
 
 $multi_values = '<div align="center">';
-$multi_values .= '<a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">' . $strSelectAll . '</a>
+$multi_values .= '<a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">' . __('Select All') . '</a>
         /
-        <a href="' . $checkall_url . '&amp;unselectall=1" onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">' . $strUnselectAll . '</a><br />';
+        <a href="' . $checkall_url . '&amp;unselectall=1" onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">' . __('Unselect All') . '</a><br />';
 
 $multi_values .= '<select name="table_select[]" size="10" multiple="multiple">';
 $multi_values .= "\n";

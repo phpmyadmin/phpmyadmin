@@ -49,7 +49,7 @@ if (isset($scale) && ! isset($createpage)) {
         AND pdf_page_number = ' . $pdf_page_number_q . ';', TRUE, PMA_DBI_QUERY_STORE);     
     }
 
-    die("<script>alert('$strModifications');history.go(-2);</script>");
+    die("<script>alert('__('Modifications have been saved')');history.go(-2);</script>");
 }
 
 if (isset($createpage)) {
@@ -82,16 +82,16 @@ require_once './libraries/header_meta_style.inc.php';
 <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <div>
     <fieldset><legend><?php echo $GLOBALS['strExport'] . '/' . $GLOBALS['strImport']; ?></legend>
-    <p><?php echo $strExportImportToScale; ?>:
+    <p><?php echo __('Export/Import to scale'); ?>:
       <select name="scale">
         <option value="1">1:1</option>
         <option value="2">1:2</option>
-        <option value="3" selected>1:3 (<?php echo $strRecommended; ?>)</option>
+        <option value="3" selected>1:3 (<?php echo __('recommended'); ?>)</option>
         <option value="4">1:4</option>
         <option value="5">1:5</option>
         </select>
       </p>
-      <p><?php echo $strToFromPage; ?>:
+      <p><?php echo __('to/from page'); ?>:
 
       <select name="pdf_page_number">
       <?php
@@ -106,14 +106,14 @@ require_once './libraries/header_meta_style.inc.php';
       }
       ?>
       </select>
-      <input type="submit" name="exp" value="<?php echo $strExport; ?>">
-      <input type="submit" name="imp" value="<?php echo $strImport; ?>">
+      <input type="submit" name="exp" value="<?php echo __('Export'); ?>">
+      <input type="submit" name="imp" value="<?php echo __('Import'); ?>">
     </fieldset>
     </div>
     <div>
     <fieldset><legend><?php echo $GLOBALS['strCreatePage']; ?></legend>
         <input type="text" name="newpage" />
-        <input type="submit" name="createpage" value="<?php echo $strGo; ?>">
+        <input type="submit" name="createpage" value="<?php echo __('Go'); ?>">
     </fieldset>
     </div>
   </form>

@@ -26,7 +26,7 @@ require_once './libraries/mysql_charsets.lib.php';
  */
 if (! PMA_isValid($_REQUEST['rows_to_delete'], 'array')
  && ! isset($_REQUEST['mult_btn'])) {
-    $disp_message = $strNoRowsSelected;
+    $disp_message = __('No rows selected');
     $disp_query = '';
     require './sql.php';
     require_once './libraries/footer.inc.php';
@@ -128,7 +128,7 @@ if (!empty($submit_mult)) {
              */
             // sql_query is not set when user does not confirm multi-delete
             if ((!empty($submit_mult) || isset($_REQUEST['mult_btn'])) && ! empty($sql_query)) {
-                $disp_message = $strSuccess;
+                $disp_message = __('Your SQL query has been executed successfully');
                 $disp_query = $sql_query;
             }
 

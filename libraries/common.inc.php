@@ -580,7 +580,7 @@ require_once './libraries/select_lang.lib.php';
  * this check is done here after loading language files to present errors in locale
  */
 if ($GLOBALS['PMA_Config']->error_config_file) {
-    $error = $strConfigFileError
+    $error = __('phpMyAdmin was unable to read your configuration file!<br />This might happen if PHP finds a parse error in it or PHP cannot find the file.<br />Please call the configuration file directly using the link below and read the PHP error message(s) that you receive. In most cases a quote or a semicolon is missing somewhere.<br />If you receive a blank page, everything is fine.')
         . '<br /><br />'
         . ($GLOBALS['PMA_Config']->getSource() == CONFIG_FILE ?
         '<a href="show_config_errors.php"'
@@ -591,12 +591,12 @@ if ($GLOBALS['PMA_Config']->error_config_file) {
     trigger_error($error, E_USER_ERROR);
 }
 if ($GLOBALS['PMA_Config']->error_config_default_file) {
-    $error = sprintf($strConfigDefaultFileError,
+    $error = sprintf(__('Could not load default configuration from: %1'),
         $GLOBALS['PMA_Config']->default_source);
     trigger_error($error, E_USER_ERROR);
 }
 if ($GLOBALS['PMA_Config']->error_pma_uri) {
-    trigger_error($strPmaUriError, E_USER_ERROR);
+    trigger_error(__('The <tt>$cfg[\'PmaAbsoluteUri\']</tt> directive MUST be set in your configuration file!'), E_USER_ERROR);
 }
 
 
@@ -626,14 +626,14 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
 
         // Detect wrong configuration
         if (!is_int($server_index) || $server_index < 1) {
-            trigger_error(sprintf($strInvalidServerIndex, $server_index), E_USER_ERROR);
+            trigger_error(sprintf(__('Invalid server index: %s'), $server_index), E_USER_ERROR);
         }
 
         $each_server = array_merge($default_server, $each_server);
 
         // Don't use servers with no hostname
         if ($each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
-            trigger_error(sprintf($strInvalidServerHostname, $server_index), E_USER_ERROR);
+            trigger_error(sprintf(__('Invalid hostname for server %1. Please review your configuration.'), $server_index), E_USER_ERROR);
         }
 
         // Final solution to bug #582890
@@ -820,7 +820,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // to allow HTTP or http
         $cfg['Server']['auth_type'] = strtolower($cfg['Server']['auth_type']);
         if (! file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
-            PMA_fatalError($strInvalidAuthMethod . ' ' . $cfg['Server']['auth_type']);
+            PMA_fatalError(__('Invalid authentication method set in configuration:') . ' ' . $cfg['Server']['auth_type']);
         }
         /**
          * the required auth type plugin

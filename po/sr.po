@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 15:03+0200\n"
+"POT-Creation-Date: 2010-05-03 12:54-0400\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: serbian_cyrillic <sr@li.org>\n"
@@ -15,11 +15,640 @@ msgstr ""
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: js/messages.php:63 libraries/messages.inc.php:369
+#: browse_foreigners.php:38 browse_foreigners.php:59
+#: libraries/messages.inc.php:878
+msgid "Show all"
+msgstr "Прикажи све"
+
+#: browse_foreigners.php:132 libraries/messages.inc.php:1250
+msgid ""
+"The target browser window could not be updated. Maybe you have closed the "
+"parent window, or your browser's security settings are configured to block "
+"cross-window updates."
+msgstr ""
+"Одредишни прозор претраживача није могао да буде ажуриран. Можда сте "
+"затворили матични прозор, или ваш претраживач онемогућава ажурирање међу "
+"прозорима због сигурносних подешавања"
+
+#: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
+#: db_structure.php:91 db_structure.php:93 db_structure.php:104
+#: db_structure.php:106 libraries/messages.inc.php:849
+#: libraries/tbl_links.inc.php:63
+msgid "Search"
+msgstr "Претраживање"
+
+#: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
+#: db_operations.php:495 db_operations.php:603 db_operations.php:696
+#: db_structure.php:567 js/messages.php:63
+#: libraries/display_change_password.lib.php:82
+#: libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
+#: libraries/messages.inc.php:369 main.php:128 pdf_pages.php:285
+#: pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116
+#: tbl_change.php:330 tbl_change.php:1174 tbl_change.php:1211
+#: tbl_indexes.php:252 tbl_operations.php:263 tbl_operations.php:300
+#: tbl_operations.php:497 tbl_operations.php:559 tbl_operations.php:679
+#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
+#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Крени"
 
-#: js/messages.php:64 libraries/messages.inc.php:131
+#: browse_foreigners.php:168 browse_foreigners.php:172
+#: libraries/messages.inc.php:467 tbl_tracking.php:320
+msgid "Keyname"
+msgstr "Име кључа"
+
+#: browse_foreigners.php:169 browse_foreigners.php:171
+#: libraries/messages.inc.php:260 server_collations.php:55
+#: server_collations.php:67 server_engines.php:59 server_status.php:630
+msgid "Description"
+msgstr "Опис"
+
+#: browse_foreigners.php:247 browse_foreigners.php:256
+#: browse_foreigners.php:268 browse_foreigners.php:276
+#: libraries/messages.inc.php:1226
+msgid "Use this value"
+msgstr "Користи ову вредност"
+
+#: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:240
+msgid "Database comment: "
+msgstr "Коментар базе:"
+
+#: db_datadict.php:165 libraries/messages.inc.php:1078
+#: libraries/tbl_properties.inc.php:724 tbl_operations.php:345
+#: tbl_printview.php:130
+msgid "Table comments"
+msgstr "Коментари табеле"
+
+#: db_datadict.php:174 db_qbe.php:174 libraries/messages.inc.php:325
+#: libraries/tbl_properties.inc.php:99 libraries/tbl_properties.inc.php:275
+#: tbl_change.php:308 tbl_indexes.php:187 tbl_printview.php:142
+#: tbl_relation.php:402 tbl_structure.php:177 tbl_tracking.php:273
+#: tbl_tracking.php:324
+msgid "Field"
+msgstr "Поље"
+
+#: db_datadict.php:175 db_printview.php:106 libraries/db_events.inc.php:31
+#: libraries/db_routines.inc.php:42 libraries/messages.inc.php:1189
+#: libraries/tbl_properties.inc.php:100 tbl_change.php:287 tbl_change.php:314
+#: tbl_printview.php:143 tbl_printview.php:313 tbl_structure.php:178
+#: tbl_structure.php:660 tbl_tracking.php:274 tbl_tracking.php:321
+msgid "Type"
+msgstr "Тип"
+
+#: db_datadict.php:177 libraries/messages.inc.php:584
+#: libraries/tbl_properties.inc.php:109 tbl_change.php:323
+#: tbl_printview.php:145 tbl_structure.php:181 tbl_tracking.php:276
+#: tbl_tracking.php:327
+msgid "Null"
+msgstr "Null"
+
+#: db_datadict.php:178 db_structure.php:501 libraries/messages.inc.php:246
+#: libraries/tbl_properties.inc.php:106 tbl_printview.php:146
+#: tbl_structure.php:182 tbl_tracking.php:277
+msgid "Default"
+msgstr "Подразумевано"
+
+#: db_datadict.php:182 libraries/messages.inc.php:491 tbl_printview.php:150
+msgid "Links to"
+msgstr "Везе ка"
+
+#: db_datadict.php:184 db_printview.php:112 libraries/messages.inc.php:171
+#: libraries/tbl_properties.inc.php:130 tbl_printview.php:152
+msgid "Comments"
+msgstr "Коментари"
+
+#: db_datadict.php:267 libraries/messages.inc.php:567
+#: libraries/mult_submits.inc.php:263 tbl_printview.php:229
+#: tbl_structure.php:351 tbl_tracking.php:337 tbl_tracking.php:342
+msgid "No"
+msgstr "Не"
+
+#: db_datadict.php:267 libraries/messages.inc.php:1265
+#: libraries/mult_submits.inc.php:45 libraries/mult_submits.inc.php:50
+#: libraries/mult_submits.inc.php:55 libraries/mult_submits.inc.php:60
+#: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:101
+#: libraries/mult_submits.inc.php:106 libraries/mult_submits.inc.php:111
+#: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:273
+#: server_databases.php:64 tbl_printview.php:229 tbl_structure.php:40
+#: tbl_structure.php:351 tbl_tracking.php:335 tbl_tracking.php:340
+msgid "Yes"
+msgstr "Да"
+
+#: db_datadict.php:322 db_printview.php:266 libraries/messages.inc.php:678
+#: tbl_printview.php:498
+msgid "Print"
+msgstr "Штампај"
+
+#: db_export.php:29 libraries/messages.inc.php:1234
+msgid "View dump (schema) of database"
+msgstr "Прикажи садржај (схему) базе"
+
+#: db_export.php:43 libraries/messages.inc.php:853 server_export.php:27
+msgid "Select All"
+msgstr "Изабери све"
+
+#: db_export.php:45 libraries/messages.inc.php:1196 server_export.php:29
+msgid "Unselect All"
+msgstr "ништа"
+
+#: db_operations.php:410 libraries/messages.inc.php:244
+msgid "Rename database to"
+msgstr "Преименуј базу у"
+
+#: db_operations.php:415 libraries/messages.inc.php:169
+#: server_processlist.php:57
+msgid "Command"
+msgstr "Наредба"
+
+#: db_operations.php:425 libraries/messages.inc.php:66 tbl_change.php:1143
+msgid "and then"
+msgstr "и онда"
+
+#: db_operations.php:451 libraries/messages.inc.php:241
+msgid "Copy database to"
+msgstr "Копирај базу у"
+
+#: db_operations.php:458 libraries/messages.inc.php:1051
+#: tbl_operations.php:526 tbl_tracking.php:388
+msgid "Structure only"
+msgstr "Само структура"
+
+#: db_operations.php:459 libraries/messages.inc.php:1049
+#: tbl_operations.php:527 tbl_tracking.php:390
+msgid "Structure and data"
+msgstr "Структура и подаци"
+
+#: db_operations.php:460 libraries/messages.inc.php:237 tbl_operations.php:528
+#: tbl_tracking.php:389
+msgid "Data only"
+msgstr "Само подаци"
+
+#: db_operations.php:468 libraries/messages.inc.php:194
+msgid "CREATE DATABASE before copying"
+msgstr "CREATE DATABASE пре копирања"
+
+#: db_operations.php:471 libraries/messages.inc.php:38 tbl_operations.php:534
+#, php-format
+msgid "Add %s"
+msgstr "Додај %s"
+
+#: db_operations.php:475 libraries/messages.inc.php:37 tbl_operations.php:297
+#: tbl_operations.php:536
+msgid "Add AUTO_INCREMENT value"
+msgstr "Додај AUTO_INCREMENT вредност"
+
+#: db_operations.php:479 libraries/messages.inc.php:39 tbl_operations.php:543
+msgid "Add constraints"
+msgstr "Додај ограничења"
+
+#: db_operations.php:492 libraries/messages.inc.php:1067
+msgid "Switch to copied database"
+msgstr "Пребаци се на копирану базу"
+
+#: db_operations.php:533 libraries/messages.inc.php:97
+msgid "BLOB Repository"
+msgstr ""
+
+#: db_operations.php:536 db_tracking.php:76 libraries/messages.inc.php:1045
+#: libraries/server_links.inc.php:49 server_processlist.php:59
+#: tbl_tracking.php:596 test/theme.php:101
+msgid "Status"
+msgstr "Статус"
+
+#: db_operations.php:544
+#, fuzzy
+#| msgid "Enabled"
+msgctxt "BLOB repository"
+msgid "Enabled"
+msgstr "Омогућено"
+
+#: db_operations.php:548 libraries/messages.inc.php:101
+#, fuzzy
+msgid "Disable"
+msgstr "Онемогућено"
+
+#: db_operations.php:558 libraries/messages.inc.php:98
+msgid "Damaged"
+msgstr ""
+
+#: db_operations.php:562
+#, fuzzy
+msgctxt "BLOB repository"
+msgid "Repair"
+msgstr "Поправи табелу"
+
+#: db_operations.php:570
+#, fuzzy
+#| msgid "Disabled"
+msgctxt "BLOB repository"
+msgid "Disabled"
+msgstr "Онемогућено"
+
+#: db_operations.php:574 libraries/messages.inc.php:104
+#, fuzzy
+msgid "Enable"
+msgstr "Омогућено"
+
+#: db_operations.php:598 libraries/messages.inc.php:166
+#: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
+#: server_collations.php:54 server_collations.php:66 server_databases.php:111
+#: tbl_operations.php:361 tbl_structure.php:179 tbl_structure.php:768
+#: tbl_tracking.php:275 tbl_tracking.php:326
+msgid "Collation"
+msgstr "Сортирање"
+
+#: db_operations.php:645 libraries/messages.inc.php:272 pdf_pages.php:528
+msgid "Display PDF schema"
+msgstr "Прикажи PDF схему"
+
+#: db_operations.php:648 libraries/messages.inc.php:605
+msgid "Page number:"
+msgstr "Број стране:"
+
+#: db_operations.php:661 libraries/messages.inc.php:885 pdf_pages.php:529
+msgid "Show grid"
+msgstr "Прикажи мрежу"
+
+#: db_operations.php:664 libraries/messages.inc.php:882 pdf_pages.php:530
+msgid "Show color"
+msgstr "Прикажи боју"
+
+#: db_operations.php:666 libraries/messages.inc.php:1006 pdf_pages.php:531
+msgid "Show dimension of tables"
+msgstr "Прикажи димензије табеле"
+
+#: db_operations.php:669 libraries/messages.inc.php:60 pdf_pages.php:532
+msgid "Display all tables with the same width"
+msgstr "Приказ свих табела исте ширине?"
+
+#: db_operations.php:672 db_structure.php:606 libraries/messages.inc.php:235
+#: pdf_pages.php:533
+msgid "Data Dictionary"
+msgstr "Речник података"
+
+#: db_operations.php:674 libraries/messages.inc.php:892 pdf_pages.php:534
+msgid "Only show keys"
+msgstr ""
+
+#: db_operations.php:676 libraries/messages.inc.php:883 pdf_pages.php:535
+msgid "Data Dictionary Format"
+msgstr "Формат речника података"
+
+#: db_operations.php:678 libraries/messages.inc.php:472 pdf_pages.php:537
+msgid "Landscape"
+msgstr "Положено"
+
+#: db_operations.php:679 libraries/messages.inc.php:671 pdf_pages.php:538
+msgid "Portrait"
+msgstr "Усправно"
+
+#: db_operations.php:682 libraries/messages.inc.php:607 pdf_pages.php:541
+msgid "Paper size"
+msgstr "Димензије папира"
+
+#: db_operations.php:706 libraries/messages.inc.php:289
+msgid "Edit PDF Pages"
+msgstr "Уређивање PDF страна"
+
+#: db_printview.php:96 db_structure.php:51 db_tracking.php:35
+#: libraries/messages.inc.php:576
+msgid "No tables found in database."
+msgstr "Табеле нису пронађене у бази."
+
+#: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
+#: libraries/messages.inc.php:1095 pdf_pages.php:405
+#: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
+msgid "Table"
+msgstr "Табела"
+
+#: db_printview.php:105 libraries/messages.inc.php:743
+msgid "Records"
+msgstr "Записи"
+
+#: db_printview.php:109 libraries/messages.inc.php:1011 tbl_indexes.php:188
+msgid "Size"
+msgstr "Величина"
+
+#: db_printview.php:162 db_structure.php:457 libraries/messages.inc.php:444
+msgid "in use"
+msgstr "се користи"
+
+#: db_printview.php:187 libraries/messages.inc.php:1040 tbl_printview.php:434
+#: tbl_structure.php:810
+msgid "Creation"
+msgstr "Направљено"
+
+#: db_printview.php:196 libraries/messages.inc.php:1044 tbl_printview.php:444
+#: tbl_structure.php:818
+msgid "Last update"
+msgstr "Последња измена"
+
+#: db_printview.php:205 libraries/messages.inc.php:1039 tbl_printview.php:454
+#: tbl_structure.php:826
+msgid "Last check"
+msgstr "Последња провера"
+
+#: db_printview.php:222 db_structure.php:480 libraries/messages.inc.php:1093
+#, php-format
+msgid "%s table(s)"
+msgstr "%s табела"
+
+#: db_qbe.php:200 libraries/messages.inc.php:1022
+msgid "Sort"
+msgstr "Сортирање"
+
+#: db_qbe.php:209 db_qbe.php:243 libraries/messages.inc.php:77
+#: server_databases.php:170 server_databases.php:187 tbl_operations.php:260
+msgid "Ascending"
+msgstr "Растући"
+
+#: db_qbe.php:210 db_qbe.php:251 libraries/messages.inc.php:259
+#: server_databases.php:170 server_databases.php:187 tbl_operations.php:261
+msgid "Descending"
+msgstr "Опадајући"
+
+#: db_qbe.php:264 db_tracking.php:78 libraries/messages.inc.php:896
+#: tbl_change.php:277 tbl_tracking.php:597
+msgid "Show"
+msgstr "Прикажи"
+
+#: db_qbe.php:300 libraries/messages.inc.php:210
+msgid "Criteria"
+msgstr "Критеријум"
+
+#: db_qbe.php:353 db_qbe.php:435 db_qbe.php:527 db_qbe.php:558
+#: libraries/messages.inc.php:726
+msgid "Ins"
+msgstr "Ins"
+
+#: db_qbe.php:357 db_qbe.php:439 db_qbe.php:524 db_qbe.php:555
+#: libraries/messages.inc.php:64
+msgid "And"
+msgstr "и"
+
+#: db_qbe.php:366 db_qbe.php:447 db_qbe.php:529 db_qbe.php:560
+#: libraries/messages.inc.php:725
+msgid "Del"
+msgstr "Del"
+
+#: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
+#: libraries/display_import.lib.php:166 libraries/messages.inc.php:600
+#: tbl_change.php:1031 tbl_indexes.php:248
+msgid "Or"
+msgstr "или"
+
+#: db_qbe.php:507 libraries/messages.inc.php:524
+msgid "Modify"
+msgstr "Промени"
+
+#: db_qbe.php:584 libraries/messages.inc.php:41
+msgid "Add/Delete Criteria Row"
+msgstr "Додај/обриши поље за критеријум"
+
+#: db_qbe.php:596 libraries/messages.inc.php:40
+msgid "Add/Delete Field Columns"
+msgstr "Додај/обриши колону"
+
+#: db_qbe.php:609 db_qbe.php:634 libraries/messages.inc.php:1200
+msgid "Update Query"
+msgstr "Ажурирај упит"
+
+#: db_qbe.php:617 libraries/messages.inc.php:1224
+msgid "Use Tables"
+msgstr "Користи табеле"
+
+#: db_qbe.php:640 libraries/messages.inc.php:731
+#, php-format
+msgid "SQL query on database <b>%s</b>:"
+msgstr "SQL упит на бази <b>%s</b>:"
+
+#: db_qbe.php:934 libraries/messages.inc.php:831
+msgid "Submit Query"
+msgstr "Изврши SQL упит"
+
+#: db_structure.php:77 db_structure.php:78 db_structure.php:90
+#: db_structure.php:92 db_structure.php:103 db_structure.php:105
+#: libraries/messages.inc.php:116 libraries/mult_submits.inc.php:116
+#: libraries/tbl_links.inc.php:50 tbl_structure.php:37 tbl_structure.php:49
+#: tbl_structure.php:468
+msgid "Browse"
+msgstr "Преглед"
+
+#: db_structure.php:81 db_structure.php:82 db_structure.php:94
+#: db_structure.php:95 db_structure.php:107 db_structure.php:108
+#: libraries/messages.inc.php:439 libraries/tbl_links.inc.php:76
+msgid "Insert"
+msgstr "Нови запис"
+
+#: db_structure.php:83 db_structure.php:96 db_structure.php:109
+#: libraries/messages.inc.php:1056 libraries/tbl_links.inc.php:56
+#: pmd_general.php:134 tbl_tracking.php:269
+msgid "Structure"
+msgstr "Структура"
+
+#: db_structure.php:84 db_structure.php:85 db_structure.php:97
+#: db_structure.php:98 db_structure.php:110 db_structure.php:111
+#: db_structure.php:545 db_structure.php:546 db_tracking.php:91
+#: libraries/messages.inc.php:280 libraries/mult_submits.inc.php:36
+#: libraries/mult_submits.inc.php:73 libraries/tbl_links.inc.php:127
+#: server_databases.php:352 tbl_structure.php:27 tbl_structure.php:151
+#: tbl_structure.php:152 tbl_structure.php:472
+msgid "Drop"
+msgstr "Одбаци"
+
+#: db_structure.php:86 db_structure.php:87 db_structure.php:99
+#: db_structure.php:100 db_structure.php:112 db_structure.php:113
+#: db_structure.php:543 db_structure.php:544 libraries/messages.inc.php:292
+#: libraries/mult_submits.inc.php:39 libraries/tbl_links.inc.php:105
+msgid "Empty"
+msgstr "Испразни"
+
+#: db_structure.php:316 libraries/messages.inc.php:1083
+#: libraries/tbl_links.inc.php:100
+#, php-format
+msgid "Table %s has been emptied"
+msgstr "Табела %s је испражњена"
+
+#: db_structure.php:326 libraries/messages.inc.php:1237
+#: libraries/tbl_links.inc.php:133
+#, php-format
+msgid "View %s has been dropped"
+msgstr "Поглед %s је одбачен"
+
+#: db_structure.php:326 libraries/messages.inc.php:1082
+#: libraries/tbl_links.inc.php:133
+#, php-format
+msgid "Table %s has been dropped"
+msgstr "Табела %s је одбачена"
+
+#: db_structure.php:333 libraries/messages.inc.php:1136
+msgid "Tracking is active."
+msgstr ""
+
+#: db_structure.php:335 libraries/messages.inc.php:1137
+msgid "Tracking is not active."
+msgstr ""
+
+#: db_structure.php:420 libraries/messages.inc.php:1236
+#, php-format
+msgid ""
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
+msgstr ""
+
+#: db_structure.php:434 db_structure.php:448 libraries/messages.inc.php:1241
+#: tbl_structure.php:185
+msgid "View"
+msgstr "Поглед"
+
+#: db_structure.php:489 libraries/messages.inc.php:1061
+msgid "Sum"
+msgstr "Укупно"
+
+#: db_structure.php:496 libraries/messages.inc.php:247
+#, php-format
+msgid "%s is the default storage engine on this MySQL server."
+msgstr "%s је подразумевани погон складиштења на овом MySQL серверу."
+
+#: db_structure.php:524 db_structure.php:541 db_structure.php:542
+#: libraries/messages.inc.php:1251 libraries/mult_submits.inc.php:16
+#: server_databases.php:346 server_databases.php:351 tbl_structure.php:456
+#: tbl_structure.php:465
+msgid "With selected:"
+msgstr "Означено:"
+
+#: db_structure.php:527 libraries/messages.inc.php:156
+#: server_databases.php:348 tbl_structure.php:459
+msgid "Check All"
+msgstr "Означи све"
+
+#: db_structure.php:531 libraries/messages.inc.php:1192
+#: server_databases.php:350 tbl_structure.php:463
+msgid "Uncheck All"
+msgstr "ниједно"
+
+#: db_structure.php:536 libraries/messages.inc.php:158
+msgid "Check tables having overhead"
+msgstr "Провери табеле које имају прекорачења"
+
+#: db_structure.php:547 db_structure.php:548 db_structure.php:599
+#: libraries/messages.inc.php:680 libraries/mult_submits.inc.php:28
+#: tbl_structure.php:493 tbl_structure.php:495
+msgid "Print view"
+msgstr "За штампу"
+
+#: db_structure.php:549 db_structure.php:550 libraries/messages.inc.php:161
+#: libraries/mult_submits.inc.php:42 tbl_operations.php:579
+msgid "Check table"
+msgstr "Провери табелу"
+
+#: db_structure.php:551 db_structure.php:552 libraries/messages.inc.php:598
+#: libraries/mult_submits.inc.php:47 tbl_operations.php:619
+#: tbl_structure.php:710 tbl_structure.php:712
+msgid "Optimize table"
+msgstr "Оптимизуј табелу"
+
+#: db_structure.php:553 db_structure.php:554 libraries/messages.inc.php:766
+#: libraries/mult_submits.inc.php:52 tbl_operations.php:609
+msgid "Repair table"
+msgstr "Поправи табелу"
+
+#: db_structure.php:555 db_structure.php:556 libraries/messages.inc.php:63
+#: libraries/mult_submits.inc.php:57 tbl_operations.php:599
+msgid "Analyze table"
+msgstr "Анализирај табелу"
+
+#: db_structure.php:557 db_structure.php:558
+#: libraries/display_export.lib.php:83 libraries/messages.inc.php:318
+#: libraries/mult_submits.inc.php:62 libraries/server_links.inc.php:84
+#: libraries/tbl_links.inc.php:82 pmd_pdf.php:109
+msgid "Export"
+msgstr "Извоз"
+
+#: db_tracking.php:66 libraries/messages.inc.php:1159
+#, fuzzy
+msgid "Tracked tables"
+msgstr "Провери табелу"
+
+#: db_tracking.php:71 libraries/header_printview.inc.php:58
+#: libraries/messages.inc.php:220 server_databases.php:169
+#: server_processlist.php:56 tbl_tracking.php:591
+msgid "Database"
+msgstr "База података"
+
+#: db_tracking.php:73 libraries/messages.inc.php:1154
+#, fuzzy
+msgid "Last version"
+msgstr "Направи релацију"
+
+#: db_tracking.php:74 libraries/messages.inc.php:1153 tbl_tracking.php:594
+#, fuzzy
+msgid "Created"
+msgstr "Направи"
+
+#: db_tracking.php:75 libraries/messages.inc.php:1155 tbl_tracking.php:595
+msgid "Updated"
+msgstr ""
+
+#: db_tracking.php:77 libraries/messages.inc.php:35 server_databases.php:203
+#: tbl_structure.php:187
+msgid "Action"
+msgstr "Акција"
+
+#: db_tracking.php:88 db_tracking.php:120 libraries/messages.inc.php:255
+msgid "Delete tracking data for this table"
+msgstr ""
+
+#: db_tracking.php:106 libraries/messages.inc.php:1150 tbl_tracking.php:548
+#: tbl_tracking.php:606 tbl_tracking.php:613
+msgid "active"
+msgstr ""
+
+#: db_tracking.php:108 libraries/messages.inc.php:1151 tbl_tracking.php:550
+#: tbl_tracking.php:608 tbl_tracking.php:610
+msgid "not active"
+msgstr ""
+
+#: db_tracking.php:121 libraries/messages.inc.php:1168
+#, fuzzy
+msgid "Versions"
+msgstr "Персијски"
+
+#: db_tracking.php:122 libraries/messages.inc.php:1140 tbl_tracking.php:114
+#: tbl_tracking.php:251 tbl_tracking.php:379 tbl_tracking.php:624
+msgid "Tracking report"
+msgstr ""
+
+#: db_tracking.php:123 libraries/messages.inc.php:1152 tbl_tracking.php:251
+#: tbl_tracking.php:624
+#, fuzzy
+msgid "Structure snapshot"
+msgstr "Само структура"
+
+#: db_tracking.php:152 libraries/messages.inc.php:1162
+#, fuzzy
+msgid "Untracked tables"
+msgstr "Провери табелу"
+
+#: db_tracking.php:172 db_tracking.php:174 libraries/messages.inc.php:1161
+#: tbl_structure.php:529 tbl_structure.php:531
+#, fuzzy
+msgid "Track table"
+msgstr "Провери табелу"
+
+#: db_tracking.php:200 libraries/messages.inc.php:1129
+#, fuzzy
+msgid "Database Log"
+msgstr "База података"
+
+#: import.php:403 libraries/messages.inc.php:109
+#, php-format
+msgid "Bookmark %s created"
+msgstr "Направљен маркер %s"
+
+#: js/messages.php:64 libraries/messages.inc.php:131 pmd_general.php:342
+#: pmd_general.php:379
 msgid "Cancel"
 msgstr "Откажи"
 
@@ -37,7 +666,8 @@ msgid "Prev"
 msgstr "Претходна"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:91 libraries/messages.inc.php:551
+#: js/messages.php:91 libraries/messages.inc.php:551 tbl_printview.php:424
+#: tbl_structure.php:802
 msgid "Next"
 msgstr "Следећи"
 
@@ -335,6 +965,85 @@ msgstr ""
 "php и уверите се да одговарају подацима које сте добили од администратора "
 "MySQL сервера."
 
+#: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
+#, fuzzy
+#| msgid ""
+#| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#| "extension. Please check your PHP configuration."
+msgid ""
+"Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+"Please check your PHP configuration."
+msgstr ""
+"не могу да учитам екстензију %s,<br />молим проверите PHP конфигурацију"
+
+#: libraries/charset_conversion.lib.php:21
+#: libraries/charset_conversion.lib.php:27
+#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Не могу да учитам iconv или recode екстензије потребне за конверзију скупова "
+"знакова, подесите PHP да дозволи коришћење ових екстензија или онемогућите "
+"конверзију скупова знакова у phpMyAdmin-у."
+
+#: libraries/charset_conversion.lib.php:75
+#: libraries/charset_conversion.lib.php:86
+#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Не могу да користим iconv или libiconv или recode_string функције иако "
+"екстензија пријављује да је учитана. Проверите вашу PHP конфигурацију."
+
+#: libraries/common.inc.php:583 libraries/messages.inc.php:178
+msgid ""
+"phpMyAdmin was unable to read your configuration file!<br />This might "
+"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+">Please call the configuration file directly using the link below and read "
+"the PHP error message(s) that you receive. In most cases a quote or a "
+"semicolon is missing somewhere.<br />If you receive a blank page, everything "
+"is fine."
+msgstr ""
+"phpMyAdmin није могао да прочита вашу конфигурациону датотеку!<br />Ово се "
+"може десити ако PHP нађе грешку у процесирању или не може да пронађе "
+"датотеку.<br />Позовите конфигурациону датотеку директно користећи доњи линк "
+"и прочитајте поруке о грешци које добијате. У већини случајеве негде "
+"недостаје наводник или тачка-зарез.<br />Ако добијете празну страну, све је "
+"у реду."
+
+#: libraries/common.inc.php:594
+#, fuzzy
+#| msgid "Could not load default configuration from: \"%1$s\""
+msgid "Could not load default configuration from: %1"
+msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
+
+#: libraries/common.inc.php:599 libraries/messages.inc.php:668
+msgid ""
+"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"configuration file!"
+msgstr ""
+"<tt>$cfg['PmaAbsoluteUri']</tt> директива МОРА бити подешена у "
+"конфигурационој датотеци!"
+
+#: libraries/common.inc.php:629
+#, fuzzy, php-format
+#| msgid "Invalid server index: \"%s\""
+msgid "Invalid server index: %s"
+msgstr "Неисправан индекс сервера: \"%s\""
+
+#: libraries/common.inc.php:636
+#, fuzzy
+#| msgid "Invalid hostname for server %1$s. Please review your configuration."
+msgid "Invalid hostname for server %1. Please review your configuration."
+msgstr "Неисправан назив сервера %1$s. Молимо проверите своју конфигурацију."
+
+#: libraries/common.inc.php:823 libraries/messages.inc.php:445
+msgid "Invalid authentication method set in configuration:"
+msgstr "Неисправан метод аутентикације је задат у конфигурацији:"
+
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:411
 msgctxt "$mysql_5_1_doc_lang"
@@ -356,6 +1065,251 @@ msgstr ""
 #| msgid "Engines"
 msgid "Inline"
 msgstr "Складиштења"
+
+#: libraries/core.lib.php:234 libraries/messages.inc.php:305 pdf_schema.php:32
+#: tbl_change.php:1027 tbl_operations.php:213 tbl_relation.php:290
+#: view_operations.php:62
+msgid "Error"
+msgstr "Грешка"
+
+#: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
+#: libraries/messages.inc.php:314
+#, fuzzy
+msgid "Events"
+msgstr "Догађаји"
+
+#: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
+#: libraries/display_create_table.lib.php:53 libraries/messages.inc.php:549
+#: libraries/tbl_triggers.lib.php:27
+msgid "Name"
+msgstr "Име"
+
+#: libraries/db_links.inc.php:57 libraries/db_links.inc.php:58
+#: libraries/db_links.inc.php:59 libraries/messages.inc.php:242
+msgid "Database seems to be empty!"
+msgstr "База је изгледа празна!"
+
+#: libraries/db_routines.inc.php:30 libraries/db_routines.inc.php:32
+#: libraries/messages.inc.php:820
+msgid "Routines"
+msgstr "Рутине"
+
+#: libraries/db_routines.inc.php:43 libraries/messages.inc.php:819
+msgid "Return type"
+msgstr "Повратни тип"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr "Хеширање лозинке"
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "MySQL&nbsp;4.0 компатибилно"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+msgid "Generate Password"
+msgstr "Направи лозинку"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+msgid "Generate"
+msgstr "Направи"
+
+#: libraries/display_create_database.lib.php:22
+#: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
+msgid "Create new database"
+msgstr "Направи нову базу података"
+
+#: libraries/display_create_database.lib.php:30 libraries/messages.inc.php:193
+msgid "Create"
+msgstr "Направи"
+
+#: libraries/display_create_database.lib.php:40 libraries/messages.inc.php:572
+msgid "No Privileges"
+msgstr "Нема привилегија"
+
+#: libraries/display_create_table.lib.php:48 libraries/messages.inc.php:198
+#, php-format
+msgid "Create table on database %s"
+msgstr "Направи нову табелу у бази %s"
+
+#: libraries/display_create_table.lib.php:57 libraries/messages.inc.php:585
+msgid "Number of fields"
+msgstr "Број поља"
+
+#: libraries/display_export.lib.php:107 libraries/messages.inc.php:285
+#, php-format
+msgid "Dump %s row(s) starting at record # %s"
+msgstr "Прикажи %s редова почевши од реда %s."
+
+#: libraries/display_export.lib.php:115 libraries/messages.inc.php:282
+msgid "Dump all rows"
+msgstr ""
+
+#: libraries/display_export.lib.php:125 libraries/messages.inc.php:860
+#: setup/lib/messages.inc.php:82
+msgid "Save as file"
+msgstr "Сачувај као датотеку"
+
+#: libraries/display_export.lib.php:134 libraries/messages.inc.php:836
+#, php-format
+msgid "Save on server in %s directory"
+msgstr "Сачувај на сервер у директоријум %s"
+
+#: libraries/display_export.lib.php:142 libraries/messages.inc.php:602
+#: setup/lib/messages.inc.php:90
+msgid "Overwrite existing file(s)"
+msgstr "Препиши постојеће датотеке"
+
+#: libraries/display_export.lib.php:148 libraries/messages.inc.php:338
+msgid "File name template"
+msgstr "Шаблон имена датотеке"
+
+#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
+#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
+#: pdf_pages.php:54
+msgid "Documentation"
+msgstr "Документација"
+
+#: libraries/display_export.lib.php:202 libraries/messages.inc.php:339
+msgid "remember template"
+msgstr "запамти шаблон"
+
+#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:178
+#: libraries/display_import.lib.php:191 libraries/messages.inc.php:153
+msgid "Character set of the file:"
+msgstr "Карактер сет датотеке:"
+
+#: libraries/display_export.lib.php:235 libraries/messages.inc.php:174
+#: setup/lib/messages.inc.php:84
+msgid "Compression"
+msgstr "Компресија"
+
+#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
+#: libraries/display_import.lib.php:210 libraries/messages.inc.php:566
+#: libraries/tbl_properties.inc.php:575 server_processlist.php:75
+msgid "None"
+msgstr "нема"
+
+#: libraries/display_export.lib.php:247
+#, fuzzy
+#| msgid "\"zipped\""
+msgid "zipped"
+msgstr "\"зиповано\""
+
+#: libraries/display_export.lib.php:253
+#, fuzzy
+#| msgid "\"gzipped\""
+msgid "gzipped"
+msgstr "\"гзип-овано\""
+
+#: libraries/display_export.lib.php:259
+#, fuzzy
+#| msgid "\"bzipped\""
+msgid "bzipped"
+msgstr "\"бзип-овано\""
+
+#: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: libraries/display_import.lib.php:77 libraries/messages.inc.php:414
+msgid "The file is being processed, please be patient."
+msgstr ""
+
+#: libraries/display_import.lib.php:99 libraries/messages.inc.php:416
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+
+#: libraries/display_import.lib.php:126 libraries/messages.inc.php:341
+msgid "File to import"
+msgstr "Датотека за увоз"
+
+#: libraries/display_import.lib.php:137 libraries/messages.inc.php:494
+msgid "Location of the text file"
+msgstr "Локација текстуалне датотеке"
+
+#: libraries/display_import.lib.php:166 libraries/messages.inc.php:1244
+#: tbl_change.php:1031
+msgid "web server upload directory"
+msgstr "директоријум за слање веб сервера "
+
+#: libraries/display_import.lib.php:212 libraries/messages.inc.php:175
+#, php-format
+msgid "Imported file compression will be automatically detected from: %s"
+msgstr "Врста компресије увезених датотека ће бити аутоматски одабрана: %s"
+
+#: libraries/display_import.lib.php:219 libraries/messages.inc.php:608
+msgid "Partial import"
+msgstr "Делимични увоз"
+
+#: libraries/display_import.lib.php:225 libraries/messages.inc.php:1113
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+"Претходном увозу је истекло време, након поновног слања биће настављен од "
+"позиције %d."
+
+#: libraries/display_import.lib.php:232 libraries/messages.inc.php:59
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. This might be good way to import large files, "
+"however it can break transactions."
+msgstr ""
+"Дозвољава прекид увоза у случају да скрипт открије да је близу временског "
+"ограничења. Ово може бити добар начин увоза великих датотека, али са друге "
+"стране може покварити трансакције."
+
+#: libraries/display_import.lib.php:239 libraries/messages.inc.php:1012
+#: setup/lib/messages.inc.php:161
+msgid "Number of records (queries) to skip from start"
+msgstr "Број записа (упита) које треба прескочити:"
+
+#: libraries/display_import.lib.php:255 libraries/messages.inc.php:404
+#: setup/lib/messages.inc.php:160
+msgid "Format of imported file"
+msgstr "Формат датотека за увоз"
+
+#: libraries/header.inc.php:115 libraries/messages.inc.php:550
+#, fuzzy
+msgid "New table"
+msgstr "Нема табела"
+
+#: libraries/header_printview.inc.php:50 libraries/header_printview.inc.php:55
+#: libraries/messages.inc.php:1032
+msgid "SQL result"
+msgstr "SQL резултат"
+
+#: libraries/header_printview.inc.php:57 libraries/messages.inc.php:389
+#: server_processlist.php:55
+msgid "Host"
+msgstr "Домаћин"
+
+#: libraries/header_printview.inc.php:59 libraries/messages.inc.php:362
+msgid "Generation Time"
+msgstr "Време креирања"
+
+#: libraries/header_printview.inc.php:60 libraries/messages.inc.php:358
+msgid "Generated by"
+msgstr "Генерисао"
+
+#: libraries/header_printview.inc.php:61 libraries/messages.inc.php:1031
+#: server_processlist.php:60 server_status.php:247
+msgid "SQL query"
+msgstr "SQL упит"
+
+#: libraries/header_printview.inc.php:63 libraries/messages.inc.php:828
+#: server_databases.php:122 tbl_printview.php:394 tbl_structure.php:366
+#: tbl_structure.php:778
+msgid "Rows"
+msgstr "Редова"
 
 #: libraries/Message.class.php:282
 #, php-format
@@ -433,7 +1387,7 @@ msgstr "%d. %B %Y. у %H:%M"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дана, %s сати, %s минута и %s секунди"
 
-#: libraries/messages.inc.php:33
+#: libraries/messages.inc.php:33 server_status.php:463
 msgid "Aborted"
 msgstr "Прекинуто"
 
@@ -441,37 +1395,13 @@ msgstr "Прекинуто"
 msgid "Access denied"
 msgstr "Приступ одбијен"
 
-#: libraries/messages.inc.php:35
-msgid "Action"
-msgstr "Акција"
-
-#: libraries/messages.inc.php:36
+#: libraries/messages.inc.php:36 main.php:68
 #, fuzzy
 msgid "Actions"
 msgstr "Акција"
 
-#: libraries/messages.inc.php:37
-msgid "Add AUTO_INCREMENT value"
-msgstr "Додај AUTO_INCREMENT вредност"
-
-#: libraries/messages.inc.php:38
-#, php-format
-msgid "Add %s"
-msgstr "Додај %s"
-
-#: libraries/messages.inc.php:39
-msgid "Add constraints"
-msgstr "Додај ограничења"
-
-#: libraries/messages.inc.php:40
-msgid "Add/Delete Field Columns"
-msgstr "Додај/обриши колону"
-
-#: libraries/messages.inc.php:41
-msgid "Add/Delete Criteria Row"
-msgstr "Додај/обриши поље за критеријум"
-
-#: libraries/messages.inc.php:42
+#: libraries/messages.inc.php:42 libraries/tbl_properties.inc.php:780
+#: tbl_structure.php:543
 #, php-format
 msgid "Add %s field(s)"
 msgstr "Додај %s поља"
@@ -484,7 +1414,7 @@ msgstr "Додај коментар у заглавље (\\n раздваја л
 msgid "Add into comments"
 msgstr "Додај у коментаре"
 
-#: libraries/messages.inc.php:45
+#: libraries/messages.inc.php:45 tbl_structure.php:541
 msgid "Add new field"
 msgstr "Додај ново поље"
 
@@ -500,7 +1430,7 @@ msgstr "Додај привилегије на следећој табели"
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Додај услове претраживања (део \"WHERE\" упита):"
 
-#: libraries/messages.inc.php:49
+#: libraries/messages.inc.php:49 tbl_indexes.php:249
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "Додај у кључ &nbsp;%s&nbsp;колона(е)"
@@ -517,24 +1447,24 @@ msgstr "Додали сте новог корисника."
 msgid "Administration"
 msgstr "Администрација"
 
-#: libraries/messages.inc.php:53
+#: libraries/messages.inc.php:53 tbl_structure.php:557
 #, php-format
 msgid "After %s"
 msgstr "После %s"
 
-#: libraries/messages.inc.php:54
+#: libraries/messages.inc.php:54 tbl_change.php:1147
 msgid "Go back to previous page"
 msgstr "Назад на претходну страну"
 
-#: libraries/messages.inc.php:55
+#: libraries/messages.inc.php:55 tbl_change.php:1148
 msgid "Insert another new row"
 msgstr "Додај још један нови ред"
 
-#: libraries/messages.inc.php:56
+#: libraries/messages.inc.php:56 tbl_change.php:1160
 msgid "Edit next row"
 msgstr "Уреди следећи ред"
 
-#: libraries/messages.inc.php:57
+#: libraries/messages.inc.php:57 tbl_change.php:1152
 msgid "Go back to this page"
 msgstr "Врати се на ову страну"
 
@@ -542,50 +1472,25 @@ msgstr "Врати се на ову страну"
 msgid "All"
 msgstr "Све"
 
-#: libraries/messages.inc.php:59
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. This might be good way to import large files, "
-"however it can break transactions."
-msgstr ""
-"Дозвољава прекид увоза у случају да скрипт открије да је близу временског "
-"ограничења. Ово може бити добар начин увоза великих датотека, али са друге "
-"стране може покварити трансакције."
-
-#: libraries/messages.inc.php:60
-msgid "Display all tables with the same width"
-msgstr "Приказ свих табела исте ширине?"
-
-#: libraries/messages.inc.php:61
+#: libraries/messages.inc.php:61 tbl_operations.php:249
 msgid "Alter table order by"
 msgstr "Промени редослед у табели"
 
-#: libraries/messages.inc.php:62
+#: libraries/messages.inc.php:62 tbl_operations.php:660
 msgid "Analyze"
 msgstr ""
 
-#: libraries/messages.inc.php:63
-msgid "Analyze table"
-msgstr "Анализирај табелу"
-
-#: libraries/messages.inc.php:64
-msgid "And"
-msgstr "и"
-
-#: libraries/messages.inc.php:65
+#: libraries/messages.inc.php:65 server_status.php:365
 #, fuzzy
 msgid "and"
 msgstr "и"
 
-#: libraries/messages.inc.php:66
-msgid "and then"
-msgstr "и онда"
-
-#: libraries/messages.inc.php:67
+#: libraries/messages.inc.php:67 pmd_general.php:87
 msgid "Angular links"
 msgstr "Угласте везе"
 
-#: libraries/messages.inc.php:68
+#: libraries/messages.inc.php:68 tbl_structure.php:401 tbl_structure.php:415
+#: tbl_structure.php:429
 #, php-format
 msgid "An index has been added on %s"
 msgstr "Кључ је управо додат %s"
@@ -612,7 +1517,7 @@ msgid ""
 "3.11[/a]"
 msgstr "Може бити приближно. Видите FAQ 3.11"
 
-#: libraries/messages.inc.php:74
+#: libraries/messages.inc.php:74 tbl_structure.php:386
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "Примарни кључ је управо додат %s"
@@ -625,31 +1530,28 @@ msgstr "Арапски"
 msgid "Armenian"
 msgstr "Јерменски"
 
-#: libraries/messages.inc.php:77
-msgid "Ascending"
-msgstr "Растући"
-
-#: libraries/messages.inc.php:78
+#: libraries/messages.inc.php:78 libraries/tbl_properties.inc.php:394
 msgid "As defined:"
 msgstr ""
 
-#: libraries/messages.inc.php:79
+#: libraries/messages.inc.php:79 tbl_structure.php:556
 msgid "At Beginning of Table"
 msgstr "На почетку табеле"
 
-#: libraries/messages.inc.php:80
+#: libraries/messages.inc.php:80 tbl_structure.php:555
 msgid "At End of Table"
 msgstr "На крају табеле"
 
-#: libraries/messages.inc.php:81
+#: libraries/messages.inc.php:81 libraries/tbl_properties.inc.php:108
+#: tbl_printview.php:144 tbl_structure.php:180
 msgid "Attributes"
 msgstr "Атрибути"
 
-#: libraries/messages.inc.php:82
+#: libraries/messages.inc.php:82 pdf_pages.php:303 pdf_pages.php:306
 msgid "Automatic layout"
 msgstr "Аутоматски распоред"
 
-#: libraries/messages.inc.php:84
+#: libraries/messages.inc.php:84 user_password.php:115
 msgid "Back"
 msgstr "Назад"
 
@@ -665,15 +1567,16 @@ msgstr "ПОЧЕТАК РЕЗ"
 msgid "BEGIN RAW"
 msgstr "ПОЧЕТАК СИРОВО"
 
-#: libraries/messages.inc.php:88
+#: libraries/messages.inc.php:88 tbl_change.php:518
 msgid "Binary"
 msgstr "Бинарни"
 
-#: libraries/messages.inc.php:89
+#: libraries/messages.inc.php:89 tbl_change.php:894
 msgid "Binary - do not edit"
 msgstr "Бинарни - не мењај"
 
-#: libraries/messages.inc.php:90
+#: libraries/messages.inc.php:90 libraries/server_links.inc.php:76
+#: server_status.php:253 test/theme.php:121
 msgid "Binary log"
 msgstr "Бинарни дневник"
 
@@ -701,14 +1604,6 @@ msgstr "Позиција"
 msgid "Server ID"
 msgstr "ИД сервера"
 
-#: libraries/messages.inc.php:97
-msgid "BLOB Repository"
-msgstr ""
-
-#: libraries/messages.inc.php:98
-msgid "Damaged"
-msgstr ""
-
 #: libraries/messages.inc.php:99
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
@@ -718,11 +1613,6 @@ msgstr ""
 #, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "Онемогућено"
-
-#: libraries/messages.inc.php:101
-#, fuzzy
-msgid "Disable"
 msgstr "Онемогућено"
 
 #: libraries/messages.inc.php:102
@@ -735,12 +1625,7 @@ msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Омогућено"
 
-#: libraries/messages.inc.php:104
-#, fuzzy
-msgid "Enable"
-msgstr "Омогућено"
-
-#: libraries/messages.inc.php:105
+#: libraries/messages.inc.php:105 tbl_change.php:888
 msgid "Remove BLOB Repository Reference"
 msgstr ""
 
@@ -750,18 +1635,13 @@ msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Поправи табелу"
 
-#: libraries/messages.inc.php:107
+#: libraries/messages.inc.php:107 tbl_change.php:987
 msgid "Upload to BLOB repository"
 msgstr ""
 
 #: libraries/messages.inc.php:108
 msgid "Let every user access this bookmark"
 msgstr "Дозволи сваком кориснику да приступа овом упамћеном упиту"
-
-#: libraries/messages.inc.php:109
-#, php-format
-msgid "Bookmark %s created"
-msgstr "Направљен маркер %s"
 
 #: libraries/messages.inc.php:110
 msgid "The bookmark has been deleted."
@@ -787,15 +1667,11 @@ msgstr "Запамти SQL-упит"
 msgid "View only"
 msgstr "Види само"
 
-#: libraries/messages.inc.php:116
-msgid "Browse"
-msgstr "Преглед"
-
-#: libraries/messages.inc.php:117
+#: libraries/messages.inc.php:117 tbl_structure.php:161
 msgid "Browse distinct values"
 msgstr "Прегледај различите вредности"
 
-#: libraries/messages.inc.php:118
+#: libraries/messages.inc.php:118 tbl_change.php:252
 msgid "Browse foreign values"
 msgstr "Прегледај стране вредности"
 
@@ -864,29 +1740,11 @@ msgid ""
 msgstr ""
 "не могу да учитам екстензију %s,<br />молим проверите PHP конфигурацију"
 
-#: libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Не могу да учитам iconv или recode екстензије потребне за конверзију скупова "
-"знакова, подесите PHP да дозволи коришћење ових екстензија или онемогућите "
-"конверзију скупова знакова у phpMyAdmin-у."
-
 #: libraries/messages.inc.php:137
 msgid "Can't rename index to PRIMARY!"
 msgstr "Не могу да променим кључ у PRIMARY (примарни) !"
 
-#: libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Не могу да користим iconv или libiconv или recode_string функције иако "
-"екстензија пријављује да је учитана. Проверите вашу PHP конфигурацију."
-
-#: libraries/messages.inc.php:139
+#: libraries/messages.inc.php:139 tbl_tracking.php:325
 msgid "Cardinality"
 msgstr "Кардиналност"
 
@@ -902,7 +1760,8 @@ msgstr "Разликује мала и велика слова"
 msgid "Central European"
 msgstr "Централноевропски"
 
-#: libraries/messages.inc.php:143
+#: libraries/messages.inc.php:143 libraries/mult_submits.inc.php:113
+#: tbl_structure.php:25 tbl_structure.php:150 tbl_structure.php:471
 msgid "Change"
 msgstr "Промени"
 
@@ -934,11 +1793,12 @@ msgstr " ... обустави све привилегије старог кор�
 msgid "Change Login Information / Copy User"
 msgstr "Промени информације о пријави / Копирај корисника"
 
-#: libraries/messages.inc.php:150
+#: libraries/messages.inc.php:150 pmd_general.php:77 tbl_relation.php:548
 msgid "Choose field to display"
 msgstr "Изабери поља за приказ"
 
-#: libraries/messages.inc.php:151
+#: libraries/messages.inc.php:151 main.php:91 user_password.php:111
+#: user_password.php:129
 msgid "Change password"
 msgstr "Промени лозинку"
 
@@ -946,45 +1806,31 @@ msgstr "Промени лозинку"
 msgid "Charset"
 msgstr "Карактер сет"
 
-#: libraries/messages.inc.php:153
-msgid "Character set of the file:"
-msgstr "Карактер сет датотеке:"
-
-#: libraries/messages.inc.php:154
+#: libraries/messages.inc.php:154 server_collations.php:40
 msgid "Character Sets and Collations"
 msgstr "Карактер сетови и сортирање"
 
-#: libraries/messages.inc.php:155
+#: libraries/messages.inc.php:155 libraries/server_links.inc.php:57
+#: test/theme.php:109
 msgid "Charsets"
 msgstr "Кодне стране"
 
-#: libraries/messages.inc.php:156
-msgid "Check All"
-msgstr "Означи све"
-
-#: libraries/messages.inc.php:157
+#: libraries/messages.inc.php:157 tbl_operations.php:661
 #, fuzzy
 msgid "Check"
 msgstr "Чешки"
 
-#: libraries/messages.inc.php:158
-msgid "Check tables having overhead"
-msgstr "Провери табеле које имају прекорачења"
-
-#: libraries/messages.inc.php:159
+#: libraries/messages.inc.php:159 server_databases.php:293
+#: server_databases.php:294
 msgid "Check Privileges"
 msgstr "Провери привилегије"
 
-#: libraries/messages.inc.php:160
+#: libraries/messages.inc.php:160 server_databases.php:289
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
 msgstr "Провери привилегије за базу &quot;%s&quot;."
 
-#: libraries/messages.inc.php:161
-msgid "Check table"
-msgstr "Провери табелу"
-
-#: libraries/messages.inc.php:162
+#: libraries/messages.inc.php:162 pdf_pages.php:261
 msgid "Please choose a page to edit"
 msgstr "Изаберите страну коју мењате"
 
@@ -1000,11 +1846,7 @@ msgstr ""
 msgid "Displaying Column Comments"
 msgstr "Приказујем коментаре колоне"
 
-#: libraries/messages.inc.php:166
-msgid "Collation"
-msgstr "Сортирање"
-
-#: libraries/messages.inc.php:167
+#: libraries/messages.inc.php:167 pdf_pages.php:483 view_create.php:148
 msgid "Column names"
 msgstr "Имена колона"
 
@@ -1012,17 +1854,9 @@ msgstr "Имена колона"
 msgid "Column-specific privileges"
 msgstr "Привилегије везане за колоне"
 
-#: libraries/messages.inc.php:169
-msgid "Command"
-msgstr "Наредба"
-
-#: libraries/messages.inc.php:170
+#: libraries/messages.inc.php:170 tbl_tracking.php:279 tbl_tracking.php:328
 #, fuzzy
 msgid "Comment"
-msgstr "Коментари"
-
-#: libraries/messages.inc.php:171
-msgid "Comments"
 msgstr "Коментари"
 
 #: libraries/messages.inc.php:172
@@ -1033,42 +1867,17 @@ msgstr "MySQL&nbsp;4.0 компатибилно"
 msgid "Complete inserts"
 msgstr "Комплетан INSERT (са именима поља)"
 
-#: libraries/messages.inc.php:174 setup/lib/messages.inc.php:84
-msgid "Compression"
-msgstr "Компресија"
-
-#: libraries/messages.inc.php:175
-#, php-format
-msgid "Imported file compression will be automatically detected from: %s"
-msgstr "Врста компресије увезених датотека ће бити аутоматски одабрана: %s"
-
 #: libraries/messages.inc.php:176
 #, php-format
 msgid "Could not load default configuration from: \"%1$s\""
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/messages.inc.php:177
+#: libraries/messages.inc.php:177 main.php:306
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
-
-#: libraries/messages.inc.php:178
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
-msgstr ""
-"phpMyAdmin није могао да прочита вашу конфигурациону датотеку!<br />Ово се "
-"може десити ако PHP нађе грешку у процесирању или не може да пронађе "
-"датотеку.<br />Позовите конфигурациону датотеку директно користећи доњи линк "
-"и прочитајте поруке о грешци које добијате. У већини случајеве негде "
-"недостаје наводник или тачка-зарез.<br />Ако добијете празну страну, све је "
-"у реду."
 
 #: libraries/messages.inc.php:179
 #, php-format
@@ -1079,7 +1888,7 @@ msgstr "Подесите координате за табелу %s"
 msgid "Cannot connect: invalid settings."
 msgstr "Не могу да се повежем: неисправна подешавања."
 
-#: libraries/messages.inc.php:181
+#: libraries/messages.inc.php:181 server_status.php:435
 msgid "Connections"
 msgstr "Конекције"
 
@@ -1106,7 +1915,7 @@ msgstr "Колачићи (Cookies) морају у овом случају би�
 msgid "Database %s has been copied to %s"
 msgstr "База %s је прекопирана у %s"
 
-#: libraries/messages.inc.php:187
+#: libraries/messages.inc.php:187 tbl_operations.php:509
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Копирај табелу у (база<b>.</b>табела):"
 
@@ -1133,33 +1942,16 @@ msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr "phpMyAdmin није могао да прекине процес %s. Вероватно је већ затворен."
 
-#: libraries/messages.inc.php:193
-msgid "Create"
-msgstr "Направи"
-
-#: libraries/messages.inc.php:194
-msgid "CREATE DATABASE before copying"
-msgstr "CREATE DATABASE пре копирања"
-
 #: libraries/messages.inc.php:195
 #, php-format
 msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgstr "Направи кључ на&nbsp;%s&nbsp;колона"
 
-#: libraries/messages.inc.php:196
+#: libraries/messages.inc.php:196 tbl_indexes.php:160
 msgid "Create a new index"
 msgstr "Направи нови кључ"
 
-#: libraries/messages.inc.php:197
-msgid "Create new database"
-msgstr "Направи нову базу података"
-
-#: libraries/messages.inc.php:198
-#, php-format
-msgid "Create table on database %s"
-msgstr "Направи нову табелу у бази %s"
-
-#: libraries/messages.inc.php:199
+#: libraries/messages.inc.php:199 pdf_pages.php:297
 msgid "Create a page"
 msgstr "Направи нову страну"
 
@@ -1167,11 +1959,12 @@ msgstr "Направи нову страну"
 msgid "Creation of PDFs"
 msgstr "Прављење PDF-ova"
 
-#: libraries/messages.inc.php:201
+#: libraries/messages.inc.php:201 pmd_general.php:74 pmd_general.php:306
 msgid "Create relation"
 msgstr "Направи релацију"
 
-#: libraries/messages.inc.php:202
+#: libraries/messages.inc.php:202 pmd_general.php:71
+#: server_synchronize.php:429 server_synchronize.php:872
 msgid "Create table"
 msgstr "Направи табелу"
 
@@ -1208,10 +2001,6 @@ msgstr "Дај све привилегије на имену са џокерим
 msgid "Creation/Update/Check dates"
 msgstr "Датуми креирања/ажурирања/провере"
 
-#: libraries/messages.inc.php:210
-msgid "Criteria"
-msgstr "Критеријум"
-
 #: libraries/messages.inc.php:211
 msgid "Croatian"
 msgstr "Хрватски"
@@ -1224,7 +2013,7 @@ msgstr "CSV"
 msgid "Current server"
 msgstr ""
 
-#: libraries/messages.inc.php:214
+#: libraries/messages.inc.php:214 main.php:159
 msgid "Custom color"
 msgstr ""
 
@@ -1244,11 +2033,7 @@ msgstr "Чешко-словачки"
 msgid "Danish"
 msgstr "Дански"
 
-#: libraries/messages.inc.php:220
-msgid "Database"
-msgstr "База података"
-
-#: libraries/messages.inc.php:221
+#: libraries/messages.inc.php:221 tbl_create.php:54
 msgid "The database name is empty!"
 msgstr "Име базе није задато!"
 
@@ -1271,7 +2056,8 @@ msgstr "База %s је одбачена."
 msgid "'%s' database does not exist."
 msgstr ""
 
-#: libraries/messages.inc.php:226 setup/lib/messages.inc.php:110
+#: libraries/messages.inc.php:226 libraries/server_links.inc.php:41
+#: server_databases.php:88 setup/lib/messages.inc.php:110 test/theme.php:93
 msgid "Databases"
 msgstr "Базе"
 
@@ -1285,15 +2071,17 @@ msgstr "%s база је успешно одбачено."
 msgid "Source database"
 msgstr "Претраживање базе"
 
-#: libraries/messages.inc.php:229
+#: libraries/messages.inc.php:229 server_databases.php:88
 msgid "Databases statistics"
 msgstr "Статистика базе"
 
-#: libraries/messages.inc.php:230
+#: libraries/messages.inc.php:230 server_databases.php:362
+#: server_databases.php:363
 msgid "Disable Statistics"
 msgstr "Искључи статистике"
 
-#: libraries/messages.inc.php:231
+#: libraries/messages.inc.php:231 server_databases.php:358
+#: server_databases.php:359
 msgid "Enable Statistics"
 msgstr "Укључи статистике"
 
@@ -1310,65 +2098,34 @@ msgstr ""
 msgid "Target database"
 msgstr "Претраживање базе"
 
-#: libraries/messages.inc.php:234
+#: libraries/messages.inc.php:234 server_databases.php:127
+#: tbl_printview.php:317 tbl_structure.php:666
 msgid "Data"
 msgstr "Подаци"
 
-#: libraries/messages.inc.php:235
-msgid "Data Dictionary"
-msgstr "Речник података"
-
-#: libraries/messages.inc.php:236
+#: libraries/messages.inc.php:236 server_synchronize.php:425
+#: server_synchronize.php:868
 #, fuzzy
 msgid "Data Difference"
 msgstr "Структура за поглед (view)"
-
-#: libraries/messages.inc.php:237
-msgid "Data only"
-msgstr "Само подаци"
 
 #: libraries/messages.inc.php:238
 msgid "Pages containing data"
 msgstr "Стране са подацима"
 
-#: libraries/messages.inc.php:239
+#: libraries/messages.inc.php:239 server_synchronize.php:272
 msgid "Data Synchronization"
 msgstr ""
-
-#: libraries/messages.inc.php:240
-msgid "Database comment: "
-msgstr "Коментар базе:"
-
-#: libraries/messages.inc.php:241
-msgid "Copy database to"
-msgstr "Копирај базу у"
-
-#: libraries/messages.inc.php:242
-msgid "Database seems to be empty!"
-msgstr "База је изгледа празна!"
 
 #: libraries/messages.inc.php:243
 msgid "Database-specific privileges"
 msgstr "Привилегије везане за базу"
 
-#: libraries/messages.inc.php:244
-msgid "Rename database to"
-msgstr "Преименуј базу у"
-
 #: libraries/messages.inc.php:245
 msgid "database-specific"
 msgstr "Специфично за базу"
 
-#: libraries/messages.inc.php:246
-msgid "Default"
-msgstr "Подразумевано"
-
-#: libraries/messages.inc.php:247
-#, php-format
-msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s је подразумевани погон складиштења на овом MySQL серверу."
-
-#: libraries/messages.inc.php:248
+#: libraries/messages.inc.php:248 libraries/tbl_properties.inc.php:106
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
@@ -1376,7 +2133,7 @@ msgstr ""
 "За подразумевану вредност, унесите само једну вредност, без косих црта или "
 "наводника у овом облику: а"
 
-#: libraries/messages.inc.php:249
+#: libraries/messages.inc.php:249 tbl_operations.php:589
 msgid "Defragment table"
 msgstr "Дефрагментирај табелу"
 
@@ -1384,7 +2141,8 @@ msgstr "Дефрагментирај табелу"
 msgid "Use delayed inserts"
 msgstr "Користи одложена уметања"
 
-#: libraries/messages.inc.php:251
+#: libraries/messages.inc.php:251 pdf_pages.php:281 pdf_pages.php:406
+#: pdf_pages.php:442 pdf_pages.php:470 pmd_general.php:377
 msgid "Delete"
 msgstr "Обриши"
 
@@ -1396,13 +2154,9 @@ msgstr "Ред је обрисан"
 msgid "No users selected for deleting!"
 msgstr "Ниједан корисник није одабран за брисање!"
 
-#: libraries/messages.inc.php:254
+#: libraries/messages.inc.php:254 pmd_general.php:372
 msgid "Delete relation"
 msgstr "Обриши релацију"
-
-#: libraries/messages.inc.php:255
-msgid "Delete tracking data for this table"
-msgstr ""
 
 #: libraries/messages.inc.php:256
 #, php-format
@@ -1413,21 +2167,13 @@ msgstr "Бришем %s"
 msgid "Delimiter"
 msgstr "Граничник"
 
-#: libraries/messages.inc.php:258
+#: libraries/messages.inc.php:258 pdf_pages.php:506
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
 msgstr ""
 "Тренутна страна има референце на табеле које више не постоје. Желите ли да "
 "обришете те референце?"
-
-#: libraries/messages.inc.php:259
-msgid "Descending"
-msgstr "Опадајући"
-
-#: libraries/messages.inc.php:260
-msgid "Description"
-msgstr "Опис"
 
 #: libraries/messages.inc.php:261
 msgid "Designer"
@@ -1443,7 +2189,7 @@ msgstr ""
 "поље за приказ, кликните на икону „Изабери поље за приказ“, а потом на назив "
 "одговарајућег поља."
 
-#: libraries/messages.inc.php:263
+#: libraries/messages.inc.php:263 tbl_structure.php:609
 msgid "Details..."
 msgstr ""
 
@@ -1455,7 +2201,7 @@ msgstr "речник"
 msgid "Difference"
 msgstr ""
 
-#: libraries/messages.inc.php:266
+#: libraries/messages.inc.php:266 pmd_general.php:87
 msgid "Direct links"
 msgstr "Директне везе"
 
@@ -1479,10 +2225,6 @@ msgstr "Прикажи особине"
 msgid "Display order:"
 msgstr "Редослед приказа:"
 
-#: libraries/messages.inc.php:272
-msgid "Display PDF schema"
-msgstr "Прикажи PDF схему"
-
 #: libraries/messages.inc.php:273
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Направи \"упит по примеру\" (џокер: \"%\")"
@@ -1490,10 +2232,6 @@ msgstr "Направи \"упит по примеру\" (џокер: \"%\")"
 #: libraries/messages.inc.php:274
 msgid "DocSQL"
 msgstr "DocSQL"
-
-#: libraries/messages.inc.php:275
-msgid "Documentation"
-msgstr "Документација"
 
 #: libraries/messages.inc.php:276
 msgid "Do not use AUTO_INCREMENT for zero values"
@@ -1503,25 +2241,17 @@ msgstr ""
 msgid "Download file"
 msgstr ""
 
-#: libraries/messages.inc.php:278
+#: libraries/messages.inc.php:278 libraries/mult_submits.inc.php:258
 msgid "Do you really want to "
 msgstr "Да ли стварно хоћете да "
 
-#: libraries/messages.inc.php:279
+#: libraries/messages.inc.php:279 libraries/mult_submits.inc.php:258
 msgid "You are about to DESTROY a complete database!"
 msgstr "Овим ћете УНИШТИТИ комплетну базу података!"
-
-#: libraries/messages.inc.php:280
-msgid "Drop"
-msgstr "Одбаци"
 
 #: libraries/messages.inc.php:281
 msgid "Drop the databases that have the same names as the users."
 msgstr "Одбаци базе које се зову исто као корисници."
-
-#: libraries/messages.inc.php:282
-msgid "Dump all rows"
-msgstr ""
 
 #: libraries/messages.inc.php:283
 msgid "Dumping data for table"
@@ -1532,36 +2262,24 @@ msgstr "Приказ података табеле"
 msgid "Dump has been saved to file %s."
 msgstr "Садржај базе је сачуван у датотеку %s."
 
-#: libraries/messages.inc.php:285
-#, php-format
-msgid "Dump %s row(s) starting at record # %s"
-msgstr "Прикажи %s редова почевши од реда %s."
-
-#: libraries/messages.inc.php:286
+#: libraries/messages.inc.php:286 tbl_printview.php:382 tbl_structure.php:743
 msgid "dynamic"
 msgstr "динамички"
 
-#: libraries/messages.inc.php:288 setup/lib/messages.inc.php:352
+#: libraries/messages.inc.php:288 pdf_pages.php:280
+#: setup/lib/messages.inc.php:352
 msgid "Edit"
 msgstr "Промени"
-
-#: libraries/messages.inc.php:289
-msgid "Edit PDF Pages"
-msgstr "Уређивање PDF страна"
 
 #: libraries/messages.inc.php:290
 msgid "Edit Privileges"
 msgstr "Промени привилегије"
 
-#: libraries/messages.inc.php:291
+#: libraries/messages.inc.php:291 tbl_printview.php:341 tbl_structure.php:688
 msgid "Effective"
 msgstr "Ефективне"
 
-#: libraries/messages.inc.php:292
-msgid "Empty"
-msgstr "Испразни"
-
-#: libraries/messages.inc.php:293
+#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL је вратио празан резултат (нула редова)."
 
@@ -1595,7 +2313,8 @@ msgstr "%s је доступан на овом MySQL серверу."
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s је онемогућен на овом MySQL серверу."
 
-#: libraries/messages.inc.php:301
+#: libraries/messages.inc.php:301 libraries/server_links.inc.php:61
+#: test/theme.php:113
 msgid "Engines"
 msgstr "Складиштења"
 
@@ -1611,10 +2330,6 @@ msgstr "Енглески"
 #: libraries/messages.inc.php:304
 msgid " Note: MySQL privilege names are expressed in English "
 msgstr " Напомена: MySQL имена привилегија морају да буду на енглеском "
-
-#: libraries/messages.inc.php:305
-msgid "Error"
-msgstr "Грешка"
 
 #: libraries/messages.inc.php:306
 msgid "Error in ZIP archive:"
@@ -1645,13 +2360,8 @@ msgstr "Есперанто"
 msgid "Estonian"
 msgstr "Естонски"
 
-#: libraries/messages.inc.php:313
+#: libraries/messages.inc.php:313 libraries/tbl_triggers.lib.php:29
 msgid "Event"
-msgstr "Догађаји"
-
-#: libraries/messages.inc.php:314
-#, fuzzy
-msgid "Events"
 msgstr "Догађаји"
 
 #: libraries/messages.inc.php:315
@@ -1666,11 +2376,7 @@ msgstr "Изврши упамћен упит"
 msgid "Explain SQL"
 msgstr "Објасни SQL"
 
-#: libraries/messages.inc.php:318
-msgid "Export"
-msgstr "Извоз"
-
-#: libraries/messages.inc.php:319
+#: libraries/messages.inc.php:319 pmd_pdf.php:85
 msgid "Export/Import to scale"
 msgstr "Извор/увоз у размери"
 
@@ -1682,19 +2388,16 @@ msgstr "Одабрани тип извоза мора бити сачуван у
 msgid "Extended inserts"
 msgstr "Проширени INSERT"
 
-#: libraries/messages.inc.php:322
+#: libraries/messages.inc.php:322 tbl_printview.php:147 tbl_structure.php:183
+#: tbl_tracking.php:278
 msgid "Extra"
 msgstr "Додатно"
 
-#: libraries/messages.inc.php:324
+#: libraries/messages.inc.php:324 server_status.php:449
 msgid "Failed attempts"
 msgstr "Неуспелих покушаја"
 
-#: libraries/messages.inc.php:325
-msgid "Field"
-msgstr "Поље"
-
-#: libraries/messages.inc.php:326
+#: libraries/messages.inc.php:326 tbl_structure.php:375
 #, php-format
 msgid "Field %s has been dropped"
 msgstr "Поље %s је обрисано"
@@ -1756,21 +2459,9 @@ msgstr ""
 "користите стрингове за форматирање времена. Такође ће се десити и следеће "
 "трансформације: %3$s. Преостали текст ће остати како јесте."
 
-#: libraries/messages.inc.php:338
-msgid "File name template"
-msgstr "Шаблон имена датотеке"
-
-#: libraries/messages.inc.php:339
-msgid "remember template"
-msgstr "запамти шаблон"
-
 #: libraries/messages.inc.php:340
 msgid "Files"
 msgstr "Датотеке"
-
-#: libraries/messages.inc.php:341
-msgid "File to import"
-msgstr "Датотека за увоз"
 
 #: libraries/messages.inc.php:342
 #, php-format
@@ -1785,7 +2476,7 @@ msgstr ""
 "сервер користи ако су вршене ручне измене. У том случају %sпоново учитајте "
 "привилегије%s пре него што наставите."
 
-#: libraries/messages.inc.php:343
+#: libraries/messages.inc.php:343 server_status.php:289
 msgid "Flush query cache"
 msgstr "Очисти кеш упита"
 
@@ -1793,7 +2484,7 @@ msgstr "Очисти кеш упита"
 msgid "Flush the table (\"FLUSH\")"
 msgstr "Освежи табелу (\"FLUSH\")"
 
-#: libraries/messages.inc.php:345
+#: libraries/messages.inc.php:345 server_status.php:271
 msgid "Flush (close) all tables"
 msgstr "Очисти (затвори) све табеле"
 
@@ -1811,6 +2502,7 @@ msgid "FOREIGN KEY relation added"
 msgstr ""
 
 #: libraries/messages.inc.php:349 setup/lib/messages.inc.php:88
+#: tbl_printview.php:376 tbl_structure.php:738
 msgid "Format"
 msgstr "Формат"
 
@@ -1836,7 +2528,7 @@ msgstr "Текст кључ"
 msgid "Full Texts"
 msgstr "Пун текст"
 
-#: libraries/messages.inc.php:355
+#: libraries/messages.inc.php:355 tbl_change.php:282 tbl_change.php:320
 msgid "Function"
 msgstr "Функција"
 
@@ -1844,25 +2536,9 @@ msgstr "Функција"
 msgid "Functions"
 msgstr "Функције"
 
-#: libraries/messages.inc.php:358
-msgid "Generated by"
-msgstr "Генерисао"
-
 #: libraries/messages.inc.php:359
 msgid "General relation features"
 msgstr "Опште особине релација"
-
-#: libraries/messages.inc.php:360
-msgid "Generate"
-msgstr "Направи"
-
-#: libraries/messages.inc.php:361
-msgid "Generate Password"
-msgstr "Направи лозинку"
-
-#: libraries/messages.inc.php:362
-msgid "Generation Time"
-msgstr "Време креирања"
 
 #: libraries/messages.inc.php:363
 msgid "Georgian"
@@ -1872,7 +2548,7 @@ msgstr "Грузијски"
 msgid "German"
 msgstr "Немачки"
 
-#: libraries/messages.inc.php:365
+#: libraries/messages.inc.php:365 themes.php:42
 msgid "Get more themes!"
 msgstr ""
 
@@ -1884,7 +2560,8 @@ msgstr "глобално"
 msgid "Global privileges"
 msgstr "Глобалне привилегије"
 
-#: libraries/messages.inc.php:368
+#: libraries/messages.inc.php:368 server_variables.php:55
+#: server_variables.php:89
 msgid "Global value"
 msgstr "Глобална вредност"
 
@@ -1914,7 +2591,7 @@ msgstr "Грчки"
 msgid "\"gzipped\""
 msgstr "\"гзип-овано\""
 
-#: libraries/messages.inc.php:377
+#: libraries/messages.inc.php:377 server_status.php:250
 msgid "Handler"
 msgstr "Руковалац"
 
@@ -1930,7 +2607,7 @@ msgstr "Морате изабрати бар једну колону за при
 msgid "Hebrew"
 msgstr "Хебрејски"
 
-#: libraries/messages.inc.php:381
+#: libraries/messages.inc.php:381 pmd_general.php:83
 msgid "Help"
 msgstr "Помоћ"
 
@@ -1942,29 +2619,27 @@ msgstr "Користи хексадецимално за BLOB"
 msgid "Hide"
 msgstr "Сакриј"
 
-#: libraries/messages.inc.php:384
+#: libraries/messages.inc.php:384 pmd_general.php:120
 msgid "Hide/Show all"
 msgstr "Сакриј/прикажи све"
 
-#: libraries/messages.inc.php:385
+#: libraries/messages.inc.php:385 pmd_general.php:124
 msgid "Hide/Show Tables with no relation"
 msgstr "Сакриј/прикажи табеле без релација"
 
-#: libraries/messages.inc.php:386
+#: libraries/messages.inc.php:386 libraries/navigation_header.inc.php:54
+#: libraries/navigation_header.inc.php:57
+#: libraries/navigation_header.inc.php:58
 msgid "Home"
 msgstr "Почетна страна"
 
-#: libraries/messages.inc.php:387
+#: libraries/messages.inc.php:387 main.php:233
 msgid "Official Homepage"
 msgstr "phpMyAdmin веб сајт"
 
 #: libraries/messages.inc.php:388
 msgid "The host name is empty!"
 msgstr "Име домаћина је празно!"
-
-#: libraries/messages.inc.php:389
-msgid "Host"
-msgstr "Домаћин"
 
 #: libraries/messages.inc.php:390
 msgid ""
@@ -1984,11 +2659,13 @@ msgstr "Мађарски"
 msgid "Icelandic"
 msgstr "Исландски"
 
-#: libraries/messages.inc.php:395
+#: libraries/messages.inc.php:395 server_processlist.php:53
 msgid "ID"
 msgstr "ID"
 
-#: libraries/messages.inc.php:396
+#: libraries/messages.inc.php:396 libraries/mult_submits.inc.php:108
+#: libraries/tbl_properties.inc.php:531 tbl_structure.php:35
+#: tbl_structure.php:156 tbl_structure.php:160 tbl_structure.php:479
 msgid "Fulltext"
 msgstr "Текст кључ"
 
@@ -1996,7 +2673,8 @@ msgstr "Текст кључ"
 msgid "Ignore duplicate rows"
 msgstr "Игнориши дуплициране редове"
 
-#: libraries/messages.inc.php:398
+#: libraries/messages.inc.php:398 tbl_change.php:302 tbl_indexes.php:198
+#: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Игнориши"
 
@@ -2012,7 +2690,7 @@ msgstr ""
 msgid "Do not import empty rows"
 msgstr ""
 
-#: libraries/messages.inc.php:402
+#: libraries/messages.inc.php:402 pmd_general.php:104
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Извоз/увоз координата за PDF схему"
 
@@ -2020,20 +2698,10 @@ msgstr "Извоз/увоз координата за PDF схему"
 msgid "Import files"
 msgstr "Увоз датотека"
 
-#: libraries/messages.inc.php:404 setup/lib/messages.inc.php:160
-msgid "Format of imported file"
-msgstr "Формат датотека за увоз"
-
-#: libraries/messages.inc.php:405
+#: libraries/messages.inc.php:405 libraries/server_links.inc.php:88
+#: libraries/tbl_links.inc.php:91 pmd_pdf.php:110
 msgid "Import"
 msgstr "Увоз"
-
-#: libraries/messages.inc.php:406
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
 
 #: libraries/messages.inc.php:407
 msgid ""
@@ -2065,20 +2733,10 @@ msgstr "Open Document Spreadsheet"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
 
-#: libraries/messages.inc.php:414
-msgid "The file is being processed, please be patient."
-msgstr ""
-
 #: libraries/messages.inc.php:415
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Увоз је успешно завршен, извршено је %d упита."
-
-#: libraries/messages.inc.php:416
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
 
 #: libraries/messages.inc.php:417
 msgid "Excel 97-2003 XLS Workbook"
@@ -2088,7 +2746,8 @@ msgstr ""
 msgid "Excel 2007 XLSX Workbook"
 msgstr ""
 
-#: libraries/messages.inc.php:419
+#: libraries/messages.inc.php:419 server_databases.php:132
+#: tbl_tracking.php:316
 msgid "Indexes"
 msgstr "Кључеви"
 
@@ -2104,15 +2763,18 @@ msgstr ""
 msgid "Index %s has been dropped"
 msgstr "Кључ %s је обрисан"
 
-#: libraries/messages.inc.php:422
+#: libraries/messages.inc.php:422 libraries/mult_submits.inc.php:98
+#: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
+#: tbl_printview.php:326 tbl_structure.php:31 tbl_structure.php:154
+#: tbl_structure.php:158 tbl_structure.php:476 tbl_structure.php:674
 msgid "Index"
 msgstr "Кључ"
 
-#: libraries/messages.inc.php:423
+#: libraries/messages.inc.php:423 tbl_indexes.php:166
 msgid "Index name:"
 msgstr "Име кључа :"
 
-#: libraries/messages.inc.php:424
+#: libraries/messages.inc.php:424 tbl_indexes.php:172
 msgid "Index type:"
 msgstr "Тип кључа :"
 
@@ -2162,11 +2824,11 @@ msgstr ""
 msgid "pages"
 msgstr "страна"
 
-#: libraries/messages.inc.php:434
+#: libraries/messages.inc.php:434 server_status.php:306
 msgid "InnoDB Status"
 msgstr "InnoDB статус"
 
-#: libraries/messages.inc.php:435
+#: libraries/messages.inc.php:435 main.php:266
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -2178,7 +2840,7 @@ msgstr ""
 "овим подешавањима, отворен је за упаде, и заиста треба да исправите овај "
 "сигурносни ризик."
 
-#: libraries/messages.inc.php:436
+#: libraries/messages.inc.php:436 tbl_change.php:1130
 msgid "Insert as new row"
 msgstr "Унеси као нови ред"
 
@@ -2187,19 +2849,15 @@ msgstr "Унеси као нови ред"
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: libraries/messages.inc.php:438
+#: libraries/messages.inc.php:438 tbl_change.php:1131
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/messages.inc.php:439
-msgid "Insert"
-msgstr "Нови запис"
-
-#: libraries/messages.inc.php:440
+#: libraries/messages.inc.php:440 main.php:139
 msgid "Interface"
 msgstr ""
 
-#: libraries/messages.inc.php:441
+#: libraries/messages.inc.php:441 tbl_relation.php:407
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -2209,17 +2867,9 @@ msgstr ""
 msgid "Internal relation added"
 msgstr "Додата интерна релација"
 
-#: libraries/messages.inc.php:443
+#: libraries/messages.inc.php:443 pdf_pages.php:303
 msgid "Internal relations"
 msgstr "Унутрашње релације"
-
-#: libraries/messages.inc.php:444
-msgid "in use"
-msgstr "се користи"
-
-#: libraries/messages.inc.php:445
-msgid "Invalid authentication method set in configuration:"
-msgstr "Неисправан метод аутентикације је задат у конфигурацији:"
 
 #: libraries/messages.inc.php:446
 msgid "Column count has to be larger than zero."
@@ -2276,7 +2926,7 @@ msgstr "Неисправан назив сервера %1$s. Молимо про
 msgid "Invalid server index: \"%s\""
 msgstr "Неисправан индекс сервера: \"%s\""
 
-#: libraries/messages.inc.php:458
+#: libraries/messages.inc.php:458 tbl_get_field.php:26
 msgid "Invalid table name"
 msgstr "Неисправан назив табеле"
 
@@ -2291,7 +2941,7 @@ msgid ""
 "automatically."
 msgstr ""
 
-#: libraries/messages.inc.php:462
+#: libraries/messages.inc.php:462 server_status.php:257
 msgid "Joins"
 msgstr "Спојеви"
 
@@ -2304,15 +2954,11 @@ msgstr "Пређи на базу &quot;%s&quot;."
 msgid "Do not change the password"
 msgstr "Немој да мењаш лозинку"
 
-#: libraries/messages.inc.php:466
+#: libraries/messages.inc.php:466 server_status.php:256
 msgid "Key cache"
 msgstr "Кеш кључева"
 
-#: libraries/messages.inc.php:467
-msgid "Keyname"
-msgstr "Име кључа"
-
-#: libraries/messages.inc.php:468
+#: libraries/messages.inc.php:468 server_processlist.php:71
 msgid "Kill"
 msgstr "Обустави"
 
@@ -2324,10 +2970,6 @@ msgstr "Ова функционалност %s је погођена позна�
 #: libraries/messages.inc.php:470
 msgid "Korean"
 msgstr "Корејски"
-
-#: libraries/messages.inc.php:472
-msgid "Landscape"
-msgstr "Положено"
 
 #: libraries/messages.inc.php:473
 msgid "Language"
@@ -2386,7 +3028,7 @@ msgstr "CSV користећи LOAD DATA"
 msgid "Use LOCAL keyword"
 msgstr "Користи кључну реч LOCAL"
 
-#: libraries/messages.inc.php:487
+#: libraries/messages.inc.php:487 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
 msgstr "Дужина/Вредност*"
 
@@ -2402,10 +3044,6 @@ msgstr "Линије се завршавају са"
 msgid "Link not found"
 msgstr "Веза није пронађена"
 
-#: libraries/messages.inc.php:491
-msgid "Links to"
-msgstr "Везе ка"
-
 #: libraries/messages.inc.php:492
 msgid "Lithuanian"
 msgstr "Литвански"
@@ -2413,10 +3051,6 @@ msgstr "Литвански"
 #: libraries/messages.inc.php:493
 msgid "Local"
 msgstr "Локални"
-
-#: libraries/messages.inc.php:494
-msgid "Location of the text file"
-msgstr "Локација текстуалне датотеке"
 
 #: libraries/messages.inc.php:495
 msgid "Login Information"
@@ -2431,7 +3065,9 @@ msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/messages.inc.php:498
+#: libraries/messages.inc.php:498 libraries/navigation_header.inc.php:67
+#: libraries/navigation_header.inc.php:70
+#: libraries/navigation_header.inc.php:71 main.php:99
 msgid "Log out"
 msgstr "Одјављивање"
 
@@ -2455,7 +3091,7 @@ msgstr "Корисничко име:"
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Ова операција може да потраје. Да ли да наставимо?"
 
-#: libraries/messages.inc.php:505
+#: libraries/messages.inc.php:505 server_status.php:442
 msgid "max. concurrent connections"
 msgstr "макс. истовремених веза"
 
@@ -2468,7 +3104,7 @@ msgstr "Максимална дужина направљеног упита"
 msgid "Max: %s%s"
 msgstr "Максимална величина: %s%s"
 
-#: libraries/messages.inc.php:508
+#: libraries/messages.inc.php:508 main.php:282
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -2478,7 +3114,7 @@ msgstr ""
 "скуп знакова. Без екстензије mbstring phpMyAdmin не може исправно да "
 "раздваја стрингове и то може довести до неочекиваних резултата."
 
-#: libraries/messages.inc.php:509
+#: libraries/messages.inc.php:509 main.php:274
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -2491,11 +3127,11 @@ msgstr ""
 msgid "MediaWiki Table"
 msgstr ""
 
-#: libraries/messages.inc.php:511
+#: libraries/messages.inc.php:511 transformation_overview.php:25
 msgid "Available MIME types"
 msgstr "Доступни MIME-типови"
 
-#: libraries/messages.inc.php:512
+#: libraries/messages.inc.php:512 transformation_overview.php:43
 msgid "Available transformations"
 msgstr "Доступне трансформације"
 
@@ -2504,11 +3140,12 @@ msgctxt "$strMIME_description"
 msgid "Description"
 msgstr "Опис"
 
-#: libraries/messages.inc.php:514
+#: libraries/messages.inc.php:514 libraries/tbl_properties.inc.php:143
 msgid "MIME type"
 msgstr "MIME-типови"
 
-#: libraries/messages.inc.php:515
+#: libraries/messages.inc.php:515 libraries/tbl_properties.inc.php:580
+#: transformation_overview.php:60
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -2516,11 +3153,12 @@ msgid ""
 msgstr ""
 "Нема описа за ову трансформацију.<br />Молимо питајте аутора шта %s ради."
 
-#: libraries/messages.inc.php:516
+#: libraries/messages.inc.php:516 libraries/tbl_properties.inc.php:144
+#: transformation_overview.php:47
 msgid "Browser transformation"
 msgstr "Транформације читача"
 
-#: libraries/messages.inc.php:517
+#: libraries/messages.inc.php:517 libraries/tbl_properties.inc.php:137
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
@@ -2541,7 +3179,8 @@ msgstr ""
 "апостроф (\"'\") у те вредности, ставите обрнуту косу црту испред њих (на "
 "пример '\\\\xyz' или 'a\\'b')."
 
-#: libraries/messages.inc.php:519
+#: libraries/messages.inc.php:519 libraries/tbl_properties.inc.php:145
+#: libraries/tbl_properties.inc.php:146
 msgid "Transformation options"
 msgstr "Опције трансформације"
 
@@ -2549,7 +3188,7 @@ msgstr "Опције трансформације"
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME ТИПОВИ ЗА ТАБЕЛУ"
 
-#: libraries/messages.inc.php:521
+#: libraries/messages.inc.php:521 transformation_overview.php:38
 msgid ""
 "MIME types printed in italics do not have a separate transformation function"
 msgstr ""
@@ -2559,19 +3198,15 @@ msgstr ""
 msgid "Modifications have been saved"
 msgstr "Измене су сачуване"
 
-#: libraries/messages.inc.php:523
+#: libraries/messages.inc.php:523 tbl_indexes.php:161
 msgid "Modify an index"
 msgstr "Измени кључ"
 
-#: libraries/messages.inc.php:524
-msgid "Modify"
-msgstr "Промени"
-
-#: libraries/messages.inc.php:525
+#: libraries/messages.inc.php:525 pmd_general.php:108
 msgid "Move Menu"
 msgstr "Премести мени"
 
-#: libraries/messages.inc.php:526
+#: libraries/messages.inc.php:526 tbl_operations.php:276
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Помери табелу у (база<b>.</b>табела):"
 
@@ -2664,19 +3299,19 @@ msgstr ""
 msgid "Sort buffer size"
 msgstr "Величина прихватника за сортирање"
 
-#: libraries/messages.inc.php:542
+#: libraries/messages.inc.php:542 main.php:193
 msgid "MySQL charset"
 msgstr "MySQL сет карактера"
 
-#: libraries/messages.inc.php:543
+#: libraries/messages.inc.php:543 main.php:211
 msgid "MySQL client version"
 msgstr "Верзија MySQL клијента"
 
-#: libraries/messages.inc.php:544
+#: libraries/messages.inc.php:544 main.php:125
 msgid "MySQL connection collation"
 msgstr "Сортирање за MySQL везу"
 
-#: libraries/messages.inc.php:545
+#: libraries/messages.inc.php:545 main.php:346
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -2689,25 +3324,16 @@ msgstr ""
 msgid "MySQL said: "
 msgstr "MySQL рече: "
 
-#: libraries/messages.inc.php:547
+#: libraries/messages.inc.php:547 server_status.php:294
 msgid "Show processes"
 msgstr "Прикажи листу процеса"
-
-#: libraries/messages.inc.php:549
-msgid "Name"
-msgstr "Име"
-
-#: libraries/messages.inc.php:550
-#, fuzzy
-msgid "New table"
-msgstr "Нема табела"
 
 #: libraries/messages.inc.php:552
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Није било активности %s или више секунди, молимо пријавите се поново"
 
-#: libraries/messages.inc.php:553
+#: libraries/messages.inc.php:553 server_databases.php:371
 msgid "No databases"
 msgstr "База не постоји"
 
@@ -2750,7 +3376,7 @@ msgstr "У ZIP архиви нема датотека!"
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "phpMyAdmin преферира читаче који подржавају оквире."
 
-#: libraries/messages.inc.php:562
+#: libraries/messages.inc.php:562 tbl_relation.php:529
 msgid "No index defined!"
 msgstr "Кључ није дефинисан!"
 
@@ -2767,14 +3393,6 @@ msgstr "Нема измена"
 msgctxt "$strNoneDefault"
 msgid "None"
 msgstr "нема"
-
-#: libraries/messages.inc.php:566
-msgid "None"
-msgstr "нема"
-
-#: libraries/messages.inc.php:567
-msgid "No"
-msgstr "Не"
 
 #: libraries/messages.inc.php:568
 msgid "This format has no options"
@@ -2793,15 +3411,11 @@ msgstr "Веб серверу није дозвољено да сачува да
 msgid "Without PHP Code"
 msgstr "без PHP кода"
 
-#: libraries/messages.inc.php:572
-msgid "No Privileges"
-msgstr "Нема привилегија"
-
 #: libraries/messages.inc.php:573
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Није Вам дозвољено да будете овде!"
 
-#: libraries/messages.inc.php:574
+#: libraries/messages.inc.php:574 tbl_row_action.php:29
 msgid "No rows selected"
 msgstr "Нема одабраних редова"
 
@@ -2810,11 +3424,7 @@ msgstr "Нема одабраних редова"
 msgid "Insufficient space to save the file %s."
 msgstr "Недовољно простора за снимање датотеке %s."
 
-#: libraries/messages.inc.php:576
-msgid "No tables found in database."
-msgstr "Табеле нису пронађене у бази."
-
-#: libraries/messages.inc.php:577
+#: libraries/messages.inc.php:577 themes.php:32
 #, php-format
 msgid ""
 "No themes support; please check your configuration and/or your themes in "
@@ -2835,7 +3445,8 @@ msgstr "није у реду"
 msgid "not present"
 msgstr ""
 
-#: libraries/messages.inc.php:581
+#: libraries/messages.inc.php:581 pdf_pages.php:36 pdf_pages.php:42
+#: pdf_pages.php:48 pdf_pages.php:53
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> табела није пронађена или није постављена у %s"
@@ -2848,15 +3459,7 @@ msgstr "Корисник није нађен."
 msgid "Skip Validate SQL"
 msgstr "Прескочи проверу SQL-a"
 
-#: libraries/messages.inc.php:584
-msgid "Null"
-msgstr "Null"
-
-#: libraries/messages.inc.php:585
-msgid "Number of fields"
-msgstr "Број поља"
-
-#: libraries/messages.inc.php:586
+#: libraries/messages.inc.php:586 pmd_general.php:164
 msgid "Number of tables"
 msgstr "Број табела"
 
@@ -2870,11 +3473,12 @@ msgstr "%s погодака унутар табеле <i>%s</i>"
 msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Укупно:</b> <i>%s</i> погодака"
 
-#: libraries/messages.inc.php:589 setup/lib/messages.inc.php:117
+#: libraries/messages.inc.php:589 server_databases.php:117
+#: server_status.php:260 setup/lib/messages.inc.php:117
 msgid "Tables"
 msgstr "Табеле"
 
-#: libraries/messages.inc.php:591
+#: libraries/messages.inc.php:591 pmd_general.php:340
 msgid "OK"
 msgstr "У реду"
 
@@ -2886,7 +3490,8 @@ msgstr "Open Document Text"
 msgid "Open new phpMyAdmin window"
 msgstr "Отвори нови phpMyAdmin прозор"
 
-#: libraries/messages.inc.php:595
+#: libraries/messages.inc.php:595 libraries/tbl_links.inc.php:95
+#: libraries/tbl_links.inc.php:117 view_operations.php:89
 msgid "Operations"
 msgstr "Операције"
 
@@ -2894,63 +3499,40 @@ msgstr "Операције"
 msgid "Operator"
 msgstr "Оператор"
 
-#: libraries/messages.inc.php:597
+#: libraries/messages.inc.php:597 tbl_operations.php:662
 msgid "Optimize"
 msgstr ""
 
-#: libraries/messages.inc.php:598
-msgid "Optimize table"
-msgstr "Оптимизуј табелу"
-
-#: libraries/messages.inc.php:599
+#: libraries/messages.inc.php:599 tbl_structure.php:754
 msgid "Options"
 msgstr "Опције"
 
-#: libraries/messages.inc.php:600
-msgid "Or"
-msgstr "или"
-
-#: libraries/messages.inc.php:601
+#: libraries/messages.inc.php:601 server_databases.php:142
+#: tbl_printview.php:336 tbl_structure.php:683
 msgid "Overhead"
 msgstr "Прекорачење"
 
-#: libraries/messages.inc.php:602 setup/lib/messages.inc.php:90
-msgid "Overwrite existing file(s)"
-msgstr "Препиши постојеће датотеке"
-
-#: libraries/messages.inc.php:604
+#: libraries/messages.inc.php:604 tbl_tracking.php:323
 msgid "Packed"
 msgstr ""
-
-#: libraries/messages.inc.php:605
-msgid "Page number:"
-msgstr "Број стране:"
 
 #: libraries/messages.inc.php:606
 msgid "Pages to be flushed"
 msgstr "Стране које треба да буду усклађене"
 
-#: libraries/messages.inc.php:607
-msgid "Paper size"
-msgstr "Димензије папира"
-
-#: libraries/messages.inc.php:608
-msgid "Partial import"
-msgstr "Делимични увоз"
-
 #: libraries/messages.inc.php:609
 msgid "Partial Texts"
 msgstr "Део текста"
 
-#: libraries/messages.inc.php:610
+#: libraries/messages.inc.php:610 libraries/tbl_properties.inc.php:755
 msgid "PARTITION definition"
 msgstr ""
 
-#: libraries/messages.inc.php:611
+#: libraries/messages.inc.php:611 tbl_structure.php:757
 msgid "partitioned"
 msgstr ""
 
-#: libraries/messages.inc.php:612
+#: libraries/messages.inc.php:612 tbl_operations.php:649
 #, fuzzy
 msgid "Partition maintenance"
 msgstr "Радње на табели"
@@ -2968,10 +3550,6 @@ msgstr "Лозинка за %s је успешно промењена."
 #: libraries/messages.inc.php:615
 msgid "The password is empty!"
 msgstr "Лозинка је празна!"
-
-#: libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr "Хеширање лозинке"
 
 #: libraries/messages.inc.php:617
 msgid "The passwords aren't the same!"
@@ -3140,15 +3718,16 @@ msgstr "(Прави извештај који садржи податке јед
 msgid "Report title"
 msgstr "Наслов извештаја"
 
-#: libraries/messages.inc.php:651
+#: libraries/messages.inc.php:651 server_status.php:391 server_status.php:436
+#: server_status.php:499 server_status.php:557
 msgid "per hour"
 msgstr "на сат"
 
-#: libraries/messages.inc.php:652
+#: libraries/messages.inc.php:652 server_status.php:500
 msgid "per minute"
 msgstr "у минуту"
 
-#: libraries/messages.inc.php:653
+#: libraries/messages.inc.php:653 server_status.php:501
 msgid "per second"
 msgstr "у секунди"
 
@@ -3168,7 +3747,7 @@ msgstr ""
 msgid "Create PHP Code"
 msgstr "Направи PHP код"
 
-#: libraries/messages.inc.php:658
+#: libraries/messages.inc.php:658 main.php:213
 #, fuzzy
 msgid "PHP extension"
 msgstr "верзија PHP-a"
@@ -3208,17 +3787,10 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/messages.inc.php:667
+#: libraries/messages.inc.php:667 libraries/navigation_header.inc.php:93
+#: libraries/navigation_header.inc.php:95
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin документација"
-
-#: libraries/messages.inc.php:668
-msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
-"configuration file!"
-msgstr ""
-"<tt>$cfg['PmaAbsoluteUri']</tt> директива МОРА бити подешена у "
-"конфигурационој датотеци!"
 
 #: libraries/messages.inc.php:669
 msgid "Polish"
@@ -3229,11 +3801,7 @@ msgstr "Пољски"
 msgid "Port"
 msgstr "Сортирање"
 
-#: libraries/messages.inc.php:671
-msgid "Portrait"
-msgstr "Усправно"
-
-#: libraries/messages.inc.php:672
+#: libraries/messages.inc.php:672 server_status.php:610
 msgid "Begin"
 msgstr "Почетак"
 
@@ -3254,21 +3822,15 @@ msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr "(\"PRIMARY\" <b>мора</b> бити име <b>само</b> примарног кључа!)"
 
-#: libraries/messages.inc.php:677
+#: libraries/messages.inc.php:677 libraries/mult_submits.inc.php:76
+#: libraries/tbl_properties.inc.php:513 tbl_structure.php:29
+#: tbl_structure.php:153 tbl_structure.php:157 tbl_structure.php:474
 msgid "Primary"
 msgstr "Примарни"
-
-#: libraries/messages.inc.php:678
-msgid "Print"
-msgstr "Штампај"
 
 #: libraries/messages.inc.php:679
 msgid "Print view (with full texts)"
 msgstr "Поглед за штампу (са пуним текстом)"
-
-#: libraries/messages.inc.php:680
-msgid "Print view"
-msgstr "За штампу"
 
 #: libraries/messages.inc.php:681
 msgid "Includes all privileges except GRANT."
@@ -3429,7 +3991,8 @@ msgstr "Дозвољава измену података."
 msgid "No privileges."
 msgstr "Нема привилегија."
 
-#: libraries/messages.inc.php:717
+#: libraries/messages.inc.php:717 libraries/server_links.inc.php:66
+#: test/theme.php:117
 msgid "Privileges"
 msgstr "Привилегије"
 
@@ -3441,7 +4004,7 @@ msgstr "Привилегије су успешно поново учитане."
 msgid "Procedures"
 msgstr "Процедуре"
 
-#: libraries/messages.inc.php:720
+#: libraries/messages.inc.php:720 libraries/server_links.inc.php:80
 msgid "Processes"
 msgstr "Процеси"
 
@@ -3449,21 +4012,13 @@ msgstr "Процеси"
 msgid "Profiling"
 msgstr "Профилисање"
 
-#: libraries/messages.inc.php:722
+#: libraries/messages.inc.php:722 main.php:187
 msgid "Protocol version"
 msgstr "Верзија протокола"
 
 #: libraries/messages.inc.php:723
 msgid "Put fields names in the first row"
 msgstr "Стави имена поља у први ред"
-
-#: libraries/messages.inc.php:725
-msgid "Del"
-msgstr "Del"
-
-#: libraries/messages.inc.php:726
-msgid "Ins"
-msgstr "Ins"
 
 #: libraries/messages.inc.php:727
 msgid "Query"
@@ -3473,18 +4028,15 @@ msgstr "Упит по примеру"
 msgid "The following queries have been executed:"
 msgstr ""
 
-#: libraries/messages.inc.php:729
+#: libraries/messages.inc.php:729 server_status.php:251
 msgid "Query cache"
 msgstr "Кеш упита"
 
-#: libraries/messages.inc.php:730 setup/lib/messages.inc.php:122
+#: libraries/messages.inc.php:730 libraries/navigation_header.inc.php:80
+#: libraries/navigation_header.inc.php:83
+#: libraries/navigation_header.inc.php:86 setup/lib/messages.inc.php:122
 msgid "Query window"
 msgstr "Прозор за упите"
-
-#: libraries/messages.inc.php:731
-#, php-format
-msgid "SQL query on database <b>%s</b>:"
-msgstr "SQL упит на бази <b>%s</b>:"
 
 #: libraries/messages.inc.php:732
 msgid "Query results operations"
@@ -3494,7 +4046,7 @@ msgstr "Операције на резултатима упита"
 msgid "SQL history"
 msgstr "SQL историјат"
 
-#: libraries/messages.inc.php:734
+#: libraries/messages.inc.php:734 server_status.php:492
 #, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
@@ -3507,7 +4059,7 @@ msgstr ""
 msgid "Query took %01.4f sec"
 msgstr "Упит је трајао %01.4f секунди"
 
-#: libraries/messages.inc.php:736
+#: libraries/messages.inc.php:736 server_status.php:556
 msgid "Query type"
 msgstr "Врста упита"
 
@@ -3519,27 +4071,24 @@ msgstr "Не преписуј овај упит изван прозора"
 msgid "Read requests"
 msgstr "Захтеви за читање"
 
-#: libraries/messages.inc.php:740
+#: libraries/messages.inc.php:740 tbl_operations.php:663
 msgid "Rebuild"
 msgstr ""
 
-#: libraries/messages.inc.php:741
+#: libraries/messages.inc.php:741 server_status.php:396
 msgid "Received"
 msgstr "Примљено"
 
-#: libraries/messages.inc.php:742
+#: libraries/messages.inc.php:742 pmd_pdf.php:89
 msgid "recommended"
 msgstr "препоручено"
 
-#: libraries/messages.inc.php:743
-msgid "Records"
-msgstr "Записи"
-
-#: libraries/messages.inc.php:744
+#: libraries/messages.inc.php:744 tbl_operations.php:702
 msgid "Check referential integrity:"
 msgstr "Провери референцијални интегритет:"
 
-#: libraries/messages.inc.php:745 setup/lib/messages.inc.php:354
+#: libraries/messages.inc.php:745 server_status.php:341
+#: setup/lib/messages.inc.php:354
 msgid "Refresh"
 msgstr "Освежи"
 
@@ -3560,7 +4109,7 @@ msgstr "Релациона схема"
 msgid "Relation deleted"
 msgstr "Релација обрисана"
 
-#: libraries/messages.inc.php:750
+#: libraries/messages.inc.php:750 pdf_schema.php:34
 #, php-format
 msgid ""
 "The additional features for working with linked tables have been "
@@ -3577,7 +4126,7 @@ msgstr "РЕЛАЦИЈЕ ТАБЕЛЕ"
 msgid "Relations"
 msgstr "Релације"
 
-#: libraries/messages.inc.php:753
+#: libraries/messages.inc.php:753 tbl_structure.php:507 tbl_structure.php:509
 msgid "Relation view"
 msgstr "Релациони поглед"
 
@@ -3589,7 +4138,7 @@ msgstr "Поново учитавам привилегије"
 msgid "Reload navigation frame"
 msgstr ""
 
-#: libraries/messages.inc.php:756
+#: libraries/messages.inc.php:756 pmd_general.php:80
 msgid "Reload"
 msgstr "Поново учитај"
 
@@ -3601,7 +4150,7 @@ msgstr ""
 msgid "Remove CRLF characters within fields"
 msgstr ""
 
-#: libraries/messages.inc.php:759
+#: libraries/messages.inc.php:759 tbl_operations.php:676
 msgid "Remove partitioning"
 msgstr ""
 
@@ -3619,22 +4168,18 @@ msgstr "База %s је преименована у %s"
 msgid "Table %s has been renamed to %s"
 msgstr "Табели %s промењено име у %s"
 
-#: libraries/messages.inc.php:763
+#: libraries/messages.inc.php:763 tbl_operations.php:338
 msgid "Rename table to"
 msgstr "Промени име табеле у "
 
-#: libraries/messages.inc.php:764
+#: libraries/messages.inc.php:764 view_operations.php:93
 #, fuzzy
 msgid "Rename view to"
 msgstr "Промени име табеле у "
 
-#: libraries/messages.inc.php:765
+#: libraries/messages.inc.php:765 tbl_operations.php:664
 #, fuzzy
 msgid "Repair"
-msgstr "Поправи табелу"
-
-#: libraries/messages.inc.php:766
-msgid "Repair table"
 msgstr "Поправи табелу"
 
 #: libraries/messages.inc.php:767
@@ -3703,7 +4248,8 @@ msgstr ""
 msgid "Master replication"
 msgstr ""
 
-#: libraries/messages.inc.php:781
+#: libraries/messages.inc.php:781 libraries/server_links.inc.php:70
+#: server_status.php:258
 msgid "Replication"
 msgstr "Репликација"
 
@@ -3737,6 +4283,7 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: libraries/messages.inc.php:787 libraries/messages.inc.php:893
+#: server_status.php:281
 #, fuzzy
 msgid "Show master status"
 msgstr "Прикажи статус подређених сервера"
@@ -3824,7 +4371,7 @@ msgstr ""
 msgid "Master status"
 msgstr "Прикажи статус подређених сервера"
 
-#: libraries/messages.inc.php:806
+#: libraries/messages.inc.php:806 server_status.php:723
 #, fuzzy
 msgid "Replication status"
 msgstr "Репликација"
@@ -3842,11 +4389,12 @@ msgstr ""
 msgid "Unable to change master"
 msgstr ""
 
-#: libraries/messages.inc.php:810
+#: libraries/messages.inc.php:810 server_replication.php:51
 msgid "Unknown error"
 msgstr ""
 
-#: libraries/messages.inc.php:811
+#: libraries/messages.inc.php:811 main.php:163 pdf_pages.php:344
+#: tbl_change.php:1175
 msgid "Reset"
 msgstr "Поништи"
 
@@ -3854,7 +4402,7 @@ msgstr "Поништи"
 msgid "Resource limits"
 msgstr "Ограничења ресурса"
 
-#: libraries/messages.inc.php:813
+#: libraries/messages.inc.php:813 tbl_change.php:1209
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr "Поново покрени уношење са %s редова"
@@ -3880,15 +4428,7 @@ msgstr "Забрани"
 msgid "Romanian"
 msgstr "Румунски"
 
-#: libraries/messages.inc.php:819
-msgid "Return type"
-msgstr "Повратни тип"
-
-#: libraries/messages.inc.php:820
-msgid "Routines"
-msgstr "Рутине"
-
-#: libraries/messages.inc.php:821
+#: libraries/messages.inc.php:821 tbl_printview.php:404 tbl_structure.php:786
 msgid "Row length"
 msgstr "Дужина реда"
 
@@ -3896,7 +4436,7 @@ msgstr "Дужина реда"
 msgid "row(s) starting from record #"
 msgstr " редова почев од реда"
 
-#: libraries/messages.inc.php:823
+#: libraries/messages.inc.php:823 tbl_printview.php:414 tbl_structure.php:794
 msgid " Row size "
 msgstr "Величина реда"
 
@@ -3917,11 +4457,7 @@ msgstr "у %s моду и понови заглавље после сваког 
 msgid "vertical"
 msgstr "вертикалном"
 
-#: libraries/messages.inc.php:828
-msgid "Rows"
-msgstr "Редова"
-
-#: libraries/messages.inc.php:829
+#: libraries/messages.inc.php:829 tbl_printview.php:366 tbl_structure.php:726
 msgid "Row Statistics"
 msgstr "Статистике реда"
 
@@ -3929,10 +4465,6 @@ msgstr "Статистике реда"
 #, php-format
 msgid "running on %s"
 msgstr "на серверу %s"
-
-#: libraries/messages.inc.php:831
-msgid "Submit Query"
-msgstr "Изврши SQL упит"
 
 #: libraries/messages.inc.php:832
 #, php-format
@@ -3948,16 +4480,13 @@ msgstr "Изврши SQL упит(е) на бази %s"
 msgid "Russian"
 msgstr "Руски"
 
-#: libraries/messages.inc.php:836
-#, php-format
-msgid "Save on server in %s directory"
-msgstr "Сачувај на сервер у директоријум %s"
-
-#: libraries/messages.inc.php:837
+#: libraries/messages.inc.php:837 pmd_general.php:68
 msgid "Save position"
 msgstr "Сачувај позицију"
 
-#: libraries/messages.inc.php:838
+#: libraries/messages.inc.php:838 libraries/tbl_properties.inc.php:776
+#: pdf_pages.php:484 tbl_change.php:1126 tbl_indexes.php:246
+#: tbl_relation.php:566
 msgid "Save"
 msgstr "Сачувај"
 
@@ -4002,25 +4531,17 @@ msgstr "као регуларни израз"
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Резултати претраге за \"<i>%s</i>\" %s:"
 
-#: libraries/messages.inc.php:849
-msgid "Search"
-msgstr "Претраживање"
-
 #: libraries/messages.inc.php:850
 msgid "Find:"
 msgstr "Тражи:"
 
-#: libraries/messages.inc.php:851
+#: libraries/messages.inc.php:851 main.php:298
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Конфигурациона датотека захтева тајну лозинку (blowfish_secret)."
 
 #: libraries/messages.inc.php:852
 msgid "Please select a database"
 msgstr "Изаберите базу"
-
-#: libraries/messages.inc.php:853
-msgid "Select All"
-msgstr "Изабери све"
 
 #: libraries/messages.inc.php:854
 msgid "Select binary log to view"
@@ -4042,15 +4563,11 @@ msgstr "у упиту"
 msgid "Select referenced key"
 msgstr "Изаберите референцирани кључ"
 
-#: libraries/messages.inc.php:859
+#: libraries/messages.inc.php:859 pdf_pages.php:320
 msgid "Select Tables"
 msgstr "Изабери табеле"
 
-#: libraries/messages.inc.php:860 setup/lib/messages.inc.php:82
-msgid "Save as file"
-msgstr "Сачувај као датотеку"
-
-#: libraries/messages.inc.php:861
+#: libraries/messages.inc.php:861 server_status.php:406
 msgid "Sent"
 msgstr "Послато"
 
@@ -4062,7 +4579,7 @@ msgstr "Избор сервера"
 msgid "The server is not responding"
 msgstr "Сервер не одговара"
 
-#: libraries/messages.inc.php:864
+#: libraries/messages.inc.php:864 main.php:185
 msgid "Server"
 msgstr "Сервер"
 
@@ -4070,24 +4587,26 @@ msgstr "Сервер"
 msgid "Servers"
 msgstr "Сервери"
 
-#: libraries/messages.inc.php:866
+#: libraries/messages.inc.php:866 server_status.php:255
 msgid "Delayed inserts"
 msgstr "Одложена уметања"
 
-#: libraries/messages.inc.php:867
+#: libraries/messages.inc.php:867 server_status.php:46
 msgid "Runtime Information"
 msgstr "Информације о току рада"
 
-#: libraries/messages.inc.php:868
+#: libraries/messages.inc.php:868 server_status.php:350
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "Овај MySQL сервер ради већ %s. Покренут је %s."
 
-#: libraries/messages.inc.php:869
+#: libraries/messages.inc.php:869 libraries/server_links.inc.php:53
+#: server_engines.php:112 server_engines.php:116 server_status.php:304
+#: test/theme.php:105
 msgid "Variables"
 msgstr "Променљиве"
 
-#: libraries/messages.inc.php:870
+#: libraries/messages.inc.php:870 server_status.php:385
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
@@ -4095,15 +4614,15 @@ msgstr ""
 "<b>Саобраћај сервера</b>: Табеле показују статистике мрежног саобраћаја на "
 "овом MySQL серверу од његовог покретања."
 
-#: libraries/messages.inc.php:871
+#: libraries/messages.inc.php:871 server_variables.php:35
 msgid "Server variables and settings"
 msgstr "Серверске променљиве и подешавања"
 
-#: libraries/messages.inc.php:872
+#: libraries/messages.inc.php:872 main.php:186
 msgid "Server version"
 msgstr "Верзија сервера"
 
-#: libraries/messages.inc.php:873
+#: libraries/messages.inc.php:873 main.php:290
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -4119,7 +4638,7 @@ msgstr ""
 "Не могу да покренем сесију без грешака, молим проверите грешке у PHP и/или "
 "дневнику веб сервера и прописно подесите вашу PHP инсталацију."
 
-#: libraries/messages.inc.php:875
+#: libraries/messages.inc.php:875 server_variables.php:55
 msgid "Session value"
 msgstr "Вредност сесије"
 
@@ -4139,10 +4658,6 @@ msgstr ""
 msgid "settings"
 msgstr ""
 
-#: libraries/messages.inc.php:878
-msgid "Show all"
-msgstr "Прикажи све"
-
 #: libraries/messages.inc.php:879
 msgid "Show binary contents as HEX"
 msgstr ""
@@ -4155,23 +4670,12 @@ msgstr ""
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/messages.inc.php:882
-msgid "Show color"
-msgstr "Прикажи боју"
-
-#: libraries/messages.inc.php:883
-msgid "Data Dictionary Format"
-msgstr "Формат речника података"
-
-#: libraries/messages.inc.php:884
+#: libraries/messages.inc.php:884 server_processlist.php:49
+#: server_processlist.php:51
 msgid "Show Full Queries"
 msgstr "Прикажи комплетне упите"
 
-#: libraries/messages.inc.php:885
-msgid "Show grid"
-msgstr "Прикажи мрежу"
-
-#: libraries/messages.inc.php:886
+#: libraries/messages.inc.php:886 pmd_general.php:64
 msgid "Show/Hide left menu"
 msgstr "Прикажи/сакриј мени с леве стране"
 
@@ -4191,32 +4695,24 @@ msgstr "Приказ записа"
 msgid "Showing SQL query"
 msgstr "Приказ као SQL упит"
 
-#: libraries/messages.inc.php:891
+#: libraries/messages.inc.php:891 tbl_change.php:1132
 #, fuzzy
 msgid "Show insert query"
 msgstr "Приказ као SQL упит"
 
-#: libraries/messages.inc.php:892
-msgid "Only show keys"
-msgstr ""
-
-#: libraries/messages.inc.php:894
+#: libraries/messages.inc.php:894 server_status.php:273
 msgid "Show open tables"
 msgstr "Прикажи отворене табеле"
 
-#: libraries/messages.inc.php:895
+#: libraries/messages.inc.php:895 main.php:219
 msgid "Show PHP information"
 msgstr "Прикажи информације о PHP-у"
 
-#: libraries/messages.inc.php:896
-msgid "Show"
-msgstr "Прикажи"
-
-#: libraries/messages.inc.php:897
+#: libraries/messages.inc.php:897 server_status.php:278
 msgid "Show slave hosts"
 msgstr "Прикажи подређене сервер"
 
-#: libraries/messages.inc.php:898
+#: libraries/messages.inc.php:898 server_status.php:284
 msgid "Show slave status"
 msgstr "Прикажи статус подређених сервера"
 
@@ -4858,11 +5354,7 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Број нити које нису успаване."
 
-#: libraries/messages.inc.php:1006
-msgid "Show dimension of tables"
-msgstr "Прикажи димензије табеле"
-
-#: libraries/messages.inc.php:1007
+#: libraries/messages.inc.php:1007 tbl_printview.php:75
 msgid "Show tables"
 msgstr "Прикажи табеле"
 
@@ -4874,17 +5366,9 @@ msgstr "Прикажи поново овај упит"
 msgid "Simplified Chinese"
 msgstr "Поједностављени кинески"
 
-#: libraries/messages.inc.php:1010
+#: libraries/messages.inc.php:1010 tbl_operations.php:258
 msgid "(singly)"
 msgstr "(по једном пољу)"
-
-#: libraries/messages.inc.php:1011
-msgid "Size"
-msgstr "Величина"
-
-#: libraries/messages.inc.php:1012 setup/lib/messages.inc.php:161
-msgid "Number of records (queries) to skip from start"
-msgstr "Број записа (упита) које треба прескочити:"
 
 #: libraries/messages.inc.php:1013
 msgid ""
@@ -4900,11 +5384,11 @@ msgstr "Словачки"
 msgid "Slovenian"
 msgstr "Словеначи"
 
-#: libraries/messages.inc.php:1016
+#: libraries/messages.inc.php:1016 pmd_general.php:95
 msgid "Small/Big All"
 msgstr "Све мало/велико"
 
-#: libraries/messages.inc.php:1017
+#: libraries/messages.inc.php:1017 pmd_general.php:91
 msgid "Snap to grid"
 msgstr "Држи се мреже"
 
@@ -4920,15 +5404,11 @@ msgstr ""
 msgid "Sort by key"
 msgstr "Сортирај по кључу"
 
-#: libraries/messages.inc.php:1021
+#: libraries/messages.inc.php:1021 server_status.php:259
 msgid "Sorting"
 msgstr "Сортирање"
 
-#: libraries/messages.inc.php:1022
-msgid "Sort"
-msgstr "Сортирање"
-
-#: libraries/messages.inc.php:1023
+#: libraries/messages.inc.php:1023 tbl_printview.php:310 tbl_structure.php:657
 msgid "Space usage"
 msgstr "Заузеће"
 
@@ -4982,15 +5462,8 @@ msgstr ""
 "Изгледа да постоји грешка у вашем SQL упиту. Овде је порука о грешки MySQL "
 "сервера, која вам може помоћи у откривању проблема"
 
-#: libraries/messages.inc.php:1031
-msgid "SQL query"
-msgstr "SQL упит"
-
-#: libraries/messages.inc.php:1032
-msgid "SQL result"
-msgstr "SQL резултат"
-
-#: libraries/messages.inc.php:1033
+#: libraries/messages.inc.php:1033 libraries/server_links.inc.php:45
+#: libraries/tbl_links.inc.php:60 test/theme.php:97
 msgid "SQL"
 msgstr "SQL"
 
@@ -5015,23 +5488,15 @@ msgstr "Структура која замењује поглед"
 msgid "Start"
 msgstr "Суб"
 
-#: libraries/messages.inc.php:1039
-msgid "Last check"
-msgstr "Последња провера"
-
-#: libraries/messages.inc.php:1040
-msgid "Creation"
-msgstr "Направљено"
-
-#: libraries/messages.inc.php:1041
+#: libraries/messages.inc.php:1041 tbl_printview.php:369 tbl_structure.php:729
 msgid "Statements"
 msgstr "Име"
 
-#: libraries/messages.inc.php:1042
+#: libraries/messages.inc.php:1042 tbl_printview.php:380 tbl_structure.php:741
 msgid "static"
 msgstr ""
 
-#: libraries/messages.inc.php:1043
+#: libraries/messages.inc.php:1043 server_status.php:390
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -5039,43 +5504,29 @@ msgstr ""
 "На запосленом серверу бројачи бајтова могу да се прелију (overrun), тако да "
 "те статистике, онако како их пријављује MySQL сервер, могу бити нетачне."
 
-#: libraries/messages.inc.php:1044
-msgid "Last update"
-msgstr "Последња измена"
-
-#: libraries/messages.inc.php:1045
-msgid "Status"
-msgstr "Статус"
-
 #: libraries/messages.inc.php:1046
 msgid "Stop"
 msgstr ""
 
-#: libraries/messages.inc.php:1047
+#: libraries/messages.inc.php:1047 server_engines.php:49
 msgid "Storage Engines"
 msgstr "Погони складиштења"
 
-#: libraries/messages.inc.php:1048
+#: libraries/messages.inc.php:1048 libraries/tbl_properties.inc.php:726
+#: server_engines.php:58 tbl_operations.php:353
 msgid "Storage Engine"
 msgstr "Погон складиштења"
-
-#: libraries/messages.inc.php:1049
-msgid "Structure and data"
-msgstr "Структура и подаци"
 
 #: libraries/messages.inc.php:1050
 msgid "CSV for MS Excel"
 msgstr "CSV за MS Excel"
 
-#: libraries/messages.inc.php:1051
-msgid "Structure only"
-msgstr "Само структура"
-
-#: libraries/messages.inc.php:1052
+#: libraries/messages.inc.php:1052 tbl_structure.php:516 tbl_structure.php:518
 msgid "Propose table structure"
 msgstr "Предложи структуру табеле"
 
-#: libraries/messages.inc.php:1053
+#: libraries/messages.inc.php:1053 server_synchronize.php:424
+#: server_synchronize.php:867
 #, fuzzy
 msgid "Structure Difference"
 msgstr "Структура за поглед (view)"
@@ -5089,11 +5540,7 @@ msgstr "Структура за поглед (view)"
 msgid "structure"
 msgstr "Структура"
 
-#: libraries/messages.inc.php:1056
-msgid "Structure"
-msgstr "Структура"
-
-#: libraries/messages.inc.php:1057
+#: libraries/messages.inc.php:1057 server_synchronize.php:265
 msgid "Structure Synchronization"
 msgstr ""
 
@@ -5101,20 +5548,17 @@ msgstr ""
 msgid "Submit"
 msgstr "Пошаљи"
 
-#: libraries/messages.inc.php:1059
+#: libraries/messages.inc.php:1059 tbl_operations.php:213 tbl_relation.php:292
+#: tbl_row_action.php:131 view_operations.php:62
 msgid "Your SQL query has been executed successfully"
 msgstr "Ваш SQL упит је успешно извршен"
 
-#: libraries/messages.inc.php:1060
+#: libraries/messages.inc.php:1060 main.php:358
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-
-#: libraries/messages.inc.php:1061
-msgid "Sum"
-msgstr "Укупно"
 
 #: libraries/messages.inc.php:1062
 msgid "Swedish"
@@ -5137,15 +5581,11 @@ msgstr ""
 msgid "No valid authentication key plugged"
 msgstr ""
 
-#: libraries/messages.inc.php:1067
-msgid "Switch to copied database"
-msgstr "Пребаци се на копирану базу"
-
-#: libraries/messages.inc.php:1068
+#: libraries/messages.inc.php:1068 tbl_operations.php:556
 msgid "Switch to copied table"
 msgstr "Пређи на копирану табелу"
 
-#: libraries/messages.inc.php:1069
+#: libraries/messages.inc.php:1069 server_synchronize.php:1208
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -5155,20 +5595,23 @@ msgstr ""
 msgid "Synchronize Databases"
 msgstr ""
 
-#: libraries/messages.inc.php:1071
+#: libraries/messages.inc.php:1071 libraries/server_links.inc.php:92
+#: server_synchronize.php:1092
 msgid "Synchronize"
 msgstr ""
 
-#: libraries/messages.inc.php:1073
+#: libraries/messages.inc.php:1073 server_synchronize.php:430
+#: server_synchronize.php:873
 msgid "Add column(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1074
+#: libraries/messages.inc.php:1074 tbl_create.php:62
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Табела %s већ постоји!"
 
-#: libraries/messages.inc.php:1075
+#: libraries/messages.inc.php:1075 server_synchronize.php:432
+#: server_synchronize.php:875
 msgid "Alter column(s)"
 msgstr ""
 
@@ -5177,15 +5620,13 @@ msgstr ""
 msgid "Table %1$s has been altered successfully"
 msgstr "Изабрани корисници су успешно обрисани."
 
-#: libraries/messages.inc.php:1077
+#: libraries/messages.inc.php:1077 server_synchronize.php:434
+#: server_synchronize.php:877
 msgid "Apply index(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1078
-msgid "Table comments"
-msgstr "Коментари табеле"
-
-#: libraries/messages.inc.php:1079
+#: libraries/messages.inc.php:1079 server_synchronize.php:446
+#: server_synchronize.php:890
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr ""
 
@@ -5198,34 +5639,27 @@ msgstr "Има табеле је празно!"
 msgid "Table %1$s has been created."
 msgstr "Табела %s је одбачена"
 
-#: libraries/messages.inc.php:1082
-#, php-format
-msgid "Table %s has been dropped"
-msgstr "Табела %s је одбачена"
-
-#: libraries/messages.inc.php:1083
-#, php-format
-msgid "Table %s has been emptied"
-msgstr "Табела %s је испражњена"
-
-#: libraries/messages.inc.php:1084
+#: libraries/messages.inc.php:1084 tbl_operations.php:628
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Табела %s је освежена"
 
-#: libraries/messages.inc.php:1085
+#: libraries/messages.inc.php:1085 server_synchronize.php:436
+#: server_synchronize.php:879
 msgid "Insert row(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1086
+#: libraries/messages.inc.php:1086 libraries/tbl_links.inc.php:107
+#: libraries/tbl_links.inc.php:140 libraries/tbl_links.inc.php:141
 msgid "Table seems to be empty!"
 msgstr "Табела је изгледа празна!"
 
-#: libraries/messages.inc.php:1087
+#: libraries/messages.inc.php:1087 tbl_operations.php:568
 msgid "Table maintenance"
 msgstr "Радње на табели"
 
-#: libraries/messages.inc.php:1088
+#: libraries/messages.inc.php:1088 libraries/tbl_properties.inc.php:618
+#: server_synchronize.php:428 server_synchronize.php:871
 msgid "Table name"
 msgstr "Назив табеле"
 
@@ -5233,32 +5667,26 @@ msgstr "Назив табеле"
 msgid "Table of contents"
 msgstr "Садржај"
 
-#: libraries/messages.inc.php:1090
+#: libraries/messages.inc.php:1090 tbl_operations.php:334
 msgid "Table options"
 msgstr "Опције табеле"
 
-#: libraries/messages.inc.php:1091
+#: libraries/messages.inc.php:1091 server_synchronize.php:431
+#: server_synchronize.php:874
 msgid "Remove column(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1092
+#: libraries/messages.inc.php:1092 server_synchronize.php:433
+#: server_synchronize.php:876
 msgid "Remove index(s)"
 msgstr ""
-
-#: libraries/messages.inc.php:1093
-#, php-format
-msgid "%s table(s)"
-msgstr "%s табела"
 
 #: libraries/messages.inc.php:1094
 msgid "Table structure for table"
 msgstr "Структура табеле"
 
-#: libraries/messages.inc.php:1095
-msgid "Table"
-msgstr "Табела"
-
-#: libraries/messages.inc.php:1096
+#: libraries/messages.inc.php:1096 server_synchronize.php:435
+#: server_synchronize.php:878
 msgid "Update row(s)"
 msgstr ""
 
@@ -5274,11 +5702,11 @@ msgstr ""
 msgid "Table-specific privileges"
 msgstr "Привилегије везане за табеле"
 
-#: libraries/messages.inc.php:1100
+#: libraries/messages.inc.php:1100 server_status.php:254
 msgid "Temporary data"
 msgstr "Привремени подаци"
 
-#: libraries/messages.inc.php:1101
+#: libraries/messages.inc.php:1101 tbl_change.php:728
 msgid " Because of its length,<br /> this field might not be editable "
 msgstr "Због њехове величине, поље<br />можда нећете моћи да измените"
 
@@ -5314,7 +5742,8 @@ msgstr "Нема исправне путање до слика за тему %s!
 msgid "Theme path not found for theme %s!"
 msgstr "Није пронађена путања до теме за тему %s!"
 
-#: libraries/messages.inc.php:1109
+#: libraries/messages.inc.php:1109 test/theme.php:161 themes.php:21
+#: themes.php:41
 msgid "Theme / Style"
 msgstr "Тема / стил"
 
@@ -5322,7 +5751,7 @@ msgstr "Тема / стил"
 msgid "This Host"
 msgstr "Овај сервер"
 
-#: libraries/messages.inc.php:1111
+#: libraries/messages.inc.php:1111 server_status.php:252
 msgid "Threads"
 msgstr "Нити"
 
@@ -5330,14 +5759,6 @@ msgstr "Нити"
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Процес %s је успешно прекинут."
-
-#: libraries/messages.inc.php:1113
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-"Претходном увозу је истекло време, након поновног слања биће настављен од "
-"позиције %d."
 
 #: libraries/messages.inc.php:1114
 msgid ""
@@ -5356,19 +5777,20 @@ msgstr ""
 "Време извршења скрипта је истекло, ако желите да довршите увоз, молимо "
 "пошаљите исту датотеку и увоз ће се наставити."
 
-#: libraries/messages.inc.php:1116
+#: libraries/messages.inc.php:1116 libraries/tbl_triggers.lib.php:28
+#: server_processlist.php:58
 msgid "Time"
 msgstr "Време"
 
-#: libraries/messages.inc.php:1117
+#: libraries/messages.inc.php:1117 pmd_pdf.php:94
 msgid "to/from page"
 msgstr "од/до странице"
 
-#: libraries/messages.inc.php:1118
+#: libraries/messages.inc.php:1118 pdf_pages.php:343
 msgid "Toggle scratchboard"
 msgstr "Укључи/искључи радну таблу"
 
-#: libraries/messages.inc.php:1119
+#: libraries/messages.inc.php:1119 pmd_general.php:99
 msgid "Toggle small/big"
 msgstr "Промени мало/велико"
 
@@ -5380,77 +5802,66 @@ msgstr "Да одаберете релацију, кликните :"
 msgid "total"
 msgstr "укупно"
 
-#: libraries/messages.inc.php:1122
+#: libraries/messages.inc.php:1122 server_databases.php:137
+#: server_databases.php:305 server_status.php:416 server_status.php:477
+#: server_status.php:498 tbl_printview.php:351 tbl_structure.php:697
 msgid "Total"
 msgstr "Укупно"
 
-#: libraries/messages.inc.php:1123
+#: libraries/messages.inc.php:1123 libraries/tbl_links.inc.php:149
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr ""
 
-#: libraries/messages.inc.php:1124
+#: libraries/messages.inc.php:1124 tbl_tracking.php:655
 msgid "Activate now"
 msgstr ""
 
-#: libraries/messages.inc.php:1125
+#: libraries/messages.inc.php:1125 tbl_tracking.php:653
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr ""
 
-#: libraries/messages.inc.php:1126
+#: libraries/messages.inc.php:1126 tbl_tracking.php:221
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: libraries/messages.inc.php:1127
+#: libraries/messages.inc.php:1127 tbl_tracking.php:688
 #, fuzzy
 msgid "Create version"
 msgstr "Направи релацију"
 
-#: libraries/messages.inc.php:1128
+#: libraries/messages.inc.php:1128 tbl_tracking.php:668
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr ""
 
-#: libraries/messages.inc.php:1129
-#, fuzzy
-msgid "Database Log"
-msgstr "База података"
-
-#: libraries/messages.inc.php:1130
+#: libraries/messages.inc.php:1130 tbl_tracking.php:412
 msgid "Data definition statement"
 msgstr ""
 
-#: libraries/messages.inc.php:1131
+#: libraries/messages.inc.php:1131 tbl_tracking.php:463
 msgid "Data manipulation statement"
 msgstr ""
 
-#: libraries/messages.inc.php:1132
+#: libraries/messages.inc.php:1132 tbl_tracking.php:410 tbl_tracking.php:461
 #, fuzzy
 msgid "Date"
 msgstr "Подаци"
 
-#: libraries/messages.inc.php:1133
+#: libraries/messages.inc.php:1133 tbl_tracking.php:642
 msgid "Deactivate now"
 msgstr ""
 
-#: libraries/messages.inc.php:1134
+#: libraries/messages.inc.php:1134 tbl_tracking.php:640
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
-#: libraries/messages.inc.php:1135
+#: libraries/messages.inc.php:1135 tbl_tracking.php:521
 #, fuzzy, php-format
 msgid "Export as %s"
 msgstr "Тип извоза"
-
-#: libraries/messages.inc.php:1136
-msgid "Tracking is active."
-msgstr ""
-
-#: libraries/messages.inc.php:1137
-msgid "Tracking is not active."
-msgstr ""
 
 #: libraries/messages.inc.php:1138
 msgid "Close"
@@ -5461,16 +5872,12 @@ msgstr ""
 msgid "Tracking report for table `%s`"
 msgstr ""
 
-#: libraries/messages.inc.php:1140
-msgid "Tracking report"
-msgstr ""
-
-#: libraries/messages.inc.php:1141
+#: libraries/messages.inc.php:1141 tbl_tracking.php:397 tbl_tracking.php:504
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
-#: libraries/messages.inc.php:1142
+#: libraries/messages.inc.php:1142 tbl_tracking.php:561
 msgid "Show versions"
 msgstr ""
 
@@ -5478,11 +5885,11 @@ msgstr ""
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: libraries/messages.inc.php:1144
+#: libraries/messages.inc.php:1144 tbl_tracking.php:507 tbl_tracking.php:508
 msgid "SQL dump"
 msgstr ""
 
-#: libraries/messages.inc.php:1145
+#: libraries/messages.inc.php:1145 tbl_tracking.php:213
 msgid "SQL statements executed."
 msgstr ""
 
@@ -5490,108 +5897,61 @@ msgstr ""
 msgid "This option will replace your table and contained data."
 msgstr ""
 
-#: libraries/messages.inc.php:1147
+#: libraries/messages.inc.php:1147 tbl_tracking.php:509
 msgid "SQL execution"
 msgstr ""
 
-#: libraries/messages.inc.php:1148
+#: libraries/messages.inc.php:1148 tbl_tracking.php:230
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: libraries/messages.inc.php:1149
+#: libraries/messages.inc.php:1149 tbl_tracking.php:381
 msgid "Tracking statements"
 msgstr ""
 
-#: libraries/messages.inc.php:1150
-msgid "active"
-msgstr ""
-
-#: libraries/messages.inc.php:1151
-msgid "not active"
-msgstr ""
-
-#: libraries/messages.inc.php:1152
-#, fuzzy
-msgid "Structure snapshot"
-msgstr "Само структура"
-
-#: libraries/messages.inc.php:1153
-#, fuzzy
-msgid "Created"
-msgstr "Направи"
-
-#: libraries/messages.inc.php:1154
-#, fuzzy
-msgid "Last version"
-msgstr "Направи релацију"
-
-#: libraries/messages.inc.php:1155
-msgid "Updated"
-msgstr ""
-
-#: libraries/messages.inc.php:1156
+#: libraries/messages.inc.php:1156 tbl_tracking.php:593
 #, fuzzy
 msgid "Version"
 msgstr "Персијски"
 
-#: libraries/messages.inc.php:1157
+#: libraries/messages.inc.php:1157 tbl_tracking.php:672
 msgid "Track these data definition statements:"
 msgstr ""
 
-#: libraries/messages.inc.php:1158
+#: libraries/messages.inc.php:1158 tbl_tracking.php:680
 msgid "Track these data manipulation statements:"
 msgstr ""
 
-#: libraries/messages.inc.php:1159
-#, fuzzy
-msgid "Tracked tables"
-msgstr "Провери табелу"
-
-#: libraries/messages.inc.php:1160
+#: libraries/messages.inc.php:1160 libraries/tbl_links.inc.php:69
 msgid "Tracking"
 msgstr ""
 
-#: libraries/messages.inc.php:1161
-#, fuzzy
-msgid "Track table"
-msgstr "Провери табелу"
-
-#: libraries/messages.inc.php:1162
-#, fuzzy
-msgid "Untracked tables"
-msgstr "Провери табелу"
-
-#: libraries/messages.inc.php:1163
+#: libraries/messages.inc.php:1163 tbl_tracking.php:411 tbl_tracking.php:462
 #, fuzzy
 msgid "Username"
 msgstr "Корисничко име:"
 
-#: libraries/messages.inc.php:1164
+#: libraries/messages.inc.php:1164 tbl_tracking.php:203
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
 msgstr ""
 
-#: libraries/messages.inc.php:1165
+#: libraries/messages.inc.php:1165 tbl_tracking.php:187
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
 msgstr ""
 
-#: libraries/messages.inc.php:1166
+#: libraries/messages.inc.php:1166 tbl_tracking.php:195
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
 msgstr ""
 
-#: libraries/messages.inc.php:1167
+#: libraries/messages.inc.php:1167 tbl_tracking.php:262
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: libraries/messages.inc.php:1168
-#, fuzzy
-msgid "Versions"
-msgstr "Персијски"
-
-#: libraries/messages.inc.php:1169
+#: libraries/messages.inc.php:1169 tbl_tracking.php:220
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -5605,11 +5965,11 @@ msgstr "Традиционални кинески"
 msgid "Traditional Spanish"
 msgstr "Традиционални шпански"
 
-#: libraries/messages.inc.php:1172
+#: libraries/messages.inc.php:1172 server_status.php:390
 msgid "Traffic"
 msgstr "Саобраћај"
 
-#: libraries/messages.inc.php:1173
+#: libraries/messages.inc.php:1173 server_status.php:261
 msgid "Transaction coordinator"
 msgstr "Координатор трансакција"
 
@@ -5734,11 +6094,12 @@ msgstr ""
 "(подразумевано: до краја стринга). Трећа опција је стринг који се додаје "
 "када дође до одсецања (подразумевано: ...) ."
 
-#: libraries/messages.inc.php:1186
+#: libraries/messages.inc.php:1186 libraries/tbl_triggers.lib.php:19
 msgid "Triggers"
 msgstr "Окидачи"
 
-#: libraries/messages.inc.php:1187
+#: libraries/messages.inc.php:1187 server_processlist.php:49
+#: server_processlist.php:51
 msgid "Truncate Shown Queries"
 msgstr "Прикажи скраћене упите"
 
@@ -5746,33 +6107,24 @@ msgstr "Прикажи скраћене упите"
 msgid "Turkish"
 msgstr "Турски"
 
-#: libraries/messages.inc.php:1189
-msgid "Type"
-msgstr "Тип"
-
 #: libraries/messages.inc.php:1191
 msgid "Ukrainian"
 msgstr "Украјински"
-
-#: libraries/messages.inc.php:1192
-msgid "Uncheck All"
-msgstr "ниједно"
 
 #: libraries/messages.inc.php:1193
 msgid "Unicode"
 msgstr "Уникод"
 
-#: libraries/messages.inc.php:1194
+#: libraries/messages.inc.php:1194 libraries/mult_submits.inc.php:103
+#: libraries/tbl_properties.inc.php:519 tbl_structure.php:33
+#: tbl_structure.php:155 tbl_structure.php:159 tbl_structure.php:475
+#: tbl_tracking.php:322
 msgid "Unique"
 msgstr "Јединствени"
 
 #: libraries/messages.inc.php:1195
 msgid "unknown"
 msgstr "непознат"
-
-#: libraries/messages.inc.php:1196
-msgid "Unselect All"
-msgstr "ништа"
 
 #: libraries/messages.inc.php:1197
 #, php-format
@@ -5788,13 +6140,9 @@ msgstr ""
 msgid "You have updated the privileges for %s."
 msgstr "Ажурирали сте привилегије за %s."
 
-#: libraries/messages.inc.php:1199
+#: libraries/messages.inc.php:1199 user_password.php:112
 msgid "The profile has been updated."
 msgstr "Профил је промењен."
-
-#: libraries/messages.inc.php:1200
-msgid "Update Query"
-msgstr "Ажурирај упит"
 
 #: libraries/messages.inc.php:1201
 msgid ""
@@ -5854,7 +6202,7 @@ msgstr ""
 msgid "File uploads are not allowed on this server."
 msgstr "Слање датотека на овај сервер није дозвољено."
 
-#: libraries/messages.inc.php:1212
+#: libraries/messages.inc.php:1212 tbl_printview.php:314 tbl_structure.php:661
 msgid "Usage"
 msgstr "Заузеће"
 
@@ -5896,28 +6244,20 @@ msgstr "Изабрани корисници су успешно обрисани
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Корисници који имају приступ &quot;%s&quot;"
 
-#: libraries/messages.inc.php:1222
+#: libraries/messages.inc.php:1222 main.php:189 server_processlist.php:54
 msgid "User"
 msgstr "Корисник"
 
-#: libraries/messages.inc.php:1223
+#: libraries/messages.inc.php:1223 tbl_change.php:1171
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Користите TAB тастер за померање од поља до поља, или CTRL+стрелице за "
 "слободно померање"
 
-#: libraries/messages.inc.php:1224
-msgid "Use Tables"
-msgstr "Користи табеле"
-
 #: libraries/messages.inc.php:1225
 msgid "Use text field"
 msgstr "Користи текст поље"
-
-#: libraries/messages.inc.php:1226
-msgid "Use this value"
-msgstr "Користи ову вредност"
 
 #: libraries/messages.inc.php:1228 setup/lib/messages.inc.php:356
 msgid "Validate SQL"
@@ -5932,47 +6272,33 @@ msgstr ""
 "SQL валидатор није могао да буде покренут. Проверите да ли су инсталиране "
 "неопходне PHP екстензије описане у  %sдокументацији%s."
 
-#: libraries/messages.inc.php:1230
+#: libraries/messages.inc.php:1230 server_status.php:629 tbl_change.php:324
+#: tbl_printview.php:370 tbl_structure.php:730
 msgid "Value"
 msgstr "Вредност"
 
-#: libraries/messages.inc.php:1231
+#: libraries/messages.inc.php:1231 server_status.php:628
+#: server_variables.php:52
 msgid "Variable"
 msgstr "Променљива"
 
-#: libraries/messages.inc.php:1232
+#: libraries/messages.inc.php:1232 main.php:228
 msgid "Version information"
 msgstr "Информације о верзији"
 
-#: libraries/messages.inc.php:1233
+#: libraries/messages.inc.php:1233 server_export.php:21
 msgid "View dump (schema) of databases"
 msgstr "Прикажи садржај (схему) базе"
 
-#: libraries/messages.inc.php:1234
-msgid "View dump (schema) of database"
-msgstr "Прикажи садржај (схему) базе"
-
-#: libraries/messages.inc.php:1235
+#: libraries/messages.inc.php:1235 tbl_export.php:23
 msgid "View dump (schema) of table"
 msgstr "Прикажи садржај (схему) табеле"
-
-#: libraries/messages.inc.php:1236
-#, php-format
-msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
-msgstr ""
-
-#: libraries/messages.inc.php:1237
-#, php-format
-msgid "View %s has been dropped"
-msgstr "Поглед %s је одбачен"
 
 #: libraries/messages.inc.php:1238
 msgid "View image"
 msgstr ""
 
-#: libraries/messages.inc.php:1239
+#: libraries/messages.inc.php:1239 view_create.php:142
 msgid "VIEW name"
 msgstr "назив за VIEW"
 
@@ -5980,23 +6306,15 @@ msgstr "назив за VIEW"
 msgid "View video"
 msgstr ""
 
-#: libraries/messages.inc.php:1241
-msgid "View"
-msgstr "Поглед"
-
-#: libraries/messages.inc.php:1243
+#: libraries/messages.inc.php:1243 tbl_change.php:1028
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Директоријум који сте изабрали за слање није доступан"
 
-#: libraries/messages.inc.php:1244
-msgid "web server upload directory"
-msgstr "директоријум за слање веб сервера "
-
-#: libraries/messages.inc.php:1245
+#: libraries/messages.inc.php:1245 main.php:205
 msgid "Web server"
 msgstr ""
 
-#: libraries/messages.inc.php:1246
+#: libraries/messages.inc.php:1246 test/theme.php:152
 #, php-format
 msgid "Welcome to %s"
 msgstr "Добродошли на %s"
@@ -6005,27 +6323,13 @@ msgstr "Добродошли на %s"
 msgid "West European"
 msgstr "Западноевропски"
 
-#: libraries/messages.inc.php:1248
+#: libraries/messages.inc.php:1248 main.php:230
 msgid "Wiki"
 msgstr ""
 
 #: libraries/messages.inc.php:1249
 msgid "wildcard"
 msgstr "џокер"
-
-#: libraries/messages.inc.php:1250
-msgid ""
-"The target browser window could not be updated. Maybe you have closed the "
-"parent window, or your browser's security settings are configured to block "
-"cross-window updates."
-msgstr ""
-"Одредишни прозор претраживача није могао да буде ажуриран. Можда сте "
-"затворили матични прозор, или ваш претраживач онемогућава ажурирање међу "
-"прозорима због сигурносних подешавања"
-
-#: libraries/messages.inc.php:1251
-msgid "With selected:"
-msgstr "Означено:"
 
 #: libraries/messages.inc.php:1252
 msgid "Write requests"
@@ -6077,10 +6381,6 @@ msgstr "Тип извоза"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/messages.inc.php:1265
-msgid "Yes"
-msgstr "Да"
-
 #: libraries/messages.inc.php:1267
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Напомена: Постављање ових опција на 0 (нулу) уклања ограничења."
@@ -6088,6 +6388,13 @@ msgstr "Напомена: Постављање ових опција на 0 (н�
 #: libraries/messages.inc.php:1268
 msgid "\"zipped\""
 msgstr "\"зиповано\""
+
+#: libraries/tbl_properties.inc.php:393
+#, fuzzy
+#| msgid "None"
+msgctxt "for default"
+msgid "None"
+msgstr "нема"
 
 #: navigation.php:318
 #, fuzzy
@@ -6099,9 +6406,36 @@ msgstr "Датотеке"
 msgid "Clear"
 msgstr "Календар"
 
+#: navigation.php:350 navigation.php:351
+#, fuzzy
+#| msgid "Create table"
+msgctxt "short form"
+msgid "Create table"
+msgstr "Направи табелу"
+
+#: server_databases.php:230
+#, fuzzy
+msgid "Jump to database"
+msgstr "База не постоји"
+
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Пре џокера _ и % треба ставити знак \\ ако их користите самостално"
+
+#: server_status.php:344
+#, fuzzy
+#| msgid "Reset"
+msgctxt "for Show status"
+msgid "Reset"
+msgstr "Поништи"
+
+#: server_status.php:369
+#, php-format
+msgid ""
+"This MySQL server works as %s in <b>replication</b> process. For further "
+"information about replication status on the server, please visit the <a "
+"href=#replication>replication section</a>."
+msgstr ""
 
 #: server_synchronize.php:1117
 msgid "Enter manually"
@@ -7747,6 +8081,12 @@ msgstr ""
 msgid "ZIP"
 msgstr ""
 
+#: tbl_operations.php:634
+#, fuzzy
+#| msgid "Flush the table (\"FLUSH\")"
+msgid "Flush the table (FLUSH)"
+msgstr "Освежи табелу (\"FLUSH\")"
+
 #: tbl_relation.php:405
 #, fuzzy
 #| msgid "Internal relations"
@@ -7756,6 +8096,19 @@ msgstr "Унутрашње релације"
 #: tbl_relation.php:413
 msgid "Foreign key constraint"
 msgstr ""
+
+#: tbl_structure.php:595
+#, fuzzy, php-format
+#| msgid "Create an index on&nbsp;%s&nbsp;columns"
+msgid "Create an index on &nbsp;%s&nbsp;columns"
+msgstr "Направи кључ на&nbsp;%s&nbsp;колона"
+
+#: transformation_overview.php:48
+#, fuzzy
+#| msgid "Description"
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "Опис"
 
 #~ msgctxt "$strStrucCSV"
 #~ msgid "CSV"

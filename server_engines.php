@@ -46,7 +46,7 @@ if (empty($_REQUEST['engine'])
        . ($GLOBALS['cfg']['MainPageIconic']
             ? '<img class="icon" src="' . $pmaThemeImage . 'b_engine.png"'
                 .' width="16" height="16" alt="" />' : '')
-       . "\n" . $strStorageEngines . "\n"
+       . "\n" . __('Storage Engines') . "\n"
        . '</h2>' . "\n";
 
 
@@ -55,8 +55,8 @@ if (empty($_REQUEST['engine'])
      */
     echo '<table>' . "\n"
        . '<thead>' . "\n"
-       . '<tr><th>' . $strStorageEngine . '</th>' . "\n"
-       . '    <th>' . $strDescription . '</th>' . "\n"
+       . '<tr><th>' . __('Storage Engine') . '</th>' . "\n"
+       . '    <th>' . __('Description') . '</th>' . "\n"
        . '</tr>' . "\n"
        . '</thead>' . "\n"
        . '<tbody>' . "\n";
@@ -109,11 +109,11 @@ if (empty($_REQUEST['engine'])
         echo '<p>' . "\n"
            . '    <strong>[</strong>' . "\n";
         if (empty($_REQUEST['page'])) {
-            echo '    <strong>' . $strServerTabVariables . '</strong>' . "\n";
+            echo '    <strong>' . __('Variables') . '</strong>' . "\n";
         } else {
             echo '    <a href="./server_engines.php'
                 . PMA_generate_common_url(array('engine' => $_REQUEST['engine'])) . '">'
-                . $strServerTabVariables . '</a>' . "\n";
+                . __('Variables') . '</a>' . "\n";
         }
         foreach ($infoPages as $current => $label) {
             echo '    <strong>|</strong>' . "\n";

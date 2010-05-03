@@ -23,7 +23,7 @@ if (!PMA_DBI_select_db($db)) {
 
 /* Check if table exists */
 if (!PMA_DBI_get_columns($db, $table)) {
-    PMA_mysqlDie($strInvalidTableName);
+    PMA_mysqlDie(__('Invalid table name'));
 }
 
 /* Grab data */
@@ -32,7 +32,7 @@ $result = PMA_DBI_fetch_value($sql);
 
 /* Check return code */
 if ($result === false) {
-    PMA_mysqlDie($strEmptyResultSet, $sql);
+    PMA_mysqlDie(__('MySQL returned an empty result set (i.e. zero rows).'), $sql);
 }
 
 /* Avoid corrupting data */

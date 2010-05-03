@@ -17,9 +17,9 @@ $url_query .= '&amp;goto=db_structure.php';
 $events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
 if ($events) {
-    PMA_generate_slider_effect('events', $strEvents);
+    PMA_generate_slider_effect('events', __('Events'));
     echo '<fieldset>' . "\n";
-    echo ' <legend>' . $strEvents . '</legend>' . "\n";
+    echo ' <legend>' . __('Events') . '</legend>' . "\n";
     echo '<table border="0">';
     echo sprintf('<tr>
                       <th>%s</th>
@@ -27,8 +27,8 @@ if ($events) {
                       <th>&nbsp;</th>
                       <th>%s</th>
                 </tr>',
-          $strName,
-          $strType);
+          __('Name'),
+          __('Type'));
     $ct=0;
     $delimiter = '//';
     foreach ($events as $event) {

@@ -32,7 +32,7 @@ $data = PMA_Tracker::getTrackedData($_REQUEST['db'], '', '1');
 
 // No tables present and no log exist
 if ($num_tables == 0 && count($data['ddlog']) == 0) {
-    echo '<p>' . $strNoTablesFound . '</p>' . "\n";
+    echo '<p>' . __('No tables found in database.') . '</p>' . "\n";
 
     if (empty($db_is_information_schema)) {
         require './libraries/display_create_table.lib.php';
@@ -63,19 +63,19 @@ $all_tables_result = PMA_query_as_controluser($all_tables_query);
 // If a HEAD version exists
 if (PMA_DBI_num_rows($all_tables_result) > 0) {
 ?>
-    <h3><?php echo $strTrackingTrackedTables;?></h3>
+    <h3><?php echo __('Tracked tables');?></h3>
 
     <table id="versions" class="data">
     <thead>
     <tr>
-        <th><?php echo $strDatabase;?></th>
-        <th><?php echo $strTable;?></th>
-        <th><?php echo $strTrackingThLastVersion;?></th>
-        <th><?php echo $strTrackingThCreated;?></th>
-        <th><?php echo $strTrackingThUpdated;?></th>
-        <th><?php echo $strStatus;?></th>
-        <th><?php echo $strAction;?></th>
-        <th><?php echo $strShow;?></th>
+        <th><?php echo __('Database');?></th>
+        <th><?php echo __('Table');?></th>
+        <th><?php echo __('Last version');?></th>
+        <th><?php echo __('Created');?></th>
+        <th><?php echo __('Updated');?></th>
+        <th><?php echo __('Status');?></th>
+        <th><?php echo __('Action');?></th>
+        <th><?php echo __('Show');?></th>
     </tr>
     </thead>
     <tbody>
@@ -85,10 +85,10 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
 
     $drop_image_or_text = '';
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . $strDeleteTrackingData . '" title="' . $strDeleteTrackingData . '" />';
+        $drop_image_or_text .= '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . __('Delete tracking data for this table') . '" title="' . __('Delete tracking data for this table') . '" />';
     }
     if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= $strDrop;
+        $drop_image_or_text .= __('Drop');
     }
 
     $style = 'odd';
@@ -103,9 +103,9 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
         $version_data = PMA_DBI_fetch_array($table_result);
 
         if ($version_data['tracking_active'] == 1) {
-            $version_status = $strTrackingStatusActive;
+            $version_status = __('active');
         } else {
-            $version_status = $strTrackingStatusNotActive;
+            $version_status = __('not active');
         }
         $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version_data['table_name']);
         $delete_link = 'db_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version_data['table_name']) . '&amp;delete_tracking=true&amp';
@@ -117,10 +117,10 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
-            <td><a href="<?php echo $delete_link;?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($strDeleteTrackingData, false); ?>')"><?php echo $drop_image_or_text; ?></a></td>
-            <td> <a href="<?php echo $tmp_link; ?>"><?php echo $strTrackingVersions;?></a>
-               | <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version_data['version'];?>"><?php echo $strTrackingReport;?></a>
-               | <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version_data['version'];?>"><?php echo $strTrackingStructureSnapshot;?></a></td>
+            <td><a href="<?php echo $delete_link;?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat(__('Delete tracking data for this table'), false); ?>')"><?php echo $drop_image_or_text; ?></a></td>
+            <td> <a href="<?php echo $tmp_link; ?>"><?php echo __('Versions');?></a>
+               | <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Tracking report');?></a>
+               | <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Structure snapshot');?></a></td>
         </tr>
         <?php
         if ($style == 'even') {
@@ -149,12 +149,12 @@ foreach ($table_list as $key => $value) {
 // If untracked tables exist
 if (isset($my_tables)) {
 ?>
-    <h3><?php echo $strTrackingUntrackedTables;?></h3>
+    <h3><?php echo __('Untracked tables');?></h3>
 
     <table id="noversions" class="data">
     <thead>
     <tr>
-        <th width="300"><?php echo $strTable;?></th>
+        <th width="300"><?php echo __('Table');?></th>
         <th></th>
     </tr>
     </thead>
@@ -169,9 +169,9 @@ if (isset($my_tables)) {
             $my_link = '<a href="tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($tablename) .'">';
 
             if ($cfg['PropertiesIconic']) {
-                $my_link .= '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . $strTrackingTrackTable . '" /> ';
+                $my_link .= '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . __('Track table') . '" /> ';
             }
-            $my_link .= $strTrackingTrackTable . '</a>';
+            $my_link .= __('Track table') . '</a>';
         ?>
             <tr class="<?php echo $style;?>">
             <td><?php echo htmlspecialchars($tablename);?></td>
@@ -197,7 +197,7 @@ if (count($data['ddlog']) > 0) {
     foreach ($data['ddlog'] as $entry) {
         $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n" . $entry['statement'] . "\n";
     }
-    PMA_showMessage($strTrackingDatabaseLog, $log);
+    PMA_showMessage(__('Database Log'), $log);
 }
 
 /**

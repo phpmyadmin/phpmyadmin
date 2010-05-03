@@ -59,7 +59,7 @@ if (isset($result)) {
     // (for example, a table rename)
     $_type = 'success';
     if (empty($_message)) {
-        $_message = $result ? $strSuccess : $strError;
+        $_message = $result ? __('Your SQL query has been executed successfully') : __('Error');
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
     }
@@ -86,11 +86,11 @@ $url_params['back'] = 'view_operations.php';
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
 <fieldset>
-    <legend><?php echo $strOperations; ?></legend>
+    <legend><?php echo __('Operations'); ?></legend>
 
     <table>
     <!-- Change view name -->
-    <tr><td><?php echo $strRenameView; ?></td>
+    <tr><td><?php echo __('Rename view to'); ?></td>
         <td><input type="text" size="20" name="new_name" onfocus="this.select()"
                 value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" />
         </td>
@@ -98,7 +98,7 @@ $url_params['back'] = 'view_operations.php';
     </table>
 </fieldset>
 <fieldset class="tblFooters">
-        <input type="submit" name="submitoptions" value="<?php echo $strGo; ?>" />
+        <input type="submit" name="submitoptions" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>
 </div>
