@@ -7703,7 +7703,6 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: tbl_relation.php:405
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Interne relasjoner"
