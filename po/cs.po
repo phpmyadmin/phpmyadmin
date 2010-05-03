@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-03 14:37+0200\n"
-"PO-Revision-Date: 2010-04-23 16:41+0200\n"
+"PO-Revision-Date: 2010-05-03 14:45+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,14 +25,12 @@ msgstr "Zrušit"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Přispějte"
+msgstr "Hotovo"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Předchozí"
@@ -44,243 +42,223 @@ msgstr "Další"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Celkem"
+msgstr "Dnešek"
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "Binární"
+msgstr "leden"
 
 #: js/messages.php:97
 msgid "February"
-msgstr ""
+msgstr "únor"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
-msgstr "března"
+msgstr "březen"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
-msgstr "dubna"
+msgstr "duben"
 
 #: js/messages.php:100 js/messages.php:115 libraries/messages.inc.php:28
 msgid "May"
-msgstr "května"
+msgstr "květen"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
-msgstr "června"
+msgstr "červen"
 
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
-msgstr "července"
+msgstr "červenec"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
-msgstr "srpna"
+msgstr "srpen"
 
 #: js/messages.php:104
 msgid "September"
-msgstr ""
+msgstr "září"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
-msgstr "října"
+msgstr "říjen"
 
 #: js/messages.php:106
 msgid "November"
-msgstr ""
+msgstr "listopad"
 
 #: js/messages.php:107
 msgid "December"
-msgstr ""
+msgstr "prosinec"
 
 #: js/messages.php:111 libraries/messages.inc.php:28
 msgid "Jan"
-msgstr "ledna"
+msgstr "led"
 
 #: js/messages.php:112 libraries/messages.inc.php:28
 msgid "Feb"
-msgstr "února"
+msgstr "úno"
 
 #: js/messages.php:113 libraries/messages.inc.php:28
 msgid "Mar"
-msgstr "března"
+msgstr "bře"
 
 #: js/messages.php:114 libraries/messages.inc.php:28
 msgid "Apr"
-msgstr "dubna"
+msgstr "dub"
 
 #: js/messages.php:116 libraries/messages.inc.php:28
 msgid "Jun"
-msgstr "června"
+msgstr "čen"
 
 #: js/messages.php:117 libraries/messages.inc.php:28
 msgid "Jul"
-msgstr "července"
+msgstr "čec"
 
 #: js/messages.php:118 libraries/messages.inc.php:28
 msgid "Aug"
-msgstr "srpna"
+msgstr "srp"
 
 #: js/messages.php:119 libraries/messages.inc.php:28
 msgid "Sep"
-msgstr "září"
+msgstr "zář"
 
 #: js/messages.php:120 libraries/messages.inc.php:28
 msgid "Oct"
-msgstr "října"
+msgstr "říj"
 
 #: js/messages.php:121 libraries/messages.inc.php:28
 msgid "Nov"
-msgstr "listopadu"
+msgstr "lis"
 
 #: js/messages.php:122 libraries/messages.inc.php:28
 msgid "Dec"
-msgstr "prosince"
+msgstr "pro"
 
 #: js/messages.php:125
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Neděle"
 
 #: js/messages.php:126
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Pondělí"
 
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Úterý"
 
 #: js/messages.php:128
 msgid "Wednesday"
-msgstr ""
+msgstr "Středa"
 
 #: js/messages.php:129
 msgid "Thursday"
-msgstr ""
+msgstr "Čtvrtek"
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Pátek"
 
 #: js/messages.php:131
 msgid "Saturday"
-msgstr ""
+msgstr "Sobota"
 
 #. l10n: Short week day name
 #: js/messages.php:135 libraries/messages.inc.php:27
 msgid "Sun"
-msgstr "Neděle"
+msgstr "Ned"
 
 #. l10n: Short week day name
 #: js/messages.php:137 libraries/messages.inc.php:27
 msgid "Mon"
-msgstr "Pondělí"
+msgstr "Pon"
 
 #. l10n: Short week day name
 #: js/messages.php:139 libraries/messages.inc.php:27
 msgid "Tue"
-msgstr "Úterý"
+msgstr "Úte"
 
 #. l10n: Short week day name
 #: js/messages.php:141 libraries/messages.inc.php:27
 msgid "Wed"
-msgstr "Středa"
+msgstr "Stř"
 
 #. l10n: Short week day name
 #: js/messages.php:143 libraries/messages.inc.php:27
 msgid "Thu"
-msgstr "Čtvrtek"
+msgstr "Čtv"
 
 #. l10n: Short week day name
 #: js/messages.php:145 libraries/messages.inc.php:27
 msgid "Fri"
-msgstr "Pátek"
+msgstr "Pát"
 
 #. l10n: Short week day name
 #: js/messages.php:147 libraries/messages.inc.php:27
 msgid "Sat"
-msgstr "Sobota"
+msgstr "Sob"
 
 #. l10n: Minimal week day name
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
-msgstr "Neděle"
+msgstr "Ne"
 
 #. l10n: Minimal week day name
 #: js/messages.php:153
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
-msgstr "Pondělí"
+msgstr "Po"
 
 #. l10n: Minimal week day name
 #: js/messages.php:155
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
-msgstr "Úterý"
+msgstr "Út"
 
 #. l10n: Minimal week day name
 #: js/messages.php:157
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "Středa"
+msgstr "St"
 
 #. l10n: Minimal week day name
 #: js/messages.php:159
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
-msgstr "Čtvrtek"
+msgstr "Čt"
 
 #. l10n: Minimal week day name
 #: js/messages.php:161
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
-msgstr "Pátek"
+msgstr "Pá"
 
 #. l10n: Minimal week day name
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
-msgstr "Sobota"
+msgstr "So"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "Wiki"
+msgstr "Týd"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
