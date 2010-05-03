@@ -27,7 +27,15 @@ $.extend($.datepicker._defaults, {
     'stepHours': 1, // Number of hours to step up/down
     'time24h': false, // True if 24h time
     'showTime': false, // Show timepicker with datepicker
-    'altTimeField': '' // Selector for an alternate field to store time into
+    'altTimeField': '', // Selector for an alternate field to store time into
+    'hourText': 'Hour',
+    'minuteText': 'Minute',
+    'secondText': 'Second',
+});
+$.extend($.datepicker.regional[''], {
+    'hourText': 'Hour',
+    'minuteText': 'Minute',
+    'secondText': 'Second',
 });
 
 /**
@@ -220,6 +228,10 @@ Timepicker.prototype = {
         $('#secondSlider').slider('option', 'max', 60 - stepSeconds);
         $('#secondSlider').slider('option', 'step', stepSeconds);
 
+        $('.hour_text').html($.datepicker._get(inst, 'hourText'));
+        $('.minute_text').html($.datepicker._get(inst, 'minuteText'));
+        $('.second_text').html($.datepicker._get(inst, 'secondText'));
+
         this._inputId = input.id;
 
         if (!this._visible) {
@@ -300,7 +312,13 @@ Timepicker.prototype = {
         html += '<div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">';
         html += '<div class="ui-datepicker-title" style="margin:0">';
         html += '<span class="fragHours">08</span><span class="delim">:</span><span class="fragMinutes">45</span>:</span><span class="fragSeconds">45</span> <span class="fragAmpm"></span></div></div><table>';
-        html += '<tr><th>Hour</th><th>Minute</th><th>Second</th></tr>';
+        html += '<tr><th>';
+        html += '<span class="hour_text">Hour</span>';
+        html += '</th><th>';
+        html += '<span class="minute_text">Minute</span>';
+        html += '</th><th>';
+        html += '<span class="second_text">Second</span>';
+        html += '</th></tr>';
         html += '<tr><td align="center"><div id="hourSlider" class="slider"></div></td><td align="center"><div id="minuteSlider" class="slider"></div></td><td align="center"><div id="secondSlider" class="slider"></div></td></tr>';
         html += '</table>';
 
