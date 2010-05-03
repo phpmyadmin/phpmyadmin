@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 14:00+0200\n"
+"POT-Creation-Date: 2010-05-03 14:37+0200\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: slovak <sk@li.org>\n"
@@ -14,13 +14,272 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: js/messages.php:50 libraries/messages.inc.php:369
+#: js/messages.php:63 libraries/messages.inc.php:369
 msgid "Go"
 msgstr "Vykonaj"
 
-#: js/messages.php:51 libraries/messages.inc.php:131
+#: js/messages.php:64 libraries/messages.inc.php:131
 msgid "Cancel"
 msgstr "Zrušiť"
+
+#. l10n: Display text for calendar close link
+#: js/messages.php:87
+#, fuzzy
+#| msgid "None"
+msgid "Done"
+msgstr "Žiadny"
+
+#. l10n: Display text for previous month link in calendar
+#: js/messages.php:89
+#, fuzzy
+#| msgid "Previous"
+msgid "Prev"
+msgstr "Predchádzajúci"
+
+#. l10n: Display text for next month link in calendar
+#: js/messages.php:91 libraries/messages.inc.php:551
+msgid "Next"
+msgstr "Ďalší"
+
+#. l10n: Display text for current month link in calendar
+#: js/messages.php:93
+#, fuzzy
+#| msgid "Total"
+msgid "Today"
+msgstr "Celkom"
+
+#: js/messages.php:96
+#, fuzzy
+#| msgid "Binary"
+msgid "January"
+msgstr "Binárny"
+
+#: js/messages.php:97
+msgid "February"
+msgstr ""
+
+#: js/messages.php:98
+#, fuzzy
+#| msgid "Mar"
+msgid "March"
+msgstr "Mar"
+
+#: js/messages.php:99
+#, fuzzy
+#| msgid "Apr"
+msgid "April"
+msgstr "Apr"
+
+#: js/messages.php:100 js/messages.php:115 libraries/messages.inc.php:28
+msgid "May"
+msgstr "Máj"
+
+#: js/messages.php:101
+#, fuzzy
+#| msgid "Jun"
+msgid "June"
+msgstr "Jún"
+
+#: js/messages.php:102
+#, fuzzy
+#| msgid "Jul"
+msgid "July"
+msgstr "Júl"
+
+#: js/messages.php:103
+#, fuzzy
+#| msgid "Aug"
+msgid "August"
+msgstr "Aug"
+
+#: js/messages.php:104
+msgid "September"
+msgstr ""
+
+#: js/messages.php:105
+#, fuzzy
+#| msgid "Oct"
+msgid "October"
+msgstr "Okt"
+
+#: js/messages.php:106
+msgid "November"
+msgstr ""
+
+#: js/messages.php:107
+msgid "December"
+msgstr ""
+
+#: js/messages.php:111 libraries/messages.inc.php:28
+msgid "Jan"
+msgstr "Jan"
+
+#: js/messages.php:112 libraries/messages.inc.php:28
+msgid "Feb"
+msgstr "Feb"
+
+#: js/messages.php:113 libraries/messages.inc.php:28
+msgid "Mar"
+msgstr "Mar"
+
+#: js/messages.php:114 libraries/messages.inc.php:28
+msgid "Apr"
+msgstr "Apr"
+
+#: js/messages.php:116 libraries/messages.inc.php:28
+msgid "Jun"
+msgstr "Jún"
+
+#: js/messages.php:117 libraries/messages.inc.php:28
+msgid "Jul"
+msgstr "Júl"
+
+#: js/messages.php:118 libraries/messages.inc.php:28
+msgid "Aug"
+msgstr "Aug"
+
+#: js/messages.php:119 libraries/messages.inc.php:28
+msgid "Sep"
+msgstr "Sep"
+
+#: js/messages.php:120 libraries/messages.inc.php:28
+msgid "Oct"
+msgstr "Okt"
+
+#: js/messages.php:121 libraries/messages.inc.php:28
+msgid "Nov"
+msgstr "Nov"
+
+#: js/messages.php:122 libraries/messages.inc.php:28
+msgid "Dec"
+msgstr "Dec"
+
+#: js/messages.php:125
+#, fuzzy
+#| msgid "Sun"
+msgid "Sunday"
+msgstr "Ne"
+
+#: js/messages.php:126
+#, fuzzy
+#| msgid "Mon"
+msgid "Monday"
+msgstr "Po"
+
+#: js/messages.php:127
+#, fuzzy
+#| msgid "Tue"
+msgid "Tuesday"
+msgstr "Út"
+
+#: js/messages.php:128
+msgid "Wednesday"
+msgstr ""
+
+#: js/messages.php:129
+msgid "Thursday"
+msgstr ""
+
+#: js/messages.php:130
+#, fuzzy
+#| msgid "Fri"
+msgid "Friday"
+msgstr "Pi"
+
+#: js/messages.php:131
+msgid "Saturday"
+msgstr ""
+
+#. l10n: Short week day name
+#: js/messages.php:135 libraries/messages.inc.php:27
+msgid "Sun"
+msgstr "Ne"
+
+#. l10n: Short week day name
+#: js/messages.php:137 libraries/messages.inc.php:27
+msgid "Mon"
+msgstr "Po"
+
+#. l10n: Short week day name
+#: js/messages.php:139 libraries/messages.inc.php:27
+msgid "Tue"
+msgstr "Út"
+
+#. l10n: Short week day name
+#: js/messages.php:141 libraries/messages.inc.php:27
+msgid "Wed"
+msgstr "St"
+
+#. l10n: Short week day name
+#: js/messages.php:143 libraries/messages.inc.php:27
+msgid "Thu"
+msgstr "Št"
+
+#. l10n: Short week day name
+#: js/messages.php:145 libraries/messages.inc.php:27
+msgid "Fri"
+msgstr "Pi"
+
+#. l10n: Short week day name
+#: js/messages.php:147 libraries/messages.inc.php:27
+msgid "Sat"
+msgstr "So"
+
+#. l10n: Minimal week day name
+#: js/messages.php:151
+#, fuzzy
+#| msgid "Sun"
+msgid "Su"
+msgstr "Ne"
+
+#. l10n: Minimal week day name
+#: js/messages.php:153
+#, fuzzy
+#| msgid "Mon"
+msgid "Mo"
+msgstr "Po"
+
+#. l10n: Minimal week day name
+#: js/messages.php:155
+#, fuzzy
+#| msgid "Tue"
+msgid "Tu"
+msgstr "Út"
+
+#. l10n: Minimal week day name
+#: js/messages.php:157
+#, fuzzy
+#| msgid "Wed"
+msgid "We"
+msgstr "St"
+
+#. l10n: Minimal week day name
+#: js/messages.php:159
+#, fuzzy
+#| msgid "Thu"
+msgid "Th"
+msgstr "Št"
+
+#. l10n: Minimal week day name
+#: js/messages.php:161
+#, fuzzy
+#| msgid "Fri"
+msgid "Fr"
+msgstr "Pi"
+
+#. l10n: Minimal week day name
+#: js/messages.php:163
+#, fuzzy
+#| msgid "Sat"
+msgid "Sa"
+msgstr "So"
+
+#. l10n: Column header for week of the year in calendar
+#: js/messages.php:165
+#, fuzzy
+#| msgid "Wiki"
+msgid "Wk"
+msgstr "Wiki"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -130,82 +389,6 @@ msgstr "PB"
 #: libraries/messages.inc.php:25
 msgid "EiB"
 msgstr "EB"
-
-#: libraries/messages.inc.php:27
-msgid "Sun"
-msgstr "Ne"
-
-#: libraries/messages.inc.php:27
-msgid "Mon"
-msgstr "Po"
-
-#: libraries/messages.inc.php:27
-msgid "Tue"
-msgstr "Út"
-
-#: libraries/messages.inc.php:27
-msgid "Wed"
-msgstr "St"
-
-#: libraries/messages.inc.php:27
-msgid "Thu"
-msgstr "Št"
-
-#: libraries/messages.inc.php:27
-msgid "Fri"
-msgstr "Pi"
-
-#: libraries/messages.inc.php:27
-msgid "Sat"
-msgstr "So"
-
-#: libraries/messages.inc.php:28
-msgid "Jan"
-msgstr "Jan"
-
-#: libraries/messages.inc.php:28
-msgid "Feb"
-msgstr "Feb"
-
-#: libraries/messages.inc.php:28
-msgid "Mar"
-msgstr "Mar"
-
-#: libraries/messages.inc.php:28
-msgid "Apr"
-msgstr "Apr"
-
-#: libraries/messages.inc.php:28
-msgid "May"
-msgstr "Máj"
-
-#: libraries/messages.inc.php:28
-msgid "Jun"
-msgstr "Jún"
-
-#: libraries/messages.inc.php:28
-msgid "Jul"
-msgstr "Júl"
-
-#: libraries/messages.inc.php:28
-msgid "Aug"
-msgstr "Aug"
-
-#: libraries/messages.inc.php:28
-msgid "Sep"
-msgstr "Sep"
-
-#: libraries/messages.inc.php:28
-msgid "Oct"
-msgstr "Okt"
-
-#: libraries/messages.inc.php:28
-msgid "Nov"
-msgstr "Nov"
-
-#: libraries/messages.inc.php:28
-msgid "Dec"
-msgstr "Dec"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/messages.inc.php:30
@@ -2486,10 +2669,6 @@ msgstr "Názov"
 #, fuzzy
 msgid "New table"
 msgstr "Žiadne tabuľky"
-
-#: libraries/messages.inc.php:551
-msgid "Next"
-msgstr "Ďalší"
 
 #: libraries/messages.inc.php:552
 #, php-format

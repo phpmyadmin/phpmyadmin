@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 14:00+0200\n"
+"POT-Creation-Date: 2010-05-03 14:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,227 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: js/messages.php:50 libraries/messages.inc.php:369
+#: js/messages.php:63 libraries/messages.inc.php:369
 msgid "Go"
 msgstr ""
 
-#: js/messages.php:51 libraries/messages.inc.php:131
+#: js/messages.php:64 libraries/messages.inc.php:131
 msgid "Cancel"
+msgstr ""
+
+#. l10n: Display text for calendar close link
+#: js/messages.php:87
+msgid "Done"
+msgstr ""
+
+#. l10n: Display text for previous month link in calendar
+#: js/messages.php:89
+msgid "Prev"
+msgstr ""
+
+#. l10n: Display text for next month link in calendar
+#: js/messages.php:91 libraries/messages.inc.php:551
+msgid "Next"
+msgstr ""
+
+#. l10n: Display text for current month link in calendar
+#: js/messages.php:93
+msgid "Today"
+msgstr ""
+
+#: js/messages.php:96
+msgid "January"
+msgstr ""
+
+#: js/messages.php:97
+msgid "February"
+msgstr ""
+
+#: js/messages.php:98
+msgid "March"
+msgstr ""
+
+#: js/messages.php:99
+msgid "April"
+msgstr ""
+
+#: js/messages.php:100 js/messages.php:115 libraries/messages.inc.php:28
+msgid "May"
+msgstr ""
+
+#: js/messages.php:101
+msgid "June"
+msgstr ""
+
+#: js/messages.php:102
+msgid "July"
+msgstr ""
+
+#: js/messages.php:103
+msgid "August"
+msgstr ""
+
+#: js/messages.php:104
+msgid "September"
+msgstr ""
+
+#: js/messages.php:105
+msgid "October"
+msgstr ""
+
+#: js/messages.php:106
+msgid "November"
+msgstr ""
+
+#: js/messages.php:107
+msgid "December"
+msgstr ""
+
+#: js/messages.php:111 libraries/messages.inc.php:28
+msgid "Jan"
+msgstr ""
+
+#: js/messages.php:112 libraries/messages.inc.php:28
+msgid "Feb"
+msgstr ""
+
+#: js/messages.php:113 libraries/messages.inc.php:28
+msgid "Mar"
+msgstr ""
+
+#: js/messages.php:114 libraries/messages.inc.php:28
+msgid "Apr"
+msgstr ""
+
+#: js/messages.php:116 libraries/messages.inc.php:28
+msgid "Jun"
+msgstr ""
+
+#: js/messages.php:117 libraries/messages.inc.php:28
+msgid "Jul"
+msgstr ""
+
+#: js/messages.php:118 libraries/messages.inc.php:28
+msgid "Aug"
+msgstr ""
+
+#: js/messages.php:119 libraries/messages.inc.php:28
+msgid "Sep"
+msgstr ""
+
+#: js/messages.php:120 libraries/messages.inc.php:28
+msgid "Oct"
+msgstr ""
+
+#: js/messages.php:121 libraries/messages.inc.php:28
+msgid "Nov"
+msgstr ""
+
+#: js/messages.php:122 libraries/messages.inc.php:28
+msgid "Dec"
+msgstr ""
+
+#: js/messages.php:125
+msgid "Sunday"
+msgstr ""
+
+#: js/messages.php:126
+msgid "Monday"
+msgstr ""
+
+#: js/messages.php:127
+msgid "Tuesday"
+msgstr ""
+
+#: js/messages.php:128
+msgid "Wednesday"
+msgstr ""
+
+#: js/messages.php:129
+msgid "Thursday"
+msgstr ""
+
+#: js/messages.php:130
+msgid "Friday"
+msgstr ""
+
+#: js/messages.php:131
+msgid "Saturday"
+msgstr ""
+
+#. l10n: Short week day name
+#: js/messages.php:135 libraries/messages.inc.php:27
+msgid "Sun"
+msgstr ""
+
+#. l10n: Short week day name
+#: js/messages.php:137 libraries/messages.inc.php:27
+msgid "Mon"
+msgstr ""
+
+#. l10n: Short week day name
+#: js/messages.php:139 libraries/messages.inc.php:27
+msgid "Tue"
+msgstr ""
+
+#. l10n: Short week day name
+#: js/messages.php:141 libraries/messages.inc.php:27
+msgid "Wed"
+msgstr ""
+
+#. l10n: Short week day name
+#: js/messages.php:143 libraries/messages.inc.php:27
+msgid "Thu"
+msgstr ""
+
+#. l10n: Short week day name
+#: js/messages.php:145 libraries/messages.inc.php:27
+msgid "Fri"
+msgstr ""
+
+#. l10n: Short week day name
+#: js/messages.php:147 libraries/messages.inc.php:27
+msgid "Sat"
+msgstr ""
+
+#. l10n: Minimal week day name
+#: js/messages.php:151
+msgid "Su"
+msgstr ""
+
+#. l10n: Minimal week day name
+#: js/messages.php:153
+msgid "Mo"
+msgstr ""
+
+#. l10n: Minimal week day name
+#: js/messages.php:155
+msgid "Tu"
+msgstr ""
+
+#. l10n: Minimal week day name
+#: js/messages.php:157
+msgid "We"
+msgstr ""
+
+#. l10n: Minimal week day name
+#: js/messages.php:159
+msgid "Th"
+msgstr ""
+
+#. l10n: Minimal week day name
+#: js/messages.php:161
+msgid "Fr"
+msgstr ""
+
+#. l10n: Minimal week day name
+#: js/messages.php:163
+msgid "Sa"
+msgstr ""
+
+#. l10n: Column header for week of the year in calendar
+#: js/messages.php:165
+msgid "Wk"
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:107
@@ -122,82 +337,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:25
 msgid "EiB"
-msgstr ""
-
-#: libraries/messages.inc.php:27
-msgid "Sun"
-msgstr ""
-
-#: libraries/messages.inc.php:27
-msgid "Mon"
-msgstr ""
-
-#: libraries/messages.inc.php:27
-msgid "Tue"
-msgstr ""
-
-#: libraries/messages.inc.php:27
-msgid "Wed"
-msgstr ""
-
-#: libraries/messages.inc.php:27
-msgid "Thu"
-msgstr ""
-
-#: libraries/messages.inc.php:27
-msgid "Fri"
-msgstr ""
-
-#: libraries/messages.inc.php:27
-msgid "Sat"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Jan"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Feb"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Mar"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Apr"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "May"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Jun"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Jul"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Aug"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Sep"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Oct"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Nov"
-msgstr ""
-
-#: libraries/messages.inc.php:28
-msgid "Dec"
 msgstr ""
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
@@ -2382,10 +2521,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:550
 msgid "New table"
-msgstr ""
-
-#: libraries/messages.inc.php:551
-msgid "Next"
 msgstr ""
 
 #: libraries/messages.inc.php:552
