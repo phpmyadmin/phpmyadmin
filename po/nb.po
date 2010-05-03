@@ -7708,7 +7708,6 @@ msgid "Internal relation"
 msgstr "Interne relasjoner"
 
 #: tbl_relation.php:413
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
 msgstr "Fremmednøkkelbegrensning"
