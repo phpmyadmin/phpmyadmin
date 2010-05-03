@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-04-20 07:54+0200\n"
-"PO-Revision-Date: 2010-04-06 14:28+0200\n"
+"PO-Revision-Date: 2010-05-03 10:11+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -5938,7 +5938,7 @@ msgstr "Jokertegnene _ og % må beskyttes med en \\ for å bruke dem direkte"
 
 #: server_synchronize.php:1129
 msgid "Enter manually"
-msgstr ""
+msgstr "Skriv inn manuelt"
 
 #: server_synchronize.php:1130
 #, fuzzy
@@ -7772,53 +7772,3 @@ msgstr "Fremmednøkkelbegrensning"
 
 #~ msgid "Tracking Mechanism"
 #~ msgstr "Overvåkningsmekanisme"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "Velg alle"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "Velg alle"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "Sett inn"
-
-#, fuzzy
-#~| msgid "Updated"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "Oppdatert"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "Slett"
-
-#~ msgid "%1$d row(s) affected."
-#~ msgstr "%1$d rad(er) berørt."
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
-
-#~ msgid "Jan0"
-#~ msgstr "Jan0"
-
-#~ msgid "Jan1"
-#~ msgstr "Jan1"
-
-#~ msgid "Jan2"
-#~ msgstr "Jan2"
-
-#~ msgid ""
-#~ "Structure Difference' ;\n"
-#~ "$strStructureForView = 'Structure for view"
-#~ msgstr "Strukturdifferanse"
