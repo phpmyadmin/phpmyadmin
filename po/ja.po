@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 14:37+0200\n"
+"POT-Creation-Date: 2010-05-03 14:46+0200\n"
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -70,7 +70,7 @@ msgstr "8 月"
 msgid "April"
 msgstr "9 月"
 
-#: js/messages.php:100 js/messages.php:115 libraries/messages.inc.php:28
+#: js/messages.php:100 libraries/messages.inc.php:28
 msgid "May"
 msgstr "10 月"
 
@@ -105,173 +105,192 @@ msgstr ""
 msgid "December"
 msgstr ""
 
+#. l10n: Short month name
 #: js/messages.php:111 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "1 月','2 月','3 月','4 月','5 月','6 月"
 
-#: js/messages.php:112 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:113 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "7 月"
 
-#: js/messages.php:113 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:115 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "8 月"
 
-#: js/messages.php:114 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:117 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "9 月"
 
-#: js/messages.php:116 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:119
+#, fuzzy
+#| msgid "May"
+msgctxt "Short month name"
+msgid "May"
+msgstr "10 月"
+
+#. l10n: Short month name
+#: js/messages.php:121 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "11 月"
 
-#: js/messages.php:117 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:123 libraries/messages.inc.php:28
 #, fuzzy
 msgid "Jul"
 msgstr "日"
 
-#: js/messages.php:118 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:125 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr ""
 
-#: js/messages.php:119 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:127 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr ""
 
-#: js/messages.php:120 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:129 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr ""
 
-#: js/messages.php:121 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:131 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr ""
 
-#: js/messages.php:122 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:133 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr ""
 
-#: js/messages.php:125
+#: js/messages.php:136
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "日"
 
-#: js/messages.php:126
+#: js/messages.php:137
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "月"
 
-#: js/messages.php:127
+#: js/messages.php:138
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "火"
 
-#: js/messages.php:128
+#: js/messages.php:139
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:129
+#: js/messages.php:140
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:130
+#: js/messages.php:141
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "金"
 
-#: js/messages.php:131
+#: js/messages.php:142
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:135 libraries/messages.inc.php:27
+#: js/messages.php:146 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "日"
 
 #. l10n: Short week day name
-#: js/messages.php:137 libraries/messages.inc.php:27
+#: js/messages.php:148 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "月"
 
 #. l10n: Short week day name
-#: js/messages.php:139 libraries/messages.inc.php:27
+#: js/messages.php:150 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "火"
 
 #. l10n: Short week day name
-#: js/messages.php:141 libraries/messages.inc.php:27
+#: js/messages.php:152 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "水"
 
 #. l10n: Short week day name
-#: js/messages.php:143 libraries/messages.inc.php:27
+#: js/messages.php:154 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "木"
 
 #. l10n: Short week day name
-#: js/messages.php:145 libraries/messages.inc.php:27
+#: js/messages.php:156 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "金"
 
 #. l10n: Short week day name
-#: js/messages.php:147 libraries/messages.inc.php:27
+#: js/messages.php:158 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "土"
 
 #. l10n: Minimal week day name
-#: js/messages.php:151
+#: js/messages.php:162
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "日"
 
 #. l10n: Minimal week day name
-#: js/messages.php:153
+#: js/messages.php:164
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "月"
 
 #. l10n: Minimal week day name
-#: js/messages.php:155
+#: js/messages.php:166
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "火"
 
 #. l10n: Minimal week day name
-#: js/messages.php:157
+#: js/messages.php:168
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "水"
 
 #. l10n: Minimal week day name
-#: js/messages.php:159
+#: js/messages.php:170
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "木"
 
 #. l10n: Minimal week day name
-#: js/messages.php:161
+#: js/messages.php:172
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "金"
 
 #. l10n: Minimal week day name
-#: js/messages.php:163
+#: js/messages.php:174
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "土"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:165
+#: js/messages.php:176
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"

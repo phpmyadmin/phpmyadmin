@@ -105,20 +105,31 @@ PMA_printJsValue("$.datepicker.regional['']['monthNames']",
         __('October'),
         __('November'),
         __('December')));
-/* l10n: Short week month names */
 PMA_printJsValue("$.datepicker.regional['']['monthNamesShort']",
     array(
+/* l10n: Short month name */
         __('Jan'),
+/* l10n: Short month name */
         __('Feb'),
+/* l10n: Short month name */
         __('Mar'),
+/* l10n: Short month name */
         __('Apr'),
-        __('May'),
+/* l10n: Short month name */
+        _pgettext('Short month name', 'May'),
+/* l10n: Short month name */
         __('Jun'),
+/* l10n: Short month name */
         __('Jul'),
+/* l10n: Short month name */
         __('Aug'),
+/* l10n: Short month name */
         __('Sep'),
+/* l10n: Short month name */
         __('Oct'),
+/* l10n: Short month name */
         __('Nov'),
+/* l10n: Short month name */
         __('Dec')));
 PMA_printJsValue("$.datepicker.regional['']['dayNames']",
     array(

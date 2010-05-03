@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 14:37+0200\n"
+"POT-Creation-Date: 2010-05-03 14:46+0200\n"
 "PO-Revision-Date: 2010-04-16 10:43+0200\n"
 "Last-Translator: Sutharshan <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -67,7 +67,7 @@ msgstr "பங்குனி"
 msgid "April"
 msgstr "சித்திரை"
 
-#: js/messages.php:100 js/messages.php:115 libraries/messages.inc.php:28
+#: js/messages.php:100 libraries/messages.inc.php:28
 msgid "May"
 msgstr "வைகாசி"
 
@@ -107,172 +107,191 @@ msgstr ""
 msgid "December"
 msgstr ""
 
+#. l10n: Short month name
 #: js/messages.php:111 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "தை"
 
-#: js/messages.php:112 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:113 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "மாசி"
 
-#: js/messages.php:113 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:115 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "பங்குனி"
 
-#: js/messages.php:114 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:117 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "சித்திரை"
 
-#: js/messages.php:116 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:119
+#, fuzzy
+#| msgid "May"
+msgctxt "Short month name"
+msgid "May"
+msgstr "வைகாசி"
+
+#. l10n: Short month name
+#: js/messages.php:121 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "ஆணி"
 
-#: js/messages.php:117 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:123 libraries/messages.inc.php:28
 msgid "Jul"
 msgstr "ஆடி"
 
-#: js/messages.php:118 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:125 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr "ஆவணி"
 
-#: js/messages.php:119 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:127 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr "புரட்டாதி"
 
-#: js/messages.php:120 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:129 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr "ஐப்பசி"
 
-#: js/messages.php:121 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:131 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr "காத்திகை"
 
-#: js/messages.php:122 libraries/messages.inc.php:28
+#. l10n: Short month name
+#: js/messages.php:133 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr "மார்கழி"
 
-#: js/messages.php:125
+#: js/messages.php:136
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "ஞாயிறு"
 
-#: js/messages.php:126
+#: js/messages.php:137
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "திங்கள்"
 
-#: js/messages.php:127
+#: js/messages.php:138
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "செவ்வாய்"
 
-#: js/messages.php:128
+#: js/messages.php:139
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:129
+#: js/messages.php:140
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:130
+#: js/messages.php:141
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "வெள்ளி"
 
-#: js/messages.php:131
+#: js/messages.php:142
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:135 libraries/messages.inc.php:27
+#: js/messages.php:146 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "ஞாயிறு"
 
 #. l10n: Short week day name
-#: js/messages.php:137 libraries/messages.inc.php:27
+#: js/messages.php:148 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "திங்கள்"
 
 #. l10n: Short week day name
-#: js/messages.php:139 libraries/messages.inc.php:27
+#: js/messages.php:150 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "செவ்வாய்"
 
 #. l10n: Short week day name
-#: js/messages.php:141 libraries/messages.inc.php:27
+#: js/messages.php:152 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "புதன்"
 
 #. l10n: Short week day name
-#: js/messages.php:143 libraries/messages.inc.php:27
+#: js/messages.php:154 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "வியாழன்"
 
 #. l10n: Short week day name
-#: js/messages.php:145 libraries/messages.inc.php:27
+#: js/messages.php:156 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "வெள்ளி"
 
 #. l10n: Short week day name
-#: js/messages.php:147 libraries/messages.inc.php:27
+#: js/messages.php:158 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "சனி"
 
 #. l10n: Minimal week day name
-#: js/messages.php:151
+#: js/messages.php:162
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "ஞாயிறு"
 
 #. l10n: Minimal week day name
-#: js/messages.php:153
+#: js/messages.php:164
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "திங்கள்"
 
 #. l10n: Minimal week day name
-#: js/messages.php:155
+#: js/messages.php:166
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "செவ்வாய்"
 
 #. l10n: Minimal week day name
-#: js/messages.php:157
+#: js/messages.php:168
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "புதன்"
 
 #. l10n: Minimal week day name
-#: js/messages.php:159
+#: js/messages.php:170
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "வியாழன்"
 
 #. l10n: Minimal week day name
-#: js/messages.php:161
+#: js/messages.php:172
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "வெள்ளி"
 
 #. l10n: Minimal week day name
-#: js/messages.php:163
+#: js/messages.php:174
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "சனி"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:165
+#: js/messages.php:176
 msgid "Wk"
 msgstr ""
 
