@@ -72,7 +72,7 @@ if ($multi_tables) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
                   . PMA_backquote($table);
     }
-    echo '<strong>'.  $strShowTables . ': ' . $tbl_list . '</strong>' . "\n";
+    echo '<strong>'.  __('Show tables') . ': ' . $tbl_list . '</strong>' . "\n";
     echo '<hr />' . "\n";
 } // end if
 
@@ -127,7 +127,7 @@ foreach ($the_tables as $key => $table) {
      * Displays the comments of the table if MySQL >= 3.23
      */
     if (!empty($show_comment)) {
-        echo $strTableComments . ': ' . htmlspecialchars($show_comment) . '<br /><br />';
+        echo __('Table comments') . ': ' . htmlspecialchars($show_comment) . '<br /><br />';
     }
 
     /**
@@ -139,17 +139,17 @@ foreach ($the_tables as $key => $table) {
 <table style="width: 100%;">
 <thead>
 <tr>
-    <th><?php echo $strField; ?></th>
-    <th><?php echo $strType; ?></th>
-    <!--<th><?php echo $strAttr; ?></th>-->
-    <th><?php echo $strNull; ?></th>
-    <th><?php echo $strDefault; ?></th>
-    <!--<th><?php echo $strExtra; ?></th>-->
+    <th><?php echo __('Field'); ?></th>
+    <th><?php echo __('Type'); ?></th>
+    <!--<th><?php echo __('Attributes'); ?></th>-->
+    <th><?php echo __('Null'); ?></th>
+    <th><?php echo __('Default'); ?></th>
+    <!--<th><?php echo __('Extra'); ?></th>-->
     <?php
     if ($have_rel) {
-        echo '<th>' . $strLinksTo . '</th>' . "\n";
+        echo '<th>' . __('Links to') . '</th>' . "\n";
     }
-    echo '    <th>' . $strComments . '</th>' . "\n";
+    echo '    <th>' . __('Comments') . '</th>' . "\n";
     if ($cfgRelation['mimework']) {
         echo '    <th>MIME</th>' . "\n";
     }
@@ -182,15 +182,15 @@ foreach ($the_tables as $key => $table) {
             $unsigned     = stristr($row['Type'], 'unsigned');
             $zerofill     = stristr($row['Type'], 'zerofill');
         }
-        $strAttribute     = '&nbsp;';
+        $attribute     = '&nbsp;';
         if ($binary) {
-            $strAttribute = 'BINARY';
+            $attribute = 'BINARY';
         }
         if ($unsigned) {
-            $strAttribute = 'UNSIGNED';
+            $attribute = 'UNSIGNED';
         }
         if ($zerofill) {
-            $strAttribute = 'UNSIGNED ZEROFILL';
+            $attribute = 'UNSIGNED ZEROFILL';
         }
         if (!isset($row['Default'])) {
             if ($row['Null'] != ''  && $row['Null'] != 'NO') {
@@ -225,8 +225,8 @@ foreach ($the_tables as $key => $table) {
     ?>
     </td>
     <td><?php echo $type; ?><bdo dir="ltr"></bdo></td>
-    <!--<td><?php echo $strAttribute; ?></td>-->
-    <td><?php echo (($row['Null'] == '' || $row['Null'] == 'NO') ? $strNo : $strYes); ?>&nbsp;</td>
+    <!--<td><?php echo $attribute; ?></td>-->
+    <td><?php echo (($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes')); ?>&nbsp;</td>
     <td><?php if (isset($row['Default'])) { echo $row['Default']; } ?>&nbsp;</td>
     <!--<td><?php echo $row['Extra']; ?>&nbsp;</td>-->
     <?php
@@ -307,14 +307,14 @@ foreach ($the_tables as $key => $table) {
 
         <!-- Space usage -->
         <td valign="top">
-            <big><?php echo $strSpaceUsage . ':'; ?></big>
+            <big><?php echo __('Space usage') . ':'; ?></big>
             <table width="100%">
             <tr>
-                <th><?php echo $strType; ?></th>
-                <th colspan="2" align="center"><?php echo $strUsage; ?></th>
+                <th><?php echo __('Type'); ?></th>
+                <th colspan="2" align="center"><?php echo __('Usage'); ?></th>
             </tr>
             <tr>
-                <td style="padding-right: 10px"><?php echo $strData; ?></td>
+                <td style="padding-right: 10px"><?php echo __('Data'); ?></td>
                 <td align="right"><?php echo $data_size; ?></td>
                 <td><?php echo $data_unit; ?></td>
             </tr>
@@ -323,7 +323,7 @@ foreach ($the_tables as $key => $table) {
                     echo "\n";
                     ?>
             <tr>
-                <td style="padding-right: 10px"><?php echo $strIndex; ?></td>
+                <td style="padding-right: 10px"><?php echo __('Index'); ?></td>
                 <td align="right"><?php echo $index_size; ?></td>
                 <td><?php echo $index_unit; ?></td>
             </tr>
@@ -333,12 +333,12 @@ foreach ($the_tables as $key => $table) {
                     echo "\n";
                     ?>
             <tr style="color: #bb0000">
-                <td style="padding-right: 10px"><?php echo $strOverhead; ?></td>
+                <td style="padding-right: 10px"><?php echo __('Overhead'); ?></td>
                 <td align="right"><?php echo $free_size; ?></td>
                 <td><?php echo $free_unit; ?></td>
             </tr>
             <tr>
-                <td style="padding-right: 10px"><?php echo $strEffective; ?></td>
+                <td style="padding-right: 10px"><?php echo __('Effective'); ?></td>
                 <td align="right"><?php echo $effect_size; ?></td>
                 <td><?php echo $effect_unit; ?></td>
             </tr>
@@ -348,7 +348,7 @@ foreach ($the_tables as $key => $table) {
                     echo "\n";
                     ?>
             <tr>
-                <td style="padding-right: 10px"><?php echo $strTotalUC; ?></td>
+                <td style="padding-right: 10px"><?php echo __('Total'); ?></td>
                 <td align="right"><?php echo $tot_size; ?></td>
                 <td><?php echo $tot_unit; ?></td>
             </tr>
@@ -363,23 +363,23 @@ foreach ($the_tables as $key => $table) {
 
         <!-- Rows Statistic -->
         <td valign="top">
-            <big><?php echo $strRowsStatistic . ':'; ?></big>
+            <big><?php echo __('Row Statistics') . ':'; ?></big>
             <table width="100%">
             <tr>
-                <th><?php echo $strStatement; ?></th>
-                <th align="center"><?php echo $strValue; ?></th>
+                <th><?php echo __('Statements'); ?></th>
+                <th align="center"><?php echo __('Value'); ?></th>
             </tr>
                 <?php
                 if (isset($showtable['Row_format'])) {
                     ?>
             <tr>
-                <td><?php echo ucfirst($strFormat); ?></td>
+                <td><?php echo ucfirst(__('Format')); ?></td>
                 <td align="<?php echo $cell_align_left; ?>">
                     <?php
                     if ($showtable['Row_format'] == 'Fixed') {
-                        echo $strStatic;
+                        echo __('static');
                     } elseif ($showtable['Row_format'] == 'Dynamic') {
-                        echo $strDynamic;
+                        echo __('dynamic');
                     } else {
                         echo $showtable['Row_format'];
                     }
@@ -391,7 +391,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Rows'])) {
                     ?>
             <tr>
-                <td><?php echo ucfirst($strRows); ?></td>
+                <td><?php echo ucfirst(__('Rows')); ?></td>
                 <td align="right">
                     <?php echo PMA_formatNumber($showtable['Rows'], 0) . "\n"; ?>
                 </td>
@@ -401,7 +401,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
                     ?>
             <tr>
-                <td><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
+                <td><?php echo ucfirst(__('Row length')); ?>&nbsp;&oslash;</td>
                 <td>
                     <?php echo PMA_formatNumber($showtable['Avg_row_length'], 0) . "\n"; ?>
                 </td>
@@ -411,7 +411,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == false) {
                     ?>
             <tr>
-                <td><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
+                <td><?php echo ucfirst(__(' Row size ')); ?>&nbsp;&oslash;</td>
                 <td align="right">
                     <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
                 </td>
@@ -421,7 +421,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Auto_increment'])) {
                     ?>
             <tr>
-                <td><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
+                <td><?php echo ucfirst(__('Next')); ?>&nbsp;Autoindex</td>
                 <td align="right">
                     <?php echo PMA_formatNumber($showtable['Auto_increment'], 0) . "\n"; ?>
                 </td>
@@ -431,7 +431,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Create_time'])) {
                     ?>
             <tr>
-                <td><?php echo $strStatCreateTime; ?></td>
+                <td><?php echo __('Creation'); ?></td>
                 <td align="right">
                     <?php echo PMA_localisedDate(strtotime($showtable['Create_time'])) . "\n"; ?>
                 </td>
@@ -441,7 +441,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Update_time'])) {
                     ?>
             <tr>
-                <td><?php echo $strStatUpdateTime; ?></td>
+                <td><?php echo __('Last update'); ?></td>
                 <td align="right">
                     <?php echo PMA_localisedDate(strtotime($showtable['Update_time'])) . "\n"; ?>
                 </td>
@@ -451,7 +451,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Check_time'])) {
                     ?>
             <tr>
-                <td><?php echo $strStatCheckTime; ?></td>
+                <td><?php echo __('Last check'); ?></td>
                 <td align="right">
                     <?php echo PMA_localisedDate(strtotime($showtable['Check_time'])) . "\n"; ?>
                 </td>
@@ -495,7 +495,7 @@ function printPage()
 </script>
 
 <p class="print_ignore">
-    <input type="button" id="print" value="<?php echo $strPrint; ?>"
+    <input type="button" id="print" value="<?php echo __('Print'); ?>"
         onclick="printPage()" /></p>
 
 <?php

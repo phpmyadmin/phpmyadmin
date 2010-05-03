@@ -61,51 +61,51 @@ echo $script_tabs . $script_contr . $script_display_field;
 <div class="header" id="top_menu">
         <a href="javascript:Show_left_menu(document.getElementById('key_Show_left_menu'));"
             onmousedown="return false;" class="M_butt first" target="_self">
-            <img id='key_Show_left_menu' title="<?php echo $strShowHideLeftMenu; ?>"
+            <img id='key_Show_left_menu' title="<?php echo __('Show/Hide left menu'); ?>"
                 alt="v" src="pmd/images/downarrow2_m.png" /></a>
         <a href="javascript:Save2();" onmousedown="return false;"
             class="M_butt" target="_self"
-        ><img title="<?php echo $strSavePosition ?>" src="pmd/images/save.png" alt=""
+        ><img title="<?php echo __('Save position') ?>" src="pmd/images/save.png" alt=""
         /></a><a href="javascript:Start_table_new();" onmousedown="return false;"
             class="M_butt" target="_self"
-        ><img title="<?php echo $strCreateTable ?>" src="pmd/images/table.png" alt=""
+        ><img title="<?php echo __('Create table')?>" src="pmd/images/table.png" alt=""
         /></a><a href="javascript:Start_relation();" onmousedown="return false;"
             class="M_butt" id="rel_button" target="_self"
-        ><img title="<?php echo $strCreateRelation ?>" src="pmd/images/relation.png" alt=""
+        ><img title="<?php echo __('Create relation') ?>" src="pmd/images/relation.png" alt=""
         /></a><a href="javascript:Start_display_field();" onmousedown="return false;"
             class="M_butt" id="display_field_button" target="_self"
-        ><img title="<?php echo $strChangeDisplay ?>" src="pmd/images/display_field.png" alt=""
+        ><img title="<?php echo __('Choose field to display') ?>" src="pmd/images/display_field.png" alt=""
         /></a><a href="javascript:location.reload();" onmousedown="return false;"
             class="M_butt" target="_self"
-        ><img title="<?php echo $strReload; ?>" src="pmd/images/reload.png" alt=""
+        ><img title="<?php echo __('Reload'); ?>" src="pmd/images/reload.png" alt=""
         /></a><a href="javascript:Help();" onmousedown="return false;"
             class="M_butt" target="_self"
-        ><img title="<?php echo $strHelp; ?>" src="pmd/images/help.png" alt=""
+        ><img title="<?php echo __('Help'); ?>" src="pmd/images/help.png" alt=""
         /></a><img class="M_bord" src="pmd/images/bord.png" alt=""
         /><a href="javascript:Angular_direct();" onmousedown="return false;"
             class="M_butt" id="angular_direct_button" target="_self"
-        ><img title="<?php echo $strAngularLinks . ' / ' . $strDirectLinks; ?>"
+        ><img title="<?php echo __('Angular links') . ' / ' . __('Direct links'); ?>"
                 src="pmd/images/ang_direct.png" alt=""
         /></a><a href="javascript:Grid();" onmousedown="return false;"
             class="M_butt" id="grid_button" target="_self"
-        ><img title="<?php echo $strSnapToGrid ?>" src="pmd/images/grid.png" alt=""
+        ><img title="<?php echo __('Snap to grid') ?>" src="pmd/images/grid.png" alt=""
         /></a><img class="M_bord" src="pmd/images/bord.png" alt=""
         /><a href="javascript:Small_tab_all(document.getElementById('key_SB_all'));"
             onmousedown="return false;" class="M_butt" target="_self"
-        ><img id='key_SB_all' title="<?php echo $strSmallBigAll; ?>" alt="v"
+        ><img id='key_SB_all' title="<?php echo __('Small/Big All'); ?>" alt="v"
                 src="pmd/images/downarrow1.png"
         /></a><a href="javascript:Small_tab_invert();" onmousedown="return false;"
             class="M_butt" target="_self"
-        ><img title="<?php echo $strToggleSmallBig; ?>" alt="key" src="pmd/images/bottom.png"
+        ><img title="<?php echo __('Toggle small/big'); ?>" alt="key" src="pmd/images/bottom.png"
         /></a><img class="M_bord" src="pmd/images/bord.png" alt=""
         /><a href="javascript:PDF_save();" onmousedown="return false;"
             class="M_butt" target="_self"
         ><img src="pmd/images/pdf.png" alt="key" width="20" height="20"
-                title="<?php echo $strImportExportCoords; ?>" /></a>
+                title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a>
         <a href="javascript:Top_menu_right(document.getElementById('key_Left_Right'));"
             onmousedown="return false;" class="M_butt last" target="_self">
             <img src="pmd/images/2rightarrow_m.png" id="key_Left_Right" alt=">"
-                title="<?php echo $strMoveMenu; ?>" /></a>
+                title="<?php echo __('Move Menu'); ?>" /></a>
 </div>
 
 <div id="osn_tab">
@@ -117,11 +117,11 @@ echo $script_tabs . $script_contr . $script_display_field;
 <div align="center" style="padding-top:5px;">
     <a href="javascript:Hide_tab_all(document.getElementById('key_HS_all'));"
         onmousedown="return false;" class="M_butt" target="_self">
-    <img title="<?php echo $strHideShowAll; ?>" alt="v"
+    <img title="<?php echo __('Hide/Show all'); ?>" alt="v"
         src="pmd/images/downarrow1.png" id='key_HS_all' /></a>
     <a href="javascript:No_have_constr(document.getElementById('key_HS'));"
         onmousedown="return false;" class="M_butt" target="_self">
-    <img title="<?php echo $strHideShowNoRelation; ?>" alt="v"
+    <img title="<?php echo __('Hide/Show Tables with no relation'); ?>" alt="v"
         src="pmd/images/downarrow2.png" id='key_HS' /></a>
 </div>
 
@@ -131,7 +131,7 @@ echo $script_tabs . $script_contr . $script_display_field;
 $name_cnt = count($GLOBALS['PMD']['TABLE_NAME']);
 for ($i = 0; $i < $name_cnt; $i++) {
     ?>
-    <tr><td title="<?php echo $strStructure; ?>" width="1px"
+    <tr><td title="<?php echo __('Structure'); ?>" width="1px"
             onmouseover="this.className='L_butt2_2'"
             onmouseout="this.className='L_butt2_1'">
             <img onclick="Start_tab_upd('<?php echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]; ?>');"
@@ -161,7 +161,7 @@ for ($i = 0; $i < $name_cnt; $i++) {
 </div>
 
 <div align="center">
-    <?php echo $strNumberOfTables . ': ' . $name_cnt; ?>
+    <?php echo __('Number of tables') . ': ' . $name_cnt; ?>
 </div>
 <div align="right">
     <div id="layer_menu_sizer" onmousedown="layer_menu_cur_click=1">
@@ -303,7 +303,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
         <thead>
         <tr>
-            <td colspan="2" align="center" nowrap="nowrap"><strong><?php echo $strCreateRelation; ?></strong></td>
+            <td colspan="2" align="center" nowrap="nowrap"><strong><?php echo __('Create relation'); ?></strong></td>
         </tr>
         </thead>
         <tbody id="foreign_relation">
@@ -337,9 +337,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <tr>
             <td colspan="2" align="center" nowrap="nowrap">
                 <input type="button" class="butt" name="Button"
-                    value="<?php echo $strOK; ?>" onclick="New_relation()" />
+                    value="<?php echo __('OK'); ?>" onclick="New_relation()" />
                 <input type="button" class="butt" name="Button"
-                    value="<?php echo $strCancel; ?>"
+                    value="<?php echo __('Cancel'); ?>"
                     onclick="document.getElementById('layer_new_relation').style.visibility = 'hidden';" />
             </td>
         </tr>
@@ -369,14 +369,14 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     <td class="input_tab">
         <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
         <tr>
-            <td colspan="3" align="center" nowrap="nowrap"><strong><?php echo $strDeleteRelation; ?></strong></td>
+            <td colspan="3" align="center" nowrap="nowrap"><strong><?php echo __('Delete relation'); ?></strong></td>
         </tr>
         <tr>
             <td colspan="3" align="center" nowrap="nowrap">
                 <input name="Button" type="button" class="butt"
-                    onclick="Upd_relation()" value="<?php echo $strDelete; ?>" />
+                    onclick="Upd_relation()" value="<?php echo __('Delete'); ?>" />
                 <input type="button" class="butt" name="Button"
-                    value="<?php echo $strCancel; ?>"
+                    value="<?php echo __('Cancel'); ?>"
                     onclick="document.getElementById('layer_upd_relation').style.visibility = 'hidden'; Re_load();" />
             </td>
         </tr>

@@ -178,7 +178,7 @@ if (isset($where_clause)) {
         // No row returned
         if (! $rows[$key_id]) {
             unset($rows[$key_id], $where_clause_array[$key_id]);
-            PMA_showMessage($strEmptyResultSet, $local_query);
+            PMA_showMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
             echo "\n";
             require_once './libraries/footer.inc.php';
         } else { // end if (no row returned)
@@ -249,7 +249,7 @@ if (isset($clause_is_unique)) {
 <?php
 echo PMA_generate_common_hidden_inputs($_form_params);
 
-$titles['Browse'] = PMA_getIcon('b_browse.png', $strBrowseForeignValues);
+$titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
 
 // Set if we passed the first timestamp field
 $timestamp_seen = 0;
@@ -274,17 +274,17 @@ if (! empty($sql_query)) {
 }
 
 if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
-    echo $strShow;
+    echo __('Show');
 }
 if (! $cfg['ShowFunctionFields']) {
     $this_url_params = array_merge($url_params,
         array('ShowFunctionFields' => 1, 'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'], 'goto' => 'sql.php'));
-    echo ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . $strFunction . '</a>' . "\n";
+    echo ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . __('Function') . '</a>' . "\n";
 }
 if (! $cfg['ShowFieldTypesInDataEditView']) {
     $this_other_url_params = array_merge($url_params,
         array('ShowFieldTypesInDataEditView' => 1, 'ShowFunctionFields' => $cfg['ShowFunctionFields'], 'goto' => 'sql.php'));
-    echo ' : <a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '">' . $strType . '</a>' . "\n";
+    echo ' : <a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '">' . __('Type') . '</a>' . "\n";
 }
 
 foreach ($rows as $row_id => $vrow) {
@@ -299,35 +299,35 @@ foreach ($rows as $row_id => $vrow) {
     $vresult = (isset($result) && is_array($result) && isset($result[$row_id]) ? $result[$row_id] : $result);
     if ($insert_mode && $row_id > 0) {
         echo '<input type="checkbox" checked="checked" name="insert_ignore_' . $row_id . '" id="insert_ignore_check_' . $row_id . '" />';
-        echo '<label for="insert_ignore_check_' . $row_id . '">' . $strIgnore . '</label><br />' . "\n";
+        echo '<label for="insert_ignore_check_' . $row_id . '">' . __('Ignore') . '</label><br />' . "\n";
     }
 ?>
     <table>
     <thead>
         <tr>
-            <th><?php echo $strField; ?></th>
+            <th><?php echo __('Field'); ?></th>
 
  <?php
      if ($cfg['ShowFieldTypesInDataEditView']) {
         $this_url_params = array_merge($url_params,
             array('ShowFieldTypesInDataEditView' => 0, 'ShowFunctionFields' => $cfg['ShowFunctionFields'], 'goto' => 'sql.php'));
-        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . $strHide . '">' . $strType . '</a></th>' . "\n";
+        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . $strHide . '">' . __('Type') . '</a></th>' . "\n";
     }
 
     if ($cfg['ShowFunctionFields']) {
         $this_url_params = array_merge($url_params,
             array('ShowFunctionFields' => 0, 'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'], 'goto' => 'sql.php'));
-        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . $strHide . '">' . $strFunction . '</a></th>' . "\n";
+        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . $strHide . '">' . __('Function') . '</a></th>' . "\n";
     }
 ?>
-            <th><?php echo $strNull; ?></th>
-            <th><?php echo $strValue; ?></th>
+            <th><?php echo __('Null'); ?></th>
+            <th><?php echo __('Value'); ?></th>
         </tr>
     </thead>
     <tfoot>
         <tr>
             <th colspan="5" align="right" class="tblFooters">
-                <input type="submit" value="<?php echo $strGo; ?>" />
+                <input type="submit" value="<?php echo __('Go'); ?>" />
             </th>
         </tr>
     </tfoot>
@@ -515,7 +515,7 @@ foreach ($rows as $row_id => $vrow) {
         if ($cfg['ShowFunctionFields']) {
             if (($cfg['ProtectBinary'] && $field['is_blob'] && !$is_upload)
              || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
-                echo '        <td align="center">' . $strBinary . '</td>' . "\n";
+                echo '        <td align="center">' . __('Binary') . '</td>' . "\n";
             } elseif (strstr($field['True_Type'], 'enum') || strstr($field['True_Type'], 'set')) {
                 echo '        <td align="center">--</td>' . "\n";
             } else {
@@ -725,7 +725,7 @@ foreach ($rows as $row_id => $vrow) {
             echo "\n";
             if (strlen($special_chars) > 32000) {
                 echo "        </td>\n";
-                echo '        <td>' . $strTextAreaLength;
+                echo '        <td>' . __(' Because of its length,<br /> this field might not be editable ');
             }
         } elseif ($field['pma_type'] == 'enum') {
             if (! isset($table_fields[$i]['values'])) {
@@ -885,13 +885,13 @@ foreach ($rows as $row_id => $vrow) {
                     if ($bs_reference_exists)
                     {
                         echo '<input type="hidden" name="remove_blob_ref_' . $field['Field_md5'] . $vkey . '" value="' . $data . '" />';
-                        echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . $strBLOBRepositoryRemove . "<br />";
+                        echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . __('Remove BLOB Repository Reference') . "<br />";
                         echo PMA_BS_CreateReferenceLink($data, $db);
                         echo "<br />";
                     }
                     else
                     {
-                        echo $strBinaryDoNotEdit;
+                        echo __('Binary - do not edit');
                         if (isset($data)) {
                             $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
                             echo ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
@@ -984,7 +984,7 @@ foreach ($rows as $row_id => $vrow) {
                                                 if ($allBSTablesExist)
                                                 {
                                                     echo '<br />';
-                                                    echo '<input type="checkbox" name="upload_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . $strBLOBRepositoryUpload;
+                                                    echo '<input type="checkbox" name="upload_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . __('Upload to BLOB repository');
                                                 }   // end if ($allBSTablesExist)
                                             }   // end if (isset($bs_tables)
                                         }   // end if (!empty($bs_tables) && strlen ($db) > 0)
@@ -1024,11 +1024,11 @@ foreach ($rows as $row_id => $vrow) {
             if (!empty($cfg['UploadDir'])) {
                 $files = PMA_getFileSelectOptions(PMA_userDir($cfg['UploadDir']));
                 if ($files === FALSE) {
-                    echo '        <font color="red">' . $strError . '</font><br />' . "\n";
-                    echo '        ' . $strWebServerUploadDirectoryError . "\n";
+                    echo '        <font color="red">' . __('Error') . '</font><br />' . "\n";
+                    echo '        ' . __('The directory you set for upload work cannot be reached') . "\n";
                 } elseif (!empty($files)) {
                     echo "<br />\n";
-                    echo '    <i>' . $strOr . '</i>' . ' ' . $strWebServerUploadDirectory . ':<br />' . "\n";
+                    echo '    <i>' . __('Or') . '</i>' . ' ' . __('web server upload directory') . ':<br />' . "\n";
                     echo '        <select size="1" name="fields_uploadlocal_' . $field['Field_md5'] . $vkey . '">' . "\n";
                     echo '            <option value="" selected="selected"></option>' . "\n";
                     echo $files;
@@ -1123,13 +1123,13 @@ $(function() {
 <?php
 if (isset($where_clause)) {
     ?>
-                <option value="save"><?php echo $strSave; ?></option>
+                <option value="save"><?php echo __('Save'); ?></option>
     <?php
 }
     ?>
-                <option value="insert"><?php echo $strInsertAsNewRow; ?></option>
-                <option value="insertignore"><?php echo $strInsertIgnoreAsNewRow; ?></option>
-                <option value="showinsert"><?php echo $strShowInsert; ?></option>
+                <option value="insert"><?php echo __('Insert as new row'); ?></option>
+                <option value="insertignore"><?php echo __('Insert as new row and ignore errors'); ?></option>
+                <option value="showinsert"><?php echo __('Show insert query'); ?></option>
             </select>
     <?php
 echo "\n";
@@ -1140,16 +1140,16 @@ if (!isset($after_insert)) {
 ?>
         </td>
         <td valign="middle">
-            &nbsp;&nbsp;&nbsp;<strong><?php echo $strAndThen; ?></strong>&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;<strong><?php echo __('and then'); ?></strong>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
             <select name="after_insert">
-                <option value="back" <?php echo ($after_insert == 'back' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertBack; ?></option>
-                <option value="new_insert" <?php echo ($after_insert == 'new_insert' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertNewInsert; ?></option>
+                <option value="back" <?php echo ($after_insert == 'back' ? 'selected="selected"' : ''); ?>><?php echo __('Go back to previous page'); ?></option>
+                <option value="new_insert" <?php echo ($after_insert == 'new_insert' ? 'selected="selected"' : ''); ?>><?php echo __('Insert another new row'); ?></option>
 <?php
 if (isset($where_clause)) {
     ?>
-                <option value="same_insert" <?php echo ($after_insert == 'same_insert' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertSame; ?></option>
+                <option value="same_insert" <?php echo ($after_insert == 'same_insert' ? 'selected="selected"' : ''); ?>><?php echo __('Go back to this page'); ?></option>
     <?php
     // If we have just numeric primary key, we can also edit next
     // in 2.8.2, we were looking for `field_name` = numeric_value
@@ -1157,7 +1157,7 @@ if (isset($where_clause)) {
     // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
     if ($found_unique_key && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $where_clause)) {
         ?>
-    <option value="edit_next" <?php echo ($after_insert == 'edit_next' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertNext; ?></option>
+    <option value="edit_next" <?php echo ($after_insert == 'edit_next' ? 'selected="selected"' : ''); ?>><?php echo __('Edit next row'); ?></option>
         <?php
     }
 }
@@ -1168,11 +1168,11 @@ if (isset($where_clause)) {
 
     <tr>
         <td>
-<?php echo PMA_showHint($strUseTabKey); ?>
+<?php echo PMA_showHint(__('Use TAB key to move from value to value, or CTRL+arrows to move anywhere')); ?>
         </td>
         <td colspan="3" align="right" valign="middle">
-            <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 6); ?>" id="buttonYes" />
-            <input type="reset" value="<?php echo $strReset; ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 7); ?>" />
+            <input type="submit" value="<?php echo __('Go'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 6); ?>" id="buttonYes" />
+            <input type="reset" value="<?php echo __('Reset'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 7); ?>" />
         </td>
     </tr>
     </table>
@@ -1206,9 +1206,9 @@ if ($insert_mode) {
         $tmp .= '>' . $value . '</option>' . "\n";
     }
     $tmp .= '</select>' . "\n";
-    echo "\n" . sprintf($strRestartInsertion, $tmp);
+    echo "\n" . sprintf(__('Restart insertion with %s rows'), $tmp);
     unset($tmp);
-    echo '<noscript><input type="submit" value="' . $strGo . '" /></noscript>' . "\n";
+    echo '<noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n";
     echo '</form>' . "\n";
 }
 

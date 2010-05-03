@@ -171,7 +171,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
 <fieldset>
 <table class="data" style="width: 100%;">
 <tr class="odd noclick">
-    <th><?php echo $strField; ?>:</th>
+    <th><?php echo __('Field'); ?>:</th>
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
@@ -197,7 +197,7 @@ for ($x = 0; $x < $col; $x++) {
 
 <!-- Sort row -->
 <tr class="even noclick">
-    <th><?php echo $strSort; ?>:</th>
+    <th><?php echo __('Sort'); ?>:</th>
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
@@ -206,8 +206,8 @@ for ($x = 0; $x < $col; $x++) {
     <td align="center">
         <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
             <option value="">&nbsp;</option>
-            <option value="ASC"><?php echo $strAscending; ?></option>
-            <option value="DESC"><?php echo $strDescending; ?></option>
+            <option value="ASC"><?php echo __('Ascending'); ?></option>
+            <option value="DESC"><?php echo __('Descending'); ?></option>
         </select>
     </td>
         <?php
@@ -240,7 +240,7 @@ for ($x = 0; $x < $col; $x++) {
         $sel         = '';
     } // end if
     echo '                ';
-    echo '<option value="ASC"' . $sel . '>' . $strAscending . '</option>' . "\n";
+    echo '<option value="ASC"' . $sel . '>' . __('Ascending') . '</option>' . "\n";
     if (isset($Sort[$x]) && $Sort[$x] == 'DESC') {
         $curSort[$z] = $Sort[$x];
         $sel         = ' selected="selected"';
@@ -248,7 +248,7 @@ for ($x = 0; $x < $col; $x++) {
         $sel         = '';
     } // end if
     echo '                ';
-    echo '<option value="DESC"' . $sel . '>' . $strDescending . '</option>' . "\n";
+    echo '<option value="DESC"' . $sel . '>' . __('Descending') . '</option>' . "\n";
     ?>
         </select>
     </td>
@@ -261,7 +261,7 @@ for ($x = 0; $x < $col; $x++) {
 
 <!-- Show row -->
 <tr class="odd noclick">
-    <th><?php echo $strShow; ?>:</th>
+    <th><?php echo __('Show'); ?>:</th>
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
@@ -297,7 +297,7 @@ for ($x = 0; $x < $col; $x++) {
 
 <!-- Criteria row -->
 <tr class="even noclick">
-    <th><?php echo $strCriteria; ?>:</th>
+    <th><?php echo __('Criteria'); ?>:</th>
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
@@ -350,11 +350,11 @@ for ($y = 0; $y <= $row; $y++) {
         <table cellpadding="0" cellspacing="0" border="0">
         <tr>
             <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
-                <small><?php echo $strQBEIns; ?>:</small>
+                <small><?php echo __('Ins'); ?>:</small>
                 <input type="checkbox" name="ins_row[<?php echo $w; ?>]" />
             </td>
             <td align="<?php echo $cell_align_right; ?>">
-                <strong><?php echo $strAnd; ?>:</strong>
+                <strong><?php echo __('And'); ?>:</strong>
             </td>
             <td>
                 <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
@@ -363,11 +363,11 @@ for ($y = 0; $y <= $row; $y++) {
         </tr>
         <tr>
             <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
-                <small><?php echo $strQBEDel; ?>:</small>
+                <small><?php echo __('Del'); ?>:</small>
                 <input type="checkbox" name="del_row[<?php echo $w; ?>]" />
             </td>
             <td align="<?php echo $cell_align_right; ?>">
-                <strong><?php echo $strOr; ?>:</strong>
+                <strong><?php echo __('Or'); ?>:</strong>
             </td>
             <td>
                 <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="or"<?php echo $chk['or']; ?> />
@@ -432,11 +432,11 @@ for ($y = 0; $y <= $row; $y++) {
         <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
-                <small><?php echo $strQBEIns; ?>:</small>
+                <small><?php echo __('Ins'); ?>:</small>
                 <input type="checkbox" name="ins_row[<?php echo $w; ?>]" />
             </td>
             <td align="<?php echo $cell_align_right; ?>">
-                <strong><?php echo $strAnd; ?>:</strong>
+                <strong><?php echo __('And'); ?>:</strong>
             </td>
             <td>
                 <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
@@ -444,11 +444,11 @@ for ($y = 0; $y <= $row; $y++) {
         </tr>
         <tr>
             <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
-                <small><?php echo $strQBEDel; ?>:</small>
+                <small><?php echo __('Del'); ?>:</small>
                 <input type="checkbox" name="del_row[<?php echo $w; ?>]" />
             </td>
             <td align="<?php echo $cell_align_right; ?>">
-                <strong><?php echo $strOr; ?>:</strong>
+                <strong><?php echo __('Or'); ?>:</strong>
             </td>
             <td>
                 <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="or"<?php echo $chk['or']; ?> />
@@ -504,7 +504,7 @@ for ($y = 0; $y <= $row; $y++) {
 ?>
 <!-- Modify columns -->
 <tr class="even noclick">
-    <th><?php echo $strModify; ?>:</th>
+    <th><?php echo __('Modify'); ?>:</th>
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
@@ -519,14 +519,14 @@ for ($x = 0; $x < $col; $x++) {
         }
         ?>
     <td align="center">
-        <strong><?php echo $strOr; ?>:</strong>
+        <strong><?php echo __('Or'); ?>:</strong>
         <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
-        &nbsp;&nbsp;<strong><?php echo $strAnd; ?>:</strong>
+        &nbsp;&nbsp;<strong><?php echo __('And'); ?>:</strong>
         <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
         <br />
-        <?php echo $strQBEIns . "\n"; ?>
+        <?php echo __('Ins') . "\n"; ?>
         <input type="checkbox" name="ins_col[<?php echo $z; ?>]" />
-        &nbsp;&nbsp;<?php echo $strQBEDel . "\n"; ?>
+        &nbsp;&nbsp;<?php echo __('Del') . "\n"; ?>
         <input type="checkbox" name="del_col[<?php echo $z; ?>]" />
     </td>
         <?php
@@ -550,14 +550,14 @@ for ($x = 0; $x < $col; $x++) {
     }
     ?>
     <td align="center">
-        <strong><?php echo $strOr; ?>:</strong>
+        <strong><?php echo __('Or'); ?>:</strong>
         <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
-        &nbsp;&nbsp;<strong><?php echo $strAnd; ?>:</strong>
+        &nbsp;&nbsp;<strong><?php echo __('And'); ?>:</strong>
         <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
         <br />
-        <?php echo $strQBEIns . "\n"; ?>
+        <?php echo __('Ins') . "\n"; ?>
         <input type="checkbox" name="ins_col[<?php echo $z; ?>]" />
-        &nbsp;&nbsp;<?php echo $strQBEDel . "\n"; ?>
+        &nbsp;&nbsp;<?php echo __('Del') . "\n"; ?>
         <input type="checkbox" name="del_col[<?php echo $z; ?>]" />
     </td>
     <?php
@@ -581,7 +581,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
 <table border="0" cellpadding="2" cellspacing="1">
 <tr>
     <td nowrap="nowrap">
-        <?php echo $strAddDeleteRow; ?>:
+        <?php echo __('Add/Delete Criteria Row'); ?>:
         <select size="1" name="add_row" style="vertical-align: middle">
             <option value="-3">-3</option>
             <option value="-2">-2</option>
@@ -593,7 +593,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
         </select>
     </td>
     <td width="10">&nbsp;</td>
-    <td nowrap="nowrap"><?php echo $strAddDeleteColumn; ?>:
+    <td nowrap="nowrap"><?php echo __('Add/Delete Field Columns'); ?>:
         <select size="1" name="add_col" style="vertical-align: middle">
             <option value="-3">-3</option>
             <option value="-2">-2</option>
@@ -606,7 +606,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
     </td>
     <td width="10">&nbsp;</td>
     <!-- Generates a query -->
-    <td><input type="submit" name="modify" value="<?php echo $strUpdateQuery; ?>" /></td>
+    <td><input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" /></td>
 </tr>
 </table>
 </fieldset>
@@ -614,30 +614,30 @@ echo PMA_generate_common_hidden_inputs($url_params);
 <table>
 <tr><td>
         <fieldset>
-            <legend><?php echo $strUseTables; ?></legend>
+            <legend><?php echo __('Use Tables'); ?></legend>
 <?php
-$strTableListOptions = '';
+$options = '';
 $numTableListOptions = 0;
 foreach ($tbl_names as $key => $val) {
-    $strTableListOptions .= '                        ';
-    $strTableListOptions .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
+    $options .= '                        ';
+    $options .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
         . str_replace(' ', '&nbsp;', htmlspecialchars($key)) . '</option>' . "\n";
     $numTableListOptions++;
 }
 ?>
             <select name="TableList[]" multiple="multiple" id="listTable"
                 size="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>">
-                <?php echo $strTableListOptions; ?>
+                <?php echo $options; ?>
             </select>
         </fieldset>
         <fieldset class="tblFooters">
-            <input type="submit" name="modify" value="<?php echo $strUpdateQuery; ?>" />
+            <input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" />
         </fieldset>
     </td>
     <td width="20">&nbsp;</td>
     <td>
         <fieldset>
-            <legend><?php echo sprintf($strQueryOnDb, PMA_getDbLink($db)); ?>
+            <legend><?php echo sprintf(__('SQL query on database <b>%s</b>:'), PMA_getDbLink($db)); ?>
                 </legend>
             <textarea cols="80" name="sql_query" id="textSqlquery"
                 rows="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>"
@@ -931,7 +931,7 @@ if (!empty($qry_orderby)) {
         </textarea>
         </fieldset>
         <fieldset class="tblFooters">
-            <input type="submit" name="submit_sql" value="<?php echo $strRunQuery; ?>" />
+            <input type="submit" name="submit_sql" value="<?php echo __('Submit Query'); ?>" />
         </fieldset>
     </td>
 </tr>

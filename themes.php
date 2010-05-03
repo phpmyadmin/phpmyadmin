@@ -18,7 +18,7 @@ $path_to_themes = $cfg['ThemePath'] . '/';
 require_once './libraries/header_http.inc.php';
 
 /* HTML header */
-$page_title = 'phpMyAdmin - ' . $strTheme;
+$page_title = 'phpMyAdmin - ' . __('Theme / Style');
 require './libraries/header_meta_style.inc.php';
 ?>
 <script type="text/javascript" language="javascript">
@@ -29,7 +29,7 @@ function takeThis(what){
         window.opener.document.forms['setTheme'].submit();
         self.close();
     } else {
-        alert('<?php echo sprintf($strNoThemeSupport, $cfg['ThemePath']); ?>');
+        alert('<?php echo sprintf(__('No themes support; please check your configuration and/or your themes in directory %s.'), $cfg['ThemePath']); ?>');
         self.close();
     }
 }
@@ -38,8 +38,8 @@ function takeThis(what){
 </head>
 
 <body id="bodythemes">
-<h1>phpMyAdmin - <?php echo $strTheme; ?></h1>
-<p><a href="http://www.phpmyadmin.net/home_page/themes.php#pma_<?php echo preg_replace('/([0-9]*)\.([0-9]*)\..*/', '\1_\2', PMA_VERSION); ?>"><?php echo $strGetMoreThemes; ?></a></p>
+<h1>phpMyAdmin - <?php echo __('Theme / Style'); ?></h1>
+<p><a href="http://www.phpmyadmin.net/home_page/themes.php#pma_<?php echo preg_replace('/([0-9]*)\.([0-9]*)\..*/', '\1_\2', PMA_VERSION); ?>"><?php echo __('Get more themes!'); ?></a></p>
 <?php
 $_SESSION['PMA_Theme_Manager']->printPreviews();
 ?>

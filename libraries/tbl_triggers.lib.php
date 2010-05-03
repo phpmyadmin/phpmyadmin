@@ -16,7 +16,7 @@ $triggers = PMA_DBI_get_triggers($db, $table);
 if ($triggers) {
     echo '<div id="tabletriggers">' . "\n";
     echo '<table class="data">' . "\n";
-    echo ' <caption class="tblHeaders">' . $strTriggers . '</caption>'  . "\n";
+    echo ' <caption class="tblHeaders">' . __('Triggers') . '</caption>'  . "\n";
     echo sprintf('<tr>
                           <th>%s</th>
                           <th>&nbsp;</th>
@@ -24,9 +24,9 @@ if ($triggers) {
                           <th>%s</th>
                           <th>%s</th>
                     </tr>',
-              $strName,
-              $strTime,
-              $strEvent);
+              __('Name'),
+              __('Time'),
+              __('Event'));
     $ct=0;
     $delimiter = '//';
     foreach ($triggers as $trigger) {

@@ -27,9 +27,9 @@ $url_query .= '&amp;goto=db_structure.php';
 $routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
 if ($routines) {
-    PMA_generate_slider_effect('routines', $strRoutines);
+    PMA_generate_slider_effect('routines', __('Routines'));
     echo '<fieldset>' . "\n";
-    echo ' <legend>' . $strRoutines . '</legend>' . "\n";
+    echo ' <legend>' . __('Routines') . '</legend>' . "\n";
     echo '<table border="0">';
     echo sprintf('<tr>
                       <th>%s</th>
@@ -38,9 +38,9 @@ if ($routines) {
                       <th>%s</th>
                       <th>%s</th>
                 </tr>',
-          $strName,
-          $strType,
-          $strRoutineReturnType);
+          __('Name'),
+          __('Type'),
+          __('Return type'));
     $ct=0;
     $delimiter = '//';
     foreach ($routines as $routine) {

@@ -112,7 +112,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                 printf($item,
                         $action,
                         PMA_generate_common_url($GLOBALS['db']),
-                        $strNewTable,
+                        __('New table'),
                         '',
                         's_tbl.png');
             } elseif (strlen($GLOBALS['table'])) {

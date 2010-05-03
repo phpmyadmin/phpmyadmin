@@ -93,7 +93,7 @@ echo '<br />';
 
 // 1. No table
 if ($num_tables == 0) {
-    echo $strNoTablesFound;
+    echo __('No tables found in database.');
 }
 // 2. Shows table informations on mysql >= 3.23.03
 else {
@@ -101,15 +101,15 @@ else {
 <table>
 <thead>
 <tr>
-    <th><?php echo $strTable; ?></th>
-    <th><?php echo $strRecords; ?></th>
-    <th><?php echo $strType; ?></th>
+    <th><?php echo __('Table'); ?></th>
+    <th><?php echo __('Records'); ?></th>
+    <th><?php echo __('Type'); ?></th>
     <?php
     if ($cfg['ShowStats']) {
-        echo '<th>' . $strSize . '</th>';
+        echo '<th>' . __('Size') . '</th>';
     }
     ?>
-    <th><?php echo $strComments; ?></th>
+    <th><?php echo __('Comments'); ?></th>
 </tr>
 </thead>
 <tbody>
@@ -159,7 +159,7 @@ else {
         } else {
             ?>
     <td colspan="3" align="center">
-        <?php echo $strInUse; ?>
+        <?php echo __('in use'); ?>
     </td>
             <?php
         }
@@ -184,7 +184,7 @@ else {
             if (! empty($sts_data['Create_time'])) {
                 ?>
                 <tr>
-                    <td align="right"><?php echo $strStatCreateTime . ': '; ?></td>
+                    <td align="right"><?php echo __('Creation') . ': '; ?></td>
                     <td align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Create_time'])); ?></td>
                 </tr>
                 <?php
@@ -193,7 +193,7 @@ else {
             if (! empty($sts_data['Update_time'])) {
                 ?>
                 <tr>
-                    <td align="right"><?php echo $strStatUpdateTime . ': '; ?></td>
+                    <td align="right"><?php echo __('Last update') . ': '; ?></td>
                     <td align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Update_time'])); ?></td>
                 </tr>
                 <?php
@@ -202,7 +202,7 @@ else {
             if (! empty($sts_data['Check_time'])) {
                 ?>
                 <tr>
-                    <td align="right"><?php echo $strStatCheckTime . ': '; ?></td>
+                    <td align="right"><?php echo __('Last check') . ': '; ?></td>
                     <td align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Check_time'])); ?></td>
                 </tr>
                 <?php
@@ -219,7 +219,7 @@ else {
     ?>
 <tr>
     <th align="center">
-        <?php echo sprintf($strTables, PMA_formatNumber($num_tables, 0)); ?>
+        <?php echo sprintf(__('%s table(s)'), PMA_formatNumber($num_tables, 0)); ?>
     </th>
     <th align="right" nowrap="nowrap">
         <?php echo PMA_formatNumber($sum_entries, 0); ?>
@@ -263,7 +263,7 @@ function printPage()
 <br /><br />
 
 <input type="button" class="print_ignore"
-    id="print" value="<?php echo $strPrint; ?>" onclick="printPage()" />
+    id="print" value="<?php echo __('Print'); ?>" onclick="printPage()" />
 
 <?php
 require_once './libraries/footer.inc.php';

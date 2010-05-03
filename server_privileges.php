@@ -480,7 +480,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
             array('Show_view', 'SHOW VIEW', $GLOBALS['strPrivDescShowView']),
             array('Create_routine', 'CREATE ROUTINE', $GLOBALS['strPrivDescCreateRoutine']),
             array('Alter_routine', 'ALTER ROUTINE', $GLOBALS['strPrivDescAlterRoutine']),
-            array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute5']),
+            array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute']),
         );
         // this one is for a db-specific priv: Create_view_priv
         if (isset($row['Create_view_priv'])) {

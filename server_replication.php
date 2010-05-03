@@ -48,7 +48,7 @@ if (isset($GLOBALS['sr_take_action'])) {
         $_SESSION['replication']['m_port']     = $sr['port']     = PMA_sqlAddslashes($GLOBALS['port']);
         $_SESSION['replication']['m_correct']  = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
-        $_SESSION['replication']['sr_action_info'] = $strReplicationUnknownError;
+        $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
         // Attempt to connect to the new master server
         $link_to_master = PMA_replication_connect_to_master($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']);

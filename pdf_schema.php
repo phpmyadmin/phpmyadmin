@@ -29,9 +29,9 @@ $cfgRelation = PMA_getRelationsParam();
  * complain ;-)
  */
 if (!$cfgRelation['pdfwork']) {
-    echo '<font color="red">' . $strError . '</font><br />' . "\n";
+    echo '<font color="red">' . __('Error') . '</font><br />' . "\n";
     $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">';
-    echo sprintf($strRelationNotWorking, $url_to_goto, '</a>') . "\n";
+    echo sprintf(__('The additional features for working with linked tables have been deactivated. To find out why click %shere%s.'), $url_to_goto, '</a>') . "\n";
 }
 
 /**
@@ -225,7 +225,7 @@ class PMA_PDF extends TCPDF {
     {
         global $cfg;
         global $server, $lang, $convcharset, $db;
-        global $charset, $text_dir, $strRunning, $strDatabase;
+        global $charset, $text_dir;
 
         require_once './libraries/header.inc.php';
 
@@ -1319,15 +1319,15 @@ function PMA_RT_DOC($alltables)
                 $unsigned = stristr($row['Type'], 'UNSIGNED');
                 $zerofill = stristr($row['Type'], 'ZEROFILL');
             }
-            $strAttribute = ' ';
+            $attribute = ' ';
             if ($binary) {
-                $strAttribute = 'BINARY';
+                $attribute = 'BINARY';
             }
             if ($unsigned) {
-                $strAttribute = 'UNSIGNED';
+                $attribute = 'UNSIGNED';
             }
             if ($zerofill) {
-                $strAttribute = 'UNSIGNED ZEROFILL';
+                $attribute = 'UNSIGNED ZEROFILL';
             }
             if (!isset($row['Default'])) {
                 if ($row['Null'] != '' && $row['Null'] != 'NO') {
@@ -1341,7 +1341,7 @@ function PMA_RT_DOC($alltables)
             $pdf->SetLink($pdf->PMA_links['doc'][$table][$field_name], -1);
             $pdf_row = array($field_name,
                 $type,
-                $strAttribute,
+                $attribute,
                 ($row['Null'] == '' || $row['Null'] == 'NO') ? $GLOBALS['strNo'] : $GLOBALS['strYes'],
                 ((isset($row['Default'])) ? $row['Default'] : ''),
                 $row['Extra'],
@@ -1365,7 +1365,7 @@ function PMA_RT_DOC($alltables)
                 //echo '    ' . $field_name . '&nbsp;' . "\n";
             }
         $pdf->Cell(20, 8, $type, 1, 0, 'L');
-        $pdf->Cell(20, 8, $strAttribute, 1, 0, 'L');
+        $pdf->Cell(20, 8, $attribute, 1, 0, 'L');
         $pdf->Cell(15, 8, , 1, 0, 'L');
         $pdf->Cell(15, 8, ((isset($row['Default'])) ?  $row['Default'] : ''),1,0,'L');
         $pdf->Cell(15, 8, $row['Extra'], 1, 0, 'L');

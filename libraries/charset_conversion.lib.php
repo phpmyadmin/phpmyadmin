@@ -18,13 +18,13 @@ if (isset($cfg['AllowAnywhereRecoding'])
 
     if ($cfg['RecodingEngine'] == 'recode') {
         if (!@extension_loaded('recode')) {
-            echo $strCantLoadRecodeIconv;
+            echo __('Couldn\'t load the iconv or recode extension needed for charset conversion. Either configure PHP to enable these extensions or disable charset conversion in phpMyAdmin.');
             exit;
         }
         $PMA_recoding_engine             = 'recode';
     } elseif ($cfg['RecodingEngine'] == 'iconv') {
         if (!@extension_loaded('iconv')) {
-            echo $strCantLoadRecodeIconv;
+            echo __('Couldn\'t load the iconv or recode extension needed for charset conversion. Either configure PHP to enable these extensions or disable charset conversion in phpMyAdmin.');
             exit;
         }
         $PMA_recoding_engine             = 'iconv';
@@ -34,7 +34,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
         } elseif (@extension_loaded('recode')) {
             $PMA_recoding_engine         = 'recode';
         } else {
-            echo $strCantLoadRecodeIconv;
+            echo __('Couldn\'t load the iconv or recode extension needed for charset conversion. Either configure PHP to enable these extensions or disable charset conversion in phpMyAdmin.');
             exit;
         }
     }
@@ -72,7 +72,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
             if (!isset($GLOBALS['is_header_sent'])) {
                 include './libraries/header.inc.php';
             }
-            echo $strCantUseRecodeIconv;
+            echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
             require_once './libraries/footer.inc.php';
             exit();
         }
@@ -83,7 +83,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
             $PMA_recoding_engine = PMA_CHARSET_NONE;
 
             require_once './libraries/header.inc.php';
-            echo $strCantUseRecodeIconv;
+            echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
             require_once './libraries/footer.inc.php';
             exit;
         }
@@ -102,7 +102,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
             $PMA_recoding_engine = PMA_CHARSET_NONE;
 
             require_once './libraries/header.inc.php';
-            echo $strCantUseRecodeIconv;
+            echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
             require_once './libraries/footer.inc.php';
             exit;
         }

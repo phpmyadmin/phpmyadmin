@@ -96,24 +96,24 @@ $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 $header_cells = array();
 $content_cells = array();
 
-$header_cells[] = $strField;
-$header_cells[] = $strType
+$header_cells[] = __('Field');
+$header_cells[] = __('Type')
      . ($GLOBALS['cfg']['ReplaceHelpImg']
         ? PMA_showMySQLDocu('SQL-Syntax', 'data-types')
         : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('SQL-Syntax', 'data-types')
      . '</span>');
-$header_cells[] = $strLengthSet . PMA_showHint($strSetEnumVal);
-$header_cells[] = $strDefault . PMA_showHint($strDefaultValueHelp);
-$header_cells[] = $strCollation;
-$header_cells[] = $strAttr;
-$header_cells[] = $strNull;
+$header_cells[] = __('Length/Values') . PMA_showHint($strSetEnumVal);
+$header_cells[] = __('Default') . PMA_showHint(__('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'));
+$header_cells[] = __('Collation');
+$header_cells[] = __('Attributes');
+$header_cells[] = __('Null');
 
 // We could remove this 'if' and let the key information be shown and
 // editable. However, for this to work, tbl_alter must be modified to use the
 // key fields, as tbl_addfield does.
 
 if (!$is_backup) {
-    $header_cells[] = $strIndex;
+    $header_cells[] = __('Index');
 }
 
 $header_cells[] = '<abbr title="AUTO_INCREMENT">' . ($display_type == 'horizontal' ? 'A_I' : 'AUTO_INCREMENT') . '</abbr>';
@@ -127,23 +127,23 @@ $mime_map = array();
 $available_mime = array();
 
 $comments_map = PMA_getComments($db, $table);
-$header_cells[] = $strComments;
+$header_cells[] = __('Comments');
 
 if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
     $mime_map = PMA_getMIME($db, $table);
     $available_mime = PMA_getAvailableMIMEtypes();
 
     $hint = '<br />' .
-        sprintf($strMIME_transformation_note,
+        sprintf(__('For a list of available transformation options and their MIME type transformations, click on %stransformation descriptions%s'),
             '<a href="transformation_overview.php?'
             . PMA_generate_common_url($db, $table) . '" target="_blank">',
             '</a>');
 
 
-    $header_cells[] = $strMIME_MIMEtype;
-    $header_cells[] = $strMIME_transformation;
-    $header_cells[] = $strMIME_transformation_options
-        . PMA_showHint($strMIME_transformation_options_note . $hint);
+    $header_cells[] = __('MIME type');
+    $header_cells[] = __('Browser transformation');
+    $header_cells[] = __('Transformation options')
+        . PMA_showHint(__('Transformation options')_note . $hint);
 }
 
 //  workaround for field_fulltext, because its submitted indizes contain
@@ -272,7 +272,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     // column name
     $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
         . ' type="text" name="field_name[' . $i . ']"'
-        . ' maxlength="64" class="textfield" title="' . $strField . '"'
+        . ' maxlength="64" class="textfield" title="' . __('Field') . '"'
         . ' size="' . ($GLOBALS['cfg']['DefaultPropDisplay'] == 'horizontal' ? '10' : '30') . '"'
         . ' value="' . (isset($row['Field']) ? htmlspecialchars($row['Field']) : '') . '"'
         . ' />';
@@ -390,8 +390,8 @@ for ($i = 0; $i < $num_fields; $i++) {
     // users would have problems if they forget to enter the default
     // value (example, for an INT)
     $default_options = array(
-        'NONE'              =>  $strNoneDefault,
-        'USER_DEFINED'      =>  $strAsDefined,
+        'NONE'              =>  _pgettext('for default', 'None'),
+        'USER_DEFINED'      =>  __('As defined:'),
         'NULL'              => 'NULL',
         'CURRENT_TIMESTAMP' => 'CURRENT_TIMESTAMP',
     );
@@ -510,25 +510,25 @@ for ($i = 0; $i < $num_fields; $i++) {
             . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
         $content_cells[$i][$ci] .= '<option value="none_' . $i . '">---</option>';
 
-        $content_cells[$i][$ci] .= '<option value="primary_' . $i . '" title="' . $strPrimary . '"';
+        $content_cells[$i][$ci] .= '<option value="primary_' . $i . '" title="' . __('Primary') . '"';
         if (isset($row['Key']) && $row['Key'] == 'PRI') {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
         $content_cells[$i][$ci] .= '>PRIMARY</option>';
 
-        $content_cells[$i][$ci] .= '<option value="unique_' . $i . '" title="' . $strUnique . '"';
+        $content_cells[$i][$ci] .= '<option value="unique_' . $i . '" title="' . __('Unique') . '"';
         if (isset($row['Key']) && $row['Key'] == 'UNI') {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
         $content_cells[$i][$ci] .= '>UNIQUE</option>';
 
-        $content_cells[$i][$ci] .= '<option value="index_' . $i . '" title="' . $strIndex . '"';
+        $content_cells[$i][$ci] .= '<option value="index_' . $i . '" title="' . __('Index') . '"';
         if (isset($row['Key']) && $row['Key'] == 'MUL') {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
         $content_cells[$i][$ci] .= '>INDEX</option>';
 
-        $content_cells[$i][$ci] .= '<option value="fulltext_' . $i . '" title="' . $strIdxFulltext . '"';
+        $content_cells[$i][$ci] .= '<option value="fulltext_' . $i . '" title="' . __('Fulltext') . '"';
         if (isset($row['Key']) && $row['Key'] == 'FULLTEXT') {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
@@ -572,12 +572,12 @@ for ($i = 0; $i < $num_fields; $i++) {
         $ci++;
 
         $content_cells[$i][$ci] = '<select id="field_' . $i . '_' . ($ci - $ci_offset) . '" size="1" name="field_transformation[' . $i . ']">';
-        $content_cells[$i][$ci] .= '    <option value="" title="' . $strNone . '"></option>';
+        $content_cells[$i][$ci] .= '    <option value="" title="' . __('None') . '"></option>';
         if (is_array($available_mime['transformation'])) {
             foreach ($available_mime['transformation'] AS $mimekey => $transform) {
                 $checked = (isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && (preg_match('@' . preg_quote($available_mime['transformation_file'][$mimekey]) . '3?@i', $mime_map[$row['Field']]['transformation'])) ? 'selected ' : '');
                 $tooltip = 'strTransformation_' . strtolower(str_replace('.inc.php', '', $available_mime['transformation_file'][$mimekey]));
-                $tooltip = isset($$tooltip) ? $$tooltip : sprintf(str_replace('<br />', ' ', $strMIME_nodescription), 'PMA_transformation_' . $tooltip . '()');
+                $tooltip = isset($$tooltip) ? $$tooltip : sprintf(str_replace('<br />', ' ', __('No description is available for this transformation.<br />Please ask the author what %s does.')), 'PMA_transformation_' . $tooltip . '()');
                 $content_cells[$i][$ci] .= '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . ' title="' . htmlspecialchars($tooltip) . '">' . htmlspecialchars($transform) . '</option>';
             }
         }
@@ -615,7 +615,7 @@ if ($action == 'tbl_create.php') {
     ?>
     <table>
     <tr valign="top">
-        <th><?php echo $strTableName; ?>:&nbsp;</th>
+        <th><?php echo __('Table name'); ?>:&nbsp;</th>
     </tr>
     <tr><td><input type="text" name="table" size="40" maxlength="80"
                 value="<?php echo (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : ''); ?>"
@@ -721,13 +721,13 @@ if ($action == 'tbl_create.php') {
     ?>
     <table>
     <tr valign="top">
-        <th><?php echo $strTableComments; ?>:&nbsp;</th>
+        <th><?php echo __('Table comments'); ?>:&nbsp;</th>
         <td width="25">&nbsp;</td>
-        <th><?php echo $strStorageEngine; ?>:
+        <th><?php echo __('Storage Engine'); ?>:
             <?php echo PMA_showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
         </th>
         <td width="25">&nbsp;</td>
-        <th><?php echo $strCollation ;?>:&nbsp;</th>
+        <th><?php echo __('Collation') ;?>:&nbsp;</th>
     </tr>
     <tr><td><input type="text" name="comment" size="40" maxlength="80"
                 value="<?php echo (isset($_REQUEST['comment']) ? htmlspecialchars($_REQUEST['comment']) : ''); ?>"
@@ -752,7 +752,7 @@ if ($action == 'tbl_create.php') {
     if (PMA_Partition::havePartitioning()) {
         ?>
     <tr valign="top">
-        <th><?php echo $strPartitionDefinition; ?>:&nbsp;<?php echo PMA_showMySQLDocu('Partitioning', 'Partitioning'); ?>
+        <th><?php echo __('PARTITION definition'); ?>:&nbsp;<?php echo PMA_showMySQLDocu('Partitioning', 'Partitioning'); ?>
         </th>
     </tr>
     <tr>
@@ -773,11 +773,11 @@ if ($action == 'tbl_create.php') {
 ?>
 
 <fieldset class="tblFooters">
-    <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>"
+    <input type="submit" name="do_save_data" value="<?php echo __('Save'); ?>"
         onclick="return checkTableEditForm(this.form, <?php echo $num_fields; ?>)" />
 <?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>
     <?php echo $GLOBALS['strOr']; ?>
-    <?php echo sprintf($strAddFields, '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />'); ?>
+    <?php echo sprintf(__('Add %s field(s)'), '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />'); ?>
     <input type="submit" name="submit_num_fields"
         value="<?php echo $GLOBALS['strGo']; ?>"
 <?php /*        onclick="if (addField()) return false;" */ ?>

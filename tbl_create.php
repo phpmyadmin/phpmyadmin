@@ -4,10 +4,10 @@
  * @uses    $cfg['DefaultTabDatabase']
  * @uses    $GLOBALS['table']
  * @uses    $GLOBALS['db']
- * @uses    $strTableEmpty
- * @uses    $strTableAlreadyExists
- * @uses    $strTable
- * @uses    $strTableHasBeenCreated
+ * @uses    __('The table name is empty!')
+ * @uses    __('Table %s already exists!')
+ * @uses    __('Table')
+ * @uses    __('Table %1 has been created.')
  * @uses    PMA_Table::generateFieldSpec()
  * @uses    PMA_checkParameters()
  * @uses    PMA_generateCharsetQueryPart()
@@ -51,7 +51,7 @@ PMA_checkParameters(array('db'));
 
 /* Check if database name is empty */
 if (strlen($db) == 0) {
-    PMA_mysqlDie($strDatabaseEmpty, '', '', 'main.php');
+    PMA_mysqlDie(__('The database name is empty!'), '', '', 'main.php');
 }
 
 /**
@@ -59,7 +59,7 @@ if (strlen($db) == 0) {
  */
 if (PMA_DBI_get_columns($db, $table)) {
     // table exists already
-    PMA_mysqlDie(sprintf($strTableAlreadyExists, htmlspecialchars($table)), '',
+    PMA_mysqlDie(sprintf(__('Table %s already exists!'), htmlspecialchars($table)), '',
         '', 'db_structure.php?' . PMA_generate_common_url($db));
 }
 

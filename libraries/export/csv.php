@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 
 if (isset($plugin_list)) {
     $plugin_list['csv'] = array(
-        'text' => 'strStrucCSV',
+        'text' => 'strCSV',
         'extension' => 'csv',
         'mime_type' => 'text/comma-separated-values',
         'options' => array(

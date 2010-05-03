@@ -22,22 +22,22 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
  * submit_mult_*_x comes from IE if <input type="img" ...> is used
  */
 if (isset($_REQUEST['submit_mult_change_x'])) {
-    $submit_mult = $strChange;
+    $submit_mult = __('Change');
 } elseif (isset($_REQUEST['submit_mult_drop_x'])) {
-    $submit_mult = $strDrop;
+    $submit_mult = __('Drop');
 } elseif (isset($_REQUEST['submit_mult_primary_x'])) {
-    $submit_mult = $strPrimary;
+    $submit_mult = __('Primary');
 } elseif (isset($_REQUEST['submit_mult_index_x'])) {
-    $submit_mult = $strIndex;
+    $submit_mult = __('Index');
 } elseif (isset($_REQUEST['submit_mult_unique_x'])) {
-    $submit_mult = $strUnique;
+    $submit_mult = __('Unique');
 } elseif (isset($_REQUEST['submit_mult_fulltext_x'])) {
-    $submit_mult = $strIdxFulltext;
+    $submit_mult = __('Fulltext');
 } elseif (isset($_REQUEST['submit_mult_browse_x'])) {
-    $submit_mult = $strBrowse;
+    $submit_mult = __('Browse');
 } elseif (isset($_REQUEST['submit_mult'])) {
     $submit_mult = $_REQUEST['submit_mult'];
-} elseif (isset($_REQUEST['mult_btn']) && $_REQUEST['mult_btn'] == $strYes) {
+} elseif (isset($_REQUEST['mult_btn']) && $_REQUEST['mult_btn'] == __('Yes')) {
     $submit_mult = 'row_delete';
     if (isset($_REQUEST['selected'])) {
         $_REQUEST['selected_fld'] = $_REQUEST['selected'];
@@ -46,7 +46,7 @@ if (isset($_REQUEST['submit_mult_change_x'])) {
 
 if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
     $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
-    if ($submit_mult == $strBrowse) {
+    if ($submit_mult == __('Browse')) {
         // browsing the table displaying only selected fields/columns
         $GLOBALS['active_page'] = 'sql.php';
         $sql_query = '';
@@ -147,18 +147,18 @@ $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
  */
 // action titles (image or string)
 $titles = array();
-$titles['Change']               = PMA_getIcon('b_edit.png', $strChange, true);
-$titles['Drop']                 = PMA_getIcon('b_drop.png', $strDrop, true);
-$titles['NoDrop']               = PMA_getIcon('b_drop.png', $strDrop, true);
-$titles['Primary']              = PMA_getIcon('b_primary.png', $strPrimary, true);
-$titles['Index']                = PMA_getIcon('b_index.png', $strIndex, true);
-$titles['Unique']               = PMA_getIcon('b_unique.png', $strUnique, true);
-$titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', $strIdxFulltext, true);
-$titles['NoPrimary']            = PMA_getIcon('bd_primary.png', $strPrimary, true);
-$titles['NoIndex']              = PMA_getIcon('bd_index.png', $strIndex, true);
-$titles['NoUnique']             = PMA_getIcon('bd_unique.png', $strUnique, true);
-$titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', $strIdxFulltext, true);
-$titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', $strBrowseDistinctValues, true);
+$titles['Change']               = PMA_getIcon('b_edit.png', __('Change'), true);
+$titles['Drop']                 = PMA_getIcon('b_drop.png', __('Drop'), true);
+$titles['NoDrop']               = PMA_getIcon('b_drop.png', __('Drop'), true);
+$titles['Primary']              = PMA_getIcon('b_primary.png', __('Primary'), true);
+$titles['Index']                = PMA_getIcon('b_index.png', __('Index'), true);
+$titles['Unique']               = PMA_getIcon('b_unique.png', __('Unique'), true);
+$titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Fulltext'), true);
+$titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Primary'), true);
+$titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'), true);
+$titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'), true);
+$titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'), true);
+$titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), true);
 
 /**
  * Displays the table structure ('show table' works correct since 3.23.03)
@@ -174,17 +174,17 @@ $i = 0;
 <tr>
     <th id="th<?php echo ++$i; ?>"></th>
     <th id="th<?php echo ++$i; ?>">#</th>
-    <th id="th<?php echo ++$i; ?>"><?php echo $strField; ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo $strType; ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo $strCollation; ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo $strAttr; ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo $strNull; ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo $strDefault; ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo $strExtra; ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo __('Field'); ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo __('Type'); ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo __('Collation'); ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo __('Attributes'); ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo __('Null'); ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo __('Default'); ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo __('Extra'); ?></th>
 <?php if ($db_is_information_schema || $tbl_is_view) { ?>
-    <th id="th<?php echo ++$i; ?>"><?php echo $strView; ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo __('View'); ?></th>
 <?php } else { ?>
-    <th colspan="7" id="th<?php echo ++$i; ?>"><?php echo $strAction; ?></th>
+    <th colspan="7" id="th<?php echo ++$i; ?>"><?php echo __('Action'); ?></th>
 <?php } ?>
 </tr>
 </thead>
@@ -348,7 +348,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td<?php echo $type_nowrap; ?>><bdo dir="ltr" xml:lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
     <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
     <td nowrap="nowrap" style="font-size: 70%"><?php echo $attribute; ?></td>
-    <td><?php echo (($row['Null'] == 'YES') ? $strYes : $strNo); ?></td>
+    <td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
     <td nowrap="nowrap"><?php
     if (isset($row['Default'])) {
         if ($extracted_fieldspec['type'] == 'bit') {
@@ -363,7 +363,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     } ?></td>
     <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
     <td align="center">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote($strRows) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
             <?php echo $titles['BrowseDistinctValues']; ?></a>
     </td>
     <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
@@ -372,7 +372,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             <?php echo $titles['Change']; ?></a>
     </td>
     <td align="center">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;cpurge=1&amp;purgekey=<?php echo urlencode($row['Field']); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strFieldHasBeenDropped, htmlspecialchars($row['Field']))); ?>"
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;cpurge=1&amp;purgekey=<?php echo urlencode($row['Field']); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('Field %s has been dropped'), htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP <?php echo PMA_jsFormat($row['Field']); ?>')">
             <?php echo $titles['Drop']; ?></a>
     </td>
@@ -383,7 +383,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table) . ($primary ? ' DROP PRIMARY KEY,' : ''); ?> ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
             <?php echo $titles['Primary']; ?></a>
             <?php
@@ -398,7 +398,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex, htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Unique']; ?></a>
             <?php
         }
@@ -412,7 +412,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex, htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Index']; ?></a>
             <?php
         }
@@ -426,7 +426,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             echo "\n";
             ?>
     <td align="center" nowrap="nowrap">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex, htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
     </td>
             <?php
@@ -453,30 +453,30 @@ $checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 ?>
 
 <img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>"
-    width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+    width="38" height="22" alt="<?php echo __('With selected:'); ?>" />
 <a href="<?php echo $checkall_url; ?>&amp;checkall=1"
     onclick="if (markAllRows('fieldsForm')) return false;">
-    <?php echo $strCheckAll; ?></a>
+    <?php echo __('Check All'); ?></a>
 /
 <a href="<?php echo $checkall_url; ?>"
     onclick="if (unMarkAllRows('fieldsForm')) return false;">
-    <?php echo $strUncheckAll; ?></a>
+    <?php echo __('Uncheck All'); ?></a>
 
-<i><?php echo $strWithChecked; ?></i>
+<i><?php echo __('With selected:'); ?></i>
 
 <?php
-PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', $strBrowse, 'b_browse.png');
+PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', __('Browse'), 'b_browse.png');
 
 if (! $tbl_is_view && ! $db_is_information_schema) {
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $strChange, 'b_edit.png');
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', $strDrop, 'b_drop.png');
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', __('Change'), 'b_edit.png');
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', __('Drop'), 'b_drop.png');
     if ('ARCHIVE' != $tbl_type) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', $strPrimary, 'b_primary.png');
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', $strUnique, 'b_unique.png');
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', $strIndex, 'b_index.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', __('Primary'), 'b_primary.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', __('Unique'), 'b_unique.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', __('Index'), 'b_index.png');
     }
     if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'MARIA')) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', $strIdxFulltext, 'b_ftext.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', __('Fulltext'), 'b_ftext.png');
     }
 }
 ?>
@@ -490,9 +490,9 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 ?>
 <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
 if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" width="16" height="16" alt="' . $strPrintView . '"/>';
+    echo '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" width="16" height="16" alt="' . __('Print view') . '"/>';
 }
-echo $strPrintView;
+echo __('Print view');
 ?></a>
 
 <?php
@@ -504,18 +504,18 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
         if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon" src="' . $pmaThemeImage . 'b_relations.png" width="16" height="16" alt="' . $strRelationView . '"/>';
+            echo '<img class="icon" src="' . $pmaThemeImage . 'b_relations.png" width="16" height="16" alt="' . __('Relation view') . '"/>';
         }
-        echo $strRelationView;
+        echo __('Relation view');
         ?></a>
         <?php
     }
     ?>
 <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_tblanalyse.png" width="16" height="16" alt="' . $strStructPropose . '" />';
+        echo '<img class="icon" src="' . $pmaThemeImage . 'b_tblanalyse.png" width="16" height="16" alt="' . __('Propose table structure') . '" />';
     }
-    echo $strStructPropose;
+    echo __('Propose table structure');
     ?></a><?php
     echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
 
@@ -526,9 +526,9 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 
         if ($cfg['PropertiesIconic'])
         {
-            echo '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . $strTrackingTrackTable . '" /> ';
+            echo '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . __('Track table') . '" /> ';
         }
-        echo $strTrackingTrackTable . '</a>';
+        echo __('Track table') . '</a>';
     }
     ?>
 
@@ -538,9 +538,9 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . $strAddNewField . '"/>';
+        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . __('Add new field') . '"/>';
     }
-    echo sprintf($strAddFields, '<input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />');
+    echo sprintf(__('Add %s field(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />');
 
     // I tried displaying the drop-down inside the label but with Firefox
     // the drop-down was blinking
@@ -552,15 +552,15 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     $fieldOptions .= '</select>';
 
     $choices = array(
-        'last'  => $strAtEndOfTable,
-        'first' => $strAtBeginningOfTable,
-        'after' => sprintf($strAfter, '')
+        'last'  => __('At End of Table'),
+        'first' => __('At Beginning of Table'),
+        'after' => sprintf(__('After %s'), '')
     );
     PMA_display_html_radio('field_where', $choices, 'last', false);
     echo $fieldOptions;
     unset($fieldOptions, $choices);
     ?>
-<input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
+<input type="submit" value="<?php echo __('Go'); ?>" style="vertical-align: middle" />
 </form>
 <hr />
     <?php
@@ -592,10 +592,10 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
 <fieldset>
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
-    echo sprintf($strCreateIndex,
+    echo sprintf(__('Create an index on &nbsp;%s&nbsp;columns'),
         '<input type="text" size="2" name="added_fields" value="1" />');
     ?>
-    <input type="submit" name="create_index" value="<?php echo $strGo; ?>"
+    <input type="submit" name="create_index" value="<?php echo __('Go'); ?>"
         onclick="return checkFormElementInRange(this.form,
             'idx_num_fields',
             '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidColumnCount']); ?>',
@@ -606,7 +606,7 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
     <?php
 }
 
-PMA_generate_slider_effect('tablestatistics', $strDetails);
+PMA_generate_slider_effect('tablestatistics', __('Details...'));
 
 /**
  * Displays Space usage and row statistics
@@ -654,16 +654,16 @@ if ($cfg['ShowStats']) {
     <a name="showusage"></a>
     <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
     <table id="tablespaceusage" class="data">
-    <caption class="tblHeaders"><?php echo $strSpaceUsage; ?></caption>
+    <caption class="tblHeaders"><?php echo __('Space usage'); ?></caption>
     <thead>
     <tr>
-        <th><?php echo $strType; ?></th>
-        <th colspan="2"><?php echo $strUsage; ?></th>
+        <th><?php echo __('Type'); ?></th>
+        <th colspan="2"><?php echo __('Usage'); ?></th>
     </tr>
     </thead>
     <tbody>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strData; ?></th>
+        <th class="name"><?php echo __('Data'); ?></th>
         <td class="value"><?php echo $data_size; ?></td>
         <td class="unit"><?php echo $data_unit; ?></td>
     </tr>
@@ -671,7 +671,7 @@ if ($cfg['ShowStats']) {
         if (isset($index_size)) {
             ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strIndex; ?></th>
+        <th class="name"><?php echo __('Index'); ?></th>
         <td class="value"><?php echo $index_size; ?></td>
         <td class="unit"><?php echo $index_unit; ?></td>
     </tr>
@@ -680,12 +680,12 @@ if ($cfg['ShowStats']) {
         if (isset($free_size)) {
             ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?> warning">
-        <th class="name"><?php echo $strOverhead; ?></th>
+        <th class="name"><?php echo __('Overhead'); ?></th>
         <td class="value"><?php echo $free_size; ?></td>
         <td class="unit"><?php echo $free_unit; ?></td>
     </tr>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strEffective; ?></th>
+        <th class="name"><?php echo __('Effective'); ?></th>
         <td class="value"><?php echo $effect_size; ?></td>
         <td class="unit"><?php echo $effect_unit; ?></td>
     </tr>
@@ -694,7 +694,7 @@ if ($cfg['ShowStats']) {
         if (isset($tot_size) && $mergetable == false) {
             ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strTotalUC; ?></th>
+        <th class="name"><?php echo __('Total'); ?></th>
         <td class="value"><?php echo $tot_size; ?></td>
         <td class="unit"><?php echo $tot_unit; ?></td>
     </tr>
@@ -707,9 +707,9 @@ if ($cfg['ShowStats']) {
         <td colspan="3" align="center">
             <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
             if ($cfg['PropertiesIconic']) {
-               echo '<img class="icon" src="' . $pmaThemeImage . 'b_tbloptimize.png" width="16" height="16" alt="' . $strOptimizeTable. '" />';
+               echo '<img class="icon" src="' . $pmaThemeImage . 'b_tbloptimize.png" width="16" height="16" alt="' . __('Optimize table'). '" />';
             }
-            echo $strOptimizeTable;
+            echo __('Optimize table');
             ?></a>
         </td>
     </tr>
@@ -723,11 +723,11 @@ if ($cfg['ShowStats']) {
     $odd_row = false;
     ?>
     <table id="tablerowstats" class="data">
-    <caption class="tblHeaders"><?php echo $strRowsStatistic; ?></caption>
+    <caption class="tblHeaders"><?php echo __('Row Statistics'); ?></caption>
     <thead>
     <tr>
-        <th><?php echo $strStatement; ?></th>
-        <th><?php echo $strValue; ?></th>
+        <th><?php echo __('Statements'); ?></th>
+        <th><?php echo __('Value'); ?></th>
     </tr>
     </thead>
     <tbody>
@@ -735,12 +735,12 @@ if ($cfg['ShowStats']) {
     if (isset($showtable['Row_format'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strFormat; ?></th>
+        <th class="name"><?php echo __('Format'); ?></th>
         <td class="value"><?php
         if ($showtable['Row_format'] == 'Fixed') {
-            echo $strStatic;
+            echo __('static');
         } elseif ($showtable['Row_format'] == 'Dynamic') {
-            echo $strDynamic;
+            echo __('dynamic');
         } else {
             echo $showtable['Row_format'];
         }
@@ -751,10 +751,10 @@ if ($cfg['ShowStats']) {
     if (! empty($showtable['Create_options'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strOptions; ?></th>
+        <th class="name"><?php echo __('Options'); ?></th>
         <td class="value"><?php
         if ($showtable['Create_options'] == 'partitioned') {
-            echo $strPartitioned;
+            echo __('partitioned');
         } else {
             echo $showtable['Create_options'];
         }
@@ -765,7 +765,7 @@ if ($cfg['ShowStats']) {
     if (!empty($tbl_collation)) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strCollation; ?></th>
+        <th class="name"><?php echo __('Collation'); ?></th>
         <td class="value"><?php
             echo '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">' . $tbl_collation . '</dfn>';
             ?></td>
@@ -775,7 +775,7 @@ if ($cfg['ShowStats']) {
     if (!$is_innodb && isset($showtable['Rows'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strRows; ?></th>
+        <th class="name"><?php echo __('Rows'); ?></th>
         <td class="value"><?php echo PMA_formatNumber($showtable['Rows'], 0); ?></td>
     </tr>
         <?php
@@ -783,7 +783,7 @@ if ($cfg['ShowStats']) {
     if (!$is_innodb && isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strRowLength; ?> &oslash;</th>
+        <th class="name"><?php echo __('Row length'); ?> &oslash;</th>
         <td class="value"><?php echo PMA_formatNumber($showtable['Avg_row_length'], 0); ?></td>
     </tr>
         <?php
@@ -791,7 +791,7 @@ if ($cfg['ShowStats']) {
     if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == false) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strRowSize; ?> &oslash;</th>
+        <th class="name"><?php echo __(' Row size '); ?> &oslash;</th>
         <td class="value"><?php echo $avg_size . ' ' . $avg_unit; ?></td>
     </tr>
         <?php
@@ -799,7 +799,7 @@ if ($cfg['ShowStats']) {
     if (isset($showtable['Auto_increment'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strNext; ?> Autoindex</th>
+        <th class="name"><?php echo __('Next'); ?> Autoindex</th>
         <td class="value"><?php echo PMA_formatNumber($showtable['Auto_increment'], 0); ?></td>
     </tr>
         <?php
@@ -807,7 +807,7 @@ if ($cfg['ShowStats']) {
     if (isset($showtable['Create_time'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strStatCreateTime; ?></th>
+        <th class="name"><?php echo __('Creation'); ?></th>
         <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Create_time'])); ?></td>
     </tr>
         <?php
@@ -815,7 +815,7 @@ if ($cfg['ShowStats']) {
     if (isset($showtable['Update_time'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strStatUpdateTime; ?></th>
+        <th class="name"><?php echo __('Last update'); ?></th>
         <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Update_time'])); ?></td>
     </tr>
         <?php
@@ -823,7 +823,7 @@ if ($cfg['ShowStats']) {
     if (isset($showtable['Check_time'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo $strStatCheckTime; ?></th>
+        <th class="name"><?php echo __('Last check'); ?></th>
         <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Check_time'])); ?></td>
     </tr>
         <?php

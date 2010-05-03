@@ -111,7 +111,7 @@ if (isset($_REQUEST['report_export'])) {
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfile') {
     @ini_set('url_rewriter.tags','');
 
-    $dump = "# " . sprintf($strTrackingReportForTable, htmlspecialchars($_REQUEST['table'])) . "\n" .
+    $dump = "# " . sprintf(__('Tracking report')ForTable, htmlspecialchars($_REQUEST['table'])) . "\n" .
             "# " . date('Y-m-d H:i:s') . "\n";
     foreach($entries as $entry) {
         $dump .= $entry['statement'];
@@ -184,7 +184,7 @@ if (isset($_REQUEST['submit_create_version'])) {
     $tracking_set = rtrim($tracking_set, ',');
 
     if (PMA_Tracker::createVersion($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'], $tracking_set )) {
-        $msg = PMA_Message::success(sprintf($strTrackingVersionCreated, $_REQUEST['version'], $GLOBALS['db'], $GLOBALS['table']));
+        $msg = PMA_Message::success(sprintf(__('Version %s is created, tracking for %s.%s is activated.'), $_REQUEST['version'], $GLOBALS['db'], $GLOBALS['table']));
         $msg->display();
     }
 }
@@ -192,7 +192,7 @@ if (isset($_REQUEST['submit_create_version'])) {
 // Deactivate tracking
 if (isset($_REQUEST['submit_deactivate_now'])) {
     if (PMA_Tracker::deactivateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'])) {
-        $msg = PMA_Message::success(sprintf($strTrackingVersionDeactivated, $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']));
+        $msg = PMA_Message::success(sprintf(__('Tracking for %s.%s , version %s is deactivated.'), $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']));
         $msg->display();
     }
 }
@@ -200,7 +200,7 @@ if (isset($_REQUEST['submit_deactivate_now'])) {
 // Activate tracking
 if (isset($_REQUEST['submit_activate_now'])) {
     if (PMA_Tracker::activateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'])) {
-        $msg = PMA_Message::success(sprintf($strTrackingVersionActivated, $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']));
+        $msg = PMA_Message::success(sprintf(__('Tracking for %s.%s , version %s is activated.'), $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']));
         $msg->display();
     }
 }
@@ -210,15 +210,15 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution'
     foreach($entries as $entry) {
         $sql_result = PMA_DBI_query( "/*NOTRACK*/\n" . $entry['statement'] );
     }
-    $msg = PMA_Message::success($strTrackingSQLExecuted);
+    $msg = PMA_Message::success(__('SQL statements executed.'));
     $msg->display();
 }
 
 // Export as SQL dump
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump')
 {
-    $new_query =    "# " . $strTrackingYouCanExecute . "\n" .
-                    "# " . $strTrackingCommentOut . "\n" .
+    $new_query =    "# " . __('You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so.') . "\n" .
+                    "# " . __('Comment out these two lines if you do not need them.') . "\n" .
                     "\n" .
                     "CREATE database IF NOT EXISTS pma_temp_db; \n" .
                     "USE pma_temp_db; \n" .
@@ -227,7 +227,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump')
     foreach($entries as $entry) {
         $new_query .= $entry['statement'];
     }
-    $msg = PMA_Message::success($strTrackingSQLExported);
+    $msg = PMA_Message::success(__('SQL statements exported. Please copy the dump or execute it.'));
     $msg->display();
 
     $db_temp = $db;
@@ -248,7 +248,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump')
  */
 if (isset($_REQUEST['snapshot'])) {
 ?>
-    <h3><?php echo $strTrackingStructureSnapshot;?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo $strTrackingReportClose;?></a>]</h3>
+    <h3><?php echo __('Structure snapshot');?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo __('Tracking report')Close;?></a>]</h3>
 <?php
     $data = PMA_Tracker::getTrackedData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']);
 
@@ -259,24 +259,24 @@ if (isset($_REQUEST['snapshot'])) {
         $drop_create_statements .= $data['ddlog'][1]['statement'];
     }
     // Print SQL code
-    PMA_showMessage(sprintf($strTrackingVersionSnapshotSQL, $_REQUEST['version']), $drop_create_statements);
+    PMA_showMessage(sprintf(__('Version %s snapshot (SQL code)'), $_REQUEST['version']), $drop_create_statements);
 
     // Unserialize snapshot
     $temp = unserialize($data['schema_snapshot']);
     $columns = $temp['COLUMNS'];
     $indexes = $temp['INDEXES'];
 ?>
-    <h3><?php echo $strStructure;?></h3>
+    <h3><?php echo __('Structure');?></h3>
     <table id="tablestructure" class="data">
     <thead>
     <tr>
-        <th><?php echo $strField; ?></th>
-        <th><?php echo $strType; ?></th>
-        <th><?php echo $strCollation; ?></th>
-        <th><?php echo $strNull; ?></th>
-        <th><?php echo $strDefault; ?></th>
-        <th><?php echo $strExtra; ?></th>
-        <th><?php echo $strComment; ?></th>
+        <th><?php echo __('Field'); ?></th>
+        <th><?php echo __('Type'); ?></th>
+        <th><?php echo __('Collation'); ?></th>
+        <th><?php echo __('Null'); ?></th>
+        <th><?php echo __('Default'); ?></th>
+        <th><?php echo __('Extra'); ?></th>
+        <th><?php echo __('Comment'); ?></th>
     </tr>
     </thead>
     <tbody>
@@ -313,33 +313,33 @@ if (isset($_REQUEST['snapshot'])) {
 <?php
     if (count($indexes) > 0) {
 ?>
-        <h3><?php echo $strIndexes;?></h3>
+        <h3><?php echo __('Indexes');?></h3>
         <table id="tablestructure_indexes" class="data">
         <thead>
         <tr>
-            <th><?php echo $strKeyname;?></th>
-            <th><?php echo $strType;?></th>
-            <th><?php echo $strUnique;?></th>
-            <th><?php echo $strPacked;?></th>
-            <th><?php echo $strField;?></th>
-            <th><?php echo $strCardinality;?></th>
-            <th><?php echo $strCollation;?></th>
-            <th><?php echo $strNull;?></th>
-            <th><?php echo $strComment;?></th>
+            <th><?php echo __('Keyname');?></th>
+            <th><?php echo __('Type');?></th>
+            <th><?php echo __('Unique');?></th>
+            <th><?php echo __('Packed');?></th>
+            <th><?php echo __('Field');?></th>
+            <th><?php echo __('Cardinality');?></th>
+            <th><?php echo __('Collation');?></th>
+            <th><?php echo __('Null');?></th>
+            <th><?php echo __('Comment');?></th>
         </tr>
         <tbody>
 <?php
         $style = 'odd';
         foreach ($indexes as $indexes_index => $index) {
             if ($index['Non_unique'] == 0) {
-                $str_unique = $strYes;
+                $str_unique = __('Yes');
             } else {
-                $str_unique = $strNo;
+                $str_unique = __('No');
             }
             if ($index['Packed'] != '') {
-                $str_packed = $strYes;
+                $str_packed = __('Yes');
             } else {
-                $str_packed = $strNo;
+                $str_packed = __('No');
             }
 ?>
             <tr class="<?php echo $style; ?>">
@@ -376,25 +376,25 @@ if (isset($_REQUEST['snapshot'])) {
  */
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     ?>
-    <h3><?php echo $strTrackingReport;?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo $strTrackingReportClose;?></a>]</h3>
+    <h3><?php echo __('Tracking report');?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo __('Tracking report')Close;?></a>]</h3>
 
-    <small><?php echo $strTrackingStatements . ' ' . $data['tracking']; ?></small><br/>
+    <small><?php echo __('Tracking statements') . ' ' . $data['tracking']; ?></small><br/>
     <br/>
 
     <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
     <?php
 
     $str1 = '<select name="logtype">' .
-            '<option value="schema"' . ($selection_schema ? ' selected="selected"' : '') . '>' . $strStrucOnly . '</option>' .
-            '<option value="data"' . ($selection_data ? ' selected="selected"' : ''). '>' . $strDataOnly . '</option>' .
-            '<option value="schema_and_data"' . ($selection_both ? ' selected="selected"' : '') . '>' . $strStrucData . '</option>' .
+            '<option value="schema"' . ($selection_schema ? ' selected="selected"' : '') . '>' . __('Structure only') . '</option>' .
+            '<option value="data"' . ($selection_data ? ' selected="selected"' : ''). '>' . __('Data only') . '</option>' .
+            '<option value="schema_and_data"' . ($selection_both ? ' selected="selected"' : '') . '>' . __('Structure and data') . '</option>' .
             '</select>';
     $str2 = '<input type="text" name="date_from" value="' . $_REQUEST['date_from'] . '" size="19" />';
     $str3 = '<input type="text" name="date_to" value="' . $_REQUEST['date_to'] . '" size="19" />';
     $str4 = '<input type="text" name="users" value="' . $_REQUEST['users'] . '" />';
-    $str5 = '<input type="submit" name="list_report" value="' . $strGo . '" />';
+    $str5 = '<input type="submit" name="list_report" value="' . __('Go') . '" />';
 
-    printf($strTrackingShowLogDateUsers, $str1, $str2, $str3, $str4, $str5);
+    printf(__('Show %s with dates from %s to %s by user %s %s'), $str1, $str2, $str3, $str4, $str5);
 
 
     /*
@@ -407,9 +407,9 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         <thead>
         <tr>
             <th width="18">#</th>
-            <th width="100"><?php echo $strTrackingDate;?></th>
-            <th width="60"><?php echo $strTrackingUsername;?></th>
-            <th><?php echo $strTrackingDataDefinitionStatement;?></th>
+            <th width="100"><?php echo __('Date');?></th>
+            <th width="60"><?php echo __('Username');?></th>
+            <th><?php echo __('Data definition statement');?></th>
         </tr>
         </thead>
         <tbody>
@@ -458,9 +458,9 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         <thead>
         <tr>
             <th width="18">#</th>
-            <th width="100"><?php echo $strTrackingDate;?></th>
-            <th width="60"><?php echo $strTrackingUsername;?></th>
-            <th><?php echo $strTrackingDataManipulationStatement;?></th>
+            <th width="100"><?php echo __('Date');?></th>
+            <th width="60"><?php echo __('Username');?></th>
+            <th><?php echo __('Data manipulation statement');?></th>
         </tr>
         </thead>
         <tbody>
@@ -501,15 +501,15 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     </form>
     <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
     <?php
-    printf($strTrackingShowLogDateUsers, $str1, $str2, $str3, $str4, $str5);
+    printf(__('Show %s with dates from %s to %s by user %s %s'), $str1, $str2, $str3, $str4, $str5);
 
     $str_export1 =  '<select name="export_type">' .
-                    '<option value="sqldumpfile">' . $strTrackingSQLDumpFile . '</option>' .
-                    '<option value="sqldump">' . $strTrackingSQLDump . '</option>' .
-                    '<option value="execution" onclick="alert(\'' . $strTrackingSQLExecutionAlert .'\')">' . $strTrackingSQLExecution . '</option>' .
+                    '<option value="sqldumpfile">' . __('SQL dump')File . '</option>' .
+                    '<option value="sqldump">' . __('SQL dump') . '</option>' .
+                    '<option value="execution" onclick="alert(\'' . __('SQL execution') .'\')">' . __('SQL execution') . '</option>' .
                     '</select>';
 
-    $str_export2 = '<input type="submit" name="report_export" value="' . $strGo .'" />';
+    $str_export2 = '<input type="submit" name="report_export" value="' . __('Go') .'" />';
     ?>
     </form>
     <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
@@ -518,7 +518,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     <input type="hidden" name="date_to" value="<?php echo $_REQUEST['date_to'];?>" />
     <input type="hidden" name="users" value="<?php echo $_REQUEST['users'];?>" />
     <?php
-    echo "<br/>" . sprintf($strTrackingExportAs, $str_export1) . $str_export2 . "<br/>";
+    echo "<br/>" . sprintf(__('Export as %s'), $str_export1) . $str_export2 . "<br/>";
     ?>
     </form>
     <?php
@@ -545,9 +545,9 @@ if (PMA_DBI_num_rows($sql_result) > 0) {
     <?php
     while ($entries = PMA_DBI_fetch_array($sql_result)) {
         if (PMA_Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
-            $status = ' (' . $strTrackingStatusActive . ')';
+            $status = ' (' . __('active') . ')';
         } else {
-            $status = ' (' . $strTrackingStatusNotActive . ')';
+            $status = ' (' . __('not active') . ')';
         }
         if ($entries['table_name'] == $_REQUEST['table']) {
             $s = ' selected="selected"';
@@ -558,7 +558,7 @@ if (PMA_DBI_num_rows($sql_result) > 0) {
     }
     ?>
     </select>
-    <input type="submit" name="show_versions_submit" value="<?php echo $strTrackingShowVersions;?>" />
+    <input type="submit" name="show_versions_submit" value="<?php echo __('Show versions');?>" />
     </form>
 <?php
 }
@@ -588,13 +588,13 @@ if ($last_version > 0) {
     <table id="versions" class="data">
     <thead>
     <tr>
-        <th><?php echo $strDatabase;?></th>
-        <th><?php echo $strTable;?></th>
-        <th><?php echo $strTrackingThVersion;?></th>
-        <th><?php echo $strTrackingThCreated;?></th>
-        <th><?php echo $strTrackingThUpdated;?></th>
-        <th><?php echo $strStatus;?></th>
-        <th><?php echo $strShow;?></th>
+        <th><?php echo __('Database');?></th>
+        <th><?php echo __('Table');?></th>
+        <th><?php echo __('Version');?></th>
+        <th><?php echo __('Created');?></th>
+        <th><?php echo __('Updated');?></th>
+        <th><?php echo __('Status');?></th>
+        <th><?php echo __('Show');?></th>
     </tr>
     </thead>
     <tbody>
@@ -603,14 +603,14 @@ if ($last_version > 0) {
     PMA_DBI_data_seek($sql_result, 0);
     while($version = PMA_DBI_fetch_array($sql_result)) {
         if ($version['tracking_active'] == 1) {
-            $version_status = $strTrackingStatusActive;
+            $version_status = __('active');
         } else {
-            $version_status = $strTrackingStatusNotActive;
+            $version_status = __('not active');
         }
-        if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusNotActive)) {
+        if (($version['version'] == $last_version) && ($version_status == __('not active'))) {
             $tracking_active = false;
         }
-        if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusActive)) {
+        if (($version['version'] == $last_version) && ($version_status == __('active'))) {
             $tracking_active = true;
         }
     ?>
@@ -621,7 +621,7 @@ if ($last_version > 0) {
             <td><?php echo $version['date_created'];?></td>
             <td><?php echo $version['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
-            <td> <a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>"><?php echo $strTrackingReport;?></a> | <a href="tbl_tracking.php?<?php echo $url_query;?>&amp;snapshot=true&amp;version=<?php echo $version['version'];?>"><?php echo $strTrackingStructureSnapshot;?></a></td>
+            <td> <a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>"><?php echo __('Tracking report');?></a> | <a href="tbl_tracking.php?<?php echo $url_query;?>&amp;snapshot=true&amp;version=<?php echo $version['version'];?>"><?php echo __('Structure snapshot');?></a></td>
         </tr>
     <?php
         if ($style == 'even') {
@@ -637,9 +637,9 @@ if ($last_version > 0) {
         <div id="div_deactivate_tracking">
         <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
         <fieldset>
-            <legend><?php printf($strTrackingDeactivateTrackingFor, $GLOBALS['db'], $GLOBALS['table']); ?></legend>
+            <legend><?php printf(__('Deactivate tracking for %s.%s'), $GLOBALS['db'], $GLOBALS['table']); ?></legend>
             <input type="hidden" name="version" value="<?php echo $last_version; ?>" />
-            <input type="submit" name="submit_deactivate_now" value="<?php echo $strTrackingDeactivateNow; ?>" />
+            <input type="submit" name="submit_deactivate_now" value="<?php echo __('Deactivate now'); ?>" />
         </fieldset>
         </form>
         </div>
@@ -650,9 +650,9 @@ if ($last_version > 0) {
         <div id="div_activate_tracking">
         <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
         <fieldset>
-            <legend><?php printf($strTrackingActivateTrackingFor, $GLOBALS['db'], $GLOBALS['table']); ?></legend>
+            <legend><?php printf(__('Activate tracking for %s.%s'), $GLOBALS['db'], $GLOBALS['table']); ?></legend>
             <input type="hidden" name="version" value="<?php echo $last_version; ?>" />
-            <input type="submit" name="submit_activate_now" value="<?php echo $strTrackingActivateNow; ?>" />
+            <input type="submit" name="submit_activate_now" value="<?php echo __('Activate now'); ?>" />
         </fieldset>
         </form>
         </div>
@@ -665,11 +665,11 @@ if ($last_version > 0) {
 <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <fieldset>
-    <legend><?php printf($strTrackingCreateVersionOf, ($last_version + 1), $GLOBALS['db'], $GLOBALS['table']); ?></legend>
+    <legend><?php printf(__('Create version %s of %s.%s'), ($last_version + 1), $GLOBALS['db'], $GLOBALS['table']); ?></legend>
 
     <input type="hidden" name="version" value="<?php echo ($last_version + 1); ?>" />
 
-    <p><?php echo $strTrackingTrackDDStatements;?></p>
+    <p><?php echo __('Track these data definition statements:');?></p>
     <input type="checkbox" name="alter_table" value="true" checked="checked" /> ALTER TABLE<br/>
     <input type="checkbox" name="rename_table" value="true" checked="checked" /> RENAME TABLE<br/>
     <input type="checkbox" name="create_table" value="true" checked="checked" /> CREATE TABLE<br/>
@@ -677,7 +677,7 @@ if ($last_version > 0) {
     <br/>
     <input type="checkbox" name="create_index" value="true" checked="checked" /> CREATE INDEX<br/>
     <input type="checkbox" name="drop_index" value="true" checked="checked" /> DROP INDEX<br/>
-    <p><?php echo $strTrackingTrackDMStatements;?></p>
+    <p><?php echo __('Track these data manipulation statements:');?></p>
     <input type="checkbox" name="insert" value="true" checked="checked" /> INSERT<br/>
     <input type="checkbox" name="update" value="true" checked="checked" /> UPDATE<br/>
     <input type="checkbox" name="delete" value="true" checked="checked" /> DELETE<br/>
@@ -685,7 +685,7 @@ if ($last_version > 0) {
 
 </fieldset>
 <fieldset class="tblFooters">
-    <input type="submit" name="submit_create_version" value="<?php echo $strTrackingCreateVersion; ?>" />
+    <input type="submit" name="submit_create_version" value="<?php echo __('Create version'); ?>" />
 </fieldset>
 </form>
 </div>

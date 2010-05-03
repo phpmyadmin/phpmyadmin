@@ -18,15 +18,15 @@ $GLOBALS['js_include'][] = 'functions.js';
  */
 require './libraries/server_links.inc.php';
 
-$export_page_title = $strViewDumpDatabases . "\n";
+$export_page_title = __('View dump (schema) of databases') . "\n";
 $checkall_url = 'server_export.php?'
               . PMA_generate_common_url()
               . '&amp;goto=db_export.php';
 
 $multi_values = '<div align="center">';
-$multi_values .= '<a href="' . $checkall_url . '&amp;selectall=1" onclick="setSelectOptions(\'dump\', \'db_select[]\', true); return false;">' . $strSelectAll . '</a>
+$multi_values .= '<a href="' . $checkall_url . '&amp;selectall=1" onclick="setSelectOptions(\'dump\', \'db_select[]\', true); return false;">' . __('Select All') . '</a>
         /
-        <a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'db_select[]\', false); return false;">' . $strUnselectAll . '</a><br />';
+        <a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'db_select[]\', false); return false;">' . __('Unselect All') . '</a><br />';
 
 $multi_values .= '<select name="db_select[]" size="10" multiple="multiple">';
 $multi_values .= "\n";

@@ -347,8 +347,8 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     }
     unset($table_list);
     echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '">'
-        .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" width="10" height="10" alt="' . $strCreateTableShort . '" />'
-        . $strCreateTableShort . '</a></li></ul>';
+        .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" width="10" height="10" alt="' . _pgettext('short form', 'Create table') . '" />'
+        . _pgettext('short form', 'Create table') . '</a></li></ul>';
 } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
     echo '<p>' . $GLOBALS['strSelectADb'] . '</p>';
 } else {

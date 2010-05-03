@@ -64,7 +64,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                         complete = response.complete;
 
                           if (total==0 && complete==0 && percent==0) {
-                              $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat($strImportLargeFileUploading); ?>');
+                              $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.')); ?>');
                               $('#upload_form_status').css("display", "none");
                           } else {
                               $('#upload_form_status_info').html(' '+Math.round(percent)+'%, '+complete+'/'+total);
@@ -74,7 +74,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                           if (finished==true) {
                                     $('#importmain').css('display', 'none');
                                     $('#import_form_status').css('display', 'inline');
-                                    $('#import_form_status').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportProceedingFile; ?> ');
+                                    $('#import_form_status').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo __('The file is being processed, please be patient.'); ?> ');
                                     $('#import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(); ?>'); // loads the message, either success or mysql error
                                     <?php
                                     // reload the left sidebar when the import is finished
@@ -96,7 +96,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     <?php
 } else { // no plugin avaliable
     ?>
-                        $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportUploadInfoNotAvailable . PMA_showDocu('faq2_9'); ?>');
+                        $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo __('Please be patient, the file is being uploaded. Details about the upload are not available.') . PMA_showDocu('faq2_9'); ?>');
                         $('#upload_form_status').css("display", "none");
     <?php
 } // else
@@ -123,7 +123,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     echo PMA_pluginGetJavascript($import_list);
     ?>
     <fieldset class="options">
-        <legend><?php echo $strFileToImport; ?></legend>
+        <legend><?php echo __('File to import'); ?></legend>
 
         <?php
 
@@ -134,7 +134,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             <div id="upload_form_status" style="display: none;"></div>
             <div id="upload_form_status_info" style="display: none;"></div>
             <div id="upload_form_form">
-                <label for="input_import_file"><?php echo $strLocationTextfile; ?></label>
+                <label for="input_import_file"><?php echo __('Location of the text file'); ?></label>
                 <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
                     <?php
                     echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
@@ -163,7 +163,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                 PMA_Message::error('strWebServerUploadDirectoryError')->display();
             } elseif (!empty($files)) {
                 echo "\n";
-                echo '    <i>' . $strOr . '</i><br/><label for="select_local_import_file">' . $strWebServerUploadDirectory . '</label>&nbsp;: ' . "\n";
+                echo '    <i>' . __('Or') . '</i><br/><label for="select_local_import_file">' . __('web server upload directory') . '</label>&nbsp;: ' . "\n";
                 echo '    <select style="margin: 5px" size="1" name="local_import_file" onchange="match_file(this.value)" id="select_local_import_file">' . "\n";
                 echo '        <option value="">&nbsp;</option>' . "\n";
                 echo $files;
@@ -175,7 +175,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 // charset of file
         echo '<div class="formelementrow">' . "\n";
         if ($cfg['AllowAnywhereRecoding']) {
-            echo '<label for="charset_of_file">' . $strCharsetOfFile . '</label>';
+            echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>';
             reset($cfg['AvailableCharsets']);
             echo '<select id="charset_of_file" name="charset_of_file" size="1">';
             foreach ($cfg['AvailableCharsets'] as $temp_charset) {
@@ -188,13 +188,13 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             }
             echo ' </select><br />';
         } else {
-            echo '<label for="charset_of_file">' . $strCharsetOfFile . '</label>' . "\n";
+            echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>' . "\n";
             echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', FALSE);
         } // end if (recoding)
         echo '</div>' . "\n";
 
 // zip, gzip and bzip2 encode features
-        $compressions = $strNone;
+        $compressions = __('None');
 
         if ($cfg['GZipDump'] && @function_exists('gzopen')) {
             $compressions .= ', gzip';
@@ -207,36 +207,36 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         }
 
 // We don't have show anything about compression, when no supported
-        if ($compressions != $strNone) {
+        if ($compressions != __('None')) {
             echo '<div class="formelementrow">' . "\n";
-            printf($strCompressionWillBeDetected, $compressions);
+            printf(__('Imported file compression will be automatically detected from: %s'), $compressions);
             echo '</div>' . "\n";
         }
         echo "\n";
         ?>
     </fieldset>
     <fieldset class="options">
-        <legend><?php echo $strPartialImport; ?></legend>
+        <legend><?php echo __('Partial import'); ?></legend>
 
         <?php
         if (isset($timeout_passed) && $timeout_passed) {
             echo '<div class="formelementrow">' . "\n";
             echo '<input type="hidden" name="skip" value="' . $offset . '" />';
-            echo sprintf($strTimeoutInfo, $offset) . '';
+            echo sprintf(__('Previous import timed out, after resubmitting will continue from position %d.'), $offset) . '';
             echo '</div>' . "\n";
         }
         ?>
         <div class="formelementrow">
             <input type="checkbox" name="allow_interrupt" value="yes"
                    id="checkbox_allow_interrupt" <?php echo PMA_pluginCheckboxCheck('Import', 'allow_interrupt'); ?>/>
-            <label for="checkbox_allow_interrupt"><?php echo $strAllowInterrupt; ?></label><br />
+            <label for="checkbox_allow_interrupt"><?php echo __('Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. This might be good way to import large files, however it can break transactions.'); ?></label><br />
         </div>
 
         <?php
         if (! (isset($timeout_passed) && $timeout_passed)) {
             ?>
         <div class="formelementrow">
-            <label for="text_skip_queries"><?php echo $strSkipQueries; ?></label>
+            <label for="text_skip_queries"><?php echo __('Number of records (queries) to skip from start'); ?></label>
             <input type="text" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
         </div>
             <?php
@@ -252,7 +252,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     </fieldset>
 
     <fieldset class="options">
-        <legend><?php echo $strImportFormat; ?></legend>
+        <legend><?php echo __('Format of imported file'); ?></legend>
         <?php
 // Let's show format options now
         echo '<div style="float: left;">';
@@ -273,7 +273,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     echo "\n";
     ?>
     <fieldset class="tblFooters">
-        <input type="submit" value="<?php echo $strGo; ?>" id="buttonGo" />
+        <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
     </fieldset>
 </form>
 </div>

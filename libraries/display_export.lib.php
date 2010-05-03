@@ -80,7 +80,7 @@ echo PMA_pluginGetJavascript($export_list);
 
 <div id="div_container_exportoptions">
 <fieldset id="exportoptions">
-<legend><?php echo $strExport; ?></legend>
+<legend><?php echo __('Export'); ?></legend>
 
     <?php if (! empty($multi_values)) { ?>
     <div class="formelementrow">
@@ -104,7 +104,7 @@ echo PMA_pluginGetJavascript($export_list);
         <?php
         echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" checked="checked" />';
 
-        echo sprintf($strDumpXRows,
+        echo sprintf(__('Dump %s row(s) starting at record # %s'),
             '<input type="text" name="limit_to" size="5" value="'
             . (isset($unlim_num_rows) ? $unlim_num_rows : PMA_Table::countRecords($db, $table))
             . '" onfocus="this.select()" />',
@@ -112,7 +112,7 @@ echo PMA_pluginGetJavascript($export_list);
             .' onfocus="this.select()" /> ');
 
         echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1" />';
-        echo '<label for="radio_allrows_1">' . $strDumpAllRows . '</label>';
+        echo '<label for="radio_allrows_1">' . __('Dump all rows') . '</label>';
         ?>
     </div>
 <?php } ?>
@@ -122,7 +122,7 @@ echo PMA_pluginGetJavascript($export_list);
     <legend>
         <input type="checkbox" name="asfile" value="sendit"
             id="checkbox_dump_asfile" <?php PMA_exportCheckboxCheck('asfile'); ?> />
-        <label for="checkbox_dump_asfile"><?php echo $strSend; ?></label>
+        <label for="checkbox_dump_asfile"><?php echo __('Save as file'); ?></label>
     </legend>
 
     <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
@@ -131,7 +131,7 @@ echo PMA_pluginGetJavascript($export_list);
         onclick="document.getElementById('checkbox_dump_asfile').checked = true;"
         <?php PMA_exportCheckboxCheck('onserver'); ?> />
     <label for="checkbox_dump_onserver">
-        <?php echo sprintf($strSaveOnServer, htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
+        <?php echo sprintf(__('Save on server in %s directory'), htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
     </label>,<br />
     <input type="checkbox" name="onserverover" value="saveitover"
         id="checkbox_dump_onserverover"
@@ -139,13 +139,13 @@ echo PMA_pluginGetJavascript($export_list);
             document.getElementById('checkbox_dump_asfile').checked = true;"
         <?php PMA_exportCheckboxCheck('onserver_overwrite'); ?> />
     <label for="checkbox_dump_onserverover">
-        <?php echo $strOverwriteExisting; ?></label>
+        <?php echo __('Overwrite existing file(s)'); ?></label>
     <br />
     <?php } ?>
 
     <label for="filename_template">
         <?php
-        echo $strFileNameTemplate;
+        echo __('File name template');
 
         $trans = new PMA_Message;
         $trans->addMessage('__SERVER__/');
@@ -161,7 +161,7 @@ echo PMA_pluginGetJavascript($export_list);
 
         $message = new PMA_Message('strFileNameTemplateDescription');
         $message->addParam('<a href="http://php.net/strftime" target="documentation" title="'
-            . $strDocu . '">', false);
+            . __('Documentation') . '">', false);
         $message->addParam('</a>', false);
         $message->addParam($trans);
 
@@ -199,7 +199,7 @@ echo PMA_pluginGetJavascript($export_list);
         id="checkbox_remember_template"
         <?php PMA_exportCheckboxCheck('remember_file_template'); ?> />
     <label for="checkbox_remember_template">
-        <?php echo $strFileNameTemplateRemember; ?></label>
+        <?php echo __('remember template'); ?></label>
     )
 
     <div class="formelementrow">
@@ -207,7 +207,7 @@ echo PMA_pluginGetJavascript($export_list);
     // charset of file
     if ($cfg['AllowAnywhereRecoding']) {
         echo '        <label for="select_charset_of_file">'
-            . $strCharsetOfFile . '</label>' . "\n";
+            . __('Character set of the file:') . '</label>' . "\n";
 
         reset($cfg['AvailableCharsets']);
         echo '<select id="select_charset_of_file" name="charset_of_file" size="1">';
@@ -232,31 +232,31 @@ $is_bzip = ($cfg['BZipDump'] && @function_exists('bzcompress'));
 
 if ($is_zip || $is_gzip || $is_bzip) { ?>
     <div class="formelementrow">
-        <?php echo $strCompression; ?>:
+        <?php echo __('Compression'); ?>:
         <input type="radio" name="compression" value="none"
             id="radio_compression_none"
             onclick="document.getElementById('checkbox_dump_asfile').checked = true;"
             <?php PMA_exportIsActive('compression', 'none'); ?> />
-        <label for="radio_compression_none"><?php echo $strNone; ?></label>
+        <label for="radio_compression_none"><?php echo __('None'); ?></label>
     <?php
     if ($is_zip) { ?>
         <input type="radio" name="compression" value="zip"
             id="radio_compression_zip"
             onclick="document.getElementById('checkbox_dump_asfile').checked = true;"
             <?php PMA_exportIsActive('compression', 'zip'); ?> />
-        <label for="radio_compression_zip"><?php echo $strZip; ?></label>
+        <label for="radio_compression_zip"><?php echo __('zipped'); ?></label>
     <?php } if ($is_gzip) { ?>
         <input type="radio" name="compression" value="gzip"
             id="radio_compression_gzip"
             onclick="document.getElementById('checkbox_dump_asfile').checked = true;"
             <?php PMA_exportIsActive('compression', 'gzip'); ?> />
-        <label for="radio_compression_gzip"><?php echo $strGzip; ?></label>
+        <label for="radio_compression_gzip"><?php echo __('gzipped'); ?></label>
     <?php } if ($is_bzip) { ?>
         <input type="radio" name="compression" value="bzip"
             id="radio_compression_bzip"
             onclick="document.getElementById('checkbox_dump_asfile').checked = true;"
             <?php PMA_exportIsActive('compression', 'bzip2'); ?> />
-        <label for="radio_compression_bzip"><?php echo $strBzip; ?></label>
+        <label for="radio_compression_bzip"><?php echo __('bzipped'); ?></label>
     <?php } ?>
     </div>
 <?php } else { ?>
@@ -274,6 +274,6 @@ if ($is_zip || $is_gzip || $is_bzip) { ?>
 
 <fieldset class="tblFooters">
 <?php PMA_externalBug($GLOBALS['strSQLCompatibility'], 'mysql', '50027', '14515'); ?>
-    <input type="submit" value="<?php echo $strGo; ?>" id="buttonGo" />
+    <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
 </fieldset>
 </form>

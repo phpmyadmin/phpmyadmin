@@ -20,7 +20,7 @@ require_once './libraries/tbl_info.inc.php';
 
 // Dump of a table
 
-$export_page_title = $strViewDump;
+$export_page_title = __('View dump (schema) of table');
 
 // When we have some query, we need to remove LIMIT from that and possibly
 // generate WHERE clause (if we are asked to export specific rows)

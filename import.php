@@ -400,7 +400,7 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
 } elseif (!empty($id_bookmark) && $action_bookmark == 1) {
     $message = PMA_Message::notice('strShowingBookmark');
 } elseif ($bookmark_created) {
-    $special_message = '[br]' . sprintf($strBookmarkCreated, htmlspecialchars($bkm_label));
+    $special_message = '[br]' . sprintf(__('Bookmark %s created'), htmlspecialchars($bkm_label));
 } elseif ($finished && !$error) {
     if ($import_type == 'query') {
         $message = PMA_Message::success();

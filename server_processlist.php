@@ -46,18 +46,18 @@ $result = PMA_DBI_query($sql_query);
 <table id="tableprocesslist" class="data">
 <thead>
 <tr><td><a href="<?php echo $full_text_link; ?>"
-            title="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>">
+            title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
         <img src="<?php echo $pmaThemeImage . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
-            width="50" height="20" alt="<?php echo empty($_REQUEST['full']) ? $strShowFullQueries : $strTruncateQueries; ?>" />
+            width="50" height="20" alt="<?php echo empty($_REQUEST['full']) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>" />
         </a></td>
-    <th><?php echo $strId; ?></th>
-    <th><?php echo $strUser; ?></th>
-    <th><?php echo $strHost; ?></th>
-    <th><?php echo $strDatabase; ?></th>
-    <th><?php echo $strCommand; ?></th>
-    <th><?php echo $strTime; ?></th>
-    <th><?php echo $strStatus; ?></th>
-    <th><?php echo $strSQLQuery; ?></th>
+    <th><?php echo __('ID'); ?></th>
+    <th><?php echo __('User'); ?></th>
+    <th><?php echo __('Host'); ?></th>
+    <th><?php echo __('Database'); ?></th>
+    <th><?php echo __('Command'); ?></th>
+    <th><?php echo __('Time'); ?></th>
+    <th><?php echo __('Status'); ?></th>
+    <th><?php echo __('SQL query'); ?></th>
 </tr>
 </thead>
 <tbody>
@@ -68,11 +68,11 @@ while($process = PMA_DBI_fetch_assoc($result)) {
     $kill_process = 'server_processlist.php' . PMA_generate_common_url($url_params);
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-    <td><a href="<?php echo $kill_process ; ?>"><?php echo $strKill; ?></a></td>
+    <td><a href="<?php echo $kill_process ; ?>"><?php echo __('Kill'); ?></a></td>
     <td class="value"><?php echo $process['Id']; ?></td>
     <td><?php echo $process['User']; ?></td>
     <td><?php echo $process['Host']; ?></td>
-    <td><?php echo ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . $strNone . '</i>' : $process['db']); ?></td>
+    <td><?php echo ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . __('None') . '</i>' : $process['db']); ?></td>
     <td><?php echo $process['Command']; ?></td>
     <td class="value"><?php echo $process['Time']; ?></td>
     <td><?php echo (empty($process['State']) ? '---' : $process['State']); ?></td>

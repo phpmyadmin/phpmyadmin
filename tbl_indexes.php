@@ -157,19 +157,19 @@ echo PMA_generate_common_hidden_inputs($form_params);
     <legend>
 <?php
 echo (isset($_REQUEST['create_index'])
-    ? $strCreateIndexTopic
-    : $strModifyIndexTopic);
+    ? __('Create a new index')
+    : __('Modify an index');
 ?>
     </legend>
 
 <div class="formelement">
-<label for="input_index_name"><?php echo $strIndexName; ?></label>
+<label for="input_index_name"><?php echo __('Index name:'); ?></label>
 <input type="text" name="index[Key_name]" id="input_index_name" size="25"
     value="<?php echo htmlspecialchars($index->getName()); ?>" onfocus="this.select()" />
 </div>
 
 <div class="formelement">
-<label for="select_index_type"><?php echo $strIndexType; ?></label>
+<label for="select_index_type"><?php echo __('Index type:'); ?></label>
 <select name="index[Index_type]" id="select_index_type" onchange="return checkIndexName()">
     <?php echo $index->generateIndexSelector(); ?>
 </select>
@@ -184,8 +184,8 @@ PMA_Message::warning('strPrimaryKeyWarning')->display();
 
 <table>
 <thead>
-<tr><th><?php echo $strField; ?></th>
-    <th><?php echo $strSize; ?></th>
+<tr><th><?php echo __('Field'); ?></th>
+    <th><?php echo __('Size'); ?></th>
 </tr>
 </thead>
 <tbody>
@@ -195,7 +195,7 @@ foreach ($index->getColumns() as $column) {
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
     <td><select name="index[columns][names][]">
-            <option value="">-- <?php echo $strIgnore; ?> --</option>
+            <option value="">-- <?php echo __('Ignore'); ?> --</option>
     <?php
     foreach ($fields as $field_name => $field_type) {
         if ($index->getType() != 'FULLTEXT'
@@ -220,7 +220,7 @@ for ($i = 0; $i < $add_fields; $i++) {
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
     <td><select name="index[columns][names][]">
-            <option value="">-- <?php echo $strIgnore; ?> --</option>
+            <option value="">-- <?php echo __('Ignore'); ?> --</option>
     <?php
     foreach ($fields as $field_name => $field_type) {
         echo '<option value="' . htmlspecialchars($field_name) . '">'
@@ -243,13 +243,13 @@ for ($i = 0; $i < $add_fields; $i++) {
 </fieldset>
 
 <fieldset class="tblFooters">
-    <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>" />
+    <input type="submit" name="do_save_data" value="<?php echo __('Save'); ?>" />
 <?php
-echo $strOr . ' ';
-echo sprintf($strAddToIndex,
+echo __('Or') . ' ';
+echo sprintf(__('Add to index &nbsp;%s&nbsp;column(s)'),
         '<input type="text" name="added_fields" size="2" value="1"'
     .' onfocus="this.select()" />') . "\n";
-echo '<input type="submit" name="add_fields" value="' . $strGo . '"'
+echo '<input type="submit" name="add_fields" value="' . __('Go') . '"'
     .' onclick="return checkFormElementInRange(this.form,'
     ." 'added_fields', '" . PMA_jsFormat($GLOBALS['strInvalidColumnCount']) . "', 1"
     .')" />' . "\n";
