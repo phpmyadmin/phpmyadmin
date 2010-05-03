@@ -5941,10 +5941,9 @@ msgid "Enter manually"
 msgstr "Skriv inn manuelt"
 
 #: server_synchronize.php:1130
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Usikker tilkobling"
+msgstr "Nåværende tilkobling"
 
 #: server_synchronize.php:1159
 #, fuzzy, php-format
