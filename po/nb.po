@@ -896,7 +896,7 @@ msgstr "Uke"
 
 #: js/messages.php:178
 msgid "Hour"
-msgstr ""
+msgstr "Time"
 
 #: js/messages.php:179
 #, fuzzy
