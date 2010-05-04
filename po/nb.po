@@ -800,7 +800,7 @@ msgstr "Onsdag"
 
 #: js/messages.php:140
 msgid "Thursday"
-msgstr ""
+msgstr "Torsdag"
 
 #: js/messages.php:141
 #, fuzzy
