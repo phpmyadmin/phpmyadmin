@@ -673,7 +673,7 @@ msgstr "Janvier"
 
 #: js/messages.php:84
 msgid "February"
-msgstr ""
+msgstr "Février"
 
 #: js/messages.php:85
 #, fuzzy
