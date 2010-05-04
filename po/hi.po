@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:48+0200\n"
+"PO-Revision-Date: 2010-05-04 16:50+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -68,7 +68,7 @@ msgstr "वर्णन"
 #: browse_foreigners.php:268 browse_foreigners.php:276
 #: libraries/messages.inc.php:1226
 msgid "Use this value"
-msgstr ""
+msgstr "इस वाल्यु का उपयोग करें"
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:240
 msgid "Database comment: "
