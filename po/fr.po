@@ -974,10 +974,10 @@ msgstr ""
 "fichier de configuration !"
 
 #: libraries/common.inc.php:629
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Indice de serveur invalide: \"%s\""
+msgstr "Indice de serveur invalide: %s"
 
 #: libraries/common.inc.php:636
 #, fuzzy
