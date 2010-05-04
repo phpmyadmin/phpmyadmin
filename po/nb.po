@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-03 12:54-0400\n"
-"PO-Revision-Date: 2010-05-04 10:56+0200\n"
+"PO-Revision-Date: 2010-05-04 10:57+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -978,10 +978,9 @@ msgstr ""
 "et semikolon et sted.<br />Hvis du får en blank side så er alt ok."
 
 #: libraries/common.inc.php:594
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1"
-msgstr "Kunne ikke laste standard konfigurasjonsfil fra: \"%1$s\""
+msgstr "Kunne ikke laste standard konfigurasjon fra: %1"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
