@@ -78,7 +78,7 @@ msgstr "डाटाबेस टिप्पणि: "
 #: libraries/tbl_properties.inc.php:724 tbl_operations.php:345
 #: tbl_printview.php:130
 msgid "Table comments"
-msgstr " टेबल  की टिप्पणि"
+msgstr " टेबल टिप्पणि:"
 
 #: db_datadict.php:174 db_qbe.php:174 libraries/messages.inc.php:325
 #: libraries/tbl_properties.inc.php:99 libraries/tbl_properties.inc.php:275
