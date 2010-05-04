@@ -8228,7 +8228,7 @@ msgid "Foreign key constraint"
 msgstr "Fremmednøkkelbegrensning"
 
 #: tbl_structure.php:595
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Lag en indeks på&nbsp;%s&nbsp;kolonner"
