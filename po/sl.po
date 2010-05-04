@@ -943,9 +943,9 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin se je poskušal povezati na MySQL strežnik, ki je zavrnil "
+"phpMyAdmin se je poskušal povezati na strežnik MySQL, ki je zavrnil "
 "povezavo. Preverite, ali gostitelj, uporabniško ime in geslo v datoteki "
-"config.inc.php ustrezajo podatkom administratorja MySQL strežnika."
+"config.inc.php ustrezajo podatkom administratorja strežnika MySQL."
 
 #: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
 #| msgid ""
