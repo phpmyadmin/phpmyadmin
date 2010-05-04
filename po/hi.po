@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:51+0200\n"
+"PO-Revision-Date: 2010-05-04 16:52+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -111,7 +111,7 @@ msgstr "डिफ़ॉल्ट"
 
 #: db_datadict.php:182 libraries/messages.inc.php:491 tbl_printview.php:150
 msgid "Links to"
-msgstr ""
+msgstr "के लिए लिंक"
 
 #: db_datadict.php:184 db_printview.php:112 libraries/messages.inc.php:171
 #: libraries/tbl_properties.inc.php:130 tbl_printview.php:152
