@@ -653,7 +653,7 @@ msgstr "Done"
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
-msgstr "Previous"
+msgstr "Prev"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:78 libraries/messages.inc.php:551 tbl_printview.php:424
