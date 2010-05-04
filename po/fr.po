@@ -6521,12 +6521,13 @@ msgid "Reset"
 msgstr "Réinitialiser"
 
 #: server_status.php:360
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr "Ce serveur est un serveur maître dans le processus de réplication"
+msgstr ""
+"Ce serveur est un serveur <b>maître</b> et <b>esclave</b> dans le processus "
+"de réplication."
 
 #: server_status.php:362
 #, fuzzy
