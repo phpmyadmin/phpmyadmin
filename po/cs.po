@@ -976,10 +976,9 @@ msgid "Invalid server index: %s"
 msgstr "Chybný index serveru: „%s“"
 
 #: libraries/common.inc.php:636
-#, fuzzy
 #| msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgid "Invalid hostname for server %1. Please review your configuration."
-msgstr "Chybné jméno serveru pro server %1$s. Prosím zkontrolujte nastavení."
+msgstr "Chybné jméno serveru pro server %1. Prosím zkontrolujte nastavení."
 
 #: libraries/common.inc.php:823 libraries/messages.inc.php:445
 msgid "Invalid authentication method set in configuration:"
