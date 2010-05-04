@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-05 01:42+0200\n"
+"PO-Revision-Date: 2010-05-05 01:43+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6395,7 +6395,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:41
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Preveri dovoljenja konfiguracijske datoteke"
 
 #: setup/lib/messages.inc.php:43
 msgid ""
