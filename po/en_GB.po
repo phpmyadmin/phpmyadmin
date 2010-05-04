@@ -975,10 +975,10 @@ msgstr ""
 "configuration file!"
 
 #: libraries/common.inc.php:629
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Invalid server index: \"%s\""
+msgstr "Invalid server index: %s"
 
 #: libraries/common.inc.php:636
 #, fuzzy
