@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:56+0200\n"
+"PO-Revision-Date: 2010-05-04 16:57+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -154,7 +154,7 @@ msgstr " सभी को रद्द करें"
 
 #: db_operations.php:410 libraries/messages.inc.php:244
 msgid "Rename database to"
-msgstr ""
+msgstr "दताबसे का नाम बदल कर ____ रखें"
 
 #: db_operations.php:415 libraries/messages.inc.php:169
 #: server_processlist.php:57
