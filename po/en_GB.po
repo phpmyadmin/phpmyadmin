@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 10:37+0200\n"
-"PO-Revision-Date: 2010-05-04 11:45+0200\n"
+"PO-Revision-Date: 2010-05-04 11:46+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -6459,7 +6459,7 @@ msgstr ""
 
 #: server_synchronize.php:1117
 msgid "Enter manually"
-msgstr ""
+msgstr "Enter manually"
 
 #: server_synchronize.php:1118
 #, fuzzy
