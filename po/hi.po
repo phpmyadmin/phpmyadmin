@@ -159,7 +159,7 @@ msgstr "दताबसे का नाम बदल कर ____ रखें"
 #: db_operations.php:415 libraries/messages.inc.php:169
 #: server_processlist.php:57
 msgid "Command"
-msgstr ""
+msgstr "आदेश"
 
 #: db_operations.php:425 libraries/messages.inc.php:66 tbl_change.php:1143
 msgid "and then"
