@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:33+0200\n"
+"PO-Revision-Date: 2010-05-04 16:34+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -8345,10 +8345,10 @@ msgid "Foreign key constraint"
 msgstr "Contrainte de clé étrangère"
 
 #: tbl_structure.php:595
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Créer un index sur&nbsp;%s&nbsp;colonnes"
+msgstr "Créer un index sur &nbsp;%s&nbsp;colonnes"
 
 #: transformation_overview.php:48
 #, fuzzy
