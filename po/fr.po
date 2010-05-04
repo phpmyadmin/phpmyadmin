@@ -934,7 +934,6 @@ msgstr ""
 "aux informations fournies par l'administrateur du serveur MySQL."
 
 #: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#, fuzzy
 #| msgid ""
 #| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #| "extension. Please check your PHP configuration."
@@ -942,8 +941,8 @@ msgid ""
 "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
 "Please check your PHP configuration."
 msgstr ""
-"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%1$s"
-"[/em][/a]. Veuillez vérifier votre configuration de PHP."
+"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%"
+"1$s[/em][/a]. Veuillez vérifier votre configuration de PHP."
 
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
