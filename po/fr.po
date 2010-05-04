@@ -650,7 +650,6 @@ msgstr "Fermer"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Précédent"
