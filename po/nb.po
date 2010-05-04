@@ -904,10 +904,9 @@ msgid "Minute"
 msgstr "Minutt"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "per sekund"
+msgstr "Sekund"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
