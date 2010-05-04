@@ -86,7 +86,7 @@ msgstr " टेबल टिप्पणि:"
 #: tbl_relation.php:402 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
 msgid "Field"
-msgstr " फील्ड"
+msgstr "फील्ड"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/db_events.inc.php:31
 #: libraries/db_routines.inc.php:42 libraries/messages.inc.php:1189
