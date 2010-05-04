@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:15+0200\n"
+"PO-Revision-Date: 2010-05-04 16:16+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -644,10 +644,9 @@ msgstr "Annuler"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Faire un don"
+msgstr "Fermer"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:76
