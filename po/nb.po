@@ -997,10 +997,9 @@ msgid "Invalid server index: %s"
 msgstr "Ugyldig tjenerindeks: \"%s\""
 
 #: libraries/common.inc.php:636
-#, fuzzy
 #| msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgid "Invalid hostname for server %1. Please review your configuration."
-msgstr "Ugyldig tjenernavn for tjener %1$s. Kontroller din konfigurasjon."
+msgstr "Ugyldig tjenernavn for tjener %1. Kontroller din konfigurasjon."
 
 #: libraries/common.inc.php:823 libraries/messages.inc.php:445
 msgid "Invalid authentication method set in configuration:"
