@@ -886,10 +886,9 @@ msgstr "To"
 
 #. l10n: Minimal week day name
 #: js/messages.php:155
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "Sre"
+msgstr "Sr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:157
