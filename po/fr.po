@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:21+0200\n"
+"PO-Revision-Date: 2010-05-04 16:22+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -813,7 +813,7 @@ msgstr "Vendredi"
 
 #: js/messages.php:129
 msgid "Saturday"
-msgstr "Sam"
+msgstr "Samedi"
 
 #. l10n: Short week day name
 #: js/messages.php:133 libraries/messages.inc.php:27
