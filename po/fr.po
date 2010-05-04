@@ -6506,7 +6506,6 @@ msgid "Create table"
 msgstr "Nouvelle table"
 
 #: server_databases.php:230
-#, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Aller à la base de données"
