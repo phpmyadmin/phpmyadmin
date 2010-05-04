@@ -922,7 +922,7 @@ msgstr "ted."
 
 #: js/messages.php:165
 msgid "Hour"
-msgstr ""
+msgstr "Ura"
 
 #: js/messages.php:166
 #, fuzzy
