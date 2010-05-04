@@ -6430,7 +6430,6 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Jokertegnene _ og % må beskyttes med en \\ for å bruke dem direkte"
 
 #: server_status.php:344
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
