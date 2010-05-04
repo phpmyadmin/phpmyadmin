@@ -957,10 +957,9 @@ msgstr ""
 "stránku, všechno je v pořádku."
 
 #: libraries/common.inc.php:594
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1"
-msgstr "Nepodařilo se nahrát výchozí konfiguraci ze souboru: „%1$s“"
+msgstr "Nepodařilo se nahrát výchozí konfiguraci ze souboru: „%1“"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
