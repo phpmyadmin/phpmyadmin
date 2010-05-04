@@ -72,7 +72,7 @@ msgstr "इस वाल्यु का उपयोग करें"
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:240
 msgid "Database comment: "
-msgstr "डाटाबेस की टिप्पणि: "
+msgstr "डाटाबेस टिप्पणि: "
 
 #: db_datadict.php:165 libraries/messages.inc.php:1078
 #: libraries/tbl_properties.inc.php:724 tbl_operations.php:345
