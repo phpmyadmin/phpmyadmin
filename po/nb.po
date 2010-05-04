@@ -866,7 +866,6 @@ msgstr "Tir"
 
 #. l10n: Minimal week day name
 #: js/messages.php:168
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Ons"
