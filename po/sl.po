@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-05 01:39+0200\n"
+"PO-Revision-Date: 2010-05-05 01:40+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3714,7 +3714,7 @@ msgstr "Hitri koraki za namestitev naprednih funkcij:"
 #: libraries/messages.inc.php:664
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
+msgstr "Ustvarite potrebne tabele s <code>script/create_tables.sql</code>."
 
 #: libraries/messages.inc.php:665
 msgid "Create a pma user and give access to these tables."
