@@ -994,11 +994,10 @@ msgid "Invalid server index: %s"
 msgstr "Neveljaven indeks strežnika: %s"
 
 #: libraries/common.inc.php:636
-#, fuzzy
 #| msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgid "Invalid hostname for server %1. Please review your configuration."
 msgstr ""
-"Neveljavno ime gostitelja za strežnik %1$s. Prosim, preglejte svojo "
+"Neveljavno ime gostitelja za strežnik %1. Prosimo, preglejte svojo "
 "konfiguracijo."
 
 #: libraries/common.inc.php:823 libraries/messages.inc.php:445
