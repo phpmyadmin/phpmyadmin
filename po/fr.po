@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:31+0200\n"
+"PO-Revision-Date: 2010-05-04 16:32+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6530,10 +6530,11 @@ msgstr ""
 "de réplication."
 
 #: server_status.php:362
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "Ce serveur est un serveur maître dans le processus de réplication"
+msgstr ""
+"Ce serveur est un serveur <b>maître</b> dans le processus de "
+"<b>réplication</b>."
 
 #: server_status.php:364
 #, fuzzy
