@@ -715,7 +715,7 @@ msgstr "November"
 
 #: js/messages.php:107
 msgid "December"
-msgstr ""
+msgstr "Desember"
 
 #. l10n: Short month name
 #: js/messages.php:111 libraries/messages.inc.php:28
