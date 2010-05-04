@@ -900,7 +900,7 @@ msgstr "Sem"
 
 #: js/messages.php:165
 msgid "Hour"
-msgstr ""
+msgstr "Heure"
 
 #: js/messages.php:166
 #, fuzzy
