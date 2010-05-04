@@ -6409,7 +6409,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:45
 msgid "Configuration file"
-msgstr ""
+msgstr "Konfiguracijska datoteka"
 
 #: setup/lib/messages.inc.php:46
 msgid ""
