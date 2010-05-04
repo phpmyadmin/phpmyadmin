@@ -8232,10 +8232,9 @@ msgid "Internal relation"
 msgstr "Internal relation"
 
 #: tbl_relation.php:413
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
-msgstr "Foreign key limit"
+msgstr "Foreign key constraint"
 
 #: tbl_structure.php:595
 #, fuzzy, php-format
