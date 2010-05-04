@@ -962,10 +962,9 @@ msgstr ""
 "is fine."
 
 #: libraries/common.inc.php:594
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1"
-msgstr "Could not load default configuration from: \"%1$s\""
+msgstr "Could not load default configuration from: %1"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
