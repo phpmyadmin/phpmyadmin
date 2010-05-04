@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:25+0200\n"
+"PO-Revision-Date: 2010-05-04 16:26+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -961,10 +961,9 @@ msgstr ""
 "erreur n'a été détectée."
 
 #: libraries/common.inc.php:594
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1"
-msgstr "Chargement de la configuration par défaut impossible depuis \"%1$s\""
+msgstr "Chargement de la configuration par défaut impossible depuis %1"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
