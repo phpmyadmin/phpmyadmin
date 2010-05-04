@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 10:37+0200\n"
-"PO-Revision-Date: 2010-03-30 16:04+0200\n"
+"PO-Revision-Date: 2010-05-04 11:42+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -217,7 +217,6 @@ msgid "Status"
 msgstr "Status"
 
 #: db_operations.php:544
-#, fuzzy
 #| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
@@ -8354,55 +8353,3 @@ msgstr "Description"
 
 #~ msgid "Tracking Mechanism"
 #~ msgstr "Tracking Mechanism"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "Select All"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "Select All"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "Insert"
-
-#, fuzzy
-#~| msgid "Updated"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "Updated"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "Delete"
-
-#~ msgid "%1$d row(s) affected."
-#~ msgstr "%1$d row(s) affected."
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
-
-#~ msgid "Jan0"
-#~ msgstr "Jan0"
-
-#~ msgid "Jan1"
-#~ msgstr "Jan1"
-
-#~ msgid "Jan2"
-#~ msgstr "Jan2"
-
-#~ msgid ""
-#~ "Structure Difference' ;\n"
-#~ "$strStructureForView = 'Structure for view"
-#~ msgstr ""
-#~ "Structure Difference' ;\n"
-#~ "$strStructureForView = 'Structure for view"
