@@ -8222,10 +8222,9 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: tbl_operations.php:634
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Flush the table (\"FLUSH\")"
+msgstr "Flush the table (FLUSH)"
 
 #: tbl_relation.php:405
 #, fuzzy
