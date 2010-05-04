@@ -283,7 +283,7 @@ if ($server_master_status) {
 if ($server_slave_status) {
   $links['repl'][__('Show slave status')] = '#replication_slave';
 }
-      
+
 $links['repl']['doc'] = 'replication';
 
 $links['qcache'][__('Flush query cache')]
@@ -354,19 +354,17 @@ echo sprintf(__('This MySQL server has been running for %s. It started up on %s.
 </p>
 
 <?php
-if ($server_master_status || $server_slave_status)
-{
-    $replicationOut = "";
-    foreach ($replication_types as $type)
-    {
-        if (${"server_{$type}_status"})
-        {
-            if ($replicationOut != "")
-                $replicationOut .= __('and') . ' ';
-            $replicationOut .= '<b>' . $type . '</b> ';
-        }
+if ($server_master_status || $server_slave_status) {
+    echo '<p>';
+    if ($server_master_status && $server_slave_status) {
+        echo __('This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.');
+    } elseif ($server_master_status) {
+        echo __('This MySQL server works as <b>master</b> in <b>replication</b> process.');
+    } elseif ($server_slave_status) {
+        echo __('This MySQL server works as <b>slave</b> in <b>replication</b> process.');
     }
-    echo sprintf('<p>' . __('This MySQL server works as %s in <b>replication</b> process. For further information about replication status on the server, please visit the <a href=#replication>replication section</a>.') . '</p>', $replicationOut);
+    echo __('For further information about replication status on the server, please visit the <a href=#replication>replication section</a>.');
+    echo '</p>';
 }
 ?>
 
@@ -712,7 +710,7 @@ if (! empty($section['title'])) {
 }
 unset($section_name, $section, $sections, $server_status, $odd_row, $alerts);
 ?>
-</div> 
+</div>
 <?php
 /* if the server works as master or slave in replication process, display useful information */
 if ($server_master_status || $server_slave_status)
@@ -721,7 +719,7 @@ if ($server_master_status || $server_slave_status)
   <hr class="clearfloat" />
 
   <h3><a name="replication"></a><?php echo __('Replication status'); ?></h3>
-<?php 
+<?php
 
     foreach ($replication_types as $type)
     {
