@@ -6369,11 +6369,10 @@ msgid "Clear"
 msgstr "Vyčistit"
 
 #: navigation.php:350 navigation.php:351
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
-msgstr "Vytvořit tabulku"
+msgstr "Nová tabulka"
 
 #: server_databases.php:230
 #, fuzzy
