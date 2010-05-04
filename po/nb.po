@@ -884,7 +884,6 @@ msgstr "Fre"
 
 #. l10n: Minimal week day name
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Lør"
