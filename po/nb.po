@@ -658,10 +658,9 @@ msgstr "Neste"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Totalt"
+msgstr "I dag"
 
 #: js/messages.php:96
 #, fuzzy
