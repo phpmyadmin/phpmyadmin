@@ -3714,7 +3714,7 @@ msgstr "Hitri koraki za namestitev naprednih funkcij:"
 #: libraries/messages.inc.php:664
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr "Ustvarite potrebne tabele s <code>script/create_tables.sql</code>."
+msgstr "Ustvari potrebne tabele s <code>script/create_tables.sql</code>."
 
 #: libraries/messages.inc.php:665
 msgid "Create a pma user and give access to these tables."
