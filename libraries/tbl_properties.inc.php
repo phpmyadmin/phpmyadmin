@@ -143,7 +143,7 @@ if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
     $header_cells[] = __('MIME type');
     $header_cells[] = __('Browser transformation');
     $header_cells[] = __('Transformation options')
-        . PMA_showHint(__('Transformation options')_note . $hint);
+        . PMA_showHint(__('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').') . $hint);
 }
 
 //  workaround for field_fulltext, because its submitted indizes contain
@@ -405,7 +405,7 @@ for ($i = 0; $i < $num_fields; $i++) {
 
     if ($type_upper == 'BIT') {
         $row['DefaultValue'] = PMA_convert_bit_default_value($row['DefaultValue']);
-    } 
+    }
 
     $content_cells[$i][$ci] = '<select name="field_default_type[' . $i . ']">';
     foreach ($default_options as $key => $value) {
