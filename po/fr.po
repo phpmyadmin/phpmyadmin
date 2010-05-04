@@ -690,7 +690,6 @@ msgid "May"
 msgstr "Mai"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Juin"
