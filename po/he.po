@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 12:54-0400\n"
+"POT-Creation-Date: 2010-05-04 10:37+0200\n"
 "PO-Revision-Date: 2010-03-12 09:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: hebrew <he@li.org>\n"
@@ -33,17 +33,18 @@ msgstr "חיפוש"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_structure.php:567 js/messages.php:63
-#: libraries/display_change_password.lib.php:82
+#: db_structure.php:567 js/messages.php:50
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
-#: libraries/messages.inc.php:369 main.php:128 pdf_pages.php:285
-#: pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116
-#: tbl_change.php:330 tbl_change.php:1174 tbl_change.php:1211
-#: tbl_indexes.php:252 tbl_operations.php:263 tbl_operations.php:300
-#: tbl_operations.php:497 tbl_operations.php:559 tbl_operations.php:679
-#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_export.lib.php:277
+#: libraries/display_change_password.lib.php:82
+#: libraries/display_import.lib.php:276 libraries/messages.inc.php:369
+#: main.php:128 pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511
+#: pdf_pages.php:553 pmd_pdf.php:116 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:252 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_structure.php:563 tbl_structure.php:598
+#: tbl_tracking.php:395 tbl_tracking.php:512 view_create.php:182
+#: view_operations.php:101
 msgid "Go"
 msgstr "סע"
 
@@ -54,7 +55,7 @@ msgstr ""
 
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: libraries/messages.inc.php:260 server_collations.php:55
-#: server_collations.php:67 server_engines.php:59 server_status.php:630
+#: server_collations.php:67 server_engines.php:59 server_status.php:628
 msgid "Description"
 msgstr "תיאור"
 
@@ -638,122 +639,122 @@ msgstr "מאגר נתונים"
 msgid "Bookmark %s created"
 msgstr ""
 
-#: js/messages.php:64 libraries/messages.inc.php:131 pmd_general.php:342
+#: js/messages.php:51 libraries/messages.inc.php:131 pmd_general.php:342
 #: pmd_general.php:379
 msgid "Cancel"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:87
+#: js/messages.php:74
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "ללא"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:89
+#: js/messages.php:76
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "הקודם"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:91 libraries/messages.inc.php:551 tbl_printview.php:424
+#: js/messages.php:78 libraries/messages.inc.php:551 tbl_printview.php:424
 #: tbl_structure.php:802
 msgid "Next"
 msgstr "הבא"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:93
+#: js/messages.php:80
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "סה\"כ"
 
-#: js/messages.php:96
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "בינארי"
 
-#: js/messages.php:97
+#: js/messages.php:84
 msgid "February"
 msgstr ""
 
-#: js/messages.php:98
+#: js/messages.php:85
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "מרץ"
 
-#: js/messages.php:99
+#: js/messages.php:86
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "אפריל"
 
-#: js/messages.php:100 libraries/messages.inc.php:28
+#: js/messages.php:87 libraries/messages.inc.php:28
 msgid "May"
 msgstr "מאי"
 
-#: js/messages.php:101
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "יוני"
 
-#: js/messages.php:102
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "יולי"
 
-#: js/messages.php:103
+#: js/messages.php:90
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "אוגוסט"
 
-#: js/messages.php:104
+#: js/messages.php:91
 msgid "September"
 msgstr ""
 
-#: js/messages.php:105
+#: js/messages.php:92
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "אוקטובר"
 
-#: js/messages.php:106
+#: js/messages.php:93
 msgid "November"
 msgstr ""
 
-#: js/messages.php:107
+#: js/messages.php:94
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/messages.inc.php:28
+#: js/messages.php:98 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "ינואר"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/messages.inc.php:28
+#: js/messages.php:100 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "פברואר"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/messages.inc.php:28
+#: js/messages.php:102 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "מרץ"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/messages.inc.php:28
+#: js/messages.php:104 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "אפריל"
 
 #. l10n: Short month name
-#: js/messages.php:119
+#: js/messages.php:106
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -761,176 +762,176 @@ msgid "May"
 msgstr "מאי"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/messages.inc.php:28
+#: js/messages.php:108 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "יוני"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/messages.inc.php:28
+#: js/messages.php:110 libraries/messages.inc.php:28
 msgid "Jul"
 msgstr "יולי"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/messages.inc.php:28
+#: js/messages.php:112 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr "אוגוסט"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/messages.inc.php:28
+#: js/messages.php:114 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr "ספטמבר"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/messages.inc.php:28
+#: js/messages.php:116 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr "אוקטובר"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/messages.inc.php:28
+#: js/messages.php:118 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr "נובמבר"
 
 #. l10n: Short month name
-#: js/messages.php:133 libraries/messages.inc.php:28
+#: js/messages.php:120 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr "דצמבר"
 
-#: js/messages.php:136
+#: js/messages.php:123
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "יום ראשון"
 
-#: js/messages.php:137
+#: js/messages.php:124
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "יום שני"
 
-#: js/messages.php:138
+#: js/messages.php:125
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "יום שלישי"
 
-#: js/messages.php:139
+#: js/messages.php:126
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:140
+#: js/messages.php:127
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:128
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "יום שישי"
 
-#: js/messages.php:142
+#: js/messages.php:129
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:146 libraries/messages.inc.php:27
+#: js/messages.php:133 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "יום ראשון"
 
 #. l10n: Short week day name
-#: js/messages.php:148 libraries/messages.inc.php:27
+#: js/messages.php:135 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "יום שני"
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/messages.inc.php:27
+#: js/messages.php:137 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "יום שלישי"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/messages.inc.php:27
+#: js/messages.php:139 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "יום רביעי"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/messages.inc.php:27
+#: js/messages.php:141 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "יום חמישי"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/messages.inc.php:27
+#: js/messages.php:143 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "יום שישי"
 
 #. l10n: Short week day name
-#: js/messages.php:158 libraries/messages.inc.php:27
+#: js/messages.php:145 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "שבת"
 
 #. l10n: Minimal week day name
-#: js/messages.php:162
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "יום ראשון"
 
 #. l10n: Minimal week day name
-#: js/messages.php:164
+#: js/messages.php:151
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "יום שני"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:153
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "יום שלישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:155
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "יום רביעי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:157
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "יום חמישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:159
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "יום שישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:174
+#: js/messages.php:161
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "שבת"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:176
+#: js/messages.php:163
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:178
+#: js/messages.php:165
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:179
+#: js/messages.php:166
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "בשימוש"
 
-#: js/messages.php:180
+#: js/messages.php:167
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -963,27 +964,6 @@ msgid ""
 "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
 "Please check your PHP configuration."
 msgstr "התוספת %s לא נטענה בהצלחה,<br />אנא בדוק את הגדרות ה- PHP שלך."
-
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"נכשל בטעית תוספת iconv או recode הדרושה להמרת קידודים. או שתגדיר את PHP "
-"להפעיל את תוספות אלו, או שתבטל את המרת הקידודים בתוך phpMyAdmin."
-
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"נכשל בשימוש בפונקציות iconv, libiconv או recode, למרות שזה נראה כי התוספות "
-"הדרושות נטענו. בדוק את הגדרות PHP שלך."
 
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
@@ -1076,24 +1056,6 @@ msgstr ""
 #: libraries/db_routines.inc.php:43 libraries/messages.inc.php:819
 msgid "Return type"
 msgstr ""
-
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "תואם MySQL&nbsp;4.0"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-msgid "Generate Password"
-msgstr "ייצור סיסמא"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-msgid "Generate"
-msgstr "ייצור"
 
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
@@ -1188,6 +1150,24 @@ msgstr "\"gzipped\""
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "\"bzipped\""
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "תואם MySQL&nbsp;4.0"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+msgid "Generate Password"
+msgstr "ייצור סיסמא"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+msgid "Generate"
+msgstr "ייצור"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -1286,6 +1266,27 @@ msgstr "שאילתת SQL"
 msgid "Rows"
 msgstr "שורות"
 
+#: libraries/charset_conversion.lib.php:21
+#: libraries/charset_conversion.lib.php:27
+#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"נכשל בטעית תוספת iconv או recode הדרושה להמרת קידודים. או שתגדיר את PHP "
+"להפעיל את תוספות אלו, או שתבטל את המרת הקידודים בתוך phpMyAdmin."
+
+#: libraries/charset_conversion.lib.php:75
+#: libraries/charset_conversion.lib.php:86
+#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"נכשל בשימוש בפונקציות iconv, libiconv או recode, למרות שזה נראה כי התוספות "
+"הדרושות נטענו. בדוק את הגדרות PHP שלך."
+
 #: libraries/Message.class.php:282
 #, php-format
 msgid "%1$d row affected."
@@ -1362,7 +1363,7 @@ msgstr "%B %d, %Y at %I:%M %p"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s ימים, %s שעות, %s דקות ו- %s שניות"
 
-#: libraries/messages.inc.php:33 server_status.php:463
+#: libraries/messages.inc.php:33 server_status.php:461
 msgid "Aborted"
 msgstr "בוטל"
 
@@ -1455,7 +1456,7 @@ msgstr "שינוי סדר הטבלה לפי"
 msgid "Analyze"
 msgstr ""
 
-#: libraries/messages.inc.php:65 server_status.php:365
+#: libraries/messages.inc.php:65
 #, fuzzy
 msgid "and"
 msgstr "וגם"
@@ -1860,7 +1861,7 @@ msgstr "אנא הגדר נקודות ציון עבור טבלה %s"
 msgid "Cannot connect: invalid settings."
 msgstr "חיבור נכשל: הגדרות לא תקינות."
 
-#: libraries/messages.inc.php:181 server_status.php:435
+#: libraries/messages.inc.php:181 server_status.php:433
 msgid "Connections"
 msgstr "חיבורים"
 
@@ -2246,7 +2247,7 @@ msgstr "עריכת הרשאות"
 msgid "Effective"
 msgstr "יעיל"
 
-#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
+#: libraries/messages.inc.php:293 tbl_get_field.php:35 tbl_change.php:181
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL החזיר חבילת תוצאות ריקה (לדוגמא, אפס שורות)."
 
@@ -2361,7 +2362,7 @@ msgstr "הכנסות מורחבות"
 msgid "Extra"
 msgstr "תוספת"
 
-#: libraries/messages.inc.php:324 server_status.php:449
+#: libraries/messages.inc.php:324 server_status.php:447
 msgid "Failed attempts"
 msgstr "ניסיונות כושלים"
 
@@ -2579,7 +2580,7 @@ msgstr ""
 msgid "Use hexadecimal for BLOB"
 msgstr ""
 
-#: libraries/messages.inc.php:383
+#: libraries/messages.inc.php:383 pmd_general.php:141
 msgid "Hide"
 msgstr ""
 
@@ -3052,7 +3053,7 @@ msgstr "שם משתמש:"
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "תהליך זה יכול לקחת זמן רב. להמשיך בכל מקרה?"
 
-#: libraries/messages.inc.php:505 server_status.php:442
+#: libraries/messages.inc.php:505 server_status.php:440
 msgid "max. concurrent connections"
 msgstr ""
 
@@ -3658,16 +3659,16 @@ msgstr ""
 msgid "Report title"
 msgstr ""
 
-#: libraries/messages.inc.php:651 server_status.php:391 server_status.php:436
-#: server_status.php:499 server_status.php:557
+#: libraries/messages.inc.php:651 server_status.php:389 server_status.php:434
+#: server_status.php:497 server_status.php:555
 msgid "per hour"
 msgstr "לשעה"
 
-#: libraries/messages.inc.php:652 server_status.php:500
+#: libraries/messages.inc.php:652 server_status.php:498
 msgid "per minute"
 msgstr "לדקה"
 
-#: libraries/messages.inc.php:653 server_status.php:501
+#: libraries/messages.inc.php:653 server_status.php:499
 msgid "per second"
 msgstr "לשנייה"
 
@@ -3741,7 +3742,7 @@ msgstr "Polish"
 msgid "Port"
 msgstr "סידור"
 
-#: libraries/messages.inc.php:672 server_status.php:610
+#: libraries/messages.inc.php:672 server_status.php:608
 msgid "Begin"
 msgstr "התחלה"
 
@@ -3985,7 +3986,7 @@ msgstr ""
 msgid "SQL history"
 msgstr "היסטוריית SQL"
 
-#: libraries/messages.inc.php:734 server_status.php:492
+#: libraries/messages.inc.php:734 server_status.php:490
 #, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
@@ -3997,7 +3998,7 @@ msgstr "<b>סטטיטיקת שאילתות</b>: מאז ההפעלה, %s שאיל
 msgid "Query took %01.4f sec"
 msgstr "שאילתה לקחה %01.4f שניות"
 
-#: libraries/messages.inc.php:736 server_status.php:556
+#: libraries/messages.inc.php:736 server_status.php:554
 msgid "Query type"
 msgstr "סוג שאילתה"
 
@@ -4014,7 +4015,7 @@ msgstr "בקשות כתיבה"
 msgid "Rebuild"
 msgstr ""
 
-#: libraries/messages.inc.php:741 server_status.php:396
+#: libraries/messages.inc.php:741 server_status.php:394
 msgid "Received"
 msgstr "התקבל"
 
@@ -4309,7 +4310,7 @@ msgstr ""
 msgid "Master status"
 msgstr ""
 
-#: libraries/messages.inc.php:806 server_status.php:723
+#: libraries/messages.inc.php:806 server_status.php:721
 msgid "Replication status"
 msgstr ""
 
@@ -4503,7 +4504,7 @@ msgstr ""
 msgid "Select Tables"
 msgstr "בחירת טבלאות"
 
-#: libraries/messages.inc.php:861 server_status.php:406
+#: libraries/messages.inc.php:861 server_status.php:404
 msgid "Sent"
 msgstr "נשלח"
 
@@ -4544,7 +4545,7 @@ msgstr "שרת MySQL פעיל במשך %s. הוא התחיל לפעול ב- %s."
 msgid "Variables"
 msgstr "משתנים"
 
-#: libraries/messages.inc.php:870 server_status.php:385
+#: libraries/messages.inc.php:870 server_status.php:383
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
@@ -5313,7 +5314,7 @@ msgstr "משפטים"
 msgid "static"
 msgstr ""
 
-#: libraries/messages.inc.php:1043 server_status.php:390
+#: libraries/messages.inc.php:1043 server_status.php:388
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -5613,8 +5614,8 @@ msgid "total"
 msgstr "סה\"כ"
 
 #: libraries/messages.inc.php:1122 server_databases.php:137
-#: server_databases.php:305 server_status.php:416 server_status.php:477
-#: server_status.php:498 tbl_printview.php:351 tbl_structure.php:697
+#: server_databases.php:305 server_status.php:414 server_status.php:475
+#: server_status.php:496 tbl_printview.php:351 tbl_structure.php:697
 msgid "Total"
 msgstr "סה\"כ"
 
@@ -5775,7 +5776,7 @@ msgstr "סינית מסורתית"
 msgid "Traditional Spanish"
 msgstr "ספרדית מסורתית"
 
-#: libraries/messages.inc.php:1172 server_status.php:390
+#: libraries/messages.inc.php:1172 server_status.php:388
 msgid "Traffic"
 msgstr "Traffic"
 
@@ -6036,12 +6037,12 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 
-#: libraries/messages.inc.php:1230 server_status.php:629 tbl_change.php:324
+#: libraries/messages.inc.php:1230 server_status.php:627 tbl_change.php:324
 #: tbl_printview.php:370 tbl_structure.php:730
 msgid "Value"
 msgstr "ערך"
 
-#: libraries/messages.inc.php:1231 server_status.php:628
+#: libraries/messages.inc.php:1231 server_status.php:626
 #: server_variables.php:52
 msgid "Variable"
 msgstr "משתנה"
@@ -6189,12 +6190,24 @@ msgctxt "for Show status"
 msgid "Reset"
 msgstr "איפוס"
 
-#: server_status.php:369
-#, php-format
+#: server_status.php:360
 msgid ""
-"This MySQL server works as %s in <b>replication</b> process. For further "
-"information about replication status on the server, please visit the <a "
-"href=#replication>replication section</a>."
+"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
+"b> process."
+msgstr ""
+
+#: server_status.php:362
+msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
+msgstr ""
+
+#: server_status.php:364
+msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
+msgstr ""
+
+#: server_status.php:366
+msgid ""
+"For further information about replication status on the server, please visit "
+"the <a href=#replication>replication section</a>."
 msgstr ""
 
 #: server_synchronize.php:1117

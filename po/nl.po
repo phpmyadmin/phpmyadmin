@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 12:54-0400\n"
+"POT-Creation-Date: 2010-05-04 10:37+0200\n"
 "PO-Revision-Date: 2010-03-26 15:46+0200\n"
 "Last-Translator:  <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -37,17 +37,18 @@ msgstr "Zoeken"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_structure.php:567 js/messages.php:63
-#: libraries/display_change_password.lib.php:82
+#: db_structure.php:567 js/messages.php:50
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
-#: libraries/messages.inc.php:369 main.php:128 pdf_pages.php:285
-#: pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116
-#: tbl_change.php:330 tbl_change.php:1174 tbl_change.php:1211
-#: tbl_indexes.php:252 tbl_operations.php:263 tbl_operations.php:300
-#: tbl_operations.php:497 tbl_operations.php:559 tbl_operations.php:679
-#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_export.lib.php:277
+#: libraries/display_change_password.lib.php:82
+#: libraries/display_import.lib.php:276 libraries/messages.inc.php:369
+#: main.php:128 pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511
+#: pdf_pages.php:553 pmd_pdf.php:116 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:252 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_structure.php:563 tbl_structure.php:598
+#: tbl_tracking.php:395 tbl_tracking.php:512 view_create.php:182
+#: view_operations.php:101
 msgid "Go"
 msgstr "Start"
 
@@ -58,7 +59,7 @@ msgstr "Sleutelnaam"
 
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: libraries/messages.inc.php:260 server_collations.php:55
-#: server_collations.php:67 server_engines.php:59 server_status.php:630
+#: server_collations.php:67 server_engines.php:59 server_status.php:628
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -637,122 +638,122 @@ msgstr "Database-log"
 msgid "Bookmark %s created"
 msgstr "Bookmark %s aangemaakt"
 
-#: js/messages.php:64 libraries/messages.inc.php:131 pmd_general.php:342
+#: js/messages.php:51 libraries/messages.inc.php:131 pmd_general.php:342
 #: pmd_general.php:379
 msgid "Cancel"
 msgstr "Annuleren"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:87
+#: js/messages.php:74
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Doneer"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:89
+#: js/messages.php:76
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Vorige"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:91 libraries/messages.inc.php:551 tbl_printview.php:424
+#: js/messages.php:78 libraries/messages.inc.php:551 tbl_printview.php:424
 #: tbl_structure.php:802
 msgid "Next"
 msgstr "Volgende"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:93
+#: js/messages.php:80
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Totaal"
 
-#: js/messages.php:96
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr " Binair "
 
-#: js/messages.php:97
+#: js/messages.php:84
 msgid "February"
 msgstr ""
 
-#: js/messages.php:98
+#: js/messages.php:85
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:99
+#: js/messages.php:86
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Apr"
 
-#: js/messages.php:100 libraries/messages.inc.php:28
+#: js/messages.php:87 libraries/messages.inc.php:28
 msgid "May"
 msgstr "Mei"
 
-#: js/messages.php:101
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Jun"
 
-#: js/messages.php:102
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Jul"
 
-#: js/messages.php:103
+#: js/messages.php:90
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Aug"
 
-#: js/messages.php:104
+#: js/messages.php:91
 msgid "September"
 msgstr ""
 
-#: js/messages.php:105
+#: js/messages.php:92
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Oct"
 
-#: js/messages.php:106
+#: js/messages.php:93
 msgid "November"
 msgstr ""
 
-#: js/messages.php:107
+#: js/messages.php:94
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/messages.inc.php:28
+#: js/messages.php:98 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/messages.inc.php:28
+#: js/messages.php:100 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/messages.inc.php:28
+#: js/messages.php:102 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/messages.inc.php:28
+#: js/messages.php:104 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:119
+#: js/messages.php:106
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -760,178 +761,178 @@ msgid "May"
 msgstr "Mei"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/messages.inc.php:28
+#: js/messages.php:108 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/messages.inc.php:28
+#: js/messages.php:110 libraries/messages.inc.php:28
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/messages.inc.php:28
+#: js/messages.php:112 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/messages.inc.php:28
+#: js/messages.php:114 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr "Sept"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/messages.inc.php:28
+#: js/messages.php:116 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr "Oct"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/messages.inc.php:28
+#: js/messages.php:118 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:133 libraries/messages.inc.php:28
+#: js/messages.php:120 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:136
+#: js/messages.php:123
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Zo"
 
-#: js/messages.php:137
+#: js/messages.php:124
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Ma"
 
-#: js/messages.php:138
+#: js/messages.php:125
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Di"
 
-#: js/messages.php:139
+#: js/messages.php:126
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:140
+#: js/messages.php:127
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:128
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Vr"
 
-#: js/messages.php:142
+#: js/messages.php:129
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:146 libraries/messages.inc.php:27
+#: js/messages.php:133 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "Zo"
 
 #. l10n: Short week day name
-#: js/messages.php:148 libraries/messages.inc.php:27
+#: js/messages.php:135 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "Ma"
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/messages.inc.php:27
+#: js/messages.php:137 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "Di"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/messages.inc.php:27
+#: js/messages.php:139 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "Wo"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/messages.inc.php:27
+#: js/messages.php:141 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "Do"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/messages.inc.php:27
+#: js/messages.php:143 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "Vr"
 
 #. l10n: Short week day name
-#: js/messages.php:158 libraries/messages.inc.php:27
+#: js/messages.php:145 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "Za"
 
 #. l10n: Minimal week day name
-#: js/messages.php:162
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Zo"
 
 #. l10n: Minimal week day name
-#: js/messages.php:164
+#: js/messages.php:151
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:153
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Di"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:155
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Wo"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:157
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Do"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:159
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Vr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:174
+#: js/messages.php:161
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Za"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:176
+#: js/messages.php:163
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:178
+#: js/messages.php:165
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:179
+#: js/messages.php:166
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "in gebruik"
 
-#: js/messages.php:180
+#: js/messages.php:167
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -969,28 +970,6 @@ msgid ""
 msgstr ""
 "Kan de [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a]-extensie niet "
 "laden. Controleer de PHP configuratie."
-
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Kan de iconv of recode extensies niet laden, welke nodig zijn voor de "
-"karakterset conversie, configureer PHP om deze extensies toe te laten of "
-"schakel karakterset conversie uit in phpMyAdmin"
-
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Kan iconv, libiconv en recode_string functies niet gebruiken hoewel de "
-"extensies geladen geladen lijken te zijn. Controleer de PHP configuratie."
 
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
@@ -1091,24 +1070,6 @@ msgstr "Routines"
 msgid "Return type"
 msgstr "Retour type"
 
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr "Wachtwoord Hashing"
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "MySQL&nbsp;4.0 compatibel"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-msgid "Generate Password"
-msgstr "Genereer wachtwoord"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-msgid "Generate"
-msgstr "Genereer"
-
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1202,6 +1163,24 @@ msgstr "\"ge-gzipt\""
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "\"ge-bzipt\""
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr "Wachtwoord Hashing"
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "MySQL&nbsp;4.0 compatibel"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+msgid "Generate Password"
+msgstr "Genereer wachtwoord"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+msgid "Generate"
+msgstr "Genereer"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -1309,6 +1288,28 @@ msgstr "SQL-query"
 msgid "Rows"
 msgstr "Rijen"
 
+#: libraries/charset_conversion.lib.php:21
+#: libraries/charset_conversion.lib.php:27
+#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Kan de iconv of recode extensies niet laden, welke nodig zijn voor de "
+"karakterset conversie, configureer PHP om deze extensies toe te laten of "
+"schakel karakterset conversie uit in phpMyAdmin"
+
+#: libraries/charset_conversion.lib.php:75
+#: libraries/charset_conversion.lib.php:86
+#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Kan iconv, libiconv en recode_string functies niet gebruiken hoewel de "
+"extensies geladen geladen lijken te zijn. Controleer de PHP configuratie."
+
 #: libraries/Message.class.php:282
 #, fuzzy, php-format
 #| msgid "%1$d row(s) affected."
@@ -1386,7 +1387,7 @@ msgstr "%d %B %Y om %H:%M"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dagen, %s uren, %s minuten en %s seconden"
 
-#: libraries/messages.inc.php:33 server_status.php:463
+#: libraries/messages.inc.php:33 server_status.php:461
 msgid "Aborted"
 msgstr "Afgehaakte"
 
@@ -1478,7 +1479,7 @@ msgstr "Wijzig het \"Sorteren op/Order by\" van de tabel"
 msgid "Analyze"
 msgstr "Analyseer"
 
-#: libraries/messages.inc.php:65 server_status.php:365
+#: libraries/messages.inc.php:65
 msgid "and"
 msgstr "en"
 
@@ -1893,7 +1894,7 @@ msgstr "Configureer de coördinaten voor de tabel %s"
 msgid "Cannot connect: invalid settings."
 msgstr "Kan niet verbinden: ongeldige instellingen."
 
-#: libraries/messages.inc.php:181 server_status.php:435
+#: libraries/messages.inc.php:181 server_status.php:433
 msgid "Connections"
 msgstr "Connecties"
 
@@ -2283,7 +2284,7 @@ msgstr "Wijzig rechten"
 msgid "Effective"
 msgstr "Effectief"
 
-#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
+#: libraries/messages.inc.php:293 tbl_get_field.php:35 tbl_change.php:181
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultaat set terug (0 rijen)."
 
@@ -2399,7 +2400,7 @@ msgstr "Uitgebreide invoegingen"
 msgid "Extra"
 msgstr "Extra"
 
-#: libraries/messages.inc.php:324 server_status.php:449
+#: libraries/messages.inc.php:324 server_status.php:447
 msgid "Failed attempts"
 msgstr "Mislukte pogingen"
 
@@ -2621,7 +2622,7 @@ msgstr "Help"
 msgid "Use hexadecimal for BLOB"
 msgstr "Gebruik hexadecimaal voor BLOB"
 
-#: libraries/messages.inc.php:383
+#: libraries/messages.inc.php:383 pmd_general.php:141
 msgid "Hide"
 msgstr "Verberg"
 
@@ -3108,7 +3109,7 @@ msgstr "Gebruikersnaam:"
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Deze bewerking kan lang duren. Weet u het zeker?"
 
-#: libraries/messages.inc.php:505 server_status.php:442
+#: libraries/messages.inc.php:505 server_status.php:440
 msgid "max. concurrent connections"
 msgstr "Max. gelijktijdige verbindingen"
 
@@ -3770,16 +3771,16 @@ msgstr "(Genereert een rapport met de gegevens van een enkele tabel)"
 msgid "Report title"
 msgstr "Report titel"
 
-#: libraries/messages.inc.php:651 server_status.php:391 server_status.php:436
-#: server_status.php:499 server_status.php:557
+#: libraries/messages.inc.php:651 server_status.php:389 server_status.php:434
+#: server_status.php:497 server_status.php:555
 msgid "per hour"
 msgstr "per uur"
 
-#: libraries/messages.inc.php:652 server_status.php:500
+#: libraries/messages.inc.php:652 server_status.php:498
 msgid "per minute"
 msgstr "per minuut"
 
-#: libraries/messages.inc.php:653 server_status.php:501
+#: libraries/messages.inc.php:653 server_status.php:499
 msgid "per second"
 msgstr "per seconde"
 
@@ -3851,7 +3852,7 @@ msgstr "Pools"
 msgid "Port"
 msgstr "Poort"
 
-#: libraries/messages.inc.php:672 server_status.php:610
+#: libraries/messages.inc.php:672 server_status.php:608
 msgid "Begin"
 msgstr "Begin"
 
@@ -4107,7 +4108,7 @@ msgstr "Query resultaat bewerkingen"
 msgid "SQL history"
 msgstr "SQL-geschiedenis"
 
-#: libraries/messages.inc.php:734 server_status.php:492
+#: libraries/messages.inc.php:734 server_status.php:490
 #, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
@@ -4121,7 +4122,7 @@ msgstr ""
 msgid "Query took %01.4f sec"
 msgstr "Query duurde %01.4f sec"
 
-#: libraries/messages.inc.php:736 server_status.php:556
+#: libraries/messages.inc.php:736 server_status.php:554
 msgid "Query type"
 msgstr "Query-type"
 
@@ -4137,7 +4138,7 @@ msgstr "Lees aanvragen"
 msgid "Rebuild"
 msgstr "Regenereer"
 
-#: libraries/messages.inc.php:741 server_status.php:396
+#: libraries/messages.inc.php:741 server_status.php:394
 msgid "Received"
 msgstr "Ontvangen"
 
@@ -4450,7 +4451,7 @@ msgstr ""
 msgid "Master status"
 msgstr "Master status"
 
-#: libraries/messages.inc.php:806 server_status.php:723
+#: libraries/messages.inc.php:806 server_status.php:721
 msgid "Replication status"
 msgstr "Replicatie status"
 
@@ -4647,7 +4648,7 @@ msgstr "Selecteer de gerefereerde sleutel"
 msgid "Select Tables"
 msgstr "Selecteer tabellen"
 
-#: libraries/messages.inc.php:861 server_status.php:406
+#: libraries/messages.inc.php:861 server_status.php:404
 msgid "Sent"
 msgstr "Verzonden"
 
@@ -4686,7 +4687,7 @@ msgstr "Deze MySQL-server draait inmiddels %s. Hij is gestart op %s."
 msgid "Variables"
 msgstr "Variabelen"
 
-#: libraries/messages.inc.php:870 server_status.php:385
+#: libraries/messages.inc.php:870 server_status.php:383
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
@@ -5602,7 +5603,7 @@ msgstr "Opdrachten"
 msgid "static"
 msgstr "statisch"
 
-#: libraries/messages.inc.php:1043 server_status.php:390
+#: libraries/messages.inc.php:1043 server_status.php:388
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -5910,8 +5911,8 @@ msgid "total"
 msgstr "totaal"
 
 #: libraries/messages.inc.php:1122 server_databases.php:137
-#: server_databases.php:305 server_status.php:416 server_status.php:477
-#: server_status.php:498 tbl_printview.php:351 tbl_structure.php:697
+#: server_databases.php:305 server_status.php:414 server_status.php:475
+#: server_status.php:496 tbl_printview.php:351 tbl_structure.php:697
 msgid "Total"
 msgstr "Totaal"
 
@@ -6072,7 +6073,7 @@ msgstr "Traditioneel Chinees"
 msgid "Traditional Spanish"
 msgstr "Traditioneel Spaans"
 
-#: libraries/messages.inc.php:1172 server_status.php:390
+#: libraries/messages.inc.php:1172 server_status.php:388
 msgid "Traffic"
 msgstr "Verkeer"
 
@@ -6387,12 +6388,12 @@ msgstr ""
 "De SQL-validatie kon niet worden geïnitialiseerd. Controleer of u de nodige "
 "PHP-extensies heeft geïnstalleerd, zoals beschreven in de %sdocumentatie%s."
 
-#: libraries/messages.inc.php:1230 server_status.php:629 tbl_change.php:324
+#: libraries/messages.inc.php:1230 server_status.php:627 tbl_change.php:324
 #: tbl_printview.php:370 tbl_structure.php:730
 msgid "Value"
 msgstr "Waarde"
 
-#: libraries/messages.inc.php:1231 server_status.php:628
+#: libraries/messages.inc.php:1231 server_status.php:626
 #: server_variables.php:52
 msgid "Variable"
 msgstr "Variabelen"
@@ -6545,16 +6546,35 @@ msgctxt "for Show status"
 msgid "Reset"
 msgstr "Herstel"
 
-#: server_status.php:369
-#, fuzzy, php-format
+#: server_status.php:360
+#, fuzzy
+#| msgid "This server is configured as master in a replication process."
+msgid ""
+"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
+"b> process."
+msgstr "Deze server is ingesteld als master in een replicatie proces."
+
+#: server_status.php:362
+#, fuzzy
+#| msgid "This server is configured as master in a replication process."
+msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
+msgstr "Deze server is ingesteld als master in een replicatie proces."
+
+#: server_status.php:364
+#, fuzzy
+#| msgid "This server is configured as master in a replication process."
+msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
+msgstr "Deze server is ingesteld als master in een replicatie proces."
+
+#: server_status.php:366
+#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
 #| "href=\"#replication\">replication section</a>."
 msgid ""
-"This MySQL server works as %s in <b>replication</b> process. For further "
-"information about replication status on the server, please visit the <a "
-"href=#replication>replication section</a>."
+"For further information about replication status on the server, please visit "
+"the <a href=#replication>replication section</a>."
 msgstr ""
 "Deze MySQL-server functioneert als %s in een <b>replicatie</b> process. Kijk "
 "voor meer informatie over replicatie in de <a href=\"#replication"

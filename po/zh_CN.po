@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 12:54-0400\n"
+"POT-Creation-Date: 2010-05-04 10:37+0200\n"
 "PO-Revision-Date: 2010-04-08 13:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -37,17 +37,18 @@ msgstr "搜索"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_structure.php:567 js/messages.php:63
-#: libraries/display_change_password.lib.php:82
+#: db_structure.php:567 js/messages.php:50
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
-#: libraries/messages.inc.php:369 main.php:128 pdf_pages.php:285
-#: pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116
-#: tbl_change.php:330 tbl_change.php:1174 tbl_change.php:1211
-#: tbl_indexes.php:252 tbl_operations.php:263 tbl_operations.php:300
-#: tbl_operations.php:497 tbl_operations.php:559 tbl_operations.php:679
-#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_export.lib.php:277
+#: libraries/display_change_password.lib.php:82
+#: libraries/display_import.lib.php:276 libraries/messages.inc.php:369
+#: main.php:128 pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511
+#: pdf_pages.php:553 pmd_pdf.php:116 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:252 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_structure.php:563 tbl_structure.php:598
+#: tbl_tracking.php:395 tbl_tracking.php:512 view_create.php:182
+#: view_operations.php:101
 msgid "Go"
 msgstr "执行"
 
@@ -58,7 +59,7 @@ msgstr "键名"
 
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: libraries/messages.inc.php:260 server_collations.php:55
-#: server_collations.php:67 server_engines.php:59 server_status.php:630
+#: server_collations.php:67 server_engines.php:59 server_status.php:628
 msgid "Description"
 msgstr "说明"
 
@@ -636,122 +637,122 @@ msgstr "数据库日志"
 msgid "Bookmark %s created"
 msgstr "已创建书签 %s"
 
-#: js/messages.php:64 libraries/messages.inc.php:131 pmd_general.php:342
+#: js/messages.php:51 libraries/messages.inc.php:131 pmd_general.php:342
 #: pmd_general.php:379
 msgid "Cancel"
 msgstr "取消"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:87
+#: js/messages.php:74
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "捐助 (外链，英文)"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:89
+#: js/messages.php:76
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "上一个"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:91 libraries/messages.inc.php:551 tbl_printview.php:424
+#: js/messages.php:78 libraries/messages.inc.php:551 tbl_printview.php:424
 #: tbl_structure.php:802
 msgid "Next"
 msgstr "下一个"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:93
+#: js/messages.php:80
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "总计"
 
-#: js/messages.php:96
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "二进制"
 
-#: js/messages.php:97
+#: js/messages.php:84
 msgid "February"
 msgstr ""
 
-#: js/messages.php:98
+#: js/messages.php:85
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "三月"
 
-#: js/messages.php:99
+#: js/messages.php:86
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "四月"
 
-#: js/messages.php:100 libraries/messages.inc.php:28
+#: js/messages.php:87 libraries/messages.inc.php:28
 msgid "May"
 msgstr "五月"
 
-#: js/messages.php:101
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "六月"
 
-#: js/messages.php:102
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "七月"
 
-#: js/messages.php:103
+#: js/messages.php:90
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "八月"
 
-#: js/messages.php:104
+#: js/messages.php:91
 msgid "September"
 msgstr ""
 
-#: js/messages.php:105
+#: js/messages.php:92
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "十月"
 
-#: js/messages.php:106
+#: js/messages.php:93
 msgid "November"
 msgstr ""
 
-#: js/messages.php:107
+#: js/messages.php:94
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/messages.inc.php:28
+#: js/messages.php:98 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "一月"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/messages.inc.php:28
+#: js/messages.php:100 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "二月"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/messages.inc.php:28
+#: js/messages.php:102 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "三月"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/messages.inc.php:28
+#: js/messages.php:104 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "四月"
 
 #. l10n: Short month name
-#: js/messages.php:119
+#: js/messages.php:106
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -759,178 +760,178 @@ msgid "May"
 msgstr "五月"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/messages.inc.php:28
+#: js/messages.php:108 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "六月"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/messages.inc.php:28
+#: js/messages.php:110 libraries/messages.inc.php:28
 msgid "Jul"
 msgstr "七月"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/messages.inc.php:28
+#: js/messages.php:112 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr "八月"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/messages.inc.php:28
+#: js/messages.php:114 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr "九月"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/messages.inc.php:28
+#: js/messages.php:116 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr "十月"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/messages.inc.php:28
+#: js/messages.php:118 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr "十一月"
 
 #. l10n: Short month name
-#: js/messages.php:133 libraries/messages.inc.php:28
+#: js/messages.php:120 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr "十二月"
 
-#: js/messages.php:136
+#: js/messages.php:123
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "周日"
 
-#: js/messages.php:137
+#: js/messages.php:124
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "周一"
 
-#: js/messages.php:138
+#: js/messages.php:125
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "周二"
 
-#: js/messages.php:139
+#: js/messages.php:126
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:140
+#: js/messages.php:127
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:128
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "周五"
 
-#: js/messages.php:142
+#: js/messages.php:129
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:146 libraries/messages.inc.php:27
+#: js/messages.php:133 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "周日"
 
 #. l10n: Short week day name
-#: js/messages.php:148 libraries/messages.inc.php:27
+#: js/messages.php:135 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "周一"
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/messages.inc.php:27
+#: js/messages.php:137 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "周二"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/messages.inc.php:27
+#: js/messages.php:139 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "周三"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/messages.inc.php:27
+#: js/messages.php:141 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "周四"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/messages.inc.php:27
+#: js/messages.php:143 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "周五"
 
 #. l10n: Short week day name
-#: js/messages.php:158 libraries/messages.inc.php:27
+#: js/messages.php:145 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "周六"
 
 #. l10n: Minimal week day name
-#: js/messages.php:162
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "周日"
 
 #. l10n: Minimal week day name
-#: js/messages.php:164
+#: js/messages.php:151
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "周一"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:153
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "周二"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:155
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "周三"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:157
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "周四"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:159
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "周五"
 
 #. l10n: Minimal week day name
-#: js/messages.php:174
+#: js/messages.php:161
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "周六"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:176
+#: js/messages.php:163
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "维基 (Wiki) (外链，英文)"
 
-#: js/messages.php:178
+#: js/messages.php:165
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:179
+#: js/messages.php:166
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "使用中"
 
-#: js/messages.php:180
+#: js/messages.php:167
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -965,27 +966,6 @@ msgid ""
 msgstr ""
 "无法加载 [a@http://php.net/%1$s@Documentation][em]%1$s (外链，英语)[/em][/a] "
 "扩展，请检查您的 PHP 配置。"
-
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"无法加载 iconv 或可用于转换字符集所需的重编码扩展，请配置 PHP 启用这些扩展或"
-"在 phpMyAdmin 中禁用字符集转换功能。"
-
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"虽然必须的扩展已经加载，但还是无法使用 iconv、libiconv 和 recode_string 函"
-"数。请检查您的 PHP 配置。"
 
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
@@ -1080,24 +1060,6 @@ msgstr "常规"
 msgid "Return type"
 msgstr "返回类型"
 
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr "密码加密方式"
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "兼容 MySQL&nbsp;4.0"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-msgid "Generate Password"
-msgstr "生成密码"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-msgid "Generate"
-msgstr "生成"
-
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1191,6 +1153,24 @@ msgstr "gzip 压缩"
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "bzip 压缩"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr "密码加密方式"
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "兼容 MySQL&nbsp;4.0"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+msgid "Generate Password"
+msgstr "生成密码"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+msgid "Generate"
+msgstr "生成"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -1291,6 +1271,27 @@ msgstr "SQL 查询"
 msgid "Rows"
 msgstr "行数"
 
+#: libraries/charset_conversion.lib.php:21
+#: libraries/charset_conversion.lib.php:27
+#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"无法加载 iconv 或可用于转换字符集所需的重编码扩展，请配置 PHP 启用这些扩展或"
+"在 phpMyAdmin 中禁用字符集转换功能。"
+
+#: libraries/charset_conversion.lib.php:75
+#: libraries/charset_conversion.lib.php:86
+#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"虽然必须的扩展已经加载，但还是无法使用 iconv、libiconv 和 recode_string 函"
+"数。请检查您的 PHP 配置。"
+
 #: libraries/Message.class.php:282
 #, php-format
 msgid "%1$d row affected."
@@ -1362,7 +1363,7 @@ msgstr "%Y 年 %m 月 %d 日 %H:%M"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小时，%s 分 %s 秒"
 
-#: libraries/messages.inc.php:33 server_status.php:463
+#: libraries/messages.inc.php:33 server_status.php:461
 msgid "Aborted"
 msgstr "已取消"
 
@@ -1454,7 +1455,7 @@ msgstr "更改表的排序，根据"
 msgid "Analyze"
 msgstr "分析"
 
-#: libraries/messages.inc.php:65 server_status.php:365
+#: libraries/messages.inc.php:65
 msgid "and"
 msgstr "和"
 
@@ -1858,7 +1859,7 @@ msgstr "请配置表 %s 的并发"
 msgid "Cannot connect: invalid settings."
 msgstr "无法连接：无效的设置。"
 
-#: libraries/messages.inc.php:181 server_status.php:435
+#: libraries/messages.inc.php:181 server_status.php:433
 msgid "Connections"
 msgstr "连接"
 
@@ -2236,7 +2237,7 @@ msgstr "编辑权限"
 msgid "Effective"
 msgstr "有效"
 
-#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
+#: libraries/messages.inc.php:293 tbl_get_field.php:35 tbl_change.php:181
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查询结果为空 (即零行)。"
 
@@ -2350,7 +2351,7 @@ msgstr "扩展插入"
 msgid "Extra"
 msgstr "额外"
 
-#: libraries/messages.inc.php:324 server_status.php:449
+#: libraries/messages.inc.php:324 server_status.php:447
 msgid "Failed attempts"
 msgstr "已失败"
 
@@ -2566,7 +2567,7 @@ msgstr "帮助"
 msgid "Use hexadecimal for BLOB"
 msgstr "为 BLOB 字段使用16进制 (HEX)"
 
-#: libraries/messages.inc.php:383
+#: libraries/messages.inc.php:383 pmd_general.php:141
 msgid "Hide"
 msgstr "隐藏"
 
@@ -3038,7 +3039,7 @@ msgstr "用户名："
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "该操作可能需要执行较长时间，确定执行？"
 
-#: libraries/messages.inc.php:505 server_status.php:442
+#: libraries/messages.inc.php:505 server_status.php:440
 msgid "max. concurrent connections"
 msgstr "最大并发连接数"
 
@@ -3655,16 +3656,16 @@ msgstr "(根据一张表的数据生成报告)"
 msgid "Report title"
 msgstr "报告标题"
 
-#: libraries/messages.inc.php:651 server_status.php:391 server_status.php:436
-#: server_status.php:499 server_status.php:557
+#: libraries/messages.inc.php:651 server_status.php:389 server_status.php:434
+#: server_status.php:497 server_status.php:555
 msgid "per hour"
 msgstr "每小时"
 
-#: libraries/messages.inc.php:652 server_status.php:500
+#: libraries/messages.inc.php:652 server_status.php:498
 msgid "per minute"
 msgstr "每分钟"
 
-#: libraries/messages.inc.php:653 server_status.php:501
+#: libraries/messages.inc.php:653 server_status.php:499
 msgid "per second"
 msgstr "每秒"
 
@@ -3738,7 +3739,7 @@ msgstr "波兰语"
 msgid "Port"
 msgstr "端口"
 
-#: libraries/messages.inc.php:672 server_status.php:610
+#: libraries/messages.inc.php:672 server_status.php:608
 msgid "Begin"
 msgstr "开始"
 
@@ -3976,7 +3977,7 @@ msgstr "查询结果选项"
 msgid "SQL history"
 msgstr "SQL 历史"
 
-#: libraries/messages.inc.php:734 server_status.php:492
+#: libraries/messages.inc.php:734 server_status.php:490
 #, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
@@ -3988,7 +3989,7 @@ msgstr "<b>查询统计</b>：自启动后，服务器共收到了 %s 次查询�
 msgid "Query took %01.4f sec"
 msgstr "查询花费 %01.4f 秒"
 
-#: libraries/messages.inc.php:736 server_status.php:556
+#: libraries/messages.inc.php:736 server_status.php:554
 msgid "Query type"
 msgstr "查询方式"
 
@@ -4004,7 +4005,7 @@ msgstr "读请求"
 msgid "Rebuild"
 msgstr "重建"
 
-#: libraries/messages.inc.php:741 server_status.php:396
+#: libraries/messages.inc.php:741 server_status.php:394
 msgid "Received"
 msgstr "已接收"
 
@@ -4302,7 +4303,7 @@ msgstr ""
 msgid "Master status"
 msgstr "主服务器状态"
 
-#: libraries/messages.inc.php:806 server_status.php:723
+#: libraries/messages.inc.php:806 server_status.php:721
 msgid "Replication status"
 msgstr "复制状态"
 
@@ -4496,7 +4497,7 @@ msgstr "选择外键"
 msgid "Select Tables"
 msgstr "选择表"
 
-#: libraries/messages.inc.php:861 server_status.php:406
+#: libraries/messages.inc.php:861 server_status.php:404
 msgid "Sent"
 msgstr "已发送"
 
@@ -4535,7 +4536,7 @@ msgstr "此 MySQL 服务器已经运行了 %s，启动时间为 %s。"
 msgid "Variables"
 msgstr "变量"
 
-#: libraries/messages.inc.php:870 server_status.php:385
+#: libraries/messages.inc.php:870 server_status.php:383
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
@@ -5372,7 +5373,7 @@ msgstr "说明"
 msgid "static"
 msgstr "静态"
 
-#: libraries/messages.inc.php:1043 server_status.php:390
+#: libraries/messages.inc.php:1043 server_status.php:388
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -5674,8 +5675,8 @@ msgid "total"
 msgstr "总计"
 
 #: libraries/messages.inc.php:1122 server_databases.php:137
-#: server_databases.php:305 server_status.php:416 server_status.php:477
-#: server_status.php:498 tbl_printview.php:351 tbl_structure.php:697
+#: server_databases.php:305 server_status.php:414 server_status.php:475
+#: server_status.php:496 tbl_printview.php:351 tbl_structure.php:697
 msgid "Total"
 msgstr "总计"
 
@@ -5832,7 +5833,7 @@ msgstr "正体中文"
 msgid "Traditional Spanish"
 msgstr "传统西班牙语"
 
-#: libraries/messages.inc.php:1172 server_status.php:390
+#: libraries/messages.inc.php:1172 server_status.php:388
 msgid "Traffic"
 msgstr "流量"
 
@@ -6115,12 +6116,12 @@ msgid ""
 msgstr ""
 "SQL 校验程序无法初始化。请检查是否已经安装了%s文档%s内说明的必需 PHP 扩展。"
 
-#: libraries/messages.inc.php:1230 server_status.php:629 tbl_change.php:324
+#: libraries/messages.inc.php:1230 server_status.php:627 tbl_change.php:324
 #: tbl_printview.php:370 tbl_structure.php:730
 msgid "Value"
 msgstr "值"
 
-#: libraries/messages.inc.php:1231 server_status.php:628
+#: libraries/messages.inc.php:1231 server_status.php:626
 #: server_variables.php:52
 msgid "Variable"
 msgstr "变量"
@@ -6267,16 +6268,35 @@ msgctxt "for Show status"
 msgid "Reset"
 msgstr "重置"
 
-#: server_status.php:369
-#, fuzzy, php-format
+#: server_status.php:360
+#, fuzzy
+#| msgid "This server is configured as master in a replication process."
+msgid ""
+"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
+"b> process."
+msgstr "此服务器已被配置为一个复制进程中的主服务器。"
+
+#: server_status.php:362
+#, fuzzy
+#| msgid "This server is configured as master in a replication process."
+msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
+msgstr "此服务器已被配置为一个复制进程中的主服务器。"
+
+#: server_status.php:364
+#, fuzzy
+#| msgid "This server is configured as master in a replication process."
+msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
+msgstr "此服务器已被配置为一个复制进程中的主服务器。"
+
+#: server_status.php:366
+#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
 #| "href=\"#replication\">replication section</a>."
 msgid ""
-"This MySQL server works as %s in <b>replication</b> process. For further "
-"information about replication status on the server, please visit the <a "
-"href=#replication>replication section</a>."
+"For further information about replication status on the server, please visit "
+"the <a href=#replication>replication section</a>."
 msgstr ""
 "此 MySQL 服务器运行于 %s <b>复制</b> 进程。要获得更多关于此服务器的复制状态，"
 "请浏览 <a href=\"#replication\">复制状态信息</a>."

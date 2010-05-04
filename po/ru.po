@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 12:54-0400\n"
+"POT-Creation-Date: 2010-05-04 10:37+0200\n"
 "PO-Revision-Date: 2010-03-30 23:23+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -39,17 +39,18 @@ msgstr "Поиск"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_structure.php:567 js/messages.php:63
-#: libraries/display_change_password.lib.php:82
+#: db_structure.php:567 js/messages.php:50
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
-#: libraries/messages.inc.php:369 main.php:128 pdf_pages.php:285
-#: pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116
-#: tbl_change.php:330 tbl_change.php:1174 tbl_change.php:1211
-#: tbl_indexes.php:252 tbl_operations.php:263 tbl_operations.php:300
-#: tbl_operations.php:497 tbl_operations.php:559 tbl_operations.php:679
-#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_export.lib.php:277
+#: libraries/display_change_password.lib.php:82
+#: libraries/display_import.lib.php:276 libraries/messages.inc.php:369
+#: main.php:128 pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511
+#: pdf_pages.php:553 pmd_pdf.php:116 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:252 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_structure.php:563 tbl_structure.php:598
+#: tbl_tracking.php:395 tbl_tracking.php:512 view_create.php:182
+#: view_operations.php:101
 msgid "Go"
 msgstr "OK"
 
@@ -60,7 +61,7 @@ msgstr "Имя индекса"
 
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: libraries/messages.inc.php:260 server_collations.php:55
-#: server_collations.php:67 server_engines.php:59 server_status.php:630
+#: server_collations.php:67 server_engines.php:59 server_status.php:628
 msgid "Description"
 msgstr "Описание"
 
@@ -640,122 +641,122 @@ msgstr "Журнал базы данных"
 msgid "Bookmark %s created"
 msgstr "Закладка &quot;%s&quot; создана"
 
-#: js/messages.php:64 libraries/messages.inc.php:131 pmd_general.php:342
+#: js/messages.php:51 libraries/messages.inc.php:131 pmd_general.php:342
 #: pmd_general.php:379
 msgid "Cancel"
 msgstr "Отмена"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:87
+#: js/messages.php:74
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Пожертвование"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:89
+#: js/messages.php:76
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Назад"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:91 libraries/messages.inc.php:551 tbl_printview.php:424
+#: js/messages.php:78 libraries/messages.inc.php:551 tbl_printview.php:424
 #: tbl_structure.php:802
 msgid "Next"
 msgstr "Следующий"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:93
+#: js/messages.php:80
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Всего"
 
-#: js/messages.php:96
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Двоичный"
 
-#: js/messages.php:97
+#: js/messages.php:84
 msgid "February"
 msgstr ""
 
-#: js/messages.php:98
+#: js/messages.php:85
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Мар"
 
-#: js/messages.php:99
+#: js/messages.php:86
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Апр"
 
-#: js/messages.php:100 libraries/messages.inc.php:28
+#: js/messages.php:87 libraries/messages.inc.php:28
 msgid "May"
 msgstr "Май"
 
-#: js/messages.php:101
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Июн"
 
-#: js/messages.php:102
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Июл"
 
-#: js/messages.php:103
+#: js/messages.php:90
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Авг"
 
-#: js/messages.php:104
+#: js/messages.php:91
 msgid "September"
 msgstr ""
 
-#: js/messages.php:105
+#: js/messages.php:92
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Окт"
 
-#: js/messages.php:106
+#: js/messages.php:93
 msgid "November"
 msgstr ""
 
-#: js/messages.php:107
+#: js/messages.php:94
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/messages.inc.php:28
+#: js/messages.php:98 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "Янв"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/messages.inc.php:28
+#: js/messages.php:100 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "Фев"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/messages.inc.php:28
+#: js/messages.php:102 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "Мар"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/messages.inc.php:28
+#: js/messages.php:104 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "Апр"
 
 #. l10n: Short month name
-#: js/messages.php:119
+#: js/messages.php:106
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -763,178 +764,178 @@ msgid "May"
 msgstr "Май"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/messages.inc.php:28
+#: js/messages.php:108 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "Июн"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/messages.inc.php:28
+#: js/messages.php:110 libraries/messages.inc.php:28
 msgid "Jul"
 msgstr "Июл"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/messages.inc.php:28
+#: js/messages.php:112 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr "Авг"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/messages.inc.php:28
+#: js/messages.php:114 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr "Сен"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/messages.inc.php:28
+#: js/messages.php:116 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr "Окт"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/messages.inc.php:28
+#: js/messages.php:118 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr "Ноя"
 
 #. l10n: Short month name
-#: js/messages.php:133 libraries/messages.inc.php:28
+#: js/messages.php:120 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr "Дек"
 
-#: js/messages.php:136
+#: js/messages.php:123
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Вс"
 
-#: js/messages.php:137
+#: js/messages.php:124
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Пн"
 
-#: js/messages.php:138
+#: js/messages.php:125
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Вт"
 
-#: js/messages.php:139
+#: js/messages.php:126
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:140
+#: js/messages.php:127
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:128
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Пт"
 
-#: js/messages.php:142
+#: js/messages.php:129
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:146 libraries/messages.inc.php:27
+#: js/messages.php:133 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "Вс"
 
 #. l10n: Short week day name
-#: js/messages.php:148 libraries/messages.inc.php:27
+#: js/messages.php:135 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "Пн"
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/messages.inc.php:27
+#: js/messages.php:137 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "Вт"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/messages.inc.php:27
+#: js/messages.php:139 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "Ср"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/messages.inc.php:27
+#: js/messages.php:141 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "Чт"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/messages.inc.php:27
+#: js/messages.php:143 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "Пт"
 
 #. l10n: Short week day name
-#: js/messages.php:158 libraries/messages.inc.php:27
+#: js/messages.php:145 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "Сб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:162
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Вс"
 
 #. l10n: Minimal week day name
-#: js/messages.php:164
+#: js/messages.php:151
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Пн"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:153
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Вт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:155
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Ср"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:157
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Чт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:159
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Пт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:174
+#: js/messages.php:161
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Сб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:176
+#: js/messages.php:163
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Вики"
 
-#: js/messages.php:178
+#: js/messages.php:165
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:179
+#: js/messages.php:166
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "используется"
 
-#: js/messages.php:180
+#: js/messages.php:167
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -972,28 +973,6 @@ msgid ""
 msgstr ""
 "Невозможно загрузить расширение [a@http://php.net/%1$s@Documentation][em]%1$s"
 "[/em][/a]! Проверьте настройки PHP."
-
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Не подключены расширения iconv или recode, необходимые для конвертации "
-"кодировок. Необходимо настроить PHP, включив данные расширения, или "
-"отключить возможность конвертации кодировок в настройках phpMyAdmin."
-
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Несмотря на то что необходимые расширения загружены, использование функций "
-"iconv, libiconv или recode_string - невозможно. Проверьте настройки PHP."
 
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
@@ -1097,24 +1076,6 @@ msgstr "Процедуры"
 msgid "Return type"
 msgstr "Возвращаемый тип"
 
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr "Хеширование пароля"
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "MySQL&nbsp;4.0 совместимо"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-msgid "Generate Password"
-msgstr "Создать пароль"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-msgid "Generate"
-msgstr "Генерировать"
-
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1208,6 +1169,24 @@ msgstr "gzip"
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "bzip"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr "Хеширование пароля"
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "MySQL&nbsp;4.0 совместимо"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+msgid "Generate Password"
+msgstr "Создать пароль"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+msgid "Generate"
+msgstr "Генерировать"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -1312,6 +1291,28 @@ msgstr "SQL-запрос"
 msgid "Rows"
 msgstr "Строки"
 
+#: libraries/charset_conversion.lib.php:21
+#: libraries/charset_conversion.lib.php:27
+#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Не подключены расширения iconv или recode, необходимые для конвертации "
+"кодировок. Необходимо настроить PHP, включив данные расширения, или "
+"отключить возможность конвертации кодировок в настройках phpMyAdmin."
+
+#: libraries/charset_conversion.lib.php:75
+#: libraries/charset_conversion.lib.php:86
+#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Несмотря на то что необходимые расширения загружены, использование функций "
+"iconv, libiconv или recode_string - невозможно. Проверьте настройки PHP."
+
 #: libraries/Message.class.php:282
 #, fuzzy, php-format
 #| msgid "%1$d row(s) affected."
@@ -1389,7 +1390,7 @@ msgstr "%B %d %Y г., %H:%M"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дней, %s часов, %s минут и %s секунд"
 
-#: libraries/messages.inc.php:33 server_status.php:463
+#: libraries/messages.inc.php:33 server_status.php:461
 msgid "Aborted"
 msgstr "Прерваны"
 
@@ -1481,7 +1482,7 @@ msgstr "Изменить сортировку таблицы"
 msgid "Analyze"
 msgstr "Анализ"
 
-#: libraries/messages.inc.php:65 server_status.php:365
+#: libraries/messages.inc.php:65
 msgid "and"
 msgstr "и"
 
@@ -1892,7 +1893,7 @@ msgstr "Измените координаты таблицы %s"
 msgid "Cannot connect: invalid settings."
 msgstr "Соединение невозможно! Неверные настройки."
 
-#: libraries/messages.inc.php:181 server_status.php:435
+#: libraries/messages.inc.php:181 server_status.php:433
 msgid "Connections"
 msgstr "Соединения"
 
@@ -2287,7 +2288,7 @@ msgstr "Редактирование привилегий"
 msgid "Effective"
 msgstr "Эффективность"
 
-#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
+#: libraries/messages.inc.php:293 tbl_get_field.php:35 tbl_change.php:181
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вернула пустой результат (т.е. ноль строк)."
 
@@ -2401,7 +2402,7 @@ msgstr "Расширенные вставки"
 msgid "Extra"
 msgstr "Дополнительно"
 
-#: libraries/messages.inc.php:324 server_status.php:449
+#: libraries/messages.inc.php:324 server_status.php:447
 msgid "Failed attempts"
 msgstr "Неудачных попыток"
 
@@ -2620,7 +2621,7 @@ msgstr "Помощь"
 msgid "Use hexadecimal for BLOB"
 msgstr "Использовать шестнадцатеричное отображение для полей типа BLOB"
 
-#: libraries/messages.inc.php:383
+#: libraries/messages.inc.php:383 pmd_general.php:141
 msgid "Hide"
 msgstr "Скрыть"
 
@@ -3103,7 +3104,7 @@ msgstr "Пользователь:"
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Выполнение данной операции может занять длительное время. Продолжить?"
 
-#: libraries/messages.inc.php:505 server_status.php:442
+#: libraries/messages.inc.php:505 server_status.php:440
 msgid "max. concurrent connections"
 msgstr "Максимально одновременных"
 
@@ -3764,16 +3765,16 @@ msgstr "(Создание отчета содержащего данные од�
 msgid "Report title"
 msgstr "Заголовок отчета"
 
-#: libraries/messages.inc.php:651 server_status.php:391 server_status.php:436
-#: server_status.php:499 server_status.php:557
+#: libraries/messages.inc.php:651 server_status.php:389 server_status.php:434
+#: server_status.php:497 server_status.php:555
 msgid "per hour"
 msgstr "в час"
 
-#: libraries/messages.inc.php:652 server_status.php:500
+#: libraries/messages.inc.php:652 server_status.php:498
 msgid "per minute"
 msgstr "в минуту"
 
-#: libraries/messages.inc.php:653 server_status.php:501
+#: libraries/messages.inc.php:653 server_status.php:499
 msgid "per second"
 msgstr "в секунду"
 
@@ -3847,7 +3848,7 @@ msgstr "Польский"
 msgid "Port"
 msgstr "Порт"
 
-#: libraries/messages.inc.php:672 server_status.php:610
+#: libraries/messages.inc.php:672 server_status.php:608
 msgid "Begin"
 msgstr "Начало"
 
@@ -4096,7 +4097,7 @@ msgstr "Использование результатов запроса"
 msgid "SQL history"
 msgstr "История SQL-запросов"
 
-#: libraries/messages.inc.php:734 server_status.php:492
+#: libraries/messages.inc.php:734 server_status.php:490
 #, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
@@ -4110,7 +4111,7 @@ msgstr ""
 msgid "Query took %01.4f sec"
 msgstr "запрос занял %01.4f сек."
 
-#: libraries/messages.inc.php:736 server_status.php:556
+#: libraries/messages.inc.php:736 server_status.php:554
 msgid "Query type"
 msgstr "Тип запроса"
 
@@ -4126,7 +4127,7 @@ msgstr "Запросы на чтение"
 msgid "Rebuild"
 msgstr "Перестройка"
 
-#: libraries/messages.inc.php:741 server_status.php:396
+#: libraries/messages.inc.php:741 server_status.php:394
 msgid "Received"
 msgstr "Принято"
 
@@ -4443,7 +4444,7 @@ msgstr ""
 msgid "Master status"
 msgstr "Статус Master"
 
-#: libraries/messages.inc.php:806 server_status.php:723
+#: libraries/messages.inc.php:806 server_status.php:721
 msgid "Replication status"
 msgstr "Состояние репликации"
 
@@ -4639,7 +4640,7 @@ msgstr "Выберите ссылочный ключ"
 msgid "Select Tables"
 msgstr "Выберите таблицы"
 
-#: libraries/messages.inc.php:861 server_status.php:406
+#: libraries/messages.inc.php:861 server_status.php:404
 msgid "Sent"
 msgstr "Отправлено"
 
@@ -4678,7 +4679,7 @@ msgstr "MySQL сервер работает %s. Время запуска: %s."
 msgid "Variables"
 msgstr "Переменные"
 
-#: libraries/messages.inc.php:870 server_status.php:385
+#: libraries/messages.inc.php:870 server_status.php:383
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
@@ -5601,7 +5602,7 @@ msgstr "Характеристика"
 msgid "static"
 msgstr "статический"
 
-#: libraries/messages.inc.php:1043 server_status.php:390
+#: libraries/messages.inc.php:1043 server_status.php:388
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -5912,8 +5913,8 @@ msgid "total"
 msgstr "всего"
 
 #: libraries/messages.inc.php:1122 server_databases.php:137
-#: server_databases.php:305 server_status.php:416 server_status.php:477
-#: server_status.php:498 tbl_printview.php:351 tbl_structure.php:697
+#: server_databases.php:305 server_status.php:414 server_status.php:475
+#: server_status.php:496 tbl_printview.php:351 tbl_structure.php:697
 msgid "Total"
 msgstr "Всего"
 
@@ -6073,7 +6074,7 @@ msgstr "Китайский традиционный"
 msgid "Traditional Spanish"
 msgstr "Испанский традиционный"
 
-#: libraries/messages.inc.php:1172 server_status.php:390
+#: libraries/messages.inc.php:1172 server_status.php:388
 msgid "Traffic"
 msgstr "Трафик"
 
@@ -6390,12 +6391,12 @@ msgstr ""
 "Проверка синтаксиса SQL не осуществима. Проверьте, установлены ли "
 "необходимые модули расширений для PHP, описанные в %sдокументации%s."
 
-#: libraries/messages.inc.php:1230 server_status.php:629 tbl_change.php:324
+#: libraries/messages.inc.php:1230 server_status.php:627 tbl_change.php:324
 #: tbl_printview.php:370 tbl_structure.php:730
 msgid "Value"
 msgstr "Значение"
 
-#: libraries/messages.inc.php:1231 server_status.php:628
+#: libraries/messages.inc.php:1231 server_status.php:626
 #: server_variables.php:52
 msgid "Variable"
 msgstr "Переменная"
@@ -6548,16 +6549,35 @@ msgctxt "for Show status"
 msgid "Reset"
 msgstr "Сбросить"
 
-#: server_status.php:369
-#, fuzzy, php-format
+#: server_status.php:360
+#, fuzzy
+#| msgid "This server is configured as master in a replication process."
+msgid ""
+"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
+"b> process."
+msgstr "Данный сервер настроен головным в процессе репликации."
+
+#: server_status.php:362
+#, fuzzy
+#| msgid "This server is configured as master in a replication process."
+msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
+msgstr "Данный сервер настроен головным в процессе репликации."
+
+#: server_status.php:364
+#, fuzzy
+#| msgid "This server is configured as master in a replication process."
+msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
+msgstr "Данный сервер настроен головным в процессе репликации."
+
+#: server_status.php:366
+#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
 #| "href=\"#replication\">replication section</a>."
 msgid ""
-"This MySQL server works as %s in <b>replication</b> process. For further "
-"information about replication status on the server, please visit the <a "
-"href=#replication>replication section</a>."
+"For further information about replication status on the server, please visit "
+"the <a href=#replication>replication section</a>."
 msgstr ""
 "Данный MySQL сервер работает, как %s в процессе <b>репликации</b>. Для "
 "получения подробной информации о состоянии репликации сервера, пожалуйста, "

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-03 12:54-0400\n"
+"POT-Creation-Date: 2010-05-04 10:37+0200\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
@@ -36,17 +36,18 @@ msgstr "Пошук"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_structure.php:567 js/messages.php:63
-#: libraries/display_change_password.lib.php:82
+#: db_structure.php:567 js/messages.php:50
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
-#: libraries/messages.inc.php:369 main.php:128 pdf_pages.php:285
-#: pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116
-#: tbl_change.php:330 tbl_change.php:1174 tbl_change.php:1211
-#: tbl_indexes.php:252 tbl_operations.php:263 tbl_operations.php:300
-#: tbl_operations.php:497 tbl_operations.php:559 tbl_operations.php:679
-#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_export.lib.php:277
+#: libraries/display_change_password.lib.php:82
+#: libraries/display_import.lib.php:276 libraries/messages.inc.php:369
+#: main.php:128 pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511
+#: pdf_pages.php:553 pmd_pdf.php:116 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:252 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_structure.php:563 tbl_structure.php:598
+#: tbl_tracking.php:395 tbl_tracking.php:512 view_create.php:182
+#: view_operations.php:101
 msgid "Go"
 msgstr "Панеслася"
 
@@ -57,7 +58,7 @@ msgstr "Імя ключа"
 
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: libraries/messages.inc.php:260 server_collations.php:55
-#: server_collations.php:67 server_engines.php:59 server_status.php:630
+#: server_collations.php:67 server_engines.php:59 server_status.php:628
 msgid "Description"
 msgstr "Апісаньне"
 
@@ -649,121 +650,121 @@ msgstr "База дадзеных"
 msgid "Bookmark %s created"
 msgstr "Закладка %s створаная"
 
-#: js/messages.php:64 libraries/messages.inc.php:131 pmd_general.php:342
+#: js/messages.php:51 libraries/messages.inc.php:131 pmd_general.php:342
 #: pmd_general.php:379
 msgid "Cancel"
 msgstr "Скасаваць"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:87
+#: js/messages.php:74
 #, fuzzy
 msgid "Done"
 msgstr "Дадзеныя"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:89
+#: js/messages.php:76
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Папярэдняя старонка"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:91 libraries/messages.inc.php:551 tbl_printview.php:424
+#: js/messages.php:78 libraries/messages.inc.php:551 tbl_printview.php:424
 #: tbl_structure.php:802
 msgid "Next"
 msgstr "Наступная старонка"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:93
+#: js/messages.php:80
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Агулам"
 
-#: js/messages.php:96
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Двайковы"
 
-#: js/messages.php:97
+#: js/messages.php:84
 msgid "February"
 msgstr ""
 
-#: js/messages.php:98
+#: js/messages.php:85
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Сак"
 
-#: js/messages.php:99
+#: js/messages.php:86
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Кра"
 
-#: js/messages.php:100 libraries/messages.inc.php:28
+#: js/messages.php:87 libraries/messages.inc.php:28
 msgid "May"
 msgstr "Тра"
 
-#: js/messages.php:101
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Чэр"
 
-#: js/messages.php:102
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Ліп"
 
-#: js/messages.php:103
+#: js/messages.php:90
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Жні"
 
-#: js/messages.php:104
+#: js/messages.php:91
 msgid "September"
 msgstr ""
 
-#: js/messages.php:105
+#: js/messages.php:92
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Кас"
 
-#: js/messages.php:106
+#: js/messages.php:93
 msgid "November"
 msgstr ""
 
-#: js/messages.php:107
+#: js/messages.php:94
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/messages.inc.php:28
+#: js/messages.php:98 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "Сту"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/messages.inc.php:28
+#: js/messages.php:100 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "Лют"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/messages.inc.php:28
+#: js/messages.php:102 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "Сак"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/messages.inc.php:28
+#: js/messages.php:104 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "Кра"
 
 #. l10n: Short month name
-#: js/messages.php:119
+#: js/messages.php:106
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -771,178 +772,178 @@ msgid "May"
 msgstr "Тра"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/messages.inc.php:28
+#: js/messages.php:108 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "Чэр"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/messages.inc.php:28
+#: js/messages.php:110 libraries/messages.inc.php:28
 msgid "Jul"
 msgstr "Ліп"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/messages.inc.php:28
+#: js/messages.php:112 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr "Жні"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/messages.inc.php:28
+#: js/messages.php:114 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr "Вер"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/messages.inc.php:28
+#: js/messages.php:116 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr "Кас"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/messages.inc.php:28
+#: js/messages.php:118 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr "Ліс"
 
 #. l10n: Short month name
-#: js/messages.php:133 libraries/messages.inc.php:28
+#: js/messages.php:120 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr "Сьн"
 
-#: js/messages.php:136
+#: js/messages.php:123
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ндз"
 
-#: js/messages.php:137
+#: js/messages.php:124
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Пан"
 
-#: js/messages.php:138
+#: js/messages.php:125
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Аўт"
 
-#: js/messages.php:139
+#: js/messages.php:126
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:140
+#: js/messages.php:127
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:128
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Пят"
 
-#: js/messages.php:142
+#: js/messages.php:129
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:146 libraries/messages.inc.php:27
+#: js/messages.php:133 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "Ндз"
 
 #. l10n: Short week day name
-#: js/messages.php:148 libraries/messages.inc.php:27
+#: js/messages.php:135 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "Пан"
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/messages.inc.php:27
+#: js/messages.php:137 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "Аўт"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/messages.inc.php:27
+#: js/messages.php:139 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "Сер"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/messages.inc.php:27
+#: js/messages.php:141 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "Цач"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/messages.inc.php:27
+#: js/messages.php:143 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "Пят"
 
 #. l10n: Short week day name
-#: js/messages.php:158 libraries/messages.inc.php:27
+#: js/messages.php:145 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "Суб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:162
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ндз"
 
 #. l10n: Minimal week day name
-#: js/messages.php:164
+#: js/messages.php:151
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Пан"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:153
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Аўт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:155
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Сер"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:157
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Цач"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:159
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Пят"
 
 #. l10n: Minimal week day name
-#: js/messages.php:174
+#: js/messages.php:161
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Суб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:176
+#: js/messages.php:163
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:178
+#: js/messages.php:165
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:179
+#: js/messages.php:166
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "выкарыстоўваецца"
 
-#: js/messages.php:180
+#: js/messages.php:167
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -979,29 +980,6 @@ msgid ""
 "Please check your PHP configuration."
 msgstr ""
 "немагчыма загрузіць пашырэньне %s;<br />калі ласка, праверце канфігурацыю PHP"
-
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Немагчыма загрузіць пашырэньне iconv або пашырэньне recode, неабходныя для "
-"перакадаваньня сымбаляў. Наладзьце PHP на выкарыстаньне гэтых пашырэньняў "
-"або ўвогуле адключыце перакадаваньне сымбаляў у phpMyAdmin."
-
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Немагчыма выкарыстаць ні функцыю iconv, ні libiconvr, ні recode_string у той "
-"час, як пашырэньне паведамляе, што яно загружанае. Праверце вашую "
-"канфігурацыю PHP."
 
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
@@ -1105,24 +1083,6 @@ msgstr "Працэдуры"
 msgid "Return type"
 msgstr "Тып працэдуры"
 
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr "Хэшаваньне паролю"
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "Сумяшчальнае з MySQL&nbsp;4.0"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-msgid "Generate Password"
-msgstr "Згенэраваць пароль"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-msgid "Generate"
-msgstr "Згенэраваць"
-
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1216,6 +1176,24 @@ msgstr "архіваваны ў gzip"
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "сьціскаць у bzip"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr "Хэшаваньне паролю"
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "Сумяшчальнае з MySQL&nbsp;4.0"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+msgid "Generate Password"
+msgstr "Згенэраваць пароль"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+msgid "Generate"
+msgstr "Згенэраваць"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -1318,6 +1296,29 @@ msgstr "SQL-запыт"
 msgid "Rows"
 msgstr "Радкі"
 
+#: libraries/charset_conversion.lib.php:21
+#: libraries/charset_conversion.lib.php:27
+#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Немагчыма загрузіць пашырэньне iconv або пашырэньне recode, неабходныя для "
+"перакадаваньня сымбаляў. Наладзьце PHP на выкарыстаньне гэтых пашырэньняў "
+"або ўвогуле адключыце перакадаваньне сымбаляў у phpMyAdmin."
+
+#: libraries/charset_conversion.lib.php:75
+#: libraries/charset_conversion.lib.php:86
+#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Немагчыма выкарыстаць ні функцыю iconv, ні libiconvr, ні recode_string у той "
+"час, як пашырэньне паведамляе, што яно загружанае. Праверце вашую "
+"канфігурацыю PHP."
+
 #: libraries/Message.class.php:282
 #, fuzzy, php-format
 #| msgid "%1$d row(s) affected."
@@ -1395,7 +1396,7 @@ msgstr "%d %B %Y, %H:%M"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дзён, %s гадзінаў, %s хвілінаў і %s сэкундаў"
 
-#: libraries/messages.inc.php:33 server_status.php:463
+#: libraries/messages.inc.php:33 server_status.php:461
 msgid "Aborted"
 msgstr "Спынена"
 
@@ -1487,7 +1488,7 @@ msgstr "Зьмяніць парадак табліцы"
 msgid "Analyze"
 msgstr "Прааналізаваць"
 
-#: libraries/messages.inc.php:65 server_status.php:365
+#: libraries/messages.inc.php:65
 #, fuzzy
 msgid "and"
 msgstr "І"
@@ -1896,7 +1897,7 @@ msgstr "Калі ласка, сканфігуруйце каардынаты д�
 msgid "Cannot connect: invalid settings."
 msgstr "Немагчыма падлучыцца: няправільныя налады."
 
-#: libraries/messages.inc.php:181 server_status.php:435
+#: libraries/messages.inc.php:181 server_status.php:433
 msgid "Connections"
 msgstr "Падлучэньні"
 
@@ -2288,7 +2289,7 @@ msgstr "Рэдагаваць прывілеі"
 msgid "Effective"
 msgstr "Эфэктыўнасьць"
 
-#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
+#: libraries/messages.inc.php:293 tbl_get_field.php:35 tbl_change.php:181
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вярнула пусты вынік (то бок нуль радкоў)."
 
@@ -2402,7 +2403,7 @@ msgstr "Пашыраныя ўстаўкі"
 msgid "Extra"
 msgstr "Дадаткова"
 
-#: libraries/messages.inc.php:324 server_status.php:449
+#: libraries/messages.inc.php:324 server_status.php:447
 msgid "Failed attempts"
 msgstr "Няўдалых спробаў"
 
@@ -2624,7 +2625,7 @@ msgstr "Дапамога"
 msgid "Use hexadecimal for BLOB"
 msgstr "Шаснаццатковыя значэньні для поляў тыпу BLOB"
 
-#: libraries/messages.inc.php:383
+#: libraries/messages.inc.php:383 pmd_general.php:141
 msgid "Hide"
 msgstr "Схаваць"
 
@@ -3106,7 +3107,7 @@ msgstr "Імя карыстальніка:"
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Гэтая апэрацыя можа заняць шмат часу. Працягваць?"
 
-#: libraries/messages.inc.php:505 server_status.php:442
+#: libraries/messages.inc.php:505 server_status.php:440
 msgid "max. concurrent connections"
 msgstr "максымум адначасовых злучэньняў"
 
@@ -3763,16 +3764,16 @@ msgstr "(Генэруе справаздачу з дадзенымі асобн�
 msgid "Report title"
 msgstr "Загаловак справаздачы"
 
-#: libraries/messages.inc.php:651 server_status.php:391 server_status.php:436
-#: server_status.php:499 server_status.php:557
+#: libraries/messages.inc.php:651 server_status.php:389 server_status.php:434
+#: server_status.php:497 server_status.php:555
 msgid "per hour"
 msgstr "у гадзіну"
 
-#: libraries/messages.inc.php:652 server_status.php:500
+#: libraries/messages.inc.php:652 server_status.php:498
 msgid "per minute"
 msgstr "у хвіліну"
 
-#: libraries/messages.inc.php:653 server_status.php:501
+#: libraries/messages.inc.php:653 server_status.php:499
 msgid "per second"
 msgstr "у сэкунду"
 
@@ -3845,7 +3846,7 @@ msgstr "Польская"
 msgid "Port"
 msgstr "Парадак"
 
-#: libraries/messages.inc.php:672 server_status.php:610
+#: libraries/messages.inc.php:672 server_status.php:608
 msgid "Begin"
 msgstr "Першая старонка"
 
@@ -4096,7 +4097,7 @@ msgstr "Дзеяньні з вынікамі запытаў"
 msgid "SQL history"
 msgstr "Гісторыя SQL"
 
-#: libraries/messages.inc.php:734 server_status.php:492
+#: libraries/messages.inc.php:734 server_status.php:490
 #, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
@@ -4110,7 +4111,7 @@ msgstr ""
 msgid "Query took %01.4f sec"
 msgstr "Запыт выконваўся %01.4f сэк"
 
-#: libraries/messages.inc.php:736 server_status.php:556
+#: libraries/messages.inc.php:736 server_status.php:554
 msgid "Query type"
 msgstr "Тып запыту"
 
@@ -4126,7 +4127,7 @@ msgstr "Запыты чытаньня"
 msgid "Rebuild"
 msgstr "Перабудаваць"
 
-#: libraries/messages.inc.php:741 server_status.php:396
+#: libraries/messages.inc.php:741 server_status.php:394
 msgid "Received"
 msgstr "Атрымана"
 
@@ -4421,7 +4422,7 @@ msgstr ""
 msgid "Master status"
 msgstr "Паказаць стан залежных сэрвэраў"
 
-#: libraries/messages.inc.php:806 server_status.php:723
+#: libraries/messages.inc.php:806 server_status.php:721
 #, fuzzy
 msgid "Replication status"
 msgstr "Рэплікацыя"
@@ -4618,7 +4619,7 @@ msgstr "Выберыце спасылкавы ключ"
 msgid "Select Tables"
 msgstr "Выберыце табліцу(ы)"
 
-#: libraries/messages.inc.php:861 server_status.php:406
+#: libraries/messages.inc.php:861 server_status.php:404
 msgid "Sent"
 msgstr "Адпраўлена"
 
@@ -4657,7 +4658,7 @@ msgstr "Гэты сэрвэр MySQL працуе %s. Ён быў запушча�
 msgid "Variables"
 msgstr "Зьменныя"
 
-#: libraries/messages.inc.php:870 server_status.php:385
+#: libraries/messages.inc.php:870 server_status.php:383
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
@@ -5573,7 +5574,7 @@ msgstr "Выразы"
 msgid "static"
 msgstr ""
 
-#: libraries/messages.inc.php:1043 server_status.php:390
+#: libraries/messages.inc.php:1043 server_status.php:388
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -5883,8 +5884,8 @@ msgid "total"
 msgstr "усяго"
 
 #: libraries/messages.inc.php:1122 server_databases.php:137
-#: server_databases.php:305 server_status.php:416 server_status.php:477
-#: server_status.php:498 tbl_printview.php:351 tbl_structure.php:697
+#: server_databases.php:305 server_status.php:414 server_status.php:475
+#: server_status.php:496 tbl_printview.php:351 tbl_structure.php:697
 msgid "Total"
 msgstr "Агулам"
 
@@ -6045,7 +6046,7 @@ msgstr "Традыцыйная кітайская"
 msgid "Traditional Spanish"
 msgstr "Традыцыйная гішпанская"
 
-#: libraries/messages.inc.php:1172 server_status.php:390
+#: libraries/messages.inc.php:1172 server_status.php:388
 msgid "Traffic"
 msgstr "Трафік"
 
@@ -6362,12 +6363,12 @@ msgstr ""
 "ўсталяваныя ў вас неабходныя пашырэньні PHP, як гэта апісана ў %sдакумэнтацыі"
 "%s."
 
-#: libraries/messages.inc.php:1230 server_status.php:629 tbl_change.php:324
+#: libraries/messages.inc.php:1230 server_status.php:627 tbl_change.php:324
 #: tbl_printview.php:370 tbl_structure.php:730
 msgid "Value"
 msgstr "Значэньне"
 
-#: libraries/messages.inc.php:1231 server_status.php:628
+#: libraries/messages.inc.php:1231 server_status.php:626
 #: server_variables.php:52
 msgid "Variable"
 msgstr "Зьменная"
@@ -6521,12 +6522,24 @@ msgctxt "for Show status"
 msgid "Reset"
 msgstr "Скінуць"
 
-#: server_status.php:369
-#, php-format
+#: server_status.php:360
 msgid ""
-"This MySQL server works as %s in <b>replication</b> process. For further "
-"information about replication status on the server, please visit the <a "
-"href=#replication>replication section</a>."
+"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
+"b> process."
+msgstr ""
+
+#: server_status.php:362
+msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
+msgstr ""
+
+#: server_status.php:364
+msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
+msgstr ""
+
+#: server_status.php:366
+msgid ""
+"For further information about replication status on the server, please visit "
+"the <a href=#replication>replication section</a>."
 msgstr ""
 
 #: server_synchronize.php:1117
