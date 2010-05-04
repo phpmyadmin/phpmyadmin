@@ -1119,10 +1119,9 @@ msgid "None"
 msgstr "aucune"
 
 #: libraries/display_export.lib.php:247
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"zippé\""
+msgstr "zippé"
 
 #: libraries/display_export.lib.php:253
 #, fuzzy
