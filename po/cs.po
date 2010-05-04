@@ -237,11 +237,10 @@ msgid "Repair"
 msgstr "Opravit"
 
 #: db_operations.php:570
-#, fuzzy
 #| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr "Vypnuto"
+msgstr "Vypnuté"
 
 #: db_operations.php:574 libraries/messages.inc.php:104
 msgid "Enable"
