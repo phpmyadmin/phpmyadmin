@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:55+0200\n"
+"PO-Revision-Date: 2010-05-04 16:56+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -150,7 +150,7 @@ msgstr "सभी का चयन करें"
 
 #: db_export.php:45 libraries/messages.inc.php:1196 server_export.php:29
 msgid "Unselect All"
-msgstr " सभी को अनसेल्कट करें"
+msgstr " सभी को रद्द करें"
 
 #: db_operations.php:410 libraries/messages.inc.php:244
 msgid "Rename database to"
