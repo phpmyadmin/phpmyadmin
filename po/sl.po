@@ -7775,8 +7775,8 @@ msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr ""
-"Predlagaj ime podatkovne zbirke v obrazcu &quot;Ustvari zbirko "
-"podatkov&quot; (če je le mogoče) ali pusti besedilno polje prazno"
+"Predlagaj ime zbirke podatkov v obrazcu &quot;Ustvari zbirko podatkov&quot; "
+"(če je le mogoče) ali pusti besedilno polje prazno"
 
 #: setup/lib/messages.inc.php:358
 msgid "Suggest new database name"
