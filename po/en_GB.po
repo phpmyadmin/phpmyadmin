@@ -6462,10 +6462,9 @@ msgid "Enter manually"
 msgstr "Enter manually"
 
 #: server_synchronize.php:1118
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Insecure connection"
+msgstr "Current connection"
 
 #: server_synchronize.php:1147
 #, fuzzy, php-format
