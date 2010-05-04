@@ -809,7 +809,7 @@ msgstr "Jeudi"
 #: js/messages.php:128
 #| msgid "Fri"
 msgid "Friday"
-msgstr "Ven"
+msgstr "Vendredi"
 
 #: js/messages.php:129
 msgid "Saturday"
