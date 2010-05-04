@@ -8237,10 +8237,10 @@ msgid "Foreign key constraint"
 msgstr "Foreign key constraint"
 
 #: tbl_structure.php:595
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Create an index on&nbsp;%s&nbsp;columns"
+msgstr "Create an index on &nbsp;%s&nbsp;columns"
 
 #: transformation_overview.php:48
 #, fuzzy
