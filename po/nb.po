@@ -215,7 +215,6 @@ msgid "Status"
 msgstr "Status"
 
 #: db_operations.php:544
-#, fuzzy
 #| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
