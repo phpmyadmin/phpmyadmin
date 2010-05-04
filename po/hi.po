@@ -163,7 +163,7 @@ msgstr "आदेश"
 
 #: db_operations.php:425 libraries/messages.inc.php:66 tbl_change.php:1143
 msgid "and then"
-msgstr ""
+msgstr "और फिर"
 
 #: db_operations.php:451 libraries/messages.inc.php:241
 msgid "Copy database to"
