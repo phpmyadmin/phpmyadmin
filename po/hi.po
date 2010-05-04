@@ -101,7 +101,7 @@ msgstr "टाइप"
 #: tbl_printview.php:145 tbl_structure.php:181 tbl_tracking.php:276
 #: tbl_tracking.php:327
 msgid "Null"
-msgstr ""
+msgstr "अशक्त"
 
 #: db_datadict.php:178 db_structure.php:501 libraries/messages.inc.php:246
 #: libraries/tbl_properties.inc.php:106 tbl_printview.php:146
