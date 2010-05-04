@@ -888,10 +888,9 @@ msgstr "Ve"
 
 #. l10n: Minimal week day name
 #: js/messages.php:161
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
-msgstr "Sam"
+msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:163
