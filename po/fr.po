@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:18+0200\n"
+"PO-Revision-Date: 2010-05-04 16:19+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -807,7 +807,6 @@ msgid "Thursday"
 msgstr "Jeu"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Ven"
