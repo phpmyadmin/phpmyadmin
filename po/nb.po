@@ -878,7 +878,6 @@ msgstr "Tor"
 
 #. l10n: Minimal week day name
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Fre"
