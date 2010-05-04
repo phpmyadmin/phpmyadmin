@@ -901,7 +901,7 @@ msgstr "Wk"
 
 #: js/messages.php:165
 msgid "Hour"
-msgstr ""
+msgstr "Hour"
 
 #: js/messages.php:166
 #, fuzzy
