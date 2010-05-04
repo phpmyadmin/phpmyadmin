@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 10:37+0200\n"
-"PO-Revision-Date: 2010-05-04 11:44+0200\n"
+"PO-Revision-Date: 2010-05-04 11:45+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -1127,10 +1127,9 @@ msgid "gzipped"
 msgstr "gzipped"
 
 #: libraries/display_export.lib.php:259
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"bzipped\""
+msgstr "bzipped"
 
 #: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
 msgid "Password Hashing"
