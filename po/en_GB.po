@@ -744,7 +744,6 @@ msgstr "Apr"
 
 #. l10n: Short month name
 #: js/messages.php:106
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
