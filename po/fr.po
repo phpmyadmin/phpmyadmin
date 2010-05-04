@@ -800,7 +800,7 @@ msgstr "Mar"
 
 #: js/messages.php:126
 msgid "Wednesday"
-msgstr ""
+msgstr "Mer"
 
 #: js/messages.php:127
 msgid "Thursday"
