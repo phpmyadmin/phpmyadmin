@@ -646,7 +646,6 @@ msgstr "Utført"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Forrige"
