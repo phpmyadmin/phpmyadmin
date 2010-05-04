@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:50+0200\n"
+"PO-Revision-Date: 2010-05-04 16:51+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -94,7 +94,7 @@ msgstr "फील्ड"
 #: tbl_printview.php:143 tbl_printview.php:313 tbl_structure.php:178
 #: tbl_structure.php:660 tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
-msgstr " प्रकार"
+msgstr "टाइप"
 
 #: db_datadict.php:177 libraries/messages.inc.php:584
 #: libraries/tbl_properties.inc.php:109 tbl_change.php:323
