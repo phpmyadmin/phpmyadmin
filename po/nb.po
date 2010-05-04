@@ -930,7 +930,6 @@ msgstr ""
 "informasjonen du fikk fra MySQL-server administratoren."
 
 #: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#, fuzzy
 #| msgid ""
 #| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #| "extension. Please check your PHP configuration."
@@ -938,7 +937,8 @@ msgid ""
 "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
 "Please check your PHP configuration."
 msgstr ""
-"Kan ikke starte %s tillegget,<br />vennligst kontroller PHP-konfigurasjonen"
+"Kan ikke laste [a@http://php.net/%1@Documentation][em]%1[/em][/a] tillegget. "
+"Vennligst kontroller PHP-konfigurasjonen"
 
 #: libraries/charset_conversion.lib.php:21
 #: libraries/charset_conversion.lib.php:27
