@@ -34,7 +34,7 @@ msgstr ""
 #: db_structure.php:106 libraries/messages.inc.php:849
 #: libraries/tbl_links.inc.php:63
 msgid "Search"
-msgstr "सर्च"
+msgstr "खोजें"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
