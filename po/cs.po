@@ -1129,7 +1129,6 @@ msgid "None"
 msgstr "Žádná"
 
 #: libraries/display_export.lib.php:247
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "„zazipováno“"
