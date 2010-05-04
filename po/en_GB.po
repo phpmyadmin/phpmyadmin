@@ -6392,7 +6392,6 @@ msgid "\"zipped\""
 msgstr "\"zipped\""
 
 #: libraries/tbl_properties.inc.php:393
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
