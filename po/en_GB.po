@@ -6412,10 +6412,9 @@ msgid "Create table"
 msgstr "Create table"
 
 #: server_databases.php:230
-#, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
-msgstr "Go to database"
+msgstr "Jump to database"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
