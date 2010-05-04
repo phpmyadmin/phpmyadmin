@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-03 12:54-0400\n"
-"PO-Revision-Date: 2010-05-04 10:31+0200\n"
+"PO-Revision-Date: 2010-05-04 10:32+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1040,7 +1040,6 @@ msgid "Password Hashing"
 msgstr "Hašovací funkce pro heslo"
 
 #: libraries/display_change_password.lib.php:66
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "Kompatibilní s MySQL 4.0"
