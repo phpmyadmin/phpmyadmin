@@ -716,7 +716,7 @@ msgstr "October"
 
 #: js/messages.php:93
 msgid "November"
-msgstr ""
+msgstr "November"
 
 #: js/messages.php:94
 msgid "December"
