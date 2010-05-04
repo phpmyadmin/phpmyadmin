@@ -991,7 +991,7 @@ msgstr ""
 "konfigurasjonsfil!"
 
 #: libraries/common.inc.php:629
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Ugyldig tjenerindeks: \"%s\""
