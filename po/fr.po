@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:23+0200\n"
+"PO-Revision-Date: 2010-05-04 16:24+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -870,10 +870,9 @@ msgstr "Ma"
 
 #. l10n: Minimal week day name
 #: js/messages.php:155
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "Mer"
+msgstr "Me"
 
 #. l10n: Minimal week day name
 #: js/messages.php:157
