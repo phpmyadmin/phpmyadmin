@@ -975,10 +975,9 @@ msgstr ""
 "prazno stran, je vse v redu."
 
 #: libraries/common.inc.php:594
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1"
-msgstr "Ne morem naložiti privzete konfiguracije iz: \"%1$s\""
+msgstr "Ne morem naložiti privzete konfiguracije iz: %1"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
