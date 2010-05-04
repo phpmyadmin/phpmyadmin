@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:32+0200\n"
+"PO-Revision-Date: 2010-05-04 16:33+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6544,7 +6544,6 @@ msgstr ""
 "<b>réplication</b>."
 
 #: server_status.php:366
-#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
@@ -6553,9 +6552,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"Ce serveur MySQL agit en tant que %s dans le processus de <b>réplication</"
-"b>. Pour plus d'information sur l'état de la réplication sur ce serveur, "
-"consultez la <a href=\"#replication\">section de réplication</a>."
+"Pour plus d'information sur l'état de la réplication sur ce serveur, "
+"consultez la <a href=#replication>section de réplication</a>."
 
 #: server_synchronize.php:1117
 msgid "Enter manually"
