@@ -22,19 +22,6 @@ require_once './libraries/common.inc.php';
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
 
-function PMA_printJsValue($key, $value) {
-    echo $key . ' = ';
-    if (is_array($value)) {
-        echo '[';
-        foreach ($value as $id => $val) {
-            echo "'" . PMA_escapeJsString($val) . "',\n";
-        }
-        echo "];\n";
-    } else {
-        echo "'" . PMA_escapeJsString($value) . "';\n";
-    }
-}
-
 $js_messages['strFormEmpty'] = $GLOBALS['strFormEmpty'];
 $js_messages['strNotNumber'] = $GLOBALS['strNotNumber'];
 $js_messages['strClickToSelect'] = $GLOBALS['strClickToSelect'];

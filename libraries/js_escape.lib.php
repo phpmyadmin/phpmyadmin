@@ -64,4 +64,24 @@ function PMA_escapeJsString($string)
                                 "\r" => '\r')));
 }
 
+/**
+ * Prints an javascript assignment with proper escaping of a value
+ * and support for assigning array of strings.
+ *
+ * @param string $key Name of value to set
+ * @param mixed $value Value to set, can be either string or array of strings
+ */
+function PMA_printJsValue($key, $value) {
+    echo $key . ' = ';
+    if (is_array($value)) {
+        echo '[';
+        foreach ($value as $id => $val) {
+            echo "'" . PMA_escapeJsString($val) . "',";
+        }
+        echo "];\n";
+    } else {
+        echo "'" . PMA_escapeJsString($value) . "';\n";
+    }
+}
+
 ?>
