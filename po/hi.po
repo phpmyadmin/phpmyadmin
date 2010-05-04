@@ -146,7 +146,7 @@ msgstr "डंप (स्कीमा) डेटाबेस दिखाएं"
 
 #: db_export.php:43 libraries/messages.inc.php:853 server_export.php:27
 msgid "Select All"
-msgstr "सभी को सेलेक्ट करें"
+msgstr "सभी का चयन करें"
 
 #: db_export.php:45 libraries/messages.inc.php:1196 server_export.php:29
 msgid "Unselect All"
