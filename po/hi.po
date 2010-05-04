@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-04 16:47+0200\n"
+"PO-Revision-Date: 2010-05-04 16:48+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -56,7 +56,7 @@ msgstr "आगे"
 #: browse_foreigners.php:168 browse_foreigners.php:172
 #: libraries/messages.inc.php:467 tbl_tracking.php:320
 msgid "Keyname"
-msgstr ""
+msgstr "मुख्यनाम"
 
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: libraries/messages.inc.php:260 server_collations.php:55
