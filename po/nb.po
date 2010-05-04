@@ -809,7 +809,7 @@ msgstr "Fredag"
 
 #: js/messages.php:142
 msgid "Saturday"
-msgstr ""
+msgstr "Lørdag"
 
 #. l10n: Short week day name
 #: js/messages.php:146 libraries/messages.inc.php:27
