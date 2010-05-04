@@ -76,7 +76,7 @@ function PMA_printJsValue($key, $value) {
     if (is_array($value)) {
         echo '[';
         foreach ($value as $id => $val) {
-            echo "'" . PMA_escapeJsString($val) . "',\n";
+            echo "'" . PMA_escapeJsString($val) . "',";
         }
         echo "];\n";
     } else {
