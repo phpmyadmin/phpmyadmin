@@ -138,7 +138,7 @@ msgstr "हाँ "
 #: db_datadict.php:322 db_printview.php:266 libraries/messages.inc.php:678
 #: tbl_printview.php:498
 msgid "Print"
-msgstr "प्रिंट"
+msgstr "छापें"
 
 #: db_export.php:29 libraries/messages.inc.php:1234
 msgid "View dump (schema) of database"
