@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-03 12:54-0400\n"
-"PO-Revision-Date: 2010-05-04 10:58+0200\n"
+"PO-Revision-Date: 2010-05-04 10:59+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -6436,7 +6436,7 @@ msgid "Reset"
 msgstr "Tilbakestill"
 
 #: server_status.php:369
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
@@ -6446,9 +6446,9 @@ msgid ""
 "information about replication status on the server, please visit the <a "
 "href=#replication>replication section</a>."
 msgstr ""
-"Denne MySQL tjeneren som %s i <b>replikasjon<b>sprosess. For mer informasjon "
-"om replikasjonsstatusen for tjeneren, gå til <a href=\"#replication"
-"\">replikasjonsseksjonen</a>."
+"Denne MySQL tjeneren jobber som %s i <b>replikasjon<b>sprosess. For mer "
+"informasjon om replikasjonsstatusen for tjeneren, gå til <a "
+"href=\"#replication\">replikasjonsseksjonen</a>."
 
 #: server_synchronize.php:1117
 msgid "Enter manually"
