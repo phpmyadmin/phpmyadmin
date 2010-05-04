@@ -3699,7 +3699,7 @@ msgstr "Predvajaj avdio"
 
 #: libraries/messages.inc.php:661
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "Prosimo, izberite primarni ključ ali unikatni ključ"
 
 #: libraries/messages.inc.php:662
 msgid ""
