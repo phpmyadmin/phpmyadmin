@@ -804,7 +804,7 @@ msgstr "Mer"
 
 #: js/messages.php:127
 msgid "Thursday"
-msgstr ""
+msgstr "Jeu"
 
 #: js/messages.php:128
 #, fuzzy
