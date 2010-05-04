@@ -890,10 +890,9 @@ msgstr "Lør"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "Wiki"
+msgstr "Uke"
 
 #: js/messages.php:178
 msgid "Hour"
