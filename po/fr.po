@@ -796,7 +796,7 @@ msgstr "Lundi"
 #: js/messages.php:125
 #| msgid "Tue"
 msgid "Tuesday"
-msgstr "Mar"
+msgstr "Mardi"
 
 #: js/messages.php:126
 msgid "Wednesday"
