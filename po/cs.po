@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 10:37+0200\n"
-"PO-Revision-Date: 2010-05-04 10:33+0200\n"
+"PO-Revision-Date: 2010-05-04 10:44+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6393,27 +6393,27 @@ msgid "Reset"
 msgstr "Vynulovat"
 
 #: server_status.php:360
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr "Tento server je v replikačním procesu nastavený jako nadřízený."
+msgstr ""
+"Tento server pracuje jako <b>nadřízený</b> i <b>podřízený</b> v "
+"<b>replikačním</b> procesu."
 
 #: server_status.php:362
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "Tento server je v replikačním procesu nastavený jako nadřízený."
+msgstr ""
+"Tento server pracuje jako <b>nadřízený</b> v <b>replikačním</b> procesu."
 
 #: server_status.php:364
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "Tento server je v replikačním procesu nastavený jako nadřízený."
+msgstr ""
+"Tento server pracuje jako <b>podřízený</b> v <b>replikačním</b> procesu."
 
 #: server_status.php:366
-#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
@@ -6422,9 +6422,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"Tento MySQL server pracuje jako %s v <b>replikačním</b> procesu. Pro více "
-"informací o stavu replikace se podívejte do <a href=\"#replication\">sekce "
-"replikace</a>."
+"Pro více informací o stavu replikace se podívejte do <a href=\"#replication"
+"\">sekce replikace</a>."
 
 #: server_synchronize.php:1117
 msgid "Enter manually"
@@ -8199,7 +8198,6 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: tbl_operations.php:634
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Vyprázdnit vyrovnávací paměť pro tabulku („FLUSH“)"
@@ -8213,13 +8211,12 @@ msgid "Foreign key constraint"
 msgstr "Omezení cizího klíče"
 
 #: tbl_structure.php:595
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Vytvořit index na %s sloupcích"
+msgstr "Vytvořit index na &nbsp;%s&nbsp;sloupcích"
 
 #: transformation_overview.php:48
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
