@@ -6416,7 +6416,7 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Ali se naj opozorilo (&quot;Ali res želite ...&quot;) prikaže, ko boste "
+"Ali se naj prikaže opozorilo (&quot;Ali res želite ...&quot;), ko boste "
 "izgubili podatke"
 
 #: setup/lib/messages.inc.php:47
