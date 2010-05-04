@@ -1160,7 +1160,6 @@ msgid "gzipped"
 msgstr "Komprimert (gz)"
 
 #: libraries/display_export.lib.php:259
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "Komprimert (bz2)"
