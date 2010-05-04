@@ -6537,10 +6537,11 @@ msgstr ""
 "<b>réplication</b>."
 
 #: server_status.php:364
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "Ce serveur est un serveur maître dans le processus de réplication"
+msgstr ""
+"Ce serveur est un serveur <b>esclave</b> dans le processus de "
+"<b>réplication</b>."
 
 #: server_status.php:366
 #, fuzzy
