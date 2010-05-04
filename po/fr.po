@@ -1129,10 +1129,9 @@ msgid "gzipped"
 msgstr "gzippé"
 
 #: libraries/display_export.lib.php:259
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"bzippé\""
+msgstr "bzippé"
 
 #: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
 msgid "Password Hashing"
