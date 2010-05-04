@@ -6446,7 +6446,6 @@ msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 
 #: server_status.php:366
-#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
@@ -6455,9 +6454,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"This MySQL server works as %s in <b>replication</b> process. For further "
-"information about replication status on the server, please visit the <a href="
-"\"#replication\">replication section</a>."
+"For further information about replication status on the server, please visit "
+"the <a href=#replication>replication section</a>."
 
 #: server_synchronize.php:1117
 msgid "Enter manually"
