@@ -1134,7 +1134,6 @@ msgid "zipped"
 msgstr "„zazipováno“"
 
 #: libraries/display_export.lib.php:253
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "„zagzipováno“"
