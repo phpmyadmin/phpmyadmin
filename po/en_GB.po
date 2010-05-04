@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-04 10:37+0200\n"
+"POT-Creation-Date: 2010-05-04 11:51+0200\n"
 "PO-Revision-Date: 2010-05-04 11:46+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
-"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -217,7 +217,6 @@ msgid "Status"
 msgstr "Status"
 
 #: db_operations.php:544
-#| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
 msgstr "Enabled"
@@ -231,13 +230,11 @@ msgid "Damaged"
 msgstr "Damaged"
 
 #: db_operations.php:562
-#| msgid "Repair"
 msgctxt "BLOB repository"
 msgid "Repair"
 msgstr "Repair"
 
 #: db_operations.php:570
-#| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
 msgstr "Disabled"
@@ -644,13 +641,11 @@ msgstr "Cancel"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:74
-#| msgid "Donate"
 msgid "Done"
 msgstr "Done"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:76
-#| msgid "Previous"
 msgid "Prev"
 msgstr "Prev"
 
@@ -662,12 +657,10 @@ msgstr "Next"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:80
-#| msgid "Total"
 msgid "Today"
 msgstr "Today"
 
 #: js/messages.php:83
-#| msgid "Binary"
 msgid "January"
 msgstr "January"
 
@@ -676,12 +669,10 @@ msgid "February"
 msgstr "February"
 
 #: js/messages.php:85
-#| msgid "Mar"
 msgid "March"
 msgstr "March"
 
 #: js/messages.php:86
-#| msgid "Apr"
 msgid "April"
 msgstr "April"
 
@@ -690,17 +681,14 @@ msgid "May"
 msgstr "May"
 
 #: js/messages.php:88
-#| msgid "Jun"
 msgid "June"
 msgstr "June"
 
 #: js/messages.php:89
-#| msgid "Jul"
 msgid "July"
 msgstr "July"
 
 #: js/messages.php:90
-#| msgid "Aug"
 msgid "August"
 msgstr "August"
 
@@ -709,7 +697,6 @@ msgid "September"
 msgstr "September"
 
 #: js/messages.php:92
-#| msgid "Oct"
 msgid "October"
 msgstr "October"
 
@@ -743,7 +730,6 @@ msgstr "Apr"
 
 #. l10n: Short month name
 #: js/messages.php:106
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "May"
@@ -784,17 +770,14 @@ msgid "Dec"
 msgstr "Dec"
 
 #: js/messages.php:123
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "Sunday"
 
 #: js/messages.php:124
-#| msgid "Mon"
 msgid "Monday"
 msgstr "Monday"
 
 #: js/messages.php:125
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "Tuesday"
 
@@ -807,7 +790,6 @@ msgid "Thursday"
 msgstr "Thursday"
 
 #: js/messages.php:128
-#| msgid "Fri"
 msgid "Friday"
 msgstr "Friday"
 
@@ -852,49 +834,41 @@ msgstr "Sat"
 
 #. l10n: Minimal week day name
 #: js/messages.php:149
-#| msgid "Sun"
 msgid "Su"
 msgstr "Su"
 
 #. l10n: Minimal week day name
 #: js/messages.php:151
-#| msgid "Mon"
 msgid "Mo"
 msgstr "Mo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:153
-#| msgid "Tue"
 msgid "Tu"
 msgstr "Tu"
 
 #. l10n: Minimal week day name
 #: js/messages.php:155
-#| msgid "Wed"
 msgid "We"
 msgstr "We"
 
 #. l10n: Minimal week day name
 #: js/messages.php:157
-#| msgid "Thu"
 msgid "Th"
 msgstr "Th"
 
 #. l10n: Minimal week day name
 #: js/messages.php:159
-#| msgid "Fri"
 msgid "Fr"
 msgstr "Fr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:161
-#| msgid "Sat"
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:163
-#| msgid "Wiki"
 msgid "Wk"
 msgstr "Wk"
 
@@ -903,12 +877,10 @@ msgid "Hour"
 msgstr "Hour"
 
 #: js/messages.php:166
-#| msgid "in use"
 msgid "Minute"
 msgstr "Minute"
 
 #: js/messages.php:167
-#| msgid "per second"
 msgid "Second"
 msgstr "Second"
 
@@ -934,9 +906,6 @@ msgstr ""
 "the administrator of the MySQL server."
 
 #: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#| msgid ""
-#| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#| "extension. Please check your PHP configuration."
 msgid ""
 "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
 "Please check your PHP configuration."
@@ -961,7 +930,6 @@ msgstr ""
 "is fine."
 
 #: libraries/common.inc.php:594
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1"
 msgstr "Could not load default configuration from: %1"
 
@@ -975,12 +943,10 @@ msgstr ""
 
 #: libraries/common.inc.php:629
 #, php-format
-#| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Invalid server index: %s"
 
 #: libraries/common.inc.php:636
-#| msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgid "Invalid hostname for server %1. Please review your configuration."
 msgstr "Invalid hostname for server %1. Please review your configuration."
 
@@ -1116,17 +1082,14 @@ msgid "None"
 msgstr "None"
 
 #: libraries/display_export.lib.php:247
-#| msgid "\"zipped\""
 msgid "zipped"
 msgstr "zipped"
 
 #: libraries/display_export.lib.php:253
-#| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "gzipped"
 
 #: libraries/display_export.lib.php:259
-#| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "bzipped"
 
@@ -1135,7 +1098,6 @@ msgid "Password Hashing"
 msgstr "Password Hashing"
 
 #: libraries/display_change_password.lib.php:66
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL 4.0 compatible"
 
@@ -6391,7 +6353,6 @@ msgid "\"zipped\""
 msgstr "\"zipped\""
 
 #: libraries/tbl_properties.inc.php:393
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "None"
@@ -6405,13 +6366,11 @@ msgid "Clear"
 msgstr "Clear"
 
 #: navigation.php:350 navigation.php:351
-#| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
 msgstr "Create table"
 
 #: server_databases.php:230
-#| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Jump to database"
 
@@ -6420,35 +6379,28 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Wildcards % and _ should be escaped with a \\ to use them literally"
 
 #: server_status.php:344
-#| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "Reset"
 
 #: server_status.php:360
-#| msgid "This server is configured as master in a replication process."
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
-"This MySQL server works as <b>master</b> and <b>slave</b> in "
-"<b>replication</b> process."
+"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
+"b> process."
 
 #: server_status.php:362
-#| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "This MySQL server works as <b>master</b> in <b>replication</b> process."
+msgstr ""
+"This MySQL server works as <b>master</b> in <b>replication</b> process."
 
 #: server_status.php:364
-#| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 
 #: server_status.php:366
-#| msgid ""
-#| "This MySQL server works as %s in <b>replication</b> process. For further "
-#| "information about replication status on the server, please visit the <a "
-#| "href=\"#replication\">replication section</a>."
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
@@ -6461,13 +6413,11 @@ msgid "Enter manually"
 msgstr "Enter manually"
 
 #: server_synchronize.php:1118
-#| msgid "Insecure connection"
 msgid "Current connection"
 msgstr "Current connection"
 
 #: server_synchronize.php:1147
 #, php-format
-#| msgid "Configuration"
 msgid "Configuration: %s"
 msgstr "Configuration: %s"
 
@@ -8221,28 +8171,23 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: tbl_operations.php:634
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Flush the table (FLUSH)"
 
 #: tbl_relation.php:405
-#| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Internal relation"
 
 #: tbl_relation.php:413
-#| msgid "Foreign key limit"
 msgid "Foreign key constraint"
 msgstr "Foreign key constraint"
 
 #: tbl_structure.php:595
 #, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Create an index on &nbsp;%s&nbsp;columns"
 
 #: transformation_overview.php:48
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Description"
