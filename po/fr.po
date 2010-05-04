@@ -1058,7 +1058,7 @@ msgstr "aucun privilège"
 #: libraries/display_create_table.lib.php:48 libraries/messages.inc.php:198
 #, php-format
 msgid "Create table on database %s"
-msgstr "<b>Créer une nouvelle table</b> sur la base %s"
+msgstr "Créer une nouvelle table sur la base %s"
 
 #: libraries/display_create_table.lib.php:57 libraries/messages.inc.php:585
 msgid "Number of fields"
