@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-05 01:50+0200\n"
+"PO-Revision-Date: 2010-05-05 01:51+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7088,6 +7088,8 @@ msgstr "Največja dolžina prikazanega SQL"
 #: setup/lib/messages.inc.php:202
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
+"Največje število podatkovnih zbirk prikazanih v levem okvirju in na seznamu "
+"zbirk podatkov"
 
 #: setup/lib/messages.inc.php:203
 msgid "Maximum databases"
