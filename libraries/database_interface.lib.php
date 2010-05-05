@@ -45,12 +45,7 @@ if (! PMA_DBI_checkMysqlExtension($GLOBALS['cfg']['Server']['extension'])) {
      * @todo add different messages for alternative extension
      * and complete fail (no alternative extension too)
      */
-    $error =
-        sprintf(PMA_sanitize(__('Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. Please check your PHP configuration.')),
-            $GLOBALS['cfg']['Server']['extension'])
-        .' - <a href="./Documentation.html#faqmysql" target="documentation">'
-        .__('Documentation') . '</a>';
-    trigger_error($error, E_USER_ERROR);
+    PMA_warnMissingExtension($GLOBALS['cfg']['Server']['extension'], false, PMA_showDocu('faqmysql'));
 
     if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
         $alternativ_extension = 'mysqli';
@@ -60,11 +55,7 @@ if (! PMA_DBI_checkMysqlExtension($GLOBALS['cfg']['Server']['extension'])) {
 
     if (! PMA_DBI_checkMysqlExtension($alternativ_extension)) {
         // if alternative fails too ...
-        PMA_fatalError(
-            sprintf(__('Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. Please check your PHP configuration.'),
-                $GLOBALS['cfg']['Server']['extension'])
-            . ' - [a@./Documentation.html#faqmysql@documentation]'
-            . __('Documentation') . '[/a]');
+        PMA_warnMissingExtension($GLOBALS['cfg']['Server']['extension'], true, PMA_showDocu('faqmysql'));
     }
 
     $GLOBALS['cfg']['Server']['extension'] = $alternativ_extension;
@@ -611,7 +602,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
                     $databases[$database_name]['SCHEMA_INDEX_LENGTH']
                         += $row['Index_length'];
 
-                    // for InnoDB, this does not contain the number of 
+                    // for InnoDB, this does not contain the number of
                     // overhead bytes but the total free space
                     if ('InnoDB' != $row['Engine']) {
                         $databases[$database_name]['SCHEMA_DATA_FREE']
@@ -824,25 +815,25 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
  *
  * @param   string  $database   name of database
  * @param   string  $table      name of table to retrieve columns from
- * @param   string  $column     name of the column to retrieve data from 
+ * @param   string  $column     name of the column to retrieve data from
  * @param   mixed   $link       mysql link resource
  * @return  array   $field_values
  */
 
 function PMA_DBI_get_column_values($database, $table, $column, $link = null)
-{ 
+{
     $query = 'SELECT ';
     for($i=0; $i< sizeof($column); $i++)
     {
         $query.= PMA_backquote($column[$i]);
         if($i < (sizeof($column)-1))
         {
-            $query.= ', ';   
+            $query.= ', ';
         }
     }
     $query.= ' FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table);
     $field_values = PMA_DBI_fetch_result($query, null, null, $link);
-    
+
     if (! is_array($field_values) || count($field_values) < 1) {
         return false;
     }
@@ -856,23 +847,23 @@ function PMA_DBI_get_column_values($database, $table, $column, $link = null)
  * @param   mixed   $link       mysql link resource
  * @return  array   $result
  */
- 
+
  function PMA_DBI_get_table_data($database, $table, $link = null)
- { 
-                           
+ {
+
     $result = PMA_DBI_fetch_result(
         'SELECT * FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
         null,null, $link);
-                           
+
     if (! is_array($result) || count($result) < 1) {
         return false;
-    }                                                                                         
+    }
     return $result;
  }
- 
+
 /**
 * array  PMA_DBI_get_table_indexes($database, $table, $link = null)
-* 
+*
 * @param    string  $database   name of database
 * @param    string  $table      name of the table whose indexes are to be retreived
 * @param    mixed   $link       mysql link resource
@@ -881,17 +872,17 @@ function PMA_DBI_get_column_values($database, $table, $column, $link = null)
 
 function PMA_DBI_get_table_indexes($database, $table, $link = null)
 {
- 
+
     $indexes = PMA_DBI_fetch_result(
               'SHOW INDEXES FROM ' .PMA_backquote($database) . '.' . PMA_backquote($table),
-               null, null, $link);  
-    
+               null, null, $link);
+
     if (! is_array($indexes) || count($indexes) < 1) {
         return false;
     }
     return $indexes;
 }
- 
+
  /**
  * returns value of given mysql server variable
  *
@@ -900,8 +891,8 @@ function PMA_DBI_get_table_indexes($database, $table, $link = null)
  * @param   mixed   $link   mysql link resource|object
  * @return  mixed   value for mysql server variable
  */
- 
- 
+
+
 function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null)
 {
     if ($link === null) {
@@ -1387,7 +1378,7 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
  * @uses    PMA_DBI_fetch_result()
  * @param   string              $db     db name
  * @param   string              $table  table name
- * @param   string              $delimiter  the delimiter to use (may be empty) 
+ * @param   string              $delimiter  the delimiter to use (may be empty)
  *
  * @return  array               information about triggers (may be empty)
  */
@@ -1442,7 +1433,7 @@ function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
 function PMA_isView($db, $view_name)
 {
     $result = PMA_DBI_fetch_result("SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = '".$db."' and TABLE_NAME = '".$view_name."';");
-    
+
     if ($result) {
         return TRUE;
     } else {
