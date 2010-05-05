@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-05 11:52+0200\n"
-"PO-Revision-Date: 2010-05-05 16:15+0200\n"
+"PO-Revision-Date: 2010-05-05 16:16+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4184,7 +4184,7 @@ msgstr "Les mots de passe doivent être identiques"
 #: libraries/messages.inc.php:643
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
-msgstr "Schema de la base «\"%s» - Page %s"
+msgstr "Schéma de la base «\"%s» - Page %s"
 
 #: libraries/messages.inc.php:644
 #, php-format
