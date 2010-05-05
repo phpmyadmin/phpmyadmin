@@ -311,13 +311,13 @@ foreach ($rows as $row_id => $vrow) {
      if ($cfg['ShowFieldTypesInDataEditView']) {
         $this_url_params = array_merge($url_params,
             array('ShowFieldTypesInDataEditView' => 0, 'ShowFunctionFields' => $cfg['ShowFunctionFields'], 'goto' => 'sql.php'));
-        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . $strHide . '">' . __('Type') . '</a></th>' . "\n";
+        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
     }
 
     if ($cfg['ShowFunctionFields']) {
         $this_url_params = array_merge($url_params,
             array('ShowFunctionFields' => 0, 'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'], 'goto' => 'sql.php'));
-        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . $strHide . '">' . __('Function') . '</a></th>' . "\n";
+        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . __('Hide') . '">' . __('Function') . '</a></th>' . "\n";
     }
 ?>
             <th><?php echo __('Null'); ?></th>

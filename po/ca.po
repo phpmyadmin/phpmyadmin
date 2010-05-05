@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:52+0200\n"
+"POT-Creation-Date: 2010-05-05 12:48-0400\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: catalan <ca@li.org>\n"
@@ -47,27 +47,27 @@ msgstr "Cerca"
 #: db_structure.php:567 js/messages.php:50
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046 libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277
+#: libraries/Config.class.php:1046
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_import.lib.php:276 libraries/display_tbl.lib.php:532
-#: libraries/display_tbl.lib.php:614 libraries/messages.inc.php:369
-#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:365
-#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
-#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
-#: libraries/tbl_properties.inc.php:782 libraries/Theme_Manager.class.php:311
-#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
-#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
-#: server_privileges.php:625 server_privileges.php:1585
-#: server_privileges.php:1932 server_privileges.php:1979
-#: server_privileges.php:2018 server_replication.php:235
-#: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1204 tbl_change.php:330 tbl_change.php:1174
-#: tbl_change.php:1211 tbl_indexes.php:252 tbl_operations.php:263
-#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
-#: tbl_operations.php:679 tbl_structure.php:563 tbl_structure.php:598
-#: tbl_tracking.php:395 tbl_tracking.php:512 view_create.php:182
-#: view_operations.php:101
+#: libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
+#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
+#: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
+#: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
+#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
+#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
+#: server_privileges.php:1585 server_privileges.php:1932
+#: server_privileges.php:1979 server_privileges.php:2018
+#: server_replication.php:235 server_replication.php:318
+#: server_replication.php:341 server_synchronize.php:1204 tbl_change.php:330
+#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
+#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
+#: tbl_operations.php:559 tbl_operations.php:679 tbl_structure.php:563
+#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Executa"
 
@@ -104,7 +104,7 @@ msgstr "Comentaris de la taula"
 #: libraries/export/texytext.php:233 libraries/Index.class.php:446
 #: libraries/messages.inc.php:325 libraries/tbl_properties.inc.php:99
 #: libraries/tbl_properties.inc.php:275 pdf_schema.php:1263
-#: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:187
+#: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:189
 #: tbl_printview.php:142 tbl_relation.php:402 tbl_structure.php:177
 #: tbl_tracking.php:273 tbl_tracking.php:324
 msgid "Field"
@@ -163,8 +163,8 @@ msgstr "Comentaris"
 #: libraries/mult_submits.inc.php:263 pdf_schema.php:1345
 #: server_privileges.php:1529 server_privileges.php:1540
 #: server_privileges.php:1850 server_privileges.php:1855
-#: server_privileges.php:2148 tbl_printview.php:229 tbl_structure.php:351
-#: tbl_tracking.php:337 tbl_tracking.php:342
+#: server_privileges.php:2148 sql.php:132 sql.php:194 tbl_printview.php:229
+#: tbl_structure.php:351 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "No"
 
@@ -179,9 +179,9 @@ msgstr "No"
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:273
 #: pdf_schema.php:1345 server_databases.php:64 server_privileges.php:1526
 #: server_privileges.php:1540 server_privileges.php:1850
-#: server_privileges.php:1853 server_privileges.php:2148 tbl_printview.php:229
-#: tbl_structure.php:40 tbl_structure.php:351 tbl_tracking.php:335
-#: tbl_tracking.php:340
+#: server_privileges.php:1853 server_privileges.php:2148 sql.php:193
+#: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:351
+#: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
 msgstr "Si"
 
@@ -381,7 +381,7 @@ msgid "Records"
 msgstr "Registres"
 
 #: db_printview.php:109 libraries/db_structure.lib.php:67
-#: libraries/messages.inc.php:1011 tbl_indexes.php:188
+#: libraries/messages.inc.php:1011 tbl_indexes.php:190
 msgid "Size"
 msgstr "Mida"
 
@@ -466,7 +466,7 @@ msgstr "Sup"
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:600
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:258
-#: tbl_change.php:1031 tbl_indexes.php:248
+#: tbl_change.php:1031 tbl_indexes.php:250
 msgid "Or"
 msgstr "O"
 
@@ -1188,6 +1188,26 @@ msgstr "Veure video"
 msgid "Download file"
 msgstr "Descarrega arxiu"
 
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"No es pot carregar iconv o recodificar una extensió necessària per la "
+"conversió de jocs de caràcters, Configura php per permetre l'ús d'aquestes "
+"extensions o bé desactiva la conversió de jocs de caràcters en phpMyAdmin."
+
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"No es pot utilitzar iconv ni libiconv ni la funció recode_string mentre es "
+"carrega l'extensió d'informes. Comprova la configuració de php."
+
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -1485,6 +1505,51 @@ msgstr "Pot ser aproximat. Veieu PFC (FAQ) 3.11"
 msgid "Overhead"
 msgstr "Defragmentat"
 
+#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
+#: main.php:91 user_password.php:111 user_password.php:129
+msgid "Change password"
+msgstr "Canvi de contrasenya"
+
+#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
+#: libraries/replication_gui.lib.php:341 server_privileges.php:768
+msgid "No Password"
+msgstr "Sense contrasenya"
+
+#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
+#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
+#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:345 server_privileges.php:757
+#: server_privileges.php:761 server_privileges.php:772
+#: server_privileges.php:1499 server_synchronize.php:1170
+msgid "Password"
+msgstr "Contrasenya"
+
+#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
+#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
+#: server_privileges.php:776 server_privileges.php:779
+msgid "Re-type"
+msgstr "Reescriu"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr "Contrasenya Hashing"
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "Compatible amb MySQL&nbsp;4.0"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+#: libraries/replication_gui.lib.php:356 server_privileges.php:783
+msgid "Generate Password"
+msgstr "Genera una Contrasenya"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+#: libraries/replication_gui.lib.php:359 server_privileges.php:786
+msgid "Generate"
+msgstr "Genera"
+
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1583,51 +1648,6 @@ msgstr "\"comprimit amb bzip\""
 #: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr "Modus de compatibilitat SQL"
-
-#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
-#: main.php:91 user_password.php:111 user_password.php:129
-msgid "Change password"
-msgstr "Canvi de contrasenya"
-
-#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
-#: libraries/replication_gui.lib.php:341 server_privileges.php:768
-msgid "No Password"
-msgstr "Sense contrasenya"
-
-#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
-#: libraries/replication_gui.lib.php:345 server_privileges.php:757
-#: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1170
-msgid "Password"
-msgstr "Contrasenya"
-
-#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
-#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
-#: server_privileges.php:776 server_privileges.php:779
-msgid "Re-type"
-msgstr "Reescriu"
-
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr "Contrasenya Hashing"
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "Compatible amb MySQL&nbsp;4.0"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-#: libraries/replication_gui.lib.php:356 server_privileges.php:783
-msgid "Generate Password"
-msgstr "Genera una Contrasenya"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-#: libraries/replication_gui.lib.php:359 server_privileges.php:786
-msgid "Generate"
-msgstr "Genera"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -2345,26 +2365,6 @@ msgstr "Generat per"
 msgid "Rows"
 msgstr "Fila"
 
-#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"No es pot carregar iconv o recodificar una extensió necessària per la "
-"conversió de jocs de caràcters, Configura php per permetre l'ús d'aquestes "
-"extensions o bé desactiva la conversió de jocs de caràcters en phpMyAdmin."
-
-#: libraries/charset_conversion.lib.php:79
-#: libraries/charset_conversion.lib.php:90
-#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"No es pot utilitzar iconv ni libiconv ni la funció recode_string mentre es "
-"carrega l'extensió d'informes. Comprova la configuració de php."
-
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
@@ -2522,7 +2522,7 @@ msgstr "Afegeix permisos a la següent taula"
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Afegeix condicions de recerca (cos de la clàusula \"WHERE\"):"
 
-#: libraries/messages.inc.php:49 tbl_indexes.php:249
+#: libraries/messages.inc.php:49 tbl_indexes.php:251
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "Afegeix a l'índex %s columna(es) &nbsp;"
@@ -2732,6 +2732,7 @@ msgid "Upload to BLOB repository"
 msgstr "Puja al repositori BLOB"
 
 #: libraries/messages.inc.php:108 libraries/sql_query_form.lib.php:359
+#: sql.php:678
 msgid "Let every user access this bookmark"
 msgstr "Deixa accedir a cada usuari a aquesta consulta desada"
 
@@ -2739,7 +2740,7 @@ msgstr "Deixa accedir a cada usuari a aquesta consulta desada"
 msgid "The bookmark has been deleted."
 msgstr "S'ha esborrat la consulta desada."
 
-#: libraries/messages.inc.php:111
+#: libraries/messages.inc.php:111 sql.php:672
 msgid "Label"
 msgstr "Etiqueta"
 
@@ -2752,6 +2753,7 @@ msgid "Replace existing bookmark of same name"
 msgstr "Reemplaça una consulta desada ja existent amb el mateix nom"
 
 #: libraries/messages.inc.php:114 libraries/sql_query_form.lib.php:352
+#: sql.php:666 sql.php:667 sql.php:684
 msgid "Bookmark this SQL query"
 msgstr "Desa aquesta consulta SQL"
 
@@ -3216,10 +3218,12 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "No feu servir AUTO_INCREMENT per a valors zero"
 
 #: libraries/messages.inc.php:278 libraries/mult_submits.inc.php:258
+#: sql.php:188
 msgid "Do you really want to "
 msgstr "Realment vols fer?"
 
 #: libraries/messages.inc.php:279 libraries/mult_submits.inc.php:258
+#: sql.php:172
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ets a punt d'ELIMINAR completament una base de dades!"
 
@@ -3247,7 +3251,7 @@ msgstr "Edita permisos"
 msgid "Effective"
 msgstr "Efectiu"
 
-#: libraries/messages.inc.php:293 tbl_get_field.php:35 tbl_change.php:181
+#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha retornat un conjunt buit (p.e. cap fila)."
 
@@ -3549,7 +3553,8 @@ msgstr "Ajuda"
 msgid "Use hexadecimal for BLOB"
 msgstr "Usa hexadecimal per a BLOB"
 
-#: libraries/messages.inc.php:383 pmd_general.php:141
+#: libraries/messages.inc.php:383 pmd_general.php:141 tbl_change.php:314
+#: tbl_change.php:320
 msgid "Hide"
 msgstr "Amaga"
 
@@ -3610,8 +3615,8 @@ msgstr "Text sencer"
 msgid "Ignore duplicate rows"
 msgstr "Ignora les files duplicades"
 
-#: libraries/messages.inc.php:398 tbl_change.php:302 tbl_indexes.php:198
-#: tbl_indexes.php:223
+#: libraries/messages.inc.php:398 tbl_change.php:302 tbl_indexes.php:200
+#: tbl_indexes.php:225
 msgid "Ignore"
 msgstr "Ignora"
 
@@ -3691,15 +3696,15 @@ msgstr ""
 msgid "Index"
 msgstr "Índex"
 
-#: libraries/messages.inc.php:423 tbl_indexes.php:166
+#: libraries/messages.inc.php:423 tbl_indexes.php:168
 msgid "Index name:"
 msgstr "Nom d'índex:"
 
-#: libraries/messages.inc.php:424 tbl_indexes.php:172
+#: libraries/messages.inc.php:424 tbl_indexes.php:174
 msgid "Index type:"
 msgstr "Tipus d'índex:"
 
-#: libraries/messages.inc.php:425
+#: libraries/messages.inc.php:425 sql.php:640
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemes amb els indexs de la taula `%s`"
@@ -3750,7 +3755,7 @@ msgstr "Afegida relació interna"
 msgid "Internal relations"
 msgstr "Relacions internes"
 
-#: libraries/messages.inc.php:446 tbl_indexes.php:254 tbl_structure.php:590
+#: libraries/messages.inc.php:446 tbl_indexes.php:256 tbl_structure.php:590
 #: tbl_structure.php:601
 msgid "Column count has to be larger than zero."
 msgstr "El comptador de columnes ha de ser més gran que zero."
@@ -4001,7 +4006,7 @@ msgstr "Els tipus MIME en cursiva no tenen funcions de transformació a part"
 msgid "Modifications have been saved"
 msgstr "Les modificacions han estat desades"
 
-#: libraries/messages.inc.php:523 tbl_indexes.php:161
+#: libraries/messages.inc.php:523 tbl_indexes.php:162
 msgid "Modify an index"
 msgstr "Modifica un índex"
 
@@ -4084,7 +4089,7 @@ msgstr ""
 "No hi ha informació detallada de l'estat disponible per a aquest motor "
 "d'emmagatzematge."
 
-#: libraries/messages.inc.php:558
+#: libraries/messages.inc.php:558 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Instrucció \"DROP DATABASE\" desactivada."
 
@@ -4988,7 +4993,7 @@ msgstr "Desa la posició"
 #: libraries/messages.inc.php:838 libraries/tbl_properties.inc.php:776
 #: pdf_pages.php:484 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:214 setup/lib/FormDisplay.tpl.php:215
-#: tbl_change.php:1126 tbl_indexes.php:246 tbl_relation.php:566
+#: tbl_change.php:1126 tbl_indexes.php:248 tbl_relation.php:566
 msgid "Save"
 msgstr "Desa"
 
@@ -8684,6 +8689,13 @@ msgstr "Relacions internes"
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
 msgstr "Límit de claus externes"
+
+#: tbl_structure.php:362
+#, fuzzy
+#| msgid "None"
+msgctxt "None for default"
+msgid "None"
+msgstr "Res"
 
 #: tbl_structure.php:595
 #, fuzzy, php-format

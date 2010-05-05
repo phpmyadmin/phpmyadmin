@@ -359,7 +359,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         }
     }
     else {
-        echo '<i>' . $strNoneDefault . '</i>';
+        echo '<i>' . _pgettext('None for default','None') . '</i>';
     } ?></td>
     <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
     <td align="center">
