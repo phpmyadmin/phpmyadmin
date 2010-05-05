@@ -3375,7 +3375,7 @@ msgstr "Vider la cache des requêtes"
 
 #: libraries/messages.inc.php:344
 msgid "Flush the table (\"FLUSH\")"
-msgstr "Recharger la table (\"FLUSH\")"
+msgstr "Recharger la table ( «FLUSH »)"
 
 #: libraries/messages.inc.php:345 server_status.php:271
 msgid "Flush (close) all tables"
