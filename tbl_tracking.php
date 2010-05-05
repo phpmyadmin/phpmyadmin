@@ -248,7 +248,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump')
  */
 if (isset($_REQUEST['snapshot'])) {
 ?>
-    <h3><?php echo __('Structure snapshot');?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo __('Tracking report')Close;?></a>]</h3>
+    <h3><?php echo __('Structure snapshot');?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo __('Close');?></a>]</h3>
 <?php
     $data = PMA_Tracker::getTrackedData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']);
 
@@ -376,7 +376,7 @@ if (isset($_REQUEST['snapshot'])) {
  */
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     ?>
-    <h3><?php echo __('Tracking report');?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo __('Tracking report')Close;?></a>]</h3>
+    <h3><?php echo __('Tracking report');?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo __('Close');?></a>]</h3>
 
     <small><?php echo __('Tracking statements') . ' ' . $data['tracking']; ?></small><br/>
     <br/>
@@ -504,7 +504,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     printf(__('Show %s with dates from %s to %s by user %s %s'), $str1, $str2, $str3, $str4, $str5);
 
     $str_export1 =  '<select name="export_type">' .
-                    '<option value="sqldumpfile">' . __('SQL dump')File . '</option>' .
+                    '<option value="sqldumpfile">' . __('SQL dump (file download)') . '</option>' .
                     '<option value="sqldump">' . __('SQL dump') . '</option>' .
                     '<option value="execution" onclick="alert(\'' . __('SQL execution') .'\')">' . __('SQL execution') . '</option>' .
                     '</select>';
