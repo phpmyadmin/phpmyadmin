@@ -6394,7 +6394,7 @@ msgstr "Stolpcev polja CHAR"
 
 #: setup/lib/messages.inc.php:39
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Število vrstic besedilnih polj CHAR/VARCHAR"
 
 #: setup/lib/messages.inc.php:40
 msgid "CHAR textarea rows"
