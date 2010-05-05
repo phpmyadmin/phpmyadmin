@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-05 11:52+0200\n"
-"PO-Revision-Date: 2010-05-04 16:34+0200\n"
+"PO-Revision-Date: 2010-05-05 16:00+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -1154,10 +1154,10 @@ msgstr ""
 "n'a été détectée."
 
 #: libraries/common.inc.php:594
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Chargement de la configuration par défaut impossible depuis \"%1$s\""
+msgstr "Chargement de la configuration par défaut impossible depuis %1$s"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
@@ -8625,180 +8625,3 @@ msgstr "Créer un index sur &nbsp;%s&nbsp;colonnes"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Description"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "aucune"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "aucune"
-
-#, fuzzy
-#~| msgid "Grant all privileges on wildcard name (username\\_%)"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "Donner les privilèges passepartout (utilisateur\\_%)"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "La table \"%s\" n'existe pas !"
-
-#~ msgid "Could not load default configuration from: %1"
-#~ msgstr "Chargement de la configuration par défaut impossible depuis %1"
-
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr ""
-#~ "Nom d'hôte (hostname) invalide pour le serveur %1. Veuillez vérifier "
-#~ "votre configuration."
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "Erreur lors du renommage de %1$s en %2$s"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%"
-#~ "1$s[/em][/a]. Veuillez vérifier votre configuration de PHP."
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as master in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as master in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Ce serveur n'est pas configuré comme maître dans un processus de "
-#~ "réplication. Désirez-vous le <a href=\"%s\">configurer</a>?"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as slave in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as slave in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Ce serveur n'est pas configuré comme esclave dans un processus de "
-#~ "réplication. Désirez-vous le <a href=\"%s\">configurer</a>?"
-
-#, fuzzy
-#~| msgid "Could not connect to MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Connexion au serveur MySQL impossible."
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Il semble que vous ayez trouvé une anomalie dans l'analyseur syntaxique "
-#~ "SQL. Veuillez examiner votre requête attentivement et vérifier que vos "
-#~ "apostrophes sont conformes. Il se pourrait aussi que vous ayez chargé un "
-#~ "fichier dont le contenu binaire n'est pas entre apostrophes. Si vous avez "
-#~ "accès à MySQL via son interface de commande en mode ligne, vous pouvez y "
-#~ "essayer votre requête. Le message d'erreur présenté plus bas pourrait "
-#~ "vous indiquer la source du problème. En dernier recours, veuillez trouver "
-#~ "la plus courte requête possible qui cause le problème, et soumettre un "
-#~ "rapport d'anomalie en incluant la section à couper:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV"
-
-#~ msgid "Copy"
-#~ msgstr "Copier"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Effacer les utilisateurs, puis recharger les privilèges."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Ceci est la méthode la plus directe, mais le fait de recharger les "
-#~ "privilèges pourrait prendre du temps."
-
-#~ msgid "has been altered."
-#~ msgstr "a été modifié(e)."
-
-#~ msgid "Microsoft Excel 2000"
-#~ msgstr "Microsoft Excel 2000"
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Fonction non disponible sous Internet Explorer."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "Les utilisateurs &quot;effacés&quot; auront quand même accès au serveur, "
-#~ "jusqu'à ce que les privilèges soient rechargés."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Seulement effacer les utilisateurs des tables de privilèges."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Permission d'exécuter des procédures; n'est pas effectif dans cette "
-#~ "version de MySQL."
-
-#~ msgid "Process list"
-#~ msgstr "Liste des processus"
-
-#~ msgid "Reload privileges"
-#~ msgstr "Recharger les privilèges"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Les utilisateurs auront le privilege \"USAGE\", jusqu'à ce que les "
-#~ "privilèges soient rechargés."
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "Données MS Excel (format natif)"
-
-#~ msgid "Alter index(s)"
-#~ msgstr "Modifier des index"
-
-#~ msgid "Tracking Mechanism"
-#~ msgstr "Mécanisme de suivi"
-
-#~ msgid "SELECT *"
-#~ msgstr "SELECT *"
-
-#~ msgid "SELECT"
-#~ msgstr "SELECT"
-
-#~ msgid "INSERT"
-#~ msgstr "INSERT"
-
-#~ msgid "UPDATE"
-#~ msgstr "UPDATE"
-
-#~ msgid "DELETE"
-#~ msgstr "DELETE"
