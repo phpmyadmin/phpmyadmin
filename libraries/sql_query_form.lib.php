@@ -227,17 +227,17 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         // prepare for db related
         $db     = $GLOBALS['db'];
         // if you want navigation:
-        $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+        $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
             . '?' . PMA_generate_common_url($db) . '"';
         if ($is_querywindow) {
-            $strDBLink .= ' target="_self"'
+            $tmp_db_link .= ' target="_self"'
                 . ' onclick="this.target=window.opener.frame_content.name"';
         }
-        $strDBLink .= '>'
+        $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
         // else use
-        // $strDBLink = htmlspecialchars($db);
-        $legend = sprintf(__('Run SQL query/queries on database %s'), $strDBLink);
+        // $tmp_db_link = htmlspecialchars($db);
+        $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query)) {
             $query = str_replace('%d',
                 PMA_backquote($db), $GLOBALS['cfg']['DefaultQueryDatabase']);
@@ -252,17 +252,17 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
             'SHOW FULL COLUMNS FROM ' . PMA_backquote($db)
             . '.' . PMA_backquote($GLOBALS['table']));
 
-        $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+        $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
             . '?' . PMA_generate_common_url($db) . '"';
         if ($is_querywindow) {
-            $strDBLink .= ' target="_self"'
+            $tmp_db_link .= ' target="_self"'
                 . ' onclick="this.target=window.opener.frame_content.name"';
         }
-        $strDBLink .= '>'
+        $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
         // else use
-        // $strDBLink = htmlspecialchars($db);
-        $legend = sprintf(__('Run SQL query/queries on database %s'), $strDBLink);
+        // $tmp_db_link = htmlspecialchars($db);
+        $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query) && count($fields_list)) {
             $field_names = array();
             foreach ($fields_list as $field) {

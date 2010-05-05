@@ -640,13 +640,13 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
                             $sql_constraints .= $crlf;
                         }
                         if (strpos($sql_lines[$j], 'CONSTRAINT') === FALSE) {
-                            $str_tmp = preg_replace('/(FOREIGN[\s]+KEY)/', 'ADD \1', $sql_lines[$j]);
-                            $sql_constraints_query .= $str_tmp;
-                            $sql_constraints .= $str_tmp;
+                            $tmp_str = preg_replace('/(FOREIGN[\s]+KEY)/', 'ADD \1', $sql_lines[$j]);
+                            $sql_constraints_query .= $tmp_str;
+                            $sql_constraints .= $tmp_str;
                         } else {
-                            $str_tmp = preg_replace('/(CONSTRAINT)/', 'ADD \1', $sql_lines[$j]);
-                            $sql_constraints_query .= $str_tmp;
-                            $sql_constraints .= $str_tmp;
+                            $tmp_str = preg_replace('/(CONSTRAINT)/', 'ADD \1', $sql_lines[$j]);
+                            $sql_constraints_query .= $tmp_str;
+                            $sql_constraints .= $tmp_str;
                             preg_match('/(CONSTRAINT)([\s])([\S]*)([\s])/', $sql_lines[$j], $matches);
                             if (! $first) {
                                 $sql_drop_foreign_keys .= ', ';
