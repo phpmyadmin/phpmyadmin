@@ -207,7 +207,7 @@ if ($server_master_status) {
 
     echo '<fieldset>';
     echo '<legend>' . __('Master replication') . '</legend>';
-    echo sprintf(__('This server is not configured as master in a replication process. Would you like to <a href=%s>configure</a> it?'), PMA_generate_common_url($_url_params));
+    echo sprintf(__('This server is not configured as master in a replication process. Would you like to <a href="%s">configure</a> it?'), PMA_generate_common_url($_url_params));
     echo '</fieldset>';
 }
 
@@ -352,7 +352,7 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         $_url_params['sl_configure'] = true;
         $_url_params['repl_clear_scr'] = true;
 
-        echo sprintf(__('This server is not configured as slave in a replication process. Would you like to <a href=%s>configure</a> it?'), PMA_generate_common_url($_url_params));
+        echo sprintf(__('This server is not configured as slave in a replication process. Would you like to <a href="%s">configure</a> it?'), PMA_generate_common_url($_url_params));
     }
     echo '</div>';
     echo '</fieldset>';
