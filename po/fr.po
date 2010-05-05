@@ -3467,7 +3467,7 @@ msgstr "grec"
 
 #: libraries/messages.inc.php:375
 msgid "\"gzipped\""
-msgstr "\"gzippé\""
+msgstr " «gzippé »"
 
 #: libraries/messages.inc.php:377 server_status.php:250
 msgid "Handler"
