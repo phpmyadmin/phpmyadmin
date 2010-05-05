@@ -4189,7 +4189,7 @@ msgstr "Schéma de la base «\"%s» - Page %s"
 #: libraries/messages.inc.php:644
 #, php-format
 msgid "The \"%s\" table doesn't exist!"
-msgstr "La table \"%s\" n'existe pas !"
+msgstr "La table «%s» n'existe pas !"
 
 #: libraries/messages.inc.php:645 pdf_schema.php:1014
 msgid "No tables"
