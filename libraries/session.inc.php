@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
 // verify if PHP supports session, die if it does not
 
 if (!@function_exists('session_name')) {
-    PMA_fatalError('strCantLoad', 'session');
+    PMA_warnMissingExtension('session', true);
 } elseif (ini_get('session.auto_start') == true && session_name() != 'phpMyAdmin') {
     // Do not delete the existing session, it might be used by other
     // applications; instead just close it.
