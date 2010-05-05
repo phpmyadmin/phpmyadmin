@@ -2716,7 +2716,7 @@ msgstr "bulgare"
 
 #: libraries/messages.inc.php:128
 msgid "\"bzipped\""
-msgstr "\"bzippé\""
+msgstr " «bzippé »"
 
 #: libraries/messages.inc.php:130
 msgid "Calendar"
