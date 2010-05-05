@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:22+0200\n"
+"POT-Creation-Date: 2010-05-05 11:43+0200\n"
 "PO-Revision-Date: 2010-04-03 11:44+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -1096,20 +1096,6 @@ msgstr ""
 "parolayı kontrol edin ve MySQL sunucusunun yöneticisi tarafından verilen "
 "bilgiyle uyuştuğundan emin olun."
 
-#: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#: libraries/database_interface.lib.php:49
-#: libraries/database_interface.lib.php:64
-#, fuzzy
-#| msgid ""
-#| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#| "extension. Please check your PHP configuration."
-msgid ""
-"Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-"Please check your PHP configuration."
-msgstr ""
-"[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] uzantısı "
-"yüklenemiyor. Lütfen PHP yapılandırmanızı kontrol edin."
-
 #: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:496
 msgid "Log in"
 msgstr "Oturum Aç"
@@ -1223,9 +1209,9 @@ msgstr ""
 "karşınıza çıkıyorsa, her şey yolunda demektir."
 
 #: libraries/common.inc.php:594
-#, fuzzy
+#, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
-msgid "Could not load default configuration from: %1"
+msgid "Could not load default configuration from: %1$s"
 msgstr "Varsayılan yapılandırma bundan yüklenemedi: \"%1$s\""
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
@@ -1242,10 +1228,9 @@ msgstr ""
 msgid "Invalid server index: %s"
 msgstr "Geçersiz sunucu indeksi: \"%s\""
 
-#: libraries/common.inc.php:636
-#, fuzzy
-#| msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgid "Invalid hostname for server %1. Please review your configuration."
+#: libraries/common.inc.php:636 libraries/messages.inc.php:456
+#, php-format
+msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "%1$s sunucusu için geçersiz anamakine. Lütfen yapılandırmanızı gözden "
 "geçirin."
@@ -1279,13 +1264,11 @@ msgstr "tr"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/database_interface.lib.php:52
-#: libraries/database_interface.lib.php:67
-#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
-#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
-#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
-#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
-#: setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
+#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
+#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
+#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
+#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Belgeler"
 
@@ -1396,6 +1379,15 @@ msgstr "%s işlevselliği bilinen bir hata tarafından zarar görmüş, bakını
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:346
 msgid "Font size"
 msgstr "Yazı Tipi boyutu"
+
+#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#, php-format
+msgid ""
+"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+"extension. Please check your PHP configuration."
+msgstr ""
+"[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] uzantısı "
+"yüklenemiyor. Lütfen PHP yapılandırmanızı kontrol edin."
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
 #: libraries/export/sql.php:415 libraries/messages.inc.php:314
@@ -2359,9 +2351,7 @@ msgstr "Üreten:"
 msgid "Rows"
 msgstr "Satır"
 
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
 msgid ""
 "Couldn't load the iconv or recode extension needed for charset conversion. "
 "Either configure PHP to enable these extensions or disable charset "
@@ -2371,9 +2361,9 @@ msgstr ""
 "yüklenemedi. Ya PHP'yi bu uzantıları etkinleştirmek için yapılandırın ya da "
 "phpMyAdmin içinde karakter grubu dönüşümünü etkisizleştirin..."
 
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
 msgid ""
 "Couldn't use the iconv, libiconv, or recode_string functions, although the "
 "necessary extensions appear to be loaded. Check your PHP configuration."
@@ -2798,15 +2788,6 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "İçeri aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
-
-#: libraries/messages.inc.php:135
-#, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
-msgstr ""
-"[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] uzantısı "
-"yüklenemiyor. Lütfen PHP yapılandırmanızı kontrol edin."
 
 #: libraries/messages.inc.php:137
 msgid "Can't rename index to PRIMARY!"
@@ -3327,7 +3308,7 @@ msgstr "Hata: İlişki eklenmedi."
 msgid "Error: relation already exists."
 msgstr "Hata: İlişki zaten var."
 
-#: libraries/messages.inc.php:309
+#: libraries/messages.inc.php:309 libraries/Table.class.php:1048
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "%1$s tablo adını %2$s tablo adına değiştirme hatası"
@@ -3802,13 +3783,6 @@ msgstr "En az bir alan eklemek zorundasınız."
 #: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
 msgstr "Bu eklenti sıkıştırılmış içeri aktarım dosyalarını desteklemez!"
-
-#: libraries/messages.inc.php:456
-#, php-format
-msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
-"%1$s sunucusu için geçersiz anamakine. Lütfen yapılandırmanızı gözden "
-"geçirin."
 
 #: libraries/messages.inc.php:457
 #, php-format
@@ -6787,12 +6761,6 @@ msgstr "Not: Bu seçeneklerin 0 (sıfır)'a ayarlanması sınırı kaldırır."
 msgid "\"zipped\""
 msgstr "\"zip olarak\""
 
-#: libraries/Table.class.php:1048
-#, fuzzy
-#| msgid "Error renaming table %1$s to %2$s"
-msgid "Error renaming table %1 to %2"
-msgstr "%1$s tablo adını %2$s tablo adına değiştirme hatası"
-
 #: libraries/tbl_properties.inc.php:393
 #, fuzzy
 #| msgid "None"
@@ -8723,6 +8691,34 @@ msgstr "&nbsp;%s&nbsp;sütunda indeks oluştur."
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Açıklama"
+
+#, fuzzy
+#~| msgid "Could not load default configuration from: \"%1$s\""
+#~ msgid "Could not load default configuration from: %1"
+#~ msgstr "Varsayılan yapılandırma bundan yüklenemedi: \"%1$s\""
+
+#, fuzzy
+#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
+#~ msgid "Invalid hostname for server %1. Please review your configuration."
+#~ msgstr ""
+#~ "%1$s sunucusu için geçersiz anamakine. Lütfen yapılandırmanızı gözden "
+#~ "geçirin."
+
+#, fuzzy
+#~| msgid "Error renaming table %1$s to %2$s"
+#~ msgid "Error renaming table %1 to %2"
+#~ msgstr "%1$s tablo adını %2$s tablo adına değiştirme hatası"
+
+#, fuzzy
+#~| msgid ""
+#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~| "extension. Please check your PHP configuration."
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+#~ "Please check your PHP configuration."
+#~ msgstr ""
+#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] uzantısı "
+#~ "yüklenemiyor. Lütfen PHP yapılandırmanızı kontrol edin."
 
 #, fuzzy
 #~| msgid ""

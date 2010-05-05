@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:22+0200\n"
+"POT-Creation-Date: 2010-05-05 11:43+0200\n"
 "PO-Revision-Date: 2010-05-04 16:34+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -1041,16 +1041,6 @@ msgstr ""
 "\"password\" dans votre configuration et vous assurer qu'elles correspondent "
 "aux informations fournies par l'administrateur du serveur MySQL."
 
-#: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#: libraries/database_interface.lib.php:49
-#: libraries/database_interface.lib.php:64
-msgid ""
-"Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-"Please check your PHP configuration."
-msgstr ""
-"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%1$s"
-"[/em][/a]. Veuillez vérifier votre configuration de PHP."
-
 #: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:496
 msgid "Log in"
 msgstr "Connexion"
@@ -1164,8 +1154,10 @@ msgstr ""
 "n'a été détectée."
 
 #: libraries/common.inc.php:594
-msgid "Could not load default configuration from: %1"
-msgstr "Chargement de la configuration par défaut impossible depuis %1"
+#, fuzzy, php-format
+#| msgid "Could not load default configuration from: \"%1$s\""
+msgid "Could not load default configuration from: %1$s"
+msgstr "Chargement de la configuration par défaut impossible depuis \"%1$s\""
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
@@ -1180,10 +1172,11 @@ msgstr ""
 msgid "Invalid server index: %s"
 msgstr "Indice de serveur invalide: %s"
 
-#: libraries/common.inc.php:636
-msgid "Invalid hostname for server %1. Please review your configuration."
+#: libraries/common.inc.php:636 libraries/messages.inc.php:456
+#, php-format
+msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"Nom d'hôte (hostname) invalide pour le serveur %1. Veuillez vérifier votre "
+"Nom d'hôte (hostname) invalide pour le serveur %1$s. Veuillez vérifier votre "
 "configuration."
 
 #: libraries/common.inc.php:645 libraries/header.inc.php:96
@@ -1216,13 +1209,11 @@ msgstr "fr"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/database_interface.lib.php:52
-#: libraries/database_interface.lib.php:67
-#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
-#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
-#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
-#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
-#: setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
+#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
+#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
+#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
+#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Documentation"
 
@@ -1331,6 +1322,15 @@ msgstr "La fonctionnalité %s est affectée par une anomalie connue, voir %s"
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:346
 msgid "Font size"
 msgstr "Taille du texte"
+
+#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#, php-format
+msgid ""
+"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+"extension. Please check your PHP configuration."
+msgstr ""
+"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%1$s"
+"[/em][/a]. Veuillez vérifier votre configuration de PHP."
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
 #: libraries/export/sql.php:415 libraries/messages.inc.php:314
@@ -2294,9 +2294,7 @@ msgstr "Généré par"
 msgid "Rows"
 msgstr "Enregistrements"
 
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
 msgid ""
 "Couldn't load the iconv or recode extension needed for charset conversion. "
 "Either configure PHP to enable these extensions or disable charset "
@@ -2306,9 +2304,9 @@ msgstr ""
 "convertir le jeu de caractères. Veuillez activer l'une de ces extensions "
 "dans PHP, ou désactiver la conversion des jeux de caractères dans phpMyAdmin"
 
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
 msgid ""
 "Couldn't use the iconv, libiconv, or recode_string functions, although the "
 "necessary extensions appear to be loaded. Check your PHP configuration."
@@ -2734,15 +2732,6 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Chargement impossible des greffons d'importation, veuillez vérifier votre "
 "installation!"
-
-#: libraries/messages.inc.php:135
-#, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
-msgstr ""
-"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%1$s"
-"[/em][/a]. Veuillez vérifier votre configuration de PHP."
 
 #: libraries/messages.inc.php:137
 msgid "Can't rename index to PRIMARY!"
@@ -3266,7 +3255,7 @@ msgstr "Erreur: relation non ajoutée."
 msgid "Error: relation already exists."
 msgstr "Erreur: relation déjà existante."
 
-#: libraries/messages.inc.php:309
+#: libraries/messages.inc.php:309 libraries/Table.class.php:1048
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Erreur lors du renommage de %1$s en %2$s"
@@ -3742,13 +3731,6 @@ msgstr "Vous devez ajouter au moins un champ"
 #: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
 msgstr "Ce greffon ne supporte pas les importations en format comprimé!"
-
-#: libraries/messages.inc.php:456
-#, php-format
-msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
-"Nom d'hôte (hostname) invalide pour le serveur %1$s. Veuillez vérifier votre "
-"configuration."
 
 #: libraries/messages.inc.php:457
 #, php-format
@@ -6762,12 +6744,6 @@ msgstr "Note: Une valeur de 0 (zero) enlève la limite."
 msgid "\"zipped\""
 msgstr "\"zippé\""
 
-#: libraries/Table.class.php:1048
-#, fuzzy
-#| msgid "Error renaming table %1$s to %2$s"
-msgid "Error renaming table %1 to %2"
-msgstr "Erreur lors du renommage de %1$s en %2$s"
-
 #: libraries/tbl_properties.inc.php:393
 msgctxt "for default"
 msgid "None"
@@ -8649,6 +8625,26 @@ msgstr "Créer un index sur &nbsp;%s&nbsp;colonnes"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Description"
+
+#~ msgid "Could not load default configuration from: %1"
+#~ msgstr "Chargement de la configuration par défaut impossible depuis %1"
+
+#~ msgid "Invalid hostname for server %1. Please review your configuration."
+#~ msgstr ""
+#~ "Nom d'hôte (hostname) invalide pour le serveur %1. Veuillez vérifier "
+#~ "votre configuration."
+
+#, fuzzy
+#~| msgid "Error renaming table %1$s to %2$s"
+#~ msgid "Error renaming table %1 to %2"
+#~ msgstr "Erreur lors du renommage de %1$s en %2$s"
+
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+#~ "Please check your PHP configuration."
+#~ msgstr ""
+#~ "PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%"
+#~ "1$s[/em][/a]. Veuillez vérifier votre configuration de PHP."
 
 #, fuzzy
 #~| msgid ""

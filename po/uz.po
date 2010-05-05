@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:22+0200\n"
+"POT-Creation-Date: 2010-05-05 11:43+0200\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -1092,20 +1092,6 @@ msgstr ""
 "файлидаги хост, фойдаланувчи ва паролни текширинг ва улар MySQL сервери "
 "администраторидан олинган маълумотларга мос келишига ишонч ҳосил қилинг."
 
-#: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#: libraries/database_interface.lib.php:49
-#: libraries/database_interface.lib.php:64
-#, fuzzy
-#| msgid ""
-#| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#| "extension. Please check your PHP configuration."
-msgid ""
-"Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-"Please check your PHP configuration."
-msgstr ""
-"[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] кенгайтмани юклаб "
-"бўлмади! PHP конфигурациясини созланг."
-
 #: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:496
 msgid "Log in"
 msgstr "Авторизация"
@@ -1218,9 +1204,9 @@ msgstr ""
 "бўлади.<br />Агар бўм-бўш саҳифа кўрсатилса, демак, ҳаммаси жойида."
 
 #: libraries/common.inc.php:594
-#, fuzzy
+#, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
-msgid "Could not load default configuration from: %1"
+msgid "Could not load default configuration from: %1$s"
 msgstr " \"%1$s\" файлидан андоза конфигурацияни юклаб бўлмади."
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
@@ -1237,10 +1223,9 @@ msgstr ""
 msgid "Invalid server index: %s"
 msgstr "Сервер рақами нотўғри: \"%s\""
 
-#: libraries/common.inc.php:636
-#, fuzzy
-#| msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgid "Invalid hostname for server %1. Please review your configuration."
+#: libraries/common.inc.php:636 libraries/messages.inc.php:456
+#, php-format
+msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 " %1$s сервери учун нотўғри хост номи кўрсатилган. phpMyAdmin конфигурацион "
 "файлида белгиланган созлашларни тўғирланг."
@@ -1277,13 +1262,11 @@ msgstr "Юборилди"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/database_interface.lib.php:52
-#: libraries/database_interface.lib.php:67
-#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
-#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
-#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
-#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
-#: setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
+#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
+#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
+#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
+#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Документация"
 
@@ -1396,6 +1379,15 @@ msgstr ""
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:346
 msgid "Font size"
 msgstr "Шрифт ўлчами"
+
+#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#, php-format
+msgid ""
+"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+"extension. Please check your PHP configuration."
+msgstr ""
+"[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] кенгайтмани юклаб "
+"бўлмади! PHP конфигурациясини созланг."
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
 #: libraries/export/sql.php:415 libraries/messages.inc.php:314
@@ -2362,9 +2354,7 @@ msgstr "Тузилган"
 msgid "Rows"
 msgstr "Қаторларсони"
 
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
 msgid ""
 "Couldn't load the iconv or recode extension needed for charset conversion. "
 "Either configure PHP to enable these extensions or disable charset "
@@ -2375,9 +2365,9 @@ msgstr ""
 "созлаш ёки phpMyAdmin дастурида кодировкаларни конвертация қилишни "
 "фаолсизлантириш керак."
 
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
 msgid ""
 "Couldn't use the iconv, libiconv, or recode_string functions, although the "
 "necessary extensions appear to be loaded. Check your PHP configuration."
@@ -2811,15 +2801,6 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Импорт модуллари мавжуд эмас! Ўрнатилган phpMyAdmin нусхасининг libraries/"
 "export каталогини текширинг."
-
-#: libraries/messages.inc.php:135
-#, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
-msgstr ""
-"[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] кенгайтмани юклаб "
-"бўлмади! PHP конфигурациясини созланг."
 
 #: libraries/messages.inc.php:137
 msgid "Can't rename index to PRIMARY!"
@@ -3341,7 +3322,7 @@ msgstr "Хатолик: Боғлиқлик ўрнатилмади."
 msgid "Error: relation already exists."
 msgstr "Хатолик: Боғлиқлик аллақачон мавжуд."
 
-#: libraries/messages.inc.php:309
+#: libraries/messages.inc.php:309 libraries/Table.class.php:1048
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "%1$s жадвалини %2$s деб қайта номлашда хатолик"
@@ -3818,13 +3799,6 @@ msgstr "Ҳеч бўлмаганда битта майдон киритиш ша�
 #: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
 msgstr "Ушбу модул қисилган маълумотларни импорт қила олмайди!"
-
-#: libraries/messages.inc.php:456
-#, php-format
-msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
-" %1$s сервери учун нотўғри хост номи кўрсатилган. phpMyAdmin конфигурацион "
-"файлида белгиланган созлашларни тўғирланг."
 
 #: libraries/messages.inc.php:457
 #, php-format
@@ -6829,12 +6803,6 @@ msgstr ""
 msgid "\"zipped\""
 msgstr "zip"
 
-#: libraries/Table.class.php:1048
-#, fuzzy
-#| msgid "Error renaming table %1$s to %2$s"
-msgid "Error renaming table %1 to %2"
-msgstr "%1$s жадвалини %2$s деб қайта номлашда хатолик"
-
 #: libraries/tbl_properties.inc.php:393
 #, fuzzy
 #| msgid "None"
@@ -8782,6 +8750,34 @@ msgstr "\"%s\" майдон учун индекс тузиш"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Тавсифи"
+
+#, fuzzy
+#~| msgid "Could not load default configuration from: \"%1$s\""
+#~ msgid "Could not load default configuration from: %1"
+#~ msgstr " \"%1$s\" файлидан андоза конфигурацияни юклаб бўлмади."
+
+#, fuzzy
+#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
+#~ msgid "Invalid hostname for server %1. Please review your configuration."
+#~ msgstr ""
+#~ " %1$s сервери учун нотўғри хост номи кўрсатилган. phpMyAdmin "
+#~ "конфигурацион файлида белгиланган созлашларни тўғирланг."
+
+#, fuzzy
+#~| msgid "Error renaming table %1$s to %2$s"
+#~ msgid "Error renaming table %1 to %2"
+#~ msgstr "%1$s жадвалини %2$s деб қайта номлашда хатолик"
+
+#, fuzzy
+#~| msgid ""
+#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~| "extension. Please check your PHP configuration."
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+#~ "Please check your PHP configuration."
+#~ msgstr ""
+#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] кенгайтмани юклаб "
+#~ "бўлмади! PHP конфигурациясини созланг."
 
 #, fuzzy
 #~| msgid ""

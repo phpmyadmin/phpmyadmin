@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:22+0200\n"
+"POT-Creation-Date: 2010-05-05 11:43+0200\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: polish <pl@li.org>\n"
@@ -1103,19 +1103,6 @@ msgstr ""
 "pliku config.inc.php i upewnić się, że odpowiadają one informacjom danym "
 "przez administratora serwera MySQL."
 
-#: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#: libraries/database_interface.lib.php:49
-#: libraries/database_interface.lib.php:64
-#, fuzzy
-#| msgid ""
-#| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#| "extension. Please check your PHP configuration."
-msgid ""
-"Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-"Please check your PHP configuration."
-msgstr ""
-"nie udało się załadować modułu %s,<br />proszę sprawdzić konfigurację PHP"
-
 #: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:496
 msgid "Log in"
 msgstr "Login"
@@ -1226,9 +1213,9 @@ msgstr ""
 "pustą stronę, wszystko jest w porządku."
 
 #: libraries/common.inc.php:594
-#, fuzzy
+#, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
-msgid "Could not load default configuration from: %1"
+msgid "Could not load default configuration from: %1$s"
 msgstr "Nie udało się załadować domyślnej konfiguracji z pliku: \"%1$s\""
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
@@ -1245,10 +1232,9 @@ msgstr ""
 msgid "Invalid server index: %s"
 msgstr "Niewłaściwy numer serwera: \"%s\""
 
-#: libraries/common.inc.php:636
-#, fuzzy
-#| msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgid "Invalid hostname for server %1. Please review your configuration."
+#: libraries/common.inc.php:636 libraries/messages.inc.php:456
+#, php-format
+msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Niewłaściwa nazwa hosta serwera %1$s. Proszę przyjrzeć się konfiguracji."
 
@@ -1283,13 +1269,11 @@ msgstr "Wysłane"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/database_interface.lib.php:52
-#: libraries/database_interface.lib.php:67
-#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
-#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
-#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
-#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
-#: setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
+#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
+#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
+#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
+#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Dokumentacja"
 
@@ -1400,6 +1384,14 @@ msgstr "Funkcja %s jest dotknięta przez znany błąd, zobacz %s"
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:346
 msgid "Font size"
 msgstr "Rozmiar pisma"
+
+#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#, php-format
+msgid ""
+"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+"extension. Please check your PHP configuration."
+msgstr ""
+"nie udało się załadować modułu %s,<br />proszę sprawdzić konfigurację PHP"
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
 #: libraries/export/sql.php:415 libraries/messages.inc.php:314
@@ -2351,9 +2343,7 @@ msgstr "Wygenerowany przez"
 msgid "Rows"
 msgstr "Rekordów"
 
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
 msgid ""
 "Couldn't load the iconv or recode extension needed for charset conversion. "
 "Either configure PHP to enable these extensions or disable charset "
@@ -2363,9 +2353,9 @@ msgstr ""
 "konwersji kodowania napisów, skonfiguruj PHP tak, by mógł używać tych "
 "rozszerzeń albo zablokuj konwersję kodowania napisów w phpMyAdminie."
 
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
 msgid ""
 "Couldn't use the iconv, libiconv, or recode_string functions, although the "
 "necessary extensions appear to be loaded. Check your PHP configuration."
@@ -2793,14 +2783,6 @@ msgstr "Nie udało się załadować modułów eksportu, proszę sprawdzić insta
 #: libraries/messages.inc.php:133
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nie udało się załadować modułów importu, proszę sprawdzić instalację!"
-
-#: libraries/messages.inc.php:135
-#, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
-msgstr ""
-"nie udało się załadować modułu %s,<br />proszę sprawdzić konfigurację PHP"
 
 #: libraries/messages.inc.php:137
 msgid "Can't rename index to PRIMARY!"
@@ -3323,7 +3305,7 @@ msgstr "Błąd: nie dodano związku."
 msgid "Error: relation already exists."
 msgstr "Błąd: związek już istnieje."
 
-#: libraries/messages.inc.php:309
+#: libraries/messages.inc.php:309 libraries/Table.class.php:1048
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Błąd podczas zmiany nazwy tabeli z %1$s na %2$s"
@@ -3798,12 +3780,6 @@ msgstr "Należy dodać przynajmniej jedno pole."
 #: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
 msgstr "Ten moduł nie obsługuje skompresowanych importów!"
-
-#: libraries/messages.inc.php:456
-#, php-format
-msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
-"Niewłaściwa nazwa hosta serwera %1$s. Proszę przyjrzeć się konfiguracji."
 
 #: libraries/messages.inc.php:457
 #, php-format
@@ -6767,12 +6743,6 @@ msgstr "Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograniczenie."
 msgid "\"zipped\""
 msgstr "\".zip\""
 
-#: libraries/Table.class.php:1048
-#, fuzzy
-#| msgid "Error renaming table %1$s to %2$s"
-msgid "Error renaming table %1 to %2"
-msgstr "Błąd podczas zmiany nazwy tabeli z %1$s na %2$s"
-
 #: libraries/tbl_properties.inc.php:393
 #, fuzzy
 #| msgid "None"
@@ -8620,6 +8590,32 @@ msgstr "Utwórz indeks dla %s kolumn"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Opis"
+
+#, fuzzy
+#~| msgid "Could not load default configuration from: \"%1$s\""
+#~ msgid "Could not load default configuration from: %1"
+#~ msgstr "Nie udało się załadować domyślnej konfiguracji z pliku: \"%1$s\""
+
+#, fuzzy
+#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
+#~ msgid "Invalid hostname for server %1. Please review your configuration."
+#~ msgstr ""
+#~ "Niewłaściwa nazwa hosta serwera %1$s. Proszę przyjrzeć się konfiguracji."
+
+#, fuzzy
+#~| msgid "Error renaming table %1$s to %2$s"
+#~ msgid "Error renaming table %1 to %2"
+#~ msgstr "Błąd podczas zmiany nazwy tabeli z %1$s na %2$s"
+
+#, fuzzy
+#~| msgid ""
+#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~| "extension. Please check your PHP configuration."
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+#~ "Please check your PHP configuration."
+#~ msgstr ""
+#~ "nie udało się załadować modułu %s,<br />proszę sprawdzić konfigurację PHP"
 
 #, fuzzy
 #~| msgid "Could not connect to MySQL server"

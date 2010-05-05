@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:22+0200\n"
+"POT-Creation-Date: 2010-05-05 11:43+0200\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: catalan <ca@li.org>\n"
@@ -1093,18 +1093,6 @@ msgstr ""
 "a l'arxiu config.inc.php i mira que es correspongui amb l'informació "
 "facilitada per l'administrador del servidor de MySQL."
 
-#: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#: libraries/database_interface.lib.php:49
-#: libraries/database_interface.lib.php:64
-#, fuzzy
-#| msgid ""
-#| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#| "extension. Please check your PHP configuration."
-msgid ""
-"Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-"Please check your PHP configuration."
-msgstr "No puc carregar l'extensió %s,<br />Comprova la configuració de PHP."
-
 #: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:496
 msgid "Log in"
 msgstr "Identificació"
@@ -1217,9 +1205,9 @@ msgstr ""
 "en blanc, tot està bé."
 
 #: libraries/common.inc.php:594
-#, fuzzy
+#, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
-msgid "Could not load default configuration from: %1"
+msgid "Could not load default configuration from: %1$s"
 msgstr "No es pot carregar la configuració per defecte des de: \"%1$s\""
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
@@ -1236,10 +1224,9 @@ msgstr ""
 msgid "Invalid server index: %s"
 msgstr "Index de servidor invàlid: \"%s\""
 
-#: libraries/common.inc.php:636
-#, fuzzy
-#| msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgid "Invalid hostname for server %1. Please review your configuration."
+#: libraries/common.inc.php:636 libraries/messages.inc.php:456
+#, php-format
+msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Nom de host invàlid pel servidor %1$s. Si us plau, reviseu la configuració."
 
@@ -1274,13 +1261,11 @@ msgstr "Enviat"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/database_interface.lib.php:52
-#: libraries/database_interface.lib.php:67
-#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
-#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
-#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
-#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
-#: setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
+#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
+#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
+#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
+#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Documentació"
 
@@ -1391,6 +1376,13 @@ msgstr "La funcionalitat %s es veu afectada per un error conegut, veieu %s"
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:346
 msgid "Font size"
 msgstr "Tamany de lletra"
+
+#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#, php-format
+msgid ""
+"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+"extension. Please check your PHP configuration."
+msgstr "No puc carregar l'extensió %s,<br />Comprova la configuració de PHP."
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
 #: libraries/export/sql.php:415 libraries/messages.inc.php:314
@@ -2354,9 +2346,7 @@ msgstr "Generat per"
 msgid "Rows"
 msgstr "Fila"
 
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
 msgid ""
 "Couldn't load the iconv or recode extension needed for charset conversion. "
 "Either configure PHP to enable these extensions or disable charset "
@@ -2366,9 +2356,9 @@ msgstr ""
 "conversió de jocs de caràcters, Configura php per permetre l'ús d'aquestes "
 "extensions o bé desactiva la conversió de jocs de caràcters en phpMyAdmin."
 
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
 msgid ""
 "Couldn't use the iconv, libiconv, or recode_string functions, although the "
 "necessary extensions appear to be loaded. Check your PHP configuration."
@@ -2799,13 +2789,6 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "No es poden carregar les extensions d'importació, comprova l'instal.lació!"
-
-#: libraries/messages.inc.php:135
-#, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
-msgstr "No puc carregar l'extensió %s,<br />Comprova la configuració de PHP."
 
 #: libraries/messages.inc.php:137
 msgid "Can't rename index to PRIMARY!"
@@ -3327,7 +3310,7 @@ msgstr "Error: La relació no s'ha afegit."
 msgid "Error: relation already exists."
 msgstr "Error: La relació ja existeix."
 
-#: libraries/messages.inc.php:309
+#: libraries/messages.inc.php:309 libraries/Table.class.php:1048
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Error reanomenant la taula %1$s a %2$s"
@@ -3805,12 +3788,6 @@ msgstr "Has d'afegir al menys un camp."
 #: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
 msgstr "Aquesta extensió no suporta importacions comprimides!"
-
-#: libraries/messages.inc.php:456
-#, php-format
-msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
-"Nom de host invàlid pel servidor %1$s. Si us plau, reviseu la configuració."
 
 #: libraries/messages.inc.php:457
 #, php-format
@@ -6791,12 +6768,6 @@ msgstr "Nota: Es treu el limit establint aquestes opcions a 0 (zero)."
 msgid "\"zipped\""
 msgstr "\"comprimit amb zip\""
 
-#: libraries/Table.class.php:1048
-#, fuzzy
-#| msgid "Error renaming table %1$s to %2$s"
-msgid "Error renaming table %1 to %2"
-msgstr "Error reanomenant la taula %1$s a %2$s"
-
 #: libraries/tbl_properties.inc.php:393
 #, fuzzy
 #| msgid "None"
@@ -8726,6 +8697,33 @@ msgstr "Crea un índex de columnes %s:&nbsp;"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descripció"
+
+#, fuzzy
+#~| msgid "Could not load default configuration from: \"%1$s\""
+#~ msgid "Could not load default configuration from: %1"
+#~ msgstr "No es pot carregar la configuració per defecte des de: \"%1$s\""
+
+#, fuzzy
+#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
+#~ msgid "Invalid hostname for server %1. Please review your configuration."
+#~ msgstr ""
+#~ "Nom de host invàlid pel servidor %1$s. Si us plau, reviseu la "
+#~ "configuració."
+
+#, fuzzy
+#~| msgid "Error renaming table %1$s to %2$s"
+#~ msgid "Error renaming table %1 to %2"
+#~ msgstr "Error reanomenant la taula %1$s a %2$s"
+
+#, fuzzy
+#~| msgid ""
+#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~| "extension. Please check your PHP configuration."
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+#~ "Please check your PHP configuration."
+#~ msgstr ""
+#~ "No puc carregar l'extensió %s,<br />Comprova la configuració de PHP."
 
 #, fuzzy
 #~| msgid ""

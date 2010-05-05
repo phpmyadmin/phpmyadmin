@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:22+0200\n"
+"POT-Creation-Date: 2010-05-05 11:43+0200\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: swedish <sv@li.org>\n"
@@ -1099,19 +1099,6 @@ msgstr ""
 "inc.php och förvissa dig om att de stämmer överens med informationen från "
 "administratören av MySQL-servern."
 
-#: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#: libraries/database_interface.lib.php:49
-#: libraries/database_interface.lib.php:64
-#, fuzzy
-#| msgid ""
-#| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#| "extension. Please check your PHP configuration."
-msgid ""
-"Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-"Please check your PHP configuration."
-msgstr ""
-"kan inte ladda %s-tillägg,<br />var god kontrollera PHP-konfigurationen."
-
 #: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:496
 msgid "Log in"
 msgstr "Logga in"
@@ -1222,9 +1209,9 @@ msgstr ""
 "semikolon någonstans.<br />Om du erhåller en tom sida är allt bra."
 
 #: libraries/common.inc.php:594
-#, fuzzy
+#, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
-msgid "Could not load default configuration from: %1"
+msgid "Could not load default configuration from: %1$s"
 msgstr "Kunde inte ladda standardkonfiguration från: \"%1$s\""
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
@@ -1241,10 +1228,9 @@ msgstr ""
 msgid "Invalid server index: %s"
 msgstr "Ogiltigt serverindex: \"%s\""
 
-#: libraries/common.inc.php:636
-#, fuzzy
-#| msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgid "Invalid hostname for server %1. Please review your configuration."
+#: libraries/common.inc.php:636 libraries/messages.inc.php:456
+#, php-format
+msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ogiltigt värdnamn för server %1$s. Var god granska din konfiguration."
 
 #: libraries/common.inc.php:645 libraries/header.inc.php:96
@@ -1278,13 +1264,11 @@ msgstr "Skickade"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/database_interface.lib.php:52
-#: libraries/database_interface.lib.php:67
-#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
-#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
-#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
-#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
-#: setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
+#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
+#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
+#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
+#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Dokumentation"
 
@@ -1395,6 +1379,14 @@ msgstr "Funktionaliteten för %s påverkas av en känd bugg, se %s"
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:346
 msgid "Font size"
 msgstr "Teckenstorlek"
+
+#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#, php-format
+msgid ""
+"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+"extension. Please check your PHP configuration."
+msgstr ""
+"kan inte ladda %s-tillägg,<br />var god kontrollera PHP-konfigurationen."
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
 #: libraries/export/sql.php:415 libraries/messages.inc.php:314
@@ -2350,9 +2342,7 @@ msgstr "Genererad av"
 msgid "Rows"
 msgstr "Rader"
 
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
 msgid ""
 "Couldn't load the iconv or recode extension needed for charset conversion. "
 "Either configure PHP to enable these extensions or disable charset "
@@ -2362,9 +2352,9 @@ msgstr ""
 "teckenuppsättningsomvandling. Antingen konfigurera PHP för att tillåta dessa "
 "tillägg eller inaktivera teckenuppsättningsomvandling i phpMyAdmin."
 
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
 msgid ""
 "Couldn't use the iconv, libiconv, or recode_string functions, although the "
 "necessary extensions appear to be loaded. Check your PHP configuration."
@@ -2792,14 +2782,6 @@ msgstr "Kunde inte ladda export-tillägg. Kontrollera din installation."
 #: libraries/messages.inc.php:133
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Kunde inte ladda tillägg för import. Kontrollera din installation!"
-
-#: libraries/messages.inc.php:135
-#, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
-msgstr ""
-"kan inte ladda %s-tillägg,<br />var god kontrollera PHP-konfigurationen."
 
 #: libraries/messages.inc.php:137
 msgid "Can't rename index to PRIMARY!"
@@ -3326,7 +3308,7 @@ msgstr "Fel: Relation inte tillagd."
 msgid "Error: relation already exists."
 msgstr "Fel: Relation finns redan."
 
-#: libraries/messages.inc.php:309
+#: libraries/messages.inc.php:309 libraries/Table.class.php:1048
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Fel vid namnbyte på tabell %1$s till %2$s"
@@ -3802,11 +3784,6 @@ msgstr "Du måste lägga till åtminstone ett fält."
 #: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
 msgstr "Detta tillägg stöder inte komprimerade importer!"
-
-#: libraries/messages.inc.php:456
-#, php-format
-msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr "Ogiltigt värdnamn för server %1$s. Var god granska din konfiguration."
 
 #: libraries/messages.inc.php:457
 #, php-format
@@ -6761,12 +6738,6 @@ msgstr ""
 msgid "\"zipped\""
 msgstr "\"zippad\""
 
-#: libraries/Table.class.php:1048
-#, fuzzy
-#| msgid "Error renaming table %1$s to %2$s"
-msgid "Error renaming table %1 to %2"
-msgstr "Fel vid namnbyte på tabell %1$s till %2$s"
-
 #: libraries/tbl_properties.inc.php:393
 #, fuzzy
 #| msgid "None"
@@ -8669,6 +8640,32 @@ msgstr "Skapa ett index för&nbsp;%s&nbsp;kolumn(er)"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beskrivning"
+
+#, fuzzy
+#~| msgid "Could not load default configuration from: \"%1$s\""
+#~ msgid "Could not load default configuration from: %1"
+#~ msgstr "Kunde inte ladda standardkonfiguration från: \"%1$s\""
+
+#, fuzzy
+#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
+#~ msgid "Invalid hostname for server %1. Please review your configuration."
+#~ msgstr ""
+#~ "Ogiltigt värdnamn för server %1$s. Var god granska din konfiguration."
+
+#, fuzzy
+#~| msgid "Error renaming table %1$s to %2$s"
+#~ msgid "Error renaming table %1 to %2"
+#~ msgstr "Fel vid namnbyte på tabell %1$s till %2$s"
+
+#, fuzzy
+#~| msgid ""
+#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~| "extension. Please check your PHP configuration."
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+#~ "Please check your PHP configuration."
+#~ msgstr ""
+#~ "kan inte ladda %s-tillägg,<br />var god kontrollera PHP-konfigurationen."
 
 #, fuzzy
 #~| msgid "Could not connect to MySQL server"

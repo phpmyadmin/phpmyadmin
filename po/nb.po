@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:22+0200\n"
+"POT-Creation-Date: 2010-05-05 11:43+0200\n"
 "PO-Revision-Date: 2010-05-05 09:04+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -1036,16 +1036,6 @@ msgstr ""
 "passord (password) i config.inc.php og sjekke at de tilsvarer den "
 "informasjonen du fikk fra MySQL-server administratoren."
 
-#: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#: libraries/database_interface.lib.php:49
-#: libraries/database_interface.lib.php:64
-msgid ""
-"Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-"Please check your PHP configuration."
-msgstr ""
-"Kan ikke laste [a@http://php.net/%1@Documentation][em]%1[/em][/a] tillegget. "
-"Vennligst kontroller PHP-konfigurasjonen"
-
 #: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:496
 msgid "Log in"
 msgstr "Logg inn"
@@ -1155,8 +1145,10 @@ msgstr ""
 "et semikolon et sted.<br />Hvis du får en blank side så er alt ok."
 
 #: libraries/common.inc.php:594
-msgid "Could not load default configuration from: %1"
-msgstr "Kunne ikke laste standard konfigurasjon fra: %1"
+#, fuzzy, php-format
+#| msgid "Could not load default configuration from: \"%1$s\""
+msgid "Could not load default configuration from: %1$s"
+msgstr "Kunne ikke laste standard konfigurasjonsfil fra: \"%1$s\""
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
@@ -1171,9 +1163,10 @@ msgstr ""
 msgid "Invalid server index: %s"
 msgstr "Ugyldig tjenerindeks: \"%s\""
 
-#: libraries/common.inc.php:636
-msgid "Invalid hostname for server %1. Please review your configuration."
-msgstr "Ugyldig tjenernavn for tjener %1. Kontroller din konfigurasjon."
+#: libraries/common.inc.php:636 libraries/messages.inc.php:456
+#, php-format
+msgid "Invalid hostname for server %1$s. Please review your configuration."
+msgstr "Ugyldig tjenernavn for tjener %1$s. Kontroller din konfigurasjon."
 
 #: libraries/common.inc.php:645 libraries/header.inc.php:96
 #: libraries/messages.inc.php:864 libraries/select_server.lib.php:41
@@ -1204,13 +1197,11 @@ msgstr "en"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/database_interface.lib.php:52
-#: libraries/database_interface.lib.php:67
-#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
-#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
-#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
-#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
-#: setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
+#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
+#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
+#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
+#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Dokumentasjon"
 
@@ -1319,6 +1310,14 @@ msgstr "Funksjonaliteten %s er påvirket av en kjent feil, se %s"
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:346
 msgid "Font size"
 msgstr "Fontstørrelse"
+
+#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#, php-format
+msgid ""
+"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+"extension. Please check your PHP configuration."
+msgstr ""
+"Kan ikke starte %s tillegget,<br />vennligst kontroller PHP-konfigurasjonen"
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
 #: libraries/export/sql.php:415 libraries/messages.inc.php:314
@@ -2267,9 +2266,7 @@ msgstr "Generert av"
 msgid "Rows"
 msgstr "Rader"
 
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
 msgid ""
 "Couldn't load the iconv or recode extension needed for charset conversion. "
 "Either configure PHP to enable these extensions or disable charset "
@@ -2279,9 +2276,9 @@ msgstr ""
 "konvertering, konfigurer php slik at disse kan lastes eller slå av "
 "tegnsettkonvertering i phpMyAdmin."
 
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
 msgid ""
 "Couldn't use the iconv, libiconv, or recode_string functions, although the "
 "necessary extensions appear to be loaded. Check your PHP configuration."
@@ -2704,14 +2701,6 @@ msgstr "Kunne ikke laste eksporttillegg, kontroller din innstallasjon!"
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Kan ikke starte importeringsprogramtilleggene, kontroller din installasjon!"
-
-#: libraries/messages.inc.php:135
-#, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
-msgstr ""
-"Kan ikke starte %s tillegget,<br />vennligst kontroller PHP-konfigurasjonen"
 
 #: libraries/messages.inc.php:137
 msgid "Can't rename index to PRIMARY!"
@@ -3231,7 +3220,7 @@ msgstr "Feil: Relasjon ikke opprettet."
 msgid "Error: relation already exists."
 msgstr "Feil: relasjoner eksisterer allerede."
 
-#: libraries/messages.inc.php:309
+#: libraries/messages.inc.php:309 libraries/Table.class.php:1048
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Feil oppstond med endring av tabellnavn fra %1$s til %2$s"
@@ -3708,11 +3697,6 @@ msgstr "Du må sette inn minst ett felt."
 #: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
 msgstr "Dette tillegget støtter ikke komprimerte importeringer!"
-
-#: libraries/messages.inc.php:456
-#, php-format
-msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr "Ugyldig tjenernavn for tjener %1$s. Kontroller din konfigurasjon."
 
 #: libraries/messages.inc.php:457
 #, php-format
@@ -6678,10 +6662,6 @@ msgstr "Merk: Ved å sette disse til 0 (null) fjernes begrensningen."
 msgid "\"zipped\""
 msgstr "Komprimert (zip)"
 
-#: libraries/Table.class.php:1048
-msgid "Error renaming table %1 to %2"
-msgstr "Feil oppstod ved endring av tabellnavn fra %1 til %2"
-
 #: libraries/tbl_properties.inc.php:393
 msgctxt "for default"
 msgid "None"
@@ -8545,6 +8525,22 @@ msgstr "Lag en indeks på&nbsp;%s&nbsp;kolonner"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beskrivelse"
+
+#~ msgid "Could not load default configuration from: %1"
+#~ msgstr "Kunne ikke laste standard konfigurasjon fra: %1"
+
+#~ msgid "Invalid hostname for server %1. Please review your configuration."
+#~ msgstr "Ugyldig tjenernavn for tjener %1. Kontroller din konfigurasjon."
+
+#~ msgid "Error renaming table %1 to %2"
+#~ msgstr "Feil oppstod ved endring av tabellnavn fra %1 til %2"
+
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+#~ "Please check your PHP configuration."
+#~ msgstr ""
+#~ "Kan ikke laste [a@http://php.net/%1@Documentation][em]%1[/em][/a] "
+#~ "tillegget. Vennligst kontroller PHP-konfigurasjonen"
 
 #~ msgid ""
 #~ "This server is not configured as master in a replication process. Would "
