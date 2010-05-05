@@ -634,7 +634,7 @@ class PMA_RT_Table {
         $sql = 'DESCRIBE ' . PMA_backquote($table_name);
         $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
-            $pdf->PMA_PDF_die(sprintf(__('The %s table doesn't exist!'), $table_name));
+            $pdf->PMA_PDF_die(sprintf(__('The %s table doesn\'t exist!'), $table_name));
         }
         // load fields
         //check to see if it will load all fields or only the foreign keys
