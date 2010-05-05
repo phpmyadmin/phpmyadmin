@@ -1995,7 +1995,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
     $default_choice = 0;
     $choices = array(
-        '0' => _pgettext('', 'None'),
+        '0' => _pgettext('Create none database for user', 'None'),
         '1' => __('Create database with same name and grant all privileges'),
         '2' => __('Grant all privileges on wildcard name (username_%)'));
 
