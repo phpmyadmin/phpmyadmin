@@ -275,6 +275,26 @@ function PMA_fatalError($error_message, $message_args = null)
 }
 
 /**
+ * Warn or fail on missing extension.
+ *
+ * @param string $extension Extension name
+ * @param bool $fatal Whether the error is fatal.
+ / @param string $extra Extra string to append to messsage.
+ */
+function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
+{
+    $message = sprintf(__('Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] extension. Please check your PHP configuration.'), $extension);
+    if ($extra != '') {
+        $message .= ' ' . $extra;
+    }
+    if ($fatal) {
+        PMA_fatalError($message);
+    } else {
+        trigger_error($message, E_USER_WARNING);
+    }
+}
+
+/**
  * returns count of tables in given db
  *
  * @uses    PMA_DBI_try_query()
