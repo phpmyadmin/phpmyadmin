@@ -245,7 +245,7 @@ class PMA_Table
      *
      * @param   string   the database name
      * @param   string   the table name
-     * @return  boolean  true if it is a merge table 
+     * @return  boolean  true if it is a merge table
      * @access  public
      */
     static public function isMerge($db = null, $table = null)
@@ -480,7 +480,7 @@ class PMA_Table
                     } else {
                         // Counting all rows of a VIEW could be too long, so use
                         // a LIMIT clause.
-                        // Use try_query because it can fail (when a VIEW is 
+                        // Use try_query because it can fail (when a VIEW is
                         // based on a table that no longer exists)
                         $result = PMA_DBI_try_query(
                             'SELECT 1 FROM ' . PMA_backquote($db) . '.'
@@ -667,7 +667,7 @@ class PMA_Table
             }
             unset($analyzed_sql);
             $server_sql_mode = PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'sql_mode'", 0, 1);
-            // ANSI_QUOTES might be a subset of sql_mode, for example 
+            // ANSI_QUOTES might be a subset of sql_mode, for example
             // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
             if (false !== strpos($server_sql_mode, 'ANSI_QUOTES')) {
                 $table_delimiter = 'quote_double';
@@ -1008,7 +1008,7 @@ class PMA_Table
      *
      * @param   string  new table name
      * @param   string  new database name
-     * @param   boolean is this for a VIEW rename? 
+     * @param   boolean is this for a VIEW rename?
      * @return  boolean success
      */
     function rename($new_name, $new_db = null, $is_view = false)
@@ -1045,7 +1045,7 @@ class PMA_Table
         }
         // I don't think a specific error message for views is necessary
         if (! PMA_DBI_query($GLOBALS['sql_query'])) {
-            $this->errors[] = sprintf(__('Error renaming table %1 to %2'), $this->getFullName(), $new_table->getFullName());
+            $this->errors[] = sprintf(__('Error renaming table %1$s to %2$s'), $this->getFullName(), $new_table->getFullName());
             return false;
         }
 

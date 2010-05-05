@@ -591,7 +591,7 @@ if ($GLOBALS['PMA_Config']->error_config_file) {
     trigger_error($error, E_USER_ERROR);
 }
 if ($GLOBALS['PMA_Config']->error_config_default_file) {
-    $error = sprintf(__('Could not load default configuration from: %1'),
+    $error = sprintf(__('Could not load default configuration from: %1$s'),
         $GLOBALS['PMA_Config']->default_source);
     trigger_error($error, E_USER_ERROR);
 }
@@ -633,7 +633,7 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
 
         // Don't use servers with no hostname
         if ($each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
-            trigger_error(sprintf(__('Invalid hostname for server %1. Please review your configuration.'), $server_index), E_USER_ERROR);
+            trigger_error(sprintf(__('Invalid hostname for server %1$s. Please review your configuration.'), $server_index), E_USER_ERROR);
         }
 
         // Final solution to bug #582890
