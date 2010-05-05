@@ -52,7 +52,7 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persist
 function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
 {
     global $cfg, $php_errormsg;
-  
+
     if ($server) {
         $server_port = (empty($server['port']))
             ? ''
@@ -92,7 +92,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     if (defined('MYSQL_CLIENT_SSL') && $cfg['Server']['ssl']) {
         $client_flags |= MYSQL_CLIENT_SSL;
     }
-    
+
     if (!$server) {
         $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? NULL : $client_flags);
 
@@ -102,7 +102,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
         }
     } else {
         if (!isset($server['host'])) {
-	        $link = PMA_DBI_real_connect($server_socket, $user, $password, NULL, $server_persistant); 
+	        $link = PMA_DBI_real_connect($server_socket, $user, $password, NULL, $server_persistant);
         } else {
             $link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, NULL, $server_persistant);
         }
@@ -206,7 +206,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
         $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
     }
     if ($r != FALSE && PMA_Tracker::isActive() == TRUE ) {
-        PMA_Tracker::handleQuery($query); 
+        PMA_Tracker::handleQuery($query);
     }
 
     return $r;
@@ -350,7 +350,7 @@ function PMA_DBI_getError($link = null)
 
     // Some errors messages cannot be obtained by mysql_error()
     if ($error_number == 2002) {
-        $error = '#' . ((string) $error_number) . ' - ' . __('The server is not responding') . ' ' . __('(or the local MySQL server's socket is not correctly configured)');
+        $error = '#' . ((string) $error_number) . ' - ' . __('The server is not responding') . ' ' . __('(or the local MySQL server\'s socket is not correctly configured)');
     } elseif ($error_number == 2003) {
         $error = '#' . ((string) $error_number) . ' - ' . __('The server is not responding');
     } elseif ($error_number == 1005) {
