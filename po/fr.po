@@ -1359,8 +1359,8 @@ msgstr "Le serveur ne répond pas."
 #: libraries/messages.inc.php:1018
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
-"(ou l'interface de connexion (\"socket\") vers le serveur MySQL local n'est "
-"pas correctement configurée)"
+"(ou l'interface de connexion (socket) vers le serveur MySQL local n'est pas "
+"correctement configurée)"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
