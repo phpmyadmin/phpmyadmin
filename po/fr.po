@@ -748,7 +748,7 @@ msgstr "L'importation s'est terminée avec succès, %d requêtes exécutées."
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "L'utilisation de phpMyAdmin est plus aisée avec un navigateur <b>supportant "
-"les \"frames\"</b>."
+"les cadres</b>."
 
 #: js/messages.php:51 libraries/messages.inc.php:131 pmd_general.php:342
 #: pmd_general.php:379
