@@ -4288,7 +4288,7 @@ msgstr "Port"
 
 #: libraries/messages.inc.php:675
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Le nom d'une clé primaire doit être PRIMARY!"
+msgstr "Le nom d'une clé primaire doit être «PRIMARY»!"
 
 #: libraries/messages.inc.php:676
 msgid ""
