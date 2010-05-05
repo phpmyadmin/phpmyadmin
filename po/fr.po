@@ -6768,10 +6768,10 @@ msgid "The %s table doesn't exist!"
 msgstr "La table %s n'existe pas !"
 
 #: pdf_schema.php:996
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema de la base \"%s\" - Page %s"
+msgstr "Schéma de la base %s - Page %s"
 
 #: server_databases.php:230
 msgid "Jump to database"
