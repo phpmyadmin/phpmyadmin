@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 20:04-0400\n"
-"PO-Revision-Date: 2010-05-04 10:59+0200\n"
+"PO-Revision-Date: 2010-05-05 09:04+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -1365,10 +1365,9 @@ msgid "The server is not responding"
 msgstr "Tjeneren svarer ikke"
 
 #: libraries/dbi/mysql.dbi.lib.php:353
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "(or the local MySQL server"
-msgstr "Kunne ikke koble til MySQL tjener"
+msgstr "(eller den lokale MySQL tjeneren"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
@@ -6684,10 +6683,9 @@ msgid "\"zipped\""
 msgstr "Komprimert (zip)"
 
 #: libraries/Table.class.php:1048
-#, fuzzy
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Error renaming table %1 to %2"
-msgstr "Feil oppstond med endring av tabellnavn fra %1$s til %2$s"
+msgstr "Feil oppstod ved endring av tabellnavn fra %1 til %2"
 
 #: libraries/tbl_properties.inc.php:393
 msgctxt "for default"
@@ -6708,16 +6706,16 @@ msgid "Create table"
 msgstr "Opprett tabell"
 
 #: pdf_schema.php:996
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Skjema for \"%s\"-databasen - Side %s"
+msgstr "Skjema for %s databasen - Side %s"
 
 #: pdf_schema.php:637
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn"
-msgstr "Tabellen \"%s\" eksisterer ikke!"
+msgstr "Tabellen %s eksisterer ikke!"
 
 #: server_databases.php:230
 msgid "Jump to database"
@@ -6728,20 +6726,18 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Jokertegnene _ og % må beskyttes med en \\ for å bruke dem direkte"
 
 #: server_privileges.php:1998
-#, fuzzy
 #| msgid "None"
 msgctxt ""
 msgid "None"
 msgstr "Ingen"
 
 #: server_privileges.php:2000
-#, fuzzy
 #| msgid "Grant all privileges on wildcard name (username\\_%)"
 msgid "Grant all privileges on wildcard name (username_%)"
-msgstr "Gi alle rettigheter på jokertegnavn (username\\_%)"
+msgstr "Gi alle rettigheter på jokertegnnavn (username_%)"
 
 #: server_replication.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This server is not configured as master in a replication process. Would "
 #| "you like to <a href=\"%s\">configure</a> it?"
@@ -6753,7 +6749,7 @@ msgstr ""
 "Ønsker du å <a href=\"%s\">konfigurere</a> den?"
 
 #: server_replication.php:355
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This server is not configured as slave in a replication process. Would "
 #| "you like to <a href=\"%s\">configure</a> it?"
@@ -6770,32 +6766,35 @@ msgid "Reset"
 msgstr "Tilbakestill"
 
 #: server_status.php:360
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr "Denne tjeneren er konfigurert som master i en replikasjonsprosess."
+msgstr ""
+"Denne tjeneren jobber både som <b>tjener</b> og <b>slave</b> i "
+"<b>replikasjons</b>prosessen."
 
 #: server_status.php:362
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "Denne tjeneren er konfigurert som master i en replikasjonsprosess."
+msgstr ""
+"Denne tjeneren er konfigurert som <b>tjener</b> i en "
+"<b>replikasjons</b>prosess."
 
 #: server_status.php:364
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "Denne tjeneren er konfigurert som master i en replikasjonsprosess."
+msgstr ""
+"Denne tjeneren er konfigurert som <b>slave</b> i en "
+"<b>replikasjons</b>prosess."
 
 #: server_status.php:366
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"For mer informasjon om replikasjonsstatusen for tjeneren, gå til <a href="
-"\"#replication\">replikasjonsseksjonen</a>."
+"For mer informasjon om replikasjonsstatusen for tjeneren, gå til <a "
+"href=\"#replication\">replikasjonsseksjonen</a>."
 
 #: server_synchronize.php:1117
 msgid "Enter manually"
@@ -8582,96 +8581,3 @@ msgstr "Lag en indeks på&nbsp;%s&nbsp;kolonner"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beskrivelse"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Det er en mulighet for at du har funnet en feil i SQL-parseren. Vennligst "
-#~ "kontroller din spørring nøye og kontroller at anførselstegn er korrekte "
-#~ "og matsjer hverandre. En annen mulig feilårsak kan være at du overfører "
-#~ "en fil med binærkode som ikke ligger innenfor anførselstegn. Du kan også "
-#~ "teste din spørring i MYSQLs kommandolinjegrensesnitt. Feilmeldingen fra "
-#~ "MySQL-tjeneren nedenfor, hvis det var en, kan også hjelpe deg med å "
-#~ "analysere problemet. Hvis du fortsatt har problemer eller parseren feiler "
-#~ "hvor kommandolinjegrensesnittet lyktes, vennligst reduser din SQL-"
-#~ "spørring til den spørringen som forårsaker problemet og send en "
-#~ "feilrapport med datastykket i CUT-seksjonen nedenfor:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV-data"
-
-#~ msgid "Copy"
-#~ msgstr "Kopier"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Slett brukeren og oppfrisk privilegiene etterpå."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Dette er den beste måten, men oppfrisking av privilegiene kan ta litt tid."
-
-#~ msgid "has been altered."
-#~ msgstr "er endret."
-
-#~ msgid "Microsoft Excel 2000"
-#~ msgstr "Microsoft Excel 2000"
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Internet Explorer støtter ikke denne funksjonen."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "Den &quot;slettede&quot; brukeren vil fortsatt kunne bruke tjeneren som "
-#~ "normalt inntill privilegiene er oppfrisket."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Bare slett brukerne fra privilegium tabellene."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Tillater kjøring av lagrede prosedyrer; har ingen effekt på denne "
-#~ "versjonen av MySQL."
-
-#~ msgid "Process list"
-#~ msgstr "Prosess liste"
-
-#~ msgid "Reload privileges"
-#~ msgstr "Oppfrisk privilegier"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Inntill privilegiene er oppfrisket vil brukerne fortsatt ha USAGE "
-#~ "privilegiet."
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "Originale MS Excel data"
-
-#~ msgid "Alter index(s)"
-#~ msgstr "Endre indeks(er)"
-
-#~ msgid "Tracking Mechanism"
-#~ msgstr "Overvåkningsmekanisme"
