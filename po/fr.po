@@ -4977,7 +4977,7 @@ msgstr "Dans la(les) table(s) :"
 
 #: libraries/messages.inc.php:843
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Mot ou Valeur à rechercher (passe-partout: \"%\") :"
+msgstr "Mot ou Valeur à rechercher (passe-partout: «%») :"
 
 #: libraries/messages.inc.php:844
 msgid "at least one of the words"
