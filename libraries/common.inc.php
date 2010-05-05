@@ -280,7 +280,7 @@ date_default_timezone_set(@date_default_timezone_get());
  * We really need this one!
  */
 if (! function_exists('preg_replace')) {
-    PMA_fatalError('strCantLoad', 'pcre');
+    PMA_warnMissingExtension('pcre', true);
 }
 
 /**
