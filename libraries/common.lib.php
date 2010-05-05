@@ -1508,7 +1508,7 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
  *
  * @param   string   $size     the size expression (for example 8MB)
  * @uses    PMA_pow()
- * @return  integer  The numerical part of the expression (for example 8) 
+ * @return  integer  The numerical part of the expression (for example 8)
  */
 function PMA_extractValueFromFormattedSize($formatted_size)
 {
@@ -1936,8 +1936,8 @@ function PMA_checkParameters($params, $die = true, $request = true)
         if (!isset($GLOBALS[$param])) {
             $error_message .= $reported_script_name
                 . ': Missing parameter: ' . $param
-                . ' <a href="./Documentation.html#faqmissingparameters"'
-                . ' target="documentation"> (FAQ 2.8)</a><br />';
+                . PMA_showDocu('faqmissingparameters')
+                . '<br />';
             $found_error = true;
         }
     }
@@ -2600,19 +2600,19 @@ function PMA_printable_bit_value($value, $length) {
 }
 
 /**
- * Verifies whether the value contains a non-printable character 
+ * Verifies whether the value contains a non-printable character
  *
  * @uses    preg_match()
- * @param   string $value 
- * @return  boolean 
+ * @param   string $value
+ * @return  boolean
  */
 function PMA_contains_nonprintable_ascii($value) {
     return preg_match('@[^[:print:]]@', $value);
 }
 
 /**
- * Converts a BIT type default value  
- * for example, b'010' becomes 010 
+ * Converts a BIT type default value
+ * for example, b'010' becomes 010
  *
  * @uses    strtr()
  * @param   string $bit_default_value
