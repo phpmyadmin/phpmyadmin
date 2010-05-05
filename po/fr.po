@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-05 11:52+0200\n"
-"PO-Revision-Date: 2010-05-05 16:08+0200\n"
+"PO-Revision-Date: 2010-05-05 16:09+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3013,7 +3013,7 @@ msgstr "La base de données %1$s a été créée."
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "La base de données '%s' n'existe pas."
+msgstr "La base de données «%s» n'existe pas."
 
 #: libraries/messages.inc.php:227
 #, php-format
