@@ -1347,7 +1347,7 @@ msgstr "Nom"
 #: libraries/messages.inc.php:184
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
-"La connexion au \"controluser\" tel que défini dans votre configuration a "
+"La connexion au controluser tel que défini dans votre configuration a "
 "échoué."
 
 #: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
