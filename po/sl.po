@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-04 11:51+0200\n"
-"PO-Revision-Date: 2010-05-05 02:01+0200\n"
+"PO-Revision-Date: 2010-05-05 02:02+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6386,7 +6386,7 @@ msgstr "Urejanje polj CHAR"
 
 #: setup/lib/messages.inc.php:37
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr "Število stolpcev za besedilna polja CHAR/VARCHAR"
+msgstr "Število stolpcev besedilnih polj CHAR/VARCHAR"
 
 #: setup/lib/messages.inc.php:38
 msgid "CHAR textarea columns"
