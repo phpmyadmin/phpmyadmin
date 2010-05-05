@@ -3459,7 +3459,7 @@ msgstr "Aller à la vue"
 #: libraries/messages.inc.php:373 server_privileges.php:1502
 #: server_privileges.php:1684
 msgid "Grant"
-msgstr "\"Grant\""
+msgstr " «Grant »"
 
 #: libraries/messages.inc.php:374 libraries/mysql_charsets.lib.php:381
 msgid "Greek"
