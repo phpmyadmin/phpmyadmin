@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:19+0200\n"
+"POT-Creation-Date: 2010-05-05 11:22+0200\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -4828,7 +4828,7 @@ msgstr ""
 msgid "Please select databases:"
 msgstr "Базаларни танланг:"
 
-#: libraries/messages.inc.php:784
+#: libraries/messages.inc.php:784 server_replication.php:210
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -4889,7 +4889,7 @@ msgstr "Фақат %s қириш/чиқиш оқимини"
 msgid "Slave IO Thread not running!"
 msgstr "Тобе кириш/чиқиш оқими ишламаяпти!"
 
-#: libraries/messages.inc.php:795
+#: libraries/messages.inc.php:795 server_replication.php:355
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -6896,30 +6896,6 @@ msgstr ""
 "(фойдаланувчи\\_%) шаблонига тўғри келадиган барча маълумотлар базаларига "
 "тўлиқ привилегияларни бериш."
 
-#: server_replication.php:210
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"Ушбу сервер репликация жараёнида \"бош сервер\" деб конфигурация қилинмаган. "
-"Сиз уни <a href=\"%s\">конфигурация</a> қилмоқчимисиз?"
-
-#: server_replication.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"Ушбу сервер репликация жараёнида \"тобе сервер\" деб конфигурация "
-"қилинмаган. Сиз уни <a href=\"%s\">конфигурация</a> қилмоқчимисиз?"
-
 #: server_status.php:344
 #, fuzzy
 #| msgid "Reset"
@@ -8806,6 +8782,28 @@ msgstr "\"%s\" майдон учун индекс тузиш"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Тавсифи"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as master in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as master in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "Ушбу сервер репликация жараёнида \"бош сервер\" деб конфигурация "
+#~ "қилинмаган. Сиз уни <a href=\"%s\">конфигурация</a> қилмоқчимисиз?"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as slave in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as slave in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "Ушбу сервер репликация жараёнида \"тобе сервер\" деб конфигурация "
+#~ "қилинмаган. Сиз уни <a href=\"%s\">конфигурация</a> қилмоқчимисиз?"
 
 #, fuzzy
 #~| msgid "Could not connect to MySQL server"

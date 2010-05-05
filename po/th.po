@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:19+0200\n"
+"POT-Creation-Date: 2010-05-05 11:22+0200\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: thai <th@li.org>\n"
@@ -4675,7 +4675,7 @@ msgstr ""
 msgid "Please select databases:"
 msgstr "โปรดเลือกฐานข้อมูล"
 
-#: libraries/messages.inc.php:784
+#: libraries/messages.inc.php:784 server_replication.php:210
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -4728,7 +4728,7 @@ msgstr ""
 msgid "Slave IO Thread not running!"
 msgstr ""
 
-#: libraries/messages.inc.php:795
+#: libraries/messages.inc.php:795 server_replication.php:355
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -6530,20 +6530,6 @@ msgstr "ไม่มี"
 #, fuzzy
 msgid "Grant all privileges on wildcard name (username_%)"
 msgstr "ตรวจสอบสิทธิสำหรับฐานข้อมูล &quot;%s&quot;."
-
-#: server_replication.php:210
-#, php-format
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-
-#: server_replication.php:355
-#, php-format
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
 
 #: server_status.php:344
 #, fuzzy

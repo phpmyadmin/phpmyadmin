@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:19+0200\n"
+"POT-Creation-Date: 2010-05-05 11:22+0200\n"
 "PO-Revision-Date: 2010-05-04 11:46+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -4704,7 +4704,7 @@ msgstr ""
 msgid "Please select databases:"
 msgstr "Please select databases:"
 
-#: libraries/messages.inc.php:784
+#: libraries/messages.inc.php:784 server_replication.php:210
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -4762,7 +4762,7 @@ msgstr "IO Thread %s only"
 msgid "Slave IO Thread not running!"
 msgstr "Slave IO Thread not running!"
 
-#: libraries/messages.inc.php:795
+#: libraries/messages.inc.php:795 server_replication.php:355
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -6724,30 +6724,6 @@ msgstr "None"
 msgid "Grant all privileges on wildcard name (username_%)"
 msgstr "Grant all privileges on wildcard name (username\\_%)"
 
-#: server_replication.php:210
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
-
-#: server_replication.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
-
 #: server_status.php:344
 msgctxt "for Show status"
 msgid "Reset"
@@ -8561,6 +8537,28 @@ msgstr "Create an index on &nbsp;%s&nbsp;columns"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Description"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as master in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as master in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "This server is not configured as master in a replication process. Would "
+#~ "you like to <a href=\"%s\">configure</a> it?"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as slave in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as slave in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "This server is not configured as slave in a replication process. Would "
+#~ "you like to <a href=\"%s\">configure</a> it?"
 
 #, fuzzy
 #~| msgid "Could not connect to MySQL server"

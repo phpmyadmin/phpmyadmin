@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:19+0200\n"
+"POT-Creation-Date: 2010-05-05 11:22+0200\n"
 "PO-Revision-Date: 2010-04-08 13:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -4673,7 +4673,7 @@ msgstr ""
 msgid "Please select databases:"
 msgstr "请选择数据库:"
 
-#: libraries/messages.inc.php:784
+#: libraries/messages.inc.php:784 server_replication.php:210
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -4728,7 +4728,7 @@ msgstr "仅%s IO 线程"
 msgid "Slave IO Thread not running!"
 msgstr "从 IO 线程未启动！"
 
-#: libraries/messages.inc.php:795
+#: libraries/messages.inc.php:795 server_replication.php:355
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -6607,30 +6607,6 @@ msgstr "无"
 msgid "Grant all privileges on wildcard name (username_%)"
 msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限"
 
-#: server_replication.php:210
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"此服务器尚未配置为一个复制进程中的主服务器。你想现在<a href=\"%s\">配置</a>"
-"吗？"
-
-#: server_replication.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"此服务器尚未配置为一个复制进程中的从服务器。你想现在<a href=\"%s\">配置</a>"
-"吗？"
-
 #: server_status.php:344
 #, fuzzy
 #| msgid "Reset"
@@ -8386,6 +8362,28 @@ msgstr "在第 %s 个字段创建索引"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "说明"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as master in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as master in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "此服务器尚未配置为一个复制进程中的主服务器。你想现在<a href=\"%s\">配置</"
+#~ "a>吗？"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as slave in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as slave in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "此服务器尚未配置为一个复制进程中的从服务器。你想现在<a href=\"%s\">配置</"
+#~ "a>吗？"
 
 #, fuzzy
 #~| msgid "Could not connect to MySQL server"

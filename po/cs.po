@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:19+0200\n"
-"PO-Revision-Date: 2010-05-04 11:47+0200\n"
+"POT-Creation-Date: 2010-05-05 11:22+0200\n"
+"PO-Revision-Date: 2010-05-05 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -4702,7 +4702,7 @@ msgstr ""
 msgid "Please select databases:"
 msgstr "Prosím vyberte databáze:"
 
-#: libraries/messages.inc.php:784
+#: libraries/messages.inc.php:784 server_replication.php:210
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -4761,7 +4761,7 @@ msgstr "%s jen IO vlákno"
 msgid "Slave IO Thread not running!"
 msgstr "IO vlákno pro podřízený server neběží!"
 
-#: libraries/messages.inc.php:795
+#: libraries/messages.inc.php:795 server_replication.php:355
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -6700,8 +6700,8 @@ msgstr "Přejít na databázi"
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
-"Zástupné znaky _ a % by měly být escapovány pomocí \\, pokud je chcete "
-"použít jako znak"
+"Zástupné znaky _ a % by měly být escapovány pomocí \\ pokud je chcete použít "
+"jako znak"
 
 #: server_privileges.php:1998
 #, fuzzy
@@ -6715,30 +6715,6 @@ msgstr "Žádná"
 #| msgid "Grant all privileges on wildcard name (username\\_%)"
 msgid "Grant all privileges on wildcard name (username_%)"
 msgstr "Přidělit všechna oprávnění na jméno odpovídající masce (uživatel\\_%)"
-
-#: server_replication.php:210
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"Tento server není nastaven jako nadřízený v replikačním procesu. Přejete si "
-"ho <a href=\"%s\">nastavit</a>?"
-
-#: server_replication.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"Tento server není nastaven jako podřízený v replikačním procesu. Přejete si "
-"ho <a href=\"%s\">nastavit</a>?"
 
 #: server_status.php:344
 msgctxt "for Show status"
@@ -8564,6 +8540,28 @@ msgstr "Vytvořit index na &nbsp;%s&nbsp;sloupcích"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Popis"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as master in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as master in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "Tento server není nastaven jako nadřízený v replikačním procesu. Přejete "
+#~ "si ho <a href=\"%s\">nastavit</a>?"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as slave in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as slave in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "Tento server není nastaven jako podřízený v replikačním procesu. Přejete "
+#~ "si ho <a href=\"%s\">nastavit</a>?"
 
 #, fuzzy
 #~| msgid "Could not connect to MySQL server"

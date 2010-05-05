@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:19+0200\n"
+"POT-Creation-Date: 2010-05-05 11:22+0200\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: slovak <sk@li.org>\n"
@@ -4745,7 +4745,7 @@ msgstr ""
 msgid "Please select databases:"
 msgstr "Prosím, vyberte databázy:"
 
-#: libraries/messages.inc.php:784
+#: libraries/messages.inc.php:784 server_replication.php:210
 #, fuzzy, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -4804,7 +4804,7 @@ msgstr ""
 msgid "Slave IO Thread not running!"
 msgstr ""
 
-#: libraries/messages.inc.php:795
+#: libraries/messages.inc.php:795 server_replication.php:355
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -6777,27 +6777,6 @@ msgstr "Žiadny"
 msgid "Grant all privileges on wildcard name (username_%)"
 msgstr "Prideliť všetky oprávnenia pomocou masky (používateľ_%)"
 
-#: server_replication.php:210
-#, fuzzy, php-format
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"Tento server nie je nakonfigurovaný ako slave v replikačnom procese. Chceli "
-"by ste ho <a href=\"%s\">nakonfigurovať</a>?"
-
-#: server_replication.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"Tento server nie je nakonfigurovaný ako slave v replikačnom procese. Chceli "
-"by ste ho <a href=\"%s\">nakonfigurovať</a>?"
-
 #: server_status.php:344
 #, fuzzy
 #| msgid "Reset"
@@ -8508,6 +8487,25 @@ msgstr "Vytvoriť index na&nbsp;%s&nbsp;stĺpcoch"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Popis"
+
+#, fuzzy
+#~ msgid ""
+#~ "This server is not configured as master in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "Tento server nie je nakonfigurovaný ako slave v replikačnom procese. "
+#~ "Chceli by ste ho <a href=\"%s\">nakonfigurovať</a>?"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as slave in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as slave in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "Tento server nie je nakonfigurovaný ako slave v replikačnom procese. "
+#~ "Chceli by ste ho <a href=\"%s\">nakonfigurovať</a>?"
 
 #, fuzzy
 #~ msgid "(or the local MySQL server"

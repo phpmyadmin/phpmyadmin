@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:19+0200\n"
+"POT-Creation-Date: 2010-05-05 11:22+0200\n"
 "PO-Revision-Date: 2010-04-03 11:44+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -4807,7 +4807,7 @@ msgstr ""
 msgid "Please select databases:"
 msgstr "Lütfen veritabanlarını seçin:"
 
-#: libraries/messages.inc.php:784
+#: libraries/messages.inc.php:784 server_replication.php:210
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -4866,7 +4866,7 @@ msgstr "Sadece G/Ç İşlemi %s"
 msgid "Slave IO Thread not running!"
 msgstr "Slave G/Ç işlemi çalışmıyor!"
 
-#: libraries/messages.inc.php:795
+#: libraries/messages.inc.php:795 server_replication.php:355
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -6850,30 +6850,6 @@ msgstr "Hiçbiri"
 msgid "Grant all privileges on wildcard name (username_%)"
 msgstr "Joker isimlere tüm yetkileri ver (kullanıcıadı\\_%)"
 
-#: server_replication.php:210
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"Bu sunucu kopya etme işlemi sırasında asıl sunucu olarak yapılandırılmadı. "
-"Bunu <a href=\"%s\">yapılandırmak</a> ister misiniz?"
-
-#: server_replication.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=%s>configure</a> it?"
-msgstr ""
-"Bu sunucu kopya etme işlemi sırasında slave sunucu olarak yapılandırılmadı. "
-"Bunu <a href=\"%s\">yapılandırmak</a> ister misiniz?"
-
 #: server_status.php:344
 #, fuzzy
 #| msgid "Reset"
@@ -8747,6 +8723,28 @@ msgstr "&nbsp;%s&nbsp;sütunda indeks oluştur."
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Açıklama"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as master in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as master in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "Bu sunucu kopya etme işlemi sırasında asıl sunucu olarak "
+#~ "yapılandırılmadı. Bunu <a href=\"%s\">yapılandırmak</a> ister misiniz?"
+
+#, fuzzy
+#~| msgid ""
+#~| "This server is not configured as slave in a replication process. Would "
+#~| "you like to <a href=\"%s\">configure</a> it?"
+#~ msgid ""
+#~ "This server is not configured as slave in a replication process. Would "
+#~ "you like to <a href=%s>configure</a> it?"
+#~ msgstr ""
+#~ "Bu sunucu kopya etme işlemi sırasında slave sunucu olarak "
+#~ "yapılandırılmadı. Bunu <a href=\"%s\">yapılandırmak</a> ister misiniz?"
 
 #, fuzzy
 #~| msgid "Could not connect to MySQL server"
