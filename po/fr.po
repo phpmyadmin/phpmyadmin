@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-05 11:52+0200\n"
-"PO-Revision-Date: 2010-05-05 16:14+0200\n"
+"PO-Revision-Date: 2010-05-05 16:15+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3734,7 +3734,7 @@ msgstr "Ce greffon ne supporte pas les importations en format comprimé!"
 #: libraries/messages.inc.php:457
 #, php-format
 msgid "Invalid server index: \"%s\""
-msgstr "Indice de serveur invalide: \"%s\""
+msgstr "Indice de serveur invalide:  «%s »"
 
 #: libraries/messages.inc.php:458 libraries/Table.class.php:1033
 #: tbl_get_field.php:26
