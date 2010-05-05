@@ -2466,7 +2466,7 @@ msgstr "Ajouter des privilèges sur cette table"
 
 #: libraries/messages.inc.php:48
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Critères de recherche (pour l'énoncé \"where\") :"
+msgstr "Critères de recherche (pour l'énoncé where) :"
 
 #: libraries/messages.inc.php:49 tbl_indexes.php:249
 #, php-format
