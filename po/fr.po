@@ -4036,7 +4036,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:558
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "La commande \"DROP DATABASE\" est désactivée."
+msgstr "La commande  «DROP DATABASE» est désactivée."
 
 #: libraries/messages.inc.php:560 libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
