@@ -56,17 +56,17 @@ switch($submit_mult) {
         // leave as is
         break;
 
-    case $GLOBALS['strExport']:
+    case __('Export'):
         $submit_mult = 'row_export';
         break;
 
-    case $GLOBALS['strDelete']:
-    case $GLOBALS['strKill']:
+    case __('Delete'):
+    case __('Kill'):
         $submit_mult = 'row_delete';
         break;
 
     default:
-    case $GLOBALS['strEdit']:
+    case __('Edit'):
         $submit_mult = 'row_edit';
         break;
 }

@@ -42,7 +42,7 @@ $is_superuser = PMA_isSuperuser();
 if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_information_schema && ($db != 'mysql')) {
     $tab_drop['link'] = 'sql.php';
     $tab_drop['args']['sql_query']  = 'DROP DATABASE ' . PMA_backquote($db);
-    $tab_drop['args']['zero_rows']  = sprintf($GLOBALS['strDatabaseHasBeenDropped'], htmlspecialchars(PMA_backquote($db)));
+    $tab_drop['args']['zero_rows']  = sprintf(__('Database %s has been dropped.'), htmlspecialchars(PMA_backquote($db)));
     $tab_drop['args']['goto']       = 'main.php';
     $tab_drop['args']['back']       = 'db' . $sub_part . '.php';
     $tab_drop['args']['reload']     = 1;
@@ -60,55 +60,55 @@ if ($num_tables == 0) {
 }
 
 $tab_structure['link']  = 'db_structure.php';
-$tab_structure['text']  = $GLOBALS['strStructure'];
+$tab_structure['text']  = __('Structure');
 $tab_structure['icon']  = 'b_props.png';
 
 $tab_sql['link']        = 'db_sql.php';
 $tab_sql['args']['db_query_force'] = 1;
-$tab_sql['text']        = $GLOBALS['strSQL'];
+$tab_sql['text']        = __('SQL');
 $tab_sql['icon']        = 'b_sql.png';
 
-$tab_export['text']     = $GLOBALS['strExport'];
+$tab_export['text']     = __('Export');
 $tab_export['icon']     = 'b_export.png';
 $tab_export['link']     = 'db_export.php';
 
-$tab_search['text']     = $GLOBALS['strSearch'];
+$tab_search['text']     = __('Search');
 $tab_search['icon']     = 'b_search.png';
 $tab_search['link']     = 'db_search.php';
 
 if(PMA_Tracker::isActive())
 {
-    $tab_tracking['text'] = $GLOBALS['strTracking'];
+    $tab_tracking['text'] = __('Tracking');
     $tab_tracking['icon'] = 'eye.png';
     $tab_tracking['link'] = 'db_tracking.php';
 }
 
-$tab_qbe['text']        = $GLOBALS['strQBE'];
+$tab_qbe['text']        = __('Query');
 $tab_qbe['icon']        = 's_db.png';
 $tab_qbe['link']        = 'db_qbe.php';
 
 if ($cfgRelation['designerwork']) {
-    $tab_designer['text']   = $GLOBALS['strDesigner'];
+    $tab_designer['text']   = __('Designer');
     $tab_designer['icon']   = 'b_relations.png';
     $tab_designer['link']   = 'pmd_general.php';
 }
 
 if (! $db_is_information_schema) {
     $tab_import['link']     = 'db_import.php';
-    $tab_import['text']     = $GLOBALS['strImport'];
+    $tab_import['text']     = __('Import');
     $tab_import['icon']     = 'b_import.png';
-    $tab_drop['text']       = $GLOBALS['strDrop'];
+    $tab_drop['text']       = __('Drop');
     $tab_drop['icon']       = 'b_deltbl.png';
     $tab_drop['class']      = 'caution';
     $tab_operation['link']  = 'db_operations.php';
-    $tab_operation['text']  = $GLOBALS['strOperations'];
+    $tab_operation['text']  = __('Operations');
     $tab_operation['icon']  = 'b_tblops.png';
     if ($is_superuser) {
         $tab_privileges['link'] = 'server_privileges.php';
         $tab_privileges['args']['checkprivs']       = $db;
         // stay on database view
         $tab_privileges['args']['viewing_mode'] = 'db';
-        $tab_privileges['text'] = $GLOBALS['strPrivileges'];
+        $tab_privileges['text'] = __('Privileges');
         $tab_privileges['icon'] = 's_rights.png';
     }
 }

@@ -259,13 +259,13 @@ class PMA_File
      * @uses    PMA_File::setRecentBLOBReference()
      * @uses    curl_setopt_array()
      * @uses    PMA_File::$_error_message
-     * @uses    $GLOBALS['strUploadErrorIniSize']
-     * @uses    $GLOBALS['strUploadErrorFormSize']
-     * @uses    $GLOBALS['strUploadErrorPartial']
-     * @uses    $GLOBALS['strUploadErrorNoTempDir']
-     * @uses    $GLOBALS['strUploadErrorCantWrite']
-     * @uses    $GLOBALS['strUploadErrorExtension']
-     * @uses    $GLOBALS['strUploadErrorUnknown']
+     * @uses    __('The uploaded file exceeds the upload_max_filesize directive in php.ini.')
+     * @uses    __('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.')
+     * @uses    __('The uploaded file was only partially uploaded.')
+     * @uses    __('Missing a temporary folder.')
+     * @uses    __('Failed to write file to disk.')
+     * @uses    __('File upload stopped by extension.')
+     * @uses    __('Unknown error in file upload.')
      * @uses    $_FILES
      * @param   string  $key    a numeric key used to identify the different rows
      * @param   string  $primary_key
@@ -341,7 +341,7 @@ class PMA_File
                     // if none of the required variables contain data, return with an unknown error message
                     if (!$bs_server || !$bs_db || !$bs_table || !$tmp_file || !$tmp_file_size)
                     {
-                        $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+                        $this->_error_message = __('Unknown error in file upload.');
                         return FALSE;
                     }
                     else
@@ -411,25 +411,25 @@ class PMA_File
             case 4: //UPLOAD_ERR_NO_FILE:
                 break;
             case 1: //UPLOAD_ERR_INI_SIZE:
-                $this->_error_message = $GLOBALS['strUploadErrorIniSize'];
+                $this->_error_message = __('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
                 break;
             case 2: //UPLOAD_ERR_FORM_SIZE:
-                $this->_error_message = $GLOBALS['strUploadErrorFormSize'];
+                $this->_error_message = __('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
                 break;
             case 3: //UPLOAD_ERR_PARTIAL:
-                $this->_error_message = $GLOBALS['strUploadErrorPartial'];
+                $this->_error_message = __('The uploaded file was only partially uploaded.');
                 break;
             case 6: //UPLOAD_ERR_NO_TMP_DIR:
-                $this->_error_message = $GLOBALS['strUploadErrorNoTempDir'];
+                $this->_error_message = __('Missing a temporary folder.');
                 break;
             case 7: //UPLOAD_ERR_CANT_WRITE:
-                $this->_error_message = $GLOBALS['strUploadErrorCantWrite'];
+                $this->_error_message = __('Failed to write file to disk.');
                 break;
             case 8: //UPLOAD_ERR_EXTENSION:
-                $this->_error_message = $GLOBALS['strUploadErrorExtension'];
+                $this->_error_message = __('File upload stopped by extension.');
                 break;
             default:
-                $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+                $this->_error_message = __('Unknown error in file upload.');
         } // end switch
 
         return false;
@@ -566,7 +566,7 @@ class PMA_File
                             // necessary variables aren't loaded, return error message (unknown error)
                             if (!$bs_server || !$bs_db || !$bs_table || !$tmp_file || !$tmp_file_size)
                             {
-                                $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+                                $this->_error_message = __('Unknown error in file upload.');
                                 return FALSE;
                             }
                             else
@@ -705,7 +705,7 @@ class PMA_File
                         // necessary variables aren't loaded, return error message (unknown error)
                         if (!$bs_server || !$bs_db || !$bs_table || !$tmp_file || !$tmp_file_size)
                         {
-                            $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+                            $this->_error_message = __('Unknown error in file upload.');
                             return FALSE;
                         }
                         else
@@ -832,7 +832,7 @@ class PMA_File
     /**
      *
      * @access  public
-     * @uses    $GLOBALS['strFileCouldNotBeRead']
+     * @uses    __('File could not be read')
      * @uses    PMA_File::setName()
      * @uses    PMA_securePath()
      * @uses    PMA_userDir()
@@ -846,7 +846,7 @@ class PMA_File
 
         $this->setName(PMA_userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name));
         if (! $this->isReadable()) {
-            $this->_error_message = $GLOBALS['strFileCouldNotBeRead'];
+            $this->_error_message = __('File could not be read');
             $this->setName(null);
             return false;
         }
@@ -881,7 +881,7 @@ class PMA_File
      * @todo move check of $cfg['TempDir'] into PMA_Config?
      * @access  public
      * @uses    $cfg['TempDir']
-     * @uses    $GLOBALS['strFieldInsertFromFileTempDirNotExists']
+     * @uses    __('Error moving the uploaded file, see [a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]')
      * @uses    PMA_File::isReadable()
      * @uses    PMA_File::getName()
      * @uses    PMA_File::setName()
@@ -905,7 +905,7 @@ class PMA_File
 
         if (empty($GLOBALS['cfg']['TempDir']) || ! is_writable($GLOBALS['cfg']['TempDir'])) {
             // cannot create directory or access, point user to FAQ 1.11
-            $this->_error_message = $GLOBALS['strFieldInsertFromFileTempDirNotExists'];
+            $this->_error_message = __('Error moving the uploaded file, see [a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]');
             return false;
         }
 
@@ -937,7 +937,7 @@ class PMA_File
      *
      * @todo    move file read part into readChunk() or getChunk()
      * @todo    add support for compression plugins
-     * @uses    $GLOBALS['strFileCouldNotBeRead']
+     * @uses    __('File could not be read')
      * @uses    PMA_File::$_compression to set it
      * @uses    PMA_File::getName()
      * @uses    fopen()
@@ -958,7 +958,7 @@ class PMA_File
         ob_end_clean();
 
         if (! $file) {
-            $this->_error_message = $GLOBALS['strFileCouldNotBeRead'];
+            $this->_error_message = __('File could not be read');
             return false;
         }
 
@@ -1028,7 +1028,7 @@ class PMA_File
                 if ($GLOBALS['cfg']['BZipDump'] && @function_exists('bzopen')) {
                     $this->_handle = @bzopen($this->getName(), 'r');
                 } else {
-                    $this->_error_message = sprintf($GLOBALS['strUnsupportedCompressionDetected'], $this->getCompression());
+                    $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
                     return false;
                 }
                 break;
@@ -1036,7 +1036,7 @@ class PMA_File
                 if ($GLOBALS['cfg']['GZipDump'] && @function_exists('gzopen')) {
                     $this->_handle = @gzopen($this->getName(), 'r');
                 } else {
-                    $this->_error_message = sprintf($GLOBALS['strUnsupportedCompressionDetected'], $this->getCompression());
+                    $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
                     return false;
                 }
                 break;
@@ -1052,7 +1052,7 @@ class PMA_File
                     }
                     unset($result);
                 } else {
-                    $this->_error_message = sprintf($GLOBALS['strUnsupportedCompressionDetected'], $this->getCompression());
+                    $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
                     return false;
                 }
                 break;
@@ -1060,7 +1060,7 @@ class PMA_File
                 $this->_handle = @fopen($this->getName(), 'r');
                 break;
             default:
-                $this->_error_message = sprintf($GLOBALS['strUnsupportedCompressionDetected'], $this->getCompression());
+                $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
                 return false;
                 break;
         }
@@ -1145,10 +1145,10 @@ class PMA_File
                 $import_handle = new SimpleUnzip();
                 $import_handle->ReadFile($this->getName());
                 if ($import_handle->Count() == 0) {
-                    $this->_error_message = $GLOBALS['strNoFilesFoundInZip'];
+                    $this->_error_message = __('No files found inside ZIP archive!');
                     return false;
                 } elseif ($import_handle->GetError(0) != 0) {
-                    $this->_error_message = $GLOBALS['strErrorInZipFile']
+                    $this->_error_message = __('Error in ZIP archive:')
                         . ' ' . $import_handle->GetErrorMsg(0);
                     return false;
                 } else {

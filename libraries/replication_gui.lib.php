@@ -30,7 +30,7 @@ function PMA_replication_db_multibox()
     } // end while
 
     $multi_values .= '</select>';
-    $multi_values .= '<br /><a href="#" id="db_reset_href">' . $GLOBALS['strUncheckAll'] . '</a>';
+    $multi_values .= '<br /><a href="#" id="db_reset_href">' . __('Uncheck All') . '</a>';
 
     return $multi_values;
 }
@@ -48,29 +48,29 @@ function PMA_replication_gui_changemaster($submitname) {
     echo '<form method="post" action="server_replication.php">';
     echo PMA_generate_common_hidden_inputs('', ''); 
     echo ' <fieldset id="fieldset_add_user_login">';
-    echo '  <legend>' . $GLOBALS['strReplicationSlaveConfiguration'] . ' - ' . $GLOBALS['strReplicationSlaveChangeMaster'] . '</legend>';
-    echo $GLOBALS['strSlaveConfigure'] . '<br />';
+    echo '  <legend>' . __('Slave configuration') . ' - ' . __('Change or reconfigure master server') . '</legend>';
+    echo __('Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:') . '<br />';
     echo '<pre>server-id=' . time() . '</pre>';
     echo '  <div class="item">';
-    echo '    <label for="text_username">' . $GLOBALS['strUserName'] . ':</label>';
-    echo '    <input type="text" name="username" id="text_username" maxlength="'. $username_length . '" title="' . $GLOBALS['strUserName'] . '" />';
+    echo '    <label for="text_username">' . __('User name') . ':</label>';
+    echo '    <input type="text" name="username" id="text_username" maxlength="'. $username_length . '" title="' . __('User name') . '" />';
     echo '  </div>';
     echo '  <div class="item">';
-    echo '    <label for="text_pma_pw">' . $GLOBALS['strPassword'] .' :</label>';
-    echo '    <input type="password" id="text_pma_pw" name="pma_pw" title="' . $GLOBALS['strPassword'] . '" />';
+    echo '    <label for="text_pma_pw">' . __('Password') .' :</label>';
+    echo '    <input type="password" id="text_pma_pw" name="pma_pw" title="' . __('Password') . '" />';
     echo '  </div>';
     echo '  <div class="item">';
-    echo '    <label for="text_hostname">' . $GLOBALS['strHost'] . ' :</label>';
+    echo '    <label for="text_hostname">' . __('Host') . ' :</label>';
     echo '    <input type="text" id="text_hostname" name="hostname" maxlength="' . $hostname_length . '" value="" />';
     echo '  </div>';
     echo '  <div class="item">';
-    echo '     <label for="text_port">' . $GLOBALS['strPort'] . ':</label>';
+    echo '     <label for="text_port">' . __('Port') . ':</label>';
     echo '     <input type="text" id="text_port" name="port" maxlength="6" value="3306"  />';
     echo '  </div>';
     echo ' </fieldset>';
     echo ' <fieldset id="fieldset_user_privtable_footer" class="tblFooters">';
     echo '    <input type="hidden" name="sr_take_action" value="true" />';
-    echo '     <input type="submit" name="' . $submitname . '" id="confslave_submit" value="' . $GLOBALS['strGo'] . '" />';
+    echo '     <input type="submit" name="' . $submitname . '" id="confslave_submit" value="' . __('Go') . '" />';
     echo ' </fieldset>';
     echo '</form>';
 }
@@ -107,8 +107,8 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
     echo '   <table id="server' . $type . 'replicationsummary" class="data"> ';
     echo '   <thead>';
     echo '    <tr>';
-    echo ' 	<th>' . $GLOBALS['strVar'] . '</th>';
-    echo '		<th>' . $GLOBALS['strValue'] . '</th>';
+    echo ' 	<th>' . __('Variable') . '</th>';
+    echo '		<th>' . __('Value') . '</th>';
     echo '    </tr>';
     echo '   </thead>';
     echo '   <tbody>';
@@ -166,8 +166,8 @@ function PMA_replication_print_slaves_table($hidden = false) {
     echo '    <table class="data">';
     echo '    <thead>';
     echo '      <tr>';
-    echo '        <th>' . $GLOBALS['strBinLogServerId'] . '</th>';
-    echo '        <th>' . $GLOBALS['strHost'] . '</th>';
+    echo '        <th>' . __('Server ID') . '</th>';
+    echo '        <th>' . __('Host') . '</th>';
     echo '      </tr>';
     echo '    </thead>';
     echo '    <tbody>';
@@ -233,7 +233,7 @@ function PMA_replication_gui_master_addslaveuser() {
     echo '<form autocomplete="off" method="post" action="server_privileges.php" onsubmit="return checkAddUser(this);">';
     echo PMA_generate_common_hidden_inputs('', '');
     echo '<fieldset id="fieldset_add_user_login">'
-        . '<legend>'.$GLOBALS['strReplicationAddSlaveUser'].'</legend>'
+        . '<legend>'.__('Add slave replication user').'</legend>'
 	. '<input type="hidden" name="grant_count" value="25" />'
 	. '<input type="hidden" name="createdb" id="createdb_0" value="0" />'
         . '<input id="checkbox_Repl_slave_priv" type="hidden" title="Needed for the replication slaves." value="Y" name="Repl_slave_priv"/>'
@@ -242,17 +242,17 @@ function PMA_replication_gui_master_addslaveuser() {
         . '<input type="hidden" name="sr_take_action" value="true" />'
         . '<div class="item">'
         . '<label for="select_pred_username">'
-        . '    ' . $GLOBALS['strUserName'] . ':'
+        . '    ' . __('User name') . ':'
         . '</label>'
         . '<span class="options">'
-        . '    <select name="pred_username" id="select_pred_username" title="' . $GLOBALS['strUserName'] . '"'
+        . '    <select name="pred_username" id="select_pred_username" title="' . __('User name') . '"'
         . '        onchange="if (this.value == \'any\') { username.value = \'\'; } else if (this.value == \'userdefined\') { username.focus(); username.select(); }">'
-        . '        <option value="any"' . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyUser'] . '</option>'
-        . '        <option value="userdefined"' . ((! isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>'
+        . '        <option value="any"' . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '') . '>' . __('Any user') . '</option>'
+        . '        <option value="userdefined"' . ((! isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . __('Use text field') . ':</option>'
         . '    </select>'
         . '</span>'
         . '<input type="text" name="username" maxlength="'
-        . $username_length . '" title="' . $GLOBALS['strUserName'] . '"'
+        . $username_length . '" title="' . __('User name') . '"'
         . (empty($GLOBALS['username'])
         ? ''
         : ' value="' . (isset($GLOBALS['new_username'])
@@ -262,10 +262,10 @@ function PMA_replication_gui_master_addslaveuser() {
         . '</div>'
         . '<div class="item">'
         . '<label for="select_pred_hostname">'
-        . '    ' . $GLOBALS['strHost'] . ':'
+        . '    ' . __('Host') . ':'
         . '</label>'
         . '<span class="options">'
-        . '    <select name="pred_hostname" id="select_pred_hostname" title="' . $GLOBALS['strHost'] . '"';
+        . '    <select name="pred_hostname" id="select_pred_hostname" title="' . __('Host') . '"';
     $_current_user = PMA_DBI_fetch_value('SELECT USER();');
     if (! empty($_current_user)) {
         $thishost = str_replace("'", '', substr($_current_user, (strrpos($_current_user, '@') + 1)));
@@ -295,74 +295,74 @@ function PMA_replication_gui_master_addslaveuser() {
     }
     echo '        <option value="any"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'any')
-        ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyHost']
+        ? ' selected="selected"' : '') . '>' . __('Any host')
         . '</option>'
         . '        <option value="localhost"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost')
-        ? ' selected="selected"' : '') . '>' . $GLOBALS['strLocalhost']
+        ? ' selected="selected"' : '') . '>' . __('Local')
 		. '</option>';
 
     if (!empty($thishost)) {
         echo '        <option value="thishost"'
             . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'thishost')
-            ? ' selected="selected"' : '') . '>' . $GLOBALS['strThisHost']
+            ? ' selected="selected"' : '') . '>' . __('This Host')
             . '</option>';
     }
     unset($thishost);
     echo '        <option value="hosttable"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'hosttable')
-        ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseHostTable']
+        ? ' selected="selected"' : '') . '>' . __('Use Host Table')
         . '</option>'
         . '        <option value="userdefined"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined')
         ? ' selected="selected"' : '')
-        . '>' . $GLOBALS['strUseTextField'] . ':</option>'
+        . '>' . __('Use text field') . ':</option>'
         . '    </select>'
         . '</span>'
         . '<input type="text" name="hostname" maxlength="'
         . $hostname_length . '" value="'
         . (isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
-        . '" title="' . $GLOBALS['strHost']
+        . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />'
-        . PMA_showHint($GLOBALS['strHostTableExplanation'])
+        . PMA_showHint(__('When Host table is used, this field is ignored and values stored in Host table are used instead.'))
         . '</div>'
         . '<div class="item">'
         . '<label for="select_pred_password">'
-        . '    ' . $GLOBALS['strPassword'] . ':'
+        . '    ' . __('Password') . ':'
         . '</label>'
         . '<span class="options">'
         . '    <select name="pred_password" id="select_pred_password" title="'
-        . $GLOBALS['strPassword'] . '"'
+        . __('Password') . '"'
         . '            onchange="if (this.value == \'none\') { pma_pw.value = \'\'; pma_pw2.value = \'\'; } else if (this.value == \'userdefined\') { pma_pw.focus(); pma_pw.select(); }">'
         . '        <option value="none"';
     if (isset($GLOBALS['username']) && $mode != 'change') {
         echo '  selected="selected"';
     }
-    echo '>' . $GLOBALS['strNoPassword'] . '</option>'
-        . '        <option value="userdefined"' . (isset($GLOBALS['username']) ? '' : ' selected="selected"') . '>' . $GLOBALS['strUseTextField'] . ':</option>'
+    echo '>' . __('No Password') . '</option>'
+        . '        <option value="userdefined"' . (isset($GLOBALS['username']) ? '' : ' selected="selected"') . '>' . __('Use text field') . ':</option>'
         . '    </select>'
         . '</span>'
-        . '<input type="password" id="text_pma_pw" name="pma_pw" title="' . $GLOBALS['strPassword'] . '" onchange="pred_password.value = \'userdefined\';" />'
+        . '<input type="password" id="text_pma_pw" name="pma_pw" title="' . __('Password') . '" onchange="pred_password.value = \'userdefined\';" />'
         . '</div>'
         . '<div class="item">'
         . '<label for="text_pma_pw2">'
-        . '    ' . $GLOBALS['strReType'] . ':'
+        . '    ' . __('Re-type') . ':'
         . '</label>'
         . '<span class="options">&nbsp;</span>'
-        . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="' . $GLOBALS['strReType'] . '" onchange="pred_password.value = \'userdefined\';" />'
+        . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="' . __('Re-type') . '" onchange="pred_password.value = \'userdefined\';" />'
         . '</div>'
         . '<div class="item">'
         . '<label for="button_generate_password">'
-        . '    ' . $GLOBALS['strGeneratePassword'] . ':'
+        . '    ' . __('Generate Password') . ':'
         . '</label>'
         . '<span class="options">'
-        . '    <input type="button" id="button_generate_password" value="' . $GLOBALS['strGenerate'] . '" onclick="suggestPassword(this.form)" />'
+        . '    <input type="button" id="button_generate_password" value="' . __('Generate') . '" onclick="suggestPassword(this.form)" />'
         . '</span>'
         . '<input type="text" name="generated_pw" id="generated_pw" />'
         . '</div>'
         . '</fieldset>';
     echo '<fieldset id="fieldset_user_privtable_footer" class="tblFooters">'
-        . '    <input type="submit" name="adduser_submit" id="adduser_submit" value="' . $GLOBALS['strGo'] . '" />'
+        . '    <input type="submit" name="adduser_submit" id="adduser_submit" value="' . __('Go') . '" />'
         . '</fieldset>';
     echo '</form>';
     echo '</div>';

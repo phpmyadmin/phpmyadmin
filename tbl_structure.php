@@ -534,7 +534,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 
     <br />
 <form method="post" action="tbl_addfield.php"
-    onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']); ?>', 1)">
+    onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one field.')); ?>', 1)">
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
     if ($cfg['PropertiesIconic']) {
@@ -587,7 +587,7 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
 <br />
 <form action="./tbl_indexes.php" method="post"
     onsubmit="return checkFormElementInRange(this, 'idx_num_fields',
-        '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidColumnCount']); ?>',
+        '<?php echo str_replace('\'', '\\\'', __('Column count has to be larger than zero.')); ?>',
         1)">
 <fieldset>
     <?php
@@ -598,7 +598,7 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
     <input type="submit" name="create_index" value="<?php echo __('Go'); ?>"
         onclick="return checkFormElementInRange(this.form,
             'idx_num_fields',
-            '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidColumnCount']); ?>',
+            '<?php echo str_replace('\'', '\\\'', __('Column count has to be larger than zero.')); ?>',
             1)" />
 </fieldset>
 </form>

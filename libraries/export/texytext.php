@@ -81,7 +81,7 @@ function PMA_exportHeader() {
  * @access  public
  */
 function PMA_exportDBHeader($db) {
-    return PMA_exportOutputHandler('===' . $GLOBALS['strDatabase'] . ' ' . $db . "\n\n");
+    return PMA_exportOutputHandler('===' . __('Database') . ' ' . $db . "\n\n");
 }
 
 /**
@@ -127,7 +127,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
     global $what;
 
-    if (! PMA_exportOutputHandler('== ' . $GLOBALS['strDumpingData'] . ' ' . $table . "\n\n")) {
+    if (! PMA_exportOutputHandler('== ' . __('Dumping data for table') . ' ' . $table . "\n\n")) {
         return FALSE;
     }
 
@@ -174,7 +174,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 {
     global $cfgRelation;
 
-    if (! PMA_exportOutputHandler('== ' . $GLOBALS['strTableStructure'] . ' ' .$table . "\n\n")) {
+    if (! PMA_exportOutputHandler('== ' . __('Table structure for table') . ' ' .$table . "\n\n")) {
         return FALSE;
     }
 
@@ -230,15 +230,15 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     }
 
     $text_output = "|------\n";
-    $text_output .= '|' . htmlspecialchars($GLOBALS['strField']);
-    $text_output .= '|' . htmlspecialchars($GLOBALS['strType']);
-    $text_output .= '|' . htmlspecialchars($GLOBALS['strNull']);
-    $text_output .= '|' . htmlspecialchars($GLOBALS['strDefault']);
+    $text_output .= '|' . htmlspecialchars(__('Field'));
+    $text_output .= '|' . htmlspecialchars(__('Type'));
+    $text_output .= '|' . htmlspecialchars(__('Null'));
+    $text_output .= '|' . htmlspecialchars(__('Default'));
     if ($do_relation && $have_rel) {
-        $text_output .= '|' . htmlspecialchars($GLOBALS['strLinksTo']);
+        $text_output .= '|' . htmlspecialchars(__('Links to'));
     }
     if ($do_comments) {
-        $text_output .= '|' . htmlspecialchars($GLOBALS['strComments']);
+        $text_output .= '|' . htmlspecialchars(__('Comments'));
         $comments = PMA_getComments($db, $table);
     }
     if ($do_mime && $cfgRelation['mimework']) {
@@ -308,7 +308,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         }
         $text_output .= '|' . $fmt_pre . htmlspecialchars($row['Field']) . $fmt_post;
         $text_output .= '|' . htmlspecialchars($type);
-        $text_output .= '|' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? $GLOBALS['strNo'] : $GLOBALS['strYes']);
+        $text_output .= '|' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes'));
         $text_output .= '|' . htmlspecialchars(isset($row['Default']) ? $row['Default'] : '');
 
         $field_name = $row['Field'];

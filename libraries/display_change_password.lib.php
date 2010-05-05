@@ -27,23 +27,23 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
                    . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
             }?>
     <fieldset id="fieldset_change_password">
-        <legend><?php echo $GLOBALS['strChangePassword']; ?></legend>
+        <legend><?php echo __('Change password'); ?></legend>
         <table class="data">
         <tr class="odd noclick">
             <td colspan="2">
                 <input type="radio" name="nopass" value="1" id="nopass_1" onclick="pma_pw.value = ''; pma_pw2.value = ''; this.checked = true" />
-        <label for="nopass_1"><?php echo $GLOBALS['strNoPassword'] . "\n"; ?></label>
+        <label for="nopass_1"><?php echo __('No Password') . "\n"; ?></label>
             </td>
         </tr>
         <tr class="even noclick">
             <td>
                 <input type="radio" name="nopass" value="0" id="nopass_0" onclick="document.getElementById('text_pma_pw').focus();" checked="checked " />
-        <label for="nopass_0"><?php echo $GLOBALS['strPassword']; ?>:&nbsp;</label>
+        <label for="nopass_0"><?php echo __('Password'); ?>:&nbsp;</label>
             </td>
             <td>
                 <input type="password" name="pma_pw" id="text_pma_pw" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
         &nbsp;&nbsp;
-        <?php echo $GLOBALS['strReType']; ?>:&nbsp;
+        <?php echo __('Re-type'); ?>:&nbsp;
                 <input type="password" name="pma_pw2" id="text_pma_pw2" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
             </td>
         </tr>

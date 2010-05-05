@@ -3,21 +3,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-04 11:51+0200\n"
+"POT-Creation-Date: 2010-05-04 20:04-0400\n"
 "PO-Revision-Date: 2010-05-04 16:57+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
-"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
-#: libraries/messages.inc.php:878
+#: libraries/display_tbl.lib.php:417 libraries/messages.inc.php:878
+#: server_privileges.php:1475
 msgid "Show all"
 msgstr "सभी दिखाओ"
+
+#: browse_foreigners.php:82 db_operations.php:648
+#: libraries/common.lib.php:2249 libraries/display_tbl.lib.php:394
+#: libraries/export/pdf.php:147 libraries/messages.inc.php:605
+#: pdf_schema.php:284 pdf_schema.php:1124 pdf_schema.php:1140
+msgid "Page number:"
+msgstr ""
 
 #: browse_foreigners.php:132 libraries/messages.inc.php:1250
 msgid ""
@@ -25,36 +33,48 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"लक्ष्य ब्राउज़र विंडो को अद्यतन नहीं किया जा सकता है. शायद तुम मूल विंडो बंद "
-"कर दिया है,या अपनी ब्राउसर की सिक्यूरिटी सेट्टिंग को क्रोस-विंडो अद्यतन के "
-"लिए कांफिगुर कर रखा है."
+"लक्ष्य ब्राउज़र विंडो को अद्यतन नहीं किया जा सकता है. शायद तुम मूल विंडो बंद कर दिया है,"
+"या अपनी ब्राउसर की सिक्यूरिटी सेट्टिंग को क्रोस-विंडो अद्यतन के लिए कांफिगुर कर रखा है."
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/messages.inc.php:849
-#: libraries/tbl_links.inc.php:63
+#: db_structure.php:106 libraries/db_links.inc.php:75
+#: libraries/messages.inc.php:849 libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr "खोजें"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
 #: db_structure.php:567 js/messages.php:50
-#: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277
+#: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
+#: libraries/common.lib.php:1333 libraries/common.lib.php:2224
+#: libraries/Config.class.php:1046
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_import.lib.php:276 libraries/messages.inc.php:369
-#: main.php:128 pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511
-#: pdf_pages.php:553 pmd_pdf.php:116 tbl_change.php:330 tbl_change.php:1174
-#: tbl_change.php:1211 tbl_indexes.php:252 tbl_operations.php:263
-#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
-#: tbl_operations.php:679 tbl_structure.php:563 tbl_structure.php:598
-#: tbl_tracking.php:395 tbl_tracking.php:512 view_create.php:182
-#: view_operations.php:101
+#: libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
+#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
+#: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
+#: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
+#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
+#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
+#: server_privileges.php:1585 server_privileges.php:1932
+#: server_privileges.php:1979 server_privileges.php:2018
+#: server_replication.php:235 server_replication.php:318
+#: server_replication.php:341 server_synchronize.php:1204 tbl_change.php:330
+#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:252
+#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
+#: tbl_operations.php:559 tbl_operations.php:679 tbl_structure.php:563
+#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "आगे"
 
 #: browse_foreigners.php:168 browse_foreigners.php:172
-#: libraries/messages.inc.php:467 tbl_tracking.php:320
+#: libraries/Index.class.php:442 libraries/messages.inc.php:467
+#: tbl_tracking.php:320
 msgid "Keyname"
 msgstr "मुख्यनाम"
 
@@ -75,63 +95,94 @@ msgid "Database comment: "
 msgstr "डाटाबेस टिप्पणि: "
 
 #: db_datadict.php:165 libraries/messages.inc.php:1078
-#: libraries/tbl_properties.inc.php:724 tbl_operations.php:345
-#: tbl_printview.php:130
+#: libraries/tbl_properties.inc.php:724 pdf_schema.php:1237
+#: tbl_operations.php:345 tbl_printview.php:130
 msgid "Table comments"
 msgstr " टेबल टिप्पणि:"
 
-#: db_datadict.php:174 db_qbe.php:174 libraries/messages.inc.php:325
-#: libraries/tbl_properties.inc.php:99 libraries/tbl_properties.inc.php:275
-#: tbl_change.php:308 tbl_indexes.php:187 tbl_printview.php:142
-#: tbl_relation.php:402 tbl_structure.php:177 tbl_tracking.php:273
-#: tbl_tracking.php:324
+#: db_datadict.php:174 db_qbe.php:174 libraries/export/htmlword.php:244
+#: libraries/export/latex.php:360 libraries/export/odt.php:294
+#: libraries/export/texytext.php:233 libraries/Index.class.php:446
+#: libraries/messages.inc.php:325 libraries/tbl_properties.inc.php:99
+#: libraries/tbl_properties.inc.php:275 pdf_schema.php:1263
+#: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:187
+#: tbl_printview.php:142 tbl_relation.php:402 tbl_structure.php:177
+#: tbl_tracking.php:273 tbl_tracking.php:324
 msgid "Field"
 msgstr "फील्ड"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/db_events.inc.php:31
-#: libraries/db_routines.inc.php:42 libraries/messages.inc.php:1189
-#: libraries/tbl_properties.inc.php:100 tbl_change.php:287 tbl_change.php:314
+#: libraries/db_routines.inc.php:42 libraries/db_structure.lib.php:60
+#: libraries/export/htmlword.php:245 libraries/export/latex.php:360
+#: libraries/export/odt.php:297 libraries/export/texytext.php:234
+#: libraries/Index.class.php:443 libraries/messages.inc.php:1189
+#: libraries/tbl_properties.inc.php:100 pdf_schema.php:1264
+#: pdf_schema.php:1285 tbl_change.php:287 tbl_change.php:314
 #: tbl_printview.php:143 tbl_printview.php:313 tbl_structure.php:178
 #: tbl_structure.php:660 tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
 msgstr "टाइप"
 
-#: db_datadict.php:177 libraries/messages.inc.php:584
-#: libraries/tbl_properties.inc.php:109 tbl_change.php:323
+#: db_datadict.php:177 libraries/export/htmlword.php:246
+#: libraries/export/latex.php:360 libraries/export/odt.php:300
+#: libraries/export/texytext.php:235 libraries/Index.class.php:449
+#: libraries/messages.inc.php:584 libraries/tbl_properties.inc.php:109
+#: pdf_schema.php:1266 pdf_schema.php:1287 tbl_change.php:323
 #: tbl_printview.php:145 tbl_structure.php:181 tbl_tracking.php:276
 #: tbl_tracking.php:327
 msgid "Null"
 msgstr "अशक्त"
 
-#: db_datadict.php:178 db_structure.php:501 libraries/messages.inc.php:246
-#: libraries/tbl_properties.inc.php:106 tbl_printview.php:146
-#: tbl_structure.php:182 tbl_tracking.php:277
+#: db_datadict.php:178 db_structure.php:501 libraries/export/htmlword.php:247
+#: libraries/export/latex.php:360 libraries/export/odt.php:303
+#: libraries/export/texytext.php:236 libraries/messages.inc.php:246
+#: libraries/tbl_properties.inc.php:106 pdf_schema.php:1267
+#: pdf_schema.php:1288 tbl_printview.php:146 tbl_structure.php:182
+#: tbl_tracking.php:277
 msgid "Default"
 msgstr "डिफ़ॉल्ट"
 
-#: db_datadict.php:182 libraries/messages.inc.php:491 tbl_printview.php:150
+#: db_datadict.php:182 libraries/export/htmlword.php:249
+#: libraries/export/latex.php:362 libraries/export/odt.php:307
+#: libraries/export/texytext.php:238 libraries/messages.inc.php:491
+#: pdf_schema.php:1269 pdf_schema.php:1290 tbl_printview.php:150
 msgid "Links to"
 msgstr "के लिए लिंक"
 
-#: db_datadict.php:184 db_printview.php:112 libraries/messages.inc.php:171
-#: libraries/tbl_properties.inc.php:130 tbl_printview.php:152
+#: db_datadict.php:184 db_printview.php:112 libraries/export/htmlword.php:252
+#: libraries/export/latex.php:365 libraries/export/odt.php:312
+#: libraries/export/texytext.php:241 libraries/messages.inc.php:171
+#: libraries/tbl_properties.inc.php:130 pdf_schema.php:1280
+#: pdf_schema.php:1291 tbl_printview.php:152
 msgid "Comments"
 msgstr "टिप्पणी"
 
-#: db_datadict.php:267 libraries/messages.inc.php:567
-#: libraries/mult_submits.inc.php:263 tbl_printview.php:229
-#: tbl_structure.php:351 tbl_tracking.php:337 tbl_tracking.php:342
+#: db_datadict.php:267 libraries/export/htmlword.php:322
+#: libraries/export/latex.php:430 libraries/export/odt.php:368
+#: libraries/export/texytext.php:311 libraries/Index.class.php:359
+#: libraries/Index.class.php:386 libraries/messages.inc.php:567
+#: libraries/mult_submits.inc.php:263 pdf_schema.php:1345
+#: server_privileges.php:1529 server_privileges.php:1540
+#: server_privileges.php:1850 server_privileges.php:1855
+#: server_privileges.php:2148 tbl_printview.php:229 tbl_structure.php:351
+#: tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "नहीं"
 
-#: db_datadict.php:267 libraries/messages.inc.php:1265
+#: db_datadict.php:267 libraries/export/htmlword.php:322
+#: libraries/export/latex.php:430 libraries/export/odt.php:368
+#: libraries/export/texytext.php:311 libraries/Index.class.php:360
+#: libraries/Index.class.php:385 libraries/messages.inc.php:1265
 #: libraries/mult_submits.inc.php:45 libraries/mult_submits.inc.php:50
 #: libraries/mult_submits.inc.php:55 libraries/mult_submits.inc.php:60
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:101
 #: libraries/mult_submits.inc.php:106 libraries/mult_submits.inc.php:111
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:273
-#: server_databases.php:64 tbl_printview.php:229 tbl_structure.php:40
-#: tbl_structure.php:351 tbl_tracking.php:335 tbl_tracking.php:340
+#: pdf_schema.php:1345 server_databases.php:64 server_privileges.php:1526
+#: server_privileges.php:1540 server_privileges.php:1850
+#: server_privileges.php:1853 server_privileges.php:2148 tbl_printview.php:229
+#: tbl_structure.php:40 tbl_structure.php:351 tbl_tracking.php:335
+#: tbl_tracking.php:340
 msgid "Yes"
 msgstr "हाँ "
 
@@ -188,7 +239,10 @@ msgstr "केवल डाटा"
 msgid "CREATE DATABASE before copying"
 msgstr ""
 
-#: db_operations.php:471 libraries/messages.inc.php:38 tbl_operations.php:534
+#: db_operations.php:471 libraries/export/sql.php:52
+#: libraries/export/sql.php:74 libraries/export/sql.php:76
+#: libraries/export/sql.php:82 libraries/messages.inc.php:38
+#: tbl_operations.php:534
 #, php-format
 msgid "Add %s"
 msgstr "%s जोडें"
@@ -210,9 +264,9 @@ msgstr ""
 msgid "BLOB Repository"
 msgstr "BLOB भंडार गृह"
 
-#: db_operations.php:536 db_tracking.php:76 libraries/messages.inc.php:1045
-#: libraries/server_links.inc.php:49 server_processlist.php:59
-#: tbl_tracking.php:596 test/theme.php:101
+#: db_operations.php:536 db_tracking.php:76 libraries/common.lib.php:1350
+#: libraries/messages.inc.php:1045 libraries/server_links.inc.php:49
+#: server_processlist.php:59 tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
 msgstr ""
 
@@ -252,21 +306,19 @@ msgstr "दिसअबल्ड "
 msgid "Enable"
 msgstr "सक्षम"
 
-#: db_operations.php:598 libraries/messages.inc.php:166
-#: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
-#: server_collations.php:54 server_collations.php:66 server_databases.php:111
-#: tbl_operations.php:361 tbl_structure.php:179 tbl_structure.php:768
-#: tbl_tracking.php:275 tbl_tracking.php:326
+#: db_operations.php:598 libraries/db_structure.lib.php:62
+#: libraries/Index.class.php:448 libraries/messages.inc.php:166
+#: libraries/mysql_charsets.lib.php:107 libraries/tbl_properties.inc.php:107
+#: libraries/tbl_properties.inc.php:730 server_collations.php:54
+#: server_collations.php:66 server_databases.php:111 tbl_operations.php:361
+#: tbl_structure.php:179 tbl_structure.php:768 tbl_tracking.php:275
+#: tbl_tracking.php:326
 msgid "Collation"
 msgstr ""
 
 #: db_operations.php:645 libraries/messages.inc.php:272 pdf_pages.php:528
 msgid "Display PDF schema"
 msgstr "PDF schema दिखाओ"
-
-#: db_operations.php:648 libraries/messages.inc.php:605
-msgid "Page number:"
-msgstr ""
 
 #: db_operations.php:661 libraries/messages.inc.php:885 pdf_pages.php:529
 msgid "Show grid"
@@ -314,40 +366,49 @@ msgid "Edit PDF Pages"
 msgstr "PDF पेज एडिट करें"
 
 #: db_printview.php:96 db_structure.php:51 db_tracking.php:35
-#: libraries/messages.inc.php:576
+#: libraries/messages.inc.php:576 navigation.php:346
 msgid "No tables found in database."
 msgstr "डाटाबेस में कोई टेबल नहीं।"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
-#: libraries/messages.inc.php:1095 pdf_pages.php:405
-#: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
+#: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
+#: libraries/header.inc.php:126 libraries/messages.inc.php:1095
+#: pdf_pages.php:405 server_privileges.php:1626 server_privileges.php:1682
+#: server_privileges.php:1946 server_synchronize.php:423
+#: server_synchronize.php:866 tbl_tracking.php:592 test/theme.php:75
 msgid "Table"
 msgstr "  टेबल "
 
-#: db_printview.php:105 libraries/messages.inc.php:743
+#: db_printview.php:105 libraries/db_structure.lib.php:56
+#: libraries/messages.inc.php:743
 msgid "Records"
 msgstr ""
 
-#: db_printview.php:109 libraries/messages.inc.php:1011 tbl_indexes.php:188
+#: db_printview.php:109 libraries/db_structure.lib.php:67
+#: libraries/messages.inc.php:1011 tbl_indexes.php:188
 msgid "Size"
 msgstr ""
 
-#: db_printview.php:162 db_structure.php:457 libraries/messages.inc.php:444
+#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:559
+#: libraries/export/sql.php:899 libraries/messages.inc.php:444
 msgid "in use"
 msgstr ""
 
-#: db_printview.php:187 libraries/messages.inc.php:1040 tbl_printview.php:434
-#: tbl_structure.php:810
+#: db_printview.php:187 libraries/db_info.inc.php:88
+#: libraries/export/sql.php:514 libraries/messages.inc.php:1040
+#: pdf_schema.php:1242 tbl_printview.php:434 tbl_structure.php:810
 msgid "Creation"
 msgstr ""
 
-#: db_printview.php:196 libraries/messages.inc.php:1044 tbl_printview.php:444
-#: tbl_structure.php:818
+#: db_printview.php:196 libraries/db_info.inc.php:93
+#: libraries/export/sql.php:519 libraries/messages.inc.php:1044
+#: pdf_schema.php:1247 tbl_printview.php:444 tbl_structure.php:818
 msgid "Last update"
 msgstr ""
 
-#: db_printview.php:205 libraries/messages.inc.php:1039 tbl_printview.php:454
-#: tbl_structure.php:826
+#: db_printview.php:205 libraries/db_info.inc.php:98
+#: libraries/export/sql.php:524 libraries/messages.inc.php:1039
+#: pdf_schema.php:1252 tbl_printview.php:454 tbl_structure.php:826
 msgid "Last check"
 msgstr ""
 
@@ -356,22 +417,34 @@ msgstr ""
 msgid "%s table(s)"
 msgstr " %s  टेबल(s)"
 
-#: db_qbe.php:200 libraries/messages.inc.php:1022
+#: db_qbe.php:29 libraries/display_tbl.lib.php:1976
+#: libraries/messages.inc.php:1059 libraries/sql_query_form.lib.php:140
+#: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
+#: view_operations.php:62
+msgid "Your SQL query has been executed successfully"
+msgstr "आपकी SQL-query सफलता से पूरा किया"
+
+#: db_qbe.php:200 libraries/db_structure.lib.php:104
+#: libraries/display_tbl.lib.php:866 libraries/messages.inc.php:1022
 msgid "Sort"
 msgstr ""
 
-#: db_qbe.php:209 db_qbe.php:243 libraries/messages.inc.php:77
-#: server_databases.php:170 server_databases.php:187 tbl_operations.php:260
+#: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
+#: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
+#: libraries/messages.inc.php:77 server_databases.php:170
+#: server_databases.php:187 tbl_operations.php:260
 msgid "Ascending"
 msgstr "आरोही"
 
-#: db_qbe.php:210 db_qbe.php:251 libraries/messages.inc.php:259
-#: server_databases.php:170 server_databases.php:187 tbl_operations.php:261
+#: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
+#: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
+#: libraries/messages.inc.php:259 server_databases.php:170
+#: server_databases.php:187 tbl_operations.php:261
 msgid "Descending"
 msgstr ""
 
-#: db_qbe.php:264 db_tracking.php:78 libraries/messages.inc.php:896
-#: tbl_change.php:277 tbl_tracking.php:597
+#: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
+#: libraries/messages.inc.php:896 tbl_change.php:277 tbl_tracking.php:597
 msgid "Show"
 msgstr "दिखाओ"
 
@@ -396,6 +469,7 @@ msgstr ""
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:600
+#: libraries/tbl_properties.inc.php:779 server_privileges.php:258
 #: tbl_change.php:1031 tbl_indexes.php:248
 msgid "Or"
 msgstr "अथवा"
@@ -425,7 +499,7 @@ msgstr " टेबल का उपयोग करो"
 msgid "SQL query on database <b>%s</b>:"
 msgstr ""
 
-#: db_qbe.php:934 libraries/messages.inc.php:831
+#: db_qbe.php:934 libraries/common.lib.php:1223 libraries/messages.inc.php:831
 msgid "Submit Query"
 msgstr ""
 
@@ -439,30 +513,36 @@ msgstr "ब्राउज़"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/messages.inc.php:439 libraries/tbl_links.inc.php:76
+#: libraries/messages.inc.php:439 libraries/sql_query_form.lib.php:334
+#: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr "इनसर्ट"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
+#: libraries/db_links.inc.php:63 libraries/export/latex.php:337
 #: libraries/messages.inc.php:1056 libraries/tbl_links.inc.php:56
-#: pmd_general.php:134 tbl_tracking.php:269
+#: pmd_general.php:134 server_privileges.php:554 server_replication.php:315
+#: tbl_tracking.php:269
 msgid "Structure"
 msgstr "संरचना"
 
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
 #: db_structure.php:545 db_structure.php:546 db_tracking.php:91
-#: libraries/messages.inc.php:280 libraries/mult_submits.inc.php:36
-#: libraries/mult_submits.inc.php:73 libraries/tbl_links.inc.php:127
-#: server_databases.php:352 tbl_structure.php:27 tbl_structure.php:151
-#: tbl_structure.php:152 tbl_structure.php:472
+#: libraries/common.lib.php:1599 libraries/db_links.inc.php:100
+#: libraries/Index.class.php:483 libraries/messages.inc.php:280
+#: libraries/mult_submits.inc.php:36 libraries/mult_submits.inc.php:73
+#: libraries/tbl_links.inc.php:127 server_databases.php:352
+#: tbl_structure.php:27 tbl_structure.php:151 tbl_structure.php:152
+#: tbl_structure.php:472
 msgid "Drop"
 msgstr " ड्रोप"
 
 #: db_structure.php:86 db_structure.php:87 db_structure.php:99
 #: db_structure.php:100 db_structure.php:112 db_structure.php:113
-#: db_structure.php:543 db_structure.php:544 libraries/messages.inc.php:292
-#: libraries/mult_submits.inc.php:39 libraries/tbl_links.inc.php:105
+#: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1598
+#: libraries/messages.inc.php:292 libraries/mult_submits.inc.php:39
+#: libraries/tbl_links.inc.php:105
 msgid "Empty"
 msgstr "खाली करें"
 
@@ -499,9 +579,16 @@ msgid ""
 "s."
 msgstr ""
 
-#: db_structure.php:434 db_structure.php:448 libraries/messages.inc.php:1241
-#: tbl_structure.php:185
+#: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
+#: libraries/messages.inc.php:1241 libraries/tbl_info.inc.php:66
+#: tbl_structure.php:185 test/theme.php:74
 msgid "View"
+msgstr ""
+
+#: db_structure.php:485 libraries/db_structure.lib.php:49
+#: libraries/messages.inc.php:781 libraries/server_links.inc.php:70
+#: server_replication.php:33 server_replication.php:164 server_status.php:258
+msgid "Replication"
 msgstr ""
 
 #: db_structure.php:489 libraries/messages.inc.php:1061
@@ -509,24 +596,29 @@ msgid "Sum"
 msgstr "जोड"
 
 #: db_structure.php:496 libraries/messages.inc.php:247
+#: libraries/StorageEngine.class.php:356
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
 
 #: db_structure.php:524 db_structure.php:541 db_structure.php:542
+#: libraries/display_tbl.lib.php:2076 libraries/display_tbl.lib.php:2081
 #: libraries/messages.inc.php:1251 libraries/mult_submits.inc.php:16
-#: server_databases.php:346 server_databases.php:351 tbl_structure.php:456
-#: tbl_structure.php:465
+#: server_databases.php:346 server_databases.php:351
+#: server_privileges.php:1557 tbl_structure.php:456 tbl_structure.php:465
 msgid "With selected:"
 msgstr "चुने हुओं को:"
 
-#: db_structure.php:527 libraries/messages.inc.php:156
-#: server_databases.php:348 tbl_structure.php:459
+#: db_structure.php:527 libraries/display_tbl.lib.php:2071
+#: libraries/messages.inc.php:156 server_databases.php:348
+#: server_privileges.php:530 server_privileges.php:1560 tbl_structure.php:459
 msgid "Check All"
 msgstr "सभी को चेक करें"
 
-#: db_structure.php:531 libraries/messages.inc.php:1192
-#: server_databases.php:350 tbl_structure.php:463
+#: db_structure.php:531 libraries/display_tbl.lib.php:2072
+#: libraries/messages.inc.php:1192 libraries/replication_gui.lib.php:33
+#: server_databases.php:350 server_privileges.php:533
+#: server_privileges.php:1564 tbl_structure.php:463
 msgid "Uncheck All"
 msgstr " सभी को अनचेक करें"
 
@@ -535,8 +627,9 @@ msgid "Check tables having overhead"
 msgstr ""
 
 #: db_structure.php:547 db_structure.php:548 db_structure.php:599
-#: libraries/messages.inc.php:680 libraries/mult_submits.inc.php:28
-#: tbl_structure.php:493 tbl_structure.php:495
+#: libraries/display_tbl.lib.php:2175 libraries/messages.inc.php:680
+#: libraries/mult_submits.inc.php:28 tbl_structure.php:493
+#: tbl_structure.php:495
 msgid "Print view"
 msgstr ""
 
@@ -561,10 +654,13 @@ msgstr " टेबल को टीक करें"
 msgid "Analyze table"
 msgstr "टेबल का विश्लेषण करें"
 
-#: db_structure.php:557 db_structure.php:558
-#: libraries/display_export.lib.php:83 libraries/messages.inc.php:318
+#: db_structure.php:557 db_structure.php:558 libraries/db_links.inc.php:71
+#: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2089
+#: libraries/display_tbl.lib.php:2220 libraries/messages.inc.php:318
 #: libraries/mult_submits.inc.php:62 libraries/server_links.inc.php:84
-#: libraries/tbl_links.inc.php:82 pmd_pdf.php:109
+#: libraries/tbl_links.inc.php:82 pmd_pdf.php:84 pmd_pdf.php:109
+#: server_privileges.php:1341 setup/frames/menu.inc.php:22
+#: tbl_row_action.php:59
 msgid "Export"
 msgstr "एक्सपोर्ट"
 
@@ -572,9 +668,15 @@ msgstr "एक्सपोर्ट"
 msgid "Tracked tables"
 msgstr ""
 
-#: db_tracking.php:71 libraries/header_printview.inc.php:58
-#: libraries/messages.inc.php:220 server_databases.php:169
-#: server_processlist.php:56 tbl_tracking.php:591
+#: db_tracking.php:71 libraries/export/htmlword.php:86
+#: libraries/export/latex.php:148 libraries/export/odt.php:113
+#: libraries/export/sql.php:342 libraries/export/texytext.php:84
+#: libraries/export/xml.php:255 libraries/header.inc.php:106
+#: libraries/header_printview.inc.php:58 libraries/messages.inc.php:220
+#: navigation.php:233 server_databases.php:169 server_privileges.php:1621
+#: server_privileges.php:1682 server_privileges.php:1940
+#: server_processlist.php:56 server_synchronize.php:1174
+#: server_synchronize.php:1178 tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
 msgstr " डाटाबेस"
 
@@ -590,8 +692,10 @@ msgstr ""
 msgid "Updated"
 msgstr ""
 
-#: db_tracking.php:77 libraries/messages.inc.php:35 server_databases.php:203
-#: tbl_structure.php:187
+#: db_tracking.php:77 libraries/db_structure.lib.php:53
+#: libraries/Index.class.php:440 libraries/messages.inc.php:35
+#: server_databases.php:203 server_privileges.php:1503
+#: server_privileges.php:1686 tbl_structure.php:187
 msgid "Action"
 msgstr "कार्य"
 
@@ -641,6 +745,15 @@ msgstr ""
 msgid "Bookmark %s created"
 msgstr "बुकमार्क %s बनाया"
 
+#: import.php:409 libraries/messages.inc.php:415
+#, php-format
+msgid "Import has been successfully finished, %d queries executed."
+msgstr ""
+
+#: index.php:190 libraries/messages.inc.php:561
+msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
+msgstr ""
+
 #: js/messages.php:51 libraries/messages.inc.php:131 pmd_general.php:342
 #: pmd_general.php:379
 msgid "Cancel"
@@ -657,8 +770,10 @@ msgid "Prev"
 msgstr ""
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:78 libraries/messages.inc.php:551 tbl_printview.php:424
-#: tbl_structure.php:802
+#: js/messages.php:78 libraries/common.lib.php:2289
+#: libraries/common.lib.php:2292 libraries/display_tbl.lib.php:338
+#: libraries/messages.inc.php:551 server_binlog.php:205 server_binlog.php:207
+#: tbl_printview.php:424 tbl_structure.php:802
 msgid "Next"
 msgstr " अगला"
 
@@ -929,6 +1044,24 @@ msgstr ""
 msgid "Second"
 msgstr ""
 
+#: libraries/auth/config.auth.lib.php:77 libraries/messages.inc.php:180
+msgid "Cannot connect: invalid settings."
+msgstr ""
+
+#: libraries/auth/config.auth.lib.php:84
+#: libraries/auth/config.auth.lib.php:103
+#: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/signon.auth.lib.php:183 libraries/messages.inc.php:34
+msgid "Access denied"
+msgstr "प्रवेश निषेध"
+
+#: libraries/auth/config.auth.lib.php:92
+#: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
+#: libraries/messages.inc.php:1246 test/theme.php:152
+#, php-format
+msgid "Welcome to %s"
+msgstr " %s मे स्वागत है"
+
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
@@ -950,9 +1083,120 @@ msgstr ""
 "उपयोगकरता नाम और पासवर्ड MySQL सर्वर के व्यवस्थापक द्वारा दी गई जानकारी के अनुरूप हैं."
 
 #: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
+#: libraries/database_interface.lib.php:49
+#: libraries/database_interface.lib.php:64
 msgid ""
 "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
 "Please check your PHP configuration."
+msgstr ""
+
+#: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:496
+msgid "Log in"
+msgstr "लोगिन"
+
+#: libraries/auth/cookie.auth.lib.php:246
+#: libraries/auth/cookie.auth.lib.php:248 libraries/messages.inc.php:667
+#: libraries/navigation_header.inc.php:93
+#: libraries/navigation_header.inc.php:95
+msgid "phpMyAdmin documentation"
+msgstr "phpMyAdmin डोक्युमेंटेशन"
+
+#: libraries/auth/cookie.auth.lib.php:258
+#: libraries/auth/cookie.auth.lib.php:259 libraries/messages.inc.php:500
+msgid "You can enter hostname/IP address and port separated by space."
+msgstr ""
+
+#: libraries/auth/cookie.auth.lib.php:258 libraries/messages.inc.php:501
+msgid "Server:"
+msgstr ""
+
+#: libraries/auth/cookie.auth.lib.php:263 libraries/messages.inc.php:502
+msgid "Username:"
+msgstr "यूसरनेम:"
+
+#: libraries/auth/cookie.auth.lib.php:267 libraries/messages.inc.php:499
+msgid "Password:"
+msgstr "पासव्रड:"
+
+#: libraries/auth/cookie.auth.lib.php:274 libraries/messages.inc.php:862
+msgid "Server Choice"
+msgstr "Server चुनिये"
+
+#: libraries/auth/cookie.auth.lib.php:320 libraries/messages.inc.php:185
+msgid "Cookies must be enabled past this point."
+msgstr ""
+
+#: libraries/auth/cookie.auth.lib.php:671
+#: libraries/auth/signon.auth.lib.php:181 libraries/messages.inc.php:497
+msgid ""
+"Login without a password is forbidden by configuration (see AllowNoPassword)"
+msgstr ""
+
+#: libraries/auth/cookie.auth.lib.php:675
+#: libraries/auth/signon.auth.lib.php:185 libraries/messages.inc.php:552
+#, php-format
+msgid "No activity within %s seconds; please log in again"
+msgstr ""
+
+#: libraries/auth/cookie.auth.lib.php:685
+#: libraries/auth/cookie.auth.lib.php:687
+#: libraries/auth/signon.auth.lib.php:191 libraries/messages.inc.php:134
+msgid "Cannot log in to the MySQL server"
+msgstr ""
+
+#: libraries/auth/swekey/swekey.auth.lib.php:118
+#: libraries/messages.inc.php:1065
+#, php-format
+msgid "File %s does not contain any key id"
+msgstr ""
+
+#: libraries/auth/swekey/swekey.auth.lib.php:157
+#: libraries/auth/swekey/swekey.auth.lib.php:180
+#: libraries/messages.inc.php:1064
+msgid "Hardware authentication failed"
+msgstr ""
+
+#: libraries/auth/swekey/swekey.auth.lib.php:166
+#: libraries/messages.inc.php:1066
+msgid "No valid authentication key plugged"
+msgstr ""
+
+#: libraries/auth/swekey/swekey.auth.lib.php:202
+#: libraries/messages.inc.php:1063
+msgid "Authenticating..."
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:689 libraries/messages.inc.php:1238
+msgid "View image"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:693 libraries/messages.inc.php:660
+msgid "Play audio"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:698 libraries/messages.inc.php:1240
+msgid "View video"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:702 libraries/messages.inc.php:277
+msgid "Download file"
+msgstr ""
+
+#: libraries/charset_conversion.lib.php:21
+#: libraries/charset_conversion.lib.php:27
+#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+
+#: libraries/charset_conversion.lib.php:75
+#: libraries/charset_conversion.lib.php:86
+#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
 msgstr ""
 
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
@@ -984,8 +1228,19 @@ msgstr ""
 msgid "Invalid hostname for server %1. Please review your configuration."
 msgstr ""
 
+#: libraries/common.inc.php:645 libraries/header.inc.php:96
+#: libraries/messages.inc.php:864 libraries/select_server.lib.php:41
+#: libraries/select_server.lib.php:47 main.php:185 test/theme.php:57
+msgid "Server"
+msgstr ""
+
 #: libraries/common.inc.php:823 libraries/messages.inc.php:445
 msgid "Invalid authentication method set in configuration:"
+msgstr ""
+
+#: libraries/common.lib.php:147 libraries/messages.inc.php:507
+#, php-format
+msgid "Max: %s%s"
 msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
@@ -1000,6 +1255,80 @@ msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "इंग्लिश"
 
+#: libraries/common.lib.php:428 libraries/common.lib.php:430
+#: libraries/common.lib.php:432 libraries/common.lib.php:448
+#: libraries/common.lib.php:450 libraries/database_interface.lib.php:52
+#: libraries/database_interface.lib.php:67
+#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
+#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
+#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
+#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
+#: setup/lib/FormDisplay.tpl.php:124
+msgid "Documentation"
+msgstr "डोक्युमेंटेशन"
+
+#: libraries/common.lib.php:581 libraries/core.lib.php:234
+#: libraries/core.lib.php:263 libraries/messages.inc.php:305 pdf_schema.php:32
+#: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
+#: tbl_relation.php:290 view_operations.php:62
+msgid "Error"
+msgstr "गल्ती"
+
+#: libraries/common.lib.php:595 libraries/header_printview.inc.php:61
+#: libraries/messages.inc.php:1031 server_processlist.php:60
+#: server_status.php:247
+msgid "SQL query"
+msgstr ""
+
+#: libraries/common.lib.php:616 libraries/common.lib.php:1199
+#: libraries/display_tbl.lib.php:1117 libraries/Index.class.php:466
+#: libraries/messages.inc.php:288 pdf_pages.php:280
+#: setup/frames/index.inc.php:124 setup/lib/messages.inc.php:352
+#: tbl_row_action.php:69
+msgid "Edit"
+msgstr "एडिट"
+
+#: libraries/common.lib.php:634 libraries/messages.inc.php:546
+msgid "MySQL said: "
+msgstr ""
+
+#: libraries/common.lib.php:667 libraries/messages.inc.php:84
+#: pdf_schema.php:241 user_password.php:115
+msgid "Back"
+msgstr "वापस"
+
+#: libraries/common.lib.php:1177 libraries/messages.inc.php:317
+#: setup/lib/messages.inc.php:353
+msgid "Explain SQL"
+msgstr "SQL की   व्याख्या "
+
+#: libraries/common.lib.php:1180 libraries/messages.inc.php:559
+msgid "Skip Explain SQL"
+msgstr ""
+
+#: libraries/common.lib.php:1212 libraries/messages.inc.php:571
+msgid "Without PHP Code"
+msgstr ""
+
+#: libraries/common.lib.php:1215 libraries/messages.inc.php:657
+#: setup/lib/messages.inc.php:355
+msgid "Create PHP Code"
+msgstr "PHP Code बनाओ"
+
+#: libraries/common.lib.php:1233 libraries/messages.inc.php:745
+#: server_status.php:341 setup/lib/messages.inc.php:354
+msgid "Refresh"
+msgstr ""
+
+#: libraries/common.lib.php:1242 libraries/messages.inc.php:583
+msgid "Skip Validate SQL"
+msgstr ""
+
+#: libraries/common.lib.php:1245 libraries/messages.inc.php:1228
+#: setup/lib/messages.inc.php:356
+msgid "Validate SQL"
+msgstr ""
+
 #: libraries/common.lib.php:1276
 msgid "Inline edit of this query"
 msgstr "इस कुएरी की इनलाइन एडिट"
@@ -1008,27 +1337,122 @@ msgstr "इस कुएरी की इनलाइन एडिट"
 msgid "Inline"
 msgstr "इनलाइन"
 
-#: libraries/core.lib.php:234 libraries/messages.inc.php:305 pdf_schema.php:32
-#: tbl_change.php:1027 tbl_operations.php:213 tbl_relation.php:290
-#: view_operations.php:62
-msgid "Error"
-msgstr "गल्ती"
+#: libraries/common.lib.php:1332 libraries/common.lib.php:1347
+#: libraries/messages.inc.php:721
+msgid "Profiling"
+msgstr ""
+
+#: libraries/common.lib.php:1351 libraries/messages.inc.php:1116
+#: libraries/tbl_triggers.lib.php:28 server_processlist.php:58
+msgid "Time"
+msgstr ""
+
+#: libraries/common.lib.php:2258 libraries/common.lib.php:2261
+#: libraries/display_tbl.lib.php:290 libraries/messages.inc.php:672
+#: server_status.php:608
+msgid "Begin"
+msgstr ""
+
+#: libraries/common.lib.php:2259 libraries/common.lib.php:2262
+#: libraries/display_tbl.lib.php:291 libraries/messages.inc.php:673
+#: server_binlog.php:168 server_binlog.php:170
+msgid "Previous"
+msgstr ""
+
+#: libraries/common.lib.php:2290 libraries/common.lib.php:2293
+#: libraries/display_tbl.lib.php:353 libraries/messages.inc.php:297
+msgid "End"
+msgstr "आखरी"
+
+#: libraries/common.lib.php:2386 libraries/messages.inc.php:469
+#, php-format
+msgid "The %s functionality is affected by a known bug, see %s"
+msgstr ""
+
+#: libraries/Config.class.php:1015 libraries/messages.inc.php:346
+msgid "Font size"
+msgstr ""
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
-#: libraries/messages.inc.php:314
+#: libraries/export/sql.php:415 libraries/messages.inc.php:314
 msgid "Events"
 msgstr ""
 
 #: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
 #: libraries/display_create_table.lib.php:53 libraries/messages.inc.php:549
-#: libraries/tbl_triggers.lib.php:27
+#: libraries/tbl_triggers.lib.php:27 setup/frames/index.inc.php:112
 msgid "Name"
 msgstr "नाम"
+
+#: libraries/dbi/mysql.dbi.lib.php:112 libraries/dbi/mysqli.dbi.lib.php:124
+#: libraries/messages.inc.php:184
+msgid "Connection for controluser as defined in your configuration failed."
+msgstr ""
+
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:863
+msgid "The server is not responding"
+msgstr ""
+
+#: libraries/dbi/mysql.dbi.lib.php:353
+msgid "(or the local MySQL server"
+msgstr ""
+
+#: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
+#: tbl_structure.php:609
+msgid "Details..."
+msgstr ""
+
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr ""
+
+#: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
+#, php-format
+msgid "Database %s has been dropped."
+msgstr "डाटाबेस %s को ड्रोप कर दिया ।"
 
 #: libraries/db_links.inc.php:57 libraries/db_links.inc.php:58
 #: libraries/db_links.inc.php:59 libraries/messages.inc.php:242
 msgid "Database seems to be empty!"
 msgstr ""
+
+#: libraries/db_links.inc.php:68 libraries/messages.inc.php:1033
+#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
+#: test/theme.php:97
+msgid "SQL"
+msgstr ""
+
+#: libraries/db_links.inc.php:81 libraries/messages.inc.php:1160
+#: libraries/tbl_links.inc.php:69
+msgid "Tracking"
+msgstr ""
+
+#: libraries/db_links.inc.php:86 libraries/messages.inc.php:727
+msgid "Query"
+msgstr "क्वरी"
+
+#: libraries/db_links.inc.php:91 libraries/messages.inc.php:261
+msgid "Designer"
+msgstr ""
+
+#: libraries/db_links.inc.php:98 libraries/messages.inc.php:405
+#: libraries/server_links.inc.php:88 libraries/tbl_links.inc.php:91
+#: pmd_pdf.php:84 pmd_pdf.php:110 setup/frames/menu.inc.php:21
+msgid "Import"
+msgstr ""
+
+#: libraries/db_links.inc.php:104 libraries/messages.inc.php:595
+#: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
+#: view_operations.php:89
+msgid "Operations"
+msgstr "कार्रवाई"
+
+#: libraries/db_links.inc.php:111 libraries/messages.inc.php:717
+#: libraries/server_links.inc.php:66 server_privileges.php:72
+#: server_privileges.php:1683 test/theme.php:117
+msgid "Privileges"
+msgstr " प्रिविलेज"
 
 #: libraries/db_routines.inc.php:30 libraries/db_routines.inc.php:32
 #: libraries/messages.inc.php:820
@@ -1037,6 +1461,62 @@ msgstr ""
 
 #: libraries/db_routines.inc.php:43 libraries/messages.inc.php:819
 msgid "Return type"
+msgstr ""
+
+#: libraries/db_structure.lib.php:57 libraries/display_tbl.lib.php:1848
+#: libraries/messages.inc.php:73
+msgid ""
+"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
+"3.11[/a]"
+msgstr ""
+"शायद अनुमानित हैं. [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a] देखें"
+
+#: libraries/db_structure.lib.php:69 libraries/messages.inc.php:601
+#: server_databases.php:142 tbl_printview.php:336 tbl_structure.php:683
+msgid "Overhead"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
+#: main.php:91 user_password.php:111 user_password.php:129
+msgid "Change password"
+msgstr "पासव्रड बदलिये"
+
+#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
+#: libraries/replication_gui.lib.php:341 server_privileges.php:768
+msgid "No Password"
+msgstr "पासवर्ड नहीं है"
+
+#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
+#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
+#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:345 server_privileges.php:757
+#: server_privileges.php:761 server_privileges.php:772
+#: server_privileges.php:1499 server_synchronize.php:1170
+msgid "Password"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
+#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
+#: server_privileges.php:776 server_privileges.php:779
+msgid "Re-type"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:66
+msgid "MySQL 4.0 compatible"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+#: libraries/replication_gui.lib.php:356 server_privileges.php:783
+msgid "Generate Password"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+#: libraries/replication_gui.lib.php:359 server_privileges.php:786
+msgid "Generate"
 msgstr ""
 
 #: libraries/display_create_database.lib.php:22
@@ -1051,6 +1531,10 @@ msgstr "बनाइये"
 #: libraries/display_create_database.lib.php:40 libraries/messages.inc.php:572
 msgid "No Privileges"
 msgstr "कोइ प्रिविलेज नहीं"
+
+#: libraries/display_create_table.lib.php:41 libraries/messages.inc.php:453
+msgid "Table must have at least one field."
+msgstr ""
 
 #: libraries/display_create_table.lib.php:48 libraries/messages.inc.php:198
 #, fuzzy, php-format
@@ -1089,18 +1573,13 @@ msgstr ""
 msgid "File name template"
 msgstr ""
 
-#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
-#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
-#: pdf_pages.php:54
-msgid "Documentation"
-msgstr "डोक्युमेंटेशन"
-
 #: libraries/display_export.lib.php:202 libraries/messages.inc.php:339
 msgid "remember template"
 msgstr ""
 
 #: libraries/display_export.lib.php:210 libraries/display_import.lib.php:178
 #: libraries/display_import.lib.php:191 libraries/messages.inc.php:153
+#: libraries/sql_query_form.lib.php:549
 msgid "Character set of the file:"
 msgstr ""
 
@@ -1110,8 +1589,11 @@ msgid "Compression"
 msgstr ""
 
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
-#: libraries/display_import.lib.php:210 libraries/messages.inc.php:566
-#: libraries/tbl_properties.inc.php:575 server_processlist.php:75
+#: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
+#: libraries/export/sql.php:868 libraries/messages.inc.php:566
+#: libraries/tbl_properties.inc.php:575 server_privileges.php:263
+#: server_privileges.php:264 server_privileges.php:1836
+#: server_processlist.php:75
 msgid "None"
 msgstr ""
 
@@ -1127,20 +1609,8 @@ msgstr ""
 msgid "bzipped"
 msgstr ""
 
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:66
-msgid "MySQL 4.0 compatible"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-msgid "Generate Password"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-msgid "Generate"
+#: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
+msgid "SQL compatibility mode"
 msgstr ""
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
@@ -1165,11 +1635,12 @@ msgid "File to import"
 msgstr ""
 
 #: libraries/display_import.lib.php:137 libraries/messages.inc.php:494
+#: libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr ""
 
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:1244
-#: tbl_change.php:1031
+#: libraries/sql_query_form.lib.php:536 tbl_change.php:1031
 msgid "web server upload directory"
 msgstr ""
 
@@ -1207,6 +1678,574 @@ msgstr ""
 msgid "Format of imported file"
 msgstr ""
 
+#: libraries/display_select_lang.lib.php:45
+#: libraries/display_select_lang.lib.php:46 libraries/messages.inc.php:473
+#: setup/frames/index.inc.php:70
+msgid "Language"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:304 libraries/messages.inc.php:455
+#, php-format
+msgid "%d is not valid row number."
+msgstr ""
+
+#: libraries/display_tbl.lib.php:310 libraries/messages.inc.php:822
+msgid "row(s) starting from record #"
+msgstr "रौ,  इस  record  से #"
+
+#: libraries/display_tbl.lib.php:316 libraries/messages.inc.php:825
+msgid "horizontal"
+msgstr "समतल"
+
+#: libraries/display_tbl.lib.php:317 libraries/messages.inc.php:824
+msgid "horizontal (rotated headers)"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:318 libraries/messages.inc.php:827
+msgid "vertical"
+msgstr "खडा"
+
+#: libraries/display_tbl.lib.php:324 libraries/messages.inc.php:826
+#, php-format
+msgid "in %s mode and repeat headers after %s cells"
+msgstr " %s रूप में और %s सेल के बाद शीर्षक को दोहराईये"
+
+#: libraries/display_tbl.lib.php:346 libraries/messages.inc.php:503
+msgid "This operation could take a long time. Proceed anyway?"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:512 libraries/messages.inc.php:1020
+msgid "Sort by key"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:555 libraries/messages.inc.php:599
+#: tbl_structure.php:754
+msgid "Options"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:560 libraries/display_tbl.lib.php:570
+#: libraries/messages.inc.php:609
+msgid "Partial Texts"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:561 libraries/display_tbl.lib.php:574
+#: libraries/messages.inc.php:354
+msgid "Full Texts"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:587 libraries/messages.inc.php:747
+msgid "Relational key"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:588 libraries/messages.inc.php:746
+msgid "Relational display field"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:595 libraries/messages.inc.php:880
+msgid "Show binary contents"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:597 libraries/messages.inc.php:881
+msgid "Show BLOB contents"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:599 libraries/messages.inc.php:879
+msgid "Show binary contents as HEX"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:516
+#: libraries/tbl_properties.inc.php:144 transformation_overview.php:47
+msgid "Browser transformation"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:1126 libraries/display_tbl.lib.php:1130
+#: libraries/display_tbl.lib.php:1132 libraries/messages.inc.php:316
+msgid "Execute bookmarked query"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:1145 libraries/display_tbl.lib.php:1157
+#: libraries/messages.inc.php:252
+msgid "The row has been deleted"
+msgstr "रौ को डिलीट कर दिया"
+
+#: libraries/display_tbl.lib.php:1165 libraries/display_tbl.lib.php:2051
+#: libraries/messages.inc.php:251 libraries/sql_query_form.lib.php:470
+#: pdf_pages.php:281 pdf_pages.php:406 pdf_pages.php:442 pdf_pages.php:470
+#: pmd_general.php:377 setup/frames/index.inc.php:125
+#: setup/frames/index.inc.php:216 tbl_row_action.php:63
+msgid "Delete"
+msgstr "डिलीट"
+
+#: libraries/display_tbl.lib.php:1184 libraries/display_tbl.lib.php:2051
+#: libraries/messages.inc.php:468 server_processlist.php:71
+#: tbl_row_action.php:64
+msgid "Kill"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:1929 libraries/messages.inc.php:857
+msgid "in query"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
+#: libraries/mult_submits.inc.php:113 tbl_structure.php:25
+#: tbl_structure.php:150 tbl_structure.php:471
+msgid "Change"
+msgstr "बदलिये"
+
+#: libraries/display_tbl.lib.php:2154 libraries/messages.inc.php:732
+msgid "Query results operations"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:2182 libraries/messages.inc.php:679
+msgid "Print view (with full texts)"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:2356 libraries/messages.inc.php:490
+msgid "Link not found"
+msgstr ""
+
+#: libraries/engines/bdb.lib.php:21 libraries/messages.inc.php:1232
+#: main.php:228
+msgid "Version information"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:30 libraries/messages.inc.php:431
+msgid "Data home directory"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:31 libraries/messages.inc.php:432
+msgid "The common part of the directory path for all InnoDB data files."
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:34 libraries/messages.inc.php:430
+msgid "Data files"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:37 libraries/messages.inc.php:426
+msgid "Autoextend increment"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:38 libraries/messages.inc.php:427
+msgid ""
+" The increment size for extending the size of an autoextending tablespace "
+"when it becomes full."
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:42 libraries/messages.inc.php:428
+msgid "Buffer pool size"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:43 libraries/messages.inc.php:429
+msgid ""
+"The size of the memory buffer InnoDB uses to cache data and indexes of its "
+"tables."
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:144 libraries/messages.inc.php:120
+msgid "Buffer Pool"
+msgstr "बफर पूल"
+
+#: libraries/engines/innodb.lib.php:145 libraries/messages.inc.php:434
+#: server_status.php:306
+msgid "InnoDB Status"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:189 libraries/messages.inc.php:121
+msgid "Buffer Pool Usage"
+msgstr "बफर पूल उपयोग"
+
+#: libraries/engines/innodb.lib.php:194 libraries/messages.inc.php:1122
+#: server_databases.php:137 server_databases.php:305 server_status.php:414
+#: server_status.php:475 server_status.php:496 tbl_printview.php:351
+#: tbl_structure.php:697
+msgid "Total"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:197 libraries/messages.inc.php:433
+msgid "pages"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:206 libraries/messages.inc.php:351
+msgid "Free pages"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:212 libraries/messages.inc.php:267
+msgid "Dirty pages"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:218 libraries/messages.inc.php:238
+msgid "Pages containing data"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:224 libraries/messages.inc.php:606
+msgid "Pages to be flushed"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:230 libraries/messages.inc.php:127
+msgid "Busy pages"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:239 libraries/messages.inc.php:475
+msgid "Latched pages"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:250 libraries/messages.inc.php:119
+msgid "Buffer Pool Activity"
+msgstr "बफर पूल गतिविधि"
+
+#: libraries/engines/innodb.lib.php:254 libraries/messages.inc.php:739
+msgid "Read requests"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:260 libraries/messages.inc.php:1252
+msgid "Write requests"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:266 libraries/messages.inc.php:123
+msgid "Read misses"
+msgstr "गलतियाँ पढ़ें"
+
+#: libraries/engines/innodb.lib.php:272 libraries/messages.inc.php:125
+msgid "Write waits"
+msgstr ""
+
+#: libraries/engines/innodb.lib.php:278 libraries/messages.inc.php:122
+msgid "Read misses in %"
+msgstr "% में गलतियाँ पढ़ें"
+
+#: libraries/engines/innodb.lib.php:286 libraries/messages.inc.php:124
+msgid "Write waits in %"
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:23 libraries/messages.inc.php:530
+msgid "Data pointer size"
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:24 libraries/messages.inc.php:531
+msgid ""
+"The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
+"tables when no MAX_ROWS option is specified."
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:28 libraries/messages.inc.php:536
+msgid "Automatic recovery mode"
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:29 libraries/messages.inc.php:537
+msgid ""
+"The mode for automatic recovery of crashed MyISAM tables, as set via the --"
+"myisam-recover server startup option."
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:32 libraries/messages.inc.php:535
+msgid "Maximum size for temporary sort files"
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:33 libraries/messages.inc.php:534
+msgid ""
+"The maximum size of the temporary file MySQL is allowed to use while re-"
+"creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
+"INFILE)."
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:37 libraries/messages.inc.php:533
+msgid "Maximum size for temporary files on index creation"
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:38 libraries/messages.inc.php:532
+msgid ""
+"If the temporary file used for fast MyISAM index creation would be larger "
+"than using the key cache by the amount specified here, prefer the key cache "
+"method."
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:42 libraries/messages.inc.php:539
+msgid "Repair threads"
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:43 libraries/messages.inc.php:538
+msgid ""
+"If this value is greater than 1, MyISAM table indexes are created in "
+"parallel (each index in its own thread) during the repair by sorting process."
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:47 libraries/messages.inc.php:541
+msgid "Sort buffer size"
+msgstr ""
+
+#: libraries/engines/myisam.lib.php:48 libraries/messages.inc.php:540
+msgid ""
+"The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
+"TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:23 libraries/messages.inc.php:628
+msgid "Index cache size"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:24 libraries/messages.inc.php:627
+msgid ""
+"This is the amount of memory allocated to the index cache. Default value is "
+"32MB. The memory allocated here is used only for caching index pages."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:28 libraries/messages.inc.php:638
+msgid "Record cache size"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:29 libraries/messages.inc.php:637
+msgid ""
+"This is the amount of memory allocated to the record cache used to cache "
+"table data. The default value is 32MB. This memory is used to cache changes "
+"to the handle data (.xtd) and row pointer (.xtr) files."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:33 libraries/messages.inc.php:632
+msgid "Log cache size"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:34 libraries/messages.inc.php:631
+msgid ""
+"The amount of memory allocated to the transaction log cache used to cache on "
+"transaction log data. The default is 16MB."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:38 libraries/messages.inc.php:636
+msgid "Log file threshold"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:39 libraries/messages.inc.php:635
+msgid ""
+"The size of a transaction log before rollover, and a new log is created. The "
+"default value is 16MB."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:43 libraries/messages.inc.php:642
+msgid "Transaction buffer size"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:44 libraries/messages.inc.php:641
+msgid ""
+"The size of the global transaction log buffer (the engine allocates 2 "
+"buffers of this size). The default is 1MB."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:48 libraries/messages.inc.php:619
+msgid "Checkpoint frequency"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:49 libraries/messages.inc.php:620
+msgid ""
+"The amount of data written to the transaction log before a checkpoint is "
+"performed. The default value is 24MB."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:53 libraries/messages.inc.php:623
+msgid "Data log threshold"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:54 libraries/messages.inc.php:624
+msgid ""
+"The maximum size of a data log file. The default value is 64MB. PBXT can "
+"create a maximum of 32000 data logs, which are used by all tables. So the "
+"value of this variable can be increased to increase the total amount of data "
+"that can be stored in the database."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:58 libraries/messages.inc.php:626
+msgid "Garbage threshold"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:59 libraries/messages.inc.php:625
+msgid ""
+"The percentage of garbage in a data log file before it is compacted. This is "
+"a value between 1 and 99. The default is 50."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:63 libraries/messages.inc.php:630
+msgid "Log buffer size"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:64 libraries/messages.inc.php:629
+msgid ""
+"The size of the buffer used when writing a data log. The default is 256MB. "
+"The engine allocates one buffer per thread, but only if the thread is "
+"required to write a data log."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:68 libraries/messages.inc.php:621
+msgid "Data file grow size"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:69 libraries/messages.inc.php:622
+msgid "The grow size of the handle data (.xtd) files."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:73 libraries/messages.inc.php:640
+msgid "Row file grow size"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:74 libraries/messages.inc.php:639
+msgid "The grow size of the row pointer (.xtr) files."
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:78 libraries/messages.inc.php:634
+msgid "Log file count"
+msgstr ""
+
+#: libraries/engines/pbxt.lib.php:79 libraries/messages.inc.php:633
+msgid ""
+"This is the number of transaction log files (pbxt/system/xlog*.xt) the "
+"system will maintain. If the number of logs exceeds this value then old logs "
+"will be deleted, otherwise they are renamed and given the next highest "
+"number."
+msgstr ""
+
+#: libraries/export/htmlword.php:132 libraries/export/odt.php:168
+#: libraries/export/sql.php:881 libraries/export/texytext.php:130
+#: libraries/messages.inc.php:283
+msgid "Dumping data for table"
+msgstr ""
+
+#: libraries/export/htmlword.php:185 libraries/export/odt.php:238
+#: libraries/export/sql.php:785 libraries/export/texytext.php:177
+#: libraries/messages.inc.php:1094
+msgid "Table structure for table"
+msgstr ""
+
+#: libraries/export/latex.php:125 libraries/export/sql.php:232
+#: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
+#: libraries/messages.inc.php:389 libraries/replication_gui.lib.php:63
+#: libraries/replication_gui.lib.php:170 libraries/replication_gui.lib.php:265
+#: libraries/replication_gui.lib.php:268 libraries/replication_gui.lib.php:325
+#: server_privileges.php:692 server_privileges.php:695
+#: server_privileges.php:751 server_privileges.php:1498
+#: server_processlist.php:55 server_synchronize.php:1154
+msgid "Host"
+msgstr "होस्ट"
+
+#: libraries/export/latex.php:130 libraries/export/sql.php:233
+#: libraries/export/xml.php:107 libraries/header_printview.inc.php:59
+#: libraries/messages.inc.php:362
+msgid "Generation Time"
+msgstr "समय पर बनाया"
+
+#: libraries/export/latex.php:131 libraries/export/sql.php:235
+#: libraries/export/xml.php:108 libraries/messages.inc.php:872 main.php:186
+msgid "Server version"
+msgstr ""
+
+#: libraries/export/latex.php:132 libraries/export/sql.php:236
+#: libraries/export/xml.php:109 libraries/messages.inc.php:659
+msgid "PHP Version"
+msgstr ""
+
+#: libraries/export/latex.php:201 libraries/export/sql.php:868
+#: libraries/messages.inc.php:234 server_databases.php:127
+#: server_privileges.php:537 server_replication.php:316 tbl_printview.php:317
+#: tbl_structure.php:666
+msgid "Data"
+msgstr " डाटा"
+
+#: libraries/export/odt.php:318 libraries/messages.inc.php:514
+#: libraries/tbl_properties.inc.php:143
+msgid "MIME type"
+msgstr ""
+
+#: libraries/export/sql.php:387 libraries/messages.inc.php:719
+msgid "Procedures"
+msgstr ""
+
+#: libraries/export/sql.php:401 libraries/messages.inc.php:356
+msgid "Functions"
+msgstr ""
+
+#: libraries/export/sql.php:618 libraries/messages.inc.php:182
+msgid "Constraints for dumped tables"
+msgstr ""
+
+#: libraries/export/sql.php:627 libraries/messages.inc.php:183
+msgid "Constraints for table"
+msgstr ""
+
+#: libraries/export/sql.php:727 libraries/messages.inc.php:520
+msgid "MIME TYPES FOR TABLE"
+msgstr ""
+
+#: libraries/export/sql.php:739 libraries/messages.inc.php:751
+msgid "RELATIONS FOR TABLE"
+msgstr ""
+
+#: libraries/export/sql.php:796 libraries/messages.inc.php:1186
+#: libraries/tbl_triggers.lib.php:19
+msgid "Triggers"
+msgstr ""
+
+#: libraries/export/sql.php:808 libraries/messages.inc.php:1054
+msgid "Structure for view"
+msgstr ""
+
+#: libraries/export/sql.php:817 libraries/messages.inc.php:1037
+msgid "Stand-in structure for view"
+msgstr ""
+
+#: libraries/File.class.php:344 libraries/File.class.php:432
+#: libraries/File.class.php:569 libraries/File.class.php:708
+#: libraries/messages.inc.php:1209
+msgid "Unknown error in file upload."
+msgstr ""
+
+#: libraries/File.class.php:414 libraries/messages.inc.php:1206
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+#: libraries/File.class.php:417 libraries/messages.inc.php:1205
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+#: libraries/File.class.php:420 libraries/messages.inc.php:1208
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#: libraries/File.class.php:423 libraries/messages.inc.php:1207
+msgid "Missing a temporary folder."
+msgstr ""
+
+#: libraries/File.class.php:426 libraries/messages.inc.php:1203
+msgid "Failed to write file to disk."
+msgstr ""
+
+#: libraries/File.class.php:429 libraries/messages.inc.php:1204
+msgid "File upload stopped by extension."
+msgstr ""
+
+#: libraries/File.class.php:849 libraries/File.class.php:961
+#: libraries/messages.inc.php:333
+msgid "File could not be read"
+msgstr ""
+
+#: libraries/File.class.php:908 libraries/messages.inc.php:327
+msgid ""
+"Error moving the uploaded file, see [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgstr ""
+
+#: libraries/File.class.php:1031 libraries/File.class.php:1039
+#: libraries/File.class.php:1055 libraries/File.class.php:1063
+#: libraries/messages.inc.php:1197
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+
+#: libraries/footer.inc.php:184 libraries/footer.inc.php:195
+#: libraries/footer.inc.php:198 libraries/messages.inc.php:594
+msgid "Open new phpMyAdmin window"
+msgstr ""
+
 #: libraries/header.inc.php:115 libraries/messages.inc.php:550
 msgid "New table"
 msgstr ""
@@ -1216,46 +2255,57 @@ msgstr ""
 msgid "SQL result"
 msgstr ""
 
-#: libraries/header_printview.inc.php:57 libraries/messages.inc.php:389
-#: server_processlist.php:55
-msgid "Host"
-msgstr "होस्ट"
-
-#: libraries/header_printview.inc.php:59 libraries/messages.inc.php:362
-msgid "Generation Time"
-msgstr "समय पर बनाया"
-
 #: libraries/header_printview.inc.php:60 libraries/messages.inc.php:358
 msgid "Generated by"
 msgstr ""
 
-#: libraries/header_printview.inc.php:61 libraries/messages.inc.php:1031
-#: server_processlist.php:60 server_status.php:247
-msgid "SQL query"
-msgstr ""
-
 #: libraries/header_printview.inc.php:63 libraries/messages.inc.php:828
-#: server_databases.php:122 tbl_printview.php:394 tbl_structure.php:366
-#: tbl_structure.php:778
+#: navigation.php:652 navigation.php:674 server_databases.php:122
+#: tbl_printview.php:394 tbl_structure.php:366 tbl_structure.php:778
 msgid "Rows"
 msgstr ""
 
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
+#: libraries/Index.class.php:433 libraries/messages.inc.php:419
+#: server_databases.php:132 tbl_tracking.php:316
+msgid "Indexes"
 msgstr ""
 
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
+#: libraries/Index.class.php:444 libraries/messages.inc.php:1194
+#: libraries/mult_submits.inc.php:103 libraries/tbl_properties.inc.php:519
+#: tbl_structure.php:33 tbl_structure.php:155 tbl_structure.php:159
+#: tbl_structure.php:475 tbl_tracking.php:322
+msgid "Unique"
 msgstr ""
+
+#: libraries/Index.class.php:445 libraries/messages.inc.php:604
+#: tbl_tracking.php:323
+msgid "Packed"
+msgstr ""
+
+#: libraries/Index.class.php:447 libraries/messages.inc.php:139
+#: tbl_tracking.php:325
+msgid "Cardinality"
+msgstr ""
+
+#: libraries/Index.class.php:450 libraries/messages.inc.php:170
+#: tbl_tracking.php:279 tbl_tracking.php:328
+msgid "Comment"
+msgstr ""
+
+#: libraries/Index.class.php:472 libraries/messages.inc.php:674
+msgid "The primary key has been dropped"
+msgstr ""
+
+#: libraries/Index.class.php:476 libraries/messages.inc.php:421
+#, php-format
+msgid "Index %s has been dropped"
+msgstr ""
+
+#: libraries/List_Database.class.php:431 libraries/messages.inc.php:226
+#: libraries/server_links.inc.php:41 server_databases.php:88
+#: server_privileges.php:1621 setup/lib/messages.inc.php:110 test/theme.php:93
+msgid "Databases"
+msgstr " डाटाबेस"
 
 #: libraries/Message.class.php:282
 #, php-format
@@ -1335,10 +2385,6 @@ msgstr "%s दिन, %s घंटे, %s मिनट and %s सेकंड"
 msgid "Aborted"
 msgstr "रद्द"
 
-#: libraries/messages.inc.php:34
-msgid "Access denied"
-msgstr "प्रवेश निषेध"
-
 #: libraries/messages.inc.php:36 main.php:68
 msgid "Actions"
 msgstr "कार्य"
@@ -1363,11 +2409,11 @@ msgstr "इनटू टिप्पणियां जोडें"
 msgid "Add new field"
 msgstr "नया क्षेत्र जोडें"
 
-#: libraries/messages.inc.php:46
+#: libraries/messages.inc.php:46 server_privileges.php:1886
 msgid "Add privileges on the following database"
 msgstr "इन डाटाबेसों के लिये विशेषाधिकार जोडें"
 
-#: libraries/messages.inc.php:47
+#: libraries/messages.inc.php:47 server_privileges.php:1907
 msgid "Add privileges on the following table"
 msgstr "इन टेबल के लिये विशेषाधिकार जोडें"
 
@@ -1380,7 +2426,9 @@ msgstr "खोज शर्तें जोडें (\"where\" खंड के
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "सूचकांक में जोडें &nbsp;%s&nbsp;column(s)"
 
-#: libraries/messages.inc.php:50
+#: libraries/messages.inc.php:50 server_privileges.php:1570
+#: server_privileges.php:1594 server_privileges.php:1988
+#: server_privileges.php:2177
 msgid "Add a new User"
 msgstr "नया यूसर जोडें"
 
@@ -1388,7 +2436,7 @@ msgstr "नया यूसर जोडें"
 msgid "You have added a new user."
 msgstr "आपने नया यूसर बना लिया"
 
-#: libraries/messages.inc.php:52
+#: libraries/messages.inc.php:52 server_privileges.php:571
 msgid "Administration"
 msgstr "एडमिनिस्ट्रेशन"
 
@@ -1439,39 +2487,36 @@ msgstr "कोणीय लिंक"
 msgid "An index has been added on %s"
 msgstr "%s पर एक सूचकांक जोड़ा गया है"
 
-#: libraries/messages.inc.php:69
+#: libraries/messages.inc.php:69 server_privileges.php:1521
+#: server_privileges.php:2123
 msgid "Any"
 msgstr "कोई"
 
-#: libraries/messages.inc.php:70
+#: libraries/messages.inc.php:70 libraries/replication_gui.lib.php:298
+#: server_privileges.php:725
 msgid "Any host"
 msgstr "कोई भी होस्ट"
 
-#: libraries/messages.inc.php:71
+#: libraries/messages.inc.php:71 libraries/replication_gui.lib.php:250
+#: server_privileges.php:677
 msgid "Any user"
 msgstr "कोई भी उपयोगकर्ता"
 
-#: libraries/messages.inc.php:72
+#: libraries/messages.inc.php:72 server_synchronize.php:449
+#: server_synchronize.php:894
 msgid "Apply Selected Changes"
 msgstr "चयनित परिवर्तन लागू करें"
-
-#: libraries/messages.inc.php:73
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"शायद अनुमानित हैं. [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a] देखें"
 
 #: libraries/messages.inc.php:74 tbl_structure.php:386
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr " %s  पर एक प्राईमरी की जड़ी गयी है"
 
-#: libraries/messages.inc.php:75
+#: libraries/messages.inc.php:75 libraries/mysql_charsets.lib.php:369
 msgid "Arabic"
 msgstr "अरबी"
 
-#: libraries/messages.inc.php:76
+#: libraries/messages.inc.php:76 libraries/mysql_charsets.lib.php:360
 msgid "Armenian"
 msgstr "आर्मेनियन"
 
@@ -1488,7 +2533,8 @@ msgid "At End of Table"
 msgstr "टेबल के आखिर में"
 
 #: libraries/messages.inc.php:81 libraries/tbl_properties.inc.php:108
-#: tbl_printview.php:144 tbl_structure.php:180
+#: pdf_schema.php:1265 pdf_schema.php:1286 tbl_printview.php:144
+#: tbl_structure.php:180
 msgid "Attributes"
 msgstr "विशेषता"
 
@@ -1496,23 +2542,20 @@ msgstr "विशेषता"
 msgid "Automatic layout"
 msgstr "स्वचालित लेआउट"
 
-#: libraries/messages.inc.php:84 user_password.php:115
-msgid "Back"
-msgstr "वापस"
-
-#: libraries/messages.inc.php:85
+#: libraries/messages.inc.php:85 libraries/mysql_charsets.lib.php:355
 msgid "Baltic"
 msgstr "बाल्टिक"
 
-#: libraries/messages.inc.php:86
+#: libraries/messages.inc.php:86 libraries/sqlparser.lib.php:175
 msgid "BEGIN CUT"
 msgstr "BEGIN कट"
 
-#: libraries/messages.inc.php:87
+#: libraries/messages.inc.php:87 libraries/sqlparser.lib.php:179
 msgid "BEGIN RAW"
 msgstr "BEGIN रॉ"
 
-#: libraries/messages.inc.php:88 tbl_change.php:518
+#: libraries/messages.inc.php:88 libraries/mysql_charsets.lib.php:202
+#: libraries/mysql_charsets.lib.php:403 tbl_change.php:518
 msgid "Binary"
 msgstr "बइनरी"
 
@@ -1521,31 +2564,32 @@ msgid "Binary - do not edit"
 msgstr "बइनरी - एडिट मत करिये"
 
 #: libraries/messages.inc.php:90 libraries/server_links.inc.php:76
-#: server_status.php:253 test/theme.php:121
+#: server_binlog.php:110 server_status.php:253 test/theme.php:121
 msgid "Binary log"
 msgstr "बाइनरी लोग"
 
-#: libraries/messages.inc.php:91
+#: libraries/messages.inc.php:91 server_binlog.php:217
 msgid "Event type"
 msgstr "इवेंट प्रकार "
 
-#: libraries/messages.inc.php:92
+#: libraries/messages.inc.php:92 server_binlog.php:220
 msgid "Information"
 msgstr "सूचना"
 
-#: libraries/messages.inc.php:93
+#: libraries/messages.inc.php:93 server_binlog.php:215
 msgid "Log name"
 msgstr "लॉग नाम"
 
-#: libraries/messages.inc.php:94
+#: libraries/messages.inc.php:94 server_binlog.php:219
 msgid "Original position"
 msgstr "मूल स्थिति"
 
-#: libraries/messages.inc.php:95
+#: libraries/messages.inc.php:95 server_binlog.php:216
 msgid "Position"
 msgstr "स्थिति"
 
-#: libraries/messages.inc.php:96
+#: libraries/messages.inc.php:96 libraries/replication_gui.lib.php:169
+#: server_binlog.php:218
 msgid "Server ID"
 msgstr "सर्वर आईडी"
 
@@ -1581,7 +2625,7 @@ msgstr "मरम्मत"
 msgid "Upload to BLOB repository"
 msgstr "BLOB भण्डार में अपलोड करें"
 
-#: libraries/messages.inc.php:108
+#: libraries/messages.inc.php:108 libraries/sql_query_form.lib.php:359
 msgid "Let every user access this bookmark"
 msgstr "हर उपयोकर्ता को अनुमति दें इस बुकमार्क का उपयोग करने के लिए"
 
@@ -1593,19 +2637,19 @@ msgstr "यह बुकमार्क हटा दिया गया है"
 msgid "Label"
 msgstr "लेबल"
 
-#: libraries/messages.inc.php:112
+#: libraries/messages.inc.php:112 libraries/sql_query_form.lib.php:433
 msgid "Bookmarked SQL query"
 msgstr "बुकमार्क किया हुआ SQL-क्वरी"
 
-#: libraries/messages.inc.php:113
+#: libraries/messages.inc.php:113 libraries/sql_query_form.lib.php:365
 msgid "Replace existing bookmark of same name"
 msgstr "एक ही नाम के सभी बुकमार्क्स बदल दें"
 
-#: libraries/messages.inc.php:114
+#: libraries/messages.inc.php:114 libraries/sql_query_form.lib.php:352
 msgid "Bookmark this SQL query"
 msgstr "इस SQL-क्वरी को बुकमार्क कीजिये "
 
-#: libraries/messages.inc.php:115
+#: libraries/messages.inc.php:115 libraries/sql_query_form.lib.php:466
 msgid "View only"
 msgstr "केवल देखिये"
 
@@ -1617,40 +2661,8 @@ msgstr "अलग मूल्य ब्राउस करें "
 msgid "Browse foreign values"
 msgstr "विदेशी मूल्य ब्राउस करें "
 
-#: libraries/messages.inc.php:119
-msgid "Buffer Pool Activity"
-msgstr "बफर पूल गतिविधि"
-
-#: libraries/messages.inc.php:120
-msgid "Buffer Pool"
-msgstr "बफर पूल"
-
-#: libraries/messages.inc.php:121
-msgid "Buffer Pool Usage"
-msgstr "बफर पूल उपयोग"
-
-#: libraries/messages.inc.php:122
-msgid "Read misses in %"
-msgstr "% में गलतियाँ पढ़ें"
-
-#: libraries/messages.inc.php:123
-msgid "Read misses"
-msgstr "गलतियाँ पढ़ें"
-
-#: libraries/messages.inc.php:124
-msgid "Write waits in %"
-msgstr ""
-
-#: libraries/messages.inc.php:125
-msgid "Write waits"
-msgstr ""
-
-#: libraries/messages.inc.php:126
+#: libraries/messages.inc.php:126 libraries/mysql_charsets.lib.php:214
 msgid "Bulgarian"
-msgstr ""
-
-#: libraries/messages.inc.php:127
-msgid "Busy pages"
 msgstr ""
 
 #: libraries/messages.inc.php:128
@@ -1669,10 +2681,6 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
-#: libraries/messages.inc.php:134
-msgid "Cannot log in to the MySQL server"
-msgstr ""
-
 #: libraries/messages.inc.php:135
 #, php-format
 msgid ""
@@ -1684,51 +2692,44 @@ msgstr ""
 msgid "Can't rename index to PRIMARY!"
 msgstr "इन्डेक्स को PRIMARY नाम मे नहीं बदल सकते!"
 
-#: libraries/messages.inc.php:139 tbl_tracking.php:325
-msgid "Cardinality"
-msgstr ""
-
-#: libraries/messages.inc.php:140
+#: libraries/messages.inc.php:140 libraries/mysql_charsets.lib.php:224
+#: libraries/mysql_charsets.lib.php:410
 msgid "case-insensitive"
 msgstr ""
 
-#: libraries/messages.inc.php:141
+#: libraries/messages.inc.php:141 libraries/mysql_charsets.lib.php:227
+#: libraries/mysql_charsets.lib.php:412
 msgid "case-sensitive"
 msgstr ""
 
-#: libraries/messages.inc.php:142
+#: libraries/messages.inc.php:142 libraries/mysql_charsets.lib.php:333
 msgid "Central European"
 msgstr ""
 
-#: libraries/messages.inc.php:143 libraries/mult_submits.inc.php:113
-#: tbl_structure.php:25 tbl_structure.php:150 tbl_structure.php:471
-msgid "Change"
-msgstr "बदलिये"
-
-#: libraries/messages.inc.php:144
+#: libraries/messages.inc.php:144 server_privileges.php:1969
 msgid "... keep the old one."
 msgstr ""
 
-#: libraries/messages.inc.php:145
+#: libraries/messages.inc.php:145 server_privileges.php:1967
 msgid "Create a new user with the same privileges and ..."
 msgstr ""
 
-#: libraries/messages.inc.php:146
+#: libraries/messages.inc.php:146 server_privileges.php:1972
 msgid ""
 " ... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 
-#: libraries/messages.inc.php:147
+#: libraries/messages.inc.php:147 server_privileges.php:1970
 msgid " ... delete the old one from the user tables."
 msgstr ""
 
-#: libraries/messages.inc.php:148
+#: libraries/messages.inc.php:148 server_privileges.php:1971
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
-#: libraries/messages.inc.php:149
+#: libraries/messages.inc.php:149 server_privileges.php:1964
 msgid "Change Login Information / Copy User"
 msgstr ""
 
@@ -1736,12 +2737,7 @@ msgstr ""
 msgid "Choose field to display"
 msgstr ""
 
-#: libraries/messages.inc.php:151 main.php:91 user_password.php:111
-#: user_password.php:129
-msgid "Change password"
-msgstr "पासव्रड बदलिये"
-
-#: libraries/messages.inc.php:152
+#: libraries/messages.inc.php:152 libraries/mysql_charsets.lib.php:107
 msgid "Charset"
 msgstr ""
 
@@ -1772,7 +2768,11 @@ msgstr "डाटाबेस के  प्रिविलेज  चेक क
 msgid "Please choose a page to edit"
 msgstr " एडिट करने के लिये पेज़ चुने"
 
-#: libraries/messages.inc.php:163
+#: libraries/messages.inc.php:163 server_synchronize.php:345
+#: server_synchronize.php:357 server_synchronize.php:373
+#: server_synchronize.php:380 server_synchronize.php:739
+#: server_synchronize.php:767 server_synchronize.php:795
+#: server_synchronize.php:807
 msgid "Click to select"
 msgstr ""
 
@@ -1788,13 +2788,9 @@ msgstr ""
 msgid "Column names"
 msgstr "कोलम के नाम"
 
-#: libraries/messages.inc.php:168
+#: libraries/messages.inc.php:168 server_privileges.php:1685
 msgid "Column-specific privileges"
 msgstr " केवल कोलम के प्रिविलेज"
-
-#: libraries/messages.inc.php:170 tbl_tracking.php:279 tbl_tracking.php:328
-msgid "Comment"
-msgstr ""
 
 #: libraries/messages.inc.php:172
 msgid "MySQL&nbsp;4.0 compatible"
@@ -1816,33 +2812,13 @@ msgid ""
 "has been configured."
 msgstr ""
 
-#: libraries/messages.inc.php:179
+#: libraries/messages.inc.php:179 pdf_schema.php:673
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr ""
 
-#: libraries/messages.inc.php:180
-msgid "Cannot connect: invalid settings."
-msgstr ""
-
 #: libraries/messages.inc.php:181 server_status.php:433
 msgid "Connections"
-msgstr ""
-
-#: libraries/messages.inc.php:182
-msgid "Constraints for dumped tables"
-msgstr ""
-
-#: libraries/messages.inc.php:183
-msgid "Constraints for table"
-msgstr ""
-
-#: libraries/messages.inc.php:184
-msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-
-#: libraries/messages.inc.php:185
-msgid "Cookies must be enabled past this point."
 msgstr ""
 
 #: libraries/messages.inc.php:186
@@ -1863,11 +2839,11 @@ msgstr " %s टेबल को %s में कापी कर दिया."
 msgid "Can't copy table to same one!"
 msgstr ""
 
-#: libraries/messages.inc.php:190
+#: libraries/messages.inc.php:190 server_synchronize.php:94
 msgid "Could not connect to the source"
 msgstr ""
 
-#: libraries/messages.inc.php:191
+#: libraries/messages.inc.php:191 server_synchronize.php:97
 msgid "Could not connect to the target"
 msgstr ""
 
@@ -1886,7 +2862,7 @@ msgstr " &nbsp;%s&nbsp; कोलम पर इन्डेक्स बना�
 msgid "Create a new index"
 msgstr "एक नया इन्डेक्स बनाऐं"
 
-#: libraries/messages.inc.php:199 pdf_pages.php:297
+#: libraries/messages.inc.php:199 pdf_pages.php:297 pmd_pdf.php:114
 msgid "Create a page"
 msgstr "नया पेज़ बनाऐं"
 
@@ -1908,11 +2884,11 @@ msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr ""
 
-#: libraries/messages.inc.php:204
+#: libraries/messages.inc.php:204 server_privileges.php:1994
 msgid "Database for user"
 msgstr ""
 
-#: libraries/messages.inc.php:205
+#: libraries/messages.inc.php:205 server_privileges.php:1999
 msgid "Create database with same name and grant all privileges"
 msgstr ""
 
@@ -1934,7 +2910,7 @@ msgstr ""
 msgid "Creation/Update/Check dates"
 msgstr ""
 
-#: libraries/messages.inc.php:211
+#: libraries/messages.inc.php:211 libraries/mysql_charsets.lib.php:230
 msgid "Croatian"
 msgstr ""
 
@@ -1942,7 +2918,8 @@ msgstr ""
 msgid "CSV"
 msgstr ""
 
-#: libraries/messages.inc.php:213
+#: libraries/messages.inc.php:213 libraries/server_synchronize.lib.php:1343
+#: libraries/server_synchronize.lib.php:1369
 msgid "Current server"
 msgstr ""
 
@@ -1950,19 +2927,19 @@ msgstr ""
 msgid "Custom color"
 msgstr ""
 
-#: libraries/messages.inc.php:215
+#: libraries/messages.inc.php:215 libraries/mysql_charsets.lib.php:366
 msgid "Cyrillic"
 msgstr ""
 
-#: libraries/messages.inc.php:216
+#: libraries/messages.inc.php:216 libraries/mysql_charsets.lib.php:233
 msgid "Czech"
 msgstr ""
 
-#: libraries/messages.inc.php:217
+#: libraries/messages.inc.php:217 libraries/mysql_charsets.lib.php:384
 msgid "Czech-Slovak"
 msgstr ""
 
-#: libraries/messages.inc.php:219
+#: libraries/messages.inc.php:219 libraries/mysql_charsets.lib.php:236
 msgid "Danish"
 msgstr ""
 
@@ -1979,27 +2956,18 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr ""
 
-#: libraries/messages.inc.php:224
-#, php-format
-msgid "Database %s has been dropped."
-msgstr "डाटाबेस %s को ड्रोप कर दिया ।"
-
-#: libraries/messages.inc.php:225
+#: libraries/messages.inc.php:225 server_synchronize.php:122
+#: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
-
-#: libraries/messages.inc.php:226 libraries/server_links.inc.php:41
-#: server_databases.php:88 setup/lib/messages.inc.php:110 test/theme.php:93
-msgid "Databases"
-msgstr " डाटाबेस"
 
 #: libraries/messages.inc.php:227
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "%s डाटाबेस को सफलता से डिलीट कर दिया गया।"
 
-#: libraries/messages.inc.php:228
+#: libraries/messages.inc.php:228 libraries/server_synchronize.lib.php:1341
 msgid "Source database"
 msgstr ""
 
@@ -2025,33 +2993,25 @@ msgstr ""
 " नोट: यहां डाटाबेस के आँकडे Enable करने से webserver और MySQL के बीच में ट्रेफिक बडने की "
 "संभावना है। "
 
-#: libraries/messages.inc.php:233
+#: libraries/messages.inc.php:233 libraries/server_synchronize.lib.php:1367
 msgid "Target database"
 msgstr ""
-
-#: libraries/messages.inc.php:234 server_databases.php:127
-#: tbl_printview.php:317 tbl_structure.php:666
-msgid "Data"
-msgstr " डाटा"
 
 #: libraries/messages.inc.php:236 server_synchronize.php:425
 #: server_synchronize.php:868
 msgid "Data Difference"
 msgstr ""
 
-#: libraries/messages.inc.php:238
-msgid "Pages containing data"
-msgstr ""
-
 #: libraries/messages.inc.php:239 server_synchronize.php:272
 msgid "Data Synchronization"
 msgstr ""
 
-#: libraries/messages.inc.php:243
+#: libraries/messages.inc.php:243 server_privileges.php:526
+#: server_privileges.php:1679
 msgid "Database-specific privileges"
 msgstr " केवल डाटाबेस के प्रिविलेज"
 
-#: libraries/messages.inc.php:245
+#: libraries/messages.inc.php:245 server_privileges.php:2136
 msgid "database-specific"
 msgstr ""
 
@@ -2069,15 +3029,6 @@ msgstr ""
 msgid "Use delayed inserts"
 msgstr ""
 
-#: libraries/messages.inc.php:251 pdf_pages.php:281 pdf_pages.php:406
-#: pdf_pages.php:442 pdf_pages.php:470 pmd_general.php:377
-msgid "Delete"
-msgstr "डिलीट"
-
-#: libraries/messages.inc.php:252
-msgid "The row has been deleted"
-msgstr "रौ को डिलीट कर दिया"
-
 #: libraries/messages.inc.php:253
 msgid "No users selected for deleting!"
 msgstr ""
@@ -2086,12 +3037,12 @@ msgstr ""
 msgid "Delete relation"
 msgstr ""
 
-#: libraries/messages.inc.php:256
+#: libraries/messages.inc.php:256 server_privileges.php:1232
 #, php-format
 msgid "Deleting %s"
 msgstr ""
 
-#: libraries/messages.inc.php:257
+#: libraries/messages.inc.php:257 libraries/sql_query_form.lib.php:388
 msgid "Delimiter"
 msgstr ""
 
@@ -2101,10 +3052,6 @@ msgid ""
 "like to delete those references?"
 msgstr ""
 
-#: libraries/messages.inc.php:261
-msgid "Designer"
-msgstr ""
-
 #: libraries/messages.inc.php:262
 msgid ""
 "The display field is shown in pink. To set/unset a field as the display "
@@ -2112,15 +3059,11 @@ msgid ""
 "appropriate field name."
 msgstr ""
 
-#: libraries/messages.inc.php:263 tbl_structure.php:609
-msgid "Details..."
-msgstr ""
-
-#: libraries/messages.inc.php:264
+#: libraries/messages.inc.php:264 libraries/mysql_charsets.lib.php:248
 msgid "dictionary"
 msgstr "शब्दकोश"
 
-#: libraries/messages.inc.php:265
+#: libraries/messages.inc.php:265 libraries/server_synchronize.lib.php:1348
 msgid "Difference"
 msgstr ""
 
@@ -2128,11 +3071,8 @@ msgstr ""
 msgid "Direct links"
 msgstr ""
 
-#: libraries/messages.inc.php:267
-msgid "Dirty pages"
-msgstr ""
-
-#: libraries/messages.inc.php:268
+#: libraries/messages.inc.php:268 libraries/relation.lib.php:101
+#: libraries/relation.lib.php:108
 msgid "Disabled"
 msgstr ""
 
@@ -2160,10 +3100,6 @@ msgstr ""
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr ""
 
-#: libraries/messages.inc.php:277
-msgid "Download file"
-msgstr ""
-
 #: libraries/messages.inc.php:278 libraries/mult_submits.inc.php:258
 msgid "Do you really want to "
 msgstr "क्या आप सचमुच चाहते है की"
@@ -2172,13 +3108,10 @@ msgstr "क्या आप सचमुच चाहते है की"
 msgid "You are about to DESTROY a complete database!"
 msgstr ""
 
-#: libraries/messages.inc.php:281
+#: libraries/messages.inc.php:281 server_privileges.php:1579
+#: server_privileges.php:1580 server_privileges.php:1581
 msgid "Drop the databases that have the same names as the users."
 msgstr "Drop the databases that have the same names as the users."
-
-#: libraries/messages.inc.php:283
-msgid "Dumping data for table"
-msgstr ""
 
 #: libraries/messages.inc.php:284
 #, php-format
@@ -2189,12 +3122,8 @@ msgstr ""
 msgid "dynamic"
 msgstr ""
 
-#: libraries/messages.inc.php:288 pdf_pages.php:280
-#: setup/lib/messages.inc.php:352
-msgid "Edit"
-msgstr "एडिट"
-
-#: libraries/messages.inc.php:290
+#: libraries/messages.inc.php:290 server_privileges.php:1324
+#: server_privileges.php:1610
 msgid "Edit Privileges"
 msgstr " प्रिविलेज एडिट करें"
 
@@ -2202,11 +3131,11 @@ msgstr " प्रिविलेज एडिट करें"
 msgid "Effective"
 msgstr " वास्तविक"
 
-#: libraries/messages.inc.php:293 tbl_get_field.php:35 tbl_change.php:181
+#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: libraries/messages.inc.php:294
+#: libraries/messages.inc.php:294 libraries/relation.lib.php:100
 msgid "Enabled"
 msgstr ""
 
@@ -2214,24 +3143,20 @@ msgstr ""
 msgid "Enclose export in a transaction"
 msgstr ""
 
-#: libraries/messages.inc.php:296
+#: libraries/messages.inc.php:296 libraries/sqlparser.lib.php:177
 msgid "END CUT"
 msgstr ""
 
-#: libraries/messages.inc.php:297
-msgid "End"
-msgstr "आखरी"
-
-#: libraries/messages.inc.php:298
+#: libraries/messages.inc.php:298 libraries/sqlparser.lib.php:183
 msgid "END RAW"
 msgstr ""
 
-#: libraries/messages.inc.php:299
+#: libraries/messages.inc.php:299 libraries/StorageEngine.class.php:359
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr ""
 
-#: libraries/messages.inc.php:300
+#: libraries/messages.inc.php:300 libraries/StorageEngine.class.php:362
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr ""
@@ -2241,20 +3166,22 @@ msgstr ""
 msgid "Engines"
 msgstr ""
 
-#: libraries/messages.inc.php:302
+#: libraries/messages.inc.php:302 libraries/StorageEngine.class.php:366
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
 
-#: libraries/messages.inc.php:303
+#: libraries/messages.inc.php:303 libraries/mysql_charsets.lib.php:239
 msgid "English"
 msgstr "अंग्रेजी"
 
-#: libraries/messages.inc.php:304
+#: libraries/messages.inc.php:304 server_privileges.php:393
+#: server_privileges.php:535 server_privileges.php:1501
 msgid " Note: MySQL privilege names are expressed in English "
 msgstr " नोट: MySQL प्रिविलेज नामों को अंग्रेजी  मे लिखा गया है "
 
-#: libraries/messages.inc.php:306
+#: libraries/messages.inc.php:306 libraries/zip_extension.lib.php:49
+#: libraries/zip_extension.lib.php:51 libraries/zip_extension.lib.php:66
 msgid "Error in ZIP archive:"
 msgstr ""
 
@@ -2275,11 +3202,11 @@ msgstr ""
 msgid "Error saving coordinates for Designer."
 msgstr ""
 
-#: libraries/messages.inc.php:311
+#: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:242
 msgid "Esperanto"
 msgstr ""
 
-#: libraries/messages.inc.php:312
+#: libraries/messages.inc.php:312 libraries/mysql_charsets.lib.php:245
 msgid "Estonian"
 msgstr ""
 
@@ -2290,14 +3217,6 @@ msgstr ""
 #: libraries/messages.inc.php:315
 msgid "Excel edition"
 msgstr ""
-
-#: libraries/messages.inc.php:316
-msgid "Execute bookmarked query"
-msgstr ""
-
-#: libraries/messages.inc.php:317 setup/lib/messages.inc.php:353
-msgid "Explain SQL"
-msgstr "SQL की   व्याख्या "
 
 #: libraries/messages.inc.php:319 pmd_pdf.php:85
 msgid "Export/Import to scale"
@@ -2311,8 +3230,8 @@ msgstr ""
 msgid "Extended inserts"
 msgstr "विस्तृत इनसर्टस"
 
-#: libraries/messages.inc.php:322 tbl_printview.php:147 tbl_structure.php:183
-#: tbl_tracking.php:278
+#: libraries/messages.inc.php:322 pdf_schema.php:1268 pdf_schema.php:1289
+#: tbl_printview.php:147 tbl_structure.php:183 tbl_tracking.php:278
 msgid "Extra"
 msgstr " अतिरिक्त"
 
@@ -2325,12 +3244,6 @@ msgstr ""
 msgid "Field %s has been dropped"
 msgstr " फील्ड %s ड्रोप कर दिया"
 
-#: libraries/messages.inc.php:327
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
-
 #: libraries/messages.inc.php:328
 msgid "Fields enclosed by"
 msgstr ""
@@ -2339,7 +3252,7 @@ msgstr ""
 msgid "Fields escaped by"
 msgstr ""
 
-#: libraries/messages.inc.php:330
+#: libraries/messages.inc.php:330 libraries/sql_query_form.lib.php:317
 msgid "Fields"
 msgstr " फील्डस"
 
@@ -2351,10 +3264,6 @@ msgstr ""
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
-msgstr ""
-
-#: libraries/messages.inc.php:333
-msgid "File could not be read"
 msgstr ""
 
 #: libraries/messages.inc.php:334
@@ -2377,7 +3286,7 @@ msgid ""
 "3$s. Other text will be kept as is."
 msgstr ""
 
-#: libraries/messages.inc.php:340
+#: libraries/messages.inc.php:340 server_binlog.php:136
 msgid "Files"
 msgstr ""
 
@@ -2402,10 +3311,6 @@ msgstr " टेबल को Flush करें (\"FLUSH\")"
 msgid "Flush (close) all tables"
 msgstr ""
 
-#: libraries/messages.inc.php:346
-msgid "Font size"
-msgstr ""
-
 #: libraries/messages.inc.php:347
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
@@ -2424,39 +3329,28 @@ msgstr ""
 msgid "Missing value in the form!"
 msgstr ""
 
-#: libraries/messages.inc.php:351
-msgid "Free pages"
-msgstr ""
-
-#: libraries/messages.inc.php:352
+#: libraries/messages.inc.php:352 server_replication.php:325
 msgid "Full start"
 msgstr ""
 
-#: libraries/messages.inc.php:353
+#: libraries/messages.inc.php:353 server_replication.php:325
 msgid "Full stop"
-msgstr ""
-
-#: libraries/messages.inc.php:354
-msgid "Full Texts"
 msgstr ""
 
 #: libraries/messages.inc.php:355 tbl_change.php:282 tbl_change.php:320
 msgid "Function"
 msgstr ""
 
-#: libraries/messages.inc.php:356
-msgid "Functions"
-msgstr ""
-
-#: libraries/messages.inc.php:359
+#: libraries/messages.inc.php:359 libraries/relation.lib.php:107
 msgid "General relation features"
 msgstr ""
 
-#: libraries/messages.inc.php:363
+#: libraries/messages.inc.php:363 libraries/mysql_charsets.lib.php:378
 msgid "Georgian"
 msgstr ""
 
-#: libraries/messages.inc.php:364
+#: libraries/messages.inc.php:364 libraries/mysql_charsets.lib.php:248
+#: libraries/mysql_charsets.lib.php:251
 msgid "German"
 msgstr "जर्मन"
 
@@ -2464,11 +3358,12 @@ msgstr "जर्मन"
 msgid "Get more themes!"
 msgstr ""
 
-#: libraries/messages.inc.php:366
+#: libraries/messages.inc.php:366 server_privileges.php:2134
 msgid "global"
 msgstr ""
 
-#: libraries/messages.inc.php:367
+#: libraries/messages.inc.php:367 server_privileges.php:524
+#: server_privileges.php:1500
 msgid "Global privileges"
 msgstr ""
 
@@ -2489,11 +3384,12 @@ msgstr ""
 msgid "Go to view"
 msgstr ""
 
-#: libraries/messages.inc.php:373
+#: libraries/messages.inc.php:373 server_privileges.php:1502
+#: server_privileges.php:1684
 msgid "Grant"
 msgstr ""
 
-#: libraries/messages.inc.php:374
+#: libraries/messages.inc.php:374 libraries/mysql_charsets.lib.php:381
 msgid "Greek"
 msgstr " ग्रीक"
 
@@ -2505,7 +3401,7 @@ msgstr ""
 msgid "Handler"
 msgstr ""
 
-#: libraries/messages.inc.php:378
+#: libraries/messages.inc.php:378 server_synchronize.php:464
 msgid "Selected target tables have been synchronized with source tables."
 msgstr ""
 
@@ -2513,7 +3409,7 @@ msgstr ""
 msgid "You have to choose at least one column to display"
 msgstr ""
 
-#: libraries/messages.inc.php:380
+#: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:375
 msgid "Hebrew"
 msgstr ""
 
@@ -2551,7 +3447,8 @@ msgstr "phpMyAdmin का आधिकारिक होमपेज"
 msgid "The host name is empty!"
 msgstr "होस्ट का नाम (hostname) खाली है!"
 
-#: libraries/messages.inc.php:390
+#: libraries/messages.inc.php:390 libraries/replication_gui.lib.php:327
+#: server_privileges.php:753
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -2561,11 +3458,11 @@ msgstr ""
 msgid "Microsoft Word 2000"
 msgstr ""
 
-#: libraries/messages.inc.php:392
+#: libraries/messages.inc.php:392 libraries/mysql_charsets.lib.php:254
 msgid "Hungarian"
 msgstr ""
 
-#: libraries/messages.inc.php:394
+#: libraries/messages.inc.php:394 libraries/mysql_charsets.lib.php:257
 msgid "Icelandic"
 msgstr ""
 
@@ -2608,11 +3505,6 @@ msgstr ""
 msgid "Import files"
 msgstr ""
 
-#: libraries/messages.inc.php:405 libraries/server_links.inc.php:88
-#: libraries/tbl_links.inc.php:91 pmd_pdf.php:110
-msgid "Import"
-msgstr ""
-
 #: libraries/messages.inc.php:407
 msgid ""
 "The following structures have either been created or altered. Here you can:"
@@ -2643,11 +3535,6 @@ msgstr ""
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
 
-#: libraries/messages.inc.php:415
-#, php-format
-msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
-
 #: libraries/messages.inc.php:417
 msgid "Excel 97-2003 XLS Workbook"
 msgstr ""
@@ -2656,21 +3543,11 @@ msgstr ""
 msgid "Excel 2007 XLSX Workbook"
 msgstr ""
 
-#: libraries/messages.inc.php:419 server_databases.php:132
-#: tbl_tracking.php:316
-msgid "Indexes"
-msgstr ""
-
 #: libraries/messages.inc.php:420
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr ""
-
-#: libraries/messages.inc.php:421
-#, php-format
-msgid "Index %s has been dropped"
 msgstr ""
 
 #: libraries/messages.inc.php:422 libraries/mult_submits.inc.php:98
@@ -2691,46 +3568,6 @@ msgstr ""
 #: libraries/messages.inc.php:425
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr ""
-
-#: libraries/messages.inc.php:426
-msgid "Autoextend increment"
-msgstr ""
-
-#: libraries/messages.inc.php:427
-msgid ""
-" The increment size for extending the size of an autoextending tablespace "
-"when it becomes full."
-msgstr ""
-
-#: libraries/messages.inc.php:428
-msgid "Buffer pool size"
-msgstr ""
-
-#: libraries/messages.inc.php:429
-msgid ""
-"The size of the memory buffer InnoDB uses to cache data and indexes of its "
-"tables."
-msgstr ""
-
-#: libraries/messages.inc.php:430
-msgid "Data files"
-msgstr ""
-
-#: libraries/messages.inc.php:431
-msgid "Data home directory"
-msgstr ""
-
-#: libraries/messages.inc.php:432
-msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
-
-#: libraries/messages.inc.php:433
-msgid "pages"
-msgstr ""
-
-#: libraries/messages.inc.php:434 server_status.php:306
-msgid "InnoDB Status"
 msgstr ""
 
 #: libraries/messages.inc.php:435 main.php:266
@@ -2772,7 +3609,8 @@ msgstr ""
 msgid "Internal relations"
 msgstr ""
 
-#: libraries/messages.inc.php:446
+#: libraries/messages.inc.php:446 tbl_indexes.php:254 tbl_structure.php:590
+#: tbl_structure.php:601
 msgid "Column count has to be larger than zero."
 msgstr ""
 
@@ -2796,25 +3634,17 @@ msgstr ""
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
-#: libraries/messages.inc.php:451
+#: libraries/messages.inc.php:451 libraries/Table.class.php:1019
 msgid "Invalid database"
 msgstr ""
 
-#: libraries/messages.inc.php:452
+#: libraries/messages.inc.php:452 libraries/tbl_properties.inc.php:784
+#: tbl_structure.php:537
 msgid "You have to add at least one field."
-msgstr ""
-
-#: libraries/messages.inc.php:453
-msgid "Table must have at least one field."
 msgstr ""
 
 #: libraries/messages.inc.php:454
 msgid "This plugin does not support compressed imports!"
-msgstr ""
-
-#: libraries/messages.inc.php:455
-#, php-format
-msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/messages.inc.php:456
@@ -2827,11 +3657,13 @@ msgstr ""
 msgid "Invalid server index: \"%s\""
 msgstr ""
 
-#: libraries/messages.inc.php:458 tbl_get_field.php:26
+#: libraries/messages.inc.php:458 libraries/Table.class.php:1033
+#: tbl_get_field.php:26
 msgid "Invalid table name"
 msgstr ""
 
-#: libraries/messages.inc.php:460
+#: libraries/messages.inc.php:460 libraries/mysql_charsets.lib.php:260
+#: libraries/mysql_charsets.lib.php:350
 msgid "Japanese"
 msgstr "जापानी"
 
@@ -2851,7 +3683,7 @@ msgstr ""
 msgid "Jump to database &quot;%s&quot;."
 msgstr ""
 
-#: libraries/messages.inc.php:465
+#: libraries/messages.inc.php:465 server_privileges.php:763
 msgid "Do not change the password"
 msgstr "पासवर्ड मत बदलिये"
 
@@ -2859,30 +3691,14 @@ msgstr "पासवर्ड मत बदलिये"
 msgid "Key cache"
 msgstr ""
 
-#: libraries/messages.inc.php:468 server_processlist.php:71
-msgid "Kill"
-msgstr ""
-
-#: libraries/messages.inc.php:469
-#, php-format
-msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
-
-#: libraries/messages.inc.php:470
+#: libraries/messages.inc.php:470 libraries/mysql_charsets.lib.php:269
+#: libraries/mysql_charsets.lib.php:372
 msgid "Korean"
 msgstr "कोरियन"
-
-#: libraries/messages.inc.php:473
-msgid "Language"
-msgstr ""
 
 #: libraries/messages.inc.php:474
 #, php-format
 msgid "Unknown language: %1$s."
-msgstr ""
-
-#: libraries/messages.inc.php:475
-msgid "Latched pages"
 msgstr ""
 
 #: libraries/messages.inc.php:476
@@ -2917,7 +3733,7 @@ msgstr ""
 msgid "Structure of table __TABLE__"
 msgstr ""
 
-#: libraries/messages.inc.php:484
+#: libraries/messages.inc.php:484 libraries/mysql_charsets.lib.php:263
 msgid "Latvian"
 msgstr ""
 
@@ -2941,29 +3757,17 @@ msgstr "प्रति पृष्ट कितने रौ"
 msgid "Lines terminated by"
 msgstr "लाईन समाप्त होता है"
 
-#: libraries/messages.inc.php:490
-msgid "Link not found"
-msgstr ""
-
-#: libraries/messages.inc.php:492
+#: libraries/messages.inc.php:492 libraries/mysql_charsets.lib.php:266
 msgid "Lithuanian"
 msgstr ""
 
-#: libraries/messages.inc.php:493
+#: libraries/messages.inc.php:493 libraries/replication_gui.lib.php:302
+#: server_privileges.php:729
 msgid "Local"
 msgstr "Local"
 
-#: libraries/messages.inc.php:495
+#: libraries/messages.inc.php:495 server_privileges.php:669
 msgid "Login Information"
-msgstr ""
-
-#: libraries/messages.inc.php:496
-msgid "Log in"
-msgstr "लोगिन"
-
-#: libraries/messages.inc.php:497
-msgid ""
-"Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
 #: libraries/messages.inc.php:498 libraries/navigation_header.inc.php:67
@@ -2972,37 +3776,12 @@ msgstr ""
 msgid "Log out"
 msgstr "लोग औट"
 
-#: libraries/messages.inc.php:499
-msgid "Password:"
-msgstr "पासव्रड:"
-
-#: libraries/messages.inc.php:500
-msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
-
-#: libraries/messages.inc.php:501
-msgid "Server:"
-msgstr ""
-
-#: libraries/messages.inc.php:502
-msgid "Username:"
-msgstr "यूसरनेम:"
-
-#: libraries/messages.inc.php:503
-msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
-
 #: libraries/messages.inc.php:505 server_status.php:440
 msgid "max. concurrent connections"
 msgstr ""
 
 #: libraries/messages.inc.php:506
 msgid "Maximal length of created query"
-msgstr ""
-
-#: libraries/messages.inc.php:507
-#, php-format
-msgid "Max: %s%s"
 msgstr ""
 
 #: libraries/messages.inc.php:508 main.php:282
@@ -3036,21 +3815,12 @@ msgctxt "$strMIME_description"
 msgid "Description"
 msgstr ""
 
-#: libraries/messages.inc.php:514 libraries/tbl_properties.inc.php:143
-msgid "MIME type"
-msgstr ""
-
 #: libraries/messages.inc.php:515 libraries/tbl_properties.inc.php:580
 #: transformation_overview.php:60
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
-msgstr ""
-
-#: libraries/messages.inc.php:516 libraries/tbl_properties.inc.php:144
-#: transformation_overview.php:47
-msgid "Browser transformation"
 msgstr ""
 
 #: libraries/messages.inc.php:517 libraries/tbl_properties.inc.php:137
@@ -3060,7 +3830,7 @@ msgid ""
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
 
-#: libraries/messages.inc.php:518
+#: libraries/messages.inc.php:518 libraries/tbl_properties.inc.php:146
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -3069,12 +3839,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:519 libraries/tbl_properties.inc.php:145
-#: libraries/tbl_properties.inc.php:146
 msgid "Transformation options"
-msgstr ""
-
-#: libraries/messages.inc.php:520
-msgid "MIME TYPES FOR TABLE"
 msgstr ""
 
 #: libraries/messages.inc.php:521 transformation_overview.php:38
@@ -3107,70 +3872,11 @@ msgstr " %s टेबल को %s में मूव कर दिया."
 msgid "Can't move table to same one!"
 msgstr ""
 
-#: libraries/messages.inc.php:529
+#: libraries/messages.inc.php:529 libraries/mysql_charsets.lib.php:308
+#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
+#: libraries/mysql_charsets.lib.php:333 libraries/mysql_charsets.lib.php:355
+#: libraries/mysql_charsets.lib.php:366
 msgid "multilingual"
-msgstr ""
-
-#: libraries/messages.inc.php:530
-msgid "Data pointer size"
-msgstr ""
-
-#: libraries/messages.inc.php:531
-msgid ""
-"The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
-"tables when no MAX_ROWS option is specified."
-msgstr ""
-
-#: libraries/messages.inc.php:532
-msgid ""
-"If the temporary file used for fast MyISAM index creation would be larger "
-"than using the key cache by the amount specified here, prefer the key cache "
-"method."
-msgstr ""
-
-#: libraries/messages.inc.php:533
-msgid "Maximum size for temporary files on index creation"
-msgstr ""
-
-#: libraries/messages.inc.php:534
-msgid ""
-"The maximum size of the temporary file MySQL is allowed to use while re-"
-"creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
-"INFILE)."
-msgstr ""
-
-#: libraries/messages.inc.php:535
-msgid "Maximum size for temporary sort files"
-msgstr ""
-
-#: libraries/messages.inc.php:536
-msgid "Automatic recovery mode"
-msgstr ""
-
-#: libraries/messages.inc.php:537
-msgid ""
-"The mode for automatic recovery of crashed MyISAM tables, as set via the --"
-"myisam-recover server startup option."
-msgstr ""
-
-#: libraries/messages.inc.php:538
-msgid ""
-"If this value is greater than 1, MyISAM table indexes are created in "
-"parallel (each index in its own thread) during the repair by sorting process."
-msgstr ""
-
-#: libraries/messages.inc.php:539
-msgid "Repair threads"
-msgstr ""
-
-#: libraries/messages.inc.php:540
-msgid ""
-"The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
-"TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
-msgstr ""
-
-#: libraries/messages.inc.php:541
-msgid "Sort buffer size"
 msgstr ""
 
 #: libraries/messages.inc.php:542 main.php:193
@@ -3192,20 +3898,12 @@ msgid ""
 "This may cause unpredictable behavior."
 msgstr ""
 
-#: libraries/messages.inc.php:546
-msgid "MySQL said: "
-msgstr ""
-
 #: libraries/messages.inc.php:547 server_status.php:294
 msgid "Show processes"
 msgstr "प्रोसेस दिखाओ"
 
-#: libraries/messages.inc.php:552
-#, php-format
-msgid "No activity within %s seconds; please log in again"
-msgstr ""
-
-#: libraries/messages.inc.php:553 server_databases.php:371
+#: libraries/messages.inc.php:553 navigation.php:210 server_databases.php:371
+#: server_synchronize.php:1186
 msgid "No databases"
 msgstr "कोइ डाटाबेस नहिं"
 
@@ -3220,11 +3918,11 @@ msgid ""
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
 
-#: libraries/messages.inc.php:556
+#: libraries/messages.inc.php:556 libraries/relation.lib.php:1173
 msgid "no description"
 msgstr ""
 
-#: libraries/messages.inc.php:557
+#: libraries/messages.inc.php:557 libraries/StorageEngine.class.php:198
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
@@ -3233,16 +3931,8 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""
 
-#: libraries/messages.inc.php:559
-msgid "Skip Explain SQL"
-msgstr ""
-
-#: libraries/messages.inc.php:560
+#: libraries/messages.inc.php:560 libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
-msgstr ""
-
-#: libraries/messages.inc.php:561
-msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 
 #: libraries/messages.inc.php:562 tbl_relation.php:529
@@ -3262,21 +3952,13 @@ msgctxt "$strNoneDefault"
 msgid "None"
 msgstr ""
 
-#: libraries/messages.inc.php:568
+#: libraries/messages.inc.php:568 libraries/plugin_interface.lib.php:312
 msgid "This format has no options"
 msgstr ""
-
-#: libraries/messages.inc.php:569
-msgid "No Password"
-msgstr "पासवर्ड नहीं है"
 
 #: libraries/messages.inc.php:570
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
-
-#: libraries/messages.inc.php:571
-msgid "Without PHP Code"
 msgstr ""
 
 #: libraries/messages.inc.php:573
@@ -3303,11 +3985,12 @@ msgstr ""
 msgid "This is not a number!"
 msgstr "यह नंबर नहीं है!"
 
-#: libraries/messages.inc.php:579
+#: libraries/messages.inc.php:579 libraries/relation.lib.php:95
 msgid "not OK"
 msgstr ""
 
-#: libraries/messages.inc.php:580
+#: libraries/messages.inc.php:580 server_synchronize.php:400
+#: server_synchronize.php:839
 msgid "not present"
 msgstr ""
 
@@ -3317,13 +4000,9 @@ msgstr ""
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr ""
 
-#: libraries/messages.inc.php:582
+#: libraries/messages.inc.php:582 server_privileges.php:2166
 msgid "No user(s) found."
 msgstr "कोई यूसर नहीं।"
-
-#: libraries/messages.inc.php:583
-msgid "Skip Validate SQL"
-msgstr ""
 
 #: libraries/messages.inc.php:586 pmd_general.php:164
 msgid "Number of tables"
@@ -3344,7 +4023,8 @@ msgstr ""
 msgid "Tables"
 msgstr ""
 
-#: libraries/messages.inc.php:591 pmd_general.php:340
+#: libraries/messages.inc.php:591 libraries/relation.lib.php:99
+#: pmd_general.php:340
 msgid "OK"
 msgstr ""
 
@@ -3352,42 +4032,12 @@ msgstr ""
 msgid "Open Document Text"
 msgstr ""
 
-#: libraries/messages.inc.php:594
-msgid "Open new phpMyAdmin window"
-msgstr ""
-
-#: libraries/messages.inc.php:595 libraries/tbl_links.inc.php:95
-#: libraries/tbl_links.inc.php:117 view_operations.php:89
-msgid "Operations"
-msgstr "कार्रवाई"
-
 #: libraries/messages.inc.php:596
 msgid "Operator"
 msgstr ""
 
 #: libraries/messages.inc.php:597 tbl_operations.php:662
 msgid "Optimize"
-msgstr ""
-
-#: libraries/messages.inc.php:599 tbl_structure.php:754
-msgid "Options"
-msgstr ""
-
-#: libraries/messages.inc.php:601 server_databases.php:142
-#: tbl_printview.php:336 tbl_structure.php:683
-msgid "Overhead"
-msgstr ""
-
-#: libraries/messages.inc.php:604 tbl_tracking.php:323
-msgid "Packed"
-msgstr ""
-
-#: libraries/messages.inc.php:606
-msgid "Pages to be flushed"
-msgstr ""
-
-#: libraries/messages.inc.php:609
-msgid "Partial Texts"
 msgstr ""
 
 #: libraries/messages.inc.php:610 libraries/tbl_properties.inc.php:755
@@ -3402,7 +4052,7 @@ msgstr ""
 msgid "Partition maintenance"
 msgstr ""
 
-#: libraries/messages.inc.php:613
+#: libraries/messages.inc.php:613 tbl_operations.php:657
 #, php-format
 msgid "Partition %s"
 msgstr ""
@@ -3420,132 +4070,6 @@ msgstr ""
 msgid "The passwords aren't the same!"
 msgstr ""
 
-#: libraries/messages.inc.php:618
-msgid "Password"
-msgstr ""
-
-#: libraries/messages.inc.php:619
-msgid "Checkpoint frequency"
-msgstr ""
-
-#: libraries/messages.inc.php:620
-msgid ""
-"The amount of data written to the transaction log before a checkpoint is "
-"performed. The default value is 24MB."
-msgstr ""
-
-#: libraries/messages.inc.php:621
-msgid "Data file grow size"
-msgstr ""
-
-#: libraries/messages.inc.php:622
-msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
-
-#: libraries/messages.inc.php:623
-msgid "Data log threshold"
-msgstr ""
-
-#: libraries/messages.inc.php:624
-msgid ""
-"The maximum size of a data log file. The default value is 64MB. PBXT can "
-"create a maximum of 32000 data logs, which are used by all tables. So the "
-"value of this variable can be increased to increase the total amount of data "
-"that can be stored in the database."
-msgstr ""
-
-#: libraries/messages.inc.php:625
-msgid ""
-"The percentage of garbage in a data log file before it is compacted. This is "
-"a value between 1 and 99. The default is 50."
-msgstr ""
-
-#: libraries/messages.inc.php:626
-msgid "Garbage threshold"
-msgstr ""
-
-#: libraries/messages.inc.php:627
-msgid ""
-"This is the amount of memory allocated to the index cache. Default value is "
-"32MB. The memory allocated here is used only for caching index pages."
-msgstr ""
-
-#: libraries/messages.inc.php:628
-msgid "Index cache size"
-msgstr ""
-
-#: libraries/messages.inc.php:629
-msgid ""
-"The size of the buffer used when writing a data log. The default is 256MB. "
-"The engine allocates one buffer per thread, but only if the thread is "
-"required to write a data log."
-msgstr ""
-
-#: libraries/messages.inc.php:630
-msgid "Log buffer size"
-msgstr ""
-
-#: libraries/messages.inc.php:631
-msgid ""
-"The amount of memory allocated to the transaction log cache used to cache on "
-"transaction log data. The default is 16MB."
-msgstr ""
-
-#: libraries/messages.inc.php:632
-msgid "Log cache size"
-msgstr ""
-
-#: libraries/messages.inc.php:633
-msgid ""
-"This is the number of transaction log files (pbxt/system/xlog*.xt) the "
-"system will maintain. If the number of logs exceeds this value then old logs "
-"will be deleted, otherwise they are renamed and given the next highest "
-"number."
-msgstr ""
-
-#: libraries/messages.inc.php:634
-msgid "Log file count"
-msgstr ""
-
-#: libraries/messages.inc.php:635
-msgid ""
-"The size of a transaction log before rollover, and a new log is created. The "
-"default value is 16MB."
-msgstr ""
-
-#: libraries/messages.inc.php:636
-msgid "Log file threshold"
-msgstr ""
-
-#: libraries/messages.inc.php:637
-msgid ""
-"This is the amount of memory allocated to the record cache used to cache "
-"table data. The default value is 32MB. This memory is used to cache changes "
-"to the handle data (.xtd) and row pointer (.xtr) files."
-msgstr ""
-
-#: libraries/messages.inc.php:638
-msgid "Record cache size"
-msgstr ""
-
-#: libraries/messages.inc.php:639
-msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
-
-#: libraries/messages.inc.php:640
-msgid "Row file grow size"
-msgstr ""
-
-#: libraries/messages.inc.php:641
-msgid ""
-"The size of the global transaction log buffer (the engine allocates 2 "
-"buffers of this size). The default is 1MB."
-msgstr ""
-
-#: libraries/messages.inc.php:642
-msgid "Transaction buffer size"
-msgstr ""
-
 #: libraries/messages.inc.php:643
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
@@ -3556,7 +4080,7 @@ msgstr ""
 msgid "The \"%s\" table doesn't exist!"
 msgstr ""
 
-#: libraries/messages.inc.php:645
+#: libraries/messages.inc.php:645 pdf_schema.php:1014
 msgid "No tables"
 msgstr " कोई टेबल नहीं"
 
@@ -3593,11 +4117,11 @@ msgstr ""
 msgid "per second"
 msgstr ""
 
-#: libraries/messages.inc.php:654
+#: libraries/messages.inc.php:654 libraries/mysql_charsets.lib.php:272
 msgid "Persian"
 msgstr ""
 
-#: libraries/messages.inc.php:655
+#: libraries/messages.inc.php:655 libraries/mysql_charsets.lib.php:251
 msgid "phone book"
 msgstr ""
 
@@ -3605,72 +4129,44 @@ msgstr ""
 msgid "PHP array"
 msgstr ""
 
-#: libraries/messages.inc.php:657 setup/lib/messages.inc.php:355
-msgid "Create PHP Code"
-msgstr "PHP Code बनाओ"
-
 #: libraries/messages.inc.php:658 main.php:213
 msgid "PHP extension"
-msgstr ""
-
-#: libraries/messages.inc.php:659
-msgid "PHP Version"
-msgstr ""
-
-#: libraries/messages.inc.php:660
-msgid "Play audio"
 msgstr ""
 
 #: libraries/messages.inc.php:661
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: libraries/messages.inc.php:662
+#: libraries/messages.inc.php:662 libraries/relation.lib.php:163
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 
-#: libraries/messages.inc.php:663
+#: libraries/messages.inc.php:663 libraries/relation.lib.php:159
 msgid "Quick steps to setup advanced features:"
 msgstr ""
 
-#: libraries/messages.inc.php:664
+#: libraries/messages.inc.php:664 libraries/relation.lib.php:161
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgstr ""
 
-#: libraries/messages.inc.php:665
+#: libraries/messages.inc.php:665 libraries/relation.lib.php:162
 msgid "Create a pma user and give access to these tables."
 msgstr ""
 
-#: libraries/messages.inc.php:666
+#: libraries/messages.inc.php:666 libraries/relation.lib.php:164
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/messages.inc.php:667 libraries/navigation_header.inc.php:93
-#: libraries/navigation_header.inc.php:95
-msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin डोक्युमेंटेशन"
-
-#: libraries/messages.inc.php:669
+#: libraries/messages.inc.php:669 libraries/mysql_charsets.lib.php:275
 msgid "Polish"
 msgstr ""
 
-#: libraries/messages.inc.php:670
+#: libraries/messages.inc.php:670 libraries/replication_gui.lib.php:67
+#: server_synchronize.php:1158
 msgid "Port"
-msgstr ""
-
-#: libraries/messages.inc.php:672 server_status.php:608
-msgid "Begin"
-msgstr ""
-
-#: libraries/messages.inc.php:673
-msgid "Previous"
-msgstr ""
-
-#: libraries/messages.inc.php:674
-msgid "The primary key has been dropped"
 msgstr ""
 
 #: libraries/messages.inc.php:675
@@ -3688,96 +4184,111 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: libraries/messages.inc.php:679
-msgid "Print view (with full texts)"
-msgstr ""
-
-#: libraries/messages.inc.php:681
+#: libraries/messages.inc.php:681 server_privileges.php:227
 msgid "Includes all privileges except GRANT."
 msgstr ""
 
-#: libraries/messages.inc.php:682
+#: libraries/messages.inc.php:682 server_privileges.php:153
+#: server_privileges.php:476
 msgid "Allows altering the structure of existing tables."
 msgstr ""
 
-#: libraries/messages.inc.php:683
+#: libraries/messages.inc.php:683 server_privileges.php:169
+#: server_privileges.php:482
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 
-#: libraries/messages.inc.php:684
+#: libraries/messages.inc.php:684 server_privileges.php:145
+#: server_privileges.php:475
 msgid "Allows creating new databases and tables."
 msgstr ""
 
-#: libraries/messages.inc.php:685
+#: libraries/messages.inc.php:685 server_privileges.php:168
+#: server_privileges.php:481
 msgid "Allows creating stored routines."
 msgstr ""
 
-#: libraries/messages.inc.php:686
+#: libraries/messages.inc.php:686 server_privileges.php:475
 msgid "Allows creating new tables."
 msgstr ""
 
-#: libraries/messages.inc.php:687
+#: libraries/messages.inc.php:687 server_privileges.php:156
+#: server_privileges.php:479
 msgid "Allows creating temporary tables."
 msgstr ""
 
-#: libraries/messages.inc.php:688
+#: libraries/messages.inc.php:688 server_privileges.php:170
+#: server_privileges.php:515
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
-#: libraries/messages.inc.php:689
+#: libraries/messages.inc.php:689 server_privileges.php:160
+#: server_privileges.php:164 server_privileges.php:487
+#: server_privileges.php:491
 msgid "Allows creating new views."
 msgstr ""
 
-#: libraries/messages.inc.php:690
+#: libraries/messages.inc.php:690 server_privileges.php:144
+#: server_privileges.php:467
 msgid "Allows deleting data."
 msgstr ""
 
-#: libraries/messages.inc.php:691
+#: libraries/messages.inc.php:691 server_privileges.php:146
+#: server_privileges.php:478
 msgid "Allows dropping databases and tables."
 msgstr ""
 
-#: libraries/messages.inc.php:692
+#: libraries/messages.inc.php:692 server_privileges.php:478
 msgid "Allows dropping tables."
 msgstr ""
 
-#: libraries/messages.inc.php:693
+#: libraries/messages.inc.php:693 server_privileges.php:161
+#: server_privileges.php:495
 msgid "Allows to set up events for the event scheduler"
 msgstr ""
 
-#: libraries/messages.inc.php:694
+#: libraries/messages.inc.php:694 server_privileges.php:171
+#: server_privileges.php:483
 msgid "Allows executing stored routines."
 msgstr ""
 
-#: libraries/messages.inc.php:695
+#: libraries/messages.inc.php:695 server_privileges.php:150
+#: server_privileges.php:470
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 
-#: libraries/messages.inc.php:696
+#: libraries/messages.inc.php:696 server_privileges.php:501
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 
-#: libraries/messages.inc.php:697
+#: libraries/messages.inc.php:697 server_privileges.php:152
+#: server_privileges.php:477
 msgid "Allows creating and dropping indexes."
 msgstr ""
 
-#: libraries/messages.inc.php:698
+#: libraries/messages.inc.php:698 server_privileges.php:142
+#: server_privileges.php:403 server_privileges.php:465
 msgid "Allows inserting and replacing data."
 msgstr ""
 
-#: libraries/messages.inc.php:699
+#: libraries/messages.inc.php:699 server_privileges.php:157
+#: server_privileges.php:510
 msgid "Allows locking tables for the current thread."
 msgstr ""
 
-#: libraries/messages.inc.php:700
+#: libraries/messages.inc.php:700 server_privileges.php:607
+#: server_privileges.php:609
 msgid "Limits the number of new connections the user may open per hour."
 msgstr "Limits the number of new connections the user may open per hour."
 
-#: libraries/messages.inc.php:701
+#: libraries/messages.inc.php:701 server_privileges.php:595
+#: server_privileges.php:597
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr "Limits the number of queries the user may send to the server per hour."
 
-#: libraries/messages.inc.php:702
+#: libraries/messages.inc.php:702 server_privileges.php:601
+#: server_privileges.php:603
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -3785,84 +4296,84 @@ msgstr ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 
-#: libraries/messages.inc.php:703
+#: libraries/messages.inc.php:703 server_privileges.php:613
+#: server_privileges.php:615
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 
-#: libraries/messages.inc.php:704
+#: libraries/messages.inc.php:704 server_privileges.php:149
+#: server_privileges.php:505
 msgid "Allows viewing processes of all users"
 msgstr ""
 
-#: libraries/messages.inc.php:705
+#: libraries/messages.inc.php:705 server_privileges.php:151
+#: server_privileges.php:409 server_privileges.php:511
 msgid "Has no effect in this MySQL version."
 msgstr ""
 
-#: libraries/messages.inc.php:706
+#: libraries/messages.inc.php:706 server_privileges.php:147
+#: server_privileges.php:506
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
-#: libraries/messages.inc.php:707
+#: libraries/messages.inc.php:707 server_privileges.php:159
+#: server_privileges.php:513
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 
-#: libraries/messages.inc.php:708
+#: libraries/messages.inc.php:708 server_privileges.php:158
+#: server_privileges.php:514
 msgid "Needed for the replication slaves."
 msgstr ""
 
-#: libraries/messages.inc.php:709
+#: libraries/messages.inc.php:709 server_privileges.php:141
+#: server_privileges.php:400 server_privileges.php:464
 msgid "Allows reading data."
 msgstr ""
 
-#: libraries/messages.inc.php:710
+#: libraries/messages.inc.php:710 server_privileges.php:154
+#: server_privileges.php:508
 msgid "Gives access to the complete list of databases."
 msgstr ""
 
-#: libraries/messages.inc.php:711
+#: libraries/messages.inc.php:711 server_privileges.php:165
+#: server_privileges.php:167 server_privileges.php:480
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
-#: libraries/messages.inc.php:712
+#: libraries/messages.inc.php:712 server_privileges.php:148
+#: server_privileges.php:507
 msgid "Allows shutting down the server."
 msgstr ""
 
-#: libraries/messages.inc.php:713
+#: libraries/messages.inc.php:713 server_privileges.php:155
+#: server_privileges.php:504
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
 
-#: libraries/messages.inc.php:714
+#: libraries/messages.inc.php:714 server_privileges.php:162
+#: server_privileges.php:496
 msgid "Allows creating and dropping triggers"
 msgstr ""
 
-#: libraries/messages.inc.php:715
+#: libraries/messages.inc.php:715 server_privileges.php:143
+#: server_privileges.php:406 server_privileges.php:466
 msgid "Allows changing data."
 msgstr ""
 
-#: libraries/messages.inc.php:716
+#: libraries/messages.inc.php:716 server_privileges.php:221
 msgid "No privileges."
 msgstr ""
-
-#: libraries/messages.inc.php:717 libraries/server_links.inc.php:66
-#: test/theme.php:117
-msgid "Privileges"
-msgstr " प्रिविलेज"
 
 #: libraries/messages.inc.php:718
 msgid "The privileges were reloaded successfully."
 msgstr ""
 
-#: libraries/messages.inc.php:719
-msgid "Procedures"
-msgstr ""
-
 #: libraries/messages.inc.php:720 libraries/server_links.inc.php:80
 msgid "Processes"
-msgstr ""
-
-#: libraries/messages.inc.php:721
-msgid "Profiling"
 msgstr ""
 
 #: libraries/messages.inc.php:722 main.php:187
@@ -3873,11 +4384,7 @@ msgstr ""
 msgid "Put fields names in the first row"
 msgstr ""
 
-#: libraries/messages.inc.php:727
-msgid "Query"
-msgstr "क्वरी"
-
-#: libraries/messages.inc.php:728
+#: libraries/messages.inc.php:728 server_synchronize.php:1003
 msgid "The following queries have been executed:"
 msgstr ""
 
@@ -3890,10 +4397,6 @@ msgstr ""
 #: libraries/navigation_header.inc.php:86 setup/lib/messages.inc.php:122
 msgid "Query window"
 msgstr "क्वरी पेज"
-
-#: libraries/messages.inc.php:732
-msgid "Query results operations"
-msgstr ""
 
 #: libraries/messages.inc.php:733
 msgid "SQL history"
@@ -3917,12 +4420,8 @@ msgstr "क्वरी को %01.4f सेकेंड का समय लग
 msgid "Query type"
 msgstr ""
 
-#: libraries/messages.inc.php:737
+#: libraries/messages.inc.php:737 libraries/sql_query_form.lib.php:381
 msgid "Do not overwrite this query from outside the window"
-msgstr ""
-
-#: libraries/messages.inc.php:739
-msgid "Read requests"
 msgstr ""
 
 #: libraries/messages.inc.php:740 tbl_operations.php:663
@@ -3941,20 +4440,7 @@ msgstr ""
 msgid "Check referential integrity:"
 msgstr ""
 
-#: libraries/messages.inc.php:745 server_status.php:341
-#: setup/lib/messages.inc.php:354
-msgid "Refresh"
-msgstr ""
-
-#: libraries/messages.inc.php:746
-msgid "Relational display field"
-msgstr ""
-
-#: libraries/messages.inc.php:747
-msgid "Relational key"
-msgstr ""
-
-#: libraries/messages.inc.php:748
+#: libraries/messages.inc.php:748 pdf_schema.php:1033 pdf_schema.php:1142
 msgid "Relational schema"
 msgstr ""
 
@@ -3969,10 +4455,6 @@ msgid ""
 "deactivated. To find out why click %shere%s."
 msgstr ""
 
-#: libraries/messages.inc.php:751
-msgid "RELATIONS FOR TABLE"
-msgstr ""
-
 #: libraries/messages.inc.php:752 tbl_relation.php:399
 msgid "Relations"
 msgstr ""
@@ -3981,11 +4463,12 @@ msgstr ""
 msgid "Relation view"
 msgstr ""
 
-#: libraries/messages.inc.php:754
+#: libraries/messages.inc.php:754 server_privileges.php:1246
 msgid "Reloading the privileges"
 msgstr ""
 
-#: libraries/messages.inc.php:755
+#: libraries/messages.inc.php:755 navigation.php:66 navigation.php:67
+#: navigation.php:70
 msgid "Reload navigation frame"
 msgstr ""
 
@@ -3993,7 +4476,8 @@ msgstr ""
 msgid "Reload"
 msgstr ""
 
-#: libraries/messages.inc.php:757
+#: libraries/messages.inc.php:757 libraries/server_synchronize.lib.php:1345
+#: libraries/server_synchronize.lib.php:1371
 msgid "Remote server"
 msgstr ""
 
@@ -4005,7 +4489,7 @@ msgstr ""
 msgid "Remove partitioning"
 msgstr ""
 
-#: libraries/messages.inc.php:760
+#: libraries/messages.inc.php:760 server_privileges.php:1575
 msgid "Remove selected users"
 msgstr ""
 
@@ -4014,7 +4498,7 @@ msgstr ""
 msgid "Database %s has been renamed to %s"
 msgstr ""
 
-#: libraries/messages.inc.php:762
+#: libraries/messages.inc.php:762 libraries/Table.class.php:1132
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr ""
@@ -4039,48 +4523,49 @@ msgstr ""
 msgid "Replace table data with file"
 msgstr ""
 
-#: libraries/messages.inc.php:769
+#: libraries/messages.inc.php:769 server_replication.php:228
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
 
-#: libraries/messages.inc.php:770
+#: libraries/messages.inc.php:770 libraries/replication_gui.lib.php:236
+#: server_replication.php:194
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/messages.inc.php:771
+#: libraries/messages.inc.php:771 server_replication.php:74
 #, php-format
 msgid "Master server changed succesfully to %s"
 msgstr ""
 
-#: libraries/messages.inc.php:772
+#: libraries/messages.inc.php:772 server_replication.php:182
 msgid "This server is configured as master in a replication process."
 msgstr ""
 
-#: libraries/messages.inc.php:773
+#: libraries/messages.inc.php:773 server_replication.php:322
 msgid "Control slave:"
 msgstr ""
 
-#: libraries/messages.inc.php:774
+#: libraries/messages.inc.php:774 server_replication.php:65
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 
-#: libraries/messages.inc.php:775
+#: libraries/messages.inc.php:775 server_replication.php:58
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr ""
 
-#: libraries/messages.inc.php:776
+#: libraries/messages.inc.php:776 server_replication.php:221
 msgid "Replicate all databases; Ignore:"
 msgstr ""
 
-#: libraries/messages.inc.php:777
+#: libraries/messages.inc.php:777 server_replication.php:222
 msgid "Ignore all databases; Replicate:"
 msgstr ""
 
-#: libraries/messages.inc.php:778
+#: libraries/messages.inc.php:778 server_replication.php:218
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -4089,27 +4574,23 @@ msgid ""
 "replicated. Please select the mode:"
 msgstr ""
 
-#: libraries/messages.inc.php:779
+#: libraries/messages.inc.php:779 server_replication.php:217
 msgid "Master configuration"
 msgstr ""
 
-#: libraries/messages.inc.php:780
+#: libraries/messages.inc.php:780 server_replication.php:181
+#: server_replication.php:209
 msgid "Master replication"
 msgstr ""
 
-#: libraries/messages.inc.php:781 libraries/server_links.inc.php:70
-#: server_status.php:258
-msgid "Replication"
-msgstr ""
-
-#: libraries/messages.inc.php:782
+#: libraries/messages.inc.php:782 server_replication.php:230
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
 
-#: libraries/messages.inc.php:783
+#: libraries/messages.inc.php:783 server_replication.php:225
 msgid "Please select databases:"
 msgstr ""
 
@@ -4126,37 +4607,38 @@ msgid ""
 "this list."
 msgstr ""
 
-#: libraries/messages.inc.php:786
+#: libraries/messages.inc.php:786 server_replication.php:187
 msgid "Show connected slaves"
 msgstr ""
 
 #: libraries/messages.inc.php:787 libraries/messages.inc.php:893
-#: server_status.php:281
+#: server_replication.php:184 server_status.php:281
 msgid "Show master status"
 msgstr ""
 
-#: libraries/messages.inc.php:788
+#: libraries/messages.inc.php:788 server_replication.php:334
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgstr ""
 
-#: libraries/messages.inc.php:789
+#: libraries/messages.inc.php:789 libraries/replication_gui.lib.php:51
+#: server_replication.php:347
 msgid "Change or reconfigure master server"
 msgstr ""
 
-#: libraries/messages.inc.php:790
+#: libraries/messages.inc.php:790 libraries/replication_gui.lib.php:51
 msgid "Slave configuration"
 msgstr ""
 
-#: libraries/messages.inc.php:791
+#: libraries/messages.inc.php:791 server_replication.php:305
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
 
-#: libraries/messages.inc.php:792
+#: libraries/messages.inc.php:792 server_replication.php:332
 msgid "Error management:"
 msgstr ""
 
-#: libraries/messages.inc.php:793
+#: libraries/messages.inc.php:793 server_replication.php:328
 #, php-format
 msgid "IO Thread %s only"
 msgstr ""
@@ -4172,27 +4654,27 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
-#: libraries/messages.inc.php:796
+#: libraries/messages.inc.php:796 server_replication.php:326
 msgid "Reset slave"
 msgstr ""
 
-#: libraries/messages.inc.php:797
+#: libraries/messages.inc.php:797 server_replication.php:308
 msgid "See slave status table"
 msgstr ""
 
-#: libraries/messages.inc.php:798
+#: libraries/messages.inc.php:798 server_replication.php:336
 msgid "Skip current error"
 msgstr ""
 
-#: libraries/messages.inc.php:799
+#: libraries/messages.inc.php:799 server_replication.php:340
 msgid "errors."
 msgstr ""
 
-#: libraries/messages.inc.php:800
+#: libraries/messages.inc.php:800 server_replication.php:337
 msgid "Skip next"
 msgstr ""
 
-#: libraries/messages.inc.php:801
+#: libraries/messages.inc.php:801 server_replication.php:248
 msgid "Slave replication"
 msgstr ""
 
@@ -4200,7 +4682,7 @@ msgstr ""
 msgid "Slave SQL Thread not running!"
 msgstr ""
 
-#: libraries/messages.inc.php:803
+#: libraries/messages.inc.php:803 server_replication.php:327
 #, php-format
 msgid "SQL Thread %s only"
 msgstr ""
@@ -4225,11 +4707,11 @@ msgstr ""
 msgid "Slave status"
 msgstr ""
 
-#: libraries/messages.inc.php:808
+#: libraries/messages.inc.php:808 server_replication.php:311
 msgid "Synchronize databases with master"
 msgstr ""
 
-#: libraries/messages.inc.php:809
+#: libraries/messages.inc.php:809 server_replication.php:71
 msgid "Unable to change master"
 msgstr ""
 
@@ -4238,11 +4720,11 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:811 main.php:163 pdf_pages.php:344
-#: tbl_change.php:1175
+#: setup/lib/FormDisplay.tpl.php:216 tbl_change.php:1175
 msgid "Reset"
 msgstr ""
 
-#: libraries/messages.inc.php:812
+#: libraries/messages.inc.php:812 server_privileges.php:591
 msgid "Resource limits"
 msgstr ""
 
@@ -4251,11 +4733,7 @@ msgstr ""
 msgid "Restart insertion with %s rows"
 msgstr ""
 
-#: libraries/messages.inc.php:814
-msgid "Re-type"
-msgstr ""
-
-#: libraries/messages.inc.php:815
+#: libraries/messages.inc.php:815 server_privileges.php:1578
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 
@@ -4264,11 +4742,11 @@ msgstr ""
 msgid "You have revoked the privileges for %s"
 msgstr "आपने %s के privileges वापस ले लिया "
 
-#: libraries/messages.inc.php:817
+#: libraries/messages.inc.php:817 server_privileges.php:1333
 msgid "Revoke"
 msgstr "वापस लो"
 
-#: libraries/messages.inc.php:818
+#: libraries/messages.inc.php:818 libraries/mysql_charsets.lib.php:281
 msgid "Romanian"
 msgstr ""
 
@@ -4276,30 +4754,9 @@ msgstr ""
 msgid "Row length"
 msgstr " रौ की लंबाई"
 
-#: libraries/messages.inc.php:822
-msgid "row(s) starting from record #"
-msgstr "रौ,  इस  record  से #"
-
 #: libraries/messages.inc.php:823 tbl_printview.php:414 tbl_structure.php:794
 msgid " Row size "
 msgstr ""
-
-#: libraries/messages.inc.php:824
-msgid "horizontal (rotated headers)"
-msgstr ""
-
-#: libraries/messages.inc.php:825
-msgid "horizontal"
-msgstr "समतल"
-
-#: libraries/messages.inc.php:826
-#, php-format
-msgid "in %s mode and repeat headers after %s cells"
-msgstr " %s रूप में और %s सेल के बाद शीर्षक को दोहराईये"
-
-#: libraries/messages.inc.php:827
-msgid "vertical"
-msgstr "खडा"
 
 #: libraries/messages.inc.php:829 tbl_printview.php:366 tbl_structure.php:726
 msgid "Row Statistics"
@@ -4310,17 +4767,18 @@ msgstr ""
 msgid "running on %s"
 msgstr " %s पर चल रहा है"
 
-#: libraries/messages.inc.php:832
+#: libraries/messages.inc.php:832 libraries/sql_query_form.lib.php:223
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr ""
 
-#: libraries/messages.inc.php:833
+#: libraries/messages.inc.php:833 libraries/sql_query_form.lib.php:240
+#: libraries/sql_query_form.lib.php:265
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "डाटाबेस %s में SQL query/queries चलाइये "
 
-#: libraries/messages.inc.php:834
+#: libraries/messages.inc.php:834 libraries/mysql_charsets.lib.php:338
 msgid "Russian"
 msgstr "रशियन"
 
@@ -4329,8 +4787,9 @@ msgid "Save position"
 msgstr ""
 
 #: libraries/messages.inc.php:838 libraries/tbl_properties.inc.php:776
-#: pdf_pages.php:484 tbl_change.php:1126 tbl_indexes.php:246
-#: tbl_relation.php:566
+#: pdf_pages.php:484 setup/frames/config.inc.php:39
+#: setup/frames/index.inc.php:214 setup/lib/FormDisplay.tpl.php:215
+#: tbl_change.php:1126 tbl_indexes.php:246 tbl_relation.php:566
 msgid "Save"
 msgstr ""
 
@@ -4383,11 +4842,11 @@ msgstr "खोजो:"
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 
-#: libraries/messages.inc.php:852
+#: libraries/messages.inc.php:852 navigation.php:353 navigation.php:516
 msgid "Please select a database"
 msgstr "कृपया एक डाटाबेस चुनिये "
 
-#: libraries/messages.inc.php:854
+#: libraries/messages.inc.php:854 server_binlog.php:120
 msgid "Select binary log to view"
 msgstr ""
 
@@ -4397,10 +4856,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:856
 msgid "Select Foreign Key"
-msgstr ""
-
-#: libraries/messages.inc.php:857
-msgid "in query"
 msgstr ""
 
 #: libraries/messages.inc.php:858
@@ -4415,19 +4870,8 @@ msgstr " टेबल चुनिये"
 msgid "Sent"
 msgstr ""
 
-#: libraries/messages.inc.php:862
-msgid "Server Choice"
-msgstr "Server चुनिये"
-
-#: libraries/messages.inc.php:863
-msgid "The server is not responding"
-msgstr ""
-
-#: libraries/messages.inc.php:864 main.php:185
-msgid "Server"
-msgstr ""
-
-#: libraries/messages.inc.php:865 setup/lib/messages.inc.php:115
+#: libraries/messages.inc.php:865 libraries/select_server.lib.php:45
+#: setup/frames/index.inc.php:97 setup/lib/messages.inc.php:115
 msgid "Servers"
 msgstr ""
 
@@ -4462,10 +4906,6 @@ msgstr ""
 msgid "Server variables and settings"
 msgstr ""
 
-#: libraries/messages.inc.php:872 main.php:186
-msgid "Server version"
-msgstr ""
-
 #: libraries/messages.inc.php:873 main.php:290
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
@@ -4496,20 +4936,8 @@ msgstr ""
 msgid "settings"
 msgstr ""
 
-#: libraries/messages.inc.php:879
-msgid "Show binary contents as HEX"
-msgstr ""
-
-#: libraries/messages.inc.php:880
-msgid "Show binary contents"
-msgstr ""
-
-#: libraries/messages.inc.php:881
-msgid "Show BLOB contents"
-msgstr ""
-
-#: libraries/messages.inc.php:884 server_processlist.php:49
-#: server_processlist.php:51
+#: libraries/messages.inc.php:884 server_binlog.php:192 server_binlog.php:195
+#: server_processlist.php:49 server_processlist.php:51
 msgid "Show Full Queries"
 msgstr ""
 
@@ -5088,11 +5516,12 @@ msgstr ""
 msgid "Show tables"
 msgstr " टेबल दिखाओ"
 
-#: libraries/messages.inc.php:1008
+#: libraries/messages.inc.php:1008 libraries/sql_query_form.lib.php:396
 msgid " Show this query here again "
 msgstr " यह query वापस यहीं दिखायें "
 
-#: libraries/messages.inc.php:1009
+#: libraries/messages.inc.php:1009 libraries/mysql_charsets.lib.php:218
+#: libraries/mysql_charsets.lib.php:343
 msgid "Simplified Chinese"
 msgstr ""
 
@@ -5100,17 +5529,17 @@ msgstr ""
 msgid "(singly)"
 msgstr ""
 
-#: libraries/messages.inc.php:1013
+#: libraries/messages.inc.php:1013 libraries/replication_gui.lib.php:52
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 
-#: libraries/messages.inc.php:1014
+#: libraries/messages.inc.php:1014 libraries/mysql_charsets.lib.php:284
 msgid "Slovak"
 msgstr ""
 
-#: libraries/messages.inc.php:1015
+#: libraries/messages.inc.php:1015 libraries/mysql_charsets.lib.php:287
 msgid "Slovenian"
 msgstr ""
 
@@ -5122,16 +5551,8 @@ msgstr ""
 msgid "Snap to grid"
 msgstr ""
 
-#: libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
-
-#: libraries/messages.inc.php:1019
+#: libraries/messages.inc.php:1019 server_synchronize.php:1162
 msgid "Socket"
-msgstr ""
-
-#: libraries/messages.inc.php:1020
-msgid "Sort by key"
 msgstr ""
 
 #: libraries/messages.inc.php:1021 server_status.php:259
@@ -5142,17 +5563,13 @@ msgstr ""
 msgid "Space usage"
 msgstr ""
 
-#: libraries/messages.inc.php:1024
+#: libraries/messages.inc.php:1024 libraries/mysql_charsets.lib.php:290
 msgid "Spanish"
 msgstr ""
 
 #: libraries/messages.inc.php:1025
 msgid "Words are separated by a space character (\" \")."
 msgstr "शब्दों में space (\" \")  से अंतर करें."
-
-#: libraries/messages.inc.php:1026
-msgid "SQL compatibility mode"
-msgstr ""
 
 #: libraries/messages.inc.php:1027
 msgid "Export type"
@@ -5162,7 +5579,7 @@ msgstr ""
 msgid "Export time in UTC"
 msgstr ""
 
-#: libraries/messages.inc.php:1029
+#: libraries/messages.inc.php:1029 libraries/sqlparser.lib.php:173
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -5175,34 +5592,26 @@ msgid ""
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
 
-#: libraries/messages.inc.php:1030
+#: libraries/messages.inc.php:1030 libraries/sqlparser.lib.php:137
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
 
-#: libraries/messages.inc.php:1033 libraries/server_links.inc.php:45
-#: libraries/tbl_links.inc.php:60 test/theme.php:97
-msgid "SQL"
-msgstr ""
-
-#: libraries/messages.inc.php:1034
+#: libraries/messages.inc.php:1034 libraries/sqlparser.lib.php:495
 msgid "Invalid Identifer"
 msgstr ""
 
-#: libraries/messages.inc.php:1035
+#: libraries/messages.inc.php:1035 libraries/sqlparser.lib.php:344
 msgid "Unclosed quote"
 msgstr ""
 
-#: libraries/messages.inc.php:1036
+#: libraries/messages.inc.php:1036 libraries/sqlparser.lib.php:612
 msgid "Unknown Punctuation String"
 msgstr ""
 
-#: libraries/messages.inc.php:1037
-msgid "Stand-in structure for view"
-msgstr ""
-
-#: libraries/messages.inc.php:1038
+#: libraries/messages.inc.php:1038 server_replication.php:327
+#: server_replication.php:328
 msgid "Start"
 msgstr ""
 
@@ -5220,7 +5629,8 @@ msgid ""
 "reported by the MySQL server may be incorrect."
 msgstr ""
 
-#: libraries/messages.inc.php:1046
+#: libraries/messages.inc.php:1046 server_replication.php:327
+#: server_replication.php:328
 msgid "Stop"
 msgstr ""
 
@@ -5246,10 +5656,6 @@ msgstr ""
 msgid "Structure Difference"
 msgstr ""
 
-#: libraries/messages.inc.php:1054
-msgid "Structure for view"
-msgstr ""
-
 #: libraries/messages.inc.php:1055
 msgid "structure"
 msgstr ""
@@ -5258,14 +5664,9 @@ msgstr ""
 msgid "Structure Synchronization"
 msgstr ""
 
-#: libraries/messages.inc.php:1058
+#: libraries/messages.inc.php:1058 libraries/sql_query_form.lib.php:462
 msgid "Submit"
 msgstr ""
-
-#: libraries/messages.inc.php:1059 tbl_operations.php:213 tbl_relation.php:292
-#: tbl_row_action.php:131 view_operations.php:62
-msgid "Your SQL query has been executed successfully"
-msgstr "आपकी SQL-query सफलता से पूरा किया"
 
 #: libraries/messages.inc.php:1060 main.php:358
 #, php-format
@@ -5274,25 +5675,9 @@ msgid ""
 "issues."
 msgstr ""
 
-#: libraries/messages.inc.php:1062
+#: libraries/messages.inc.php:1062 libraries/mysql_charsets.lib.php:296
+#: libraries/mysql_charsets.lib.php:393
 msgid "Swedish"
-msgstr ""
-
-#: libraries/messages.inc.php:1063
-msgid "Authenticating..."
-msgstr ""
-
-#: libraries/messages.inc.php:1064
-msgid "Hardware authentication failed"
-msgstr ""
-
-#: libraries/messages.inc.php:1065
-#, php-format
-msgid "File %s does not contain any key id"
-msgstr ""
-
-#: libraries/messages.inc.php:1066
-msgid "No valid authentication key plugged"
 msgstr ""
 
 #: libraries/messages.inc.php:1068 tbl_operations.php:556
@@ -5305,12 +5690,13 @@ msgid ""
 "database will remain unchanged."
 msgstr ""
 
-#: libraries/messages.inc.php:1070
+#: libraries/messages.inc.php:1070 server_synchronize.php:451
+#: server_synchronize.php:896
 msgid "Synchronize Databases"
 msgstr ""
 
 #: libraries/messages.inc.php:1071 libraries/server_links.inc.php:92
-#: server_synchronize.php:1092
+#: server_synchronize.php:1092 server_synchronize.php:1100
 msgid "Synchronize"
 msgstr ""
 
@@ -5377,7 +5763,7 @@ msgstr " टेबल  रख-रखाव"
 msgid "Table name"
 msgstr ""
 
-#: libraries/messages.inc.php:1089
+#: libraries/messages.inc.php:1089 pdf_schema.php:1117
 msgid "Table of contents"
 msgstr ""
 
@@ -5395,24 +5781,22 @@ msgstr ""
 msgid "Remove index(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1094
-msgid "Table structure for table"
-msgstr ""
-
 #: libraries/messages.inc.php:1096 server_synchronize.php:435
 #: server_synchronize.php:878
 msgid "Update row(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1097
+#: libraries/messages.inc.php:1097 libraries/Theme.class.php:387
 msgid "take it"
 msgstr ""
 
-#: libraries/messages.inc.php:1098
+#: libraries/messages.inc.php:1098 server_synchronize.php:942
 msgid "Target database has been synchronized with source database"
 msgstr ""
 
-#: libraries/messages.inc.php:1099
+#: libraries/messages.inc.php:1099 server_privileges.php:392
+#: server_privileges.php:527 server_privileges.php:1679
+#: server_privileges.php:1685
 msgid "Table-specific privileges"
 msgstr "  केवल टेबल  के प्रिविलेज"
 
@@ -5428,40 +5812,42 @@ msgstr ""
 msgid "Texy! text"
 msgstr ""
 
-#: libraries/messages.inc.php:1103
+#: libraries/messages.inc.php:1103 libraries/mysql_charsets.lib.php:299
+#: libraries/mysql_charsets.lib.php:396
 msgid "Thai"
 msgstr ""
 
-#: libraries/messages.inc.php:1104
+#: libraries/messages.inc.php:1104 libraries/Theme_Manager.class.php:115
 #, php-format
 msgid "Default theme %s not found!"
 msgstr ""
 
-#: libraries/messages.inc.php:1105
+#: libraries/messages.inc.php:1105 libraries/Theme.class.php:384
 msgid "No preview available."
 msgstr ""
 
-#: libraries/messages.inc.php:1106
+#: libraries/messages.inc.php:1106 libraries/Theme_Manager.class.php:153
 #, php-format
 msgid "Theme %s not found!"
 msgstr ""
 
-#: libraries/messages.inc.php:1107
+#: libraries/messages.inc.php:1107 libraries/Theme.class.php:162
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr ""
 
-#: libraries/messages.inc.php:1108
+#: libraries/messages.inc.php:1108 libraries/Theme_Manager.class.php:221
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr ""
 
-#: libraries/messages.inc.php:1109 test/theme.php:161 themes.php:21
-#: themes.php:41
+#: libraries/messages.inc.php:1109 libraries/Theme_Manager.class.php:297
+#: test/theme.php:161 themes.php:21 themes.php:41
 msgid "Theme / Style"
 msgstr ""
 
-#: libraries/messages.inc.php:1110
+#: libraries/messages.inc.php:1110 libraries/replication_gui.lib.php:308
+#: server_privileges.php:734
 msgid "This Host"
 msgstr ""
 
@@ -5486,11 +5872,6 @@ msgid ""
 "file and import will resume."
 msgstr ""
 
-#: libraries/messages.inc.php:1116 libraries/tbl_triggers.lib.php:28
-#: server_processlist.php:58
-msgid "Time"
-msgstr ""
-
 #: libraries/messages.inc.php:1117 pmd_pdf.php:94
 msgid "to/from page"
 msgstr ""
@@ -5510,12 +5891,6 @@ msgstr ""
 #: libraries/messages.inc.php:1121
 msgid "total"
 msgstr " कुल"
-
-#: libraries/messages.inc.php:1122 server_databases.php:137
-#: server_databases.php:305 server_status.php:414 server_status.php:475
-#: server_status.php:496 tbl_printview.php:351 tbl_structure.php:697
-msgid "Total"
-msgstr ""
 
 #: libraries/messages.inc.php:1123 libraries/tbl_links.inc.php:149
 #, php-format
@@ -5628,10 +6003,6 @@ msgstr ""
 msgid "Track these data manipulation statements:"
 msgstr ""
 
-#: libraries/messages.inc.php:1160 libraries/tbl_links.inc.php:69
-msgid "Tracking"
-msgstr ""
-
 #: libraries/messages.inc.php:1163 tbl_tracking.php:411 tbl_tracking.php:462
 msgid "Username"
 msgstr ""
@@ -5662,11 +6033,12 @@ msgid ""
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: libraries/messages.inc.php:1170
+#: libraries/messages.inc.php:1170 libraries/mysql_charsets.lib.php:220
+#: libraries/mysql_charsets.lib.php:363
 msgid "Traditional Chinese"
 msgstr ""
 
-#: libraries/messages.inc.php:1171
+#: libraries/messages.inc.php:1171 libraries/mysql_charsets.lib.php:293
 msgid "Traditional Spanish"
 msgstr ""
 
@@ -5765,43 +6137,29 @@ msgid ""
 "(Default: \"...\")."
 msgstr ""
 
-#: libraries/messages.inc.php:1186 libraries/tbl_triggers.lib.php:19
-msgid "Triggers"
-msgstr ""
-
-#: libraries/messages.inc.php:1187 server_processlist.php:49
-#: server_processlist.php:51
+#: libraries/messages.inc.php:1187 server_binlog.php:183 server_binlog.php:186
+#: server_processlist.php:49 server_processlist.php:51
 msgid "Truncate Shown Queries"
 msgstr ""
 
-#: libraries/messages.inc.php:1188
+#: libraries/messages.inc.php:1188 libraries/mysql_charsets.lib.php:302
+#: libraries/mysql_charsets.lib.php:390
 msgid "Turkish"
 msgstr "तुर्क"
 
-#: libraries/messages.inc.php:1191
+#: libraries/messages.inc.php:1191 libraries/mysql_charsets.lib.php:305
+#: libraries/mysql_charsets.lib.php:387
 msgid "Ukrainian"
 msgstr ""
 
-#: libraries/messages.inc.php:1193
+#: libraries/messages.inc.php:1193 libraries/mysql_charsets.lib.php:308
+#: libraries/mysql_charsets.lib.php:317
 msgid "Unicode"
 msgstr ""
 
-#: libraries/messages.inc.php:1194 libraries/mult_submits.inc.php:103
-#: libraries/tbl_properties.inc.php:519 tbl_structure.php:33
-#: tbl_structure.php:155 tbl_structure.php:159 tbl_structure.php:475
-#: tbl_tracking.php:322
-msgid "Unique"
-msgstr ""
-
-#: libraries/messages.inc.php:1195
+#: libraries/messages.inc.php:1195 libraries/mysql_charsets.lib.php:399
+#: libraries/mysql_charsets.lib.php:406
 msgid "unknown"
-msgstr ""
-
-#: libraries/messages.inc.php:1197
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
 msgstr ""
 
 #: libraries/messages.inc.php:1198
@@ -5813,7 +6171,7 @@ msgstr "आपने %s के प्रिविलेज अपडेट क�
 msgid "The profile has been updated."
 msgstr "प्रोफाइल अपडेट कर दिया ।"
 
-#: libraries/messages.inc.php:1201
+#: libraries/messages.inc.php:1201 libraries/relation.lib.php:138
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
@@ -5821,36 +6179,6 @@ msgstr ""
 #: libraries/messages.inc.php:1202
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
-
-#: libraries/messages.inc.php:1203
-msgid "Failed to write file to disk."
-msgstr ""
-
-#: libraries/messages.inc.php:1204
-msgid "File upload stopped by extension."
-msgstr ""
-
-#: libraries/messages.inc.php:1205
-msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the HTML form."
-msgstr ""
-
-#: libraries/messages.inc.php:1206
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
-
-#: libraries/messages.inc.php:1207
-msgid "Missing a temporary folder."
-msgstr ""
-
-#: libraries/messages.inc.php:1208
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-#: libraries/messages.inc.php:1209
-msgid "Unknown error in file upload."
 msgstr ""
 
 #: libraries/messages.inc.php:1210
@@ -5872,7 +6200,8 @@ msgstr "उपयोग"
 msgid "Enclose table and field names with backquotes"
 msgstr " टेबल और फील्ड के नाम को backquotes से Enclose करें"
 
-#: libraries/messages.inc.php:1214
+#: libraries/messages.inc.php:1214 libraries/replication_gui.lib.php:314
+#: server_privileges.php:740
 msgid "Use Host Table"
 msgstr ""
 
@@ -5885,7 +6214,11 @@ msgstr ""
 msgid "The user name is empty!"
 msgstr "यूसरनेम खाली है!"
 
-#: libraries/messages.inc.php:1217
+#: libraries/messages.inc.php:1217 libraries/replication_gui.lib.php:55
+#: libraries/replication_gui.lib.php:56 libraries/replication_gui.lib.php:245
+#: libraries/replication_gui.lib.php:248 libraries/replication_gui.lib.php:255
+#: server_privileges.php:672 server_privileges.php:675
+#: server_privileges.php:682 server_synchronize.php:1166
 msgid "User name"
 msgstr "यूसर नेम"
 
@@ -5893,7 +6226,7 @@ msgstr "यूसर नेम"
 msgid "The selected user was not found in the privilege table."
 msgstr ""
 
-#: libraries/messages.inc.php:1219
+#: libraries/messages.inc.php:1219 server_privileges.php:1365
 msgid "User overview"
 msgstr ""
 
@@ -5906,7 +6239,9 @@ msgstr ""
 msgid "Users having access to &quot;%s&quot;"
 msgstr ""
 
-#: libraries/messages.inc.php:1222 main.php:189 server_processlist.php:54
+#: libraries/messages.inc.php:1222 main.php:189 server_privileges.php:1350
+#: server_privileges.php:1497 server_privileges.php:1611
+#: server_processlist.php:54
 msgid "User"
 msgstr "यूसर"
 
@@ -5915,33 +6250,31 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/messages.inc.php:1225
+#: libraries/messages.inc.php:1225 libraries/replication_gui.lib.php:251
+#: libraries/replication_gui.lib.php:319 libraries/replication_gui.lib.php:342
+#: server_privileges.php:678 server_privileges.php:745
+#: server_privileges.php:769 server_privileges.php:1889
+#: server_privileges.php:1919
 msgid "Use text field"
 msgstr ""
 
-#: libraries/messages.inc.php:1228 setup/lib/messages.inc.php:356
-msgid "Validate SQL"
-msgstr ""
-
-#: libraries/messages.inc.php:1229
+#: libraries/messages.inc.php:1229 libraries/sqlvalidator.lib.php:68
 #, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 
-#: libraries/messages.inc.php:1230 server_status.php:627 tbl_change.php:324
-#: tbl_printview.php:370 tbl_structure.php:730
+#: libraries/messages.inc.php:1230 libraries/replication_gui.lib.php:111
+#: server_status.php:627 tbl_change.php:324 tbl_printview.php:370
+#: tbl_structure.php:730
 msgid "Value"
 msgstr "मूल्य"
 
-#: libraries/messages.inc.php:1231 server_status.php:626
+#: libraries/messages.inc.php:1231 libraries/replication_gui.lib.php:110
+#: libraries/sql_query_form.lib.php:445 server_status.php:626
 #: server_variables.php:52
 msgid "Variable"
-msgstr ""
-
-#: libraries/messages.inc.php:1232 main.php:228
-msgid "Version information"
 msgstr ""
 
 #: libraries/messages.inc.php:1233 server_export.php:21
@@ -5952,16 +6285,8 @@ msgstr ""
 msgid "View dump (schema) of table"
 msgstr ""
 
-#: libraries/messages.inc.php:1238
-msgid "View image"
-msgstr ""
-
 #: libraries/messages.inc.php:1239 view_create.php:142
 msgid "VIEW name"
-msgstr ""
-
-#: libraries/messages.inc.php:1240
-msgid "View video"
 msgstr ""
 
 #: libraries/messages.inc.php:1243 tbl_change.php:1028
@@ -5972,12 +6297,8 @@ msgstr ""
 msgid "Web server"
 msgstr ""
 
-#: libraries/messages.inc.php:1246 test/theme.php:152
-#, php-format
-msgid "Welcome to %s"
-msgstr " %s मे स्वागत है"
-
-#: libraries/messages.inc.php:1247
+#: libraries/messages.inc.php:1247 libraries/mysql_charsets.lib.php:278
+#: libraries/mysql_charsets.lib.php:326
 msgid "West European"
 msgstr ""
 
@@ -5985,12 +6306,8 @@ msgstr ""
 msgid "Wiki"
 msgstr ""
 
-#: libraries/messages.inc.php:1249
+#: libraries/messages.inc.php:1249 server_privileges.php:2138
 msgid "wildcard"
-msgstr ""
-
-#: libraries/messages.inc.php:1252
-msgid "Write requests"
 msgstr ""
 
 #: libraries/messages.inc.php:1253
@@ -6035,12 +6352,16 @@ msgstr ""
 msgid "XML"
 msgstr ""
 
-#: libraries/messages.inc.php:1267
+#: libraries/messages.inc.php:1267 server_privileges.php:592
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 
 #: libraries/messages.inc.php:1268
 msgid "\"zipped\""
+msgstr ""
+
+#: libraries/Table.class.php:1048
+msgid "Error renaming table %1 to %2"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:393
@@ -6065,6 +6386,17 @@ msgctxt "short form"
 msgid "Create table"
 msgstr "नया पेज़ बनाऐं"
 
+#: pdf_schema.php:996
+#, php-format
+msgid "Schema of the %s database - Page %s"
+msgstr ""
+
+#: pdf_schema.php:637
+#, fuzzy, php-format
+#| msgid "%s table(s)"
+msgid "The %s table doesn"
+msgstr " %s  टेबल(s)"
+
 #: server_databases.php:230
 #, fuzzy
 #| msgid "No databases"
@@ -6073,6 +6405,31 @@ msgstr "कोइ डाटाबेस नहिं"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgstr ""
+
+#: server_privileges.php:1998
+#, fuzzy
+#| msgid "No"
+msgctxt ""
+msgid "None"
+msgstr "नहीं"
+
+#: server_privileges.php:2000
+msgid "Grant all privileges on wildcard name (username_%)"
+msgstr ""
+
+#: server_replication.php:210
+#, php-format
+msgid ""
+"This server is not configured as master in a replication process. Would you "
+"like to <a href=%s>configure</a> it?"
+msgstr ""
+
+#: server_replication.php:355
+#, php-format
+msgid ""
+"This server is not configured as slave in a replication process. Would you "
+"like to <a href=%s>configure</a> it?"
 msgstr ""
 
 #: server_status.php:344

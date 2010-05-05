@@ -11,9 +11,9 @@
  * display server selection in list or selectbox form, or option tags only
  *
  * @uses    $GLOBALS['cfg']['DisplayServersList']
- * @uses    $GLOBALS['strServer']
+ * @uses    __('Server')
  * @uses    $GLOBALS['cfg']['Servers']
- * @uses    $GLOBALS['strGo']
+ * @uses    __('Go')
  * @uses    implode()
  * @uses    htmlspecialchars()
  * @uses    PMA_generate_common_hidden_inputs()
@@ -38,13 +38,13 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         if (! $ommit_fieldset) {
             echo '<fieldset>';
         }
-        echo '<label for="select_server">' . $GLOBALS['strServer'] . ':</label> ';
+        echo '<label for="select_server">' . __('Server') . ':</label> ';
 
         echo '<select name="server" id="select_server"'
             . ' onchange="if (this.value != \'\') this.form.submit();">';
-        echo '<option value="">(' . $GLOBALS['strServers'] . ') ...</option>' . "\n";
+        echo '<option value="">(' . __('Servers') . ') ...</option>' . "\n";
     } elseif ($list) {
-        echo $GLOBALS['strServer'] . ':<br />';
+        echo __('Server') . ':<br />';
         echo '<ul id="list_server">';
     }
 
@@ -101,7 +101,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         echo '</select>';
         // Show submit button if we have just one server (this happens with no default)
         echo '<noscript>';
-        echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+        echo '<input type="submit" value="' . __('Go') . '" />';
         echo '</noscript>';
         if (! $ommit_fieldset) {
             echo '</fieldset>';

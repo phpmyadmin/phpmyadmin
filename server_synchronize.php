@@ -91,10 +91,10 @@ if ((isset($_REQUEST['submit_connect']))) {
 
         echo '<div class="error">';
         if(! $src_connection && $src_type != 'cur') {
-            echo $GLOBALS['strCouldNotConnectSource'] . '<br />';
+            echo __('Could not connect to the source') . '<br />';
         }
         if(! $trg_connection && $trg_type != 'cur'){
-            echo $GLOBALS['strCouldNotConnectTarget'];
+            echo __('Could not connect to the target');
         }
         echo '</div>';
         unset($_REQUEST['submit_connect']);
@@ -119,10 +119,10 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             echo '<div class="error">';
             if ($src_db_selected != 1) {
-                echo sprintf($GLOBALS['strDatabaseNotExisting'], htmlspecialchars($src_db));
+                echo sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($src_db));
             }
             if ($trg_db_selected != 1) {
-                echo sprintf($GLOBALS['strDatabaseNotExisting'], htmlspecialchars($trg_db));
+                echo sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($trg_db));
             }
             echo '</div>';
             unset($_REQUEST['submit_connect']);
@@ -342,7 +342,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) || ($num_remove_index > 0)) {
 
                    echo '<img class="icon" src="' . $pmaThemeImage . 'new_struct.jpg" width="29"  height="29"
-                   alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                   alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
                    onclick="showDetails(' . "'MS" . $i . "','" . $num_alter_cols . "','" .$num_insert_cols .
                    "','" . $num_remove_cols . "','" . $num_add_index . "','" . $num_remove_index . "'"
                    . ', this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')"/>';
@@ -354,7 +354,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                     if (isset($update_array[$i][0][$matching_tables_keys[$i][0]]) || isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
 
                         echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
-                        alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                        alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
                          onclick="showDetails('. "'MD" . $i . "','" . $num_of_updates . "','" . $num_of_insertions .
                          "','" . null . "','" . null . "','" . null . "'" . ', this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')" />';
                     }
@@ -370,14 +370,14 @@ if ((isset($_REQUEST['submit_connect']))) {
                 echo '<td> + ' . htmlspecialchars($source_tables_uncommon[$j]) . '</td> ';
 
                 echo '<td align="center"><img class="icon" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29"
-                alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
                 onclick="showDetails(' . "'US" . $j . "','" . null . "','" . null . "','" . null . "','" . null . "','" . null . "'" . ', this ,'
                 . "'" . htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')"/>';
 
                 if ($row_count[$j] > 0)
                 {
                     echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
-                    alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                    alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
                     onclick="showDetails(' . "'UD" . $j . "','" . null . "','" . $row_count[$j] . "','" . null .
                     "','" . null . "','" . null . "'" . ', this ,' . "'" . htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')" />';
                 }
@@ -397,7 +397,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             $odd_row = PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables);
             foreach ($source_tables_uncommon as $tbl_nc_name) {
                 $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-                echo '<td height="32">' . htmlspecialchars($tbl_nc_name) . ' (' . $GLOBALS['strNotPresent'] . ')</td>
+                echo '<td height="32">' . htmlspecialchars($tbl_nc_name) . ' (' . __('not present') . ')</td>
                 </tr>';
             }
             foreach ($target_tables_uncommon as $tbl_nc_name) {
@@ -446,9 +446,9 @@ if ((isset($_REQUEST['submit_connect']))) {
             <p><input type= "checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">' . __('Would you like to delete all the previous rows from target tables?') . '</label> </p>
             </fieldset>
             <fieldset class="tblFooters">';
-            echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges']
+            echo '<input type="button" name="apply_changes" value="' . __('Apply Selected Changes')
              . '" onclick ="ApplySelectedChanges(' . "'" . htmlspecialchars($_SESSION['token']) . "'" . ')" />';
-            echo '<input type="submit" name="synchronize_db" value="' . $GLOBALS['strSynchronizeDb'] . '" />' . '</fieldset>';
+            echo '<input type="submit" name="synchronize_db" value="' . __('Synchronize Databases') . '" />' . '</fieldset>';
             echo '</form>';
         }
     }
@@ -461,7 +461,7 @@ if (isset($_REQUEST['Table_ids'])) {
     /**
     * Displays success message
     */
-    echo '<div class="success">' . $GLOBALS['strHaveBeenSynchronized'] . '</div>';
+    echo '<div class="success">' . __('Selected target tables have been synchronized with source tables.') . '</div>';
 
     $src_db = $_SESSION['src_db'];
     $trg_db = $_SESSION['trg_db'];
@@ -736,7 +736,7 @@ if (isset($_REQUEST['Table_ids'])) {
 
         if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) || ($num_remove_index > 0)) {
             echo '<img class="icon" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29"
-            alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+            alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
             onclick="showDetails(' . "'MS" . $i . "','" . $num_alter_cols . "','" . $num_insert_cols . "','" . $num_remove_cols . "','" . $num_add_index . "','" . $num_remove_index . "'" .',
             this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')"/>';
         }
@@ -764,7 +764,7 @@ if (isset($_REQUEST['Table_ids'])) {
             if ((isset($matching_tables_keys[$i][0]) && isset($update_array[$i][0][$matching_tables_keys[$i][0]]))
                 || (isset($matching_tables_keys[$i][0]) && isset($insert_array[$i][0][$matching_tables_keys[$i][0]]))) {
                 echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
-                alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
                 onclick="showDetails(' . "'MD" . $i . "','" . $num_of_updates . "','" . $num_of_insertions .
                 "','" . null . "','" . null . "','" . null . "'" .', this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')" />';
             }
@@ -792,7 +792,7 @@ if (isset($_REQUEST['Table_ids'])) {
         if (!(in_array($j, $uncommon_table_structure_diff))) {
             if (isset($uncommon_tables[$j])) {
                 echo '<img class="icon" src="' . $pmaThemeImage  . 'new_struct.jpg" width="29"  height="29"
-                alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
                 onclick="showDetails(' . "'US" . $j . "','" . null . "','" . null . "','" . null . "','" . null . "','" . null . "'" . ', this ,' . "'" . htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')"/>' .' ';
             }
         } else {
@@ -804,7 +804,7 @@ if (isset($_REQUEST['Table_ids'])) {
         if (!(in_array($j, $uncommon_table_data_diff))) {
             if (isset($row_count[$j]) && ($row_count > 0)) {
                 echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
-                alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
+                alt="' . __('Click to select') . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
                 onclick="showDetails(' . "'UD" . $j . "','" . null ."','" . $row_count[$j] ."','"
                 . null . "','" . null . "','" . null . "'" . ', this ,' . "'". htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')" />';
             }
@@ -836,7 +836,7 @@ if (isset($_REQUEST['Table_ids'])) {
     foreach ($source_tables_uncommon as $tbl_nc_name) {
         $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
         if (in_array($tbl_nc_name, $uncommon_tables)) {
-            echo '<td>' . htmlspecialchars($tbl_nc_name) . ' (' .  $GLOBALS['strNotPresent'] . ')</td>';
+            echo '<td>' . htmlspecialchars($tbl_nc_name) . ' (' .  __('not present') . ')</td>';
         } else {
             echo '<td>' . htmlspecialchars($tbl_nc_name) . '</td>';
         }
@@ -891,9 +891,9 @@ if (isset($_REQUEST['Table_ids'])) {
     </fieldset>';
 
     echo '<fieldset class="tblFooters">';
-    echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges'] . '"
+    echo '<input type="button" name="apply_changes" value="' . __('Apply Selected Changes') . '"
           onclick ="ApplySelectedChanges(' . "'" . htmlspecialchars($_SESSION['token']) . "'" .')" />';
-    echo '<input type="submit" name="synchronize_db" value="' . $GLOBALS['strSynchronizeDb'] . '" />'
+    echo '<input type="submit" name="synchronize_db" value="' . __('Synchronize Databases') . '" />'
           . '</fieldset>';
     echo '</form>';
 }
@@ -939,7 +939,7 @@ if (isset($_REQUEST['synchronize_db'])) {
    /**
    * Display success message.
    */
-    echo '<div class="success">' . $GLOBALS['strTargetDatabaseHasBeenSynchronized'] . '</div>';
+    echo '<div class="success">' . __('Target database has been synchronized with source database') . '</div>';
     /**
     * Displaying all the tables of source and target database and now no difference is there.
     */
@@ -1000,7 +1000,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     * Displaying the queries.
     */
-    echo '<h5>' . $GLOBALS['strQueriesExecuted'] . '</h5>';
+    echo '<h5>' . __('The following queries have been executed:') . '</h5>';
     echo '<div id="serverstatus" style = "overflow: auto; width: 1050px; height: 180px;
          border-left: 1px gray solid; border-bottom: 1px gray solid; padding: 0px; margin: 0px"> ';
     /**
@@ -1097,7 +1097,7 @@ if (isset($_REQUEST['synchronize_db'])) {
    >' // TODO: add check if all var. are filled in
     . PMA_generate_common_hidden_inputs('', '');
     echo '<fieldset>';
-    echo '<legend>' . $GLOBALS['strSynchronize'] . '</legend>';
+    echo '<legend>' . __('Synchronize') . '</legend>';
     /**
      * Displays the forms
      */
@@ -1151,31 +1151,31 @@ if (isset($_REQUEST['synchronize_db'])) {
 	  </td>
       </tr>
 	<tr class="even toggler remote-server">
-	    <td><?php echo $GLOBALS['strHost']; ?></td>
+	    <td><?php echo __('Host'); ?></td>
 	    <td><input type="text" name="<?php echo $type; ?>_host" class="server-host" /></td>
 	</tr>
 	<tr class="odd toggler remote-server">
-	    <td><?php echo $GLOBALS['strPort']; ?></td>
+	    <td><?php echo __('Port'); ?></td>
 	    <td><input type="text" name="<?php echo $type; ?>_port" class="server-port" value="3306" maxlength="5" size="5" /></td>
 	</tr>
 	<tr class="even toggler remote-server">
-	    <td><?php echo $GLOBALS['strSocket']; ?></td>
+	    <td><?php echo __('Socket'); ?></td>
 	    <td><input type="text" name="<?php echo $type; ?>_socket" class="server-socket" /></td>
 	</tr>
 	<tr class="odd toggler remote-server">
-	    <td><?php echo $GLOBALS['strUserName']; ?></td>
+	    <td><?php echo __('User name'); ?></td>
 	    <td><input type="text" name="<?php echo $type; ?>_username" class="server-user" /></td>
 	</tr>
 	<tr class="even toggler remote-server">
-	    <td><?php echo $GLOBALS['strPassword']; ?></td>
+	    <td><?php echo __('Password'); ?></td>
 	    <td><input type="password" name="<?php echo $type; ?>_pass" class="server-pass" /> </td>
 	</tr>
 	<tr class="odd toggler remote-server">
-	    <td><?php echo $GLOBALS['strDatabase']; ?></td>
+	    <td><?php echo __('Database'); ?></td>
 	    <td><input type="text" name="<?php echo $type; ?>_db" class="server-db" /></td>
 	</tr>
 	<tr class="even toggler current-server" style="display: none;">
-	    <td><?php echo $GLOBALS['strDatabase']; ?></td>
+	    <td><?php echo __('Database'); ?></td>
 	    <td>
 <?php
       // these unset() do not complain if the elements do not exist
@@ -1183,7 +1183,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     unset($databases['information_schema']);
 
 	if (count($databases) == 0) {
-		echo $GLOBALS['strNoDatabases'];
+		echo __('No databases');
 	} else {
 		echo '
 	      	<select name="' . $type . '_db_sel">
@@ -1201,7 +1201,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     echo '
     </fieldset>
     <fieldset class="tblFooters">
-        <input type="submit" name="submit_connect" value="' . $GLOBALS['strGo'] .'" id="buttonGo" />
+        <input type="submit" name="submit_connect" value="' . __('Go') .'" id="buttonGo" />
     </fieldset>
     </form>
     </div>

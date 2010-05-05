@@ -642,7 +642,7 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
         // or the host field, then generate a name for the server
         // in the form of "Server 2", localized of course!
         if ($each_server['connect_type'] == 'socket' && empty($each_server['host']) && empty($each_server['verbose'])) {
-            $each_server['verbose'] = $GLOBALS['strServer'] . $server_index;
+            $each_server['verbose'] = __('Server') . $server_index;
         }
 
         $new_servers[$server_index] = $each_server;

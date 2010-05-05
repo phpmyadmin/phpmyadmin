@@ -121,7 +121,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
         <label for="<?php echo htmlspecialchars($path) ?>"><?php echo $name ?></label>
         <?php if (!empty($opts['doc']) || !empty($opts['wiki'])): ?>
         <span class="doc">
-            <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $opts['doc']  ?>" target="documentation"><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_help.png" width="11" height="11" alt="Doc" title="<?php echo $GLOBALS['strDocu'] ?>" /></a><?php } ?>
+            <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $opts['doc']  ?>" target="documentation"><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_help.png" width="11" height="11" alt="Doc" title="<?php echo __('Documentation') ?>" /></a><?php } ?>
             <?php if (!empty($opts['wiki'])){ ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_info.png" width="11" height="11" alt="Wiki" title="Wiki" /></a><?php } ?>
         </span>
         <?php endif; ?>
@@ -212,8 +212,8 @@ function display_fieldset_bottom()
 ?>
 <tr>
     <td colspan="2" class="lastrow">
-        <input type="submit" name="submit_save" value="<?php echo $GLOBALS['strSave'] ?>" class="green" />
-        <input type="button" name="submit_reset" value="<?php echo $GLOBALS['strReset'] ?>" />
+        <input type="submit" name="submit_save" value="<?php echo __('Save') ?>" class="green" />
+        <input type="button" name="submit_reset" value="<?php echo __('Reset') ?>" />
     </td>
 </tr>
 </table>

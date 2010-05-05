@@ -356,8 +356,8 @@ class PMA_Index
     {
         if ($as_text) {
             $r = array(
-                '0' => $GLOBALS['strNo'],
-                '1' => $GLOBALS['strYes'],
+                '0' => __('No'),
+                '1' => __('Yes'),
             );
         } else {
             $r = array(
@@ -382,8 +382,8 @@ class PMA_Index
     {
         if ($as_text) {
             $r = array(
-                '0' => $GLOBALS['strYes'],
-                '1' => $GLOBALS['strNo'],
+                '0' => __('Yes'),
+                '1' => __('No'),
             );
         } else {
             $r = array(
@@ -430,24 +430,24 @@ class PMA_Index
 
         $r = '';
 
-        $r .= '<h2>' . $GLOBALS['strIndexes'] . ': ';
+        $r .= '<h2>' . __('Indexes') . ': ';
         $r .= PMA_showMySQLDocu('optimization', 'optimizing-database-structure');
         $r .= '</h2>';
         $r .= '<table>';
         $r .= '<thead>';
         $r .= '<tr>';
         if (! $print_mode) {
-            $r .= '<th colspan="2">' . $GLOBALS['strAction'] . '</th>';
+            $r .= '<th colspan="2">' . __('Action') . '</th>';
         }
-        $r .= '<th>' . $GLOBALS['strKeyname'] . '</th>';
-        $r .= '<th>' . $GLOBALS['strType'] . '</th>';
-        $r .= '<th>' . $GLOBALS['strUnique'] . '</th>';
-        $r .= '<th>' . $GLOBALS['strPacked'] . '</th>';
-        $r .= '<th>' . $GLOBALS['strField'] . '</th>';
-        $r .= '<th>' . $GLOBALS['strCardinality'] . '</th>';
-        $r .= '<th>' . $GLOBALS['strCollation'] . '</th>';
-        $r .= '<th>' . $GLOBALS['strNull'] . '</th>';
-        $r .= '<th>' . $GLOBALS['strComment'] . '</th>';
+        $r .= '<th>' . __('Keyname') . '</th>';
+        $r .= '<th>' . __('Type') . '</th>';
+        $r .= '<th>' . __('Unique') . '</th>';
+        $r .= '<th>' . __('Packed') . '</th>';
+        $r .= '<th>' . __('Field') . '</th>';
+        $r .= '<th>' . __('Cardinality') . '</th>';
+        $r .= '<th>' . __('Collation') . '</th>';
+        $r .= '<th>' . __('Null') . '</th>';
+        $r .= '<th>' . __('Comment') . '</th>';
         $r .= '</tr>';
         $r .= '</thead>';
         $r .= '<tbody>';
@@ -463,24 +463,24 @@ class PMA_Index
                 $this_params['index'] = $index->getName();
                 $r .= '<td ' . $row_span . '>'
                    . '    <a href="tbl_indexes.php' . PMA_generate_common_url($this_params)
-                   . '">' . PMA_getIcon('b_edit.png', $GLOBALS['strEdit']) . '</a>'
+                   . '">' . PMA_getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
 
                 $this_params = $GLOBALS['url_params'];
                 if ($index->getName() == 'PRIMARY') {
                     $this_params['sql_query'] = 'ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY';
-                    $this_params['zero_rows'] = $GLOBALS['strPrimaryKeyHasBeenDropped'];
+                    $this_params['zero_rows'] = __('The primary key has been dropped');
                     $js_msg      = PMA_jsFormat('ALTER TABLE ' . $table . ' DROP PRIMARY KEY');
                 } else {
                     $this_params['sql_query'] = 'ALTER TABLE ' . PMA_backquote($table) . ' DROP INDEX ' . PMA_backquote($index->getName());
-                    $this_params['zero_rows'] = sprintf($GLOBALS['strIndexHasBeenDropped'], $index->getName());
+                    $this_params['zero_rows'] = sprintf(__('Index %s has been dropped'), $index->getName());
                     $js_msg      = PMA_jsFormat('ALTER TABLE ' . $table . ' DROP INDEX ' . $index->getName());
                 }
 
                 $r .= '<td ' . $row_span . '>'
                    . '    <a href="sql.php' . PMA_generate_common_url($this_params)
                    . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">'
-                   . PMA_getIcon('b_drop.png', $GLOBALS['strDrop'])  . '</a>'
+                   . PMA_getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";
             }
 
@@ -539,7 +539,7 @@ class PMA_Index
     /**
      * Function to check over array of indexes and look for common problems
      *
-     * @uses    $GLOBALS['strIndexesSeemEqual']
+     * @uses    __('The indexes %1 and %2 seem to be equal and one of them could possibly be removed.')
      * @uses    is_string()
      * @uses    is_array()
      * @uses    count()

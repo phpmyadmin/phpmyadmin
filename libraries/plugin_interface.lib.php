@@ -309,7 +309,7 @@ function PMA_pluginGetOptions($section, &$list)
             }
         }
         if ($count == 0) {
-            $ret .= $GLOBALS['strNoOptions'];
+            $ret .= __('This format has no options');
         }
         $ret .= '</fieldset>';
     }

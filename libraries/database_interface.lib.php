@@ -46,10 +46,10 @@ if (! PMA_DBI_checkMysqlExtension($GLOBALS['cfg']['Server']['extension'])) {
      * and complete fail (no alternative extension too)
      */
     $error =
-        sprintf(PMA_sanitize($GLOBALS['strCantLoad']),
+        sprintf(PMA_sanitize(__('Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. Please check your PHP configuration.')),
             $GLOBALS['cfg']['Server']['extension'])
         .' - <a href="./Documentation.html#faqmysql" target="documentation">'
-        .$GLOBALS['strDocu'] . '</a>';
+        .__('Documentation') . '</a>';
     trigger_error($error, E_USER_ERROR);
 
     if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
@@ -61,10 +61,10 @@ if (! PMA_DBI_checkMysqlExtension($GLOBALS['cfg']['Server']['extension'])) {
     if (! PMA_DBI_checkMysqlExtension($alternativ_extension)) {
         // if alternative fails too ...
         PMA_fatalError(
-            sprintf($GLOBALS['strCantLoad'],
+            sprintf(__('Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. Please check your PHP configuration.'),
                 $GLOBALS['cfg']['Server']['extension'])
             . ' - [a@./Documentation.html#faqmysql@documentation]'
-            . $GLOBALS['strDocu'] . '[/a]');
+            . __('Documentation') . '[/a]');
     }
 
     $GLOBALS['cfg']['Server']['extension'] = $alternativ_extension;

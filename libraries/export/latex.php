@@ -122,14 +122,14 @@ function PMA_exportHeader() {
            .  '% version ' . PMA_VERSION . $crlf
            .  '% http://www.phpmyadmin.net' . $crlf
            .  '%' . $crlf
-           .  '% ' . $GLOBALS['strHost'] . ': ' . $cfg['Server']['host'];
+           .  '% ' . __('Host') . ': ' . $cfg['Server']['host'];
     if (!empty($cfg['Server']['port'])) {
          $head .= ':' . $cfg['Server']['port'];
     }
     $head .= $crlf
-           .  '% ' . $GLOBALS['strGenTime'] . ': ' . PMA_localisedDate() . $crlf
-           .  '% ' . $GLOBALS['strServerVersion'] . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
-           .  '% ' . $GLOBALS['strPHPVersion'] . ': ' . phpversion() . $crlf;
+           .  '% ' . __('Generation Time') . ': ' . PMA_localisedDate() . $crlf
+           .  '% ' . __('Server version') . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
+           .  '% ' . __('PHP Version') . ': ' . phpversion() . $crlf;
     return PMA_exportOutputHandler($head);
 }
 
@@ -145,7 +145,7 @@ function PMA_exportHeader() {
 function PMA_exportDBHeader($db) {
     global $crlf;
     $head = '% ' . $crlf
-          . '% ' . $GLOBALS['strDatabase'] . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
+          . '% ' . __('Database') . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
           . '% ' . $crlf;
     return PMA_exportOutputHandler($head);
 }
@@ -198,7 +198,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     }
     unset($i);
 
-    $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strData'] . ': ' . $table . $crlf . '%' . $crlf
+    $buffer      = $crlf . '%' . $crlf . '% ' . __('Data') . ': ' . $table . $crlf . '%' . $crlf
                  . ' \\begin{longtable}{|';
 
     for ($index=0;$index<$columns_cnt;$index++) {
@@ -334,7 +334,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     /**
      * Displays the table structure
      */
-    $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strStructure'] . ': ' . $table  . $crlf . '%' . $crlf
+    $buffer      = $crlf . '%' . $crlf . '% ' . __('Structure') . ': ' . $table  . $crlf . '%' . $crlf
                  . ' \\begin{longtable}{';
     if (!PMA_exportOutputHandler($buffer)) {
         return FALSE;
@@ -357,12 +357,12 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $buffer = $alignment . '} ' . $crlf ;
 
     $header = ' \\hline ';
-    $header .= '\\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strField'] . '}} & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strType'] . '}} & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strNull'] . '}} & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strDefault'] . '}}';
+    $header .= '\\multicolumn{1}{|c|}{\\textbf{' . __('Field') . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Type') . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Null') . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Default') . '}}';
     if ($do_relation && $have_rel) {
-        $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strLinksTo'] . '}}';
+        $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Links to') . '}}';
     }
     if ($do_comments) {
-        $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strComments'] . '}}';
+        $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Comments') . '}}';
         $comments = PMA_getComments($db, $table);
     }
     if ($do_mime && $cfgRelation['mimework']) {
@@ -427,7 +427,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $field_name = $row['Field'];
 
         $local_buffer = $field_name . "\000" . $type . "\000" 
-            . (($row['Null'] == '' || $row['Null'] == 'NO') ? $GLOBALS['strNo'] : $GLOBALS['strYes'])  
+            . (($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes'))  
             . "\000" . (isset($row['Default']) ? $row['Default'] : '');
 
         if ($do_relation && $have_rel) {

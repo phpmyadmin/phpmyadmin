@@ -654,7 +654,7 @@ $this_url_params = array_merge($url_params,
             $html_select .= '<option value="' . $one_partition . '">' . $one_partition . '</option>' . "\n";
         }
         $html_select .= '</select>' . "\n";
-        printf($GLOBALS['strPartition'], $html_select);
+        printf(__('Partition %s'), $html_select);
         unset($partition_names, $one_partition, $html_select);
         $choices = array(
             'ANALYZE' => __('Analyze'),

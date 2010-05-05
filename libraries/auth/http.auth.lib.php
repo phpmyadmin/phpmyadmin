@@ -49,7 +49,7 @@ function PMA_auth()
     // Defines the charset to be used
     header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     /* HTML header */
-    $page_title = $GLOBALS['strAccessDenied'];
+    $page_title = __('Access denied');
     require './libraries/header_meta_style.inc.php';
     ?>
 </head>
@@ -62,7 +62,7 @@ function PMA_auth()
 
 <br /><br />
 <center>
-    <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin'); ?></h1>
+    <h1><?php echo sprintf(__('Welcome to %s'), ' phpMyAdmin'); ?></h1>
 </center>
 <br />
 

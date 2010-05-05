@@ -121,7 +121,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
 
     if ($return_value == false) {
 	    if ($is_controluser) {
-	        trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
+	        trigger_error(__('Connection for controluser as defined in your configuration failed.'), E_USER_WARNING);
 	        return false;
 	    }
         // we could be calling PMA_DBI_connect() to connect to another
@@ -366,8 +366,8 @@ function PMA_DBI_get_client_info()
  * @uses    PMA_DBI_convert_message()
  * @uses    $GLOBALS['errno']
  * @uses    $GLOBALS['userlink']
- * @uses    $GLOBALS['strServerNotResponding']
- * @uses    $GLOBALS['strSocketProblem']
+ * @uses    __('The server is not responding')
+ * @uses    __('(or the local MySQL server's socket is not correctly configured)')
  * @uses    mysqli_errno()
  * @uses    mysqli_error()
  * @uses    mysqli_connect_errno()
@@ -407,7 +407,7 @@ function PMA_DBI_getError($link = null)
     }
 
     if ($error_number == 2002) {
-        $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
+        $error = '#' . ((string) $error_number) . ' - ' . __('The server is not responding') . ' ' . __('(or the local MySQL server\'s socket is not correctly configured)');
     } else {
         $error = '#' . ((string) $error_number) . ' - ' . $error_message;
     }

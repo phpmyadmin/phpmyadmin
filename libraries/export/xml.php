@@ -99,14 +99,14 @@ function PMA_exportHeader() {
            .  '- version ' . PMA_VERSION . $crlf
            .  '- http://www.phpmyadmin.net' . $crlf
            .  '-' . $crlf
-           .  '- ' . $GLOBALS['strHost'] . ': ' . $cfg['Server']['host'];
+           .  '- ' . __('Host') . ': ' . $cfg['Server']['host'];
     if (!empty($cfg['Server']['port'])) {
          $head .= ':' . $cfg['Server']['port'];
     }
     $head .= $crlf
-           .  '- ' . $GLOBALS['strGenTime'] . ': ' . PMA_localisedDate() . $crlf
-           .  '- ' . $GLOBALS['strServerVersion'] . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
-           .  '- ' . $GLOBALS['strPHPVersion'] . ': ' . phpversion() . $crlf
+           .  '- ' . __('Generation Time') . ': ' . PMA_localisedDate() . $crlf
+           .  '- ' . __('Server version') . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
+           .  '- ' . __('PHP Version') . ': ' . phpversion() . $crlf
            .  '-->' . $crlf . $crlf;
     
     $head .= '<pma_xml_export version="1.0"' . (($export_struct) ? ' xmlns:pma="http://www.phpmyadmin.net/some_doc_url/"' : '') . '>' . $crlf;
@@ -252,7 +252,7 @@ function PMA_exportDBHeader($db) {
     
     if (isset($GLOBALS[$what . '_export_contents']) && $GLOBALS[$what . '_export_contents']) {
         $head = '    <!--' . $crlf
-              . '    - ' . $GLOBALS['strDatabase'] . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
+              . '    - ' . __('Database') . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
               . '    -->' . $crlf
               . '    <database name="' . $db . '">' . $crlf;
         
@@ -325,7 +325,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         }
         unset($i);
         
-        $buffer      = '        <!-- ' . $GLOBALS['strTable'] . ' ' . $table . ' -->' . $crlf;
+        $buffer      = '        <!-- ' . __('Table') . ' ' . $table . ' -->' . $crlf;
         if (!PMA_exportOutputHandler($buffer)) {
             return FALSE;
         }

@@ -38,7 +38,7 @@ $is_create_table_priv = true;
 
 ?>
 <form method="post" action="tbl_create.php"
-    onsubmit="return (emptyFormElements(this, 'table') &amp;&amp; checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldCount']); ?>', 1))">
+    onsubmit="return (emptyFormElements(this, 'table') &amp;&amp; checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('Table must have at least one field.')); ?>', 1))">
 <fieldset>
     <legend>
 <?php

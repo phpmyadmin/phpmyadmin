@@ -72,18 +72,18 @@ function PMA_getRelationsParam($verbose = false)
  *
  * @uses    $GLOBALS['server']
  * @uses    $GLOBALS['controllink']
- * @uses    $GLOBALS['strNotOK']
- * @uses    $GLOBALS['strDocu']
- * @uses    $GLOBALS['strGeneralRelationFeat']
- * @uses    $GLOBALS['strDisabled']
- * @uses    $GLOBALS['strEnabled']
- * @uses    $GLOBALS['strDisplayFeat']
- * @uses    $GLOBALS['strCreatePdfFeat']
- * @uses    $GLOBALS['strColComFeat']
- * @uses    $GLOBALS['strBookmarkQuery']
- * @uses    $GLOBALS['strUpdComTab']
- * @uses    $GLOBALS['strQuerySQLHistory']
- * @uses    $GLOBALS['strDesigner']
+ * @uses    __('not OK')
+ * @uses    __('Documentation')
+ * @uses    __('General relation features')
+ * @uses    __('Disabled')
+ * @uses    __('Enabled')
+ * @uses    __('Display Features')
+ * @uses    __('Creation of PDFs')
+ * @uses    __('Displaying Column Comments')
+ * @uses    __('Bookmarked SQL query')
+ * @uses    __('Please see the documentation on how to update your column_comments table')
+ * @uses    __('SQL history')
+ * @uses    __('Designer')
  * @uses    $cfg['Server']['pmadb']
  * @uses    sprintf()
  * @uses    PMA_printDiagMessageForFeature()
@@ -92,20 +92,20 @@ function PMA_getRelationsParam($verbose = false)
  */
 function PMA_printRelationsParamDiagnostic($cfgRelation)
 {
-    $messages['error'] = '<font color="red"><strong>' . $GLOBALS['strNotOK']
+    $messages['error'] = '<font color="red"><strong>' . __('not OK')
                    . '</strong></font> [ <a href="Documentation.html#%s" target="documentation">'
-                   . $GLOBALS['strDocu'] . '</a> ]';
+                   . __('Documentation') . '</a> ]';
 
-    $messages['ok'] = '<font color="green"><strong>' . $GLOBALS['strOK'] . '</strong></font>';
-    $messages['enabled']  = '<font color="green">' . $GLOBALS['strEnabled'] . '</font>';
-    $messages['disabled'] = '<font color="red">'   . $GLOBALS['strDisabled'] . '</font>';
+    $messages['ok'] = '<font color="green"><strong>' . __('OK') . '</strong></font>';
+    $messages['enabled']  = '<font color="green">' . __('Enabled') . '</font>';
+    $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
 
     if (false === $GLOBALS['cfg']['Server']['pmadb']) {
         echo 'PMA Database ... '
              . sprintf($messages['error'], 'pmadb')
              . '<br />' . "\n"
-             . $GLOBALS['strGeneralRelationFeat']
-             . ' <font color="green">' . $GLOBALS['strDisabled']
+             . __('General relation features')
+             . ' <font color="green">' . __('Disabled')
              . '</font>' . "\n";
         return;
     }
@@ -135,7 +135,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
     PMA_printDiagMessageForFeature('strMIME_transformation', 'mimework', $messages);
 
     if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
-        echo '<tr><td colspan=2 align="left">' . $GLOBALS['strUpdComTab'] . '</td></tr>' . "\n";
+        echo '<tr><td colspan=2 align="left">' . __('Please see the documentation on how to update your column_comments table') . '</td></tr>' . "\n";
     }
 
     PMA_printDiagMessageForParameter('bookmarktable', isset($cfgRelation['bookmark']), $messages, 'bookmark');
@@ -156,12 +156,12 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     echo '</table>' . "\n";
 
-    echo '<p>' . $GLOBALS['strPmadbCreateHelp'] . '</p>';
+    echo '<p>' . __('Quick steps to setup advanced features:') . '</p>';
     echo '<ul>';
-    echo '<li>' . $GLOBALS['strPmadbCreateTables'] . ' ' . PMA_showDocu('linked-tables') . '</li>';
-    echo '<li>' . $GLOBALS['strPmadbCreateUser'] . ' ' . PMA_showDocu('pmausr') . '</li>';
-    echo '<li>' . $GLOBALS['strPmadbCreateConfig'] . ' ' . PMA_showDocu('quick_install') . '</li>';
-    echo '<li>' . $GLOBALS['strPmadbReLoginToEnable'] . '</li>';
+    echo '<li>' . __('Create the needed tables with the <code>script/create_tables.sql</code>.') . ' ' . PMA_showDocu('linked-tables') . '</li>';
+    echo '<li>' . __('Create a pma user and give access to these tables.') . ' ' . PMA_showDocu('pmausr') . '</li>';
+    echo '<li>' . __('Enable advanced features in configuration file (<code>config.inc.php</code>), for example by starting from <code>config.sample.inc.php</code>.') . ' ' . PMA_showDocu('quick_install') . '</li>';
+    echo '<li>' . __('Re-login to phpMyAdmin to load the updated configuration file.') . '</li>';
     echo '</ul>';
 }
 
@@ -1155,7 +1155,7 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
 /**
  * Create a PDF page
  *
- * @uses    $GLOBALS['strNoDescription']
+ * @uses    __('no description')
  * @uses    PMA_backquote()
  * @uses    $GLOBALS['cfgRelation']['db']
  * @uses    PMA_sqlAddslashes()
@@ -1170,7 +1170,7 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
  */
 function PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option) {
     if (! isset($newpage) || $newpage == '') {
-        $newpage = $GLOBALS['strNoDescription'];
+        $newpage = __('no description');
     }
     $ins_query   = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                  . ' (db_name, page_descr)'

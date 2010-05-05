@@ -31,7 +31,7 @@
  * @uses    $cfg['NavigationBarIconic']
  * @uses    $cfg['DBG']['enable']
  * @uses    $cfg['DBG']['profile']['enable']
- * @uses    $GLOBALS['strOpenNewWindow']
+ * @uses    __('Open new phpMyAdmin window')
  * @uses    $cfg['MaxCharactersInDisplayedSQL']
  * @uses    PMA_isValid()
  * @uses    PMA_setHistory()
@@ -181,7 +181,7 @@ setURLHash("<?php echo PMA_generate_common_url($url_params, 'text', ''); ?>");
 <?php
 
     echo '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
-        . ' title="' . $GLOBALS['strOpenNewWindow'] . '" target="_blank">';
+        . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
     /*
     echo '<a href="index.php?target=' . basename(PMA_getenv('SCRIPT_NAME'));
     $url = PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
@@ -192,10 +192,10 @@ setURLHash("<?php echo PMA_generate_common_url($url_params, 'text', ''); ?>");
     */
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
         echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'window-new.png"'
-            . ' alt="' . $GLOBALS['strOpenNewWindow'] . '" />';
+            . ' alt="' . __('Open new phpMyAdmin window') . '" />';
     }
     if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
-        echo $GLOBALS['strOpenNewWindow'];
+        echo __('Open new phpMyAdmin window');
     }
     echo '</a>' . "\n";
     echo '</div>' . "\n";

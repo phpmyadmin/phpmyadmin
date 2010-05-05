@@ -155,7 +155,7 @@ class PMA_StorageEngine
      * @uses    PMA_ENGINE_DETAILS_TYPE_SIZE
      * @uses    PMA_ENGINE_DETAILS_TYPE_NUMERIC
      * @uses    PMA_StorageEngine::getVariablesStatus()
-     * @uses    $GLOBALS['strNoDetailsForEngine']
+     * @uses    __('There is no detailed status information available for this storage engine.')
      * @uses    PMA_showHint()
      * @uses    PMA_formatByteDown()
      * @uses    PMA_formatNumber()
@@ -195,7 +195,7 @@ class PMA_StorageEngine
 
         if (! $ret) {
             $ret = '<p>' . "\n"
-                 . '    ' . $GLOBALS['strNoDetailsForEngine'] . "\n"
+                 . '    ' . __('There is no detailed status information available for this storage engine.') . "\n"
                  . '</p>' . "\n";
         } else {
             $ret = '<table class="data">' . "\n" . $ret . '</table>' . "\n";
@@ -335,11 +335,11 @@ class PMA_StorageEngine
     /**
      * public String getSupportInformationMessage()
      *
-     * @uses    $GLOBALS['strDefaultEngine']
-     * @uses    $GLOBALS['strEngineAvailable']
-     * @uses    $GLOBALS['strEngineDisabled']
-     * @uses    $GLOBALS['strEngineUnsupported']
-     * @uses    $GLOBALS['strEngineUnsupported']
+     * @uses    __('%s is the default storage engine on this MySQL server.')
+     * @uses    __('%s is available on this MySQL server.')
+     * @uses    __('%s has been disabled for this MySQL server.')
+     * @uses    __('This MySQL server does not support the %s storage engine.')
+     * @uses    __('This MySQL server does not support the %s storage engine.')
      * @uses    PMA_ENGINE_SUPPORT_DEFAULT
      * @uses    PMA_ENGINE_SUPPORT_YES
      * @uses    PMA_ENGINE_SUPPORT_DISABLED
@@ -353,17 +353,17 @@ class PMA_StorageEngine
     {
         switch ($this->support) {
             case PMA_ENGINE_SUPPORT_DEFAULT:
-                $message = $GLOBALS['strDefaultEngine'];
+                $message = __('%s is the default storage engine on this MySQL server.');
                 break;
             case PMA_ENGINE_SUPPORT_YES:
-                $message = $GLOBALS['strEngineAvailable'];
+                $message = __('%s is available on this MySQL server.');
                 break;
             case PMA_ENGINE_SUPPORT_DISABLED:
-                $message = $GLOBALS['strEngineDisabled'];
+                $message = __('%s has been disabled for this MySQL server.');
                 break;
             case PMA_ENGINE_SUPPORT_NO:
             default:
-                $message = $GLOBALS['strEngineUnsupported'];
+                $message = __('This MySQL server does not support the %s storage engine.');
         }
         return sprintf($message, htmlspecialchars($this->title));
     }

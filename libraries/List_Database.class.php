@@ -428,7 +428,7 @@ require_once './libraries/List.class.php';
         $return = '<select name="db" id="lightm_db" xml:lang="en" dir="ltr"'
             . ' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
             . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
-            . '(' . $GLOBALS['strDatabases'] . ') ...</option>' . "\n";
+            . '(' . __('Databases') . ') ...</option>' . "\n";
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
                 $return .= '<optgroup label="' . htmlspecialchars($group)

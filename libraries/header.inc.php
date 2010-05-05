@@ -93,7 +93,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                 $GLOBALS['cfg']['DefaultTabServer'],
                 PMA_generate_common_url(),
                 htmlspecialchars($server_info),
-                $GLOBALS['strServer'],
+                __('Server'),
                 's_host.png');
 
         if (strlen($GLOBALS['db'])) {
@@ -103,7 +103,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                     $GLOBALS['cfg']['DefaultTabDatabase'],
                     PMA_generate_common_url($GLOBALS['db']),
                     htmlspecialchars($GLOBALS['db']),
-                    $GLOBALS['strDatabase'],
+                    __('Database'),
                     's_db.png');
 
             if (isset($GLOBALS['action']) && $GLOBALS['action'] == 'tbl_create.php') {
@@ -123,7 +123,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                         $GLOBALS['cfg']['DefaultTabTable'],
                         PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
                         str_replace(' ', '&nbsp;', htmlspecialchars($GLOBALS['table'])),
-                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? $GLOBALS['strView'] : $GLOBALS['strTable']),
+                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table')),
                         (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png');
 
                 /**
