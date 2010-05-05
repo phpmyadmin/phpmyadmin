@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:43+0200\n"
+"POT-Creation-Date: 2010-05-05 11:52+0200\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -1561,8 +1561,7 @@ msgstr "Compresión"
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/messages.inc.php:566
-#: libraries/tbl_properties.inc.php:575 server_privileges.php:263
-#: server_privileges.php:264 server_privileges.php:1836
+#: libraries/tbl_properties.inc.php:575 server_privileges.php:1836
 #: server_processlist.php:75
 msgid "None"
 msgstr "Ningunha"
@@ -3018,7 +3017,7 @@ msgstr "Ningunha"
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Conceder todos os privilexios sobre a base de datos &quot;%s&quot;"
 
-#: libraries/messages.inc.php:208
+#: libraries/messages.inc.php:208 server_privileges.php:2000
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Conceder todos os privilexios para o nome con comodíns (username\\_%)"
 
@@ -6796,23 +6795,30 @@ msgctxt "short form"
 msgid "Create table"
 msgstr "Crear táboas"
 
+#: pdf_schema.php:637
+#, fuzzy, php-format
+#| msgid "The \"%s\" table doesn't exist!"
+msgid "The %s table doesn't exist!"
+msgstr "Non existe a táboa \"%s\"."
+
 #: pdf_schema.php:996
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Esquema da base de datos \"%s\" - Páxina %s"
 
-#: pdf_schema.php:637
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
-msgid "The %s table doesn"
-msgstr "Non existe a táboa \"%s\"."
-
 #: server_databases.php:230
 #, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Ir á base de datos"
+
+#: server_privileges.php:263 server_privileges.php:264
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "Ningunha"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -6823,15 +6829,9 @@ msgstr ""
 #: server_privileges.php:1998
 #, fuzzy
 #| msgid "None"
-msgctxt ""
+msgctxt "Create none database for user"
 msgid "None"
 msgstr "Ningunha"
-
-#: server_privileges.php:2000
-#, fuzzy
-#| msgid "Grant all privileges on wildcard name (username\\_%)"
-msgid "Grant all privileges on wildcard name (username_%)"
-msgstr "Conceder todos os privilexios para o nome con comodíns (username\\_%)"
 
 #: server_status.php:344
 #, fuzzy
@@ -8728,6 +8728,29 @@ msgstr "Crear un índice en&nbsp;%s&nbsp;colunas"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descrición"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "None action"
+#~ msgid "None"
+#~ msgstr "Ningunha"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt ""
+#~ msgid "None"
+#~ msgstr "Ningunha"
+
+#, fuzzy
+#~| msgid "Grant all privileges on wildcard name (username\\_%)"
+#~ msgid "Grant all privileges on wildcard name (username_%)"
+#~ msgstr ""
+#~ "Conceder todos os privilexios para o nome con comodíns (username\\_%)"
+
+#, fuzzy
+#~| msgid "The \"%s\" table doesn't exist!"
+#~ msgid "The %s table doesn"
+#~ msgstr "Non existe a táboa \"%s\"."
 
 #, fuzzy
 #~| msgid "Could not load default configuration from: \"%1$s\""

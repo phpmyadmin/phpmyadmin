@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:43+0200\n"
+"POT-Creation-Date: 2010-05-05 11:52+0200\n"
 "PO-Revision-Date: 2010-03-23 21:07+0200\n"
 "Last-Translator:  <me@michaelkeck.de>\n"
 "Language-Team: german <de@li.org>\n"
@@ -1575,8 +1575,7 @@ msgstr "Kompression"
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/messages.inc.php:566
-#: libraries/tbl_properties.inc.php:575 server_privileges.php:263
-#: server_privileges.php:264 server_privileges.php:1836
+#: libraries/tbl_properties.inc.php:575 server_privileges.php:1836
 #: server_processlist.php:75
 msgid "None"
 msgstr "keine"
@@ -3024,7 +3023,7 @@ msgstr "keine"
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Gewähre alle Rechte auf die Datenbank &quot;%s&quot;"
 
-#: libraries/messages.inc.php:208
+#: libraries/messages.inc.php:208 server_privileges.php:2000
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 "Gewähre alle Rechte auf Datenbanken die mit dem Benuterznamen beginnen "
@@ -6837,23 +6836,30 @@ msgctxt "short form"
 msgid "Create table"
 msgstr "Erzeuge Tabelle"
 
+#: pdf_schema.php:637
+#, fuzzy, php-format
+#| msgid "The \"%s\" table doesn't exist!"
+msgid "The %s table doesn't exist!"
+msgstr "Die Tabelle \"%s\" existiert nicht!"
+
 #: pdf_schema.php:996
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Schema der Datenbank \"%s\" - Seite %s"
 
-#: pdf_schema.php:637
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
-msgid "The %s table doesn"
-msgstr "Die Tabelle \"%s\" existiert nicht!"
-
 #: server_databases.php:230
 #, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Gehe zur Datenbank"
+
+#: server_privileges.php:263 server_privileges.php:264
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "keine"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -6864,17 +6870,9 @@ msgstr ""
 #: server_privileges.php:1998
 #, fuzzy
 #| msgid "None"
-msgctxt ""
+msgctxt "Create none database for user"
 msgid "None"
 msgstr "keine"
-
-#: server_privileges.php:2000
-#, fuzzy
-#| msgid "Grant all privileges on wildcard name (username\\_%)"
-msgid "Grant all privileges on wildcard name (username_%)"
-msgstr ""
-"Gewähre alle Rechte auf Datenbanken die mit dem Benuterznamen beginnen "
-"(username\\_%)"
 
 #: server_status.php:344
 #, fuzzy
@@ -8652,6 +8650,30 @@ msgstr "Index über&nbsp;%s&nbsp;Spalten anlegen"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beschreibung"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "None action"
+#~ msgid "None"
+#~ msgstr "keine"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt ""
+#~ msgid "None"
+#~ msgstr "keine"
+
+#, fuzzy
+#~| msgid "Grant all privileges on wildcard name (username\\_%)"
+#~ msgid "Grant all privileges on wildcard name (username_%)"
+#~ msgstr ""
+#~ "Gewähre alle Rechte auf Datenbanken die mit dem Benuterznamen beginnen "
+#~ "(username\\_%)"
+
+#, fuzzy
+#~| msgid "The \"%s\" table doesn't exist!"
+#~ msgid "The %s table doesn"
+#~ msgstr "Die Tabelle \"%s\" existiert nicht!"
 
 #, fuzzy
 #~| msgid "Could not load default configuration from: \"%1$s\""

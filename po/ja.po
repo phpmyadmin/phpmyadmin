@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:43+0200\n"
+"POT-Creation-Date: 2010-05-05 11:52+0200\n"
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -1545,8 +1545,7 @@ msgstr "圧縮"
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/messages.inc.php:566
-#: libraries/tbl_properties.inc.php:575 server_privileges.php:263
-#: server_privileges.php:264 server_privileges.php:1836
+#: libraries/tbl_properties.inc.php:575 server_privileges.php:1836
 #: server_processlist.php:75
 msgid "None"
 msgstr "なし"
@@ -2973,7 +2972,7 @@ msgstr ""
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr ""
 
-#: libraries/messages.inc.php:208
+#: libraries/messages.inc.php:208 server_privileges.php:2000
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "ワイルドカード(ユーザ名_%)に該当するデータベースにすべての特権を与える"
 
@@ -6655,23 +6654,30 @@ msgctxt "short form"
 msgid "Create table"
 msgstr "テーブルを作成"
 
+#: pdf_schema.php:637
+#, fuzzy, php-format
+#| msgid "The \"%s\" table doesn't exist!"
+msgid "The %s table doesn't exist!"
+msgstr "\"%s\" テーブルは存在しません!"
+
 #: pdf_schema.php:996
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "データベース %s のスキーマ - ページ %s"
 
-#: pdf_schema.php:637
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
-msgid "The %s table doesn"
-msgstr "\"%s\" テーブルは存在しません!"
-
 #: server_databases.php:230
 #, fuzzy
 #| msgid "No databases"
 msgid "Jump to database"
 msgstr "データベースが存在しません"
+
+#: server_privileges.php:263 server_privileges.php:264
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "なし"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -6680,15 +6686,9 @@ msgstr ""
 #: server_privileges.php:1998
 #, fuzzy
 #| msgid "None"
-msgctxt ""
+msgctxt "Create none database for user"
 msgid "None"
 msgstr "なし"
-
-#: server_privileges.php:2000
-#, fuzzy
-#| msgid "Grant all privileges on wildcard name (username\\_%)"
-msgid "Grant all privileges on wildcard name (username_%)"
-msgstr "ワイルドカード(ユーザ名_%)に該当するデータベースにすべての特権を与える"
 
 #: server_status.php:344
 #, fuzzy
@@ -8343,6 +8343,29 @@ msgstr "&nbsp;%s&nbsp; のカラムにインデックスを作成する"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "説明"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "None action"
+#~ msgid "None"
+#~ msgstr "なし"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt ""
+#~ msgid "None"
+#~ msgstr "なし"
+
+#, fuzzy
+#~| msgid "Grant all privileges on wildcard name (username\\_%)"
+#~ msgid "Grant all privileges on wildcard name (username_%)"
+#~ msgstr ""
+#~ "ワイルドカード(ユーザ名_%)に該当するデータベースにすべての特権を与える"
+
+#, fuzzy
+#~| msgid "The \"%s\" table doesn't exist!"
+#~ msgid "The %s table doesn"
+#~ msgstr "\"%s\" テーブルは存在しません!"
 
 #, fuzzy
 #~| msgid "Could not load default configuration from: \"%1$s\""

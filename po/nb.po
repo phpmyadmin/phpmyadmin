@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:43+0200\n"
+"POT-Creation-Date: 2010-05-05 11:52+0200\n"
 "PO-Revision-Date: 2010-05-05 09:04+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -1491,8 +1491,7 @@ msgstr "Kompresjon"
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/messages.inc.php:566
-#: libraries/tbl_properties.inc.php:575 server_privileges.php:263
-#: server_privileges.php:264 server_privileges.php:1836
+#: libraries/tbl_properties.inc.php:575 server_privileges.php:1836
 #: server_processlist.php:75
 msgid "None"
 msgstr "Ingen"
@@ -2922,7 +2921,7 @@ msgstr "Ingen"
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Gi alle privilegier for databasen &quot;%s&quot;"
 
-#: libraries/messages.inc.php:208
+#: libraries/messages.inc.php:208 server_privileges.php:2000
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Gi alle rettigheter på jokertegnavn (username\\_%)"
 
@@ -6680,32 +6679,38 @@ msgctxt "short form"
 msgid "Create table"
 msgstr "Opprett tabell"
 
+#: pdf_schema.php:637
+#, fuzzy, php-format
+#| msgid "The \"%s\" table doesn't exist!"
+msgid "The %s table doesn't exist!"
+msgstr "Tabellen \"%s\" eksisterer ikke!"
+
 #: pdf_schema.php:996
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "Skjema for %s databasen - Side %s"
 
-#: pdf_schema.php:637
-#, php-format
-msgid "The %s table doesn"
-msgstr "Tabellen %s eksisterer ikke!"
-
 #: server_databases.php:230
 msgid "Jump to database"
 msgstr "Gå til database"
+
+#: server_privileges.php:263 server_privileges.php:264
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "Ingen"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Jokertegnene _ og % må beskyttes med en \\ for å bruke dem direkte"
 
 #: server_privileges.php:1998
-msgctxt ""
+#, fuzzy
+#| msgid "None"
+msgctxt "Create none database for user"
 msgid "None"
 msgstr "Ingen"
-
-#: server_privileges.php:2000
-msgid "Grant all privileges on wildcard name (username_%)"
-msgstr "Gi alle rettigheter på jokertegnnavn (username_%)"
 
 #: server_status.php:344
 msgctxt "for Show status"
@@ -8525,6 +8530,22 @@ msgstr "Lag en indeks på&nbsp;%s&nbsp;kolonner"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beskrivelse"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "None action"
+#~ msgid "None"
+#~ msgstr "Ingen"
+
+#~ msgctxt ""
+#~ msgid "None"
+#~ msgstr "Ingen"
+
+#~ msgid "Grant all privileges on wildcard name (username_%)"
+#~ msgstr "Gi alle rettigheter på jokertegnnavn (username_%)"
+
+#~ msgid "The %s table doesn"
+#~ msgstr "Tabellen %s eksisterer ikke!"
 
 #~ msgid "Could not load default configuration from: %1"
 #~ msgstr "Kunne ikke laste standard konfigurasjon fra: %1"

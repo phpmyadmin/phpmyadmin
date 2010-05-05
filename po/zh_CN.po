@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:43+0200\n"
+"POT-Creation-Date: 2010-05-05 11:52+0200\n"
 "PO-Revision-Date: 2010-04-08 13:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -1542,8 +1542,7 @@ msgstr "压缩"
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/messages.inc.php:566
-#: libraries/tbl_properties.inc.php:575 server_privileges.php:263
-#: server_privileges.php:264 server_privileges.php:1836
+#: libraries/tbl_properties.inc.php:575 server_privileges.php:1836
 #: server_processlist.php:75
 msgid "None"
 msgstr "无"
@@ -2937,7 +2936,7 @@ msgstr "无"
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "授予数据库“%s”的所有权限。"
 
-#: libraries/messages.inc.php:208
+#: libraries/messages.inc.php:208 server_privileges.php:2000
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限"
 
@@ -6542,23 +6541,30 @@ msgctxt "short form"
 msgid "Create table"
 msgstr "新建数据表"
 
+#: pdf_schema.php:637
+#, fuzzy, php-format
+#| msgid "The \"%s\" table doesn't exist!"
+msgid "The %s table doesn't exist!"
+msgstr "表“%s”不存在！"
+
 #: pdf_schema.php:996
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "数据库“%s”的大纲 - 第 %s 页"
 
-#: pdf_schema.php:637
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
-msgid "The %s table doesn"
-msgstr "表“%s”不存在！"
-
 #: server_databases.php:230
 #, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "转到数据库"
+
+#: server_privileges.php:263 server_privileges.php:264
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "无"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -6567,15 +6573,9 @@ msgstr "要使用通配符 _ 和 % 本身，应使用用 \\ 转义"
 #: server_privileges.php:1998
 #, fuzzy
 #| msgid "None"
-msgctxt ""
+msgctxt "Create none database for user"
 msgid "None"
 msgstr "无"
-
-#: server_privileges.php:2000
-#, fuzzy
-#| msgid "Grant all privileges on wildcard name (username\\_%)"
-msgid "Grant all privileges on wildcard name (username_%)"
-msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限"
 
 #: server_status.php:344
 #, fuzzy
@@ -8332,6 +8332,28 @@ msgstr "在第 %s 个字段创建索引"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "说明"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "None action"
+#~ msgid "None"
+#~ msgstr "无"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt ""
+#~ msgid "None"
+#~ msgstr "无"
+
+#, fuzzy
+#~| msgid "Grant all privileges on wildcard name (username\\_%)"
+#~ msgid "Grant all privileges on wildcard name (username_%)"
+#~ msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限"
+
+#, fuzzy
+#~| msgid "The \"%s\" table doesn't exist!"
+#~ msgid "The %s table doesn"
+#~ msgstr "表“%s”不存在！"
 
 #, fuzzy
 #~| msgid "Could not load default configuration from: \"%1$s\""

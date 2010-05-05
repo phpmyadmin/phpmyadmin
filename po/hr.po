@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:43+0200\n"
+"POT-Creation-Date: 2010-05-05 11:52+0200\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: croatian <hr@li.org>\n"
@@ -1568,8 +1568,7 @@ msgstr "Kompresija"
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/messages.inc.php:566
-#: libraries/tbl_properties.inc.php:575 server_privileges.php:263
-#: server_privileges.php:264 server_privileges.php:1836
+#: libraries/tbl_properties.inc.php:575 server_privileges.php:1836
 #: server_processlist.php:75
 msgid "None"
 msgstr "bez kompresije"
@@ -3011,7 +3010,7 @@ msgstr "bez kompresije"
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Provjeri privilegije za bazu podataka \"%s\"."
 
-#: libraries/messages.inc.php:208
+#: libraries/messages.inc.php:208 server_privileges.php:2000
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Podari sve privilegije imenima s džokerima (korisničkoime_%)"
 
@@ -6771,22 +6770,29 @@ msgctxt "short form"
 msgid "Create table"
 msgstr "Izradi tablicu"
 
+#: pdf_schema.php:637
+#, fuzzy, php-format
+#| msgid "The \"%s\" table doesn't exist!"
+msgid "The %s table doesn't exist!"
+msgstr "Tablica \"%s\" ne postoji!"
+
 #: pdf_schema.php:996
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Shema \"%s\" baza podataka - stranica %s"
 
-#: pdf_schema.php:637
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
-msgid "The %s table doesn"
-msgstr "Tablica \"%s\" ne postoji!"
-
 #: server_databases.php:230
 #, fuzzy
 msgid "Jump to database"
 msgstr "Nema baza podataka"
+
+#: server_privileges.php:263 server_privileges.php:264
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "bez kompresije"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -6797,15 +6803,9 @@ msgstr ""
 #: server_privileges.php:1998
 #, fuzzy
 #| msgid "None"
-msgctxt ""
+msgctxt "Create none database for user"
 msgid "None"
 msgstr "bez kompresije"
-
-#: server_privileges.php:2000
-#, fuzzy
-#| msgid "Grant all privileges on wildcard name (username\\_%)"
-msgid "Grant all privileges on wildcard name (username_%)"
-msgstr "Podari sve privilegije imenima s džokerima (korisničkoime_%)"
 
 #: server_status.php:344
 #, fuzzy
@@ -8508,6 +8508,28 @@ msgstr "Izradi indeks &nbsp;%s&nbsp;stupaca"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Opis"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "None action"
+#~ msgid "None"
+#~ msgstr "bez kompresije"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt ""
+#~ msgid "None"
+#~ msgstr "bez kompresije"
+
+#, fuzzy
+#~| msgid "Grant all privileges on wildcard name (username\\_%)"
+#~ msgid "Grant all privileges on wildcard name (username_%)"
+#~ msgstr "Podari sve privilegije imenima s džokerima (korisničkoime_%)"
+
+#, fuzzy
+#~| msgid "The \"%s\" table doesn't exist!"
+#~ msgid "The %s table doesn"
+#~ msgstr "Tablica \"%s\" ne postoji!"
 
 #, fuzzy
 #~| msgid "Could not load default configuration from: \"%1$s\""

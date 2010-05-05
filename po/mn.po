@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:43+0200\n"
+"POT-Creation-Date: 2010-05-05 11:52+0200\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: mongolian <mn@li.org>\n"
@@ -1540,8 +1540,7 @@ msgstr "Шахалт"
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/messages.inc.php:566
-#: libraries/tbl_properties.inc.php:575 server_privileges.php:263
-#: server_privileges.php:264 server_privileges.php:1836
+#: libraries/tbl_properties.inc.php:575 server_privileges.php:1836
 #: server_processlist.php:75
 msgid "None"
 msgstr "Байхгүй"
@@ -2936,7 +2935,7 @@ msgstr ""
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr ""
 
-#: libraries/messages.inc.php:208
+#: libraries/messages.inc.php:208 server_privileges.php:2000
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
@@ -6541,23 +6540,30 @@ msgctxt "short form"
 msgid "Create table"
 msgstr "Хүснэгт үүсгэх"
 
+#: pdf_schema.php:637
+#, fuzzy, php-format
+#| msgid "The \"%s\" table doesn't exist!"
+msgid "The %s table doesn't exist!"
+msgstr "Хүснэгт \"%s\" байхгүй байна!"
+
 #: pdf_schema.php:996
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "\"%s\" өгөгдлийн сангийн схем - Хуудас %s"
 
-#: pdf_schema.php:637
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
-msgid "The %s table doesn"
-msgstr "Хүснэгт \"%s\" байхгүй байна!"
-
 #: server_databases.php:230
 #, fuzzy
 #| msgid "No databases"
 msgid "Jump to database"
 msgstr "ӨС байхгүй"
+
+#: server_privileges.php:263 server_privileges.php:264
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "Байхгүй"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -6566,13 +6572,9 @@ msgstr ""
 #: server_privileges.php:1998
 #, fuzzy
 #| msgid "None"
-msgctxt ""
+msgctxt "Create none database for user"
 msgid "None"
 msgstr "Байхгүй"
-
-#: server_privileges.php:2000
-msgid "Grant all privileges on wildcard name (username_%)"
-msgstr ""
 
 #: server_status.php:344
 #, fuzzy
@@ -8221,6 +8223,23 @@ msgstr "&nbsp;%s&nbsp;багануудад индекс үүсгэх"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Тайлбар"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "None action"
+#~ msgid "None"
+#~ msgstr "Байхгүй"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt ""
+#~ msgid "None"
+#~ msgstr "Байхгүй"
+
+#, fuzzy
+#~| msgid "The \"%s\" table doesn't exist!"
+#~ msgid "The %s table doesn"
+#~ msgstr "Хүснэгт \"%s\" байхгүй байна!"
 
 #, fuzzy
 #~| msgid "Could not load default configuration from: \"%1$s\""
