@@ -11,6 +11,13 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Failure on loading recode/iconv extensions.
+ */
+function PMA_failRecoding() {
+    PMA_fatalError(__('Couldn\'t load the iconv or recode extension needed for charset conversion. Either configure PHP to enable these extensions or disable charset conversion in phpMyAdmin.'));
+}
+
+/**
  * Loads the recode or iconv extensions if any of it is not loaded yet
  */
 if (isset($cfg['AllowAnywhereRecoding'])
@@ -18,14 +25,12 @@ if (isset($cfg['AllowAnywhereRecoding'])
 
     if ($cfg['RecodingEngine'] == 'recode') {
         if (!@extension_loaded('recode')) {
-            echo __('Couldn\'t load the iconv or recode extension needed for charset conversion. Either configure PHP to enable these extensions or disable charset conversion in phpMyAdmin.');
-            exit;
+            PMA_failRecoding();
         }
         $PMA_recoding_engine             = 'recode';
     } elseif ($cfg['RecodingEngine'] == 'iconv') {
         if (!@extension_loaded('iconv')) {
-            echo __('Couldn\'t load the iconv or recode extension needed for charset conversion. Either configure PHP to enable these extensions or disable charset conversion in phpMyAdmin.');
-            exit;
+            PMA_failRecoding();
         }
         $PMA_recoding_engine             = 'iconv';
     } else {
@@ -34,8 +39,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
         } elseif (@extension_loaded('recode')) {
             $PMA_recoding_engine         = 'recode';
         } else {
-            echo __('Couldn\'t load the iconv or recode extension needed for charset conversion. Either configure PHP to enable these extensions or disable charset conversion in phpMyAdmin.');
-            exit;
+            PMA_failRecoding();
         }
     }
 } // end load recode/iconv extension
