@@ -3597,7 +3597,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:410
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr "Modifier sa structure via le lien \"Structure\""
+msgstr "Modifier sa structure via le lien  «Structure »"
 
 #: libraries/messages.inc.php:411
 msgid "Import currencies ($5.00 to 5.00)"
