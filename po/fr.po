@@ -3116,7 +3116,7 @@ msgid ""
 "appropriate field name."
 msgstr ""
 "Le champ à afficher est montré en rose. Pour indiquer qu'un champ est ou "
-"n'est plus le champ à afficher, cliquer l'icône \"Champ à afficher\", puis "
+"n'est plus le champ à afficher, cliquer l'icône  «Champ à afficher», puis "
 "cliquer sur le nom de champ approprié."
 
 #: libraries/messages.inc.php:264 libraries/mysql_charsets.lib.php:248
