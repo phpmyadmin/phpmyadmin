@@ -55,14 +55,14 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 if (isset($_REQUEST['report_export'])) {
 
 /**
- * Filters tracking entries 
+ * Filters tracking entries
  *
- * @param   array   the entries to filter 
+ * @param   array   the entries to filter
  * @param   string  "from" date
  * @param   string  "to" date
- * @param   string  users 
+ * @param   string  users
  *
- * @return  array   filtered entries 
+ * @return  array   filtered entries
  *
  */
     function PMA_filter_tracking($data, $filter_ts_from, $filter_ts_to, $filter_users) {
@@ -71,7 +71,7 @@ if (isset($_REQUEST['report_export'])) {
         foreach( $data as $entry ) {
             $timestamp = strtotime($entry['date']);
 
-            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
+            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
               ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
                 $tmp_entries[] = array( 'id' => $id,
                                     'timestamp' => $timestamp,
@@ -111,7 +111,7 @@ if (isset($_REQUEST['report_export'])) {
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfile') {
     @ini_set('url_rewriter.tags','');
 
-    $dump = "# " . sprintf(__('Tracking report')ForTable, htmlspecialchars($_REQUEST['table'])) . "\n" .
+    $dump = "# " . sprintf(__('Tracking report for table `%s`'), htmlspecialchars($_REQUEST['table'])) . "\n" .
             "# " . date('Y-m-d H:i:s') . "\n";
     foreach($entries as $entry) {
         $dump .= $entry['statement'];
@@ -301,8 +301,8 @@ if (isset($_REQUEST['snapshot'])) {
         </tr>
 <?php
             if ($style == 'even') {
-                $style = 'odd'; 
-            } else { 
+                $style = 'odd';
+            } else {
                 $style = 'even';
             }
     }
@@ -355,7 +355,7 @@ if (isset($_REQUEST['snapshot'])) {
             </tr>
 <?php
             if ($style == 'even') {
-                $style = 'odd'; 
+                $style = 'odd';
             } else {
                 $style = 'even';
             }
@@ -423,7 +423,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             }
             $timestamp = strtotime($entry['date']);
 
-            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
+            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
               ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
         ?>
                 <tr class="<?php echo $style; ?>">
@@ -434,7 +434,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 </tr>
         <?php
                 if ($style == 'even') {
-                    $style = 'odd'; 
+                    $style = 'odd';
                 } else {
                     $style = 'even';
                 }
@@ -474,7 +474,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             }
             $timestamp = strtotime($entry['date']);
 
-            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
+            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
               ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
         ?>
                 <tr class="<?php echo $style; ?>">
@@ -485,8 +485,8 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 </tr>
         <?php
                 if ($style == 'even') {
-                    $style = 'odd'; 
-                } else { 
+                    $style = 'odd';
+                } else {
                     $style = 'even';
                 }
                 $i++;
@@ -625,7 +625,7 @@ if ($last_version > 0) {
         </tr>
     <?php
         if ($style == 'even') {
-            $style = 'odd'; 
+            $style = 'odd';
         } else {
             $style = 'even';
         }
