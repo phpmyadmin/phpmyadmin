@@ -776,12 +776,12 @@ if ($action == 'tbl_create.php') {
     <input type="submit" name="do_save_data" value="<?php echo __('Save'); ?>"
         onclick="return checkTableEditForm(this.form, <?php echo $num_fields; ?>)" />
 <?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>
-    <?php echo $GLOBALS['strOr']; ?>
+    <?php echo __('Or'); ?>
     <?php echo sprintf(__('Add %s field(s)'), '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />'); ?>
     <input type="submit" name="submit_num_fields"
-        value="<?php echo $GLOBALS['strGo']; ?>"
+        value="<?php echo __('Go'); ?>"
 <?php /*        onclick="if (addField()) return false;" */ ?>
-        onclick="return checkFormElementInRange(this.form, 'added_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']); ?>', 1)"
+        onclick="return checkFormElementInRange(this.form, 'added_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one field.')); ?>', 1)"
         />
 <?php } ?>
 </fieldset>

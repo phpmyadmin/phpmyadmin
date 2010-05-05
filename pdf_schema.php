@@ -229,7 +229,7 @@ class PMA_PDF extends TCPDF {
 
         require_once './libraries/header.inc.php';
 
-        echo '<p><strong>PDF - ' . $GLOBALS['strError'] . '</strong></p>' . "\n";
+        echo '<p><strong>PDF - ' . __('Error') . '</strong></p>' . "\n";
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
         }
@@ -238,7 +238,7 @@ class PMA_PDF extends TCPDF {
         echo '</p>' . "\n";
 
         echo '<a href="db_structure.php?' . PMA_generate_common_url($db)
-         . '">' . $GLOBALS['strBack'] . '</a>';
+         . '">' . __('Back') . '</a>';
         echo "\n";
 
         require_once './libraries/footer.inc.php';
@@ -281,7 +281,7 @@ class PMA_PDF extends TCPDF {
         if ($with_doc) {
             $this->SetY(-15);
             $this->SetFont('', '', 14);
-            $this->Cell(0, 6, $GLOBALS['strPageNumber'] . ' ' . $this->PageNo() . '/{nb}', 'T', 0, 'C');
+            $this->Cell(0, 6, __('Page number:') . ' ' . $this->PageNo() . '/{nb}', 'T', 0, 'C');
             $this->Cell(0, 6, PMA_localisedDate(), 0, 1, 'R');
             $this->SetY(20);
         }
@@ -606,7 +606,7 @@ class PMA_RT_Table {
             $pdf->SetFillColor(255);
         } // end while
         /*if ($pdf->PageNo() > 1) {
-            $pdf->PMA_PDF_die($GLOBALS['strScaleFactorSmall']);
+            $pdf->PMA_PDF_die(__('The scale factor is too small to fit the schema on one page'));
         } */
     } // end of the "PMA_RT_Table_draw()" method
     /**
@@ -634,7 +634,7 @@ class PMA_RT_Table {
         $sql = 'DESCRIBE ' . PMA_backquote($table_name);
         $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
-            $pdf->PMA_PDF_die(sprintf($GLOBALS['strPdfInvalidTblName'], $table_name));
+            $pdf->PMA_PDF_die(sprintf(__('The %s table doesn't exist!'), $table_name));
         }
         // load fields
         //check to see if it will load all fields or only the foreign keys
@@ -670,7 +670,7 @@ class PMA_RT_Table {
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
 
         if (!$result || !PMA_DBI_num_rows($result)) {
-            $pdf->PMA_PDF_die(sprintf($GLOBALS['strConfigureTableCoord'], $table_name));
+            $pdf->PMA_PDF_die(sprintf(__('Please configure the coordinates for table %s'), $table_name));
         }
         list($this->x, $this->y) = PMA_DBI_fetch_row($result);
         $this->x = (double) $this->x;
@@ -993,7 +993,7 @@ class PMA_RT {
         $this->same_wide = $all_tab_same_wide;
         // Initializes a new document
         $pdf = new PMA_PDF('L', 'mm', $paper);
-        $pdf->SetTitle(sprintf($GLOBALS['strPdfDbSchema'], $GLOBALS['db'], $which_rel));
+        $pdf->SetTitle(sprintf(__('Schema of the %s database - Page %s'), $GLOBALS['db'], $which_rel));
         $pdf->setCMargin(0);
         $pdf->Open();
         $pdf->SetAuthor('phpMyAdmin ' . PMA_VERSION);
@@ -1011,7 +1011,7 @@ class PMA_RT {
          . ' AND pdf_page_number = ' . $which_rel;
         $tab_rs = PMA_query_as_controluser($tab_sql, null, PMA_DBI_QUERY_STORE);
         if (!$tab_rs || !PMA_DBI_num_rows($tab_rs) > 0) {
-            $pdf->PMA_PDF_die($GLOBALS['strPdfNoTables']);
+            $pdf->PMA_PDF_die(__('No tables'));
             // die('No tables');
         } while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
             $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
@@ -1030,7 +1030,7 @@ class PMA_RT {
 
         if ($with_doc) {
             $pdf->SetLink($pdf->PMA_links['RT']['-'], -1);
-            $pdf->Bookmark($GLOBALS['strRelationalSchema']);
+            $pdf->Bookmark(__('Relational schema'));
             $pdf->SetAlias('{00}', $pdf->PageNo()) ;
             $this->t_marg = 18;
             $this->b_marg = 18;
@@ -1114,14 +1114,14 @@ function PMA_RT_DOC($alltables)
     global $db, $pdf, $orientation, $paper;
     // TOC
     $pdf->addpage($GLOBALS['orientation']);
-    $pdf->Cell(0, 9, $GLOBALS['strTableOfContents'], 1, 0, 'C');
+    $pdf->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
     $pdf->Ln(15);
     $i = 1;
     foreach ($alltables AS $table) {
         $pdf->PMA_links['doc'][$table]['-'] = $pdf->AddLink();
         $pdf->SetX(10);
         // $pdf->Ln(1);
-        $pdf->Cell(0, 6, $GLOBALS['strPageNumber'] . ' {' . sprintf("%02d", $i + 1) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$table]['-']);
+        $pdf->Cell(0, 6, __('Page number:') . ' {' . sprintf("%02d", $i + 1) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$table]['-']);
         $pdf->SetX(10);
         $pdf->Cell(0, 6, $i . ' ' . $table, 0, 1, 'L', 0, $pdf->PMA_links['doc'][$table]['-']);
         // $pdf->Ln(1);
@@ -1137,9 +1137,9 @@ function PMA_RT_DOC($alltables)
     }
     $pdf->PMA_links['RT']['-'] = $pdf->AddLink();
     $pdf->SetX(10);
-    $pdf->Cell(0, 6, $GLOBALS['strPageNumber'] . ' {' . sprintf("%02d", $i + 1) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$lasttable]['-']);
+    $pdf->Cell(0, 6, __('Page number:') . ' {' . sprintf("%02d", $i + 1) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$lasttable]['-']);
     $pdf->SetX(10);
-    $pdf->Cell(0, 6, $i + 1 . ' ' . $GLOBALS['strRelationalSchema'], 0, 1, 'L', 0, $pdf->PMA_links['RT']['-']);
+    $pdf->Cell(0, 6, $i + 1 . ' ' . __('Relational schema'), 0, 1, 'L', 0, $pdf->PMA_links['RT']['-']);
     $z = 0;
     foreach ($alltables AS $table) {
         $z++;
@@ -1234,22 +1234,22 @@ function PMA_RT_DOC($alltables)
 
         $break = false;
         if (!empty($show_comment)) {
-            $pdf->Cell(0, 3, $GLOBALS['strTableComments'] . ' : ' . $show_comment, 0, 1);
+            $pdf->Cell(0, 3, __('Table comments') . ' : ' . $show_comment, 0, 1);
             $break = true;
         }
 
         if (!empty($create_time)) {
-            $pdf->Cell(0, 3, $GLOBALS['strStatCreateTime'] . ': ' . $create_time, 0, 1);
+            $pdf->Cell(0, 3, __('Creation') . ': ' . $create_time, 0, 1);
             $break = true;
         }
 
         if (!empty($update_time)) {
-            $pdf->Cell(0, 3, $GLOBALS['strStatUpdateTime'] . ': ' . $update_time, 0, 1);
+            $pdf->Cell(0, 3, __('Last update') . ': ' . $update_time, 0, 1);
             $break = true;
         }
 
         if (!empty($check_time)) {
-            $pdf->Cell(0, 3, $GLOBALS['strStatCheckTime'] . ': ' . $check_time, 0, 1);
+            $pdf->Cell(0, 3, __('Last check') . ': ' . $check_time, 0, 1);
             $break = true;
         }
 
@@ -1260,13 +1260,13 @@ function PMA_RT_DOC($alltables)
 
         $pdf->SetFont('', 'B');
         if (isset($orientation) && $orientation == 'L') {
-            $pdf->Cell(25, 8, ucfirst($GLOBALS['strField']), 1, 0, 'C');
-            $pdf->Cell(20, 8, ucfirst($GLOBALS['strType']), 1, 0, 'C');
-            $pdf->Cell(20, 8, ucfirst($GLOBALS['strAttr']), 1, 0, 'C');
-            $pdf->Cell(10, 8, ucfirst($GLOBALS['strNull']), 1, 0, 'C');
-            $pdf->Cell(20, 8, ucfirst($GLOBALS['strDefault']), 1, 0, 'C');
-            $pdf->Cell(25, 8, ucfirst($GLOBALS['strExtra']), 1, 0, 'C');
-            $pdf->Cell(45, 8, ucfirst($GLOBALS['strLinksTo']), 1, 0, 'C');
+            $pdf->Cell(25, 8, ucfirst(__('Field')), 1, 0, 'C');
+            $pdf->Cell(20, 8, ucfirst(__('Type')), 1, 0, 'C');
+            $pdf->Cell(20, 8, ucfirst(__('Attributes')), 1, 0, 'C');
+            $pdf->Cell(10, 8, ucfirst(__('Null')), 1, 0, 'C');
+            $pdf->Cell(20, 8, ucfirst(__('Default')), 1, 0, 'C');
+            $pdf->Cell(25, 8, ucfirst(__('Extra')), 1, 0, 'C');
+            $pdf->Cell(45, 8, ucfirst(__('Links to')), 1, 0, 'C');
 
             if ($paper == 'A4') {
                 $comments_width = 67;
@@ -1277,18 +1277,18 @@ function PMA_RT_DOC($alltables)
                  */
                 $comments_width = 50;
             }
-            $pdf->Cell($comments_width, 8, ucfirst($GLOBALS['strComments']), 1, 0, 'C');
+            $pdf->Cell($comments_width, 8, ucfirst(__('Comments')), 1, 0, 'C');
             $pdf->Cell(45, 8, 'MIME', 1, 1, 'C');
             $pdf->SetWidths(array(25, 20, 20, 10, 20, 25, 45, $comments_width, 45));
         } else {
-            $pdf->Cell(20, 8, ucfirst($GLOBALS['strField']), 1, 0, 'C');
-            $pdf->Cell(20, 8, ucfirst($GLOBALS['strType']), 1, 0, 'C');
-            $pdf->Cell(20, 8, ucfirst($GLOBALS['strAttr']), 1, 0, 'C');
-            $pdf->Cell(10, 8, ucfirst($GLOBALS['strNull']), 1, 0, 'C');
-            $pdf->Cell(15, 8, ucfirst($GLOBALS['strDefault']), 1, 0, 'C');
-            $pdf->Cell(15, 8, ucfirst($GLOBALS['strExtra']), 1, 0, 'C');
-            $pdf->Cell(30, 8, ucfirst($GLOBALS['strLinksTo']), 1, 0, 'C');
-            $pdf->Cell(30, 8, ucfirst($GLOBALS['strComments']), 1, 0, 'C');
+            $pdf->Cell(20, 8, ucfirst(__('Field')), 1, 0, 'C');
+            $pdf->Cell(20, 8, ucfirst(__('Type')), 1, 0, 'C');
+            $pdf->Cell(20, 8, ucfirst(__('Attributes')), 1, 0, 'C');
+            $pdf->Cell(10, 8, ucfirst(__('Null')), 1, 0, 'C');
+            $pdf->Cell(15, 8, ucfirst(__('Default')), 1, 0, 'C');
+            $pdf->Cell(15, 8, ucfirst(__('Extra')), 1, 0, 'C');
+            $pdf->Cell(30, 8, ucfirst(__('Links to')), 1, 0, 'C');
+            $pdf->Cell(30, 8, ucfirst(__('Comments')), 1, 0, 'C');
             $pdf->Cell(30, 8, 'MIME', 1, 1, 'C');
             $pdf->SetWidths(array(20, 20, 20, 10, 15, 15, 30, 30, 30));
         }
@@ -1342,7 +1342,7 @@ function PMA_RT_DOC($alltables)
             $pdf_row = array($field_name,
                 $type,
                 $attribute,
-                ($row['Null'] == '' || $row['Null'] == 'NO') ? $GLOBALS['strNo'] : $GLOBALS['strYes'],
+                ($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes'),
                 ((isset($row['Default'])) ? $row['Default'] : ''),
                 $row['Extra'],
                 ((isset($res_rel[$field_name])) ? $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] : ''),

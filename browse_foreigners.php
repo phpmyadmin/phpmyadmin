@@ -79,7 +79,7 @@ if (is_array($foreignData['disp_row'])) {
                       5,
                       20,
                       10,
-                      $GLOBALS['strPageNumber']
+                      __('Page number:')
                     );
     }
 }

@@ -1324,10 +1324,10 @@ function PMA_displayQuery($query) {
 
 /**
  * PMA_syncDisplayHeaderSource() shows the header for source database 
- * @uses   $GLOBALS['strDatabase_src'] 
- * @uses   $GLOBALS['strDifference'] 
- * @uses   $GLOBALS['strCurrentServer'] 
- * @uses   $GLOBALS['strRemoteServer'] 
+ * @uses   __('Source database') 
+ * @uses   __('Difference') 
+ * @uses   __('Current server') 
+ * @uses   __('Remote server') 
  * @uses   $_SESSION['src_type'] 
  * @uses   $_SESSION['src_server']['host'] 
  *
@@ -1338,22 +1338,22 @@ function PMA_syncDisplayHeaderSource($src_db) {
 
     echo '<table id="serverstatusconnections" class="data" width="55%">';
     echo '<tr>';
-    echo '<th>' . $GLOBALS['strDatabase_src'] . ':  ' . $src_db . '<br />(';
+    echo '<th>' . __('Source database') . ':  ' . $src_db . '<br />(';
     if ('cur' == $_SESSION['src_type']) {
-        echo $GLOBALS['strCurrentServer'];
+        echo __('Current server');
     } else {
-        echo $GLOBALS['strRemoteServer'] . ' ' . $_SESSION['src_server']['host'];
+        echo __('Remote server') . ' ' . $_SESSION['src_server']['host'];
     }
     echo ')</th>';
-    echo '<th>' . $GLOBALS['strDifference'] . '</th>';
+    echo '<th>' . __('Difference') . '</th>';
     echo '</tr>';
 }
 
 /**
  * PMA_syncDisplayHeaderTargetAndMatchingTables() shows the header for target database and the matching tables
- * @uses   $GLOBALS['strDatabase_trg'] 
- * @uses   $GLOBALS['strCurrentServer'] 
- * @uses   $GLOBALS['strRemoteServer'] 
+ * @uses   __('Target database') 
+ * @uses   __('Current server') 
+ * @uses   __('Remote server') 
  * @uses   $_SESSION['trg_type'] 
  * @uses   $_SESSION['trg_server']['host'] 
  * 
@@ -1364,11 +1364,11 @@ function PMA_syncDisplayHeaderSource($src_db) {
 function PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables) {
     echo '<table id="serverstatusconnections" class="data" width="43%">';
     echo '<tr>';
-    echo '<th>' . $GLOBALS['strDatabase_trg'] . ':  '. $trg_db . '<br />(';
+    echo '<th>' . __('Target database') . ':  '. $trg_db . '<br />(';
     if ('cur' == $_SESSION['trg_type']) {
-        echo $GLOBALS['strCurrentServer'];
+        echo __('Current server');
     } else {
-        echo $GLOBALS['strRemoteServer'] . ' ' . $_SESSION['trg_server']['host'];
+        echo __('Remote server') . ' ' . $_SESSION['trg_server']['host'];
     }
     echo ')</th>';
     echo '</tr>';

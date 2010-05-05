@@ -81,7 +81,7 @@ require_once './libraries/header_meta_style.inc.php';
   <form name="form1" method="post" action="pmd_pdf.php">
 <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <div>
-    <fieldset><legend><?php echo $GLOBALS['strExport'] . '/' . $GLOBALS['strImport']; ?></legend>
+    <fieldset><legend><?php echo __('Export') . '/' . __('Import'); ?></legend>
     <p><?php echo __('Export/Import to scale'); ?>:
       <select name="scale">
         <option value="1">1:1</option>
@@ -111,7 +111,7 @@ require_once './libraries/header_meta_style.inc.php';
     </fieldset>
     </div>
     <div>
-    <fieldset><legend><?php echo $GLOBALS['strCreatePage']; ?></legend>
+    <fieldset><legend><?php echo __('Create a page'); ?></legend>
         <input type="text" name="newpage" />
         <input type="submit" name="createpage" value="<?php echo __('Go'); ?>">
     </fieldset>

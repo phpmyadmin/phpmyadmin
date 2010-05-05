@@ -251,7 +251,7 @@ echo sprintf(__('Add to index &nbsp;%s&nbsp;column(s)'),
     .' onfocus="this.select()" />') . "\n";
 echo '<input type="submit" name="add_fields" value="' . __('Go') . '"'
     .' onclick="return checkFormElementInRange(this.form,'
-    ." 'added_fields', '" . PMA_jsFormat($GLOBALS['strInvalidColumnCount']) . "', 1"
+    ." 'added_fields', '" . PMA_jsFormat(__('Column count has to be larger than zero.')) . "', 1"
     .')" />' . "\n";
 ?>
 </fieldset>

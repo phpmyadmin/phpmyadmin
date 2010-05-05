@@ -83,7 +83,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
  * @access  public
  */
 function PMA_exportDBHeader($db) {
-    return PMA_exportOutputHandler('<h1>' . $GLOBALS['strDatabase'] . ' ' . $db . '</h1>');
+    return PMA_exportOutputHandler('<h1>' . __('Database') . ' ' . $db . '</h1>');
 }
 
 /**
@@ -129,7 +129,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
     global $what;
 
-    if (! PMA_exportOutputHandler('<h2>' . $GLOBALS['strDumpingData'] . ' ' . $table . '</h2>')) {
+    if (! PMA_exportOutputHandler('<h2>' . __('Dumping data for table') . ' ' . $table . '</h2>')) {
         return FALSE;
     }
     if (! PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) {
@@ -182,7 +182,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 {
     global $cfgRelation;
 
-    if (! PMA_exportOutputHandler('<h2>' . $GLOBALS['strTableStructure'] . ' ' .$table . '</h2>')) {
+    if (! PMA_exportOutputHandler('<h2>' . __('Table structure for table') . ' ' .$table . '</h2>')) {
         return FALSE;
     }
 
@@ -241,15 +241,15 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     }
 
     $schema_insert = '<tr class="print-category">';
-    $schema_insert .= '<th class="print">' . htmlspecialchars($GLOBALS['strField']) . '</th>';
-    $schema_insert .= '<td class="print"><b>' . htmlspecialchars($GLOBALS['strType']) . '</b></td>';
-    $schema_insert .= '<td class="print"><b>' . htmlspecialchars($GLOBALS['strNull']) . '</b></td>';
-    $schema_insert .= '<td class="print"><b>' . htmlspecialchars($GLOBALS['strDefault']) . '</b></td>';
+    $schema_insert .= '<th class="print">' . htmlspecialchars(__('Field')) . '</th>';
+    $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Type')) . '</b></td>';
+    $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Null')) . '</b></td>';
+    $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Default')) . '</b></td>';
     if ($do_relation && $have_rel) {
-        $schema_insert .= '<td class="print"><b>' . htmlspecialchars($GLOBALS['strLinksTo']) . '</b></td>';
+        $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Links to')) . '</b></td>';
     }
     if ($do_comments) {
-        $schema_insert .= '<td class="print"><b>' . htmlspecialchars($GLOBALS['strComments']) . '</b></td>';
+        $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Comments')) . '</b></td>';
         $comments = PMA_getComments($db, $table);
     }
     if ($do_mime && $cfgRelation['mimework']) {
@@ -319,7 +319,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         }
         $schema_insert .= '<td class="print">' . $fmt_pre . htmlspecialchars($row['Field']) . $fmt_post . '</td>';
         $schema_insert .= '<td class="print">' . htmlspecialchars($type) . '</td>';
-        $schema_insert .= '<td class="print">' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? $GLOBALS['strNo'] : $GLOBALS['strYes']) . '</td>';
+        $schema_insert .= '<td class="print">' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
         $schema_insert .= '<td class="print">' . htmlspecialchars(isset($row['Default']) ? $row['Default'] : '') . '</td>';
 
         $field_name = $row['Field'];

@@ -23,7 +23,7 @@ function PMA_getZipContents($file)
     if (is_resource($zip_handle)) {
         $first_zip_entry = zip_read($zip_handle);
         if (false === $first_zip_entry) {
-            $error_message = $GLOBALS['strNoFilesFoundInZip'];
+            $error_message = __('No files found inside ZIP archive!');
         } else {
             /* Is the the zip really an ODS file? */
             $read = zip_entry_read($first_zip_entry);
@@ -46,9 +46,9 @@ function PMA_getZipContents($file)
                          * error that we must display
                          */
                         if ($entry === FALSE) {
-                            $error_message = $GLOBALS['strErrorInZipFile'] . ' Could not find "content.xml"';
+                            $error_message = __('Error in ZIP archive:') . ' Could not find "content.xml"';
                         } else {
-                            $error_message = $GLOBALS['strErrorInZipFile'] . ' ' . PMA_getZipError($zip_handle);
+                            $error_message = __('Error in ZIP archive:') . ' ' . PMA_getZipError($zip_handle);
                         }
                         
                         break;
@@ -63,7 +63,7 @@ function PMA_getZipContents($file)
             }
         }
     } else {
-        $error_message = $GLOBALS['strErrorInZipFile'] . ' ' . PMA_getZipError($zip_handle);
+        $error_message = __('Error in ZIP archive:') . ' ' . PMA_getZipError($zip_handle);
     }
     zip_close($zip_handle);
     return (array('error' => $error_message, 'data' => $file_data));

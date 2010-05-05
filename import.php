@@ -406,7 +406,7 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
         $message = PMA_Message::success();
     } else {
         if ($import_notice) {
-            $message = PMA_Message::success('<em>'.$GLOBALS['strImportSuccessfullyFinished'].'</em>');
+            $message = PMA_Message::success('<em>'.__('Import has been successfully finished, %d queries executed.').'</em>');
             $message->addParam($executed_queries);
 
             $message->addString($import_notice);

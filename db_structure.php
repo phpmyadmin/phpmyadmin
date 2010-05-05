@@ -482,7 +482,7 @@ if ($is_show_stats) {
     </th>
     <?php
         if ($server_slave_status) {
-            echo '    <th>' . $GLOBALS['strReplication'] . '</th>' . "\n";
+            echo '    <th>' . __('Replication') . '</th>' . "\n";
         }
     ?>
     <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>" align="center">

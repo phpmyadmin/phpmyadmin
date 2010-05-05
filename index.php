@@ -4,7 +4,7 @@
  * forms frameset
  *
  * @version $Id$
- * @uses    $GLOBALS['strNoFrames']
+ * @uses    __('phpMyAdmin is more friendly with a <b>frames-capable</b> browser.')
  * @uses    $GLOBALS['cfg']['QueryHistoryDB']
  * @uses    $GLOBALS['cfg']['Server']['user']
  * @uses    $GLOBALS['cfg']['DefaultTabServer']     as src for the mainframe
@@ -187,7 +187,7 @@ if ($GLOBALS['text_dir'] === 'ltr') {
     <?php } ?>
     <noframes>
         <body>
-            <p><?php echo $GLOBALS['strNoFrames']; ?></p>
+            <p><?php echo __('phpMyAdmin is more friendly with a <b>frames-capable</b> browser.'); ?></p>
         </body>
     </noframes>
 </frameset>

@@ -110,7 +110,7 @@ function PMA_exportHeader() {
  * @access  public
  */
 function PMA_exportDBHeader($db) {
-    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:style-name="Heading_1" text:is-list-header="true">' . htmlspecialchars($GLOBALS['strDatabase'] . ' ' . $db) . '</text:h>';
+    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:style-name="Heading_1" text:is-list-header="true">' . htmlspecialchars(__('Database') . ' ' . $db) . '</text:h>';
     return TRUE;
 }
 
@@ -165,7 +165,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         $field_flags[$j] = PMA_DBI_field_flags($result, $j);
     }
 
-    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . htmlspecialchars($GLOBALS['strDumpingData'] . ' ' . $table) . '</text:h>';
+    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . htmlspecialchars(__('Dumping data for table') . ' ' . $table) . '</text:h>';
     $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_structure">';
     $GLOBALS['odt_buffer'] .= '<table:table-column table:number-columns-repeated="' . $fields_cnt . '"/>';
 
@@ -235,7 +235,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     global $cfgRelation;
 
     /* Heading */
-    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . htmlspecialchars($GLOBALS['strTableStructure'] . ' ' . $table) . '</text:h>';
+    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . htmlspecialchars(__('Table structure for table') . ' ' . $table) . '</text:h>';
 
     /**
      * Get the unique keys in the table
@@ -291,31 +291,31 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     /* Header */
     $GLOBALS['odt_buffer'] .= '<table:table-row>';
     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-        . '<text:p>' . htmlspecialchars($GLOBALS['strField']) . '</text:p>'
+        . '<text:p>' . htmlspecialchars(__('Field')) . '</text:p>'
         . '</table:table-cell>';
     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-        . '<text:p>' . htmlspecialchars($GLOBALS['strType']) . '</text:p>'
+        . '<text:p>' . htmlspecialchars(__('Type')) . '</text:p>'
         . '</table:table-cell>';
     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-        . '<text:p>' . htmlspecialchars($GLOBALS['strNull']) . '</text:p>'
+        . '<text:p>' . htmlspecialchars(__('Null')) . '</text:p>'
         . '</table:table-cell>';
     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-        . '<text:p>' . htmlspecialchars($GLOBALS['strDefault']) . '</text:p>'
+        . '<text:p>' . htmlspecialchars(__('Default')) . '</text:p>'
         . '</table:table-cell>';
     if ($do_relation && $have_rel) {
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars($GLOBALS['strLinksTo']) . '</text:p>'
+            . '<text:p>' . htmlspecialchars(__('Links to')) . '</text:p>'
             . '</table:table-cell>';
     }
     if ($do_comments) {
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars($GLOBALS['strComments']) . '</text:p>'
+            . '<text:p>' . htmlspecialchars(__('Comments')) . '</text:p>'
             . '</table:table-cell>';
         $comments = PMA_getComments($db, $table);
     }
     if ($do_mime && $cfgRelation['mimework']) {
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars($GLOBALS['strMIME_MIMEtype']) . '</text:p>'
+            . '<text:p>' . htmlspecialchars(__('MIME type')) . '</text:p>'
             . '</table:table-cell>';
         $mime_map = PMA_getMIME($db, $table, true);
     }
@@ -365,7 +365,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             $row['Default'] = $row['Default'];
         }
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? $GLOBALS['strNo'] : $GLOBALS['strYes']) . '</text:p>'
+            . '<text:p>' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes')) . '</text:p>'
             . '</table:table-cell>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
             . '<text:p>' . htmlspecialchars($row['Default']) . '</text:p>'

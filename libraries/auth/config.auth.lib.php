@@ -74,14 +74,14 @@ function PMA_auth_fails()
         if (isset($php_errormsg)) {
             $conn_error = $php_errormsg;
         } else {
-            $conn_error = $GLOBALS['strConnectionError'];
+            $conn_error = __('Cannot connect: invalid settings.');
         }
     }
 
     // Defines the charset to be used
     header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     /* HTML header */
-    $page_title = $GLOBALS['strAccessDenied'];
+    $page_title = __('Access denied');
     require './libraries/header_meta_style.inc.php';
     ?>
 </head>
@@ -89,7 +89,7 @@ function PMA_auth_fails()
 <body>
 <br /><br />
 <center>
-    <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin '); ?></h1>
+    <h1><?php echo sprintf(__('Welcome to %s'), ' phpMyAdmin '); ?></h1>
 </center>
 <br />
 <table border="0" cellpadding="0" cellspacing="3" align="center" width="80%">
@@ -100,7 +100,7 @@ function PMA_auth_fails()
     $GLOBALS['is_header_sent'] = TRUE;
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
-        trigger_error($GLOBALS['strAccessDenied'], E_USER_NOTICE);
+        trigger_error(__('Access denied'), E_USER_NOTICE);
     } else {
         // Check whether user has configured something
         if ($GLOBALS['PMA_Config']->source_mtime == 0) {

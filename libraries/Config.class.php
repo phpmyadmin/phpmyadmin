@@ -994,7 +994,7 @@ class PMA_Config
      * @uses    $GLOBALS['PMA_Config']
      * @uses    PMA_Config::get()
      * @uses    PMA_Config::_getFontsizeOptions()
-     * @uses    $GLOBALS['strFontSize']
+     * @uses    __('Font size')
      * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
@@ -1012,7 +1012,7 @@ class PMA_Config
         }
         $options = PMA_Config::_getFontsizeOptions($current_size);
 
-        $return = '<label for="select_fontsize">' . $GLOBALS['strFontSize'] . ':</label>' . "\n";
+        $return = '<label for="select_fontsize">' . __('Font size') . ':</label>' . "\n";
         $return .= '<select name="fontsize" id="select_fontsize" onchange="this.form.submit();">' . "\n";
         foreach ($options as $option) {
             $return .= '<option value="' . $option . '"';
@@ -1031,7 +1031,7 @@ class PMA_Config
      *
      * @uses    PMA_generate_common_hidden_inputs()
      * @uses    PMA_Config::_getFontsizeSelection()
-     * @uses    $GLOBALS['strGo']
+     * @uses    __('Go')
      * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
@@ -1043,7 +1043,7 @@ class PMA_Config
             . PMA_generate_common_hidden_inputs() . "\n"
             . PMA_Config::_getFontsizeSelection() . "\n"
             . '<noscript>' . "\n"
-            . '<input type="submit" value="' . $GLOBALS['strGo'] . '" />' . "\n"
+            . '<input type="submit" value="' . __('Go') . '" />' . "\n"
             . '</noscript>' . "\n"
             . '</form>';
     }

@@ -117,17 +117,17 @@ function PMA_get_blowfish_secret() {
  * @uses    $GLOBALS['target']
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['strWelcome']
- * @uses    $GLOBALS['strSecretRequired']
- * @uses    $GLOBALS['strError']
- * @uses    $GLOBALS['strLogin']
- * @uses    $GLOBALS['strLogServer']
- * @uses    $GLOBALS['strLogUsername']
- * @uses    $GLOBALS['strLogPassword']
- * @uses    $GLOBALS['strServerChoice']
- * @uses    $GLOBALS['strGo']
- * @uses    $GLOBALS['strCookiesRequired']
- * @uses    $GLOBALS['strPmaDocumentation']
+ * @uses    __('Welcome to %s')
+ * @uses    __('The configuration file now needs a secret passphrase (blowfish_secret).')
+ * @uses    __('Error')
+ * @uses    __('Log in')
+ * @uses    __('Server:')
+ * @uses    __('Username:')
+ * @uses    __('Password:')
+ * @uses    __('Server Choice')
+ * @uses    __('Go')
+ * @uses    __('Cookies must be enabled past this point.')
+ * @uses    __('phpMyAdmin documentation')
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    $cfg['Servers']
  * @uses    $cfg['LoginCookieRecall']
@@ -216,7 +216,7 @@ if (top != self) {
     ?></a>
 <h1>
     <?php
-    echo sprintf($GLOBALS['strWelcome'],
+    echo sprintf(__('Welcome to %s'),
         '<bdo dir="ltr" xml:lang="en">' . $page_title . '</bdo>');
     ?>
 </h1>
@@ -241,11 +241,11 @@ if (top != self) {
     <fieldset>
     <legend>
 <?php
-    echo $GLOBALS['strLogin'];
+    echo __('Log in');
     echo '<a href="./Documentation.html" target="documentation" ' .
-        'title="' . $GLOBALS['strPmaDocumentation'] . '">';
+        'title="' . __('phpMyAdmin documentation') . '">';
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . $GLOBALS['strPmaDocumentation'] . '" />';
+        echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('phpMyAdmin documentation') . '" />';
     } else {
         echo '(*)';
     }
@@ -255,23 +255,23 @@ if (top != self) {
 
 <?php if ($GLOBALS['cfg']['AllowArbitraryServer']) { ?>
         <div class="item">
-            <label for="input_servername" title="<?php echo $GLOBALS['strLogServerHelp']; ?>"><?php echo $GLOBALS['strLogServer']; ?></label>
-            <input type="text" name="pma_servername" id="input_servername" value="<?php echo htmlspecialchars($default_server); ?>" size="24" class="textfield" title="<?php echo $GLOBALS['strLogServerHelp']; ?>" />
+            <label for="input_servername" title="<?php echo __('You can enter hostname/IP address and port separated by space.'); ?>"><?php echo __('Server:'); ?></label>
+            <input type="text" name="pma_servername" id="input_servername" value="<?php echo htmlspecialchars($default_server); ?>" size="24" class="textfield" title="<?php echo __('You can enter hostname/IP address and port separated by space.'); ?>" />
         </div>
 <?php } ?>
         <div class="item">
-            <label for="input_username"><?php echo $GLOBALS['strLogUsername']; ?></label>
+            <label for="input_username"><?php echo __('Username:'); ?></label>
             <input type="text" name="pma_username" id="input_username" value="<?php echo htmlspecialchars($default_user); ?>" size="24" class="textfield"/>
         </div>
         <div class="item">
-            <label for="input_password"><?php echo $GLOBALS['strLogPassword']; ?></label>
+            <label for="input_password"><?php echo __('Password:'); ?></label>
             <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield" />
         </div>
     <?php
     if (count($GLOBALS['cfg']['Servers']) > 1) {
         ?>
         <div class="item">
-            <label for="select_server"><?php echo $GLOBALS['strServerChoice']; ?>:</label>
+            <label for="select_server"><?php echo __('Server Choice'); ?>:</label>
             <select name="server" id="select_server"
         <?php
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
@@ -289,7 +289,7 @@ if (top != self) {
     ?>
     </fieldset>
     <fieldset class="tblFooters">
-        <input value="<?php echo $GLOBALS['strGo']; ?>" type="submit" id="input_go" />
+        <input value="<?php echo __('Go'); ?>" type="submit" id="input_go" />
     <?php
     $_form_params = array();
     if (! empty($GLOBALS['target'])) {
@@ -317,7 +317,7 @@ if (top != self) {
     // show the "Cookies required" message only if cookies are disabled
     // (we previously tried to set some cookies)
     if (empty($_COOKIE)) {
-        trigger_error($GLOBALS['strCookiesRequired'], E_USER_NOTICE);
+        trigger_error(__('Cookies must be enabled past this point.'), E_USER_NOTICE);
     }
     if ($GLOBALS['error_handler']->hasDisplayErrors()) {
         echo '<div>';
@@ -646,9 +646,9 @@ function PMA_auth_set_user()
  *
  * @uses    $GLOBALS['server']
  * @uses    $GLOBALS['allowDeny_forbidden']
- * @uses    $GLOBALS['strAccessDenied']
- * @uses    $GLOBALS['strNoActivity']
- * @uses    $GLOBALS['strCannotLogin']
+ * @uses    __('Access denied')
+ * @uses    __('No activity within %s seconds; please log in again')
+ * @uses    __('Cannot log in to the MySQL server')
  * @uses    $GLOBALS['no_activity']
  * @uses    $cfg['LoginCookieValidity']
  * @uses    $GLOBALS['PMA_Config']->removeCookie()
@@ -668,11 +668,11 @@ function PMA_auth_fails()
     $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $GLOBALS['server']);
 
     if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
-        $conn_error = $GLOBALS['strLoginWithoutPassword'];
+        $conn_error = __('Login without a password is forbidden by configuration (see AllowNoPassword)');
     } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
-        $conn_error = $GLOBALS['strAccessDenied'];
+        $conn_error = __('Access denied');
     } elseif (! empty($GLOBALS['no_activity'])) {
-        $conn_error = sprintf($GLOBALS['strNoActivity'], $GLOBALS['cfg']['LoginCookieValidity']);
+        $conn_error = sprintf(__('No activity within %s seconds; please log in again'), $GLOBALS['cfg']['LoginCookieValidity']);
         // Remember where we got timeout to return on same place
         if (PMA_getenv('SCRIPT_NAME')) {
             $GLOBALS['target'] = basename(PMA_getenv('SCRIPT_NAME'));
@@ -682,9 +682,9 @@ function PMA_auth_fails()
             }
         }
     } elseif (PMA_DBI_getError()) {
-        $conn_error = '#' . $GLOBALS['errno'] . ' ' . $GLOBALS['strCannotLogin'];
+        $conn_error = '#' . $GLOBALS['errno'] . ' ' . __('Cannot log in to the MySQL server');
     } else {
-        $conn_error = $GLOBALS['strCannotLogin'];
+        $conn_error = __('Cannot log in to the MySQL server');
     }
 
     // needed for PHP-CGI (not need for FastCGI or mod-php)

@@ -1016,7 +1016,7 @@ class PMA_Table
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
             if (! $GLOBALS['pma']->databases->exists($new_db)) {
-                $this->errors[] = $GLOBALS['strInvalidDatabase'] . ': ' . $new_db;
+                $this->errors[] = __('Invalid database') . ': ' . $new_db;
                 return false;
             }
         } else {
@@ -1030,7 +1030,7 @@ class PMA_Table
         }
 
         if (! PMA_Table::isValidName($new_name)) {
-            $this->errors[] = $GLOBALS['strInvalidTableName'] . ': ' . $new_table->getFullName();
+            $this->errors[] = __('Invalid table name') . ': ' . $new_table->getFullName();
             return false;
         }
 
@@ -1045,7 +1045,7 @@ class PMA_Table
         }
         // I don't think a specific error message for views is necessary
         if (! PMA_DBI_query($GLOBALS['sql_query'])) {
-            $this->errors[] = sprintf($GLOBALS['strErrorRenamingTable'], $this->getFullName(), $new_table->getFullName());
+            $this->errors[] = sprintf(__('Error renaming table %1 to %2'), $this->getFullName(), $new_table->getFullName());
             return false;
         }
 
@@ -1129,7 +1129,7 @@ class PMA_Table
             unset($table_query);
         }
 
-        $this->messages[] = sprintf($GLOBALS['strRenameTableOK'],
+        $this->messages[] = sprintf(__('Table %s has been renamed to %s'),
             htmlspecialchars($old_name), htmlspecialchars($new_name));
         return true;
     }

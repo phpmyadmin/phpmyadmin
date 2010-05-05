@@ -109,7 +109,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     }
     if (empty($link)) {
         if ($is_controluser) {
-            trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
+            trigger_error(__('Connection for controluser as defined in your configuration failed.'), E_USER_WARNING);
             return false;
         }
         // we could be calling PMA_DBI_connect() to connect to another
@@ -308,9 +308,9 @@ function PMA_DBI_get_client_info()
  * @uses    PMA_DBI_convert_message()
  * @uses    $GLOBALS['errno']
  * @uses    $GLOBALS['userlink']
- * @uses    $GLOBALS['strServerNotResponding']
- * @uses    $GLOBALS['strSocketProblem']
- * @uses    $GLOBALS['strDetails']
+ * @uses    __('The server is not responding')
+ * @uses    __('(or the local MySQL server's socket is not correctly configured)')
+ * @uses    __('Details...')
  * @uses    mysql_errno()
  * @uses    mysql_error()
  * @uses    defined()
@@ -350,16 +350,16 @@ function PMA_DBI_getError($link = null)
 
     // Some errors messages cannot be obtained by mysql_error()
     if ($error_number == 2002) {
-        $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
+        $error = '#' . ((string) $error_number) . ' - ' . __('The server is not responding') . ' ' . __('(or the local MySQL server's socket is not correctly configured)');
     } elseif ($error_number == 2003) {
-        $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'];
+        $error = '#' . ((string) $error_number) . ' - ' . __('The server is not responding');
     } elseif ($error_number == 1005) {
         /* InnoDB contraints, see
          * http://dev.mysql.com/doc/refman/5.0/en/innodb-foreign-key-constraints.html
          */
         $error = '#' . ((string) $error_number) . ' - ' . $error_message .
             ' (<a href="server_engines.php' . PMA_generate_common_url(array('engine' => 'InnoDB', 'page' => 'Status')).
-            '">' . $GLOBALS['strDetails'] . '</a>)';
+            '">' . __('Details...') . '</a>)';
     } else {
         $error = '#' . ((string) $error_number) . ' - ' . $error_message;
     }

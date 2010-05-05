@@ -67,7 +67,7 @@ if (!$is_https) {
 <form id="select_lang" method="post" action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>">
     <?php echo PMA_generate_common_hidden_inputs() ?>
     <bdo xml:lang="en" dir="ltr"><label for="lang">
-    <?php echo $GLOBALS['strLanguage'] . ($GLOBALS['strLanguage'] != 'Language' ? ' - Language' : '') ?>
+    <?php echo __('Language') . (__('Language') != 'Language' ? ' - Language' : '') ?>
     </label></bdo><br />
     <select id="lang" name="lang" onchange="this.form.submit();" xml:lang="en" dir="ltr">
     <?php
@@ -94,7 +94,7 @@ messages_show_html();
 
 <a href="#" id="show_hidden_messages" style="display:none"><?php echo $GLOBALS['strSetupShowHiddenMessages'] ?></a>
 
-<h3><?php echo $GLOBALS['strServers'] ?></h3>
+<h3><?php echo __('Servers') ?></h3>
 <?php
 //
 // Display server list
@@ -109,7 +109,7 @@ display_form_top('index.php', 'get', array(
 <table cellspacing="0" class="datatable" style="table-layout: fixed">
 <tr>
     <th>#</th>
-    <th><?php echo $GLOBALS['strName'] ?></th>
+    <th><?php echo __('Name') ?></th>
     <th>Authentication type</th>
     <th colspan="2">DSN</th>
 </tr>
@@ -121,8 +121,8 @@ display_form_top('index.php', 'get', array(
     <td><?php echo htmlspecialchars($cf->getServerDSN($id)) ?></td>
     <td style="white-space: nowrap">
         <small>
-        <a href="<?php echo "?page=servers{$separator}mode=edit{$separator}id=$id" ?>"><?php echo $GLOBALS['strEdit'] ?></a>
-        | <a href="<?php echo "?page=servers{$separator}mode=remove{$separator}id=$id" ?>"><?php echo $GLOBALS['strDelete'] ?></a>
+        <a href="<?php echo "?page=servers{$separator}mode=edit{$separator}id=$id" ?>"><?php echo __('Edit') ?></a>
+        | <a href="<?php echo "?page=servers{$separator}mode=remove{$separator}id=$id" ?>"><?php echo __('Delete') ?></a>
         </small>
     </td>
 </tr>
@@ -211,9 +211,9 @@ display_input('eol', $GLOBALS['strSetupEndOfLine'], '', 'select',
         <input type="submit" name="submit_display" value="<?php echo $GLOBALS['strSetupDisplay'] ?>" />
         <input type="submit" name="submit_download" value="<?php echo $GLOBALS['strSetupDownload'] ?>" />
         &nbsp; &nbsp;
-        <input type="submit" name="submit_save" value="<?php echo $GLOBALS['strSave'] ?>"<?php if (!$config_writable) echo ' disabled="disabled"' ?> />
+        <input type="submit" name="submit_save" value="<?php echo __('Save') ?>"<?php if (!$config_writable) echo ' disabled="disabled"' ?> />
         <input type="submit" name="submit_load" value="<?php echo $GLOBALS['strSetupLoad'] ?>"<?php if (!$config_exists) echo ' disabled="disabled"' ?> />
-        <input type="submit" name="submit_delete" value="<?php echo $GLOBALS['strDelete'] ?>"<?php if (!$config_exists || !$config_writable) echo ' disabled="disabled"' ?> />
+        <input type="submit" name="submit_delete" value="<?php echo __('Delete') ?>"<?php if (!$config_exists || !$config_writable) echo ' disabled="disabled"' ?> />
         &nbsp; &nbsp;
         <input type="submit" name="submit_clear" value="<?php echo $GLOBALS['strSetupClear'] ?>" class="red" />
     </td>

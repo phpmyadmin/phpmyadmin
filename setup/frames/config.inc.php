@@ -36,7 +36,7 @@ check_config_rw($config_readable, $config_writable, $config_exists);
 <tr>
     <td class="lastrow" style="text-align: left">
         <input type="submit" name="submit_download" value="<?php echo $GLOBALS['strSetupDownload'] ?>" class="green" />
-        <input type="submit" name="submit_save" value="<?php echo $GLOBALS['strSave'] ?>"<?php if (!$config_writable) echo ' disabled="disabled"' ?> />
+        <input type="submit" name="submit_save" value="<?php echo __('Save') ?>"<?php if (!$config_writable) echo ' disabled="disabled"' ?> />
     </td>
 </tr>
 <?php

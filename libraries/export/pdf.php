@@ -144,7 +144,7 @@ class PMA_PDF extends TCPDF
         if (!isset($this->footerset[$this->page])) {
             $this->SetY(-15);
             //Page number
-            $this->Cell(0, 10, $GLOBALS['strPageNumber'] .' '.$this->PageNo() .'/{nb}', 'T', 0, 'C');
+            $this->Cell(0, 10, __('Page number:') .' '.$this->PageNo() .'/{nb}', 'T', 0, 'C');
 
         // set footerset
             $this->footerset[$this->page] = 1;

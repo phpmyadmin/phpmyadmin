@@ -14,11 +14,11 @@
  * @uses $GLOBALS['text_dir']
  * @uses $GLOBALS['charset']
  * @uses $GLOBALS['pmaThemeImage']
- * @uses $GLOBALS['strNoDatabases']
- * @uses $GLOBALS['strDatabase']
- * @uses $GLOBALS['strGo']
- * @uses $GLOBALS['strSelectADb']
- * @uses $GLOBALS['strNoTablesFound']
+ * @uses __('No databases')
+ * @uses __('Database')
+ * @uses __('Go')
+ * @uses __('Please select a database')
+ * @uses __('No tables found in database.')
  * @uses $GLOBALS['cfg']['LeftFrameLight']
  * @uses $GLOBALS['cfg']['ShowTooltip']
  * @uses $GLOBALS['cfg']['ShowTooltipAliasDB']
@@ -63,11 +63,11 @@ function PMA_exitNavigationFrame()
     echo '<a href="navigation.php' . PMA_generate_common_url($params) . '" target="frame_navigation">';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
         echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_reload.png"'
-            . ' title="' . $GLOBALS['strReloadNavi'] . '"'
-            . ' alt="' . $GLOBALS['strReloadNavi'] . '" />';
+            . ' title="' . __('Reload navigation frame') . '"'
+            . ' alt="' . __('Reload navigation frame') . '" />';
     }
     if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
-        echo $GLOBALS['strReloadNavi'];
+        echo __('Reload navigation frame');
     }
     echo '</a>';
     echo '</div>' . "\n";
@@ -207,7 +207,7 @@ if (! $GLOBALS['server']) {
     PMA_exitNavigationFrame();
 } elseif (! count($GLOBALS['pma']->databases)) {
     // no database available, so we break here
-    echo '<p>' . $GLOBALS['strNoDatabases'] . '</p>';
+    echo '<p>' . __('No databases') . '</p>';
     PMA_exitNavigationFrame();
 } elseif ($GLOBALS['cfg']['LeftFrameLight'] && count($GLOBALS['pma']->databases) > 1) {
     $list = $cfg['DisplayDatabasesList'];
@@ -230,12 +230,12 @@ if (! $GLOBALS['server']) {
 
     <div id="databaseList">
     <form method="post" action="index.php" target="_parent" id="left">
-    <label for="lightm_db"><?php echo $GLOBALS['strDatabase']; ?></label>
+    <label for="lightm_db"><?php echo __('Database'); ?></label>
     <?php
         echo PMA_generate_common_hidden_inputs() . "\n";
         echo $GLOBALS['pma']->databases->getHtmlSelectGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
         echo '<noscript>' . "\n"
-            .'<input type="submit" name="Go" value="' . $GLOBALS['strGo'] . '" />' . "\n"
+            .'<input type="submit" name="Go" value="' . __('Go') . '" />' . "\n"
             .'</noscript>' . "\n"
             .'</form>' . "\n";
     } else {
@@ -343,14 +343,14 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
             PMA_listNavigator($table_count, $tpos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxTableList']);
         }
     } else {
-        echo $GLOBALS['strNoTablesFound'];
+        echo __('No tables found in database.');
     }
     unset($table_list);
     echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '">'
         .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" width="10" height="10" alt="' . _pgettext('short form', 'Create table') . '" />'
         . _pgettext('short form', 'Create table') . '</a></li></ul>';
 } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
-    echo '<p>' . $GLOBALS['strSelectADb'] . '</p>';
+    echo '<p>' . __('Please select a database') . '</p>';
 } else {
     echo '<div id="databaseList">' . "\n";
     $_url_params = array('pos' => $pos);
@@ -366,7 +366,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
  *
  * @uses    $_REQUEST['dbgroup']
  * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
- * @uses    $GLOBALS['strSelectADb']
+ * @uses    __('Please select a database')
  * @uses    strpos()
  * @uses    urlencode()
  * @uses    printf()
@@ -513,7 +513,7 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
             } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
                 // no tables and LeftFrameLight:
                 // display message no tables in selected db
-                echo '<p>' . $GLOBALS['strSelectADb'] . '</p>' . "\n";
+                echo '<p>' . __('Please select a database') . '</p>' . "\n";
             }
             echo '</li>' . "\n";
         } // end foreach db
@@ -550,8 +550,8 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
  * @uses    $GLOBALS['cfg']['LeftFrameTableSeparator']
  * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
  * @uses    $GLOBALS['cfg']['DefaultTabTable']
- * @uses    $GLOBALS['strRows']
- * @uses    $GLOBALS['strBrowse']
+ * @uses    __('Rows')
+ * @uses    __('Browse')
  * @global  integer the element counter
  * @global  string  html code for '-' image
  * @global  string  html code for '+' image
@@ -649,7 +649,7 @@ function PMA_displayTableList($tables, $visible = false,
             echo '<a class="tableicon" title="'
                 . htmlspecialchars($link_title)
                 . ': ' . htmlspecialchars($table['Comment'])
-                .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows'] . ')"'
+                .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . __('Rows') . ')"'
                 .' id="quick_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
                 .' href="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '?'
                 . $GLOBALS['common_url_query']
@@ -671,7 +671,7 @@ function PMA_displayTableList($tables, $visible = false,
                 .urlencode($table['Name']) . '&amp;pos=0';
             echo '<a href="' . $href
             . '" title="' . htmlspecialchars(PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']) . ': ' . $table['Comment']
-                .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows']) . ')"'
+                .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . __('Rows')) . ')"'
                 .' id="' . htmlspecialchars($table_db . '.' . $table['Name']) . '">'
                 // preserve spaces in table name
                 . str_replace(' ', '&nbsp;', htmlspecialchars($table['disp_name'])) . '</a>';

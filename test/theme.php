@@ -54,7 +54,7 @@ printf($item,
         $GLOBALS['cfg']['DefaultTabServer'],
         PMA_generate_common_url(),
         'Server',
-        $GLOBALS['strServer'],
+        __('Server'),
         's_host.png');
 
 echo $separator;
@@ -62,7 +62,7 @@ printf($item,
         $GLOBALS['cfg']['DefaultTabDatabase'],
         '',
         'Database',
-        $GLOBALS['strDatabase'],
+        __('Database'),
         's_db.png');
 
 echo $separator;
@@ -71,8 +71,8 @@ printf($item,
         '',
         'Table',
         (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
-            ? $GLOBALS['strView']
-            : $GLOBALS['strTable']),
+            ? __('View')
+            : __('Table')),
         (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
             ? 'b_views'
             : 's_tbl') . '.png');

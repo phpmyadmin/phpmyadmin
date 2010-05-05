@@ -202,7 +202,7 @@ function PMA_securePath($path)
  * @todo    use detected argument separator (PMA_Config)
  * @uses    $GLOBALS['session_name']
  * @uses    $GLOBALS['text_dir']
- * @uses    $GLOBALS['strError']
+ * @uses    __('Error')
  * @uses    $GLOBALS['available_languages']
  * @uses    $GLOBALS['lang']
  * @uses    $GLOBALS['PMA_Config']->removeCookie()
@@ -260,7 +260,7 @@ function PMA_fatalError($error_message, $message_args = null)
     $query_params = array(
         'lang'  => $GLOBALS['available_languages'][$GLOBALS['lang']][1],
         'dir'   => $GLOBALS['text_dir'],
-        'type'  => $GLOBALS['strError'],
+        'type'  => __('Error'),
         'error' => $error_message,
     );
     header('Location: ' . (defined('PMA_SETUP') ? '../' : '') . 'error.php?'

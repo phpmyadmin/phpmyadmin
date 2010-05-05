@@ -130,7 +130,7 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
 /**
  * Displays the maximum size for an upload
  *
- * @uses    $GLOBALS['strMaximumSize']
+ * @uses    __('Max: %s%s')
  * @uses    PMA_formatByteDown()
  * @uses    sprintf()
  * @param   integer  the size
@@ -144,7 +144,7 @@ function PMA_displayMaximumUploadSize($max_upload_size)
     // I have to reduce the second parameter (sensitiveness) from 6 to 4
     // to avoid weird results like 512 kKib
     list($max_size, $max_unit) = PMA_formatByteDown($max_upload_size, 4);
-    return '(' . sprintf($GLOBALS['strMaximumSize'], $max_size, $max_unit) . ')';
+    return '(' . sprintf(__('Max: %s%s'), $max_size, $max_unit) . ')';
 }
 
 /**
@@ -346,7 +346,7 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
  * @uses    $cfg['MySQLManualType']
  * @uses    $cfg['MySQLManualBase']
  * @uses    $cfg['ReplaceHelpImg']
- * @uses    $GLOBALS['strDocu']
+ * @uses    __('Documentation')
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    PMA_MYSQL_INT_VERSION
  * @uses    strtolower()
@@ -425,11 +425,11 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     if ($just_open) {
         return '<a href="' . $url . '" target="mysql_doc">';
     } elseif ($big_icon) {
-        return '<a href="' . $url . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
+        return '<a href="' . $url . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . $url . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
+        return '<a href="' . $url . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
-        return '[<a href="' . $url . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+        return '[<a href="' . $url . '" target="mysql_doc">' . __('Documentation') . '</a>]';
     }
 } // end of the 'PMA_showMySQLDocu()' function
 
@@ -445,9 +445,9 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
  */
 function PMA_showDocu($anchor) {
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
+        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
-        return '[<a href="Documentation.html#' . $anchor . '" target="documentation">' . $GLOBALS['strDocu'] . '</a>]';
+        return '[<a href="Documentation.html#' . $anchor . '" target="documentation">' . __('Documentation') . '</a>]';
     }
 } // end of the 'PMA_showDocu()' function
 
@@ -501,11 +501,11 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
  * @uses    footer.inc.php
  * @uses    header.inc.php
  * @uses    $GLOBALS['sql_query']
- * @uses    $GLOBALS['strError']
- * @uses    $GLOBALS['strSQLQuery']
+ * @uses    __('Error')
+ * @uses    __('SQL query')
  * @uses    $GLOBALS['pmaThemeImage']
- * @uses    $GLOBALS['strEdit']
- * @uses    $GLOBALS['strMySQLSaid']
+ * @uses    __('Edit')
+ * @uses    __('MySQL said: ')
  * @uses    $GLOBALS['cfg']['PropertiesIconic']
  * @uses    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
  * @uses    PMA_backquote()
@@ -578,7 +578,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     }
     // ---
     $error_msg_output .= "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
-    $error_msg_output .= '    <div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
+    $error_msg_output .= '    <div class="error"><h1>' . __('Error') . '</h1>' . "\n";
     // if the config password is wrong, or the MySQL server does not
     // respond, do not show the query that would reveal the
     // username/password
@@ -592,7 +592,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         }
         // ---
         // modified to show the help on sql errors
-        $error_msg_output .= '    <p><strong>' . $GLOBALS['strSQLQuery'] . ':</strong>' . "\n";
+        $error_msg_output .= '    <p><strong>' . __('SQL query') . ':</strong>' . "\n";
         if (strstr(strtolower($formatted_sql), 'select')) { // please show me help to the error on select
             $error_msg_output .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
         }
@@ -613,7 +613,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             }
 
             $error_msg_output .= $doedit_goto
-               . PMA_getIcon('b_edit.png', $GLOBALS['strEdit'])
+               . PMA_getIcon('b_edit.png', __('Edit'))
                . '</a>';
         } // end if
         $error_msg_output .= '    </p>' . "\n"
@@ -631,7 +631,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     // modified to show the help on error-returns
     // (now error-messages-server)
     $error_msg_output .= '<p>' . "\n"
-            . '    <strong>' . $GLOBALS['strMySQLSaid'] . '</strong>'
+            . '    <strong>' . __('MySQL said: ') . '</strong>'
             . PMA_showMySQLDocu('Error-messages-server', 'Error-messages-server')
             . "\n"
             . '</p>' . "\n";
@@ -664,7 +664,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
 	     $_SESSION['Import_message']['go_back_url'] = $back_url;
 
             $error_msg_output .= '<fieldset class="tblFooters">';
-            $error_msg_output .= '[ <a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a> ]';
+            $error_msg_output .= '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]';
             $error_msg_output .= '</fieldset>' . "\n\n";
         }
 
@@ -716,7 +716,7 @@ function PMA_sendHeaderLocation($uri)
         echo '<body>' . "\n";
         echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
-        echo 'document.write(\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
+        echo 'document.write(\'<p><a href="' . $uri . '">' . __('Go') . '</a></p>\');' . "\n";
         echo '//]]>' . "\n";
         echo '</script></body></html>' . "\n";
 
@@ -1174,10 +1174,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
 
             if (preg_match('@^SELECT[[:space:]]+@i', $sql_query)) {
                 $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
-                $_message = $GLOBALS['strExplain'];
+                $_message = __('Explain SQL');
             } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query)) {
                 $explain_params['sql_query'] = substr($sql_query, 8);
-                $_message = $GLOBALS['strNoExplain'];
+                $_message = __('Skip Explain SQL');
             }
             if (isset($explain_params['sql_query'])) {
                 $explain_link = 'import.php' . PMA_generate_common_url($explain_params);
@@ -1196,7 +1196,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             }
 
             $edit_link .= PMA_generate_common_url($url_params) . '#querybox';
-            $edit_link = ' [' . PMA_linkOrButton($edit_link, $GLOBALS['strEdit'], array('onclick' => $onclick)) . ']';
+            $edit_link = ' [' . PMA_linkOrButton($edit_link, __('Edit'), array('onclick' => $onclick)) . ']';
         } else {
             $edit_link = '';
         }
@@ -1209,10 +1209,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             $php_params = $url_params;
 
             if (! empty($GLOBALS['show_as_php'])) {
-                $_message = $GLOBALS['strNoPhp'];
+                $_message = __('Without PHP Code');
             } else {
                 $php_params['show_as_php'] = 1;
-                $_message = $GLOBALS['strPhp'];
+                $_message = __('Create PHP Code');
             }
 
             $php_link = 'import.php' . PMA_generate_common_url($php_params);
@@ -1220,7 +1220,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
 
             if (isset($GLOBALS['show_as_php'])) {
                 $runquery_link = 'import.php' . PMA_generate_common_url($url_params);
-                $php_link .= ' [' . PMA_linkOrButton($runquery_link, $GLOBALS['strRunQuery']) . ']';
+                $php_link .= ' [' . PMA_linkOrButton($runquery_link, __('Submit Query')) . ']';
             }
         } else {
             $php_link = '';
@@ -1230,7 +1230,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($cfg['SQLQuery']['Refresh'])
          && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)) {
             $refresh_link = 'import.php' . PMA_generate_common_url($url_params);
-            $refresh_link = ' [' . PMA_linkOrButton($refresh_link, $GLOBALS['strRefresh']) . ']';
+            $refresh_link = ' [' . PMA_linkOrButton($refresh_link, __('Refresh')) . ']';
         } else {
             $refresh_link = '';
         } //show as php
@@ -1239,10 +1239,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
          && ! empty($cfg['SQLQuery']['Validate'])) {
             $validate_params = $url_params;
             if (!empty($GLOBALS['validatequery'])) {
-                $validate_message = $GLOBALS['strNoValidateSQL'] ;
+                $validate_message = __('Skip Validate SQL') ;
             } else {
                 $validate_params['validatequery'] = 1;
-                $validate_message = $GLOBALS['strValidateSQL'] ;
+                $validate_message = __('Validate SQL') ;
             }
 
             $validate_link = 'import.php' . PMA_generate_common_url($validate_params);
@@ -1329,8 +1329,8 @@ function PMA_profilingCheckbox($sql_query)
         echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
         echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";
-        PMA_display_html_checkbox('profiling', $GLOBALS['strProfiling'], isset($_SESSION['profiling']), true);
-        echo '<noscript><input type="submit" value="' . $GLOBALS['strGo'] . '" /></noscript>' . "\n";
+        PMA_display_html_checkbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
+        echo '<noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n";
         echo '</form>' . "\n";
     }
 }
@@ -1344,11 +1344,11 @@ function PMA_profilingCheckbox($sql_query)
  */
 function PMA_profilingResults($profiling_results)
 {
-    echo '<fieldset><legend>' . $GLOBALS['strProfiling'] . '</legend>' . "\n";
+    echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
     echo '<table>' . "\n";
     echo ' <tr>' .  "\n";
-    echo '  <th>' . $GLOBALS['strStatus'] . '</th>' . "\n";
-    echo '  <th>' . $GLOBALS['strTime'] . '</th>' . "\n";
+    echo '  <th>' . __('Status') . '</th>' . "\n";
+    echo '  <th>' . __('Time') . '</th>' . "\n";
     echo ' </tr>' .  "\n";
 
     foreach($profiling_results as $one_result) {
@@ -1557,8 +1557,8 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * If the variables $link and $args ar left empty, an inactive tab is created
  *
  * @uses    $GLOBALS['PMA_PHP_SELF']
- * @uses    $GLOBALS['strEmpty']
- * @uses    $GLOBALS['strDrop']
+ * @uses    __('Empty')
+ * @uses    __('Drop')
  * @uses    $GLOBALS['active_page']
  * @uses    $GLOBALS['url_query']
  * @uses    $cfg['MainPageIconic']
@@ -1595,8 +1595,8 @@ function PMA_generate_html_tab($tab, $url_params = array())
 
     // determine additionnal style-class
     if (empty($tab['class'])) {
-        if ($tab['text'] == $GLOBALS['strEmpty']
-            || $tab['text'] == $GLOBALS['strDrop']) {
+        if ($tab['text'] == __('Empty')
+            || $tab['text'] == __('Drop')) {
             $tab['class'] = 'caution';
         } elseif (! empty($tab['active'])
          || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])) {
@@ -2127,7 +2127,7 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
  * Generate a pagination selector for browsing resultsets
  *
  * @todo $url is not javascript escaped!?
- * @uses    $GLOBALS['strPageNumber']
+ * @uses    __('Page number:')
  * @uses    range()
  * @param   string      URL for the JavaScript
  * @param   string      Number of rows in the pagination set
@@ -2221,7 +2221,7 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
         $gotopage .= '                <option ' . $selected . ' value="' . (($i - 1) * $rows) . '">' . $i . '</option>' . "\n";
     }
 
-    $gotopage .= ' </select><noscript><input type="submit" value="' . $GLOBALS['strGo'] . '" /></noscript>';
+    $gotopage .= ' </select><noscript><input type="submit" value="' . __('Go') . '" /></noscript>';
 
     return $gotopage;
 } // end function
@@ -2231,7 +2231,7 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
  * Generate navigation for a list
  *
  * @todo    use $pos from $_url_params
- * @uses    $GLOBALS['strPageNumber']
+ * @uses    __('Page number:')
  * @uses    range()
  * @param   integer     number of elements in the list
  * @param   integer     current position in the list
@@ -2246,7 +2246,7 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
 
     if ($max_count < $count) {
         echo 'frame_navigation' == $frame ? '<div id="navidbpageselector">' . "\n" : '';
-        echo $GLOBALS['strPageNumber'];
+        echo __('Page number:');
         echo 'frame_navigation' == $frame ? '<br />' : ' ';
 
         // Move to the beginning or to the previous page
@@ -2255,11 +2255,11 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $caption1 = '&lt;&lt;';
                 $caption2 = ' &lt; ';
-                $title1   = ' title="' . $GLOBALS['strPos1'] . '"';
-                $title2   = ' title="' . $GLOBALS['strPrevious'] . '"';
+                $title1   = ' title="' . __('Begin') . '"';
+                $title2   = ' title="' . __('Previous') . '"';
             } else {
-                $caption1 = $GLOBALS['strPos1'] . ' &lt;&lt;';
-                $caption2 = $GLOBALS['strPrevious'] . ' &lt;';
+                $caption1 = __('Begin') . ' &lt;&lt;';
+                $caption2 = __('Previous') . ' &lt;';
                 $title1   = '';
                 $title2   = '';
             } // end if... else...
@@ -2286,11 +2286,11 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $caption3 = ' &gt; ';
                 $caption4 = '&gt;&gt;';
-                $title3   = ' title="' . $GLOBALS['strNext'] . '"';
-                $title4   = ' title="' . $GLOBALS['strEnd'] . '"';
+                $title3   = ' title="' . __('Next') . '"';
+                $title4   = ' title="' . __('End') . '"';
             } else {
-                $caption3 = '&gt; ' . $GLOBALS['strNext'];
-                $caption4 = '&gt;&gt; ' . $GLOBALS['strEnd'];
+                $caption3 = '&gt; ' . __('Next');
+                $caption4 = '&gt;&gt; ' . __('End');
                 $title3   = '';
                 $title4   = '';
             } // end if... else...
@@ -2372,7 +2372,7 @@ function PMA_getDbLink($database = null)
  * that affects a functionality
  *
  * @uses    PMA_MYSQL_INT_VERSION
- * @uses    $GLOBALS['strKnownExternalBug']
+ * @uses    __('The %s functionality is affected by a known bug, see %s')
  * @uses    PMA_showHint()
  * @uses    sprintf()
  * @param   string  $functionality localized message explaining the func.
@@ -2383,7 +2383,7 @@ function PMA_getDbLink($database = null)
 function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 {
     if ($component == 'mysql' && PMA_MYSQL_INT_VERSION < $minimum_version) {
-        echo PMA_showHint(sprintf($GLOBALS['strKnownExternalBug'], $functionality, 'http://bugs.mysql.com/' . $bugref));
+        echo PMA_showHint(sprintf(__('The %s functionality is affected by a known bug, see %s'), $functionality, 'http://bugs.mysql.com/' . $bugref));
     }
 }
 
