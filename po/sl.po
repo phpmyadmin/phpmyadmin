@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-04 11:51+0200\n"
+"POT-Creation-Date: 2010-05-05 11:17+0200\n"
 "PO-Revision-Date: 2010-05-03 00:45+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
-"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -49,27 +49,27 @@ msgstr "Iskanje"
 #: db_structure.php:567 js/messages.php:50
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046
+#: libraries/Config.class.php:1046 libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
-#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
-#: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
-#: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
-#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
-#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
-#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
-#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
-#: server_privileges.php:1585 server_privileges.php:1932
-#: server_privileges.php:1979 server_privileges.php:2018
-#: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1204 tbl_change.php:330
-#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:252
-#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_structure.php:563
-#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
-#: view_create.php:182 view_operations.php:101
+#: libraries/display_import.lib.php:276 libraries/display_tbl.lib.php:532
+#: libraries/display_tbl.lib.php:614 libraries/messages.inc.php:369
+#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:365
+#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
+#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
+#: libraries/tbl_properties.inc.php:782 libraries/Theme_Manager.class.php:311
+#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
+#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
+#: server_privileges.php:625 server_privileges.php:1585
+#: server_privileges.php:1932 server_privileges.php:1979
+#: server_privileges.php:2018 server_replication.php:235
+#: server_replication.php:318 server_replication.php:341
+#: server_synchronize.php:1204 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:252 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_structure.php:563 tbl_structure.php:598
+#: tbl_tracking.php:395 tbl_tracking.php:512 view_create.php:182
+#: view_operations.php:101
 msgid "Go"
 msgstr "Izvedi"
 
@@ -715,8 +715,8 @@ msgstr "ni aktivno"
 msgid "Versions"
 msgstr "Različice"
 
-#: db_tracking.php:122 libraries/messages.inc.php:1140 tbl_tracking.php:114
-#: tbl_tracking.php:251 tbl_tracking.php:379 tbl_tracking.php:624
+#: db_tracking.php:122 libraries/messages.inc.php:1140 tbl_tracking.php:379
+#: tbl_tracking.php:624
 msgid "Tracking report"
 msgstr "Poročilo sledenja"
 
@@ -984,43 +984,36 @@ msgstr "Sob"
 
 #. l10n: Minimal week day name
 #: js/messages.php:149
-#| msgid "Sun"
 msgid "Su"
 msgstr "Ne"
 
 #. l10n: Minimal week day name
 #: js/messages.php:151
-#| msgid "Mon"
 msgid "Mo"
 msgstr "Po"
 
 #. l10n: Minimal week day name
 #: js/messages.php:153
-#| msgid "Tue"
 msgid "Tu"
 msgstr "To"
 
 #. l10n: Minimal week day name
 #: js/messages.php:155
-#| msgid "Wed"
 msgid "We"
 msgstr "Sr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:157
-#| msgid "Thu"
 msgid "Th"
 msgstr "Če"
 
 #. l10n: Minimal week day name
 #: js/messages.php:159
-#| msgid "Fri"
 msgid "Fr"
 msgstr "Pe"
 
 #. l10n: Minimal week day name
 #: js/messages.php:161
-#| msgid "Sat"
 msgid "Sa"
 msgstr "So"
 
@@ -1034,12 +1027,10 @@ msgid "Hour"
 msgstr "Ura"
 
 #: js/messages.php:166
-#| msgid "in use"
 msgid "Minute"
 msgstr "Minute"
 
 #: js/messages.php:167
-#| msgid "per second"
 msgid "Second"
 msgstr "Sekunde"
 
@@ -1082,15 +1073,14 @@ msgstr ""
 "config.inc.php ustrezajo podatkom administratorja strežnika MySQL."
 
 #: libraries/auth/cookie.auth.lib.php:39 libraries/auth/cookie.auth.lib.php:82
-#| msgid ""
-#| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#| "extension. Please check your PHP configuration."
+#: libraries/database_interface.lib.php:49
+#: libraries/database_interface.lib.php:64
 msgid ""
 "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
 "Please check your PHP configuration."
 msgstr ""
-"Ne morem naložiti razširitve [a@http://php.net/%1@Documentation][em]%"
-"1[/em][/a]. Prosimo, preverite konfiguracijo PHP."
+"Ne morem naložiti razširitve [a@http://php.net/%1@Documentation][em]%1[/em][/"
+"a]. Prosimo, preverite konfiguracijo PHP."
 
 #: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:496
 msgid "Log in"
@@ -1185,28 +1175,6 @@ msgstr ""
 msgid "Download file"
 msgstr "Prenesi datoteko"
 
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Ni mogoče naložiti razširitev iconv ali recode, ki so potrebne za pretvorbe "
-"kodnih tabel. Konfigurirajte PHP tako, da bo omogočal uporabo teh "
-"razširitev, ali onemogočite pretvarjanje kodnih tabel v phpMyAdmin."
-
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Ni mogoče uporabljati funkcij iconv, libiconv ali recode_string, čeprav so "
-"potrebne razširitve normalno naložene. Preverite vašo konfiguracijo PHP."
-
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -1224,7 +1192,6 @@ msgstr ""
 "prazno stran, je vse v redu."
 
 #: libraries/common.inc.php:594
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1"
 msgstr "Ne morem naložiti privzete konfiguracije iz: %1"
 
@@ -1238,12 +1205,10 @@ msgstr ""
 
 #: libraries/common.inc.php:629
 #, php-format
-#| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Neveljaven indeks strežnika: %s"
 
 #: libraries/common.inc.php:636
-#| msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgid "Invalid hostname for server %1. Please review your configuration."
 msgstr ""
 "Neveljavno ime gostitelja za strežnik %1. Prosimo, preglejte svojo "
@@ -1500,51 +1465,6 @@ msgstr ""
 msgid "Overhead"
 msgstr "Presežek"
 
-#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
-#: main.php:91 user_password.php:111 user_password.php:129
-msgid "Change password"
-msgstr "Spremeni geslo"
-
-#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
-#: libraries/replication_gui.lib.php:341 server_privileges.php:768
-msgid "No Password"
-msgstr "Brez gesla"
-
-#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
-#: libraries/replication_gui.lib.php:345 server_privileges.php:757
-#: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1170
-msgid "Password"
-msgstr "Geslo"
-
-#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
-#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
-#: server_privileges.php:776 server_privileges.php:779
-msgid "Re-type"
-msgstr "Ponovno vnesi"
-
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "Združljivo z MySQL&nbsp;4.0"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-#: libraries/replication_gui.lib.php:356 server_privileges.php:783
-msgid "Generate Password"
-msgstr "Ustvari geslo"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-#: libraries/replication_gui.lib.php:359 server_privileges.php:786
-msgid "Generate"
-msgstr "Ustvari"
-
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1644,6 +1564,51 @@ msgstr "\"bzipano\""
 #: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr "Združljivostni način SQL"
+
+#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
+#: main.php:91 user_password.php:111 user_password.php:129
+msgid "Change password"
+msgstr "Spremeni geslo"
+
+#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
+#: libraries/replication_gui.lib.php:341 server_privileges.php:768
+msgid "No Password"
+msgstr "Brez gesla"
+
+#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
+#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
+#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:345 server_privileges.php:757
+#: server_privileges.php:761 server_privileges.php:772
+#: server_privileges.php:1499 server_synchronize.php:1170
+msgid "Password"
+msgstr "Geslo"
+
+#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
+#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
+#: server_privileges.php:776 server_privileges.php:779
+msgid "Re-type"
+msgstr "Ponovno vnesi"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "Združljivo z MySQL&nbsp;4.0"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+#: libraries/replication_gui.lib.php:356 server_privileges.php:783
+msgid "Generate Password"
+msgstr "Ustvari geslo"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+#: libraries/replication_gui.lib.php:359 server_privileges.php:786
+msgid "Generate"
+msgstr "Ustvari"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -2303,6 +2268,28 @@ msgstr "Ustvaril"
 #: tbl_printview.php:394 tbl_structure.php:366 tbl_structure.php:778
 msgid "Rows"
 msgstr "Vrstice"
+
+#: libraries/charset_conversion.lib.php:21
+#: libraries/charset_conversion.lib.php:27
+#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Ni mogoče naložiti razširitev iconv ali recode, ki so potrebne za pretvorbe "
+"kodnih tabel. Konfigurirajte PHP tako, da bo omogočal uporabo teh "
+"razširitev, ali onemogočite pretvarjanje kodnih tabel v phpMyAdmin."
+
+#: libraries/charset_conversion.lib.php:75
+#: libraries/charset_conversion.lib.php:86
+#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Ni mogoče uporabljati funkcij iconv, libiconv ali recode_string, čeprav so "
+"potrebne razširitve normalno naložene. Preverite vašo konfiguracijo PHP."
 
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
@@ -3183,7 +3170,7 @@ msgstr "Uredi privilegije"
 msgid "Effective"
 msgstr "Učinkovito"
 
-#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
+#: libraries/messages.inc.php:293 tbl_get_field.php:35 tbl_change.php:181
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
 
@@ -4223,9 +4210,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Omogočite napredne funkcije v konfiguracijski datoteki "
-"(<code>config.inc.php</code>), za primer začnite z "
-"<code>config.sample.inc.php</code>."
+"Omogočite napredne funkcije v konfiguracijski datoteki (<code>config.inc."
+"php</code>), za primer začnite z <code>config.sample.inc.php</code>."
 
 #: libraries/messages.inc.php:663 libraries/relation.lib.php:159
 msgid "Quick steps to setup advanced features:"
@@ -6063,11 +6049,11 @@ msgstr "Dezaktiviraj sledenje za %s.%s"
 msgid "Export as %s"
 msgstr "Izvozi kot %s"
 
-#: libraries/messages.inc.php:1138
+#: libraries/messages.inc.php:1138 tbl_tracking.php:251 tbl_tracking.php:379
 msgid "Close"
 msgstr "Zapri"
 
-#: libraries/messages.inc.php:1139
+#: libraries/messages.inc.php:1139 tbl_tracking.php:114
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Poročilo sledenja za tabelo `%s`"
@@ -6081,11 +6067,11 @@ msgstr "Prikaži %s z datumi od %s do %s uporabnika %s %s"
 msgid "Show versions"
 msgstr "Prikaži različice"
 
-#: libraries/messages.inc.php:1143
+#: libraries/messages.inc.php:1143 tbl_tracking.php:507
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: libraries/messages.inc.php:1144 tbl_tracking.php:507 tbl_tracking.php:508
+#: libraries/messages.inc.php:1144 tbl_tracking.php:508
 msgid "SQL dump"
 msgstr ""
 
@@ -6732,9 +6718,9 @@ msgid ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
 "Prosimo, na spletnem strežniku ustvarite zapisljivo mapo [em]config[/em] v "
-"najvišjem nivoju mape phpMyAdmina, kot opisuje "
-"[a@../Documentation.html#setup_script]dokumentacija[/a]. V naprotnem primeru "
-"jo boste lahko samo prenesli ali jo prikazali."
+"najvišjem nivoju mape phpMyAdmina, kot opisuje [a@../Documentation."
+"html#setup_script]dokumentacija[/a]. V naprotnem primeru jo boste lahko samo "
+"prenesli ali jo prikazali."
 
 #: setup/lib/messages.inc.php:35
 msgid ""

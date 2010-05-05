@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-04 20:04-0400\n"
+"POT-Creation-Date: 2010-05-05 11:17+0200\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: persian <fa@li.org>\n"
@@ -44,27 +44,27 @@ msgstr "جستجو"
 #: db_structure.php:567 js/messages.php:50
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046
+#: libraries/Config.class.php:1046 libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
-#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
-#: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
-#: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
-#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
-#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
-#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
-#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
-#: server_privileges.php:1585 server_privileges.php:1932
-#: server_privileges.php:1979 server_privileges.php:2018
-#: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1204 tbl_change.php:330
-#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:252
-#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_structure.php:563
-#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
-#: view_create.php:182 view_operations.php:101
+#: libraries/display_import.lib.php:276 libraries/display_tbl.lib.php:532
+#: libraries/display_tbl.lib.php:614 libraries/messages.inc.php:369
+#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:365
+#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
+#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
+#: libraries/tbl_properties.inc.php:782 libraries/Theme_Manager.class.php:311
+#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
+#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
+#: server_privileges.php:625 server_privileges.php:1585
+#: server_privileges.php:1932 server_privileges.php:1979
+#: server_privileges.php:2018 server_replication.php:235
+#: server_replication.php:318 server_replication.php:341
+#: server_synchronize.php:1204 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:252 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_structure.php:563 tbl_structure.php:598
+#: tbl_tracking.php:395 tbl_tracking.php:512 view_create.php:182
+#: view_operations.php:101
 msgid "Go"
 msgstr "تاييد"
 
@@ -718,8 +718,8 @@ msgstr ""
 msgid "Versions"
 msgstr "فارسي"
 
-#: db_tracking.php:122 libraries/messages.inc.php:1140 tbl_tracking.php:114
-#: tbl_tracking.php:251 tbl_tracking.php:379 tbl_tracking.php:624
+#: db_tracking.php:122 libraries/messages.inc.php:1140 tbl_tracking.php:379
+#: tbl_tracking.php:624
 msgid "Tracking report"
 msgstr ""
 
@@ -1192,26 +1192,6 @@ msgstr ""
 msgid "Download file"
 msgstr ""
 
-#: libraries/charset_conversion.lib.php:21
-#: libraries/charset_conversion.lib.php:27
-#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"بارگذاري iconv يا  recode extension كه براي تبديل مجموعه كاراكترها لازم است "
-"، مقدور نمي‌باشد، php را براي اجازه استفاده از آنها تنظيم كرده و يا تبديل "
-"مجموعه كاراكترها (charset conversion) را در phpMyAdmin غيرفعال نماييد."
-
-#: libraries/charset_conversion.lib.php:75
-#: libraries/charset_conversion.lib.php:86
-#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -1499,50 +1479,6 @@ msgstr ""
 msgid "Overhead"
 msgstr ""
 
-#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
-#: main.php:91 user_password.php:111 user_password.php:129
-msgid "Change password"
-msgstr "تغيير اسم رمز"
-
-#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
-#: libraries/replication_gui.lib.php:341 server_privileges.php:768
-msgid "No Password"
-msgstr "بدون اسم رمز"
-
-#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
-#: libraries/replication_gui.lib.php:345 server_privileges.php:757
-#: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1170
-msgid "Password"
-msgstr "اسم رمز"
-
-#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
-#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
-#: server_privileges.php:776 server_privileges.php:779
-msgid "Re-type"
-msgstr "تكرار"
-
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:66
-msgid "MySQL 4.0 compatible"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-#: libraries/replication_gui.lib.php:356 server_privileges.php:783
-msgid "Generate Password"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-#: libraries/replication_gui.lib.php:359 server_privileges.php:786
-#, fuzzy
-msgid "Generate"
-msgstr "توليد‌شده توسط"
-
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1643,6 +1579,50 @@ msgstr "\"bzipped\""
 #: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr ""
+
+#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
+#: main.php:91 user_password.php:111 user_password.php:129
+msgid "Change password"
+msgstr "تغيير اسم رمز"
+
+#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
+#: libraries/replication_gui.lib.php:341 server_privileges.php:768
+msgid "No Password"
+msgstr "بدون اسم رمز"
+
+#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
+#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
+#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:345 server_privileges.php:757
+#: server_privileges.php:761 server_privileges.php:772
+#: server_privileges.php:1499 server_synchronize.php:1170
+msgid "Password"
+msgstr "اسم رمز"
+
+#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
+#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
+#: server_privileges.php:776 server_privileges.php:779
+msgid "Re-type"
+msgstr "تكرار"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:66
+msgid "MySQL 4.0 compatible"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+#: libraries/replication_gui.lib.php:356 server_privileges.php:783
+msgid "Generate Password"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+#: libraries/replication_gui.lib.php:359 server_privileges.php:786
+#, fuzzy
+msgid "Generate"
+msgstr "توليد‌شده توسط"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -2299,6 +2279,26 @@ msgstr "توليد‌شده توسط"
 #: tbl_printview.php:394 tbl_structure.php:366 tbl_structure.php:778
 msgid "Rows"
 msgstr "سطرها"
+
+#: libraries/charset_conversion.lib.php:21
+#: libraries/charset_conversion.lib.php:27
+#: libraries/charset_conversion.lib.php:37 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"بارگذاري iconv يا  recode extension كه براي تبديل مجموعه كاراكترها لازم است "
+"، مقدور نمي‌باشد، php را براي اجازه استفاده از آنها تنظيم كرده و يا تبديل "
+"مجموعه كاراكترها (charset conversion) را در phpMyAdmin غيرفعال نماييد."
+
+#: libraries/charset_conversion.lib.php:75
+#: libraries/charset_conversion.lib.php:86
+#: libraries/charset_conversion.lib.php:105 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
 
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
@@ -3181,7 +3181,7 @@ msgstr "ويرايش امتيازات"
 msgid "Effective"
 msgstr "موثر"
 
-#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
+#: libraries/messages.inc.php:293 tbl_get_field.php:35 tbl_change.php:181
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL يك نتيجه خالي داد. (مثلا 0 سطر)."
 
@@ -6037,11 +6037,11 @@ msgstr ""
 msgid "Export as %s"
 msgstr ""
 
-#: libraries/messages.inc.php:1138
+#: libraries/messages.inc.php:1138 tbl_tracking.php:251 tbl_tracking.php:379
 msgid "Close"
 msgstr ""
 
-#: libraries/messages.inc.php:1139
+#: libraries/messages.inc.php:1139 tbl_tracking.php:114
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
@@ -6055,11 +6055,11 @@ msgstr ""
 msgid "Show versions"
 msgstr ""
 
-#: libraries/messages.inc.php:1143
+#: libraries/messages.inc.php:1143 tbl_tracking.php:507
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: libraries/messages.inc.php:1144 tbl_tracking.php:507 tbl_tracking.php:508
+#: libraries/messages.inc.php:1144 tbl_tracking.php:508
 msgid "SQL dump"
 msgstr ""
 
