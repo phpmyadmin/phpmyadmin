@@ -1077,7 +1077,7 @@ msgstr "Choix du serveur"
 
 #: libraries/auth/cookie.auth.lib.php:320 libraries/messages.inc.php:185
 msgid "Cookies must be enabled past this point."
-msgstr "Vous devez accepter les \"cookies\" pour poursuivre."
+msgstr "Vous devez accepter les cookies pour poursuivre."
 
 #: libraries/auth/cookie.auth.lib.php:671
 #: libraries/auth/signon.auth.lib.php:181 libraries/messages.inc.php:497
