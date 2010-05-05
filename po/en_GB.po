@@ -1149,10 +1149,11 @@ msgstr ""
 "is fine."
 
 #: libraries/common.inc.php:594
-#, fuzzy, php-format
+#, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Could not load default configuration from: \"%1$s\""
+msgstr "Could not load default configuration from: %1$s"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
@@ -6669,16 +6670,18 @@ msgid "Create table"
 msgstr "Create table"
 
 #: pdf_schema.php:637
-#, fuzzy, php-format
+#, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "The \"%s\" table doesn't exist!"
+msgstr "The %s table doesn't exist!"
 
 #: pdf_schema.php:996
-#, fuzzy, php-format
+#, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema of the \"%s\" database - Page %s"
+msgstr "Schema of the %s database - Page %s"
 
 #: server_databases.php:230
 msgid "Jump to database"
@@ -8515,162 +8518,3 @@ msgstr "Create an index on &nbsp;%s&nbsp;columns"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Description"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "None"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "None"
-
-#, fuzzy
-#~| msgid "Grant all privileges on wildcard name (username\\_%)"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "Grant all privileges on wildcard name (username\\_%)"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "The \"%s\" table doesn't exist!"
-
-#~ msgid "Could not load default configuration from: %1"
-#~ msgstr "Could not load default configuration from: %1"
-
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr "Invalid hostname for server %1. Please review your configuration."
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "Error renaming table %1$s to %2$s"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as master in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as master in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "This server is not configured as master in a replication process. Would "
-#~ "you like to <a href=\"%s\">configure</a> it?"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as slave in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as slave in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "This server is not configured as slave in a replication process. Would "
-#~ "you like to <a href=\"%s\">configure</a> it?"
-
-#, fuzzy
-#~| msgid "Could not connect to MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Could not connect to MySQL server"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "below, if there is any, may also help you in diagnosing the problem. If "
-#~ "you still have problems or if the parser fails where the command line "
-#~ "interface succeeds, please reduce your SQL query input to the single "
-#~ "query that causes problems, and submit a bug report with the data chunk "
-#~ "in the CUT section below:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV"
-
-#~ msgid "Copy"
-#~ msgstr "Copy"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Delete the users and reload the privileges afterwards."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-
-#~ msgid "has been altered."
-#~ msgstr "has been altered."
-
-#~ msgid "Microsoft Excel 2000"
-#~ msgstr "Microsoft Excel 2000"
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Internet Explorer does not support this function."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Just delete the users from the privilege tables."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-
-#~ msgid "Process list"
-#~ msgstr "Process list"
-
-#~ msgid "Reload privileges"
-#~ msgstr "Reload privileges"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "Native MS Excel format"
-
-#~ msgid "Alter index(s)"
-#~ msgstr "Alter index(s)"
-
-#~ msgid "Tracking Mechanism"
-#~ msgstr "Tracking Mechanism"
