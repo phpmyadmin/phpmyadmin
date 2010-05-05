@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:17+0200\n"
+"POT-Creation-Date: 2010-05-05 11:19+0200\n"
 "PO-Revision-Date: 2010-05-04 16:34+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -1350,27 +1350,22 @@ msgstr ""
 "La connexion au \"controluser\" tel que défini dans votre configuration a "
 "échoué."
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:863
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr "Le serveur ne répond pas."
 
-#: libraries/dbi/mysql.dbi.lib.php:353
-#, fuzzy
-#| msgid "Could not connect to MySQL server"
-msgid "(or the local MySQL server"
-msgstr "Connexion au serveur MySQL impossible."
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr ""
+"(ou l'interface de connexion (\"socket\") vers le serveur MySQL local n'est "
+"pas correctement configurée)"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
 msgid "Details..."
 msgstr "Détails..."
-
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
-"(ou l'interface de connexion (\"socket\") vers le serveur MySQL local n'est "
-"pas correctement configurée)"
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
 #, php-format
@@ -8678,6 +8673,11 @@ msgstr "Créer un index sur &nbsp;%s&nbsp;colonnes"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Description"
+
+#, fuzzy
+#~| msgid "Could not connect to MySQL server"
+#~ msgid "(or the local MySQL server"
+#~ msgstr "Connexion au serveur MySQL impossible."
 
 #, fuzzy
 #~| msgid ""

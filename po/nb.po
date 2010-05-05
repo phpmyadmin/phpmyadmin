@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:17+0200\n"
+"POT-Creation-Date: 2010-05-05 11:19+0200\n"
 "PO-Revision-Date: 2010-05-05 09:04+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -1337,23 +1337,20 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Tilkoblingen for kontrollbrukeren som definert i din konfigurasjon feilet."
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:863
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr "Tjeneren svarer ikke"
 
-#: libraries/dbi/mysql.dbi.lib.php:353
-msgid "(or the local MySQL server"
-msgstr "(eller den lokale MySQL tjeneren"
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr "(eller den lokale MySQL tjenerens sokkel er ikke korrekt konfigurert)"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
 msgid "Details..."
 msgstr "Detaljer..."
-
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(eller den lokale MySQL tjenerens sokkel er ikke korrekt konfigurert)"
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
 #, php-format
@@ -8566,3 +8563,6 @@ msgstr "Lag en indeks på&nbsp;%s&nbsp;kolonner"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beskrivelse"
+
+#~ msgid "(or the local MySQL server"
+#~ msgstr "(eller den lokale MySQL tjeneren"

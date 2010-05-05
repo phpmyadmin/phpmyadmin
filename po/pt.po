@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:17+0200\n"
+"POT-Creation-Date: 2010-05-05 11:19+0200\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: portuguese <pt@li.org>\n"
@@ -1406,23 +1406,19 @@ msgstr "Nome"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:863
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:353
-#, fuzzy
-msgid "(or the local MySQL server"
-msgstr "Não é possível fazer login no servidor MySQL"
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr ""
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
 msgid "Details..."
-msgstr ""
-
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
@@ -8301,6 +8297,10 @@ msgstr "Criar um índice com&nbsp;%s&nbsp;coluna(s)"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descrição"
+
+#, fuzzy
+#~ msgid "(or the local MySQL server"
+#~ msgstr "Não é possível fazer login no servidor MySQL"
 
 #, fuzzy
 #~| msgid ""

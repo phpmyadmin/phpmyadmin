@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:17+0200\n"
+"POT-Creation-Date: 2010-05-05 11:19+0200\n"
 "PO-Revision-Date: 2010-03-26 15:46+0200\n"
 "Last-Translator:  <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -1412,25 +1412,20 @@ msgstr ""
 "Connectie voor de controle gebruiker zoals in de configuratie is opgegeven "
 "is mislukt."
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:863
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr "De server reageert niet"
 
-#: libraries/dbi/mysql.dbi.lib.php:353
-#, fuzzy
-#| msgid "Could not connect to MySQL server"
-msgid "(or the local MySQL server"
-msgstr "Er kan geen verbinding worden gemaakt met de server"
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr "(of de MySQL-server heeft het socket niet juist ingesteld)"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
 msgid "Details..."
 msgstr "Details..."
-
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(of de MySQL-server heeft het socket niet juist ingesteld)"
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
 #, php-format
@@ -8799,6 +8794,11 @@ msgstr "Creëer een index op kolommen&nbsp;%s&nbsp;"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beschrijving"
+
+#, fuzzy
+#~| msgid "Could not connect to MySQL server"
+#~ msgid "(or the local MySQL server"
+#~ msgstr "Er kan geen verbinding worden gemaakt met de server"
 
 #, fuzzy
 #~| msgid ""

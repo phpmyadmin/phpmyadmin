@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:17+0200\n"
+"POT-Creation-Date: 2010-05-05 11:19+0200\n"
 "PO-Revision-Date: 2010-03-12 11:23+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -1423,26 +1423,21 @@ msgstr ""
 "La conexión para controluser, como está definida en su configuración, "
 "fracasó."
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:863
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr "El servidor no está respondiendo"
 
-#: libraries/dbi/mysql.dbi.lib.php:353
-#, fuzzy
-#| msgid "Could not connect to MySQL server"
-msgid "(or the local MySQL server"
-msgstr "No pudo conectarse con un servidor MySQL"
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr ""
+"(o el socket del servidor MySQL local no está configurado correctamente)"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
 msgid "Details..."
 msgstr "Detalles..."
-
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
-"(o el socket del servidor MySQL local no está configurado correctamente)"
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
 #, php-format
@@ -8769,6 +8764,11 @@ msgstr "Crear un índice en&nbsp;%s&nbsp;columna(s)"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descripción"
+
+#, fuzzy
+#~| msgid "Could not connect to MySQL server"
+#~ msgid "(or the local MySQL server"
+#~ msgstr "No pudo conectarse con un servidor MySQL"
 
 #, fuzzy
 #~| msgid ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:17+0200\n"
+"POT-Creation-Date: 2010-05-05 11:19+0200\n"
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -1398,25 +1398,20 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "設定ファイルに定義されている管理ユーザ(controluser)での接続に失敗しました"
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:863
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr "サーバが応答しません"
 
-#: libraries/dbi/mysql.dbi.lib.php:353
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
-msgid "(or the local MySQL server"
-msgstr "MySQL サーバにログインできません"
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr "(あるいはローカルの MySQL サーバのソケットが正しく設定されていません)"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
 msgid "Details..."
 msgstr "詳細..."
-
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(あるいはローカルの MySQL サーバのソケットが正しく設定されていません)"
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
 #, php-format
@@ -8392,6 +8387,11 @@ msgstr "&nbsp;%s&nbsp; のカラムにインデックスを作成する"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "説明"
+
+#, fuzzy
+#~| msgid "Cannot log in to the MySQL server"
+#~ msgid "(or the local MySQL server"
+#~ msgstr "MySQL サーバにログインできません"
 
 #, fuzzy
 #~| msgid ""

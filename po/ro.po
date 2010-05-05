@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:17+0200\n"
+"POT-Creation-Date: 2010-05-05 11:19+0200\n"
 "PO-Revision-Date: 2010-03-13 00:41+0200\n"
 "Last-Translator: <ronaldinia@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
@@ -1421,24 +1421,20 @@ msgstr "Nume"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Connection for controluser as defined in your configuration failed."
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:863
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr "Serverul nu răspunde"
 
-#: libraries/dbi/mysql.dbi.lib.php:353
-#, fuzzy
-msgid "(or the local MySQL server"
-msgstr "Comprimă conexiunea la serverul MySQL"
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr "(sau soclul serverului MySQL local nu este configurat momentan)"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
 msgid "Details..."
 msgstr "Detalii..."
-
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(sau soclul serverului MySQL local nu este configurat momentan)"
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
 #, php-format
@@ -8549,6 +8545,10 @@ msgstr "Creează un index pe&nbsp;%s&nbsp;coloană"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descriere"
+
+#, fuzzy
+#~ msgid "(or the local MySQL server"
+#~ msgstr "Comprimă conexiunea la serverul MySQL"
 
 #, fuzzy
 #~| msgid ""

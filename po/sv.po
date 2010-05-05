@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:17+0200\n"
+"POT-Creation-Date: 2010-05-05 11:19+0200\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: swedish <sv@li.org>\n"
@@ -1412,25 +1412,20 @@ msgstr "Namn"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Uppkoppling för controluser enligt din konfiguration misslyckades."
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:863
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr "Servern svarar inte"
 
-#: libraries/dbi/mysql.dbi.lib.php:353
-#, fuzzy
-#| msgid "Could not connect to MySQL server"
-msgid "(or the local MySQL server"
-msgstr "Kunde inte ansluta till MySQL-server"
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr "(eller den lokala MySQL-serverns socket är inte korrekt konfigurerad)"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
 msgid "Details..."
 msgstr "Detaljer..."
-
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(eller den lokala MySQL-serverns socket är inte korrekt konfigurerad)"
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
 #, php-format
@@ -8688,6 +8683,11 @@ msgstr "Skapa ett index för&nbsp;%s&nbsp;kolumn(er)"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beskrivning"
+
+#, fuzzy
+#~| msgid "Could not connect to MySQL server"
+#~ msgid "(or the local MySQL server"
+#~ msgstr "Kunde inte ansluta till MySQL-server"
 
 #, fuzzy
 #~| msgid ""

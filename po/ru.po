@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:17+0200\n"
+"POT-Creation-Date: 2010-05-05 11:19+0200\n"
 "PO-Revision-Date: 2010-03-30 23:23+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -1415,25 +1415,20 @@ msgstr ""
 "controluser, с помощью параметров определенных в конфигурационном файле "
 "config.inc.php."
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:863
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
 msgid "The server is not responding"
 msgstr "Сервер не отвечает"
 
-#: libraries/dbi/mysql.dbi.lib.php:353
-#, fuzzy
-#| msgid "Could not connect to MySQL server"
-msgid "(or the local MySQL server"
-msgstr "Невозможно соединиться с сервером MySQL"
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr "(либо сокет локального MySQL-сервера некорректно настроен)"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
 msgid "Details..."
 msgstr "Детали..."
-
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(либо сокет локального MySQL-сервера некорректно настроен)"
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
 #, php-format
@@ -8810,6 +8805,11 @@ msgstr "Создать индекс для &nbsp;%s&nbsp; столбца/ов"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Описание"
+
+#, fuzzy
+#~| msgid "Could not connect to MySQL server"
+#~ msgid "(or the local MySQL server"
+#~ msgstr "Невозможно соединиться с сервером MySQL"
 
 #, fuzzy
 #~| msgid ""
