@@ -260,8 +260,8 @@ function PMA_display_column_privs($columns, $row, $name_for_select,
             . '_none"><input type="checkbox"'
             . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
             . ' name="' . $name_for_select . '_none" id="checkbox_'
-            . $name_for_select . '_none" title="' . __('None') . '" />'
-            . __('None') . '</label>' . "\n"
+            . $name_for_select . '_none" title="' . _pgettext('None privileges', 'None') . '" />'
+            . _pgettext('None privileges', 'None') . '</label>' . "\n"
            . '    </div>' . "\n";
 } // end function
 
