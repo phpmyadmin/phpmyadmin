@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-05 11:52+0200\n"
-"PO-Revision-Date: 2010-05-05 16:16+0200\n"
+"PO-Revision-Date: 2010-05-05 16:17+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4293,9 +4293,7 @@ msgstr "Le nom d'une clé primaire doit être «PRIMARY»!"
 #: libraries/messages.inc.php:676
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr ""
-"(\"PRIMARY\" <b>doit et ne peut être</b> que le nom d'une clé "
-"primaire&nbsp;!)"
+msgstr "(«PRIMARY» <b>doit et ne peut être</b> que le nom d'une clé primaire!)"
 
 #: libraries/messages.inc.php:677 libraries/mult_submits.inc.php:76
 #: libraries/tbl_properties.inc.php:513 tbl_structure.php:29
