@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-05 11:52+0200\n"
-"PO-Revision-Date: 2010-05-05 16:11+0200\n"
+"PO-Revision-Date: 2010-05-05 16:12+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2850,7 +2850,7 @@ msgstr "Insertions complètes"
 #: libraries/messages.inc.php:176
 #, php-format
 msgid "Could not load default configuration from: \"%1$s\""
-msgstr "Chargement de la configuration par défaut impossible depuis \"%1$s\""
+msgstr "Chargement de la configuration par défaut impossible depuis  «%1$s»"
 
 #: libraries/messages.inc.php:177 main.php:306
 msgid ""
