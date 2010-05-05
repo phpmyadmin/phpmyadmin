@@ -36,7 +36,7 @@ if (function_exists('mcrypt_encrypt')) {
         srand((double) microtime() * 1000000);
          $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
          if ($td === false) {
-            trigger_error(PMA_sanitize(sprintf(__('Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. Please check your PHP configuration.'), 'mcrypt')), E_USER_WARNING);
+            PMA_warnMissingExtension('mcrypt');
          }
         $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
         $GLOBALS['PMA_Config']->setCookie('pma_mcrypt_iv', base64_encode($iv));
@@ -79,7 +79,7 @@ if (function_exists('mcrypt_encrypt')) {
 } else {
     require_once './libraries/blowfish.php';
     if (!$GLOBALS['cfg']['McryptDisableWarning']) {
-        trigger_error(PMA_sanitize(sprintf(__('Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. Please check your PHP configuration.'), 'mcrypt')), E_USER_WARNING);
+        PMA_warnMissingExtension('mcrypt');
     }
 }
 
