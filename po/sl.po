@@ -6386,7 +6386,7 @@ msgstr "Urejanje polj CHAR"
 
 #: setup/lib/messages.inc.php:37
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Število stolpcev za besedilna polja CHAR/VARCHAR"
 
 #: setup/lib/messages.inc.php:38
 msgid "CHAR textarea columns"
