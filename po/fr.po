@@ -4184,7 +4184,7 @@ msgstr "Les mots de passe doivent être identiques"
 #: libraries/messages.inc.php:643
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
-msgstr "Schema de la base \"%s\" - Page %s"
+msgstr "Schema de la base «\"%s» - Page %s"
 
 #: libraries/messages.inc.php:644
 #, php-format
