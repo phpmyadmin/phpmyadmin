@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-06 12:56-0400\n"
-"PO-Revision-Date: 2010-05-06 23:01+0200\n"
+"PO-Revision-Date: 2010-05-06 23:05+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -264,7 +264,7 @@ msgstr "Preklopi na kopirano podatkovno zbirko"
 
 #: db_operations.php:533 libraries/messages.inc.php:97
 msgid "BLOB Repository"
-msgstr ""
+msgstr "Shramba BLOB"
 
 #: db_operations.php:536 db_tracking.php:76 libraries/common.lib.php:1350
 #: libraries/messages.inc.php:1045 libraries/server_links.inc.php:49
