@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 11:52+0200\n"
+"POT-Creation-Date: 2010-05-05 12:48-0400\n"
 "PO-Revision-Date: 2010-03-30 23:16+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -49,27 +49,27 @@ msgstr "Αναζήτηση"
 #: db_structure.php:567 js/messages.php:50
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046 libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277
+#: libraries/Config.class.php:1046
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_import.lib.php:276 libraries/display_tbl.lib.php:532
-#: libraries/display_tbl.lib.php:614 libraries/messages.inc.php:369
-#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:365
-#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
-#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
-#: libraries/tbl_properties.inc.php:782 libraries/Theme_Manager.class.php:311
-#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
-#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
-#: server_privileges.php:625 server_privileges.php:1585
-#: server_privileges.php:1932 server_privileges.php:1979
-#: server_privileges.php:2018 server_replication.php:235
-#: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1204 tbl_change.php:330 tbl_change.php:1174
-#: tbl_change.php:1211 tbl_indexes.php:252 tbl_operations.php:263
-#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
-#: tbl_operations.php:679 tbl_structure.php:563 tbl_structure.php:598
-#: tbl_tracking.php:395 tbl_tracking.php:512 view_create.php:182
-#: view_operations.php:101
+#: libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
+#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
+#: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
+#: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
+#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
+#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
+#: server_privileges.php:1585 server_privileges.php:1932
+#: server_privileges.php:1979 server_privileges.php:2018
+#: server_replication.php:235 server_replication.php:318
+#: server_replication.php:341 server_synchronize.php:1204 tbl_change.php:330
+#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
+#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
+#: tbl_operations.php:559 tbl_operations.php:679 tbl_structure.php:563
+#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Εκτέλεση"
 
@@ -106,7 +106,7 @@ msgstr "Σχόλια Πίνακα"
 #: libraries/export/texytext.php:233 libraries/Index.class.php:446
 #: libraries/messages.inc.php:325 libraries/tbl_properties.inc.php:99
 #: libraries/tbl_properties.inc.php:275 pdf_schema.php:1263
-#: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:187
+#: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:189
 #: tbl_printview.php:142 tbl_relation.php:402 tbl_structure.php:177
 #: tbl_tracking.php:273 tbl_tracking.php:324
 msgid "Field"
@@ -165,8 +165,8 @@ msgstr "Σχόλια"
 #: libraries/mult_submits.inc.php:263 pdf_schema.php:1345
 #: server_privileges.php:1529 server_privileges.php:1540
 #: server_privileges.php:1850 server_privileges.php:1855
-#: server_privileges.php:2148 tbl_printview.php:229 tbl_structure.php:351
-#: tbl_tracking.php:337 tbl_tracking.php:342
+#: server_privileges.php:2148 sql.php:132 sql.php:194 tbl_printview.php:229
+#: tbl_structure.php:351 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "Όχι"
 
@@ -181,9 +181,9 @@ msgstr "Όχι"
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:273
 #: pdf_schema.php:1345 server_databases.php:64 server_privileges.php:1526
 #: server_privileges.php:1540 server_privileges.php:1850
-#: server_privileges.php:1853 server_privileges.php:2148 tbl_printview.php:229
-#: tbl_structure.php:40 tbl_structure.php:351 tbl_tracking.php:335
-#: tbl_tracking.php:340
+#: server_privileges.php:1853 server_privileges.php:2148 sql.php:193
+#: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:351
+#: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
 msgstr "Ναι"
 
@@ -383,7 +383,7 @@ msgid "Records"
 msgstr "Εγγραφές"
 
 #: db_printview.php:109 libraries/db_structure.lib.php:67
-#: libraries/messages.inc.php:1011 tbl_indexes.php:188
+#: libraries/messages.inc.php:1011 tbl_indexes.php:190
 msgid "Size"
 msgstr "Μέγεθος"
 
@@ -468,7 +468,7 @@ msgstr "Διαγραφή"
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:600
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:258
-#: tbl_change.php:1031 tbl_indexes.php:248
+#: tbl_change.php:1031 tbl_indexes.php:250
 msgid "Or"
 msgstr "Ή"
 
@@ -1196,6 +1196,28 @@ msgstr "Προβολή βίντεο"
 msgid "Download file"
 msgstr "Λήψη αρχείου"
 
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Δεν είναι δυνατή η φόρτωση της επέκτασης iconv ή recode που χρειάζεται για "
+"την μετατροπή του σετ χαρακτήρων. Ρυθμίστε την php να επιτρέπει την χρήση "
+"αυτών των επεκτάσεων ή απανεργοποιήστε την μετατροπή χαρακτήρων στο "
+"phpMyAdmin."
+
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Δεν είναι δυνατή η χρήση της επέκτασης iconv ούτε της libiconv ούτε της "
+"ρουτίνας recode_string, ενώ η επέκταση έχει φορτωθεί. Ελέξτε τις ρυθμίσεις "
+"της php."
+
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -1493,6 +1515,51 @@ msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις Σ�
 msgid "Overhead"
 msgstr "Επιβάρυνση"
 
+#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
+#: main.php:91 user_password.php:111 user_password.php:129
+msgid "Change password"
+msgstr "Αλλαγή κωδικού πρόσβασης"
+
+#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
+#: libraries/replication_gui.lib.php:341 server_privileges.php:768
+msgid "No Password"
+msgstr "Χωρίς Κωδικό Πρόσβασης"
+
+#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
+#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
+#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:345 server_privileges.php:757
+#: server_privileges.php:761 server_privileges.php:772
+#: server_privileges.php:1499 server_synchronize.php:1170
+msgid "Password"
+msgstr "Κωδικός Πρόσβασης"
+
+#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
+#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
+#: server_privileges.php:776 server_privileges.php:779
+msgid "Re-type"
+msgstr "Επαναεισαγωγή"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr "Μείγμα κωδικού πρόσβασης"
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "Συμβατό με MySQL 4.0"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+#: libraries/replication_gui.lib.php:356 server_privileges.php:783
+msgid "Generate Password"
+msgstr "Παραγωγή Κωδικού Πρόσβασης"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+#: libraries/replication_gui.lib.php:359 server_privileges.php:786
+msgid "Generate"
+msgstr "Παραγωγή"
+
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1591,51 +1658,6 @@ msgstr "συμπίεση «bzip»"
 #: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr "Κατάσταση συμβατότητας SQL"
-
-#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
-#: main.php:91 user_password.php:111 user_password.php:129
-msgid "Change password"
-msgstr "Αλλαγή κωδικού πρόσβασης"
-
-#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
-#: libraries/replication_gui.lib.php:341 server_privileges.php:768
-msgid "No Password"
-msgstr "Χωρίς Κωδικό Πρόσβασης"
-
-#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
-#: libraries/replication_gui.lib.php:345 server_privileges.php:757
-#: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1170
-msgid "Password"
-msgstr "Κωδικός Πρόσβασης"
-
-#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
-#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
-#: server_privileges.php:776 server_privileges.php:779
-msgid "Re-type"
-msgstr "Επαναεισαγωγή"
-
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr "Μείγμα κωδικού πρόσβασης"
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "Συμβατό με MySQL 4.0"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-#: libraries/replication_gui.lib.php:356 server_privileges.php:783
-msgid "Generate Password"
-msgstr "Παραγωγή Κωδικού Πρόσβασης"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-#: libraries/replication_gui.lib.php:359 server_privileges.php:786
-msgid "Generate"
-msgstr "Παραγωγή"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -2356,28 +2378,6 @@ msgstr "Δημιουργήθηκε από:"
 msgid "Rows"
 msgstr "Εγγραφές"
 
-#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Δεν είναι δυνατή η φόρτωση της επέκτασης iconv ή recode που χρειάζεται για "
-"την μετατροπή του σετ χαρακτήρων. Ρυθμίστε την php να επιτρέπει την χρήση "
-"αυτών των επεκτάσεων ή απανεργοποιήστε την μετατροπή χαρακτήρων στο "
-"phpMyAdmin."
-
-#: libraries/charset_conversion.lib.php:79
-#: libraries/charset_conversion.lib.php:90
-#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Δεν είναι δυνατή η χρήση της επέκτασης iconv ούτε της libiconv ούτε της "
-"ρουτίνας recode_string, ενώ η επέκταση έχει φορτωθεί. Ελέξτε τις ρυθμίσεις "
-"της php."
-
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
@@ -2535,7 +2535,7 @@ msgstr "Προσθήκη δεδομένων στον ακόλουθο πίνακ
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Προσθήκη νέου όρου (σώμα της πρότασης «where» πρότασης):"
 
-#: libraries/messages.inc.php:49 tbl_indexes.php:249
+#: libraries/messages.inc.php:49 tbl_indexes.php:251
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "Προσθήκη στο ευρετήριο «%s» στήλης(ών)"
@@ -2741,6 +2741,7 @@ msgid "Upload to BLOB repository"
 msgstr "Μεταφορά στην αποθήκη BLOB"
 
 #: libraries/messages.inc.php:108 libraries/sql_query_form.lib.php:359
+#: sql.php:678
 msgid "Let every user access this bookmark"
 msgstr "Δικαίωμα πρόσβασης στο σελίδοδείκτη σε κάθε χρήστη"
 
@@ -2748,7 +2749,7 @@ msgstr "Δικαίωμα πρόσβασης στο σελίδοδείκτη σε
 msgid "The bookmark has been deleted."
 msgstr "Η ετικέτα διεγράφη."
 
-#: libraries/messages.inc.php:111
+#: libraries/messages.inc.php:111 sql.php:672
 msgid "Label"
 msgstr "Τίτλος"
 
@@ -2761,6 +2762,7 @@ msgid "Replace existing bookmark of same name"
 msgstr "Αντικατάσταση υπάρχοντος σελιδοδείκτη με το ίδιο όνομα"
 
 #: libraries/messages.inc.php:114 libraries/sql_query_form.lib.php:352
+#: sql.php:666 sql.php:667 sql.php:684
 msgid "Bookmark this SQL query"
 msgstr "Αποθήκευση αυτού του ερωτήματος SQL"
 
@@ -3224,10 +3226,12 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Να μην γίνεται αυτόματη αρίθμηση σε μηδενικές τιμές"
 
 #: libraries/messages.inc.php:278 libraries/mult_submits.inc.php:258
+#: sql.php:188
 msgid "Do you really want to "
 msgstr "Θέλετε να εκτελέσετε την εντολή"
 
 #: libraries/messages.inc.php:279 libraries/mult_submits.inc.php:258
+#: sql.php:172
 msgid "You are about to DESTROY a complete database!"
 msgstr "Πρόκειται να ΚΑΤΑΣΤΡΕΨΕΤΕ (DESTROY) μια ολόκληρη βάση δεδομένων!"
 
@@ -3254,7 +3258,7 @@ msgstr "Επεξεργασία Δικαιωμάτων"
 msgid "Effective"
 msgstr "Αποτελεσματικός"
 
-#: libraries/messages.inc.php:293 tbl_get_field.php:35 tbl_change.php:181
+#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 "Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
@@ -3560,7 +3564,8 @@ msgstr "Βοήθεια"
 msgid "Use hexadecimal for BLOB"
 msgstr "Χρήση δεκαεξαδικού για τον BLOB"
 
-#: libraries/messages.inc.php:383 pmd_general.php:141
+#: libraries/messages.inc.php:383 pmd_general.php:141 tbl_change.php:314
+#: tbl_change.php:320
 msgid "Hide"
 msgstr "Απόκρυψη"
 
@@ -3621,8 +3626,8 @@ msgstr "Πλήρες κείμενο"
 msgid "Ignore duplicate rows"
 msgstr "Παράβλεψη διπλών γραμμών"
 
-#: libraries/messages.inc.php:398 tbl_change.php:302 tbl_indexes.php:198
-#: tbl_indexes.php:223
+#: libraries/messages.inc.php:398 tbl_change.php:302 tbl_indexes.php:200
+#: tbl_indexes.php:225
 msgid "Ignore"
 msgstr "Παράληψη"
 
@@ -3700,15 +3705,15 @@ msgstr ""
 msgid "Index"
 msgstr "Ευρετήριο"
 
-#: libraries/messages.inc.php:423 tbl_indexes.php:166
+#: libraries/messages.inc.php:423 tbl_indexes.php:168
 msgid "Index name:"
 msgstr "Όνομα ευρετηρίου :"
 
-#: libraries/messages.inc.php:424 tbl_indexes.php:172
+#: libraries/messages.inc.php:424 tbl_indexes.php:174
 msgid "Index type:"
 msgstr "Τύπος ευρετηρίου :"
 
-#: libraries/messages.inc.php:425
+#: libraries/messages.inc.php:425 sql.php:640
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Προβλήματα με τα ευρετήρια στον πίνακα «%s»"
@@ -3758,7 +3763,7 @@ msgstr "Η εσωτερική συσχέτιση προστέθηκε"
 msgid "Internal relations"
 msgstr "Εσωτερικές συσχετίσεις"
 
-#: libraries/messages.inc.php:446 tbl_indexes.php:254 tbl_structure.php:590
+#: libraries/messages.inc.php:446 tbl_indexes.php:256 tbl_structure.php:590
 #: tbl_structure.php:601
 msgid "Column count has to be larger than zero."
 msgstr "Το πλήθος των στηλών δεν πρέπει να είναι μηδέν."
@@ -4015,7 +4020,7 @@ msgstr ""
 msgid "Modifications have been saved"
 msgstr "Οι αλλαγές αποθηκεύτηκαν"
 
-#: libraries/messages.inc.php:523 tbl_indexes.php:161
+#: libraries/messages.inc.php:523 tbl_indexes.php:162
 msgid "Modify an index"
 msgstr "Αλλαγή ενός ευρετηρίου"
 
@@ -4098,7 +4103,7 @@ msgstr ""
 "Δεν υπάρχουν λεπτομερείς πληροφορίες κατάστασης για αυτή τη μηχανή "
 "αποθήκευσης."
 
-#: libraries/messages.inc.php:558
+#: libraries/messages.inc.php:558 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
 
@@ -5011,7 +5016,7 @@ msgstr "Αποθήκευση θέσης"
 #: libraries/messages.inc.php:838 libraries/tbl_properties.inc.php:776
 #: pdf_pages.php:484 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:214 setup/lib/FormDisplay.tpl.php:215
-#: tbl_change.php:1126 tbl_indexes.php:246 tbl_relation.php:566
+#: tbl_change.php:1126 tbl_indexes.php:248 tbl_relation.php:566
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -8771,6 +8776,13 @@ msgstr "Εσωτερικές συσχετίσεις"
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
 msgstr "Όριο μη διακριτού κλειδιού"
+
+#: tbl_structure.php:362
+#, fuzzy
+#| msgid "None"
+msgctxt "None for default"
+msgid "None"
+msgstr "Καμία"
 
 #: tbl_structure.php:595
 #, fuzzy, php-format

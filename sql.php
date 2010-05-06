@@ -86,7 +86,7 @@ if (!defined('PMA_CHK_DROP')
  && $is_drop_database
  && !$is_superuser) {
     require_once './libraries/header.inc.php';
-    PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
+    PMA_mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
 } // end if
 
 require_once './libraries/display_tbl.lib.php';
@@ -129,7 +129,7 @@ if ($goto == 'sql.php') {
 /**
  * Go back to further page if table should not be dropped
  */
-if (isset($btnDrop) && $btnDrop == $strNo) {
+if (isset($btnDrop) && $btnDrop == __('No')) {
     if (!empty($back)) {
         $goto = $back;
     }
@@ -169,7 +169,7 @@ if ($do_confirm) {
     $stripped_sql_query = $sql_query;
     require_once './libraries/header.inc.php';
     if ($is_drop_database) {
-        echo '<h1 class="warning">' . $strDropDatabaseStrongWarning . '</h1>';
+        echo '<h1 class="warning">' . __('You are about to DESTROY a complete database!') . '</h1>';
     }
     echo '<form action="sql.php" method="post">' . "\n"
         .PMA_generate_common_hidden_inputs($db, $table);
@@ -185,13 +185,13 @@ if ($do_confirm) {
     <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? PMA_sanitize($show_query) : ''; ?>" />
     <?php
     echo '<fieldset class="confirmation">' . "\n"
-        .'    <legend>' . $strDoYouReally . '</legend>'
+        .'    <legend>' . __('Do you really want to ') . '</legend>'
         .'    <tt>' . htmlspecialchars($stripped_sql_query) . '</tt>' . "\n"
         .'</fieldset>' . "\n"
         .'<fieldset class="tblFooters">' . "\n";
     ?>
-    <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" id="buttonYes" />
-    <input type="submit" name="btnDrop" value="<?php echo $strNo; ?>" id="buttonNo" />
+    <input type="submit" name="btnDrop" value="<?php echo __('Yes'); ?>" id="buttonYes" />
+    <input type="submit" name="btnDrop" value="<?php echo __('No'); ?>" id="buttonNo" />
     <?php
     echo '</fieldset>' . "\n"
        . '</form>' . "\n";
@@ -637,7 +637,7 @@ else {
         foreach ($selected as $idx => $tbl_name) {
             $check = PMA_Index::findDuplicates($tbl_name, $db);
             if (! empty($check)) {
-                printf($strIndexWarningTable, $tbl_name);
+                printf(__('Problems with indexes of table `%s`'), $tbl_name);
                 echo $check;
             }
         }
@@ -663,25 +663,25 @@ else {
 <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
 <fieldset>
     <legend><?php
-     echo ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_bookmark.png" width="16" height="16" alt="' . $strBookmarkThis . '" />' : '')
-        . $strBookmarkThis;
+     echo ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_bookmark.png" width="16" height="16" alt="' . __('Bookmark this SQL query') . '" />' : '')
+        . __('Bookmark this SQL query');
 ?>
     </legend>
 
     <div class="formelement">
-        <label for="fields_label_"><?php echo $strBookmarkLabel; ?>:</label>
+        <label for="fields_label_"><?php echo __('Label'); ?>:</label>
         <input type="text" id="fields_label_" name="fields[label]" value="" />
     </div>
 
     <div class="formelement">
         <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" />
-        <label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label>
+        <label for="bkm_all_users"><?php echo __('Let every user access this bookmark'); ?></label>
     </div>
 
     <div class="clearfloat"></div>
 </fieldset>
 <fieldset class="tblFooters">
-    <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
+    <input type="submit" name="store_bkm" value="<?php echo __('Bookmark this SQL query'); ?>" />
 </fieldset>
 </form>
         <?php
