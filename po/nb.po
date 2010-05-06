@@ -6685,10 +6685,10 @@ msgid "Create table"
 msgstr "Opprett tabell"
 
 #: pdf_schema.php:637
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "Tabellen \"%s\" eksisterer ikke!"
+msgstr "Tabellen %s eksisterer ikke!"
 
 #: pdf_schema.php:996
 #, php-format
