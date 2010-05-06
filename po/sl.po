@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-06 12:56-0400\n"
-"PO-Revision-Date: 2010-05-06 23:05+0200\n"
+"PO-Revision-Date: 2010-05-06 23:06+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -757,10 +757,9 @@ msgstr "Prekliči"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Daruj"
+msgstr "Končano"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:76
