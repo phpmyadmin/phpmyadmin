@@ -1597,10 +1597,9 @@ msgid "gzipped"
 msgstr "gzipano"
 
 #: libraries/display_export.lib.php:259
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"bzipano\""
+msgstr "bzipano"
 
 #: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
