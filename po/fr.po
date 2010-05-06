@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 12:48-0400\n"
+"POT-Creation-Date: 2010-05-05 11:52+0200\n"
 "PO-Revision-Date: 2010-05-04 16:34+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -489,7 +489,7 @@ msgstr "Utiliser les tables"
 #: db_qbe.php:640 libraries/messages.inc.php:731
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Requête SQL sur la base <b>%s</b>&nbsp;:"
+msgstr "Requête SQL sur la base <b>%s</b>:"
 
 #: db_qbe.php:934 libraries/common.lib.php:1223 libraries/messages.inc.php:831
 msgid "Submit Query"
@@ -748,7 +748,7 @@ msgstr "L'importation s'est terminée avec succès, %d requêtes exécutées."
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "L'utilisation de phpMyAdmin est plus aisée avec un navigateur <b>supportant "
-"les \"frames\"</b>."
+"les cadres</b>."
 
 #: js/messages.php:51 libraries/messages.inc.php:131 pmd_general.php:342
 #: pmd_general.php:379
@@ -1037,9 +1037,9 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin a tenté de se connecter au serveur MySQL, et le serveur a rejeté "
-"la connexion. Veuillez vérifier les valeurs de \"host\", \"username\" et "
-"\"password\" dans votre configuration et vous assurer qu'elles correspondent "
-"aux informations fournies par l'administrateur du serveur MySQL."
+"la connexion. Veuillez vérifier les valeurs de host, username et password "
+"dans votre configuration et vous assurer qu'elles correspondent aux "
+"informations fournies par l'administrateur du serveur MySQL."
 
 #: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:496
 msgid "Log in"
@@ -1077,7 +1077,7 @@ msgstr "Choix du serveur"
 
 #: libraries/auth/cookie.auth.lib.php:320 libraries/messages.inc.php:185
 msgid "Cookies must be enabled past this point."
-msgstr "Vous devez accepter les \"cookies\" pour poursuivre."
+msgstr "Vous devez accepter les cookies pour poursuivre."
 
 #: libraries/auth/cookie.auth.lib.php:671
 #: libraries/auth/signon.auth.lib.php:181 libraries/messages.inc.php:497
@@ -1170,15 +1170,15 @@ msgstr ""
 "phpMyAdmin n'a pu lire votre fichier de configuration!<br />Il est possible "
 "qu'il contienne une erreur de syntaxe, ou que PHP soit incapable de le "
 "trouver.<br />À l'aide du lien suivant, vous pouvez vérifier le message "
-"d'erreur généré par PHP.<br />La plupart du temps, un apostrophe ou un point-"
-"virgule sont manquants.<br />Si vous recevez une page blanche, aucune erreur "
-"n'a été détectée."
+"d'erreur généré par PHP.<br />La plupart du temps, un apostrophe ou un "
+"point-virgule sont manquants.<br />Si vous recevez une page blanche, aucune "
+"erreur n'a été détectée."
 
 #: libraries/common.inc.php:594
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Chargement de la configuration par défaut impossible depuis \"%1$s\""
+msgstr "Chargement de la configuration par défaut impossible depuis %1$s"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
@@ -1350,8 +1350,8 @@ msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 "extension. Please check your PHP configuration."
 msgstr ""
-"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%1$s"
-"[/em][/a]. Veuillez vérifier votre configuration de PHP."
+"PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%"
+"1$s[/em][/a]. Veuillez vérifier votre configuration de PHP."
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
 #: libraries/export/sql.php:415 libraries/messages.inc.php:314
@@ -1368,7 +1368,7 @@ msgstr "Nom"
 #: libraries/messages.inc.php:184
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
-"La connexion au \"controluser\" tel que défini dans votre configuration a "
+"La connexion au controluser tel que défini dans votre configuration a "
 "échoué."
 
 #: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
@@ -1380,8 +1380,8 @@ msgstr "Le serveur ne répond pas."
 #: libraries/messages.inc.php:1018
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
-"(ou l'interface de connexion (\"socket\") vers le serveur MySQL local n'est "
-"pas correctement configurée)"
+"(ou l'interface de connexion (socket) vers le serveur MySQL local n'est pas "
+"correctement configurée)"
 
 #: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
 #: tbl_structure.php:609
@@ -2466,7 +2466,7 @@ msgstr "Ajouter des privilèges sur cette table"
 
 #: libraries/messages.inc.php:48
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Critères de recherche (pour l'énoncé \"where\") :"
+msgstr "Critères de recherche (pour l'énoncé «where») :"
 
 #: libraries/messages.inc.php:49 tbl_indexes.php:251
 #, php-format
@@ -2718,7 +2718,7 @@ msgstr "bulgare"
 
 #: libraries/messages.inc.php:128
 msgid "\"bzipped\""
-msgstr "\"bzippé\""
+msgstr " «bzippé »"
 
 #: libraries/messages.inc.php:130
 msgid "Calendar"
@@ -2852,7 +2852,7 @@ msgstr "Insertions complètes"
 #: libraries/messages.inc.php:176
 #, php-format
 msgid "Could not load default configuration from: \"%1$s\""
-msgstr "Chargement de la configuration par défaut impossible depuis \"%1$s\""
+msgstr "Chargement de la configuration par défaut impossible depuis  «%1$s»"
 
 #: libraries/messages.inc.php:177 main.php:306
 msgid ""
@@ -3015,7 +3015,7 @@ msgstr "La base de données %1$s a été créée."
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "La base de données '%s' n'existe pas."
+msgstr "La base de données «%s» n'existe pas."
 
 #: libraries/messages.inc.php:227
 #, php-format
@@ -3118,7 +3118,7 @@ msgid ""
 "appropriate field name."
 msgstr ""
 "Le champ à afficher est montré en rose. Pour indiquer qu'un champ est ou "
-"n'est plus le champ à afficher, cliquer l'icône \"Champ à afficher\", puis "
+"n'est plus le champ à afficher, cliquer l'icône  «Champ à afficher», puis "
 "cliquer sur le nom de champ approprié."
 
 #: libraries/messages.inc.php:264 libraries/mysql_charsets.lib.php:248
@@ -3152,7 +3152,7 @@ msgstr "Ordre d'affichage :"
 
 #: libraries/messages.inc.php:273
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Recherche par valeur (passepartout: \"%\") "
+msgstr "Recherche par valeur (passepartout:  «% ») "
 
 #: libraries/messages.inc.php:274
 msgid "DocSQL"
@@ -3379,7 +3379,7 @@ msgstr "Vider la cache des requêtes"
 
 #: libraries/messages.inc.php:344
 msgid "Flush the table (\"FLUSH\")"
-msgstr "Recharger la table (\"FLUSH\")"
+msgstr "Recharger la table ( «FLUSH »)"
 
 #: libraries/messages.inc.php:345 server_status.php:271
 msgid "Flush (close) all tables"
@@ -3463,7 +3463,7 @@ msgstr "Aller à la vue"
 #: libraries/messages.inc.php:373 server_privileges.php:1502
 #: server_privileges.php:1684
 msgid "Grant"
-msgstr "\"Grant\""
+msgstr " «Grant »"
 
 #: libraries/messages.inc.php:374 libraries/mysql_charsets.lib.php:381
 msgid "Greek"
@@ -3471,7 +3471,7 @@ msgstr "grec"
 
 #: libraries/messages.inc.php:375
 msgid "\"gzipped\""
-msgstr "\"gzippé\""
+msgstr " «gzippé »"
 
 #: libraries/messages.inc.php:377 server_status.php:250
 msgid "Handler"
@@ -3598,11 +3598,11 @@ msgstr "Consulter le contenu d'une structure en cliquant sur son nom"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
-"Modifiez l'un des réglages en cliquant le lien \"Options\" correspondant"
+"Modifiez l'un des réglages en cliquant le lien  «Options » correspondant"
 
 #: libraries/messages.inc.php:410
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr "Modifier sa structure via le lien \"Structure\""
+msgstr "Modifier sa structure via le lien  «Structure »"
 
 #: libraries/messages.inc.php:411
 msgid "Import currencies ($5.00 to 5.00)"
@@ -3660,10 +3660,10 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"Votre fichier de configuration fait référence à l'utilisateur root sans mot "
-"de passe, ce qui correspond à la valeur par défaut de MySQL. Votre serveur "
-"MySQL est donc ouvert aux intrusions, et vous devriez corriger ce problème "
-"de sécurité."
+"Votre fichier de configuration fait référence à l'utilisateur «root » sans "
+"mot de passe, ce qui correspond à la valeur par défaut de MySQL. Votre "
+"serveur MySQL est donc ouvert aux intrusions, et vous devriez corriger ce "
+"problème de sécurité."
 
 #: libraries/messages.inc.php:436 tbl_change.php:1130
 msgid "Insert as new row"
@@ -3739,7 +3739,7 @@ msgstr "Ce greffon ne supporte pas les importations en format comprimé!"
 #: libraries/messages.inc.php:457
 #, php-format
 msgid "Invalid server index: \"%s\""
-msgstr "Indice de serveur invalide: \"%s\""
+msgstr "Indice de serveur invalide:  «%s »"
 
 #: libraries/messages.inc.php:458 libraries/Table.class.php:1033
 #: tbl_get_field.php:26
@@ -3936,8 +3936,8 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Veuillez entrer les valeurs des options de transformation en suivant ce "
-"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") "
-"ou une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
+"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") ou "
+"une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
 
 #: libraries/messages.inc.php:519 libraries/tbl_properties.inc.php:145
@@ -4041,7 +4041,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:558 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "La commande \"DROP DATABASE\" est désactivée."
+msgstr "La commande  «DROP DATABASE» est désactivée."
 
 #: libraries/messages.inc.php:560 libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -4146,7 +4146,7 @@ msgstr "OK"
 
 #: libraries/messages.inc.php:593
 msgid "Open Document Text"
-msgstr "Texte \"Open Document\""
+msgstr "Texte  «Open Document»"
 
 #: libraries/messages.inc.php:596
 msgid "Operator"
@@ -4189,12 +4189,12 @@ msgstr "Les mots de passe doivent être identiques"
 #: libraries/messages.inc.php:643
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
-msgstr "Schema de la base \"%s\" - Page %s"
+msgstr "Schéma de la base «\"%s» - Page %s"
 
 #: libraries/messages.inc.php:644
 #, php-format
 msgid "The \"%s\" table doesn't exist!"
-msgstr "La table \"%s\" n'existe pas !"
+msgstr "La table «%s» n'existe pas !"
 
 #: libraries/messages.inc.php:645 pdf_schema.php:1014
 msgid "No tables"
@@ -4293,14 +4293,12 @@ msgstr "Port"
 
 #: libraries/messages.inc.php:675
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Le nom d'une clé primaire doit être PRIMARY!"
+msgstr "Le nom d'une clé primaire doit être «PRIMARY»!"
 
 #: libraries/messages.inc.php:676
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr ""
-"(\"PRIMARY\" <b>doit et ne peut être</b> que le nom d'une clé "
-"primaire&nbsp;!)"
+msgstr "(«PRIMARY» <b>doit et ne peut être</b> que le nom d'une clé primaire!)"
 
 #: libraries/messages.inc.php:677 libraries/mult_submits.inc.php:76
 #: libraries/tbl_properties.inc.php:513 tbl_structure.php:29
@@ -4984,7 +4982,7 @@ msgstr "Dans la(les) table(s) :"
 
 #: libraries/messages.inc.php:843
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Mot ou Valeur à rechercher (passe-partout: \"%\") :"
+msgstr "Mot ou Valeur à rechercher (passe-partout: «%») :"
 
 #: libraries/messages.inc.php:844
 msgid "at least one of the words"
@@ -6767,34 +6765,32 @@ msgid "Create table"
 msgstr "Nouvelle table"
 
 #: pdf_schema.php:637
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "La table \"%s\" n'existe pas !"
+msgstr "La table %s n'existe pas !"
 
 #: pdf_schema.php:996
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema de la base \"%s\" - Page %s"
+msgstr "Schéma de la base %s - Page %s"
 
 #: server_databases.php:230
 msgid "Jump to database"
 msgstr "Aller à la base de données"
 
 #: server_privileges.php:263 server_privileges.php:264
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
-msgstr "aucune"
+msgstr "Aucun"
 
 #: server_privileges.php:1904
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Préfixer avec \\ les passepartouts _ et % pour un usage littéral"
 
 #: server_privileges.php:1998
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
@@ -8637,180 +8633,3 @@ msgstr "Créer un index sur &nbsp;%s&nbsp;colonnes"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Description"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "aucune"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "aucune"
-
-#, fuzzy
-#~| msgid "Grant all privileges on wildcard name (username\\_%)"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "Donner les privilèges passepartout (utilisateur\\_%)"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "La table \"%s\" n'existe pas !"
-
-#~ msgid "Could not load default configuration from: %1"
-#~ msgstr "Chargement de la configuration par défaut impossible depuis %1"
-
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr ""
-#~ "Nom d'hôte (hostname) invalide pour le serveur %1. Veuillez vérifier "
-#~ "votre configuration."
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "Erreur lors du renommage de %1$s en %2$s"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%"
-#~ "1$s[/em][/a]. Veuillez vérifier votre configuration de PHP."
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as master in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as master in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Ce serveur n'est pas configuré comme maître dans un processus de "
-#~ "réplication. Désirez-vous le <a href=\"%s\">configurer</a>?"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as slave in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as slave in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Ce serveur n'est pas configuré comme esclave dans un processus de "
-#~ "réplication. Désirez-vous le <a href=\"%s\">configurer</a>?"
-
-#, fuzzy
-#~| msgid "Could not connect to MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Connexion au serveur MySQL impossible."
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Il semble que vous ayez trouvé une anomalie dans l'analyseur syntaxique "
-#~ "SQL. Veuillez examiner votre requête attentivement et vérifier que vos "
-#~ "apostrophes sont conformes. Il se pourrait aussi que vous ayez chargé un "
-#~ "fichier dont le contenu binaire n'est pas entre apostrophes. Si vous avez "
-#~ "accès à MySQL via son interface de commande en mode ligne, vous pouvez y "
-#~ "essayer votre requête. Le message d'erreur présenté plus bas pourrait "
-#~ "vous indiquer la source du problème. En dernier recours, veuillez trouver "
-#~ "la plus courte requête possible qui cause le problème, et soumettre un "
-#~ "rapport d'anomalie en incluant la section à couper:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV"
-
-#~ msgid "Copy"
-#~ msgstr "Copier"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Effacer les utilisateurs, puis recharger les privilèges."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Ceci est la méthode la plus directe, mais le fait de recharger les "
-#~ "privilèges pourrait prendre du temps."
-
-#~ msgid "has been altered."
-#~ msgstr "a été modifié(e)."
-
-#~ msgid "Microsoft Excel 2000"
-#~ msgstr "Microsoft Excel 2000"
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Fonction non disponible sous Internet Explorer."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "Les utilisateurs &quot;effacés&quot; auront quand même accès au serveur, "
-#~ "jusqu'à ce que les privilèges soient rechargés."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Seulement effacer les utilisateurs des tables de privilèges."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Permission d'exécuter des procédures; n'est pas effectif dans cette "
-#~ "version de MySQL."
-
-#~ msgid "Process list"
-#~ msgstr "Liste des processus"
-
-#~ msgid "Reload privileges"
-#~ msgstr "Recharger les privilèges"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Les utilisateurs auront le privilege \"USAGE\", jusqu'à ce que les "
-#~ "privilèges soient rechargés."
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "Données MS Excel (format natif)"
-
-#~ msgid "Alter index(s)"
-#~ msgstr "Modifier des index"
-
-#~ msgid "Tracking Mechanism"
-#~ msgstr "Mécanisme de suivi"
-
-#~ msgid "SELECT *"
-#~ msgstr "SELECT *"
-
-#~ msgid "SELECT"
-#~ msgstr "SELECT"
-
-#~ msgid "INSERT"
-#~ msgstr "INSERT"
-
-#~ msgid "UPDATE"
-#~ msgstr "UPDATE"
-
-#~ msgid "DELETE"
-#~ msgstr "DELETE"
