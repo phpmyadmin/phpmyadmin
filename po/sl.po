@@ -782,10 +782,9 @@ msgid "Today"
 msgstr "Danes"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "Dvojiško"
+msgstr "januar"
 
 #: js/messages.php:84
 msgid "February"
