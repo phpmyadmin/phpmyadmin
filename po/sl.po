@@ -1829,7 +1829,7 @@ msgstr "Podatkovne datoteke"
 
 #: libraries/engines/innodb.lib.php:37 libraries/messages.inc.php:426
 msgid "Autoextend increment"
-msgstr ""
+msgstr "Povečevanje pri samorazširitvi"
 
 #: libraries/engines/innodb.lib.php:38 libraries/messages.inc.php:427
 msgid ""
