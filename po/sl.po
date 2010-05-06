@@ -1142,7 +1142,7 @@ msgstr "Predvajaj avdio"
 
 #: libraries/blobstreaming.lib.php:698 libraries/messages.inc.php:1240
 msgid "View video"
-msgstr ""
+msgstr "Ogled videa"
 
 #: libraries/blobstreaming.lib.php:702 libraries/messages.inc.php:277
 msgid "Download file"
