@@ -6710,7 +6710,6 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Jokertegnene _ og % må beskyttes med en \\ for å bruke dem direkte"
 
 #: server_privileges.php:1998
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
