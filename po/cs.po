@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-05 12:48-0400\n"
-"PO-Revision-Date: 2010-05-05 11:52+0200\n"
+"PO-Revision-Date: 2010-05-06 07:14+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -8508,7 +8508,6 @@ msgid "Foreign key constraint"
 msgstr "Omezení cizího klíče"
 
 #: tbl_structure.php:362
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
