@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-06 07:36-0400\n"
+"POT-Creation-Date: 2010-05-06 12:56-0400\n"
 "PO-Revision-Date: 2010-05-06 08:35+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -117,10 +117,10 @@ msgstr "Felt"
 #: libraries/export/odt.php:297 libraries/export/texytext.php:234
 #: libraries/Index.class.php:443 libraries/messages.inc.php:1189
 #: libraries/tbl_properties.inc.php:100 pdf_schema.php:1264
-#: pdf_schema.php:1285 tbl_change.php:287 tbl_change.php:314
-#: tbl_printview.php:143 tbl_printview.php:313 tbl_select.php:136
-#: tbl_structure.php:178 tbl_structure.php:660 tbl_tracking.php:274
-#: tbl_tracking.php:321
+#: pdf_schema.php:1285 server_privileges.php:2031 tbl_change.php:287
+#: tbl_change.php:314 tbl_printview.php:143 tbl_printview.php:313
+#: tbl_select.php:136 tbl_structure.php:178 tbl_structure.php:660
+#: tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
 msgstr "Type"
 
@@ -687,7 +687,7 @@ msgstr "Oppdatert"
 #: db_tracking.php:77 libraries/db_structure.lib.php:53
 #: libraries/Index.class.php:440 libraries/messages.inc.php:35
 #: server_databases.php:203 server_privileges.php:1503
-#: server_privileges.php:1686 tbl_structure.php:187
+#: server_privileges.php:1686 server_privileges.php:2034 tbl_structure.php:187
 msgid "Action"
 msgstr "Handling"
 
@@ -1383,7 +1383,7 @@ msgstr "Databasen ser ut til å være tom!"
 
 #: libraries/db_links.inc.php:68 libraries/messages.inc.php:1033
 #: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
-#: test/theme.php:97
+#: querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr "SQL"
 
@@ -1414,7 +1414,7 @@ msgstr "Operasjoner"
 
 #: libraries/db_links.inc.php:111 libraries/messages.inc.php:717
 #: libraries/server_links.inc.php:66 server_privileges.php:72
-#: server_privileges.php:1683 test/theme.php:117
+#: server_privileges.php:1683 server_privileges.php:2032 test/theme.php:117
 msgid "Privileges"
 msgstr "Privilegier"
 
@@ -1722,6 +1722,11 @@ msgstr "Vis BLOB innhold"
 msgid "Show binary contents as HEX"
 msgstr "Vis binært innhold som HEX"
 
+#: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:383
+#: pmd_general.php:141 tbl_change.php:314 tbl_change.php:320
+msgid "Hide"
+msgstr "Skjul"
+
 #: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:516
 #: libraries/tbl_properties.inc.php:144 transformation_overview.php:47
 msgid "Browser transformation"
@@ -1756,8 +1761,9 @@ msgid "in query"
 msgstr "i spørring"
 
 #: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
-#: libraries/mult_submits.inc.php:113 tbl_structure.php:25
-#: tbl_structure.php:150 tbl_structure.php:471
+#: libraries/mult_submits.inc.php:113 querywindow.php:125 querywindow.php:129
+#: querywindow.php:132 tbl_structure.php:25 tbl_structure.php:150
+#: tbl_structure.php:471
 msgid "Change"
 msgstr "Endre"
 
@@ -2133,7 +2139,8 @@ msgstr "Tabellstruktur for tabell"
 #: libraries/replication_gui.lib.php:268 libraries/replication_gui.lib.php:325
 #: server_privileges.php:692 server_privileges.php:695
 #: server_privileges.php:751 server_privileges.php:1498
-#: server_processlist.php:55 server_synchronize.php:1154
+#: server_privileges.php:2030 server_processlist.php:55
+#: server_synchronize.php:1154
 msgid "Host"
 msgstr "Vert"
 
@@ -2479,7 +2486,7 @@ msgstr "Rediger neste rad"
 msgid "Go back to this page"
 msgstr "Tilbake til denne siden"
 
-#: libraries/messages.inc.php:58
+#: libraries/messages.inc.php:58 querywindow.php:115
 msgid "All"
 msgstr "Alle"
 
@@ -2919,7 +2926,7 @@ msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Ingen"
 
-#: libraries/messages.inc.php:207
+#: libraries/messages.inc.php:207 server_privileges.php:2003
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Gi alle privilegier for databasen &quot;%s&quot;"
@@ -3078,7 +3085,7 @@ msgstr ""
 "Den nåværende siden har referanser til tabeller som ikke lenger eksisterer. "
 "Vil du slette disse referansene?"
 
-#: libraries/messages.inc.php:262
+#: libraries/messages.inc.php:262 pmd_help.php:29
 msgid ""
 "The display field is shown in pink. To set/unset a field as the display "
 "field, click the \"Choose field to display\" icon, then click on the "
@@ -3427,7 +3434,7 @@ msgid "Go to view"
 msgstr "Gå til visning"
 
 #: libraries/messages.inc.php:373 server_privileges.php:1502
-#: server_privileges.php:1684
+#: server_privileges.php:1684 server_privileges.php:2033
 msgid "Grant"
 msgstr "Rettighet"
 
@@ -3462,11 +3469,6 @@ msgstr "Hjelp"
 #: libraries/messages.inc.php:382
 msgid "Use hexadecimal for BLOB"
 msgstr "Bruk heksadesimal for BLOB"
-
-#: libraries/messages.inc.php:383 pmd_general.php:141 tbl_change.php:314
-#: tbl_change.php:320
-msgid "Hide"
-msgstr "Skjul"
 
 #: libraries/messages.inc.php:384 pmd_general.php:120
 msgid "Hide/Show all"
@@ -3546,7 +3548,7 @@ msgstr "Ikke importer tomme rader"
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Importer/Eksporter koordinater for PDF skjema"
 
-#: libraries/messages.inc.php:403
+#: libraries/messages.inc.php:403 querywindow.php:104
 msgid "Import files"
 msgstr "Importer filer"
 
@@ -4486,7 +4488,7 @@ msgstr "Spørringsmellomlager"
 msgid "Query window"
 msgstr "Spørringsvindu"
 
-#: libraries/messages.inc.php:733
+#: libraries/messages.inc.php:733 querywindow.php:109 querywindow.php:217
 msgid "SQL history"
 msgstr "SQL-historie"
 
@@ -6145,7 +6147,7 @@ msgstr "slå av/på kladdevindu"
 msgid "Toggle small/big"
 msgstr "Veksle mellom liten/stor"
 
-#: libraries/messages.inc.php:1120
+#: libraries/messages.inc.php:1120 pmd_help.php:27
 msgid "To select relation, click :"
 msgstr "For å velge relasjon, klikk :"
 
@@ -6535,14 +6537,14 @@ msgstr "Brukeroversikt"
 msgid "The selected users have been deleted successfully."
 msgstr "De valgte brukerne har blitt slettet."
 
-#: libraries/messages.inc.php:1221
+#: libraries/messages.inc.php:1221 server_privileges.php:2026
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Brukere som har adgang til &quot;%s&quot;"
 
 #: libraries/messages.inc.php:1222 main.php:189 server_privileges.php:1350
 #: server_privileges.php:1497 server_privileges.php:1611
-#: server_processlist.php:54
+#: server_privileges.php:2029 server_processlist.php:54
 msgid "User"
 msgstr "Bruker"
 

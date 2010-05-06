@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-06 07:36-0400\n"
+"POT-Creation-Date: 2010-05-06 12:56-0400\n"
 "PO-Revision-Date: 2010-04-03 11:44+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -118,10 +118,10 @@ msgstr "Alan"
 #: libraries/export/odt.php:297 libraries/export/texytext.php:234
 #: libraries/Index.class.php:443 libraries/messages.inc.php:1189
 #: libraries/tbl_properties.inc.php:100 pdf_schema.php:1264
-#: pdf_schema.php:1285 tbl_change.php:287 tbl_change.php:314
-#: tbl_printview.php:143 tbl_printview.php:313 tbl_select.php:136
-#: tbl_structure.php:178 tbl_structure.php:660 tbl_tracking.php:274
-#: tbl_tracking.php:321
+#: pdf_schema.php:1285 server_privileges.php:2031 tbl_change.php:287
+#: tbl_change.php:314 tbl_printview.php:143 tbl_printview.php:313
+#: tbl_select.php:136 tbl_structure.php:178 tbl_structure.php:660
+#: tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
 msgstr "Türü"
 
@@ -696,7 +696,7 @@ msgstr "Güncellendi"
 #: db_tracking.php:77 libraries/db_structure.lib.php:53
 #: libraries/Index.class.php:440 libraries/messages.inc.php:35
 #: server_databases.php:203 server_privileges.php:1503
-#: server_privileges.php:1686 tbl_structure.php:187
+#: server_privileges.php:1686 server_privileges.php:2034 tbl_structure.php:187
 msgid "Action"
 msgstr "Eylem"
 
@@ -1455,7 +1455,7 @@ msgstr "Veritabanı boş olarak görünüyor!"
 
 #: libraries/db_links.inc.php:68 libraries/messages.inc.php:1033
 #: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
-#: test/theme.php:97
+#: querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr "SQL"
 
@@ -1486,7 +1486,7 @@ msgstr "İşlemler"
 
 #: libraries/db_links.inc.php:111 libraries/messages.inc.php:717
 #: libraries/server_links.inc.php:66 server_privileges.php:72
-#: server_privileges.php:1683 test/theme.php:117
+#: server_privileges.php:1683 server_privileges.php:2032 test/theme.php:117
 msgid "Privileges"
 msgstr "Yetkiler"
 
@@ -1807,6 +1807,11 @@ msgstr "BLOB içerikleri göster"
 msgid "Show binary contents as HEX"
 msgstr "Binari içerikleri HEX olarak göster"
 
+#: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:383
+#: pmd_general.php:141 tbl_change.php:314 tbl_change.php:320
+msgid "Hide"
+msgstr "Gizle"
+
 #: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:516
 #: libraries/tbl_properties.inc.php:144 transformation_overview.php:47
 msgid "Browser transformation"
@@ -1841,8 +1846,9 @@ msgid "in query"
 msgstr "sorgu içerisinde"
 
 #: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
-#: libraries/mult_submits.inc.php:113 tbl_structure.php:25
-#: tbl_structure.php:150 tbl_structure.php:471
+#: libraries/mult_submits.inc.php:113 querywindow.php:125 querywindow.php:129
+#: querywindow.php:132 tbl_structure.php:25 tbl_structure.php:150
+#: tbl_structure.php:471
 msgid "Change"
 msgstr "Değiştir"
 
@@ -2221,7 +2227,8 @@ msgstr "Tablo için tablo yapısı:"
 #: libraries/replication_gui.lib.php:268 libraries/replication_gui.lib.php:325
 #: server_privileges.php:692 server_privileges.php:695
 #: server_privileges.php:751 server_privileges.php:1498
-#: server_processlist.php:55 server_synchronize.php:1154
+#: server_privileges.php:2030 server_processlist.php:55
+#: server_synchronize.php:1154
 msgid "Host"
 msgstr "Anamakine"
 
@@ -2562,7 +2569,7 @@ msgstr "Sonraki satırı düzenle"
 msgid "Go back to this page"
 msgstr "Bu sayfaya geri dön"
 
-#: libraries/messages.inc.php:58
+#: libraries/messages.inc.php:58 querywindow.php:115
 msgid "All"
 msgstr "Tümü"
 
@@ -3008,7 +3015,7 @@ msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Hiçbiri"
 
-#: libraries/messages.inc.php:207
+#: libraries/messages.inc.php:207 server_privileges.php:2003
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "&quot;%s&quot; veritabanı üzerindeki tüm yetkileri ver"
@@ -3167,7 +3174,7 @@ msgstr ""
 "Şu anki sayfa, daha fazla bulunması gereksiz tablolara verilmiş referanslara "
 "sahip. Bu referansları silmek ister misiniz?"
 
-#: libraries/messages.inc.php:262
+#: libraries/messages.inc.php:262 pmd_help.php:29
 msgid ""
 "The display field is shown in pink. To set/unset a field as the display "
 "field, click the \"Choose field to display\" icon, then click on the "
@@ -3515,7 +3522,7 @@ msgid "Go to view"
 msgstr "Görünüme git"
 
 #: libraries/messages.inc.php:373 server_privileges.php:1502
-#: server_privileges.php:1684
+#: server_privileges.php:1684 server_privileges.php:2033
 msgid "Grant"
 msgstr "Onayla"
 
@@ -3550,11 +3557,6 @@ msgstr "Yardım"
 #: libraries/messages.inc.php:382
 msgid "Use hexadecimal for BLOB"
 msgstr "BLOB için onaltılık sistem kullan"
-
-#: libraries/messages.inc.php:383 pmd_general.php:141 tbl_change.php:314
-#: tbl_change.php:320
-msgid "Hide"
-msgstr "Gizle"
 
 #: libraries/messages.inc.php:384 pmd_general.php:120
 msgid "Hide/Show all"
@@ -3634,7 +3636,7 @@ msgstr "Boş sıraları içeri aktarma"
 msgid "Import/Export coordinates for PDF schema"
 msgstr "PDF şeması için düzenlemeleri İçeri/Dışarı Aktar"
 
-#: libraries/messages.inc.php:403
+#: libraries/messages.inc.php:403 querywindow.php:104
 msgid "Import files"
 msgstr "Dosyaları içeri aktar"
 
@@ -4578,7 +4580,7 @@ msgstr "Sorgu önbelleği"
 msgid "Query window"
 msgstr "Sorgu penceresi"
 
-#: libraries/messages.inc.php:733
+#: libraries/messages.inc.php:733 querywindow.php:109 querywindow.php:217
 msgid "SQL history"
 msgstr "SQL geçmişi"
 
@@ -6236,7 +6238,7 @@ msgstr "Karalama panosunu değiştir"
 msgid "Toggle small/big"
 msgstr "Küçüğü/büyüğü değiştir"
 
-#: libraries/messages.inc.php:1120
+#: libraries/messages.inc.php:1120 pmd_help.php:27
 msgid "To select relation, click :"
 msgstr "İlişkiyi seçmek için buraya tıklayın :"
 
@@ -6635,14 +6637,14 @@ msgstr "Kullanıcı gözden geçirme"
 msgid "The selected users have been deleted successfully."
 msgstr "Seçili kullanıcılar başarılı olarak silindi."
 
-#: libraries/messages.inc.php:1221
+#: libraries/messages.inc.php:1221 server_privileges.php:2026
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "&quot;%s&quot; veritabanına erişimi olan kullanıcılar"
 
 #: libraries/messages.inc.php:1222 main.php:189 server_privileges.php:1350
 #: server_privileges.php:1497 server_privileges.php:1611
-#: server_processlist.php:54
+#: server_privileges.php:2029 server_processlist.php:54
 msgid "User"
 msgstr "Kullanıcı"
 

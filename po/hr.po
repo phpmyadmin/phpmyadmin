@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-06 07:36-0400\n"
+"POT-Creation-Date: 2010-05-06 12:56-0400\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: croatian <hr@li.org>\n"
@@ -116,10 +116,10 @@ msgstr "Polje"
 #: libraries/export/odt.php:297 libraries/export/texytext.php:234
 #: libraries/Index.class.php:443 libraries/messages.inc.php:1189
 #: libraries/tbl_properties.inc.php:100 pdf_schema.php:1264
-#: pdf_schema.php:1285 tbl_change.php:287 tbl_change.php:314
-#: tbl_printview.php:143 tbl_printview.php:313 tbl_select.php:136
-#: tbl_structure.php:178 tbl_structure.php:660 tbl_tracking.php:274
-#: tbl_tracking.php:321
+#: pdf_schema.php:1285 server_privileges.php:2031 tbl_change.php:287
+#: tbl_change.php:314 tbl_printview.php:143 tbl_printview.php:313
+#: tbl_select.php:136 tbl_structure.php:178 tbl_structure.php:660
+#: tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
 msgstr "Vrsta"
 
@@ -698,7 +698,7 @@ msgstr ""
 #: db_tracking.php:77 libraries/db_structure.lib.php:53
 #: libraries/Index.class.php:440 libraries/messages.inc.php:35
 #: server_databases.php:203 server_privileges.php:1503
-#: server_privileges.php:1686 tbl_structure.php:187
+#: server_privileges.php:1686 server_privileges.php:2034 tbl_structure.php:187
 msgid "Action"
 msgstr "Aktivnost"
 
@@ -1462,7 +1462,7 @@ msgstr "Baza podataka izgleda praznom!"
 
 #: libraries/db_links.inc.php:68 libraries/messages.inc.php:1033
 #: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
-#: test/theme.php:97
+#: querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr "SQL"
 
@@ -1493,7 +1493,7 @@ msgstr "Operacije"
 
 #: libraries/db_links.inc.php:111 libraries/messages.inc.php:717
 #: libraries/server_links.inc.php:66 server_privileges.php:72
-#: server_privileges.php:1683 test/theme.php:117
+#: server_privileges.php:1683 server_privileges.php:2032 test/theme.php:117
 msgid "Privileges"
 msgstr "Privilegije"
 
@@ -1805,6 +1805,11 @@ msgstr ""
 msgid "Show binary contents as HEX"
 msgstr ""
 
+#: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:383
+#: pmd_general.php:141 tbl_change.php:314 tbl_change.php:320
+msgid "Hide"
+msgstr "Sakrij"
+
 #: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:516
 #: libraries/tbl_properties.inc.php:144 transformation_overview.php:47
 msgid "Browser transformation"
@@ -1839,8 +1844,9 @@ msgid "in query"
 msgstr "unutar upita"
 
 #: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
-#: libraries/mult_submits.inc.php:113 tbl_structure.php:25
-#: tbl_structure.php:150 tbl_structure.php:471
+#: libraries/mult_submits.inc.php:113 querywindow.php:125 querywindow.php:129
+#: querywindow.php:132 tbl_structure.php:25 tbl_structure.php:150
+#: tbl_structure.php:471
 msgid "Change"
 msgstr "Promijeni"
 
@@ -2220,7 +2226,8 @@ msgstr "Tablična struktura za tablicu"
 #: libraries/replication_gui.lib.php:268 libraries/replication_gui.lib.php:325
 #: server_privileges.php:692 server_privileges.php:695
 #: server_privileges.php:751 server_privileges.php:1498
-#: server_processlist.php:55 server_synchronize.php:1154
+#: server_privileges.php:2030 server_processlist.php:55
+#: server_synchronize.php:1154
 msgid "Host"
 msgstr "Računalo"
 
@@ -2570,7 +2577,7 @@ msgstr "Uredi sljedeći redak"
 msgid "Go back to this page"
 msgstr "Kreni nazad na ovu stranicu"
 
-#: libraries/messages.inc.php:58
+#: libraries/messages.inc.php:58 querywindow.php:115
 msgid "All"
 msgstr "Sve"
 
@@ -3009,7 +3016,7 @@ msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "bez kompresije"
 
-#: libraries/messages.inc.php:207
+#: libraries/messages.inc.php:207 server_privileges.php:2003
 #, fuzzy, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Provjeri privilegije za bazu podataka \"%s\"."
@@ -3171,7 +3178,7 @@ msgstr ""
 "Trenutna stranica sadrži reference prema tablicama koje više ne postoje. "
 "Želite li izbrisati te reference?"
 
-#: libraries/messages.inc.php:262
+#: libraries/messages.inc.php:262 pmd_help.php:29
 msgid ""
 "The display field is shown in pink. To set/unset a field as the display "
 "field, click the \"Choose field to display\" icon, then click on the "
@@ -3523,7 +3530,7 @@ msgid "Go to view"
 msgstr ""
 
 #: libraries/messages.inc.php:373 server_privileges.php:1502
-#: server_privileges.php:1684
+#: server_privileges.php:1684 server_privileges.php:2033
 msgid "Grant"
 msgstr "Podarivanje"
 
@@ -3558,11 +3565,6 @@ msgstr "Pomoć"
 #: libraries/messages.inc.php:382
 msgid "Use hexadecimal for BLOB"
 msgstr "Za BLOB upotrijebi heksadecimalno"
-
-#: libraries/messages.inc.php:383 pmd_general.php:141 tbl_change.php:314
-#: tbl_change.php:320
-msgid "Hide"
-msgstr "Sakrij"
 
 #: libraries/messages.inc.php:384 pmd_general.php:120
 msgid "Hide/Show all"
@@ -3640,7 +3642,7 @@ msgstr ""
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Uvoz / Izvoz koordinate iz PDF sheme"
 
-#: libraries/messages.inc.php:403
+#: libraries/messages.inc.php:403 querywindow.php:104
 msgid "Import files"
 msgstr "Uvezi datoteke"
 
@@ -4572,7 +4574,7 @@ msgstr "Pohrana upita"
 msgid "Query window"
 msgstr "Prozor za upite"
 
-#: libraries/messages.inc.php:733
+#: libraries/messages.inc.php:733 querywindow.php:109 querywindow.php:217
 msgid "SQL history"
 msgstr "SQL povijest"
 
@@ -6220,7 +6222,7 @@ msgstr "Uključi bilješke"
 msgid "Toggle small/big"
 msgstr "Malo / Veliko"
 
-#: libraries/messages.inc.php:1120
+#: libraries/messages.inc.php:1120 pmd_help.php:27
 msgid "To select relation, click :"
 msgstr "Za odabir relacije pritisnite:"
 
@@ -6617,14 +6619,14 @@ msgstr "Pregled korisnika"
 msgid "The selected users have been deleted successfully."
 msgstr "Odabrani korisnici uspješno su izbrisani."
 
-#: libraries/messages.inc.php:1221
+#: libraries/messages.inc.php:1221 server_privileges.php:2026
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Korisnici koji imaju pristup u \"%s\""
 
 #: libraries/messages.inc.php:1222 main.php:189 server_privileges.php:1350
 #: server_privileges.php:1497 server_privileges.php:1611
-#: server_processlist.php:54
+#: server_privileges.php:2029 server_processlist.php:54
 msgid "User"
 msgstr "Korisnik"
 
