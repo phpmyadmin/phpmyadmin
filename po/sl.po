@@ -810,10 +810,9 @@ msgid "June"
 msgstr "junij"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
-msgstr "jul"
+msgstr "julij"
 
 #: js/messages.php:90
 #, fuzzy
