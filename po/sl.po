@@ -1134,7 +1134,7 @@ msgstr "Potrjevanje ..."
 
 #: libraries/blobstreaming.lib.php:689 libraries/messages.inc.php:1238
 msgid "View image"
-msgstr ""
+msgstr "Ogled slike"
 
 #: libraries/blobstreaming.lib.php:693 libraries/messages.inc.php:660
 msgid "Play audio"
