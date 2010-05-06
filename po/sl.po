@@ -1120,7 +1120,7 @@ msgstr "Datoteka %s ne vsebuje nobenega ključa id"
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 #: libraries/messages.inc.php:1064
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "Potrjevanje strojne opreme je spodletelo"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 #: libraries/messages.inc.php:1066
