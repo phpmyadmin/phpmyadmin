@@ -1449,7 +1449,7 @@ msgstr "Rutina"
 
 #: libraries/db_routines.inc.php:43 libraries/messages.inc.php:819
 msgid "Return type"
-msgstr ""
+msgstr "Vrnjena vrsta"
 
 #: libraries/db_structure.lib.php:57 libraries/display_tbl.lib.php:1848
 #: libraries/messages.inc.php:73
