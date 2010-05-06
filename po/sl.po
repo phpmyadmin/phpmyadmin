@@ -915,7 +915,7 @@ msgstr "torek"
 
 #: js/messages.php:126
 msgid "Wednesday"
-msgstr ""
+msgstr "sreda"
 
 #: js/messages.php:127
 msgid "Thursday"
