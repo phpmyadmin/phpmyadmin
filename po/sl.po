@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-06 12:56-0400\n"
-"PO-Revision-Date: 2010-05-03 00:45+0200\n"
+"PO-Revision-Date: 2010-05-06 22:58+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -273,7 +273,6 @@ msgid "Status"
 msgstr "Stanje"
 
 #: db_operations.php:544
-#, fuzzy
 #| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
@@ -8263,125 +8262,3 @@ msgstr "Ustvari indeks na&nbsp;%s&nbsp;stolpcih"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Opis"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Brez"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "Brez"
-
-#, fuzzy
-#~| msgid "Grant all privileges on database &quot;%s&quot;"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "Dodeli vse privilegije za podatkovno zbirko &quot;%s&quot;"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "Tabela \"%s\" ne obstaja!"
-
-#~ msgid "Could not load default configuration from: %1"
-#~ msgstr "Ne morem naložiti privzete konfiguracije iz: %1"
-
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr ""
-#~ "Neveljavno ime gostitelja za strežnik %1. Prosimo, preglejte svojo "
-#~ "konfiguracijo."
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "Napaka pri preimenovanju tabele %1$s v %2$s"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "Ne morem naložiti razširitve [a@http://php.net/%1@Documentation][em]%1[/"
-#~ "em][/a]. Prosimo, preverite konfiguracijo PHP."
-
-#, fuzzy
-#~| msgid "Could not connect to MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Ne morem se povezati s strežnikom MySQL"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Obstaja možnost, da ste v razčlenjevalniku SQL naleteli na hrošča. "
-#~ "Temeljito preglejte poizvedbo in preverite, če so narekovaji pravilni in "
-#~ "če se ujemajo. Možno je tudi, da prenašate binarno datoteko, ki je izven "
-#~ "področja besedila citata. Poizvedbo lahko preizkusite tudi na vmesniku "
-#~ "ukazne vrstice MySQL. Če je strežnik MySQL izpisal napako, vam le-ta "
-#~ "lahko pomaga pri ugotavljanju težav. Če se bodo težave nadaljevale, ali "
-#~ "če razčlenjevalniku ne uspe tam, kjer vmesniku ukazne vrstice uspe, potem "
-#~ "zmanjšajte vnešeno poizvedbo SQL na tisto poizvedbo, ki povzroča težave "
-#~ "in pošljite poročilo o napaki skupaj s podatki iz spodnjega odseka IZREZA:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV-podatki"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Izbriši uporabnike in potem osveži privilegije."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "To je najboljši način, vendar lahko osveževanje privilegijev traja nekaj "
-#~ "časa."
-
-#~ msgid "has been altered."
-#~ msgstr "je bil spremenjen(a)."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "&quot;Izbrisani&quot; uporabniki lahko še vedno normalno dostopajo do "
-#~ "strežnika, dokler ne osvežite privilegijev"
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Samo izbriši uporabnike iz tabel privilegijev."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Omogoča poganjanje shranjenih postopkov; V tej verziji MySQL nima pomena."
-
-#~ msgid "Process list"
-#~ msgstr "Seznam procesov"
-
-#, fuzzy
-#~ msgid "Reload privileges"
-#~ msgstr "Globalni privilegiji"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Uporabniki bodo še vedno imeli USAGE privilegije, dokler ne osvežite "
-#~ "privilegijev."
