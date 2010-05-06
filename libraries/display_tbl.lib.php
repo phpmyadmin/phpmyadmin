@@ -604,7 +604,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         // per SQL query, and at the same time have a default that displays
         // the transformations.
         echo '<div class="formelement">';
-        PMA_display_html_checkbox('hide_transformation', $GLOBALS['strHide'] . ' ' . __('Browser transformation'), ! empty($_SESSION['tmp_user_values']['hide_transformation']), false);
+        PMA_display_html_checkbox('hide_transformation', __('Hide') . ' ' . __('Browser transformation'), ! empty($_SESSION['tmp_user_values']['hide_transformation']), false);
         echo '</div>';
 
         echo '<div class="clearfloat"></div>';

@@ -2000,7 +2000,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         '2' => __('Grant all privileges on wildcard name (username\\_%)'));
 
     if ( !empty($dbname) ) {
-        $choices['3'] = sprintf($GLOBALS['strCreateUserDatabasePrivileges'],  htmlspecialchars($dbname));
+        $choices['3'] = sprintf( __('Grant all privileges on database &quot;%s&quot;'),  htmlspecialchars($dbname));
         $default_choice = 3;
         echo '<input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '" />' . "\n";
     }
@@ -2023,15 +2023,15 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     echo '<table id="tablespecificuserrights" class="data">' . "\n"
        . '<caption class="tblHeaders">' . "\n"
        . PMA_getIcon('b_usrcheck.png')
-       . '    ' . sprintf($GLOBALS['strUsersHavingAccessToDb'], '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($checkprivs) . '">' .  htmlspecialchars($checkprivs) . '</a>') . "\n"
+       . '    ' . sprintf(__('Users having access to &quot;%s&quot;'), '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($checkprivs) . '">' .  htmlspecialchars($checkprivs) . '</a>') . "\n"
        . '</caption>' . "\n"
        . '<thead>' . "\n"
-       . '    <tr><th>' . $GLOBALS['strUser'] . '</th>' . "\n"
-       . '        <th>' . $GLOBALS['strHost'] . '</th>' . "\n"
-       . '        <th>' . $GLOBALS['strType'] . '</th>' . "\n"
-       . '        <th>' . $GLOBALS['strPrivileges'] . '</th>' . "\n"
-       . '        <th>' . $GLOBALS['strGrantOption'] . '</th>' . "\n"
-       . '        <th>' . $GLOBALS['strAction'] . '</th>' . "\n"
+       . '    <tr><th>' . __('User') . '</th>' . "\n"
+       . '        <th>' . __('Host') . '</th>' . "\n"
+       . '        <th>' . __('Type') . '</th>' . "\n"
+       . '        <th>' . __('Privileges') . '</th>' . "\n"
+       . '        <th>' . __('Grant') . '</th>' . "\n"
+       . '        <th>' . __('Action') . '</th>' . "\n"
        . '    </tr>' . "\n"
        . '</thead>' . "\n"
        . '<tbody>' . "\n";
