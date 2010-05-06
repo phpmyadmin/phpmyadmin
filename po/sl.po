@@ -904,10 +904,9 @@ msgid "Sunday"
 msgstr "nedelja"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "Pon"
+msgstr "ponedeljek"
 
 #: js/messages.php:125
 #, fuzzy
