@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-06 12:56-0400\n"
-"PO-Revision-Date: 2010-05-06 23:17+0200\n"
+"PO-Revision-Date: 2010-05-06 23:18+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1821,7 +1821,7 @@ msgstr "Domača mapa podatkov"
 
 #: libraries/engines/innodb.lib.php:31 libraries/messages.inc.php:432
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "Pogosti del poti mape za vse podatkovne datoteke InnoDB."
 
 #: libraries/engines/innodb.lib.php:34 libraries/messages.inc.php:430
 msgid "Data files"
