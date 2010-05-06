@@ -697,7 +697,7 @@ msgstr "Dejanje"
 
 #: db_tracking.php:88 db_tracking.php:120 libraries/messages.inc.php:255
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Izbriši podatke sledenja te tabele"
 
 #: db_tracking.php:106 libraries/messages.inc.php:1150 tbl_tracking.php:548
 #: tbl_tracking.php:606 tbl_tracking.php:613
