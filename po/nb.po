@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-05 12:48-0400\n"
-"PO-Revision-Date: 2010-05-05 09:04+0200\n"
+"PO-Revision-Date: 2010-05-06 08:35+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -1165,10 +1165,10 @@ msgstr ""
 "et semikolon et sted.<br />Hvis du får en blank side så er alt ok."
 
 #: libraries/common.inc.php:594
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Kunne ikke laste standard konfigurasjonsfil fra: \"%1$s\""
+msgstr "Kunne ikke laste standard konfigurasjonsfil fra: %1$s"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
@@ -8542,52 +8542,3 @@ msgstr "Lag en indeks på&nbsp;%s&nbsp;kolonner"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beskrivelse"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Ingen"
-
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "Ingen"
-
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "Gi alle rettigheter på jokertegnnavn (username_%)"
-
-#~ msgid "The %s table doesn"
-#~ msgstr "Tabellen %s eksisterer ikke!"
-
-#~ msgid "Could not load default configuration from: %1"
-#~ msgstr "Kunne ikke laste standard konfigurasjon fra: %1"
-
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr "Ugyldig tjenernavn for tjener %1. Kontroller din konfigurasjon."
-
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "Feil oppstod ved endring av tabellnavn fra %1 til %2"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "Kan ikke laste [a@http://php.net/%1@Documentation][em]%1[/em][/a] "
-#~ "tillegget. Vennligst kontroller PHP-konfigurasjonen"
-
-#~ msgid ""
-#~ "This server is not configured as master in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Denne tjeneren er ikke konfigurert som master i en replikasjonsprosess. "
-#~ "Ønsker du å <a href=\"%s\">konfigurere</a> den?"
-
-#~ msgid ""
-#~ "This server is not configured as slave in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Denne tjeneren er ikke konfigurert som master i en replikasjonsprosess. "
-#~ "Ønsker du å <a href=\"%s\">konfigurere</a> den?"
-
-#~ msgid "(or the local MySQL server"
-#~ msgstr "(eller den lokale MySQL tjeneren"
