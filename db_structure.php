@@ -452,7 +452,7 @@ foreach ($tables as $keyname => $each_table) {
     <td class="value">-</td>
         <?php } ?>
     <?php } else { ?>
-    <td colspan="<?php echo ($structure_tbl_col_cnt - ($db_is_information_schema ? 5 : 8)) ?>"
+    <td colspan="<?php echo ($colspan_for_structure - ($db_is_information_schema ? 5 : 8)) ?>"
         align="center">
         <?php echo __('in use'); ?></td>
     <?php } // end if (isset($each_table['TABLE_ROWS'])) else ?>

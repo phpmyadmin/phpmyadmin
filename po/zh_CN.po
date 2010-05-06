@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 12:48-0400\n"
+"POT-Creation-Date: 2010-05-06 07:36-0400\n"
 "PO-Revision-Date: 2010-04-08 13:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -66,9 +66,9 @@ msgstr "搜索"
 #: server_replication.php:341 server_synchronize.php:1204 tbl_change.php:330
 #: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
 #: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_structure.php:563
-#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
-#: view_create.php:182 view_operations.php:101
+#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
+#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
+#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "执行"
 
@@ -106,8 +106,8 @@ msgstr "表注释"
 #: libraries/messages.inc.php:325 libraries/tbl_properties.inc.php:99
 #: libraries/tbl_properties.inc.php:275 pdf_schema.php:1263
 #: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:189
-#: tbl_printview.php:142 tbl_relation.php:402 tbl_structure.php:177
-#: tbl_tracking.php:273 tbl_tracking.php:324
+#: tbl_printview.php:142 tbl_relation.php:402 tbl_select.php:135
+#: tbl_structure.php:177 tbl_tracking.php:273 tbl_tracking.php:324
 msgid "Field"
 msgstr "字段"
 
@@ -118,8 +118,9 @@ msgstr "字段"
 #: libraries/Index.class.php:443 libraries/messages.inc.php:1189
 #: libraries/tbl_properties.inc.php:100 pdf_schema.php:1264
 #: pdf_schema.php:1285 tbl_change.php:287 tbl_change.php:314
-#: tbl_printview.php:143 tbl_printview.php:313 tbl_structure.php:178
-#: tbl_structure.php:660 tbl_tracking.php:274 tbl_tracking.php:321
+#: tbl_printview.php:143 tbl_printview.php:313 tbl_select.php:136
+#: tbl_structure.php:178 tbl_structure.php:660 tbl_tracking.php:274
+#: tbl_tracking.php:321
 msgid "Type"
 msgstr "类型"
 
@@ -308,8 +309,8 @@ msgstr "启用"
 #: libraries/mysql_charsets.lib.php:107 libraries/tbl_properties.inc.php:107
 #: libraries/tbl_properties.inc.php:730 server_collations.php:54
 #: server_collations.php:66 server_databases.php:111 tbl_operations.php:361
-#: tbl_structure.php:179 tbl_structure.php:768 tbl_tracking.php:275
-#: tbl_tracking.php:326
+#: tbl_select.php:137 tbl_structure.php:179 tbl_structure.php:768
+#: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "整理"
 
@@ -429,14 +430,14 @@ msgstr "排序"
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: libraries/messages.inc.php:77 server_databases.php:170
-#: server_databases.php:187 tbl_operations.php:260
+#: server_databases.php:187 tbl_operations.php:260 tbl_select.php:314
 msgid "Ascending"
 msgstr "递增"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: libraries/messages.inc.php:259 server_databases.php:170
-#: server_databases.php:187 tbl_operations.php:261
+#: server_databases.php:187 tbl_operations.php:261 tbl_select.php:315
 msgid "Descending"
 msgstr "递减"
 
@@ -467,7 +468,7 @@ msgstr "删除"
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:600
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:258
-#: tbl_change.php:1031 tbl_indexes.php:250
+#: tbl_change.php:1031 tbl_indexes.php:250 tbl_select.php:288
 msgid "Or"
 msgstr "或"
 
@@ -1741,7 +1742,7 @@ msgid "Sort by key"
 msgstr "主键排序"
 
 #: libraries/display_tbl.lib.php:555 libraries/messages.inc.php:599
-#: tbl_structure.php:754
+#: tbl_select.php:267 tbl_structure.php:754
 msgid "Options"
 msgstr "选项"
 
@@ -2456,7 +2457,7 @@ msgstr "在下列数据库添加权限"
 msgid "Add privileges on the following table"
 msgstr "在下列数据表添加权限"
 
-#: libraries/messages.inc.php:48
+#: libraries/messages.inc.php:48 tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "添加搜索条件 (“where”语句的主体)："
 
@@ -2665,7 +2666,7 @@ msgid "Upload to BLOB repository"
 msgstr "上传到 BLOB 容器"
 
 #: libraries/messages.inc.php:108 libraries/sql_query_form.lib.php:359
-#: sql.php:678
+#: sql.php:677
 msgid "Let every user access this bookmark"
 msgstr "让所有用户均可访问此书签"
 
@@ -2673,7 +2674,7 @@ msgstr "让所有用户均可访问此书签"
 msgid "The bookmark has been deleted."
 msgstr "书签已删除。"
 
-#: libraries/messages.inc.php:111 sql.php:672
+#: libraries/messages.inc.php:111 sql.php:671
 msgid "Label"
 msgstr "标签"
 
@@ -2686,7 +2687,7 @@ msgid "Replace existing bookmark of same name"
 msgstr "替换现有的同名书签"
 
 #: libraries/messages.inc.php:114 libraries/sql_query_form.lib.php:352
-#: sql.php:666 sql.php:667 sql.php:684
+#: sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
 msgstr "将此 SQL 查询加为书签"
 
@@ -2698,7 +2699,8 @@ msgstr "仅查看"
 msgid "Browse distinct values"
 msgstr "浏览非重复值 (DISTINCT)"
 
-#: libraries/messages.inc.php:118 tbl_change.php:252
+#: libraries/messages.inc.php:118 tbl_change.php:252 tbl_select.php:27
+#: tbl_select.php:28 tbl_select.php:31 tbl_select.php:34
 msgid "Browse foreign values"
 msgstr "浏览不相关的值"
 
@@ -3121,11 +3123,11 @@ msgstr "禁止选定不相关的主键"
 msgid "Display Features"
 msgstr "显示功能"
 
-#: libraries/messages.inc.php:271
+#: libraries/messages.inc.php:271 tbl_select.php:301
 msgid "Display order:"
 msgstr "显示顺序："
 
-#: libraries/messages.inc.php:273
+#: libraries/messages.inc.php:273 tbl_select.php:132
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "执行“依例查询”(通配符：“%”)"
 
@@ -3610,7 +3612,7 @@ msgstr "索引名称："
 msgid "Index type:"
 msgstr "索引类型："
 
-#: libraries/messages.inc.php:425 sql.php:640
+#: libraries/messages.inc.php:425 sql.php:639
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "数据表 `%s` 的索引存在问题"
@@ -3794,7 +3796,7 @@ msgstr "使用本地 (LOCAL) 关键词"
 msgid "Length/Values"
 msgstr "长度/值"
 
-#: libraries/messages.inc.php:488
+#: libraries/messages.inc.php:488 tbl_select.php:295
 msgid "Number of rows per page"
 msgstr "每页行数"
 
@@ -4087,7 +4089,7 @@ msgstr "确定"
 msgid "Open Document Text"
 msgstr "OpenOffice 文档"
 
-#: libraries/messages.inc.php:596
+#: libraries/messages.inc.php:596 tbl_select.php:138
 msgid "Operator"
 msgstr "操作符"
 
@@ -4915,7 +4917,7 @@ msgstr "请选择数据库"
 msgid "Select binary log to view"
 msgstr "选择要查看的二进制日志"
 
-#: libraries/messages.inc.php:855
+#: libraries/messages.inc.php:855 tbl_select.php:270
 msgid "Select fields (at least one):"
 msgstr "至少选择一个字段："
 
@@ -4993,7 +4995,7 @@ msgstr ""
 msgid "Session value"
 msgstr "会话值"
 
-#: libraries/messages.inc.php:876
+#: libraries/messages.inc.php:876 libraries/tbl_properties.inc.php:105
 msgid ""
 "If field type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -6431,7 +6433,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1230 libraries/replication_gui.lib.php:111
 #: server_status.php:627 tbl_change.php:324 tbl_printview.php:370
-#: tbl_structure.php:730
+#: tbl_select.php:139 tbl_structure.php:730
 msgid "Value"
 msgstr "值"
 

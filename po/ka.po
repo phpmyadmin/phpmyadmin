@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 12:48-0400\n"
+"POT-Creation-Date: 2010-05-06 07:36-0400\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: georgian <ka@li.org>\n"
@@ -65,9 +65,9 @@ msgstr "ძებნა"
 #: server_replication.php:341 server_synchronize.php:1204 tbl_change.php:330
 #: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
 #: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_structure.php:563
-#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
-#: view_create.php:182 view_operations.php:101
+#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
+#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
+#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "გადასვლა"
 
@@ -105,8 +105,8 @@ msgstr "ცხრილის კომენტარები"
 #: libraries/messages.inc.php:325 libraries/tbl_properties.inc.php:99
 #: libraries/tbl_properties.inc.php:275 pdf_schema.php:1263
 #: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:189
-#: tbl_printview.php:142 tbl_relation.php:402 tbl_structure.php:177
-#: tbl_tracking.php:273 tbl_tracking.php:324
+#: tbl_printview.php:142 tbl_relation.php:402 tbl_select.php:135
+#: tbl_structure.php:177 tbl_tracking.php:273 tbl_tracking.php:324
 msgid "Field"
 msgstr "ველი"
 
@@ -117,8 +117,9 @@ msgstr "ველი"
 #: libraries/Index.class.php:443 libraries/messages.inc.php:1189
 #: libraries/tbl_properties.inc.php:100 pdf_schema.php:1264
 #: pdf_schema.php:1285 tbl_change.php:287 tbl_change.php:314
-#: tbl_printview.php:143 tbl_printview.php:313 tbl_structure.php:178
-#: tbl_structure.php:660 tbl_tracking.php:274 tbl_tracking.php:321
+#: tbl_printview.php:143 tbl_printview.php:313 tbl_select.php:136
+#: tbl_structure.php:178 tbl_structure.php:660 tbl_tracking.php:274
+#: tbl_tracking.php:321
 msgid "Type"
 msgstr "ტიპი"
 
@@ -307,8 +308,8 @@ msgstr "ჩართვა"
 #: libraries/mysql_charsets.lib.php:107 libraries/tbl_properties.inc.php:107
 #: libraries/tbl_properties.inc.php:730 server_collations.php:54
 #: server_collations.php:66 server_databases.php:111 tbl_operations.php:361
-#: tbl_structure.php:179 tbl_structure.php:768 tbl_tracking.php:275
-#: tbl_tracking.php:326
+#: tbl_select.php:137 tbl_structure.php:179 tbl_structure.php:768
+#: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "კოლაცია"
 
@@ -428,14 +429,14 @@ msgstr "დალაგება"
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: libraries/messages.inc.php:77 server_databases.php:170
-#: server_databases.php:187 tbl_operations.php:260
+#: server_databases.php:187 tbl_operations.php:260 tbl_select.php:314
 msgid "Ascending"
 msgstr "ზრდადობით"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: libraries/messages.inc.php:259 server_databases.php:170
-#: server_databases.php:187 tbl_operations.php:261
+#: server_databases.php:187 tbl_operations.php:261 tbl_select.php:315
 msgid "Descending"
 msgstr "კლებადობით"
 
@@ -466,7 +467,7 @@ msgstr "Del"
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:600
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:258
-#: tbl_change.php:1031 tbl_indexes.php:250
+#: tbl_change.php:1031 tbl_indexes.php:250 tbl_select.php:288
 msgid "Or"
 msgstr "ან"
 
@@ -1762,7 +1763,7 @@ msgid "Sort by key"
 msgstr "Sort by key"
 
 #: libraries/display_tbl.lib.php:555 libraries/messages.inc.php:599
-#: tbl_structure.php:754
+#: tbl_select.php:267 tbl_structure.php:754
 msgid "Options"
 msgstr "პარამეტრები"
 
@@ -2514,7 +2515,7 @@ msgstr "პრივილეგიების დამატება შე�
 msgid "Add privileges on the following table"
 msgstr "პრივილეგიების დამატება შემდეგი ცხრილისათვის"
 
-#: libraries/messages.inc.php:48
+#: libraries/messages.inc.php:48 tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Add search conditions (body of the \"where\" clause):"
 
@@ -2727,7 +2728,7 @@ msgid "Upload to BLOB repository"
 msgstr "Upload to BLOB repository"
 
 #: libraries/messages.inc.php:108 libraries/sql_query_form.lib.php:359
-#: sql.php:678
+#: sql.php:677
 msgid "Let every user access this bookmark"
 msgstr "Let every user access this bookmark"
 
@@ -2735,7 +2736,7 @@ msgstr "Let every user access this bookmark"
 msgid "The bookmark has been deleted."
 msgstr "The bookmark has been deleted."
 
-#: libraries/messages.inc.php:111 sql.php:672
+#: libraries/messages.inc.php:111 sql.php:671
 msgid "Label"
 msgstr "Label"
 
@@ -2748,7 +2749,7 @@ msgid "Replace existing bookmark of same name"
 msgstr "Replace existing bookmark of same name"
 
 #: libraries/messages.inc.php:114 libraries/sql_query_form.lib.php:352
-#: sql.php:666 sql.php:667 sql.php:684
+#: sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
 msgstr "Bookmark this SQL query"
 
@@ -2760,7 +2761,8 @@ msgstr "View only"
 msgid "Browse distinct values"
 msgstr "Browse distinct values"
 
-#: libraries/messages.inc.php:118 tbl_change.php:252
+#: libraries/messages.inc.php:118 tbl_change.php:252 tbl_select.php:27
+#: tbl_select.php:28 tbl_select.php:31 tbl_select.php:34
 msgid "Browse foreign values"
 msgstr "Browse foreign values"
 
@@ -3199,11 +3201,11 @@ msgstr "Disable foreign key checks"
 msgid "Display Features"
 msgstr "Display Features"
 
-#: libraries/messages.inc.php:271
+#: libraries/messages.inc.php:271 tbl_select.php:301
 msgid "Display order:"
 msgstr "Display order:"
 
-#: libraries/messages.inc.php:273
+#: libraries/messages.inc.php:273 tbl_select.php:132
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Do a \"query by example\" (wildcard: \"%\")"
 
@@ -3697,7 +3699,7 @@ msgstr "ინდექსის სახელი:"
 msgid "Index type:"
 msgstr "ინდექსის ტიპი:"
 
-#: libraries/messages.inc.php:425 sql.php:640
+#: libraries/messages.inc.php:425 sql.php:639
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problems with indexes of table `%s`"
@@ -3882,7 +3884,7 @@ msgstr "Use LOCAL keyword"
 msgid "Length/Values"
 msgstr "Length/Values"
 
-#: libraries/messages.inc.php:488
+#: libraries/messages.inc.php:488 tbl_select.php:295
 msgid "Number of rows per page"
 msgstr "Number of rows per page"
 
@@ -4190,7 +4192,7 @@ msgstr "OK"
 msgid "Open Document Text"
 msgstr "Open Document Text"
 
-#: libraries/messages.inc.php:596
+#: libraries/messages.inc.php:596 tbl_select.php:138
 msgid "Operator"
 msgstr "ოპერატორი"
 
@@ -5032,7 +5034,7 @@ msgstr "გთხოვთ აირჩიოთ მონაცემთა ბ
 msgid "Select binary log to view"
 msgstr "აირჩიეთ საჩვენებელი ორობითი ჟურნალი"
 
-#: libraries/messages.inc.php:855
+#: libraries/messages.inc.php:855 tbl_select.php:270
 msgid "Select fields (at least one):"
 msgstr "Select fields (at least one):"
 
@@ -5112,7 +5114,7 @@ msgstr ""
 msgid "Session value"
 msgstr "სესიის მნიშვნელობა"
 
-#: libraries/messages.inc.php:876
+#: libraries/messages.inc.php:876 libraries/tbl_properties.inc.php:105
 msgid ""
 "If field type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -6634,7 +6636,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1230 libraries/replication_gui.lib.php:111
 #: server_status.php:627 tbl_change.php:324 tbl_printview.php:370
-#: tbl_structure.php:730
+#: tbl_select.php:139 tbl_structure.php:730
 msgid "Value"
 msgstr "მნიშვნელობა"
 

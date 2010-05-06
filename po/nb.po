@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 12:48-0400\n"
+"POT-Creation-Date: 2010-05-06 07:36-0400\n"
 "PO-Revision-Date: 2010-05-06 08:35+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
-"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -66,9 +66,9 @@ msgstr "Søk"
 #: server_replication.php:341 server_synchronize.php:1204 tbl_change.php:330
 #: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
 #: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_structure.php:563
-#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
-#: view_create.php:182 view_operations.php:101
+#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
+#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
+#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Utfør"
 
@@ -106,8 +106,8 @@ msgstr "Tabellkommentarer"
 #: libraries/messages.inc.php:325 libraries/tbl_properties.inc.php:99
 #: libraries/tbl_properties.inc.php:275 pdf_schema.php:1263
 #: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:189
-#: tbl_printview.php:142 tbl_relation.php:402 tbl_structure.php:177
-#: tbl_tracking.php:273 tbl_tracking.php:324
+#: tbl_printview.php:142 tbl_relation.php:402 tbl_select.php:135
+#: tbl_structure.php:177 tbl_tracking.php:273 tbl_tracking.php:324
 msgid "Field"
 msgstr "Felt"
 
@@ -118,8 +118,9 @@ msgstr "Felt"
 #: libraries/Index.class.php:443 libraries/messages.inc.php:1189
 #: libraries/tbl_properties.inc.php:100 pdf_schema.php:1264
 #: pdf_schema.php:1285 tbl_change.php:287 tbl_change.php:314
-#: tbl_printview.php:143 tbl_printview.php:313 tbl_structure.php:178
-#: tbl_structure.php:660 tbl_tracking.php:274 tbl_tracking.php:321
+#: tbl_printview.php:143 tbl_printview.php:313 tbl_select.php:136
+#: tbl_structure.php:178 tbl_structure.php:660 tbl_tracking.php:274
+#: tbl_tracking.php:321
 msgid "Type"
 msgstr "Type"
 
@@ -302,8 +303,8 @@ msgstr "Slå på"
 #: libraries/mysql_charsets.lib.php:107 libraries/tbl_properties.inc.php:107
 #: libraries/tbl_properties.inc.php:730 server_collations.php:54
 #: server_collations.php:66 server_databases.php:111 tbl_operations.php:361
-#: tbl_structure.php:179 tbl_structure.php:768 tbl_tracking.php:275
-#: tbl_tracking.php:326
+#: tbl_select.php:137 tbl_structure.php:179 tbl_structure.php:768
+#: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "Sammenligning"
 
@@ -423,14 +424,14 @@ msgstr "Sorter"
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: libraries/messages.inc.php:77 server_databases.php:170
-#: server_databases.php:187 tbl_operations.php:260
+#: server_databases.php:187 tbl_operations.php:260 tbl_select.php:314
 msgid "Ascending"
 msgstr "Stigende"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: libraries/messages.inc.php:259 server_databases.php:170
-#: server_databases.php:187 tbl_operations.php:261
+#: server_databases.php:187 tbl_operations.php:261 tbl_select.php:315
 msgid "Descending"
 msgstr "Synkende"
 
@@ -461,7 +462,7 @@ msgstr "Slett"
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:600
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:258
-#: tbl_change.php:1031 tbl_indexes.php:250
+#: tbl_change.php:1031 tbl_indexes.php:250 tbl_select.php:288
 msgid "Or"
 msgstr "Eller"
 
@@ -1166,7 +1167,6 @@ msgstr ""
 
 #: libraries/common.inc.php:594
 #, php-format
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Kunne ikke laste standard konfigurasjonsfil fra: %1$s"
 
@@ -1688,7 +1688,7 @@ msgid "Sort by key"
 msgstr "Sorter etter nøkkel"
 
 #: libraries/display_tbl.lib.php:555 libraries/messages.inc.php:599
-#: tbl_structure.php:754
+#: tbl_select.php:267 tbl_structure.php:754
 msgid "Options"
 msgstr "Innstillinger"
 
@@ -2435,7 +2435,7 @@ msgstr "Legg til privilegier til følgende database"
 msgid "Add privileges on the following table"
 msgstr "Legg til privilegier til følgende tabell"
 
-#: libraries/messages.inc.php:48
+#: libraries/messages.inc.php:48 tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Legg til søkekriterier (innhold i \"where\"-setningen):"
 
@@ -2645,7 +2645,7 @@ msgid "Upload to BLOB repository"
 msgstr "Last opp til BLOB lager"
 
 #: libraries/messages.inc.php:108 libraries/sql_query_form.lib.php:359
-#: sql.php:678
+#: sql.php:677
 msgid "Let every user access this bookmark"
 msgstr "La alle brukere ha adgang til dette bokmerket"
 
@@ -2653,7 +2653,7 @@ msgstr "La alle brukere ha adgang til dette bokmerket"
 msgid "The bookmark has been deleted."
 msgstr "Bokmerket har blitt slettet."
 
-#: libraries/messages.inc.php:111 sql.php:672
+#: libraries/messages.inc.php:111 sql.php:671
 msgid "Label"
 msgstr "Navn"
 
@@ -2666,7 +2666,7 @@ msgid "Replace existing bookmark of same name"
 msgstr "Erstatt eksisterende bokmerke med samme navn"
 
 #: libraries/messages.inc.php:114 libraries/sql_query_form.lib.php:352
-#: sql.php:666 sql.php:667 sql.php:684
+#: sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
 msgstr "Lagre denne SQL-spørringen"
 
@@ -2678,7 +2678,8 @@ msgstr "Bare se"
 msgid "Browse distinct values"
 msgstr "Se gjennom distinkte verdier"
 
-#: libraries/messages.inc.php:118 tbl_change.php:252
+#: libraries/messages.inc.php:118 tbl_change.php:252 tbl_select.php:27
+#: tbl_select.php:28 tbl_select.php:31 tbl_select.php:34
 msgid "Browse foreign values"
 msgstr "Se de eksterne verdiene"
 
@@ -3112,11 +3113,11 @@ msgstr "Slå av kontroll av fremmednøkler"
 msgid "Display Features"
 msgstr "Vis egenskaper"
 
-#: libraries/messages.inc.php:271
+#: libraries/messages.inc.php:271 tbl_select.php:301
 msgid "Display order:"
 msgstr "Visningsrekkefølge:"
 
-#: libraries/messages.inc.php:273
+#: libraries/messages.inc.php:273 tbl_select.php:132
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Utfør en \"spørring ved eksempel\" (jokertegn: \"%\")"
 
@@ -3614,7 +3615,7 @@ msgstr "Indeksnavn&nbsp;:"
 msgid "Index type:"
 msgstr "Indekstype&nbsp;:"
 
-#: libraries/messages.inc.php:425 sql.php:640
+#: libraries/messages.inc.php:425 sql.php:639
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemer med indeksene i tabellen `%s`"
@@ -3802,7 +3803,7 @@ msgstr "Bruk LOCAL nøkkelord"
 msgid "Length/Values"
 msgstr "Lengde/Sett*"
 
-#: libraries/messages.inc.php:488
+#: libraries/messages.inc.php:488 tbl_select.php:295
 msgid "Number of rows per page"
 msgstr "Antall poster per side"
 
@@ -4107,7 +4108,7 @@ msgstr "OK"
 msgid "Open Document Text"
 msgstr "Open Document tekst"
 
-#: libraries/messages.inc.php:596
+#: libraries/messages.inc.php:596 tbl_select.php:138
 msgid "Operator"
 msgstr "Operator"
 
@@ -4960,7 +4961,7 @@ msgstr "Vennligst velg en database"
 msgid "Select binary log to view"
 msgstr "Velg binærlogg for visning"
 
-#: libraries/messages.inc.php:855
+#: libraries/messages.inc.php:855 tbl_select.php:270
 msgid "Select fields (at least one):"
 msgstr "Velg felt (minst ett):"
 
@@ -5040,7 +5041,7 @@ msgstr ""
 msgid "Session value"
 msgstr "Økts verdi"
 
-#: libraries/messages.inc.php:876
+#: libraries/messages.inc.php:876 libraries/tbl_properties.inc.php:105
 msgid ""
 "If field type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -6571,7 +6572,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1230 libraries/replication_gui.lib.php:111
 #: server_status.php:627 tbl_change.php:324 tbl_printview.php:370
-#: tbl_structure.php:730
+#: tbl_select.php:139 tbl_structure.php:730
 msgid "Value"
 msgstr "Verdi"
 
@@ -6686,7 +6687,6 @@ msgstr "Opprett tabell"
 
 #: pdf_schema.php:637
 #, php-format
-#| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "Tabellen %s eksisterer ikke!"
 
@@ -6700,7 +6700,6 @@ msgid "Jump to database"
 msgstr "Gå til database"
 
 #: server_privileges.php:263 server_privileges.php:264
-#| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Ingen"
@@ -6710,7 +6709,6 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Jokertegnene _ og % må beskyttes med en \\ for å bruke dem direkte"
 
 #: server_privileges.php:1998
-#| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "Ingen"
@@ -8525,7 +8523,6 @@ msgid "Foreign key constraint"
 msgstr "Fremmednøkkelbegrensning"
 
 #: tbl_structure.php:362
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Ingen"

@@ -25,7 +25,7 @@ if (! defined('PHPMYADMIN')) {
  * @uses    __('Collation')
  * @uses    __('Size')
  * @uses    __('Overhead')
- * @uses    $GLOBALS['structure_tbl_col_cnt']
+ * @uses    $GLOBALS['colspan_for_structure']
  * @uses    PMA_SortableTableHeader()
  * @param   boolean $db_is_information_schema
  * @param   boolean $replication
@@ -72,7 +72,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
     echo '</tr>' . "\n";
     echo '</thead>' . "\n";
     echo '<tbody>' . "\n";
-    $GLOBALS['structure_tbl_col_cnt'] = $cnt + $action_colspan + 3;
+    $GLOBALS['colspan_for_structure'] = $cnt + $action_colspan + 3;
 } // end function PMA_TableHeader()
 
 

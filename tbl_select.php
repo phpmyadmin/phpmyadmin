@@ -24,14 +24,14 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
     $titles['Browse'] =
         '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        .'b_browse.png" alt="' . $strBrowseForeignValues . '" title="'
-        .$strBrowseForeignValues . '" />';
+        .'b_browse.png" alt="' . __('Browse foreign values') . '" title="'
+        . __('Browse foreign values') . '" />';
 
     if ($GLOBALS['cfg']['PropertiesIconic'] === 'both') {
-        $titles['Browse'] .= $strBrowseForeignValues;
+        $titles['Browse'] .= __('Browse foreign values');
     }
 } else {
-    $titles['Browse'] = $strBrowseForeignValues;
+    $titles['Browse'] = __('Browse foreign values');
 }
 
 /**
@@ -129,14 +129,14 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
 <fieldset id="fieldset_table_search">
 
 <fieldset id="fieldset_table_qbe">
-    <legend><?php echo $strDoAQuery; ?></legend>
+    <legend><?php echo __('Do a "query by example" (wildcard: "%")') ?></legend>
     <table class="data">
     <thead>
-    <tr><th><?php echo $strField; ?></th>
-        <th><?php echo $strType; ?></th>
-        <th><?php echo $strCollation; ?></th>
-        <th><?php echo $strOperator; ?></th>
-        <th><?php echo $strValue; ?></th>
+    <tr><th><?php echo __('Field'); ?></th>
+        <th><?php echo __('Type'); ?></th>
+        <th><?php echo __('Collation'); ?></th>
+        <th><?php echo __('Operator'); ?></th>
+        <th><?php echo __('Value'); ?></th>
     </tr>
     </thead>
     <tbody>
@@ -264,10 +264,10 @@ $(function() {
     </table>
 </fieldset>
 <?php
-    PMA_generate_slider_effect('searchoptions', $strOptions);
+    PMA_generate_slider_effect('searchoptions', __('Options'));
 ?>
 <fieldset id="fieldset_select_fields">
-    <legend><?php echo $strSelectFields; ?></legend>
+    <legend><?php echo __('Select fields (at least one):'); ?></legend>
     <select name="param[]" size="<?php echo min($fields_cnt, 10); ?>"
         multiple="multiple">
     <?php
@@ -285,20 +285,20 @@ $(function() {
 </fieldset>
 
 <fieldset id="fieldset_search_conditions">
-    <legend><?php echo '<em>' . $strOr . '</em> ' .$strAddSearchConditions; ?></legend>
+    <legend><?php echo '<em>' . __('Or') . '</em> ' . __('Add search conditions (body of the "where" clause):'); ?></legend>
 <?php echo PMA_showMySQLDocu('SQL-Syntax', 'Functions'); ?>
 
 <input type="text" name="where" class="textfield" size="64" />
 </fieldset>
 
 <fieldset id="fieldset_limit_rows">
-    <legend><?php echo $strLimitNumRows; ?></legend>
+    <legend><?php echo __('Number of rows per page'); ?></legend>
     <input type="text" size="4" name="session_max_rows"
         value="<?php echo $GLOBALS['cfg']['MaxRows']; ?>" class="textfield" />
 </fieldset>
 
 <fieldset id="fieldset_display_order">
-    <legend><?php echo $strDisplayOrder; ?></legend>
+    <legend><?php echo __('Display order:'); ?></legend>
     <select name="orderField" style="vertical-align: middle">
         <option value="--nil--"></option>
     <?php
@@ -311,8 +311,8 @@ $(function() {
     </select>
 <?php
     $choices = array(
-        'ASC'  => $strAscending,
-        'DESC' => $strDescending
+        'ASC'  => __('Ascending'),
+        'DESC' => __('Descending')
     );
     PMA_display_html_radio('order', $choices, 'ASC', false, true, "formelement");
     unset($choices);
@@ -324,7 +324,7 @@ $(function() {
 <fieldset class="tblFooters">
     <input type="hidden" name="max_number_of_fields"
         value="<?php echo $fields_cnt; ?>" />
-    <input type="submit" name="submit" value="<?php echo $strGo; ?>" />
+    <input type="submit" name="submit" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>
     <?php

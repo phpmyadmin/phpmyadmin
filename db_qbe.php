@@ -315,18 +315,18 @@ for ($x = 0; $x < $col; $x++) {
         continue;
     }
     if (isset($criteria[$x])) {
-        $stripped_Criteria = $criteria[$x];
+        $tmp_criteria = $criteria[$x];
     }
     if ((empty($prev_criteria) || !isset($prev_criteria[$x]))
-        || $prev_criteria[$x] != htmlspecialchars($stripped_Criteria)) {
-        $curCriteria[$z]   = $stripped_Criteria;
+        || $prev_criteria[$x] != htmlspecialchars($tmp_criteria)) {
+        $curCriteria[$z]   = $tmp_criteria;
     } else {
         $curCriteria[$z]   = $prev_criteria[$x];
     }
     ?>
     <td align="center">
         <input type="hidden" name="prev_criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($curCriteria[$z]); ?>" />
-        <input type="text" name="criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($stripped_Criteria); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
+        <input type="text" name="criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($tmp_criteria); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
     <?php
     $z++;
@@ -479,13 +479,13 @@ for ($y = 0; $y <= $row; $y++) {
             ${$or} = '';
         }
         if (!empty(${$or}) && isset(${$or}[$x])) {
-            $stripped_or = ${$or}[$x];
+            $tmp_or = ${$or}[$x];
         } else {
-            $stripped_or     = '';
+            $tmp_or     = '';
         }
         ?>
     <td align="center">
-        <input type="text" name="Or<?php echo $w . '[' . $z . ']'; ?>" value="<?php echo htmlspecialchars($stripped_or); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
+        <input type="text" name="Or<?php echo $w . '[' . $z . ']'; ?>" value="<?php echo htmlspecialchars($tmp_or); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
         <?php
         if (!empty(${$or}) && isset(${$or}[$x])) {

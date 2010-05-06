@@ -102,7 +102,7 @@ $header_cells[] = __('Type')
         ? PMA_showMySQLDocu('SQL-Syntax', 'data-types')
         : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('SQL-Syntax', 'data-types')
      . '</span>');
-$header_cells[] = __('Length/Values') . PMA_showHint($strSetEnumVal);
+$header_cells[] = __('Length/Values') . PMA_showHint(__('If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'));
 $header_cells[] = __('Default') . PMA_showHint(__('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'));
 $header_cells[] = __('Collation');
 $header_cells[] = __('Attributes');

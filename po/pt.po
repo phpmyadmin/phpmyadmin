@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-05 12:48-0400\n"
+"POT-Creation-Date: 2010-05-06 07:36-0400\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: portuguese <pt@li.org>\n"
@@ -62,9 +62,9 @@ msgstr "Pesquisar"
 #: server_replication.php:341 server_synchronize.php:1204 tbl_change.php:330
 #: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
 #: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_structure.php:563
-#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
-#: view_create.php:182 view_operations.php:101
+#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
+#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
+#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Executa"
 
@@ -102,8 +102,8 @@ msgstr "Comentários da tabela"
 #: libraries/messages.inc.php:325 libraries/tbl_properties.inc.php:99
 #: libraries/tbl_properties.inc.php:275 pdf_schema.php:1263
 #: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:189
-#: tbl_printview.php:142 tbl_relation.php:402 tbl_structure.php:177
-#: tbl_tracking.php:273 tbl_tracking.php:324
+#: tbl_printview.php:142 tbl_relation.php:402 tbl_select.php:135
+#: tbl_structure.php:177 tbl_tracking.php:273 tbl_tracking.php:324
 msgid "Field"
 msgstr "Campo"
 
@@ -114,8 +114,9 @@ msgstr "Campo"
 #: libraries/Index.class.php:443 libraries/messages.inc.php:1189
 #: libraries/tbl_properties.inc.php:100 pdf_schema.php:1264
 #: pdf_schema.php:1285 tbl_change.php:287 tbl_change.php:314
-#: tbl_printview.php:143 tbl_printview.php:313 tbl_structure.php:178
-#: tbl_structure.php:660 tbl_tracking.php:274 tbl_tracking.php:321
+#: tbl_printview.php:143 tbl_printview.php:313 tbl_select.php:136
+#: tbl_structure.php:178 tbl_structure.php:660 tbl_tracking.php:274
+#: tbl_tracking.php:321
 msgid "Type"
 msgstr "Tipo"
 
@@ -308,8 +309,8 @@ msgstr "Activado"
 #: libraries/mysql_charsets.lib.php:107 libraries/tbl_properties.inc.php:107
 #: libraries/tbl_properties.inc.php:730 server_collations.php:54
 #: server_collations.php:66 server_databases.php:111 tbl_operations.php:361
-#: tbl_structure.php:179 tbl_structure.php:768 tbl_tracking.php:275
-#: tbl_tracking.php:326
+#: tbl_select.php:137 tbl_structure.php:179 tbl_structure.php:768
+#: tbl_tracking.php:275 tbl_tracking.php:326
 #, fuzzy
 msgid "Collation"
 msgstr "Criação"
@@ -430,14 +431,14 @@ msgstr "Ordenação"
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: libraries/messages.inc.php:77 server_databases.php:170
-#: server_databases.php:187 tbl_operations.php:260
+#: server_databases.php:187 tbl_operations.php:260 tbl_select.php:314
 msgid "Ascending"
 msgstr "Ascendente"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: libraries/messages.inc.php:259 server_databases.php:170
-#: server_databases.php:187 tbl_operations.php:261
+#: server_databases.php:187 tbl_operations.php:261 tbl_select.php:315
 msgid "Descending"
 msgstr "Descendente"
 
@@ -468,7 +469,7 @@ msgstr "Elim."
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:600
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:258
-#: tbl_change.php:1031 tbl_indexes.php:250
+#: tbl_change.php:1031 tbl_indexes.php:250 tbl_select.php:288
 msgid "Or"
 msgstr "Ou"
 
@@ -1754,7 +1755,7 @@ msgid "Sort by key"
 msgstr "Ordenar por chave"
 
 #: libraries/display_tbl.lib.php:555 libraries/messages.inc.php:599
-#: tbl_structure.php:754
+#: tbl_select.php:267 tbl_structure.php:754
 #, fuzzy
 msgid "Options"
 msgstr "Operações"
@@ -2463,7 +2464,7 @@ msgstr "Adicionar privilégios na base de dados seguinte"
 msgid "Add privileges on the following table"
 msgstr "Todos privilégios na tabela seguinte"
 
-#: libraries/messages.inc.php:48
+#: libraries/messages.inc.php:48 tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Condição de Pesquisa (Complemento da cláusula \"where\"):"
 
@@ -2681,7 +2682,7 @@ msgid "Upload to BLOB repository"
 msgstr ""
 
 #: libraries/messages.inc.php:108 libraries/sql_query_form.lib.php:359
-#: sql.php:678
+#: sql.php:677
 msgid "Let every user access this bookmark"
 msgstr "Deixar todos os utilizadores acederem a este marcador"
 
@@ -2689,7 +2690,7 @@ msgstr "Deixar todos os utilizadores acederem a este marcador"
 msgid "The bookmark has been deleted."
 msgstr "Marcador apagado com sucesso."
 
-#: libraries/messages.inc.php:111 sql.php:672
+#: libraries/messages.inc.php:111 sql.php:671
 msgid "Label"
 msgstr "Etiqueta"
 
@@ -2702,7 +2703,7 @@ msgid "Replace existing bookmark of same name"
 msgstr ""
 
 #: libraries/messages.inc.php:114 libraries/sql_query_form.lib.php:352
-#: sql.php:666 sql.php:667 sql.php:684
+#: sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
 msgstr "Marcar este comando SQL"
 
@@ -2714,7 +2715,8 @@ msgstr "Ver apenas"
 msgid "Browse distinct values"
 msgstr ""
 
-#: libraries/messages.inc.php:118 tbl_change.php:252
+#: libraries/messages.inc.php:118 tbl_change.php:252 tbl_select.php:27
+#: tbl_select.php:28 tbl_select.php:31 tbl_select.php:34
 msgid "Browse foreign values"
 msgstr ""
 
@@ -3146,11 +3148,11 @@ msgstr ""
 msgid "Display Features"
 msgstr "Mostrar Características"
 
-#: libraries/messages.inc.php:271
+#: libraries/messages.inc.php:271 tbl_select.php:301
 msgid "Display order:"
 msgstr "Ordem de visualização:"
 
-#: libraries/messages.inc.php:273
+#: libraries/messages.inc.php:273 tbl_select.php:132
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Faça uma \"pesquisa por formulário\" (caractere universal: \"%\")"
 
@@ -3646,7 +3648,7 @@ msgstr "Nome do Índice&nbsp;:"
 msgid "Index type:"
 msgstr "Tipo de Índice&nbsp;:"
 
-#: libraries/messages.inc.php:425 sql.php:640
+#: libraries/messages.inc.php:425 sql.php:639
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -3831,7 +3833,7 @@ msgstr ""
 msgid "Length/Values"
 msgstr "Tamanho/Valores*"
 
-#: libraries/messages.inc.php:488
+#: libraries/messages.inc.php:488 tbl_select.php:295
 msgid "Number of rows per page"
 msgstr "Número de registos por página"
 
@@ -4124,7 +4126,7 @@ msgstr "OK"
 msgid "Open Document Text"
 msgstr ""
 
-#: libraries/messages.inc.php:596
+#: libraries/messages.inc.php:596 tbl_select.php:138
 #, fuzzy
 msgid "Operator"
 msgstr "Operações"
@@ -4971,7 +4973,7 @@ msgstr "Por favor seleccione uma base de dados"
 msgid "Select binary log to view"
 msgstr ""
 
-#: libraries/messages.inc.php:855
+#: libraries/messages.inc.php:855 tbl_select.php:270
 msgid "Select fields (at least one):"
 msgstr "Seleccione os campos (no mínimo 1)"
 
@@ -5047,7 +5049,7 @@ msgstr ""
 msgid "Session value"
 msgstr "Valor de sessão"
 
-#: libraries/messages.inc.php:876
+#: libraries/messages.inc.php:876 libraries/tbl_properties.inc.php:105
 msgid ""
 "If field type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -6422,7 +6424,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1230 libraries/replication_gui.lib.php:111
 #: server_status.php:627 tbl_change.php:324 tbl_printview.php:370
-#: tbl_structure.php:730
+#: tbl_select.php:139 tbl_structure.php:730
 msgid "Value"
 msgstr "Valor"
 

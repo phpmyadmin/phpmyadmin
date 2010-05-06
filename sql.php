@@ -505,9 +505,8 @@ if (0 == $num_rows || $is_affected) {
         // and db_sql.php has many submit buttons
         // on the same form, and some confusion arises from the
         // fact that $zero_rows is sent for every case.
-        // The $zero_rows containing $strSuccess and sent with
-        // the form should not have priority over
-        // errors like $strEmptyResultSet
+        // The $zero_rows containing a success message and sent with
+        // the form should not have priority over errors
     } elseif (!empty($zero_rows) && !$is_select) {
         $message = PMA_Message::rawSuccess(htmlspecialchars($zero_rows));
     } elseif (!empty($GLOBALS['show_as_php'])) {
