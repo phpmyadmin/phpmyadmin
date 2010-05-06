@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-06 12:56-0400\n"
-"PO-Revision-Date: 2010-05-06 23:09+0200\n"
+"PO-Revision-Date: 2010-05-06 23:11+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1377,6 +1377,8 @@ msgstr "Ime"
 #: libraries/messages.inc.php:184
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
+"Povezava za controluserja, kot je določena v vaši konfiguraciji, je "
+"spodletela."
 
 #: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
 #: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
