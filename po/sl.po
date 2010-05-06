@@ -777,10 +777,9 @@ msgstr "Naslednji"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:80
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Skupaj"
+msgstr "Danes"
 
 #: js/messages.php:83
 #, fuzzy
