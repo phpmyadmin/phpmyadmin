@@ -579,7 +579,7 @@ msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 #: libraries/messages.inc.php:1241 libraries/tbl_info.inc.php:66
 #: tbl_structure.php:185 test/theme.php:74
 msgid "View"
-msgstr ""
+msgstr "Pogled"
 
 #: db_structure.php:485 libraries/db_structure.lib.php:49
 #: libraries/messages.inc.php:781 libraries/server_links.inc.php:70
