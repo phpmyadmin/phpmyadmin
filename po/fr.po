@@ -5384,7 +5384,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:929
 msgid "The number of logical read requests InnoDB has done."
-msgstr "Le nombre de requêtes de lectures \"logiques\" effectuées par InnoDB."
+msgstr "Le nombre de requêtes de lectures logiques effectuées par InnoDB."
 
 #: libraries/messages.inc.php:930
 msgid ""
