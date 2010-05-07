@@ -1106,10 +1106,15 @@ if (isset($_REQUEST['synchronize_db'])) {
         'ASC', 0, true);
 
     foreach ($cons as $type) {
+        if ('src' == $type) {
+            $database_header = __('Source database');
+        } else {
+            $database_header = __('Target database');
+        }
 ?>
       <table id="serverconnection_<?php echo $type; ?>_remote" class="data">
       <tr>
-	  <th colspan="2"><?php echo $GLOBALS['strDatabase_'.$type]; ?></th>
+	  <th colspan="2"><?php echo $database_header; ?></th>
       </tr>
       <tr class="odd">
 	  <td colspan="2" style="text-align: center">

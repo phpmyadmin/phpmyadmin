@@ -7,23 +7,23 @@
  * @todo    display executed query, optional?
  * @uses    $cfg['UseDbSearch']
  * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['strAccessDenied']
- * @uses    $GLOBALS['strSearchOption1']
- * @uses    $GLOBALS['strSearchOption2']
- * @uses    $GLOBALS['strSearchOption3']
- * @uses    $GLOBALS['strSearchOption4']
- * @uses    $GLOBALS['strSearchResultsFor']
- * @uses    $GLOBALS['strNumSearchResultsInTable']
- * @uses    $GLOBALS['strBrowse']
- * @uses    $GLOBALS['strDelete']
- * @uses    $GLOBALS['strNumSearchResultsTotal']
- * @uses    $GLOBALS['strSearchFormTitle']
- * @uses    $GLOBALS['strSearchNeedle']
- * @uses    $GLOBALS['strSearchType']
- * @uses    $GLOBALS['strSplitWordsWithSpace']
- * @uses    $GLOBALS['strSearchInTables']
- * @uses    $GLOBALS['strUnselectAll']
- * @uses    $GLOBALS['strSelectAll']
+ * @uses    __('Access denied') 
+ * @uses    __('at least one of the words') 
+ * @uses    __('all words') 
+ * @uses    __('the exact phrase') 
+ * @uses    __('as regular expression') 
+ * @uses    __('Search results for "<i>%s</i>" %s:') 
+ * @uses    __('%s match(es) inside table <i>%s</i>') 
+ * @uses    __('Browse')
+ * @uses    __('Delete')
+ * @uses    __('<b>Total:</b> <i>%s</i> match(es)') 
+ * @uses    __('Search in database') 
+ * @uses    __('Word(s) or value(s) to search for (wildcard: "%"):') 
+ * @uses    __('Find:') 
+ * @uses    __('Words are separated by a space character (" ").') 
+ * @uses    __('Inside table(s):') 
+ * @uses    __('Unselect All')
+ * @uses    __('Select All') 
  * @uses    PMA_DBI_get_tables()
  * @uses    PMA_sqlAddslashes()
  * @uses    PMA_getSearchSqls()
@@ -65,7 +65,7 @@ require './libraries/db_common.inc.php';
  */
 // If config variable $GLOBALS['cfg']['Usedbsearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
-    PMA_mysqlDie($GLOBALS['strAccessDenied'], '', false, $err_url);
+    PMA_mysqlDie(__('Access denied'), '', false, $err_url);
 } // end if
 $url_query .= '&amp;goto=db_search.php';
 $url_params['goto'] = 'db_search.php';
@@ -77,10 +77,10 @@ $url_params['goto'] = 'db_search.php';
 $tables_names_only = PMA_DBI_get_tables($GLOBALS['db']);
 
 $search_options = array(
-    '1' => $GLOBALS['strSearchOption1'],
-    '2' => $GLOBALS['strSearchOption2'],
-    '3' => $GLOBALS['strSearchOption3'],
-    '4' => $GLOBALS['strSearchOption4'],
+    '1' => __('at least one of the words'),
+    '2' => __('all words'),
+    '3' => __('the exact phrase'),
+    '4' => __('as regular expression'),
 );
 
 if (empty($_REQUEST['search_option']) || ! is_string($_REQUEST['search_option'])
@@ -239,7 +239,7 @@ if (isset($_REQUEST['submit_search'])) {
     echo '<br />' . "\n"
         .'<table class="data">' . "\n"
         .'<caption class="tblHeaders">' . "\n"
-        .sprintf($GLOBALS['strSearchResultsFor'],
+        .sprintf(__('Search results for "<i>%s</i>" %s:'),
             $searched, $option_str) . "\n"
         .'</caption>' . "\n";
 
@@ -257,19 +257,19 @@ if (isset($_REQUEST['submit_search'])) {
         $sql_query .= $newsearchsqls['select_count'];
 
         echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
-            .'<td>' . sprintf($GLOBALS['strNumSearchResultsInTable'], $res_cnt,
+            .'<td>' . sprintf(__('%s match(es) inside table <i>%s</i>'), $res_cnt,
                 htmlspecialchars($each_table)) . "</td>\n";
 
         if ($res_cnt > 0) {
             $this_url_params['sql_query'] = $newsearchsqls['select_fields'];
             echo '<td>' . PMA_linkOrButton(
                     'sql.php' . PMA_generate_common_url($this_url_params),
-                    $GLOBALS['strBrowse'], '') .  "</td>\n";
+                    __('Browse'), '') .  "</td>\n";
 
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
             echo '<td>' . PMA_linkOrButton(
                     'sql.php' . PMA_generate_common_url($this_url_params),
-                    $GLOBALS['strDelete'], $newsearchsqls['delete']) .  "</td>\n";
+                    __('Delete'), $newsearchsqls['delete']) .  "</td>\n";
 
         } else {
             echo '<td>&nbsp;</td>' . "\n"
@@ -282,7 +282,7 @@ if (isset($_REQUEST['submit_search'])) {
     echo '</table>' . "\n";
 
     if (count($tables_selected) > 1) {
-        echo '<p>' . sprintf($GLOBALS['strNumSearchResultsTotal'],
+        echo '<p>' . sprintf(__('<b>Total:</b> <i>%s</i> match(es)'),
             $num_search_result_total) . '</p>' . "\n";
     }
 } // end 1.
@@ -296,22 +296,22 @@ if (isset($_REQUEST['submit_search'])) {
 <form method="post" action="db_search.php" name="db_search">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db']); ?>
 <fieldset>
-    <legend><?php echo $GLOBALS['strSearchFormTitle']; ?></legend>
+    <legend><?php echo __('Search in database'); ?></legend>
 
     <table class="formlayout">
-    <tr><td><?php echo $GLOBALS['strSearchNeedle']; ?></td>
+    <tr><td><?php echo __('Word(s) or value(s) to search for (wildcard: "%"):'); ?></td>
         <td><input type="text" name="search_str" size="60"
                 value="<?php echo $searched; ?>" /></td>
     </tr>
     <tr><td align="right" valign="top">
-            <?php echo $GLOBALS['strSearchType']; ?></td>
+            <?php echo __('Find:'); ?></td>
             <td><?php
 
 $choices = array(
-    '1' => $GLOBALS['strSearchOption1'] . PMA_showHint($GLOBALS['strSplitWordsWithSpace']),
-    '2' => $GLOBALS['strSearchOption2'] . PMA_showHint($GLOBALS['strSplitWordsWithSpace']),
-    '3' => $GLOBALS['strSearchOption3'],
-    '4' => $GLOBALS['strSearchOption4'] . ' ' . PMA_showMySQLDocu('Regexp', 'Regexp')
+    '1' => __('at least one of the words') . PMA_showHint(__('Words are separated by a space character (" ").')),
+    '2' => __('all words') . PMA_showHint(__('Words are separated by a space character (" ").')),
+    '3' => __('the exact phrase'),
+    '4' => __('as regular expression') . ' ' . PMA_showMySQLDocu('Regexp', 'Regexp')
 );
 // 4th parameter set to true to add line breaks
 // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
@@ -322,7 +322,7 @@ unset($choices);
             </td>
     </tr>
     <tr><td align="right" valign="top">
-            <?php echo $GLOBALS['strSearchInTables']; ?></td>
+            <?php echo __('Inside table(s):'); ?></td>
         <td rowspan="2">
 <?php
 echo '            <select name="table_select[]" size="6" multiple="multiple">' . "\n";
@@ -341,10 +341,10 @@ foreach ($tables_names_only as $each_table) {
 echo '            </select>' . "\n";
 $alter_select =
     '<a href="db_search.php' . PMA_generate_common_url(array_merge($url_params, array('selectall' => 1))) . '#db_search"'
-    . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', true); return false;">' . $GLOBALS['strSelectAll'] . '</a>'
+    . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', true); return false;">' . __('Select All') . '</a>'
     . '&nbsp;/&nbsp;'
     . '<a href="db_search.php' . PMA_generate_common_url(array_merge($url_params, array('unselectall' => 1))) . '#db_search"'
-    . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', false); return false;">' . $GLOBALS['strUnselectAll'] . '</a>';
+    . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', false); return false;">' . __('Unselect All') . '</a>';
 ?>
         </td>
     </tr>
@@ -352,14 +352,14 @@ $alter_select =
             <?php echo $alter_select; ?></td>
     </tr>
     <tr><td align="right">
-            <?php echo $GLOBALS['strSearchInField']; ?></td>
+            <?php echo __('Inside field:'); ?></td>
         <td><input type="text" name="field_str" size="60"
                 value="<?php echo ! empty($field_str) ? $field_str : ''; ?>" /></td>
     </tr>
     </table>
 </fieldset>
 <fieldset class="tblFooters">
-    <input type="submit" name="submit_search" value="<?php echo $GLOBALS['strGo']; ?>"
+    <input type="submit" name="submit_search" value="<?php echo __('Go'); ?>"
         id="buttonGo" />
 </fieldset>
 </form>

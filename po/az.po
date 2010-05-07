@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-06 12:56-0400\n"
+"POT-Creation-Date: 2010-05-07 13:01-0400\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: azerbaijani <az@li.org>\n"
@@ -41,7 +41,7 @@ msgstr "Axtarış"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_structure.php:567 js/messages.php:50
+#: db_search.php:362 db_structure.php:567 js/messages.php:50
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
 #: libraries/Config.class.php:1046
@@ -59,7 +59,7 @@ msgstr "Axtarış"
 #: server_privileges.php:1585 server_privileges.php:1932
 #: server_privileges.php:1979 server_privileges.php:2018
 #: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1204 tbl_change.php:330
+#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
 #: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
 #: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
 #: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
@@ -192,11 +192,13 @@ msgstr "Çap et"
 msgid "View dump (schema) of database"
 msgstr "Me'lumat bazasının sxemini göster"
 
-#: db_export.php:43 libraries/messages.inc.php:853 server_export.php:27
+#: db_export.php:43 db_search.php:344 libraries/messages.inc.php:853
+#: server_export.php:27
 msgid "Select All"
 msgstr "Hamısını Seç"
 
-#: db_export.php:45 libraries/messages.inc.php:1196 server_export.php:29
+#: db_export.php:45 db_search.php:347 libraries/messages.inc.php:1196
+#: server_export.php:29
 msgid "Unselect All"
 msgstr "Heç birini seçme"
 
@@ -502,13 +504,84 @@ msgstr "SQL-query on database <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Emri İcra Et"
 
-#: db_structure.php:77 db_structure.php:78 db_structure.php:90
-#: db_structure.php:92 db_structure.php:103 db_structure.php:105
-#: libraries/messages.inc.php:116 libraries/mult_submits.inc.php:116
-#: libraries/tbl_links.inc.php:50 tbl_structure.php:37 tbl_structure.php:49
-#: tbl_structure.php:468
+#: db_search.php:68 libraries/auth/config.auth.lib.php:84
+#: libraries/auth/config.auth.lib.php:103
+#: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/signon.auth.lib.php:183 libraries/messages.inc.php:34
+msgid "Access denied"
+msgstr "Giriş Tesdiq Edilmedi"
+
+#: db_search.php:80 db_search.php:311 libraries/messages.inc.php:844
+msgid "at least one of the words"
+msgstr "sözlerin en azından birini"
+
+#: db_search.php:81 db_search.php:312 libraries/messages.inc.php:845
+msgid "all words"
+msgstr "bütün sözleri"
+
+#: db_search.php:82 db_search.php:313 libraries/messages.inc.php:846
+msgid "the exact phrase"
+msgstr "tamamile eyni sözü"
+
+#: db_search.php:83 db_search.php:314 libraries/messages.inc.php:847
+msgid "as regular expression"
+msgstr "requlyar ifade (regular expression) olaraq"
+
+#: db_search.php:242 libraries/messages.inc.php:848
+#, php-format
+msgid "Search results for \"<i>%s</i>\" %s:"
+msgstr "\"<i>%s</i>\" üçün axtarış neticeleri %s:"
+
+#: db_search.php:260 libraries/messages.inc.php:587
+#, php-format
+msgid "%s match(es) inside table <i>%s</i>"
+msgstr "%s uyğunluq tapıldı (<i>%s</i> cedvelinde)"
+
+#: db_search.php:267 db_structure.php:77 db_structure.php:78
+#: db_structure.php:90 db_structure.php:92 db_structure.php:103
+#: db_structure.php:105 libraries/messages.inc.php:116
+#: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
+#: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:468
 msgid "Browse"
 msgstr "İçindekiler"
+
+#: db_search.php:272 libraries/display_tbl.lib.php:1165
+#: libraries/display_tbl.lib.php:2051 libraries/messages.inc.php:251
+#: libraries/sql_query_form.lib.php:470 pdf_pages.php:281 pdf_pages.php:406
+#: pdf_pages.php:442 pdf_pages.php:470 pmd_general.php:377
+#: setup/frames/index.inc.php:125 setup/frames/index.inc.php:216
+#: tbl_row_action.php:63
+msgid "Delete"
+msgstr "Sil"
+
+#: db_search.php:285 libraries/messages.inc.php:588
+#, php-format
+msgid "<b>Total:</b> <i>%s</i> match(es)"
+msgstr "<b>Cemi:</b> <i>%s</i> uyğunluq"
+
+#: db_search.php:299 libraries/messages.inc.php:840
+msgid "Search in database"
+msgstr "Search in database"
+
+#: db_search.php:302 libraries/messages.inc.php:843
+msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgstr "Axtarmaq üçün söz(ler) ve ya deyer(ler) (wildcard: \"%\"):"
+
+#: db_search.php:307 libraries/messages.inc.php:850
+msgid "Find:"
+msgstr "Tap:"
+
+#: db_search.php:311 db_search.php:312 libraries/messages.inc.php:1025
+msgid "Words are separated by a space character (\" \")."
+msgstr "Sözler boşluq ifadesi (\" \") ile ayrılmışdır."
+
+#: db_search.php:325 libraries/messages.inc.php:842
+msgid "Inside table(s):"
+msgstr "Inside table(s):"
+
+#: db_search.php:355 libraries/messages.inc.php:841
+msgid "Inside field:"
+msgstr ""
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
@@ -675,8 +748,8 @@ msgstr ""
 #: libraries/header_printview.inc.php:58 libraries/messages.inc.php:220
 #: navigation.php:233 server_databases.php:169 server_privileges.php:1621
 #: server_privileges.php:1682 server_privileges.php:1940
-#: server_processlist.php:56 server_synchronize.php:1174
-#: server_synchronize.php:1178 tbl_tracking.php:591 test/theme.php:65
+#: server_processlist.php:56 server_synchronize.php:1179
+#: server_synchronize.php:1183 tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
 msgstr "Me'lumat Bazası"
 
@@ -1064,13 +1137,6 @@ msgstr "saniyede"
 #: libraries/auth/config.auth.lib.php:77 libraries/messages.inc.php:180
 msgid "Cannot connect: invalid settings."
 msgstr "Elaqe qura bilmirem: yalnış quruluş."
-
-#: libraries/auth/config.auth.lib.php:84
-#: libraries/auth/config.auth.lib.php:103
-#: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
-#: libraries/auth/signon.auth.lib.php:183 libraries/messages.inc.php:34
-msgid "Access denied"
-msgstr "Giriş Tesdiq Edilmedi"
 
 #: libraries/auth/config.auth.lib.php:92
 #: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
@@ -1517,7 +1583,7 @@ msgstr "Parol Yoxdur"
 #: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
 #: libraries/replication_gui.lib.php:345 server_privileges.php:757
 #: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1170
+#: server_privileges.php:1499 server_synchronize.php:1175
 msgid "Password"
 msgstr "Parol"
 
@@ -1804,14 +1870,6 @@ msgstr ""
 #: libraries/messages.inc.php:252
 msgid "The row has been deleted"
 msgstr "Setir silindi"
-
-#: libraries/display_tbl.lib.php:1165 libraries/display_tbl.lib.php:2051
-#: libraries/messages.inc.php:251 libraries/sql_query_form.lib.php:470
-#: pdf_pages.php:281 pdf_pages.php:406 pdf_pages.php:442 pdf_pages.php:470
-#: pmd_general.php:377 setup/frames/index.inc.php:125
-#: setup/frames/index.inc.php:216 tbl_row_action.php:63
-msgid "Delete"
-msgstr "Sil"
 
 #: libraries/display_tbl.lib.php:1184 libraries/display_tbl.lib.php:2051
 #: libraries/messages.inc.php:468 server_processlist.php:71
@@ -2163,7 +2221,7 @@ msgstr "Table structure for table"
 #: server_privileges.php:692 server_privileges.php:695
 #: server_privileges.php:751 server_privileges.php:1498
 #: server_privileges.php:2030 server_processlist.php:55
-#: server_synchronize.php:1154
+#: server_synchronize.php:1159
 msgid "Host"
 msgstr "Host"
 
@@ -3028,6 +3086,7 @@ msgid "%s databases have been dropped successfully."
 msgstr "%s bazası müveffeqiyyetle leğv edildi."
 
 #: libraries/messages.inc.php:228 libraries/server_synchronize.lib.php:1341
+#: server_synchronize.php:1110
 #, fuzzy
 msgid "Source database"
 msgstr "Search in database"
@@ -3055,6 +3114,7 @@ msgstr ""
 "MySQL server arasında ağır neqliyyata sebeb ola bilersiniz."
 
 #: libraries/messages.inc.php:233 libraries/server_synchronize.lib.php:1367
+#: server_synchronize.php:1112
 #, fuzzy
 msgid "Target database"
 msgstr "Search in database"
@@ -3773,7 +3833,8 @@ msgstr ""
 msgid "Korean"
 msgstr ""
 
-#: libraries/messages.inc.php:474
+#: libraries/messages.inc.php:474 libraries/select_lang.lib.php:480
+#: libraries/select_lang.lib.php:486 libraries/select_lang.lib.php:492
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr ""
@@ -3989,7 +4050,7 @@ msgid "Show processes"
 msgstr "Prosesleri göster"
 
 #: libraries/messages.inc.php:553 navigation.php:210 server_databases.php:371
-#: server_synchronize.php:1186
+#: server_synchronize.php:1191
 msgid "No databases"
 msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
 
@@ -4095,16 +4156,6 @@ msgstr "İstifadeçi(ler) tapılmadı."
 #: libraries/messages.inc.php:586 pmd_general.php:164
 msgid "Number of tables"
 msgstr ""
-
-#: libraries/messages.inc.php:587
-#, php-format
-msgid "%s match(es) inside table <i>%s</i>"
-msgstr "%s uyğunluq tapıldı (<i>%s</i> cedvelinde)"
-
-#: libraries/messages.inc.php:588
-#, php-format
-msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr "<b>Cemi:</b> <i>%s</i> uyğunluq"
 
 #: libraries/messages.inc.php:589 server_databases.php:117
 #: server_status.php:260 setup/lib/messages.inc.php:117
@@ -4258,7 +4309,7 @@ msgid "Polish"
 msgstr ""
 
 #: libraries/messages.inc.php:670 libraries/replication_gui.lib.php:67
-#: server_synchronize.php:1158
+#: server_synchronize.php:1163
 #, fuzzy
 msgid "Port"
 msgstr "Sırala"
@@ -4908,47 +4959,6 @@ msgstr "Qeyd Et"
 #: libraries/messages.inc.php:839
 msgid "The scale factor is too small to fit the schema on one page"
 msgstr "The scale factor is too small to fit the schema on one page"
-
-#: libraries/messages.inc.php:840
-msgid "Search in database"
-msgstr "Search in database"
-
-#: libraries/messages.inc.php:841
-msgid "Inside field:"
-msgstr ""
-
-#: libraries/messages.inc.php:842
-msgid "Inside table(s):"
-msgstr "Inside table(s):"
-
-#: libraries/messages.inc.php:843
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Axtarmaq üçün söz(ler) ve ya deyer(ler) (wildcard: \"%\"):"
-
-#: libraries/messages.inc.php:844
-msgid "at least one of the words"
-msgstr "sözlerin en azından birini"
-
-#: libraries/messages.inc.php:845
-msgid "all words"
-msgstr "bütün sözleri"
-
-#: libraries/messages.inc.php:846
-msgid "the exact phrase"
-msgstr "tamamile eyni sözü"
-
-#: libraries/messages.inc.php:847
-msgid "as regular expression"
-msgstr "requlyar ifade (regular expression) olaraq"
-
-#: libraries/messages.inc.php:848
-#, php-format
-msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "\"<i>%s</i>\" üçün axtarış neticeleri %s:"
-
-#: libraries/messages.inc.php:850
-msgid "Find:"
-msgstr "Tap:"
 
 #: libraries/messages.inc.php:851 main.php:298
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -5671,7 +5681,7 @@ msgstr ""
 msgid "Snap to grid"
 msgstr ""
 
-#: libraries/messages.inc.php:1019 server_synchronize.php:1162
+#: libraries/messages.inc.php:1019 server_synchronize.php:1167
 msgid "Socket"
 msgstr ""
 
@@ -5686,10 +5696,6 @@ msgstr "Yer istifadesi"
 #: libraries/messages.inc.php:1024 libraries/mysql_charsets.lib.php:290
 msgid "Spanish"
 msgstr ""
-
-#: libraries/messages.inc.php:1025
-msgid "Words are separated by a space character (\" \")."
-msgstr "Sözler boşluq ifadesi (\" \") ile ayrılmışdır."
 
 #: libraries/messages.inc.php:1027
 msgid "Export type"
@@ -5817,7 +5823,7 @@ msgstr ""
 msgid "Switch to copied table"
 msgstr "Kopyalanmış cedvele keç"
 
-#: libraries/messages.inc.php:1069 server_synchronize.php:1208
+#: libraries/messages.inc.php:1069 server_synchronize.php:1213
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -6380,7 +6386,7 @@ msgstr "İstifadeçi adı boş qaldı!"
 #: libraries/replication_gui.lib.php:56 libraries/replication_gui.lib.php:245
 #: libraries/replication_gui.lib.php:248 libraries/replication_gui.lib.php:255
 #: server_privileges.php:672 server_privileges.php:675
-#: server_privileges.php:682 server_synchronize.php:1166
+#: server_privileges.php:682 server_synchronize.php:1171
 msgid "User name"
 msgstr "İstifadeçi adı"
 
@@ -6609,17 +6615,17 @@ msgid ""
 "the <a href=#replication>replication section</a>."
 msgstr ""
 
-#: server_synchronize.php:1117
+#: server_synchronize.php:1122
 msgid "Enter manually"
 msgstr ""
 
-#: server_synchronize.php:1118
+#: server_synchronize.php:1123
 #, fuzzy
 #| msgid "Connections"
 msgid "Current connection"
 msgstr "Elaqeler"
 
-#: server_synchronize.php:1147
+#: server_synchronize.php:1152
 #, php-format
 msgid "Configuration: %s"
 msgstr ""
