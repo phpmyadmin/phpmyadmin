@@ -5370,7 +5370,7 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"Le nombre de lectures discontinues effectuées par InnoDB. Ceci survient "
+"Le nombre de lectures «discontinues» effectuées par InnoDB. Ceci survient "
 "lorsqu'une requête doit balayer une large portion de table en ordre "
 "discontinu."
 
