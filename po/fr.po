@@ -4148,7 +4148,7 @@ msgstr "OK"
 
 #: libraries/messages.inc.php:593
 msgid "Open Document Text"
-msgstr "Texte  «Open Document»"
+msgstr "Texte Open Document"
 
 #: libraries/messages.inc.php:596 tbl_select.php:138
 msgid "Operator"
