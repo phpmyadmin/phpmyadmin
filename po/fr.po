@@ -7163,7 +7163,7 @@ msgid ""
 "limit)"
 msgstr ""
 "Nombre de secondes allouées à l'exécution des scripts ([kbd]0[/kbd] signifie "
-"\"illimité\")"
+"illimité)"
 
 #: setup/lib/messages.inc.php:81
 msgid "Maximum execution time"
