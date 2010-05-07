@@ -7112,7 +7112,7 @@ msgstr "Le «controlpass» est vide."
 
 #: setup/lib/messages.inc.php:69
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr "Le \"controluser\" est vide."
+msgstr "Le «controluser» est vide."
 
 #: setup/lib/messages.inc.php:70
 msgid "Empty signon session name while using signon authentication method"
