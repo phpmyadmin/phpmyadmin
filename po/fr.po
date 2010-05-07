@@ -3938,8 +3938,8 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Veuillez entrer les valeurs des options de transformation en suivant ce "
-"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") "
-"ou une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
+"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") ou "
+"une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
 
 #: libraries/messages.inc.php:519 libraries/tbl_properties.inc.php:145
