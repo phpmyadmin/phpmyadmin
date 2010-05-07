@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-06 12:56-0400\n"
-"PO-Revision-Date: 2010-05-07 12:22+0200\n"
+"PO-Revision-Date: 2010-05-07 12:23+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7650,7 +7650,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:192
 msgid "Delete all cookies on logout"
-msgstr "Détruire tous les \"cookies\" à la déconnexion"
+msgstr "Détruire tous les «cookies» à la déconnexion"
 
 #: setup/lib/messages.inc.php:193
 msgid ""
