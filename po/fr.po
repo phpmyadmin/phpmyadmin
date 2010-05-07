@@ -7645,8 +7645,8 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"Si \"true\", la déconnexion se produit pour tous les serveurs; si \"false\", "
-"on se déconnecte seulement du serveur courant."
+"Si TRUE, la déconnexion se produit pour tous les serveurs; si FALSE, on se "
+"déconnecte seulement du serveur courant."
 
 #: setup/lib/messages.inc.php:192
 msgid "Delete all cookies on logout"
