@@ -5446,7 +5446,7 @@ msgstr "La quantité d'octets écrits jusqu'à présent."
 
 #: libraries/messages.inc.php:941
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr "Le nombre de pages utilisées pour des opérations \"doublewrite\"."
+msgstr "Le nombre de pages utilisées pour des opérations «doublewrite»."
 
 #: libraries/messages.inc.php:942
 msgid "The number of doublewrite operations that have been performed."
