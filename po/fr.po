@@ -7771,7 +7771,7 @@ msgstr "sert à augmenter la vitesse des transferts HTTP"
 
 #: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
-msgstr "Tampon de sortie GZip (\"output buffering\")"
+msgstr "Tampon de sortie GZip"
 
 #: setup/lib/messages.inc.php:216
 msgid "- none -"
