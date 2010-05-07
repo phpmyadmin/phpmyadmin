@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-06 12:56-0400\n"
-"PO-Revision-Date: 2010-05-07 12:10+0200\n"
+"PO-Revision-Date: 2010-05-07 12:11+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6513,7 +6513,7 @@ msgstr ""
 "N'affiche qu'une partie du champ. En première option, la position de départ "
 "(par défaut, 0). En seconde option, le nombre de caractères à afficher (par "
 "défaut, le reste). En troisième option, des caractères à afficher à la fin "
-"du texte (par défaut: \"...\")."
+"du texte (par défaut: «...»)."
 
 #: libraries/messages.inc.php:1187 server_binlog.php:183 server_binlog.php:186
 #: server_processlist.php:49 server_processlist.php:51
