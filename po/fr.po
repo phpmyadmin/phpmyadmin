@@ -5581,8 +5581,8 @@ msgid ""
 msgstr ""
 "Le nombre de lectures physiques d'un bloc de clés depuis le disque. Si cette "
 "valeur est élevée, la taille de votre mémoire tampon de clés est trop "
-"petite. Le taux d'échec de la cache peut être calculé par \"Key reads/Key "
-"read requests\"."
+"petite. Le taux d'échec de la cache peut être calculé par «Key reads/Key "
+"read requests»."
 
 #: libraries/messages.inc.php:968
 msgid "The number of requests to write a key block to the cache."
