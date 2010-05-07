@@ -7696,7 +7696,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:199
 msgid "Login cookie validity"
-msgstr "Durée de validité de la connexion (mode \"cookie\")"
+msgstr "Durée de validité de la connexion (mode «cookie»)"
 
 #: setup/lib/messages.inc.php:200
 msgid "Maximum number of characters used when a SQL query is displayed"
