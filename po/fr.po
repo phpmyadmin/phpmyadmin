@@ -6850,7 +6850,7 @@ msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Si activé, permet d'entrer un nom de serveur MySQL sur le panneau de "
-"connexion (mode \"cookie\")"
+"connexion (mode «cookie»)"
 
 #: setup/lib/messages.inc.php:18
 msgid ""
