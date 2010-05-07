@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-06 12:56-0400\n"
-"PO-Revision-Date: 2010-05-07 12:07+0200\n"
+"PO-Revision-Date: 2010-05-07 12:08+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5878,7 +5878,7 @@ msgstr "espagnol"
 
 #: libraries/messages.inc.php:1025
 msgid "Words are separated by a space character (\" \")."
-msgstr "Séparer les mots par un espace (\" \")."
+msgstr "Séparer les mots par un espace (« »)."
 
 #: libraries/messages.inc.php:1027
 msgid "Export type"
