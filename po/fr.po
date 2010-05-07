@@ -7365,7 +7365,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:132 setup/lib/messages.inc.php:293
 msgid "PMA database"
-msgstr "Base de données phpMyAdmin \"pmadb\""
+msgstr "Base de données PMA"
 
 #: setup/lib/messages.inc.php:133
 msgid "Tracking of changes made in database. Requires configured PMA database."
