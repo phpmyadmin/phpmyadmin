@@ -6494,7 +6494,7 @@ msgid ""
 "the link."
 msgstr ""
 "Affiche un lien, le champ contient le nom du fichier; en première option, un "
-"préfixe comme \"http://www.example.com/\", en seconde option, un titre pour "
+"préfixe comme «http://www.example.com/», en seconde option, un titre pour "
 "le lien."
 
 #: libraries/messages.inc.php:1184
