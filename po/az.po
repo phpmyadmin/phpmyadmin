@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-07 13:01-0400\n"
+"POT-Creation-Date: 2010-05-09 20:34+0200\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: azerbaijani <az@li.org>\n"
@@ -44,27 +44,27 @@ msgstr "Axtarış"
 #: db_search.php:362 db_structure.php:567 js/messages.php:50
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046
+#: libraries/Config.class.php:1046 libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
-#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
-#: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
-#: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
-#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
-#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
-#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
-#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
-#: server_privileges.php:1585 server_privileges.php:1932
-#: server_privileges.php:1979 server_privileges.php:2018
-#: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
-#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
-#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
-#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_import.lib.php:276 libraries/display_tbl.lib.php:532
+#: libraries/display_tbl.lib.php:614 libraries/messages.inc.php:369
+#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:365
+#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
+#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
+#: libraries/tbl_properties.inc.php:782 libraries/Theme_Manager.class.php:311
+#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
+#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
+#: server_privileges.php:625 server_privileges.php:1585
+#: server_privileges.php:1932 server_privileges.php:1979
+#: server_privileges.php:2018 server_replication.php:235
+#: server_replication.php:318 server_replication.php:341
+#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_select.php:327 tbl_structure.php:563
+#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Davam"
 
@@ -592,9 +592,9 @@ msgstr "Elave et"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
 #: libraries/db_links.inc.php:63 libraries/export/latex.php:337
-#: libraries/messages.inc.php:1056 libraries/tbl_links.inc.php:56
-#: pmd_general.php:134 server_privileges.php:554 server_replication.php:315
-#: tbl_tracking.php:269
+#: libraries/import.lib.php:1104 libraries/messages.inc.php:1056
+#: libraries/tbl_links.inc.php:56 pmd_general.php:134
+#: server_privileges.php:554 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
 msgstr "Quruluş"
 
@@ -1253,26 +1253,6 @@ msgstr ""
 msgid "Download file"
 msgstr ""
 
-#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Charset çevirmeleri üçün lazım olan iconv ve ya recode uzantılarını yükleye "
-"bilmirem; ya php-ni bu uzantıları istifade ede bilmesi üçün yeniden "
-"quraşdırın ya da phpMyAdmin-de charset çevirme xüsusiyyetini söndürün."
-
-#: libraries/charset_conversion.lib.php:79
-#: libraries/charset_conversion.lib.php:90
-#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Can not use iconv nor libiconv nor recode_string function while extension "
-"reports to be loaded. Check your php configuration."
-
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -1352,9 +1332,10 @@ msgid "Documentation"
 msgstr "Dokumentasiya"
 
 #: libraries/common.lib.php:581 libraries/core.lib.php:234
-#: libraries/core.lib.php:263 libraries/messages.inc.php:305 pdf_schema.php:32
-#: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
-#: tbl_relation.php:290 view_operations.php:62
+#: libraries/core.lib.php:263 libraries/import.lib.php:134
+#: libraries/messages.inc.php:305 pdf_schema.php:32 pdf_schema.php:232
+#: tbl_change.php:1027 tbl_operations.php:213 tbl_relation.php:290
+#: view_operations.php:62
 msgid "Error"
 msgstr "Xeta"
 
@@ -1365,7 +1346,8 @@ msgid "SQL query"
 msgstr "SQL sorğusu"
 
 #: libraries/common.lib.php:616 libraries/common.lib.php:1199
-#: libraries/display_tbl.lib.php:1117 libraries/Index.class.php:466
+#: libraries/display_tbl.lib.php:1117 libraries/import.lib.php:1087
+#: libraries/import.lib.php:1111 libraries/Index.class.php:466
 #: libraries/messages.inc.php:288 pdf_pages.php:280
 #: setup/frames/index.inc.php:124 setup/lib/messages.inc.php:352
 #: tbl_row_action.php:69
@@ -1449,6 +1431,11 @@ msgstr "Evvelki"
 #: libraries/display_tbl.lib.php:353 libraries/messages.inc.php:297
 msgid "End"
 msgstr "Son"
+
+#: libraries/common.lib.php:2366 libraries/messages.inc.php:463
+#, php-format
+msgid "Jump to database &quot;%s&quot;."
+msgstr "&quot;%s&quot; me'lumat bazasına keç."
 
 #: libraries/common.lib.php:2386 libraries/messages.inc.php:469
 #, php-format
@@ -1568,50 +1555,6 @@ msgstr ""
 msgid "Overhead"
 msgstr "Aşma deyeri"
 
-#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
-#: main.php:91 user_password.php:111 user_password.php:129
-msgid "Change password"
-msgstr "Parolu Deyişdir"
-
-#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
-#: libraries/replication_gui.lib.php:341 server_privileges.php:768
-msgid "No Password"
-msgstr "Parol Yoxdur"
-
-#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
-#: libraries/replication_gui.lib.php:345 server_privileges.php:757
-#: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1175
-msgid "Password"
-msgstr "Parol"
-
-#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
-#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
-#: server_privileges.php:776 server_privileges.php:779
-msgid "Re-type"
-msgstr "Re-type"
-
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:66
-msgid "MySQL 4.0 compatible"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-#: libraries/replication_gui.lib.php:356 server_privileges.php:783
-msgid "Generate Password"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-#: libraries/replication_gui.lib.php:359 server_privileges.php:786
-#, fuzzy
-msgid "Generate"
-msgstr "Qurucu"
-
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1710,6 +1653,50 @@ msgstr "\"bzip\"lenmiş"
 #: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr ""
+
+#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
+#: main.php:91 user_password.php:111 user_password.php:129
+msgid "Change password"
+msgstr "Parolu Deyişdir"
+
+#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
+#: libraries/replication_gui.lib.php:341 server_privileges.php:768
+msgid "No Password"
+msgstr "Parol Yoxdur"
+
+#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
+#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
+#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:345 server_privileges.php:757
+#: server_privileges.php:761 server_privileges.php:772
+#: server_privileges.php:1499 server_synchronize.php:1175
+msgid "Password"
+msgstr "Parol"
+
+#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
+#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
+#: server_privileges.php:776 server_privileges.php:779
+msgid "Re-type"
+msgstr "Re-type"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:66
+msgid "MySQL 4.0 compatible"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+#: libraries/replication_gui.lib.php:356 server_privileges.php:783
+msgid "Generate Password"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+#: libraries/replication_gui.lib.php:359 server_privileges.php:786
+#, fuzzy
+msgid "Generate"
+msgstr "Qurucu"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -1814,7 +1801,8 @@ msgstr ""
 msgid "Sort by key"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:555 libraries/messages.inc.php:599
+#: libraries/display_tbl.lib.php:555 libraries/import.lib.php:1082
+#: libraries/import.lib.php:1104 libraries/messages.inc.php:599
 #: tbl_select.php:267 tbl_structure.php:754
 #, fuzzy
 msgid "Options"
@@ -2364,11 +2352,78 @@ msgstr "SQL result"
 msgid "Generated by"
 msgstr "Qurucu"
 
-#: libraries/header_printview.inc.php:63 libraries/messages.inc.php:828
-#: navigation.php:652 navigation.php:674 server_databases.php:122
-#: tbl_printview.php:394 tbl_structure.php:366 tbl_structure.php:778
+#: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
+#: libraries/messages.inc.php:828 navigation.php:652 navigation.php:674
+#: server_databases.php:122 tbl_printview.php:394 tbl_structure.php:366
+#: tbl_structure.php:778
 msgid "Rows"
 msgstr "Sıra sayı"
+
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Charset çevirmeleri üçün lazım olan iconv ve ya recode uzantılarını yükleye "
+"bilmirem; ya php-ni bu uzantıları istifade ede bilmesi üçün yeniden "
+"quraşdırın ya da phpMyAdmin-de charset çevirme xüsusiyyetini söndürün."
+
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Can not use iconv nor libiconv nor recode_string function while extension "
+"reports to be loaded. Check your php configuration."
+
+#: libraries/import.lib.php:150 libraries/messages.inc.php:293
+#: tbl_get_field.php:35 tbl_change.php:181
+msgid "MySQL returned an empty result set (i.e. zero rows)."
+msgstr "MySQL boş netice çoxluğu gönderdi (ye'ni sıfır setir)."
+
+#: libraries/import.lib.php:1078 libraries/messages.inc.php:407
+msgid ""
+"The following structures have either been created or altered. Here you can:"
+msgstr ""
+
+#: libraries/import.lib.php:1079 libraries/messages.inc.php:408
+msgid "View a structure`s contents by clicking on its name"
+msgstr ""
+
+#: libraries/import.lib.php:1080 libraries/messages.inc.php:409
+msgid ""
+"Change any of its settings by clicking the corresponding \"Options\" link"
+msgstr ""
+
+#: libraries/import.lib.php:1081 libraries/messages.inc.php:410
+msgid "Edit its structure by following the \"Structure\" link"
+msgstr ""
+
+#: libraries/import.lib.php:1084 libraries/messages.inc.php:370
+#, fuzzy
+msgid "Go to database"
+msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+
+#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/messages.inc.php:877
+msgid "settings"
+msgstr ""
+
+#: libraries/import.lib.php:1106 libraries/messages.inc.php:371
+msgid "Go to table"
+msgstr ""
+
+#: libraries/import.lib.php:1109 libraries/messages.inc.php:1055
+#, fuzzy
+msgid "structure"
+msgstr "Quruluş"
+
+#: libraries/import.lib.php:1115 libraries/messages.inc.php:372
+msgid "Go to view"
+msgstr ""
 
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
@@ -2618,11 +2673,11 @@ msgstr ""
 msgid "A primary key has been added on %s"
 msgstr "%s üzerine Birinci Dereceli Açar elave edildi."
 
-#: libraries/messages.inc.php:75 libraries/mysql_charsets.lib.php:369
+#: libraries/messages.inc.php:75 libraries/mysql_charsets.lib.php:368
 msgid "Arabic"
 msgstr "Ereb"
 
-#: libraries/messages.inc.php:76 libraries/mysql_charsets.lib.php:360
+#: libraries/messages.inc.php:76 libraries/mysql_charsets.lib.php:359
 msgid "Armenian"
 msgstr "Ermeni"
 
@@ -2648,7 +2703,7 @@ msgstr "Xüsusiyyetler"
 msgid "Automatic layout"
 msgstr "Automatik şablon"
 
-#: libraries/messages.inc.php:85 libraries/mysql_charsets.lib.php:355
+#: libraries/messages.inc.php:85 libraries/mysql_charsets.lib.php:354
 msgid "Baltic"
 msgstr ""
 
@@ -2660,8 +2715,8 @@ msgstr "BEGIN CUT"
 msgid "BEGIN RAW"
 msgstr "BEGIN RAW"
 
-#: libraries/messages.inc.php:88 libraries/mysql_charsets.lib.php:202
-#: libraries/mysql_charsets.lib.php:403 tbl_change.php:518
+#: libraries/messages.inc.php:88 libraries/mysql_charsets.lib.php:201
+#: libraries/mysql_charsets.lib.php:402 tbl_change.php:518
 msgid "Binary"
 msgstr "Binary"
 
@@ -2777,7 +2832,7 @@ msgstr ""
 msgid "Browse foreign values"
 msgstr ""
 
-#: libraries/messages.inc.php:126 libraries/mysql_charsets.lib.php:214
+#: libraries/messages.inc.php:126 libraries/mysql_charsets.lib.php:213
 msgid "Bulgarian"
 msgstr "Bolqar Dili"
 
@@ -2801,17 +2856,17 @@ msgstr ""
 msgid "Can't rename index to PRIMARY!"
 msgstr "İndeksi Birinci Dereceli (PRIMARY) olaraq yeniden adlandıra bilmirem!"
 
-#: libraries/messages.inc.php:140 libraries/mysql_charsets.lib.php:224
-#: libraries/mysql_charsets.lib.php:410
+#: libraries/messages.inc.php:140 libraries/mysql_charsets.lib.php:223
+#: libraries/mysql_charsets.lib.php:409
 msgid "case-insensitive"
 msgstr ""
 
-#: libraries/messages.inc.php:141 libraries/mysql_charsets.lib.php:227
-#: libraries/mysql_charsets.lib.php:412
+#: libraries/messages.inc.php:141 libraries/mysql_charsets.lib.php:226
+#: libraries/mysql_charsets.lib.php:411
 msgid "case-sensitive"
 msgstr ""
 
-#: libraries/messages.inc.php:142 libraries/mysql_charsets.lib.php:333
+#: libraries/messages.inc.php:142 libraries/mysql_charsets.lib.php:332
 msgid "Central European"
 msgstr "Merkezi Avropa"
 
@@ -3027,7 +3082,7 @@ msgstr ""
 msgid "Creation/Update/Check dates"
 msgstr "Quruluş/Deyişdirilme/Yoxlama tarixleri"
 
-#: libraries/messages.inc.php:211 libraries/mysql_charsets.lib.php:230
+#: libraries/messages.inc.php:211 libraries/mysql_charsets.lib.php:229
 msgid "Croatian"
 msgstr "Xorvat Dili"
 
@@ -3044,19 +3099,19 @@ msgstr ""
 msgid "Custom color"
 msgstr ""
 
-#: libraries/messages.inc.php:215 libraries/mysql_charsets.lib.php:366
+#: libraries/messages.inc.php:215 libraries/mysql_charsets.lib.php:365
 msgid "Cyrillic"
 msgstr "Kiril"
 
-#: libraries/messages.inc.php:216 libraries/mysql_charsets.lib.php:233
+#: libraries/messages.inc.php:216 libraries/mysql_charsets.lib.php:232
 msgid "Czech"
 msgstr ""
 
-#: libraries/messages.inc.php:217 libraries/mysql_charsets.lib.php:384
+#: libraries/messages.inc.php:217 libraries/mysql_charsets.lib.php:383
 msgid "Czech-Slovak"
 msgstr "Çex-Slovak"
 
-#: libraries/messages.inc.php:219 libraries/mysql_charsets.lib.php:236
+#: libraries/messages.inc.php:219 libraries/mysql_charsets.lib.php:235
 msgid "Danish"
 msgstr ""
 
@@ -3185,7 +3240,7 @@ msgid ""
 "appropriate field name."
 msgstr ""
 
-#: libraries/messages.inc.php:264 libraries/mysql_charsets.lib.php:248
+#: libraries/messages.inc.php:264 libraries/mysql_charsets.lib.php:247
 #, fuzzy
 msgid "dictionary"
 msgstr "Me'lumat lüğeti"
@@ -3260,10 +3315,6 @@ msgstr "Selahiyyetleri Deyişdir"
 msgid "Effective"
 msgstr "Effektiv"
 
-#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
-msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL boş netice çoxluğu gönderdi (ye'ni sıfır setir)."
-
 #: libraries/messages.inc.php:294 libraries/relation.lib.php:100
 msgid "Enabled"
 msgstr "Enabled"
@@ -3300,7 +3351,7 @@ msgstr "Motorlar"
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Bu MySQL server %s depolama motorunu desteklememektedir."
 
-#: libraries/messages.inc.php:303 libraries/mysql_charsets.lib.php:239
+#: libraries/messages.inc.php:303 libraries/mysql_charsets.lib.php:238
 msgid "English"
 msgstr "İngilis Dili"
 
@@ -3331,11 +3382,11 @@ msgstr ""
 msgid "Error saving coordinates for Designer."
 msgstr ""
 
-#: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:242
+#: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:241
 msgid "Esperanto"
 msgstr ""
 
-#: libraries/messages.inc.php:312 libraries/mysql_charsets.lib.php:245
+#: libraries/messages.inc.php:312 libraries/mysql_charsets.lib.php:244
 msgid "Estonian"
 msgstr "Eston Dili"
 
@@ -3484,12 +3535,12 @@ msgstr "Funksiya"
 msgid "General relation features"
 msgstr "Ümumi elaqe variantları"
 
-#: libraries/messages.inc.php:363 libraries/mysql_charsets.lib.php:378
+#: libraries/messages.inc.php:363 libraries/mysql_charsets.lib.php:377
 msgid "Georgian"
 msgstr "Gürcü"
 
-#: libraries/messages.inc.php:364 libraries/mysql_charsets.lib.php:248
-#: libraries/mysql_charsets.lib.php:251
+#: libraries/messages.inc.php:364 libraries/mysql_charsets.lib.php:247
+#: libraries/mysql_charsets.lib.php:250
 #, fuzzy
 msgid "German"
 msgstr "Gürcü"
@@ -3512,25 +3563,12 @@ msgstr "Qlobal selahiyyetler"
 msgid "Global value"
 msgstr "Qlobal deyer"
 
-#: libraries/messages.inc.php:370
-#, fuzzy
-msgid "Go to database"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
-
-#: libraries/messages.inc.php:371
-msgid "Go to table"
-msgstr ""
-
-#: libraries/messages.inc.php:372
-msgid "Go to view"
-msgstr ""
-
 #: libraries/messages.inc.php:373 server_privileges.php:1502
 #: server_privileges.php:1684 server_privileges.php:2033
 msgid "Grant"
 msgstr "İcaze ver"
 
-#: libraries/messages.inc.php:374 libraries/mysql_charsets.lib.php:381
+#: libraries/messages.inc.php:374 libraries/mysql_charsets.lib.php:380
 msgid "Greek"
 msgstr ""
 
@@ -3550,7 +3588,7 @@ msgstr ""
 msgid "You have to choose at least one column to display"
 msgstr "Gösterilmesi üçün en az bir sütun seçmelisiniz"
 
-#: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:375
+#: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:374
 msgid "Hebrew"
 msgstr "İbrani Dili"
 
@@ -3596,11 +3634,11 @@ msgstr ""
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/messages.inc.php:392 libraries/mysql_charsets.lib.php:254
+#: libraries/messages.inc.php:392 libraries/mysql_charsets.lib.php:253
 msgid "Hungarian"
 msgstr "Macar Dili"
 
-#: libraries/messages.inc.php:394 libraries/mysql_charsets.lib.php:257
+#: libraries/messages.inc.php:394 libraries/mysql_charsets.lib.php:256
 msgid "Icelandic"
 msgstr ""
 
@@ -3642,24 +3680,6 @@ msgstr ""
 #: libraries/messages.inc.php:403 querywindow.php:104
 msgid "Import files"
 msgstr "Faylları import et"
-
-#: libraries/messages.inc.php:407
-msgid ""
-"The following structures have either been created or altered. Here you can:"
-msgstr ""
-
-#: libraries/messages.inc.php:408
-msgid "View a structure`s contents by clicking on its name"
-msgstr ""
-
-#: libraries/messages.inc.php:409
-msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr ""
-
-#: libraries/messages.inc.php:410
-msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
 
 #: libraries/messages.inc.php:411
 msgid "Import currencies ($5.00 to 5.00)"
@@ -3799,8 +3819,8 @@ msgstr ""
 msgid "Invalid table name"
 msgstr ""
 
-#: libraries/messages.inc.php:460 libraries/mysql_charsets.lib.php:260
-#: libraries/mysql_charsets.lib.php:350
+#: libraries/messages.inc.php:460 libraries/mysql_charsets.lib.php:259
+#: libraries/mysql_charsets.lib.php:349
 msgid "Japanese"
 msgstr ""
 
@@ -3815,11 +3835,6 @@ msgstr ""
 msgid "Joins"
 msgstr ""
 
-#: libraries/messages.inc.php:463
-#, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; me'lumat bazasına keç."
-
 #: libraries/messages.inc.php:465 server_privileges.php:763
 msgid "Do not change the password"
 msgstr "Parolu deyişdirme"
@@ -3828,8 +3843,8 @@ msgstr "Parolu deyişdirme"
 msgid "Key cache"
 msgstr ""
 
-#: libraries/messages.inc.php:470 libraries/mysql_charsets.lib.php:269
-#: libraries/mysql_charsets.lib.php:372
+#: libraries/messages.inc.php:470 libraries/mysql_charsets.lib.php:268
+#: libraries/mysql_charsets.lib.php:371
 msgid "Korean"
 msgstr ""
 
@@ -3871,7 +3886,7 @@ msgstr "LaTeX"
 msgid "Structure of table __TABLE__"
 msgstr ""
 
-#: libraries/messages.inc.php:484 libraries/mysql_charsets.lib.php:263
+#: libraries/messages.inc.php:484 libraries/mysql_charsets.lib.php:262
 msgid "Latvian"
 msgstr ""
 
@@ -3895,7 +3910,7 @@ msgstr "Sehife başına düşen setir sayı"
 msgid "Lines terminated by"
 msgstr "Setir leğvedicisi (Lines terminated by)"
 
-#: libraries/messages.inc.php:492 libraries/mysql_charsets.lib.php:266
+#: libraries/messages.inc.php:492 libraries/mysql_charsets.lib.php:265
 msgid "Lithuanian"
 msgstr "Litva Dili"
 
@@ -4019,10 +4034,10 @@ msgstr "%s cedveli %s - e daşınmışdır."
 msgid "Can't move table to same one!"
 msgstr "Can't move table to same one!"
 
-#: libraries/messages.inc.php:529 libraries/mysql_charsets.lib.php:308
-#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
-#: libraries/mysql_charsets.lib.php:333 libraries/mysql_charsets.lib.php:355
-#: libraries/mysql_charsets.lib.php:366
+#: libraries/messages.inc.php:529 libraries/mysql_charsets.lib.php:307
+#: libraries/mysql_charsets.lib.php:316 libraries/mysql_charsets.lib.php:325
+#: libraries/mysql_charsets.lib.php:332 libraries/mysql_charsets.lib.php:354
+#: libraries/mysql_charsets.lib.php:365
 msgid "multilingual"
 msgstr ""
 
@@ -4259,12 +4274,12 @@ msgstr "deqiqede"
 msgid "per second"
 msgstr "saniyede"
 
-#: libraries/messages.inc.php:654 libraries/mysql_charsets.lib.php:272
+#: libraries/messages.inc.php:654 libraries/mysql_charsets.lib.php:271
 #, fuzzy
 msgid "Persian"
 msgstr "Gürcü"
 
-#: libraries/messages.inc.php:655 libraries/mysql_charsets.lib.php:251
+#: libraries/messages.inc.php:655 libraries/mysql_charsets.lib.php:250
 msgid "phone book"
 msgstr ""
 
@@ -4304,7 +4319,7 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/messages.inc.php:669 libraries/mysql_charsets.lib.php:275
+#: libraries/messages.inc.php:669 libraries/mysql_charsets.lib.php:274
 msgid "Polish"
 msgstr ""
 
@@ -4908,7 +4923,7 @@ msgstr "You have revoked the privileges for %s"
 msgid "Revoke"
 msgstr "Revoke"
 
-#: libraries/messages.inc.php:818 libraries/mysql_charsets.lib.php:281
+#: libraries/messages.inc.php:818 libraries/mysql_charsets.lib.php:280
 #, fuzzy
 msgid "Romanian"
 msgstr "Ermeni"
@@ -4941,7 +4956,7 @@ msgstr "%s me'lumat bazasına SQL sorğusu(-ları) gönder"
 msgid "Run SQL query/queries on database %s"
 msgstr "%s me'lumat bazasına SQL sorğusu(-ları) gönder"
 
-#: libraries/messages.inc.php:834 libraries/mysql_charsets.lib.php:338
+#: libraries/messages.inc.php:834 libraries/mysql_charsets.lib.php:337
 msgid "Russian"
 msgstr ""
 
@@ -5059,10 +5074,6 @@ msgstr ""
 "'a','b','c'...<br />Eger bu deyerlerde ters-kesr (\"\\\") ve ya tek dırnaq "
 "(\"'\") istifade etmek isteyirsinizse, onları ters-kesrle escape-leyin "
 "(meselen '\\\\xyz' ve ya 'a\\'b')."
-
-#: libraries/messages.inc.php:877
-msgid "settings"
-msgstr ""
 
 #: libraries/messages.inc.php:884 server_binlog.php:192 server_binlog.php:195
 #: server_processlist.php:49 server_processlist.php:51
@@ -5650,8 +5661,8 @@ msgstr "Cedvelleri göster"
 msgid " Show this query here again "
 msgstr " Bu sorğunu burada yene göster "
 
-#: libraries/messages.inc.php:1009 libraries/mysql_charsets.lib.php:218
-#: libraries/mysql_charsets.lib.php:343
+#: libraries/messages.inc.php:1009 libraries/mysql_charsets.lib.php:217
+#: libraries/mysql_charsets.lib.php:342
 msgid "Simplified Chinese"
 msgstr ""
 
@@ -5665,11 +5676,11 @@ msgid ""
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 
-#: libraries/messages.inc.php:1014 libraries/mysql_charsets.lib.php:284
+#: libraries/messages.inc.php:1014 libraries/mysql_charsets.lib.php:283
 msgid "Slovak"
 msgstr ""
 
-#: libraries/messages.inc.php:1015 libraries/mysql_charsets.lib.php:287
+#: libraries/messages.inc.php:1015 libraries/mysql_charsets.lib.php:286
 msgid "Slovenian"
 msgstr ""
 
@@ -5693,7 +5704,7 @@ msgstr ""
 msgid "Space usage"
 msgstr "Yer istifadesi"
 
-#: libraries/messages.inc.php:1024 libraries/mysql_charsets.lib.php:290
+#: libraries/messages.inc.php:1024 libraries/mysql_charsets.lib.php:289
 msgid "Spanish"
 msgstr ""
 
@@ -5794,11 +5805,6 @@ msgstr "Alternativ cedvel strukturu"
 msgid "Structure Difference"
 msgstr ""
 
-#: libraries/messages.inc.php:1055
-#, fuzzy
-msgid "structure"
-msgstr "Quruluş"
-
 #: libraries/messages.inc.php:1057 server_synchronize.php:265
 msgid "Structure Synchronization"
 msgstr ""
@@ -5814,8 +5820,8 @@ msgid ""
 "issues."
 msgstr ""
 
-#: libraries/messages.inc.php:1062 libraries/mysql_charsets.lib.php:296
-#: libraries/mysql_charsets.lib.php:393
+#: libraries/messages.inc.php:1062 libraries/mysql_charsets.lib.php:295
+#: libraries/mysql_charsets.lib.php:392
 msgid "Swedish"
 msgstr ""
 
@@ -5953,8 +5959,8 @@ msgstr ""
 msgid "Texy! text"
 msgstr ""
 
-#: libraries/messages.inc.php:1103 libraries/mysql_charsets.lib.php:299
-#: libraries/mysql_charsets.lib.php:396
+#: libraries/messages.inc.php:1103 libraries/mysql_charsets.lib.php:298
+#: libraries/mysql_charsets.lib.php:395
 msgid "Thai"
 msgstr ""
 
@@ -6178,12 +6184,12 @@ msgid ""
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: libraries/messages.inc.php:1170 libraries/mysql_charsets.lib.php:220
-#: libraries/mysql_charsets.lib.php:363
+#: libraries/messages.inc.php:1170 libraries/mysql_charsets.lib.php:219
+#: libraries/mysql_charsets.lib.php:362
 msgid "Traditional Chinese"
 msgstr "Enenevi Çin Dili"
 
-#: libraries/messages.inc.php:1171 libraries/mysql_charsets.lib.php:293
+#: libraries/messages.inc.php:1171 libraries/mysql_charsets.lib.php:292
 #, fuzzy
 msgid "Traditional Spanish"
 msgstr "Enenevi Çin Dili"
@@ -6310,23 +6316,23 @@ msgstr ""
 msgid "Truncate Shown Queries"
 msgstr "Truncate Shown Queries"
 
-#: libraries/messages.inc.php:1188 libraries/mysql_charsets.lib.php:302
-#: libraries/mysql_charsets.lib.php:390
+#: libraries/messages.inc.php:1188 libraries/mysql_charsets.lib.php:301
+#: libraries/mysql_charsets.lib.php:389
 msgid "Turkish"
 msgstr "Türk Dili"
 
-#: libraries/messages.inc.php:1191 libraries/mysql_charsets.lib.php:305
-#: libraries/mysql_charsets.lib.php:387
+#: libraries/messages.inc.php:1191 libraries/mysql_charsets.lib.php:304
+#: libraries/mysql_charsets.lib.php:386
 msgid "Ukrainian"
 msgstr "Ukrayna Dili"
 
-#: libraries/messages.inc.php:1193 libraries/mysql_charsets.lib.php:308
-#: libraries/mysql_charsets.lib.php:317
+#: libraries/messages.inc.php:1193 libraries/mysql_charsets.lib.php:307
+#: libraries/mysql_charsets.lib.php:316
 msgid "Unicode"
 msgstr ""
 
-#: libraries/messages.inc.php:1195 libraries/mysql_charsets.lib.php:399
-#: libraries/mysql_charsets.lib.php:406
+#: libraries/messages.inc.php:1195 libraries/mysql_charsets.lib.php:398
+#: libraries/mysql_charsets.lib.php:405
 msgid "unknown"
 msgstr ""
 
@@ -6467,8 +6473,8 @@ msgstr "Upload işleri üçün te'yin etdiyiniz direktoriya tapılmadı"
 msgid "Web server"
 msgstr ""
 
-#: libraries/messages.inc.php:1247 libraries/mysql_charsets.lib.php:278
-#: libraries/mysql_charsets.lib.php:326
+#: libraries/messages.inc.php:1247 libraries/mysql_charsets.lib.php:277
+#: libraries/mysql_charsets.lib.php:325
 msgid "West European"
 msgstr "Qerbi Avropa"
 

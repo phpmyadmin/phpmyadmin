@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-07 13:01-0400\n"
+"POT-Creation-Date: 2010-05-09 20:34+0200\n"
 "PO-Revision-Date: 2010-05-07 23:30+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
-"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -49,27 +49,27 @@ msgstr "Iskanje"
 #: db_search.php:362 db_structure.php:567 js/messages.php:50
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046
+#: libraries/Config.class.php:1046 libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
-#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
-#: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
-#: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
-#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
-#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
-#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
-#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
-#: server_privileges.php:1585 server_privileges.php:1932
-#: server_privileges.php:1979 server_privileges.php:2018
-#: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
-#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
-#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
-#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_import.lib.php:276 libraries/display_tbl.lib.php:532
+#: libraries/display_tbl.lib.php:614 libraries/messages.inc.php:369
+#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:365
+#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
+#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
+#: libraries/tbl_properties.inc.php:782 libraries/Theme_Manager.class.php:311
+#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
+#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
+#: server_privileges.php:625 server_privileges.php:1585
+#: server_privileges.php:1932 server_privileges.php:1979
+#: server_privileges.php:2018 server_replication.php:235
+#: server_replication.php:318 server_replication.php:341
+#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_select.php:327 tbl_structure.php:563
+#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Izvedi"
 
@@ -586,9 +586,9 @@ msgstr "Vstavi"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
 #: libraries/db_links.inc.php:63 libraries/export/latex.php:337
-#: libraries/messages.inc.php:1056 libraries/tbl_links.inc.php:56
-#: pmd_general.php:134 server_privileges.php:554 server_replication.php:315
-#: tbl_tracking.php:269
+#: libraries/import.lib.php:1104 libraries/messages.inc.php:1056
+#: libraries/tbl_links.inc.php:56 pmd_general.php:134
+#: server_privileges.php:554 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
 msgstr "Struktura"
 
@@ -1196,26 +1196,6 @@ msgstr "Ogled videa"
 msgid "Download file"
 msgstr "Prenesi datoteko"
 
-#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Ni mogoče naložiti razširitev iconv ali recode, ki so potrebne za pretvorbe "
-"kodnih tabel. Konfigurirajte PHP tako, da bo omogočal uporabo teh "
-"razširitev, ali onemogočite pretvarjanje kodnih tabel v phpMyAdmin."
-
-#: libraries/charset_conversion.lib.php:79
-#: libraries/charset_conversion.lib.php:90
-#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Ni mogoče uporabljati funkcij iconv, libiconv ali recode_string, čeprav so "
-"potrebne razširitve normalno naložene. Preverite vašo konfiguracijo PHP."
-
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -1295,9 +1275,10 @@ msgid "Documentation"
 msgstr "Dokumentacija"
 
 #: libraries/common.lib.php:581 libraries/core.lib.php:234
-#: libraries/core.lib.php:263 libraries/messages.inc.php:305 pdf_schema.php:32
-#: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
-#: tbl_relation.php:290 view_operations.php:62
+#: libraries/core.lib.php:263 libraries/import.lib.php:134
+#: libraries/messages.inc.php:305 pdf_schema.php:32 pdf_schema.php:232
+#: tbl_change.php:1027 tbl_operations.php:213 tbl_relation.php:290
+#: view_operations.php:62
 msgid "Error"
 msgstr "Napaka"
 
@@ -1308,7 +1289,8 @@ msgid "SQL query"
 msgstr "Poizvedba SQL"
 
 #: libraries/common.lib.php:616 libraries/common.lib.php:1199
-#: libraries/display_tbl.lib.php:1117 libraries/Index.class.php:466
+#: libraries/display_tbl.lib.php:1117 libraries/import.lib.php:1087
+#: libraries/import.lib.php:1111 libraries/Index.class.php:466
 #: libraries/messages.inc.php:288 pdf_pages.php:280
 #: setup/frames/index.inc.php:124 setup/lib/messages.inc.php:352
 #: tbl_row_action.php:69
@@ -1390,6 +1372,11 @@ msgstr "Prejšnji"
 #: libraries/display_tbl.lib.php:353 libraries/messages.inc.php:297
 msgid "End"
 msgstr "Konec"
+
+#: libraries/common.lib.php:2366 libraries/messages.inc.php:463
+#, php-format
+msgid "Jump to database &quot;%s&quot;."
+msgstr "Preskoči na podatkovno zbirko &quot;%s&quot;."
 
 #: libraries/common.lib.php:2386 libraries/messages.inc.php:469
 #, php-format
@@ -1512,49 +1499,6 @@ msgstr ""
 msgid "Overhead"
 msgstr "Presežek"
 
-#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
-#: main.php:91 user_password.php:111 user_password.php:129
-msgid "Change password"
-msgstr "Spremeni geslo"
-
-#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
-#: libraries/replication_gui.lib.php:341 server_privileges.php:768
-msgid "No Password"
-msgstr "Brez gesla"
-
-#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
-#: libraries/replication_gui.lib.php:345 server_privileges.php:757
-#: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1175
-msgid "Password"
-msgstr "Geslo"
-
-#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
-#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
-#: server_privileges.php:776 server_privileges.php:779
-msgid "Re-type"
-msgstr "Ponovno vnesi"
-
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr ""
-
-#: libraries/display_change_password.lib.php:66
-msgid "MySQL 4.0 compatible"
-msgstr "Združljivo z MySQL 4.0"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-#: libraries/replication_gui.lib.php:356 server_privileges.php:783
-msgid "Generate Password"
-msgstr "Ustvari geslo"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-#: libraries/replication_gui.lib.php:359 server_privileges.php:786
-msgid "Generate"
-msgstr "Ustvari"
-
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1647,6 +1591,49 @@ msgstr "bzipano"
 #: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr "Združljivostni način SQL"
+
+#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
+#: main.php:91 user_password.php:111 user_password.php:129
+msgid "Change password"
+msgstr "Spremeni geslo"
+
+#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
+#: libraries/replication_gui.lib.php:341 server_privileges.php:768
+msgid "No Password"
+msgstr "Brez gesla"
+
+#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
+#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
+#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:345 server_privileges.php:757
+#: server_privileges.php:761 server_privileges.php:772
+#: server_privileges.php:1499 server_synchronize.php:1175
+msgid "Password"
+msgstr "Geslo"
+
+#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
+#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
+#: server_privileges.php:776 server_privileges.php:779
+msgid "Re-type"
+msgstr "Ponovno vnesi"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr ""
+
+#: libraries/display_change_password.lib.php:66
+msgid "MySQL 4.0 compatible"
+msgstr "Združljivo z MySQL 4.0"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+#: libraries/replication_gui.lib.php:356 server_privileges.php:783
+msgid "Generate Password"
+msgstr "Ustvari geslo"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+#: libraries/replication_gui.lib.php:359 server_privileges.php:786
+msgid "Generate"
+msgstr "Ustvari"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -1761,7 +1748,8 @@ msgstr "Ta operacija lahko traja dolgo časa. Vseeno nadaljujem?"
 msgid "Sort by key"
 msgstr "Uredi po ključu"
 
-#: libraries/display_tbl.lib.php:555 libraries/messages.inc.php:599
+#: libraries/display_tbl.lib.php:555 libraries/import.lib.php:1082
+#: libraries/import.lib.php:1104 libraries/messages.inc.php:599
 #: tbl_select.php:267 tbl_structure.php:754
 msgid "Options"
 msgstr "Možnosti"
@@ -1997,8 +1985,7 @@ msgid ""
 "INFILE)."
 msgstr ""
 "Največja velikost začasnih datotek, ki jih lahko MySQL uporablja, ko ponovno "
-"ustvarja indeks MyISAM (med REPAIR TABLE, ALTER TABLE ali LOAD DATA "
-"INFILE)."
+"ustvarja indeks MyISAM (med REPAIR TABLE, ALTER TABLE ali LOAD DATA INFILE)."
 
 #: libraries/engines/myisam.lib.php:37 libraries/messages.inc.php:533
 msgid "Maximum size for temporary files on index creation"
@@ -2286,8 +2273,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Napaka pri premikanju naložene datoteke, glej "
-"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Napaka pri premikanju naložene datoteke, glej [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/File.class.php:1031 libraries/File.class.php:1039
 #: libraries/File.class.php:1055 libraries/File.class.php:1063
@@ -2318,11 +2305,79 @@ msgstr "Rezultat SQL"
 msgid "Generated by"
 msgstr "Ustvaril"
 
-#: libraries/header_printview.inc.php:63 libraries/messages.inc.php:828
-#: navigation.php:652 navigation.php:674 server_databases.php:122
-#: tbl_printview.php:394 tbl_structure.php:366 tbl_structure.php:778
+#: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
+#: libraries/messages.inc.php:828 navigation.php:652 navigation.php:674
+#: server_databases.php:122 tbl_printview.php:394 tbl_structure.php:366
+#: tbl_structure.php:778
 msgid "Rows"
 msgstr "Vrstice"
+
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Ni mogoče naložiti razširitev iconv ali recode, ki so potrebne za pretvorbe "
+"kodnih tabel. Konfigurirajte PHP tako, da bo omogočal uporabo teh "
+"razširitev, ali onemogočite pretvarjanje kodnih tabel v phpMyAdmin."
+
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Ni mogoče uporabljati funkcij iconv, libiconv ali recode_string, čeprav so "
+"potrebne razširitve normalno naložene. Preverite vašo konfiguracijo PHP."
+
+#: libraries/import.lib.php:150 libraries/messages.inc.php:293
+#: tbl_get_field.php:35 tbl_change.php:181
+msgid "MySQL returned an empty result set (i.e. zero rows)."
+msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
+
+#: libraries/import.lib.php:1078 libraries/messages.inc.php:407
+msgid ""
+"The following structures have either been created or altered. Here you can:"
+msgstr ""
+"Naslednje strukture so bile ali ustvarjene ali spremenjene: Tukaj lahko:"
+
+#: libraries/import.lib.php:1079 libraries/messages.inc.php:408
+msgid "View a structure`s contents by clicking on its name"
+msgstr "Oglejte si vsebino strukture s klikom na njeno ime"
+
+#: libraries/import.lib.php:1080 libraries/messages.inc.php:409
+msgid ""
+"Change any of its settings by clicking the corresponding \"Options\" link"
+msgstr ""
+"Spremenite katero koli njeno nastavitev s klikom na pripadajočo povezavo "
+"\"Možnosti\""
+
+#: libraries/import.lib.php:1081 libraries/messages.inc.php:410
+msgid "Edit its structure by following the \"Structure\" link"
+msgstr "Uredite njeno strukturo s sledenjem povezavi \"Struktura\""
+
+#: libraries/import.lib.php:1084 libraries/messages.inc.php:370
+msgid "Go to database"
+msgstr "Pojdi v zbirko podatkov"
+
+#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/messages.inc.php:877
+msgid "settings"
+msgstr "nastavitve"
+
+#: libraries/import.lib.php:1106 libraries/messages.inc.php:371
+msgid "Go to table"
+msgstr "Pojdi v tabelo"
+
+#: libraries/import.lib.php:1109 libraries/messages.inc.php:1055
+msgid "structure"
+msgstr "struktura"
+
+#: libraries/import.lib.php:1115 libraries/messages.inc.php:372
+msgid "Go to view"
+msgstr "Pojdi na pogled"
 
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
@@ -2575,11 +2630,11 @@ msgstr "Uporabi izbrane spremembe"
 msgid "A primary key has been added on %s"
 msgstr "Na %s je dodan primarni ključ"
 
-#: libraries/messages.inc.php:75 libraries/mysql_charsets.lib.php:369
+#: libraries/messages.inc.php:75 libraries/mysql_charsets.lib.php:368
 msgid "Arabic"
 msgstr "Arabsko"
 
-#: libraries/messages.inc.php:76 libraries/mysql_charsets.lib.php:360
+#: libraries/messages.inc.php:76 libraries/mysql_charsets.lib.php:359
 msgid "Armenian"
 msgstr "Armensko"
 
@@ -2605,7 +2660,7 @@ msgstr "Atributi"
 msgid "Automatic layout"
 msgstr "Samodejna postavitev"
 
-#: libraries/messages.inc.php:85 libraries/mysql_charsets.lib.php:355
+#: libraries/messages.inc.php:85 libraries/mysql_charsets.lib.php:354
 msgid "Baltic"
 msgstr "Baltsko"
 
@@ -2617,8 +2672,8 @@ msgstr "ZAČETEK IZREZA"
 msgid "BEGIN RAW"
 msgstr "BEGIN RAW"
 
-#: libraries/messages.inc.php:88 libraries/mysql_charsets.lib.php:202
-#: libraries/mysql_charsets.lib.php:403 tbl_change.php:518
+#: libraries/messages.inc.php:88 libraries/mysql_charsets.lib.php:201
+#: libraries/mysql_charsets.lib.php:402 tbl_change.php:518
 msgid "Binary"
 msgstr "Dvojiško"
 
@@ -2729,7 +2784,7 @@ msgstr "Prebrskaj različne vrednosti"
 msgid "Browse foreign values"
 msgstr "Prebrskaj tuje vrednosti"
 
-#: libraries/messages.inc.php:126 libraries/mysql_charsets.lib.php:214
+#: libraries/messages.inc.php:126 libraries/mysql_charsets.lib.php:213
 msgid "Bulgarian"
 msgstr "Bolgarsko"
 
@@ -2755,17 +2810,17 @@ msgstr ""
 msgid "Can't rename index to PRIMARY!"
 msgstr "Indeksa ni mogoče preimenovati v PRIMARY!"
 
-#: libraries/messages.inc.php:140 libraries/mysql_charsets.lib.php:224
-#: libraries/mysql_charsets.lib.php:410
+#: libraries/messages.inc.php:140 libraries/mysql_charsets.lib.php:223
+#: libraries/mysql_charsets.lib.php:409
 msgid "case-insensitive"
 msgstr "ne razlikuj velikih in malih črk"
 
-#: libraries/messages.inc.php:141 libraries/mysql_charsets.lib.php:227
-#: libraries/mysql_charsets.lib.php:412
+#: libraries/messages.inc.php:141 libraries/mysql_charsets.lib.php:226
+#: libraries/mysql_charsets.lib.php:411
 msgid "case-sensitive"
 msgstr "razlikuj velike in male črke"
 
-#: libraries/messages.inc.php:142 libraries/mysql_charsets.lib.php:333
+#: libraries/messages.inc.php:142 libraries/mysql_charsets.lib.php:332
 msgid "Central European"
 msgstr "Centralno evropsko"
 
@@ -2979,7 +3034,7 @@ msgstr ""
 msgid "Creation/Update/Check dates"
 msgstr "Datumi za ustvarjeno/posodobljeno/preverjeno"
 
-#: libraries/messages.inc.php:211 libraries/mysql_charsets.lib.php:230
+#: libraries/messages.inc.php:211 libraries/mysql_charsets.lib.php:229
 msgid "Croatian"
 msgstr "Hrvaško"
 
@@ -2996,19 +3051,19 @@ msgstr "Trenutni strežnik"
 msgid "Custom color"
 msgstr "Barva po meri"
 
-#: libraries/messages.inc.php:215 libraries/mysql_charsets.lib.php:366
+#: libraries/messages.inc.php:215 libraries/mysql_charsets.lib.php:365
 msgid "Cyrillic"
 msgstr "Cirilica"
 
-#: libraries/messages.inc.php:216 libraries/mysql_charsets.lib.php:233
+#: libraries/messages.inc.php:216 libraries/mysql_charsets.lib.php:232
 msgid "Czech"
 msgstr "Češko"
 
-#: libraries/messages.inc.php:217 libraries/mysql_charsets.lib.php:384
+#: libraries/messages.inc.php:217 libraries/mysql_charsets.lib.php:383
 msgid "Czech-Slovak"
 msgstr "Češkoslovaško"
 
-#: libraries/messages.inc.php:219 libraries/mysql_charsets.lib.php:236
+#: libraries/messages.inc.php:219 libraries/mysql_charsets.lib.php:235
 msgid "Danish"
 msgstr "Dansko"
 
@@ -3134,7 +3189,7 @@ msgid ""
 "appropriate field name."
 msgstr ""
 
-#: libraries/messages.inc.php:264 libraries/mysql_charsets.lib.php:248
+#: libraries/messages.inc.php:264 libraries/mysql_charsets.lib.php:247
 msgid "dictionary"
 msgstr "slovar"
 
@@ -3208,10 +3263,6 @@ msgstr "Uredi privilegije"
 msgid "Effective"
 msgstr "Učinkovito"
 
-#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
-msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
-
 #: libraries/messages.inc.php:294 libraries/relation.lib.php:100
 msgid "Enabled"
 msgstr "Omogočeno"
@@ -3248,7 +3299,7 @@ msgstr "Pogoni"
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ta strežnik MySQL ne podpira skladiščnega pogona %s."
 
-#: libraries/messages.inc.php:303 libraries/mysql_charsets.lib.php:239
+#: libraries/messages.inc.php:303 libraries/mysql_charsets.lib.php:238
 msgid "English"
 msgstr "Angleško"
 
@@ -3279,11 +3330,11 @@ msgstr "Napaka pri preimenovanju tabele %1$s v %2$s"
 msgid "Error saving coordinates for Designer."
 msgstr "Napaka pri shranjevanju koordinat Oblikovalnika."
 
-#: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:242
+#: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:241
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/messages.inc.php:312 libraries/mysql_charsets.lib.php:245
+#: libraries/messages.inc.php:312 libraries/mysql_charsets.lib.php:244
 msgid "Estonian"
 msgstr "Estonsko"
 
@@ -3432,12 +3483,12 @@ msgstr "Funkcija"
 msgid "General relation features"
 msgstr "Splošne lastnosti relacij"
 
-#: libraries/messages.inc.php:363 libraries/mysql_charsets.lib.php:378
+#: libraries/messages.inc.php:363 libraries/mysql_charsets.lib.php:377
 msgid "Georgian"
 msgstr "Gruzijsko"
 
-#: libraries/messages.inc.php:364 libraries/mysql_charsets.lib.php:248
-#: libraries/mysql_charsets.lib.php:251
+#: libraries/messages.inc.php:364 libraries/mysql_charsets.lib.php:247
+#: libraries/mysql_charsets.lib.php:250
 msgid "German"
 msgstr "Nemško"
 
@@ -3459,24 +3510,12 @@ msgstr "Globalni privilegiji"
 msgid "Global value"
 msgstr "Skupna vrednost"
 
-#: libraries/messages.inc.php:370
-msgid "Go to database"
-msgstr "Pojdi v zbirko podatkov"
-
-#: libraries/messages.inc.php:371
-msgid "Go to table"
-msgstr "Pojdi v tabelo"
-
-#: libraries/messages.inc.php:372
-msgid "Go to view"
-msgstr "Pojdi na pogled"
-
 #: libraries/messages.inc.php:373 server_privileges.php:1502
 #: server_privileges.php:1684 server_privileges.php:2033
 msgid "Grant"
 msgstr "Dovoli"
 
-#: libraries/messages.inc.php:374 libraries/mysql_charsets.lib.php:381
+#: libraries/messages.inc.php:374 libraries/mysql_charsets.lib.php:380
 msgid "Greek"
 msgstr "Grško"
 
@@ -3496,7 +3535,7 @@ msgstr "Izbrane ciljne tabele so bile sinhronizirane z izvornimi tabelami."
 msgid "You have to choose at least one column to display"
 msgstr "Za prikaz morate izbrati morate vsaj en stolpec"
 
-#: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:375
+#: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:374
 msgid "Hebrew"
 msgstr "Hebrejsko"
 
@@ -3543,11 +3582,11 @@ msgstr ""
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/messages.inc.php:392 libraries/mysql_charsets.lib.php:254
+#: libraries/messages.inc.php:392 libraries/mysql_charsets.lib.php:253
 msgid "Hungarian"
 msgstr "Madžarsko"
 
-#: libraries/messages.inc.php:394 libraries/mysql_charsets.lib.php:257
+#: libraries/messages.inc.php:394 libraries/mysql_charsets.lib.php:256
 msgid "Icelandic"
 msgstr "Islandsko"
 
@@ -3589,27 +3628,6 @@ msgstr "Uvozi/Izvozi koordinate za PDF-shemo"
 #: libraries/messages.inc.php:403 querywindow.php:104
 msgid "Import files"
 msgstr "Uvozi datoteke"
-
-#: libraries/messages.inc.php:407
-msgid ""
-"The following structures have either been created or altered. Here you can:"
-msgstr ""
-"Naslednje strukture so bile ali ustvarjene ali spremenjene: Tukaj lahko:"
-
-#: libraries/messages.inc.php:408
-msgid "View a structure`s contents by clicking on its name"
-msgstr "Oglejte si vsebino strukture s klikom na njeno ime"
-
-#: libraries/messages.inc.php:409
-msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr ""
-"Spremenite katero koli njeno nastavitev s klikom na pripadajočo povezavo "
-"\"Možnosti\""
-
-#: libraries/messages.inc.php:410
-msgid "Edit its structure by following the \"Structure\" link"
-msgstr "Uredite njeno strukturo s sledenjem povezavi \"Struktura\""
 
 #: libraries/messages.inc.php:411
 msgid "Import currencies ($5.00 to 5.00)"
@@ -3751,8 +3769,8 @@ msgstr "Neveljaven indeks strežnika: \"%s\""
 msgid "Invalid table name"
 msgstr "Neveljavno ime tabele"
 
-#: libraries/messages.inc.php:460 libraries/mysql_charsets.lib.php:260
-#: libraries/mysql_charsets.lib.php:350
+#: libraries/messages.inc.php:460 libraries/mysql_charsets.lib.php:259
+#: libraries/mysql_charsets.lib.php:349
 msgid "Japanese"
 msgstr "Japonsko"
 
@@ -3770,11 +3788,6 @@ msgstr ""
 msgid "Joins"
 msgstr ""
 
-#: libraries/messages.inc.php:463
-#, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Preskoči na podatkovno zbirko &quot;%s&quot;."
-
 #: libraries/messages.inc.php:465 server_privileges.php:763
 msgid "Do not change the password"
 msgstr "Ne spreminjaj gesla"
@@ -3783,8 +3796,8 @@ msgstr "Ne spreminjaj gesla"
 msgid "Key cache"
 msgstr "Predpomnilnik ključev"
 
-#: libraries/messages.inc.php:470 libraries/mysql_charsets.lib.php:269
-#: libraries/mysql_charsets.lib.php:372
+#: libraries/messages.inc.php:470 libraries/mysql_charsets.lib.php:268
+#: libraries/mysql_charsets.lib.php:371
 msgid "Korean"
 msgstr "Korejsko"
 
@@ -3826,7 +3839,7 @@ msgstr "LaTeX"
 msgid "Structure of table __TABLE__"
 msgstr "Struktura tabele __TABLE__"
 
-#: libraries/messages.inc.php:484 libraries/mysql_charsets.lib.php:263
+#: libraries/messages.inc.php:484 libraries/mysql_charsets.lib.php:262
 msgid "Latvian"
 msgstr "Latvijsko"
 
@@ -3850,7 +3863,7 @@ msgstr "Število vrstic na stran"
 msgid "Lines terminated by"
 msgstr "Vrstice zaključene z"
 
-#: libraries/messages.inc.php:492 libraries/mysql_charsets.lib.php:266
+#: libraries/messages.inc.php:492 libraries/mysql_charsets.lib.php:265
 msgid "Lithuanian"
 msgstr "Litvansko"
 
@@ -3978,10 +3991,10 @@ msgstr "Tabela %s je bila premaknjena v %s."
 msgid "Can't move table to same one!"
 msgstr "Tabele ni mogoče premakniti same vase!"
 
-#: libraries/messages.inc.php:529 libraries/mysql_charsets.lib.php:308
-#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
-#: libraries/mysql_charsets.lib.php:333 libraries/mysql_charsets.lib.php:355
-#: libraries/mysql_charsets.lib.php:366
+#: libraries/messages.inc.php:529 libraries/mysql_charsets.lib.php:307
+#: libraries/mysql_charsets.lib.php:316 libraries/mysql_charsets.lib.php:325
+#: libraries/mysql_charsets.lib.php:332 libraries/mysql_charsets.lib.php:354
+#: libraries/mysql_charsets.lib.php:365
 msgid "multilingual"
 msgstr "večjezično"
 
@@ -4221,11 +4234,11 @@ msgstr "na minuto"
 msgid "per second"
 msgstr "na sekundo"
 
-#: libraries/messages.inc.php:654 libraries/mysql_charsets.lib.php:272
+#: libraries/messages.inc.php:654 libraries/mysql_charsets.lib.php:271
 msgid "Persian"
 msgstr "Perzijsko"
 
-#: libraries/messages.inc.php:655 libraries/mysql_charsets.lib.php:251
+#: libraries/messages.inc.php:655 libraries/mysql_charsets.lib.php:250
 msgid "phone book"
 msgstr "telefonski imenik"
 
@@ -4268,7 +4281,7 @@ msgstr ""
 "Ponovno se prijavite v phpMyAdmin, da naložite posodobljeno konfiguracijsko "
 "datoteko."
 
-#: libraries/messages.inc.php:669 libraries/mysql_charsets.lib.php:275
+#: libraries/messages.inc.php:669 libraries/mysql_charsets.lib.php:274
 msgid "Polish"
 msgstr "Poljsko"
 
@@ -4867,7 +4880,7 @@ msgstr "Odvzeli ste privilegije za %s"
 msgid "Revoke"
 msgstr "Odvzemi"
 
-#: libraries/messages.inc.php:818 libraries/mysql_charsets.lib.php:281
+#: libraries/messages.inc.php:818 libraries/mysql_charsets.lib.php:280
 msgid "Romanian"
 msgstr "Romunsko"
 
@@ -4899,7 +4912,7 @@ msgstr "Izvedi poizvedbo/poizvedbe SQL na strežniku %s"
 msgid "Run SQL query/queries on database %s"
 msgstr "Izvedi poizvedbo/poizvedbe SQL na podatkovni zbirki %s"
 
-#: libraries/messages.inc.php:834 libraries/mysql_charsets.lib.php:338
+#: libraries/messages.inc.php:834 libraries/mysql_charsets.lib.php:337
 msgid "Russian"
 msgstr "Rusko"
 
@@ -4995,11 +5008,10 @@ msgid ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
-"Vaš parameter "
-"PHP[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
-"maxlifetime@]session.gc_maxlifetime[/a] je nižji od veljavnosti piškotkov, "
-"določene v phpMyAdminu. Zaradi tega se bo vaša prijava iztekla prej, kot je "
-"določeno v phpMyAdminu."
+"Vaš parameter PHP[a@http://php.net/manual/en/session.configuration.php#ini."
+"session.gc-maxlifetime@]session.gc_maxlifetime[/a] je nižji od veljavnosti "
+"piškotkov, določene v phpMyAdminu. Zaradi tega se bo vaša prijava iztekla "
+"prej, kot je določeno v phpMyAdminu."
 
 #: libraries/messages.inc.php:874
 msgid ""
@@ -5007,8 +5019,7 @@ msgid ""
 "and/or webserver log file and configure your PHP installation properly."
 msgstr ""
 "Ne morem začeti seje brez napak; prosimo, preverite napake v vaši PHP in/ali "
-"strežnikovi dneviški datoteki in primerno konfigurirajte vašo namestitev "
-"PHP."
+"strežnikovi dneviški datoteki in primerno konfigurirajte vašo namestitev PHP."
 
 #: libraries/messages.inc.php:875 server_variables.php:55
 msgid "Session value"
@@ -5021,14 +5032,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Če je polje vrste \"enum\" ali \"set\", navedite vrednosti v obliki: 'a','b','c' "
-"...<br />Če želite med vrednostmi uporabiti poševnico (\"\\\") ali enojni "
-"narekovaj (\"'\"), pred tem znakom vnesite poševnico (npr. '\\\\xyz' ali "
-"'a\\'b')."
-
-#: libraries/messages.inc.php:877
-msgid "settings"
-msgstr "nastavitve"
+"Če je polje vrste \"enum\" ali \"set\", navedite vrednosti v obliki: "
+"'a','b','c' ...<br />Če želite med vrednostmi uporabiti poševnico (\"\\\") "
+"ali enojni narekovaj (\"'\"), pred tem znakom vnesite poševnico (npr. '\\"
+"\\xyz' ali 'a\\'b')."
 
 #: libraries/messages.inc.php:884 server_binlog.php:192 server_binlog.php:195
 #: server_processlist.php:49 server_processlist.php:51
@@ -5623,8 +5630,8 @@ msgstr "Pokaži tabele"
 msgid " Show this query here again "
 msgstr " Ponovno pokaži poizvedbo v tem oknu "
 
-#: libraries/messages.inc.php:1009 libraries/mysql_charsets.lib.php:218
-#: libraries/mysql_charsets.lib.php:343
+#: libraries/messages.inc.php:1009 libraries/mysql_charsets.lib.php:217
+#: libraries/mysql_charsets.lib.php:342
 msgid "Simplified Chinese"
 msgstr "Poenostavljeno kitajsko"
 
@@ -5641,11 +5648,11 @@ msgstr ""
 "id strežnika. Če nimate, prosimo dodajte naslednjo vrstico v razdelek "
 "[mysqld]:"
 
-#: libraries/messages.inc.php:1014 libraries/mysql_charsets.lib.php:284
+#: libraries/messages.inc.php:1014 libraries/mysql_charsets.lib.php:283
 msgid "Slovak"
 msgstr "Slovaško"
 
-#: libraries/messages.inc.php:1015 libraries/mysql_charsets.lib.php:287
+#: libraries/messages.inc.php:1015 libraries/mysql_charsets.lib.php:286
 msgid "Slovenian"
 msgstr "Slovensko"
 
@@ -5669,7 +5676,7 @@ msgstr "Razvrščanje"
 msgid "Space usage"
 msgstr "Poraba prostora"
 
-#: libraries/messages.inc.php:1024 libraries/mysql_charsets.lib.php:290
+#: libraries/messages.inc.php:1024 libraries/mysql_charsets.lib.php:289
 msgid "Spanish"
 msgstr "Špansko"
 
@@ -5771,10 +5778,6 @@ msgstr "Predlagaj strukturo tabele"
 msgid "Structure Difference"
 msgstr ""
 
-#: libraries/messages.inc.php:1055
-msgid "structure"
-msgstr "struktura"
-
 #: libraries/messages.inc.php:1057 server_synchronize.php:265
 msgid "Structure Synchronization"
 msgstr "Sinhronizacija strukture"
@@ -5792,8 +5795,8 @@ msgstr ""
 "Strežnik, ki teče z Suhosin. Prosimo, nanašajte se na %sdokumentacijo%s za "
 "morebitna vprašanja."
 
-#: libraries/messages.inc.php:1062 libraries/mysql_charsets.lib.php:296
-#: libraries/mysql_charsets.lib.php:393
+#: libraries/messages.inc.php:1062 libraries/mysql_charsets.lib.php:295
+#: libraries/mysql_charsets.lib.php:392
 msgid "Swedish"
 msgstr "Švedsko"
 
@@ -5932,8 +5935,8 @@ msgstr " Zaradi njegove dolžine<br /> polja morda ne bo mogoče urejati "
 msgid "Texy! text"
 msgstr "Besedilo Texy!"
 
-#: libraries/messages.inc.php:1103 libraries/mysql_charsets.lib.php:299
-#: libraries/mysql_charsets.lib.php:396
+#: libraries/messages.inc.php:1103 libraries/mysql_charsets.lib.php:298
+#: libraries/mysql_charsets.lib.php:395
 msgid "Thai"
 msgstr "Tajsko"
 
@@ -6160,12 +6163,12 @@ msgid ""
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: libraries/messages.inc.php:1170 libraries/mysql_charsets.lib.php:220
-#: libraries/mysql_charsets.lib.php:363
+#: libraries/messages.inc.php:1170 libraries/mysql_charsets.lib.php:219
+#: libraries/mysql_charsets.lib.php:362
 msgid "Traditional Chinese"
 msgstr "Tradicionalno kitajsko"
 
-#: libraries/messages.inc.php:1171 libraries/mysql_charsets.lib.php:293
+#: libraries/messages.inc.php:1171 libraries/mysql_charsets.lib.php:292
 msgid "Traditional Spanish"
 msgstr "Tradicionalno špansko"
 
@@ -6299,23 +6302,23 @@ msgstr ""
 msgid "Truncate Shown Queries"
 msgstr "Skrči prikazane poizvedbe"
 
-#: libraries/messages.inc.php:1188 libraries/mysql_charsets.lib.php:302
-#: libraries/mysql_charsets.lib.php:390
+#: libraries/messages.inc.php:1188 libraries/mysql_charsets.lib.php:301
+#: libraries/mysql_charsets.lib.php:389
 msgid "Turkish"
 msgstr "Turško"
 
-#: libraries/messages.inc.php:1191 libraries/mysql_charsets.lib.php:305
-#: libraries/mysql_charsets.lib.php:387
+#: libraries/messages.inc.php:1191 libraries/mysql_charsets.lib.php:304
+#: libraries/mysql_charsets.lib.php:386
 msgid "Ukrainian"
 msgstr "Ukrajinsko"
 
-#: libraries/messages.inc.php:1193 libraries/mysql_charsets.lib.php:308
-#: libraries/mysql_charsets.lib.php:317
+#: libraries/messages.inc.php:1193 libraries/mysql_charsets.lib.php:307
+#: libraries/mysql_charsets.lib.php:316
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/messages.inc.php:1195 libraries/mysql_charsets.lib.php:399
-#: libraries/mysql_charsets.lib.php:406
+#: libraries/messages.inc.php:1195 libraries/mysql_charsets.lib.php:398
+#: libraries/mysql_charsets.lib.php:405
 msgid "unknown"
 msgstr "neznano"
 
@@ -6460,8 +6463,8 @@ msgstr "Imenik, ki ste ga določili za nalaganje, je nedosegljiv"
 msgid "Web server"
 msgstr "Spletni strežnik"
 
-#: libraries/messages.inc.php:1247 libraries/mysql_charsets.lib.php:278
-#: libraries/mysql_charsets.lib.php:326
+#: libraries/messages.inc.php:1247 libraries/mysql_charsets.lib.php:277
+#: libraries/mysql_charsets.lib.php:325
 msgid "West European"
 msgstr "Zahodno evropsko"
 
@@ -6527,7 +6530,6 @@ msgid "\"zipped\""
 msgstr "\"zipano\""
 
 #: libraries/tbl_properties.inc.php:393
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Brez"
@@ -6541,30 +6543,25 @@ msgid "Clear"
 msgstr "Počisti"
 
 #: navigation.php:350 navigation.php:351
-#| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
 msgstr "Ustvari tabelo"
 
 #: pdf_schema.php:637
 #, php-format
-#| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "Tabela %s ne obstaja!"
 
 #: pdf_schema.php:996
 #, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Shema podatkovne zbirke %s - Stran %s"
 
 #: server_databases.php:230
-#| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Pojdi v zbirko podatkov"
 
 #: server_privileges.php:263 server_privileges.php:264
-#| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Brez"
@@ -6576,13 +6573,11 @@ msgstr ""
 "uporabiti dobesedno."
 
 #: server_privileges.php:1998
-#| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "Nobena"
 
 #: server_status.php:344
-#| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "Ponastavi"
@@ -7917,7 +7912,6 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: setup/lib/messages.inc.php:306
-#| msgid "Statements"
 msgid "Statements to track"
 msgstr "Izjave za sledenje"
 
@@ -8268,7 +8262,6 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: tbl_operations.php:634
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Počisti tabelo (FLUSH)"
 
@@ -8281,19 +8274,16 @@ msgid "Foreign key constraint"
 msgstr ""
 
 #: tbl_structure.php:362
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Brez"
 
 #: tbl_structure.php:595
 #, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Ustvari indeks na &nbsp;%s&nbsp;stolpcih"
 
 #: transformation_overview.php:48
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Opis"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-07 13:01-0400\n"
+"POT-Creation-Date: 2010-05-09 20:34+0200\n"
 "PO-Revision-Date: 2010-03-26 15:46+0200\n"
 "Last-Translator:  <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -48,27 +48,27 @@ msgstr "Zoeken"
 #: db_search.php:362 db_structure.php:567 js/messages.php:50
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046
+#: libraries/Config.class.php:1046 libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
-#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
-#: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
-#: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
-#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
-#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
-#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
-#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
-#: server_privileges.php:1585 server_privileges.php:1932
-#: server_privileges.php:1979 server_privileges.php:2018
-#: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
-#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
-#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
-#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_import.lib.php:276 libraries/display_tbl.lib.php:532
+#: libraries/display_tbl.lib.php:614 libraries/messages.inc.php:369
+#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:365
+#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
+#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
+#: libraries/tbl_properties.inc.php:782 libraries/Theme_Manager.class.php:311
+#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
+#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
+#: server_privileges.php:625 server_privileges.php:1585
+#: server_privileges.php:1932 server_privileges.php:1979
+#: server_privileges.php:2018 server_replication.php:235
+#: server_replication.php:318 server_replication.php:341
+#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_select.php:327 tbl_structure.php:563
+#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Start"
 
@@ -591,9 +591,9 @@ msgstr "Invoegen"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
 #: libraries/db_links.inc.php:63 libraries/export/latex.php:337
-#: libraries/messages.inc.php:1056 libraries/tbl_links.inc.php:56
-#: pmd_general.php:134 server_privileges.php:554 server_replication.php:315
-#: tbl_tracking.php:269
+#: libraries/import.lib.php:1104 libraries/messages.inc.php:1056
+#: libraries/tbl_links.inc.php:56 pmd_general.php:134
+#: server_privileges.php:554 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
 msgstr "Structuur"
 
@@ -1258,26 +1258,6 @@ msgstr "Bekijk video"
 msgid "Download file"
 msgstr "Download bestand"
 
-#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Kan de iconv of recode extensies niet laden, welke nodig zijn voor de "
-"karakterset conversie, configureer PHP om deze extensies toe te laten of "
-"schakel karakterset conversie uit in phpMyAdmin"
-
-#: libraries/charset_conversion.lib.php:79
-#: libraries/charset_conversion.lib.php:90
-#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Kan iconv, libiconv en recode_string functies niet gebruiken hoewel de "
-"extensies geladen geladen lijken te zijn. Controleer de PHP configuratie."
-
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -1357,9 +1337,10 @@ msgid "Documentation"
 msgstr "Documentatie"
 
 #: libraries/common.lib.php:581 libraries/core.lib.php:234
-#: libraries/core.lib.php:263 libraries/messages.inc.php:305 pdf_schema.php:32
-#: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
-#: tbl_relation.php:290 view_operations.php:62
+#: libraries/core.lib.php:263 libraries/import.lib.php:134
+#: libraries/messages.inc.php:305 pdf_schema.php:32 pdf_schema.php:232
+#: tbl_change.php:1027 tbl_operations.php:213 tbl_relation.php:290
+#: view_operations.php:62
 msgid "Error"
 msgstr "Fout"
 
@@ -1370,7 +1351,8 @@ msgid "SQL query"
 msgstr "SQL-query"
 
 #: libraries/common.lib.php:616 libraries/common.lib.php:1199
-#: libraries/display_tbl.lib.php:1117 libraries/Index.class.php:466
+#: libraries/display_tbl.lib.php:1117 libraries/import.lib.php:1087
+#: libraries/import.lib.php:1111 libraries/Index.class.php:466
 #: libraries/messages.inc.php:288 pdf_pages.php:280
 #: setup/frames/index.inc.php:124 setup/lib/messages.inc.php:352
 #: tbl_row_action.php:69
@@ -1454,6 +1436,11 @@ msgstr "Vorige"
 #: libraries/display_tbl.lib.php:353 libraries/messages.inc.php:297
 msgid "End"
 msgstr "Einde"
+
+#: libraries/common.lib.php:2366 libraries/messages.inc.php:463
+#, php-format
+msgid "Jump to database &quot;%s&quot;."
+msgstr "Ga naar database &quot;%s&quot;."
 
 #: libraries/common.lib.php:2386 libraries/messages.inc.php:469
 #, php-format
@@ -1576,51 +1563,6 @@ msgstr ""
 msgid "Overhead"
 msgstr "Overhead"
 
-#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
-#: main.php:91 user_password.php:111 user_password.php:129
-msgid "Change password"
-msgstr "Wijzig wachtwoord"
-
-#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
-#: libraries/replication_gui.lib.php:341 server_privileges.php:768
-msgid "No Password"
-msgstr "Geen wachtwoord"
-
-#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
-#: libraries/replication_gui.lib.php:345 server_privileges.php:757
-#: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1175
-msgid "Password"
-msgstr "Wachtwoord"
-
-#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
-#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
-#: server_privileges.php:776 server_privileges.php:779
-msgid "Re-type"
-msgstr "Type opnieuw"
-
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr "Wachtwoord Hashing"
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "MySQL&nbsp;4.0 compatibel"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-#: libraries/replication_gui.lib.php:356 server_privileges.php:783
-msgid "Generate Password"
-msgstr "Genereer wachtwoord"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-#: libraries/replication_gui.lib.php:359 server_privileges.php:786
-msgid "Generate"
-msgstr "Genereer"
-
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1719,6 +1661,51 @@ msgstr "\"ge-bzipt\""
 #: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr "SQL-compatibiliteits mode"
+
+#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
+#: main.php:91 user_password.php:111 user_password.php:129
+msgid "Change password"
+msgstr "Wijzig wachtwoord"
+
+#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
+#: libraries/replication_gui.lib.php:341 server_privileges.php:768
+msgid "No Password"
+msgstr "Geen wachtwoord"
+
+#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
+#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
+#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:345 server_privileges.php:757
+#: server_privileges.php:761 server_privileges.php:772
+#: server_privileges.php:1499 server_synchronize.php:1175
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
+#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
+#: server_privileges.php:776 server_privileges.php:779
+msgid "Re-type"
+msgstr "Type opnieuw"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr "Wachtwoord Hashing"
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "MySQL&nbsp;4.0 compatibel"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+#: libraries/replication_gui.lib.php:356 server_privileges.php:783
+msgid "Generate Password"
+msgstr "Genereer wachtwoord"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+#: libraries/replication_gui.lib.php:359 server_privileges.php:786
+msgid "Generate"
+msgstr "Genereer"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -1833,7 +1820,8 @@ msgstr "Deze bewerking kan lang duren. Weet u het zeker?"
 msgid "Sort by key"
 msgstr "Sorteren op sleutel"
 
-#: libraries/display_tbl.lib.php:555 libraries/messages.inc.php:599
+#: libraries/display_tbl.lib.php:555 libraries/import.lib.php:1082
+#: libraries/import.lib.php:1104 libraries/messages.inc.php:599
 #: tbl_select.php:267 tbl_structure.php:754
 msgid "Options"
 msgstr "Opties"
@@ -2434,11 +2422,76 @@ msgstr "SQL-resultaat"
 msgid "Generated by"
 msgstr "Gegenereerd door"
 
-#: libraries/header_printview.inc.php:63 libraries/messages.inc.php:828
-#: navigation.php:652 navigation.php:674 server_databases.php:122
-#: tbl_printview.php:394 tbl_structure.php:366 tbl_structure.php:778
+#: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
+#: libraries/messages.inc.php:828 navigation.php:652 navigation.php:674
+#: server_databases.php:122 tbl_printview.php:394 tbl_structure.php:366
+#: tbl_structure.php:778
 msgid "Rows"
 msgstr "Rijen"
+
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Kan de iconv of recode extensies niet laden, welke nodig zijn voor de "
+"karakterset conversie, configureer PHP om deze extensies toe te laten of "
+"schakel karakterset conversie uit in phpMyAdmin"
+
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Kan iconv, libiconv en recode_string functies niet gebruiken hoewel de "
+"extensies geladen geladen lijken te zijn. Controleer de PHP configuratie."
+
+#: libraries/import.lib.php:150 libraries/messages.inc.php:293
+#: tbl_get_field.php:35 tbl_change.php:181
+msgid "MySQL returned an empty result set (i.e. zero rows)."
+msgstr "MySQL gaf een lege resultaat set terug (0 rijen)."
+
+#: libraries/import.lib.php:1078 libraries/messages.inc.php:407
+msgid ""
+"The following structures have either been created or altered. Here you can:"
+msgstr "De volgende structuren zijn aangemaakt of aangepast. Hier kunt u:"
+
+#: libraries/import.lib.php:1079 libraries/messages.inc.php:408
+msgid "View a structure`s contents by clicking on its name"
+msgstr "De inhoud van een structuur bekijken door er op te klikken"
+
+#: libraries/import.lib.php:1080 libraries/messages.inc.php:409
+msgid ""
+"Change any of its settings by clicking the corresponding \"Options\" link"
+msgstr "Een instelling veranderen door op \"Opties\" te klikken"
+
+#: libraries/import.lib.php:1081 libraries/messages.inc.php:410
+msgid "Edit its structure by following the \"Structure\" link"
+msgstr "Klik op de \"Structuur\"-koppeling om de structuur aan te passen"
+
+#: libraries/import.lib.php:1084 libraries/messages.inc.php:370
+msgid "Go to database"
+msgstr "Ga naar database"
+
+#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/messages.inc.php:877
+msgid "settings"
+msgstr "instellingen"
+
+#: libraries/import.lib.php:1106 libraries/messages.inc.php:371
+msgid "Go to table"
+msgstr "Ga naar tabel"
+
+#: libraries/import.lib.php:1109 libraries/messages.inc.php:1055
+msgid "structure"
+msgstr "structuur"
+
+#: libraries/import.lib.php:1115 libraries/messages.inc.php:372
+msgid "Go to view"
+msgstr "Ga naar view"
 
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
@@ -2688,11 +2741,11 @@ msgstr "Geselecteerde wijzigingen toepassen"
 msgid "A primary key has been added on %s"
 msgstr "Een primaire sleutel is toegevoegd aan %s"
 
-#: libraries/messages.inc.php:75 libraries/mysql_charsets.lib.php:369
+#: libraries/messages.inc.php:75 libraries/mysql_charsets.lib.php:368
 msgid "Arabic"
 msgstr "Arabisch"
 
-#: libraries/messages.inc.php:76 libraries/mysql_charsets.lib.php:360
+#: libraries/messages.inc.php:76 libraries/mysql_charsets.lib.php:359
 msgid "Armenian"
 msgstr "Armeens"
 
@@ -2718,7 +2771,7 @@ msgstr "Attributen"
 msgid "Automatic layout"
 msgstr "Automatische lay-out"
 
-#: libraries/messages.inc.php:85 libraries/mysql_charsets.lib.php:355
+#: libraries/messages.inc.php:85 libraries/mysql_charsets.lib.php:354
 msgid "Baltic"
 msgstr "Baltisch"
 
@@ -2730,8 +2783,8 @@ msgstr "Begin KNIP"
 msgid "BEGIN RAW"
 msgstr "Begin RAW"
 
-#: libraries/messages.inc.php:88 libraries/mysql_charsets.lib.php:202
-#: libraries/mysql_charsets.lib.php:403 tbl_change.php:518
+#: libraries/messages.inc.php:88 libraries/mysql_charsets.lib.php:201
+#: libraries/mysql_charsets.lib.php:402 tbl_change.php:518
 msgid "Binary"
 msgstr " Binair "
 
@@ -2842,7 +2895,7 @@ msgstr "Bekijk unieke waarden"
 msgid "Browse foreign values"
 msgstr "Bekijk vreemde waardes"
 
-#: libraries/messages.inc.php:126 libraries/mysql_charsets.lib.php:214
+#: libraries/messages.inc.php:126 libraries/mysql_charsets.lib.php:213
 msgid "Bulgarian"
 msgstr "Bulgaars"
 
@@ -2870,17 +2923,17 @@ msgstr ""
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan index niet naar PRIMARY hernoemen"
 
-#: libraries/messages.inc.php:140 libraries/mysql_charsets.lib.php:224
-#: libraries/mysql_charsets.lib.php:410
+#: libraries/messages.inc.php:140 libraries/mysql_charsets.lib.php:223
+#: libraries/mysql_charsets.lib.php:409
 msgid "case-insensitive"
 msgstr "hoofdletter ongevoelig"
 
-#: libraries/messages.inc.php:141 libraries/mysql_charsets.lib.php:227
-#: libraries/mysql_charsets.lib.php:412
+#: libraries/messages.inc.php:141 libraries/mysql_charsets.lib.php:226
+#: libraries/mysql_charsets.lib.php:411
 msgid "case-sensitive"
 msgstr "hoofdletter gevoelig"
 
-#: libraries/messages.inc.php:142 libraries/mysql_charsets.lib.php:333
+#: libraries/messages.inc.php:142 libraries/mysql_charsets.lib.php:332
 msgid "Central European"
 msgstr "Centraal Europees"
 
@@ -3098,7 +3151,7 @@ msgstr "Geef alle rechten op de wildcard naam (gebruikersnaam\\_%)"
 msgid "Creation/Update/Check dates"
 msgstr "Creatie/Update/Controleer datum"
 
-#: libraries/messages.inc.php:211 libraries/mysql_charsets.lib.php:230
+#: libraries/messages.inc.php:211 libraries/mysql_charsets.lib.php:229
 msgid "Croatian"
 msgstr "Kroatisch"
 
@@ -3115,19 +3168,19 @@ msgstr "Huidige server"
 msgid "Custom color"
 msgstr "Aangepaste kleur"
 
-#: libraries/messages.inc.php:215 libraries/mysql_charsets.lib.php:366
+#: libraries/messages.inc.php:215 libraries/mysql_charsets.lib.php:365
 msgid "Cyrillic"
 msgstr "Cyrillisch"
 
-#: libraries/messages.inc.php:216 libraries/mysql_charsets.lib.php:233
+#: libraries/messages.inc.php:216 libraries/mysql_charsets.lib.php:232
 msgid "Czech"
 msgstr "Tsjechisch"
 
-#: libraries/messages.inc.php:217 libraries/mysql_charsets.lib.php:384
+#: libraries/messages.inc.php:217 libraries/mysql_charsets.lib.php:383
 msgid "Czech-Slovak"
 msgstr "Tsjechische-Slowaak"
 
-#: libraries/messages.inc.php:219 libraries/mysql_charsets.lib.php:236
+#: libraries/messages.inc.php:219 libraries/mysql_charsets.lib.php:235
 msgid "Danish"
 msgstr "Deens"
 
@@ -3256,7 +3309,7 @@ msgstr ""
 "wijzigen, klik het \"Kies weer te geven veld\" icoon gevolgd door het weer "
 "te geven veld."
 
-#: libraries/messages.inc.php:264 libraries/mysql_charsets.lib.php:248
+#: libraries/messages.inc.php:264 libraries/mysql_charsets.lib.php:247
 msgid "dictionary"
 msgstr "Woordenboek"
 
@@ -3330,10 +3383,6 @@ msgstr "Wijzig rechten"
 msgid "Effective"
 msgstr "Effectief"
 
-#: libraries/messages.inc.php:293 tbl_change.php:181 tbl_get_field.php:35
-msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL gaf een lege resultaat set terug (0 rijen)."
-
 #: libraries/messages.inc.php:294 libraries/relation.lib.php:100
 msgid "Enabled"
 msgstr "Ingeschakeld"
@@ -3370,7 +3419,7 @@ msgstr "Engines"
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Deze MySQL-server ondersteund de %s storage engine niet."
 
-#: libraries/messages.inc.php:303 libraries/mysql_charsets.lib.php:239
+#: libraries/messages.inc.php:303 libraries/mysql_charsets.lib.php:238
 msgid "English"
 msgstr "Engels"
 
@@ -3402,11 +3451,11 @@ msgstr "Fout bij het hernoemen van de tabel %1$s naar %2$s"
 msgid "Error saving coordinates for Designer."
 msgstr "Fout bij het opslaan van coördinaten voor de Designer."
 
-#: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:242
+#: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:241
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/messages.inc.php:312 libraries/mysql_charsets.lib.php:245
+#: libraries/messages.inc.php:312 libraries/mysql_charsets.lib.php:244
 msgid "Estonian"
 msgstr "Estlands"
 
@@ -3557,12 +3606,12 @@ msgstr "Functie"
 msgid "General relation features"
 msgstr "Basis relatie opties"
 
-#: libraries/messages.inc.php:363 libraries/mysql_charsets.lib.php:378
+#: libraries/messages.inc.php:363 libraries/mysql_charsets.lib.php:377
 msgid "Georgian"
 msgstr "Georgisch"
 
-#: libraries/messages.inc.php:364 libraries/mysql_charsets.lib.php:248
-#: libraries/mysql_charsets.lib.php:251
+#: libraries/messages.inc.php:364 libraries/mysql_charsets.lib.php:247
+#: libraries/mysql_charsets.lib.php:250
 msgid "German"
 msgstr "Duits"
 
@@ -3584,24 +3633,12 @@ msgstr "Globale privileges"
 msgid "Global value"
 msgstr "Globale waarde"
 
-#: libraries/messages.inc.php:370
-msgid "Go to database"
-msgstr "Ga naar database"
-
-#: libraries/messages.inc.php:371
-msgid "Go to table"
-msgstr "Ga naar tabel"
-
-#: libraries/messages.inc.php:372
-msgid "Go to view"
-msgstr "Ga naar view"
-
 #: libraries/messages.inc.php:373 server_privileges.php:1502
 #: server_privileges.php:1684 server_privileges.php:2033
 msgid "Grant"
 msgstr "Toekennen"
 
-#: libraries/messages.inc.php:374 libraries/mysql_charsets.lib.php:381
+#: libraries/messages.inc.php:374 libraries/mysql_charsets.lib.php:380
 msgid "Greek"
 msgstr "Grieks"
 
@@ -3621,7 +3658,7 @@ msgstr "De geselecteerde tabellen zijn gesynchroniseerd met de bron tabellen."
 msgid "You have to choose at least one column to display"
 msgstr "Er moet ten minste 1 weer te geven kolom worden gekozen"
 
-#: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:375
+#: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:374
 msgid "Hebrew"
 msgstr "Hebreeuws"
 
@@ -3668,11 +3705,11 @@ msgstr ""
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/messages.inc.php:392 libraries/mysql_charsets.lib.php:254
+#: libraries/messages.inc.php:392 libraries/mysql_charsets.lib.php:253
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: libraries/messages.inc.php:394 libraries/mysql_charsets.lib.php:257
+#: libraries/messages.inc.php:394 libraries/mysql_charsets.lib.php:256
 msgid "Icelandic"
 msgstr "IJslands"
 
@@ -3714,24 +3751,6 @@ msgstr "Importeer/Exporteer coördinaten voor PDF-schema"
 #: libraries/messages.inc.php:403 querywindow.php:104
 msgid "Import files"
 msgstr "Bestanden importeren"
-
-#: libraries/messages.inc.php:407
-msgid ""
-"The following structures have either been created or altered. Here you can:"
-msgstr "De volgende structuren zijn aangemaakt of aangepast. Hier kunt u:"
-
-#: libraries/messages.inc.php:408
-msgid "View a structure`s contents by clicking on its name"
-msgstr "De inhoud van een structuur bekijken door er op te klikken"
-
-#: libraries/messages.inc.php:409
-msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr "Een instelling veranderen door op \"Opties\" te klikken"
-
-#: libraries/messages.inc.php:410
-msgid "Edit its structure by following the \"Structure\" link"
-msgstr "Klik op de \"Structuur\"-koppeling om de structuur aan te passen"
 
 #: libraries/messages.inc.php:411
 msgid "Import currencies ($5.00 to 5.00)"
@@ -3875,8 +3894,8 @@ msgstr "Ongeldige serverindex: \"%s\""
 msgid "Invalid table name"
 msgstr "Ongeldige tabel naam"
 
-#: libraries/messages.inc.php:460 libraries/mysql_charsets.lib.php:260
-#: libraries/mysql_charsets.lib.php:350
+#: libraries/messages.inc.php:460 libraries/mysql_charsets.lib.php:259
+#: libraries/mysql_charsets.lib.php:349
 msgid "Japanese"
 msgstr "Japans"
 
@@ -3891,11 +3910,6 @@ msgstr ""
 msgid "Joins"
 msgstr "Joins"
 
-#: libraries/messages.inc.php:463
-#, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Ga naar database &quot;%s&quot;."
-
 #: libraries/messages.inc.php:465 server_privileges.php:763
 msgid "Do not change the password"
 msgstr "Wijzig het wachtwoord niet"
@@ -3904,8 +3918,8 @@ msgstr "Wijzig het wachtwoord niet"
 msgid "Key cache"
 msgstr "Sleutelcache"
 
-#: libraries/messages.inc.php:470 libraries/mysql_charsets.lib.php:269
-#: libraries/mysql_charsets.lib.php:372
+#: libraries/messages.inc.php:470 libraries/mysql_charsets.lib.php:268
+#: libraries/mysql_charsets.lib.php:371
 msgid "Korean"
 msgstr "Koreaans"
 
@@ -3947,7 +3961,7 @@ msgstr "LaTeX"
 msgid "Structure of table __TABLE__"
 msgstr "Structuur van de tabel __TABLE__"
 
-#: libraries/messages.inc.php:484 libraries/mysql_charsets.lib.php:263
+#: libraries/messages.inc.php:484 libraries/mysql_charsets.lib.php:262
 msgid "Latvian"
 msgstr "Lets"
 
@@ -3971,7 +3985,7 @@ msgstr "records per pagina"
 msgid "Lines terminated by"
 msgstr "Regels beëindigd door"
 
-#: libraries/messages.inc.php:492 libraries/mysql_charsets.lib.php:266
+#: libraries/messages.inc.php:492 libraries/mysql_charsets.lib.php:265
 msgid "Lithuanian"
 msgstr "Litouws"
 
@@ -4102,10 +4116,10 @@ msgstr "Tabel %s is verplaatst naar %s."
 msgid "Can't move table to same one!"
 msgstr "Kan de tabel niet naar dezelfde verplaatsen!"
 
-#: libraries/messages.inc.php:529 libraries/mysql_charsets.lib.php:308
-#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
-#: libraries/mysql_charsets.lib.php:333 libraries/mysql_charsets.lib.php:355
-#: libraries/mysql_charsets.lib.php:366
+#: libraries/messages.inc.php:529 libraries/mysql_charsets.lib.php:307
+#: libraries/mysql_charsets.lib.php:316 libraries/mysql_charsets.lib.php:325
+#: libraries/mysql_charsets.lib.php:332 libraries/mysql_charsets.lib.php:354
+#: libraries/mysql_charsets.lib.php:365
 msgid "multilingual"
 msgstr "meertalig"
 
@@ -4348,11 +4362,11 @@ msgstr "per minuut"
 msgid "per second"
 msgstr "per seconde"
 
-#: libraries/messages.inc.php:654 libraries/mysql_charsets.lib.php:272
+#: libraries/messages.inc.php:654 libraries/mysql_charsets.lib.php:271
 msgid "Persian"
 msgstr "Perzisch"
 
-#: libraries/messages.inc.php:655 libraries/mysql_charsets.lib.php:251
+#: libraries/messages.inc.php:655 libraries/mysql_charsets.lib.php:250
 msgid "phone book"
 msgstr "Telefoonboek"
 
@@ -4391,7 +4405,7 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/messages.inc.php:669 libraries/mysql_charsets.lib.php:275
+#: libraries/messages.inc.php:669 libraries/mysql_charsets.lib.php:274
 msgid "Polish"
 msgstr "Pools"
 
@@ -5021,7 +5035,7 @@ msgstr "U heeft de rechten ingetrokken voor %s"
 msgid "Revoke"
 msgstr "Ongedaan maken"
 
-#: libraries/messages.inc.php:818 libraries/mysql_charsets.lib.php:281
+#: libraries/messages.inc.php:818 libraries/mysql_charsets.lib.php:280
 msgid "Romanian"
 msgstr "Roemeens"
 
@@ -5053,7 +5067,7 @@ msgstr "Voer SQL query/queries uit op de server %s"
 msgid "Run SQL query/queries on database %s"
 msgstr "Draai SQL query/queries op database %s"
 
-#: libraries/messages.inc.php:834 libraries/mysql_charsets.lib.php:338
+#: libraries/messages.inc.php:834 libraries/mysql_charsets.lib.php:337
 msgid "Russian"
 msgstr "Russisch"
 
@@ -5177,10 +5191,6 @@ msgstr ""
 "formaat: 'a','b','c'...<br />Als u een backslash moet plaatsen (\"\") of een "
 "enkel aanhalingsteken (\"'\") bij deze waardes, plaats er dan een backslash "
 "voor (voorbeeld '\\\\xyz' of 'a\\'b')."
-
-#: libraries/messages.inc.php:877
-msgid "settings"
-msgstr "instellingen"
 
 #: libraries/messages.inc.php:884 server_binlog.php:192 server_binlog.php:195
 #: server_processlist.php:49 server_processlist.php:51
@@ -5893,8 +5903,8 @@ msgstr "Toon tabellen"
 msgid " Show this query here again "
 msgstr " Laat deze query hier zien "
 
-#: libraries/messages.inc.php:1009 libraries/mysql_charsets.lib.php:218
-#: libraries/mysql_charsets.lib.php:343
+#: libraries/messages.inc.php:1009 libraries/mysql_charsets.lib.php:217
+#: libraries/mysql_charsets.lib.php:342
 msgid "Simplified Chinese"
 msgstr "Vereenvoudigd Chinese"
 
@@ -5911,11 +5921,11 @@ msgstr ""
 "Zoniet voeg dan de onderstaande regels toe aan de [mysqld] sectie in "
 "bijvoorbeeld my.cnf."
 
-#: libraries/messages.inc.php:1014 libraries/mysql_charsets.lib.php:284
+#: libraries/messages.inc.php:1014 libraries/mysql_charsets.lib.php:283
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: libraries/messages.inc.php:1015 libraries/mysql_charsets.lib.php:287
+#: libraries/messages.inc.php:1015 libraries/mysql_charsets.lib.php:286
 msgid "Slovenian"
 msgstr "Sloveens"
 
@@ -5939,7 +5949,7 @@ msgstr "Sortering"
 msgid "Space usage"
 msgstr "Ruimtegebruik"
 
-#: libraries/messages.inc.php:1024 libraries/mysql_charsets.lib.php:290
+#: libraries/messages.inc.php:1024 libraries/mysql_charsets.lib.php:289
 msgid "Spanish"
 msgstr "Spaans"
 
@@ -6042,10 +6052,6 @@ msgstr "Tabelstructuur voorstellen"
 msgid "Structure Difference"
 msgstr "Structuur verschillen"
 
-#: libraries/messages.inc.php:1055
-msgid "structure"
-msgstr "structuur"
-
 #: libraries/messages.inc.php:1057 server_synchronize.php:265
 msgid "Structure Synchronization"
 msgstr "Structuur synchronizatie"
@@ -6062,8 +6068,8 @@ msgid ""
 msgstr ""
 "De server gebruikt Suhosin. Zie de %sdocumentatie%s voor mogelijke problemen."
 
-#: libraries/messages.inc.php:1062 libraries/mysql_charsets.lib.php:296
-#: libraries/mysql_charsets.lib.php:393
+#: libraries/messages.inc.php:1062 libraries/mysql_charsets.lib.php:295
+#: libraries/mysql_charsets.lib.php:392
 msgid "Swedish"
 msgstr "Zweeds"
 
@@ -6201,8 +6207,8 @@ msgstr " Vanwege z'n lengte,<br /> is dit veld misschien niet te wijzigen "
 msgid "Texy! text"
 msgstr "Texy! tekst"
 
-#: libraries/messages.inc.php:1103 libraries/mysql_charsets.lib.php:299
-#: libraries/mysql_charsets.lib.php:396
+#: libraries/messages.inc.php:1103 libraries/mysql_charsets.lib.php:298
+#: libraries/mysql_charsets.lib.php:395
 msgid "Thai"
 msgstr "Thais"
 
@@ -6431,12 +6437,12 @@ msgstr ""
 "U kunt de dump gebruiken door deze in een een tijdelijke database te "
 "importeren. Let er wel op dat u hier rechten voor nodig heeft."
 
-#: libraries/messages.inc.php:1170 libraries/mysql_charsets.lib.php:220
-#: libraries/mysql_charsets.lib.php:363
+#: libraries/messages.inc.php:1170 libraries/mysql_charsets.lib.php:219
+#: libraries/mysql_charsets.lib.php:362
 msgid "Traditional Chinese"
 msgstr "Traditioneel Chinees"
 
-#: libraries/messages.inc.php:1171 libraries/mysql_charsets.lib.php:293
+#: libraries/messages.inc.php:1171 libraries/mysql_charsets.lib.php:292
 msgid "Traditional Spanish"
 msgstr "Traditioneel Spaans"
 
@@ -6580,23 +6586,23 @@ msgstr ""
 msgid "Truncate Shown Queries"
 msgstr "Getoonde queries afkappen"
 
-#: libraries/messages.inc.php:1188 libraries/mysql_charsets.lib.php:302
-#: libraries/mysql_charsets.lib.php:390
+#: libraries/messages.inc.php:1188 libraries/mysql_charsets.lib.php:301
+#: libraries/mysql_charsets.lib.php:389
 msgid "Turkish"
 msgstr "Turks"
 
-#: libraries/messages.inc.php:1191 libraries/mysql_charsets.lib.php:305
-#: libraries/mysql_charsets.lib.php:387
+#: libraries/messages.inc.php:1191 libraries/mysql_charsets.lib.php:304
+#: libraries/mysql_charsets.lib.php:386
 msgid "Ukrainian"
 msgstr "Oekraïens"
 
-#: libraries/messages.inc.php:1193 libraries/mysql_charsets.lib.php:308
-#: libraries/mysql_charsets.lib.php:317
+#: libraries/messages.inc.php:1193 libraries/mysql_charsets.lib.php:307
+#: libraries/mysql_charsets.lib.php:316
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/messages.inc.php:1195 libraries/mysql_charsets.lib.php:399
-#: libraries/mysql_charsets.lib.php:406
+#: libraries/messages.inc.php:1195 libraries/mysql_charsets.lib.php:398
+#: libraries/mysql_charsets.lib.php:405
 msgid "unknown"
 msgstr "onbekend"
 
@@ -6744,8 +6750,8 @@ msgstr ""
 msgid "Web server"
 msgstr "Web server"
 
-#: libraries/messages.inc.php:1247 libraries/mysql_charsets.lib.php:278
-#: libraries/mysql_charsets.lib.php:326
+#: libraries/messages.inc.php:1247 libraries/mysql_charsets.lib.php:277
+#: libraries/mysql_charsets.lib.php:325
 msgid "West European"
 msgstr "West Europees"
 
