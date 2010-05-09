@@ -131,7 +131,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             $my_die[] = array('sql' => $import_run_buffer['full'], 'error' => PMA_DBI_getError());
                             
                             if ($cfg['VerboseMultiSubmit']) {
-                                $msg .= $GLOBALS['strError'];
+                                $msg .= __('Error');
                             }
                             
                             if (!$cfg['IgnoreMultiSubmitErrors']) {
@@ -142,12 +142,12 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             $a_num_rows = (int)@PMA_DBI_num_rows($result);
                             $a_aff_rows = (int)@PMA_DBI_affected_rows();
                             if ($a_num_rows > 0) {
-                                $msg .= $GLOBALS['strRows'] . ': ' . $a_num_rows;
+                                $msg .= __('Rows'). ': ' . $a_num_rows;
                             } elseif ($a_aff_rows > 0) {
                                 $message = PMA_Message::affected_rows($a_aff_rows);
                                 $msg .= $message->getMessage();
                             } else {
-                                $msg .= $GLOBALS['strEmptyResultSet'];
+                                $msg .= __('MySQL returned an empty result set (i.e. zero rows).');
                             }
                         }
                         if (!$sql_query_disabled) {
@@ -1075,16 +1075,16 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     $db_ops_url = 'db_operations.php' . PMA_generate_common_url($params);
     
     $message = '<br /><br />';
-    $message .= '<strong>' . $GLOBALS['strImportNoticePt1'] . '</strong><br />';
-    $message .= '<ul><li>' . $GLOBALS['strImportNoticePt2'] . '</li>';
-    $message .= '<li>' . $GLOBALS['strImportNoticePt3'] . '</li>';
-    $message .= '<li>' . $GLOBALS['strImportNoticePt4'] . '</li>';
-    $message .= sprintf('<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . $GLOBALS['strOptions'] . '</a>)</li>',
+    $message .= '<strong>' . __('The following structures have either been created or altered. Here you can:') . '</strong><br />';
+    $message .= '<ul><li>' . __('View a structure`s contents by clicking on its name') . '</li>';
+    $message .= '<li>' . __('Change any of its settings by clicking the corresponding "Options" link') . '</li>';
+    $message .= '<li>' . __('Edit its structure by following the "Structure" link') . '</li>';
+    $message .= sprintf('<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                         $db_url,
-                        $GLOBALS['strGoToDatabase'] . ': ' . PMA_backquote($db_name),
+                        __('Go to database') . ': ' . PMA_backquote($db_name),
                         $db_name,
                         $db_ops_url,
-                        $GLOBALS['strEdit'] . ' ' . PMA_backquote($db_name) . ' ' . $GLOBALS['strSettings']);
+                        __('Edit') . ' ' . PMA_backquote($db_name) . ' ' . __('settings'));
     
     $message .= '<ul>';
     
@@ -1101,18 +1101,18 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
         unset($params);
         
         if (! PMA_isView($db_name, $tables[$i][TBL_NAME])) {
-            $message .= sprintf('<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . $GLOBALS['strStructure'] . '</a>) (<a href="%s" title="%s">' . $GLOBALS['strOptions'] . '</a>)</li>',
+            $message .= sprintf('<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Structure') . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                                 $tbl_url,
-                                $GLOBALS['strGoToTable'] . ': ' . PMA_backquote($tables[$i][TBL_NAME]),
+                                __('Go to table') . ': ' . PMA_backquote($tables[$i][TBL_NAME]),
                                 $tables[$i][TBL_NAME],
                                 $tbl_struct_url,
-                                PMA_backquote($tables[$i][TBL_NAME]) . ' ' . $GLOBALS['strStructureLC'],
+                                PMA_backquote($tables[$i][TBL_NAME]) . ' ' . __('structure'),
                                 $tbl_ops_url,
-                                $GLOBALS['strEdit'] . ' ' . PMA_backquote($tables[$i][TBL_NAME]) . ' ' . $GLOBALS['strSettings']);
+                                __('Edit') . ' ' . PMA_backquote($tables[$i][TBL_NAME]) . ' ' . __('settings'));
         } else {
             $message .= sprintf('<li><a href="%s" title="%s">%s</a></li>',
                                 $tbl_url,
-                                $GLOBALS['strGoToView'] . ': ' . PMA_backquote($tables[$i][TBL_NAME]),
+                                __('Go to view') . ': ' . PMA_backquote($tables[$i][TBL_NAME]),
                                 $tables[$i][TBL_NAME]);
         }
     }

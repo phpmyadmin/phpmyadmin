@@ -184,7 +184,6 @@ function PMA_getServerCollation() {
  * @uses    is_array()
  * @uses    explode()
  * @uses    count()
- * @uses    $GLOBALS['str[Languages|Sorting]']
  *
  * @param   string  $collation  MySQL collation string
  * @return  string  collation description
