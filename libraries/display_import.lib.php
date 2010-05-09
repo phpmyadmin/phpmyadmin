@@ -66,7 +66,7 @@ window.addEvent('domready', function() {
 	      $clear(periodical_upload);
 	      $('importmain').setStyle('display', 'none');
 	      $('import_form_status').setStyle('display', 'inline');
-	      $('import_form_status').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportProceedingFile; ?> ');
+	      $('import_form_status').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat($strImportProceedingFile); ?> ');
 	      $('import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(); ?>'); // loads the message, either success or mysql error
 	      <?php  
 		// reload the left sidebar when the import is finished
