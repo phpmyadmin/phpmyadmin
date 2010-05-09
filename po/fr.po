@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-07 13:01-0400\n"
+"POT-Creation-Date: 2010-05-06 12:56-0400\n"
 "PO-Revision-Date: 2010-05-04 16:34+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -3219,7 +3219,7 @@ msgstr "Ordre d'affichage :"
 
 #: libraries/messages.inc.php:273 tbl_select.php:132
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Recherche par valeur (passepartout:  «% ») "
+msgstr "Recherche «par valeur» (passepartout:  «% ») "
 
 #: libraries/messages.inc.php:274
 msgid "DocSQL"
@@ -3999,8 +3999,8 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Veuillez entrer les valeurs des options de transformation en suivant ce "
-"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") "
-"ou une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
+"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") ou "
+"une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
 
 #: libraries/messages.inc.php:519 libraries/tbl_properties.inc.php:145
@@ -4199,7 +4199,7 @@ msgstr "OK"
 
 #: libraries/messages.inc.php:593
 msgid "Open Document Text"
-msgstr "Texte  «Open Document»"
+msgstr "Texte Open Document"
 
 #: libraries/messages.inc.php:596 tbl_select.php:138
 msgid "Operator"
@@ -4242,7 +4242,7 @@ msgstr "Les mots de passe doivent être identiques"
 #: libraries/messages.inc.php:643
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
-msgstr "Schéma de la base «\"%s» - Page %s"
+msgstr "Schéma de la base «%s» - Page %s"
 
 #: libraries/messages.inc.php:644
 #, php-format
@@ -5021,6 +5021,47 @@ msgstr "Sauvegarder"
 msgid "The scale factor is too small to fit the schema on one page"
 msgstr "Veuillez augmenter l'échelle car le schéma déborde la page"
 
+#: libraries/messages.inc.php:840
+msgid "Search in database"
+msgstr "Effectuer une nouvelle recherche dans la base de données"
+
+#: libraries/messages.inc.php:841
+msgid "Inside field:"
+msgstr "Dans la colonne:"
+
+#: libraries/messages.inc.php:842
+msgid "Inside table(s):"
+msgstr "Dans la(les) table(s) :"
+
+#: libraries/messages.inc.php:843
+msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgstr "Mot ou Valeur à rechercher (passe-partout: «%») :"
+
+#: libraries/messages.inc.php:844
+msgid "at least one of the words"
+msgstr "au moins un mot"
+
+#: libraries/messages.inc.php:845
+msgid "all words"
+msgstr "tous les mots"
+
+#: libraries/messages.inc.php:846
+msgid "the exact phrase"
+msgstr "phrase exacte"
+
+#: libraries/messages.inc.php:847
+msgid "as regular expression"
+msgstr "expression réguliére"
+
+#: libraries/messages.inc.php:848
+#, php-format
+msgid "Search results for \"<i>%s</i>\" %s:"
+msgstr "Résultats de la recherche de «<i>%s</i>» %s :"
+
+#: libraries/messages.inc.php:850
+msgid "Find:"
+msgstr "Type de recherche :"
+
 #: libraries/messages.inc.php:851 main.php:298
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
@@ -5124,9 +5165,9 @@ msgid ""
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Les différentes valeurs des champs de type enum/set sont à spécifier sous la "
-"forme 'a','b','c'...<br />Pour utiliser un antislash(\"\\\") ou une "
-"apostrophe (\"'\") dans l'une de ces valeurs, faites-le précéder d'un "
-"antislash (par exemple '\\\\xyz' ou 'a\\'b')."
+"forme 'a','b','c'...<br />Pour utiliser un antislash(\"\\\") ou une apostrophe "
+"(\"'\") dans l'une de ces valeurs, faites-le précéder d'un antislash (par "
+"exemple '\\\\xyz' ou 'a\\'b')."
 
 #: libraries/messages.inc.php:877
 msgid "settings"
@@ -5339,7 +5380,7 @@ msgstr "Le nombre de pages contenant des données."
 
 #: libraries/messages.inc.php:921
 msgid "The number of pages currently dirty."
-msgstr "Le nombre de pages contenant des données \"dirty\""
+msgstr "Le nombre de pages contenant des données «dirty»"
 
 #: libraries/messages.inc.php:922
 msgid "The number of buffer pool pages that have been requested to be flushed."
@@ -5380,7 +5421,7 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"Le nombre de lectures discontinues effectuées par InnoDB. Ceci survient "
+"Le nombre de lectures «discontinues» effectuées par InnoDB. Ceci survient "
 "lorsqu'une requête doit balayer une large portion de table en ordre "
 "discontinu."
 
@@ -5394,7 +5435,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:929
 msgid "The number of logical read requests InnoDB has done."
-msgstr "Le nombre de requêtes de lectures \"logiques\" effectuées par InnoDB."
+msgstr "Le nombre de requêtes de lectures logiques effectuées par InnoDB."
 
 #: libraries/messages.inc.php:930
 msgid ""
@@ -5456,11 +5497,11 @@ msgstr "La quantité d'octets écrits jusqu'à présent."
 
 #: libraries/messages.inc.php:941
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr "Le nombre de pages utilisées pour des opérations \"doublewrite\"."
+msgstr "Le nombre de pages utilisées pour des opérations «doublewrite»."
 
 #: libraries/messages.inc.php:942
 msgid "The number of doublewrite operations that have been performed."
-msgstr "Le nombre d'opérations \"doublewrite\" effectuées."
+msgstr "Le nombre d'opérations «doublewrite» effectuées."
 
 #: libraries/messages.inc.php:943
 msgid ""
@@ -5591,8 +5632,8 @@ msgid ""
 msgstr ""
 "Le nombre de lectures physiques d'un bloc de clés depuis le disque. Si cette "
 "valeur est élevée, la taille de votre mémoire tampon de clés est trop "
-"petite. Le taux d'échec de la cache peut être calculé par \"Key reads/Key "
-"read requests\"."
+"petite. Le taux d'échec de la cache peut être calculé par «Key reads/Key "
+"read requests»."
 
 #: libraries/messages.inc.php:968
 msgid "The number of requests to write a key block to the cache."
@@ -5885,6 +5926,10 @@ msgstr "Espace utilisé"
 #: libraries/messages.inc.php:1024 libraries/mysql_charsets.lib.php:290
 msgid "Spanish"
 msgstr "espagnol"
+
+#: libraries/messages.inc.php:1025
+msgid "Words are separated by a space character (\" \")."
+msgstr "Séparer les mots par un espace (« »)."
 
 #: libraries/messages.inc.php:1027
 msgid "Export type"
@@ -6445,9 +6490,9 @@ msgstr ""
 "une valeur TIMESTAMP UNIX en tant que date formatée. La première option est "
 "le décalage (en heures) à ajouter (par défaut, 0). La seconde option sert à "
 "indiquer le format de date ou d'heure. La troisième option détermine si vous "
-"voulez la date locale (\"local\") ou UTC (\"utc\"). Pour le format \"local"
-"\", le second paramètre utilise le format de la fonction PHP strftime() et "
-"pour le format \"utc\", il utilise la fonction gmdate()."
+"voulez la date locale («local») ou UTC («utc»). Pour le format «local», le "
+"second paramètre utilise le format de la fonction PHP strftime() et pour le "
+"format «utc», il utilise la fonction gmdate()."
 
 #: libraries/messages.inc.php:1180
 msgid ""
@@ -6489,7 +6534,7 @@ msgid ""
 "third options are the width and the height in pixels."
 msgstr ""
 "Affiche une image et un lien, le champ contient le nom du fichier. La "
-"première option est un préfixe URL tel que \"http://www.example.com/\". La "
+"première option est un préfixe URL tel que «http://www.example.com/». La "
 "seconde option est la largeur en pixels et la troisième option est la "
 "hauteur en pixels."
 
@@ -6500,7 +6545,7 @@ msgid ""
 "the link."
 msgstr ""
 "Affiche un lien, le champ contient le nom du fichier; en première option, un "
-"préfixe comme \"http://www.example.com/\", en seconde option, un titre pour "
+"préfixe comme «http://www.example.com/», en seconde option, un titre pour "
 "le lien."
 
 #: libraries/messages.inc.php:1184
@@ -6519,7 +6564,7 @@ msgstr ""
 "N'affiche qu'une partie du champ. En première option, la position de départ "
 "(par défaut, 0). En seconde option, le nombre de caractères à afficher (par "
 "défaut, le reste). En troisième option, des caractères à afficher à la fin "
-"du texte (par défaut: \"...\")."
+"du texte (par défaut: «...»)."
 
 #: libraries/messages.inc.php:1187 server_binlog.php:183 server_binlog.php:186
 #: server_processlist.php:49 server_processlist.php:51
@@ -6586,7 +6631,8 @@ msgstr "Espace"
 
 #: libraries/messages.inc.php:1213
 msgid "Enclose table and field names with backquotes"
-msgstr "Protéger les noms des tables et des champs par des&nbsp;\"`\""
+msgstr ""
+"Protéger les noms des tables et des champs par des guillemets obliques «`»"
 
 #: libraries/messages.inc.php:1214 libraries/replication_gui.lib.php:314
 #: server_privileges.php:740
@@ -6752,7 +6798,7 @@ msgstr "Note: Une valeur de 0 (zero) enlève la limite."
 
 #: libraries/messages.inc.php:1268
 msgid "\"zipped\""
-msgstr "\"zippé\""
+msgstr "«zippé »"
 
 #: libraries/tbl_properties.inc.php:393
 msgctxt "for default"
@@ -6855,7 +6901,7 @@ msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Si activé, permet d'entrer un nom de serveur MySQL sur le panneau de "
-"connexion (mode \"cookie\")"
+"connexion (mode «cookie»)"
 
 #: setup/lib/messages.inc.php:18
 msgid ""
@@ -6891,7 +6937,7 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Mot de passe utilisé pour encrypter les \"cookies\" quand on utilise "
+"Mot de passe utilisé pour encrypter les «cookies» quand on utilise "
 "l'authentification [kbd]cookie[/kbd]"
 
 #: setup/lib/messages.inc.php:23
@@ -6905,8 +6951,8 @@ msgid ""
 "you don't need to remember it."
 msgstr ""
 "Vous n'aviez pas configuré un secret Blowfish et utilisez l'authentification "
-"\"cookie\", alors une clé secrète a été générée pour vous. Elle sert à "
-"encrypter les \"cookies\", vous n'avez pas à vous en souvenir."
+"«cookies» , alors une clé secrète a été générée pour vous. Elle sert à "
+"encrypter les «cookies», vous n'avez pas à vous en souvenir."
 
 #: setup/lib/messages.inc.php:25
 msgid "Blowfish secret"
@@ -6985,7 +7031,7 @@ msgstr "(colonnes CHAR/VARCHAR)"
 
 #: setup/lib/messages.inc.php:38
 msgid "CHAR textarea columns"
-msgstr "Taille horizontale pour un \"textarea\""
+msgstr "Taille horizontale pour un «textarea»"
 
 #: setup/lib/messages.inc.php:39
 msgid "Number of rows for CHAR/VARCHAR textareas"
@@ -6993,7 +7039,7 @@ msgstr "(colonnes CHAR/VARCHAR)"
 
 #: setup/lib/messages.inc.php:40
 msgid "CHAR textarea rows"
-msgstr "Taille verticale pour un \"textarea\""
+msgstr "Taille verticale pour un «textarea»"
 
 #: setup/lib/messages.inc.php:41
 msgid "Check config file permissions"
@@ -7113,24 +7159,24 @@ msgstr "Connexion au serveur MySQL impossible."
 
 #: setup/lib/messages.inc.php:68
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr "Le \"controlpass\" est vide."
+msgstr "Le «controlpass» est vide."
 
 #: setup/lib/messages.inc.php:69
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr "Le \"controluser\" est vide."
+msgstr "Le «controluser» est vide."
 
 #: setup/lib/messages.inc.php:70
 msgid "Empty signon session name while using signon authentication method"
-msgstr "Le nom de session \"signon\" est vide."
+msgstr "Le nom de session «signon» est vide."
 
 #: setup/lib/messages.inc.php:71
 msgid "Empty signon URL while using signon authentication method"
-msgstr "L'URL de \"signon\" est vide."
+msgstr "L'URL de «signon» est vide."
 
 #: setup/lib/messages.inc.php:72
 msgid "Empty username while using config authentication method"
 msgstr ""
-"Le code d'utilisateur est vide alors que vous utilisez la méthode \"config\"."
+"Le code d'utilisateur est vide alors que vous utilisez la méthode «config»."
 
 #: setup/lib/messages.inc.php:73
 msgid "Submitted form contains errors"
@@ -7168,7 +7214,7 @@ msgid ""
 "limit)"
 msgstr ""
 "Nombre de secondes allouées à l'exécution des scripts ([kbd]0[/kbd] signifie "
-"\"illimité\")"
+"illimité)"
 
 #: setup/lib/messages.inc.php:81
 msgid "Maximum execution time"
@@ -7352,11 +7398,11 @@ msgstr "Entrez les paramètres de connexion au serveur"
 
 #: setup/lib/messages.inc.php:129
 msgid "Enter login options for signon authentication"
-msgstr "Entrez les options pour l'authentification \"signon\""
+msgstr "Entrez les options pour l'authentification «signon»"
 
 #: setup/lib/messages.inc.php:130
 msgid "Signon login options"
-msgstr "Option de connexion \"signon\""
+msgstr "Option de connexion «signon»"
 
 #: setup/lib/messages.inc.php:131
 msgid ""
@@ -7370,7 +7416,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:132 setup/lib/messages.inc.php:293
 msgid "PMA database"
-msgstr "Base de données phpMyAdmin \"pmadb\""
+msgstr "Base de données PMA"
 
 #: setup/lib/messages.inc.php:133
 msgid "Tracking of changes made in database. Requires configured PMA database."
@@ -7650,19 +7696,19 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"Si \"true\", la déconnexion se produit pour tous les serveurs; si \"false\", "
-"on se déconnecte seulement du serveur courant."
+"Si TRUE, la déconnexion se produit pour tous les serveurs; si FALSE, on se "
+"déconnecte seulement du serveur courant."
 
 #: setup/lib/messages.inc.php:192
 msgid "Delete all cookies on logout"
-msgstr "Détruire tous les \"cookies\" à la déconnexion"
+msgstr "Détruire tous les «cookies» à la déconnexion"
 
 #: setup/lib/messages.inc.php:193
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
-"Sur le panneau de connexion (mode \"cookie\"), le nom du précédent "
+"Sur le panneau de connexion (mode «cookies» ), le nom du précédent "
 "utilisateur devrait-il apparaître?"
 
 #: setup/lib/messages.inc.php:194
@@ -7676,14 +7722,14 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
-"Définit combien de secondes le \"cookie\" de connexion sera conservé dans le "
+"Définit combien de secondes le «cookie» de connexion sera conservé dans le "
 "fureteur. La valeur par défaut de 0 signifie qu'il ne sera conservé que pour "
 "la session; ceci est recommandé si l'environnement n'est pas digne de "
 "confiance."
 
 #: setup/lib/messages.inc.php:196
 msgid "Login cookie store"
-msgstr "Stockage du \"cookie\""
+msgstr "Stockage du «cookie»"
 
 #: setup/lib/messages.inc.php:197
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -7701,7 +7747,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:199
 msgid "Login cookie validity"
-msgstr "Durée de validité de la connexion (mode \"cookie\")"
+msgstr "Durée de validité de la connexion (mode «cookie»)"
 
 #: setup/lib/messages.inc.php:200
 msgid "Maximum number of characters used when a SQL query is displayed"
@@ -7748,7 +7794,7 @@ msgid ""
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
 "Le nombre d'octets qu'un script peut allouer, par exemple [kbd]32M[/kbd] "
-"([kbd]0[/kbd] signifie \"illimité\")"
+"([kbd]0[/kbd] signifie illimité)"
 
 #: setup/lib/messages.inc.php:209
 msgid "Memory limit"
@@ -7776,7 +7822,7 @@ msgstr "sert à augmenter la vitesse des transferts HTTP"
 
 #: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
-msgstr "Tampon de sortie GZip (\"output buffering\")"
+msgstr "Tampon de sortie GZip"
 
 #: setup/lib/messages.inc.php:216
 msgid "- none -"
@@ -8031,7 +8077,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:268
 msgid "Designer table"
-msgstr "Table pour \"concepteur\""
+msgstr "Table pour la fonctionnalité Concepteur"
 
 #: setup/lib/messages.inc.php:269
 msgid ""
@@ -8622,7 +8668,6 @@ msgid "Foreign key constraint"
 msgstr "Contrainte de clé étrangère"
 
 #: tbl_structure.php:362
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
