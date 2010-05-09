@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-09 20:34+0200\n"
+"POT-Creation-Date: 2010-05-09 15:12-0400\n"
 "PO-Revision-Date: 2010-04-11 11:19+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -47,30 +47,30 @@ msgstr "Cerca"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_search.php:362 db_structure.php:567 js/messages.php:50
+#: db_search.php:362 db_structure.php:567 js/messages.php:48
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046 libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277
+#: libraries/Config.class.php:1046
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_import.lib.php:276 libraries/display_tbl.lib.php:532
-#: libraries/display_tbl.lib.php:614 libraries/messages.inc.php:369
-#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:365
-#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
-#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
-#: libraries/tbl_properties.inc.php:782 libraries/Theme_Manager.class.php:311
-#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
-#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
-#: server_privileges.php:625 server_privileges.php:1585
-#: server_privileges.php:1932 server_privileges.php:1979
-#: server_privileges.php:2018 server_replication.php:235
-#: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
-#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:263
-#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
-#: tbl_operations.php:679 tbl_select.php:327 tbl_structure.php:563
-#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
-#: view_create.php:182 view_operations.php:101
+#: libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
+#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
+#: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
+#: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
+#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
+#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
+#: server_privileges.php:1585 server_privileges.php:1932
+#: server_privileges.php:1979 server_privileges.php:2018
+#: server_replication.php:235 server_replication.php:318
+#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
+#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
+#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
+#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
+#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
+#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Esegui"
 
@@ -837,27 +837,142 @@ msgstr "Importazione eseguita con successo, %d query eseguite."
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "phpMyAdmin funziona meglio con browser che supportano frames"
 
-#: js/messages.php:51 libraries/messages.inc.php:131 pmd_general.php:342
+#: js/messages.php:25 libraries/messages.inc.php:163
+#: server_synchronize.php:345 server_synchronize.php:357
+#: server_synchronize.php:373 server_synchronize.php:380
+#: server_synchronize.php:739 server_synchronize.php:767
+#: server_synchronize.php:795 server_synchronize.php:807
+msgid "Click to select"
+msgstr "Clicca per selezionare"
+
+#: js/messages.php:26 libraries/messages.inc.php:164
+msgid "Click to unselect"
+msgstr "Clicca per deselezionare"
+
+#: js/messages.php:27 libraries/messages.inc.php:558 sql.php:89
+msgid "\"DROP DATABASE\" statements are disabled."
+msgstr "I comandi \"DROP DATABASE\" sono disabilitati."
+
+#: js/messages.php:30 libraries/messages.inc.php:278
+#: libraries/mult_submits.inc.php:258 sql.php:188
+msgid "Do you really want to "
+msgstr "Confermi: "
+
+#: js/messages.php:31 libraries/messages.inc.php:279
+#: libraries/mult_submits.inc.php:258 sql.php:172
+msgid "You are about to DESTROY a complete database!"
+msgstr "Si sta per DISTRUGGERE COMPLETAMENTE un intero DataBase!"
+
+#: js/messages.php:34 libraries/messages.inc.php:102
+msgid "You are about to DISABLE a BLOB Repository!"
+msgstr "Stai per DISABILITARE una repository BLOB!"
+
+#: js/messages.php:35 libraries/messages.inc.php:99
+#, php-format
+msgid "Are you sure you want to disable all BLOB references for database %s?"
+msgstr ""
+"Sei sicuro di voler disabilitare tutte le referenze BLOB per il database %s?"
+
+#: js/messages.php:38 libraries/messages.inc.php:350
+msgid "Missing value in the form!"
+msgstr "Valore mancante nel form!"
+
+#: js/messages.php:39 libraries/messages.inc.php:578
+msgid "This is not a number!"
+msgstr "Questo non è un numero!"
+
+#: js/messages.php:42 libraries/messages.inc.php:388
+msgid "The host name is empty!"
+msgstr "Il nome di host è vuoto!"
+
+#: js/messages.php:43 libraries/messages.inc.php:1216
+msgid "The user name is empty!"
+msgstr "Il nome utente è vuoto!"
+
+#: js/messages.php:44 libraries/messages.inc.php:615
+msgid "The password is empty!"
+msgstr "La password è vuota!"
+
+#: js/messages.php:45 libraries/messages.inc.php:617
+msgid "The passwords aren't the same!"
+msgstr "La password non coincide!"
+
+#: js/messages.php:49 libraries/messages.inc.php:131 pmd_general.php:342
 #: pmd_general.php:379
 msgid "Cancel"
 msgstr "Annulla"
 
+#: js/messages.php:52 libraries/messages.inc.php:522
+msgid "Modifications have been saved"
+msgstr "Le modifiche sono state salvate"
+
+#: js/messages.php:53 libraries/messages.inc.php:749
+msgid "Relation deleted"
+msgstr "Relazione cancellata"
+
+#: js/messages.php:54 libraries/messages.inc.php:348
+msgid "FOREIGN KEY relation added"
+msgstr "Relazione \"FOREIGN KEY\" aggiunta"
+
+#: js/messages.php:55 libraries/messages.inc.php:442
+msgid "Internal relation added"
+msgstr "Aggiunte relazioni internet"
+
+#: js/messages.php:56 libraries/messages.inc.php:307
+msgid "Error: Relation not added."
+msgstr "Errore: relazione non aggiunta."
+
+#: js/messages.php:57 libraries/messages.inc.php:308
+msgid "Error: relation already exists."
+msgstr "Errore: relazione già esistente."
+
+#: js/messages.php:58 libraries/messages.inc.php:310
+msgid "Error saving coordinates for Designer."
+msgstr "Errore nel salvare le coordinate per il Designer."
+
+#: js/messages.php:59 libraries/messages.inc.php:359
+#: libraries/relation.lib.php:107
+msgid "General relation features"
+msgstr "Caratteristiche Generali di Relazione"
+
+#: js/messages.php:59 libraries/messages.inc.php:268
+#: libraries/relation.lib.php:101 libraries/relation.lib.php:108
+msgid "Disabled"
+msgstr "Disabilitata"
+
+#: js/messages.php:60 libraries/messages.inc.php:858
+msgid "Select referenced key"
+msgstr "Seleziona le chiavi referenziali"
+
+#: js/messages.php:61 libraries/messages.inc.php:856
+msgid "Select Foreign Key"
+msgstr "Seleziona Foreign Key"
+
+#: js/messages.php:62 libraries/messages.inc.php:661
+msgid "Please select the primary key or a unique key"
+msgstr "Seleziona la chiave primaria o una chiave univoca"
+
+#: js/messages.php:63 libraries/messages.inc.php:150 pmd_general.php:77
+#: tbl_relation.php:548
+msgid "Choose field to display"
+msgstr "Scegli il campo da mostrare"
+
 #. l10n: Display text for calendar close link
-#: js/messages.php:74
+#: js/messages.php:72
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Dona"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:76
+#: js/messages.php:74
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Precedente"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:78 libraries/common.lib.php:2289
+#: js/messages.php:76 libraries/common.lib.php:2289
 #: libraries/common.lib.php:2292 libraries/display_tbl.lib.php:338
 #: libraries/messages.inc.php:551 server_binlog.php:205 server_binlog.php:207
 #: tbl_printview.php:424 tbl_structure.php:802
@@ -865,96 +980,96 @@ msgid "Next"
 msgstr "Prossimo"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:80
+#: js/messages.php:78
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Totale"
 
-#: js/messages.php:83
+#: js/messages.php:81
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binario"
 
-#: js/messages.php:84
+#: js/messages.php:82
 msgid "February"
 msgstr ""
 
-#: js/messages.php:85
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "mar"
 
-#: js/messages.php:86
+#: js/messages.php:84
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "apr"
 
-#: js/messages.php:87 libraries/messages.inc.php:28
+#: js/messages.php:85 libraries/messages.inc.php:28
 msgid "May"
 msgstr "mag"
 
-#: js/messages.php:88
+#: js/messages.php:86
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "giu"
 
-#: js/messages.php:89
+#: js/messages.php:87
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "lug"
 
-#: js/messages.php:90
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "ago"
 
-#: js/messages.php:91
+#: js/messages.php:89
 msgid "September"
 msgstr ""
 
-#: js/messages.php:92
+#: js/messages.php:90
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "ott"
 
-#: js/messages.php:93
+#: js/messages.php:91
 msgid "November"
 msgstr ""
 
-#: js/messages.php:94
+#: js/messages.php:92
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:98 libraries/messages.inc.php:28
+#: js/messages.php:96 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "gen"
 
 #. l10n: Short month name
-#: js/messages.php:100 libraries/messages.inc.php:28
+#: js/messages.php:98 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "feb"
 
 #. l10n: Short month name
-#: js/messages.php:102 libraries/messages.inc.php:28
+#: js/messages.php:100 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "mar"
 
 #. l10n: Short month name
-#: js/messages.php:104 libraries/messages.inc.php:28
+#: js/messages.php:102 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "apr"
 
 #. l10n: Short month name
-#: js/messages.php:106
+#: js/messages.php:104
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -962,178 +1077,178 @@ msgid "May"
 msgstr "mag"
 
 #. l10n: Short month name
-#: js/messages.php:108 libraries/messages.inc.php:28
+#: js/messages.php:106 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "giu"
 
 #. l10n: Short month name
-#: js/messages.php:110 libraries/messages.inc.php:28
+#: js/messages.php:108 libraries/messages.inc.php:28
 msgid "Jul"
 msgstr "lug"
 
 #. l10n: Short month name
-#: js/messages.php:112 libraries/messages.inc.php:28
+#: js/messages.php:110 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr "ago"
 
 #. l10n: Short month name
-#: js/messages.php:114 libraries/messages.inc.php:28
+#: js/messages.php:112 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr "set"
 
 #. l10n: Short month name
-#: js/messages.php:116 libraries/messages.inc.php:28
+#: js/messages.php:114 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr "ott"
 
 #. l10n: Short month name
-#: js/messages.php:118 libraries/messages.inc.php:28
+#: js/messages.php:116 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr "nov"
 
 #. l10n: Short month name
-#: js/messages.php:120 libraries/messages.inc.php:28
+#: js/messages.php:118 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr "dic"
 
-#: js/messages.php:123
+#: js/messages.php:121
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Dom"
 
-#: js/messages.php:124
+#: js/messages.php:122
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Lun"
 
-#: js/messages.php:125
+#: js/messages.php:123
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Mar"
 
-#: js/messages.php:126
+#: js/messages.php:124
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:127
+#: js/messages.php:125
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:128
+#: js/messages.php:126
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Ven"
 
-#: js/messages.php:129
+#: js/messages.php:127
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:133 libraries/messages.inc.php:27
+#: js/messages.php:131 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "Dom"
 
 #. l10n: Short week day name
-#: js/messages.php:135 libraries/messages.inc.php:27
+#: js/messages.php:133 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:137 libraries/messages.inc.php:27
+#: js/messages.php:135 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:139 libraries/messages.inc.php:27
+#: js/messages.php:137 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:141 libraries/messages.inc.php:27
+#: js/messages.php:139 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "Gio"
 
 #. l10n: Short week day name
-#: js/messages.php:143 libraries/messages.inc.php:27
+#: js/messages.php:141 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "Ven"
 
 #. l10n: Short week day name
-#: js/messages.php:145 libraries/messages.inc.php:27
+#: js/messages.php:143 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "Sab"
 
 #. l10n: Minimal week day name
-#: js/messages.php:149
+#: js/messages.php:147
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Dom"
 
 #. l10n: Minimal week day name
-#: js/messages.php:151
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Lun"
 
 #. l10n: Minimal week day name
-#: js/messages.php:153
+#: js/messages.php:151
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Mar"
 
 #. l10n: Minimal week day name
-#: js/messages.php:155
+#: js/messages.php:153
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Mer"
 
 #. l10n: Minimal week day name
-#: js/messages.php:157
+#: js/messages.php:155
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Gio"
 
 #. l10n: Minimal week day name
-#: js/messages.php:159
+#: js/messages.php:157
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Ven"
 
 #. l10n: Minimal week day name
-#: js/messages.php:161
+#: js/messages.php:159
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sab"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:163
+#: js/messages.php:161
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:165
+#: js/messages.php:163
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:166
+#: js/messages.php:164
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "in uso"
 
-#: js/messages.php:167
+#: js/messages.php:165
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1264,6 +1379,28 @@ msgstr "Visualizza video"
 #: libraries/blobstreaming.lib.php:702 libraries/messages.inc.php:277
 msgid "Download file"
 msgstr "Scarica file"
+
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Impossibile caricare l'estensione iconv o recode necessaria per la "
+"conversione del set di caratteri, configurare il PHP per permettere di "
+"utilizzare queste estenzioni o disabilitare la conversione dei set di "
+"caratteri in phpMyAdmin."
+
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Impossibile utilizzare le funzioni iconv o libiconv o recode_string in "
+"quanto l'estensione deve essere caricata. Controllare la configurazione del "
+"PHP."
 
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
@@ -1568,6 +1705,51 @@ msgstr "Può essere approssimato. Vedere FAQ 3.11"
 msgid "Overhead"
 msgstr "In eccesso"
 
+#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
+#: main.php:91 user_password.php:111 user_password.php:129
+msgid "Change password"
+msgstr "Cambia password"
+
+#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
+#: libraries/replication_gui.lib.php:341 server_privileges.php:768
+msgid "No Password"
+msgstr "Nessuna Password"
+
+#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
+#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
+#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:345 server_privileges.php:757
+#: server_privileges.php:761 server_privileges.php:772
+#: server_privileges.php:1499 server_synchronize.php:1175
+msgid "Password"
+msgstr "Password"
+
+#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
+#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
+#: server_privileges.php:776 server_privileges.php:779
+msgid "Re-type"
+msgstr "Reinserisci"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr "Password Hashing"
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "Compatibile con MySQL 4.0"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+#: libraries/replication_gui.lib.php:356 server_privileges.php:783
+msgid "Generate Password"
+msgstr "Genera Password"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+#: libraries/replication_gui.lib.php:359 server_privileges.php:786
+msgid "Generate"
+msgstr "Genera"
+
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1666,51 +1848,6 @@ msgstr "\"compresso con bzip\""
 #: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr "Modo di compatibilità SQL"
-
-#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
-#: main.php:91 user_password.php:111 user_password.php:129
-msgid "Change password"
-msgstr "Cambia password"
-
-#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
-#: libraries/replication_gui.lib.php:341 server_privileges.php:768
-msgid "No Password"
-msgstr "Nessuna Password"
-
-#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
-#: libraries/replication_gui.lib.php:345 server_privileges.php:757
-#: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1175
-msgid "Password"
-msgstr "Password"
-
-#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
-#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
-#: server_privileges.php:776 server_privileges.php:779
-msgid "Re-type"
-msgstr "Reinserisci"
-
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr "Password Hashing"
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "Compatibile con MySQL 4.0"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-#: libraries/replication_gui.lib.php:356 server_privileges.php:783
-msgid "Generate Password"
-msgstr "Genera Password"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-#: libraries/replication_gui.lib.php:359 server_privileges.php:786
-msgid "Generate"
-msgstr "Genera"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -2429,30 +2566,8 @@ msgstr "Generato da"
 msgid "Rows"
 msgstr "Righe"
 
-#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Impossibile caricare l'estensione iconv o recode necessaria per la "
-"conversione del set di caratteri, configurare il PHP per permettere di "
-"utilizzare queste estenzioni o disabilitare la conversione dei set di "
-"caratteri in phpMyAdmin."
-
-#: libraries/charset_conversion.lib.php:79
-#: libraries/charset_conversion.lib.php:90
-#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Impossibile utilizzare le funzioni iconv o libiconv o recode_string in "
-"quanto l'estensione deve essere caricata. Controllare la configurazione del "
-"PHP."
-
 #: libraries/import.lib.php:150 libraries/messages.inc.php:293
-#: tbl_get_field.php:35 tbl_change.php:181
+#: tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha restituito un insieme vuoto (i.e. zero righe)."
 
@@ -2824,20 +2939,10 @@ msgstr "Posizione"
 msgid "Server ID"
 msgstr "ID del server"
 
-#: libraries/messages.inc.php:99
-#, php-format
-msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
-"Sei sicuro di voler disabilitare tutte le referenze BLOB per il database %s?"
-
 #: libraries/messages.inc.php:100
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Disabilitato"
-
-#: libraries/messages.inc.php:102
-msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Stai per DISABILITARE una repository BLOB!"
 
 #: libraries/messages.inc.php:103
 msgctxt "$strBLOBRepositoryEnabled"
@@ -2968,10 +3073,6 @@ msgstr ""
 msgid "Change Login Information / Copy User"
 msgstr "Cambia le Informazioni di Login / Copia Utente"
 
-#: libraries/messages.inc.php:150 pmd_general.php:77 tbl_relation.php:548
-msgid "Choose field to display"
-msgstr "Scegli il campo da mostrare"
-
 #: libraries/messages.inc.php:152 libraries/mysql_charsets.lib.php:107
 msgid "Charset"
 msgstr "Set di caratteri"
@@ -3002,18 +3103,6 @@ msgstr "Controlla i privilegi per il database \"%s\"."
 #: libraries/messages.inc.php:162 pdf_pages.php:261
 msgid "Please choose a page to edit"
 msgstr "Prego scegliere una Page da modificare"
-
-#: libraries/messages.inc.php:163 server_synchronize.php:345
-#: server_synchronize.php:357 server_synchronize.php:373
-#: server_synchronize.php:380 server_synchronize.php:739
-#: server_synchronize.php:767 server_synchronize.php:795
-#: server_synchronize.php:807
-msgid "Click to select"
-msgstr "Clicca per selezionare"
-
-#: libraries/messages.inc.php:164
-msgid "Click to unselect"
-msgstr "Clicca per deselezionare"
 
 #: libraries/messages.inc.php:165
 msgid "Displaying Column Comments"
@@ -3320,11 +3409,6 @@ msgstr "Differenza"
 msgid "Direct links"
 msgstr "Link diretti"
 
-#: libraries/messages.inc.php:268 libraries/relation.lib.php:101
-#: libraries/relation.lib.php:108
-msgid "Disabled"
-msgstr "Disabilitata"
-
 #: libraries/messages.inc.php:269
 msgid "Disable foreign key checks"
 msgstr "Disabilita i controlli sulle chiavi straniere"
@@ -3348,16 +3432,6 @@ msgstr "DocSQL"
 #: libraries/messages.inc.php:276
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Non usare AUTO_INCREMENT per il valore zero"
-
-#: libraries/messages.inc.php:278 libraries/mult_submits.inc.php:258
-#: sql.php:188
-msgid "Do you really want to "
-msgstr "Confermi: "
-
-#: libraries/messages.inc.php:279 libraries/mult_submits.inc.php:258
-#: sql.php:172
-msgid "You are about to DESTROY a complete database!"
-msgstr "Si sta per DISTRUGGERE COMPLETAMENTE un intero DataBase!"
 
 #: libraries/messages.inc.php:281 server_privileges.php:1579
 #: server_privileges.php:1580 server_privileges.php:1581
@@ -3432,22 +3506,10 @@ msgstr "Nota: i nomi dei privilegi di MySQL sono in Inglese"
 msgid "Error in ZIP archive:"
 msgstr "Errore nell'archivio ZIP:"
 
-#: libraries/messages.inc.php:307
-msgid "Error: Relation not added."
-msgstr "Errore: relazione non aggiunta."
-
-#: libraries/messages.inc.php:308
-msgid "Error: relation already exists."
-msgstr "Errore: relazione già esistente."
-
 #: libraries/messages.inc.php:309 libraries/Table.class.php:1048
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Errore nel rinominare la tabella %1$s in %2$s"
-
-#: libraries/messages.inc.php:310
-msgid "Error saving coordinates for Designer."
-msgstr "Errore nel salvare le coordinate per il Designer."
 
 #: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:241
 msgid "Esperanto"
@@ -3574,18 +3636,10 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "Errore nel creare una \"foreign key\" su %1$s (controlla il tipo di dati)"
 
-#: libraries/messages.inc.php:348
-msgid "FOREIGN KEY relation added"
-msgstr "Relazione \"FOREIGN KEY\" aggiunta"
-
 #: libraries/messages.inc.php:349 setup/lib/messages.inc.php:88
 #: tbl_printview.php:376 tbl_structure.php:738
 msgid "Format"
 msgstr "Formato"
-
-#: libraries/messages.inc.php:350
-msgid "Missing value in the form!"
-msgstr "Valore mancante nel form!"
 
 #: libraries/messages.inc.php:352 server_replication.php:325
 msgid "Full start"
@@ -3598,10 +3652,6 @@ msgstr "Pieno spegnimento"
 #: libraries/messages.inc.php:355 tbl_change.php:282 tbl_change.php:320
 msgid "Function"
 msgstr "Funzione"
-
-#: libraries/messages.inc.php:359 libraries/relation.lib.php:107
-msgid "General relation features"
-msgstr "Caratteristiche Generali di Relazione"
 
 #: libraries/messages.inc.php:363 libraries/mysql_charsets.lib.php:377
 msgid "Georgian"
@@ -3686,10 +3736,6 @@ msgstr "Home"
 #: libraries/messages.inc.php:387 main.php:233
 msgid "Official Homepage"
 msgstr "Home page ufficiale di phpMyAdmin"
-
-#: libraries/messages.inc.php:388
-msgid "The host name is empty!"
-msgstr "Il nome di host è vuoto!"
 
 #: libraries/messages.inc.php:390 libraries/replication_gui.lib.php:327
 #: server_privileges.php:753
@@ -3836,10 +3882,6 @@ msgid ""
 msgstr ""
 "Una relazione interna non %è necessaria, quando una corrispondente relazione "
 "FOREIGN KEY esiste."
-
-#: libraries/messages.inc.php:442
-msgid "Internal relation added"
-msgstr "Aggiunte relazioni internet"
 
 #: libraries/messages.inc.php:443 pdf_pages.php:303
 msgid "Internal relations"
@@ -4094,10 +4136,6 @@ msgstr ""
 "Tipi-MIME stampati in italics non hanno una funzione di trasformazione "
 "separata"
 
-#: libraries/messages.inc.php:522
-msgid "Modifications have been saved"
-msgstr "Le modifiche sono state salvate"
-
 #: libraries/messages.inc.php:523 tbl_indexes.php:162
 msgid "Modify an index"
 msgstr "Modifica un indice"
@@ -4181,10 +4219,6 @@ msgstr ""
 "Non è disponibile nessuna informazione dettagliata sullo stato di questo "
 "motore di memorizzazione."
 
-#: libraries/messages.inc.php:558 sql.php:89
-msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "I comandi \"DROP DATABASE\" sono disabilitati."
-
 #: libraries/messages.inc.php:560 libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
 msgstr "Non sono stati trovati file ZIP all'interno dell'archivio!"
@@ -4236,10 +4270,6 @@ msgid ""
 msgstr ""
 "Nessun supporto per i temi, si prega di controllare la configurazione e/o i "
 "temi nella cartella %s."
-
-#: libraries/messages.inc.php:578
-msgid "This is not a number!"
-msgstr "Questo non è un numero!"
 
 #: libraries/messages.inc.php:579 libraries/relation.lib.php:95
 msgid "not OK"
@@ -4308,14 +4338,6 @@ msgstr "Partizione %s"
 msgid "The password for %s was changed successfully."
 msgstr "La password per l'utente %s è cambiata con successo."
 
-#: libraries/messages.inc.php:615
-msgid "The password is empty!"
-msgstr "La password è vuota!"
-
-#: libraries/messages.inc.php:617
-msgid "The passwords aren't the same!"
-msgstr "La password non coincide!"
-
 #: libraries/messages.inc.php:643
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
@@ -4378,10 +4400,6 @@ msgstr "Array PHP"
 #: libraries/messages.inc.php:658 main.php:213
 msgid "PHP extension"
 msgstr "Estensioni PHP"
-
-#: libraries/messages.inc.php:661
-msgid "Please select the primary key or a unique key"
-msgstr "Seleziona la chiave primaria o una chiave univoca"
 
 #: libraries/messages.inc.php:662 libraries/relation.lib.php:163
 msgid ""
@@ -4705,10 +4723,6 @@ msgstr "Controlla l'integrità delle referenze:"
 #: libraries/messages.inc.php:748 pdf_schema.php:1033 pdf_schema.php:1142
 msgid "Relational schema"
 msgstr "Schema relazionale"
-
-#: libraries/messages.inc.php:749
-msgid "Relation deleted"
-msgstr "Relazione cancellata"
 
 #: libraries/messages.inc.php:750 pdf_schema.php:34
 #, php-format
@@ -5091,14 +5105,6 @@ msgstr "Selezionare il log binario da visualizzare"
 #: libraries/messages.inc.php:855 tbl_select.php:270
 msgid "Select fields (at least one):"
 msgstr "Seleziona campi (almeno uno):"
-
-#: libraries/messages.inc.php:856
-msgid "Select Foreign Key"
-msgstr "Seleziona Foreign Key"
-
-#: libraries/messages.inc.php:858
-msgid "Select referenced key"
-msgstr "Seleziona le chiavi referenziali"
 
 #: libraries/messages.inc.php:859 pdf_pages.php:320
 msgid "Select Tables"
@@ -6649,10 +6655,6 @@ msgstr "Utilizza la Tabella dell'Host"
 #, php-format
 msgid "The user %s already exists!"
 msgstr "L'utente %s esiste già!"
-
-#: libraries/messages.inc.php:1216
-msgid "The user name is empty!"
-msgstr "Il nome utente è vuoto!"
 
 #: libraries/messages.inc.php:1217 libraries/replication_gui.lib.php:55
 #: libraries/replication_gui.lib.php:56 libraries/replication_gui.lib.php:245

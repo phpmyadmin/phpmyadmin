@@ -22,47 +22,45 @@ require_once './libraries/common.inc.php';
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
 
-$js_messages['strFormEmpty'] = $GLOBALS['strFormEmpty'];
-$js_messages['strNotNumber'] = $GLOBALS['strNotNumber'];
-$js_messages['strClickToSelect'] = $GLOBALS['strClickToSelect'];
-$js_messages['strClickToUnselect'] = $GLOBALS['strClickToUnselect'];
-$js_messages['strNoDropDatabases'] = $GLOBALS['strNoDropDatabases'];
+$js_messages['strClickToSelect'] = __('Click to select'); 
+$js_messages['strClickToUnselect'] = __('Click to unselect'); 
+$js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled.'); 
 
 /* For confirmations */
-$js_messages['strDoYouReally'] = $GLOBALS['strDoYouReally'];
-$js_messages['strDropDatabaseStrongWarning'] = $GLOBALS['strDropDatabaseStrongWarning'];
+$js_messages['strDoYouReally'] = __('Do you really want to '); 
+$js_messages['strDropDatabaseStrongWarning'] = __('You are about to DESTROY a complete database!'); 
 
 /* For blobstreaming */
-$js_messages['strBLOBRepositoryDisableStrongWarning'] = $GLOBALS['strBLOBRepositoryDisableStrongWarning'];
-$js_messages['strBLOBRepositoryDisableAreYouSure'] = sprintf($GLOBALS['strBLOBRepositoryDisableAreYouSure'], $GLOBALS['db']);
+$js_messages['strBLOBRepositoryDisableStrongWarning'] = __('You are about to DISABLE a BLOB Repository!'); 
+$js_messages['strBLOBRepositoryDisableAreYouSure'] = sprintf(__('Are you sure you want to disable all BLOB references for database %s?'), $GLOBALS['db']);
 
 /* For indexes */
-$js_messages['strFormEmpty'] = $GLOBALS['strFormEmpty'];
-$js_messages['strNotNumber'] = $GLOBALS['strNotNumber'];
+$js_messages['strFormEmpty'] = __('Missing value in the form!'); 
+$js_messages['strNotNumber'] = __('This is not a number!'); 
 
 /* For server_privileges.js */
-$js_messages['strHostEmpty'] = $GLOBALS['strHostEmpty'];
-$js_messages['strUserEmpty'] = $GLOBALS['strUserEmpty'];
-$js_messages['strPasswordEmpty'] = $GLOBALS['strPasswordEmpty'];
-$js_messages['strPasswordNotSame'] = $GLOBALS['strPasswordNotSame'];
+$js_messages['strHostEmpty'] = __('The host name is empty!'); 
+$js_messages['strUserEmpty'] = __('The user name is empty!'); 
+$js_messages['strPasswordEmpty'] = __('The password is empty!'); 
+$js_messages['strPasswordNotSame'] = __('The passwords aren\'t the same!'); 
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');
 
 /* Designer */
-$js_messages['strModifications'] = $GLOBALS['strModifications'];
-$js_messages['strRelationDeleted'] = $GLOBALS['strRelationDeleted'];
-$js_messages['strForeignKeyRelationAdded'] = $GLOBALS['strForeignKeyRelationAdded'];
-$js_messages['strInternalRelationAdded'] = $GLOBALS['strInternalRelationAdded'];
-$js_messages['strErrorRelationAdded'] = $GLOBALS['strErrorRelationAdded'];
-$js_messages['strErrorRelationExists'] = $GLOBALS['strErrorRelationExists'];
-$js_messages['strErrorSaveTable'] = $GLOBALS['strErrorSaveTable'];
-$js_messages['strGeneralRelationFeat:strDisabled'] = $GLOBALS['strGeneralRelationFeat'] . ': ' . $GLOBALS['strDisabled'];
-$js_messages['strSelectReferencedKey'] = $GLOBALS['strSelectReferencedKey'];
-$js_messages['strSelectForeignKey'] = $GLOBALS['strSelectForeignKey'];
-$js_messages['strPleaseSelectPrimaryOrUniqueKey'] = $GLOBALS['strPleaseSelectPrimaryOrUniqueKey'];
-$js_messages['strChangeDisplay'] = $GLOBALS['strChangeDisplay'];
+$js_messages['strModifications'] = __('Modifications have been saved'); 
+$js_messages['strRelationDeleted'] = __('Relation deleted'); 
+$js_messages['strForeignKeyRelationAdded'] = __('FOREIGN KEY relation added'); 
+$js_messages['strInternalRelationAdded'] = __('Internal relation added'); 
+$js_messages['strErrorRelationAdded'] = __('Error: Relation not added.'); 
+$js_messages['strErrorRelationExists'] = __('Error: relation already exists.'); 
+$js_messages['strErrorSaveTable'] = __('Error saving coordinates for Designer.'); 
+$js_messages['strGeneralRelationFeat:strDisabled'] = __('General relation features') . ': ' . __('Disabled');
+$js_messages['strSelectReferencedKey'] = __('Select referenced key'); 
+$js_messages['strSelectForeignKey'] = __('Select Foreign Key'); 
+$js_messages['strPleaseSelectPrimaryOrUniqueKey'] = __('Please select the primary key or a unique key'); 
+$js_messages['strChangeDisplay'] = __('Choose field to display'); 
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

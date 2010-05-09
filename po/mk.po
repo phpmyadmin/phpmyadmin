@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-09 20:34+0200\n"
+"POT-Creation-Date: 2010-05-09 15:12-0400\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: macedonian_cyrillic <mk@li.org>\n"
@@ -44,30 +44,30 @@ msgstr "Пребарување"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_search.php:362 db_structure.php:567 js/messages.php:50
+#: db_search.php:362 db_structure.php:567 js/messages.php:48
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046 libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277
+#: libraries/Config.class.php:1046
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_import.lib.php:276 libraries/display_tbl.lib.php:532
-#: libraries/display_tbl.lib.php:614 libraries/messages.inc.php:369
-#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:365
-#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
-#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
-#: libraries/tbl_properties.inc.php:782 libraries/Theme_Manager.class.php:311
-#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
-#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
-#: server_privileges.php:625 server_privileges.php:1585
-#: server_privileges.php:1932 server_privileges.php:1979
-#: server_privileges.php:2018 server_replication.php:235
-#: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
-#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:263
-#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
-#: tbl_operations.php:679 tbl_select.php:327 tbl_structure.php:563
-#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
-#: view_create.php:182 view_operations.php:101
+#: libraries/display_create_table.lib.php:63
+#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
+#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
+#: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
+#: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
+#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
+#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
+#: server_privileges.php:1585 server_privileges.php:1932
+#: server_privileges.php:1979 server_privileges.php:2018
+#: server_replication.php:235 server_replication.php:318
+#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
+#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
+#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
+#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
+#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
+#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "OK"
 
@@ -831,27 +831,143 @@ msgstr ""
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "phpMyAdmin преферира веб прелистувачи кои подржуваат рамки."
 
-#: js/messages.php:51 libraries/messages.inc.php:131 pmd_general.php:342
+#: js/messages.php:25 libraries/messages.inc.php:163
+#: server_synchronize.php:345 server_synchronize.php:357
+#: server_synchronize.php:373 server_synchronize.php:380
+#: server_synchronize.php:739 server_synchronize.php:767
+#: server_synchronize.php:795 server_synchronize.php:807
+msgid "Click to select"
+msgstr ""
+
+#: js/messages.php:26 libraries/messages.inc.php:164
+msgid "Click to unselect"
+msgstr ""
+
+#: js/messages.php:27 libraries/messages.inc.php:558 sql.php:89
+msgid "\"DROP DATABASE\" statements are disabled."
+msgstr "\"DROP DATABASE\" командата е оневозможена."
+
+#: js/messages.php:30 libraries/messages.inc.php:278
+#: libraries/mult_submits.inc.php:258 sql.php:188
+msgid "Do you really want to "
+msgstr "Дали навистина сакате да "
+
+#: js/messages.php:31 libraries/messages.inc.php:279
+#: libraries/mult_submits.inc.php:258 sql.php:172
+msgid "You are about to DESTROY a complete database!"
+msgstr "Со ова ја БРИШЕТЕ комплетната база на податоци!"
+
+#: js/messages.php:34 libraries/messages.inc.php:102
+msgid "You are about to DISABLE a BLOB Repository!"
+msgstr ""
+
+#: js/messages.php:35 libraries/messages.inc.php:99
+#, php-format
+msgid "Are you sure you want to disable all BLOB references for database %s?"
+msgstr ""
+
+#: js/messages.php:38 libraries/messages.inc.php:350
+msgid "Missing value in the form!"
+msgstr "Недостасува вредност во образецот!"
+
+#: js/messages.php:39 libraries/messages.inc.php:578
+msgid "This is not a number!"
+msgstr "Ова не е број!"
+
+#: js/messages.php:42 libraries/messages.inc.php:388
+msgid "The host name is empty!"
+msgstr "Името на host-от е празно!"
+
+#: js/messages.php:43 libraries/messages.inc.php:1216
+msgid "The user name is empty!"
+msgstr "Не е внесен назив на корисник!"
+
+#: js/messages.php:44 libraries/messages.inc.php:615
+msgid "The password is empty!"
+msgstr "Лозинка е празна!"
+
+#: js/messages.php:45 libraries/messages.inc.php:617
+msgid "The passwords aren't the same!"
+msgstr "Лозинките не се идентични!"
+
+#: js/messages.php:49 libraries/messages.inc.php:131 pmd_general.php:342
 #: pmd_general.php:379
 msgid "Cancel"
 msgstr ""
 
+#: js/messages.php:52 libraries/messages.inc.php:522
+msgid "Modifications have been saved"
+msgstr "Измените се сочувани"
+
+#: js/messages.php:53 libraries/messages.inc.php:749
+#, fuzzy
+msgid "Relation deleted"
+msgstr "Релационен поглед"
+
+#: js/messages.php:54 libraries/messages.inc.php:348
+msgid "FOREIGN KEY relation added"
+msgstr ""
+
+#: js/messages.php:55 libraries/messages.inc.php:442
+#, fuzzy
+msgid "Internal relation added"
+msgstr "Внатрешни релации"
+
+#: js/messages.php:56 libraries/messages.inc.php:307
+msgid "Error: Relation not added."
+msgstr ""
+
+#: js/messages.php:57 libraries/messages.inc.php:308
+msgid "Error: relation already exists."
+msgstr ""
+
+#: js/messages.php:58 libraries/messages.inc.php:310
+msgid "Error saving coordinates for Designer."
+msgstr ""
+
+#: js/messages.php:59 libraries/messages.inc.php:359
+#: libraries/relation.lib.php:107
+msgid "General relation features"
+msgstr "Општи особини на релациите"
+
+#: js/messages.php:59 libraries/messages.inc.php:268
+#: libraries/relation.lib.php:101 libraries/relation.lib.php:108
+msgid "Disabled"
+msgstr "Оневозможено"
+
+#: js/messages.php:60 libraries/messages.inc.php:858
+msgid "Select referenced key"
+msgstr ""
+
+#: js/messages.php:61 libraries/messages.inc.php:856
+msgid "Select Foreign Key"
+msgstr ""
+
+#: js/messages.php:62 libraries/messages.inc.php:661
+msgid "Please select the primary key or a unique key"
+msgstr ""
+
+#: js/messages.php:63 libraries/messages.inc.php:150 pmd_general.php:77
+#: tbl_relation.php:548
+msgid "Choose field to display"
+msgstr "Избери полиња за прикажување"
+
 #. l10n: Display text for calendar close link
-#: js/messages.php:74
+#: js/messages.php:72
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "нема"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:76
+#: js/messages.php:74
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Претходна"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:78 libraries/common.lib.php:2289
+#: js/messages.php:76 libraries/common.lib.php:2289
 #: libraries/common.lib.php:2292 libraries/display_tbl.lib.php:338
 #: libraries/messages.inc.php:551 server_binlog.php:205 server_binlog.php:207
 #: tbl_printview.php:424 tbl_structure.php:802
@@ -859,96 +975,96 @@ msgid "Next"
 msgstr "Следен"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:80
+#: js/messages.php:78
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Вкупно"
 
-#: js/messages.php:83
+#: js/messages.php:81
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Бинарен"
 
-#: js/messages.php:84
+#: js/messages.php:82
 msgid "February"
 msgstr ""
 
-#: js/messages.php:85
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "мар"
 
-#: js/messages.php:86
+#: js/messages.php:84
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "апр"
 
-#: js/messages.php:87 libraries/messages.inc.php:28
+#: js/messages.php:85 libraries/messages.inc.php:28
 msgid "May"
 msgstr "мај"
 
-#: js/messages.php:88
+#: js/messages.php:86
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "јун"
 
-#: js/messages.php:89
+#: js/messages.php:87
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "јул"
 
-#: js/messages.php:90
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "авг"
 
-#: js/messages.php:91
+#: js/messages.php:89
 msgid "September"
 msgstr ""
 
-#: js/messages.php:92
+#: js/messages.php:90
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "окт"
 
-#: js/messages.php:93
+#: js/messages.php:91
 msgid "November"
 msgstr ""
 
-#: js/messages.php:94
+#: js/messages.php:92
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:98 libraries/messages.inc.php:28
+#: js/messages.php:96 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "јан"
 
 #. l10n: Short month name
-#: js/messages.php:100 libraries/messages.inc.php:28
+#: js/messages.php:98 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "феб"
 
 #. l10n: Short month name
-#: js/messages.php:102 libraries/messages.inc.php:28
+#: js/messages.php:100 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "мар"
 
 #. l10n: Short month name
-#: js/messages.php:104 libraries/messages.inc.php:28
+#: js/messages.php:102 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "апр"
 
 #. l10n: Short month name
-#: js/messages.php:106
+#: js/messages.php:104
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -956,176 +1072,176 @@ msgid "May"
 msgstr "мај"
 
 #. l10n: Short month name
-#: js/messages.php:108 libraries/messages.inc.php:28
+#: js/messages.php:106 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "јун"
 
 #. l10n: Short month name
-#: js/messages.php:110 libraries/messages.inc.php:28
+#: js/messages.php:108 libraries/messages.inc.php:28
 msgid "Jul"
 msgstr "јул"
 
 #. l10n: Short month name
-#: js/messages.php:112 libraries/messages.inc.php:28
+#: js/messages.php:110 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr "авг"
 
 #. l10n: Short month name
-#: js/messages.php:114 libraries/messages.inc.php:28
+#: js/messages.php:112 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr "сеп"
 
 #. l10n: Short month name
-#: js/messages.php:116 libraries/messages.inc.php:28
+#: js/messages.php:114 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr "окт"
 
 #. l10n: Short month name
-#: js/messages.php:118 libraries/messages.inc.php:28
+#: js/messages.php:116 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr "нов"
 
 #. l10n: Short month name
-#: js/messages.php:120 libraries/messages.inc.php:28
+#: js/messages.php:118 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr "дек"
 
-#: js/messages.php:123
+#: js/messages.php:121
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Нед"
 
-#: js/messages.php:124
+#: js/messages.php:122
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Пон"
 
-#: js/messages.php:125
+#: js/messages.php:123
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Вто"
 
-#: js/messages.php:126
+#: js/messages.php:124
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:127
+#: js/messages.php:125
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:128
+#: js/messages.php:126
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Пет"
 
-#: js/messages.php:129
+#: js/messages.php:127
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:133 libraries/messages.inc.php:27
+#: js/messages.php:131 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "Нед"
 
 #. l10n: Short week day name
-#: js/messages.php:135 libraries/messages.inc.php:27
+#: js/messages.php:133 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "Пон"
 
 #. l10n: Short week day name
-#: js/messages.php:137 libraries/messages.inc.php:27
+#: js/messages.php:135 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "Вто"
 
 #. l10n: Short week day name
-#: js/messages.php:139 libraries/messages.inc.php:27
+#: js/messages.php:137 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "Сре"
 
 #. l10n: Short week day name
-#: js/messages.php:141 libraries/messages.inc.php:27
+#: js/messages.php:139 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "Чет"
 
 #. l10n: Short week day name
-#: js/messages.php:143 libraries/messages.inc.php:27
+#: js/messages.php:141 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "Пет"
 
 #. l10n: Short week day name
-#: js/messages.php:145 libraries/messages.inc.php:27
+#: js/messages.php:143 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "Саб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:149
+#: js/messages.php:147
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Нед"
 
 #. l10n: Minimal week day name
-#: js/messages.php:151
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Пон"
 
 #. l10n: Minimal week day name
-#: js/messages.php:153
+#: js/messages.php:151
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Вто"
 
 #. l10n: Minimal week day name
-#: js/messages.php:155
+#: js/messages.php:153
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Сре"
 
 #. l10n: Minimal week day name
-#: js/messages.php:157
+#: js/messages.php:155
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Чет"
 
 #. l10n: Minimal week day name
-#: js/messages.php:159
+#: js/messages.php:157
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Пет"
 
 #. l10n: Minimal week day name
-#: js/messages.php:161
+#: js/messages.php:159
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Саб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:163
+#: js/messages.php:161
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:165
+#: js/messages.php:163
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:166
+#: js/messages.php:164
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "се користи"
 
-#: js/messages.php:167
+#: js/messages.php:165
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1254,6 +1370,26 @@ msgstr ""
 #: libraries/blobstreaming.lib.php:702 libraries/messages.inc.php:277
 msgid "Download file"
 msgstr ""
+
+#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Не можам да ги вчитам iconv или recode екстензиите потребни за конверзија на "
+"кодните страници, подесете го PHP да дозволи користење на овие екстензии или "
+"оневозможете ја конверзијата на кодни страници во phpMyAdmin-у."
+
+#: libraries/charset_conversion.lib.php:79
+#: libraries/charset_conversion.lib.php:90
+#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Не можам да ги користам iconv или libiconv или recode_string функциите иако "
+"екстензијата пријавува дека е вчитана. Проверите ја вашата PHP конфигурација."
 
 #: libraries/common.inc.php:583 libraries/messages.inc.php:178
 msgid ""
@@ -1559,6 +1695,51 @@ msgstr ""
 msgid "Overhead"
 msgstr "Пречекорување"
 
+#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
+#: main.php:91 user_password.php:111 user_password.php:129
+msgid "Change password"
+msgstr "Промена на лозинка"
+
+#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
+#: libraries/replication_gui.lib.php:341 server_privileges.php:768
+msgid "No Password"
+msgstr "Нема лозинка"
+
+#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
+#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
+#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:345 server_privileges.php:757
+#: server_privileges.php:761 server_privileges.php:772
+#: server_privileges.php:1499 server_synchronize.php:1175
+msgid "Password"
+msgstr "Лозинка"
+
+#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
+#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
+#: server_privileges.php:776 server_privileges.php:779
+msgid "Re-type"
+msgstr "Повтори внес"
+
+#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
+msgid "Password Hashing"
+msgstr "Хеширање на лозинката"
+
+#: libraries/display_change_password.lib.php:66
+#, fuzzy
+#| msgid "MySQL&nbsp;4.0 compatible"
+msgid "MySQL 4.0 compatible"
+msgstr "MySQL&nbsp;4.0 компатибилно"
+
+#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
+#: libraries/replication_gui.lib.php:356 server_privileges.php:783
+msgid "Generate Password"
+msgstr "Генерирање на лозинка"
+
+#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
+#: libraries/replication_gui.lib.php:359 server_privileges.php:786
+msgid "Generate"
+msgstr "Генерирај"
+
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36 libraries/messages.inc.php:197
 msgid "Create new database"
@@ -1657,51 +1838,6 @@ msgstr "\"bzip\""
 #: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr ""
-
-#: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
-#: main.php:91 user_password.php:111 user_password.php:129
-msgid "Change password"
-msgstr "Промена на лозинка"
-
-#: libraries/display_change_password.lib.php:35 libraries/messages.inc.php:569
-#: libraries/replication_gui.lib.php:341 server_privileges.php:768
-msgid "No Password"
-msgstr "Нема лозинка"
-
-#: libraries/display_change_password.lib.php:41 libraries/messages.inc.php:618
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:331 libraries/replication_gui.lib.php:335
-#: libraries/replication_gui.lib.php:345 server_privileges.php:757
-#: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1175
-msgid "Password"
-msgstr "Лозинка"
-
-#: libraries/display_change_password.lib.php:46 libraries/messages.inc.php:814
-#: libraries/replication_gui.lib.php:349 libraries/replication_gui.lib.php:352
-#: server_privileges.php:776 server_privileges.php:779
-msgid "Re-type"
-msgstr "Повтори внес"
-
-#: libraries/display_change_password.lib.php:52 libraries/messages.inc.php:616
-msgid "Password Hashing"
-msgstr "Хеширање на лозинката"
-
-#: libraries/display_change_password.lib.php:66
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
-msgid "MySQL 4.0 compatible"
-msgstr "MySQL&nbsp;4.0 компатибилно"
-
-#: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
-#: libraries/replication_gui.lib.php:356 server_privileges.php:783
-msgid "Generate Password"
-msgstr "Генерирање на лозинка"
-
-#: libraries/display_change_password.lib.php:75 libraries/messages.inc.php:360
-#: libraries/replication_gui.lib.php:359 server_privileges.php:786
-msgid "Generate"
-msgstr "Генерирај"
 
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
 msgid ""
@@ -2385,28 +2521,8 @@ msgstr "Генерирал"
 msgid "Rows"
 msgstr "Записи"
 
-#: libraries/charset_conversion.lib.php:17 libraries/messages.inc.php:136
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Не можам да ги вчитам iconv или recode екстензиите потребни за конверзија на "
-"кодните страници, подесете го PHP да дозволи користење на овие екстензии или "
-"оневозможете ја конверзијата на кодни страници во phpMyAdmin-у."
-
-#: libraries/charset_conversion.lib.php:79
-#: libraries/charset_conversion.lib.php:90
-#: libraries/charset_conversion.lib.php:109 libraries/messages.inc.php:138
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Не можам да ги користам iconv или libiconv или recode_string функциите иако "
-"екстензијата пријавува дека е вчитана. Проверите ја вашата PHP конфигурација."
-
 #: libraries/import.lib.php:150 libraries/messages.inc.php:293
-#: tbl_get_field.php:35 tbl_change.php:181
+#: tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL врати празен резултат (нула записи)."
 
@@ -2782,20 +2898,11 @@ msgstr "Позиција"
 msgid "Server ID"
 msgstr "ID на серверот"
 
-#: libraries/messages.inc.php:99
-#, php-format
-msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
-
 #: libraries/messages.inc.php:100
 #, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Оневозможено"
-
-#: libraries/messages.inc.php:102
-msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
 
 #: libraries/messages.inc.php:103
 #, fuzzy
@@ -2924,10 +3031,6 @@ msgstr " ... прво одземи ги сите привилегии на ко�
 msgid "Change Login Information / Copy User"
 msgstr "Промени ги информациите за најавувањето / Копирај го корисникот"
 
-#: libraries/messages.inc.php:150 pmd_general.php:77 tbl_relation.php:548
-msgid "Choose field to display"
-msgstr "Избери полиња за прикажување"
-
 #: libraries/messages.inc.php:152 libraries/mysql_charsets.lib.php:107
 msgid "Charset"
 msgstr "Кодна страна"
@@ -2959,18 +3062,6 @@ msgstr "Провери привилегии за базата на подато�
 #: libraries/messages.inc.php:162 pdf_pages.php:261
 msgid "Please choose a page to edit"
 msgstr "Изберете страница која менувате"
-
-#: libraries/messages.inc.php:163 server_synchronize.php:345
-#: server_synchronize.php:357 server_synchronize.php:373
-#: server_synchronize.php:380 server_synchronize.php:739
-#: server_synchronize.php:767 server_synchronize.php:795
-#: server_synchronize.php:807
-msgid "Click to select"
-msgstr ""
-
-#: libraries/messages.inc.php:164
-msgid "Click to unselect"
-msgstr ""
 
 #: libraries/messages.inc.php:165
 msgid "Displaying Column Comments"
@@ -3275,11 +3366,6 @@ msgstr ""
 msgid "Direct links"
 msgstr ""
 
-#: libraries/messages.inc.php:268 libraries/relation.lib.php:101
-#: libraries/relation.lib.php:108
-msgid "Disabled"
-msgstr "Оневозможено"
-
 #: libraries/messages.inc.php:269
 msgid "Disable foreign key checks"
 msgstr "Исклучи проверка на надворешни клучеви"
@@ -3303,16 +3389,6 @@ msgstr ""
 #: libraries/messages.inc.php:276
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr ""
-
-#: libraries/messages.inc.php:278 libraries/mult_submits.inc.php:258
-#: sql.php:188
-msgid "Do you really want to "
-msgstr "Дали навистина сакате да "
-
-#: libraries/messages.inc.php:279 libraries/mult_submits.inc.php:258
-#: sql.php:172
-msgid "You are about to DESTROY a complete database!"
-msgstr "Со ова ја БРИШЕТЕ комплетната база на податоци!"
 
 #: libraries/messages.inc.php:281 server_privileges.php:1579
 #: server_privileges.php:1580 server_privileges.php:1581
@@ -3389,21 +3465,9 @@ msgstr ""
 msgid "Error in ZIP archive:"
 msgstr ""
 
-#: libraries/messages.inc.php:307
-msgid "Error: Relation not added."
-msgstr ""
-
-#: libraries/messages.inc.php:308
-msgid "Error: relation already exists."
-msgstr ""
-
 #: libraries/messages.inc.php:309 libraries/Table.class.php:1048
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
-
-#: libraries/messages.inc.php:310
-msgid "Error saving coordinates for Designer."
 msgstr ""
 
 #: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:241
@@ -3530,18 +3594,10 @@ msgstr ""
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
-#: libraries/messages.inc.php:348
-msgid "FOREIGN KEY relation added"
-msgstr ""
-
 #: libraries/messages.inc.php:349 setup/lib/messages.inc.php:88
 #: tbl_printview.php:376 tbl_structure.php:738
 msgid "Format"
 msgstr "Формат"
-
-#: libraries/messages.inc.php:350
-msgid "Missing value in the form!"
-msgstr "Недостасува вредност во образецот!"
 
 #: libraries/messages.inc.php:352 server_replication.php:325
 #, fuzzy
@@ -3555,10 +3611,6 @@ msgstr ""
 #: libraries/messages.inc.php:355 tbl_change.php:282 tbl_change.php:320
 msgid "Function"
 msgstr "Функција"
-
-#: libraries/messages.inc.php:359 libraries/relation.lib.php:107
-msgid "General relation features"
-msgstr "Општи особини на релациите"
 
 #: libraries/messages.inc.php:363 libraries/mysql_charsets.lib.php:377
 msgid "Georgian"
@@ -3642,10 +3694,6 @@ msgstr "Почетна страница"
 #: libraries/messages.inc.php:387 main.php:233
 msgid "Official Homepage"
 msgstr "официјален веб сајт на phpMyAdmin"
-
-#: libraries/messages.inc.php:388
-msgid "The host name is empty!"
-msgstr "Името на host-от е празно!"
 
 #: libraries/messages.inc.php:390 libraries/replication_gui.lib.php:327
 #: server_privileges.php:753
@@ -3786,11 +3834,6 @@ msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
-
-#: libraries/messages.inc.php:442
-#, fuzzy
-msgid "Internal relation added"
-msgstr "Внатрешни релации"
 
 #: libraries/messages.inc.php:443 pdf_pages.php:303
 msgid "Internal relations"
@@ -4040,10 +4083,6 @@ msgid ""
 msgstr ""
 "MIME-типовите прикажани во курзив немаат одвоене функции на трансформација."
 
-#: libraries/messages.inc.php:522
-msgid "Modifications have been saved"
-msgstr "Измените се сочувани"
-
 #: libraries/messages.inc.php:523 tbl_indexes.php:162
 msgid "Modify an index"
 msgstr "Промени го клучот"
@@ -4120,10 +4159,6 @@ msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Нема детални информации за статусот на овој вид на складиште."
 
-#: libraries/messages.inc.php:558 sql.php:89
-msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "\"DROP DATABASE\" командата е оневозможена."
-
 #: libraries/messages.inc.php:560 libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
 msgstr ""
@@ -4176,10 +4211,6 @@ msgid ""
 msgstr ""
 "Нема подршка за теми, ве молиме проверете ја конфигурацијата и/или темите во "
 "директориумот %s."
-
-#: libraries/messages.inc.php:578
-msgid "This is not a number!"
-msgstr "Ова не е број!"
 
 #: libraries/messages.inc.php:579 libraries/relation.lib.php:95
 msgid "not OK"
@@ -4249,14 +4280,6 @@ msgstr ""
 msgid "The password for %s was changed successfully."
 msgstr "Лозинката за %s успешно е променета."
 
-#: libraries/messages.inc.php:615
-msgid "The password is empty!"
-msgstr "Лозинка е празна!"
-
-#: libraries/messages.inc.php:617
-msgid "The passwords aren't the same!"
-msgstr "Лозинките не се идентични!"
-
 #: libraries/messages.inc.php:643
 #, php-format
 msgid "Schema of the \"%s\" database - Page %s"
@@ -4321,10 +4344,6 @@ msgstr ""
 #, fuzzy
 msgid "PHP extension"
 msgstr "PHP верзија"
-
-#: libraries/messages.inc.php:661
-msgid "Please select the primary key or a unique key"
-msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/relation.lib.php:163
 msgid ""
@@ -4650,11 +4669,6 @@ msgstr "Провери го референцијалниот интегрите�
 #: libraries/messages.inc.php:748 pdf_schema.php:1033 pdf_schema.php:1142
 msgid "Relational schema"
 msgstr "Релациона шема"
-
-#: libraries/messages.inc.php:749
-#, fuzzy
-msgid "Relation deleted"
-msgstr "Релационен поглед"
 
 #: libraries/messages.inc.php:750 pdf_schema.php:34
 #, php-format
@@ -5027,14 +5041,6 @@ msgstr "Изберете бинарен дневник за преглед"
 #: libraries/messages.inc.php:855 tbl_select.php:270
 msgid "Select fields (at least one):"
 msgstr "Избери полиња (најмалку едно)"
-
-#: libraries/messages.inc.php:856
-msgid "Select Foreign Key"
-msgstr ""
-
-#: libraries/messages.inc.php:858
-msgid "Select referenced key"
-msgstr ""
 
 #: libraries/messages.inc.php:859 pdf_pages.php:320
 msgid "Select Tables"
@@ -6430,10 +6436,6 @@ msgstr "Користи ја табелата на host-от"
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Корисник %s веќе постои!"
-
-#: libraries/messages.inc.php:1216
-msgid "The user name is empty!"
-msgstr "Не е внесен назив на корисник!"
 
 #: libraries/messages.inc.php:1217 libraries/replication_gui.lib.php:55
 #: libraries/replication_gui.lib.php:56 libraries/replication_gui.lib.php:245
