@@ -2342,7 +2342,7 @@ function PMA_userDir($dir)
  *
  * @uses    $cfg['DefaultTabDatabase']
  * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['strJumpToDB']
+ * @uses    __('Jump to database &quot;%s&quot;.') 
  * @uses    PMA_generate_common_url()
  * @uses    PMA_unescape_mysql_wildcards()
  * @uses    strlen()
@@ -2363,7 +2363,7 @@ function PMA_getDbLink($database = null)
     }
 
     return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($database) . '"'
-        .' title="' . sprintf($GLOBALS['strJumpToDB'], htmlspecialchars($database)) . '">'
+        .' title="' . sprintf(__('Jump to database &quot;%s&quot;.'), htmlspecialchars($database)) . '">'
         .htmlspecialchars($database) . '</a>';
 }
 
