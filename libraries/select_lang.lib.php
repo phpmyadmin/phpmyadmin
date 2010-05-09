@@ -477,23 +477,23 @@ require_once './libraries/messages.inc.php';
 // now, that we have loaded the language strings we can send the errors
 if ($GLOBALS['lang_failed_cfg']) {
     trigger_error(
-        sprintf($GLOBALS['strLanguageUnknown'],
+        sprintf(__('Unknown language: %1$s.'),
             htmlspecialchars($GLOBALS['lang_failed_cfg'])),
         E_USER_ERROR);
 }
 if ($GLOBALS['lang_failed_cookie']) {
     trigger_error(
-        sprintf($GLOBALS['strLanguageUnknown'],
+        sprintf(__('Unknown language: %1$s.'),
             htmlspecialchars($GLOBALS['lang_failed_cookie'])),
         E_USER_ERROR);
 }
 if ($GLOBALS['lang_failed_request']) {
     trigger_error(
-        sprintf($GLOBALS['strLanguageUnknown'],
+        sprintf(__('Unknown language: %1$s.'),
             htmlspecialchars($GLOBALS['lang_failed_request'])),
         E_USER_ERROR);
 }
 
 unset($line, $fall_back_lang,
-    $GLOBALS['lang_failed_cfg'], $GLOBALS['lang_failed_cookie'], $GLOBALS['ang_failed_request'], $GLOBALS['strLanguageUnknown']);
+    $GLOBALS['lang_failed_cfg'], $GLOBALS['lang_failed_cookie'], $GLOBALS['ang_failed_request']);
 ?>
