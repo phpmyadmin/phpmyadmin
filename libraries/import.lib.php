@@ -100,7 +100,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                 if (!$cfg['AllowUserDropDatabase']
                  && !$is_superuser
                  && preg_match('@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])) {
-                    $GLOBALS['message'] = PMA_Message::error('strNoDropDatabases');
+                    $GLOBALS['message'] = PMA_Message::error(__('"DROP DATABASE" statements are disabled.'));
                     $error = TRUE;
                 } else {
                     $executed_queries++;

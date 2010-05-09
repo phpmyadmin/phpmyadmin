@@ -64,7 +64,7 @@ if (isset($_REQUEST['do_save_data'])) {
             if ($index->getName() == '') {
                 $index->setName('PRIMARY');
             } elseif ($index->getName() != 'PRIMARY') {
-                $error = PMA_Message::error('strPrimaryKeyName');
+                $error = PMA_Message::error(__('The name of the primary key must be "PRIMARY"!'));
             }
             $sql_query .= ' ADD PRIMARY KEY';
             break;
@@ -72,7 +72,7 @@ if (isset($_REQUEST['do_save_data'])) {
         case 'UNIQUE':
         case 'INDEX':
             if ($index->getName() == 'PRIMARY') {
-                $error = PMA_Message::error('strCantRenameIdxToPrimary');
+                $error = PMA_Message::error(__('Can\'t rename index to PRIMARY!'));
             }
             $sql_query .= ' ADD ' . $index->getType() . ' '
                 . ($index->getName() ? PMA_backquote($index->getName()) : '');
@@ -88,14 +88,14 @@ if (isset($_REQUEST['do_save_data'])) {
     } // end while
 
     if (empty($index_fields)){
-        $error = PMA_Message::error('strNoIndexPartsDefined');
+        $error = PMA_Message::error(__('No index parts defined!'));
     } else {
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
 
     if (! $error) {
         PMA_DBI_query($sql_query);
-        $message = PMA_Message::success('strTableAlteredSuccessfully');
+        $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
         $message->addParam($table);
 
         $active_page = 'tbl_structure.php';
@@ -181,7 +181,7 @@ if (isset($_REQUEST['create_index'])) {
 
 <br class="clearfloat" />
 <?php
-PMA_Message::warning('strPrimaryKeyWarning')->display();
+PMA_Message::warning(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))->display();
 ?>
 
 <table>

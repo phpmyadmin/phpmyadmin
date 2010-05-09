@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-09 15:12-0400\n"
+"POT-Creation-Date: 2010-05-09 16:24-0400\n"
 "PO-Revision-Date: 2010-05-04 16:34+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -90,6 +90,11 @@ msgstr "Description"
 #: libraries/messages.inc.php:1226
 msgid "Use this value"
 msgstr "Utiliser cette valeur"
+
+#: db_create.php:46 libraries/messages.inc.php:223
+#, php-format
+msgid "Database %1$s has been created."
+msgstr "La base de données %1$s a été créée."
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:240
 msgid "Database comment: "
@@ -207,6 +212,20 @@ msgstr "Tout sélectionner"
 msgid "Unselect All"
 msgstr "Tout désélectionner"
 
+#: db_operations.php:38 libraries/messages.inc.php:221 tbl_create.php:54
+msgid "The database name is empty!"
+msgstr "Le nom de la base de données est vide!"
+
+#: db_operations.php:236 libraries/messages.inc.php:761
+#, php-format
+msgid "Database %s has been renamed to %s"
+msgstr "La base de données %s a été renommée en %s"
+
+#: db_operations.php:240 libraries/messages.inc.php:186
+#, php-format
+msgid "Database %s has been copied to %s"
+msgstr "La base de données %s a été copiée sur %s"
+
 #: db_operations.php:410 libraries/messages.inc.php:244
 msgid "Rename database to"
 msgstr "<b>Changer le nom</b> de la base de données pour"
@@ -310,6 +329,15 @@ msgstr "Activer"
 #: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "Interclassement"
+
+#: db_operations.php:609 libraries/messages.inc.php:750 pdf_schema.php:34
+#, php-format
+msgid ""
+"The additional features for working with linked tables have been "
+"deactivated. To find out why click %shere%s."
+msgstr ""
+"Certaines fonctionnalités ayant trait aux tables reliées sont désactivées. "
+"Pour une analyse du problème, cliquez %sici%s."
 
 #: db_operations.php:645 libraries/messages.inc.php:272 pdf_pages.php:528
 msgid "Display PDF schema"
@@ -638,7 +666,8 @@ msgstr "Le suivi est actif."
 msgid "Tracking is not active."
 msgstr "Le suivi n'est pas activé."
 
-#: db_structure.php:420 libraries/messages.inc.php:1236
+#: db_structure.php:420 libraries/display_tbl.lib.php:1939
+#: libraries/messages.inc.php:1236
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -808,15 +837,76 @@ msgstr "Suivre la table"
 msgid "Database Log"
 msgstr "Journal de la base de données"
 
+#: import.php:60 libraries/messages.inc.php:1210
+#, php-format
+msgid ""
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
+msgstr ""
+"Vous avez probablement tenté de télécharger un fichier trop volumineux. "
+"Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
+"cette limite."
+
+#: import.php:279 import.php:332 libraries/File.class.php:849
+#: libraries/File.class.php:961 libraries/messages.inc.php:333
+msgid "File could not be read"
+msgstr "Le fichier n'a pu être lu"
+
+#: import.php:287 import.php:296 import.php:315 import.php:324
+#: libraries/File.class.php:1031 libraries/File.class.php:1039
+#: libraries/File.class.php:1055 libraries/File.class.php:1063
+#: libraries/messages.inc.php:1197
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Vous avez tenté d'importer un fichier dont le mode de compression (%s) n'est "
+"pas supporté par votre configuration PHP ou est désactivé dans celle-ci."
+
+#: import.php:337 libraries/messages.inc.php:555
+msgid ""
+"No data was received to import. Either no file name was submitted, or the "
+"file size exceeded the maximum size permitted by your PHP configuration. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+msgstr ""
+"Aucune données n'a été reçu en vue de l'importation. Aucun nom de fichier "
+"n'a été fourni, ou encore la taille du fichier a dépassé la limite permise "
+"par votre configuration de PHP. Voir [a@./Documentation."
+"html#faq1_16@Documentation]FAQ 1.16[/a]"
+
+#: import.php:372 libraries/display_import.lib.php:24
+#: libraries/messages.inc.php:133
+msgid "Could not load import plugins, please check your installation!"
+msgstr ""
+"Chargement impossible des greffons d'importation, veuillez vérifier votre "
+"installation!"
+
+#: import.php:397 libraries/messages.inc.php:110
+msgid "The bookmark has been deleted."
+msgstr "Le signet a été effacé."
+
+#: import.php:401 libraries/messages.inc.php:887
+msgid "Showing bookmark"
+msgstr "Affichage du signet"
+
 #: import.php:403 libraries/messages.inc.php:109
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Signet %s créé"
 
-#: import.php:409 libraries/messages.inc.php:415
+#: import.php:409 import.php:415 libraries/messages.inc.php:415
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "L'importation s'est terminée avec succès, %d requêtes exécutées."
+
+#: import.php:424 libraries/messages.inc.php:1115
+msgid ""
+"Script timeout passed, if you want to finish import, please resubmit same "
+"file and import will resume."
+msgstr ""
+"La limite de temps a été atteinte; si vous voulez terminer l'importation, "
+"soumettez à nouveau le même fichier et l'importation continuera."
 
 #: index.php:190 libraries/messages.inc.php:561
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -836,7 +926,8 @@ msgstr "Cliquer pour sélectionner"
 msgid "Click to unselect"
 msgstr "Cliquer pour désélectionner"
 
-#: js/messages.php:27 libraries/messages.inc.php:558 sql.php:89
+#: js/messages.php:27 libraries/import.lib.php:103
+#: libraries/messages.inc.php:558 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "La commande  «DROP DATABASE» est désactivée."
 
@@ -878,10 +969,12 @@ msgid "The user name is empty!"
 msgstr "Le nom d'utilisateur est vide"
 
 #: js/messages.php:44 libraries/messages.inc.php:615
+#: server_privileges.php:1197 user_password.php:70
 msgid "The password is empty!"
 msgstr "Le mot de passe est vide"
 
 #: js/messages.php:45 libraries/messages.inc.php:617
+#: server_privileges.php:1195 user_password.php:73
 msgid "The passwords aren't the same!"
 msgstr "Les mots de passe doivent être identiques"
 
@@ -1258,7 +1351,8 @@ msgstr "Mot de passe&nbsp;:"
 msgid "Server Choice"
 msgstr "Choix du serveur"
 
-#: libraries/auth/cookie.auth.lib.php:320 libraries/messages.inc.php:185
+#: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
+#: libraries/messages.inc.php:185
 msgid "Cookies must be enabled past this point."
 msgstr "Vous devez accepter les cookies pour poursuivre."
 
@@ -1281,6 +1375,10 @@ msgstr "Aucune activité depuis %s secondes ou plus, veuillez vous reconnecter"
 #: libraries/auth/signon.auth.lib.php:191 libraries/messages.inc.php:134
 msgid "Cannot log in to the MySQL server"
 msgstr "Connexion au serveur MySQL non permise"
+
+#: libraries/auth/http.auth.lib.php:70 libraries/messages.inc.php:1253
+msgid "Wrong username/password. Access denied."
+msgstr "Erreur d'utilisateur/mot de passe. Accès refusé"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #: libraries/messages.inc.php:1065
@@ -1412,11 +1510,12 @@ msgstr "fr"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
-#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
-#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
-#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
-#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/dbg/setup.php:25
+#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
+#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
+#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
+#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
+#: setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Documentation"
 
@@ -1480,7 +1579,7 @@ msgid "Skip Validate SQL"
 msgstr "Ne pas valider SQL"
 
 #: libraries/common.lib.php:1245 libraries/messages.inc.php:1228
-#: setup/lib/messages.inc.php:356
+#: setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
 msgstr "Valider SQL"
 
@@ -1533,7 +1632,8 @@ msgstr "La fonctionnalité %s est affectée par une anomalie connue, voir %s"
 msgid "Font size"
 msgstr "Taille du texte"
 
-#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#: libraries/core.lib.php:286 libraries/dbg/setup.php:22
+#: libraries/messages.inc.php:135
 #, php-format
 msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
@@ -1699,6 +1799,7 @@ msgid "Create"
 msgstr "Créer"
 
 #: libraries/display_create_database.lib.php:40 libraries/messages.inc.php:572
+#: server_privileges.php:74 server_privileges.php:1388
 msgid "No Privileges"
 msgstr "aucun privilège"
 
@@ -1714,6 +1815,10 @@ msgstr "Créer une nouvelle table sur la base %s"
 #: libraries/display_create_table.lib.php:57 libraries/messages.inc.php:585
 msgid "Number of fields"
 msgstr "Nombre de champs"
+
+#: libraries/display_export.lib.php:42 libraries/messages.inc.php:132
+msgid "Could not load export plugins, please check your installation!"
+msgstr "Erreur lors du chargement des modules d'exportation!"
 
 #: libraries/display_export.lib.php:107 libraries/messages.inc.php:285
 #, php-format
@@ -1742,6 +1847,29 @@ msgstr "Écraser les fichiers existants"
 #: libraries/display_export.lib.php:148 libraries/messages.inc.php:338
 msgid "File name template"
 msgstr "Modèle de nom de fichier"
+
+#: libraries/display_export.lib.php:152 libraries/messages.inc.php:335
+msgid "server name"
+msgstr "nom de serveur"
+
+#: libraries/display_export.lib.php:155 libraries/messages.inc.php:334
+msgid "database name"
+msgstr "nom de base de données"
+
+#: libraries/display_export.lib.php:158 libraries/messages.inc.php:336
+msgid "table name"
+msgstr "nom de table"
+
+#: libraries/display_export.lib.php:162 libraries/messages.inc.php:337
+#, php-format
+msgid ""
+"This value is interpreted using %1$sstrftime%2$s, so you can use time "
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
+msgstr ""
+"Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
+"utiliser des chaînes de format d'heure. Ces transformations additionnelles "
+"vont se produire: %3$s. Tout autre texte sera conservé tel quel."
 
 #: libraries/display_export.lib.php:202 libraries/messages.inc.php:339
 msgid "remember template"
@@ -1812,6 +1940,15 @@ msgstr "Fichier à importer"
 #: libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr "Emplacement du fichier texte"
+
+#: libraries/display_import.lib.php:148 libraries/messages.inc.php:1211
+msgid "File uploads are not allowed on this server."
+msgstr "Les téléchargements vers ce serveur ne sont pas permis."
+
+#: libraries/display_import.lib.php:163 libraries/messages.inc.php:1243
+#: libraries/sql_query_form.lib.php:533 tbl_change.php:1028
+msgid "The directory you set for upload work cannot be reached"
+msgstr "Le répertoire de transfert est inaccessible"
 
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:1244
 #: libraries/sql_query_form.lib.php:536 tbl_change.php:1031
@@ -1960,6 +2097,20 @@ msgstr "Supprimer"
 #: libraries/display_tbl.lib.php:1929 libraries/messages.inc.php:857
 msgid "in query"
 msgstr "dans la requête"
+
+#: libraries/display_tbl.lib.php:1947 libraries/messages.inc.php:889
+msgid "Showing rows"
+msgstr "Affichage des enregistrements"
+
+#: libraries/display_tbl.lib.php:1957 libraries/messages.inc.php:1121
+msgid "total"
+msgstr "total"
+
+#: libraries/display_tbl.lib.php:1965 libraries/messages.inc.php:735
+#: sql.php:524
+#, php-format
+msgid "Query took %01.4f sec"
+msgstr "Traitement en %01.4f sec."
 
 #: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
 #: libraries/mult_submits.inc.php:113 querywindow.php:125 querywindow.php:129
@@ -2454,11 +2605,6 @@ msgstr "Erreur lors de l'écriture du fichier sur disque."
 msgid "File upload stopped by extension."
 msgstr "Téléchargement arrêté par l'extension."
 
-#: libraries/File.class.php:849 libraries/File.class.php:961
-#: libraries/messages.inc.php:333
-msgid "File could not be read"
-msgstr "Le fichier n'a pu être lu"
-
 #: libraries/File.class.php:908 libraries/messages.inc.php:327
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
@@ -2466,17 +2612,6 @@ msgid ""
 msgstr ""
 "Erreur lors du déplacement du fichier téléchargé, voir [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-
-#: libraries/File.class.php:1031 libraries/File.class.php:1039
-#: libraries/File.class.php:1055 libraries/File.class.php:1063
-#: libraries/messages.inc.php:1197
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Vous avez tenté d'importer un fichier dont le mode de compression (%s) n'est "
-"pas supporté par votre configuration PHP ou est désactivé dans celle-ci."
 
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:594
@@ -2503,7 +2638,7 @@ msgstr "Généré par"
 msgid "Rows"
 msgstr "Enregistrements"
 
-#: libraries/import.lib.php:150 libraries/messages.inc.php:293
+#: libraries/import.lib.php:150 libraries/messages.inc.php:293 sql.php:520
 #: tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL n'a retourné aucun enregistrement."
@@ -2549,6 +2684,11 @@ msgstr "structure"
 msgid "Go to view"
 msgstr "Aller à la vue"
 
+#: libraries/Index.class.php:428 libraries/messages.inc.php:562
+#: tbl_relation.php:529
+msgid "No index defined!"
+msgstr "Aucun index n'est défini!"
+
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
@@ -2584,6 +2724,15 @@ msgstr "La clé primaire a été effacée"
 #, php-format
 msgid "Index %s has been dropped"
 msgstr "L'index %s a été effacé"
+
+#: libraries/Index.class.php:576 libraries/messages.inc.php:420
+#, php-format
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
+"Les index %1$s et %2$s semblent identiques et l'un d'eux pourrait être "
+"supprimé."
 
 #: libraries/List_Database.class.php:431 libraries/messages.inc.php:226
 #: libraries/server_links.inc.php:41 server_databases.php:88
@@ -2714,7 +2863,7 @@ msgstr "Ajouter à l'index&nbsp;%s&nbsp;colonne(s)"
 msgid "Add a new User"
 msgstr "Ajouter un utilisateur"
 
-#: libraries/messages.inc.php:51
+#: libraries/messages.inc.php:51 server_privileges.php:931
 msgid "You have added a new user."
 msgstr "Vous avez ajouté un utilisateur"
 
@@ -2903,10 +3052,6 @@ msgstr "Télécharger vers le dépôt BLOB"
 msgid "Let every user access this bookmark"
 msgstr "Signet visible pour les autres utilisateurs"
 
-#: libraries/messages.inc.php:110
-msgid "The bookmark has been deleted."
-msgstr "Le signet a été effacé."
-
 #: libraries/messages.inc.php:111 sql.php:671
 msgid "Label"
 msgstr "Intitulé"
@@ -2949,17 +3094,7 @@ msgstr " «bzippé »"
 msgid "Calendar"
 msgstr "Calendrier"
 
-#: libraries/messages.inc.php:132
-msgid "Could not load export plugins, please check your installation!"
-msgstr "Erreur lors du chargement des modules d'exportation!"
-
-#: libraries/messages.inc.php:133
-msgid "Could not load import plugins, please check your installation!"
-msgstr ""
-"Chargement impossible des greffons d'importation, veuillez vérifier votre "
-"installation!"
-
-#: libraries/messages.inc.php:137
+#: libraries/messages.inc.php:137 tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
 msgstr "La clé ne peut être renommée PRIMARY!"
 
@@ -3082,11 +3217,6 @@ msgstr "Les coordonnées de la table %s n'ont pas été configurées"
 msgid "Connections"
 msgstr "Connexions"
 
-#: libraries/messages.inc.php:186
-#, php-format
-msgid "Database %s has been copied to %s"
-msgstr "La base de données %s a été copiée sur %s"
-
 #: libraries/messages.inc.php:187 tbl_operations.php:509
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Copier la table vers (base<b>.</b>table) :"
@@ -3108,7 +3238,7 @@ msgstr "Connexion à la source impossible"
 msgid "Could not connect to the target"
 msgstr "Connexion à la cible impossible"
 
-#: libraries/messages.inc.php:192
+#: libraries/messages.inc.php:192 server_processlist.php:24
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -3207,18 +3337,9 @@ msgstr "tchèque-slovaque"
 msgid "Danish"
 msgstr "danois"
 
-#: libraries/messages.inc.php:221 tbl_create.php:54
-msgid "The database name is empty!"
-msgstr "Le nom de la base de données est vide!"
-
 #: libraries/messages.inc.php:222
 msgid "Database export options"
 msgstr "Options d'exportation"
-
-#: libraries/messages.inc.php:223
-#, php-format
-msgid "Database %1$s has been created."
-msgstr "La base de données %1$s a été créée."
 
 #: libraries/messages.inc.php:225 server_synchronize.php:122
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
@@ -3226,7 +3347,7 @@ msgstr "La base de données %1$s a été créée."
 msgid "'%s' database does not exist."
 msgstr "La base de données «%s» n'existe pas."
 
-#: libraries/messages.inc.php:227
+#: libraries/messages.inc.php:227 server_databases.php:63
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "%s bases de données ont été supprimées."
@@ -3250,7 +3371,7 @@ msgstr "Désactiver les statistiques"
 msgid "Enable Statistics"
 msgstr "Activer les statistiques"
 
-#: libraries/messages.inc.php:232
+#: libraries/messages.inc.php:232 server_databases.php:366
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -3297,7 +3418,7 @@ msgstr "Défragmenter la table"
 msgid "Use delayed inserts"
 msgstr "Insertions avec délais (DELAYED)"
 
-#: libraries/messages.inc.php:253
+#: libraries/messages.inc.php:253 server_privileges.php:1243
 msgid "No users selected for deleting!"
 msgstr "Aucun utilisateur n'a été choisi en vue de le détruire!"
 
@@ -3513,34 +3634,11 @@ msgstr ""
 "Le fichier %s existe déjà sur le serveur, veuillez changer le nom, ou cocher "
 "l'option Écraser"
 
-#: libraries/messages.inc.php:334
-msgid "database name"
-msgstr "nom de base de données"
-
-#: libraries/messages.inc.php:335
-msgid "server name"
-msgstr "nom de serveur"
-
-#: libraries/messages.inc.php:336
-msgid "table name"
-msgstr "nom de table"
-
-#: libraries/messages.inc.php:337
-#, php-format
-msgid ""
-"This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
-msgstr ""
-"Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
-"utiliser des chaînes de format d'heure. Ces transformations additionnelles "
-"vont se produire: %3$s. Tout autre texte sera conservé tel quel."
-
 #: libraries/messages.inc.php:340 server_binlog.php:136
 msgid "Files"
 msgstr "Fichiers"
 
-#: libraries/messages.inc.php:342
+#: libraries/messages.inc.php:342 server_privileges.php:1597
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -3565,7 +3663,7 @@ msgstr "Recharger la table ( «FLUSH »)"
 msgid "Flush (close) all tables"
 msgstr "Fermer toutes les tables"
 
-#: libraries/messages.inc.php:347
+#: libraries/messages.inc.php:347 tbl_relation.php:279
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -3751,15 +3849,6 @@ msgstr "Excel 97-2003 XLS Workbook"
 msgid "Excel 2007 XLSX Workbook"
 msgstr "Excel 2007 XLSX Workbook"
 
-#: libraries/messages.inc.php:420
-#, php-format
-msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
-msgstr ""
-"Les index %1$s et %2$s semblent identiques et l'un d'eux pourrait être "
-"supprimé."
-
 #: libraries/messages.inc.php:422 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
 #: tbl_printview.php:326 tbl_structure.php:31 tbl_structure.php:154
@@ -3796,7 +3885,7 @@ msgstr ""
 msgid "Insert as new row"
 msgstr "Sauvegarder un nouvel enregistrement"
 
-#: libraries/messages.inc.php:437
+#: libraries/messages.inc.php:437 sql.php:496
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identifiant de l'enregistrement inséré : %1$d"
@@ -4128,20 +4217,9 @@ msgstr "Afficher les processus"
 msgid "No databases"
 msgstr "Aucune base de données"
 
-#: libraries/messages.inc.php:554
+#: libraries/messages.inc.php:554 server_databases.php:52
 msgid "No databases selected."
 msgstr "Aucune base de données n'a été sélectionnée."
-
-#: libraries/messages.inc.php:555
-msgid ""
-"No data was received to import. Either no file name was submitted, or the "
-"file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
-msgstr ""
-"Aucune données n'a été reçu en vue de l'importation. Aucun nom de fichier "
-"n'a été fourni, ou encore la taille du fichier a dépassé la limite permise "
-"par votre configuration de PHP. Voir [a@./Documentation."
-"html#faq1_16@Documentation]FAQ 1.16[/a]"
 
 #: libraries/messages.inc.php:556 libraries/relation.lib.php:1173
 msgid "no description"
@@ -4158,15 +4236,11 @@ msgstr ""
 msgid "No files found inside ZIP archive!"
 msgstr "Aucun fichier présent dans l'archive ZIP!"
 
-#: libraries/messages.inc.php:562 tbl_relation.php:529
-msgid "No index defined!"
-msgstr "Aucun index n'est défini!"
-
-#: libraries/messages.inc.php:563
+#: libraries/messages.inc.php:563 tbl_indexes.php:91
 msgid "No index parts defined!"
 msgstr "Aucune colonne n'a été définie pour cet index!"
 
-#: libraries/messages.inc.php:564
+#: libraries/messages.inc.php:564 libraries/mult_submits.inc.php:435
 msgid "No change"
 msgstr "Pas de modifications"
 
@@ -4186,7 +4260,7 @@ msgstr ""
 "Le serveur web n'a pas les permissions nécessaires pour enregistrer le "
 "fichier %s."
 
-#: libraries/messages.inc.php:573
+#: libraries/messages.inc.php:573 user_password.php:54
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Vous n'êtes pas autorisé à accéder à cette page"
 
@@ -4223,7 +4297,8 @@ msgstr "non présent"
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "La table <b>%s</b> est absente ou non définie dans %s"
 
-#: libraries/messages.inc.php:582 server_privileges.php:2166
+#: libraries/messages.inc.php:582 server_privileges.php:804
+#: server_privileges.php:2166
 msgid "No user(s) found."
 msgstr "Il n'y a aucun utilisateur"
 
@@ -4270,7 +4345,7 @@ msgstr "Gestion des partitions"
 msgid "Partition %s"
 msgstr "Partition %s"
 
-#: libraries/messages.inc.php:614
+#: libraries/messages.inc.php:614 server_privileges.php:1212
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Le mot de passe de %s a été changé."
@@ -4376,11 +4451,11 @@ msgstr "polonais"
 msgid "Port"
 msgstr "Port"
 
-#: libraries/messages.inc.php:675
+#: libraries/messages.inc.php:675 tbl_indexes.php:67
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Le nom d'une clé primaire doit être «PRIMARY»!"
 
-#: libraries/messages.inc.php:676
+#: libraries/messages.inc.php:676 tbl_indexes.php:184
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr "(«PRIMARY» <b>doit et ne peut être</b> que le nom d'une clé primaire!)"
@@ -4596,7 +4671,7 @@ msgstr "Permission de changer des données."
 msgid "No privileges."
 msgstr "Pas de privilèges"
 
-#: libraries/messages.inc.php:718
+#: libraries/messages.inc.php:718 server_privileges.php:1296
 msgid "The privileges were reloaded successfully."
 msgstr "Les privilèges ont été rechargés."
 
@@ -4639,11 +4714,6 @@ msgstr ""
 "<b>Statistiques sur les requêtes</b>: Depuis son démarrage, %s requêtes ont "
 "été envoyées au serveur."
 
-#: libraries/messages.inc.php:735
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "Traitement en %01.4f sec."
-
 #: libraries/messages.inc.php:736 server_status.php:554
 msgid "Query type"
 msgstr "Type de requête"
@@ -4671,15 +4741,6 @@ msgstr "Vérifier l'intégrité référentielle"
 #: libraries/messages.inc.php:748 pdf_schema.php:1033 pdf_schema.php:1142
 msgid "Relational schema"
 msgstr "Schéma relationnel"
-
-#: libraries/messages.inc.php:750 pdf_schema.php:34
-#, php-format
-msgid ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
-msgstr ""
-"Certaines fonctionnalités ayant trait aux tables reliées sont désactivées. "
-"Pour une analyse du problème, cliquez %sici%s."
 
 #: libraries/messages.inc.php:752 tbl_relation.php:399
 msgid "Relations"
@@ -4719,11 +4780,6 @@ msgstr "Supprimer le partitionnement"
 #: libraries/messages.inc.php:760 server_privileges.php:1575
 msgid "Remove selected users"
 msgstr "Effacer les utilisateurs sélectionnés."
-
-#: libraries/messages.inc.php:761
-#, php-format
-msgid "Database %s has been renamed to %s"
-msgstr "La base de données %s a été renommée en %s"
 
 #: libraries/messages.inc.php:762 libraries/Table.class.php:1132
 #, php-format
@@ -4842,7 +4898,7 @@ msgstr ""
 "Ce serveur n'est pas configuré comme maître dans un processus de "
 "réplication. Désirez-vous le <a href=\"%s\">configurer</a>?"
 
-#: libraries/messages.inc.php:785
+#: libraries/messages.inc.php:785 libraries/replication_gui.lib.php:188
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -4989,7 +5045,7 @@ msgstr "Recommencer l'insertion avec %s lignes"
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Effacer tous les privilèges de ces utilisateurs, puis les effacer."
 
-#: libraries/messages.inc.php:816
+#: libraries/messages.inc.php:816 server_privileges.php:1176
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Vous avez révoqué les privilèges pour %s"
@@ -5157,19 +5213,11 @@ msgstr "Afficher les requêtes complètes"
 msgid "Show/Hide left menu"
 msgstr "Montrer/cacher le menu de gauche"
 
-#: libraries/messages.inc.php:887
-msgid "Showing bookmark"
-msgstr "Affichage du signet"
-
-#: libraries/messages.inc.php:888
+#: libraries/messages.inc.php:888 sql.php:513
 msgid "Showing as PHP code"
 msgstr "Affichage du code PHP"
 
-#: libraries/messages.inc.php:889
-msgid "Showing rows"
-msgstr "Affichage des enregistrements"
-
-#: libraries/messages.inc.php:890
+#: libraries/messages.inc.php:890 sql.php:516
 msgid "Showing SQL query"
 msgstr "Affichage de la requête SQL"
 
@@ -6060,7 +6108,7 @@ msgstr "La table %s existe déjà!"
 msgid "Alter column(s)"
 msgstr "Modifier des colonnes"
 
-#: libraries/messages.inc.php:1076
+#: libraries/messages.inc.php:1076 tbl_alter.php:103 tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "La table %1$s a été modifiée avec succès."
@@ -6079,7 +6127,7 @@ msgstr "Voulez-vous supprimer tous les enregistrements des tables cible?"
 msgid "The table name is empty!"
 msgstr "Le nom de la table est vide"
 
-#: libraries/messages.inc.php:1081
+#: libraries/messages.inc.php:1081 tbl_create.php:249
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "La table %1$s a été créée."
@@ -6202,7 +6250,7 @@ msgstr "Ce serveur"
 msgid "Threads"
 msgstr "Fils d'exécution"
 
-#: libraries/messages.inc.php:1112
+#: libraries/messages.inc.php:1112 server_processlist.php:22
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Le processus %s a été éliminé."
@@ -6215,14 +6263,6 @@ msgstr ""
 "Cependant lors du dernier traitement, aucune section n'a été analysée; ceci "
 "signifie que phpMyAdmin ne pourra terminer cette importation, à moins que la "
 "limite de temps de PHP ne soit augmentée."
-
-#: libraries/messages.inc.php:1115
-msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
-msgstr ""
-"La limite de temps a été atteinte; si vous voulez terminer l'importation, "
-"soumettez à nouveau le même fichier et l'importation continuera."
 
 #: libraries/messages.inc.php:1117 pmd_pdf.php:94
 msgid "to/from page"
@@ -6239,10 +6279,6 @@ msgstr "Bascule agrandir/réduire"
 #: libraries/messages.inc.php:1120 pmd_help.php:27
 msgid "To select relation, click :"
 msgstr "Pour sélectionner un lien, cliquez :"
-
-#: libraries/messages.inc.php:1121
-msgid "total"
-msgstr "total"
 
 #: libraries/messages.inc.php:1123 libraries/tbl_links.inc.php:149
 #, php-format
@@ -6558,7 +6594,7 @@ msgstr "Unicode"
 msgid "unknown"
 msgstr "inconnu"
 
-#: libraries/messages.inc.php:1198
+#: libraries/messages.inc.php:1198 server_privileges.php:1152
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Vous avez modifié les privilèges pour %s."
@@ -6578,20 +6614,6 @@ msgstr ""
 msgid "You should upgrade to %s %s or later."
 msgstr "Vous devriez utiliser %s en version %s ou plus récente."
 
-#: libraries/messages.inc.php:1210
-#, php-format
-msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
-msgstr ""
-"Vous avez probablement tenté de télécharger un fichier trop volumineux. "
-"Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
-"cette limite."
-
-#: libraries/messages.inc.php:1211
-msgid "File uploads are not allowed on this server."
-msgstr "Les téléchargements vers ce serveur ne sont pas permis."
-
 #: libraries/messages.inc.php:1212 tbl_printview.php:314 tbl_structure.php:661
 msgid "Usage"
 msgstr "Espace"
@@ -6606,7 +6628,7 @@ msgstr ""
 msgid "Use Host Table"
 msgstr "Utiliser la table Host"
 
-#: libraries/messages.inc.php:1215
+#: libraries/messages.inc.php:1215 server_privileges.php:848
 #, php-format
 msgid "The user %s already exists!"
 msgstr "L'utilisateur %s existe déjà!"
@@ -6619,7 +6641,7 @@ msgstr "L'utilisateur %s existe déjà!"
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
-#: libraries/messages.inc.php:1218
+#: libraries/messages.inc.php:1218 server_privileges.php:1645
 msgid "The selected user was not found in the privilege table."
 msgstr "L'utilisateur choisi n'existe pas dans la table des privilèges"
 
@@ -6627,7 +6649,7 @@ msgstr "L'utilisateur choisi n'existe pas dans la table des privilèges"
 msgid "User overview"
 msgstr "Vue d'ensemble des utilisateurs"
 
-#: libraries/messages.inc.php:1220
+#: libraries/messages.inc.php:1220 server_privileges.php:1261
 msgid "The selected users have been deleted successfully."
 msgstr "Les utilisateurs sélectionnés ont été effacés."
 
@@ -6690,10 +6712,6 @@ msgstr "<b>Afficher le schéma</b> de la table"
 msgid "VIEW name"
 msgstr "Nom de la vue"
 
-#: libraries/messages.inc.php:1243 tbl_change.php:1028
-msgid "The directory you set for upload work cannot be reached"
-msgstr "Le répertoire de transfert est inaccessible"
-
 #: libraries/messages.inc.php:1245 main.php:205
 msgid "Web server"
 msgstr "Serveur web"
@@ -6710,10 +6728,6 @@ msgstr "Wiki"
 #: libraries/messages.inc.php:1249 server_privileges.php:2138
 msgid "wildcard"
 msgstr "passepartout"
-
-#: libraries/messages.inc.php:1253
-msgid "Wrong username/password. Access denied."
-msgstr "Erreur d'utilisateur/mot de passe. Accès refusé"
 
 #: libraries/messages.inc.php:1255
 msgid ""

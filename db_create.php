@@ -43,7 +43,7 @@ if (! $result) {
     require_once './libraries/header.inc.php';
     require_once './main.php';
 } else {
-    $message = PMA_Message::success('strDatabaseHasBeenCreated');
+    $message = PMA_Message::success(__('Database %1$s has been created.'));
     $message->addParam($new_db);
     $GLOBALS['db'] = $new_db;
 

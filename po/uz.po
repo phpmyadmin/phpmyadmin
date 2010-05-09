@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-09 15:12-0400\n"
+"POT-Creation-Date: 2010-05-09 16:24-0400\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -87,6 +87,11 @@ msgstr "Тавсифи"
 #: libraries/messages.inc.php:1226
 msgid "Use this value"
 msgstr "Ушбу қийматни ишлатиш"
+
+#: db_create.php:46 libraries/messages.inc.php:223
+#, php-format
+msgid "Database %1$s has been created."
+msgstr " %1$s маълумотлар базаси тузилди."
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:240
 msgid "Database comment: "
@@ -204,6 +209,20 @@ msgstr "Барчасини белгилаш"
 msgid "Unselect All"
 msgstr "Белгилашни бекор қилиш"
 
+#: db_operations.php:38 libraries/messages.inc.php:221 tbl_create.php:54
+msgid "The database name is empty!"
+msgstr "Маълумотлар базаси номи бўш!"
+
+#: db_operations.php:236 libraries/messages.inc.php:761
+#, php-format
+msgid "Database %s has been renamed to %s"
+msgstr " `\"%s\"` маълумотлар базасининг номи `\"%s\"` деб ўзгартирилди."
+
+#: db_operations.php:240 libraries/messages.inc.php:186
+#, php-format
+msgid "Database %s has been copied to %s"
+msgstr "\"%s\" маълумотлар базасидан \"%s\" га нусха кўчирилди."
+
 #: db_operations.php:410 libraries/messages.inc.php:244
 msgid "Rename database to"
 msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
@@ -313,6 +332,15 @@ msgstr "Фаоллантириш"
 #: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "Таққослаш"
+
+#: db_operations.php:609 libraries/messages.inc.php:750 pdf_schema.php:34
+#, php-format
+msgid ""
+"The additional features for working with linked tables have been "
+"deactivated. To find out why click %shere%s."
+msgstr ""
+"Алоқадор жадваллар билан ишлаш учун қўшимча имкониятлар мавжуд эмас. "
+"Сабабларини аниқлаш учун %sбу ерга%s босинг."
 
 #: db_operations.php:645 libraries/messages.inc.php:272 pdf_pages.php:528
 msgid "Display PDF schema"
@@ -641,7 +669,8 @@ msgstr "Кузатиш фаол."
 msgid "Tracking is not active."
 msgstr "Кузатиш фаол эмас."
 
-#: db_structure.php:420 libraries/messages.inc.php:1236
+#: db_structure.php:420 libraries/display_tbl.lib.php:1939
+#: libraries/messages.inc.php:1236
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -811,15 +840,77 @@ msgstr "Жадвални кузатиш"
 msgid "Database Log"
 msgstr "База лог файлини"
 
+#: import.php:60 libraries/messages.inc.php:1210
+#, php-format
+msgid ""
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
+msgstr ""
+"Эҳтимол, юкланаётган файл ҳажми жуда катта. Бу муаммони ечишнинг усуллари %"
+"sдокументацияда%s келтирилган."
+
+#: import.php:279 import.php:332 libraries/File.class.php:849
+#: libraries/File.class.php:961 libraries/messages.inc.php:333
+msgid "File could not be read"
+msgstr "Файлни ўқиб бўлмади!!"
+
+#: import.php:287 import.php:296 import.php:315 import.php:324
+#: libraries/File.class.php:1031 libraries/File.class.php:1039
+#: libraries/File.class.php:1055 libraries/File.class.php:1063
+#: libraries/messages.inc.php:1197
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Юкланаётган файл (\"%s\") ёрдамида қисилган. Лекин у дастур тизимда мавжуд "
+"эмас, шунинг учун ушбу файлни импорт қилиб бўлмайди. Агар дастур мавжуд "
+"бўлса, демак у конфигурация вақтида ўчириб қўйилган."
+
+#: import.php:337 libraries/messages.inc.php:555
+msgid ""
+"No data was received to import. Either no file name was submitted, or the "
+"file size exceeded the maximum size permitted by your PHP configuration. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+msgstr ""
+"Импорт қилиш имкони йўқ. Сабаблар: импорт файли танланмаган; импорт "
+"қилинаётган файл ҳажми PHP конфигурацион файлида кўрсатилган максимал "
+"қийматдан катта. Қаранг: [a@./Documentation.html#faq1_16@Documentation]FAQ "
+"1.16[/a]."
+
+#: import.php:372 libraries/display_import.lib.php:24
+#: libraries/messages.inc.php:133
+msgid "Could not load import plugins, please check your installation!"
+msgstr ""
+"Импорт модуллари мавжуд эмас! Ўрнатилган phpMyAdmin нусхасининг libraries/"
+"export каталогини текширинг."
+
+#: import.php:397 libraries/messages.inc.php:110
+msgid "The bookmark has been deleted."
+msgstr "Хатчўп ўчирилди."
+
+#: import.php:401 libraries/messages.inc.php:887
+msgid "Showing bookmark"
+msgstr "Хатчўпларни кўрсатиш"
+
 #: import.php:403 libraries/messages.inc.php:109
 #, php-format
 msgid "Bookmark %s created"
 msgstr "\"%s\" хатчўпи тузилди"
 
-#: import.php:409 libraries/messages.inc.php:415
+#: import.php:409 import.php:415 libraries/messages.inc.php:415
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Импорт муваффақиятли тугатилди, бажарилган сўровлар сони: %d."
+
+#: import.php:424 libraries/messages.inc.php:1115
+msgid ""
+"Script timeout passed, if you want to finish import, please resubmit same "
+"file and import will resume."
+msgstr ""
+"Чегараланган вақт бўлди. Агар импорт жараёнини якунламоқчи бўлсангиз, унда "
+"ўша файлни танлаган ҳолда уни қайта ишга туширинг ва жараён узилган жойдан "
+"бошлаб давом этади."
 
 #: index.php:190 libraries/messages.inc.php:561
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -838,7 +929,8 @@ msgstr "Танлаш учун сичқонча тугмасини босинг"
 msgid "Click to unselect"
 msgstr "Танлашни бекор қилиш учун сичқонча тугмасини босинг"
 
-#: js/messages.php:27 libraries/messages.inc.php:558 sql.php:89
+#: js/messages.php:27 libraries/import.lib.php:103
+#: libraries/messages.inc.php:558 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" (маълумотлар базасини ўчириш) буйруғи ўчирилган."
 
@@ -880,10 +972,12 @@ msgid "The user name is empty!"
 msgstr "Фойдаланувчи номи белгиланмаган!"
 
 #: js/messages.php:44 libraries/messages.inc.php:615
+#: server_privileges.php:1197 user_password.php:70
 msgid "The password is empty!"
 msgstr "Парол белгиланмаган!"
 
 #: js/messages.php:45 libraries/messages.inc.php:617
+#: server_privileges.php:1195 user_password.php:73
 msgid "The passwords aren't the same!"
 msgstr "Киритилган пароллар бир хил эмас!"
 
@@ -1307,7 +1401,8 @@ msgstr "Парол:"
 msgid "Server Choice"
 msgstr "Серверни танланг"
 
-#: libraries/auth/cookie.auth.lib.php:320 libraries/messages.inc.php:185
+#: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
+#: libraries/messages.inc.php:185
 msgid "Cookies must be enabled past this point."
 msgstr "Браузерда \"cookies\" фаоллаштирилган бўлиши шарт."
 
@@ -1332,6 +1427,10 @@ msgstr ""
 #: libraries/auth/signon.auth.lib.php:191 libraries/messages.inc.php:134
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL серверига уланиб бўлмади"
+
+#: libraries/auth/http.auth.lib.php:70 libraries/messages.inc.php:1253
+msgid "Wrong username/password. Access denied."
+msgstr "Киритилган маълумотлар нотўғри. Кириш мумкин эмас."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #: libraries/messages.inc.php:1065
@@ -1467,11 +1566,12 @@ msgstr "Юборилди"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
-#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
-#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
-#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
-#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/dbg/setup.php:25
+#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
+#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
+#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
+#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
+#: setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Документация"
 
@@ -1535,7 +1635,7 @@ msgid "Skip Validate SQL"
 msgstr "SQL синтаксиси текширувини олиб ташлаш"
 
 #: libraries/common.lib.php:1245 libraries/messages.inc.php:1228
-#: setup/lib/messages.inc.php:356
+#: setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
 msgstr "SQL тўғрилигини текшириш"
 
@@ -1592,7 +1692,8 @@ msgstr ""
 msgid "Font size"
 msgstr "Шрифт ўлчами"
 
-#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#: libraries/core.lib.php:286 libraries/dbg/setup.php:22
+#: libraries/messages.inc.php:135
 #, php-format
 msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
@@ -1759,6 +1860,7 @@ msgid "Create"
 msgstr "Тузиш"
 
 #: libraries/display_create_database.lib.php:40 libraries/messages.inc.php:572
+#: server_privileges.php:74 server_privileges.php:1388
 msgid "No Privileges"
 msgstr "Привилегиялар йўқ"
 
@@ -1774,6 +1876,12 @@ msgstr "\"%s\" маълумотлар базасида янги жадвал т�
 #: libraries/display_create_table.lib.php:57 libraries/messages.inc.php:585
 msgid "Number of fields"
 msgstr "Майдонлар сони "
+
+#: libraries/display_export.lib.php:42 libraries/messages.inc.php:132
+msgid "Could not load export plugins, please check your installation!"
+msgstr ""
+"Экспорт модуллари мавжуд эмас! Ўрнатилган phpMyAdmin нусхасининг libraries/"
+"export каталогини текширинг."
 
 #: libraries/display_export.lib.php:107 libraries/messages.inc.php:285
 #, php-format
@@ -1802,6 +1910,29 @@ msgstr "Мавжуд файл(лар) устидан ёзиш"
 #: libraries/display_export.lib.php:148 libraries/messages.inc.php:338
 msgid "File name template"
 msgstr "Файл номи шаблони"
+
+#: libraries/display_export.lib.php:152 libraries/messages.inc.php:335
+msgid "server name"
+msgstr "сервер номи"
+
+#: libraries/display_export.lib.php:155 libraries/messages.inc.php:334
+msgid "database name"
+msgstr "маълумотлар базаси номи"
+
+#: libraries/display_export.lib.php:158 libraries/messages.inc.php:336
+msgid "table name"
+msgstr "жадвал номи"
+
+#: libraries/display_export.lib.php:162 libraries/messages.inc.php:337
+#, php-format
+msgid ""
+"This value is interpreted using %1$sstrftime%2$s, so you can use time "
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
+msgstr ""
+"Қиймат %1$sstrftime%2$s функцияси билан қайта ишланган, шунинг учун ҳозирги "
+"вақт ва санани қўйиш мумкин. Қўшимча равишда қуйидагилар ишлатилиши мумкин: %"
+"3$s. Матннинг бошқа қисмлари ўзгаришсиз қолади."
 
 #: libraries/display_export.lib.php:202 libraries/messages.inc.php:339
 msgid "remember template"
@@ -1878,6 +2009,15 @@ msgstr "Импорт қилинаётган файл "
 #: libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr "Файлни танлаш"
+
+#: libraries/display_import.lib.php:148 libraries/messages.inc.php:1211
+msgid "File uploads are not allowed on this server."
+msgstr "Файлларни серверга юклаб бўлмади."
+
+#: libraries/display_import.lib.php:163 libraries/messages.inc.php:1243
+#: libraries/sql_query_form.lib.php:533 tbl_change.php:1028
+msgid "The directory you set for upload work cannot be reached"
+msgstr "Кўрсатилган каталокка юклаб бўлмади"
 
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:1244
 #: libraries/sql_query_form.lib.php:536 tbl_change.php:1031
@@ -2027,6 +2167,20 @@ msgstr "Тугатиш"
 #: libraries/display_tbl.lib.php:1929 libraries/messages.inc.php:857
 msgid "in query"
 msgstr "сўров бўйича"
+
+#: libraries/display_tbl.lib.php:1947 libraries/messages.inc.php:889
+msgid "Showing rows"
+msgstr "Ёзувларни кўрсатиш"
+
+#: libraries/display_tbl.lib.php:1957 libraries/messages.inc.php:1121
+msgid "total"
+msgstr "жами"
+
+#: libraries/display_tbl.lib.php:1965 libraries/messages.inc.php:735
+#: sql.php:524
+#, php-format
+msgid "Query took %01.4f sec"
+msgstr "Сўров %01.4f секунд вақт олди"
 
 #: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
 #: libraries/mult_submits.inc.php:113 querywindow.php:125 querywindow.php:129
@@ -2516,11 +2670,6 @@ msgstr "Файлни дискка ёзишдахатолик юз берди."
 msgid "File upload stopped by extension."
 msgstr "Файлнинг юкланиши унинг кенгайтмаси сабали тўхтатилди."
 
-#: libraries/File.class.php:849 libraries/File.class.php:961
-#: libraries/messages.inc.php:333
-msgid "File could not be read"
-msgstr "Файлни ўқиб бўлмади!!"
-
 #: libraries/File.class.php:908 libraries/messages.inc.php:327
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
@@ -2528,18 +2677,6 @@ msgid ""
 msgstr ""
 "Юкланган файл жойини ўзгартиришда хатолик, [a@./Documentation."
 "html#faq1_11@Documentation]\"FAQ 1.11\"[/a]га қаранг"
-
-#: libraries/File.class.php:1031 libraries/File.class.php:1039
-#: libraries/File.class.php:1055 libraries/File.class.php:1063
-#: libraries/messages.inc.php:1197
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Юкланаётган файл (\"%s\") ёрдамида қисилган. Лекин у дастур тизимда мавжуд "
-"эмас, шунинг учун ушбу файлни импорт қилиб бўлмайди. Агар дастур мавжуд "
-"бўлса, демак у конфигурация вақтида ўчириб қўйилган."
 
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:594
@@ -2566,7 +2703,7 @@ msgstr "Тузилган"
 msgid "Rows"
 msgstr "Қаторларсони"
 
-#: libraries/import.lib.php:150 libraries/messages.inc.php:293
+#: libraries/import.lib.php:150 libraries/messages.inc.php:293 sql.php:520
 #: tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL бўш натижа берди (яъни нольта сатр)."
@@ -2612,6 +2749,11 @@ msgstr "тузилиш"
 msgid "Go to view"
 msgstr "Ушбу кўринишга ўтиш"
 
+#: libraries/Index.class.php:428 libraries/messages.inc.php:562
+#: tbl_relation.php:529
+msgid "No index defined!"
+msgstr "Индекс белгиланмаган!"
+
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
@@ -2647,6 +2789,13 @@ msgstr "Бирламчи калит ўчирилди"
 #, php-format
 msgid "Index %s has been dropped"
 msgstr " \"%s\" индекси ўчирилди"
+
+#: libraries/Index.class.php:576 libraries/messages.inc.php:420
+#, php-format
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr " %1$s ва %2$s индекслари бир хил, улардан бирини ўчириш мумкин."
 
 #: libraries/List_Database.class.php:431 libraries/messages.inc.php:226
 #: libraries/server_links.inc.php:41 server_databases.php:88
@@ -2780,7 +2929,7 @@ msgstr " \"%s\" майдон(лар)ини индексга қўшиш"
 msgid "Add a new User"
 msgstr "Янги фойдаланувчи қўшиш"
 
-#: libraries/messages.inc.php:51
+#: libraries/messages.inc.php:51 server_privileges.php:931
 msgid "You have added a new user."
 msgstr "Сиз янги фойдаланувчи қўшдингиз."
 
@@ -2972,10 +3121,6 @@ msgstr "BLOB омборига юклаш"
 msgid "Let every user access this bookmark"
 msgstr "Барча фойдаланувчиларга рухсат бериш"
 
-#: libraries/messages.inc.php:110
-msgid "The bookmark has been deleted."
-msgstr "Хатчўп ўчирилди."
-
 #: libraries/messages.inc.php:111 sql.php:671
 msgid "Label"
 msgstr "Хатчўп белгиси"
@@ -3018,19 +3163,7 @@ msgstr "bzip ёрдамида сиқилган"
 msgid "Calendar"
 msgstr "Тақвим"
 
-#: libraries/messages.inc.php:132
-msgid "Could not load export plugins, please check your installation!"
-msgstr ""
-"Экспорт модуллари мавжуд эмас! Ўрнатилган phpMyAdmin нусхасининг libraries/"
-"export каталогини текширинг."
-
-#: libraries/messages.inc.php:133
-msgid "Could not load import plugins, please check your installation!"
-msgstr ""
-"Импорт модуллари мавжуд эмас! Ўрнатилган phpMyAdmin нусхасининг libraries/"
-"export каталогини текширинг."
-
-#: libraries/messages.inc.php:137
+#: libraries/messages.inc.php:137 tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
 msgstr "Индексни \"PRIMARY\"га қайта номлаб бўлмади!"
 
@@ -3151,11 +3284,6 @@ msgstr " \"%s\" жадвалининг координаталарини ўзга
 msgid "Connections"
 msgstr "Уланишлар"
 
-#: libraries/messages.inc.php:186
-#, php-format
-msgid "Database %s has been copied to %s"
-msgstr "\"%s\" маълумотлар базасидан \"%s\" га нусха кўчирилди."
-
 #: libraries/messages.inc.php:187 tbl_operations.php:509
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Жадвалдан (маълумотлар омбори<b>.</b>жадвал) га нусха кўчириш:"
@@ -3177,7 +3305,7 @@ msgstr "Манбага уланиб бўлмади"
 msgid "Could not connect to the target"
 msgstr "Нишонга уланиб бўлмади"
 
-#: libraries/messages.inc.php:192
+#: libraries/messages.inc.php:192 server_processlist.php:24
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -3278,18 +3406,9 @@ msgstr "Чехословакча"
 msgid "Danish"
 msgstr "Данияча"
 
-#: libraries/messages.inc.php:221 tbl_create.php:54
-msgid "The database name is empty!"
-msgstr "Маълумотлар базаси номи бўш!"
-
 #: libraries/messages.inc.php:222
 msgid "Database export options"
 msgstr "Маълумотлар базаси экспорт параметрлари"
-
-#: libraries/messages.inc.php:223
-#, php-format
-msgid "Database %1$s has been created."
-msgstr " %1$s маълумотлар базаси тузилди."
 
 #: libraries/messages.inc.php:225 server_synchronize.php:122
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
@@ -3297,7 +3416,7 @@ msgstr " %1$s маълумотлар базаси тузилди."
 msgid "'%s' database does not exist."
 msgstr "'%s' номли база мавжуд эмас."
 
-#: libraries/messages.inc.php:227
+#: libraries/messages.inc.php:227 server_databases.php:63
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "\"%s\" маълумотлар базаси муваффақиятли ўчирилди."
@@ -3321,7 +3440,7 @@ msgstr "Статискани ўчириш"
 msgid "Enable Statistics"
 msgstr "Статискани ёқиш"
 
-#: libraries/messages.inc.php:232
+#: libraries/messages.inc.php:232 server_databases.php:366
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -3368,7 +3487,7 @@ msgstr "Жадвални дефрагментациялаш"
 msgid "Use delayed inserts"
 msgstr "Кечиктирилган қўйиш (DELAYED INSERTS) дан фойдаланиш"
 
-#: libraries/messages.inc.php:253
+#: libraries/messages.inc.php:253 server_privileges.php:1243
 msgid "No users selected for deleting!"
 msgstr "Ўчириш лозим бўлган фойдаланувчилар танланмаган!"
 
@@ -3582,34 +3701,11 @@ msgstr ""
 "\"%s\" файли серверда мавжуд, унинг номини ўзгартиринг ёки қайта ёзиш "
 "параметрини ёқинг."
 
-#: libraries/messages.inc.php:334
-msgid "database name"
-msgstr "маълумотлар базаси номи"
-
-#: libraries/messages.inc.php:335
-msgid "server name"
-msgstr "сервер номи"
-
-#: libraries/messages.inc.php:336
-msgid "table name"
-msgstr "жадвал номи"
-
-#: libraries/messages.inc.php:337
-#, php-format
-msgid ""
-"This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
-msgstr ""
-"Қиймат %1$sstrftime%2$s функцияси билан қайта ишланган, шунинг учун ҳозирги "
-"вақт ва санани қўйиш мумкин. Қўшимча равишда қуйидагилар ишлатилиши мумкин: %"
-"3$s. Матннинг бошқа қисмлари ўзгаришсиз қолади."
-
 #: libraries/messages.inc.php:340 server_binlog.php:136
 msgid "Files"
 msgstr "Файллар сони "
 
-#: libraries/messages.inc.php:342
+#: libraries/messages.inc.php:342 server_privileges.php:1597
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -3634,7 +3730,7 @@ msgstr "Жадвал кешини янгилаш (\"FLUSH\")"
 msgid "Flush (close) all tables"
 msgstr "Барча жадвалларни ёпиш"
 
-#: libraries/messages.inc.php:347
+#: libraries/messages.inc.php:347 tbl_relation.php:279
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -3821,13 +3917,6 @@ msgstr "Excel 97-2003 XLS иш китоби"
 msgid "Excel 2007 XLSX Workbook"
 msgstr "Excel 2007 XLSX иш китоби"
 
-#: libraries/messages.inc.php:420
-#, php-format
-msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
-msgstr " %1$s ва %2$s индекслари бир хил, улардан бирини ўчириш мумкин."
-
 #: libraries/messages.inc.php:422 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
 #: tbl_printview.php:326 tbl_structure.php:31 tbl_structure.php:154
@@ -3864,7 +3953,7 @@ msgstr ""
 msgid "Insert as new row"
 msgstr "Ёзув киритиш"
 
-#: libraries/messages.inc.php:437
+#: libraries/messages.inc.php:437 sql.php:496
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Киритилган қатор идентификатори: %1$d"
@@ -4197,20 +4286,9 @@ msgstr "Жараёнлар рўйхати"
 msgid "No databases"
 msgstr "Маълумотлар базаси мавжуд эмас"
 
-#: libraries/messages.inc.php:554
+#: libraries/messages.inc.php:554 server_databases.php:52
 msgid "No databases selected."
 msgstr "Биронта ҳам маълумотлар базаси танланмаган."
-
-#: libraries/messages.inc.php:555
-msgid ""
-"No data was received to import. Either no file name was submitted, or the "
-"file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
-msgstr ""
-"Импорт қилиш имкони йўқ. Сабаблар: импорт файли танланмаган; импорт "
-"қилинаётган файл ҳажми PHP конфигурацион файлида кўрсатилган максимал "
-"қийматдан катта. Қаранг: [a@./Documentation.html#faq1_16@Documentation]FAQ "
-"1.16[/a]."
 
 #: libraries/messages.inc.php:556 libraries/relation.lib.php:1173
 msgid "no description"
@@ -4225,15 +4303,11 @@ msgstr "Ушбу турдаги жадваллар ҳақида қўшимча �
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP-архив ичида файл мавжуд эмас!"
 
-#: libraries/messages.inc.php:562 tbl_relation.php:529
-msgid "No index defined!"
-msgstr "Индекс белгиланмаган!"
-
-#: libraries/messages.inc.php:563
+#: libraries/messages.inc.php:563 tbl_indexes.php:91
 msgid "No index parts defined!"
 msgstr "Индекс қисмлари белгиланмаган!"
 
-#: libraries/messages.inc.php:564
+#: libraries/messages.inc.php:564 libraries/mult_submits.inc.php:435
 msgid "No change"
 msgstr "Ўзгариш йўқ"
 
@@ -4251,7 +4325,7 @@ msgstr "Ушбу формат учун созланадиган параметр
 msgid "The web server does not have permission to save the file %s."
 msgstr "\"%s\" файлини веб-серверга сақлаш учун ҳуқуқлар етарли эмас."
 
-#: libraries/messages.inc.php:573
+#: libraries/messages.inc.php:573 user_password.php:54
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Ушбу саҳифага кириш учун Сизда етарли ҳуқуқ мавжуд эмас!"
 
@@ -4288,7 +4362,8 @@ msgstr "Мавжуд эмас"
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr " <b>\"%s\"</b> жадвали топилмади ёки <b>\"%s\"</b>да ўрнатилмаган"
 
-#: libraries/messages.inc.php:582 server_privileges.php:2166
+#: libraries/messages.inc.php:582 server_privileges.php:804
+#: server_privileges.php:2166
 msgid "No user(s) found."
 msgstr "Биронта ҳам фойдаланувчи топилмади."
 
@@ -4335,7 +4410,7 @@ msgstr "бўлакларга хизмат кўрсатиш"
 msgid "Partition %s"
 msgstr "\"%s\" бўлаги"
 
-#: libraries/messages.inc.php:614
+#: libraries/messages.inc.php:614 server_privileges.php:1212
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "\"%s\" фойдаланувчининг пароли муваффақиятли ўзгартирилди."
@@ -4440,11 +4515,11 @@ msgstr "Полякча"
 msgid "Port"
 msgstr "Порт"
 
-#: libraries/messages.inc.php:675
+#: libraries/messages.inc.php:675 tbl_indexes.php:67
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Бирламчи индекс номи \"PRIMARY\" бўлиши керак!"
 
-#: libraries/messages.inc.php:676
+#: libraries/messages.inc.php:676 tbl_indexes.php:184
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr "(\"PRIMARY\" номи <b>фақат</b> бирламчи индексгаэга бўлиши шарт!)"
@@ -4653,7 +4728,7 @@ msgstr "Маълумотларни ўзгартиришга рухсат бер�
 msgid "No privileges."
 msgstr "Привилегиялар йўқ"
 
-#: libraries/messages.inc.php:718
+#: libraries/messages.inc.php:718 server_privileges.php:1296
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегиялар муваффақиятли қайта юкланди."
 
@@ -4696,11 +4771,6 @@ msgstr ""
 "Сўровлар статискаси: ишга туширилгандан вақтдан бошлаб серверга юборилган "
 "сўровлар сони - \"%s\"."
 
-#: libraries/messages.inc.php:735
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "Сўров %01.4f секунд вақт олди"
-
 #: libraries/messages.inc.php:736 server_status.php:554
 msgid "Query type"
 msgstr "Сўров тури"
@@ -4728,15 +4798,6 @@ msgstr "Маълумотлар яхлитлигини текшириш:"
 #: libraries/messages.inc.php:748 pdf_schema.php:1033 pdf_schema.php:1142
 msgid "Relational schema"
 msgstr "Алоқалар схемаси"
-
-#: libraries/messages.inc.php:750 pdf_schema.php:34
-#, php-format
-msgid ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
-msgstr ""
-"Алоқадор жадваллар билан ишлаш учун қўшимча имкониятлар мавжуд эмас. "
-"Сабабларини аниқлаш учун %sбу ерга%s босинг."
 
 #: libraries/messages.inc.php:752 tbl_relation.php:399
 msgid "Relations"
@@ -4775,11 +4836,6 @@ msgstr "Бўлакларни (PARTITIONS) ўчириш"
 #: libraries/messages.inc.php:760 server_privileges.php:1575
 msgid "Remove selected users"
 msgstr "Белгиланган фойдаланувчиларни ўчириш"
-
-#: libraries/messages.inc.php:761
-#, php-format
-msgid "Database %s has been renamed to %s"
-msgstr " `\"%s\"` маълумотлар базасининг номи `\"%s\"` деб ўзгартирилди."
 
 #: libraries/messages.inc.php:762 libraries/Table.class.php:1132
 #, php-format
@@ -4898,7 +4954,7 @@ msgstr ""
 "Ушбу сервер репликация жараёнида \"бош сервер\" деб конфигурация қилинмаган. "
 "Сиз уни <a href=\"%s\">конфигурация</a> қилмоқчимисиз?"
 
-#: libraries/messages.inc.php:785
+#: libraries/messages.inc.php:785 libraries/replication_gui.lib.php:188
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -5047,7 +5103,7 @@ msgstr ""
 "Фойдаланувчиларнинг барча фаол привилегияларини бекор қилиш, сўнг уларни "
 "ўчириш."
 
-#: libraries/messages.inc.php:816
+#: libraries/messages.inc.php:816 server_privileges.php:1176
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr " \"%s\" фойдаланувчининг привилегиялари бекор қилинди."
@@ -5215,19 +5271,11 @@ msgstr "Сўровларнинг кенгайтирилган кўриниши"
 msgid "Show/Hide left menu"
 msgstr "Чап менюни кўрсатиш/яшириш"
 
-#: libraries/messages.inc.php:887
-msgid "Showing bookmark"
-msgstr "Хатчўпларни кўрсатиш"
-
-#: libraries/messages.inc.php:888
+#: libraries/messages.inc.php:888 sql.php:513
 msgid "Showing as PHP code"
 msgstr "PHP-код сифатида кўрсатиш"
 
-#: libraries/messages.inc.php:889
-msgid "Showing rows"
-msgstr "Ёзувларни кўрсатиш"
-
-#: libraries/messages.inc.php:890
+#: libraries/messages.inc.php:890 sql.php:516
 msgid "Showing SQL query"
 msgstr "SQL-сўровни кўрсатиш"
 
@@ -6121,7 +6169,7 @@ msgstr "\"%s\" номли жадвал мавжуд!"
 msgid "Alter column(s)"
 msgstr "Устун(лар)ни ўзгартириш"
 
-#: libraries/messages.inc.php:1076
+#: libraries/messages.inc.php:1076 tbl_alter.php:103 tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "%1$s жадвали муваффақиятли ўзгартирилди"
@@ -6140,7 +6188,7 @@ msgstr "Нишон жадвалдаги барча олдинги қаторла
 msgid "The table name is empty!"
 msgstr "Жадвал номи кўрсатилмаган!"
 
-#: libraries/messages.inc.php:1081
+#: libraries/messages.inc.php:1081 tbl_create.php:249
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "%1$s жадвали тузилди."
@@ -6261,7 +6309,7 @@ msgstr "Ушбу хост"
 msgid "Threads"
 msgstr "Оқимлар"
 
-#: libraries/messages.inc.php:1112
+#: libraries/messages.inc.php:1112 server_processlist.php:22
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr " \"%s\" жараёни муваффақиятли якунланди."
@@ -6274,15 +6322,6 @@ msgstr ""
 "Охирги ишга тушириш бўлишига қарамасдан, маълумотлар қайта ишланмади. "
 "Одатда, бу ҳол, php-сценарийлар учун ажратилган вақт оширилмагунча "
 "phpMyAdmin дастури импорт жараёнини якунла олмаслигини билдиради."
-
-#: libraries/messages.inc.php:1115
-msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
-msgstr ""
-"Чегараланган вақт бўлди. Агар импорт жараёнини якунламоқчи бўлсангиз, унда "
-"ўша файлни танлаган ҳолда уни қайта ишга туширинг ва жараён узилган жойдан "
-"бошлаб давом этади."
 
 #: libraries/messages.inc.php:1117 pmd_pdf.php:94
 msgid "to/from page"
@@ -6299,10 +6338,6 @@ msgstr "Тескари кўрсатиш"
 #: libraries/messages.inc.php:1120 pmd_help.php:27
 msgid "To select relation, click :"
 msgstr "Алоқани танлаш учун расмда кўрсатилганикаби уланиш нуқтасига босинг:"
-
-#: libraries/messages.inc.php:1121
-msgid "total"
-msgstr "жами"
 
 #: libraries/messages.inc.php:1123 libraries/tbl_links.inc.php:149
 #, php-format
@@ -6620,7 +6655,7 @@ msgstr "Юникод"
 msgid "unknown"
 msgstr "номаълум"
 
-#: libraries/messages.inc.php:1198
+#: libraries/messages.inc.php:1198 server_privileges.php:1152
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr " \"%s\" учун привилегиялар ўзгартирилди."
@@ -6641,19 +6676,6 @@ msgstr ""
 msgid "You should upgrade to %s %s or later."
 msgstr " \"%s\" ни \"%s\" версияга ёки каттароқ версияга янгилаш зарур."
 
-#: libraries/messages.inc.php:1210
-#, php-format
-msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
-msgstr ""
-"Эҳтимол, юкланаётган файл ҳажми жуда катта. Бу муаммони ечишнинг усуллари %"
-"sдокументацияда%s келтирилган."
-
-#: libraries/messages.inc.php:1211
-msgid "File uploads are not allowed on this server."
-msgstr "Файлларни серверга юклаб бўлмади."
-
 #: libraries/messages.inc.php:1212 tbl_printview.php:314 tbl_structure.php:661
 msgid "Usage"
 msgstr "Ишлатилиш"
@@ -6667,7 +6689,7 @@ msgstr "Жадвал ва майдон номларини тескари қўш�
 msgid "Use Host Table"
 msgstr "Хостлар жадвалидан фойдаланиш"
 
-#: libraries/messages.inc.php:1215
+#: libraries/messages.inc.php:1215 server_privileges.php:848
 #, php-format
 msgid "The user %s already exists!"
 msgstr " \"%s\" номли фойдаланувчи мавжуд!"
@@ -6680,7 +6702,7 @@ msgstr " \"%s\" номли фойдаланувчи мавжуд!"
 msgid "User name"
 msgstr "Фойдаланувчи номи"
 
-#: libraries/messages.inc.php:1218
+#: libraries/messages.inc.php:1218 server_privileges.php:1645
 msgid "The selected user was not found in the privilege table."
 msgstr "Белгиланган фойдаланувчи привилегиялар жадвалида топилмади."
 
@@ -6688,7 +6710,7 @@ msgstr "Белгиланган фойдаланувчи привилегияла
 msgid "User overview"
 msgstr "Фойдаланувчилар ҳисобини кўриб чиқиш"
 
-#: libraries/messages.inc.php:1220
+#: libraries/messages.inc.php:1220 server_privileges.php:1261
 msgid "The selected users have been deleted successfully."
 msgstr "Белгиланган фойдаланувчилар муваффақиятли ўчирилди."
 
@@ -6750,10 +6772,6 @@ msgstr "Жадвал дампини (схемасини) намойиш этиш
 msgid "VIEW name"
 msgstr "Ном кўриниши"
 
-#: libraries/messages.inc.php:1243 tbl_change.php:1028
-msgid "The directory you set for upload work cannot be reached"
-msgstr "Кўрсатилган каталокка юклаб бўлмади"
-
 #: libraries/messages.inc.php:1245 main.php:205
 msgid "Web server"
 msgstr "Веб сервер"
@@ -6770,10 +6788,6 @@ msgstr "Вики"
 #: libraries/messages.inc.php:1249 server_privileges.php:2138
 msgid "wildcard"
 msgstr "Гуруҳлаш белгиси"
-
-#: libraries/messages.inc.php:1253
-msgid "Wrong username/password. Access denied."
-msgstr "Киритилган маълумотлар нотўғри. Кириш мумкин эмас."
 
 #: libraries/messages.inc.php:1255
 msgid ""

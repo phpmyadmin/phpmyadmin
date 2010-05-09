@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-09 15:12-0400\n"
+"POT-Creation-Date: 2010-05-09 16:24-0400\n"
 "PO-Revision-Date: 2010-03-12 09:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
@@ -87,6 +87,11 @@ msgstr "說明"
 #: libraries/messages.inc.php:1226
 msgid "Use this value"
 msgstr "使用此值"
+
+#: db_create.php:46 libraries/messages.inc.php:223
+#, fuzzy, php-format
+msgid "Database %1$s has been created."
+msgstr "資料庫 %s 已被刪除"
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:240
 msgid "Database comment: "
@@ -204,6 +209,20 @@ msgstr "全選"
 msgid "Unselect All"
 msgstr "全部取消"
 
+#: db_operations.php:38 libraries/messages.inc.php:221 tbl_create.php:54
+msgid "The database name is empty!"
+msgstr "資料庫名稱並未輸入!!"
+
+#: db_operations.php:236 libraries/messages.inc.php:761
+#, php-format
+msgid "Database %s has been renamed to %s"
+msgstr "資料庫 %s 已更改名稱為 %s"
+
+#: db_operations.php:240 libraries/messages.inc.php:186
+#, php-format
+msgid "Database %s has been copied to %s"
+msgstr "資料庫 %s 已複製到 %s"
+
 #: db_operations.php:410 libraries/messages.inc.php:244
 msgid "Rename database to"
 msgstr "更改資料庫名稱到"
@@ -314,6 +333,13 @@ msgstr "啟動"
 #: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "校對"
+
+#: db_operations.php:609 libraries/messages.inc.php:750 pdf_schema.php:34
+#, php-format
+msgid ""
+"The additional features for working with linked tables have been "
+"deactivated. To find out why click %shere%s."
+msgstr "關聯資料表的附加功能未能啟動, %s請按此%s 查出問題原因."
 
 #: db_operations.php:645 libraries/messages.inc.php:272 pdf_pages.php:528
 msgid "Display PDF schema"
@@ -642,7 +668,8 @@ msgstr ""
 msgid "Tracking is not active."
 msgstr ""
 
-#: db_structure.php:420 libraries/messages.inc.php:1236
+#: db_structure.php:420 libraries/display_tbl.lib.php:1939
+#: libraries/messages.inc.php:1236
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -815,15 +842,63 @@ msgstr "檢查資料表"
 msgid "Database Log"
 msgstr "資料庫"
 
+#: import.php:60 libraries/messages.inc.php:1210
+#, php-format
+msgid ""
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
+msgstr "你正嘗試上載大容量檔案，請查看此 %s文件%s 如何略過此限制."
+
+#: import.php:279 import.php:332 libraries/File.class.php:849
+#: libraries/File.class.php:961 libraries/messages.inc.php:333
+msgid "File could not be read"
+msgstr "讀案無法讀取"
+
+#: import.php:287 import.php:296 import.php:315 import.php:324
+#: libraries/File.class.php:1031 libraries/File.class.php:1039
+#: libraries/File.class.php:1055 libraries/File.class.php:1063
+#: libraries/messages.inc.php:1197
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+
+#: import.php:337 libraries/messages.inc.php:555
+msgid ""
+"No data was received to import. Either no file name was submitted, or the "
+"file size exceeded the maximum size permitted by your PHP configuration. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+msgstr ""
+
+#: import.php:372 libraries/display_import.lib.php:24
+#: libraries/messages.inc.php:133
+msgid "Could not load import plugins, please check your installation!"
+msgstr "無法讀取載入的外掛程式, 請檢查安裝程序!"
+
+#: import.php:397 libraries/messages.inc.php:110
+msgid "The bookmark has been deleted."
+msgstr "書籤已經刪除."
+
+#: import.php:401 libraries/messages.inc.php:887
+msgid "Showing bookmark"
+msgstr "顯示書籤"
+
 #: import.php:403 libraries/messages.inc.php:109
 #, php-format
 msgid "Bookmark %s created"
 msgstr "書籤 %s 已建立"
 
-#: import.php:409 libraries/messages.inc.php:415
+#: import.php:409 import.php:415 libraries/messages.inc.php:415
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "載入成功, 共 %d 句語法已執行."
+
+#: import.php:424 libraries/messages.inc.php:1115
+msgid ""
+"Script timeout passed, if you want to finish import, please resubmit same "
+"file and import will resume."
+msgstr ""
 
 #: index.php:190 libraries/messages.inc.php:561
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -841,7 +916,8 @@ msgstr ""
 msgid "Click to unselect"
 msgstr ""
 
-#: js/messages.php:27 libraries/messages.inc.php:558 sql.php:89
+#: js/messages.php:27 libraries/import.lib.php:103
+#: libraries/messages.inc.php:558 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" 指令已經停用."
 
@@ -881,10 +957,12 @@ msgid "The user name is empty!"
 msgstr "請輸入使用者名稱!"
 
 #: js/messages.php:44 libraries/messages.inc.php:615
+#: server_privileges.php:1197 user_password.php:70
 msgid "The password is empty!"
 msgstr "請輸入密碼!"
 
 #: js/messages.php:45 libraries/messages.inc.php:617
+#: server_privileges.php:1195 user_password.php:73
 msgid "The passwords aren't the same!"
 msgstr "第二次輸入的密碼不同!"
 
@@ -1306,7 +1384,8 @@ msgstr "密碼:"
 msgid "Server Choice"
 msgstr "選擇伺服器"
 
-#: libraries/auth/cookie.auth.lib.php:320 libraries/messages.inc.php:185
+#: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
+#: libraries/messages.inc.php:185
 msgid "Cookies must be enabled past this point."
 msgstr "Cookies 必須啟動才能登入."
 
@@ -1327,6 +1406,10 @@ msgstr "由於已閒置了達 %s 秒, 請重新登入"
 #: libraries/auth/signon.auth.lib.php:191 libraries/messages.inc.php:134
 msgid "Cannot log in to the MySQL server"
 msgstr "無法登入 MySQL 伺服器"
+
+#: libraries/auth/http.auth.lib.php:70 libraries/messages.inc.php:1253
+msgid "Wrong username/password. Access denied."
+msgstr "錯誤的使用者名稱或密碼，拒絕存取"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #: libraries/messages.inc.php:1065
@@ -1453,11 +1536,12 @@ msgstr "zh"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
-#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
-#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
-#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
-#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/dbg/setup.php:25
+#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
+#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
+#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
+#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
+#: setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "說明文件"
 
@@ -1521,7 +1605,7 @@ msgid "Skip Validate SQL"
 msgstr "略過檢查 SQL"
 
 #: libraries/common.lib.php:1245 libraries/messages.inc.php:1228
-#: setup/lib/messages.inc.php:356
+#: setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
 msgstr "檢查 SQL"
 
@@ -1576,7 +1660,8 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#: libraries/core.lib.php:286 libraries/dbg/setup.php:22
+#: libraries/messages.inc.php:135
 #, php-format
 msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
@@ -1737,6 +1822,7 @@ msgid "Create"
 msgstr "建立"
 
 #: libraries/display_create_database.lib.php:40 libraries/messages.inc.php:572
+#: server_privileges.php:74 server_privileges.php:1388
 msgid "No Privileges"
 msgstr "沒有權限"
 
@@ -1752,6 +1838,11 @@ msgstr "建立新資料表於資料庫 %s"
 #: libraries/display_create_table.lib.php:57 libraries/messages.inc.php:585
 msgid "Number of fields"
 msgstr "欄位數目"
+
+#: libraries/display_export.lib.php:42 libraries/messages.inc.php:132
+#, fuzzy
+msgid "Could not load export plugins, please check your installation!"
+msgstr "無法讀取載入的外掛程式, 請檢查安裝程序!"
 
 #: libraries/display_export.lib.php:107 libraries/messages.inc.php:285
 #, php-format
@@ -1780,6 +1871,26 @@ msgstr "覆寫已存在檔案"
 #: libraries/display_export.lib.php:148 libraries/messages.inc.php:338
 msgid "File name template"
 msgstr "檔案名稱樣式"
+
+#: libraries/display_export.lib.php:152 libraries/messages.inc.php:335
+msgid "server name"
+msgstr "伺服器名稱"
+
+#: libraries/display_export.lib.php:155 libraries/messages.inc.php:334
+msgid "database name"
+msgstr "資料庫名稱"
+
+#: libraries/display_export.lib.php:158 libraries/messages.inc.php:336
+msgid "table name"
+msgstr "資料表名稱"
+
+#: libraries/display_export.lib.php:162 libraries/messages.inc.php:337
+#, php-format
+msgid ""
+"This value is interpreted using %1$sstrftime%2$s, so you can use time "
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
+msgstr ""
 
 #: libraries/display_export.lib.php:202 libraries/messages.inc.php:339
 msgid "remember template"
@@ -1851,6 +1962,15 @@ msgstr "載入檔案"
 #: libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr "文字檔案的位置"
+
+#: libraries/display_import.lib.php:148 libraries/messages.inc.php:1211
+msgid "File uploads are not allowed on this server."
+msgstr ""
+
+#: libraries/display_import.lib.php:163 libraries/messages.inc.php:1243
+#: libraries/sql_query_form.lib.php:533 tbl_change.php:1028
+msgid "The directory you set for upload work cannot be reached"
+msgstr "設定之上載目錄錯誤，未能使用"
 
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:1244
 #: libraries/sql_query_form.lib.php:536 tbl_change.php:1031
@@ -1996,6 +2116,20 @@ msgstr "Kill"
 #: libraries/display_tbl.lib.php:1929 libraries/messages.inc.php:857
 msgid "in query"
 msgstr "查詢中"
+
+#: libraries/display_tbl.lib.php:1947 libraries/messages.inc.php:889
+msgid "Showing rows"
+msgstr "顯示記錄"
+
+#: libraries/display_tbl.lib.php:1957 libraries/messages.inc.php:1121
+msgid "total"
+msgstr "總計"
+
+#: libraries/display_tbl.lib.php:1965 libraries/messages.inc.php:735
+#: sql.php:524
+#, php-format
+msgid "Query took %01.4f sec"
+msgstr "查詢需時 %01.4f 秒"
 
 #: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
 #: libraries/mult_submits.inc.php:113 querywindow.php:125 querywindow.php:129
@@ -2447,26 +2581,12 @@ msgstr ""
 msgid "File upload stopped by extension."
 msgstr ""
 
-#: libraries/File.class.php:849 libraries/File.class.php:961
-#: libraries/messages.inc.php:333
-msgid "File could not be read"
-msgstr "讀案無法讀取"
-
 #: libraries/File.class.php:908 libraries/messages.inc.php:327
 #, fuzzy
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr "可能接近. 請參看 FAQ 3.11"
-
-#: libraries/File.class.php:1031 libraries/File.class.php:1039
-#: libraries/File.class.php:1055 libraries/File.class.php:1063
-#: libraries/messages.inc.php:1197
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
 
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:594
@@ -2494,7 +2614,7 @@ msgstr "建立"
 msgid "Rows"
 msgstr "資料列列數"
 
-#: libraries/import.lib.php:150 libraries/messages.inc.php:293
+#: libraries/import.lib.php:150 libraries/messages.inc.php:293 sql.php:520
 #: tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 傳回的查詢結果為空 (原因可能為：沒有找到符合條件的記錄)"
@@ -2540,6 +2660,11 @@ msgstr "結構"
 msgid "Go to view"
 msgstr ""
 
+#: libraries/Index.class.php:428 libraries/messages.inc.php:562
+#: tbl_relation.php:529
+msgid "No index defined!"
+msgstr "沒有已定義的索引!"
+
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
@@ -2576,6 +2701,13 @@ msgstr "主鍵已被刪除"
 #, php-format
 msgid "Index %s has been dropped"
 msgstr "索引 %s 已被刪除"
+
+#: libraries/Index.class.php:576 libraries/messages.inc.php:420
+#, php-format
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
 
 #: libraries/List_Database.class.php:431 libraries/messages.inc.php:226
 #: libraries/server_links.inc.php:41 server_databases.php:88
@@ -2709,7 +2841,7 @@ msgstr "新增 &nbsp;%s&nbsp; 組索引欄"
 msgid "Add a new User"
 msgstr "新增使用者"
 
-#: libraries/messages.inc.php:51
+#: libraries/messages.inc.php:51 server_privileges.php:931
 msgid "You have added a new user."
 msgstr "您已新增了一個新使用者."
 
@@ -2902,10 +3034,6 @@ msgstr ""
 msgid "Let every user access this bookmark"
 msgstr "所有用者可讀取此書籤"
 
-#: libraries/messages.inc.php:110
-msgid "The bookmark has been deleted."
-msgstr "書籤已經刪除."
-
 #: libraries/messages.inc.php:111 sql.php:671
 msgid "Label"
 msgstr "書籤名稱"
@@ -2948,16 +3076,7 @@ msgstr "\"bzipped\""
 msgid "Calendar"
 msgstr "日曆"
 
-#: libraries/messages.inc.php:132
-#, fuzzy
-msgid "Could not load export plugins, please check your installation!"
-msgstr "無法讀取載入的外掛程式, 請檢查安裝程序!"
-
-#: libraries/messages.inc.php:133
-msgid "Could not load import plugins, please check your installation!"
-msgstr "無法讀取載入的外掛程式, 請檢查安裝程序!"
-
-#: libraries/messages.inc.php:137
+#: libraries/messages.inc.php:137 tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
 msgstr "無法將索引更名為 PRIMARY!"
 
@@ -3075,11 +3194,6 @@ msgstr "請設定表格 %s 內的坐標"
 msgid "Connections"
 msgstr "連線"
 
-#: libraries/messages.inc.php:186
-#, php-format
-msgid "Database %s has been copied to %s"
-msgstr "資料庫 %s 已複製到 %s"
-
 #: libraries/messages.inc.php:187 tbl_operations.php:509
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "複製資料表到： (格式為 資料庫名稱<b>.</b>資料表名稱):"
@@ -3101,7 +3215,7 @@ msgstr ""
 msgid "Could not connect to the target"
 msgstr ""
 
-#: libraries/messages.inc.php:192
+#: libraries/messages.inc.php:192 server_processlist.php:24
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -3200,18 +3314,9 @@ msgstr "捷克語"
 msgid "Danish"
 msgstr "丹麥語"
 
-#: libraries/messages.inc.php:221 tbl_create.php:54
-msgid "The database name is empty!"
-msgstr "資料庫名稱並未輸入!!"
-
 #: libraries/messages.inc.php:222
 msgid "Database export options"
 msgstr "資料庫輸出選項"
-
-#: libraries/messages.inc.php:223
-#, fuzzy, php-format
-msgid "Database %1$s has been created."
-msgstr "資料庫 %s 已被刪除"
 
 #: libraries/messages.inc.php:225 server_synchronize.php:122
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
@@ -3219,7 +3324,7 @@ msgstr "資料庫 %s 已被刪除"
 msgid "'%s' database does not exist."
 msgstr ""
 
-#: libraries/messages.inc.php:227
+#: libraries/messages.inc.php:227 server_databases.php:63
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "%s 個資料庫已成功刪除."
@@ -3244,7 +3349,7 @@ msgstr "停止統計數據"
 msgid "Enable Statistics"
 msgstr "啟動統計數據"
 
-#: libraries/messages.inc.php:232
+#: libraries/messages.inc.php:232 server_databases.php:366
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -3288,7 +3393,7 @@ msgstr "整理資料表"
 msgid "Use delayed inserts"
 msgstr "使用延遲式新增"
 
-#: libraries/messages.inc.php:253
+#: libraries/messages.inc.php:253 server_privileges.php:1243
 msgid "No users selected for deleting!"
 msgstr "並未選擇需要刪除之使用者!"
 
@@ -3497,32 +3602,12 @@ msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "檔案 %s 已存在,請更改檔案名稱或選擇「覆寫己存在檔案」選項."
 
-#: libraries/messages.inc.php:334
-msgid "database name"
-msgstr "資料庫名稱"
-
-#: libraries/messages.inc.php:335
-msgid "server name"
-msgstr "伺服器名稱"
-
-#: libraries/messages.inc.php:336
-msgid "table name"
-msgstr "資料表名稱"
-
-#: libraries/messages.inc.php:337
-#, php-format
-msgid ""
-"This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
-msgstr ""
-
 #: libraries/messages.inc.php:340 server_binlog.php:136
 #, fuzzy
 msgid "Files"
 msgstr "欄位"
 
-#: libraries/messages.inc.php:342
+#: libraries/messages.inc.php:342 server_privileges.php:1597
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -3546,7 +3631,7 @@ msgstr "強迫更新資料表 (\"FLUSH\")"
 msgid "Flush (close) all tables"
 msgstr "強迫更新 (關閉) 所有資料表"
 
-#: libraries/messages.inc.php:347
+#: libraries/messages.inc.php:347 tbl_relation.php:279
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -3730,13 +3815,6 @@ msgstr ""
 msgid "Excel 2007 XLSX Workbook"
 msgstr ""
 
-#: libraries/messages.inc.php:420
-#, php-format
-msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
-msgstr ""
-
 #: libraries/messages.inc.php:422 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
 #: tbl_printview.php:326 tbl_structure.php:31 tbl_structure.php:154
@@ -3771,7 +3849,7 @@ msgstr ""
 msgid "Insert as new row"
 msgstr "儲存為新記錄"
 
-#: libraries/messages.inc.php:437
+#: libraries/messages.inc.php:437 sql.php:496
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -4085,16 +4163,9 @@ msgstr "顯示程序 (Process)"
 msgid "No databases"
 msgstr "沒有資料庫"
 
-#: libraries/messages.inc.php:554
+#: libraries/messages.inc.php:554 server_databases.php:52
 msgid "No databases selected."
 msgstr "沒有資料庫選擇."
-
-#: libraries/messages.inc.php:555
-msgid ""
-"No data was received to import. Either no file name was submitted, or the "
-"file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
-msgstr ""
 
 #: libraries/messages.inc.php:556 libraries/relation.lib.php:1173
 msgid "no description"
@@ -4109,15 +4180,11 @@ msgstr "這儲存引擎並無詳細的狀態資料."
 msgid "No files found inside ZIP archive!"
 msgstr "於 ZIP 檔案內找不到任何檔案!"
 
-#: libraries/messages.inc.php:562 tbl_relation.php:529
-msgid "No index defined!"
-msgstr "沒有已定義的索引!"
-
-#: libraries/messages.inc.php:563
+#: libraries/messages.inc.php:563 tbl_indexes.php:91
 msgid "No index parts defined!"
 msgstr "部份索引資料還未定義!"
 
-#: libraries/messages.inc.php:564
+#: libraries/messages.inc.php:564 libraries/mult_submits.inc.php:435
 msgid "No change"
 msgstr "沒有變更"
 
@@ -4136,7 +4203,7 @@ msgstr "這種格式並無選項"
 msgid "The web server does not have permission to save the file %s."
 msgstr "Web 伺服器沒有權限儲存檔案 %s."
 
-#: libraries/messages.inc.php:573
+#: libraries/messages.inc.php:573 user_password.php:54
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "您現在沒有足夠的權限!"
 
@@ -4171,7 +4238,8 @@ msgstr ""
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> 資料表找不到或還未在 %s 設定"
 
-#: libraries/messages.inc.php:582 server_privileges.php:2166
+#: libraries/messages.inc.php:582 server_privileges.php:804
+#: server_privileges.php:2166
 msgid "No user(s) found."
 msgstr "找不到使用者"
 
@@ -4220,7 +4288,7 @@ msgstr "資料表維護"
 msgid "Partition %s"
 msgstr ""
 
-#: libraries/messages.inc.php:614
+#: libraries/messages.inc.php:614 server_privileges.php:1212
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s 的密碼已成功更改."
@@ -4323,11 +4391,11 @@ msgstr "波蘭語"
 msgid "Port"
 msgstr "排序"
 
-#: libraries/messages.inc.php:675
+#: libraries/messages.inc.php:675 tbl_indexes.php:67
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "主鍵的名稱必須稱為 PRIMARY!"
 
-#: libraries/messages.inc.php:676
+#: libraries/messages.inc.php:676 tbl_indexes.php:184
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr "(\"PRIMARY\" <b>必須</b>是主鍵的名稱以及是<b>唯一</b>一組主鍵!)"
@@ -4523,7 +4591,7 @@ msgstr "容許更新數據."
 msgid "No privileges."
 msgstr "沒有權限."
 
-#: libraries/messages.inc.php:718
+#: libraries/messages.inc.php:718 server_privileges.php:1296
 msgid "The privileges were reloaded successfully."
 msgstr "權限已成功重新讀取."
 
@@ -4564,11 +4632,6 @@ msgid ""
 "server."
 msgstr "<b>查詣統計</b>: 當統計啟動後, 共有 %s 個查詢傳送到此伺服器."
 
-#: libraries/messages.inc.php:735
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "查詢需時 %01.4f 秒"
-
 #: libraries/messages.inc.php:736 server_status.php:554
 msgid "Query type"
 msgstr "查詢方式"
@@ -4596,13 +4659,6 @@ msgstr "檢查指示完整性:"
 #: libraries/messages.inc.php:748 pdf_schema.php:1033 pdf_schema.php:1142
 msgid "Relational schema"
 msgstr "關聯概要"
-
-#: libraries/messages.inc.php:750 pdf_schema.php:34
-#, php-format
-msgid ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
-msgstr "關聯資料表的附加功能未能啟動, %s請按此%s 查出問題原因."
 
 #: libraries/messages.inc.php:752 tbl_relation.php:399
 msgid "Relations"
@@ -4641,11 +4697,6 @@ msgstr ""
 #: libraries/messages.inc.php:760 server_privileges.php:1575
 msgid "Remove selected users"
 msgstr "移除已選擇使用者"
-
-#: libraries/messages.inc.php:761
-#, php-format
-msgid "Database %s has been renamed to %s"
-msgstr "資料庫 %s 已更改名稱為 %s"
 
 #: libraries/messages.inc.php:762 libraries/Table.class.php:1132
 #, php-format
@@ -4753,7 +4804,7 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
-#: libraries/messages.inc.php:785
+#: libraries/messages.inc.php:785 libraries/replication_gui.lib.php:188
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -4892,7 +4943,7 @@ msgstr ""
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "廢除使用者所有有效之權限並刪除."
 
-#: libraries/messages.inc.php:816
+#: libraries/messages.inc.php:816 server_privileges.php:1176
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "您已移除這位使用者的權限: %s"
@@ -5050,19 +5101,11 @@ msgstr "顯示完整查詢"
 msgid "Show/Hide left menu"
 msgstr ""
 
-#: libraries/messages.inc.php:887
-msgid "Showing bookmark"
-msgstr "顯示書籤"
-
-#: libraries/messages.inc.php:888
+#: libraries/messages.inc.php:888 sql.php:513
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/messages.inc.php:889
-msgid "Showing rows"
-msgstr "顯示記錄"
-
-#: libraries/messages.inc.php:890
+#: libraries/messages.inc.php:890 sql.php:516
 msgid "Showing SQL query"
 msgstr ""
 
@@ -5821,7 +5864,7 @@ msgstr "資料表 %s 已存在!"
 msgid "Alter column(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1076
+#: libraries/messages.inc.php:1076 tbl_alter.php:103 tbl_indexes.php:98
 #, fuzzy, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "選擇的使用者已成功刪除."
@@ -5840,7 +5883,7 @@ msgstr ""
 msgid "The table name is empty!"
 msgstr "請輸入資料表名稱!"
 
-#: libraries/messages.inc.php:1081
+#: libraries/messages.inc.php:1081 tbl_create.php:249
 #, fuzzy, php-format
 msgid "Table %1$s has been created."
 msgstr "資料表 %s 已被刪除"
@@ -5962,7 +6005,7 @@ msgstr "指定主機"
 msgid "Threads"
 msgstr "線程"
 
-#: libraries/messages.inc.php:1112
+#: libraries/messages.inc.php:1112 server_processlist.php:22
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "指令 %s 已成功中止."
@@ -5971,12 +6014,6 @@ msgstr "指令 %s 已成功中止."
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
-msgstr ""
-
-#: libraries/messages.inc.php:1115
-msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
 msgstr ""
 
 #: libraries/messages.inc.php:1117 pmd_pdf.php:94
@@ -5994,10 +6031,6 @@ msgstr ""
 #: libraries/messages.inc.php:1120 pmd_help.php:27
 msgid "To select relation, click :"
 msgstr ""
-
-#: libraries/messages.inc.php:1121
-msgid "total"
-msgstr "總計"
 
 #: libraries/messages.inc.php:1123 libraries/tbl_links.inc.php:149
 #, php-format
@@ -6288,7 +6321,7 @@ msgstr "統一碼 (Unicode)"
 msgid "unknown"
 msgstr "不詳"
 
-#: libraries/messages.inc.php:1198
+#: libraries/messages.inc.php:1198 server_privileges.php:1152
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "您已經更新了 %s 的權限."
@@ -6307,17 +6340,6 @@ msgstr "請參看說明文件查詢如何更新 Column_comments 資料表"
 msgid "You should upgrade to %s %s or later."
 msgstr "您應該更新到 %s %s 或之後."
 
-#: libraries/messages.inc.php:1210
-#, php-format
-msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
-msgstr "你正嘗試上載大容量檔案，請查看此 %s文件%s 如何略過此限制."
-
-#: libraries/messages.inc.php:1211
-msgid "File uploads are not allowed on this server."
-msgstr ""
-
 #: libraries/messages.inc.php:1212 tbl_printview.php:314 tbl_structure.php:661
 msgid "Usage"
 msgstr "使用"
@@ -6331,7 +6353,7 @@ msgstr "在資料表及欄位使用引號"
 msgid "Use Host Table"
 msgstr "使用主機資料表"
 
-#: libraries/messages.inc.php:1215
+#: libraries/messages.inc.php:1215 server_privileges.php:848
 #, php-format
 msgid "The user %s already exists!"
 msgstr "使用者 %s 己存在!"
@@ -6344,7 +6366,7 @@ msgstr "使用者 %s 己存在!"
 msgid "User name"
 msgstr "使用者名稱"
 
-#: libraries/messages.inc.php:1218
+#: libraries/messages.inc.php:1218 server_privileges.php:1645
 msgid "The selected user was not found in the privilege table."
 msgstr "選擇的使用者在權限資料表內找不到."
 
@@ -6352,7 +6374,7 @@ msgstr "選擇的使用者在權限資料表內找不到."
 msgid "User overview"
 msgstr "使用者一覽"
 
-#: libraries/messages.inc.php:1220
+#: libraries/messages.inc.php:1220 server_privileges.php:1261
 msgid "The selected users have been deleted successfully."
 msgstr "選擇的使用者已成功刪除."
 
@@ -6411,10 +6433,6 @@ msgstr "檢視資料表的備份概要 (dump schema)"
 msgid "VIEW name"
 msgstr ""
 
-#: libraries/messages.inc.php:1243 tbl_change.php:1028
-msgid "The directory you set for upload work cannot be reached"
-msgstr "設定之上載目錄錯誤，未能使用"
-
 #: libraries/messages.inc.php:1245 main.php:205
 msgid "Web server"
 msgstr ""
@@ -6431,10 +6449,6 @@ msgstr ""
 #: libraries/messages.inc.php:1249 server_privileges.php:2138
 msgid "wildcard"
 msgstr "萬用字元"
-
-#: libraries/messages.inc.php:1253
-msgid "Wrong username/password. Access denied."
-msgstr "錯誤的使用者名稱或密碼，拒絕存取"
 
 #: libraries/messages.inc.php:1255
 msgid ""

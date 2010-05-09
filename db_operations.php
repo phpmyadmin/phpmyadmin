@@ -35,7 +35,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
     }
 
     if (!isset($newname) || !strlen($newname)) {
-        $message = PMA_Message::error('strDatabaseEmpty');
+        $message = PMA_Message::error(__('The database name is empty!'));
     } else {
         $sql_query = ''; // in case target db exists
         $_error = false;
@@ -233,11 +233,11 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $sql_query .= "\n" . $local_query;
             PMA_DBI_query($local_query);
 
-            $message = PMA_Message::success('strRenameDatabaseOK');
+            $message = PMA_Message::success(__('Database %s has been renamed to %s'));
             $message->addParam($db);
             $message->addParam($newname);
         } elseif (! $_error)  {
-            $message = PMA_Message::success('strCopyDatabaseOK');
+            $message = PMA_Message::success(__('Database %s has been copied to %s'));
             $message->addParam($db);
             $message->addParam($newname);
         }
@@ -606,7 +606,7 @@ if (!$is_information_schema) {
 
     if ($num_tables > 0
       && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
-        $message = PMA_Message::notice('strRelationNotWorking');
+        $message = PMA_Message::notice(__('The additional features for working with linked tables have been deactivated. To find out why click %shere%s.'));
         $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">', false);
         $message->addParam('</a>', false);
         /* Show error if user has configured something, notice elsewhere */

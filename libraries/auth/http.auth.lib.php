@@ -67,7 +67,7 @@ function PMA_auth()
 <br />
 
     <?php
-    PMA_Message::error('strWrongUser')->display();
+    PMA_Message::error(__('Wrong username/password. Access denied.'))->display();
 
     if (file_exists(CUSTOM_FOOTER_FILE)) {
         require CUSTOM_FOOTER_FILE;

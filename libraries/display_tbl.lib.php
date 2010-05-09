@@ -1936,7 +1936,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
         if (PMA_Table::isView($db, $table)
          && $total == $GLOBALS['cfg']['MaxExactCountViews']) {
-            $message = PMA_Message::notice('strViewHasAtLeast');
+            $message = PMA_Message::notice(__('This view has at least this number of rows. Please refer to %sdocumentation%s.'));
             $message->addParam('[a@./Documentation.html#cfg_MaxExactCount@_blank]');
             $message->addParam('[/a]');
             $message_view_warning = PMA_showHint($message);
@@ -1944,7 +1944,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             $message_view_warning = false;
         }
 
-        $message = PMA_Message::success('strShowingRecords');
+        $message = PMA_Message::success(__('Showing rows'));
         $message->addMessage($_SESSION['tmp_user_values']['pos']);
         if ($message_view_warning) {
             $message->addMessage('...', ' - ');
@@ -1954,7 +1954,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             $message->addMessage($last_shown_rec, ' - ');
             $message->addMessage(' (');
             $message->addMessage($pre_count  . PMA_formatNumber($total, 0));
-            $message->addString('strTotal');
+            $message->addString(__('total'));
             if (!empty($after_count)) {
                 $message->addMessage($after_count);
             }
@@ -1962,7 +1962,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             $message->addMessage(', ', '');
         }
 
-        $messagge_qt = PMA_Message::notice('strQueryTime');
+        $messagge_qt = PMA_Message::notice(__('Query took %01.4f sec'));
         $messagge_qt->addParam($GLOBALS['querytime']);
 
         $message->addMessage($messagge_qt, '');

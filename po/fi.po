@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-09 15:12-0400\n"
+"POT-Creation-Date: 2010-05-09 16:24-0400\n"
 "PO-Revision-Date: 2010-04-30 18:08+0200\n"
 "Last-Translator:  <kajouni@gmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -90,6 +90,11 @@ msgstr "Kuvaus"
 #: libraries/messages.inc.php:1226
 msgid "Use this value"
 msgstr "Käytä tätä arvoa"
+
+#: db_create.php:46 libraries/messages.inc.php:223
+#, php-format
+msgid "Database %1$s has been created."
+msgstr "Tietokanta %1$s on luotu."
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:240
 msgid "Database comment: "
@@ -207,6 +212,20 @@ msgstr "Valitse kaikki"
 msgid "Unselect All"
 msgstr "Poista valinta kaikista"
 
+#: db_operations.php:38 libraries/messages.inc.php:221 tbl_create.php:54
+msgid "The database name is empty!"
+msgstr "Tietokannan nimi on tyhjä!"
+
+#: db_operations.php:236 libraries/messages.inc.php:761
+#, php-format
+msgid "Database %s has been renamed to %s"
+msgstr "Tietokannan %s nimi on nyt %s"
+
+#: db_operations.php:240 libraries/messages.inc.php:186
+#, php-format
+msgid "Database %s has been copied to %s"
+msgstr "Tietokanta %s on kopioitu tietokantaan %s"
+
 #: db_operations.php:410 libraries/messages.inc.php:244
 msgid "Rename database to"
 msgstr "Muuta tietokannan nimi"
@@ -316,6 +335,15 @@ msgstr "Ota käyttöön"
 #: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "Aakkosjärjestys"
+
+#: db_operations.php:609 libraries/messages.inc.php:750 pdf_schema.php:34
+#, php-format
+msgid ""
+"The additional features for working with linked tables have been "
+"deactivated. To find out why click %shere%s."
+msgstr ""
+"Linkitettyihin tauluihin liittyvät lisäominaisuudet eivät ole käytössä. "
+"Katso %slisätietoja%s."
 
 #: db_operations.php:645 libraries/messages.inc.php:272 pdf_pages.php:528
 msgid "Display PDF schema"
@@ -644,7 +672,8 @@ msgstr "Seuranta on käytössä."
 msgid "Tracking is not active."
 msgstr "Seuranta ei ole käytössä."
 
-#: db_structure.php:420 libraries/messages.inc.php:1236
+#: db_structure.php:420 libraries/display_tbl.lib.php:1939
+#: libraries/messages.inc.php:1236
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -814,15 +843,72 @@ msgstr "Seuraa taulua"
 msgid "Database Log"
 msgstr "Tietokantaloki"
 
+#: import.php:60 libraries/messages.inc.php:1210
+#, php-format
+msgid ""
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
+msgstr ""
+"Yritit todennäköisesti lähettää palvelimelle liian suurta tiedostoa. Katso "
+"tämän rajoituksen muuttamisesta lisätietoja %sohjeista%s."
+
+#: import.php:279 import.php:332 libraries/File.class.php:849
+#: libraries/File.class.php:961 libraries/messages.inc.php:333
+msgid "File could not be read"
+msgstr "Tiedostoa ei voi lukea"
+
+#: import.php:287 import.php:296 import.php:315 import.php:324
+#: libraries/File.class.php:1031 libraries/File.class.php:1039
+#: libraries/File.class.php:1055 libraries/File.class.php:1063
+#: libraries/messages.inc.php:1197
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Yritit ladata tiedostoa, joka käyttää tuntematonta pakkausmuotoa (%s). Tukea "
+"kyseiselle muodolle ei joko ole toteutettu, tai se on asetuksin poistettu "
+"käytöstä."
+
+#: import.php:337 libraries/messages.inc.php:555
+msgid ""
+"No data was received to import. Either no file name was submitted, or the "
+"file size exceeded the maximum size permitted by your PHP configuration. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+msgstr ""
+"Tuotavia tietoja ei ole. Tiedostonimeä ei joko annettu tai tiedoston koko "
+"ylitti PHP:n asetusten salliman enimmäiskoon. Katso FAQ 1.16."
+
+#: import.php:372 libraries/display_import.lib.php:24
+#: libraries/messages.inc.php:133
+msgid "Could not load import plugins, please check your installation!"
+msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
+
+#: import.php:397 libraries/messages.inc.php:110
+msgid "The bookmark has been deleted."
+msgstr "Kirjanmerkki on poistettu."
+
+#: import.php:401 libraries/messages.inc.php:887
+msgid "Showing bookmark"
+msgstr "Näytetään kirjanmerkki"
+
 #: import.php:403 libraries/messages.inc.php:109
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Kirjanmerkki %s luotu"
 
-#: import.php:409 libraries/messages.inc.php:415
+#: import.php:409 import.php:415 libraries/messages.inc.php:415
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Tuonti onnistui, %d kyselyä suoritettu."
+
+#: import.php:424 libraries/messages.inc.php:1115
+msgid ""
+"Script timeout passed, if you want to finish import, please resubmit same "
+"file and import will resume."
+msgstr ""
+"Skriptin suoritus aikakatkaistiin. Jos haluat suorittaa tuonnin loppuun, "
+"lähetä sama tiedosto uudestaan, ja tuonti jatkuu."
 
 #: index.php:190 libraries/messages.inc.php:561
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -840,7 +926,8 @@ msgstr "Valitse painamalla"
 msgid "Click to unselect"
 msgstr "Poista valinta painamalla"
 
-#: js/messages.php:27 libraries/messages.inc.php:558 sql.php:89
+#: js/messages.php:27 libraries/import.lib.php:103
+#: libraries/messages.inc.php:558 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" -kyselyjen käyttö on estetty."
 
@@ -881,10 +968,12 @@ msgid "The user name is empty!"
 msgstr "Käyttäjän nimi puuttuu!"
 
 #: js/messages.php:44 libraries/messages.inc.php:615
+#: server_privileges.php:1197 user_password.php:70
 msgid "The password is empty!"
 msgstr "Salasana puuttuu!"
 
 #: js/messages.php:45 libraries/messages.inc.php:617
+#: server_privileges.php:1195 user_password.php:73
 msgid "The passwords aren't the same!"
 msgstr "Salasanat eivät ole samat!"
 
@@ -1310,7 +1399,8 @@ msgstr "Salasana:"
 msgid "Server Choice"
 msgstr "Valitse palvelin"
 
-#: libraries/auth/cookie.auth.lib.php:320 libraries/messages.inc.php:185
+#: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
+#: libraries/messages.inc.php:185
 msgid "Cookies must be enabled past this point."
 msgstr "Selaimessa on oltava evästeet päällä tästä lähtien."
 
@@ -1335,6 +1425,10 @@ msgstr ""
 #: libraries/auth/signon.auth.lib.php:191 libraries/messages.inc.php:134
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL-palvelimelle ei voitu kirjautua"
+
+#: libraries/auth/http.auth.lib.php:70 libraries/messages.inc.php:1253
+msgid "Wrong username/password. Access denied."
+msgstr "Väärä käyttäjätunnus tai salasana. Käyttö estetty."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #: libraries/messages.inc.php:1065
@@ -1463,11 +1557,12 @@ msgstr "Lähetetty"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
-#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
-#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
-#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
-#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/dbg/setup.php:25
+#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
+#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
+#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
+#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
+#: setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Ohjeet"
 
@@ -1531,7 +1626,7 @@ msgid "Skip Validate SQL"
 msgstr "Älä tarkista SQL-kyselyä"
 
 #: libraries/common.lib.php:1245 libraries/messages.inc.php:1228
-#: setup/lib/messages.inc.php:356
+#: setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
 msgstr "Tarkista SQL-lause"
 
@@ -1586,7 +1681,8 @@ msgstr "Toimintoon %s vaikuttaa tunnettu vika, katso %s"
 msgid "Font size"
 msgstr "Fonttikoko"
 
-#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#: libraries/core.lib.php:286 libraries/dbg/setup.php:22
+#: libraries/messages.inc.php:135
 #, php-format
 msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
@@ -1750,6 +1846,7 @@ msgid "Create"
 msgstr "Luo"
 
 #: libraries/display_create_database.lib.php:40 libraries/messages.inc.php:572
+#: server_privileges.php:74 server_privileges.php:1388
 msgid "No Privileges"
 msgstr "Ei käyttöoikeuksia"
 
@@ -1765,6 +1862,10 @@ msgstr "Luo uusi taulu tietokantaan %s"
 #: libraries/display_create_table.lib.php:57 libraries/messages.inc.php:585
 msgid "Number of fields"
 msgstr "Kenttien määrä"
+
+#: libraries/display_export.lib.php:42 libraries/messages.inc.php:132
+msgid "Could not load export plugins, please check your installation!"
+msgstr "Vientiin tarvittavia lisäosia ei voitu ladata; tarkista asetukset!"
 
 #: libraries/display_export.lib.php:107 libraries/messages.inc.php:285
 #, php-format
@@ -1793,6 +1894,29 @@ msgstr "Korvaa jo olemassa oleva(t) tiedosto(t)"
 #: libraries/display_export.lib.php:148 libraries/messages.inc.php:338
 msgid "File name template"
 msgstr "Tiedostonimen pohja"
+
+#: libraries/display_export.lib.php:152 libraries/messages.inc.php:335
+msgid "server name"
+msgstr "palvelimen nimi"
+
+#: libraries/display_export.lib.php:155 libraries/messages.inc.php:334
+msgid "database name"
+msgstr "tietokannan nimi"
+
+#: libraries/display_export.lib.php:158 libraries/messages.inc.php:336
+msgid "table name"
+msgstr "taulun nimi"
+
+#: libraries/display_export.lib.php:162 libraries/messages.inc.php:337
+#, php-format
+msgid ""
+"This value is interpreted using %1$sstrftime%2$s, so you can use time "
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
+msgstr ""
+"Tämä arvo on %1$sstrftime%2$s-funktion mukainen, joten "
+"ajanmuodostostusmerkkijonoja voi käyttää. Lisäksi tapahtuu seuraavat "
+"muutokset: %3$s. Muu teksti pysyy alkuperäisenä."
 
 #: libraries/display_export.lib.php:202 libraries/messages.inc.php:339
 msgid "remember template"
@@ -1869,6 +1993,15 @@ msgstr "Tuotava tiedosto"
 #: libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr "Tiedoston sijainti"
+
+#: libraries/display_import.lib.php:148 libraries/messages.inc.php:1211
+msgid "File uploads are not allowed on this server."
+msgstr "Tällä palvelimella ei ole sallittu tiedostojen lähetystä."
+
+#: libraries/display_import.lib.php:163 libraries/messages.inc.php:1243
+#: libraries/sql_query_form.lib.php:533 tbl_change.php:1028
+msgid "The directory you set for upload work cannot be reached"
+msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää"
 
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:1244
 #: libraries/sql_query_form.lib.php:536 tbl_change.php:1031
@@ -2017,6 +2150,20 @@ msgstr "Lopeta"
 #: libraries/display_tbl.lib.php:1929 libraries/messages.inc.php:857
 msgid "in query"
 msgstr "lauseessa"
+
+#: libraries/display_tbl.lib.php:1947 libraries/messages.inc.php:889
+msgid "Showing rows"
+msgstr "Näkyvillä rivit "
+
+#: libraries/display_tbl.lib.php:1957 libraries/messages.inc.php:1121
+msgid "total"
+msgstr "yhteensä"
+
+#: libraries/display_tbl.lib.php:1965 libraries/messages.inc.php:735
+#: sql.php:524
+#, php-format
+msgid "Query took %01.4f sec"
+msgstr "kysely kesti %01.4f sek."
 
 #: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
 #: libraries/mult_submits.inc.php:113 querywindow.php:125 querywindow.php:129
@@ -2502,28 +2649,11 @@ msgstr "Tiedoston kirjoitus levylle epäonnistui."
 msgid "File upload stopped by extension."
 msgstr "Laajennus keskeytti tiedoston lähetyksen."
 
-#: libraries/File.class.php:849 libraries/File.class.php:961
-#: libraries/messages.inc.php:333
-msgid "File could not be read"
-msgstr "Tiedostoa ei voi lukea"
-
 #: libraries/File.class.php:908 libraries/messages.inc.php:327
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr "Virhe lähetettäessä tiedostoa, katso FAQ 1.11"
-
-#: libraries/File.class.php:1031 libraries/File.class.php:1039
-#: libraries/File.class.php:1055 libraries/File.class.php:1063
-#: libraries/messages.inc.php:1197
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Yritit ladata tiedostoa, joka käyttää tuntematonta pakkausmuotoa (%s). Tukea "
-"kyseiselle muodolle ei joko ole toteutettu, tai se on asetuksin poistettu "
-"käytöstä."
 
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:594
@@ -2551,7 +2681,7 @@ msgstr "Luontiympäristö"
 msgid "Rows"
 msgstr "Kpl rivejä"
 
-#: libraries/import.lib.php:150 libraries/messages.inc.php:293
+#: libraries/import.lib.php:150 libraries/messages.inc.php:293 sql.php:520
 #: tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL palautti tyhjän vastauksen, toisin sanoen nolla riviä."
@@ -2596,6 +2726,11 @@ msgstr "rakenne"
 msgid "Go to view"
 msgstr "Siirry näkymään"
 
+#: libraries/Index.class.php:428 libraries/messages.inc.php:562
+#: tbl_relation.php:529
+msgid "No index defined!"
+msgstr "Indeksiä ei ole määritelty!"
+
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
@@ -2631,6 +2766,15 @@ msgstr "Perusavain on poistettu"
 #, php-format
 msgid "Index %s has been dropped"
 msgstr "Indeksi %s on poistettu"
+
+#: libraries/Index.class.php:576 libraries/messages.inc.php:420
+#, php-format
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
+"Indeksit %1$s ja %2$s ovat ehkä samoja, ja niistä jompikumpi kannattanee "
+"poistaa."
 
 #: libraries/List_Database.class.php:431 libraries/messages.inc.php:226
 #: libraries/server_links.inc.php:41 server_databases.php:88
@@ -2764,7 +2908,7 @@ msgstr "Lisää indeksiin %s sarake(tta)"
 msgid "Add a new User"
 msgstr "Lisää uusi käyttäjä"
 
-#: libraries/messages.inc.php:51
+#: libraries/messages.inc.php:51 server_privileges.php:931
 msgid "You have added a new user."
 msgstr "Uusi käyttäjä lisätty."
 
@@ -2956,10 +3100,6 @@ msgstr "Lähetä BLOB-tietokantaan"
 msgid "Let every user access this bookmark"
 msgstr "Anna kaikkien käyttäjien käyttää tätä kirjanmerkkiä"
 
-#: libraries/messages.inc.php:110
-msgid "The bookmark has been deleted."
-msgstr "Kirjanmerkki on poistettu."
-
 #: libraries/messages.inc.php:111 sql.php:671
 msgid "Label"
 msgstr "Tunniste"
@@ -3002,15 +3142,7 @@ msgstr "\"bzip-pakkaus\""
 msgid "Calendar"
 msgstr "Kalenteri"
 
-#: libraries/messages.inc.php:132
-msgid "Could not load export plugins, please check your installation!"
-msgstr "Vientiin tarvittavia lisäosia ei voitu ladata; tarkista asetukset!"
-
-#: libraries/messages.inc.php:133
-msgid "Could not load import plugins, please check your installation!"
-msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
-
-#: libraries/messages.inc.php:137
+#: libraries/messages.inc.php:137 tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
 msgstr "Indeksiä ei voi muuttaa PRIMARY-nimiseksi!"
 
@@ -3134,11 +3266,6 @@ msgstr "Määrittele koordinaatit taululle %s"
 msgid "Connections"
 msgstr "Yhteydet"
 
-#: libraries/messages.inc.php:186
-#, php-format
-msgid "Database %s has been copied to %s"
-msgstr "Tietokanta %s on kopioitu tietokantaan %s"
-
 #: libraries/messages.inc.php:187 tbl_operations.php:509
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Kopioi taulu toiseen tauluun nimellä (tietokanta<b>.</b>taulu):"
@@ -3160,7 +3287,7 @@ msgstr "Lähteeseen ei voida muodostaa yhteyttä"
 msgid "Could not connect to the target"
 msgstr "Kohteeseen ei voida muodostaa yhteyttä"
 
-#: libraries/messages.inc.php:192
+#: libraries/messages.inc.php:192 server_processlist.php:24
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -3259,18 +3386,9 @@ msgstr "Tsekkoslovakialainen"
 msgid "Danish"
 msgstr "Tanskalainen"
 
-#: libraries/messages.inc.php:221 tbl_create.php:54
-msgid "The database name is empty!"
-msgstr "Tietokannan nimi on tyhjä!"
-
 #: libraries/messages.inc.php:222
 msgid "Database export options"
 msgstr "Tietokannan tulostusvalinnat"
-
-#: libraries/messages.inc.php:223
-#, php-format
-msgid "Database %1$s has been created."
-msgstr "Tietokanta %1$s on luotu."
 
 #: libraries/messages.inc.php:225 server_synchronize.php:122
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
@@ -3278,7 +3396,7 @@ msgstr "Tietokanta %1$s on luotu."
 msgid "'%s' database does not exist."
 msgstr "Tietokantaa '%s' ei ole olemassa."
 
-#: libraries/messages.inc.php:227
+#: libraries/messages.inc.php:227 server_databases.php:63
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "%s tietokantaa poistettiin onnistuneesti."
@@ -3302,7 +3420,7 @@ msgstr "Kätke tilastot"
 msgid "Enable Statistics"
 msgstr "Näytä tilastot"
 
-#: libraries/messages.inc.php:232
+#: libraries/messages.inc.php:232 server_databases.php:366
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -3349,7 +3467,7 @@ msgstr "Eheytä taulu"
 msgid "Use delayed inserts"
 msgstr "Käytä viivästettyjä lisäyslauseita"
 
-#: libraries/messages.inc.php:253
+#: libraries/messages.inc.php:253 server_privileges.php:1243
 msgid "No users selected for deleting!"
 msgstr "Yhtään käyttäjää ei valittu poistettavaksi!"
 
@@ -3564,34 +3682,11 @@ msgstr ""
 "Tiedosto %s on jo olemassa palvelimella, vaihda tiedostonimeä tai tarkista "
 "korvausasetuksen tila."
 
-#: libraries/messages.inc.php:334
-msgid "database name"
-msgstr "tietokannan nimi"
-
-#: libraries/messages.inc.php:335
-msgid "server name"
-msgstr "palvelimen nimi"
-
-#: libraries/messages.inc.php:336
-msgid "table name"
-msgstr "taulun nimi"
-
-#: libraries/messages.inc.php:337
-#, php-format
-msgid ""
-"This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
-msgstr ""
-"Tämä arvo on %1$sstrftime%2$s-funktion mukainen, joten "
-"ajanmuodostostusmerkkijonoja voi käyttää. Lisäksi tapahtuu seuraavat "
-"muutokset: %3$s. Muu teksti pysyy alkuperäisenä."
-
 #: libraries/messages.inc.php:340 server_binlog.php:136
 msgid "Files"
 msgstr "Tiedostot"
 
-#: libraries/messages.inc.php:342
+#: libraries/messages.inc.php:342 server_privileges.php:1597
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -3616,7 +3711,7 @@ msgstr "Tyhjennä taulun välimuisti (\"FLUSH\")"
 msgid "Flush (close) all tables"
 msgstr "Tyhjennä (sulje) kaikki taulut"
 
-#: libraries/messages.inc.php:347
+#: libraries/messages.inc.php:347 tbl_relation.php:279
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Virhe luotaessa kohteen %1$s viiteavainta (tarkista tietotyypit)"
@@ -3800,15 +3895,6 @@ msgstr "Excel 97-2003 XLS -työkirja"
 msgid "Excel 2007 XLSX Workbook"
 msgstr "Excel 2007 XLSX -työkirja"
 
-#: libraries/messages.inc.php:420
-#, php-format
-msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
-msgstr ""
-"Indeksit %1$s ja %2$s ovat ehkä samoja, ja niistä jompikumpi kannattanee "
-"poistaa."
-
 #: libraries/messages.inc.php:422 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
 #: tbl_printview.php:326 tbl_structure.php:31 tbl_structure.php:154
@@ -3844,7 +3930,7 @@ msgstr ""
 msgid "Insert as new row"
 msgstr "Lisää uutena rivinä"
 
-#: libraries/messages.inc.php:437
+#: libraries/messages.inc.php:437 sql.php:496
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Lisätyn rivin tunnus: %1$d"
@@ -4169,18 +4255,9 @@ msgstr "Näytä prosessit"
 msgid "No databases"
 msgstr "Ei tietokantoja"
 
-#: libraries/messages.inc.php:554
+#: libraries/messages.inc.php:554 server_databases.php:52
 msgid "No databases selected."
 msgstr "Yhtään tietokantaa ei ole valittu."
-
-#: libraries/messages.inc.php:555
-msgid ""
-"No data was received to import. Either no file name was submitted, or the "
-"file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
-msgstr ""
-"Tuotavia tietoja ei ole. Tiedostonimeä ei joko annettu tai tiedoston koko "
-"ylitti PHP:n asetusten salliman enimmäiskoon. Katso FAQ 1.16."
 
 #: libraries/messages.inc.php:556 libraries/relation.lib.php:1173
 msgid "no description"
@@ -4196,15 +4273,11 @@ msgstr ""
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP-paketista ei löytynyt yhtään tiedostoa!"
 
-#: libraries/messages.inc.php:562 tbl_relation.php:529
-msgid "No index defined!"
-msgstr "Indeksiä ei ole määritelty!"
-
-#: libraries/messages.inc.php:563
+#: libraries/messages.inc.php:563 tbl_indexes.php:91
 msgid "No index parts defined!"
 msgstr "Indeksin osia ei ole määritelty!"
 
-#: libraries/messages.inc.php:564
+#: libraries/messages.inc.php:564 libraries/mult_submits.inc.php:435
 msgid "No change"
 msgstr "Ei muutoksia"
 
@@ -4222,7 +4295,7 @@ msgstr "Tälle tiedostomuodolle ei ole valinta-asetuksia"
 msgid "The web server does not have permission to save the file %s."
 msgstr "Palvelimella ei ole lupaa tallentaa tiedostoa %s."
 
-#: libraries/messages.inc.php:573
+#: libraries/messages.inc.php:573 user_password.php:54
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Sinulla ei ole riittäviä oikeuksia!"
 
@@ -4258,7 +4331,8 @@ msgstr "ei käytössä"
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Taulua <b>%s</b> ei löytynyt tai sitä ei ole määritelty tiedostossa %s"
 
-#: libraries/messages.inc.php:582 server_privileges.php:2166
+#: libraries/messages.inc.php:582 server_privileges.php:804
+#: server_privileges.php:2166
 msgid "No user(s) found."
 msgstr "Käyttäjiä ei ole."
 
@@ -4305,7 +4379,7 @@ msgstr "Osituksen ylläpito"
 msgid "Partition %s"
 msgstr "Ositus %s"
 
-#: libraries/messages.inc.php:614
+#: libraries/messages.inc.php:614 server_privileges.php:1212
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Käyttäjän %s salasanan vaihto onnistui."
@@ -4406,11 +4480,11 @@ msgstr "Puolalainen"
 msgid "Port"
 msgstr "Port"
 
-#: libraries/messages.inc.php:675
+#: libraries/messages.inc.php:675 tbl_indexes.php:67
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Perusavaimen nimen on oltava PRIMARY!"
 
-#: libraries/messages.inc.php:676
+#: libraries/messages.inc.php:676 tbl_indexes.php:184
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr "(\"PRIMARY\" saa olla <b>vain ja ainoastaan</b> perusavaimen nimenä!)"
@@ -4613,7 +4687,7 @@ msgstr "Sallii tietojen muuttamisen."
 msgid "No privileges."
 msgstr "Ei käyttöoikeuksia."
 
-#: libraries/messages.inc.php:718
+#: libraries/messages.inc.php:718 server_privileges.php:1296
 msgid "The privileges were reloaded successfully."
 msgstr "Käyttöoikeuksien uudelleenlataus onnistui."
 
@@ -4656,11 +4730,6 @@ msgstr ""
 "<b>Kyselytilastot</b>: Tälle palvelimelle on lähetetty viime käynnistyksestä "
 "lähtien %s kyselyä."
 
-#: libraries/messages.inc.php:735
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "kysely kesti %01.4f sek."
-
 #: libraries/messages.inc.php:736 server_status.php:554
 msgid "Query type"
 msgstr "Kyselyn tyyppi"
@@ -4688,15 +4757,6 @@ msgstr "Tarkista viitteiden eheys:"
 #: libraries/messages.inc.php:748 pdf_schema.php:1033 pdf_schema.php:1142
 msgid "Relational schema"
 msgstr "Relaatioskeema"
-
-#: libraries/messages.inc.php:750 pdf_schema.php:34
-#, php-format
-msgid ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
-msgstr ""
-"Linkitettyihin tauluihin liittyvät lisäominaisuudet eivät ole käytössä. "
-"Katso %slisätietoja%s."
 
 #: libraries/messages.inc.php:752 tbl_relation.php:399
 msgid "Relations"
@@ -4736,11 +4796,6 @@ msgstr "Poista ositus"
 #: libraries/messages.inc.php:760 server_privileges.php:1575
 msgid "Remove selected users"
 msgstr "Poista valitut käyttäjät"
-
-#: libraries/messages.inc.php:761
-#, php-format
-msgid "Database %s has been renamed to %s"
-msgstr "Tietokannan %s nimi on nyt %s"
 
 #: libraries/messages.inc.php:762 libraries/Table.class.php:1132
 #, php-format
@@ -4860,7 +4915,7 @@ msgstr ""
 "Tätä palvelinta ei ole määritetty replikaatioprosessin isäntäpalvelimeksi. "
 "Haluatko <a href=\"%s\">määrittää</a> sen?"
 
-#: libraries/messages.inc.php:785
+#: libraries/messages.inc.php:785 libraries/replication_gui.lib.php:188
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -5008,7 +5063,7 @@ msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Pura kaikki käyttäjän aktiiviset käyttöoikeudet, ja poista ne sen jälkeen."
 
-#: libraries/messages.inc.php:816
+#: libraries/messages.inc.php:816 server_privileges.php:1176
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Käyttäjän %s käyttöoikeudet on poistettu"
@@ -5173,19 +5228,11 @@ msgstr "Näytä kyselyt kokonaisuudessaan"
 msgid "Show/Hide left menu"
 msgstr "Näytä/kätke vasen valikko"
 
-#: libraries/messages.inc.php:887
-msgid "Showing bookmark"
-msgstr "Näytetään kirjanmerkki"
-
-#: libraries/messages.inc.php:888
+#: libraries/messages.inc.php:888 sql.php:513
 msgid "Showing as PHP code"
 msgstr "Näytetään PHP-koodina"
 
-#: libraries/messages.inc.php:889
-msgid "Showing rows"
-msgstr "Näkyvillä rivit "
-
-#: libraries/messages.inc.php:890
+#: libraries/messages.inc.php:890 sql.php:516
 msgid "Showing SQL query"
 msgstr "Näytetään SQL-kysely"
 
@@ -6081,7 +6128,7 @@ msgstr "Taulu %s on jo olemassa!"
 msgid "Alter column(s)"
 msgstr "Muuta saraketta/sarakkeita"
 
-#: libraries/messages.inc.php:1076
+#: libraries/messages.inc.php:1076 tbl_alter.php:103 tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Taulun %1$s muuttaminen onnistui."
@@ -6100,7 +6147,7 @@ msgstr "Haluatko poistaa kaikki edelliset rivit kohdetauluista?"
 msgid "The table name is empty!"
 msgstr "Taulun nimi puuttuu!"
 
-#: libraries/messages.inc.php:1081
+#: libraries/messages.inc.php:1081 tbl_create.php:249
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "Taulu %1$s on luotu."
@@ -6221,7 +6268,7 @@ msgstr "Tämä isäntä"
 msgid "Threads"
 msgstr "Säikeet"
 
-#: libraries/messages.inc.php:1112
+#: libraries/messages.inc.php:1112 server_processlist.php:22
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Säikeen %s lopetus onnistui."
@@ -6234,14 +6281,6 @@ msgstr ""
 "Viimeisellä suorituskerralla ei kuitenkaan jäsennelty mitään tietoja. Tämä "
 "tarkoittaa yleensä sitä, että phpMyAdmin ei voi ajaa tätä tuontia loppuun "
 "asti ellei PHP:n suoritusaikarajaa nosteta."
-
-#: libraries/messages.inc.php:1115
-msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
-msgstr ""
-"Skriptin suoritus aikakatkaistiin. Jos haluat suorittaa tuonnin loppuun, "
-"lähetä sama tiedosto uudestaan, ja tuonti jatkuu."
 
 #: libraries/messages.inc.php:1117 pmd_pdf.php:94
 msgid "to/from page"
@@ -6258,10 +6297,6 @@ msgstr "Vaihda pieneksi/suureksi"
 #: libraries/messages.inc.php:1120 pmd_help.php:27
 msgid "To select relation, click :"
 msgstr "Valitaksesi relaation, paina :"
-
-#: libraries/messages.inc.php:1121
-msgid "total"
-msgstr "yhteensä"
 
 #: libraries/messages.inc.php:1123 libraries/tbl_links.inc.php:149
 #, php-format
@@ -6576,7 +6611,7 @@ msgstr "Unicode"
 msgid "unknown"
 msgstr "tuntematon"
 
-#: libraries/messages.inc.php:1198
+#: libraries/messages.inc.php:1198 server_privileges.php:1152
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Käyttäjän %s käyttöoikeudet on päivitetty."
@@ -6595,19 +6630,6 @@ msgstr "Tarkista ohjeista, kuinka Column_comments-tauluja voi päivittää."
 msgid "You should upgrade to %s %s or later."
 msgstr "Sinun tulisi päivittää versioon %s %s tai sitä uudempaan."
 
-#: libraries/messages.inc.php:1210
-#, php-format
-msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
-msgstr ""
-"Yritit todennäköisesti lähettää palvelimelle liian suurta tiedostoa. Katso "
-"tämän rajoituksen muuttamisesta lisätietoja %sohjeista%s."
-
-#: libraries/messages.inc.php:1211
-msgid "File uploads are not allowed on this server."
-msgstr "Tällä palvelimella ei ole sallittu tiedostojen lähetystä."
-
 #: libraries/messages.inc.php:1212 tbl_printview.php:314 tbl_structure.php:661
 msgid "Usage"
 msgstr "Käyttö"
@@ -6621,7 +6643,7 @@ msgstr "Pane taulujen ja sarakkeiden nimet lainausmerkkeihin"
 msgid "Use Host Table"
 msgstr "Käytä isäntätaulua"
 
-#: libraries/messages.inc.php:1215
+#: libraries/messages.inc.php:1215 server_privileges.php:848
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Käyttäjä %s on jo olemassa!"
@@ -6634,7 +6656,7 @@ msgstr "Käyttäjä %s on jo olemassa!"
 msgid "User name"
 msgstr "Käyttäjänimi"
 
-#: libraries/messages.inc.php:1218
+#: libraries/messages.inc.php:1218 server_privileges.php:1645
 msgid "The selected user was not found in the privilege table."
 msgstr "Valittua käyttäjää ei löytynyt käyttöoikeustaulusta."
 
@@ -6642,7 +6664,7 @@ msgstr "Valittua käyttäjää ei löytynyt käyttöoikeustaulusta."
 msgid "User overview"
 msgstr "Käyttäjien yleiskatsaus"
 
-#: libraries/messages.inc.php:1220
+#: libraries/messages.inc.php:1220 server_privileges.php:1261
 msgid "The selected users have been deleted successfully."
 msgstr "Valitsemiesi käyttäjien poisto onnistui."
 
@@ -6705,10 +6727,6 @@ msgstr "Tee vedos taulusta"
 msgid "VIEW name"
 msgstr "VIEW-arvon nimi"
 
-#: libraries/messages.inc.php:1243 tbl_change.php:1028
-msgid "The directory you set for upload work cannot be reached"
-msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää"
-
 #: libraries/messages.inc.php:1245 main.php:205
 msgid "Web server"
 msgstr "Verkkopalvelin"
@@ -6725,10 +6743,6 @@ msgstr "Wiki"
 #: libraries/messages.inc.php:1249 server_privileges.php:2138
 msgid "wildcard"
 msgstr "korvausmerkki"
-
-#: libraries/messages.inc.php:1253
-msgid "Wrong username/password. Access denied."
-msgstr "Väärä käyttäjätunnus tai salasana. Käyttö estetty."
 
 #: libraries/messages.inc.php:1255
 msgid ""

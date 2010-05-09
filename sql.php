@@ -493,7 +493,7 @@ if (0 == $num_rows || $is_affected) {
             // need to use a temporary because the Message class
             // currently supports adding parameters only to the first
             // message
-            $_inserted = PMA_Message::notice('strInsertedRowId');
+            $_inserted = PMA_Message::notice(__('Inserted row id: %1$d'));
             $_inserted->addParam($insert_id + $num_rows - 1);
             $message->addMessage($_inserted);
         }
@@ -510,18 +510,18 @@ if (0 == $num_rows || $is_affected) {
     } elseif (!empty($zero_rows) && !$is_select) {
         $message = PMA_Message::rawSuccess(htmlspecialchars($zero_rows));
     } elseif (!empty($GLOBALS['show_as_php'])) {
-        $message = PMA_Message::success('strShowingPhp');
+        $message = PMA_Message::success(__('Showing as PHP code'));
     } elseif (isset($GLOBALS['show_as_php'])) {
         /* User disable showing as PHP, query is only displayed */
-        $message = PMA_Message::notice('strShowingSQL');
+        $message = PMA_Message::notice(__('Showing SQL query'));
     } elseif (!empty($GLOBALS['validatequery'])) {
-        $message = PMA_Message::notice('strValidateSQL');
+        $message = PMA_Message::notice(__('Validate SQL'));
     } else {
-        $message = PMA_Message::success('strEmptyResultSet');
+        $message = PMA_Message::success(__('MySQL returned an empty result set (i.e. zero rows).'));
     }
 
     if (isset($GLOBALS['querytime'])) {
-        $_querytime = PMA_Message::notice('strQueryTime');
+        $_querytime = PMA_Message::notice(__('Query took %01.4f sec'));
         $_querytime->addParam($GLOBALS['querytime']);
         $message->addMessage('(');
         $message->addMessage($_querytime);

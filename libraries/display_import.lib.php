@@ -21,7 +21,7 @@ $import_list = PMA_getPlugins('./libraries/import/', $import_type);
 
 /* Fail if we didn't find any plugin */
 if (empty($import_list)) {
-    PMA_Message::error('strCanNotLoadImportPlugins')->display();
+    PMA_Message::error(__('Could not load import plugins, please check your installation!'))->display();
     require './libraries/footer.inc.php';
 }
 ?>
@@ -145,7 +145,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         </div>
             <?php
         } else {
-            PMA_Message::warning('strUploadsNotAllowed')->display();
+            PMA_Message::warning(__('File uploads are not allowed on this server.'))->display();
         }
         if (!empty($cfg['UploadDir'])) {
             $extensions = '';
@@ -160,7 +160,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             $files = PMA_getFileSelectOptions(PMA_userDir($cfg['UploadDir']), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
             echo '<div class="formelementrow">' . "\n";
             if ($files === FALSE) {
-                PMA_Message::error('strWebServerUploadDirectoryError')->display();
+                PMA_Message::error(__('The directory you set for upload work cannot be reached'))->display();
             } elseif (!empty($files)) {
                 echo "\n";
                 echo '    <i>' . __('Or') . '</i><br/><label for="select_local_import_file">' . __('web server upload directory') . '</label>&nbsp;: ' . "\n";

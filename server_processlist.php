@@ -19,9 +19,9 @@ require './libraries/server_links.inc.php';
  */
 if (!empty($_REQUEST['kill'])) {
     if (PMA_DBI_try_query('KILL ' . $_REQUEST['kill'] . ';')) {
-        $message = PMA_Message::success('strThreadSuccessfullyKilled');
+        $message = PMA_Message::success(__('Thread %s was successfully killed.'));
     } else {
-        $message = PMA_Message::error('strCouldNotKill');
+        $message = PMA_Message::error(__('phpMyAdmin was unable to kill thread %s. It probably has already been closed.'));
     }
     $message->addParam($_REQUEST['kill']);
     $message->display();
