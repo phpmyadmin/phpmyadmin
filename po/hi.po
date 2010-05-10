@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-09 16:24-0400\n"
-"PO-Revision-Date: 2010-05-10 09:57+0200\n"
+"PO-Revision-Date: 2010-05-10 09:58+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -276,7 +276,7 @@ msgstr "AUTO_INCREMENT मूल्य जोडें"
 
 #: db_operations.php:479 libraries/messages.inc.php:39 tbl_operations.php:543
 msgid "Add constraints"
-msgstr "कांस्त्रैन्ट्स जोडें"
+msgstr "शर्तें जोडें"
 
 #: db_operations.php:492 libraries/messages.inc.php:1067
 msgid "Switch to copied database"
