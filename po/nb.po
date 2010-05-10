@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 09:35+0200\n"
-"PO-Revision-Date: 2010-05-10 14:07+0200\n"
+"PO-Revision-Date: 2010-05-10 14:08+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -2812,10 +2812,9 @@ msgstr "Ingen"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:146
-#, fuzzy
 #| msgid "Recoding engine"
 msgid "encoding conversion"
-msgstr "Rekodingsmotor"
+msgstr "kodingskonvertering"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:149
