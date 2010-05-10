@@ -787,7 +787,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
      */
     if (function_exists('mb_convert_encoding')
-     && strpos($lang, 'ja-') !== false) {
+     && $lang == 'ja') {
         require_once './libraries/kanji-encoding.lib.php';
         /**
          * enable multibyte string support
