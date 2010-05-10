@@ -100,7 +100,7 @@ if (isset($_REQUEST['do_save_data'])) {
     $result    = PMA_DBI_try_query($sql_query);
 
     if ($result !== false) {
-        $message = PMA_Message::success('strTableAlteredSuccessfully');
+        $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
         $message->addParam($table);
         $btnDrop = 'Fake';
 

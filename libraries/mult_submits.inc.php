@@ -432,6 +432,6 @@ elseif ($mult_btn == __('Yes')) {
         $GLOBALS['pma']->databases->build();
     }
 } else {
-    $message = PMA_Message::success('strNoModification');
+    $message = PMA_Message::success(__('No change'));
 }
 ?>

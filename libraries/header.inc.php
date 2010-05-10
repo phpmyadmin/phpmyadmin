@@ -56,7 +56,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     // note: here, the decoration won't work because without cookies,
     // our standard CSS is not operational
     if (empty($_COOKIE)) {
-        PMA_Message::notice('strCookiesRequired')->display();
+        PMA_Message::notice(__('Cookies must be enabled past this point.'))->display();
     }
 
     if (!defined('PMA_DISPLAY_HEADING')) {

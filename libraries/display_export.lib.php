@@ -39,7 +39,7 @@ $export_list = PMA_getPlugins('./libraries/export/', array('export_type' => $exp
 
 /* Fail if we didn't find any plugin */
 if (empty($export_list)) {
-    PMA_Message::error('strCanNotLoadExportPlugins')->display();
+    PMA_Message::error( __('Could not load export plugins, please check your installation!'))->display();
     require './libraries/footer.inc.php';
 }
 ?>
@@ -149,17 +149,17 @@ echo PMA_pluginGetJavascript($export_list);
 
         $trans = new PMA_Message;
         $trans->addMessage('__SERVER__/');
-        $trans->addString('strFileNameTemplateDescriptionServer');
+        $trans->addString(__('server name'));
         if ($export_type == 'database' || $export_type == 'table') {
             $trans->addMessage('__DB__/');
-            $trans->addString('strFileNameTemplateDescriptionDatabase');
+            $trans->addString(__('database name'));
             if ($export_type == 'table') {
                 $trans->addMessage('__TABLE__/');
-                $trans->addString('strFileNameTemplateDescriptionTable');
+                $trans->addString(__('table name'));
             }
         }
 
-        $message = new PMA_Message('strFileNameTemplateDescription');
+        $message = new PMA_Message(__('This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.'));
         $message->addParam('<a href="http://php.net/strftime" target="documentation" title="'
             . __('Documentation') . '">', false);
         $message->addParam('</a>', false);

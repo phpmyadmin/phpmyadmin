@@ -185,7 +185,7 @@ function PMA_replication_print_slaves_table($hidden = false) {
     echo '    </tbody>';
     echo '    </table>';
     echo '    <br />';
-    PMA_Message::notice('strReplicationShowConnectedSlavesNote')->display();
+    PMA_Message::notice(__('Only slaves started with the --report-host=host_name option are visible in this list.'))->display();
     echo '    <br />';
     echo '  </div>';
 }

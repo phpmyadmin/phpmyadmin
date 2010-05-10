@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-09 15:12-0400\n"
+"POT-Creation-Date: 2010-05-09 16:24-0400\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: croatian <hr@li.org>\n"
@@ -88,6 +88,11 @@ msgstr "Opis"
 #: libraries/messages.inc.php:1226
 msgid "Use this value"
 msgstr "Upotrijebi ovu vrijednost"
+
+#: db_create.php:46 libraries/messages.inc.php:223
+#, php-format
+msgid "Database %1$s has been created."
+msgstr "Baza podataka %1$s uspješno je izrađena."
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:240
 msgid "Database comment: "
@@ -205,6 +210,20 @@ msgstr "Odaberi sve"
 msgid "Unselect All"
 msgstr "Ukloni sav odabir"
 
+#: db_operations.php:38 libraries/messages.inc.php:221 tbl_create.php:54
+msgid "The database name is empty!"
+msgstr "Naziv baze podataka je prazan!"
+
+#: db_operations.php:236 libraries/messages.inc.php:761
+#, php-format
+msgid "Database %s has been renamed to %s"
+msgstr "Baza podataka %s preimenovana je u %s"
+
+#: db_operations.php:240 libraries/messages.inc.php:186
+#, php-format
+msgid "Database %s has been copied to %s"
+msgstr "Baza podataka %s kopirana je u %s"
+
 #: db_operations.php:410 libraries/messages.inc.php:244
 msgid "Rename database to"
 msgstr "Preimenuj bazu podataka u"
@@ -316,6 +335,15 @@ msgstr "Omogućeno"
 #: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "Uspoređivanje"
+
+#: db_operations.php:609 libraries/messages.inc.php:750 pdf_schema.php:34
+#, php-format
+msgid ""
+"The additional features for working with linked tables have been "
+"deactivated. To find out why click %shere%s."
+msgstr ""
+"Dodatne osobine za rad s relacijski tablicama su isključene. Kako biste "
+"saznali razloge, pritisnite %sovdje%s."
 
 #: db_operations.php:645 libraries/messages.inc.php:272 pdf_pages.php:528
 msgid "Display PDF schema"
@@ -644,7 +672,8 @@ msgstr ""
 msgid "Tracking is not active."
 msgstr ""
 
-#: db_structure.php:420 libraries/messages.inc.php:1236
+#: db_structure.php:420 libraries/display_tbl.lib.php:1939
+#: libraries/messages.inc.php:1236
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -821,15 +850,73 @@ msgstr "Provjeri tablicu"
 msgid "Database Log"
 msgstr "Baza podataka"
 
+#: import.php:60 libraries/messages.inc.php:1210
+#, php-format
+msgid ""
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
+msgstr ""
+"Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte %"
+"sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
+
+#: import.php:279 import.php:332 libraries/File.class.php:849
+#: libraries/File.class.php:961 libraries/messages.inc.php:333
+msgid "File could not be read"
+msgstr "Datoteku nije moguće pročitati"
+
+#: import.php:287 import.php:296 import.php:315 import.php:324
+#: libraries/File.class.php:1031 libraries/File.class.php:1039
+#: libraries/File.class.php:1055 libraries/File.class.php:1063
+#: libraries/messages.inc.php:1197
+#, php-format
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Pokušali ste učitati datoteku s nepodržanim načinom komprimiranja (%s). "
+"Takva podrška još nije implementirana ili je onemogućena u vašoj "
+"konfiguraciji."
+
+#: import.php:337 libraries/messages.inc.php:555
+msgid ""
+"No data was received to import. Either no file name was submitted, or the "
+"file size exceeded the maximum size permitted by your PHP configuration. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+msgstr ""
+"Nisu primljeni nikakvi podaci za uvoz. Ili nije dat naziv datoteke ili "
+"veličina datoteke prelazi najveću dopuštenu veličinu od strane vaše PHP "
+"konfiguracije. Pogledajte ČPP 1.16."
+
+#: import.php:372 libraries/display_import.lib.php:24
+#: libraries/messages.inc.php:133
+msgid "Could not load import plugins, please check your installation!"
+msgstr "Nije moguće učitati dodatke za uvoz. Provjerite svoju instalaciju!"
+
+#: import.php:397 libraries/messages.inc.php:110
+msgid "The bookmark has been deleted."
+msgstr "Favorit je izbrisan."
+
+#: import.php:401 libraries/messages.inc.php:887
+msgid "Showing bookmark"
+msgstr "Prikazivanje oznake"
+
 #: import.php:403 libraries/messages.inc.php:109
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Izrađen je favorit %s"
 
-#: import.php:409 libraries/messages.inc.php:415
+#: import.php:409 import.php:415 libraries/messages.inc.php:415
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Uvoz je uspješno dovršen. Izvršeno upita: %d ."
+
+#: import.php:424 libraries/messages.inc.php:1115
+msgid ""
+"Script timeout passed, if you want to finish import, please resubmit same "
+"file and import will resume."
+msgstr ""
+"Vrijeme za skriptu je isteklo. Ako želite završiti uvoz, ponovo podnesite "
+"istu datoteku i uvoz će nastaviti."
 
 #: index.php:190 libraries/messages.inc.php:561
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -849,7 +936,8 @@ msgstr ""
 msgid "Click to unselect"
 msgstr ""
 
-#: js/messages.php:27 libraries/messages.inc.php:558 sql.php:89
+#: js/messages.php:27 libraries/import.lib.php:103
+#: libraries/messages.inc.php:558 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" izjave su onemogućene."
 
@@ -889,10 +977,12 @@ msgid "The user name is empty!"
 msgstr "Korisničko ime je prazno!"
 
 #: js/messages.php:44 libraries/messages.inc.php:615
+#: server_privileges.php:1197 user_password.php:70
 msgid "The password is empty!"
 msgstr "Lozinka je prazna!"
 
 #: js/messages.php:45 libraries/messages.inc.php:617
+#: server_privileges.php:1195 user_password.php:73
 msgid "The passwords aren't the same!"
 msgstr "Lozinke se ne podudaraju!"
 
@@ -1316,7 +1406,8 @@ msgstr "Lozinka:"
 msgid "Server Choice"
 msgstr "Odabir poslužitelja"
 
-#: libraries/auth/cookie.auth.lib.php:320 libraries/messages.inc.php:185
+#: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
+#: libraries/messages.inc.php:185
 msgid "Cookies must be enabled past this point."
 msgstr "Od ovog mjesta potrebno je omogućiti kolačiće."
 
@@ -1337,6 +1428,10 @@ msgstr "Nije bilo nikakvih aktivnosti tijekom %s sekunda. Prijavite se ponovo."
 #: libraries/auth/signon.auth.lib.php:191 libraries/messages.inc.php:134
 msgid "Cannot log in to the MySQL server"
 msgstr "Prijavljivanje na MySQL poslužitelj nije moguće"
+
+#: libraries/auth/http.auth.lib.php:70 libraries/messages.inc.php:1253
+msgid "Wrong username/password. Access denied."
+msgstr "Pogrešno korisničko ime ili lozinka. Pristup odbijen."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #: libraries/messages.inc.php:1065
@@ -1471,11 +1566,12 @@ msgstr "Poslano"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
-#: libraries/common.lib.php:450 libraries/display_export.lib.php:164
-#: libraries/messages.inc.php:275 libraries/relation.lib.php:97
-#: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
-#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
-#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
+#: libraries/common.lib.php:450 libraries/dbg/setup.php:25
+#: libraries/display_export.lib.php:164 libraries/messages.inc.php:275
+#: libraries/relation.lib.php:97 libraries/sql_query_form.lib.php:451
+#: libraries/sql_query_form.lib.php:454 main.php:229 pdf_pages.php:37
+#: pdf_pages.php:43 pdf_pages.php:49 pdf_pages.php:54
+#: setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Dokumentacija"
 
@@ -1539,7 +1635,7 @@ msgid "Skip Validate SQL"
 msgstr "Preskoči provjeru valjanosti SQL-a"
 
 #: libraries/common.lib.php:1245 libraries/messages.inc.php:1228
-#: setup/lib/messages.inc.php:356
+#: setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
 msgstr "Provjera valjanosti SQL-a"
 
@@ -1594,7 +1690,8 @@ msgstr "Na funkcionalnost %s utječe poznati nedostatak. Pogledajte %s"
 msgid "Font size"
 msgstr "Veličina fonta"
 
-#: libraries/core.lib.php:286 libraries/messages.inc.php:135
+#: libraries/core.lib.php:286 libraries/dbg/setup.php:22
+#: libraries/messages.inc.php:135
 #, php-format
 msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
@@ -1760,6 +1857,7 @@ msgid "Create"
 msgstr "Izradi"
 
 #: libraries/display_create_database.lib.php:40 libraries/messages.inc.php:572
+#: server_privileges.php:74 server_privileges.php:1388
 msgid "No Privileges"
 msgstr "Bez privilegija"
 
@@ -1775,6 +1873,10 @@ msgstr "Izradi novu tablicu u bazi podataka %s"
 #: libraries/display_create_table.lib.php:57 libraries/messages.inc.php:585
 msgid "Number of fields"
 msgstr "Broj polja"
+
+#: libraries/display_export.lib.php:42 libraries/messages.inc.php:132
+msgid "Could not load export plugins, please check your installation!"
+msgstr "Nije moguće učitati dodatke za izvoz. Provjerite svoju instalaciju!"
 
 #: libraries/display_export.lib.php:107 libraries/messages.inc.php:285
 #, php-format
@@ -1803,6 +1905,29 @@ msgstr "Prepiši postojeće datoteke"
 #: libraries/display_export.lib.php:148 libraries/messages.inc.php:338
 msgid "File name template"
 msgstr "Predložak naziva datoteka"
+
+#: libraries/display_export.lib.php:152 libraries/messages.inc.php:335
+msgid "server name"
+msgstr "naziv poslužitelja"
+
+#: libraries/display_export.lib.php:155 libraries/messages.inc.php:334
+msgid "database name"
+msgstr "naziv baze podataka"
+
+#: libraries/display_export.lib.php:158 libraries/messages.inc.php:336
+msgid "table name"
+msgstr "naziv tablice"
+
+#: libraries/display_export.lib.php:162 libraries/messages.inc.php:337
+#, php-format
+msgid ""
+"This value is interpreted using %1$sstrftime%2$s, so you can use time "
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
+msgstr ""
+"Vrijednost se interpretira pomoću %1$sstrftime%2$s, pa možete upotrijebiti "
+"naredbe oblikovanja vremena. Dodatno se mogu dogoditi sljedeća "
+"preoblikovanja: \"%3$s\". Ostatak teksta bit će zadržan u izvornom obliku."
 
 #: libraries/display_export.lib.php:202 libraries/messages.inc.php:339
 msgid "remember template"
@@ -1874,6 +1999,15 @@ msgstr "Datoteka za uvoz"
 #: libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr "Lokacija tekstualne datoteke"
+
+#: libraries/display_import.lib.php:148 libraries/messages.inc.php:1211
+msgid "File uploads are not allowed on this server."
+msgstr "Učitavanje datoteka nije dopušteno na ovom poslužitelju."
+
+#: libraries/display_import.lib.php:163 libraries/messages.inc.php:1243
+#: libraries/sql_query_form.lib.php:533 tbl_change.php:1028
+msgid "The directory you set for upload work cannot be reached"
+msgstr "Mapu koju ste odabrali za potrebe učitavanja nije moguće dohvatiti"
 
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:1244
 #: libraries/sql_query_form.lib.php:536 tbl_change.php:1031
@@ -2022,6 +2156,20 @@ msgstr "Eliminiraj"
 #: libraries/display_tbl.lib.php:1929 libraries/messages.inc.php:857
 msgid "in query"
 msgstr "unutar upita"
+
+#: libraries/display_tbl.lib.php:1947 libraries/messages.inc.php:889
+msgid "Showing rows"
+msgstr "Prikazivanje redaka"
+
+#: libraries/display_tbl.lib.php:1957 libraries/messages.inc.php:1121
+msgid "total"
+msgstr "ukupno"
+
+#: libraries/display_tbl.lib.php:1965 libraries/messages.inc.php:735
+#: sql.php:524
+#, php-format
+msgid "Query took %01.4f sec"
+msgstr "Upit je trajao %01.4f sek"
 
 #: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
 #: libraries/mult_submits.inc.php:113 querywindow.php:125 querywindow.php:129
@@ -2512,28 +2660,11 @@ msgstr "Zapisivanje datoteke na disk nije uspjelo."
 msgid "File upload stopped by extension."
 msgstr "Učitavanje datoteke prekinuto je uslijed ekstenzije."
 
-#: libraries/File.class.php:849 libraries/File.class.php:961
-#: libraries/messages.inc.php:333
-msgid "File could not be read"
-msgstr "Datoteku nije moguće pročitati"
-
 #: libraries/File.class.php:908 libraries/messages.inc.php:327
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr "Pogreška tijekom premještanja učitane datoteke. Pogledajte ČPP 1.11"
-
-#: libraries/File.class.php:1031 libraries/File.class.php:1039
-#: libraries/File.class.php:1055 libraries/File.class.php:1063
-#: libraries/messages.inc.php:1197
-#, php-format
-msgid ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
-msgstr ""
-"Pokušali ste učitati datoteku s nepodržanim načinom komprimiranja (%s). "
-"Takva podrška još nije implementirana ili je onemogućena u vašoj "
-"konfiguraciji."
 
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:594
@@ -2561,7 +2692,7 @@ msgstr "Generirano s"
 msgid "Rows"
 msgstr "Redaka"
 
-#: libraries/import.lib.php:150 libraries/messages.inc.php:293
+#: libraries/import.lib.php:150 libraries/messages.inc.php:293 sql.php:520
 #: tbl_change.php:181 tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vratio prazan komplet rezultata (npr. nula redova)."
@@ -2608,6 +2739,11 @@ msgstr "Strukturu"
 msgid "Go to view"
 msgstr ""
 
+#: libraries/Index.class.php:428 libraries/messages.inc.php:562
+#: tbl_relation.php:529
+msgid "No index defined!"
+msgstr "Nema definiranog indeksa!"
+
 #: libraries/Index.class.php:433 libraries/messages.inc.php:419
 #: server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
@@ -2643,6 +2779,14 @@ msgstr "Primarni ključ je odbačen"
 #, php-format
 msgid "Index %s has been dropped"
 msgstr "Index %s je odbačen"
+
+#: libraries/Index.class.php:576 libraries/messages.inc.php:420
+#, php-format
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
+"Indeksi %1$s i %2$s izgledaju jednakim i jednog od njih moguće je ukloniti."
 
 #: libraries/List_Database.class.php:431 libraries/messages.inc.php:226
 #: libraries/server_links.inc.php:41 server_databases.php:88
@@ -2776,7 +2920,7 @@ msgstr "Dodaj u indeks &nbsp;%s&nbsp;stupci"
 msgid "Add a new User"
 msgstr "Dodaj novog korisnika"
 
-#: libraries/messages.inc.php:51
+#: libraries/messages.inc.php:51 server_privileges.php:931
 msgid "You have added a new user."
 msgstr "Dodali ste novog korisnika."
 
@@ -2969,10 +3113,6 @@ msgstr ""
 msgid "Let every user access this bookmark"
 msgstr "Neka svi korisnici imaju pristup ovom favoritu"
 
-#: libraries/messages.inc.php:110
-msgid "The bookmark has been deleted."
-msgstr "Favorit je izbrisan."
-
 #: libraries/messages.inc.php:111 sql.php:671
 msgid "Label"
 msgstr "Oznaka"
@@ -3015,15 +3155,7 @@ msgstr "\"bzipano\""
 msgid "Calendar"
 msgstr "Kalendar"
 
-#: libraries/messages.inc.php:132
-msgid "Could not load export plugins, please check your installation!"
-msgstr "Nije moguće učitati dodatke za izvoz. Provjerite svoju instalaciju!"
-
-#: libraries/messages.inc.php:133
-msgid "Could not load import plugins, please check your installation!"
-msgstr "Nije moguće učitati dodatke za uvoz. Provjerite svoju instalaciju!"
-
-#: libraries/messages.inc.php:137
+#: libraries/messages.inc.php:137 tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
 msgstr "Preimenovanje indeksa u PRIMARY nije moguće!"
 
@@ -3141,11 +3273,6 @@ msgstr "Konfigurirajte koordinate tablice %s"
 msgid "Connections"
 msgstr "Veze"
 
-#: libraries/messages.inc.php:186
-#, php-format
-msgid "Database %s has been copied to %s"
-msgstr "Baza podataka %s kopirana je u %s"
-
 #: libraries/messages.inc.php:187 tbl_operations.php:509
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Kopiraj tablicu u (bazapodataka<b>.</b>tablica):"
@@ -3167,7 +3294,7 @@ msgstr ""
 msgid "Could not connect to the target"
 msgstr ""
 
-#: libraries/messages.inc.php:192
+#: libraries/messages.inc.php:192 server_processlist.php:24
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -3265,18 +3392,9 @@ msgstr "Češki ili Slovački"
 msgid "Danish"
 msgstr "Danski"
 
-#: libraries/messages.inc.php:221 tbl_create.php:54
-msgid "The database name is empty!"
-msgstr "Naziv baze podataka je prazan!"
-
 #: libraries/messages.inc.php:222
 msgid "Database export options"
 msgstr "Opcije izvoza baze podataka"
-
-#: libraries/messages.inc.php:223
-#, php-format
-msgid "Database %1$s has been created."
-msgstr "Baza podataka %1$s uspješno je izrađena."
 
 #: libraries/messages.inc.php:225 server_synchronize.php:122
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
@@ -3284,7 +3402,7 @@ msgstr "Baza podataka %1$s uspješno je izrađena."
 msgid "'%s' database does not exist."
 msgstr ""
 
-#: libraries/messages.inc.php:227
+#: libraries/messages.inc.php:227 server_databases.php:63
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "Baza podataka %s uspješno je odbačena."
@@ -3309,7 +3427,7 @@ msgstr "Onemogući statistike"
 msgid "Enable Statistics"
 msgstr "Omogući statistike"
 
-#: libraries/messages.inc.php:232
+#: libraries/messages.inc.php:232 server_databases.php:366
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -3358,7 +3476,7 @@ msgstr "Defragmentiraj tablicu"
 msgid "Use delayed inserts"
 msgstr "Upotrijebi odgođena umetanja"
 
-#: libraries/messages.inc.php:253
+#: libraries/messages.inc.php:253 server_privileges.php:1243
 msgid "No users selected for deleting!"
 msgstr "Nema odabranih korisnika za uklanjanje!"
 
@@ -3573,34 +3691,11 @@ msgstr ""
 "Datoteka %s već postoji na poslužitelju. Promijenite naziv ili označite "
 "opciju za prepisivanje."
 
-#: libraries/messages.inc.php:334
-msgid "database name"
-msgstr "naziv baze podataka"
-
-#: libraries/messages.inc.php:335
-msgid "server name"
-msgstr "naziv poslužitelja"
-
-#: libraries/messages.inc.php:336
-msgid "table name"
-msgstr "naziv tablice"
-
-#: libraries/messages.inc.php:337
-#, php-format
-msgid ""
-"This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
-msgstr ""
-"Vrijednost se interpretira pomoću %1$sstrftime%2$s, pa možete upotrijebiti "
-"naredbe oblikovanja vremena. Dodatno se mogu dogoditi sljedeća "
-"preoblikovanja: \"%3$s\". Ostatak teksta bit će zadržan u izvornom obliku."
-
 #: libraries/messages.inc.php:340 server_binlog.php:136
 msgid "Files"
 msgstr "Datoteke"
 
-#: libraries/messages.inc.php:342
+#: libraries/messages.inc.php:342 server_privileges.php:1597
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -3625,7 +3720,7 @@ msgstr "Isprazni tablicu (\"FLUSH\")"
 msgid "Flush (close) all tables"
 msgstr "Isprazni (zatvori) sve tablice"
 
-#: libraries/messages.inc.php:347
+#: libraries/messages.inc.php:347 tbl_relation.php:279
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -3810,14 +3905,6 @@ msgstr ""
 msgid "Excel 2007 XLSX Workbook"
 msgstr ""
 
-#: libraries/messages.inc.php:420
-#, php-format
-msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
-msgstr ""
-"Indeksi %1$s i %2$s izgledaju jednakim i jednog od njih moguće je ukloniti."
-
 #: libraries/messages.inc.php:422 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
 #: tbl_printview.php:326 tbl_structure.php:31 tbl_structure.php:154
@@ -3854,7 +3941,7 @@ msgstr ""
 msgid "Insert as new row"
 msgstr "Umetni kao novi redak"
 
-#: libraries/messages.inc.php:437
+#: libraries/messages.inc.php:437 sql.php:496
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Umetnut ID retka: %1$d"
@@ -4179,19 +4266,9 @@ msgstr "Prikaži procese"
 msgid "No databases"
 msgstr "Nema baza podataka"
 
-#: libraries/messages.inc.php:554
+#: libraries/messages.inc.php:554 server_databases.php:52
 msgid "No databases selected."
 msgstr "Nema odabrane baze podataka."
-
-#: libraries/messages.inc.php:555
-msgid ""
-"No data was received to import. Either no file name was submitted, or the "
-"file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
-msgstr ""
-"Nisu primljeni nikakvi podaci za uvoz. Ili nije dat naziv datoteke ili "
-"veličina datoteke prelazi najveću dopuštenu veličinu od strane vaše PHP "
-"konfiguracije. Pogledajte ČPP 1.16."
 
 #: libraries/messages.inc.php:556 libraries/relation.lib.php:1173
 msgid "no description"
@@ -4206,15 +4283,11 @@ msgstr "Za ovaj pogon pohranjivanje ne postoje raspoloživi podaci."
 msgid "No files found inside ZIP archive!"
 msgstr "Datoteke nisu pronađene unutar ZIP arhive!"
 
-#: libraries/messages.inc.php:562 tbl_relation.php:529
-msgid "No index defined!"
-msgstr "Nema definiranog indeksa!"
-
-#: libraries/messages.inc.php:563
+#: libraries/messages.inc.php:563 tbl_indexes.php:91
 msgid "No index parts defined!"
 msgstr "Nema definiranih dijelova indeksa!"
 
-#: libraries/messages.inc.php:564
+#: libraries/messages.inc.php:564 libraries/mult_submits.inc.php:435
 msgid "No change"
 msgstr "Bez izmjena"
 
@@ -4233,7 +4306,7 @@ msgstr "Ovaj oblik nema raspoložive opcije"
 msgid "The web server does not have permission to save the file %s."
 msgstr "Web poslužitelj nema dopuštenja za spremanje datoteke %s."
 
-#: libraries/messages.inc.php:573
+#: libraries/messages.inc.php:573 user_password.php:54
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nemate dovoljno privilegija da boravite ovdje!"
 
@@ -4270,7 +4343,8 @@ msgstr ""
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "tablica <b>%s</b> nije pronađena ili nije zadana u %s"
 
-#: libraries/messages.inc.php:582 server_privileges.php:2166
+#: libraries/messages.inc.php:582 server_privileges.php:804
+#: server_privileges.php:2166
 msgid "No user(s) found."
 msgstr "Korisnici nisu pronađeni."
 
@@ -4317,7 +4391,7 @@ msgstr "Održavanje particije"
 msgid "Partition %s"
 msgstr "Particija %s"
 
-#: libraries/messages.inc.php:614
+#: libraries/messages.inc.php:614 server_privileges.php:1212
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Lozinka za %s uspješno je promijenjena."
@@ -4419,11 +4493,11 @@ msgstr "Poljski"
 msgid "Port"
 msgstr "Presloži"
 
-#: libraries/messages.inc.php:675
+#: libraries/messages.inc.php:675 tbl_indexes.php:67
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Naziv primarnog ključa mora biti \"PRIMARY\"!"
 
-#: libraries/messages.inc.php:676
+#: libraries/messages.inc.php:676 tbl_indexes.php:184
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
@@ -4628,7 +4702,7 @@ msgstr "Dopušta mijenjanje podataka."
 msgid "No privileges."
 msgstr "Bez privilegija."
 
-#: libraries/messages.inc.php:718
+#: libraries/messages.inc.php:718 server_privileges.php:1296
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegije su uspješno učitane."
 
@@ -4670,11 +4744,6 @@ msgid ""
 msgstr ""
 "<b>Statistike upita</b>: Od pokretanja poslužitelju je upućeno %s upita."
 
-#: libraries/messages.inc.php:735
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "Upit je trajao %01.4f sek"
-
 #: libraries/messages.inc.php:736 server_status.php:554
 msgid "Query type"
 msgstr "Vrsta upita"
@@ -4702,15 +4771,6 @@ msgstr "Provjeri referencijalan integritet:"
 #: libraries/messages.inc.php:748 pdf_schema.php:1033 pdf_schema.php:1142
 msgid "Relational schema"
 msgstr "Shema relacija"
-
-#: libraries/messages.inc.php:750 pdf_schema.php:34
-#, php-format
-msgid ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
-msgstr ""
-"Dodatne osobine za rad s relacijski tablicama su isključene. Kako biste "
-"saznali razloge, pritisnite %sovdje%s."
 
 #: libraries/messages.inc.php:752 tbl_relation.php:399
 msgid "Relations"
@@ -4750,11 +4810,6 @@ msgstr "Ukloni particioniranje"
 #: libraries/messages.inc.php:760 server_privileges.php:1575
 msgid "Remove selected users"
 msgstr "Ukloni odabrane korisnike"
-
-#: libraries/messages.inc.php:761
-#, php-format
-msgid "Database %s has been renamed to %s"
-msgstr "Baza podataka %s preimenovana je u %s"
 
 #: libraries/messages.inc.php:762 libraries/Table.class.php:1132
 #, php-format
@@ -4861,7 +4916,7 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
-#: libraries/messages.inc.php:785
+#: libraries/messages.inc.php:785 libraries/replication_gui.lib.php:188
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -5001,7 +5056,7 @@ msgstr "Ponovno pokreni umetanje s %s redaka"
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Opozovi sve aktivne privilegije korisnika i potom ih izbriši."
 
-#: libraries/messages.inc.php:816
+#: libraries/messages.inc.php:816 server_privileges.php:1176
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Opozvali ste privilegije za %s"
@@ -5164,19 +5219,11 @@ msgstr "Prikaži pune upite"
 msgid "Show/Hide left menu"
 msgstr "Prikaži/sakrij lijevi izbornik"
 
-#: libraries/messages.inc.php:887
-msgid "Showing bookmark"
-msgstr "Prikazivanje oznake"
-
-#: libraries/messages.inc.php:888
+#: libraries/messages.inc.php:888 sql.php:513
 msgid "Showing as PHP code"
 msgstr "Prikazivanje kao PHP koda"
 
-#: libraries/messages.inc.php:889
-msgid "Showing rows"
-msgstr "Prikazivanje redaka"
-
-#: libraries/messages.inc.php:890
+#: libraries/messages.inc.php:890 sql.php:516
 msgid "Showing SQL query"
 msgstr "Prikazivanje SQL upita"
 
@@ -6065,7 +6112,7 @@ msgstr "Tablica %s već postoji!"
 msgid "Alter column(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1076
+#: libraries/messages.inc.php:1076 tbl_alter.php:103 tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Tablica %1$s uspješno je izmijenjena."
@@ -6084,7 +6131,7 @@ msgstr ""
 msgid "The table name is empty!"
 msgstr "Naziv tablice je prazan!"
 
-#: libraries/messages.inc.php:1081
+#: libraries/messages.inc.php:1081 tbl_create.php:249
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "Tablica %1$s je izrađena."
@@ -6206,7 +6253,7 @@ msgstr "Ovo računalo"
 msgid "Threads"
 msgstr "Grane"
 
-#: libraries/messages.inc.php:1112
+#: libraries/messages.inc.php:1112 server_processlist.php:22
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Grana %s uspješno je prekinuta."
@@ -6219,14 +6266,6 @@ msgstr ""
 "Ipak, pri posljednjem prijelazu nikakvi podaci nisu bili raščlanjeni. To "
 "znači da phpMyAdmin neće biti u mogućnosti završiti ovaj uvoz sve dok ne "
 "povećate vremenska ograničenja unutar php."
-
-#: libraries/messages.inc.php:1115
-msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
-msgstr ""
-"Vrijeme za skriptu je isteklo. Ako želite završiti uvoz, ponovo podnesite "
-"istu datoteku i uvoz će nastaviti."
 
 #: libraries/messages.inc.php:1117 pmd_pdf.php:94
 msgid "to/from page"
@@ -6243,10 +6282,6 @@ msgstr "Malo / Veliko"
 #: libraries/messages.inc.php:1120 pmd_help.php:27
 msgid "To select relation, click :"
 msgstr "Za odabir relacije pritisnite:"
-
-#: libraries/messages.inc.php:1121
-msgid "total"
-msgstr "ukupno"
 
 #: libraries/messages.inc.php:1123 libraries/tbl_links.inc.php:149
 #, php-format
@@ -6562,7 +6597,7 @@ msgstr "Unicode"
 msgid "unknown"
 msgstr "nepoznato"
 
-#: libraries/messages.inc.php:1198
+#: libraries/messages.inc.php:1198 server_privileges.php:1152
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ažurirali ste privilegije za %s."
@@ -6582,19 +6617,6 @@ msgstr ""
 msgid "You should upgrade to %s %s or later."
 msgstr "Trebali biste nadograditi na %s %s ili kasniju."
 
-#: libraries/messages.inc.php:1210
-#, php-format
-msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
-msgstr ""
-"Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte %"
-"sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
-
-#: libraries/messages.inc.php:1211
-msgid "File uploads are not allowed on this server."
-msgstr "Učitavanje datoteka nije dopušteno na ovom poslužitelju."
-
 #: libraries/messages.inc.php:1212 tbl_printview.php:314 tbl_structure.php:661
 msgid "Usage"
 msgstr "Upotreba"
@@ -6608,7 +6630,7 @@ msgstr "Unesi nazive tablica i polja sa stražnjim navodnicima"
 msgid "Use Host Table"
 msgstr "Upotrijebi tablicu poslužitelja"
 
-#: libraries/messages.inc.php:1215
+#: libraries/messages.inc.php:1215 server_privileges.php:848
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Korisnik %s već postoji!"
@@ -6621,7 +6643,7 @@ msgstr "Korisnik %s već postoji!"
 msgid "User name"
 msgstr "Korisničko ime"
 
-#: libraries/messages.inc.php:1218
+#: libraries/messages.inc.php:1218 server_privileges.php:1645
 msgid "The selected user was not found in the privilege table."
 msgstr "Odabrani korisnik nije pronađen u tablici privilegija."
 
@@ -6629,7 +6651,7 @@ msgstr "Odabrani korisnik nije pronađen u tablici privilegija."
 msgid "User overview"
 msgstr "Pregled korisnika"
 
-#: libraries/messages.inc.php:1220
+#: libraries/messages.inc.php:1220 server_privileges.php:1261
 msgid "The selected users have been deleted successfully."
 msgstr "Odabrani korisnici uspješno su izbrisani."
 
@@ -6692,10 +6714,6 @@ msgstr "Prikaži ispis (shemu) tablice"
 msgid "VIEW name"
 msgstr "Naziv prikaza"
 
-#: libraries/messages.inc.php:1243 tbl_change.php:1028
-msgid "The directory you set for upload work cannot be reached"
-msgstr "Mapu koju ste odabrali za potrebe učitavanja nije moguće dohvatiti"
-
 #: libraries/messages.inc.php:1245 main.php:205
 msgid "Web server"
 msgstr "Web poslužitelj"
@@ -6712,10 +6730,6 @@ msgstr "Wiki"
 #: libraries/messages.inc.php:1249 server_privileges.php:2138
 msgid "wildcard"
 msgstr "džoker"
-
-#: libraries/messages.inc.php:1253
-msgid "Wrong username/password. Access denied."
-msgstr "Pogrešno korisničko ime ili lozinka. Pristup odbijen."
 
 #: libraries/messages.inc.php:1255
 msgid ""

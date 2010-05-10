@@ -71,7 +71,7 @@ if (!$is_superuser) {
        . PMA_getIcon('b_usrlist.png')
        . __('Privileges') . "\n"
        . '</h2>' . "\n";
-    PMA_Message::error('strNoPrivileges')->display();
+    PMA_Message::error(__('No Privileges'))->display();
     require_once './libraries/footer.inc.php';
 }
 
@@ -801,7 +801,7 @@ if (isset($_REQUEST['change_copy'])) {
         .' = \'' . PMA_sqlAddslashes($old_hostname) . '\';';
     $row = PMA_DBI_fetch_single_row('SELECT * FROM `mysql`.`user` ' . $user_host_condition);
     if (! $row) {
-        PMA_Message::notice('strNoUsersFound')->display();
+        PMA_Message::notice(__('No user(s) found.'))->display();
         unset($_REQUEST['change_copy']);
     } else {
         extract($row, EXTR_OVERWRITE);
@@ -845,7 +845,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         . " WHERE `User` = '" . PMA_sqlAddslashes($username) . "'"
         . " AND `Host` = '" . PMA_sqlAddslashes($hostname) . "';";
     if (PMA_DBI_fetch_value($sql) == 1) {
-        $message = PMA_Message::error('strUserAlreadyExists');
+        $message = PMA_Message::error(__('The user %s already exists!'));
         $message->addParam('[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');
         $_REQUEST['adduser'] = true;
     } else {
@@ -928,7 +928,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 $_REQUEST['createdb'] = false;
                 $message = PMA_Message::rawError(PMA_DBI_getError());
             } else {
-                $message = PMA_Message::success('strAddUserMessage');
+                $message = PMA_Message::success(__('You have added a new user.'));
             }
 
             switch (PMA_ifSetOr($_REQUEST['createdb'], '0')) {
@@ -1149,7 +1149,7 @@ if (!empty($update_privs)) {
         $sql_query2 = '';
     }
     $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
-    $message = PMA_Message::success('strUpdatePrivMessage');
+    $message = PMA_Message::success(__('You have updated the privileges for %s.'));
     $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 }
 
@@ -1173,7 +1173,7 @@ if (isset($_REQUEST['revokeall'])) {
         $sql_query1 = '';
     }
     $sql_query = $sql_query0 . ' ' . $sql_query1;
-    $message = PMA_Message::success('strRevokeMessage');
+    $message = PMA_Message::success(__('You have revoked the privileges for %s'));
     $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
     if (! isset($tablename)) {
         unset($dbname);
@@ -1192,9 +1192,9 @@ if (isset($_REQUEST['change_pw'])) {
 
     if ($nopass == 0 && isset($pma_pw) && isset($pma_pw2)) {
         if ($pma_pw != $pma_pw2) {
-            $message = PMA_Message::error('strPasswordNotSame');
+            $message = PMA_Message::error(__('The passwords aren\'t the same!'));
         } elseif (empty($pma_pw) || empty($pma_pw2)) {
-            $message = PMA_Message::error('strPasswordEmpty');
+            $message = PMA_Message::error(__('The password is empty!'));
         }
     } // end if
 
@@ -1209,7 +1209,7 @@ if (isset($_REQUEST['change_pw'])) {
         $local_query      = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . PMA_sqlAddslashes($hostname) . '\' = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
         PMA_DBI_try_query($local_query)
             or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, FALSE, $err_url);
-        $message = PMA_Message::success('strPasswordChanged');
+        $message = PMA_Message::success(__('The password for %s was changed successfully.'));
         $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
     }
 }
@@ -1240,7 +1240,7 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
     }
     if (empty($_REQUEST['change_copy'])) {
         if (empty($queries)) {
-            $message = PMA_Message::error('strDeleteNoUsersSelected');
+            $message = PMA_Message::error(__('No users selected for deleting!'));
         } else {
             if ($_REQUEST['mode'] == 3) {
                 $queries[] = '# ' . __('Reloading the privileges') . ' ...';
@@ -1258,7 +1258,7 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
             if (! empty($drop_user_error)) {
                 $message = PMA_Message::rawError($drop_user_error);
             } else {
-                $message = PMA_Message::success('strUsersDeleted');
+                $message = PMA_Message::success(__('The selected users have been deleted successfully.'));
             }
         }
         unset($queries);
@@ -1293,7 +1293,7 @@ if (isset($_REQUEST['change_copy'])) {
 if (isset($_REQUEST['flush_privileges'])) {
     $sql_query = 'FLUSH PRIVILEGES;';
     PMA_DBI_query($sql_query);
-    $message = PMA_Message::success('strPrivilegesReloaded');
+    $message = PMA_Message::success(__('The privileges were reloaded successfully.'));
 }
 
 
@@ -1385,7 +1385,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             $res = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_STORE);
 
             if (!$res) {
-                PMA_Message::error('strNoPrivileges')->display();
+                PMA_Message::error(__('No Privileges'))->display();
                 PMA_DBI_free_result($res);
                 unset($res);
             } else {
@@ -1594,7 +1594,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            ' . __('Add a new User') . '</a>' . "\n"
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
-            $flushnote = new PMA_Message('strFlushPrivilegesNote', PMA_Message::NOTICE);
+            $flushnote = new PMA_Message(__('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'), PMA_Message::NOTICE);
             $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1">', false);
             $flushnote->addParam('</a>', false);
             $flushnote->display();
@@ -1642,7 +1642,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         $user_does_not_exists = (bool) ! PMA_DBI_fetch_value($sql);
         unset($sql);
         if ($user_does_not_exists) {
-            PMA_Message::warning('strUserNotFound')->display();
+            PMA_Message::warning(__('The selected user was not found in the privilege table.'))->display();
             PMA_displayLoginInformationFields();
             //require_once './libraries/footer.inc.php';
         }

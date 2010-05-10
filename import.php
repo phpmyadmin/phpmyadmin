@@ -57,7 +57,7 @@ if (!empty($sql_query)) {
 ;
 if ($_POST == array() && $_GET == array()) {
     require_once './libraries/header.inc.php';
-    $message = PMA_Message::error('strUploadLimit');
+    $message = PMA_Message::error(__('You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.'));
     $message->addParam('[a@./Documentation.html#faq1_16@_blank]');
     $message->addParam('[/a]');
 
@@ -276,7 +276,7 @@ if ($import_file != 'none' && !$error) {
      */
     $compression = PMA_detectCompression($import_file);
     if ($compression === FALSE) {
-        $message = PMA_Message::error('strFileCouldNotBeRead');
+        $message = PMA_Message::error(__('File could not be read'));
         $error = TRUE;
     } else {
         switch ($compression) {
@@ -284,7 +284,7 @@ if ($import_file != 'none' && !$error) {
                 if ($cfg['BZipDump'] && @function_exists('bzopen')) {
                     $import_handle = @bzopen($import_file, 'r');
                 } else {
-                    $message = PMA_Message::error('strUnsupportedCompressionDetected');
+                    $message = PMA_Message::error(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'));
                     $message->addParam($compression);
                     $error = TRUE;
                 }
@@ -293,7 +293,7 @@ if ($import_file != 'none' && !$error) {
                 if ($cfg['GZipDump'] && @function_exists('gzopen')) {
                     $import_handle = @gzopen($import_file, 'r');
                 } else {
-                    $message = PMA_Message::error('strUnsupportedCompressionDetected');
+                    $message = PMA_Message::error(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'));
                     $message->addParam($compression);
                     $error = TRUE;
                 }
@@ -312,7 +312,7 @@ if ($import_file != 'none' && !$error) {
                         $import_text = $result['data'];
                     }
                 } else {
-                    $message = PMA_Message::error('strUnsupportedCompressionDetected');
+                    $message = PMA_Message::error(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'));
                     $message->addParam($compression);
                     $error = TRUE;
                 }
@@ -321,7 +321,7 @@ if ($import_file != 'none' && !$error) {
                 $import_handle = @fopen($import_file, 'r');
                 break;
             default:
-                $message = PMA_Message::error('strUnsupportedCompressionDetected');
+                $message = PMA_Message::error(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'));
                 $message->addParam($compression);
                 $error = TRUE;
                 break;
@@ -329,12 +329,12 @@ if ($import_file != 'none' && !$error) {
     }
     // use isset() because zip compression type does not use a handle
     if (!$error && isset($import_handle) && $import_handle === FALSE) {
-        $message = PMA_Message::error('strFileCouldNotBeRead');
+        $message = PMA_Message::error(__('File could not be read'));
         $error = TRUE;
     }
 } elseif (!$error) {
     if (!isset($import_text) || empty($import_text)) {
-        $message = PMA_Message::error('strNoDataReceived');
+        $message = PMA_Message::error(__('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a].'));
         $error = TRUE;
     }
 }
@@ -369,7 +369,7 @@ if (!$error) {
     // Check for file existance
     if (!file_exists('./libraries/import/' . $format . '.php')) {
         $error = TRUE;
-        $message = PMA_Message::error('strCanNotLoadImportPlugins');
+        $message = PMA_Message::error(__('Could not load import plugins, please check your installation!'));
     } else {
         // Do the real import
         $plugin_param = $import_type;
@@ -394,11 +394,11 @@ if ($reset_charset) {
 
 // Show correct message
 if (!empty($id_bookmark) && $action_bookmark == 2) {
-    $message = PMA_Message::success('strBookmarkDeleted');
+    $message = PMA_Message::success(__('The bookmark has been deleted.'));
     $display_query = $import_text;
     $error = FALSE; // unset error marker, it was used just to skip processing
 } elseif (!empty($id_bookmark) && $action_bookmark == 1) {
-    $message = PMA_Message::notice('strShowingBookmark');
+    $message = PMA_Message::notice(__('Showing bookmark'));
 } elseif ($bookmark_created) {
     $special_message = '[br]' . sprintf(__('Bookmark %s created'), htmlspecialchars($bkm_label));
 } elseif ($finished && !$error) {
@@ -412,7 +412,7 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
             $message->addString($import_notice);
             $message->addString('(' . $_FILES['import_file']['name'] . ')');
         } else {
-            $message = PMA_Message::success('strImportSuccessfullyFinished');
+            $message = PMA_Message::success(__('Import has been successfully finished, %d queries executed.'));
             $message->addParam($executed_queries);
             $message->addString('(' . $_FILES['import_file']['name'] . ')');
         }
@@ -421,7 +421,7 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
 
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
-    $message = PMA_Message::error('strTimeoutPassed');
+    $message = PMA_Message::error(__('Script timeout passed, if you want to finish import, please resubmit same file and import will resume.'));
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
         $message->addString('strTimeoutNothingParsed');
     }

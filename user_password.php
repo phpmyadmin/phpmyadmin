@@ -51,7 +51,7 @@ if (!$cfg['ShowChgPassword']) {
 }
 if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
     require_once './libraries/header.inc.php';
-    PMA_Message::error('strNoRights')->display();
+    PMA_Message::error(__('You don\'t have sufficient privileges to be here right now!'))->display();
     require_once './libraries/footer.inc.php';
 } // end if
 
@@ -67,10 +67,10 @@ if (isset($_REQUEST['nopass'])) {
     if ($_REQUEST['nopass'] == '1') {
         $password = '';
     } elseif (empty($_REQUEST['pma_pw']) || empty($_REQUEST['pma_pw2'])) {
-        $message = PMA_Message::error('strPasswordEmpty');
+        $message = PMA_Message::error(__('The password is empty!'));
         $_error = true;
     } elseif ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2']) {
-        $message = PMA_Message::error('strPasswordNotSame');
+        $message = PMA_Message::error(__('The passwords aren\'t the same!'));
         $_error = true;
     } else {
         $password = $_REQUEST['pma_pw'];
