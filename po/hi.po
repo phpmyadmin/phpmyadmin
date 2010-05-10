@@ -290,7 +290,7 @@ msgstr "BLOB भंडार गृह"
 #: libraries/messages.inc.php:1045 libraries/server_links.inc.php:49
 #: server_processlist.php:59 tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
-msgstr ""
+msgstr "स्थिति"
 
 #: db_operations.php:544
 #, fuzzy
