@@ -316,12 +316,11 @@ msgid "Repair"
 msgstr "मरम्मत"
 
 #: db_operations.php:570
-#, fuzzy
 #| msgctxt "$strBLOBRepositoryDisabled"
 #| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr "दिसअबल्ड "
+msgstr "असक्षम"
 
 #: db_operations.php:574 libraries/messages.inc.php:104
 msgid "Enable"
