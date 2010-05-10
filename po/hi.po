@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-09 16:24-0400\n"
-"PO-Revision-Date: 2010-05-10 09:55+0200\n"
+"PO-Revision-Date: 2010-05-10 09:56+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -240,7 +240,7 @@ msgstr "और फिर"
 
 #: db_operations.php:451 libraries/messages.inc.php:241
 msgid "Copy database to"
-msgstr ""
+msgstr "डेटाबेस को ______ में कॉपी करें"
 
 #: db_operations.php:458 libraries/messages.inc.php:1051
 #: tbl_operations.php:526 tbl_tracking.php:388
