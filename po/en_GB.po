@@ -6737,7 +6737,6 @@ msgid "Jump to database"
 msgstr "Jump to database"
 
 #: server_privileges.php:263 server_privileges.php:264
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
