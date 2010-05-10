@@ -333,7 +333,7 @@ msgstr "सक्षम"
 #: tbl_select.php:137 tbl_structure.php:179 tbl_structure.php:768
 #: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
-msgstr ""
+msgstr "क्रम में करें"
 
 #: db_operations.php:609 libraries/messages.inc.php:750 pdf_schema.php:34
 #, php-format
