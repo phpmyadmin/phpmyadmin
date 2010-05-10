@@ -5,13 +5,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-10 09:52+0200\n"
+"PO-Revision-Date: 2010-05-10 14:24+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -2812,10 +2812,9 @@ msgstr "Přejít na podhled"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:143
-#, fuzzy
 #| msgid "encoding conversion"
 msgid "Encoding conversion"
-msgstr "konverze znakových sad"
+msgstr "Převod znakové sady"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:145
@@ -8571,177 +8570,3 @@ msgstr "Vytvořit index na &nbsp;%s&nbsp;sloupcích"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Popis"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Žádná"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "Žádná"
-
-#, fuzzy
-#~| msgid "Grant all privileges on wildcard name (username\\_%)"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr ""
-#~ "Přidělit všechna oprávnění na jméno odpovídající masce (uživatel\\_%)"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "Tabulka „%s“ neexistuje!"
-
-#~ msgid "Could not load default configuration from: %1"
-#~ msgstr "Nepodařilo se nahrát výchozí konfiguraci ze souboru: „%1“"
-
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr "Chybné jméno serveru pro server %1. Prosím zkontrolujte nastavení."
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "Chyba při přejmenování tabulky %1$s na %2$s"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "Nelze nahrát rozšíření [a@http://php.net/%1@Documentation][em]%1[/em][/"
-#~ "a], prosím zkontrolujte nastavení PHP."
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as master in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as master in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Tento server není nastaven jako nadřízený v replikačním procesu. Přejete "
-#~ "si ho <a href=\"%s\">nastavit</a>?"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as slave in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as slave in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "Tento server není nastaven jako podřízený v replikačním procesu. Přejete "
-#~ "si ho <a href=\"%s\">nastavit</a>?"
-
-#, fuzzy
-#~| msgid "Could not connect to MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Nepodařilo se připojit k MySQL serveru"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Je možné, že jste našli chybu v SQL parseru. Prosím prozkoumejte podrobně "
-#~ "SQL dotaz, především jestli jsou správně uvozovky a jestli nejsou "
-#~ "proházené. Další možnost selhání je pokud nahráváte soubor s binárními "
-#~ "daty nezapsanými v uvozovkách. Můžete také vyzkoušet příkazovou řádku "
-#~ "MySQL. Níže uvedený výstup z MySQL serveru (pokud je nějaký) vám také "
-#~ "může pomoci při zkoumání problému. Pokud stále máte problémy nebo pokud "
-#~ "SQL parser ohlásí chybu u dotazu, který na příkazové řádce funguje, "
-#~ "prosím pokuste se zredukovat dotaz na co nejmenší, ve kterém se problém "
-#~ "ještě vyskytne, a ohlaste chybu na stránkách phpMyAdmina spolu se sekcí "
-#~ "VÝPIS uvedenou níže:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV"
-
-#~ msgid "Copy"
-#~ msgstr "Kopírovat"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Odstranit uživatele a znovu načíst oprávnění."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr "Toto je nejčistší řešení, ale načítání oprávnění může trvat dlouho."
-
-#~ msgid "has been altered."
-#~ msgstr "byla změněna."
-
-#~ msgid "Microsoft Excel 2000"
-#~ msgstr "Microsoft Excel 2000"
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Prohlížeč Internet Explorer tuto funkci nepodporuje."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "Odstranění uživatelé stále budou mít přístup na server, dokud nebudou "
-#~ "znovu načtena oprávnění."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Jen odstranit uživatele z tabulek s oprávněními."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Umožňuje spouštět uložené procedury. V této verzi MySQL se nepoužívá."
-
-#~ msgid "Process list"
-#~ msgstr "Seznam procesů"
-
-#~ msgid "Reload privileges"
-#~ msgstr "Znovu načíst oprávnění"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Uživatelé budou mít oprávnění „USAGE“ (používání), dokud nebudou znovu "
-#~ "načtena oprávnění."
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "Nativní formát MS Excelu"
-
-#~ msgid "Alter index(s)"
-#~ msgstr "Změnit indexy"
-
-#~ msgid "Tracking Mechanism"
-#~ msgstr "Sledovací mechanismus"
-
-#~ msgid "SELECT *"
-#~ msgstr "SELECT *"
-
-#~ msgid "SELECT"
-#~ msgstr "SELECT"
-
-#~ msgid "INSERT"
-#~ msgstr "INSERT"
-
-#~ msgid "UPDATE"
-#~ msgstr "UPDATE"
-
-#~ msgid "DELETE"
-#~ msgstr "DELETE"
