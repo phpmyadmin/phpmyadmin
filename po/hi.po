@@ -302,7 +302,7 @@ msgstr "सक्षम"
 
 #: db_operations.php:548 libraries/messages.inc.php:101
 msgid "Disable"
-msgstr "दिसअबल "
+msgstr "असक्षम"
 
 #: db_operations.php:558 libraries/messages.inc.php:98
 msgid "Damaged"
