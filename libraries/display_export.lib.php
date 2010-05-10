@@ -267,9 +267,7 @@ if ($is_zip || $is_gzip || $is_bzip) { ?>
 <?php if (function_exists('PMA_set_enc_form')) { ?>
 <!-- Encoding setting form appended by Y.Kawada -->
 <!-- Japanese encoding setting -->
-<fieldset>
 <?php echo PMA_set_enc_form('            '); ?>
-</fieldset>
 <?php } ?>
 
 <fieldset class="tblFooters">

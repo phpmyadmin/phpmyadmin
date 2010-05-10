@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-10 09:35+0200\n"
+"POT-Creation-Date: 2010-05-10 14:17+0200\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: portuguese <pt@li.org>\n"
@@ -47,7 +47,7 @@ msgstr "Pesquisar"
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
+#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
 #: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
 #: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
 #: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
@@ -2138,7 +2138,7 @@ msgstr "\"Compressão gzip\""
 msgid "bzipped"
 msgstr "\"Compressão bzip\""
 
-#: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
+#: libraries/display_export.lib.php:274 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr ""
 
@@ -2823,7 +2823,12 @@ msgid "Go to view"
 msgstr ""
 
 #. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:142
+#: libraries/kanji-encoding.lib.php:143
+msgid "Encoding conversion"
+msgstr ""
+
+#. l10n: This is currently used only in Japanese locales
+#: libraries/kanji-encoding.lib.php:145
 #, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
@@ -2831,12 +2836,7 @@ msgid "None"
 msgstr "Nenhum"
 
 #. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:146
-msgid "encoding conversion"
-msgstr ""
-
-#. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:149
+#: libraries/kanji-encoding.lib.php:151
 msgid "Convert to Kana"
 msgstr ""
 

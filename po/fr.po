@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-10 09:35+0200\n"
+"POT-Creation-Date: 2010-05-10 14:17+0200\n"
 "PO-Revision-Date: 2010-05-09 22:26+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -52,7 +52,7 @@ msgstr "Rechercher"
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
+#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
 #: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
 #: libraries/messages.inc.php:369 libraries/replication_gui.lib.php:73
 #: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
@@ -2101,7 +2101,7 @@ msgstr "gzippé"
 msgid "bzipped"
 msgstr "bzippé"
 
-#: libraries/display_export.lib.php:276 libraries/messages.inc.php:1026
+#: libraries/display_export.lib.php:274 libraries/messages.inc.php:1026
 msgid "SQL compatibility mode"
 msgstr "Mode de compatibilité SQL"
 
@@ -2836,7 +2836,14 @@ msgid "Go to view"
 msgstr "Aller à la vue"
 
 #. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:142
+#: libraries/kanji-encoding.lib.php:143
+#, fuzzy
+#| msgid "Recoding engine"
+msgid "Encoding conversion"
+msgstr "Moteur de conversion"
+
+#. l10n: This is currently used only in Japanese locales
+#: libraries/kanji-encoding.lib.php:145
 #, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
@@ -2844,14 +2851,7 @@ msgid "None"
 msgstr "aucune"
 
 #. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:146
-#, fuzzy
-#| msgid "Recoding engine"
-msgid "encoding conversion"
-msgstr "Moteur de conversion"
-
-#. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:149
+#: libraries/kanji-encoding.lib.php:151
 msgid "Convert to Kana"
 msgstr ""
 
