@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-09 16:24-0400\n"
+"POT-Creation-Date: 2010-05-10 09:35+0200\n"
 "PO-Revision-Date: 2010-04-30 18:08+0200\n"
 "Last-Translator:  <kajouni@gmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -47,9 +47,9 @@ msgstr "Etsi"
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
 #: db_search.php:362 db_structure.php:567 js/messages.php:48
+#: libraries/Config.class.php:1046 libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
@@ -58,18 +58,18 @@ msgstr "Etsi"
 #: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
-#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
-#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
-#: server_privileges.php:1585 server_privileges.php:1932
-#: server_privileges.php:1979 server_privileges.php:2018
-#: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
-#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
-#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
-#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
+#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
+#: server_privileges.php:625 server_privileges.php:1585
+#: server_privileges.php:1932 server_privileges.php:1979
+#: server_privileges.php:2018 server_replication.php:235
+#: server_replication.php:318 server_replication.php:341
+#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_select.php:327 tbl_structure.php:563
+#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Siirry"
 
@@ -106,9 +106,9 @@ msgstr "Tietokannan kommentti: "
 msgid "Table comments"
 msgstr "Taulun kommentit"
 
-#: db_datadict.php:174 db_qbe.php:174 libraries/export/htmlword.php:244
-#: libraries/export/latex.php:360 libraries/export/odt.php:294
-#: libraries/export/texytext.php:233 libraries/Index.class.php:446
+#: db_datadict.php:174 db_qbe.php:174 libraries/Index.class.php:446
+#: libraries/export/htmlword.php:244 libraries/export/latex.php:360
+#: libraries/export/odt.php:294 libraries/export/texytext.php:233
 #: libraries/messages.inc.php:325 libraries/tbl_properties.inc.php:99
 #: libraries/tbl_properties.inc.php:275 pdf_schema.php:1263
 #: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:189
@@ -117,11 +117,11 @@ msgstr "Taulun kommentit"
 msgid "Field"
 msgstr "Sarake"
 
-#: db_datadict.php:175 db_printview.php:106 libraries/db_events.inc.php:31
-#: libraries/db_routines.inc.php:42 libraries/db_structure.lib.php:60
-#: libraries/export/htmlword.php:245 libraries/export/latex.php:360
-#: libraries/export/odt.php:297 libraries/export/texytext.php:234
-#: libraries/Index.class.php:443 libraries/messages.inc.php:1189
+#: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
+#: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
+#: libraries/db_structure.lib.php:60 libraries/export/htmlword.php:245
+#: libraries/export/latex.php:360 libraries/export/odt.php:297
+#: libraries/export/texytext.php:234 libraries/messages.inc.php:1189
 #: libraries/tbl_properties.inc.php:100 pdf_schema.php:1264
 #: pdf_schema.php:1285 server_privileges.php:2031 tbl_change.php:287
 #: tbl_change.php:314 tbl_printview.php:143 tbl_printview.php:313
@@ -130,9 +130,9 @@ msgstr "Sarake"
 msgid "Type"
 msgstr "Tyyppi"
 
-#: db_datadict.php:177 libraries/export/htmlword.php:246
-#: libraries/export/latex.php:360 libraries/export/odt.php:300
-#: libraries/export/texytext.php:235 libraries/Index.class.php:449
+#: db_datadict.php:177 libraries/Index.class.php:449
+#: libraries/export/htmlword.php:246 libraries/export/latex.php:360
+#: libraries/export/odt.php:300 libraries/export/texytext.php:235
 #: libraries/messages.inc.php:584 libraries/tbl_properties.inc.php:109
 #: pdf_schema.php:1266 pdf_schema.php:1287 tbl_change.php:323
 #: tbl_printview.php:145 tbl_structure.php:181 tbl_tracking.php:276
@@ -164,10 +164,10 @@ msgstr "Linkitys sarakkeeseen:"
 msgid "Comments"
 msgstr "Kommentit"
 
-#: db_datadict.php:267 libraries/export/htmlword.php:322
+#: db_datadict.php:267 libraries/Index.class.php:359
+#: libraries/Index.class.php:386 libraries/export/htmlword.php:322
 #: libraries/export/latex.php:430 libraries/export/odt.php:368
-#: libraries/export/texytext.php:311 libraries/Index.class.php:359
-#: libraries/Index.class.php:386 libraries/messages.inc.php:567
+#: libraries/export/texytext.php:311 libraries/messages.inc.php:567
 #: libraries/mult_submits.inc.php:263 pdf_schema.php:1345
 #: server_privileges.php:1529 server_privileges.php:1540
 #: server_privileges.php:1850 server_privileges.php:1855
@@ -176,10 +176,10 @@ msgstr "Kommentit"
 msgid "No"
 msgstr "Ei"
 
-#: db_datadict.php:267 libraries/export/htmlword.php:322
+#: db_datadict.php:267 libraries/Index.class.php:360
+#: libraries/Index.class.php:385 libraries/export/htmlword.php:322
 #: libraries/export/latex.php:430 libraries/export/odt.php:368
-#: libraries/export/texytext.php:311 libraries/Index.class.php:360
-#: libraries/Index.class.php:385 libraries/messages.inc.php:1265
+#: libraries/export/texytext.php:311 libraries/messages.inc.php:1265
 #: libraries/mult_submits.inc.php:45 libraries/mult_submits.inc.php:50
 #: libraries/mult_submits.inc.php:55 libraries/mult_submits.inc.php:60
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:101
@@ -326,8 +326,8 @@ msgstr "Pois päältä"
 msgid "Enable"
 msgstr "Ota käyttöön"
 
-#: db_operations.php:598 libraries/db_structure.lib.php:62
-#: libraries/Index.class.php:448 libraries/messages.inc.php:166
+#: db_operations.php:598 libraries/Index.class.php:448
+#: libraries/db_structure.lib.php:62 libraries/messages.inc.php:166
 #: libraries/mysql_charsets.lib.php:107 libraries/tbl_properties.inc.php:107
 #: libraries/tbl_properties.inc.php:730 server_collations.php:54
 #: server_collations.php:66 server_databases.php:111 tbl_operations.php:361
@@ -629,8 +629,8 @@ msgstr "Rakenne"
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
 #: db_structure.php:545 db_structure.php:546 db_tracking.php:91
-#: libraries/common.lib.php:1599 libraries/db_links.inc.php:100
-#: libraries/Index.class.php:483 libraries/messages.inc.php:280
+#: libraries/Index.class.php:483 libraries/common.lib.php:1599
+#: libraries/db_links.inc.php:100 libraries/messages.inc.php:280
 #: libraries/mult_submits.inc.php:36 libraries/mult_submits.inc.php:73
 #: libraries/tbl_links.inc.php:127 server_databases.php:352
 #: tbl_structure.php:27 tbl_structure.php:151 tbl_structure.php:152
@@ -698,8 +698,8 @@ msgstr "Replikaatio"
 msgid "Sum"
 msgstr "Summa"
 
-#: db_structure.php:496 libraries/messages.inc.php:247
-#: libraries/StorageEngine.class.php:356
+#: db_structure.php:496 libraries/StorageEngine.class.php:356
+#: libraries/messages.inc.php:247
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s on tämän MySQL-palvelimen oletustallennusmoottori."
@@ -795,8 +795,8 @@ msgstr "Luotu"
 msgid "Updated"
 msgstr "Päivitetty"
 
-#: db_tracking.php:77 libraries/db_structure.lib.php:53
-#: libraries/Index.class.php:440 libraries/messages.inc.php:35
+#: db_tracking.php:77 libraries/Index.class.php:440
+#: libraries/db_structure.lib.php:53 libraries/messages.inc.php:35
 #: server_databases.php:203 server_privileges.php:1503
 #: server_privileges.php:1686 server_privileges.php:2034 tbl_structure.php:187
 msgid "Action"
@@ -1334,6 +1334,214 @@ msgstr "käytössä"
 msgid "Second"
 msgstr "sekunnissa"
 
+#: libraries/Config.class.php:1015 libraries/messages.inc.php:346
+msgid "Font size"
+msgstr "Fonttikoko"
+
+#: libraries/File.class.php:344 libraries/File.class.php:432
+#: libraries/File.class.php:569 libraries/File.class.php:708
+#: libraries/messages.inc.php:1209
+msgid "Unknown error in file upload."
+msgstr "Tuntematon virhe tiedostoa lähetettäessä."
+
+#: libraries/File.class.php:414 libraries/messages.inc.php:1206
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+"Lähetyn tidoston koko ylittää php.ini-tiedoston upload_max_filesize-"
+"asetuksen arvon."
+
+#: libraries/File.class.php:417 libraries/messages.inc.php:1205
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+"Lähetetyn tiedoston koko ylittää HTML-lomakkeessa määritetyn MAX_FILE_SIZE-"
+"asetuksen arvon."
+
+#: libraries/File.class.php:420 libraries/messages.inc.php:1208
+msgid "The uploaded file was only partially uploaded."
+msgstr "Tiedosto lähetettiin vain osittain."
+
+#: libraries/File.class.php:423 libraries/messages.inc.php:1207
+msgid "Missing a temporary folder."
+msgstr "Tilapäiskansio puuttuu."
+
+#: libraries/File.class.php:426 libraries/messages.inc.php:1203
+msgid "Failed to write file to disk."
+msgstr "Tiedoston kirjoitus levylle epäonnistui."
+
+#: libraries/File.class.php:429 libraries/messages.inc.php:1204
+msgid "File upload stopped by extension."
+msgstr "Laajennus keskeytti tiedoston lähetyksen."
+
+#: libraries/File.class.php:908 libraries/messages.inc.php:327
+msgid ""
+"Error moving the uploaded file, see [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgstr "Virhe lähetettäessä tiedostoa, katso FAQ 1.11"
+
+#: libraries/Index.class.php:428 libraries/messages.inc.php:562
+#: tbl_relation.php:529
+msgid "No index defined!"
+msgstr "Indeksiä ei ole määritelty!"
+
+#: libraries/Index.class.php:433 libraries/messages.inc.php:419
+#: server_databases.php:132 tbl_tracking.php:316
+msgid "Indexes"
+msgstr "Indeksit"
+
+#: libraries/Index.class.php:444 libraries/messages.inc.php:1194
+#: libraries/mult_submits.inc.php:103 libraries/tbl_properties.inc.php:519
+#: tbl_structure.php:33 tbl_structure.php:155 tbl_structure.php:159
+#: tbl_structure.php:475 tbl_tracking.php:322
+msgid "Unique"
+msgstr "Uniikki"
+
+#: libraries/Index.class.php:445 libraries/messages.inc.php:604
+#: tbl_tracking.php:323
+msgid "Packed"
+msgstr "Pakattu"
+
+#: libraries/Index.class.php:447 libraries/messages.inc.php:139
+#: tbl_tracking.php:325
+msgid "Cardinality"
+msgstr "Kardinaliteetti"
+
+#: libraries/Index.class.php:450 libraries/messages.inc.php:170
+#: tbl_tracking.php:279 tbl_tracking.php:328
+msgid "Comment"
+msgstr "Kommentti"
+
+#: libraries/Index.class.php:466 libraries/common.lib.php:616
+#: libraries/common.lib.php:1199 libraries/display_tbl.lib.php:1117
+#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/messages.inc.php:288 pdf_pages.php:280
+#: setup/frames/index.inc.php:124 setup/lib/messages.inc.php:352
+#: tbl_row_action.php:69
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: libraries/Index.class.php:472 libraries/messages.inc.php:674
+msgid "The primary key has been dropped"
+msgstr "Perusavain on poistettu"
+
+#: libraries/Index.class.php:476 libraries/messages.inc.php:421
+#, php-format
+msgid "Index %s has been dropped"
+msgstr "Indeksi %s on poistettu"
+
+#: libraries/Index.class.php:576 libraries/messages.inc.php:420
+#, php-format
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
+"Indeksit %1$s ja %2$s ovat ehkä samoja, ja niistä jompikumpi kannattanee "
+"poistaa."
+
+#: libraries/List_Database.class.php:431 libraries/messages.inc.php:226
+#: libraries/server_links.inc.php:41 server_databases.php:88
+#: server_privileges.php:1621 setup/lib/messages.inc.php:110 test/theme.php:93
+msgid "Databases"
+msgstr "Tietokannat"
+
+#: libraries/Message.class.php:282
+#, fuzzy, php-format
+#| msgid "%1$d row(s) affected."
+msgid "%1$d row affected."
+msgid_plural "%1$d rows affected."
+msgstr[0] "%1$d rivi(ä) muutettu."
+msgstr[1] "%1$d rivi(ä) muutettu."
+
+#: libraries/Message.class.php:301
+#, fuzzy, php-format
+#| msgid "%1$d row(s) deleted."
+msgid "%1$d row deleted."
+msgid_plural "%1$d rows deleted."
+msgstr[0] "%1$d rivi(ä) poistettu."
+msgstr[1] "%1$d rivi(ä) poistettu."
+
+#: libraries/Message.class.php:320
+#, fuzzy, php-format
+#| msgid "%1$d row(s) inserted."
+msgid "%1$d row inserted."
+msgid_plural "%1$d rows inserted."
+msgstr[0] "%1$d rivi(ä) lisätty."
+msgstr[1] "%1$d rivi(ä) lisätty."
+
+#: libraries/StorageEngine.class.php:198 libraries/messages.inc.php:557
+msgid ""
+"There is no detailed status information available for this storage engine."
+msgstr ""
+"Tämän tallennusmoottorin tilasta ei ole saatavilla yksityiskohtaisia tietoja."
+
+#: libraries/StorageEngine.class.php:359 libraries/messages.inc.php:299
+#, php-format
+msgid "%s is available on this MySQL server."
+msgstr "%s on käytettävissä tällä MySQL-palvelimella."
+
+#: libraries/StorageEngine.class.php:362 libraries/messages.inc.php:300
+#, php-format
+msgid "%s has been disabled for this MySQL server."
+msgstr "%s ei ole käytettävissä tällä MySQL-palvelimella."
+
+#: libraries/StorageEngine.class.php:366 libraries/messages.inc.php:302
+#, php-format
+msgid "This MySQL server does not support the %s storage engine."
+msgstr "Tämä MySQL-palvelin ei tue %s-tallennusmoottoria."
+
+#: libraries/Table.class.php:1019 libraries/messages.inc.php:451
+msgid "Invalid database"
+msgstr "Virheellinen tietokanta"
+
+#: libraries/Table.class.php:1033 libraries/messages.inc.php:458
+#: tbl_get_field.php:26
+msgid "Invalid table name"
+msgstr "Virheellinen taulun nimi"
+
+#: libraries/Table.class.php:1048 libraries/messages.inc.php:309
+#, php-format
+msgid "Error renaming table %1$s to %2$s"
+msgstr "Virhe annettaessa taululle %1$s nimeä %2$s"
+
+#: libraries/Table.class.php:1132 libraries/messages.inc.php:762
+#, php-format
+msgid "Table %s has been renamed to %s"
+msgstr "Taulun %s nimi on nyt %s"
+
+#: libraries/Theme.class.php:162 libraries/messages.inc.php:1107
+#, php-format
+msgid "No valid image path for theme %s found!"
+msgstr "Kelvollista polkua teemalle %s ei löytynyt."
+
+#: libraries/Theme.class.php:384 libraries/messages.inc.php:1105
+msgid "No preview available."
+msgstr "Esikatselu ei ole saatavilla."
+
+#: libraries/Theme.class.php:387 libraries/messages.inc.php:1097
+msgid "take it"
+msgstr "käytä tätä"
+
+#: libraries/Theme_Manager.class.php:115 libraries/messages.inc.php:1104
+#, php-format
+msgid "Default theme %s not found!"
+msgstr "Oletusteemaa %s ei löydy!"
+
+#: libraries/Theme_Manager.class.php:153 libraries/messages.inc.php:1106
+#, php-format
+msgid "Theme %s not found!"
+msgstr "Teemaa %s ei löydy!"
+
+#: libraries/Theme_Manager.class.php:221 libraries/messages.inc.php:1108
+#, php-format
+msgid "Theme path not found for theme %s!"
+msgstr "Teeman %s polkua ei löydy!"
+
+#: libraries/Theme_Manager.class.php:297 libraries/messages.inc.php:1109
+#: test/theme.php:161 themes.php:21 themes.php:41
+msgid "Theme / Style"
+msgstr "Teema/tyyli"
+
 #: libraries/auth/config.auth.lib.php:77 libraries/messages.inc.php:180
 msgid "Cannot connect: invalid settings."
 msgstr "Yhteyttä ei voitu muodostaa: virheelliset asetukset."
@@ -1580,15 +1788,6 @@ msgstr "Virhe"
 msgid "SQL query"
 msgstr "SQL-kysely"
 
-#: libraries/common.lib.php:616 libraries/common.lib.php:1199
-#: libraries/display_tbl.lib.php:1117 libraries/import.lib.php:1087
-#: libraries/import.lib.php:1111 libraries/Index.class.php:466
-#: libraries/messages.inc.php:288 pdf_pages.php:280
-#: setup/frames/index.inc.php:124 setup/lib/messages.inc.php:352
-#: tbl_row_action.php:69
-msgid "Edit"
-msgstr "Muokkaa"
-
 #: libraries/common.lib.php:634 libraries/messages.inc.php:546
 msgid "MySQL said: "
 msgstr "MySQL ilmoittaa: "
@@ -1677,10 +1876,6 @@ msgstr "Siirry tietokantaan &quot;%s&quot;."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Toimintoon %s vaikuttaa tunnettu vika, katso %s"
 
-#: libraries/Config.class.php:1015 libraries/messages.inc.php:346
-msgid "Font size"
-msgstr "Fonttikoko"
-
 #: libraries/core.lib.php:286 libraries/dbg/setup.php:22
 #: libraries/messages.inc.php:135
 #, php-format
@@ -1699,29 +1894,6 @@ msgstr "Tapahtumat"
 #: libraries/tbl_triggers.lib.php:27 setup/frames/index.inc.php:112
 msgid "Name"
 msgstr "Nimi"
-
-#: libraries/dbi/mysql.dbi.lib.php:112 libraries/dbi/mysqli.dbi.lib.php:124
-#: libraries/messages.inc.php:184
-msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-"Yhteyden muodostus asetuksissa määriteltyyn superuser-käyttäjään epäonnistui."
-
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
-msgid "The server is not responding"
-msgstr "Palvelin ei vastaa"
-
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
-"(tai paikallisen MySQL-palvelimen pistokkeen asetuksia ei ole määritelty "
-"oikein)"
-
-#: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
-#: tbl_structure.php:609
-msgid "Details..."
-msgstr "Lisätiedot..."
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
 #, php-format
@@ -1790,6 +1962,29 @@ msgstr "Saattaa olla summittainen. Katso FAQ 3.11"
 #: server_databases.php:142 tbl_printview.php:336 tbl_structure.php:683
 msgid "Overhead"
 msgstr "Ylijäämä"
+
+#: libraries/dbi/mysql.dbi.lib.php:112 libraries/dbi/mysqli.dbi.lib.php:124
+#: libraries/messages.inc.php:184
+msgid "Connection for controluser as defined in your configuration failed."
+msgstr ""
+"Yhteyden muodostus asetuksissa määriteltyyn superuser-käyttäjään epäonnistui."
+
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
+msgid "The server is not responding"
+msgstr "Palvelin ei vastaa"
+
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr ""
+"(tai paikallisen MySQL-palvelimen pistokkeen asetuksia ei ole määritelty "
+"oikein)"
+
+#: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
+#: tbl_structure.php:609
+msgid "Details..."
+msgstr "Lisätiedot..."
 
 #: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
 #: main.php:91 user_password.php:111 user_password.php:129
@@ -2613,48 +2808,6 @@ msgstr "Näkymän rakenne"
 msgid "Stand-in structure for view"
 msgstr "Näkymän vararakenne"
 
-#: libraries/File.class.php:344 libraries/File.class.php:432
-#: libraries/File.class.php:569 libraries/File.class.php:708
-#: libraries/messages.inc.php:1209
-msgid "Unknown error in file upload."
-msgstr "Tuntematon virhe tiedostoa lähetettäessä."
-
-#: libraries/File.class.php:414 libraries/messages.inc.php:1206
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
-"Lähetyn tidoston koko ylittää php.ini-tiedoston upload_max_filesize-"
-"asetuksen arvon."
-
-#: libraries/File.class.php:417 libraries/messages.inc.php:1205
-msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the HTML form."
-msgstr ""
-"Lähetetyn tiedoston koko ylittää HTML-lomakkeessa määritetyn MAX_FILE_SIZE-"
-"asetuksen arvon."
-
-#: libraries/File.class.php:420 libraries/messages.inc.php:1208
-msgid "The uploaded file was only partially uploaded."
-msgstr "Tiedosto lähetettiin vain osittain."
-
-#: libraries/File.class.php:423 libraries/messages.inc.php:1207
-msgid "Missing a temporary folder."
-msgstr "Tilapäiskansio puuttuu."
-
-#: libraries/File.class.php:426 libraries/messages.inc.php:1203
-msgid "Failed to write file to disk."
-msgstr "Tiedoston kirjoitus levylle epäonnistui."
-
-#: libraries/File.class.php:429 libraries/messages.inc.php:1204
-msgid "File upload stopped by extension."
-msgstr "Laajennus keskeytti tiedoston lähetyksen."
-
-#: libraries/File.class.php:908 libraries/messages.inc.php:327
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Virhe lähetettäessä tiedostoa, katso FAQ 1.11"
-
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:594
 msgid "Open new phpMyAdmin window"
@@ -2726,85 +2879,25 @@ msgstr "rakenne"
 msgid "Go to view"
 msgstr "Siirry näkymään"
 
-#: libraries/Index.class.php:428 libraries/messages.inc.php:562
-#: tbl_relation.php:529
-msgid "No index defined!"
-msgstr "Indeksiä ei ole määritelty!"
+#. l10n: This is currently used only in Japanese locales
+#: libraries/kanji-encoding.lib.php:142
+#, fuzzy
+#| msgid "None"
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Ei mitään"
 
-#: libraries/Index.class.php:433 libraries/messages.inc.php:419
-#: server_databases.php:132 tbl_tracking.php:316
-msgid "Indexes"
-msgstr "Indeksit"
+#. l10n: This is currently used only in Japanese locales
+#: libraries/kanji-encoding.lib.php:146
+#, fuzzy
+#| msgid "Recoding engine"
+msgid "encoding conversion"
+msgstr "Merkistön uudelleenkoodaus"
 
-#: libraries/Index.class.php:444 libraries/messages.inc.php:1194
-#: libraries/mult_submits.inc.php:103 libraries/tbl_properties.inc.php:519
-#: tbl_structure.php:33 tbl_structure.php:155 tbl_structure.php:159
-#: tbl_structure.php:475 tbl_tracking.php:322
-msgid "Unique"
-msgstr "Uniikki"
-
-#: libraries/Index.class.php:445 libraries/messages.inc.php:604
-#: tbl_tracking.php:323
-msgid "Packed"
-msgstr "Pakattu"
-
-#: libraries/Index.class.php:447 libraries/messages.inc.php:139
-#: tbl_tracking.php:325
-msgid "Cardinality"
-msgstr "Kardinaliteetti"
-
-#: libraries/Index.class.php:450 libraries/messages.inc.php:170
-#: tbl_tracking.php:279 tbl_tracking.php:328
-msgid "Comment"
-msgstr "Kommentti"
-
-#: libraries/Index.class.php:472 libraries/messages.inc.php:674
-msgid "The primary key has been dropped"
-msgstr "Perusavain on poistettu"
-
-#: libraries/Index.class.php:476 libraries/messages.inc.php:421
-#, php-format
-msgid "Index %s has been dropped"
-msgstr "Indeksi %s on poistettu"
-
-#: libraries/Index.class.php:576 libraries/messages.inc.php:420
-#, php-format
-msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
+#. l10n: This is currently used only in Japanese locales
+#: libraries/kanji-encoding.lib.php:149
+msgid "Convert to Kana"
 msgstr ""
-"Indeksit %1$s ja %2$s ovat ehkä samoja, ja niistä jompikumpi kannattanee "
-"poistaa."
-
-#: libraries/List_Database.class.php:431 libraries/messages.inc.php:226
-#: libraries/server_links.inc.php:41 server_databases.php:88
-#: server_privileges.php:1621 setup/lib/messages.inc.php:110 test/theme.php:93
-msgid "Databases"
-msgstr "Tietokannat"
-
-#: libraries/Message.class.php:282
-#, fuzzy, php-format
-#| msgid "%1$d row(s) affected."
-msgid "%1$d row affected."
-msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d rivi(ä) muutettu."
-msgstr[1] "%1$d rivi(ä) muutettu."
-
-#: libraries/Message.class.php:301
-#, fuzzy, php-format
-#| msgid "%1$d row(s) deleted."
-msgid "%1$d row deleted."
-msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d rivi(ä) poistettu."
-msgstr[1] "%1$d rivi(ä) poistettu."
-
-#: libraries/Message.class.php:320
-#, fuzzy, php-format
-#| msgid "%1$d row(s) inserted."
-msgid "%1$d row inserted."
-msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d rivi(ä) lisätty."
-msgstr[1] "%1$d rivi(ä) lisätty."
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
@@ -3577,25 +3670,10 @@ msgstr "LOPETA CUT"
 msgid "END RAW"
 msgstr "LOPETA RAW"
 
-#: libraries/messages.inc.php:299 libraries/StorageEngine.class.php:359
-#, php-format
-msgid "%s is available on this MySQL server."
-msgstr "%s on käytettävissä tällä MySQL-palvelimella."
-
-#: libraries/messages.inc.php:300 libraries/StorageEngine.class.php:362
-#, php-format
-msgid "%s has been disabled for this MySQL server."
-msgstr "%s ei ole käytettävissä tällä MySQL-palvelimella."
-
 #: libraries/messages.inc.php:301 libraries/server_links.inc.php:61
 #: test/theme.php:113
 msgid "Engines"
 msgstr "Moottorit"
-
-#: libraries/messages.inc.php:302 libraries/StorageEngine.class.php:366
-#, php-format
-msgid "This MySQL server does not support the %s storage engine."
-msgstr "Tämä MySQL-palvelin ei tue %s-tallennusmoottoria."
 
 #: libraries/messages.inc.php:303 libraries/mysql_charsets.lib.php:238
 msgid "English"
@@ -3610,11 +3688,6 @@ msgstr " Huom! MySQL-käyttöoikeuksien nimet ovat englanniksi! "
 #: libraries/zip_extension.lib.php:51 libraries/zip_extension.lib.php:66
 msgid "Error in ZIP archive:"
 msgstr "Virhe ZIP-paketissa:"
-
-#: libraries/messages.inc.php:309 libraries/Table.class.php:1048
-#, php-format
-msgid "Error renaming table %1$s to %2$s"
-msgstr "Virhe annettaessa taululle %1$s nimeä %2$s"
 
 #: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:241
 msgid "Esperanto"
@@ -3980,10 +4053,6 @@ msgstr "Virheellinen muoto CSV-syötteessä rivillä %d."
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Virheellinen CSV-tuonnin parametri: %s"
 
-#: libraries/messages.inc.php:451 libraries/Table.class.php:1019
-msgid "Invalid database"
-msgstr "Virheellinen tietokanta"
-
 #: libraries/messages.inc.php:452 libraries/tbl_properties.inc.php:784
 #: tbl_structure.php:537
 msgid "You have to add at least one field."
@@ -3997,11 +4066,6 @@ msgstr "Tämä lisäosa ei tue pakattujen tuontien käyttöä!"
 #, php-format
 msgid "Invalid server index: \"%s\""
 msgstr "Virheellinen palvelimen indeksi: \"%s\""
-
-#: libraries/messages.inc.php:458 libraries/Table.class.php:1033
-#: tbl_get_field.php:26
-msgid "Invalid table name"
-msgstr "Virheellinen taulun nimi"
 
 #: libraries/messages.inc.php:460 libraries/mysql_charsets.lib.php:259
 #: libraries/mysql_charsets.lib.php:349
@@ -4262,12 +4326,6 @@ msgstr "Yhtään tietokantaa ei ole valittu."
 #: libraries/messages.inc.php:556 libraries/relation.lib.php:1173
 msgid "no description"
 msgstr "ei kuvausta"
-
-#: libraries/messages.inc.php:557 libraries/StorageEngine.class.php:198
-msgid ""
-"There is no detailed status information available for this storage engine."
-msgstr ""
-"Tämän tallennusmoottorin tilasta ei ole saatavilla yksityiskohtaisia tietoja."
 
 #: libraries/messages.inc.php:560 libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -4796,11 +4854,6 @@ msgstr "Poista ositus"
 #: libraries/messages.inc.php:760 server_privileges.php:1575
 msgid "Remove selected users"
 msgstr "Poista valitut käyttäjät"
-
-#: libraries/messages.inc.php:762 libraries/Table.class.php:1132
-#, php-format
-msgid "Table %s has been renamed to %s"
-msgstr "Taulun %s nimi on nyt %s"
 
 #: libraries/messages.inc.php:763 tbl_operations.php:338
 msgid "Rename table to"
@@ -6199,10 +6252,6 @@ msgstr "Poista indeksi(t)"
 msgid "Update row(s)"
 msgstr "Päivitä rivi(t)"
 
-#: libraries/messages.inc.php:1097 libraries/Theme.class.php:387
-msgid "take it"
-msgstr "käytä tätä"
-
 #: libraries/messages.inc.php:1098 server_synchronize.php:942
 msgid "Target database has been synchronized with source database"
 msgstr "Kohdetietokanta on yhtenäistetty lähdetietokannan kanssa"
@@ -6229,35 +6278,6 @@ msgstr "Texy!-teksti"
 #: libraries/mysql_charsets.lib.php:395
 msgid "Thai"
 msgstr "Thai"
-
-#: libraries/messages.inc.php:1104 libraries/Theme_Manager.class.php:115
-#, php-format
-msgid "Default theme %s not found!"
-msgstr "Oletusteemaa %s ei löydy!"
-
-#: libraries/messages.inc.php:1105 libraries/Theme.class.php:384
-msgid "No preview available."
-msgstr "Esikatselu ei ole saatavilla."
-
-#: libraries/messages.inc.php:1106 libraries/Theme_Manager.class.php:153
-#, php-format
-msgid "Theme %s not found!"
-msgstr "Teemaa %s ei löydy!"
-
-#: libraries/messages.inc.php:1107 libraries/Theme.class.php:162
-#, php-format
-msgid "No valid image path for theme %s found!"
-msgstr "Kelvollista polkua teemalle %s ei löytynyt."
-
-#: libraries/messages.inc.php:1108 libraries/Theme_Manager.class.php:221
-#, php-format
-msgid "Theme path not found for theme %s!"
-msgstr "Teeman %s polkua ei löydy!"
-
-#: libraries/messages.inc.php:1109 libraries/Theme_Manager.class.php:297
-#: test/theme.php:161 themes.php:21 themes.php:41
-msgid "Theme / Style"
-msgstr "Teema/tyyli"
 
 #: libraries/messages.inc.php:1110 libraries/replication_gui.lib.php:308
 #: server_privileges.php:734

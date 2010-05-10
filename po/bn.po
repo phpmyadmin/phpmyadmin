@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-09 16:24-0400\n"
+"POT-Creation-Date: 2010-05-10 09:35+0200\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: bangla <bn@li.org>\n"
@@ -45,9 +45,9 @@ msgstr "খুঁজুন"
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
 #: db_operations.php:495 db_operations.php:603 db_operations.php:696
 #: db_search.php:362 db_structure.php:567 js/messages.php:48
+#: libraries/Config.class.php:1046 libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2224
-#: libraries/Config.class.php:1046
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:277 libraries/display_import.lib.php:276
@@ -56,18 +56,18 @@ msgstr "খুঁজুন"
 #: libraries/replication_gui.lib.php:365 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: libraries/Theme_Manager.class.php:311 main.php:128 navigation.php:238
-#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
-#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
-#: server_privileges.php:1585 server_privileges.php:1932
-#: server_privileges.php:1979 server_privileges.php:2018
-#: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
-#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
-#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
-#: tbl_structure.php:563 tbl_structure.php:598 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:309
+#: pdf_pages.php:511 pdf_pages.php:553 pmd_pdf.php:116 server_binlog.php:142
+#: server_privileges.php:625 server_privileges.php:1585
+#: server_privileges.php:1932 server_privileges.php:1979
+#: server_privileges.php:2018 server_replication.php:235
+#: server_replication.php:318 server_replication.php:341
+#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_select.php:327 tbl_structure.php:563
+#: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Go"
 
@@ -104,9 +104,9 @@ msgstr "ডাটাবেজ মন্তব্যসমূহঃ"
 msgid "Table comments"
 msgstr "Table comments"
 
-#: db_datadict.php:174 db_qbe.php:174 libraries/export/htmlword.php:244
-#: libraries/export/latex.php:360 libraries/export/odt.php:294
-#: libraries/export/texytext.php:233 libraries/Index.class.php:446
+#: db_datadict.php:174 db_qbe.php:174 libraries/Index.class.php:446
+#: libraries/export/htmlword.php:244 libraries/export/latex.php:360
+#: libraries/export/odt.php:294 libraries/export/texytext.php:233
 #: libraries/messages.inc.php:325 libraries/tbl_properties.inc.php:99
 #: libraries/tbl_properties.inc.php:275 pdf_schema.php:1263
 #: pdf_schema.php:1284 tbl_change.php:308 tbl_indexes.php:189
@@ -115,11 +115,11 @@ msgstr "Table comments"
 msgid "Field"
 msgstr "ক্ষেত্র"
 
-#: db_datadict.php:175 db_printview.php:106 libraries/db_events.inc.php:31
-#: libraries/db_routines.inc.php:42 libraries/db_structure.lib.php:60
-#: libraries/export/htmlword.php:245 libraries/export/latex.php:360
-#: libraries/export/odt.php:297 libraries/export/texytext.php:234
-#: libraries/Index.class.php:443 libraries/messages.inc.php:1189
+#: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
+#: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
+#: libraries/db_structure.lib.php:60 libraries/export/htmlword.php:245
+#: libraries/export/latex.php:360 libraries/export/odt.php:297
+#: libraries/export/texytext.php:234 libraries/messages.inc.php:1189
 #: libraries/tbl_properties.inc.php:100 pdf_schema.php:1264
 #: pdf_schema.php:1285 server_privileges.php:2031 tbl_change.php:287
 #: tbl_change.php:314 tbl_printview.php:143 tbl_printview.php:313
@@ -128,9 +128,9 @@ msgstr "ক্ষেত্র"
 msgid "Type"
 msgstr "Type"
 
-#: db_datadict.php:177 libraries/export/htmlword.php:246
-#: libraries/export/latex.php:360 libraries/export/odt.php:300
-#: libraries/export/texytext.php:235 libraries/Index.class.php:449
+#: db_datadict.php:177 libraries/Index.class.php:449
+#: libraries/export/htmlword.php:246 libraries/export/latex.php:360
+#: libraries/export/odt.php:300 libraries/export/texytext.php:235
 #: libraries/messages.inc.php:584 libraries/tbl_properties.inc.php:109
 #: pdf_schema.php:1266 pdf_schema.php:1287 tbl_change.php:323
 #: tbl_printview.php:145 tbl_structure.php:181 tbl_tracking.php:276
@@ -162,10 +162,10 @@ msgstr "Links to"
 msgid "Comments"
 msgstr "মন্তব্যসমূহ"
 
-#: db_datadict.php:267 libraries/export/htmlword.php:322
+#: db_datadict.php:267 libraries/Index.class.php:359
+#: libraries/Index.class.php:386 libraries/export/htmlword.php:322
 #: libraries/export/latex.php:430 libraries/export/odt.php:368
-#: libraries/export/texytext.php:311 libraries/Index.class.php:359
-#: libraries/Index.class.php:386 libraries/messages.inc.php:567
+#: libraries/export/texytext.php:311 libraries/messages.inc.php:567
 #: libraries/mult_submits.inc.php:263 pdf_schema.php:1345
 #: server_privileges.php:1529 server_privileges.php:1540
 #: server_privileges.php:1850 server_privileges.php:1855
@@ -174,10 +174,10 @@ msgstr "মন্তব্যসমূহ"
 msgid "No"
 msgstr "না"
 
-#: db_datadict.php:267 libraries/export/htmlword.php:322
+#: db_datadict.php:267 libraries/Index.class.php:360
+#: libraries/Index.class.php:385 libraries/export/htmlword.php:322
 #: libraries/export/latex.php:430 libraries/export/odt.php:368
-#: libraries/export/texytext.php:311 libraries/Index.class.php:360
-#: libraries/Index.class.php:385 libraries/messages.inc.php:1265
+#: libraries/export/texytext.php:311 libraries/messages.inc.php:1265
 #: libraries/mult_submits.inc.php:45 libraries/mult_submits.inc.php:50
 #: libraries/mult_submits.inc.php:55 libraries/mult_submits.inc.php:60
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:101
@@ -325,8 +325,8 @@ msgstr "বন্ধ করা হয়েছে"
 msgid "Enable"
 msgstr "Enabled"
 
-#: db_operations.php:598 libraries/db_structure.lib.php:62
-#: libraries/Index.class.php:448 libraries/messages.inc.php:166
+#: db_operations.php:598 libraries/Index.class.php:448
+#: libraries/db_structure.lib.php:62 libraries/messages.inc.php:166
 #: libraries/mysql_charsets.lib.php:107 libraries/tbl_properties.inc.php:107
 #: libraries/tbl_properties.inc.php:730 server_collations.php:54
 #: server_collations.php:66 server_databases.php:111 tbl_operations.php:361
@@ -628,8 +628,8 @@ msgstr "Structure"
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
 #: db_structure.php:545 db_structure.php:546 db_tracking.php:91
-#: libraries/common.lib.php:1599 libraries/db_links.inc.php:100
-#: libraries/Index.class.php:483 libraries/messages.inc.php:280
+#: libraries/Index.class.php:483 libraries/common.lib.php:1599
+#: libraries/db_links.inc.php:100 libraries/messages.inc.php:280
 #: libraries/mult_submits.inc.php:36 libraries/mult_submits.inc.php:73
 #: libraries/tbl_links.inc.php:127 server_databases.php:352
 #: tbl_structure.php:27 tbl_structure.php:151 tbl_structure.php:152
@@ -695,8 +695,8 @@ msgstr "Replication"
 msgid "Sum"
 msgstr "যোগফল"
 
-#: db_structure.php:496 libraries/messages.inc.php:247
-#: libraries/StorageEngine.class.php:356
+#: db_structure.php:496 libraries/StorageEngine.class.php:356
+#: libraries/messages.inc.php:247
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s MySQL সার্ভার এর ডিফল্ট ষ্টোরেজ ইঞ্জিন"
@@ -795,8 +795,8 @@ msgstr "তৈরী করুন"
 msgid "Updated"
 msgstr ""
 
-#: db_tracking.php:77 libraries/db_structure.lib.php:53
-#: libraries/Index.class.php:440 libraries/messages.inc.php:35
+#: db_tracking.php:77 libraries/Index.class.php:440
+#: libraries/db_structure.lib.php:53 libraries/messages.inc.php:35
 #: server_databases.php:203 server_privileges.php:1503
 #: server_privileges.php:1686 server_privileges.php:2034 tbl_structure.php:187
 msgid "Action"
@@ -1337,6 +1337,209 @@ msgstr "in use"
 msgid "Second"
 msgstr "per second"
 
+#: libraries/Config.class.php:1015 libraries/messages.inc.php:346
+msgid "Font size"
+msgstr "ফন্ট এর আকার"
+
+#: libraries/File.class.php:344 libraries/File.class.php:432
+#: libraries/File.class.php:569 libraries/File.class.php:708
+#: libraries/messages.inc.php:1209
+msgid "Unknown error in file upload."
+msgstr ""
+
+#: libraries/File.class.php:414 libraries/messages.inc.php:1206
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+#: libraries/File.class.php:417 libraries/messages.inc.php:1205
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+#: libraries/File.class.php:420 libraries/messages.inc.php:1208
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#: libraries/File.class.php:423 libraries/messages.inc.php:1207
+msgid "Missing a temporary folder."
+msgstr ""
+
+#: libraries/File.class.php:426 libraries/messages.inc.php:1203
+msgid "Failed to write file to disk."
+msgstr ""
+
+#: libraries/File.class.php:429 libraries/messages.inc.php:1204
+msgid "File upload stopped by extension."
+msgstr ""
+
+#: libraries/File.class.php:908 libraries/messages.inc.php:327
+#, fuzzy
+msgid ""
+"Error moving the uploaded file, see [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgstr "হয়ত আনুমানিক। FAQ ৩.১১ দেখ। "
+
+#: libraries/Index.class.php:428 libraries/messages.inc.php:562
+#: tbl_relation.php:529
+msgid "No index defined!"
+msgstr "No index defined!"
+
+#: libraries/Index.class.php:433 libraries/messages.inc.php:419
+#: server_databases.php:132 tbl_tracking.php:316
+msgid "Indexes"
+msgstr "ইন্ডেস্ক সমূহ"
+
+#: libraries/Index.class.php:444 libraries/messages.inc.php:1194
+#: libraries/mult_submits.inc.php:103 libraries/tbl_properties.inc.php:519
+#: tbl_structure.php:33 tbl_structure.php:155 tbl_structure.php:159
+#: tbl_structure.php:475 tbl_tracking.php:322
+msgid "Unique"
+msgstr "Unique"
+
+#: libraries/Index.class.php:445 libraries/messages.inc.php:604
+#: tbl_tracking.php:323
+msgid "Packed"
+msgstr ""
+
+#: libraries/Index.class.php:447 libraries/messages.inc.php:139
+#: tbl_tracking.php:325
+msgid "Cardinality"
+msgstr "Cardinality"
+
+#: libraries/Index.class.php:450 libraries/messages.inc.php:170
+#: tbl_tracking.php:279 tbl_tracking.php:328
+#, fuzzy
+msgid "Comment"
+msgstr "মন্তব্যসমূহ"
+
+#: libraries/Index.class.php:466 libraries/common.lib.php:616
+#: libraries/common.lib.php:1199 libraries/display_tbl.lib.php:1117
+#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/messages.inc.php:288 pdf_pages.php:280
+#: setup/frames/index.inc.php:124 setup/lib/messages.inc.php:352
+#: tbl_row_action.php:69
+msgid "Edit"
+msgstr "সম্পাদনা কর"
+
+#: libraries/Index.class.php:472 libraries/messages.inc.php:674
+msgid "The primary key has been dropped"
+msgstr "The primary key has been dropped"
+
+#: libraries/Index.class.php:476 libraries/messages.inc.php:421
+#, php-format
+msgid "Index %s has been dropped"
+msgstr "%s ইন্ডেস্ক মুছে ফেলা হয়েছে"
+
+#: libraries/Index.class.php:576 libraries/messages.inc.php:420
+#, php-format
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
+
+#: libraries/List_Database.class.php:431 libraries/messages.inc.php:226
+#: libraries/server_links.inc.php:41 server_databases.php:88
+#: server_privileges.php:1621 setup/lib/messages.inc.php:110 test/theme.php:93
+msgid "Databases"
+msgstr "ডাটাবেজসমূহ Databases"
+
+#: libraries/Message.class.php:282
+#, php-format
+msgid "%1$d row affected."
+msgid_plural "%1$d rows affected."
+msgstr[0] ""
+msgstr[1] ""
+
+#: libraries/Message.class.php:301
+#, fuzzy, php-format
+#| msgid "No rows selected"
+msgid "%1$d row deleted."
+msgid_plural "%1$d rows deleted."
+msgstr[0] "No rows selected"
+msgstr[1] "No rows selected"
+
+#: libraries/Message.class.php:320
+#, fuzzy, php-format
+#| msgid "No rows selected"
+msgid "%1$d row inserted."
+msgid_plural "%1$d rows inserted."
+msgstr[0] "No rows selected"
+msgstr[1] "No rows selected"
+
+#: libraries/StorageEngine.class.php:198 libraries/messages.inc.php:557
+msgid ""
+"There is no detailed status information available for this storage engine."
+msgstr ""
+"There is no detailed status information available for this storage engine."
+
+#: libraries/StorageEngine.class.php:359 libraries/messages.inc.php:299
+#, php-format
+msgid "%s is available on this MySQL server."
+msgstr "%s is available on this MySQL server."
+
+#: libraries/StorageEngine.class.php:362 libraries/messages.inc.php:300
+#, php-format
+msgid "%s has been disabled for this MySQL server."
+msgstr "MySQL সার্ভার এর জন্য  %s বন্ধ করা হয়েছে ."
+
+#: libraries/StorageEngine.class.php:366 libraries/messages.inc.php:302
+#, php-format
+msgid "This MySQL server does not support the %s storage engine."
+msgstr "এই MySQL সার্ভার  %s ধরনের স্টোরেজ ইঞ্জিন সমর্থন করেনা."
+
+#: libraries/Table.class.php:1019 libraries/messages.inc.php:451
+msgid "Invalid database"
+msgstr "Invalid database"
+
+#: libraries/Table.class.php:1033 libraries/messages.inc.php:458
+#: tbl_get_field.php:26
+msgid "Invalid table name"
+msgstr "Invalid table name"
+
+#: libraries/Table.class.php:1048 libraries/messages.inc.php:309
+#, php-format
+msgid "Error renaming table %1$s to %2$s"
+msgstr "Error renaming table %1$s to %2$s"
+
+#: libraries/Table.class.php:1132 libraries/messages.inc.php:762
+#, php-format
+msgid "Table %s has been renamed to %s"
+msgstr "Table %s has been renamed to %s"
+
+#: libraries/Theme.class.php:162 libraries/messages.inc.php:1107
+#, php-format
+msgid "No valid image path for theme %s found!"
+msgstr "No valid image path for theme %s found!"
+
+#: libraries/Theme.class.php:384 libraries/messages.inc.php:1105
+msgid "No preview available."
+msgstr "No preview available."
+
+#: libraries/Theme.class.php:387 libraries/messages.inc.php:1097
+msgid "take it"
+msgstr "take it"
+
+#: libraries/Theme_Manager.class.php:115 libraries/messages.inc.php:1104
+#, php-format
+msgid "Default theme %s not found!"
+msgstr "Default theme %s not found!"
+
+#: libraries/Theme_Manager.class.php:153 libraries/messages.inc.php:1106
+#, php-format
+msgid "Theme %s not found!"
+msgstr "Theme %s not found!"
+
+#: libraries/Theme_Manager.class.php:221 libraries/messages.inc.php:1108
+#, php-format
+msgid "Theme path not found for theme %s!"
+msgstr "Theme path not found for theme %s!"
+
+#: libraries/Theme_Manager.class.php:297 libraries/messages.inc.php:1109
+#: test/theme.php:161 themes.php:21 themes.php:41
+msgid "Theme / Style"
+msgstr "Theme / Style"
+
 #: libraries/auth/config.auth.lib.php:77 libraries/messages.inc.php:180
 msgid "Cannot connect: invalid settings."
 msgstr "সংযোগ স্থাপন করা যায়নিঃ invalid settings."
@@ -1580,15 +1783,6 @@ msgstr "ভূল"
 msgid "SQL query"
 msgstr "SQL query"
 
-#: libraries/common.lib.php:616 libraries/common.lib.php:1199
-#: libraries/display_tbl.lib.php:1117 libraries/import.lib.php:1087
-#: libraries/import.lib.php:1111 libraries/Index.class.php:466
-#: libraries/messages.inc.php:288 pdf_pages.php:280
-#: setup/frames/index.inc.php:124 setup/lib/messages.inc.php:352
-#: tbl_row_action.php:69
-msgid "Edit"
-msgstr "সম্পাদনা কর"
-
 #: libraries/common.lib.php:634 libraries/messages.inc.php:546
 msgid "MySQL said: "
 msgstr "MySQL said: "
@@ -1677,10 +1871,6 @@ msgstr "Jump to database &quot;%s&quot;."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/Config.class.php:1015 libraries/messages.inc.php:346
-msgid "Font size"
-msgstr "ফন্ট এর আকার"
-
 #: libraries/core.lib.php:286 libraries/dbg/setup.php:22
 #: libraries/messages.inc.php:135
 #, php-format
@@ -1704,26 +1894,6 @@ msgstr "Sent"
 #: libraries/tbl_triggers.lib.php:27 setup/frames/index.inc.php:112
 msgid "Name"
 msgstr "নাম"
-
-#: libraries/dbi/mysql.dbi.lib.php:112 libraries/dbi/mysqli.dbi.lib.php:124
-#: libraries/messages.inc.php:184
-msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
-#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
-msgid "The server is not responding"
-msgstr "The server is not responding"
-
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
-#: libraries/messages.inc.php:1018
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(or the local MySQL server's socket is not correctly configured)"
-
-#: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
-#: tbl_structure.php:609
-msgid "Details..."
-msgstr ""
 
 #: libraries/db_links.inc.php:45 libraries/messages.inc.php:224
 #, php-format
@@ -1792,6 +1962,26 @@ msgstr "হয়ত আনুমানিক। FAQ ৩.১১ দেখ। "
 #: server_databases.php:142 tbl_printview.php:336 tbl_structure.php:683
 msgid "Overhead"
 msgstr "Overhead"
+
+#: libraries/dbi/mysql.dbi.lib.php:112 libraries/dbi/mysqli.dbi.lib.php:124
+#: libraries/messages.inc.php:184
+msgid "Connection for controluser as defined in your configuration failed."
+msgstr ""
+
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
+#: libraries/dbi/mysqli.dbi.lib.php:410 libraries/messages.inc.php:863
+msgid "The server is not responding"
+msgstr "The server is not responding"
+
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/messages.inc.php:1018
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr "(or the local MySQL server's socket is not correctly configured)"
+
+#: libraries/dbi/mysql.dbi.lib.php:362 libraries/messages.inc.php:263
+#: tbl_structure.php:609
+msgid "Details..."
+msgstr ""
 
 #: libraries/display_change_password.lib.php:30 libraries/messages.inc.php:151
 #: main.php:91 user_password.php:111 user_password.php:129
@@ -2590,45 +2780,6 @@ msgstr "Structure only"
 msgid "Stand-in structure for view"
 msgstr "Structure only"
 
-#: libraries/File.class.php:344 libraries/File.class.php:432
-#: libraries/File.class.php:569 libraries/File.class.php:708
-#: libraries/messages.inc.php:1209
-msgid "Unknown error in file upload."
-msgstr ""
-
-#: libraries/File.class.php:414 libraries/messages.inc.php:1206
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
-
-#: libraries/File.class.php:417 libraries/messages.inc.php:1205
-msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the HTML form."
-msgstr ""
-
-#: libraries/File.class.php:420 libraries/messages.inc.php:1208
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-#: libraries/File.class.php:423 libraries/messages.inc.php:1207
-msgid "Missing a temporary folder."
-msgstr ""
-
-#: libraries/File.class.php:426 libraries/messages.inc.php:1203
-msgid "Failed to write file to disk."
-msgstr ""
-
-#: libraries/File.class.php:429 libraries/messages.inc.php:1204
-msgid "File upload stopped by extension."
-msgstr ""
-
-#: libraries/File.class.php:908 libraries/messages.inc.php:327
-#, fuzzy
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "হয়ত আনুমানিক। FAQ ৩.১১ দেখ। "
-
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:594
 msgid "Open new phpMyAdmin window"
@@ -2702,83 +2853,24 @@ msgstr "Structure"
 msgid "Go to view"
 msgstr ""
 
-#: libraries/Index.class.php:428 libraries/messages.inc.php:562
-#: tbl_relation.php:529
-msgid "No index defined!"
-msgstr "No index defined!"
-
-#: libraries/Index.class.php:433 libraries/messages.inc.php:419
-#: server_databases.php:132 tbl_tracking.php:316
-msgid "Indexes"
-msgstr "ইন্ডেস্ক সমূহ"
-
-#: libraries/Index.class.php:444 libraries/messages.inc.php:1194
-#: libraries/mult_submits.inc.php:103 libraries/tbl_properties.inc.php:519
-#: tbl_structure.php:33 tbl_structure.php:155 tbl_structure.php:159
-#: tbl_structure.php:475 tbl_tracking.php:322
-msgid "Unique"
-msgstr "Unique"
-
-#: libraries/Index.class.php:445 libraries/messages.inc.php:604
-#: tbl_tracking.php:323
-msgid "Packed"
-msgstr ""
-
-#: libraries/Index.class.php:447 libraries/messages.inc.php:139
-#: tbl_tracking.php:325
-msgid "Cardinality"
-msgstr "Cardinality"
-
-#: libraries/Index.class.php:450 libraries/messages.inc.php:170
-#: tbl_tracking.php:279 tbl_tracking.php:328
+#. l10n: This is currently used only in Japanese locales
+#: libraries/kanji-encoding.lib.php:142
 #, fuzzy
-msgid "Comment"
-msgstr "মন্তব্যসমূহ"
+#| msgid "None"
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "কোনটিই নয়"
 
-#: libraries/Index.class.php:472 libraries/messages.inc.php:674
-msgid "The primary key has been dropped"
-msgstr "The primary key has been dropped"
+#. l10n: This is currently used only in Japanese locales
+#: libraries/kanji-encoding.lib.php:146
+#, fuzzy
+msgid "encoding conversion"
+msgstr "MySQL client version"
 
-#: libraries/Index.class.php:476 libraries/messages.inc.php:421
-#, php-format
-msgid "Index %s has been dropped"
-msgstr "%s ইন্ডেস্ক মুছে ফেলা হয়েছে"
-
-#: libraries/Index.class.php:576 libraries/messages.inc.php:420
-#, php-format
-msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
+#. l10n: This is currently used only in Japanese locales
+#: libraries/kanji-encoding.lib.php:149
+msgid "Convert to Kana"
 msgstr ""
-
-#: libraries/List_Database.class.php:431 libraries/messages.inc.php:226
-#: libraries/server_links.inc.php:41 server_databases.php:88
-#: server_privileges.php:1621 setup/lib/messages.inc.php:110 test/theme.php:93
-msgid "Databases"
-msgstr "ডাটাবেজসমূহ Databases"
-
-#: libraries/Message.class.php:282
-#, php-format
-msgid "%1$d row affected."
-msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
-
-#: libraries/Message.class.php:301
-#, fuzzy, php-format
-#| msgid "No rows selected"
-msgid "%1$d row deleted."
-msgid_plural "%1$d rows deleted."
-msgstr[0] "No rows selected"
-msgstr[1] "No rows selected"
-
-#: libraries/Message.class.php:320
-#, fuzzy, php-format
-#| msgid "No rows selected"
-msgid "%1$d row inserted."
-msgid_plural "%1$d rows inserted."
-msgstr[0] "No rows selected"
-msgstr[1] "No rows selected"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
@@ -3555,25 +3647,10 @@ msgstr "END CUT"
 msgid "END RAW"
 msgstr "END RAW"
 
-#: libraries/messages.inc.php:299 libraries/StorageEngine.class.php:359
-#, php-format
-msgid "%s is available on this MySQL server."
-msgstr "%s is available on this MySQL server."
-
-#: libraries/messages.inc.php:300 libraries/StorageEngine.class.php:362
-#, php-format
-msgid "%s has been disabled for this MySQL server."
-msgstr "MySQL সার্ভার এর জন্য  %s বন্ধ করা হয়েছে ."
-
 #: libraries/messages.inc.php:301 libraries/server_links.inc.php:61
 #: test/theme.php:113
 msgid "Engines"
 msgstr "ইঞ্জিনসমূহ"
-
-#: libraries/messages.inc.php:302 libraries/StorageEngine.class.php:366
-#, php-format
-msgid "This MySQL server does not support the %s storage engine."
-msgstr "এই MySQL সার্ভার  %s ধরনের স্টোরেজ ইঞ্জিন সমর্থন করেনা."
 
 #: libraries/messages.inc.php:303 libraries/mysql_charsets.lib.php:238
 msgid "English"
@@ -3590,11 +3667,6 @@ msgstr ""
 #: libraries/zip_extension.lib.php:51 libraries/zip_extension.lib.php:66
 msgid "Error in ZIP archive:"
 msgstr "ZIP archive: এ ভূল আছে"
-
-#: libraries/messages.inc.php:309 libraries/Table.class.php:1048
-#, php-format
-msgid "Error renaming table %1$s to %2$s"
-msgstr "Error renaming table %1$s to %2$s"
 
 #: libraries/messages.inc.php:311 libraries/mysql_charsets.lib.php:241
 msgid "Esperanto"
@@ -3961,10 +4033,6 @@ msgstr "Invalid format of CSV input on line %d."
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Invalid parameter for CSV import: %s"
 
-#: libraries/messages.inc.php:451 libraries/Table.class.php:1019
-msgid "Invalid database"
-msgstr "Invalid database"
-
 #: libraries/messages.inc.php:452 libraries/tbl_properties.inc.php:784
 #: tbl_structure.php:537
 msgid "You have to add at least one field."
@@ -3978,11 +4046,6 @@ msgstr "This plugin does not support compressed imports!"
 #, php-format
 msgid "Invalid server index: \"%s\""
 msgstr "Invalid server index: \"%s\""
-
-#: libraries/messages.inc.php:458 libraries/Table.class.php:1033
-#: tbl_get_field.php:26
-msgid "Invalid table name"
-msgstr "Invalid table name"
 
 #: libraries/messages.inc.php:460 libraries/mysql_charsets.lib.php:259
 #: libraries/mysql_charsets.lib.php:349
@@ -4243,12 +4306,6 @@ msgstr "No databases selected."
 #: libraries/messages.inc.php:556 libraries/relation.lib.php:1173
 msgid "no description"
 msgstr "কোন বর্ণনা নাই"
-
-#: libraries/messages.inc.php:557 libraries/StorageEngine.class.php:198
-msgid ""
-"There is no detailed status information available for this storage engine."
-msgstr ""
-"There is no detailed status information available for this storage engine."
 
 #: libraries/messages.inc.php:560 libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -4780,11 +4837,6 @@ msgstr ""
 #: libraries/messages.inc.php:760 server_privileges.php:1575
 msgid "Remove selected users"
 msgstr "Remove selected users"
-
-#: libraries/messages.inc.php:762 libraries/Table.class.php:1132
-#, php-format
-msgid "Table %s has been renamed to %s"
-msgstr "Table %s has been renamed to %s"
 
 #: libraries/messages.inc.php:763 tbl_operations.php:338
 msgid "Rename table to"
@@ -6137,10 +6189,6 @@ msgstr ""
 msgid "Update row(s)"
 msgstr ""
 
-#: libraries/messages.inc.php:1097 libraries/Theme.class.php:387
-msgid "take it"
-msgstr "take it"
-
 #: libraries/messages.inc.php:1098 server_synchronize.php:942
 msgid "Target database has been synchronized with source database"
 msgstr ""
@@ -6167,35 +6215,6 @@ msgstr ""
 #: libraries/mysql_charsets.lib.php:395
 msgid "Thai"
 msgstr "Thai"
-
-#: libraries/messages.inc.php:1104 libraries/Theme_Manager.class.php:115
-#, php-format
-msgid "Default theme %s not found!"
-msgstr "Default theme %s not found!"
-
-#: libraries/messages.inc.php:1105 libraries/Theme.class.php:384
-msgid "No preview available."
-msgstr "No preview available."
-
-#: libraries/messages.inc.php:1106 libraries/Theme_Manager.class.php:153
-#, php-format
-msgid "Theme %s not found!"
-msgstr "Theme %s not found!"
-
-#: libraries/messages.inc.php:1107 libraries/Theme.class.php:162
-#, php-format
-msgid "No valid image path for theme %s found!"
-msgstr "No valid image path for theme %s found!"
-
-#: libraries/messages.inc.php:1108 libraries/Theme_Manager.class.php:221
-#, php-format
-msgid "Theme path not found for theme %s!"
-msgstr "Theme path not found for theme %s!"
-
-#: libraries/messages.inc.php:1109 libraries/Theme_Manager.class.php:297
-#: test/theme.php:161 themes.php:21 themes.php:41
-msgid "Theme / Style"
-msgstr "Theme / Style"
 
 #: libraries/messages.inc.php:1110 libraries/replication_gui.lib.php:308
 #: server_privileges.php:734
