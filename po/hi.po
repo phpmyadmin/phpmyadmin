@@ -93,7 +93,7 @@ msgstr "इस वेलियु का उपयोग करें"
 #: db_create.php:46 libraries/messages.inc.php:223
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "%1$s डेटाबेस बनाया गया है."
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:240
 msgid "Database comment: "
