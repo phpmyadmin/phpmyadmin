@@ -259,7 +259,7 @@ msgstr "केवल डाटा"
 
 #: db_operations.php:468 libraries/messages.inc.php:194
 msgid "CREATE DATABASE before copying"
-msgstr "डेटाबेस कॉपी करने पहले डेटाबेस का निर्माण करें"
+msgstr "डेटाबेस कॉपी करने से पहले डेटाबेस का निर्माण करें"
 
 #: db_operations.php:471 libraries/export/sql.php:52
 #: libraries/export/sql.php:74 libraries/export/sql.php:76
