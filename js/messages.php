@@ -68,6 +68,7 @@ foreach ($js_messages as $name => $js_message) {
 }
 
 /* Calendar */
+echo "if ($.datepicker) {\n";
 /* l10n: Display text for calendar close link */
 PMA_printJsValue("$.datepicker.regional['']['closeText']", __('Done'));
 /* l10n: Display text for previous month link in calendar */
@@ -165,3 +166,4 @@ PMA_printJsValue("$.datepicker.regional['']['minuteText']", __('Minute'));
 PMA_printJsValue("$.datepicker.regional['']['secondText']", __('Second'));
 ?>
 $.extend($.datepicker._defaults, $.datepicker.regional['']);
+} /* if ($.datepicker) */
