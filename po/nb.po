@@ -2819,7 +2819,7 @@ msgstr "kodingskonvertering"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:149
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Konverter til Kana"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
