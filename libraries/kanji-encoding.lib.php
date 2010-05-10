@@ -139,14 +139,14 @@ function PMA_kanji_file_conv($file, $enc, $kana) {
 function PMA_set_enc_form($spaces) {
     return "\n"
            /* l10n: This is currently used only in Japanese locales */
-           . $spaces . '<input type="radio" name="knjenc" value="" checked="checked" />' . _pgettext('None encoding conversion', 'None') . "\n"
-           . $spaces . '<input type="radio" name="knjenc" value="EUC-JP" />EUC' . "\n"
-           . $spaces . '<input type="radio" name="knjenc" value="SJIS" />SJIS' . "\n"
+           . $spaces . '<input type="radio" name="knjenc" value="" checked="checked" id="kj-none" /><label for="kj-none">' . _pgettext('None encoding conversion', 'None') . "</label>\n"
+           . $spaces . '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" /><label for="kj-euc">EUC</label>' . "\n"
+           . $spaces . '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" /><label for="kj-sjis">SJIS</label>' . "\n"
            /* l10n: This is currently used only in Japanese locales */
            . $spaces . '&nbsp;' . __('encoding conversion') . '<br />' . "\n"
-           . $spaces . '<input type="checkbox" name="xkana" value="kana" />' . "\n"
+           . $spaces . '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />' . "\n"
            /* l10n: This is currently used only in Japanese locales */
-           . $spaces . '&nbsp;' . __('Convert to Kana') . '<br />' . "\n";
+           . $spaces . '&nbsp;<label for="kj-kana">' . __('Convert to Kana') . '</label><br />' . "\n";
 } // end of the 'PMA_set_enc_form' function
 
 
