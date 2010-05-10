@@ -293,7 +293,6 @@ msgid "Status"
 msgstr "स्थिति"
 
 #: db_operations.php:544
-#, fuzzy
 #| msgctxt "$strBLOBRepositoryEnabled"
 #| msgid "Enabled"
 msgctxt "BLOB repository"
