@@ -2815,10 +2815,9 @@ msgstr "None"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:146
-#, fuzzy
 #| msgid "Recoding engine"
 msgid "encoding conversion"
-msgstr "Recoding engine"
+msgstr "encoding conversion"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:149
