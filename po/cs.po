@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 09:35+0200\n"
-"PO-Revision-Date: 2010-05-06 07:14+0200\n"
+"PO-Revision-Date: 2010-05-10 09:52+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2812,7 +2812,6 @@ msgstr "Přejít na podhled"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -2820,15 +2819,14 @@ msgstr "Žádná"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:146
-#, fuzzy
 #| msgid "Recoding engine"
 msgid "encoding conversion"
-msgstr "Nástroje pro konverzi znakových sad"
+msgstr "konverze znakových sad"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:149
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Převést na Kanu"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
