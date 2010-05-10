@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-09 16:24-0400\n"
-"PO-Revision-Date: 2010-05-10 09:47+0200\n"
+"PO-Revision-Date: 2010-05-10 09:49+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -199,7 +199,7 @@ msgstr "छापें"
 
 #: db_export.php:29 libraries/messages.inc.php:1234
 msgid "View dump (schema) of database"
-msgstr "डंप (स्कीमा) डेटाबेस दिखाएं"
+msgstr "डेटाबेस का डंप (स्कीमा) दिखाएं"
 
 #: db_export.php:43 db_search.php:344 libraries/messages.inc.php:853
 #: server_export.php:27
