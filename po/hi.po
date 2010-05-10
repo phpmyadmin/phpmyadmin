@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 09:35+0200\n"
-"PO-Revision-Date: 2010-05-05 04:47+0200\n"
+"PO-Revision-Date: 2010-05-10 10:00+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -88,12 +88,12 @@ msgstr "वर्णन"
 #: browse_foreigners.php:268 browse_foreigners.php:276
 #: libraries/messages.inc.php:1226
 msgid "Use this value"
-msgstr "इस वाल्यु का उपयोग करें"
+msgstr "इस वेलियु का उपयोग करें"
 
 #: db_create.php:46 libraries/messages.inc.php:223
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "%1$s डेटाबेस बनाया गया है."
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:240
 msgid "Database comment: "
@@ -199,7 +199,7 @@ msgstr "छापें"
 
 #: db_export.php:29 libraries/messages.inc.php:1234
 msgid "View dump (schema) of database"
-msgstr "डंप (स्कीमा) डेटाबेस दिखाएं"
+msgstr "डेटाबेस का डंप (स्कीमा) दिखाएं"
 
 #: db_export.php:43 db_search.php:344 libraries/messages.inc.php:853
 #: server_export.php:27
@@ -209,21 +209,21 @@ msgstr "सभी का चयन करें"
 #: db_export.php:45 db_search.php:347 libraries/messages.inc.php:1196
 #: server_export.php:29
 msgid "Unselect All"
-msgstr " सभी को रद्द करें"
+msgstr "सभी को रद्द करें"
 
 #: db_operations.php:38 libraries/messages.inc.php:221 tbl_create.php:54
 msgid "The database name is empty!"
-msgstr ""
+msgstr "डेटाबेस नाम खाली है"
 
 #: db_operations.php:236 libraries/messages.inc.php:761
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr " डेटाबेस का नाम %s बदल कर %s रखा गया है"
 
 #: db_operations.php:240 libraries/messages.inc.php:186
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr " डेटाबेस %s से %s में कॉपी किया गया है"
 
 #: db_operations.php:410 libraries/messages.inc.php:244
 msgid "Rename database to"
@@ -240,7 +240,7 @@ msgstr "और फिर"
 
 #: db_operations.php:451 libraries/messages.inc.php:241
 msgid "Copy database to"
-msgstr ""
+msgstr "डेटाबेस को ______ में कॉपी करें"
 
 #: db_operations.php:458 libraries/messages.inc.php:1051
 #: tbl_operations.php:526 tbl_tracking.php:388
@@ -259,7 +259,7 @@ msgstr "केवल डाटा"
 
 #: db_operations.php:468 libraries/messages.inc.php:194
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "डेटाबेस कॉपी करने पहले डेटाबेस का निर्माण करें"
 
 #: db_operations.php:471 libraries/export/sql.php:52
 #: libraries/export/sql.php:74 libraries/export/sql.php:76
@@ -276,11 +276,11 @@ msgstr "AUTO_INCREMENT मूल्य जोडें"
 
 #: db_operations.php:479 libraries/messages.inc.php:39 tbl_operations.php:543
 msgid "Add constraints"
-msgstr "कांस्त्रैन्ट्स जोडें"
+msgstr "शर्तें जोडें"
 
 #: db_operations.php:492 libraries/messages.inc.php:1067
 msgid "Switch to copied database"
-msgstr ""
+msgstr "नक़ल किये गए डाटाबेस पर जायें"
 
 #: db_operations.php:533 libraries/messages.inc.php:97
 msgid "BLOB Repository"
@@ -290,7 +290,7 @@ msgstr "BLOB भंडार गृह"
 #: libraries/messages.inc.php:1045 libraries/server_links.inc.php:49
 #: server_processlist.php:59 tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
-msgstr ""
+msgstr "स्थिति"
 
 #: db_operations.php:544
 #, fuzzy
@@ -302,14 +302,13 @@ msgstr "सक्षम"
 
 #: db_operations.php:548 libraries/messages.inc.php:101
 msgid "Disable"
-msgstr "दिसअबल "
+msgstr "असक्षम"
 
 #: db_operations.php:558 libraries/messages.inc.php:98
 msgid "Damaged"
 msgstr "क्षतिग्रस्त"
 
 #: db_operations.php:562
-#, fuzzy
 #| msgctxt "$strBLOBRepositoryRepair"
 #| msgid "Repair"
 msgctxt "BLOB repository"
@@ -317,12 +316,11 @@ msgid "Repair"
 msgstr "मरम्मत"
 
 #: db_operations.php:570
-#, fuzzy
 #| msgctxt "$strBLOBRepositoryDisabled"
 #| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr "दिसअबल्ड "
+msgstr "असक्षम"
 
 #: db_operations.php:574 libraries/messages.inc.php:104
 msgid "Enable"
@@ -8097,18 +8095,3 @@ msgstr " &nbsp;%s&nbsp; कोलम पर इन्डेक्स बना�
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "वर्णन"
-
-#, fuzzy
-#~| msgid "No"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "नहीं"
-
-#, fuzzy
-#~| msgid "No"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "नहीं"
-
-#~ msgid "has been altered."
-#~ msgstr "को बदला गया। "
