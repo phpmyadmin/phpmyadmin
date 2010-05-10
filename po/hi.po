@@ -309,7 +309,6 @@ msgid "Damaged"
 msgstr "क्षतिग्रस्त"
 
 #: db_operations.php:562
-#, fuzzy
 #| msgctxt "$strBLOBRepositoryRepair"
 #| msgid "Repair"
 msgctxt "BLOB repository"
