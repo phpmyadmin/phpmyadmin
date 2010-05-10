@@ -2836,36 +2836,21 @@ msgid "Go to view"
 msgstr "Aller à la vue"
 
 #. l10n: This is currently used only in Japanese locales
-<<<<<<< HEAD
 #: libraries/kanji-encoding.lib.php:143
 #, fuzzy
 #| msgid "Recoding engine"
 msgid "Encoding conversion"
-msgstr "Moteur de conversion"
+msgstr "Conversion de l'encodage"
 
 #. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:145
-#, fuzzy
-=======
 #: libraries/kanji-encoding.lib.php:142
->>>>>>> pootle/master
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "aucune"
 
 #. l10n: This is currently used only in Japanese locales
-<<<<<<< HEAD
 #: libraries/kanji-encoding.lib.php:151
-=======
-#: libraries/kanji-encoding.lib.php:146
-#| msgid "Recoding engine"
-msgid "encoding conversion"
-msgstr "Conversion de l'encodage"
-
-#. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:149
->>>>>>> pootle/master
 msgid "Convert to Kana"
 msgstr "Conversion en kana"
 

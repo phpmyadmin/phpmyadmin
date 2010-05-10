@@ -2804,7 +2804,6 @@ msgid "Go to view"
 msgstr "Gå til visning"
 
 #. l10n: This is currently used only in Japanese locales
-<<<<<<< HEAD
 #: libraries/kanji-encoding.lib.php:143
 #, fuzzy
 #| msgid "Recoding engine"
@@ -2812,28 +2811,19 @@ msgid "Encoding conversion"
 msgstr "Rekodingsmotor"
 
 #. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:145
-#, fuzzy
-=======
 #: libraries/kanji-encoding.lib.php:142
->>>>>>> pootle/master
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "Ingen"
 
 #. l10n: This is currently used only in Japanese locales
-<<<<<<< HEAD
 #: libraries/kanji-encoding.lib.php:151
-=======
-#: libraries/kanji-encoding.lib.php:146
-#| msgid "Recoding engine"
 msgid "encoding conversion"
 msgstr "kodingskonvertering"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:149
->>>>>>> pootle/master
 msgid "Convert to Kana"
 msgstr "Konverter til Kana"
 
