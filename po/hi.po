@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-09 16:24-0400\n"
-"PO-Revision-Date: 2010-05-10 09:53+0200\n"
+"PO-Revision-Date: 2010-05-10 09:54+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -223,7 +223,7 @@ msgstr " डेटाबेस का नाम %s बदल कर %s रखा
 #: db_operations.php:240 libraries/messages.inc.php:186
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr " डेटाबेस %s से %s में कॉपी किया गया है"
 
 #: db_operations.php:410 libraries/messages.inc.php:244
 msgid "Rename database to"
