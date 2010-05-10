@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-10 10:00+0200\n"
+"PO-Revision-Date: 2010-05-10 14:17+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -227,7 +227,7 @@ msgstr " डेटाबेस %s से %s में कॉपी किया 
 
 #: db_operations.php:410 libraries/messages.inc.php:244
 msgid "Rename database to"
-msgstr "दताबसे का नाम बदल कर ____ रखें"
+msgstr "डेटाबेस का नाम बदल कर ____ रखें"
 
 #: db_operations.php:415 libraries/messages.inc.php:169
 #: server_processlist.php:57
@@ -259,7 +259,7 @@ msgstr "केवल डाटा"
 
 #: db_operations.php:468 libraries/messages.inc.php:194
 msgid "CREATE DATABASE before copying"
-msgstr "डेटाबेस कॉपी करने पहले डेटाबेस का निर्माण करें"
+msgstr "डेटाबेस कॉपी करने से पहले डेटाबेस का निर्माण करें"
 
 #: db_operations.php:471 libraries/export/sql.php:52
 #: libraries/export/sql.php:74 libraries/export/sql.php:76
@@ -293,7 +293,6 @@ msgid "Status"
 msgstr "स्थिति"
 
 #: db_operations.php:544
-#, fuzzy
 #| msgctxt "$strBLOBRepositoryEnabled"
 #| msgid "Enabled"
 msgctxt "BLOB repository"
@@ -330,7 +329,7 @@ msgstr "सक्षम"
 #: tbl_select.php:137 tbl_structure.php:179 tbl_structure.php:768
 #: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
-msgstr ""
+msgstr "क्रम में करें"
 
 #: db_operations.php:609 libraries/messages.inc.php:750 pdf_schema.php:34
 #, php-format
