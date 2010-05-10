@@ -213,7 +213,7 @@ msgstr "सभी को रद्द करें"
 
 #: db_operations.php:38 libraries/messages.inc.php:221 tbl_create.php:54
 msgid "The database name is empty!"
-msgstr ""
+msgstr "डेटाबेस नाम खाली है"
 
 #: db_operations.php:236 libraries/messages.inc.php:761
 #, php-format
