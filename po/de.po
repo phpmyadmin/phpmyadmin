@@ -2160,7 +2160,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:77 libraries/messages.inc.php:414
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Bitte Geduld, die Datei wird abgearbeitet."
 
 #: libraries/display_import.lib.php:99 libraries/messages.inc.php:416
 msgid ""
