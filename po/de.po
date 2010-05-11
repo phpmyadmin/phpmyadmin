@@ -2838,7 +2838,7 @@ msgstr ""
 
 #: libraries/import.lib.php:1079 libraries/messages.inc.php:408
 msgid "View a structure`s contents by clicking on its name"
-msgstr ""
+msgstr "Zum Anzeigen einer Struktur einfach auf den Namen klicken"
 
 #: libraries/import.lib.php:1080 libraries/messages.inc.php:409
 msgid ""
