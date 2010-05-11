@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 13:07+0200\n"
+"PO-Revision-Date: 2010-05-11 13:16+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2146,12 +2146,17 @@ msgstr "BZip-komprimiert"
 msgid "SQL compatibility mode"
 msgstr "SQL-Kompatibilitätsmodus"
 
+# Der Kontext der Fehlermeldung ist mir nicht klar. Daher allgemein formuliert.
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
+#, fuzzy
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"Die hochzuladende Datei ist wahrscheinlich größer als erlaubt oder es tritt "
+"ein bekannter Fehler in Webkit-basierten Browsern (Safari, Google Chrome, "
+"Arora etc.) auf."
 
 #: libraries/display_import.lib.php:77 libraries/messages.inc.php:414
 msgid "The file is being processed, please be patient."
