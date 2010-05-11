@@ -4871,9 +4871,8 @@ msgid "Rename table to"
 msgstr "Tabelle umbenennen in"
 
 #: libraries/messages.inc.php:764 view_operations.php:93
-#, fuzzy
 msgid "Rename view to"
-msgstr "Tabelle umbenennen in"
+msgstr "View umbenennen in"
 
 #: libraries/messages.inc.php:765 tbl_operations.php:664
 msgid "Repair"
