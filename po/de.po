@@ -3472,7 +3472,7 @@ msgstr "Export-Optionen der Datenbank"
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "Datenbank '%s' existiert nicht."
 
 #: libraries/messages.inc.php:227 server_databases.php:63
 #, php-format
