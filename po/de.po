@@ -4512,7 +4512,7 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Erweiterte Funktionen können in der Konfigurationsdatei "
+"Zusätzliche Funktionen können in der Konfigurationsdatei "
 "(<code>config.inc.php</code>) aktiviert werden. Beispiele finden sich in der "
 "<code>config.sample.inc.php</code>."
 
