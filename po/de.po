@@ -1201,7 +1201,7 @@ msgstr "Mittwoch"
 
 #: js/messages.php:125
 msgid "Thursday"
-msgstr ""
+msgstr "Donnerstag"
 
 #: js/messages.php:126
 #, fuzzy
