@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 13:41+0200\n"
+"PO-Revision-Date: 2010-05-11 13:42+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2843,7 +2843,7 @@ msgstr "Zum Anzeigen einer Struktur einfach auf den Namen klicken"
 #: libraries/import.lib.php:1080 libraries/messages.inc.php:409
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr ""
+msgstr "Zum Ändern der Einstellungen auf das entsprechende \"Optionen\" klicken"
 
 #: libraries/import.lib.php:1081 libraries/messages.inc.php:410
 msgid "Edit its structure by following the \"Structure\" link"
