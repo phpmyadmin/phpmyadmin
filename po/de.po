@@ -813,9 +813,8 @@ msgstr "aktiv"
 
 #: db_tracking.php:108 libraries/messages.inc.php:1151 tbl_tracking.php:550
 #: tbl_tracking.php:608 tbl_tracking.php:610
-#, fuzzy
 msgid "not active"
-msgstr "aktiv"
+msgstr "nicht aktiv"
 
 #: db_tracking.php:121 libraries/messages.inc.php:1168
 msgid "Versions"
