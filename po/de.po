@@ -1816,7 +1816,7 @@ msgstr "SQL validieren"
 
 #: libraries/common.lib.php:1276
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Inline-Bearbeiten dieses SQL-Befehls"
 
 #: libraries/common.lib.php:1278
 #, fuzzy
