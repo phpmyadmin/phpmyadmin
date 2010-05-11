@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 13:17+0200\n"
+"PO-Revision-Date: 2010-05-11 13:18+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2303,9 +2303,8 @@ msgid "Show BLOB contents"
 msgstr "BLOB Inhalte anzeigen"
 
 #: libraries/display_tbl.lib.php:599 libraries/messages.inc.php:879
-#, fuzzy
 msgid "Show binary contents as HEX"
-msgstr "Binäre Inhalte anzeigen"
+msgstr "Binäre Inhalte in hexadezimal anzeigen"
 
 # Hide heist im deutschen in der EDV ausblenden
 #: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:383
