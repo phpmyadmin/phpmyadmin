@@ -3155,7 +3155,6 @@ msgid "Server ID"
 msgstr "Server-ID"
 
 #: libraries/messages.inc.php:100
-#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Deaktiviert"
