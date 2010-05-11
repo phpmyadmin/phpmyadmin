@@ -4381,7 +4381,7 @@ msgstr "fehlerhaft"
 #: libraries/messages.inc.php:580 server_synchronize.php:400
 #: server_synchronize.php:839
 msgid "not present"
-msgstr ""
+msgstr "nicht vorhanden"
 
 #: libraries/messages.inc.php:581 pdf_pages.php:36 pdf_pages.php:42
 #: pdf_pages.php:48 pdf_pages.php:53
