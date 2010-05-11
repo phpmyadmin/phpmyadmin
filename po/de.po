@@ -3519,7 +3519,7 @@ msgstr "Datenunterschied"
 
 #: libraries/messages.inc.php:239 server_synchronize.php:272
 msgid "Data Synchronization"
-msgstr ""
+msgstr "Datenabgleich"
 
 #: libraries/messages.inc.php:243 server_privileges.php:526
 #: server_privileges.php:1679
