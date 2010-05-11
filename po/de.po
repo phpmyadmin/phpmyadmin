@@ -2128,7 +2128,6 @@ msgid "None"
 msgstr "keine"
 
 #: libraries/display_export.lib.php:247
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "Zip-komprimiert"
