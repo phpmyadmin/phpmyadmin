@@ -4501,7 +4501,7 @@ msgstr "Telefonbuch"
 
 #: libraries/messages.inc.php:656
 msgid "PHP array"
-msgstr ""
+msgstr "PHP-Array"
 
 #: libraries/messages.inc.php:658 main.php:213
 msgid "PHP extension"
