@@ -2060,7 +2060,7 @@ msgstr "Exportiere %s Datensätze ab Zeile %s."
 
 #: libraries/display_export.lib.php:115 libraries/messages.inc.php:282
 msgid "Dump all rows"
-msgstr ""
+msgstr "Alle Datensätze exportieren"
 
 #: libraries/display_export.lib.php:125 libraries/messages.inc.php:860
 #: setup/lib/messages.inc.php:82
