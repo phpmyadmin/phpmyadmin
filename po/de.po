@@ -3924,7 +3924,7 @@ msgstr "Fehlerübergehenden INSERT-Befehl verwenden"
 
 #: libraries/messages.inc.php:400
 msgid "Column names in first row"
-msgstr ""
+msgstr "Spaltennamen in der ersten Zeile"
 
 #: libraries/messages.inc.php:401
 msgid "Do not import empty rows"
