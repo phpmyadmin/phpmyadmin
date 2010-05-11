@@ -1421,7 +1421,7 @@ msgid "Databases"
 msgstr "Datenbanken"
 
 #: libraries/Message.class.php:282
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
