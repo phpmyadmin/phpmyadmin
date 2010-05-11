@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 14:43+0200\n"
+"PO-Revision-Date: 2010-05-11 14:47+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4002,7 +4002,7 @@ msgstr "ID der eingefügten Zeile: %1$d"
 
 #: libraries/messages.inc.php:438 tbl_change.php:1131
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Als neue Zeile einfügen und Fehler ignorieren"
 
 #: libraries/messages.inc.php:440 main.php:139
 msgid "Interface"
