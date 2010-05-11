@@ -3361,9 +3361,8 @@ msgid "Could not connect to the source"
 msgstr "Es konnte keine Verbindung zu Quell-Datenbank hergestellt werden"
 
 #: libraries/messages.inc.php:191 server_synchronize.php:97
-#, fuzzy
 msgid "Could not connect to the target"
-msgstr "Verbindungsaufbau zu MySQL-Server schlug fehl"
+msgstr "Es konnte keine Verbindung zu Ziel-Datenbank hergestellt werden"
 
 #: libraries/messages.inc.php:192 server_processlist.php:24
 #, php-format
