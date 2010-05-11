@@ -2309,7 +2309,6 @@ msgstr "Binäre Inhalte in hexadezimal anzeigen"
 # Hide heist im deutschen in der EDV ausblenden
 #: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:383
 #: pmd_general.php:141 tbl_change.php:314 tbl_change.php:320
-#, fuzzy
 msgid "Hide"
 msgstr "Verstecken"
 
