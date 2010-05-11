@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-10 14:17+0200\n"
+"POT-Creation-Date: 2010-05-11 13:05-0400\n"
 "PO-Revision-Date: 2010-04-30 18:08+0200\n"
 "Last-Translator:  <kajouni@gmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -336,7 +336,8 @@ msgstr "Ota käyttöön"
 msgid "Collation"
 msgstr "Aakkosjärjestys"
 
-#: db_operations.php:609 libraries/messages.inc.php:750 pdf_schema.php:34
+#: db_operations.php:609 libraries/messages.inc.php:750 main.php:316
+#: pdf_schema.php:34
 #, php-format
 msgid ""
 "The additional features for working with linked tables have been "
@@ -394,8 +395,8 @@ msgstr "Paperin koko"
 msgid "Edit PDF Pages"
 msgstr "Muokkaa PDF-sivuja"
 
-#: db_printview.php:96 db_structure.php:51 db_tracking.php:35
-#: libraries/messages.inc.php:576 navigation.php:346
+#: db_printview.php:96 db_qbe.php:102 db_structure.php:51 db_tracking.php:35
+#: export.php:359 libraries/messages.inc.php:576 navigation.php:346
 msgid "No tables found in database."
 msgstr "Tietokannassa ei ole tauluja."
 
@@ -446,12 +447,16 @@ msgstr "Viimeksi tarkistettu"
 msgid "%s table(s)"
 msgstr "%s taulu(a)"
 
-#: db_qbe.php:29 libraries/display_tbl.lib.php:1976
+#: db_qbe.php:29 libraries/display_tbl.lib.php:1981
 #: libraries/messages.inc.php:1059 libraries/sql_query_form.lib.php:140
 #: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
 #: view_operations.php:62
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL-kyselyn suoritus onnistui"
+
+#: db_qbe.php:42 libraries/messages.inc.php:379
+msgid "You have to choose at least one column to display"
+msgstr "Valitse vähintään yksi sarake"
 
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866 libraries/messages.inc.php:1022
@@ -574,7 +579,7 @@ msgid "Browse"
 msgstr "Selaa"
 
 #: db_search.php:272 libraries/display_tbl.lib.php:1165
-#: libraries/display_tbl.lib.php:2051 libraries/messages.inc.php:251
+#: libraries/display_tbl.lib.php:2056 libraries/messages.inc.php:251
 #: libraries/sql_query_form.lib.php:470 pdf_pages.php:281 pdf_pages.php:406
 #: pdf_pages.php:442 pdf_pages.php:470 pmd_general.php:377
 #: setup/frames/index.inc.php:125 setup/frames/index.inc.php:216
@@ -672,7 +677,7 @@ msgstr "Seuranta on käytössä."
 msgid "Tracking is not active."
 msgstr "Seuranta ei ole käytössä."
 
-#: db_structure.php:420 libraries/display_tbl.lib.php:1939
+#: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #: libraries/messages.inc.php:1236
 #, php-format
 msgid ""
@@ -705,20 +710,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s on tämän MySQL-palvelimen oletustallennusmoottori."
 
 #: db_structure.php:524 db_structure.php:541 db_structure.php:542
-#: libraries/display_tbl.lib.php:2076 libraries/display_tbl.lib.php:2081
+#: libraries/display_tbl.lib.php:2081 libraries/display_tbl.lib.php:2086
 #: libraries/messages.inc.php:1251 libraries/mult_submits.inc.php:16
 #: server_databases.php:346 server_databases.php:351
 #: server_privileges.php:1557 tbl_structure.php:456 tbl_structure.php:465
 msgid "With selected:"
 msgstr "Valitut:"
 
-#: db_structure.php:527 libraries/display_tbl.lib.php:2071
+#: db_structure.php:527 libraries/display_tbl.lib.php:2076
 #: libraries/messages.inc.php:156 server_databases.php:348
 #: server_privileges.php:530 server_privileges.php:1560 tbl_structure.php:459
 msgid "Check All"
 msgstr "Valitse kaikki"
 
-#: db_structure.php:531 libraries/display_tbl.lib.php:2072
+#: db_structure.php:531 libraries/display_tbl.lib.php:2077
 #: libraries/messages.inc.php:1192 libraries/replication_gui.lib.php:33
 #: server_databases.php:350 server_privileges.php:533
 #: server_privileges.php:1564 tbl_structure.php:463
@@ -730,7 +735,7 @@ msgid "Check tables having overhead"
 msgstr "Valitse taulut, joissa on ylijäämää"
 
 #: db_structure.php:547 db_structure.php:548 db_structure.php:599
-#: libraries/display_tbl.lib.php:2175 libraries/messages.inc.php:680
+#: libraries/display_tbl.lib.php:2180 libraries/messages.inc.php:680
 #: libraries/mult_submits.inc.php:28 tbl_structure.php:493
 #: tbl_structure.php:495
 msgid "Print view"
@@ -758,8 +763,8 @@ msgid "Analyze table"
 msgstr "Analysoi taulu"
 
 #: db_structure.php:557 db_structure.php:558 libraries/db_links.inc.php:71
-#: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2089
-#: libraries/display_tbl.lib.php:2220 libraries/messages.inc.php:318
+#: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2094
+#: libraries/display_tbl.lib.php:2225 libraries/messages.inc.php:318
 #: libraries/mult_submits.inc.php:62 libraries/server_links.inc.php:84
 #: libraries/tbl_links.inc.php:82 pmd_pdf.php:84 pmd_pdf.php:109
 #: server_privileges.php:1341 setup/frames/menu.inc.php:22
@@ -842,6 +847,33 @@ msgstr "Seuraa taulua"
 #: db_tracking.php:200 libraries/messages.inc.php:1129
 msgid "Database Log"
 msgstr "Tietokantaloki"
+
+#: export.php:62 libraries/messages.inc.php:320
+msgid "Selected export type has to be saved in file!"
+msgstr "Valittu vientityyppi on tallennettava tiedostoon!"
+
+#: export.php:154 export.php:179 export.php:627 libraries/messages.inc.php:575
+#, php-format
+msgid "Insufficient space to save the file %s."
+msgstr "Liian vähän tilaa tiedoston %s tallentamiseen."
+
+#: export.php:294 libraries/messages.inc.php:332
+#, php-format
+msgid ""
+"File %s already exists on server, change filename or check overwrite option."
+msgstr ""
+"Tiedosto %s on jo olemassa palvelimella, vaihda tiedostonimeä tai tarkista "
+"korvausasetuksen tila."
+
+#: export.php:298 export.php:302 libraries/messages.inc.php:570
+#, php-format
+msgid "The web server does not have permission to save the file %s."
+msgstr "Palvelimella ei ole lupaa tallentaa tiedostoa %s."
+
+#: export.php:629 libraries/messages.inc.php:284
+#, php-format
+msgid "Dump has been saved to file %s."
+msgstr "Vedos tallennettiin tiedostoon %s."
 
 #: import.php:60 libraries/messages.inc.php:1210
 #, php-format
@@ -1038,21 +1070,21 @@ msgid "Choose field to display"
 msgstr "Valitse näytettävä sarake"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:72
+#: js/messages.php:73
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Lahjoita"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:74
+#: js/messages.php:75
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Edellinen"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:76 libraries/common.lib.php:2289
+#: js/messages.php:77 libraries/common.lib.php:2289
 #: libraries/common.lib.php:2292 libraries/display_tbl.lib.php:338
 #: libraries/messages.inc.php:551 server_binlog.php:205 server_binlog.php:207
 #: tbl_printview.php:424 tbl_structure.php:802
@@ -1060,96 +1092,96 @@ msgid "Next"
 msgstr "Seuraava"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:78
+#: js/messages.php:79
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Yhteensä"
 
-#: js/messages.php:81
+#: js/messages.php:82
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binääritietoa"
 
-#: js/messages.php:82
+#: js/messages.php:83
 msgid "February"
 msgstr ""
 
-#: js/messages.php:83
+#: js/messages.php:84
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Maalis"
 
-#: js/messages.php:84
+#: js/messages.php:85
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Huhti"
 
-#: js/messages.php:85 libraries/messages.inc.php:28
+#: js/messages.php:86 libraries/messages.inc.php:28
 msgid "May"
 msgstr "Touko"
 
-#: js/messages.php:86
+#: js/messages.php:87
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Kesä"
 
-#: js/messages.php:87
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Heinä"
 
-#: js/messages.php:88
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Elo"
 
-#: js/messages.php:89
+#: js/messages.php:90
 msgid "September"
 msgstr ""
 
-#: js/messages.php:90
+#: js/messages.php:91
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Loka"
 
-#: js/messages.php:91
+#: js/messages.php:92
 msgid "November"
 msgstr ""
 
-#: js/messages.php:92
+#: js/messages.php:93
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:96 libraries/messages.inc.php:28
+#: js/messages.php:97 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "Tammi"
 
 #. l10n: Short month name
-#: js/messages.php:98 libraries/messages.inc.php:28
+#: js/messages.php:99 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "Helmi"
 
 #. l10n: Short month name
-#: js/messages.php:100 libraries/messages.inc.php:28
+#: js/messages.php:101 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "Maalis"
 
 #. l10n: Short month name
-#: js/messages.php:102 libraries/messages.inc.php:28
+#: js/messages.php:103 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "Huhti"
 
 #. l10n: Short month name
-#: js/messages.php:104
+#: js/messages.php:105
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1157,178 +1189,178 @@ msgid "May"
 msgstr "Touko"
 
 #. l10n: Short month name
-#: js/messages.php:106 libraries/messages.inc.php:28
+#: js/messages.php:107 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "Kesä"
 
 #. l10n: Short month name
-#: js/messages.php:108 libraries/messages.inc.php:28
+#: js/messages.php:109 libraries/messages.inc.php:28
 msgid "Jul"
 msgstr "Heinä"
 
 #. l10n: Short month name
-#: js/messages.php:110 libraries/messages.inc.php:28
+#: js/messages.php:111 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr "Elo"
 
 #. l10n: Short month name
-#: js/messages.php:112 libraries/messages.inc.php:28
+#: js/messages.php:113 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr "Syys"
 
 #. l10n: Short month name
-#: js/messages.php:114 libraries/messages.inc.php:28
+#: js/messages.php:115 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr "Loka"
 
 #. l10n: Short month name
-#: js/messages.php:116 libraries/messages.inc.php:28
+#: js/messages.php:117 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr "Marras"
 
 #. l10n: Short month name
-#: js/messages.php:118 libraries/messages.inc.php:28
+#: js/messages.php:119 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr "Joulu"
 
-#: js/messages.php:121
+#: js/messages.php:122
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Su"
 
-#: js/messages.php:122
+#: js/messages.php:123
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Ma"
 
-#: js/messages.php:123
+#: js/messages.php:124
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Ti"
 
-#: js/messages.php:124
+#: js/messages.php:125
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:125
+#: js/messages.php:126
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:126
+#: js/messages.php:127
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Pe"
 
-#: js/messages.php:127
+#: js/messages.php:128
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:131 libraries/messages.inc.php:27
+#: js/messages.php:132 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "Su"
 
 #. l10n: Short week day name
-#: js/messages.php:133 libraries/messages.inc.php:27
+#: js/messages.php:134 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "Ma"
 
 #. l10n: Short week day name
-#: js/messages.php:135 libraries/messages.inc.php:27
+#: js/messages.php:136 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "Ti"
 
 #. l10n: Short week day name
-#: js/messages.php:137 libraries/messages.inc.php:27
+#: js/messages.php:138 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "Ke"
 
 #. l10n: Short week day name
-#: js/messages.php:139 libraries/messages.inc.php:27
+#: js/messages.php:140 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "To"
 
 #. l10n: Short week day name
-#: js/messages.php:141 libraries/messages.inc.php:27
+#: js/messages.php:142 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "Pe"
 
 #. l10n: Short week day name
-#: js/messages.php:143 libraries/messages.inc.php:27
+#: js/messages.php:144 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "La"
 
 #. l10n: Minimal week day name
-#: js/messages.php:147
+#: js/messages.php:148
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Su"
 
 #. l10n: Minimal week day name
-#: js/messages.php:149
+#: js/messages.php:150
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:151
+#: js/messages.php:152
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Ti"
 
 #. l10n: Minimal week day name
-#: js/messages.php:153
+#: js/messages.php:154
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Ke"
 
 #. l10n: Minimal week day name
-#: js/messages.php:155
+#: js/messages.php:156
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "To"
 
 #. l10n: Minimal week day name
-#: js/messages.php:157
+#: js/messages.php:158
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Pe"
 
 #. l10n: Minimal week day name
-#: js/messages.php:159
+#: js/messages.php:160
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "La"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:161
+#: js/messages.php:162
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:163
+#: js/messages.php:164
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:164
+#: js/messages.php:165
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "käytössä"
 
-#: js/messages.php:165
+#: js/messages.php:166
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2042,6 +2074,7 @@ msgstr "Luo"
 
 #: libraries/display_create_database.lib.php:40 libraries/messages.inc.php:572
 #: server_privileges.php:74 server_privileges.php:1388
+#: server_replication.php:35
 msgid "No Privileges"
 msgstr "Ei käyttöoikeuksia"
 
@@ -2336,46 +2369,46 @@ msgstr "Suorita kysely kirjanmerkeistä"
 msgid "The row has been deleted"
 msgstr "Rivi on poistettu"
 
-#: libraries/display_tbl.lib.php:1184 libraries/display_tbl.lib.php:2051
+#: libraries/display_tbl.lib.php:1184 libraries/display_tbl.lib.php:2056
 #: libraries/messages.inc.php:468 server_processlist.php:71
 #: tbl_row_action.php:64
 msgid "Kill"
 msgstr "Lopeta"
 
-#: libraries/display_tbl.lib.php:1929 libraries/messages.inc.php:857
+#: libraries/display_tbl.lib.php:1934 libraries/messages.inc.php:857
 msgid "in query"
 msgstr "lauseessa"
 
-#: libraries/display_tbl.lib.php:1947 libraries/messages.inc.php:889
+#: libraries/display_tbl.lib.php:1952 libraries/messages.inc.php:889
 msgid "Showing rows"
 msgstr "Näkyvillä rivit "
 
-#: libraries/display_tbl.lib.php:1957 libraries/messages.inc.php:1121
+#: libraries/display_tbl.lib.php:1962 libraries/messages.inc.php:1121
 msgid "total"
 msgstr "yhteensä"
 
-#: libraries/display_tbl.lib.php:1965 libraries/messages.inc.php:735
+#: libraries/display_tbl.lib.php:1970 libraries/messages.inc.php:735
 #: sql.php:524
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "kysely kesti %01.4f sek."
 
-#: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
+#: libraries/display_tbl.lib.php:2089 libraries/messages.inc.php:143
 #: libraries/mult_submits.inc.php:113 querywindow.php:125 querywindow.php:129
 #: querywindow.php:132 tbl_structure.php:25 tbl_structure.php:150
 #: tbl_structure.php:471
 msgid "Change"
 msgstr "Muokkaa"
 
-#: libraries/display_tbl.lib.php:2154 libraries/messages.inc.php:732
+#: libraries/display_tbl.lib.php:2159 libraries/messages.inc.php:732
 msgid "Query results operations"
 msgstr "Kyselytulosten toimenpiteet"
 
-#: libraries/display_tbl.lib.php:2182 libraries/messages.inc.php:679
+#: libraries/display_tbl.lib.php:2187 libraries/messages.inc.php:679
 msgid "Print view (with full texts)"
 msgstr "Tulostusversio (kokonaisin tekstein)"
 
-#: libraries/display_tbl.lib.php:2356 libraries/messages.inc.php:490
+#: libraries/display_tbl.lib.php:2361 libraries/messages.inc.php:490
 msgid "Link not found"
 msgstr "Linkkiä ei löydy"
 
@@ -2879,6 +2912,58 @@ msgstr "rakenne"
 msgid "Go to view"
 msgstr "Siirry näkymään"
 
+#: libraries/import/csv.php:58 libraries/import/csv.php:70
+#: libraries/import/csv.php:74 libraries/import/csv.php:78
+#: libraries/messages.inc.php:450
+#, php-format
+msgid "Invalid parameter for CSV import: %s"
+msgstr "Virheellinen CSV-tuonnin parametri: %s"
+
+#: libraries/import/csv.php:59 libraries/messages.inc.php:331
+msgid "Fields terminated by"
+msgstr "Sarakkeiden erotinmerkki"
+
+#: libraries/import/csv.php:71 libraries/messages.inc.php:328
+msgid "Fields enclosed by"
+msgstr "Sarakkeiden rajausmerkki"
+
+#: libraries/import/csv.php:75 libraries/messages.inc.php:329
+msgid "Fields escaped by"
+msgstr "Koodinvaihtomerkki"
+
+#: libraries/import/csv.php:79 libraries/messages.inc.php:489
+msgid "Lines terminated by"
+msgstr "Rivien erotinmerkki"
+
+#: libraries/import/csv.php:119 libraries/messages.inc.php:447
+#, php-format
+msgid "Invalid column (%s) specified!"
+msgstr "Virheellinen sarake (%s) määritelty!"
+
+#: libraries/import/csv.php:177 libraries/import/csv.php:424
+#: libraries/messages.inc.php:449
+#, php-format
+msgid "Invalid format of CSV input on line %d."
+msgstr "Virheellinen muoto CSV-syötteessä rivillä %d."
+
+#: libraries/import/csv.php:312 libraries/messages.inc.php:448
+#, php-format
+msgid "Invalid field count in CSV input on line %d."
+msgstr "Virheellinen kenttien määrä CSV-syötteessä rivillä %d."
+
+#: libraries/import/ldi.php:55 libraries/messages.inc.php:454
+msgid "This plugin does not support compressed imports!"
+msgstr "Tämä lisäosa ei tue pakattujen tuontien käyttöä!"
+
+#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/messages.inc.php:1255
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+"Määritetty XML-tiedosto on joko epämuotoinen tai vaillinainen. Korjaa "
+"ongelma ja yritä uudestaan."
+
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:143
 #, fuzzy
@@ -3363,12 +3448,12 @@ msgstr "Yhteydet"
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Kopioi taulu toiseen tauluun nimellä (tietokanta<b>.</b>taulu):"
 
-#: libraries/messages.inc.php:188
+#: libraries/messages.inc.php:188 tbl_move_copy.php:58
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Taulu %s on kopioitu uuteen tauluun %s."
 
-#: libraries/messages.inc.php:189
+#: libraries/messages.inc.php:189 tbl_move_copy.php:48
 msgid "Can't copy table to same one!"
 msgstr "Taulua ei voi kopioida itseensä!"
 
@@ -3636,11 +3721,6 @@ msgstr "Älä käytä nolla-arvoissa AUTO_INCREMENT:iä"
 msgid "Drop the databases that have the same names as the users."
 msgstr "Poista tietokannat, joilla on sama nimi kuin käyttäjillä."
 
-#: libraries/messages.inc.php:284
-#, php-format
-msgid "Dump has been saved to file %s."
-msgstr "Vedos tallennettiin tiedostoon %s."
-
 #: libraries/messages.inc.php:286 tbl_printview.php:382 tbl_structure.php:743
 msgid "dynamic"
 msgstr "dynaaminen"
@@ -3709,10 +3789,6 @@ msgstr "Excel-muokkaus"
 msgid "Export/Import to scale"
 msgstr "Vie/tuo skaalaan"
 
-#: libraries/messages.inc.php:320
-msgid "Selected export type has to be saved in file!"
-msgstr "Valittu vientityyppi on tallennettava tiedostoon!"
-
 #: libraries/messages.inc.php:321
 msgid "Extended inserts"
 msgstr "Laajennetut lisäyslauseet"
@@ -3731,29 +3807,9 @@ msgstr "Epäonnistuneet yritykset"
 msgid "Field %s has been dropped"
 msgstr "Sarake %s on poistettu"
 
-#: libraries/messages.inc.php:328
-msgid "Fields enclosed by"
-msgstr "Sarakkeiden rajausmerkki"
-
-#: libraries/messages.inc.php:329
-msgid "Fields escaped by"
-msgstr "Koodinvaihtomerkki"
-
 #: libraries/messages.inc.php:330 libraries/sql_query_form.lib.php:317
 msgid "Fields"
 msgstr "Sarakkeet"
-
-#: libraries/messages.inc.php:331
-msgid "Fields terminated by"
-msgstr "Sarakkeiden erotinmerkki"
-
-#: libraries/messages.inc.php:332
-#, php-format
-msgid ""
-"File %s already exists on server, change filename or check overwrite option."
-msgstr ""
-"Tiedosto %s on jo olemassa palvelimella, vaihda tiedostonimeä tai tarkista "
-"korvausasetuksen tila."
 
 #: libraries/messages.inc.php:340 server_binlog.php:136
 msgid "Files"
@@ -3853,10 +3909,6 @@ msgstr "Käsittelijä"
 #: libraries/messages.inc.php:378 server_synchronize.php:464
 msgid "Selected target tables have been synchronized with source tables."
 msgstr "Valitut kohdetaulut on yhtenäistetty lähdetaulujen kanssa."
-
-#: libraries/messages.inc.php:379
-msgid "You have to choose at least one column to display"
-msgstr "Valitse vähintään yksi sarake"
 
 #: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:374
 msgid "Hebrew"
@@ -4033,34 +4085,10 @@ msgstr "Sisäiset relaatiot"
 msgid "Column count has to be larger than zero."
 msgstr "Sarakkeiden määrän on oltava nollaa suurempi."
 
-#: libraries/messages.inc.php:447
-#, php-format
-msgid "Invalid column (%s) specified!"
-msgstr "Virheellinen sarake (%s) määritelty!"
-
-#: libraries/messages.inc.php:448
-#, php-format
-msgid "Invalid field count in CSV input on line %d."
-msgstr "Virheellinen kenttien määrä CSV-syötteessä rivillä %d."
-
-#: libraries/messages.inc.php:449
-#, php-format
-msgid "Invalid format of CSV input on line %d."
-msgstr "Virheellinen muoto CSV-syötteessä rivillä %d."
-
-#: libraries/messages.inc.php:450
-#, php-format
-msgid "Invalid parameter for CSV import: %s"
-msgstr "Virheellinen CSV-tuonnin parametri: %s"
-
 #: libraries/messages.inc.php:452 libraries/tbl_properties.inc.php:784
 #: tbl_structure.php:537
 msgid "You have to add at least one field."
 msgstr "Vähintään yksi kenttä on lisättävä."
-
-#: libraries/messages.inc.php:454
-msgid "This plugin does not support compressed imports!"
-msgstr "Tämä lisäosa ei tue pakattujen tuontien käyttöä!"
 
 #: libraries/messages.inc.php:457
 #, php-format
@@ -4072,7 +4100,7 @@ msgstr "Virheellinen palvelimen indeksi: \"%s\""
 msgid "Japanese"
 msgstr "Japanilainen"
 
-#: libraries/messages.inc.php:461
+#: libraries/messages.inc.php:461 main.php:331
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -4153,10 +4181,6 @@ msgstr "Pituus/Arvot*"
 #: libraries/messages.inc.php:488 tbl_select.php:295
 msgid "Number of rows per page"
 msgstr "Rivejä sivulla"
-
-#: libraries/messages.inc.php:489
-msgid "Lines terminated by"
-msgstr "Rivien erotinmerkki"
 
 #: libraries/messages.inc.php:492 libraries/mysql_charsets.lib.php:265
 msgid "Lithuanian"
@@ -4273,12 +4297,12 @@ msgstr "Siirrä valikko"
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Siirrä taulu toiseen tauluun (tietokanta<b>.</b>taulu):"
 
-#: libraries/messages.inc.php:527
+#: libraries/messages.inc.php:527 tbl_move_copy.php:56
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Taulu %s on siirretty %s."
 
-#: libraries/messages.inc.php:528
+#: libraries/messages.inc.php:528 tbl_move_copy.php:46
 msgid "Can't move table to same one!"
 msgstr "Taulua ei voi siirtää itseensä!"
 
@@ -4348,11 +4372,6 @@ msgstr "Ei mikään"
 msgid "This format has no options"
 msgstr "Tälle tiedostomuodolle ei ole valinta-asetuksia"
 
-#: libraries/messages.inc.php:570
-#, php-format
-msgid "The web server does not have permission to save the file %s."
-msgstr "Palvelimella ei ole lupaa tallentaa tiedostoa %s."
-
 #: libraries/messages.inc.php:573 user_password.php:54
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Sinulla ei ole riittäviä oikeuksia!"
@@ -4360,11 +4379,6 @@ msgstr "Sinulla ei ole riittäviä oikeuksia!"
 #: libraries/messages.inc.php:574 tbl_row_action.php:29
 msgid "No rows selected"
 msgstr "Ei yhtään riviä valittu"
-
-#: libraries/messages.inc.php:575
-#, php-format
-msgid "Insufficient space to save the file %s."
-msgstr "Liian vähän tilaa tiedoston %s tallentamiseen."
 
 #: libraries/messages.inc.php:577 themes.php:32
 #, php-format
@@ -5016,7 +5030,7 @@ msgstr "Virheiden hallinta:"
 msgid "IO Thread %s only"
 msgstr "IO-säie %s vain"
 
-#: libraries/messages.inc.php:794
+#: libraries/messages.inc.php:794 server_replication.php:296
 msgid "Slave IO Thread not running!"
 msgstr ""
 
@@ -5053,7 +5067,7 @@ msgstr "Ohita seuraava"
 msgid "Slave replication"
 msgstr "Alipalvelimen replikointi"
 
-#: libraries/messages.inc.php:802
+#: libraries/messages.inc.php:802 server_replication.php:293
 msgid "Slave SQL Thread not running!"
 msgstr ""
 
@@ -6181,7 +6195,8 @@ msgstr "Taulu %s on jo olemassa!"
 msgid "Alter column(s)"
 msgstr "Muuta saraketta/sarakkeita"
 
-#: libraries/messages.inc.php:1076 tbl_alter.php:103 tbl_indexes.php:98
+#: libraries/messages.inc.php:1076 tbl_addfield.php:189 tbl_alter.php:103
+#: tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Taulun %1$s muuttaminen onnistui."
@@ -6196,7 +6211,7 @@ msgstr "Käytä indeksiä/indeksejä"
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr "Haluatko poistaa kaikki edelliset rivit kohdetauluista?"
 
-#: libraries/messages.inc.php:1080
+#: libraries/messages.inc.php:1080 tbl_move_copy.php:82
 msgid "The table name is empty!"
 msgstr "Taulun nimi puuttuu!"
 
@@ -6763,14 +6778,6 @@ msgstr "Wiki"
 #: libraries/messages.inc.php:1249 server_privileges.php:2138
 msgid "wildcard"
 msgstr "korvausmerkki"
-
-#: libraries/messages.inc.php:1255
-msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
-msgstr ""
-"Määritetty XML-tiedosto on joko epämuotoinen tai vaillinainen. Korjaa "
-"ongelma ja yritä uudestaan."
 
 #: libraries/messages.inc.php:1256
 msgid "Export contents"

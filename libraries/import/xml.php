@@ -71,7 +71,7 @@ unset($buffer);
  * The XML was malformed
  */
 if ($xml === FALSE) {
-    PMA_Message::error('strXMLError')->display();
+    PMA_Message::error(__('The XML file specified was either malformed or incomplete. Please correct the issue and try again.'))->display();
     unset($xml);
     $GLOBALS['finished'] = false;
     return;
@@ -127,7 +127,7 @@ if ($db_attr instanceof SimpleXMLElement) {
  * The XML was malformed
  */
 if ($db_name === NULL) {
-    PMA_Message::error('strXMLError')->display();
+    PMA_Message::error(__('The XML file specified was either malformed or incomplete. Please correct the issue and try again.'))->display();
     unset($xml);
     $GLOBALS['finished'] = false;
     return;

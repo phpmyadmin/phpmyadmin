@@ -52,7 +52,7 @@ if (isset($plugin_list)) {
 
 if ($import_file == 'none' || $compression != 'none' || $charset_conversion) {
     // We handle only some kind of data!
-    $message = PMA_Message::error('strInvalidLDIImport');
+    $message = PMA_Message::error(__('This plugin does not support compressed imports!'));
     $error = TRUE;
     return;
 }

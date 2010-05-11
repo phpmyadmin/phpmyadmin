@@ -32,7 +32,7 @@ if (! $is_superuser) {
         . PMA_getIcon('s_replication.png')
         . __('Replication') . "\n"
         . '</h2>' . "\n";
-    PMA_Message::error('strNoPrivileges')->display();
+    PMA_Message::error(__('No Privileges'))->display();
     require_once './libraries/footer.inc.php';
 }
 
@@ -290,10 +290,10 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         $slave_skip_error_link = PMA_generate_common_url($_url_params);
 
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
-            PMA_Message::warning('strReplicationSlaveSQLThreadNotRunning')->display();
+            PMA_Message::warning(__('Slave SQL Thread not running!'))->display();
         }
         if ($server_slave_replication[0]['Slave_IO_Running'] == 'No') {
-            PMA_Message::warning('strReplicationSlaveIOThreadNotRunning')->display();
+            PMA_Message::warning(__('Slave IO Thread not running!'))->display();
         }
 
         $_url_params = $GLOBALS['url_params'];

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-10 14:17+0200\n"
+"POT-Creation-Date: 2010-05-11 13:05-0400\n"
 "PO-Revision-Date: 2010-03-30 23:23+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -337,7 +337,8 @@ msgstr "Включить"
 msgid "Collation"
 msgstr "Сравнение"
 
-#: db_operations.php:609 libraries/messages.inc.php:750 pdf_schema.php:34
+#: db_operations.php:609 libraries/messages.inc.php:750 main.php:316
+#: pdf_schema.php:34
 #, php-format
 msgid ""
 "The additional features for working with linked tables have been "
@@ -395,8 +396,8 @@ msgstr "Размер бумаги"
 msgid "Edit PDF Pages"
 msgstr "Редактирование PDF-страниц"
 
-#: db_printview.php:96 db_structure.php:51 db_tracking.php:35
-#: libraries/messages.inc.php:576 navigation.php:346
+#: db_printview.php:96 db_qbe.php:102 db_structure.php:51 db_tracking.php:35
+#: export.php:359 libraries/messages.inc.php:576 navigation.php:346
 msgid "No tables found in database."
 msgstr "Таблиц в базе данных не обнаружено."
 
@@ -447,12 +448,17 @@ msgstr "Последняя проверка"
 msgid "%s table(s)"
 msgstr "Таблиц: %s"
 
-#: db_qbe.php:29 libraries/display_tbl.lib.php:1976
+#: db_qbe.php:29 libraries/display_tbl.lib.php:1981
 #: libraries/messages.inc.php:1059 libraries/sql_query_form.lib.php:140
 #: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
 #: view_operations.php:62
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL-запрос был успешно выполнен"
+
+#: db_qbe.php:42 libraries/messages.inc.php:379
+msgid "You have to choose at least one column to display"
+msgstr ""
+"Для выполнения запроса, должен быть выбран отображаемый столбец/столбцы."
 
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866 libraries/messages.inc.php:1022
@@ -575,7 +581,7 @@ msgid "Browse"
 msgstr "Обзор"
 
 #: db_search.php:272 libraries/display_tbl.lib.php:1165
-#: libraries/display_tbl.lib.php:2051 libraries/messages.inc.php:251
+#: libraries/display_tbl.lib.php:2056 libraries/messages.inc.php:251
 #: libraries/sql_query_form.lib.php:470 pdf_pages.php:281 pdf_pages.php:406
 #: pdf_pages.php:442 pdf_pages.php:470 pmd_general.php:377
 #: setup/frames/index.inc.php:125 setup/frames/index.inc.php:216
@@ -673,7 +679,7 @@ msgstr "Слежение включено."
 msgid "Tracking is not active."
 msgstr "Слежение выключено."
 
-#: db_structure.php:420 libraries/display_tbl.lib.php:1939
+#: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #: libraries/messages.inc.php:1236
 #, php-format
 msgid ""
@@ -706,20 +712,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s - тип таблиц данного MySQL сервера устанавливаемый по умолчанию."
 
 #: db_structure.php:524 db_structure.php:541 db_structure.php:542
-#: libraries/display_tbl.lib.php:2076 libraries/display_tbl.lib.php:2081
+#: libraries/display_tbl.lib.php:2081 libraries/display_tbl.lib.php:2086
 #: libraries/messages.inc.php:1251 libraries/mult_submits.inc.php:16
 #: server_databases.php:346 server_databases.php:351
 #: server_privileges.php:1557 tbl_structure.php:456 tbl_structure.php:465
 msgid "With selected:"
 msgstr "С отмеченными:"
 
-#: db_structure.php:527 libraries/display_tbl.lib.php:2071
+#: db_structure.php:527 libraries/display_tbl.lib.php:2076
 #: libraries/messages.inc.php:156 server_databases.php:348
 #: server_privileges.php:530 server_privileges.php:1560 tbl_structure.php:459
 msgid "Check All"
 msgstr "Отметить все"
 
-#: db_structure.php:531 libraries/display_tbl.lib.php:2072
+#: db_structure.php:531 libraries/display_tbl.lib.php:2077
 #: libraries/messages.inc.php:1192 libraries/replication_gui.lib.php:33
 #: server_databases.php:350 server_privileges.php:533
 #: server_privileges.php:1564 tbl_structure.php:463
@@ -731,7 +737,7 @@ msgid "Check tables having overhead"
 msgstr "Отметить требующие оптимизации"
 
 #: db_structure.php:547 db_structure.php:548 db_structure.php:599
-#: libraries/display_tbl.lib.php:2175 libraries/messages.inc.php:680
+#: libraries/display_tbl.lib.php:2180 libraries/messages.inc.php:680
 #: libraries/mult_submits.inc.php:28 tbl_structure.php:493
 #: tbl_structure.php:495
 msgid "Print view"
@@ -759,8 +765,8 @@ msgid "Analyze table"
 msgstr "Анализ таблицы"
 
 #: db_structure.php:557 db_structure.php:558 libraries/db_links.inc.php:71
-#: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2089
-#: libraries/display_tbl.lib.php:2220 libraries/messages.inc.php:318
+#: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2094
+#: libraries/display_tbl.lib.php:2225 libraries/messages.inc.php:318
 #: libraries/mult_submits.inc.php:62 libraries/server_links.inc.php:84
 #: libraries/tbl_links.inc.php:82 pmd_pdf.php:84 pmd_pdf.php:109
 #: server_privileges.php:1341 setup/frames/menu.inc.php:22
@@ -843,6 +849,33 @@ msgstr "Отслеживать таблицу"
 #: db_tracking.php:200 libraries/messages.inc.php:1129
 msgid "Database Log"
 msgstr "Журнал базы данных"
+
+#: export.php:62 libraries/messages.inc.php:320
+msgid "Selected export type has to be saved in file!"
+msgstr "Выбранный тип экспорта возможен только в файл!"
+
+#: export.php:154 export.php:179 export.php:627 libraries/messages.inc.php:575
+#, php-format
+msgid "Insufficient space to save the file %s."
+msgstr "Для сохранения файла %s недостаточно дискового пространства."
+
+#: export.php:294 libraries/messages.inc.php:332
+#, php-format
+msgid ""
+"File %s already exists on server, change filename or check overwrite option."
+msgstr ""
+"Файл %s уже существует на сервере, измените имя или включите параметр "
+"перезаписи."
+
+#: export.php:298 export.php:302 libraries/messages.inc.php:570
+#, php-format
+msgid "The web server does not have permission to save the file %s."
+msgstr "Не достаточно прав для сохранения файла %s на веб-сервере."
+
+#: export.php:629 libraries/messages.inc.php:284
+#, php-format
+msgid "Dump has been saved to file %s."
+msgstr "Дамп был сохранен в файл %s."
 
 #: import.php:60 libraries/messages.inc.php:1210
 #, php-format
@@ -1044,21 +1077,21 @@ msgid "Choose field to display"
 msgstr "Выбор отображаемого столбца"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:72
+#: js/messages.php:73
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Пожертвование"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:74
+#: js/messages.php:75
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Назад"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:76 libraries/common.lib.php:2289
+#: js/messages.php:77 libraries/common.lib.php:2289
 #: libraries/common.lib.php:2292 libraries/display_tbl.lib.php:338
 #: libraries/messages.inc.php:551 server_binlog.php:205 server_binlog.php:207
 #: tbl_printview.php:424 tbl_structure.php:802
@@ -1066,96 +1099,96 @@ msgid "Next"
 msgstr "Следующий"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:78
+#: js/messages.php:79
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Всего"
 
-#: js/messages.php:81
+#: js/messages.php:82
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Двоичный"
 
-#: js/messages.php:82
+#: js/messages.php:83
 msgid "February"
 msgstr ""
 
-#: js/messages.php:83
+#: js/messages.php:84
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Мар"
 
-#: js/messages.php:84
+#: js/messages.php:85
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Апр"
 
-#: js/messages.php:85 libraries/messages.inc.php:28
+#: js/messages.php:86 libraries/messages.inc.php:28
 msgid "May"
 msgstr "Май"
 
-#: js/messages.php:86
+#: js/messages.php:87
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Июн"
 
-#: js/messages.php:87
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Июл"
 
-#: js/messages.php:88
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Авг"
 
-#: js/messages.php:89
+#: js/messages.php:90
 msgid "September"
 msgstr ""
 
-#: js/messages.php:90
+#: js/messages.php:91
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Окт"
 
-#: js/messages.php:91
+#: js/messages.php:92
 msgid "November"
 msgstr ""
 
-#: js/messages.php:92
+#: js/messages.php:93
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:96 libraries/messages.inc.php:28
+#: js/messages.php:97 libraries/messages.inc.php:28
 msgid "Jan"
 msgstr "Янв"
 
 #. l10n: Short month name
-#: js/messages.php:98 libraries/messages.inc.php:28
+#: js/messages.php:99 libraries/messages.inc.php:28
 msgid "Feb"
 msgstr "Фев"
 
 #. l10n: Short month name
-#: js/messages.php:100 libraries/messages.inc.php:28
+#: js/messages.php:101 libraries/messages.inc.php:28
 msgid "Mar"
 msgstr "Мар"
 
 #. l10n: Short month name
-#: js/messages.php:102 libraries/messages.inc.php:28
+#: js/messages.php:103 libraries/messages.inc.php:28
 msgid "Apr"
 msgstr "Апр"
 
 #. l10n: Short month name
-#: js/messages.php:104
+#: js/messages.php:105
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1163,178 +1196,178 @@ msgid "May"
 msgstr "Май"
 
 #. l10n: Short month name
-#: js/messages.php:106 libraries/messages.inc.php:28
+#: js/messages.php:107 libraries/messages.inc.php:28
 msgid "Jun"
 msgstr "Июн"
 
 #. l10n: Short month name
-#: js/messages.php:108 libraries/messages.inc.php:28
+#: js/messages.php:109 libraries/messages.inc.php:28
 msgid "Jul"
 msgstr "Июл"
 
 #. l10n: Short month name
-#: js/messages.php:110 libraries/messages.inc.php:28
+#: js/messages.php:111 libraries/messages.inc.php:28
 msgid "Aug"
 msgstr "Авг"
 
 #. l10n: Short month name
-#: js/messages.php:112 libraries/messages.inc.php:28
+#: js/messages.php:113 libraries/messages.inc.php:28
 msgid "Sep"
 msgstr "Сен"
 
 #. l10n: Short month name
-#: js/messages.php:114 libraries/messages.inc.php:28
+#: js/messages.php:115 libraries/messages.inc.php:28
 msgid "Oct"
 msgstr "Окт"
 
 #. l10n: Short month name
-#: js/messages.php:116 libraries/messages.inc.php:28
+#: js/messages.php:117 libraries/messages.inc.php:28
 msgid "Nov"
 msgstr "Ноя"
 
 #. l10n: Short month name
-#: js/messages.php:118 libraries/messages.inc.php:28
+#: js/messages.php:119 libraries/messages.inc.php:28
 msgid "Dec"
 msgstr "Дек"
 
-#: js/messages.php:121
+#: js/messages.php:122
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Вс"
 
-#: js/messages.php:122
+#: js/messages.php:123
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Пн"
 
-#: js/messages.php:123
+#: js/messages.php:124
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Вт"
 
-#: js/messages.php:124
+#: js/messages.php:125
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:125
+#: js/messages.php:126
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:126
+#: js/messages.php:127
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Пт"
 
-#: js/messages.php:127
+#: js/messages.php:128
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:131 libraries/messages.inc.php:27
+#: js/messages.php:132 libraries/messages.inc.php:27
 msgid "Sun"
 msgstr "Вс"
 
 #. l10n: Short week day name
-#: js/messages.php:133 libraries/messages.inc.php:27
+#: js/messages.php:134 libraries/messages.inc.php:27
 msgid "Mon"
 msgstr "Пн"
 
 #. l10n: Short week day name
-#: js/messages.php:135 libraries/messages.inc.php:27
+#: js/messages.php:136 libraries/messages.inc.php:27
 msgid "Tue"
 msgstr "Вт"
 
 #. l10n: Short week day name
-#: js/messages.php:137 libraries/messages.inc.php:27
+#: js/messages.php:138 libraries/messages.inc.php:27
 msgid "Wed"
 msgstr "Ср"
 
 #. l10n: Short week day name
-#: js/messages.php:139 libraries/messages.inc.php:27
+#: js/messages.php:140 libraries/messages.inc.php:27
 msgid "Thu"
 msgstr "Чт"
 
 #. l10n: Short week day name
-#: js/messages.php:141 libraries/messages.inc.php:27
+#: js/messages.php:142 libraries/messages.inc.php:27
 msgid "Fri"
 msgstr "Пт"
 
 #. l10n: Short week day name
-#: js/messages.php:143 libraries/messages.inc.php:27
+#: js/messages.php:144 libraries/messages.inc.php:27
 msgid "Sat"
 msgstr "Сб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:147
+#: js/messages.php:148
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Вс"
 
 #. l10n: Minimal week day name
-#: js/messages.php:149
+#: js/messages.php:150
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Пн"
 
 #. l10n: Minimal week day name
-#: js/messages.php:151
+#: js/messages.php:152
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Вт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:153
+#: js/messages.php:154
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Ср"
 
 #. l10n: Minimal week day name
-#: js/messages.php:155
+#: js/messages.php:156
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Чт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:157
+#: js/messages.php:158
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Пт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:159
+#: js/messages.php:160
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Сб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:161
+#: js/messages.php:162
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Вики"
 
-#: js/messages.php:163
+#: js/messages.php:164
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:164
+#: js/messages.php:165
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "используется"
 
-#: js/messages.php:165
+#: js/messages.php:166
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2049,6 +2082,7 @@ msgstr "Создать"
 
 #: libraries/display_create_database.lib.php:40 libraries/messages.inc.php:572
 #: server_privileges.php:74 server_privileges.php:1388
+#: server_replication.php:35
 msgid "No Privileges"
 msgstr "Нет привилегий"
 
@@ -2342,46 +2376,46 @@ msgstr "Выполнить отмеченный запрос"
 msgid "The row has been deleted"
 msgstr "Запись была удалена"
 
-#: libraries/display_tbl.lib.php:1184 libraries/display_tbl.lib.php:2051
+#: libraries/display_tbl.lib.php:1184 libraries/display_tbl.lib.php:2056
 #: libraries/messages.inc.php:468 server_processlist.php:71
 #: tbl_row_action.php:64
 msgid "Kill"
 msgstr "Завершить"
 
-#: libraries/display_tbl.lib.php:1929 libraries/messages.inc.php:857
+#: libraries/display_tbl.lib.php:1934 libraries/messages.inc.php:857
 msgid "in query"
 msgstr "по запросу"
 
-#: libraries/display_tbl.lib.php:1947 libraries/messages.inc.php:889
+#: libraries/display_tbl.lib.php:1952 libraries/messages.inc.php:889
 msgid "Showing rows"
 msgstr "Отображает строки"
 
-#: libraries/display_tbl.lib.php:1957 libraries/messages.inc.php:1121
+#: libraries/display_tbl.lib.php:1962 libraries/messages.inc.php:1121
 msgid "total"
 msgstr "всего"
 
-#: libraries/display_tbl.lib.php:1965 libraries/messages.inc.php:735
+#: libraries/display_tbl.lib.php:1970 libraries/messages.inc.php:735
 #: sql.php:524
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "запрос занял %01.4f сек."
 
-#: libraries/display_tbl.lib.php:2084 libraries/messages.inc.php:143
+#: libraries/display_tbl.lib.php:2089 libraries/messages.inc.php:143
 #: libraries/mult_submits.inc.php:113 querywindow.php:125 querywindow.php:129
 #: querywindow.php:132 tbl_structure.php:25 tbl_structure.php:150
 #: tbl_structure.php:471
 msgid "Change"
 msgstr "Изменить"
 
-#: libraries/display_tbl.lib.php:2154 libraries/messages.inc.php:732
+#: libraries/display_tbl.lib.php:2159 libraries/messages.inc.php:732
 msgid "Query results operations"
 msgstr "Использование результатов запроса"
 
-#: libraries/display_tbl.lib.php:2182 libraries/messages.inc.php:679
+#: libraries/display_tbl.lib.php:2187 libraries/messages.inc.php:679
 msgid "Print view (with full texts)"
 msgstr "Версия для печати (полностью)"
 
-#: libraries/display_tbl.lib.php:2356 libraries/messages.inc.php:490
+#: libraries/display_tbl.lib.php:2361 libraries/messages.inc.php:490
 msgid "Link not found"
 msgstr "Связь не найдена"
 
@@ -2892,6 +2926,58 @@ msgstr "структура"
 msgid "Go to view"
 msgstr "Перейти к отображению (VIEW)"
 
+#: libraries/import/csv.php:58 libraries/import/csv.php:70
+#: libraries/import/csv.php:74 libraries/import/csv.php:78
+#: libraries/messages.inc.php:450
+#, php-format
+msgid "Invalid parameter for CSV import: %s"
+msgstr "Неправильный параметр импорта CSV: %s"
+
+#: libraries/import/csv.php:59 libraries/messages.inc.php:331
+msgid "Fields terminated by"
+msgstr "Разделитель полей"
+
+#: libraries/import/csv.php:71 libraries/messages.inc.php:328
+msgid "Fields enclosed by"
+msgstr "Значения полей обрамлены"
+
+#: libraries/import/csv.php:75 libraries/messages.inc.php:329
+msgid "Fields escaped by"
+msgstr "Символ экранирования"
+
+#: libraries/import/csv.php:79 libraries/messages.inc.php:489
+msgid "Lines terminated by"
+msgstr "Разделитель строк"
+
+#: libraries/import/csv.php:119 libraries/messages.inc.php:447
+#, php-format
+msgid "Invalid column (%s) specified!"
+msgstr "Выбран неверный столбец (%s)!"
+
+#: libraries/import/csv.php:177 libraries/import/csv.php:424
+#: libraries/messages.inc.php:449
+#, php-format
+msgid "Invalid format of CSV input on line %d."
+msgstr "Неправильный формат входных CSV-данных в строке %d."
+
+#: libraries/import/csv.php:312 libraries/messages.inc.php:448
+#, php-format
+msgid "Invalid field count in CSV input on line %d."
+msgstr "Неправильное количество полей во входных CSV-данных в строке %d."
+
+#: libraries/import/ldi.php:55 libraries/messages.inc.php:454
+msgid "This plugin does not support compressed imports!"
+msgstr "Этот модуль не поддерживает импорт сжатых данных!"
+
+#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/messages.inc.php:1255
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+"Выбранный XML файл некорректен, либо неполон. Проверьте возможные ошибки и "
+"попробуйте ещё раз."
+
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:143
 #, fuzzy
@@ -3372,12 +3458,12 @@ msgstr "Соединения"
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Скопировать таблицу в (база данных<b>.</b>таблица):"
 
-#: libraries/messages.inc.php:188
+#: libraries/messages.inc.php:188 tbl_move_copy.php:58
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Таблица %s была скопирована в %s."
 
-#: libraries/messages.inc.php:189
+#: libraries/messages.inc.php:189 tbl_move_copy.php:48
 msgid "Can't copy table to same one!"
 msgstr "Невозможно скопировать таблицу саму в себя!"
 
@@ -3650,11 +3736,6 @@ msgstr "Не используйте параметр AUTO_INCREMENT для ну�
 msgid "Drop the databases that have the same names as the users."
 msgstr "Удалить базы данных, имена которых совпадают с именами пользователей."
 
-#: libraries/messages.inc.php:284
-#, php-format
-msgid "Dump has been saved to file %s."
-msgstr "Дамп был сохранен в файл %s."
-
 #: libraries/messages.inc.php:286 tbl_printview.php:382 tbl_structure.php:743
 msgid "dynamic"
 msgstr "динамический"
@@ -3723,10 +3804,6 @@ msgstr "Excel-версия"
 msgid "Export/Import to scale"
 msgstr "Масштаб"
 
-#: libraries/messages.inc.php:320
-msgid "Selected export type has to be saved in file!"
-msgstr "Выбранный тип экспорта возможен только в файл!"
-
 #: libraries/messages.inc.php:321
 msgid "Extended inserts"
 msgstr "Расширенные вставки"
@@ -3745,29 +3822,9 @@ msgstr "Неудачных попыток"
 msgid "Field %s has been dropped"
 msgstr "Поле &quot;%s&quot; было удалено"
 
-#: libraries/messages.inc.php:328
-msgid "Fields enclosed by"
-msgstr "Значения полей обрамлены"
-
-#: libraries/messages.inc.php:329
-msgid "Fields escaped by"
-msgstr "Символ экранирования"
-
 #: libraries/messages.inc.php:330 libraries/sql_query_form.lib.php:317
 msgid "Fields"
 msgstr "Поля"
-
-#: libraries/messages.inc.php:331
-msgid "Fields terminated by"
-msgstr "Разделитель полей"
-
-#: libraries/messages.inc.php:332
-#, php-format
-msgid ""
-"File %s already exists on server, change filename or check overwrite option."
-msgstr ""
-"Файл %s уже существует на сервере, измените имя или включите параметр "
-"перезаписи."
 
 #: libraries/messages.inc.php:340 server_binlog.php:136
 msgid "Files"
@@ -3867,11 +3924,6 @@ msgstr "Обработчик"
 #: libraries/messages.inc.php:378 server_synchronize.php:464
 msgid "Selected target tables have been synchronized with source tables."
 msgstr "Выбранные целевые таблицы были синхронизированы с таблицами источника."
-
-#: libraries/messages.inc.php:379
-msgid "You have to choose at least one column to display"
-msgstr ""
-"Для выполнения запроса, должен быть выбран отображаемый столбец/столбцы."
 
 #: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:374
 msgid "Hebrew"
@@ -4050,34 +4102,10 @@ msgstr "Внутренние связи"
 msgid "Column count has to be larger than zero."
 msgstr "Количество столбцов должно быть больше нуля."
 
-#: libraries/messages.inc.php:447
-#, php-format
-msgid "Invalid column (%s) specified!"
-msgstr "Выбран неверный столбец (%s)!"
-
-#: libraries/messages.inc.php:448
-#, php-format
-msgid "Invalid field count in CSV input on line %d."
-msgstr "Неправильное количество полей во входных CSV-данных в строке %d."
-
-#: libraries/messages.inc.php:449
-#, php-format
-msgid "Invalid format of CSV input on line %d."
-msgstr "Неправильный формат входных CSV-данных в строке %d."
-
-#: libraries/messages.inc.php:450
-#, php-format
-msgid "Invalid parameter for CSV import: %s"
-msgstr "Неправильный параметр импорта CSV: %s"
-
 #: libraries/messages.inc.php:452 libraries/tbl_properties.inc.php:784
 #: tbl_structure.php:537
 msgid "You have to add at least one field."
 msgstr "Необходимо добавить хотя бы одно поле."
-
-#: libraries/messages.inc.php:454
-msgid "This plugin does not support compressed imports!"
-msgstr "Этот модуль не поддерживает импорт сжатых данных!"
 
 #: libraries/messages.inc.php:457
 #, php-format
@@ -4089,7 +4117,7 @@ msgstr "Неправильный номер сервера: &quot;%s&quot;"
 msgid "Japanese"
 msgstr "Японский"
 
-#: libraries/messages.inc.php:461
+#: libraries/messages.inc.php:461 main.php:331
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -4170,10 +4198,6 @@ msgstr "Длина/значения"
 #: libraries/messages.inc.php:488 tbl_select.php:295
 msgid "Number of rows per page"
 msgstr "Количество строк на странице"
-
-#: libraries/messages.inc.php:489
-msgid "Lines terminated by"
-msgstr "Разделитель строк"
 
 #: libraries/messages.inc.php:492 libraries/mysql_charsets.lib.php:265
 msgid "Lithuanian"
@@ -4293,12 +4317,12 @@ msgstr "Переместить меню"
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Переместить таблицы в (база данных<b>.</b>таблица):"
 
-#: libraries/messages.inc.php:527
+#: libraries/messages.inc.php:527 tbl_move_copy.php:56
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Таблица %s была перемещена в %s."
 
-#: libraries/messages.inc.php:528
+#: libraries/messages.inc.php:528 tbl_move_copy.php:46
 msgid "Can't move table to same one!"
 msgstr "Не возможно переместить таблицу саму в себя!"
 
@@ -4368,11 +4392,6 @@ msgstr "Нет"
 msgid "This format has no options"
 msgstr "Для этого формата нет настраиваемых параметров"
 
-#: libraries/messages.inc.php:570
-#, php-format
-msgid "The web server does not have permission to save the file %s."
-msgstr "Не достаточно прав для сохранения файла %s на веб-сервере."
-
 #: libraries/messages.inc.php:573 user_password.php:54
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Для доступа к данной странице у вас недостаточно прав!"
@@ -4380,11 +4399,6 @@ msgstr "Для доступа к данной странице у вас нед�
 #: libraries/messages.inc.php:574 tbl_row_action.php:29
 msgid "No rows selected"
 msgstr "Для совершения действия необходимо выбрать одну или несколько строк"
-
-#: libraries/messages.inc.php:575
-#, php-format
-msgid "Insufficient space to save the file %s."
-msgstr "Для сохранения файла %s недостаточно дискового пространства."
 
 #: libraries/messages.inc.php:577 themes.php:32
 #, php-format
@@ -5040,7 +5054,7 @@ msgstr "Управление ошибками:"
 msgid "IO Thread %s only"
 msgstr "IO только поток %s"
 
-#: libraries/messages.inc.php:794
+#: libraries/messages.inc.php:794 server_replication.php:296
 msgid "Slave IO Thread not running!"
 msgstr ""
 
@@ -5077,7 +5091,7 @@ msgstr "Пропустить следующую"
 msgid "Slave replication"
 msgstr "Репликация подчинённого сервера"
 
-#: libraries/messages.inc.php:802
+#: libraries/messages.inc.php:802 server_replication.php:293
 msgid "Slave SQL Thread not running!"
 msgstr ""
 
@@ -6215,7 +6229,8 @@ msgstr "Таблица %s уже существует!"
 msgid "Alter column(s)"
 msgstr "Изменить поле(я)"
 
-#: libraries/messages.inc.php:1076 tbl_alter.php:103 tbl_indexes.php:98
+#: libraries/messages.inc.php:1076 tbl_addfield.php:189 tbl_alter.php:103
+#: tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Таблица %1$s была успешно изменена"
@@ -6230,7 +6245,7 @@ msgstr "Применить индекс(ы)"
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr "Удалить все предыдущие строки из целевой таблицы?"
 
-#: libraries/messages.inc.php:1080
+#: libraries/messages.inc.php:1080 tbl_move_copy.php:82
 msgid "The table name is empty!"
 msgstr "Не задано имя таблицы!"
 
@@ -6802,14 +6817,6 @@ msgstr "Вики"
 #: libraries/messages.inc.php:1249 server_privileges.php:2138
 msgid "wildcard"
 msgstr "Групповой символ"
-
-#: libraries/messages.inc.php:1255
-msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
-msgstr ""
-"Выбранный XML файл некорректен, либо неполон. Проверьте возможные ошибки и "
-"попробуйте ещё раз."
 
 #: libraries/messages.inc.php:1256
 msgid "Export contents"

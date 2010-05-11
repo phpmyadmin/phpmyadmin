@@ -55,8 +55,8 @@ $csv_escaped = strtr($csv_escaped, $replacements);
 $csv_new_line = strtr($csv_new_line, $replacements);
 
 if (strlen($csv_terminated) != 1) {
-    $message = PMA_Message::error('strInvalidCSVParameter');
-    $message->addParam('strFieldsTerminatedBy', false);
+    $message = PMA_Message::error(__('Invalid parameter for CSV import: %s'));
+    $message->addParam(__('Fields terminated by'), false);
     $error = TRUE;
     // The default dialog of MS Excel when generating a CSV produces a
     // semi-colon-separated file with no chance of specifying the
@@ -67,16 +67,16 @@ if (strlen($csv_terminated) != 1) {
     // But the parser won't work correctly with strings so we allow just
     // one character.
 } elseif (strlen($csv_enclosed) > 1) {
-    $message = PMA_Message::error('strInvalidCSVParameter');
-    $message->addParam('strFieldsEnclosedBy', false);
+    $message = PMA_Message::error(__('Invalid parameter for CSV import: %s'));
+    $message->addParam(__('Fields enclosed by'), false);
     $error = TRUE;
 } elseif (strlen($csv_escaped) != 1) {
-    $message = PMA_Message::error('strInvalidCSVParameter');
-    $message->addParam('strFieldsEscapedBy', false);
+    $message = PMA_Message::error(__('Invalid parameter for CSV import: %s'));
+    $message->addParam(__('Fields escaped by'), false);
     $error = TRUE;
 } elseif (strlen($csv_new_line) != 1 && $csv_new_line != 'auto') {
-    $message = PMA_Message::error('strInvalidCSVParameter');
-    $message->addParam('strLinesTerminatedBy', false);
+    $message = PMA_Message::error(__('Invalid parameter for CSV import: %s'));
+    $message->addParam(__('Lines terminated by'), false);
     $error = TRUE;
 }
 
@@ -116,7 +116,7 @@ if (!$analyze) {
                 }
             }
             if (!$found) {
-                $message = PMA_Message::error('strInvalidColumn');
+                $message = PMA_Message::error(__('Invalid column (%s) specified!'));
                 $message->addParam($val);
                 $error = TRUE;
                 break;
@@ -174,7 +174,7 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
     while ($i < $len) {
         // Deadlock protection
         if ($lasti == $i && $lastlen == $len) {
-            $message = PMA_Message::error('strInvalidCSVFormat');
+            $message = PMA_Message::error(__('Invalid format of CSV input on line %d.'));
             $message->addParam($line);
             $error = TRUE;
             break;
@@ -309,7 +309,7 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
                     if ($values[count($values) - 1] == ';') {
                         unset($values[count($values) - 1]);
                     } else {
-                        $message = PMA_Message::error('strInvalidCSVFieldCount');
+                        $message = PMA_Message::error(__('Invalid field count in CSV input on line %d.'));
                         $message->addParam($line);
                         $error = TRUE;
                         break;
@@ -421,7 +421,7 @@ if ($analyze) {
 PMA_importRunQuery();
 
 if (count($values) != 0 && !$error) {
-    $message = PMA_Message::error('strInvalidCSVFormat');
+    $message = PMA_Message::error(__('Invalid format of CSV input on line %d.'));
     $message->addParam($line);
     $error = TRUE;
 }

@@ -39,7 +39,7 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
 
 if (isset($_REQUEST['submit_sql'])
  && ! preg_match('@^SELECT@i', $sql_query)) {
-    PMA_Message::warning('strHaveToShow')->display();
+    PMA_Message::warning(__('You have to choose at least one column to display'))->display();
 }
 
 
@@ -99,7 +99,7 @@ if (PMA_isValid($_REQUEST['TableList'], 'array')) {
 $tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
 if (0 == $tbl_result_cnt) {
-    PMA_Message::error('strNoTablesFound')->display();
+    PMA_Message::error(__('No tables found in database.'))->display();
     require_once './libraries/footer.inc.php';
     exit;
 }
