@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 14:14+0200\n"
+"PO-Revision-Date: 2010-05-11 14:17+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -3514,9 +3514,8 @@ msgstr "Ziel-Datenbank"
 
 #: libraries/messages.inc.php:236 server_synchronize.php:425
 #: server_synchronize.php:868
-#, fuzzy
 msgid "Data Difference"
-msgstr "Struktur des Views"
+msgstr "Datenunterschied"
 
 #: libraries/messages.inc.php:239 server_synchronize.php:272
 msgid "Data Synchronization"
