@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 13:02+0200\n"
+"PO-Revision-Date: 2010-05-11 13:03+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1437,12 +1437,12 @@ msgstr[0] "%1$d Zeile gelöscht."
 msgstr[1] "%1$d Zeilen gelöscht."
 
 #: libraries/Message.class.php:320
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d Zeile(n) eingefügt."
-msgstr[1] "%1$d Zeile(n) eingefügt."
+msgstr[0] "%1$d Zeile eingefügt."
+msgstr[1] "%1$d Zeilen eingefügt."
 
 #: libraries/StorageEngine.class.php:198 libraries/messages.inc.php:557
 msgid ""
