@@ -1882,7 +1882,12 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     // 1.4 Prepares display of first and last value of the sorted column
 
     if (! empty($sort_expression_nodirection)) {
-        list($sort_table, $sort_column) = explode('.', $sort_expression_nodirection);
+        if (strpos($sort_expression_nodirection, '.') === false) {
+            $sort_table = $table;
+            $sort_column = $sort_expression_nodirection;
+        } else {
+            list($sort_table, $sort_column) = explode('.', $sort_expression_nodirection);
+        }
         $sort_table = PMA_unQuote($sort_table);
         $sort_column = PMA_unQuote($sort_column);
         // find the sorted column index in row result
