@@ -1695,10 +1695,10 @@ msgstr ""
 "Sie eine leere Seite erhalten, ist Ihre Konfigurationsdatei in Ordnung."
 
 #: libraries/common.inc.php:594
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Fehler beim Laden der Standard-Konfiguration von: \"%1$s\""
+msgstr "Fehler beim Laden der Standard-Konfiguration von: %1$s"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
