@@ -669,9 +669,8 @@ msgid "Tracking is active."
 msgstr "Tracking ist aktiviert."
 
 #: db_structure.php:335 libraries/messages.inc.php:1137
-#, fuzzy
 msgid "Tracking is not active."
-msgstr "Tracking ist aktiviert."
+msgstr "Tracking ist nicht aktiviert."
 
 #: db_structure.php:420 libraries/display_tbl.lib.php:1939
 #: libraries/messages.inc.php:1236
