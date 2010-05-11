@@ -4842,9 +4842,8 @@ msgstr "Lade die Benutzertabellen neu"
 
 #: libraries/messages.inc.php:755 navigation.php:66 navigation.php:67
 #: navigation.php:70
-#, fuzzy
 msgid "Reload navigation frame"
-msgstr "Navigationsframe anpassen"
+msgstr "Navigation-Frame aktualisieren"
 
 #: libraries/messages.inc.php:756 pmd_general.php:80
 msgid "Reload"
