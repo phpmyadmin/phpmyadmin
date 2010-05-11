@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 14:11+0200\n"
+"PO-Revision-Date: 2010-05-11 14:12+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -3357,9 +3357,8 @@ msgid "Can't copy table to same one!"
 msgstr "Tabelle kann nicht mit gleichem Namen kopiert werden!"
 
 #: libraries/messages.inc.php:190 server_synchronize.php:94
-#, fuzzy
 msgid "Could not connect to the source"
-msgstr "Verbindungsaufbau zu MySQL-Server schlug fehl"
+msgstr "Es konnte keine Verbindung zu Quell-Datenbank hergestellt werden"
 
 #: libraries/messages.inc.php:191 server_synchronize.php:97
 #, fuzzy
