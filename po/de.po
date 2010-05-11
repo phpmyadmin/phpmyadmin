@@ -4851,9 +4851,8 @@ msgstr "Neuladen"
 
 #: libraries/messages.inc.php:757 libraries/server_synchronize.lib.php:1345
 #: libraries/server_synchronize.lib.php:1371
-#, fuzzy
 msgid "Remote server"
-msgstr "Neuer Server"
+msgstr "Entfernter Server"
 
 #: libraries/messages.inc.php:758
 msgid "Remove CRLF characters within fields"
