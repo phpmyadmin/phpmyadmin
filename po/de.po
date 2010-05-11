@@ -3442,7 +3442,7 @@ msgstr "CSV"
 #: libraries/messages.inc.php:213 libraries/server_synchronize.lib.php:1343
 #: libraries/server_synchronize.lib.php:1369
 msgid "Current server"
-msgstr ""
+msgstr "Aktueller Server"
 
 #: libraries/messages.inc.php:214 main.php:159
 msgid "Custom color"
