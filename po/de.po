@@ -3035,7 +3035,6 @@ msgid "Analyze"
 msgstr "Analysieren"
 
 #: libraries/messages.inc.php:65
-#, fuzzy
 msgid "and"
 msgstr "und"
 
