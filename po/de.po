@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 15:21+0200\n"
+"PO-Revision-Date: 2010-05-11 15:22+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4902,7 +4902,7 @@ msgstr "Benutzer für den Replication-Slave hinzufügen"
 #: libraries/messages.inc.php:771 server_replication.php:74
 #, php-format
 msgid "Master server changed succesfully to %s"
-msgstr ""
+msgstr "Master-Server wurde erfolgreich auf %s geändert."
 
 #: libraries/messages.inc.php:772 server_replication.php:182
 msgid "This server is configured as master in a replication process."
