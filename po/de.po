@@ -4203,7 +4203,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:510
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabelle für MediaWiki"
 
 #: libraries/messages.inc.php:511 transformation_overview.php:25
 msgid "Available MIME types"
