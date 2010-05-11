@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 14:48+0200\n"
+"PO-Revision-Date: 2010-05-11 14:49+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4464,7 +4464,7 @@ msgstr "Seite wurde erstellt"
 
 #: libraries/messages.inc.php:647
 msgid "Page creation failed"
-msgstr ""
+msgstr "Seitenerstellung fehlgeschlagen"
 
 #: libraries/messages.inc.php:648
 msgid "PDF"
