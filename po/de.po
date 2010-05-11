@@ -3587,7 +3587,7 @@ msgstr "Wörterbuch"
 
 #: libraries/messages.inc.php:265 libraries/server_synchronize.lib.php:1348
 msgid "Difference"
-msgstr ""
+msgstr "Unterschied"
 
 #: libraries/messages.inc.php:266 pmd_general.php:87
 msgid "Direct links"
