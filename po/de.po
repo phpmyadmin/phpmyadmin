@@ -3928,7 +3928,7 @@ msgstr "Spaltennamen in der ersten Zeile"
 
 #: libraries/messages.inc.php:401
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Keine leeren Zeilen importieren"
 
 #: libraries/messages.inc.php:402 pmd_general.php:104
 msgid "Import/Export coordinates for PDF schema"
