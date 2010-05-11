@@ -4459,9 +4459,8 @@ msgid "No tables"
 msgstr "keine Tabellen"
 
 #: libraries/messages.inc.php:646
-#, fuzzy
 msgid "Page has been created"
-msgstr "Die Tabelle %1$s wurde erzeugt."
+msgstr "Seite wurde erstellt"
 
 #: libraries/messages.inc.php:647
 msgid "Page creation failed"
