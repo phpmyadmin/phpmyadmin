@@ -3160,7 +3160,6 @@ msgid "Disabled"
 msgstr "Deaktiviert"
 
 #: libraries/messages.inc.php:103
-#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Aktiviert"
