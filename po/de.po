@@ -1059,10 +1059,9 @@ msgstr "Nächste"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Insgesamt"
+msgstr "Heute"
 
 #: js/messages.php:81
 #, fuzzy
