@@ -924,7 +924,7 @@ msgstr "phpMyAdmin arbeitet besser mit einem <b>Frame</b>-fähigen Browser."
 #: server_synchronize.php:739 server_synchronize.php:767
 #: server_synchronize.php:795 server_synchronize.php:807
 msgid "Click to select"
-msgstr ""
+msgstr "Zur Auswahl bitte anklicken"
 
 #: js/messages.php:26 libraries/messages.inc.php:164
 msgid "Click to unselect"
