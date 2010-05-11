@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 15:15+0200\n"
+"PO-Revision-Date: 2010-05-11 15:16+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4533,7 +4533,7 @@ msgstr "Den Benutzer pma einrichten und Zugriff auf diese Tabellen geben."
 
 #: libraries/messages.inc.php:666 libraries/relation.lib.php:164
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
+msgstr "Erneut in phpMyAdmin anmelden um die neue Konfigurationsdatei zu laden."
 
 #: libraries/messages.inc.php:669 libraries/mysql_charsets.lib.php:274
 msgid "Polish"
