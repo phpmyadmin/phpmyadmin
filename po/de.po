@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-11 12:50+0200\n"
+"PO-Revision-Date: 2010-05-11 12:51+0200\n"
 "Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -840,9 +840,8 @@ msgid "Track table"
 msgstr "Verfolge Tabelle"
 
 #: db_tracking.php:200 libraries/messages.inc.php:1129
-#, fuzzy
 msgid "Database Log"
-msgstr "Datenbank"
+msgstr "Datenbank-Log"
 
 #: import.php:60 libraries/messages.inc.php:1210
 #, php-format
