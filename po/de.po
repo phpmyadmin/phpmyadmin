@@ -1425,8 +1425,8 @@ msgstr "Datenbanken"
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d Zeile(n) betroffen."
-msgstr[1] "%1$d Zeile(n) betroffen."
+msgstr[0] "%1$d Zeile betroffen."
+msgstr[1] "%1$d Zeilen betroffen."
 
 #: libraries/Message.class.php:301
 #, php-format
