@@ -3952,7 +3952,7 @@ msgstr "Prozentwerte importieren (12.00% wird zu .12)"
 
 #: libraries/messages.inc.php:417
 msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
+msgstr "Excel 97-2003 XLS Workbook"
 
 #: libraries/messages.inc.php:418
 msgid "Excel 2007 XLSX Workbook"
