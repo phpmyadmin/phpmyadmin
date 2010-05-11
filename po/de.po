@@ -2863,7 +2863,6 @@ msgid "Go to table"
 msgstr "Gehe zur Tabelle"
 
 #: libraries/import.lib.php:1109 libraries/messages.inc.php:1055
-#, fuzzy
 msgid "structure"
 msgstr "Struktur"
 
