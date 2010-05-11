@@ -1709,10 +1709,10 @@ msgstr ""
 "Konfigurationsdatei angegeben werden!"
 
 #: libraries/common.inc.php:629
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Ungültige Server-Nummer: \"%s\""
+msgstr "Ungültige Server-Nummer: %s"
 
 #: libraries/common.inc.php:636 libraries/messages.inc.php:456
 #, php-format
