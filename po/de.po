@@ -1297,7 +1297,7 @@ msgstr "Wo"
 
 #: js/messages.php:163
 msgid "Hour"
-msgstr ""
+msgstr "Stunde"
 
 #: js/messages.php:164
 #, fuzzy
