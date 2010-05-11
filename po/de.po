@@ -2805,9 +2805,8 @@ msgid "Open new phpMyAdmin window"
 msgstr "Neues phpMyAdmin-Fenster"
 
 #: libraries/header.inc.php:115 libraries/messages.inc.php:550
-#, fuzzy
 msgid "New table"
-msgstr "keine Tabellen"
+msgstr "Neue Tabelle"
 
 #: libraries/header_printview.inc.php:50 libraries/header_printview.inc.php:55
 #: libraries/messages.inc.php:1032
