@@ -3615,7 +3615,7 @@ msgstr "DocSQL"
 
 #: libraries/messages.inc.php:276
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Nicht AUTO_INCREMENT für Nullwerte verwenden"
 
 #: libraries/messages.inc.php:281 server_privileges.php:1579
 #: server_privileges.php:1580 server_privileges.php:1581
