@@ -928,7 +928,7 @@ msgstr "Zur Auswahl bitte anklicken"
 
 #: js/messages.php:26 libraries/messages.inc.php:164
 msgid "Click to unselect"
-msgstr ""
+msgstr "Zum Abwählen bitte anklicken"
 
 #: js/messages.php:27 libraries/import.lib.php:103
 #: libraries/messages.inc.php:558 sql.php:89
