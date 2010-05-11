@@ -4541,9 +4541,8 @@ msgstr "Polnisch"
 
 #: libraries/messages.inc.php:670 libraries/replication_gui.lib.php:67
 #: server_synchronize.php:1163
-#, fuzzy
 msgid "Port"
-msgstr "Sortierung"
+msgstr "Port"
 
 #: libraries/messages.inc.php:675 tbl_indexes.php:67
 msgid "The name of the primary key must be \"PRIMARY\"!"
