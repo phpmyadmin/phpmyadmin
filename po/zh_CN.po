@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-12 05:48+0200\n"
+"PO-Revision-Date: 2010-05-12 05:49+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1024,10 +1024,9 @@ msgstr "选择要显示的字段"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:72
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "捐助 (外链，英文)"
+msgstr "完成"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:74
