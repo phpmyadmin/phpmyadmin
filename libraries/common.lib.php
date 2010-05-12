@@ -1535,10 +1535,10 @@ function PMA_extractValueFromFormattedSize($formatted_size)
  */
 function PMA_localisedDate($timestamp = -1, $format = '')
 {
-    global $datefmt, $month, $day_of_week;
+    global $month, $day_of_week;
 
     if ($format == '') {
-        $format = $datefmt;
+        $format = __('%B %d, %Y at %I:%M %p');
     }
 
     if ($timestamp == -1) {
@@ -1818,7 +1818,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 /**
  * Returns a given timespan value in a readable format.
  *
- * @uses    $GLOBALS['timespanfmt']
+ * @uses    __('%s days, %s hours, %s minutes and %s seconds') 
  * @uses    sprintf()
  * @uses    floor()
  * @param  int     the timespan
@@ -1840,7 +1840,7 @@ function PMA_timespanFormat($seconds)
     if ($days > 0 || $hours > 0 || $minutes > 0) {
         $seconds -= $minutes * 60;
     }
-    return sprintf($GLOBALS['timespanfmt'], (string)$days, (string)$hours, (string)$minutes, (string)$seconds);
+    return sprintf(__('%s days, %s hours, %s minutes and %s seconds'), (string)$days, (string)$hours, (string)$minutes, (string)$seconds);
 }
 
 /**
