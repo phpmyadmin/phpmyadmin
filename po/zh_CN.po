@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-05-12 05:50+0200\n"
+"PO-Revision-Date: 2010-05-12 05:51+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1952,10 +1952,9 @@ msgid "Password Hashing"
 msgstr "密码加密方式"
 
 #: libraries/display_change_password.lib.php:66
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
-msgstr "兼容 MySQL&nbsp;4.0"
+msgstr "MySQL 4.0 兼容"
 
 #: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
 #: libraries/replication_gui.lib.php:356 server_privileges.php:783
