@@ -6635,10 +6635,9 @@ msgid "Enter manually"
 msgstr "手动输入"
 
 #: server_synchronize.php:1123
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "非安全连接"
+msgstr "当前连接"
 
 #: server_synchronize.php:1152
 #, fuzzy, php-format
