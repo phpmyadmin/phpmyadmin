@@ -2081,7 +2081,6 @@ msgid "gzipped"
 msgstr "gzip 压缩"
 
 #: libraries/display_export.lib.php:259
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "bzip 压缩"
