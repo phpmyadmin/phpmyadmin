@@ -5440,7 +5440,7 @@ msgstr "使用 fsync() 写入日志文件的次数。"
 
 #: libraries/messages.inc.php:947
 msgid "The number of pending log file fsyncs."
-msgstr "当前挂起的使用 fsync() 写入日志文件数。"
+msgstr "当前挂起的 fsync 日志文件数。"
 
 #: libraries/messages.inc.php:948
 msgid "Pending log file writes."
