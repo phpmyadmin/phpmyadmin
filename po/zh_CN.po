@@ -1040,7 +1040,7 @@ msgstr "上个月"
 #: libraries/messages.inc.php:551 server_binlog.php:205 server_binlog.php:207
 #: tbl_printview.php:424 tbl_structure.php:802
 msgid "Next"
-msgstr "下一个"
+msgstr "下个月"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:78
