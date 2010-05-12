@@ -6663,7 +6663,7 @@ msgstr ""
 
 #: server_synchronize.php:1122
 msgid "Enter manually"
-msgstr ""
+msgstr "手动输入"
 
 #: server_synchronize.php:1123
 #, fuzzy
