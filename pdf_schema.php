@@ -257,7 +257,6 @@ class PMA_PDF extends TCPDF {
     } // end of the "Error()" method
     function Header()
     {
-        // $datefmt
         // We only show this if we find something in the new pdf_pages table
 
         // This function must be named "Header" to work with the FPDF library

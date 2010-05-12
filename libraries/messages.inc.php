@@ -27,8 +27,6 @@ $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'
 $day_of_week = array(__('Sun'), __('Mon'), __('Tue'), __('Wed'), __('Thu'), __('Fri'), __('Sat'));
 $month = array(__('Jan'), __('Feb'), __('Mar'), __('Apr'), __('May'), __('Jun'), __('Jul'), __('Aug'), __('Sep'), __('Oct'), __('Nov'), __('Dec'));
 /* l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string */
-$datefmt = __('%B %d, %Y at %I:%M %p');
-$timespanfmt = __('%s days, %s hours, %s minutes and %s seconds');
 
 $strAbortedClients = __('Aborted');
 $strAccessDenied = __('Access denied');

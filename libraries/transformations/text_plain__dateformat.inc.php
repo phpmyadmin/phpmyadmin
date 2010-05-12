@@ -25,7 +25,7 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
 
     if (empty($options[1])) {
         if ($options[2] == 'local') {
-            $options[1] = $GLOBALS['datefmt'];
+            $options[1] = __('%B %d, %Y at %I:%M %p');
         } else {
             $options[1] = 'Y-m-d  H:i:s';
         }
