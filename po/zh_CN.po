@@ -1292,7 +1292,7 @@ msgstr "时"
 #: js/messages.php:164
 #| msgid "in use"
 msgid "Minute"
-msgstr "分钟"
+msgstr "分"
 
 #: js/messages.php:165
 #| msgid "per second"
