@@ -6611,10 +6611,9 @@ msgid ""
 msgstr "此 MySQL 服务器正运行为<b>复制</b>进程中的<b>主</b>和<b>从</b>服务器。"
 
 #: server_status.php:362
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "此服务器已被配置为一个复制进程中的主服务器。"
+msgstr "此 MySQL 服务器正运行为<b>复制</b>进程中的<b>主</b>服务器。"
 
 #: server_status.php:364
 #, fuzzy
