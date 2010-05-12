@@ -1193,7 +1193,7 @@ msgstr "星期三"
 
 #: js/messages.php:125
 msgid "Thursday"
-msgstr ""
+msgstr "星期四"
 
 #: js/messages.php:126
 #, fuzzy
