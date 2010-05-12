@@ -1202,7 +1202,7 @@ msgstr "周五"
 
 #: js/messages.php:127
 msgid "Saturday"
-msgstr ""
+msgstr "星期六"
 
 #. l10n: Short week day name
 #: js/messages.php:131 libraries/messages.inc.php:27
