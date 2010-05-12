@@ -2815,7 +2815,7 @@ msgstr "无"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:151
 msgid "Convert to Kana"
-msgstr ""
+msgstr "转换为假名"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
