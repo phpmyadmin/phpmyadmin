@@ -328,7 +328,7 @@ if ($is_insert && count($value_sets) > 0) {
     unset($query_fields);
 } elseif (empty($query)) {
     // No change -> move back to the calling script
-    $message = PMA_Message::success('strNoModification');
+    $message = PMA_Message::success(__('No change'));
     $GLOBALS['js_include'][] = 'functions.js';
     $active_page = $goto_include;
     require_once './libraries/header.inc.php';
@@ -357,7 +357,7 @@ $error_messages = array();
 
 foreach ($query as $single_query) {
     if ($_REQUEST['submit_type'] == 'showinsert') {
-        $last_messages[] = PMA_Message::notice('strShowingSQL');
+        $last_messages[] = PMA_Message::notice(__('Showing SQL query'));
         continue;
     }
     if ($GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
@@ -383,7 +383,7 @@ foreach ($query as $single_query) {
             if ($total_affected_rows > 0) {
                 $insert_id = $insert_id + $total_affected_rows - 1;
             }
-            $last_message = PMA_Message::notice('strInsertedRowId');
+            $last_message = PMA_Message::notice(__('Inserted row id: %1$d'));
             $last_message->addParam($insert_id);
             $last_messages[] = $last_message;
         }

@@ -60,9 +60,9 @@ if (isset($createpage)) {
 
     $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option);
     if ($pdf_page_number > 0) {
-        $message = PMA_Message::success('strPDFPageCreated');
+        $message = PMA_Message::success(__('Page has been created'));
     } else {
-        $message = PMA_Message::error('strPDFPageCreateFailed');
+        $message = PMA_Message::error(__('Page creation failed'));
     }
 }
 
