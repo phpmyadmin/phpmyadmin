@@ -1664,10 +1664,10 @@ msgid ""
 msgstr "必须在您的配置文件中设置 <tt>$cfg['PmaAbsoluteUri']</tt> ！"
 
 #: libraries/common.inc.php:629
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "无效的服务器索引：“%s”"
+msgstr "无效的服务器索引: %s"
 
 #: libraries/common.inc.php:636 libraries/messages.inc.php:456
 #, php-format
