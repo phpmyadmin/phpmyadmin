@@ -1295,10 +1295,9 @@ msgid "Minute"
 msgstr "分钟"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "每秒"
+msgstr "秒"
 
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:346
 msgid "Font size"
