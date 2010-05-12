@@ -6565,10 +6565,10 @@ msgid "Create table"
 msgstr "新建数据表"
 
 #: pdf_schema.php:637
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "表“%s”不存在！"
+msgstr "数据表 %s 不存在！"
 
 #: pdf_schema.php:996
 #, fuzzy, php-format
