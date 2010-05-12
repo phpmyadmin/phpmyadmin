@@ -313,7 +313,6 @@ msgid "Repair"
 msgstr "修复"
 
 #: db_operations.php:570
-#, fuzzy
 #| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
