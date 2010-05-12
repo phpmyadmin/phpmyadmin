@@ -307,7 +307,6 @@ msgid "Damaged"
 msgstr "已损坏"
 
 #: db_operations.php:562
-#, fuzzy
 #| msgid "Repair"
 msgctxt "BLOB repository"
 msgid "Repair"
