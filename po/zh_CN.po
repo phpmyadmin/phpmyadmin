@@ -6640,10 +6640,10 @@ msgid "Current connection"
 msgstr "当前连接"
 
 #: server_synchronize.php:1152
-#, fuzzy, php-format
+#, php-format
 #| msgid "Configuration"
 msgid "Configuration: %s"
-msgstr "设置"
+msgstr "配置: %s"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
