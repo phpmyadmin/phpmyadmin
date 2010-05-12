@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-10 14:17+0200\n"
-"PO-Revision-Date: 2010-04-08 13:06+0200\n"
+"PO-Revision-Date: 2010-05-12 05:29+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -1049,10 +1049,9 @@ msgstr "下一个"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "总计"
+msgstr "今天"
 
 #: js/messages.php:81
 #, fuzzy
@@ -8396,202 +8395,3 @@ msgstr "在第 %s 个字段创建索引"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "说明"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "无"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "无"
-
-#, fuzzy
-#~| msgid "Grant all privileges on wildcard name (username\\_%)"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "表“%s”不存在！"
-
-#, fuzzy
-#~| msgid "Could not load default configuration from: \"%1$s\""
-#~ msgid "Could not load default configuration from: %1"
-#~ msgstr "无法加载默认配置: \"%1$s\""
-
-#, fuzzy
-#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr "无效的主机名 %1$s，请检查配置文件。"
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "将表 %1$s 改名为 %2$s 时发生错误"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "无法加载 [a@http://php.net/%1$s@Documentation][em]%1$s (外链，英语)[/em][/"
-#~ "a] 扩展，请检查您的 PHP 配置。"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as master in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as master in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "此服务器尚未配置为一个复制进程中的主服务器。你想现在<a href=\"%s\">配置</"
-#~ "a>吗？"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as slave in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as slave in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "此服务器尚未配置为一个复制进程中的从服务器。你想现在<a href=\"%s\">配置</"
-#~ "a>吗？"
-
-#, fuzzy
-#~| msgid "Could not connect to MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "无法连接到 MySQL 服务器"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "您可能发现了 SQL 解析器的缺陷 (bug)。请仔细检查您的查询，包括引号是否正确"
-#~ "及是否匹配。其它可能的失败原因可能由于您上传了超过引用文本区域外的二进制数"
-#~ "据。您还可以在 MySQL 命令行界面试一下您的查询。如果可能的话，以下会列出 "
-#~ "MySQL 服务器的错误输出，这可能对您解决问题有一定的帮助。如果您仍然有问题，"
-#~ "或者命令行界面执行成功而解析器出错，请将您的 SQL 查询缩减到导致问题的某一"
-#~ "条语句，然后和下面剪切区中的数据一起提交一个缺陷 (bug) 报告："
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV"
-
-#~ msgid "Copy"
-#~ msgstr "复制"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "删除用户并重新读取权限。"
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr "这是一个最干净的做法，但重新载入权限需要一点时间。"
-
-#~ msgid "has been altered."
-#~ msgstr "已修改。"
-
-#~ msgid "Microsoft Excel 2000"
-#~ msgstr "Microsoft Excel 2000"
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Internet Explorer 不支持该功能。"
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr "直到重新载入权限为止，被“删除”的用户仍然能像以前一样访问数据库。"
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "只从权限表删除用户。"
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr "允许运行存储过程；在此版本的 MySQL 中无效。"
-
-#~ msgid "Process list"
-#~ msgstr "进程列表"
-
-#~ msgid "Reload privileges"
-#~ msgstr "重新载入权限"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr "直到重新载入权限之前，该用户仍有 USAGE 权限。"
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "原生 MS Excel 格式"
-
-#~ msgid "Alter index(s)"
-#~ msgstr "修改索引"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "全选"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "全选"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "插入"
-
-#, fuzzy
-#~| msgid "Updated"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "更新"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "删除"
-
-#~ msgid "%1$d row(s) affected."
-#~ msgstr "影响了 %1$d 行。"
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
-
-#~ msgid "Jan0"
-#~ msgstr "一月0"
-
-#~ msgid "Jan1"
-#~ msgstr "一月1"
-
-#~ msgid "Jan2"
-#~ msgstr "一月2"
