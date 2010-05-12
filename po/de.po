@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-11 13:05-0400\n"
-"PO-Revision-Date: 2010-03-23 21:07+0200\n"
-"Last-Translator:  <me@michaelkeck.de>\n"
+"PO-Revision-Date: 2010-05-11 15:22+0200\n"
+"Last-Translator:  <osw@ldism.de>\n"
 "Language-Team: german <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -294,7 +294,6 @@ msgid "Status"
 msgstr "Status"
 
 #: db_operations.php:544
-#, fuzzy
 #| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
@@ -309,14 +308,12 @@ msgid "Damaged"
 msgstr "Beschädigt"
 
 #: db_operations.php:562
-#, fuzzy
 #| msgid "Repair"
 msgctxt "BLOB repository"
 msgid "Repair"
 msgstr "Reparieren"
 
 #: db_operations.php:570
-#, fuzzy
 #| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
@@ -674,9 +671,8 @@ msgid "Tracking is active."
 msgstr "Tracking ist aktiviert."
 
 #: db_structure.php:335 libraries/messages.inc.php:1137
-#, fuzzy
 msgid "Tracking is not active."
-msgstr "Tracking ist aktiviert."
+msgstr "Tracking ist nicht aktiviert."
 
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #: libraries/messages.inc.php:1236
@@ -810,7 +806,7 @@ msgstr "Aktion"
 
 #: db_tracking.php:88 db_tracking.php:120 libraries/messages.inc.php:255
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Lösche die Verlaufsdaten für die diese Tabelle"
 
 #: db_tracking.php:106 libraries/messages.inc.php:1150 tbl_tracking.php:548
 #: tbl_tracking.php:606 tbl_tracking.php:613
@@ -819,9 +815,8 @@ msgstr "aktiv"
 
 #: db_tracking.php:108 libraries/messages.inc.php:1151 tbl_tracking.php:550
 #: tbl_tracking.php:608 tbl_tracking.php:610
-#, fuzzy
 msgid "not active"
-msgstr "aktiv"
+msgstr "nicht aktiv"
 
 #: db_tracking.php:121 libraries/messages.inc.php:1168
 msgid "Versions"
@@ -847,9 +842,8 @@ msgid "Track table"
 msgstr "Verfolge Tabelle"
 
 #: db_tracking.php:200 libraries/messages.inc.php:1129
-#, fuzzy
 msgid "Database Log"
-msgstr "Datenbank"
+msgstr "Datenbank-Log"
 
 #: export.php:62 libraries/messages.inc.php:320
 msgid "Selected export type has to be saved in file!"
@@ -959,11 +953,11 @@ msgstr "phpMyAdmin arbeitet besser mit einem <b>Frame</b>-fähigen Browser."
 #: server_synchronize.php:739 server_synchronize.php:767
 #: server_synchronize.php:795 server_synchronize.php:807
 msgid "Click to select"
-msgstr ""
+msgstr "Zur Auswahl bitte anklicken"
 
 #: js/messages.php:26 libraries/messages.inc.php:164
 msgid "Click to unselect"
-msgstr ""
+msgstr "Zum Abwählen bitte anklicken"
 
 #: js/messages.php:27 libraries/import.lib.php:103
 #: libraries/messages.inc.php:558 sql.php:89
@@ -1076,15 +1070,13 @@ msgid "Choose field to display"
 msgstr "Anzuzeigende Spalte bestimmen"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:73
-#, fuzzy
+#: js/messages.php:72
 #| msgid "Donate"
 msgid "Done"
-msgstr "Spenden"
+msgstr "Fertig"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:75
-#, fuzzy
+#: js/messages.php:74
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Vorherige"
@@ -1098,30 +1090,26 @@ msgid "Next"
 msgstr "Nächste"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:79
-#, fuzzy
+#: js/messages.php:78
 #| msgid "Total"
 msgid "Today"
-msgstr "Insgesamt"
+msgstr "Heute"
 
-#: js/messages.php:82
-#, fuzzy
+#: js/messages.php:81
 #| msgid "Binary"
 msgid "January"
-msgstr "Binär"
+msgstr "Januar"
 
 #: js/messages.php:83
 msgid "February"
-msgstr ""
+msgstr "Februar"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "März"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "April"
@@ -1131,40 +1119,36 @@ msgid "May"
 msgstr "Mai"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Juni"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Juli"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "August"
 
 #: js/messages.php:90
 msgid "September"
-msgstr ""
+msgstr "September"
 
 #: js/messages.php:91
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Oktober"
 
 #: js/messages.php:92
 msgid "November"
-msgstr ""
+msgstr "November"
 
 #: js/messages.php:93
 msgid "December"
-msgstr ""
+msgstr "Dezember"
 
 #. l10n: Short month name
 #: js/messages.php:97 libraries/messages.inc.php:28
@@ -1188,7 +1172,6 @@ msgstr "April"
 
 #. l10n: Short month name
 #: js/messages.php:105
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
@@ -1230,40 +1213,36 @@ msgid "Dec"
 msgstr "Dezember"
 
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "So"
+msgstr "Sonntag"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "Mo"
+msgstr "Montag"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
-msgstr "Di"
+msgstr "Dienstag"
 
 #: js/messages.php:125
 msgid "Wednesday"
-msgstr ""
+msgstr "Mittwoch"
 
 #: js/messages.php:126
 msgid "Thursday"
-msgstr ""
+msgstr "Donnerstag"
 
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "Fr"
+msgstr "Freitag"
 
 #: js/messages.php:128
 msgid "Saturday"
-msgstr ""
+msgstr "Samstag"
 
 #. l10n: Short week day name
 #: js/messages.php:132 libraries/messages.inc.php:27
@@ -1302,75 +1281,65 @@ msgstr "Sa"
 
 #. l10n: Minimal week day name
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "So"
 
 #. l10n: Minimal week day name
 #: js/messages.php:150
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Mo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:152
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Di"
 
 #. l10n: Minimal week day name
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Mi"
 
 #. l10n: Minimal week day name
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Do"
 
 #. l10n: Minimal week day name
 #: js/messages.php:158
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Fr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:160
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "Wiki"
+msgstr "Wo"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "Stunde"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "in Benutzung"
+msgstr "Minute"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "pro Sekunde"
+msgstr "Sekunde"
 
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:346
 msgid "Font size"
@@ -1484,28 +1453,28 @@ msgid "Databases"
 msgstr "Datenbanken"
 
 #: libraries/Message.class.php:282
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d Zeile(n) betroffen."
-msgstr[1] "%1$d Zeile(n) betroffen."
+msgstr[0] "%1$d Zeile betroffen."
+msgstr[1] "%1$d Zeilen betroffen."
 
 #: libraries/Message.class.php:301
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d Zeile(n) gelöscht."
-msgstr[1] "%1$d Zeile(n) gelöscht."
+msgstr[0] "%1$d Zeile gelöscht."
+msgstr[1] "%1$d Zeilen gelöscht."
 
 #: libraries/Message.class.php:320
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d Zeile(n) eingefügt."
-msgstr[1] "%1$d Zeile(n) eingefügt."
+msgstr[0] "%1$d Zeile eingefügt."
+msgstr[1] "%1$d Zeilen eingefügt."
 
 #: libraries/StorageEngine.class.php:198 libraries/messages.inc.php:557
 msgid ""
@@ -1758,10 +1727,10 @@ msgstr ""
 "Sie eine leere Seite erhalten, ist Ihre Konfigurationsdatei in Ordnung."
 
 #: libraries/common.inc.php:594
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Fehler beim Laden der Standard-Konfiguration von: \"%1$s\""
+msgstr "Fehler beim Laden der Standard-Konfiguration von: %1$s"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
@@ -1772,10 +1741,10 @@ msgstr ""
 "Konfigurationsdatei angegeben werden!"
 
 #: libraries/common.inc.php:629
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "Ungültige Server-Nummer: \"%s\""
+msgstr "Ungültige Server-Nummer: %s"
 
 #: libraries/common.inc.php:636 libraries/messages.inc.php:456
 #, php-format
@@ -1879,7 +1848,7 @@ msgstr "SQL validieren"
 
 #: libraries/common.lib.php:1276
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Inline-Bearbeiten dieses SQL-Befehls"
 
 #: libraries/common.lib.php:1278
 #, fuzzy
@@ -2070,7 +2039,6 @@ msgid "Password Hashing"
 msgstr "Password-Verschlüsselung"
 
 #: libraries/display_change_password.lib.php:66
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL&nbsp;4.0 kompatibel"
@@ -2125,7 +2093,7 @@ msgstr "Exportiere %s Datensätze ab Zeile %s."
 
 #: libraries/display_export.lib.php:115 libraries/messages.inc.php:282
 msgid "Dump all rows"
-msgstr ""
+msgstr "Alle Datensätze exportieren"
 
 #: libraries/display_export.lib.php:125 libraries/messages.inc.php:860
 #: setup/lib/messages.inc.php:82
@@ -2193,19 +2161,16 @@ msgid "None"
 msgstr "keine"
 
 #: libraries/display_export.lib.php:247
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "Zip-komprimiert"
 
 #: libraries/display_export.lib.php:253
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "GZip-komprimiert"
 
 #: libraries/display_export.lib.php:259
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "BZip-komprimiert"
@@ -2214,22 +2179,29 @@ msgstr "BZip-komprimiert"
 msgid "SQL compatibility mode"
 msgstr "SQL-Kompatibilitätsmodus"
 
+# Der Kontext der Fehlermeldung ist mir nicht klar. Daher allgemein formuliert.
 #: libraries/display_import.lib.php:67 libraries/messages.inc.php:406
+#, fuzzy
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"Die hochzuladende Datei ist wahrscheinlich größer als erlaubt oder es tritt "
+"ein bekannter Fehler in Webkit-basierten Browsern (Safari, Google Chrome, "
+"Arora etc.) auf."
 
 #: libraries/display_import.lib.php:77 libraries/messages.inc.php:414
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Bitte Geduld, die Datei wird abgearbeitet."
 
 #: libraries/display_import.lib.php:99 libraries/messages.inc.php:416
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Bitte warten, bis die Datei übertragen wurde. Details über die Übertragung "
+"sind nicht verfügbar."
 
 #: libraries/display_import.lib.php:126 libraries/messages.inc.php:341
 msgid "File to import"
@@ -2364,14 +2336,12 @@ msgid "Show BLOB contents"
 msgstr "BLOB Inhalte anzeigen"
 
 #: libraries/display_tbl.lib.php:599 libraries/messages.inc.php:879
-#, fuzzy
 msgid "Show binary contents as HEX"
-msgstr "Binäre Inhalte anzeigen"
+msgstr "Binäre Inhalte in hexadezimal anzeigen"
 
 # Hide heist im deutschen in der EDV ausblenden
 #: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:383
 #: pmd_general.php:141 tbl_change.php:314 tbl_change.php:320
-#, fuzzy
 msgid "Hide"
 msgstr "Verstecken"
 
@@ -2639,9 +2609,8 @@ msgstr ""
 "ist 32 MB. Der Speicher wird nur zum cachen von Index-Seiten verwendet."
 
 #: libraries/engines/pbxt.lib.php:28 libraries/messages.inc.php:638
-#, fuzzy
 msgid "Record cache size"
-msgstr "Log-Cache Größe"
+msgstr "Record-Cache-Größe"
 
 #: libraries/engines/pbxt.lib.php:29 libraries/messages.inc.php:637
 msgid ""
@@ -2869,9 +2838,8 @@ msgid "Open new phpMyAdmin window"
 msgstr "Neues phpMyAdmin-Fenster"
 
 #: libraries/header.inc.php:115 libraries/messages.inc.php:550
-#, fuzzy
 msgid "New table"
-msgstr "keine Tabellen"
+msgstr "Neue Tabelle"
 
 #: libraries/header_printview.inc.php:50 libraries/header_printview.inc.php:55
 #: libraries/messages.inc.php:1032
@@ -2898,19 +2866,21 @@ msgstr "MySQL lieferte ein leeres Resultat zurück (d.&nbsp;h. null Zeilen)."
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
+"Die folgenden Strukturen wurden entweder erstellt oder verändert. Hier "
+"können Sie:"
 
 #: libraries/import.lib.php:1079 libraries/messages.inc.php:408
 msgid "View a structure`s contents by clicking on its name"
-msgstr ""
+msgstr "Zum Anzeigen einer Struktur einfach auf den Namen klicken"
 
 #: libraries/import.lib.php:1080 libraries/messages.inc.php:409
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr ""
+msgstr "Zum Ändern der Einstellungen auf das entsprechende \"Optionen\" klicken"
 
 #: libraries/import.lib.php:1081 libraries/messages.inc.php:410
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
+msgstr "Zum Ändern der Struktur auf das entsprechenden \"Struktur\" klicken"
 
 #: libraries/import.lib.php:1084 libraries/messages.inc.php:370
 msgid "Go to database"
@@ -2919,14 +2889,13 @@ msgstr "Gehe zur Datenbank"
 #: libraries/import.lib.php:1087 libraries/import.lib.php:1111
 #: libraries/messages.inc.php:877
 msgid "settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: libraries/import.lib.php:1106 libraries/messages.inc.php:371
 msgid "Go to table"
 msgstr "Gehe zur Tabelle"
 
 #: libraries/import.lib.php:1109 libraries/messages.inc.php:1055
-#, fuzzy
 msgid "structure"
 msgstr "Struktur"
 
@@ -2993,7 +2962,6 @@ msgstr "Umwandlungs Engine"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:145
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -3002,7 +2970,7 @@ msgstr "keine"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:151
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Nach Kana konvertieren"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
@@ -3149,7 +3117,6 @@ msgid "Analyze"
 msgstr "Analysieren"
 
 #: libraries/messages.inc.php:65
-#, fuzzy
 msgid "and"
 msgstr "und"
 
@@ -3181,7 +3148,7 @@ msgstr "Jeder Benutzer"
 #: libraries/messages.inc.php:72 server_synchronize.php:449
 #: server_synchronize.php:894
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Ausgewählte Änderungen anwenden"
 
 #: libraries/messages.inc.php:74 tbl_structure.php:386
 #, php-format
@@ -3270,13 +3237,11 @@ msgid "Server ID"
 msgstr "Server-ID"
 
 #: libraries/messages.inc.php:100
-#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Deaktiviert"
 
 #: libraries/messages.inc.php:103
-#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Aktiviert"
@@ -3286,7 +3251,6 @@ msgid "Remove BLOB Repository Reference"
 msgstr "BLOB-Referenz entfernen"
 
 #: libraries/messages.inc.php:106
-#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Reparieren"
@@ -3449,6 +3413,8 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"Das [code]config[/code] Unterverzeichnis des Installationsskripts ist noch "
+"vorhanden. Sie sollten es nach der Konfiguration von phpMyAdmin entfernen."
 
 #: libraries/messages.inc.php:179 pdf_schema.php:673
 #, php-format
@@ -3473,14 +3439,12 @@ msgid "Can't copy table to same one!"
 msgstr "Tabelle kann nicht mit gleichem Namen kopiert werden!"
 
 #: libraries/messages.inc.php:190 server_synchronize.php:94
-#, fuzzy
 msgid "Could not connect to the source"
-msgstr "Verbindungsaufbau zu MySQL-Server schlug fehl"
+msgstr "Es konnte keine Verbindung zu Quell-Datenbank hergestellt werden"
 
 #: libraries/messages.inc.php:191 server_synchronize.php:97
-#, fuzzy
 msgid "Could not connect to the target"
-msgstr "Verbindungsaufbau zu MySQL-Server schlug fehl"
+msgstr "Es konnte keine Verbindung zu Ziel-Datenbank hergestellt werden"
 
 #: libraries/messages.inc.php:192 server_processlist.php:24
 #, php-format
@@ -3517,7 +3481,6 @@ msgid "Create table"
 msgstr "Erzeuge Tabelle"
 
 #: libraries/messages.inc.php:203
-#, fuzzy
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Erzeuge Tabelle"
@@ -3531,7 +3494,6 @@ msgid "Create database with same name and grant all privileges"
 msgstr "Erstelle eine Datenbank mit gleichem Namen und gewähre alle Rechte"
 
 #: libraries/messages.inc.php:206
-#, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "keine"
@@ -3562,7 +3524,7 @@ msgstr "CSV"
 #: libraries/messages.inc.php:213 libraries/server_synchronize.lib.php:1343
 #: libraries/server_synchronize.lib.php:1369
 msgid "Current server"
-msgstr ""
+msgstr "Aktueller Server"
 
 #: libraries/messages.inc.php:214 main.php:159
 msgid "Custom color"
@@ -3592,7 +3554,7 @@ msgstr "Export-Optionen der Datenbank"
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "Datenbank '%s' existiert nicht."
 
 #: libraries/messages.inc.php:227 server_databases.php:63
 #, php-format
@@ -3629,19 +3591,17 @@ msgstr ""
 
 #: libraries/messages.inc.php:233 libraries/server_synchronize.lib.php:1367
 #: server_synchronize.php:1112
-#, fuzzy
 msgid "Target database"
-msgstr "Durchsuche die Datenbank"
+msgstr "Ziel-Datenbank"
 
 #: libraries/messages.inc.php:236 server_synchronize.php:425
 #: server_synchronize.php:868
-#, fuzzy
 msgid "Data Difference"
-msgstr "Struktur des Views"
+msgstr "Datenunterschied"
 
 #: libraries/messages.inc.php:239 server_synchronize.php:272
 msgid "Data Synchronization"
-msgstr ""
+msgstr "Datenabgleich"
 
 #: libraries/messages.inc.php:243 server_privileges.php:526
 #: server_privileges.php:1679
@@ -3709,7 +3669,7 @@ msgstr "Wörterbuch"
 
 #: libraries/messages.inc.php:265 libraries/server_synchronize.lib.php:1348
 msgid "Difference"
-msgstr ""
+msgstr "Unterschied"
 
 #: libraries/messages.inc.php:266 pmd_general.php:87
 msgid "Direct links"
@@ -3737,7 +3697,7 @@ msgstr "DocSQL"
 
 #: libraries/messages.inc.php:276
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Nicht AUTO_INCREMENT für Nullwerte verwenden"
 
 #: libraries/messages.inc.php:281 server_privileges.php:1579
 #: server_privileges.php:1580 server_privileges.php:1581
@@ -3936,7 +3896,7 @@ msgstr "Handler"
 
 #: libraries/messages.inc.php:378 server_synchronize.php:464
 msgid "Selected target tables have been synchronized with source tables."
-msgstr ""
+msgstr "Ausgewählte Ziel-Tabellen wurden mit Quell-Tabellen abgeglichen."
 
 #: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:374
 msgid "Hebrew"
@@ -4014,11 +3974,11 @@ msgstr "Fehlerübergehenden INSERT-Befehl verwenden"
 
 #: libraries/messages.inc.php:400
 msgid "Column names in first row"
-msgstr ""
+msgstr "Spaltennamen in der ersten Zeile"
 
 #: libraries/messages.inc.php:401
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Keine leeren Zeilen importieren"
 
 #: libraries/messages.inc.php:402 pmd_general.php:104
 msgid "Import/Export coordinates for PDF schema"
@@ -4038,15 +3998,15 @@ msgstr "Open Document Kalkulationstabelle"
 
 #: libraries/messages.inc.php:413
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Prozentwerte importieren (12.00% wird zu .12)"
 
 #: libraries/messages.inc.php:417
 msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
+msgstr "Excel 97-2003 XLS Workbook"
 
 #: libraries/messages.inc.php:418
 msgid "Excel 2007 XLSX Workbook"
-msgstr ""
+msgstr "Excel 2007 XLSX Workbook"
 
 #: libraries/messages.inc.php:422 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
@@ -4092,7 +4052,7 @@ msgstr "ID der eingefügten Zeile: %1$d"
 
 #: libraries/messages.inc.php:438 tbl_change.php:1131
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Als neue Zeile einfügen und Fehler ignorieren"
 
 #: libraries/messages.inc.php:440 main.php:139
 msgid "Interface"
@@ -4136,6 +4096,9 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
+"Javascript wurde deaktiviert oder wird nicht unterstützt. Einige Funktionen "
+"von phpMyAdmin stehen daher nicht zur Verfügung. Zum Beispiel wird die "
+"Navigation nicht automatisch aktualisiert."
 
 #: libraries/messages.inc.php:462 server_status.php:257
 msgid "Joins"
@@ -4262,7 +4225,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:510
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabelle für MediaWiki"
 
 #: libraries/messages.inc.php:511 transformation_overview.php:25
 msgid "Available MIME types"
@@ -4430,7 +4393,7 @@ msgstr "fehlerhaft"
 #: libraries/messages.inc.php:580 server_synchronize.php:400
 #: server_synchronize.php:839
 msgid "not present"
-msgstr ""
+msgstr "nicht vorhanden"
 
 #: libraries/messages.inc.php:581 pdf_pages.php:36 pdf_pages.php:42
 #: pdf_pages.php:48 pdf_pages.php:53
@@ -4508,13 +4471,12 @@ msgid "No tables"
 msgstr "keine Tabellen"
 
 #: libraries/messages.inc.php:646
-#, fuzzy
 msgid "Page has been created"
-msgstr "Die Tabelle %1$s wurde erzeugt."
+msgstr "Seite wurde erstellt"
 
 #: libraries/messages.inc.php:647
 msgid "Page creation failed"
-msgstr ""
+msgstr "Seitenerstellung fehlgeschlagen"
 
 #: libraries/messages.inc.php:648
 msgid "PDF"
@@ -4551,7 +4513,7 @@ msgstr "Telefonbuch"
 
 #: libraries/messages.inc.php:656
 msgid "PHP array"
-msgstr ""
+msgstr "PHP-Array"
 
 #: libraries/messages.inc.php:658 main.php:213
 msgid "PHP extension"
@@ -4562,23 +4524,28 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"Zusätzliche Funktionen können in der Konfigurationsdatei "
+"(<code>config.inc.php</code>) aktiviert werden. Beispiele finden sich in der "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/messages.inc.php:663 libraries/relation.lib.php:159
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Kurzanleitung zum Einrichten der zusätzlichen Funktionen:"
 
 #: libraries/messages.inc.php:664 libraries/relation.lib.php:161
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgstr ""
+"Erstellen der benötigten Tabellen mittels "
+"<code>script/create_tables.sql</code>."
 
 #: libraries/messages.inc.php:665 libraries/relation.lib.php:162
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Den Benutzer pma einrichten und Zugriff auf diese Tabellen geben."
 
 #: libraries/messages.inc.php:666 libraries/relation.lib.php:164
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
+msgstr "Erneut in phpMyAdmin anmelden um die neue Konfigurationsdatei zu laden."
 
 #: libraries/messages.inc.php:669 libraries/mysql_charsets.lib.php:274
 msgid "Polish"
@@ -4586,9 +4553,8 @@ msgstr "Polnisch"
 
 #: libraries/messages.inc.php:670 libraries/replication_gui.lib.php:67
 #: server_synchronize.php:1163
-#, fuzzy
 msgid "Port"
-msgstr "Sortierung"
+msgstr "Port"
 
 #: libraries/messages.inc.php:675 tbl_indexes.php:67
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -4821,7 +4787,7 @@ msgstr "Feldnamen in die erste Zeile setzen"
 
 #: libraries/messages.inc.php:728 server_synchronize.php:1003
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "Die folgenden Abfragen wurden ausgeführt:"
 
 #: libraries/messages.inc.php:729 server_status.php:251
 msgid "Query cache"
@@ -4888,9 +4854,8 @@ msgstr "Lade die Benutzertabellen neu"
 
 #: libraries/messages.inc.php:755 navigation.php:66 navigation.php:67
 #: navigation.php:70
-#, fuzzy
 msgid "Reload navigation frame"
-msgstr "Navigationsframe anpassen"
+msgstr "Navigation-Frame aktualisieren"
 
 #: libraries/messages.inc.php:756 pmd_general.php:80
 msgid "Reload"
@@ -4898,13 +4863,12 @@ msgstr "Neuladen"
 
 #: libraries/messages.inc.php:757 libraries/server_synchronize.lib.php:1345
 #: libraries/server_synchronize.lib.php:1371
-#, fuzzy
 msgid "Remote server"
-msgstr "Neuer Server"
+msgstr "Entfernter Server"
 
 #: libraries/messages.inc.php:758
 msgid "Remove CRLF characters within fields"
-msgstr ""
+msgstr "CRLF-Zeichen aus den Feldern entfernen"
 
 #: libraries/messages.inc.php:759 tbl_operations.php:676
 msgid "Remove partitioning"
@@ -4919,9 +4883,8 @@ msgid "Rename table to"
 msgstr "Tabelle umbenennen in"
 
 #: libraries/messages.inc.php:764 view_operations.php:93
-#, fuzzy
 msgid "Rename view to"
-msgstr "Tabelle umbenennen in"
+msgstr "View umbenennen in"
 
 #: libraries/messages.inc.php:765 tbl_operations.php:664
 msgid "Repair"
@@ -4940,16 +4903,18 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"Nun die folgenden Zeilen am Ende des [mysqld] Abschnitts in der my.cnf "
+"hinzufügen. Danach den MySQL-Server neu starten."
 
 #: libraries/messages.inc.php:770 libraries/replication_gui.lib.php:236
 #: server_replication.php:194
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Benutzer für den Replication-Slave hinzufügen"
 
 #: libraries/messages.inc.php:771 server_replication.php:74
 #, php-format
 msgid "Master server changed succesfully to %s"
-msgstr ""
+msgstr "Master-Server wurde erfolgreich auf %s geändert."
 
 #: libraries/messages.inc.php:772 server_replication.php:182
 msgid "This server is configured as master in a replication process."
@@ -8721,187 +8686,3 @@ msgstr "Index über&nbsp;%s&nbsp;Spalten anlegen"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beschreibung"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "keine"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "keine"
-
-#, fuzzy
-#~| msgid "Grant all privileges on wildcard name (username\\_%)"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr ""
-#~ "Gewähre alle Rechte auf Datenbanken die mit dem Benuterznamen beginnen "
-#~ "(username\\_%)"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "Die Tabelle \"%s\" existiert nicht!"
-
-#, fuzzy
-#~| msgid "Could not load default configuration from: \"%1$s\""
-#~ msgid "Could not load default configuration from: %1"
-#~ msgstr "Fehler beim Laden der Standard-Konfiguration von: \"%1$s\""
-
-#, fuzzy
-#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr ""
-#~ "Ungültiger Host-Name für Server %1$s. Bitte überprüfen Sie Ihre "
-#~ "Konfiguration."
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "Fehler beim umbenennen von Tabelle %1$s nach %2$s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "Die Erweiterung [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "kann nicht geladen werden. Bitte überprüfen Sie Ihre PHP-Konfiguration."
-
-#, fuzzy
-#~| msgid "Could not connect to MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Verbindungsaufbau zu MySQL-Server schlug fehl"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Möglicherweise haben Sie einen Bug im SQL-Parser entdeckt. Bitte "
-#~ "überprüfen Sie Ihre Abfrage genaustens, insbesondere auf falsch gesetzte "
-#~ "oder nicht geschlossene Anführungszeichen. Eine weitere Ursache könnte "
-#~ "darin liegen, dass Sie versuchen eine Datei mit binären Daten, welche "
-#~ "nicht von Anführungszeichen eingeschlossen sind, hochzuladen. Sie können "
-#~ "alternativ versuchen Ihre Abfrage über das MySQL-Kommandozeileninterface "
-#~ "zu senden. Die MySQL-Fehlerausgabe, falls vorhanden, kann Ihnen auch bei "
-#~ "der Fehleranalyse helfen. Falls Sie weiterhin Probleme haben sollten oder "
-#~ "der Parser dort versagt, wo die Kommandozeile erfolgreich ist, so "
-#~ "reduzieren Sie bitte Ihre Abfrage auf den Befehl, welcher die Probleme "
-#~ "verursacht, und senden Sie uns einen Fehlerbericht mit den "
-#~ "Datenausschnitt, den Sie weiter unten auf dieser Seite finden.:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV-Daten"
-
-#~ msgid "Copy"
-#~ msgstr "Kopieren"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr ""
-#~ "Die Benutzer löschen und die Benutzertabellen anschließend neu laden."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Dies ist zwar der sauberste Weg, jedoch kann es einige Zeit in Anspruch "
-#~ "nehmen, die Benutzertabellen neu zu laden."
-
-#~ msgid "has been altered."
-#~ msgstr "wurde geändert."
-
-#~ msgid "Microsoft Excel 2000"
-#~ msgstr "Microsoft Excel 2000"
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Der Internet Explorer unterstützt diese Funktion nicht."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "Die &quot;gelöschten&quot; Benutzer könnten weiterhin wie gewohnt auf den "
-#~ "Server zugreifen, bis die Benutzertabellen neu geladen werden."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Die Benutzer aus den Benutzertabellen löschen."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Erlaubt das Ausführen gespeicherter Prozeduren; Hat keinen Effekt in "
-#~ "dieser MySQL-Version."
-
-#~ msgid "Process list"
-#~ msgstr "Prozesse"
-
-#~ msgid "Reload privileges"
-#~ msgstr "Die Rechte neu laden"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Die Benutzer würden weiterhin das USAGE-Recht behalten, bis die "
-#~ "Benutzertabellen neu geladen werden."
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "Excel-Datei"
-
-#~ msgid "Tracking Mechanism"
-#~ msgstr "Tracking Mechanismus"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "Alle auswählen"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "Alle auswählen"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "Einfügen"
-
-#, fuzzy
-#~| msgid "Updated"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "Aktualisiert"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "Löschen"
-
-#~ msgid "%1$d row(s) affected."
-#~ msgstr "%1$d Zeile(n) betroffen."

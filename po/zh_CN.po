@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-11 13:05-0400\n"
-"PO-Revision-Date: 2010-04-08 13:06+0200\n"
+"PO-Revision-Date: 2010-05-12 06:17+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -293,7 +293,6 @@ msgid "Status"
 msgstr "状态"
 
 #: db_operations.php:544
-#, fuzzy
 #| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
@@ -308,14 +307,12 @@ msgid "Damaged"
 msgstr "已损坏"
 
 #: db_operations.php:562
-#, fuzzy
 #| msgid "Repair"
 msgctxt "BLOB repository"
 msgid "Repair"
 msgstr "修复"
 
 #: db_operations.php:570
-#, fuzzy
 #| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
@@ -1057,17 +1054,15 @@ msgstr "选择要显示的字段"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "捐助 (外链，英文)"
+msgstr "完成"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
-msgstr "上一个"
+msgstr "上个月"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:77 libraries/common.lib.php:2289
@@ -1075,33 +1070,29 @@ msgstr "上一个"
 #: libraries/messages.inc.php:551 server_binlog.php:205 server_binlog.php:207
 #: tbl_printview.php:424 tbl_structure.php:802
 msgid "Next"
-msgstr "下一个"
+msgstr "下个月"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:79
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "总计"
+msgstr "今天"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "二进制"
+msgstr "一月"
 
 #: js/messages.php:83
 msgid "February"
-msgstr ""
+msgstr "二月"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "三月"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "四月"
@@ -1111,40 +1102,36 @@ msgid "May"
 msgstr "五月"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "六月"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "七月"
 
 #: js/messages.php:89
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "八月"
 
 #: js/messages.php:90
 msgid "September"
-msgstr ""
+msgstr "九月"
 
 #: js/messages.php:91
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "十月"
 
 #: js/messages.php:92
 msgid "November"
-msgstr ""
+msgstr "十一月"
 
 #: js/messages.php:93
 msgid "December"
-msgstr ""
+msgstr "十二月"
 
 #. l10n: Short month name
 #: js/messages.php:97 libraries/messages.inc.php:28
@@ -1168,7 +1155,6 @@ msgstr "四月"
 
 #. l10n: Short month name
 #: js/messages.php:105
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
@@ -1210,40 +1196,36 @@ msgid "Dec"
 msgstr "十二月"
 
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "周日"
+msgstr "星期日"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "周一"
+msgstr "星期一"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
-msgstr "周二"
+msgstr "星期二"
 
 #: js/messages.php:125
 msgid "Wednesday"
-msgstr ""
+msgstr "星期三"
 
 #: js/messages.php:126
 msgid "Thursday"
-msgstr ""
+msgstr "星期四"
 
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "周五"
+msgstr "星期五"
 
 #: js/messages.php:128
 msgid "Saturday"
-msgstr ""
+msgstr "星期六"
 
 #. l10n: Short week day name
 #: js/messages.php:132 libraries/messages.inc.php:27
@@ -1282,75 +1264,65 @@ msgstr "周六"
 
 #. l10n: Minimal week day name
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
-msgstr "周日"
+msgstr "日"
 
 #. l10n: Minimal week day name
 #: js/messages.php:150
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
-msgstr "周一"
+msgstr "一"
 
 #. l10n: Minimal week day name
 #: js/messages.php:152
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
-msgstr "周二"
+msgstr "二"
 
 #. l10n: Minimal week day name
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "周三"
+msgstr "三"
 
 #. l10n: Minimal week day name
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
-msgstr "周四"
+msgstr "四"
 
 #. l10n: Minimal week day name
 #: js/messages.php:158
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
-msgstr "周五"
+msgstr "五"
 
 #. l10n: Minimal week day name
 #: js/messages.php:160
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
-msgstr "周六"
+msgstr "六"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "维基 (Wiki) (外链，英文)"
+msgstr "周"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "时"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "使用中"
+msgstr "分"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "每秒"
+msgstr "秒"
 
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:346
 msgid "Font size"
@@ -1709,10 +1681,10 @@ msgstr ""
 "有任何问题。"
 
 #: libraries/common.inc.php:594
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "无法加载默认配置: \"%1$s\""
+msgstr "无法加载默认配置: %1$s"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:668
 msgid ""
@@ -1721,10 +1693,10 @@ msgid ""
 msgstr "必须在您的配置文件中设置 <tt>$cfg['PmaAbsoluteUri']</tt> ！"
 
 #: libraries/common.inc.php:629
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
-msgstr "无效的服务器索引：“%s”"
+msgstr "无效的服务器索引: %s"
 
 #: libraries/common.inc.php:636 libraries/messages.inc.php:456
 #, php-format
@@ -2009,10 +1981,9 @@ msgid "Password Hashing"
 msgstr "密码加密方式"
 
 #: libraries/display_change_password.lib.php:66
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
-msgstr "兼容 MySQL&nbsp;4.0"
+msgstr "MySQL 4.0 兼容"
 
 #: libraries/display_change_password.lib.php:72 libraries/messages.inc.php:361
 #: libraries/replication_gui.lib.php:356 server_privileges.php:783
@@ -2130,19 +2101,16 @@ msgid "None"
 msgstr "无"
 
 #: libraries/display_export.lib.php:247
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "zip 压缩"
 
 #: libraries/display_export.lib.php:253
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "gzip 压缩"
 
 #: libraries/display_export.lib.php:259
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "bzip 压缩"
@@ -2892,14 +2860,12 @@ msgstr "该 XML 文件有错误或者不完整。请修复错误后重试。"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:143
-#, fuzzy
 #| msgid "Recoding engine"
 msgid "Encoding conversion"
-msgstr "记录引擎"
+msgstr "编码转换"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:145
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -2908,7 +2874,7 @@ msgstr "无"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:151
 msgid "Convert to Kana"
-msgstr ""
+msgstr "转换为假名"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
@@ -5469,7 +5435,7 @@ msgstr "使用 fsync() 写入日志文件的次数。"
 
 #: libraries/messages.inc.php:947
 msgid "The number of pending log file fsyncs."
-msgstr "当前挂起的使用 fsync() 写入日志文件数。"
+msgstr "当前挂起的 fsync 日志文件数。"
 
 #: libraries/messages.inc.php:948
 msgid "Pending log file writes."
@@ -6352,7 +6318,7 @@ msgstr ""
 msgid ""
 "Displays the contents of the field as-is, without running it through "
 "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr "保留字段的原始格式。不进行转码。也就是假定字段中不包含 HTML 代码。"
+msgstr "显示字段的原始内容，不使用 htmlspecialchars() 处理。即假定内容为合法的 HTML 代码。"
 
 #: libraries/messages.inc.php:1182
 msgid ""
@@ -6584,7 +6550,6 @@ msgid "\"zipped\""
 msgstr "zip 压缩"
 
 #: libraries/tbl_properties.inc.php:393
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -6599,32 +6564,29 @@ msgid "Clear"
 msgstr "清除"
 
 #: navigation.php:350 navigation.php:351
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
 msgstr "新建数据表"
 
 #: pdf_schema.php:637
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "表“%s”不存在！"
+msgstr "数据表 %s 不存在！"
 
 #: pdf_schema.php:996
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "数据库“%s”的大纲 - 第 %s 页"
+msgstr "数据库 %s 的大纲 - 第 %s 页"
 
 #: server_databases.php:230
-#, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "转到数据库"
 
 #: server_privileges.php:263 server_privileges.php:264
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
@@ -6635,41 +6597,35 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "要使用通配符 _ 和 % 本身，应使用用 \\ 转义"
 
 #: server_privileges.php:1998
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "无"
 
 #: server_status.php:344
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "重置"
 
 #: server_status.php:360
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr "此服务器已被配置为一个复制进程中的主服务器。"
+msgstr "此 MySQL 服务器正以<b>主</b>和<b>从</b>服务器运行于<b>复制</b>进程中。"
 
 #: server_status.php:362
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "此服务器已被配置为一个复制进程中的主服务器。"
+msgstr "此 MySQL 服务器正以<b>主</b>服务器运行于<b>复制</b>进程中。"
 
 #: server_status.php:364
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "此服务器已被配置为一个复制进程中的主服务器。"
+msgstr "此 MySQL 服务器正以<b>从</b>服务器运行于<b>复制</b>进程中。"
 
 #: server_status.php:366
-#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
@@ -6677,25 +6633,22 @@ msgstr "此服务器已被配置为一个复制进程中的主服务器。"
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
-msgstr ""
-"此 MySQL 服务器运行于 %s <b>复制</b> 进程。要获得更多关于此服务器的复制状态，"
-"请浏览 <a href=\"#replication\">复制状态信息</a>."
+msgstr "要获得更多关于此服务器的复制状态，请查看<a href=\"#replication\">复制状态信息</a>。"
 
 #: server_synchronize.php:1122
 msgid "Enter manually"
-msgstr ""
+msgstr "手动输入"
 
 #: server_synchronize.php:1123
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "非安全连接"
+msgstr "当前连接"
 
 #: server_synchronize.php:1152
-#, fuzzy, php-format
+#, php-format
 #| msgid "Configuration"
 msgid "Configuration: %s"
-msgstr "设置"
+msgstr "配置: %s"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
@@ -7204,7 +7157,7 @@ msgstr "追踪数据库的修改。需要设置 PMA 数据库。"
 
 #: setup/lib/messages.inc.php:134
 msgid "Changes tracking"
-msgstr ""
+msgstr "修改追踪"
 
 #: setup/lib/messages.inc.php:135
 msgid "Customization"
@@ -8367,238 +8320,34 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: tbl_operations.php:634
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "强制更新表 (\"FLUSH\")"
+msgstr "刷新表 (FLUSH)"
 
 #: tbl_relation.php:405
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "内联"
 
 #: tbl_relation.php:413
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
-msgstr "外键限制"
+msgstr "外键约束"
 
 #: tbl_structure.php:362
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "无"
 
 #: tbl_structure.php:595
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "在第 %s 个字段创建索引"
 
 #: transformation_overview.php:48
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "说明"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "无"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "无"
-
-#, fuzzy
-#~| msgid "Grant all privileges on wildcard name (username\\_%)"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "表“%s”不存在！"
-
-#, fuzzy
-#~| msgid "Could not load default configuration from: \"%1$s\""
-#~ msgid "Could not load default configuration from: %1"
-#~ msgstr "无法加载默认配置: \"%1$s\""
-
-#, fuzzy
-#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr "无效的主机名 %1$s，请检查配置文件。"
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "将表 %1$s 改名为 %2$s 时发生错误"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "无法加载 [a@http://php.net/%1$s@Documentation][em]%1$s (外链，英语)[/em][/"
-#~ "a] 扩展，请检查您的 PHP 配置。"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as master in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as master in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "此服务器尚未配置为一个复制进程中的主服务器。你想现在<a href=\"%s\">配置</"
-#~ "a>吗？"
-
-#, fuzzy
-#~| msgid ""
-#~| "This server is not configured as slave in a replication process. Would "
-#~| "you like to <a href=\"%s\">configure</a> it?"
-#~ msgid ""
-#~ "This server is not configured as slave in a replication process. Would "
-#~ "you like to <a href=%s>configure</a> it?"
-#~ msgstr ""
-#~ "此服务器尚未配置为一个复制进程中的从服务器。你想现在<a href=\"%s\">配置</"
-#~ "a>吗？"
-
-#, fuzzy
-#~| msgid "Could not connect to MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "无法连接到 MySQL 服务器"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "您可能发现了 SQL 解析器的缺陷 (bug)。请仔细检查您的查询，包括引号是否正确"
-#~ "及是否匹配。其它可能的失败原因可能由于您上传了超过引用文本区域外的二进制数"
-#~ "据。您还可以在 MySQL 命令行界面试一下您的查询。如果可能的话，以下会列出 "
-#~ "MySQL 服务器的错误输出，这可能对您解决问题有一定的帮助。如果您仍然有问题，"
-#~ "或者命令行界面执行成功而解析器出错，请将您的 SQL 查询缩减到导致问题的某一"
-#~ "条语句，然后和下面剪切区中的数据一起提交一个缺陷 (bug) 报告："
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV"
-
-#~ msgid "Copy"
-#~ msgstr "复制"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "删除用户并重新读取权限。"
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr "这是一个最干净的做法，但重新载入权限需要一点时间。"
-
-#~ msgid "has been altered."
-#~ msgstr "已修改。"
-
-#~ msgid "Microsoft Excel 2000"
-#~ msgstr "Microsoft Excel 2000"
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Internet Explorer 不支持该功能。"
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr "直到重新载入权限为止，被“删除”的用户仍然能像以前一样访问数据库。"
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "只从权限表删除用户。"
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr "允许运行存储过程；在此版本的 MySQL 中无效。"
-
-#~ msgid "Process list"
-#~ msgstr "进程列表"
-
-#~ msgid "Reload privileges"
-#~ msgstr "重新载入权限"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr "直到重新载入权限之前，该用户仍有 USAGE 权限。"
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "原生 MS Excel 格式"
-
-#~ msgid "Alter index(s)"
-#~ msgstr "修改索引"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "全选"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "全选"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "插入"
-
-#, fuzzy
-#~| msgid "Updated"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "更新"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "删除"
-
-#~ msgid "%1$d row(s) affected."
-#~ msgstr "影响了 %1$d 行。"
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
-
-#~ msgid "Jan0"
-#~ msgstr "一月0"
-
-#~ msgid "Jan1"
-#~ msgstr "一月1"
-
-#~ msgid "Jan2"
-#~ msgstr "一月2"
