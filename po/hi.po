@@ -342,7 +342,7 @@ msgstr ""
 
 #: db_operations.php:645 libraries/messages.inc.php:272 pdf_pages.php:528
 msgid "Display PDF schema"
-msgstr "PDF schema दिखाओ"
+msgstr "PDF स्कीमा दिखाओ"
 
 #: db_operations.php:661 libraries/messages.inc.php:885 pdf_pages.php:529
 msgid "Show grid"
