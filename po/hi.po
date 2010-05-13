@@ -363,7 +363,7 @@ msgstr "समान चौड़ाई के सभी टेबल को प
 #: db_operations.php:672 db_structure.php:606 libraries/messages.inc.php:235
 #: pdf_pages.php:533
 msgid "Data Dictionary"
-msgstr ""
+msgstr "डेटा शब्दकोश"
 
 #: db_operations.php:674 libraries/messages.inc.php:892 pdf_pages.php:534
 msgid "Only show keys"
