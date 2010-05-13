@@ -79,9 +79,6 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
      */
 
     public function testFormatNumber($a, $b, $c, $e) {
-        $GLOBALS['number_thousands_separator'] = ' ';
-        $GLOBALS['number_decimal_separator'] = ',';
-
         $this->assertEquals($e, (string)PMA_formatNumber($a, $b, $c, false));
     }
 
@@ -107,10 +104,6 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
      */
 
     public function testFormatByteDown($a, $b, $c, $e) {
-        $GLOBALS['number_thousands_separator'] = ' ';
-        $GLOBALS['number_decimal_separator'] = ',';
-
-
         $result = PMA_formatByteDown($a, $b, $c);
         $result[0] = trim($result[0]);
         $this->assertEquals($e, $result);

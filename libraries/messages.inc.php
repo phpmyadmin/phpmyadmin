@@ -17,10 +17,6 @@ $charset = 'utf-8';
 
 /* l10n: Text direction, use either ltr or rtl */
 $text_dir = __('ltr');
-/* l10n: Thousands separator */
-$number_thousands_separator = __(',');
-/* l10n: Decimal separator */
-$number_decimal_separator = __('.');
 
 $strAbortedClients = __('Aborted');
 $strAccessDenied = __('Access denied');

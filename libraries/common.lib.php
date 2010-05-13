@@ -1406,6 +1406,22 @@ function PMA_formatByteDown($value, $limes = 6, $comma = 0)
 } // end of the 'PMA_formatByteDown' function
 
 /**
+ * Changes thousands and decimal separators to locale specific values.
+ */
+function PMA_localizeNumber($value)
+{
+    return str_replace(
+        array(',', '.'),
+        array(
+            /* l10n: Thousands separator */
+            __(','),
+            /* l10n: Decimal separator */
+            __('.'),
+            ),
+        $value);
+}
+
+/**
  * Formats $value to the given length and appends SI prefixes
  * $comma is not substracted from the length
  * with a $length of 0 no truncation occurs, number is only formated
@@ -1436,9 +1452,7 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
 {
     //number_format is not multibyte safe, str_replace is safe
     if ($length === 0) {
-        return str_replace(array(',', '.'),
-                array($GLOBALS['number_thousands_separator'], $GLOBALS['number_decimal_separator']),
-                number_format($value, $comma));
+        return PMA_localizeNumber(number_format($value, $comma));
     }
 
     // this units needs no translation, ISO
@@ -1499,9 +1513,7 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
     } // end if ($value >= 1) elseif (!$only_down && (float) $value !== 0.0)
 
     //number_format is not multibyte safe, str_replace is safe
-    $value = str_replace(array(',', '.'),
-                         array($GLOBALS['number_thousands_separator'], $GLOBALS['number_decimal_separator']),
-                         number_format($value, $comma));
+    $value = PMA_localizeNumber(number_format($value, $comma));
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function
