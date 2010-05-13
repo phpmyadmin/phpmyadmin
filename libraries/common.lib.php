@@ -1538,6 +1538,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
     global $month, $day_of_week;
 
     if ($format == '') {
+        /* l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string */
         $format = __('%B %d, %Y at %I:%M %p');
     }
 
@@ -1818,7 +1819,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 /**
  * Returns a given timespan value in a readable format.
  *
- * @uses    __('%s days, %s hours, %s minutes and %s seconds') 
+ * @uses    __('%s days, %s hours, %s minutes and %s seconds')
  * @uses    sprintf()
  * @uses    floor()
  * @param  int     the timespan
@@ -2342,7 +2343,7 @@ function PMA_userDir($dir)
  *
  * @uses    $cfg['DefaultTabDatabase']
  * @uses    $GLOBALS['db']
- * @uses    __('Jump to database &quot;%s&quot;.') 
+ * @uses    __('Jump to database &quot;%s&quot;.')
  * @uses    PMA_generate_common_url()
  * @uses    PMA_unescape_mysql_wildcards()
  * @uses    strlen()
