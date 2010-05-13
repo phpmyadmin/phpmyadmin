@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-11 13:05-0400\n"
-"PO-Revision-Date: 2010-05-13 08:58+0200\n"
+"PO-Revision-Date: 2010-05-13 08:59+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -346,7 +346,7 @@ msgstr "PDF स्कीमा दिखाओ"
 
 #: db_operations.php:661 libraries/messages.inc.php:885 pdf_pages.php:529
 msgid "Show grid"
-msgstr "grid दिखाओ"
+msgstr "ग्रिड दिखाओ"
 
 #: db_operations.php:664 libraries/messages.inc.php:882 pdf_pages.php:530
 msgid "Show color"
