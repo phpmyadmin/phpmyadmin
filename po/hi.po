@@ -375,7 +375,7 @@ msgstr "डेटा शब्दकोश प्रारूप"
 
 #: db_operations.php:678 libraries/messages.inc.php:472 pdf_pages.php:537
 msgid "Landscape"
-msgstr ""
+msgstr "परिदृश्य"
 
 #: db_operations.php:679 libraries/messages.inc.php:671 pdf_pages.php:538
 msgid "Portrait"
