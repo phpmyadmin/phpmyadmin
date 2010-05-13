@@ -25,7 +25,7 @@ msgstr "सभी दिखाओ"
 #: libraries/export/pdf.php:147 libraries/messages.inc.php:605
 #: pdf_schema.php:284 pdf_schema.php:1124 pdf_schema.php:1140
 msgid "Page number:"
-msgstr ""
+msgstr "पृष्ठ संख्या:"
 
 #: browse_foreigners.php:132 libraries/messages.inc.php:1250
 msgid ""
