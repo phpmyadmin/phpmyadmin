@@ -350,7 +350,7 @@ msgstr "ग्रिड दिखाओ"
 
 #: db_operations.php:664 libraries/messages.inc.php:882 pdf_pages.php:530
 msgid "Show color"
-msgstr "रंगीन दिखाओ"
+msgstr "रंग दिखाओ"
 
 #: db_operations.php:666 libraries/messages.inc.php:1006 pdf_pages.php:531
 msgid "Show dimension of tables"
