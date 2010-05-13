@@ -21,8 +21,6 @@ $text_dir = __('ltr');
 $number_thousands_separator = __(',');
 /* l10n: Decimal separator */
 $number_decimal_separator = __('.');
-// shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
-$byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'), __('EiB'));
 
 $strAbortedClients = __('Aborted');
 $strAccessDenied = __('Access denied');

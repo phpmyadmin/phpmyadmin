@@ -1375,21 +1375,24 @@ function PMA_profilingResults($profiling_results)
  */
 function PMA_formatByteDown($value, $limes = 6, $comma = 0)
 {
+    /* l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+ */
+    $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'), __('EiB'));
+
     $dh           = PMA_pow(10, $comma);
     $li           = PMA_pow(10, $limes);
     $return_value = $value;
-    $unit         = $GLOBALS['byteUnits'][0];
+    $unit         = $byteUnits[0];
 
     for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
-        if (isset($GLOBALS['byteUnits'][$d]) && $value >= $li * PMA_pow(10, $ex)) {
+        if (isset($byteUnits[$d]) && $value >= $li * PMA_pow(10, $ex)) {
             // use 1024.0 to avoid integer overflow on 64-bit machines
             $value = round($value / (PMA_pow(1024, $d) / $dh)) /$dh;
-            $unit = $GLOBALS['byteUnits'][$d];
+            $unit = $byteUnits[$d];
             break 1;
         } // end if
     } // end for
 
-    if ($unit != $GLOBALS['byteUnits'][0]) {
+    if ($unit != $byteUnits[0]) {
         // if the unit is not bytes (as represented in current language)
         // reformat with max length of 5
         // 4th parameter=true means do not reformat if value < 1
