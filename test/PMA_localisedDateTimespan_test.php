@@ -49,7 +49,7 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
 
         $this->tmpGlobals = $GLOBALS;
         $this->tmpSession = $_SESSION;
-		$this->tmpTimezone = date_default_timezone_get();        
+		$this->tmpTimezone = date_default_timezone_get();
 		date_default_timezone_set('Europe/London');
     }
 
@@ -81,10 +81,6 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
      */
 
     public function testLocalisedDate($a, $b, $e) {
-        $GLOBALS['day_of_week'] = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-        $GLOBALS['month'] = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-        $GLOBALS['datefmt'] = '%B %d, %Y at %I:%M %p';
-
         $this->assertEquals($e, PMA_localisedDate($a, $b));
     }
 
