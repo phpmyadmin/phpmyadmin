@@ -26,3 +26,5 @@ locale
 *~
 # Javascript sources
 sources
+# API documentation
+apidoc
