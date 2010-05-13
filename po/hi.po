@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-11 13:05-0400\n"
-"PO-Revision-Date: 2010-05-13 09:00+0200\n"
+"PO-Revision-Date: 2010-05-13 09:06+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -371,7 +371,7 @@ msgstr ""
 
 #: db_operations.php:676 libraries/messages.inc.php:883 pdf_pages.php:535
 msgid "Data Dictionary Format"
-msgstr ""
+msgstr "डेटा शब्दकोश प्रारूप"
 
 #: db_operations.php:678 libraries/messages.inc.php:472 pdf_pages.php:537
 msgid "Landscape"
