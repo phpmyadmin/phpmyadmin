@@ -738,7 +738,7 @@ msgstr "छापने वाला द्रश्य."
 #: db_structure.php:549 db_structure.php:550 libraries/messages.inc.php:149
 #: libraries/mult_submits.inc.php:42 tbl_operations.php:579
 msgid "Check table"
-msgstr " टेबल  को चेक करें"
+msgstr " टेबल को चेक करें"
 
 #: db_structure.php:551 db_structure.php:552 libraries/messages.inc.php:586
 #: libraries/mult_submits.inc.php:47 tbl_operations.php:619
