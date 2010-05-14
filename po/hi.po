@@ -822,7 +822,7 @@ msgstr "संस्करण"
 #: db_tracking.php:122 libraries/messages.inc.php:1128 tbl_tracking.php:379
 #: tbl_tracking.php:624
 msgid "Tracking report"
-msgstr ""
+msgstr "ट्रैकिंग रिपोर्ट"
 
 #: db_tracking.php:123 libraries/messages.inc.php:1140 tbl_tracking.php:251
 #: tbl_tracking.php:624
