@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 07:48-0400\n"
+"POT-Creation-Date: 2010-05-14 13:39-0400\n"
 "PO-Revision-Date: 2010-05-10 14:24+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -942,15 +942,10 @@ msgstr ""
 "Limit pro běh importu vypršel, prosím odešlete formulář znovu se stejným "
 "souborem a import bude pokračovat."
 
-#: import.php:426
-#, fuzzy
-#| msgid ""
-#| "However on last run no data has been parsed, this usually means "
-#| "phpMyAdmin won't be able to finish this import unless you increase php "
-#| "time limits."
+#: import.php:426 libraries/messages.inc.php:1102
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
-"won"
+"won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "Bohužel během posledního pokusu nebyla žádná data načtena. Toto obvykle "
 "znamená, že phpMyAdmin nebude schopen načíst tento soubor, pokud nezvýšíte "
@@ -6323,15 +6318,6 @@ msgstr "Počet vláken"
 msgid "Thread %s was successfully killed."
 msgstr "Vlákno %s bylo úspěšně zabito."
 
-#: libraries/messages.inc.php:1102
-msgid ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
-msgstr ""
-"Bohužel během posledního pokusu nebyla žádná data načtena. Toto obvykle "
-"znamená, že phpMyAdmin nebude schopen načíst tento soubor, pokud nezvýšíte "
-"časové limity v PHP."
-
 #: libraries/messages.inc.php:1105 pmd_pdf.php:94
 msgid "to/from page"
 msgstr "do/ze stránky"
@@ -6799,7 +6785,8 @@ msgstr "Žádná"
 msgid "Filter"
 msgstr "Filtr"
 
-#: navigation.php:319 setup/lib/messages.inc.php:42
+#: navigation.php:319 setup/frames/index.inc.php:218
+#: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "Vyčistit"
 
@@ -6881,6 +6868,114 @@ msgstr "Současné připojení"
 #, php-format
 msgid "Configuration: %s"
 msgstr "Konfigurace: %s"
+
+#: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
+#: setup/lib/messages.inc.php:45
+msgid "Configuration file"
+msgstr "Konfigurační soubor"
+
+#: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
+#: setup/lib/messages.inc.php:65
+msgid "Download"
+msgstr "Stáhnout"
+
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+"Nepoužíváte zabezpečené připojení, všechna data (včetně citlivých údajů jako "
+"jsou hesla) se posílají nešifrovaně!"
+
+#: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
+#: setup/lib/messages.inc.php:219
+msgid "Overview"
+msgstr "Přehled"
+
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr "Zobrazit skyté zprávy (#MSG_COUNT)"
+
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
+msgid "There are no configured servers"
+msgstr "Žádné servery nejsou nastaveny"
+
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
+msgid "New server"
+msgstr "Nový server"
+
+#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
+msgid "Default language"
+msgstr "Výchozí jazyk"
+
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
+msgid "let the user choose"
+msgstr "Nechat uživatele, aby si vybral"
+
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
+msgid "- none -"
+msgstr "- žádný -"
+
+#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
+msgid "Default server"
+msgstr "Výchozí server"
+
+#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
+msgid "End of line"
+msgstr "Konec řádku"
+
+#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
+msgid "Display"
+msgstr "Zobrazit"
+
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
+msgid "Load"
+msgstr "Nahrát"
+
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
+msgid "phpMyAdmin homepage"
+msgstr "Domovská stránka phpMyAdmina"
+
+#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
+msgid "Donate"
+msgstr "Přispějte"
+
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
+msgid "Check for latest version"
+msgstr "Zkontrolovat nejnovější verzi"
+
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
+msgid "Features"
+msgstr "Funkce"
+
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
+msgid "Navigation frame"
+msgstr "Navigační rám"
+
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
+msgid "Main frame"
+msgstr "Hlavní rám"
+
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
+msgid "Edit server"
+msgstr "Upravit server"
+
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
+msgid "Add a new server"
+msgstr "Přidat nový server"
+
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
+#, php-format
+msgid "Set value: %s"
+msgstr "Nastavena hodnota: %s"
+
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
+msgid "Restore default value"
+msgstr "Obnovit výchozí hodnotu"
+
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
+msgid "Warning"
+msgstr "Varování"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
@@ -7048,10 +7143,6 @@ msgstr ""
 msgid "Compress on the fly"
 msgstr "Komprimovat za letu"
 
-#: setup/lib/messages.inc.php:45
-msgid "Configuration file"
-msgstr "Konfigurační soubor"
-
 #: setup/lib/messages.inc.php:46
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
@@ -7071,14 +7162,6 @@ msgstr "Výchozí znaková sada používaná pro převody"
 #: setup/lib/messages.inc.php:49
 msgid "Default character set"
 msgstr "Výchozí znaková sada"
-
-#: setup/lib/messages.inc.php:50
-msgid "Default language"
-msgstr "Výchozí jazyk"
-
-#: setup/lib/messages.inc.php:51
-msgid "Default server"
-msgstr "Výchozí server"
 
 #: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
@@ -7121,10 +7204,6 @@ msgstr "Zobrazit přehled databází jako seznam namísto rozbalovacího menu"
 msgid "Display databases as a list"
 msgstr "Zabrazit databáze jako seznam"
 
-#: setup/lib/messages.inc.php:61
-msgid "Display"
-msgstr "Zobrazit"
-
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
 msgstr "Zobrazit přehled serverů jako seznam namísto rozbalovacího menu"
@@ -7132,18 +7211,6 @@ msgstr "Zobrazit přehled serverů jako seznam namísto rozbalovacího menu"
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
 msgstr "Zobrazit servery jako seznam"
-
-#: setup/lib/messages.inc.php:64
-msgid "Donate"
-msgstr "Přispějte"
-
-#: setup/lib/messages.inc.php:65
-msgid "Download"
-msgstr "Stáhnout"
-
-#: setup/lib/messages.inc.php:66
-msgid "End of line"
-msgstr "Konec řádku"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
@@ -7325,10 +7392,6 @@ msgstr "Nastavení zobrazení databází"
 msgid "Customize appearance of the navigation frame"
 msgstr "Přizpůsobí vzhled navigačního rámu"
 
-#: setup/lib/messages.inc.php:113
-msgid "Navigation frame"
-msgstr "Navigační rám"
-
 #: setup/lib/messages.inc.php:114
 msgid "Servers display options"
 msgstr "Nastavení zobrazení serverů"
@@ -7336,10 +7399,6 @@ msgstr "Nastavení zobrazení serverů"
 #: setup/lib/messages.inc.php:116
 msgid "Tables display options"
 msgstr "Nastavení zobrazení tabulek"
-
-#: setup/lib/messages.inc.php:118
-msgid "Main frame"
-msgstr "Hlavní rám"
 
 #: setup/lib/messages.inc.php:119
 msgid "Settings that didn't fit enywhere else"
@@ -7423,10 +7482,6 @@ msgstr "Přizpůsobení"
 msgid "Customize export options"
 msgstr "Přizpůsobení exportu"
 
-#: setup/lib/messages.inc.php:137
-msgid "Features"
-msgstr "Funkce"
-
 #: setup/lib/messages.inc.php:138
 msgid "Customize import defaults"
 msgstr "Přizpůsobení výchozího nastavení importu"
@@ -7498,10 +7553,6 @@ msgstr ""
 "[a@?page=form&amp;formset=features#tab_Import_export]GZip komprese a "
 "dekomprese[/a] vyžaduje funkce (%s) které nejsou dostupné na tomto systému."
 
-#: setup/lib/messages.inc.php:152
-msgid "phpMyAdmin homepage"
-msgstr "Domovská stránka phpMyAdmina"
-
 #: setup/lib/messages.inc.php:153
 msgid "Extra parameters for iconv"
 msgstr "Další parametry pro iconv"
@@ -7551,14 +7602,6 @@ msgstr "Částečný import: přeskočit dotazy"
 #: setup/lib/messages.inc.php:163
 msgid "Insecure connection"
 msgstr "Nezabezpečené připojení"
-
-#: setup/lib/messages.inc.php:164
-msgid ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-"Nepoužíváte zabezpečené připojení, všechna data (včetně citlivých údajů jako "
-"jsou hesla) se posílají nešifrovaně!"
 
 #: setup/lib/messages.inc.php:165
 #, php-format
@@ -7661,10 +7704,6 @@ msgstr "Zvýrazní server pod kurzorem myši"
 msgid "Enable highlighting"
 msgstr "Povolit zvýrazňování"
 
-#: setup/lib/messages.inc.php:187
-msgid "let the user choose"
-msgstr "Nechat uživatele, aby si vybral"
-
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
 msgstr "Použije graficky méně náročné panely"
@@ -7672,10 +7711,6 @@ msgstr "Použije graficky méně náročné panely"
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
 msgstr "Odlehčené panely"
-
-#: setup/lib/messages.inc.php:190
-msgid "Load"
-msgstr "Nahrát"
 
 #: setup/lib/messages.inc.php:191
 msgid ""
@@ -7797,14 +7832,6 @@ msgstr "Zda se mají zobrazit pouze ikony, nebo pouze text, případně obojí"
 msgid "Iconic navigation bar"
 msgstr "Ikony v navigační liště"
 
-#: setup/lib/messages.inc.php:212
-msgid "New server"
-msgstr "Nový server"
-
-#: setup/lib/messages.inc.php:213
-msgid "There are no configured servers"
-msgstr "Žádné servery nejsou nastaveny"
-
 #: setup/lib/messages.inc.php:214
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr "Použije mezipaměť pro GZip výstup, čímž zvýší rychlost HTTP přenosů"
@@ -7812,10 +7839,6 @@ msgstr "Použije mezipaměť pro GZip výstup, čímž zvýší rychlost HTTP p�
 #: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
 msgstr "Mezipaměť pro GZip výstup"
-
-#: setup/lib/messages.inc.php:216
-msgid "- none -"
-msgstr "- žádný -"
 
 #: setup/lib/messages.inc.php:217
 msgid ""
@@ -7828,10 +7851,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
 msgstr "Výchozí pořadí řazení"
-
-#: setup/lib/messages.inc.php:219
-msgid "Overview"
-msgstr "Přehled"
 
 #: setup/lib/messages.inc.php:220
 msgid "Use persistent connections to MySQL databases"
@@ -7890,10 +7909,6 @@ msgstr "Vybere, které funkce budou použity pro konverzi znakových sad"
 msgid "Recoding engine"
 msgstr "Nástroje pro konverzi znakových sad"
 
-#: setup/lib/messages.inc.php:234
-msgid "Restore default value"
-msgstr "Obnovit výchozí hodnotu"
-
 #: setup/lib/messages.inc.php:235
 msgid "Try to revert erroneous fields to their default values"
 msgstr "Zkusit vrátit původní hodnoty chybných políček"
@@ -7928,10 +7943,6 @@ msgstr "Měl byste použít mysqli z výkonostních důvodů"
 #: setup/lib/messages.inc.php:240
 msgid "You allow for connecting to the server without a password."
 msgstr "Dovolujete připojit se k serveru bez hesla."
-
-#: setup/lib/messages.inc.php:241
-msgid "Add a new server"
-msgstr "Přidat nový server"
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
@@ -8092,10 +8103,6 @@ msgstr ""
 "proxy[/a]. Nicméně zabezpečení založené na IP adresách nemusí být "
 "spolehlivé, pokud je vaše IP adresa dynamicky přidělována poskytovatelem "
 "spolu s mnoha dalšími uživateli."
-
-#: setup/lib/messages.inc.php:272
-msgid "Edit server"
-msgstr "Upravit server"
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -8370,11 +8377,6 @@ msgstr ""
 msgid "Verbose name of this server"
 msgstr "Dlouhé jméno tohoto serveru"
 
-#: setup/lib/messages.inc.php:328
-#, php-format
-msgid "Set value: %s"
-msgstr "Nastavena hodnota: %s"
-
 #: setup/lib/messages.inc.php:329
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
@@ -8414,10 +8416,6 @@ msgstr "Zobrazí seznam funkcí v editačním režimu"
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
 msgstr "Zobrazit seznam fukncí"
-
-#: setup/lib/messages.inc.php:337
-msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "Zobrazit skyté zprávy (#MSG_COUNT)"
 
 #: setup/lib/messages.inc.php:338
 msgid ""
@@ -8567,10 +8565,6 @@ msgstr ""
 msgid "Got invalid version string from server"
 msgstr "Server odpověděl chybným textem verze"
 
-#: setup/lib/messages.inc.php:370
-msgid "Check for latest version"
-msgstr "Zkontrolovat nejnovější verzi"
-
 #: setup/lib/messages.inc.php:371
 #, php-format
 msgid ""
@@ -8606,10 +8600,6 @@ msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
 "Není dostupný přístup na URL ani CURL, proto není možné kontrolovat verzi."
-
-#: setup/lib/messages.inc.php:377
-msgid "Warning"
-msgstr "Varování"
 
 #: setup/lib/messages.inc.php:378
 msgid ""
@@ -8667,3 +8657,16 @@ msgstr "Vytvořit index na &nbsp;%s&nbsp;sloupcích"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Popis"
+
+#, fuzzy
+#~| msgid ""
+#~| "However on last run no data has been parsed, this usually means "
+#~| "phpMyAdmin won't be able to finish this import unless you increase php "
+#~| "time limits."
+#~ msgid ""
+#~ "However on last run no data has been parsed, this usually means "
+#~ "phpMyAdmin won"
+#~ msgstr ""
+#~ "Bohužel během posledního pokusu nebyla žádná data načtena. Toto obvykle "
+#~ "znamená, že phpMyAdmin nebude schopen načíst tento soubor, pokud "
+#~ "nezvýšíte časové limity v PHP."

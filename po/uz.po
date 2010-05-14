@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 07:48-0400\n"
+"POT-Creation-Date: 2010-05-14 13:39-0400\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -949,15 +949,10 @@ msgstr ""
 "ўша файлни танлаган ҳолда уни қайта ишга туширинг ва жараён узилган жойдан "
 "бошлаб давом этади."
 
-#: import.php:426
-#, fuzzy
-#| msgid ""
-#| "However on last run no data has been parsed, this usually means "
-#| "phpMyAdmin won't be able to finish this import unless you increase php "
-#| "time limits."
+#: import.php:426 libraries/messages.inc.php:1102
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
-"won"
+"won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "Охирги ишга тушириш бўлишига қарамасдан, маълумотлар қайта ишланмади. "
 "Одатда, бу ҳол, php-сценарийлар учун ажратилган вақт оширилмагунча "
@@ -6481,15 +6476,6 @@ msgstr "Оқимлар"
 msgid "Thread %s was successfully killed."
 msgstr " \"%s\" жараёни муваффақиятли якунланди."
 
-#: libraries/messages.inc.php:1102
-msgid ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
-msgstr ""
-"Охирги ишга тушириш бўлишига қарамасдан, маълумотлар қайта ишланмади. "
-"Одатда, бу ҳол, php-сценарийлар учун ажратилган вақт оширилмагунча "
-"phpMyAdmin дастури импорт жараёнини якунла олмаслигини билдиради."
-
 #: libraries/messages.inc.php:1105 pmd_pdf.php:94
 msgid "to/from page"
 msgstr "Саҳифа"
@@ -6968,7 +6954,8 @@ msgstr "Йўқ"
 msgid "Filter"
 msgstr "Фильтр"
 
-#: navigation.php:319 setup/lib/messages.inc.php:42
+#: navigation.php:319 setup/frames/index.inc.php:218
+#: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "Тозалаш"
 
@@ -7073,6 +7060,114 @@ msgstr "Нохавфсиз уланиш"
 #| msgid "Configuration file"
 msgid "Configuration: %s"
 msgstr "Конфигурацион файл"
+
+#: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
+#: setup/lib/messages.inc.php:45
+msgid "Configuration file"
+msgstr "Конфигурацион файл"
+
+#: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
+#: setup/lib/messages.inc.php:65
+msgid "Download"
+msgstr "Юклаб олиш"
+
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+"Сизнинг уланишингиз хавфсиз эмас; барча маълумотлар (шу жумладан, сирли "
+"маълумотлар, масалан, пароллар) шифрланмаган ҳолда узатилади!"
+
+#: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
+#: setup/lib/messages.inc.php:219
+msgid "Overview"
+msgstr "Кўриб чиқиш"
+
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr "Яширин хабарларни кўрсатиш (#MSG_COUNT)"
+
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
+msgid "There are no configured servers"
+msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
+
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
+msgid "New server"
+msgstr "Янги сервер"
+
+#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
+msgid "Default language"
+msgstr "Тил"
+
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
+msgid "let the user choose"
+msgstr "фойдаланувчига танлаш имконини бериш"
+
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
+msgid "- none -"
+msgstr "- йўқ -"
+
+#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
+msgid "Default server"
+msgstr "Сервер"
+
+#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
+msgid "End of line"
+msgstr "Сатр охири"
+
+#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
+msgid "Display"
+msgstr "Кўрсатиш"
+
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
+msgid "Load"
+msgstr "Юклаш"
+
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
+msgid "phpMyAdmin homepage"
+msgstr "phpMyAdmin сайти"
+
+#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
+msgid "Donate"
+msgstr "Садақа"
+
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
+msgid "Check for latest version"
+msgstr "Охирги версияни текшириш"
+
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
+msgid "Features"
+msgstr "Функциялар"
+
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
+msgid "Navigation frame"
+msgstr "Навигация панели"
+
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
+msgid "Main frame"
+msgstr "Асосий рамка"
+
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
+msgid "Edit server"
+msgstr "Серверларни таҳрирлаш"
+
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
+msgid "Add a new server"
+msgstr "Янги фойдаланувчи қўшиш"
+
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
+#, php-format
+msgid "Set value: %s"
+msgstr "Қуйидаги қийматни ўрнатиш: \"%s\""
+
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
+msgid "Restore default value"
+msgstr "Асл қийматларни тиклаш"
+
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
+msgid "Warning"
+msgstr "Огоҳлантириш"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
@@ -7243,10 +7338,6 @@ msgstr ""
 msgid "Compress on the fly"
 msgstr "Бирйўла қисиш"
 
-#: setup/lib/messages.inc.php:45
-msgid "Configuration file"
-msgstr "Конфигурацион файл"
-
 #: setup/lib/messages.inc.php:46
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
@@ -7266,14 +7357,6 @@ msgstr "Конвертация вақтида ишлатиладиган код�
 #: setup/lib/messages.inc.php:49
 msgid "Default character set"
 msgstr "Кодировка"
-
-#: setup/lib/messages.inc.php:50
-msgid "Default language"
-msgstr "Тил"
-
-#: setup/lib/messages.inc.php:51
-msgid "Default server"
-msgstr "Сервер"
 
 #: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
@@ -7317,10 +7400,6 @@ msgstr ""
 msgid "Display databases as a list"
 msgstr "Маълумотлар базасини рўйхат шаклида кўрсатиш"
 
-#: setup/lib/messages.inc.php:61
-msgid "Display"
-msgstr "Кўрсатиш"
-
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
 msgstr ""
@@ -7330,18 +7409,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
 msgstr "Серверлар рўйхатини кўрсатиш"
-
-#: setup/lib/messages.inc.php:64
-msgid "Donate"
-msgstr "Садақа"
-
-#: setup/lib/messages.inc.php:65
-msgid "Download"
-msgstr "Юклаб олиш"
-
-#: setup/lib/messages.inc.php:66
-msgid "End of line"
-msgstr "Сатр охири"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
@@ -7531,10 +7598,6 @@ msgstr "Маълумотлар базаларини кўрсатиш афзал�
 msgid "Customize appearance of the navigation frame"
 msgstr "Навигация панели кўринишини созлаш"
 
-#: setup/lib/messages.inc.php:113
-msgid "Navigation frame"
-msgstr "Навигация панели"
-
 #: setup/lib/messages.inc.php:114
 msgid "Servers display options"
 msgstr "Серверлар кўринишини созлаш"
@@ -7542,10 +7605,6 @@ msgstr "Серверлар кўринишини созлаш"
 #: setup/lib/messages.inc.php:116
 msgid "Tables display options"
 msgstr "Жадваллар кўринишини созлаш"
-
-#: setup/lib/messages.inc.php:118
-msgid "Main frame"
-msgstr "Асосий рамка"
 
 #: setup/lib/messages.inc.php:119
 msgid "Settings that didn't fit enywhere else"
@@ -7630,10 +7689,6 @@ msgstr "Мослашлар"
 msgid "Customize export options"
 msgstr "Экспорт танловларини мослаштириш"
 
-#: setup/lib/messages.inc.php:137
-msgid "Features"
-msgstr "Функциялар"
-
 #: setup/lib/messages.inc.php:138
 msgid "Customize import defaults"
 msgstr "Импорт танловларини мослаштириш"
@@ -7706,10 +7761,6 @@ msgstr ""
 "тиклаш[/a] учун махсус функциялар (\"%s\") керак, лекин улар тизимингизда "
 "топилмади."
 
-#: setup/lib/messages.inc.php:152
-msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin сайти"
-
 #: setup/lib/messages.inc.php:153
 msgid "Extra parameters for iconv"
 msgstr "iconv учун қўшимча параметрлар"
@@ -7759,14 +7810,6 @@ msgstr "Қисман импорт: сўровларга эътибор берм�
 #: setup/lib/messages.inc.php:163
 msgid "Insecure connection"
 msgstr "Нохавфсиз уланиш"
-
-#: setup/lib/messages.inc.php:164
-msgid ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-"Сизнинг уланишингиз хавфсиз эмас; барча маълумотлар (шу жумладан, сирли "
-"маълумотлар, масалан, пароллар) шифрланмаган ҳолда узатилади!"
 
 #: setup/lib/messages.inc.php:165
 #, php-format
@@ -7870,10 +7913,6 @@ msgstr "Сичқонча курсори турган серверни белги
 msgid "Enable highlighting"
 msgstr "Белгилашни ёқиш"
 
-#: setup/lib/messages.inc.php:187
-msgid "let the user choose"
-msgstr "фойдаланувчига танлаш имконини бериш"
-
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
 msgstr "Камроқ графикали ёрлиқларни ишлатиш"
@@ -7881,10 +7920,6 @@ msgstr "Камроқ графикали ёрлиқларни ишлатиш"
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
 msgstr "Енгил ёрлиқлар"
-
-#: setup/lib/messages.inc.php:190
-msgid "Load"
-msgstr "Юклаш"
 
 #: setup/lib/messages.inc.php:191
 msgid ""
@@ -8006,14 +8041,6 @@ msgstr "Фақат пиктограмма, фақат матн ёки ҳар и�
 msgid "Iconic navigation bar"
 msgstr "Пиктограммали навигация менюси"
 
-#: setup/lib/messages.inc.php:212
-msgid "New server"
-msgstr "Янги сервер"
-
-#: setup/lib/messages.inc.php:213
-msgid "There are no configured servers"
-msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
-
 #: setup/lib/messages.inc.php:214
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
@@ -8023,10 +8050,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
 msgstr "GZip буферизация"
-
-#: setup/lib/messages.inc.php:216
-msgid "- none -"
-msgstr "- йўқ -"
 
 #: setup/lib/messages.inc.php:217
 msgid ""
@@ -8039,10 +8062,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
 msgstr "Асл тартиблаш қоидаси"
-
-#: setup/lib/messages.inc.php:219
-msgid "Overview"
-msgstr "Кўриб чиқиш"
 
 #: setup/lib/messages.inc.php:220
 msgid "Use persistent connections to MySQL databases"
@@ -8102,10 +8121,6 @@ msgstr ""
 msgid "Recoding engine"
 msgstr "Кодировкалаш функцияси"
 
-#: setup/lib/messages.inc.php:234
-msgid "Restore default value"
-msgstr "Асл қийматларни тиклаш"
-
 #: setup/lib/messages.inc.php:235
 msgid "Try to revert erroneous fields to their default values"
 msgstr "Янглиш майдонларни асл қийматига қайтаришга уриниш"
@@ -8143,10 +8158,6 @@ msgstr "Унумдорликни ошириш мақсадида \"mysqli\"да�
 #: setup/lib/messages.inc.php:240
 msgid "You allow for connecting to the server without a password."
 msgstr "Серверга паролсиз уланишга рухсат берасизми?"
-
-#: setup/lib/messages.inc.php:241
-msgid "Add a new server"
-msgstr "Янги фойдаланувчи қўшиш"
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
@@ -8309,10 +8320,6 @@ msgstr ""
 "рўйхати[/a]дан фойдаланишингиз мумкин. Аммо, агар Сизнинг IP-адресингиз "
 "минглаб фойдаланувчилар уланган провайдерга тегишли бўлса, IP-адресга "
 "асосланган ҳимоя усули ишонарли бўлмаслиги мумкин."
-
-#: setup/lib/messages.inc.php:272
-msgid "Edit server"
-msgstr "Серверларни таҳрирлаш"
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -8596,11 +8603,6 @@ msgstr "MySQL сервери ишлаётган хост сервер номи"
 msgid "Verbose name of this server"
 msgstr "Ушбу сервернинг кенгайтирилган номи"
 
-#: setup/lib/messages.inc.php:328
-#, php-format
-msgid "Set value: %s"
-msgstr "Қуйидаги қийматни ўрнатиш: \"%s\""
-
 #: setup/lib/messages.inc.php:329
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
@@ -8638,10 +8640,6 @@ msgstr "Таҳрирлаш/қўйиш режимида функциялар ма
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
 msgstr "Фукнциялармайдонини кўрсатиш"
-
-#: setup/lib/messages.inc.php:337
-msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "Яширин хабарларни кўрсатиш (#MSG_COUNT)"
 
 #: setup/lib/messages.inc.php:338
 msgid ""
@@ -8796,10 +8794,6 @@ msgstr ""
 msgid "Got invalid version string from server"
 msgstr "Сервердар версия ҳақида ноўрин маълумот олинди"
 
-#: setup/lib/messages.inc.php:370
-msgid "Check for latest version"
-msgstr "Охирги версияни текшириш"
-
 #: setup/lib/messages.inc.php:371
 #, php-format
 msgid ""
@@ -8838,10 +8832,6 @@ msgstr "Версияни текшириш"
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr "На URL қодоқлагич ва на CURL мавжуд. Версияни текшириб бўлмади."
-
-#: setup/lib/messages.inc.php:377
-msgid "Warning"
-msgstr "Огоҳлантириш"
 
 #: setup/lib/messages.inc.php:378
 msgid ""
@@ -8910,6 +8900,19 @@ msgstr "\"%s\" майдон учун индекс тузиш"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Тавсифи"
+
+#, fuzzy
+#~| msgid ""
+#~| "However on last run no data has been parsed, this usually means "
+#~| "phpMyAdmin won't be able to finish this import unless you increase php "
+#~| "time limits."
+#~ msgid ""
+#~ "However on last run no data has been parsed, this usually means "
+#~ "phpMyAdmin won"
+#~ msgstr ""
+#~ "Охирги ишга тушириш бўлишига қарамасдан, маълумотлар қайта ишланмади. "
+#~ "Одатда, бу ҳол, php-сценарийлар учун ажратилган вақт оширилмагунча "
+#~ "phpMyAdmin дастури импорт жараёнини якунла олмаслигини билдиради."
 
 #, fuzzy
 #~| msgid "None"

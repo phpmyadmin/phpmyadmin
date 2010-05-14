@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 07:48-0400\n"
+"POT-Creation-Date: 2010-05-14 13:39-0400\n"
 "PO-Revision-Date: 2010-04-03 11:44+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -948,15 +948,10 @@ msgstr ""
 "Küçük program zaman aşımı geçti, eğer içeri aktarmayı bitirmek istiyorsanız, "
 "lütfen aynı dosyayı yeniden gönderin ve içeri aktarma devam edecektir."
 
-#: import.php:426
-#, fuzzy
-#| msgid ""
-#| "However on last run no data has been parsed, this usually means "
-#| "phpMyAdmin won't be able to finish this import unless you increase php "
-#| "time limits."
+#: import.php:426 libraries/messages.inc.php:1102
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
-"won"
+"won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "Ancak son çalıştırmada hiç veri ayrıştırılmadı, bu genellikle, php zaman "
 "sınırlarını arttırmadığınız sürece phpMyAdmin'in bu içeri aktarmayı "
@@ -6441,15 +6436,6 @@ msgstr "İşlemler"
 msgid "Thread %s was successfully killed."
 msgstr "%s işlemi başarılı olarak sonlandırıldı."
 
-#: libraries/messages.inc.php:1102
-msgid ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
-msgstr ""
-"Ancak son çalıştırmada hiç veri ayrıştırılmadı, bu genellikle, php zaman "
-"sınırlarını arttırmadığınız sürece phpMyAdmin'in bu içeri aktarmayı "
-"biteremeyeceği anlamına gelir."
-
 #: libraries/messages.inc.php:1105 pmd_pdf.php:94
 msgid "to/from page"
 msgstr "sayfadan/sayfaya"
@@ -6926,7 +6912,8 @@ msgstr "Hiçbiri"
 msgid "Filter"
 msgstr "Süzgeç"
 
-#: navigation.php:319 setup/lib/messages.inc.php:42
+#: navigation.php:319 setup/frames/index.inc.php:218
+#: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "Temizle"
 
@@ -7032,6 +7019,114 @@ msgstr "Güvensiz bağlantı"
 #| msgid "Configuration file"
 msgid "Configuration: %s"
 msgstr "Yapılandırma dosyası"
+
+#: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
+#: setup/lib/messages.inc.php:45
+msgid "Configuration file"
+msgstr "Yapılandırma dosyası"
+
+#: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
+#: setup/lib/messages.inc.php:65
+msgid "Download"
+msgstr "İndir"
+
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+"Güvenli bağlantı kullanmıyorsunuz; tüm veri (parola gibi hassas olabilecek "
+"bilgiler dahil) şifresiz olarak aktarılır!"
+
+#: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
+#: setup/lib/messages.inc.php:219
+msgid "Overview"
+msgstr "Genel Bakış"
+
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr "Gizli mesajları göster (#MSG_COUNT)"
+
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
+msgid "There are no configured servers"
+msgstr "Yapılandırılmış sunucular yok"
+
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
+msgid "New server"
+msgstr "Yeni sunucu"
+
+#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
+msgid "Default language"
+msgstr "Varsayılan dil"
+
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
+msgid "let the user choose"
+msgstr "kullanıcı seçsin"
+
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
+msgid "- none -"
+msgstr "- yok -"
+
+#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
+msgid "Default server"
+msgstr "Varsayılan sunucu"
+
+#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
+msgid "End of line"
+msgstr "Satır sonu"
+
+#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
+msgid "Display"
+msgstr "Görüntüle"
+
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
+msgid "Load"
+msgstr "Yükle"
+
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
+msgid "phpMyAdmin homepage"
+msgstr "phpMyAdmin ana sayfası"
+
+#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
+msgid "Donate"
+msgstr "Bağış"
+
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
+msgid "Check for latest version"
+msgstr "Son sürümü kontrol et"
+
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
+msgid "Features"
+msgstr "Özellikler"
+
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
+msgid "Navigation frame"
+msgstr "Rehber çerçevesi"
+
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
+msgid "Main frame"
+msgstr "Ana çerçeve"
+
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
+msgid "Edit server"
+msgstr "Sunucuyu düzenle"
+
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
+msgid "Add a new server"
+msgstr "Yeni sunucu ekle"
+
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
+#, php-format
+msgid "Set value: %s"
+msgstr "Ayar değeri: %s"
+
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
+msgid "Restore default value"
+msgstr "Varsayılan değeri geri yükle"
+
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
+msgid "Warning"
+msgstr "Uyarı"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
@@ -7201,10 +7296,6 @@ msgstr ""
 msgid "Compress on the fly"
 msgstr "Anında sıkıştır"
 
-#: setup/lib/messages.inc.php:45
-msgid "Configuration file"
-msgstr "Yapılandırma dosyası"
-
 #: setup/lib/messages.inc.php:46
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
@@ -7224,14 +7315,6 @@ msgstr "Dönüştürmeler için kullanılan varsayılan karakter grubu"
 #: setup/lib/messages.inc.php:49
 msgid "Default character set"
 msgstr "Varsayılan karakter grubu"
-
-#: setup/lib/messages.inc.php:50
-msgid "Default language"
-msgstr "Varsayılan dil"
-
-#: setup/lib/messages.inc.php:51
-msgid "Default server"
-msgstr "Varsayılan sunucu"
 
 #: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
@@ -7274,10 +7357,6 @@ msgstr "Veritabanı listelemeyi aşağı açılır menü yerine liste olarak gö
 msgid "Display databases as a list"
 msgstr "Veritabanlarını liste olarak görüntüle"
 
-#: setup/lib/messages.inc.php:61
-msgid "Display"
-msgstr "Görüntüle"
-
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
 msgstr "Sunucu listelemeyi aşağı açılır menü yerine liste olarak gösterir"
@@ -7285,18 +7364,6 @@ msgstr "Sunucu listelemeyi aşağı açılır menü yerine liste olarak gösteri
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
 msgstr "Sunucuları liste olarak görüntüle"
-
-#: setup/lib/messages.inc.php:64
-msgid "Donate"
-msgstr "Bağış"
-
-#: setup/lib/messages.inc.php:65
-msgid "Download"
-msgstr "İndir"
-
-#: setup/lib/messages.inc.php:66
-msgid "End of line"
-msgstr "Satır sonu"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
@@ -7479,10 +7546,6 @@ msgstr "Veritabanlarının görüntü seçenekleri"
 msgid "Customize appearance of the navigation frame"
 msgstr "Rehber çerçevesinin görünümünü özelleştirir"
 
-#: setup/lib/messages.inc.php:113
-msgid "Navigation frame"
-msgstr "Rehber çerçevesi"
-
 #: setup/lib/messages.inc.php:114
 msgid "Servers display options"
 msgstr "Sunucuların görüntü seçenekleri"
@@ -7490,10 +7553,6 @@ msgstr "Sunucuların görüntü seçenekleri"
 #: setup/lib/messages.inc.php:116
 msgid "Tables display options"
 msgstr "Tabloların görüntü seçenekleri"
-
-#: setup/lib/messages.inc.php:118
-msgid "Main frame"
-msgstr "Ana çerçeve"
 
 #: setup/lib/messages.inc.php:119
 msgid "Settings that didn't fit enywhere else"
@@ -7577,10 +7636,6 @@ msgstr "Özelleştirme"
 msgid "Customize export options"
 msgstr "Dışarı aktarma seçeneklerini özelleştir"
 
-#: setup/lib/messages.inc.php:137
-msgid "Features"
-msgstr "Özellikler"
-
 #: setup/lib/messages.inc.php:138
 msgid "Customize import defaults"
 msgstr "İçeri aktarma varsayılanlarını özelleştir"
@@ -7651,10 +7706,6 @@ msgstr ""
 "[a@?page=form&amp;formset=features#tab_Import_export]GZip sıkıştırması ve "
 "açması[/a] bu sistemde mevcut olmayan işlevleri (%s) gerektirir."
 
-#: setup/lib/messages.inc.php:152
-msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin ana sayfası"
-
 #: setup/lib/messages.inc.php:153
 msgid "Extra parameters for iconv"
 msgstr "Iconv için ilave parametreler"
@@ -7704,14 +7755,6 @@ msgstr "Kısmi içeri aktarma: sorguları atla"
 #: setup/lib/messages.inc.php:163
 msgid "Insecure connection"
 msgstr "Güvensiz bağlantı"
-
-#: setup/lib/messages.inc.php:164
-msgid ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-"Güvenli bağlantı kullanmıyorsunuz; tüm veri (parola gibi hassas olabilecek "
-"bilgiler dahil) şifresiz olarak aktarılır!"
 
 #: setup/lib/messages.inc.php:165
 #, php-format
@@ -7816,10 +7859,6 @@ msgstr "Fare imleci altında sunucuyu vurgula"
 msgid "Enable highlighting"
 msgstr "Vurgulamalar etkin"
 
-#: setup/lib/messages.inc.php:187
-msgid "let the user choose"
-msgstr "kullanıcı seçsin"
-
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
 msgstr "Az grafiksel yoğunlukta sekmeler kullanılır"
@@ -7827,10 +7866,6 @@ msgstr "Az grafiksel yoğunlukta sekmeler kullanılır"
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
 msgstr "Hafif sekmeler"
-
-#: setup/lib/messages.inc.php:190
-msgid "Load"
-msgstr "Yükle"
 
 #: setup/lib/messages.inc.php:191
 msgid ""
@@ -7955,14 +7990,6 @@ msgstr "Sadece simgeleri, sadece metni veya her ikisinide kullanır"
 msgid "Iconic navigation bar"
 msgstr "Simgesel rehber çubuğu"
 
-#: setup/lib/messages.inc.php:212
-msgid "New server"
-msgstr "Yeni sunucu"
-
-#: setup/lib/messages.inc.php:213
-msgid "There are no configured servers"
-msgstr "Yapılandırılmış sunucular yok"
-
 #: setup/lib/messages.inc.php:214
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
@@ -7971,10 +7998,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
 msgstr "GZip çıktı arabellekleme"
-
-#: setup/lib/messages.inc.php:216
-msgid "- none -"
-msgstr "- yok -"
 
 #: setup/lib/messages.inc.php:217
 msgid ""
@@ -7987,10 +8010,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
 msgstr "Varsayılan sıralama düzeni"
-
-#: setup/lib/messages.inc.php:219
-msgid "Overview"
-msgstr "Genel Bakış"
 
 #: setup/lib/messages.inc.php:220
 msgid "Use persistent connections to MySQL databases"
@@ -8049,10 +8068,6 @@ msgstr "Karakter grubu dönüştürme için kullanılacak olan işlevleri seçin
 msgid "Recoding engine"
 msgstr "Kaydetme motoru"
 
-#: setup/lib/messages.inc.php:234
-msgid "Restore default value"
-msgstr "Varsayılan değeri geri yükle"
-
 #: setup/lib/messages.inc.php:235
 msgid "Try to revert erroneous fields to their default values"
 msgstr "Hatalı alanları varsayılan değerlerine döndürmeyi dene"
@@ -8088,10 +8103,6 @@ msgstr "Verim almak için mysqli kullanmalısınız"
 #: setup/lib/messages.inc.php:240
 msgid "You allow for connecting to the server without a password."
 msgstr "Sunucuya parolasız bağlanmaya izin verdiniz."
-
-#: setup/lib/messages.inc.php:241
-msgid "Add a new server"
-msgstr "Yeni sunucu ekle"
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
@@ -8252,10 +8263,6 @@ msgstr ""
 "formset=features#tab_Security]güvenilir proksi listesi[/a]. Ancak, IP-"
 "tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce kullanıcıya "
 "sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir olmayabilir ."
-
-#: setup/lib/messages.inc.php:272
-msgid "Edit server"
-msgstr "Sunucuyu düzenle"
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -8537,11 +8544,6 @@ msgstr ""
 msgid "Verbose name of this server"
 msgstr "Sunucunun fazladan adı"
 
-#: setup/lib/messages.inc.php:328
-#, php-format
-msgid "Set value: %s"
-msgstr "Ayar değeri: %s"
-
 #: setup/lib/messages.inc.php:329
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
@@ -8582,10 +8584,6 @@ msgstr "İşlev alanlarını düzenle/ekle modunda görüntüler"
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
 msgstr "İşlev alanlarını göster"
-
-#: setup/lib/messages.inc.php:337
-msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "Gizli mesajları göster (#MSG_COUNT)"
 
 #: setup/lib/messages.inc.php:338
 msgid ""
@@ -8740,10 +8738,6 @@ msgstr ""
 msgid "Got invalid version string from server"
 msgstr "Sunucudan geçersiz sürüm dizgisi alındı"
 
-#: setup/lib/messages.inc.php:370
-msgid "Check for latest version"
-msgstr "Son sürümü kontrol et"
-
 #: setup/lib/messages.inc.php:371
 #, php-format
 msgid ""
@@ -8781,10 +8775,6 @@ msgstr "Sürüm  kontrolü"
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr "Ne URL ne de CURL mevcut. Sürüm kontrolü mümkün değil."
-
-#: setup/lib/messages.inc.php:377
-msgid "Warning"
-msgstr "Uyarı"
 
 #: setup/lib/messages.inc.php:378
 msgid ""
@@ -8853,6 +8843,19 @@ msgstr "&nbsp;%s&nbsp;sütunda indeks oluştur."
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Açıklama"
+
+#, fuzzy
+#~| msgid ""
+#~| "However on last run no data has been parsed, this usually means "
+#~| "phpMyAdmin won't be able to finish this import unless you increase php "
+#~| "time limits."
+#~ msgid ""
+#~ "However on last run no data has been parsed, this usually means "
+#~ "phpMyAdmin won"
+#~ msgstr ""
+#~ "Ancak son çalıştırmada hiç veri ayrıştırılmadı, bu genellikle, php zaman "
+#~ "sınırlarını arttırmadığınız sürece phpMyAdmin'in bu içeri aktarmayı "
+#~ "biteremeyeceği anlamına gelir."
 
 #, fuzzy
 #~| msgid "None"

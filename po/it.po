@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 07:48-0400\n"
+"POT-Creation-Date: 2010-05-14 13:39-0400\n"
 "PO-Revision-Date: 2010-04-11 11:19+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -961,15 +961,10 @@ msgstr ""
 "Superato il tempo limite dello script, se vuoi finire l'importazione inoltra "
 "nuovamente il file e il processo riprenderà."
 
-#: import.php:426
-#, fuzzy
-#| msgid ""
-#| "However on last run no data has been parsed, this usually means "
-#| "phpMyAdmin won't be able to finish this import unless you increase php "
-#| "time limits."
+#: import.php:426 libraries/messages.inc.php:1102
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
-"won"
+"won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "Nell'ultima esecuzione nessun dato è stato processato, questo, solitamente, "
 "vuole dire che che phpMyAdmin non è in grado di ultimare l'operazione fino a "
@@ -6466,15 +6461,6 @@ msgstr "Processi"
 msgid "Thread %s was successfully killed."
 msgstr "Il thread %s è stato terminato con successo."
 
-#: libraries/messages.inc.php:1102
-msgid ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
-msgstr ""
-"Nell'ultima esecuzione nessun dato è stato processato, questo, solitamente, "
-"vuole dire che che phpMyAdmin non è in grado di ultimare l'operazione fino a "
-"che non verrà aumentato il parametro php time limits."
-
 #: libraries/messages.inc.php:1105 pmd_pdf.php:94
 msgid "to/from page"
 msgstr "da/per pagina"
@@ -6954,7 +6940,8 @@ msgstr "Nessuno"
 msgid "Filter"
 msgstr "File"
 
-#: navigation.php:319 setup/lib/messages.inc.php:42
+#: navigation.php:319 setup/frames/index.inc.php:218
+#: setup/lib/messages.inc.php:42
 #, fuzzy
 msgid "Clear"
 msgstr "Calendario"
@@ -7046,6 +7033,113 @@ msgstr "Connessione non sicura"
 #| msgid "Configuration"
 msgid "Configuration: %s"
 msgstr "Configurazione"
+
+#: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
+#: setup/lib/messages.inc.php:45
+msgid "Configuration file"
+msgstr "File di configurazione"
+
+#: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
+#: setup/lib/messages.inc.php:65
+msgid "Download"
+msgstr "Scarica"
+
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+
+#: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
+#: setup/lib/messages.inc.php:219
+msgid "Overview"
+msgstr "Panoramica"
+
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr ""
+
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
+msgid "There are no configured servers"
+msgstr "Non ci sono server configurati"
+
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
+msgid "New server"
+msgstr "Nuovo server"
+
+#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
+msgid "Default language"
+msgstr "Lingua predefinita"
+
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
+msgid "let the user choose"
+msgstr ""
+
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
+msgid "- none -"
+msgstr "- nessuno -"
+
+#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
+msgid "Default server"
+msgstr "Server predefinito"
+
+#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
+msgid "End of line"
+msgstr ""
+
+#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
+msgid "Display"
+msgstr "Visualizza"
+
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
+msgid "Load"
+msgstr "Carica"
+
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
+#, fuzzy
+msgid "phpMyAdmin homepage"
+msgstr "Documentazione di phpMyAdmin"
+
+#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
+msgid "Donate"
+msgstr "Dona"
+
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
+msgid "Check for latest version"
+msgstr "Controlla l'ultima versione"
+
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
+msgid "Features"
+msgstr "Caratteristiche"
+
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
+msgid "Navigation frame"
+msgstr "Frame di navigazione"
+
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
+msgid "Main frame"
+msgstr ""
+
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
+msgid "Edit server"
+msgstr "Modifica server"
+
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
+msgid "Add a new server"
+msgstr "Aggiungi un nuovo server"
+
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
+#, php-format
+msgid "Set value: %s"
+msgstr "Imposta valore: %s"
+
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
+msgid "Restore default value"
+msgstr "Ripristinare valori predefiniti"
+
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
+msgid "Warning"
+msgstr "Attenzione"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
@@ -7186,10 +7280,6 @@ msgstr ""
 msgid "Compress on the fly"
 msgstr ""
 
-#: setup/lib/messages.inc.php:45
-msgid "Configuration file"
-msgstr "File di configurazione"
-
 #: setup/lib/messages.inc.php:46
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
@@ -7207,14 +7297,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:49
 msgid "Default character set"
 msgstr ""
-
-#: setup/lib/messages.inc.php:50
-msgid "Default language"
-msgstr "Lingua predefinita"
-
-#: setup/lib/messages.inc.php:51
-msgid "Default server"
-msgstr "Server predefinito"
 
 #: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
@@ -7257,28 +7339,12 @@ msgstr ""
 msgid "Display databases as a list"
 msgstr ""
 
-#: setup/lib/messages.inc.php:61
-msgid "Display"
-msgstr "Visualizza"
-
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
 msgstr ""
 
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
-msgstr ""
-
-#: setup/lib/messages.inc.php:64
-msgid "Donate"
-msgstr "Dona"
-
-#: setup/lib/messages.inc.php:65
-msgid "Download"
-msgstr "Scarica"
-
-#: setup/lib/messages.inc.php:66
-msgid "End of line"
 msgstr ""
 
 #: setup/lib/messages.inc.php:67
@@ -7466,10 +7532,6 @@ msgstr "Opzioni di visualizzazione tabelle"
 msgid "Customize appearance of the navigation frame"
 msgstr ""
 
-#: setup/lib/messages.inc.php:113
-msgid "Navigation frame"
-msgstr "Frame di navigazione"
-
 #: setup/lib/messages.inc.php:114
 #, fuzzy
 msgid "Servers display options"
@@ -7478,10 +7540,6 @@ msgstr "Opzioni di visualizzazione tabelle"
 #: setup/lib/messages.inc.php:116
 msgid "Tables display options"
 msgstr "Opzioni di visualizzazione tabelle"
-
-#: setup/lib/messages.inc.php:118
-msgid "Main frame"
-msgstr ""
 
 #: setup/lib/messages.inc.php:119
 msgid "Settings that didn't fit enywhere else"
@@ -7559,10 +7617,6 @@ msgstr "Personalizzazione"
 msgid "Customize export options"
 msgstr "Personalizza le opzioni di esportazione"
 
-#: setup/lib/messages.inc.php:137
-msgid "Features"
-msgstr "Caratteristiche"
-
 #: setup/lib/messages.inc.php:138
 #, fuzzy
 msgid "Customize import defaults"
@@ -7631,11 +7685,6 @@ msgid ""
 "system."
 msgstr ""
 
-#: setup/lib/messages.inc.php:152
-#, fuzzy
-msgid "phpMyAdmin homepage"
-msgstr "Documentazione di phpMyAdmin"
-
 #: setup/lib/messages.inc.php:153
 msgid "Extra parameters for iconv"
 msgstr ""
@@ -7682,12 +7731,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:163
 msgid "Insecure connection"
 msgstr "Connessione non sicura"
-
-#: setup/lib/messages.inc.php:164
-msgid ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
 
 #: setup/lib/messages.inc.php:165
 #, php-format
@@ -7786,10 +7829,6 @@ msgstr ""
 msgid "Enable highlighting"
 msgstr ""
 
-#: setup/lib/messages.inc.php:187
-msgid "let the user choose"
-msgstr ""
-
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
 msgstr ""
@@ -7797,10 +7836,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
 msgstr ""
-
-#: setup/lib/messages.inc.php:190
-msgid "Load"
-msgstr "Carica"
 
 #: setup/lib/messages.inc.php:191
 msgid ""
@@ -7907,14 +7942,6 @@ msgstr ""
 msgid "Iconic navigation bar"
 msgstr ""
 
-#: setup/lib/messages.inc.php:212
-msgid "New server"
-msgstr "Nuovo server"
-
-#: setup/lib/messages.inc.php:213
-msgid "There are no configured servers"
-msgstr "Non ci sono server configurati"
-
 #: setup/lib/messages.inc.php:214
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
@@ -7922,10 +7949,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
 msgstr ""
-
-#: setup/lib/messages.inc.php:216
-msgid "- none -"
-msgstr "- nessuno -"
 
 #: setup/lib/messages.inc.php:217
 msgid ""
@@ -7936,10 +7959,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
 msgstr ""
-
-#: setup/lib/messages.inc.php:219
-msgid "Overview"
-msgstr "Panoramica"
 
 #: setup/lib/messages.inc.php:220
 msgid "Use persistent connections to MySQL databases"
@@ -7995,10 +8014,6 @@ msgstr ""
 msgid "Recoding engine"
 msgstr ""
 
-#: setup/lib/messages.inc.php:234
-msgid "Restore default value"
-msgstr "Ripristinare valori predefiniti"
-
 #: setup/lib/messages.inc.php:235
 msgid "Try to revert erroneous fields to their default values"
 msgstr ""
@@ -8029,10 +8044,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:240
 msgid "You allow for connecting to the server without a password."
 msgstr ""
-
-#: setup/lib/messages.inc.php:241
-msgid "Add a new server"
-msgstr "Aggiungi un nuovo server"
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
@@ -8178,10 +8189,6 @@ msgid ""
 "IP belongs to an ISP where thousands of users, including you, are connected "
 "to."
 msgstr ""
-
-#: setup/lib/messages.inc.php:272
-msgid "Edit server"
-msgstr "Modifica server"
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -8435,11 +8442,6 @@ msgstr ""
 msgid "Verbose name of this server"
 msgstr ""
 
-#: setup/lib/messages.inc.php:328
-#, php-format
-msgid "Set value: %s"
-msgstr "Imposta valore: %s"
-
 #: setup/lib/messages.inc.php:329
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
@@ -8474,10 +8476,6 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
-msgstr ""
-
-#: setup/lib/messages.inc.php:337
-msgid "Show hidden messages (#MSG_COUNT)"
 msgstr ""
 
 #: setup/lib/messages.inc.php:338
@@ -8612,10 +8610,6 @@ msgstr ""
 msgid "Got invalid version string from server"
 msgstr ""
 
-#: setup/lib/messages.inc.php:370
-msgid "Check for latest version"
-msgstr "Controlla l'ultima versione"
-
 #: setup/lib/messages.inc.php:371
 #, php-format
 msgid ""
@@ -8646,10 +8640,6 @@ msgstr "Controllo versione"
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
-
-#: setup/lib/messages.inc.php:377
-msgid "Warning"
-msgstr "Attenzione"
 
 #: setup/lib/messages.inc.php:378
 msgid ""
@@ -8710,6 +8700,19 @@ msgstr "Crea un indice su %s columns"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descrizione"
+
+#, fuzzy
+#~| msgid ""
+#~| "However on last run no data has been parsed, this usually means "
+#~| "phpMyAdmin won't be able to finish this import unless you increase php "
+#~| "time limits."
+#~ msgid ""
+#~ "However on last run no data has been parsed, this usually means "
+#~ "phpMyAdmin won"
+#~ msgstr ""
+#~ "Nell'ultima esecuzione nessun dato è stato processato, questo, "
+#~ "solitamente, vuole dire che che phpMyAdmin non è in grado di ultimare "
+#~ "l'operazione fino a che non verrà aumentato il parametro php time limits."
 
 #, fuzzy
 #~| msgid "None"

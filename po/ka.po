@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 07:48-0400\n"
+"POT-Creation-Date: 2010-05-14 13:39-0400\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: georgian <ka@li.org>\n"
@@ -952,15 +952,10 @@ msgstr ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 
-#: import.php:426
-#, fuzzy
-#| msgid ""
-#| "However on last run no data has been parsed, this usually means "
-#| "phpMyAdmin won't be able to finish this import unless you increase php "
-#| "time limits."
+#: import.php:426 libraries/messages.inc.php:1102
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
-"won"
+"won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -6410,14 +6405,6 @@ msgstr "Threads"
 msgid "Thread %s was successfully killed."
 msgstr "Thread %s was successfully killed."
 
-#: libraries/messages.inc.php:1102
-msgid ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
-msgstr ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
-
 #: libraries/messages.inc.php:1105 pmd_pdf.php:94
 msgid "to/from page"
 msgstr "to/from page"
@@ -6891,7 +6878,8 @@ msgstr "არაა"
 msgid "Filter"
 msgstr "ფაილები"
 
-#: navigation.php:319 setup/lib/messages.inc.php:42
+#: navigation.php:319 setup/frames/index.inc.php:218
+#: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "გაწმენდა"
 
@@ -6979,6 +6967,114 @@ msgstr "დაუცველი კავშირი"
 #| msgid "Configuration file"
 msgid "Configuration: %s"
 msgstr "კონფიგურაციის ფაილი"
+
+#: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
+#: setup/lib/messages.inc.php:45
+msgid "Configuration file"
+msgstr "კონფიგურაციის ფაილი"
+
+#: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
+#: setup/lib/messages.inc.php:65
+msgid "Download"
+msgstr "ჩამოტვირთვა"
+
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+
+#: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
+#: setup/lib/messages.inc.php:219
+msgid "Overview"
+msgstr "განხილვა"
+
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr "ფარული შეტყობინებების ჩვენება (#MSG_COUNT)"
+
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
+msgid "There are no configured servers"
+msgstr "There are no configured servers"
+
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
+msgid "New server"
+msgstr "ახალი სერვერი"
+
+#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
+msgid "Default language"
+msgstr "ნაგულისხმები ენა"
+
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
+msgid "let the user choose"
+msgstr "let the user choose"
+
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
+msgid "- none -"
+msgstr "- არაა -"
+
+#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
+msgid "Default server"
+msgstr "ნაგულისხმები სერვერი"
+
+#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
+msgid "End of line"
+msgstr "სტრიქონის დასასრული"
+
+#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
+msgid "Display"
+msgstr "ჩვენება"
+
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
+msgid "Load"
+msgstr "ჩატვირთვა"
+
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
+msgid "phpMyAdmin homepage"
+msgstr "phpMyAdmin-ის სათაო გვერდი"
+
+#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
+msgid "Donate"
+msgstr "შემოწირულობა"
+
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
+msgid "Check for latest version"
+msgstr "უკანასკნელ ვერსიაზე შემოწმება"
+
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
+msgid "Features"
+msgstr "Features"
+
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
+msgid "Navigation frame"
+msgstr "ნავიგაციის ჩარჩო"
+
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
+msgid "Main frame"
+msgstr "მთავარი ჩარჩო"
+
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
+msgid "Edit server"
+msgstr "სერვერის რედაქტირება"
+
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
+msgid "Add a new server"
+msgstr "ახალი სერვერის დამატება"
+
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
+#, php-format
+msgid "Set value: %s"
+msgstr "Set value: %s"
+
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
+msgid "Restore default value"
+msgstr "Restore default value"
+
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
+msgid "Warning"
+msgstr "Warning"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
@@ -7143,10 +7239,6 @@ msgstr ""
 msgid "Compress on the fly"
 msgstr "Compress on the fly"
 
-#: setup/lib/messages.inc.php:45
-msgid "Configuration file"
-msgstr "კონფიგურაციის ფაილი"
-
 #: setup/lib/messages.inc.php:46
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
@@ -7166,14 +7258,6 @@ msgstr "Default character set used for conversions"
 #: setup/lib/messages.inc.php:49
 msgid "Default character set"
 msgstr "Default character set"
-
-#: setup/lib/messages.inc.php:50
-msgid "Default language"
-msgstr "ნაგულისხმები ენა"
-
-#: setup/lib/messages.inc.php:51
-msgid "Default server"
-msgstr "ნაგულისხმები სერვერი"
 
 #: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
@@ -7215,10 +7299,6 @@ msgstr "Show database listing as a list instead of a drop down"
 msgid "Display databases as a list"
 msgstr "მონაცემთა ბაზების სიის სახით ჩვენება"
 
-#: setup/lib/messages.inc.php:61
-msgid "Display"
-msgstr "ჩვენება"
-
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
 msgstr "Show server listing as a list instead of a drop down"
@@ -7226,18 +7306,6 @@ msgstr "Show server listing as a list instead of a drop down"
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
 msgstr "სერვერების სიის სახით ჩვენება"
-
-#: setup/lib/messages.inc.php:64
-msgid "Donate"
-msgstr "შემოწირულობა"
-
-#: setup/lib/messages.inc.php:65
-msgid "Download"
-msgstr "ჩამოტვირთვა"
-
-#: setup/lib/messages.inc.php:66
-msgid "End of line"
-msgstr "სტრიქონის დასასრული"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
@@ -7417,10 +7485,6 @@ msgstr "მონაცემთა ბაზის ჩვენების პ
 msgid "Customize appearance of the navigation frame"
 msgstr "Customize appearance of the navigation frame"
 
-#: setup/lib/messages.inc.php:113
-msgid "Navigation frame"
-msgstr "ნავიგაციის ჩარჩო"
-
 #: setup/lib/messages.inc.php:114
 msgid "Servers display options"
 msgstr "სერვერის ჩვენების პარამეტრები"
@@ -7428,10 +7492,6 @@ msgstr "სერვერის ჩვენების პარამეტ�
 #: setup/lib/messages.inc.php:116
 msgid "Tables display options"
 msgstr "ცხრილების ჩვენების პარამეტრები"
-
-#: setup/lib/messages.inc.php:118
-msgid "Main frame"
-msgstr "მთავარი ჩარჩო"
 
 #: setup/lib/messages.inc.php:119
 msgid "Settings that didn't fit enywhere else"
@@ -7515,10 +7575,6 @@ msgstr "Customization"
 msgid "Customize export options"
 msgstr "Customize export options"
 
-#: setup/lib/messages.inc.php:137
-msgid "Features"
-msgstr "Features"
-
 #: setup/lib/messages.inc.php:138
 msgid "Customize import defaults"
 msgstr "Customize import defaults"
@@ -7590,10 +7646,6 @@ msgstr ""
 "decompression[/a] requires functions (%s) which are unavailable on this "
 "system."
 
-#: setup/lib/messages.inc.php:152
-msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin-ის სათაო გვერდი"
-
 #: setup/lib/messages.inc.php:153
 msgid "Extra parameters for iconv"
 msgstr "Extra parameters for iconv"
@@ -7643,14 +7695,6 @@ msgstr "Partial import: skip queries"
 #: setup/lib/messages.inc.php:163
 msgid "Insecure connection"
 msgstr "დაუცველი კავშირი"
-
-#: setup/lib/messages.inc.php:164
-msgid ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
 
 #: setup/lib/messages.inc.php:165
 #, php-format
@@ -7753,10 +7797,6 @@ msgstr "Highlight server under the mouse cursor"
 msgid "Enable highlighting"
 msgstr "Enable highlighting"
 
-#: setup/lib/messages.inc.php:187
-msgid "let the user choose"
-msgstr "let the user choose"
-
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
 msgstr "Use less graphically intense tabs"
@@ -7764,10 +7804,6 @@ msgstr "Use less graphically intense tabs"
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
 msgstr "Light tabs"
-
-#: setup/lib/messages.inc.php:190
-msgid "Load"
-msgstr "ჩატვირთვა"
 
 #: setup/lib/messages.inc.php:191
 msgid ""
@@ -7887,14 +7923,6 @@ msgstr "Use only icons, only text or both"
 msgid "Iconic navigation bar"
 msgstr "Iconic navigation bar"
 
-#: setup/lib/messages.inc.php:212
-msgid "New server"
-msgstr "ახალი სერვერი"
-
-#: setup/lib/messages.inc.php:213
-msgid "There are no configured servers"
-msgstr "There are no configured servers"
-
 #: setup/lib/messages.inc.php:214
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr "use GZip output buffering for increased speed in HTTP transfers"
@@ -7902,10 +7930,6 @@ msgstr "use GZip output buffering for increased speed in HTTP transfers"
 #: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
 msgstr "GZip output buffering"
-
-#: setup/lib/messages.inc.php:216
-msgid "- none -"
-msgstr "- არაა -"
 
 #: setup/lib/messages.inc.php:217
 msgid ""
@@ -7918,10 +7942,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
 msgstr "Default sorting order"
-
-#: setup/lib/messages.inc.php:219
-msgid "Overview"
-msgstr "განხილვა"
 
 #: setup/lib/messages.inc.php:220
 msgid "Use persistent connections to MySQL databases"
@@ -7979,10 +7999,6 @@ msgstr "Select which functions will be used for character set conversion"
 msgid "Recoding engine"
 msgstr "Recoding engine"
 
-#: setup/lib/messages.inc.php:234
-msgid "Restore default value"
-msgstr "Restore default value"
-
 #: setup/lib/messages.inc.php:235
 msgid "Try to revert erroneous fields to their default values"
 msgstr "Try to revert erroneous fields to their default values"
@@ -8017,10 +8033,6 @@ msgstr "You should use mysqli for performance reasons"
 #: setup/lib/messages.inc.php:240
 msgid "You allow for connecting to the server without a password."
 msgstr ""
-
-#: setup/lib/messages.inc.php:241
-msgid "Add a new server"
-msgstr "ახალი სერვერის დამატება"
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
@@ -8180,10 +8192,6 @@ msgstr ""
 "proxies list[/a]. However, IP-based protection may not be reliable if your "
 "IP belongs to an ISP where thousands of users, including you, are connected "
 "to."
-
-#: setup/lib/messages.inc.php:272
-msgid "Edit server"
-msgstr "სერვერის რედაქტირება"
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -8458,11 +8466,6 @@ msgstr ""
 msgid "Verbose name of this server"
 msgstr "Verbose name of this server"
 
-#: setup/lib/messages.inc.php:328
-#, php-format
-msgid "Set value: %s"
-msgstr "Set value: %s"
-
 #: setup/lib/messages.inc.php:329
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
@@ -8502,10 +8505,6 @@ msgstr "Display the function fields in edit/insert mode"
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
 msgstr "ფუნქციების ველების ჩვენება"
-
-#: setup/lib/messages.inc.php:337
-msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "ფარული შეტყობინებების ჩვენება (#MSG_COUNT)"
 
 #: setup/lib/messages.inc.php:338
 msgid ""
@@ -8656,10 +8655,6 @@ msgstr ""
 msgid "Got invalid version string from server"
 msgstr "Got invalid version string from server"
 
-#: setup/lib/messages.inc.php:370
-msgid "Check for latest version"
-msgstr "უკანასკნელ ვერსიაზე შემოწმება"
-
 #: setup/lib/messages.inc.php:371
 #, php-format
 msgid ""
@@ -8698,10 +8693,6 @@ msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
-
-#: setup/lib/messages.inc.php:377
-msgid "Warning"
-msgstr "Warning"
 
 #: setup/lib/messages.inc.php:378
 msgid ""
@@ -8770,6 +8761,19 @@ msgstr "Create an index on&nbsp;%s&nbsp;columns"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "აღწერილობა"
+
+#, fuzzy
+#~| msgid ""
+#~| "However on last run no data has been parsed, this usually means "
+#~| "phpMyAdmin won't be able to finish this import unless you increase php "
+#~| "time limits."
+#~ msgid ""
+#~ "However on last run no data has been parsed, this usually means "
+#~ "phpMyAdmin won"
+#~ msgstr ""
+#~ "However on last run no data has been parsed, this usually means "
+#~ "phpMyAdmin won't be able to finish this import unless you increase php "
+#~ "time limits."
 
 #, fuzzy
 #~| msgid "None"

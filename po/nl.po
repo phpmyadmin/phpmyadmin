@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 07:48-0400\n"
+"POT-Creation-Date: 2010-05-14 13:39-0400\n"
 "PO-Revision-Date: 2010-03-26 15:46+0200\n"
 "Last-Translator:  <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -950,15 +950,10 @@ msgstr ""
 "De maximale uitvoertijd is verstreken, indien u de import wil afmaken kunt u "
 "het bestand opnieuw invoeren."
 
-#: import.php:426
-#, fuzzy
-#| msgid ""
-#| "However on last run no data has been parsed, this usually means "
-#| "phpMyAdmin won't be able to finish this import unless you increase php "
-#| "time limits."
+#: import.php:426 libraries/messages.inc.php:1102
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
-"won"
+"won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "Tijdens de laatste poging is er geen vooruitgang geboekt, meestal betekend "
 "dit dat phpMyAdmin dit niet af kan maken tenzij de tijdsrestricties van PHP "
@@ -6476,15 +6471,6 @@ msgstr "Threads"
 msgid "Thread %s was successfully killed."
 msgstr "Thread %s is succesvol afgesloten."
 
-#: libraries/messages.inc.php:1102
-msgid ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
-msgstr ""
-"Tijdens de laatste poging is er geen vooruitgang geboekt, meestal betekend "
-"dit dat phpMyAdmin dit niet af kan maken tenzij de tijdsrestricties van PHP "
-"worden versoepeld."
-
 #: libraries/messages.inc.php:1105 pmd_pdf.php:94
 msgid "to/from page"
 msgstr "Van/tot pagina"
@@ -6961,7 +6947,8 @@ msgstr "Geen"
 msgid "Filter"
 msgstr "Filter"
 
-#: navigation.php:319 setup/lib/messages.inc.php:42
+#: navigation.php:319 setup/frames/index.inc.php:218
+#: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "Clear"
 
@@ -7066,6 +7053,115 @@ msgstr "Onveilige verbinding"
 #| msgid "Configuration file"
 msgid "Configuration: %s"
 msgstr "Configuratiebestand"
+
+#: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
+#: setup/lib/messages.inc.php:45
+msgid "Configuration file"
+msgstr "Configuratiebestand"
+
+#: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
+#: setup/lib/messages.inc.php:65
+msgid "Download"
+msgstr "Download"
+
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+"U gebruikt een verbinding die niet beveiligd is. Alle gegevens (inclusief "
+"potentieel gevoelige informatie zoals wachtwoorden) worden onversleuteld "
+"verzonden!"
+
+#: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
+#: setup/lib/messages.inc.php:219
+msgid "Overview"
+msgstr "Overzicht"
+
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr "Toon verborgen berichten (#MSG_COUNT)"
+
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
+msgid "There are no configured servers"
+msgstr "Er zijn momenteel geen servers geconfigureerd"
+
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
+msgid "New server"
+msgstr "Nieuwe server"
+
+#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
+msgid "Default language"
+msgstr "Standaard taal"
+
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
+msgid "let the user choose"
+msgstr "laat de gebruiker kiezen"
+
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
+msgid "- none -"
+msgstr "- geen -"
+
+#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
+msgid "Default server"
+msgstr "Standaard server"
+
+#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
+msgid "End of line"
+msgstr "Regeleinde"
+
+#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
+msgid "Display"
+msgstr "Toon"
+
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
+msgid "Load"
+msgstr "Laden"
+
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
+msgid "phpMyAdmin homepage"
+msgstr "phpMyAdmin homepage"
+
+#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
+msgid "Donate"
+msgstr "Doneer"
+
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
+msgid "Check for latest version"
+msgstr "Controleer de meest recente versie"
+
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
+msgid "Features"
+msgstr "Opties"
+
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
+msgid "Navigation frame"
+msgstr "Navigatieframe"
+
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
+msgid "Main frame"
+msgstr "Hoofdframe"
+
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
+msgid "Edit server"
+msgstr "Wijzig server"
+
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
+msgid "Add a new server"
+msgstr "Een server toevoegen"
+
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
+#, php-format
+msgid "Set value: %s"
+msgstr "Zet waarde op: %s"
+
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
+msgid "Restore default value"
+msgstr "Herstel standaard waarde"
+
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
+msgid "Warning"
+msgstr "Waarschuwing"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
@@ -7237,10 +7333,6 @@ msgstr ""
 msgid "Compress on the fly"
 msgstr "Comprimeer direct"
 
-#: setup/lib/messages.inc.php:45
-msgid "Configuration file"
-msgstr "Configuratiebestand"
-
 #: setup/lib/messages.inc.php:46
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
@@ -7260,14 +7352,6 @@ msgstr "Standaard karakterset gebruikt voor converteringen"
 #: setup/lib/messages.inc.php:49
 msgid "Default character set"
 msgstr "Standaard karakterset"
-
-#: setup/lib/messages.inc.php:50
-msgid "Default language"
-msgstr "Standaard taal"
-
-#: setup/lib/messages.inc.php:51
-msgid "Default server"
-msgstr "Standaard server"
 
 #: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
@@ -7307,10 +7391,6 @@ msgstr "Toon een database overzicht als een lijst in plaats van een afrolmenu"
 msgid "Display databases as a list"
 msgstr "Toon databases als een lijst"
 
-#: setup/lib/messages.inc.php:61
-msgid "Display"
-msgstr "Toon"
-
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
 msgstr "Toon een server overzicht als een lijst in plaats van een afrolmenu"
@@ -7318,18 +7398,6 @@ msgstr "Toon een server overzicht als een lijst in plaats van een afrolmenu"
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
 msgstr "Toon servers als een lijst"
-
-#: setup/lib/messages.inc.php:64
-msgid "Donate"
-msgstr "Doneer"
-
-#: setup/lib/messages.inc.php:65
-msgid "Download"
-msgstr "Download"
-
-#: setup/lib/messages.inc.php:66
-msgid "End of line"
-msgstr "Regeleinde"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
@@ -7517,10 +7585,6 @@ msgstr "Weergave opties voor databases"
 msgid "Customize appearance of the navigation frame"
 msgstr "Weergave opties voor het navigatieframe"
 
-#: setup/lib/messages.inc.php:113
-msgid "Navigation frame"
-msgstr "Navigatieframe"
-
 #: setup/lib/messages.inc.php:114
 msgid "Servers display options"
 msgstr "Weergave opties voor servers"
@@ -7528,10 +7592,6 @@ msgstr "Weergave opties voor servers"
 #: setup/lib/messages.inc.php:116
 msgid "Tables display options"
 msgstr "Weergave opties voor tabellen"
-
-#: setup/lib/messages.inc.php:118
-msgid "Main frame"
-msgstr "Hoofdframe"
 
 #: setup/lib/messages.inc.php:119
 msgid "Settings that didn't fit enywhere else"
@@ -7615,10 +7675,6 @@ msgstr "Aanpassingen"
 msgid "Customize export options"
 msgstr "Aanpassen export opties"
 
-#: setup/lib/messages.inc.php:137
-msgid "Features"
-msgstr "Opties"
-
 #: setup/lib/messages.inc.php:138
 msgid "Customize import defaults"
 msgstr "Aanpassen importeer standaarden"
@@ -7690,10 +7746,6 @@ msgstr ""
 "decompressie[/a] vereisen de functies (%s) welke niet beschikbaar zijn op "
 "dit systeem."
 
-#: setup/lib/messages.inc.php:152
-msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin homepage"
-
 #: setup/lib/messages.inc.php:153
 msgid "Extra parameters for iconv"
 msgstr "Extra parameters voor iconv"
@@ -7743,15 +7795,6 @@ msgstr "Gedeeltelijke import: queries overslaan"
 #: setup/lib/messages.inc.php:163
 msgid "Insecure connection"
 msgstr "Onveilige verbinding"
-
-#: setup/lib/messages.inc.php:164
-msgid ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-"U gebruikt een verbinding die niet beveiligd is. Alle gegevens (inclusief "
-"potentieel gevoelige informatie zoals wachtwoorden) worden onversleuteld "
-"verzonden!"
 
 #: setup/lib/messages.inc.php:165
 #, php-format
@@ -7854,10 +7897,6 @@ msgstr "Markeer server onder de muispijl"
 msgid "Enable highlighting"
 msgstr "Markeren inschakelen"
 
-#: setup/lib/messages.inc.php:187
-msgid "let the user choose"
-msgstr "laat de gebruiker kiezen"
-
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
 msgstr "Gebruik grafisch minder intensieve tabbladen"
@@ -7865,10 +7904,6 @@ msgstr "Gebruik grafisch minder intensieve tabbladen"
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
 msgstr "Lichte tabbladen"
-
-#: setup/lib/messages.inc.php:190
-msgid "Load"
-msgstr "Laden"
 
 #: setup/lib/messages.inc.php:191
 msgid ""
@@ -7993,14 +8028,6 @@ msgstr "Gebruik enkel iconen, enkel tekst of beide"
 msgid "Iconic navigation bar"
 msgstr "Icoon gebruik in navigatie balk"
 
-#: setup/lib/messages.inc.php:212
-msgid "New server"
-msgstr "Nieuwe server"
-
-#: setup/lib/messages.inc.php:213
-msgid "There are no configured servers"
-msgstr "Er zijn momenteel geen servers geconfigureerd"
-
 #: setup/lib/messages.inc.php:214
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr "gebruik GZip uitvoer buffering voor het versnellen van HTTP verkeer"
@@ -8008,10 +8035,6 @@ msgstr "gebruik GZip uitvoer buffering voor het versnellen van HTTP verkeer"
 #: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
 msgstr "GZip uitvoer buffering"
-
-#: setup/lib/messages.inc.php:216
-msgid "- none -"
-msgstr "- geen -"
 
 #: setup/lib/messages.inc.php:217
 msgid ""
@@ -8024,10 +8047,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
 msgstr "Standaard sorteer volgorde"
-
-#: setup/lib/messages.inc.php:219
-msgid "Overview"
-msgstr "Overzicht"
 
 #: setup/lib/messages.inc.php:220
 msgid "Use persistent connections to MySQL databases"
@@ -8088,10 +8107,6 @@ msgstr ""
 msgid "Recoding engine"
 msgstr "Hercoderings engine"
 
-#: setup/lib/messages.inc.php:234
-msgid "Restore default value"
-msgstr "Herstel standaard waarde"
-
 #: setup/lib/messages.inc.php:235
 msgid "Try to revert erroneous fields to their default values"
 msgstr ""
@@ -8130,10 +8145,6 @@ msgid "You allow for connecting to the server without a password."
 msgstr ""
 "U staat het toe dat een gebruiker die geen wachtwoord heeft ingesteld kan "
 "inloggen"
-
-#: setup/lib/messages.inc.php:241
-msgid "Add a new server"
-msgstr "Een server toevoegen"
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
@@ -8293,10 +8304,6 @@ msgstr ""
 "proxy servers[/a]. Echter, IP-adres gebaseerde beveiliging is mogelijk niet "
 "betrouwbaar wanneer uw IP-adres uit het netwerk van uw provider komt, waar "
 "ook vele andere klanten gebruik van maken."
-
-#: setup/lib/messages.inc.php:272
-msgid "Edit server"
-msgstr "Wijzig server"
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -8585,11 +8592,6 @@ msgstr ""
 msgid "Verbose name of this server"
 msgstr "Uitgebreide naam voor deze server"
 
-#: setup/lib/messages.inc.php:328
-#, php-format
-msgid "Set value: %s"
-msgstr "Zet waarde op: %s"
-
 #: setup/lib/messages.inc.php:329
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
@@ -8629,10 +8631,6 @@ msgstr "Toon de functie velden tijdens het wijzigen/invoegen"
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
 msgstr "Toon functie velden"
-
-#: setup/lib/messages.inc.php:337
-msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "Toon verborgen berichten (#MSG_COUNT)"
 
 #: setup/lib/messages.inc.php:338
 msgid ""
@@ -8787,10 +8785,6 @@ msgstr ""
 msgid "Got invalid version string from server"
 msgstr "Een ongeldige versiecode was ontvangen van de server"
 
-#: setup/lib/messages.inc.php:370
-msgid "Check for latest version"
-msgstr "Controleer de meest recente versie"
-
 #: setup/lib/messages.inc.php:371
 #, php-format
 msgid ""
@@ -8830,10 +8824,6 @@ msgid ""
 msgstr ""
 "Zowel de URL-wrapper als CURL zijn niet aanwezig. Versie controle is niet "
 "mogelijk."
-
-#: setup/lib/messages.inc.php:377
-msgid "Warning"
-msgstr "Waarschuwing"
 
 #: setup/lib/messages.inc.php:378
 msgid ""
@@ -8902,6 +8892,19 @@ msgstr "Creëer een index op kolommen&nbsp;%s&nbsp;"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beschrijving"
+
+#, fuzzy
+#~| msgid ""
+#~| "However on last run no data has been parsed, this usually means "
+#~| "phpMyAdmin won't be able to finish this import unless you increase php "
+#~| "time limits."
+#~ msgid ""
+#~ "However on last run no data has been parsed, this usually means "
+#~ "phpMyAdmin won"
+#~ msgstr ""
+#~ "Tijdens de laatste poging is er geen vooruitgang geboekt, meestal "
+#~ "betekend dit dat phpMyAdmin dit niet af kan maken tenzij de "
+#~ "tijdsrestricties van PHP worden versoepeld."
 
 #, fuzzy
 #~| msgid "None"

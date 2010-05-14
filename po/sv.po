@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 07:48-0400\n"
+"POT-Creation-Date: 2010-05-14 13:39-0400\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: swedish <sv@li.org>\n"
@@ -951,15 +951,10 @@ msgstr ""
 "Skriptets tidsbegränsning har överskridits. Om du vill slutföra importen, "
 "importera samma fil igen så kommer importen att återupptas."
 
-#: import.php:426
-#, fuzzy
-#| msgid ""
-#| "However on last run no data has been parsed, this usually means "
-#| "phpMyAdmin won't be able to finish this import unless you increase php "
-#| "time limits."
+#: import.php:426 libraries/messages.inc.php:1102
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
-"won"
+"won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "Dock blev inga data bearbetade i senaste körningen. Detta betyder vanligtvis "
 "att phpMyAdmin inte kan slutföra denna import såvida du inte ökar PHP:s "
@@ -6420,15 +6415,6 @@ msgstr "Trådar"
 msgid "Thread %s was successfully killed."
 msgstr "Tråd %s dödades med framgång."
 
-#: libraries/messages.inc.php:1102
-msgid ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
-msgstr ""
-"Dock blev inga data bearbetade i senaste körningen. Detta betyder vanligtvis "
-"att phpMyAdmin inte kan slutföra denna import såvida du inte ökar PHP:s "
-"tidsbegränsningar."
-
 #: libraries/messages.inc.php:1105 pmd_pdf.php:94
 msgid "to/from page"
 msgstr "till/från sida"
@@ -6901,7 +6887,8 @@ msgstr "Inget"
 msgid "Filter"
 msgstr "Filter"
 
-#: navigation.php:319 setup/lib/messages.inc.php:42
+#: navigation.php:319 setup/frames/index.inc.php:218
+#: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "Nollställ"
 
@@ -6999,6 +6986,114 @@ msgstr "Osäker anslutning"
 #| msgid "Configuration file"
 msgid "Configuration: %s"
 msgstr "Konfigurationsfil"
+
+#: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
+#: setup/lib/messages.inc.php:45
+msgid "Configuration file"
+msgstr "Konfigurationsfil"
+
+#: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
+#: setup/lib/messages.inc.php:65
+msgid "Download"
+msgstr "Ladda ner"
+
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+"Du använder inte en säker anslutning; all data (inklusive potentiellt "
+"känslig information, som lösenord) överförs okrypterat!"
+
+#: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
+#: setup/lib/messages.inc.php:219
+msgid "Overview"
+msgstr "Översikt"
+
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr "Visa dolda meddelanden (#MSG_COUNT)"
+
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
+msgid "There are no configured servers"
+msgstr "Det finns inga konfigurerade servrar"
+
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
+msgid "New server"
+msgstr "Ny server"
+
+#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
+msgid "Default language"
+msgstr "Förvalt språk"
+
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
+msgid "let the user choose"
+msgstr "låt användaren välja"
+
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
+msgid "- none -"
+msgstr "- ingen -"
+
+#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
+msgid "Default server"
+msgstr "Förvald server"
+
+#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
+msgid "End of line"
+msgstr "Radslut"
+
+#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
+msgid "Display"
+msgstr "Visa"
+
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
+msgid "Load"
+msgstr "Ladda"
+
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
+msgid "phpMyAdmin homepage"
+msgstr "phpMyAdmin:s hemsida"
+
+#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
+msgid "Donate"
+msgstr "Donera"
+
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
+msgid "Check for latest version"
+msgstr "Kontrollera senaste version"
+
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
+msgid "Features"
+msgstr "Funktioner"
+
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
+msgid "Navigation frame"
+msgstr "Navigeringsram"
+
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
+msgid "Main frame"
+msgstr "Huvudram"
+
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
+msgid "Edit server"
+msgstr "Ändra server"
+
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
+msgid "Add a new server"
+msgstr "Lägg till en ny server"
+
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
+#, php-format
+msgid "Set value: %s"
+msgstr "Ange värde: %s"
+
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
+msgid "Restore default value"
+msgstr "Återställ standardvärde"
+
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
+msgid "Warning"
+msgstr "Varning"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
@@ -7166,10 +7261,6 @@ msgstr ""
 msgid "Compress on the fly"
 msgstr "Komprimera i farten"
 
-#: setup/lib/messages.inc.php:45
-msgid "Configuration file"
-msgstr "Konfigurationsfil"
-
 #: setup/lib/messages.inc.php:46
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
@@ -7189,14 +7280,6 @@ msgstr "Standard teckenuppsättning som används för omvandlingar"
 #: setup/lib/messages.inc.php:49
 msgid "Default character set"
 msgstr "Standard teckenuppsättning"
-
-#: setup/lib/messages.inc.php:50
-msgid "Default language"
-msgstr "Förvalt språk"
-
-#: setup/lib/messages.inc.php:51
-msgid "Default server"
-msgstr "Förvald server"
 
 #: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
@@ -7238,10 +7321,6 @@ msgstr "Visa databaslista som en lista istället för en listkontroll"
 msgid "Display databases as a list"
 msgstr "Visa databaser som en lista"
 
-#: setup/lib/messages.inc.php:61
-msgid "Display"
-msgstr "Visa"
-
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
 msgstr "Visa serverlista som en lista istället för en listkontroll"
@@ -7249,18 +7328,6 @@ msgstr "Visa serverlista som en lista istället för en listkontroll"
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
 msgstr "Visa servrar som en lista"
-
-#: setup/lib/messages.inc.php:64
-msgid "Donate"
-msgstr "Donera"
-
-#: setup/lib/messages.inc.php:65
-msgid "Download"
-msgstr "Ladda ner"
-
-#: setup/lib/messages.inc.php:66
-msgid "End of line"
-msgstr "Radslut"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
@@ -7440,10 +7507,6 @@ msgstr "Visningsalternativ för databaser"
 msgid "Customize appearance of the navigation frame"
 msgstr "Anpassa navigeringsramens utseende"
 
-#: setup/lib/messages.inc.php:113
-msgid "Navigation frame"
-msgstr "Navigeringsram"
-
 #: setup/lib/messages.inc.php:114
 msgid "Servers display options"
 msgstr "Visningsalternativ för servrar"
@@ -7451,10 +7514,6 @@ msgstr "Visningsalternativ för servrar"
 #: setup/lib/messages.inc.php:116
 msgid "Tables display options"
 msgstr "Visningsalternativ för tabeller"
-
-#: setup/lib/messages.inc.php:118
-msgid "Main frame"
-msgstr "Huvudram"
 
 #: setup/lib/messages.inc.php:119
 msgid "Settings that didn't fit enywhere else"
@@ -7538,10 +7597,6 @@ msgstr "Anpassning"
 msgid "Customize export options"
 msgstr "Anpassa export"
 
-#: setup/lib/messages.inc.php:137
-msgid "Features"
-msgstr "Funktioner"
-
 #: setup/lib/messages.inc.php:138
 msgid "Customize import defaults"
 msgstr "Anpassa import"
@@ -7613,10 +7668,6 @@ msgstr ""
 "dekomprimering[/a] erfordrar funktioner (%s) som inte är tillgängliga på "
 "detta system."
 
-#: setup/lib/messages.inc.php:152
-msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin:s hemsida"
-
 #: setup/lib/messages.inc.php:153
 msgid "Extra parameters for iconv"
 msgstr "Extra parameterar för iconv"
@@ -7666,14 +7717,6 @@ msgstr "Partiell import: hoppa över frågor"
 #: setup/lib/messages.inc.php:163
 msgid "Insecure connection"
 msgstr "Osäker anslutning"
-
-#: setup/lib/messages.inc.php:164
-msgid ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-"Du använder inte en säker anslutning; all data (inklusive potentiellt "
-"känslig information, som lösenord) överförs okrypterat!"
 
 #: setup/lib/messages.inc.php:165
 #, php-format
@@ -7776,10 +7819,6 @@ msgstr "Framhäv server under muspekaren"
 msgid "Enable highlighting"
 msgstr "Aktivera framhävning"
 
-#: setup/lib/messages.inc.php:187
-msgid "let the user choose"
-msgstr "låt användaren välja"
-
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
 msgstr "Använd mindre grafiskt intensiva flikar"
@@ -7787,10 +7826,6 @@ msgstr "Använd mindre grafiskt intensiva flikar"
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
 msgstr "Lätta flikar"
-
-#: setup/lib/messages.inc.php:190
-msgid "Load"
-msgstr "Ladda"
 
 #: setup/lib/messages.inc.php:191
 msgid ""
@@ -7911,14 +7946,6 @@ msgstr "Använd endast ikoner, endast text eller båda"
 msgid "Iconic navigation bar"
 msgstr "Ikonbaserad navigeringslist"
 
-#: setup/lib/messages.inc.php:212
-msgid "New server"
-msgstr "Ny server"
-
-#: setup/lib/messages.inc.php:213
-msgid "There are no configured servers"
-msgstr "Det finns inga konfigurerade servrar"
-
 #: setup/lib/messages.inc.php:214
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr "Använd GZip buffring av utdata för ökad hastighet i HTTP-överföringar"
@@ -7926,10 +7953,6 @@ msgstr "Använd GZip buffring av utdata för ökad hastighet i HTTP-överföring
 #: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
 msgstr "GZip buffring av utdata"
-
-#: setup/lib/messages.inc.php:216
-msgid "- none -"
-msgstr "- ingen -"
 
 #: setup/lib/messages.inc.php:217
 msgid ""
@@ -7942,10 +7965,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
 msgstr "Standard sorteringsordning"
-
-#: setup/lib/messages.inc.php:219
-msgid "Overview"
-msgstr "Översikt"
 
 #: setup/lib/messages.inc.php:220
 msgid "Use persistent connections to MySQL databases"
@@ -8005,10 +8024,6 @@ msgstr ""
 msgid "Recoding engine"
 msgstr "Omvandlingsmotor"
 
-#: setup/lib/messages.inc.php:234
-msgid "Restore default value"
-msgstr "Återställ standardvärde"
-
 #: setup/lib/messages.inc.php:235
 msgid "Try to revert erroneous fields to their default values"
 msgstr "Försök återställa felaktiga fält till deras standardvärden"
@@ -8044,10 +8059,6 @@ msgstr "Du bör använda mysqli av prestandaanledningar"
 #: setup/lib/messages.inc.php:240
 msgid "You allow for connecting to the server without a password."
 msgstr "Du tillåter anslutning till servern utan lösenord."
-
-#: setup/lib/messages.inc.php:241
-msgid "Add a new server"
-msgstr "Lägg till en ny server"
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
@@ -8208,10 +8219,6 @@ msgstr ""
 "formset=features#tab_Security]betrodd proxyserverlista[/a]. Dock är kanske "
 "IP-baserat skydd inte pålitligt om din IP-adress hör till en ISP som "
 "tusentals användare, inklusive du, är ansluten till."
-
-#: setup/lib/messages.inc.php:272
-msgid "Edit server"
-msgstr "Ändra server"
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -8488,11 +8495,6 @@ msgstr ""
 msgid "Verbose name of this server"
 msgstr "Beskrivande namn för denna server"
 
-#: setup/lib/messages.inc.php:328
-#, php-format
-msgid "Set value: %s"
-msgstr "Ange värde: %s"
-
 #: setup/lib/messages.inc.php:329
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
@@ -8531,10 +8533,6 @@ msgstr "Visa funktionsfälten i ändra/infoga-läge"
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
 msgstr "Visa funktionsfält"
-
-#: setup/lib/messages.inc.php:337
-msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "Visa dolda meddelanden (#MSG_COUNT)"
 
 #: setup/lib/messages.inc.php:338
 msgid ""
@@ -8685,10 +8683,6 @@ msgstr ""
 msgid "Got invalid version string from server"
 msgstr "Fick ogiltig versionssträng från server"
 
-#: setup/lib/messages.inc.php:370
-msgid "Check for latest version"
-msgstr "Kontrollera senaste version"
-
 #: setup/lib/messages.inc.php:371
 #, php-format
 msgid ""
@@ -8728,10 +8722,6 @@ msgid ""
 msgstr ""
 "Varken URL-wrapper eller CURL är tillgänglig. Versionskontroll är inte "
 "möjlig."
-
-#: setup/lib/messages.inc.php:377
-msgid "Warning"
-msgstr "Varning"
 
 #: setup/lib/messages.inc.php:378
 msgid ""
@@ -8800,6 +8790,19 @@ msgstr "Skapa ett index för&nbsp;%s&nbsp;kolumn(er)"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beskrivning"
+
+#, fuzzy
+#~| msgid ""
+#~| "However on last run no data has been parsed, this usually means "
+#~| "phpMyAdmin won't be able to finish this import unless you increase php "
+#~| "time limits."
+#~ msgid ""
+#~ "However on last run no data has been parsed, this usually means "
+#~ "phpMyAdmin won"
+#~ msgstr ""
+#~ "Dock blev inga data bearbetade i senaste körningen. Detta betyder "
+#~ "vanligtvis att phpMyAdmin inte kan slutföra denna import såvida du inte "
+#~ "ökar PHP:s tidsbegränsningar."
 
 #, fuzzy
 #~| msgid "None"

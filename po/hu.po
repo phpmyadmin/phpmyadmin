@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 07:48-0400\n"
+"POT-Creation-Date: 2010-05-14 13:39-0400\n"
 "PO-Revision-Date: 2010-03-12 09:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -955,15 +955,10 @@ msgstr ""
 "Script időtúllépés történt, ha be akarja fejezni az importálást, akkor "
 "küldje újra ugyanazt a fájlt és az importálás folytatódni fog."
 
-#: import.php:426
-#, fuzzy
-#| msgid ""
-#| "However on last run no data has been parsed, this usually means "
-#| "phpMyAdmin won't be able to finish this import unless you increase php "
-#| "time limits."
+#: import.php:426 libraries/messages.inc.php:1102
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
-"won"
+"won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "Az utolsó futáskor azonban nem került adat elemzésre, ami általában azt "
 "jelenti, hogy a phpMyAdmin nem tudja befejezni ezt az importálást, ha Ön nem "
@@ -6451,15 +6446,6 @@ msgstr "Szálak"
 msgid "Thread %s was successfully killed."
 msgstr "Sikerült leállítani a(z) %s. szálat."
 
-#: libraries/messages.inc.php:1102
-msgid ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
-msgstr ""
-"Az utolsó futáskor azonban nem került adat elemzésre, ami általában azt "
-"jelenti, hogy a phpMyAdmin nem tudja befejezni ezt az importálást, ha Ön nem "
-"növeli meg a PHP időkorlátozását."
-
 #: libraries/messages.inc.php:1105 pmd_pdf.php:94
 msgid "to/from page"
 msgstr "oldalra/-ról"
@@ -6943,7 +6929,8 @@ msgstr "Nincs"
 msgid "Filter"
 msgstr "Fájlok"
 
-#: navigation.php:319 setup/lib/messages.inc.php:42
+#: navigation.php:319 setup/frames/index.inc.php:218
+#: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "Törlés"
 
@@ -7041,6 +7028,114 @@ msgstr "Veszélyes kapcsolat"
 #| msgid "Configuration file"
 msgid "Configuration: %s"
 msgstr "Konfigurációs fájl"
+
+#: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
+#: setup/lib/messages.inc.php:45
+msgid "Configuration file"
+msgstr "Konfigurációs fájl"
+
+#: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
+#: setup/lib/messages.inc.php:65
+msgid "Download"
+msgstr "Letöltés"
+
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+"Ön nem biztonságos kapcsolatot használ, valamennyi adat (beleértve a "
+"bizalmasakat, mint a jelszavak) átvitele titkosítatlanul történik!"
+
+#: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
+#: setup/lib/messages.inc.php:219
+msgid "Overview"
+msgstr "Áttekintés"
+
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr "A rejtett üzenetek megjelenítése (#MSG_COUNT)"
+
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
+msgid "There are no configured servers"
+msgstr "Nincsenek konfigurált szerverek"
+
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
+msgid "New server"
+msgstr "Új szerver"
+
+#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
+msgid "Default language"
+msgstr "Alapértelmezett nyelv"
+
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
+msgid "let the user choose"
+msgstr "válassza ki a felhasználó"
+
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
+msgid "- none -"
+msgstr "- nincs -"
+
+#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
+msgid "Default server"
+msgstr "Alapértelmezett szerver"
+
+#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
+msgid "End of line"
+msgstr "Sorvége"
+
+#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
+msgid "Display"
+msgstr "Nézet"
+
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
+msgid "Load"
+msgstr "Betöltés"
+
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
+msgid "phpMyAdmin homepage"
+msgstr "phpMyAdmin honlap"
+
+#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
+msgid "Donate"
+msgstr "Adományozás"
+
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
+msgid "Check for latest version"
+msgstr "Új verzió ellenőrzése"
+
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
+msgid "Features"
+msgstr "Funkciók"
+
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
+msgid "Navigation frame"
+msgstr "Navigációs keret"
+
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
+msgid "Main frame"
+msgstr "Főkeret"
+
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
+msgid "Edit server"
+msgstr "Szerver módosítása"
+
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
+msgid "Add a new server"
+msgstr "Új szerver hozzáadása"
+
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
+#, php-format
+msgid "Set value: %s"
+msgstr "Adja meg az értéket: %s"
+
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
+msgid "Restore default value"
+msgstr "Alapértelmezett érték visszaállítása"
+
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
+msgid "Warning"
+msgstr "Figyelmeztetés"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
@@ -7213,10 +7308,6 @@ msgstr ""
 msgid "Compress on the fly"
 msgstr "Menet közbeni tömörítés"
 
-#: setup/lib/messages.inc.php:45
-msgid "Configuration file"
-msgstr "Konfigurációs fájl"
-
 #: setup/lib/messages.inc.php:46
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
@@ -7236,14 +7327,6 @@ msgstr "A konvertálások alapértelmezett karakterkészlete"
 #: setup/lib/messages.inc.php:49
 msgid "Default character set"
 msgstr "Alapértelmezett karakterkészlet"
-
-#: setup/lib/messages.inc.php:50
-msgid "Default language"
-msgstr "Alapértelmezett nyelv"
-
-#: setup/lib/messages.inc.php:51
-msgid "Default server"
-msgstr "Alapértelmezett szerver"
 
 #: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
@@ -7286,10 +7369,6 @@ msgstr "Az adatbázisok legördülő helyett listaként történő megjeleníté
 msgid "Display databases as a list"
 msgstr "Az adatbázisok megjelenítése listaként"
 
-#: setup/lib/messages.inc.php:61
-msgid "Display"
-msgstr "Nézet"
-
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
 msgstr "A szerverek legördülő helyett listaként történő megjelenítése"
@@ -7297,18 +7376,6 @@ msgstr "A szerverek legördülő helyett listaként történő megjelenítése"
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
 msgstr "A szerverek megjelenítése listaként"
-
-#: setup/lib/messages.inc.php:64
-msgid "Donate"
-msgstr "Adományozás"
-
-#: setup/lib/messages.inc.php:65
-msgid "Download"
-msgstr "Letöltés"
-
-#: setup/lib/messages.inc.php:66
-msgid "End of line"
-msgstr "Sorvége"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
@@ -7497,10 +7564,6 @@ msgstr "Az adatbázisok megjelenítésének beállításai"
 msgid "Customize appearance of the navigation frame"
 msgstr "A navigációs keret megjelenésének testreszabása"
 
-#: setup/lib/messages.inc.php:113
-msgid "Navigation frame"
-msgstr "Navigációs keret"
-
 #: setup/lib/messages.inc.php:114
 msgid "Servers display options"
 msgstr "A szerverek megjelenítésének beállításai"
@@ -7508,10 +7571,6 @@ msgstr "A szerverek megjelenítésének beállításai"
 #: setup/lib/messages.inc.php:116
 msgid "Tables display options"
 msgstr "A táblák megjelenítésének beállításai"
-
-#: setup/lib/messages.inc.php:118
-msgid "Main frame"
-msgstr "Főkeret"
 
 #: setup/lib/messages.inc.php:119
 msgid "Settings that didn't fit enywhere else"
@@ -7597,10 +7656,6 @@ msgstr "Testreszabás"
 msgid "Customize export options"
 msgstr "Exportálás beállításainak testreszabása"
 
-#: setup/lib/messages.inc.php:137
-msgid "Features"
-msgstr "Funkciók"
-
 #: setup/lib/messages.inc.php:138
 msgid "Customize import defaults"
 msgstr "Importálás alapértelmezéseinek testreszabása"
@@ -7673,10 +7728,6 @@ msgstr ""
 "tömörítéshez és kibontáshoz[/a] olyan függvényekre (%s) van szükség, melyek "
 "ezen a rendszeren nem elérhetőek."
 
-#: setup/lib/messages.inc.php:152
-msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin honlap"
-
 #: setup/lib/messages.inc.php:153
 msgid "Extra parameters for iconv"
 msgstr "Az iconv funkció extra paraméterei"
@@ -7726,14 +7777,6 @@ msgstr "Részleges importálás: lekérdezések kihagyása"
 #: setup/lib/messages.inc.php:163
 msgid "Insecure connection"
 msgstr "Veszélyes kapcsolat"
-
-#: setup/lib/messages.inc.php:164
-msgid ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-"Ön nem biztonságos kapcsolatot használ, valamennyi adat (beleértve a "
-"bizalmasakat, mint a jelszavak) átvitele titkosítatlanul történik!"
 
 #: setup/lib/messages.inc.php:165
 #, php-format
@@ -7836,10 +7879,6 @@ msgstr "A szerver kiemelése az egérmutató alatt"
 msgid "Enable highlighting"
 msgstr "A szövegkiemelés engedélyezése"
 
-#: setup/lib/messages.inc.php:187
-msgid "let the user choose"
-msgstr "válassza ki a felhasználó"
-
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
 msgstr "Grafikusan kevésbé kiemelt fülek használata"
@@ -7847,10 +7886,6 @@ msgstr "Grafikusan kevésbé kiemelt fülek használata"
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
 msgstr "Világos fülek"
-
-#: setup/lib/messages.inc.php:190
-msgid "Load"
-msgstr "Betöltés"
 
 #: setup/lib/messages.inc.php:191
 msgid ""
@@ -7975,14 +8010,6 @@ msgstr "Csak ikonok, csak szöveg, vagy mindkettő használata"
 msgid "Iconic navigation bar"
 msgstr "Navigációs sáv ikonokkal"
 
-#: setup/lib/messages.inc.php:212
-msgid "New server"
-msgstr "Új szerver"
-
-#: setup/lib/messages.inc.php:213
-msgid "There are no configured servers"
-msgstr "Nincsenek konfigurált szerverek"
-
 #: setup/lib/messages.inc.php:214
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
@@ -7991,10 +8018,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:215
 msgid "GZip output buffering"
 msgstr "GZip-kimenet pufferelése"
-
-#: setup/lib/messages.inc.php:216
-msgid "- none -"
-msgstr "- nincs -"
 
 #: setup/lib/messages.inc.php:217
 msgid ""
@@ -8007,10 +8030,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
 msgstr "Alapértelmezett rendezési mód"
-
-#: setup/lib/messages.inc.php:219
-msgid "Overview"
-msgstr "Áttekintés"
 
 #: setup/lib/messages.inc.php:220
 msgid "Use persistent connections to MySQL databases"
@@ -8069,10 +8088,6 @@ msgstr "Válassza ki a karakterkészlet-konvertáláshoz használandó funkciók
 msgid "Recoding engine"
 msgstr "Átkódoló motor"
 
-#: setup/lib/messages.inc.php:234
-msgid "Restore default value"
-msgstr "Alapértelmezett érték visszaállítása"
-
 #: setup/lib/messages.inc.php:235
 msgid "Try to revert erroneous fields to their default values"
 msgstr "A hibás mezők alapértelmezett értékei visszaállításának megkísérlése"
@@ -8108,10 +8123,6 @@ msgstr "Teljesítmény okokból használja a mysqli kiterjesztést"
 #: setup/lib/messages.inc.php:240
 msgid "You allow for connecting to the server without a password."
 msgstr "Ön engedélyezi a jelszó nélküli csatlakozást a szerverhez."
-
-#: setup/lib/messages.inc.php:241
-msgid "Add a new server"
-msgstr "Új szerver hozzáadása"
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
@@ -8274,10 +8285,6 @@ msgstr ""
 "védelem azonban lehet, hogy nem megbízható, ha az Ön IP-címe olyan "
 "internetszolgáltatóhoz tartozik, ahol több ezer felhasználó, köztük Ön is, "
 "csatlakozik az internethez."
-
-#: setup/lib/messages.inc.php:272
-msgid "Edit server"
-msgstr "Szerver módosítása"
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -8561,11 +8568,6 @@ msgstr ""
 msgid "Verbose name of this server"
 msgstr "A szerver részletes neve"
 
-#: setup/lib/messages.inc.php:328
-#, php-format
-msgid "Set value: %s"
-msgstr "Adja meg az értéket: %s"
-
 #: setup/lib/messages.inc.php:329
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
@@ -8606,10 +8608,6 @@ msgstr "Szerkesztés/beszúrás módban a függvénymezők megjelenítése"
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
 msgstr "A függvénymezők megjelenítése"
-
-#: setup/lib/messages.inc.php:337
-msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "A rejtett üzenetek megjelenítése (#MSG_COUNT)"
 
 #: setup/lib/messages.inc.php:338
 msgid ""
@@ -8764,10 +8762,6 @@ msgstr ""
 msgid "Got invalid version string from server"
 msgstr "Érvénytelen verzió karakterlánc érkezett a szerverről"
 
-#: setup/lib/messages.inc.php:370
-msgid "Check for latest version"
-msgstr "Új verzió ellenőrzése"
-
 #: setup/lib/messages.inc.php:371
 #, php-format
 msgid ""
@@ -8807,10 +8801,6 @@ msgid ""
 msgstr ""
 "Nem érhető el sem az URL wrapper, sem a CURL. A verzió-ellenőrzés nem "
 "lehetséges."
-
-#: setup/lib/messages.inc.php:377
-msgid "Warning"
-msgstr "Figyelmeztetés"
 
 #: setup/lib/messages.inc.php:378
 msgid ""
@@ -8881,6 +8871,19 @@ msgstr "Index készítése a(z) %s. oszlopon"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Leírás"
+
+#, fuzzy
+#~| msgid ""
+#~| "However on last run no data has been parsed, this usually means "
+#~| "phpMyAdmin won't be able to finish this import unless you increase php "
+#~| "time limits."
+#~ msgid ""
+#~ "However on last run no data has been parsed, this usually means "
+#~ "phpMyAdmin won"
+#~ msgstr ""
+#~ "Az utolsó futáskor azonban nem került adat elemzésre, ami általában azt "
+#~ "jelenti, hogy a phpMyAdmin nem tudja befejezni ezt az importálást, ha Ön "
+#~ "nem növeli meg a PHP időkorlátozását."
 
 #, fuzzy
 #~| msgid "None"
