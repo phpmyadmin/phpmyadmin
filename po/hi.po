@@ -516,7 +516,7 @@ msgstr "क्षेत्र कोलम जोडें/हटायें"
 
 #: db_qbe.php:609 db_qbe.php:634 libraries/messages.inc.php:1188
 msgid "Update Query"
-msgstr " क्वरी अपडेट करो"
+msgstr "क्वरी अपडेट करो"
 
 #: db_qbe.php:617 libraries/messages.inc.php:1212
 msgid "Use Tables"
