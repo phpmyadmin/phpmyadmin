@@ -469,7 +469,7 @@ msgstr "आरोही"
 #: libraries/messages.inc.php:247 server_databases.php:170
 #: server_databases.php:187 tbl_operations.php:261 tbl_select.php:315
 msgid "Descending"
-msgstr ""
+msgstr "अवरोही"
 
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
 #: libraries/messages.inc.php:884 tbl_change.php:277 tbl_tracking.php:597
