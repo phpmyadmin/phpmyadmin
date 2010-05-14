@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 06:15+0200\n"
+"PO-Revision-Date: 2010-05-14 06:16+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -455,7 +455,7 @@ msgstr "आपको कम से कम एक स्तंभ प्रदर
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866 libraries/messages.inc.php:1010
 msgid "Sort"
-msgstr ""
+msgstr "सॉर्ट"
 
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
