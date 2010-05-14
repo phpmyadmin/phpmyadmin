@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 06:37+0200\n"
+"PO-Revision-Date: 2010-05-14 06:39+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -744,7 +744,7 @@ msgstr " टेबल को चेक करें"
 #: libraries/mult_submits.inc.php:47 tbl_operations.php:619
 #: tbl_structure.php:710 tbl_structure.php:712
 msgid "Optimize table"
-msgstr " टेबल को Optimize करें"
+msgstr "तालिका को अनुकूलित करें"
 
 #: db_structure.php:553 db_structure.php:554 libraries/messages.inc.php:754
 #: libraries/mult_submits.inc.php:52 tbl_operations.php:609
