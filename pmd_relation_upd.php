@@ -46,7 +46,7 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
               . ' AND foreign_field = \'' . PMA_sqlAddslashes($F1) . '\''
               , FALSE, PMA_DBI_QUERY_STORE);
 }
-PMD_return_upd(1, 'strRelationDeleted');
+PMD_return_upd(1, __('Relation deleted'));
 
 function PMD_return_upd($b,$ret)
 {

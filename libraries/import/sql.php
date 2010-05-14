@@ -15,9 +15,9 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['sql'] = array(
-        'text'          => 'strSQL',
+        'text'          => __('SQL'),
         'extension'     => 'sql',
-        'options_text'  => 'strOptions',
+        'options_text'  => __('Options'),
     );
     $compats = PMA_DBI_getCompatibilities();
     if (count($compats) > 0) {
@@ -29,7 +29,7 @@ if (isset($plugin_list)) {
             array(
                 'type'      => 'select',
                 'name'      => 'compatibility',
-                'text'      => 'strSQLCompatibility',
+                'text'      => __('SQL compatibility mode'),
                 'values'    => $values,
                 'doc'       => array(
                     'manual_MySQL_Database_Administration',
@@ -39,7 +39,7 @@ if (isset($plugin_list)) {
             array(
                 'type' => 'bool', 
                 'name' => 'no_auto_value_on_zero', 
-                'text' => 'strDoNotAutoIncrementZeroValues',
+                'text' => __('Do not use AUTO_INCREMENT for zero values'),
                 'doc'       => array(
                     'manual_MySQL_Database_Administration',
                     'Server_SQL_mode',

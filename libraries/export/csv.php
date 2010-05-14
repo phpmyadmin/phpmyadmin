@@ -14,20 +14,20 @@ if (! defined('PHPMYADMIN')) {
 
 if (isset($plugin_list)) {
     $plugin_list['csv'] = array(
-        'text' => 'strCSV',
+        'text' => __('CSV'),
         'extension' => 'csv',
         'mime_type' => 'text/comma-separated-values',
         'options' => array(
-            array('type' => 'text', 'name' => 'separator', 'text' => 'strFieldsTerminatedBy'),
-            array('type' => 'text', 'name' => 'enclosed', 'text' => 'strFieldsEnclosedBy'),
-            array('type' => 'text', 'name' => 'escaped', 'text' => 'strFieldsEscapedBy'),
-            array('type' => 'text', 'name' => 'terminated', 'text' => 'strLinesTerminatedBy'),
-            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
-            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => 'strRemoveCRLF'),
-            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
+            array('type' => 'text', 'name' => 'separator', 'text' => __('Fields terminated by')),
+            array('type' => 'text', 'name' => 'enclosed', 'text' => __('Fields enclosed by')),
+            array('type' => 'text', 'name' => 'escaped', 'text' => __('Fields escaped by')),
+            array('type' => 'text', 'name' => 'terminated', 'text' => __('Lines terminated by')),
+            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
+            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => __('Remove CRLF characters within fields')),
+            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row')),
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
 } else {
 

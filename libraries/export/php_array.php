@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['php_array'] = array(
-        'text'          => 'strPhpArray',
+        'text'          => __('PHP array'),
         'extension'     => 'php',
         'mime_type'     => 'text/plain',
         'options'       => array(
@@ -22,7 +22,7 @@ if (isset($plugin_list)) {
                 'name' => 'data',
             ),
         ),
-        'options_text'  => 'strOptions',
+        'options_text'  => __('Options'),
     );
 } else {
 

@@ -116,23 +116,23 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     PMA_printDiagMessageForParameter('relation', isset($cfgRelation['relation']), $messages, 'relation');
 
-    PMA_printDiagMessageForFeature('strGeneralRelationFeat', 'relwork', $messages);
+    PMA_printDiagMessageForFeature(__('General relation features'), 'relwork', $messages);
 
     PMA_printDiagMessageForParameter('table_info', isset($cfgRelation['table_info']), $messages, 'table_info');
 
-    PMA_printDiagMessageForFeature('strDisplayFeat', 'displaywork', $messages);
+    PMA_printDiagMessageForFeature(__('Display Features'), 'displaywork', $messages);
 
     PMA_printDiagMessageForParameter('table_coords', isset($cfgRelation['table_coords']), $messages, 'table_coords');
 
     PMA_printDiagMessageForParameter('pdf_pages', isset($cfgRelation['pdf_pages']), $messages, 'table_coords');
 
-    PMA_printDiagMessageForFeature('strCreatePdfFeat', 'pdfwork', $messages);
+    PMA_printDiagMessageForFeature(__('Creation of PDFs'), 'pdfwork', $messages);
 
     PMA_printDiagMessageForParameter('column_info', isset($cfgRelation['column_info']), $messages, 'col_com');
 
-    PMA_printDiagMessageForFeature('strColComFeat', 'commwork', $messages, false);
+    PMA_printDiagMessageForFeature(__('Displaying Column Comments'), 'commwork', $messages, false);
 
-    PMA_printDiagMessageForFeature('strMIME_transformation', 'mimework', $messages);
+    PMA_printDiagMessageForFeature(__('Browser transformation'), 'mimework', $messages);
 
     if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
         echo '<tr><td colspan=2 align="left">' . __('Please see the documentation on how to update your column_comments table') . '</td></tr>' . "\n";
@@ -140,19 +140,19 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     PMA_printDiagMessageForParameter('bookmarktable', isset($cfgRelation['bookmark']), $messages, 'bookmark');
 
-    PMA_printDiagMessageForFeature('strBookmarkQuery', 'bookmarkwork', $messages);
+    PMA_printDiagMessageForFeature(__('Bookmarked SQL query'), 'bookmarkwork', $messages);
 
     PMA_printDiagMessageForParameter('history', isset($cfgRelation['history']), $messages, 'history');
 
-    PMA_printDiagMessageForFeature('strQuerySQLHistory', 'historywork', $messages);
+    PMA_printDiagMessageForFeature(__('SQL history'), 'historywork', $messages);
 
     PMA_printDiagMessageForParameter('designer_coords', isset($cfgRelation['designer_coords']), $messages, 'designer_coords');
 
-    PMA_printDiagMessageForFeature('strDesigner', 'designerwork', $messages);
+    PMA_printDiagMessageForFeature(__('Designer'), 'designerwork', $messages);
 
     PMA_printDiagMessageForParameter('tracking', isset($cfgRelation['tracking']), $messages, 'tracking');
 
-    PMA_printDiagMessageForFeature('strTracking', 'trackingwork', $messages);
+    PMA_printDiagMessageForFeature(__('Tracking'), 'trackingwork', $messages);
 
     echo '</table>' . "\n";
 

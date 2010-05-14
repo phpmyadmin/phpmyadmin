@@ -15,13 +15,13 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['excel'] = array(
-        'text' => 'strStrucExcelCSV',
+        'text' => __('CSV for MS Excel'),
         'extension' => 'csv',
         'mime_type' => 'text/comma-separated-values',
         'options' => array(
-            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
-            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => 'strRemoveCRLF'),
-            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
+            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
+            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => __('Remove CRLF characters within fields')),
+            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row')),
             array(
                 'type' => 'select', 
                 'name' => 'edition', 
@@ -29,10 +29,10 @@ if (isset($plugin_list)) {
                     'win' => 'Windows',
                     'mac_excel2003' => 'Excel 2003 / Macintosh', 
                     'mac_excel2008' => 'Excel 2008 / Macintosh'), 
-                'text' => 'strExcelEdition'),
+                'text' => __('Excel edition')),
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
 } else {
     /* Everything rest is coded in csv plugin */

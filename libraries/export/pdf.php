@@ -15,16 +15,16 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['pdf'] = array(
-        'text' => 'strPDF',
+        'text' => __('PDF'),
         'extension' => 'pdf',
         'mime_type' => 'application/pdf',
         'force_file' => true,
         'options' => array(
-            array('type' => 'message_only', 'name' => 'explanation', 'text' => 'strPDFReportExplanation'),
-            array('type' => 'text', 'name' => 'report_title', 'text' => 'strPDFReportTitle'),
+            array('type' => 'message_only', 'name' => 'explanation', 'text' => __('(Generates a report containing the data of a single table)')),
+            array('type' => 'text', 'name' => 'report_title', 'text' => __('Report title')),
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
 } else {
 

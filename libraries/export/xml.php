@@ -15,34 +15,34 @@ if (strlen($GLOBALS['db'])) { /* Can't do server export */
 
 if (isset($plugin_list)) {
     $plugin_list['xml'] = array(
-        'text' => 'strXML',
+        'text' => __('XML'),
         'extension' => 'xml',
         'mime_type' => 'text/xml',
         'options' => array(
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strOptions'
+        'options_text' => __('Options')
         );
     
     /* Export structure */
     $plugin_list['xml']['options'][] =
-        array('type' => 'bgroup', 'name' => 'export_struc', 'text' => 'strXMLExportStructs');
+        array('type' => 'bgroup', 'name' => 'export_struc', 'text' => __('Export Structure Schemas (recommended)'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_functions', 'text' => 'strXMLExportFunctions');
+        array('type' => 'bool', 'name' => 'export_functions', 'text' => __('Export functions'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_procedures', 'text' => 'strXMLExportProcedures');
+        array('type' => 'bool', 'name' => 'export_procedures', 'text' => __('Export procedures'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_tables', 'text' => 'strXMLExportTables');
+        array('type' => 'bool', 'name' => 'export_tables', 'text' => __('Export tables'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_triggers', 'text' => 'strXMLExportTriggers');
+        array('type' => 'bool', 'name' => 'export_triggers', 'text' => __('Export triggers'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_views', 'text' => 'strXMLExportViews');
+        array('type' => 'bool', 'name' => 'export_views', 'text' => __('Export views'));
     $plugin_list['xml']['options'][] =
         array('type' => 'egroup');
     
     /* Data */
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_contents', 'text' => 'strXMLExportContents');
+        array('type' => 'bool', 'name' => 'export_contents', 'text' => __('Export contents'));
 } else {
 
 /**

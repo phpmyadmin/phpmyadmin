@@ -923,7 +923,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          *  - > 5.0.15
          */
         if (PMA_MYSQL_INT_VERSION < 50015) {
-            PMA_fatalError('strUpgrade', array('MySQL', '5.0.15'));
+            PMA_fatalError(__('You should upgrade to %s %s or later.'), array('MySQL', '5.0.15'));
         }
 
         /**

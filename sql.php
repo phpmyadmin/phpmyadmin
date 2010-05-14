@@ -623,7 +623,7 @@ else {
     }
 
     if (isset($label)) {
-        $message = PMA_message::success('strBookmarkCreated');
+        $message = PMA_message::success(__('Bookmark %s created'));
         $message->addParam($label);
         $message->display();
     }

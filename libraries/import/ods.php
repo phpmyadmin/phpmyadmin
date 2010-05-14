@@ -19,15 +19,15 @@ if (! defined('PHPMYADMIN')) {
 
 if (isset($plugin_list)) {
     $plugin_list['ods'] = array(
-        'text' => 'strImportODS',
+        'text' => __('Open Document Spreadsheet'),
         'extension' => 'ods',
         'options' => array(
-                array('type' => 'bool', 'name' => 'col_names', 'text' => 'strImportColNames'),
-                array('type' => 'bool', 'name' => 'empty_rows', 'text' => 'strImportEmptyRows'),
-                array('type' => 'bool', 'name' => 'recognize_percentages', 'text' => 'strImportODSPercents'),
-                array('type' => 'bool', 'name' => 'recognize_currency', 'text' => 'strImportODSCurrency'),
+                array('type' => 'bool', 'name' => 'col_names', 'text' => __('Column names in first row')),
+                array('type' => 'bool', 'name' => 'empty_rows', 'text' => __('Do not import empty rows')),
+                array('type' => 'bool', 'name' => 'recognize_percentages', 'text' => __('Import percentages as proper decimals (12.00% to .12)')),
+                array('type' => 'bool', 'name' => 'recognize_currency', 'text' => __('Import currencies (.00 to 5.00)')),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
     /* We do not define function when plugin is just queried for information above */
     return;

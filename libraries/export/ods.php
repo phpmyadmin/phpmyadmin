@@ -15,16 +15,16 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['ods'] = array(
-        'text' => 'strOpenDocumentSpreadsheet',
+        'text' => __('Open Document Spreadsheet'),
         'extension' => 'ods',
         'mime_type' => 'application/vnd.oasis.opendocument.spreadsheet',
         'force_file' => true,
         'options' => array(
-            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
-            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
+            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
+            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row')),
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
 } else {
 

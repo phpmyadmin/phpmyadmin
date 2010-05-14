@@ -19,37 +19,37 @@ if (isset($plugin_list)) {
         $hide_structure = true;
     }
     $plugin_list['odt'] = array(
-        'text' => 'strOpenDocumentText',
+        'text' => __('Open Document Text'),
         'extension' => 'odt',
         'mime_type' => 'application/vnd.oasis.opendocument.text',
         'force_file' => true,
         'options' => array(), /* Filled later */
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
     /* Structure options */
     if (!$hide_structure) {
         $plugin_list['odt']['options'][] =
-            array('type' => 'bgroup', 'name' => 'structure', 'text' => 'strStructure', 'force' => 'data');
+            array('type' => 'bgroup', 'name' => 'structure', 'text' => __('Structure'), 'force' => 'data');
         if (!empty($GLOBALS['cfgRelation']['relation'])) {
             $plugin_list['odt']['options'][] =
-                array('type' => 'bool', 'name' => 'relation', 'text' => 'strRelations');
+                array('type' => 'bool', 'name' => 'relation', 'text' => __('Relations'));
         }
         $plugin_list['odt']['options'][] =
-            array('type' => 'bool', 'name' => 'comments', 'text' => 'strComments');
+            array('type' => 'bool', 'name' => 'comments', 'text' => __('Comments'));
         if (!empty($GLOBALS['cfgRelation']['mimework'])) {
             $plugin_list['odt']['options'][] =
-                array('type' => 'bool', 'name' => 'mime', 'text' => 'strMIME_MIMEtype');
+                array('type' => 'bool', 'name' => 'mime', 'text' => __('MIME type'));
         }
         $plugin_list['odt']['options'][] =
             array('type' => 'egroup');
     }
     /* Data */
     $plugin_list['odt']['options'][] =
-        array('type' => 'bgroup', 'name' => 'data', 'text' => 'strData', 'force' => 'structure');
+        array('type' => 'bgroup', 'name' => 'data', 'text' => __('Data'), 'force' => 'structure');
     $plugin_list['odt']['options'][] =
-        array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames');
+        array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row'));
     $plugin_list['odt']['options'][] =
-        array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy');
+        array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by'));
     $plugin_list['odt']['options'][] =
         array('type' => 'egroup');
 } else {

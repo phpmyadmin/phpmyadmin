@@ -15,18 +15,18 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['htmlword'] = array(
-        'text' => 'strHTMLWord',
+        'text' => __('Microsoft Word 2000'),
         'extension' => 'doc',
         'mime_type' => 'application/vnd.ms-word',
         'force_file' => true,
         'options' => array(
-            array('type' => 'bool', 'name' => 'structure', 'text' => 'strStructure', 'force' => 'data'),
-            array('type' => 'bgroup', 'name' => 'data', 'text' => 'strData', 'force' => 'structure'),
-            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
-            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
+            array('type' => 'bool', 'name' => 'structure', 'text' => __('Structure'), 'force' => 'data'),
+            array('type' => 'bgroup', 'name' => 'data', 'text' => __('Data'), 'force' => 'structure'),
+            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
+            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row')),
             array('type' => 'egroup'),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
 } else {
 

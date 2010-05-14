@@ -182,13 +182,13 @@ class PMA_Message
      * @static
      * @uses    PMA_Message as returned object
      * @uses    PMA_Message::SUCCESS
-     * @param   string $string a localized string e.g. 'strSuccess'
+     * @param   string $string a localized string e.g. __('Your SQL query has been executed successfully')
      * @return  PMA_Message
      */
     static public function success($string = '')
     {
         if (empty($string)) {
-            $string = 'strSuccess';
+            $string = __('Your SQL query has been executed successfully');
         }
 
         return new PMA_Message($string, PMA_Message::SUCCESS);
@@ -202,13 +202,13 @@ class PMA_Message
      * @static
      * @uses    PMA_Message as returned object
      * @uses    PMA_Message::ERROR
-     * @param   string $string a localized string e.g. 'strError'
+     * @param   string $string a localized string e.g. __('Error')
      * @return  PMA_Message
      */
     static public function error($string = '')
     {
         if (empty($string)) {
-            $string = 'strError';
+            $string = __('Error');
         }
 
         return new PMA_Message($string, PMA_Message::ERROR);
@@ -238,7 +238,7 @@ class PMA_Message
      * @static
      * @uses    PMA_Message as returned object
      * @uses    PMA_Message::NOTICE
-     * @param   string  $string a localized string e.g. 'strRelationNotWorking'
+     * @param   string  $string a localized string e.g. __('The additional features for working with linked tables have been deactivated. To find out why click %shere%s.')
      * @return  PMA_Message
      */
     static public function notice($string)

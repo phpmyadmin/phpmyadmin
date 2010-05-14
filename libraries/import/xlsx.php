@@ -18,12 +18,12 @@ if (! defined('PHPMYADMIN')) {
 
 if (isset($plugin_list)) {
     $plugin_list['xlsx'] = array(
-        'text' => 'strImportXLSX',
+        'text' => __('Excel 2007 XLSX Workbook'),
         'extension' => 'xlsx',
         'options' => array(
-                array('type' => 'bool', 'name' => 'col_names', 'text' => 'strImportColNames'),
+                array('type' => 'bool', 'name' => 'col_names', 'text' => __('Column names in first row')),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
     /* We do not define function when plugin is just queried for information above */
     return;

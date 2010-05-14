@@ -18,11 +18,11 @@ if (! defined('PHPMYADMIN')) {
 
 if (isset($plugin_list)) {
     $plugin_list['xml'] = array(
-        'text' => 'strXML',
+        'text' => __('XML'),
         'extension' => 'xml',
         'options' => array(
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
     /* We do not define function when plugin is just queried for information above */
     return;

@@ -45,5 +45,5 @@ if ($cfgRelation['displaywork']) {
 
 header("Content-Type: text/xml; charset=utf-8");
 header("Cache-Control: no-cache");
-die("<root act='save_pos' return='strModifications'></root>");
+die("<root act='save_pos' return=__('Modifications have been saved')></root>");
 ?>

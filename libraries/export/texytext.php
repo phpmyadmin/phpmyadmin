@@ -14,27 +14,27 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['texytext'] = array(
-        'text' => 'strTexyText',
+        'text' => __('Texy! text'),
         'extension' => 'txt',
         'mime_type' => 'text/plain',
         'options' => array(
             array('type' => 'bool',
                 'name' => 'structure',
-                'text' => 'strStructure',
+                'text' => __('Structure'),
                 'force' => 'data'),
             array('type' => 'bgroup',
                 'name' => 'data',
-                'text' => 'strData',
+                'text' => __('Data'),
                 'force' => 'structure'),
             array('type' => 'text',
                 'name' => 'null',
-                'text' => 'strReplaceNULLBy'),
+                'text' => __('Replace NULL by')),
             array('type' => 'bool',
                 'name' => 'columns',
-                'text' => 'strPutColNames'),
+                'text' => __('Put fields names in the first row')),
             array('type' => 'egroup'),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
 } else {
 

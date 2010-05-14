@@ -51,7 +51,7 @@ if(! empty($die_save_pos)) {
   header("Content-Type: text/xml; charset=utf-8");
   header("Cache-Control: no-cache");
 ?>
-<root act='save_pos' return='<?php echo 'strModifications'; ?>'></root>
+<root act='save_pos' return='<?php echo __('Modifications have been saved'); ?>'></root>
 <?php
 }
 ?>

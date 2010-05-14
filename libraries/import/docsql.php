@@ -26,12 +26,12 @@ if ($plugin_param !== 'database' || $GLOBALS['num_tables'] < 1
 
 if (isset($plugin_list)) {
     $plugin_list['docsql'] = array(           // set name of your plugin
-        'text' => 'strDocSQL',                // text to be displayed as choice
+        'text' => __('DocSQL'),                // text to be displayed as choice
         'extension' => '',                  // extension this plugin can handle
         'options' => array(                 // array of options for your plugin (optional)
-            array('type' => 'text', 'name' => 'table', 'text' => 'strTableName'),
+            array('type' => 'text', 'name' => 'table', 'text' => __('Table name')),
         ),
-        'options_text' => 'strOptions', // text to describe plugin options (must be set if options are used)
+        'options_text' => __('Options'), // text to describe plugin options (must be set if options are used)
         );
     /* We do not define function when plugin is just queried for information above */
     return;

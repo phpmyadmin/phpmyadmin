@@ -19,25 +19,25 @@ if ($plugin_param !== 'table') {
 
 if (isset($plugin_list)) {
     $plugin_list['csv'] = array(
-        'text' => 'strCSV',
+        'text' => __('CSV'),
         'extension' => 'csv',
         'options' => array(
-            array('type' => 'bool', 'name' => 'replace', 'text' => 'strReplaceTable'),
-            array('type' => 'bool', 'name' => 'ignore', 'text' => 'strIgnoreDuplicates'),
-            array('type' => 'text', 'name' => 'terminated', 'text' => 'strFieldsTerminatedBy', 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'enclosed', 'text' => 'strFieldsEnclosedBy', 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'escaped', 'text' => 'strFieldsEscapedBy', 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'new_line', 'text' => 'strLinesTerminatedBy', 'size' => 2),
+            array('type' => 'bool', 'name' => 'replace', 'text' => __('Replace table data with file')),
+            array('type' => 'bool', 'name' => 'ignore', 'text' => __('Ignore duplicate rows')),
+            array('type' => 'text', 'name' => 'terminated', 'text' => __('Fields terminated by'), 'size' => 2, 'len' => 2),
+            array('type' => 'text', 'name' => 'enclosed', 'text' => __('Fields enclosed by'), 'size' => 2, 'len' => 2),
+            array('type' => 'text', 'name' => 'escaped', 'text' => __('Fields escaped by'), 'size' => 2, 'len' => 2),
+            array('type' => 'text', 'name' => 'new_line', 'text' => __('Lines terminated by'), 'size' => 2),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
 
     if ($plugin_param !== 'table') {
         $plugin_list['csv']['options'][] =
-            array('type' => 'bool', 'name' => 'col_names', 'text' => 'strImportColNames');
+            array('type' => 'bool', 'name' => 'col_names', 'text' => __('Column names in first row'));
     } else {
         $plugin_list['csv']['options'][] =
-            array('type' => 'text', 'name' => 'columns', 'text' => 'strColumnNames');
+            array('type' => 'text', 'name' => 'columns', 'text' => __('Column names'));
     }
 
     /* We do not define function when plugin is just queried for information above */

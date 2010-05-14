@@ -34,9 +34,9 @@ if (isset($plugin_list)) {
         'mime_type' => 'text/cs',
           'options' => array(
           	array('type' => 'hidden', 'name' => 'data'),
-            array('type' => 'select', 'name' => 'format', 'text' => 'strFormat', 'values' => $CG_FORMATS),
+            array('type' => 'select', 'name' => 'format', 'text' => __('Format'), 'values' => $CG_FORMATS),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
 } else {
 

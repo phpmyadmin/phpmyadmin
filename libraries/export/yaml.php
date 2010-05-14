@@ -25,7 +25,7 @@ if (isset($plugin_list)) {
                 'name' => 'data',
             ),
         ),
-        'options_text'  => 'strOptions',
+        'options_text'  => __('Options'),
     );
 } else {
 

@@ -15,16 +15,16 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['xls'] = array(
-        'text' => 'strImportXLS',
+        'text' => __('Excel 97-2003 XLS Workbook'),
         'extension' => 'xls',
         'mime_type' => 'application/vnd.ms-excel',
         'force_file' => true,
         'options' => array(
-            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
-            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
+            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
+            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row')),
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => __('Options'),
         );
 } else {
 
