@@ -661,7 +661,7 @@ msgstr "वीयू %s छोड़ दिया गया है."
 #: libraries/tbl_links.inc.php:133
 #, php-format
 msgid "Table %s has been dropped"
-msgstr " टेबल %s को ड्रोप किया"
+msgstr " टेबल %s को ड्रोप किया गया है."
 
 #: db_structure.php:333 libraries/messages.inc.php:1124
 msgid "Tracking is active."
