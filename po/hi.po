@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 06:13+0200\n"
+"PO-Revision-Date: 2010-05-14 06:14+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -446,7 +446,7 @@ msgstr " %s टेबल(s)"
 #: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
 #: view_operations.php:62
 msgid "Your SQL query has been executed successfully"
-msgstr "आपकी SQL-query सफलता से पूरा किया"
+msgstr "आपकी SQL कुएरी सफलता के साथ पूरी की गई है."
 
 #: db_qbe.php:42 libraries/messages.inc.php:367
 msgid "You have to choose at least one column to display"
