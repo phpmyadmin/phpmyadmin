@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 08:14+0200\n"
+"PO-Revision-Date: 2010-05-14 08:15+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -808,7 +808,7 @@ msgstr "इस तालिका के लिए ट्रैकिंग ड�
 #: db_tracking.php:106 libraries/messages.inc.php:1138 tbl_tracking.php:548
 #: tbl_tracking.php:606 tbl_tracking.php:613
 msgid "active"
-msgstr ""
+msgstr "सक्रिय"
 
 #: db_tracking.php:108 libraries/messages.inc.php:1139 tbl_tracking.php:550
 #: tbl_tracking.php:608 tbl_tracking.php:610
