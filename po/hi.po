@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 08:16+0200\n"
+"PO-Revision-Date: 2010-05-14 08:17+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -836,7 +836,7 @@ msgstr "लापता तालिकाएं"
 #: db_tracking.php:172 db_tracking.php:174 libraries/messages.inc.php:1149
 #: tbl_structure.php:529 tbl_structure.php:531
 msgid "Track table"
-msgstr ""
+msgstr "तालिकाओं को ट्रैक करें"
 
 #: db_tracking.php:200 libraries/messages.inc.php:1117
 msgid "Database Log"
