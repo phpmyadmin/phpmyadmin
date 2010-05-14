@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 08:11+0200\n"
+"PO-Revision-Date: 2010-05-14 08:12+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -768,7 +768,7 @@ msgstr "एक्सपोर्ट"
 
 #: db_tracking.php:66 libraries/messages.inc.php:1147
 msgid "Tracked tables"
-msgstr "ट्रैक कि गए तालिकाएं."
+msgstr "ट्रैक की गयी तालिकाएं"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
