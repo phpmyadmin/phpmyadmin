@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 08:20+0200\n"
+"PO-Revision-Date: 2010-05-14 08:21+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -856,6 +856,8 @@ msgstr "%s फाइल को सेव करने के लिए अपर
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"%s फाइल पहले से ही सर्वर पर मौजूद है, फ़ाइल नाम परिवर्तन अधिलेखित या विकल्प "
+"की जाँच करें."
 
 #: export.php:298 export.php:302 libraries/messages.inc.php:558
 #, php-format
