@@ -649,7 +649,7 @@ msgstr "खाली करें"
 #: libraries/tbl_links.inc.php:100
 #, php-format
 msgid "Table %s has been emptied"
-msgstr " टेबल %s को खाली किया"
+msgstr " टेबल %s को खाली किया गया है."
 
 #: db_structure.php:326 libraries/messages.inc.php:1225
 #: libraries/tbl_links.inc.php:133
