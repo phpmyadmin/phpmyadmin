@@ -831,7 +831,7 @@ msgstr "संरचना स्नैपशॉट"
 
 #: db_tracking.php:152 libraries/messages.inc.php:1150
 msgid "Untracked tables"
-msgstr ""
+msgstr "लापता तालिकाएं"
 
 #: db_tracking.php:172 db_tracking.php:174 libraries/messages.inc.php:1149
 #: tbl_structure.php:529 tbl_structure.php:531
