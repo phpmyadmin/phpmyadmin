@@ -439,7 +439,7 @@ msgstr "पिछली जाँच"
 #: db_printview.php:222 db_structure.php:480 libraries/messages.inc.php:1081
 #, php-format
 msgid "%s table(s)"
-msgstr " %s  टेबल(s)"
+msgstr " %s टेबल(s)"
 
 #: db_qbe.php:29 libraries/display_tbl.lib.php:1981
 #: libraries/messages.inc.php:1047 libraries/sql_query_form.lib.php:140
