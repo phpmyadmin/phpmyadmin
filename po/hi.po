@@ -784,7 +784,7 @@ msgstr " डाटाबेस"
 
 #: db_tracking.php:73 libraries/messages.inc.php:1142
 msgid "Last version"
-msgstr ""
+msgstr "पिछला संस्करण"
 
 #: db_tracking.php:74 libraries/messages.inc.php:1141 tbl_tracking.php:594
 msgid "Created"
