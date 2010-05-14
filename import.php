@@ -423,7 +423,7 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
 if ($timeout_passed) {
     $message = PMA_Message::error(__('Script timeout passed, if you want to finish import, please resubmit same file and import will resume.'));
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
-        $message->addString(__('However on last run no data has been parsed, this usually means phpMyAdmin won't be able to finish this import unless you increase php time limits.'));
+        $message->addString(__('However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.'));
     }
 }
 
