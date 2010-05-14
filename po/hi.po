@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 06:24+0200\n"
+"PO-Revision-Date: 2010-05-14 06:25+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -584,7 +584,7 @@ msgstr "मिटाएँ"
 #: db_search.php:285 libraries/messages.inc.php:576
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr ""
+msgstr "<b>कुल:</b> <i>%s</i> मैच"
 
 #: db_search.php:299 libraries/messages.inc.php:828
 msgid "Search in database"
