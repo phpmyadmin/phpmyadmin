@@ -83,7 +83,7 @@ msgstr "کی نیم"
 #: libraries/messages.inc.php:248 server_collations.php:55
 #: server_collations.php:67 server_engines.php:59 server_status.php:628
 msgid "Description"
-msgstr ""
+msgstr "وضاحت"
 
 #: browse_foreigners.php:247 browse_foreigners.php:256
 #: browse_foreigners.php:268 browse_foreigners.php:276
