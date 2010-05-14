@@ -71,7 +71,7 @@ msgstr "تلاش"
 #: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
-msgstr ""
+msgstr "جائو"
 
 #: browse_foreigners.php:168 browse_foreigners.php:172
 #: libraries/Index.class.php:442 libraries/messages.inc.php:455
