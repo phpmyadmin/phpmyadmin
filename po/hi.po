@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 06:21+0200\n"
+"PO-Revision-Date: 2010-05-14 06:22+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -557,7 +557,7 @@ msgstr "नियमित अभिव्यक्ति के रूप म�
 #: db_search.php:242 libraries/messages.inc.php:836
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "\"<i>%s</i>\" %s के लिये सर्च के परिणाम :"
+msgstr "<i>%s</i> %s के लिये परिणाम खोजें:"
 
 #: db_search.php:260 libraries/messages.inc.php:575
 #, php-format
