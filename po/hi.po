@@ -608,7 +608,7 @@ msgstr " टेबल में:"
 
 #: db_search.php:355 libraries/messages.inc.php:829
 msgid "Inside field:"
-msgstr ""
+msgstr "क्षेत्र के अंदर:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
