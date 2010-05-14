@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 06:12+0200\n"
+"PO-Revision-Date: 2010-05-14 06:13+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -434,7 +434,7 @@ msgstr "पिछला नवीनीकरण"
 #: libraries/export/sql.php:524 libraries/messages.inc.php:1027
 #: pdf_schema.php:1251 tbl_printview.php:454 tbl_structure.php:826
 msgid "Last check"
-msgstr ""
+msgstr "पिछली जाँच"
 
 #: db_printview.php:222 db_structure.php:480 libraries/messages.inc.php:1081
 #, php-format
