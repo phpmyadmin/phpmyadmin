@@ -478,7 +478,7 @@ msgstr "दिखाओ"
 
 #: db_qbe.php:300 libraries/messages.inc.php:198
 msgid "Criteria"
-msgstr ""
+msgstr "मापदंड"
 
 #: db_qbe.php:353 db_qbe.php:435 db_qbe.php:527 db_qbe.php:558
 #: libraries/messages.inc.php:714
