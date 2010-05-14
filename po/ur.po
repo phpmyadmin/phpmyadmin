@@ -89,7 +89,7 @@ msgstr "وضاحت"
 #: browse_foreigners.php:268 browse_foreigners.php:276
 #: libraries/messages.inc.php:1214
 msgid "Use this value"
-msgstr ""
+msgstr "یہ ویلیو استعمال کریں"
 
 #: db_create.php:46 libraries/messages.inc.php:211
 #, php-format
