@@ -428,7 +428,7 @@ msgstr "रचना"
 #: libraries/export/sql.php:519 libraries/messages.inc.php:1032
 #: pdf_schema.php:1246 tbl_printview.php:444 tbl_structure.php:818
 msgid "Last update"
-msgstr ""
+msgstr "पिछला नवीनीकरण"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
 #: libraries/export/sql.php:524 libraries/messages.inc.php:1027
