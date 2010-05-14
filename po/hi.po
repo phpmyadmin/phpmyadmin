@@ -579,7 +579,7 @@ msgstr "ब्राउज़"
 #: setup/frames/index.inc.php:125 setup/frames/index.inc.php:216
 #: tbl_row_action.php:63
 msgid "Delete"
-msgstr "हटाना"
+msgstr "मिटाएँ"
 
 #: db_search.php:285 libraries/messages.inc.php:576
 #, php-format
