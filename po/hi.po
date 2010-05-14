@@ -504,7 +504,7 @@ msgstr "अथवा"
 
 #: db_qbe.php:507 libraries/messages.inc.php:512
 msgid "Modify"
-msgstr ""
+msgstr "संशोधित"
 
 #: db_qbe.php:584 libraries/messages.inc.php:29
 msgid "Add/Delete Criteria Row"
