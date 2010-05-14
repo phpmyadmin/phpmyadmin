@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 08:17+0200\n"
+"PO-Revision-Date: 2010-05-14 08:19+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -844,7 +844,7 @@ msgstr "डेटाबेस लॉग"
 
 #: export.php:62 libraries/messages.inc.php:308
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "चयनित निर्यात टाइप को फाइल में सेव करने की आवश्यकता है!"
 
 #: export.php:154 export.php:179 export.php:627 libraries/messages.inc.php:563
 #, php-format
