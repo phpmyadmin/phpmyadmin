@@ -685,7 +685,7 @@ msgstr ""
 #: libraries/messages.inc.php:1229 libraries/tbl_info.inc.php:66
 #: tbl_structure.php:185 test/theme.php:74
 msgid "View"
-msgstr ""
+msgstr "दृश्य"
 
 #: db_structure.php:485 libraries/db_structure.lib.php:49
 #: libraries/messages.inc.php:769 libraries/server_links.inc.php:70
