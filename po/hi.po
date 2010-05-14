@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 08:15+0200\n"
+"PO-Revision-Date: 2010-05-14 08:16+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -827,7 +827,7 @@ msgstr "ट्रैकिंग रिपोर्ट"
 #: db_tracking.php:123 libraries/messages.inc.php:1140 tbl_tracking.php:251
 #: tbl_tracking.php:624
 msgid "Structure snapshot"
-msgstr ""
+msgstr "संरचना स्नैपशॉट"
 
 #: db_tracking.php:152 libraries/messages.inc.php:1150
 msgid "Untracked tables"
