@@ -691,7 +691,7 @@ msgstr "दृश्य"
 #: libraries/messages.inc.php:769 libraries/server_links.inc.php:70
 #: server_replication.php:33 server_replication.php:164 server_status.php:258
 msgid "Replication"
-msgstr ""
+msgstr "प्रतिकृति"
 
 #: db_structure.php:489 libraries/messages.inc.php:1049
 msgid "Sum"
