@@ -803,7 +803,7 @@ msgstr "कार्य"
 
 #: db_tracking.php:88 db_tracking.php:120 libraries/messages.inc.php:243
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "इस तालिका के लिए ट्रैकिंग डेटा हटाएँ"
 
 #: db_tracking.php:106 libraries/messages.inc.php:1138 tbl_tracking.php:548
 #: tbl_tracking.php:606 tbl_tracking.php:613
