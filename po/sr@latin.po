@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-13 11:30+0200\n"
+"POT-Creation-Date: 2010-05-14 07:48-0400\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: serbian_latin <sr@latin@li.org>\n"
@@ -158,10 +158,11 @@ msgid "Links to"
 msgstr "Veze ka"
 
 #: db_datadict.php:184 db_printview.php:112 libraries/export/htmlword.php:252
-#: libraries/export/latex.php:365 libraries/export/odt.php:312
-#: libraries/export/texytext.php:241 libraries/messages.inc.php:159
-#: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
-#: pdf_schema.php:1290 tbl_printview.php:152
+#: libraries/export/latex.php:45 libraries/export/latex.php:365
+#: libraries/export/odt.php:38 libraries/export/odt.php:312
+#: libraries/export/sql.php:31 libraries/export/texytext.php:241
+#: libraries/messages.inc.php:159 libraries/tbl_properties.inc.php:130
+#: pdf_schema.php:1279 pdf_schema.php:1290 tbl_printview.php:152
 msgid "Comments"
 msgstr "Komentari"
 
@@ -269,16 +270,16 @@ msgstr "Samo podaci"
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE pre kopiranja"
 
-#: db_operations.php:471 libraries/export/sql.php:52
-#: libraries/export/sql.php:74 libraries/export/sql.php:76
-#: libraries/export/sql.php:82 libraries/messages.inc.php:26
+#: db_operations.php:471 libraries/export/sql.php:53
+#: libraries/export/sql.php:75 libraries/export/sql.php:77
+#: libraries/export/sql.php:83 libraries/messages.inc.php:26
 #: tbl_operations.php:534
 #, php-format
 msgid "Add %s"
 msgstr "Dodaj %s"
 
-#: db_operations.php:475 libraries/messages.inc.php:25 tbl_operations.php:297
-#: tbl_operations.php:536
+#: db_operations.php:475 libraries/export/sql.php:79
+#: libraries/messages.inc.php:25 tbl_operations.php:297 tbl_operations.php:536
 msgid "Add AUTO_INCREMENT value"
 msgstr "Dodaj AUTO_INCREMENT vrednost"
 
@@ -422,25 +423,25 @@ msgstr "Zapisi"
 msgid "Size"
 msgstr "Veličina"
 
-#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:559
-#: libraries/export/sql.php:899 libraries/messages.inc.php:432
+#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:560
+#: libraries/export/sql.php:900 libraries/messages.inc.php:432
 msgid "in use"
 msgstr "se koristi"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
-#: libraries/export/sql.php:514 libraries/messages.inc.php:1028
+#: libraries/export/sql.php:515 libraries/messages.inc.php:1028
 #: pdf_schema.php:1241 tbl_printview.php:434 tbl_structure.php:810
 msgid "Creation"
 msgstr "Napravljeno"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
-#: libraries/export/sql.php:519 libraries/messages.inc.php:1032
+#: libraries/export/sql.php:520 libraries/messages.inc.php:1032
 #: pdf_schema.php:1246 tbl_printview.php:444 tbl_structure.php:818
 msgid "Last update"
 msgstr "Poslednja izmena"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
-#: libraries/export/sql.php:524 libraries/messages.inc.php:1027
+#: libraries/export/sql.php:525 libraries/messages.inc.php:1027
 #: pdf_schema.php:1251 tbl_printview.php:454 tbl_structure.php:826
 msgid "Last check"
 msgstr "Poslednja provera"
@@ -450,10 +451,10 @@ msgstr "Poslednja provera"
 msgid "%s table(s)"
 msgstr "%s tabela"
 
-#: db_qbe.php:29 libraries/display_tbl.lib.php:1981
-#: libraries/messages.inc.php:1047 libraries/sql_query_form.lib.php:140
-#: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
-#: view_operations.php:62
+#: db_qbe.php:29 libraries/Message.class.php:191
+#: libraries/display_tbl.lib.php:1981 libraries/messages.inc.php:1047
+#: libraries/sql_query_form.lib.php:140 tbl_operations.php:213
+#: tbl_relation.php:292 tbl_row_action.php:131 view_operations.php:62
 msgid "Your SQL query has been executed successfully"
 msgstr "Vaš SQL upit je uspešno izvršen"
 
@@ -627,10 +628,13 @@ msgid "Insert"
 msgstr "Novi zapis"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
-#: libraries/db_links.inc.php:63 libraries/export/latex.php:337
-#: libraries/import.lib.php:1104 libraries/messages.inc.php:1044
-#: libraries/tbl_links.inc.php:56 pmd_general.php:134
-#: server_privileges.php:554 server_replication.php:315 tbl_tracking.php:269
+#: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
+#: libraries/export/latex.php:33 libraries/export/latex.php:337
+#: libraries/export/odt.php:32 libraries/export/sql.php:61
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1104
+#: libraries/messages.inc.php:1044 libraries/tbl_links.inc.php:56
+#: pmd_general.php:134 server_privileges.php:554 server_replication.php:315
+#: tbl_tracking.php:269
 msgid "Structure"
 msgstr "Struktura"
 
@@ -780,7 +784,7 @@ msgstr "Proveri tabelu"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
-#: libraries/export/sql.php:342 libraries/export/texytext.php:84
+#: libraries/export/sql.php:343 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
 #: libraries/header_printview.inc.php:58 libraries/messages.inc.php:208
 #: navigation.php:233 server_databases.php:169 server_privileges.php:1621
@@ -933,7 +937,7 @@ msgstr "Obeleživač je upravo obrisan."
 msgid "Showing bookmark"
 msgstr "Prikazivanje markera"
 
-#: import.php:403 libraries/messages.inc.php:97
+#: import.php:403 libraries/messages.inc.php:97 sql.php:626
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Napravljen marker %s"
@@ -950,6 +954,20 @@ msgid ""
 msgstr ""
 "Vreme izvršenja skripta je isteklo, ako želite da dovršite uvoz, molimo "
 "pošaljite istu datoteku i uvoz će se nastaviti."
+
+#: import.php:426
+#, fuzzy
+#| msgid ""
+#| "However on last run no data has been parsed, this usually means "
+#| "phpMyAdmin won't be able to finish this import unless you increase php "
+#| "time limits."
+msgid ""
+"However on last run no data has been parsed, this usually means phpMyAdmin "
+"won"
+msgstr ""
+"Međutim, pri poslednjem pokretanju podaci nisu bili obrađeni, što obično "
+"znači da phpMyAdmin neće biti u mogućnosti da završi ovaj uvoz osim ako ne "
+"povećate vremenska ograničenja u PHP-u"
 
 #: index.php:190 libraries/messages.inc.php:549
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -1022,27 +1040,28 @@ msgstr "Lozinke nisu identične!"
 msgid "Cancel"
 msgstr "Otkaži"
 
-#: js/messages.php:52 libraries/messages.inc.php:510
+#: js/messages.php:52 libraries/messages.inc.php:510 pmd_save_pos.php:54
 msgid "Modifications have been saved"
 msgstr "Izmene su sačuvane"
 
-#: js/messages.php:53 libraries/messages.inc.php:737
+#: js/messages.php:53 libraries/messages.inc.php:737 pmd_relation_upd.php:49
 msgid "Relation deleted"
 msgstr "Relacija obrisana"
 
-#: js/messages.php:54 libraries/messages.inc.php:336
+#: js/messages.php:54 libraries/messages.inc.php:336 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
 msgstr ""
 
-#: js/messages.php:55 libraries/messages.inc.php:430
+#: js/messages.php:55 libraries/messages.inc.php:430 pmd_relation_new.php:86
 msgid "Internal relation added"
 msgstr "Dodata interna relacija"
 
-#: js/messages.php:56 libraries/messages.inc.php:295
+#: js/messages.php:56 libraries/messages.inc.php:295 pmd_relation_new.php:63
+#: pmd_relation_new.php:88
 msgid "Error: Relation not added."
 msgstr "Greška: relacija nije dodata."
 
-#: js/messages.php:57 libraries/messages.inc.php:296
+#: js/messages.php:57 libraries/messages.inc.php:296 pmd_relation_new.php:31
 msgid "Error: relation already exists."
 msgstr "Greška: relacija već postoji."
 
@@ -1051,7 +1070,7 @@ msgid "Error saving coordinates for Designer."
 msgstr "Greška pri snimanju koordinata za Dizajner."
 
 #: js/messages.php:59 libraries/messages.inc.php:347
-#: libraries/relation.lib.php:107
+#: libraries/relation.lib.php:107 libraries/relation.lib.php:119
 msgid "General relation features"
 msgstr "Opšte osobine relacija"
 
@@ -1481,6 +1500,14 @@ msgstr ""
 msgid "Databases"
 msgstr "Baze"
 
+#: libraries/Message.class.php:211 libraries/common.lib.php:581
+#: libraries/core.lib.php:234 libraries/core.lib.php:263
+#: libraries/import.lib.php:134 libraries/messages.inc.php:293
+#: pdf_schema.php:32 pdf_schema.php:232 tbl_change.php:1027
+#: tbl_operations.php:213 tbl_relation.php:290 view_operations.php:62
+msgid "Error"
+msgstr "Greška"
+
 #: libraries/Message.class.php:282
 #, php-format
 msgid "%1$d row affected."
@@ -1776,6 +1803,11 @@ msgstr "Server"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Neispravan metod autentikacije je zadat u konfiguraciji:"
 
+#: libraries/common.inc.php:926 libraries/messages.inc.php:1190
+#, php-format
+msgid "You should upgrade to %s %s or later."
+msgstr "Trebalo bi da unapredite vaš %s server na verziju %s ili noviju."
+
 #: libraries/common.lib.php:147 libraries/messages.inc.php:495
 #, php-format
 msgid "Max: %s%s"
@@ -1803,14 +1835,6 @@ msgstr "en"
 #: setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Dokumentacija"
-
-#: libraries/common.lib.php:581 libraries/core.lib.php:234
-#: libraries/core.lib.php:263 libraries/import.lib.php:134
-#: libraries/messages.inc.php:293 pdf_schema.php:32 pdf_schema.php:232
-#: tbl_change.php:1027 tbl_operations.php:213 tbl_relation.php:290
-#: view_operations.php:62
-msgid "Error"
-msgstr "Greška"
 
 #: libraries/common.lib.php:595 libraries/header_printview.inc.php:61
 #: libraries/messages.inc.php:1019 server_processlist.php:60
@@ -1966,7 +1990,7 @@ msgstr ""
 "ne mogu da učitam ekstenziju %s,<br />molim proverite PHP konfiguraciju"
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
-#: libraries/export/sql.php:415 libraries/messages.inc.php:302
+#: libraries/export/sql.php:416 libraries/messages.inc.php:302
 #, fuzzy
 msgid "Events"
 msgstr "Događaji"
@@ -1987,14 +2011,15 @@ msgstr "Baza %s je odbačena."
 msgid "Database seems to be empty!"
 msgstr "Baza je izgleda prazna!"
 
-#: libraries/db_links.inc.php:68 libraries/messages.inc.php:1021
+#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
+#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
 #: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
 #: querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr "SQL"
 
 #: libraries/db_links.inc.php:81 libraries/messages.inc.php:1148
-#: libraries/tbl_links.inc.php:69
+#: libraries/relation.lib.php:155 libraries/tbl_links.inc.php:69
 msgid "Tracking"
 msgstr ""
 
@@ -2003,6 +2028,7 @@ msgid "Query"
 msgstr "Upit po primeru"
 
 #: libraries/db_links.inc.php:91 libraries/messages.inc.php:249
+#: libraries/relation.lib.php:151
 msgid "Designer"
 msgstr "Dizajner"
 
@@ -2213,7 +2239,7 @@ msgstr "Kompresija"
 
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
-#: libraries/export/sql.php:868 libraries/messages.inc.php:554
+#: libraries/export/sql.php:869 libraries/messages.inc.php:554
 #: libraries/tbl_properties.inc.php:575 server_privileges.php:1836
 #: server_processlist.php:75
 msgid "None"
@@ -2237,7 +2263,8 @@ msgstr "\"gzip-ovano\""
 msgid "bzipped"
 msgstr "\"bzip-ovano\""
 
-#: libraries/display_export.lib.php:274 libraries/messages.inc.php:1014
+#: libraries/display_export.lib.php:274 libraries/export/sql.php:44
+#: libraries/import/sql.php:32 libraries/messages.inc.php:1014
 msgid "SQL compatibility mode"
 msgstr "Mod SQL kompatibilnosti"
 
@@ -2358,8 +2385,20 @@ msgstr "Ova operacija može da potraje. Da li da nastavimo?"
 msgid "Sort by key"
 msgstr "Sortiraj po ključu"
 
-#: libraries/display_tbl.lib.php:555 libraries/import.lib.php:1082
-#: libraries/import.lib.php:1104 libraries/messages.inc.php:587
+#: libraries/display_tbl.lib.php:555 libraries/export/codegen.php:39
+#: libraries/export/csv.php:30 libraries/export/excel.php:35
+#: libraries/export/htmlword.php:29 libraries/export/latex.php:28
+#: libraries/export/mediawiki.php:21 libraries/export/ods.php:27
+#: libraries/export/odt.php:27 libraries/export/pdf.php:27
+#: libraries/export/php_array.php:25 libraries/export/sql.php:35
+#: libraries/export/texytext.php:37 libraries/export/xls.php:27
+#: libraries/export/xlsx.php:27 libraries/export/xml.php:24
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1082
+#: libraries/import.lib.php:1104 libraries/import/csv.php:32
+#: libraries/import/docsql.php:34 libraries/import/ldi.php:47
+#: libraries/import/ods.php:30 libraries/import/sql.php:20
+#: libraries/import/xls.php:26 libraries/import/xlsx.php:26
+#: libraries/import/xml.php:25 libraries/messages.inc.php:587
 #: tbl_select.php:267 tbl_structure.php:754
 msgid "Options"
 msgstr "Opcije"
@@ -2401,7 +2440,8 @@ msgid "Hide"
 msgstr "Sakrij"
 
 #: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:504
-#: libraries/tbl_properties.inc.php:144 transformation_overview.php:47
+#: libraries/relation.lib.php:135 libraries/tbl_properties.inc.php:144
+#: transformation_overview.php:47
 msgid "Browser transformation"
 msgstr "Tranformacije čitača"
 
@@ -2776,19 +2816,130 @@ msgid ""
 "number."
 msgstr ""
 
+#: libraries/export/codegen.php:37 libraries/messages.inc.php:337
+#: setup/lib/messages.inc.php:88 tbl_printview.php:376 tbl_structure.php:738
+msgid "Format"
+msgstr "Format"
+
+#: libraries/export/csv.php:17 libraries/import/csv.php:22
+#: libraries/messages.inc.php:200
+msgid "CSV"
+msgstr "CSV"
+
+#: libraries/export/csv.php:21 libraries/import/csv.php:27
+#: libraries/import/csv.php:59 libraries/import/ldi.php:40
+#: libraries/messages.inc.php:319
+msgid "Fields terminated by"
+msgstr "Polja razdvojena sa"
+
+#: libraries/export/csv.php:22 libraries/import/csv.php:28
+#: libraries/import/csv.php:71 libraries/import/ldi.php:41
+#: libraries/messages.inc.php:316
+msgid "Fields enclosed by"
+msgstr "Polja ograničena sa"
+
+#: libraries/export/csv.php:23 libraries/import/csv.php:29
+#: libraries/import/csv.php:75 libraries/import/ldi.php:42
+#: libraries/messages.inc.php:317
+msgid "Fields escaped by"
+msgstr "Escape karakter &nbsp; &nbsp; &nbsp;"
+
+#: libraries/export/csv.php:24 libraries/import/csv.php:30
+#: libraries/import/csv.php:79 libraries/import/ldi.php:43
+#: libraries/messages.inc.php:477
+msgid "Lines terminated by"
+msgstr "Linije se završavaju sa"
+
+#: libraries/export/csv.php:25 libraries/export/excel.php:22
+#: libraries/export/htmlword.php:25 libraries/export/latex.php:65
+#: libraries/export/ods.php:23 libraries/export/odt.php:52
+#: libraries/export/texytext.php:31 libraries/export/xls.php:23
+#: libraries/export/xlsx.php:23 libraries/messages.inc.php:755
+msgid "Replace NULL by"
+msgstr "Zameni NULL sa"
+
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
+#: libraries/messages.inc.php:746
+msgid "Remove CRLF characters within fields"
+msgstr ""
+
+#: libraries/export/csv.php:27 libraries/export/excel.php:24
+#: libraries/export/htmlword.php:26 libraries/export/latex.php:57
+#: libraries/export/ods.php:24 libraries/export/odt.php:50
+#: libraries/export/texytext.php:34 libraries/export/xls.php:24
+#: libraries/export/xlsx.php:24 libraries/messages.inc.php:711
+msgid "Put fields names in the first row"
+msgstr "Stavi imena polja u prvi red"
+
+#: libraries/export/excel.php:18 libraries/messages.inc.php:1038
+msgid "CSV for MS Excel"
+msgstr "CSV za MS Excel"
+
+#: libraries/export/excel.php:32 libraries/messages.inc.php:303
+msgid "Excel edition"
+msgstr "Excel izdanje"
+
+#: libraries/export/htmlword.php:18 libraries/messages.inc.php:379
+msgid "Microsoft Word 2000"
+msgstr "Microsoft Word 2000"
+
+#: libraries/export/htmlword.php:24 libraries/export/latex.php:55
+#: libraries/export/latex.php:201 libraries/export/odt.php:48
+#: libraries/export/sql.php:107 libraries/export/sql.php:869
+#: libraries/export/texytext.php:27 libraries/messages.inc.php:222
+#: server_databases.php:127 server_privileges.php:537
+#: server_replication.php:316 tbl_printview.php:317 tbl_structure.php:666
+msgid "Data"
+msgstr "Podaci"
+
 #: libraries/export/htmlword.php:132 libraries/export/odt.php:168
-#: libraries/export/sql.php:881 libraries/export/texytext.php:130
+#: libraries/export/sql.php:882 libraries/export/texytext.php:130
 #: libraries/messages.inc.php:271
 msgid "Dumping data for table"
 msgstr "Prikaz podataka tabele"
 
 #: libraries/export/htmlword.php:185 libraries/export/odt.php:238
-#: libraries/export/sql.php:785 libraries/export/texytext.php:177
+#: libraries/export/sql.php:786 libraries/export/texytext.php:177
 #: libraries/messages.inc.php:1082
 msgid "Table structure for table"
 msgstr "Struktura tabele"
 
-#: libraries/export/latex.php:125 libraries/export/sql.php:232
+#: libraries/export/latex.php:22 libraries/messages.inc.php:470
+msgid "LaTeX"
+msgstr "LaTeX"
+
+#: libraries/export/latex.php:26 libraries/messages.inc.php:468
+msgid "Include table caption"
+msgstr "Uključi komentar tabele"
+
+#: libraries/export/latex.php:35 libraries/export/latex.php:59
+#: libraries/messages.inc.php:464
+msgid "Table caption"
+msgstr "Komentar tabele"
+
+#: libraries/export/latex.php:37 libraries/export/latex.php:61
+#: libraries/messages.inc.php:466
+msgid "Continued table caption"
+msgstr "Nastavljen komentar tabele"
+
+#: libraries/export/latex.php:39 libraries/export/latex.php:63
+#: libraries/messages.inc.php:469
+msgid "Label key"
+msgstr "Oznaka ključa"
+
+#: libraries/export/latex.php:42 libraries/export/odt.php:35
+#: libraries/export/sql.php:92 libraries/messages.inc.php:740
+#: tbl_relation.php:399
+msgid "Relations"
+msgstr "Relacije"
+
+#: libraries/export/latex.php:48 libraries/export/odt.php:41
+#: libraries/export/odt.php:318 libraries/export/sql.php:96
+#: libraries/messages.inc.php:502 libraries/tbl_properties.inc.php:143
+msgid "MIME type"
+msgstr "MIME-tipovi"
+
+#: libraries/export/latex.php:125 libraries/export/sql.php:233
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
 #: libraries/messages.inc.php:377 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:170 libraries/replication_gui.lib.php:265
@@ -2800,70 +2951,202 @@ msgstr "Struktura tabele"
 msgid "Host"
 msgstr "Domaćin"
 
-#: libraries/export/latex.php:130 libraries/export/sql.php:233
+#: libraries/export/latex.php:130 libraries/export/sql.php:234
 #: libraries/export/xml.php:107 libraries/header_printview.inc.php:59
 #: libraries/messages.inc.php:350
 msgid "Generation Time"
 msgstr "Vreme kreiranja"
 
-#: libraries/export/latex.php:131 libraries/export/sql.php:235
+#: libraries/export/latex.php:131 libraries/export/sql.php:236
 #: libraries/export/xml.php:108 libraries/messages.inc.php:860 main.php:186
 msgid "Server version"
 msgstr "Verzija servera"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:236
+#: libraries/export/latex.php:132 libraries/export/sql.php:237
 #: libraries/export/xml.php:109 libraries/messages.inc.php:647
 msgid "PHP Version"
 msgstr "verzija PHP-a"
 
-#: libraries/export/latex.php:201 libraries/export/sql.php:868
-#: libraries/messages.inc.php:222 server_databases.php:127
-#: server_privileges.php:537 server_replication.php:316 tbl_printview.php:317
-#: tbl_structure.php:666
-msgid "Data"
-msgstr "Podaci"
+#: libraries/export/mediawiki.php:15 libraries/messages.inc.php:498
+msgid "MediaWiki Table"
+msgstr ""
 
-#: libraries/export/odt.php:318 libraries/messages.inc.php:502
-#: libraries/tbl_properties.inc.php:143
-msgid "MIME type"
-msgstr "MIME-tipovi"
+#: libraries/export/ods.php:18 libraries/import/ods.php:22
+#: libraries/messages.inc.php:400 libraries/messages.inc.php:580
+msgid "Open Document Spreadsheet"
+msgstr "Open Document Spreadsheet"
 
-#: libraries/export/sql.php:387 libraries/messages.inc.php:707
+#: libraries/export/odt.php:22 libraries/messages.inc.php:581
+msgid "Open Document Text"
+msgstr "Open Document Text"
+
+#: libraries/export/pdf.php:18 libraries/messages.inc.php:636
+msgid "PDF"
+msgstr "PDF"
+
+#: libraries/export/pdf.php:23 libraries/messages.inc.php:637
+msgid "(Generates a report containing the data of a single table)"
+msgstr "(Pravi izveštaj koji sadrži podatke jedne tabele)"
+
+#: libraries/export/pdf.php:24 libraries/messages.inc.php:638
+msgid "Report title"
+msgstr "Naslov izveštaja"
+
+#: libraries/export/php_array.php:16 libraries/messages.inc.php:644
+msgid "PHP array"
+msgstr ""
+
+#: libraries/export/sql.php:29
+#, fuzzy
+#| msgid "Add custom comment into header (\\n splits lines)"
+msgid ""
+"Add custom comment into header (\n"
+" splits lines)"
+msgstr "Dodaj komentar u zaglavlje (\\n razdvaja linije)"
+
+#: libraries/export/sql.php:32 libraries/messages.inc.php:283
+msgid "Enclose export in a transaction"
+msgstr "Obavi izvoz u transakciji"
+
+#: libraries/export/sql.php:33 libraries/messages.inc.php:257
+msgid "Disable foreign key checks"
+msgstr "Isključi provere stranih ključeva"
+
+#: libraries/export/sql.php:51 libraries/messages.inc.php:210
+msgid "Database export options"
+msgstr "Opcije za izvoz baze"
+
+#: libraries/export/sql.php:81 libraries/messages.inc.php:1201
+msgid "Enclose table and field names with backquotes"
+msgstr "Koristi ' za ograničavanje imena polja"
+
+#: libraries/export/sql.php:87 libraries/messages.inc.php:32
+msgid "Add into comments"
+msgstr "Dodaj u komentare"
+
+#: libraries/export/sql.php:89 libraries/messages.inc.php:197
+msgid "Creation/Update/Check dates"
+msgstr "Datumi kreiranja/ažuriranja/provere"
+
+#: libraries/export/sql.php:109 libraries/messages.inc.php:161
+msgid "Complete inserts"
+msgstr "Kompletan INSERT (sa imenima polja)"
+
+#: libraries/export/sql.php:111 libraries/messages.inc.php:309
+msgid "Extended inserts"
+msgstr "Prošireni INSERT"
+
+#: libraries/export/sql.php:113 libraries/messages.inc.php:494
+msgid "Maximal length of created query"
+msgstr "Maksimalna dužina napravljenog upita"
+
+#: libraries/export/sql.php:115 libraries/messages.inc.php:238
+msgid "Use delayed inserts"
+msgstr "Koristi odložena umetanja"
+
+#: libraries/export/sql.php:117 libraries/messages.inc.php:387
+msgid "Use ignore inserts"
+msgstr "Ignoriši duplikate pri umetanju"
+
+#: libraries/export/sql.php:119 libraries/messages.inc.php:370
+msgid "Use hexadecimal for BLOB"
+msgstr "Koristi heksadecimalno za BLOB"
+
+#: libraries/export/sql.php:121 libraries/messages.inc.php:1016
+msgid "Export time in UTC"
+msgstr ""
+
+#: libraries/export/sql.php:123 libraries/messages.inc.php:1015
+msgid "Export type"
+msgstr "Tip izvoza"
+
+#: libraries/export/sql.php:388 libraries/messages.inc.php:707
 msgid "Procedures"
 msgstr "Procedure"
 
-#: libraries/export/sql.php:401 libraries/messages.inc.php:344
+#: libraries/export/sql.php:402 libraries/messages.inc.php:344
 msgid "Functions"
 msgstr "Funkcije"
 
-#: libraries/export/sql.php:618 libraries/messages.inc.php:170
+#: libraries/export/sql.php:619 libraries/messages.inc.php:170
 msgid "Constraints for dumped tables"
 msgstr "Ograničenja za izvezene tabele"
 
-#: libraries/export/sql.php:627 libraries/messages.inc.php:171
+#: libraries/export/sql.php:628 libraries/messages.inc.php:171
 msgid "Constraints for table"
 msgstr "Ograničenja za tabele"
 
-#: libraries/export/sql.php:727 libraries/messages.inc.php:508
+#: libraries/export/sql.php:728 libraries/messages.inc.php:508
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TIPOVI ZA TABELU"
 
-#: libraries/export/sql.php:739 libraries/messages.inc.php:739
+#: libraries/export/sql.php:740 libraries/messages.inc.php:739
 msgid "RELATIONS FOR TABLE"
 msgstr "RELACIJE TABELE"
 
-#: libraries/export/sql.php:796 libraries/messages.inc.php:1174
+#: libraries/export/sql.php:797 libraries/messages.inc.php:1174
 #: libraries/tbl_triggers.lib.php:19
 msgid "Triggers"
 msgstr "Okidači"
 
-#: libraries/export/sql.php:808 libraries/messages.inc.php:1042
+#: libraries/export/sql.php:809 libraries/messages.inc.php:1042
 msgid "Structure for view"
 msgstr "Struktura za pogled (view)"
 
-#: libraries/export/sql.php:817 libraries/messages.inc.php:1025
+#: libraries/export/sql.php:818 libraries/messages.inc.php:1025
 msgid "Stand-in structure for view"
 msgstr "Struktura koja zamenjuje pogled"
+
+#: libraries/export/texytext.php:17 libraries/messages.inc.php:1090
+msgid "Texy! text"
+msgstr ""
+
+#: libraries/export/xls.php:18 libraries/import/xls.php:21
+#: libraries/messages.inc.php:405
+msgid "Excel 97-2003 XLS Workbook"
+msgstr ""
+
+#: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
+#: libraries/messages.inc.php:406
+msgid "Excel 2007 XLSX Workbook"
+msgstr ""
+
+#: libraries/export/xml.php:18 libraries/import/xml.php:21
+#: libraries/messages.inc.php:1251
+msgid "XML"
+msgstr "XML"
+
+#: libraries/export/xml.php:29 libraries/messages.inc.php:1247
+msgid "Export Structure Schemas (recommended)"
+msgstr ""
+
+#: libraries/export/xml.php:31 libraries/messages.inc.php:1245
+msgid "Export functions"
+msgstr ""
+
+#: libraries/export/xml.php:33 libraries/messages.inc.php:1246
+msgid "Export procedures"
+msgstr ""
+
+#: libraries/export/xml.php:35 libraries/messages.inc.php:1248
+#, fuzzy
+msgid "Export tables"
+msgstr "Tip izvoza"
+
+#: libraries/export/xml.php:37 libraries/messages.inc.php:1249
+#, fuzzy
+msgid "Export triggers"
+msgstr "Tip izvoza"
+
+#: libraries/export/xml.php:39 libraries/messages.inc.php:1250
+#, fuzzy
+msgid "Export views"
+msgstr "Tip izvoza"
+
+#: libraries/export/xml.php:45 libraries/messages.inc.php:1244
+#, fuzzy
+msgid "Export contents"
+msgstr "Tip izvoza"
 
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:582
@@ -2938,28 +3221,33 @@ msgstr "Struktura"
 msgid "Go to view"
 msgstr ""
 
+#: libraries/import/csv.php:25 libraries/import/ldi.php:38
+#: libraries/messages.inc.php:756
+msgid "Replace table data with file"
+msgstr "Zameni podatke u tabeli sa podacima iz datoteke"
+
+#: libraries/import/csv.php:26 libraries/import/ldi.php:39
+#: libraries/messages.inc.php:385
+msgid "Ignore duplicate rows"
+msgstr "Ignoriši duplicirane redove"
+
+#: libraries/import/csv.php:37 libraries/import/ods.php:25
+#: libraries/import/xls.php:24 libraries/import/xlsx.php:24
+#: libraries/messages.inc.php:388
+msgid "Column names in first row"
+msgstr ""
+
+#: libraries/import/csv.php:40 libraries/import/ldi.php:44
+#: libraries/messages.inc.php:155 pdf_pages.php:483 view_create.php:148
+msgid "Column names"
+msgstr "Imena kolona"
+
 #: libraries/import/csv.php:58 libraries/import/csv.php:70
 #: libraries/import/csv.php:74 libraries/import/csv.php:78
 #: libraries/messages.inc.php:438
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Neispravni parametri za CSV uvoz: %s"
-
-#: libraries/import/csv.php:59 libraries/messages.inc.php:319
-msgid "Fields terminated by"
-msgstr "Polja razdvojena sa"
-
-#: libraries/import/csv.php:71 libraries/messages.inc.php:316
-msgid "Fields enclosed by"
-msgstr "Polja ograničena sa"
-
-#: libraries/import/csv.php:75 libraries/messages.inc.php:317
-msgid "Fields escaped by"
-msgstr "Escape karakter &nbsp; &nbsp; &nbsp;"
-
-#: libraries/import/csv.php:79 libraries/messages.inc.php:477
-msgid "Lines terminated by"
-msgstr "Linije se završavaju sa"
 
 #: libraries/import/csv.php:119 libraries/messages.inc.php:435
 #, php-format
@@ -2977,9 +3265,43 @@ msgstr "Neispravan format CSV ulaza na liniji %d."
 msgid "Invalid field count in CSV input on line %d."
 msgstr "Neispravan broj polja u CSV ulazu na liniji  %d."
 
+#: libraries/import/docsql.php:29 libraries/messages.inc.php:262
+msgid "DocSQL"
+msgstr "DocSQL"
+
+#: libraries/import/docsql.php:32 libraries/messages.inc.php:1076
+#: libraries/tbl_properties.inc.php:618 server_synchronize.php:428
+#: server_synchronize.php:871
+msgid "Table name"
+msgstr "Naziv tabele"
+
+#: libraries/import/ldi.php:35 libraries/messages.inc.php:473
+msgid "CSV using LOAD DATA"
+msgstr "CSV koristeći LOAD DATA"
+
+#: libraries/import/ldi.php:45 libraries/messages.inc.php:474
+msgid "Use LOCAL keyword"
+msgstr "Koristi ključnu reč LOCAL"
+
 #: libraries/import/ldi.php:55 libraries/messages.inc.php:442
 msgid "This plugin does not support compressed imports!"
 msgstr "Ovaj dodatak ne podržava kompresovane uvoze!"
+
+#: libraries/import/ods.php:26 libraries/messages.inc.php:389
+msgid "Do not import empty rows"
+msgstr ""
+
+#: libraries/import/ods.php:27 libraries/messages.inc.php:401
+msgid "Import percentages as proper decimals (12.00% to .12)"
+msgstr ""
+
+#: libraries/import/ods.php:28
+msgid "Import currencies (.00 to 5.00)"
+msgstr ""
+
+#: libraries/import/sql.php:42 libraries/messages.inc.php:264
+msgid "Do not use AUTO_INCREMENT for zero values"
+msgstr ""
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 #: libraries/messages.inc.php:1243
@@ -3030,10 +3352,6 @@ msgstr "Dodaj %s polja"
 #: libraries/messages.inc.php:31
 msgid "Add custom comment into header (\\n splits lines)"
 msgstr "Dodaj komentar u zaglavlje (\\n razdvaja linije)"
-
-#: libraries/messages.inc.php:32
-msgid "Add into comments"
-msgstr "Dodaj u komentare"
 
 #: libraries/messages.inc.php:33 tbl_structure.php:541
 msgid "Add new field"
@@ -3259,7 +3577,8 @@ msgstr "Dozvoli svakom korisniku da pristupa ovom upamćenom upitu"
 msgid "Label"
 msgstr "Naziv"
 
-#: libraries/messages.inc.php:100 libraries/sql_query_form.lib.php:433
+#: libraries/messages.inc.php:100 libraries/relation.lib.php:143
+#: libraries/sql_query_form.lib.php:433
 msgid "Bookmarked SQL query"
 msgstr "Zapamćen SQL-upit"
 
@@ -3375,13 +3694,9 @@ msgstr "Proveri privilegije za bazu &quot;%s&quot;."
 msgid "Please choose a page to edit"
 msgstr "Izaberite stranu koju menjate"
 
-#: libraries/messages.inc.php:153
+#: libraries/messages.inc.php:153 libraries/relation.lib.php:133
 msgid "Displaying Column Comments"
 msgstr "Prikazujem komentare kolone"
-
-#: libraries/messages.inc.php:155 pdf_pages.php:483 view_create.php:148
-msgid "Column names"
-msgstr "Imena kolona"
 
 #: libraries/messages.inc.php:156 server_privileges.php:1685
 msgid "Column-specific privileges"
@@ -3390,10 +3705,6 @@ msgstr "Privilegije vezane za kolone"
 #: libraries/messages.inc.php:160
 msgid "MySQL&nbsp;4.0 compatible"
 msgstr "MySQL&nbsp;4.0 kompatibilno"
-
-#: libraries/messages.inc.php:161
-msgid "Complete inserts"
-msgstr "Kompletan INSERT (sa imenima polja)"
 
 #: libraries/messages.inc.php:164
 #, php-format
@@ -3456,7 +3767,7 @@ msgstr "Napravi novi ključ"
 msgid "Create a page"
 msgstr "Napravi novu stranu"
 
-#: libraries/messages.inc.php:188
+#: libraries/messages.inc.php:188 libraries/relation.lib.php:129
 msgid "Creation of PDFs"
 msgstr "Pravljenje PDF-ova"
 
@@ -3498,17 +3809,9 @@ msgstr "Proveri privilegije za bazu &quot;%s&quot;."
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Daj sve privilegije na imenu sa džokerima (korisničko_ime\\_%)"
 
-#: libraries/messages.inc.php:197
-msgid "Creation/Update/Check dates"
-msgstr "Datumi kreiranja/ažuriranja/provere"
-
 #: libraries/messages.inc.php:199 libraries/mysql_charsets.lib.php:229
 msgid "Croatian"
 msgstr "Hrvatski"
-
-#: libraries/messages.inc.php:200
-msgid "CSV"
-msgstr "CSV"
 
 #: libraries/messages.inc.php:201 libraries/server_synchronize.lib.php:1343
 #: libraries/server_synchronize.lib.php:1369
@@ -3534,10 +3837,6 @@ msgstr "Češko-slovački"
 #: libraries/messages.inc.php:207 libraries/mysql_charsets.lib.php:235
 msgid "Danish"
 msgstr "Danski"
-
-#: libraries/messages.inc.php:210
-msgid "Database export options"
-msgstr "Opcije za izvoz baze"
 
 #: libraries/messages.inc.php:213 server_synchronize.php:122
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
@@ -3615,10 +3914,6 @@ msgstr ""
 msgid "Defragment table"
 msgstr "Defragmentiraj tabelu"
 
-#: libraries/messages.inc.php:238
-msgid "Use delayed inserts"
-msgstr "Koristi odložena umetanja"
-
 #: libraries/messages.inc.php:241 server_privileges.php:1243
 msgid "No users selected for deleting!"
 msgstr "Nijedan korisnik nije odabran za brisanje!"
@@ -3666,11 +3961,7 @@ msgstr ""
 msgid "Direct links"
 msgstr "Direktne veze"
 
-#: libraries/messages.inc.php:257
-msgid "Disable foreign key checks"
-msgstr "Isključi provere stranih ključeva"
-
-#: libraries/messages.inc.php:258
+#: libraries/messages.inc.php:258 libraries/relation.lib.php:123
 msgid "Display Features"
 msgstr "Prikaži osobine"
 
@@ -3681,14 +3972,6 @@ msgstr "Redosled prikaza:"
 #: libraries/messages.inc.php:261 tbl_select.php:132
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Napravi \"upit po primeru\" (džoker: \"%\")"
-
-#: libraries/messages.inc.php:262
-msgid "DocSQL"
-msgstr "DocSQL"
-
-#: libraries/messages.inc.php:264
-msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
 
 #: libraries/messages.inc.php:269 server_privileges.php:1579
 #: server_privileges.php:1580 server_privileges.php:1581
@@ -3711,10 +3994,6 @@ msgstr "Efektivne"
 #: libraries/messages.inc.php:282 libraries/relation.lib.php:100
 msgid "Enabled"
 msgstr "Omogućeno"
-
-#: libraries/messages.inc.php:283
-msgid "Enclose export in a transaction"
-msgstr "Obavi izvoz u transakciji"
 
 #: libraries/messages.inc.php:284 libraries/sqlparser.lib.php:177
 msgid "END CUT"
@@ -3755,17 +4034,9 @@ msgstr "Estonski"
 msgid "Event"
 msgstr "Događaji"
 
-#: libraries/messages.inc.php:303
-msgid "Excel edition"
-msgstr "Excel izdanje"
-
 #: libraries/messages.inc.php:307 pmd_pdf.php:85
 msgid "Export/Import to scale"
 msgstr "Izvor/uvoz u razmeri"
-
-#: libraries/messages.inc.php:309
-msgid "Extended inserts"
-msgstr "Prošireni INSERT"
 
 #: libraries/messages.inc.php:310 pdf_schema.php:1267 pdf_schema.php:1288
 #: tbl_printview.php:147 tbl_structure.php:183 tbl_tracking.php:278
@@ -3818,11 +4089,6 @@ msgstr "Očisti (zatvori) sve tabele"
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
-
-#: libraries/messages.inc.php:337 setup/lib/messages.inc.php:88
-#: tbl_printview.php:376 tbl_structure.php:738
-msgid "Format"
-msgstr "Format"
 
 #: libraries/messages.inc.php:340 server_replication.php:325
 #, fuzzy
@@ -3894,10 +4160,6 @@ msgstr "Hebrejski"
 msgid "Help"
 msgstr "Pomoć"
 
-#: libraries/messages.inc.php:370
-msgid "Use hexadecimal for BLOB"
-msgstr "Koristi heksadecimalno za BLOB"
-
 #: libraries/messages.inc.php:372 pmd_general.php:120
 msgid "Hide/Show all"
 msgstr "Sakrij/prikaži sve"
@@ -3923,10 +4185,6 @@ msgid ""
 "table are used instead."
 msgstr ""
 
-#: libraries/messages.inc.php:379
-msgid "Microsoft Word 2000"
-msgstr "Microsoft Word 2000"
-
 #: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:253
 msgid "Hungarian"
 msgstr "Mađarski"
@@ -3945,26 +4203,10 @@ msgstr "ID"
 msgid "Fulltext"
 msgstr "Tekst ključ"
 
-#: libraries/messages.inc.php:385
-msgid "Ignore duplicate rows"
-msgstr "Ignoriši duplicirane redove"
-
 #: libraries/messages.inc.php:386 tbl_change.php:302 tbl_indexes.php:200
 #: tbl_indexes.php:225
 msgid "Ignore"
 msgstr "Ignoriši"
-
-#: libraries/messages.inc.php:387
-msgid "Use ignore inserts"
-msgstr "Ignoriši duplikate pri umetanju"
-
-#: libraries/messages.inc.php:388
-msgid "Column names in first row"
-msgstr ""
-
-#: libraries/messages.inc.php:389
-msgid "Do not import empty rows"
-msgstr ""
 
 #: libraries/messages.inc.php:390 pmd_general.php:104
 msgid "Import/Export coordinates for PDF schema"
@@ -3976,22 +4218,6 @@ msgstr "Uvoz datoteka"
 
 #: libraries/messages.inc.php:399
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
-
-#: libraries/messages.inc.php:400 libraries/messages.inc.php:580
-msgid "Open Document Spreadsheet"
-msgstr "Open Document Spreadsheet"
-
-#: libraries/messages.inc.php:401
-msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
-
-#: libraries/messages.inc.php:405
-msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
-
-#: libraries/messages.inc.php:406
-msgid "Excel 2007 XLSX Workbook"
 msgstr ""
 
 #: libraries/messages.inc.php:410 libraries/mult_submits.inc.php:98
@@ -4103,33 +4329,13 @@ msgstr "Korejski"
 msgid "Unknown language: %1$s."
 msgstr "Nepoznat jezik: %1$s."
 
-#: libraries/messages.inc.php:464
-msgid "Table caption"
-msgstr "Komentar tabele"
-
 #: libraries/messages.inc.php:465
 msgid "Content of table __TABLE__"
 msgstr "Sadržaj tabele __TABLE__"
 
-#: libraries/messages.inc.php:466
-msgid "Continued table caption"
-msgstr "Nastavljen komentar tabele"
-
 #: libraries/messages.inc.php:467
 msgid "(continued)"
 msgstr "(nastavljeno)"
-
-#: libraries/messages.inc.php:468
-msgid "Include table caption"
-msgstr "Uključi komentar tabele"
-
-#: libraries/messages.inc.php:469
-msgid "Label key"
-msgstr "Oznaka ključa"
-
-#: libraries/messages.inc.php:470
-msgid "LaTeX"
-msgstr "LaTeX"
 
 #: libraries/messages.inc.php:471
 msgid "Structure of table __TABLE__"
@@ -4138,14 +4344,6 @@ msgstr "Struktura tabele __TABLE__"
 #: libraries/messages.inc.php:472 libraries/mysql_charsets.lib.php:262
 msgid "Latvian"
 msgstr "Letonski"
-
-#: libraries/messages.inc.php:473
-msgid "CSV using LOAD DATA"
-msgstr "CSV koristeći LOAD DATA"
-
-#: libraries/messages.inc.php:474
-msgid "Use LOCAL keyword"
-msgstr "Koristi ključnu reč LOCAL"
 
 #: libraries/messages.inc.php:475 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
@@ -4178,10 +4376,6 @@ msgstr "Odjavljivanje"
 msgid "max. concurrent connections"
 msgstr "maks. istovremenih veza"
 
-#: libraries/messages.inc.php:494
-msgid "Maximal length of created query"
-msgstr "Maksimalna dužina napravljenog upita"
-
 #: libraries/messages.inc.php:496 main.php:282
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
@@ -4201,10 +4395,6 @@ msgstr ""
 "U PHP podešavanjima Vam je uključena mbstring.func_overload opcija. Ova "
 "opcija je nekompatibilna sa phpMyAdmin i može dovesti do grešaka u nekim "
 "podacima!"
-
-#: libraries/messages.inc.php:498
-msgid "MediaWiki Table"
-msgstr ""
 
 #: libraries/messages.inc.php:499 transformation_overview.php:25
 msgid "Available MIME types"
@@ -4399,10 +4589,6 @@ msgstr "Tabele"
 msgid "OK"
 msgstr "U redu"
 
-#: libraries/messages.inc.php:581
-msgid "Open Document Text"
-msgstr "Open Document Text"
-
 #: libraries/messages.inc.php:584 tbl_select.php:138
 msgid "Operator"
 msgstr "Operator"
@@ -4457,18 +4643,6 @@ msgstr "Tabela %s je odbačena"
 msgid "Page creation failed"
 msgstr ""
 
-#: libraries/messages.inc.php:636
-msgid "PDF"
-msgstr "PDF"
-
-#: libraries/messages.inc.php:637
-msgid "(Generates a report containing the data of a single table)"
-msgstr "(Pravi izveštaj koji sadrži podatke jedne tabele)"
-
-#: libraries/messages.inc.php:638
-msgid "Report title"
-msgstr "Naslov izveštaja"
-
 #: libraries/messages.inc.php:639 server_status.php:389 server_status.php:434
 #: server_status.php:497 server_status.php:555
 msgid "per hour"
@@ -4489,10 +4663,6 @@ msgstr "Persijski"
 #: libraries/messages.inc.php:643 libraries/mysql_charsets.lib.php:250
 msgid "phone book"
 msgstr "telefonski imenik"
-
-#: libraries/messages.inc.php:644
-msgid "PHP array"
-msgstr ""
 
 #: libraries/messages.inc.php:646 main.php:213
 #, fuzzy
@@ -4750,10 +4920,6 @@ msgstr "Procesi"
 msgid "Protocol version"
 msgstr "Verzija protokola"
 
-#: libraries/messages.inc.php:711
-msgid "Put fields names in the first row"
-msgstr "Stavi imena polja u prvi red"
-
 #: libraries/messages.inc.php:716 server_synchronize.php:1003
 msgid "The following queries have been executed:"
 msgstr ""
@@ -4768,7 +4934,8 @@ msgstr "Keš upita"
 msgid "Query window"
 msgstr "Prozor za upite"
 
-#: libraries/messages.inc.php:721 querywindow.php:109 querywindow.php:217
+#: libraries/messages.inc.php:721 libraries/relation.lib.php:147
+#: querywindow.php:109 querywindow.php:217
 msgid "SQL history"
 msgstr "SQL istorijat"
 
@@ -4809,10 +4976,6 @@ msgstr "Proveri referencijalni integritet:"
 msgid "Relational schema"
 msgstr "Relaciona shema"
 
-#: libraries/messages.inc.php:740 tbl_relation.php:399
-msgid "Relations"
-msgstr "Relacije"
-
 #: libraries/messages.inc.php:741 tbl_structure.php:507 tbl_structure.php:509
 msgid "Relation view"
 msgstr "Relacioni pogled"
@@ -4833,10 +4996,6 @@ msgstr "Ponovo učitaj"
 #: libraries/messages.inc.php:745 libraries/server_synchronize.lib.php:1345
 #: libraries/server_synchronize.lib.php:1371
 msgid "Remote server"
-msgstr ""
-
-#: libraries/messages.inc.php:746
-msgid "Remove CRLF characters within fields"
 msgstr ""
 
 #: libraries/messages.inc.php:747 tbl_operations.php:676
@@ -4860,14 +5019,6 @@ msgstr "Promeni ime tabele u "
 #, fuzzy
 msgid "Repair"
 msgstr "Popravi tabelu"
-
-#: libraries/messages.inc.php:755
-msgid "Replace NULL by"
-msgstr "Zameni NULL sa"
-
-#: libraries/messages.inc.php:756
-msgid "Replace table data with file"
-msgstr "Zameni podatke u tabeli sa podacima iz datoteke"
 
 #: libraries/messages.inc.php:757 server_replication.php:228
 msgid ""
@@ -5216,7 +5367,7 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: libraries/messages.inc.php:862
+#: libraries/messages.inc.php:862 libraries/session.inc.php:84
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."
@@ -5973,14 +6124,6 @@ msgstr "Zauzeće"
 msgid "Spanish"
 msgstr "Španski"
 
-#: libraries/messages.inc.php:1015
-msgid "Export type"
-msgstr "Tip izvoza"
-
-#: libraries/messages.inc.php:1016
-msgid "Export time in UTC"
-msgstr ""
-
 #: libraries/messages.inc.php:1017 libraries/sqlparser.lib.php:173
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
@@ -6058,10 +6201,6 @@ msgstr "Pogoni skladištenja"
 #: server_engines.php:58 tbl_operations.php:353
 msgid "Storage Engine"
 msgstr "Pogon skladištenja"
-
-#: libraries/messages.inc.php:1038
-msgid "CSV for MS Excel"
-msgstr "CSV za MS Excel"
 
 #: libraries/messages.inc.php:1040 tbl_structure.php:516 tbl_structure.php:518
 msgid "Propose table structure"
@@ -6172,11 +6311,6 @@ msgstr "Tabela je izgleda prazna!"
 msgid "Table maintenance"
 msgstr "Radnje na tabeli"
 
-#: libraries/messages.inc.php:1076 libraries/tbl_properties.inc.php:618
-#: server_synchronize.php:428 server_synchronize.php:871
-msgid "Table name"
-msgstr "Naziv tabele"
-
 #: libraries/messages.inc.php:1077 pdf_schema.php:1116
 msgid "Table of contents"
 msgstr "Sadržaj"
@@ -6217,10 +6351,6 @@ msgstr "Privremeni podaci"
 #: libraries/messages.inc.php:1089 tbl_change.php:728
 msgid " Because of its length,<br /> this field might not be editable "
 msgstr "Zbog njehove veličine, polje<br />možda nećete moći da izmenite"
-
-#: libraries/messages.inc.php:1090
-msgid "Texy! text"
-msgstr ""
 
 #: libraries/messages.inc.php:1091 libraries/mysql_charsets.lib.php:298
 #: libraries/mysql_charsets.lib.php:395
@@ -6590,18 +6720,9 @@ msgid ""
 msgstr ""
 "Molimo pogledajte u dokumentaciji kako se ažurira tabela Column_comments"
 
-#: libraries/messages.inc.php:1190
-#, php-format
-msgid "You should upgrade to %s %s or later."
-msgstr "Trebalo bi da unapredite vaš %s server na verziju %s ili noviju."
-
 #: libraries/messages.inc.php:1200 tbl_printview.php:314 tbl_structure.php:661
 msgid "Usage"
 msgstr "Zauzeće"
-
-#: libraries/messages.inc.php:1201
-msgid "Enclose table and field names with backquotes"
-msgstr "Koristi ' za ograničavanje imena polja"
 
 #: libraries/messages.inc.php:1202 libraries/replication_gui.lib.php:314
 #: server_privileges.php:740
@@ -6708,42 +6829,6 @@ msgstr ""
 #: libraries/messages.inc.php:1237 server_privileges.php:2138
 msgid "wildcard"
 msgstr "džoker"
-
-#: libraries/messages.inc.php:1244
-#, fuzzy
-msgid "Export contents"
-msgstr "Tip izvoza"
-
-#: libraries/messages.inc.php:1245
-msgid "Export functions"
-msgstr ""
-
-#: libraries/messages.inc.php:1246
-msgid "Export procedures"
-msgstr ""
-
-#: libraries/messages.inc.php:1247
-msgid "Export Structure Schemas (recommended)"
-msgstr ""
-
-#: libraries/messages.inc.php:1248
-#, fuzzy
-msgid "Export tables"
-msgstr "Tip izvoza"
-
-#: libraries/messages.inc.php:1249
-#, fuzzy
-msgid "Export triggers"
-msgstr "Tip izvoza"
-
-#: libraries/messages.inc.php:1250
-#, fuzzy
-msgid "Export views"
-msgstr "Tip izvoza"
-
-#: libraries/messages.inc.php:1251
-msgid "XML"
-msgstr "XML"
 
 #: libraries/messages.inc.php:1255 server_privileges.php:592
 msgid "Note: Setting these options to 0 (zero) removes the limit."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-13 11:30+0200\n"
+"POT-Creation-Date: 2010-05-14 07:48-0400\n"
 "PO-Revision-Date: 2010-05-11 08:13+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -156,10 +156,11 @@ msgid "Links to"
 msgstr "Linker til"
 
 #: db_datadict.php:184 db_printview.php:112 libraries/export/htmlword.php:252
-#: libraries/export/latex.php:365 libraries/export/odt.php:312
-#: libraries/export/texytext.php:241 libraries/messages.inc.php:159
-#: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
-#: pdf_schema.php:1290 tbl_printview.php:152
+#: libraries/export/latex.php:45 libraries/export/latex.php:365
+#: libraries/export/odt.php:38 libraries/export/odt.php:312
+#: libraries/export/sql.php:31 libraries/export/texytext.php:241
+#: libraries/messages.inc.php:159 libraries/tbl_properties.inc.php:130
+#: pdf_schema.php:1279 pdf_schema.php:1290 tbl_printview.php:152
 msgid "Comments"
 msgstr "Kommentarer"
 
@@ -267,16 +268,16 @@ msgstr "Bare data"
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE før kopiering"
 
-#: db_operations.php:471 libraries/export/sql.php:52
-#: libraries/export/sql.php:74 libraries/export/sql.php:76
-#: libraries/export/sql.php:82 libraries/messages.inc.php:26
+#: db_operations.php:471 libraries/export/sql.php:53
+#: libraries/export/sql.php:75 libraries/export/sql.php:77
+#: libraries/export/sql.php:83 libraries/messages.inc.php:26
 #: tbl_operations.php:534
 #, php-format
 msgid "Add %s"
 msgstr "Legg til %s"
 
-#: db_operations.php:475 libraries/messages.inc.php:25 tbl_operations.php:297
-#: tbl_operations.php:536
+#: db_operations.php:475 libraries/export/sql.php:79
+#: libraries/messages.inc.php:25 tbl_operations.php:297 tbl_operations.php:536
 msgid "Add AUTO_INCREMENT value"
 msgstr "Legg til AUTO_INCREMENT verdi"
 
@@ -413,25 +414,25 @@ msgstr "Rader"
 msgid "Size"
 msgstr "Størrelse"
 
-#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:559
-#: libraries/export/sql.php:899 libraries/messages.inc.php:432
+#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:560
+#: libraries/export/sql.php:900 libraries/messages.inc.php:432
 msgid "in use"
 msgstr "i bruk"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
-#: libraries/export/sql.php:514 libraries/messages.inc.php:1028
+#: libraries/export/sql.php:515 libraries/messages.inc.php:1028
 #: pdf_schema.php:1241 tbl_printview.php:434 tbl_structure.php:810
 msgid "Creation"
 msgstr "Opprettet"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
-#: libraries/export/sql.php:519 libraries/messages.inc.php:1032
+#: libraries/export/sql.php:520 libraries/messages.inc.php:1032
 #: pdf_schema.php:1246 tbl_printview.php:444 tbl_structure.php:818
 msgid "Last update"
 msgstr "Sist oppdatert"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
-#: libraries/export/sql.php:524 libraries/messages.inc.php:1027
+#: libraries/export/sql.php:525 libraries/messages.inc.php:1027
 #: pdf_schema.php:1251 tbl_printview.php:454 tbl_structure.php:826
 msgid "Last check"
 msgstr "Sist kontrollert"
@@ -441,10 +442,10 @@ msgstr "Sist kontrollert"
 msgid "%s table(s)"
 msgstr "%s tabell(er)"
 
-#: db_qbe.php:29 libraries/display_tbl.lib.php:1981
-#: libraries/messages.inc.php:1047 libraries/sql_query_form.lib.php:140
-#: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
-#: view_operations.php:62
+#: db_qbe.php:29 libraries/Message.class.php:191
+#: libraries/display_tbl.lib.php:1981 libraries/messages.inc.php:1047
+#: libraries/sql_query_form.lib.php:140 tbl_operations.php:213
+#: tbl_relation.php:292 tbl_row_action.php:131 view_operations.php:62
 msgid "Your SQL query has been executed successfully"
 msgstr "Kommandoen/spørringen er utført"
 
@@ -618,10 +619,13 @@ msgid "Insert"
 msgstr "Sett inn"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
-#: libraries/db_links.inc.php:63 libraries/export/latex.php:337
-#: libraries/import.lib.php:1104 libraries/messages.inc.php:1044
-#: libraries/tbl_links.inc.php:56 pmd_general.php:134
-#: server_privileges.php:554 server_replication.php:315 tbl_tracking.php:269
+#: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
+#: libraries/export/latex.php:33 libraries/export/latex.php:337
+#: libraries/export/odt.php:32 libraries/export/sql.php:61
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1104
+#: libraries/messages.inc.php:1044 libraries/tbl_links.inc.php:56
+#: pmd_general.php:134 server_privileges.php:554 server_replication.php:315
+#: tbl_tracking.php:269
 msgid "Structure"
 msgstr "Struktur"
 
@@ -770,7 +774,7 @@ msgstr "Overvåkede tabeller"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
-#: libraries/export/sql.php:342 libraries/export/texytext.php:84
+#: libraries/export/sql.php:343 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
 #: libraries/header_printview.inc.php:58 libraries/messages.inc.php:208
 #: navigation.php:233 server_databases.php:169 server_privileges.php:1621
@@ -917,7 +921,7 @@ msgstr "Bokmerket har blitt slettet."
 msgid "Showing bookmark"
 msgstr "Vis bokmerke"
 
-#: import.php:403 libraries/messages.inc.php:97
+#: import.php:403 libraries/messages.inc.php:97 sql.php:626
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bokmerke %s opprettet"
@@ -934,6 +938,20 @@ msgid ""
 msgstr ""
 "Skripttidsabrudd passert, hvis du ønsker å fortsette importen kan du "
 "gjennopplaste fila og importeringen vil fortsette."
+
+#: import.php:426
+#, fuzzy
+#| msgid ""
+#| "However on last run no data has been parsed, this usually means "
+#| "phpMyAdmin won't be able to finish this import unless you increase php "
+#| "time limits."
+msgid ""
+"However on last run no data has been parsed, this usually means phpMyAdmin "
+"won"
+msgstr ""
+"Men under den siste kjøringen så ble ingen data lest, dette betyr vanligvis "
+"at phpMyAdmin ikke vil være istand til å fullføre importeringen uten at du "
+"øker php tidsgrensen."
 
 #: index.php:190 libraries/messages.inc.php:549
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -1007,27 +1025,28 @@ msgstr "Passordene er ikke like!"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: js/messages.php:52 libraries/messages.inc.php:510
+#: js/messages.php:52 libraries/messages.inc.php:510 pmd_save_pos.php:54
 msgid "Modifications have been saved"
 msgstr "Endringene er lagret"
 
-#: js/messages.php:53 libraries/messages.inc.php:737
+#: js/messages.php:53 libraries/messages.inc.php:737 pmd_relation_upd.php:49
 msgid "Relation deleted"
 msgstr "Relasjon slettet"
 
-#: js/messages.php:54 libraries/messages.inc.php:336
+#: js/messages.php:54 libraries/messages.inc.php:336 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relasjon lagt til"
 
-#: js/messages.php:55 libraries/messages.inc.php:430
+#: js/messages.php:55 libraries/messages.inc.php:430 pmd_relation_new.php:86
 msgid "Internal relation added"
 msgstr "Intern relasjon lagt til"
 
-#: js/messages.php:56 libraries/messages.inc.php:295
+#: js/messages.php:56 libraries/messages.inc.php:295 pmd_relation_new.php:63
+#: pmd_relation_new.php:88
 msgid "Error: Relation not added."
 msgstr "Feil: Relasjon ikke opprettet."
 
-#: js/messages.php:57 libraries/messages.inc.php:296
+#: js/messages.php:57 libraries/messages.inc.php:296 pmd_relation_new.php:31
 msgid "Error: relation already exists."
 msgstr "Feil: relasjoner eksisterer allerede."
 
@@ -1036,7 +1055,7 @@ msgid "Error saving coordinates for Designer."
 msgstr "Feil oppstod under lagring av Designerkoordinater."
 
 #: js/messages.php:59 libraries/messages.inc.php:347
-#: libraries/relation.lib.php:107
+#: libraries/relation.lib.php:107 libraries/relation.lib.php:119
 msgid "General relation features"
 msgstr "Generelle relasjonsegenskaper"
 
@@ -1421,6 +1440,14 @@ msgstr ""
 msgid "Databases"
 msgstr "Databaser"
 
+#: libraries/Message.class.php:211 libraries/common.lib.php:581
+#: libraries/core.lib.php:234 libraries/core.lib.php:263
+#: libraries/import.lib.php:134 libraries/messages.inc.php:293
+#: pdf_schema.php:32 pdf_schema.php:232 tbl_change.php:1027
+#: tbl_operations.php:213 tbl_relation.php:290 view_operations.php:62
+msgid "Error"
+msgstr "Feil"
+
 #: libraries/Message.class.php:282
 #, php-format
 msgid "%1$d row affected."
@@ -1713,6 +1740,11 @@ msgstr "Tjener"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ugyldig autentiseringsmetode satt opp i konfigureringen:"
 
+#: libraries/common.inc.php:926 libraries/messages.inc.php:1190
+#, php-format
+msgid "You should upgrade to %s %s or later."
+msgstr "Du burde oppgradere til %s %s eller nyere."
+
 #: libraries/common.lib.php:147 libraries/messages.inc.php:495
 #, php-format
 msgid "Max: %s%s"
@@ -1740,14 +1772,6 @@ msgstr "en"
 #: setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Dokumentasjon"
-
-#: libraries/common.lib.php:581 libraries/core.lib.php:234
-#: libraries/core.lib.php:263 libraries/import.lib.php:134
-#: libraries/messages.inc.php:293 pdf_schema.php:32 pdf_schema.php:232
-#: tbl_change.php:1027 tbl_operations.php:213 tbl_relation.php:290
-#: view_operations.php:62
-msgid "Error"
-msgstr "Feil"
 
 #: libraries/common.lib.php:595 libraries/header_printview.inc.php:61
 #: libraries/messages.inc.php:1019 server_processlist.php:60
@@ -1901,7 +1925,7 @@ msgstr ""
 "Kan ikke starte %s tillegget,<br />vennligst kontroller PHP-konfigurasjonen"
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
-#: libraries/export/sql.php:415 libraries/messages.inc.php:302
+#: libraries/export/sql.php:416 libraries/messages.inc.php:302
 msgid "Events"
 msgstr "Hendelser"
 
@@ -1921,14 +1945,15 @@ msgstr "Databasen %s har blitt slettet"
 msgid "Database seems to be empty!"
 msgstr "Databasen ser ut til å være tom!"
 
-#: libraries/db_links.inc.php:68 libraries/messages.inc.php:1021
+#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
+#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
 #: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
 #: querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr "SQL"
 
 #: libraries/db_links.inc.php:81 libraries/messages.inc.php:1148
-#: libraries/tbl_links.inc.php:69
+#: libraries/relation.lib.php:155 libraries/tbl_links.inc.php:69
 msgid "Tracking"
 msgstr "Overvåkning"
 
@@ -1937,6 +1962,7 @@ msgid "Query"
 msgstr "Spørring ved eksempel (Query by Example)"
 
 #: libraries/db_links.inc.php:91 libraries/messages.inc.php:249
+#: libraries/relation.lib.php:151
 msgid "Designer"
 msgstr "Designer"
 
@@ -2143,7 +2169,7 @@ msgstr "Kompresjon"
 
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
-#: libraries/export/sql.php:868 libraries/messages.inc.php:554
+#: libraries/export/sql.php:869 libraries/messages.inc.php:554
 #: libraries/tbl_properties.inc.php:575 server_privileges.php:1836
 #: server_processlist.php:75
 msgid "None"
@@ -2161,7 +2187,8 @@ msgstr "Komprimert (gz)"
 msgid "bzipped"
 msgstr "Komprimert (bz2)"
 
-#: libraries/display_export.lib.php:274 libraries/messages.inc.php:1014
+#: libraries/display_export.lib.php:274 libraries/export/sql.php:44
+#: libraries/import/sql.php:32 libraries/messages.inc.php:1014
 msgid "SQL compatibility mode"
 msgstr "SQL kompatibilitetsmodus"
 
@@ -2286,8 +2313,20 @@ msgstr "Denne operasjonen kan ta lang tid. Ønsker du å fortsette?"
 msgid "Sort by key"
 msgstr "Sorter etter nøkkel"
 
-#: libraries/display_tbl.lib.php:555 libraries/import.lib.php:1082
-#: libraries/import.lib.php:1104 libraries/messages.inc.php:587
+#: libraries/display_tbl.lib.php:555 libraries/export/codegen.php:39
+#: libraries/export/csv.php:30 libraries/export/excel.php:35
+#: libraries/export/htmlword.php:29 libraries/export/latex.php:28
+#: libraries/export/mediawiki.php:21 libraries/export/ods.php:27
+#: libraries/export/odt.php:27 libraries/export/pdf.php:27
+#: libraries/export/php_array.php:25 libraries/export/sql.php:35
+#: libraries/export/texytext.php:37 libraries/export/xls.php:27
+#: libraries/export/xlsx.php:27 libraries/export/xml.php:24
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1082
+#: libraries/import.lib.php:1104 libraries/import/csv.php:32
+#: libraries/import/docsql.php:34 libraries/import/ldi.php:47
+#: libraries/import/ods.php:30 libraries/import/sql.php:20
+#: libraries/import/xls.php:26 libraries/import/xlsx.php:26
+#: libraries/import/xml.php:25 libraries/messages.inc.php:587
 #: tbl_select.php:267 tbl_structure.php:754
 msgid "Options"
 msgstr "Innstillinger"
@@ -2328,7 +2367,8 @@ msgid "Hide"
 msgstr "Skjul"
 
 #: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:504
-#: libraries/tbl_properties.inc.php:144 transformation_overview.php:47
+#: libraries/relation.lib.php:135 libraries/tbl_properties.inc.php:144
+#: transformation_overview.php:47
 msgid "Browser transformation"
 msgstr "Nettvisertransformasjon"
 
@@ -2726,19 +2766,130 @@ msgstr ""
 "gamle logger bli slettet, ellers så vil de bli gitt nytt navn og gitt det "
 "neste høyeste nummeret."
 
+#: libraries/export/codegen.php:37 libraries/messages.inc.php:337
+#: setup/lib/messages.inc.php:88 tbl_printview.php:376 tbl_structure.php:738
+msgid "Format"
+msgstr "Format"
+
+#: libraries/export/csv.php:17 libraries/import/csv.php:22
+#: libraries/messages.inc.php:200
+msgid "CSV"
+msgstr "CSV-data"
+
+#: libraries/export/csv.php:21 libraries/import/csv.php:27
+#: libraries/import/csv.php:59 libraries/import/ldi.php:40
+#: libraries/messages.inc.php:319
+msgid "Fields terminated by"
+msgstr "Felter avsluttet med"
+
+#: libraries/export/csv.php:22 libraries/import/csv.php:28
+#: libraries/import/csv.php:71 libraries/import/ldi.php:41
+#: libraries/messages.inc.php:316
+msgid "Fields enclosed by"
+msgstr "Felter omsluttet av"
+
+#: libraries/export/csv.php:23 libraries/import/csv.php:29
+#: libraries/import/csv.php:75 libraries/import/ldi.php:42
+#: libraries/messages.inc.php:317
+msgid "Fields escaped by"
+msgstr "Felter beskyttet med"
+
+#: libraries/export/csv.php:24 libraries/import/csv.php:30
+#: libraries/import/csv.php:79 libraries/import/ldi.php:43
+#: libraries/messages.inc.php:477
+msgid "Lines terminated by"
+msgstr "Linker avsluttet med"
+
+#: libraries/export/csv.php:25 libraries/export/excel.php:22
+#: libraries/export/htmlword.php:25 libraries/export/latex.php:65
+#: libraries/export/ods.php:23 libraries/export/odt.php:52
+#: libraries/export/texytext.php:31 libraries/export/xls.php:23
+#: libraries/export/xlsx.php:23 libraries/messages.inc.php:755
+msgid "Replace NULL by"
+msgstr "Erstatt NULL med"
+
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
+#: libraries/messages.inc.php:746
+msgid "Remove CRLF characters within fields"
+msgstr "Fjern CRLF tegn i felter"
+
+#: libraries/export/csv.php:27 libraries/export/excel.php:24
+#: libraries/export/htmlword.php:26 libraries/export/latex.php:57
+#: libraries/export/ods.php:24 libraries/export/odt.php:50
+#: libraries/export/texytext.php:34 libraries/export/xls.php:24
+#: libraries/export/xlsx.php:24 libraries/messages.inc.php:711
+msgid "Put fields names in the first row"
+msgstr "Sett inn feltnavn i første rad"
+
+#: libraries/export/excel.php:18 libraries/messages.inc.php:1038
+msgid "CSV for MS Excel"
+msgstr "CSV for MS Excel data"
+
+#: libraries/export/excel.php:32 libraries/messages.inc.php:303
+msgid "Excel edition"
+msgstr "Excel-versjon"
+
+#: libraries/export/htmlword.php:18 libraries/messages.inc.php:379
+msgid "Microsoft Word 2000"
+msgstr "Microsoft Word 2000"
+
+#: libraries/export/htmlword.php:24 libraries/export/latex.php:55
+#: libraries/export/latex.php:201 libraries/export/odt.php:48
+#: libraries/export/sql.php:107 libraries/export/sql.php:869
+#: libraries/export/texytext.php:27 libraries/messages.inc.php:222
+#: server_databases.php:127 server_privileges.php:537
+#: server_replication.php:316 tbl_printview.php:317 tbl_structure.php:666
+msgid "Data"
+msgstr "Data"
+
 #: libraries/export/htmlword.php:132 libraries/export/odt.php:168
-#: libraries/export/sql.php:881 libraries/export/texytext.php:130
+#: libraries/export/sql.php:882 libraries/export/texytext.php:130
 #: libraries/messages.inc.php:271
 msgid "Dumping data for table"
 msgstr "Dataark for tabell"
 
 #: libraries/export/htmlword.php:185 libraries/export/odt.php:238
-#: libraries/export/sql.php:785 libraries/export/texytext.php:177
+#: libraries/export/sql.php:786 libraries/export/texytext.php:177
 #: libraries/messages.inc.php:1082
 msgid "Table structure for table"
 msgstr "Tabellstruktur for tabell"
 
-#: libraries/export/latex.php:125 libraries/export/sql.php:232
+#: libraries/export/latex.php:22 libraries/messages.inc.php:470
+msgid "LaTeX"
+msgstr "LaTeX"
+
+#: libraries/export/latex.php:26 libraries/messages.inc.php:468
+msgid "Include table caption"
+msgstr "Inkluder tabelloverskrift"
+
+#: libraries/export/latex.php:35 libraries/export/latex.php:59
+#: libraries/messages.inc.php:464
+msgid "Table caption"
+msgstr "Tabelloverskrift"
+
+#: libraries/export/latex.php:37 libraries/export/latex.php:61
+#: libraries/messages.inc.php:466
+msgid "Continued table caption"
+msgstr "Fortsettet tabelloverskrift"
+
+#: libraries/export/latex.php:39 libraries/export/latex.php:63
+#: libraries/messages.inc.php:469
+msgid "Label key"
+msgstr "Merkelappnøkkel"
+
+#: libraries/export/latex.php:42 libraries/export/odt.php:35
+#: libraries/export/sql.php:92 libraries/messages.inc.php:740
+#: tbl_relation.php:399
+msgid "Relations"
+msgstr "Relasjoner"
+
+#: libraries/export/latex.php:48 libraries/export/odt.php:41
+#: libraries/export/odt.php:318 libraries/export/sql.php:96
+#: libraries/messages.inc.php:502 libraries/tbl_properties.inc.php:143
+msgid "MIME type"
+msgstr "MIME-type"
+
+#: libraries/export/latex.php:125 libraries/export/sql.php:233
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
 #: libraries/messages.inc.php:377 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:170 libraries/replication_gui.lib.php:265
@@ -2750,70 +2901,198 @@ msgstr "Tabellstruktur for tabell"
 msgid "Host"
 msgstr "Vert"
 
-#: libraries/export/latex.php:130 libraries/export/sql.php:233
+#: libraries/export/latex.php:130 libraries/export/sql.php:234
 #: libraries/export/xml.php:107 libraries/header_printview.inc.php:59
 #: libraries/messages.inc.php:350
 msgid "Generation Time"
 msgstr "Generert den"
 
-#: libraries/export/latex.php:131 libraries/export/sql.php:235
+#: libraries/export/latex.php:131 libraries/export/sql.php:236
 #: libraries/export/xml.php:108 libraries/messages.inc.php:860 main.php:186
 msgid "Server version"
 msgstr "Tjenerversjon"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:236
+#: libraries/export/latex.php:132 libraries/export/sql.php:237
 #: libraries/export/xml.php:109 libraries/messages.inc.php:647
 msgid "PHP Version"
 msgstr "PHP-Versjon"
 
-#: libraries/export/latex.php:201 libraries/export/sql.php:868
-#: libraries/messages.inc.php:222 server_databases.php:127
-#: server_privileges.php:537 server_replication.php:316 tbl_printview.php:317
-#: tbl_structure.php:666
-msgid "Data"
-msgstr "Data"
+#: libraries/export/mediawiki.php:15 libraries/messages.inc.php:498
+msgid "MediaWiki Table"
+msgstr "MediaWiki Tabell"
 
-#: libraries/export/odt.php:318 libraries/messages.inc.php:502
-#: libraries/tbl_properties.inc.php:143
-msgid "MIME type"
-msgstr "MIME-type"
+#: libraries/export/ods.php:18 libraries/import/ods.php:22
+#: libraries/messages.inc.php:400 libraries/messages.inc.php:580
+msgid "Open Document Spreadsheet"
+msgstr "Open Document regneark"
 
-#: libraries/export/sql.php:387 libraries/messages.inc.php:707
+#: libraries/export/odt.php:22 libraries/messages.inc.php:581
+msgid "Open Document Text"
+msgstr "Open Document tekst"
+
+#: libraries/export/pdf.php:18 libraries/messages.inc.php:636
+msgid "PDF"
+msgstr "PDF"
+
+#: libraries/export/pdf.php:23 libraries/messages.inc.php:637
+msgid "(Generates a report containing the data of a single table)"
+msgstr "(Oppretter en rapport som inneholder dataene fra en enkel tabell)"
+
+#: libraries/export/pdf.php:24 libraries/messages.inc.php:638
+msgid "Report title"
+msgstr "Rapporttittel"
+
+#: libraries/export/php_array.php:16 libraries/messages.inc.php:644
+msgid "PHP array"
+msgstr "PHP array"
+
+#: libraries/export/sql.php:29
+#, fuzzy
+#| msgid "Add custom comment into header (\\n splits lines)"
+msgid ""
+"Add custom comment into header (\n"
+" splits lines)"
+msgstr "Legg til egen kommentar i hodet (\\n lager linjeskift)"
+
+#: libraries/export/sql.php:32 libraries/messages.inc.php:283
+msgid "Enclose export in a transaction"
+msgstr "Inneslutt eksport i en transaksjon"
+
+#: libraries/export/sql.php:33 libraries/messages.inc.php:257
+msgid "Disable foreign key checks"
+msgstr "Slå av kontroll av fremmednøkler"
+
+#: libraries/export/sql.php:51 libraries/messages.inc.php:210
+msgid "Database export options"
+msgstr "Databaseeksportinnstillinger"
+
+#: libraries/export/sql.php:81 libraries/messages.inc.php:1201
+msgid "Enclose table and field names with backquotes"
+msgstr "Bruk venstre anførselstegn med tabell og feltnavn"
+
+#: libraries/export/sql.php:87 libraries/messages.inc.php:32
+msgid "Add into comments"
+msgstr "Legg til i kommentarer"
+
+#: libraries/export/sql.php:89 libraries/messages.inc.php:197
+msgid "Creation/Update/Check dates"
+msgstr "Opprettelse/Oppdaterings/Kontrolldato"
+
+#: libraries/export/sql.php:109 libraries/messages.inc.php:161
+msgid "Complete inserts"
+msgstr "Komplette innlegg"
+
+#: libraries/export/sql.php:111 libraries/messages.inc.php:309
+msgid "Extended inserts"
+msgstr "Utvidete innlegg"
+
+#: libraries/export/sql.php:113 libraries/messages.inc.php:494
+msgid "Maximal length of created query"
+msgstr "Maksimum lengde av opprettet spørring"
+
+#: libraries/export/sql.php:115 libraries/messages.inc.php:238
+msgid "Use delayed inserts"
+msgstr "Bruk forsinkede innsettinger"
+
+#: libraries/export/sql.php:117 libraries/messages.inc.php:387
+msgid "Use ignore inserts"
+msgstr "Bruk ignore inserts"
+
+#: libraries/export/sql.php:119 libraries/messages.inc.php:370
+msgid "Use hexadecimal for BLOB"
+msgstr "Bruk heksadesimal for BLOB"
+
+#: libraries/export/sql.php:121 libraries/messages.inc.php:1016
+msgid "Export time in UTC"
+msgstr "Eksport tid i UTC"
+
+#: libraries/export/sql.php:123 libraries/messages.inc.php:1015
+msgid "Export type"
+msgstr "Eksporttype"
+
+#: libraries/export/sql.php:388 libraries/messages.inc.php:707
 msgid "Procedures"
 msgstr "Prosedyrer"
 
-#: libraries/export/sql.php:401 libraries/messages.inc.php:344
+#: libraries/export/sql.php:402 libraries/messages.inc.php:344
 msgid "Functions"
 msgstr "Funsjoner"
 
-#: libraries/export/sql.php:618 libraries/messages.inc.php:170
+#: libraries/export/sql.php:619 libraries/messages.inc.php:170
 msgid "Constraints for dumped tables"
 msgstr "Begrensninger for dumpede tabeller"
 
-#: libraries/export/sql.php:627 libraries/messages.inc.php:171
+#: libraries/export/sql.php:628 libraries/messages.inc.php:171
 msgid "Constraints for table"
 msgstr "Begrensninger for tabell"
 
-#: libraries/export/sql.php:727 libraries/messages.inc.php:508
+#: libraries/export/sql.php:728 libraries/messages.inc.php:508
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPER FOR TABELLEN"
 
-#: libraries/export/sql.php:739 libraries/messages.inc.php:739
+#: libraries/export/sql.php:740 libraries/messages.inc.php:739
 msgid "RELATIONS FOR TABLE"
 msgstr "RELASJONER FOR TABELLEN"
 
-#: libraries/export/sql.php:796 libraries/messages.inc.php:1174
+#: libraries/export/sql.php:797 libraries/messages.inc.php:1174
 #: libraries/tbl_triggers.lib.php:19
 msgid "Triggers"
 msgstr "Triggere"
 
-#: libraries/export/sql.php:808 libraries/messages.inc.php:1042
+#: libraries/export/sql.php:809 libraries/messages.inc.php:1042
 msgid "Structure for view"
 msgstr "Visningsstruktur"
 
-#: libraries/export/sql.php:817 libraries/messages.inc.php:1025
+#: libraries/export/sql.php:818 libraries/messages.inc.php:1025
 msgid "Stand-in structure for view"
 msgstr "Erstatningsstruktur for visning"
+
+#: libraries/export/texytext.php:17 libraries/messages.inc.php:1090
+msgid "Texy! text"
+msgstr "Texy! tekst"
+
+#: libraries/export/xls.php:18 libraries/import/xls.php:21
+#: libraries/messages.inc.php:405
+msgid "Excel 97-2003 XLS Workbook"
+msgstr "Excel 97-2003 XLS Workbook"
+
+#: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
+#: libraries/messages.inc.php:406
+msgid "Excel 2007 XLSX Workbook"
+msgstr "Excel 2007 XLSX Workbook"
+
+#: libraries/export/xml.php:18 libraries/import/xml.php:21
+#: libraries/messages.inc.php:1251
+msgid "XML"
+msgstr "XML"
+
+#: libraries/export/xml.php:29 libraries/messages.inc.php:1247
+msgid "Export Structure Schemas (recommended)"
+msgstr "Eksporter strukturskjema (anbefalt)"
+
+#: libraries/export/xml.php:31 libraries/messages.inc.php:1245
+msgid "Export functions"
+msgstr "Eksporter funksjoner"
+
+#: libraries/export/xml.php:33 libraries/messages.inc.php:1246
+msgid "Export procedures"
+msgstr "Eksporter prosedyrer"
+
+#: libraries/export/xml.php:35 libraries/messages.inc.php:1248
+msgid "Export tables"
+msgstr "Eksporter tabeller"
+
+#: libraries/export/xml.php:37 libraries/messages.inc.php:1249
+msgid "Export triggers"
+msgstr "Eksporter triggere"
+
+#: libraries/export/xml.php:39 libraries/messages.inc.php:1250
+msgid "Export views"
+msgstr "Eksporter visninger"
+
+#: libraries/export/xml.php:45 libraries/messages.inc.php:1244
+msgid "Export contents"
+msgstr "Eksporter innhold"
 
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:582
@@ -2887,28 +3166,33 @@ msgstr "struktur"
 msgid "Go to view"
 msgstr "Gå til visning"
 
+#: libraries/import/csv.php:25 libraries/import/ldi.php:38
+#: libraries/messages.inc.php:756
+msgid "Replace table data with file"
+msgstr "Erstatt tabell med filen"
+
+#: libraries/import/csv.php:26 libraries/import/ldi.php:39
+#: libraries/messages.inc.php:385
+msgid "Ignore duplicate rows"
+msgstr "Ignorer dupliserte rader"
+
+#: libraries/import/csv.php:37 libraries/import/ods.php:25
+#: libraries/import/xls.php:24 libraries/import/xlsx.php:24
+#: libraries/messages.inc.php:388
+msgid "Column names in first row"
+msgstr "Kolonnenavn i første rad"
+
+#: libraries/import/csv.php:40 libraries/import/ldi.php:44
+#: libraries/messages.inc.php:155 pdf_pages.php:483 view_create.php:148
+msgid "Column names"
+msgstr "Kolonnenavn"
+
 #: libraries/import/csv.php:58 libraries/import/csv.php:70
 #: libraries/import/csv.php:74 libraries/import/csv.php:78
 #: libraries/messages.inc.php:438
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Ugyldig parameter for CSV import: %s"
-
-#: libraries/import/csv.php:59 libraries/messages.inc.php:319
-msgid "Fields terminated by"
-msgstr "Felter avsluttet med"
-
-#: libraries/import/csv.php:71 libraries/messages.inc.php:316
-msgid "Fields enclosed by"
-msgstr "Felter omsluttet av"
-
-#: libraries/import/csv.php:75 libraries/messages.inc.php:317
-msgid "Fields escaped by"
-msgstr "Felter beskyttet med"
-
-#: libraries/import/csv.php:79 libraries/messages.inc.php:477
-msgid "Lines terminated by"
-msgstr "Linker avsluttet med"
 
 #: libraries/import/csv.php:119 libraries/messages.inc.php:435
 #, php-format
@@ -2926,9 +3210,45 @@ msgstr "Ugyldig format i CSV importen i linje %d."
 msgid "Invalid field count in CSV input on line %d."
 msgstr "Ugyldig antall felt i CSV importen i linje %d."
 
+#: libraries/import/docsql.php:29 libraries/messages.inc.php:262
+msgid "DocSQL"
+msgstr "DocSQL"
+
+#: libraries/import/docsql.php:32 libraries/messages.inc.php:1076
+#: libraries/tbl_properties.inc.php:618 server_synchronize.php:428
+#: server_synchronize.php:871
+msgid "Table name"
+msgstr "Tabellnavn"
+
+#: libraries/import/ldi.php:35 libraries/messages.inc.php:473
+msgid "CSV using LOAD DATA"
+msgstr "CSV med LOAD DATA"
+
+#: libraries/import/ldi.php:45 libraries/messages.inc.php:474
+msgid "Use LOCAL keyword"
+msgstr "Bruk LOCAL nøkkelord"
+
 #: libraries/import/ldi.php:55 libraries/messages.inc.php:442
 msgid "This plugin does not support compressed imports!"
 msgstr "Dette tillegget støtter ikke komprimerte importeringer!"
+
+#: libraries/import/ods.php:26 libraries/messages.inc.php:389
+msgid "Do not import empty rows"
+msgstr "Ikke importer tomme rader"
+
+#: libraries/import/ods.php:27 libraries/messages.inc.php:401
+msgid "Import percentages as proper decimals (12.00% to .12)"
+msgstr "Importer prosenter som ekte desimaler (12.00% til .12)"
+
+#: libraries/import/ods.php:28
+#, fuzzy
+#| msgid "Import currencies ($5.00 to 5.00)"
+msgid "Import currencies (.00 to 5.00)"
+msgstr "Importer valuta ($5.00 til 5.00)"
+
+#: libraries/import/sql.php:42 libraries/messages.inc.php:264
+msgid "Do not use AUTO_INCREMENT for zero values"
+msgstr "Ikke bruk AUTO_INCREMENT for nullverdier"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 #: libraries/messages.inc.php:1243
@@ -2977,10 +3297,6 @@ msgstr "Legg til %s felt(er)"
 #: libraries/messages.inc.php:31
 msgid "Add custom comment into header (\\n splits lines)"
 msgstr "Legg til egen kommentar i hodet (\\n lager linjeskift)"
-
-#: libraries/messages.inc.php:32
-msgid "Add into comments"
-msgstr "Legg til i kommentarer"
 
 #: libraries/messages.inc.php:33 tbl_structure.php:541
 msgid "Add new field"
@@ -3202,7 +3518,8 @@ msgstr "La alle brukere ha adgang til dette bokmerket"
 msgid "Label"
 msgstr "Navn"
 
-#: libraries/messages.inc.php:100 libraries/sql_query_form.lib.php:433
+#: libraries/messages.inc.php:100 libraries/relation.lib.php:143
+#: libraries/sql_query_form.lib.php:433
 msgid "Bookmarked SQL query"
 msgstr "Lagret SQL-spørring"
 
@@ -3318,13 +3635,9 @@ msgstr "Kontroller privilegier for databasen &quot;%s&quot;."
 msgid "Please choose a page to edit"
 msgstr "Vennligst velg en side for redigering"
 
-#: libraries/messages.inc.php:153
+#: libraries/messages.inc.php:153 libraries/relation.lib.php:133
 msgid "Displaying Column Comments"
 msgstr "Vis kolonnekommentarer"
-
-#: libraries/messages.inc.php:155 pdf_pages.php:483 view_create.php:148
-msgid "Column names"
-msgstr "Kolonnenavn"
 
 #: libraries/messages.inc.php:156 server_privileges.php:1685
 msgid "Column-specific privileges"
@@ -3333,10 +3646,6 @@ msgstr "Kolonne-spesifikke privilegier"
 #: libraries/messages.inc.php:160
 msgid "MySQL&nbsp;4.0 compatible"
 msgstr "MySQL&nbsp;4.0 kompatibel"
-
-#: libraries/messages.inc.php:161
-msgid "Complete inserts"
-msgstr "Komplette innlegg"
 
 #: libraries/messages.inc.php:164
 #, php-format
@@ -3403,7 +3712,7 @@ msgstr "Lag en ny indeks"
 msgid "Create a page"
 msgstr "Lag en ny side"
 
-#: libraries/messages.inc.php:188
+#: libraries/messages.inc.php:188 libraries/relation.lib.php:129
 msgid "Creation of PDFs"
 msgstr "Lag PDF-dokumenter"
 
@@ -3443,17 +3752,9 @@ msgstr "Gi alle privilegier for databasen &quot;%s&quot;"
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Gi alle rettigheter på jokertegnavn (username\\_%)"
 
-#: libraries/messages.inc.php:197
-msgid "Creation/Update/Check dates"
-msgstr "Opprettelse/Oppdaterings/Kontrolldato"
-
 #: libraries/messages.inc.php:199 libraries/mysql_charsets.lib.php:229
 msgid "Croatian"
 msgstr "kroatisk"
-
-#: libraries/messages.inc.php:200
-msgid "CSV"
-msgstr "CSV-data"
 
 #: libraries/messages.inc.php:201 libraries/server_synchronize.lib.php:1343
 #: libraries/server_synchronize.lib.php:1369
@@ -3479,10 +3780,6 @@ msgstr "Tjekkoslovakisk"
 #: libraries/messages.inc.php:207 libraries/mysql_charsets.lib.php:235
 msgid "Danish"
 msgstr "dansk"
-
-#: libraries/messages.inc.php:210
-msgid "Database export options"
-msgstr "Databaseeksportinnstillinger"
 
 #: libraries/messages.inc.php:213 server_synchronize.php:122
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
@@ -3557,10 +3854,6 @@ msgstr ""
 msgid "Defragment table"
 msgstr "Defragmenter tabell"
 
-#: libraries/messages.inc.php:238
-msgid "Use delayed inserts"
-msgstr "Bruk forsinkede innsettinger"
-
 #: libraries/messages.inc.php:241 server_privileges.php:1243
 msgid "No users selected for deleting!"
 msgstr "Ingen brukere merket for sletting!"
@@ -3608,11 +3901,7 @@ msgstr "Differanse"
 msgid "Direct links"
 msgstr "Direkte linker"
 
-#: libraries/messages.inc.php:257
-msgid "Disable foreign key checks"
-msgstr "Slå av kontroll av fremmednøkler"
-
-#: libraries/messages.inc.php:258
+#: libraries/messages.inc.php:258 libraries/relation.lib.php:123
 msgid "Display Features"
 msgstr "Vis egenskaper"
 
@@ -3623,14 +3912,6 @@ msgstr "Visningsrekkefølge:"
 #: libraries/messages.inc.php:261 tbl_select.php:132
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Utfør en \"spørring ved eksempel\" (jokertegn: \"%\")"
-
-#: libraries/messages.inc.php:262
-msgid "DocSQL"
-msgstr "DocSQL"
-
-#: libraries/messages.inc.php:264
-msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Ikke bruk AUTO_INCREMENT for nullverdier"
 
 #: libraries/messages.inc.php:269 server_privileges.php:1579
 #: server_privileges.php:1580 server_privileges.php:1581
@@ -3653,10 +3934,6 @@ msgstr "Effektiv"
 #: libraries/messages.inc.php:282 libraries/relation.lib.php:100
 msgid "Enabled"
 msgstr "Påslått"
-
-#: libraries/messages.inc.php:283
-msgid "Enclose export in a transaction"
-msgstr "Inneslutt eksport i en transaksjon"
 
 #: libraries/messages.inc.php:284 libraries/sqlparser.lib.php:177
 msgid "END CUT"
@@ -3697,17 +3974,9 @@ msgstr "estisk"
 msgid "Event"
 msgstr "Hendelse"
 
-#: libraries/messages.inc.php:303
-msgid "Excel edition"
-msgstr "Excel-versjon"
-
 #: libraries/messages.inc.php:307 pmd_pdf.php:85
 msgid "Export/Import to scale"
 msgstr "Eksporter/Importer til skala"
-
-#: libraries/messages.inc.php:309
-msgid "Extended inserts"
-msgstr "Utvidete innlegg"
 
 #: libraries/messages.inc.php:310 pdf_schema.php:1267 pdf_schema.php:1288
 #: tbl_printview.php:147 tbl_structure.php:183 tbl_tracking.php:278
@@ -3762,11 +4031,6 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "Feil oppstod under forsøk på opprettelse av fremmednøkkel på %1$s "
 "(kontroller datatyper)"
-
-#: libraries/messages.inc.php:337 setup/lib/messages.inc.php:88
-#: tbl_printview.php:376 tbl_structure.php:738
-msgid "Format"
-msgstr "Format"
 
 #: libraries/messages.inc.php:340 server_replication.php:325
 msgid "Full start"
@@ -3836,10 +4100,6 @@ msgstr "hebraisk"
 msgid "Help"
 msgstr "Hjelp"
 
-#: libraries/messages.inc.php:370
-msgid "Use hexadecimal for BLOB"
-msgstr "Bruk heksadesimal for BLOB"
-
 #: libraries/messages.inc.php:372 pmd_general.php:120
 msgid "Hide/Show all"
 msgstr "Skjul/Vis alle"
@@ -3867,10 +4127,6 @@ msgstr ""
 "Når vertstabellen er brukt så ignoreres dette feltet og verdier lagret i "
 "vertstabellen blir brukt istedet."
 
-#: libraries/messages.inc.php:379
-msgid "Microsoft Word 2000"
-msgstr "Microsoft Word 2000"
-
 #: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:253
 msgid "Hungarian"
 msgstr "ungarsk"
@@ -3889,26 +4145,10 @@ msgstr "ID"
 msgid "Fulltext"
 msgstr "Fulltekst"
 
-#: libraries/messages.inc.php:385
-msgid "Ignore duplicate rows"
-msgstr "Ignorer dupliserte rader"
-
 #: libraries/messages.inc.php:386 tbl_change.php:302 tbl_indexes.php:200
 #: tbl_indexes.php:225
 msgid "Ignore"
 msgstr "Ignorer"
-
-#: libraries/messages.inc.php:387
-msgid "Use ignore inserts"
-msgstr "Bruk ignore inserts"
-
-#: libraries/messages.inc.php:388
-msgid "Column names in first row"
-msgstr "Kolonnenavn i første rad"
-
-#: libraries/messages.inc.php:389
-msgid "Do not import empty rows"
-msgstr "Ikke importer tomme rader"
 
 #: libraries/messages.inc.php:390 pmd_general.php:104
 msgid "Import/Export coordinates for PDF schema"
@@ -3921,22 +4161,6 @@ msgstr "Importer filer"
 #: libraries/messages.inc.php:399
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importer valuta ($5.00 til 5.00)"
-
-#: libraries/messages.inc.php:400 libraries/messages.inc.php:580
-msgid "Open Document Spreadsheet"
-msgstr "Open Document regneark"
-
-#: libraries/messages.inc.php:401
-msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Importer prosenter som ekte desimaler (12.00% til .12)"
-
-#: libraries/messages.inc.php:405
-msgid "Excel 97-2003 XLS Workbook"
-msgstr "Excel 97-2003 XLS Workbook"
-
-#: libraries/messages.inc.php:406
-msgid "Excel 2007 XLSX Workbook"
-msgstr "Excel 2007 XLSX Workbook"
 
 #: libraries/messages.inc.php:410 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
@@ -4052,33 +4276,13 @@ msgstr "koreansk"
 msgid "Unknown language: %1$s."
 msgstr "Ukjent språk: %1$s."
 
-#: libraries/messages.inc.php:464
-msgid "Table caption"
-msgstr "Tabelloverskrift"
-
 #: libraries/messages.inc.php:465
 msgid "Content of table __TABLE__"
 msgstr "Innhold i tabell __TABLE__"
 
-#: libraries/messages.inc.php:466
-msgid "Continued table caption"
-msgstr "Fortsettet tabelloverskrift"
-
 #: libraries/messages.inc.php:467
 msgid "(continued)"
 msgstr "(fortsettet)"
-
-#: libraries/messages.inc.php:468
-msgid "Include table caption"
-msgstr "Inkluder tabelloverskrift"
-
-#: libraries/messages.inc.php:469
-msgid "Label key"
-msgstr "Merkelappnøkkel"
-
-#: libraries/messages.inc.php:470
-msgid "LaTeX"
-msgstr "LaTeX"
 
 #: libraries/messages.inc.php:471
 msgid "Structure of table __TABLE__"
@@ -4087,14 +4291,6 @@ msgstr "Struktur i tabell __TABLE__"
 #: libraries/messages.inc.php:472 libraries/mysql_charsets.lib.php:262
 msgid "Latvian"
 msgstr "Latvisk"
-
-#: libraries/messages.inc.php:473
-msgid "CSV using LOAD DATA"
-msgstr "CSV med LOAD DATA"
-
-#: libraries/messages.inc.php:474
-msgid "Use LOCAL keyword"
-msgstr "Bruk LOCAL nøkkelord"
 
 #: libraries/messages.inc.php:475 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
@@ -4127,10 +4323,6 @@ msgstr "Logg ut"
 msgid "max. concurrent connections"
 msgstr "maks. samtidige tilkoblinger"
 
-#: libraries/messages.inc.php:494
-msgid "Maximal length of created query"
-msgstr "Maksimum lengde av opprettet spørring"
-
 #: libraries/messages.inc.php:496 main.php:282
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
@@ -4149,10 +4341,6 @@ msgid ""
 msgstr ""
 "Du har slått på mbstring.func_overload i din PHP konfigurasjon. Denne "
 "opsjonen er ikke kompatibel med phpMyAdmin og kan medføre skader på data!"
-
-#: libraries/messages.inc.php:498
-msgid "MediaWiki Table"
-msgstr "MediaWiki Tabell"
 
 #: libraries/messages.inc.php:499 transformation_overview.php:25
 msgid "Available MIME types"
@@ -4347,10 +4535,6 @@ msgstr "Tabeller"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/messages.inc.php:581
-msgid "Open Document Text"
-msgstr "Open Document tekst"
-
 #: libraries/messages.inc.php:584 tbl_select.php:138
 msgid "Operator"
 msgstr "Operator"
@@ -4403,18 +4587,6 @@ msgstr "Siden har blitt opprettet"
 msgid "Page creation failed"
 msgstr "Sideopprettelsen feilet"
 
-#: libraries/messages.inc.php:636
-msgid "PDF"
-msgstr "PDF"
-
-#: libraries/messages.inc.php:637
-msgid "(Generates a report containing the data of a single table)"
-msgstr "(Oppretter en rapport som inneholder dataene fra en enkel tabell)"
-
-#: libraries/messages.inc.php:638
-msgid "Report title"
-msgstr "Rapporttittel"
-
 #: libraries/messages.inc.php:639 server_status.php:389 server_status.php:434
 #: server_status.php:497 server_status.php:555
 msgid "per hour"
@@ -4435,10 +4607,6 @@ msgstr "Persisk"
 #: libraries/messages.inc.php:643 libraries/mysql_charsets.lib.php:250
 msgid "phone book"
 msgstr "telefonkatalog"
-
-#: libraries/messages.inc.php:644
-msgid "PHP array"
-msgstr "PHP array"
 
 #: libraries/messages.inc.php:646 main.php:213
 msgid "PHP extension"
@@ -4699,10 +4867,6 @@ msgstr "Prosesser"
 msgid "Protocol version"
 msgstr "Protokollversjon"
 
-#: libraries/messages.inc.php:711
-msgid "Put fields names in the first row"
-msgstr "Sett inn feltnavn i første rad"
-
 #: libraries/messages.inc.php:716 server_synchronize.php:1003
 msgid "The following queries have been executed:"
 msgstr "Følgende spørringer har blitt utført:"
@@ -4717,7 +4881,8 @@ msgstr "Spørringsmellomlager"
 msgid "Query window"
 msgstr "Spørringsvindu"
 
-#: libraries/messages.inc.php:721 querywindow.php:109 querywindow.php:217
+#: libraries/messages.inc.php:721 libraries/relation.lib.php:147
+#: querywindow.php:109 querywindow.php:217
 msgid "SQL history"
 msgstr "SQL-historie"
 
@@ -4758,10 +4923,6 @@ msgstr "Sjekk referanseintegritet:"
 msgid "Relational schema"
 msgstr "Relasjonsskjema"
 
-#: libraries/messages.inc.php:740 tbl_relation.php:399
-msgid "Relations"
-msgstr "Relasjoner"
-
 #: libraries/messages.inc.php:741 tbl_structure.php:507 tbl_structure.php:509
 msgid "Relation view"
 msgstr "Relasjonsvisning"
@@ -4784,10 +4945,6 @@ msgstr "Oppdater"
 msgid "Remote server"
 msgstr "Fjerntjener"
 
-#: libraries/messages.inc.php:746
-msgid "Remove CRLF characters within fields"
-msgstr "Fjern CRLF tegn i felter"
-
 #: libraries/messages.inc.php:747 tbl_operations.php:676
 msgid "Remove partitioning"
 msgstr "Fjern partisjonering"
@@ -4807,14 +4964,6 @@ msgstr "Endre tabellens navn"
 #: libraries/messages.inc.php:753 tbl_operations.php:664
 msgid "Repair"
 msgstr "Reparer"
-
-#: libraries/messages.inc.php:755
-msgid "Replace NULL by"
-msgstr "Erstatt NULL med"
-
-#: libraries/messages.inc.php:756
-msgid "Replace table data with file"
-msgstr "Erstatt tabell med filen"
 
 #: libraries/messages.inc.php:757 server_replication.php:228
 msgid ""
@@ -5183,7 +5332,7 @@ msgstr ""
 "gyldighet konfigurert i phpMyAdmin, på grunn av dette så vil din innlogging "
 "utløpe raskere enn konfigurert i phpMyAdmin."
 
-#: libraries/messages.inc.php:862
+#: libraries/messages.inc.php:862 libraries/session.inc.php:84
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."
@@ -5944,14 +6093,6 @@ msgstr "Plassbruk"
 msgid "Spanish"
 msgstr "Spansk"
 
-#: libraries/messages.inc.php:1015
-msgid "Export type"
-msgstr "Eksporttype"
-
-#: libraries/messages.inc.php:1016
-msgid "Export time in UTC"
-msgstr "Eksport tid i UTC"
-
 #: libraries/messages.inc.php:1017 libraries/sqlparser.lib.php:173
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
@@ -6030,10 +6171,6 @@ msgstr "Lagringsmotorer"
 #: server_engines.php:58 tbl_operations.php:353
 msgid "Storage Engine"
 msgstr "Lagringsmotor"
-
-#: libraries/messages.inc.php:1038
-msgid "CSV for MS Excel"
-msgstr "CSV for MS Excel data"
 
 #: libraries/messages.inc.php:1040 tbl_structure.php:516 tbl_structure.php:518
 msgid "Propose table structure"
@@ -6147,11 +6284,6 @@ msgstr "Tabellen ser ut til å være tom!"
 msgid "Table maintenance"
 msgstr "Tabellvedlikehold"
 
-#: libraries/messages.inc.php:1076 libraries/tbl_properties.inc.php:618
-#: server_synchronize.php:428 server_synchronize.php:871
-msgid "Table name"
-msgstr "Tabellnavn"
-
 #: libraries/messages.inc.php:1077 pdf_schema.php:1116
 msgid "Table of contents"
 msgstr "Innholdsfortegnelse"
@@ -6194,10 +6326,6 @@ msgid " Because of its length,<br /> this field might not be editable "
 msgstr ""
 " På grunn av sin lengde,<br /> så vil muligens dette feltet ikke være "
 "redigerbart "
-
-#: libraries/messages.inc.php:1090
-msgid "Texy! text"
-msgstr "Texy! tekst"
 
 #: libraries/messages.inc.php:1091 libraries/mysql_charsets.lib.php:298
 #: libraries/mysql_charsets.lib.php:395
@@ -6565,18 +6693,9 @@ msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr "Les i dokumentasjonen hvordan du oppdaterer din Column_comments tabell"
 
-#: libraries/messages.inc.php:1190
-#, php-format
-msgid "You should upgrade to %s %s or later."
-msgstr "Du burde oppgradere til %s %s eller nyere."
-
 #: libraries/messages.inc.php:1200 tbl_printview.php:314 tbl_structure.php:661
 msgid "Usage"
 msgstr "Bruk"
-
-#: libraries/messages.inc.php:1201
-msgid "Enclose table and field names with backquotes"
-msgstr "Bruk venstre anførselstegn med tabell og feltnavn"
 
 #: libraries/messages.inc.php:1202 libraries/replication_gui.lib.php:314
 #: server_privileges.php:740
@@ -6683,38 +6802,6 @@ msgstr "Wiki"
 #: libraries/messages.inc.php:1237 server_privileges.php:2138
 msgid "wildcard"
 msgstr "jokertegn"
-
-#: libraries/messages.inc.php:1244
-msgid "Export contents"
-msgstr "Eksporter innhold"
-
-#: libraries/messages.inc.php:1245
-msgid "Export functions"
-msgstr "Eksporter funksjoner"
-
-#: libraries/messages.inc.php:1246
-msgid "Export procedures"
-msgstr "Eksporter prosedyrer"
-
-#: libraries/messages.inc.php:1247
-msgid "Export Structure Schemas (recommended)"
-msgstr "Eksporter strukturskjema (anbefalt)"
-
-#: libraries/messages.inc.php:1248
-msgid "Export tables"
-msgstr "Eksporter tabeller"
-
-#: libraries/messages.inc.php:1249
-msgid "Export triggers"
-msgstr "Eksporter triggere"
-
-#: libraries/messages.inc.php:1250
-msgid "Export views"
-msgstr "Eksporter visninger"
-
-#: libraries/messages.inc.php:1251
-msgid "XML"
-msgstr "XML"
 
 #: libraries/messages.inc.php:1255 server_privileges.php:592
 msgid "Note: Setting these options to 0 (zero) removes the limit."

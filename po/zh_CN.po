@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-13 11:30+0200\n"
+"POT-Creation-Date: 2010-05-14 07:48-0400\n"
 "PO-Revision-Date: 2010-05-12 06:17+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -156,10 +156,11 @@ msgid "Links to"
 msgstr "链接到"
 
 #: db_datadict.php:184 db_printview.php:112 libraries/export/htmlword.php:252
-#: libraries/export/latex.php:365 libraries/export/odt.php:312
-#: libraries/export/texytext.php:241 libraries/messages.inc.php:159
-#: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
-#: pdf_schema.php:1290 tbl_printview.php:152
+#: libraries/export/latex.php:45 libraries/export/latex.php:365
+#: libraries/export/odt.php:38 libraries/export/odt.php:312
+#: libraries/export/sql.php:31 libraries/export/texytext.php:241
+#: libraries/messages.inc.php:159 libraries/tbl_properties.inc.php:130
+#: pdf_schema.php:1279 pdf_schema.php:1290 tbl_printview.php:152
 msgid "Comments"
 msgstr "注释"
 
@@ -267,16 +268,16 @@ msgstr "仅数据"
 msgid "CREATE DATABASE before copying"
 msgstr "复制前创建数据库 (CREATE DATABASE)"
 
-#: db_operations.php:471 libraries/export/sql.php:52
-#: libraries/export/sql.php:74 libraries/export/sql.php:76
-#: libraries/export/sql.php:82 libraries/messages.inc.php:26
+#: db_operations.php:471 libraries/export/sql.php:53
+#: libraries/export/sql.php:75 libraries/export/sql.php:77
+#: libraries/export/sql.php:83 libraries/messages.inc.php:26
 #: tbl_operations.php:534
 #, php-format
 msgid "Add %s"
 msgstr "添加 %s"
 
-#: db_operations.php:475 libraries/messages.inc.php:25 tbl_operations.php:297
-#: tbl_operations.php:536
+#: db_operations.php:475 libraries/export/sql.php:79
+#: libraries/messages.inc.php:25 tbl_operations.php:297 tbl_operations.php:536
 msgid "Add AUTO_INCREMENT value"
 msgstr "添加自增 (AUTO_INCREMENT) 值"
 
@@ -411,25 +412,25 @@ msgstr "记录数"
 msgid "Size"
 msgstr "大小"
 
-#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:559
-#: libraries/export/sql.php:899 libraries/messages.inc.php:432
+#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:560
+#: libraries/export/sql.php:900 libraries/messages.inc.php:432
 msgid "in use"
 msgstr "使用中"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
-#: libraries/export/sql.php:514 libraries/messages.inc.php:1028
+#: libraries/export/sql.php:515 libraries/messages.inc.php:1028
 #: pdf_schema.php:1241 tbl_printview.php:434 tbl_structure.php:810
 msgid "Creation"
 msgstr "创建时间"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
-#: libraries/export/sql.php:519 libraries/messages.inc.php:1032
+#: libraries/export/sql.php:520 libraries/messages.inc.php:1032
 #: pdf_schema.php:1246 tbl_printview.php:444 tbl_structure.php:818
 msgid "Last update"
 msgstr "最后更新"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
-#: libraries/export/sql.php:524 libraries/messages.inc.php:1027
+#: libraries/export/sql.php:525 libraries/messages.inc.php:1027
 #: pdf_schema.php:1251 tbl_printview.php:454 tbl_structure.php:826
 msgid "Last check"
 msgstr "最后检查"
@@ -439,10 +440,10 @@ msgstr "最后检查"
 msgid "%s table(s)"
 msgstr "%s 张表"
 
-#: db_qbe.php:29 libraries/display_tbl.lib.php:1981
-#: libraries/messages.inc.php:1047 libraries/sql_query_form.lib.php:140
-#: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
-#: view_operations.php:62
+#: db_qbe.php:29 libraries/Message.class.php:191
+#: libraries/display_tbl.lib.php:1981 libraries/messages.inc.php:1047
+#: libraries/sql_query_form.lib.php:140 tbl_operations.php:213
+#: tbl_relation.php:292 tbl_row_action.php:131 view_operations.php:62
 msgid "Your SQL query has been executed successfully"
 msgstr "您的 SQL 语句已成功运行"
 
@@ -616,10 +617,13 @@ msgid "Insert"
 msgstr "插入"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
-#: libraries/db_links.inc.php:63 libraries/export/latex.php:337
-#: libraries/import.lib.php:1104 libraries/messages.inc.php:1044
-#: libraries/tbl_links.inc.php:56 pmd_general.php:134
-#: server_privileges.php:554 server_replication.php:315 tbl_tracking.php:269
+#: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
+#: libraries/export/latex.php:33 libraries/export/latex.php:337
+#: libraries/export/odt.php:32 libraries/export/sql.php:61
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1104
+#: libraries/messages.inc.php:1044 libraries/tbl_links.inc.php:56
+#: pmd_general.php:134 server_privileges.php:554 server_replication.php:315
+#: tbl_tracking.php:269
 msgid "Structure"
 msgstr "结构"
 
@@ -768,7 +772,7 @@ msgstr "已追踪的表"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
-#: libraries/export/sql.php:342 libraries/export/texytext.php:84
+#: libraries/export/sql.php:343 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
 #: libraries/header_printview.inc.php:58 libraries/messages.inc.php:208
 #: navigation.php:233 server_databases.php:169 server_privileges.php:1621
@@ -908,7 +912,7 @@ msgstr "书签已删除。"
 msgid "Showing bookmark"
 msgstr "显示书签"
 
-#: import.php:403 libraries/messages.inc.php:97
+#: import.php:403 libraries/messages.inc.php:97 sql.php:626
 #, php-format
 msgid "Bookmark %s created"
 msgstr "已创建书签 %s"
@@ -923,6 +927,19 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr "脚本超时，如果你要完成导入，请重新提交相同的文件，导入将会继续进行。"
+
+#: import.php:426
+#, fuzzy
+#| msgid ""
+#| "However on last run no data has been parsed, this usually means "
+#| "phpMyAdmin won't be able to finish this import unless you increase php "
+#| "time limits."
+msgid ""
+"However on last run no data has been parsed, this usually means phpMyAdmin "
+"won"
+msgstr ""
+"在最后一次执行时没有数据被解析，建议您增加 PHP 运行时间限制，否则 phpMyAdmin "
+"将无法完成导入操作。"
 
 #: index.php:190 libraries/messages.inc.php:549
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -995,27 +1012,28 @@ msgstr "两次密码不一致！"
 msgid "Cancel"
 msgstr "取消"
 
-#: js/messages.php:52 libraries/messages.inc.php:510
+#: js/messages.php:52 libraries/messages.inc.php:510 pmd_save_pos.php:54
 msgid "Modifications have been saved"
 msgstr "已保存修改。"
 
-#: js/messages.php:53 libraries/messages.inc.php:737
+#: js/messages.php:53 libraries/messages.inc.php:737 pmd_relation_upd.php:49
 msgid "Relation deleted"
 msgstr "已删除关系"
 
-#: js/messages.php:54 libraries/messages.inc.php:336
+#: js/messages.php:54 libraries/messages.inc.php:336 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
 msgstr "已添加外键关联"
 
-#: js/messages.php:55 libraries/messages.inc.php:430
+#: js/messages.php:55 libraries/messages.inc.php:430 pmd_relation_new.php:86
 msgid "Internal relation added"
 msgstr "已添加内联关系"
 
-#: js/messages.php:56 libraries/messages.inc.php:295
+#: js/messages.php:56 libraries/messages.inc.php:295 pmd_relation_new.php:63
+#: pmd_relation_new.php:88
 msgid "Error: Relation not added."
 msgstr "错误：关系未添加"
 
-#: js/messages.php:57 libraries/messages.inc.php:296
+#: js/messages.php:57 libraries/messages.inc.php:296 pmd_relation_new.php:31
 msgid "Error: relation already exists."
 msgstr "错误：关系已存在"
 
@@ -1024,7 +1042,7 @@ msgid "Error saving coordinates for Designer."
 msgstr "保存设计器坐标时出错。"
 
 #: js/messages.php:59 libraries/messages.inc.php:347
-#: libraries/relation.lib.php:107
+#: libraries/relation.lib.php:107 libraries/relation.lib.php:119
 msgid "General relation features"
 msgstr "基本功能"
 
@@ -1404,6 +1422,14 @@ msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一个将可能被删除
 msgid "Databases"
 msgstr "数据库"
 
+#: libraries/Message.class.php:211 libraries/common.lib.php:581
+#: libraries/core.lib.php:234 libraries/core.lib.php:263
+#: libraries/import.lib.php:134 libraries/messages.inc.php:293
+#: pdf_schema.php:32 pdf_schema.php:232 tbl_change.php:1027
+#: tbl_operations.php:213 tbl_relation.php:290 view_operations.php:62
+msgid "Error"
+msgstr "错误"
+
 #: libraries/Message.class.php:282
 #, php-format
 msgid "%1$d row affected."
@@ -1684,6 +1710,11 @@ msgstr "服务器"
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
+#: libraries/common.inc.php:926 libraries/messages.inc.php:1190
+#, php-format
+msgid "You should upgrade to %s %s or later."
+msgstr "您应升级到 %s %s 或更高版本。"
+
 #: libraries/common.lib.php:147 libraries/messages.inc.php:495
 #, php-format
 msgid "Max: %s%s"
@@ -1711,14 +1742,6 @@ msgstr "zh"
 #: setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "文档"
-
-#: libraries/common.lib.php:581 libraries/core.lib.php:234
-#: libraries/core.lib.php:263 libraries/import.lib.php:134
-#: libraries/messages.inc.php:293 pdf_schema.php:32 pdf_schema.php:232
-#: tbl_change.php:1027 tbl_operations.php:213 tbl_relation.php:290
-#: view_operations.php:62
-msgid "Error"
-msgstr "错误"
 
 #: libraries/common.lib.php:595 libraries/header_printview.inc.php:61
 #: libraries/messages.inc.php:1019 server_processlist.php:60
@@ -1873,7 +1896,7 @@ msgstr ""
 "扩展，请检查您的 PHP 配置。"
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
-#: libraries/export/sql.php:415 libraries/messages.inc.php:302
+#: libraries/export/sql.php:416 libraries/messages.inc.php:302
 msgid "Events"
 msgstr "事件"
 
@@ -1893,14 +1916,15 @@ msgstr "已被删除数据库 %s 。"
 msgid "Database seems to be empty!"
 msgstr "数据库是空的！"
 
-#: libraries/db_links.inc.php:68 libraries/messages.inc.php:1021
+#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
+#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
 #: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
 #: querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr "SQL"
 
 #: libraries/db_links.inc.php:81 libraries/messages.inc.php:1148
-#: libraries/tbl_links.inc.php:69
+#: libraries/relation.lib.php:155 libraries/tbl_links.inc.php:69
 msgid "Tracking"
 msgstr "追踪"
 
@@ -1909,6 +1933,7 @@ msgid "Query"
 msgstr "查询"
 
 #: libraries/db_links.inc.php:91 libraries/messages.inc.php:249
+#: libraries/relation.lib.php:151
 msgid "Designer"
 msgstr "设计器"
 
@@ -2114,7 +2139,7 @@ msgstr "压缩"
 
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
-#: libraries/export/sql.php:868 libraries/messages.inc.php:554
+#: libraries/export/sql.php:869 libraries/messages.inc.php:554
 #: libraries/tbl_properties.inc.php:575 server_privileges.php:1836
 #: server_processlist.php:75
 msgid "None"
@@ -2132,7 +2157,8 @@ msgstr "gzip 压缩"
 msgid "bzipped"
 msgstr "bzip 压缩"
 
-#: libraries/display_export.lib.php:274 libraries/messages.inc.php:1014
+#: libraries/display_export.lib.php:274 libraries/export/sql.php:44
+#: libraries/import/sql.php:32 libraries/messages.inc.php:1014
 msgid "SQL compatibility mode"
 msgstr "SQL 兼容模式"
 
@@ -2252,8 +2278,20 @@ msgstr "该操作可能需要执行较长时间，确定执行？"
 msgid "Sort by key"
 msgstr "主键排序"
 
-#: libraries/display_tbl.lib.php:555 libraries/import.lib.php:1082
-#: libraries/import.lib.php:1104 libraries/messages.inc.php:587
+#: libraries/display_tbl.lib.php:555 libraries/export/codegen.php:39
+#: libraries/export/csv.php:30 libraries/export/excel.php:35
+#: libraries/export/htmlword.php:29 libraries/export/latex.php:28
+#: libraries/export/mediawiki.php:21 libraries/export/ods.php:27
+#: libraries/export/odt.php:27 libraries/export/pdf.php:27
+#: libraries/export/php_array.php:25 libraries/export/sql.php:35
+#: libraries/export/texytext.php:37 libraries/export/xls.php:27
+#: libraries/export/xlsx.php:27 libraries/export/xml.php:24
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1082
+#: libraries/import.lib.php:1104 libraries/import/csv.php:32
+#: libraries/import/docsql.php:34 libraries/import/ldi.php:47
+#: libraries/import/ods.php:30 libraries/import/sql.php:20
+#: libraries/import/xls.php:26 libraries/import/xlsx.php:26
+#: libraries/import/xml.php:25 libraries/messages.inc.php:587
 #: tbl_select.php:267 tbl_structure.php:754
 msgid "Options"
 msgstr "选项"
@@ -2294,7 +2332,8 @@ msgid "Hide"
 msgstr "隐藏"
 
 #: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:504
-#: libraries/tbl_properties.inc.php:144 transformation_overview.php:47
+#: libraries/relation.lib.php:135 libraries/tbl_properties.inc.php:144
+#: transformation_overview.php:47
 msgid "Browser transformation"
 msgstr "浏览器转换"
 
@@ -2667,19 +2706,130 @@ msgstr ""
 "系统维护的事务日志数量 (pbxt/system/*.xt)。如果日志数量大于此值，旧的日志将会"
 "被删除，或者被以升序数字序列重命名。"
 
+#: libraries/export/codegen.php:37 libraries/messages.inc.php:337
+#: setup/lib/messages.inc.php:88 tbl_printview.php:376 tbl_structure.php:738
+msgid "Format"
+msgstr "格式"
+
+#: libraries/export/csv.php:17 libraries/import/csv.php:22
+#: libraries/messages.inc.php:200
+msgid "CSV"
+msgstr "CSV"
+
+#: libraries/export/csv.php:21 libraries/import/csv.php:27
+#: libraries/import/csv.php:59 libraries/import/ldi.php:40
+#: libraries/messages.inc.php:319
+msgid "Fields terminated by"
+msgstr "字段分隔符"
+
+#: libraries/export/csv.php:22 libraries/import/csv.php:28
+#: libraries/import/csv.php:71 libraries/import/ldi.php:41
+#: libraries/messages.inc.php:316
+msgid "Fields enclosed by"
+msgstr "文字分隔符"
+
+#: libraries/export/csv.php:23 libraries/import/csv.php:29
+#: libraries/import/csv.php:75 libraries/import/ldi.php:42
+#: libraries/messages.inc.php:317
+msgid "Fields escaped by"
+msgstr "字段转义符"
+
+#: libraries/export/csv.php:24 libraries/import/csv.php:30
+#: libraries/import/csv.php:79 libraries/import/ldi.php:43
+#: libraries/messages.inc.php:477
+msgid "Lines terminated by"
+msgstr "换行符"
+
+#: libraries/export/csv.php:25 libraries/export/excel.php:22
+#: libraries/export/htmlword.php:25 libraries/export/latex.php:65
+#: libraries/export/ods.php:23 libraries/export/odt.php:52
+#: libraries/export/texytext.php:31 libraries/export/xls.php:23
+#: libraries/export/xlsx.php:23 libraries/messages.inc.php:755
+msgid "Replace NULL by"
+msgstr "将 NULL 替换为"
+
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
+#: libraries/messages.inc.php:746
+msgid "Remove CRLF characters within fields"
+msgstr "删除字段中的换行符"
+
+#: libraries/export/csv.php:27 libraries/export/excel.php:24
+#: libraries/export/htmlword.php:26 libraries/export/latex.php:57
+#: libraries/export/ods.php:24 libraries/export/odt.php:50
+#: libraries/export/texytext.php:34 libraries/export/xls.php:24
+#: libraries/export/xlsx.php:24 libraries/messages.inc.php:711
+msgid "Put fields names in the first row"
+msgstr "将字段名放在第一行"
+
+#: libraries/export/excel.php:18 libraries/messages.inc.php:1038
+msgid "CSV for MS Excel"
+msgstr "MS Excel 的 CSV 格式"
+
+#: libraries/export/excel.php:32 libraries/messages.inc.php:303
+msgid "Excel edition"
+msgstr "Excel 版本"
+
+#: libraries/export/htmlword.php:18 libraries/messages.inc.php:379
+msgid "Microsoft Word 2000"
+msgstr "Microsoft Word 2000"
+
+#: libraries/export/htmlword.php:24 libraries/export/latex.php:55
+#: libraries/export/latex.php:201 libraries/export/odt.php:48
+#: libraries/export/sql.php:107 libraries/export/sql.php:869
+#: libraries/export/texytext.php:27 libraries/messages.inc.php:222
+#: server_databases.php:127 server_privileges.php:537
+#: server_replication.php:316 tbl_printview.php:317 tbl_structure.php:666
+msgid "Data"
+msgstr "数据"
+
 #: libraries/export/htmlword.php:132 libraries/export/odt.php:168
-#: libraries/export/sql.php:881 libraries/export/texytext.php:130
+#: libraries/export/sql.php:882 libraries/export/texytext.php:130
 #: libraries/messages.inc.php:271
 msgid "Dumping data for table"
 msgstr "转存表中的数据"
 
 #: libraries/export/htmlword.php:185 libraries/export/odt.php:238
-#: libraries/export/sql.php:785 libraries/export/texytext.php:177
+#: libraries/export/sql.php:786 libraries/export/texytext.php:177
 #: libraries/messages.inc.php:1082
 msgid "Table structure for table"
 msgstr "表的结构"
 
-#: libraries/export/latex.php:125 libraries/export/sql.php:232
+#: libraries/export/latex.php:22 libraries/messages.inc.php:470
+msgid "LaTeX"
+msgstr "LaTeX"
+
+#: libraries/export/latex.php:26 libraries/messages.inc.php:468
+msgid "Include table caption"
+msgstr "包含表的标题"
+
+#: libraries/export/latex.php:35 libraries/export/latex.php:59
+#: libraries/messages.inc.php:464
+msgid "Table caption"
+msgstr "表的标题"
+
+#: libraries/export/latex.php:37 libraries/export/latex.php:61
+#: libraries/messages.inc.php:466
+msgid "Continued table caption"
+msgstr "延续的表的标题"
+
+#: libraries/export/latex.php:39 libraries/export/latex.php:63
+#: libraries/messages.inc.php:469
+msgid "Label key"
+msgstr "关键标签"
+
+#: libraries/export/latex.php:42 libraries/export/odt.php:35
+#: libraries/export/sql.php:92 libraries/messages.inc.php:740
+#: tbl_relation.php:399
+msgid "Relations"
+msgstr "关系"
+
+#: libraries/export/latex.php:48 libraries/export/odt.php:41
+#: libraries/export/odt.php:318 libraries/export/sql.php:96
+#: libraries/messages.inc.php:502 libraries/tbl_properties.inc.php:143
+msgid "MIME type"
+msgstr "MIME 类型"
+
+#: libraries/export/latex.php:125 libraries/export/sql.php:233
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
 #: libraries/messages.inc.php:377 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:170 libraries/replication_gui.lib.php:265
@@ -2691,70 +2841,198 @@ msgstr "表的结构"
 msgid "Host"
 msgstr "主机"
 
-#: libraries/export/latex.php:130 libraries/export/sql.php:233
+#: libraries/export/latex.php:130 libraries/export/sql.php:234
 #: libraries/export/xml.php:107 libraries/header_printview.inc.php:59
 #: libraries/messages.inc.php:350
 msgid "Generation Time"
 msgstr "生成日期"
 
-#: libraries/export/latex.php:131 libraries/export/sql.php:235
+#: libraries/export/latex.php:131 libraries/export/sql.php:236
 #: libraries/export/xml.php:108 libraries/messages.inc.php:860 main.php:186
 msgid "Server version"
 msgstr "服务器版本"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:236
+#: libraries/export/latex.php:132 libraries/export/sql.php:237
 #: libraries/export/xml.php:109 libraries/messages.inc.php:647
 msgid "PHP Version"
 msgstr "PHP 版本"
 
-#: libraries/export/latex.php:201 libraries/export/sql.php:868
-#: libraries/messages.inc.php:222 server_databases.php:127
-#: server_privileges.php:537 server_replication.php:316 tbl_printview.php:317
-#: tbl_structure.php:666
-msgid "Data"
-msgstr "数据"
+#: libraries/export/mediawiki.php:15 libraries/messages.inc.php:498
+msgid "MediaWiki Table"
+msgstr "MediaWiki 表"
 
-#: libraries/export/odt.php:318 libraries/messages.inc.php:502
-#: libraries/tbl_properties.inc.php:143
-msgid "MIME type"
-msgstr "MIME 类型"
+#: libraries/export/ods.php:18 libraries/import/ods.php:22
+#: libraries/messages.inc.php:400 libraries/messages.inc.php:580
+msgid "Open Document Spreadsheet"
+msgstr "OpenOffice 表格"
 
-#: libraries/export/sql.php:387 libraries/messages.inc.php:707
+#: libraries/export/odt.php:22 libraries/messages.inc.php:581
+msgid "Open Document Text"
+msgstr "OpenOffice 文档"
+
+#: libraries/export/pdf.php:18 libraries/messages.inc.php:636
+msgid "PDF"
+msgstr "PDF"
+
+#: libraries/export/pdf.php:23 libraries/messages.inc.php:637
+msgid "(Generates a report containing the data of a single table)"
+msgstr "(根据一张表的数据生成报告)"
+
+#: libraries/export/pdf.php:24 libraries/messages.inc.php:638
+msgid "Report title"
+msgstr "报告标题"
+
+#: libraries/export/php_array.php:16 libraries/messages.inc.php:644
+msgid "PHP array"
+msgstr "PHP 数组"
+
+#: libraries/export/sql.php:29
+#, fuzzy
+#| msgid "Add custom comment into header (\\n splits lines)"
+msgid ""
+"Add custom comment into header (\n"
+" splits lines)"
+msgstr "在文件头添加自定义注释 (\\n 为换行)"
+
+#: libraries/export/sql.php:32 libraries/messages.inc.php:283
+msgid "Enclose export in a transaction"
+msgstr "处理事务中封装输出"
+
+#: libraries/export/sql.php:33 libraries/messages.inc.php:257
+msgid "Disable foreign key checks"
+msgstr "禁止选定不相关的主键"
+
+#: libraries/export/sql.php:51 libraries/messages.inc.php:210
+msgid "Database export options"
+msgstr "数据库导出选项"
+
+#: libraries/export/sql.php:81 libraries/messages.inc.php:1201
+msgid "Enclose table and field names with backquotes"
+msgstr "给数据表名及字段名加上反引号"
+
+#: libraries/export/sql.php:87 libraries/messages.inc.php:32
+msgid "Add into comments"
+msgstr "添加进注释"
+
+#: libraries/export/sql.php:89 libraries/messages.inc.php:197
+msgid "Creation/Update/Check dates"
+msgstr "创建/更新/检查日期"
+
+#: libraries/export/sql.php:109 libraries/messages.inc.php:161
+msgid "Complete inserts"
+msgstr "完整插入"
+
+#: libraries/export/sql.php:111 libraries/messages.inc.php:309
+msgid "Extended inserts"
+msgstr "扩展插入"
+
+#: libraries/export/sql.php:113 libraries/messages.inc.php:494
+msgid "Maximal length of created query"
+msgstr "创建查询的最大长度"
+
+#: libraries/export/sql.php:115 libraries/messages.inc.php:238
+msgid "Use delayed inserts"
+msgstr "使用延迟插入"
+
+#: libraries/export/sql.php:117 libraries/messages.inc.php:387
+msgid "Use ignore inserts"
+msgstr "使用忽略插入"
+
+#: libraries/export/sql.php:119 libraries/messages.inc.php:370
+msgid "Use hexadecimal for BLOB"
+msgstr "为 BLOB 字段使用16进制 (HEX)"
+
+#: libraries/export/sql.php:121 libraries/messages.inc.php:1016
+msgid "Export time in UTC"
+msgstr "以协调世界时 (UTC) 导出时间"
+
+#: libraries/export/sql.php:123 libraries/messages.inc.php:1015
+msgid "Export type"
+msgstr "导出类型"
+
+#: libraries/export/sql.php:388 libraries/messages.inc.php:707
 msgid "Procedures"
 msgstr "存储过程"
 
-#: libraries/export/sql.php:401 libraries/messages.inc.php:344
+#: libraries/export/sql.php:402 libraries/messages.inc.php:344
 msgid "Functions"
 msgstr "函数"
 
-#: libraries/export/sql.php:618 libraries/messages.inc.php:170
+#: libraries/export/sql.php:619 libraries/messages.inc.php:170
 msgid "Constraints for dumped tables"
 msgstr "限制导出的表"
 
-#: libraries/export/sql.php:627 libraries/messages.inc.php:171
+#: libraries/export/sql.php:628 libraries/messages.inc.php:171
 msgid "Constraints for table"
 msgstr "限制表"
 
-#: libraries/export/sql.php:727 libraries/messages.inc.php:508
+#: libraries/export/sql.php:728 libraries/messages.inc.php:508
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME 类型表"
 
-#: libraries/export/sql.php:739 libraries/messages.inc.php:739
+#: libraries/export/sql.php:740 libraries/messages.inc.php:739
 msgid "RELATIONS FOR TABLE"
 msgstr "表的关联"
 
-#: libraries/export/sql.php:796 libraries/messages.inc.php:1174
+#: libraries/export/sql.php:797 libraries/messages.inc.php:1174
 #: libraries/tbl_triggers.lib.php:19
 msgid "Triggers"
 msgstr "触发器"
 
-#: libraries/export/sql.php:808 libraries/messages.inc.php:1042
+#: libraries/export/sql.php:809 libraries/messages.inc.php:1042
 msgid "Structure for view"
 msgstr "视图结构"
 
-#: libraries/export/sql.php:817 libraries/messages.inc.php:1025
+#: libraries/export/sql.php:818 libraries/messages.inc.php:1025
 msgid "Stand-in structure for view"
 msgstr "替换视图以便查看"
+
+#: libraries/export/texytext.php:17 libraries/messages.inc.php:1090
+msgid "Texy! text"
+msgstr "Texy! 文本"
+
+#: libraries/export/xls.php:18 libraries/import/xls.php:21
+#: libraries/messages.inc.php:405
+msgid "Excel 97-2003 XLS Workbook"
+msgstr "Excel 97-2003 XLS 工作簿"
+
+#: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
+#: libraries/messages.inc.php:406
+msgid "Excel 2007 XLSX Workbook"
+msgstr "Excel 2007 XLSX 工作簿"
+
+#: libraries/export/xml.php:18 libraries/import/xml.php:21
+#: libraries/messages.inc.php:1251
+msgid "XML"
+msgstr "XML"
+
+#: libraries/export/xml.php:29 libraries/messages.inc.php:1247
+msgid "Export Structure Schemas (recommended)"
+msgstr "导出结构大纲 (推荐)"
+
+#: libraries/export/xml.php:31 libraries/messages.inc.php:1245
+msgid "Export functions"
+msgstr "导出函数"
+
+#: libraries/export/xml.php:33 libraries/messages.inc.php:1246
+msgid "Export procedures"
+msgstr "导出存储过程"
+
+#: libraries/export/xml.php:35 libraries/messages.inc.php:1248
+msgid "Export tables"
+msgstr "导出数据表"
+
+#: libraries/export/xml.php:37 libraries/messages.inc.php:1249
+msgid "Export triggers"
+msgstr "导出触发器"
+
+#: libraries/export/xml.php:39 libraries/messages.inc.php:1250
+msgid "Export views"
+msgstr "导出视图"
+
+#: libraries/export/xml.php:45 libraries/messages.inc.php:1244
+msgid "Export contents"
+msgstr "导出内容"
 
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:582
@@ -2825,28 +3103,33 @@ msgstr "结构"
 msgid "Go to view"
 msgstr "转到视图"
 
+#: libraries/import/csv.php:25 libraries/import/ldi.php:38
+#: libraries/messages.inc.php:756
+msgid "Replace table data with file"
+msgstr "将表的数据用此文件替换"
+
+#: libraries/import/csv.php:26 libraries/import/ldi.php:39
+#: libraries/messages.inc.php:385
+msgid "Ignore duplicate rows"
+msgstr "忽略重复行"
+
+#: libraries/import/csv.php:37 libraries/import/ods.php:25
+#: libraries/import/xls.php:24 libraries/import/xlsx.php:24
+#: libraries/messages.inc.php:388
+msgid "Column names in first row"
+msgstr "忽略首行 (首行为字段名)"
+
+#: libraries/import/csv.php:40 libraries/import/ldi.php:44
+#: libraries/messages.inc.php:155 pdf_pages.php:483 view_create.php:148
+msgid "Column names"
+msgstr "字段名"
+
 #: libraries/import/csv.php:58 libraries/import/csv.php:70
 #: libraries/import/csv.php:74 libraries/import/csv.php:78
 #: libraries/messages.inc.php:438
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "导入 CSV 文件 %s 时有无效参数"
-
-#: libraries/import/csv.php:59 libraries/messages.inc.php:319
-msgid "Fields terminated by"
-msgstr "字段分隔符"
-
-#: libraries/import/csv.php:71 libraries/messages.inc.php:316
-msgid "Fields enclosed by"
-msgstr "文字分隔符"
-
-#: libraries/import/csv.php:75 libraries/messages.inc.php:317
-msgid "Fields escaped by"
-msgstr "字段转义符"
-
-#: libraries/import/csv.php:79 libraries/messages.inc.php:477
-msgid "Lines terminated by"
-msgstr "换行符"
 
 #: libraries/import/csv.php:119 libraries/messages.inc.php:435
 #, php-format
@@ -2864,9 +3147,45 @@ msgstr "CSV 输入的第 %d 行格式有错。"
 msgid "Invalid field count in CSV input on line %d."
 msgstr "CSV 输入的第 %d 行字段数有错。"
 
+#: libraries/import/docsql.php:29 libraries/messages.inc.php:262
+msgid "DocSQL"
+msgstr "DocSQL"
+
+#: libraries/import/docsql.php:32 libraries/messages.inc.php:1076
+#: libraries/tbl_properties.inc.php:618 server_synchronize.php:428
+#: server_synchronize.php:871
+msgid "Table name"
+msgstr "数据表名"
+
+#: libraries/import/ldi.php:35 libraries/messages.inc.php:473
+msgid "CSV using LOAD DATA"
+msgstr "CSV 使用 LOAD DATA"
+
+#: libraries/import/ldi.php:45 libraries/messages.inc.php:474
+msgid "Use LOCAL keyword"
+msgstr "使用本地 (LOCAL) 关键词"
+
 #: libraries/import/ldi.php:55 libraries/messages.inc.php:442
 msgid "This plugin does not support compressed imports!"
 msgstr "该插件不支持导入文件！"
+
+#: libraries/import/ods.php:26 libraries/messages.inc.php:389
+msgid "Do not import empty rows"
+msgstr "不导入空行"
+
+#: libraries/import/ods.php:27 libraries/messages.inc.php:401
+msgid "Import percentages as proper decimals (12.00% to .12)"
+msgstr "转换百分数 (如: 12.00% 将被转换为 .12)"
+
+#: libraries/import/ods.php:28
+#, fuzzy
+#| msgid "Import currencies ($5.00 to 5.00)"
+msgid "Import currencies (.00 to 5.00)"
+msgstr "转换货币 (如: $5.00 将被转换为 5.00)"
+
+#: libraries/import/sql.php:42 libraries/messages.inc.php:264
+msgid "Do not use AUTO_INCREMENT for zero values"
+msgstr "不要给零值使用自增 (AUTO_INCREMENT)"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 #: libraries/messages.inc.php:1243
@@ -2913,10 +3232,6 @@ msgstr "添加 %s 个字段"
 #: libraries/messages.inc.php:31
 msgid "Add custom comment into header (\\n splits lines)"
 msgstr "在文件头添加自定义注释 (\\n 为换行)"
-
-#: libraries/messages.inc.php:32
-msgid "Add into comments"
-msgstr "添加进注释"
 
 #: libraries/messages.inc.php:33 tbl_structure.php:541
 msgid "Add new field"
@@ -3138,7 +3453,8 @@ msgstr "让所有用户均可访问此书签"
 msgid "Label"
 msgstr "标签"
 
-#: libraries/messages.inc.php:100 libraries/sql_query_form.lib.php:433
+#: libraries/messages.inc.php:100 libraries/relation.lib.php:143
+#: libraries/sql_query_form.lib.php:433
 msgid "Bookmarked SQL query"
 msgstr "SQL 查询书签"
 
@@ -3252,13 +3568,9 @@ msgstr "检查数据库“%s”的权限。"
 msgid "Please choose a page to edit"
 msgstr "请选择需要编辑的页"
 
-#: libraries/messages.inc.php:153
+#: libraries/messages.inc.php:153 libraries/relation.lib.php:133
 msgid "Displaying Column Comments"
 msgstr "显示字段注释"
-
-#: libraries/messages.inc.php:155 pdf_pages.php:483 view_create.php:148
-msgid "Column names"
-msgstr "字段名"
 
 #: libraries/messages.inc.php:156 server_privileges.php:1685
 msgid "Column-specific privileges"
@@ -3267,10 +3579,6 @@ msgstr "按字段指定权限"
 #: libraries/messages.inc.php:160
 msgid "MySQL&nbsp;4.0 compatible"
 msgstr "兼容 MySQL&nbsp;4.0"
-
-#: libraries/messages.inc.php:161
-msgid "Complete inserts"
-msgstr "完整插入"
 
 #: libraries/messages.inc.php:164
 #, php-format
@@ -3335,7 +3643,7 @@ msgstr "新建索引"
 msgid "Create a page"
 msgstr "创建新页"
 
-#: libraries/messages.inc.php:188
+#: libraries/messages.inc.php:188 libraries/relation.lib.php:129
 msgid "Creation of PDFs"
 msgstr "创建 PDF"
 
@@ -3375,17 +3683,9 @@ msgstr "授予数据库“%s”的所有权限。"
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限"
 
-#: libraries/messages.inc.php:197
-msgid "Creation/Update/Check dates"
-msgstr "创建/更新/检查日期"
-
 #: libraries/messages.inc.php:199 libraries/mysql_charsets.lib.php:229
 msgid "Croatian"
 msgstr "克罗地亚语"
-
-#: libraries/messages.inc.php:200
-msgid "CSV"
-msgstr "CSV"
 
 #: libraries/messages.inc.php:201 libraries/server_synchronize.lib.php:1343
 #: libraries/server_synchronize.lib.php:1369
@@ -3411,10 +3711,6 @@ msgstr "捷克斯洛伐克语"
 #: libraries/messages.inc.php:207 libraries/mysql_charsets.lib.php:235
 msgid "Danish"
 msgstr "丹麦语"
-
-#: libraries/messages.inc.php:210
-msgid "Database export options"
-msgstr "数据库导出选项"
 
 #: libraries/messages.inc.php:213 server_synchronize.php:122
 #: server_synchronize.php:125 tbl_create.php:82 tbl_get_field.php:20
@@ -3486,10 +3782,6 @@ msgstr "对于默认值，请只输入单个值，不要加反斜杠或引号，
 msgid "Defragment table"
 msgstr "整理表碎片"
 
-#: libraries/messages.inc.php:238
-msgid "Use delayed inserts"
-msgstr "使用延迟插入"
-
 #: libraries/messages.inc.php:241 server_privileges.php:1243
 msgid "No users selected for deleting!"
 msgstr "没有选择要删除的用户！"
@@ -3534,11 +3826,7 @@ msgstr "差异"
 msgid "Direct links"
 msgstr "直接连接"
 
-#: libraries/messages.inc.php:257
-msgid "Disable foreign key checks"
-msgstr "禁止选定不相关的主键"
-
-#: libraries/messages.inc.php:258
+#: libraries/messages.inc.php:258 libraries/relation.lib.php:123
 msgid "Display Features"
 msgstr "显示功能"
 
@@ -3549,14 +3837,6 @@ msgstr "显示顺序："
 #: libraries/messages.inc.php:261 tbl_select.php:132
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "执行“依例查询”(通配符：“%”)"
-
-#: libraries/messages.inc.php:262
-msgid "DocSQL"
-msgstr "DocSQL"
-
-#: libraries/messages.inc.php:264
-msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "不要给零值使用自增 (AUTO_INCREMENT)"
 
 #: libraries/messages.inc.php:269 server_privileges.php:1579
 #: server_privileges.php:1580 server_privileges.php:1581
@@ -3579,10 +3859,6 @@ msgstr "有效"
 #: libraries/messages.inc.php:282 libraries/relation.lib.php:100
 msgid "Enabled"
 msgstr "已启用"
-
-#: libraries/messages.inc.php:283
-msgid "Enclose export in a transaction"
-msgstr "处理事务中封装输出"
 
 #: libraries/messages.inc.php:284 libraries/sqlparser.lib.php:177
 msgid "END CUT"
@@ -3623,17 +3899,9 @@ msgstr "爱沙尼亚语"
 msgid "Event"
 msgstr "事件"
 
-#: libraries/messages.inc.php:303
-msgid "Excel edition"
-msgstr "Excel 版本"
-
 #: libraries/messages.inc.php:307 pmd_pdf.php:85
 msgid "Export/Import to scale"
 msgstr "按比例导出/导入"
-
-#: libraries/messages.inc.php:309
-msgid "Extended inserts"
-msgstr "扩展插入"
 
 #: libraries/messages.inc.php:310 pdf_schema.php:1267 pdf_schema.php:1288
 #: tbl_printview.php:147 tbl_structure.php:183 tbl_tracking.php:278
@@ -3685,11 +3953,6 @@ msgstr "强制更新 (关闭) 所有表"
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "在 %1$s 创建外键时发生错误 (检查数据类型)"
-
-#: libraries/messages.inc.php:337 setup/lib/messages.inc.php:88
-#: tbl_printview.php:376 tbl_structure.php:738
-msgid "Format"
-msgstr "格式"
 
 #: libraries/messages.inc.php:340 server_replication.php:325
 msgid "Full start"
@@ -3759,10 +4022,6 @@ msgstr "希伯来语"
 msgid "Help"
 msgstr "帮助"
 
-#: libraries/messages.inc.php:370
-msgid "Use hexadecimal for BLOB"
-msgstr "为 BLOB 字段使用16进制 (HEX)"
-
 #: libraries/messages.inc.php:372 pmd_general.php:120
 msgid "Hide/Show all"
 msgstr "全部隐藏/显示"
@@ -3788,10 +4047,6 @@ msgid ""
 "table are used instead."
 msgstr "使用主机表时，此处的数据会被主机表中的数据所替换。"
 
-#: libraries/messages.inc.php:379
-msgid "Microsoft Word 2000"
-msgstr "Microsoft Word 2000"
-
 #: libraries/messages.inc.php:380 libraries/mysql_charsets.lib.php:253
 msgid "Hungarian"
 msgstr "匈牙利语"
@@ -3810,26 +4065,10 @@ msgstr "ID"
 msgid "Fulltext"
 msgstr "全文搜索"
 
-#: libraries/messages.inc.php:385
-msgid "Ignore duplicate rows"
-msgstr "忽略重复行"
-
 #: libraries/messages.inc.php:386 tbl_change.php:302 tbl_indexes.php:200
 #: tbl_indexes.php:225
 msgid "Ignore"
 msgstr "忽略"
-
-#: libraries/messages.inc.php:387
-msgid "Use ignore inserts"
-msgstr "使用忽略插入"
-
-#: libraries/messages.inc.php:388
-msgid "Column names in first row"
-msgstr "忽略首行 (首行为字段名)"
-
-#: libraries/messages.inc.php:389
-msgid "Do not import empty rows"
-msgstr "不导入空行"
 
 #: libraries/messages.inc.php:390 pmd_general.php:104
 msgid "Import/Export coordinates for PDF schema"
@@ -3842,22 +4081,6 @@ msgstr "导入文件"
 #: libraries/messages.inc.php:399
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "转换货币 (如: $5.00 将被转换为 5.00)"
-
-#: libraries/messages.inc.php:400 libraries/messages.inc.php:580
-msgid "Open Document Spreadsheet"
-msgstr "OpenOffice 表格"
-
-#: libraries/messages.inc.php:401
-msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "转换百分数 (如: 12.00% 将被转换为 .12)"
-
-#: libraries/messages.inc.php:405
-msgid "Excel 97-2003 XLS Workbook"
-msgstr "Excel 97-2003 XLS 工作簿"
-
-#: libraries/messages.inc.php:406
-msgid "Excel 2007 XLSX Workbook"
-msgstr "Excel 2007 XLSX 工作簿"
 
 #: libraries/messages.inc.php:410 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
@@ -3969,33 +4192,13 @@ msgstr "朝鲜语"
 msgid "Unknown language: %1$s."
 msgstr "未知的语言：%1$s."
 
-#: libraries/messages.inc.php:464
-msgid "Table caption"
-msgstr "表的标题"
-
 #: libraries/messages.inc.php:465
 msgid "Content of table __TABLE__"
 msgstr "__TABLE__ 表的内容"
 
-#: libraries/messages.inc.php:466
-msgid "Continued table caption"
-msgstr "延续的表的标题"
-
 #: libraries/messages.inc.php:467
 msgid "(continued)"
 msgstr "(延续的)"
-
-#: libraries/messages.inc.php:468
-msgid "Include table caption"
-msgstr "包含表的标题"
-
-#: libraries/messages.inc.php:469
-msgid "Label key"
-msgstr "关键标签"
-
-#: libraries/messages.inc.php:470
-msgid "LaTeX"
-msgstr "LaTeX"
 
 #: libraries/messages.inc.php:471
 msgid "Structure of table __TABLE__"
@@ -4004,14 +4207,6 @@ msgstr "__TABLE__ 表的结构"
 #: libraries/messages.inc.php:472 libraries/mysql_charsets.lib.php:262
 msgid "Latvian"
 msgstr "拉脱维亚语"
-
-#: libraries/messages.inc.php:473
-msgid "CSV using LOAD DATA"
-msgstr "CSV 使用 LOAD DATA"
-
-#: libraries/messages.inc.php:474
-msgid "Use LOCAL keyword"
-msgstr "使用本地 (LOCAL) 关键词"
 
 #: libraries/messages.inc.php:475 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
@@ -4044,10 +4239,6 @@ msgstr "退出"
 msgid "max. concurrent connections"
 msgstr "最大并发连接数"
 
-#: libraries/messages.inc.php:494
-msgid "Maximal length of created query"
-msgstr "创建查询的最大长度"
-
 #: libraries/messages.inc.php:496 main.php:282
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
@@ -4065,10 +4256,6 @@ msgid ""
 msgstr ""
 "PHP 配置中已启用了 mbstring.func_overload 。这个选项和 phpMyAdmin 不兼容，可"
 "能会导致一些数据损坏！"
-
-#: libraries/messages.inc.php:498
-msgid "MediaWiki Table"
-msgstr "MediaWiki 表"
 
 #: libraries/messages.inc.php:499 transformation_overview.php:25
 msgid "Available MIME types"
@@ -4254,10 +4441,6 @@ msgstr "数据表"
 msgid "OK"
 msgstr "确定"
 
-#: libraries/messages.inc.php:581
-msgid "Open Document Text"
-msgstr "OpenOffice 文档"
-
 #: libraries/messages.inc.php:584 tbl_select.php:138
 msgid "Operator"
 msgstr "操作符"
@@ -4310,18 +4493,6 @@ msgstr "已创建页面"
 msgid "Page creation failed"
 msgstr "页面创建失败"
 
-#: libraries/messages.inc.php:636
-msgid "PDF"
-msgstr "PDF"
-
-#: libraries/messages.inc.php:637
-msgid "(Generates a report containing the data of a single table)"
-msgstr "(根据一张表的数据生成报告)"
-
-#: libraries/messages.inc.php:638
-msgid "Report title"
-msgstr "报告标题"
-
 #: libraries/messages.inc.php:639 server_status.php:389 server_status.php:434
 #: server_status.php:497 server_status.php:555
 msgid "per hour"
@@ -4342,10 +4513,6 @@ msgstr "波斯语"
 #: libraries/messages.inc.php:643 libraries/mysql_charsets.lib.php:250
 msgid "phone book"
 msgstr "电话本"
-
-#: libraries/messages.inc.php:644
-msgid "PHP array"
-msgstr "PHP 数组"
 
 #: libraries/messages.inc.php:646 main.php:213
 msgid "PHP extension"
@@ -4596,10 +4763,6 @@ msgstr "进程"
 msgid "Protocol version"
 msgstr "协议版本"
 
-#: libraries/messages.inc.php:711
-msgid "Put fields names in the first row"
-msgstr "将字段名放在第一行"
-
 #: libraries/messages.inc.php:716 server_synchronize.php:1003
 msgid "The following queries have been executed:"
 msgstr "下列查询被执行:"
@@ -4614,7 +4777,8 @@ msgstr "查询缓存"
 msgid "Query window"
 msgstr "查询窗口"
 
-#: libraries/messages.inc.php:721 querywindow.php:109 querywindow.php:217
+#: libraries/messages.inc.php:721 libraries/relation.lib.php:147
+#: querywindow.php:109 querywindow.php:217
 msgid "SQL history"
 msgstr "SQL 历史"
 
@@ -4653,10 +4817,6 @@ msgstr "检查引用完整性："
 msgid "Relational schema"
 msgstr "关系大纲"
 
-#: libraries/messages.inc.php:740 tbl_relation.php:399
-msgid "Relations"
-msgstr "关系"
-
 #: libraries/messages.inc.php:741 tbl_structure.php:507 tbl_structure.php:509
 msgid "Relation view"
 msgstr "关系查看"
@@ -4679,10 +4839,6 @@ msgstr "重新载入"
 msgid "Remote server"
 msgstr "远程服务器"
 
-#: libraries/messages.inc.php:746
-msgid "Remove CRLF characters within fields"
-msgstr "删除字段中的换行符"
-
 #: libraries/messages.inc.php:747 tbl_operations.php:676
 msgid "Remove partitioning"
 msgstr "删除分区"
@@ -4702,14 +4858,6 @@ msgstr "将视图改名为"
 #: libraries/messages.inc.php:753 tbl_operations.php:664
 msgid "Repair"
 msgstr "修复"
-
-#: libraries/messages.inc.php:755
-msgid "Replace NULL by"
-msgstr "将 NULL 替换为"
-
-#: libraries/messages.inc.php:756
-msgid "Replace table data with file"
-msgstr "将表的数据用此文件替换"
 
 #: libraries/messages.inc.php:757 server_replication.php:228
 msgid ""
@@ -5066,7 +5214,7 @@ msgstr ""
 "phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 "
 "phpMyAdmin 中设置的时间要更短。"
 
-#: libraries/messages.inc.php:862
+#: libraries/messages.inc.php:862 libraries/session.inc.php:84
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."
@@ -5769,14 +5917,6 @@ msgstr "已用空间"
 msgid "Spanish"
 msgstr "西班牙语"
 
-#: libraries/messages.inc.php:1015
-msgid "Export type"
-msgstr "导出类型"
-
-#: libraries/messages.inc.php:1016
-msgid "Export time in UTC"
-msgstr "以协调世界时 (UTC) 导出时间"
-
 #: libraries/messages.inc.php:1017 libraries/sqlparser.lib.php:173
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
@@ -5850,10 +5990,6 @@ msgstr "存储引擎"
 #: server_engines.php:58 tbl_operations.php:353
 msgid "Storage Engine"
 msgstr "存储引擎"
-
-#: libraries/messages.inc.php:1038
-msgid "CSV for MS Excel"
-msgstr "MS Excel 的 CSV 格式"
 
 #: libraries/messages.inc.php:1040 tbl_structure.php:516 tbl_structure.php:518
 msgid "Propose table structure"
@@ -5963,11 +6099,6 @@ msgstr "数据表是空的！"
 msgid "Table maintenance"
 msgstr "表维护"
 
-#: libraries/messages.inc.php:1076 libraries/tbl_properties.inc.php:618
-#: server_synchronize.php:428 server_synchronize.php:871
-msgid "Table name"
-msgstr "数据表名"
-
 #: libraries/messages.inc.php:1077 pdf_schema.php:1116
 msgid "Table of contents"
 msgstr "目录"
@@ -6008,10 +6139,6 @@ msgstr "临时数据"
 #: libraries/messages.inc.php:1089 tbl_change.php:728
 msgid " Because of its length,<br /> this field might not be editable "
 msgstr " 由于长度限制<br />此字段可能无法编辑 "
-
-#: libraries/messages.inc.php:1090
-msgid "Texy! text"
-msgstr "Texy! 文本"
 
 #: libraries/messages.inc.php:1091 libraries/mysql_charsets.lib.php:298
 #: libraries/mysql_charsets.lib.php:395
@@ -6363,18 +6490,9 @@ msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr "请参见文档中关于如何更新您的 column_comments 表"
 
-#: libraries/messages.inc.php:1190
-#, php-format
-msgid "You should upgrade to %s %s or later."
-msgstr "您应升级到 %s %s 或更高版本。"
-
 #: libraries/messages.inc.php:1200 tbl_printview.php:314 tbl_structure.php:661
 msgid "Usage"
 msgstr "已用"
-
-#: libraries/messages.inc.php:1201
-msgid "Enclose table and field names with backquotes"
-msgstr "给数据表名及字段名加上反引号"
 
 #: libraries/messages.inc.php:1202 libraries/replication_gui.lib.php:314
 #: server_privileges.php:740
@@ -6478,38 +6596,6 @@ msgstr "维基 (Wiki) (外链，英文)"
 #: libraries/messages.inc.php:1237 server_privileges.php:2138
 msgid "wildcard"
 msgstr "通配符"
-
-#: libraries/messages.inc.php:1244
-msgid "Export contents"
-msgstr "导出内容"
-
-#: libraries/messages.inc.php:1245
-msgid "Export functions"
-msgstr "导出函数"
-
-#: libraries/messages.inc.php:1246
-msgid "Export procedures"
-msgstr "导出存储过程"
-
-#: libraries/messages.inc.php:1247
-msgid "Export Structure Schemas (recommended)"
-msgstr "导出结构大纲 (推荐)"
-
-#: libraries/messages.inc.php:1248
-msgid "Export tables"
-msgstr "导出数据表"
-
-#: libraries/messages.inc.php:1249
-msgid "Export triggers"
-msgstr "导出触发器"
-
-#: libraries/messages.inc.php:1250
-msgid "Export views"
-msgstr "导出视图"
-
-#: libraries/messages.inc.php:1251
-msgid "XML"
-msgstr "XML"
 
 #: libraries/messages.inc.php:1255 server_privileges.php:592
 msgid "Note: Setting these options to 0 (zero) removes the limit."
