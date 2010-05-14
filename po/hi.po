@@ -483,7 +483,7 @@ msgstr "मापदंड"
 #: db_qbe.php:353 db_qbe.php:435 db_qbe.php:527 db_qbe.php:558
 #: libraries/messages.inc.php:714
 msgid "Ins"
-msgstr ""
+msgstr "इन्सर्ट"
 
 #: db_qbe.php:357 db_qbe.php:439 db_qbe.php:524 db_qbe.php:555
 #: libraries/messages.inc.php:52
