@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 08:21+0200\n"
+"PO-Revision-Date: 2010-05-14 08:22+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -862,7 +862,7 @@ msgstr ""
 #: export.php:298 export.php:302 libraries/messages.inc.php:558
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "वेब सर्वर के पास फ़ाइल %s को सेव करने की अनुमति नहीं है."
 
 #: export.php:629 libraries/messages.inc.php:272
 #, php-format
