@@ -588,7 +588,7 @@ msgstr "<b>कुल:</b> <i>%s</i> मैच"
 
 #: db_search.php:299 libraries/messages.inc.php:828
 msgid "Search in database"
-msgstr "डाटाबेस में सर्च करें"
+msgstr "डाटाबेस में खोजें"
 
 #: db_search.php:302 libraries/messages.inc.php:831
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
