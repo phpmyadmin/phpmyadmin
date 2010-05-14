@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 08:19+0200\n"
+"PO-Revision-Date: 2010-05-14 08:20+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -849,7 +849,7 @@ msgstr "चयनित निर्यात टाइप को फाइल �
 #: export.php:154 export.php:179 export.php:627 libraries/messages.inc.php:563
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "%s फाइल को सेव करने के लिए अपर्याप्त  जगह पायी गयी है."
 
 #: export.php:294 libraries/messages.inc.php:320
 #, php-format
