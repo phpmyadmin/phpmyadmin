@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-13 11:30+0200\n"
-"PO-Revision-Date: 2010-05-14 06:16+0200\n"
+"PO-Revision-Date: 2010-05-14 06:17+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -493,7 +493,7 @@ msgstr "और"
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:529 db_qbe.php:560
 #: libraries/messages.inc.php:713
 msgid "Del"
-msgstr ""
+msgstr "हटाइए"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:588
