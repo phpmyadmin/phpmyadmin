@@ -817,7 +817,7 @@ msgstr "निष्क्रिय"
 
 #: db_tracking.php:121 libraries/messages.inc.php:1156
 msgid "Versions"
-msgstr ""
+msgstr "संस्करण"
 
 #: db_tracking.php:122 libraries/messages.inc.php:1128 tbl_tracking.php:379
 #: tbl_tracking.php:624
