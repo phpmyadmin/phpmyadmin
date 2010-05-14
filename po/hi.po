@@ -520,7 +520,7 @@ msgstr "क्वरी का नवीनीकरण करें"
 
 #: db_qbe.php:617 libraries/messages.inc.php:1212
 msgid "Use Tables"
-msgstr " टेबल का उपयोग करो"
+msgstr "टेबल का उपयोग करो"
 
 #: db_qbe.php:640 libraries/messages.inc.php:719
 #, php-format
