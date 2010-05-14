@@ -733,7 +733,7 @@ msgstr " ओवर्हेअद वाली तालुकाओं को �
 #: libraries/mult_submits.inc.php:28 tbl_structure.php:493
 #: tbl_structure.php:495
 msgid "Print view"
-msgstr ""
+msgstr "छापने वाला द्रश्य."
 
 #: db_structure.php:549 db_structure.php:550 libraries/messages.inc.php:149
 #: libraries/mult_submits.inc.php:42 tbl_operations.php:579
