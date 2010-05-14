@@ -813,7 +813,7 @@ msgstr "सक्रिय"
 #: db_tracking.php:108 libraries/messages.inc.php:1139 tbl_tracking.php:550
 #: tbl_tracking.php:608 tbl_tracking.php:610
 msgid "not active"
-msgstr ""
+msgstr "निष्क्रिय"
 
 #: db_tracking.php:121 libraries/messages.inc.php:1156
 msgid "Versions"
