@@ -25,7 +25,7 @@ $cf = ConfigFile::getInstance();
 $server_exists = !empty($id) && $cf->get("Servers/$id") !== null;
 
 if ($mode == 'edit' && $server_exists) {
-    $page_title = $GLOBALS['strSetupServersEdit']
+    $page_title = __('Edit server')
         . ' ' . $id . ' <small>(' . $cf->getServerDSN($id) . ')</small>';
 } elseif ($mode == 'remove' && $server_exists) {
     $cf->removeServer($id);
@@ -34,7 +34,7 @@ if ($mode == 'edit' && $server_exists) {
 } elseif ($mode == 'revert' && $server_exists) {
     // handled by process_formset()
 } else {
-    $page_title = $GLOBALS['strSetupServersAdd'];
+    $page_title = __('Add a new server');
     $id = 0;
 }
 if (isset($page_title)) {

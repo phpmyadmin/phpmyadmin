@@ -40,7 +40,7 @@ function process_formset(FormDisplay $form_display) {
             $id = $id ? "{$separator}id=$id" : '';
             ?>
             <div class="warning">
-                <h4><?php echo $GLOBALS['strSetupWarning'] ?></h4>
+                <h4><?php echo __('Warning') ?></h4>
                 <?php echo PMA_lang('error_form') ?><br />
                 <a href="?page=<?php echo $page . $formset . $id . $separator ?>mode=revert"><?php echo PMA_lang('RevertErroneousFields') ?></a>
             </div>
