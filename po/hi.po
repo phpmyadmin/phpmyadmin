@@ -840,7 +840,7 @@ msgstr "तालिकाओं को ट्रैक करें"
 
 #: db_tracking.php:200 libraries/messages.inc.php:1117
 msgid "Database Log"
-msgstr ""
+msgstr "डेटाबेस लॉग"
 
 #: export.php:62 libraries/messages.inc.php:308
 msgid "Selected export type has to be saved in file!"
