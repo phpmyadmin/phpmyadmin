@@ -8554,7 +8554,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:369
 msgid "Got invalid version string from server"
-msgstr "A recepționat de la server un număr de versiune invalid"
+msgstr "A primit de la server un număr de versiune invalid"
 
 #: setup/lib/messages.inc.php:371
 #, php-format
