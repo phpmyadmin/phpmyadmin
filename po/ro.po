@@ -812,8 +812,9 @@ msgid "Action"
 msgstr "Acţiune"
 
 #: db_tracking.php:88 db_tracking.php:120 libraries/messages.inc.php:243
+#, fuzzy
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Şterge datele urmărite din acest tabel"
 
 #: db_tracking.php:106 libraries/messages.inc.php:1138 tbl_tracking.php:548
 #: tbl_tracking.php:606 tbl_tracking.php:613
