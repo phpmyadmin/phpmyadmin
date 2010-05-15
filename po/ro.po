@@ -861,7 +861,7 @@ msgstr "Jurnalul (log) bazei de date"
 
 #: export.php:62 libraries/messages.inc.php:308
 msgid "Selected export type has to be saved in file!"
-msgstr "Tipul selectat pentru export trebuie salvat într-un fişier!"
+msgstr "Tipul selectat pentru export trebuie salvat într-un fișier!"
 
 #: export.php:154 export.php:179 export.php:627 libraries/messages.inc.php:563
 #, php-format
