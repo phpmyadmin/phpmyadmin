@@ -795,9 +795,8 @@ msgid "Database"
 msgstr "Baza de date"
 
 #: db_tracking.php:73 libraries/messages.inc.php:1142
-#, fuzzy
 msgid "Last version"
-msgstr "Creare relație"
+msgstr "Ultima versiune"
 
 #: db_tracking.php:74 libraries/messages.inc.php:1141 tbl_tracking.php:594
 #, fuzzy
