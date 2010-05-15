@@ -829,9 +829,8 @@ msgid "not active"
 msgstr "inactiv(ă)"
 
 #: db_tracking.php:121 libraries/messages.inc.php:1156
-#, fuzzy
 msgid "Versions"
-msgstr "Persană"
+msgstr "Versiuni"
 
 #: db_tracking.php:122 libraries/messages.inc.php:1128 tbl_tracking.php:379
 #: tbl_tracking.php:624
