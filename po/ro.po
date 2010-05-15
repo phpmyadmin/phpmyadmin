@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-14 13:39-0400\n"
-"PO-Revision-Date: 2010-05-16 01:33+0200\n"
+"PO-Revision-Date: 2010-05-16 01:36+0200\n"
 "Last-Translator:  <ssuceveanu@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -8562,6 +8562,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"O nouă versiune a phpMyAdmin este disponibilă și vă recomandam să inițiați "
+"procesul de actualizare. Noua versiune este %s, publicată în data de %s."
 
 #: setup/lib/messages.inc.php:372
 #, php-format
