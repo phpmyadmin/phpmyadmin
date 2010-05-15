@@ -799,9 +799,8 @@ msgid "Last version"
 msgstr "Ultima versiune"
 
 #: db_tracking.php:74 libraries/messages.inc.php:1141 tbl_tracking.php:594
-#, fuzzy
 msgid "Created"
-msgstr "Creează"
+msgstr "Creată"
 
 #: db_tracking.php:75 libraries/messages.inc.php:1143 tbl_tracking.php:595
 msgid "Updated"
