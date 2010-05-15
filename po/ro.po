@@ -866,7 +866,7 @@ msgstr "Tipul selectat pentru export trebuie salvat într-un fişier!"
 #: export.php:154 export.php:179 export.php:627 libraries/messages.inc.php:563
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "Spațiu insuficient pentru salvarea fișierului %s."
+msgstr "Spaţiu insuficient pentru salvarea fişierului %s."
 
 #: export.php:294 libraries/messages.inc.php:320
 #, php-format
