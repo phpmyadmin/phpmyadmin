@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-14 13:39-0400\n"
-"PO-Revision-Date: 2010-05-16 00:54+0200\n"
+"PO-Revision-Date: 2010-05-16 00:55+0200\n"
 "Last-Translator:  <ssuceveanu@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -818,8 +818,9 @@ msgstr "Şterge datele urmărite din acest tabel"
 
 #: db_tracking.php:106 libraries/messages.inc.php:1138 tbl_tracking.php:548
 #: tbl_tracking.php:606 tbl_tracking.php:613
+#, fuzzy
 msgid "active"
-msgstr ""
+msgstr "activ(ă)"
 
 #: db_tracking.php:108 libraries/messages.inc.php:1139 tbl_tracking.php:550
 #: tbl_tracking.php:608 tbl_tracking.php:610
