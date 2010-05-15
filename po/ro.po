@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-14 13:39-0400\n"
-"PO-Revision-Date: 2010-05-16 00:48+0200\n"
+"PO-Revision-Date: 2010-05-16 00:49+0200\n"
 "Last-Translator:  <ssuceveanu@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -381,7 +381,7 @@ msgstr "Dicționar de date"
 
 #: db_operations.php:674 libraries/messages.inc.php:880 pdf_pages.php:534
 msgid "Only show keys"
-msgstr ""
+msgstr "Vezi numai cheile"
 
 #: db_operations.php:676 libraries/messages.inc.php:871 pdf_pages.php:535
 msgid "Data Dictionary Format"
