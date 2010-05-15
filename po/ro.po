@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-14 13:39-0400\n"
-"PO-Revision-Date: 2010-05-16 01:24+0200\n"
+"PO-Revision-Date: 2010-05-16 01:25+0200\n"
 "Last-Translator:  <ssuceveanu@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -731,7 +731,7 @@ msgstr "Marchează toate"
 #: server_databases.php:350 server_privileges.php:533
 #: server_privileges.php:1564 tbl_structure.php:463
 msgid "Uncheck All"
-msgstr "Deselectează toate"
+msgstr "Demarchează toate"
 
 #: db_structure.php:536 libraries/messages.inc.php:146
 msgid "Check tables having overhead"
