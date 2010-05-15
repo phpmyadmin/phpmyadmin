@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-14 13:39-0400\n"
-"PO-Revision-Date: 2010-05-16 00:51+0200\n"
+"PO-Revision-Date: 2010-05-16 00:52+0200\n"
 "Last-Translator:  <ssuceveanu@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -780,7 +780,7 @@ msgstr "Exportă"
 #: db_tracking.php:66 libraries/messages.inc.php:1147
 #, fuzzy
 msgid "Tracked tables"
-msgstr "Verificare tabel"
+msgstr "Tabelele urmărite"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
