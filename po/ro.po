@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-14 13:39-0400\n"
-"PO-Revision-Date: 2010-05-16 00:59+0200\n"
+"PO-Revision-Date: 2010-05-16 01:07+0200\n"
 "Last-Translator:  <ssuceveanu@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -879,7 +879,7 @@ msgstr ""
 #: export.php:298 export.php:302 libraries/messages.inc.php:558
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "Serverul web nu poate salva fișierul %s."
+msgstr "Serverul web nu are drepturile necesare pentru a salva fişierul %s."
 
 #: export.php:629 libraries/messages.inc.php:272
 #, php-format
