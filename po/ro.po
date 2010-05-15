@@ -884,7 +884,7 @@ msgstr "Serverul web nu are drepturile necesare pentru a salva fișierul %s."
 #: export.php:629 libraries/messages.inc.php:272
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Copia a fost salvată în fişierul %s."
+msgstr "Copia a fost salvată în fișierul %s."
 
 #: import.php:60 libraries/messages.inc.php:1198
 #, php-format
