@@ -36,6 +36,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"The target browser window could not be updated. Maybe you have closed the "
+"parent window, or your browser's security settings are configured to block "
+"cross-window updates."
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
@@ -94,17 +97,17 @@ msgstr "یہ ویلیو استعمال کریں"
 #: db_create.php:46 libraries/messages.inc.php:211
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "بن گئی ہے  %1$s ڈیٹا بیس"
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:228
 msgid "Database comment: "
-msgstr ""
+msgstr "ڈیٹا بیس رائے"
 
 #: db_datadict.php:165 libraries/messages.inc.php:1066
 #: libraries/tbl_properties.inc.php:724 pdf_schema.php:1236
 #: tbl_operations.php:345 tbl_printview.php:130
 msgid "Table comments"
-msgstr ""
+msgstr "ٹیبل کمنٹس"
 
 #: db_datadict.php:174 db_qbe.php:174 libraries/Index.class.php:446
 #: libraries/export/htmlword.php:244 libraries/export/latex.php:360
@@ -115,7 +118,7 @@ msgstr ""
 #: tbl_printview.php:142 tbl_relation.php:402 tbl_select.php:135
 #: tbl_structure.php:177 tbl_tracking.php:273 tbl_tracking.php:324
 msgid "Field"
-msgstr ""
+msgstr "فیلڈ"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
 #: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
@@ -128,7 +131,7 @@ msgstr ""
 #: tbl_select.php:136 tbl_structure.php:178 tbl_structure.php:660
 #: tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
-msgstr ""
+msgstr "قِسم"
 
 #: db_datadict.php:177 libraries/Index.class.php:449
 #: libraries/export/htmlword.php:246 libraries/export/latex.php:360
@@ -138,7 +141,7 @@ msgstr ""
 #: tbl_printview.php:145 tbl_structure.php:181 tbl_tracking.php:276
 #: tbl_tracking.php:327
 msgid "Null"
-msgstr ""
+msgstr "منسوخ"
 
 #: db_datadict.php:178 db_structure.php:501 libraries/export/htmlword.php:247
 #: libraries/export/latex.php:360 libraries/export/odt.php:303
@@ -147,14 +150,14 @@ msgstr ""
 #: pdf_schema.php:1287 tbl_printview.php:146 tbl_structure.php:182
 #: tbl_tracking.php:277
 msgid "Default"
-msgstr ""
+msgstr "ڈیفالٹ"
 
 #: db_datadict.php:182 libraries/export/htmlword.php:249
 #: libraries/export/latex.php:362 libraries/export/odt.php:307
 #: libraries/export/texytext.php:238 libraries/messages.inc.php:479
 #: pdf_schema.php:1268 pdf_schema.php:1289 tbl_printview.php:150
 msgid "Links to"
-msgstr ""
+msgstr "لنک ٹو"
 
 #: db_datadict.php:184 db_printview.php:112 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:45 libraries/export/latex.php:365
@@ -163,7 +166,7 @@ msgstr ""
 #: libraries/messages.inc.php:159 libraries/tbl_properties.inc.php:130
 #: pdf_schema.php:1279 pdf_schema.php:1290 tbl_printview.php:152
 msgid "Comments"
-msgstr ""
+msgstr "آراء-رائے"
 
 #: db_datadict.php:267 libraries/Index.class.php:359
 #: libraries/Index.class.php:386 libraries/export/htmlword.php:322
@@ -175,7 +178,7 @@ msgstr ""
 #: server_privileges.php:2148 sql.php:132 sql.php:194 tbl_printview.php:229
 #: tbl_structure.php:351 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
-msgstr ""
+msgstr "نہیں"
 
 #: db_datadict.php:267 libraries/Index.class.php:360
 #: libraries/Index.class.php:385 libraries/export/htmlword.php:322
@@ -192,140 +195,144 @@ msgstr ""
 #: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:351
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
-msgstr ""
+msgstr "ہاں"
 
 #: db_datadict.php:322 db_printview.php:266 libraries/messages.inc.php:666
 #: tbl_printview.php:498
 msgid "Print"
-msgstr ""
+msgstr "پرنٹ"
 
 #: db_export.php:29 libraries/messages.inc.php:1222
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr " ڈیٹا بیس کی ڈمپ (شیما) دیکھیں"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
 #: db_tracking.php:35 export.php:359 libraries/messages.inc.php:564
 #: navigation.php:346
 msgid "No tables found in database."
-msgstr ""
+msgstr "ڈیٹا بیس میں کوئی ٹیبل نہیں مِلا"
 
 #: db_export.php:43 db_search.php:344 libraries/messages.inc.php:841
 #: server_export.php:27
 msgid "Select All"
-msgstr ""
+msgstr "سارا منتخب کریں"
 
 #: db_export.php:45 db_search.php:347 libraries/messages.inc.php:1184
 #: server_export.php:29
 msgid "Unselect All"
-msgstr ""
+msgstr "سارا انتخاب ختم کریں"
 
 #: db_operations.php:38 libraries/messages.inc.php:209 tbl_create.php:54
 msgid "The database name is empty!"
-msgstr ""
+msgstr "ڈیٹا بیس کا نام خالی ہے!"
 
 #: db_operations.php:236 libraries/messages.inc.php:749
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "Database %s has been renamed to %s"
 
 #: db_operations.php:240 libraries/messages.inc.php:174
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "Database %s has been copied to %s"
 
 #: db_operations.php:410 libraries/messages.inc.php:232
 msgid "Rename database to"
-msgstr ""
+msgstr "ڈیٹا بیس کا نام بدلیں"
 
 #: db_operations.php:415 libraries/messages.inc.php:157
 #: server_processlist.php:57
 msgid "Command"
-msgstr ""
+msgstr "کمانڈ"
 
 #: db_operations.php:425 libraries/messages.inc.php:54 tbl_change.php:1143
 msgid "and then"
-msgstr ""
+msgstr "اور پھر"
 
 #: db_operations.php:451 libraries/messages.inc.php:229
 msgid "Copy database to"
-msgstr ""
+msgstr "ڈیٹا بیس کاپی کریں"
 
 #: db_operations.php:458 libraries/messages.inc.php:1039
 #: tbl_operations.php:526 tbl_tracking.php:388
 msgid "Structure only"
-msgstr ""
+msgstr "سٹرکچر صرف"
 
 #: db_operations.php:459 libraries/messages.inc.php:1037
 #: tbl_operations.php:527 tbl_tracking.php:390
 msgid "Structure and data"
-msgstr ""
+msgstr "سٹرکچر اور ڈیٹا"
 
 #: db_operations.php:460 libraries/messages.inc.php:225 tbl_operations.php:528
 #: tbl_tracking.php:389
 msgid "Data only"
-msgstr ""
+msgstr "صرف ڈیٹا"
 
 #: db_operations.php:468 libraries/messages.inc.php:182
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "کاپی سے پہلے ڈیٹا بیس بنائیں"
 
 #: db_operations.php:471 libraries/export/sql.php:53
 #: libraries/export/sql.php:75 libraries/export/sql.php:77
 #: libraries/export/sql.php:83 libraries/messages.inc.php:26
 #: tbl_operations.php:534
+#: libraries/export/sql.php:52
+#: libraries/export/sql.php:74
+#: libraries/export/sql.php:76
+#: libraries/export/sql.php:82
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "شامل کریں %s"
 
 #: db_operations.php:475 libraries/export/sql.php:79
 #: libraries/messages.inc.php:25 tbl_operations.php:297 tbl_operations.php:536
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "ویلیو شامل کریں AUTO_INCREMENT"
 
 #: db_operations.php:479 libraries/messages.inc.php:27 tbl_operations.php:543
 msgid "Add constraints"
-msgstr ""
+msgstr "Add constraints"
 
 #: db_operations.php:492 libraries/messages.inc.php:1055
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Switch to copied database"
 
 #: db_operations.php:533 libraries/messages.inc.php:85
 msgid "BLOB Repository"
-msgstr ""
+msgstr "BLOB Repository"
 
 #: db_operations.php:536 db_tracking.php:76 libraries/common.lib.php:1350
 #: libraries/messages.inc.php:1033 libraries/server_links.inc.php:49
 #: server_processlist.php:59 tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
-msgstr ""
+msgstr "حالت"
 
 #: db_operations.php:544
 msgctxt "BLOB repository"
 msgid "Enabled"
-msgstr ""
+msgstr "فعال"
 
 #: db_operations.php:548 libraries/messages.inc.php:89
 msgid "Disable"
-msgstr ""
+msgstr "غیر فعال"
 
 #: db_operations.php:558 libraries/messages.inc.php:86
 msgid "Damaged"
-msgstr ""
+msgstr "ضرر"
 
 #: db_operations.php:562
 msgctxt "BLOB repository"
 msgid "Repair"
-msgstr ""
+msgstr "مرمت"
 
 #: db_operations.php:570
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr ""
+msgstr "غیر فعال"
 
 #: db_operations.php:574 libraries/messages.inc.php:92
 msgid "Enable"
-msgstr ""
+msgstr "فعال"
 
 #: db_operations.php:598 libraries/Index.class.php:448
 #: libraries/db_structure.lib.php:62 libraries/messages.inc.php:154
@@ -335,7 +342,7 @@ msgstr ""
 #: tbl_select.php:137 tbl_structure.php:179 tbl_structure.php:768
 #: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
-msgstr ""
+msgstr "کولیکشن"
 
 #: db_operations.php:609 libraries/messages.inc.php:738 main.php:316
 #: pdf_schema.php:34
@@ -344,55 +351,57 @@ msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 msgstr ""
+"The additional features for working with linked tables have been "
+"deactivated. To find out why click %shere%s."
 
 #: db_operations.php:645 libraries/messages.inc.php:260 pdf_pages.php:528
 msgid "Display PDF schema"
-msgstr ""
+msgstr "دکھائیں PDF schema"
 
 #: db_operations.php:661 libraries/messages.inc.php:873 pdf_pages.php:529
 msgid "Show grid"
-msgstr ""
+msgstr "گرِڈ دکھائیں"
 
 #: db_operations.php:664 libraries/messages.inc.php:870 pdf_pages.php:530
 msgid "Show color"
-msgstr ""
+msgstr "کلر دکھائیں"
 
 #: db_operations.php:666 libraries/messages.inc.php:994 pdf_pages.php:531
 msgid "Show dimension of tables"
-msgstr ""
+msgstr "ٹیبلز کی جسامت دیکھیں"
 
 #: db_operations.php:669 libraries/messages.inc.php:48 pdf_pages.php:532
 msgid "Display all tables with the same width"
-msgstr ""
+msgstr "سارے ٹیبلز یکساں چوڑائی کے ساتھ دیکھیں"
 
 #: db_operations.php:672 db_structure.php:606 libraries/messages.inc.php:223
 #: pdf_pages.php:533
 msgid "Data Dictionary"
-msgstr ""
+msgstr "ڈیٹا ڈتشنری"
 
 #: db_operations.php:674 libraries/messages.inc.php:880 pdf_pages.php:534
 msgid "Only show keys"
-msgstr ""
+msgstr "صرف کیز دیکھیں"
 
 #: db_operations.php:676 libraries/messages.inc.php:871 pdf_pages.php:535
 msgid "Data Dictionary Format"
-msgstr ""
+msgstr "ڈیٹا ڈکشنری فارمیٹ"
 
 #: db_operations.php:678 libraries/messages.inc.php:460 pdf_pages.php:537
 msgid "Landscape"
-msgstr ""
+msgstr "لینڈسکیپ"
 
 #: db_operations.php:679 libraries/messages.inc.php:659 pdf_pages.php:538
 msgid "Portrait"
-msgstr ""
+msgstr "پورٹریٹ"
 
 #: db_operations.php:682 libraries/messages.inc.php:595 pdf_pages.php:541
 msgid "Paper size"
-msgstr ""
+msgstr "صفحے کا ناپ"
 
 #: db_operations.php:706 libraries/messages.inc.php:277
 msgid "Edit PDF Pages"
-msgstr ""
+msgstr "پی ڈی ایف صفحوں کی تدوین کریں"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
@@ -401,168 +410,173 @@ msgstr ""
 #: server_privileges.php:1946 server_synchronize.php:423
 #: server_synchronize.php:866 tbl_tracking.php:592 test/theme.php:75
 msgid "Table"
-msgstr ""
+msgstr "ٹیبل"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/messages.inc.php:731
 msgid "Records"
-msgstr ""
+msgstr "ریکارڈز"
 
 #: db_printview.php:109 libraries/db_structure.lib.php:67
 #: libraries/messages.inc.php:999 tbl_indexes.php:190
 msgid "Size"
-msgstr ""
+msgstr "ناپ"
 
 #: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:560
 #: libraries/export/sql.php:900 libraries/messages.inc.php:432
+#: libraries/export/sql.php:559
+#: libraries/export/sql.php:899
 msgid "in use"
-msgstr ""
+msgstr "استعمال میں"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
 #: libraries/export/sql.php:515 libraries/messages.inc.php:1028
 #: pdf_schema.php:1241 tbl_printview.php:434 tbl_structure.php:810
+#: libraries/export/sql.php:514
 msgid "Creation"
-msgstr ""
+msgstr "تخلیق"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
 #: libraries/export/sql.php:520 libraries/messages.inc.php:1032
 #: pdf_schema.php:1246 tbl_printview.php:444 tbl_structure.php:818
+#: libraries/export/sql.php:519
 msgid "Last update"
-msgstr ""
+msgstr "آخری دفعہ اپ ڈیٹ"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
 #: libraries/export/sql.php:525 libraries/messages.inc.php:1027
 #: pdf_schema.php:1251 tbl_printview.php:454 tbl_structure.php:826
+#: libraries/export/sql.php:524
 msgid "Last check"
-msgstr ""
+msgstr "آخری دفعہ چیک"
 
 #: db_printview.php:222 db_structure.php:480 libraries/messages.inc.php:1081
 #, php-format
 msgid "%s table(s)"
-msgstr ""
+msgstr "%s table(s)"
 
 #: db_qbe.php:29 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/messages.inc.php:1047
 #: libraries/sql_query_form.lib.php:140 tbl_operations.php:213
 #: tbl_relation.php:292 tbl_row_action.php:131 view_operations.php:62
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "Your SQL query has been executed successfully"
 
 #: db_qbe.php:42 libraries/messages.inc.php:367
 msgid "You have to choose at least one column to display"
-msgstr ""
+msgstr "آپ کو کم از کم ایک کالم چننا ہو گا ڈسپے کیلئے۔"
 
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866 libraries/messages.inc.php:1010
 msgid "Sort"
-msgstr ""
+msgstr "چھانٹنا"
 
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: libraries/messages.inc.php:65 server_databases.php:170
 #: server_databases.php:187 tbl_operations.php:260 tbl_select.php:314
 msgid "Ascending"
-msgstr ""
+msgstr "چڑھتا ہوا"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: libraries/messages.inc.php:247 server_databases.php:170
 #: server_databases.php:187 tbl_operations.php:261 tbl_select.php:315
 msgid "Descending"
-msgstr ""
+msgstr "گرتا ہوا"
 
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
 #: libraries/messages.inc.php:884 tbl_change.php:277 tbl_tracking.php:597
 msgid "Show"
-msgstr ""
+msgstr "دیکھیں"
 
 #: db_qbe.php:300 libraries/messages.inc.php:198
 msgid "Criteria"
-msgstr ""
+msgstr "معیار"
 
 #: db_qbe.php:353 db_qbe.php:435 db_qbe.php:527 db_qbe.php:558
 #: libraries/messages.inc.php:714
 msgid "Ins"
-msgstr ""
+msgstr "Ins"
 
 #: db_qbe.php:357 db_qbe.php:439 db_qbe.php:524 db_qbe.php:555
 #: libraries/messages.inc.php:52
 msgid "And"
-msgstr ""
+msgstr "اور"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:529 db_qbe.php:560
 #: libraries/messages.inc.php:713
 msgid "Del"
-msgstr ""
+msgstr "Del"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/messages.inc.php:588
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:258
 #: tbl_change.php:1031 tbl_indexes.php:250 tbl_select.php:288
 msgid "Or"
-msgstr ""
+msgstr "یا"
 
 #: db_qbe.php:507 libraries/messages.inc.php:512
 msgid "Modify"
-msgstr ""
+msgstr "تبدیلیاں کریں"
 
 #: db_qbe.php:584 libraries/messages.inc.php:29
 msgid "Add/Delete Criteria Row"
-msgstr ""
+msgstr "شامل یا ختم کریں Criteria Row"
 
 #: db_qbe.php:596 libraries/messages.inc.php:28
 msgid "Add/Delete Field Columns"
-msgstr ""
+msgstr "فیلڈ کالمز شامل یا ختم کریں"
 
 #: db_qbe.php:609 db_qbe.php:634 libraries/messages.inc.php:1188
 msgid "Update Query"
-msgstr ""
+msgstr "اپ ڈیٹ Query"
 
 #: db_qbe.php:617 libraries/messages.inc.php:1212
 msgid "Use Tables"
-msgstr ""
+msgstr "ٹیبلز استعمال کریں"
 
 #: db_qbe.php:640 libraries/messages.inc.php:719
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "SQL query on database <b>%s</b>:"
 
 #: db_qbe.php:934 libraries/common.lib.php:1223 libraries/messages.inc.php:819
 msgid "Submit Query"
-msgstr ""
+msgstr "Submit Query"
 
 #: db_search.php:68 libraries/auth/config.auth.lib.php:84
 #: libraries/auth/config.auth.lib.php:103
 #: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:183 libraries/messages.inc.php:22
 msgid "Access denied"
-msgstr ""
+msgstr "رسائی سے انکار"
 
 #: db_search.php:80 db_search.php:311 libraries/messages.inc.php:832
 msgid "at least one of the words"
-msgstr ""
+msgstr "کم از کم لفظوں میں سے ایک"
 
 #: db_search.php:81 db_search.php:312 libraries/messages.inc.php:833
 msgid "all words"
-msgstr ""
+msgstr "تمام الفاظ"
 
 #: db_search.php:82 db_search.php:313 libraries/messages.inc.php:834
 msgid "the exact phrase"
-msgstr ""
+msgstr "برابر فقرہ"
 
 #: db_search.php:83 db_search.php:314 libraries/messages.inc.php:835
 msgid "as regular expression"
-msgstr ""
+msgstr "as regular expression"
 
 #: db_search.php:242 libraries/messages.inc.php:836
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr ""
+msgstr "تلاش نتائج کیلئے \"<i>%s</i>\" %s:"
 
 #: db_search.php:260 libraries/messages.inc.php:575
 #, php-format
 msgid "%s match(es) inside table <i>%s</i>"
-msgstr ""
+msgstr "%s match(es) inside table <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
@@ -570,7 +584,7 @@ msgstr ""
 #: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
 #: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:468
 msgid "Browse"
-msgstr ""
+msgstr "Browse"
 
 #: db_search.php:272 libraries/display_tbl.lib.php:1165
 #: libraries/display_tbl.lib.php:2056 libraries/messages.inc.php:239
@@ -579,43 +593,43 @@ msgstr ""
 #: setup/frames/index.inc.php:125 setup/frames/index.inc.php:216
 #: tbl_row_action.php:63
 msgid "Delete"
-msgstr ""
+msgstr "ختم"
 
 #: db_search.php:285 libraries/messages.inc.php:576
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr ""
+msgstr "<b>Total:</b> <i>%s</i> match(es)"
 
 #: db_search.php:299 libraries/messages.inc.php:828
 msgid "Search in database"
-msgstr ""
+msgstr "ڈیٹا بیس میں تلاش"
 
 #: db_search.php:302 libraries/messages.inc.php:831
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr ""
+msgstr "Word(s) or value(s) to search for (wildcard: \"%\"):"
 
 #: db_search.php:307 libraries/messages.inc.php:838
 msgid "Find:"
-msgstr ""
+msgstr "تلاش:"
 
 #: db_search.php:311 db_search.php:312 libraries/messages.inc.php:1013
 msgid "Words are separated by a space character (\" \")."
-msgstr ""
+msgstr "Words are separated by a space character (\" \")."
 
 #: db_search.php:325 libraries/messages.inc.php:830
 msgid "Inside table(s):"
-msgstr ""
+msgstr "ٹیبلز کے اندر:"
 
 #: db_search.php:355 libraries/messages.inc.php:829
 msgid "Inside field:"
-msgstr ""
+msgstr "فیلڈ کے اندر:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
 #: libraries/messages.inc.php:427 libraries/sql_query_form.lib.php:334
 #: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
 msgid "Insert"
-msgstr ""
+msgstr "داخل کریں"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
@@ -626,7 +640,7 @@ msgstr ""
 #: pmd_general.php:134 server_privileges.php:554 server_replication.php:315
 #: tbl_tracking.php:269
 msgid "Structure"
-msgstr ""
+msgstr "ساخت"
 
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
@@ -638,7 +652,7 @@ msgstr ""
 #: tbl_structure.php:27 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:472
 msgid "Drop"
-msgstr ""
+msgstr "نکلالنا"
 
 #: db_structure.php:86 db_structure.php:87 db_structure.php:99
 #: db_structure.php:100 db_structure.php:112 db_structure.php:113
@@ -646,33 +660,33 @@ msgstr ""
 #: libraries/messages.inc.php:280 libraries/mult_submits.inc.php:39
 #: libraries/tbl_links.inc.php:105
 msgid "Empty"
-msgstr ""
+msgstr "خالی"
 
 #: db_structure.php:316 libraries/messages.inc.php:1071
 #: libraries/tbl_links.inc.php:100
 #, php-format
 msgid "Table %s has been emptied"
-msgstr ""
+msgstr " %s ٹیبل"
 
 #: db_structure.php:326 libraries/messages.inc.php:1225
 #: libraries/tbl_links.inc.php:133
 #, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "View %s has been dropped"
 
 #: db_structure.php:326 libraries/messages.inc.php:1070
 #: libraries/tbl_links.inc.php:133
 #, php-format
 msgid "Table %s has been dropped"
-msgstr ""
+msgstr "Table %s has been dropped"
 
 #: db_structure.php:333 libraries/messages.inc.php:1124
 msgid "Tracking is active."
-msgstr ""
+msgstr "ٹریکنگ ایکٹو ہے"
 
 #: db_structure.php:335 libraries/messages.inc.php:1125
 msgid "Tracking is not active."
-msgstr ""
+msgstr "ٹریکنگ ایکٹو نہیں ہے"
 
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #: libraries/messages.inc.php:1224
@@ -681,28 +695,30 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/messages.inc.php:1229 libraries/tbl_info.inc.php:66
 #: tbl_structure.php:185 test/theme.php:74
 msgid "View"
-msgstr ""
+msgstr "ویو"
 
 #: db_structure.php:485 libraries/db_structure.lib.php:49
 #: libraries/messages.inc.php:769 libraries/server_links.inc.php:70
 #: server_replication.php:33 server_replication.php:164 server_status.php:258
 msgid "Replication"
-msgstr ""
+msgstr "لپیٹنا"
 
 #: db_structure.php:489 libraries/messages.inc.php:1049
 msgid "Sum"
-msgstr ""
+msgstr "مجموعہ"
 
 #: db_structure.php:496 libraries/StorageEngine.class.php:356
 #: libraries/messages.inc.php:235
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s is the default storage engine on this MySQL server."
 
 #: db_structure.php:524 db_structure.php:541 db_structure.php:542
 #: libraries/display_tbl.lib.php:2081 libraries/display_tbl.lib.php:2086
@@ -710,52 +726,52 @@ msgstr ""
 #: server_databases.php:346 server_databases.php:351
 #: server_privileges.php:1557 tbl_structure.php:456 tbl_structure.php:465
 msgid "With selected:"
-msgstr ""
+msgstr "With selected:"
 
 #: db_structure.php:527 libraries/display_tbl.lib.php:2076
 #: libraries/messages.inc.php:144 server_databases.php:348
 #: server_privileges.php:530 server_privileges.php:1560 tbl_structure.php:459
 msgid "Check All"
-msgstr ""
+msgstr "چیک آل"
 
 #: db_structure.php:531 libraries/display_tbl.lib.php:2077
 #: libraries/messages.inc.php:1180 libraries/replication_gui.lib.php:33
 #: server_databases.php:350 server_privileges.php:533
 #: server_privileges.php:1564 tbl_structure.php:463
 msgid "Uncheck All"
-msgstr ""
+msgstr "ان چیک آل"
 
 #: db_structure.php:536 libraries/messages.inc.php:146
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "اوورہیڈ ٹیبلز چیک کریں"
 
 #: db_structure.php:547 db_structure.php:548 db_structure.php:599
 #: libraries/display_tbl.lib.php:2180 libraries/messages.inc.php:668
 #: libraries/mult_submits.inc.php:28 tbl_structure.php:493
 #: tbl_structure.php:495
 msgid "Print view"
-msgstr ""
+msgstr "پرنٹ ویو"
 
 #: db_structure.php:549 db_structure.php:550 libraries/messages.inc.php:149
 #: libraries/mult_submits.inc.php:42 tbl_operations.php:579
 msgid "Check table"
-msgstr ""
+msgstr "ٹیبل چیک کریں"
 
 #: db_structure.php:551 db_structure.php:552 libraries/messages.inc.php:586
 #: libraries/mult_submits.inc.php:47 tbl_operations.php:619
 #: tbl_structure.php:710 tbl_structure.php:712
 msgid "Optimize table"
-msgstr ""
+msgstr "ٹیبلز آپٹی مائز "
 
 #: db_structure.php:553 db_structure.php:554 libraries/messages.inc.php:754
 #: libraries/mult_submits.inc.php:52 tbl_operations.php:609
 msgid "Repair table"
-msgstr ""
+msgstr "ٹیبلز مرمت کریں"
 
 #: db_structure.php:555 db_structure.php:556 libraries/messages.inc.php:51
 #: libraries/mult_submits.inc.php:57 tbl_operations.php:599
 msgid "Analyze table"
-msgstr ""
+msgstr "ٹیبلز کا تجزیہ"
 
 #: db_structure.php:557 db_structure.php:558 libraries/db_links.inc.php:71
 #: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2094
@@ -765,11 +781,11 @@ msgstr ""
 #: server_privileges.php:1341 setup/frames/menu.inc.php:22
 #: tbl_row_action.php:59
 msgid "Export"
-msgstr ""
+msgstr "برآمد"
 
 #: db_tracking.php:66 libraries/messages.inc.php:1147
 msgid "Tracked tables"
-msgstr ""
+msgstr "ٹریکڈ ٹیبلز"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
@@ -780,93 +796,95 @@ msgstr ""
 #: server_privileges.php:1682 server_privileges.php:1940
 #: server_processlist.php:56 server_synchronize.php:1179
 #: server_synchronize.php:1183 tbl_tracking.php:591 test/theme.php:65
+#: libraries/export/sql.php:342
 msgid "Database"
-msgstr ""
+msgstr "ڈیٹا بیس"
 
 #: db_tracking.php:73 libraries/messages.inc.php:1142
 msgid "Last version"
-msgstr ""
+msgstr "آخری ورژن"
 
 #: db_tracking.php:74 libraries/messages.inc.php:1141 tbl_tracking.php:594
 msgid "Created"
-msgstr ""
+msgstr "تخلیق کیا گیا"
 
 #: db_tracking.php:75 libraries/messages.inc.php:1143 tbl_tracking.php:595
 msgid "Updated"
-msgstr ""
+msgstr "اپ ڈیٹ کیا گیا"
 
 #: db_tracking.php:77 libraries/Index.class.php:440
 #: libraries/db_structure.lib.php:53 libraries/messages.inc.php:23
 #: server_databases.php:203 server_privileges.php:1503
 #: server_privileges.php:1686 server_privileges.php:2034 tbl_structure.php:187
 msgid "Action"
-msgstr ""
+msgstr "عمل"
 
 #: db_tracking.php:88 db_tracking.php:120 libraries/messages.inc.php:243
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "اس ٹیبل کیلئے ٹریکنگ ڈیٹا حذف کریں "
 
 #: db_tracking.php:106 libraries/messages.inc.php:1138 tbl_tracking.php:548
 #: tbl_tracking.php:606 tbl_tracking.php:613
 msgid "active"
-msgstr ""
+msgstr "ایکٹو"
 
 #: db_tracking.php:108 libraries/messages.inc.php:1139 tbl_tracking.php:550
 #: tbl_tracking.php:608 tbl_tracking.php:610
 msgid "not active"
-msgstr ""
+msgstr "ایکٹو نہیں"
 
 #: db_tracking.php:121 libraries/messages.inc.php:1156
 msgid "Versions"
-msgstr ""
+msgstr "ورژن"
 
 #: db_tracking.php:122 libraries/messages.inc.php:1128 tbl_tracking.php:379
 #: tbl_tracking.php:624
 msgid "Tracking report"
-msgstr ""
+msgstr "ٹریکنگ ریپورٹ"
 
 #: db_tracking.php:123 libraries/messages.inc.php:1140 tbl_tracking.php:251
 #: tbl_tracking.php:624
 msgid "Structure snapshot"
-msgstr ""
+msgstr "سٹرکچر کی تصویر"
 
 #: db_tracking.php:152 libraries/messages.inc.php:1150
 msgid "Untracked tables"
-msgstr ""
+msgstr "ان ٹریکڈ ٹیبلز"
 
 #: db_tracking.php:172 db_tracking.php:174 libraries/messages.inc.php:1149
 #: tbl_structure.php:529 tbl_structure.php:531
 msgid "Track table"
-msgstr ""
+msgstr "ٹریک ٹیبل"
 
 #: db_tracking.php:200 libraries/messages.inc.php:1117
 msgid "Database Log"
-msgstr ""
+msgstr "ڈیٹا بیس لوگ"
 
 #: export.php:62 libraries/messages.inc.php:308
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Selected export type has to be saved in file!"
 
 #: export.php:154 export.php:179 export.php:627 libraries/messages.inc.php:563
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "Insufficient space to save the file %s."
 
 #: export.php:294 libraries/messages.inc.php:320
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"File %s already exists on server, change filename or check overwrite option."
 
 #: export.php:298 export.php:302 libraries/messages.inc.php:558
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "The web server does not have permission to save the file %s."
 
 #: export.php:629 libraries/messages.inc.php:272
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "Dump has been saved to file %s."
 
 #: import.php:60 libraries/messages.inc.php:1198
 #, php-format
@@ -874,11 +892,13 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
 msgstr ""
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
 #: libraries/File.class.php:961 libraries/messages.inc.php:321
 msgid "File could not be read"
-msgstr ""
+msgstr "فائل پڑھی نہیں جا سکتی"
 
 #: import.php:287 import.php:296 import.php:315 import.php:324
 #: libraries/File.class.php:1031 libraries/File.class.php:1039
@@ -889,6 +909,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
 
 #: import.php:337 libraries/messages.inc.php:543
 msgid ""
@@ -896,35 +918,40 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"No data was received to import. Either no file name was submitted, or the "
+"file size exceeded the maximum size permitted by your PHP configuration. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:372 libraries/display_import.lib.php:24
 #: libraries/messages.inc.php:121
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "Could not load import plugins, please check your installation!"
 
 #: import.php:397 libraries/messages.inc.php:98
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "The bookmark has been deleted."
 
 #: import.php:401 libraries/messages.inc.php:875
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Showing bookmark"
 
 #: import.php:403 libraries/messages.inc.php:97 sql.php:626
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "Bookmark %s created"
 
 #: import.php:409 import.php:415 libraries/messages.inc.php:403
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "Import has been successfully finished, %d queries executed."
 
 #: import.php:424 libraries/messages.inc.php:1103
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"Script timeout passed, if you want to finish import, please resubmit same "
+"file and import will resume."
 
 #: import.php:426 libraries/messages.inc.php:1102
 msgid ""
@@ -934,7 +961,7 @@ msgstr ""
 
 #: index.php:190 libraries/messages.inc.php:549
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr ""
+msgstr "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 
 #: js/messages.php:25 libraries/messages.inc.php:151
 #: server_synchronize.php:345 server_synchronize.php:357
@@ -942,105 +969,105 @@ msgstr ""
 #: server_synchronize.php:739 server_synchronize.php:767
 #: server_synchronize.php:795 server_synchronize.php:807
 msgid "Click to select"
-msgstr ""
+msgstr "منتخب کرنے کیلئے کلک کریں"
 
 #: js/messages.php:26 libraries/messages.inc.php:152
 msgid "Click to unselect"
-msgstr ""
+msgstr "غیر منتخب کیلئے کلک کریں"
 
 #: js/messages.php:27 libraries/import.lib.php:103
 #: libraries/messages.inc.php:546 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "\"DROP DATABASE\" statements are disabled."
 
 #: js/messages.php:30 libraries/messages.inc.php:266
 #: libraries/mult_submits.inc.php:258 sql.php:188
 msgid "Do you really want to "
-msgstr ""
+msgstr "کیا آپ یقیناً کرنا چاہتے ہیں"
 
 #: js/messages.php:31 libraries/messages.inc.php:267
 #: libraries/mult_submits.inc.php:258 sql.php:172
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "You are about to DESTROY a complete database!"
 
 #: js/messages.php:34 libraries/messages.inc.php:90
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "You are about to DISABLE a BLOB Repository!"
 
 #: js/messages.php:35 libraries/messages.inc.php:87
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
+msgstr "Are you sure you want to disable all BLOB references for database %s?"
 
 #: js/messages.php:38 libraries/messages.inc.php:338
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "Missing value in the form!"
 
 #: js/messages.php:39 libraries/messages.inc.php:566
 msgid "This is not a number!"
-msgstr ""
+msgstr "یہ ایک نمبر نہیں ہے"
 
 #: js/messages.php:42 libraries/messages.inc.php:376
 msgid "The host name is empty!"
-msgstr ""
+msgstr "ہوسٹ نام خالی ہے!"
 
 #: js/messages.php:43 libraries/messages.inc.php:1204
 msgid "The user name is empty!"
-msgstr ""
+msgstr "صارف کا نام خالی ہے"
 
 #: js/messages.php:44 libraries/messages.inc.php:603
 #: server_privileges.php:1197 user_password.php:70
 msgid "The password is empty!"
-msgstr ""
+msgstr "پاس ورڈ خالی ہے"
 
 #: js/messages.php:45 libraries/messages.inc.php:605
 #: server_privileges.php:1195 user_password.php:73
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "پاس ورڈ ایک جیسے نہیں ہیں"
 
 #: js/messages.php:49 libraries/messages.inc.php:119 pmd_general.php:342
 #: pmd_general.php:379
 msgid "Cancel"
-msgstr ""
+msgstr "منسوخ"
 
 #: js/messages.php:52 libraries/messages.inc.php:510 pmd_save_pos.php:54
 msgid "Modifications have been saved"
-msgstr ""
+msgstr "تبدیلیاں محفوظ ہو چکی ہیں"
 
 #: js/messages.php:53 libraries/messages.inc.php:737 pmd_relation_upd.php:49
 msgid "Relation deleted"
-msgstr ""
+msgstr "ریلیشن حذف ہو گیا"
 
 #: js/messages.php:54 libraries/messages.inc.php:336 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "FOREIGN KEY relation added"
 
 #: js/messages.php:55 libraries/messages.inc.php:430 pmd_relation_new.php:86
 msgid "Internal relation added"
-msgstr ""
+msgstr "اندرونی ریلیشن شامل ہو گیا"
 
 #: js/messages.php:56 libraries/messages.inc.php:295 pmd_relation_new.php:63
 #: pmd_relation_new.php:88
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "غلطی:ریلیشن شامل نہیں ہوا"
 
 #: js/messages.php:57 libraries/messages.inc.php:296 pmd_relation_new.php:31
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "غلطی : ریلیشن پہلے سے موجود ہے"
 
 #: js/messages.php:58 libraries/messages.inc.php:298
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "Error saving coordinates for Designer."
 
 #: js/messages.php:59 libraries/messages.inc.php:347
 #: libraries/relation.lib.php:107 libraries/relation.lib.php:119
 msgid "General relation features"
-msgstr ""
+msgstr "جنرل ریلیشن فیچرز"
 
 #: js/messages.php:59 libraries/messages.inc.php:256
 #: libraries/relation.lib.php:101 libraries/relation.lib.php:108
 msgid "Disabled"
-msgstr ""
+msgstr "غیر فعال"
 
 #: js/messages.php:60 libraries/messages.inc.php:846
 msgid "Select referenced key"
