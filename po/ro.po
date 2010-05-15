@@ -873,8 +873,8 @@ msgstr "Spaţiu insuficient pentru salvarea fişierului %s."
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"Fișierul %s există deja pe server. Schimbați denumirea fișierului sau bifați "
-"opțiunea de suprascriere."
+"Fişierul %s există deja pe server. Schimbaţi denumirea fişierului sau bifaţi "
+"opţiunea de suprascriere."
 
 #: export.php:298 export.php:302 libraries/messages.inc.php:558
 #, php-format
