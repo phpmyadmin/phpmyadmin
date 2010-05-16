@@ -8287,7 +8287,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:289
 msgid "Password for config auth"
-msgstr "Mot de passe pour méthode \"config\""
+msgstr "Mot de passe pour méthode config"
 
 #: setup/lib/messages.inc.php:290
 msgid ""
