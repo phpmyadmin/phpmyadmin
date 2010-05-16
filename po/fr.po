@@ -8625,8 +8625,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:361
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
-"Liste des serveurs mandataires de confiance en vue de \"IP allow/deny\""
+msgstr "Liste des serveurs mandataires de confiance en vue de IP allow/deny"
 
 #: setup/lib/messages.inc.php:362
 msgid "Directory on server where you can upload files for import"
