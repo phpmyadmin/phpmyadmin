@@ -7549,7 +7549,7 @@ msgstr "Entrez les paramètres de connexion au serveur"
 
 #: setup/lib/messages.inc.php:129
 msgid "Enter login options for signon authentication"
-msgstr "Entrez les options pour l'authentification «signon»"
+msgstr "Entrez les options pour l'authentification signon"
 
 #: setup/lib/messages.inc.php:130
 msgid "Signon login options"
