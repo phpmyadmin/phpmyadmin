@@ -8703,7 +8703,7 @@ msgstr "Vérification de version"
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
-"Ni CURL ni \"URL wrapper\" ne sont disponibles; impossible de chercher une "
+"Ni CURL ni URL wrapper ne sont disponibles; impossible de chercher une "
 "nouvelle version."
 
 #: setup/lib/messages.inc.php:378
