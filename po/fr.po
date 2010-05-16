@@ -7330,7 +7330,7 @@ msgstr "Le nom de session signon est vide."
 
 #: setup/lib/messages.inc.php:71
 msgid "Empty signon URL while using signon authentication method"
-msgstr "L'URL de «signon» est vide."
+msgstr "L'URL de signon est vide."
 
 #: setup/lib/messages.inc.php:72
 msgid "Empty username while using config authentication method"
