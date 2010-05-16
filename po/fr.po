@@ -8348,7 +8348,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:301
 msgid "Signon session name"
-msgstr "Nom de session pour méthode \"signon\""
+msgstr "Nom de session pour méthode signon"
 
 #: setup/lib/messages.inc.php:302
 msgid "Signon URL"
