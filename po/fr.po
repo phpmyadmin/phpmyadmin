@@ -7553,7 +7553,7 @@ msgstr "Entrez les options pour l'authentification signon"
 
 #: setup/lib/messages.inc.php:130
 msgid "Signon login options"
-msgstr "Option de connexion «signon»"
+msgstr "Option de connexion signon"
 
 #: setup/lib/messages.inc.php:131
 msgid ""
