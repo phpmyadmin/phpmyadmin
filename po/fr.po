@@ -7828,7 +7828,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:192
 msgid "Delete all cookies on logout"
-msgstr "Détruire tous les «cookies» à la déconnexion"
+msgstr "Détruire tous les cookies à la déconnexion"
 
 #: setup/lib/messages.inc.php:193
 msgid ""
