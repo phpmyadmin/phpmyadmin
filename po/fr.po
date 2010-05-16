@@ -7124,7 +7124,7 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Mot de passe utilisé pour encrypter les «cookies» quand on utilise "
+"Mot de passe utilisé pour encrypter les cookies quand on utilise "
 "l'authentification [kbd]cookie[/kbd]"
 
 #: setup/lib/messages.inc.php:23
