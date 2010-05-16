@@ -7335,7 +7335,7 @@ msgstr "L'URL de signon est vide."
 #: setup/lib/messages.inc.php:72
 msgid "Empty username while using config authentication method"
 msgstr ""
-"Le code d'utilisateur est vide alors que vous utilisez la méthode «config»."
+"Le code d'utilisateur est vide alors que vous utilisez la méthode config."
 
 #: setup/lib/messages.inc.php:73
 msgid "Submitted form contains errors"
