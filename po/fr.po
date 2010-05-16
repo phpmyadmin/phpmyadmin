@@ -8457,7 +8457,7 @@ msgstr "Table pour champs descriptifs"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
-msgstr "Utilisateur pour méthode \"config\""
+msgstr "Utilisateur pour méthode config"
 
 #: setup/lib/messages.inc.php:324
 msgid ""
