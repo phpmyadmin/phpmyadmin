@@ -7856,7 +7856,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:196
 msgid "Login cookie store"
-msgstr "Stockage du «cookie»"
+msgstr "Stockage du cookie"
 
 #: setup/lib/messages.inc.php:197
 msgid "Define how long (in seconds) a login cookie is valid"
