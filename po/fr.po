@@ -8424,7 +8424,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:315
 msgid "Server socket"
-msgstr "Interface de connexion \"socket\""
+msgstr "Interface de connexion socket"
 
 #: setup/lib/messages.inc.php:316
 msgid "Enable SSL for connection to MySQL server"
