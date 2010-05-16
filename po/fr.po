@@ -5413,9 +5413,9 @@ msgid ""
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Les différentes valeurs des champs de type enum/set sont à spécifier sous la "
-"forme 'a','b','c'...<br />Pour utiliser un antislash(\"\\\") ou une "
-"apostrophe (\"'\") dans l'une de ces valeurs, faites-le précéder d'un "
-"antislash (par exemple '\\\\xyz' ou 'a\\'b')."
+"forme 'a','b','c'...<br />Pour utiliser un antislash(\"\\\") ou une apostrophe "
+"(\"'\") dans l'une de ces valeurs, faites-le précéder d'un antislash (par "
+"exemple '\\\\xyz' ou 'a\\'b')."
 
 #: libraries/messages.inc.php:872 server_binlog.php:192 server_binlog.php:195
 #: server_processlist.php:49 server_processlist.php:51
