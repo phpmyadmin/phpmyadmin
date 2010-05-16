@@ -1299,7 +1299,6 @@ $strStorageEngine = 'Storage Engine';
 $strStrucCSV = 'CSV';
 $strStrucData = 'სტრუქტურა და მონაცემები';
 $strStrucExcelCSV = 'CSV MS Excel-თვის';
-$strStrucNativeExcel = 'Native MS Excel format';
 $strStrucOnly = 'მხოლოდ სტრუქტურა';
 $strStructPropose = 'ცხრილის სტრუქტურის შეთავაზება';
 $strStructureForView = 'სტრუქტურა ხედისათვის';

@@ -927,7 +927,6 @@ $strStorageEngines = 'Pogoni pohrane';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Strukturu i podatke';
 $strStrucExcelCSV = 'CSV za MS Excel';
-$strStrucNativeExcel = 'Izvorno MS Excel oblikovanje';
 $strStrucOnly = 'Samo strukturu';
 $strStructPropose = 'Predloži strukturu tablice';
 $strStructureForView = 'Struktura za pregledavanje';

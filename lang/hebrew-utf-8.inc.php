@@ -528,7 +528,6 @@ $strStorageEngine = 'מנוע אחסון';
 $strStrucCSV = 'CSV';
 $strStrucData = 'מבנה ומידע';
 $strStrucExcelCSV = 'CSV עבור MS Excel';
-$strStrucNativeExcel = 'תבנית MS Excel טבעית';
 $strStrucOnly = 'מבנה בלבד';
 $strStructPropose = 'הצעת מבנה טבלה';
 $strStructure = 'מבנה';

@@ -1395,7 +1395,6 @@ $strStorageEngine = 'Тип таблиц';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Структура и данные';
 $strStrucExcelCSV = 'CSV для MS Excel';
-$strStrucNativeExcel = 'Формат MS Excel';
 $strStrucOnly = 'Только структура';
 $strStructPropose = 'Анализ структуры таблицы';
 $strStructureDiff = 'Различие структуры';

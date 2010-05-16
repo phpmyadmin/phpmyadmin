@@ -626,7 +626,6 @@ $strStorageEngine = 'Вид на складиште';
 $strStrucCSV = 'CSV формат';
 $strStrucData = 'Структура и податоци';
 $strStrucExcelCSV = 'CSV за MS Excel';
-$strStrucNativeExcel = 'Изворни MS Excel податоци';
 $strStrucOnly = 'Само структура';
 $strStructPropose = 'Предложи структура на табелата';
 $strStructure = 'Структура';

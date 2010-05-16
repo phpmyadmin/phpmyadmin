@@ -822,7 +822,6 @@ $strStorageEngines = 'ගබඩා යන්ත්‍ර';
 $strStrucCSV = 'CSV';
 $strStrucData = 'සැකිල්ල සහ දත්ත';
 $strStrucExcelCSV = 'MS එක්සෙල් සඳහා CSV ';
-$strStrucNativeExcel = 'Native MS Excel format';
 $strStrucOnly = 'Structure only';
 $strStructPropose = 'Propose table structure';
 $strStructure = 'සැකිල්ල';

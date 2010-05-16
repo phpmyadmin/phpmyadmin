@@ -1315,7 +1315,6 @@ $strStorageEngine = 'Жадвал тури';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Тузилиши ва маълумотлари';
 $strStrucExcelCSV = 'MS Excel учун CSV';
-$strStrucNativeExcel = 'MS Excel формати';
 $strStrucOnly = 'Фақат тузилиши';
 $strStructPropose = 'Жадвал тузилиши таҳлили';
 $strStructureForView = 'Намойиш этиш учун тузилма';

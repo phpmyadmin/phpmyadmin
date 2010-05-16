@@ -896,7 +896,6 @@ $strStorageEngine = 'Storage Engine'; // sem traducao
 $strStrucCSV = 'Dados CSV';
 $strStrucData = 'Estrutura e dados';
 $strStrucExcelCSV = 'CSV para dados MS Excel';
-$strStrucNativeExcel = 'Dados nativos do MS Excel';
 $strStrucOnly = 'Somente estrutura';
 $strStructPropose = 'Propor estrutura da tabela';
 $strStructure = 'Estrutura';

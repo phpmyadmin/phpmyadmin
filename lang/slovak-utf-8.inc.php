@@ -910,7 +910,6 @@ $strStorageEngine = 'Úložný Systém';
 $strStrucCSV = 'CSV dáta';
 $strStrucData = 'Štruktúru a dáta';
 $strStrucExcelCSV = 'CSV pre MS Excel dáta';
-$strStrucNativeExcel = 'Natívne dáta MS Excel';
 $strStrucOnly = 'Iba štruktúru';
 $strStructPropose = 'Navrhnúť štruktúru tabuľky';
 $strStructure = 'Štruktúra';

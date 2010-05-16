@@ -1393,7 +1393,6 @@ $strStorageEngine = "Tallennusmoottori";
 $strStrucCSV = 'CSV-muotoista tietoa';
 $strStrucData = 'Rakenne ja tiedot';
 $strStrucExcelCSV = 'MS Excelin CSV-muoto';
-$strStrucNativeExcel = 'Natiivi MS Excel -muoto';
 $strStrucOnly = 'Vain rakenne';
 $strStructPropose = 'Esitä taulun rakenne';
 $strStructureDiff = 'Rakenne-erot';

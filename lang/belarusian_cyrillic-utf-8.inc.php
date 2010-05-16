@@ -927,7 +927,6 @@ $strStorageEngine = 'Машына захаваньня дадзеных';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Структуру і дадзеныя';
 $strStrucExcelCSV = 'CSV для дадзеных MS Excel';
-$strStrucNativeExcel = 'Родны фармат MS Excel';
 $strStrucOnly = 'Толькі структуру';
 $strStructPropose = 'Прапанаваная структура табліцы';
 $strStructureForView = 'Структура для прагляду';

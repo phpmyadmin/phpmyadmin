@@ -776,7 +776,6 @@ $strStorageEngines = 'Saugojimo varikliai';
 $strStrucCSV = 'Duomenys CSV formatu';
 $strStrucData = 'Struktūra ir duomenys';
 $strStrucExcelCSV = 'Duomenys ekselio CSV formatu';
-$strStrucNativeExcel = 'MS Excel duomenys';
 $strStrucOnly = 'Tik struktūra';
 $strStructPropose = 'Analizuoti lentelės struktūrą';
 $strStructure = 'Struktūra';

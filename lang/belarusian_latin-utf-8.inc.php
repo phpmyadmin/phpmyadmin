@@ -927,7 +927,6 @@ $strStorageEngines = 'Mašyny zachavańnia dadzienych';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Strukturu i dadzienyja';
 $strStrucExcelCSV = 'CSV dla dadzienych MS Excel';
-$strStrucNativeExcel = 'Rodny farmat MS Excel';
 $strStrucOnly = 'Tolki strukturu';
 $strStructPropose = 'Prapanavanaja struktura tablicy';
 $strStructureForView = 'Struktura dla prahladu';

@@ -1317,7 +1317,6 @@ $strStorageEngine = '存储引擎';
 $strStrucCSV = 'CSV 数据';
 $strStrucData = '结构和数据';
 $strStrucExcelCSV = 'MS Excel 的 CSV 格式';
-$strStrucNativeExcel = '原生 MS Excel 格式';
 $strStrucOnly = '仅结构';
 $strStructPropose = '规划表结构';
 $strStructureForView = '视图结构';

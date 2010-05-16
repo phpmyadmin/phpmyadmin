@@ -1196,7 +1196,6 @@ $strStorageEngine = 'Tabellenformat';
 $strStrucCSV = 'CSV-Daten';
 $strStrucData = 'Struktur und Daten';
 $strStrucExcelCSV = 'CSV-Daten für MS Excel';
-$strStrucNativeExcel = 'Excel-Datei';
 $strStrucOnly = 'Nur Struktur';
 $strStructPropose = 'Tabellenstruktur analysieren';
 $strStructureForView = 'Struktur des Views';

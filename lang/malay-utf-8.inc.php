@@ -1478,7 +1478,6 @@ $strStatUpdateTime = 'Last update';//to translate
 $strStop = 'Stop';  //to translate
 $strStorageEngines = 'Storage Engines';  //to translate
 $strStorageEngine = 'Storage Engine';  //to translate
-$strStrucNativeExcel = 'Native MS Excel data';  //to translate
 $strStructureDiff = 'Structure Difference' ;  //to translate
 $strStructureForView = 'Structure for view';  //to translate
 $strStructureLC = 'structure';  //to translate

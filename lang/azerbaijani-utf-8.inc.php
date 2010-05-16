@@ -1491,7 +1491,6 @@ $strStart = 'Start';  //to translate
 $strStatic = 'static';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strStop = 'Stop';  //to translate
-$strStrucNativeExcel = 'Native MS Excel data';  //to translate
 $strStructureDiff = 'Structure Difference' ;  //to translate
 $strStructureForView = 'Structure for view';  //to translate
 $strStructureLC = 'structure';  //to translate

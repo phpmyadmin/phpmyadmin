@@ -1315,7 +1315,6 @@ $strStorageEngines = 'Jadval turlari';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Tuzilishi va ma`lumotlari';
 $strStrucExcelCSV = 'MS Excel uchun CSV';
-$strStrucNativeExcel = 'MS Excel formati';
 $strStrucOnly = 'Faqat tuzilishi';
 $strStructPropose = 'Jadval tuzilishi tahlili';
 $strStructureForView = 'Namoyish etish uchun tuzilma';

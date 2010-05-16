@@ -1240,7 +1240,6 @@ $strStorageEngines = 'Motores de almacenamiento';
 $strStrucCSV = 'Datos CSV ';
 $strStrucData = 'Estructura y datos';
 $strStrucExcelCSV = 'CSV para datos de MS Excel';
-$strStrucNativeExcel = 'Datos de MS Excel en formato nativo';
 $strStrucOnly = 'Únicamente la estructura ';
 $strStructPropose = 'Planteamiento de la estructura de tabla';
 $strStructure = 'Estructura';

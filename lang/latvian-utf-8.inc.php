@@ -566,7 +566,6 @@ $strStatus = 'Statuss';
 $strStrucCSV = 'CSV dati';
 $strStrucData = 'Struktūra un dati';
 $strStrucExcelCSV = 'CSV dati MS Excel formātā';
-$strStrucNativeExcel = 'Dati MS Excel formatā';
 $strStrucOnly = 'Tikai struktūra';
 $strStructPropose = 'Ieteikt tabulas sruktūru';
 $strStructure = 'Struktūra';

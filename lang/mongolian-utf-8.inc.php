@@ -781,7 +781,6 @@ $strStorageEngine = 'Агуулах хөдөлгүүр';
 $strStrucCSV = 'CSV өгөгдөл';
 $strStrucData = 'Бүтэц ба өгөгдөл';
 $strStrucExcelCSV = 'CSV өгөгдлийг MS Excel-ээр';
-$strStrucNativeExcel = 'Өгөгдөл MS Excel-ээс';
 $strStrucOnly = 'Зөвхөн бүтэц';
 $strStructPropose = 'Хүснэгтийн бүтцийг таниулах';
 $strStructureForView = 'Харах бүтэц';

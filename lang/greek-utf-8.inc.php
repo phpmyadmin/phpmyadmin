@@ -1503,7 +1503,6 @@ $strStatisticsOverrun = 'Σε έναν απασχολημένο διακομισ
 $strStop = 'Σταμάτημα';
 $strStorageEngines = 'Μηχανές αποθήκευσης';
 $strStorageEngine = 'Μηχανή αποθήκευσης';
-$strStrucNativeExcel = 'Αρχικά δεδομένα MS Excel';
 $strStructureDiff = 'Διαφορά δομής';
 $strStructureForView = 'Δομή για προβολή';
 $strStructureLC = 'δομή';

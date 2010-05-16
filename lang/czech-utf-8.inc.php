@@ -1338,7 +1338,6 @@ $strStorageEngine = 'Úložiště';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Strukturu a data';
 $strStrucExcelCSV = 'CSV pro MS Excel';
-$strStrucNativeExcel = 'Nativní formát MS Excelu';
 $strStrucOnly = 'Pouze strukturu';
 $strStructPropose = 'Navrhnout strukturu tabulky';
 $strStructureDiff = 'Rozdíly ve struktuře';

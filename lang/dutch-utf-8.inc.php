@@ -1398,7 +1398,6 @@ $strStorageEngines = 'Opslag Engines';
 $strStrucCSV = 'CSV gegevens';
 $strStrucData = 'Structuur en gegevens';
 $strStrucExcelCSV = 'CSV voor MS Excel data';
-$strStrucNativeExcel = 'Native MS Excel data';
 $strStrucOnly = 'Alleen structuur';
 $strStructPropose = 'Tabelstructuur voorstellen';
 $strStructure = 'Structuur';

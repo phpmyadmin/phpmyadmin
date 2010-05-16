@@ -931,7 +931,6 @@ $strStorageEngines = 'ストレージエンジン';
 $strStrucCSV = 'CSV データ';
 $strStrucData = '構造とデータ';
 $strStrucExcelCSV = 'MS Excel 用の CSV';
-$strStrucNativeExcel = 'MS Excel のネイティブ形式';
 $strStrucOnly = '構造のみ';
 $strStructPropose = 'テーブル構造を確認する';
 $strStructureForView = 'ビュー用の構造';

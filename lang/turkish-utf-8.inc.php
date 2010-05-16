@@ -1387,7 +1387,6 @@ $strStorageEngines = 'Depolama Motorları';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Yapı ve Veri';
 $strStrucExcelCSV = 'MS Excel için CSV';
-$strStrucNativeExcel = 'Bağımsız MS Excel biçimi';
 $strStrucOnly = 'Sadece yapı';
 $strStructPropose = 'Tablo yapısı öner';
 $strStructureDiff = 'Yapı Farklılığı' ;

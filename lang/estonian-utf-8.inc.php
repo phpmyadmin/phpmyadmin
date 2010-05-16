@@ -852,7 +852,6 @@ $strStorageEngine = 'Varundusmootor';
 $strStrucCSV = 'CSV andmed';
 $strStrucData = 'Struktuur ja andmed';
 $strStrucExcelCSV = 'CSV MS Exceli jaoks';
-$strStrucNativeExcel = 'Loomulikud MS Exceli andmed';
 $strStrucOnly = 'Ainult struktuur';
 $strStructPropose = 'Soovita tabeli struktuuri';
 $strStructureForView = 'Vaate (view) struktuur';

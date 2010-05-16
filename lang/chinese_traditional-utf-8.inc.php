@@ -693,7 +693,6 @@ $strStorageEngine = '儲存引擎';
 $strStrucCSV = 'CSV 資料';
 $strStrucData = '結構與資料';
 $strStrucExcelCSV = 'MS Excel 的 CSV 格式';
-$strStrucNativeExcel = '原始 MS Excel 資料';
 $strStrucOnly = '只有結構';
 $strStructPropose = '分析資料表結構';
 $strStructure = '結構';

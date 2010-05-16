@@ -1311,7 +1311,6 @@ $strStorageEngines = 'Lagringsmotorer';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Struktur och data';
 $strStrucExcelCSV = 'CSV för MS Excel';
-$strStrucNativeExcel = 'Naturlig MS Excel-data';
 $strStrucOnly = 'Enbart struktur';
 $strStructPropose = 'Föreslå tabellstruktur';
 $strStructureForView = 'Struktur för visning';

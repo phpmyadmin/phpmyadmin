@@ -869,7 +869,6 @@ $strStorageEngine = 'Погон складиштења';
 $strStrucCSV = 'CSV формат';
 $strStrucData = 'Структура и подаци';
 $strStrucExcelCSV = 'CSV за MS Excel';
-$strStrucNativeExcel = 'Изворни MS Excel подаци';
 $strStrucOnly = 'Само структура';
 $strStructPropose = 'Предложи структуру табеле';
 $strStructureForView = 'Структура за поглед (view)';

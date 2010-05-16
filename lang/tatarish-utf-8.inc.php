@@ -687,7 +687,6 @@ $strStorageEngines = 'Saqlaw Isulı';
 $strStrucCSV = 'CSV bireme';
 $strStrucData = 'Tözeleşen dä, eçtälegen dä';
 $strStrucExcelCSV = 'CSV bireme, MS Excel öçen';
-$strStrucNativeExcel = 'MS Excel tözeleşendä';
 $strStrucOnly = 'Tözeleşen genä';
 $strStructPropose = 'Tüşämä tözeleşenä küzätü';
 $strStructure = 'Tözeleş';

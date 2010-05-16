@@ -1394,7 +1394,6 @@ $strStorageEngine = 'Storage Engine';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Structure and data';
 $strStrucExcelCSV = 'CSV for MS Excel';
-$strStrucNativeExcel = 'Native MS Excel format';
 $strStrucOnly = 'Structure only';
 $strStructPropose = 'Propose table structure';
 $strStructureDiff = 'Structure Difference' ;

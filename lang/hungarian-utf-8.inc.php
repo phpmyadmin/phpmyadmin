@@ -1311,7 +1311,6 @@ $strStorageEngine = 'Tárolómotor';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Szerkezet és adatok';
 $strStrucExcelCSV = 'MS Excel CSV adat';
-$strStrucNativeExcel = 'Natív MS Excel formátum';
 $strStrucOnly = 'Csak a szerkezet';
 $strStructPropose = 'Táblaszerkezet ajánlása';
 $strStructureForView = 'Nézet szerkezete';

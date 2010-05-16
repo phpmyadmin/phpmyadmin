@@ -1505,7 +1505,6 @@ $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so tho
 $strStop = 'قف';
 $strStorageEngines = 'Storage Engines';  //to translate
 $strStorageEngine = 'Storage Engine';  //to translate
-$strStrucNativeExcel = 'Native MS Excel data';  //to translate
 $strStructureDiff = 'Structure Difference' ;  //to translate
 $strStructureForView = 'Structure for view';  //to translate
 $strStructureLC = 'structure';  //to translate

@@ -998,7 +998,6 @@ $strStorageEngines = 'Motoare de stocare';
 $strStrucCSV = 'Date CSV';
 $strStrucData = 'Structura și date';
 $strStrucExcelCSV = 'Date CSV pentru MS Excel';
-$strStrucNativeExcel = 'Date native MS Excel';
 $strStrucOnly = 'Numai structura';
 $strStructPropose = 'Propune structura de tabele';
 $strStructureForView = 'Structură pentru vizualizare';

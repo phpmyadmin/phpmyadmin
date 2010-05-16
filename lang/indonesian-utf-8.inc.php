@@ -625,7 +625,6 @@ $strStorageEngines = 'Mesin Penyimpan';
 $strStrucCSV = 'Data CSV';
 $strStrucData = 'Struktur dan data';
 $strStrucExcelCSV = 'CSV untuk data MS Excel';
-$strStrucNativeExcel = 'Data asli MS Excel';
 $strStrucOnly = 'Struktur saja';
 $strStructPropose = 'Menganalisa struktur tabel';
 $strStructure = 'Struktur';

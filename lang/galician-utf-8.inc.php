@@ -1387,7 +1387,6 @@ $strStorageEngines = 'Motores de almacenamento';
 $strStrucCSV = 'Datos CSV';
 $strStrucData = 'Estrutura e datos';
 $strStrucExcelCSV = 'CSV (para datos de MS Excel)';
-$strStrucNativeExcel = 'Datos nativos de MS Excel';
 $strStrucOnly = 'Só a estrutura';
 $strStructPropose = 'Propor unha estrutura para a táboa';
 $strStructureDiff = 'Diferenza da estrutura' ;

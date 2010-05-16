@@ -1117,7 +1117,6 @@ $strStorageEngines = 'Mechanizmy składowania';
 $strStrucCSV = 'Dane CSV';
 $strStrucData = 'Struktura i dane';
 $strStrucExcelCSV = 'CSV dla MS Excel';
-$strStrucNativeExcel = 'Dane w formacie macierzystym MS Excela';
 $strStrucOnly = 'Tylko struktura';
 $strStructPropose = 'Analiza zawartości';
 $strStructure = 'Struktura';

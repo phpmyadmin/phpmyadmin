@@ -1451,7 +1451,6 @@ $strStorageEngines = 'Storage Engines';  //to translate
 $strStorageEngine = 'Storage Engine';  //to translate
 $strStrucCSV = 'CSV data'; //to translate
 $strStrucExcelCSV = 'CSV for MS Excel data'; //to translate
-$strStrucNativeExcel = 'Native MS Excel data';  //to translate
 $strStructPropose = 'Propose table structure'; //to translate
 $strStructureDiff = 'Structure Difference' ;  //to translate
 $strStructureForView = 'Structure for view';  //to translate

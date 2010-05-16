@@ -1389,7 +1389,6 @@ $strStorageEngines = 'Motors d\'emmagatzematge';
 $strStrucCSV = 'dades CSV ';
 $strStrucData = 'Estructura i dades';
 $strStrucExcelCSV = 'CSV per dades de MS Excel';
-$strStrucNativeExcel = 'Dades Natives MS Excel';
 $strStrucOnly = 'Només l\'estructura';
 $strStructPropose = 'Proposa una estructura de taula';
 $strStructureDiff = 'Diferència d\'estructura';

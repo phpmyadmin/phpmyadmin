@@ -866,7 +866,6 @@ $strStorageEngines = 'Datalagre';
 $strStrucCSV = 'CSV-data';
 $strStrucData = 'Struktur og data';
 $strStrucExcelCSV = 'CSV til MS Excel-data';
-$strStrucNativeExcel = 'Fødte MS Excel-data';
 $strStrucOnly = 'Kun strukturen';
 $strStructPropose = 'Foreslå tabelstruktur';
 $strStructureForView = 'Struktur for visning';

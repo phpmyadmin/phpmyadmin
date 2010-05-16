@@ -546,7 +546,6 @@ $strStatus = 'Gjendja';
 $strStrucCSV = 'të dhëna CSV';
 $strStrucData = 'Struktura dhe të dhëna';
 $strStrucExcelCSV = 'CSV për të dhëna MS Excel';
-$strStrucNativeExcel = 'Të dhëna orgjinale MS Excel';
 $strStrucOnly = 'Vetëm struktura';
 $strStructPropose = 'Propozo strukturën e tabelës';
 $strStructure = 'Struktura';
