@@ -8283,7 +8283,7 @@ msgstr "Restreindre la liste des bases de données"
 #: setup/lib/messages.inc.php:288 setup/lib/messages.inc.php:322
 msgid "Leave empty if not using config auth"
 msgstr ""
-"Laisser vide si vous n'utilisez pas la méthode d'authentification \"config\""
+"Laisser vide si vous n'utilisez pas la méthode d'authentification config"
 
 #: setup/lib/messages.inc.php:289
 msgid "Password for config auth"
