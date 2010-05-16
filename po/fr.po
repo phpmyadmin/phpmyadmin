@@ -7218,7 +7218,7 @@ msgstr "(colonnes CHAR/VARCHAR)"
 
 #: setup/lib/messages.inc.php:38
 msgid "CHAR textarea columns"
-msgstr "Taille horizontale pour un «textarea»"
+msgstr "Taille horizontale pour un textarea"
 
 #: setup/lib/messages.inc.php:39
 msgid "Number of rows for CHAR/VARCHAR textareas"
