@@ -81,7 +81,11 @@ if (! isset($_COOKIE[$session_name])) {
     $r = session_start();
     if ($r !== true || $orig_error_count != $GLOBALS['error_handler']->countErrors()) {
         setcookie($session_name, '', 1);
-        PMA_fatalError(__('Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.'));
+        /*
+         * Session initialization is done before selecting language, so we
+         * can not use translations here.
+         */
+        PMA_fatalError('Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.');
     }
     unset($orig_error_count);
 } else {
