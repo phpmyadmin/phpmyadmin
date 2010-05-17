@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-14 13:39-0400\n"
-"PO-Revision-Date: 2010-05-17 05:35+0200\n"
+"PO-Revision-Date: 2010-05-17 05:38+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -659,7 +659,7 @@ msgstr " टेबल %s को खाली किया गया है."
 #: libraries/tbl_links.inc.php:133
 #, php-format
 msgid "View %s has been dropped"
-msgstr "वीयू %s छोड़ दिया गया है."
+msgstr "द्रश्य %s छोड़ दिया गया है."
 
 #: db_structure.php:326 libraries/messages.inc.php:1070
 #: libraries/tbl_links.inc.php:133
