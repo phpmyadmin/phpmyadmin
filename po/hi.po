@@ -659,7 +659,7 @@ msgstr " टेबल %s को खाली किया गया है."
 #: libraries/tbl_links.inc.php:133
 #, php-format
 msgid "View %s has been dropped"
-msgstr "द्रश्य %s छोड़ दिया गया है."
+msgstr "द्रश्य %s रद्द दिया गया है."
 
 #: db_structure.php:326 libraries/messages.inc.php:1070
 #: libraries/tbl_links.inc.php:133
