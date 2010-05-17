@@ -248,8 +248,6 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
         // over 600 chars
         $testUri = 'http://testurl.com/test.php?testlonguri=over600chars&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test';
 
-        $GLOBALS['strGo'] = 'test link';
-
         $header =    "<html><head><title>- - -</title>\n" .
                     "<meta http-equiv=\"expires\" content=\"0\">\n" .
                     "<meta http-equiv=\"Pragma\" content=\"no-cache\">\n" .
@@ -264,7 +262,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
                     "<body>\n" .
                     "<script type=\"text/javascript\">\n" .
                     "//<![CDATA[\n" .
-                    "document.write('<p><a href=\"" . $testUri . "\">" . $GLOBALS['strGo'] . "</a></p>');\n" .
+                    "document.write('<p><a href=\"" . $testUri . "\">" . 'test link' . "</a></p>');\n" .
                     "//]]>\n" .
                     "</script></body></html>\n";
 
