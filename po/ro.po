@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 13:39-0400\n"
+"POT-Creation-Date: 2010-05-17 11:36+0200\n"
 "PO-Revision-Date: 2010-05-16 01:40+0200\n"
 "Last-Translator:  <ssuceveanu@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
-"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
 "X-Generator: Pootle 2.0.1\n"
@@ -317,13 +317,11 @@ msgid "Damaged"
 msgstr "Deteriorat"
 
 #: db_operations.php:562
-#| msgid "Repair"
 msgctxt "BLOB repository"
 msgid "Repair"
 msgstr "Repară"
 
 #: db_operations.php:570
-#| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
 msgstr "Dezactivat"
@@ -5413,7 +5411,7 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: libraries/messages.inc.php:862 libraries/session.inc.php:84
+#: libraries/messages.inc.php:862
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."
@@ -8645,7 +8643,6 @@ msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Creează un index pe&nbsp;%s&nbsp;coloană"
 
 #: transformation_overview.php:48
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descriere"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 13:39-0400\n"
+"POT-Creation-Date: 2010-05-17 11:36+0200\n"
 "PO-Revision-Date: 2010-05-14 12:35+0200\n"
 "Last-Translator:  <monymirza@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
@@ -276,10 +276,6 @@ msgstr "کاپی سے پہلے ڈیٹا بیس بنائیں"
 #: libraries/export/sql.php:75 libraries/export/sql.php:77
 #: libraries/export/sql.php:83 libraries/messages.inc.php:26
 #: tbl_operations.php:534
-#: libraries/export/sql.php:52
-#: libraries/export/sql.php:74
-#: libraries/export/sql.php:76
-#: libraries/export/sql.php:82
 #, php-format
 msgid "Add %s"
 msgstr "شامل کریں %s"
@@ -424,29 +420,24 @@ msgstr "ناپ"
 
 #: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:560
 #: libraries/export/sql.php:900 libraries/messages.inc.php:432
-#: libraries/export/sql.php:559
-#: libraries/export/sql.php:899
 msgid "in use"
 msgstr "استعمال میں"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
 #: libraries/export/sql.php:515 libraries/messages.inc.php:1028
 #: pdf_schema.php:1241 tbl_printview.php:434 tbl_structure.php:810
-#: libraries/export/sql.php:514
 msgid "Creation"
 msgstr "تخلیق"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
 #: libraries/export/sql.php:520 libraries/messages.inc.php:1032
 #: pdf_schema.php:1246 tbl_printview.php:444 tbl_structure.php:818
-#: libraries/export/sql.php:519
 msgid "Last update"
 msgstr "آخری دفعہ اپ ڈیٹ"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
 #: libraries/export/sql.php:525 libraries/messages.inc.php:1027
 #: pdf_schema.php:1251 tbl_printview.php:454 tbl_structure.php:826
-#: libraries/export/sql.php:524
 msgid "Last check"
 msgstr "آخری دفعہ چیک"
 
@@ -796,7 +787,6 @@ msgstr "ٹریکڈ ٹیبلز"
 #: server_privileges.php:1682 server_privileges.php:1940
 #: server_processlist.php:56 server_synchronize.php:1179
 #: server_synchronize.php:1183 tbl_tracking.php:591 test/theme.php:65
-#: libraries/export/sql.php:342
 msgid "Database"
 msgstr "ڈیٹا بیس"
 
@@ -892,8 +882,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
 #: libraries/File.class.php:961 libraries/messages.inc.php:321
@@ -5150,7 +5140,7 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: libraries/messages.inc.php:862 libraries/session.inc.php:84
+#: libraries/messages.inc.php:862
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."

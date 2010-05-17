@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 13:39-0400\n"
+"POT-Creation-Date: 2010-05-17 11:36+0200\n"
 "PO-Revision-Date: 2010-04-16 10:43+0200\n"
 "Last-Translator: Sutharshan <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -5166,7 +5166,7 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: libraries/messages.inc.php:862 libraries/session.inc.php:84
+#: libraries/messages.inc.php:862
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 13:39-0400\n"
+"POT-Creation-Date: 2010-05-17 11:36+0200\n"
 "PO-Revision-Date: 2010-05-16 13:33+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -2979,7 +2979,6 @@ msgid "PHP array"
 msgstr "Tableau PHP"
 
 #: libraries/export/sql.php:29
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid ""
 "Add custom comment into header (\n"
 " splits lines)"
@@ -3274,7 +3273,6 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importer les pourcentages en tant que décimales (12.00% devient .12)"
 
 #: libraries/import/ods.php:28
-#| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies (.00 to 5.00)"
 msgstr "Importer les valeurs de monnaie (de .00 à 5.00)"
 
@@ -4420,8 +4418,8 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Veuillez entrer les valeurs des options de transformation en suivant ce "
-"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") ou "
-"une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
+"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") "
+"ou une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
 
 #: libraries/messages.inc.php:507 libraries/tbl_properties.inc.php:145
@@ -5392,7 +5390,7 @@ msgstr ""
 "que la durée du cookie configurée dans phpMyAdmin; donc, votre session de "
 "travail expirera plus tôt."
 
-#: libraries/messages.inc.php:862 libraries/session.inc.php:84
+#: libraries/messages.inc.php:862
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."
@@ -5413,9 +5411,9 @@ msgid ""
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Les différentes valeurs des champs de type enum/set sont à spécifier sous la "
-"forme 'a','b','c'...<br />Pour utiliser un antislash(\"\\\") ou une apostrophe "
-"(\"'\") dans l'une de ces valeurs, faites-le précéder d'un antislash (par "
-"exemple '\\\\xyz' ou 'a\\'b')."
+"forme 'a','b','c'...<br />Pour utiliser un antislash(\"\\\") ou une "
+"apostrophe (\"'\") dans l'une de ces valeurs, faites-le précéder d'un "
+"antislash (par exemple '\\\\xyz' ou 'a\\'b')."
 
 #: libraries/messages.inc.php:872 server_binlog.php:192 server_binlog.php:195
 #: server_processlist.php:49 server_processlist.php:51

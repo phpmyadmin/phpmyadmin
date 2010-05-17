@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-14 13:39-0400\n"
+"POT-Creation-Date: 2010-05-17 11:36+0200\n"
 "PO-Revision-Date: 2010-05-17 04:57+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -2882,7 +2882,6 @@ msgid "PHP array"
 msgstr "PHP 数组"
 
 #: libraries/export/sql.php:29
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid ""
 "Add custom comment into header (\n"
 " splits lines)"
@@ -5210,7 +5209,7 @@ msgstr ""
 "phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 "
 "phpMyAdmin 中设置的时间要更短。"
 
-#: libraries/messages.inc.php:862 libraries/session.inc.php:84
+#: libraries/messages.inc.php:862
 msgid ""
 "Cannot start session without errors, please check errors given in your PHP "
 "and/or webserver log file and configure your PHP installation properly."
