@@ -884,7 +884,7 @@ msgstr ""
 #: import.php:279 import.php:332 libraries/File.class.php:849
 #: libraries/File.class.php:961 libraries/messages.inc.php:321
 msgid "File could not be read"
-msgstr ""
+msgstr "फाइल पढ़ी नहीं जा सकती. "
 
 #: import.php:287 import.php:296 import.php:315 import.php:324
 #: libraries/File.class.php:1031 libraries/File.class.php:1039
