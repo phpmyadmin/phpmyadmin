@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-14 13:39-0400\n"
-"PO-Revision-Date: 2010-05-16 04:16+0200\n"
-"Last-Translator:  <chunsheng@cnezsoft.com>\n"
+"PO-Revision-Date: 2010-05-17 04:57+0200\n"
+"Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -2882,12 +2882,13 @@ msgid "PHP array"
 msgstr "PHP 数组"
 
 #: libraries/export/sql.php:29
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid ""
 "Add custom comment into header (\n"
 " splits lines)"
-msgstr "在文件头添加自定义注释 (\\n 为换行)"
+msgstr ""
+"在文件头添加自定义注释 (\n"
+" 为换行)"
 
 #: libraries/export/sql.php:32 libraries/messages.inc.php:283
 msgid "Enclose export in a transaction"
