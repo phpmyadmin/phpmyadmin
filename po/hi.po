@@ -681,7 +681,9 @@ msgstr "ट्रैकिंग सक्रिय नहीं है."
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
-msgstr "इस वियु में कम से कम इतनी पंक्तियाँ हैं. और जानने के लिए %s दोक्युमेंताशन%s  पढ़ें."
+msgstr ""
+"इस द्रश्य में कम से कम इतनी पंक्तियाँ हैं. और जानने के लिए %s दोक्युमेंताशन%"
+"s  पढ़ें."
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/messages.inc.php:1229 libraries/tbl_info.inc.php:66
