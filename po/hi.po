@@ -1490,7 +1490,7 @@ msgstr "%स इस MySQL सर्वर पर उपलब्ध है."
 #: libraries/StorageEngine.class.php:362 libraries/messages.inc.php:288
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s इस MySQL सर्वर के लिए निष्क्रिय कर दिया गया है."
 
 #: libraries/StorageEngine.class.php:366 libraries/messages.inc.php:290
 #, php-format
