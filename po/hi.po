@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:49+0200\n"
+"PO-Revision-Date: 2010-05-18 07:52+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1382,6 +1382,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
+"अपलोड की गयी फाइल की जगह बदलने में त्रुटि आई है. [a@. \"Documentation.html # "
+"faq1_1 @ प्रलेखन] अकसर किये गए सवाल 1,11 [/ a] देखें."
 
 #: libraries/Index.class.php:428 libraries/messages.inc.php:550
 #: tbl_relation.php:529
