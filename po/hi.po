@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:05+0200\n"
+"PO-Revision-Date: 2010-05-18 07:07+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1044,7 +1044,7 @@ msgstr "त्रुटि: रिश्ता पहले से ही मौ
 
 #: js/messages.php:58 libraries/messages.inc.php:298
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "डिजाइनर के लिए निर्देशांक बचाने में त्रुटि आ रही है"
 
 #: js/messages.php:59 libraries/messages.inc.php:347
 #: libraries/relation.lib.php:107 libraries/relation.lib.php:119
