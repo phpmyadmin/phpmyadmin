@@ -1433,7 +1433,7 @@ msgstr "प्राथमिक कुंजी गिरा दी गयी �
 #: libraries/Index.class.php:476 libraries/messages.inc.php:409
 #, php-format
 msgid "Index %s has been dropped"
-msgstr ""
+msgstr "सूचकांक %s गिरा दिया गया है"
 
 #: libraries/Index.class.php:576 libraries/messages.inc.php:408
 #, php-format
