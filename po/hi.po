@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 06:57+0200\n"
+"PO-Revision-Date: 2010-05-18 06:58+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -960,7 +960,7 @@ msgstr "चयन करने के लिए क्लिक करें."
 
 #: js/messages.php:26 libraries/messages.inc.php:152
 msgid "Click to unselect"
-msgstr ""
+msgstr "रद्द करने के लिए क्लिक करें."
 
 #: js/messages.php:27 libraries/import.lib.php:103
 #: libraries/messages.inc.php:546 sql.php:89
