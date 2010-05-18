@@ -1054,7 +1054,7 @@ msgstr "सामान्य सुविधाओं के संबंध"
 #: js/messages.php:59 libraries/messages.inc.php:256
 #: libraries/relation.lib.php:101 libraries/relation.lib.php:108
 msgid "Disabled"
-msgstr ""
+msgstr "अक्षम"
 
 #: js/messages.php:60 libraries/messages.inc.php:846
 msgid "Select referenced key"
