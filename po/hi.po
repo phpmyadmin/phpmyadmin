@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:46+0200\n"
+"PO-Revision-Date: 2010-05-18 07:47+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1371,7 +1371,7 @@ msgstr "एक अस्थायी फ़ोल्डर गुम है."
 
 #: libraries/File.class.php:426 libraries/messages.inc.php:1191
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "डिस्क में फ़ाइल लिखने में असफल"
 
 #: libraries/File.class.php:429 libraries/messages.inc.php:1192
 msgid "File upload stopped by extension."
