@@ -1590,7 +1590,7 @@ msgstr "लोगिन"
 #: libraries/navigation_header.inc.php:93
 #: libraries/navigation_header.inc.php:95
 msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin डोक्युमेंटेशन"
+msgstr "phpMyAdmin दस्तावेज़ीकरण"
 
 #: libraries/auth/cookie.auth.lib.php:258
 #: libraries/auth/cookie.auth.lib.php:259 libraries/messages.inc.php:488
