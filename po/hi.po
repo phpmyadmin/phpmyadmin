@@ -1348,7 +1348,7 @@ msgstr "फ़ॉन्ट का आकार"
 #: libraries/File.class.php:569 libraries/File.class.php:708
 #: libraries/messages.inc.php:1197
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "फ़ाइल अपलोड करने में अज्ञात त्रुटि."
 
 #: libraries/File.class.php:414 libraries/messages.inc.php:1194
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
