@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 08:01+0200\n"
+"PO-Revision-Date: 2010-05-18 08:02+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1485,7 +1485,7 @@ msgstr "इस भंडारण इंजन स्थिति के लि�
 #: libraries/StorageEngine.class.php:359 libraries/messages.inc.php:287
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "%स इस MYSQL सर्वर पर उपलब्ध है."
 
 #: libraries/StorageEngine.class.php:362 libraries/messages.inc.php:288
 #, php-format
