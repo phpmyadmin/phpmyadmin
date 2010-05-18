@@ -1400,7 +1400,7 @@ msgstr "सूचकांक"
 #: tbl_structure.php:33 tbl_structure.php:155 tbl_structure.php:159
 #: tbl_structure.php:475 tbl_tracking.php:322
 msgid "Unique"
-msgstr ""
+msgstr "अद्वितीय"
 
 #: libraries/Index.class.php:445 libraries/messages.inc.php:592
 #: tbl_tracking.php:323
