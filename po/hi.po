@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:56+0200\n"
+"PO-Revision-Date: 2010-05-18 07:58+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1440,7 +1440,7 @@ msgstr "सूचकांक %s गिरा दिया गया है"
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr ""
+msgstr "सूचकांक %1s और %2s बराबर लगने के कारन उनमें से संभवतः हटाया जा सकता है."
 
 #: libraries/List_Database.class.php:431 libraries/messages.inc.php:214
 #: libraries/server_links.inc.php:41 server_databases.php:88
