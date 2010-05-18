@@ -1036,7 +1036,7 @@ msgstr "आंतरिक संबंध जोड़ा."
 #: js/messages.php:56 libraries/messages.inc.php:295 pmd_relation_new.php:63
 #: pmd_relation_new.php:88
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "त्रुटि: रिलेशन नहीं जोड़ा गया."
 
 #: js/messages.php:57 libraries/messages.inc.php:296 pmd_relation_new.php:31
 msgid "Error: relation already exists."
