@@ -1367,7 +1367,7 @@ msgstr "अपलोड की गई फ़ाइल केवल आंशि�
 
 #: libraries/File.class.php:423 libraries/messages.inc.php:1195
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "एक अस्थायी फ़ोल्डर गुम है."
 
 #: libraries/File.class.php:426 libraries/messages.inc.php:1191
 msgid "Failed to write file to disk."
