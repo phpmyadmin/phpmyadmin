@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 08:02+0200\n"
+"PO-Revision-Date: 2010-05-18 08:03+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1495,7 +1495,7 @@ msgstr "%s इस MySQL सर्वर के लिए निष्क्र�
 #: libraries/StorageEngine.class.php:366 libraries/messages.inc.php:290
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "यह MySQL सर्वर %s भंडारण इंजन का समर्थन नहीं करता है."
 
 #: libraries/Table.class.php:1019 libraries/messages.inc.php:439
 msgid "Invalid database"
