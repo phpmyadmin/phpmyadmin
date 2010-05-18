@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 08:12+0200\n"
+"PO-Revision-Date: 2010-05-18 08:13+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1616,7 +1616,7 @@ msgstr "सर्वर चुनिये"
 #: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
 #: libraries/messages.inc.php:173
 msgid "Cookies must be enabled past this point."
-msgstr ""
+msgstr "कुकीज़ इस बिंदु अतीत सक्षम होना चाहिए."
 
 #: libraries/auth/cookie.auth.lib.php:671
 #: libraries/auth/signon.auth.lib.php:181 libraries/messages.inc.php:485
