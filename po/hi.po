@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:42+0200\n"
+"PO-Revision-Date: 2010-05-18 07:43+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1351,7 +1351,7 @@ msgstr "फ़ाइल अपलोड करने में अज्ञा�
 
 #: libraries/File.class.php:414 libraries/messages.inc.php:1194
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "अपलोड की गई फ़ाइल php.ini में upload_max_filesize निर्देश से अधिक है."
 
 #: libraries/File.class.php:417 libraries/messages.inc.php:1193
 msgid ""
