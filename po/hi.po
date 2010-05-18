@@ -1410,7 +1410,7 @@ msgstr "जमा"
 #: libraries/Index.class.php:447 libraries/messages.inc.php:127
 #: tbl_tracking.php:325
 msgid "Cardinality"
-msgstr ""
+msgstr "प्रमुखता"
 
 #: libraries/Index.class.php:450 libraries/messages.inc.php:158
 #: tbl_tracking.php:279 tbl_tracking.php:328
