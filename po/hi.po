@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 08:05+0200\n"
+"PO-Revision-Date: 2010-05-18 08:06+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1514,7 +1514,7 @@ msgstr "तालिका का नाम %1$s से %2$s में बदल
 #: libraries/Table.class.php:1132 libraries/messages.inc.php:750
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr ""
+msgstr "तालिका %s का नाम बदल कर %s रखा गया है."
 
 #: libraries/Theme.class.php:162 libraries/messages.inc.php:1095
 #, php-format
