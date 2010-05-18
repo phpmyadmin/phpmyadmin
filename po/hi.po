@@ -1005,7 +1005,7 @@ msgstr "उपयोगकर्ता नाम खाली है!"
 #: js/messages.php:44 libraries/messages.inc.php:603
 #: server_privileges.php:1197 user_password.php:70
 msgid "The password is empty!"
-msgstr ""
+msgstr "पासवर्ड खाली है"
 
 #: js/messages.php:45 libraries/messages.inc.php:605
 #: server_privileges.php:1195 user_password.php:73
