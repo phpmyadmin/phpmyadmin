@@ -1551,7 +1551,7 @@ msgstr "थीम/शैली "
 
 #: libraries/auth/config.auth.lib.php:77 libraries/messages.inc.php:168
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "अमान्य सेटिंग्स: कनेक्ट नहीं कर सकते हैं"
 
 #: libraries/auth/config.auth.lib.php:92
 #: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
