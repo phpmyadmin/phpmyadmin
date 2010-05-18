@@ -1537,7 +1537,7 @@ msgstr "डिफ़ॉल्ट विषयवस्तु %s नहीं म
 #: libraries/Theme_Manager.class.php:153 libraries/messages.inc.php:1094
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "विषयवस्तु %s नहीं मिला है!"
 
 #: libraries/Theme_Manager.class.php:221 libraries/messages.inc.php:1096
 #, php-format
