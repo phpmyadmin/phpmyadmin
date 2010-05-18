@@ -1639,7 +1639,7 @@ msgstr "MySQL सर्वर में प्रवेश नहीं कर �
 
 #: libraries/auth/http.auth.lib.php:70 libraries/messages.inc.php:1241
 msgid "Wrong username/password. Access denied."
-msgstr "यूसरनेम/पासवर्ड गलत है।  Access denied."
+msgstr "यूसरनेम/पासवर्ड गलत है।  प्रवेश निषेध"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #: libraries/messages.inc.php:1053
