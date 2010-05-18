@@ -965,7 +965,7 @@ msgstr "रद्द करने के लिए क्लिक करें.
 #: js/messages.php:27 libraries/import.lib.php:103
 #: libraries/messages.inc.php:546 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "\"DROP DATABASE\" बयान अक्षम हैं."
 
 #: js/messages.php:30 libraries/messages.inc.php:266
 #: libraries/mult_submits.inc.php:258 sql.php:188
