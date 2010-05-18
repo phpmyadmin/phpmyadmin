@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:01+0200\n"
+"PO-Revision-Date: 2010-05-18 07:02+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1010,7 +1010,7 @@ msgstr "पासवर्ड खाली है"
 #: js/messages.php:45 libraries/messages.inc.php:605
 #: server_privileges.php:1195 user_password.php:73
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "पासवर्ड मिलते झूलते नहीं हैं."
 
 #: js/messages.php:49 libraries/messages.inc.php:119 pmd_general.php:342
 #: pmd_general.php:379
