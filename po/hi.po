@@ -1454,7 +1454,7 @@ msgstr " डाटाबेस"
 #: pdf_schema.php:32 pdf_schema.php:232 tbl_change.php:1027
 #: tbl_operations.php:213 tbl_relation.php:290 view_operations.php:62
 msgid "Error"
-msgstr "गल्ती"
+msgstr "त्रुटि"
 
 #: libraries/Message.class.php:282
 #, php-format
