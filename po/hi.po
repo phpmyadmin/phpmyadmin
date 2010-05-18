@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 08:10+0200\n"
+"PO-Revision-Date: 2010-05-18 08:11+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1595,7 +1595,7 @@ msgstr "phpMyAdmin दस्तावेज़ीकरण"
 #: libraries/auth/cookie.auth.lib.php:258
 #: libraries/auth/cookie.auth.lib.php:259 libraries/messages.inc.php:488
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
+msgstr "आप होस्टनाम / आईपी पता और पोर्ट स्पचे से अलग कर के दाल सकते हैं."
 
 #: libraries/auth/cookie.auth.lib.php:258 libraries/messages.inc.php:489
 msgid "Server:"
