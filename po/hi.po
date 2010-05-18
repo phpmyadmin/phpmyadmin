@@ -1523,7 +1523,7 @@ msgstr "विषय %s के लिए कोई वैध छवि पथ �
 
 #: libraries/Theme.class.php:384 libraries/messages.inc.php:1093
 msgid "No preview available."
-msgstr ""
+msgstr "पूर्वावलोकन उपलब्ध नहीं."
 
 #: libraries/Theme.class.php:387 libraries/messages.inc.php:1085
 msgid "take it"
