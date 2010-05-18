@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:09+0200\n"
+"PO-Revision-Date: 2010-05-18 07:10+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1071,7 +1071,7 @@ msgstr "कृपया प्राथमिक कुंजी या एक �
 #: js/messages.php:63 libraries/messages.inc.php:138 pmd_general.php:77
 #: tbl_relation.php:548
 msgid "Choose field to display"
-msgstr ""
+msgstr "क्षेत्र प्रदर्शित करने के लिए चयन करें."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
