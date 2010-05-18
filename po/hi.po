@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 06:59+0200\n"
+"PO-Revision-Date: 2010-05-18 07:00+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -988,7 +988,7 @@ msgstr "क्या आप वाकई %s दाताबेस के सा�
 
 #: js/messages.php:38 libraries/messages.inc.php:338
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "फॉर्म में मूल्य गूम हैं."
 
 #: js/messages.php:39 libraries/messages.inc.php:566
 msgid "This is not a number!"
