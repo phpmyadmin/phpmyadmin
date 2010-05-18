@@ -1027,7 +1027,7 @@ msgstr "रिश्ते को नष्ट कर दिया"
 
 #: js/messages.php:54 libraries/messages.inc.php:336 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "विदेशी कुंजी रिश्ता जोड़ा."
 
 #: js/messages.php:55 libraries/messages.inc.php:430 pmd_relation_new.php:86
 msgid "Internal relation added"
