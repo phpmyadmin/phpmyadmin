@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 06:56+0200\n"
+"PO-Revision-Date: 2010-05-18 06:57+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -956,7 +956,7 @@ msgstr "phpMyAdmin <b>तख़्त-सक्षम</b> ब्रोव्स�
 #: server_synchronize.php:739 server_synchronize.php:767
 #: server_synchronize.php:795 server_synchronize.php:807
 msgid "Click to select"
-msgstr ""
+msgstr "चयन करने के लिए क्लिक करें."
 
 #: js/messages.php:26 libraries/messages.inc.php:152
 msgid "Click to unselect"
