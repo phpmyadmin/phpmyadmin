@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:17+0200\n"
+"PO-Revision-Date: 2010-05-18 07:18+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1342,7 +1342,7 @@ msgstr "सेकंड"
 
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:334
 msgid "Font size"
-msgstr ""
+msgstr "फ़ॉन्ट का आकार"
 
 #: libraries/File.class.php:344 libraries/File.class.php:432
 #: libraries/File.class.php:569 libraries/File.class.php:708
