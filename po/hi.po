@@ -1330,7 +1330,7 @@ msgstr "हफ्ता"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "घंटा"
 
 #: js/messages.php:165
 msgid "Minute"
