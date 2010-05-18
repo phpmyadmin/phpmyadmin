@@ -1307,7 +1307,6 @@ msgstr "बुधवार"
 
 #. l10n: Minimal week day name
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "गुरुवार"
