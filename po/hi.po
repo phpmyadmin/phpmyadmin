@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:02+0200\n"
+"PO-Revision-Date: 2010-05-18 07:03+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1023,7 +1023,7 @@ msgstr "संशोधनों को बचाया गया है"
 
 #: js/messages.php:53 libraries/messages.inc.php:737 pmd_relation_upd.php:49
 msgid "Relation deleted"
-msgstr ""
+msgstr "रिश्ते को नष्ट कर दिया"
 
 #: js/messages.php:54 libraries/messages.inc.php:336 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
