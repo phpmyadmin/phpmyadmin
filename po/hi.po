@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 08:00+0200\n"
+"PO-Revision-Date: 2010-05-18 08:01+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1480,7 +1480,7 @@ msgstr[1] "बहुवचन%1$d रोवस डाला"
 #: libraries/StorageEngine.class.php:198 libraries/messages.inc.php:545
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
+msgstr "इस भंडारण इंजन स्थिति के लिए कोई विस्तृत जानकारी उपलब्ध नहीं है."
 
 #: libraries/StorageEngine.class.php:359 libraries/messages.inc.php:287
 #, php-format
