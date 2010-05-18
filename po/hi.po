@@ -1220,7 +1220,6 @@ msgid "Sunday"
 msgstr "रविवार"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "सोमवार"
