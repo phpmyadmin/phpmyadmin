@@ -1635,7 +1635,7 @@ msgstr "%s सेकंड के भीतर कोई गतिविधि �
 #: libraries/auth/cookie.auth.lib.php:687
 #: libraries/auth/signon.auth.lib.php:191 libraries/messages.inc.php:122
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "MySQL सर्वर में प्रवेश नहीं कर सकते"
 
 #: libraries/auth/http.auth.lib.php:70 libraries/messages.inc.php:1241
 msgid "Wrong username/password. Access denied."
