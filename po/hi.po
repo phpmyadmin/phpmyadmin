@@ -1094,7 +1094,7 @@ msgstr " अगला"
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:79
 msgid "Today"
-msgstr ""
+msgstr "आज"
 
 #: js/messages.php:82
 #, fuzzy
