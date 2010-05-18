@@ -1081,7 +1081,7 @@ msgstr "किया"
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:75
 msgid "Prev"
-msgstr ""
+msgstr "पिछला"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:77 libraries/common.lib.php:2344
