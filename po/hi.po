@@ -1019,7 +1019,7 @@ msgstr "रद्द"
 
 #: js/messages.php:52 libraries/messages.inc.php:510 pmd_save_pos.php:54
 msgid "Modifications have been saved"
-msgstr ""
+msgstr "संशोधनों को बचाया गया है"
 
 #: js/messages.php:53 libraries/messages.inc.php:737 pmd_relation_upd.php:49
 msgid "Relation deleted"
