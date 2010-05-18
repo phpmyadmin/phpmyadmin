@@ -1661,7 +1661,7 @@ msgstr "कोई वैध प्रमाणीकरण कुंजी न�
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 #: libraries/messages.inc.php:1051
 msgid "Authenticating..."
-msgstr ""
+msgstr "सत्यापन."
 
 #: libraries/blobstreaming.lib.php:689 libraries/messages.inc.php:1226
 msgid "View image"
