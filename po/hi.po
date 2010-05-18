@@ -1483,9 +1483,9 @@ msgid ""
 msgstr "इस भंडारण इंजन स्थिति के लिए कोई विस्तृत जानकारी उपलब्ध नहीं है."
 
 #: libraries/StorageEngine.class.php:359 libraries/messages.inc.php:287
-#, php-format
+#, php-format, fuzzy
 msgid "%s is available on this MySQL server."
-msgstr "%स इस MySQL सर्वर पर उपलब्ध है."
+msgstr "%s इस MySQL सर्वर पर उपलब्ध है."
 
 #: libraries/StorageEngine.class.php:362 libraries/messages.inc.php:288
 #, php-format
