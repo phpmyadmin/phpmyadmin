@@ -1424,7 +1424,7 @@ msgstr "टिप्पणी"
 #: setup/frames/index.inc.php:124 setup/lib/messages.inc.php:352
 #: tbl_row_action.php:69
 msgid "Edit"
-msgstr "एडिट"
+msgstr "सम्पादन"
 
 #: libraries/Index.class.php:472 libraries/messages.inc.php:662
 msgid "The primary key has been dropped"
