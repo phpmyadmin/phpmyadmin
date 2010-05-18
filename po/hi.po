@@ -1066,7 +1066,7 @@ msgstr "विदेश कुंजी का चयन करें."
 
 #: js/messages.php:62 libraries/messages.inc.php:649
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "कृपया प्राथमिक कुंजी या एक अद्वितीय कुंजी का चयन करें"
 
 #: js/messages.php:63 libraries/messages.inc.php:138 pmd_general.php:77
 #: tbl_relation.php:548
