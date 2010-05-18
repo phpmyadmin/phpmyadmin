@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:00+0200\n"
+"PO-Revision-Date: 2010-05-18 07:01+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1000,7 +1000,7 @@ msgstr "मेज़बान का नाम (hostname) खाली है!"
 
 #: js/messages.php:43 libraries/messages.inc.php:1204
 msgid "The user name is empty!"
-msgstr "यूसरनेम खाली है!"
+msgstr "उपयोगकर्ता नाम खाली है!"
 
 #: js/messages.php:44 libraries/messages.inc.php:603
 #: server_privileges.php:1197 user_password.php:70
