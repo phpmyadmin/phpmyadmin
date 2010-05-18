@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:04+0200\n"
+"PO-Revision-Date: 2010-05-18 07:05+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1040,7 +1040,7 @@ msgstr "त्रुटि: रिलेशन नहीं जोड़ा ग�
 
 #: js/messages.php:57 libraries/messages.inc.php:296 pmd_relation_new.php:31
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "त्रुटि: रिश्ता पहले से ही मौजूद है. "
 
 #: js/messages.php:58 libraries/messages.inc.php:298
 msgid "Error saving coordinates for Designer."
