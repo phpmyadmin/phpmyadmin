@@ -1547,7 +1547,7 @@ msgstr "विषय %s के लिए थीम पथ नहीं मिल
 #: libraries/Theme_Manager.class.php:297 libraries/messages.inc.php:1097
 #: test/theme.php:161 themes.php:21 themes.php:41
 msgid "Theme / Style"
-msgstr ""
+msgstr "थीम/शैली "
 
 #: libraries/auth/config.auth.lib.php:77 libraries/messages.inc.php:168
 msgid "Cannot connect: invalid settings."
