@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 08:18+0200\n"
+"PO-Revision-Date: 2010-05-18 08:19+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1656,7 +1656,7 @@ msgstr "हार्डवेयर प्रमाणीकरण असफल"
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 #: libraries/messages.inc.php:1054
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "कोई वैध प्रमाणीकरण कुंजी नहीं पाई गई."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 #: libraries/messages.inc.php:1051
