@@ -996,7 +996,7 @@ msgstr "यह नंबर नहीं है!"
 
 #: js/messages.php:42 libraries/messages.inc.php:376
 msgid "The host name is empty!"
-msgstr "होस्ट का नाम (hostname) खाली है!"
+msgstr "मेज़बान का नाम (hostname) खाली है!"
 
 #: js/messages.php:43 libraries/messages.inc.php:1204
 msgid "The user name is empty!"
