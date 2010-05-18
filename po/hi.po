@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 06:54+0200\n"
+"PO-Revision-Date: 2010-05-18 06:56+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -948,7 +948,7 @@ msgstr ""
 
 #: index.php:190 libraries/messages.inc.php:549
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr ""
+msgstr "phpMyAdmin <b>तख़्त-सक्षम</b> ब्रोव्सेर के लिए ज्यादा दोस्ताना है."
 
 #: js/messages.php:25 libraries/messages.inc.php:151
 #: server_synchronize.php:345 server_synchronize.php:357
