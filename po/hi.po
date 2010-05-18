@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 08:04+0200\n"
+"PO-Revision-Date: 2010-05-18 08:05+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1509,7 +1509,7 @@ msgstr "अवैध तालिका नाम"
 #: libraries/Table.class.php:1048 libraries/messages.inc.php:297
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "तालिका का नाम %1$s से %2$s में बदलने में त्रुटि."
 
 #: libraries/Table.class.php:1132 libraries/messages.inc.php:750
 #, php-format
