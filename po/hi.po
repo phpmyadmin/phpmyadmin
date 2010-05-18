@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:58+0200\n"
+"PO-Revision-Date: 2010-05-18 07:59+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1460,7 +1460,7 @@ msgstr "त्रुटि"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "एकवचन%1$d रोव प्रभावित"
+msgstr[0] "एकवचन %1$d रोव प्रभावित"
 msgstr[1] "बहुवचन%1$d रोवस प्रभावित"
 
 #: libraries/Message.class.php:301
