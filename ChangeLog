@@ -9,6 +9,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2996161 [import] properly escape import value
 - bug #2998889 [import] Import button does not work in Catalan
 - [browse] Fix handling of sort order if only column is specified.
++ [lang] Greek update, thanks to Panagiotis Papazoglou - panos78
 
 3.3.3.0 (2010-05-10)
 - patch #2982480 [navi] Do not group if there would be one table in group,
