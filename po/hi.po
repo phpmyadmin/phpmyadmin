@@ -1651,7 +1651,7 @@ msgstr "%s फाइल में कोई भी प्रमुख आईड�
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 #: libraries/messages.inc.php:1052
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "हार्डवेयर प्रमाणीकरण असफल"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 #: libraries/messages.inc.php:1054
