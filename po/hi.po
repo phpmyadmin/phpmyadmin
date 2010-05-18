@@ -1326,7 +1326,7 @@ msgstr "शनिवार"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
 msgid "Wk"
-msgstr ""
+msgstr "हफ्ता"
 
 #: js/messages.php:164
 msgid "Hour"
