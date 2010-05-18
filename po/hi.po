@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 08:08+0200\n"
+"PO-Revision-Date: 2010-05-18 08:09+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1542,7 +1542,7 @@ msgstr "विषयवस्तु %s नहीं मिला है!"
 #: libraries/Theme_Manager.class.php:221 libraries/messages.inc.php:1096
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "विषय %s के लिए थीम पथ नहीं मिला है!"
 
 #: libraries/Theme_Manager.class.php:297 libraries/messages.inc.php:1097
 #: test/theme.php:161 themes.php:21 themes.php:41
