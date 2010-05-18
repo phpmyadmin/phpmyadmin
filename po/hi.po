@@ -1393,7 +1393,7 @@ msgstr "परिभाषित सूचकांक  नहीं पाए �
 #: libraries/Index.class.php:433 libraries/messages.inc.php:407
 #: server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
-msgstr ""
+msgstr "सूचकांक"
 
 #: libraries/Index.class.php:444 libraries/messages.inc.php:1182
 #: libraries/mult_submits.inc.php:103 libraries/tbl_properties.inc.php:519
