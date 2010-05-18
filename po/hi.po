@@ -918,7 +918,7 @@ msgstr "यह बुकमार्क हटा दिया गया है"
 
 #: import.php:401 libraries/messages.inc.php:875
 msgid "Showing bookmark"
-msgstr ""
+msgstr "बुकमार्क प्रदर्शित किया जा रहा है."
 
 #: import.php:403 libraries/messages.inc.php:97 sql.php:626
 #, php-format
