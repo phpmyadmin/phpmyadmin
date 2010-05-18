@@ -1049,7 +1049,7 @@ msgstr "डिजाइनर के लिए निर्देशांक �
 #: js/messages.php:59 libraries/messages.inc.php:347
 #: libraries/relation.lib.php:107 libraries/relation.lib.php:119
 msgid "General relation features"
-msgstr ""
+msgstr "सामान्य सुविधाओं के संबंध"
 
 #: js/messages.php:59 libraries/messages.inc.php:256
 #: libraries/relation.lib.php:101 libraries/relation.lib.php:108
