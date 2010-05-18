@@ -1603,7 +1603,7 @@ msgstr "सर्वर:"
 
 #: libraries/auth/cookie.auth.lib.php:263 libraries/messages.inc.php:490
 msgid "Username:"
-msgstr "यूसरनेम:"
+msgstr "उपयोक्तानाम:"
 
 #: libraries/auth/cookie.auth.lib.php:267 libraries/messages.inc.php:487
 msgid "Password:"
