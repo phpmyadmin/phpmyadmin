@@ -1611,7 +1611,7 @@ msgstr "पासव्रड:"
 
 #: libraries/auth/cookie.auth.lib.php:274 libraries/messages.inc.php:850
 msgid "Server Choice"
-msgstr "Server चुनिये"
+msgstr "सर्वर चुनिये"
 
 #: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
 #: libraries/messages.inc.php:173
