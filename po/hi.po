@@ -1532,7 +1532,7 @@ msgstr "इसे ले लो"
 #: libraries/Theme_Manager.class.php:115 libraries/messages.inc.php:1092
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "डिफ़ॉल्ट विषयवस्तु %s नहीं मिला है!"
 
 #: libraries/Theme_Manager.class.php:153 libraries/messages.inc.php:1094
 #, php-format
