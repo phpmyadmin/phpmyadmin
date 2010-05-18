@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 08:03+0200\n"
+"PO-Revision-Date: 2010-05-18 08:04+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1499,7 +1499,7 @@ msgstr "यह MySQL सर्वर %s भंडारण इंजन का �
 
 #: libraries/Table.class.php:1019 libraries/messages.inc.php:439
 msgid "Invalid database"
-msgstr ""
+msgstr "अमान्य डेटाबेस"
 
 #: libraries/Table.class.php:1033 libraries/messages.inc.php:446
 #: tbl_get_field.php:26
