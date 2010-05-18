@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-18 07:54+0200\n"
+"PO-Revision-Date: 2010-05-18 07:55+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1415,7 +1415,7 @@ msgstr "प्रमुखता"
 #: libraries/Index.class.php:450 libraries/messages.inc.php:158
 #: tbl_tracking.php:279 tbl_tracking.php:328
 msgid "Comment"
-msgstr ""
+msgstr "टिप्पणी"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1199 libraries/display_tbl.lib.php:1117
