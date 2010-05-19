@@ -263,7 +263,7 @@ msgstr "Struktura dhe të dhënat"
 #: db_operations.php:460 libraries/messages.inc.php:225 tbl_operations.php:528
 #: tbl_tracking.php:389
 msgid "Data only"
-msgstr "Vetëm të dhëna"
+msgstr "Vetëm të dhënat"
 
 #: db_operations.php:468 libraries/messages.inc.php:182
 msgid "CREATE DATABASE before copying"
