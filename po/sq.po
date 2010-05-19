@@ -307,9 +307,8 @@ msgid "Enabled"
 msgstr "Aktivizuar"
 
 #: db_operations.php:548 libraries/messages.inc.php:89
-#, fuzzy
 msgid "Disable"
-msgstr "Jo aktiv"
+msgstr "Çaktivizo"
 
 #: db_operations.php:558 libraries/messages.inc.php:86
 msgid "Damaged"
