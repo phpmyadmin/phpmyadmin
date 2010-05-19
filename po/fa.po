@@ -4,13 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-03-12 09:17+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-05-19 03:54+0200\n"
+"Last-Translator:  <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
 #: libraries/display_tbl.lib.php:417 libraries/messages.inc.php:866
@@ -84,7 +86,7 @@ msgstr "توضیحات"
 #: browse_foreigners.php:268 browse_foreigners.php:276
 #: libraries/messages.inc.php:1214
 msgid "Use this value"
-msgstr ""
+msgstr "این مقدار را استفاده کنید"
 
 #: db_create.php:46 libraries/messages.inc.php:211
 #, fuzzy, php-format
@@ -300,11 +302,10 @@ msgid "Status"
 msgstr ""
 
 #: db_operations.php:544
-#, fuzzy
 #| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
-msgstr "فعال"
+msgstr "فعال شده"
 
 #: db_operations.php:548 libraries/messages.inc.php:89
 #, fuzzy
@@ -341,7 +342,7 @@ msgstr "فعال"
 #: tbl_select.php:137 tbl_structure.php:179 tbl_structure.php:768
 #: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
-msgstr ""
+msgstr "مقایسه"
 
 #: db_operations.php:609 libraries/messages.inc.php:738 main.php:316
 #: pdf_schema.php:34
@@ -795,7 +796,7 @@ msgstr "پايگاه داده"
 
 #: db_tracking.php:73 libraries/messages.inc.php:1142
 msgid "Last version"
-msgstr ""
+msgstr "نسخه قبلی"
 
 #: db_tracking.php:74 libraries/messages.inc.php:1141 tbl_tracking.php:594
 #, fuzzy
@@ -1249,7 +1250,7 @@ msgstr "سه‌شنبه"
 
 #: js/messages.php:125
 msgid "Wednesday"
-msgstr ""
+msgstr "چهارشنبه"
 
 #: js/messages.php:126
 msgid "Thursday"
@@ -1263,7 +1264,7 @@ msgstr "جمعه"
 
 #: js/messages.php:128
 msgid "Saturday"
-msgstr ""
+msgstr "شنبه"
 
 #. l10n: Short week day name
 #: js/messages.php:132 libraries/common.lib.php:1580
@@ -1352,23 +1353,21 @@ msgstr "شنبه"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
 msgid "Wk"
-msgstr ""
+msgstr "هفته"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "ساعت"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "in use"
+msgstr "دقیقه"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "در ثانیه"
+msgstr " ثانیه"
 
 #: libraries/Config.class.php:1015 libraries/messages.inc.php:334
 msgid "Font size"
@@ -8297,72 +8296,3 @@ msgstr "ساخت يك فهرست در&nbsp;%s&nbsp;ستون"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "توضیحات"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "خير"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "خير"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "جدول \"%s\" وجود ندارد!"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "داده‌هاي CSV"
-
-#~ msgid "Copy"
-#~ msgstr "نسخه برداری"
-
-#~ msgid "has been altered."
-#~ msgstr "تغيير داده‌شد."
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "انتخاب همه"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "انتخاب همه"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "درج"
-
-#, fuzzy
-#~| msgid "Update Query"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "به‌هنگام سازي پرس و جو"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "حذف"
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
-
-#~ msgid "Jan0"
-#~ msgstr "ژانويه0"
-
-#~ msgid "Jan1"
-#~ msgstr "ژانويه1"
-
-#~ msgid "Jan2"
-#~ msgstr "ژانويه2"
