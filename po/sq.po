@@ -722,7 +722,7 @@ msgstr "N.q.s. të zgjedhur:"
 #: libraries/messages.inc.php:144 server_databases.php:348
 #: server_privileges.php:530 server_privileges.php:1560 tbl_structure.php:459
 msgid "Check All"
-msgstr "Zgjidhi të gjithë"
+msgstr "Zgjidh gjithçka"
 
 #: db_structure.php:531 libraries/display_tbl.lib.php:2077
 #: libraries/messages.inc.php:1180 libraries/replication_gui.lib.php:33
