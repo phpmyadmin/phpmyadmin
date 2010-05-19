@@ -1357,7 +1357,7 @@ msgstr "هفته"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "ساعت"
 
 #: js/messages.php:165
 #, fuzzy
