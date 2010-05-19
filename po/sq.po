@@ -104,7 +104,7 @@ msgstr "Komenti për databazën: "
 #: libraries/tbl_properties.inc.php:724 pdf_schema.php:1236
 #: tbl_operations.php:345 tbl_printview.php:130
 msgid "Table comments"
-msgstr "Komente mbi tabelën"
+msgstr "Komentet e tabelës"
 
 #: db_datadict.php:174 db_qbe.php:174 libraries/Index.class.php:446
 #: libraries/export/htmlword.php:244 libraries/export/latex.php:360
