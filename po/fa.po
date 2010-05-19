@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 03:30+0200\n"
+"PO-Revision-Date: 2010-05-19 03:32+0200\n"
 "Last-Translator:  <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -342,7 +342,7 @@ msgstr "فعال"
 #: tbl_select.php:137 tbl_structure.php:179 tbl_structure.php:768
 #: tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
-msgstr ""
+msgstr "مقایسه"
 
 #: db_operations.php:609 libraries/messages.inc.php:738 main.php:316
 #: pdf_schema.php:34
