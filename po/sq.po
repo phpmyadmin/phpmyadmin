@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:54+0200\n"
+"PO-Revision-Date: 2010-05-19 12:55+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -513,7 +513,7 @@ msgstr "Ndrysho"
 
 #: db_qbe.php:584 libraries/messages.inc.php:29
 msgid "Add/Delete Criteria Row"
-msgstr "Shto/Fshi kriterin"
+msgstr "Shto/Fshi rreshtin e kriterit"
 
 #: db_qbe.php:596 libraries/messages.inc.php:28
 msgid "Add/Delete Field Columns"
