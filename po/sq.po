@@ -98,7 +98,7 @@ msgstr "U krijua baza e të dhënave %1$s."
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:228
 msgid "Database comment: "
-msgstr "Komenti për Databazën: "
+msgstr "Komenti për databazën: "
 
 #: db_datadict.php:165 libraries/messages.inc.php:1066
 #: libraries/tbl_properties.inc.php:724 pdf_schema.php:1236
