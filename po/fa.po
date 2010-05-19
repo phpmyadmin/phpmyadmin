@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 03:52+0200\n"
+"PO-Revision-Date: 2010-05-19 03:53+0200\n"
 "Last-Translator:  <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1353,7 +1353,7 @@ msgstr "شنبه"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
 msgid "Wk"
-msgstr ""
+msgstr "هفته"
 
 #: js/messages.php:164
 msgid "Hour"
