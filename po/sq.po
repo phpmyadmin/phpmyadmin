@@ -247,9 +247,8 @@ msgid "and then"
 msgstr ""
 
 #: db_operations.php:451 libraries/messages.inc.php:229
-#, fuzzy
 msgid "Copy database to"
-msgstr "Ndysho emrin e databazës në"
+msgstr "Kopjo databazën në"
 
 #: db_operations.php:458 libraries/messages.inc.php:1039
 #: tbl_operations.php:526 tbl_tracking.php:388
