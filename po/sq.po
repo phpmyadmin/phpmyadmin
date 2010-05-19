@@ -673,7 +673,7 @@ msgstr "Tabela %s u eleminua"
 
 #: db_structure.php:333 libraries/messages.inc.php:1124
 msgid "Tracking is active."
-msgstr ""
+msgstr "Gjurmimi është aktiv."
 
 #: db_structure.php:335 libraries/messages.inc.php:1125
 msgid "Tracking is not active."
