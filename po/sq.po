@@ -377,7 +377,7 @@ msgstr "Data Dictionary"
 
 #: db_operations.php:674 libraries/messages.inc.php:880 pdf_pages.php:534
 msgid "Only show keys"
-msgstr ""
+msgstr "Shfaq vetëm kyçet"
 
 #: db_operations.php:676 libraries/messages.inc.php:871 pdf_pages.php:535
 msgid "Data Dictionary Format"
