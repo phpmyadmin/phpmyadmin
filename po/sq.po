@@ -521,7 +521,7 @@ msgstr "Shto/Fshi kollonat e fushës"
 
 #: db_qbe.php:609 db_qbe.php:634 libraries/messages.inc.php:1188
 msgid "Update Query"
-msgstr "Rifresko Query"
+msgstr "Përditëso kërkesën"
 
 #: db_qbe.php:617 libraries/messages.inc.php:1212
 msgid "Use Tables"
