@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:53+0200\n"
+"PO-Revision-Date: 2010-05-19 12:54+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -474,7 +474,7 @@ msgstr "Në ngjitje"
 #: libraries/messages.inc.php:247 server_databases.php:170
 #: server_databases.php:187 tbl_operations.php:261 tbl_select.php:315
 msgid "Descending"
-msgstr "Zbritës"
+msgstr "Në zbritje"
 
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
 #: libraries/messages.inc.php:884 tbl_change.php:277 tbl_tracking.php:597
