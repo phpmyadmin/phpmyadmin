@@ -467,7 +467,7 @@ msgstr "Renditja"
 #: libraries/messages.inc.php:65 server_databases.php:170
 #: server_databases.php:187 tbl_operations.php:260 tbl_select.php:314
 msgid "Ascending"
-msgstr "Ngjitje"
+msgstr "Në ngjitje"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
