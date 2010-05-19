@@ -661,9 +661,9 @@ msgstr "Tabela %s u zbraz"
 
 #: db_structure.php:326 libraries/messages.inc.php:1225
 #: libraries/tbl_links.inc.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped"
-msgstr "Fusha %s u eleminua"
+msgstr "Paraqitja %s u eleminua"
 
 #: db_structure.php:326 libraries/messages.inc.php:1070
 #: libraries/tbl_links.inc.php:133
