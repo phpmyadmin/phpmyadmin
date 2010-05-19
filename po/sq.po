@@ -267,7 +267,7 @@ msgstr "Vetëm të dhënat"
 
 #: db_operations.php:468 libraries/messages.inc.php:182
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "CREATE DATABASE para se të kopjohet"
 
 #: db_operations.php:471 libraries/export/sql.php:53
 #: libraries/export/sql.php:75 libraries/export/sql.php:77
