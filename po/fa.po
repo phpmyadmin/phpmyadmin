@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 03:53+0200\n"
+"PO-Revision-Date: 2010-05-19 03:54+0200\n"
 "Last-Translator:  <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1360,10 +1360,9 @@ msgid "Hour"
 msgstr "ساعت"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "in use"
+msgstr "دقیقه"
 
 #: js/messages.php:166
 #, fuzzy
