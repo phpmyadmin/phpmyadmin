@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 03:24+0200\n"
+"PO-Revision-Date: 2010-05-19 03:30+0200\n"
 "Last-Translator:  <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -302,11 +302,10 @@ msgid "Status"
 msgstr ""
 
 #: db_operations.php:544
-#, fuzzy
 #| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
-msgstr "فعال"
+msgstr "فعال شده"
 
 #: db_operations.php:548 libraries/messages.inc.php:89
 #, fuzzy
