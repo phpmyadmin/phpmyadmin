@@ -460,7 +460,7 @@ msgstr "Zgjidh të paktën një kollonë për të shfaqur"
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866 libraries/messages.inc.php:1010
 msgid "Sort"
-msgstr "rreshtimi"
+msgstr "Renditja"
 
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
