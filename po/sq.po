@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:51+0200\n"
+"PO-Revision-Date: 2010-05-19 12:52+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -393,7 +393,7 @@ msgstr "Vertikale"
 
 #: db_operations.php:682 libraries/messages.inc.php:595 pdf_pages.php:541
 msgid "Paper size"
-msgstr "Përmasat e letrës"
+msgstr "Përmasat e fletës"
 
 #: db_operations.php:706 libraries/messages.inc.php:277
 msgid "Edit PDF Pages"
