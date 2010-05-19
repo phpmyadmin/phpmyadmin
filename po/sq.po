@@ -320,11 +320,10 @@ msgid "Repair"
 msgstr "Riparo"
 
 #: db_operations.php:570
-#, fuzzy
 #| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr "Jo aktiv"
+msgstr "Çaktivizuar"
 
 #: db_operations.php:574 libraries/messages.inc.php:92
 #, fuzzy
