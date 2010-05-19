@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:55+0200\n"
+"PO-Revision-Date: 2010-05-19 12:56+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -530,7 +530,7 @@ msgstr "Përdor tabelat"
 #: db_qbe.php:640 libraries/messages.inc.php:719
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "SQL-query tek databaza <b>%s</b>:"
+msgstr "Kërkesë SQL tek databaza <b>%s</b>:"
 
 #: db_qbe.php:934 libraries/common.lib.php:1223 libraries/messages.inc.php:819
 msgid "Submit Query"
