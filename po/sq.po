@@ -541,7 +541,7 @@ msgstr "Dërgo Query"
 #: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:183 libraries/messages.inc.php:22
 msgid "Access denied"
-msgstr "Hyrja nuk u pranua"
+msgstr "Ndalohet hyrja"
 
 #: db_search.php:80 db_search.php:311 libraries/messages.inc.php:832
 msgid "at least one of the words"
