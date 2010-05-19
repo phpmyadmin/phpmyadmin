@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 13:01+0200\n"
+"PO-Revision-Date: 2010-05-19 13:02+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -700,8 +700,9 @@ msgid "Replication"
 msgstr "Replikimi"
 
 #: db_structure.php:489 libraries/messages.inc.php:1049
+#, fuzzy
 msgid "Sum"
-msgstr "Gjithsej"
+msgstr "Sum"
 
 #: db_structure.php:496 libraries/StorageEngine.class.php:356
 #: libraries/messages.inc.php:235
