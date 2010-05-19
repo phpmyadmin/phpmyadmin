@@ -455,7 +455,7 @@ msgstr "Query SQL u zbatua me sukses"
 
 #: db_qbe.php:42 libraries/messages.inc.php:367
 msgid "You have to choose at least one column to display"
-msgstr "Zgjidh të paktën një kolonë për të parë"
+msgstr "Zgjidh të paktën një kollonë për të shfaqur"
 
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866 libraries/messages.inc.php:1010
