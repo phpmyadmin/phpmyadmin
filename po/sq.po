@@ -371,6 +371,7 @@ msgstr "Shfaq të gjitha tabelat me të njëjtën gjerësi"
 
 #: db_operations.php:672 db_structure.php:606 libraries/messages.inc.php:223
 #: pdf_pages.php:533
+#, fuzzy
 msgid "Data Dictionary"
 msgstr "Data Dictionary"
 
