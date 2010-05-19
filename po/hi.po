@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 05:35+0200\n"
+"PO-Revision-Date: 2010-05-19 05:36+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1669,7 +1669,7 @@ msgstr "छवि देखें"
 
 #: libraries/blobstreaming.lib.php:693 libraries/messages.inc.php:648
 msgid "Play audio"
-msgstr ""
+msgstr "ऑडियो  चलायें"
 
 #: libraries/blobstreaming.lib.php:698 libraries/messages.inc.php:1228
 msgid "View video"
