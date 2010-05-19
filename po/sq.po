@@ -363,7 +363,7 @@ msgstr "Shfaq ngjyrën"
 
 #: db_operations.php:666 libraries/messages.inc.php:994 pdf_pages.php:531
 msgid "Show dimension of tables"
-msgstr "Trego madhësinë e tabelave"
+msgstr "Shfaq madhësinë e tabelave"
 
 #: db_operations.php:669 libraries/messages.inc.php:48 pdf_pages.php:532
 msgid "Display all tables with the same width"
