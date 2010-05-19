@@ -397,7 +397,7 @@ msgstr "Përmasat e fletës"
 
 #: db_operations.php:706 libraries/messages.inc.php:277
 msgid "Edit PDF Pages"
-msgstr "Ndrysho faqen PDF"
+msgstr "Ndrysho faqet PDF"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
