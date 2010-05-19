@@ -696,9 +696,8 @@ msgstr "Paraqitje"
 #: db_structure.php:485 libraries/db_structure.lib.php:49
 #: libraries/messages.inc.php:769 libraries/server_links.inc.php:70
 #: server_replication.php:33 server_replication.php:164 server_status.php:258
-#, fuzzy
 msgid "Replication"
-msgstr "Relacione"
+msgstr "Replikimi"
 
 #: db_structure.php:489 libraries/messages.inc.php:1049
 msgid "Sum"
