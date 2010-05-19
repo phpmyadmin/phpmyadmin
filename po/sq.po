@@ -545,7 +545,7 @@ msgstr "Ndalohet hyrja"
 
 #: db_search.php:80 db_search.php:311 libraries/messages.inc.php:832
 msgid "at least one of the words"
-msgstr "të paktën njërën nga fjalët"
+msgstr "të paktën një prej fjalëve"
 
 #: db_search.php:81 db_search.php:312 libraries/messages.inc.php:833
 msgid "all words"
