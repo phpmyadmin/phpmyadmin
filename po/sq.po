@@ -275,7 +275,7 @@ msgstr "CREATE DATABASE para se të kopjohet"
 #: tbl_operations.php:534
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Shto %s"
 
 #: db_operations.php:475 libraries/export/sql.php:79
 #: libraries/messages.inc.php:25 tbl_operations.php:297 tbl_operations.php:536
