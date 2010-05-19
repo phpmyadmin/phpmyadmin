@@ -389,7 +389,7 @@ msgstr "Horizontale"
 
 #: db_operations.php:679 libraries/messages.inc.php:659 pdf_pages.php:538
 msgid "Portrait"
-msgstr "Vertikal"
+msgstr "Vertikale"
 
 #: db_operations.php:682 libraries/messages.inc.php:595 pdf_pages.php:541
 msgid "Paper size"
