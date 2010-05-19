@@ -221,7 +221,7 @@ msgstr "Asnjë zgjedhje"
 
 #: db_operations.php:38 libraries/messages.inc.php:209 tbl_create.php:54
 msgid "The database name is empty!"
-msgstr "Emri i databazës mungon!"
+msgstr "Mungon emri i databazës!"
 
 #: db_operations.php:236 libraries/messages.inc.php:749
 #, php-format
