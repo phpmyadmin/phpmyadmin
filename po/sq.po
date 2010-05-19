@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:41+0200\n"
+"PO-Revision-Date: 2010-05-19 12:42+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -217,7 +217,7 @@ msgstr "Zgjidh gjithçka"
 #: db_export.php:45 db_search.php:347 libraries/messages.inc.php:1184
 #: server_export.php:29
 msgid "Unselect All"
-msgstr "Ç'zgjidh gjithçka"
+msgstr "Asnjë zgjedhje"
 
 #: db_operations.php:38 libraries/messages.inc.php:209 tbl_create.php:54
 msgid "The database name is empty!"
