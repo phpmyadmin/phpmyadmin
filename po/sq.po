@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:40+0200\n"
+"PO-Revision-Date: 2010-05-19 12:41+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -92,9 +92,9 @@ msgid "Use this value"
 msgstr "Përdor këtë vlerë"
 
 #: db_create.php:46 libraries/messages.inc.php:211
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "Databaza %s u eleminua."
+msgstr "U krijua baza e të dhënave %1$s."
 
 #: db_datadict.php:49 db_operations.php:378 libraries/messages.inc.php:228
 msgid "Database comment: "
