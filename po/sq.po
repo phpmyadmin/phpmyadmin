@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:56+0200\n"
+"PO-Revision-Date: 2010-05-19 12:57+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -553,7 +553,7 @@ msgstr "të gjitha fjalët"
 
 #: db_search.php:82 db_search.php:313 libraries/messages.inc.php:834
 msgid "the exact phrase"
-msgstr "fraza precize"
+msgstr "frazën e saktë"
 
 #: db_search.php:83 db_search.php:314 libraries/messages.inc.php:835
 msgid "as regular expression"
