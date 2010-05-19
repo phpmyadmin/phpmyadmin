@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:42+0200\n"
+"PO-Revision-Date: 2010-05-19 12:43+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -229,9 +229,9 @@ msgid "Database %s has been renamed to %s"
 msgstr "Databazës %s i është ndryshuar emri në %s"
 
 #: db_operations.php:240 libraries/messages.inc.php:174
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Databazës %s i është ndryshuar emri në %s"
+msgstr "Databaza %s është kopjuar tek %s"
 
 #: db_operations.php:410 libraries/messages.inc.php:232
 msgid "Rename database to"
