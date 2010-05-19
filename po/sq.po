@@ -575,7 +575,7 @@ msgstr "%s korrispondon(jnë) tek tabela <i>%s</i>"
 #: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
 #: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:468
 msgid "Browse"
-msgstr "Shfaq"
+msgstr "Shfleto"
 
 #: db_search.php:272 libraries/display_tbl.lib.php:1165
 #: libraries/display_tbl.lib.php:2056 libraries/messages.inc.php:239
