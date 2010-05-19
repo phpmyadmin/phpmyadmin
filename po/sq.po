@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:57+0200\n"
+"PO-Revision-Date: 2010-05-19 12:58+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -562,7 +562,7 @@ msgstr "si shprehje e rregullt"
 #: db_search.php:242 libraries/messages.inc.php:836
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Kërko rezultatet për \"<i>%s</i>\" %s:"
+msgstr "Rezultatet e kërkimit për \"<i>%s</i>\" %s:"
 
 #: db_search.php:260 libraries/messages.inc.php:575
 #, php-format
