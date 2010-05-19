@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:52+0200\n"
+"PO-Revision-Date: 2010-05-19 12:53+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -451,7 +451,7 @@ msgstr "%s tabela(at)"
 #: libraries/sql_query_form.lib.php:140 tbl_operations.php:213
 #: tbl_relation.php:292 tbl_row_action.php:131 view_operations.php:62
 msgid "Your SQL query has been executed successfully"
-msgstr "Query u zbatua me sukses"
+msgstr "Query SQL u zbatua me sukses"
 
 #: db_qbe.php:42 libraries/messages.inc.php:367
 msgid "You have to choose at least one column to display"
