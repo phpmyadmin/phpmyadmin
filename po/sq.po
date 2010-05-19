@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-19 12:43+0200\n"
+"PO-Revision-Date: 2010-05-19 12:44+0200\n"
 "Last-Translator: Laurent <laurenti@alblinux.net>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
@@ -258,7 +258,7 @@ msgstr "Vetëm struktura"
 #: db_operations.php:459 libraries/messages.inc.php:1037
 #: tbl_operations.php:527 tbl_tracking.php:390
 msgid "Structure and data"
-msgstr "Struktura dhe të dhëna"
+msgstr "Struktura dhe të dhënat"
 
 #: db_operations.php:460 libraries/messages.inc.php:225 tbl_operations.php:528
 #: tbl_tracking.php:389
