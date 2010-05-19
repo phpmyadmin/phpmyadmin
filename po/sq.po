@@ -517,7 +517,7 @@ msgstr "Shto/Fshi rreshtin e kriterit"
 
 #: db_qbe.php:596 libraries/messages.inc.php:28
 msgid "Add/Delete Field Columns"
-msgstr "Shto/Fshi fushën"
+msgstr "Shto/Fshi kollonat e fushës"
 
 #: db_qbe.php:609 db_qbe.php:634 libraries/messages.inc.php:1188
 msgid "Update Query"
