@@ -822,7 +822,7 @@ msgstr "attivo"
 #: db_tracking.php:108 libraries/messages.inc.php:1139 tbl_tracking.php:550
 #: tbl_tracking.php:608 tbl_tracking.php:610
 msgid "not active"
-msgstr ""
+msgstr "non attivo"
 
 #: db_tracking.php:121 libraries/messages.inc.php:1156
 #, fuzzy
