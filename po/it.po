@@ -801,7 +801,7 @@ msgstr "Creato"
 
 #: db_tracking.php:75 libraries/messages.inc.php:1143 tbl_tracking.php:595
 msgid "Updated"
-msgstr ""
+msgstr "Aggiornato"
 
 #: db_tracking.php:77 libraries/Index.class.php:440
 #: libraries/db_structure.lib.php:53 libraries/messages.inc.php:23
