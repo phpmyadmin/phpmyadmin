@@ -1155,7 +1155,7 @@ msgstr "Ago"
 
 #: js/messages.php:90
 msgid "September"
-msgstr ""
+msgstr "Set"
 
 #: js/messages.php:91
 #, fuzzy
