@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-20 08:34+0200\n"
+"PO-Revision-Date: 2010-05-20 08:35+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -796,9 +796,8 @@ msgid "Last version"
 msgstr "Ultima versione"
 
 #: db_tracking.php:74 libraries/messages.inc.php:1141 tbl_tracking.php:594
-#, fuzzy
 msgid "Created"
-msgstr "Crea"
+msgstr "Creato"
 
 #: db_tracking.php:75 libraries/messages.inc.php:1143 tbl_tracking.php:595
 msgid "Updated"
