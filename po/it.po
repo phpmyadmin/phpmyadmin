@@ -850,9 +850,8 @@ msgid "Track table"
 msgstr "Controlla tabella"
 
 #: db_tracking.php:200 libraries/messages.inc.php:1117
-#, fuzzy
 msgid "Database Log"
-msgstr "Database"
+msgstr "Log database"
 
 #: export.php:62 libraries/messages.inc.php:308
 msgid "Selected export type has to be saved in file!"
