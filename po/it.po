@@ -1091,10 +1091,9 @@ msgstr "Scegli il campo da mostrare"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Dona"
+msgstr "Fatto"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:75
