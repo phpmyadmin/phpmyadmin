@@ -776,9 +776,8 @@ msgid "Export"
 msgstr "Esporta"
 
 #: db_tracking.php:66 libraries/messages.inc.php:1147
-#, fuzzy
 msgid "Tracked tables"
-msgstr "Controlla tabella"
+msgstr "Controlla tabelle"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
