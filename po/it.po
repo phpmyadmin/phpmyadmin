@@ -1146,7 +1146,7 @@ msgstr "Giugno"
 #: js/messages.php:88
 #| msgid "Jul"
 msgid "July"
-msgstr "Lug"
+msgstr "Luglio"
 
 #: js/messages.php:89
 #| msgid "Aug"
