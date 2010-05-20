@@ -678,7 +678,7 @@ msgstr "Il tracking è attivo."
 
 #: db_structure.php:335 libraries/messages.inc.php:1125
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Il tracking non è attivo."
 
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #: libraries/messages.inc.php:1224
