@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-20 08:33+0200\n"
+"PO-Revision-Date: 2010-05-20 08:34+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -674,7 +674,7 @@ msgstr "La tabella %s è stata eliminata"
 
 #: db_structure.php:333 libraries/messages.inc.php:1124
 msgid "Tracking is active."
-msgstr ""
+msgstr "Il tracking è attivo."
 
 #: db_structure.php:335 libraries/messages.inc.php:1125
 msgid "Tracking is not active."
