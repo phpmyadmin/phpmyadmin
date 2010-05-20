@@ -322,11 +322,10 @@ msgid "Repair"
 msgstr "Riparazione"
 
 #: db_operations.php:570
-#, fuzzy
 #| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr "Disabilitata"
+msgstr "Disabilitato"
 
 #: db_operations.php:574 libraries/messages.inc.php:92
 msgid "Enable"
