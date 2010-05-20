@@ -831,7 +831,7 @@ msgstr "Versioni"
 #: db_tracking.php:122 libraries/messages.inc.php:1128 tbl_tracking.php:379
 #: tbl_tracking.php:624
 msgid "Tracking report"
-msgstr ""
+msgstr "Rapporto tracking"
 
 #: db_tracking.php:123 libraries/messages.inc.php:1140 tbl_tracking.php:251
 #: tbl_tracking.php:624
