@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-04-11 11:19+0200\n"
+"PO-Revision-Date: 2010-05-20 08:32+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -302,11 +302,10 @@ msgid "Status"
 msgstr "Stato"
 
 #: db_operations.php:544
-#, fuzzy
 #| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
-msgstr "Abilitata"
+msgstr "Attivato"
 
 #: db_operations.php:548 libraries/messages.inc.php:89
 msgid "Disable"
@@ -8700,159 +8699,3 @@ msgstr "Crea un indice su %s columns"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descrizione"
-
-#, fuzzy
-#~| msgid ""
-#~| "However on last run no data has been parsed, this usually means "
-#~| "phpMyAdmin won't be able to finish this import unless you increase php "
-#~| "time limits."
-#~ msgid ""
-#~ "However on last run no data has been parsed, this usually means "
-#~ "phpMyAdmin won"
-#~ msgstr ""
-#~ "Nell'ultima esecuzione nessun dato è stato processato, questo, "
-#~ "solitamente, vuole dire che che phpMyAdmin non è in grado di ultimare "
-#~ "l'operazione fino a che non verrà aumentato il parametro php time limits."
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Nessuno"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "Nessuno"
-
-#, fuzzy
-#~| msgid "Grant all privileges on wildcard name (username\\_%)"
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr ""
-#~ "Concedi tutti i privilegi al nome con caratteri jolly (username\\_%)"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "La tabella \"%s\" non esiste!"
-
-#, fuzzy
-#~| msgid "Could not load default configuration from: \"%1$s\""
-#~ msgid "Could not load default configuration from: %1"
-#~ msgstr "Non posso leggere la configurazione da: \"%1$s\""
-
-#, fuzzy
-#~| msgid "Invalid hostname for server %1$s. Please review your configuration."
-#~ msgid "Invalid hostname for server %1. Please review your configuration."
-#~ msgstr ""
-#~ "Nome host per il server %1$s non valido. Controlla la tua configurazione."
-
-#, fuzzy
-#~| msgid "Error renaming table %1$s to %2$s"
-#~ msgid "Error renaming table %1 to %2"
-#~ msgstr "Errore nel rinominare la tabella %1$s in %2$s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "Impossibile caricare l'estensione %s,<br />prego controllare la "
-#~ "configurazione di PHP"
-
-#, fuzzy
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Impossibile eseguire il login nel server MySQL"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "C'è la possibilità che ci sia un bug nel parser SQL. Per favore, "
-#~ "esaminate la query accuratamente, e controllate che le virgolette siano "
-#~ "corrette e non sbagliate. Altre possibili cause d'errori possono essere "
-#~ "che si stia cercando di uploadare un file binario al di fuori di un'area "
-#~ "di testo virgolettata. Si può anche provare la query MySQL dalla riga di "
-#~ "comando di MySQL. L'errore qui sotto restituito dal server MySQL, se ce "
-#~ "n'è uno, può anche aiutare nella diagnostica del problema. Se ci sono "
-#~ "ancora problemi, o se il parser SQL di phpMyAdmin sbaglia quando invece "
-#~ "l'interfaccia a riga di comando non mostra problemi, si può ridurre la "
-#~ "query SQL in ingresso alla singola query che causa problemi, e inviare un "
-#~ "bug report con i dati riportati nella sezione CUT qui sotto:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "dati CSV"
-
-#~ msgid "Copy"
-#~ msgstr "Copia"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Cancella gli utenti e dopo ricarica i privilegi."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Questa è la vita più giusta, ma il caricamento dei privilegi può durare "
-#~ "qualche secondo."
-
-#~ msgid "has been altered."
-#~ msgstr "è stato modificato."
-
-#~ msgid "Microsoft Excel 2000"
-#~ msgstr "Microsoft Excel 2000"
-
-#~ msgid "Internet Explorer does not support this function."
-#~ msgstr "Internet explorer non supporta questa funzione."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "Gli utenti \"cancellati\" saranno ancora in grado di accedere al server "
-#~ "come al solito, finché i privilegi non verranno ricaricati."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Cancella soltanto gli utenti dalle tabelle dei privilegi."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Permette di eseguire procedure memorizzate; Non ha effetto in questa "
-#~ "versione di MySQL."
-
-#~ msgid "Process list"
-#~ msgstr "Lista Processi"
-
-#~ msgid "Reload privileges"
-#~ msgstr "Ricarica i privilegi"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Gli utenti UTILIZZERANNO comunque il privilegio finché i privilegi non "
-#~ "saranno ricaricati."
-
-#~ msgid "Native MS Excel format"
-#~ msgstr "Dati nativi di MS Excel"
