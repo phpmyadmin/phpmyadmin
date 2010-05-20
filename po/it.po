@@ -817,7 +817,7 @@ msgstr "Cancella dati di tracciamento per questa tabella"
 #: db_tracking.php:106 libraries/messages.inc.php:1138 tbl_tracking.php:548
 #: tbl_tracking.php:606 tbl_tracking.php:613
 msgid "active"
-msgstr ""
+msgstr "attivo"
 
 #: db_tracking.php:108 libraries/messages.inc.php:1139 tbl_tracking.php:550
 #: tbl_tracking.php:608 tbl_tracking.php:610
