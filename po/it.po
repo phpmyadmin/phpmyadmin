@@ -792,9 +792,8 @@ msgid "Database"
 msgstr "Database"
 
 #: db_tracking.php:73 libraries/messages.inc.php:1142
-#, fuzzy
 msgid "Last version"
-msgstr "Crea relazioni"
+msgstr "Ultima versione"
 
 #: db_tracking.php:74 libraries/messages.inc.php:1141 tbl_tracking.php:594
 #, fuzzy
