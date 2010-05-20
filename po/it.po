@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-20 08:32+0200\n"
+"PO-Revision-Date: 2010-05-20 08:33+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -316,11 +316,10 @@ msgid "Damaged"
 msgstr "Danneggiato"
 
 #: db_operations.php:562
-#, fuzzy
 #| msgid "Repair"
 msgctxt "BLOB repository"
 msgid "Repair"
-msgstr "Ripara"
+msgstr "Riparazione"
 
 #: db_operations.php:570
 #, fuzzy
