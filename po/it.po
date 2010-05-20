@@ -825,9 +825,8 @@ msgid "not active"
 msgstr "non attivo"
 
 #: db_tracking.php:121 libraries/messages.inc.php:1156
-#, fuzzy
 msgid "Versions"
-msgstr "Persiano"
+msgstr "Versioni"
 
 #: db_tracking.php:122 libraries/messages.inc.php:1128 tbl_tracking.php:379
 #: tbl_tracking.php:624
