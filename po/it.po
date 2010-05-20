@@ -1178,7 +1178,7 @@ msgstr "Gen"
 #. l10n: Short month name
 #: js/messages.php:99 libraries/common.lib.php:1557
 msgid "Feb"
-msgstr "feb"
+msgstr "Feb"
 
 #. l10n: Short month name
 #: js/messages.php:101 libraries/common.lib.php:1559
