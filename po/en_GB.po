@@ -3238,10 +3238,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Import percentages as proper decimals (12.00% to .12)"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies (.00 to 5.00)"
-msgstr "Import currencies ($5.00 to 5.00)"
+msgstr "Import currencies (.00 to 5.00)"
 
 #: libraries/import/sql.php:42 libraries/messages.inc.php:264
 msgid "Do not use AUTO_INCREMENT for zero values"
