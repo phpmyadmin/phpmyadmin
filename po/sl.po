@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-17 11:36+0200\n"
-"PO-Revision-Date: 2010-05-07 23:30+0200\n"
+"PO-Revision-Date: 2010-05-21 22:25+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -3093,7 +3093,7 @@ msgstr "Ustvaril"
 #: server_databases.php:122 tbl_printview.php:394 tbl_structure.php:366
 #: tbl_structure.php:778
 msgid "Rows"
-msgstr "Vrstice"
+msgstr "vrstic"
 
 #: libraries/import.lib.php:150 libraries/messages.inc.php:281 sql.php:520
 #: tbl_change.php:181 tbl_get_field.php:35
@@ -8411,16 +8411,3 @@ msgstr "Ustvari indeks na &nbsp;%s&nbsp;stolpcih"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Opis"
-
-#, fuzzy
-#~| msgid ""
-#~| "However on last run no data has been parsed, this usually means "
-#~| "phpMyAdmin won't be able to finish this import unless you increase php "
-#~| "time limits."
-#~ msgid ""
-#~ "However on last run no data has been parsed, this usually means "
-#~ "phpMyAdmin won"
-#~ msgstr ""
-#~ "Kakor koli, ob zadnjem zagonu ni bilo razčlenjenih nič podatkov, kar po "
-#~ "navadi pomeni, da phpMyAdmin ne bo mogel dokončati tega uvoza, razen če "
-#~ "povečate vaše časovne omejitve PHP."
