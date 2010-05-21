@@ -2928,7 +2928,9 @@ msgstr "PHP-polje"
 msgid ""
 "Add custom comment into header (\n"
 " splits lines)"
-msgstr "Dodaj prilagojen komentar v glavo (\\n prelomi vrstice)"
+msgstr ""
+"Dodaj prilagojen komentar v glavo (\n"
+" prelomi vrstice)"
 
 #: libraries/export/sql.php:32 libraries/messages.inc.php:283
 msgid "Enclose export in a transaction"
