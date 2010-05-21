@@ -2923,7 +2923,6 @@ msgid "PHP array"
 msgstr "PHP-polje"
 
 #: libraries/export/sql.php:29
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid ""
 "Add custom comment into header (\n"
