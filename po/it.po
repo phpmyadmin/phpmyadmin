@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-22 14:11+0200\n"
-"PO-Revision-Date: 2010-05-23 01:33+0200\n"
+"PO-Revision-Date: 2010-05-23 01:34+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -3283,7 +3283,7 @@ msgstr "Non importare righe vuote"
 
 #: libraries/import/ods.php:27 libraries/messages.inc.php:401
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Importa percentuali come propri decimali (12.00% to .12)"
 
 #: libraries/import/ods.php:28 libraries/messages.inc.php:399
 msgid "Import currencies ($5.00 to 5.00)"
