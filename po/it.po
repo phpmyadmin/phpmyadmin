@@ -3287,7 +3287,7 @@ msgstr "Importa percentuali come propri decimali (12.00% to .12)"
 
 #: libraries/import/ods.php:28 libraries/messages.inc.php:399
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Importa valute ($5.00 to 5.00)"
 
 #: libraries/import/sql.php:42 libraries/messages.inc.php:264
 msgid "Do not use AUTO_INCREMENT for zero values"
