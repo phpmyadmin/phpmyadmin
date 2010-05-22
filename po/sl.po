@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-22 14:11+0200\n"
-"PO-Revision-Date: 2010-05-22 22:42+0200\n"
+"PO-Revision-Date: 2010-05-22 22:44+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1649,7 +1649,7 @@ msgstr "Datoteka %s ne vsebuje nobenega ključa id"
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 #: libraries/messages.inc.php:1052
 msgid "Hardware authentication failed"
-msgstr "Potrjevanje strojne opreme je spodletelo"
+msgstr "Overitev strojne opreme je spodletelo"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 #: libraries/messages.inc.php:1054
