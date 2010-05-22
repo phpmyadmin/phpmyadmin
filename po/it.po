@@ -3130,9 +3130,8 @@ msgid "Export tables"
 msgstr "Esporta tabelle"
 
 #: libraries/export/xml.php:37 libraries/messages.inc.php:1249
-#, fuzzy
 msgid "Export triggers"
-msgstr "Tipo di esportazione"
+msgstr "Esporta trigger"
 
 #: libraries/export/xml.php:39 libraries/messages.inc.php:1250
 #, fuzzy
