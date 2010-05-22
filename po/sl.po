@@ -8180,7 +8180,7 @@ msgstr "Prikaže polja funkcij v načinu urejanja/vstavljanja"
 
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
-msgstr ""
+msgstr "Prikaži polja funkcij"
 
 #: setup/lib/messages.inc.php:338
 msgid ""
