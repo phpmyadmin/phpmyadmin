@@ -7090,7 +7090,7 @@ msgstr "Počisti URL signon med uporabo overitvenega načina signon"
 
 #: setup/lib/messages.inc.php:72
 msgid "Empty username while using config authentication method"
-msgstr "Počisti uporabniško ime med uporabo načina overitve config"
+msgstr "Počisti uporabniško ime med uporabo overitvenega načina config"
 
 #: setup/lib/messages.inc.php:73
 msgid "Submitted form contains errors"
