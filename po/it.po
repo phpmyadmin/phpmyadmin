@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-22 14:11+0200\n"
-"PO-Revision-Date: 2010-05-23 01:29+0200\n"
+"PO-Revision-Date: 2010-05-23 01:30+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2210,10 +2210,9 @@ msgid "None"
 msgstr "Nessuno"
 
 #: libraries/display_export.lib.php:247
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"compresso con zip\""
+msgstr "zippato"
 
 #: libraries/display_export.lib.php:253
 #, fuzzy
