@@ -7082,7 +7082,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:70
 msgid "Empty signon session name while using signon authentication method"
-msgstr ""
+msgstr "Počisti ime seje signon med uporabo overitvenega načina signon"
 
 #: setup/lib/messages.inc.php:71
 msgid "Empty signon URL while using signon authentication method"
