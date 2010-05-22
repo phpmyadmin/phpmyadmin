@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-22 14:11+0200\n"
-"PO-Revision-Date: 2010-05-22 22:15+0200\n"
+"PO-Revision-Date: 2010-05-22 22:18+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7725,7 +7725,7 @@ msgstr "Privzet zavihek okna za poizvedbe"
 
 #: setup/lib/messages.inc.php:232
 msgid "Select which functions will be used for character set conversion"
-msgstr ""
+msgstr "Določi katere funkcije bodo uporabljene za pretvorbo nabora znakov"
 
 #: setup/lib/messages.inc.php:233
 msgid "Recoding engine"
