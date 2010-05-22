@@ -549,6 +549,10 @@ $GLOBALS['js_include'][] = 'jquery/jquery-1.4.2.js';
 $GLOBALS['js_include'][] = 'update-location.js';
 
 /**
+ * Add common jQuery functions script here if necessary.
+ */
+
+/**
  * JavaScript events that will be registered
  * @global array $js_events
  */
@@ -982,6 +986,20 @@ $GLOBALS['PMA_Config']->set('default_server', '');
 
 /* Tell tracker that it can actually work */
 PMA_Tracker::enable();
+
+/**
+ * @global boolean $GLOBALS['is_ajax_request']
+ * @todo should this be moved to the variables init section above?
+ *
+ * Check if the current request is an AJAX request, and set is_ajax_request 
+ * accordingly.  Suppress headers, footers and unnecessary output if set to
+ * true
+ */
+if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
+	$GLOBALS['is_ajax_request'] = true;
+} else {
+	$GLOBALS['is_ajax_request'] = false;
+}
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**

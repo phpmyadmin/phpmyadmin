@@ -93,3 +93,15 @@ function suggestPassword(passwd_form) {
     passwd_form.text_pma_pw2.value = passwd.value;
     return true;
 }
+
+/**
+ * Add all AJAX scripts for server_privileges page here.
+ *
+ * Actions to be ajaxified here:
+ * Add a new user
+ * Revoke a user (and also drop databases with same name as user)
+ * Edit privileges
+ * Export privileges
+ * Paginate table of users
+ * Flush privileges
+ */
