@@ -3197,7 +3197,7 @@ msgstr "Vai al database"
 #: libraries/import.lib.php:1087 libraries/import.lib.php:1111
 #: libraries/messages.inc.php:865
 msgid "settings"
-msgstr ""
+msgstr "impostazioni"
 
 #: libraries/import.lib.php:1106 libraries/messages.inc.php:359
 msgid "Go to table"
