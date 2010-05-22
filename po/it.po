@@ -3138,9 +3138,8 @@ msgid "Export views"
 msgstr "Esporta visualizzazione"
 
 #: libraries/export/xml.php:45 libraries/messages.inc.php:1244
-#, fuzzy
 msgid "Export contents"
-msgstr "Tipo di esportazione"
+msgstr "Esporta contenuti"
 
 #: libraries/footer.inc.php:184 libraries/footer.inc.php:195
 #: libraries/footer.inc.php:198 libraries/messages.inc.php:582
