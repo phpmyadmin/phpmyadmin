@@ -3123,7 +3123,7 @@ msgstr "Funzioni di esportazione"
 
 #: libraries/export/xml.php:33 libraries/messages.inc.php:1246
 msgid "Export procedures"
-msgstr ""
+msgstr "Esporta procedure"
 
 #: libraries/export/xml.php:35 libraries/messages.inc.php:1248
 #, fuzzy
