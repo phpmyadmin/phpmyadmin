@@ -6833,7 +6833,7 @@ msgstr "Napačna vrednost"
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Določi vrednost: %s"
 
 #: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
 msgid "Restore default value"
