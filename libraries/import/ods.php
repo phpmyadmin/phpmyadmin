@@ -4,7 +4,7 @@
  * OpenDocument Spreadsheet import plugin for phpMyAdmin
  *
  * @todo    Pretty much everything
- * @todo    Importing of accented characters seems to fail 
+ * @todo    Importing of accented characters seems to fail
  * @version 0.5-beta
  * @package phpMyAdmin-Import
  */
@@ -25,7 +25,7 @@ if (isset($plugin_list)) {
                 array('type' => 'bool', 'name' => 'col_names', 'text' => __('Column names in first row')),
                 array('type' => 'bool', 'name' => 'empty_rows', 'text' => __('Do not import empty rows')),
                 array('type' => 'bool', 'name' => 'recognize_percentages', 'text' => __('Import percentages as proper decimals (12.00% to .12)')),
-                array('type' => 'bool', 'name' => 'recognize_currency', 'text' => __('Import currencies (.00 to 5.00)')),
+                array('type' => 'bool', 'name' => 'recognize_currency', 'text' => __('Import currencies ($5.00 to 5.00)')),
             ),
         'options_text' => __('Options'),
         );
@@ -89,7 +89,7 @@ $rows = array();
 /* Iterate over tables */
 foreach ($sheets as $sheet) {
     $col_names_in_first_row = $_REQUEST['ods_col_names'];
-    
+
     /* Iterate over rows */
     foreach ($sheet as $row) {
         $type = $row->getName();
@@ -98,7 +98,7 @@ foreach ($sheets as $sheet) {
             foreach ($row as $cell) {
                 $text = $cell->children('text', true);
                 $cell_attrs = $cell->attributes('office', true);
-                
+
                 if (count($text) != 0) {
                     if (! $col_names_in_first_row) {
                         if ($_REQUEST['ods_recognize_percentages'] && !strcmp('percentage', $cell_attrs['value-type'])) {
@@ -117,14 +117,14 @@ foreach ($sheets as $sheet) {
                             $col_names[] = (string)$text;
                         }
                     }
-                    
+
                     ++$col_count;
                 } else {
                     /* Number of blank columns repeated */
                     if ($col_count < count($row->children('table', true)) - 1) {
                         $attr = $cell->attributes('table', true);
                         $num_null = (int)$attr['number-columns-repeated'];
-                        
+
                         if ($num_null) {
                             if (! $col_names_in_first_row) {
                                 for ($i = 0; $i < $num_null; ++$i) {
@@ -143,18 +143,18 @@ foreach ($sheets as $sheet) {
                             } else {
                                 $col_names[] = PMA_getColumnAlphaName($col_count + 1);
                             }
-                            
+
                             ++$col_count;
                         }
                     }
                 }
             }
-            
+
             /* Find the widest row */
             if ($col_count > $max_cols) {
                 $max_cols = $col_count;
             }
-            
+
             /* Don't include a row that is full of NULL values */
             if (! $col_names_in_first_row) {
                 if ($_REQUEST['ods_empty_rows']) {
@@ -168,13 +168,13 @@ foreach ($sheets as $sheet) {
                     $tempRows[] = $tempRow;
                 }
             }
-            
+
             $col_count = 0;
             $col_names_in_first_row = false;
             $tempRow = array();
         }
     }
-    
+
     /* Skip over empty sheets */
     if (count($tempRows) == 0 || count($tempRows[0]) == 0) {
         $col_names = array();
@@ -182,18 +182,18 @@ foreach ($sheets as $sheet) {
         $tempRows = array();
         continue;
     }
-    
+
     /**
      * Fill out each row as necessary to make
      * every one exactly as wide as the widest
      * row. This included column names.
      */
-    
+
     /* Fill out column names */
     for ($i = count($col_names); $i < $max_cols; ++$i) {
         $col_names[] = PMA_getColumnAlphaName($i + 1);
     }
-    
+
     /* Fill out all rows */
     $num_rows = count($tempRows);
     for ($i = 0; $i < $num_rows; ++$i) {
@@ -201,11 +201,11 @@ foreach ($sheets as $sheet) {
             $tempRows[$i][] = 'NULL';
         }
     }
-    
+
     /* Store the table name so we know where to place the row set */
     $tbl_attr = $sheet->attributes('table', true);
     $tables[] = array((string)$tbl_attr['name']);
-    
+
     /* Store the current sheet in the accumulator */
     $rows[] = array((string)$tbl_attr['name'], $col_names, $tempRows);
     $tempRows = array();
@@ -229,7 +229,7 @@ for ($i = 0; $i < $num_tbls; ++$i) {
             if (! isset($tables[$i][COL_NAMES])) {
                 $tables[$i][] = $rows[$j][COL_NAMES];
             }
-            
+
             $tables[$i][ROWS] = $rows[$j][ROWS];
         }
     }
