@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-22 14:11+0200\n"
-"PO-Revision-Date: 2010-05-23 01:30+0200\n"
+"PO-Revision-Date: 2010-05-23 01:31+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2395,7 +2395,7 @@ msgstr "Mostra contenuti binari"
 
 #: libraries/display_tbl.lib.php:597 libraries/messages.inc.php:869
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Mostra contenuti BLOB"
 
 #: libraries/display_tbl.lib.php:599 libraries/messages.inc.php:867
 msgid "Show binary contents as HEX"
