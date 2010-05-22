@@ -4921,7 +4921,7 @@ msgstr "Versione protocollo"
 
 #: libraries/messages.inc.php:716 server_synchronize.php:1003
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "Le seguenti query sono state eseguite:"
 
 #: libraries/messages.inc.php:717 server_status.php:251
 msgid "Query cache"
