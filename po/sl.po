@@ -1643,7 +1643,7 @@ msgstr "Napačno uporabniško ime/geslo. Dostop zavrnjen."
 #: libraries/messages.inc.php:1053
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr "Datoteka %s ne vsebuje nobenega ključa id"
+msgstr "Datoteka %s ne vsebuje nobenega identifikacijskega ključa"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
