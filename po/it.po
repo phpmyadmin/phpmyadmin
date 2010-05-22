@@ -1733,10 +1733,10 @@ msgstr ""
 ">Se ricevete una pagina bianca, allora è tutto a posto."
 
 #: libraries/common.inc.php:594
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Non posso leggere la configurazione da: \"%1$s\""
+msgstr "Non posso caricare la configurazione predefinita da: %1$s"
 
 #: libraries/common.inc.php:599 libraries/messages.inc.php:656
 msgid ""
