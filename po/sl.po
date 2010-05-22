@@ -7858,7 +7858,7 @@ msgstr "Vrsta povezave"
 
 #: setup/lib/messages.inc.php:262
 msgid "Control user password"
-msgstr ""
+msgstr "Geslo krmilnega uporabnika"
 
 #: setup/lib/messages.inc.php:263
 msgid ""
