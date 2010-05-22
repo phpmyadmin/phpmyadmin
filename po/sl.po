@@ -2617,7 +2617,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:47 libraries/messages.inc.php:529
 msgid "Sort buffer size"
-msgstr ""
+msgstr "Velikost medpomnilnika sortiranja"
 
 #: libraries/engines/myisam.lib.php:48 libraries/messages.inc.php:528
 msgid ""
