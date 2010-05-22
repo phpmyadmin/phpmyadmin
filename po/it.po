@@ -2399,7 +2399,7 @@ msgstr "Mostra contenuti BLOB"
 
 #: libraries/display_tbl.lib.php:599 libraries/messages.inc.php:867
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Mostra contenuti binati come esadecimali"
 
 #: libraries/display_tbl.lib.php:607 libraries/messages.inc.php:371
 #: pmd_general.php:141 tbl_change.php:314 tbl_change.php:320
