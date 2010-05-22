@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-17 11:36+0200\n"
+"POT-Creation-Date: 2010-05-22 14:11+0200\n"
 "PO-Revision-Date: 2010-03-30 23:23+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -40,7 +40,8 @@ msgstr ""
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/db_links.inc.php:75
+#: db_structure.php:106 libraries/common.lib.php:2822
+#: libraries/common.lib.php:2829 libraries/db_links.inc.php:75
 #: libraries/messages.inc.php:837 libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr "Поиск"
@@ -576,9 +577,10 @@ msgstr "%s вхождения(ий) в таблице <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/messages.inc.php:104
-#: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
-#: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:468
+#: db_structure.php:105 libraries/common.lib.php:2824
+#: libraries/messages.inc.php:104 libraries/mult_submits.inc.php:116
+#: libraries/tbl_links.inc.php:50 tbl_structure.php:37 tbl_structure.php:49
+#: tbl_structure.php:468
 msgid "Browse"
 msgstr "Обзор"
 
@@ -622,12 +624,14 @@ msgstr "Внутри поля:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/messages.inc.php:427 libraries/sql_query_form.lib.php:334
-#: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
+#: libraries/common.lib.php:2823 libraries/messages.inc.php:427
+#: libraries/sql_query_form.lib.php:334 libraries/sql_query_form.lib.php:337
+#: libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr "Вставить"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
+#: libraries/common.lib.php:2820 libraries/common.lib.php:2827
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:61
@@ -1984,6 +1988,20 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 "Работа параметра &quot;%s&quot; подвержена ошибке, описание смотрите на %s"
 
+#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
+#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
+#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
+#: querywindow.php:99 test/theme.php:97
+msgid "SQL"
+msgstr "SQL"
+
+#: libraries/common.lib.php:2830 libraries/db_links.inc.php:104
+#: libraries/messages.inc.php:583 libraries/tbl_links.inc.php:95
+#: libraries/tbl_links.inc.php:117 view_operations.php:89
+msgid "Operations"
+msgstr "Операции"
+
 #: libraries/core.lib.php:286 libraries/dbg/setup.php:22
 #: libraries/messages.inc.php:123
 #, php-format
@@ -2015,13 +2033,6 @@ msgstr "База данных %s была удалена."
 msgid "Database seems to be empty!"
 msgstr "База данных - пуста!"
 
-#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
-#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
-#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
-#: querywindow.php:99 test/theme.php:97
-msgid "SQL"
-msgstr "SQL"
-
 #: libraries/db_links.inc.php:81 libraries/messages.inc.php:1148
 #: libraries/relation.lib.php:155 libraries/tbl_links.inc.php:69
 msgid "Tracking"
@@ -2041,12 +2052,6 @@ msgstr "Дизайнер"
 #: pmd_pdf.php:84 pmd_pdf.php:110 setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "Импорт"
-
-#: libraries/db_links.inc.php:104 libraries/messages.inc.php:583
-#: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
-#: view_operations.php:89
-msgid "Operations"
-msgstr "Операции"
 
 #: libraries/db_links.inc.php:111 libraries/messages.inc.php:705
 #: libraries/server_links.inc.php:66 server_privileges.php:72
@@ -3325,10 +3330,8 @@ msgstr "Пропускать пустые строки"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Импортировать проценты в виде десятичных значений (12.00% в .12)"
 
-#: libraries/import/ods.php:28
-#, fuzzy
-#| msgid "Import currencies ($5.00 to 5.00)"
-msgid "Import currencies (.00 to 5.00)"
+#: libraries/import/ods.php:28 libraries/messages.inc.php:399
+msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Импортировать денежные единицы ($5.00 в 5.00)"
 
 #: libraries/import/sql.php:42 libraries/messages.inc.php:264
@@ -4252,10 +4255,6 @@ msgstr "Импорт/экспорт координат таблиц в/из PDF-
 #: libraries/messages.inc.php:391 querywindow.php:104
 msgid "Import files"
 msgstr "Импорт файлов"
-
-#: libraries/messages.inc.php:399
-msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Импортировать денежные единицы ($5.00 в 5.00)"
 
 #: libraries/messages.inc.php:410 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
@@ -7151,6 +7150,10 @@ msgstr "Редактировать сервер"
 msgid "Add a new server"
 msgstr "Добавить новый сервер"
 
+#: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:76
+msgid "Incorrect value"
+msgstr "Некорректное значение"
+
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
 #, php-format
 msgid "Set value: %s"
@@ -7447,10 +7450,6 @@ msgstr "Некорректно введен IP адрес: %s"
 #: setup/lib/messages.inc.php:75
 msgid "Not a valid port number"
 msgstr "Некорректно установлен номер порта"
-
-#: setup/lib/messages.inc.php:76
-msgid "Incorrect value"
-msgstr "Некорректное значение"
 
 #: setup/lib/messages.inc.php:77
 #, php-format
@@ -8899,6 +8898,11 @@ msgstr "Создать индекс для &nbsp;%s&nbsp; столбца/ов"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Описание"
+
+#, fuzzy
+#~| msgid "Import currencies ($5.00 to 5.00)"
+#~ msgid "Import currencies (.00 to 5.00)"
+#~ msgstr "Импортировать денежные единицы ($5.00 в 5.00)"
 
 #, fuzzy
 #~| msgid ""

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-17 11:36+0200\n"
+"POT-Creation-Date: 2010-05-22 14:11+0200\n"
 "PO-Revision-Date: 2010-05-20 08:39+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -40,7 +40,8 @@ msgstr ""
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/db_links.inc.php:75
+#: db_structure.php:106 libraries/common.lib.php:2822
+#: libraries/common.lib.php:2829 libraries/db_links.inc.php:75
 #: libraries/messages.inc.php:837 libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr "Cerca"
@@ -302,7 +303,6 @@ msgid "Status"
 msgstr "Stato"
 
 #: db_operations.php:544
-#| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
 msgstr "Attivato"
@@ -316,13 +316,11 @@ msgid "Damaged"
 msgstr "Danneggiato"
 
 #: db_operations.php:562
-#| msgid "Repair"
 msgctxt "BLOB repository"
 msgid "Repair"
 msgstr "Riparazione"
 
 #: db_operations.php:570
-#| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
 msgstr "Disabilitato"
@@ -572,9 +570,10 @@ msgstr "%s corrisponde/ono nella tabella <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/messages.inc.php:104
-#: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
-#: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:468
+#: db_structure.php:105 libraries/common.lib.php:2824
+#: libraries/messages.inc.php:104 libraries/mult_submits.inc.php:116
+#: libraries/tbl_links.inc.php:50 tbl_structure.php:37 tbl_structure.php:49
+#: tbl_structure.php:468
 msgid "Browse"
 msgstr "Mostra"
 
@@ -618,12 +617,14 @@ msgstr "Campi contenuti:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/messages.inc.php:427 libraries/sql_query_form.lib.php:334
-#: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
+#: libraries/common.lib.php:2823 libraries/messages.inc.php:427
+#: libraries/sql_query_form.lib.php:334 libraries/sql_query_form.lib.php:337
+#: libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr "Inserisci"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
+#: libraries/common.lib.php:2820 libraries/common.lib.php:2827
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:61
@@ -1091,13 +1092,11 @@ msgstr "Scegli il campo da mostrare"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
-#| msgid "Donate"
 msgid "Done"
 msgstr "Fatto"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:75
-#| msgid "Previous"
 msgid "Prev"
 msgstr "Precedente"
 
@@ -1111,12 +1110,10 @@ msgstr "Prossimo"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:79
-#| msgid "Total"
 msgid "Today"
 msgstr "Oggi"
 
 #: js/messages.php:82
-#| msgid "Binary"
 msgid "January"
 msgstr "Gennaio"
 
@@ -1125,12 +1122,10 @@ msgid "February"
 msgstr "Febbraio"
 
 #: js/messages.php:84
-#| msgid "Mar"
 msgid "March"
 msgstr "Marzo"
 
 #: js/messages.php:85
-#| msgid "Apr"
 msgid "April"
 msgstr "Aprile"
 
@@ -1139,17 +1134,14 @@ msgid "May"
 msgstr "Maggio"
 
 #: js/messages.php:87
-#| msgid "Jun"
 msgid "June"
 msgstr "Giugno"
 
 #: js/messages.php:88
-#| msgid "Jul"
 msgid "July"
 msgstr "Luglio"
 
 #: js/messages.php:89
-#| msgid "Aug"
 msgid "August"
 msgstr "Agosto"
 
@@ -1158,7 +1150,6 @@ msgid "September"
 msgstr "Setttembre"
 
 #: js/messages.php:91
-#| msgid "Oct"
 msgid "October"
 msgstr "Ottobre"
 
@@ -1192,7 +1183,6 @@ msgstr "Apr"
 
 #. l10n: Short month name
 #: js/messages.php:105 libraries/common.lib.php:1563
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mag"
@@ -1968,6 +1958,20 @@ msgstr "Passa al database \"%s\"."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "La %s funzionalità è affetta da un bug noto, vedi %s"
 
+#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
+#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
+#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
+#: querywindow.php:99 test/theme.php:97
+msgid "SQL"
+msgstr "SQL"
+
+#: libraries/common.lib.php:2830 libraries/db_links.inc.php:104
+#: libraries/messages.inc.php:583 libraries/tbl_links.inc.php:95
+#: libraries/tbl_links.inc.php:117 view_operations.php:89
+msgid "Operations"
+msgstr "Operazioni"
+
 #: libraries/core.lib.php:286 libraries/dbg/setup.php:22
 #: libraries/messages.inc.php:123
 #, php-format
@@ -1999,13 +2003,6 @@ msgstr "Il Database %s è stato eliminato."
 msgid "Database seems to be empty!"
 msgstr "Il databse sembra essere vuoto!"
 
-#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
-#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
-#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
-#: querywindow.php:99 test/theme.php:97
-msgid "SQL"
-msgstr "SQL"
-
 #: libraries/db_links.inc.php:81 libraries/messages.inc.php:1148
 #: libraries/relation.lib.php:155 libraries/tbl_links.inc.php:69
 msgid "Tracking"
@@ -2025,12 +2022,6 @@ msgstr "Designer"
 #: pmd_pdf.php:84 pmd_pdf.php:110 setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "Importa"
-
-#: libraries/db_links.inc.php:104 libraries/messages.inc.php:583
-#: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
-#: view_operations.php:89
-msgid "Operations"
-msgstr "Operazioni"
 
 #: libraries/db_links.inc.php:111 libraries/messages.inc.php:705
 #: libraries/server_links.inc.php:66 server_privileges.php:72
@@ -3316,8 +3307,8 @@ msgstr "Non importare righe vuote"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
 
-#: libraries/import/ods.php:28
-msgid "Import currencies (.00 to 5.00)"
+#: libraries/import/ods.php:28 libraries/messages.inc.php:399
+msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/import/sql.php:42 libraries/messages.inc.php:264
@@ -4238,10 +4229,6 @@ msgstr "Importa/esporta le coordinate per PDF schema"
 #: libraries/messages.inc.php:391 querywindow.php:104
 msgid "Import files"
 msgstr "Importa file"
-
-#: libraries/messages.inc.php:399
-msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
 
 #: libraries/messages.inc.php:410 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
@@ -7108,6 +7095,10 @@ msgstr "Modifica server"
 msgid "Add a new server"
 msgstr "Aggiungi un nuovo server"
 
+#: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:76
+msgid "Incorrect value"
+msgstr "Valore non corretto"
+
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
 #, php-format
 msgid "Set value: %s"
@@ -7363,10 +7354,6 @@ msgstr ""
 #: setup/lib/messages.inc.php:75
 msgid "Not a valid port number"
 msgstr ""
-
-#: setup/lib/messages.inc.php:76
-msgid "Incorrect value"
-msgstr "Valore non corretto"
 
 #: setup/lib/messages.inc.php:77
 #, php-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-17 11:36+0200\n"
+"POT-Creation-Date: 2010-05-22 14:11+0200\n"
 "PO-Revision-Date: 2010-03-30 23:16+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -39,7 +39,8 @@ msgstr ""
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/db_links.inc.php:75
+#: db_structure.php:106 libraries/common.lib.php:2822
+#: libraries/common.lib.php:2829 libraries/db_links.inc.php:75
 #: libraries/messages.inc.php:837 libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr "Αναζήτηση"
@@ -571,9 +572,10 @@ msgstr "%s αποτελέσματα στον πίνακα <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/messages.inc.php:104
-#: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
-#: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:468
+#: db_structure.php:105 libraries/common.lib.php:2824
+#: libraries/messages.inc.php:104 libraries/mult_submits.inc.php:116
+#: libraries/tbl_links.inc.php:50 tbl_structure.php:37 tbl_structure.php:49
+#: tbl_structure.php:468
 msgid "Browse"
 msgstr "Περιήγηση"
 
@@ -617,12 +619,14 @@ msgstr "Εσωτερικό πεδίο:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/messages.inc.php:427 libraries/sql_query_form.lib.php:334
-#: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
+#: libraries/common.lib.php:2823 libraries/messages.inc.php:427
+#: libraries/sql_query_form.lib.php:334 libraries/sql_query_form.lib.php:337
+#: libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr "Προσθήκη"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
+#: libraries/common.lib.php:2820 libraries/common.lib.php:2827
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:61
@@ -1956,6 +1960,20 @@ msgstr "Μεταπήδηση στην βάση «%s»."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Η λειτουργία %s έχει επηρρεαστεί από ένα γνωστό σφάλμα. Δείτε %s"
 
+#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
+#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
+#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
+#: querywindow.php:99 test/theme.php:97
+msgid "SQL"
+msgstr "Κώδικας SQL"
+
+#: libraries/common.lib.php:2830 libraries/db_links.inc.php:104
+#: libraries/messages.inc.php:583 libraries/tbl_links.inc.php:95
+#: libraries/tbl_links.inc.php:117 view_operations.php:89
+msgid "Operations"
+msgstr "Λειτουργίες"
+
 #: libraries/core.lib.php:286 libraries/dbg/setup.php:22
 #: libraries/messages.inc.php:123
 #, php-format
@@ -1987,13 +2005,6 @@ msgstr "Η βάση δεδομένων %s διεγράφη."
 msgid "Database seems to be empty!"
 msgstr "Η βάση δεδομένων φαίνεται να είναι άδεια!"
 
-#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
-#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
-#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
-#: querywindow.php:99 test/theme.php:97
-msgid "SQL"
-msgstr "Κώδικας SQL"
-
 #: libraries/db_links.inc.php:81 libraries/messages.inc.php:1148
 #: libraries/relation.lib.php:155 libraries/tbl_links.inc.php:69
 msgid "Tracking"
@@ -2013,12 +2024,6 @@ msgstr "Σχεδιαστής"
 #: pmd_pdf.php:84 pmd_pdf.php:110 setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "Εισαγωγή"
-
-#: libraries/db_links.inc.php:104 libraries/messages.inc.php:583
-#: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
-#: view_operations.php:89
-msgid "Operations"
-msgstr "Λειτουργίες"
 
 #: libraries/db_links.inc.php:111 libraries/messages.inc.php:705
 #: libraries/server_links.inc.php:66 server_privileges.php:72
@@ -2192,7 +2197,8 @@ msgid ""
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
-"και οι ακόλουθες μετατροπές: %3$s. Το υπόλοιπο κείμενο θα παραμείνει όπως είναι."
+"και οι ακόλουθες μετατροπές: %3$s. Το υπόλοιπο κείμενο θα παραμείνει όπως "
+"είναι."
 
 #: libraries/display_export.lib.php:202 libraries/messages.inc.php:327
 msgid "remember template"
@@ -3292,9 +3298,8 @@ msgstr "Να μην γίνει εισαγωγή άδειων γραμμών"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Εισαγωγή ποσοστών ως κανονικά δεκαδικά (12.00% αντί .12)"
 
-#: libraries/import/ods.php:28
-#, fuzzy
-msgid "Import currencies (.00 to 5.00)"
+#: libraries/import/ods.php:28 libraries/messages.inc.php:399
+msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Εισαγωγή νομισμάτων (€5,00 αντί 5,00)"
 
 #: libraries/import/sql.php:42 libraries/messages.inc.php:264
@@ -4215,10 +4220,6 @@ msgstr "Εισαγωγή/Εξαγωγή συντεταγμένων για σχέ
 #: libraries/messages.inc.php:391 querywindow.php:104
 msgid "Import files"
 msgstr "Εισαγωγή αρχείων"
-
-#: libraries/messages.inc.php:399
-msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Εισαγωγή νομισμάτων (€5,00 αντί 5,00)"
 
 #: libraries/messages.inc.php:410 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
@@ -7136,6 +7137,10 @@ msgstr "Επεξεργασία διακομιστή"
 msgid "Add a new server"
 msgstr "Προσθήκη ενός νέου διακομιστή"
 
+#: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:76
+msgid "Incorrect value"
+msgstr "Εσφαλμένη τιμή"
+
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
 #, php-format
 msgid "Set value: %s"
@@ -7428,10 +7433,6 @@ msgstr "Εσφαλμένη διεύθυνση IP: %s"
 #: setup/lib/messages.inc.php:75
 msgid "Not a valid port number"
 msgstr "Μη έγκυρος αριθμός θύρας"
-
-#: setup/lib/messages.inc.php:76
-msgid "Incorrect value"
-msgstr "Εσφαλμένη τιμή"
 
 #: setup/lib/messages.inc.php:77
 #, php-format
@@ -8861,6 +8862,10 @@ msgstr "Δημιουργία ευρετηρίου σε «%s» πεδία"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Περιγραφή"
+
+#, fuzzy
+#~ msgid "Import currencies (.00 to 5.00)"
+#~ msgstr "Εισαγωγή νομισμάτων (€5,00 αντί 5,00)"
 
 #~ msgid ""
 #~ "However on last run no data has been parsed, this usually means "

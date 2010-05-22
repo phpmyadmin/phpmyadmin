@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-17 11:36+0200\n"
+"POT-Creation-Date: 2010-05-22 14:11+0200\n"
 "PO-Revision-Date: 2010-05-21 05:48+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
-"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -33,13 +33,13 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"लक्ष्य ब्राउज़र विंडो को अद्यतन नहीं किया जा सकता है. शायद आपने मूल विंडो "
-"बंद कर दिया है,या अपनी ब्राउसर की सिक्यूरिटी सेट्टिंग को क्रोस-विंडो अद्यतन "
-"के लिए कांफिगुर कर रखा है."
+"लक्ष्य ब्राउज़र विंडो को अद्यतन नहीं किया जा सकता है. शायद आपने मूल विंडो बंद कर दिया है,"
+"या अपनी ब्राउसर की सिक्यूरिटी सेट्टिंग को क्रोस-विंडो अद्यतन के लिए कांफिगुर कर रखा है."
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/db_links.inc.php:75
+#: db_structure.php:106 libraries/common.lib.php:2822
+#: libraries/common.lib.php:2829 libraries/db_links.inc.php:75
 #: libraries/messages.inc.php:837 libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr "खोजें"
@@ -568,9 +568,10 @@ msgstr "<i>%s</i> तालिका के अंदर %s मैच हैं.
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/messages.inc.php:104
-#: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
-#: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:468
+#: db_structure.php:105 libraries/common.lib.php:2824
+#: libraries/messages.inc.php:104 libraries/mult_submits.inc.php:116
+#: libraries/tbl_links.inc.php:50 tbl_structure.php:37 tbl_structure.php:49
+#: tbl_structure.php:468
 msgid "Browse"
 msgstr "ब्राउज़"
 
@@ -614,12 +615,14 @@ msgstr "क्षेत्र के अंदर:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/messages.inc.php:427 libraries/sql_query_form.lib.php:334
-#: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
+#: libraries/common.lib.php:2823 libraries/messages.inc.php:427
+#: libraries/sql_query_form.lib.php:334 libraries/sql_query_form.lib.php:337
+#: libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr "इनसर्ट"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
+#: libraries/common.lib.php:2820 libraries/common.lib.php:2827
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:61
@@ -903,10 +906,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"कोई डेटा आयात करने के लिए प्राप्त नहीं किया गया. या तो कोई फ़ाइल नाम "
-"प्रस्तुत नहीं किया गया या फ़ाइल का आकार अधिकतम PHP विन्यास द्वारा अनुमति "
-"आकार के पार हो गई है. [a @. \"Documentation.html # @ faq1_16 प्रलेखन] अकसर "
-"किये गए सवाल 1.16 [/ a] देखें."
+"कोई डेटा आयात करने के लिए प्राप्त नहीं किया गया. या तो कोई फ़ाइल नाम प्रस्तुत नहीं किया "
+"गया या फ़ाइल का आकार अधिकतम PHP विन्यास द्वारा अनुमति आकार के पार हो गई है. [a @. "
+"\"Documentation.html # @ faq1_16 प्रलेखन] अकसर किये गए सवाल 1.16 [/ a] देखें."
 
 #: import.php:372 libraries/display_import.lib.php:24
 #: libraries/messages.inc.php:121
@@ -936,16 +938,15 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"स्क्रिप्ट मध्यांतर पारित की गयी है, आयात खत्म करने के लिए वही फाइल फिर से "
-"जमा करें."
+"स्क्रिप्ट मध्यांतर पारित की गयी है, आयात खत्म करने के लिए वही फाइल फिर से जमा करें."
 
 #: import.php:426 libraries/messages.inc.php:1102
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"पिछले भाग पर कोई डेटा विश्लेषित नहीं किया गया, इसका मतलब है की जब तक आप php "
-"समय सीमा नहीं बढ़ाते तब तक  phpMyAdmin आयात के लिए सक्षम नहीं है."
+"पिछले भाग पर कोई डेटा विश्लेषित नहीं किया गया, इसका मतलब है की जब तक आप php समय "
+"सीमा नहीं बढ़ाते तब तक  phpMyAdmin आयात के लिए सक्षम नहीं है."
 
 #: index.php:190 libraries/messages.inc.php:549
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -1098,7 +1099,6 @@ msgid "Today"
 msgstr "आज"
 
 #: js/messages.php:82
-#| msgid "Binary"
 msgid "January"
 msgstr "जनवरी"
 
@@ -1107,12 +1107,10 @@ msgid "February"
 msgstr "फरवरी"
 
 #: js/messages.php:84
-#| msgid "Mar"
 msgid "March"
 msgstr "मार्च"
 
 #: js/messages.php:85
-#| msgid "Apr"
 msgid "April"
 msgstr "अप्रैल"
 
@@ -1121,17 +1119,14 @@ msgid "May"
 msgstr "मई"
 
 #: js/messages.php:87
-#| msgid "Jun"
 msgid "June"
 msgstr "जून"
 
 #: js/messages.php:88
-#| msgid "Jul"
 msgid "July"
 msgstr "जुलाई"
 
 #: js/messages.php:89
-#| msgid "Aug"
 msgid "August"
 msgstr "अगस्त"
 
@@ -1140,7 +1135,6 @@ msgid "September"
 msgstr "सितम्बर"
 
 #: js/messages.php:91
-#| msgid "Oct"
 msgid "October"
 msgstr "अक्तूबर"
 
@@ -1174,7 +1168,6 @@ msgstr "अप्रैल"
 
 #. l10n: Short month name
 #: js/messages.php:105 libraries/common.lib.php:1563
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "मई"
@@ -1215,17 +1208,14 @@ msgid "Dec"
 msgstr "दिसमबर"
 
 #: js/messages.php:122
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "रविवार"
 
 #: js/messages.php:123
-#| msgid "Mon"
 msgid "Monday"
 msgstr "सोमवार"
 
 #: js/messages.php:124
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "मन्गलवार"
 
@@ -1238,7 +1228,6 @@ msgid "Thursday"
 msgstr "गुरूवार"
 
 #: js/messages.php:127
-#| msgid "Fri"
 msgid "Friday"
 msgstr "शुक्रवार"
 
@@ -1283,43 +1272,36 @@ msgstr "शनिवार"
 
 #. l10n: Minimal week day name
 #: js/messages.php:148
-#| msgid "Sun"
 msgid "Su"
 msgstr "रविवार"
 
 #. l10n: Minimal week day name
 #: js/messages.php:150
-#| msgid "Mon"
 msgid "Mo"
 msgstr "सोमवार"
 
 #. l10n: Minimal week day name
 #: js/messages.php:152
-#| msgid "Tue"
 msgid "Tu"
 msgstr "मन्गलवार"
 
 #. l10n: Minimal week day name
 #: js/messages.php:154
-#| msgid "Wed"
 msgid "We"
 msgstr "बुधवार"
 
 #. l10n: Minimal week day name
 #: js/messages.php:156
-#| msgid "Thu"
 msgid "Th"
 msgstr "गुरुवार"
 
 #. l10n: Minimal week day name
 #: js/messages.php:158
-#| msgid "Fri"
 msgid "Fr"
 msgstr "शुक्रवार"
 
 #. l10n: Minimal week day name
 #: js/messages.php:160
-#| msgid "Sat"
 msgid "Sa"
 msgstr "शनिवार"
 
@@ -1358,9 +1340,7 @@ msgstr "अपलोड की गई फ़ाइल php.ini में upload_m
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr ""
-"अपलोड की गई फ़ाइल, HTML के रूप में निर्दिष्ट MAX_FILE_SIZE की सीमा से अधिक "
-"है."
+msgstr "अपलोड की गई फ़ाइल, HTML के रूप में निर्दिष्ट MAX_FILE_SIZE की सीमा से अधिक है."
 
 #: libraries/File.class.php:420 libraries/messages.inc.php:1196
 msgid "The uploaded file was only partially uploaded."
@@ -1484,7 +1464,7 @@ msgid ""
 msgstr "इस भंडारण इंजन स्थिति के लिए कोई विस्तृत जानकारी उपलब्ध नहीं है."
 
 #: libraries/StorageEngine.class.php:359 libraries/messages.inc.php:287
-#, php-format, fuzzy
+#, fuzzy, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s इस MySQL सर्वर पर उपलब्ध है."
 
@@ -1567,8 +1547,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
 msgstr ""
-"आपने शायद एक विन्यास फाइल नहीं बने थी. विन्यास फाइल बनाने के लिए %1$ssetup "
-"script%2$s का उपयोग करें."
+"आपने शायद एक विन्यास फाइल नहीं बने थी. विन्यास फाइल बनाने के लिए %1$ssetup script%2"
+"$s का उपयोग करें."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -1577,10 +1557,9 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin ने सर्वर से कोन्नेक्ट करने की कोशिश की है पर सर्वर ने उसे "
-"अस्वीकार किया है. आप अपने मेजबान विन्यास में, उपयोगकर्ता नाम और पासवर्ड की "
-"जाँच करें और इत्मीनान कर ले की ये उपयोगकरता नाम और पासवर्ड MySQL सर्वर के "
-"व्यवस्थापक द्वारा दी गई जानकारी के अनुरूप हैं."
+"phpMyAdmin ने सर्वर से कोन्नेक्ट करने की कोशिश की है पर सर्वर ने उसे अस्वीकार किया है. आप "
+"अपने मेजबान विन्यास में, उपयोगकर्ता नाम और पासवर्ड की जाँच करें और इत्मीनान कर ले की ये "
+"उपयोगकरता नाम और पासवर्ड MySQL सर्वर के व्यवस्थापक द्वारा दी गई जानकारी के अनुरूप हैं."
 
 #: libraries/auth/cookie.auth.lib.php:244 libraries/messages.inc.php:484
 msgid "Log in"
@@ -1623,8 +1602,7 @@ msgstr "कुकीज़ इस बिंदु अतीत सक्षम �
 #: libraries/auth/signon.auth.lib.php:181 libraries/messages.inc.php:485
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
-"पासवर्ड के बिना लॉग इन विन्यास से मना किया गया है (AllowNoPassword देखें)."
+msgstr "पासवर्ड के बिना लॉग इन विन्यास से मना किया गया है (AllowNoPassword देखें)."
 
 #: libraries/auth/cookie.auth.lib.php:675
 #: libraries/auth/signon.auth.lib.php:185 libraries/messages.inc.php:540
@@ -1911,6 +1889,20 @@ msgstr ""
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
+#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
+#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
+#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
+#: querywindow.php:99 test/theme.php:97
+msgid "SQL"
+msgstr ""
+
+#: libraries/common.lib.php:2830 libraries/db_links.inc.php:104
+#: libraries/messages.inc.php:583 libraries/tbl_links.inc.php:95
+#: libraries/tbl_links.inc.php:117 view_operations.php:89
+msgid "Operations"
+msgstr "कार्रवाई"
+
 #: libraries/core.lib.php:286 libraries/dbg/setup.php:22
 #: libraries/messages.inc.php:123
 #, php-format
@@ -1940,13 +1932,6 @@ msgstr "डाटाबेस %s को ड्रोप कर दिया ।"
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
-#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
-#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
-#: querywindow.php:99 test/theme.php:97
-msgid "SQL"
-msgstr ""
-
 #: libraries/db_links.inc.php:81 libraries/messages.inc.php:1148
 #: libraries/relation.lib.php:155 libraries/tbl_links.inc.php:69
 msgid "Tracking"
@@ -1966,12 +1951,6 @@ msgstr ""
 #: pmd_pdf.php:84 pmd_pdf.php:110 setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr ""
-
-#: libraries/db_links.inc.php:104 libraries/messages.inc.php:583
-#: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
-#: view_operations.php:89
-msgid "Operations"
-msgstr "कार्रवाई"
 
 #: libraries/db_links.inc.php:111 libraries/messages.inc.php:705
 #: libraries/server_links.inc.php:66 server_privileges.php:72
@@ -3180,8 +3159,8 @@ msgstr ""
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
 
-#: libraries/import/ods.php:28
-msgid "Import currencies (.00 to 5.00)"
+#: libraries/import/ods.php:28 libraries/messages.inc.php:399
+msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/import/sql.php:42 libraries/messages.inc.php:264
@@ -4075,10 +4054,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:391 querywindow.php:104
 msgid "Import files"
-msgstr ""
-
-#: libraries/messages.inc.php:399
-msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:410 libraries/mult_submits.inc.php:98
@@ -6663,6 +6638,10 @@ msgstr ""
 msgid "Add a new server"
 msgstr ""
 
+#: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:76
+msgid "Incorrect value"
+msgstr ""
+
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
 #, php-format
 msgid "Set value: %s"
@@ -6913,10 +6892,6 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:75
 msgid "Not a valid port number"
-msgstr ""
-
-#: setup/lib/messages.inc.php:76
-msgid "Incorrect value"
 msgstr ""
 
 #: setup/lib/messages.inc.php:77

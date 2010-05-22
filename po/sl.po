@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-17 11:36+0200\n"
+"POT-Creation-Date: 2010-05-22 14:11+0200\n"
 "PO-Revision-Date: 2010-05-21 22:27+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
-"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -39,7 +39,8 @@ msgstr ""
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/db_links.inc.php:75
+#: db_structure.php:106 libraries/common.lib.php:2822
+#: libraries/common.lib.php:2829 libraries/db_links.inc.php:75
 #: libraries/messages.inc.php:837 libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr "Iskanje"
@@ -568,9 +569,10 @@ msgstr "%s zadetek(ov) v tabeli <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/messages.inc.php:104
-#: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
-#: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:468
+#: db_structure.php:105 libraries/common.lib.php:2824
+#: libraries/messages.inc.php:104 libraries/mult_submits.inc.php:116
+#: libraries/tbl_links.inc.php:50 tbl_structure.php:37 tbl_structure.php:49
+#: tbl_structure.php:468
 msgid "Browse"
 msgstr "Prebrskaj"
 
@@ -614,12 +616,14 @@ msgstr "V polju:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/messages.inc.php:427 libraries/sql_query_form.lib.php:334
-#: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
+#: libraries/common.lib.php:2823 libraries/messages.inc.php:427
+#: libraries/sql_query_form.lib.php:334 libraries/sql_query_form.lib.php:337
+#: libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr "Vstavi"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
+#: libraries/common.lib.php:2820 libraries/common.lib.php:2827
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:61
@@ -1919,6 +1923,20 @@ msgstr "Preskoči na podatkovno zbirko &quot;%s&quot;."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Na funkcionalnost %s vpliva znan hrošč, glej %s"
 
+#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
+#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
+#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
+#: querywindow.php:99 test/theme.php:97
+msgid "SQL"
+msgstr "SQL"
+
+#: libraries/common.lib.php:2830 libraries/db_links.inc.php:104
+#: libraries/messages.inc.php:583 libraries/tbl_links.inc.php:95
+#: libraries/tbl_links.inc.php:117 view_operations.php:89
+msgid "Operations"
+msgstr "Operacije"
+
 #: libraries/core.lib.php:286 libraries/dbg/setup.php:22
 #: libraries/messages.inc.php:123
 #, php-format
@@ -1950,13 +1968,6 @@ msgstr "Podatkovna zbirka %s je zavržena."
 msgid "Database seems to be empty!"
 msgstr "Zbirka podatkov se zdi prazna!"
 
-#: libraries/db_links.inc.php:68 libraries/export/sql.php:25
-#: libraries/import/sql.php:18 libraries/messages.inc.php:1021
-#: libraries/server_links.inc.php:45 libraries/tbl_links.inc.php:60
-#: querywindow.php:99 test/theme.php:97
-msgid "SQL"
-msgstr "SQL"
-
 #: libraries/db_links.inc.php:81 libraries/messages.inc.php:1148
 #: libraries/relation.lib.php:155 libraries/tbl_links.inc.php:69
 msgid "Tracking"
@@ -1976,12 +1987,6 @@ msgstr "Oblikovalnik"
 #: pmd_pdf.php:84 pmd_pdf.php:110 setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "Uvozi"
-
-#: libraries/db_links.inc.php:104 libraries/messages.inc.php:583
-#: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
-#: view_operations.php:89
-msgid "Operations"
-msgstr "Operacije"
 
 #: libraries/db_links.inc.php:111 libraries/messages.inc.php:705
 #: libraries/server_links.inc.php:66 server_privileges.php:72
@@ -2923,7 +2928,6 @@ msgid "PHP array"
 msgstr "PHP-polje"
 
 #: libraries/export/sql.php:29
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid ""
 "Add custom comment into header (\n"
 " splits lines)"
@@ -3217,10 +3221,9 @@ msgstr "Ne uvozi praznih vrstic"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Uvozi odstotke kot ustrezne decimalne vrednosti (12.00% v ,12)"
 
-#: libraries/import/ods.php:28
-#| msgid "Import currencies ($5.00 to 5.00)"
-msgid "Import currencies (.00 to 5.00)"
-msgstr "Uvozi denarne enote (.00 v 5.00)"
+#: libraries/import/ods.php:28 libraries/messages.inc.php:399
+msgid "Import currencies ($5.00 to 5.00)"
+msgstr "Uvozi denarne enote ($5.00 v 5.00)"
 
 #: libraries/import/sql.php:42 libraries/messages.inc.php:264
 msgid "Do not use AUTO_INCREMENT for zero values"
@@ -3237,13 +3240,11 @@ msgstr ""
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:143
-#| msgid "Use light version"
 msgid "Encoding conversion"
 msgstr "Pretvorba kodiranja"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:145
-#| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "Nobeno"
@@ -4131,10 +4132,6 @@ msgstr "Uvozi/Izvozi koordinate za PDF-shemo"
 #: libraries/messages.inc.php:391 querywindow.php:104
 msgid "Import files"
 msgstr "Uvozi datoteke"
-
-#: libraries/messages.inc.php:399
-msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Uvozi denarne enote ($5.00 v 5.00)"
 
 #: libraries/messages.inc.php:410 libraries/mult_submits.inc.php:98
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:525
@@ -6829,6 +6826,10 @@ msgstr "Uredi strežnik"
 msgid "Add a new server"
 msgstr "Dodaj nov strežnik"
 
+#: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:76
+msgid "Incorrect value"
+msgstr "Napačna vrednost"
+
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
 #, php-format
 msgid "Set value: %s"
@@ -7095,10 +7096,6 @@ msgstr "Napačen IP-naslov: %s"
 #: setup/lib/messages.inc.php:75
 msgid "Not a valid port number"
 msgstr "Neveljavna številka vrat"
-
-#: setup/lib/messages.inc.php:76
-msgid "Incorrect value"
-msgstr "Napačna vrednost"
 
 #: setup/lib/messages.inc.php:77
 #, php-format
@@ -8409,3 +8406,7 @@ msgstr "Ustvari indeks na &nbsp;%s&nbsp;stolpcih"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Opis"
+
+#~| msgid "Import currencies ($5.00 to 5.00)"
+#~ msgid "Import currencies (.00 to 5.00)"
+#~ msgstr "Uvozi denarne enote (.00 v 5.00)"
