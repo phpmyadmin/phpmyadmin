@@ -1239,7 +1239,7 @@ msgstr "Martedì"
 
 #: js/messages.php:125
 msgid "Wednesday"
-msgstr ""
+msgstr "Mercoledì"
 
 #: js/messages.php:126
 msgid "Thursday"
