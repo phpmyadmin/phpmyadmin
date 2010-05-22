@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-22 14:11+0200\n"
-"PO-Revision-Date: 2010-05-22 22:47+0200\n"
+"PO-Revision-Date: 2010-05-22 22:48+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2617,7 +2617,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:47 libraries/messages.inc.php:529
 msgid "Sort buffer size"
-msgstr "Velikost medpomnilnika sortiranja"
+msgstr "Velikost medpomnilnika razvrščanja"
 
 #: libraries/engines/myisam.lib.php:48 libraries/messages.inc.php:528
 msgid ""
