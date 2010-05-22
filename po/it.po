@@ -2220,10 +2220,9 @@ msgid "gzipped"
 msgstr "gzippato"
 
 #: libraries/display_export.lib.php:259
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"compresso con bzip\""
+msgstr "bzippato"
 
 #: libraries/display_export.lib.php:274 libraries/export/sql.php:44
 #: libraries/import/sql.php:32 libraries/messages.inc.php:1014
