@@ -1243,7 +1243,7 @@ msgstr "Mercoledì"
 
 #: js/messages.php:126
 msgid "Thursday"
-msgstr ""
+msgstr "Giovedì"
 
 #: js/messages.php:127
 #, fuzzy
