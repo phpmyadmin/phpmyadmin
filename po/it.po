@@ -3204,9 +3204,8 @@ msgid "Go to table"
 msgstr "Vai alla tabella"
 
 #: libraries/import.lib.php:1109 libraries/messages.inc.php:1043
-#, fuzzy
 msgid "structure"
-msgstr "Struttura"
+msgstr "struttura"
 
 #: libraries/import.lib.php:1115 libraries/messages.inc.php:360
 msgid "Go to view"
