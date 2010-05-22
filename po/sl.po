@@ -644,7 +644,7 @@ msgstr "Struktura"
 #: tbl_structure.php:27 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:472
 msgid "Drop"
-msgstr "Zavrži"
+msgstr "Zavrzi"
 
 #: db_structure.php:86 db_structure.php:87 db_structure.php:99
 #: db_structure.php:100 db_structure.php:112 db_structure.php:113
