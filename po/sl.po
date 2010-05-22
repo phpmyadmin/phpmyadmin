@@ -7074,7 +7074,7 @@ msgstr "Ne morem se povezati s strežnikom MySQL"
 
 #: setup/lib/messages.inc.php:68
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr ""
+msgstr "Počisti geslo krmilnega uporabnika phpMyAdmin med uporabo pmadb"
 
 #: setup/lib/messages.inc.php:69
 msgid "Empty phpMyAdmin control user while using pmadb"
