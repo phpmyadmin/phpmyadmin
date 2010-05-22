@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-22 14:11+0200\n"
-"PO-Revision-Date: 2010-05-22 22:21+0200\n"
+"PO-Revision-Date: 2010-05-22 22:22+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6869,7 +6869,7 @@ msgstr "Dovoli prijavo v kateri koli strežnik MySQL"
 #: setup/lib/messages.inc.php:20
 msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr ""
-"Pokaži povezavo &quot;Zavrži zbirko podatkov&quot; normalnim uporabnikom"
+"Pokaži povezavo &raquo;Zavrzi zbirko podatkov&laquo; normalnim uporabnikom"
 
 #: setup/lib/messages.inc.php:21
 msgid "Key should contain letters, numbers [em]and[/em] special characters"
