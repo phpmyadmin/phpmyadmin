@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-22 14:11+0200\n"
-"PO-Revision-Date: 2010-05-22 22:50+0200\n"
+"PO-Revision-Date: 2010-05-22 22:51+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -72,7 +72,7 @@ msgstr "Iskanje"
 #: tbl_structure.php:598 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
-msgstr "Pojdi"
+msgstr "Izvedi"
 
 #: browse_foreigners.php:168 browse_foreigners.php:172
 #: libraries/Index.class.php:442 libraries/messages.inc.php:455
