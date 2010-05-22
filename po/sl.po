@@ -2629,7 +2629,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:23 libraries/messages.inc.php:616
 msgid "Index cache size"
-msgstr ""
+msgstr "Velikost predpomnilnika indeksov"
 
 #: libraries/engines/pbxt.lib.php:24 libraries/messages.inc.php:615
 msgid ""
