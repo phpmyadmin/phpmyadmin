@@ -1654,7 +1654,7 @@ msgstr "Overitev strojne opreme je spodletelo"
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 #: libraries/messages.inc.php:1054
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "Vstavljen ni noben overitveni ključ"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 #: libraries/messages.inc.php:1051
