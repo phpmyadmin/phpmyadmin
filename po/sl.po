@@ -7842,7 +7842,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:258
 msgid "Compress connection to MySQL server"
-msgstr ""
+msgstr "Stisni povezavo s strežnikom MySQL"
 
 #: setup/lib/messages.inc.php:259
 msgid "Compress connection"
