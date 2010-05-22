@@ -2391,7 +2391,7 @@ msgstr "Mosta il campo relazionale"
 
 #: libraries/display_tbl.lib.php:595 libraries/messages.inc.php:868
 msgid "Show binary contents"
-msgstr ""
+msgstr "Mostra contenuti binari"
 
 #: libraries/display_tbl.lib.php:597 libraries/messages.inc.php:869
 msgid "Show BLOB contents"
