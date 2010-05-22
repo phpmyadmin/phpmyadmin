@@ -1340,7 +1340,7 @@ msgstr "Wiki"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "Ora"
 
 #: js/messages.php:165
 #, fuzzy
