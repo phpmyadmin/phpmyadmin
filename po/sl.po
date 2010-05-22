@@ -8278,7 +8278,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:361
 msgid "List of trusted proxies for IP allow/deny"
-msgstr "Seznam zaupanja vrednih prixyjev za sprejetje/zavrnitev IP"
+msgstr "Seznam zaupanja vrednih proxyjev za sprejetje/zavrnitev IP"
 
 #: setup/lib/messages.inc.php:362
 msgid "Directory on server where you can upload files for import"
