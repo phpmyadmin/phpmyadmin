@@ -3134,9 +3134,8 @@ msgid "Export triggers"
 msgstr "Esporta trigger"
 
 #: libraries/export/xml.php:39 libraries/messages.inc.php:1250
-#, fuzzy
 msgid "Export views"
-msgstr "Tipo di esportazione"
+msgstr "Esporta visualizzazione"
 
 #: libraries/export/xml.php:45 libraries/messages.inc.php:1244
 #, fuzzy
