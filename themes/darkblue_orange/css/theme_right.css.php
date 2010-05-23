@@ -595,6 +595,13 @@ form.login label {
     font-weight: bolder;
 }
 
+.commented_column {
+    border-bottom: 1px dashed black;
+}
+
+.column_attribute {
+    font-size: 70%;
+}
 
 /******************************************************************************/
 /* specific elements */
