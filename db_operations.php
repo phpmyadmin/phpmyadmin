@@ -463,18 +463,18 @@ if (!$is_information_schema) {
 ?>
         <input type="checkbox" name="create_database_before_copying" value="1"
             id="checkbox_create_database_before_copying"
-            style="vertical-align: middle" checked="checked" />
+            checked="checked" />
         <label for="checkbox_create_database_before_copying">
             <?php echo __('CREATE DATABASE before copying'); ?></label><br />
         <input type="checkbox" name="drop_if_exists" value="true"
-            id="checkbox_drop" style="vertical-align: middle" />
+            id="checkbox_drop" />
         <label for="checkbox_drop"><?php echo sprintf(__('Add %s'), $drop_clause); ?></label><br />
         <input type="checkbox" name="sql_auto_increment" value="1" checked="checked"
-            id="checkbox_auto_increment" style="vertical-align: middle" />
+            id="checkbox_auto_increment" />
         <label for="checkbox_auto_increment">
             <?php echo __('Add AUTO_INCREMENT value'); ?></label><br />
         <input type="checkbox" name="add_constraints" value="1"
-            id="checkbox_constraints" style="vertical-align: middle" />
+            id="checkbox_constraints" />
         <label for="checkbox_constraints">
             <?php echo __('Add constraints'); ?></label><br />
     <?php
@@ -488,7 +488,7 @@ if (!$is_information_schema) {
         <input type="checkbox" name="switch_to_new" value="true"
             id="checkbox_switch"
             <?php echo ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true') ? ' checked="checked"' : ''); ?>
-            style="vertical-align: middle" />
+            />
         <label for="checkbox_switch"><?php echo __('Switch to copied database'); ?></label>
     </fieldset>
     <fieldset class="tblFooters">
@@ -600,7 +600,7 @@ if (!$is_information_schema) {
        . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION,
             'db_collation', 'select_db_collation', $db_collation, false, 3)
        . '    <input type="submit" name="submitcollation"'
-       . ' value="' . __('Go') . '" style="vertical-align: middle" />' . "\n"
+       . ' value="' . __('Go') . '" />' . "\n"
        . '</fieldset>' . "\n"
        . '</form>' . "\n";
 

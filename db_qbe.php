@@ -582,7 +582,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
 <tr>
     <td nowrap="nowrap">
         <?php echo __('Add/Delete Criteria Row'); ?>:
-        <select size="1" name="add_row" style="vertical-align: middle">
+        <select size="1" name="add_row">
             <option value="-3">-3</option>
             <option value="-2">-2</option>
             <option value="-1">-1</option>
@@ -594,7 +594,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
     </td>
     <td width="10">&nbsp;</td>
     <td nowrap="nowrap"><?php echo __('Add/Delete Field Columns'); ?>:
-        <select size="1" name="add_col" style="vertical-align: middle">
+        <select size="1" name="add_col">
             <option value="-3">-3</option>
             <option value="-2">-2</option>
             <option value="-1">-1</option>
