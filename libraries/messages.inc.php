@@ -18,15 +18,12 @@ $charset = 'utf-8';
 /* l10n: Text direction, use either ltr or rtl */
 $text_dir = __('ltr');
 
-$strDisabled = __('Disabled');
 $strDocu = __('Documentation');
 
 $strError = __('Error');
 $strErrorSaveTable = __('Error saving coordinates for Designer.');
 
 $strFormEmpty = __('Missing value in the form!');
-
-$strGeneralRelationFeat = __('General relation features');
 
 $strHide         = __('Hide');
 
