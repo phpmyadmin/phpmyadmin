@@ -20,15 +20,9 @@ $text_dir = __('ltr');
 
 $strDocu = __('Documentation');
 
-$strError = __('Error');
 $strErrorSaveTable = __('Error saving coordinates for Designer.');
 
 $strFormEmpty = __('Missing value in the form!');
-
-$strHide         = __('Hide');
-
-
-
 
 $strLatexContent = __('Content of table __TABLE__');
 $strLatexContinued = __('(continued)');
