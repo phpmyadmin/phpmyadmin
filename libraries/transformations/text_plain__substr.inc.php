@@ -5,6 +5,12 @@
  * @version $Id$
  */
 
+function PMA_transformation_text_plain__substr_info() {
+    return array(
+        'info' => __('Displays a part of a string. The first option is the number of characters to skip from the beginning of the string (Default 0). The second option is the number of characters to return (Default: until end of string). The third option is the string to append and/or prepend when truncation occurs (Default: "...").'),
+        );
+}
+
 /**
  *
  */

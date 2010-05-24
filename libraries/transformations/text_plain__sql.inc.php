@@ -5,6 +5,12 @@
  * @version $Id$
  */
 
+function PMA_transformation_text_plain__sql_info() {
+    return array(
+        'info' => __('Formats text as SQL query with syntax highlighting.'),
+        );
+}
+
 /**
  *
  */

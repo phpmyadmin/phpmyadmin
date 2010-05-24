@@ -5,6 +5,12 @@
  * @version $Id$
  */
 
+function PMA_transformation_text_plain__formatted_info() {
+    return array(
+        'info' => __('Displays the contents of the field as-is, without running it through htmlspecialchars(). That is, the field is assumed to contain valid HTML.'),
+        );
+}
+
 /**
  *
  */

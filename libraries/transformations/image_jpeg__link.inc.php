@@ -5,6 +5,12 @@
  * @version $Id$
  */
 
+function PMA_transformation_image_jpeg__link_info() {
+    return array(
+        'info' => __('Displays a link to download this image.'),
+        );
+}
+
 /**
  *
  */

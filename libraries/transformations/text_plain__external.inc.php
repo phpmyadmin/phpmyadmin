@@ -5,6 +5,12 @@
  * @version $Id$
  */
 
+function PMA_transformation_text_plain__external_info() {
+    return array(
+        'info' => __('LINUX ONLY: Launches an external application and feeds it the field data via standard input. Returns the standard output of the application. The default is Tidy, to pretty-print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and list the tools you want to make available. The first option is then the number of the program you want to use and the second option is the parameters for the program. The third option, if set to 1, will convert the output using htmlspecialchars() (Default 1). The fourth option, if set to 1, will prevent wrapping and ensure that the output appears all on one line (Default 1).'),
+        );
+}
+
 /**
  *
  */

@@ -2576,6 +2576,18 @@ setfacl -d -m "g:www-data:rwx" tmp
         field (i.e. 'text/plain', 'image/jpeg' etc.)</li>
 </ol>
 
+<p> Additionally you should also provide additional function to provide 
+    information about the transformation to the user. This function should
+    have same name as transformation function just with appended
+    <code>_info</code> suffix. This function accepts no parameters and returns
+    array with information about the transformation. Currently following keys
+    can be used:
+<p>
+<dl>
+    <dt><code>info</code></dt>
+    <dd>Long description of the transformation.</dd>
+</dl>
+
 <!-- FAQ -->
 <h2 id="faq">FAQ - Frequently Asked Questions</h2>
 
