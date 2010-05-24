@@ -38,7 +38,7 @@ function PMA_replication_db_multibox()
 /**
  * prints out code for changing master
  *
- * @param String $submitname - submit button name 
+ * @param String $submitname - submit button name
  */
 
 function PMA_replication_gui_changemaster($submitname) {
@@ -46,7 +46,7 @@ function PMA_replication_gui_changemaster($submitname) {
     list($username_length, $hostname_length) = PMA_replication_get_username_hostname_length();
 
     echo '<form method="post" action="server_replication.php">';
-    echo PMA_generate_common_hidden_inputs('', ''); 
+    echo PMA_generate_common_hidden_inputs('', '');
     echo ' <fieldset id="fieldset_add_user_login">';
     echo '  <legend>' . __('Slave configuration') . ' - ' . __('Change or reconfigure master server') . '</legend>';
     echo __('Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:') . '<br />';
@@ -99,7 +99,11 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
     echo '<div id="replication_' . $type . '_section" style="' . ($hidden ? 'display: none;' : '') . '"> ';
 
     if ($title) {
-        echo '<h4><a name="replication_' . $type . '"></a>' . ${"strReplicationStatus_{$type}"} . '</h4>';
+        if ($type == 'master') {
+            echo '<h4><a name="replication_' . $type . '"></a>' . __('Master status') . '</h4>';
+        } else {
+            echo '<h4><a name="replication_' . $type . '"></a>' . __('Slave status') . '</h4>';
+        }
     } else {
         echo '<br />';
     }
@@ -123,19 +127,19 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
 
 
         // TODO change to regexp or something, to allow for negative match
-        if (isset(${"{$type}_variables_alerts"}[$variable]) 
+        if (isset(${"{$type}_variables_alerts"}[$variable])
             && ${"{$type}_variables_alerts"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
         ) {
             echo '<span class="attention">';
 
-        } elseif (isset(${"{$type}_variables_oks"}[$variable]) 
+        } elseif (isset(${"{$type}_variables_oks"}[$variable])
             && ${"{$type}_variables_oks"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
         ) {
             echo '<span class="allfine">';
         } else {
             echo '<span>';
         }
-        echo ${"server_{$type}_replication"}[0][$variable]; 
+        echo ${"server_{$type}_replication"}[0][$variable];
         echo '</span>';
 
         echo '  </td>';
@@ -159,7 +163,7 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
 function PMA_replication_print_slaves_table($hidden = false) {
 
     // Fetch data
-    $data = PMA_DBI_fetch_result('SHOW SLAVE HOSTS', null, null); 
+    $data = PMA_DBI_fetch_result('SHOW SLAVE HOSTS', null, null);
 
     echo '  <br />';
     echo '  <div id="replication_slaves_section" style="' . ($hidden ? 'display: none;' : '') . '"> ';
