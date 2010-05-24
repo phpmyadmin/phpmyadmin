@@ -129,7 +129,6 @@ $strShowStatusThreads_cachedDescr = __('The number of threads in the thread cach
 $strShowStatusThreads_connectedDescr = __('The number of currently open connections.');
 $strShowStatusThreads_createdDescr = __('The number of threads created to handle connections. If Threads_created is big, you may want to increase the thread_cache_size value. (Normally this doesn\'t give a notable performance improvement if you have a good thread implementation.)');
 $strShowStatusThreads_runningDescr = __('The number of threads that are not sleeping.');
-$strSuccess = __('Your SQL query has been executed successfully');
 
 $strTransformation_application_octetstream__download = __('Displays a link to download the binary data of the field. You can use the first option to specify the filename, or use the second option as the name of a field which contains the filename. If you use the second option, you need to set the first option to the empty string.');
 $strTransformation_application_octetstream__hex = __('Displays hexadecimal representation of data. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).');
@@ -143,11 +142,4 @@ $strTransformation_text_plain__imagelink = __('Displays an image and a link; the
 $strTransformation_text_plain__link = __('Displays a link; the field contains the filename. The first option is a URL prefix like "http://www.example.com/". The second option is a title for the link.');
 $strTransformation_text_plain__sql = __('Formats text as SQL query with syntax highlighting.');
 $strTransformation_text_plain__substr = __('Displays a part of a string. The first option is the number of characters to skip from the beginning of the string (Default 0). The second option is the number of characters to return (Default: until end of string). The third option is the string to append and/or prepend when truncation occurs (Default: "...").');
-
-
-
-
-
-
-
 ?>
