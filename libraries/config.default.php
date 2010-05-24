@@ -2329,7 +2329,7 @@ $cfg['ErrorIconic'] = true;
 $cfg['MainPageIconic'] = true;
 
 /**
- * show help button instead of strDocu (true|false)?
+ * show help button instead of Documentation text (true|false)?
  *
  * @global boolean $cfg['ReplaceHelpImg']
  */
