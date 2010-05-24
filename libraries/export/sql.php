@@ -26,8 +26,7 @@ if (isset($plugin_list)) {
             'extension' => 'sql',
             'mime_type' => 'text/x-sql',
             'options' => array(
-                array('type' => 'text', 'name' => 'header_comment', 'text' => __('Add custom comment into header (
- splits lines)')),
+                array('type' => 'text', 'name' => 'header_comment', 'text' => __('Add custom comment into header (\\n splits lines)')),
                 array('type' => 'bool', 'name' => 'include_comments', 'text' => __('Comments')),
                 array('type' => 'bool', 'name' => 'use_transaction', 'text' => __('Enclose export in a transaction')),
                 array('type' => 'bool', 'name' => 'disable_fk', 'text' => __('Disable foreign key checks')),
@@ -153,7 +152,7 @@ function PMA_exportComment($text = '')
 /**
  * Possibly outputs CRLF
  *
- * @return  string  $crlf or nothing 
+ * @return  string  $crlf or nothing
  */
 function PMA_possibleCRLF()
 {
@@ -723,7 +722,7 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false,  $do_mim
     }
 
     if (isset($mime_map) && count($mime_map) > 0) {
-        $schema_create .= PMA_possibleCRLF() 
+        $schema_create .= PMA_possibleCRLF()
                        . PMA_exportComment()
                        . PMA_exportComment(__('MIME TYPES FOR TABLE'). ' ' . PMA_backquote($table, $sql_backquotes) . ':');
         @reset($mime_map);
@@ -735,7 +734,7 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false,  $do_mim
     }
 
     if ($have_rel) {
-        $schema_create .= PMA_possibleCRLF() 
+        $schema_create .= PMA_possibleCRLF()
                        . PMA_exportComment()
                        . PMA_exportComment(__('RELATIONS FOR TABLE'). ' ' . PMA_backquote($table, $sql_backquotes) . ':');
         foreach ($res_rel AS $rel_field => $rel) {
@@ -776,9 +775,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
     $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
                           ? PMA_backquote($table)
                           : '\'' . $table . '\'';
-    $dump = PMA_possibleCRLF() 
+    $dump = PMA_possibleCRLF()
           . PMA_exportComment(str_repeat('-', 56))
-          . PMA_possibleCRLF() 
+          . PMA_possibleCRLF()
           . PMA_exportComment();
 
     switch($export_mode) {
@@ -789,10 +788,10 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
             $dump .= PMA_getTableComments($db, $table, $crlf, $relation, $mime);
             break;
         case 'triggers':
-            $dump = ''; 
+            $dump = '';
             $triggers = PMA_DBI_get_triggers($db, $table);
             if ($triggers) {
-                $dump .=  PMA_possibleCRLF() 
+                $dump .=  PMA_possibleCRLF()
                       . PMA_exportComment()
                       . PMA_exportComment(__('Triggers') . ' ' . $formatted_table_name)
                       . PMA_exportComment();
@@ -863,7 +862,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     // Do not export data for a VIEW
     // (For a VIEW, this is called only when exporting a single VIEW)
     if (PMA_Table::isView($db, $table)) {
-        $head = PMA_possibleCRLF() 
+        $head = PMA_possibleCRLF()
           . PMA_exportComment()
           . PMA_exportComment('VIEW ' . ' ' . $formatted_table_name)
           . PMA_exportComment(__('Data') . ': ' . __('None'))
@@ -877,7 +876,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     }
 
     // it's not a VIEW
-    $head = PMA_possibleCRLF() 
+    $head = PMA_possibleCRLF()
           . PMA_exportComment()
           . PMA_exportComment(__('Dumping data for table') . ' ' . $formatted_table_name)
           . PMA_exportComment();
