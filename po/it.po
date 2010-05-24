@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-24 12:05+0200\n"
-"PO-Revision-Date: 2010-05-24 21:24+0200\n"
+"PO-Revision-Date: 2010-05-24 21:25+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -5664,7 +5664,7 @@ msgstr ""
 
 #: server_replication.php:311
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Sincronizza i database con il master"
 
 #: server_replication.php:322
 msgid "Control slave:"
