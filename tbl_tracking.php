@@ -506,7 +506,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     $str_export1 =  '<select name="export_type">' .
                     '<option value="sqldumpfile">' . __('SQL dump (file download)') . '</option>' .
                     '<option value="sqldump">' . __('SQL dump') . '</option>' .
-                    '<option value="execution" onclick="alert(\'' . __('SQL execution') .'\')">' . __('SQL execution') . '</option>' .
+                    '<option value="execution" onclick="alert(\'' . PMA_escapeJsString(__('This option will replace your table and contained data.')) .'\')">' . __('SQL execution') . '</option>' .
                     '</select>';
 
     $str_export2 = '<input type="submit" name="report_export" value="' . __('Go') .'" />';
