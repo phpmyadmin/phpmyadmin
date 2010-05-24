@@ -20,10 +20,6 @@ $text_dir = __('ltr');
 
 $strDocu = __('Documentation');
 
-$strErrorSaveTable = __('Error saving coordinates for Designer.');
-
-$strFormEmpty = __('Missing value in the form!');
-
 $strLatexContent = __('Content of table __TABLE__');
 $strLatexContinued = __('(continued)');
 $strLatexStructure = __('Structure of table __TABLE__');
