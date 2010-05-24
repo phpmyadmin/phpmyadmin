@@ -5,6 +5,12 @@
  * @version $Id$
  */
 
+function PMA_transformation_application_octetstream__hex_info() {
+    return array(
+        'info' =>  __('Displays hexadecimal representation of data. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).'),
+        );
+}
+
 /**
  *
  */

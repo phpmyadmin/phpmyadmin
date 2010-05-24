@@ -327,9 +327,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 
     // underline commented fields and display a hover-title (CSS only)
 
-    $comment_style = '';
     if (isset($comments_map[$row['Field']])) {
-        $displayed_field_name = '<span style="border-bottom: 1px dashed black;" title="' . htmlspecialchars($comments_map[$row['Field']]) . '">' . $field_name . '</span>';
+        $displayed_field_name = '<span class="commented_column" title="' . htmlspecialchars($comments_map[$row['Field']]) . '">' . $field_name . '</span>';
     }
 
     if ($primary && $primary->hasColumn($field_name)) {
@@ -347,7 +346,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
     <td<?php echo $type_nowrap; ?>><bdo dir="ltr" xml:lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
     <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
-    <td nowrap="nowrap" style="font-size: 70%"><?php echo $attribute; ?></td>
+    <td nowrap="nowrap" class="column_attribute"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
     <td nowrap="nowrap"><?php
     if (isset($row['Default'])) {
@@ -540,11 +539,11 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     if ($cfg['PropertiesIconic']) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . __('Add new field') . '"/>';
     }
-    echo sprintf(__('Add %s field(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />');
+    echo sprintf(__('Add %s field(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
 
     // I tried displaying the drop-down inside the label but with Firefox
     // the drop-down was blinking
-    $fieldOptions = '<select name="after_field" style="vertical-align: middle" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
+    $fieldOptions = '<select name="after_field" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
     foreach ($aryFields as $fieldname) {
         $fieldOptions .= '<option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
     }
@@ -560,7 +559,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     echo $fieldOptions;
     unset($fieldOptions, $choices);
     ?>
-<input type="submit" value="<?php echo __('Go'); ?>" style="vertical-align: middle" />
+<input type="submit" value="<?php echo __('Go'); ?>" />
 </form>
 <hr />
     <?php

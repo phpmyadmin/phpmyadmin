@@ -299,7 +299,7 @@ $(function() {
 
 <fieldset id="fieldset_display_order">
     <legend><?php echo __('Display order:'); ?></legend>
-    <select name="orderField" style="vertical-align: middle">
+    <select name="orderField">
         <option value="--nil--"></option>
     <?php
     foreach ($fields_list as $each_field) {

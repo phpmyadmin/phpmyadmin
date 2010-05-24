@@ -5,6 +5,12 @@
  * @version $Id$
  */
 
+function PMA_transformation_text_plain__imagelink_info() {
+    return array(
+        'info' => __('Displays an image and a link; the field contains the filename. The first option is a URL prefix like "http://www.example.com/". The second and third options are the width and the height in pixels.'),
+        );
+}
+
 /**
  *
  */

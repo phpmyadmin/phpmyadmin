@@ -5,6 +5,12 @@
  * @version $Id$
  */
 
+function PMA_transformation_text_plain__longToIpv4_info() {
+    return array(
+        'info' => __('Converts an (IPv4) Internet network address into a string in Internet standard dotted format.'),
+        );
+}
+
 /**
  * returns IPv4 address
  *

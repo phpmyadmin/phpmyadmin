@@ -244,19 +244,19 @@ if ($is_zip || $is_gzip || $is_bzip) { ?>
             id="radio_compression_zip"
             onclick="document.getElementById('checkbox_dump_asfile').checked = true;"
             <?php PMA_exportIsActive('compression', 'zip'); ?> />
-        <label for="radio_compression_zip"><?php echo __('zipped'); ?></label>
+        <label for="radio_compression_zip"><?php echo __('"zipped"'); ?></label>
     <?php } if ($is_gzip) { ?>
         <input type="radio" name="compression" value="gzip"
             id="radio_compression_gzip"
             onclick="document.getElementById('checkbox_dump_asfile').checked = true;"
             <?php PMA_exportIsActive('compression', 'gzip'); ?> />
-        <label for="radio_compression_gzip"><?php echo __('gzipped'); ?></label>
+        <label for="radio_compression_gzip"><?php echo __('"gzipped"'); ?></label>
     <?php } if ($is_bzip) { ?>
         <input type="radio" name="compression" value="bzip"
             id="radio_compression_bzip"
             onclick="document.getElementById('checkbox_dump_asfile').checked = true;"
             <?php PMA_exportIsActive('compression', 'bzip2'); ?> />
-        <label for="radio_compression_bzip"><?php echo __('bzipped'); ?></label>
+        <label for="radio_compression_bzip"><?php echo __('"bzipped"'); ?></label>
     <?php } ?>
     </div>
 <?php } else { ?>

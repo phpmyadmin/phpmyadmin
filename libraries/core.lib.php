@@ -231,8 +231,6 @@ function PMA_fatalError($error_message, $message_args = null)
         // Loads the language file
         require_once './libraries/select_lang.lib.php';
 
-        $GLOBALS['strError'] = __('Error');
-
         // $text_dir is set in po file
         if (isset($text_dir)) {
             $GLOBALS['text_dir'] = $text_dir;

@@ -546,7 +546,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         ?>
     <fieldset>
         <label><?php echo __('Choose field to display') . ': '; ?></label>
-        <select name="display_field" style="vertical-align: middle">
+        <select name="display_field">
             <option value="">---</option>
         <?php
         foreach ($save_row AS $row) {

@@ -2814,7 +2814,22 @@ function PMA_duplicateFirstNewline($string){
  *                  or $cfg['DefaultTabDatabase']
  */
 function PMA_getTitleForTarget($target) {
-    return $GLOBALS[$GLOBALS['cfg']['DefaultTabTranslationMapping'][$target]];
+
+$mapping = array(
+	// Values for $cfg['DefaultTabTable']
+	'tbl_structure.php' =>  __('Structure'), 
+	'tbl_sql.php' => __('SQL'),
+	'tbl_select.php' =>__('Search'),
+	'tbl_change.php' =>__('Insert'),
+	'sql.php' => __('Browse'),
+
+	// Values for $cfg['DefaultTabDatabase']
+	'db_structure.php' => __('Structure'),
+	'db_sql.php' => __('SQL'),
+	'db_search.php' => __('Search'),
+	'db_operations.php' => __('Operations'),
+);
+    return $mapping[$target];
 }
 
 function PMA_js($code, $print=true)
