@@ -4583,6 +4583,8 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
+"Converts an (IPv4) Internet network address into a string in Internet "
+"standard dotted format."
 
 #: libraries/transformations/text_plain__sql.inc.php:10
 msgid "Formats text as SQL query with syntax highlighting."
@@ -8392,7 +8394,3 @@ msgstr "Rename view to"
 #~ "Cannot start session without errors, please check errors given in your "
 #~ "PHP and/or webserver log file and configure your PHP installation "
 #~ "properly."
-
-#~| msgid "Import currencies ($5.00 to 5.00)"
-#~ msgid "Import currencies (.00 to 5.00)"
-#~ msgstr "Import currencies (.00 to 5.00)"
