@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 11:33+0200\n"
+"POT-Creation-Date: 2010-05-24 12:05+0200\n"
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -1856,7 +1856,7 @@ msgstr "."
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1596
-#: libraries/transformations/text_plain__dateformat.inc.php:28
+#: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y 年 %B %d 日 %H:%M"
 
@@ -3822,129 +3822,6 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "スリープしていないスレッドの数"
 
-#: libraries/messages.inc.php:133
-msgid ""
-"Displays a link to download the binary data of the field. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
-msgstr ""
-"フィールドのバイナリデータをダウンロードするリンクを表示します。1 つ目のオプ"
-"ションにバイナリファイルのファイル名を指定することもできますし、2 つ目のオプ"
-"ションにファイル名を保持しているフィールドの名前を渡すこともできます。2 つ目"
-"のオプションを使う場合は 1 つ目のオプションは空文字列にする必要があります"
-
-#: libraries/messages.inc.php:134
-msgid ""
-"Displays hexadecimal representation of data. Optional first parameter "
-"specifies how often space will be added (defaults to 2 nibbles)."
-msgstr ""
-"データを 16 進数で表記します。オプションとして最初のパラメータにスペースを追"
-"加する頻度を指定することもできます (デフォルトは 2 ニブルごとです)"
-
-#: libraries/messages.inc.php:135
-msgid ""
-"Displays a clickable thumbnail. The options are the maximum width and height "
-"in pixels. The original aspect ratio is preserved."
-msgstr ""
-"クリック可能なサムネイルを表示します; オプションとして幅と高さの最大値をピク"
-"セル単位で指定できます。アスペクト比はそのまま維持されます"
-
-#: libraries/messages.inc.php:136
-msgid "Displays a link to download this image."
-msgstr "この画像をダウンロードするためのリンクを表示します"
-
-#: libraries/messages.inc.php:137
-msgid "See image/jpeg: inline"
-msgstr "image/jpeg: inlineをご覧ください"
-
-#: libraries/messages.inc.php:138
-msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-"formatted date. The first option is the offset (in hours) which will be "
-"added to the timestamp (Default: 0). Use second option to specify a "
-"different date/time format string. Third option determines whether you want "
-"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
-"According to that, date format has different value - for \"local\" see the "
-"documentation for PHP's strftime() function and for \"utc\" it is done using "
-"gmdate() function."
-msgstr ""
-"TIME、TIMESTAMP、DATETIME、あるいはUnixタイムスタンプの値が入っているフィール"
-"ドを書式にあわせて表示します。1 つ目のオプションはタイムスタンプに加算する時"
-"差です(デフォルト: 0)。2 つ目のオプションには日時の書式文字列を指定します。3 "
-"つ目のオプションはローカルの日時とみなすか UTC とみなすかです (\"local\"ない"
-"し\"utc\"という文字列を指定してください)。この値によって日時の表記が変わりま"
-"す。\"local\" の場合は PHP の strftime() 関数の説明をご覧ください。\"utc\" の"
-"場合は gmdate() を利用します"
-
-#: libraries/messages.inc.php:139
-msgid ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
-msgstr ""
-"LINUX のみ: 外部アプリケーションを起動して標準入力経由でフィールドデータを渡"
-"します。アプリケーションの標準出力が返ります。デフォルトは Tidy です (これは "
-"HTML コードを綺麗にするためのものです)。セキュリティ上の理由から libraries/"
-"transformations/text_plain__external.inc.php を自分で編集して利用したいツール"
-"を明記しておく必要があります。最初のオプションは利用したいプログラムの数で、"
-"2 つ目のオプションはプログラムのパラメータです。3 つ目のオプションが 1 に設定"
-"されている場合は htmlspecialchars() を用いて出力を変換します(デフォルトは 1 "
-"です)。4 つ目のオプションが 1 に設定されている場合は禁則処理をせず出力全体が "
-"1 行に収まるようにします (デフォルトは 1 です)"
-
-#: libraries/messages.inc.php:140
-msgid ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr ""
-"フィールドの内容をそのまま、htmlspecialchars()を通さずに表示します。この場"
-"合、フィールドには正しい HTML が含まれているものと仮定します"
-
-#: libraries/messages.inc.php:141
-msgid ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
-msgstr ""
-"画像とリンクを表示します。フィールドにはファイル名を入れてください。1 つ目の"
-"オプションは \"http://domain.com/\" のようなURLの先頭部分です。2 つ目と3 つ目"
-"のオプションには幅と高さをピクセル単位で指定します"
-
-#: libraries/messages.inc.php:142
-msgid ""
-"Displays a link; the field contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
-msgstr ""
-"リンクを表示します。フィールドにはファイル名を入れてください。1 つ目のオプ"
-"ションは \"http://domain.com/\" のような URL の先頭部分、2 つ目のオプションは"
-"リンクのタイトルです"
-
-#: libraries/messages.inc.php:143
-msgid "Formats text as SQL query with syntax highlighting."
-msgstr "テキストの内容を SQL クエリとみなし、構文ハイライト表示します"
-
-#: libraries/messages.inc.php:144
-msgid ""
-"Displays a part of a string. The first option is the number of characters to "
-"skip from the beginning of the string (Default 0). The second option is the "
-"number of characters to return (Default: until end of string). The third "
-"option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
-msgstr ""
-"文字列の一部のみを表示します。1 つ目のオプションは文字列の先頭から何文字ス"
-"キップするか (デフォルトは 0 です)、2 つ目のオプションは表示するテキストの文"
-"字数です (デフォルトは文字列の末尾までです)。3 つ目のオプションは文字列を切り"
-"詰めるときに前／後に補う省略記号です (デフォルトは ... です)"
-
 #: libraries/mult_submits.inc.php:76 libraries/tbl_properties.inc.php:513
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
@@ -4583,7 +4460,7 @@ msgstr "なし"
 msgid "As defined:"
 msgstr "ユーザ定義"
 
-#: libraries/tbl_properties.inc.php:580 transformation_overview.php:60
+#: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -4620,6 +4497,132 @@ msgstr "最低ひとつはフィールドを追加してください"
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
 msgstr "イベント"
+
+#: libraries/transformations/application_octetstream__download.inc.php:10
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+"フィールドのバイナリデータをダウンロードするリンクを表示します。1 つ目のオプ"
+"ションにバイナリファイルのファイル名を指定することもできますし、2 つ目のオプ"
+"ションにファイル名を保持しているフィールドの名前を渡すこともできます。2 つ目"
+"のオプションを使う場合は 1 つ目のオプションは空文字列にする必要があります"
+
+#: libraries/transformations/application_octetstream__hex.inc.php:10
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr ""
+"データを 16 進数で表記します。オプションとして最初のパラメータにスペースを追"
+"加する頻度を指定することもできます (デフォルトは 2 ニブルごとです)"
+
+#: libraries/transformations/image_jpeg__inline.inc.php:10
+#: libraries/transformations/image_png__inline.inc.php:10
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr ""
+"クリック可能なサムネイルを表示します; オプションとして幅と高さの最大値をピク"
+"セル単位で指定できます。アスペクト比はそのまま維持されます"
+
+#: libraries/transformations/image_jpeg__link.inc.php:10
+msgid "Displays a link to download this image."
+msgstr "この画像をダウンロードするためのリンクを表示します"
+
+#: libraries/transformations/text_plain__dateformat.inc.php:10
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+"TIME、TIMESTAMP、DATETIME、あるいはUnixタイムスタンプの値が入っているフィール"
+"ドを書式にあわせて表示します。1 つ目のオプションはタイムスタンプに加算する時"
+"差です(デフォルト: 0)。2 つ目のオプションには日時の書式文字列を指定します。3 "
+"つ目のオプションはローカルの日時とみなすか UTC とみなすかです (\"local\"ない"
+"し\"utc\"という文字列を指定してください)。この値によって日時の表記が変わりま"
+"す。\"local\" の場合は PHP の strftime() 関数の説明をご覧ください。\"utc\" の"
+"場合は gmdate() を利用します"
+
+#: libraries/transformations/text_plain__external.inc.php:10
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file libraries/transformations/text_plain__external.inc."
+"php and list the tools you want to make available. The first option is then "
+"the number of the program you want to use and the second option is the "
+"parameters for the program. The third option, if set to 1, will convert the "
+"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
+"will prevent wrapping and ensure that the output appears all on one line "
+"(Default 1)."
+msgstr ""
+"LINUX のみ: 外部アプリケーションを起動して標準入力経由でフィールドデータを渡"
+"します。アプリケーションの標準出力が返ります。デフォルトは Tidy です (これは "
+"HTML コードを綺麗にするためのものです)。セキュリティ上の理由から libraries/"
+"transformations/text_plain__external.inc.php を自分で編集して利用したいツール"
+"を明記しておく必要があります。最初のオプションは利用したいプログラムの数で、"
+"2 つ目のオプションはプログラムのパラメータです。3 つ目のオプションが 1 に設定"
+"されている場合は htmlspecialchars() を用いて出力を変換します(デフォルトは 1 "
+"です)。4 つ目のオプションが 1 に設定されている場合は禁則処理をせず出力全体が "
+"1 行に収まるようにします (デフォルトは 1 です)"
+
+#: libraries/transformations/text_plain__formatted.inc.php:10
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr ""
+"フィールドの内容をそのまま、htmlspecialchars()を通さずに表示します。この場"
+"合、フィールドには正しい HTML が含まれているものと仮定します"
+
+#: libraries/transformations/text_plain__imagelink.inc.php:10
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and "
+"third options are the width and the height in pixels."
+msgstr ""
+"画像とリンクを表示します。フィールドにはファイル名を入れてください。1 つ目の"
+"オプションは \"http://domain.com/\" のようなURLの先頭部分です。2 つ目と3 つ目"
+"のオプションには幅と高さをピクセル単位で指定します"
+
+#: libraries/transformations/text_plain__link.inc.php:10
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for "
+"the link."
+msgstr ""
+"リンクを表示します。フィールドにはファイル名を入れてください。1 つ目のオプ"
+"ションは \"http://domain.com/\" のような URL の先頭部分、2 つ目のオプションは"
+"リンクのタイトルです"
+
+#: libraries/transformations/text_plain__longToIpv4.inc.php:10
+msgid ""
+"Converts an (IPv4) Internet network address into a string in Internet "
+"standard dotted format."
+msgstr ""
+
+#: libraries/transformations/text_plain__sql.inc.php:10
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr "テキストの内容を SQL クエリとみなし、構文ハイライト表示します"
+
+#: libraries/transformations/text_plain__substr.inc.php:10
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+"文字列の一部のみを表示します。1 つ目のオプションは文字列の先頭から何文字ス"
+"キップするか (デフォルトは 0 です)、2 つ目のオプションは表示するテキストの文"
+"字数です (デフォルトは文字列の末尾までです)。3 つ目のオプションは文字列を切り"
+"詰めるときに前／後に補う省略記号です (デフォルトは ... です)"
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8129,6 +8132,9 @@ msgstr "VIEW の名前"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr ""
+
+#~ msgid "See image/jpeg: inline"
+#~ msgstr "image/jpeg: inlineをご覧ください"
 
 #, fuzzy
 #~| msgid "\"zipped\""

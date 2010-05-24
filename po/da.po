@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 11:33+0200\n"
+"POT-Creation-Date: 2010-05-24 12:05+0200\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: danish <da@li.org>\n"
@@ -1861,7 +1861,7 @@ msgstr ","
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1596
-#: libraries/transformations/text_plain__dateformat.inc.php:28
+#: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d. %m %Y kl. %H:%M:%S"
 
@@ -3826,130 +3826,6 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Antallet af tråde der ikke sover."
 
-#: libraries/messages.inc.php:133
-msgid ""
-"Displays a link to download the binary data of the field. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
-msgstr ""
-"Viser et link til at downloade et felts binære data. Første indstilling er "
-"filnavnet på den binære fil. Anden indstilling er et muligt feltnavn fra en "
-"tabelrække indeholdende filnavnet. Hvis du bruger anden indstilling, skal "
-"feltet i den første indstilling være sat til en tom streng."
-
-#: libraries/messages.inc.php:134
-msgid ""
-"Displays hexadecimal representation of data. Optional first parameter "
-"specifies how often space will be added (defaults to 2 nibbles)."
-msgstr ""
-"Viser hexadecimal udgave af data. Valgfrit førsteparameter angiver hvor "
-"meget plads der tilføjes (standard er 2 nibbles)."
-
-#: libraries/messages.inc.php:135
-msgid ""
-"Displays a clickable thumbnail. The options are the maximum width and height "
-"in pixels. The original aspect ratio is preserved."
-msgstr ""
-"Viser et klikbart minibillede; indstillinger: bredde,højde i pixel. Det "
-"originale perspektiv bevares."
-
-#: libraries/messages.inc.php:136
-msgid "Displays a link to download this image."
-msgstr "Viser et link til dette billede (f.eks. direkte blob-download)."
-
-#: libraries/messages.inc.php:137
-msgid "See image/jpeg: inline"
-msgstr "Se under image/jpeg: inline"
-
-#: libraries/messages.inc.php:138
-msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-"formatted date. The first option is the offset (in hours) which will be "
-"added to the timestamp (Default: 0). Use second option to specify a "
-"different date/time format string. Third option determines whether you want "
-"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
-"According to that, date format has different value - for \"local\" see the "
-"documentation for PHP's strftime() function and for \"utc\" it is done using "
-"gmdate() function."
-msgstr ""
-"Viser et TIME, TIMESTAMP, DATETIME eller numerisk unix tidsstempel-felt som "
-"formatteret dato. Den første indstilling er offset (i timer) som vil blive "
-"lagt til tidsstemplet (Standard: 0). Brug anden indstilling til at angive en "
-"anderledes dato-/tidsformatstreng. Tredje indstilling fastsætter om du vil "
-"se lokal dato eller UTC (brug \"local\" eller \"utc\" strenge) til dette. Ud "
-"fra dette har datoformatet forskellig værdi - for \"local\" se "
-"dokumentationen for PHP's strftime() funktion og for \"utc\" sker det ved "
-"brug af gmdate() funktionen."
-
-#: libraries/messages.inc.php:139
-msgid ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
-msgstr ""
-"KUN LINUX: Starter en ekstern applikation og føder feltdata via standard "
-"input. Returnerer standardoutputtet for applikationen. Standard er Tidy, for "
-"korrekt udskrivning af HTML-kode. Af sikkerhedsårsager er du nødt til "
-"manuelt at redigere filen libraries/transformations/text_plain__external.inc."
-"php og indsætte de værktøjer du vil tillade kørsel af. Første indstilling er "
-"så nummeret på det program du vil bruge og den anden indstilling er "
-"parametrene for dette program. Tredie parameter vil, hvis sat til 1, "
-"konvertere outputtet vha. htmlspecialchars() (Standard er 1). Et fjerde "
-"parameter vil, hvis sat til 1, sætte et NOWRAP om cellens indhold så hele "
-"outputtet bliver vist uden omformattering (Standard 1)"
-
-#: libraries/messages.inc.php:140
-msgid ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr ""
-"Bevarer original formattering af feltet. Der laves ikke nogen Escaping."
-
-#: libraries/messages.inc.php:141
-msgid ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
-msgstr ""
-"Viser et billede og et link, feltet indeholder filnavnet; første indstilling "
-"er et præfiks som \"http://domain.com/\", anden indstilling er bredde i "
-"pixel, tredie er højden."
-
-#: libraries/messages.inc.php:142
-msgid ""
-"Displays a link; the field contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
-msgstr ""
-"Viser et link, feltet indeholder filnavnet; første indstilling er et præfiks "
-"som \"http://domain.com/\", anden indstilling er en titel på linket."
-
-#: libraries/messages.inc.php:143
-msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Formatterer tekst som SQL-forespørgsel med syntaks farvemarkering."
-
-#: libraries/messages.inc.php:144
-msgid ""
-"Displays a part of a string. The first option is the number of characters to "
-"skip from the beginning of the string (Default 0). The second option is the "
-"number of characters to return (Default: until end of string). The third "
-"option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
-msgstr ""
-"Viser en del af en streng. Første parameter er antal tegn der skal springes "
-"over fra begyndelsen af en streng (Standard 0). Andet parameter er antal "
-"tegn der returneres (Standard indtil enden af strengen). Det tredie "
-"parameter definerer hvilke tegn der skal føjes til foran eller efter "
-"outputtet når en substring (understreng) returneres (Standard: \"...\") ."
-
 #: libraries/mult_submits.inc.php:76 libraries/tbl_properties.inc.php:513
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
@@ -4594,7 +4470,7 @@ msgstr "Ingen"
 msgid "As defined:"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:580 transformation_overview.php:60
+#: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -4631,6 +4507,133 @@ msgstr "Du skal tilføje mindst ét felt."
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
 msgstr ""
+
+#: libraries/transformations/application_octetstream__download.inc.php:10
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+"Viser et link til at downloade et felts binære data. Første indstilling er "
+"filnavnet på den binære fil. Anden indstilling er et muligt feltnavn fra en "
+"tabelrække indeholdende filnavnet. Hvis du bruger anden indstilling, skal "
+"feltet i den første indstilling være sat til en tom streng."
+
+#: libraries/transformations/application_octetstream__hex.inc.php:10
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr ""
+"Viser hexadecimal udgave af data. Valgfrit førsteparameter angiver hvor "
+"meget plads der tilføjes (standard er 2 nibbles)."
+
+#: libraries/transformations/image_jpeg__inline.inc.php:10
+#: libraries/transformations/image_png__inline.inc.php:10
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr ""
+"Viser et klikbart minibillede; indstillinger: bredde,højde i pixel. Det "
+"originale perspektiv bevares."
+
+#: libraries/transformations/image_jpeg__link.inc.php:10
+msgid "Displays a link to download this image."
+msgstr "Viser et link til dette billede (f.eks. direkte blob-download)."
+
+#: libraries/transformations/text_plain__dateformat.inc.php:10
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+"Viser et TIME, TIMESTAMP, DATETIME eller numerisk unix tidsstempel-felt som "
+"formatteret dato. Den første indstilling er offset (i timer) som vil blive "
+"lagt til tidsstemplet (Standard: 0). Brug anden indstilling til at angive en "
+"anderledes dato-/tidsformatstreng. Tredje indstilling fastsætter om du vil "
+"se lokal dato eller UTC (brug \"local\" eller \"utc\" strenge) til dette. Ud "
+"fra dette har datoformatet forskellig værdi - for \"local\" se "
+"dokumentationen for PHP's strftime() funktion og for \"utc\" sker det ved "
+"brug af gmdate() funktionen."
+
+#: libraries/transformations/text_plain__external.inc.php:10
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file libraries/transformations/text_plain__external.inc."
+"php and list the tools you want to make available. The first option is then "
+"the number of the program you want to use and the second option is the "
+"parameters for the program. The third option, if set to 1, will convert the "
+"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
+"will prevent wrapping and ensure that the output appears all on one line "
+"(Default 1)."
+msgstr ""
+"KUN LINUX: Starter en ekstern applikation og føder feltdata via standard "
+"input. Returnerer standardoutputtet for applikationen. Standard er Tidy, for "
+"korrekt udskrivning af HTML-kode. Af sikkerhedsårsager er du nødt til "
+"manuelt at redigere filen libraries/transformations/text_plain__external.inc."
+"php og indsætte de værktøjer du vil tillade kørsel af. Første indstilling er "
+"så nummeret på det program du vil bruge og den anden indstilling er "
+"parametrene for dette program. Tredie parameter vil, hvis sat til 1, "
+"konvertere outputtet vha. htmlspecialchars() (Standard er 1). Et fjerde "
+"parameter vil, hvis sat til 1, sætte et NOWRAP om cellens indhold så hele "
+"outputtet bliver vist uden omformattering (Standard 1)"
+
+#: libraries/transformations/text_plain__formatted.inc.php:10
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr ""
+"Bevarer original formattering af feltet. Der laves ikke nogen Escaping."
+
+#: libraries/transformations/text_plain__imagelink.inc.php:10
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and "
+"third options are the width and the height in pixels."
+msgstr ""
+"Viser et billede og et link, feltet indeholder filnavnet; første indstilling "
+"er et præfiks som \"http://domain.com/\", anden indstilling er bredde i "
+"pixel, tredie er højden."
+
+#: libraries/transformations/text_plain__link.inc.php:10
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for "
+"the link."
+msgstr ""
+"Viser et link, feltet indeholder filnavnet; første indstilling er et præfiks "
+"som \"http://domain.com/\", anden indstilling er en titel på linket."
+
+#: libraries/transformations/text_plain__longToIpv4.inc.php:10
+msgid ""
+"Converts an (IPv4) Internet network address into a string in Internet "
+"standard dotted format."
+msgstr ""
+
+#: libraries/transformations/text_plain__sql.inc.php:10
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr "Formatterer tekst som SQL-forespørgsel med syntaks farvemarkering."
+
+#: libraries/transformations/text_plain__substr.inc.php:10
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+"Viser en del af en streng. Første parameter er antal tegn der skal springes "
+"over fra begyndelsen af en streng (Standard 0). Andet parameter er antal "
+"tegn der returneres (Standard indtil enden af strengen). Det tredie "
+"parameter definerer hvilke tegn der skal føjes til foran eller efter "
+"outputtet når en substring (understreng) returneres (Standard: \"...\") ."
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8142,6 +8145,9 @@ msgstr "VIEW navn"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr ""
+
+#~ msgid "See image/jpeg: inline"
+#~ msgstr "Se under image/jpeg: inline"
 
 #, fuzzy
 #~| msgid "\"zipped\""

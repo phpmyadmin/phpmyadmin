@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 11:33+0200\n"
+"POT-Creation-Date: 2010-05-24 12:05+0200\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -1880,7 +1880,7 @@ msgstr ","
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1596
-#: libraries/transformations/text_plain__dateformat.inc.php:28
+#: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y й., %H:%M"
 
@@ -3905,137 +3905,6 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Фаол ҳолатда бўлган жараёнлар сони."
 
-#: libraries/messages.inc.php:133
-msgid ""
-"Displays a link to download the binary data of the field. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
-msgstr ""
-"Майдондаги бинар (иккилик) маълумотларни юклаб олишга боғ кўрсатиш. Биринчи "
-"параметр файл номини танлаш учун, иккинчи параметр эса файл номини ўз ичига "
-"олган майдон номи сифатида ишлатиш мумкин. Иккинчи параметр ишлатилганда, "
-"биринчисини бўш сатр сифатида белгилаш зарур."
-
-#: libraries/messages.inc.php:134
-msgid ""
-"Displays hexadecimal representation of data. Optional first parameter "
-"specifies how often space will be added (defaults to 2 nibbles)."
-msgstr ""
-"Маълумотларни ўн олтилик саноқ системасида кўрсатиш. Номажбурий биринчи "
-"параметр бўш жой қўйилиши керак бўлган интервални (асл қиймати ҳар икки "
-"яримбайтдан кейин) кўрсатиш учун ишлатилади."
-
-#: libraries/messages.inc.php:135
-msgid ""
-"Displays a clickable thumbnail. The options are the maximum width and height "
-"in pixels. The original aspect ratio is preserved."
-msgstr ""
-"Устига босилганда расмни каталаштириб кўриш мумкин бўлган кичрайтирилган "
-"пиктограммани кўрсатиш. Параметр сифатида расмнинг пикселларда берилган "
-"максимал бўйи ва энини белгилаш мумкин. Томонларнинг асл нисбати сақланади."
-
-#: libraries/messages.inc.php:136
-msgid "Displays a link to download this image."
-msgstr "Расмни юклаб олиш учун боғ кўрсатиш"
-
-#: libraries/messages.inc.php:137
-msgid "See image/jpeg: inline"
-msgstr ""
-"Устига босилганда расмни каталаштириб кўриш мумкин бўлган кичрайтирилган "
-"пиктограммани кўрсатиш. Параметр сифатида расмнинг пикселларда берилган "
-"максимал бўйи ва энини белгилаш мумкин. Томонларнинг асл нисбати сақланади."
-
-#: libraries/messages.inc.php:138
-msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-"formatted date. The first option is the offset (in hours) which will be "
-"added to the timestamp (Default: 0). Use second option to specify a "
-"different date/time format string. Third option determines whether you want "
-"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
-"According to that, date format has different value - for \"local\" see the "
-"documentation for PHP's strftime() function and for \"utc\" it is done using "
-"gmdate() function."
-msgstr ""
-"TIME, TIMESTAMP, DATETIME туридаги майдонларни ёки UNIX форматидаги вақтни "
-"кўрсатиш. Биринчи параметр силжиш қўшади (соатларда, асл қиймати - 0). "
-"Иккинчи параметр сана/вақтнинг бошқача форматланишини белгилайди. Учинчи "
-"параметр локал (\"local\") ёки (\"utc\") бутунжаҳон вақт белгиланганлигини "
-"кўрсатади. Учинчи параметр белгиланганда, сана формати \"local\" қиймат учун "
-"\"strftime()\", \"utc\" қиймат учун \"gmdate()\" функцияга мос равишда "
-"ўрнатилиши керак."
-
-#: libraries/messages.inc.php:139
-msgid ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
-msgstr ""
-"ФАҚАТ LINUX: Ташқи дастурни ишга туширади ёки унга майдон маълумотларини "
-"узатади. Асл қийматда бўлганда, \"Tidy\" (HTML кодни форматлаш) ишлатилади. "
-"Хавфсизлик юзасидан, \"libraries/transformations/text_plain__external.inc.php"
-"\" файлига мавжуд дастурлар ҳақидаги маълумотларни қўлбола киритиб таҳрирлаш "
-"керак. Биринчи параметр ишлатилаётган дастур номери, иккинчи параметр эса "
-"дастур параметрларини белгилайди. Учинчи параметр 1 деб белгиланганда, "
-"маълумотлар \"htmlspecialchars()\" функцияси ёрдамида ўзгартирилади (асл "
-"қиймати: 1). Тўртинчи параметр 1 деб белгиланса, сатрдан-сатрга ўтиш "
-"белгиларига эътибор берилмайди ва барча маълумотлар бир сатрда чиқарилади "
-"(асл қиймати: 1)."
-
-#: libraries/messages.inc.php:140
-msgid ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr ""
-"Майдондаги маълумотларни асл ҳолича, яъни \"htmlspecialchars()\" функцияси "
-"ёрдамида ўзгартирилмасдан кўрсатади. Бу ҳолда майдон HTML кодни ўз ичига "
-"олган бўлиши мумкин."
-
-#: libraries/messages.inc.php:141
-msgid ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
-msgstr ""
-"Расм ва боғни кўрсатади; майдон файл номини ўз ичига олади. Биринчи параметр "
-"- URL-префиксдир, масалан \"http://www.example.com/\". Иккинчи ва учинчи "
-"параметр - расмнинг пмкселларда берилган бўйи ва эни."
-
-#: libraries/messages.inc.php:142
-msgid ""
-"Displays a link; the field contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
-msgstr ""
-"Боғни кўрсатади; майдон файл номини ўз ичига олади. Биринчи параметр - URL-"
-"префиксдир, масалан \"http://www.example.com/\". Иккинчи параметр - боғ "
-"сарлавҳаси."
-
-#: libraries/messages.inc.php:143
-msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
-"Матнни синтаксиси ранг билан белгиланган SQL сўров сифатида форматлайди"
-
-#: libraries/messages.inc.php:144
-msgid ""
-"Displays a part of a string. The first option is the number of characters to "
-"skip from the beginning of the string (Default 0). The second option is the "
-"number of characters to return (Default: until end of string). The third "
-"option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
-msgstr ""
-"Сатрнинг фақат бир қисмини кўрсатади. Биринчи параметр - кўрсатиладиган матн "
-"бошигача силжиш қиймати (асл қиймати: 0). Иккинчи параметр - қайтариладиган "
-"белгилар сони (асл қиймати: сатр охиригача). Учинчи параметр - мавжуд парча "
-"боши ва/ёки охирига қўшиладиган матн (асл қиймати: \"...\")."
-
 #: libraries/mult_submits.inc.php:76 libraries/tbl_properties.inc.php:513
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
@@ -4690,7 +4559,7 @@ msgstr "Йўқ"
 msgid "As defined:"
 msgstr "Қоидага кўра:"
 
-#: libraries/tbl_properties.inc.php:580 transformation_overview.php:60
+#: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -4727,6 +4596,137 @@ msgstr "Ҳеч бўлмаганда битта майдон киритиш ша�
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
 msgstr "Ҳодиса"
+
+#: libraries/transformations/application_octetstream__download.inc.php:10
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+"Майдондаги бинар (иккилик) маълумотларни юклаб олишга боғ кўрсатиш. Биринчи "
+"параметр файл номини танлаш учун, иккинчи параметр эса файл номини ўз ичига "
+"олган майдон номи сифатида ишлатиш мумкин. Иккинчи параметр ишлатилганда, "
+"биринчисини бўш сатр сифатида белгилаш зарур."
+
+#: libraries/transformations/application_octetstream__hex.inc.php:10
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr ""
+"Маълумотларни ўн олтилик саноқ системасида кўрсатиш. Номажбурий биринчи "
+"параметр бўш жой қўйилиши керак бўлган интервални (асл қиймати ҳар икки "
+"яримбайтдан кейин) кўрсатиш учун ишлатилади."
+
+#: libraries/transformations/image_jpeg__inline.inc.php:10
+#: libraries/transformations/image_png__inline.inc.php:10
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr ""
+"Устига босилганда расмни каталаштириб кўриш мумкин бўлган кичрайтирилган "
+"пиктограммани кўрсатиш. Параметр сифатида расмнинг пикселларда берилган "
+"максимал бўйи ва энини белгилаш мумкин. Томонларнинг асл нисбати сақланади."
+
+#: libraries/transformations/image_jpeg__link.inc.php:10
+msgid "Displays a link to download this image."
+msgstr "Расмни юклаб олиш учун боғ кўрсатиш"
+
+#: libraries/transformations/text_plain__dateformat.inc.php:10
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+"TIME, TIMESTAMP, DATETIME туридаги майдонларни ёки UNIX форматидаги вақтни "
+"кўрсатиш. Биринчи параметр силжиш қўшади (соатларда, асл қиймати - 0). "
+"Иккинчи параметр сана/вақтнинг бошқача форматланишини белгилайди. Учинчи "
+"параметр локал (\"local\") ёки (\"utc\") бутунжаҳон вақт белгиланганлигини "
+"кўрсатади. Учинчи параметр белгиланганда, сана формати \"local\" қиймат учун "
+"\"strftime()\", \"utc\" қиймат учун \"gmdate()\" функцияга мос равишда "
+"ўрнатилиши керак."
+
+#: libraries/transformations/text_plain__external.inc.php:10
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file libraries/transformations/text_plain__external.inc."
+"php and list the tools you want to make available. The first option is then "
+"the number of the program you want to use and the second option is the "
+"parameters for the program. The third option, if set to 1, will convert the "
+"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
+"will prevent wrapping and ensure that the output appears all on one line "
+"(Default 1)."
+msgstr ""
+"ФАҚАТ LINUX: Ташқи дастурни ишга туширади ёки унга майдон маълумотларини "
+"узатади. Асл қийматда бўлганда, \"Tidy\" (HTML кодни форматлаш) ишлатилади. "
+"Хавфсизлик юзасидан, \"libraries/transformations/text_plain__external.inc.php"
+"\" файлига мавжуд дастурлар ҳақидаги маълумотларни қўлбола киритиб таҳрирлаш "
+"керак. Биринчи параметр ишлатилаётган дастур номери, иккинчи параметр эса "
+"дастур параметрларини белгилайди. Учинчи параметр 1 деб белгиланганда, "
+"маълумотлар \"htmlspecialchars()\" функцияси ёрдамида ўзгартирилади (асл "
+"қиймати: 1). Тўртинчи параметр 1 деб белгиланса, сатрдан-сатрга ўтиш "
+"белгиларига эътибор берилмайди ва барча маълумотлар бир сатрда чиқарилади "
+"(асл қиймати: 1)."
+
+#: libraries/transformations/text_plain__formatted.inc.php:10
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr ""
+"Майдондаги маълумотларни асл ҳолича, яъни \"htmlspecialchars()\" функцияси "
+"ёрдамида ўзгартирилмасдан кўрсатади. Бу ҳолда майдон HTML кодни ўз ичига "
+"олган бўлиши мумкин."
+
+#: libraries/transformations/text_plain__imagelink.inc.php:10
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and "
+"third options are the width and the height in pixels."
+msgstr ""
+"Расм ва боғни кўрсатади; майдон файл номини ўз ичига олади. Биринчи параметр "
+"- URL-префиксдир, масалан \"http://www.example.com/\". Иккинчи ва учинчи "
+"параметр - расмнинг пмкселларда берилган бўйи ва эни."
+
+#: libraries/transformations/text_plain__link.inc.php:10
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for "
+"the link."
+msgstr ""
+"Боғни кўрсатади; майдон файл номини ўз ичига олади. Биринчи параметр - URL-"
+"префиксдир, масалан \"http://www.example.com/\". Иккинчи параметр - боғ "
+"сарлавҳаси."
+
+#: libraries/transformations/text_plain__longToIpv4.inc.php:10
+msgid ""
+"Converts an (IPv4) Internet network address into a string in Internet "
+"standard dotted format."
+msgstr ""
+
+#: libraries/transformations/text_plain__sql.inc.php:10
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr ""
+"Матнни синтаксиси ранг билан белгиланган SQL сўров сифатида форматлайди"
+
+#: libraries/transformations/text_plain__substr.inc.php:10
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+"Сатрнинг фақат бир қисмини кўрсатади. Биринчи параметр - кўрсатиладиган матн "
+"бошигача силжиш қиймати (асл қиймати: 0). Иккинчи параметр - қайтариладиган "
+"белгилар сони (асл қиймати: сатр охиригача). Учинчи параметр - мавжуд парча "
+"боши ва/ёки охирига қўшиладиган матн (асл қиймати: \"...\")."
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8528,6 +8528,13 @@ msgstr "Ном кўриниши"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr "Кўриниш номини ўзгартириш"
+
+#~ msgid "See image/jpeg: inline"
+#~ msgstr ""
+#~ "Устига босилганда расмни каталаштириб кўриш мумкин бўлган кичрайтирилган "
+#~ "пиктограммани кўрсатиш. Параметр сифатида расмнинг пикселларда берилган "
+#~ "максимал бўйи ва энини белгилаш мумкин. Томонларнинг асл нисбати "
+#~ "сақланади."
 
 #, fuzzy
 #~| msgid "\"zipped\""

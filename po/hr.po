@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 11:33+0200\n"
+"POT-Creation-Date: 2010-05-24 12:05+0200\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: croatian <hr@li.org>\n"
@@ -1879,7 +1879,7 @@ msgstr ","
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1596
-#: libraries/transformations/text_plain__dateformat.inc.php:28
+#: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y u %I:%M %p"
 
@@ -3890,133 +3890,6 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Broj grana koje nisu uspavane."
 
-#: libraries/messages.inc.php:133
-msgid ""
-"Displays a link to download the binary data of the field. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
-msgstr ""
-"Prikazuje vezu prema preuzimanju binarnih podataka polja. Možete "
-"upotrijebiti prvu opciju kako biste sami odredili naziv datoteke ili drugu "
-"opciju kako biste upotrijebili naziv polja koje sadrži naziv datoteke. Ako "
-"upotrijebite drugu opciju, u prvu opciju morate unijeti prazan niz."
-
-#: libraries/messages.inc.php:134
-msgid ""
-"Displays hexadecimal representation of data. Optional first parameter "
-"specifies how often space will be added (defaults to 2 nibbles)."
-msgstr ""
-"Prikazuje podatke u heksadecimalnom obliku. Opcionalan prvi parametar "
-"određuje koliko često će prazna mjesta biti dodavana (zadana vrijednost je "
-"2)."
-
-#: libraries/messages.inc.php:135
-msgid ""
-"Displays a clickable thumbnail. The options are the maximum width and height "
-"in pixels. The original aspect ratio is preserved."
-msgstr ""
-"Prikazuje sličicu s mogućnošću pritiskanja. Opcije su najveća širina i "
-"visina u pikselima. Izvorne proporcije su očuvane."
-
-#: libraries/messages.inc.php:136
-msgid "Displays a link to download this image."
-msgstr "Prikazuje vezu za preuzimanje ove slike."
-
-#: libraries/messages.inc.php:137
-msgid "See image/jpeg: inline"
-msgstr "Pogledajte slika/jpeg: inline"
-
-#: libraries/messages.inc.php:138
-msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-"formatted date. The first option is the offset (in hours) which will be "
-"added to the timestamp (Default: 0). Use second option to specify a "
-"different date/time format string. Third option determines whether you want "
-"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
-"According to that, date format has different value - for \"local\" see the "
-"documentation for PHP's strftime() function and for \"utc\" it is done using "
-"gmdate() function."
-msgstr ""
-"Polja TIME (vrijeme), TIMESTAMP (vremenska oznaka), DATETIME (datum i "
-"vrijeme) ili brojčanu uniksoidnu oznaku vremena prikazuje kao oblikovani "
-"datum. Prva opcija je odmak (u satima) koji će biti pridodan vremenskoj "
-"oznaci (zadano: 0). Druga opcije određuje drukčiji oblik izražavanja datuma "
-"i vremena. Treća opcija određuje želite li prikazati lokalni datum ili u "
-"skladu s UTC (upotrijebite izraz \"local\" ili \"utc\"). Sukladno tome, "
-"oblik datuma ima različite vrijednosti - za opciju \"local\" pogledajte "
-"dokumentaciju o upotrebi PHP funkcije strftime(), a za \"utc\" pogledajte "
-"dokumentaciju o upotrebi funkcije gmdate()."
-
-#: libraries/messages.inc.php:139
-msgid ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
-msgstr ""
-"SAMO ZA LINUX: Pokreće vanjsku aplikaciju i predaje joj podatke polja putem "
-"standardnog unosa. Vraća standardan ispis aplikacije. Zadana aplikacija je "
-"Tidy, uredno ispisivanje HTML koda. Iz sigurnosnih razloga morate ručno "
-"urediti datoteku libraries/transformations/text_plain__external.inc.php i "
-"izraditi popis alata koje želite učiniti raspoloživim. Prva opcija će biti "
-"redni broj programa kojeg želite upotrebljavati a druga opcija su parametri "
-"programa. Ako je treća opcija postavljena na vrijednost 1, pretvorit će "
-"ispis pomoću htmlspecialchars(), (zadano: 1). Ako je četvrta opcija "
-"postavljena na vrijednost 1, spriječit će omatanje i osigurati prikaz ispisa "
-"u jednom retku (zadano: 1)."
-
-#: libraries/messages.inc.php:140
-msgid ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr ""
-"Prikazuje sadržaj polje u izvornom obliku, bez njegovog provlačenja kroz "
-"htmlspecialchars(). Odnosno, za polje se pretpostavlja da ne sadrži valjani "
-"HTML kod."
-
-#: libraries/messages.inc.php:141
-msgid ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
-msgstr ""
-"Prikazuje sliku i vezu. Polje sadrži naziv datoteke. Prva opcija je URL "
-"prefiks, poput \"http://www.example.com/\". Druga i treća opcija "
-"predstavljaju širinu i visinu u pikselima."
-
-#: libraries/messages.inc.php:142
-msgid ""
-"Displays a link; the field contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
-msgstr ""
-"Prikazuje vezu. Polje sadrži naziv datoteke. Prva opcija je URL prefiks, "
-"poput \"http://www.example.com/\". Druga opcija je naziv veze."
-
-#: libraries/messages.inc.php:143
-msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Oblikuje tekst kao SQL upit s naglašavanjem sintakse."
-
-#: libraries/messages.inc.php:144
-msgid ""
-"Displays a part of a string. The first option is the number of characters to "
-"skip from the beginning of the string (Default 0). The second option is the "
-"number of characters to return (Default: until end of string). The third "
-"option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
-msgstr ""
-"Prikazuje dio niza. Prva opcija je broj znakova koje je potrebno preskočiti, "
-"od početka niza (zadano: 0). Druga opcija je broj znakova za povrat (zadano: "
-"do završetka niza). Treća opcija  je niz koji je potrebno pridodati iza "
-"završetka i/ili prije početka kad započne srezivanje (zadano: \"...\")."
-
 #: libraries/mult_submits.inc.php:76 libraries/tbl_properties.inc.php:513
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
@@ -4664,7 +4537,7 @@ msgstr "bez kompresije"
 msgid "As defined:"
 msgstr "Kako je definirano:"
 
-#: libraries/tbl_properties.inc.php:580 transformation_overview.php:60
+#: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -4701,6 +4574,136 @@ msgstr "Morate dodati najmanje jedno polje."
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
 msgstr "Događaj"
+
+#: libraries/transformations/application_octetstream__download.inc.php:10
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+"Prikazuje vezu prema preuzimanju binarnih podataka polja. Možete "
+"upotrijebiti prvu opciju kako biste sami odredili naziv datoteke ili drugu "
+"opciju kako biste upotrijebili naziv polja koje sadrži naziv datoteke. Ako "
+"upotrijebite drugu opciju, u prvu opciju morate unijeti prazan niz."
+
+#: libraries/transformations/application_octetstream__hex.inc.php:10
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr ""
+"Prikazuje podatke u heksadecimalnom obliku. Opcionalan prvi parametar "
+"određuje koliko često će prazna mjesta biti dodavana (zadana vrijednost je "
+"2)."
+
+#: libraries/transformations/image_jpeg__inline.inc.php:10
+#: libraries/transformations/image_png__inline.inc.php:10
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr ""
+"Prikazuje sličicu s mogućnošću pritiskanja. Opcije su najveća širina i "
+"visina u pikselima. Izvorne proporcije su očuvane."
+
+#: libraries/transformations/image_jpeg__link.inc.php:10
+msgid "Displays a link to download this image."
+msgstr "Prikazuje vezu za preuzimanje ove slike."
+
+#: libraries/transformations/text_plain__dateformat.inc.php:10
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+"Polja TIME (vrijeme), TIMESTAMP (vremenska oznaka), DATETIME (datum i "
+"vrijeme) ili brojčanu uniksoidnu oznaku vremena prikazuje kao oblikovani "
+"datum. Prva opcija je odmak (u satima) koji će biti pridodan vremenskoj "
+"oznaci (zadano: 0). Druga opcije određuje drukčiji oblik izražavanja datuma "
+"i vremena. Treća opcija određuje želite li prikazati lokalni datum ili u "
+"skladu s UTC (upotrijebite izraz \"local\" ili \"utc\"). Sukladno tome, "
+"oblik datuma ima različite vrijednosti - za opciju \"local\" pogledajte "
+"dokumentaciju o upotrebi PHP funkcije strftime(), a za \"utc\" pogledajte "
+"dokumentaciju o upotrebi funkcije gmdate()."
+
+#: libraries/transformations/text_plain__external.inc.php:10
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file libraries/transformations/text_plain__external.inc."
+"php and list the tools you want to make available. The first option is then "
+"the number of the program you want to use and the second option is the "
+"parameters for the program. The third option, if set to 1, will convert the "
+"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
+"will prevent wrapping and ensure that the output appears all on one line "
+"(Default 1)."
+msgstr ""
+"SAMO ZA LINUX: Pokreće vanjsku aplikaciju i predaje joj podatke polja putem "
+"standardnog unosa. Vraća standardan ispis aplikacije. Zadana aplikacija je "
+"Tidy, uredno ispisivanje HTML koda. Iz sigurnosnih razloga morate ručno "
+"urediti datoteku libraries/transformations/text_plain__external.inc.php i "
+"izraditi popis alata koje želite učiniti raspoloživim. Prva opcija će biti "
+"redni broj programa kojeg želite upotrebljavati a druga opcija su parametri "
+"programa. Ako je treća opcija postavljena na vrijednost 1, pretvorit će "
+"ispis pomoću htmlspecialchars(), (zadano: 1). Ako je četvrta opcija "
+"postavljena na vrijednost 1, spriječit će omatanje i osigurati prikaz ispisa "
+"u jednom retku (zadano: 1)."
+
+#: libraries/transformations/text_plain__formatted.inc.php:10
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr ""
+"Prikazuje sadržaj polje u izvornom obliku, bez njegovog provlačenja kroz "
+"htmlspecialchars(). Odnosno, za polje se pretpostavlja da ne sadrži valjani "
+"HTML kod."
+
+#: libraries/transformations/text_plain__imagelink.inc.php:10
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and "
+"third options are the width and the height in pixels."
+msgstr ""
+"Prikazuje sliku i vezu. Polje sadrži naziv datoteke. Prva opcija je URL "
+"prefiks, poput \"http://www.example.com/\". Druga i treća opcija "
+"predstavljaju širinu i visinu u pikselima."
+
+#: libraries/transformations/text_plain__link.inc.php:10
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for "
+"the link."
+msgstr ""
+"Prikazuje vezu. Polje sadrži naziv datoteke. Prva opcija je URL prefiks, "
+"poput \"http://www.example.com/\". Druga opcija je naziv veze."
+
+#: libraries/transformations/text_plain__longToIpv4.inc.php:10
+msgid ""
+"Converts an (IPv4) Internet network address into a string in Internet "
+"standard dotted format."
+msgstr ""
+
+#: libraries/transformations/text_plain__sql.inc.php:10
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr "Oblikuje tekst kao SQL upit s naglašavanjem sintakse."
+
+#: libraries/transformations/text_plain__substr.inc.php:10
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+"Prikazuje dio niza. Prva opcija je broj znakova koje je potrebno preskočiti, "
+"od početka niza (zadano: 0). Druga opcija je broj znakova za povrat (zadano: "
+"do završetka niza). Treća opcija  je niz koji je potrebno pridodati iza "
+"završetka i/ili prije početka kad započne srezivanje (zadano: \"...\")."
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8285,6 +8288,9 @@ msgstr "Naziv prikaza"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Preimenuj tablicu u"
+
+#~ msgid "See image/jpeg: inline"
+#~ msgstr "Pogledajte slika/jpeg: inline"
 
 #, fuzzy
 #~| msgid "\"zipped\""

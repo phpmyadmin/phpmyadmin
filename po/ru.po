@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 11:33+0200\n"
+"POT-Creation-Date: 2010-05-24 12:05+0200\n"
 "PO-Revision-Date: 2010-03-30 23:23+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -1876,7 +1876,7 @@ msgstr "."
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1596
-#: libraries/transformations/text_plain__dateformat.inc.php:28
+#: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d %Y г., %H:%M"
 
@@ -3906,136 +3906,6 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Количество процессов, находящихся в активном состоянии."
 
-#: libraries/messages.inc.php:133
-msgid ""
-"Displays a link to download the binary data of the field. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
-msgstr ""
-"Отображает ссылку для загрузки бинарных данных поля. Возможно использование "
-"первого параметра для выбора имени файла, или использование второго "
-"параметра, как имени поля, которое содержит имя файла. В случае "
-"использования второго параметра, первый необходимо установить в виде пустой "
-"строки."
-
-#: libraries/messages.inc.php:134
-msgid ""
-"Displays hexadecimal representation of data. Optional first parameter "
-"specifies how often space will be added (defaults to 2 nibbles)."
-msgstr ""
-"Отображает данные в шестнадцатеричном представлении. Необязательный первый "
-"параметр может быть использован для указания на то, через какие промежутки "
-"будет добавляться пробел (по умолчанию после двух полубайтов)."
-
-#: libraries/messages.inc.php:135
-msgid ""
-"Displays a clickable thumbnail. The options are the maximum width and height "
-"in pixels. The original aspect ratio is preserved."
-msgstr ""
-"Отображает уменьшенную иконку изображения, на которую можно нажать для "
-"увеличения. Параметрами задается максимальная ширина и высота картинки в "
-"пикселях. Изначальное соотношение сторон, сохраняется."
-
-#: libraries/messages.inc.php:136
-msgid "Displays a link to download this image."
-msgstr "Отображает ссылку для загрузки изображения"
-
-#: libraries/messages.inc.php:137
-msgid "See image/jpeg: inline"
-msgstr ""
-"Отображает уменьшенную иконку изображения, на которую можно нажать для "
-"увеличения. Параметрами задается максимальная ширина и высота картинки в "
-"пикселях. Изначальное соотношение сторон, сохраняется."
-
-#: libraries/messages.inc.php:138
-msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-"formatted date. The first option is the offset (in hours) which will be "
-"added to the timestamp (Default: 0). Use second option to specify a "
-"different date/time format string. Third option determines whether you want "
-"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
-"According to that, date format has different value - for \"local\" see the "
-"documentation for PHP's strftime() function and for \"utc\" it is done using "
-"gmdate() function."
-msgstr ""
-"Отображает поля типа TIME, TIMESTAMP, DATETIME или время в формате Unix, в "
-"виде форматированного вывода. Первый параметр прибавляет смещение, в часах "
-"(по умолчанию: 0). Второй параметр задает иное форматирование строки даты/"
-"времени. Третий параметр определяет установку локального (строка \"local\") "
-"или всемирного (строка \"utc\") времени. В соответствии с установленным "
-"третьим параметром формат даты должен иметь различные значения - для \"local"
-"\" смотрите описание функции PHP strftime(), для \"utc\" - gmdate()."
-
-#: libraries/messages.inc.php:139
-msgid ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
-msgstr ""
-"ТОЛЬКО LINUX: Запускает внешнее приложение и подает ему на ввод данные поля. "
-"Возвращает обычный вывод приложения. По умолчанию используется Tidy "
-"(форматирование HTML-кода). По соображениям безопасности, необходимо вручную "
-"отредактировать файл libraries/transformations/text_plain__external.inc.php "
-"вписав доступные программы. Первый параметр задает номер используемой "
-"программы, во втором параметре передаются параметры собственно программы. "
-"При установке третьего параметра в 1, данные вывода будут преобразованы "
-"функцией PHP htmlspecialchars() (по умолчанию: 1). Установка червертого "
-"параметра в 1, предотвратит переносы строки и выведет данные в одну строку "
-"(по умолчанию: 1)."
-
-#: libraries/messages.inc.php:140
-msgid ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr ""
-"Отображает содержимое поля как есть, без преобразования данных функцией PHP "
-"htmlspecialchars(). Таким образом поле может содержать рабочий HTML-код."
-
-#: libraries/messages.inc.php:141
-msgid ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
-msgstr ""
-"Показывает изображение и ссылку; поле содержит имя файла. Первый параметр "
-"является URL-префиксом, например \"http://domain.com/\". Второй и третий "
-"параметр - ширина и высота изображения в пикселях."
-
-#: libraries/messages.inc.php:142
-msgid ""
-"Displays a link; the field contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
-msgstr ""
-"Отображает ссылку; поле содержит имя файла. Первый параметр - URL-префикс, "
-"например \"http://www.example.com/\". Второй параметр - заголовок ссылки."
-
-#: libraries/messages.inc.php:143
-msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Форматирует текст в виде SQL запроса с подсветкой синтаксиса"
-
-#: libraries/messages.inc.php:144
-msgid ""
-"Displays a part of a string. The first option is the number of characters to "
-"skip from the beginning of the string (Default 0). The second option is the "
-"number of characters to return (Default: until end of string). The third "
-"option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
-msgstr ""
-"Показывает только часть строки. Первый параметр - сдвиг, определяющий начало "
-"выводимого текста (по умолчанию: 0). Второй параметр - количество "
-"возвращаемых символов (по умолчанию: до конца строки). Третий параметр "
-"определяет строку добавляемую вначале и/или в конце существующего отрывка "
-"(по умолчанию: \"...\")."
-
 #: libraries/mult_submits.inc.php:76 libraries/tbl_properties.inc.php:513
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
@@ -4683,7 +4553,7 @@ msgstr "Нет"
 msgid "As defined:"
 msgstr "Как определено:"
 
-#: libraries/tbl_properties.inc.php:580 transformation_overview.php:60
+#: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -4720,6 +4590,136 @@ msgstr "Необходимо добавить хотя бы одно поле."
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
 msgstr "Событие"
+
+#: libraries/transformations/application_octetstream__download.inc.php:10
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+"Отображает ссылку для загрузки бинарных данных поля. Возможно использование "
+"первого параметра для выбора имени файла, или использование второго "
+"параметра, как имени поля, которое содержит имя файла. В случае "
+"использования второго параметра, первый необходимо установить в виде пустой "
+"строки."
+
+#: libraries/transformations/application_octetstream__hex.inc.php:10
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr ""
+"Отображает данные в шестнадцатеричном представлении. Необязательный первый "
+"параметр может быть использован для указания на то, через какие промежутки "
+"будет добавляться пробел (по умолчанию после двух полубайтов)."
+
+#: libraries/transformations/image_jpeg__inline.inc.php:10
+#: libraries/transformations/image_png__inline.inc.php:10
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr ""
+"Отображает уменьшенную иконку изображения, на которую можно нажать для "
+"увеличения. Параметрами задается максимальная ширина и высота картинки в "
+"пикселях. Изначальное соотношение сторон, сохраняется."
+
+#: libraries/transformations/image_jpeg__link.inc.php:10
+msgid "Displays a link to download this image."
+msgstr "Отображает ссылку для загрузки изображения"
+
+#: libraries/transformations/text_plain__dateformat.inc.php:10
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+"Отображает поля типа TIME, TIMESTAMP, DATETIME или время в формате Unix, в "
+"виде форматированного вывода. Первый параметр прибавляет смещение, в часах "
+"(по умолчанию: 0). Второй параметр задает иное форматирование строки даты/"
+"времени. Третий параметр определяет установку локального (строка \"local\") "
+"или всемирного (строка \"utc\") времени. В соответствии с установленным "
+"третьим параметром формат даты должен иметь различные значения - для \"local"
+"\" смотрите описание функции PHP strftime(), для \"utc\" - gmdate()."
+
+#: libraries/transformations/text_plain__external.inc.php:10
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file libraries/transformations/text_plain__external.inc."
+"php and list the tools you want to make available. The first option is then "
+"the number of the program you want to use and the second option is the "
+"parameters for the program. The third option, if set to 1, will convert the "
+"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
+"will prevent wrapping and ensure that the output appears all on one line "
+"(Default 1)."
+msgstr ""
+"ТОЛЬКО LINUX: Запускает внешнее приложение и подает ему на ввод данные поля. "
+"Возвращает обычный вывод приложения. По умолчанию используется Tidy "
+"(форматирование HTML-кода). По соображениям безопасности, необходимо вручную "
+"отредактировать файл libraries/transformations/text_plain__external.inc.php "
+"вписав доступные программы. Первый параметр задает номер используемой "
+"программы, во втором параметре передаются параметры собственно программы. "
+"При установке третьего параметра в 1, данные вывода будут преобразованы "
+"функцией PHP htmlspecialchars() (по умолчанию: 1). Установка червертого "
+"параметра в 1, предотвратит переносы строки и выведет данные в одну строку "
+"(по умолчанию: 1)."
+
+#: libraries/transformations/text_plain__formatted.inc.php:10
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr ""
+"Отображает содержимое поля как есть, без преобразования данных функцией PHP "
+"htmlspecialchars(). Таким образом поле может содержать рабочий HTML-код."
+
+#: libraries/transformations/text_plain__imagelink.inc.php:10
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and "
+"third options are the width and the height in pixels."
+msgstr ""
+"Показывает изображение и ссылку; поле содержит имя файла. Первый параметр "
+"является URL-префиксом, например \"http://domain.com/\". Второй и третий "
+"параметр - ширина и высота изображения в пикселях."
+
+#: libraries/transformations/text_plain__link.inc.php:10
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for "
+"the link."
+msgstr ""
+"Отображает ссылку; поле содержит имя файла. Первый параметр - URL-префикс, "
+"например \"http://www.example.com/\". Второй параметр - заголовок ссылки."
+
+#: libraries/transformations/text_plain__longToIpv4.inc.php:10
+msgid ""
+"Converts an (IPv4) Internet network address into a string in Internet "
+"standard dotted format."
+msgstr ""
+
+#: libraries/transformations/text_plain__sql.inc.php:10
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr "Форматирует текст в виде SQL запроса с подсветкой синтаксиса"
+
+#: libraries/transformations/text_plain__substr.inc.php:10
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+"Показывает только часть строки. Первый параметр - сдвиг, определяющий начало "
+"выводимого текста (по умолчанию: 0). Второй параметр - количество "
+"возвращаемых символов (по умолчанию: до конца строки). Третий параметр "
+"определяет строку добавляемую вначале и/или в конце существующего отрывка "
+"(по умолчанию: \"...\")."
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8525,6 +8525,12 @@ msgstr "VIEW название"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Переименовать таблицу в"
+
+#~ msgid "See image/jpeg: inline"
+#~ msgstr ""
+#~ "Отображает уменьшенную иконку изображения, на которую можно нажать для "
+#~ "увеличения. Параметрами задается максимальная ширина и высота картинки в "
+#~ "пикселях. Изначальное соотношение сторон, сохраняется."
 
 #, fuzzy
 #~| msgid "\"zipped\""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 11:33+0200\n"
+"POT-Creation-Date: 2010-05-24 12:05+0200\n"
 "PO-Revision-Date: 2010-04-30 18:08+0200\n"
 "Last-Translator:  <kajouni@gmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -1871,7 +1871,7 @@ msgstr ","
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1596
-#: libraries/transformations/text_plain__dateformat.inc.php:28
+#: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d.%m.%Y klo %H:%M"
 
@@ -3884,134 +3884,6 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Hereillä olevien säikeiden määrä."
 
-#: libraries/messages.inc.php:133
-msgid ""
-"Displays a link to download the binary data of the field. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
-msgstr ""
-"Näytä linkki kentän binääritietojen lataamiseen. Ensimmäisellä asetuksella "
-"voi määrittää tiedostonimen, ja toiseen asetukseen voi määrittää "
-"tiedostonimen sisältävälle kentälle nimen. Jos toista (2) asetusta "
-"käytetään,  ensimmäinen asetus on asetettava tyhjäksi."
-
-#: libraries/messages.inc.php:134
-msgid ""
-"Displays hexadecimal representation of data. Optional first parameter "
-"specifies how often space will be added (defaults to 2 nibbles)."
-msgstr ""
-"Näyttää tiedon heksalukuina. Valinnainen, ensimmäinen parametri määrittelee, "
-"kuinka usein välilyönti lisätään (oletusarvo on 2)."
-
-#: libraries/messages.inc.php:135
-msgid ""
-"Displays a clickable thumbnail. The options are the maximum width and height "
-"in pixels. The original aspect ratio is preserved."
-msgstr ""
-"Näyttää painettavan pikkukuvan. Valinnat ovat enimmäisleveys- ja korkeus "
-"pikseleinä. Kuvasuhde säilyy ennallaan."
-
-#: libraries/messages.inc.php:136
-msgid "Displays a link to download this image."
-msgstr "Näyttää kuvan latauslinkin."
-
-#: libraries/messages.inc.php:137
-msgid "See image/jpeg: inline"
-msgstr "Katso image/jpeg: inline"
-
-#: libraries/messages.inc.php:138
-msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-"formatted date. The first option is the offset (in hours) which will be "
-"added to the timestamp (Default: 0). Use second option to specify a "
-"different date/time format string. Third option determines whether you want "
-"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
-"According to that, date format has different value - for \"local\" see the "
-"documentation for PHP's strftime() function and for \"utc\" it is done using "
-"gmdate() function."
-msgstr ""
-"Näyttää TIME-, TIMESTAMP-, DATETIME- tai UNIX-aikaleimakentän muotoiltuna "
-"päivämääränä. Ensimmäinen valinta on aikaleimaan (oletuksena 0) lisättävä "
-"siirros (tunteina). Toisella valinnalla on mahdollista määrittää eri "
-"muotoinen päiväysmerkkijono. Kolmas valinta määrittää, käytetäänkö "
-"päiväyksessä paikallis- vai UTC-aikaa (käytä \"local\"- tai \"utc\"-"
-"merkkijonoja). Päiväyksen muodossa käytetään asetuksen mukaista arvoa; katso "
-"ohjeet \"local\"-asetuksen käytöstä PHP:n ohjeiden strftime()-funktiosta, "
-"\"utc\"-asetus taas käyttää gmdate()-funktiota."
-
-#: libraries/messages.inc.php:139
-msgid ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
-msgstr ""
-"VAIN LINUX-JÄRJESTELMISSÄ: Käynnistää ulkoisen ohjelman ja syöttää "
-"kenttätiedot oletussyötteen kautta. Palauttaa ohjelman oletustulosteen. "
-"Oletusarvona on Tidy, jota käytetään HTML-koodin siistimiseen. "
-"Tietoturvasyistä joudut muokkaamaan käsin tiedostoa libraries/"
-"transformations/text_plain__external.inc.php ja lisäämään työkalut, joiden "
-"ajon haluat sallia. Ensimmäinen valinta on silloin haluamasi ohjelman numero "
-"ja toinen valinta määrittää ohjelmalle annettavat parametrit. Kolmannen "
-"parametrin ollessa yksi (1) tuloste muunnetaan käyttäen htmlspecialchars()-"
-"funktiota (Oletus on 1). Neljännen parametrin ollessa yksi (1) "
-"sisältökennoon lisätään NOWRAP, jotta koko tuloste näkyy ilman "
-"ennakkomuotoiluja (Oletus 1)"
-
-#: libraries/messages.inc.php:140
-msgid ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr ""
-"Säilyttää kentän alkuperäiset muotoilut. Kenoviivoja ei käytetä "
-"erikoismerkkien edellä."
-
-#: libraries/messages.inc.php:141
-msgid ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
-msgstr ""
-"Näyttää kuvan ja linkin, kenttä sisältää tiedostonimen; ensimmäinen valinta "
-"on etuliite, eli esimerkiksi \"http://osoite.com/\", toinen valinta on "
-"leveys pikseleinä, kolmas on korkeus."
-
-#: libraries/messages.inc.php:142
-msgid ""
-"Displays a link; the field contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
-msgstr ""
-"Näyttää linkin; kenttä sisältää tiedostonimen; ensimmäinen valinta on "
-"etuliite, eli esimerkiksi \"http://osoite.com/\", toinen valinta on linkin "
-"otsikko."
-
-#: libraries/messages.inc.php:143
-msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Käyttää SQL-kyselyssä syntaksinväritystä."
-
-#: libraries/messages.inc.php:144
-msgid ""
-"Displays a part of a string. The first option is the number of characters to "
-"skip from the beginning of the string (Default 0). The second option is the "
-"number of characters to return (Default: until end of string). The third "
-"option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
-msgstr ""
-"Näyttää vain osan merkkijonoa. Ensimmäinen valinta on tarkoitettu "
-"määrittelemään siirros, jonka kohdalta tekstin näyttäminen aloitetaan "
-"(Oletus: 0). Toinen valinta kertoo, kuinka monta merkkiä tekstistä "
-"näytetään. Tämän ollessa tyhjä merkkijonosta näytetään kaikki loput tekstit. "
-"Kolmas valinta määrittelee, mitä merkkejä merkkijonon perään lisätään sitä "
-"näytettäessä (Oletus: \"...\") ."
-
 #: libraries/mult_submits.inc.php:76 libraries/tbl_properties.inc.php:513
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
@@ -4656,7 +4528,7 @@ msgstr "Ei mitään"
 msgid "As defined:"
 msgstr "Määritelty:"
 
-#: libraries/tbl_properties.inc.php:580 transformation_overview.php:60
+#: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -4693,6 +4565,137 @@ msgstr "Vähintään yksi kenttä on lisättävä."
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
 msgstr "Tapahtuma"
+
+#: libraries/transformations/application_octetstream__download.inc.php:10
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+"Näytä linkki kentän binääritietojen lataamiseen. Ensimmäisellä asetuksella "
+"voi määrittää tiedostonimen, ja toiseen asetukseen voi määrittää "
+"tiedostonimen sisältävälle kentälle nimen. Jos toista (2) asetusta "
+"käytetään,  ensimmäinen asetus on asetettava tyhjäksi."
+
+#: libraries/transformations/application_octetstream__hex.inc.php:10
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr ""
+"Näyttää tiedon heksalukuina. Valinnainen, ensimmäinen parametri määrittelee, "
+"kuinka usein välilyönti lisätään (oletusarvo on 2)."
+
+#: libraries/transformations/image_jpeg__inline.inc.php:10
+#: libraries/transformations/image_png__inline.inc.php:10
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr ""
+"Näyttää painettavan pikkukuvan. Valinnat ovat enimmäisleveys- ja korkeus "
+"pikseleinä. Kuvasuhde säilyy ennallaan."
+
+#: libraries/transformations/image_jpeg__link.inc.php:10
+msgid "Displays a link to download this image."
+msgstr "Näyttää kuvan latauslinkin."
+
+#: libraries/transformations/text_plain__dateformat.inc.php:10
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+"Näyttää TIME-, TIMESTAMP-, DATETIME- tai UNIX-aikaleimakentän muotoiltuna "
+"päivämääränä. Ensimmäinen valinta on aikaleimaan (oletuksena 0) lisättävä "
+"siirros (tunteina). Toisella valinnalla on mahdollista määrittää eri "
+"muotoinen päiväysmerkkijono. Kolmas valinta määrittää, käytetäänkö "
+"päiväyksessä paikallis- vai UTC-aikaa (käytä \"local\"- tai \"utc\"-"
+"merkkijonoja). Päiväyksen muodossa käytetään asetuksen mukaista arvoa; katso "
+"ohjeet \"local\"-asetuksen käytöstä PHP:n ohjeiden strftime()-funktiosta, "
+"\"utc\"-asetus taas käyttää gmdate()-funktiota."
+
+#: libraries/transformations/text_plain__external.inc.php:10
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file libraries/transformations/text_plain__external.inc."
+"php and list the tools you want to make available. The first option is then "
+"the number of the program you want to use and the second option is the "
+"parameters for the program. The third option, if set to 1, will convert the "
+"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
+"will prevent wrapping and ensure that the output appears all on one line "
+"(Default 1)."
+msgstr ""
+"VAIN LINUX-JÄRJESTELMISSÄ: Käynnistää ulkoisen ohjelman ja syöttää "
+"kenttätiedot oletussyötteen kautta. Palauttaa ohjelman oletustulosteen. "
+"Oletusarvona on Tidy, jota käytetään HTML-koodin siistimiseen. "
+"Tietoturvasyistä joudut muokkaamaan käsin tiedostoa libraries/"
+"transformations/text_plain__external.inc.php ja lisäämään työkalut, joiden "
+"ajon haluat sallia. Ensimmäinen valinta on silloin haluamasi ohjelman numero "
+"ja toinen valinta määrittää ohjelmalle annettavat parametrit. Kolmannen "
+"parametrin ollessa yksi (1) tuloste muunnetaan käyttäen htmlspecialchars()-"
+"funktiota (Oletus on 1). Neljännen parametrin ollessa yksi (1) "
+"sisältökennoon lisätään NOWRAP, jotta koko tuloste näkyy ilman "
+"ennakkomuotoiluja (Oletus 1)"
+
+#: libraries/transformations/text_plain__formatted.inc.php:10
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr ""
+"Säilyttää kentän alkuperäiset muotoilut. Kenoviivoja ei käytetä "
+"erikoismerkkien edellä."
+
+#: libraries/transformations/text_plain__imagelink.inc.php:10
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and "
+"third options are the width and the height in pixels."
+msgstr ""
+"Näyttää kuvan ja linkin, kenttä sisältää tiedostonimen; ensimmäinen valinta "
+"on etuliite, eli esimerkiksi \"http://osoite.com/\", toinen valinta on "
+"leveys pikseleinä, kolmas on korkeus."
+
+#: libraries/transformations/text_plain__link.inc.php:10
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for "
+"the link."
+msgstr ""
+"Näyttää linkin; kenttä sisältää tiedostonimen; ensimmäinen valinta on "
+"etuliite, eli esimerkiksi \"http://osoite.com/\", toinen valinta on linkin "
+"otsikko."
+
+#: libraries/transformations/text_plain__longToIpv4.inc.php:10
+msgid ""
+"Converts an (IPv4) Internet network address into a string in Internet "
+"standard dotted format."
+msgstr ""
+
+#: libraries/transformations/text_plain__sql.inc.php:10
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr "Käyttää SQL-kyselyssä syntaksinväritystä."
+
+#: libraries/transformations/text_plain__substr.inc.php:10
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+"Näyttää vain osan merkkijonoa. Ensimmäinen valinta on tarkoitettu "
+"määrittelemään siirros, jonka kohdalta tekstin näyttäminen aloitetaan "
+"(Oletus: 0). Toinen valinta kertoo, kuinka monta merkkiä tekstistä "
+"näytetään. Tämän ollessa tyhjä merkkijonosta näytetään kaikki loput tekstit. "
+"Kolmas valinta määrittelee, mitä merkkejä merkkijonon perään lisätään sitä "
+"näytettäessä (Oletus: \"...\") ."
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8452,6 +8455,9 @@ msgstr "VIEW-arvon nimi"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
+
+#~ msgid "See image/jpeg: inline"
+#~ msgstr "Katso image/jpeg: inline"
 
 #, fuzzy
 #~| msgid "\"zipped\""

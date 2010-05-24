@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 11:33+0200\n"
+"POT-Creation-Date: 2010-05-24 12:05+0200\n"
 "PO-Revision-Date: 2010-03-30 23:16+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -1849,7 +1849,7 @@ msgstr ","
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1596
-#: libraries/transformations/text_plain__dateformat.inc.php:28
+#: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y στις %H:%M:%S"
 
@@ -3889,137 +3889,6 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Ο αριθμός των διεργασιών που δεν είναι σε νάρκη."
 
-#: libraries/messages.inc.php:133
-msgid ""
-"Displays a link to download the binary data of the field. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
-msgstr ""
-"Προβάλει έναν σύνδεσμο για λήψη των δυαδικών δεδομένων ενός πεδίου. Η πρώτη "
-"επιλογή είναι το όνομα αρχείου ενός δυαδικού αρχείου. Η δεύτερη επιλογή "
-"είναι ένα πιθανό όνομα πεδίου μια γραμμής πίνακα που περιέχει το όνομα "
-"αρχείου. Αν δώσετε μια δεύτερη επιλογή πρέπει να έχετε ορίσει την πρώτη "
-"επιλογή ως κενό"
-
-#: libraries/messages.inc.php:134
-msgid ""
-"Displays hexadecimal representation of data. Optional first parameter "
-"specifies how often space will be added (defaults to 2 nibbles)."
-msgstr ""
-"Προβάλει δεκαεξαδική παρουσίαση των δεδομένων. Η προαιρετική πρώτη "
-"παράμετρος ορίζει πόσο συχνά θα προστείθεται διάστημα (η προεπιλογή στις 2 "
-"στιγμές)."
-
-#: libraries/messages.inc.php:135
-msgid ""
-"Displays a clickable thumbnail. The options are the maximum width and height "
-"in pixels. The original aspect ratio is preserved."
-msgstr ""
-"Εμφανίζει μια εικόνα προεπισκόπησης με σύνδεσμο; επιλογές: πλάτος, ύψος σε "
-"εικονοστοιχεία (διατηρεί τις αρχικές αναλογίες)"
-
-#: libraries/messages.inc.php:136
-msgid "Displays a link to download this image."
-msgstr "Εμφανίζει έναν σύνδεσμο για αυτήν την εικόνα."
-
-#: libraries/messages.inc.php:137
-msgid "See image/jpeg: inline"
-msgstr "Δείτε image/jpeg: inline"
-
-#: libraries/messages.inc.php:138
-msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-"formatted date. The first option is the offset (in hours) which will be "
-"added to the timestamp (Default: 0). Use second option to specify a "
-"different date/time format string. Third option determines whether you want "
-"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
-"According to that, date format has different value - for \"local\" see the "
-"documentation for PHP's strftime() function and for \"utc\" it is done using "
-"gmdate() function."
-msgstr ""
-"Προβάλει ένα πεδίο ημερομηνίας-ώρας (TIME, TIMESTAMP, DATETIME ή αριθμητικός "
-"χρόνος UNIX) ως μορφοποιημένη ημερομηνία. Η πρώτη επιλογή είναι το "
-"αντιστάθμισμα (σε ώρες) που θα προστεθεί στην υπαρχουσα (Προεπιλογή: 0) "
-"Χρησιμοποιείστε τη δεύτερη επιλογή για να ορίσετε μια μορφή ημερομηνίας "
-"ώρας. Η τρίτη επιλογή ορίζει αν θέλετε να δείτε την τοπική ή την παγκόσμια "
-"ώρα (χρήση «local» ή «utc» αντίστοιχα). Σύμφωνα με αυτό, η μορφή της "
-"ημερομηνίας έχει διαφορετική τιμή - για το «local» δείτε την τεκμηρίωση για "
-"τη συνάρτηση strftime() της PHP και για το «utc» γίνεται χρησιμοποιώντας τη "
-"συνάρτηση gmdate()."
-
-#: libraries/messages.inc.php:139
-msgid ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
-msgstr ""
-"ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω "
-"«βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
-"τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για λόγους "
-"ασφαλείες, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/"
-"transformations/text_plain__external.inc.php και να εισάγετε τις εφαρμογές "
-"που εσείς επιτρέπετε να εκτελούνται. Η πρώτη επιλογή είναι ο αριθμός της "
-"εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή είναι οι "
-"παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το αποτέλεσμα "
-"χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη τιμή: 1). Η "
-"τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί περιεχομένου ούτως "
-"ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην διάταξη "
-"(Προεπιλεγμένη τιμή: 1)"
-
-#: libraries/messages.inc.php:140
-msgid ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr ""
-"Διατηρεί την αρχική μορφοποίηση του πεδίου. Δεν χρησιμοποιούνται χαρακτήρες "
-"διαφυγής."
-
-#: libraries/messages.inc.php:141
-msgid ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
-msgstr ""
-"Εμφανίζει μία εικόνα και ένα σύνδεσμο, το πεδίο περιέχει το όνομα αρχείου. Η "
-"πρώτη επιλογή είναι ένα πρόθεμα όπως «http://domain.com/», η δεύτερη επιλογή "
-"είναι το πλάτος σε εικονοστοιχεία, η τρίτη είναι το ύψος."
-
-#: libraries/messages.inc.php:142
-msgid ""
-"Displays a link; the field contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
-msgstr ""
-"Εμφανίζει ένα σύνδεσμο, το πεδίο περιέχει το όνομα αρχείου. Η πρώτη επιλογή "
-"είναι ένα πρόθεμα όπως «http://domain.com/», η δεύτερη επιλογή είναι ένας "
-"τίτλος για τον σύνδεσμο."
-
-#: libraries/messages.inc.php:143
-msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Μορφοποιεί το κείμενο ως ερώτημα SQL με συντακτική επισήμανση."
-
-#: libraries/messages.inc.php:144
-msgid ""
-"Displays a part of a string. The first option is the number of characters to "
-"skip from the beginning of the string (Default 0). The second option is the "
-"number of characters to return (Default: until end of string). The third "
-"option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
-msgstr ""
-"Εμφανίζει μόνο μέρος ενός αλφαριθμητικού. Η πρώτη επιλογή είναι η θέση στην "
-"οποία ξεκινά η εμφάνιση του κειμένου (Προεπιλογή: 0). Η δεύτερη επιλογή "
-"είναι το μήκος του κειμένου. Αν μείνει κενό θα επιστραφεί όλο το "
-"αλφαριθμητικό. Η τρίτη επιλογή καθορίζει ποιοι χαρακτήρες θα ακολουθούν το "
-"κείμενο όταν εμφανίζεται μέρος του (Προεπιλογή: ...) ."
-
 #: libraries/mult_submits.inc.php:76 libraries/tbl_properties.inc.php:513
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
@@ -4669,7 +4538,7 @@ msgstr "Καμία"
 msgid "As defined:"
 msgstr "Όπως ορίστηκε:"
 
-#: libraries/tbl_properties.inc.php:580 transformation_overview.php:60
+#: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -4706,6 +4575,140 @@ msgstr "Πρέπει να προσθέσετε τουλάχιστον ένα π�
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
 msgstr "Συμβάν"
+
+#: libraries/transformations/application_octetstream__download.inc.php:10
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+"Προβάλει έναν σύνδεσμο για λήψη των δυαδικών δεδομένων ενός πεδίου. Η πρώτη "
+"επιλογή είναι το όνομα αρχείου ενός δυαδικού αρχείου. Η δεύτερη επιλογή "
+"είναι ένα πιθανό όνομα πεδίου μια γραμμής πίνακα που περιέχει το όνομα "
+"αρχείου. Αν δώσετε μια δεύτερη επιλογή πρέπει να έχετε ορίσει την πρώτη "
+"επιλογή ως κενό"
+
+#: libraries/transformations/application_octetstream__hex.inc.php:10
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr ""
+"Προβάλει δεκαεξαδική παρουσίαση των δεδομένων. Η προαιρετική πρώτη "
+"παράμετρος ορίζει πόσο συχνά θα προστείθεται διάστημα (η προεπιλογή στις 2 "
+"στιγμές)."
+
+#: libraries/transformations/image_jpeg__inline.inc.php:10
+#: libraries/transformations/image_png__inline.inc.php:10
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr ""
+"Εμφανίζει μια εικόνα προεπισκόπησης με σύνδεσμο; επιλογές: πλάτος, ύψος σε "
+"εικονοστοιχεία (διατηρεί τις αρχικές αναλογίες)"
+
+#: libraries/transformations/image_jpeg__link.inc.php:10
+msgid "Displays a link to download this image."
+msgstr "Εμφανίζει έναν σύνδεσμο για αυτήν την εικόνα."
+
+#: libraries/transformations/text_plain__dateformat.inc.php:10
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+"Προβάλει ένα πεδίο ημερομηνίας-ώρας (TIME, TIMESTAMP, DATETIME ή αριθμητικός "
+"χρόνος UNIX) ως μορφοποιημένη ημερομηνία. Η πρώτη επιλογή είναι το "
+"αντιστάθμισμα (σε ώρες) που θα προστεθεί στην υπαρχουσα (Προεπιλογή: 0) "
+"Χρησιμοποιείστε τη δεύτερη επιλογή για να ορίσετε μια μορφή ημερομηνίας "
+"ώρας. Η τρίτη επιλογή ορίζει αν θέλετε να δείτε την τοπική ή την παγκόσμια "
+"ώρα (χρήση «local» ή «utc» αντίστοιχα). Σύμφωνα με αυτό, η μορφή της "
+"ημερομηνίας έχει διαφορετική τιμή - για το «local» δείτε την τεκμηρίωση για "
+"τη συνάρτηση strftime() της PHP και για το «utc» γίνεται χρησιμοποιώντας τη "
+"συνάρτηση gmdate()."
+
+#: libraries/transformations/text_plain__external.inc.php:10
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file libraries/transformations/text_plain__external.inc."
+"php and list the tools you want to make available. The first option is then "
+"the number of the program you want to use and the second option is the "
+"parameters for the program. The third option, if set to 1, will convert the "
+"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
+"will prevent wrapping and ensure that the output appears all on one line "
+"(Default 1)."
+msgstr ""
+"ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω "
+"«βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
+"τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για λόγους "
+"ασφαλείες, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/"
+"transformations/text_plain__external.inc.php και να εισάγετε τις εφαρμογές "
+"που εσείς επιτρέπετε να εκτελούνται. Η πρώτη επιλογή είναι ο αριθμός της "
+"εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή είναι οι "
+"παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το αποτέλεσμα "
+"χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη τιμή: 1). Η "
+"τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί περιεχομένου ούτως "
+"ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην διάταξη "
+"(Προεπιλεγμένη τιμή: 1)"
+
+#: libraries/transformations/text_plain__formatted.inc.php:10
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr ""
+"Διατηρεί την αρχική μορφοποίηση του πεδίου. Δεν χρησιμοποιούνται χαρακτήρες "
+"διαφυγής."
+
+#: libraries/transformations/text_plain__imagelink.inc.php:10
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and "
+"third options are the width and the height in pixels."
+msgstr ""
+"Εμφανίζει μία εικόνα και ένα σύνδεσμο, το πεδίο περιέχει το όνομα αρχείου. Η "
+"πρώτη επιλογή είναι ένα πρόθεμα όπως «http://domain.com/», η δεύτερη επιλογή "
+"είναι το πλάτος σε εικονοστοιχεία, η τρίτη είναι το ύψος."
+
+#: libraries/transformations/text_plain__link.inc.php:10
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for "
+"the link."
+msgstr ""
+"Εμφανίζει ένα σύνδεσμο, το πεδίο περιέχει το όνομα αρχείου. Η πρώτη επιλογή "
+"είναι ένα πρόθεμα όπως «http://domain.com/», η δεύτερη επιλογή είναι ένας "
+"τίτλος για τον σύνδεσμο."
+
+#: libraries/transformations/text_plain__longToIpv4.inc.php:10
+msgid ""
+"Converts an (IPv4) Internet network address into a string in Internet "
+"standard dotted format."
+msgstr ""
+
+#: libraries/transformations/text_plain__sql.inc.php:10
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr "Μορφοποιεί το κείμενο ως ερώτημα SQL με συντακτική επισήμανση."
+
+#: libraries/transformations/text_plain__substr.inc.php:10
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+"Εμφανίζει μόνο μέρος ενός αλφαριθμητικού. Η πρώτη επιλογή είναι η θέση στην "
+"οποία ξεκινά η εμφάνιση του κειμένου (Προεπιλογή: 0). Η δεύτερη επιλογή "
+"είναι το μήκος του κειμένου. Αν μείνει κενό θα επιστραφεί όλο το "
+"αλφαριθμητικό. Η τρίτη επιλογή καθορίζει ποιοι χαρακτήρες θα ακολουθούν το "
+"κείμενο όταν εμφανίζεται μέρος του (Προεπιλογή: ...) ."
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8497,6 +8500,9 @@ msgstr "ΠΡΟΒΟΛΗ ονόματος"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Μετονομασία πίνακα σε"
+
+#~ msgid "See image/jpeg: inline"
+#~ msgstr "Δείτε image/jpeg: inline"
 
 #, fuzzy
 #~ msgid "zipped"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 11:33+0200\n"
+"POT-Creation-Date: 2010-05-24 12:05+0200\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -1877,7 +1877,7 @@ msgstr ","
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1596
-#: libraries/transformations/text_plain__dateformat.inc.php:28
+#: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d de %B de %Y ás %H:%M"
 
@@ -3892,131 +3892,6 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Número de fíos que non están a durmir."
 
-#: libraries/messages.inc.php:133
-msgid ""
-"Displays a link to download the binary data of the field. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
-msgstr ""
-"Mostrar un vínculo para baixar os datos binarios dun campo. A primeira "
-"opción é o nome do ficheiro binario. A segunda é un nome posíbel para o "
-"campo dunha fileira de táboa que conteña o nome do ficheiro. Se pretende "
-"seleccionar a segunda opción, a primeira deberá conter só unha cadea baleira"
-
-#: libraries/messages.inc.php:134
-msgid ""
-"Displays hexadecimal representation of data. Optional first parameter "
-"specifies how often space will be added (defaults to 2 nibbles)."
-msgstr ""
-"Mostra unha representación hexadecimal dos datos. O primeiro parámetro, "
-"opcional, especifica con que frecuencia se engadirá espazo (por omisión, 2 "
-"nibbles)."
-
-#: libraries/messages.inc.php:135
-msgid ""
-"Displays a clickable thumbnail. The options are the maximum width and height "
-"in pixels. The original aspect ratio is preserved."
-msgstr ""
-"Mostra unha imaxe reducida vinculábel. Opcións: anchura,altura en píxeles "
-"(mantén a proporción orixinal)"
-
-#: libraries/messages.inc.php:136
-msgid "Displays a link to download this image."
-msgstr "Mostra un vínculo a esta imaxe (ou sexa, baixada directa de blob)."
-
-#: libraries/messages.inc.php:137
-msgid "See image/jpeg: inline"
-msgstr "Ver image/jpeg: na liña"
-
-#: libraries/messages.inc.php:138
-msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-"formatted date. The first option is the offset (in hours) which will be "
-"added to the timestamp (Default: 0). Use second option to specify a "
-"different date/time format string. Third option determines whether you want "
-"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
-"According to that, date format has different value - for \"local\" see the "
-"documentation for PHP's strftime() function and for \"utc\" it is done using "
-"gmdate() function."
-msgstr ""
-"Mostra un campo coa hora e data numérica de unix TIME, TIMESTAMP, DATETIME "
-"como hora e data con formato. A primeira opción é a diferenza (en horas) que "
-"se engadirá á hora ou data (Por omisión: 0). Use a segunda opción para "
-"especificar unha cadea de formato de data/hora diferente. A terceira opción "
-"determina se quere ver a hora local ou a UTC (empregue as cadeas \"local\" "
-"ou \"utc\") para iso. Segundo isto, o formato de data ten un valor diferente "
-"- para \"local\" vexa a documentación acerca da función PHP's strftime() e "
-"para \"utc\" faise empregando a función gmdate()."
-
-#: libraries/messages.inc.php:139
-msgid ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
-msgstr ""
-"SÓ EN LINUX: Inicia un aplicativo externa e envíalle o campo de datos por "
-"medio da entrada normal. Devolve a saída normal do aplicativo. Por omisión é "
-"Tidy, para que resulte código HTML claro. Por razóns de seguranza, ten que "
-"editar manualmente o ficheiro libraries/transformations/text_plain__external."
-"inc.php e inserir as ferramentas que queira permitir que funcionen. A "
-"primeira opción, polo tanto, é o número do programa que quere usar e a "
-"segunda opción son os parámetros do programa. O terceiro parámetro, se for "
-"1, usará htmlspecialchars() para convertir a saída (Por omisión é 1). Un "
-"cuarto parámetro, se for 1, porá un NOWRAP na cela de contidos para que toda "
-"a saída se mostre sen reformatar (Por omisión é 1)"
-
-#: libraries/messages.inc.php:140
-msgid ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr "Mantén o formato orixinal do campo. Non hai Escape."
-
-#: libraries/messages.inc.php:141
-msgid ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
-msgstr ""
-"Mostra unha imaxe e un vínculo; o campo contén o nome do ficheiro. A "
-"primeira opción é un prefixo do tipo \"http://domain.com/\"; a segunda "
-"opción é o ancho en píxeles; a terceira é a altura."
-
-#: libraries/messages.inc.php:142
-msgid ""
-"Displays a link; the field contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
-msgstr ""
-"Mostra un vínculo; o campo contén o nome do ficheiro. A primeira opción é un "
-"prefixo do tipo \"http://domain.com/\"; a segunda opción é un título para o "
-"vínculo."
-
-#: libraries/messages.inc.php:143
-msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Formata texto como procura SQL e resalta a sintaxe."
-
-#: libraries/messages.inc.php:144
-msgid ""
-"Displays a part of a string. The first option is the number of characters to "
-"skip from the beginning of the string (Default 0). The second option is the "
-"number of characters to return (Default: until end of string). The third "
-"option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
-msgstr ""
-"Só mostra parte dunha cadea. A primeira opción é unha distancia para definir "
-"onde comeza a saída de texto (por omisión, 0). A segunda opción é unha "
-"distancia cando se devolve texto. Se é vacío, volve todo o texto que resta. "
-"A terceira opción define que caracteres se engadirán á saída cando se "
-"devolva unha subcadea (Por omisión: ...)."
-
 #: libraries/mult_submits.inc.php:76 libraries/tbl_properties.inc.php:513
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
@@ -4667,7 +4542,7 @@ msgstr "Ningunha"
 msgid "As defined:"
 msgstr "Como se define:"
 
-#: libraries/tbl_properties.inc.php:580 transformation_overview.php:60
+#: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -4704,6 +4579,134 @@ msgstr "Ten que engadir un campo polo menos"
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
 msgstr "Evento"
+
+#: libraries/transformations/application_octetstream__download.inc.php:10
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+"Mostrar un vínculo para baixar os datos binarios dun campo. A primeira "
+"opción é o nome do ficheiro binario. A segunda é un nome posíbel para o "
+"campo dunha fileira de táboa que conteña o nome do ficheiro. Se pretende "
+"seleccionar a segunda opción, a primeira deberá conter só unha cadea baleira"
+
+#: libraries/transformations/application_octetstream__hex.inc.php:10
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr ""
+"Mostra unha representación hexadecimal dos datos. O primeiro parámetro, "
+"opcional, especifica con que frecuencia se engadirá espazo (por omisión, 2 "
+"nibbles)."
+
+#: libraries/transformations/image_jpeg__inline.inc.php:10
+#: libraries/transformations/image_png__inline.inc.php:10
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr ""
+"Mostra unha imaxe reducida vinculábel. Opcións: anchura,altura en píxeles "
+"(mantén a proporción orixinal)"
+
+#: libraries/transformations/image_jpeg__link.inc.php:10
+msgid "Displays a link to download this image."
+msgstr "Mostra un vínculo a esta imaxe (ou sexa, baixada directa de blob)."
+
+#: libraries/transformations/text_plain__dateformat.inc.php:10
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+"Mostra un campo coa hora e data numérica de unix TIME, TIMESTAMP, DATETIME "
+"como hora e data con formato. A primeira opción é a diferenza (en horas) que "
+"se engadirá á hora ou data (Por omisión: 0). Use a segunda opción para "
+"especificar unha cadea de formato de data/hora diferente. A terceira opción "
+"determina se quere ver a hora local ou a UTC (empregue as cadeas \"local\" "
+"ou \"utc\") para iso. Segundo isto, o formato de data ten un valor diferente "
+"- para \"local\" vexa a documentación acerca da función PHP's strftime() e "
+"para \"utc\" faise empregando a función gmdate()."
+
+#: libraries/transformations/text_plain__external.inc.php:10
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file libraries/transformations/text_plain__external.inc."
+"php and list the tools you want to make available. The first option is then "
+"the number of the program you want to use and the second option is the "
+"parameters for the program. The third option, if set to 1, will convert the "
+"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
+"will prevent wrapping and ensure that the output appears all on one line "
+"(Default 1)."
+msgstr ""
+"SÓ EN LINUX: Inicia un aplicativo externa e envíalle o campo de datos por "
+"medio da entrada normal. Devolve a saída normal do aplicativo. Por omisión é "
+"Tidy, para que resulte código HTML claro. Por razóns de seguranza, ten que "
+"editar manualmente o ficheiro libraries/transformations/text_plain__external."
+"inc.php e inserir as ferramentas que queira permitir que funcionen. A "
+"primeira opción, polo tanto, é o número do programa que quere usar e a "
+"segunda opción son os parámetros do programa. O terceiro parámetro, se for "
+"1, usará htmlspecialchars() para convertir a saída (Por omisión é 1). Un "
+"cuarto parámetro, se for 1, porá un NOWRAP na cela de contidos para que toda "
+"a saída se mostre sen reformatar (Por omisión é 1)"
+
+#: libraries/transformations/text_plain__formatted.inc.php:10
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr "Mantén o formato orixinal do campo. Non hai Escape."
+
+#: libraries/transformations/text_plain__imagelink.inc.php:10
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and "
+"third options are the width and the height in pixels."
+msgstr ""
+"Mostra unha imaxe e un vínculo; o campo contén o nome do ficheiro. A "
+"primeira opción é un prefixo do tipo \"http://domain.com/\"; a segunda "
+"opción é o ancho en píxeles; a terceira é a altura."
+
+#: libraries/transformations/text_plain__link.inc.php:10
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for "
+"the link."
+msgstr ""
+"Mostra un vínculo; o campo contén o nome do ficheiro. A primeira opción é un "
+"prefixo do tipo \"http://domain.com/\"; a segunda opción é un título para o "
+"vínculo."
+
+#: libraries/transformations/text_plain__longToIpv4.inc.php:10
+msgid ""
+"Converts an (IPv4) Internet network address into a string in Internet "
+"standard dotted format."
+msgstr ""
+
+#: libraries/transformations/text_plain__sql.inc.php:10
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr "Formata texto como procura SQL e resalta a sintaxe."
+
+#: libraries/transformations/text_plain__substr.inc.php:10
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+"Só mostra parte dunha cadea. A primeira opción é unha distancia para definir "
+"onde comeza a saída de texto (por omisión, 0). A segunda opción é unha "
+"distancia cando se devolve texto. Se é vacío, volve todo o texto que resta. "
+"A terceira opción define que caracteres se engadirán á saída cando se "
+"devolva unha subcadea (Por omisión: ...)."
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8504,6 +8507,9 @@ msgstr "Nome da VISTA"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Mudar o nome da táboa para"
+
+#~ msgid "See image/jpeg: inline"
+#~ msgstr "Ver image/jpeg: na liña"
 
 #, fuzzy
 #~| msgid "\"zipped\""
