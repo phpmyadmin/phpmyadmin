@@ -35,7 +35,7 @@ if (isset($_REQUEST['sort_order'])
 $dbstats    = empty($_REQUEST['dbstats']) ? 0 : 1;
 $pos        = empty($_REQUEST['pos']) ? 0 : (int) $_REQUEST['pos'];
 
-           
+
 /**
  * Drops multiple databases
  */
@@ -188,17 +188,17 @@ if ($databases_count > 0) {
                 .'        </a></th>' . "\n";
         }
     }
-    
-    foreach ($replication_types as $type) 
+
+    foreach ($replication_types as $type)
     {
       if ($type=="master")
-	$name = "strReplicationMaster";
+        $name = __('Master replication');
       elseif($type == "slave")
-	$name = "strReplicationSlave";
-      if (${"server_{$type}_status"})  
+        $name = __('Slave replication');
+      if (${"server_{$type}_status"})
         echo '    <th>'.$GLOBALS[$name].'</th>' . "\n";
     }
-    
+
     if ($is_superuser) {
         echo '    <th>' . ($cfg['PropertiesIconic'] ? '' : __('Action')) . "\n"
            . '    </th>' . "\n";
@@ -326,10 +326,10 @@ if ($databases_count > 0) {
             }
         }
     }
-    
-    foreach ($replication_types as $type) 
+
+    foreach ($replication_types as $type)
     {
-      if (${"server_{$type}_status"})  
+      if (${"server_{$type}_status"})
         echo '    <th></th>' . "\n";
     }
 

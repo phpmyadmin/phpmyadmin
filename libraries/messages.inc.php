@@ -24,14 +24,6 @@ $strLatexContent = __('Content of table __TABLE__');
 $strLatexContinued = __('(continued)');
 $strLatexStructure = __('Structure of table __TABLE__');
 
-
-
-
-
-
-$strReplicationMaster = __('Master replication');
-$strReplicationSlave = __('Slave replication');
-
 $strShowStatusBinlog_cache_disk_useDescr = __('The number of transactions that used the temporary binary log cache but that exceeded the value of binlog_cache_size and used a temporary file to store statements from the transaction.');
 $strShowStatusBinlog_cache_useDescr = __('The number of transactions that used the temporary binary log cache.');
 $strShowStatusCreated_tmp_disk_tablesDescr = __('The number of temporary tables on disk created automatically by the server while executing statements. If Created_tmp_disk_tables is big, you may want to increase the tmp_table_size  value to cause temporary tables to be memory-based instead of disk-based.');
