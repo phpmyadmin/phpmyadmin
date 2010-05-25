@@ -7099,7 +7099,7 @@ msgstr "Anzahl der Abfragen in der Historie"
 
 #: setup/lib/messages.inc.php:229
 msgid "Query history length"
-msgstr "Anfragelog Länge"
+msgstr "Länge der Abfragehistori"
 
 #: setup/lib/messages.inc.php:230
 msgid "Tab displayed when opening a new query window"
