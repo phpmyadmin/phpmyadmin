@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 13:21+0200\n"
-"PO-Revision-Date: 2010-05-25 13:34+0200\n"
+"PO-Revision-Date: 2010-05-25 13:35+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7586,6 +7586,8 @@ msgid ""
 "Table to describe the display fields, leave blank for no support; suggested: "
 "[kbd]pma_table_info[/kbd]"
 msgstr ""
+"Tabelle zur Beschreibung der Anzeigefelder, leer lassen für keine "
+"Unterstützung; Vorschlag: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
 msgid "Display fields table"
@@ -7593,7 +7595,7 @@ msgstr "Table Info Table"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
-msgstr "Benutername für config Authentifikation"
+msgstr "Benutzername für config Authentifikation"
 
 #: setup/lib/messages.inc.php:324
 msgid ""
