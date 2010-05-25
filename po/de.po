@@ -4154,9 +4154,8 @@ msgid "no description"
 msgstr "keine Beschreibung"
 
 #: libraries/replication_gui.lib.php:51
-#, fuzzy
 msgid "Slave configuration"
-msgstr "Serverkonfiguration"
+msgstr "Slave-Konfiguration"
 
 #: libraries/replication_gui.lib.php:51 server_replication.php:347
 msgid "Change or reconfigure master server"
