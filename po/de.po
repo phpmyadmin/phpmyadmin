@@ -6108,7 +6108,7 @@ msgstr "Voreingestellte Sprache"
 
 #: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
 msgid "let the user choose"
-msgstr "lass den Benutzer entscheiden"
+msgstr "Der Benutzer soll entscheiden"
 
 #: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
 msgid "- none -"
