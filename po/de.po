@@ -7728,7 +7728,7 @@ msgstr "Zeige Tabellen-Kommentar anstelle des Namens"
 
 #: setup/lib/messages.inc.php:349
 msgid "Display table comments in tooltips"
-msgstr ""
+msgstr "Tabellen-Kommentar als Tooltip anzeigen"
 
 #: setup/lib/messages.inc.php:350
 msgid ""
