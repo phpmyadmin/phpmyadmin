@@ -6816,9 +6816,8 @@ msgid "Display server choice at the top of the left frame"
 msgstr ""
 
 #: setup/lib/messages.inc.php:172
-#, fuzzy
 msgid "Display servers selection"
-msgstr "Server als Liste anzeigen"
+msgstr "Server-Auswahl anzeigen"
 
 #: setup/lib/messages.inc.php:173
 msgid "String that separates databases into different tree levels"
