@@ -2959,7 +2959,7 @@ msgstr "Texy! Text"
 
 #: libraries/export/xls.php:18 libraries/import/xls.php:21
 msgid "Excel 97-2003 XLS Workbook"
-msgstr "Excel 97-2003 XLS Workbook"
+msgstr "Excel 97-2003 XLS Mappe"
 
 #: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
 msgid "Excel 2007 XLSX Workbook"
