@@ -6834,9 +6834,8 @@ msgid ""
 msgstr ""
 
 #: setup/lib/messages.inc.php:176
-#, fuzzy
 msgid "Display databases in a tree"
-msgstr "Datenbanken als Liste anzeigen"
+msgstr "Datenbanken als Baum anzeigen"
 
 #: setup/lib/messages.inc.php:177
 msgid "Disable this if you want to see all databases at once"
