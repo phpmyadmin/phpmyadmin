@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-24 12:05+0200\n"
-"PO-Revision-Date: 2010-05-11 15:22+0200\n"
-"Last-Translator:  <osw@ldism.de>\n"
+"PO-Revision-Date: 2010-05-25 10:52+0200\n"
+"Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -8383,98 +8383,3 @@ msgstr "View umbenennen in"
 
 #~ msgid "bzipped"
 #~ msgstr "BZip-komprimiert"
-
-#, fuzzy
-#~| msgid "Add custom comment into header (\\n splits lines)"
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr ""
-#~ "Individuelle Kommentare für den Kopfbereich (\\n erzeugt einen "
-#~ "Zeilenumbruch)"
-
-#~ msgid "and"
-#~ msgstr "und"
-
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Deaktiviert"
-
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Aktiviert"
-
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Reparieren"
-
-#~ msgid "Calendar"
-#~ msgstr "Kalender"
-
-#~ msgid "MySQL&nbsp;4.0 compatible"
-#~ msgstr "MySQL&nbsp;4.0 kompatibel"
-
-#~ msgid "Could not load default configuration from: \"%1$s\""
-#~ msgstr "Fehler beim Laden der Standard-Konfiguration von: \"%1$s\""
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Index über&nbsp;%s&nbsp;Spalten anlegen"
-
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Erzeuge Tabelle"
-
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "keine"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Leeren des Tabellencaches (\"FLUSH\")"
-
-#~ msgid "Invalid server index: \"%s\""
-#~ msgstr "Ungültige Server-Nummer: \"%s\""
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Beschreibung"
-
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Kein"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Schema der Datenbank \"%s\" - Seite %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "Die Tabelle \"%s\" existiert nicht!"
-
-#~ msgid "running on %s"
-#~ msgstr "auf %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr ""
-#~ "Der Skalierungsfaktor ist zu klein, sodass das Schema nicht auf eine "
-#~ "Seite passt!"
-
-#~ msgid ""
-#~ "Cannot start session without errors, please check errors given in your "
-#~ "PHP and/or webserver log file and configure your PHP installation "
-#~ "properly."
-#~ msgstr ""
-#~ "Die Sitzung konnte nicht ohne Fehler gestartet werden, schauen Sie bitte "
-#~ "in das Fehlerprokoll von PHP und/oder Ihres Webservers und konfigurieren "
-#~ "Sie PHP entsprechend (session.save_path, Schreibrechte)."
-
-#, fuzzy
-#~| msgid ""
-#~| "However on last run no data has been parsed, this usually means "
-#~| "phpMyAdmin won't be able to finish this import unless you increase php "
-#~| "time limits."
-#~ msgid ""
-#~ "However on last run no data has been parsed, this usually means "
-#~ "phpMyAdmin won"
-#~ msgstr ""
-#~ "Allerdings wurden hierbei keine Daten eingelesen. Das bedeutet in der "
-#~ "Regel, dass phpMyAdmin nicht in der Lage sein wird, den Import zu "
-#~ "beenden, sofern nicht die Ausführungszeitbeschränkungen von php gelockert "
-#~ "werden."
