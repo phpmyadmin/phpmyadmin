@@ -4180,9 +4180,8 @@ msgid "Port"
 msgstr "Port"
 
 #: libraries/replication_gui.lib.php:103
-#, fuzzy
 msgid "Master status"
-msgstr "Zeige den Slave-Status"
+msgstr "Master-Status"
 
 #: libraries/replication_gui.lib.php:105
 #, fuzzy
