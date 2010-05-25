@@ -7509,7 +7509,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:310
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "DROP TABLE hinzufügen"
 
 #: setup/lib/messages.inc.php:311
 msgid ""
