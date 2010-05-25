@@ -3970,9 +3970,7 @@ msgid ""
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 "Ο αριθμός των ενώσεων χωρίς κλειδιά που ελέγχουν τη χρήση κλειδιού μετά από "
-"κάθε γραμμή. (Αν αυτό δεν είναι 0, \n"
-"The number of joins without keys that check for key usage after each row. "
-"(If this is not 0, πρέπει να ελέγχετε προσεκτικά τα ευρετήρια των πινάκων "
+"κάθε γραμμή. (Αν αυτό δεν είναι 0, πρέπει να ελέγχετε προσεκτικά τα ευρετήρια των πινάκων "
 "σας.)"
 
 #: libraries/messages.inc.php:152
