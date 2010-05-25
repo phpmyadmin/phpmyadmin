@@ -7077,7 +7077,7 @@ msgstr "Verbiete Änderungen an BLOB und BINARY Feldern"
 
 #: setup/lib/messages.inc.php:225
 msgid "Protect binary fields"
-msgstr ""
+msgstr "Schütze BINARY Felder"
 
 #: setup/lib/messages.inc.php:226
 msgid ""
