@@ -5803,7 +5803,7 @@ msgstr "Sortierung"
 
 #: server_status.php:261
 msgid "Transaction coordinator"
-msgstr "Transaction Koordinator"
+msgstr "Transaktions-Koordinator"
 
 #: server_status.php:271
 msgid "Flush (close) all tables"
