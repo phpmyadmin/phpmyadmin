@@ -7176,9 +7176,8 @@ msgid "Column information table"
 msgstr "Column Info Table"
 
 #: setup/lib/messages.inc.php:258
-#, fuzzy
 msgid "Compress connection to MySQL server"
-msgstr "Verbindungsaufbau zu MySQL-Server schlug fehl"
+msgstr "Komprimiere die Verbindung zum MySQL-Server"
 
 #: setup/lib/messages.inc.php:259
 msgid "Compress connection"
