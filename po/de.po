@@ -5612,7 +5612,7 @@ msgstr "Master-Server wurde erfolgreich auf %s geändert."
 #: server_replication.php:182
 msgid "This server is configured as master in a replication process."
 msgstr ""
-"Dieser server ist als Master in einem Replikations-Prozess konfiguriert."
+"Dieser Server ist als Master in einem Replikations-Prozess konfiguriert."
 
 #: server_replication.php:184 server_status.php:281
 msgid "Show master status"
