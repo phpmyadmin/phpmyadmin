@@ -7183,7 +7183,7 @@ msgstr "HTTP Basic Auth Realm Name , der bei HTTP Auth angezeigt wird"
 
 #: setup/lib/messages.inc.php:249
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP Realm"
 
 #: setup/lib/messages.inc.php:250
 msgid ""
