@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-24 12:05+0200\n"
-"PO-Revision-Date: 2010-05-25 11:42+0200\n"
+"PO-Revision-Date: 2010-05-25 11:43+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5104,9 +5104,8 @@ msgstr "Tabellen"
 
 #: server_databases.php:195 server_replication.php:181
 #: server_replication.php:209
-#, fuzzy
 msgid "Master replication"
-msgstr "Serverkonfiguration"
+msgstr "Master Replikation"
 
 #: server_databases.php:197 server_replication.php:248
 #, fuzzy
