@@ -4899,7 +4899,7 @@ msgstr ""
 "existieren. Sollen diese Referenzen gelöscht werden?"
 
 #: pdf_schema.php:636
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "Die Tabelle \"%s\" existiert nicht!"
