@@ -5719,7 +5719,7 @@ msgstr "Slave zurücksetzen"
 #: server_replication.php:327
 #, php-format
 msgid "SQL Thread %s only"
-msgstr ""
+msgstr "Nur SQL Thread %s"
 
 #: server_replication.php:327 server_replication.php:328
 #, fuzzy
