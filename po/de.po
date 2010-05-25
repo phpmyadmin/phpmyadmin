@@ -5501,7 +5501,7 @@ msgstr "Erstelle einen neuen Benutzer mit identischen Rechten und ..."
 
 #: server_privileges.php:1969
 msgid "... keep the old one."
-msgstr " ... behalte den alten bei."
+msgstr "... behalte den alten bei."
 
 #: server_privileges.php:1970
 msgid " ... delete the old one from the user tables."
