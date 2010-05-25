@@ -5706,7 +5706,7 @@ msgstr "Control-user"
 
 #: server_replication.php:325
 msgid "Full start"
-msgstr "Full start"
+msgstr "Alles starten"
 
 #: server_replication.php:325
 #, fuzzy
