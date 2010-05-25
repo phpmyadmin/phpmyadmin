@@ -5655,7 +5655,7 @@ msgstr "Repliziere alle Datenbanken bis auf:"
 
 #: server_replication.php:222
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Repliziere nur:"
 
 #: server_replication.php:225
 msgid "Please select databases:"
