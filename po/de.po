@@ -5108,9 +5108,8 @@ msgid "Master replication"
 msgstr "Master Replikation"
 
 #: server_databases.php:197 server_replication.php:248
-#, fuzzy
 msgid "Slave replication"
-msgstr "Serverkonfiguration"
+msgstr "Slave Replikation"
 
 #: server_databases.php:230
 #, fuzzy
