@@ -430,7 +430,7 @@ $strJustDelete = 'Ta endast bort användarna från privilegiumtabellerna.';
 
 $strKeepPass = 'Ändra inte lösenordet';
 $strKeyCache = 'Nyckelcache';
-$strKeyname = 'Nyckel';;
+$strKeyname = 'Nyckel';
 $strKill = 'Döda';
 $strKnownExternalBug = 'Funktionaliteten för %s påverkas av en känd bugg, se %s';
 $strKorean = 'Koreansk';

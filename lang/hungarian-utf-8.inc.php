@@ -1427,7 +1427,7 @@ $strUseTextField = 'Szöveges mező használata';
 $strUseThisValue = 'Ezen érték használata';
 
 $strValidateSQL = 'SQL érvényesítése';
-$strValidatorError = 'Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a  %dokumentációban% leírtak szerint telepítette-e a szükséges PHP-kiterjesztést.';
+$strValidatorError = 'Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a  %sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-kiterjesztést.';
 $strValue = 'Érték';
 $strVar = 'Változó';
 $strVersionInformation = 'Verziószám';

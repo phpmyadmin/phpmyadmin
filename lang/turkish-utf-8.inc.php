@@ -170,7 +170,7 @@ $strCompression = 'Sıkıştırma';
 $strCompressionWillBeDetected = 'İçeri aktarılmış dosya sıkıştırması otomatik olarak bu dosya türlerinden algılanacak: %s';
 $strConfigDefaultFileError = 'Varsayılan yapılandırma bundan yüklenemedi: "%1$s"';
 $strConfigDirectoryWarning = 'Kur betiği tarafından kullanılan dizin [code]yapılandırması[/code] hala phpMyAdmin dizininiz içinde mevcut. Birkez phpMyAdmin yapılandırıldı mı bunu kaldırmalısınız.';
-$strConfigFileError ='phpMyAdmin yapılandırma dosyanızı okuyamadı!<br />Bu, eğer PHP, içinde ayrıştırma hatası bulursa ya da dosyayı bulamazsa meydana gelebilir.<br />Lütfen aşağıdaki bağlantıyı kullanarak yapılandırma dosyasını doğrudan çağırın ve aldığınız PHP hata mesaj(larını)ı okuyun. Çoğu durumda herhangi bir yerde tırnak veya noktalı virgül eksiktir.<br />Eğer boş bir sayfa karşınıza çıkıyorsa, her şey yolunda demektir.';
+$strConfigFileError = 'phpMyAdmin yapılandırma dosyanızı okuyamadı!<br />Bu, eğer PHP, içinde ayrıştırma hatası bulursa ya da dosyayı bulamazsa meydana gelebilir.<br />Lütfen aşağıdaki bağlantıyı kullanarak yapılandırma dosyasını doğrudan çağırın ve aldığınız PHP hata mesaj(larını)ı okuyun. Çoğu durumda herhangi bir yerde tırnak veya noktalı virgül eksiktir.<br />Eğer boş bir sayfa karşınıza çıkıyorsa, her şey yolunda demektir.';
 $strConfigureTableCoord = 'Lütfen %s tablosu için koordinatları yapılandırın';
 $strConnectionError = 'Bağlanamıyor: geçersiz ayarlar.';
 $strConnections = 'Bağlantılar';
@@ -585,7 +585,7 @@ $strNumSearchResultsTotal = '<b>Toplam:</b> <i>%s</i> eşleşme';
 $strNumTables = 'Tablolar';
 
 $strOK = 'TAMAM';
-$strOpenDocumentSpreadsheet = 'Açık Belge Hesap Çizelgesi';
+$strOpenDocumentSpreadsheet = 'Açık Kaynaklı Tablolama Belgesi';
 $strOpenDocumentText = 'Açık Belge Metini';
 $strOpenNewWindow = 'Yeni phpMyAdmin penceresi aç';
 $strOperations = 'İşlemler';
@@ -718,7 +718,7 @@ $strQBEIns = 'Ins';
 $strQBE = 'Sorgu';
 $strQueryCache = 'Sorgu önbelleği';
 $strQueryFrame = 'Sorgu penceresi';
-$strQueryOnDb = '<b>%s</b> veritabanında SQL sorgusu:';
+$strQueryOnDb = '<b>%s</b> veritabanındaki SQL sorgusu:';
 $strQueryResultsOperations = 'Sorgu sonuçları işlemleri';
 $strQuerySQLHistory = 'SQL geçmişi';
 $strQueryStatistics = '<b>Sorgu istatistikleri</b>: Başlangıçtan beri sunucuya %s sorgu gönderildi.';
@@ -932,7 +932,7 @@ $strSetuperror_nan_nneg = 'Negatif olmayan sayı değil';
 $strSetuperror_nan_p = 'Pozitif sayı değil';
 $strSetupExecTimeLimit_desc = 'Betiğin çalışmasına izin verilecek saniye sayısı ayarıdır (sınırsız için [kbd]0[/kbd])';
 $strSetupExecTimeLimit_name = 'En fazla yürütme süresi';
-$strSetupExport_asfile_name = 'Dosyayı farklı kaydet';
+$strSetupExport_asfile_name = 'Dosya olarak kaydet';
 $strSetupExport_charset_name = 'Dosyanın karakter grubu';
 $strSetupExport_compression_name = 'Sıkıştırma';
 $strSetupExport_file_template_database_name = 'Veritabanı adı şablonu';
@@ -940,7 +940,7 @@ $strSetupExport_file_template_server_name = 'Sunucu adı şablonu';
 $strSetupExport_file_template_table_name = 'Tablo adı şablonu';
 $strSetupExport_format_name = 'Biçim';
 $strSetupExport_onserver_name = 'Sunucuda kaydet';
-$strSetupExport_onserver_overwrite_name = 'Var olan dosya(ların)nın üzerine yaz';
+$strSetupExport_onserver_overwrite_name = 'Mevcut dosya(ların)nın üzerine yaz';
 $strSetupExport_remember_file_template_name = 'Dosya adı şablonunu hatırla';
 $strSetupFalse = 'hayır';
 $strSetupForceSSL_desc = 'phpMyAdmin kullanırken güvenli bağlantıya zorlar';
@@ -1008,7 +1008,7 @@ $strSetupIgnoreMultiSubmitErrors_name = 'Çoklu ifade hatalarını yoksay';
 $strSetupImport_allow_interrupt_desc = 'İçeri aktarmayı yarıda kesmeye izin verildiği takdirde betik, kapatma zaman sınırını saptar. Bu büyük dosyaları içeri aktarmak için iyi bir yol olabilir, ancak bu işlemleri bozabilir.';
 $strSetupImport_allow_interrupt_name = 'Kısmi içeri aktarma: yarıda kesmeye izin ver';
 $strSetupImport_format_desc = 'Varsayılan biçim; bu liste yerine göre (veritabanı, tablo) değişir ve sadece her zaman SQL vardır';
-$strSetupImport_format_name = 'İçeri aktarılan dosyanın biçimi';
+$strSetupImport_format_name = 'İçeri aktarılmış dosyanın biçimi';
 $strSetupImport_skip_queries_desc = 'Başlangıçtan atlanacak kayıt (sorgu) sayısı';
 $strSetupImport_skip_queries_name = 'Kısmi içeri aktarma: sorguları atla';
 $strSetupInsecureConnection = 'Güvensiz bağlantı';
@@ -1095,7 +1095,7 @@ $strSetupServers_AllowDeny_order_name = 'Anamakine kimlik denetimi düzeni';
 $strSetupServers_AllowDeny_rules_desc = 'Varsayılan için boş bırakın';
 $strSetupServers_AllowDeny_rules_name = 'Anamakine kimlik denetimi kuralları';
 $strSetupServers_AllowNoPassword_name = 'Parolasız oturum açmaya izin ver';
-$strSetupServers_AllowRoot_name = 'Root\'un oturum açmasına izin ver';
+$strSetupServers_AllowRoot_name = 'Root oturumu açmaya izin ver';
 $strSetupServers_auth_swekey_config_desc = '[a@http://swekey.com]SweKey donanımsal kimlik denetimi[/a] için yapılandırma dosyası yolu (belge kök klasörünüzde yer almaz; önerilen: /etc/swekey.conf)';
 $strSetupServers_auth_swekey_config_name = 'SweKey yapılandırma dosyası';
 $strSetupServers_auth_type_desc = 'Kullanmak için kimlik denetimi yöntemi';
@@ -1348,7 +1348,7 @@ $strShowThisQuery = 'Bu sorguyu burada tekrar göster';
 $strSimplifiedChinese = 'Basitleştirilmiş Çince';
 $strSingly = '(birer birer)';
 $strSize = 'Boyut';
-$strSkipQueries = 'Başlangıçtan atlamak için kayıt(sorgu) sayısı:';
+$strSkipQueries = 'Başlangıçtan atlanacak kayıt (sorgu) sayısı';
 $strSlaveConfigure = 'Yapılandırma dosyanız (my.cnf) içinde benzersiz sunucu-id olduğundan emin olun. Eğer değilseniz lütfen aşağıdaki satırı [mysqld] bölümü içine ekleyin:';
 $strSlovak = 'Slovakça';
 $strSlovenian = 'Slovence';
@@ -1406,7 +1406,7 @@ $strSwekeyNoKeyId = '%s dosyası herhangi bir anahtar kimliği içermiyor';
 $strSwitchToDatabase = 'Kopyalanmış veritabanına geç.';
 $strSwitchToTable = 'Kopyalanmış tabloya geç';
 $strSynchronizationNote = 'Hedef veritabanı kaynak veritabanı ile tamamen eşitlenecektir. Kaynak veritabanı değitirelemeyecektir.';
-$strSynchronizeDb =  'Veritabanlarını Eşitle';
+$strSynchronizeDb = 'Veritabanlarını Eşitle';
 $strSynchronize = 'Eşitle';
 
 $strTableAddColumn = 'Sekme(leri) ekle';
@@ -1606,26 +1606,26 @@ $strZip = '"zip olarak"';
 
 // To translate:
 
-$strClickToSelect = 'Click to select';  //to translate
-$strClickToUnselect = 'Click to unselect';  //to translate
+$strClickToSelect = 'Seçmek için tıklayın';
+$strClickToUnselect = 'Seçimi kaldırmak için tıklayın';
 
-$strDifference = 'Difference';  //to translate
-$strDumpAllRows = 'Dump all rows';  //to translate
+$strDifference = 'Farkı';
+$strDumpAllRows = 'Tüm satırları yığınla';
 
-$strHaveBeenSynchronized = 'Selected target tables have been synchronized with source tables.';  //to translate
+$strHaveBeenSynchronized = 'Seçili hedef tablolar kaynak tablolar ile eşitlendi.';
 
-$strNotPresent = 'not present';  //to translate
+$strNotPresent = 'mevcut değil';
 
-$strQueriesExecuted = 'The following queries have been executed:';  //to translate
+$strQueriesExecuted = 'Aşağıdaki sorgular çalıştırıldı:';
 
-$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
+$strSetupServers_ssl_desc = 'MySQL sunucusuna bağlantı için SSL etkin';
 
-$strTargetDatabaseHasBeenSynchronized = 'Target database has been synchronized with source database';  //to translate
+$strTargetDatabaseHasBeenSynchronized = 'Hedef veritabanı kaynak veritabanı ile eşitlendi';
 
-$strTrackingYouCanExecute = 'You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so.';  //to translate
-$strTrackingCommentOut = 'Comment out these two lines if you do not need them.';  //to translate
-$strTrackingReportForTable = 'Tracking report for table `%s`';  //to translate
-$strDeleteTrackingData = 'Delete tracking data for this table';  //to translate
-$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
-$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
+$strTrackingYouCanExecute = 'Oluşturulan ve kullanılan geçici veritabanı tarafından yığını çalıştırabilirsiniz. Lütfen bunu yapmak için izinlerinizin olduğundan emin olun.';
+$strTrackingCommentOut = 'Eğer ihtiyacınız yoksa bu iki satırı yorum dışı bırakın.';
+$strTrackingReportForTable = '`%s` tablosu için izleme raporu';
+$strDeleteTrackingData = 'Bu tabloyu izleme verisini sil';
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL işlemi çalışmıyor!';
+$strReplicationSlaveIOThreadNotRunning = 'Slave G/Ç işlemi çalışmıyor!';
 ?>

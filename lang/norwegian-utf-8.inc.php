@@ -784,7 +784,7 @@ $strReplicationSlaveConfiguration = 'Slavekonfigurasjon';
 $strReplicationSlaveConfigured = 'Tjener er konfigurert som slave i en replikasjonsprosess. Ønsker du å:';
 $strReplicationSlaveErrorManagement = 'Feilbehandling:';
 $strReplicationSlaveIOThread = 'Kun IO tråd %s';
-$strReplicationSlaveNotConfigured = 'This server is not configured as slave in a replication process. Would you like to <a href="%s">configure</a> it?';  //to translate
+$strReplicationSlaveNotConfigured = 'Denne tjeneren er ikke konfigurert som master i en replikasjonsprosess. Ønsker du å <a href="%s">konfigurere</a> den?';
 $strReplicationSlaveReset = 'Resett slave';
 $strReplicationSlaveSQLThread = 'Kun SQL tråd %s';
 $strReplicationSlaveSeeStatus = 'Se slavestatustabell';
@@ -1516,7 +1516,7 @@ $strTraditionalSpanish = 'Tradisjonell spansk';
 $strTraffic = 'Trafikk';
 $strTransactionCoordinator = 'Transaksjonskoordinator';
 $strTransformation_application_octetstream__download = 'Vis en link for å kunne laste ned de binære dataene til et felt. Den første opsjonen er filnavnet til den binære fila. Den andre opsjonen er et potensielt feltnavn i en tabell som inneholder filnavnet. Hvis du velger den andre opsjonen så må den første være satt til en tom strengverdi';
-$strTransformation_application_octetstream__hex ='Vis dataene i heksadesimal. Den valgfrie første parameteren tilkjennegir hvor ofte mellomrom vil bli lagt til (standard hvert andre tegn).';
+$strTransformation_application_octetstream__hex = 'Vis dataene i heksadesimal. Den valgfrie første parameteren tilkjennegir hvor ofte mellomrom vil bli lagt til (standard hvert andre tegn).';
 $strTransformation_image_jpeg__inline = 'Viser et klikkbart tommelfingerbilde; valg: bredde, høyde i piksler (bevarer originale forhold)';
 $strTransformation_image_jpeg__link = 'Viser en link til dette bildet (m.a.o. direkte blob-nedlasting).';
 $strTransformation_image_png__inline = 'Se image/jpeg: inline';
@@ -1613,6 +1613,6 @@ $strZip = 'Komprimert (zip)';
 
 // To translate:
 
-$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
-$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread kjører ikke!';
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread kjører ikke!';
 ?>
