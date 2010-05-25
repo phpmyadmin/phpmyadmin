@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer_Excel5
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
 
 // Original file header of PEAR::Spreadsheet_Excel_Writer_Format (used as the base for this class):
@@ -33,7 +33,7 @@
 // *  The majority of this is _NOT_ my code.  I simply ported it from the
 // *  PERL Spreadsheet::WriteExcel module.
 // *
-// *  The author of the Spreadsheet::WriteExcel module is John McNamara 
+// *  The author of the Spreadsheet::WriteExcel module is John McNamara
 // *  <jmcnamara@cpan.org>
 // *
 // *  I _DO_ maintain this code, and John McNamara has nothing to do with the
@@ -59,27 +59,6 @@
 // *    License along with this library; if not, write to the Free Software
 // *    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 // */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../../');
-}
-
-/** PHPExcel_Style_Alignment */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/Alignment.php';
-
-/** PHPExcel_Style_Border */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/Border.php';
-
-/** PHPExcel_Style_Fill */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/Fill.php';
-
-/** PHPExcel_Style_Protection */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/Protection.php';
 
 
 /**
@@ -115,49 +94,49 @@ class PHPExcel_Writer_Excel5_Xf
 	 * An index (2 bytes) to a FORMAT record (number format).
 	 * @var integer
 	 */
-	var $_numberFormatIndex;
+	public $_numberFormatIndex;
 
 	/**
 	 * 1 bit, apparently not used.
 	 * @var integer
 	 */
-	var $_text_justlast;
+	public $_text_justlast;
 
 	/**
 	 * The cell's foreground color.
 	 * @var integer
 	 */
-	var $_fg_color;
+	public $_fg_color;
 
 	/**
 	 * The cell's background color.
 	 * @var integer
 	 */
-	var $_bg_color;
+	public $_bg_color;
 
 	/**
 	 * Color of the bottom border of the cell.
 	 * @var integer
 	 */
-	var $_bottom_color;
+	public $_bottom_color;
 
 	/**
 	 * Color of the top border of the cell.
 	 * @var integer
 	 */
-	var $_top_color;
+	public $_top_color;
 
 	/**
 	* Color of the left border of the cell.
 	* @var integer
 	*/
-	var $_left_color;
+	public $_left_color;
 
 	/**
 	 * Color of the right border of the cell.
 	 * @var integer
 	 */
-	var $_right_color;
+	public $_right_color;
 
 	/**
 	 * Constructor

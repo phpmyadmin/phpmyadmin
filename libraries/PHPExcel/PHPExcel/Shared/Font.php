@@ -8,12 +8,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -22,20 +22,8 @@
  * @package    PHPExcel_Shared
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
-
-
-/** PHPExcel root */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel_Shared_String */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/String.php';
 
 
 /**
@@ -71,7 +59,7 @@ class PHPExcel_Shared_Font
 	const CHARSET_ANSI_THAI					= 0xDE;
 	const CHARSET_ANSI_LATIN_II				= 0xEE;
 	const CHARSET_OEM_LATIN_I				= 0xFF;
-	
+
 	//  XXX: Constants created!
 	/** Font filenames */
 	const ARIAL								= 'arial.ttf';
@@ -230,7 +218,7 @@ class PHPExcel_Shared_Font
 	{
 		self::$trueTypeFontPath = $pValue;
 	}
-	
+
 	/**
 	 * Get the path to the folder containing .ttf files.
 	 *
@@ -240,26 +228,31 @@ class PHPExcel_Shared_Font
 	{
 		return self::$trueTypeFontPath;
 	}
-	
+
 	/**
 	 * Calculate an (approximate) OpenXML column width, based on font size and text contained
 	 *
 	 * @param 	int		$fontSize			Font size (in pixels or points)
 	 * @param 	bool	$fontSizeInPixels	Is the font size specified in pixels (true) or in points (false) ?
-	 * @param 	string	$columnText			Text to calculate width
+	 * @param 	string	$cellText			Text to calculate width
 	 * @param 	int		$rotation			Rotation angle
 	 * @return 	int		Column width
 	 */
-	public static function calculateColumnWidth(PHPExcel_Style_Font $font, $columnText = '', $rotation = 0, PHPExcel_Style_Font $defaultFont = null) {
+	public static function calculateColumnWidth(PHPExcel_Style_Font $font, $cellText = '', $rotation = 0, PHPExcel_Style_Font $defaultFont = null) {
 
 		// If it is rich text, use plain text
-		if ($columnText instanceof PHPExcel_RichText) {
-			$columnText = $columnText->getPlainText();
+		if ($cellText instanceof PHPExcel_RichText) {
+			$cellText = $cellText->getPlainText();
 		}
 
-		// Only measure the part before the first newline character (is always "\n")
-		if (strpos($columnText, "\n") !== false) {
-			$columnText = substr($columnText, 0, strpos($columnText, "\n"));
+		// Special case if there are one or more newline characters ("\n")
+		if (strpos($cellText, "\n") !== false) {
+			$lineTexts = explode("\n", $cellText);
+			$lineWitdhs = array();
+			foreach ($lineTexts as $lineText) {
+				$lineWidths[] = self::calculateColumnWidth($font, $lineText, $rotation = 0, $defaultFont);
+			}
+			return max($lineWidths); // width of longest line in cell
 		}
 
 		// Try to get the exact text width in pixels
@@ -270,14 +263,14 @@ class PHPExcel_Shared_Font
 			}
 
 			// Width of text in pixels excl. padding
-			$columnWidth = self::getTextWidthPixelsExact($columnText, $font, $rotation);
+			$columnWidth = self::getTextWidthPixelsExact($cellText, $font, $rotation);
 
 			// Excel adds some padding, use 1.07 of the width of an 'n' glyph
 			$columnWidth += ceil(self::getTextWidthPixelsExact('0', $font, 0) * 1.07); // pixels incl. padding
 
 		} catch (Exception $e) {
 			// Width of text in pixels excl. padding, approximation
-			$columnWidth = self::getTextWidthPixelsApprox($columnText, $font, $rotation);
+			$columnWidth = self::getTextWidthPixelsApprox($cellText, $font, $rotation);
 
 			// Excel adds some padding, just use approx width of 'n' glyph
 			$columnWidth += self::getTextWidthPixelsApprox('n', $font, 0);
@@ -318,7 +311,7 @@ class PHPExcel_Shared_Font
 		$upperRightCornerY = $textBox[5];
 		$upperLeftCornerX  = $textBox[6];
 		$upperLeftCornerY  = $textBox[7];
-		
+
 		// Consider the rotation when calculating the width
 		$textWidth = max($lowerRightCornerX - $upperLeftCornerX, $upperRightCornerX - $lowerLeftCornerX);
 
@@ -391,7 +384,7 @@ class PHPExcel_Shared_Font
 	public static function fontSizeToPixels($fontSizeInPoints = 11) {
 		return (int) ((4 / 3) * $fontSizeInPoints);
 	}
-	
+
 	/**
 	 * Calculate an (approximate) pixel size, based on inch size
 	 *
@@ -401,7 +394,7 @@ class PHPExcel_Shared_Font
 	public static function inchSizeToPixels($sizeInInch = 1) {
 		return ($sizeInInch * 96);
 	}
-	
+
 	/**
 	 * Calculate an (approximate) pixel size, based on centimeter size
 	 *
@@ -431,34 +424,34 @@ class PHPExcel_Shared_Font
 		switch ($name) {
 			case 'Arial':
 				$fontFile = (
-					$bold ? ($italic ? self::ARIAL_BOLD_ITALIC : self::ARIAL_BOLD) 
+					$bold ? ($italic ? self::ARIAL_BOLD_ITALIC : self::ARIAL_BOLD)
 						  : ($italic ? self::ARIAL_ITALIC : self::ARIAL)
 				);
 				break;
 
 			case 'Calibri':
 				$fontFile = (
-					$bold ? ($italic ? self::CALIBRI_BOLD_ITALIC : self::CALIBRI_BOLD) 
+					$bold ? ($italic ? self::CALIBRI_BOLD_ITALIC : self::CALIBRI_BOLD)
 						  : ($italic ? self::CALIBRI_ITALIC : self::CALIBRI)
 				);
 				break;
 
 			case 'Courier New':
 				$fontFile = (
-					$bold ? ($italic ? self::COURIER_NEW_BOLD_ITALIC : self::COURIER_NEW_BOLD) 
+					$bold ? ($italic ? self::COURIER_NEW_BOLD_ITALIC : self::COURIER_NEW_BOLD)
 						  : ($italic ? self::COURIER_NEW_ITALIC : self::COURIER_NEW)
 				);
 				break;
 
 			case 'Comic Sans MS':
 				$fontFile = (
-					$bold ? self::COMIC_SANS_MS_BOLD : self::COMIC_SANS_MS 
+					$bold ? self::COMIC_SANS_MS_BOLD : self::COMIC_SANS_MS
 				);
 				break;
 
 			case 'Georgia':
 				$fontFile = (
-					$bold ? ($italic ? self::GEORGIA_BOLD_ITALIC : self::GEORGIA_BOLD) 
+					$bold ? ($italic ? self::GEORGIA_BOLD_ITALIC : self::GEORGIA_BOLD)
 						  : ($italic ? self::GEORGIA_ITALIC : self::GEORGIA)
 				);
 				break;
@@ -469,7 +462,7 @@ class PHPExcel_Shared_Font
 
 			case 'Liberation Sans':
 				$fontFile = (
-					$bold ? ($italic ? self::LIBERATION_SANS_BOLD_ITALIC : self::LIBERATION_SANS_BOLD) 
+					$bold ? ($italic ? self::LIBERATION_SANS_BOLD_ITALIC : self::LIBERATION_SANS_BOLD)
 						  : ($italic ? self::LIBERATION_SANS_ITALIC : self::LIBERATION_SANS)
 				);
 				break;
@@ -488,7 +481,7 @@ class PHPExcel_Shared_Font
 
 			case 'Palatino Linotype':
 				$fontFile = (
-					$bold ? ($italic ? self::PALATINO_LINOTYPE_BOLD_ITALIC : self::PALATINO_LINOTYPE_BOLD) 
+					$bold ? ($italic ? self::PALATINO_LINOTYPE_BOLD_ITALIC : self::PALATINO_LINOTYPE_BOLD)
 						  : ($italic ? self::PALATINO_LINOTYPE_ITALIC : self::PALATINO_LINOTYPE)
 				);
 				break;
@@ -499,27 +492,27 @@ class PHPExcel_Shared_Font
 
 			case 'Tahoma':
 				$fontFile = (
-					$bold ? self::TAHOMA_BOLD : self::TAHOMA 
+					$bold ? self::TAHOMA_BOLD : self::TAHOMA
 				);
 				break;
 
 			case 'Times New Roman':
 				$fontFile = (
-					$bold ? ($italic ? self::TIMES_NEW_ROMAN_BOLD_ITALIC : self::TIMES_NEW_ROMAN_BOLD) 
+					$bold ? ($italic ? self::TIMES_NEW_ROMAN_BOLD_ITALIC : self::TIMES_NEW_ROMAN_BOLD)
 						  : ($italic ? self::TIMES_NEW_ROMAN_ITALIC : self::TIMES_NEW_ROMAN)
 				);
 				break;
 
 			case 'Trebuchet MS':
 				$fontFile = (
-					$bold ? ($italic ? self::TREBUCHET_MS_BOLD_ITALIC : self::TREBUCHET_MS_BOLD) 
+					$bold ? ($italic ? self::TREBUCHET_MS_BOLD_ITALIC : self::TREBUCHET_MS_BOLD)
 						  : ($italic ? self::TREBUCHET_MS_ITALIC : self::TREBUCHET_MS)
 				);
 				break;
 
 			case 'Verdana':
 				$fontFile = (
-					$bold ? ($italic ? self::VERDANA_BOLD_ITALIC : self::VERDANA_BOLD) 
+					$bold ? ($italic ? self::VERDANA_BOLD_ITALIC : self::VERDANA_BOLD)
 						  : ($italic ? self::VERDANA_ITALIC : self::VERDANA)
 				);
 				break;
@@ -589,7 +582,7 @@ class PHPExcel_Shared_Font
 
 		return $columnWidth;
 	}
-	
+
 	/**
 	 * Get the effective row height for rows without a row dimension or rows with height -1
 	 * For example, for Calibri 11 this is 15 points

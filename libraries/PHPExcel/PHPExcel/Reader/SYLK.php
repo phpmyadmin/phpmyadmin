@@ -22,7 +22,7 @@
  * @package    PHPExcel_Reader
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
 
 
@@ -32,26 +32,14 @@ if (!defined('PHPEXCEL_ROOT')) {
 	 * @ignore
 	 */
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
+	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
+	PHPExcel_Autoloader::Register();
+	PHPExcel_Shared_ZipStreamWrapper::register();
+	// check mbstring.func_overload
+	if (ini_get('mbstring.func_overload') & 2) {
+		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
+	}
 }
-
-/** PHPExcel */
-require_once PHPEXCEL_ROOT . 'PHPExcel.php';
-
-/** PHPExcel_Reader_IReader */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/IReader.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Calculation */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Calculation.php';
-
- /** PHPExcel_Reader_DefaultReadFilter */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/DefaultReadFilter.php';
-
 
 /**
  * PHPExcel_Reader_SYLK
@@ -167,6 +155,7 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 	 * Loads PHPExcel from file
 	 *
 	 * @param 	string 		$pFilename
+	 * @return 	PHPExcel
 	 * @throws 	Exception
 	 */
 	public function load($pFilename)
@@ -194,6 +183,7 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 	 */
 	public function setReadFilter(PHPExcel_Reader_IReadFilter $pValue) {
 		$this->_readFilter = $pValue;
+		return $this;
 	}
 
 	/**
@@ -204,6 +194,7 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 	public function setInputEncoding($pValue = 'ANSI')
 	{
 		$this->_inputEncoding = $pValue;
+		return $this;
 	}
 
 	/**
@@ -221,6 +212,7 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 	 *
 	 * @param 	string 		$pFilename
 	 * @param	PHPExcel	$objPHPExcel
+	 * @return 	PHPExcel
 	 * @throws 	Exception
 	 */
 	public function loadIntoExisting($pFilename, PHPExcel $objPHPExcel)
@@ -248,8 +240,17 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 		// Loop through file
 		$rowData = array();
 		$column = $row = '';
+
+		// loop through one row (line) at a time in the file
 		while (($rowData = fgets($fileHandle)) !== FALSE) {
-			$rowData = explode("\t",str_replace('¤',';',str_replace(';',"\t",str_replace(';;','¤',rtrim($rowData)))));
+
+			// convert SYLK encoded $rowData to UTF-8
+			$rowData = PHPExcel_Shared_String::SYLKtoUTF8($rowData);
+
+			// explode each row at semicolons while taking into account that literal semicolon (;)
+			// is escaped like this (;;)
+			$rowData = explode("\t",str_replace('Â¤',';',str_replace(';',"\t",str_replace(';;','Â¤',rtrim($rowData)))));
+
 			$dataType = array_shift($rowData);
 			//	Read shared styles
 			if ($dataType == 'P') {
@@ -337,8 +338,9 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 				}
 				$columnLetter = PHPExcel_Cell::stringFromColumnIndex($column-1);
 				$cellData = PHPExcel_Calculation::_unwrapResult($cellData);
+
 				// Set cell value
-				$objPHPExcel->getActiveSheet()->setCellValue($columnLetter.$row, (($hasCalculatedValue) ? $cellDataFormula : $cellData));
+				$objPHPExcel->getActiveSheet()->getCell($columnLetter.$row)->setValue(($hasCalculatedValue) ? $cellDataFormula : $cellData);
 				if ($hasCalculatedValue) {
 					$cellData = PHPExcel_Calculation::_unwrapResult($cellData);
 					$objPHPExcel->getActiveSheet()->getCell($columnLetter.$row)->setCalculatedValue($cellData);
@@ -503,4 +505,5 @@ class PHPExcel_Reader_SYLK implements PHPExcel_Reader_IReader
 		$this->_sheetIndex = $pValue;
 		return $this;
 	}
+
 }

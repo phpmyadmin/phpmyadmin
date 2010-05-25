@@ -8,12 +8,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -22,29 +22,8 @@
  * @package    PHPExcel_Worksheet_Drawing
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel_IComparable */
-require_once PHPEXCEL_ROOT . 'PHPExcel/IComparable.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Worksheet_BaseDrawing */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet/BaseDrawing.php';
-
-/** PHPExcel_Worksheet_Drawing_Shadow */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet/Drawing/Shadow.php';
 
 
 /**
@@ -54,15 +33,15 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet/Drawing/Shadow.php';
  * @package    PHPExcel_Worksheet_Drawing
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
-class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implements PHPExcel_IComparable 
-{		
+class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implements PHPExcel_IComparable
+{
 	/**
 	 * Path
 	 *
 	 * @var string
 	 */
 	private $_path;
-	
+
     /**
      * Create a new PHPExcel_Worksheet_Drawing
      */
@@ -70,11 +49,11 @@ class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implemen
     {
     	// Initialise values
     	$this->_path				= '';
-    	
+
     	// Initialize parent
     	parent::__construct();
     }
-    
+
     /**
      * Get Filename
      *
@@ -83,7 +62,7 @@ class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implemen
     public function getFilename() {
     	return basename($this->_path);
     }
-	
+
     /**
      * Get indexed filename (using image index)
      *
@@ -94,7 +73,7 @@ class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implemen
     	$fileName = str_replace(' ', '_', $fileName);
     	return str_replace('.' . $this->getExtension(), '', $fileName) . $this->getImageIndex() . '.' . $this->getExtension();
     }
-    
+
     /**
      * Get Extension
      *
@@ -104,7 +83,7 @@ class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implemen
     	$exploded = explode(".", basename($this->_path));
     	return $exploded[count($exploded) - 1];
     }
-    
+
     /**
      * Get Path
      *
@@ -113,7 +92,7 @@ class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implemen
     public function getPath() {
     	return $this->_path;
     }
-    
+
     /**
      * Set Path
      *
@@ -126,7 +105,7 @@ class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implemen
     	if ($pVerifyFile) {
 	    	if (file_exists($pValue)) {
 	    		$this->_path = $pValue;
-	    		
+
 	    		if ($this->_width == 0 && $this->_height == 0) {
 	    			// Get width/height
 	    			list($this->_width, $this->_height) = getimagesize($pValue);
@@ -144,7 +123,7 @@ class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implemen
 	 * Get hash code
 	 *
 	 * @return string	Hash code
-	 */	
+	 */
 	public function getHashCode() {
     	return md5(
     		  $this->_path
@@ -152,7 +131,7 @@ class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implemen
     		. __CLASS__
     	);
     }
-    
+
 	/**
 	 * Implement PHP __clone to create a deep clone, not just a shallow copy.
 	 */

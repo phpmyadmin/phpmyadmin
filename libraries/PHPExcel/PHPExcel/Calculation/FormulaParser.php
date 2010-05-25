@@ -22,7 +22,7 @@
  * @package    PHPExcel_Calculation
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
 
 
@@ -48,17 +48,6 @@ PARTLY BASED ON:
 	http://ewbi.blogs.com/develops/2007/03/excel_formula_p.html
 	http://ewbi.blogs.com/develops/2004/12/excel_formula_p.html
 */
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel_Calculation_FormulaToken */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Calculation/FormulaToken.php';
 
 /**
  * PHPExcel_Calculation_FormulaParser

@@ -22,38 +22,20 @@
  * @package    PHPExcel_Worksheet
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel */
-require_once PHPEXCEL_ROOT . 'PHPExcel.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
 
 
 /**
  * PHPExcel_Worksheet_CellIterator
- * 
+ *
  * Used to iterate rows in a PHPExcel_Worksheet
  *
  * @category   PHPExcel
  * @package    PHPExcel_Worksheet
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
-class PHPExcel_Worksheet_CellIterator extends IteratorIterator
+class PHPExcel_Worksheet_CellIterator extends CachingIterator
 {
 	/**
 	 * PHPExcel_Worksheet to iterate
@@ -61,21 +43,21 @@ class PHPExcel_Worksheet_CellIterator extends IteratorIterator
 	 * @var PHPExcel_Worksheet
 	 */
 	private $_subject;
-	
+
 	/**
 	 * Row index
 	 *
 	 * @var int
 	 */
 	private $_rowIndex;
-	
+
 	/**
 	 * Current iterator position
 	 *
 	 * @var int
 	 */
 	private $_position = 0;
-	
+
 	/**
 	 * Loop only existing cells
 	 *
@@ -94,14 +76,14 @@ class PHPExcel_Worksheet_CellIterator extends IteratorIterator
 		$this->_subject 	= $subject;
 		$this->_rowIndex 	= $rowIndex;
 	}
-	
+
 	/**
 	 * Destructor
 	 */
 	public function __destruct() {
 		unset($this->_subject);
 	}
-	
+
 	/**
 	 * Rewind iterator
 	 */
@@ -158,7 +140,7 @@ class PHPExcel_Worksheet_CellIterator extends IteratorIterator
 
         return $this->_position < $columnCount;
     }
-    
+
 	/**
 	 * Get loop only existing cells
 	 *
@@ -167,7 +149,7 @@ class PHPExcel_Worksheet_CellIterator extends IteratorIterator
     public function getIterateOnlyExistingCells() {
     	return $this->_onlyExistingCells;
     }
-    
+
 	/**
 	 * Set loop only existing cells
 	 *

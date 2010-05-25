@@ -12,6 +12,13 @@ if (!defined('PHPEXCEL_ROOT')) {
 	 * @ignore
 	 */
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../../');
+	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
+	PHPExcel_Autoloader::Register();
+	PHPExcel_Shared_ZipStreamWrapper::register();
+	// check mbstring.func_overload
+	if (ini_get('mbstring.func_overload') & 2) {
+		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
+	}
 }
 
 require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/JAMA/utils/Error.php';
@@ -764,11 +771,11 @@ class Matrix {
 				for($j = 0; $j < $this->n; ++$j) {
 					$validValues = True;
 					$value = $M->get($i, $j);
-					if ((is_string($this->A[$i][$j])) && (!is_numeric($this->A[$i][$j]))) {
+					if ((is_string($this->A[$i][$j])) && (strlen($this->A[$i][$j]) > 0) && (!is_numeric($this->A[$i][$j]))) {
 						$this->A[$i][$j] = trim($this->A[$i][$j],'"');
 						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($this->A[$i][$j]);
 					}
-					if ((is_string($value)) && (!is_numeric($value))) {
+					if ((is_string($value)) && (strlen($value) > 0) && (!is_numeric($value))) {
 						$value = trim($value,'"');
 						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($value);
 					}
@@ -850,11 +857,11 @@ class Matrix {
 				for($j = 0; $j < $this->n; ++$j) {
 					$validValues = True;
 					$value = $M->get($i, $j);
-					if ((is_string($this->A[$i][$j])) && (!is_numeric($this->A[$i][$j]))) {
+					if ((is_string($this->A[$i][$j])) && (strlen($this->A[$i][$j]) > 0) && (!is_numeric($this->A[$i][$j]))) {
 						$this->A[$i][$j] = trim($this->A[$i][$j],'"');
 						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($this->A[$i][$j]);
 					}
-					if ((is_string($value)) && (!is_numeric($value))) {
+					if ((is_string($value)) && (strlen($value) > 0) && (!is_numeric($value))) {
 						$value = trim($value,'"');
 						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($value);
 					}
@@ -938,11 +945,11 @@ class Matrix {
 				for($j = 0; $j < $this->n; ++$j) {
 					$validValues = True;
 					$value = $M->get($i, $j);
-					if ((is_string($this->A[$i][$j])) && (!is_numeric($this->A[$i][$j]))) {
+					if ((is_string($this->A[$i][$j])) && (strlen($this->A[$i][$j]) > 0) && (!is_numeric($this->A[$i][$j]))) {
 						$this->A[$i][$j] = trim($this->A[$i][$j],'"');
 						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($this->A[$i][$j]);
 					}
-					if ((is_string($value)) && (!is_numeric($value))) {
+					if ((is_string($value)) && (strlen($value) > 0) && (!is_numeric($value))) {
 						$value = trim($value,'"');
 						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($value);
 					}
@@ -989,11 +996,11 @@ class Matrix {
 				for($j = 0; $j < $this->n; ++$j) {
 					$validValues = True;
 					$value = $M->get($i, $j);
-					if ((is_string($this->A[$i][$j])) && (!is_numeric($this->A[$i][$j]))) {
+					if ((is_string($this->A[$i][$j])) && (strlen($this->A[$i][$j]) > 0) && (!is_numeric($this->A[$i][$j]))) {
 						$this->A[$i][$j] = trim($this->A[$i][$j],'"');
 						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($this->A[$i][$j]);
 					}
-					if ((is_string($value)) && (!is_numeric($value))) {
+					if ((is_string($value)) && (strlen($value) > 0) && (!is_numeric($value))) {
 						$value = trim($value,'"');
 						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($value);
 					}
@@ -1246,11 +1253,11 @@ class Matrix {
 				for($j = 0; $j < $this->n; ++$j) {
 					$validValues = True;
 					$value = $M->get($i, $j);
-					if ((is_string($this->A[$i][$j])) && (!is_numeric($this->A[$i][$j]))) {
+					if ((is_string($this->A[$i][$j])) && (strlen($this->A[$i][$j]) > 0) && (!is_numeric($this->A[$i][$j]))) {
 						$this->A[$i][$j] = trim($this->A[$i][$j],'"');
 						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($this->A[$i][$j]);
 					}
-					if ((is_string($value)) && (!is_numeric($value))) {
+					if ((is_string($value)) && (strlen($value) > 0) && (!is_numeric($value))) {
 						$value = trim($value,'"');
 						$validValues &= PHPExcel_Shared_String::convertToNumberIfFraction($value);
 					}

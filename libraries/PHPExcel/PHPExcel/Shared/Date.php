@@ -23,23 +23,8 @@
  * @package	PHPExcel_Shared
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.2, 2010-01-11
+ * @version	1.7.3, 2010-05-17
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Style_NumberFormat */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/NumberFormat.php';
 
 
 /**
@@ -279,4 +264,40 @@ class PHPExcel_Shared_Date
 		// No date...
 		return false;
 	}	//	function isDateTimeFormatCode()
+
+
+	/**
+	 * Convert a date/time string to Excel time
+	 *
+	 * @param	string	$dateValue		Examples: '2009-12-31', '2009-12-31 15:59', '2009-12-31 15:59:10'
+	 * @return	float|false		Excel date/time serial value
+	 */
+	public static function stringToExcel($dateValue = '') {
+		// restrict to dates and times like these because date_parse accepts too many strings
+		// '2009-12-31'
+		// '2009-12-31 15:59'
+		// '2009-12-31 15:59:10'
+		if (!preg_match('/^\d{4}\-\d{1,2}\-\d{1,2}( \d{1,2}:\d{1,2}(:\d{1,2})?)?$/', $dateValue)) {
+			return false;
+		}
+
+		// now try with date_parse
+		$PHPDateArray = date_parse($dateValue);
+
+		if ($PHPDateArray['error_count'] == 0) {
+			$year = $PHPDateArray['year'] !== false ? $PHPDateArray['year'] : self::getExcelCalendar();
+			$month = $PHPDateArray['month'] !== false ? $PHPDateArray['month'] : 1;
+			$day = $PHPDateArray['day'] !== false ? $PHPDateArray['day'] : 0;
+			$hour = $PHPDateArray['hour'] !== false ? $PHPDateArray['hour'] : 0;
+			$minute = $PHPDateArray['minute'] !== false ? $PHPDateArray['minute'] : 0;
+			$second = $PHPDateArray['second'] !== false ? $PHPDateArray['second'] : 0;
+
+			$excelDateValue = PHPExcel_Shared_Date::FormattedPHPToExcel($year, $month, $day, $hour, $minute, $second);
+
+			return $excelDateValue;
+		}
+
+		return false;
+	}
+
 }

@@ -19,19 +19,6 @@
 //
 // $Id: OLE.php,v 1.13 2007/03/07 14:38:25 schmidt Exp $
 
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE.php';
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE/OLE_PPS.php';
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE/OLE_File.php';
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE/OLE_Root.php';
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE/ChainedBlockStream.php';
 
 /**
 * Array for storing OLE instances that are accessed from
@@ -527,20 +514,9 @@ class PHPExcel_Shared_OLE
 
 		// factor used for separating numbers into 4 bytes parts
 		$factor = pow(2,32);
-		$high_part = 0;
-		for ($i = 0; $i < 4; ++$i) {
-			list(, $high_part) = unpack('C', $string{(7 - $i)});
-			if ($i < 3) {
-				$high_part *= 0x100;
-			}
-		}
-		$low_part = 0;
-		for ($i = 4; $i < 8; ++$i) {
-			list(, $low_part) = unpack('C', $string{(7 - $i)});
-			if ($i < 7) {
-				$low_part *= 0x100;
-			}
-		}
+		list(, $high_part) = unpack('V', substr($string, 4, 4));
+		list(, $low_part) = unpack('V', substr($string, 0, 4));
+
 		$big_date = ($high_part * $factor) + $low_part;
 		// translate to seconds
 		$big_date /= 10000000;

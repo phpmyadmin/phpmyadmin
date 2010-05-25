@@ -8,12 +8,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -22,29 +22,8 @@
  * @package    PHPExcel_Cell
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Cell_IValueBinder */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell/IValueBinder.php';
-
-/** PHPExcel_Cell_DataType */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell/DataType.php';
-
-/** PHPExcel_Shared_String */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/String.php';
 
 
 /**
@@ -72,11 +51,11 @@ class PHPExcel_Cell_DefaultValueBinder implements PHPExcel_Cell_IValueBinder
 
 		// Set value explicit
 		$cell->setValueExplicit( $value, PHPExcel_Cell_DataType::dataTypeForValue($value) );
-		
+
 		// Done!
 		return true;
 	}
-	
+
 	/**
 	 * DataType for value
 	 *
@@ -94,7 +73,7 @@ class PHPExcel_Cell_DefaultValueBinder implements PHPExcel_Cell_IValueBinder
 		} elseif ($pValue instanceof PHPExcel_RichText) {
 			return PHPExcel_Cell_DataType::TYPE_STRING;
 
-		} elseif ($pValue{0} === '=') {
+		} elseif ($pValue{0} === '=' && strlen($pValue) > 1) {
 			return PHPExcel_Cell_DataType::TYPE_FORMULA;
 
 		} elseif (is_bool($pValue)) {
