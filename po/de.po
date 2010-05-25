@@ -5969,9 +5969,8 @@ msgid "not present"
 msgstr "nicht vorhanden"
 
 #: server_synchronize.php:424 server_synchronize.php:867
-#, fuzzy
 msgid "Structure Difference"
-msgstr "Struktur des Views"
+msgstr "Struktur-Unterschied"
 
 #: server_synchronize.php:425 server_synchronize.php:868
 msgid "Data Difference"
