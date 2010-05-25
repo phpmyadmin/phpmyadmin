@@ -20,8 +20,6 @@ $datefmt = '%B %d, %Y as %I:%M %p';
 
 $timespanfmt = '%s dias, %s horas, %s minutos e %s segundos';
 
- DESC.';
-
 $strAbortedClients = 'நிறுத்தப்பட்டுள்ளது';
 $strAccessDenied = 'அனுமதி நிராகரிக்கப்பட்டுள்ளது';
 $strAccessDeniedCreateConfig = 'நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க கோவையை %2$s பயன்படுத்தலாம்';
@@ -791,7 +789,7 @@ $strShowStatusHandler_discoverDescr = 'O servidor MySQL pode perguntar ao motor 
 $strShowStatusHandler_read_firstDescr = 'O número de vezes que a primeira entrada foi lida de um índice. Se isto for alto, sugere que o usuário está fazendo muitas varreduras completas do índice; por exemplo, SELECT col1 FROM foo, supondo que col1 é um índice.';
 $strShowStatusHandler_read_keyDescr = 'O número de requisições para ler uma linha baseada em uma chave. Se isto for alto, é uma boa indicação de que suas consultas e tabelas estejam corretamente indexadas.';
 $strShowStatusHandler_read_nextDescr = 'O número de requisições para ler a linha seguinte na ordem da chave. Isto é incrementado se você estiver consultando uma coluna do índice com uma restrição da escala ou se você estiver fazendo uma varredura do índice.';
-$strShowStatusHandler_read_prevDescr = 'O número de requisições para ler a linha precedente na ordem da chave. Este método de leitura é usado principalmente para otimizar ORDER B';
+$strShowStatusHandler_read_prevDescr = 'O número de requisições para ler a linha precedente na ordem da chave. Este método de leitura é usado principalmente para otimizar ORDER BY DESC.';
 $strShowStatusHandler_read_rndDescr = 'O número de requisições pra ler uma linha baseada em uma posição fixa. Isto é alto se você estiver fazendo muitas consultas que requerem a ordenação do resultado. Você tem provavelmente muitas consultas que requerem que o MySQL faça a varredura de tabelas inteiras ou você tem junções que não usam as chaves corretamente.';
 $strShowStatusHandler_read_rnd_nextDescr = 'O número de requisições para ler a linha seguinte no arquivo de dados. Isto é alto se você estiver fazendo muitas varreduras da tabela. Geralmente isto sugere que suas tabelas não estão corretamente indexadas ou que suas consultas não estão escritas para tomar vantagem dos índices que você têm.';
 $strShowStatusHandler_rollbackDescr = 'O número de enunciados ROLLBACK internos.';
@@ -1089,7 +1087,7 @@ $strCouldNotConnectTarget = 'Could not connect to the target';  //to translate
 $strCurrentServer = 'Current server';  //to translate
 $strCustomColor = 'Custom color';  //to translate
 
-$strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate 
+$strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate
 $strDatabase_src = 'Source database';  //to translate
 $strDatabase_trg = 'Target database';  //to translate
 $strDataDiff = 'Data Difference';  //to translate
