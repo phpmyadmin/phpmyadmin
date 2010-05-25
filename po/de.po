@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-24 12:05+0200\n"
-"PO-Revision-Date: 2010-05-25 11:43+0200\n"
+"PO-Revision-Date: 2010-05-25 11:44+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5523,11 +5523,10 @@ msgid "Database for user"
 msgstr "Datenbank für Benutzer"
 
 #: server_privileges.php:1998
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
-msgstr "keine"
+msgstr "Kein(e)"
 
 #: server_privileges.php:1999
 msgid "Create database with same name and grant all privileges"
