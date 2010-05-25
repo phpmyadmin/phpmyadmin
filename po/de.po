@@ -7069,7 +7069,7 @@ msgstr "Persistente Verbindung"
 
 #: setup/lib/messages.inc.php:223
 msgid "Iconic table operations"
-msgstr ""
+msgstr "Tabellenbearbeitung mittels Icons"
 
 #: setup/lib/messages.inc.php:224
 msgid "Disallow BLOB and BINARY fields from editing"
