@@ -7668,6 +7668,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
+"Zeige Link zu  [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Ausgabe"
 
 #: setup/lib/messages.inc.php:339
 msgid "Show phpinfo() link"
