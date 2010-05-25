@@ -7625,8 +7625,8 @@ msgstr "Serverbezeichnung"
 msgid ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgstr ""
-"Soll dem Benutzer ein &quot;show all (records)&quot; Button angezeigt "
-"werden?"
+"Ob dem Benutzer ein &quot;show all (records)&quot; Button angezeigt werden "
+"soll"
 
 #: setup/lib/messages.inc.php:330
 msgid "Allow to display all the rows"
