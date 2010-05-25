@@ -8299,7 +8299,7 @@ msgstr "partitioniert"
 #: tbl_tracking.php:114
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Verlaufs-Report für Tabelle '%s'"
 
 #: tbl_tracking.php:187
 #, php-format
