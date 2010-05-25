@@ -5815,7 +5815,7 @@ msgstr "Zeige alle offenen Tabellen"
 
 #: server_status.php:278
 msgid "Show slave hosts"
-msgstr "Zeige alle Slave-Rechner"
+msgstr "Zeige alle Slave-Hosts"
 
 #: server_status.php:284
 msgid "Show slave status"
