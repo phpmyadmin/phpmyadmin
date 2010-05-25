@@ -5754,7 +5754,7 @@ msgstr "Überspringe nächsten"
 
 #: server_replication.php:340
 msgid "errors."
-msgstr ""
+msgstr "Fehler"
 
 #: server_replication.php:355
 #, php-format
