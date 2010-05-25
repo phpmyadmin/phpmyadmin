@@ -3141,7 +3141,7 @@ msgstr "Prozentwerte importieren (12.00% wird zu .12)"
 
 #: libraries/import/ods.php:28
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Währungen importieren ($5.00 zu 5.00)"
 
 #: libraries/import/sql.php:42
 msgid "Do not use AUTO_INCREMENT for zero values"
