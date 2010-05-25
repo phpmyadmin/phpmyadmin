@@ -7703,7 +7703,7 @@ msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
-"Wenn \"tooltips\" eingeschaltet sind und Datenbank-Kommentare vorhanden sind, "
+"Wenn Tooltips eingeschaltet sind und Datenbank-Kommentare vorhanden sind, "
 "vertausch dies den Kommentar und den Namen"
 
 #: setup/lib/messages.inc.php:346
