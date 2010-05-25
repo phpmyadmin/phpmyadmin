@@ -5722,7 +5722,6 @@ msgid "SQL Thread %s only"
 msgstr "Nur SQL Thread %s"
 
 #: server_replication.php:327 server_replication.php:328
-#, fuzzy
 msgid "Start"
 msgstr "Start"
 
