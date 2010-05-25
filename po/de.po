@@ -2874,7 +2874,7 @@ msgstr "Export-Optionen der Datenbank"
 
 #: libraries/export/sql.php:80
 msgid "Enclose table and field names with backquotes"
-msgstr " Tabellen- und Feldnamen in einfachen Anführungszeichen "
+msgstr "Tabellen- und Feldnamen in einfachen Anführungszeichen "
 
 #: libraries/export/sql.php:86
 msgid "Add into comments"
