@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 13:21+0200\n"
-"PO-Revision-Date: 2010-05-25 13:22+0200\n"
+"PO-Revision-Date: 2010-05-25 13:34+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7440,10 +7440,14 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
+"Datenbank für Relationen, Bookmarks, and PDF Features. Siehe "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] für komplette  "
+"Information. Leer lassen für keien Unterstützung. Vorschlag: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: setup/lib/messages.inc.php:294
 msgid "Port on which MySQL server is listening, leave empty for default"
-msgstr ""
+msgstr "Port, auf dem der MySQL-Server horcht, leer lassen für Voreinstellung"
 
 #: setup/lib/messages.inc.php:295
 msgid "Server port"
@@ -7454,6 +7458,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
+"Leer lassen für keine  [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] Unterstützung, Vorschlag: [kbd]pma_relation[/kbd]"
 
 #: setup/lib/messages.inc.php:297
 msgid "Relation table"
@@ -7461,7 +7467,7 @@ msgstr "Relation Table"
 
 #: setup/lib/messages.inc.php:298
 msgid "SQL command to fetch available databases"
-msgstr ""
+msgstr "SQL Komando, um verfügbare Datenbanken abzurufen"
 
 #: setup/lib/messages.inc.php:299
 msgid "SHOW DATABASES command"
@@ -7472,6 +7478,8 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
+"Siehe [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] für ein Beispiel"
 
 #: setup/lib/messages.inc.php:301
 msgid "Signon session name"
@@ -7486,6 +7494,8 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"Automatische Versionserstellung für Tabellen und Ansichten durch den "
+"Verlaufs-mechanismus"
 
 #: setup/lib/messages.inc.php:304
 #| msgid "Automatic recovery mode"
@@ -7495,6 +7505,8 @@ msgstr "Versionen automatisch erzeugen"
 #: setup/lib/messages.inc.php:305
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Legt die Liste der Statements fest, die die automatische Versionserstellung "
+"für neue Versionen verwendeet"
 
 #: setup/lib/messages.inc.php:306
 #| msgid "Statements"
@@ -7506,30 +7518,36 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"DROP VIEW IF EXISTS statement beim Erstellen einer neuen Ansicht als erste "
+"Zeile loggen"
 
 #: setup/lib/messages.inc.php:308
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "DROP VIEW hinzufügen"
 
 #: setup/lib/messages.inc.php:309
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"DROP TABLE IF EXISTS statement beim Erstellen einer neuen Ansicht als erste "
+"Zeile loggen"
 
 #: setup/lib/messages.inc.php:310
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "DROP TABLE hinzufügen"
 
 #: setup/lib/messages.inc.php:311
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"DROP DATABASE IF EXISTS statement beim Erstellen einer neuen Datenbank als "
+"erste Zeile loggen"
 
 #: setup/lib/messages.inc.php:312
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "DROP DATABASE hinzufügen"
 
 #: setup/lib/messages.inc.php:313
 msgid "You should use SSL connections if your web server supports it"
@@ -7538,7 +7556,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:314
 msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr ""
+msgstr "Socket, auf dem der MySQL-Server horcht, leer lassen für Voreinstellung"
 
 #: setup/lib/messages.inc.php:315
 msgid "Server socket"
@@ -7556,6 +7574,8 @@ msgstr "Benutze SSL"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
+"Leer lassen für keine PDF Schema Unterstützung, Vorschlag: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: setup/lib/messages.inc.php:319
 msgid "PDF schema: table coordinates"
