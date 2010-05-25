@@ -6842,9 +6842,8 @@ msgid "Disable this if you want to see all databases at once"
 msgstr ""
 
 #: setup/lib/messages.inc.php:178
-#, fuzzy
 msgid "Use light version"
-msgstr "MySQL-Client-Version"
+msgstr "Light-Version benutzen"
 
 #: setup/lib/messages.inc.php:179
 msgid "Maximum table tree depth"
