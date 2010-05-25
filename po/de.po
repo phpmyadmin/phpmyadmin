@@ -6030,7 +6030,7 @@ msgstr "Die folgenden Abfragen wurden ausgeführt:"
 
 #: server_synchronize.php:1122
 msgid "Enter manually"
-msgstr ""
+msgstr "Manuell eingeben"
 
 #: server_synchronize.php:1123
 #, fuzzy
