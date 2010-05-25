@@ -7953,7 +7953,6 @@ msgstr ""
 "Die Tabelle %s wurde geschlossen und zwischengespeicherte Daten gespeichert."
 
 #: tbl_operations.php:634
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Leeren des Tabellencaches (\"FLUSH\")"
