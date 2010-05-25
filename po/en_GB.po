@@ -5666,10 +5666,9 @@ msgid "Error management:"
 msgstr "Error management:"
 
 #: server_replication.php:334
-#, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr "Skipping error(s) might lead into unsynchronised master and slave!"
+msgstr "Skipping errors might lead into unsynchronised master and slave!"
 
 #: server_replication.php:336
 msgid "Skip current error"
