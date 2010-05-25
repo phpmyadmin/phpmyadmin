@@ -6876,7 +6876,7 @@ msgstr "Light-Version benutzen"
 
 #: setup/lib/messages.inc.php:179
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Maximale Tiefe des Tabellen-Baumes"
 
 #: setup/lib/messages.inc.php:180
 msgid "String that separates tables into different tree levels"
