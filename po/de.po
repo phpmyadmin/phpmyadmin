@@ -7653,7 +7653,7 @@ msgstr "Zeige Formular zur Datenbank-Erstellung"
 
 #: setup/lib/messages.inc.php:334
 msgid "Show form"
-msgstr "Formular Zeigen"
+msgstr "Zeige Formular"
 
 #: setup/lib/messages.inc.php:335
 msgid "Display the function fields in edit/insert mode"
