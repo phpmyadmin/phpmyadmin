@@ -6854,9 +6854,8 @@ msgid "String that separates tables into different tree levels"
 msgstr ""
 
 #: setup/lib/messages.inc.php:181
-#, fuzzy
 msgid "Table tree separator"
-msgstr "Schablone für Datenbanknamen"
+msgstr "Trennzeichen für Tabellen-Baum"
 
 #: setup/lib/messages.inc.php:182
 #, fuzzy
