@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-24 12:05+0200\n"
-"PO-Revision-Date: 2010-05-25 11:46+0200\n"
+"PO-Revision-Date: 2010-05-25 11:47+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -6858,9 +6858,8 @@ msgid "Table tree separator"
 msgstr "Trennzeichen für Tabellen-Baum"
 
 #: setup/lib/messages.inc.php:182
-#, fuzzy
 msgid "Logo link URL"
-msgstr "Logout URL"
+msgstr "URL für Logo-Link"
 
 #: setup/lib/messages.inc.php:183
 msgid ""
