@@ -7391,7 +7391,7 @@ msgstr "Nur aufgelistete Datenbanken zeigen"
 
 #: setup/lib/messages.inc.php:288 setup/lib/messages.inc.php:322
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "Leer lassen, wenn config auth nicht verwendet wird"
 
 #: setup/lib/messages.inc.php:289
 msgid "Password for config auth"
