@@ -5283,11 +5283,10 @@ msgid "Includes all privileges except GRANT."
 msgstr "Enthält alle Rechte bis auf GRANT."
 
 #: server_privileges.php:263 server_privileges.php:264
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
-msgstr "keine"
+msgstr "Kein(e)"
 
 #: server_privileges.php:392 server_privileges.php:527
 #: server_privileges.php:1679 server_privileges.php:1685
