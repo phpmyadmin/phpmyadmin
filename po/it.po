@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 13:21+0200\n"
-"PO-Revision-Date: 2010-05-23 01:36+0200\n"
+"PO-Revision-Date: 2010-05-24 21:25+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -4471,7 +4471,7 @@ msgstr "Processi"
 #: libraries/server_links.inc.php:92 server_synchronize.php:1092
 #: server_synchronize.php:1100
 msgid "Synchronize"
-msgstr ""
+msgstr "Sincronizza"
 
 #: libraries/server_synchronize.lib.php:1341 server_synchronize.php:1110
 msgid "Source database"
@@ -5690,7 +5690,7 @@ msgstr ""
 
 #: server_replication.php:311
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Sincronizza i database con il master"
 
 #: server_replication.php:322
 msgid "Control slave:"
@@ -5999,7 +5999,7 @@ msgstr "Applica i cambiamenti selezionati"
 
 #: server_synchronize.php:451 server_synchronize.php:896
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Sincronizzare i database"
 
 #: server_synchronize.php:464
 msgid "Selected target tables have been synchronized with source tables."
@@ -8293,94 +8293,3 @@ msgstr "Rinomina la tabella in"
 
 #~ msgid "See image/jpeg: inline"
 #~ msgstr "Vedi immagine/jpeg: inline"
-
-#~| msgid "\"zipped\""
-#~ msgid "zipped"
-#~ msgstr "zippato"
-
-#~| msgid "\"gzipped\""
-#~ msgid "gzipped"
-#~ msgstr "gzippato"
-
-#~| msgid "\"bzipped\""
-#~ msgid "bzipped"
-#~ msgstr "bzippato"
-
-#, fuzzy
-#~| msgid "Add custom comment into header (\\n splits lines)"
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr ""
-#~ "Aggiunge un commento personalizzato all'header (\\n per tornare a capo)"
-
-#~ msgid "and"
-#~ msgstr "e"
-
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Disabilitato"
-
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Abilitato"
-
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Ripara"
-
-#~ msgid "Calendar"
-#~ msgstr "Calendario"
-
-#~ msgid "MySQL&nbsp;4.0 compatible"
-#~ msgstr "Compatibile con MySQL 4.0"
-
-#~ msgid "Could not load default configuration from: \"%1$s\""
-#~ msgstr "Non posso leggere la configurazione da: \"%1$s\""
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Crea un indice su %s columns"
-
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Crea tabelle"
-
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Nessuno"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Inizializza (\"FLUSH\") la tabella"
-
-#~ msgid "Invalid server index: \"%s\""
-#~ msgstr "Server index non valido: \"%s\""
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Descrizione"
-
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Nessuno"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Schema del database \"%s\" - Pagina %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "La tabella \"%s\" non esiste!"
-
-#~ msgid "running on %s"
-#~ msgstr "in esecuzione su %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr ""
-#~ "Il fattore di scala è troppo piccolo per riempire lo schema nella pagina"
-
-#~ msgid ""
-#~ "Cannot start session without errors, please check errors given in your "
-#~ "PHP and/or webserver log file and configure your PHP installation "
-#~ "properly."
-#~ msgstr ""
-#~ "Non posso far partire la sessione senza errori, controlla gli errori nel "
-#~ "log di PHP e/o del tuo server web e configura correttamente la tua "
-#~ "installazione di PHP."
