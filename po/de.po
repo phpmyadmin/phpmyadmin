@@ -2963,7 +2963,7 @@ msgstr "Excel 97-2003 XLS Mappe"
 
 #: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
 msgid "Excel 2007 XLSX Workbook"
-msgstr "Excel 2007 XLSX Workbook"
+msgstr "Excel 2007 XLSX Mappe"
 
 #: libraries/export/xml.php:18 libraries/import/xml.php:21
 msgid "XML"
