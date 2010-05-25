@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-24 12:05+0200\n"
-"PO-Revision-Date: 2010-05-25 12:38+0200\n"
+"PO-Revision-Date: 2010-05-25 12:39+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -6881,6 +6881,7 @@ msgstr "Maximale Tiefe des Tabellen-Baumes"
 #: setup/lib/messages.inc.php:180
 msgid "String that separates tables into different tree levels"
 msgstr ""
+"Zeichenkette, die Tabellen in unterschiedliche Baum-Abschnitte unterteilt"
 
 #: setup/lib/messages.inc.php:181
 msgid "Table tree separator"
