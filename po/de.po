@@ -5641,7 +5641,6 @@ msgid "Ignore all databases; Replicate:"
 msgstr ""
 
 #: server_replication.php:225
-#, fuzzy
 msgid "Please select databases:"
 msgstr "Bitte Datenbank auswählen"
 
