@@ -4490,11 +4490,10 @@ msgstr ""
 "Zeichen. (z. B.: '\\\\xyz' oder 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:393
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
-msgstr "keine"
+msgstr "Kein(e)"
 
 #: libraries/tbl_properties.inc.php:394
 msgid "As defined:"
