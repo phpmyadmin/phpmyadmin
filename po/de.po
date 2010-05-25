@@ -7190,7 +7190,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:261
 msgid "Connection type"
-msgstr "Verbindungstyp"
+msgstr "Art der Verbindung"
 
 #: setup/lib/messages.inc.php:262
 msgid "Control user password"
