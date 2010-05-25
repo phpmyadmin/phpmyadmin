@@ -5685,7 +5685,7 @@ msgstr "Slave SQL Thread läuft nicht!"
 
 #: server_replication.php:296
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Slave IO Thread läuft nicht!"
 
 #: server_replication.php:305
 msgid ""
