@@ -1,11 +1,12 @@
 # Automatically generated <>, 2010.
 # Michal <michal@cihar.com>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-25 14:23+0200\n"
+"PO-Revision-Date: 2010-05-25 14:32+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -418,12 +419,12 @@ msgid "Last check"
 msgstr "Poslední kontrola"
 
 #: db_printview.php:222 db_structure.php:480
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabulek"
-msgstr[1] "%s tabulek"
+msgstr[0] "%s tabulka"
+msgstr[1] "%s tabulky"
 msgstr[2] "%s tabulek"
 
 #: db_qbe.php:29 libraries/Message.class.php:191
@@ -5303,10 +5304,9 @@ msgid "Do not change the password"
 msgstr "Neměnit heslo"
 
 #: server_privileges.php:804 server_privileges.php:2166
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
-msgstr "Žádný uživatel nenalezen."
+msgstr "Nebyl nalezen žádný uživatel."
 
 #: server_privileges.php:848
 #, php-format
@@ -5662,7 +5662,6 @@ msgid "Error management:"
 msgstr "Práce s chybami:"
 
 #: server_replication.php:334
-#, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
