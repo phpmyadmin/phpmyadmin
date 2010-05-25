@@ -5681,9 +5681,8 @@ msgid "Synchronize databases with master"
 msgstr ""
 
 #: server_replication.php:322
-#, fuzzy
 msgid "Control slave:"
-msgstr "Control-user"
+msgstr "Kontrol-Slave"
 
 #: server_replication.php:325
 msgid "Full start"
