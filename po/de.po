@@ -2973,7 +2973,6 @@ msgid "Export Structure Schemas (recommended)"
 msgstr ""
 
 #: libraries/export/xml.php:31
-#, fuzzy
 msgid "Export functions"
 msgstr "Voreinstellung für Export"
 
