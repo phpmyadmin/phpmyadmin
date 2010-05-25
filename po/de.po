@@ -7013,7 +7013,7 @@ msgstr "Maximale Anzahl der angezeigten Zeilen"
 
 #: setup/lib/messages.inc.php:206
 msgid "Maximum number of tables displayed in table list"
-msgstr ""
+msgstr "Maximale Anzahl der in einer Tabellenliste angezeigten Tabellen"
 
 #: setup/lib/messages.inc.php:207
 msgid "Maximum tables"
