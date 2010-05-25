@@ -5911,7 +5911,7 @@ msgstr "max. gleichzeitige Verbindungen"
 
 #: server_status.php:447
 msgid "Failed attempts"
-msgstr "Fehlgeschlagen"
+msgstr "Fehlversuche"
 
 #: server_status.php:461
 msgid "Aborted"
