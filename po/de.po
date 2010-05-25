@@ -6868,9 +6868,8 @@ msgid ""
 msgstr ""
 
 #: setup/lib/messages.inc.php:184
-#, fuzzy
 msgid "Logo link target"
-msgstr "Logout URL"
+msgstr "Ziel für Logo-Link"
 
 #: setup/lib/messages.inc.php:185
 #, fuzzy
