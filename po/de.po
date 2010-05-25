@@ -6693,7 +6693,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:144
 msgid "SQL queries"
-msgstr "SQL-Querys"
+msgstr "SQL-Abfragen"
 
 #: setup/lib/messages.inc.php:145
 msgid "Customize startup page"
