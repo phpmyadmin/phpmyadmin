@@ -5602,7 +5602,7 @@ msgstr "\"log position\" auf Master nicht lesbar. Rechteproblem?"
 
 #: server_replication.php:71
 msgid "Unable to change master"
-msgstr ""
+msgstr "Kann Master nicht wechseln"
 
 #: server_replication.php:74
 #, php-format
