@@ -7657,7 +7657,7 @@ msgstr "Zeige Formular"
 
 #: setup/lib/messages.inc.php:335
 msgid "Display the function fields in edit/insert mode"
-msgstr "Im Bearbeiten / Einfügen Modus Funktionsfelder anzeigen"
+msgstr "Im Bearbeiten/Einfügen Modus Funktionsfelder anzeigen"
 
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
