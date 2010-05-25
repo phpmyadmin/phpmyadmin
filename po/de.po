@@ -5939,9 +5939,8 @@ msgid "Query type"
 msgstr "Abfrageart"
 
 #: server_status.php:721
-#, fuzzy
 msgid "Replication status"
-msgstr "Replikation"
+msgstr "Replikations-Status"
 
 #: server_synchronize.php:94
 msgid "Could not connect to the source"
