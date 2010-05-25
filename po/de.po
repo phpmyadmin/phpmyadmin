@@ -8138,7 +8138,7 @@ msgid "After %s"
 msgstr "Nach %s"
 
 #: tbl_structure.php:594
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Index über&nbsp;%s&nbsp;Spalten anlegen"
