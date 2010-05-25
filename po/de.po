@@ -5958,7 +5958,7 @@ msgstr "Datenbank '%s' existiert nicht."
 
 #: server_synchronize.php:265
 msgid "Structure Synchronization"
-msgstr "Synchronisation der Struktur"
+msgstr " Strukturabgleich"
 
 #: server_synchronize.php:272
 msgid "Data Synchronization"
