@@ -6173,7 +6173,7 @@ msgstr "Setze Wert: %s"
 
 #: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
 msgid "Restore default value"
-msgstr "Standard wiederherstellen"
+msgstr "Voreingestellten Wert wiederherstellen"
 
 #: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
 msgid "Warning"
