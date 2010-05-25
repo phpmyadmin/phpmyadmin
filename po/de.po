@@ -7009,7 +7009,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
-msgstr ""
+msgstr "Voreingestellte Sortierung"
 
 #: setup/lib/messages.inc.php:220
 msgid "Use persistent connections to MySQL databases"
