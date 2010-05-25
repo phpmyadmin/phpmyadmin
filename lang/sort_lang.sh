@@ -7,13 +7,15 @@
 # August 9, 2002
 ##
 
+LC_COLLATE=C
+
 specialsort()
 {
     in=$1
     out=$2
 
     STRINGORDER="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
-    
+
     for i in $STRINGORDER;
     do
         egrep '^\$str'$i $in | sort >> $out
@@ -71,7 +73,7 @@ sortlang()
 }
 
 echo "-------------------------------------------------------------------"
-for i in "$@"; 
+for i in "$@";
 do
     if [ ! -f $i ] ; then
         echo "$i is not a file, skipping"
