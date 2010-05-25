@@ -6981,7 +6981,7 @@ msgstr "Login Cookie Gültigkeit"
 
 #: setup/lib/messages.inc.php:200
 msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr ""
+msgstr "Maximal dargestellte Zeichenzahl bei Anzeige einer SQL-Abfrage"
 
 #: setup/lib/messages.inc.php:201
 msgid "Maximum displayed SQL length"
