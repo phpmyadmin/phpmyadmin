@@ -5856,6 +5856,8 @@ msgstr ""
 #: server_status.php:364
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"Dieser MySQL Server arbeitet als <b>Slave</b> im "
+"<b>Replikations</b>-Process."
 
 #: server_status.php:366
 msgid ""
