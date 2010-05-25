@@ -7155,7 +7155,7 @@ msgstr "Sie erlauben Verbindungen mit dem Server ohne Passwort."
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "Leer lassen, wenn unbenutzt"
 
 #: setup/lib/messages.inc.php:243
 msgid "Host authentication order"
