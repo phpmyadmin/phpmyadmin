@@ -5700,7 +5700,7 @@ msgstr "Die Slave Statustabelle sehen"
 
 #: server_replication.php:311
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Die Datenbanken mit dem Master abgleichen"
 
 #: server_replication.php:322
 msgid "Control slave:"
