@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-25 14:28+0200\n"
+"POT-Creation-Date: 2010-05-25 14:29+0200\n"
 "PO-Revision-Date: 2010-05-25 14:21+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
@@ -5396,7 +5396,9 @@ msgid "Do not change the password"
 msgstr "Passwort nicht verändert"
 
 #: server_privileges.php:804 server_privileges.php:2166
-msgid "No user(s) found."
+#, fuzzy
+#| msgid "No user(s) found."
+msgid "No user found."
 msgstr "Es wurden keine Benutzer gefunden."
 
 #: server_privileges.php:848
