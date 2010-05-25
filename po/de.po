@@ -7095,7 +7095,7 @@ msgstr "Anfragelog speichern"
 
 #: setup/lib/messages.inc.php:228
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "Anzahl der Abfragen in der Historie"
 
 #: setup/lib/messages.inc.php:229
 msgid "Query history length"
