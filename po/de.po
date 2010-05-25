@@ -6033,10 +6033,9 @@ msgid "Enter manually"
 msgstr "Manuell eingeben"
 
 #: server_synchronize.php:1123
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Unsichere Verbindung"
+msgstr "Aktuelle Verbindung"
 
 #: server_synchronize.php:1152
 #, fuzzy, php-format
