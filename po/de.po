@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-24 12:05+0200\n"
-"PO-Revision-Date: 2010-05-25 13:25+0200\n"
+"PO-Revision-Date: 2010-05-25 13:26+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7441,7 +7441,7 @@ msgstr "Relation Table"
 
 #: setup/lib/messages.inc.php:298
 msgid "SQL command to fetch available databases"
-msgstr ""
+msgstr "SQL Komando, um verfügbare Datenbanken abzurufen"
 
 #: setup/lib/messages.inc.php:299
 msgid "SHOW DATABASES command"
