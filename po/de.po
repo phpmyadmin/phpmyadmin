@@ -7037,7 +7037,7 @@ msgstr "Verwende nur Icons, nur Text oder beides"
 
 #: setup/lib/messages.inc.php:211
 msgid "Iconic navigation bar"
-msgstr ""
+msgstr "Navigationsleiste mit Icons"
 
 #: setup/lib/messages.inc.php:214
 msgid "use GZip output buffering for increased speed in HTTP transfers"
