@@ -7765,8 +7765,8 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
 "Proxies als [kbd]IP: trusted HTTP header[/kbd] eingeben. Das folgende "
-"beispiel legt fest, das  phpMyAdmin einem HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header, der von demproxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"Beispiel legt fest, das phpMyAdmin einem HTTP_X_FORWARDED_FOR (X-Forwarded-"
+"For) header, der von dem proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd] kommt, vertrauen soll"
 
 #: setup/lib/messages.inc.php:361
