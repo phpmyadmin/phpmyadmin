@@ -4850,7 +4850,6 @@ msgid "Clear"
 msgstr "Werte löschen"
 
 #: navigation.php:350 navigation.php:351
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
