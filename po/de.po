@@ -6225,8 +6225,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Geheime Passphrase zum Verschlüsseln der Cookies bei [kbd]cookie[/kbd]-"
-"Authentisierung"
+"Geheime Passphrase zum Verschlüsseln der Cookies bei "
+"[kbd]cookie[/kbd]-Authentifizierung"
 
 #: setup/lib/messages.inc.php:23
 msgid "Key is too short, it should have at least 8 characters"
