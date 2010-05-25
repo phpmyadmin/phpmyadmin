@@ -6913,7 +6913,7 @@ msgstr "Hervorhebung ermöglichen"
 
 #: setup/lib/messages.inc.php:188
 msgid "Use less graphically intense tabs"
-msgstr ""
+msgstr "Benutze graphisch weniger anspruchsvolle Tabs"
 
 #: setup/lib/messages.inc.php:189
 msgid "Light tabs"
