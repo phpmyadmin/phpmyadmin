@@ -7569,7 +7569,7 @@ msgstr "Table Info Table"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
-msgstr "Benutername für config Authentifikation"
+msgstr "Benutzername für config Authentifikation"
 
 #: setup/lib/messages.inc.php:324
 msgid ""
