@@ -5986,7 +5986,7 @@ msgstr "Spalte(n) entfernen"
 
 #: server_synchronize.php:432 server_synchronize.php:875
 msgid "Alter column(s)"
-msgstr ""
+msgstr "Spalte(n) ändern"
 
 #: server_synchronize.php:433 server_synchronize.php:876
 msgid "Remove index(s)"
