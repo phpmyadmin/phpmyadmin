@@ -5974,7 +5974,7 @@ msgstr "Struktur-Unterschied"
 
 #: server_synchronize.php:425 server_synchronize.php:868
 msgid "Data Difference"
-msgstr "Datenunterschied"
+msgstr "Daten-Unterschied"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Add column(s)"
