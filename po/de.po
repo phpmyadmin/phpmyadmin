@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 13:21+0200\n"
-"PO-Revision-Date: 2010-05-25 14:14+0200\n"
+"PO-Revision-Date: 2010-05-25 14:15+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -8299,7 +8299,7 @@ msgstr "partitioniert"
 #: tbl_tracking.php:114
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr "Verlaufs-Report für Tabelle '%s'"
+msgstr "Verlaufs-Report für Tabelle \"%s\""
 
 #: tbl_tracking.php:187
 #, php-format
