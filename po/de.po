@@ -5746,7 +5746,7 @@ msgstr ""
 
 #: server_replication.php:336
 msgid "Skip current error"
-msgstr ""
+msgstr "Überspringe aktuellen Fehler"
 
 #: server_replication.php:337
 msgid "Skip next"
