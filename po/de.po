@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-24 12:05+0200\n"
-"PO-Revision-Date: 2010-05-25 13:05+0200\n"
+"PO-Revision-Date: 2010-05-25 13:06+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7103,7 +7103,7 @@ msgstr "Länge der Abfragehistori"
 
 #: setup/lib/messages.inc.php:230
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "Angezeigtes Tab beim Öffnen eines neuen Abfragefensters"
 
 #: setup/lib/messages.inc.php:231
 msgid "Default query window tab"
