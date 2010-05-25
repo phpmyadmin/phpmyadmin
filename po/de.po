@@ -7649,7 +7649,7 @@ msgstr "Zeige Formular zur Passwort-Änderung"
 
 #: setup/lib/messages.inc.php:333
 msgid "Show create database form"
-msgstr ""
+msgstr "Zeige Formular zur Datenbank-Erstellung"
 
 #: setup/lib/messages.inc.php:334
 msgid "Show form"
