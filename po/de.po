@@ -5877,7 +5877,7 @@ msgstr ""
 
 #: server_status.php:388
 msgid "Traffic"
-msgstr "Traffic"
+msgstr "Netzwerkverkehr"
 
 #: server_status.php:388
 msgid ""
