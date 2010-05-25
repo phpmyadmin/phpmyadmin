@@ -7707,7 +7707,6 @@ msgstr ""
 "möglich."
 
 #: setup/lib/messages.inc.php:378
-#, fuzzy
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
