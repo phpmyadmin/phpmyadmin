@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-24 12:05+0200\n"
-"PO-Revision-Date: 2010-05-25 11:19+0200\n"
+"PO-Revision-Date: 2010-05-25 11:20+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5978,7 +5978,7 @@ msgstr "Daten-Unterschied"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Add column(s)"
-msgstr ""
+msgstr "Spalte(n) einfügen"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Remove column(s)"
