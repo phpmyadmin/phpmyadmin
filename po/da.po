@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 12:05+0200\n"
+"POT-Creation-Date: 2010-05-25 13:21+0200\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: danish <da@li.org>\n"
@@ -3180,7 +3180,197 @@ msgstr "(fortsættes)"
 msgid "Structure of table __TABLE__"
 msgstr "Struktur for tabel __TABLE__"
 
-#: libraries/messages.inc.php:25
+#: libraries/messages.inc.php:25 server_privileges.php:227
+msgid "Includes all privileges except GRANT."
+msgstr "Inkluderer alle privilegier pånær GRANT."
+
+#: libraries/messages.inc.php:26 server_privileges.php:153
+#: server_privileges.php:476
+msgid "Allows altering the structure of existing tables."
+msgstr "Tillader ændring af strukturen på eksisterende tabeller."
+
+#: libraries/messages.inc.php:27 server_privileges.php:169
+#: server_privileges.php:482
+msgid "Allows altering and dropping stored routines."
+msgstr "Tillader ændring og sletning af gemte rutiner."
+
+#: libraries/messages.inc.php:28 server_privileges.php:145
+#: server_privileges.php:475
+msgid "Allows creating new databases and tables."
+msgstr "Tillader oprettelse af nye databaser og tabeller."
+
+#: libraries/messages.inc.php:29 server_privileges.php:168
+#: server_privileges.php:481
+msgid "Allows creating stored routines."
+msgstr "Tillader oprettelse af gemte rutiner."
+
+#: libraries/messages.inc.php:30 server_privileges.php:475
+msgid "Allows creating new tables."
+msgstr "Tillader oprettelse af nye tabeller."
+
+#: libraries/messages.inc.php:31 server_privileges.php:156
+#: server_privileges.php:479
+msgid "Allows creating temporary tables."
+msgstr "Tillader oprettelse af midlertidige tabeller."
+
+#: libraries/messages.inc.php:32 server_privileges.php:170
+#: server_privileges.php:515
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr "Tillader oprettelse, sletning og omdøbning af brugerkonti."
+
+#: libraries/messages.inc.php:33 server_privileges.php:160
+#: server_privileges.php:164 server_privileges.php:487
+#: server_privileges.php:491
+msgid "Allows creating new views."
+msgstr "Tillader oprettelse af nye Allows creating new views."
+
+#: libraries/messages.inc.php:34 server_privileges.php:144
+#: server_privileges.php:467
+msgid "Allows deleting data."
+msgstr "Tillader sletning af data."
+
+#: libraries/messages.inc.php:35 server_privileges.php:146
+#: server_privileges.php:478
+msgid "Allows dropping databases and tables."
+msgstr "Tillader at droppe databaser og tabeller."
+
+#: libraries/messages.inc.php:36 server_privileges.php:478
+msgid "Allows dropping tables."
+msgstr "Tillader at droppe tabeller."
+
+#: libraries/messages.inc.php:37 server_privileges.php:161
+#: server_privileges.php:495
+msgid "Allows to set up events for the event scheduler"
+msgstr ""
+
+#: libraries/messages.inc.php:38 server_privileges.php:171
+#: server_privileges.php:483
+msgid "Allows executing stored routines."
+msgstr "Tillader udførelse af gemte rutiner."
+
+#: libraries/messages.inc.php:39 server_privileges.php:150
+#: server_privileges.php:470
+msgid "Allows importing data from and exporting data into files."
+msgstr "Tillader import af data fra og eksport af data til filer."
+
+#: libraries/messages.inc.php:40 server_privileges.php:501
+msgid ""
+"Allows adding users and privileges without reloading the privilege tables."
+msgstr ""
+"Tillader oprettelse af brugere og privilegier uden at genindlæse privilegie-"
+"tabellerne."
+
+#: libraries/messages.inc.php:41 server_privileges.php:152
+#: server_privileges.php:477
+msgid "Allows creating and dropping indexes."
+msgstr "Tillader at skabe og droppe indeks."
+
+#: libraries/messages.inc.php:42 server_privileges.php:142
+#: server_privileges.php:403 server_privileges.php:465
+msgid "Allows inserting and replacing data."
+msgstr "Tillader indsættelse og erstatning af data."
+
+#: libraries/messages.inc.php:43 server_privileges.php:157
+#: server_privileges.php:510
+msgid "Allows locking tables for the current thread."
+msgstr "Tillader låsning af tabeller for nuværende tråd."
+
+#: libraries/messages.inc.php:44 server_privileges.php:607
+#: server_privileges.php:609
+msgid "Limits the number of new connections the user may open per hour."
+msgstr "Begrænser antallet af nye forbindelser brugeren må åbne pr. time."
+
+#: libraries/messages.inc.php:45 server_privileges.php:595
+#: server_privileges.php:597
+msgid "Limits the number of queries the user may send to the server per hour."
+msgstr ""
+"Begrænser antallet af forespørgsler brugeren må sende til serveren pr. time."
+
+#: libraries/messages.inc.php:46 server_privileges.php:601
+#: server_privileges.php:603
+msgid ""
+"Limits the number of commands that change any table or database the user may "
+"execute per hour."
+msgstr ""
+"Begrænser antallet af kommandoer som ændrer enhver tabel eller database "
+"brugeren må udføre pr. time."
+
+#: libraries/messages.inc.php:47 server_privileges.php:613
+#: server_privileges.php:615
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr "Begrænser antallet af samtidige forbindelser brugere må have."
+
+#: libraries/messages.inc.php:48 server_privileges.php:149
+#: server_privileges.php:505
+msgid "Allows viewing processes of all users"
+msgstr ""
+
+#: libraries/messages.inc.php:49 server_privileges.php:151
+#: server_privileges.php:409 server_privileges.php:511
+msgid "Has no effect in this MySQL version."
+msgstr "Har ingen effekt i denne MySQL version."
+
+#: libraries/messages.inc.php:50 server_privileges.php:147
+#: server_privileges.php:506
+msgid "Allows reloading server settings and flushing the server's caches."
+msgstr "Tillader genindlæsning af serverindstillinger og tømning af caches."
+
+#: libraries/messages.inc.php:51 server_privileges.php:159
+#: server_privileges.php:513
+msgid "Allows the user to ask where the slaves / masters are."
+msgstr "Giver brugeren rettigheder til at spørge hvor Slaves / Masters er."
+
+#: libraries/messages.inc.php:52 server_privileges.php:158
+#: server_privileges.php:514
+msgid "Needed for the replication slaves."
+msgstr "Nødvendigt for replikationsslaverne."
+
+#: libraries/messages.inc.php:53 server_privileges.php:141
+#: server_privileges.php:400 server_privileges.php:464
+msgid "Allows reading data."
+msgstr "Tillader læsning af data."
+
+#: libraries/messages.inc.php:54 server_privileges.php:154
+#: server_privileges.php:508
+msgid "Gives access to the complete list of databases."
+msgstr "Giver adgang til den fuldstændige liste over databaser."
+
+#: libraries/messages.inc.php:55 server_privileges.php:165
+#: server_privileges.php:167 server_privileges.php:480
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr "Tillader udførelse af SHOW CREATE VIEW forespørgsler."
+
+#: libraries/messages.inc.php:56 server_privileges.php:148
+#: server_privileges.php:507
+msgid "Allows shutting down the server."
+msgstr "Tillader nedlukning af serveren."
+
+#: libraries/messages.inc.php:57 server_privileges.php:155
+#: server_privileges.php:504
+msgid ""
+"Allows connecting, even if maximum number of connections is reached; "
+"required for most administrative operations like setting global variables or "
+"killing threads of other users."
+msgstr ""
+"Tillader forbindelse, selv hvis maksimalt antal forbindelser er nået; "
+"Nødvendigt for de fleste administrative operationer som indstilling af "
+"globale variabler eller for at dræbe andre brugeres tråde."
+
+#: libraries/messages.inc.php:58 server_privileges.php:162
+#: server_privileges.php:496
+msgid "Allows creating and dropping triggers"
+msgstr ""
+
+#: libraries/messages.inc.php:59 server_privileges.php:143
+#: server_privileges.php:406 server_privileges.php:466
+msgid "Allows changing data."
+msgstr "Tillader ændring af data."
+
+#: libraries/messages.inc.php:60 server_privileges.php:221
+msgid "No privileges."
+msgstr "Ingen privilegier."
+
+#: libraries/messages.inc.php:62
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -3190,12 +3380,12 @@ msgstr ""
 "overskred værdien for binlog_cache_size og brugte en midlertidig fil til at "
 "gemme statements fra transaktionen."
 
-#: libraries/messages.inc.php:26
+#: libraries/messages.inc.php:63
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Antal transaktioner der brugte det midlertidige binære log mellemlager."
 
-#: libraries/messages.inc.php:27
+#: libraries/messages.inc.php:64
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -3207,11 +3397,11 @@ msgstr ""
 "overveje at forøge tmp_table_size værdien for at gøre midlertidige tabeller "
 "hukommelses-baserede i stedet for disk-baserede."
 
-#: libraries/messages.inc.php:28
+#: libraries/messages.inc.php:65
 msgid "How many temporary files mysqld has created."
 msgstr "Hvor mange midlertidige filer mysqld har oprettet."
 
-#: libraries/messages.inc.php:29
+#: libraries/messages.inc.php:66
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -3219,7 +3409,7 @@ msgstr ""
 "Antal i-hukommelsen midlertidige tabeller oprettet automatisk af serveren "
 "under udførelse af statements."
 
-#: libraries/messages.inc.php:30
+#: libraries/messages.inc.php:67
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -3227,7 +3417,7 @@ msgstr ""
 "Antal rækker skrevet med INSERT DELAYED (forsinket indsættelse) under hvilke "
 "der opstod fejl (sandsynligvis dublerede nøgler)."
 
-#: libraries/messages.inc.php:31
+#: libraries/messages.inc.php:68
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -3235,23 +3425,23 @@ msgstr ""
 "Antallet af INSERT DELAYED handler-tråde i brug. Hver forskellig tabel "
 "hvorpå en bruger INSERT DELAYED får sin egen tråd."
 
-#: libraries/messages.inc.php:32
+#: libraries/messages.inc.php:69
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Antallet af INSERT DELAYED rækker skrevet."
 
-#: libraries/messages.inc.php:33
+#: libraries/messages.inc.php:70
 msgid "The number of executed FLUSH statements."
 msgstr "Antallet af udførte FLUSH statements."
 
-#: libraries/messages.inc.php:34
+#: libraries/messages.inc.php:71
 msgid "The number of internal COMMIT statements."
 msgstr "Antallet af interne COMMIT statements."
 
-#: libraries/messages.inc.php:35
+#: libraries/messages.inc.php:72
 msgid "The number of times a row was deleted from a table."
 msgstr "Antallet af gange en række blev slettet fra en tabel."
 
-#: libraries/messages.inc.php:36
+#: libraries/messages.inc.php:73
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -3261,7 +3451,7 @@ msgstr ""
 "tabel med et givent navn. Dette kaldes opdagelse. Handler_discover indikerer "
 "antallet af gange tabeller er blevet opdaget."
 
-#: libraries/messages.inc.php:37
+#: libraries/messages.inc.php:74
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -3271,7 +3461,7 @@ msgstr ""
 "antyder det at serveren laver mange fulde indeks scans; for eksempel, SELECT "
 "col1 FROM foo, antagende at col1 er indekseret."
 
-#: libraries/messages.inc.php:38
+#: libraries/messages.inc.php:75
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -3280,7 +3470,7 @@ msgstr ""
 "er høj, er det en god indikation af at dine forespørgsler og tabeller er "
 "ordentligt indekserede."
 
-#: libraries/messages.inc.php:39
+#: libraries/messages.inc.php:76
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -3290,7 +3480,7 @@ msgstr ""
 "hvis du forespørger på en indekskolonne med en range-begrænsning eller hvis "
 "du udfører et indeks scan."
 
-#: libraries/messages.inc.php:40
+#: libraries/messages.inc.php:77
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -3298,7 +3488,7 @@ msgstr ""
 "Antallet af anmodninger om at læse foregående række i nøgleorden. Denne "
 "læsemetode bruges hovedsageligt til at optimere ORDER BY ... DESC."
 
-#: libraries/messages.inc.php:41
+#: libraries/messages.inc.php:78
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -3310,7 +3500,7 @@ msgstr ""
 "resultatet. Du har sandsynligvis mange forespørgsler der forlanger at MySQL "
 "scanner hele tabeller eller du har joins der ikke bruger nøgler ordentligt."
 
-#: libraries/messages.inc.php:42
+#: libraries/messages.inc.php:79
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -3322,35 +3512,35 @@ msgstr ""
 "enten ikke er ordentligt indekserede eller at dine forespørgsler ikke er "
 "skrevet til at drage fordel af de indeks du har."
 
-#: libraries/messages.inc.php:43
+#: libraries/messages.inc.php:80
 msgid "The number of internal ROLLBACK statements."
 msgstr "Antallet af interne ROLLBACK statements."
 
-#: libraries/messages.inc.php:44
+#: libraries/messages.inc.php:81
 msgid "The number of requests to update a row in a table."
 msgstr "Antallet af anmodninger om at opdatere en række i en tabel."
 
-#: libraries/messages.inc.php:45
+#: libraries/messages.inc.php:82
 msgid "The number of requests to insert a row in a table."
 msgstr "Antallet af anmodninger om at indsætte en række i en tabel."
 
-#: libraries/messages.inc.php:46
+#: libraries/messages.inc.php:83
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Antallet af sider der indeholder data (beskidte eller rene)."
 
-#: libraries/messages.inc.php:47
+#: libraries/messages.inc.php:84
 msgid "The number of pages currently dirty."
 msgstr "Antallet af såkaldt beskidte sider."
 
-#: libraries/messages.inc.php:48
+#: libraries/messages.inc.php:85
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Antallet af buffer pool sider der er anmodet om at skulle flushes."
 
-#: libraries/messages.inc.php:49
+#: libraries/messages.inc.php:86
 msgid "The number of free pages."
 msgstr "Antallet af frie sider."
 
-#: libraries/messages.inc.php:50
+#: libraries/messages.inc.php:87
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -3360,7 +3550,7 @@ msgstr ""
 "sider der i øjeblikket læses eller skrives eller som ikke kan flushes eller "
 "fjernes af andre årsager."
 
-#: libraries/messages.inc.php:51
+#: libraries/messages.inc.php:88
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -3372,11 +3562,11 @@ msgstr ""
 "også beregnes som  Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: libraries/messages.inc.php:52
+#: libraries/messages.inc.php:89
 msgid "Total size of buffer pool, in pages."
 msgstr "Total størrelse på buffer pool, i sider."
 
-#: libraries/messages.inc.php:53
+#: libraries/messages.inc.php:90
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -3385,7 +3575,7 @@ msgstr ""
 "forespørgsel skal scanne en større del af en tabel men i tilfældig "
 "rækkefølge."
 
-#: libraries/messages.inc.php:54
+#: libraries/messages.inc.php:91
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -3393,11 +3583,11 @@ msgstr ""
 "Antallet af sekventielle read-aheads InnoDB initierede. Dette sker når "
 "InnoDB laver en sekventiel fuld tabelscanning."
 
-#: libraries/messages.inc.php:55
+#: libraries/messages.inc.php:92
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Antallet af logiske read anmodninger InnoDB har lavet."
 
-#: libraries/messages.inc.php:56
+#: libraries/messages.inc.php:93
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -3405,7 +3595,7 @@ msgstr ""
 "Antallet af logiske reads som InnoDB ikke kunne tilfredsstille fra buffer "
 "pool og måtte lave en enkelt-side read."
 
-#: libraries/messages.inc.php:57
+#: libraries/messages.inc.php:94
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -3419,55 +3609,55 @@ msgstr ""
 "sider først. Denne tæller tæller hvor mange gange det er sket. Hvis buffer "
 "pool størrelsen er sat ordentligt, skulle denne værdi være lille."
 
-#: libraries/messages.inc.php:58
+#: libraries/messages.inc.php:95
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Antallet af skrivninger til InnoDB buffer poolen."
 
-#: libraries/messages.inc.php:59
+#: libraries/messages.inc.php:96
 msgid "The number of fsync() operations so far."
 msgstr "Antallet af fsync() operationer indtil nu."
 
-#: libraries/messages.inc.php:60
+#: libraries/messages.inc.php:97
 msgid "The current number of pending fsync() operations."
 msgstr "Nuværende antal ventende fsync() operationer."
 
-#: libraries/messages.inc.php:61
+#: libraries/messages.inc.php:98
 msgid "The current number of pending reads."
 msgstr "Nuværende antal af ventende reads."
 
-#: libraries/messages.inc.php:62
+#: libraries/messages.inc.php:99
 msgid "The current number of pending writes."
 msgstr "Nuværende antal af ventende writes."
 
-#: libraries/messages.inc.php:63
+#: libraries/messages.inc.php:100
 msgid "The amount of data read so far, in bytes."
 msgstr "Mængden af data læst indtil nu, i bytes."
 
-#: libraries/messages.inc.php:64
+#: libraries/messages.inc.php:101
 msgid "The total number of data reads."
 msgstr "Det totale antal af data reads."
 
-#: libraries/messages.inc.php:65
+#: libraries/messages.inc.php:102
 msgid "The total number of data writes."
 msgstr "Det totale antal af data writes."
 
-#: libraries/messages.inc.php:66
+#: libraries/messages.inc.php:103
 msgid "The amount of data written so far, in bytes."
 msgstr "Mængden af data skrevet indtil nu, i bytes."
 
-#: libraries/messages.inc.php:67
+#: libraries/messages.inc.php:104
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Antallet af doublewrite skrivninger der er udført og antallet af sider der "
 "er blevet skrevet til dette formål."
 
-#: libraries/messages.inc.php:68
+#: libraries/messages.inc.php:105
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Antallet af doublewrite skrivninger der er udført og antallet af sider der "
 "er blevet skrevet til dette formål."
 
-#: libraries/messages.inc.php:69
+#: libraries/messages.inc.php:106
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -3475,35 +3665,35 @@ msgstr ""
 "Antallet af waits vi har haft fordi log buffer var for lille og vi skulle "
 "vente på at den blev flushed før vi kunne fortsætte."
 
-#: libraries/messages.inc.php:70
+#: libraries/messages.inc.php:107
 msgid "The number of log write requests."
 msgstr "Antallet af log write anmodninger."
 
-#: libraries/messages.inc.php:71
+#: libraries/messages.inc.php:108
 msgid "The number of physical writes to the log file."
 msgstr "Antallet af fysiske skrivninger til log filen."
 
-#: libraries/messages.inc.php:72
+#: libraries/messages.inc.php:109
 msgid "The number of fsync() writes done to the log file."
 msgstr "Antallet af fsyncs skrivninger lavet til log filen."
 
-#: libraries/messages.inc.php:73
+#: libraries/messages.inc.php:110
 msgid "The number of pending log file fsyncs."
 msgstr "Antallet af ventende log fil fsyncs."
 
-#: libraries/messages.inc.php:74
+#: libraries/messages.inc.php:111
 msgid "Pending log file writes."
 msgstr "Ventende log fil skrivninger."
 
-#: libraries/messages.inc.php:75
+#: libraries/messages.inc.php:112
 msgid "The number of bytes written to the log file."
 msgstr "Antallet af bytes skrevet til log filen."
 
-#: libraries/messages.inc.php:76
+#: libraries/messages.inc.php:113
 msgid "The number of pages created."
 msgstr "Antallet af sider oprettet."
 
-#: libraries/messages.inc.php:77
+#: libraries/messages.inc.php:114
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -3511,51 +3701,51 @@ msgstr ""
 "Den indkompilerede InnoDB sidestørrelse (standard 16KB). Mange værdier "
 "tælles i sider; sidestørrelsen gør at man let kan omregne dem til bytes."
 
-#: libraries/messages.inc.php:78
+#: libraries/messages.inc.php:115
 msgid "The number of pages read."
 msgstr "Antallet af sider læst."
 
-#: libraries/messages.inc.php:79
+#: libraries/messages.inc.php:116
 msgid "The number of pages written."
 msgstr "Antallet af sider skrevet."
 
-#: libraries/messages.inc.php:80
+#: libraries/messages.inc.php:117
 msgid "The number of row locks currently being waited for."
 msgstr "Antallet af rækkelåse der ventes på i øjeblikket."
 
-#: libraries/messages.inc.php:81
+#: libraries/messages.inc.php:118
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Gennemsnitstiden for at få en rækkelås, i millisekunder."
 
-#: libraries/messages.inc.php:82
+#: libraries/messages.inc.php:119
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Total tid brugt på at hente rækkelåse, i millisekunder."
 
-#: libraries/messages.inc.php:83
+#: libraries/messages.inc.php:120
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Maksimale tid for at hente en rækkelås, i millisekunder."
 
-#: libraries/messages.inc.php:84
+#: libraries/messages.inc.php:121
 msgid "The number of times a row lock had to be waited for."
 msgstr "Antallet af gange der skulle ventes på en rækkelås."
 
-#: libraries/messages.inc.php:85
+#: libraries/messages.inc.php:122
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Antallet af rækker slettet fra InnoDB tabeller."
 
-#: libraries/messages.inc.php:86
+#: libraries/messages.inc.php:123
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Antallet af rækker indsat i InnoDB tabeller."
 
-#: libraries/messages.inc.php:87
+#: libraries/messages.inc.php:124
 msgid "The number of rows read from InnoDB tables."
 msgstr "Antallet af rækker læst fra InnoDB tables."
 
-#: libraries/messages.inc.php:88
+#: libraries/messages.inc.php:125
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Antallet af rækker opdateret i InnoDB tabeller."
 
-#: libraries/messages.inc.php:89
+#: libraries/messages.inc.php:126
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -3564,7 +3754,7 @@ msgstr ""
 "endnu ikke er blevet flushet til disk. Det hed tidligere "
 "Not_flushed_key_blocks."
 
-#: libraries/messages.inc.php:90
+#: libraries/messages.inc.php:127
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -3572,7 +3762,7 @@ msgstr ""
 "Antallet af ubrugte blokke i nøglemellemlageret. Du kan bruge denne værdi "
 "til at fastslå hvor meget af nøglemellemlagere der er i brug."
 
-#: libraries/messages.inc.php:91
+#: libraries/messages.inc.php:128
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -3582,11 +3772,11 @@ msgstr ""
 "mærke der indikerer det maksimale antal blokke der på noget tidspunkt har "
 "været i brug på en gang."
 
-#: libraries/messages.inc.php:92
+#: libraries/messages.inc.php:129
 msgid "The number of requests to read a key block from the cache."
 msgstr "Antallet af anmodninger om at læse en nøgleblok fra mellemlageret."
 
-#: libraries/messages.inc.php:93
+#: libraries/messages.inc.php:130
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -3596,15 +3786,15 @@ msgstr ""
 "stor, er din key_buffer_size værdi sandsynligvis for lille. Mellemlager miss "
 "raten kan beregnes som  Key_reads/Key_read_requests."
 
-#: libraries/messages.inc.php:94
+#: libraries/messages.inc.php:131
 msgid "The number of requests to write a key block to the cache."
 msgstr "Antallet af anmodninger om at skrive en nøgleblok til mellemlageret."
 
-#: libraries/messages.inc.php:95
+#: libraries/messages.inc.php:132
 msgid "The number of physical writes of a key block to disk."
 msgstr "Antallet af fysiske skrivninger af en nøgleblok til disk."
 
-#: libraries/messages.inc.php:96
+#: libraries/messages.inc.php:133
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -3616,12 +3806,12 @@ msgstr ""
 "standardværdi på 0 betyder at der ikke er kompileret nogen forespørgsler "
 "endnu."
 
-#: libraries/messages.inc.php:97
+#: libraries/messages.inc.php:134
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Antallet af rækker der venter på at blive skrevet i INSERT DELAYED køer."
 
-#: libraries/messages.inc.php:98
+#: libraries/messages.inc.php:135
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -3629,35 +3819,35 @@ msgstr ""
 "Antallet af tabeller der er blevet åbnet. Hvis åbnede tabeller er stor, er "
 "dit tabelmellemlager sandsynligvis for lille."
 
-#: libraries/messages.inc.php:99
+#: libraries/messages.inc.php:136
 msgid "The number of files that are open."
 msgstr "Antallet af filer der er åbne."
 
-#: libraries/messages.inc.php:100
+#: libraries/messages.inc.php:137
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Antallet af streams der er åbne (bruges hovedsageligt til logning)."
 
-#: libraries/messages.inc.php:101
+#: libraries/messages.inc.php:138
 msgid "The number of tables that are open."
 msgstr "Antallet af tabeller der er åbne."
 
-#: libraries/messages.inc.php:102
+#: libraries/messages.inc.php:139
 msgid "The number of free memory blocks in query cache."
 msgstr "Antallet af frie hukommelsesblokke i forespørgsels-mellemlageret."
 
-#: libraries/messages.inc.php:103
+#: libraries/messages.inc.php:140
 msgid "The amount of free memory for query cache."
 msgstr "Mængden af fri hukommelse til forespørgselsmellemlageret."
 
-#: libraries/messages.inc.php:104
+#: libraries/messages.inc.php:141
 msgid "The number of cache hits."
 msgstr "Antallet af mellemlager hits."
 
-#: libraries/messages.inc.php:105
+#: libraries/messages.inc.php:142
 msgid "The number of queries added to the cache."
 msgstr "Antallet af forespørgsler tilføjet til mellemlageret."
 
-#: libraries/messages.inc.php:106
+#: libraries/messages.inc.php:143
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -3670,7 +3860,7 @@ msgstr ""
 "Forespørgselsmellemlageret bruger en mindst nyligt brugt (LRU) strategi til "
 "at afgøre hvilke forespørgsler der skal fjernes fra mellemlageret."
 
-#: libraries/messages.inc.php:107
+#: libraries/messages.inc.php:144
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -3678,24 +3868,24 @@ msgstr ""
 "Antallet af ikke-mellemlagrede forespørgsler (ikke mulige at mellemlagre "
 "eller ikke mellemlagret grundet query_cache_type indstillingen)."
 
-#: libraries/messages.inc.php:108
+#: libraries/messages.inc.php:145
 msgid "The number of queries registered in the cache."
 msgstr "Antallet af forespørgsler registreret i mellemlageret."
 
-#: libraries/messages.inc.php:109
+#: libraries/messages.inc.php:146
 msgid "The total number of blocks in the query cache."
 msgstr "Totalt antal blokke i forespørgsels-mellemlageret."
 
-#: libraries/messages.inc.php:110
+#: libraries/messages.inc.php:147
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Nulstil"
 
-#: libraries/messages.inc.php:111
+#: libraries/messages.inc.php:148
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Status på failsafe replikering (endnu ikke implementeret)."
 
-#: libraries/messages.inc.php:112
+#: libraries/messages.inc.php:149
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -3703,11 +3893,11 @@ msgstr ""
 "Antallet af joins der ikke bruger indeks. Hvis denne værdi ikke er 0, bør du "
 "nøje tjekke indeksene på dine tabeller."
 
-#: libraries/messages.inc.php:113
+#: libraries/messages.inc.php:150
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Antallet af joins der brugte en range søgning på en reference tabel."
 
-#: libraries/messages.inc.php:114
+#: libraries/messages.inc.php:151
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -3715,7 +3905,7 @@ msgstr ""
 "Antallet af joins uden nøgler der tjekker for nøglebrug efter hver række. "
 "(Hvis denne ikke er 0, bør du nøje tjekke indeks på dine tabeller.)"
 
-#: libraries/messages.inc.php:115
+#: libraries/messages.inc.php:152
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -3723,15 +3913,15 @@ msgstr ""
 "Antallet af joins der brugte ranges på den første tabel. (Normalt ikke "
 "kritisk selvom tallet er stort.)"
 
-#: libraries/messages.inc.php:116
+#: libraries/messages.inc.php:153
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Antallet af joins som lavede en fuld scan af den første tabel."
 
-#: libraries/messages.inc.php:117
+#: libraries/messages.inc.php:154
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "Antallet af midlertidige tabeller i øjeblikket åbne af SQL tråden."
 
-#: libraries/messages.inc.php:118
+#: libraries/messages.inc.php:155
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -3739,12 +3929,12 @@ msgstr ""
 "Totalt (siden opstart) antal gange replikeringsslave SQL tråden har gen-"
 "forsøgt transaktioner."
 
-#: libraries/messages.inc.php:119
+#: libraries/messages.inc.php:156
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Dette er TIL hvis denne server er en slave der er forbundet til en master."
 
-#: libraries/messages.inc.php:120
+#: libraries/messages.inc.php:157
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -3752,13 +3942,13 @@ msgstr ""
 "Antallet af tråde der har taget mere end slow_launch_time sekunder at "
 "oprette."
 
-#: libraries/messages.inc.php:121
+#: libraries/messages.inc.php:158
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Antallet af forespørgsler der har taget mere end long_query_time sekunder."
 
-#: libraries/messages.inc.php:122
+#: libraries/messages.inc.php:159
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -3768,23 +3958,23 @@ msgstr ""
 "denne værdi er høj, bør du overveje at forøge værdien af  sort_buffer_size "
 "systemvariablen."
 
-#: libraries/messages.inc.php:123
+#: libraries/messages.inc.php:160
 msgid "The number of sorts that were done with ranges."
 msgstr "Antallet af sorteringer lavet med ranges."
 
-#: libraries/messages.inc.php:124
+#: libraries/messages.inc.php:161
 msgid "The number of sorted rows."
 msgstr "Antallet af sorterede rækker."
 
-#: libraries/messages.inc.php:125
+#: libraries/messages.inc.php:162
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Antallet af sorteringer udført ved scanning af tabellen."
 
-#: libraries/messages.inc.php:126
+#: libraries/messages.inc.php:163
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Antallet af gange en tabellås blev givet øjeblikkeligt."
 
-#: libraries/messages.inc.php:127
+#: libraries/messages.inc.php:164
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -3796,7 +3986,7 @@ msgstr ""
 "optimere dine forespørgsler, og derefter enten opdele din tabel eller "
 "tabeller, eller bruge replikering."
 
-#: libraries/messages.inc.php:128
+#: libraries/messages.inc.php:165
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -3806,11 +3996,11 @@ msgstr ""
 "som Threads_created/Forbindelser. Hvis denne værdi er rød bør du forøge din "
 "thread_cache_size."
 
-#: libraries/messages.inc.php:129
+#: libraries/messages.inc.php:166
 msgid "The number of currently open connections."
 msgstr "Antallet af i øjeblikket åbne forbindelser."
 
-#: libraries/messages.inc.php:130
+#: libraries/messages.inc.php:167
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -3822,7 +4012,7 @@ msgstr ""
 "(Normalt giver dette ingen nævneværdig ydelsesforbedring hvis du har god "
 "tråd-implementering.)"
 
-#: libraries/messages.inc.php:131
+#: libraries/messages.inc.php:168
 msgid "The number of threads that are not sleeping."
 msgstr "Antallet af tråde der ikke sover."
 
@@ -5095,134 +5285,6 @@ msgstr "Datalagre"
 msgid "View dump (schema) of databases"
 msgstr "Vis dump (skema) for databaser"
 
-#: server_privileges.php:141 server_privileges.php:400
-#: server_privileges.php:464
-msgid "Allows reading data."
-msgstr "Tillader læsning af data."
-
-#: server_privileges.php:142 server_privileges.php:403
-#: server_privileges.php:465
-msgid "Allows inserting and replacing data."
-msgstr "Tillader indsættelse og erstatning af data."
-
-#: server_privileges.php:143 server_privileges.php:406
-#: server_privileges.php:466
-msgid "Allows changing data."
-msgstr "Tillader ændring af data."
-
-#: server_privileges.php:144 server_privileges.php:467
-msgid "Allows deleting data."
-msgstr "Tillader sletning af data."
-
-#: server_privileges.php:145 server_privileges.php:475
-msgid "Allows creating new databases and tables."
-msgstr "Tillader oprettelse af nye databaser og tabeller."
-
-#: server_privileges.php:146 server_privileges.php:478
-msgid "Allows dropping databases and tables."
-msgstr "Tillader at droppe databaser og tabeller."
-
-#: server_privileges.php:147 server_privileges.php:506
-msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "Tillader genindlæsning af serverindstillinger og tømning af caches."
-
-#: server_privileges.php:148 server_privileges.php:507
-msgid "Allows shutting down the server."
-msgstr "Tillader nedlukning af serveren."
-
-#: server_privileges.php:149 server_privileges.php:505
-msgid "Allows viewing processes of all users"
-msgstr ""
-
-#: server_privileges.php:150 server_privileges.php:470
-msgid "Allows importing data from and exporting data into files."
-msgstr "Tillader import af data fra og eksport af data til filer."
-
-#: server_privileges.php:151 server_privileges.php:409
-#: server_privileges.php:511
-msgid "Has no effect in this MySQL version."
-msgstr "Har ingen effekt i denne MySQL version."
-
-#: server_privileges.php:152 server_privileges.php:477
-msgid "Allows creating and dropping indexes."
-msgstr "Tillader at skabe og droppe indeks."
-
-#: server_privileges.php:153 server_privileges.php:476
-msgid "Allows altering the structure of existing tables."
-msgstr "Tillader ændring af strukturen på eksisterende tabeller."
-
-#: server_privileges.php:154 server_privileges.php:508
-msgid "Gives access to the complete list of databases."
-msgstr "Giver adgang til den fuldstændige liste over databaser."
-
-#: server_privileges.php:155 server_privileges.php:504
-msgid ""
-"Allows connecting, even if maximum number of connections is reached; "
-"required for most administrative operations like setting global variables or "
-"killing threads of other users."
-msgstr ""
-"Tillader forbindelse, selv hvis maksimalt antal forbindelser er nået; "
-"Nødvendigt for de fleste administrative operationer som indstilling af "
-"globale variabler eller for at dræbe andre brugeres tråde."
-
-#: server_privileges.php:156 server_privileges.php:479
-msgid "Allows creating temporary tables."
-msgstr "Tillader oprettelse af midlertidige tabeller."
-
-#: server_privileges.php:157 server_privileges.php:510
-msgid "Allows locking tables for the current thread."
-msgstr "Tillader låsning af tabeller for nuværende tråd."
-
-#: server_privileges.php:158 server_privileges.php:514
-msgid "Needed for the replication slaves."
-msgstr "Nødvendigt for replikationsslaverne."
-
-#: server_privileges.php:159 server_privileges.php:513
-msgid "Allows the user to ask where the slaves / masters are."
-msgstr "Giver brugeren rettigheder til at spørge hvor Slaves / Masters er."
-
-#: server_privileges.php:160 server_privileges.php:164
-#: server_privileges.php:487 server_privileges.php:491
-msgid "Allows creating new views."
-msgstr "Tillader oprettelse af nye Allows creating new views."
-
-#: server_privileges.php:161 server_privileges.php:495
-msgid "Allows to set up events for the event scheduler"
-msgstr ""
-
-#: server_privileges.php:162 server_privileges.php:496
-msgid "Allows creating and dropping triggers"
-msgstr ""
-
-#: server_privileges.php:165 server_privileges.php:167
-#: server_privileges.php:480
-msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Tillader udførelse af SHOW CREATE VIEW forespørgsler."
-
-#: server_privileges.php:168 server_privileges.php:481
-msgid "Allows creating stored routines."
-msgstr "Tillader oprettelse af gemte rutiner."
-
-#: server_privileges.php:169 server_privileges.php:482
-msgid "Allows altering and dropping stored routines."
-msgstr "Tillader ændring og sletning af gemte rutiner."
-
-#: server_privileges.php:170 server_privileges.php:515
-msgid "Allows creating, dropping and renaming user accounts."
-msgstr "Tillader oprettelse, sletning og omdøbning af brugerkonti."
-
-#: server_privileges.php:171 server_privileges.php:483
-msgid "Allows executing stored routines."
-msgstr "Tillader udførelse af gemte rutiner."
-
-#: server_privileges.php:221
-msgid "No privileges."
-msgstr "Ingen privilegier."
-
-#: server_privileges.php:227
-msgid "Includes all privileges except GRANT."
-msgstr "Inkluderer alle privilegier pånær GRANT."
-
 #: server_privileges.php:263 server_privileges.php:264
 #, fuzzy
 #| msgid "None"
@@ -5239,21 +5301,6 @@ msgstr "Tabel-specifikke privilegier"
 #: server_privileges.php:1501
 msgid " Note: MySQL privilege names are expressed in English "
 msgstr " NB: Navne på MySQL privilegier er på engelsk "
-
-#: server_privileges.php:475
-msgid "Allows creating new tables."
-msgstr "Tillader oprettelse af nye tabeller."
-
-#: server_privileges.php:478
-msgid "Allows dropping tables."
-msgstr "Tillader at droppe tabeller."
-
-#: server_privileges.php:501
-msgid ""
-"Allows adding users and privileges without reloading the privilege tables."
-msgstr ""
-"Tillader oprettelse af brugere og privilegier uden at genindlæse privilegie-"
-"tabellerne."
 
 #: server_privileges.php:524 server_privileges.php:1500
 msgid "Global privileges"
@@ -5275,27 +5322,6 @@ msgstr "Ressourcebegrænsninger"
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen."
-
-#: server_privileges.php:595 server_privileges.php:597
-msgid "Limits the number of queries the user may send to the server per hour."
-msgstr ""
-"Begrænser antallet af forespørgsler brugeren må sende til serveren pr. time."
-
-#: server_privileges.php:601 server_privileges.php:603
-msgid ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
-msgstr ""
-"Begrænser antallet af kommandoer som ændrer enhver tabel eller database "
-"brugeren må udføre pr. time."
-
-#: server_privileges.php:607 server_privileges.php:609
-msgid "Limits the number of new connections the user may open per hour."
-msgstr "Begrænser antallet af nye forbindelser brugeren må åbne pr. time."
-
-#: server_privileges.php:613 server_privileges.php:615
-msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Begrænser antallet af samtidige forbindelser brugere må have."
 
 #: server_privileges.php:669
 msgid "Login Information"

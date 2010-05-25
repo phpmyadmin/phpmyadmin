@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 12:05+0200\n"
+"POT-Creation-Date: 2010-05-25 13:21+0200\n"
 "PO-Revision-Date: 2010-03-30 23:16+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -3210,7 +3210,205 @@ msgstr "(συνεχίζεται)"
 msgid "Structure of table __TABLE__"
 msgstr "Δομή του πίνακα __TABLE__"
 
-#: libraries/messages.inc.php:25
+#: libraries/messages.inc.php:25 server_privileges.php:227
+msgid "Includes all privileges except GRANT."
+msgstr "Περιλαμβάνει όλα τα δικαιώματα εκτός από το GRANT."
+
+#: libraries/messages.inc.php:26 server_privileges.php:153
+#: server_privileges.php:476
+msgid "Allows altering the structure of existing tables."
+msgstr "Επιτρέπει την αλλαγή δομής των υπαρχόντων πινάκων."
+
+#: libraries/messages.inc.php:27 server_privileges.php:169
+#: server_privileges.php:482
+msgid "Allows altering and dropping stored routines."
+msgstr "Επιτρέπει την αλλαγή και διαγραφή αποθηκευμένων εργασιών."
+
+#: libraries/messages.inc.php:28 server_privileges.php:145
+#: server_privileges.php:475
+msgid "Allows creating new databases and tables."
+msgstr "Επιτρέπει τη δημιουργία νέων βάσεων και πινάκων."
+
+#: libraries/messages.inc.php:29 server_privileges.php:168
+#: server_privileges.php:481
+msgid "Allows creating stored routines."
+msgstr "Επιτρέπει τη δημιουργία αποθηκευμένων εργασιών."
+
+#: libraries/messages.inc.php:30 server_privileges.php:475
+msgid "Allows creating new tables."
+msgstr "Επιτρέπει τη δημιουργία νέων πινάκων."
+
+#: libraries/messages.inc.php:31 server_privileges.php:156
+#: server_privileges.php:479
+msgid "Allows creating temporary tables."
+msgstr "Επιτρέπει τη δημιουργία προσωρινών πινάκων."
+
+#: libraries/messages.inc.php:32 server_privileges.php:170
+#: server_privileges.php:515
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr "Επιτρέπει τη δημιουργία, διαγραφή και μετονομασία λογαριασμών χρηστών."
+
+#: libraries/messages.inc.php:33 server_privileges.php:160
+#: server_privileges.php:164 server_privileges.php:487
+#: server_privileges.php:491
+msgid "Allows creating new views."
+msgstr "Επιτρέπει τη δημιουργία νέων προβολών."
+
+#: libraries/messages.inc.php:34 server_privileges.php:144
+#: server_privileges.php:467
+msgid "Allows deleting data."
+msgstr "Επιτρέπει τη διαγραφή δεδομένων."
+
+#: libraries/messages.inc.php:35 server_privileges.php:146
+#: server_privileges.php:478
+msgid "Allows dropping databases and tables."
+msgstr "Επιτρέπει τη διαγραφή βάσεων και πινάκων."
+
+#: libraries/messages.inc.php:36 server_privileges.php:478
+msgid "Allows dropping tables."
+msgstr "Επιτρέπει τη διαγραφή πινάκων."
+
+#: libraries/messages.inc.php:37 server_privileges.php:161
+#: server_privileges.php:495
+msgid "Allows to set up events for the event scheduler"
+msgstr "Επιτρέπει τον ορισμό συμβάντων για τον προγραμματιστή συμβάντων"
+
+#: libraries/messages.inc.php:38 server_privileges.php:171
+#: server_privileges.php:483
+msgid "Allows executing stored routines."
+msgstr "Επιτρέπει την εκτέλεση αποθηκευμένων εργασιών."
+
+#: libraries/messages.inc.php:39 server_privileges.php:150
+#: server_privileges.php:470
+msgid "Allows importing data from and exporting data into files."
+msgstr "Επιτρέπει την εισαγωγή και εξαγωγή δεδομένων από και σε αρχεία."
+
+#: libraries/messages.inc.php:40 server_privileges.php:501
+msgid ""
+"Allows adding users and privileges without reloading the privilege tables."
+msgstr ""
+"Επιτρέπει την προσθήκη χρηστών και δικαιωμάτων χωρίς να επαναφορτώσετε τους "
+"πίνακες δικαιωμάτων."
+
+#: libraries/messages.inc.php:41 server_privileges.php:152
+#: server_privileges.php:477
+msgid "Allows creating and dropping indexes."
+msgstr "Επιτρέπει την δημιουργία και την διαγραφή ευρετηρίων."
+
+#: libraries/messages.inc.php:42 server_privileges.php:142
+#: server_privileges.php:403 server_privileges.php:465
+msgid "Allows inserting and replacing data."
+msgstr "Επιτρέπει την εισαγωγή και την αντικατάσταση δεδομένων."
+
+#: libraries/messages.inc.php:43 server_privileges.php:157
+#: server_privileges.php:510
+msgid "Allows locking tables for the current thread."
+msgstr "Επιτρέπει το κλείδωμα πινάκων για την τρέχουσα λειτουργία."
+
+#: libraries/messages.inc.php:44 server_privileges.php:607
+#: server_privileges.php:609
+msgid "Limits the number of new connections the user may open per hour."
+msgstr ""
+"Περιορίζει τον αριθμό των νέων συνδέσεων που ο χρήστης μπορεί να ξεκινήσει "
+"ανά ώρα."
+
+#: libraries/messages.inc.php:45 server_privileges.php:595
+#: server_privileges.php:597
+msgid "Limits the number of queries the user may send to the server per hour."
+msgstr ""
+"Περιορίζει τον αριθμό των ερωτημάτων που ο χρήστης μπορεί να στείλει στον "
+"διακομιστή ανά ώρα."
+
+#: libraries/messages.inc.php:46 server_privileges.php:601
+#: server_privileges.php:603
+msgid ""
+"Limits the number of commands that change any table or database the user may "
+"execute per hour."
+msgstr ""
+"Περιορίζει τον αριθμό των αλλαγής πινάκων ή βάσεων που ο χρήστης μπορεί να "
+"εκετελέσει ανά ώρα."
+
+#: libraries/messages.inc.php:47 server_privileges.php:613
+#: server_privileges.php:615
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr ""
+"Περιορίζει τον αριθμό των ταυτόχρονων συνδέσεων που μπορεί να έχει ο χρήστης."
+
+#: libraries/messages.inc.php:48 server_privileges.php:149
+#: server_privileges.php:505
+msgid "Allows viewing processes of all users"
+msgstr "Επιτρέπει την προβολή διεργασιών όλων των χρηστών"
+
+#: libraries/messages.inc.php:49 server_privileges.php:151
+#: server_privileges.php:409 server_privileges.php:511
+msgid "Has no effect in this MySQL version."
+msgstr "Δεν έχει χρήση σε αυτήν την έκδοση MySQL."
+
+#: libraries/messages.inc.php:50 server_privileges.php:147
+#: server_privileges.php:506
+msgid "Allows reloading server settings and flushing the server's caches."
+msgstr ""
+"Επιτρέπει την επανεκκίνηση του διακομιστή και τον καθαρισμό των προσωρινών "
+"αρχείων του."
+
+#: libraries/messages.inc.php:51 server_privileges.php:159
+#: server_privileges.php:513
+msgid "Allows the user to ask where the slaves / masters are."
+msgstr ""
+"Δίνει το δικαίωμα στον χρήστη να βρει που είναι οι κύριοι και δευτερεύοντες "
+"διακομιστές."
+
+#: libraries/messages.inc.php:52 server_privileges.php:158
+#: server_privileges.php:514
+msgid "Needed for the replication slaves."
+msgstr "Απαιτείται για τους δευτερευόντες διακομιστές αναπαραγωγής."
+
+#: libraries/messages.inc.php:53 server_privileges.php:141
+#: server_privileges.php:400 server_privileges.php:464
+msgid "Allows reading data."
+msgstr "Επιτρέπει την ανάγνωση δεδομένων."
+
+#: libraries/messages.inc.php:54 server_privileges.php:154
+#: server_privileges.php:508
+msgid "Gives access to the complete list of databases."
+msgstr "Δίνει πρόσβαση στην πλήρη λίστα των βάσεων δεδομένων."
+
+#: libraries/messages.inc.php:55 server_privileges.php:165
+#: server_privileges.php:167 server_privileges.php:480
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr "Επιτρέπει την εκτέλεση ερωτημάτων της μορφής SHOW CREATE VIEW."
+
+#: libraries/messages.inc.php:56 server_privileges.php:148
+#: server_privileges.php:507
+msgid "Allows shutting down the server."
+msgstr "Επιτρέπει την διακοπή λειτουργίας του διακομιστή."
+
+#: libraries/messages.inc.php:57 server_privileges.php:155
+#: server_privileges.php:504
+msgid ""
+"Allows connecting, even if maximum number of connections is reached; "
+"required for most administrative operations like setting global variables or "
+"killing threads of other users."
+msgstr ""
+"Επιτρέπει τη σύνδεση, ακόμα και όταν ο μέγιστος αριθμός συνδέσεων έχει "
+"καλυθφεί; Απαιτείται για τις περισσότερες λειτουργίες διαχείρισης όπως ο "
+"ορισμός γενικών μεταβλητών ή τη διακοπή λειτουργιών άλλων χρηστών."
+
+#: libraries/messages.inc.php:58 server_privileges.php:162
+#: server_privileges.php:496
+msgid "Allows creating and dropping triggers"
+msgstr "Επιτρέπει τη δημιουργία και διαγραφή υποδείξεων"
+
+#: libraries/messages.inc.php:59 server_privileges.php:143
+#: server_privileges.php:406 server_privileges.php:466
+msgid "Allows changing data."
+msgstr "Επιτρέπει την αλλαγή δεδομένων."
+
+#: libraries/messages.inc.php:60 server_privileges.php:221
+msgid "No privileges."
+msgstr "Χωρίς δικαιώματα."
+
+#: libraries/messages.inc.php:62
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -3220,13 +3418,13 @@ msgstr ""
 "μνήμη καταγραφής που υπερβαίνει την τιμή binlog_cache_size και χρησιμοποιούν "
 "ένα προσωρινό αρχείο για αποθήκευση δηλώσεων από τη συναλλαγή."
 
-#: libraries/messages.inc.php:26
+#: libraries/messages.inc.php:63
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Ο αριθμός των συναλλαγών που χρησιμοποίησαν την προσωρινή δυαδική λανθάνουσα "
 "μνήμη καταγραφής."
 
-#: libraries/messages.inc.php:27
+#: libraries/messages.inc.php:64
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -3238,11 +3436,11 @@ msgstr ""
 "είναι μεγάλο, ίσως θέλετε να αυξήσετε την τιμή tmp_table_size ώστε οι "
 "προσωρινοί πίνακες να είναι στη μνήμη και όχι στο δίσκο."
 
-#: libraries/messages.inc.php:28
+#: libraries/messages.inc.php:65
 msgid "How many temporary files mysqld has created."
 msgstr "Πόσα προσωρινά αρχεία δημιούργησε το mysqld."
 
-#: libraries/messages.inc.php:29
+#: libraries/messages.inc.php:66
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -3250,7 +3448,7 @@ msgstr ""
 "Ο αριθμός των προσωρινών πινάκων στη μνήμη που δημιουργήθηκαν αυτόματα από "
 "τον διακομιστή κατά την εκτέλεσε δηλώσεων."
 
-#: libraries/messages.inc.php:30
+#: libraries/messages.inc.php:67
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -3258,7 +3456,7 @@ msgstr ""
 "Ο αριθμός των εγεγγραμμένων γραμμών με την εντολή INSERT DELAYED για τις "
 "οποίες υπήρξε κάποιο σφάλμα (πιθανόν διπλό κλειδί)."
 
-#: libraries/messages.inc.php:31
+#: libraries/messages.inc.php:68
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -3267,25 +3465,25 @@ msgstr ""
 "διαφορετικός πίνακας στον οποίο κάποιος χρησιμοποιεί την εντολή INSERT "
 "DELAYED χρησιμοποιεί της δική του διεργασία."
 
-#: libraries/messages.inc.php:32
+#: libraries/messages.inc.php:69
 msgid "The number of INSERT DELAYED rows written."
 msgstr ""
 "Ο αριθμός των ΚΑΘΥΣΤΕΡΗΜΕΝΑ ΕΙΣΕΡΧΟΜΕΝΩΝ (INSERT DELAYED) γραμμών που "
 "εγγράφτηκαν."
 
-#: libraries/messages.inc.php:33
+#: libraries/messages.inc.php:70
 msgid "The number of executed FLUSH statements."
 msgstr "Ο αριθμός των εκτελεσθέντων δηλώσεων ΕΚΚΑΘΑΡΙΣΗΣ (FLUSH)."
 
-#: libraries/messages.inc.php:34
+#: libraries/messages.inc.php:71
 msgid "The number of internal COMMIT statements."
 msgstr "Ο αριθμός των εσωτερικών δηλώσεων ΠΑΡΑΠΟΜΠΗΣ (COMMIT)."
 
-#: libraries/messages.inc.php:35
+#: libraries/messages.inc.php:72
 msgid "The number of times a row was deleted from a table."
 msgstr "Οι φορές που διαγράφτηκε μια γραμμή από έναν πίνακα."
 
-#: libraries/messages.inc.php:36
+#: libraries/messages.inc.php:73
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -3296,7 +3494,7 @@ msgstr ""
 "ανακάλυψη. Το Handler_discover δείχνει τον αριθμό των πινάκων χρόνου που "
 "βρέθηκαν."
 
-#: libraries/messages.inc.php:37
+#: libraries/messages.inc.php:74
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -3307,7 +3505,7 @@ msgstr ""
 "ευρετηρίου. Παράδειγμα: SELECT col1 FROM foo, υποθέτοντας ότι το col1 έχει "
 "ευρετήριο."
 
-#: libraries/messages.inc.php:38
+#: libraries/messages.inc.php:75
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -3316,7 +3514,7 @@ msgstr ""
 "είναι υψηλός, είναι ένας καλός δείκτης ότι τα ερωτήματά σας και οι πίνακές "
 "σας έχουν κάνει σωστά ευρετήρια."
 
-#: libraries/messages.inc.php:39
+#: libraries/messages.inc.php:76
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -3326,7 +3524,7 @@ msgstr ""
 "κλειδιού. Αυτό αυξάνετε αν κάνετε ερώτημα σε μια στήλη ευρετηρίου με ένα "
 "περιορισμό ευρετηρίου ή αν κάνετε μια σάρωση ευρετηρίου."
 
-#: libraries/messages.inc.php:40
+#: libraries/messages.inc.php:77
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -3335,7 +3533,7 @@ msgstr ""
 "η μέθοδος ανάγνωσης χρησιμοποιείτε κυρίως για βελτιστοποίηση της εντολής "
 "ORDER BY ... DESC."
 
-#: libraries/messages.inc.php:41
+#: libraries/messages.inc.php:78
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -3348,7 +3546,7 @@ msgstr ""
 "σαρώνει ολόκληρους πίνακες ή έχετε ενώσεις που δεν χρησιμοποιούν σωστά τα "
 "κλειδιά."
 
-#: libraries/messages.inc.php:42
+#: libraries/messages.inc.php:79
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -3360,37 +3558,37 @@ msgstr ""
 "ότι οι πίνακες σας δεν έχουν σωστά ευρετήρια ή ότι τα ερωτήματά σας δεν "
 "έχουν γραφτεί ώστε να λαμβάνουν υπόψη τα ευρετήρια που έχετε."
 
-#: libraries/messages.inc.php:43
+#: libraries/messages.inc.php:80
 msgid "The number of internal ROLLBACK statements."
 msgstr "Ο αριθμός των εσωτερικών δηλώσεων ΕΠΙΣΤΡΟΦΗΣ (ROLLBACK)."
 
-#: libraries/messages.inc.php:44
+#: libraries/messages.inc.php:81
 msgid "The number of requests to update a row in a table."
 msgstr "Ο αριθμός των αιτήσεων για ενημέρωση μιας γραμμής σε έναν πίνακα."
 
-#: libraries/messages.inc.php:45
+#: libraries/messages.inc.php:82
 msgid "The number of requests to insert a row in a table."
 msgstr "Ο αριθμός των αιτήσεων για εισαγωγή μιας γραμμής σε έναν πίνακα."
 
-#: libraries/messages.inc.php:46
+#: libraries/messages.inc.php:83
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Ο αριθμός των σελίδων που περιέχουν δεδομένα (καθαρά και μη)."
 
-#: libraries/messages.inc.php:47
+#: libraries/messages.inc.php:84
 msgid "The number of pages currently dirty."
 msgstr "Ο αριθμός των μη καθαρώ σελίδων."
 
-#: libraries/messages.inc.php:48
+#: libraries/messages.inc.php:85
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 "Ο αριθμός των σελίδων του buffer pool για τις οποίες υπήρξε αίτηση για "
 "εκκαθάριση."
 
-#: libraries/messages.inc.php:49
+#: libraries/messages.inc.php:86
 msgid "The number of free pages."
 msgstr "Ο αριθμός των ελεύθερων σελίδων."
 
-#: libraries/messages.inc.php:50
+#: libraries/messages.inc.php:87
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -3400,7 +3598,7 @@ msgstr ""
 "σελίδες που έχουν ήδη αναγνωστεί ή εγγραφεί ή που δεν μπορούν να "
 "εκκαθαριστούν ή απομακρυνθούν για κάποιο άλλο λόγο."
 
-#: libraries/messages.inc.php:51
+#: libraries/messages.inc.php:88
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -3412,11 +3610,11 @@ msgstr ""
 "τιμή μπορεί να υπολογιστεί ως Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: libraries/messages.inc.php:52
+#: libraries/messages.inc.php:89
 msgid "Total size of buffer pool, in pages."
 msgstr "Συνολικό μέγεθος του buffer pool, σε σελίδες."
 
-#: libraries/messages.inc.php:53
+#: libraries/messages.inc.php:90
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -3425,7 +3623,7 @@ msgstr ""
 "συμβαίνει όταν ένα ερώτημα πρόκειται να σαρώσει ένα μεγάλο τμήμα πίνακα αλλά "
 "με τυχαία σειρά."
 
-#: libraries/messages.inc.php:54
+#: libraries/messages.inc.php:91
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -3433,11 +3631,11 @@ msgstr ""
 "Ο αριθμός των διαδοχικών αναγνώσεων κεφαλίδων της InnoDB που ξεκίνησαν. Αυτό "
 "συμβείναι όταν η InnoDB εκτελεί μια διαδοχική πλήρη σάρωση πίνακα."
 
-#: libraries/messages.inc.php:55
+#: libraries/messages.inc.php:92
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Ο αριθμός των λογικών αιτήσεων ανάγνωσης που έκαν η InnoDB."
 
-#: libraries/messages.inc.php:56
+#: libraries/messages.inc.php:93
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -3445,7 +3643,7 @@ msgstr ""
 "Ο αριθμός των λογικών αναγνώσεων που η InnoDB δεν μπόρεσε να ικανοποιήσει "
 "από το buffer pool και έπρεπε να κάνει ανάγνωση μονής σελίδας."
 
-#: libraries/messages.inc.php:57
+#: libraries/messages.inc.php:94
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -3460,55 +3658,55 @@ msgstr ""
 "αναμονών. Αν το μέγεθος του buffer pool έχει οριστεί σωστά, αυτή η τιμή "
 "πρέπει να είναι μικρή."
 
-#: libraries/messages.inc.php:58
+#: libraries/messages.inc.php:95
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Ο αριθμός των εγγραφών που έγιναν στο buffer pool της InnoDB."
 
-#: libraries/messages.inc.php:59
+#: libraries/messages.inc.php:96
 msgid "The number of fsync() operations so far."
 msgstr "Ο αριθμός των λειτουργιών του fsync() μέχρι στιγμής."
 
-#: libraries/messages.inc.php:60
+#: libraries/messages.inc.php:97
 msgid "The current number of pending fsync() operations."
 msgstr "Ο τρέχων αριθμός των εκκρεμών λειτουργιών του fsync()."
 
-#: libraries/messages.inc.php:61
+#: libraries/messages.inc.php:98
 msgid "The current number of pending reads."
 msgstr "Ο τρέχων αριθμός των εκκρεμών αναγνώσεων."
 
-#: libraries/messages.inc.php:62
+#: libraries/messages.inc.php:99
 msgid "The current number of pending writes."
 msgstr "Ο τρέχων αριθμός των εκκρεμών εγγραφών."
 
-#: libraries/messages.inc.php:63
+#: libraries/messages.inc.php:100
 msgid "The amount of data read so far, in bytes."
 msgstr "Το πλήθος των δεδομένων που αναγνώστηκε μέχρι στιγμής σε bytes."
 
-#: libraries/messages.inc.php:64
+#: libraries/messages.inc.php:101
 msgid "The total number of data reads."
 msgstr "Ο συνολικός αριθμός των αναγνώσεων δεδομένων."
 
-#: libraries/messages.inc.php:65
+#: libraries/messages.inc.php:102
 msgid "The total number of data writes."
 msgstr "Ο συνολικός αριθμός των εγγραφών δεδομένων."
 
-#: libraries/messages.inc.php:66
+#: libraries/messages.inc.php:103
 msgid "The amount of data written so far, in bytes."
 msgstr "Το πλήθος των εγεγγραμμένων δεδομένων μέχρι στιγμής, σε bytes."
 
-#: libraries/messages.inc.php:67
+#: libraries/messages.inc.php:104
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Ο αριθμός των εγγραφών διπλοεγγραφής που έγιναν και ο αριθμός των σελίδων "
 "που γράφτηκαν για αυτό το σκοπό."
 
-#: libraries/messages.inc.php:68
+#: libraries/messages.inc.php:105
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Ο αριθμός των εγγραφών διπλοεγγραφής που έγιναν και ο αριθμός των σελίδων "
 "που γράφτηκαν για αυτό το σκοπό."
 
-#: libraries/messages.inc.php:69
+#: libraries/messages.inc.php:106
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -3516,35 +3714,35 @@ msgstr ""
 "Ο αριθμός των αναμονών που έγιναν εξαιτίας του μικρού μεγέθος του buffer "
 "καταγραφής και και έπρεπε να αναμένεται να εκκαθαριστεί πριν συνεχίσει."
 
-#: libraries/messages.inc.php:70
+#: libraries/messages.inc.php:107
 msgid "The number of log write requests."
 msgstr "Ο αριθμός των αιτήσεων εγγραφής καταγραφής."
 
-#: libraries/messages.inc.php:71
+#: libraries/messages.inc.php:108
 msgid "The number of physical writes to the log file."
 msgstr "Ο αριθμός των φυσικών εγγραφών στο αρχείο καταγραφής."
 
-#: libraries/messages.inc.php:72
+#: libraries/messages.inc.php:109
 msgid "The number of fsync() writes done to the log file."
 msgstr "Ο αριθμός των εγγραφών fsyncs που ολοκληρώθηκαν στο αρχείο καταγραφής."
 
-#: libraries/messages.inc.php:73
+#: libraries/messages.inc.php:110
 msgid "The number of pending log file fsyncs."
 msgstr "Ο αριθμός των εκκρεμών fsyncs στο αρχείο καταγραφής."
 
-#: libraries/messages.inc.php:74
+#: libraries/messages.inc.php:111
 msgid "Pending log file writes."
 msgstr "Εκκρεμείς εγγραφές αρχείου καταγραφής."
 
-#: libraries/messages.inc.php:75
+#: libraries/messages.inc.php:112
 msgid "The number of bytes written to the log file."
 msgstr "Ο αριθμός των εγεγγραμμένων bytes στο αρχείο καταγραφής."
 
-#: libraries/messages.inc.php:76
+#: libraries/messages.inc.php:113
 msgid "The number of pages created."
 msgstr "Ο αριθμός των δημιουργηθέντων σελίδων."
 
-#: libraries/messages.inc.php:77
+#: libraries/messages.inc.php:114
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -3553,56 +3751,56 @@ msgstr ""
 "υπολογίζονται σε σελίδες. Το μέγεθος της σελίδας επιτρέπει την εύκολη "
 "μετατροπή σε bytes."
 
-#: libraries/messages.inc.php:78
+#: libraries/messages.inc.php:115
 msgid "The number of pages read."
 msgstr "Ο αριθμός των αναγνωσμένων σελίδων."
 
-#: libraries/messages.inc.php:79
+#: libraries/messages.inc.php:116
 msgid "The number of pages written."
 msgstr "Ο αριθμός των εγεγγραμμένων σελίδων."
 
-#: libraries/messages.inc.php:80
+#: libraries/messages.inc.php:117
 msgid "The number of row locks currently being waited for."
 msgstr "Ο αριθμός των κλειδωμάτων γραμμής που είναι τώρα σε αναμονή."
 
-#: libraries/messages.inc.php:81
+#: libraries/messages.inc.php:118
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
 "Ο μέσος χρόνος απόκτησης ενός κλειδώματος γραμμής σε χιλιοστοδευτερόλεπτα."
 
-#: libraries/messages.inc.php:82
+#: libraries/messages.inc.php:119
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 "Ο συνολικός απαιτούμενος χρόνος απόκτησης κλειδώματος γραμμής σε "
 "χιλιοστοδευτερόλεπτα."
 
-#: libraries/messages.inc.php:83
+#: libraries/messages.inc.php:120
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
 "Ο μέγιστος χρόνος απόκτησης ενός κλειδώματος γραμμής σε "
 "χιλιοστοδευτερόλεπτα.."
 
-#: libraries/messages.inc.php:84
+#: libraries/messages.inc.php:121
 msgid "The number of times a row lock had to be waited for."
 msgstr "Οι φορές που πρέπει να αναμένεται ένα κλείδωμα γραμμής."
 
-#: libraries/messages.inc.php:85
+#: libraries/messages.inc.php:122
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Ο αριθμός των διαγραμμένων γραμμών από πίνακες InnoDB."
 
-#: libraries/messages.inc.php:86
+#: libraries/messages.inc.php:123
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Ο αριθμός των εισαχθέντων γραμμών σε πίνακες InnoDB."
 
-#: libraries/messages.inc.php:87
+#: libraries/messages.inc.php:124
 msgid "The number of rows read from InnoDB tables."
 msgstr "Ο αριθμός των αναγνωσμένων γραμμών από πίνακες InnoDB."
 
-#: libraries/messages.inc.php:88
+#: libraries/messages.inc.php:125
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Ο αριθμός των ενημερωμένων γραμμών σε πίνακες InnoDB."
 
-#: libraries/messages.inc.php:89
+#: libraries/messages.inc.php:126
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -3611,7 +3809,7 @@ msgstr ""
 "αλλά δεν έχει ακόμα εκκαθαριστεί στο δίσκο. Ήταν γνωστός ως "
 "Not_flushed_key_blocks."
 
-#: libraries/messages.inc.php:90
+#: libraries/messages.inc.php:127
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -3620,7 +3818,7 @@ msgstr ""
 "Μπορείτε να χρησιμοποιήσετε αυτή τη τιμή για να προσδιορίσετε πόση "
 "λανθάνουσα μνήμη κλειδιού χρησιμοποιείται."
 
-#: libraries/messages.inc.php:91
+#: libraries/messages.inc.php:128
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -3630,12 +3828,12 @@ msgstr ""
 "τιμή είναι ένα έντονο σημάδι που δείχνει τον μέγιστο αριθμό μπλοκς που είναι "
 "σε χρήση με μια φορά."
 
-#: libraries/messages.inc.php:92
+#: libraries/messages.inc.php:129
 msgid "The number of requests to read a key block from the cache."
 msgstr ""
 "Ο αριθμός των αιτήσεων ανάγνωσης ενός μπλοκ κλειδιού από τη λανθάνουσα μνήμη."
 
-#: libraries/messages.inc.php:93
+#: libraries/messages.inc.php:130
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -3646,16 +3844,16 @@ msgstr ""
 "μικρή. Ο βαθμό απώλειας λανθάνουσας μνήμης μπορεί να υπολογιστεί ως "
 "Key_reads/Key_read_requests."
 
-#: libraries/messages.inc.php:94
+#: libraries/messages.inc.php:131
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
 "Ο αριθμός των αιτήσεων εγγραφής ενός μπλοκ κλειδιού στη λανθάνουσα μνήμη."
 
-#: libraries/messages.inc.php:95
+#: libraries/messages.inc.php:132
 msgid "The number of physical writes of a key block to disk."
 msgstr "Ο αριθμός των φυσικών εγγραφών ενός κλειδιού στο δίσκο."
 
-#: libraries/messages.inc.php:96
+#: libraries/messages.inc.php:133
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -3666,13 +3864,13 @@ msgstr ""
 "διαφορετικών σχεδίων ερωτημάτων για το ίδιο ερώτημα. Η προεπιλεγμένη τιμή 0 "
 "σημαίνει ότι κανένα ερώτημα δεν μεταφράστηκε ακόμα."
 
-#: libraries/messages.inc.php:97
+#: libraries/messages.inc.php:134
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Ο αριθμός των γραμμών σε αναμονή για εγγραφή στις σειρές ΚΑΘΥΣΤΕΡΗΜΕΝΩΝ "
 "ΕΙΣΑΓΩΓΩΝ (INSERT DELAYED)."
 
-#: libraries/messages.inc.php:98
+#: libraries/messages.inc.php:135
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -3680,37 +3878,37 @@ msgstr ""
 "Ο αριθμός των πινάκων που ανοίχτηκαν. Αν οι ανοιγμένοι πίνακες είναι "
 "μεγάλοι, η τιμή λανθάνουσας μνήμης πινάκων είναι πιθανον μικρή."
 
-#: libraries/messages.inc.php:99
+#: libraries/messages.inc.php:136
 msgid "The number of files that are open."
 msgstr "Ο αριθμός των αρχείων που είναι ανοιχτά."
 
-#: libraries/messages.inc.php:100
+#: libraries/messages.inc.php:137
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Ο αριθμός των ροών που είναι ανοιχτές (χρησιμοποιούνται κυρίως για "
 "καταγραφή)."
 
-#: libraries/messages.inc.php:101
+#: libraries/messages.inc.php:138
 msgid "The number of tables that are open."
 msgstr "Ο αριθμός των πινάκων που είναι ανοιχτοί."
 
-#: libraries/messages.inc.php:102
+#: libraries/messages.inc.php:139
 msgid "The number of free memory blocks in query cache."
 msgstr "Ο αριθμός των ελεύθερων μπλοκ μνήμης στη λανθάνουσα μνήμη ερωτημάτων."
 
-#: libraries/messages.inc.php:103
+#: libraries/messages.inc.php:140
 msgid "The amount of free memory for query cache."
 msgstr "Το μέγεθος της ελεύθερης μνήμης για λανθάνουσα μνήμη ερωτημάτων."
 
-#: libraries/messages.inc.php:104
+#: libraries/messages.inc.php:141
 msgid "The number of cache hits."
 msgstr "Ο αριθμός των προσπελάσεων λανθάνουσας μνήμης."
 
-#: libraries/messages.inc.php:105
+#: libraries/messages.inc.php:142
 msgid "The number of queries added to the cache."
 msgstr "Ο αριθμός των ερωτημάτων που προστέθηκαν στην λανθάνουσα μνήμη."
 
-#: libraries/messages.inc.php:106
+#: libraries/messages.inc.php:143
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -3724,7 +3922,7 @@ msgstr ""
 "χρησιμοποιούμενη στρατηγική (LRU) για να αποφασίσει ποια ερωτήματα να "
 "απομακρύνει από τη λανθάνουσα μνήμη."
 
-#: libraries/messages.inc.php:107
+#: libraries/messages.inc.php:144
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -3732,24 +3930,24 @@ msgstr ""
 "Ο αριθμός των μη λανθανόντων ερωτημάτων (μη απομνημονεύσιμα ή δεν "
 "απομνημονεύονται λόγω της ρύθμισης query_cache_type)."
 
-#: libraries/messages.inc.php:108
+#: libraries/messages.inc.php:145
 msgid "The number of queries registered in the cache."
 msgstr "Ο αριθμός των καταχωρημένων ερωτημάτων στη λανθάνουσα μνήμη."
 
-#: libraries/messages.inc.php:109
+#: libraries/messages.inc.php:146
 msgid "The total number of blocks in the query cache."
 msgstr "Ο συνολικός αριθμός των μπλοκς στη λανθάνουσα μνήμη ερωτημάτων."
 
-#: libraries/messages.inc.php:110
+#: libraries/messages.inc.php:147
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Επαναφορά"
 
-#: libraries/messages.inc.php:111
+#: libraries/messages.inc.php:148
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Η κατάσταση της ασφαλούς αναπαραγωγής (δεν έχει εφαρμοστεί)."
 
-#: libraries/messages.inc.php:112
+#: libraries/messages.inc.php:149
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -3757,13 +3955,13 @@ msgstr ""
 "Ο αριθμός των ενώσεων που δεν χρησιμοποιούν ευρετήρια. Αν η τιμή είναι 0, "
 "πρέπει να ελέγχετε προσεκτικά τα ευρετήρια των πινάκων σας."
 
-#: libraries/messages.inc.php:113
+#: libraries/messages.inc.php:150
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Ο αριθμός των ενώσεων που χρησιμοποιήσαν μια αναζήτηση εύρους σε έναν πίνακα "
 "παραπομπής."
 
-#: libraries/messages.inc.php:114
+#: libraries/messages.inc.php:151
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -3774,7 +3972,7 @@ msgstr ""
 "(If this is not 0, πρέπει να ελέγχετε προσεκτικά τα ευρετήρια των πινάκων "
 "σας.)"
 
-#: libraries/messages.inc.php:115
+#: libraries/messages.inc.php:152
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -3782,17 +3980,17 @@ msgstr ""
 "Ο αριθμός των ενώσεων που χρησιμοποιούν εύρη στον πρώτο πίνακα. (Κανονικά "
 "δεν είναι κρίσιμος αν δεν είναι μεγάλος.)"
 
-#: libraries/messages.inc.php:116
+#: libraries/messages.inc.php:153
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Ο αριθμός των ενώσεων που έκαναν μια πλήρη σάρωση του πρώτου πίνακα."
 
-#: libraries/messages.inc.php:117
+#: libraries/messages.inc.php:154
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 "Ο αριθμός των προσωρινών πινάκων που είναι τώρα ανοιχτοί από τη δευτερεύουσα "
 "συνεργασία SQL."
 
-#: libraries/messages.inc.php:118
+#: libraries/messages.inc.php:155
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -3800,13 +3998,13 @@ msgstr ""
 "Συνολικές φορές (από την εκκίνηση) που η διεργασία δευτερεύουσας "
 "αναπαραγωγής SQL έχει ξαναδοκιμάσει συναλλαγές."
 
-#: libraries/messages.inc.php:119
+#: libraries/messages.inc.php:156
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Αυτό είναι ΑΝΟΙΧΤΟ, αν αυτός ο διακομιστής είναι δευτερεύων που συνδέεται σε "
 "πρωτεύωντα."
 
-#: libraries/messages.inc.php:120
+#: libraries/messages.inc.php:157
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -3814,14 +4012,14 @@ msgstr ""
 "Ο αριθμός των διεργασιών που έλαβαν περισσότερα από slow_launch_time "
 "δευτερόλεπτα να δημιουργηθούν."
 
-#: libraries/messages.inc.php:121
+#: libraries/messages.inc.php:158
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Ο αριθμός των ερωτημάτων που έλαβαν περισσότερα από long_query_time "
 "δευτερόλεπτα."
 
-#: libraries/messages.inc.php:122
+#: libraries/messages.inc.php:159
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -3831,23 +4029,23 @@ msgstr ""
 "ταξινόμησης. Αν ο αριθμός είναι μεγάλος, πρέπει να αυξήσετε την τιμή της "
 "μεταβλητής συστήματος sort_buffer_size."
 
-#: libraries/messages.inc.php:123
+#: libraries/messages.inc.php:160
 msgid "The number of sorts that were done with ranges."
 msgstr "Ο αριθμός των ταξινομήσεων που έγιναν με εύρη."
 
-#: libraries/messages.inc.php:124
+#: libraries/messages.inc.php:161
 msgid "The number of sorted rows."
 msgstr "Ο αριθμός των ταξινομημένων γραμμών."
 
-#: libraries/messages.inc.php:125
+#: libraries/messages.inc.php:162
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Ο αριθμός των ταξινομήσεων που έγιναν σαρώνοντας τον πίνακα."
 
-#: libraries/messages.inc.php:126
+#: libraries/messages.inc.php:163
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Οι φορές που ένα κλείδωμα πινακα ανακτήθηκε άμεσα.."
 
-#: libraries/messages.inc.php:127
+#: libraries/messages.inc.php:164
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -3859,7 +4057,7 @@ msgstr ""
 "απόδοσης, πρέπει πρώτα να βελτιώσετε τα ερωτήματά σας και μετά χωρίστε τον "
 "πίνακα ή τους πίνακες ή χρησιμοποιείστε αναπαραγωγή."
 
-#: libraries/messages.inc.php:128
+#: libraries/messages.inc.php:165
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -3869,11 +4067,11 @@ msgstr ""
 "λανθάνουσας μνήμης μπορεί να υπολογιστεί ως Threads_created/Connections. Αν "
 "η τιμή είναι κόκκινη πρέπει να αυξήσετε την τιμή thread_cache_size."
 
-#: libraries/messages.inc.php:129
+#: libraries/messages.inc.php:166
 msgid "The number of currently open connections."
 msgstr "Ο αριθμός των τρέχοντων ανοιγμένων συνδέσεων."
 
-#: libraries/messages.inc.php:130
+#: libraries/messages.inc.php:167
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -3885,7 +4083,7 @@ msgstr ""
 "thread_cache_size. (Κανονικά αυτό δεν δίνει μια σημαντική βελτίωση απόδοσης "
 "αν έχετε μια καλή εφαρμογή διεργασίας.)"
 
-#: libraries/messages.inc.php:131
+#: libraries/messages.inc.php:168
 msgid "The number of threads that are not sleeping."
 msgstr "Ο αριθμός των διεργασιών που δεν είναι σε νάρκη."
 
@@ -5181,138 +5379,6 @@ msgstr "Μηχανές αποθήκευσης"
 msgid "View dump (schema) of databases"
 msgstr "Εμφάνισης σχήματος βάσεων"
 
-#: server_privileges.php:141 server_privileges.php:400
-#: server_privileges.php:464
-msgid "Allows reading data."
-msgstr "Επιτρέπει την ανάγνωση δεδομένων."
-
-#: server_privileges.php:142 server_privileges.php:403
-#: server_privileges.php:465
-msgid "Allows inserting and replacing data."
-msgstr "Επιτρέπει την εισαγωγή και την αντικατάσταση δεδομένων."
-
-#: server_privileges.php:143 server_privileges.php:406
-#: server_privileges.php:466
-msgid "Allows changing data."
-msgstr "Επιτρέπει την αλλαγή δεδομένων."
-
-#: server_privileges.php:144 server_privileges.php:467
-msgid "Allows deleting data."
-msgstr "Επιτρέπει τη διαγραφή δεδομένων."
-
-#: server_privileges.php:145 server_privileges.php:475
-msgid "Allows creating new databases and tables."
-msgstr "Επιτρέπει τη δημιουργία νέων βάσεων και πινάκων."
-
-#: server_privileges.php:146 server_privileges.php:478
-msgid "Allows dropping databases and tables."
-msgstr "Επιτρέπει τη διαγραφή βάσεων και πινάκων."
-
-#: server_privileges.php:147 server_privileges.php:506
-msgid "Allows reloading server settings and flushing the server's caches."
-msgstr ""
-"Επιτρέπει την επανεκκίνηση του διακομιστή και τον καθαρισμό των προσωρινών "
-"αρχείων του."
-
-#: server_privileges.php:148 server_privileges.php:507
-msgid "Allows shutting down the server."
-msgstr "Επιτρέπει την διακοπή λειτουργίας του διακομιστή."
-
-#: server_privileges.php:149 server_privileges.php:505
-msgid "Allows viewing processes of all users"
-msgstr "Επιτρέπει την προβολή διεργασιών όλων των χρηστών"
-
-#: server_privileges.php:150 server_privileges.php:470
-msgid "Allows importing data from and exporting data into files."
-msgstr "Επιτρέπει την εισαγωγή και εξαγωγή δεδομένων από και σε αρχεία."
-
-#: server_privileges.php:151 server_privileges.php:409
-#: server_privileges.php:511
-msgid "Has no effect in this MySQL version."
-msgstr "Δεν έχει χρήση σε αυτήν την έκδοση MySQL."
-
-#: server_privileges.php:152 server_privileges.php:477
-msgid "Allows creating and dropping indexes."
-msgstr "Επιτρέπει την δημιουργία και την διαγραφή ευρετηρίων."
-
-#: server_privileges.php:153 server_privileges.php:476
-msgid "Allows altering the structure of existing tables."
-msgstr "Επιτρέπει την αλλαγή δομής των υπαρχόντων πινάκων."
-
-#: server_privileges.php:154 server_privileges.php:508
-msgid "Gives access to the complete list of databases."
-msgstr "Δίνει πρόσβαση στην πλήρη λίστα των βάσεων δεδομένων."
-
-#: server_privileges.php:155 server_privileges.php:504
-msgid ""
-"Allows connecting, even if maximum number of connections is reached; "
-"required for most administrative operations like setting global variables or "
-"killing threads of other users."
-msgstr ""
-"Επιτρέπει τη σύνδεση, ακόμα και όταν ο μέγιστος αριθμός συνδέσεων έχει "
-"καλυθφεί; Απαιτείται για τις περισσότερες λειτουργίες διαχείρισης όπως ο "
-"ορισμός γενικών μεταβλητών ή τη διακοπή λειτουργιών άλλων χρηστών."
-
-#: server_privileges.php:156 server_privileges.php:479
-msgid "Allows creating temporary tables."
-msgstr "Επιτρέπει τη δημιουργία προσωρινών πινάκων."
-
-#: server_privileges.php:157 server_privileges.php:510
-msgid "Allows locking tables for the current thread."
-msgstr "Επιτρέπει το κλείδωμα πινάκων για την τρέχουσα λειτουργία."
-
-#: server_privileges.php:158 server_privileges.php:514
-msgid "Needed for the replication slaves."
-msgstr "Απαιτείται για τους δευτερευόντες διακομιστές αναπαραγωγής."
-
-#: server_privileges.php:159 server_privileges.php:513
-msgid "Allows the user to ask where the slaves / masters are."
-msgstr ""
-"Δίνει το δικαίωμα στον χρήστη να βρει που είναι οι κύριοι και δευτερεύοντες "
-"διακομιστές."
-
-#: server_privileges.php:160 server_privileges.php:164
-#: server_privileges.php:487 server_privileges.php:491
-msgid "Allows creating new views."
-msgstr "Επιτρέπει τη δημιουργία νέων προβολών."
-
-#: server_privileges.php:161 server_privileges.php:495
-msgid "Allows to set up events for the event scheduler"
-msgstr "Επιτρέπει τον ορισμό συμβάντων για τον προγραμματιστή συμβάντων"
-
-#: server_privileges.php:162 server_privileges.php:496
-msgid "Allows creating and dropping triggers"
-msgstr "Επιτρέπει τη δημιουργία και διαγραφή υποδείξεων"
-
-#: server_privileges.php:165 server_privileges.php:167
-#: server_privileges.php:480
-msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Επιτρέπει την εκτέλεση ερωτημάτων της μορφής SHOW CREATE VIEW."
-
-#: server_privileges.php:168 server_privileges.php:481
-msgid "Allows creating stored routines."
-msgstr "Επιτρέπει τη δημιουργία αποθηκευμένων εργασιών."
-
-#: server_privileges.php:169 server_privileges.php:482
-msgid "Allows altering and dropping stored routines."
-msgstr "Επιτρέπει την αλλαγή και διαγραφή αποθηκευμένων εργασιών."
-
-#: server_privileges.php:170 server_privileges.php:515
-msgid "Allows creating, dropping and renaming user accounts."
-msgstr "Επιτρέπει τη δημιουργία, διαγραφή και μετονομασία λογαριασμών χρηστών."
-
-#: server_privileges.php:171 server_privileges.php:483
-msgid "Allows executing stored routines."
-msgstr "Επιτρέπει την εκτέλεση αποθηκευμένων εργασιών."
-
-#: server_privileges.php:221
-msgid "No privileges."
-msgstr "Χωρίς δικαιώματα."
-
-#: server_privileges.php:227
-msgid "Includes all privileges except GRANT."
-msgstr "Περιλαμβάνει όλα τα δικαιώματα εκτός από το GRANT."
-
 #: server_privileges.php:263 server_privileges.php:264
 #, fuzzy
 msgctxt "None privileges"
@@ -5328,21 +5394,6 @@ msgstr "Δικαιώματα πινάκων"
 #: server_privileges.php:1501
 msgid " Note: MySQL privilege names are expressed in English "
 msgstr " Σημείωση: Τα ονόματα δικαιωμάτων της MySQL εκφράζονται στα Αγγλικά "
-
-#: server_privileges.php:475
-msgid "Allows creating new tables."
-msgstr "Επιτρέπει τη δημιουργία νέων πινάκων."
-
-#: server_privileges.php:478
-msgid "Allows dropping tables."
-msgstr "Επιτρέπει τη διαγραφή πινάκων."
-
-#: server_privileges.php:501
-msgid ""
-"Allows adding users and privileges without reloading the privilege tables."
-msgstr ""
-"Επιτρέπει την προσθήκη χρηστών και δικαιωμάτων χωρίς να επαναφορτώσετε τους "
-"πίνακες δικαιωμάτων."
 
 #: server_privileges.php:524 server_privileges.php:1500
 msgid "Global privileges"
@@ -5364,31 +5415,6 @@ msgstr "Όρια πόρων"
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο περιορισμός."
-
-#: server_privileges.php:595 server_privileges.php:597
-msgid "Limits the number of queries the user may send to the server per hour."
-msgstr ""
-"Περιορίζει τον αριθμό των ερωτημάτων που ο χρήστης μπορεί να στείλει στον "
-"διακομιστή ανά ώρα."
-
-#: server_privileges.php:601 server_privileges.php:603
-msgid ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
-msgstr ""
-"Περιορίζει τον αριθμό των αλλαγής πινάκων ή βάσεων που ο χρήστης μπορεί να "
-"εκετελέσει ανά ώρα."
-
-#: server_privileges.php:607 server_privileges.php:609
-msgid "Limits the number of new connections the user may open per hour."
-msgstr ""
-"Περιορίζει τον αριθμό των νέων συνδέσεων που ο χρήστης μπορεί να ξεκινήσει "
-"ανά ώρα."
-
-#: server_privileges.php:613 server_privileges.php:615
-msgid "Limits the number of simultaneous connections the user may have."
-msgstr ""
-"Περιορίζει τον αριθμό των ταυτόχρονων συνδέσεων που μπορεί να έχει ο χρήστης."
 
 #: server_privileges.php:669
 msgid "Login Information"
