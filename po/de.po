@@ -6213,7 +6213,7 @@ msgstr "Login zu beliebigen MySQL-Server erlauben."
 
 #: setup/lib/messages.inc.php:20
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "&quot;Drop Database&quot; normalen Benutzern anzeigen."
+msgstr "&quot;Drop Database&quot; link normalen Benutzern anzeigen."
 
 #: setup/lib/messages.inc.php:21
 msgid "Key should contain letters, numbers [em]and[/em] special characters"
