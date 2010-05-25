@@ -5714,7 +5714,7 @@ msgstr "Alles stoppen"
 
 #: server_replication.php:326
 msgid "Reset slave"
-msgstr ""
+msgstr "Slave zurücksetzen"
 
 #: server_replication.php:327
 #, php-format
