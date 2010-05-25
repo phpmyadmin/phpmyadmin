@@ -7302,9 +7302,8 @@ msgid "Logout URL"
 msgstr "Logout URL"
 
 #: setup/lib/messages.inc.php:284
-#, fuzzy
 msgid "Try to connect without password"
-msgstr "Ohne Passwort verbinden"
+msgstr "Versuche ohne Passwort zu verbinden"
 
 #: setup/lib/messages.inc.php:285
 msgid "Connect without password"
