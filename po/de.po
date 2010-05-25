@@ -3145,7 +3145,7 @@ msgstr "Währungen importieren ($5.00 zu 5.00)"
 
 #: libraries/import/sql.php:42
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Nicht AUTO_INCREMENT für Nullwerte verwenden"
+msgstr " AUTO_INCREMENT nicht für Nullwerte verwenden"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 msgid ""
