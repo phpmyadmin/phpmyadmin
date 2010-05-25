@@ -5727,7 +5727,7 @@ msgstr "Start"
 
 #: server_replication.php:327 server_replication.php:328
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
 #: server_replication.php:328
 #, php-format
