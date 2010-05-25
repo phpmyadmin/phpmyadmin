@@ -7673,7 +7673,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:339
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Zeige phpinfo() Link"
 
 #: setup/lib/messages.inc.php:340
 msgid "Show detailed MySQL server information"
