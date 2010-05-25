@@ -6160,7 +6160,7 @@ msgstr "Server bearbeiten"
 
 #: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
 msgid "Add a new server"
-msgstr "Server hinzufügen"
+msgstr "Neuen Server hinzufügen"
 
 #: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:76
 msgid "Incorrect value"
