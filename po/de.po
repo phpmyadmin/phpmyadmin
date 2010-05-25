@@ -2978,7 +2978,7 @@ msgstr "Voreinstellung für Export"
 
 #: libraries/export/xml.php:33
 msgid "Export procedures"
-msgstr ""
+msgstr "Export Proceduren"
 
 #: libraries/export/xml.php:35
 msgid "Export tables"
