@@ -5775,7 +5775,7 @@ msgstr "Handler"
 
 #: server_status.php:251
 msgid "Query cache"
-msgstr "Abfragencache"
+msgstr "Abfragen-Cache"
 
 #: server_status.php:252
 msgid "Threads"
