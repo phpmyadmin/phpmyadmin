@@ -6831,7 +6831,7 @@ msgstr "Ziel für Schnellzugriff-Icon"
 
 #: setup/lib/messages.inc.php:169
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Logo im linken Frame anzeigen"
 
 #: setup/lib/messages.inc.php:170
 msgid "Display logo"
