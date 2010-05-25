@@ -6188,7 +6188,7 @@ msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Wenn aktiv, kann ein Benutzer beim Login die Adresse eines beliebigen "
-"Servers für \"cookie auth\" angeben."
+"Servers für Cookie-Authentifizierung angeben."
 
 #: setup/lib/messages.inc.php:18
 msgid ""
