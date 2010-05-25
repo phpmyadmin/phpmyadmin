@@ -5588,7 +5588,7 @@ msgstr "ID"
 
 #: server_replication.php:51
 msgid "Unknown error"
-msgstr ""
+msgstr "Unbekannter Fehler"
 
 #: server_replication.php:58
 #, php-format
