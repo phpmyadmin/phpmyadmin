@@ -219,7 +219,7 @@ else {
     ?>
 <tr>
     <th align="center">
-        <?php echo sprintf(__('%s table(s)'), PMA_formatNumber($num_tables, 0)); ?>
+        <?php echo sprintf(_ngettext('%s table', '%s tables', $num_tables), PMA_formatNumber($num_tables, 0)); ?>
     </th>
     <th align="right" nowrap="nowrap">
         <?php echo PMA_formatNumber($sum_entries, 0); ?>
