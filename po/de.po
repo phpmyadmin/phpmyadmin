@@ -7267,7 +7267,7 @@ msgstr "Control-user"
 
 #: setup/lib/messages.inc.php:265
 msgid "Count tables when showing database list"
-msgstr ""
+msgstr "Zähle Tabellen bei Anzeige der Datenbank-Liste"
 
 #: setup/lib/messages.inc.php:266
 msgid "Count tables"
