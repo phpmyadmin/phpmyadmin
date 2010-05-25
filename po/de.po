@@ -4290,7 +4290,7 @@ msgstr "Prozesse"
 #: libraries/server_links.inc.php:92 server_synchronize.php:1092
 #: server_synchronize.php:1100
 msgid "Synchronize"
-msgstr ""
+msgstr "Gleiche ab"
 
 # source != search / Source != Suche
 #: libraries/server_synchronize.lib.php:1341 server_synchronize.php:1110
