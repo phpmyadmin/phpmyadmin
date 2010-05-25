@@ -4910,7 +4910,7 @@ msgid "Please configure the coordinates for table %s"
 msgstr "Bitte konfigurieren Sie die Koordinaten für die Tabelle %s"
 
 #: pdf_schema.php:995
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Schema der Datenbank \"%s\" - Seite %s"
