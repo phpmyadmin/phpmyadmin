@@ -7751,7 +7751,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:358
 msgid "Suggest new database name"
-msgstr "Schlage einen neuen Datenbank-Namen vor "
+msgstr "Schlage einen neuen Datenbank-Namen vor"
 
 #: setup/lib/messages.inc.php:359
 msgid "yes"
