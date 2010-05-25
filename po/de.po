@@ -6022,7 +6022,7 @@ msgstr "Ausgewählte Ziel-Tabellen wurden mit Quell-Tabellen abgeglichen."
 
 #: server_synchronize.php:942
 msgid "Target database has been synchronized with source database"
-msgstr ""
+msgstr "Ziel-Tabelle wurde mit Quell-Tabelle abgeglichen"
 
 #: server_synchronize.php:1003
 msgid "The following queries have been executed:"
