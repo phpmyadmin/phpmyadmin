@@ -8042,10 +8042,9 @@ msgstr ""
 "Datentypen)"
 
 #: tbl_relation.php:405
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Interne Beziehungen"
+msgstr "Interne Beziehung"
 
 #: tbl_relation.php:407
 msgid ""
