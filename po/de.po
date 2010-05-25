@@ -7708,7 +7708,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:346
 msgid "Display database comment instead of its name"
-msgstr ""
+msgstr "Zeige Datenbank-Kommentar anstelle des Namens"
 
 #: setup/lib/messages.inc.php:347
 msgid ""
