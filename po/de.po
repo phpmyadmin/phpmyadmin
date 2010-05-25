@@ -4507,7 +4507,7 @@ msgstr "keine"
 
 #: libraries/tbl_properties.inc.php:394
 msgid "As defined:"
-msgstr "Benutzerdefiniert:"
+msgstr "Wie definiert:"
 
 #: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
 #, php-format
