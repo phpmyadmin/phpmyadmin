@@ -6002,7 +6002,7 @@ msgstr "Zeile(n) updaten"
 
 #: server_synchronize.php:436 server_synchronize.php:879
 msgid "Insert row(s)"
-msgstr ""
+msgstr "Zeile(n) einfügen"
 
 #: server_synchronize.php:446 server_synchronize.php:890
 msgid "Would you like to delete all the previous rows from target tables?"
