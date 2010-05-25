@@ -4344,7 +4344,7 @@ msgstr "Begrenzer"
 
 #: libraries/sql_query_form.lib.php:396
 msgid " Show this query here again "
-msgstr "SQL-Befehl hier wieder anzeigen"
+msgstr "Diese Abfrage hier wieder anzeigen"
 
 #: libraries/sql_query_form.lib.php:462
 msgid "Submit"
