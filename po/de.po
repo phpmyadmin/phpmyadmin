@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-25 13:21+0200\n"
+"POT-Creation-Date: 2010-05-25 14:28+0200\n"
 "PO-Revision-Date: 2010-05-25 14:21+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
@@ -417,9 +417,12 @@ msgid "Last check"
 msgstr "Letzter Check am"
 
 #: db_printview.php:222 db_structure.php:480
-#, php-format
-msgid "%s table(s)"
-msgstr "%s Tabellen"
+#, fuzzy, php-format
+#| msgid "%s table(s)"
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s Tabellen"
+msgstr[1] "%s Tabellen"
 
 #: db_qbe.php:29 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/sql_query_form.lib.php:140
@@ -1768,7 +1771,6 @@ msgid "Inline edit of this query"
 msgstr "Inline-Bearbeiten dieses SQL-Befehls"
 
 #: libraries/common.lib.php:1278
-#| msgid "Engines"
 msgid "Inline"
 msgstr "Inline"
 
@@ -3151,7 +3153,6 @@ msgstr ""
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:143
-#| msgid "Recoding engine"
 msgid "Encoding conversion"
 msgstr "Zeichensatz Umwandlung"
 
@@ -4695,7 +4696,6 @@ msgstr ""
 "Zeichen. (z. B.: '\\\\xyz' oder 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:393
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Kein(e)"
@@ -5057,7 +5057,6 @@ msgid "Clear"
 msgstr "Werte löschen"
 
 #: navigation.php:350 navigation.php:351
-#| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
 msgstr "Erzeuge Tabelle"
@@ -5107,7 +5106,6 @@ msgstr ""
 
 #: pdf_schema.php:636
 #, php-format
-#| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "Die Tabelle \"%s\" existiert nicht!"
 
@@ -5118,7 +5116,6 @@ msgstr "Bitte konfigurieren Sie die Koordinaten für die Tabelle %s"
 
 #: pdf_schema.php:995
 #, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Schema der Datenbank \"%s\" - Seite %s"
 
@@ -5319,7 +5316,6 @@ msgid "Slave replication"
 msgstr "Slave Replikation"
 
 #: server_databases.php:230
-#| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Springe  zu Datenbank"
 
@@ -5357,7 +5353,6 @@ msgid "View dump (schema) of databases"
 msgstr "Dump (Schema) der Datenbanken anzeigen"
 
 #: server_privileges.php:263 server_privileges.php:264
-#| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Kein(e)"
@@ -5558,7 +5553,6 @@ msgid "Database for user"
 msgstr "Datenbank für Benutzer"
 
 #: server_privileges.php:1998
-#| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "Kein(e)"
@@ -5858,7 +5852,6 @@ msgid "Show processes"
 msgstr "Prozesse anzeigen"
 
 #: server_status.php:344
-#| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "Zurücksetzen"
@@ -5884,8 +5877,7 @@ msgstr ""
 #: server_status.php:364
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Dieser MySQL Server arbeitet als <b>Slave</b> im "
-"<b>Replikations</b>-Process."
+"Dieser MySQL Server arbeitet als <b>Slave</b> im <b>Replikations</b>-Process."
 
 #: server_status.php:366
 msgid ""
@@ -5912,9 +5904,9 @@ msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
-"Auf stark frequentierten Server können die Byte-Zähler \"überlaufen\" (wieder "
-"bei 0 beginnen), deshalb können diese Werte, wie sie vom MySQL Server "
-"ausgegeben werden, falsch sein."
+"Auf stark frequentierten Server können die Byte-Zähler \"überlaufen"
+"\" (wieder bei 0 beginnen), deshalb können diese Werte, wie sie vom MySQL "
+"Server ausgegeben werden, falsch sein."
 
 #: server_status.php:389 server_status.php:434 server_status.php:497
 #: server_status.php:555
@@ -6061,13 +6053,11 @@ msgid "Enter manually"
 msgstr "Manuell eingeben"
 
 #: server_synchronize.php:1123
-#| msgid "Insecure connection"
 msgid "Current connection"
 msgstr "Aktuelle Verbindung"
 
 #: server_synchronize.php:1152
 #, php-format
-#| msgid "Configuration"
 msgid "Configuration: %s"
 msgstr "Konfiguration: %s"
 
@@ -6227,13 +6217,13 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Diese [a@?page=form&amp;formset=features#tab_Security]Option[/a]This "
-"[a@?page=form&amp;formset=features#tab_Security]option[/a] sollte "
-"deaktiviert sein, weil sie Angreifern erlaubt Bruteforce-Attacken auf "
-"beliebige (auch fremde) MySQL-Servern durchzuführen. Wenn Sie der Meinung "
-"sind, dass diese Option unbedingt notwendig ist, sollten Sie die "
-"[a@?page=form&amp;formset=features#tab_Security]trusted proxy list[/a] "
-"verwenden. IP-basierte Regeln sind aber nie wirklich ausreichend."
+"Diese [a@?page=form&amp;formset=features#tab_Security]Option[/a]This [a@?"
+"page=form&amp;formset=features#tab_Security]option[/a] sollte deaktiviert "
+"sein, weil sie Angreifern erlaubt Bruteforce-Attacken auf beliebige (auch "
+"fremde) MySQL-Servern durchzuführen. Wenn Sie der Meinung sind, dass diese "
+"Option unbedingt notwendig ist, sollten Sie die [a@?page=form&amp;"
+"formset=features#tab_Security]trusted proxy list[/a] verwenden. IP-basierte "
+"Regeln sind aber nie wirklich ausreichend."
 
 #: setup/lib/messages.inc.php:19
 msgid "Allow login to any MySQL server"
@@ -6253,8 +6243,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Geheime Passphrase zum Verschlüsseln der Cookies bei "
-"[kbd]cookie[/kbd]-Authentifizierung"
+"Geheime Passphrase zum Verschlüsseln der Cookies bei [kbd]cookie[/kbd]-"
+"Authentifizierung"
 
 #: setup/lib/messages.inc.php:23
 msgid "Key is too short, it should have at least 8 characters"
@@ -7050,8 +7040,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"Anzahl der Bytes, welche ein Script zur Ausführung benötigen darf, z.B. "
-"[kbd]32M[/kbd]  ([kbd]0[/kbd] für unbegrenzt)"
+"Anzahl der Bytes, welche ein Script zur Ausführung benötigen darf, z.B. [kbd]"
+"32M[/kbd]  ([kbd]0[/kbd] für unbegrenzt)"
 
 #: setup/lib/messages.inc.php:209
 msgid "Memory limit"
@@ -7238,9 +7228,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Leer lassen für keine "
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] Unterstützung, "
-"Vorschlag: [kbd]pma_bookmark[/kbd]"
+"Leer lassen für keine [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+"a] Unterstützung, Vorschlag: [kbd]pma_bookmark[/kbd]"
 
 #: setup/lib/messages.inc.php:255
 msgid "Bookmark table"
@@ -7251,8 +7240,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
-"Leer lassen für keine Spalten Kommentare/mime types,Vorschlag: "
-"[kbd]pma_column_info[/kbd]"
+"Leer lassen für keine Spalten Kommentare/mime types,Vorschlag: [kbd]"
+"pma_column_info[/kbd]"
 
 #: setup/lib/messages.inc.php:257
 msgid "Column information table"
@@ -7304,8 +7293,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
-"Leer lassen für keine Designer Unterstützung, Vorschlag: "
-"[kbd]pma_designer_coords[/kbd]"
+"Leer lassen für keine Designer Unterstützung, Vorschlag: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: setup/lib/messages.inc.php:268
 msgid "Designer table"
@@ -7363,8 +7352,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
-"Leer lassen für keine  SQL Abfragehistorien-Unterstützung, Vorschlag: "
-"[kbd]pma_history[/kbd]"
+"Leer lassen für keine  SQL Abfragehistorien-Unterstützung, Vorschlag: [kbd]"
+"pma_history[/kbd]"
 
 #: setup/lib/messages.inc.php:278
 msgid "SQL query history table"
@@ -7375,11 +7364,10 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Leer lassen für keine SQL Abfrageverlauf-Unterstützung, Vorschlag: "
-"[kbd]pma_tracking[/kbd]"
+"Leer lassen für keine SQL Abfrageverlauf-Unterstützung, Vorschlag: [kbd]"
+"pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
-#| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "Tabelle mit Verfolgung der SQL-Abfragen"
 
@@ -7427,8 +7415,8 @@ msgstr "Passwort für config Authentifikation"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Leer lassen für keine PDF Schema Unterstützung, Vorschlag: "
-"[kbd]pma_pdf_pages[/kbd]"
+"Leer lassen für keine PDF Schema Unterstützung, Vorschlag: [kbd]pma_pdf_pages"
+"[/kbd]"
 
 #: setup/lib/messages.inc.php:291
 msgid "PDF schema: pages table"
@@ -7440,10 +7428,9 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
-"Datenbank für Relationen, Bookmarks, and PDF Features. Siehe "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] für komplette  "
-"Information. Leer lassen für keien Unterstützung. Vorschlag: "
-"[kbd]phpmyadmin[/kbd]"
+"Datenbank für Relationen, Bookmarks, and PDF Features. Siehe [a@http://wiki."
+"phpmyadmin.net/pma/pmadb]pmadb[/a] für komplette  Information. Leer lassen "
+"für keien Unterstützung. Vorschlag: [kbd]phpmyadmin[/kbd]"
 
 #: setup/lib/messages.inc.php:294
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -7498,7 +7485,6 @@ msgstr ""
 "Verlaufs-mechanismus"
 
 #: setup/lib/messages.inc.php:304
-#| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Versionen automatisch erzeugen"
 
@@ -7509,7 +7495,6 @@ msgstr ""
 "für neue Versionen verwendeet"
 
 #: setup/lib/messages.inc.php:306
-#| msgid "Statements"
 msgid "Statements to track"
 msgstr "Zu verfolgende Statements"
 
@@ -7556,7 +7541,8 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:314
 msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr "Socket, auf dem der MySQL-Server horcht, leer lassen für Voreinstellung"
+msgstr ""
+"Socket, auf dem der MySQL-Server horcht, leer lassen für Voreinstellung"
 
 #: setup/lib/messages.inc.php:315
 msgid "Server socket"
@@ -7574,8 +7560,8 @@ msgstr "Benutze SSL"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"Leer lassen für keine PDF Schema Unterstützung, Vorschlag: "
-"[kbd]pma_table_coords[/kbd]"
+"Leer lassen für keine PDF Schema Unterstützung, Vorschlag: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: setup/lib/messages.inc.php:319
 msgid "PDF schema: table coordinates"
@@ -7682,8 +7668,7 @@ msgstr "Zeige detailierte MySQL-Server Informationen"
 #: setup/lib/messages.inc.php:341
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
-"Legt fest, ob von phpMyAdmin generierte SQL-Abfragen angezeigt werden "
-"sollten"
+"Legt fest, ob von phpMyAdmin generierte SQL-Abfragen angezeigt werden sollten"
 
 #: setup/lib/messages.inc.php:342
 msgid "Show SQL queries"
@@ -7719,9 +7704,9 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 "Wird dies auf [kbd]nested[/kbd] gesetzt, so wird der Alias des "
-"Tabellennamens nur benutzt, um die Tabellen gemäß der "
-"$cfg['LeftFrameTableSeparator'] Direktive zu teilen bzw. zu verschachteln. "
-"Nur der Ordner erhält den Alias, der Tabellename bleibt unverändert."
+"Tabellennamens nur benutzt, um die Tabellen gemäß der $cfg"
+"['LeftFrameTableSeparator'] Direktive zu teilen bzw. zu verschachteln. Nur "
+"der Ordner erhält den Alias, der Tabellename bleibt unverändert."
 
 #: setup/lib/messages.inc.php:348
 msgid "Display table comment instead of its name"
@@ -7767,8 +7752,8 @@ msgid ""
 msgstr ""
 "Proxies als [kbd]IP: trusted HTTP header[/kbd] eingeben. Das folgende "
 "Beispiel legt fest, das phpMyAdmin einem HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) Header, der von dem proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd] kommt, vertrauen soll."
+"For) Header, der von dem proxy 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR"
+"[/kbd] kommt, vertrauen soll."
 
 #: setup/lib/messages.inc.php:361
 msgid "List of trusted proxies for IP allow/deny"
@@ -7827,9 +7812,6 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:372
 #, php-format
-#| msgid ""
-#| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-#| "latest stable version is %s, released on %s."
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
@@ -8103,7 +8085,6 @@ msgstr ""
 "Die Tabelle %s wurde geschlossen und zwischengespeicherte Daten gespeichert."
 
 #: tbl_operations.php:634
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Leeren des Tabellencaches (\"FLUSH\")"
 
@@ -8192,7 +8173,6 @@ msgstr ""
 "Datentypen)"
 
 #: tbl_relation.php:405
-#| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Interne Beziehung"
 
@@ -8205,7 +8185,6 @@ msgstr ""
 "FOREIGN KEY existiert."
 
 #: tbl_relation.php:413
-#| msgid "Foreign key limit"
 msgid "Foreign key constraint"
 msgstr "Beschränkung für auswärtige Schlüssel"
 
@@ -8242,7 +8221,6 @@ msgid "Browse distinct values"
 msgstr "Zeige nur unterschiedliche Werte"
 
 #: tbl_structure.php:361
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "kein(e)"
@@ -8289,7 +8267,6 @@ msgstr "Nach %s"
 
 #: tbl_structure.php:594
 #, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Index über&nbsp;%s&nbsp;Spalten anlegen"
 
@@ -8465,7 +8442,6 @@ msgid "Available transformations"
 msgstr "Verfügbare Umwandlungen"
 
 #: transformation_overview.php:48
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beschreibung"
