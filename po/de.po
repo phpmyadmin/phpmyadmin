@@ -5823,7 +5823,7 @@ msgstr "Zeige den Slave-Status"
 
 #: server_status.php:289
 msgid "Flush query cache"
-msgstr "Den Abfragencache leeren (FLUSH)"
+msgstr "Den Abfragen-Cache leeren. (FLUSH)"
 
 #: server_status.php:294
 msgid "Show processes"
