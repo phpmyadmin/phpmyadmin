@@ -4851,9 +4851,8 @@ msgid "No databases"
 msgstr "Keine Datenbanken"
 
 #: navigation.php:318
-#, fuzzy
 msgid "Filter"
-msgstr "Dateien"
+msgstr "Filter"
 
 #: navigation.php:319 setup/frames/index.inc.php:218
 #: setup/lib/messages.inc.php:42
