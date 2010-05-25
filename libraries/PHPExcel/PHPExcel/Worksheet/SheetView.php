@@ -22,7 +22,7 @@
  * @package    PHPExcel_Worksheet
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
 
 
@@ -82,10 +82,12 @@ class PHPExcel_Worksheet_SheetView
 	 * @return PHPExcel_Worksheet_SheetView
 	 */
 	public function setZoomScale($pValue = 100) {
-		if (($pValue >= 10 && $pValue <= 400) || is_null($pValue)) {
+		// Microsoft Office Excel 2007 only allows setting a scale between 10 and 400 via the user interface,
+		// but it is apparently still able to handle any scale >= 1
+		if (($pValue >= 1) || is_null($pValue)) {
 			$this->_zoomScale = $pValue;
 		} else {
-			throw new Exception("Valid scale is between 10 and 400.");
+			throw new Exception("Scale must be greater than or equal to 1.");
 		}
 		return $this;
 	}
@@ -109,10 +111,10 @@ class PHPExcel_Worksheet_SheetView
 	 * @return PHPExcel_Worksheet_SheetView
 	 */
 	public function setZoomScaleNormal($pValue = 100) {
-		if (($pValue >= 10 && $pValue <= 400) || is_null($pValue)) {
+		if (($pValue >= 1) || is_null($pValue)) {
 			$this->_zoomScaleNormal = $pValue;
 		} else {
-			throw new Exception("Valid scale is between 10 and 400.");
+			throw new Exception("Scale must be greater than or equal to 1.");
 		}
 		return $this;
 	}

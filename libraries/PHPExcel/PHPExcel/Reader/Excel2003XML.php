@@ -22,7 +22,7 @@
  * @package    PHPExcel_Reader
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
 
 
@@ -32,26 +32,14 @@ if (!defined('PHPEXCEL_ROOT')) {
 	 * @ignore
 	 */
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
+	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
+	PHPExcel_Autoloader::Register();
+	PHPExcel_Shared_ZipStreamWrapper::register();
+	// check mbstring.func_overload
+	if (ini_get('mbstring.func_overload') & 2) {
+		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
+	}
 }
-
-/** PHPExcel */
-require_once PHPEXCEL_ROOT . 'PHPExcel.php';
-
-/** PHPExcel_Reader_IReader */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/IReader.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Calculation */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Calculation.php';
-
- /** PHPExcel_Reader_DefaultReadFilter */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/DefaultReadFilter.php';
-
 
 /**
  * PHPExcel_Reader_Excel2003XML
@@ -236,6 +224,7 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 	 * Loads PHPExcel from file
 	 *
 	 * @param 	string 		$pFilename
+	 * @return 	PHPExcel
 	 * @throws 	Exception
 	 */
 	public function load($pFilename)
@@ -288,6 +277,7 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 	 *
 	 * @param 	string 		$pFilename
 	 * @param	PHPExcel	$objPHPExcel
+	 * @return 	PHPExcel
 	 * @throws 	Exception
 	 */
 	public function loadIntoExisting($pFilename, PHPExcel $objPHPExcel)
@@ -508,7 +498,7 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 			$objPHPExcel->createSheet();
 			$objPHPExcel->setActiveSheetIndex($worksheetID);
 			if (isset($worksheet_ss['Name'])) {
-				$worksheetName = $worksheet_ss['Name'];
+				$worksheetName = (string) $worksheet_ss['Name'];
 				$objPHPExcel->getActiveSheet()->setTitle($worksheetName);
 			}
 
@@ -660,7 +650,7 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 //							print_r($this->_styles[$style]);
 //							echo '<br />';
 							if (!$objPHPExcel->getActiveSheet()->cellExists($columnID.$rowID)) {
-								$objPHPExcel->getActiveSheet()->setCellValue($columnID.$rowID,NULL);
+								$objPHPExcel->getActiveSheet()->getCell($columnID.$rowID)->setValue(NULL);
 							}
 							$objPHPExcel->getActiveSheet()->getStyle($cellRange)->applyFromArray($this->_styles[$style]);
 						}

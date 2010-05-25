@@ -22,35 +22,8 @@
  * @package    PHPExcel_Writer
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel */
-require_once PHPEXCEL_ROOT . 'PHPExcel.php';
-
-/** PHPExcel_HashTable */
-require_once PHPEXCEL_ROOT . 'PHPExcel/HashTable.php';
-
-/** PHPExcel_IComparable */
-require_once PHPEXCEL_ROOT . 'PHPExcel/IComparable.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_IWriter */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/IWriter.php';
 
 
 /**
@@ -190,10 +163,10 @@ class PHPExcel_Writer_Serialized implements PHPExcel_Writer_IWriter
 
 		// PHPExcel
 		$objWriter->startElement('PHPExcel');
-		$objWriter->writeAttribute('version', '1.7.2');
+		$objWriter->writeAttribute('version', '1.7.3');
 
 			// Comment
-			$objWriter->writeComment('This file has been generated using PHPExcel v1.7.2 (http://www.codeplex.com/PHPExcel). It contains a base64 encoded serialized version of the PHPExcel internal object.');
+			$objWriter->writeComment('This file has been generated using PHPExcel v1.7.3 (http://www.codeplex.com/PHPExcel). It contains a base64 encoded serialized version of the PHPExcel internal object.');
 
 			// Data
 			$objWriter->startElement('data');

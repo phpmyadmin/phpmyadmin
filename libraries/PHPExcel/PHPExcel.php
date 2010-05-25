@@ -22,35 +22,21 @@
  * @package    PHPExcel
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
 
 
 /** PHPExcel root directory */
 if (!defined('PHPEXCEL_ROOT')) {
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/');
+	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
+	PHPExcel_Autoloader::Register();
+	PHPExcel_Shared_ZipStreamWrapper::register();
+	// check mbstring.func_overload
+	if (ini_get('mbstring.func_overload') & 2) {
+		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
+	}
 }
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_DocumentProperties */
-require_once PHPEXCEL_ROOT . 'PHPExcel/DocumentProperties.php';
-
-/** PHPExcel_DocumentSecurity */
-require_once PHPEXCEL_ROOT . 'PHPExcel/DocumentSecurity.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Shared_ZipStreamWrapper */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/ZipStreamWrapper.php';
-
-/** PHPExcel_NamedRange */
-require_once PHPEXCEL_ROOT . 'PHPExcel/NamedRange.php';
-
-/** PHPExcel_WorksheetIterator */
-require_once PHPEXCEL_ROOT . 'PHPExcel/WorksheetIterator.php';
 
 
 /**
@@ -144,6 +130,16 @@ class PHPExcel
 		// Create the default style
 		$this->addCellXf(new PHPExcel_Style);
 		$this->addCellStyleXf(new PHPExcel_Style);
+	}
+
+
+	public function disconnectWorksheets() {
+		foreach($this->_workSheetCollection as $k => &$worksheet) {
+			$worksheet->disconnectCells();
+			$this->_workSheetCollection[$k] = null;
+		}
+		unset($worksheet);
+		$this->_workSheetCollection = array();
 	}
 
 	/**
@@ -380,6 +376,23 @@ class PHPExcel
 	}
 
 	/**
+	 * Set active sheet index by name
+	 *
+	 * @param string $pValue Sheet title
+	 * @return PHPExcel_Worksheet
+	 * @throws Exception
+	 */
+	public function setActiveSheetIndexByName($pValue = '')
+	{
+		if (($worksheet = $this->getSheetByName($pValue)) instanceof PHPExcel_Worksheet) {
+			$this->setActiveSheetIndex($worksheet->getParent()->getIndex($worksheet));
+			return $worksheet;
+		}
+
+		throw new Exception('Workbook does not contain sheet:' . $pValue);
+	}
+
+	/**
 	 * Get sheet names
 	 *
 	 * @return string[]
@@ -420,7 +433,8 @@ class PHPExcel
 		$pSheet->rebindParent($this);
 
 		// update the cellXfs
-		foreach ($pSheet->getCellCollection(false) as $cell) {
+		foreach ($pSheet->getCellCollection(false) as $cellID) {
+			$cell = $sheet->getCell($cellID);
 			$cell->setXfIndex( $cell->getXfIndex() + $countCellXfs );
 		}
 
@@ -443,7 +457,13 @@ class PHPExcel
 	 * @return PHPExcel
 	 */
 	public function addNamedRange(PHPExcel_NamedRange $namedRange) {
-		$this->_namedRanges[$namedRange->getWorksheet()->getTitle().'!'.$namedRange->getName()] = $namedRange;
+		if ($namedRange->getScope() == null) {
+			// global scope
+			$this->_namedRanges[$namedRange->getName()] = $namedRange;
+		} else {
+			// local scope
+			$this->_namedRanges[$namedRange->getScope()->getTitle().'!'.$namedRange->getName()] = $namedRange;
+		}
 		return true;
 	}
 
@@ -451,57 +471,42 @@ class PHPExcel
 	 * Get named range
 	 *
 	 * @param string $namedRange
+	 * @param PHPExcel_Worksheet|null $pSheet Scope. Use null for global scope
+	 * @return PHPExcel_NamedRange|null
 	 */
 	public function getNamedRange($namedRange, PHPExcel_Worksheet $pSheet = null) {
+		$returnValue = null;
+
 		if ($namedRange != '' && !is_null($namedRange)) {
-			if (!is_null($pSheet)) {
-				$key = $pSheet->getTitle().'!'.$namedRange;
-				if (isset($this->_namedRanges[$key])) {
-					return $this->_namedRanges[$key];
-				}
+			// first look for global defined name
+			if (isset($this->_namedRanges[$namedRange])) {
+				$returnValue = $this->_namedRanges[$namedRange];
 			}
-			$returnCount = 0;
-			foreach($this->_namedRanges as $_namedRange) {
-				if ($_namedRange->getName() == $namedRange) {
-					if ((!is_null($pSheet)) && ($_namedRange->getWorksheet()->getTitle() == $pSheet->getTitle())) {
-						return $_namedRange;
-					} else {
-						$returnCount++;
-						$returnValue = $_namedRange;
-					}
-				}
-			}
-			if ($returnCount == 1) {
-				return $returnValue;
+
+			// then look for local defined name (has priority over global defined name if both names exist)
+			if (!is_null($pSheet) && isset($this->_namedRanges[$pSheet->getTitle() . '!' . $namedRange])) {
+				$returnValue = $this->_namedRanges[$pSheet->getTitle() . '!' . $namedRange];
 			}
 		}
 
-		return null;
+		return $returnValue;
 	}
 
 	/**
 	 * Remove named range
 	 *
 	 * @param string $namedRange
+	 * @param PHPExcel_Worksheet|null $pSheet. Scope. Use null for global scope.
 	 * @return PHPExcel
 	 */
 	public function removeNamedRange($namedRange, PHPExcel_Worksheet $pSheet = null) {
-		if ($namedRange != '' && !is_null($namedRange)) {
-			if (!is_null($pSheet)) {
-				$key = $pSheet->getTitle().'!'.$namedRange;
-				if (isset($this->_namedRanges[$key])) {
-					unset($this->_namedRanges[$key]);
-				}
+		if (is_null($pSheet)) {
+			if (isset($this->_namedRanges[$namedRange])) {
+				unset($this->_namedRanges[$namedRange]);
 			}
-			foreach($this->_namedRanges as $_namedRange) {
-				if ($_namedRange->getName() == $namedRange) {
-					if ((!is_null($pSheet)) && ($_namedRange->getWorksheet()->getTitle() == $pSheet->getTitle())) {
-						$key = $pSheet->getTitle().'!'.$namedRange;
-						if (isset($this->_namedRanges[$key])) {
-							unset($this->_namedRanges[$key]);
-						}
-					}
-				}
+		} else {
+			if (isset($this->_namedRanges[$pSheet->getTitle() . '!' . $namedRange])) {
+				unset($this->_namedRanges[$pSheet->getTitle() . '!' . $namedRange]);
 			}
 		}
 		return $this;
@@ -622,7 +627,8 @@ class PHPExcel
 
 			// then update cellXf indexes for cells
 			foreach ($this->_workSheetCollection as $worksheet) {
-				foreach ($worksheet->getCellCollection(false) as $cell) {
+				foreach ($worksheet->getCellCollection(false) as $cellID) {
+					$cell = $sheet->getCell($cellID);
 					$xfIndex = $cell->getXfIndex();
 					if ($xfIndex > $pIndex ) {
 						// decrease xf index by 1
@@ -724,7 +730,8 @@ class PHPExcel
 		foreach ($this->getWorksheetIterator() as $sheet) {
 
 			// from cells
-			foreach ($sheet->getCellCollection(false) as $cell) {
+			foreach ($sheet->getCellCollection(false) as $cellID) {
+				$cell = $sheet->getCell($cellID);
 				++$countReferencesCellXf[$cell->getXfIndex()];
 			}
 
@@ -756,7 +763,7 @@ class PHPExcel
 
 		// update the index for all cellXfs
 		foreach ($this->_cellXfCollection as $i => $cellXf) {
-			echo $cellXf->setIndex($i);
+			$cellXf->setIndex($i);
 		}
 
 		// make sure there is always at least one cellXf (there should be)
@@ -768,7 +775,8 @@ class PHPExcel
 		foreach ($this->getWorksheetIterator() as $sheet) {
 
 			// for all cells
-			foreach ($sheet->getCellCollection(false) as $cell) {
+			foreach ($sheet->getCellCollection(false) as $cellID) {
+				$cell = $sheet->getCell($cellID);
 				$cell->setXfIndex( $map[$cell->getXfIndex()] );
 			}
 

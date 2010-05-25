@@ -22,12 +22,8 @@
  * @package    PHPExcel_Shared
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
-
-
-/** Register new zip wrapper */
-PHPExcel_Shared_ZipStreamWrapper::register();
 
 
 /**
@@ -83,24 +79,9 @@ class PHPExcel_Shared_ZipStreamWrapper {
             throw new Exception('Mode ' . $mode . ' is not supported. Only read mode is supported.');
         }
 
-        // Parse URL
-        $url = @parse_url(str_replace('zip://', 'file://', $path));
-
-        // Fix URL
-		if (!is_array($url)) {
-            $url['host'] = substr($path, strlen('zip://'));
-            $url['path'] = '';
-        }
-        if (strpos($url['host'], '#') !== false) {
-            if (!isset($url['fragment'])) {
-                $url['fragment']	= substr($url['host'], strpos($url['host'], '#') + 1) . $url['path'];
-                $url['host']		= substr($url['host'], 0, strpos($url['host'], '#'));
-                unset($url['path']);
-            }
-        } else {
-            $url['host']		= $url['host'] . $url['path'];
-            unset($url['path']);
-		}
+		$pos = strrpos($path, '#');
+		$url['host'] = substr($path, 6, $pos - 6); // 6: strlen('zip://')
+		$url['fragment'] = substr($path, $pos + 1);
 
         // Open archive
         $this->_archive = new ZipArchive();

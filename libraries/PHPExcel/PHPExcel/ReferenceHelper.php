@@ -22,38 +22,8 @@
  * @package	PHPExcel
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.2, 2010-01-11
+ * @version	1.7.3, 2010-05-17
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../');
-}
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Cell_DataType */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell/DataType.php';
-
-/** PHPExcel_Style */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style.php';
-
-/** PHPExcel_Worksheet_Drawing */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet/Drawing.php';
-
-/** PHPExcel_Calculation_FormulaParser */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Calculation/FormulaParser.php';
-
-/** PHPExcel_Calculation_FormulaToken */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Calculation/FormulaToken.php';
 
 
 /**
@@ -100,12 +70,6 @@ class PHPExcel_ReferenceHelper
 	 * @throws	Exception
 	 */
 	public function insertNewBefore($pBefore = 'A1', $pNumCols = 0, $pNumRows = 0, PHPExcel_Worksheet $pSheet = null) {
-		// Get a copy of the cell collection
-		/*$aTemp = $pSheet->getCellCollection();
-		$aCellCollection = array();
-		foreach ($aTemp as $key => $value) {
-			$aCellCollection[$key] = clone $value;
-		}*/
 		$aCellCollection = $pSheet->getCellCollection();
 
 		// Get coordinates of $pBefore
@@ -148,7 +112,9 @@ class PHPExcel_ReferenceHelper
 
 
 		// Loop through cells, bottom-up, and change cell coordinates
-		while ( ($cell = ($pNumCols < 0 || $pNumRows < 0) ? array_shift($aCellCollection) : array_pop($aCellCollection)) ) {
+		while (($cellID = ($pNumCols < 0 || $pNumRows < 0) ? array_shift($aCellCollection) : array_pop($aCellCollection))) {
+			$cell = $pSheet->getCell($cellID);
+
 			// New coordinates
 			$newCoordinates = PHPExcel_Cell::stringFromColumnIndex( PHPExcel_Cell::columnIndexFromString($cell->getColumn()) - 1 + $pNumCols ) . ($cell->getRow() + $pNumRows);
 
@@ -165,17 +131,15 @@ class PHPExcel_ReferenceHelper
 				// Insert this cell at its new location
 				if ($cell->getDataType() == PHPExcel_Cell_DataType::TYPE_FORMULA) {
 					// Formula should be adjusted
-					$pSheet->setCellValue(
-						  $newCoordinates
-						, $this->updateFormulaReferences($cell->getValue(), $pBefore, $pNumCols, $pNumRows)
-					);
+					$pSheet->getCell($newCoordinates)
+						->setValue($this->updateFormulaReferences($cell->getValue(), $pBefore, $pNumCols, $pNumRows));
 				} else {
 					// Formula should not be adjusted
-					$pSheet->setCellValue($newCoordinates, $cell->getValue());
+					$pSheet->getCell($newCoordinates)->setValue($cell->getValue());
 				}
 
 				// Clear the original cell
-				$pSheet->setCellValue($cell->getCoordinate(), '');
+				$pSheet->getCell($cell->getCoordinate())->setValue('');
 			}
 		}
 
@@ -459,9 +423,10 @@ class PHPExcel_ReferenceHelper
 		if ($oldName == '') {
 			return;
 		}
-		
+
 		foreach ($pPhpExcel->getWorksheetIterator() as $sheet) {
-			foreach ($sheet->getCellCollection(false) as $cell) {
+			foreach ($sheet->getCellCollection(false) as $cellID) {
+				$cell = $sheet->getCell($cellID);
 				if (!is_null($cell) && $cell->getDataType() == PHPExcel_Cell_DataType::TYPE_FORMULA) {
 					$formula = $cell->getValue();
 					if (strpos($formula, $oldName) !== false) {

@@ -22,7 +22,7 @@
  * @package    PHPExcel_Cell
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
 
 
@@ -151,20 +151,12 @@ class PHPExcel_Cell_DataValidation
      */
     private $_prompt;
     
-	/**
-	 * Parent cell
-	 *
-	 * @var PHPExcel_Cell
-	 */
-	private $_parent;
-	
     /**
      * Create a new PHPExcel_Cell_DataValidation
      *
-     * @param 	PHPExcel_Cell		$pCell	Parent cell
      * @throws	Exception
      */
-    public function __construct(PHPExcel_Cell $pCell = null)
+    public function __construct()
     {
     	// Initialise member variables
 		$this->_formula1 			= '';
@@ -180,9 +172,6 @@ class PHPExcel_Cell_DataValidation
 		$this->_error 				= '';
 		$this->_promptTitle 		= '';
 		$this->_prompt 				= '';
- 	
-    	// Set cell
-    	$this->_parent = $pCell;
     }
 	
 	/**
@@ -445,26 +434,6 @@ class PHPExcel_Cell_DataValidation
 		return $this;
 	}
 	
-    /**
-     * Get parent
-     *
-     * @return PHPExcel_Cell
-     */
-    public function getParent() {
-    	return $this->_parent;
-    }
-    
-	/**
-	 * Set Parent
-	 *
-	 * @param	PHPExcel_Cell	$value
-	 * @return PHPExcel_Cell_DataValidation
-	 */
-	public function setParent($value = null) {
-		$this->_parent = $value;
-		return $this;
-	}
-	
 	/**
 	 * Get hash code
 	 *
@@ -485,7 +454,6 @@ class PHPExcel_Cell_DataValidation
     		. $this->_error
     		. $this->_promptTitle
     		. $this->_prompt
-    		. $this->_parent->getCoordinate()
     		. __CLASS__
     	);
     }
@@ -494,12 +462,9 @@ class PHPExcel_Cell_DataValidation
 	 * Implement PHP __clone to create a deep clone, not just a shallow copy.
 	 */
 	public function __clone() {
-		// unbind parent
-		$this->setParent(null);
-		
 		$vars = get_object_vars($this);
 		foreach ($vars as $key => $value) {
-			if (is_object($value) && $key != '_parent') {
+			if (is_object($value)) {
 				$this->$key = clone $value;
 			} else {
 				$this->$key = $value;

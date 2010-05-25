@@ -8,12 +8,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -22,20 +22,8 @@
  * @package    PHPExcel
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../');
-}
-
-/** PHPExcel_IComparable */
-require_once PHPEXCEL_ROOT . 'PHPExcel/IComparable.php';
 
 
 /**
@@ -53,14 +41,14 @@ class PHPExcel_HashTable
      * @var array
      */
     public $_items = array();
-    
+
     /**
      * HashTable key map
      *
      * @var array
      */
     public $_keyMap = array();
-	
+
     /**
      * Create a new PHPExcel_HashTable
      *
@@ -74,7 +62,7 @@ class PHPExcel_HashTable
 	        $this->addFromSource($pSource);
     	}
     }
-    
+
     /**
      * Add HashTable items from source
      *
@@ -88,7 +76,7 @@ class PHPExcel_HashTable
         } else if (!is_array($pSource)) {
             throw new Exception('Invalid array parameter passed.');
         }
-        
+
         foreach ($pSource as $item) {
             $this->add($item);
         }
@@ -106,7 +94,7 @@ class PHPExcel_HashTable
             $this->_keyMap[  count($this->_items) - 1  ] = $pSource->getHashCode();
    		}
     }
-    
+
     /**
      * Remove HashTable item
      *
@@ -116,21 +104,21 @@ class PHPExcel_HashTable
     public function remove(PHPExcel_IComparable $pSource = null) {
     	if (isset($this->_items[  $pSource->getHashCode()  ])) {
 	   		unset($this->_items[  $pSource->getHashCode()  ]);
-	    		
+
 	   		$deleteKey = -1;
-	   		foreach ($this->_keyMap as $key => $value) {    			
+	   		foreach ($this->_keyMap as $key => $value) {
 	   			if ($deleteKey >= 0) {
 	   				$this->_keyMap[$key - 1] = $value;
 	   			}
-	    			
+
 	   			if ($value == $pSource->getHashCode()) {
 	   				$deleteKey = $key;
 	   			}
 	   		}
-	   		unset($this->_keyMap[ count($this->_keyMap) - 1 ]);   
-    	}         
+	   		unset($this->_keyMap[ count($this->_keyMap) - 1 ]);
+    	}
     }
-    
+
     /**
      * Clear HashTable
      *
@@ -139,7 +127,7 @@ class PHPExcel_HashTable
     	$this->_items = array();
     	$this->_keyMap = array();
     }
-    
+
     /**
      * Count
      *
@@ -148,7 +136,7 @@ class PHPExcel_HashTable
     public function count() {
     	return count($this->_items);
     }
-    
+
     /**
      * Get index for hash code
      *
@@ -158,7 +146,7 @@ class PHPExcel_HashTable
     public function getIndexForHashCode($pHashCode = '') {
     	return array_search($pHashCode, $this->_keyMap);
     }
-    
+
     /**
      * Get by index
      *
@@ -170,10 +158,10 @@ class PHPExcel_HashTable
     	if (isset($this->_keyMap[$pIndex])) {
     		return $this->getByHashCode( $this->_keyMap[$pIndex] );
     	}
-    	
+
     	return null;
     }
-    
+
     /**
      * Get by hashcode
      *
@@ -185,10 +173,10 @@ class PHPExcel_HashTable
     	if (isset($this->_items[$pHashCode])) {
     		return $this->_items[$pHashCode];
     	}
-    	
+
     	return null;
     }
-    
+
     /**
      * HashTable to array
      *
@@ -197,7 +185,7 @@ class PHPExcel_HashTable
     public function toArray() {
     	return $this->_items;
     }
-        
+
 	/**
 	 * Implement PHP __clone to create a deep clone, not just a shallow copy.
 	 */

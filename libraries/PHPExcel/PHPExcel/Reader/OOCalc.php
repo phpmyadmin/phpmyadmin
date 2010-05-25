@@ -22,7 +22,7 @@
  * @package    PHPExcel_Reader
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.2, 2010-01-11
+ * @version    1.7.3, 2010-05-17
  */
 
 
@@ -32,26 +32,14 @@ if (!defined('PHPEXCEL_ROOT')) {
 	 * @ignore
 	 */
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
+	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
+	PHPExcel_Autoloader::Register();
+	PHPExcel_Shared_ZipStreamWrapper::register();
+	// check mbstring.func_overload
+	if (ini_get('mbstring.func_overload') & 2) {
+		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
+	}
 }
-
-/** PHPExcel */
-require_once PHPEXCEL_ROOT . 'PHPExcel.php';
-
-/** PHPExcel_Reader_IReader */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/IReader.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Calculation */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Calculation.php';
-
- /** PHPExcel_Reader_DefaultReadFilter */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/DefaultReadFilter.php';
-
 
 /**
  * PHPExcel_Reader_OOCalc
@@ -211,6 +199,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	 * Loads PHPExcel from file
 	 *
 	 * @param 	string 		$pFilename
+	 * @return 	PHPExcel
 	 * @throws 	Exception
 	 */
 	public function load($pFilename)
@@ -238,6 +227,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	 *
 	 * @param 	string 		$pFilename
 	 * @param	PHPExcel	$objPHPExcel
+	 * @return 	PHPExcel
 	 * @throws 	Exception
 	 */
 	public function loadIntoExisting($pFilename, PHPExcel $objPHPExcel)
@@ -335,7 +325,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 					$objPHPExcel->createSheet();
 					$objPHPExcel->setActiveSheetIndex($worksheetID);
 					if (isset($worksheetDataAttributes['name'])) {
-						$worksheetName = $worksheetDataAttributes['name'];
+						$worksheetName = (string) $worksheetDataAttributes['name'];
 						$objPHPExcel->getActiveSheet()->setTitle($worksheetName);
 					}
 
@@ -392,7 +382,9 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 													break;
 											case 'date' :
 													$type = PHPExcel_Cell_DataType::TYPE_NUMERIC;
-													$dataValue = PHPExcel_Shared_Date::PHPToExcel(strtotime($cellDataOfficeAttributes['date-value']));
+													$dateObj = date_create($cellDataOfficeAttributes['date-value']);
+													list($year,$month,$day,$hour,$minute,$second) = explode(' ',$dateObj->format('Y m d H i s'));
+													$dataValue = PHPExcel_Shared_Date::FormattedPHPToExcel($year,$month,$day,$hour,$minute,$second);
 													if ($dataValue != floor($dataValue)) {
 														$formatting = PHPExcel_Style_NumberFormat::FORMAT_DATE_XLSX15.' '.PHPExcel_Style_NumberFormat::FORMAT_DATE_TIME4;
 													} else {
@@ -421,6 +413,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 											if (($key % 2) == 0) {
 												$value = preg_replace('/\[\.(.*):\.(.*)\]/Ui','$1:$2',$value);
 												$value = preg_replace('/\[\.(.*)\]/Ui','$1',$value);
+												$value = PHPExcel_Calculation::_translateSeparator(';',',',$value);
 											}
 										}
 										unset($value);
