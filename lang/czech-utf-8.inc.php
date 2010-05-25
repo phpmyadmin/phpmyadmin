@@ -778,6 +778,8 @@ $strReplicationSelectDatabases = 'Prosím vyberte databáze:';
 $strReplicationServernConfiguredMaster = 'Tento server není nastaven jako nadřízený v replikačním procesu. Přejete si ho <a href="%s">nastavit</a>?';
 $strReplicationShowConnectedSlavesNote = 'V tomto seznamu jsou zobrazeny jen podřízené servery spuštěné s parametrem --report-host=host_name.';
 $strReplicationShowConnectedSlaves = 'Zobrazit připojené podřízené';
+$strReplicationShowMasterStatus = 'Zobrazit stav nadřízeného';
+$strReplicationSkippingErrorWarn = 'Přeskakování chyb může vést k rozdílným datům na nadřízeném a podřízeném serveru.';
 $strReplicationSlaveConfiguration = 'Nastavení podřízeného';
 $strReplicationSlaveConfigured = 'Server je nastaven jako podřízený v replikačním procesu. Přejete si:';
 $strReplicationSlaveErrorManagement = 'Práce s chybami:';
@@ -1613,10 +1615,5 @@ $strYes = 'Ano';
 
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '„zazipováno“';
-
-// To translate:
-
-$strReplicationShowMasterStatus = 'Show master status';  //to translate
-$strReplicationSkippingErrorWarn = 'Skipping error(s) might lead into unsynchronized master and slave!';  //to translate
 
 ?>
