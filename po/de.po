@@ -5112,10 +5112,9 @@ msgid "Slave replication"
 msgstr "Slave Replikation"
 
 #: server_databases.php:230
-#, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
-msgstr "Gehe zur Datenbank"
+msgstr "Springe  zu Datenbank"
 
 #: server_databases.php:289
 #, php-format
