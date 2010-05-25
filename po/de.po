@@ -5620,9 +5620,8 @@ msgid ""
 msgstr ""
 
 #: server_replication.php:217
-#, fuzzy
 msgid "Master configuration"
-msgstr "Serverkonfiguration"
+msgstr "Master-Konfiguration"
 
 #: server_replication.php:218
 msgid ""
