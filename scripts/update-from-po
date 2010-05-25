@@ -1,0 +1,116 @@
+#!/usr/bin/python
+
+import polib
+import sys
+import os
+import codecs
+
+CODE2LANG = {
+    'af': 'afrikaans',
+    'ar': 'arabic',
+    'az': 'azerbaijani',
+    'bn': 'bangla',
+    'be': 'belarusian_cyrillic',
+    'be@latin': 'belarusian_latin',
+    'bg': 'bulgarian',
+    'bs': 'bosnian',
+    'ca': 'catalan',
+    'cs': 'czech',
+    'da': 'danish',
+    'de': 'german',
+    'el': 'greek',
+    'en': 'english',
+    'en_GB': 'english-gb',
+    'es': 'spanish',
+    'et': 'estonian',
+    'eu': 'basque',
+    'fa': 'persian',
+    'fi': 'finnish',
+    'fr': 'french',
+    'gl': 'galician',
+    'he': 'hebrew',
+    'hi': 'hindi',
+    'hr': 'croatian',
+    'hu': 'hungarian',
+    'id': 'indonesian',
+    'it': 'italian',
+    'ja': 'japanese',
+    'ko': 'korean',
+    'ka': 'georgian',
+    'lt': 'lithuanian',
+    'lv': 'latvian',
+    'mk': 'macedonian_cyrillic',
+    'mn': 'mongolian',
+    'ms': 'malay',
+    'nl': 'dutch',
+    'nb': 'norwegian',
+    'pl': 'polish',
+    'pt_BR': 'brazilian_portuguese',
+    'pt': 'portuguese',
+    'ro': 'romanian',
+    'ru': 'russian',
+    'si': 'sinhala',
+    'sk': 'slovak',
+    'sl': 'slovenian',
+    'sq': 'albanian',
+    'sr@latin': 'serbian_latin',
+    'sr': 'serbian_cyrillic',
+    'sv': 'swedish',
+    'th': 'thai',
+    'tr': 'turkish',
+    'tt': 'tatarish',
+    'uk': 'ukrainian',
+    'zh_TW': 'chinese_traditional',
+    'zh_CN': 'chinese_simplified',
+    'uz': 'uzbek_cyrillic',
+    'uz@latin': 'uzbek_latin',
+}
+
+if len(sys.argv) != 2:
+    print 'Usage: update-from-po PATH_TO_PO_FILES'
+    sys.exit(1)
+
+pofiles = os.listdir(sys.argv[1])
+
+f = file('lang/english-utf-8.inc.php', 'r')
+langmap = {}
+for line in f:
+    line = line.strip()
+    if line[:4] == '$str':
+        parts = line.split(' = ')
+        langmap[parts[1].strip(';').strip('\'')] = parts[0].strip('$')
+
+for pofile in pofiles:
+    if pofile[-3:] != '.po':
+        print 'Not a po file, skipping: %s' % pofile
+        continue
+
+    try:
+        lang = CODE2LANG[pofile[:-3]]
+    except KeyError:
+        print 'Language for %s not defined!' % pofile
+
+    try:
+        langfile = codecs.open('lang/%s-utf-8.inc.php' % lang, 'r', 'utf-8').readlines()
+    except IOError:
+        print 'Language file %s does not exist!' % lang
+        continue
+
+    print 'Updating %s from: %s' % (lang, pofile)
+    po = polib.pofile(os.path.join(sys.argv[1], pofile))
+
+    for translation in po.translated_entries():
+        if translation.msgctxt is None:
+            msgid = translation.msgid.replace('\'', '\\\'')
+            msgstr = translation.msgstr.replace('\'', '\\\'')
+            try:
+                key = langmap[msgid]
+                keylen = len(key)
+            except KeyError:
+                continue
+            for i in xrange(len(langfile)):
+                if langfile[i][:2 + keylen] == '$%s ' % key:
+                    langfile[i] = '$%s = \'%s\';\n' % (key, msgstr)
+
+    out = file('lang/%s-utf-8.inc.php' % lang, 'w')
+    out.writelines([x.encode('utf-8') for x in langfile])
