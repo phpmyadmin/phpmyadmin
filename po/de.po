@@ -6014,7 +6014,7 @@ msgstr "Ausgewählte Änderungen anwenden"
 
 #: server_synchronize.php:451 server_synchronize.php:896
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Datenbanken abgleichen"
 
 #: server_synchronize.php:464
 msgid "Selected target tables have been synchronized with source tables."
