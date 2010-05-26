@@ -874,7 +874,7 @@ function PMA_markRowsInit() {
                     }
 
                     if (event.shiftKey == true && table.lastClicked != undefined) {
-                        if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
+                        if (event.preventDefault) {event.preventDefault();} else {event.returnValue = false;}
                         i = table.lastClicked;
 
                         if (i < this.rowIndex) {
@@ -1692,7 +1692,7 @@ function changeMIMEType(db, table, reference, mime_type)
 {
     // specify url and parameters for jQuery POST 
     var mime_chg_url = 'bs_change_mime_type.php';
-    var params = { bs_db: db, bs_table: table, bs_reference: reference, bs_new_mime_type: mime_type };
+    var params = {bs_db: db, bs_table: table, bs_reference: reference, bs_new_mime_type: mime_type};
 
     // jQuery POST
     jQuery.post(mime_chg_url, params); 
@@ -1727,3 +1727,63 @@ $(document).ready(function(){
     });
 });
 
+/**
+ * Function to process the plain HTML response from an Ajax request.  Inserts
+ * the various HTML divisions from the response at the proper locations.  The 
+ * array relates the divisions to be inserted to their placeholders.
+ *
+ * @param   var divisions_map   an associative array of id names
+ *
+ * <code>
+ * PMA_ajaxInsertResponse({'resultsTable':'resultsTable_response',
+ *                         'profilingData':'profilingData_response'});
+ * </code>
+ *
+ */
+
+function PMA_ajaxInsertResponse(divisions_map) {
+    $.each(divisions_map, function(key, value) {
+        var content_div = '#'+value;
+        var target_div = '#'+key;
+        var content = $(content_div).html();
+
+        //replace content of target_div with that from the response
+        $(target_div).html(content);
+    });
+};
+
+/**
+ * Show a message on the top of the page for an Ajax request
+ *
+ * @param   var     message     string containing the message to be shown.
+ *                              optional, defaults to 'Loading...'
+ * @param   var     timeout     number of milliseconds for the message to be visible
+ *                              optional, defaults to 5000
+ */
+
+function PMA_ajaxShowMessage(message, timeout) {
+    if(!message) {
+        var msg = 'Loading...';
+    }
+    else {
+        var msg = message;
+    }
+
+    if(!timeout) {
+        var to = 5000;
+    }
+    else {
+        var to = timeout;
+    }
+
+    $(function(){
+        $('<span id="loading" class="ajax_notification"></span>')
+        .insertBefore("#serverinfo")
+        .text(msg)
+        .slideDown('medium')
+        .delay(to)
+        .slideUp('medium', function(){
+            $(this).remove();
+        });
+    }, 'top.frame_content')
+}
