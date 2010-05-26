@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-04-02 12:04+0200\n"
+"PO-Revision-Date: 2010-05-26 14:17+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -87,7 +87,7 @@ msgstr "వివరణ"
 #: browse_foreigners.php:247 browse_foreigners.php:256
 #: browse_foreigners.php:268 browse_foreigners.php:276
 msgid "Use this value"
-msgstr ""
+msgstr "ఈ విలువని ఉపయోగించు"
 
 #: db_create.php:46
 #, php-format
@@ -7919,49 +7919,3 @@ msgstr ""
 #~ msgctxt "$strMIME_description"
 #~ msgid "Description"
 #~ msgstr "వివరణ"
-
-#, fuzzy
-#~| msgid "No"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "కాదు"
-
-#, fuzzy
-#~| msgid "No"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "కాదు"
-
-# మొదటి అనువాదము
-#~ msgid "Copy"
-#~ msgstr "నకలు"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "తొలగించు"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "తొలగించు"
-
-#, fuzzy
-#~| msgid "User"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "వాడుకరి"
-
-#, fuzzy
-#~| msgid "Date"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "తేదీ"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "తొలగించు"
