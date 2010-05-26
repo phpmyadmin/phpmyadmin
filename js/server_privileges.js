@@ -105,3 +105,34 @@ function suggestPassword(passwd_form) {
  * Paginate table of users
  * Flush privileges
  */
+$(document).ready(function() {
+    
+    /**
+     * Attach AJAX event handlers to 'Add a New User'
+     *
+     * @todo create standard options for dialog boxes
+     */
+    $("#fieldset_add_user a").click(function(event) {
+        event.preventDefault();
+
+        PMA_ajaxShowMessage();
+
+        $(this).append('<div id="add_user_dialog"></div>');
+        var add_user_url = $(this).attr("href");
+        //add_user_url += "&ajax_request=true";
+        $.get(add_user_url, {'ajax_request':true}, function(data) {
+            $("#add_user_dialog").prepend(data).dialog({
+                title: 'Add a New User',
+                width: 800,
+                modal: true,
+                buttons: {"Create User": function() {
+                        //code here to submit the form
+                            },
+                            "Cancel": function() {$(this).dialog("close")}
+                        } //buttons end
+            }); //dialog options end
+        });
+
+    });//end of Add New User AJAX event handler
+
+}); //end $(document).ready()

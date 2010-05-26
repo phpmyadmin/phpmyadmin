@@ -16,6 +16,7 @@ require_once './libraries/common.inc.php';
  */
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 require './libraries/server_common.inc.php';
 
 
@@ -1982,6 +1983,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         }
     }
 } elseif (isset($_REQUEST['adduser'])) {
+    
     // Add a new user
     $GLOBALS['url_query'] .= '&amp;adduser=1';
     echo '<h2>' . "\n"
