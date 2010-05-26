@@ -105,6 +105,7 @@ function suggestPassword(passwd_form) {
  * Paginate table of users
  * Flush privileges
  */
+
 $(document).ready(function() {
     
     /**
@@ -118,10 +119,9 @@ $(document).ready(function() {
         PMA_ajaxShowMessage();
 
         $(this).append('<div id="add_user_dialog"></div>');
-        var add_user_url = $(this).attr("href");
-        //add_user_url += "&ajax_request=true";
-        $.get(add_user_url, {'ajax_request':true}, function(data) {
-            $("#add_user_dialog").prepend(data).dialog({
+        $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
+            $("#add_user_dialog")
+            .prepend(data).dialog({
                 title: 'Add a New User',
                 width: 800,
                 modal: true,
@@ -134,5 +134,22 @@ $(document).ready(function() {
         });
 
     });//end of Add New User AJAX event handler
+
+    /**
+     * Attach Ajax event handler to 'Reload Privileges' anchor
+     */
+    $("#reload_privileges_anchor").click(function(event) {
+        event.preventDefault();
+
+        PMA_ajaxShowMessage("Reloading Privileges");
+        $.get($(this).attr("href"), {'ajax_request': true}, function(data) {
+            $('<div id="reload_privileges_dialog"></div>')
+            .prepend(data)
+            .dialog({
+                title: 'Reload Privileges',
+                buttons: { "Close": function() {$(this).dialog("close")} }
+            }); //dialog options end
+        });
+    }); //end of Reload Privileges Ajax event handler
 
 }); //end $(document).ready()

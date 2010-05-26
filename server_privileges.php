@@ -1295,6 +1295,15 @@ if (isset($_REQUEST['flush_privileges'])) {
     $sql_query = 'FLUSH PRIVILEGES;';
     PMA_DBI_query($sql_query);
     $message = PMA_Message::success(__('The privileges were reloaded successfully.'));
+
+    /**
+     * If we are in an Ajax request, just display the message and exit.
+     * jQuery will take care of displaying the data with a dialog
+     */
+    if( $GLOBALS['is_ajax_request'] ) {
+        $message->display();
+        exit;
+    }
 }
 
 
@@ -1596,7 +1605,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
             $flushnote = new PMA_Message(__('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'), PMA_Message::NOTICE);
-            $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1">', false);
+            $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1" id="reload_privileges_anchor">', false);
             $flushnote->addParam('</a>', false);
             $flushnote->display();
          }
