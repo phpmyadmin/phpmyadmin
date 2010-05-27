@@ -1301,7 +1301,7 @@ if (isset($_REQUEST['flush_privileges'])) {
      * jQuery will take care of displaying the data with a dialog
      */
     if( $GLOBALS['is_ajax_request'] ) {
-        $message->display();
+        PMA_showMessage($message);
         exit;
     }
 }
