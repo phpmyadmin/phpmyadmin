@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-25 14:21+0200\n"
-"Last-Translator:  <torsten.funck@googlemail.com>\n"
+"PO-Revision-Date: 2010-05-27 08:15+0200\n"
+"Last-Translator:  <canin@in.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -417,11 +417,11 @@ msgid "Last check"
 msgstr "Letzter Check am"
 
 #: db_printview.php:222 db_structure.php:480
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s Tabellen"
+msgstr[0] "%s Tabelle"
 msgstr[1] "%s Tabellen"
 
 #: db_qbe.php:29 libraries/Message.class.php:191
