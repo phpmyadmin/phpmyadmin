@@ -1272,7 +1272,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         }
         $inline_edit = "<script type=\"text/javascript\">\n" .
             "//<![CDATA[\n" .
-            "$(body).append('[<a href=\"#\" title=\"" .
+            "document.write('[<a href=\"#\" title=\"" .
             PMA_escapeJsString(__('Inline edit of this query')) .
             "\" id=\"inline_edit\">" .
             PMA_escapeJsString(__('Inline')) .
