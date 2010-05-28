@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-28 14:09+0200\n"
+"PO-Revision-Date: 2010-05-28 14:10+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5762,7 +5762,6 @@ msgid "Error management:"
 msgstr "Fehlerbehandlung:"
 
 #: server_replication.php:334
-#, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
