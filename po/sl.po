@@ -7208,6 +7208,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
+"Pustite prazno, če ne želite podpore "
+"[a@http://wiki.phpmyadmin.net/pma/relation]relacijskih povezav[/a]; "
+"priporočeno: [kbd]pma_relation[/kbd]"
 
 #: setup/lib/messages.inc.php:297
 msgid "Relation table"
