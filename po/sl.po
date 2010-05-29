@@ -7055,7 +7055,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:257
 msgid "Column information table"
-msgstr ""
+msgstr "Tabela informacij stolpcev"
 
 #: setup/lib/messages.inc.php:258
 msgid "Compress connection to MySQL server"
