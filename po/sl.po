@@ -1282,7 +1282,7 @@ msgstr "Minuta"
 
 #: js/messages.php:166
 msgid "Second"
-msgstr "Sekunde"
+msgstr "Sekunda"
 
 #: libraries/Config.class.php:1015
 msgid "Font size"
