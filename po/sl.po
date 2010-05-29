@@ -7043,7 +7043,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:255
 msgid "Bookmark table"
-msgstr ""
+msgstr "Tabela zaznamkov"
 
 #: setup/lib/messages.inc.php:256
 msgid ""
