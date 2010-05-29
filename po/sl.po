@@ -5603,7 +5603,7 @@ msgstr "Predpomnilnik ključev"
 
 #: server_status.php:257
 msgid "Joins"
-msgstr ""
+msgstr "Stiki"
 
 #: server_status.php:259
 msgid "Sorting"
