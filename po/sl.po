@@ -5492,7 +5492,7 @@ msgstr ""
 
 #: server_replication.php:221
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Podvoji vse zbirke podatkov; prezri:"
 
 #: server_replication.php:222
 msgid "Ignore all databases; Replicate:"
