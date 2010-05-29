@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 12:51+0200\n"
+"PO-Revision-Date: 2010-05-29 12:52+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7340,7 +7340,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:321
 msgid "Display fields table"
-msgstr ""
+msgstr "Tabela prikaznih polj"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
