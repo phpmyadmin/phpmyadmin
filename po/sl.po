@@ -3576,7 +3576,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:105
 msgid "The number of doublewrite operations that have been performed."
-msgstr ""
+msgstr "Število posegov dvojnega pisanja (doublewrite), ki so bili izvedeni."
 
 #: libraries/messages.inc.php:106
 msgid ""
