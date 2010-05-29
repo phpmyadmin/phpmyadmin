@@ -1205,7 +1205,7 @@ msgstr "ned"
 #. l10n: Short week day name
 #: js/messages.php:134 libraries/common.lib.php:1582
 msgid "Mon"
-msgstr "Pon"
+msgstr "pon"
 
 #. l10n: Short week day name
 #: js/messages.php:136 libraries/common.lib.php:1584
