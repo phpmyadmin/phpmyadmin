@@ -7302,7 +7302,7 @@ msgstr "Dodaj DROP DATABASE"
 
 #: setup/lib/messages.inc.php:313
 msgid "You should use SSL connections if your web server supports it"
-msgstr ""
+msgstr "Uporabite povezave SSL, če jih vaš spletni strežnik podpira"
 
 #: setup/lib/messages.inc.php:314
 msgid "Socket on which MySQL server is listening, leave empty for default"
