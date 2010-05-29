@@ -7186,7 +7186,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:291
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "PDF-shema: tabele strani"
 
 #: setup/lib/messages.inc.php:292
 msgid ""
