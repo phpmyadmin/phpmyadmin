@@ -442,7 +442,7 @@ foreach ($rows as $row_id => $vrow) {
                 $special_chars = PMA_printable_bit_value($vrow[$field['Field']], $extracted_fieldspec['spec_in_brackets']);
             } else {
                 // loic1: special binary "characters"
-                if ($field['is_binary'] || $field['is_blob']) {
+                if ($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary'])) {
                 	if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
                 		$vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
                 		$field['display_binary_as_hex'] = true;
