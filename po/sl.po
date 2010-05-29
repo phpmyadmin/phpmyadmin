@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 12:34+0200\n"
+"PO-Revision-Date: 2010-05-29 12:36+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7196,6 +7196,7 @@ msgstr ""
 #: setup/lib/messages.inc.php:294
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
+"Vrata, na katera naj se strežnik MySQL priključi; pustite prazno za privzeto"
 
 #: setup/lib/messages.inc.php:295
 msgid "Server port"
