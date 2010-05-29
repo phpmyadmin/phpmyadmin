@@ -7011,7 +7011,7 @@ msgstr "Ime sfere HTTP Basic Auth, ki se prikaže med HTTP Auth"
 
 #: setup/lib/messages.inc.php:249
 msgid "HTTP Realm"
-msgstr ""
+msgstr "Sfera HTTP"
 
 #: setup/lib/messages.inc.php:250
 msgid ""
