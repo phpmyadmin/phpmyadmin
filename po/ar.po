@@ -1199,7 +1199,7 @@ msgstr "الثلاثاء"
 
 #: js/messages.php:125
 msgid "Wednesday"
-msgstr ""
+msgstr "الأربعاء"
 
 #: js/messages.php:126
 msgid "Thursday"
