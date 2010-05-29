@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 12:23+0200\n"
+"PO-Revision-Date: 2010-05-29 12:24+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7107,7 +7107,7 @@ msgstr "Razširitev PHP za uporabo"
 
 #: setup/lib/messages.inc.php:275
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "Skrije zbirke podatkov, ki se ujemajo z običajnim izrazom (PCRE)"
 
 #: setup/lib/messages.inc.php:276
 msgid "Hide databases"
