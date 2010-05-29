@@ -4248,7 +4248,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:240 server_replication.php:194
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Dodaj uporabnika podvojevanja podrejencev"
 
 #: libraries/replication_gui.lib.php:254 server_privileges.php:677
 msgid "Any user"
