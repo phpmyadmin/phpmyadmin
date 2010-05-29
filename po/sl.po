@@ -5462,7 +5462,7 @@ msgstr ""
 
 #: server_replication.php:184 server_status.php:281
 msgid "Show master status"
-msgstr ""
+msgstr "Pokaži stanje glavnega strežnika"
 
 #: server_replication.php:187
 msgid "Show connected slaves"
