@@ -7599,6 +7599,8 @@ msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"Branje različice je spodletelo. Morda niste povezani v internet ali pa se "
+"posodobitveni strežnik ne odziva."
 
 #: setup/lib/messages.inc.php:369
 msgid "Got invalid version string from server"
