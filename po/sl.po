@@ -5609,6 +5609,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Ta strežnik ni konfiguriran kot podrejenec v postopku podvojevanja. Ali ga "
+"želite <a href=\"%s\">konfigurirati</a>?"
 
 #: server_status.php:46
 msgid "Runtime Information"
