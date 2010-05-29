@@ -5623,7 +5623,7 @@ msgstr "Pokaži odprte tabele"
 
 #: server_status.php:278
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Prikaži gostitelje podrejencev"
 
 #: server_status.php:284
 msgid "Show slave status"
