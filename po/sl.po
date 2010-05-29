@@ -5776,7 +5776,7 @@ msgstr "ni prisotno"
 
 #: server_synchronize.php:424 server_synchronize.php:867
 msgid "Structure Difference"
-msgstr ""
+msgstr "Razlika zgradbe"
 
 #: server_synchronize.php:425 server_synchronize.php:868
 msgid "Data Difference"
