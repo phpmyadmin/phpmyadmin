@@ -6983,7 +6983,7 @@ msgstr "Dovoljujete povezavo s strežnikom brez gesla."
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "Pustite prazno, če se ne uporablja"
 
 #: setup/lib/messages.inc.php:243
 msgid "Host authentication order"
