@@ -4221,7 +4221,7 @@ msgstr "Stanje glavnega strežnika"
 
 #: libraries/replication_gui.lib.php:105
 msgid "Slave status"
-msgstr ""
+msgstr "Stanje podrejenca"
 
 #: libraries/replication_gui.lib.php:114 libraries/sql_query_form.lib.php:445
 #: server_status.php:626 server_variables.php:52
