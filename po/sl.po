@@ -1210,7 +1210,7 @@ msgstr "pon"
 #. l10n: Short week day name
 #: js/messages.php:136 libraries/common.lib.php:1584
 msgid "Tue"
-msgstr "Tor"
+msgstr "tor"
 
 #. l10n: Short week day name
 #: js/messages.php:138 libraries/common.lib.php:1586
