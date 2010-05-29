@@ -5850,7 +5850,7 @@ msgstr "Konfiguracija: %s"
 
 #: server_synchronize.php:1167
 msgid "Socket"
-msgstr ""
+msgstr "Vtičnica"
 
 #: server_synchronize.php:1213
 msgid ""
