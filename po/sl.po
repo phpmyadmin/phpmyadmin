@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 10:49+0200\n"
+"PO-Revision-Date: 2010-05-29 10:50+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4979,7 +4979,7 @@ msgstr "Pripni na mrežo"
 
 #: pmd_general.php:95
 msgid "Small/Big All"
-msgstr ""
+msgstr "Skrči/razširi vse"
 
 #: pmd_general.php:99
 msgid "Toggle small/big"
