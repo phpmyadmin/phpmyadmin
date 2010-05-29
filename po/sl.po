@@ -5627,7 +5627,7 @@ msgstr "Prikaži gostitelje podrejencev"
 
 #: server_status.php:284
 msgid "Show slave status"
-msgstr ""
+msgstr "Prikaži stanje podrejencev"
 
 #: server_status.php:289
 msgid "Flush query cache"
