@@ -7007,7 +7007,7 @@ msgstr "Dovoli prijavo root"
 
 #: setup/lib/messages.inc.php:248
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "Ime sfere HTTP Basic Auth, ki se prikaže med HTTP Auth"
+msgstr "Ime področja HTTP Basic Auth, ki se prikaže med HTTP Auth"
 
 #: setup/lib/messages.inc.php:249
 msgid "HTTP Realm"
