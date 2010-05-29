@@ -5019,6 +5019,9 @@ msgid ""
 "field, click the \"Choose field to display\" icon, then click on the "
 "appropriate field name."
 msgstr ""
+"Prikazno polje je obarvano pink. Da določite/odstranite polje kot prikazno "
+"polje, kliknite ikono »Izberite polje za prikaz«, nato pa kliknite na "
+"ustrezno ime polja."
 
 #: pmd_pdf.php:63
 msgid "Page has been created"
