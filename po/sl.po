@@ -2443,7 +2443,7 @@ msgstr "Zahtev pisanja"
 
 #: libraries/engines/innodb.lib.php:266
 msgid "Read misses"
-msgstr ""
+msgstr "Zgrešena branja"
 
 #: libraries/engines/innodb.lib.php:272
 msgid "Write waits"
