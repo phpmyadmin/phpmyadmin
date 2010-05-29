@@ -1240,7 +1240,7 @@ msgstr "ne"
 #. l10n: Minimal week day name
 #: js/messages.php:150
 msgid "Mo"
-msgstr "Po"
+msgstr "po"
 
 #. l10n: Minimal week day name
 #: js/messages.php:152
