@@ -3855,7 +3855,7 @@ msgstr "Število razvrščanj, ki so bila storjena z razponi."
 
 #: libraries/messages.inc.php:161
 msgid "The number of sorted rows."
-msgstr ""
+msgstr "Število razvrščenih vrstic."
 
 #: libraries/messages.inc.php:162
 msgid "The number of sorts that were done by scanning the table."
