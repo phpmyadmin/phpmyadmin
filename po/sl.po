@@ -6991,7 +6991,7 @@ msgstr "Zaporedje overovitve gostitelja"
 
 #: setup/lib/messages.inc.php:244
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "Pustite prazno za privzeto"
 
 #: setup/lib/messages.inc.php:245
 msgid "Host authentication rules"
