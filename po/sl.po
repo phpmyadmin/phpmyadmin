@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 13:26+0200\n"
+"PO-Revision-Date: 2010-05-29 13:32+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1200,7 +1200,7 @@ msgstr "sobota"
 #. l10n: Short week day name
 #: js/messages.php:132 libraries/common.lib.php:1580
 msgid "Sun"
-msgstr "Ned"
+msgstr "ned"
 
 #. l10n: Short week day name
 #: js/messages.php:134 libraries/common.lib.php:1582
