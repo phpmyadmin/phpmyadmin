@@ -3600,7 +3600,7 @@ msgstr "Število pisanj fsync() storjenih v dnevniško datoteko."
 
 #: libraries/messages.inc.php:110
 msgid "The number of pending log file fsyncs."
-msgstr ""
+msgstr "Število čakajoče dnevniške datoteke fsyncs."
 
 #: libraries/messages.inc.php:111
 msgid "Pending log file writes."
