@@ -3859,7 +3859,7 @@ msgstr "Število razvrščenih vrstic."
 
 #: libraries/messages.inc.php:162
 msgid "The number of sorts that were done by scanning the table."
-msgstr ""
+msgstr "Število razvrščanj, ki so bila storjena s pregledovanjem tabele."
 
 #: libraries/messages.inc.php:163
 msgid "The number of times that a table lock was acquired immediately."
