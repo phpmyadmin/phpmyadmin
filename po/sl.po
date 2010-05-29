@@ -6373,7 +6373,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:97
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Vrstni red spustnega seznama tujih ključev"
 
 #: setup/lib/messages.inc.php:98
 msgid "A dropdown will be used if fewer items are present"
