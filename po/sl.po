@@ -2439,7 +2439,7 @@ msgstr "Zahtev branja"
 
 #: libraries/engines/innodb.lib.php:260
 msgid "Write requests"
-msgstr ""
+msgstr "Zahtev pisanja"
 
 #: libraries/engines/innodb.lib.php:266
 msgid "Read misses"
