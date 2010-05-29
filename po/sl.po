@@ -2373,7 +2373,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:42
 msgid "Buffer pool size"
-msgstr ""
+msgstr "Velikost zaloge medpomnilnika"
 
 #: libraries/engines/innodb.lib.php:43
 msgid ""
