@@ -5466,7 +5466,7 @@ msgstr "Pokaži stanje glavnega strežnika"
 
 #: server_replication.php:187
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Pokaži povezane podrejence"
 
 #: server_replication.php:210
 #, php-format
