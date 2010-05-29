@@ -3592,7 +3592,7 @@ msgstr "Število zahtev pisanja v dnevnik."
 
 #: libraries/messages.inc.php:108
 msgid "The number of physical writes to the log file."
-msgstr ""
+msgstr "Število fizičnih pisanj v dnevniško datoteko."
 
 #: libraries/messages.inc.php:109
 msgid "The number of fsync() writes done to the log file."
