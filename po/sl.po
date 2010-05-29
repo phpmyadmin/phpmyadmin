@@ -5479,7 +5479,7 @@ msgstr ""
 
 #: server_replication.php:217
 msgid "Master configuration"
-msgstr ""
+msgstr "Konfiguracija glavnega strežnika"
 
 #: server_replication.php:218
 msgid ""
