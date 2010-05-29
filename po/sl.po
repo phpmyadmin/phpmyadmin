@@ -6979,7 +6979,7 @@ msgstr "Zaradi zmogljivostnih razlogov uporabljajte mysqli"
 
 #: setup/lib/messages.inc.php:240
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Dovoljujete povezavo s strežnikom brez gesla."
 
 #: setup/lib/messages.inc.php:242
 msgid "Leave blank if not used"
