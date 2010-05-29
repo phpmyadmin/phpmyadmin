@@ -5526,7 +5526,7 @@ msgstr "Polni konec"
 
 #: server_replication.php:326
 msgid "Reset slave"
-msgstr ""
+msgstr "Ponovno zaženi podrejenca"
 
 #: server_replication.php:327
 #, php-format
