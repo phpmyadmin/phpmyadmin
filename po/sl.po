@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 10:29+0200\n"
+"PO-Revision-Date: 2010-05-29 10:31+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3348,6 +3348,8 @@ msgstr ""
 #: libraries/messages.inc.php:63
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
+"Število transakcij, ki so uporabile začasni predpomnilnik dvojiškega "
+"dnevnika."
 
 #: libraries/messages.inc.php:64
 msgid ""
