@@ -7167,7 +7167,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:287
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Prikaži samo navedene zbirke podatkov"
 
 #: setup/lib/messages.inc.php:288 setup/lib/messages.inc.php:322
 msgid "Leave empty if not using config auth"
