@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 15:24+0200\n"
+"PO-Revision-Date: 2010-05-29 15:27+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2919,7 +2919,7 @@ msgstr "Struktura pogleda"
 
 #: libraries/export/sql.php:817
 msgid "Stand-in structure for view"
-msgstr ""
+msgstr "Nadomestna struktura pogleda"
 
 #: libraries/export/texytext.php:17
 msgid "Texy! text"
