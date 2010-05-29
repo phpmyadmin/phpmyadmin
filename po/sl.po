@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 14:48+0200\n"
+"PO-Revision-Date: 2010-05-29 14:49+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5546,7 +5546,7 @@ msgstr "Sinhroniziraj zbirke podatkov z glavnim strežnikom"
 
 #: server_replication.php:322
 msgid "Control slave:"
-msgstr ""
+msgstr "Upravljaj podrejenca:"
 
 #: server_replication.php:325
 msgid "Full start"
