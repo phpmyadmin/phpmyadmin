@@ -4435,7 +4435,7 @@ msgstr "ZAČETEK NAVADNO"
 
 #: libraries/sqlparser.lib.php:183
 msgid "END RAW"
-msgstr "END RAW"
+msgstr "KONEC NAVADNO"
 
 #: libraries/sqlparser.lib.php:344
 msgid "Unclosed quote"
