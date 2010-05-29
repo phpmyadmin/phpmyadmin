@@ -5040,7 +5040,7 @@ msgid ""
 "appropriate field name."
 msgstr ""
 "Prikazno polje je obarvano pink. Da določite/odstranite polje kot prikazno "
-"polje, kliknite ikono »Izberite polje za prikaz«, nato pa kliknite na "
+"polje, kliknite ikono \"Izberite polje za prikaz\", nato pa kliknite na "
 "ustrezno ime polja."
 
 #: pmd_pdf.php:63
