@@ -6865,7 +6865,7 @@ msgstr "Vztrajne povezave"
 
 #: setup/lib/messages.inc.php:223
 msgid "Iconic table operations"
-msgstr ""
+msgstr "Ikonski posegi tabel"
 
 #: setup/lib/messages.inc.php:224
 msgid "Disallow BLOB and BINARY fields from editing"
