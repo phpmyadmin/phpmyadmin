@@ -7181,7 +7181,7 @@ msgstr "Geslo za overovitev config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore PDF-sheme; priporočeno: "
+"Pustite prazno, če ne želite podpore PDF-sheme; predlagano: "
 "[kbd]pma_pdf_pages[/kbd]"
 
 #: setup/lib/messages.inc.php:291
