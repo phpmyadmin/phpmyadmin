@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 14:15+0200\n"
+"PO-Revision-Date: 2010-05-29 14:16+0200\n"
 "Last-Translator: Ahmed <aa.mahdawy.10@gmail.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1908,7 +1908,7 @@ msgstr "قاعدة بيانات %s محذوفه."
 #: libraries/db_links.inc.php:57 libraries/db_links.inc.php:58
 #: libraries/db_links.inc.php:59
 msgid "Database seems to be empty!"
-msgstr "قاعدة البيانات خالية!"
+msgstr "قاعدة البيانات فارغة!"
 
 #: libraries/db_links.inc.php:81 libraries/relation.lib.php:155
 #: libraries/tbl_links.inc.php:69
