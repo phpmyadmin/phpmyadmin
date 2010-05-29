@@ -3588,7 +3588,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:107
 msgid "The number of log write requests."
-msgstr ""
+msgstr "Število zahtev pisanja v dnevnik."
 
 #: libraries/messages.inc.php:108
 msgid "The number of physical writes to the log file."
