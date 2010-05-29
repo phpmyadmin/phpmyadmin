@@ -1220,7 +1220,7 @@ msgstr "sre"
 #. l10n: Short week day name
 #: js/messages.php:140 libraries/common.lib.php:1588
 msgid "Thu"
-msgstr "Čet"
+msgstr "čet"
 
 #. l10n: Short week day name
 #: js/messages.php:142 libraries/common.lib.php:1590
