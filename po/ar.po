@@ -209,7 +209,7 @@ msgstr "إلغاء تحديد الكل"
 
 #: db_operations.php:38 tbl_create.php:54
 msgid "The database name is empty!"
-msgstr ""
+msgstr "إسم قاعدة البيانات خالي!"
 
 #: db_operations.php:236
 #, php-format
