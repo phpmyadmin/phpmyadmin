@@ -5664,6 +5664,7 @@ msgstr ""
 #: server_status.php:364
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"Strežnik MySQL deluje kot <b>podrejenec</b> v postopku <b>podvojevanja</b>."
 
 #: server_status.php:366
 msgid ""
