@@ -5544,7 +5544,7 @@ msgstr "Ustavi"
 #: server_replication.php:328
 #, php-format
 msgid "IO Thread %s only"
-msgstr ""
+msgstr "Nit IO samo %s"
 
 #: server_replication.php:332
 msgid "Error management:"
