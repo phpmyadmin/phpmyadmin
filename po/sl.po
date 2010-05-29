@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 15:01+0200\n"
+"PO-Revision-Date: 2010-05-29 15:02+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7026,7 +7026,7 @@ msgstr "Konfiguracijska datoteka SweKey"
 
 #: setup/lib/messages.inc.php:252
 msgid "Authentication method to use"
-msgstr ""
+msgstr "Način overovitve za uporabo"
 
 #: setup/lib/messages.inc.php:253
 msgid "Authentication type"
