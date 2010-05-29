@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 13:37+0200\n"
+"PO-Revision-Date: 2010-05-29 13:39+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2427,7 +2427,7 @@ msgstr "Zasedene strani"
 
 #: libraries/engines/innodb.lib.php:239
 msgid "Latched pages"
-msgstr ""
+msgstr "Zapahnjene strani"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Buffer Pool Activity"
