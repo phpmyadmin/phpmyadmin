@@ -6381,7 +6381,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:99
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Omejitev tujih ključev"
 
 #: setup/lib/messages.inc.php:100
 msgid "Browse mode"
