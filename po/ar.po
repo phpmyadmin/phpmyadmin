@@ -1760,7 +1760,7 @@ msgstr "بدون كود PHP"
 
 #: libraries/common.lib.php:1215 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
-msgstr "أنشئ شيفرة PHP"
+msgstr "أنشئ كود PHP"
 
 #: libraries/common.lib.php:1233 server_status.php:341
 #: setup/lib/messages.inc.php:354
