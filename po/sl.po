@@ -7175,7 +7175,7 @@ msgstr "Pustite prazno, če ne uporabljate overovitve config"
 
 #: setup/lib/messages.inc.php:289
 msgid "Password for config auth"
-msgstr ""
+msgstr "Geslo za overovitev config"
 
 #: setup/lib/messages.inc.php:290
 msgid ""
