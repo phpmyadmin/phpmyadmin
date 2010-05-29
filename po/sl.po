@@ -5270,7 +5270,7 @@ msgstr "Dovoli"
 
 #: server_privileges.php:1521 server_privileges.php:2123
 msgid "Any"
-msgstr "Katerikoli"
+msgstr "Kateri koli"
 
 #: server_privileges.php:1570 server_privileges.php:1594
 #: server_privileges.php:1988 server_privileges.php:2177
