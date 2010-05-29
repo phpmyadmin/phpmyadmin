@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 14:15+0200\n"
+"PO-Revision-Date: 2010-05-29 14:16+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3840,7 +3840,7 @@ msgstr ""
 #: libraries/messages.inc.php:158
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
-msgstr ""
+msgstr "Število poizvedb, ki so porabile več kot long_query_time sekund."
 
 #: libraries/messages.inc.php:159
 msgid ""
