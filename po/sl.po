@@ -4192,7 +4192,7 @@ msgstr "Konfiguracija podrejencev"
 
 #: libraries/replication_gui.lib.php:51 server_replication.php:347
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Spremeni ali ponovno konfiguriraj glavni strežnik"
 
 #: libraries/replication_gui.lib.php:52
 msgid ""
