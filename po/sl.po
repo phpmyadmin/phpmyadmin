@@ -6450,7 +6450,7 @@ msgstr "Vnesite prijavne možnosti za overovitev signon"
 
 #: setup/lib/messages.inc.php:130
 msgid "Signon login options"
-msgstr ""
+msgstr "Prijavne možnosti signon"
 
 #: setup/lib/messages.inc.php:131
 msgid ""
