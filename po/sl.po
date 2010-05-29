@@ -6999,7 +6999,7 @@ msgstr "Pravila overovitve gostitelja"
 
 #: setup/lib/messages.inc.php:246
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Dovoli prijave brez gesla"
 
 #: setup/lib/messages.inc.php:247
 msgid "Allow root login"
