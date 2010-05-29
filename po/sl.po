@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 13:53+0200\n"
+"PO-Revision-Date: 2010-05-29 13:59+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3542,7 +3542,7 @@ msgstr "Število dozdajšnjih posegov fsync()."
 
 #: libraries/messages.inc.php:97
 msgid "The current number of pending fsync() operations."
-msgstr ""
+msgstr "Trenutno število čakajočih posegov fsync()."
 
 #: libraries/messages.inc.php:98
 msgid "The current number of pending reads."
