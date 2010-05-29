@@ -4,14 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-03-12 09:11+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-05-29 13:21+0200\n"
+"Last-Translator: Ahmed <aa.mahdawy.10@gmail.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
-"Language: \n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
 #: libraries/display_tbl.lib.php:417 server_privileges.php:1475
@@ -221,7 +223,7 @@ msgstr ""
 
 #: db_operations.php:410
 msgid "Rename database to"
-msgstr ""
+msgstr "أعد تسمية قاعدة البيانات ﺇﻠﻰ"
 
 #: db_operations.php:415 server_processlist.php:57
 msgid "Command"
@@ -7943,193 +7945,3 @@ msgstr ""
 
 #~ msgid "See image/jpeg: inline"
 #~ msgstr "اعرض صور/jpeg: بنفس السطر"
-
-#, fuzzy
-#~| msgid "\"zipped\""
-#~ msgid "zipped"
-#~ msgstr "\"مضغوط\""
-
-#, fuzzy
-#~| msgid "\"gzipped\""
-#~ msgid "gzipped"
-#~ msgstr "\"gzipped\""
-
-#, fuzzy
-#~| msgid "\"bzipped\""
-#~ msgid "bzipped"
-#~ msgstr "\"bzipped\""
-
-#~ msgid "and"
-#~ msgstr "و"
-
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "معطل"
-
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "مفعل"
-
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "صلح"
-
-#~ msgid "Calendar"
-#~ msgstr "نتيجة"
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "تصميم فهرسه على&nbsp;%s&nbsp;عمود"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "إعادة تحميل الجدول (\"FLUSH\")"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "الوصف"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "بناء قاعدة البيانات \"%s\" - الصفحة %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "الجدول \"%s\" غير موجود!"
-
-#~ msgid "running on %s"
-#~ msgstr " على المزود %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "نسبة الحجم المحددة صغيرة جدا لملائمة المخطط في صفحة واحدة."
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "لا شيء"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "لا شيء"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "الجدول \"%s\" غير موجود!"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr "لا يمكن قراءة الامتداد %s،<br />رجاء تأكد من إعدادات PHP."
-
-#, fuzzy
-#~| msgid "Cannot log in to the MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "لا يمكن الدخول إلى خادم MySQL"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "هناك احتمال أنك عثرت على خلل في مدقق SQL. رجاءً اختبر استعلامك بدقة، وتأكد "
-#~ "من أن علامات التنصيص صحيحة ومتطابقة. بعض أسباب الإخفاق الأخرى قد تكون أنك "
-#~ "تحاول تحميل ملف يحتوي على بيانات غير نصية خارج منطقة التنصيص. يمكنك أيضا "
-#~ "تجربة استعلامك بواسطة سطر أوامر MySQL. قد تساعدك رسالة خطأ خادم MySQL "
-#~ "أدناه، إن كانت هناك واحدة، على تشخيص المشكلة. إن بقي هناك مشاكل أو إن "
-#~ "أخفق المدقق في حين نجح استخدام سطر الأوامر، رجاء قلص حجم استعلامك "
-#~ "لاستعلام واحد يسبب المشكلة، وقم بإرسال تقرير خلل مع جزء البيانات في منطقة "
-#~ "القص أدناه:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "بيانات CSV"
-
-#~ msgid "Copy"
-#~ msgstr "انسخ"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "احذف المستخدمين وقم بإعادة قراءة الصلاحيات بعد ذلك."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr "هذه هي أنظف طريقة، لكن إعادة قراءة الصلاحيات قد يتطلب بعض الوقت."
-
-#~ msgid "has been altered."
-#~ msgstr "لقد عدل."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "سوف يبقى المستخدمون &quot;المحذوفون&quot; قادرون على الوصول للخادم "
-#~ "كالعادة حتى يتم إعادة قراءة الصلاحيات."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "فقط قم بحذف المستخدمين من جدول الصلاحيات."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "يسمح بتشغيل الإجراءات المخزنة )stored procedures(، ليس له أي تأثير في هذه "
-#~ "النسخة من خادم MySQL."
-
-#~ msgid "Process list"
-#~ msgstr "سرد العمليات"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "سوف تبقى الصلاحية USAGE لدى المستخدمين حتى يتم إعادة قراءة الصلاحيات."
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "تحديد الكل"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "تحديد الكل"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "إدخال"
-
-#, fuzzy
-#~| msgid "Updated"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "محدث"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "حذف"
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
