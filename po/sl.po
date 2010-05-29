@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 13:10+0200\n"
+"PO-Revision-Date: 2010-05-29 13:12+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7934,7 +7934,7 @@ msgstr "Notranja relacija ni nujna, ko obstaja ustrezna relacija FOREIGN KEY."
 
 #: tbl_relation.php:413
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "Omejitev tujih ključev"
 
 #: tbl_row_action.php:29
 msgid "No rows selected"
