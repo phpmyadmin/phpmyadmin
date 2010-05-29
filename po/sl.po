@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 14:17+0200\n"
+"PO-Revision-Date: 2010-05-29 14:19+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3863,7 +3863,7 @@ msgstr "Število razvrščanj, ki so bila storjena s pregledovanjem tabele."
 
 #: libraries/messages.inc.php:163
 msgid "The number of times that a table lock was acquired immediately."
-msgstr ""
+msgstr "Koliko krat je bil zaklep tabele pridobljen takoj."
 
 #: libraries/messages.inc.php:164
 msgid ""
