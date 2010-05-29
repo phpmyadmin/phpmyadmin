@@ -7236,7 +7236,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:302
 msgid "Signon URL"
-msgstr ""
+msgstr "URL signon"
 
 #: setup/lib/messages.inc.php:303
 msgid ""
