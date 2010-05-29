@@ -7022,7 +7022,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:251
 msgid "SweKey config file"
-msgstr ""
+msgstr "Konfiguracijska datoteka SweKey"
 
 #: setup/lib/messages.inc.php:252
 msgid "Authentication method to use"
