@@ -7121,7 +7121,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:278
 msgid "SQL query history table"
-msgstr ""
+msgstr "Tabela zgodovine poizvedb SQL"
 
 #: setup/lib/messages.inc.php:279
 msgid ""
