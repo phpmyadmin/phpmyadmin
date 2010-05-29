@@ -1215,7 +1215,7 @@ msgstr "tor"
 #. l10n: Short week day name
 #: js/messages.php:138 libraries/common.lib.php:1586
 msgid "Wed"
-msgstr "Sre"
+msgstr "sre"
 
 #. l10n: Short week day name
 #: js/messages.php:140 libraries/common.lib.php:1588
