@@ -191,6 +191,7 @@ msgid "Print"
 msgstr "Natisni"
 
 #: db_export.php:29
+#, fuzzy
 msgid "View dump (schema) of database"
 msgstr "Preglej povzetek stanja podatkovne baze"
 
