@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 12:22+0200\n"
+"PO-Revision-Date: 2010-05-29 12:23+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7103,7 +7103,7 @@ msgstr "Katera razširitev PHP naj se uporablja; uporabite mysqli, če je podprt
 
 #: setup/lib/messages.inc.php:274
 msgid "PHP extension to use"
-msgstr ""
+msgstr "Razširitev PHP za uporabo"
 
 #: setup/lib/messages.inc.php:275
 msgid "Hide databases matching regular expression (PCRE)"
