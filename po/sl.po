@@ -3493,7 +3493,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:89
 msgid "Total size of buffer pool, in pages."
-msgstr ""
+msgstr "Skupna velikost zaloge medpomnilnika, v straneh."
 
 #: libraries/messages.inc.php:90
 msgid ""
