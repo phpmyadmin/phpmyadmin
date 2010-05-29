@@ -3546,7 +3546,7 @@ msgstr "Trenutno število čakajočih posegov fsync()."
 
 #: libraries/messages.inc.php:98
 msgid "The current number of pending reads."
-msgstr ""
+msgstr "Trenutno število čakajočih branj."
 
 #: libraries/messages.inc.php:99
 msgid "The current number of pending writes."
