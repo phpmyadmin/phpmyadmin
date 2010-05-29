@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 13:53+0200\n"
+"PO-Revision-Date: 2010-05-29 13:54+0200\n"
 "Last-Translator: Ahmed <aa.mahdawy.10@gmail.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1476,7 +1476,7 @@ msgstr "اسم الجدول غير صالح"
 #: libraries/Table.class.php:1048
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "خطأ في إعادة تسمية الجدول %1$s إلى %2$s"
 
 #: libraries/Table.class.php:1132
 #, php-format
