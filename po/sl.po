@@ -2393,7 +2393,7 @@ msgstr "Stanje InnoDB"
 
 #: libraries/engines/innodb.lib.php:189
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "Uporaba zaloge medpomnilnika"
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:414 server_status.php:475
