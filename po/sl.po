@@ -1255,7 +1255,7 @@ msgstr "sr"
 #. l10n: Minimal week day name
 #: js/messages.php:156
 msgid "Th"
-msgstr "Če"
+msgstr "če"
 
 #. l10n: Minimal week day name
 #: js/messages.php:158
