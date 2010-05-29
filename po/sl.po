@@ -5118,7 +5118,7 @@ msgstr "Podvojevanje glavnega strežnika"
 
 #: server_databases.php:197 server_replication.php:248
 msgid "Slave replication"
-msgstr ""
+msgstr "Podvojevanje podrejencev"
 
 #: server_databases.php:230
 msgid "Jump to database"
