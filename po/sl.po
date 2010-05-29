@@ -5542,7 +5542,7 @@ msgstr "Oglej si tabelo stanj podrejencev"
 
 #: server_replication.php:311
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Sinhroniziraj zbirke podatkov z glavnim strežnikom"
 
 #: server_replication.php:322
 msgid "Control slave:"
