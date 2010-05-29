@@ -7368,7 +7368,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:327
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "Razširjeno ime tega strežnika"
 
 #: setup/lib/messages.inc.php:329
 msgid ""
