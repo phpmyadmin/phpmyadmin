@@ -7099,7 +7099,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
-msgstr ""
+msgstr "Katera razširitev PHP naj se uporablja; uporabite mysqli, če je podprt"
 
 #: setup/lib/messages.inc.php:274
 msgid "PHP extension to use"
