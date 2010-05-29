@@ -4263,7 +4263,7 @@ msgstr "Uporabi besedilno polje"
 
 #: libraries/replication_gui.lib.php:302 server_privileges.php:725
 msgid "Any host"
-msgstr "Katerikoli gostitelj"
+msgstr "Kateri koli gostitelj"
 
 #: libraries/replication_gui.lib.php:306 server_privileges.php:729
 msgid "Local"
