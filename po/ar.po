@@ -1631,7 +1631,7 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:698
 msgid "View video"
-msgstr ""
+msgstr "عرض الفيديو"
 
 #: libraries/blobstreaming.lib.php:702
 msgid "Download file"
