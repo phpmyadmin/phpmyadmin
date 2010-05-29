@@ -5671,6 +5671,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
+"Za več informacij o stanju podvojevanja na tem strežniku, prosimo obiščite "
+"<a href=#replication>razdelek o podvojevanju</a>."
 
 #: server_status.php:383
 msgid ""
