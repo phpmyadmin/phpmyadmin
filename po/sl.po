@@ -1230,7 +1230,7 @@ msgstr "pet"
 #. l10n: Short week day name
 #: js/messages.php:144 libraries/common.lib.php:1592
 msgid "Sat"
-msgstr "Sob"
+msgstr "sob"
 
 #. l10n: Minimal week day name
 #: js/messages.php:148
