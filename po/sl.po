@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 10:33+0200\n"
+"PO-Revision-Date: 2010-05-29 10:37+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4188,7 +4188,7 @@ msgstr "brez opisa"
 
 #: libraries/replication_gui.lib.php:51
 msgid "Slave configuration"
-msgstr ""
+msgstr "Konfiguracija podrejencev"
 
 #: libraries/replication_gui.lib.php:51 server_replication.php:347
 msgid "Change or reconfigure master server"
