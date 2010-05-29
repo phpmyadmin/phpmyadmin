@@ -7003,7 +7003,7 @@ msgstr "Dovoli prijave brez gesla"
 
 #: setup/lib/messages.inc.php:247
 msgid "Allow root login"
-msgstr ""
+msgstr "Dovoli prijavo root"
 
 #: setup/lib/messages.inc.php:248
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
