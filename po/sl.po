@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 11:01+0200\n"
+"PO-Revision-Date: 2010-05-29 11:02+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5114,7 +5114,7 @@ msgstr "Tabele"
 #: server_databases.php:195 server_replication.php:181
 #: server_replication.php:209
 msgid "Master replication"
-msgstr ""
+msgstr "Podvojevanje glavnega strežnika"
 
 #: server_databases.php:197 server_replication.php:248
 msgid "Slave replication"
