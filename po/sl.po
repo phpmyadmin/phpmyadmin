@@ -1245,7 +1245,7 @@ msgstr "po"
 #. l10n: Minimal week day name
 #: js/messages.php:152
 msgid "Tu"
-msgstr "To"
+msgstr "to"
 
 #. l10n: Minimal week day name
 #: js/messages.php:154
