@@ -2455,7 +2455,7 @@ msgstr "Zgrešena branja v %"
 
 #: libraries/engines/innodb.lib.php:286
 msgid "Write waits in %"
-msgstr ""
+msgstr "Čakajoča pisanja v %"
 
 #: libraries/engines/myisam.lib.php:23
 msgid "Data pointer size"
