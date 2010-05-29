@@ -7171,7 +7171,7 @@ msgstr "Prikaži samo navedene zbirke podatkov"
 
 #: setup/lib/messages.inc.php:288 setup/lib/messages.inc.php:322
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "Pustite prazno, če ne uporabljate overovitve config"
 
 #: setup/lib/messages.inc.php:289
 msgid "Password for config auth"
