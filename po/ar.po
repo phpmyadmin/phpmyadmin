@@ -1627,7 +1627,7 @@ msgstr "اعرض الصورة"
 
 #: libraries/blobstreaming.lib.php:693
 msgid "Play audio"
-msgstr "تشغيل الصوت"
+msgstr "شغل الصوت"
 
 #: libraries/blobstreaming.lib.php:698
 msgid "View video"
