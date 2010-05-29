@@ -7130,7 +7130,7 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; priporočeno: "
+"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: "
 "[kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
