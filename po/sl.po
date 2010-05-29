@@ -5534,6 +5534,7 @@ msgstr "Podrejenčeva nit IO ni zagnana!"
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"Strežnik je konfiguriran kot podrejenec v postopku podvojevanja. Ali želite:"
 
 #: server_replication.php:308
 msgid "See slave status table"
