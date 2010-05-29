@@ -7229,7 +7229,7 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
-"Glejte [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]vrste "
+"Oglejte si [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]vrste "
 "overovitev[/a] za primer"
 
 #: setup/lib/messages.inc.php:301
