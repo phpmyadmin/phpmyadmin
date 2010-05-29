@@ -7118,7 +7118,7 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore zgodovine poizvedb SQL; priporočeno: "
+"Pustite prazno, če ne želite podpore zgodovine poizvedb SQL; predlagano: "
 "[kbd]pma_history[/kbd]"
 
 #: setup/lib/messages.inc.php:278
