@@ -5453,7 +5453,7 @@ msgstr "Ne morem spremeniti glavnega strežnika"
 #: server_replication.php:74
 #, php-format
 msgid "Master server changed succesfully to %s"
-msgstr ""
+msgstr "Glavni strežnik je uspešno spremenjen v %s"
 
 #: server_replication.php:182
 msgid "This server is configured as master in a replication process."
