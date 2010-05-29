@@ -5033,7 +5033,7 @@ msgstr "Ustvarjanje strani je spodletelo"
 
 #: pmd_pdf.php:85
 msgid "Export/Import to scale"
-msgstr ""
+msgstr "Izvozi/Uvozi v razmerju"
 
 #: pmd_pdf.php:89
 msgid "recommended"
