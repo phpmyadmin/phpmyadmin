@@ -1688,7 +1688,7 @@ msgstr ""
 #: libraries/common.inc.php:629
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "فهرس خادم غير صحيح: %s"
 
 #: libraries/common.inc.php:636
 #, php-format
