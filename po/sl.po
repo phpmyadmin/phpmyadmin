@@ -7344,7 +7344,7 @@ msgstr "Tabela prikaznih polj"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
-msgstr ""
+msgstr "Uporabnik za overovitev config"
 
 #: setup/lib/messages.inc.php:324
 msgid ""
