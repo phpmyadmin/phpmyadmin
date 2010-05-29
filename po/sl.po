@@ -1260,7 +1260,7 @@ msgstr "če"
 #. l10n: Minimal week day name
 #: js/messages.php:158
 msgid "Fr"
-msgstr "Pe"
+msgstr "pe"
 
 #. l10n: Minimal week day name
 #: js/messages.php:160
