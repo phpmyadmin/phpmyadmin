@@ -7232,7 +7232,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:301
 msgid "Signon session name"
-msgstr ""
+msgstr "Ime seje signon"
 
 #: setup/lib/messages.inc.php:302
 msgid "Signon URL"
