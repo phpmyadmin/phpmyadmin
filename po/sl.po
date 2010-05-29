@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 13:59+0200\n"
+"PO-Revision-Date: 2010-05-29 14:00+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3550,7 +3550,7 @@ msgstr "Trenutno število čakajočih branj."
 
 #: libraries/messages.inc.php:99
 msgid "The current number of pending writes."
-msgstr ""
+msgstr "Trenutno število čakajočih pisanj."
 
 #: libraries/messages.inc.php:100
 msgid "The amount of data read so far, in bytes."
