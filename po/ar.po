@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 13:21+0200\n"
+"PO-Revision-Date: 2010-05-29 13:22+0200\n"
 "Last-Translator: Ahmed <aa.mahdawy.10@gmail.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -214,7 +214,7 @@ msgstr ""
 #: db_operations.php:236
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "تم إعادة تسمية قاعدة البيانات %s إلى %s"
 
 #: db_operations.php:240
 #, php-format
