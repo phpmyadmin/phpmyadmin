@@ -2435,7 +2435,7 @@ msgstr "Dejavnost zaloge medpomnilnika"
 
 #: libraries/engines/innodb.lib.php:254
 msgid "Read requests"
-msgstr ""
+msgstr "Zahtev branja"
 
 #: libraries/engines/innodb.lib.php:260
 msgid "Write requests"
