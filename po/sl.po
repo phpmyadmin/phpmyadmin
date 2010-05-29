@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-29 13:36+0200\n"
+"PO-Revision-Date: 2010-05-29 13:37+0200\n"
 "Last-Translator:  <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4044,7 +4044,7 @@ msgstr "Ukrajinsko"
 
 #: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
 msgid "Unicode"
-msgstr "Unicode"
+msgstr "Unikod"
 
 #: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
 #: libraries/mysql_charsets.lib.php:325 libraries/mysql_charsets.lib.php:332
