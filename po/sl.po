@@ -6995,7 +6995,7 @@ msgstr "Pustite prazno za privzeto"
 
 #: setup/lib/messages.inc.php:245
 msgid "Host authentication rules"
-msgstr ""
+msgstr "Pravila overovitve gostitelja"
 
 #: setup/lib/messages.inc.php:246
 msgid "Allow logins without a password"
