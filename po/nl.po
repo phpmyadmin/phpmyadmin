@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:47+0200\n"
+"PO-Revision-Date: 2010-05-31 00:48+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -5439,11 +5439,11 @@ msgstr "Inloginformatie"
 msgid "Do not change the password"
 msgstr "Wijzig het wachtwoord niet"
 
+# Enkelvoud.
 #: server_privileges.php:804 server_privileges.php:2166
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
-msgstr "Geen gebruiker(s) gevonden."
+msgstr "Geen gebruiker gevonden."
 
 #: server_privileges.php:848
 #, php-format
