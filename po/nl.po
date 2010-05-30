@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:45+0200\n"
+"PO-Revision-Date: 2010-05-31 00:47+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -5255,10 +5255,12 @@ msgstr ""
 "wijzigen, klik het \"Kies weer te geven veld\" icoon gevolgd door het weer "
 "te geven veld."
 
+# Verleden tijd: "is aangemaakt" => "werd aangemaakt", ookal bestaat het nog steeds.
+# Wat doet "%1$s" hier?
 #: pmd_pdf.php:63
 #, fuzzy
 msgid "Page has been created"
-msgstr "Tabel %1$s is aangemaakt."
+msgstr "De pagina werd aangemaakt."
 
 #: pmd_pdf.php:65
 msgid "Page creation failed"
