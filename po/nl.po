@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:44+0200\n"
+"PO-Revision-Date: 2010-05-31 00:45+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -5074,10 +5074,10 @@ msgid ""
 msgstr ""
 "De server gebruikt Suhosin. Zie de %sdocumentatie%s voor mogelijke problemen."
 
+# Zowel "frame" als "window" vertalen naar "venster".
 #: navigation.php:66 navigation.php:67 navigation.php:70
-#, fuzzy
 msgid "Reload navigation frame"
-msgstr "Aanpassen navigatieframe"
+msgstr "Herlaad het navigatievenster."
 
 #: navigation.php:210 server_databases.php:371 server_synchronize.php:1191
 msgid "No databases"
