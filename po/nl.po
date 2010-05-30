@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:54+0200\n"
+"PO-Revision-Date: 2010-05-31 00:55+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7430,7 +7430,6 @@ msgid "SQL query history table"
 msgstr "SQL-query historie tabel"
 
 #: setup/lib/messages.inc.php:279
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -7438,8 +7437,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Laat dit veld leeg om geen SQL-historie te ondersteunen, suggestie: [kbd]"
-"pma_history[/kbd]"
+"Laat dit veld leeg om geen SQL-geschiedenis te ondersteunen, voorgesteld: "
+"[kbd]pma_history[/kbd]"
 
 #: setup/lib/messages.inc.php:280
 #, fuzzy
