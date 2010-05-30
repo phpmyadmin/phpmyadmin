@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 01:42+0200\n"
+"PO-Revision-Date: 2010-05-31 01:44+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2595,7 +2595,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:48
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "Pogostnost nadzornih točk"
 
 #: libraries/engines/pbxt.lib.php:49
 msgid ""
