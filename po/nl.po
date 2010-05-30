@@ -5394,7 +5394,6 @@ msgid "View dump (schema) of databases"
 msgstr "Bekijk dump (schema) van de databases"
 
 #: server_privileges.php:263 server_privileges.php:264
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
