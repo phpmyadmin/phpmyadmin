@@ -5264,7 +5264,7 @@ msgstr "De pagina werd aangemaakt."
 
 #: pmd_pdf.php:65
 msgid "Page creation failed"
-msgstr ""
+msgstr "Het aanmaken van de pagina is mislukt"
 
 #: pmd_pdf.php:85
 msgid "Export/Import to scale"
