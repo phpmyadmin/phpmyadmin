@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:53+0200\n"
+"PO-Revision-Date: 2010-05-31 00:54+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6753,6 +6753,8 @@ msgstr "PMA database"
 #: setup/lib/messages.inc.php:133
 msgid "Tracking of changes made in database. Requires configured PMA database."
 msgstr ""
+"Bijhouden van wijzigingen in de database. Dit vereist een geconfigureerde "
+"PMA database."
 
 #: setup/lib/messages.inc.php:134
 msgid "Changes tracking"
