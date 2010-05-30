@@ -6108,7 +6108,7 @@ msgstr "De volgende queries zijn uitgevoerd:"
 
 #: server_synchronize.php:1122
 msgid "Enter manually"
-msgstr ""
+msgstr "Geef handmatig op"
 
 #: server_synchronize.php:1123
 #, fuzzy
