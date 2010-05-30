@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:29+0200\n"
+"PO-Revision-Date: 2010-05-31 00:30+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1807,7 +1807,7 @@ msgstr "Valideer SQL"
 
 #: libraries/common.lib.php:1276
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Rechtstreekse bewerking van deze query"
 
 #: libraries/common.lib.php:1278
 #, fuzzy
