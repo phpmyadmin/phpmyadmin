@@ -2590,6 +2590,8 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
+"Velikost globalnega medpomnilnika dnevnika transakcij (pogon dodeli dva "
+"medpomnilnika te velikosti). Privzeto je 1 MB."
 
 #: libraries/engines/pbxt.lib.php:48
 msgid "Checkpoint frequency"
