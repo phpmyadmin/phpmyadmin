@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:41+0200\n"
+"PO-Revision-Date: 2010-05-31 00:42+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -4891,10 +4891,13 @@ msgstr ""
 "prefix als \"http://domein.com/\", de tweede optie is de titel voor de link."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
+#, fuzzy
 msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
+"Zet een (IPv4) internet netwerkadres om in een tekenreeks volgens het "
+"standaard formaat met punten."
 
 #: libraries/transformations/text_plain__sql.inc.php:10
 msgid "Formats text as SQL query with syntax highlighting."
