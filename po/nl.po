@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:31+0200\n"
+"PO-Revision-Date: 2010-05-31 00:33+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2037,11 +2037,11 @@ msgstr "Type opnieuw"
 msgid "Password Hashing"
 msgstr "Wachtwoord Hashing"
 
+# Kan ook vertaald worden als "werkt met ..."
 #: libraries/display_change_password.lib.php:66
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
-msgstr "MySQL&nbsp;4.0 compatibel"
+msgstr "Compatibel met MySQL&nbsp;4.0"
 
 #: libraries/display_change_password.lib.php:72
 #: libraries/replication_gui.lib.php:360 server_privileges.php:783
