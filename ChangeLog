@@ -12,6 +12,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Greek update, thanks to Panagiotis Papazoglou - panos78
 + [lang] Updated lot of translation based on work done in master branch.
 - bug #3008411 [databases] Last dropped database remains active in navi
+- bug #2986383 [parser] Not all data being shown / counted
 
 3.3.3.0 (2010-05-10)
 - patch #2982480 [navi] Do not group if there would be one table in group,
