@@ -6116,10 +6116,10 @@ msgid "Current connection"
 msgstr "Huidige verbinding"
 
 #: server_synchronize.php:1152
-#, fuzzy, php-format
+#, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
-msgstr "Configuratiebestand"
+msgstr "Configuratie: %s"
 
 #: server_synchronize.php:1167
 msgid "Socket"
