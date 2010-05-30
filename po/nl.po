@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:28+0200\n"
+"PO-Revision-Date: 2010-05-31 00:29+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1699,11 +1699,12 @@ msgstr ""
 "gevallen ontbreekt er ergens bijvoorbeeld een quote.<br /> Wanneer er een "
 "blanco pagina wordt weergegeven zijn er geen problemen."
 
+# 'kon niet vanuit "%1$s" geladen worden' is juister.
 #: libraries/common.inc.php:594
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Standaard configuratiebestand kon niet worden geladen vanuit: \"%1$s\""
+msgstr "Standaard configuratiebestand kon niet geladen worden vanuit: \"%1$s\""
 
 #: libraries/common.inc.php:599
 msgid ""
