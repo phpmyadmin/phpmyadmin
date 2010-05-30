@@ -3196,12 +3196,12 @@ msgstr ""
 "Het XML-bestand was beschadigd of onvolledig. Repareer het bestand en "
 "probeer opnieuw. "
 
+# Is er een betere vertaling voor 'encoding' ?
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:143
-#, fuzzy
 #| msgid "Recoding engine"
 msgid "Encoding conversion"
-msgstr "Hercoderings engine"
+msgstr "Omzetting van de codering"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:145
