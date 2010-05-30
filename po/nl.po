@@ -1313,7 +1313,7 @@ msgstr "Week"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "Uur"
 
 #: js/messages.php:165
 #, fuzzy
