@@ -5140,7 +5140,7 @@ msgstr ""
 "Wilt u deze referenties verwijderen?"
 
 #: pdf_schema.php:636
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "De tabel \"%s\" bestaat niet!"
