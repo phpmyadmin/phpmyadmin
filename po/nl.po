@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:34+0200\n"
+"PO-Revision-Date: 2010-05-31 00:35+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3211,10 +3211,11 @@ msgctxt "None encoding conversion"
 msgid "None"
 msgstr "Geen"
 
+# Wat is 'Kana' ?
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:151
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Zet om naar Kana"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:19
