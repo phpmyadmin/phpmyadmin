@@ -98,12 +98,12 @@ function suggestPassword(passwd_form) {
  * Add all AJAX scripts for server_privileges page here.
  *
  * Actions to be ajaxified here:
- * Add a new user
- * Revoke a user (and also drop databases with same name as user)
- * Edit privileges
- * Export privileges
- * Paginate table of users
- * Flush privileges
+ * Add a new user - submission of form to be handled
+ * Revoke a user (and also drop databases with same name as user) - #fieldset_delete_user #buttonGo - confirm, ajax post.
+ * Edit privileges - no id/class yet. 7th col in table - use dialog, submit form
+ * Export privileges - no id/class yet. 8th col in table - use ajax and load response. new div container necessary for response
+ * Paginate table of users - use ajax, replace #usersForm
+ * Flush privileges - done!
  */
 
 $(document).ready(function() {
@@ -113,7 +113,7 @@ $(document).ready(function() {
      *
      * @todo create standard options for dialog boxes
      */
-    $("#fieldset_add_user a").click(function(event) {
+    $("#fieldset_add_user a").live("click", function(event) {
         event.preventDefault();
 
         PMA_ajaxShowMessage();
@@ -138,7 +138,7 @@ $(document).ready(function() {
     /**
      * Attach Ajax event handler to 'Reload Privileges' anchor
      */
-    $("#reload_privileges_anchor").click(function(event) {
+    $("#reload_privileges_anchor").live("click", function(event) {
         event.preventDefault();
 
         PMA_ajaxShowMessage("Reloading Privileges");
