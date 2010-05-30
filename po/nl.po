@@ -2957,9 +2957,10 @@ msgstr "Gebruik 'INSERT IGNORE'"
 msgid "Use hexadecimal for BLOB"
 msgstr "Gebruik hexadecimaal voor BLOB"
 
+# UTC = Universal Time Zone, UTC laten staan.
 #: libraries/export/sql.php:120
 msgid "Export time in UTC"
-msgstr ""
+msgstr "Exporteer tijd in UTC"
 
 #: libraries/export/sql.php:122
 msgid "Export type"
