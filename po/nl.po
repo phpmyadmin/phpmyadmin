@@ -1048,10 +1048,9 @@ msgstr "Kies weer te geven veld"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Donate"
 msgid "Done"
-msgstr "Doneer"
+msgstr "Klaar"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:75
