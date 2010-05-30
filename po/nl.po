@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:37+0200\n"
+"PO-Revision-Date: 2010-05-31 00:38+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -4375,9 +4375,10 @@ msgid ""
 msgstr ""
 "Maak de benodigde tabellen aan met <code>script/create_tables.sql</code>."
 
+# hem/haar/het past beter maar het geslacht van de gebruiker is onvoorspelbaar.
 #: libraries/relation.lib.php:162
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Maak een pma gebruiker aan en verleen die toegang tot deze tabellen."
 
 #: libraries/relation.lib.php:163
 msgid ""
