@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 01:47+0200\n"
+"PO-Revision-Date: 2010-05-31 01:48+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2633,7 +2633,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Log buffer size"
-msgstr ""
+msgstr "Velikost medpomnilnika dnevnikov"
 
 #: libraries/engines/pbxt.lib.php:64
 msgid ""
