@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:55+0200\n"
+"PO-Revision-Date: 2010-05-31 00:56+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7441,10 +7441,9 @@ msgstr ""
 "[kbd]pma_history[/kbd]"
 
 #: setup/lib/messages.inc.php:280
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
-msgstr "SQL-query historie tabel"
+msgstr "SQL-query opvolgingstabel"
 
 #: setup/lib/messages.inc.php:281
 msgid "Hostname where MySQL server is running"
