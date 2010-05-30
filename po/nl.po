@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:30+0200\n"
+"PO-Revision-Date: 2010-05-31 00:31+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1809,11 +1809,11 @@ msgstr "Valideer SQL"
 msgid "Inline edit of this query"
 msgstr "Rechtstreekse bewerking van deze query"
 
+# "Inline" vertaalt naar "rechtstreeks in het document", als het ware binnen iets anders.
 #: libraries/common.lib.php:1278
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Engines"
+msgstr "Rechtstreeks"
 
 #: libraries/common.lib.php:1332 libraries/common.lib.php:1347
 msgid "Profiling"
