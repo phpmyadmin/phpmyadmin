@@ -6111,10 +6111,9 @@ msgid "Enter manually"
 msgstr "Geef handmatig op"
 
 #: server_synchronize.php:1123
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Onveilige verbinding"
+msgstr "Huidige verbinding"
 
 #: server_synchronize.php:1152
 #, fuzzy, php-format
