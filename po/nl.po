@@ -1080,7 +1080,7 @@ msgstr "Januari"
 
 #: js/messages.php:83
 msgid "February"
-msgstr ""
+msgstr "Februari"
 
 #: js/messages.php:84
 #, fuzzy
