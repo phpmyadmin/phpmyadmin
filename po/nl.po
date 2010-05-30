@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-31 00:57+0200\n"
+"PO-Revision-Date: 2010-05-31 00:59+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7579,11 +7579,14 @@ msgstr ""
 msgid "Statements to track"
 msgstr "Opdrachten"
 
+# "statement" hier vertalen is geen goed idee.
 #: setup/lib/messages.inc.php:307
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"Of een DROP VIEW IF EXISTS statement als de eerste lijn toegevoegd zal "
+"worden bij het aanmaken van een weergave of niet."
 
 #: setup/lib/messages.inc.php:308
 msgid "Add DROP VIEW"
