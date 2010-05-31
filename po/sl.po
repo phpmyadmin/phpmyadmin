@@ -2222,10 +2222,9 @@ msgid "%d is not valid row number."
 msgstr "%d ni veljavna številka vrstice."
 
 #: libraries/display_tbl.lib.php:310
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "vrstic naprej od zapisa #"
+msgstr "vrstic naprej od vrstice #"
 
 #: libraries/display_tbl.lib.php:316
 msgid "horizontal"
