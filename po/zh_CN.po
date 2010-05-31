@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-31 14:06+0200\n"
+"POT-Creation-Date: 2010-05-31 14:33-0400\n"
 "PO-Revision-Date: 2010-05-17 04:57+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -43,8 +43,8 @@ msgstr ""
 msgid "Search"
 msgstr "搜索"
 
-#: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
-#: db_operations.php:495 db_operations.php:603 db_search.php:362
+#: browse_foreigners.php:153 db_operations.php:385 db_operations.php:429
+#: db_operations.php:499 db_operations.php:609 db_search.php:362
 #: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
@@ -57,16 +57,16 @@ msgstr "搜索"
 #: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:321
-#: pdf_pages.php:523 pmd_pdf.php:116 server_binlog.php:142
+#: main.php:128 navigation.php:238 pdf_pages.php:292 pdf_pages.php:328
+#: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:625 server_privileges.php:1585
 #: server_privileges.php:1932 server_privileges.php:1979
 #: server_privileges.php:2018 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
 #: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
-#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:263
-#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
-#: tbl_operations.php:679 tbl_select.php:327 tbl_structure.php:562
+#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:265
+#: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
+#: tbl_operations.php:681 tbl_select.php:327 tbl_structure.php:562
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
@@ -98,7 +98,7 @@ msgid "Database comment: "
 msgstr "数据库注释："
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
-#: pdf_schema.php:1236 tbl_operations.php:345 tbl_printview.php:130
+#: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
 msgid "Table comments"
 msgstr "表注释"
 
@@ -110,8 +110,10 @@ msgstr "表注释"
 #: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
 #: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
-msgid "Field"
-msgstr "字段"
+#, fuzzy
+#| msgid "Column names"
+msgid "Column"
+msgstr "字段名"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
 #: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
@@ -221,118 +223,118 @@ msgstr "已将数据库 %s 改名为 %s"
 msgid "Database %s has been copied to %s"
 msgstr "已将数据库 %s 复制为 %s"
 
-#: db_operations.php:410
+#: db_operations.php:412
 msgid "Rename database to"
 msgstr "将数据库改名为"
 
-#: db_operations.php:415 server_processlist.php:57
+#: db_operations.php:417 server_processlist.php:57
 msgid "Command"
 msgstr "命令"
 
-#: db_operations.php:425 tbl_change.php:1143
+#: db_operations.php:429 tbl_change.php:1143
 msgid "and then"
 msgstr "然后"
 
-#: db_operations.php:451
+#: db_operations.php:455
 msgid "Copy database to"
 msgstr "复制数据库到"
 
-#: db_operations.php:458 tbl_operations.php:526 tbl_tracking.php:388
+#: db_operations.php:462 tbl_operations.php:528 tbl_tracking.php:388
 msgid "Structure only"
 msgstr "仅结构"
 
-#: db_operations.php:459 tbl_operations.php:527 tbl_tracking.php:390
+#: db_operations.php:463 tbl_operations.php:529 tbl_tracking.php:390
 msgid "Structure and data"
 msgstr "结构和数据"
 
-#: db_operations.php:460 tbl_operations.php:528 tbl_tracking.php:389
+#: db_operations.php:464 tbl_operations.php:530 tbl_tracking.php:389
 msgid "Data only"
 msgstr "仅数据"
 
-#: db_operations.php:468
+#: db_operations.php:472
 msgid "CREATE DATABASE before copying"
 msgstr "复制前创建数据库 (CREATE DATABASE)"
 
-#: db_operations.php:471 libraries/export/sql.php:52
+#: db_operations.php:475 libraries/export/sql.php:52
 #: libraries/export/sql.php:74 libraries/export/sql.php:76
-#: libraries/export/sql.php:82 tbl_operations.php:534
+#: libraries/export/sql.php:82 tbl_operations.php:536
 #, php-format
 msgid "Add %s"
 msgstr "添加 %s"
 
-#: db_operations.php:475 libraries/export/sql.php:78 tbl_operations.php:297
-#: tbl_operations.php:536
+#: db_operations.php:479 libraries/export/sql.php:78 tbl_operations.php:299
+#: tbl_operations.php:538
 msgid "Add AUTO_INCREMENT value"
 msgstr "添加自增 (AUTO_INCREMENT) 值"
 
-#: db_operations.php:479 tbl_operations.php:543
+#: db_operations.php:483 tbl_operations.php:545
 msgid "Add constraints"
 msgstr "强制添加"
 
-#: db_operations.php:492
+#: db_operations.php:496
 msgid "Switch to copied database"
 msgstr "切换到复制的数据库"
 
-#: db_operations.php:533
+#: db_operations.php:537
 msgid "BLOB Repository"
 msgstr "BLOB 容器"
 
-#: db_operations.php:536 db_tracking.php:76 libraries/common.lib.php:1350
+#: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1350
 #: libraries/server_links.inc.php:49 server_processlist.php:59
 #: tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
 msgstr "状态"
 
-#: db_operations.php:544
+#: db_operations.php:548
 msgctxt "BLOB repository"
 msgid "Enabled"
 msgstr "已启用"
 
-#: db_operations.php:548
+#: db_operations.php:552
 msgid "Disable"
 msgstr "禁用"
 
-#: db_operations.php:558
+#: db_operations.php:562
 msgid "Damaged"
 msgstr "已损坏"
 
-#: db_operations.php:562
+#: db_operations.php:566
 msgctxt "BLOB repository"
 msgid "Repair"
 msgstr "修复"
 
-#: db_operations.php:570
+#: db_operations.php:574
 msgctxt "BLOB repository"
 msgid "Disabled"
 msgstr "已禁用"
 
-#: db_operations.php:574
+#: db_operations.php:578
 msgid "Enable"
 msgstr "启用"
 
-#: db_operations.php:598 libraries/Index.class.php:448
+#: db_operations.php:602 libraries/Index.class.php:448
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
 #: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
 #: server_collations.php:54 server_collations.php:66 server_databases.php:111
-#: tbl_operations.php:361 tbl_select.php:137 tbl_structure.php:179
+#: tbl_operations.php:363 tbl_select.php:137 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "整理"
 
-#: db_operations.php:609 main.php:316 pdf_schema.php:34
+#: db_operations.php:615 main.php:316 pdf_schema.php:34
 #, php-format
 msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 msgstr "链接表的附加功能尚未激活。要查出原因，请点击%s此处%s。"
 
-#: db_operations.php:642
+#: db_operations.php:648
 msgid "Edit PDF Pages"
 msgstr "编辑 PDF 页"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
-#: libraries/header.inc.php:126 pdf_pages.php:417 server_privileges.php:1626
+#: libraries/header.inc.php:126 pdf_pages.php:424 server_privileges.php:1626
 #: server_privileges.php:1682 server_privileges.php:1946
 #: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
 #: test/theme.php:75
@@ -340,8 +342,11 @@ msgid "Table"
 msgstr "表"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
-msgid "Records"
-msgstr "记录数"
+#: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
+#: navigation.php:652 navigation.php:674 server_databases.php:122
+#: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
+msgid "Rows"
+msgstr "行数"
 
 #: db_printview.php:109 libraries/db_structure.lib.php:67 tbl_indexes.php:190
 msgid "Size"
@@ -440,11 +445,15 @@ msgid "Modify"
 msgstr "修改"
 
 #: db_qbe.php:584
-msgid "Add/Delete Criteria Row"
+#, fuzzy
+#| msgid "Add/Delete Criteria Row"
+msgid "Add/Delete criteria rows"
 msgstr "添加/删除条件行"
 
 #: db_qbe.php:596
-msgid "Add/Delete Field Columns"
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Add/Delete columns"
 msgstr "添加/删除字段列"
 
 #: db_qbe.php:609 db_qbe.php:634
@@ -507,7 +516,7 @@ msgstr "浏览"
 
 #: db_search.php:272 libraries/display_tbl.lib.php:1165
 #: libraries/display_tbl.lib.php:2056 libraries/sql_query_form.lib.php:470
-#: pdf_pages.php:281 pdf_pages.php:418 pdf_pages.php:454 pdf_pages.php:482
+#: pdf_pages.php:286 pdf_pages.php:425 pdf_pages.php:461 pdf_pages.php:489
 #: pmd_general.php:377 setup/frames/index.inc.php:125
 #: setup/frames/index.inc.php:216 tbl_row_action.php:63
 msgid "Delete"
@@ -539,7 +548,9 @@ msgid "Inside table(s):"
 msgstr "于以下表："
 
 #: db_search.php:355
-msgid "Inside field:"
+#, fuzzy
+#| msgid "Inside field:"
+msgid "Inside column:"
 msgstr "包含字段："
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
@@ -604,8 +615,8 @@ msgstr "追踪已禁用。"
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
@@ -659,22 +670,22 @@ msgid "Print view"
 msgstr "打印预览"
 
 #: db_structure.php:549 db_structure.php:550 libraries/mult_submits.inc.php:42
-#: tbl_operations.php:579
+#: tbl_operations.php:581
 msgid "Check table"
 msgstr "检查表"
 
 #: db_structure.php:551 db_structure.php:552 libraries/mult_submits.inc.php:47
-#: tbl_operations.php:619 tbl_structure.php:709 tbl_structure.php:711
+#: tbl_operations.php:621 tbl_structure.php:709 tbl_structure.php:711
 msgid "Optimize table"
 msgstr "优化表"
 
 #: db_structure.php:553 db_structure.php:554 libraries/mult_submits.inc.php:52
-#: tbl_operations.php:609
+#: tbl_operations.php:611
 msgid "Repair table"
 msgstr "修复表"
 
 #: db_structure.php:555 db_structure.php:556 libraries/mult_submits.inc.php:57
-#: tbl_operations.php:599
+#: tbl_operations.php:601
 msgid "Analyze table"
 msgstr "分析表"
 
@@ -793,8 +804,8 @@ msgstr "转存已经保存到文件 %s 中。"
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
@@ -977,7 +988,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "请选择主键或唯一键"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-msgid "Choose field to display"
+#, fuzzy
+#| msgid "Choose field to display"
+msgid "Choose column to display"
 msgstr "选择要显示的字段"
 
 #. l10n: Display text for calendar close link
@@ -1300,7 +1313,7 @@ msgstr "注释"
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1199 libraries/display_tbl.lib.php:1117
 #: libraries/import.lib.php:1087 libraries/import.lib.php:1111
-#: pdf_pages.php:280 setup/frames/index.inc.php:124
+#: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
 msgstr "编辑"
@@ -1437,8 +1450,8 @@ msgstr "欢迎使用 %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -1933,7 +1946,9 @@ msgid "No Privileges"
 msgstr "无权限"
 
 #: libraries/display_create_table.lib.php:41
-msgid "Table must have at least one field."
+#, fuzzy
+#| msgid "Table must have at least one field."
+msgid "Table must have at least one column."
 msgstr "数据表至少要有一个字段。"
 
 #: libraries/display_create_table.lib.php:48
@@ -1942,7 +1957,9 @@ msgid "Create table on database %s"
 msgstr "在数据库 %s 中新建一张数据表"
 
 #: libraries/display_create_table.lib.php:57
-msgid "Number of fields"
+#, fuzzy
+#| msgid "Number of fields"
+msgid "Number of columns"
 msgstr "字段数"
 
 #: libraries/display_export.lib.php:42
@@ -1950,8 +1967,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
 #: libraries/display_export.lib.php:107
-#, php-format
-msgid "Dump %s row(s) starting at record # %s"
+#, fuzzy, php-format
+#| msgid "Dump %s row(s) starting at record # %s"
+msgid "Dump %s row(s) starting at row # %s"
 msgstr "转存 %s 行，从记录 # %s 开始。"
 
 #: libraries/display_export.lib.php:115
@@ -1991,8 +2009,8 @@ msgstr "数据表名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。"
@@ -2100,7 +2118,9 @@ msgstr ""
 "入大文件时是个很好的方法。"
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-msgid "Number of records (queries) to skip from start"
+#, fuzzy
+#| msgid "Number of records (queries) to skip from start"
+msgid "Number of queries to skip from start"
 msgstr "跳过查询的数量"
 
 #: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
@@ -2158,7 +2178,9 @@ msgid "%d is not valid row number."
 msgstr "%d 不是有效行数。"
 
 #: libraries/display_tbl.lib.php:310
-msgid "row(s) starting from record #"
+#, fuzzy
+#| msgid "row(s) starting from record #"
+msgid "row(s) starting from row #"
 msgstr "行，开始行数："
 
 #: libraries/display_tbl.lib.php:316
@@ -2216,7 +2238,9 @@ msgid "Relational key"
 msgstr "关联键"
 
 #: libraries/display_tbl.lib.php:588
-msgid "Relational display field"
+#, fuzzy
+#| msgid "Relational display field"
+msgid "Relational display column"
 msgstr "关联显示字段"
 
 #: libraries/display_tbl.lib.php:595
@@ -2614,17 +2638,23 @@ msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:59 libraries/import/ldi.php:40
-msgid "Fields terminated by"
-msgstr "字段分隔符"
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "Columns terminated by"
+msgstr "换行符"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:71 libraries/import/ldi.php:41
-msgid "Fields enclosed by"
+#, fuzzy
+#| msgid "Fields enclosed by"
+msgid "Columns enclosed by"
 msgstr "文字分隔符"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
-msgid "Fields escaped by"
+#, fuzzy
+#| msgid "Fields escaped by"
+msgid "Columns escaped by"
 msgstr "字段转义符"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
@@ -2641,7 +2671,9 @@ msgid "Replace NULL by"
 msgstr "将 NULL 替换为"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-msgid "Remove CRLF characters within fields"
+#, fuzzy
+#| msgid "Remove CRLF characters within fields"
+msgid "Remove CRLF characters within columns"
 msgstr "删除字段中的换行符"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -2649,7 +2681,9 @@ msgstr "删除字段中的换行符"
 #: libraries/export/ods.php:24 libraries/export/odt.php:50
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
-msgid "Put fields names in the first row"
+#, fuzzy
+#| msgid "Put fields names in the first row"
+msgid "Put columns names in the first row"
 msgstr "将字段名放在第一行"
 
 #: libraries/export/excel.php:18
@@ -2785,7 +2819,9 @@ msgid "Database export options"
 msgstr "数据库导出选项"
 
 #: libraries/export/sql.php:80
-msgid "Enclose table and field names with backquotes"
+#, fuzzy
+#| msgid "Enclose table and field names with backquotes"
+msgid "Enclose table and column names with backquotes"
 msgstr "给数据表名及字段名加上反引号"
 
 #: libraries/export/sql.php:86
@@ -2925,12 +2961,6 @@ msgstr "SQL 查询结果"
 msgid "Generated by"
 msgstr "生成者"
 
-#: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
-#: navigation.php:652 navigation.php:674 server_databases.php:122
-#: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
-msgid "Rows"
-msgstr "行数"
-
 #: libraries/import.lib.php:150 sql.php:520 tbl_change.php:181
 #: tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -2987,7 +3017,7 @@ msgstr "忽略重复行"
 msgid "Column names in first row"
 msgstr "忽略首行 (首行为字段名)"
 
-#: libraries/import/csv.php:40 libraries/import/ldi.php:44 pdf_pages.php:495
+#: libraries/import/csv.php:40 libraries/import/ldi.php:44 pdf_pages.php:502
 #: view_create.php:148
 msgid "Column names"
 msgstr "字段名"
@@ -3009,8 +3039,9 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "CSV 输入的第 %d 行格式有错。"
 
 #: libraries/import/csv.php:312
-#, php-format
-msgid "Invalid field count in CSV input on line %d."
+#, fuzzy, php-format
+#| msgid "Invalid field count in CSV input on line %d."
+msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV 输入的第 %d 行字段数有错。"
 
 #: libraries/import/docsql.php:29
@@ -4327,8 +4358,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "在数据库 %s 运行 SQL 查询"
 
 #: libraries/sql_query_form.lib.php:317
-msgid "Fields"
-msgstr "字段数"
+#, fuzzy
+#| msgid "Column names"
+msgid "Columns"
+msgstr "字段名"
 
 #: libraries/sql_query_form.lib.php:352 sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
@@ -4440,8 +4473,14 @@ msgid "Length/Values"
 msgstr "长度/值"
 
 #: libraries/tbl_properties.inc.php:105
+#, fuzzy
+#| msgid ""
+#| "If field type is \"enum\" or \"set\", please enter the values using this "
+#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
+#| "or a single quote (\"'\") amongst those values, precede it with a "
+#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
-"If field type is \"enum\" or \"set\", please enter the values using this "
+"If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
@@ -4499,7 +4538,7 @@ msgid ""
 msgstr "此转换没有说明。<br />详细功能请询问 %s 的作者。"
 
 #: libraries/tbl_properties.inc.php:726 server_engines.php:58
-#: tbl_operations.php:353
+#: tbl_operations.php:355
 msgid "Storage Engine"
 msgstr "存储引擎"
 
@@ -4507,7 +4546,7 @@ msgstr "存储引擎"
 msgid "PARTITION definition"
 msgstr "分区定义"
 
-#: libraries/tbl_properties.inc.php:776 pdf_pages.php:496
+#: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
 #: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1126 tbl_indexes.php:248
 #: tbl_relation.php:566
@@ -4515,12 +4554,15 @@ msgid "Save"
 msgstr "保存"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
-#, php-format
-msgid "Add %s field(s)"
-msgstr "添加 %s 个字段"
+#, fuzzy, php-format
+#| msgid "Add column(s)"
+msgid "Add %s column(s)"
+msgstr "增加字段"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
-msgid "You have to add at least one field."
+#, fuzzy
+#| msgid "You have to add at least one field."
+msgid "You have to add at least one column."
 msgstr "至少要添加一个字段。"
 
 #: libraries/tbl_triggers.lib.php:29
@@ -4528,10 +4570,16 @@ msgid "Event"
 msgstr "事件"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "Displays a link to download the binary data of the field. You can use the "
+#| "first option to specify the filename, or use the second option as the "
+#| "name of a field which contains the filename. If you use the second "
+#| "option, you need to set the first option to the empty string."
 msgid ""
-"Displays a link to download the binary data of the field. You can use the "
+"Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
+"of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
 "字段中显示一个二进制数据的下载连接。第一个选项是文件名，或使用第二个选项，用"
@@ -4556,8 +4604,18 @@ msgid "Displays a link to download this image."
 msgstr "显示下载此图像的链接。"
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+#| "formatted date. The first option is the offset (in hours) which will be "
+#| "added to the timestamp (Default: 0). Use second option to specify a "
+#| "different date/time format string. Third option determines whether you "
+#| "want to see local date or UTC one (use \"local\" or \"utc\" strings) for "
+#| "that. According to that, date format has different value - for \"local\" "
+#| "see the documentation for PHP's strftime() function and for \"utc\" it is "
+#| "done using gmdate() function."
 msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
 "added to the timestamp (Default: 0). Use second option to specify a "
 "different date/time format string. Third option determines whether you want "
@@ -4573,11 +4631,23 @@ msgstr ""
 "档)所到的结果是不一样的。"
 
 #: libraries/transformations/text_plain__external.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "LINUX ONLY: Launches an external application and feeds it the field data "
+#| "via standard input. Returns the standard output of the application. The "
+#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
+#| "have to manually edit the file libraries/transformations/"
+#| "text_plain__external.inc.php and list the tools you want to make "
+#| "available. The first option is then the number of the program you want to "
+#| "use and the second option is the parameters for the program. The third "
+#| "option, if set to 1, will convert the output using htmlspecialchars() "
+#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
+#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
+"LINUX ONLY: Launches an external application and feeds it the column data "
+"via standard input. Returns the standard output of the application. The "
+"default is Tidy, to pretty-print HTML code. For security reasons, you have "
+"to manually edit the file libraries/transformations/text_plain__external.inc."
 "php and list the tools you want to make available. The first option is then "
 "the number of the program you want to use and the second option is the "
 "parameters for the program. The third option, if set to 1, will convert the "
@@ -4593,16 +4663,25 @@ msgstr ""
 "设为 1 的话，将禁止换行，确保所有内容显示在一行中 (默认为 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "Displays the contents of the field as-is, without running it through "
+#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+"Displays the contents of the column as-is, without running it through "
+"htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
 "显示字段的原始内容，不使用 htmlspecialchars() 处理。即假定内容为合法的 HTML "
 "代码。"
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "Displays an image and a link; the field contains the filename. The first "
+#| "option is a URL prefix like \"http://www.example.com/\". The second and "
+#| "third options are the width and the height in pixels."
 msgid ""
-"Displays an image and a link; the field contains the filename. The first "
+"Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
@@ -4610,8 +4689,13 @@ msgstr ""
 "样的 URL 前缀，第二和第三个选项是以像素为单位的宽度和高度。"
 
 #: libraries/transformations/text_plain__link.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "Displays a link; the field contains the filename. The first option is a "
+#| "URL prefix like \"http://www.example.com/\". The second option is a title "
+#| "for the link."
 msgid ""
-"Displays a link; the field contains the filename. The first option is a URL "
+"Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
@@ -4665,7 +4749,7 @@ msgstr "界面"
 msgid "Custom color"
 msgstr "自定义颜色"
 
-#: main.php:163 pdf_pages.php:356 setup/lib/FormDisplay.tpl.php:216
+#: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
 #: tbl_change.php:1175
 msgid "Reset"
 msgstr "重置"
@@ -4813,44 +4897,44 @@ msgstr "新建数据表"
 msgid "Please select a database"
 msgstr "请选择数据库"
 
-#: pdf_pages.php:36 pdf_pages.php:42 pdf_pages.php:48 pdf_pages.php:53
+#: pdf_pages.php:41 pdf_pages.php:47 pdf_pages.php:53 pdf_pages.php:58
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "找不到 <b>%s</b> 表或还未在 %s 设置"
 
-#: pdf_pages.php:261
+#: pdf_pages.php:266
 msgid "Please choose a page to edit"
 msgstr "请选择需要编辑的页"
 
-#: pdf_pages.php:297 pmd_pdf.php:114
+#: pdf_pages.php:304 pmd_pdf.php:114
 msgid "Create a page"
 msgstr "创建新页"
 
-#: pdf_pages.php:303
+#: pdf_pages.php:310
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "页码："
 
-#: pdf_pages.php:307
+#: pdf_pages.php:314
 #, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "自动排版"
 
-#: pdf_pages.php:309
+#: pdf_pages.php:316
 msgid "Internal relations"
 msgstr "内联"
 
-#: pdf_pages.php:332
+#: pdf_pages.php:339
 msgid "Select Tables"
 msgstr "选择表"
 
-#: pdf_pages.php:355
+#: pdf_pages.php:362
 msgid "Toggle scratchboard"
 msgstr "切换刮板"
 
-#: pdf_pages.php:518
+#: pdf_pages.php:525
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -4961,10 +5045,15 @@ msgid "To select relation, click :"
 msgstr "要选择关系，点击："
 
 #: pmd_help.php:29
+#, fuzzy
+#| msgid ""
+#| "The display field is shown in pink. To set/unset a field as the display "
+#| "field, click the \"Choose field to display\" icon, then click on the "
+#| "appropriate field name."
 msgid ""
-"The display field is shown in pink. To set/unset a field as the display "
-"field, click the \"Choose field to display\" icon, then click on the "
-"appropriate field name."
+"The display column is shown in pink. To set/unset a column as the display "
+"column, click the \"Choose column to display\" icon, then click on the "
+"appropriate column name."
 msgstr ""
 "显示的字段为粉红色。要设置或取消显示的字段，点击“选择显示字段”图标，然后选择"
 "需要的字段名字。"
@@ -5240,12 +5329,12 @@ msgstr "删除与用户同名的数据库。"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
-"限%s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
+"s。"
 
 #: server_privileges.php:1645
 msgid "The selected user was not found in the privilege table."
@@ -6028,16 +6117,23 @@ msgstr ""
 "Documentation.html#setup_script]文档[/a]中有说明。否则你只能下载或显示配置。"
 
 #: setup/lib/messages.inc.php:35
+#, fuzzy
+#| msgid ""
+#| "Defines which type of editing controls should be used for CHAR and "
+#| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
+#| "textarea[/kbd] - allows newlines in fields"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
-"fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
-"kbd] - allows newlines in fields"
+"columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
+"kbd] - allows newlines in columns"
 msgstr ""
 "定义编辑 CHAR 和 VARCHAR 类型字段时应使用何种控件，[kbd]输入框 (input)[/kbd] "
 "- 允许限制输入长度，[kbd]文本框 (textarea)[/kbd] - 允许输入多行数据"
 
 #: setup/lib/messages.inc.php:36
-msgid "CHAR fields editing"
+#, fuzzy
+#| msgid "CHAR fields editing"
+msgid "CHAR columns editing"
 msgstr "编辑 CHAR 类型字段"
 
 #: setup/lib/messages.inc.php:37
@@ -6735,8 +6831,12 @@ msgid "GZip output buffering"
 msgstr "GZip 输出缓冲"
 
 #: setup/lib/messages.inc.php:217
+#, fuzzy
+#| msgid ""
+#| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
+#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
-"[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
+"[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
 "[kbd]SMART[/kbd] - 如：对 TIME、DATE、DATETIME 和 TIMESTAMP 类型的字段递减排"
@@ -6759,11 +6859,15 @@ msgid "Iconic table operations"
 msgstr "数据表操作显示"
 
 #: setup/lib/messages.inc.php:224
-msgid "Disallow BLOB and BINARY fields from editing"
+#, fuzzy
+#| msgid "Disallow BLOB and BINARY fields from editing"
+msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "禁止编辑 BLOB 和 BINARY 类型字段"
 
 #: setup/lib/messages.inc.php:225
-msgid "Protect binary fields"
+#, fuzzy
+#| msgid "Protect binary fields"
+msgid "Protect binary columns"
 msgstr "保护二进制字段"
 
 #: setup/lib/messages.inc.php:226
@@ -6825,9 +6929,9 @@ msgid ""
 msgstr ""
 "您设置了 [kbd]config[/kbd] 认证方式，且为了能够自动登录而保存了用户名和密码，"
 "但在常用主机上不建议这样设置。如果有人知道 phpMyAdmin 的地址，他们就能够进入 "
-"phpMyAdmin 的管理界面。建议将[a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]登录认证方式[/a]设置为 [kbd]cookie 认证[/kbd]或 [kbd]HTTP 认"
-"证[/kbd]。"
+"phpMyAdmin 的管理界面。建议将[a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server]登录认证方式[/a]设置为 [kbd]cookie 认证[/kbd]或 [kbd]HTTP 认证"
+"[/kbd]。"
 
 #: setup/lib/messages.inc.php:239
 msgid "You should use mysqli for performance reasons"
@@ -7206,14 +7310,20 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF 大纲: 数据表并发"
 
 #: setup/lib/messages.inc.php:320
+#, fuzzy
+#| msgid ""
+#| "Table to describe the display fields, leave blank for no support; "
+#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
-"Table to describe the display fields, leave blank for no support; suggested: "
-"[kbd]pma_table_info[/kbd]"
+"Table to describe the display columns, leave blank for no support; "
+"suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
 "描述显示字段的表，留空为关闭此项功能。默认值：[kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-msgid "Display fields table"
+#, fuzzy
+#| msgid "Display fields table"
+msgid "Display columns table"
 msgstr "显示字段表"
 
 #: setup/lib/messages.inc.php:323
@@ -7241,8 +7351,10 @@ msgid "Verbose name of this server"
 msgstr "服务器名称"
 
 #: setup/lib/messages.inc.php:329
-msgid ""
-"Whether a user should be displayed a &quot;show all (records)&quot; button"
+#, fuzzy
+#| msgid ""
+#| "Whether a user should be displayed a &quot;show all (records)&quot; button"
+msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "显示给用户一个 &quot;显示所有 (记录)&quot; 按钮"
 
 #: setup/lib/messages.inc.php:330
@@ -7521,7 +7633,9 @@ msgid "Ignore"
 msgstr "忽略"
 
 #: tbl_change.php:728
-msgid " Because of its length,<br /> this field might not be editable "
+#, fuzzy
+#| msgid " Because of its length,<br /> this field might not be editable "
+msgid " Because of its length,<br /> this column might not be editable "
 msgstr " 由于长度限制<br />此字段可能无法编辑 "
 
 #: tbl_change.php:888
@@ -7660,77 +7774,77 @@ msgstr "更改表的排序，根据"
 msgid "(singly)"
 msgstr "(逐一)"
 
-#: tbl_operations.php:276
+#: tbl_operations.php:278
 msgid "Move table to (database<b>.</b>table):"
 msgstr "将数据表移动到(数据库名<b>.</b>数据表名)："
 
-#: tbl_operations.php:334
+#: tbl_operations.php:336
 msgid "Table options"
 msgstr "表选项"
 
-#: tbl_operations.php:338
+#: tbl_operations.php:340
 msgid "Rename table to"
 msgstr "将表改名为"
 
-#: tbl_operations.php:509
+#: tbl_operations.php:511
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "将数据表复制到(数据库名<b>.</b>数据表名)："
 
-#: tbl_operations.php:556
+#: tbl_operations.php:558
 msgid "Switch to copied table"
 msgstr "切换到复制的数据表"
 
-#: tbl_operations.php:568
+#: tbl_operations.php:570
 msgid "Table maintenance"
 msgstr "表维护"
 
-#: tbl_operations.php:589
+#: tbl_operations.php:591
 msgid "Defragment table"
 msgstr "整理表碎片"
 
-#: tbl_operations.php:628
+#: tbl_operations.php:630
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "已强制更新表 %s "
 
-#: tbl_operations.php:634
+#: tbl_operations.php:636
 msgid "Flush the table (FLUSH)"
 msgstr "刷新表 (FLUSH)"
 
-#: tbl_operations.php:649
+#: tbl_operations.php:651
 msgid "Partition maintenance"
 msgstr "分区维护"
 
-#: tbl_operations.php:657
+#: tbl_operations.php:659
 #, php-format
 msgid "Partition %s"
 msgstr "分区 %s"
 
-#: tbl_operations.php:660
+#: tbl_operations.php:662
 msgid "Analyze"
 msgstr "分析"
 
-#: tbl_operations.php:661
+#: tbl_operations.php:663
 msgid "Check"
 msgstr "检查"
 
-#: tbl_operations.php:662
+#: tbl_operations.php:664
 msgid "Optimize"
 msgstr "优化"
 
-#: tbl_operations.php:663
+#: tbl_operations.php:665
 msgid "Rebuild"
 msgstr "重建"
 
-#: tbl_operations.php:664
+#: tbl_operations.php:666
 msgid "Repair"
 msgstr "修复"
 
-#: tbl_operations.php:676
+#: tbl_operations.php:678
 msgid "Remove partitioning"
 msgstr "删除分区"
 
-#: tbl_operations.php:702
+#: tbl_operations.php:704
 msgid "Check referential integrity:"
 msgstr "检查引用完整性："
 
@@ -7806,7 +7920,9 @@ msgid "Operator"
 msgstr "操作符"
 
 #: tbl_select.php:270
-msgid "Select fields (at least one):"
+#, fuzzy
+#| msgid "Select fields (at least one):"
+msgid "Select columns (at least one):"
 msgstr "至少选择一个字段："
 
 #: tbl_select.php:288
@@ -7831,9 +7947,10 @@ msgid "None"
 msgstr "无"
 
 #: tbl_structure.php:374
-#, php-format
-msgid "Field %s has been dropped"
-msgstr "已删除字段 %s "
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Column %s has been dropped"
+msgstr "已删除表 %s "
 
 #: tbl_structure.php:385
 #, php-format
@@ -7854,7 +7971,9 @@ msgid "Propose table structure"
 msgstr "规划表结构"
 
 #: tbl_structure.php:540
-msgid "Add new field"
+#, fuzzy
+#| msgid "Add new field"
+msgid "Add field"
 msgstr "添加新字段"
 
 #: tbl_structure.php:554
@@ -8059,6 +8178,24 @@ msgstr "视图名"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr "将视图改名为"
+
+#~ msgid "Field"
+#~ msgstr "字段"
+
+#~ msgid "Records"
+#~ msgstr "记录数"
+
+#~ msgid "Fields terminated by"
+#~ msgstr "字段分隔符"
+
+#~ msgid "Fields"
+#~ msgstr "字段数"
+
+#~ msgid "Add %s field(s)"
+#~ msgstr "添加 %s 个字段"
+
+#~ msgid "Field %s has been dropped"
+#~ msgstr "已删除字段 %s "
 
 #~ msgid "See image/jpeg: inline"
 #~ msgstr "参见 image/jpeg: inline"
