@@ -13,6 +13,11 @@ require_once './libraries/common.inc.php';
 require_once './libraries/db_common.inc.php';
 require './libraries/StorageEngine.class.php';
 
+$active_page = 'db_operations.php';
+require_once './libraries/db_common.inc.php';
+$url_query .= '&amp;goto=pdf_pages.php';
+require_once './libraries/db_info.inc.php';
+
 /**
  * Settings for relation stuff
  */
