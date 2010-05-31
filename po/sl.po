@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 00:39+0200\n"
+"PO-Revision-Date: 2010-06-01 00:40+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -550,10 +550,9 @@ msgid "Inside table(s):"
 msgstr "V tabelah:"
 
 #: db_search.php:355
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "V polju:"
+msgstr "V stolpcu:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
