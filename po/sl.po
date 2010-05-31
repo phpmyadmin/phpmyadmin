@@ -6976,7 +6976,6 @@ msgid "GZip output buffering"
 msgstr "Izhod medpomnjenja GZip"
 
 #: setup/lib/messages.inc.php:217
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -6984,7 +6983,7 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] – tj. padajoči vrstni red za polja vrste TIME, DATE, "
+"[kbd]SMART[/kbd] – tj. padajoči vrstni red za stolpce vrste TIME, DATE, "
 "DATETIME in TIMESTAMP, v naprotnem primeru naraščajoči vrstni red"
 
 #: setup/lib/messages.inc.php:218
