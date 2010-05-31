@@ -5672,7 +5672,6 @@ msgid "Error management:"
 msgstr "Feilbehandling:"
 
 #: server_replication.php:334
-#, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr "Å hoppe over feil kan føre til usynkroniserte master og slave!"
