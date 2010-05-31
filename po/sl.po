@@ -5119,7 +5119,6 @@ msgid "To select relation, click :"
 msgstr "Za izbiro relacije, kliknite:"
 
 #: pmd_help.php:29
-#, fuzzy
 #| msgid ""
 #| "The display field is shown in pink. To set/unset a field as the display "
 #| "field, click the \"Choose field to display\" icon, then click on the "
@@ -5129,9 +5128,9 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"Prikazno polje je obarvano pink. Da določite/odstranite polje kot prikazno "
-"polje, kliknite ikono \"Izberite polje za prikaz\", nato pa kliknite na "
-"ustrezno ime polja."
+"Prikazni stolpec je obarvan pink. Da določite/odstranite stolpec kot "
+"prikazni stolpec, kliknite ikono \"Izberite stolpec za prikaz\", nato pa "
+"kliknite na ustrezno ime stolpca."
 
 #: pmd_pdf.php:63
 msgid "Page has been created"
