@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 00:53+0200\n"
+"PO-Revision-Date: 2010-06-01 01:03+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7481,7 +7481,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF-shema: koordinate tabel"
 
 #: setup/lib/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -7489,7 +7488,7 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Tabela za opisovanje prikaznih ključev; pustite prazno, če ne želite "
+"Tabela za opisovanje prikaznih stolpcev; pustite prazno, če ne želite "
 "podpore; predlagano: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
