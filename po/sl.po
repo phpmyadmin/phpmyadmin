@@ -4665,7 +4665,6 @@ msgid "Displays a link to download this image."
 msgstr "Pokaže povezavo na grafiko (neposredni BLOB prenos, ipd.)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
 #| "formatted date. The first option is the offset (in hours) which will be "
@@ -4685,7 +4684,7 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Prikaže polje TIME, TIMESTAMP, DATETIME ali številski časovni žig unix kot "
+"Prikaže stolpec TIME, TIMESTAMP, DATETIME ali številski časovni žig unix kot "
 "oblikovan datum. Prva možnost je odmik (v urah), ki bo dodan časovnemu žigu "
 "(privzeto: 0). Uporabite drugo možnost za določitev različnega niza oblike "
 "datuma/časa. Tretja možnost določa, ali želite videti lokalni datum ali UTC "
