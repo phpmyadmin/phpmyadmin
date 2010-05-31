@@ -305,7 +305,7 @@ foreach ($rows as $row_id => $vrow) {
     <table>
     <thead>
         <tr>
-            <th><?php echo __('Field'); ?></th>
+            <th><?php echo __('Column'); ?></th>
 
  <?php
      if ($cfg['ShowFieldTypesInDataEditView']) {
@@ -725,7 +725,7 @@ foreach ($rows as $row_id => $vrow) {
             echo "\n";
             if (strlen($special_chars) > 32000) {
                 echo "        </td>\n";
-                echo '        <td>' . __(' Because of its length,<br /> this field might not be editable ');
+                echo '        <td>' . __(' Because of its length,<br /> this column might not be editable ');
             }
         } elseif ($field['pma_type'] == 'enum') {
             if (! isset($table_fields[$i]['values'])) {

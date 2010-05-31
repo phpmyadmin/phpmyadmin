@@ -77,7 +77,7 @@ if (isset($plugin_list)) {
             $plugin_list['sql']['options'][] =
                 array('type' => 'bool', 'name' => 'auto_increment', 'text' => __('Add AUTO_INCREMENT value'));
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'backquotes', 'text' => __('Enclose table and field names with backquotes'));
+                array('type' => 'bool', 'name' => 'backquotes', 'text' => __('Enclose table and column names with backquotes'));
             $plugin_list['sql']['options'][] =
                 array('type' => 'bool', 'name' => 'procedure_function', 'text' => sprintf(__('Add %s'), 'CREATE PROCEDURE / FUNCTION' . (PMA_MYSQL_INT_VERSION > 50100 ? ' / EVENT' : '')));
 

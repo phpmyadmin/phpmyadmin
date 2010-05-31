@@ -31,7 +31,7 @@ if (isset($plugin_list)) {
                 'text' => __('Replace NULL by')),
             array('type' => 'bool',
                 'name' => 'columns',
-                'text' => __('Put fields names in the first row')),
+                'text' => __('Put columns names in the first row')),
             array('type' => 'egroup'),
             ),
         'options_text' => __('Options'),
@@ -230,7 +230,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     }
 
     $text_output = "|------\n";
-    $text_output .= '|' . htmlspecialchars(__('Field'));
+    $text_output .= '|' . htmlspecialchars(__('Column'));
     $text_output .= '|' . htmlspecialchars(__('Type'));
     $text_output .= '|' . htmlspecialchars(__('Null'));
     $text_output .= '|' . htmlspecialchars(__('Default'));

@@ -102,7 +102,7 @@ else {
 <thead>
 <tr>
     <th><?php echo __('Table'); ?></th>
-    <th><?php echo __('Records'); ?></th>
+    <th><?php echo __('Rows'); ?></th>
     <th><?php echo __('Type'); ?></th>
     <?php
     if ($cfg['ShowStats']) {

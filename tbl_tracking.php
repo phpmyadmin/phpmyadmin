@@ -270,7 +270,7 @@ if (isset($_REQUEST['snapshot'])) {
     <table id="tablestructure" class="data">
     <thead>
     <tr>
-        <th><?php echo __('Field'); ?></th>
+        <th><?php echo __('Column'); ?></th>
         <th><?php echo __('Type'); ?></th>
         <th><?php echo __('Collation'); ?></th>
         <th><?php echo __('Null'); ?></th>
@@ -321,7 +321,7 @@ if (isset($_REQUEST['snapshot'])) {
             <th><?php echo __('Type');?></th>
             <th><?php echo __('Unique');?></th>
             <th><?php echo __('Packed');?></th>
-            <th><?php echo __('Field');?></th>
+            <th><?php echo __('Column');?></th>
             <th><?php echo __('Cardinality');?></th>
             <th><?php echo __('Collation');?></th>
             <th><?php echo __('Null');?></th>

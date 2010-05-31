@@ -54,7 +54,7 @@ if (isset($plugin_list)) {
     $plugin_list['latex']['options'][] =
         array('type' => 'bgroup', 'name' => 'data', 'text' => __('Data'), 'force' => 'structure');
     $plugin_list['latex']['options'][] =
-        array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row'));
+        array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
     $plugin_list['latex']['options'][] =
         array('type' => 'text', 'name' => 'data_caption', 'text' => __('Table caption'));
     $plugin_list['latex']['options'][] =
@@ -357,7 +357,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $buffer = $alignment . '} ' . $crlf ;
 
     $header = ' \\hline ';
-    $header .= '\\multicolumn{1}{|c|}{\\textbf{' . __('Field') . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Type') . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Null') . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Default') . '}}';
+    $header .= '\\multicolumn{1}{|c|}{\\textbf{' . __('Column') . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Type') . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Null') . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Default') . '}}';
     if ($do_relation && $have_rel) {
         $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Links to') . '}}';
     }

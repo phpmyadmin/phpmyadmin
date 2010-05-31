@@ -21,7 +21,7 @@ if (isset($plugin_list)) {
         'force_file' => true,
         'options' => array(
             array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
-            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row')),
+            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
             array('type' => 'hidden', 'name' => 'data'),
             ),
         'options_text' => __('Options'),

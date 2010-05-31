@@ -96,13 +96,13 @@ $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 $header_cells = array();
 $content_cells = array();
 
-$header_cells[] = __('Field');
+$header_cells[] = __('Column');
 $header_cells[] = __('Type')
      . ($GLOBALS['cfg']['ReplaceHelpImg']
         ? PMA_showMySQLDocu('SQL-Syntax', 'data-types')
         : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('SQL-Syntax', 'data-types')
      . '</span>');
-$header_cells[] = __('Length/Values') . PMA_showHint(__('If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'));
+$header_cells[] = __('Length/Values') . PMA_showHint(__('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'));
 $header_cells[] = __('Default') . PMA_showHint(__('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'));
 $header_cells[] = __('Collation');
 $header_cells[] = __('Attributes');
@@ -272,7 +272,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     // column name
     $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
         . ' type="text" name="field_name[' . $i . ']"'
-        . ' maxlength="64" class="textfield" title="' . __('Field') . '"'
+        . ' maxlength="64" class="textfield" title="' . __('Column') . '"'
         . ' size="' . ($GLOBALS['cfg']['DefaultPropDisplay'] == 'horizontal' ? '10' : '30') . '"'
         . ' value="' . (isset($row['Field']) ? htmlspecialchars($row['Field']) : '') . '"'
         . ' />';
@@ -777,11 +777,11 @@ if ($action == 'tbl_create.php') {
         onclick="return checkTableEditForm(this.form, <?php echo $num_fields; ?>)" />
 <?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>
     <?php echo __('Or'); ?>
-    <?php echo sprintf(__('Add %s field(s)'), '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />'); ?>
+    <?php echo sprintf(__('Add %s column(s)'), '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />'); ?>
     <input type="submit" name="submit_num_fields"
         value="<?php echo __('Go'); ?>"
 <?php /*        onclick="if (addField()) return false;" */ ?>
-        onclick="return checkFormElementInRange(this.form, 'added_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one field.')); ?>', 1)"
+        onclick="return checkFormElementInRange(this.form, 'added_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)"
         />
 <?php } ?>
 </fieldset>

@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
  * @uses    $GLOBALS['is_show_stats']
  * @uses    __('Table')
  * @uses    __('Action')
- * @uses    __('Records')
+ * @uses    __('Rows')
  * @uses    __('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]')
  * @uses    __('Type')
  * @uses    __('Collation')
@@ -53,7 +53,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'        ' . __('Action') . "\n"
         .'    </th>'
         // larger values are more interesting so default sort order is DESC
-        .'    <th>' . PMA_SortableTableHeader(__('Records'), 'records', 'DESC')
+        .'    <th>' . PMA_SortableTableHeader(__('Rows'), 'records', 'DESC')
         .PMA_showHint(PMA_sanitize(__('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]'))) . "\n"
         .'    </th>' . "\n";
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {

@@ -443,7 +443,7 @@ class PMA_Index
         $r .= '<th>' . __('Type') . '</th>';
         $r .= '<th>' . __('Unique') . '</th>';
         $r .= '<th>' . __('Packed') . '</th>';
-        $r .= '<th>' . __('Field') . '</th>';
+        $r .= '<th>' . __('Column') . '</th>';
         $r .= '<th>' . __('Cardinality') . '</th>';
         $r .= '<th>' . __('Collation') . '</th>';
         $r .= '<th>' . __('Null') . '</th>';

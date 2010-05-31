@@ -132,7 +132,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
     <legend><?php echo __('Do a "query by example" (wildcard: "%")') ?></legend>
     <table class="data">
     <thead>
-    <tr><th><?php echo __('Field'); ?></th>
+    <tr><th><?php echo __('Column'); ?></th>
         <th><?php echo __('Type'); ?></th>
         <th><?php echo __('Collation'); ?></th>
         <th><?php echo __('Operator'); ?></th>
@@ -267,7 +267,7 @@ $(function() {
     PMA_generate_slider_effect('searchoptions', __('Options'));
 ?>
 <fieldset id="fieldset_select_fields">
-    <legend><?php echo __('Select fields (at least one):'); ?></legend>
+    <legend><?php echo __('Select columns (at least one):'); ?></legend>
     <select name="param[]" size="<?php echo min($fields_cnt, 10); ?>"
         multiple="multiple">
     <?php

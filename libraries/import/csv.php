@@ -24,9 +24,9 @@ if (isset($plugin_list)) {
         'options' => array(
             array('type' => 'bool', 'name' => 'replace', 'text' => __('Replace table data with file')),
             array('type' => 'bool', 'name' => 'ignore', 'text' => __('Ignore duplicate rows')),
-            array('type' => 'text', 'name' => 'terminated', 'text' => __('Fields terminated by'), 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'enclosed', 'text' => __('Fields enclosed by'), 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'escaped', 'text' => __('Fields escaped by'), 'size' => 2, 'len' => 2),
+            array('type' => 'text', 'name' => 'terminated', 'text' => __('Columns terminated by'), 'size' => 2, 'len' => 2),
+            array('type' => 'text', 'name' => 'enclosed', 'text' => __('Columns enclosed by'), 'size' => 2, 'len' => 2),
+            array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped by'), 'size' => 2, 'len' => 2),
             array('type' => 'text', 'name' => 'new_line', 'text' => __('Lines terminated by'), 'size' => 2),
             ),
         'options_text' => __('Options'),
@@ -56,7 +56,7 @@ $csv_new_line = strtr($csv_new_line, $replacements);
 
 if (strlen($csv_terminated) != 1) {
     $message = PMA_Message::error(__('Invalid parameter for CSV import: %s'));
-    $message->addParam(__('Fields terminated by'), false);
+    $message->addParam(__('Columns terminated by'), false);
     $error = TRUE;
     // The default dialog of MS Excel when generating a CSV produces a
     // semi-colon-separated file with no chance of specifying the
@@ -68,11 +68,11 @@ if (strlen($csv_terminated) != 1) {
     // one character.
 } elseif (strlen($csv_enclosed) > 1) {
     $message = PMA_Message::error(__('Invalid parameter for CSV import: %s'));
-    $message->addParam(__('Fields enclosed by'), false);
+    $message->addParam(__('Columns enclosed by'), false);
     $error = TRUE;
 } elseif (strlen($csv_escaped) != 1) {
     $message = PMA_Message::error(__('Invalid parameter for CSV import: %s'));
-    $message->addParam(__('Fields escaped by'), false);
+    $message->addParam(__('Columns escaped by'), false);
     $error = TRUE;
 } elseif (strlen($csv_new_line) != 1 && $csv_new_line != 'auto') {
     $message = PMA_Message::error(__('Invalid parameter for CSV import: %s'));
@@ -309,7 +309,7 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
                     if ($values[count($values) - 1] == ';') {
                         unset($values[count($values) - 1]);
                     } else {
-                        $message = PMA_Message::error(__('Invalid field count in CSV input on line %d.'));
+                        $message = PMA_Message::error(__('Invalid column count in CSV input on line %d.'));
                         $message->addParam($line);
                         $error = TRUE;
                         break;

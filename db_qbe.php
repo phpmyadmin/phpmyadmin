@@ -171,7 +171,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
 <fieldset>
 <table class="data" style="width: 100%;">
 <tr class="odd noclick">
-    <th><?php echo __('Field'); ?>:</th>
+    <th><?php echo __('Column'); ?>:</th>
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
@@ -581,7 +581,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
 <table border="0" cellpadding="2" cellspacing="1">
 <tr>
     <td nowrap="nowrap">
-        <?php echo __('Add/Delete Criteria Row'); ?>:
+        <?php echo __('Add/Delete criteria rows'); ?>:
         <select size="1" name="add_row">
             <option value="-3">-3</option>
             <option value="-2">-2</option>
@@ -593,7 +593,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
         </select>
     </td>
     <td width="10">&nbsp;</td>
-    <td nowrap="nowrap"><?php echo __('Add/Delete Field Columns'); ?>:
+    <td nowrap="nowrap"><?php echo __('Add/Delete columns'); ?>:
         <select size="1" name="add_col">
             <option value="-3">-3</option>
             <option value="-2">-2</option>

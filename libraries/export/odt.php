@@ -47,7 +47,7 @@ if (isset($plugin_list)) {
     $plugin_list['odt']['options'][] =
         array('type' => 'bgroup', 'name' => 'data', 'text' => __('Data'), 'force' => 'structure');
     $plugin_list['odt']['options'][] =
-        array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row'));
+        array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
     $plugin_list['odt']['options'][] =
         array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by'));
     $plugin_list['odt']['options'][] =
@@ -291,7 +291,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     /* Header */
     $GLOBALS['odt_buffer'] .= '<table:table-row>';
     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-        . '<text:p>' . htmlspecialchars(__('Field')) . '</text:p>'
+        . '<text:p>' . htmlspecialchars(__('Column')) . '</text:p>'
         . '</table:table-cell>';
     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
         . '<text:p>' . htmlspecialchars(__('Type')) . '</text:p>'
