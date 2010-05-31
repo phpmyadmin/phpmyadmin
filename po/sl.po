@@ -7003,10 +7003,9 @@ msgid "Iconic table operations"
 msgstr "Ikonski posegi tabel"
 
 #: setup/lib/messages.inc.php:224
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Prepeči urejanje polj BLOB in BINARY"
+msgstr "Prepreči urejanje stolpcev BLOB in BINARY"
 
 #: setup/lib/messages.inc.php:225
 #, fuzzy
