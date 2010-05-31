@@ -3105,10 +3105,10 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Neveljavna oblika vnosa CSV v vrstici %d."
 
 #: libraries/import/csv.php:312
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Neveljavno število polj v vnosu CSV v vrstici %d."
+msgstr "Neveljavno število stolpcev v vnosu CSV v vrstici %d."
 
 #: libraries/import/docsql.php:29
 msgid "DocSQL"
