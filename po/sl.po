@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 00:42+0200\n"
+"PO-Revision-Date: 2010-06-01 00:43+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2163,10 +2163,9 @@ msgstr ""
 "prekine transakcije."
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Število zapisov (poizvedb), ki jih naj preskočim od začetka"
+msgstr "Število poizvedb, ki jih naj preskočim od začetka"
 
 #: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
