@@ -4520,7 +4520,7 @@ msgstr "Sledenje %s.%s je aktivirano."
 
 #: libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
-msgstr "Dolžina/Vrednosti*"
+msgstr "Dolžina/Vrednosti"
 
 #: libraries/tbl_properties.inc.php:105
 #| msgid ""
