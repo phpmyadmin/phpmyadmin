@@ -47,12 +47,12 @@ if (!$cfgRelation['displaywork']) {
 if (!isset($cfgRelation['table_coords'])){
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_coords', 'config.inc.php') . '<br />' . "\n"
          . '<a href="./Documentation.html#table_coords" target="documentation">' . __('Documentation') . '</a>' . "\n";
-    exit();
+    require_once './libraries/footer.inc.php';
 }
 if (!isset($cfgRelation['pdf_pages'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'pdf_page', 'config.inc.php') . '<br />' . "\n"
          . '<a href="./Documentation.html#pdf_pages" target="documentation">' . __('Documentation') . '</a>' . "\n";
-    exit();
+    require_once './libraries/footer.inc.php';
 }
 
 if ($cfgRelation['pdfwork']) {
