@@ -640,12 +640,12 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         include('./libraries/display_pdf_schema.lib.php');
     }   // end if
-    echo '<br /><a href="pdf_pages.php?' . $url_query . '">';
+    echo '<fieldset><a href="pdf_pages.php?' . $url_query . '">';
     if ($cfg['PropertiesIconic']) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
             .' alt="" width="16" height="16" />';
     }
-    echo __('Edit PDF Pages') . '</a>';
+    echo __('Edit PDF Pages') . '</a></fieldset>';
 } // end if
 
 /**
