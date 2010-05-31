@@ -1995,10 +1995,9 @@ msgid "Create table on database %s"
 msgstr "Ustvari novo tabelo v podatkovni zbirki %s"
 
 #: libraries/display_create_table.lib.php:57
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Število polj"
+msgstr "Število stolpcev"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
