@@ -4990,10 +4990,9 @@ msgid "Page name"
 msgstr "Ime strani"
 
 #: pdf_pages.php:314
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Samodejna postavitev"
+msgstr "Samodejna postavitev temelječa na"
 
 #: pdf_pages.php:316
 msgid "Internal relations"
