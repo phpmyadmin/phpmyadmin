@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 00:52+0200\n"
+"PO-Revision-Date: 2010-06-01 00:53+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7008,10 +7008,9 @@ msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Prepreči urejanje stolpcev BLOB in BINARY"
 
 #: setup/lib/messages.inc.php:225
-#, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
-msgstr "Zaščiti dvojiška polja"
+msgstr "Zaščiti dvojiške stolpce"
 
 #: setup/lib/messages.inc.php:226
 msgid ""
