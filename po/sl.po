@@ -454,10 +454,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Dodaj/Odstrani vrstice meril"
 
 #: db_qbe.php:596
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Dodaj/Odstrani stolpce polj"
+msgstr "Dodaj/Odstrani stolpce"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
