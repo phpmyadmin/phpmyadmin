@@ -1985,10 +1985,9 @@ msgid "No Privileges"
 msgstr "Brez privilegijev"
 
 #: libraries/display_create_table.lib.php:41
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
-msgstr "Tabele morajo imeti vsaj eno polje."
+msgstr "Tabele morajo imeti vsaj en stolpec."
 
 #: libraries/display_create_table.lib.php:48
 #, php-format
