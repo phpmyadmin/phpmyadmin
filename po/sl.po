@@ -4405,10 +4405,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Izvedi poizvedbo/poizvedbe SQL na podatkovni zbirki %s"
 
 #: libraries/sql_query_form.lib.php:317
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Imena stolpcev"
+msgstr "Stolpci"
 
 #: libraries/sql_query_form.lib.php:352 sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
