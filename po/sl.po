@@ -2746,10 +2746,9 @@ msgstr "Odstrani znake CRLF znotraj stolpcev"
 #: libraries/export/ods.php:24 libraries/export/odt.php:50
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "Postavi imena polj v prvo vrstico"
+msgstr "Postavi imena stolpcev v prvo vrstico"
 
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
