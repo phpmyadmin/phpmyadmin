@@ -157,7 +157,7 @@ if (isset($_REQUEST['submitoptions'])) {
         $reread_info    = true;
         unset($table_alters);
         foreach (PMA_DBI_get_warnings() as $warning) {
-            // In MariaDB 5.1.44, when altering a table from Maria to MyISAM 
+            // In MariaDB 5.1.44, when altering a table from Maria to MyISAM
             // and if TRANSACTIONAL was set, the system reports an error;
             // I discussed with a Maria developer and he agrees that this
             // should not be reported with a Level of Error, so here
@@ -194,7 +194,7 @@ if (isset($_REQUEST['submit_partition']) && ! empty($_REQUEST['partition_operati
 if ($reread_info) {
     // to avoid showing the old value (for example the AUTO_INCREMENT) after
     // a change, clear the cache
-    PMA_Table::$cache = array(); 
+    PMA_Table::$cache = array();
     $page_checksum = $checksum = $delay_key_write = 0;
     require './libraries/tbl_info.inc.php';
 }
@@ -260,6 +260,8 @@ unset($columns);
         <option value="asc"><?php echo __('Ascending'); ?></option>
         <option value="desc"><?php echo __('Descending'); ?></option>
     </select>
+</fieldset>
+<fieldset class="tblFooters">
     <input type="submit" name="submitorderby" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>
