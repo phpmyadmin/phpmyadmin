@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-25 14:30+0200\n"
+"POT-Creation-Date: 2010-05-31 14:06+0200\n"
 "PO-Revision-Date: 2010-05-31 01:57+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -20,8 +20,8 @@ msgstr ""
 msgid "Show all"
 msgstr "Pokaži vse"
 
-#: browse_foreigners.php:82 db_operations.php:648
-#: libraries/common.lib.php:2304 libraries/display_tbl.lib.php:394
+#: browse_foreigners.php:82 libraries/common.lib.php:2304
+#: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:394
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
 msgid "Page number:"
@@ -45,30 +45,31 @@ msgid "Search"
 msgstr "Iskanje"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
-#: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_search.php:362 db_structure.php:567 js/messages.php:48
-#: libraries/Config.class.php:1046 libraries/Theme_Manager.class.php:311
+#: db_operations.php:495 db_operations.php:603 db_search.php:362
+#: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
+#: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2279
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
-#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
-#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:369
-#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
-#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
-#: libraries/tbl_properties.inc.php:782 main.php:128 navigation.php:238
-#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
-#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
-#: server_privileges.php:1585 server_privileges.php:1932
-#: server_privileges.php:1979 server_privileges.php:2018
-#: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
-#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
-#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
-#: tbl_structure.php:562 tbl_structure.php:597 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
+#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
+#: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:321
+#: pdf_pages.php:523 pmd_pdf.php:116 server_binlog.php:142
+#: server_privileges.php:625 server_privileges.php:1585
+#: server_privileges.php:1932 server_privileges.php:1979
+#: server_privileges.php:2018 server_replication.php:235
+#: server_replication.php:318 server_replication.php:341
+#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_select.php:327 tbl_structure.php:562
+#: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Izvedi"
 
@@ -328,57 +329,13 @@ msgstr ""
 "Dodatne funkcije za delo s povezanimi tabelami so bile izkjučene. Če želite "
 "izvedeti zakaj, kliknite %stukaj%s."
 
-#: db_operations.php:645 pdf_pages.php:528
-msgid "Display PDF schema"
-msgstr "Prikaži PDF-shemo"
-
-#: db_operations.php:661 pdf_pages.php:529
-msgid "Show grid"
-msgstr "Pokaži mrežo"
-
-#: db_operations.php:664 pdf_pages.php:530
-msgid "Show color"
-msgstr "Pokaži barvo"
-
-#: db_operations.php:666 pdf_pages.php:531
-msgid "Show dimension of tables"
-msgstr "Pokaži dimenzije tabel"
-
-#: db_operations.php:669 pdf_pages.php:532
-msgid "Display all tables with the same width"
-msgstr "Prikaži vse tabele enake širine"
-
-#: db_operations.php:672 db_structure.php:606 pdf_pages.php:533
-msgid "Data Dictionary"
-msgstr "Slovar podatkov"
-
-#: db_operations.php:674 pdf_pages.php:534
-msgid "Only show keys"
-msgstr "Prikaži samo ključe"
-
-#: db_operations.php:676 pdf_pages.php:535
-msgid "Data Dictionary Format"
-msgstr "Oblika podatkovnega slovarja"
-
-#: db_operations.php:678 pdf_pages.php:537
-msgid "Landscape"
-msgstr "Ležeče"
-
-#: db_operations.php:679 pdf_pages.php:538
-msgid "Portrait"
-msgstr "Pokončno"
-
-#: db_operations.php:682 pdf_pages.php:541
-msgid "Paper size"
-msgstr "Velikost papirja"
-
-#: db_operations.php:706
+#: db_operations.php:642
 msgid "Edit PDF Pages"
 msgstr "Uredi PDF strani"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
-#: libraries/header.inc.php:126 pdf_pages.php:405 server_privileges.php:1626
+#: libraries/header.inc.php:126 pdf_pages.php:417 server_privileges.php:1626
 #: server_privileges.php:1682 server_privileges.php:1946
 #: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
 #: test/theme.php:75
@@ -418,7 +375,6 @@ msgstr "Zadnjič pregledano"
 
 #: db_printview.php:222 db_structure.php:480
 #, php-format
-#| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s tabela"
@@ -556,7 +512,7 @@ msgstr "Prebrskaj"
 
 #: db_search.php:272 libraries/display_tbl.lib.php:1165
 #: libraries/display_tbl.lib.php:2056 libraries/sql_query_form.lib.php:470
-#: pdf_pages.php:281 pdf_pages.php:406 pdf_pages.php:442 pdf_pages.php:470
+#: pdf_pages.php:281 pdf_pages.php:418 pdf_pages.php:454 pdf_pages.php:482
 #: pmd_general.php:377 setup/frames/index.inc.php:125
 #: setup/frames/index.inc.php:216 tbl_row_action.php:63
 msgid "Delete"
@@ -735,6 +691,10 @@ msgstr "Analiziraj tabelo"
 #: setup/frames/menu.inc.php:22 tbl_row_action.php:59
 msgid "Export"
 msgstr "Izvozi"
+
+#: db_structure.php:606 libraries/display_pdf_schema.lib.php:44
+msgid "Data Dictionary"
+msgstr "Slovar podatkov"
 
 #: db_tracking.php:66
 msgid "Tracked tables"
@@ -1716,8 +1676,7 @@ msgstr "en"
 #: libraries/common.lib.php:450 libraries/dbg/setup.php:25
 #: libraries/display_export.lib.php:164 libraries/relation.lib.php:97
 #: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
-#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
-#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
+#: main.php:229 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Dokumentacija"
 
@@ -2200,6 +2159,46 @@ msgstr "Število zapisov (poizvedb), ki jih naj preskočim od začetka"
 msgid "Format of imported file"
 msgstr "Oblika uvožene datoteke"
 
+#: libraries/display_pdf_schema.lib.php:11
+msgid "Display PDF schema"
+msgstr "Prikaži PDF-shemo"
+
+#: libraries/display_pdf_schema.lib.php:33
+msgid "Show grid"
+msgstr "Pokaži mrežo"
+
+#: libraries/display_pdf_schema.lib.php:36
+msgid "Show color"
+msgstr "Pokaži barvo"
+
+#: libraries/display_pdf_schema.lib.php:38
+msgid "Show dimension of tables"
+msgstr "Pokaži dimenzije tabel"
+
+#: libraries/display_pdf_schema.lib.php:41
+msgid "Display all tables with the same width"
+msgstr "Prikaži vse tabele enake širine"
+
+#: libraries/display_pdf_schema.lib.php:46
+msgid "Only show keys"
+msgstr "Prikaži samo ključe"
+
+#: libraries/display_pdf_schema.lib.php:48
+msgid "Data Dictionary Format"
+msgstr "Oblika podatkovnega slovarja"
+
+#: libraries/display_pdf_schema.lib.php:50
+msgid "Landscape"
+msgstr "Ležeče"
+
+#: libraries/display_pdf_schema.lib.php:51
+msgid "Portrait"
+msgstr "Pokončno"
+
+#: libraries/display_pdf_schema.lib.php:54
+msgid "Paper size"
+msgstr "Velikost papirja"
+
 #: libraries/display_select_lang.lib.php:45
 #: libraries/display_select_lang.lib.php:46 setup/frames/index.inc.php:70
 msgid "Language"
@@ -2542,8 +2541,8 @@ msgid ""
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
 "Količina pomnilnika uporabljena za predpomnjenje indeksov. Privzeta vrednost "
-"je 32 MB. Tukaj dodeljen pomnilnik se uporablja samo za predpomnjenje "
-"strani indeksov."
+"je 32 MB. Tukaj dodeljen pomnilnik se uporablja samo za predpomnjenje strani "
+"indeksov."
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Record cache size"
@@ -3070,7 +3069,7 @@ msgstr "Prezri podvojene vrstice"
 msgid "Column names in first row"
 msgstr "Imena stolpcev v prvi vrstici"
 
-#: libraries/import/csv.php:40 libraries/import/ldi.php:44 pdf_pages.php:483
+#: libraries/import/csv.php:40 libraries/import/ldi.php:44 pdf_pages.php:495
 #: view_create.php:148
 msgid "Column names"
 msgstr "Imena stolpcev"
@@ -3498,8 +3497,7 @@ msgstr "Število trenutno umazanih strani."
 #: libraries/messages.inc.php:85
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
-"Število strani zaloge medpomnilnika, za katere je bila zaprošena "
-"izplaknitev."
+"Število strani zaloge medpomnilnika, za katere je bila zaprošena izplaknitev."
 
 #: libraries/messages.inc.php:86
 msgid "The number of free pages."
@@ -3594,8 +3592,7 @@ msgstr "Količina do zdaj zapisanih podatkov, v bajtih."
 #: libraries/messages.inc.php:104
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
-"Število strani, ki so bile zapisane za posege dvojnega pisanja "
-"(doublewrite)."
+"Število strani, ki so bile zapisane za posege dvojnega pisanja (doublewrite)."
 
 #: libraries/messages.inc.php:105
 msgid "The number of doublewrite operations that have been performed."
@@ -4586,7 +4583,7 @@ msgstr "Pogon skladiščenja"
 msgid "PARTITION definition"
 msgstr "Definicija PARTITION"
 
-#: libraries/tbl_properties.inc.php:776 pdf_pages.php:484
+#: libraries/tbl_properties.inc.php:776 pdf_pages.php:496
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
 #: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1126 tbl_indexes.php:248
 #: tbl_relation.php:566
@@ -4759,7 +4756,7 @@ msgstr "Vmesnik"
 msgid "Custom color"
 msgstr "Barva po meri"
 
-#: main.php:163 pdf_pages.php:344 setup/lib/FormDisplay.tpl.php:216
+#: main.php:163 pdf_pages.php:356 setup/lib/FormDisplay.tpl.php:216
 #: tbl_change.php:1175
 msgid "Reset"
 msgstr "Ponastavi"
@@ -4928,23 +4925,31 @@ msgstr "Izberite stran za urejanje"
 msgid "Create a page"
 msgstr "Ustvari novo stran"
 
-#: pdf_pages.php:303 pdf_pages.php:306
-msgid "Automatic layout"
+#: pdf_pages.php:303
+#, fuzzy
+#| msgid "Page number:"
+msgid "Page name"
+msgstr "Številka strani:"
+
+#: pdf_pages.php:307
+#, fuzzy
+#| msgid "Automatic layout"
+msgid "Automatic layout based on"
 msgstr "Samodejna postavitev"
 
-#: pdf_pages.php:303
+#: pdf_pages.php:309
 msgid "Internal relations"
 msgstr "Notranja razmerja"
 
-#: pdf_pages.php:320
+#: pdf_pages.php:332
 msgid "Select Tables"
 msgstr "Izberi tabele"
 
-#: pdf_pages.php:343
+#: pdf_pages.php:355
 msgid "Toggle scratchboard"
 msgstr "Preklopi odložišče (scratchboard)"
 
-#: pdf_pages.php:506
+#: pdf_pages.php:518
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -5245,7 +5250,6 @@ msgid "Do not change the password"
 msgstr "Ne spreminjaj gesla"
 
 #: server_privileges.php:804 server_privileges.php:2166
-#| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Najden ni bil noben uporabnik."
 
@@ -5719,8 +5723,8 @@ msgstr ""
 #: server_status.php:362
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Strežnik MySQL deluje kot <b>glavni strežnik</b> v postopku "
-"<b>podvojevanja</b>."
+"Strežnik MySQL deluje kot <b>glavni strežnik</b> v postopku <b>podvojevanja</"
+"b>."
 
 #: server_status.php:364
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
@@ -6067,11 +6071,10 @@ msgid ""
 msgstr ""
 "Ta [a@?page=form&amp;formset=features#tab_Security]možnost[/a] naj bo "
 "onemogočena, saj omogoča napadalcem, da se z načinom bruteforce prijavijo v "
-"kateri koli strežnik MySQL. Če menite, da je to potrebno, uporabite "
-"[a@?page=form&amp;formset=features#tab_Security]seznam zaupanih "
-"proxyjev[/a]. Kakor koli, zaščita temelječa na IP ni zanesljiva, če vaš IP "
-"pripada ISP-ju, na katerega je povezanih tisoče uporabnikov, vključno z "
-"vami."
+"kateri koli strežnik MySQL. Če menite, da je to potrebno, uporabite [a@?"
+"page=form&amp;formset=features#tab_Security]seznam zaupanih proxyjev[/a]. "
+"Kakor koli, zaščita temelječa na IP ni zanesljiva, če vaš IP pripada ISP-ju, "
+"na katerega je povezanih tisoče uporabnikov, vključno z vami."
 
 #: setup/lib/messages.inc.php:19
 msgid "Allow login to any MySQL server"
@@ -6173,8 +6176,8 @@ msgid ""
 "kbd] - allows newlines in fields"
 msgstr ""
 "Določa, katera vrsta urejevalnih kontrolnikov naj se uporablja za polja CHAR "
-"in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, "
-"[kbd]textarea[/kbd] – omogoča nove vrstice v polju"
+"in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, [kbd]"
+"textarea[/kbd] – omogoča nove vrstice v polju"
 
 #: setup/lib/messages.inc.php:36
 msgid "CHAR fields editing"
@@ -6829,10 +6832,10 @@ msgid ""
 "be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
 "pose a security risk such as impersonation."
 msgstr ""
-"[a@?page=form&formset=features#tab_Security]Veljavnost prijavnega "
-"piškotka[/a] naj bo nastavljena na največ 1800 sekund (30 minut). Vrednosti "
-"večje od 1800 lahko predstavljajo varnostno tveganje, kot je pretvarjanje za "
-"drugo osebo."
+"[a@?page=form&formset=features#tab_Security]Veljavnost prijavnega piškotka[/"
+"a] naj bo nastavljena na največ 1800 sekund (30 minut). Vrednosti večje od "
+"1800 lahko predstavljajo varnostno tveganje, kot je pretvarjanje za drugo "
+"osebo."
 
 #: setup/lib/messages.inc.php:199
 msgid "Login cookie validity"
@@ -6999,9 +7002,9 @@ msgstr ""
 "Nastavili ste vrsto overovitve [kbd]config[/kbd] in vključili uporabniško "
 "ime in geslo za samodejno prijavo, kar ni zaželena možnost za gostitelje "
 "aktivnih strani. Vsakdo, ki ve ali ugane vaš URL phpMyAdmina, lahko "
-"neposredno dostopa do vaše plošče phpMyAdmin. Nastavite "
-"[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]vrsto overovitve[/a] "
-"na [kbd]cookie[/kbd] ali [kbd]http[/kbd]."
+"neposredno dostopa do vaše plošče phpMyAdmin. Nastavite [a@?page=servers&amp;"
+"mode=edit&amp;id=%1$d#tab_Server]vrsto overovitve[/a] na [kbd]cookie[/kbd] "
+"ali [kbd]http[/kbd]."
 
 #: setup/lib/messages.inc.php:239
 msgid "You should use mysqli for performance reasons"
@@ -7050,8 +7053,8 @@ msgid ""
 "swekey.conf)"
 msgstr ""
 "Pot konfiguracijske datoteke za [a@http://swekey.com]strojno overovitev "
-"SweKey[/a] (se ne nahaja v korenski mapi dokumentov; predlagano: "
-"/etc/swekey.conf)"
+"SweKey[/a] (se ne nahaja v korenski mapi dokumentov; predlagano: /etc/swekey."
+"conf)"
 
 #: setup/lib/messages.inc.php:251
 msgid "SweKey config file"
@@ -7070,9 +7073,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore "
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]zaznamkov[/a]; predlagano: "
-"[kbd]pma_bookmark[/kbd]"
+"Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]zaznamkov[/a]; predlagano: [kbd]pma_bookmark[/kbd]"
 
 #: setup/lib/messages.inc.php:255
 msgid "Bookmark table"
@@ -7136,8 +7138,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore Oblikovalnika; predlagano: "
-"[kbd]pma_designer_coords[/kbd]"
+"Pustite prazno, če ne želite podpore Oblikovalnika; predlagano: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: setup/lib/messages.inc.php:268
 msgid "Designer table"
@@ -7148,9 +7150,8 @@ msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Več informacij na "
-"[a@http://sf.net/support/tracker.php?aid=1849494]sledilniku hroščev PMA[/a] "
-"in[a@http://bugs.mysql.com/19588]hroščih MySQL[/a]"
+"Več informacij na [a@http://sf.net/support/tracker.php?aid=1849494]"
+"sledilniku hroščev PMA[/a] in[a@http://bugs.mysql.com/19588]hroščih MySQL[/a]"
 
 #: setup/lib/messages.inc.php:270
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -7167,12 +7168,11 @@ msgid ""
 "to."
 msgstr ""
 "Če menite, da je to potrebno, uporabite dodatne nastavitve zaščite – "
-"nastavitve [a@?page=servers&amp;mode=edit&amp;id=%"
-"1$d#tab_Server_config]overovitve gostitelja[/a] in "
-"[a@?page=form&amp;formset=features#tab_Security]seznam zaupanih "
-"proxyjev[/a]. Kakor koli, zaščita temelječa na IP ni zanesljiva, če vaš IP "
-"pripada ISP-ju, na katerega je povezanih tisoče uporabnikov, vključno z "
-"vami."
+"nastavitve [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]"
+"overovitve gostitelja[/a] in [a@?page=form&amp;formset=features#tab_Security]"
+"seznam zaupanih proxyjev[/a]. Kakor koli, zaščita temelječa na IP ni "
+"zanesljiva, če vaš IP pripada ISP-ju, na katerega je povezanih tisoče "
+"uporabnikov, vključno z vami."
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -7207,8 +7207,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: "
-"[kbd]pma_tracking[/kbd]"
+"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: [kbd]"
+"pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
 msgid "SQL query tracking table"
@@ -7258,8 +7258,8 @@ msgstr "Geslo za overovitev config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore PDF-sheme; predlagano: "
-"[kbd]pma_pdf_pages[/kbd]"
+"Pustite prazno, če ne želite podpore PDF-sheme; predlagano: [kbd]"
+"pma_pdf_pages[/kbd]"
 
 #: setup/lib/messages.inc.php:291
 msgid "PDF schema: pages table"
@@ -7278,8 +7278,7 @@ msgstr ""
 #: setup/lib/messages.inc.php:294
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
-"Vrata, na katera naj bo strežnik MySQL priključen; pustite prazno za "
-"privzeto"
+"Vrata, na katera naj bo strežnik MySQL priključen; pustite prazno za privzeto"
 
 #: setup/lib/messages.inc.php:295
 msgid "Server port"
@@ -7290,9 +7289,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore "
-"[a@http://wiki.phpmyadmin.net/pma/relation]relacijskih povezav[/a]; "
-"priporočeno: [kbd]pma_relation[/kbd]"
+"Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
+"relation]relacijskih povezav[/a]; priporočeno: [kbd]pma_relation[/kbd]"
 
 #: setup/lib/messages.inc.php:297
 msgid "Relation table"
@@ -7404,8 +7402,8 @@ msgstr "Uporabi SSL"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore PDF-sheme; predlagano: "
-"[kbd]pma_table_coords[/kbd]"
+"Pustite prazno, če ne želite podpore PDF-sheme; predlagano: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: setup/lib/messages.inc.php:319
 msgid "PDF schema: table coordinates"
@@ -7466,9 +7464,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
-"Pomnite, da omogočanje tega nima učinka z načinom overovitve "
-"[kbd]config[/kbd], saj je geslo vgrajeno v konfiguracijsko datoteko; to ne "
-"omejuje možnosti izvedbe enakega ukaza neposredno"
+"Pomnite, da omogočanje tega nima učinka z načinom overovitve [kbd]config[/"
+"kbd], saj je geslo vgrajeno v konfiguracijsko datoteko; to ne omejuje "
+"možnosti izvedbe enakega ukaza neposredno"
 
 #: setup/lib/messages.inc.php:332
 msgid "Show password change form"
@@ -7543,9 +7541,9 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 "Ko je nastavljeno na [kbd]nested[/kbd], je pridevek imena tabele uporabljen "
-"samo za razdružitev/združitev tabel v skladu z določilom "
-"$cfg['LeftFrameTableSeparator'], zato je samo mapa imenovana kot pridevek, "
-"sama imena tabel pa ostanejo nespremenjena"
+"samo za razdružitev/združitev tabel v skladu z določilom $cfg"
+"['LeftFrameTableSeparator'], zato je samo mapa imenovana kot pridevek, sama "
+"imena tabel pa ostanejo nespremenjena"
 
 #: setup/lib/messages.inc.php:348
 msgid "Display table comment instead of its name"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-25 14:30+0200\n"
+"POT-Creation-Date: 2010-05-31 14:06+0200\n"
 "PO-Revision-Date: 2010-05-31 01:06+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -19,8 +19,8 @@ msgstr ""
 msgid "Show all"
 msgstr "Toon alles"
 
-#: browse_foreigners.php:82 db_operations.php:648
-#: libraries/common.lib.php:2304 libraries/display_tbl.lib.php:394
+#: browse_foreigners.php:82 libraries/common.lib.php:2304
+#: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:394
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
 msgid "Page number:"
@@ -44,30 +44,31 @@ msgid "Search"
 msgstr "Zoeken"
 
 #: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
-#: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_search.php:362 db_structure.php:567 js/messages.php:48
-#: libraries/Config.class.php:1046 libraries/Theme_Manager.class.php:311
+#: db_operations.php:495 db_operations.php:603 db_search.php:362
+#: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
+#: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2279
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
-#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
-#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:369
-#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
-#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
-#: libraries/tbl_properties.inc.php:782 main.php:128 navigation.php:238
-#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
-#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
-#: server_privileges.php:1585 server_privileges.php:1932
-#: server_privileges.php:1979 server_privileges.php:2018
-#: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
-#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
-#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
-#: tbl_structure.php:562 tbl_structure.php:597 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
+#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
+#: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+#: main.php:128 navigation.php:238 pdf_pages.php:285 pdf_pages.php:321
+#: pdf_pages.php:523 pmd_pdf.php:116 server_binlog.php:142
+#: server_privileges.php:625 server_privileges.php:1585
+#: server_privileges.php:1932 server_privileges.php:1979
+#: server_privileges.php:2018 server_replication.php:235
+#: server_replication.php:318 server_replication.php:341
+#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:263
+#: tbl_operations.php:300 tbl_operations.php:497 tbl_operations.php:559
+#: tbl_operations.php:679 tbl_select.php:327 tbl_structure.php:562
+#: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Start"
 
@@ -298,7 +299,6 @@ msgid "Damaged"
 msgstr "Beschadigd"
 
 #: db_operations.php:562
-#| msgid "Repair"
 msgctxt "BLOB repository"
 msgid "Repair"
 msgstr "Herstel"
@@ -332,57 +332,13 @@ msgstr ""
 "Extra opties om met tabellen te werken, die gelinkt zijn, zijn "
 "uitgeschakeld. Om te weten te komen waarom klik %shier%s."
 
-#: db_operations.php:645 pdf_pages.php:528
-msgid "Display PDF schema"
-msgstr "Geef het PDF-schema weer"
-
-#: db_operations.php:661 pdf_pages.php:529
-msgid "Show grid"
-msgstr "Toon raster"
-
-#: db_operations.php:664 pdf_pages.php:530
-msgid "Show color"
-msgstr "Toon kleur"
-
-#: db_operations.php:666 pdf_pages.php:531
-msgid "Show dimension of tables"
-msgstr "Geef de dimensies van de tabellen weer"
-
-#: db_operations.php:669 pdf_pages.php:532
-msgid "Display all tables with the same width"
-msgstr "Alle tabellen weergeven met dezelfde breedte?"
-
-#: db_operations.php:672 db_structure.php:606 pdf_pages.php:533
-msgid "Data Dictionary"
-msgstr "Data Woordenboek"
-
-#: db_operations.php:674 pdf_pages.php:534
-msgid "Only show keys"
-msgstr "Alleen sleutels tonen"
-
-#: db_operations.php:676 pdf_pages.php:535
-msgid "Data Dictionary Format"
-msgstr "Data Dictionary Formaat"
-
-#: db_operations.php:678 pdf_pages.php:537
-msgid "Landscape"
-msgstr "Landschap"
-
-#: db_operations.php:679 pdf_pages.php:538
-msgid "Portrait"
-msgstr "Portret"
-
-#: db_operations.php:682 pdf_pages.php:541
-msgid "Paper size"
-msgstr "Papierformaat"
-
-#: db_operations.php:706
+#: db_operations.php:642
 msgid "Edit PDF Pages"
 msgstr "PDF Pagina's aanpassen"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
-#: libraries/header.inc.php:126 pdf_pages.php:405 server_privileges.php:1626
+#: libraries/header.inc.php:126 pdf_pages.php:417 server_privileges.php:1626
 #: server_privileges.php:1682 server_privileges.php:1946
 #: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
 #: test/theme.php:75
@@ -558,7 +514,7 @@ msgstr "Verkennen"
 
 #: db_search.php:272 libraries/display_tbl.lib.php:1165
 #: libraries/display_tbl.lib.php:2056 libraries/sql_query_form.lib.php:470
-#: pdf_pages.php:281 pdf_pages.php:406 pdf_pages.php:442 pdf_pages.php:470
+#: pdf_pages.php:281 pdf_pages.php:418 pdf_pages.php:454 pdf_pages.php:482
 #: pmd_general.php:377 setup/frames/index.inc.php:125
 #: setup/frames/index.inc.php:216 tbl_row_action.php:63
 msgid "Delete"
@@ -738,6 +694,10 @@ msgstr "Analyseer tabel"
 #: setup/frames/menu.inc.php:22 tbl_row_action.php:59
 msgid "Export"
 msgstr "Exporteer"
+
+#: db_structure.php:606 libraries/display_pdf_schema.lib.php:44
+msgid "Data Dictionary"
+msgstr "Data Woordenboek"
 
 #: db_tracking.php:66
 msgid "Tracked tables"
@@ -1048,7 +1008,6 @@ msgstr "Kies weer te geven veld"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
-#| msgid "Donate"
 msgid "Done"
 msgstr "Klaar"
 
@@ -1069,12 +1028,10 @@ msgstr "Volgende"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:79
-#| msgid "Total"
 msgid "Today"
 msgstr "Vandaag"
 
 #: js/messages.php:82
-#| msgid "Binary"
 msgid "January"
 msgstr "Januari"
 
@@ -1083,12 +1040,10 @@ msgid "February"
 msgstr "Februari"
 
 #: js/messages.php:84
-#| msgid "Mar"
 msgid "March"
 msgstr "Maart"
 
 #: js/messages.php:85
-#| msgid "Apr"
 msgid "April"
 msgstr "April"
 
@@ -1097,17 +1052,14 @@ msgid "May"
 msgstr "Mei"
 
 #: js/messages.php:87
-#| msgid "Jun"
 msgid "June"
 msgstr "Juni"
 
 #: js/messages.php:88
-#| msgid "Jul"
 msgid "July"
 msgstr "Juli"
 
 #: js/messages.php:89
-#| msgid "Aug"
 msgid "August"
 msgstr "Augustus"
 
@@ -1116,7 +1068,6 @@ msgid "September"
 msgstr "September"
 
 #: js/messages.php:91
-#| msgid "Oct"
 msgid "October"
 msgstr "Oktober"
 
@@ -1192,17 +1143,14 @@ msgid "Dec"
 msgstr "Dec"
 
 #: js/messages.php:122
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "Zondag"
 
 #: js/messages.php:123
-#| msgid "Mon"
 msgid "Monday"
 msgstr "Maandag"
 
 #: js/messages.php:124
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "Dinsdag"
 
@@ -1215,7 +1163,6 @@ msgid "Thursday"
 msgstr "Donderdag"
 
 #: js/messages.php:127
-#| msgid "Fri"
 msgid "Friday"
 msgstr "Vrijdag"
 
@@ -1260,7 +1207,6 @@ msgstr "Za"
 
 #. l10n: Minimal week day name
 #: js/messages.php:148
-#| msgid "Sun"
 msgid "Su"
 msgstr "Zo"
 
@@ -1301,13 +1247,11 @@ msgstr "Vr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:160
-#| msgid "Sat"
 msgid "Sa"
 msgstr "Za"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
-#| msgid "Wiki"
 msgid "Wk"
 msgstr "Week"
 
@@ -1316,12 +1260,10 @@ msgid "Hour"
 msgstr "Uur"
 
 #: js/messages.php:165
-#| msgid "in use"
 msgid "Minute"
 msgstr "Minuut"
 
 #: js/messages.php:166
-#| msgid "per second"
 msgid "Second"
 msgstr "Seconde"
 
@@ -1702,7 +1644,6 @@ msgstr ""
 # 'kon niet vanuit "%1$s" geladen worden' is juister.
 #: libraries/common.inc.php:594
 #, php-format
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Standaard configuratiebestand kon niet geladen worden vanuit: \"%1$s\""
 
@@ -1762,8 +1703,7 @@ msgstr "en"
 #: libraries/common.lib.php:450 libraries/dbg/setup.php:25
 #: libraries/display_export.lib.php:164 libraries/relation.lib.php:97
 #: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
-#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
-#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
+#: main.php:229 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Documentatie"
 
@@ -1811,7 +1751,6 @@ msgstr "Rechtstreekse bewerking van deze query"
 
 # "Inline" vertaalt naar "rechtstreeks in het document", als het ware binnen iets anders.
 #: libraries/common.lib.php:1278
-#| msgid "Engines"
 msgid "Inline"
 msgstr "Rechtstreeks"
 
@@ -2039,7 +1978,6 @@ msgstr "Wachtwoord Hashing"
 
 # Kan ook vertaald worden als "werkt met ..."
 #: libraries/display_change_password.lib.php:66
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "Compatibel met MySQL&nbsp;4.0"
 
@@ -2251,6 +2189,46 @@ msgstr "Aantal queries die moeten worden overgeslagen vanaf het begin"
 #: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
 msgstr "Formaat van het geïmporteerde bestand"
+
+#: libraries/display_pdf_schema.lib.php:11
+msgid "Display PDF schema"
+msgstr "Geef het PDF-schema weer"
+
+#: libraries/display_pdf_schema.lib.php:33
+msgid "Show grid"
+msgstr "Toon raster"
+
+#: libraries/display_pdf_schema.lib.php:36
+msgid "Show color"
+msgstr "Toon kleur"
+
+#: libraries/display_pdf_schema.lib.php:38
+msgid "Show dimension of tables"
+msgstr "Geef de dimensies van de tabellen weer"
+
+#: libraries/display_pdf_schema.lib.php:41
+msgid "Display all tables with the same width"
+msgstr "Alle tabellen weergeven met dezelfde breedte?"
+
+#: libraries/display_pdf_schema.lib.php:46
+msgid "Only show keys"
+msgstr "Alleen sleutels tonen"
+
+#: libraries/display_pdf_schema.lib.php:48
+msgid "Data Dictionary Format"
+msgstr "Data Dictionary Formaat"
+
+#: libraries/display_pdf_schema.lib.php:50
+msgid "Landscape"
+msgstr "Landschap"
+
+#: libraries/display_pdf_schema.lib.php:51
+msgid "Portrait"
+msgstr "Portret"
+
+#: libraries/display_pdf_schema.lib.php:54
+msgid "Paper size"
+msgstr "Papierformaat"
 
 #: libraries/display_select_lang.lib.php:45
 #: libraries/display_select_lang.lib.php:46 setup/frames/index.inc.php:70
@@ -3125,7 +3103,7 @@ msgstr "Negeer dubbele rijen"
 msgid "Column names in first row"
 msgstr "Kolomnamen in eerste rij"
 
-#: libraries/import/csv.php:40 libraries/import/ldi.php:44 pdf_pages.php:483
+#: libraries/import/csv.php:40 libraries/import/ldi.php:44 pdf_pages.php:495
 #: view_create.php:148
 msgid "Column names"
 msgstr "Kolom namen"
@@ -3199,7 +3177,6 @@ msgstr ""
 # Is er een betere vertaling voor 'encoding' ?
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:143
-#| msgid "Recoding engine"
 msgid "Encoding conversion"
 msgstr "Omzetting van de codering"
 
@@ -4392,8 +4369,7 @@ msgstr ""
 #: libraries/relation.lib.php:164
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
-"Log opnieuw in op phpMyAdmin om het bijgewerkte configuratiebestand te "
-"laden."
+"Log opnieuw in op phpMyAdmin om het bijgewerkte configuratiebestand te laden."
 
 #: libraries/relation.lib.php:1173
 msgid "no description"
@@ -4738,7 +4714,6 @@ msgstr ""
 
 # "Geen" of indien telbaar: "Geen enkele".
 #: libraries/tbl_properties.inc.php:393
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Geen"
@@ -4765,7 +4740,7 @@ msgstr "Opslag Engine"
 msgid "PARTITION definition"
 msgstr "PARTITION definitie"
 
-#: libraries/tbl_properties.inc.php:776 pdf_pages.php:484
+#: libraries/tbl_properties.inc.php:776 pdf_pages.php:496
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
 #: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1126 tbl_indexes.php:248
 #: tbl_relation.php:566
@@ -4943,7 +4918,7 @@ msgstr "Interface"
 msgid "Custom color"
 msgstr "Aangepaste kleur"
 
-#: main.php:163 pdf_pages.php:344 setup/lib/FormDisplay.tpl.php:216
+#: main.php:163 pdf_pages.php:356 setup/lib/FormDisplay.tpl.php:216
 #: tbl_change.php:1175
 msgid "Reset"
 msgstr "Herstel"
@@ -5093,7 +5068,6 @@ msgid "Clear"
 msgstr "Clear"
 
 #: navigation.php:350 navigation.php:351
-#| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
 msgstr "Maak tabel"
@@ -5115,23 +5089,31 @@ msgstr "Kies een pagina om aan te passen"
 msgid "Create a page"
 msgstr "Creëer een nieuwe pagina"
 
-#: pdf_pages.php:303 pdf_pages.php:306
-msgid "Automatic layout"
+#: pdf_pages.php:303
+#, fuzzy
+#| msgid "Page number:"
+msgid "Page name"
+msgstr "Paginanummer:"
+
+#: pdf_pages.php:307
+#, fuzzy
+#| msgid "Automatic layout"
+msgid "Automatic layout based on"
 msgstr "Automatische lay-out"
 
-#: pdf_pages.php:303
+#: pdf_pages.php:309
 msgid "Internal relations"
 msgstr "Interne relaties"
 
-#: pdf_pages.php:320
+#: pdf_pages.php:332
 msgid "Select Tables"
 msgstr "Selecteer tabellen"
 
-#: pdf_pages.php:343
+#: pdf_pages.php:355
 msgid "Toggle scratchboard"
 msgstr "Aan/uit voorbeeldkader"
 
-#: pdf_pages.php:506
+#: pdf_pages.php:518
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -5141,7 +5123,6 @@ msgstr ""
 
 #: pdf_schema.php:636
 #, php-format
-#| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "De tabel \"%s\" bestaat niet!"
 
@@ -5356,7 +5337,6 @@ msgid "Slave replication"
 msgstr "Slave replicatie"
 
 #: server_databases.php:230
-#| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Ga naar database"
 
@@ -5394,7 +5374,6 @@ msgid "View dump (schema) of databases"
 msgstr "Bekijk dump (schema) van de databases"
 
 #: server_privileges.php:263 server_privileges.php:264
-#| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Geen"
@@ -5441,7 +5420,6 @@ msgstr "Wijzig het wachtwoord niet"
 
 # Enkelvoud.
 #: server_privileges.php:804 server_privileges.php:2166
-#| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Geen gebruiker gevonden."
 
@@ -5809,7 +5787,6 @@ msgstr "Fouten beheer:"
 # "errors" => "fouten"
 # master and slave _what_?
 #: server_replication.php:334
-#| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 "Het overslaan van fouten kan leiden tot verschillen tussen de meester en "
@@ -5935,10 +5912,6 @@ msgstr "Deze server is ingesteld als master in een replicatie proces."
 # Er moet een betere vertaling voor "replication" zijn. "Nadoen"?
 # "Deze MySQL-server functioneert als %s in een <b>replicatie</b> proces." weggehaald.
 #: server_status.php:366
-#| msgid ""
-#| "This MySQL server works as %s in <b>replication</b> process. For further "
-#| "information about replication status on the server, please visit the <a "
-#| "href=\"#replication\">replication section</a>."
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
@@ -6111,13 +6084,11 @@ msgid "Enter manually"
 msgstr "Geef handmatig op"
 
 #: server_synchronize.php:1123
-#| msgid "Insecure connection"
 msgid "Current connection"
 msgstr "Huidige verbinding"
 
 #: server_synchronize.php:1152
 #, php-format
-#| msgid "Configuration file"
 msgid "Configuration: %s"
 msgstr "Configuratie: %s"
 
@@ -7430,9 +7401,6 @@ msgid "SQL query history table"
 msgstr "SQL-query historie tabel"
 
 #: setup/lib/messages.inc.php:279
-#| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
@@ -7441,7 +7409,6 @@ msgstr ""
 "[kbd]pma_history[/kbd]"
 
 #: setup/lib/messages.inc.php:280
-#| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL-query opvolgingstabel"
 
