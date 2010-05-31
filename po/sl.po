@@ -4615,7 +4615,7 @@ msgstr "Shrani"
 #, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
-msgstr "Dodaj %s stolpcev"
+msgstr "Dodaj %s stolpec(-cev)"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
 #| msgid "You have to add at least one field."
