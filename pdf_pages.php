@@ -282,6 +282,8 @@ if ($cfgRelation['pdfwork']) {
         PMA_display_html_radio('action_choose', $choices, '0', false);
     unset($choices);
 ?>
+    </fieldset>
+    <fieldset class="tblFooters">
        <input type="submit" value="<?php echo __('Go'); ?>" /><br />
     </fieldset>
 </form>
