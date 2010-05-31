@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-25 14:30+0200\n"
-"PO-Revision-Date: 2010-05-18 10:59+0200\n"
+"PO-Revision-Date: 2010-05-31 08:23+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -416,12 +416,12 @@ msgid "Last check"
 msgstr "Sist kontrollert"
 
 #: db_printview.php:222 db_structure.php:480
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabell(er)"
-msgstr[1] "%s tabell(er)"
+msgstr[0] "%s tabell"
+msgstr[1] "%s tabeller"
 
 #: db_qbe.php:29 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/sql_query_form.lib.php:140
@@ -8440,7 +8440,3 @@ msgstr "Endre tabellens navn"
 #~ msgstr ""
 #~ "Kan ikke starte sessjonen uten feil, kontroller feilmeldinger i din PHP "
 #~ "og/eller webtjenerloggfil og konfigurer din PHP innstallasjon korrekt."
-
-#~| msgid "Import currencies ($5.00 to 5.00)"
-#~ msgid "Import currencies (.00 to 5.00)"
-#~ msgstr "Importer valuta (.00 til 5.00)"
