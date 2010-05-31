@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 00:50+0200\n"
+"PO-Revision-Date: 2010-06-01 00:51+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4985,10 +4985,9 @@ msgid "Create a page"
 msgstr "Ustvari novo stran"
 
 #: pdf_pages.php:310
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Številka strani:"
+msgstr "Ime strani"
 
 #: pdf_pages.php:314
 #, fuzzy
