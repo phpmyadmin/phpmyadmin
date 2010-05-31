@@ -2883,10 +2883,9 @@ msgid "Database export options"
 msgstr "Možnosti za izvoz zbirke podatkov"
 
 #: libraries/export/sql.php:80
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Obdaj imena tabel in polj z enojnimi poševnimi narekovaji"
+msgstr "Obdaj imena tabel in stolpcev z enojnimi poševnimi narekovaji"
 
 #: libraries/export/sql.php:86
 msgid "Add into comments"
