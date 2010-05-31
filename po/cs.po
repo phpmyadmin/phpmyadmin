@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:06+0200\n"
-"PO-Revision-Date: 2010-05-25 14:32+0200\n"
+"PO-Revision-Date: 2010-05-31 14:14+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -4989,16 +4989,14 @@ msgid "Create a page"
 msgstr "Vytvořit novou stránku"
 
 #: pdf_pages.php:303
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Strana číslo:"
+msgstr "Jméno stránky"
 
 #: pdf_pages.php:307
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "automatické rozvržení"
+msgstr "Automatické rozvržení podle"
 
 #: pdf_pages.php:309
 msgid "Internal relations"
