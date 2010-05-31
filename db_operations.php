@@ -380,6 +380,8 @@ if (!$is_information_schema) {
         <input type="text" name="comment" class="textfield" size="30"
             value="<?php
             echo htmlspecialchars(PMA_getDBComment($db)); ?>" />
+    </fieldset>
+    <fieldset class="tblFooters">
         <input type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
     </form>
@@ -422,6 +424,8 @@ if (!$is_information_schema) {
         echo 'INSERT INTO ... SELECT';
     //}
     echo ')'; ?>
+    </fieldset>
+    <fieldset class="tblFooters">
         <input type="submit" value="<?php echo __('Go'); ?>" onclick="return confirmLink(this, 'CREATE DATABASE ... <?php echo __('and then'); ?> DROP DATABASE <?php echo PMA_jsFormat($db); ?>')" />
     </fieldset>
     </form>
@@ -599,6 +603,8 @@ if (!$is_information_schema) {
        . '    </legend>' . "\n"
        . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION,
             'db_collation', 'select_db_collation', $db_collation, false, 3)
+       . '</fieldset>'
+       . '<fieldset class="tblFooters">'
        . '    <input type="submit" name="submitcollation"'
        . ' value="' . __('Go') . '" />' . "\n"
        . '</fieldset>' . "\n"
