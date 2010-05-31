@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 00:51+0200\n"
+"PO-Revision-Date: 2010-06-01 00:52+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6231,7 +6231,6 @@ msgstr ""
 "prenesli ali jo prikazali."
 
 #: setup/lib/messages.inc.php:35
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -6241,9 +6240,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Določa, katera vrsta urejevalnih kontrolnikov naj se uporablja za polja CHAR "
-"in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, [kbd]"
-"textarea[/kbd] – omogoča nove vrstice v polju"
+"Določa, katera vrsta urejevalnih kontrolnikov naj se uporablja za stolpce "
+"CHAR in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, "
+"[kbd]textarea[/kbd] – omogoča nove vrstice v stolpcu"
 
 #: setup/lib/messages.inc.php:36
 #, fuzzy
