@@ -4727,7 +4727,6 @@ msgstr ""
 "se celotni izhod prikaže v eni vrstici (Privzeto 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -4735,7 +4734,7 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Prikaže vsebino polja takšno, kot je, brez obdelave s htmlspecialchars(). "
+"Prikaže vsebino stolpca takšno, kot je, brez obdelave s htmlspecialchars(). "
 "Zatorej se za polje predvideva, da vsebuje veljaven HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
