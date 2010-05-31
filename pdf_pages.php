@@ -298,14 +298,26 @@ if ($cfgRelation['pdfwork']) {
      </legend>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="createpage" />
-    <input type="text" name="newpage" size="20" maxlength="50" />
-       <input type="checkbox" name="auto_layout_internal" />
-<?php echo '(' . __('Automatic layout') . ' / ' . __('Internal relations') . ')';
+    <table>
+    <tr>
+    <td><label for="id_newpage"><?php echo __('Page name'); ?></label></td>
+    <td><input type="text" name="newpage" id="id_newpage" size="20" maxlength="50" /></td>
+    </tr>
+    <tr>
+    <td><?php echo __('Automatic layout based on'); ?></td>
+    <td>
+        <input type="checkbox" name="auto_layout_internal" id="id_auto_layout_internal" /><label for="id_auto_layout_internal"><?php echo __('Internal relations'); ?></label><br />
+<?php
     if (PMA_StorageEngine::isValid('InnoDB') || PMA_StorageEngine::isValid('PBXT')) {
-        echo '<input type="checkbox" name="auto_layout_foreign" />'
-            . '(' . __('Automatic layout') . ' / FOREIGN KEY)';
+?>
+        <input type="checkbox" name="auto_layout_foreign" id="id_auto_layout_foreign" /><label for="id_auto_layout_foreign">FOREIGN KEY</label><br />
+<?php
     }
 ?>
+    </td></tr>
+    </table>
+    </fieldset>
+    <fieldset class="tblFooters">
         <input type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
 </form>
