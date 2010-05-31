@@ -532,39 +532,7 @@ function resetDrag() {
     && ($do == 'edcoord'
        || ($do == 'choosepage' && isset($chpage))
        || ($do == 'createpage' && isset($chpage)))) {
-        ?>
-<form method="post" action="pdf_schema.php" name="pdfoptions">
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
-    <input type="hidden" name="pdf_page_number" value="<?php echo htmlspecialchars($chpage); ?>" />
-
-    <?php echo '<br /><strong>' . __('Display PDF schema') . '</strong>'; ?>:&nbsp;<br />
-    <input type="checkbox" name="show_grid" id="show_grid_opt" /><label for="show_grid_opt"><?php echo __('Show grid'); ?></label><br />
-    <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" /><label for="show_color_opt"><?php echo __('Show color'); ?></label><br />
-    <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" /><label for="show_table_dim_opt"><?php echo __('Show dimension of tables'); ?></label><br />
-    <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" /><label for="all_tab_same_wide"><?php echo __('Display all tables with the same width'); ?></label><br />
-    <input type="checkbox" name="with_doc" id="with_doc" checked="checked" /><label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />
-    <input type="checkbox" name="show_keys" id="show_keys" /><label for="show_keys"><?php echo __('Only show keys'); ?></label><br />
-    <label for="orientation_opt"><?php echo __('Data Dictionary Format'); ?></label>
-    <select id="orientation_opt" name="orientation" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
-        <option value="L"><?php echo __('Landscape');?></option>
-        <option value="P"><?php echo __('Portrait');?></option>
-    </select><br />
-
-    <label for="paper_opt"><?php echo __('Paper size'); ?></label>
-    <select id="paper_opt" name="paper" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
-<?php
-        foreach ($cfg['PDFPageSizes'] AS $key => $val) {
-            echo '<option value="' . $val . '"';
-            if ($val == $cfg['PDFDefaultPageSize']) {
-                echo ' selected="selected"';
-            }
-            echo ' >' . $val . '</option>' . "\n";
-        }
-?>
-    </select><br />
-    &nbsp;&nbsp;<input type="submit" value="<?php echo __('Go'); ?>" />
-</form>
-<?php
+        include('./libraries/display_pdf_schema.lib.php');
         if ((isset($showwysiwyg) && $showwysiwyg == '1')) {
 ?>
 <script type="text/javascript">
