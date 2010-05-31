@@ -2005,10 +2005,10 @@ msgstr ""
 "Ne morem naložiti vtičnikov za izvoz, prosimo, preverite vašo namestitev!"
 
 #: libraries/display_export.lib.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
-msgstr "Odloži %s vrstic, začni z zapisom # %s"
+msgstr "Odloži %s vrstic, začni pri vrstici # %s"
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
