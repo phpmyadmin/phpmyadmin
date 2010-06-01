@@ -452,10 +452,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Ajouter/effacer des lignes"
 
 #: db_qbe.php:596
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Ajouter/effacer x colonnes"
+msgstr "Ajouter/effacer des colonnes"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
