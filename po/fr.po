@@ -5131,7 +5131,6 @@ msgid "Page name"
 msgstr "Nom de la page"
 
 #: pdf_pages.php:314
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Mise en page automatique"
