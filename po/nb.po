@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 09:45+0200\n"
+"PO-Revision-Date: 2010-06-01 09:46+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -4802,14 +4802,15 @@ msgstr ""
 "reformatering (Standard er 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "Bevarer original formatering av feltet. Ingen 'escaping' blir utført."
+msgstr ""
+"Bevarer original formatering av kolonnen uten å kjøre den gjennom "
+"htmlspecialchars(). Kolonnen blir betraktet som å inneholde gyldig HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
 #, fuzzy
