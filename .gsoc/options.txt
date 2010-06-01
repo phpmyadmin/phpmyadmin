@@ -1,0 +1,114 @@
+Features
+General
+    DefaultLang (just persist main page settings?)
+    DefaultConnectionCollation (just persist main page settings?)
+    ThemeDefault (if ThemeManager == true)
+    NaturalOrder
+    InitialSlidersState
+    ErrorIconic
+    ReplaceHelpImg
+Text fields
+    CharEditing [s]
+    CharTextareaCols [s]
+    CharTextareaRows [s]
+    TextareaCols [s-]
+    TextareaRows [s-]
+    LongtextDoubleTextarea [s-]
+
+SQL Queries
+    ShowSQL [s]
+    Confirm [s]
+    IgnoreMultiSubmitErrors [s]
+    VerboseMultiSubmit [s]
+    MaxCharactersInDisplayedSQL [s-]
+    SQLQuery/Edit [s-]
+    SQLQuery/Explain [s-]
+    SQLQuery/ShowAsPHP [s-]
+    SQLQuery/Validate [false or no override]
+    SQLQuery/Refresh [s-]
+    EditInWindow [s-]
+    QueryWindowWidth [s-]
+    QueryWindowHeight [s-]
+    QueryWindowDefTab [s-]
+Page titles
+    TitleTable [s-]
+    TitleDatabase[s-]
+    TitleServer [s-]
+    TitleDefault [s-]
+
+LEFT FRAME
+Navigation frame
+    LeftFrameLight [s]
+    LeftDisplayLogo [s]
+    LeftLogoLink [s]
+    LeftLogoLinkWindow [s]
+    LeftPointerEnable [s]
+Servers
+    LeftDisplayServers [s]
+    DisplayServersList [s]
+Databases
+    DisplayDatabasesList [s]
+    LeftFrameDBTree [s]
+    LeftFrameDBSeparator [s]
+    LeftFrameTableLevel [s]
+    ShowTooltipAliasDB [s]
+Tables
+    LeftDefaultTabTable [s]
+    LeftFrameTableSeparator [s]
+    LeftFrameTableLevel [s]
+    ShowTooltip [s]
+    ShowTooltipAliasTB [s]
+
+MAIN FRAME
+AT STARTUP
+    MainPageIconic [s]
+    -ShowStats [false or no override]
+    -ShowPhpInfo [false or no override]
+    -ShowServerInfo [false or no override]
+    -ShowChgPassword [false or no override]
+    -ShowCreateDb [false or no override]
+    SuggestDBName [s]
+In browse mode...
+    NavigationBarIconic [s]
+    ShowAll [s]
+    MaxRows [s]
+    Order [s]
+    DisplayBinaryAsHex [s]
+    BrowsePointerEnable [s]
+    BrowseMarkerEnable [s]
+    RepeatCells [s-]
+    LimitChars [s-]
+    ModifyDeleteAtLeft [s-]
+    ModifyDeleteAtRight [s-]
+    DefaultDisplay [s-]
+In edit mode...
+    ProtectBinary [s]
+    ShowFunctionFields [s]
+    ShowFieldTypesInDataEditView [s-]
+    InsertRows [s]
+    ForeignKeyDropdownOrder [s, ? custom text value]
+    ForeignKeyMaxLimit [s]
+    CtrlArrowsMoving [s]
+    DefaultPropDisplay [s-]
+
+
+Tabs display settings
+    LightTabs [s]
+    PropertiesIconic [s]
+    DefaultTabServer [s]
+    DefaultTabDatabase [s]
+    DefaultTabTable [s]
+SQL Query Box
+    Edit [s]
+    Explain [s]
+    ShowAsPHP [s]
+    Validate (false or no override)
+    Refresh [s]
+
+Export
+    PDFDefaultPageSize [s-]
+    WYSIWYG-PDF [s-]
+    all export defaults [s:some]
+
+Import
+    all import defaults [s:some]
