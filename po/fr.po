@@ -7635,10 +7635,9 @@ msgstr ""
 "suggéré : [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Table pour champs descriptifs"
+msgstr "Table pour colonnes descriptives"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
