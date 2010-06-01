@@ -2146,7 +2146,6 @@ msgstr ""
 "på, men det kan knekke transaksjoner."
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Antall poster(spørringer) å hoppe over fra start"
