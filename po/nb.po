@@ -1970,10 +1970,9 @@ msgid "No Privileges"
 msgstr "Ingen privilegier"
 
 #: libraries/display_create_table.lib.php:41
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
-msgstr "Tabellen må ha minst ett felt."
+msgstr "Tabellen må ha minst en kolonne."
 
 #: libraries/display_create_table.lib.php:48
 #, php-format
