@@ -2264,10 +2264,9 @@ msgid "Relational key"
 msgstr "Relasjonsnøkkel"
 
 #: libraries/display_tbl.lib.php:588
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Relasjonsvisningsfelt"
+msgstr "Relasjonsvisningskolonne"
 
 #: libraries/display_tbl.lib.php:595
 msgid "Show binary contents"
