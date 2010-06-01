@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 09:42+0200\n"
+"PO-Revision-Date: 2010-06-01 09:43+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -4685,10 +4685,10 @@ msgid "Save"
 msgstr "Lagre"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
-msgstr "Legg til kolonne(r)"
+msgstr "Legg til %s kolonne(r)"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
 #, fuzzy
