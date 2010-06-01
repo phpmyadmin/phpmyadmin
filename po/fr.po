@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 16:23+0200\n"
+"PO-Revision-Date: 2010-06-01 16:24+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6373,7 +6373,6 @@ msgstr ""
 "vous ne pourrez que télécharger ou afficher la configuration."
 
 #: setup/lib/messages.inc.php:35
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -6383,9 +6382,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Déterminer la méthode d'édition pour les colonnes CHAR et VARCHAR; [kbd]input"
-"[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet la saisie "
-"de sauts de lignes"
+"Déterminer la méthode d'édition pour les colonnes CHAR et VARCHAR; "
+"[kbd]input[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet "
+"la saisie de sauts de lignes"
 
 #: setup/lib/messages.inc.php:36
 #, fuzzy
