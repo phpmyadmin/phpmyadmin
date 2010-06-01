@@ -548,7 +548,6 @@ msgid "Inside table(s):"
 msgstr "Dans la(les) table(s) :"
 
 #: db_search.php:355
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "Dans la colonne:"
