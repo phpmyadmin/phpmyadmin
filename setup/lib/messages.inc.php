@@ -197,6 +197,7 @@ $strSetupLoginCookieStore_name = __('Login cookie store');
 $strSetupLoginCookieValidity_desc = __('Define how long (in seconds) a login cookie is valid');
 $strSetupLoginCookieValidityMsg = __('[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.');
 $strSetupLoginCookieValidity_name = __('Login cookie validity');
+$strSetupMainPageIconic_name = __('Use icons on main page');
 $strSetupMaxCharactersInDisplayedSQL_desc = __('Maximum number of characters used when a SQL query is displayed');
 $strSetupMaxCharactersInDisplayedSQL_name = __('Maximum displayed SQL length');
 $strSetupMaxDbList_desc = __('Maximum number of databases displayed in left frame and database list');

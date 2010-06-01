@@ -115,7 +115,6 @@ $forms['Left_frame'] = array(
     'LeftDisplayLogo',
     'LeftLogoLink',
     'LeftLogoLinkWindow',
-    'LeftDefaultTabTable',
     'LeftPointerEnable');
 $forms['Left_servers'] = array(
     'LeftDisplayServers',
@@ -126,11 +125,13 @@ $forms['Left_databases'] = array(
     'LeftFrameDBSeparator',
     'ShowTooltipAliasDB');
 $forms['Left_tables'] = array(
+    'LeftDefaultTabTable',
     'LeftFrameTableSeparator',
     'LeftFrameTableLevel',
     'ShowTooltip',
     'ShowTooltipAliasTB');
 $forms['Startup'] = array(
+    'MainPageIconic',
     'ShowStats',
     'ShowPhpInfo',
     'ShowServerInfo',
