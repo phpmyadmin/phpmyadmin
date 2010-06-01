@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 16:14+0200\n"
+"PO-Revision-Date: 2010-06-01 16:15+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2754,11 +2754,9 @@ msgid "Replace NULL by"
 msgstr "Remplacer NULL par"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
-msgstr ""
-"Enlève les caractères de fin de ligne (CRLF) à l'intérieur des colonnes"
+msgstr "Enlève les caractères de fin de ligne à l'intérieur des colonnes"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
 #: libraries/export/htmlword.php:26 libraries/export/latex.php:57
