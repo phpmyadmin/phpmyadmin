@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 16:11+0200\n"
+"PO-Revision-Date: 2010-06-01 16:12+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2007,10 +2007,9 @@ msgid "Create table on database %s"
 msgstr "Créer une nouvelle table sur la base %s"
 
 #: libraries/display_create_table.lib.php:57
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Nombre de champs"
+msgstr "Nombre de colonnes"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
