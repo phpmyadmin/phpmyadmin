@@ -2900,11 +2900,10 @@ msgid "Database export options"
 msgstr "Options d'exportation"
 
 #: libraries/export/sql.php:80
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr ""
-"Protéger les noms des tables et des champs par des guillemets obliques (`)"
+"Protéger les noms des tables et des colonnes par des guillemets obliques (`)"
 
 #: libraries/export/sql.php:86
 msgid "Add into comments"
