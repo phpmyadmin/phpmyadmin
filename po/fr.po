@@ -7146,10 +7146,9 @@ msgid "Iconic table operations"
 msgstr "Icônes pour les actions sur les tables"
 
 #: setup/lib/messages.inc.php:224
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Empêche l'édition des champs BLOB et BINARY"
+msgstr "Empêche l'édition des colonnes BLOB et BINARY"
 
 #: setup/lib/messages.inc.php:225
 #, fuzzy
