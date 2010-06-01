@@ -7579,7 +7579,6 @@ msgid "Verbose name of this server"
 msgstr "Fult navn for denne tjeneren"
 
 #: setup/lib/messages.inc.php:329
-#, fuzzy
 #| msgid ""
 #| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
