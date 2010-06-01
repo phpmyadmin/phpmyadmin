@@ -451,10 +451,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Legg til/Slett kriterierad"
 
 #: db_qbe.php:596
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Legg til/Slett kolonne"
+msgstr "Legg til/Slett kolonner"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
