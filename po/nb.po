@@ -4700,7 +4700,6 @@ msgid "Event"
 msgstr "Hendelse"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -4712,10 +4711,10 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Vis en link for å kunne laste ned de binære dataene til et felt. Den første "
-"opsjonen er filnavnet til den binære fila. Den andre opsjonen er et "
-"potensielt feltnavn i en tabell som inneholder filnavnet. Hvis du velger den "
-"andre opsjonen så må den første være satt til en tom strengverdi"
+"Vis en link for å kunne laste ned de binære dataene til en kolonne. Den "
+"første opsjonen er filnavnet til den binære fila. Den andre opsjonen er et "
+"potensielt kolonnenavn i en tabell som inneholder filnavnet. Hvis du velger "
+"den andre opsjonen så må den første være satt til en tom strengverdi."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:10
 msgid ""
