@@ -1980,10 +1980,9 @@ msgid "Create table on database %s"
 msgstr "Opprett ny tabell i database %s"
 
 #: libraries/display_create_table.lib.php:57
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Antall felter"
+msgstr "Antall kolonner"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
