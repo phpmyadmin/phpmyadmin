@@ -5059,10 +5059,9 @@ msgid "Create a page"
 msgstr "Lag en ny side"
 
 #: pdf_pages.php:310
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Sidenummer:"
+msgstr "Sidenummer"
 
 #: pdf_pages.php:314
 #, fuzzy
