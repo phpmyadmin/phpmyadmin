@@ -4863,7 +4863,6 @@ msgstr ""
 "défaut, 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -4871,9 +4870,9 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Préserve le contenu original du champ, sans ajout de caractères "
-"d'échappement avec la fonction htmlspecialchars(). Donc il est assumé que le "
-"champ contient du HTML valide."
+"Préserve le contenu original de la colonne, sans ajout de caractères "
+"d'échappement avec la fonction htmlspecialchars(). Donc il est assumé que la "
+"colonne contient du HTML valide."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
 #, fuzzy
