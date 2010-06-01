@@ -2864,10 +2864,9 @@ msgid "Database export options"
 msgstr "Databaseeksportinnstillinger"
 
 #: libraries/export/sql.php:80
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Bruk venstre anførselstegn med tabell og feltnavn"
+msgstr "Bruk venstre anførselstegn med tabell og kolonnenavn"
 
 #: libraries/export/sql.php:86
 msgid "Add into comments"
