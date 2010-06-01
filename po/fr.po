@@ -8256,10 +8256,9 @@ msgid "Operator"
 msgstr "Opérateur"
 
 #: tbl_select.php:270
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Choisir les champs à afficher (au moins un)"
+msgstr "Choisir les colonnes (au moins une)"
 
 #: tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
