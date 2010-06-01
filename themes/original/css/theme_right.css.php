@@ -1066,6 +1066,10 @@ li#li_switch_dbstats {
 li#li_flush_privileges {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_reload.png);
 }
+
+li#li_user_preferences {
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_tblops.png);
+}
 /* END iconic view for ul items */
 <?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
 

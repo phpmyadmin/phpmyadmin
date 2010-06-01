@@ -36,7 +36,7 @@ header('Content-Type: text/css; charset=UTF-8');
 
 // Cache output in client - the nocache query parameter makes sure that this
 // file is reloaded when config changes
-header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
+//header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
 $_SESSION['PMA_Theme_Manager']->printCss(PMA_FRAME);
 ?>
