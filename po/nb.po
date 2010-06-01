@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 09:48+0200\n"
+"PO-Revision-Date: 2010-06-01 09:49+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -6296,7 +6296,6 @@ msgstr ""
 "eller fremvise den."
 
 #: setup/lib/messages.inc.php:35
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -6307,8 +6306,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Definerer hvilken type redigeringskontroll som skal brukes for CHAR og "
-"VARCHAR felter; [kbd]input[/kbd] - tillater begrensning av lengde, [kbd]"
-"textarea[/kbd] - tillater linjeskift i felter"
+"VARCHAR kolonner; [kbd]input[/kbd] - tillater begrensning av lengde, "
+"[kbd]textarea[/kbd] - tillater linjeskift i kolonner"
 
 #: setup/lib/messages.inc.php:36
 #, fuzzy
