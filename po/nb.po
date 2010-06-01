@@ -1989,7 +1989,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Kunne ikke laste eksporttillegg, kontroller din innstallasjon!"
 
 #: libraries/display_export.lib.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
 msgstr "Dumpe %s rader fra rad %s."
