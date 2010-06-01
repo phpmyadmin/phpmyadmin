@@ -8219,7 +8219,6 @@ msgid "Propose table structure"
 msgstr "Foreslå tabellstruktur"
 
 #: tbl_structure.php:540
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add field"
 msgstr "Legg til felt"
