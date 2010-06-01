@@ -2718,10 +2718,9 @@ msgid "Replace NULL by"
 msgstr "Erstatt NULL med"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
-msgstr "Fjern CRLF tegn i felter"
+msgstr "Fjern CRLF tegn i kolonner"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
 #: libraries/export/htmlword.php:26 libraries/export/latex.php:57
