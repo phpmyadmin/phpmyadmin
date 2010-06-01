@@ -1037,7 +1037,7 @@ if (isset($_REQUEST['synchronize_db'])) {
             $criteria, $matching_tables_keys, $target_tables_keys, $p, true);
             unset($alter_str_array[$p]);        
         }                                                           
-        if (isset($add_column_array[$p])) {
+        if (! empty($add_column_array[$p])) {
             PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $p, $target_tables_keys, $matching_tables_keys,
             $trg_db, $trg_link, $src_db, $src_link);
              
