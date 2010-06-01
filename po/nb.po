@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 09:49+0200\n"
+"PO-Revision-Date: 2010-06-01 09:50+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -7066,10 +7066,9 @@ msgid "Iconic table operations"
 msgstr "Ikoniske tabelloperasjoner"
 
 #: setup/lib/messages.inc.php:224
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Ikke tillat BLOB eller BLOB og BINARY felter fra redigering"
+msgstr "Ikke tillat BLOB eller BLOB og BINARY kolonner å bli redigert"
 
 #: setup/lib/messages.inc.php:225
 #, fuzzy
