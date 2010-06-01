@@ -8169,10 +8169,9 @@ msgid "Operator"
 msgstr "Operator"
 
 #: tbl_select.php:270
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Velg felt (minst ett):"
+msgstr "Velg kolonner (minst ett):"
 
 #: tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
