@@ -7525,11 +7525,10 @@ msgid "Verbose name of this server"
 msgstr "Razširjeno ime tega strežnika"
 
 #: setup/lib/messages.inc.php:329
-#, fuzzy
 #| msgid ""
 #| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "Ali se naj uporabniku prikaže gumb &quot;prikaži vse (zapise)&quot;"
+msgstr "Ali se naj uporabniku prikaže gumb &quot;prikaži vse (vrstice)&quot;"
 
 #: setup/lib/messages.inc.php:330
 msgid "Allow to display all the rows"
