@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 01:03+0200\n"
+"PO-Revision-Date: 2010-06-01 18:57+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7492,10 +7492,9 @@ msgstr ""
 "podpore; predlagano: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Tabela prikaznih polj"
+msgstr "Tabela prikaznih stolpcev"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
