@@ -4596,7 +4596,6 @@ msgid "Length/Values"
 msgstr "Lengde/Sett*"
 
 #: libraries/tbl_properties.inc.php:105
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -4608,10 +4607,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Hvis felttypen er \"enum\" eller \"set\", skriv inn verdien med dette "
-"formatet: 'a','b','c'...<br />Hvis du skulle trenge å ha en skråstrek (\"\\"
-"\") eller en enkel apostrof (\"'\") blant disse verdiene, skriv en skråstrek "
-"foran (eks. '\\\\xyz' eller 'a\\'b')."
+"Hvis kolonnetypen er \"enum\" eller \"set\", skriv inn verdien med dette "
+"formatet: 'a','b','c'...<br />Hvis du skulle trenge å ha en skråstrek (\"\\\") "
+"eller en enkel apostrof (\"'\") blant disse verdiene, skriv en skråstrek foran "
+"(eks. '\\\\xyz' eller 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:106
 msgid ""
