@@ -7151,10 +7151,9 @@ msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Empêche l'édition des colonnes BLOB et BINARY"
 
 #: setup/lib/messages.inc.php:225
-#, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
-msgstr "Protéger les champs binaires"
+msgstr "Protéger les colonnes avec contenu binaire"
 
 #: setup/lib/messages.inc.php:226
 msgid ""
