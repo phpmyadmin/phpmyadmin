@@ -7962,12 +7962,11 @@ msgid "Ignore"
 msgstr "Ignorer"
 
 #: tbl_change.php:728
-#, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr ""
-"Il est possible que ce champ<br />ne soit pas éditable<br />en raison de sa "
-"longueur"
+"Il est possible que cette colonne<br />ne soit pas éditable<br />en raison "
+"de sa longueur"
 
 #: tbl_change.php:888
 msgid "Remove BLOB Repository Reference"
