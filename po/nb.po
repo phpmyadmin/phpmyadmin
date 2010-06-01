@@ -6310,10 +6310,9 @@ msgstr ""
 "[kbd]textarea[/kbd] - tillater linjeskift i kolonner"
 
 #: setup/lib/messages.inc.php:36
-#, fuzzy
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
-msgstr "CHAR felt redigering"
+msgstr "CHAR kolonneredigering"
 
 #: setup/lib/messages.inc.php:37
 msgid "Number of columns for CHAR/VARCHAR textareas"
