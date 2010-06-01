@@ -2016,10 +2016,10 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Erreur lors du chargement des modules d'exportation!"
 
 #: libraries/display_export.lib.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
-msgstr "Exporter %s enregistrement(s) à partir du rang n° %s"
+msgstr "Exporter %s ligne(s) à partir du rang n° %s"
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
