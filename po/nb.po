@@ -8195,10 +8195,10 @@ msgid "None"
 msgstr "Ingen"
 
 #: tbl_structure.php:374
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "Tabellen %s har blitt slettet"
+msgstr "Kolonne %s har blitt slettet"
 
 #: tbl_structure.php:385
 #, php-format
