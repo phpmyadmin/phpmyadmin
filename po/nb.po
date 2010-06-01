@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-01 09:50+0200\n"
+"PO-Revision-Date: 2010-06-01 09:51+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -7546,10 +7546,9 @@ msgstr ""
 "anbefalt: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Visningsfelttabell"
+msgstr "Visningskolonnetabell"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
