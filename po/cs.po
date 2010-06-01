@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-05-31 14:14+0200\n"
+"PO-Revision-Date: 2010-06-01 08:05+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -113,10 +113,9 @@ msgstr "Komentář k tabulce"
 #: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
 #: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Názvy sloupců"
+msgstr "Pole"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
 #: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
@@ -397,7 +396,7 @@ msgstr "Váš SQL-dotaz byl úspěšně vykonán"
 
 #: db_qbe.php:42
 msgid "You have to choose at least one column to display"
-msgstr "Musíte zvolit alespoň jeden sloupec, který chcete zobrazit"
+msgstr "Musíte zvolit alespoň jedno pole, které chcete zobrazit"
 
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866
@@ -451,16 +450,14 @@ msgid "Modify"
 msgstr "Úpravy"
 
 #: db_qbe.php:584
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Přidat nebo odebrat řádek"
 
 #: db_qbe.php:596
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Přidat nebo odebrat sloupec"
+msgstr "Přidat nebo odebrat pole"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
@@ -554,7 +551,6 @@ msgid "Inside table(s):"
 msgstr "V tabulkách:"
 
 #: db_search.php:355
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "Uvnitř pole:"
@@ -621,8 +617,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -813,8 +809,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1005,10 +1001,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "Zvolte, prosím, primární nebo unikátní klíč"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Zvolte které sloupce zobrazit"
+msgstr "Zvolte která pole zobrazit"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
@@ -1478,8 +1473,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -1986,10 +1981,9 @@ msgid "No Privileges"
 msgstr "Nemáte oprávnění"
 
 #: libraries/display_create_table.lib.php:41
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
-msgstr "Tabulka musí mít alespoň jeden sloupec."
+msgstr "Tabulka musí mít alespoň jedno pole."
 
 #: libraries/display_create_table.lib.php:48
 #, php-format
@@ -1997,10 +1991,9 @@ msgid "Create table on database %s"
 msgstr "Vytvořit novou tabulku v databázi %s"
 
 #: libraries/display_create_table.lib.php:57
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Počet sloupců"
+msgstr "Počet polí"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
@@ -2008,7 +2001,7 @@ msgstr ""
 "Nepodařilo se nahrát pluginy pro export, zkontrolujte prosím vaší instalaci!"
 
 #: libraries/display_export.lib.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
 msgstr "Vypsat %s řádků od %s"
@@ -2050,8 +2043,8 @@ msgstr "jméno tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -2168,10 +2161,9 @@ msgstr ""
 "může to způsobit problémy s transakcemi."
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Počet záznamů (dotazů) od začátku, které se mají přeskočit"
+msgstr "Počet dotazů od začátku, které se mají přeskočit"
 
 #: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
@@ -2228,7 +2220,6 @@ msgid "%d is not valid row number."
 msgstr "%d není platné číslo řádku."
 
 #: libraries/display_tbl.lib.php:310
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "řádků začínající od"
@@ -2288,10 +2279,9 @@ msgid "Relational key"
 msgstr "Relační klíč"
 
 #: libraries/display_tbl.lib.php:588
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Položka k zobrazení v relacích"
+msgstr "Pole pro zobrazení v relacích"
 
 #: libraries/display_tbl.lib.php:595
 msgid "Show binary contents"
@@ -2710,24 +2700,21 @@ msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:59 libraries/import/ldi.php:40
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "Řádky ukončené"
+msgstr "Pole oddělené"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:71 libraries/import/ldi.php:41
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
-msgstr "Názvy sloupců uzavřené"
+msgstr "Pole uzavřené do"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Názvy sloupců escapovány"
+msgstr "Pole escapována"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #: libraries/import/csv.php:79 libraries/import/ldi.php:43
@@ -2743,20 +2730,18 @@ msgid "Replace NULL by"
 msgstr "Nahradit NULL hodnoty"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
-msgstr "Odstranit znaky CRLF z položek"
+msgstr "Odstranit znaky CRLF z polí"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
 #: libraries/export/htmlword.php:26 libraries/export/latex.php:57
 #: libraries/export/ods.php:24 libraries/export/odt.php:50
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "Přidat jména sloupců na první řádek"
+msgstr "Přidat jména polí na první řádek"
 
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
@@ -2891,10 +2876,9 @@ msgid "Database export options"
 msgstr "Nastavení exportu databází"
 
 #: libraries/export/sql.php:80
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Použít zpětné uvozovky u jmen tabulek a sloupců"
+msgstr "Použít zpětné uvozovky u jmen tabulek a polí"
 
 #: libraries/export/sql.php:86
 msgid "Add into comments"
@@ -3087,12 +3071,12 @@ msgstr "Ignorovat duplicitní řádky"
 #: libraries/import/csv.php:37 libraries/import/ods.php:25
 #: libraries/import/xls.php:24 libraries/import/xlsx.php:24
 msgid "Column names in first row"
-msgstr "Jména sloupců na prvním řádku"
+msgstr "Jména polí na prvním řádku"
 
 #: libraries/import/csv.php:40 libraries/import/ldi.php:44 pdf_pages.php:502
 #: view_create.php:148
 msgid "Column names"
-msgstr "Názvy sloupců"
+msgstr "Názvy polí"
 
 #: libraries/import/csv.php:58 libraries/import/csv.php:70
 #: libraries/import/csv.php:74 libraries/import/csv.php:78
@@ -3103,7 +3087,7 @@ msgstr "Neznámý parametr pro import CSV: %s"
 #: libraries/import/csv.php:119
 #, php-format
 msgid "Invalid column (%s) specified!"
-msgstr "Byl zadán chybný sloupec (%s)!"
+msgstr "Byl zadáno chybné pole (%s)!"
 
 #: libraries/import/csv.php:177 libraries/import/csv.php:424
 #, php-format
@@ -3111,10 +3095,10 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Chybný formát CSV dat na řádku %d."
 
 #: libraries/import/csv.php:312
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Chybný počet položek v CSV datech na řádku %d."
+msgstr "Chybný počet polí v CSV datech na řádku %d."
 
 #: libraries/import/docsql.php:29
 msgid "DocSQL"
@@ -3488,7 +3472,7 @@ msgid ""
 "if you are doing an index scan."
 msgstr ""
 "Počet požadavků na přečtení dalšího řádku podle indexu. Tato hodnota se "
-"zvětšuje pokud provádíte dotaz na indexovaný sloupec s omezením rozsahu nebo "
+"zvětšuje pokud provádíte dotaz na indexované pole s omezením rozsahu nebo "
 "prohledáváte index."
 
 #: libraries/messages.inc.php:77
@@ -4269,14 +4253,14 @@ msgstr "Vytváření PDF"
 
 #: libraries/relation.lib.php:133
 msgid "Displaying Column Comments"
-msgstr "Zobrazuji komentáře sloupců"
+msgstr "Zobrazuji komentáře polí"
 
 #: libraries/relation.lib.php:138
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "Podívejte se prosím do dokumentace, jak aktualizovat tabulku s informacemi "
-"o sloupcích (tabulka column_comments)"
+"o polích (tabulka column_comments)"
 
 #: libraries/relation.lib.php:143 libraries/sql_query_form.lib.php:433
 msgid "Bookmarked SQL query"
@@ -4487,10 +4471,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Spustit SQL dotaz(y) na databázi %s"
 
 #: libraries/sql_query_form.lib.php:317
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Názvy sloupců"
+msgstr "Pole"
 
 #: libraries/sql_query_form.lib.php:352 sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
@@ -4606,7 +4589,6 @@ msgid "Length/Values"
 msgstr "Délka/Množina"
 
 #: libraries/tbl_properties.inc.php:105
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -4618,7 +4600,7 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Pokud je sloupec typu „enum“ nebo „set“, zadávejte hodnoty v následujícím "
+"Pokud je pole typu „enum“ nebo „set“, zadávejte hodnoty v následujícím "
 "formátu: 'a','b','c'...<br />Pokud potřebujete zadat zpětné lomítko („\\“) "
 "nebo jednoduché uvozovky („'“) mezi těmito hodnotami, napište před ně zpětné "
 "lomítko (příklad: '\\\\xyz' nebo 'a\\'b')."
@@ -4642,8 +4624,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:145
 msgid "Transformation options"
@@ -4676,8 +4658,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
-"s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
+"%s dělá."
 
 #: libraries/tbl_properties.inc.php:726 server_engines.php:58
 #: tbl_operations.php:355
@@ -4696,23 +4678,21 @@ msgid "Save"
 msgstr "Uložit"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
-msgstr "Přidat sloupce"
+msgstr "Přidat %s polí"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "Musíte přidat alespoň jeden sloupec."
+msgstr "Musíte přidat alespoň jedno pole."
 
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
 msgstr "Událost"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -4725,8 +4705,8 @@ msgid ""
 "need to set the first option to the empty string."
 msgstr ""
 "Zobrazí odkaz na stáhnutí dat. První parametr je jméno souboru, druhý jméno "
-"sloupce v tabulce obsahující jméno souboru. Pokud zadáte druhý parametr, "
-"první musí být prázdný."
+"pole v tabulce obsahující jméno souboru. Pokud zadáte druhý parametr, první "
+"musí být prázdný."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:10
 msgid ""
@@ -4750,7 +4730,6 @@ msgid "Displays a link to download this image."
 msgstr "Zobrazí odkaz na obrázek (například stáhnutí pole blob)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
 #| "formatted date. The first option is the offset (in hours) which will be "
@@ -4771,7 +4750,7 @@ msgid ""
 "gmdate() function."
 msgstr ""
 "Zobrazí datum nebo čas (TIME, TIMESTAMP, DATETIME nebo unixový timestamp v "
-"numerickém sloupci). První parametr je posun (v hodinách), který bude přidán "
+"numerickém poli). První parametr je posun (v hodinách), který bude přidán "
 "k času (výchozí je 0). Druhý parametr je formátovací řetězec. Třetí určuje "
 "jestli chcete zobrazit datum podle místního nastavení nebo UTC čas (použijte "
 "text „local“ nebo „utc“). Podle tohoto nastavení, formát má buďto syntaxi "
@@ -4779,7 +4758,6 @@ msgstr ""
 "„utc“."
 
 #: libraries/transformations/text_plain__external.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the field data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -4815,7 +4793,6 @@ msgstr ""
 "(výchozí je 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -4823,11 +4800,10 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Zachová původní formátování sloupce, tak jak je uložen v databázi, bez "
-"použití htmlspecialchars(). Předpokládá se, že sloupec obsahuje platné HTML."
+"Zachová původní formátování pole, tak jak je uloženo v databázi, bez použití "
+"htmlspecialchars(). Předpokládá se, že pole obsahuje platné HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -4837,12 +4813,11 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Zobrazí obrázek a odkaz z pole obsahujícího odkaz na obrázek. První parametr "
-"je prefix URL (například „http://mojedomena.cz/“), druhý a třetí určuje "
+"Zobrazí obrázek a odkaz z pole obsahujícího odkaz na obrázek. První parametr "
+"je prefix URL (například „http://www.example.com/“), druhý a třetí určuje "
 "šířku a výšku obrázku."
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -4852,8 +4827,8 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Zobrazí odkaz z pole obsahujícího odkaz. První parametr je prefix URL "
-"(například „http://mojedomena.cz/“), druhý text odkazu."
+"Zobrazí odkaz z pole obsahujícího odkaz. První parametr je prefix URL "
+"(například „http://www.example.com/“), druhý text odkazu."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
 msgid ""
@@ -5205,7 +5180,6 @@ msgid "To select relation, click :"
 msgstr "Pro výběr relace klikněte :"
 
 #: pmd_help.php:29
-#, fuzzy
 #| msgid ""
 #| "The display field is shown in pink. To set/unset a field as the display "
 #| "field, click the \"Choose field to display\" icon, then click on the "
@@ -5215,8 +5189,8 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"Zobrazované pole je označeno růžovou barvou. Pro jeho změnu klikněte na "
-"ikonu „Zvolte které sloupce zobrazit“ a poté zvolte odpovídající sloupec."
+"Zobrazované pole je zvýrazněno růžovou barvou. Pro jeho změnu klikněte na "
+"ikonu „Zvolte které pole zobrazit“ a poté zvolte odpovídající pole."
 
 #: pmd_pdf.php:63
 msgid "Page has been created"
@@ -5488,8 +5462,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -5502,7 +5476,7 @@ msgstr "Zvolený uživatel nebyl nalezen v tabulce oprávnění."
 
 #: server_privileges.php:1685
 msgid "Column-specific privileges"
-msgstr "Oprávnění pro jednotlivé sloupce"
+msgstr "Oprávnění pro jednotlivá pole"
 
 #: server_privileges.php:1886
 msgid "Add privileges on the following database"
@@ -5987,15 +5961,15 @@ msgstr "Rozdíl mezi daty"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Add column(s)"
-msgstr "Přidat sloupce"
+msgstr "Přidat pole"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Remove column(s)"
-msgstr "Odstranit sloupce"
+msgstr "Odstranit pole"
 
 #: server_synchronize.php:432 server_synchronize.php:875
 msgid "Alter column(s)"
-msgstr "Změnit sloupce"
+msgstr "Změnit pole"
 
 #: server_synchronize.php:433 server_synchronize.php:876
 msgid "Remove index(s)"
@@ -6306,7 +6280,6 @@ msgstr ""
 "stáhnout nebo zobrazit."
 
 #: setup/lib/messages.inc.php:35
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -6321,7 +6294,6 @@ msgstr ""
 "textová oblast[/kbd] - umožní použít odřádkování"
 
 #: setup/lib/messages.inc.php:36
-#, fuzzy
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "Editace polí typu CHAR"
@@ -7053,7 +7025,6 @@ msgid "GZip output buffering"
 msgstr "Mezipaměť pro GZip výstup"
 
 #: setup/lib/messages.inc.php:217
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -7061,8 +7032,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - t.j. řazení sestupně pro políčka typu TIME, DATE, "
-"DATETIME a TIMESTAMP, v ostatních případech se použije vzestupné řazení"
+"[kbd]SMART[/kbd] - t.j. řazení sestupně pro pole typu TIME, DATE, DATETIME a "
+"TIMESTAMP, v ostatních případech se použije vzestupné řazení"
 
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
@@ -7081,16 +7052,14 @@ msgid "Iconic table operations"
 msgstr "Zobrazení ikon pro operace s tabulkami"
 
 #: setup/lib/messages.inc.php:224
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Zakáže úpravu políček BLOB a BINARY"
+msgstr "Zakáže úpravu polí BLOB a BINARY"
 
 #: setup/lib/messages.inc.php:225
-#, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
-msgstr "Chránit binární políčka"
+msgstr "Chránit binární pole"
 
 #: setup/lib/messages.inc.php:226
 msgid ""
@@ -7153,8 +7122,9 @@ msgstr ""
 "Nastavil jste typ autentizace [kbd]config[/kbd] a zadal jste uživatelské "
 "jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
 "produkční servery. Kdokoli kdo zná URL phpMyAdminu může přímo přistoupit k "
-"Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]typ autentizace[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/kbd]."
+"Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]typ autentizace[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/"
+"kbd]."
 
 #: setup/lib/messages.inc.php:239
 msgid "You should use mysqli for performance reasons"
@@ -7236,12 +7206,12 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
-"Nechte prázdné pro žádné komentáře či mime typy sloupců, výchozí nastavení: "
+"Nechte prázdné pro žádné komentáře či mime typy polí, výchozí nastavení: "
 "[kbd]pma_column_info[/kbd]"
 
 #: setup/lib/messages.inc.php:257
 msgid "Column information table"
-msgstr "Tabulka informací o sloupcích"
+msgstr "Tabulka informací o polích"
 
 #: setup/lib/messages.inc.php:258
 msgid "Compress connection to MySQL server"
@@ -7559,7 +7529,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF schéma: tabulka souřadnic"
 
 #: setup/lib/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -7567,14 +7536,13 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Tabulka obsahující popisy sloupců, nechte prázdnou pro vypnutí této funkce. "
+"Tabulka obsahující popisy polí, nechte prázdnou pro vypnutí této funkce. "
 "Výchozí hodnota: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Tabulka s popisem sloupců"
+msgstr "Tabulka s popisem polí"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
@@ -7604,7 +7572,6 @@ msgid "Verbose name of this server"
 msgstr "Dlouhé jméno tohoto serveru"
 
 #: setup/lib/messages.inc.php:329
-#, fuzzy
 #| msgid ""
 #| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
@@ -7900,10 +7867,9 @@ msgid "Ignore"
 msgstr "Ignorovat"
 
 #: tbl_change.php:728
-#, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Tento sloupec možná nepůjde <br />kvůli délce upravit "
+msgstr " Toto pole možná nepůjde <br />kvůli délce upravit "
 
 #: tbl_change.php:888
 msgid "Remove BLOB Repository Reference"
@@ -8007,11 +7973,11 @@ msgstr "(„PRIMARY“ <b>musí</b> být jméno <b>pouze</b> primárního klíč
 #: tbl_indexes.php:251
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Přidat %s sloupců do indexu"
+msgstr "Přidat %s polí do indexu"
 
 #: tbl_indexes.php:256 tbl_structure.php:589 tbl_structure.php:600
 msgid "Column count has to be larger than zero."
-msgstr "Počet sloupců musí být větší než nula."
+msgstr "Počet polí musí být větší než nula."
 
 #: tbl_move_copy.php:46
 msgid "Can't move table to same one!"
@@ -8160,7 +8126,7 @@ msgstr " Velikost řádku "
 #: tbl_relation.php:279
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr "Chyba při vytváření cizího klíče na %1$s (zkotrolujte typ sloupce)"
+msgstr "Chyba při vytváření cizího klíče na %1$s (zkotrolujte typ pole)"
 
 #: tbl_relation.php:405
 msgid "Internal relation"
@@ -8190,10 +8156,9 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: tbl_select.php:270
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Zvolte sloupec (alespoň jeden):"
+msgstr "Zvolte pole (alespoň jedno):"
 
 #: tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -8217,10 +8182,10 @@ msgid "None"
 msgstr "Žádná"
 
 #: tbl_structure.php:374
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "Tabulka %s byla odstraněna"
+msgstr "Pole %s byla odstraněno"
 
 #: tbl_structure.php:385
 #, php-format
@@ -8230,7 +8195,7 @@ msgstr "V tabulce %s byl vytvořen primární klíč"
 #: tbl_structure.php:400 tbl_structure.php:414 tbl_structure.php:428
 #, php-format
 msgid "An index has been added on %s"
-msgstr "Na sloupci %s byl vytvořen index"
+msgstr "Na poli %s byl vytvořen index"
 
 #: tbl_structure.php:506 tbl_structure.php:508
 msgid "Relation view"
@@ -8241,10 +8206,9 @@ msgid "Propose table structure"
 msgstr "Navrhnout strukturu tabulky"
 
 #: tbl_structure.php:540
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add field"
-msgstr "Přidat sloupec"
+msgstr "Přidat pole"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
@@ -8262,7 +8226,7 @@ msgstr "Po %s"
 #: tbl_structure.php:594
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Vytvořit index na &nbsp;%s&nbsp;sloupcích"
+msgstr "Vytvořit index na &nbsp;%s&nbsp;polích"
 
 #: tbl_structure.php:756
 msgid "partitioned"
