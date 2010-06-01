@@ -2233,10 +2233,9 @@ msgid "%d is not valid row number."
 msgstr "%d n'est pas un numéro d'enregistrement valable."
 
 #: libraries/display_tbl.lib.php:310
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "enregistrement(s) à partir de l'enregistrement n°"
+msgstr "ligne(s) à partir de la ligne n°"
 
 #: libraries/display_tbl.lib.php:316
 msgid "horizontal"
