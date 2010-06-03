@@ -1955,7 +1955,6 @@ msgid "Create table on database %s"
 msgstr "在数据库 %s 中新建一张数据表"
 
 #: libraries/display_create_table.lib.php:57
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "字段数"
