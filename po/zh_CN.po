@@ -1945,7 +1945,6 @@ msgid "No Privileges"
 msgstr "无权限"
 
 #: libraries/display_create_table.lib.php:41
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
 msgstr "数据表至少要有一个字段。"
