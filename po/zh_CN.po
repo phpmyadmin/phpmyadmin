@@ -2115,7 +2115,6 @@ msgstr ""
 "入大文件时是个很好的方法。"
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "跳过查询的数量"
