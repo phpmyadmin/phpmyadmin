@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-05-17 04:57+0200\n"
+"PO-Revision-Date: 2010-06-03 03:19+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -376,7 +376,7 @@ msgid "Last check"
 msgstr "最后检查"
 
 #: db_printview.php:222 db_structure.php:480
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
@@ -8292,8 +8292,3 @@ msgstr "将视图改名为"
 #~ msgstr ""
 #~ "无法在发生错误时创建会话，请检查 PHP 或网站服务器日志，并正确配置 PHP 安"
 #~ "装。"
-
-#, fuzzy
-#~| msgid "Import currencies ($5.00 to 5.00)"
-#~ msgid "Import currencies (.00 to 5.00)"
-#~ msgstr "转换货币 (如: $5.00 将被转换为 5.00)"
