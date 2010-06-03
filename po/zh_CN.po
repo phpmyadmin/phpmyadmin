@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-03 03:39+0200\n"
+"PO-Revision-Date: 2010-06-03 03:40+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4668,7 +4668,6 @@ msgstr ""
 "前缀。第二和第三个选项是以像素为单位的宽度和高度。"
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -4677,9 +4676,7 @@ msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
-msgstr ""
-"显示链接，字段内包含文件名。第一个选项是类似“http://www.example.com/”这样的 "
-"URL 前缀，第二个选项是链接的标题 (title)。"
+msgstr "显示链接，字段内包含文件名。第一个选项是类似“http://www.example.com/”这样的 URL 前缀。第二个选项是链接的标题。"
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
 msgid ""
