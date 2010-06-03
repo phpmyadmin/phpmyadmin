@@ -4646,7 +4646,6 @@ msgstr ""
 "设为 1 的话，将禁止换行，确保所有内容显示在一行中 (默认为 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
