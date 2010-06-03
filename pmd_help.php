@@ -26,7 +26,7 @@ require_once 'pmd_common.php';
 <?php
     echo '<p>' . __('To select relation, click :') . '<br />';
     echo '<img src="pmd/images/help_relation.png" border="1"></p>';
-    echo '<p>' . __('The display field is shown in pink. To set/unset a field as the display field, click the "Choose field to display" icon, then click on the appropriate field name.') . '</p>';
+    echo '<p>' . __('The display column is shown in pink. To set/unset a column as the display column, click the "Choose column to display" icon, then click on the appropriate column name.') . '</p>';
 ?>
 </body>
 </html>

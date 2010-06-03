@@ -125,9 +125,9 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
 
 
     /**
-     * Gets fields properties
+     * Gets columns properties
      */
-    $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
+    $result      = PMA_DBI_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
     $fields_cnt  = PMA_DBI_num_rows($result);
 
     if (PMA_MYSQL_INT_VERSION < 50025) {
@@ -171,7 +171,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     ?>
 
 <table width="100%" class="print">
-<tr><th width="50"><?php echo __('Field'); ?></th>
+<tr><th width="50"><?php echo __('Column'); ?></th>
     <th width="80"><?php echo __('Type'); ?></th>
 <?php /*    <th width="50"><?php echo __('Attributes'); ?></th>*/ ?>
     <th width="40"><?php echo __('Null'); ?></th>

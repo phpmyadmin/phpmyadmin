@@ -477,7 +477,7 @@ if ($is_show_stats) {
             if ($num_tables == 0)
                 $tableReductionCount = 0;
 
-            echo sprintf(__('%s table(s)'), PMA_formatNumber($num_tables - $tableReductionCount, 0));
+            echo sprintf(_ngettext('%s table', '%s tables', $num_tables - $tableReductionCount), PMA_formatNumber($num_tables - $tableReductionCount, 0));
         ?>
     </th>
     <?php

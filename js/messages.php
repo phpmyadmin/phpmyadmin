@@ -60,7 +60,7 @@ $js_messages['strGeneralRelationFeat:strDisabled'] = __('General relation featur
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
 $js_messages['strPleaseSelectPrimaryOrUniqueKey'] = __('Please select the primary key or a unique key');
-$js_messages['strChangeDisplay'] = __('Choose field to display');
+$js_messages['strChangeDisplay'] = __('Choose column to display');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

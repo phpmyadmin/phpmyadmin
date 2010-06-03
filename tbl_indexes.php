@@ -186,7 +186,7 @@ PMA_Message::warning(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b
 
 <table>
 <thead>
-<tr><th><?php echo __('Field'); ?></th>
+<tr><th><?php echo __('Column'); ?></th>
     <th><?php echo __('Size'); ?></th>
 </tr>
 </thead>

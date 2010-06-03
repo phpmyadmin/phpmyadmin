@@ -802,7 +802,7 @@ if (isset($_REQUEST['change_copy'])) {
         .' = \'' . PMA_sqlAddslashes($old_hostname) . '\';';
     $row = PMA_DBI_fetch_single_row('SELECT * FROM `mysql`.`user` ' . $user_host_condition);
     if (! $row) {
-        PMA_Message::notice(__('No user(s) found.'))->display();
+        PMA_Message::notice(__('No user found.'))->display();
         unset($_REQUEST['change_copy']);
     } else {
         extract($row, EXTR_OVERWRITE);
@@ -1915,7 +1915,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             } else {
                 echo '    <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
                    . '    <label for="text_tablename">' . __('Add privileges on the following table') . ':</label>' . "\n";
-                if ($res = @PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($dbname) . ';', null, PMA_DBI_QUERY_STORE)) {
+                if ($res = @PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . ';', null, PMA_DBI_QUERY_STORE)) {
                     $pred_tbl_array = array();
                     while ($row = PMA_DBI_fetch_row($res)) {
                         if (!isset($found_rows) || !in_array($row[0], $found_rows)) {
@@ -2174,7 +2174,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     } else {
         echo '    <tr class="odd">' . "\n"
            . '        <td colspan="6">' . "\n"
-           . '            ' . __('No user(s) found.') . "\n"
+           . '            ' . __('No user found.') . "\n"
            . '        </td>' . "\n"
            . '    </tr>' . "\n";
     }

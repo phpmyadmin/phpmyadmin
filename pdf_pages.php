@@ -13,6 +13,11 @@ require_once './libraries/common.inc.php';
 require_once './libraries/db_common.inc.php';
 require './libraries/StorageEngine.class.php';
 
+$active_page = 'db_operations.php';
+require_once './libraries/db_common.inc.php';
+$url_query .= '&amp;goto=pdf_pages.php';
+require_once './libraries/db_info.inc.php';
+
 /**
  * Settings for relation stuff
  */
@@ -34,25 +39,25 @@ $query_default_option = PMA_DBI_QUERY_STORE;
  */
 if (!$cfgRelation['relwork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'relation', 'config.inc.php') . '<br />' . "\n"
-         . '<a href="./Documentation.html#relation" target="documentation">' . __('Documentation') . '</a>' . "\n";
+         . PMA_showDocu('relation') . "\n";
     require_once './libraries/footer.inc.php';
 }
 
 if (!$cfgRelation['displaywork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_info', 'config.inc.php') . '<br />' . "\n"
-         . '<a href="./Documentation.html#table_info" target="documentation">' . __('Documentation') . '</a>' . "\n";
+         . PMA_showDocu('table_info') . "\n";
     require_once './libraries/footer.inc.php';
 }
 
 if (!isset($cfgRelation['table_coords'])){
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_coords', 'config.inc.php') . '<br />' . "\n"
-         . '<a href="./Documentation.html#table_coords" target="documentation">' . __('Documentation') . '</a>' . "\n";
-    exit();
+         . PMA_showDocu('table_coords') . "\n";
+    require_once './libraries/footer.inc.php';
 }
 if (!isset($cfgRelation['pdf_pages'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'pdf_page', 'config.inc.php') . '<br />' . "\n"
-         . '<a href="./Documentation.html#pdf_pages" target="documentation">' . __('Documentation') . '</a>' . "\n";
-    exit();
+         . PMA_showDocu('pdf_pages') . "\n";
+    require_once './libraries/footer.inc.php';
 }
 
 if ($cfgRelation['pdfwork']) {
@@ -282,6 +287,8 @@ if ($cfgRelation['pdfwork']) {
         PMA_display_html_radio('action_choose', $choices, '0', false);
     unset($choices);
 ?>
+    </fieldset>
+    <fieldset class="tblFooters">
        <input type="submit" value="<?php echo __('Go'); ?>" /><br />
     </fieldset>
 </form>
@@ -298,14 +305,26 @@ if ($cfgRelation['pdfwork']) {
      </legend>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="createpage" />
-    <input type="text" name="newpage" size="20" maxlength="50" />
-       <input type="checkbox" name="auto_layout_internal" />
-<?php echo '(' . __('Automatic layout') . ' / ' . __('Internal relations') . ')';
+    <table>
+    <tr>
+    <td><label for="id_newpage"><?php echo __('Page name'); ?></label></td>
+    <td><input type="text" name="newpage" id="id_newpage" size="20" maxlength="50" /></td>
+    </tr>
+    <tr>
+    <td><?php echo __('Automatic layout based on'); ?></td>
+    <td>
+        <input type="checkbox" name="auto_layout_internal" id="id_auto_layout_internal" /><label for="id_auto_layout_internal"><?php echo __('Internal relations'); ?></label><br />
+<?php
     if (PMA_StorageEngine::isValid('InnoDB') || PMA_StorageEngine::isValid('PBXT')) {
-        echo '<input type="checkbox" name="auto_layout_foreign" />'
-            . '(' . __('Automatic layout') . ' / FOREIGN KEY)';
+?>
+        <input type="checkbox" name="auto_layout_foreign" id="id_auto_layout_foreign" /><label for="id_auto_layout_foreign">FOREIGN KEY</label><br />
+<?php
     }
 ?>
+    </td></tr>
+    </table>
+    </fieldset>
+    <fieldset class="tblFooters">
         <input type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
 </form>
@@ -520,39 +539,7 @@ function resetDrag() {
     && ($do == 'edcoord'
        || ($do == 'choosepage' && isset($chpage))
        || ($do == 'createpage' && isset($chpage)))) {
-        ?>
-<form method="post" action="pdf_schema.php" name="pdfoptions">
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
-    <input type="hidden" name="pdf_page_number" value="<?php echo htmlspecialchars($chpage); ?>" />
-
-    <?php echo '<br /><strong>' . __('Display PDF schema') . '</strong>'; ?>:&nbsp;<br />
-    <input type="checkbox" name="show_grid" id="show_grid_opt" /><label for="show_grid_opt"><?php echo __('Show grid'); ?></label><br />
-    <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" /><label for="show_color_opt"><?php echo __('Show color'); ?></label><br />
-    <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" /><label for="show_table_dim_opt"><?php echo __('Show dimension of tables'); ?></label><br />
-    <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" /><label for="all_tab_same_wide"><?php echo __('Display all tables with the same width'); ?></label><br />
-    <input type="checkbox" name="with_doc" id="with_doc" checked="checked" /><label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />
-    <input type="checkbox" name="show_keys" id="show_keys" /><label for="show_keys"><?php echo __('Only show keys'); ?></label><br />
-    <label for="orientation_opt"><?php echo __('Data Dictionary Format'); ?></label>
-    <select id="orientation_opt" name="orientation" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
-        <option value="L"><?php echo __('Landscape');?></option>
-        <option value="P"><?php echo __('Portrait');?></option>
-    </select><br />
-
-    <label for="paper_opt"><?php echo __('Paper size'); ?></label>
-    <select id="paper_opt" name="paper" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
-<?php
-        foreach ($cfg['PDFPageSizes'] AS $key => $val) {
-            echo '<option value="' . $val . '"';
-            if ($val == $cfg['PDFDefaultPageSize']) {
-                echo ' selected="selected"';
-            }
-            echo ' >' . $val . '</option>' . "\n";
-        }
-?>
-    </select><br />
-    &nbsp;&nbsp;<input type="submit" value="<?php echo __('Go'); ?>" />
-</form>
-<?php
+        include('./libraries/display_pdf_schema.lib.php');
         if ((isset($showwysiwyg) && $showwysiwyg == '1')) {
 ?>
 <script type="text/javascript">

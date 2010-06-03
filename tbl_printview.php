@@ -139,7 +139,7 @@ foreach ($the_tables as $key => $table) {
 <table style="width: 100%;">
 <thead>
 <tr>
-    <th><?php echo __('Field'); ?></th>
+    <th><?php echo __('Column'); ?></th>
     <th><?php echo __('Type'); ?></th>
     <!--<th><?php echo __('Attributes'); ?></th>-->
     <th><?php echo __('Null'); ?></th>

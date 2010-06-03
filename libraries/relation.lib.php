@@ -175,7 +175,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
  */
 function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $messages, $skip_line=true)
 {
-    echo '    <tr><td colspan=2 align="right">' . $GLOBALS[$feature_name] . ': '
+    echo '    <tr><td colspan=2 align="right">' . $feature_name . ': '
          . ($GLOBALS['cfgRelation'][$relation_parameter] ? $messages['enabled'] : $messages['disabled'])
          . '</td></tr>' . "\n";
     if ($skip_line) {

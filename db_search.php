@@ -352,7 +352,7 @@ $alter_select =
             <?php echo $alter_select; ?></td>
     </tr>
     <tr><td align="right">
-            <?php echo __('Inside field:'); ?></td>
+            <?php echo __('Inside column:'); ?></td>
         <td><input type="text" name="field_str" size="60"
                 value="<?php echo ! empty($field_str) ? $field_str : ''; ?>" /></td>
     </tr>

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-24 12:05+0200\n"
-"PO-Revision-Date: 2010-05-21 19:27+0200\n"
-"Last-Translator: Marc <marc@infomarc.info>\n"
+"POT-Creation-Date: 2010-05-31 14:33-0400\n"
+"PO-Revision-Date: 2010-05-25 16:41+0200\n"
+"Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
-"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -19,8 +19,8 @@ msgstr ""
 msgid "Show all"
 msgstr "Show all"
 
-#: browse_foreigners.php:82 db_operations.php:648
-#: libraries/common.lib.php:2304 libraries/display_tbl.lib.php:394
+#: browse_foreigners.php:82 libraries/common.lib.php:2304
+#: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:394
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
 msgid "Page number:"
@@ -44,31 +44,32 @@ msgstr ""
 msgid "Search"
 msgstr "Search"
 
-#: browse_foreigners.php:153 db_operations.php:383 db_operations.php:425
-#: db_operations.php:495 db_operations.php:603 db_operations.php:696
-#: db_search.php:362 db_structure.php:567 js/messages.php:48
-#: libraries/Config.class.php:1046 libraries/Theme_Manager.class.php:311
+#: browse_foreigners.php:153 db_operations.php:385 db_operations.php:429
+#: db_operations.php:499 db_operations.php:609 db_search.php:362
+#: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
+#: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1333 libraries/common.lib.php:2279
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
-#: libraries/display_tbl.lib.php:532 libraries/display_tbl.lib.php:614
-#: libraries/replication_gui.lib.php:73 libraries/replication_gui.lib.php:369
-#: libraries/select_server.lib.php:104 libraries/sql_query_form.lib.php:400
-#: libraries/sql_query_form.lib.php:477 libraries/sql_query_form.lib.php:552
-#: libraries/tbl_properties.inc.php:782 main.php:128 navigation.php:238
-#: pdf_pages.php:285 pdf_pages.php:309 pdf_pages.php:511 pdf_pages.php:553
-#: pmd_pdf.php:116 server_binlog.php:142 server_privileges.php:625
-#: server_privileges.php:1585 server_privileges.php:1932
-#: server_privileges.php:1979 server_privileges.php:2018
-#: server_replication.php:235 server_replication.php:318
-#: server_replication.php:341 server_synchronize.php:1209 tbl_change.php:330
-#: tbl_change.php:1174 tbl_change.php:1211 tbl_indexes.php:254
-#: tbl_operations.php:263 tbl_operations.php:300 tbl_operations.php:497
-#: tbl_operations.php:559 tbl_operations.php:679 tbl_select.php:327
-#: tbl_structure.php:562 tbl_structure.php:597 tbl_tracking.php:395
-#: tbl_tracking.php:512 view_create.php:182 view_operations.php:101
+#: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
+#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
+#: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+#: main.php:128 navigation.php:238 pdf_pages.php:292 pdf_pages.php:328
+#: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
+#: server_privileges.php:625 server_privileges.php:1585
+#: server_privileges.php:1932 server_privileges.php:1979
+#: server_privileges.php:2018 server_replication.php:235
+#: server_replication.php:318 server_replication.php:341
+#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
+#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:265
+#: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
+#: tbl_operations.php:681 tbl_select.php:327 tbl_structure.php:562
+#: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
+#: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Go"
 
@@ -98,7 +99,7 @@ msgid "Database comment: "
 msgstr "Database comment: "
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
-#: pdf_schema.php:1236 tbl_operations.php:345 tbl_printview.php:130
+#: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
 msgid "Table comments"
 msgstr "Table comments"
 
@@ -110,8 +111,10 @@ msgstr "Table comments"
 #: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
 #: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
-msgid "Field"
-msgstr "Field"
+#, fuzzy
+#| msgid "Column names"
+msgid "Column"
+msgstr "Column names"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
 #: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
@@ -221,105 +224,105 @@ msgstr "Database %s has been renamed to %s"
 msgid "Database %s has been copied to %s"
 msgstr "Database %s has been copied to %s"
 
-#: db_operations.php:410
+#: db_operations.php:412
 msgid "Rename database to"
 msgstr "Rename database to"
 
-#: db_operations.php:415 server_processlist.php:57
+#: db_operations.php:417 server_processlist.php:57
 msgid "Command"
 msgstr "Command"
 
-#: db_operations.php:425 tbl_change.php:1143
+#: db_operations.php:429 tbl_change.php:1143
 msgid "and then"
 msgstr "and then"
 
-#: db_operations.php:451
+#: db_operations.php:455
 msgid "Copy database to"
 msgstr "Copy database to"
 
-#: db_operations.php:458 tbl_operations.php:526 tbl_tracking.php:388
+#: db_operations.php:462 tbl_operations.php:528 tbl_tracking.php:388
 msgid "Structure only"
 msgstr "Structure only"
 
-#: db_operations.php:459 tbl_operations.php:527 tbl_tracking.php:390
+#: db_operations.php:463 tbl_operations.php:529 tbl_tracking.php:390
 msgid "Structure and data"
 msgstr "Structure and data"
 
-#: db_operations.php:460 tbl_operations.php:528 tbl_tracking.php:389
+#: db_operations.php:464 tbl_operations.php:530 tbl_tracking.php:389
 msgid "Data only"
 msgstr "Data only"
 
-#: db_operations.php:468
+#: db_operations.php:472
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE before copying"
 
-#: db_operations.php:471 libraries/export/sql.php:52
+#: db_operations.php:475 libraries/export/sql.php:52
 #: libraries/export/sql.php:74 libraries/export/sql.php:76
-#: libraries/export/sql.php:82 tbl_operations.php:534
+#: libraries/export/sql.php:82 tbl_operations.php:536
 #, php-format
 msgid "Add %s"
 msgstr "Add %s"
 
-#: db_operations.php:475 libraries/export/sql.php:78 tbl_operations.php:297
-#: tbl_operations.php:536
+#: db_operations.php:479 libraries/export/sql.php:78 tbl_operations.php:299
+#: tbl_operations.php:538
 msgid "Add AUTO_INCREMENT value"
 msgstr "Add AUTO_INCREMENT value"
 
-#: db_operations.php:479 tbl_operations.php:543
+#: db_operations.php:483 tbl_operations.php:545
 msgid "Add constraints"
 msgstr "Add constraints"
 
-#: db_operations.php:492
+#: db_operations.php:496
 msgid "Switch to copied database"
 msgstr "Switch to copied database"
 
-#: db_operations.php:533
+#: db_operations.php:537
 msgid "BLOB Repository"
 msgstr "BLOB Repository"
 
-#: db_operations.php:536 db_tracking.php:76 libraries/common.lib.php:1350
+#: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1350
 #: libraries/server_links.inc.php:49 server_processlist.php:59
 #: tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
 msgstr "Status"
 
-#: db_operations.php:544
+#: db_operations.php:548
 msgctxt "BLOB repository"
 msgid "Enabled"
 msgstr "Enabled"
 
-#: db_operations.php:548
+#: db_operations.php:552
 msgid "Disable"
 msgstr "Disable"
 
-#: db_operations.php:558
+#: db_operations.php:562
 msgid "Damaged"
 msgstr "Damaged"
 
-#: db_operations.php:562
+#: db_operations.php:566
 msgctxt "BLOB repository"
 msgid "Repair"
 msgstr "Repair"
 
-#: db_operations.php:570
+#: db_operations.php:574
 msgctxt "BLOB repository"
 msgid "Disabled"
 msgstr "Disabled"
 
-#: db_operations.php:574
+#: db_operations.php:578
 msgid "Enable"
 msgstr "Enable"
 
-#: db_operations.php:598 libraries/Index.class.php:448
+#: db_operations.php:602 libraries/Index.class.php:448
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
 #: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
 #: server_collations.php:54 server_collations.php:66 server_databases.php:111
-#: tbl_operations.php:361 tbl_select.php:137 tbl_structure.php:179
+#: tbl_operations.php:363 tbl_select.php:137 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "Collation"
 
-#: db_operations.php:609 main.php:316 pdf_schema.php:34
+#: db_operations.php:615 main.php:316 pdf_schema.php:34
 #, php-format
 msgid ""
 "The additional features for working with linked tables have been "
@@ -328,57 +331,13 @@ msgstr ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 
-#: db_operations.php:645 pdf_pages.php:528
-msgid "Display PDF schema"
-msgstr "Display PDF schema"
-
-#: db_operations.php:661 pdf_pages.php:529
-msgid "Show grid"
-msgstr "Show grid"
-
-#: db_operations.php:664 pdf_pages.php:530
-msgid "Show color"
-msgstr "Show colour"
-
-#: db_operations.php:666 pdf_pages.php:531
-msgid "Show dimension of tables"
-msgstr "Show dimension of tables"
-
-#: db_operations.php:669 pdf_pages.php:532
-msgid "Display all tables with the same width"
-msgstr "Display all tables with the same width"
-
-#: db_operations.php:672 db_structure.php:606 pdf_pages.php:533
-msgid "Data Dictionary"
-msgstr "Data Dictionary"
-
-#: db_operations.php:674 pdf_pages.php:534
-msgid "Only show keys"
-msgstr "Only show keys"
-
-#: db_operations.php:676 pdf_pages.php:535
-msgid "Data Dictionary Format"
-msgstr "Data Dictionary Format"
-
-#: db_operations.php:678 pdf_pages.php:537
-msgid "Landscape"
-msgstr "Landscape"
-
-#: db_operations.php:679 pdf_pages.php:538
-msgid "Portrait"
-msgstr "Portrait"
-
-#: db_operations.php:682 pdf_pages.php:541
-msgid "Paper size"
-msgstr "Paper size"
-
-#: db_operations.php:706
+#: db_operations.php:648
 msgid "Edit PDF Pages"
 msgstr "Edit PDF Pages"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
-#: libraries/header.inc.php:126 pdf_pages.php:405 server_privileges.php:1626
+#: libraries/header.inc.php:126 pdf_pages.php:424 server_privileges.php:1626
 #: server_privileges.php:1682 server_privileges.php:1946
 #: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
 #: test/theme.php:75
@@ -386,8 +345,11 @@ msgid "Table"
 msgstr "Table"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
-msgid "Records"
-msgstr "Records"
+#: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
+#: navigation.php:652 navigation.php:674 server_databases.php:122
+#: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
+msgid "Rows"
+msgstr "Rows"
 
 #: db_printview.php:109 libraries/db_structure.lib.php:67 tbl_indexes.php:190
 msgid "Size"
@@ -418,8 +380,10 @@ msgstr "Last check"
 
 #: db_printview.php:222 db_structure.php:480
 #, php-format
-msgid "%s table(s)"
-msgstr "%s table(s)"
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s table"
+msgstr[1] "%s tables"
 
 #: db_qbe.php:29 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/sql_query_form.lib.php:140
@@ -484,11 +448,15 @@ msgid "Modify"
 msgstr "Modify"
 
 #: db_qbe.php:584
-msgid "Add/Delete Criteria Row"
+#, fuzzy
+#| msgid "Add/Delete Criteria Row"
+msgid "Add/Delete criteria rows"
 msgstr "Add/Delete Criteria Row"
 
 #: db_qbe.php:596
-msgid "Add/Delete Field Columns"
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Add/Delete columns"
 msgstr "Add/Delete Field Columns"
 
 #: db_qbe.php:609 db_qbe.php:634
@@ -551,7 +519,7 @@ msgstr "Browse"
 
 #: db_search.php:272 libraries/display_tbl.lib.php:1165
 #: libraries/display_tbl.lib.php:2056 libraries/sql_query_form.lib.php:470
-#: pdf_pages.php:281 pdf_pages.php:406 pdf_pages.php:442 pdf_pages.php:470
+#: pdf_pages.php:286 pdf_pages.php:425 pdf_pages.php:461 pdf_pages.php:489
 #: pmd_general.php:377 setup/frames/index.inc.php:125
 #: setup/frames/index.inc.php:216 tbl_row_action.php:63
 msgid "Delete"
@@ -583,7 +551,9 @@ msgid "Inside table(s):"
 msgstr "Inside table(s):"
 
 #: db_search.php:355
-msgid "Inside field:"
+#, fuzzy
+#| msgid "Inside field:"
+msgid "Inside column:"
 msgstr "Inside field:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
@@ -648,11 +618,11 @@ msgstr "Tracking is not active."
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/tbl_info.inc.php:66 tbl_structure.php:185 test/theme.php:74
@@ -705,22 +675,22 @@ msgid "Print view"
 msgstr "Print view"
 
 #: db_structure.php:549 db_structure.php:550 libraries/mult_submits.inc.php:42
-#: tbl_operations.php:579
+#: tbl_operations.php:581
 msgid "Check table"
 msgstr "Check table"
 
 #: db_structure.php:551 db_structure.php:552 libraries/mult_submits.inc.php:47
-#: tbl_operations.php:619 tbl_structure.php:709 tbl_structure.php:711
+#: tbl_operations.php:621 tbl_structure.php:709 tbl_structure.php:711
 msgid "Optimize table"
 msgstr "Optimise table"
 
 #: db_structure.php:553 db_structure.php:554 libraries/mult_submits.inc.php:52
-#: tbl_operations.php:609
+#: tbl_operations.php:611
 msgid "Repair table"
 msgstr "Repair table"
 
 #: db_structure.php:555 db_structure.php:556 libraries/mult_submits.inc.php:57
-#: tbl_operations.php:599
+#: tbl_operations.php:601
 msgid "Analyze table"
 msgstr "Analyse table"
 
@@ -732,6 +702,10 @@ msgstr "Analyse table"
 #: setup/frames/menu.inc.php:22 tbl_row_action.php:59
 msgid "Export"
 msgstr "Export"
+
+#: db_structure.php:606 libraries/display_pdf_schema.lib.php:44
+msgid "Data Dictionary"
+msgstr "Data Dictionary"
 
 #: db_tracking.php:66
 msgid "Tracked tables"
@@ -836,11 +810,11 @@ msgstr "Dump has been saved to file %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
 #: libraries/File.class.php:961
@@ -1026,7 +1000,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "Please select the primary key or a unique key"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-msgid "Choose field to display"
+#, fuzzy
+#| msgid "Choose field to display"
+msgid "Choose column to display"
 msgstr "Choose field to display"
 
 #. l10n: Display text for calendar close link
@@ -1352,7 +1328,7 @@ msgstr "Comment"
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1199 libraries/display_tbl.lib.php:1117
 #: libraries/import.lib.php:1087 libraries/import.lib.php:1111
-#: pdf_pages.php:280 setup/frames/index.inc.php:124
+#: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
 msgstr "Edit"
@@ -1495,11 +1471,11 @@ msgstr "Welcome to %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -1702,8 +1678,7 @@ msgstr "en"
 #: libraries/common.lib.php:450 libraries/dbg/setup.php:25
 #: libraries/display_export.lib.php:164 libraries/relation.lib.php:97
 #: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
-#: main.php:229 pdf_pages.php:37 pdf_pages.php:43 pdf_pages.php:49
-#: pdf_pages.php:54 setup/lib/FormDisplay.tpl.php:124
+#: main.php:229 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Documentation"
 
@@ -2002,7 +1977,9 @@ msgid "No Privileges"
 msgstr "No Privileges"
 
 #: libraries/display_create_table.lib.php:41
-msgid "Table must have at least one field."
+#, fuzzy
+#| msgid "Table must have at least one field."
+msgid "Table must have at least one column."
 msgstr "Table must have at least one field."
 
 #: libraries/display_create_table.lib.php:48
@@ -2011,7 +1988,9 @@ msgid "Create table on database %s"
 msgstr "Create table on database %s"
 
 #: libraries/display_create_table.lib.php:57
-msgid "Number of fields"
+#, fuzzy
+#| msgid "Number of fields"
+msgid "Number of columns"
 msgstr "Number of fields"
 
 #: libraries/display_export.lib.php:42
@@ -2019,8 +1998,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Could not load export plug-ins, please check your installation!"
 
 #: libraries/display_export.lib.php:107
-#, php-format
-msgid "Dump %s row(s) starting at record # %s"
+#, fuzzy, php-format
+#| msgid "Dump %s row(s) starting at record # %s"
+msgid "Dump %s row(s) starting at row # %s"
 msgstr "Dump %s row(s) starting at record # %s"
 
 #: libraries/display_export.lib.php:115
@@ -2060,12 +2040,12 @@ msgstr "table name"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 
 #: libraries/display_export.lib.php:202
 msgid "remember template"
@@ -2175,12 +2155,54 @@ msgstr ""
 "however it can break transactions."
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-msgid "Number of records (queries) to skip from start"
+#, fuzzy
+#| msgid "Number of records (queries) to skip from start"
+msgid "Number of queries to skip from start"
 msgstr "Number of records (queries) to skip from start"
 
 #: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
 msgstr "Format of imported file"
+
+#: libraries/display_pdf_schema.lib.php:11
+msgid "Display PDF schema"
+msgstr "Display PDF schema"
+
+#: libraries/display_pdf_schema.lib.php:33
+msgid "Show grid"
+msgstr "Show grid"
+
+#: libraries/display_pdf_schema.lib.php:36
+msgid "Show color"
+msgstr "Show colour"
+
+#: libraries/display_pdf_schema.lib.php:38
+msgid "Show dimension of tables"
+msgstr "Show dimension of tables"
+
+#: libraries/display_pdf_schema.lib.php:41
+msgid "Display all tables with the same width"
+msgstr "Display all tables with the same width"
+
+#: libraries/display_pdf_schema.lib.php:46
+msgid "Only show keys"
+msgstr "Only show keys"
+
+#: libraries/display_pdf_schema.lib.php:48
+msgid "Data Dictionary Format"
+msgstr "Data Dictionary Format"
+
+#: libraries/display_pdf_schema.lib.php:50
+msgid "Landscape"
+msgstr "Landscape"
+
+#: libraries/display_pdf_schema.lib.php:51
+msgid "Portrait"
+msgstr "Portrait"
+
+#: libraries/display_pdf_schema.lib.php:54
+msgid "Paper size"
+msgstr "Paper size"
 
 #: libraries/display_select_lang.lib.php:45
 #: libraries/display_select_lang.lib.php:46 setup/frames/index.inc.php:70
@@ -2193,7 +2215,9 @@ msgid "%d is not valid row number."
 msgstr "%d is not valid row number."
 
 #: libraries/display_tbl.lib.php:310
-msgid "row(s) starting from record #"
+#, fuzzy
+#| msgid "row(s) starting from record #"
+msgid "row(s) starting from row #"
 msgstr "row(s) starting from record #"
 
 #: libraries/display_tbl.lib.php:316
@@ -2251,7 +2275,9 @@ msgid "Relational key"
 msgstr "Relational key"
 
 #: libraries/display_tbl.lib.php:588
-msgid "Relational display field"
+#, fuzzy
+#| msgid "Relational display field"
+msgid "Relational display column"
 msgstr "Relational display field"
 
 #: libraries/display_tbl.lib.php:595
@@ -2674,17 +2700,23 @@ msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:59 libraries/import/ldi.php:40
-msgid "Fields terminated by"
-msgstr "Fields terminated by"
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "Columns terminated by"
+msgstr "Lines terminated by"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:71 libraries/import/ldi.php:41
-msgid "Fields enclosed by"
+#, fuzzy
+#| msgid "Fields enclosed by"
+msgid "Columns enclosed by"
 msgstr "Fields enclosed by"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
-msgid "Fields escaped by"
+#, fuzzy
+#| msgid "Fields escaped by"
+msgid "Columns escaped by"
 msgstr "Fields escaped by"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
@@ -2701,7 +2733,9 @@ msgid "Replace NULL by"
 msgstr "Replace NULL by"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-msgid "Remove CRLF characters within fields"
+#, fuzzy
+#| msgid "Remove CRLF characters within fields"
+msgid "Remove CRLF characters within columns"
 msgstr "Remove CRLF characters within fields"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -2709,7 +2743,9 @@ msgstr "Remove CRLF characters within fields"
 #: libraries/export/ods.php:24 libraries/export/odt.php:50
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
-msgid "Put fields names in the first row"
+#, fuzzy
+#| msgid "Put fields names in the first row"
+msgid "Put columns names in the first row"
 msgstr "Put fields names in the first row"
 
 #: libraries/export/excel.php:18
@@ -2845,7 +2881,9 @@ msgid "Database export options"
 msgstr "Database export options"
 
 #: libraries/export/sql.php:80
-msgid "Enclose table and field names with backquotes"
+#, fuzzy
+#| msgid "Enclose table and field names with backquotes"
+msgid "Enclose table and column names with backquotes"
 msgstr "Enclose table and field names with backquotes"
 
 #: libraries/export/sql.php:86
@@ -2985,12 +3023,6 @@ msgstr "SQL result"
 msgid "Generated by"
 msgstr "Generated by"
 
-#: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
-#: navigation.php:652 navigation.php:674 server_databases.php:122
-#: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
-msgid "Rows"
-msgstr "Rows"
-
 #: libraries/import.lib.php:150 sql.php:520 tbl_change.php:181
 #: tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -3049,7 +3081,7 @@ msgstr "Ignore duplicate rows"
 msgid "Column names in first row"
 msgstr "Column names in first row"
 
-#: libraries/import/csv.php:40 libraries/import/ldi.php:44 pdf_pages.php:483
+#: libraries/import/csv.php:40 libraries/import/ldi.php:44 pdf_pages.php:502
 #: view_create.php:148
 msgid "Column names"
 msgstr "Column names"
@@ -3071,8 +3103,9 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Invalid format of CSV input on line %d."
 
 #: libraries/import/csv.php:312
-#, php-format
-msgid "Invalid field count in CSV input on line %d."
+#, fuzzy, php-format
+#| msgid "Invalid field count in CSV input on line %d."
+msgid "Invalid column count in CSV input on line %d."
 msgstr "Invalid field count in CSV input on line %d."
 
 #: libraries/import/docsql.php:29
@@ -3153,7 +3186,195 @@ msgstr "(continued)"
 msgid "Structure of table __TABLE__"
 msgstr "Structure of table __TABLE__"
 
-#: libraries/messages.inc.php:25
+#: libraries/messages.inc.php:25 server_privileges.php:227
+msgid "Includes all privileges except GRANT."
+msgstr "Includes all privileges except GRANT."
+
+#: libraries/messages.inc.php:26 server_privileges.php:153
+#: server_privileges.php:476
+msgid "Allows altering the structure of existing tables."
+msgstr "Allows altering the structure of existing tables."
+
+#: libraries/messages.inc.php:27 server_privileges.php:169
+#: server_privileges.php:482
+msgid "Allows altering and dropping stored routines."
+msgstr "Allows altering and dropping stored routines."
+
+#: libraries/messages.inc.php:28 server_privileges.php:145
+#: server_privileges.php:475
+msgid "Allows creating new databases and tables."
+msgstr "Allows creating new databases and tables."
+
+#: libraries/messages.inc.php:29 server_privileges.php:168
+#: server_privileges.php:481
+msgid "Allows creating stored routines."
+msgstr "Allows creating stored routines."
+
+#: libraries/messages.inc.php:30 server_privileges.php:475
+msgid "Allows creating new tables."
+msgstr "Allows creating new tables."
+
+#: libraries/messages.inc.php:31 server_privileges.php:156
+#: server_privileges.php:479
+msgid "Allows creating temporary tables."
+msgstr "Allows creating temporary tables."
+
+#: libraries/messages.inc.php:32 server_privileges.php:170
+#: server_privileges.php:515
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr "Allows creating, dropping and renaming user accounts."
+
+#: libraries/messages.inc.php:33 server_privileges.php:160
+#: server_privileges.php:164 server_privileges.php:487
+#: server_privileges.php:491
+msgid "Allows creating new views."
+msgstr "Allows creating new views."
+
+#: libraries/messages.inc.php:34 server_privileges.php:144
+#: server_privileges.php:467
+msgid "Allows deleting data."
+msgstr "Allows deleting data."
+
+#: libraries/messages.inc.php:35 server_privileges.php:146
+#: server_privileges.php:478
+msgid "Allows dropping databases and tables."
+msgstr "Allows dropping databases and tables."
+
+#: libraries/messages.inc.php:36 server_privileges.php:478
+msgid "Allows dropping tables."
+msgstr "Allows dropping tables."
+
+#: libraries/messages.inc.php:37 server_privileges.php:161
+#: server_privileges.php:495
+msgid "Allows to set up events for the event scheduler"
+msgstr "Allows to set up events for the event scheduler"
+
+#: libraries/messages.inc.php:38 server_privileges.php:171
+#: server_privileges.php:483
+msgid "Allows executing stored routines."
+msgstr "Allows executing stored routines."
+
+#: libraries/messages.inc.php:39 server_privileges.php:150
+#: server_privileges.php:470
+msgid "Allows importing data from and exporting data into files."
+msgstr "Allows importing data from and exporting data into files."
+
+#: libraries/messages.inc.php:40 server_privileges.php:501
+msgid ""
+"Allows adding users and privileges without reloading the privilege tables."
+msgstr ""
+"Allows adding users and privileges without reloading the privilege tables."
+
+#: libraries/messages.inc.php:41 server_privileges.php:152
+#: server_privileges.php:477
+msgid "Allows creating and dropping indexes."
+msgstr "Allows creating and dropping indexes."
+
+#: libraries/messages.inc.php:42 server_privileges.php:142
+#: server_privileges.php:403 server_privileges.php:465
+msgid "Allows inserting and replacing data."
+msgstr "Allows inserting and replacing data."
+
+#: libraries/messages.inc.php:43 server_privileges.php:157
+#: server_privileges.php:510
+msgid "Allows locking tables for the current thread."
+msgstr "Allows locking tables for the current thread."
+
+#: libraries/messages.inc.php:44 server_privileges.php:607
+#: server_privileges.php:609
+msgid "Limits the number of new connections the user may open per hour."
+msgstr "Limits the number of new connections the user may open per hour."
+
+#: libraries/messages.inc.php:45 server_privileges.php:595
+#: server_privileges.php:597
+msgid "Limits the number of queries the user may send to the server per hour."
+msgstr "Limits the number of queries the user may send to the server per hour."
+
+#: libraries/messages.inc.php:46 server_privileges.php:601
+#: server_privileges.php:603
+msgid ""
+"Limits the number of commands that change any table or database the user may "
+"execute per hour."
+msgstr ""
+"Limits the number of commands that change any table or database the user may "
+"execute per hour."
+
+#: libraries/messages.inc.php:47 server_privileges.php:613
+#: server_privileges.php:615
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr "Limits the number of simultaneous connections the user may have."
+
+#: libraries/messages.inc.php:48 server_privileges.php:149
+#: server_privileges.php:505
+msgid "Allows viewing processes of all users"
+msgstr "Allows viewing processes of all users"
+
+#: libraries/messages.inc.php:49 server_privileges.php:151
+#: server_privileges.php:409 server_privileges.php:511
+msgid "Has no effect in this MySQL version."
+msgstr "Has no effect in this MySQL version."
+
+#: libraries/messages.inc.php:50 server_privileges.php:147
+#: server_privileges.php:506
+msgid "Allows reloading server settings and flushing the server's caches."
+msgstr "Allows reloading server settings and flushing the server's caches."
+
+#: libraries/messages.inc.php:51 server_privileges.php:159
+#: server_privileges.php:513
+msgid "Allows the user to ask where the slaves / masters are."
+msgstr "Allows the user to ask where the slaves / masters are."
+
+#: libraries/messages.inc.php:52 server_privileges.php:158
+#: server_privileges.php:514
+msgid "Needed for the replication slaves."
+msgstr "Needed for the replication slaves."
+
+#: libraries/messages.inc.php:53 server_privileges.php:141
+#: server_privileges.php:400 server_privileges.php:464
+msgid "Allows reading data."
+msgstr "Allows reading data."
+
+#: libraries/messages.inc.php:54 server_privileges.php:154
+#: server_privileges.php:508
+msgid "Gives access to the complete list of databases."
+msgstr "Gives access to the complete list of databases."
+
+#: libraries/messages.inc.php:55 server_privileges.php:165
+#: server_privileges.php:167 server_privileges.php:480
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr "Allows performing SHOW CREATE VIEW queries."
+
+#: libraries/messages.inc.php:56 server_privileges.php:148
+#: server_privileges.php:507
+msgid "Allows shutting down the server."
+msgstr "Allows shutting down the server."
+
+#: libraries/messages.inc.php:57 server_privileges.php:155
+#: server_privileges.php:504
+msgid ""
+"Allows connecting, even if maximum number of connections is reached; "
+"required for most administrative operations like setting global variables or "
+"killing threads of other users."
+msgstr ""
+"Allows connecting, even if maximum number of connections is reached; "
+"required for most administrative operations like setting global variables or "
+"killing threads of other users."
+
+#: libraries/messages.inc.php:58 server_privileges.php:162
+#: server_privileges.php:496
+msgid "Allows creating and dropping triggers"
+msgstr "Allows creating and dropping triggers"
+
+#: libraries/messages.inc.php:59 server_privileges.php:143
+#: server_privileges.php:406 server_privileges.php:466
+msgid "Allows changing data."
+msgstr "Allows changing data."
+
+#: libraries/messages.inc.php:60 server_privileges.php:221
+msgid "No privileges."
+msgstr "No privileges."
+
+#: libraries/messages.inc.php:62
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -3163,11 +3384,11 @@ msgstr ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 
-#: libraries/messages.inc.php:26
+#: libraries/messages.inc.php:63
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "The number of transactions that used the temporary binary log cache."
 
-#: libraries/messages.inc.php:27
+#: libraries/messages.inc.php:64
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -3179,11 +3400,11 @@ msgstr ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 
-#: libraries/messages.inc.php:28
+#: libraries/messages.inc.php:65
 msgid "How many temporary files mysqld has created."
 msgstr "How many temporary files mysqld has created."
 
-#: libraries/messages.inc.php:29
+#: libraries/messages.inc.php:66
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -3191,7 +3412,7 @@ msgstr ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 
-#: libraries/messages.inc.php:30
+#: libraries/messages.inc.php:67
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -3199,7 +3420,7 @@ msgstr ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 
-#: libraries/messages.inc.php:31
+#: libraries/messages.inc.php:68
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -3207,23 +3428,23 @@ msgstr ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 
-#: libraries/messages.inc.php:32
+#: libraries/messages.inc.php:69
 msgid "The number of INSERT DELAYED rows written."
 msgstr "The number of INSERT DELAYED rows written."
 
-#: libraries/messages.inc.php:33
+#: libraries/messages.inc.php:70
 msgid "The number of executed FLUSH statements."
 msgstr "The number of executed FLUSH statements."
 
-#: libraries/messages.inc.php:34
+#: libraries/messages.inc.php:71
 msgid "The number of internal COMMIT statements."
 msgstr "The number of internal COMMIT statements."
 
-#: libraries/messages.inc.php:35
+#: libraries/messages.inc.php:72
 msgid "The number of times a row was deleted from a table."
 msgstr "The number of times a row was deleted from a table."
 
-#: libraries/messages.inc.php:36
+#: libraries/messages.inc.php:73
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -3233,7 +3454,7 @@ msgstr ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 
-#: libraries/messages.inc.php:37
+#: libraries/messages.inc.php:74
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -3243,7 +3464,7 @@ msgstr ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 
-#: libraries/messages.inc.php:38
+#: libraries/messages.inc.php:75
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -3251,7 +3472,7 @@ msgstr ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 
-#: libraries/messages.inc.php:39
+#: libraries/messages.inc.php:76
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -3261,7 +3482,7 @@ msgstr ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 
-#: libraries/messages.inc.php:40
+#: libraries/messages.inc.php:77
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -3269,7 +3490,7 @@ msgstr ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimise ORDER BY ... DESC."
 
-#: libraries/messages.inc.php:41
+#: libraries/messages.inc.php:78
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -3281,7 +3502,7 @@ msgstr ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 
-#: libraries/messages.inc.php:42
+#: libraries/messages.inc.php:79
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -3293,36 +3514,36 @@ msgstr ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 
-#: libraries/messages.inc.php:43
+#: libraries/messages.inc.php:80
 msgid "The number of internal ROLLBACK statements."
 msgstr "The number of internal ROLLBACK statements."
 
-#: libraries/messages.inc.php:44
+#: libraries/messages.inc.php:81
 msgid "The number of requests to update a row in a table."
 msgstr "The number of requests to update a row in a table."
 
-#: libraries/messages.inc.php:45
+#: libraries/messages.inc.php:82
 msgid "The number of requests to insert a row in a table."
 msgstr "The number of requests to insert a row in a table."
 
-#: libraries/messages.inc.php:46
+#: libraries/messages.inc.php:83
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "The number of pages containing data (dirty or clean)."
 
-#: libraries/messages.inc.php:47
+#: libraries/messages.inc.php:84
 msgid "The number of pages currently dirty."
 msgstr "The number of pages currently dirty."
 
-#: libraries/messages.inc.php:48
+#: libraries/messages.inc.php:85
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 "The number of buffer pool pages that have been requested to be flushed."
 
-#: libraries/messages.inc.php:49
+#: libraries/messages.inc.php:86
 msgid "The number of free pages."
 msgstr "The number of free pages."
 
-#: libraries/messages.inc.php:50
+#: libraries/messages.inc.php:87
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -3332,7 +3553,7 @@ msgstr ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 
-#: libraries/messages.inc.php:51
+#: libraries/messages.inc.php:88
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -3344,202 +3565,202 @@ msgstr ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: libraries/messages.inc.php:52
+#: libraries/messages.inc.php:89
 msgid "Total size of buffer pool, in pages."
 msgstr "Total size of buffer pool, in pages."
 
-#: libraries/messages.inc.php:53
-msgid ""
-"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
-"query is to scan a large portion of a table but in random order."
-msgstr ""
-"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
-"query is to scan a large portion of a table but in random order."
-
-#: libraries/messages.inc.php:54
-msgid ""
-"The number of sequential read-aheads InnoDB initiated. This happens when "
-"InnoDB does a sequential full table scan."
-msgstr ""
-"The number of sequential read-aheads InnoDB initiated. This happens when "
-"InnoDB does a sequential full table scan."
-
-#: libraries/messages.inc.php:55
-msgid "The number of logical read requests InnoDB has done."
-msgstr "The number of logical read requests InnoDB has done."
-
-#: libraries/messages.inc.php:56
-msgid ""
-"The number of logical reads that InnoDB could not satisfy from buffer pool "
-"and had to do a single-page read."
-msgstr ""
-"The number of logical reads that InnoDB could not satisfy from buffer pool "
-"and had to do a single-page read."
-
-#: libraries/messages.inc.php:57
-msgid ""
-"Normally, writes to the InnoDB buffer pool happen in the background. "
-"However, if it's necessary to read or create a page and no clean pages are "
-"available, it's necessary to wait for pages to be flushed first. This "
-"counter counts instances of these waits. If the buffer pool size was set "
-"properly, this value should be small."
-msgstr ""
-"Normally, writes to the InnoDB buffer pool happen in the background. "
-"However, if it's necessary to read or create a page and no clean pages are "
-"available, it's necessary to wait for pages to be flushed first. This "
-"counter counts instances of these waits. If the buffer pool size was set "
-"properly, this value should be small."
-
-#: libraries/messages.inc.php:58
-msgid "The number writes done to the InnoDB buffer pool."
-msgstr "The number writes done to the InnoDB buffer pool."
-
-#: libraries/messages.inc.php:59
-msgid "The number of fsync() operations so far."
-msgstr "The number of fsync() operations so far."
-
-#: libraries/messages.inc.php:60
-msgid "The current number of pending fsync() operations."
-msgstr "The current number of pending fsync() operations."
-
-#: libraries/messages.inc.php:61
-msgid "The current number of pending reads."
-msgstr "The current number of pending reads."
-
-#: libraries/messages.inc.php:62
-msgid "The current number of pending writes."
-msgstr "The current number of pending writes."
-
-#: libraries/messages.inc.php:63
-msgid "The amount of data read so far, in bytes."
-msgstr "The amount of data read so far, in bytes."
-
-#: libraries/messages.inc.php:64
-msgid "The total number of data reads."
-msgstr "The total number of data reads."
-
-#: libraries/messages.inc.php:65
-msgid "The total number of data writes."
-msgstr "The total number of data writes."
-
-#: libraries/messages.inc.php:66
-msgid "The amount of data written so far, in bytes."
-msgstr "The amount of data written so far, in bytes."
-
-#: libraries/messages.inc.php:67
-msgid "The number of pages that have been written for doublewrite operations."
-msgstr "The number of pages that have been written for doublewrite operations."
-
-#: libraries/messages.inc.php:68
-msgid "The number of doublewrite operations that have been performed."
-msgstr "The number of doublewrite operations that have been performed."
-
-#: libraries/messages.inc.php:69
-msgid ""
-"The number of waits we had because log buffer was too small and we had to "
-"wait for it to be flushed before continuing."
-msgstr ""
-"The number of waits we had because log buffer was too small and we had to "
-"wait for it to be flushed before continuing."
-
-#: libraries/messages.inc.php:70
-msgid "The number of log write requests."
-msgstr "The number of log write requests."
-
-#: libraries/messages.inc.php:71
-msgid "The number of physical writes to the log file."
-msgstr "The number of physical writes to the log file."
-
-#: libraries/messages.inc.php:72
-msgid "The number of fsync() writes done to the log file."
-msgstr "The number of fsync() writes done to the log file."
-
-#: libraries/messages.inc.php:73
-msgid "The number of pending log file fsyncs."
-msgstr "The number of pending log file fsyncs."
-
-#: libraries/messages.inc.php:74
-msgid "Pending log file writes."
-msgstr "Pending log file writes."
-
-#: libraries/messages.inc.php:75
-msgid "The number of bytes written to the log file."
-msgstr "The number of bytes written to the log file."
-
-#: libraries/messages.inc.php:76
-msgid "The number of pages created."
-msgstr "The number of pages created."
-
-#: libraries/messages.inc.php:77
-msgid ""
-"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
-"pages; the page size allows them to be easily converted to bytes."
-msgstr ""
-"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
-"pages; the page size allows them to be easily converted to bytes."
-
-#: libraries/messages.inc.php:78
-msgid "The number of pages read."
-msgstr "The number of pages read."
-
-#: libraries/messages.inc.php:79
-msgid "The number of pages written."
-msgstr "The number of pages written."
-
-#: libraries/messages.inc.php:80
-msgid "The number of row locks currently being waited for."
-msgstr "The number of row locks currently being waited for."
-
-#: libraries/messages.inc.php:81
-msgid "The average time to acquire a row lock, in milliseconds."
-msgstr "The average time to acquire a row lock, in milliseconds."
-
-#: libraries/messages.inc.php:82
-msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr "The total time spent in acquiring row locks, in milliseconds."
-
-#: libraries/messages.inc.php:83
-msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr "The maximum time to acquire a row lock, in milliseconds."
-
-#: libraries/messages.inc.php:84
-msgid "The number of times a row lock had to be waited for."
-msgstr "The number of times a row lock had to be waited for."
-
-#: libraries/messages.inc.php:85
-msgid "The number of rows deleted from InnoDB tables."
-msgstr "The number of rows deleted from InnoDB tables."
-
-#: libraries/messages.inc.php:86
-msgid "The number of rows inserted in InnoDB tables."
-msgstr "The number of rows inserted in InnoDB tables."
-
-#: libraries/messages.inc.php:87
-msgid "The number of rows read from InnoDB tables."
-msgstr "The number of rows read from InnoDB tables."
-
-#: libraries/messages.inc.php:88
-msgid "The number of rows updated in InnoDB tables."
-msgstr "The number of rows updated in InnoDB tables."
-
-#: libraries/messages.inc.php:89
-msgid ""
-"The number of key blocks in the key cache that have changed but haven't yet "
-"been flushed to disk. It used to be known as Not_flushed_key_blocks."
-msgstr ""
-"The number of key blocks in the key cache that have changed but haven't yet "
-"been flushed to disk. It used to be known as Not_flushed_key_blocks."
-
 #: libraries/messages.inc.php:90
 msgid ""
-"The number of unused blocks in the key cache. You can use this value to "
-"determine how much of the key cache is in use."
+"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
+"query is to scan a large portion of a table but in random order."
 msgstr ""
-"The number of unused blocks in the key cache. You can use this value to "
-"determine how much of the key cache is in use."
+"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
+"query is to scan a large portion of a table but in random order."
 
 #: libraries/messages.inc.php:91
 msgid ""
+"The number of sequential read-aheads InnoDB initiated. This happens when "
+"InnoDB does a sequential full table scan."
+msgstr ""
+"The number of sequential read-aheads InnoDB initiated. This happens when "
+"InnoDB does a sequential full table scan."
+
+#: libraries/messages.inc.php:92
+msgid "The number of logical read requests InnoDB has done."
+msgstr "The number of logical read requests InnoDB has done."
+
+#: libraries/messages.inc.php:93
+msgid ""
+"The number of logical reads that InnoDB could not satisfy from buffer pool "
+"and had to do a single-page read."
+msgstr ""
+"The number of logical reads that InnoDB could not satisfy from buffer pool "
+"and had to do a single-page read."
+
+#: libraries/messages.inc.php:94
+msgid ""
+"Normally, writes to the InnoDB buffer pool happen in the background. "
+"However, if it's necessary to read or create a page and no clean pages are "
+"available, it's necessary to wait for pages to be flushed first. This "
+"counter counts instances of these waits. If the buffer pool size was set "
+"properly, this value should be small."
+msgstr ""
+"Normally, writes to the InnoDB buffer pool happen in the background. "
+"However, if it's necessary to read or create a page and no clean pages are "
+"available, it's necessary to wait for pages to be flushed first. This "
+"counter counts instances of these waits. If the buffer pool size was set "
+"properly, this value should be small."
+
+#: libraries/messages.inc.php:95
+msgid "The number writes done to the InnoDB buffer pool."
+msgstr "The number writes done to the InnoDB buffer pool."
+
+#: libraries/messages.inc.php:96
+msgid "The number of fsync() operations so far."
+msgstr "The number of fsync() operations so far."
+
+#: libraries/messages.inc.php:97
+msgid "The current number of pending fsync() operations."
+msgstr "The current number of pending fsync() operations."
+
+#: libraries/messages.inc.php:98
+msgid "The current number of pending reads."
+msgstr "The current number of pending reads."
+
+#: libraries/messages.inc.php:99
+msgid "The current number of pending writes."
+msgstr "The current number of pending writes."
+
+#: libraries/messages.inc.php:100
+msgid "The amount of data read so far, in bytes."
+msgstr "The amount of data read so far, in bytes."
+
+#: libraries/messages.inc.php:101
+msgid "The total number of data reads."
+msgstr "The total number of data reads."
+
+#: libraries/messages.inc.php:102
+msgid "The total number of data writes."
+msgstr "The total number of data writes."
+
+#: libraries/messages.inc.php:103
+msgid "The amount of data written so far, in bytes."
+msgstr "The amount of data written so far, in bytes."
+
+#: libraries/messages.inc.php:104
+msgid "The number of pages that have been written for doublewrite operations."
+msgstr "The number of pages that have been written for doublewrite operations."
+
+#: libraries/messages.inc.php:105
+msgid "The number of doublewrite operations that have been performed."
+msgstr "The number of doublewrite operations that have been performed."
+
+#: libraries/messages.inc.php:106
+msgid ""
+"The number of waits we had because log buffer was too small and we had to "
+"wait for it to be flushed before continuing."
+msgstr ""
+"The number of waits we had because log buffer was too small and we had to "
+"wait for it to be flushed before continuing."
+
+#: libraries/messages.inc.php:107
+msgid "The number of log write requests."
+msgstr "The number of log write requests."
+
+#: libraries/messages.inc.php:108
+msgid "The number of physical writes to the log file."
+msgstr "The number of physical writes to the log file."
+
+#: libraries/messages.inc.php:109
+msgid "The number of fsync() writes done to the log file."
+msgstr "The number of fsync() writes done to the log file."
+
+#: libraries/messages.inc.php:110
+msgid "The number of pending log file fsyncs."
+msgstr "The number of pending log file fsyncs."
+
+#: libraries/messages.inc.php:111
+msgid "Pending log file writes."
+msgstr "Pending log file writes."
+
+#: libraries/messages.inc.php:112
+msgid "The number of bytes written to the log file."
+msgstr "The number of bytes written to the log file."
+
+#: libraries/messages.inc.php:113
+msgid "The number of pages created."
+msgstr "The number of pages created."
+
+#: libraries/messages.inc.php:114
+msgid ""
+"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
+"pages; the page size allows them to be easily converted to bytes."
+msgstr ""
+"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
+"pages; the page size allows them to be easily converted to bytes."
+
+#: libraries/messages.inc.php:115
+msgid "The number of pages read."
+msgstr "The number of pages read."
+
+#: libraries/messages.inc.php:116
+msgid "The number of pages written."
+msgstr "The number of pages written."
+
+#: libraries/messages.inc.php:117
+msgid "The number of row locks currently being waited for."
+msgstr "The number of row locks currently being waited for."
+
+#: libraries/messages.inc.php:118
+msgid "The average time to acquire a row lock, in milliseconds."
+msgstr "The average time to acquire a row lock, in milliseconds."
+
+#: libraries/messages.inc.php:119
+msgid "The total time spent in acquiring row locks, in milliseconds."
+msgstr "The total time spent in acquiring row locks, in milliseconds."
+
+#: libraries/messages.inc.php:120
+msgid "The maximum time to acquire a row lock, in milliseconds."
+msgstr "The maximum time to acquire a row lock, in milliseconds."
+
+#: libraries/messages.inc.php:121
+msgid "The number of times a row lock had to be waited for."
+msgstr "The number of times a row lock had to be waited for."
+
+#: libraries/messages.inc.php:122
+msgid "The number of rows deleted from InnoDB tables."
+msgstr "The number of rows deleted from InnoDB tables."
+
+#: libraries/messages.inc.php:123
+msgid "The number of rows inserted in InnoDB tables."
+msgstr "The number of rows inserted in InnoDB tables."
+
+#: libraries/messages.inc.php:124
+msgid "The number of rows read from InnoDB tables."
+msgstr "The number of rows read from InnoDB tables."
+
+#: libraries/messages.inc.php:125
+msgid "The number of rows updated in InnoDB tables."
+msgstr "The number of rows updated in InnoDB tables."
+
+#: libraries/messages.inc.php:126
+msgid ""
+"The number of key blocks in the key cache that have changed but haven't yet "
+"been flushed to disk. It used to be known as Not_flushed_key_blocks."
+msgstr ""
+"The number of key blocks in the key cache that have changed but haven't yet "
+"been flushed to disk. It used to be known as Not_flushed_key_blocks."
+
+#: libraries/messages.inc.php:127
+msgid ""
+"The number of unused blocks in the key cache. You can use this value to "
+"determine how much of the key cache is in use."
+msgstr ""
+"The number of unused blocks in the key cache. You can use this value to "
+"determine how much of the key cache is in use."
+
+#: libraries/messages.inc.php:128
+msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
@@ -3548,11 +3769,11 @@ msgstr ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 
-#: libraries/messages.inc.php:92
+#: libraries/messages.inc.php:129
 msgid "The number of requests to read a key block from the cache."
 msgstr "The number of requests to read a key block from the cache."
 
-#: libraries/messages.inc.php:93
+#: libraries/messages.inc.php:130
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -3562,15 +3783,15 @@ msgstr ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 
-#: libraries/messages.inc.php:94
+#: libraries/messages.inc.php:131
 msgid "The number of requests to write a key block to the cache."
 msgstr "The number of requests to write a key block to the cache."
 
-#: libraries/messages.inc.php:95
+#: libraries/messages.inc.php:132
 msgid "The number of physical writes of a key block to disk."
 msgstr "The number of physical writes of a key block to disk."
 
-#: libraries/messages.inc.php:96
+#: libraries/messages.inc.php:133
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -3580,11 +3801,11 @@ msgstr ""
 "optimiser. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 
-#: libraries/messages.inc.php:97
+#: libraries/messages.inc.php:134
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "The number of rows waiting to be written in INSERT DELAYED queues."
 
-#: libraries/messages.inc.php:98
+#: libraries/messages.inc.php:135
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -3592,35 +3813,35 @@ msgstr ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 
-#: libraries/messages.inc.php:99
+#: libraries/messages.inc.php:136
 msgid "The number of files that are open."
 msgstr "The number of files that are open."
 
-#: libraries/messages.inc.php:100
+#: libraries/messages.inc.php:137
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "The number of streams that are open (used mainly for logging)."
 
-#: libraries/messages.inc.php:101
+#: libraries/messages.inc.php:138
 msgid "The number of tables that are open."
 msgstr "The number of tables that are open."
 
-#: libraries/messages.inc.php:102
+#: libraries/messages.inc.php:139
 msgid "The number of free memory blocks in query cache."
 msgstr "The number of free memory blocks in query cache."
 
-#: libraries/messages.inc.php:103
+#: libraries/messages.inc.php:140
 msgid "The amount of free memory for query cache."
 msgstr "The amount of free memory for query cache."
 
-#: libraries/messages.inc.php:104
+#: libraries/messages.inc.php:141
 msgid "The number of cache hits."
 msgstr "The number of cache hits."
 
-#: libraries/messages.inc.php:105
+#: libraries/messages.inc.php:142
 msgid "The number of queries added to the cache."
 msgstr "The number of queries added to the cache."
 
-#: libraries/messages.inc.php:106
+#: libraries/messages.inc.php:143
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -3632,7 +3853,7 @@ msgstr ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 
-#: libraries/messages.inc.php:107
+#: libraries/messages.inc.php:144
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -3640,24 +3861,24 @@ msgstr ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 
-#: libraries/messages.inc.php:108
+#: libraries/messages.inc.php:145
 msgid "The number of queries registered in the cache."
 msgstr "The number of queries registered in the cache."
 
-#: libraries/messages.inc.php:109
+#: libraries/messages.inc.php:146
 msgid "The total number of blocks in the query cache."
 msgstr "The total number of blocks in the query cache."
 
-#: libraries/messages.inc.php:110
+#: libraries/messages.inc.php:147
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Reset"
 
-#: libraries/messages.inc.php:111
+#: libraries/messages.inc.php:148
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "The status of failsafe replication (not yet implemented)."
 
-#: libraries/messages.inc.php:112
+#: libraries/messages.inc.php:149
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -3665,11 +3886,11 @@ msgstr ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 
-#: libraries/messages.inc.php:113
+#: libraries/messages.inc.php:150
 msgid "The number of joins that used a range search on a reference table."
 msgstr "The number of joins that used a range search on a reference table."
 
-#: libraries/messages.inc.php:114
+#: libraries/messages.inc.php:151
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -3677,7 +3898,7 @@ msgstr ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 
-#: libraries/messages.inc.php:115
+#: libraries/messages.inc.php:152
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -3685,15 +3906,15 @@ msgstr ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 
-#: libraries/messages.inc.php:116
+#: libraries/messages.inc.php:153
 msgid "The number of joins that did a full scan of the first table."
 msgstr "The number of joins that did a full scan of the first table."
 
-#: libraries/messages.inc.php:117
+#: libraries/messages.inc.php:154
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "The number of temporary tables currently open by the slave SQL thread."
 
-#: libraries/messages.inc.php:118
+#: libraries/messages.inc.php:155
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -3701,11 +3922,11 @@ msgstr ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 
-#: libraries/messages.inc.php:119
+#: libraries/messages.inc.php:156
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr "This is ON if this server is a slave that is connected to a master."
 
-#: libraries/messages.inc.php:120
+#: libraries/messages.inc.php:157
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -3713,13 +3934,13 @@ msgstr ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 
-#: libraries/messages.inc.php:121
+#: libraries/messages.inc.php:158
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "The number of queries that have taken more than long_query_time seconds."
 
-#: libraries/messages.inc.php:122
+#: libraries/messages.inc.php:159
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -3729,23 +3950,23 @@ msgstr ""
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 
-#: libraries/messages.inc.php:123
+#: libraries/messages.inc.php:160
 msgid "The number of sorts that were done with ranges."
 msgstr "The number of sorts that were done with ranges."
 
-#: libraries/messages.inc.php:124
+#: libraries/messages.inc.php:161
 msgid "The number of sorted rows."
 msgstr "The number of sorted rows."
 
-#: libraries/messages.inc.php:125
+#: libraries/messages.inc.php:162
 msgid "The number of sorts that were done by scanning the table."
 msgstr "The number of sorts that were done by scanning the table."
 
-#: libraries/messages.inc.php:126
+#: libraries/messages.inc.php:163
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "The number of times that a table lock was acquired immediately."
 
-#: libraries/messages.inc.php:127
+#: libraries/messages.inc.php:164
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -3757,7 +3978,7 @@ msgstr ""
 "should first optimise your queries, and then either split your table or "
 "tables or use replication."
 
-#: libraries/messages.inc.php:128
+#: libraries/messages.inc.php:165
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -3767,11 +3988,11 @@ msgstr ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 
-#: libraries/messages.inc.php:129
+#: libraries/messages.inc.php:166
 msgid "The number of currently open connections."
 msgstr "The number of currently open connections."
 
-#: libraries/messages.inc.php:130
+#: libraries/messages.inc.php:167
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -3783,7 +4004,7 @@ msgstr ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 
-#: libraries/messages.inc.php:131
+#: libraries/messages.inc.php:168
 msgid "The number of threads that are not sleeping."
 msgstr "The number of threads that are not sleeping."
 
@@ -4260,8 +4481,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Run SQL query/queries on database %s"
 
 #: libraries/sql_query_form.lib.php:317
-msgid "Fields"
-msgstr "Fields"
+#, fuzzy
+#| msgid "Column names"
+msgid "Columns"
+msgstr "Column names"
 
 #: libraries/sql_query_form.lib.php:352 sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
@@ -4377,8 +4600,14 @@ msgid "Length/Values"
 msgstr "Length/Values"
 
 #: libraries/tbl_properties.inc.php:105
+#, fuzzy
+#| msgid ""
+#| "If field type is \"enum\" or \"set\", please enter the values using this "
+#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
+#| "or a single quote (\"'\") amongst those values, precede it with a "
+#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
-"If field type is \"enum\" or \"set\", please enter the values using this "
+"If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
@@ -4445,7 +4674,7 @@ msgstr ""
 "author what %s does."
 
 #: libraries/tbl_properties.inc.php:726 server_engines.php:58
-#: tbl_operations.php:353
+#: tbl_operations.php:355
 msgid "Storage Engine"
 msgstr "Storage Engine"
 
@@ -4453,7 +4682,7 @@ msgstr "Storage Engine"
 msgid "PARTITION definition"
 msgstr "PARTITION definition"
 
-#: libraries/tbl_properties.inc.php:776 pdf_pages.php:484
+#: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
 #: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1126 tbl_indexes.php:248
 #: tbl_relation.php:566
@@ -4461,12 +4690,15 @@ msgid "Save"
 msgstr "Save"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
-#, php-format
-msgid "Add %s field(s)"
-msgstr "Add %s field(s)"
+#, fuzzy, php-format
+#| msgid "Add column(s)"
+msgid "Add %s column(s)"
+msgstr "Add column(s)"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
-msgid "You have to add at least one field."
+#, fuzzy
+#| msgid "You have to add at least one field."
+msgid "You have to add at least one column."
 msgstr "You have to add at least one field."
 
 #: libraries/tbl_triggers.lib.php:29
@@ -4474,10 +4706,16 @@ msgid "Event"
 msgstr "Event"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "Displays a link to download the binary data of the field. You can use the "
+#| "first option to specify the filename, or use the second option as the "
+#| "name of a field which contains the filename. If you use the second "
+#| "option, you need to set the first option to the empty string."
 msgid ""
-"Displays a link to download the binary data of the field. You can use the "
+"Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
+"of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
 "Displays a link to download the binary data of the field. You can use the "
@@ -4507,8 +4745,18 @@ msgid "Displays a link to download this image."
 msgstr "Displays a link to download this image."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+#| "formatted date. The first option is the offset (in hours) which will be "
+#| "added to the timestamp (Default: 0). Use second option to specify a "
+#| "different date/time format string. Third option determines whether you "
+#| "want to see local date or UTC one (use \"local\" or \"utc\" strings) for "
+#| "that. According to that, date format has different value - for \"local\" "
+#| "see the documentation for PHP's strftime() function and for \"utc\" it is "
+#| "done using gmdate() function."
 msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
 "added to the timestamp (Default: 0). Use second option to specify a "
 "different date/time format string. Third option determines whether you want "
@@ -4527,11 +4775,23 @@ msgstr ""
 "gmdate() function."
 
 #: libraries/transformations/text_plain__external.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "LINUX ONLY: Launches an external application and feeds it the field data "
+#| "via standard input. Returns the standard output of the application. The "
+#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
+#| "have to manually edit the file libraries/transformations/"
+#| "text_plain__external.inc.php and list the tools you want to make "
+#| "available. The first option is then the number of the program you want to "
+#| "use and the second option is the parameters for the program. The third "
+#| "option, if set to 1, will convert the output using htmlspecialchars() "
+#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
+#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
+"LINUX ONLY: Launches an external application and feeds it the column data "
+"via standard input. Returns the standard output of the application. The "
+"default is Tidy, to pretty-print HTML code. For security reasons, you have "
+"to manually edit the file libraries/transformations/text_plain__external.inc."
 "php and list the tools you want to make available. The first option is then "
 "the number of the program you want to use and the second option is the "
 "parameters for the program. The third option, if set to 1, will convert the "
@@ -4551,16 +4811,25 @@ msgstr ""
 "(Default 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "Displays the contents of the field as-is, without running it through "
+#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+"Displays the contents of the column as-is, without running it through "
+"htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
 "Displays the contents of the field as-is, without running it through "
 "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "Displays an image and a link; the field contains the filename. The first "
+#| "option is a URL prefix like \"http://www.example.com/\". The second and "
+#| "third options are the width and the height in pixels."
 msgid ""
-"Displays an image and a link; the field contains the filename. The first "
+"Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
@@ -4569,8 +4838,13 @@ msgstr ""
 "third options are the width and the height in pixels."
 
 #: libraries/transformations/text_plain__link.inc.php:10
+#, fuzzy
+#| msgid ""
+#| "Displays a link; the field contains the filename. The first option is a "
+#| "URL prefix like \"http://www.example.com/\". The second option is a title "
+#| "for the link."
 msgid ""
-"Displays a link; the field contains the filename. The first option is a URL "
+"Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
@@ -4583,6 +4857,8 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
+"Converts an (IPv4) Internet network address into a string in Internet "
+"standard dotted format."
 
 #: libraries/transformations/text_plain__sql.inc.php:10
 msgid "Formats text as SQL query with syntax highlighting."
@@ -4627,7 +4903,7 @@ msgstr "Interface"
 msgid "Custom color"
 msgstr "Custom colour"
 
-#: main.php:163 pdf_pages.php:344 setup/lib/FormDisplay.tpl.php:216
+#: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
 #: tbl_change.php:1175
 msgid "Reset"
 msgstr "Reset"
@@ -4746,7 +5022,7 @@ msgid ""
 "This may cause unpredictable behavior."
 msgstr ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
-"This may cause unpredictable behavior."
+"This may cause unpredictable behaviour."
 
 #: main.php:358
 #, php-format
@@ -4783,36 +5059,44 @@ msgstr "Create table"
 msgid "Please select a database"
 msgstr "Please select a database"
 
-#: pdf_pages.php:36 pdf_pages.php:42 pdf_pages.php:48 pdf_pages.php:53
+#: pdf_pages.php:41 pdf_pages.php:47 pdf_pages.php:53 pdf_pages.php:58
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> table not found or not set in %s"
 
-#: pdf_pages.php:261
+#: pdf_pages.php:266
 msgid "Please choose a page to edit"
 msgstr "Please choose a page to edit"
 
-#: pdf_pages.php:297 pmd_pdf.php:114
+#: pdf_pages.php:304 pmd_pdf.php:114
 msgid "Create a page"
 msgstr "Create a page"
 
-#: pdf_pages.php:303 pdf_pages.php:306
-msgid "Automatic layout"
+#: pdf_pages.php:310
+#, fuzzy
+#| msgid "Page number:"
+msgid "Page name"
+msgstr "Page number:"
+
+#: pdf_pages.php:314
+#, fuzzy
+#| msgid "Automatic layout"
+msgid "Automatic layout based on"
 msgstr "Automatic layout"
 
-#: pdf_pages.php:303
+#: pdf_pages.php:316
 msgid "Internal relations"
 msgstr "Internal relations"
 
-#: pdf_pages.php:320
+#: pdf_pages.php:339
 msgid "Select Tables"
 msgstr "Select Tables"
 
-#: pdf_pages.php:343
+#: pdf_pages.php:362
 msgid "Toggle scratchboard"
 msgstr "Toggle scratchboard"
 
-#: pdf_pages.php:506
+#: pdf_pages.php:525
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -4925,10 +5209,15 @@ msgid "To select relation, click :"
 msgstr "To select relation, click :"
 
 #: pmd_help.php:29
+#, fuzzy
+#| msgid ""
+#| "The display field is shown in pink. To set/unset a field as the display "
+#| "field, click the \"Choose field to display\" icon, then click on the "
+#| "appropriate field name."
 msgid ""
-"The display field is shown in pink. To set/unset a field as the display "
-"field, click the \"Choose field to display\" icon, then click on the "
-"appropriate field name."
+"The display column is shown in pink. To set/unset a column as the display "
+"column, click the \"Choose column to display\" icon, then click on the "
+"appropriate column name."
 msgstr ""
 "The display field is shown in pink. To set/unset a field as the display "
 "field, click the \"Choose field to display\" icon, then click on the "
@@ -5068,134 +5357,6 @@ msgstr "Storage Engines"
 msgid "View dump (schema) of databases"
 msgstr "View dump (schema) of databases"
 
-#: server_privileges.php:141 server_privileges.php:400
-#: server_privileges.php:464
-msgid "Allows reading data."
-msgstr "Allows reading data."
-
-#: server_privileges.php:142 server_privileges.php:403
-#: server_privileges.php:465
-msgid "Allows inserting and replacing data."
-msgstr "Allows inserting and replacing data."
-
-#: server_privileges.php:143 server_privileges.php:406
-#: server_privileges.php:466
-msgid "Allows changing data."
-msgstr "Allows changing data."
-
-#: server_privileges.php:144 server_privileges.php:467
-msgid "Allows deleting data."
-msgstr "Allows deleting data."
-
-#: server_privileges.php:145 server_privileges.php:475
-msgid "Allows creating new databases and tables."
-msgstr "Allows creating new databases and tables."
-
-#: server_privileges.php:146 server_privileges.php:478
-msgid "Allows dropping databases and tables."
-msgstr "Allows dropping databases and tables."
-
-#: server_privileges.php:147 server_privileges.php:506
-msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "Allows reloading server settings and flushing the server's caches."
-
-#: server_privileges.php:148 server_privileges.php:507
-msgid "Allows shutting down the server."
-msgstr "Allows shutting down the server."
-
-#: server_privileges.php:149 server_privileges.php:505
-msgid "Allows viewing processes of all users"
-msgstr "Allows viewing processes of all users"
-
-#: server_privileges.php:150 server_privileges.php:470
-msgid "Allows importing data from and exporting data into files."
-msgstr "Allows importing data from and exporting data into files."
-
-#: server_privileges.php:151 server_privileges.php:409
-#: server_privileges.php:511
-msgid "Has no effect in this MySQL version."
-msgstr "Has no effect in this MySQL version."
-
-#: server_privileges.php:152 server_privileges.php:477
-msgid "Allows creating and dropping indexes."
-msgstr "Allows creating and dropping indexes."
-
-#: server_privileges.php:153 server_privileges.php:476
-msgid "Allows altering the structure of existing tables."
-msgstr "Allows altering the structure of existing tables."
-
-#: server_privileges.php:154 server_privileges.php:508
-msgid "Gives access to the complete list of databases."
-msgstr "Gives access to the complete list of databases."
-
-#: server_privileges.php:155 server_privileges.php:504
-msgid ""
-"Allows connecting, even if maximum number of connections is reached; "
-"required for most administrative operations like setting global variables or "
-"killing threads of other users."
-msgstr ""
-"Allows connecting, even if maximum number of connections is reached; "
-"required for most administrative operations like setting global variables or "
-"killing threads of other users."
-
-#: server_privileges.php:156 server_privileges.php:479
-msgid "Allows creating temporary tables."
-msgstr "Allows creating temporary tables."
-
-#: server_privileges.php:157 server_privileges.php:510
-msgid "Allows locking tables for the current thread."
-msgstr "Allows locking tables for the current thread."
-
-#: server_privileges.php:158 server_privileges.php:514
-msgid "Needed for the replication slaves."
-msgstr "Needed for the replication slaves."
-
-#: server_privileges.php:159 server_privileges.php:513
-msgid "Allows the user to ask where the slaves / masters are."
-msgstr "Allows the user to ask where the slaves / masters are."
-
-#: server_privileges.php:160 server_privileges.php:164
-#: server_privileges.php:487 server_privileges.php:491
-msgid "Allows creating new views."
-msgstr "Allows creating new views."
-
-#: server_privileges.php:161 server_privileges.php:495
-msgid "Allows to set up events for the event scheduler"
-msgstr "Allows to set up events for the event scheduler"
-
-#: server_privileges.php:162 server_privileges.php:496
-msgid "Allows creating and dropping triggers"
-msgstr "Allows creating and dropping triggers"
-
-#: server_privileges.php:165 server_privileges.php:167
-#: server_privileges.php:480
-msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Allows performing SHOW CREATE VIEW queries."
-
-#: server_privileges.php:168 server_privileges.php:481
-msgid "Allows creating stored routines."
-msgstr "Allows creating stored routines."
-
-#: server_privileges.php:169 server_privileges.php:482
-msgid "Allows altering and dropping stored routines."
-msgstr "Allows altering and dropping stored routines."
-
-#: server_privileges.php:170 server_privileges.php:515
-msgid "Allows creating, dropping and renaming user accounts."
-msgstr "Allows creating, dropping and renaming user accounts."
-
-#: server_privileges.php:171 server_privileges.php:483
-msgid "Allows executing stored routines."
-msgstr "Allows executing stored routines."
-
-#: server_privileges.php:221
-msgid "No privileges."
-msgstr "No privileges."
-
-#: server_privileges.php:227
-msgid "Includes all privileges except GRANT."
-msgstr "Includes all privileges except GRANT."
-
 #: server_privileges.php:263 server_privileges.php:264
 msgctxt "None privileges"
 msgid "None"
@@ -5210,20 +5371,6 @@ msgstr "Table-specific privileges"
 #: server_privileges.php:1501
 msgid " Note: MySQL privilege names are expressed in English "
 msgstr " Note: MySQL privilege names are expressed in English "
-
-#: server_privileges.php:475
-msgid "Allows creating new tables."
-msgstr "Allows creating new tables."
-
-#: server_privileges.php:478
-msgid "Allows dropping tables."
-msgstr "Allows dropping tables."
-
-#: server_privileges.php:501
-msgid ""
-"Allows adding users and privileges without reloading the privilege tables."
-msgstr ""
-"Allows adding users and privileges without reloading the privilege tables."
 
 #: server_privileges.php:524 server_privileges.php:1500
 msgid "Global privileges"
@@ -5245,26 +5392,6 @@ msgstr "Resource limits"
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Note: Setting these options to 0 (zero) removes the limit."
 
-#: server_privileges.php:595 server_privileges.php:597
-msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Limits the number of queries the user may send to the server per hour."
-
-#: server_privileges.php:601 server_privileges.php:603
-msgid ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
-msgstr ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
-
-#: server_privileges.php:607 server_privileges.php:609
-msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limits the number of new connections the user may open per hour."
-
-#: server_privileges.php:613 server_privileges.php:615
-msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Limits the number of simultaneous connections the user may have."
-
 #: server_privileges.php:669
 msgid "Login Information"
 msgstr "Login Information"
@@ -5274,8 +5401,8 @@ msgid "Do not change the password"
 msgstr "Do not change the password"
 
 #: server_privileges.php:804 server_privileges.php:2166
-msgid "No user(s) found."
-msgstr "No user(s) found."
+msgid "No user found."
+msgstr "No user found."
 
 #: server_privileges.php:848
 #, php-format
@@ -5367,13 +5494,13 @@ msgstr "Drop the databases that have the same names as the users."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 
 #: server_privileges.php:1645
 msgid "The selected user was not found in the privilege table."
@@ -5634,8 +5761,8 @@ msgid "Error management:"
 msgstr "Error management:"
 
 #: server_replication.php:334
-msgid "Skipping error(s) might lead into unsynchronized master and slave!"
-msgstr "Skipping error(s) might lead into unsynchronised master and slave!"
+msgid "Skipping errors might lead into unsynchronized master and slave!"
+msgstr "Skipping errors might lead into unsynchronised master and slave!"
 
 #: server_replication.php:336
 msgid "Skip current error"
@@ -6184,17 +6311,24 @@ msgstr ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 
 #: setup/lib/messages.inc.php:35
+#, fuzzy
+#| msgid ""
+#| "Defines which type of editing controls should be used for CHAR and "
+#| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
+#| "textarea[/kbd] - allows newlines in fields"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
-"fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
-"kbd] - allows newlines in fields"
+"columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
+"kbd] - allows newlines in columns"
 msgstr ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in fields"
 
 #: setup/lib/messages.inc.php:36
-msgid "CHAR fields editing"
+#, fuzzy
+#| msgid "CHAR fields editing"
+msgid "CHAR columns editing"
 msgstr "CHAR fields editing"
 
 #: setup/lib/messages.inc.php:37
@@ -6919,8 +7053,12 @@ msgid "GZip output buffering"
 msgstr "GZip output buffering"
 
 #: setup/lib/messages.inc.php:217
+#, fuzzy
+#| msgid ""
+#| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
+#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
-"[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
+"[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
 "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
@@ -6943,11 +7081,15 @@ msgid "Iconic table operations"
 msgstr "Iconic table operations"
 
 #: setup/lib/messages.inc.php:224
-msgid "Disallow BLOB and BINARY fields from editing"
+#, fuzzy
+#| msgid "Disallow BLOB and BINARY fields from editing"
+msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Disallow BLOB and BINARY fields from editing"
 
 #: setup/lib/messages.inc.php:225
-msgid "Protect binary fields"
+#, fuzzy
+#| msgid "Protect binary fields"
+msgid "Protect binary columns"
 msgstr "Protect binary fields"
 
 #: setup/lib/messages.inc.php:226
@@ -7412,15 +7554,21 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF schema: table coordinates"
 
 #: setup/lib/messages.inc.php:320
+#, fuzzy
+#| msgid ""
+#| "Table to describe the display fields, leave blank for no support; "
+#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
-"Table to describe the display fields, leave blank for no support; suggested: "
-"[kbd]pma_table_info[/kbd]"
+"Table to describe the display columns, leave blank for no support; "
+"suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
 "Table to describe the display fields, leave blank for no support; suggested: "
 "[kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-msgid "Display fields table"
+#, fuzzy
+#| msgid "Display fields table"
+msgid "Display columns table"
 msgstr "Display fields table"
 
 #: setup/lib/messages.inc.php:323
@@ -7452,8 +7600,10 @@ msgid "Verbose name of this server"
 msgstr "Verbose name of this server"
 
 #: setup/lib/messages.inc.php:329
-msgid ""
-"Whether a user should be displayed a &quot;show all (records)&quot; button"
+#, fuzzy
+#| msgid ""
+#| "Whether a user should be displayed a &quot;show all (records)&quot; button"
+msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
 
@@ -7747,7 +7897,9 @@ msgid "Ignore"
 msgstr "Ignore"
 
 #: tbl_change.php:728
-msgid " Because of its length,<br /> this field might not be editable "
+#, fuzzy
+#| msgid " Because of its length,<br /> this field might not be editable "
+msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Because of its length,<br /> this field might not be editable "
 
 #: tbl_change.php:888
@@ -7888,77 +8040,77 @@ msgstr "Alter table order by"
 msgid "(singly)"
 msgstr "(singly)"
 
-#: tbl_operations.php:276
+#: tbl_operations.php:278
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Move table to (database<b>.</b>table):"
 
-#: tbl_operations.php:334
+#: tbl_operations.php:336
 msgid "Table options"
 msgstr "Table options"
 
-#: tbl_operations.php:338
+#: tbl_operations.php:340
 msgid "Rename table to"
 msgstr "Rename table to"
 
-#: tbl_operations.php:509
+#: tbl_operations.php:511
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Copy table to (database<b>.</b>table):"
 
-#: tbl_operations.php:556
+#: tbl_operations.php:558
 msgid "Switch to copied table"
 msgstr "Switch to copied table"
 
-#: tbl_operations.php:568
+#: tbl_operations.php:570
 msgid "Table maintenance"
 msgstr "Table maintenance"
 
-#: tbl_operations.php:589
+#: tbl_operations.php:591
 msgid "Defragment table"
 msgstr "Defragment table"
 
-#: tbl_operations.php:628
+#: tbl_operations.php:630
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Table %s has been flushed"
 
-#: tbl_operations.php:634
+#: tbl_operations.php:636
 msgid "Flush the table (FLUSH)"
 msgstr "Flush the table (FLUSH)"
 
-#: tbl_operations.php:649
+#: tbl_operations.php:651
 msgid "Partition maintenance"
 msgstr "Partition maintenance"
 
-#: tbl_operations.php:657
+#: tbl_operations.php:659
 #, php-format
 msgid "Partition %s"
 msgstr "Partition %s"
 
-#: tbl_operations.php:660
+#: tbl_operations.php:662
 msgid "Analyze"
 msgstr "Analyse"
 
-#: tbl_operations.php:661
+#: tbl_operations.php:663
 msgid "Check"
 msgstr "Check"
 
-#: tbl_operations.php:662
+#: tbl_operations.php:664
 msgid "Optimize"
 msgstr "Optimise"
 
-#: tbl_operations.php:663
+#: tbl_operations.php:665
 msgid "Rebuild"
 msgstr "Rebuild"
 
-#: tbl_operations.php:664
+#: tbl_operations.php:666
 msgid "Repair"
 msgstr "Repair"
 
-#: tbl_operations.php:676
+#: tbl_operations.php:678
 msgid "Remove partitioning"
 msgstr "Remove partitioning"
 
-#: tbl_operations.php:702
+#: tbl_operations.php:704
 msgid "Check referential integrity:"
 msgstr "Check referential integrity:"
 
@@ -8036,7 +8188,9 @@ msgid "Operator"
 msgstr "Operator"
 
 #: tbl_select.php:270
-msgid "Select fields (at least one):"
+#, fuzzy
+#| msgid "Select fields (at least one):"
+msgid "Select columns (at least one):"
 msgstr "Select fields (at least one):"
 
 #: tbl_select.php:288
@@ -8061,9 +8215,10 @@ msgid "None"
 msgstr "None"
 
 #: tbl_structure.php:374
-#, php-format
-msgid "Field %s has been dropped"
-msgstr "Field %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Column %s has been dropped"
+msgstr "Table %s has been dropped"
 
 #: tbl_structure.php:385
 #, php-format
@@ -8084,7 +8239,9 @@ msgid "Propose table structure"
 msgstr "Propose table structure"
 
 #: tbl_structure.php:540
-msgid "Add new field"
+#, fuzzy
+#| msgid "Add new field"
+msgid "Add field"
 msgstr "Add new field"
 
 #: tbl_structure.php:554
@@ -8295,6 +8452,24 @@ msgstr "VIEW name"
 msgid "Rename view to"
 msgstr "Rename view to"
 
+#~ msgid "Field"
+#~ msgstr "Field"
+
+#~ msgid "Records"
+#~ msgstr "Records"
+
+#~ msgid "Fields terminated by"
+#~ msgstr "Fields terminated by"
+
+#~ msgid "Fields"
+#~ msgstr "Fields"
+
+#~ msgid "Add %s field(s)"
+#~ msgstr "Add %s field(s)"
+
+#~ msgid "Field %s has been dropped"
+#~ msgstr "Field %s has been dropped"
+
 #~ msgid "See image/jpeg: inline"
 #~ msgstr "See image/jpeg: inline"
 
@@ -8392,7 +8567,3 @@ msgstr "Rename view to"
 #~ "Cannot start session without errors, please check errors given in your "
 #~ "PHP and/or webserver log file and configure your PHP installation "
 #~ "properly."
-
-#~| msgid "Import currencies ($5.00 to 5.00)"
-#~ msgid "Import currencies (.00 to 5.00)"
-#~ msgstr "Import currencies (.00 to 5.00)"

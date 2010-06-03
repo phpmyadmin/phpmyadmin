@@ -88,6 +88,12 @@ $Id$
 - bug #2998889 [import] Import button does not work in Catalan
 - [browse] Fix handling of sort order if only column is specified.
 + [lang] Greek update, thanks to Panagiotis Papazoglou - panos78
++ [lang] Updated lot of translation based on work done in master branch.
+- bug #3008411 [databases] Last dropped database remains active in navi
+- bug #2986383 [parser] Not all data being shown / counted
+- bug [synchronize] Rows were deleted in target table regardless of the
+  "Would you like to delete..." option
+- bug [privileges] List of tables not shown when the db name has a wildcard
 
 3.3.3.0 (2010-05-10)
 - patch #2982480 [navi] Do not group if there would be one table in group,

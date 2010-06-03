@@ -102,7 +102,7 @@ else {
 <thead>
 <tr>
     <th><?php echo __('Table'); ?></th>
-    <th><?php echo __('Records'); ?></th>
+    <th><?php echo __('Rows'); ?></th>
     <th><?php echo __('Type'); ?></th>
     <?php
     if ($cfg['ShowStats']) {
@@ -219,7 +219,7 @@ else {
     ?>
 <tr>
     <th align="center">
-        <?php echo sprintf(__('%s table(s)'), PMA_formatNumber($num_tables, 0)); ?>
+        <?php echo sprintf(_ngettext('%s table', '%s tables', $num_tables), PMA_formatNumber($num_tables, 0)); ?>
     </th>
     <th align="right" nowrap="nowrap">
         <?php echo PMA_formatNumber($sum_entries, 0); ?>

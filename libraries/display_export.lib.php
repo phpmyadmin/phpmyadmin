@@ -104,7 +104,7 @@ echo PMA_pluginGetJavascript($export_list);
         <?php
         echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" checked="checked" />';
 
-        echo sprintf(__('Dump %s row(s) starting at record # %s'),
+        echo sprintf(__('Dump %s row(s) starting at row # %s'),
             '<input type="text" name="limit_to" size="5" value="'
             . (isset($unlim_num_rows) ? $unlim_num_rows : PMA_Table::countRecords($db, $table))
             . '" onfocus="this.select()" />',

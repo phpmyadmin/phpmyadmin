@@ -1259,7 +1259,7 @@ function PMA_RT_DOC($alltables)
 
         $pdf->SetFont('', 'B');
         if (isset($orientation) && $orientation == 'L') {
-            $pdf->Cell(25, 8, ucfirst(__('Field')), 1, 0, 'C');
+            $pdf->Cell(25, 8, ucfirst(__('Column')), 1, 0, 'C');
             $pdf->Cell(20, 8, ucfirst(__('Type')), 1, 0, 'C');
             $pdf->Cell(20, 8, ucfirst(__('Attributes')), 1, 0, 'C');
             $pdf->Cell(10, 8, ucfirst(__('Null')), 1, 0, 'C');
@@ -1280,7 +1280,7 @@ function PMA_RT_DOC($alltables)
             $pdf->Cell(45, 8, 'MIME', 1, 1, 'C');
             $pdf->SetWidths(array(25, 20, 20, 10, 20, 25, 45, $comments_width, 45));
         } else {
-            $pdf->Cell(20, 8, ucfirst(__('Field')), 1, 0, 'C');
+            $pdf->Cell(20, 8, ucfirst(__('Column')), 1, 0, 'C');
             $pdf->Cell(20, 8, ucfirst(__('Type')), 1, 0, 'C');
             $pdf->Cell(20, 8, ucfirst(__('Attributes')), 1, 0, 'C');
             $pdf->Cell(10, 8, ucfirst(__('Null')), 1, 0, 'C');
