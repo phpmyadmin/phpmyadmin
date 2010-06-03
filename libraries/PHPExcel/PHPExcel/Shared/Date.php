@@ -3,7 +3,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,25 +21,10 @@
  *
  * @category   PHPExcel
  * @package	PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.0, 2009-08-10
+ * @version	1.7.3c, 2010-06-01
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Style_NumberFormat */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/NumberFormat.php';
 
 
 /**
@@ -47,7 +32,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Style/NumberFormat.php';
  *
  * @category   PHPExcel
  * @package	PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Shared_Date
 {
@@ -106,12 +91,15 @@ class PHPExcel_Shared_Date
 		// Perform conversion
 		if ($dateValue >= 1) {
 			$utcDays = $dateValue - $myExcelBaseDate;
-			$returnValue = (integer) round($utcDays * 24 * 60 * 60);
+			$returnValue = round($utcDays * 24 * 60 * 60);
+			if (($returnValue <= PHP_INT_MAX) && ($returnValue >= -PHP_INT_MAX)) {
+				$returnValue = (integer) $returnValue;
+			}
 		} else {
 			$hours = round($dateValue * 24);
 			$mins = round($dateValue * 24 * 60) - round($hours * 60);
 			$secs = round($dateValue * 24 * 60 * 60) - round($hours * 60 * 60) - round($mins * 60);
-			$returnValue = (integer) mktime($hours, $mins, $secs);
+			$returnValue = (integer) gmmktime($hours, $mins, $secs);
 		}
 
 		// Return
@@ -132,8 +120,10 @@ class PHPExcel_Shared_Date
 		$hours = round($time / 3600);
 		$minutes = round($time / 60) - ($hours * 60);
 		$seconds = round($time) - ($hours * 3600) - ($minutes * 60);
+
 		$dateObj = date_create('1-Jan-1970+'.$days.' days');
 		$dateObj->setTime($hours,$minutes,$seconds);
+
 		return $dateObj;
 	}	//	function ExcelToPHPObject()
 
@@ -274,4 +264,40 @@ class PHPExcel_Shared_Date
 		// No date...
 		return false;
 	}	//	function isDateTimeFormatCode()
+
+
+	/**
+	 * Convert a date/time string to Excel time
+	 *
+	 * @param	string	$dateValue		Examples: '2009-12-31', '2009-12-31 15:59', '2009-12-31 15:59:10'
+	 * @return	float|false		Excel date/time serial value
+	 */
+	public static function stringToExcel($dateValue = '') {
+		// restrict to dates and times like these because date_parse accepts too many strings
+		// '2009-12-31'
+		// '2009-12-31 15:59'
+		// '2009-12-31 15:59:10'
+		if (!preg_match('/^\d{4}\-\d{1,2}\-\d{1,2}( \d{1,2}:\d{1,2}(:\d{1,2})?)?$/', $dateValue)) {
+			return false;
+		}
+
+		// now try with date_parse
+		$PHPDateArray = date_parse($dateValue);
+
+		if ($PHPDateArray['error_count'] == 0) {
+			$year = $PHPDateArray['year'] !== false ? $PHPDateArray['year'] : self::getExcelCalendar();
+			$month = $PHPDateArray['month'] !== false ? $PHPDateArray['month'] : 1;
+			$day = $PHPDateArray['day'] !== false ? $PHPDateArray['day'] : 0;
+			$hour = $PHPDateArray['hour'] !== false ? $PHPDateArray['hour'] : 0;
+			$minute = $PHPDateArray['minute'] !== false ? $PHPDateArray['minute'] : 0;
+			$second = $PHPDateArray['second'] !== false ? $PHPDateArray['second'] : 0;
+
+			$excelDateValue = PHPExcel_Shared_Date::FormattedPHPToExcel($year, $month, $day, $hour, $minute, $second);
+
+			return $excelDateValue;
+		}
+
+		return false;
+	}
+
 }

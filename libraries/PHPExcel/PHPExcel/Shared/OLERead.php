@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
 
 define('IDENTIFIER_OLE', pack('CCCCCCCC', 0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1));
@@ -162,7 +162,6 @@ class PHPExcel_Shared_OLERead {
 		$this->entry = $this->_readData($block);
 
 		$this->_readPropertySets();
-
 	}
 
 	/**
@@ -200,6 +199,58 @@ class PHPExcel_Shared_OLERead {
 
 			$streamData = '';
 			$block = $this->props[$this->wrkbook]['startBlock'];
+
+			$pos = 0;
+
+			while ($block != -2) {
+				$pos = ($block + 1) * self::BIG_BLOCK_SIZE;
+				$streamData .= substr($this->data, $pos, self::BIG_BLOCK_SIZE);
+				$block = $this->bigBlockChain[$block];
+			}
+
+			return $streamData;
+		}
+	}
+
+	/**
+	 * Extract binary stream data, summary information
+	 *
+	 * @return string|null
+	 */
+	public function getSummaryInformation()
+	{
+		if (!isset($this->summaryInformation)) {
+			return null;
+		}
+
+		if ($this->props[$this->summaryInformation]['size'] < self::SMALL_BLOCK_THRESHOLD){
+			$rootdata = $this->_readData($this->props[$this->rootentry]['startBlock']);
+
+			$streamData = '';
+			$block = $this->props[$this->summaryInformation]['startBlock'];
+
+			$pos = 0;
+			while ($block != -2) {
+	  			$pos = $block * self::SMALL_BLOCK_SIZE;
+				$streamData .= substr($rootdata, $pos, self::SMALL_BLOCK_SIZE);
+
+				$block = $this->smallBlockChain[$block];
+			}
+
+			return $streamData;
+
+
+		} else {
+			$numBlocks = $this->props[$this->summaryInformation]['size'] / self::BIG_BLOCK_SIZE;
+			if ($this->props[$this->summaryInformation]['size'] % self::BIG_BLOCK_SIZE != 0) {
+				++$numBlocks;
+			}
+
+			if ($numBlocks == 0) return '';
+
+
+			$streamData = '';
+			$block = $this->props[$this->summaryInformation]['startBlock'];
 
 			$pos = 0;
 
@@ -271,13 +322,18 @@ class PHPExcel_Shared_OLERead {
 				'size' => $size);
 
 			// Workbook directory entry (BIFF5 uses Book, BIFF8 uses Workbook)
-			if (($name == 'Workbook') || ($name == 'Book') || ($name == 'WORKBOOK')) {
+			if (($name == 'Workbook') || ($name == 'Book') || ($name == 'WORKBOOK') || ($name == 'BOOK')) {
 				$this->wrkbook = count($this->props) - 1;
 			}
 
 			// Root entry
 			if ($name == 'Root Entry' || $name == 'ROOT ENTRY' || $name == 'R') {
 				$this->rootentry = count($this->props) - 1;
+			}
+
+			// Summary information
+			if ($name == chr(5) . 'SummaryInformation') {
+				$this->summaryInformation = count($this->props) - 1;
 			}
 
 			$offset += self::PROPERTY_STORAGE_BLOCK_SIZE;

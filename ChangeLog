@@ -83,6 +83,7 @@ $Id$
 + [core] Include Content Security Policy HTTP headers.
 - bug #3004216 [CSS] Field attributes use inline CSS
 - patch #2999595, rfe #2998130 [interface] Cleanup navigation frame.
+- [core] Update library PHPExcel to version 1.7.3c
 
 3.3.4.0 (not yet released)
 - bug #2996161 [import] properly escape import value

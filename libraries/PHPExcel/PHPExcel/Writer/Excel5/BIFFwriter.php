@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
 
 // Original file header of PEAR::Spreadsheet_Excel_Writer_BIFFwriter (used as the base for this class):
@@ -65,7 +65,7 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel5_BIFFwriter
 {
@@ -73,7 +73,7 @@ class PHPExcel_Writer_Excel5_BIFFwriter
 	 * The BIFF/Excel version (5).
 	 * @var integer
 	 */
-	var $_BIFF_version = 0x0500;
+	public $_BIFF_version = 0x0500;
 
 	/**
 	 * The byte order of this architecture. 0 => little endian, 1 => big endian
@@ -85,20 +85,20 @@ class PHPExcel_Writer_Excel5_BIFFwriter
 	 * The string containing the data of the BIFF stream
 	 * @var string
 	 */
-	var $_data;
+	public $_data;
 
 	/**
 	 * The size of the data in bytes. Should be the same as strlen($this->_data)
 	 * @var integer
 	 */
-	var $_datasize;
+	public $_datasize;
 
 	/**
 	 * The maximum length for a BIFF record (excluding record header and length field). See _addContinue()
 	 * @var integer
 	 * @see _addContinue()
 	 */
-	var $_limit;
+	public $_limit;
 
 	/**
 	 * Constructor
