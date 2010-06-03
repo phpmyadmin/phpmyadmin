@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-03 03:35+0200\n"
+"PO-Revision-Date: 2010-06-03 03:37+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4555,7 +4555,6 @@ msgid "Event"
 msgstr "事件"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -4567,8 +4566,7 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"字段中显示一个二进制数据的下载连接。第一个选项是文件名，或使用第二个选项，用"
-"表中的一个字段作为文件名。如果你使用第二个选项那么第一个选项必须留空。"
+"字段中显示一个二进制数据的下载连接。第一个选项是文件名，或使用第二个选项，用表中的一个字段值作为文件名。如果想使用字段值作为文件名，第一个选项必须留空。"
 
 #: libraries/transformations/application_octetstream__hex.inc.php:10
 msgid ""
