@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-03 20:49+0200\n"
+"PO-Revision-Date: 2010-06-03 20:50+0200\n"
 "Last-Translator:  <canin@in.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1005,10 +1005,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "Bitte den PRIMARY KEY oder einen UNIQUE KEY wählen"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Anzuzeigende Spalte bestimmen"
+msgstr "Anzuzeigende Spalte auswählen"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
