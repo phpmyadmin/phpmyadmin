@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-03 03:23+0200\n"
+"PO-Revision-Date: 2010-06-03 03:25+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1964,10 +1964,10 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
 #: libraries/display_export.lib.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
-msgstr "转存 %s 行，从记录 # %s 开始。"
+msgstr "从 # %2$s 行开始转储 %1$s 行"
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
