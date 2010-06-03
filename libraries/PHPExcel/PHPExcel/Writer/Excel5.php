@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer_Excel5
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.3, 2010-05-17
+ * @version	1.7.3c, 2010-06-01
  */
 
 
@@ -130,20 +130,6 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 		$this->_writerWorkbook = new PHPExcel_Writer_Excel5_Workbook($this->_phpExcel, $this->_BIFF_version,
 					$this->_str_total, $this->_str_unique, $this->_str_table, $this->_colors, $this->_parser);
 
-		// Initialise worksheet writers
-		$countSheets = count($this->_phpExcel->getAllSheets());
-		for ($i = 0; $i < $countSheets; ++$i) {
-			$phpSheet  = $this->_phpExcel->getSheet($i);
-
-			$writerWorksheet = new PHPExcel_Writer_Excel5_Worksheet($this->_BIFF_version,
-									   $this->_str_total, $this->_str_unique,
-									   $this->_str_table, $this->_colors,
-									   $this->_parser,
-									   $this->_preCalculateFormulas,
-									   $phpSheet);
-			$this->_writerWorksheets[$i] = $writerWorksheet;
-		}
-
 		// add 15 identical cell style Xfs
 		// for now, we use the first cellXf instead of cellStyleXf
 		$cellXfCollection = $this->_phpExcel->getCellXfCollection();
@@ -160,10 +146,19 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 		$workbookStreamName = ($this->_BIFF_version == 0x0600) ? 'Workbook' : 'Book';
 		$OLE = new PHPExcel_Shared_OLE_PPS_File(PHPExcel_Shared_OLE::Asc2Ucs($workbookStreamName));
 
+		// Initialise worksheet writers
+		$countSheets = $this->_phpExcel->getSheetCount();
 		// Write the worksheet streams before the global workbook stream,
 		// because the byte sizes of these are needed in the global workbook stream
 		$worksheetSizes = array();
 		for ($i = 0; $i < $countSheets; ++$i) {
+			$this->_writerWorksheets[$i] = new PHPExcel_Writer_Excel5_Worksheet($this->_BIFF_version,
+									   $this->_str_total, $this->_str_unique,
+									   $this->_str_table, $this->_colors,
+									   $this->_parser,
+									   $this->_preCalculateFormulas,
+									   $this->_phpExcel->getSheet($i));
+
 			$this->_writerWorksheets[$i]->close();
 			$worksheetSizes[] = $this->_writerWorksheets[$i]->_datasize;
 		}

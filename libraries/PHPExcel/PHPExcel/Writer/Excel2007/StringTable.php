@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer_Excel2007
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3, 2010-05-17
+ * @version    1.7.3c, 2010-06-01
  */
 
 
@@ -60,8 +60,7 @@ class PHPExcel_Writer_Excel2007_StringTable extends PHPExcel_Writer_Excel2007_Wr
 			$aFlippedStringTable = $this->flipStringTable($aStringTable);
 
 	        // Loop through cells
-	        $cellCollection = $pSheet->getCellCollection();
-	        foreach ($cellCollection as $cellID) {
+	        foreach ($pSheet->getCellCollection() as $cellID) {
 				$cell = $pSheet->getCell($cellID);
 	        	if (!is_object($cell->getValue()) &&
 	        		!isset($aFlippedStringTable[$cell->getValue()]) &&

@@ -22,7 +22,7 @@
  * @package	PHPExcel_Writer_Excel2007
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.3, 2010-05-17
+ * @version	1.7.3c, 2010-06-01
  */
 
 
@@ -852,12 +852,10 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 				$highestRow = $pSheet->getHighestRow();
 
 				// Loop through cells
-				$cellCollection = $pSheet->getCellCollection();
-
 				$cellsByRow = array();
-				foreach ($cellCollection as $cellID) {
-					$cell = $pSheet->getCell($cellID);
-					$cellsByRow[$cell->getRow()][] = $cell;
+				foreach ($pSheet->getCellCollection() as $cellID) {
+					$cellAddress = PHPExcel_Cell::coordinateFromString($cellID);
+					$cellsByRow[$cellAddress[1]][] = $cellID;
 				}
 
 				for ($currentRow = 1; $currentRow <= $highestRow; ++$currentRow) {
@@ -907,9 +905,9 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 
 						// Write cells
 						if (isset($cellsByRow[$currentRow])) {
-							foreach($cellsByRow[$currentRow] as $cell) {
+							foreach($cellsByRow[$currentRow] as $cellAddress) {
 								// Write cell
-								$this->_writeCell($objWriter, $pSheet, $cell, $pStringTable, $aFlippedStringTable);
+								$this->_writeCell($objWriter, $pSheet, $cellAddress, $pStringTable, $aFlippedStringTable);
 							}
 						}
 
@@ -934,9 +932,10 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 	 * @param	string[]					$pFlippedStringTable	String table (flipped), for faster index searching
 	 * @throws	Exception
 	 */
-	private function _writeCell(PHPExcel_Shared_XMLWriter $objWriter = null, PHPExcel_Worksheet $pSheet = null, PHPExcel_Cell $pCell = null, $pStringTable = null, $pFlippedStringTable = null)
+	private function _writeCell(PHPExcel_Shared_XMLWriter $objWriter = null, PHPExcel_Worksheet $pSheet = null, $pCellAddress = null, $pStringTable = null, $pFlippedStringTable = null)
 	{
-		$pCell->attach($pSheet);
+		$pCell = $pSheet->getCell($pCellAddress);
+
 		if (is_array($pStringTable) && is_array($pFlippedStringTable)) {
 			// Cell
 			$objWriter->startElement('c');
@@ -966,8 +965,10 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 					case 'f':			// Formula
 						$calculatedValue = null;
 						if ($this->getParentWriter()->getPreCalculateFormulas()) {
+							$pCell->attach($pSheet);
 							$calculatedValue = $pCell->getCalculatedValue();
 						} else {
+							$pCell->attach($pSheet);
 							$calculatedValue = $pCell->getValue();
 						}
 						if (is_string($calculatedValue)) {

@@ -69,6 +69,12 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 
 		if (is_resource($filename)) {
 		    $this->_FILEH_ = $filename;
+		} else if ($filename == '-' || $filename == '') {
+			$this->_tmp_filename = tempnam($this->_tmp_dir, "OLE_PPS_Root");
+			$this->_FILEH_ = fopen($this->_tmp_filename,"w+b");
+			if ($this->_FILEH_ == false) {
+				throw new Exception("Can't create temporary file.");
+			}
 		} else {
 			$this->_FILEH_ = fopen($filename, "wb");
 		}

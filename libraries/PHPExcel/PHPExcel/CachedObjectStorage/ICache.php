@@ -22,7 +22,7 @@
  * @package    PHPExcel_CachedObjectStorage
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3, 2010-05-17
+ * @version    1.7.3c, 2010-06-01
  */
 
 
@@ -88,10 +88,10 @@ interface PHPExcel_CachedObjectStorage_ICache
 	public function getCellList();
 
 	/**
-	 *	Sort the list of all cell addresses currently held in cache by column and row
+	 *	Get the list of all cell addresses currently held in cache sorted by column and row
 	 *
 	 *	@return	void
 	 */
-	public function sortCellList();
+	public function getSortedCellList();
 
 }
