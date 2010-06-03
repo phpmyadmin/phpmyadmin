@@ -22,7 +22,7 @@
  * @package    PHPExcel_Shared
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3, 2010-05-17
+ * @version    1.7.3c, 2010-06-01
  */
 
 define('IDENTIFIER_OLE', pack('CCCCCCCC', 0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1));
@@ -162,7 +162,6 @@ class PHPExcel_Shared_OLERead {
 		$this->entry = $this->_readData($block);
 
 		$this->_readPropertySets();
-
 	}
 
 	/**
@@ -323,7 +322,7 @@ class PHPExcel_Shared_OLERead {
 				'size' => $size);
 
 			// Workbook directory entry (BIFF5 uses Book, BIFF8 uses Workbook)
-			if (($name == 'Workbook') || ($name == 'Book') || ($name == 'WORKBOOK')) {
+			if (($name == 'Workbook') || ($name == 'Book') || ($name == 'WORKBOOK') || ($name == 'BOOK')) {
 				$this->wrkbook = count($this->props) - 1;
 			}
 

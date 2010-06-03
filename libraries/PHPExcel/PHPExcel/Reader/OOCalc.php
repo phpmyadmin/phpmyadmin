@@ -22,7 +22,7 @@
  * @package    PHPExcel_Reader
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3, 2010-05-17
+ * @version    1.7.3c, 2010-06-01
  */
 
 
@@ -176,6 +176,11 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	 */
 	public function canRead($pFilename)
 	{
+		// Check if zip class exists
+		if (!class_exists('ZipArchive')) {
+			return false;
+		}
+
 		// Check if file exists
 		if (!file_exists($pFilename)) {
 			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");

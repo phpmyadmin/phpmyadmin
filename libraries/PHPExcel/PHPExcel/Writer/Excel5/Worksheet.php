@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer_Excel5
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3, 2010-05-17
+ * @version    1.7.3c, 2010-06-01
  */
 
 // Original file header of PEAR::Spreadsheet_Excel_Writer_Worksheet (used as the base for this class):
@@ -268,7 +268,7 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 	 */
 	function close()
 	{
-		$num_sheets = count($this->_phpSheet->getParent()->getAllSheets());
+		$num_sheets = $this->_phpSheet->getParent()->getSheetCount();
 
 		// Write BOF record
 		$this->_storeBof(0x0010);

@@ -81,7 +81,7 @@ $Id$
   to Muhammad Adnan.
 + [doc] Incorporate synchronisation docs into main document.
 + [core] Include Content Security Policy HTTP headers.
-- [core] Update library PHPExcel to version 1.7.3
+- [core] Update library PHPExcel to version 1.7.3c
 
 3.3.4.0 (not yet released)
 - bug #2996161 [import] properly escape import value

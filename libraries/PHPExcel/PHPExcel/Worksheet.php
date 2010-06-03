@@ -22,7 +22,7 @@
  * @package    PHPExcel_Worksheet
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3, 2010-05-17
+ * @version    1.7.3c, 2010-06-01
  */
 
 
@@ -413,13 +413,12 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 	{
 		if ($pSorted) {
 			// Re-order cell collection
-			$this->sortCellCollection();
+			return $this->sortCellCollection();
 		}
-
-		if (is_null($this->_cellCollection)) {
-			return array();
+		if (!is_null($this->_cellCollection)) {
+			return $this->_cellCollection->getCellList();
 		}
-		return $this->_cellCollection->getCellList();
+		return array();
 	}
 
 	/**
@@ -429,13 +428,10 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 	 */
 	public function sortCellCollection()
 	{
-		if (!$this->_cellCollectionIsSorted) {
-			if (!is_null($this->_cellCollection)) {
-				$this->_cellCollection->sortCellList();
+		if (!is_null($this->_cellCollection)) {
+			return $this->_cellCollection->getSortedCellList();
 			}
-			$this->_cellCollectionIsSorted = true;
-		}
-		return $this;
+		return array();
 	}
 
 	/**
@@ -837,13 +833,17 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
      *
      * @param string 	$pCoordinate	Coordinate of the cell
      * @param mixed 	$pValue			Value of the cell
-     * @return PHPExcel_Worksheet
+     * @param bool 		$returnCell		Return the worksheet (false, default) or the cell (true)
+     * @return PHPExcel_Worksheet|PHPExcel_Cell	Depending on the last parameter being specified
      */
-    public function setCellValue($pCoordinate = 'A1', $pValue = null)
+    public function setCellValue($pCoordinate = 'A1', $pValue = null, $returnCell = false)
     {
-    	// Set value
-    	$this->getCell($pCoordinate)->setValue($pValue);
+		$cell = $this->getCell($pCoordinate);
+		$cell->setValue($pValue);
 
+		if ($returnCell) {
+			return $cell;
+		}
     	return $this;
     }
 
@@ -853,11 +853,18 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
      * @param string 	$pColumn		Numeric column coordinate of the cell
      * @param string 	$pRow			Numeric row coordinate of the cell
      * @param mixed 	$pValue			Value of the cell
-     * @return PHPExcel_Worksheet
+	 * @param bool 		$returnCell		Return the worksheet (false, default) or the cell (true)
+     * @return PHPExcel_Worksheet|PHPExcel_Cell	Depending on the last parameter being specified
      */
-    public function setCellValueByColumnAndRow($pColumn = 0, $pRow = 0, $pValue = null)
+    public function setCellValueByColumnAndRow($pColumn = 0, $pRow = 0, $pValue = null, $returnCell = false)
     {
-    	return $this->getCell(PHPExcel_Cell::stringFromColumnIndex($pColumn) . $pRow)->setValue($pValue);
+    	$cell = $this->getCell(PHPExcel_Cell::stringFromColumnIndex($pColumn) . $pRow);
+		$cell->setValue($pValue);
+
+		if ($returnCell) {
+			return $cell;
+		}
+    	return $this;
     }
 
     /**
@@ -2174,37 +2181,16 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 
     	// Find cells that can be cleaned
     	foreach ($this->_cellCollection->getCellList() as $coordinate) {
-			$cell = $this->getCell($coordinate);
-    		// Can be cleaned?
-    		$canBeCleaned = false;
+			preg_match('/^(\w+)(\d+)$/U',$coordinate,$matches);
+			list(,$col,$row) = $matches;
+			$column = PHPExcel_Cell::columnIndexFromString($col);
 
-    		/* Excel doesn't remove such empty cells
-			// Empty value?
-    		if (is_null($cell->getValue()) || (!is_object($cell->getValue()) && $cell->getValue() === '' && !$cell->hasHyperlink())) {
-				// default style ?
-				if ($cell->getXfIndex() == 0) {
-					$canBeCleaned = true;
-				}
-    		}
-			*/
-
-    		// Referenced in image?
-    		if (isset($imageCoordinates[$coordinate]) && $imageCoordinates[$coordinate] === true) {
-    			$canBeCleaned = false;
-    		}
-
-    		// Clean?
-    		if ($canBeCleaned) {
-				// Remove the cell
-    			$this->_cellCollection->deleteCacheData($coordinate);
-    		} else {
-				// Determine highest column and row
-				if ($highestColumn < PHPExcel_Cell::columnIndexFromString($cell->getColumn())) {
-					$highestColumn = PHPExcel_Cell::columnIndexFromString($cell->getColumn());
-				}
-				if ($cell->getRow() > $highestRow) {
-					$highestRow = $cell->getRow();
-				}
+			// Determine highest column and row
+			if ($highestColumn < $column) {
+				$highestColumn = $column;
+			}
+			if ($row > $highestRow) {
+				$highestRow = $row;
 			}
     	}
 

@@ -22,7 +22,7 @@
  * @package    PHPExcel_CachedObjectStorage
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3, 2010-05-17
+ * @version    1.7.3c, 2010-06-01
  */
 
 
@@ -134,29 +134,20 @@ class PHPExcel_CachedObjectStorage_CacheBase {
 
 
 	/**
-	 *	Sort the list of all cell addresses currently held in cache by column and row
+	 *	Sort the list of all cell addresses currently held in cache by row and column
 	 *
 	 *	@return	void
 	 */
-	public function sortCellList() {
-		$sortValues = array();
+	public function getSortedCellList() {
+		$sortKeys = array();
 		foreach ($this->_cellCache as $coord => $value) {
 			preg_match('/^(\w+)(\d+)$/U',$coord,$matches);
 			list(,$colNum,$rowNum) = $matches;
-
-			$key =  str_pad($rowNum . str_pad($colNum,3,'@',STR_PAD_LEFT),12,'0',STR_PAD_LEFT);
-
-			$sortValues[$key] = $coord;
+			$sortKeys[$coord] =  str_pad($rowNum . str_pad($colNum,3,'@',STR_PAD_LEFT),12,'0',STR_PAD_LEFT);
 		}
-		ksort($sortValues);
+		asort($sortKeys);
 
-		// Rebuild cellCollection from the sorted index
-		$newCellCollection = array();
-	    foreach ($sortValues as $coord) {
-	        $newCellCollection[$coord] = $this->_cellCache[$coord];
-		}
-
-		$this->_cellCache = $newCellCollection;
+		return array_keys($sortKeys);
 	}	//	function sortCellList()
 
 }

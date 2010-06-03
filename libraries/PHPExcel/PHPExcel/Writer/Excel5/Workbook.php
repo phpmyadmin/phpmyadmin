@@ -22,7 +22,7 @@
  * @package    PHPExcel_Writer_Excel5
  * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.3, 2010-05-17
+ * @version    1.7.3c, 2010-06-01
  */
 
 // Original file header of PEAR::Spreadsheet_Excel_Writer_Workbook (used as the base for this class):
@@ -222,10 +222,10 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 			$this->_codepage = 0x04B0;
 		}
 
-		// Add empty sheets
-		$countSheets = count($phpExcel->getAllSheets());
+		// Add empty sheets and Build color cache
+		$countSheets = $phpExcel->getSheetCount();
 		for ($i = 0; $i < $countSheets; ++$i) {
-			$phpSheet  = $phpExcel->getSheet($i);
+			$phpSheet = $phpExcel->getSheet($i);
 
 			$this->_parser->setExtSheet($phpSheet->getTitle(), $i);  // Register worksheet name with parser
 
@@ -235,14 +235,7 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 				$ref = pack('vvv', $supbook_index, $i, $i);
 				$this->_parser->_references[] = $ref;  // Register reference with parser
 			}
-		}
-
-		// Build color cache
-
-		// Sheet tab colors?
-		$countSheets = count($phpExcel->getAllSheets());
-		for ($i = 0; $i < $countSheets; ++$i) {
-			$phpSheet  = $phpExcel->getSheet($i);
+			// Sheet tab colors?
 			if ($phpSheet->isTabColorSet()) {
 				$this->_addColor($phpSheet->getTabColor()->getRGB());
 			}
@@ -428,7 +421,7 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 
 		// Calculate the number of selected worksheet tabs and call the finalization
 		// methods for each worksheet
-		$total_worksheets = count($this->_phpExcel->getAllSheets());
+		$total_worksheets = $this->_phpExcel->getSheetCount();
 
 		// Add part 1 of the Workbook globals, what goes before the SHEET records
 		$this->_storeBof(0x0005);
@@ -559,12 +552,13 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 	 */
 	private function _writeExterns()
 	{
+		$countSheets = $this->_phpExcel->getSheetCount();
 		// Create EXTERNCOUNT with number of worksheets
-		$this->_writeExterncount(count($this->_phpExcel->getAllSheets()));
+		$this->_writeExterncount($countSheets);
 
 		// Create EXTERNSHEET for each worksheet
-		foreach ($this->_phpExcel->getWorksheetIterator() as $sheet) {
-			$this->_writeExternsheet($sheet->getTitle());
+		for ($i = 0; $i < $countSheets; ++$i) {
+			$this->_writeExternsheet($phpExcel->getSheet($i)->getTitle());
 		}
 	}
 
@@ -574,14 +568,15 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 	private function _writeNames()
 	{
 		// total number of sheets
-		$total_worksheets = count($this->_phpExcel->getAllSheets());
+		$total_worksheets = $this->_phpExcel->getSheetCount();
 
 		// Create the print area NAME records
 		for ($i = 0; $i < $total_worksheets; ++$i) {
+			$sheetSetup = $this->_phpExcel->getSheet($i)->getPageSetup();
 			// Write a Name record if the print area has been defined
-			if ($this->_phpExcel->getSheet($i)->getPageSetup()->isPrintAreaSet()) {
+			if ($sheetSetup->isPrintAreaSet()) {
 				// Print area
-				$printArea = PHPExcel_Cell::splitRange($this->_phpExcel->getSheet($i)->getPageSetup()->getPrintArea());
+				$printArea = PHPExcel_Cell::splitRange($sheetSetup->getPrintArea());
 				$printArea = $printArea[0];
 				$printArea[0] = PHPExcel_Cell::coordinateFromString($printArea[0]);
 				$printArea[1] = PHPExcel_Cell::coordinateFromString($printArea[1]);
@@ -604,14 +599,15 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 
 		// Create the print title NAME records
 		for ($i = 0; $i < $total_worksheets; ++$i) {
+			$sheetSetup = $this->_phpExcel->getSheet($i)->getPageSetup();
 
 			// simultaneous repeatColumns repeatRows
-			if ($this->_phpExcel->getSheet($i)->getPageSetup()->isColumnsToRepeatAtLeftSet() && $this->_phpExcel->getSheet($i)->getPageSetup()->isRowsToRepeatAtTopSet()) {
-				$repeat = $this->_phpExcel->getSheet($i)->getPageSetup()->getColumnsToRepeatAtLeft();
+			if ($sheetSetup->isColumnsToRepeatAtLeftSet() && $sheetSetup->isRowsToRepeatAtTopSet()) {
+				$repeat = $sheetSetup->getColumnsToRepeatAtLeft();
 				$colmin = PHPExcel_Cell::columnIndexFromString($repeat[0]) - 1;
 				$colmax = PHPExcel_Cell::columnIndexFromString($repeat[1]) - 1;
 
-				$repeat = $this->_phpExcel->getSheet($i)->getPageSetup()->getRowsToRepeatAtTop();
+				$repeat = $sheetSetup->getRowsToRepeatAtTop();
 				$rowmin = $repeat[0] - 1;
 				$rowmax = $repeat[1] - 1;
 
@@ -625,11 +621,11 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 					);
 
 			// (exclusive) either repeatColumns or repeatRows
-			} else if ($this->_phpExcel->getSheet($i)->getPageSetup()->isColumnsToRepeatAtLeftSet() || $this->_phpExcel->getSheet($i)->getPageSetup()->isRowsToRepeatAtTopSet()) {
+			} else if ($sheetSetup->isColumnsToRepeatAtLeftSet() || $sheetSetup->isRowsToRepeatAtTopSet()) {
 
 				// Columns to repeat
-				if ($this->_phpExcel->getSheet($i)->getPageSetup()->isColumnsToRepeatAtLeftSet()) {
-					$repeat = $this->_phpExcel->getSheet($i)->getPageSetup()->getColumnsToRepeatAtLeft();
+				if ($sheetSetup->isColumnsToRepeatAtLeftSet()) {
+					$repeat = $sheetSetup->getColumnsToRepeatAtLeft();
 					$colmin = PHPExcel_Cell::columnIndexFromString($repeat[0]) - 1;
 					$colmax = PHPExcel_Cell::columnIndexFromString($repeat[1]) - 1;
 				} else {
@@ -638,8 +634,8 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 				}
 
 				// Rows to repeat
-				if ($this->_phpExcel->getSheet($i)->getPageSetup()->isRowsToRepeatAtTopSet()) {
-					$repeat = $this->_phpExcel->getSheet($i)->getPageSetup()->getRowsToRepeatAtTop();
+				if ($sheetSetup->isRowsToRepeatAtTopSet()) {
+					$repeat = $sheetSetup->getRowsToRepeatAtTop();
 					$rowmin = $repeat[0] - 1;
 					$rowmax = $repeat[1] - 1;
 				} else {
@@ -710,18 +706,18 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 		}
 
 		// total number of sheets
-		$total_worksheets = count($this->_phpExcel->getAllSheets());
+		$total_worksheets = $this->_phpExcel->getSheetCount();
 
 		// write the print titles (repeating rows, columns), if any
 		for ($i = 0; $i < $total_worksheets; ++$i) {
-
+			$sheetSetup = $this->_phpExcel->getSheet($i)->getPageSetup();
 			// simultaneous repeatColumns repeatRows
-			if ($this->_phpExcel->getSheet($i)->getPageSetup()->isColumnsToRepeatAtLeftSet() && $this->_phpExcel->getSheet($i)->getPageSetup()->isRowsToRepeatAtTopSet()) {
-				$repeat = $this->_phpExcel->getSheet($i)->getPageSetup()->getColumnsToRepeatAtLeft();
+			if ($sheetSetup->isColumnsToRepeatAtLeftSet() && $sheetSetup->isRowsToRepeatAtTopSet()) {
+				$repeat = $sheetSetup->getColumnsToRepeatAtLeft();
 				$colmin = PHPExcel_Cell::columnIndexFromString($repeat[0]) - 1;
 				$colmax = PHPExcel_Cell::columnIndexFromString($repeat[1]) - 1;
 
-				$repeat = $this->_phpExcel->getSheet($i)->getPageSetup()->getRowsToRepeatAtTop();
+				$repeat = $sheetSetup->getRowsToRepeatAtTop();
 				$rowmin = $repeat[0] - 1;
 				$rowmax = $repeat[1] - 1;
 
@@ -735,11 +731,11 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 				$chunk .= $this->writeData($this->_writeDefinedNameBiff8(pack('C', 0x07), $formulaData, $i + 1, true));
 
 			// (exclusive) either repeatColumns or repeatRows
-			} else if ($this->_phpExcel->getSheet($i)->getPageSetup()->isColumnsToRepeatAtLeftSet() || $this->_phpExcel->getSheet($i)->getPageSetup()->isRowsToRepeatAtTopSet()) {
+			} else if ($sheetSetup->isColumnsToRepeatAtLeftSet() || $sheetSetup->isRowsToRepeatAtTopSet()) {
 
 				// Columns to repeat
-				if ($this->_phpExcel->getSheet($i)->getPageSetup()->isColumnsToRepeatAtLeftSet()) {
-					$repeat = $this->_phpExcel->getSheet($i)->getPageSetup()->getColumnsToRepeatAtLeft();
+				if ($sheetSetup->isColumnsToRepeatAtLeftSet()) {
+					$repeat = $sheetSetup->getColumnsToRepeatAtLeft();
 					$colmin = PHPExcel_Cell::columnIndexFromString($repeat[0]) - 1;
 					$colmax = PHPExcel_Cell::columnIndexFromString($repeat[1]) - 1;
 				} else {
@@ -747,8 +743,8 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 					$colmax = 255;
 				}
 				// Rows to repeat
-				if ($this->_phpExcel->getSheet($i)->getPageSetup()->isRowsToRepeatAtTopSet()) {
-					$repeat = $this->_phpExcel->getSheet($i)->getPageSetup()->getRowsToRepeatAtTop();
+				if ($sheetSetup->isRowsToRepeatAtTopSet()) {
+					$repeat = $sheetSetup->getRowsToRepeatAtTop();
 					$rowmin = $repeat[0] - 1;
 					$rowmax = $repeat[1] - 1;
 				} else {
@@ -766,9 +762,10 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 
 		// write the print areas, if any
 		for ($i = 0; $i < $total_worksheets; ++$i) {
-			if ($this->_phpExcel->getSheet($i)->getPageSetup()->isPrintAreaSet()) {
+			$sheetSetup = $this->_phpExcel->getSheet($i)->getPageSetup();
+			if ($sheetSetup->isPrintAreaSet()) {
 				// Print area, e.g. A3:J6,H1:X20
-				$printArea = PHPExcel_Cell::splitRange($this->_phpExcel->getSheet($i)->getPageSetup()->getPrintArea());
+				$printArea = PHPExcel_Cell::splitRange($sheetSetup->getPrintArea());
 				$countPrintArea = count($printArea);
 
 				$formulaData = '';
@@ -927,7 +924,7 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 		$length    = 0x0004;   // Bytes to follow
 
 		$header    = pack("vv", $record, $length);
-		$data      = pack("vv", count($this->_phpExcel->getAllSheets()), 0x0401);
+		$data      = pack("vv", $this->_phpExcel->getSheetCount(), 0x0401);
 		return $this->writeData($header . $data);
 	}
 
