@@ -5551,7 +5551,6 @@ msgid "Error management:"
 msgstr "错误管理:"
 
 #: server_replication.php:334
-#, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr "忽略错误可能导致主从服务器间不同步！"
