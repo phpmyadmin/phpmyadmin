@@ -67,10 +67,8 @@ CODE2LANG = {
 }
 
 if len(sys.argv) != 2:
-    print 'Usage: update-from-po PATH_TO_PO_FILES'
+    print 'Usage: update-from-po PO_FILES'
     sys.exit(1)
-
-pofiles = os.listdir(sys.argv[1])
 
 f = file('lang/english-utf-8.inc.php', 'r')
 langmap = {}
@@ -80,7 +78,8 @@ for line in f:
         parts = line.split(' = ')
         langmap[parts[1].strip(';').strip('\'')] = parts[0].strip('$')
 
-for pofile in pofiles:
+for pofile_full in sys.argv[1:]:
+    pofile = os.path.basename(pofile_full)
     if pofile[-3:] != '.po':
         print 'Not a po file, skipping: %s' % pofile
         continue
@@ -89,6 +88,7 @@ for pofile in pofiles:
         lang = CODE2LANG[pofile[:-3]]
     except KeyError:
         print 'Language for %s not defined!' % pofile
+        continue
 
     try:
         langfile = codecs.open('lang/%s-utf-8.inc.php' % lang, 'r', 'utf-8').readlines()
@@ -97,7 +97,7 @@ for pofile in pofiles:
         continue
 
     print 'Updating %s from: %s' % (lang, pofile)
-    po = polib.pofile(os.path.join(sys.argv[1], pofile))
+    po = polib.pofile(os.path.join(sys.argv[1], pofile_full))
 
     for translation in po.translated_entries():
         if translation.msgctxt is None:
@@ -110,7 +110,7 @@ for pofile in pofiles:
                 continue
             for i in xrange(len(langfile)):
                 if langfile[i][:2 + keylen] == '$%s ' % key:
-                    langfile[i] = '$%s = \'%s\';\n' % (key, msgstr)
+                    langfile[i] = u'$%s = \'%s\';\n' % (key, msgstr)
 
-    out = file('lang/%s-utf-8.inc.php' % lang, 'w')
-    out.writelines([x.encode('utf-8') for x in langfile])
+    out = codecs.open('lang/%s-utf-8.inc.php' % lang, 'w', 'utf-8')
+    out.writelines(langfile)
