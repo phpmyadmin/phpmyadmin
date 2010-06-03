@@ -4655,7 +4655,6 @@ msgid ""
 msgstr "显示字段的原始内容，不使用 htmlspecialchars() 处理。即假定内容为合法的 HTML 代码。"
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -4665,8 +4664,8 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"显示图像和链接，字段内包含文件名。第一个选项是类似“http://www.example.com/”这"
-"样的 URL 前缀，第二和第三个选项是以像素为单位的宽度和高度。"
+"显示图像和链接，字段内包含文件名。第一个选项是类似“http://www.example.com/”这样的 URL "
+"前缀。第二和第三个选项是以像素为单位的宽度和高度。"
 
 #: libraries/transformations/text_plain__link.inc.php:10
 #, fuzzy
