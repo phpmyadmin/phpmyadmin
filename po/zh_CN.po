@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-03 03:46+0200\n"
+"PO-Revision-Date: 2010-06-03 03:47+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -5204,10 +5204,9 @@ msgid "Do not change the password"
 msgstr "保持原密码"
 
 #: server_privileges.php:804 server_privileges.php:2166
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
-msgstr "找不到用户。"
+msgstr "未找到用户。"
 
 #: server_privileges.php:848
 #, php-format
