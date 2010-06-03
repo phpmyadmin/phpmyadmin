@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-03 03:19+0200\n"
+"PO-Revision-Date: 2010-06-03 03:23+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -988,7 +988,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "请选择主键或唯一键"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "选择要显示的字段"
