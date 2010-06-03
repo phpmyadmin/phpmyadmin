@@ -20,16 +20,6 @@
 // $Id: PPS.php,v 1.7 2007/02/13 21:00:42 schmidt Exp $
 
 
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../../');
-}
-
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE.php';
-
 /**
 * Class for creating PPS's for OLE containers
 *
@@ -162,13 +152,13 @@ class PHPExcel_Shared_OLE_PPS
 		if (!isset($this->_data)) {
 			return 0;
 		}
-		if (isset($this->_PPS_FILE)) {
-			fseek($this->_PPS_FILE, 0);
-			$stats = fstat($this->_PPS_FILE);
-			return $stats[7];
-		} else {
+		//if (isset($this->_PPS_FILE)) {
+		//	fseek($this->_PPS_FILE, 0);
+		//	$stats = fstat($this->_PPS_FILE);
+		//	return $stats[7];
+		//} else {
 			return strlen($this->_data);
-		}
+		//}
 	}
 
 	/**

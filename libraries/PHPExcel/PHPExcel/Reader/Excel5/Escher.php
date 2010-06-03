@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,49 +20,17 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader_Excel5
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../../');
-}
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Shared_Escher_DggContainer */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Escher/DggContainer.php';
-
-/** PHPExcel_Shared_Escher_DggContainer_BstoreContainer */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Escher/DggContainer/BstoreContainer.php';
-
-/** PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Escher/DggContainer/BstoreContainer/BSE.php';
-
-/** PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE_Blip */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Escher/DggContainer/BstoreContainer/BSE/Blip.php';
-
-/** PHPExcel_Shared_Escher_DgContainer */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Escher/DgContainer.php';
-
-/** PHPExcel_Shared_Escher_DgContainer_SpgrContainer */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Escher/DgContainer/SpgrContainer.php';
-
-/** PHPExcel_Shared_Escher_DgContainer_SpgrContainer_SpContainer */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Escher/DgContainer/SpgrContainer/SpContainer.php';
 
 /**
  * PHPExcel_Reader_Excel5_Escher
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader_Excel5
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Reader_Excel5_Escher
 {
@@ -122,7 +90,7 @@ class PHPExcel_Reader_Excel5_Escher
 	{
 		$this->_object = $object;
 	}
-	
+
 	/**
 	 * Load Escher stream data. May be a partial Escher stream.
 	 *
@@ -136,14 +104,14 @@ class PHPExcel_Reader_Excel5_Escher
 		$this->_dataSize = strlen($this->_data);
 
 		$this->_pos = 0;
-		
+
 		// Parse Escher stream
 		while ($this->_pos < $this->_dataSize) {
-			
-			
+
+
 			// offset: 2; size: 2: Record Type
 			$fbt = $this->_GetInt2d($this->_data, $this->_pos + 2);
-			
+
 			switch ($fbt) {
 				case self::DGGCONTAINER:	$this->_readDggContainer();		break;
 				case self::DGG:				$this->_readDgg();				break;
@@ -166,7 +134,7 @@ class PHPExcel_Reader_Excel5_Escher
 				default:					$this->_readDefault();			break;
 			}
 		}
-		
+
 		return $this->_object;
 	}
 
@@ -177,16 +145,16 @@ class PHPExcel_Reader_Excel5_Escher
 	{
 		// offset 0; size: 2; recVer and recInstance
 		$verInstance = $this->_GetInt2d($this->_data, $this->_pos);
-		
+
 		// offset: 2; size: 2: Record Type
 		$fbt = $this->_GetInt2d($this->_data, $this->_pos + 2);
 
 		// bit: 0-3; mask: 0x000F; recVer
 		$recVer = (0x000F & $verInstance) >> 0;
-		
+
 		$length = $this->_GetInt4d($this->_data, $this->_pos + 4);
 		$recordData = substr($this->_data, $this->_pos + 8, $length);
-		
+
 		// move stream pointer to next record
 		$this->_pos += 8 + $length;
 	}
@@ -216,7 +184,7 @@ class PHPExcel_Reader_Excel5_Escher
 	{
 		$length = $this->_GetInt4d($this->_data, $this->_pos + 4);
 		$recordData = substr($this->_data, $this->_pos + 8, $length);
-		
+
 		// move stream pointer to next record
 		$this->_pos += 8 + $length;
 	}
@@ -245,22 +213,22 @@ class PHPExcel_Reader_Excel5_Escher
 	private function _readBSE()
 	{
 		// offset: 0; size: 2; recVer and recInstance
-		
+
 		// bit: 4-15; mask: 0xFFF0; recInstance
 		$recInstance = (0xFFF0 & $this->_GetInt2d($this->_data, $this->_pos)) >> 4;
 
 		$length = $this->_GetInt4d($this->_data, $this->_pos + 4);
 		$recordData = substr($this->_data, $this->_pos + 8, $length);
-		
+
 		// move stream pointer to next record
 		$this->_pos += 8 + $length;
-		
+
 		// add BSE to BstoreContainer
 		$BSE = new PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE();
 		$this->_object->addBSE($BSE);
 
 		$BSE->setBLIPType($recInstance);
-		
+
 		// offset: 0; size: 1; btWin32 (MSOBLIPTYPE)
 		$btWin32 = ord($recordData[0]);
 
@@ -311,38 +279,38 @@ class PHPExcel_Reader_Excel5_Escher
 	private function _readBlipJPEG()
 	{
 		// offset: 0; size: 2; recVer and recInstance
-		
+
 		// bit: 4-15; mask: 0xFFF0; recInstance
 		$recInstance = (0xFFF0 & $this->_GetInt2d($this->_data, $this->_pos)) >> 4;
 
 		$length = $this->_GetInt4d($this->_data, $this->_pos + 4);
 		$recordData = substr($this->_data, $this->_pos + 8, $length);
-		
+
 		// move stream pointer to next record
 		$this->_pos += 8 + $length;
-		
+
 		$pos = 0;
-		
+
 		// offset: 0; size: 16; rgbUid1 (MD4 digest of)
 		$rgbUid1 = substr($recordData, 0, 16);
 		$pos += 16;
-		
+
 		// offset: 16; size: 16; rgbUid2 (MD4 digest), only if $recInstance = 0x46B or 0x6E3
 		if (in_array($recInstance, array(0x046B, 0x06E3))) {
 			$rgbUid2 = substr($recordData, 16, 16);
 			$pos += 16;
 		}
-		
+
 		// offset: var; size: 1; tag
 		$tag = ord($recordData{$pos});
 		$pos += 1;
-		
+
 		// offset: var; size: var; the raw image data
 		$data = substr($recordData, $pos);
-		
+
 		$blip = new PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE_Blip();
 		$blip->setData($data);
-		
+
 		$this->_object->setBlip($blip);
 	}
 
@@ -352,38 +320,38 @@ class PHPExcel_Reader_Excel5_Escher
 	private function _readBlipPNG()
 	{
 		// offset: 0; size: 2; recVer and recInstance
-		
+
 		// bit: 4-15; mask: 0xFFF0; recInstance
 		$recInstance = (0xFFF0 & $this->_GetInt2d($this->_data, $this->_pos)) >> 4;
 
 		$length = $this->_GetInt4d($this->_data, $this->_pos + 4);
 		$recordData = substr($this->_data, $this->_pos + 8, $length);
-		
+
 		// move stream pointer to next record
 		$this->_pos += 8 + $length;
-		
+
 		$pos = 0;
-		
+
 		// offset: 0; size: 16; rgbUid1 (MD4 digest of)
 		$rgbUid1 = substr($recordData, 0, 16);
 		$pos += 16;
-		
+
 		// offset: 16; size: 16; rgbUid2 (MD4 digest), only if $recInstance = 0x46B or 0x6E3
 		if ($recInstance == 0x06E1) {
 			$rgbUid2 = substr($recordData, 16, 16);
 			$pos += 16;
 		}
-		
+
 		// offset: var; size: 1; tag
 		$tag = ord($recordData{$pos});
 		$pos += 1;
-		
+
 		// offset: var; size: var; the raw image data
 		$data = substr($recordData, $pos);
-		
+
 		$blip = new PHPExcel_Shared_Escher_DggContainer_BstoreContainer_BSE_Blip();
 		$blip->setData($data);
-		
+
 		$this->_object->setBlip($blip);
 	}
 
@@ -393,13 +361,13 @@ class PHPExcel_Reader_Excel5_Escher
 	private function _readOPT()
 	{
 		// offset: 0; size: 2; recVer and recInstance
-		
+
 		// bit: 4-15; mask: 0xFFF0; recInstance
 		$recInstance = (0xFFF0 & $this->_GetInt2d($this->_data, $this->_pos)) >> 4;
 
 		$length = $this->_GetInt4d($this->_data, $this->_pos + 4);
 		$recordData = substr($this->_data, $this->_pos + 8, $length);
-		
+
 		// move stream pointer to next record
 		$this->_pos += 8 + $length;
 
@@ -412,7 +380,7 @@ class PHPExcel_Reader_Excel5_Escher
 	private function _readTertiaryOPT()
 	{
 		// offset: 0; size: 2; recVer and recInstance
-		
+
 		// bit: 4-15; mask: 0xFFF0; recInstance
 		$recInstance = (0xFFF0 & $this->_GetInt2d($this->_data, $this->_pos)) >> 4;
 
@@ -566,10 +534,10 @@ class PHPExcel_Reader_Excel5_Escher
 	{
 		$length = $this->_GetInt4d($this->_data, $this->_pos + 4);
 		$recordData = substr($this->_data, $this->_pos + 8, $length);
-		
+
 		// move stream pointer to next record
 		$this->_pos += 8 + $length;
-		
+
 		// offset: 2; size: 2; upper-left corner column index (0-based)
 		$c1 = $this->_GetInt2d($recordData, 2);
 
