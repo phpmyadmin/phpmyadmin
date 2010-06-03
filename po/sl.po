@@ -2674,7 +2674,7 @@ msgstr "Velikost rasti datotek za ravnanje s podatki (.xtd)."
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "Row file grow size"
-msgstr ""
+msgstr "Velikost rasti datotek vrstic"
 
 #: libraries/engines/pbxt.lib.php:74
 msgid "The grow size of the row pointer (.xtr) files."
