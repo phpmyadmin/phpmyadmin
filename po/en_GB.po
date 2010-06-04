@@ -7565,12 +7565,10 @@ msgid "Verbose name of this server"
 msgstr "Verbose name of this server"
 
 #: setup/lib/messages.inc.php:329
-#, fuzzy
 #| msgid ""
 #| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr ""
-"Whether a user should be displayed a &quot;show all (records)&quot; button"
+msgstr "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 
 #: setup/lib/messages.inc.php:330
 msgid "Allow to display all the rows"
