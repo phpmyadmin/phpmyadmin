@@ -2866,10 +2866,9 @@ msgid "Database export options"
 msgstr "Database export options"
 
 #: libraries/export/sql.php:80
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Enclose table and field names with backquotes"
+msgstr "Enclose table and column names with backquotes"
 
 #: libraries/export/sql.php:86
 msgid "Add into comments"
