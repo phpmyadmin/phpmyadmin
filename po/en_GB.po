@@ -4672,10 +4672,10 @@ msgid "Save"
 msgstr "Save"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
-msgstr "Add column(s)"
+msgstr "Add %s column(s)"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
 #, fuzzy
