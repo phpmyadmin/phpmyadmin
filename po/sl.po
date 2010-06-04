@@ -3389,7 +3389,7 @@ msgid ""
 msgstr ""
 "Število transakcij, ki so uporabile začasni predpomnilnik dvojiškega "
 "dnevnika, vendar je ta presegel vrednost binlog_cache_size, zato so bile za "
-"shranitev stavkov iz transakcije uporabljene začasne datoteke."
+"shranitev izjav iz transakcije uporabljene začasne datoteke."
 
 #: libraries/messages.inc.php:63
 msgid "The number of transactions that used the temporary binary log cache."
