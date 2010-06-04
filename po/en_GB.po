@@ -6297,10 +6297,9 @@ msgstr ""
 "[kbd]textarea[/kbd] - allows newlines in columns"
 
 #: setup/lib/messages.inc.php:36
-#, fuzzy
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
-msgstr "CHAR fields editing"
+msgstr "CHAR columns editing"
 
 #: setup/lib/messages.inc.php:37
 msgid "Number of columns for CHAR/VARCHAR textareas"
