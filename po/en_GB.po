@@ -8200,10 +8200,9 @@ msgid "Propose table structure"
 msgstr "Propose table structure"
 
 #: tbl_structure.php:540
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add field"
-msgstr "Add new field"
+msgstr "Add field"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
