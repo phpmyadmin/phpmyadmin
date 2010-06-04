@@ -1644,6 +1644,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
         'args'      => '',
         'warning'   => '',
         'fragment'  => '',
+        'id'        => '',
     );
 
     $tab = array_merge($defaults, $tab);
@@ -1706,14 +1707,17 @@ function PMA_generate_html_tab($tab, $url_params = array())
             E_USER_NOTICE);
     }
 
+    //Set the id for the tab, if set in the params
+    $id_string = ( empty($tab['id']) ? '' : ' id="'.$tab['id'].'" ' );
     $out = '<li' . ($tab['class'] == 'active' ? ' class="active"' : '') . '>';
 
     if (!empty($tab['link'])) {
         $out .= '<a class="tab' . htmlentities($tab['class']) . '"'
+            .$id_string
             .' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
             . $tab['text'] . '</a>';
     } else {
-        $out .= '<span class="tab' . htmlentities($tab['class']) . '">'
+        $out .= '<span class="tab' . htmlentities($tab['class']) . '"'.$id_string.'>'
             . $tab['text'] . '</span>';
     }
 
