@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-31 14:33-0400\n"
+"POT-Creation-Date: 2010-06-04 16:07-0400\n"
 "PO-Revision-Date: 2010-06-01 08:05+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -60,7 +60,7 @@ msgstr "Vyhledávání"
 #: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: main.php:128 navigation.php:238 pdf_pages.php:292 pdf_pages.php:328
+#: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:625 server_privileges.php:1585
 #: server_privileges.php:1932 server_privileges.php:1979
@@ -113,7 +113,6 @@ msgstr "Komentář k tabulce"
 #: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
 #: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
-#| msgid "Column names"
 msgid "Column"
 msgstr "Pole"
 
@@ -199,7 +198,7 @@ msgid "View dump (schema) of database"
 msgstr "Export databáze"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
-#: db_tracking.php:35 export.php:359 navigation.php:346
+#: db_tracking.php:35 export.php:359 navigation.php:332
 msgid "No tables found in database."
 msgstr "V databázi nebyla nalezena žádná tabulka."
 
@@ -347,7 +346,7 @@ msgstr "Tabulka"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
-#: navigation.php:652 navigation.php:674 server_databases.php:122
+#: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr "Řádků"
@@ -450,12 +449,10 @@ msgid "Modify"
 msgstr "Úpravy"
 
 #: db_qbe.php:584
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Přidat nebo odebrat řádek"
 
 #: db_qbe.php:596
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Přidat nebo odebrat pole"
 
@@ -551,7 +548,6 @@ msgid "Inside table(s):"
 msgstr "V tabulkách:"
 
 #: db_search.php:355
-#| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "Uvnitř pole:"
 
@@ -617,8 +613,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -713,11 +709,11 @@ msgstr "Sledované tabulky"
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
 #: libraries/export/sql.php:342 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
-#: libraries/header_printview.inc.php:58 navigation.php:233
-#: server_databases.php:169 server_privileges.php:1621
-#: server_privileges.php:1682 server_privileges.php:1940
-#: server_processlist.php:56 server_synchronize.php:1179
-#: server_synchronize.php:1183 tbl_tracking.php:591 test/theme.php:65
+#: libraries/header_printview.inc.php:58 server_databases.php:169
+#: server_privileges.php:1621 server_privileges.php:1682
+#: server_privileges.php:1940 server_processlist.php:56
+#: server_synchronize.php:1179 server_synchronize.php:1183
+#: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
 msgstr "Databáze"
 
@@ -809,8 +805,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1001,7 +997,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "Zvolte, prosím, primární nebo unikátní klíč"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Zvolte která pole zobrazit"
 
@@ -1473,8 +1468,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -1981,7 +1976,6 @@ msgid "No Privileges"
 msgstr "Nemáte oprávnění"
 
 #: libraries/display_create_table.lib.php:41
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
 msgstr "Tabulka musí mít alespoň jedno pole."
 
@@ -1991,7 +1985,6 @@ msgid "Create table on database %s"
 msgstr "Vytvořit novou tabulku v databázi %s"
 
 #: libraries/display_create_table.lib.php:57
-#| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Počet polí"
 
@@ -2002,7 +1995,6 @@ msgstr ""
 
 #: libraries/display_export.lib.php:107
 #, php-format
-#| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
 msgstr "Vypsat %s řádků od %s"
 
@@ -2043,8 +2035,8 @@ msgstr "jméno tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -2161,7 +2153,6 @@ msgstr ""
 "může to způsobit problémy s transakcemi."
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Počet dotazů od začátku, které se mají přeskočit"
 
@@ -2220,7 +2211,6 @@ msgid "%d is not valid row number."
 msgstr "%d není platné číslo řádku."
 
 #: libraries/display_tbl.lib.php:310
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "řádků začínající od"
 
@@ -2279,7 +2269,6 @@ msgid "Relational key"
 msgstr "Relační klíč"
 
 #: libraries/display_tbl.lib.php:588
-#| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "Pole pro zobrazení v relacích"
 
@@ -2700,19 +2689,16 @@ msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:59 libraries/import/ldi.php:40
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "Pole oddělené"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:71 libraries/import/ldi.php:41
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Pole uzavřené do"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "Pole escapována"
 
@@ -2730,7 +2716,6 @@ msgid "Replace NULL by"
 msgstr "Nahradit NULL hodnoty"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
 msgstr "Odstranit znaky CRLF z polí"
 
@@ -2739,7 +2724,6 @@ msgstr "Odstranit znaky CRLF z polí"
 #: libraries/export/ods.php:24 libraries/export/odt.php:50
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "Přidat jména polí na první řádek"
 
@@ -2876,7 +2860,6 @@ msgid "Database export options"
 msgstr "Nastavení exportu databází"
 
 #: libraries/export/sql.php:80
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Použít zpětné uvozovky u jmen tabulek a polí"
 
@@ -3096,7 +3079,6 @@ msgstr "Chybný formát CSV dat na řádku %d."
 
 #: libraries/import/csv.php:312
 #, php-format
-#| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Chybný počet polí v CSV datech na řádku %d."
 
@@ -4471,7 +4453,6 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Spustit SQL dotaz(y) na databázi %s"
 
 #: libraries/sql_query_form.lib.php:317
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Pole"
 
@@ -4589,11 +4570,6 @@ msgid "Length/Values"
 msgstr "Délka/Množina"
 
 #: libraries/tbl_properties.inc.php:105
-#| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -4624,8 +4600,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
-"%spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
+"spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:145
 msgid "Transformation options"
@@ -4658,8 +4634,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
-"%s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
+"s dělá."
 
 #: libraries/tbl_properties.inc.php:726 server_engines.php:58
 #: tbl_operations.php:355
@@ -4679,12 +4655,10 @@ msgstr "Uložit"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
 #, php-format
-#| msgid "Add column(s)"
 msgid "Add %s column(s)"
 msgstr "Přidat %s polí"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
-#| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Musíte přidat alespoň jedno pole."
 
@@ -4693,11 +4667,6 @@ msgid "Event"
 msgstr "Událost"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
-#| msgid ""
-#| "Displays a link to download the binary data of the field. You can use the "
-#| "first option to specify the filename, or use the second option as the "
-#| "name of a field which contains the filename. If you use the second "
-#| "option, you need to set the first option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -4730,15 +4699,6 @@ msgid "Displays a link to download this image."
 msgstr "Zobrazí odkaz na obrázek (například stáhnutí pole blob)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
-#| msgid ""
-#| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-#| "formatted date. The first option is the offset (in hours) which will be "
-#| "added to the timestamp (Default: 0). Use second option to specify a "
-#| "different date/time format string. Third option determines whether you "
-#| "want to see local date or UTC one (use \"local\" or \"utc\" strings) for "
-#| "that. According to that, date format has different value - for \"local\" "
-#| "see the documentation for PHP's strftime() function and for \"utc\" it is "
-#| "done using gmdate() function."
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -4758,17 +4718,6 @@ msgstr ""
 "„utc“."
 
 #: libraries/transformations/text_plain__external.inc.php:10
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -4793,9 +4742,6 @@ msgstr ""
 "(výchozí je 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -4804,10 +4750,6 @@ msgstr ""
 "htmlspecialchars(). Předpokládá se, že pole obsahuje platné HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#| msgid ""
-#| "Displays an image and a link; the field contains the filename. The first "
-#| "option is a URL prefix like \"http://www.example.com/\". The second and "
-#| "third options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -4818,10 +4760,6 @@ msgstr ""
 "šířku a výšku obrázku."
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#| msgid ""
-#| "Displays a link; the field contains the filename. The first option is a "
-#| "URL prefix like \"http://www.example.com/\". The second option is a title "
-#| "for the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
@@ -5016,21 +4954,21 @@ msgstr "Znovu nahrát navigační rám"
 msgid "No databases"
 msgstr "Žádné databáze"
 
-#: navigation.php:318
+#: navigation.php:304
 msgid "Filter"
 msgstr "Filtr"
 
-#: navigation.php:319 setup/frames/index.inc.php:218
+#: navigation.php:305 setup/frames/index.inc.php:218
 #: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "Vyčistit"
 
-#: navigation.php:350 navigation.php:351
+#: navigation.php:336 navigation.php:337
 msgctxt "short form"
 msgid "Create table"
 msgstr "Nová tabulka"
 
-#: navigation.php:353 navigation.php:516
+#: navigation.php:339 navigation.php:502
 msgid "Please select a database"
 msgstr "Prosím vyberte databázi"
 
@@ -5180,10 +5118,6 @@ msgid "To select relation, click :"
 msgstr "Pro výběr relace klikněte :"
 
 #: pmd_help.php:29
-#| msgid ""
-#| "The display field is shown in pink. To set/unset a field as the display "
-#| "field, click the \"Choose field to display\" icon, then click on the "
-#| "appropriate field name."
 msgid ""
 "The display column is shown in pink. To set/unset a column as the display "
 "column, click the \"Choose column to display\" icon, then click on the "
@@ -5462,8 +5396,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -6280,10 +6214,6 @@ msgstr ""
 "stáhnout nebo zobrazit."
 
 #: setup/lib/messages.inc.php:35
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in fields"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -6294,7 +6224,6 @@ msgstr ""
 "textová oblast[/kbd] - umožní použít odřádkování"
 
 #: setup/lib/messages.inc.php:36
-#| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "Editace polí typu CHAR"
 
@@ -7025,9 +6954,6 @@ msgid "GZip output buffering"
 msgstr "Mezipaměť pro GZip výstup"
 
 #: setup/lib/messages.inc.php:217
-#| msgid ""
-#| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
-#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -7052,12 +6978,10 @@ msgid "Iconic table operations"
 msgstr "Zobrazení ikon pro operace s tabulkami"
 
 #: setup/lib/messages.inc.php:224
-#| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Zakáže úpravu polí BLOB a BINARY"
 
 #: setup/lib/messages.inc.php:225
-#| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Chránit binární pole"
 
@@ -7122,9 +7046,8 @@ msgstr ""
 "Nastavil jste typ autentizace [kbd]config[/kbd] a zadal jste uživatelské "
 "jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
 "produkční servery. Kdokoli kdo zná URL phpMyAdminu může přímo přistoupit k "
-"Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]typ autentizace[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/"
-"kbd]."
+"Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server]typ autentizace[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/kbd]."
 
 #: setup/lib/messages.inc.php:239
 msgid "You should use mysqli for performance reasons"
@@ -7529,9 +7452,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF schéma: tabulka souřadnic"
 
 #: setup/lib/messages.inc.php:320
-#| msgid ""
-#| "Table to describe the display fields, leave blank for no support; "
-#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
@@ -7540,7 +7460,6 @@ msgstr ""
 "Výchozí hodnota: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-#| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "Tabulka s popisem polí"
 
@@ -7572,8 +7491,6 @@ msgid "Verbose name of this server"
 msgstr "Dlouhé jméno tohoto serveru"
 
 #: setup/lib/messages.inc.php:329
-#| msgid ""
-#| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Jestli uživateli bude zobrazeno tlačítko &quot;zobrazit vše&quot;"
 
@@ -7867,7 +7784,6 @@ msgid "Ignore"
 msgstr "Ignorovat"
 
 #: tbl_change.php:728
-#| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Toto pole možná nepůjde <br />kvůli délce upravit "
 
@@ -8156,7 +8072,6 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: tbl_select.php:270
-#| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Zvolte pole (alespoň jedno):"
 
@@ -8183,7 +8098,6 @@ msgstr "Žádná"
 
 #: tbl_structure.php:374
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr "Pole %s byla odstraněno"
 
@@ -8206,8 +8120,9 @@ msgid "Propose table structure"
 msgstr "Navrhnout strukturu tabulky"
 
 #: tbl_structure.php:540
-#| msgid "Add new field"
-msgid "Add field"
+#, fuzzy
+#| msgid "Add column(s)"
+msgid "Add column"
 msgstr "Přidat pole"
 
 #: tbl_structure.php:554
@@ -8416,6 +8331,10 @@ msgstr "Jméno pohledu"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
+
+#~| msgid "Add new field"
+#~ msgid "Add field"
+#~ msgstr "Přidat pole"
 
 #~ msgid "Field"
 #~ msgstr "Sloupec"

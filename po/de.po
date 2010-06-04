@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-31 14:33-0400\n"
+"POT-Creation-Date: 2010-06-04 16:07-0400\n"
 "PO-Revision-Date: 2010-06-03 21:04+0200\n"
 "Last-Translator:  <canin@in.com>\n"
 "Language-Team: german <de@li.org>\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -58,7 +58,7 @@ msgstr "Suche"
 #: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: main.php:128 navigation.php:238 pdf_pages.php:292 pdf_pages.php:328
+#: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:625 server_privileges.php:1585
 #: server_privileges.php:1932 server_privileges.php:1979
@@ -198,7 +198,7 @@ msgid "View dump (schema) of database"
 msgstr "Dump (Schema) der Datenbank anzeigen"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
-#: db_tracking.php:35 export.php:359 navigation.php:346
+#: db_tracking.php:35 export.php:359 navigation.php:332
 msgid "No tables found in database."
 msgstr "Es wurden keine Tabellen in der Datenbank gefunden."
 
@@ -346,7 +346,7 @@ msgstr "Tabelle"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
-#: navigation.php:652 navigation.php:674 server_databases.php:122
+#: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr "Zeilen"
@@ -454,7 +454,6 @@ msgid "Add/Delete criteria rows"
 msgstr "Zeilen hinzufügen/entfernen"
 
 #: db_qbe.php:596
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Spalten hinzufügen/entfernen"
 
@@ -714,11 +713,11 @@ msgstr "Verfolgte Tabellen"
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
 #: libraries/export/sql.php:342 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
-#: libraries/header_printview.inc.php:58 navigation.php:233
-#: server_databases.php:169 server_privileges.php:1621
-#: server_privileges.php:1682 server_privileges.php:1940
-#: server_processlist.php:56 server_synchronize.php:1179
-#: server_synchronize.php:1183 tbl_tracking.php:591 test/theme.php:65
+#: libraries/header_printview.inc.php:58 server_databases.php:169
+#: server_privileges.php:1621 server_privileges.php:1682
+#: server_privileges.php:1940 server_processlist.php:56
+#: server_synchronize.php:1179 server_synchronize.php:1183
+#: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
 msgstr "Datenbank"
 
@@ -1005,7 +1004,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "Bitte den PRIMARY KEY oder einen UNIQUE KEY wählen"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Anzuzeigende Spalte auswählen"
 
@@ -2757,7 +2755,6 @@ msgid "Replace NULL by"
 msgstr "Ersetze NULL durch"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
 msgstr "CRLF-Zeichen aus den Feldern entfernen"
 
@@ -4767,7 +4764,6 @@ msgstr "Speichern"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
 #, php-format
-#| msgid "Add column(s)"
 msgid "Add %s column(s)"
 msgstr "%s Spalte(n) einfügen"
 
@@ -5127,21 +5123,21 @@ msgstr "Navigations-Frame aktualisieren"
 msgid "No databases"
 msgstr "Keine Datenbanken"
 
-#: navigation.php:318
+#: navigation.php:304
 msgid "Filter"
 msgstr "Filter"
 
-#: navigation.php:319 setup/frames/index.inc.php:218
+#: navigation.php:305 setup/frames/index.inc.php:218
 #: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "Werte löschen"
 
-#: navigation.php:350 navigation.php:351
+#: navigation.php:336 navigation.php:337
 msgctxt "short form"
 msgid "Create table"
 msgstr "Erzeuge Tabelle"
 
-#: navigation.php:353 navigation.php:516
+#: navigation.php:339 navigation.php:502
 msgid "Please select a database"
 msgstr "Bitte Datenbank auswählen"
 
@@ -8371,9 +8367,9 @@ msgstr "Tabellenstruktur analysieren"
 
 #: tbl_structure.php:540
 #, fuzzy
-#| msgid "Add new field"
-msgid "Add field"
-msgstr "Neue Felder hinzufügen"
+#| msgid "Add column(s)"
+msgid "Add column"
+msgstr "Spalte(n) einfügen"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
@@ -8584,6 +8580,11 @@ msgstr "VIEW Name"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr "View umbenennen in"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add field"
+#~ msgstr "Neue Felder hinzufügen"
 
 #~ msgid "Field"
 #~ msgstr "Feld"

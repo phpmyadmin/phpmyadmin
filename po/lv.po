@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-31 14:33-0400\n"
+"POT-Creation-Date: 2010-06-04 16:07-0400\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: latvian <lv@li.org>\n"
@@ -57,7 +57,7 @@ msgstr "Meklēt"
 #: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: main.php:128 navigation.php:238 pdf_pages.php:292 pdf_pages.php:328
+#: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:625 server_privileges.php:1585
 #: server_privileges.php:1932 server_privileges.php:1979
@@ -197,7 +197,7 @@ msgid "View dump (schema) of database"
 msgstr "Apskatīt datubāzes dampu (shēmu)"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
-#: db_tracking.php:35 export.php:359 navigation.php:346
+#: db_tracking.php:35 export.php:359 navigation.php:332
 msgid "No tables found in database."
 msgstr "Tabulas nav atrastas šajā datubāzē."
 
@@ -352,7 +352,7 @@ msgstr "Tabula"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
-#: navigation.php:652 navigation.php:674 server_databases.php:122
+#: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr "Rindas"
@@ -721,11 +721,11 @@ msgstr ""
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
 #: libraries/export/sql.php:342 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
-#: libraries/header_printview.inc.php:58 navigation.php:233
-#: server_databases.php:169 server_privileges.php:1621
-#: server_privileges.php:1682 server_privileges.php:1940
-#: server_processlist.php:56 server_synchronize.php:1179
-#: server_synchronize.php:1183 tbl_tracking.php:591 test/theme.php:65
+#: libraries/header_printview.inc.php:58 server_databases.php:169
+#: server_privileges.php:1621 server_privileges.php:1682
+#: server_privileges.php:1940 server_processlist.php:56
+#: server_synchronize.php:1179 server_synchronize.php:1183
+#: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
 msgstr "Datubāze"
 
@@ -4901,23 +4901,23 @@ msgstr ""
 msgid "No databases"
 msgstr "Nav datubāzu"
 
-#: navigation.php:318
+#: navigation.php:304
 msgid "Filter"
 msgstr ""
 
-#: navigation.php:319 setup/frames/index.inc.php:218
+#: navigation.php:305 setup/frames/index.inc.php:218
 #: setup/lib/messages.inc.php:42
 #, fuzzy
 msgid "Clear"
 msgstr "Kalendārs"
 
-#: navigation.php:350 navigation.php:351
+#: navigation.php:336 navigation.php:337
 #, fuzzy
 msgctxt "short form"
 msgid "Create table"
 msgstr "Izveidot jaunu lapu"
 
-#: navigation.php:353 navigation.php:516
+#: navigation.php:339 navigation.php:502
 msgid "Please select a database"
 msgstr "Lūdzu izvēlieties datubāzi"
 
@@ -7940,9 +7940,9 @@ msgstr "Ieteikt tabulas sruktūru"
 
 #: tbl_structure.php:540
 #, fuzzy
-#| msgid "Add new field"
-msgid "Add field"
-msgstr "Pievienot jaunu lauku"
+#| msgid "Add %s field(s)"
+msgid "Add column"
+msgstr "Pievienot %s lauku(s)"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
@@ -8158,6 +8158,11 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "Pārsaukt tabulu uz"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add field"
+#~ msgstr "Pievienot jaunu lauku"
 
 #~ msgid "Field"
 #~ msgstr "Lauks"
