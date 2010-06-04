@@ -996,10 +996,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "Please select the primary key or a unique key"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Choose field to display"
+msgstr "Choose column to display"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
