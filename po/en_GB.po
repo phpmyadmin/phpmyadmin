@@ -6283,7 +6283,6 @@ msgstr ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 
 #: setup/lib/messages.inc.php:35
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -6294,8 +6293,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
-"fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
-"kbd] - allows newlines in fields"
+"columns; [kbd]input[/kbd] - allows limiting of input length, "
+"[kbd]textarea[/kbd] - allows newlines in columns"
 
 #: setup/lib/messages.inc.php:36
 #, fuzzy
