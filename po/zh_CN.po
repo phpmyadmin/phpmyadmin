@@ -7923,10 +7923,9 @@ msgid "Propose table structure"
 msgstr "规划表结构"
 
 #: tbl_structure.php:540
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add field"
-msgstr "添加新字段"
+msgstr "添加字段"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
