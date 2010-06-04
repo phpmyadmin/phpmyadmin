@@ -7277,7 +7277,6 @@ msgid ""
 msgstr "描述显示字段的表，不使用请留空，默认：[kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "显示字段表"
