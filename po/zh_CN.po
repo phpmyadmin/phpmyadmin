@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-04 14:02+0200\n"
+"PO-Revision-Date: 2010-06-04 14:05+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -7268,15 +7268,13 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF 大纲: 数据表并发"
 
 #: setup/lib/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
-msgstr ""
-"描述显示字段的表，留空为关闭此项功能。默认值：[kbd]pma_table_info[/kbd]"
+msgstr "描述显示字段的表，不使用请留空，默认：[kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
 #, fuzzy
