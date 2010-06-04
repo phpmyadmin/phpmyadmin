@@ -307,7 +307,7 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
         <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
         <input type="submit" name="navig" value="<?php echo __('Show'); ?> :" />
         <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
-        <?php echo __('row(s) starting from record #') . "\n"; ?>
+        <?php echo __('row(s) starting from row #') . "\n"; ?>
         <input type="text" name="pos" size="6" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" />
         <br />
     <?php
@@ -585,7 +585,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             echo '<div class="formelement">';
             $choices = array(
                 'K'   => __('Relational key'),
-                'D'   => __('Relational display field')
+                'D'   => __('Relational display column')
             );
             PMA_display_html_radio('relational_display', $choices, $_SESSION['tmp_user_values']['relational_display']);
             echo '</div>';

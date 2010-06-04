@@ -399,7 +399,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     <legend><?php echo __('Relations'); ?></legend>
 
     <table>
-    <tr><th><?php echo __('Field'); ?></th>
+    <tr><th><?php echo __('Column'); ?></th>
     <?php
     if ($cfgRelation['relwork']) {
         echo '<th>' . __('Internal relation');
@@ -545,7 +545,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         $disp = PMA_getDisplayField($db, $table);
         ?>
     <fieldset>
-        <label><?php echo __('Choose field to display') . ': '; ?></label>
+        <label><?php echo __('Choose column to display') . ': '; ?></label>
         <select name="display_field">
             <option value="">---</option>
         <?php

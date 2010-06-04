@@ -23,7 +23,7 @@ if (isset($plugin_list)) {
             array('type' => 'bool', 'name' => 'structure', 'text' => __('Structure'), 'force' => 'data'),
             array('type' => 'bgroup', 'name' => 'data', 'text' => __('Data'), 'force' => 'structure'),
             array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
-            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row')),
+            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
             array('type' => 'egroup'),
             ),
         'options_text' => __('Options'),
@@ -241,7 +241,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     }
 
     $schema_insert = '<tr class="print-category">';
-    $schema_insert .= '<th class="print">' . htmlspecialchars(__('Field')) . '</th>';
+    $schema_insert .= '<th class="print">' . htmlspecialchars(__('Column')) . '</th>';
     $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Type')) . '</b></td>';
     $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Null')) . '</b></td>';
     $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Default')) . '</b></td>';

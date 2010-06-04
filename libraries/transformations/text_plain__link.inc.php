@@ -7,7 +7,7 @@
 
 function PMA_transformation_text_plain__link_info() {
     return array(
-        'info' => __('Displays a link; the field contains the filename. The first option is a URL prefix like "http://www.example.com/". The second option is a title for the link.'),
+        'info' => __('Displays a link; the column contains the filename. The first option is a URL prefix like "http://www.example.com/". The second option is a title for the link.'),
         );
 }
 

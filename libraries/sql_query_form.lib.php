@@ -314,7 +314,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
 
     if (count($fields_list)) {
         echo '<div id="tablefieldscontainer">' . "\n"
-            .'<label>' . __('Fields') . '</label>' . "\n"
+            .'<label>' . __('Columns') . '</label>' . "\n"
             .'<select id="tablefields" name="dummy" '
             .'size="' . ($GLOBALS['cfg']['TextareaRows'] - 2) . '" '
             .'multiple="multiple" ondblclick="insertValueQuery()">' . "\n";

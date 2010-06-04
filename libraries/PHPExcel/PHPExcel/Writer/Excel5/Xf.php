@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
 
 // Original file header of PEAR::Spreadsheet_Excel_Writer_Format (used as the base for this class):
@@ -33,7 +33,7 @@
 // *  The majority of this is _NOT_ my code.  I simply ported it from the
 // *  PERL Spreadsheet::WriteExcel module.
 // *
-// *  The author of the Spreadsheet::WriteExcel module is John McNamara 
+// *  The author of the Spreadsheet::WriteExcel module is John McNamara
 // *  <jmcnamara@cpan.org>
 // *
 // *  I _DO_ maintain this code, and John McNamara has nothing to do with the
@@ -61,33 +61,12 @@
 // */
 
 
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../../');
-}
-
-/** PHPExcel_Style_Alignment */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/Alignment.php';
-
-/** PHPExcel_Style_Border */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/Border.php';
-
-/** PHPExcel_Style_Fill */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/Fill.php';
-
-/** PHPExcel_Style_Protection */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/Protection.php';
-
-
 /**
  * PHPExcel_Writer_Excel5_Xf
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel5_Xf
 {
@@ -115,49 +94,49 @@ class PHPExcel_Writer_Excel5_Xf
 	 * An index (2 bytes) to a FORMAT record (number format).
 	 * @var integer
 	 */
-	var $_numberFormatIndex;
+	public $_numberFormatIndex;
 
 	/**
 	 * 1 bit, apparently not used.
 	 * @var integer
 	 */
-	var $_text_justlast;
+	public $_text_justlast;
 
 	/**
 	 * The cell's foreground color.
 	 * @var integer
 	 */
-	var $_fg_color;
+	public $_fg_color;
 
 	/**
 	 * The cell's background color.
 	 * @var integer
 	 */
-	var $_bg_color;
+	public $_bg_color;
 
 	/**
 	 * Color of the bottom border of the cell.
 	 * @var integer
 	 */
-	var $_bottom_color;
+	public $_bottom_color;
 
 	/**
 	 * Color of the top border of the cell.
 	 * @var integer
 	 */
-	var $_top_color;
+	public $_top_color;
 
 	/**
 	* Color of the left border of the cell.
 	* @var integer
 	*/
-	var $_left_color;
+	public $_left_color;
 
 	/**
 	 * Color of the right border of the cell.
 	 * @var integer
 	 */
-	var $_right_color;
+	public $_right_color;
 
 	/**
 	 * Constructor
@@ -234,7 +213,7 @@ class PHPExcel_Writer_Excel5_Xf
 		if ($this->_mapBorderStyle($this->_style->getBorders()->getLeft()->getBorderStyle()) == 0) {
 			$this->_left_color = 0;
 		}
-		if ($this->_diag == 0) {
+		if ($this->_mapBorderStyle($this->_style->getBorders()->getDiagonal()->getBorderStyle()) == 0) {
 			$this->_diag_color = 0;
 		}
 
@@ -302,15 +281,19 @@ class PHPExcel_Writer_Excel5_Xf
 			$border1       |= $this->_mapBorderStyle($this->_style->getBorders()->getBottom()->getBorderStyle())        << 12;
 			$border1       |= $this->_left_color    << 16;
 			$border1       |= $this->_right_color   << 23;
-			$diag_tl_to_rb = 0;
-			$diag_tr_to_lb = 0;
+
+			$diagonalDirection = $this->_style->getBorders()->getDiagonalDirection();
+			$diag_tl_to_rb = $diagonalDirection == PHPExcel_Style_Borders::DIAGONAL_BOTH
+								|| $diagonalDirection == PHPExcel_Style_Borders::DIAGONAL_DOWN;
+			$diag_tr_to_lb = $diagonalDirection == PHPExcel_Style_Borders::DIAGONAL_BOTH
+								|| $diagonalDirection == PHPExcel_Style_Borders::DIAGONAL_UP;
 			$border1       |= $diag_tl_to_rb        << 30;
 			$border1       |= $diag_tr_to_lb        << 31;
 
 			$border2        = $this->_top_color;    // Border color
 			$border2       |= $this->_bottom_color   << 7;
 			$border2       |= $this->_diag_color     << 14;
-			$border2       |= $this->_diag           << 21;
+			$border2       |= $this->_mapBorderStyle($this->_style->getBorders()->getDiagonal()->getBorderStyle())           << 21;
 			$border2       |= $this->_mapFillType($this->_style->getFill()->getFillType())        << 26;
 
 			$header      = pack("vv",       $record, $length);
@@ -393,6 +376,17 @@ class PHPExcel_Writer_Excel5_Xf
 	function setRightColor($colorIndex)
 	{
 		$this->_right_color = $colorIndex;
+	}
+
+	/**
+	 * Sets the cell's diagonal border color
+	 *
+	 * @access public
+	 * @param int $colorIndex Color index
+	 */
+	function setDiagColor($colorIndex)
+	{
+		$this->_diag_color = $colorIndex;
 	}
 
 

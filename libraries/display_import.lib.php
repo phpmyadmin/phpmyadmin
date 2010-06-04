@@ -236,7 +236,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         if (! (isset($timeout_passed) && $timeout_passed)) {
             ?>
         <div class="formelementrow">
-            <label for="text_skip_queries"><?php echo __('Number of records (queries) to skip from start'); ?></label>
+            <label for="text_skip_queries"><?php echo __('Number of queries to skip from start'); ?></label>
             <input type="text" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
         </div>
             <?php

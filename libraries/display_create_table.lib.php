@@ -38,7 +38,7 @@ $is_create_table_priv = true;
 
 ?>
 <form method="post" action="tbl_create.php"
-    onsubmit="return (emptyFormElements(this, 'table') &amp;&amp; checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('Table must have at least one field.')); ?>', 1))">
+    onsubmit="return (emptyFormElements(this, 'table') &amp;&amp; checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('Table must have at least one column.')); ?>', 1))">
 <fieldset>
     <legend>
 <?php
@@ -54,7 +54,7 @@ echo sprintf(__('Create table on database %s'), PMA_getDbLink());
         <input type="text" name="table" maxlength="64" size="30" />
     </div>
     <div class="formelement">
-        <?php echo __('Number of fields'); ?>:
+        <?php echo __('Number of columns'); ?>:
         <input type="text" name="num_fields" size="2" />
     </div>
     <div class="clearfloat"></div>
