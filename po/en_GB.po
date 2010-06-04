@@ -5048,10 +5048,9 @@ msgid "Create a page"
 msgstr "Create a page"
 
 #: pdf_pages.php:310
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Page number:"
+msgstr "Page name"
 
 #: pdf_pages.php:314
 #, fuzzy
