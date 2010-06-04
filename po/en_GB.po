@@ -5053,10 +5053,9 @@ msgid "Page name"
 msgstr "Page name"
 
 #: pdf_pages.php:314
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Automatic layout"
+msgstr "Automatic layout based on"
 
 #: pdf_pages.php:316
 msgid "Internal relations"
