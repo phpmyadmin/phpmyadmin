@@ -1991,10 +1991,10 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Could not load export plug-ins, please check your installation!"
 
 #: libraries/display_export.lib.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
-msgstr "Dump %s row(s) starting at record # %s"
+msgstr "Dump %s row(s) starting at row # %s"
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
