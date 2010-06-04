@@ -7050,10 +7050,9 @@ msgid "Iconic table operations"
 msgstr "Iconic table operations"
 
 #: setup/lib/messages.inc.php:224
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Disallow BLOB and BINARY fields from editing"
+msgstr "Disallow BLOB and BINARY columns from editing"
 
 #: setup/lib/messages.inc.php:225
 #, fuzzy
