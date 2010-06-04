@@ -35,6 +35,11 @@ require './libraries/replication.inc.php';
 require_once './libraries/replication_gui.lib.php';
 
 /**
+ * Chart generation
+ */
+require_once './libraries/chart.lib.php';
+
+/**
  * Displays the sub-page heading
  */
 echo '<div id="serverstatus">' . "\n";
@@ -582,6 +587,9 @@ foreach ($used_queries as $name => $value) {
 ?>
     </tbody>
     </table>
+    <div>
+        <?php echo PMA_chart_pie($used_queries); ?>
+    </div>
 </div>
 
 <div id="serverstatussection">
