@@ -447,10 +447,9 @@ msgid "Modify"
 msgstr "Modify"
 
 #: db_qbe.php:584
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Add/Delete Criteria Row"
+msgstr "Add/Delete criteria rows"
 
 #: db_qbe.php:596
 #, fuzzy
