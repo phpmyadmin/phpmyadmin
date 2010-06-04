@@ -7521,7 +7521,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF schema: table coordinates"
 
 #: setup/lib/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -7529,8 +7528,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Table to describe the display fields, leave blank for no support; suggested: "
-"[kbd]pma_table_info[/kbd]"
+"Table to describe the display columns, leave blank for no support; "
+"suggested: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
 #, fuzzy
