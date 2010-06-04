@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-06-04 14:00+0200\n"
+"PO-Revision-Date: 2010-06-04 14:01+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2172,10 +2172,9 @@ msgid "%d is not valid row number."
 msgstr "%d 不是有效行数。"
 
 #: libraries/display_tbl.lib.php:310
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "行，开始行数："
+msgstr "行，起始行 #"
 
 #: libraries/display_tbl.lib.php:316
 msgid "horizontal"
