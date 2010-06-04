@@ -7873,10 +7873,9 @@ msgid "Operator"
 msgstr "操作符"
 
 #: tbl_select.php:270
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "至少选择一个字段："
+msgstr "选择字段 (至少一个)："
 
 #: tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
