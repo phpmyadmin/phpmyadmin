@@ -331,7 +331,7 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         echo ' </li>';
         echo ' <li><a href="#" id="slave_errormanagement_href">' . __('Error management:') . '</a>';
         echo ' <div id="slave_errormanagement_gui" style="display: none">';
-        PMA_Message::warning(__('Skipping error(s) might lead into unsynchronized master and slave!'))->display();
+        PMA_Message::warning(__('Skipping errors might lead into unsynchronized master and slave!'))->display();
         echo '  <ul>';
         echo '   <li><a href="' . $slave_skip_error_link . '">' . __('Skip current error') . '</a></li>';
         echo '   <li>' . __('Skip next');

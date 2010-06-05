@@ -20,16 +20,6 @@
 // $Id: File.php,v 1.11 2007/02/13 21:00:42 schmidt Exp $
 
 
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../../');
-}
-
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE/OLE_PPS.php';
-
 /**
 * Class for creating File PPS's for OLE containers
 *
@@ -40,12 +30,6 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE/OLE_PPS.php';
 class PHPExcel_Shared_OLE_PPS_File extends PHPExcel_Shared_OLE_PPS
 	{
 	/**
-	* The temporary dir for storing the OLE file
-	* @var string
-	*/
-	public $_tmp_dir;
-
-	/**
 	* The constructor
 	*
 	* @access public
@@ -54,9 +38,8 @@ class PHPExcel_Shared_OLE_PPS_File extends PHPExcel_Shared_OLE_PPS
 	*/
 	public function __construct($name)
 	{
-		$this->_tmp_dir = '';
 		parent::__construct(
-			null, 
+			null,
 			$name,
 			PHPExcel_Shared_OLE::OLE_PPS_TYPE_FILE,
 			null,
@@ -69,22 +52,6 @@ class PHPExcel_Shared_OLE_PPS_File extends PHPExcel_Shared_OLE_PPS
 	}
 
 	/**
-	* Sets the temp dir used for storing the OLE file
-	*
-	* @access public
-	* @param string $dir The dir to be used as temp dir
-	* @return true if given dir is valid, false otherwise
-	*/
-	public function setTempDir($dir)
-	{
-		if (is_dir($dir)) {
-			$this->_tmp_dir = $dir;
-			return true;
-		}
-		return false;
-	}
-
-	/**
 	* Initialization method. Has to be called right after OLE_PPS_File().
 	*
 	* @access public
@@ -92,15 +59,6 @@ class PHPExcel_Shared_OLE_PPS_File extends PHPExcel_Shared_OLE_PPS
 	*/
 	public function init()
 	{
-		$this->_tmp_filename = tempnam($this->_tmp_dir, "OLE_PPS_File");
-		$fh = fopen($this->_tmp_filename, "w+b");
-		if ($fh === false) {
-			throw new Exception("Can't create temporary file");
-		}
-		$this->_PPS_FILE = $fh;
-		if ($this->_PPS_FILE) {
-			fseek($this->_PPS_FILE, 0);
-		}
 		return true;
 	}
 
@@ -112,11 +70,7 @@ class PHPExcel_Shared_OLE_PPS_File extends PHPExcel_Shared_OLE_PPS
 	*/
 	public function append($data)
 	{
-		if ($this->_PPS_FILE) {
-			fwrite($this->_PPS_FILE, $data);
-		} else {
-			$this->_data .= $data;
-		}
+		$this->_data .= $data;
 	}
 
 	/**

@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,19 +20,11 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Shared_Best_Fit
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
 
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../../');
-}
 
 require_once(PHPEXCEL_ROOT . 'PHPExcel/Shared/trend/bestFitClass.php');
 
@@ -42,7 +34,7 @@ require_once(PHPEXCEL_ROOT . 'PHPExcel/Shared/trend/bestFitClass.php');
  *
  * @category   PHPExcel
  * @package    PHPExcel_Shared_Best_Fit
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Logarithmic_Best_Fit extends PHPExcel_Best_Fit
 {
@@ -68,8 +60,14 @@ class PHPExcel_Logarithmic_Best_Fit extends PHPExcel_Best_Fit
 
 
 	private function _logarithmic_regression($yValues, $xValues, $const) {
-		$mArray = $xValues;
-		$xValues = array_map('log',$xValues);
+		foreach($xValues as &$value) {
+			if ($value < 0.0) {
+				$value = 0 - log(abs($value));
+			} elseif ($value > 0.0) {
+				$value = log($value);
+			}
+		}
+		unset($value);
 
 		$this->_leastSquareFit($yValues, $xValues, $const);
 	}	//	function _logarithmic_regression()

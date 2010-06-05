@@ -74,7 +74,7 @@ echo $script_tabs . $script_contr . $script_display_field;
         ><img title="<?php echo __('Create relation') ?>" src="pmd/images/relation.png" alt=""
         /></a><a href="javascript:Start_display_field();" onmousedown="return false;"
             class="M_butt" id="display_field_button" target="_self"
-        ><img title="<?php echo __('Choose field to display') ?>" src="pmd/images/display_field.png" alt=""
+        ><img title="<?php echo __('Choose column to display') ?>" src="pmd/images/display_field.png" alt=""
         /></a><a href="javascript:location.reload();" onmousedown="return false;"
             class="M_butt" target="_self"
         ><img title="<?php echo __('Reload'); ?>" src="pmd/images/reload.png" alt=""

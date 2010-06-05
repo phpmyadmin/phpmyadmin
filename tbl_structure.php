@@ -174,7 +174,7 @@ $i = 0;
 <tr>
     <th id="th<?php echo ++$i; ?>"></th>
     <th id="th<?php echo ++$i; ?>">#</th>
-    <th id="th<?php echo ++$i; ?>"><?php echo __('Field'); ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo __('Column'); ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo __('Type'); ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo __('Collation'); ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo __('Attributes'); ?></th>
@@ -371,7 +371,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             <?php echo $titles['Change']; ?></a>
     </td>
     <td align="center">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;cpurge=1&amp;purgekey=<?php echo urlencode($row['Field']); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('Field %s has been dropped'), htmlspecialchars($row['Field']))); ?>"
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;cpurge=1&amp;purgekey=<?php echo urlencode($row['Field']); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP <?php echo PMA_jsFormat($row['Field']); ?>')">
             <?php echo $titles['Drop']; ?></a>
     </td>
@@ -533,13 +533,13 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 
     <br />
 <form method="post" action="tbl_addfield.php"
-    onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one field.')); ?>', 1)">
+    onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)">
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . __('Add new field') . '"/>';
+        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . __('Add column') . '"/>';
     }
-    echo sprintf(__('Add %s field(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
+    echo sprintf(__('Add %s column(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
 
     // I tried displaying the drop-down inside the label but with Firefox
     // the drop-down was blinking

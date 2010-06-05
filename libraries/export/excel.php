@@ -20,8 +20,8 @@ if (isset($plugin_list)) {
         'mime_type' => 'text/comma-separated-values',
         'options' => array(
             array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
-            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => __('Remove CRLF characters within fields')),
-            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put fields names in the first row')),
+            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => __('Remove CRLF characters within columns')),
+            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
             array(
                 'type' => 'select', 
                 'name' => 'edition', 

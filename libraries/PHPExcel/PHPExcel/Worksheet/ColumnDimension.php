@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Worksheet
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
 
 
@@ -31,7 +31,7 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Worksheet
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Worksheet_ColumnDimension
 {			
@@ -78,9 +78,16 @@ class PHPExcel_Worksheet_ColumnDimension
 	 * @var bool
 	 */
 	private $_collapsed;
-		
+
+	/**
+	 * Index to cellXf
+	 *
+	 * @var int
+	 */
+	private $_xfIndex;
+
     /**
-     * Create a new PHPExcel_Worksheet_RowDimension
+     * Create a new PHPExcel_Worksheet_ColumnDimension
      *
      * @param string $pIndex Character column index
      */
@@ -93,6 +100,9 @@ class PHPExcel_Worksheet_ColumnDimension
     	$this->_visible			= true;
     	$this->_outlineLevel	= 0;
     	$this->_collapsed		= false;
+
+		// set default index to cellXf
+		$this->_xfIndex = 0;
     }
     
     /**
@@ -223,6 +233,28 @@ class PHPExcel_Worksheet_ColumnDimension
     }
         
 	/**
+	 * Get index to cellXf
+	 *
+	 * @return int
+	 */
+	public function getXfIndex()
+	{
+		return $this->_xfIndex;
+	}
+
+	/**
+	 * Set index to cellXf
+	 *
+	 * @param int $pValue
+	 * @return PHPExcel_Worksheet_ColumnDimension
+	 */
+	public function setXfIndex($pValue = 0)
+	{
+		$this->_xfIndex = $pValue;
+		return $this;
+	}
+
+	/**
 	 * Implement PHP __clone to create a deep clone, not just a shallow copy.
 	 */
 	public function __clone() {
@@ -235,4 +267,5 @@ class PHPExcel_Worksheet_ColumnDimension
 			}
 		}
 	}
+
 }

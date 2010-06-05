@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
 
 // Original file header of PEAR::Spreadsheet_Excel_Writer_Parser (used as the base for this class):
@@ -50,77 +50,76 @@
 // */
 
 
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../../');
-}
-
-/** PHPExcel_Shared_String */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/String.php';
-
-/** PHPExcel_Writer_Excel5_BIFFwriter */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel5/BIFFwriter.php';
-
-
 /**
  * PHPExcel_Writer_Excel5_Parser
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel5
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel5_Parser
 {
+	/**	Constants				*/
+	// Sheet title in unquoted form
+	// Invalid sheet title characters cannot occur in the sheet title:
+	// 		*:/\?[]
+	// Moreover, there are valid sheet title characters that cannot occur in unquoted form (there may be more?)
+	// +-% '^&<>=,;#()"{}
+	const REGEX_SHEET_TITLE_UNQUOTED = '[^\*\:\/\\\\\?\[\]\+\-\% \\\'\^\&\<\>\=\,\;\#\(\)\"\{\}]+';
+
+	// Sheet title in quoted form (without surrounding quotes)
+	// Invalid sheet title characters cannot occur in the sheet title:
+	// *:/\?[]					(usual invalid sheet title characters)
+	// Single quote is represented as a pair ''
+	const REGEX_SHEET_TITLE_QUOTED = '(([^\*\:\/\\\\\?\[\]\\\'])+|(\\\'\\\')+)+';
+
 	/**
 	 * The index of the character we are currently looking at
 	 * @var integer
 	 */
-	var $_current_char;
+	public $_current_char;
 
 	/**
 	 * The token we are working on.
 	 * @var string
 	 */
-	var $_current_token;
+	public $_current_token;
 
 	/**
 	 * The formula to parse
 	 * @var string
 	 */
-	var $_formula;
+	public $_formula;
 
 	/**
 	 * The character ahead of the current char
 	 * @var string
 	 */
-	var $_lookahead;
+	public $_lookahead;
 
 	/**
 	 * The parse tree to be generated
 	 * @var string
 	 */
-	var $_parse_tree;
+	public $_parse_tree;
 
 	/**
 	 * Array of external sheets
 	 * @var array
 	 */
-	var $_ext_sheets;
+	public $_ext_sheets;
 
 	/**
 	 * Array of sheet references in the form of REF structures
 	 * @var array
 	 */
-	var $_references;
+	public $_references;
 
 	/**
 	 * The BIFF version for the workbook
 	 * @var integer
 	 */
-	var $_BIFF_version;
+	public $_BIFF_version;
 
 	/**
 	 * The class constructor
@@ -533,28 +532,24 @@ class PHPExcel_Writer_Excel5_Parser
 		} elseif (preg_match('/^\$?([A-Ia-i]?[A-Za-z])\$?(\d+)$/',$token)) {
 			return $this->_convertRef2d($token);
 
-		// match external references like Sheet1!A1 or Sheet1:Sheet2!A1
-		} elseif (preg_match("/^\w+(\:\w+)?\![A-Ia-i]?[A-Za-z](\d+)$/u",$token)) {
+		// match external references like Sheet1!A1 or Sheet1:Sheet2!A1 or Sheet1!$A$1 or Sheet1:Sheet2!$A$1
+		} elseif (preg_match("/^" . self::REGEX_SHEET_TITLE_UNQUOTED . "(\:" . self::REGEX_SHEET_TITLE_UNQUOTED . ")?\!\\$?[A-Ia-i]?[A-Za-z]\\$?(\d+)$/u",$token)) {
 			return $this->_convertRef3d($token);
 
-		// match external references like 'Sheet1'!A1 or 'Sheet1:Sheet2'!A1
-		} elseif (preg_match("/^'[\w -]+(\:[\w -]+)?'\![A-Ia-i]?[A-Za-z](\d+)$/u",$token)) {
+		// match external references like 'Sheet1'!A1 or 'Sheet1:Sheet2'!A1 or 'Sheet1'!$A$1 or 'Sheet1:Sheet2'!$A$1
+		} elseif (preg_match("/^'" . self::REGEX_SHEET_TITLE_QUOTED . "(\:" . self::REGEX_SHEET_TITLE_QUOTED . ")?'\!\\$?[A-Ia-i]?[A-Za-z]\\$?(\d+)$/u",$token)) {
 			return $this->_convertRef3d($token);
 
-		// match ranges like A1:B2
-		} elseif (preg_match("/^(\$)?[A-Ia-i]?[A-Za-z](\$)?(\d+)\:(\$)?[A-Ia-i]?[A-Za-z](\$)?(\d+)$/",$token)) {
+		// match ranges like A1:B2 or $A$1:$B$2
+		} elseif (preg_match('/^(\$)?[A-Ia-i]?[A-Za-z](\$)?(\d+)\:(\$)?[A-Ia-i]?[A-Za-z](\$)?(\d+)$/', $token)) {
 			return $this->_convertRange2d($token);
 
-		// match ranges like A1..B2
-		} elseif (preg_match("/^(\$)?[A-Ia-i]?[A-Za-z](\$)?(\d+)\.\.(\$)?[A-Ia-i]?[A-Za-z](\$)?(\d+)$/",$token)) {
-			return $this->_convertRange2d($token);
-
-		// match external ranges like Sheet1!A1 or Sheet1:Sheet2!A1:B2
-		} elseif (preg_match("/^\w+(\:\w+)?\!([A-Ia-i]?[A-Za-z])?(\d+)\:([A-Ia-i]?[A-Za-z])?(\d+)$/u",$token)) {
+		// match external ranges like Sheet1!A1:B2 or Sheet1:Sheet2!A1:B2 or Sheet1!$A$1:$B$2 or Sheet1:Sheet2!$A$1:$B$2
+		} elseif (preg_match("/^" . self::REGEX_SHEET_TITLE_UNQUOTED . "(\:" . self::REGEX_SHEET_TITLE_UNQUOTED . ")?\!\\$?([A-Ia-i]?[A-Za-z])?\\$?(\d+)\:\\$?([A-Ia-i]?[A-Za-z])?\\$?(\d+)$/u",$token)) {
 			return $this->_convertRange3d($token);
 
-		// match external ranges like 'Sheet1'!A1 or 'Sheet1:Sheet2'!A1:B2
-		} elseif (preg_match("/^'[\w -]+(\:[\w -]+)?'\!([A-Ia-i]?[A-Za-z])?(\d+)\:([A-Ia-i]?[A-Za-z])?(\d+)$/u",$token)) {
+		// match external ranges like 'Sheet1'!A1:B2 or 'Sheet1:Sheet2'!A1:B2 or 'Sheet1'!$A$1:$B$2 or 'Sheet1:Sheet2'!$A$1:$B$2
+		} elseif (preg_match("/^'" . self::REGEX_SHEET_TITLE_QUOTED . "(\:" . self::REGEX_SHEET_TITLE_QUOTED . ")?'\!\\$?([A-Ia-i]?[A-Za-z])?\\$?(\d+)\:\\$?([A-Ia-i]?[A-Za-z])?\\$?(\d+)$/u",$token)) {
 			return $this->_convertRange3d($token);
 
 		// operators (including parentheses)
@@ -644,18 +639,15 @@ class PHPExcel_Writer_Excel5_Parser
 	 * Convert an Excel range such as A1:D4 to a ptgRefV.
 	 *
 	 * @access private
-	 * @param string $range An Excel range in the A1:A2 or A1..A2 format.
+	 * @param string $range An Excel range in the A1:A2
 	 */
 	function _convertRange2d($range, $class=0)
 	{
 
 		// TODO: possible class value 0,1,2 check Formula.pm
 		// Split the range into 2 cell refs
-		if (preg_match("/^([A-Ia-i]?[A-Za-z])(\d+)\:([A-Ia-i]?[A-Za-z])(\d+)$/", $range)) {
-			list($cell1, $cell2) = split(':', $range);
-		} elseif (preg_match("/^([A-Ia-i]?[A-Za-z])(\d+)\.\.([A-Ia-i]?[A-Za-z])(\d+)$/", $range)) {
-			list($cell1, $cell2) = split('\.\.', $range);
-
+		if (preg_match('/^(\$)?([A-Ia-i]?[A-Za-z])(\$)?(\d+)\:(\$)?([A-Ia-i]?[A-Za-z])(\$)?(\d+)$/', $range)) {
+			list($cell1, $cell2) = explode(':', $range);
 		} else {
 			// TODO: use real error codes
 			throw new Exception("Unknown range separator");
@@ -691,10 +683,10 @@ class PHPExcel_Writer_Excel5_Parser
 	 */
 	function _convertRange3d($token)
 	{
-		$class = 2; // as far as I know, this is magick.
+		$class = 0; // formulas like Sheet1!$A$1:$A$2 in list type data validation need this class (0x3B)
 
 		// Split the ref at the ! symbol
-		list($ext_ref, $range) = split('!', $token);
+		list($ext_ref, $range) = explode('!', $token);
 
 		// Convert the external reference part (different for BIFF8)
 		if ($this->_BIFF_version == 0x0500) {
@@ -704,10 +696,10 @@ class PHPExcel_Writer_Excel5_Parser
 		}
 
 		// Split the range into 2 cell refs
-		list($cell1, $cell2) = split(':', $range);
+		list($cell1, $cell2) = explode(':', $range);
 
 		// Convert the cell references
-		if (preg_match("/^(\$)?[A-Ia-i]?[A-Za-z](\$)?(\d+)$/", $cell1)) {
+		if (preg_match("/^(\\$)?[A-Ia-i]?[A-Za-z](\\$)?(\d+)$/", $cell1)) {
 			$cell_array1 = $this->_cellToPackedRowcol($cell1);
 			list($row1, $col1) = $cell_array1;
 			$cell_array2 = $this->_cellToPackedRowcol($cell2);
@@ -773,7 +765,7 @@ class PHPExcel_Writer_Excel5_Parser
 		$class = 2; // as far as I know, this is magick.
 
 		// Split the ref at the ! symbol
-		list($ext_ref, $cell) = split('!', $cell);
+		list($ext_ref, $cell) = explode('!', $cell);
 
 		// Convert the external reference part (different for BIFF8)
 		if ($this->_BIFF_version == 0x0500) {
@@ -814,7 +806,7 @@ class PHPExcel_Writer_Excel5_Parser
 
 		// Check if there is a sheet range eg., Sheet1:Sheet2.
 		if (preg_match("/:/", $ext_ref)) {
-			list($sheet_name1, $sheet_name2) = split(':', $ext_ref);
+			list($sheet_name1, $sheet_name2) = explode(':', $ext_ref);
 
 			$sheet1 = $this->_getSheetIndex($sheet_name1);
 			if ($sheet1 == -1) {
@@ -856,10 +848,11 @@ class PHPExcel_Writer_Excel5_Parser
 	{
 		$ext_ref = preg_replace("/^'/", '', $ext_ref); // Remove leading  ' if any.
 		$ext_ref = preg_replace("/'$/", '', $ext_ref); // Remove trailing ' if any.
+		$ext_ref = str_replace('\'\'', '\'', $ext_ref); // Replace escaped '' with '
 
 		// Check if there is a sheet range eg., Sheet1:Sheet2.
 		if (preg_match("/:/", $ext_ref)) {
-			list($sheet_name1, $sheet_name2) = split(':', $ext_ref);
+			list($sheet_name1, $sheet_name2) = explode(':', $ext_ref);
 
 			$sheet1 = $this->_getSheetIndex($sheet_name1);
 			if ($sheet1 == -1) {
@@ -1156,49 +1149,43 @@ class PHPExcel_Writer_Excel5_Parser
 				return $token;
 				break;
 			default:
-				// if it's a reference
+				// if it's a reference A1 or $A$1 or $A1 or A$1
 				if (preg_match('/^\$?[A-Ia-i]?[A-Za-z]\$?[0-9]+$/',$token) and
-				   !ereg("[0-9]",$this->_lookahead) and
+				   !preg_match("/[0-9]/",$this->_lookahead) and
 				   ($this->_lookahead != ':') and ($this->_lookahead != '.') and
 				   ($this->_lookahead != '!'))
 				{
 					return $token;
 				}
-				// If it's an external reference (Sheet1!A1 or Sheet1:Sheet2!A1)
-				elseif (preg_match("/^\w+(\:\w+)?\![A-Ia-i]?[A-Za-z][0-9]+$/u",$token) and
-					   !ereg("[0-9]",$this->_lookahead) and
+				// If it's an external reference (Sheet1!A1 or Sheet1:Sheet2!A1 or Sheet1!$A$1 or Sheet1:Sheet2!$A$1)
+				elseif (preg_match("/^" . self::REGEX_SHEET_TITLE_UNQUOTED . "(\:" . self::REGEX_SHEET_TITLE_UNQUOTED . ")?\!\\$?[A-Ia-i]?[A-Za-z]\\$?[0-9]+$/u",$token) and
+					   !preg_match("/[0-9]/",$this->_lookahead) and
 					   ($this->_lookahead != ':') and ($this->_lookahead != '.'))
 				{
 					return $token;
 				}
-				// If it's an external reference ('Sheet1'!A1 or 'Sheet1:Sheet2'!A1)
-				elseif (preg_match("/^'[\w -]+(\:[\w -]+)?'\![A-Ia-i]?[A-Za-z][0-9]+$/u",$token) and
-					   !ereg("[0-9]",$this->_lookahead) and
+				// If it's an external reference ('Sheet1'!A1 or 'Sheet1:Sheet2'!A1 or 'Sheet1'!$A$1 or 'Sheet1:Sheet2'!$A$1)
+				elseif (preg_match("/^'" . self::REGEX_SHEET_TITLE_QUOTED . "(\:" . self::REGEX_SHEET_TITLE_QUOTED . ")?'\!\\$?[A-Ia-i]?[A-Za-z]\\$?[0-9]+$/u",$token) and
+					   !preg_match("/[0-9]/",$this->_lookahead) and
 					   ($this->_lookahead != ':') and ($this->_lookahead != '.'))
 				{
 					return $token;
 				}
-				// if it's a range (A1:A2)
-				elseif (preg_match("/^(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+:(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+$/",$token) and
-					   !ereg("[0-9]",$this->_lookahead))
+				// if it's a range A1:A2 or $A$1:$A$2
+				elseif (preg_match('/^(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+:(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+$/', $token) and
+					   !preg_match("/[0-9]/",$this->_lookahead))
 				{
 					return $token;
 				}
-				// if it's a range (A1..A2)
-				elseif (preg_match("/^(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+\.\.(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+$/",$token) and
-					   !ereg("[0-9]",$this->_lookahead))
+				// If it's an external range like Sheet1!A1:B2 or Sheet1:Sheet2!A1:B2 or Sheet1!$A$1:$B$2 or Sheet1:Sheet2!$A$1:$B$2
+				elseif (preg_match("/^" . self::REGEX_SHEET_TITLE_UNQUOTED . "(\:" . self::REGEX_SHEET_TITLE_UNQUOTED . ")?\!\\$?([A-Ia-i]?[A-Za-z])?\\$?[0-9]+:\\$?([A-Ia-i]?[A-Za-z])?\\$?[0-9]+$/u",$token) and
+					   !preg_match("/[0-9]/",$this->_lookahead))
 				{
 					return $token;
 				}
-				// If it's an external range like Sheet1!A1 or Sheet1:Sheet2!A1:B2
-				elseif (preg_match("/^\w+(\:\w+)?\!([A-Ia-i]?[A-Za-z])?[0-9]+:([A-Ia-i]?[A-Za-z])?[0-9]+$/u",$token) and
-					   !ereg("[0-9]",$this->_lookahead))
-				{
-					return $token;
-				}
-				// If it's an external range like 'Sheet1'!A1 or 'Sheet1:Sheet2'!A1:B2
-				elseif (preg_match("/^'[\w -]+(\:[\w -]+)?'\!([A-Ia-i]?[A-Za-z])?[0-9]+:([A-Ia-i]?[A-Za-z])?[0-9]+$/u",$token) and
-					   !ereg("[0-9]",$this->_lookahead))
+				// If it's an external range like 'Sheet1'!A1:B2 or 'Sheet1:Sheet2'!A1:B2 or 'Sheet1'!$A$1:$B$2 or 'Sheet1:Sheet2'!$A$1:$B$2
+				elseif (preg_match("/^'" . self::REGEX_SHEET_TITLE_QUOTED . "(\:" . self::REGEX_SHEET_TITLE_QUOTED . ")?'\!\\$?([A-Ia-i]?[A-Za-z])?\\$?[0-9]+:\\$?([A-Ia-i]?[A-Za-z])?\\$?[0-9]+$/u",$token) and
+					   !preg_match("/[0-9]/",$this->_lookahead))
 				{
 					return $token;
 				}
@@ -1210,12 +1197,12 @@ class PHPExcel_Writer_Excel5_Parser
 					return $token;
 				}
 				// If it's a string (of maximum 255 characters)
-				elseif (ereg("^\"[^\"]{0,255}\"$",$token))
+				elseif (preg_match("/^\"[^\"]{0,255}\"$/",$token))
 				{
 					return $token;
 				}
 				// if it's a function call
-				elseif (eregi("^[A-Z0-9\xc0-\xdc\.]+$",$token) and ($this->_lookahead == "("))
+				elseif (preg_match("/^[A-Z0-9\xc0-\xdc\.]+$/i",$token) and ($this->_lookahead == "("))
 				{
 					return $token;
 				}
@@ -1235,7 +1222,7 @@ class PHPExcel_Writer_Excel5_Parser
 	{
 		$this->_current_char = 0;
 		$this->_formula      = $formula;
-		$this->_lookahead    = $formula{1};
+		$this->_lookahead    = isset($formula{1}) ? $formula{1} : '';
 		$this->_advance();
 		$this->_parse_tree   = $this->_condition();
 		return true;
@@ -1291,7 +1278,7 @@ class PHPExcel_Writer_Excel5_Parser
 	function _expression()
 	{
 		// If it's a string return a string node
-		if (ereg("^\"[^\"]{0,255}\"$", $this->_current_token)) {
+		if (preg_match("/^\"[^\"]{0,255}\"$/", $this->_current_token)) {
 			$result = $this->_createTree($this->_current_token, '', '');
 			$this->_advance();
 			return $result;
@@ -1388,39 +1375,44 @@ class PHPExcel_Writer_Excel5_Parser
 			$this->_advance();
 			return $result;
 		}
-		// If it's an external reference (Sheet1!A1 or Sheet1:Sheet2!A1)
-		elseif (preg_match("/^\w+(\:\w+)?\![A-Ia-i]?[A-Za-z][0-9]+$/u",$this->_current_token))
+		// If it's an external reference (Sheet1!A1 or Sheet1:Sheet2!A1 or Sheet1!$A$1 or Sheet1:Sheet2!$A$1)
+		elseif (preg_match("/^" . self::REGEX_SHEET_TITLE_UNQUOTED . "(\:" . self::REGEX_SHEET_TITLE_UNQUOTED . ")?\!\\$?[A-Ia-i]?[A-Za-z]\\$?[0-9]+$/u",$this->_current_token))
 		{
 			$result = $this->_createTree($this->_current_token, '', '');
 			$this->_advance();
 			return $result;
 		}
-		// If it's an external reference ('Sheet1'!A1 or 'Sheet1:Sheet2'!A1)
-		elseif (preg_match("/^'[\w -]+(\:[\w -]+)?'\![A-Ia-i]?[A-Za-z][0-9]+$/u",$this->_current_token))
+		// If it's an external reference ('Sheet1'!A1 or 'Sheet1:Sheet2'!A1 or 'Sheet1'!$A$1 or 'Sheet1:Sheet2'!$A$1)
+		elseif (preg_match("/^'" . self::REGEX_SHEET_TITLE_QUOTED . "(\:" . self::REGEX_SHEET_TITLE_QUOTED . ")?'\!\\$?[A-Ia-i]?[A-Za-z]\\$?[0-9]+$/u",$this->_current_token))
 		{
 			$result = $this->_createTree($this->_current_token, '', '');
 			$this->_advance();
 			return $result;
 		}
-		// if it's a range
-		elseif (preg_match("/^(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+:(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+$/",$this->_current_token) or
-				preg_match("/^(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+\.\.(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+$/",$this->_current_token))
+		// if it's a range A1:B2 or $A$1:$B$2
+		elseif (preg_match('/^(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+:(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+$/',$this->_current_token) or
+				preg_match('/^(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+\.\.(\$)?[A-Ia-i]?[A-Za-z](\$)?[0-9]+$/',$this->_current_token))
 		{
-			$result = $this->_current_token;
+			// must be an error?
+			$result = $this->_createTree($this->_current_token, '', '');
 			$this->_advance();
 			return $result;
 		}
-		// If it's an external range (Sheet1!A1 or Sheet1!A1:B2)
-		elseif (preg_match("/^\w+(\:\w+)?\!([A-Ia-i]?[A-Za-z])?[0-9]+:([A-Ia-i]?[A-Za-z])?[0-9]+$/u",$this->_current_token))
+		// If it's an external range (Sheet1!A1:B2 or Sheet1:Sheet2!A1:B2 or Sheet1!$A$1:$B$2 or Sheet1:Sheet2!$A$1:$B$2)
+		elseif (preg_match("/^" . self::REGEX_SHEET_TITLE_UNQUOTED . "(\:" . self::REGEX_SHEET_TITLE_UNQUOTED . ")?\!\\$?([A-Ia-i]?[A-Za-z])?\\$?[0-9]+:\\$?([A-Ia-i]?[A-Za-z])?\\$?[0-9]+$/u",$this->_current_token))
 		{
-			$result = $this->_current_token;
+			// must be an error?
+			//$result = $this->_current_token;
+			$result = $this->_createTree($this->_current_token, '', '');
 			$this->_advance();
 			return $result;
 		}
-		// If it's an external range ('Sheet1'!A1 or 'Sheet1'!A1:B2)
-		elseif (preg_match("/^'[\w -]+(\:[\w -]+)?'\!([A-Ia-i]?[A-Za-z])?[0-9]+:([A-Ia-i]?[A-Za-z])?[0-9]+$/u",$this->_current_token))
+		// If it's an external range ('Sheet1'!A1:B2 or 'Sheet1'!A1:B2 or 'Sheet1'!$A$1:$B$2 or 'Sheet1'!$A$1:$B$2)
+		elseif (preg_match("/^'" . self::REGEX_SHEET_TITLE_QUOTED . "(\:" . self::REGEX_SHEET_TITLE_QUOTED . ")?'\!\\$?([A-Ia-i]?[A-Za-z])?\\$?[0-9]+:\\$?([A-Ia-i]?[A-Za-z])?\\$?[0-9]+$/u",$this->_current_token))
 		{
-			$result = $this->_current_token;
+			// must be an error?
+			//$result = $this->_current_token;
+			$result = $this->_createTree($this->_current_token, '', '');
 			$this->_advance();
 			return $result;
 		}
@@ -1431,7 +1423,7 @@ class PHPExcel_Writer_Excel5_Parser
 			return $result;
 		}
 		// if it's a function call
-		elseif (eregi("^[A-Z0-9\xc0-\xdc\.]+$",$this->_current_token))
+		elseif (preg_match("/^[A-Z0-9\xc0-\xdc\.]+$/i",$this->_current_token))
 		{
 			$result = $this->_func();
 			return $result;

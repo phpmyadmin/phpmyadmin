@@ -2220,6 +2220,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         $after      = '';
                         $before     = '';
                     }
+                    // for example SELECT 1 somealias
+                    if ($typearr[1] == 'digit_integer') {
+                        $before     = ' ';
+                    }
                     if (($typearr[3] == 'alpha_columnType') || ($typearr[3] == 'alpha_identifier')) {
                         $after      .= ' ';
                     }
