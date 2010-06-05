@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-04 16:07-0400\n"
-"PO-Revision-Date: 2010-06-03 20:07+0200\n"
+"PO-Revision-Date: 2010-06-04 23:39+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3369,6 +3369,9 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
+"Število transakcij, ki so uporabile začasni predpomnilnik dvojiškega "
+"dnevnika, vendar je ta presegel vrednost binlog_cache_size, zato so bile za "
+"shranitev izjav iz transakcije uporabljene začasne datoteke."
 
 #: libraries/messages.inc.php:63
 msgid "The number of transactions that used the temporary binary log cache."
@@ -3383,6 +3386,10 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
+"Število začasnih tabel na disku, ki jih je strežnik samodejno ustvaril med "
+"izvajanjem izjav. Če je Created_tmp_disk_tables velika, boste morda želeli "
+"povečati vrednost tmp_table_size, zaradi česar bodo začasne tabele temeljile "
+"na pomnilniku namesto na disku."
 
 #: libraries/messages.inc.php:65
 msgid "How many temporary files mysqld has created."
@@ -3393,18 +3400,24 @@ msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
+"Število začasnih tabel v-pomnilniku, ki jih je strežnik samodejno ustvaril "
+"med izvajanjem stavkov."
 
 #: libraries/messages.inc.php:67
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
+"Število vrstic zapisanih z INSERT DELAYED, pri katerih je prišlo do neke "
+"napake (najverjetneje podvojen ključ)."
 
 #: libraries/messages.inc.php:68
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
+"Število upravljalnih niti INSERT DELAYED v uporabi. Vsaka različna tabela, "
+"na kateri se uporabi INSERT DELAYED, dobi svojo lastno nit."
 
 #: libraries/messages.inc.php:69
 msgid "The number of INSERT DELAYED rows written."
@@ -3428,6 +3441,9 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
+"Strežnik MySQL lahko vpraša skladiščni pogon NDB Cluster, če ve za tabelo z "
+"navedenim imenom. Temu se reče odkritje. Handler_discover kaže koliko krat "
+"so bile tabele odkrite."
 
 #: libraries/messages.inc.php:74
 msgid ""
@@ -3435,12 +3451,18 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
+"Koliko krat je bil prvi vnos prebran iz indeksa. Če je vrednost visoka, "
+"kaže, da strežnik izvaja mnogo pregledov indeksa; na primer: SELECT col1 "
+"FROM foo, pri čemer se predpostavlja, da je col1 indeksiran."
 
 #: libraries/messages.inc.php:75
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
+"Število zahtev za branje vrstice temelječih na ključu. Če je ta vrednost "
+"visoka, je to dober znak, da so vaše poizvedbe in tabele primerno "
+"indeksirane."
 
 #: libraries/messages.inc.php:76
 msgid ""
@@ -3448,12 +3470,17 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
+"Število zahtev za branje naslednje vrstice v zaporedju ključa. To je "
+"povečano, če poizvedujete po indeksnem stolpcu z omejitvijo obsega ali če "
+"pregledujete indeks."
 
 #: libraries/messages.inc.php:77
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
+"Število poizvedb za branje prejšnje vrstice v zaporedju ključa. Ta postopek "
+"branja se uporablja predvsem za optimizacijo ORDER BY ... DESC."
 
 #: libraries/messages.inc.php:78
 msgid ""
@@ -3462,6 +3489,10 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
+"Število zahtev za branje vrstice temelječih na ustaljenem položaju. To je "
+"visoko, če izvajate veliko poizvedb, ki potrebujejo razvrščanje rezultata. "
+"Najverjetneje imate veliko poizvedb, ki od MySQL zahtevajo pregled celotnih "
+"tabel, ali stike, ki ne uporabljajo ključev pravilno."
 
 #: libraries/messages.inc.php:79
 msgid ""
@@ -3470,6 +3501,10 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
+"Število zahtev za branje naslednje vrstice v podatkovni datoteki. To je "
+"visoko, če izvajate veliko pregledov tabel. Na splošno to kaže, da vaše "
+"tabele niso primerno indeksirane ali da vaše poizvedbe ne izkoristijo "
+"prednosti indeksov, ki jih imate."
 
 #: libraries/messages.inc.php:80
 msgid "The number of internal ROLLBACK statements."
