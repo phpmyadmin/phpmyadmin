@@ -1787,3 +1787,59 @@ function PMA_ajaxShowMessage(message, timeout) {
         });
     }, 'top.frame_content')
 }
+
+/**
+ * jQuery function that uses jQueryUI's dialogs to confirm with user
+ *
+ * @param   string      question
+ * @param   string      url         URL to be passed to the callbackFn to make
+ *                                  an Ajax call to
+ * @param   function    callbackFn  callback to execute after user clicks on OK
+ */
+
+jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
+    if (PMA_messages['strDoYouReally'] == '') {
+        return true;
+    }
+
+    $('<div id="confirm_dialog"></div>')
+    .prepend(question)
+    .dialog({
+        buttons: {"OK": function(){
+                            $(this).dialog("close");
+
+                            if($.isFunction(callbackFn)) {
+                                callbackFn.call(this, url);
+                            }
+                        },
+                 "Cancel": function(){
+                            $(this).dialog("close");
+                        }
+                 }
+    });
+};
+
+/**
+ * jQuery code for Drop Database action on db_structure.php
+ *
+ * @todo    move to a different file as it is not required on every page
+ */
+$(document).ready(function() {
+
+    $("#drop_db_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        //context is top.frame_content, so we need to use window.parent.db to access the db var
+        var question = PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP DATABASE ' + window.parent.db;
+
+        $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
+
+            PMA_ajaxShowMessage("Processing Request");
+            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
+                //Database deleted successfully, refresh both the frames
+                window.parent.refreshNavigation();
+                window.parent.refreshMain();
+            })
+        });
+    })
+}, 'top.frame_content');
