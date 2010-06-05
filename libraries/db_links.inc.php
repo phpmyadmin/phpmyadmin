@@ -47,7 +47,7 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_info
     $tab_drop['args']['back']       = 'db' . $sub_part . '.php';
     $tab_drop['args']['reload']     = 1;
     $tab_drop['args']['purge']      = 1;
-    $tab_drop['attr'] = 'onclick="return confirmLinkDropDB(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
+    $tab_drop['id'] = 'drop_db_anchor';
 }
 
 /**
