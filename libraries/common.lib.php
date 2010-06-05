@@ -1191,7 +1191,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
         $url_params['sql_query']  = $sql_query;
         $url_params['show_query'] = 1;
 
-        if (! empty($cfg['SQLQuery']['Edit']) && ! $query_too_big) {
+        // even if the query is big and was truncated, offer the chance
+        // to edit it (unless it's enormous, see PMA_linkOrButton() )
+        if (! empty($cfg['SQLQuery']['Edit'])) {
             if ($cfg['EditInWindow'] == true) {
                 $onclick = 'window.parent.focus_querywindow(\'' . PMA_jsFormat($sql_query, false) . '\'); return false;';
             } else {
@@ -1689,6 +1691,13 @@ function PMA_generate_html_tabs($tabs, $url_params)
 function PMA_linkOrButton($url, $message, $tag_params = array(),
     $new_form = true, $strip_img = false, $target = '')
 {
+    $url_length = strlen($url);
+    // with this we should be able to catch case of image upload
+    // into a (MEDIUM) BLOB; not worth generating even a form for these
+    if ($url_length > $GLOBALS['cfg']['LinkLengthLimit'] * 100) {
+        return '';
+    }
+
     if (! is_array($tag_params)) {
         $tmp = $tag_params;
         $tag_params = array();
@@ -1710,7 +1719,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         $tag_params_strings[] = $par_name . '="' . $par_value . '"';
     }
 
-    if (strlen($url) <= $GLOBALS['cfg']['LinkLengthLimit']) {
+    if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
         // no whitespace within an <a> else Safari will make it part of the link
         $ret = "\n" . '<a href="' . $url . '" '
             . implode(' ', $tag_params_strings) . '>'
