@@ -15,8 +15,10 @@ if (!defined('PHPMYADMIN')) {
  * Core libraries.
  */
 require_once './libraries/config/Form.class.php';
-require_once './setup/lib/FormDisplay.class.php';
+require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/form_processing.lib.php';
+
+require './setup/lib/forms.inc.php';
 
 $mode = filter_input(INPUT_GET, 'mode');
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
@@ -41,10 +43,10 @@ if (isset($page_title)) {
     echo '<h2>' . $page_title . '</h2>';
 }
 $form_display = new FormDisplay();
-$form_display->registerForm('Server', $id);
-$form_display->registerForm('Server_login_options', $id);
-$form_display->registerForm('Server_config', $id);
-$form_display->registerForm('Server_pmadb', $id);
-$form_display->registerForm('Server_tracking', $id);
+$form_display->registerForm('Server', $forms['Server'], $id);
+$form_display->registerForm('Server_login_options', $forms['Server_login_options'], $id);
+$form_display->registerForm('Server_config', $forms['Server_config'], $id);
+$form_display->registerForm('Server_pmadb', $forms['Server_pmadb'], $id);
+$form_display->registerForm('Server_tracking', $forms['Server_tracking'], $id);
 process_formset($form_display);
 ?>

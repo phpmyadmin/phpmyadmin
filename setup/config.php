@@ -12,10 +12,12 @@
  */
 require './lib/common.inc.php';
 require_once './libraries/config/Form.class.php';
-require_once './setup/lib/FormDisplay.class.php';
+require_once './libraries/config/FormDisplay.class.php';
+
+require './setup/lib/forms.inc.php';
 
 $form_display = new FormDisplay();
-$form_display->registerForm('_config.php');
+$form_display->registerForm('_config.php', $forms['_config.php']);
 $form_display->save('_config.php');
 $config_file_path = ConfigFile::getInstance()->getFilePath();
 

@@ -9,7 +9,7 @@
  * assigned to a form element (formset name or field path). Even if there are
  * no errors, key must be set with an empty value.
  *
- * Valdiation functions are assigned in $cfg_db['_validators'] (config_info.inc.php).
+ * Valdiation functions are assigned in $cfg_db['_validators'] (config.values.php).
  *
  * @package    phpMyAdmin-setup
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
@@ -193,7 +193,7 @@ function validate_server($path, $values)
  */
 function validate_pmadb($path, $values)
 {
-    $tables = array('Servers/1/bookmarktable', 'Servers/1/relation', 'Servers/1/table_info', 'Servers/1/table_coords', 'Servers/1/pdf_pages', 'Servers/1/column_info', 'Servers/1/history', 'Servers/1/designer_coords');
+    //$tables = array('Servers/1/bookmarktable', 'Servers/1/relation', 'Servers/1/table_info', 'Servers/1/table_coords', 'Servers/1/pdf_pages', 'Servers/1/column_info', 'Servers/1/history', 'Servers/1/designer_coords');
     $result = array('Server_pmadb' => '', 'Servers/1/controluser' => '', 'Servers/1/controlpass' => '');
     $error = false;
 

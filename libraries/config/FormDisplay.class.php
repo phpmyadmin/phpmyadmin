@@ -71,11 +71,12 @@ class FormDisplay
      * Registers form in form manager
      *
      * @param string $form_name
+     * @param array  $form
      * @param int    $server_id 0 if new server, validation; >= 1 if editing a server
      */
-    public function registerForm($form_name, $server_id = null)
+    public function registerForm($form_name, array $form, $server_id = null)
     {
-        $this->forms[$form_name] = new Form($form_name, $server_id);
+        $this->forms[$form_name] = new Form($form_name, $form, $server_id);
         $this->is_valdiated = false;
         foreach ($this->forms[$form_name]->fields as $path) {
             $work_path = $server_id === null
@@ -162,7 +163,7 @@ class FormDisplay
         $js = array();
         $js_default = array();
         $tabbed_form = $tabbed_form && (count($this->forms) > 1);
-        $validators = ConfigFile::getInstance()->getDbEntry('_validators');
+        $validators = ConfigFile::getInstance()->getDbEntry('_validators', array());
 
         display_form_top();
 

@@ -82,4 +82,33 @@ $cfg_db['Export']['format'] = array('codegen', 'csv', 'excel', 'htmlexcel',
 $cfg_db['Export']['compression'] = array('none', 'zip', 'gzip', 'bzip2');
 $cfg_db['Export']['charset'] = array_merge(array(''), $GLOBALS['cfg']['AvailableCharsets']);
 
+/**
+ * Default values overrides
+ * Use only full paths
+ */
+$cfg_db['_overrides'] = array();
+$cfg_db['_overrides']['Servers/1/extension'] = extension_loaded('mysqli')
+    ? 'mysqli' : 'mysql';
+
+/**
+ * Validator assignments (functions from setup/validate.lib.php and 'validators'
+ * object in setup/scripts.js)
+ * Use only full paths and form ids
+ */
+$cfg_db['_validators'] = array(
+    'Server' => 'validate_server',
+    'Server_pmadb' => 'validate_pmadb',
+    'Servers/1/port' => 'validate_port_number',
+    'Servers/1/hide_db' => 'validate_regex',
+    'TrustedProxies' => 'validate_trusted_proxies',
+    'LoginCookieValidity' => 'validate_positive_number',
+    'LoginCookieStore' => 'validate_non_negative_number',
+    'QueryHistoryMax' => 'validate_positive_number',
+    'LeftFrameTableLevel' => 'validate_positive_number',
+    'MaxRows' => 'validate_positive_number',
+    'CharTextareaCols' => 'validate_positive_number',
+    'CharTextareaRows' => 'validate_positive_number',
+    'InsertRows' => 'validate_positive_number',
+    'ForeignKeyMaxLimit' => 'validate_positive_number',
+    'Import/skip_queries' => 'validate_non_negative_number');
 ?>

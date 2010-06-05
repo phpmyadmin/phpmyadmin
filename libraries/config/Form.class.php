@@ -45,21 +45,16 @@ class Form
     private $fieldsTypes;
 
     /**
-     * Cached forms
-     * @var array
-     */
-    private static $_forms;
-
-    /**
      * Constructor, reads default config values
      *
      * @param string  $form_name
+     * @param array   $form
      * @param int     $index      arbitrary index, stored in Form::$index
      */
-    public function __construct($form_name, $index = null)
+    public function __construct($form_name, array $form, $index = null)
     {
         $this->index = $index;
-        $this->loadForm($form_name);
+        $this->loadForm($form_name, $form);
     }
 
     /**
@@ -120,21 +115,14 @@ class Form
 
     /**
      * Reads form paths to {@link $fields}
+     *
+     * @param array $form
      */
-    protected function readFormPaths()
+    protected function readFormPaths($form)
     {
-        if (is_null(self::$_forms)) {
-            $forms =& self::$_forms;
-            require './setup/lib/forms.inc.php';
-        }
-
-        if (!isset(self::$_forms[$this->name])) {
-            return;
-        }
-
         // flatten form fields' paths and save them to $fields
         $this->fields = array();
-        array_walk(self::$_forms[$this->name], array($this, '_readFormPathsCallback'), '');
+        array_walk($form, array($this, '_readFormPathsCallback'), '');
 
         // $this->fields is an array of the form: [0..n] => 'field path'
         // change numeric indexes to contain field names (last part of the path)
@@ -170,11 +158,12 @@ class Form
      * config file
      *
      * @param string $form_name
+     * @param array  $form
      */
-    public function loadForm($form_name)
+    public function loadForm($form_name, $form)
     {
         $this->name = $form_name;
-        $this->readFormPaths();
+        $this->readFormPaths($form);
         $this->readTypes();
     }
 }

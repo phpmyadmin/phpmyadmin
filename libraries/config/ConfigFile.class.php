@@ -3,14 +3,13 @@
  * Config file management and generation
  *
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
- * @package    phpMyAdmin-setup
+ * @package    phpMyAdmin
  */
 
 /**
  * Config file management and generation class
  *
- * @package    phpMyAdmin-setup
+ * @package    phpMyAdmin
  */
 class ConfigFile
 {
@@ -49,8 +48,7 @@ class ConfigFile
 
         // load additionsl config information
         $cfg_db = &$this->cfgDb;
-        $persist_keys = array();
-        require './setup/lib/config_info.inc.php';
+        require './libraries/config.values.php';
 
         // apply default values overrides
         if (count($cfg_db['_overrides'])) {
@@ -58,9 +56,6 @@ class ConfigFile
                 PMA_array_write($path, $cfg, $value);
             }
         }
-
-        // checking key presence is much faster than searching so move values to keys
-        $this->persistKeys = array_flip($persist_keys);
     }
 
     /**
@@ -74,6 +69,18 @@ class ConfigFile
             self::$_instance = new ConfigFile();
         }
         return self::$_instance;
+    }
+
+    /**
+     * Sets names of config options which will be placed in config file even if they are set
+     * to their default values (use only full paths)
+     *
+     * @param array $keys
+     */
+    public function setPersistKeys($keys)
+    {
+        // checking key presence is much faster than searching so move values to keys
+        $this->persistKeys = array_flip($keys);
     }
 
     /**
@@ -112,7 +119,7 @@ class ConfigFile
 
     /**
      * Returns default config value or $default it it's not set ie. it doesn't
-     * exist in config.default.php ($cfg) and config_info.inc.php
+     * exist in config.default.php ($cfg) and config.values.php
      * ($_cfg_db['_overrides'])
      *
      * @param  string $canonical_path
@@ -312,7 +319,7 @@ class ConfigFile
                 unset($persistKeys[$k]);
             }
         }
-        // keep 1d array keys which are present in $persist_keys (config_info.inc.php)
+        // keep 1d array keys which are present in $persist_keys (config.values.php)
         foreach (array_keys($persistKeys) as $k) {
             if (strpos($k, '/') === false) {
                 $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);

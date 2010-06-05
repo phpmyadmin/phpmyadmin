@@ -15,8 +15,10 @@ if (!defined('PHPMYADMIN')) {
  * Core libraries.
  */
 require_once './libraries/config/Form.class.php';
-require_once './setup/lib/FormDisplay.class.php';
+require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/form_processing.lib.php';
+
+require './setup/lib/forms.inc.php';
 
 $formsets = array(
     'features' => array(
@@ -43,7 +45,7 @@ if (isset($GLOBALS['strSetupFormset_' . $formset_id])) {
 }
 $form_display = new FormDisplay();
 foreach ($formset['forms'] as $form_name) {
-    $form_display->registerForm($form_name);
+    $form_display->registerForm($form_name, $forms[$form_name]);
 }
 process_formset($form_display);
 ?>

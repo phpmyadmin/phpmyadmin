@@ -15,7 +15,7 @@ if (!defined('PHPMYADMIN')) {
  * Core libraries.
  */
 require_once './libraries/display_select_lang.lib.php';
-require_once './setup/lib/FormDisplay.class.php';
+require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/index.lib.php';
 
 // prepare unfiltered language list
