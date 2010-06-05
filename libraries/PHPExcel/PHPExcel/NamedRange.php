@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,28 +20,10 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../');
-}
-
-/** PHPExcel */
-require_once PHPEXCEL_ROOT . 'PHPExcel.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_ReferenceHelper */
-require_once PHPEXCEL_ROOT . 'PHPExcel/ReferenceHelper.php';
 
 
 /**
@@ -49,7 +31,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/ReferenceHelper.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_NamedRange
 {
@@ -81,6 +63,13 @@ class PHPExcel_NamedRange
 	 */
 	private $_localOnly;
 
+	/**
+	 * Scope
+	 *
+	 * @var PHPExcel_Worksheet
+	 */
+	private $_scope;
+
     /**
      * Create a new NamedRange
      *
@@ -88,8 +77,9 @@ class PHPExcel_NamedRange
      * @param PHPExcel_Worksheet $pWorksheet
      * @param string $pRange
      * @param bool $pLocalOnly
+     * @param PHPExcel_Worksheet|null $pScope	Scope. Only applies when $pLocalOnly = true. Null for global scope.
      */
-    public function __construct($pName = null, PHPExcel_Worksheet $pWorksheet, $pRange = 'A1', $pLocalOnly = false)
+    public function __construct($pName = null, PHPExcel_Worksheet $pWorksheet, $pRange = 'A1', $pLocalOnly = false, $pScope = null)
     {
     	// Validate data
     	if (is_null($pName) || is_null($pWorksheet)|| is_null($pRange)) {
@@ -101,6 +91,8 @@ class PHPExcel_NamedRange
     	$this->_worksheet 	= $pWorksheet;
     	$this->_range 		= $pRange;
     	$this->_localOnly 	= $pLocalOnly;
+    	$this->_scope 		= ($pLocalOnly == true) ?
+								(($pScope == null) ? $pWorksheet : $pScope) : null;
     }
 
     /**
@@ -201,6 +193,28 @@ class PHPExcel_NamedRange
      */
     public function setLocalOnly($value = false) {
     	$this->_localOnly = $value;
+    	$this->_scope = $value ? $this->_worksheet : null;
+    	return $this;
+    }
+
+    /**
+     * Get scope
+     *
+     * @return PHPExcel_Worksheet|null
+     */
+    public function getScope() {
+    	return $this->_scope;
+    }
+
+    /**
+     * Set scope
+     *
+     * @param PHPExcel_Worksheet|null $value
+     * @return PHPExcel_NamedRange
+     */
+    public function setScope(PHPExcel_Worksheet $value = null) {
+    	$this->_scope = $value;
+    	$this->_localOnly = ($value == null) ? false : true;
     	return $this;
     }
 
@@ -208,7 +222,7 @@ class PHPExcel_NamedRange
      * Resolve a named range to a regular cell range
      *
      * @param string $pNamedRange Named range
-     * @param PHPExcel_Worksheet $pSheet Worksheet
+     * @param PHPExcel_Worksheet|null $pSheet Scope. Use null for global scope
      * @return PHPExcel_NamedRange
      */
     public static function resolveRange($pNamedRange = '', PHPExcel_Worksheet $pSheet) {

@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,10 +20,26 @@
  *
  * @category	PHPExcel
  * @package		PHPExcel_Calculation
- * @copyright	Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright	Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license		http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version		1.7.0, 2009-08-10
+ * @version		1.7.3c, 2010-06-01
  */
+
+
+/** PHPExcel root directory */
+if (!defined('PHPEXCEL_ROOT')) {
+	/**
+	 * @ignore
+	 */
+	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
+	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
+	PHPExcel_Autoloader::Register();
+	PHPExcel_Shared_ZipStreamWrapper::register();
+	// check mbstring.func_overload
+	if (ini_get('mbstring.func_overload') & 2) {
+		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
+	}
+}
 
 
 /** EPS */
@@ -38,14 +54,21 @@ define('LOG_GAMMA_X_MAX_VALUE', 2.55e305);
 /** SQRT2PI */
 define('SQRT2PI', 2.5066282746310005024157652848110452530069867406099);
 
+/** 2 / PI */
+define('M_2DIVPI', 0.63661977236758134307553505349006);
+
 /** XMININ */
 define('XMININ', 2.23e-308);
 
 /** MAX_ITERATIONS */
-define('MAX_ITERATIONS', 150);
+define('MAX_ITERATIONS', 256);
+/** FINANCIAL_MAX_ITERATIONS */
+define('FINANCIAL_MAX_ITERATIONS', 128);
 
 /** PRECISION */
 define('PRECISION', 8.88E-016);
+/** FINANCIAL_PRECISION */
+define('FINANCIAL_PRECISION', 1.0e-08);
 
 /** EULER */
 define('EULER', 2.71828182845904523536);
@@ -55,26 +78,6 @@ if ($savedPrecision < 16) {
 	ini_set('precision',16);
 }
 
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Cell_DataType */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell/DataType.php';
-
-/** PHPExcel_Style_NumberFormat */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/NumberFormat.php';
-
-/** PHPExcel_Shared_Date */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Date.php';
 
 /** Matrix */
 require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/JAMA/Matrix.php';
@@ -86,7 +89,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/trend/trendClass.php';
  *
  * @category	PHPExcel
  * @package		PHPExcel_Calculation
- * @copyright	Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright	Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Calculation_Functions {
 
@@ -112,7 +115,7 @@ class PHPExcel_Calculation_Functions {
 	 *	Data Type to use when returning date values
 	 *
 	 *	@access	private
-	 *	@var integer
+	 *	@var string
 	 */
 	private static $ReturnDateType	= self::RETURNDATE_EXCEL;
 
@@ -226,8 +229,14 @@ class PHPExcel_Calculation_Functions {
 	/**
 	 *	NA
 	 *
+	 *	Excel Function:
+	 *		=NA()
+	 *
+	 *	Returns the error value #N/A
+	 *		#N/A is the error value that means "no value is available."
+	 *
 	 *	@access	public
-	 *	@category Error Returns
+	 *	@category Logical Functions
 	 *	@return	string	#N/A!
 	 */
 	public static function NA() {
@@ -237,6 +246,8 @@ class PHPExcel_Calculation_Functions {
 
 	/**
 	 *	NAN
+	 *
+	 *	Returns the error value #NUM!
 	 *
 	 *	@access	public
 	 *	@category Error Returns
@@ -250,9 +261,11 @@ class PHPExcel_Calculation_Functions {
 	/**
 	 *	NAME
 	 *
+	 *	Returns the error value #NAME?
+	 *
 	 *	@access	public
 	 *	@category Error Returns
-	 *	@return	string	#NAME!
+	 *	@return	string	#NAME?
 	 */
 	public static function NAME() {
 		return self::$_errorCodes['name'];
@@ -261,6 +274,8 @@ class PHPExcel_Calculation_Functions {
 
 	/**
 	 *	REF
+	 *
+	 *	Returns the error value #REF!
 	 *
 	 *	@access	public
 	 *	@category Error Returns
@@ -272,20 +287,49 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
+	 *	VALUE
+	 *
+	 *	Returns the error value #VALUE!
+	 *
+	 *	@access	public
+	 *	@category Error Returns
+	 *	@return	string	#VALUE!
+	 */
+	public static function VALUE() {
+		return self::$_errorCodes['value'];
+	}	//	function VALUE()
+
+
+	private static function isMatrixValue($idx) {
+		return ((substr_count($idx,'.') <= 1) || (preg_match('/\.[A-Z]/',$idx) > 0));
+	}
+
+
+	private static function isValue($idx) {
+		return (substr_count($idx,'.') == 0);
+	}
+
+
+	private static function isCellValue($idx) {
+		return (substr_count($idx,'.') > 1);
+	}
+
+
+	/**
 	 *	LOGICAL_AND
 	 *
 	 *	Returns boolean TRUE if all its arguments are TRUE; returns FALSE if one or more argument is FALSE.
 	 *
 	 *	Excel Function:
-	 *		AND(logical1[,logical2[, ...]])
+	 *		=AND(logical1[,logical2[, ...]])
 	 *
 	 *		The arguments must evaluate to logical values such as TRUE or FALSE, or the arguments must be arrays
 	 *			or references that contain logical values.
 	 *
-	 *		Booleans arguments are treated as True or False as appropriate
+	 *		Boolean arguments are treated as True or False as appropriate
 	 *		Integer or floating point arguments are treated as True, except for 0 or 0.0 which are False
-	 *		If any argument value is a string, or a Null, the function returns a #VALUE! error, unless the string holds the value TRUE or FALSE,
-	 *			holds the value TRUE or FALSE, in which case it is evaluated as a boolean
+	 *		If any argument value is a string, or a Null, the function returns a #VALUE! error, unless the string holds
+	 *			the value TRUE or FALSE, in which case it is evaluated as the corresponding boolean value
 	 *
 	 *	@access	public
 	 *	@category Logical Functions
@@ -303,10 +347,8 @@ class PHPExcel_Calculation_Functions {
 			// Is it a boolean value?
 			if (is_bool($arg)) {
 				$returnValue = $returnValue && $arg;
-				++$argCount;
 			} elseif ((is_numeric($arg)) && (!is_string($arg))) {
 				$returnValue = $returnValue && ($arg != 0);
-				++$argCount;
 			} elseif (is_string($arg)) {
 				$arg = strtoupper($arg);
 				if ($arg == 'TRUE') {
@@ -317,8 +359,8 @@ class PHPExcel_Calculation_Functions {
 					return self::$_errorCodes['value'];
 				}
 				$returnValue = $returnValue && ($arg != 0);
-				++$argCount;
 			}
+			++$argCount;
 		}
 
 		// Return
@@ -335,15 +377,15 @@ class PHPExcel_Calculation_Functions {
 	 *	Returns boolean TRUE if any argument is TRUE; returns FALSE if all arguments are FALSE.
 	 *
 	 *	Excel Function:
-	 *		OR(logical1[,logical2[, ...]])
+	 *		=OR(logical1[,logical2[, ...]])
 	 *
 	 *		The arguments must evaluate to logical values such as TRUE or FALSE, or the arguments must be arrays
 	 *			or references that contain logical values.
 	 *
-	 *		Booleans arguments are treated as True or False as appropriate
+	 *		Boolean arguments are treated as True or False as appropriate
 	 *		Integer or floating point arguments are treated as True, except for 0 or 0.0 which are False
-	 *		If any argument value is a string, or a Null, the function returns a #VALUE! error, unless the string
-	 *			holds the value TRUE or FALSE, in which case it is evaluated as a boolean
+	 *		If any argument value is a string, or a Null, the function returns a #VALUE! error, unless the string holds
+	 *			the value TRUE or FALSE, in which case it is evaluated as the corresponding boolean value
 	 *
 	 *	@access	public
 	 *	@category Logical Functions
@@ -361,10 +403,8 @@ class PHPExcel_Calculation_Functions {
 			// Is it a boolean value?
 			if (is_bool($arg)) {
 				$returnValue = $returnValue || $arg;
-				++$argCount;
 			} elseif ((is_numeric($arg)) && (!is_string($arg))) {
 				$returnValue = $returnValue || ($arg != 0);
-				++$argCount;
 			} elseif (is_string($arg)) {
 				$arg = strtoupper($arg);
 				if ($arg == 'TRUE') {
@@ -375,8 +415,8 @@ class PHPExcel_Calculation_Functions {
 					return self::$_errorCodes['value'];
 				}
 				$returnValue = $returnValue || ($arg != 0);
-				++$argCount;
 			}
+			++$argCount;
 		}
 
 		// Return
@@ -393,7 +433,7 @@ class PHPExcel_Calculation_Functions {
 	 *	Returns the boolean FALSE.
 	 *
 	 *	Excel Function:
-	 *		FALSE()
+	 *		=FALSE()
 	 *
 	 *	@access	public
 	 *	@category Logical Functions
@@ -410,7 +450,7 @@ class PHPExcel_Calculation_Functions {
 	 *	Returns the boolean TRUE.
 	 *
 	 *	Excel Function:
-	 *		TRUE()
+	 *		=TRUE()
 	 *
 	 *	@access	public
 	 *	@category Logical Functions
@@ -427,7 +467,14 @@ class PHPExcel_Calculation_Functions {
 	 *	Returns the boolean inverse of the argument.
 	 *
 	 *	Excel Function:
-	 *		NOT(logical)
+	 *		=NOT(logical)
+	 *
+	 *		The argument must evaluate to a logical value such as TRUE or FALSE
+	 *
+	 *		Boolean arguments are treated as True or False as appropriate
+	 *		Integer or floating point arguments are treated as True, except for 0 or 0.0 which are False
+	 *		If any argument value is a string, or a Null, the function returns a #VALUE! error, unless the string holds
+	 *			the value TRUE or FALSE, in which case it is evaluated as the corresponding boolean value
 	 *
 	 *	@access	public
 	 *	@category Logical Functions
@@ -435,6 +482,18 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	boolean		The boolean inverse of the argument.
 	 */
 	public static function LOGICAL_NOT($logical) {
+		$logical = self::flattenSingleValue($logical);
+		if (is_string($logical)) {
+			$logical = strtoupper($logical);
+			if ($logical == 'TRUE') {
+				return False;
+			} elseif ($logical == 'FALSE') {
+				return True;
+			} else {
+				return self::$_errorCodes['value'];
+			}
+		}
+
 		return !$logical;
 	}	//	function LOGICAL_NOT()
 
@@ -445,7 +504,7 @@ class PHPExcel_Calculation_Functions {
 	 *	Returns one value if a condition you specify evaluates to TRUE and another value if it evaluates to FALSE.
 	 *
 	 *	Excel Function:
-	 *		IF(condition[,returnIfTrue[,returnIfFalse]])
+	 *		=IF(condition[,returnIfTrue[,returnIfFalse]])
 	 *
 	 *		Condition is any value or expression that can be evaluated to TRUE or FALSE.
 	 *			For example, A10=100 is a logical expression; if the value in cell A10 is equal to 100,
@@ -464,17 +523,17 @@ class PHPExcel_Calculation_Functions {
 	 *			If condition is FALSE and ReturnIfFalse is blank, then the value 0 (zero) is returned.
 	 *			ReturnIfFalse can be another formula.
 	 *
+	 *	@access	public
+	 *	@category Logical Functions
 	 *	@param	mixed	$condition		Condition to evaluate
 	 *	@param	mixed	$returnIfTrue	Value to return when condition is true
-	 *	@param	mixed	$returnIfFalse	Value to return when condition is false
+	 *	@param	mixed	$returnIfFalse	Optional value to return when condition is false
 	 *	@return	mixed	The value of returnIfTrue or returnIfFalse determined by condition
 	 */
 	public static function STATEMENT_IF($condition = true, $returnIfTrue = 0, $returnIfFalse = False) {
-		$condition		= self::flattenSingleValue($condition);
-		$returnIfTrue	= self::flattenSingleValue($returnIfTrue);
-		$returnIfFalse	= self::flattenSingleValue($returnIfFalse);
-		if (is_null($returnIfTrue)) { $returnIfTrue = 0; }
-		if (is_null($returnIfFalse)) { $returnIfFalse = 0; }
+		$condition		= (is_null($condition))		? True :	(boolean) self::flattenSingleValue($condition);
+		$returnIfTrue	= (is_null($returnIfTrue))	? 0 :		self::flattenSingleValue($returnIfTrue);
+		$returnIfFalse	= (is_null($returnIfFalse))	? False :	self::flattenSingleValue($returnIfFalse);
 
 		return ($condition ? $returnIfTrue : $returnIfFalse);
 	}	//	function STATEMENT_IF()
@@ -483,13 +542,54 @@ class PHPExcel_Calculation_Functions {
 	/**
 	 *	STATEMENT_IFERROR
 	 *
-	 *	@param	mixed	$value		Value to check , is also value when no error
-	 *	@param	mixed	$errorpart	Value when error
-	 *	@return	mixed
+	 *	Excel Function:
+	 *		=IFERROR(testValue,errorpart)
+	 *
+	 *	@access	public
+	 *	@category Logical Functions
+	 *	@param	mixed	$testValue	Value to check, is also the value returned when no error
+	 *	@param	mixed	$errorpart	Value to return when testValue is an error condition
+	 *	@return	mixed	The value of errorpart or testValue determined by error condition
 	 */
-	public static function STATEMENT_IFERROR($value = '', $errorpart = '') {
-		return self::STATEMENT_IF(self::IS_ERROR($value), $errorpart, $value);
+	public static function STATEMENT_IFERROR($testValue = '', $errorpart = '') {
+		$testValue	= (is_null($testValue))	? '' :	self::flattenSingleValue($testValue);
+		$errorpart	= (is_null($errorpart))	? '' :	self::flattenSingleValue($errorpart);
+
+		return self::STATEMENT_IF(self::IS_ERROR($testValue), $errorpart, $testValue);
 	}	//	function STATEMENT_IFERROR()
+
+
+	/**
+	 *	HYPERLINK
+	 *
+	 *	Excel Function:
+	 *		=HYPERLINK(linkURL,displayName)
+	 *
+	 *	@access	public
+	 *	@category Logical Functions
+	 *	@param	string	$linkURL		Value to check, is also the value returned when no error
+	 *	@param	string	$displayName	Value to return when testValue is an error condition
+	 *	@return	mixed	The value of errorpart or testValue determined by error condition
+	 */
+	public static function HYPERLINK($linkURL = '', $displayName = null, PHPExcel_Cell $pCell = null) {
+		$args = func_get_args();
+		$pCell = array_pop($args);
+
+		$linkURL		= (is_null($linkURL))		? '' :	self::flattenSingleValue($linkURL);
+		$displayName	= (is_null($displayName))	? '' :	self::flattenSingleValue($displayName);
+
+		if ((!is_object($pCell)) || (trim($linkURL) == '')) {
+			return self::$_errorCodes['reference'];
+		}
+
+		if ((is_object($displayName)) || trim($displayName) == '') {
+			$displayName = $linkURL;
+		}
+
+		$pCell->getHyperlink()->setUrl($linkURL);
+
+		return $displayName;
+	}	//	function HYPERLINK()
 
 
 	/**
@@ -542,7 +642,7 @@ class PHPExcel_Calculation_Functions {
 	 */
 	public static function LOG_BASE($number, $base=10) {
 		$number	= self::flattenSingleValue($number);
-		$base	= self::flattenSingleValue($base);
+		$base	= (is_null($base))	? 10 :	(float) self::flattenSingleValue($base);
 
 		return log($number, $base);
 	}	//	function LOG_BASE()
@@ -596,12 +696,12 @@ class PHPExcel_Calculation_Functions {
 		// Return value
 		$returnValue = 0;
 
-		// Loop trough arguments
+		// Loop through arguments
 		$aArgs = self::flattenArray(func_get_args());
 		foreach ($aArgs as $arg) {
 			// Is it a numeric value?
 			if ((is_numeric($arg)) && (!is_string($arg))) {
-				$returnValue += pow($arg,2);
+				$returnValue += ($arg * $arg);
 			}
 		}
 
@@ -627,7 +727,7 @@ class PHPExcel_Calculation_Functions {
 		// Return value
 		$returnValue = null;
 
-		// Loop trough arguments
+		// Loop through arguments
 		$aArgs = self::flattenArray(func_get_args());
 		foreach ($aArgs as $arg) {
 			// Is it a numeric value?
@@ -666,7 +766,7 @@ class PHPExcel_Calculation_Functions {
 		// Return value
 		$returnValue = null;
 
-		// Loop trough arguments
+		// Loop through arguments
 		$aArgs = self::flattenArray(func_get_args());
 		foreach ($aArgs as $arg) {
 			// Is it a numeric value?
@@ -706,7 +806,7 @@ class PHPExcel_Calculation_Functions {
 		// Return value
 		$returnValue = null;
 
-		// Loop trough arguments
+		// Loop through arguments
 		$aArgs = self::flattenArray(func_get_args());
 		foreach ($aArgs as $arg) {
 			// Is it a numeric value?
@@ -767,6 +867,46 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
+	 *	MINIF
+	 *
+	 *	Returns the minimum value within a range of cells that contain numbers within the list of arguments
+	 *
+	 *	Excel Function:
+	 *		MINIF(value1[,value2[, ...]],condition)
+	 *
+	 *	@access	public
+	 *	@category Mathematical and Trigonometric Functions
+	 *	@param	mixed		$arg,...		Data values
+	 *	@param	string		$condition		The criteria that defines which cells will be checked.
+	 *	@return	float
+	 */
+	public static function MINIF($aArgs,$condition,$sumArgs = array()) {
+		// Return value
+		$returnValue = null;
+
+		$aArgs = self::flattenArray($aArgs);
+		$sumArgs = self::flattenArray($sumArgs);
+		if (count($sumArgs) == 0) {
+			$sumArgs = $aArgs;
+		}
+		$condition = self::_ifCondition($condition);
+		// Loop through arguments
+		foreach ($aArgs as $key => $arg) {
+			if (!is_numeric($arg)) { $arg = PHPExcel_Calculation::_wrapResult(strtoupper($arg)); }
+			$testCondition = '='.$arg.$condition;
+			if (PHPExcel_Calculation::getInstance()->_calculateFormulaValue($testCondition)) {
+				if ((is_null($returnValue)) || ($arg < $returnValue)) {
+					$returnValue = $arg;
+				}
+			}
+		}
+
+		// Return
+		return $returnValue;
+	}	//	function MINIF()
+
+
+	/**
 	 *	SMALL
 	 *
 	 *	Returns the nth smallest value in a data set. You can use this function to
@@ -785,9 +925,9 @@ class PHPExcel_Calculation_Functions {
 		$aArgs = self::flattenArray(func_get_args());
 
 		// Calculate
-		$n = array_pop($aArgs);
+		$entry = array_pop($aArgs);
 
-		if ((is_numeric($n)) && (!is_string($n))) {
+		if ((is_numeric($entry)) && (!is_string($entry))) {
 			$mArgs = array();
 			foreach ($aArgs as $arg) {
 				// Is it a numeric value?
@@ -796,12 +936,12 @@ class PHPExcel_Calculation_Functions {
 				}
 			}
 			$count = self::COUNT($mArgs);
-			$n = floor(--$n);
-			if (($n < 0) || ($n >= $count) || ($count == 0)) {
+			$entry = floor(--$entry);
+			if (($entry < 0) || ($entry >= $count) || ($count == 0)) {
 				return self::$_errorCodes['num'];
 			}
 			sort($mArgs);
-			return $mArgs[$n];
+			return $mArgs[$entry];
 		}
 		return self::$_errorCodes['value'];
 	}	//	function SMALL()
@@ -825,7 +965,7 @@ class PHPExcel_Calculation_Functions {
 		// Return value
 		$returnValue = null;
 
-		// Loop trough arguments
+		// Loop through arguments
 		$aArgs = self::flattenArray(func_get_args());
 		foreach ($aArgs as $arg) {
 			// Is it a numeric value?
@@ -885,6 +1025,59 @@ class PHPExcel_Calculation_Functions {
 	}	//	function MAXA()
 
 
+	private static function _ifCondition($condition) {
+		$condition	= self::flattenSingleValue($condition);
+		if (!in_array($condition{0},array('>', '<', '='))) {
+			if (!is_numeric($condition)) { $condition = PHPExcel_Calculation::_wrapResult(strtoupper($condition)); }
+			return '='.$condition;
+		} else {
+			preg_match('/([<>=]+)(.*)/',$condition,$matches);
+			list(,$operator,$operand) = $matches;
+			if (!is_numeric($operand)) { $operand = PHPExcel_Calculation::_wrapResult(strtoupper($operand)); }
+			return $operator.$operand;
+		}
+	}	//	function _ifCondition()
+
+	/**
+	 *	MAXIF
+	 *
+	 *	Counts the maximum value within a range of cells that contain numbers within the list of arguments
+	 *
+	 *	Excel Function:
+	 *		MAXIF(value1[,value2[, ...]],condition)
+	 *
+	 *	@access	public
+	 *	@category Mathematical and Trigonometric Functions
+	 *	@param	mixed		$arg,...		Data values
+	 *	@param	string		$condition		The criteria that defines which cells will be checked.
+	 *	@return	float
+	 */
+	public static function MAXIF($aArgs,$condition,$sumArgs = array()) {
+		// Return value
+		$returnValue = null;
+
+		$aArgs = self::flattenArray($aArgs);
+		$sumArgs = self::flattenArray($sumArgs);
+		if (count($sumArgs) == 0) {
+			$sumArgs = $aArgs;
+		}
+		$condition = self::_ifCondition($condition);
+		// Loop through arguments
+		foreach ($aArgs as $key => $arg) {
+			if (!is_numeric($arg)) { $arg = PHPExcel_Calculation::_wrapResult(strtoupper($arg)); }
+			$testCondition = '='.$arg.$condition;
+			if (PHPExcel_Calculation::getInstance()->_calculateFormulaValue($testCondition)) {
+				if ((is_null($returnValue)) || ($arg > $returnValue)) {
+					$returnValue = $arg;
+				}
+			}
+		}
+
+		// Return
+		return $returnValue;
+	}	//	function MAXIF()
+
+
 	/**
 	 *	LARGE
 	 *
@@ -905,9 +1098,9 @@ class PHPExcel_Calculation_Functions {
 		$aArgs = self::flattenArray(func_get_args());
 
 		// Calculate
-		$n = floor(array_pop($aArgs));
+		$entry = floor(array_pop($aArgs));
 
-		if ((is_numeric($n)) && (!is_string($n))) {
+		if ((is_numeric($entry)) && (!is_string($entry))) {
 			$mArgs = array();
 			foreach ($aArgs as $arg) {
 				// Is it a numeric value?
@@ -916,12 +1109,12 @@ class PHPExcel_Calculation_Functions {
 				}
 			}
 			$count = self::COUNT($mArgs);
-			$n = floor(--$n);
-			if (($n < 0) || ($n >= $count) || ($count == 0)) {
+			$entry = floor(--$entry);
+			if (($entry < 0) || ($entry >= $count) || ($count == 0)) {
 				return self::$_errorCodes['num'];
 			}
 			rsort($mArgs);
-			return $mArgs[$n];
+			return $mArgs[$entry];
 		}
 		return self::$_errorCodes['value'];
 	}	//	function LARGE()
@@ -1025,11 +1218,12 @@ class PHPExcel_Calculation_Functions {
 		// Return value
 		$returnValue = 0;
 
-		// Loop trough arguments
-		$aArgs = self::flattenArray(func_get_args());
-		foreach ($aArgs as $arg) {
-			if ((is_bool($arg)) && (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE)) {
-				$arg = (int) $arg;
+		// Loop through arguments
+		$aArgs = self::flattenArrayIndexed(func_get_args());
+		foreach ($aArgs as $k => $arg) {
+			if ((is_bool($arg)) &&
+				((!self::isCellValue($k)) || (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE))) {
+				$arg = (integer) $arg;
 			}
 			// Is it a numeric value?
 			if ((is_numeric($arg)) && (!is_string($arg))) {
@@ -1059,7 +1253,7 @@ class PHPExcel_Calculation_Functions {
 		// Return value
 		$returnValue = 0;
 
-		// Loop trough arguments
+		// Loop through arguments
 		$aArgs = self::flattenArray(func_get_args());
 		foreach ($aArgs as $arg) {
 			// Is it a blank cell?
@@ -1123,10 +1317,7 @@ class PHPExcel_Calculation_Functions {
 		$returnValue = 0;
 
 		$aArgs = self::flattenArray($aArgs);
-		if (!in_array($condition{0},array('>', '<', '='))) {
-			if (!is_numeric($condition)) { $condition = PHPExcel_Calculation::_wrapResult(strtoupper($condition)); }
-			$condition = '='.$condition;
-		}
+		$condition = self::_ifCondition($condition);
 		// Loop through arguments
 		foreach ($aArgs as $arg) {
 			if (!is_numeric($arg)) { $arg = PHPExcel_Calculation::_wrapResult(strtoupper($arg)); }
@@ -1165,10 +1356,7 @@ class PHPExcel_Calculation_Functions {
 		if (count($sumArgs) == 0) {
 			$sumArgs = $aArgs;
 		}
-		if (!in_array($condition{0},array('>', '<', '='))) {
-			if (!is_numeric($condition)) { $condition = PHPExcel_Calculation::_wrapResult(strtoupper($condition)); }
-			$condition = '='.$condition;
-		}
+		$condition = self::_ifCondition($condition);
 		// Loop through arguments
 		foreach ($aArgs as $key => $arg) {
 			if (!is_numeric($arg)) { $arg = PHPExcel_Calculation::_wrapResult(strtoupper($arg)); }
@@ -1198,14 +1386,13 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function AVERAGE() {
-		// Return value
-		$returnValue = 0;
+		$aArgs = self::flattenArrayIndexed(func_get_args());
 
+		$returnValue = $aCount = 0;
 		// Loop through arguments
-		$aArgs = self::flattenArray(func_get_args());
-		$aCount = 0;
-		foreach ($aArgs as $arg) {
-			if ((is_bool($arg)) && (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE)) {
+		foreach ($aArgs as $k => $arg) {
+			if ((is_bool($arg)) &&
+				((!self::isCellValue($k)) || (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE))) {
 				$arg = (integer) $arg;
 			}
 			// Is it a numeric value?
@@ -1246,21 +1433,25 @@ class PHPExcel_Calculation_Functions {
 		$returnValue = null;
 
 		// Loop through arguments
-		$aArgs = self::flattenArray(func_get_args());
+		$aArgs = self::flattenArrayIndexed(func_get_args());
 		$aCount = 0;
-		foreach ($aArgs as $arg) {
-			if ((is_numeric($arg)) || (is_bool($arg)) || ((is_string($arg) && ($arg != '')))) {
-				if (is_bool($arg)) {
-					$arg = (integer) $arg;
-				} elseif (is_string($arg)) {
-					$arg = 0;
+		foreach ($aArgs as $k => $arg) {
+			if ((is_bool($arg)) &&
+				(!self::isMatrixValue($k))) {
+			} else {
+				if ((is_numeric($arg)) || (is_bool($arg)) || ((is_string($arg) && ($arg != '')))) {
+					if (is_bool($arg)) {
+						$arg = (integer) $arg;
+					} elseif (is_string($arg)) {
+						$arg = 0;
+					}
+					if (is_null($returnValue)) {
+						$returnValue = $arg;
+					} else {
+						$returnValue += $arg;
+					}
+					++$aCount;
 				}
-				if (is_null($returnValue)) {
-					$returnValue = $arg;
-				} else {
-					$returnValue += $arg;
-				}
-				++$aCount;
 			}
 		}
 
@@ -1271,6 +1462,52 @@ class PHPExcel_Calculation_Functions {
 			return self::$_errorCodes['divisionbyzero'];
 		}
 	}	//	function AVERAGEA()
+
+
+	/**
+	 *	AVERAGEIF
+	 *
+	 *	Returns the average value from a range of cells that contain numbers within the list of arguments
+	 *
+	 *	Excel Function:
+	 *		AVERAGEIF(value1[,value2[, ...]],condition)
+	 *
+	 *	@access	public
+	 *	@category Mathematical and Trigonometric Functions
+	 *	@param	mixed		$arg,...		Data values
+	 *	@param	string		$condition		The criteria that defines which cells will be checked.
+	 *	@return	float
+	 */
+	public static function AVERAGEIF($aArgs,$condition,$averageArgs = array()) {
+		// Return value
+		$returnValue = 0;
+
+		$aArgs = self::flattenArray($aArgs);
+		$averageArgs = self::flattenArray($averageArgs);
+		if (count($averageArgs) == 0) {
+			$averageArgs = $aArgs;
+		}
+		$condition = self::_ifCondition($condition);
+		// Loop through arguments
+		$aCount = 0;
+		foreach ($aArgs as $key => $arg) {
+			if (!is_numeric($arg)) { $arg = PHPExcel_Calculation::_wrapResult(strtoupper($arg)); }
+			$testCondition = '='.$arg.$condition;
+			if (PHPExcel_Calculation::getInstance()->_calculateFormulaValue($testCondition)) {
+				if ((is_null($returnValue)) || ($arg > $returnValue)) {
+					$returnValue += $arg;
+					++$aCount;
+				}
+			}
+		}
+
+		// Return
+		if ($aCount > 0) {
+			return $returnValue / $aCount;
+		} else {
+			return self::$_errorCodes['divisionbyzero'];
+		}
+	}	//	function AVERAGEIF()
 
 
 	/**
@@ -1402,18 +1639,19 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function DEVSQ() {
+		$aArgs = self::flattenArrayIndexed(func_get_args());
+
 		// Return value
 		$returnValue = null;
 
-		$aMean = self::AVERAGE(func_get_args());
-		if (!is_null($aMean)) {
-			$aArgs = self::flattenArray(func_get_args());
-
+		$aMean = self::AVERAGE($aArgs);
+		if ($aMean != self::$_errorCodes['divisionbyzero']) {
 			$aCount = -1;
-			foreach ($aArgs as $arg) {
+			foreach ($aArgs as $k => $arg) {
 				// Is it a numeric value?
-				if ((is_bool($arg)) && (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE)) {
-					$arg = (int) $arg;
+				if ((is_bool($arg)) &&
+					((!self::isCellValue($k)) || (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE))) {
+					$arg = (integer) $arg;
 				}
 				if ((is_numeric($arg)) && (!is_string($arg))) {
 					if (is_null($returnValue)) {
@@ -1451,7 +1689,7 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function AVEDEV() {
-		$aArgs = self::flattenArray(func_get_args());
+		$aArgs = self::flattenArrayIndexed(func_get_args());
 
 		// Return value
 		$returnValue = null;
@@ -1459,8 +1697,9 @@ class PHPExcel_Calculation_Functions {
 		$aMean = self::AVERAGE($aArgs);
 		if ($aMean != self::$_errorCodes['divisionbyzero']) {
 			$aCount = 0;
-			foreach ($aArgs as $arg) {
-				if ((is_bool($arg)) && (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE)) {
+			foreach ($aArgs as $k => $arg) {
+				if ((is_bool($arg)) &&
+					((!self::isCellValue($k)) || (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE))) {
 					$arg = (integer) $arg;
 				}
 				// Is it a numeric value?
@@ -1475,7 +1714,10 @@ class PHPExcel_Calculation_Functions {
 			}
 
 			// Return
-			return $returnValue / $aCount ;
+			if ($aCount == 0) {
+				return self::$_errorCodes['divisionbyzero'];
+			}
+			return $returnValue / $aCount;
 		}
 		return self::$_errorCodes['num'];
 	}	//	function AVEDEV()
@@ -1497,9 +1739,10 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function GEOMEAN() {
-		$aMean = self::PRODUCT(func_get_args());
+		$aArgs = self::flattenArray(func_get_args());
+
+		$aMean = self::PRODUCT($aArgs);
 		if (is_numeric($aMean) && ($aMean > 0)) {
-			$aArgs = self::flattenArray(func_get_args());
 			$aCount = self::COUNT($aArgs) ;
 			if (self::MIN($aArgs) > 0) {
 				return pow($aMean, (1 / $aCount));
@@ -1617,15 +1860,19 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function STDEV() {
+		$aArgs = self::flattenArrayIndexed(func_get_args());
+
 		// Return value
 		$returnValue = null;
 
-		$aMean = self::AVERAGE(func_get_args());
+		$aMean = self::AVERAGE($aArgs);
 		if (!is_null($aMean)) {
-			$aArgs = self::flattenArray(func_get_args());
-
 			$aCount = -1;
-			foreach ($aArgs as $arg) {
+			foreach ($aArgs as $k => $arg) {
+				if ((is_bool($arg)) &&
+					((!self::isCellValue($k)) || (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE))) {
+					$arg = (integer) $arg;
+				}
 				// Is it a numeric value?
 				if ((is_numeric($arg)) && (!is_string($arg))) {
 					if (is_null($returnValue)) {
@@ -1660,28 +1907,32 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function STDEVA() {
+		$aArgs = self::flattenArrayIndexed(func_get_args());
+
 		// Return value
 		$returnValue = null;
 
-		$aMean = self::AVERAGEA(func_get_args());
+		$aMean = self::AVERAGEA($aArgs);
 		if (!is_null($aMean)) {
-			$aArgs = self::flattenArray(func_get_args());
-
 			$aCount = -1;
-			foreach ($aArgs as $arg) {
-				// Is it a numeric value?
-				if ((is_numeric($arg)) || (is_bool($arg)) || ((is_string($arg) & ($arg != '')))) {
-					if (is_bool($arg)) {
-						$arg = (integer) $arg;
-					} elseif (is_string($arg)) {
-						$arg = 0;
+			foreach ($aArgs as $k => $arg) {
+				if ((is_bool($arg)) &&
+					(!self::isMatrixValue($k))) {
+				} else {
+					// Is it a numeric value?
+					if ((is_numeric($arg)) || (is_bool($arg)) || ((is_string($arg) & ($arg != '')))) {
+						if (is_bool($arg)) {
+							$arg = (integer) $arg;
+						} elseif (is_string($arg)) {
+							$arg = 0;
+						}
+						if (is_null($returnValue)) {
+							$returnValue = pow(($arg - $aMean),2);
+						} else {
+							$returnValue += pow(($arg - $aMean),2);
+						}
+						++$aCount;
 					}
-					if (is_null($returnValue)) {
-						$returnValue = pow(($arg - $aMean),2);
-					} else {
-						$returnValue += pow(($arg - $aMean),2);
-					}
-					++$aCount;
 				}
 			}
 
@@ -1708,15 +1959,19 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function STDEVP() {
+		$aArgs = self::flattenArrayIndexed(func_get_args());
+
 		// Return value
 		$returnValue = null;
 
-		$aMean = self::AVERAGE(func_get_args());
+		$aMean = self::AVERAGE($aArgs);
 		if (!is_null($aMean)) {
-			$aArgs = self::flattenArray(func_get_args());
-
 			$aCount = 0;
-			foreach ($aArgs as $arg) {
+			foreach ($aArgs as $k => $arg) {
+				if ((is_bool($arg)) &&
+					((!self::isCellValue($k)) || (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE))) {
+					$arg = (integer) $arg;
+				}
 				// Is it a numeric value?
 				if ((is_numeric($arg)) && (!is_string($arg))) {
 					if (is_null($returnValue)) {
@@ -1751,28 +2006,32 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function STDEVPA() {
+		$aArgs = self::flattenArrayIndexed(func_get_args());
+
 		// Return value
 		$returnValue = null;
 
-		$aMean = self::AVERAGEA(func_get_args());
+		$aMean = self::AVERAGEA($aArgs);
 		if (!is_null($aMean)) {
-			$aArgs = self::flattenArray(func_get_args());
-
 			$aCount = 0;
-			foreach ($aArgs as $arg) {
-				// Is it a numeric value?
-				if ((is_numeric($arg)) || (is_bool($arg)) || ((is_string($arg) & ($arg != '')))) {
-					if (is_bool($arg)) {
-						$arg = (integer) $arg;
-					} elseif (is_string($arg)) {
-						$arg = 0;
+			foreach ($aArgs as $k => $arg) {
+				if ((is_bool($arg)) &&
+					(!self::isMatrixValue($k))) {
+				} else {
+					// Is it a numeric value?
+					if ((is_numeric($arg)) || (is_bool($arg)) || ((is_string($arg) & ($arg != '')))) {
+						if (is_bool($arg)) {
+							$arg = (integer) $arg;
+						} elseif (is_string($arg)) {
+							$arg = 0;
+						}
+						if (is_null($returnValue)) {
+							$returnValue = pow(($arg - $aMean),2);
+						} else {
+							$returnValue += pow(($arg - $aMean),2);
+						}
+						++$aCount;
 					}
-					if (is_null($returnValue)) {
-						$returnValue = pow(($arg - $aMean),2);
-					} else {
-						$returnValue += pow(($arg - $aMean),2);
-					}
-					++$aCount;
 				}
 			}
 
@@ -1808,6 +2067,7 @@ class PHPExcel_Calculation_Functions {
 		$aArgs = self::flattenArray(func_get_args());
 		$aCount = 0;
 		foreach ($aArgs as $arg) {
+			if (is_bool($arg)) { $arg = (integer) $arg; }
 			// Is it a numeric value?
 			if ((is_numeric($arg)) && (!is_string($arg))) {
 				$summerA += ($arg * $arg);
@@ -1818,8 +2078,8 @@ class PHPExcel_Calculation_Functions {
 
 		// Return
 		if ($aCount > 1) {
-			$summerA = $summerA * $aCount;
-			$summerB = ($summerB * $summerB);
+			$summerA *= $aCount;
+			$summerB *= $summerB;
 			$returnValue = ($summerA - $summerB) / ($aCount * ($aCount - 1));
 		}
 		return $returnValue;
@@ -1846,26 +2106,33 @@ class PHPExcel_Calculation_Functions {
 		$summerA = $summerB = 0;
 
 		// Loop through arguments
-		$aArgs = self::flattenArray(func_get_args());
+		$aArgs = self::flattenArrayIndexed(func_get_args());
 		$aCount = 0;
-		foreach ($aArgs as $arg) {
-			// Is it a numeric value?
+		foreach ($aArgs as $k => $arg) {
+			if ((is_string($arg)) &&
+				(self::isValue($k))) {
+				return self::$_errorCodes['value'];
+			} elseif ((is_string($arg)) &&
+				(!self::isMatrixValue($k))) {
+			} else {
+				// Is it a numeric value?
 				if ((is_numeric($arg)) || (is_bool($arg)) || ((is_string($arg) & ($arg != '')))) {
-				if (is_bool($arg)) {
-					$arg = (integer) $arg;
-				} elseif (is_string($arg)) {
-					$arg = 0;
+					if (is_bool($arg)) {
+						$arg = (integer) $arg;
+					} elseif (is_string($arg)) {
+						$arg = 0;
+					}
+					$summerA += ($arg * $arg);
+					$summerB += $arg;
+					++$aCount;
 				}
-				$summerA += ($arg * $arg);
-				$summerB += $arg;
-				++$aCount;
 			}
 		}
 
 		// Return
 		if ($aCount > 1) {
-			$summerA = $summerA * $aCount;
-			$summerB = ($summerB * $summerB);
+			$summerA *= $aCount;
+			$summerB *= $summerB;
 			$returnValue = ($summerA - $summerB) / ($aCount * ($aCount - 1));
 		}
 		return $returnValue;
@@ -1895,6 +2162,7 @@ class PHPExcel_Calculation_Functions {
 		$aArgs = self::flattenArray(func_get_args());
 		$aCount = 0;
 		foreach ($aArgs as $arg) {
+			if (is_bool($arg)) { $arg = (integer) $arg; }
 			// Is it a numeric value?
 			if ((is_numeric($arg)) && (!is_string($arg))) {
 				$summerA += ($arg * $arg);
@@ -1905,8 +2173,8 @@ class PHPExcel_Calculation_Functions {
 
 		// Return
 		if ($aCount > 0) {
-			$summerA = $summerA * $aCount;
-			$summerB = ($summerB * $summerB);
+			$summerA *= $aCount;
+			$summerB *= $summerB;
 			$returnValue = ($summerA - $summerB) / ($aCount * $aCount);
 		}
 		return $returnValue;
@@ -1933,26 +2201,33 @@ class PHPExcel_Calculation_Functions {
 		$summerA = $summerB = 0;
 
 		// Loop through arguments
-		$aArgs = self::flattenArray(func_get_args());
+		$aArgs = self::flattenArrayIndexed(func_get_args());
 		$aCount = 0;
-		foreach ($aArgs as $arg) {
-			// Is it a numeric value?
-			if ((is_numeric($arg)) || (is_bool($arg)) || ((is_string($arg) & ($arg != '')))) {
-				if (is_bool($arg)) {
-					$arg = (integer) $arg;
-				} elseif (is_string($arg)) {
-					$arg = 0;
+		foreach ($aArgs as $k => $arg) {
+			if ((is_string($arg)) &&
+				(self::isValue($k))) {
+				return self::$_errorCodes['value'];
+			} elseif ((is_string($arg)) &&
+				(!self::isMatrixValue($k))) {
+			} else {
+				// Is it a numeric value?
+				if ((is_numeric($arg)) || (is_bool($arg)) || ((is_string($arg) & ($arg != '')))) {
+					if (is_bool($arg)) {
+						$arg = (integer) $arg;
+					} elseif (is_string($arg)) {
+						$arg = 0;
+					}
+					$summerA += ($arg * $arg);
+					$summerB += $arg;
+					++$aCount;
 				}
-				$summerA += ($arg * $arg);
-				$summerB += $arg;
-				++$aCount;
 			}
 		}
 
 		// Return
 		if ($aCount > 0) {
-			$summerA = $summerA * $aCount;
-			$summerB = ($summerB * $summerB);
+			$summerA *= $aCount;
+			$summerB *= $summerB;
 			$returnValue = ($summerA - $summerB) / ($aCount * $aCount);
 		}
 		return $returnValue;
@@ -1972,7 +2247,7 @@ class PHPExcel_Calculation_Functions {
 	public static function RANK($value,$valueSet,$order=0) {
 		$value = self::flattenSingleValue($value);
 		$valueSet = self::flattenArray($valueSet);
-		$order = self::flattenSingleValue($order);
+		$order	= (is_null($order))	? 0 :	(integer) self::flattenSingleValue($order);
 
 		foreach($valueSet as $key => $valueEntry) {
 			if (!is_numeric($valueEntry)) {
@@ -2005,9 +2280,9 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function PERCENTRANK($valueSet,$value,$significance=3) {
-		$valueSet = self::flattenArray($valueSet);
-		$value = self::flattenSingleValue($value);
-		$significance = self::flattenSingleValue($significance);
+		$valueSet	= self::flattenArray($valueSet);
+		$value		= self::flattenSingleValue($value);
+		$significance	= (is_null($significance))	? 3 :	(integer) self::flattenSingleValue($significance);
 
 		foreach($valueSet as $key => $valueEntry) {
 			if (!is_numeric($valueEntry)) {
@@ -2040,20 +2315,29 @@ class PHPExcel_Calculation_Functions {
 	}	//	function PERCENTRANK()
 
 
-	private static function _checkTrendArray($values) {
-		foreach($values as $key => $value) {
-			if ((is_bool($value)) || ((is_string($value)) && (trim($value) == ''))) {
-				unset($values[$key]);
-			} elseif (is_string($value)) {
-				if (is_numeric($value)) {
-					$values[$key] = (float) $value;
-				} else {
-					unset($values[$key]);
-				}
+	private static function _checkTrendArrays(&$array1,&$array2) {
+		if (!is_array($array1)) { $array1 = array($array1); }
+		if (!is_array($array2)) { $array2 = array($array2); }
+
+		$array1 = self::flattenArray($array1);
+		$array2 = self::flattenArray($array2);
+		foreach($array1 as $key => $value) {
+			if ((is_bool($value)) || (is_string($value)) || (is_null($value))) {
+				unset($array1[$key]);
+				unset($array2[$key]);
 			}
 		}
-		return $values;
-	}	//	function _checkTrendArray()
+		foreach($array2 as $key => $value) {
+			if ((is_bool($value)) || (is_string($value)) || (is_null($value))) {
+				unset($array1[$key]);
+				unset($array2[$key]);
+			}
+		}
+		$array1 = array_merge($array1);
+		$array2 = array_merge($array2);
+
+		return True;
+	}	//	function _checkTrendArrays()
 
 
 	/**
@@ -2066,12 +2350,10 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function INTERCEPT($yValues,$xValues) {
-		$yValues = self::flattenArray($yValues);
-		$xValues = self::flattenArray($xValues);
-
-		$yValues = self::_checkTrendArray($yValues);
+		if (!self::_checkTrendArrays($yValues,$xValues)) {
+			return self::$_errorCodes['value'];
+		}
 		$yValueCount = count($yValues);
-		$xValues = self::_checkTrendArray($xValues);
 		$xValueCount = count($xValues);
 
 		if (($yValueCount == 0) || ($yValueCount != $xValueCount)) {
@@ -2095,12 +2377,10 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function RSQ($yValues,$xValues) {
-		$yValues = self::flattenArray($yValues);
-		$xValues = self::flattenArray($xValues);
-
-		$yValues = self::_checkTrendArray($yValues);
+		if (!self::_checkTrendArrays($yValues,$xValues)) {
+			return self::$_errorCodes['value'];
+		}
 		$yValueCount = count($yValues);
-		$xValues = self::_checkTrendArray($xValues);
 		$xValueCount = count($xValues);
 
 		if (($yValueCount == 0) || ($yValueCount != $xValueCount)) {
@@ -2124,12 +2404,10 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function SLOPE($yValues,$xValues) {
-		$yValues = self::flattenArray($yValues);
-		$xValues = self::flattenArray($xValues);
-
-		$yValues = self::_checkTrendArray($yValues);
+		if (!self::_checkTrendArrays($yValues,$xValues)) {
+			return self::$_errorCodes['value'];
+		}
 		$yValueCount = count($yValues);
-		$xValues = self::_checkTrendArray($xValues);
 		$xValueCount = count($xValues);
 
 		if (($yValueCount == 0) || ($yValueCount != $xValueCount)) {
@@ -2153,12 +2431,10 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function STEYX($yValues,$xValues) {
-		$yValues = self::flattenArray($yValues);
-		$xValues = self::flattenArray($xValues);
-
-		$yValues = self::_checkTrendArray($yValues);
+		if (!self::_checkTrendArrays($yValues,$xValues)) {
+			return self::$_errorCodes['value'];
+		}
 		$yValueCount = count($yValues);
-		$xValues = self::_checkTrendArray($xValues);
 		$xValueCount = count($xValues);
 
 		if (($yValueCount == 0) || ($yValueCount != $xValueCount)) {
@@ -2182,12 +2458,10 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	float
 	 */
 	public static function COVAR($yValues,$xValues) {
-		$yValues = self::flattenArray($yValues);
-		$xValues = self::flattenArray($xValues);
-
-		$yValues = self::_checkTrendArray($yValues);
+		if (!self::_checkTrendArrays($yValues,$xValues)) {
+			return self::$_errorCodes['value'];
+		}
 		$yValueCount = count($yValues);
-		$xValues = self::_checkTrendArray($xValues);
 		$xValueCount = count($xValues);
 
 		if (($yValueCount == 0) || ($yValueCount != $xValueCount)) {
@@ -2210,13 +2484,14 @@ class PHPExcel_Calculation_Functions {
 	 *	@param	array of mixed		Data Series X
 	 *	@return	float
 	 */
-	public static function CORREL($yValues,$xValues) {
-		$yValues = self::flattenArray($yValues);
-		$xValues = self::flattenArray($xValues);
-
-		$yValues = self::_checkTrendArray($yValues);
+	public static function CORREL($yValues,$xValues=null) {
+		if ((is_null($xValues)) || (!is_array($yValues)) || (!is_array($xValues))) {
+			return self::$_errorCodes['value'];
+		}
+		if (!self::_checkTrendArrays($yValues,$xValues)) {
+			return self::$_errorCodes['value'];
+		}
 		$yValueCount = count($yValues);
-		$xValues = self::_checkTrendArray($xValues);
 		$xValueCount = count($xValues);
 
 		if (($yValueCount == 0) || ($yValueCount != $xValueCount)) {
@@ -2242,21 +2517,22 @@ class PHPExcel_Calculation_Functions {
 	 *	@param	boolean				A logical value specifying whether to return additional regression statistics.
 	 *	@return	array
 	 */
-	public static function LINEST($yValues,$xValues,$const=True,$stats=False) {
-		$yValues = self::flattenArray($yValues);
-		$xValues = self::flattenArray($xValues);
-		$const	= (boolean) self::flattenSingleValue($const);
-		$stats	= (boolean) self::flattenSingleValue($stats);
+	public static function LINEST($yValues,$xValues=null,$const=True,$stats=False) {
+		$const	= (is_null($const))	? True :	(boolean) self::flattenSingleValue($const);
+		$stats	= (is_null($stats))	? False :	(boolean) self::flattenSingleValue($stats);
+		if (is_null($xValues)) $xValues = range(1,count(self::flattenArray($yValues)));
 
-		$yValues = self::_checkTrendArray($yValues);
+		if (!self::_checkTrendArrays($yValues,$xValues)) {
+			return self::$_errorCodes['value'];
+		}
 		$yValueCount = count($yValues);
-		$xValues = self::_checkTrendArray($xValues);
 		$xValueCount = count($xValues);
+
 
 		if (($yValueCount == 0) || ($yValueCount != $xValueCount)) {
 			return self::$_errorCodes['na'];
 		} elseif ($yValueCount == 1) {
-			return self::$_errorCodes['divisionbyzero'];
+			return 0;
 		}
 
 		$bestFitLinear = trendClass::calculate(trendClass::TREND_LINEAR,$yValues,$xValues,$const);
@@ -2294,21 +2570,28 @@ class PHPExcel_Calculation_Functions {
 	 *	@param	boolean				A logical value specifying whether to return additional regression statistics.
 	 *	@return	array
 	 */
-	public static function LOGEST($yValues,$xValues,$const=True,$stats=False) {
-		$yValues = self::flattenArray($yValues);
-		$xValues = self::flattenArray($xValues);
-		$const	= (boolean) self::flattenSingleValue($const);
-		$stats	= (boolean) self::flattenSingleValue($stats);
+	public static function LOGEST($yValues,$xValues=null,$const=True,$stats=False) {
+		$const	= (is_null($const))	? True :	(boolean) self::flattenSingleValue($const);
+		$stats	= (is_null($stats))	? False :	(boolean) self::flattenSingleValue($stats);
+		if (is_null($xValues)) $xValues = range(1,count(self::flattenArray($yValues)));
 
-		$yValues = self::_checkTrendArray($yValues);
+		if (!self::_checkTrendArrays($yValues,$xValues)) {
+			return self::$_errorCodes['value'];
+		}
 		$yValueCount = count($yValues);
-		$xValues = self::_checkTrendArray($xValues);
 		$xValueCount = count($xValues);
+
+		foreach($yValues as $value) {
+			if ($value <= 0.0) {
+				return self::$_errorCodes['num'];
+			}
+		}
+
 
 		if (($yValueCount == 0) || ($yValueCount != $xValueCount)) {
 			return self::$_errorCodes['na'];
 		} elseif ($yValueCount == 1) {
-			return self::$_errorCodes['divisionbyzero'];
+			return 1;
 		}
 
 		$bestFitExponential = trendClass::calculate(trendClass::TREND_EXPONENTIAL,$yValues,$xValues,$const);
@@ -2346,16 +2629,14 @@ class PHPExcel_Calculation_Functions {
 	 */
 	public static function FORECAST($xValue,$yValues,$xValues) {
 		$xValue	= self::flattenSingleValue($xValue);
-		$yValues = self::flattenArray($yValues);
-		$xValues = self::flattenArray($xValues);
-
 		if (!is_numeric($xValue)) {
 			return self::$_errorCodes['value'];
 		}
 
-		$yValues = self::_checkTrendArray($yValues);
+		if (!self::_checkTrendArrays($yValues,$xValues)) {
+			return self::$_errorCodes['value'];
+		}
 		$yValueCount = count($yValues);
-		$xValues = self::_checkTrendArray($xValues);
 		$xValueCount = count($xValues);
 
 		if (($yValueCount == 0) || ($yValueCount != $xValueCount)) {
@@ -2384,7 +2665,7 @@ class PHPExcel_Calculation_Functions {
 		$yValues = self::flattenArray($yValues);
 		$xValues = self::flattenArray($xValues);
 		$newValues = self::flattenArray($newValues);
-		$const	= (boolean) self::flattenSingleValue($const);
+		$const	= (is_null($const))	? True :	(boolean) self::flattenSingleValue($const);
 
 		$bestFitLinear = trendClass::calculate(trendClass::TREND_LINEAR,$yValues,$xValues,$const);
 		if (count($newValues) == 0) {
@@ -2415,7 +2696,7 @@ class PHPExcel_Calculation_Functions {
 		$yValues = self::flattenArray($yValues);
 		$xValues = self::flattenArray($xValues);
 		$newValues = self::flattenArray($newValues);
-		$const	= (boolean) self::flattenSingleValue($const);
+		$const	= (is_null($const))	? True :	(boolean) self::flattenSingleValue($const);
 
 		$bestFitExponential = trendClass::calculate(trendClass::TREND_EXPONENTIAL,$yValues,$xValues,$const);
 		if (count($newValues) == 0) {
@@ -2438,6 +2719,7 @@ class PHPExcel_Calculation_Functions {
 
 	public static function ROMAN($aValue, $style=0) {
 		$aValue	= (integer) self::flattenSingleValue($aValue);
+		$style	= (is_null($style))	? 0 :	(integer) self::flattenSingleValue($style);
 		if ((!is_numeric($aValue)) || ($aValue < 0) || ($aValue >= 4000)) {
 			return self::$_errorCodes['value'];
 		}
@@ -2464,14 +2746,14 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * SUBTOTAL
+	 *	SUBTOTAL
 	 *
-	 * Returns a subtotal in a list or database.
+	 *	Returns a subtotal in a list or database.
 	 *
-	 * @param	int		the number 1 to 11 that specifies which function to
+	 *	@param	int		the number 1 to 11 that specifies which function to
 	 *					use in calculating subtotals within a list.
-	 * @param	array of mixed		Data Series
-	 * @return	float
+	 *	@param	array of mixed		Data Series
+	 *	@return	float
 	 */
 	public static function SUBTOTAL() {
 		$aArgs = self::flattenArray(func_get_args());
@@ -2521,12 +2803,12 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * SQRTPI
+	 *	SQRTPI
 	 *
-	 * Returns the square root of (number * pi).
+	 *	Returns the square root of (number * pi).
 	 *
-	 * @param	float	$number		Number
-	 * @return	float	Square Root of Number * Pi
+	 *	@param	float	$number		Number
+	 *	@return	float	Square Root of Number * Pi
 	 */
 	public static function SQRTPI($number) {
 		$number	= self::flattenSingleValue($number);
@@ -2535,19 +2817,19 @@ class PHPExcel_Calculation_Functions {
 			if ($number < 0) {
 				return self::$_errorCodes['num'];
 			}
-			return sqrt($number * pi()) ;
+			return sqrt($number * M_PI) ;
 		}
 		return self::$_errorCodes['value'];
 	}	//	function SQRTPI()
 
 
 	/**
-	 * FACT
+	 *	FACT
 	 *
-	 * Returns the factorial of a number.
+	 *	Returns the factorial of a number.
 	 *
-	 * @param	float	$factVal	Factorial Value
-	 * @return	int		Factorial
+	 *	@param	float	$factVal	Factorial Value
+	 *	@return	int		Factorial
 	 */
 	public static function FACT($factVal) {
 		$factVal	= self::flattenSingleValue($factVal);
@@ -2562,6 +2844,7 @@ class PHPExcel_Calculation_Functions {
 					return self::$_errorCodes['num'];
 				}
 			}
+
 			$factorial = 1;
 			while ($factLoop > 1) {
 				$factorial *= $factLoop--;
@@ -2573,12 +2856,12 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * FACTDOUBLE
+	 *	FACTDOUBLE
 	 *
-	 * Returns the double factorial of a number.
+	 *	Returns the double factorial of a number.
 	 *
-	 * @param	float	$factVal	Factorial Value
-	 * @return	int		Double Factorial
+	 *	@param	float	$factVal	Factorial Value
+	 *	@return	int		Double Factorial
 	 */
 	public static function FACTDOUBLE($factVal) {
 		$factLoop	= floor(self::flattenSingleValue($factVal));
@@ -2599,12 +2882,12 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * MULTINOMIAL
+	 *	MULTINOMIAL
 	 *
-	 * Returns the ratio of the factorial of a sum of values to the product of factorials.
+	 *	Returns the ratio of the factorial of a sum of values to the product of factorials.
 	 *
-	 * @param	array of mixed		Data Series
-	 * @return	float
+	 *	@param	array of mixed		Data Series
+	 *	@return	float
 	 */
 	public static function MULTINOMIAL() {
 		// Loop through arguments
@@ -2634,13 +2917,13 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * CEILING
+	 *	CEILING
 	 *
-	 * Returns number rounded up, away from zero, to the nearest multiple of significance.
+	 *	Returns number rounded up, away from zero, to the nearest multiple of significance.
 	 *
-	 * @param	float	$number			Number to round
-	 * @param	float	$significance	Significance
-	 * @return	float	Rounded Number
+	 *	@param	float	$number			Number to round
+	 *	@param	float	$significance	Significance
+	 *	@return	float	Rounded Number
 	 */
 	public static function CEILING($number,$significance=null) {
 		$number			= self::flattenSingleValue($number);
@@ -2665,12 +2948,12 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * EVEN
+	 *	EVEN
 	 *
-	 * Returns number rounded up to the nearest even integer.
+	 *	Returns number rounded up to the nearest even integer.
 	 *
-	 * @param	float	$number			Number to round
-	 * @return	int		Rounded Number
+	 *	@param	float	$number			Number to round
+	 *	@return	int		Rounded Number
 	 */
 	public static function EVEN($number) {
 		$number	= self::flattenSingleValue($number);
@@ -2684,12 +2967,12 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * ODD
+	 *	ODD
 	 *
-	 * Returns number rounded up to the nearest odd integer.
+	 *	Returns number rounded up to the nearest odd integer.
 	 *
-	 * @param	float	$number			Number to round
-	 * @return	int		Rounded Number
+	 *	@param	float	$number			Number to round
+	 *	@return	int		Rounded Number
 	 */
 	public static function ODD($number) {
 		$number	= self::flattenSingleValue($number);
@@ -2728,13 +3011,13 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * ROUNDUP
+	 *	ROUNDUP
 	 *
-	 * Rounds a number up to a specified number of decimal places
+	 *	Rounds a number up to a specified number of decimal places
 	 *
-	 * @param	float	$number			Number to round
-	 * @param	int		$digits			Number of digits to which you want to round $number
-	 * @return	float	Rounded Number
+	 *	@param	float	$number			Number to round
+	 *	@param	int		$digits			Number of digits to which you want to round $number
+	 *	@return	float	Rounded Number
 	 */
 	public static function ROUNDUP($number,$digits) {
 		$number	= self::flattenSingleValue($number);
@@ -2753,13 +3036,13 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * ROUNDDOWN
+	 *	ROUNDDOWN
 	 *
-	 * Rounds a number down to a specified number of decimal places
+	 *	Rounds a number down to a specified number of decimal places
 	 *
-	 * @param	float	$number			Number to round
-	 * @param	int		$digits			Number of digits to which you want to round $number
-	 * @return	float	Rounded Number
+	 *	@param	float	$number			Number to round
+	 *	@param	int		$digits			Number of digits to which you want to round $number
+	 *	@return	float	Rounded Number
 	 */
 	public static function ROUNDDOWN($number,$digits) {
 		$number	= self::flattenSingleValue($number);
@@ -2778,13 +3061,13 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * MROUND
+	 *	MROUND
 	 *
-	 * Rounds a number to the nearest multiple of a specified value
+	 *	Rounds a number to the nearest multiple of a specified value
 	 *
-	 * @param	float	$number			Number to round
-	 * @param	int		$multiple		Multiple to which you want to round $number
-	 * @return	float	Rounded Number
+	 *	@param	float	$number			Number to round
+	 *	@param	int		$multiple		Multiple to which you want to round $number
+	 *	@return	float	Rounded Number
 	 */
 	public static function MROUND($number,$multiple) {
 		$number		= self::flattenSingleValue($number);
@@ -2805,13 +3088,13 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * SIGN
+	 *	SIGN
 	 *
-	 * Determines the sign of a number. Returns 1 if the number is positive, zero (0)
-	 * if the number is 0, and -1 if the number is negative.
+	 *	Determines the sign of a number. Returns 1 if the number is positive, zero (0)
+	 *	if the number is 0, and -1 if the number is negative.
 	 *
-	 * @param	float	$number			Number to round
-	 * @return	int		sign value
+	 *	@param	float	$number			Number to round
+	 *	@return	int		sign value
 	 */
 	public static function SIGN($number) {
 		$number	= self::flattenSingleValue($number);
@@ -2827,13 +3110,13 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * FLOOR
+	 *	FLOOR
 	 *
-	 * Rounds number down, toward zero, to the nearest multiple of significance.
+	 *	Rounds number down, toward zero, to the nearest multiple of significance.
 	 *
-	 * @param	float	$number			Number to round
-	 * @param	float	$significance	Significance
-	 * @return	float	Rounded Number
+	 *	@param	float	$number			Number to round
+	 *	@param	float	$significance	Significance
+	 *	@return	float	Rounded Number
 	 */
 	public static function FLOOR($number,$significance=null) {
 		$number			= self::flattenSingleValue($number);
@@ -2875,6 +3158,7 @@ class PHPExcel_Calculation_Functions {
 		$numInSet	= self::flattenSingleValue($numInSet);
 
 		if ((is_numeric($numObjs)) && (is_numeric($numInSet))) {
+			$numInSet = floor($numInSet);
 			if ($numObjs < $numInSet) {
 				return self::$_errorCodes['num'];
 			}
@@ -2911,21 +3195,21 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * SERIESSUM
+	 *	SERIESSUM
 	 *
-	 * Returns the sum of a power series
+	 *	Returns the sum of a power series
 	 *
-	 * @param	float			$x	Input value to the power series
-	 * @param	float			$n	Initial power to which you want to raise $x
-	 * @param	float			$m	Step by which to increase $n for each term in the series
-	 * @param	array of mixed		Data Series
-	 * @return	float
+	 *	@param	float			$x	Input value to the power series
+	 *	@param	float			$n	Initial power to which you want to raise $x
+	 *	@param	float			$m	Step by which to increase $n for each term in the series
+	 *	@param	array of mixed		Data Series
+	 *	@return	float
 	 */
 	public static function SERIESSUM() {
 		// Return value
 		$returnValue = 0;
 
-		// Loop trough arguments
+		// Loop through arguments
 		$aArgs = self::flattenArray(func_get_args());
 
 		$x = array_shift($aArgs);
@@ -2951,14 +3235,14 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * STANDARDIZE
+	 *	STANDARDIZE
 	 *
-	 * Returns a normalized value from a distribution characterized by mean and standard_dev.
+	 *	Returns a normalized value from a distribution characterized by mean and standard_dev.
 	 *
-	 * @param	float	$value		Value to normalize
-	 * @param	float	$mean		Mean Value
-	 * @param	float	$stdDev		Standard Deviation
-	 * @return	float	Standardized value
+	 *	@param	float	$value		Value to normalize
+	 *	@param	float	$mean		Mean Value
+	 *	@param	float	$stdDev		Standard Deviation
+	 *	@return	float	Standardized value
 	 */
 	public static function STANDARDIZE($value,$mean,$stdDev) {
 		$value	= self::flattenSingleValue($value);
@@ -3001,12 +3285,12 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * LCM
+	 *	LCM
 	 *
-	 * Returns the lowest common multiplier of a series of numbers
+	 *	Returns the lowest common multiplier of a series of numbers
 	 *
-	 * @param	$array	Values to calculate the Lowest Common Multiplier
-	 * @return	int		Lowest Common Multiplier
+	 *	@param	$array	Values to calculate the Lowest Common Multiplier
+	 *	@return	int		Lowest Common Multiplier
 	 */
 	public static function LCM() {
 		$aArgs = self::flattenArray(func_get_args());
@@ -3046,12 +3330,12 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * GCD
+	 *	GCD
 	 *
-	 * Returns the greatest common divisor of a series of numbers
+	 *	Returns the greatest common divisor of a series of numbers
 	 *
-	 * @param	$array	Values to calculate the Greatest Common Divisor
-	 * @return	int		Greatest Common Divisor
+	 *	@param	$array	Values to calculate the Greatest Common Divisor
+	 *	@return	int		Greatest Common Divisor
 	 */
 	public static function GCD() {
 		$aArgs = self::flattenArray(func_get_args());
@@ -3108,21 +3392,21 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * BINOMDIST
+	 *	BINOMDIST
 	 *
-	 * Returns the individual term binomial distribution probability. Use BINOMDIST in problems with
-	 * a fixed number of tests or trials, when the outcomes of any trial are only success or failure,
-	 * when trials are independent, and when the probability of success is constant throughout the
-	 * experiment. For example, BINOMDIST can calculate the probability that two of the next three
-	 * babies born are male.
+	 *	Returns the individual term binomial distribution probability. Use BINOMDIST in problems with
+	 *	a fixed number of tests or trials, when the outcomes of any trial are only success or failure,
+	 *	when trials are independent, and when the probability of success is constant throughout the
+	 *	experiment. For example, BINOMDIST can calculate the probability that two of the next three
+	 *	babies born are male.
 	 *
-	 * @param	float		$value			Number of successes in trials
-	 * @param	float		$trials			Number of trials
-	 * @param	float		$probability	Probability of success on each trial
-	 * @param	boolean		$cumulative
-	 * @return	float
+	 *	@param	float		$value			Number of successes in trials
+	 *	@param	float		$trials			Number of trials
+	 *	@param	float		$probability	Probability of success on each trial
+	 *	@param	boolean		$cumulative
+	 *	@return	float
 	 *
-	 * @todo	Cumulative distribution function
+	 *	@todo	Cumulative distribution function
 	 *
 	 */
 	public static function BINOMDIST($value, $trials, $probability, $cumulative) {
@@ -3154,18 +3438,18 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * NEGBINOMDIST
+	 *	NEGBINOMDIST
 	 *
-	 * Returns the negative binomial distribution. NEGBINOMDIST returns the probability that
-	 * there will be number_f failures before the number_s-th success, when the constant
-	 * probability of a success is probability_s. This function is similar to the binomial
-	 * distribution, except that the number of successes is fixed, and the number of trials is
-	 * variable. Like the binomial, trials are assumed to be independent.
+	 *	Returns the negative binomial distribution. NEGBINOMDIST returns the probability that
+	 *	there will be number_f failures before the number_s-th success, when the constant
+	 *	probability of a success is probability_s. This function is similar to the binomial
+	 *	distribution, except that the number of successes is fixed, and the number of trials is
+	 *	variable. Like the binomial, trials are assumed to be independent.
 	 *
-	 * @param	float		$failures		Number of Failures
-	 * @param	float		$successes		Threshold number of Successes
-	 * @param	float		$probability	Probability of success on each trial
-	 * @return	float
+	 *	@param	float		$failures		Number of Failures
+	 *	@param	float		$successes		Threshold number of Successes
+	 *	@param	float		$probability	Probability of success on each trial
+	 *	@return	float
 	 *
 	 */
 	public static function NEGBINOMDIST($failures, $successes, $probability) {
@@ -3192,17 +3476,17 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * CRITBINOM
+	 *	CRITBINOM
 	 *
-	 * Returns the smallest value for which the cumulative binomial distribution is greater
-	 * than or equal to a criterion value
+	 *	Returns the smallest value for which the cumulative binomial distribution is greater
+	 *	than or equal to a criterion value
 	 *
-	 * See http://support.microsoft.com/kb/828117/ for details of the algorithm used
+	 *	See http://support.microsoft.com/kb/828117/ for details of the algorithm used
 	 *
-	 * @param	float		$trials			number of Bernoulli trials
-	 * @param	float		$probability	probability of a success on each trial
-	 * @param	float		$alpha			criterion value
-	 * @return	int
+	 *	@param	float		$trials			number of Bernoulli trials
+	 *	@param	float		$probability	probability of a success on each trial
+	 *	@param	float		$alpha			criterion value
+	 *	@return	int
 	 *
 	 *	@todo	Warning. This implementation differs from the algorithm detailed on the MS
 	 *			web site in that $CumPGuessMinus1 = $CumPGuess - 1 rather than $CumPGuess - $PGuess
@@ -3226,7 +3510,7 @@ class PHPExcel_Calculation_Functions {
 				return self::$_errorCodes['num'];
 			}
 			if ($alpha <= 0.5) {
-				$t = sqrt(log(1 / pow($alpha,2)));
+				$t = sqrt(log(1 / ($alpha * $alpha)));
 				$trialsApprox = 0 - ($t + (2.515517 + 0.802853 * $t + 0.010328 * $t * $t) / (1 + 1.432788 * $t + 0.189269 * $t * $t + 0.001308 * $t * $t * $t));
 			} else {
 				$t = sqrt(log(1 / pow(1 - $alpha,2)));
@@ -3302,13 +3586,13 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * CHIDIST
+	 *	CHIDIST
 	 *
-	 * Returns the one-tailed probability of the chi-squared distribution.
+	 *	Returns the one-tailed probability of the chi-squared distribution.
 	 *
-	 * @param	float		$value			Value for the function
-	 * @param	float		$degrees		degrees of freedom
-	 * @return	float
+	 *	@param	float		$value			Value for the function
+	 *	@param	float		$degrees		degrees of freedom
+	 *	@return	float
 	 */
 	public static function CHIDIST($value, $degrees) {
 		$value		= self::flattenSingleValue($value);
@@ -3331,22 +3615,22 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * CHIINV
+	 *	CHIINV
 	 *
-	 * Returns the one-tailed probability of the chi-squared distribution.
+	 *	Returns the one-tailed probability of the chi-squared distribution.
 	 *
-	 * @param	float		$probability	Probability for the function
-	 * @param	float		$degrees		degrees of freedom
-	 * @return	float
+	 *	@param	float		$probability	Probability for the function
+	 *	@param	float		$degrees		degrees of freedom
+	 *	@return	float
 	 */
 	public static function CHIINV($probability, $degrees) {
 		$probability	= self::flattenSingleValue($probability);
 		$degrees		= floor(self::flattenSingleValue($degrees));
 
 		if ((is_numeric($probability)) && (is_numeric($degrees))) {
+
 			$xLo = 100;
 			$xHi = 0;
-			$maxIteration = 100;
 
 			$x = $xNew = 1;
 			$dx	= 1;
@@ -3387,16 +3671,16 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * EXPONDIST
+	 *	EXPONDIST
 	 *
-	 * Returns the exponential distribution. Use EXPONDIST to model the time between events,
-	 * such as how long an automated bank teller takes to deliver cash. For example, you can
-	 * use EXPONDIST to determine the probability that the process takes at most 1 minute.
+	 *	Returns the exponential distribution. Use EXPONDIST to model the time between events,
+	 *	such as how long an automated bank teller takes to deliver cash. For example, you can
+	 *	use EXPONDIST to determine the probability that the process takes at most 1 minute.
 	 *
-	 * @param	float		$value			Value of the function
-	 * @param	float		$lambda			The parameter value
-	 * @param	boolean		$cumulative
-	 * @return	float
+	 *	@param	float		$value			Value of the function
+	 *	@param	float		$lambda			The parameter value
+	 *	@param	boolean		$cumulative
+	 *	@return	float
 	 */
 	public static function EXPONDIST($value, $lambda, $cumulative) {
 		$value	= self::flattenSingleValue($value);
@@ -3420,14 +3704,14 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * FISHER
+	 *	FISHER
 	 *
-	 * Returns the Fisher transformation at x. This transformation produces a function that
-	 * is normally distributed rather than skewed. Use this function to perform hypothesis
-	 * testing on the correlation coefficient.
+	 *	Returns the Fisher transformation at x. This transformation produces a function that
+	 *	is normally distributed rather than skewed. Use this function to perform hypothesis
+	 *	testing on the correlation coefficient.
 	 *
-	 * @param	float		$value
-	 * @return	float
+	 *	@param	float		$value
+	 *	@return	float
 	 */
 	public static function FISHER($value) {
 		$value	= self::flattenSingleValue($value);
@@ -3443,14 +3727,14 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * FISHERINV
+	 *	FISHERINV
 	 *
-	 * Returns the inverse of the Fisher transformation. Use this transformation when
-	 * analyzing correlations between ranges or arrays of data. If y = FISHER(x), then
-	 * FISHERINV(y) = x.
+	 *	Returns the inverse of the Fisher transformation. Use this transformation when
+	 *	analyzing correlations between ranges or arrays of data. If y = FISHER(x), then
+	 *	FISHERINV(y) = x.
 	 *
-	 * @param	float		$value
-	 * @return	float
+	 *	@param	float		$value
+	 *	@return	float
 	 */
 	public static function FISHERINV($value) {
 		$value	= self::flattenSingleValue($value);
@@ -3468,11 +3752,11 @@ class PHPExcel_Calculation_Functions {
 	private static $_logBetaCache_result	= 0.0;
 
 	/**
-	 * The natural logarithm of the beta function.
-	 * @param p require p>0
-	 * @param q require q>0
-	 * @return 0 if p<=0, q<=0 or p+q>2.55E305 to avoid errors and over/underflow
-	 * @author Jaco van Kooten
+	 *	The natural logarithm of the beta function.
+	 *	@param p require p>0
+	 *	@param q require q>0
+	 *	@return 0 if p<=0, q<=0 or p+q>2.55E305 to avoid errors and over/underflow
+	 *	@author Jaco van Kooten
 	 */
 	private static function _logBeta($p, $q) {
 		if ($p != self::$_logBetaCache_p || $q != self::$_logBetaCache_q) {
@@ -3489,9 +3773,9 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * Evaluates of continued fraction part of incomplete beta function.
-	 * Based on an idea from Numerical Recipes (W.H. Press et al, 1992).
-	 * @author Jaco van Kooten
+	 *	Evaluates of continued fraction part of incomplete beta function.
+	 *	Based on an idea from Numerical Recipes (W.H. Press et al, 1992).
+	 *	@author Jaco van Kooten
 	 */
 	private static function _betaFraction($x, $p, $q) {
 		$c = 1.0;
@@ -3859,7 +4143,6 @@ class PHPExcel_Calculation_Functions {
 			}
 			$a = 0;
 			$b = 2;
-			$maxIteration = 100;
 
 			$i = 0;
 			while ((($b - $a) > PRECISION) && ($i++ < MAX_ITERATIONS)) {
@@ -3922,7 +4205,7 @@ class PHPExcel_Calculation_Functions {
 		for ($j=1;$j<=6;++$j) {
 			$summer += ($p[$j] / ++$y);
 		}
-		return exp(0 - $tmp + log(2.5066282746310005 * $summer / $x));
+		return exp(0 - $tmp + log(SQRT2PI * $summer / $x));
 	}	//	function _gamma()
 
 
@@ -3967,7 +4250,6 @@ class PHPExcel_Calculation_Functions {
 	 * @param	float		$probability	Probability at which you want to evaluate the distribution
 	 * @param	float		$alpha			Parameter to the distribution
 	 * @param	float		$beta			Parameter to the distribution
-	 * @param	boolean		$cumulative
 	 * @return	float
 	 *
 	 */
@@ -3975,41 +4257,38 @@ class PHPExcel_Calculation_Functions {
 		$probability	= self::flattenSingleValue($probability);
 		$alpha			= self::flattenSingleValue($alpha);
 		$beta			= self::flattenSingleValue($beta);
-//		$rMin			= self::flattenSingleValue($rMin);
-//		$rMax			= self::flattenSingleValue($rMax);
 
 		if ((is_numeric($probability)) && (is_numeric($alpha)) && (is_numeric($beta))) {
-			if (($alpha <= 0) || ($beta <= 0) || ($probability <= 0) || ($probability > 1)) {
+			if (($alpha <= 0) || ($beta <= 0) || ($probability < 0) || ($probability > 1)) {
 				return self::$_errorCodes['num'];
 			}
+
 			$xLo = 0;
-			$xHi = 100;
-			$maxIteration = 100;
+			$xHi = $alpha * $beta * 5;
 
 			$x = $xNew = 1;
-			$dx	= 1;
+			$error = $pdf = 0;
+			$dx	= 1024;
 			$i = 0;
 
 			while ((abs($dx) > PRECISION) && ($i++ < MAX_ITERATIONS)) {
 				// Apply Newton-Raphson step
-				$result = self::GAMMADIST($x, $alpha, $beta, True);
-				$error = $result - $probability;
-				if ($error == 0.0) {
-					$dx = 0;
-				} elseif ($error < 0.0) {
+				$error = self::GAMMADIST($x, $alpha, $beta, True) - $probability;
+				if ($error < 0.0) {
 					$xLo = $x;
 				} else {
 					$xHi = $x;
 				}
+				$pdf = self::GAMMADIST($x, $alpha, $beta, False);
 				// Avoid division by zero
-				if ($result != 0.0) {
-					$dx = $error / $result;
+				if ($pdf != 0.0) {
+					$dx = $error / $pdf;
 					$xNew = $x - $dx;
 				}
 				// If the NR fails to converge (which for example may be the
 				// case if the initial guess is too rough) we apply a bisection
 				// step to determine a more narrow interval around the root.
-				if (($xNew < $xLo) || ($xNew > $xHi) || ($result == 0.0)) {
+				if (($xNew < $xLo) || ($xNew > $xHi) || ($pdf == 0.0)) {
 					$xNew = ($xLo + $xHi) / 2;
 					$dx = $xNew - $x;
 				}
@@ -4018,7 +4297,7 @@ class PHPExcel_Calculation_Functions {
 			if ($i == MAX_ITERATIONS) {
 				return self::$_errorCodes['na'];
 			}
-			return round($x,12);
+			return $x;
 		}
 		return self::$_errorCodes['value'];
 	}	//	function GAMMAINV()
@@ -4072,7 +4351,7 @@ class PHPExcel_Calculation_Functions {
 				if ($cumulative) {
 					return 0.5 * (1 + self::_erfVal(($value - $mean) / ($stdDev * sqrt(2))));
 				} else {
-					return (1 / (SQRT2PI * $stdDev)) * exp(0 - (pow($value - $mean,2) / (2 * pow($stdDev,2))));
+					return (1 / (SQRT2PI * $stdDev)) * exp(0 - (pow($value - $mean,2) / (2 * ($stdDev * $stdDev))));
 				}
 			}
 		}
@@ -4224,7 +4503,7 @@ class PHPExcel_Calculation_Functions {
 
 		$y = $prob - 0.5;
 		if (abs($y) < 0.42) {
-			$z = pow($y,2);
+			$z = ($y * $y);
 			$z = $y * ((($a4 * $z + $a3) * $z + $a2) * $z + $a1) / (((($b4 * $z + $b3) * $z + $b2) * $z + $b1) * $z + 1);
 		} else {
 			if ($y > 0) {
@@ -4475,8 +4754,6 @@ class PHPExcel_Calculation_Functions {
 			//	Laboratory as reported in (among other places) "Applied Statistics
 			//	Algorithms", editied by P Griffiths and I D Hill (1985; Ellis
 			//	Horwood Ltd.; W. Sussex, England).
-//			$ta = 2 / pi();
-			$ta = 0.636619772367581;
 			$tterm = $degrees;
 			$ttheta = atan2($value,sqrt($tterm));
 			$tc = cos($ttheta);
@@ -4498,7 +4775,7 @@ class PHPExcel_Calculation_Functions {
 				$ti += 2;
 			}
 			$tsum *= $ts;
-			if (($degrees % 2) == 1) { $tsum = $ta * ($tsum + $ttheta); }
+			if (($degrees % 2) == 1) { $tsum = M_2DIVPI * ($tsum + $ttheta); }
 			$tValue = 0.5 * (1 + $tsum);
 			if ($tails == 1) {
 				return 1 - abs($tValue);
@@ -4526,7 +4803,6 @@ class PHPExcel_Calculation_Functions {
 		if ((is_numeric($probability)) && (is_numeric($degrees))) {
 			$xLo = 100;
 			$xHi = 0;
-			$maxIteration = 100;
 
 			$x = $xNew = 1;
 			$dx	= 1;
@@ -4667,6 +4943,33 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
+	 * ZTEST
+	 *
+	 * Returns the Weibull distribution. Use this distribution in reliability
+	 * analysis, such as calculating a device's mean time to failure.
+	 *
+	 * @param	float		$value
+	 * @param	float		$alpha		Alpha Parameter
+	 * @param	float		$beta		Beta Parameter
+	 * @param	boolean		$cumulative
+	 * @return	float
+	 *
+	 */
+	public static function ZTEST($dataSet, $m0, $sigma=null) {
+		$dataSet	= self::flattenArrayIndexed($dataSet);
+		$m0			= self::flattenSingleValue($m0);
+		$sigma		= self::flattenSingleValue($sigma);
+
+		if (is_null($sigma)) {
+			$sigma = self::STDEV($dataSet);
+		}
+		$n = count($dataSet);
+
+		return 1 - self::NORMSDIST((self::AVERAGE($dataSet) - $m0)/($sigma/SQRT($n)));
+	}	//	function ZTEST()
+
+
+	/**
 	 * SKEW
 	 *
 	 * Returns the skewness of a distribution. Skewness characterizes the degree of asymmetry
@@ -4678,17 +4981,21 @@ class PHPExcel_Calculation_Functions {
 	 * @return	float
 	 */
 	public static function SKEW() {
-		$aArgs = self::flattenArray(func_get_args());
+		$aArgs = self::flattenArrayIndexed(func_get_args());
 		$mean = self::AVERAGE($aArgs);
 		$stdDev = self::STDEV($aArgs);
 
 		$count = $summer = 0;
 		// Loop through arguments
-		foreach ($aArgs as $arg) {
-			// Is it a numeric value?
-			if ((is_numeric($arg)) && (!is_string($arg))) {
-				$summer += pow((($arg - $mean) / $stdDev),3) ;
-				++$count;
+		foreach ($aArgs as $k => $arg) {
+			if ((is_bool($arg)) &&
+				(!self::isMatrixValue($k))) {
+			} else {
+				// Is it a numeric value?
+				if ((is_numeric($arg)) && (!is_string($arg))) {
+					$summer += pow((($arg - $mean) / $stdDev),3) ;
+					++$count;
+				}
 			}
 		}
 
@@ -4712,18 +5019,22 @@ class PHPExcel_Calculation_Functions {
 	 * @return	float
 	 */
 	public static function KURT() {
-		$aArgs = self::flattenArray(func_get_args());
+		$aArgs = self::flattenArrayIndexed(func_get_args());
 		$mean = self::AVERAGE($aArgs);
 		$stdDev = self::STDEV($aArgs);
 
 		if ($stdDev > 0) {
 			$count = $summer = 0;
 			// Loop through arguments
-			foreach ($aArgs as $arg) {
-				// Is it a numeric value?
-				if ((is_numeric($arg)) && (!is_string($arg))) {
-					$summer += pow((($arg - $mean) / $stdDev),4) ;
-					++$count;
+			foreach ($aArgs as $k => $arg) {
+				if ((is_bool($arg)) &&
+					(!self::isMatrixValue($k))) {
+				} else {
+					// Is it a numeric value?
+					if ((is_numeric($arg)) && (!is_string($arg))) {
+						$summer += pow((($arg - $mean) / $stdDev),4) ;
+						++$count;
+					}
 				}
 			}
 
@@ -4766,6 +5077,14 @@ class PHPExcel_Calculation_Functions {
 		$a		= self::flattenSingleValue($a);
 		$b		= self::flattenSingleValue($b);
 
+		if ($b == 0.0) {
+			return self::$_errorCodes['divisionbyzero'];
+		} elseif (($a < 0.0) && ($b > 0.0)) {
+			return $b - fmod(abs($a),$b);
+		} elseif (($a > 0.0) && ($b < 0.0)) {
+			return $b + fmod($a,abs($b));
+		}
+
 		return fmod($a,$b);
 	}	//	function MOD()
 
@@ -4779,12 +5098,35 @@ class PHPExcel_Calculation_Functions {
 	public static function CHARACTER($character) {
 		$character	= self::flattenSingleValue($character);
 
+		if ((!is_numeric($character)) || ($character < 0)) {
+			return self::$_errorCodes['value'];
+		}
+
 		if (function_exists('mb_convert_encoding')) {
 			return mb_convert_encoding('&#'.intval($character).';', 'UTF-8', 'HTML-ENTITIES');
 		} else {
 			return chr(intval($character));
 		}
 	}
+
+
+	private static function _uniord($c) {
+		if (ord($c{0}) >=0 && ord($c{0}) <= 127)
+			return ord($c{0});
+		if (ord($c{0}) >= 192 && ord($c{0}) <= 223)
+			return (ord($c{0})-192)*64 + (ord($c{1})-128);
+		if (ord($c{0}) >= 224 && ord($c{0}) <= 239)
+			return (ord($c{0})-224)*4096 + (ord($c{1})-128)*64 + (ord($c{2})-128);
+		if (ord($c{0}) >= 240 && ord($c{0}) <= 247)
+			return (ord($c{0})-240)*262144 + (ord($c{1})-128)*4096 + (ord($c{2})-128)*64 + (ord($c{3})-128);
+		if (ord($c{0}) >= 248 && ord($c{0}) <= 251)
+			return (ord($c{0})-248)*16777216 + (ord($c{1})-128)*262144 + (ord($c{2})-128)*4096 + (ord($c{3})-128)*64 + (ord($c{4})-128);
+		if (ord($c{0}) >= 252 && ord($c{0}) <= 253)
+			return (ord($c{0})-252)*1073741824 + (ord($c{1})-128)*16777216 + (ord($c{2})-128)*262144 + (ord($c{3})-128)*4096 + (ord($c{4})-128)*64 + (ord($c{5})-128);
+		if (ord($c{0}) >= 254 && ord($c{0}) <= 255) //error
+			return self::$_errorCodes['value'];
+		return 0;
+	}	//	function _uniord()
 
 	/**
 	 * ASCIICODE
@@ -4806,22 +5148,14 @@ class PHPExcel_Calculation_Functions {
 			}
 		}
 
+		$character = $characters;
 		if ((function_exists('mb_strlen')) && (function_exists('mb_substr'))) {
-			if (mb_strlen($characters, 'UTF-8') > 0) {
-				$character = mb_substr($characters, 0, 1, 'UTF-8');
-				$byteLength = strlen($character);
-				$xValue = 0;
-				for ($i = 0; $i < $byteLength; ++$i) {
-					$xValue = ($xValue * 256) + ord($character{$i});
-				}
-				return $xValue;
-			}
+			if (mb_strlen($characters, 'UTF-8') > 1) { $character = mb_substr($characters, 0, 1, 'UTF-8'); }
+			return self::_uniord($character);
 		} else {
-			if (strlen($characters) > 0) {
-				return ord(substr($characters, 0, 1));
-			}
+			if (strlen($characters) > 0) { $character = substr($characters, 0, 1); }
+			return ord($character);
 		}
-		return self::$_errorCodes['value'];
 	}	//	function ASCIICODE()
 
 
@@ -4834,7 +5168,7 @@ class PHPExcel_Calculation_Functions {
 		// Return value
 		$returnValue = '';
 
-		// Loop trough arguments
+		// Loop through arguments
 		$aArgs = self::flattenArray(func_get_args());
 		foreach ($aArgs as $arg) {
 			if (is_bool($arg)) {
@@ -4866,6 +5200,10 @@ class PHPExcel_Calculation_Functions {
 	public static function STRINGLENGTH($value = '') {
 		$value		= self::flattenSingleValue($value);
 
+		if (is_bool($value)) {
+			$value = ($value) ? 'TRUE' : 'FALSE';
+		}
+
 		if (function_exists('mb_strlen')) {
 			return mb_strlen($value, 'UTF-8');
 		} else {
@@ -4883,18 +5221,24 @@ class PHPExcel_Calculation_Functions {
 	 * @return	string
 	 */
 	public static function SEARCHSENSITIVE($needle,$haystack,$offset=1) {
-		$needle		= (string) self::flattenSingleValue($needle);
-		$haystack	= (string) self::flattenSingleValue($haystack);
+		$needle		= self::flattenSingleValue($needle);
+		$haystack	= self::flattenSingleValue($haystack);
 		$offset		= self::flattenSingleValue($offset);
 
-		if (($offset > 0) && (strlen($haystack) > $offset)) {
-			if (function_exists('mb_strpos')) {
-				$pos = mb_strpos($haystack, $needle, --$offset,'UTF-8');
-			} else {
-				$pos = strpos($haystack, $needle, --$offset);
+		if (!is_bool($needle)) {
+			if (is_bool($haystack)) {
+				$haystack = ($haystack) ? 'TRUE' : 'FALSE';
 			}
-			if ($pos !== false) {
-				return ++$pos;
+
+			if (($offset > 0) && (strlen($haystack) > $offset)) {
+				if (function_exists('mb_strpos')) {
+					$pos = mb_strpos($haystack, $needle, --$offset,'UTF-8');
+				} else {
+					$pos = strpos($haystack, $needle, --$offset);
+				}
+				if ($pos !== false) {
+					return ++$pos;
+				}
 			}
 		}
 		return self::$_errorCodes['value'];
@@ -4910,18 +5254,24 @@ class PHPExcel_Calculation_Functions {
 	 * @return	string
 	 */
 	public static function SEARCHINSENSITIVE($needle,$haystack,$offset=1) {
-		$needle		= (string) self::flattenSingleValue($needle);
-		$haystack	= (string) self::flattenSingleValue($haystack);
+		$needle		= self::flattenSingleValue($needle);
+		$haystack	= self::flattenSingleValue($haystack);
 		$offset		= self::flattenSingleValue($offset);
 
-		if (($offset > 0) && (strlen($haystack) > $offset)) {
-			if (function_exists('mb_stripos')) {
-				$pos = mb_stripos($haystack, $needle, --$offset,'UTF-8');
-			} else {
-				$pos = stripos($haystack, $needle, --$offset);
+		if (!is_bool($needle)) {
+			if (is_bool($haystack)) {
+				$haystack = ($haystack) ? 'TRUE' : 'FALSE';
 			}
-			if ($pos !== false) {
-				return ++$pos;
+
+			if (($offset > 0) && (strlen($haystack) > $offset)) {
+				if (function_exists('mb_stripos')) {
+					$pos = mb_stripos($haystack, $needle, --$offset,'UTF-8');
+				} else {
+					$pos = stripos($haystack, $needle, --$offset);
+				}
+				if ($pos !== false) {
+					return ++$pos;
+				}
 			}
 		}
 		return self::$_errorCodes['value'];
@@ -4938,6 +5288,14 @@ class PHPExcel_Calculation_Functions {
 	public static function LEFT($value = '', $chars = 1) {
 		$value		= self::flattenSingleValue($value);
 		$chars		= self::flattenSingleValue($chars);
+
+		if ($chars < 0) {
+			return self::$_errorCodes['value'];
+		}
+
+		if (is_bool($value)) {
+			$value = ($value) ? 'TRUE' : 'FALSE';
+		}
 
 		if (function_exists('mb_substr')) {
 			return mb_substr($value, 0, $chars, 'UTF-8');
@@ -4957,6 +5315,14 @@ class PHPExcel_Calculation_Functions {
 	public static function RIGHT($value = '', $chars = 1) {
 		$value		= self::flattenSingleValue($value);
 		$chars		= self::flattenSingleValue($chars);
+
+		if ($chars < 0) {
+			return self::$_errorCodes['value'];
+		}
+
+		if (is_bool($value)) {
+			$value = ($value) ? 'TRUE' : 'FALSE';
+		}
 
 		if ((function_exists('mb_substr')) && (function_exists('mb_strlen'))) {
 			return mb_substr($value, mb_strlen($value, 'UTF-8') - $chars, $chars, 'UTF-8');
@@ -4978,6 +5344,14 @@ class PHPExcel_Calculation_Functions {
 		$value		= self::flattenSingleValue($value);
 		$start		= self::flattenSingleValue($start);
 		$chars		= self::flattenSingleValue($chars);
+
+		if (($start < 1) || ($chars < 0)) {
+			return self::$_errorCodes['value'];
+		}
+
+		if (is_bool($value)) {
+			$value = ($value) ? 'TRUE' : 'FALSE';
+		}
 
 		if (function_exists('mb_substr')) {
 			return mb_substr($value, --$start, $chars, 'UTF-8');
@@ -5006,6 +5380,53 @@ class PHPExcel_Calculation_Functions {
 
 		return $left.$newText.$right;
 	}	//	function REPLACE()
+
+
+	/**
+	 *	SUBSTITUTE
+	 *
+	 *	@param	string	$text		Value
+	 *	@param	string	$fromText	From Value
+	 *	@param	string	$toText		To Value
+	 *	@param	integer	$instance	Instance Number
+	 *	@return	string
+	 */
+	public static function SUBSTITUTE($text = '', $fromText = '', $toText = '', $instance = 0) {
+		$text		= self::flattenSingleValue($text);
+		$fromText	= self::flattenSingleValue($fromText);
+		$toText		= self::flattenSingleValue($toText);
+		$instance	= floor(self::flattenSingleValue($instance));
+
+		if ($instance == 0) {
+			if(function_exists('mb_str_replace')) {
+				return mb_str_replace($fromText,$toText,$text);
+			} else {
+				return str_replace($fromText,$toText,$text);
+			}
+		} else {
+			$pos = -1;
+			while($instance > 0) {
+				if (function_exists('mb_strpos')) {
+					$pos = mb_strpos($text, $fromText, $pos+1, 'UTF-8');
+				} else {
+					$pos = strpos($text, $fromText, $pos+1);
+				}
+				if ($pos === false) {
+					break;
+				}
+				--$instance;
+			}
+			if ($pos !== false) {
+				if (function_exists('mb_strlen')) {
+					return self::REPLACE($text,++$pos,mb_strlen($fromText, 'UTF-8'),$toText);
+				} else {
+					return self::REPLACE($text,++$pos,strlen($fromText),$toText);
+				}
+			}
+		}
+
+		return $left.$newText.$right;
+	}	//	function SUBSTITUTE()
 
 
 	/**
@@ -5055,6 +5476,10 @@ class PHPExcel_Calculation_Functions {
 		$value	= self::flattenSingleValue($value);
 		$format	= self::flattenSingleValue($format);
 
+		if ((is_string($value)) && (!is_numeric($value)) && PHPExcel_Shared_Date::isDateTimeFormatCode($format)) {
+			$value = self::DATEVALUE($value);
+		}
+
 		return (string) PHPExcel_Style_NumberFormat::toFormattedString($value,$format);
 	}	//	function TEXTFORMAT()
 
@@ -5085,6 +5510,10 @@ class PHPExcel_Calculation_Functions {
 	 */
 	public static function TRIMNONPRINTABLE($stringValue = '') {
 		$stringValue	= self::flattenSingleValue($stringValue);
+
+		if (is_bool($stringValue)) {
+			$stringValue = ($stringValue) ? 'TRUE' : 'FALSE';
+		}
 
 		if (self::$_invalidChars == Null) {
 			self::$_invalidChars = range(chr(0),chr(31));
@@ -5123,7 +5552,7 @@ class PHPExcel_Calculation_Functions {
 	 *	@param	mixed	$value	Value to check
 	 *	@return	boolean
 	 */
-	public static function IS_BLANK($value = null) {
+	public static function IS_BLANK($value=null) {
 		if (!is_null($value)) {
 			$value	= self::flattenSingleValue($value);
 		}
@@ -5262,7 +5691,7 @@ class PHPExcel_Calculation_Functions {
 	 *	@return	string	Version information
 	 */
 	public static function VERSION() {
-		return 'PHPExcel 1.7.0, 2009-08-10';
+		return 'PHPExcel 1.7.3c, 2010-06-01';
 	}	//	function VERSION()
 
 
@@ -5408,22 +5837,37 @@ class PHPExcel_Calculation_Functions {
 	 *						depending on the value of the ReturnDateType flag
 	 */
 	public static function DATEVALUE($dateValue = 1) {
-		$dateValue	= str_replace(array('/','.',' '),array('-','-','-'),self::flattenSingleValue(trim($dateValue,'"')));
+		$dateValue = trim(self::flattenSingleValue($dateValue),'"');
+		//	Strip any ordinals because they're allowed in Excel (English only)
+		$dateValue = preg_replace('/(\d)(st|nd|rd|th)([ -\/])/Ui','$1$3',$dateValue);
+		//	Convert separators (/ . or space) to hyphens (should also handle dot used for ordinals in some countries, e.g. Denmark, Germany)
+		$dateValue	= str_replace(array('/','.','-','  '),array(' ',' ',' ',' '),$dateValue);
 
 		$yearFound = false;
-		$t1 = explode('-',$dateValue);
+		$t1 = explode(' ',$dateValue);
 		foreach($t1 as &$t) {
-			if ((is_numeric($t)) && (($t > 31) && ($t < 100))) {
+			if ((is_numeric($t)) && ($t > 31)) {
 				if ($yearFound) {
 					return self::$_errorCodes['value'];
 				} else {
-					$t += 1900;
+					if ($t < 100) { $t += 1900; }
 					$yearFound = true;
 				}
 			}
 		}
+		if ((count($t1) == 1) && (strpos($t,':') != false)) {
+			//	We've been fed a time value without any date
+			return 0.0;
+		} elseif (count($t1) == 2) {
+			//	We only have two parts of the date: either day/month or month/year
+			if ($yearFound) {
+				array_unshift($t1,1);
+			} else {
+				array_push($t1,date('Y'));
+			}
+		}
 		unset($t);
-		$dateValue = implode('-',$t1);
+		$dateValue = implode(' ',$t1);
 
 		$PHPDateArray = date_parse($dateValue);
 		if (($PHPDateArray === False) || ($PHPDateArray['error_count'] > 0)) {
@@ -5502,9 +5946,11 @@ class PHPExcel_Calculation_Functions {
 	 *						depending on the value of the ReturnDateType flag
 	 */
 	public static function TIMEVALUE($timeValue) {
-		$timeValue	= self::flattenSingleValue($timeValue);
+		$timeValue = trim(self::flattenSingleValue($timeValue),'"');
+		$timeValue	= str_replace(array('/','.'),array('-','-'),$timeValue);
 
-		if ((($PHPDateArray = date_parse($timeValue)) !== False) && ($PHPDateArray['error_count'] == 0)) {
+		$PHPDateArray = date_parse($timeValue);
+		if (($PHPDateArray !== False) && ($PHPDateArray['error_count'] == 0)) {
 			if (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE) {
 				$excelDateValue = PHPExcel_Shared_Date::FormattedPHPToExcel($PHPDateArray['year'],$PHPDateArray['month'],$PHPDateArray['day'],$PHPDateArray['hour'],$PHPDateArray['minute'],$PHPDateArray['second']);
 			} else {
@@ -5723,7 +6169,8 @@ class PHPExcel_Calculation_Functions {
 				}
 				break;
 			case 'YM':
-				$retVal = abs(intval($endMonths - $startMonths));
+				$retVal = intval($endMonths - $startMonths);
+				if ($retVal < 0) $retVal = 12 + $retVal;
 				//	We're only interested in full months
 				if ($endDays < $startDays) {
 					--$retVal;
@@ -5736,7 +6183,8 @@ class PHPExcel_Calculation_Functions {
 						$PHPEndDateObject->modify('-1 year');
 						$endYears = $PHPEndDateObject->format('Y');
 					}
-					$retVal = abs($PHPEndDateObject->format('z') - $PHPStartDateObject->format('z'));
+					$retVal = $PHPEndDateObject->format('z') - $PHPStartDateObject->format('z');
+					if ($retVal < 0) { $retVal += 365; }
 				}
 				break;
 		}
@@ -5773,19 +6221,55 @@ class PHPExcel_Calculation_Functions {
 			return self::$_errorCodes['value'];
 		}
 
-		if ((is_numeric($method)) && (!is_string($method))) {
+		if (((is_numeric($method)) && (!is_string($method))) || ($method == '')) {
 			switch($method) {
 				case 0	:
 					return self::DAYS360($startDate,$endDate) / 360;
 					break;
 				case 1	:
+					$days = self::DATEDIF($startDate,$endDate);
 					$startYear = self::YEAR($startDate);
 					$endYear = self::YEAR($endDate);
-					$leapDay = 0;
-					if (self::_isLeapYear($startYear) || self::_isLeapYear($endYear)) {
-						$leapDay = 1;
+					$years = $endYear - $startYear + 1;
+					$leapDays = 0;
+					if ($years == 1) {
+						if (self::_isLeapYear($endYear)) {
+							$startMonth = self::MONTHOFYEAR($startDate);
+							$endMonth = self::MONTHOFYEAR($endDate);
+							$endDay = self::DAYOFMONTH($endDate);
+							if (($startMonth < 3) ||
+								(($endMonth * 100 + $endDay) >= (2 * 100 + 29))) {
+				     			$leapDays += 1;
+							}
+						}
+					} else {
+						for($year = $startYear; $year <= $endYear; ++$year) {
+							if ($year == $startYear) {
+								$startMonth = self::MONTHOFYEAR($startDate);
+								$startDay = self::DAYOFMONTH($startDate);
+								if ($startMonth < 3) {
+									$leapDays += (self::_isLeapYear($year)) ? 1 : 0;
+								}
+							} elseif($year == $endYear) {
+								$endMonth = self::MONTHOFYEAR($endDate);
+								$endDay = self::DAYOFMONTH($endDate);
+								if (($endMonth * 100 + $endDay) >= (2 * 100 + 29)) {
+									$leapDays += (self::_isLeapYear($year)) ? 1 : 0;
+								}
+							} else {
+								$leapDays += (self::_isLeapYear($year)) ? 1 : 0;
+							}
+						}
+						if ($years == 2) {
+							if (($leapDays == 0) && (self::_isLeapYear($startYear)) && ($days > 365)) {
+								$leapDays = 1;
+							} elseif ($days < 366) {
+								$years = 1;
+							}
+						}
+						$leapDays /= $years;
 					}
-					return self::DATEDIF($startDate,$endDate) / (365 + $leapDay);
+					return $days / (365 + $leapDays);
 					break;
 				case 2	:
 					return self::DATEDIF($startDate,$endDate) / 360;
@@ -5811,7 +6295,10 @@ class PHPExcel_Calculation_Functions {
 	 * @return	long	Interval between the dates
 	 */
 	public static function NETWORKDAYS($startDate,$endDate) {
-		//	Flush the mandatory start and end date that are referenced in the function definition
+		//	Retrieve the mandatory start and end date that are referenced in the function definition
+		$startDate	= self::flattenSingleValue($startDate);
+		$endDate	= self::flattenSingleValue($endDate);
+		//	Flush the mandatory start and end date that are referenced in the function definition, and get the optional days
 		$dateArgs = self::flattenArray(func_get_args());
 		array_shift($dateArgs);
 		array_shift($dateArgs);
@@ -5820,9 +6307,11 @@ class PHPExcel_Calculation_Functions {
 		if (is_string($startDate = $sDate = self::_getDateValue($startDate))) {
 			return self::$_errorCodes['value'];
 		}
+		$startDate = (float) floor($startDate);
 		if (is_string($endDate = $eDate = self::_getDateValue($endDate))) {
 			return self::$_errorCodes['value'];
 		}
+		$endDate = (float) floor($endDate);
 
 		if ($sDate > $eDate) {
 			$startDate = $eDate;
@@ -5871,69 +6360,80 @@ class PHPExcel_Calculation_Functions {
 	 * @return	long	Interval between the dates
 	 */
 	public static function WORKDAY($startDate,$endDays) {
+		//	Retrieve the mandatory start date and days that are referenced in the function definition
+		$startDate	= self::flattenSingleValue($startDate);
+		$endDays	= (int) self::flattenSingleValue($endDays);
+		//	Flush the mandatory start date and days that are referenced in the function definition, and get the optional days
 		$dateArgs = self::flattenArray(func_get_args());
-
 		array_shift($dateArgs);
 		array_shift($dateArgs);
 
-		if (is_string($startDate = self::_getDateValue($startDate))) {
+		if ((is_string($startDate = self::_getDateValue($startDate))) || (!is_numeric($endDays))) {
 			return self::$_errorCodes['value'];
 		}
-		if (!is_numeric($endDays)) {
-			return self::$_errorCodes['value'];
-		}
-		$endDate = (float) $startDate + (floor($endDays / 5) * 7) + ($endDays % 5);
-		if ($endDays < 0) {
-			$endDate += 7;
+		$startDate = (float) floor($startDate);
+		//	If endDays is 0, we always return startDate
+		if ($endDays == 0) { return $startDate; }
+
+		$decrementing = ($endDays < 0) ? True : False;
+
+		//	Adjust the start date if it falls over a weekend
+
+		$startDoW = self::DAYOFWEEK($startDate,3);
+		if (self::DAYOFWEEK($startDate,3) >= 5) {
+			$startDate += ($decrementing) ? -$startDoW + 4: 7 - $startDoW;
+			($decrementing) ? $endDays++ : $endDays--;
 		}
 
+		//	Add endDays
+		$endDate = (float) $startDate + (intval($endDays / 5) * 7) + ($endDays % 5);
+
+		//	Adjust the calculated end date if it falls over a weekend
 		$endDoW = self::DAYOFWEEK($endDate,3);
 		if ($endDoW >= 5) {
-			if ($endDays >= 0) {
-				$endDate += (7 - $endDoW);
-			} else {
-				$endDate -= ($endDoW - 5);
-			}
+			$endDate += ($decrementing) ? -$endDoW + 4: 7 - $endDoW;
 		}
 
 		//	Test any extra holiday parameters
 		if (count($dateArgs) > 0) {
 			$holidayCountedArray = $holidayDates = array();
 			foreach ($dateArgs as $holidayDate) {
-				if (is_string($holidayDate = self::_getDateValue($holidayDate))) {
-					return self::$_errorCodes['value'];
+				if ((!is_null($holidayDate)) && (trim($holidayDate) > '')) {
+					if (is_string($holidayDate = self::_getDateValue($holidayDate))) {
+						return self::$_errorCodes['value'];
+					}
+					if (self::DAYOFWEEK($holidayDate,3) < 5) {
+						$holidayDates[] = $holidayDate;
+					}
 				}
-				$holidayDates[] = $holidayDate;
 			}
-			if ($endDays >= 0) {
-				sort($holidayDates, SORT_NUMERIC);
-			} else {
+			if ($decrementing) {
 				rsort($holidayDates, SORT_NUMERIC);
+			} else {
+				sort($holidayDates, SORT_NUMERIC);
 			}
 			foreach ($holidayDates as $holidayDate) {
-				if ($endDays >= 0) {
-					if (($holidayDate >= $startDate) && ($holidayDate <= $endDate)) {
-						if ((self::DAYOFWEEK($holidayDate,2) < 6) && (!in_array($holidayDate,$holidayCountedArray))) {
-							++$endDate;
-							$holidayCountedArray[] = $holidayDate;
-						}
-					}
-				} else {
+				if ($decrementing) {
 					if (($holidayDate <= $startDate) && ($holidayDate >= $endDate)) {
-						if ((self::DAYOFWEEK($holidayDate,2) < 6) && (!in_array($holidayDate,$holidayCountedArray))) {
+						if (!in_array($holidayDate,$holidayCountedArray)) {
 							--$endDate;
 							$holidayCountedArray[] = $holidayDate;
 						}
 					}
-				}
-				$endDoW = self::DAYOFWEEK($endDate,3);
-				if ($endDoW >= 5) {
-					if ($endDays >= 0) {
-						$endDate += (7 - $endDoW);
-					} else {
-						$endDate -= ($endDoW - 5);
+				} else {
+					if (($holidayDate >= $startDate) && ($holidayDate <= $endDate)) {
+						if (!in_array($holidayDate,$holidayCountedArray)) {
+							++$endDate;
+							$holidayCountedArray[] = $holidayDate;
+						}
 					}
 				}
+				//	Adjust the calculated end date if it falls over a weekend
+				$endDoW = self::DAYOFWEEK($endDate,3);
+				if ($endDoW >= 5) {
+					$endDate += ($decrementing) ? -$endDoW + 4: 7 - $endDoW;
+				}
+
 			}
 		}
 
@@ -5959,10 +6459,14 @@ class PHPExcel_Calculation_Functions {
 
 		if (is_string($dateValue = self::_getDateValue($dateValue))) {
 			return self::$_errorCodes['value'];
+		} elseif ($dateValue == 0.0) {
+			return 0;
+		} elseif ($dateValue < 0.0) {
+			return self::$_errorCodes['num'];
 		}
 
 		// Execute function
-		$PHPDateObject = &PHPExcel_Shared_Date::ExcelToPHPObject($dateValue);
+		$PHPDateObject = PHPExcel_Shared_Date::ExcelToPHPObject($dateValue);
 
 		return (int) $PHPDateObject->format('j');
 	}	//	function DAYOFMONTH()
@@ -5980,6 +6484,8 @@ class PHPExcel_Calculation_Functions {
 
 		if (is_string($dateValue = self::_getDateValue($dateValue))) {
 			return self::$_errorCodes['value'];
+		} elseif ($dateValue < 0.0) {
+			return self::$_errorCodes['num'];
 		}
 
 		// Execute function
@@ -6031,6 +6537,8 @@ class PHPExcel_Calculation_Functions {
 
 		if (is_string($dateValue = self::_getDateValue($dateValue))) {
 			return self::$_errorCodes['value'];
+		} elseif ($dateValue < 0.0) {
+			return self::$_errorCodes['num'];
 		}
 
 		// Execute function
@@ -6058,6 +6566,8 @@ class PHPExcel_Calculation_Functions {
 
 		if (is_string($dateValue = self::_getDateValue($dateValue))) {
 			return self::$_errorCodes['value'];
+		} elseif ($dateValue < 0.0) {
+			return self::$_errorCodes['num'];
 		}
 
 		// Execute function
@@ -6078,6 +6588,8 @@ class PHPExcel_Calculation_Functions {
 
 		if (is_string($dateValue = self::_getDateValue($dateValue))) {
 			return self::$_errorCodes['value'];
+		} elseif ($dateValue < 0.0) {
+			return self::$_errorCodes['num'];
 		}
 
 		// Execute function
@@ -6109,15 +6621,14 @@ class PHPExcel_Calculation_Functions {
 			}
 		}
 		// Execute function
-		if (is_real($timeValue)) {
-			if ($timeValue >= 1) {
-				$timeValue = fmod($timeValue,1);
-			} elseif ($timeValue < 0.0) {
-				return self::$_errorCodes['num'];
-			}
-			$timeValue = PHPExcel_Shared_Date::ExcelToPHP($timeValue);
+		if ($timeValue >= 1) {
+			$timeValue = fmod($timeValue,1);
+		} elseif ($timeValue < 0.0) {
+			return self::$_errorCodes['num'];
 		}
-		return (int) date('G',$timeValue);
+		$timeValue = PHPExcel_Shared_Date::ExcelToPHP($timeValue);
+
+		return (int) gmdate('G',$timeValue);
 	}	//	function HOUROFDAY()
 
 
@@ -6143,15 +6654,14 @@ class PHPExcel_Calculation_Functions {
 			}
 		}
 		// Execute function
-		if (is_real($timeValue)) {
-			if ($timeValue >= 1) {
-				$timeValue = fmod($timeValue,1);
-			} elseif ($timeValue < 0.0) {
-				return self::$_errorCodes['num'];
-			}
-			$timeValue = PHPExcel_Shared_Date::ExcelToPHP($timeValue);
+		if ($timeValue >= 1) {
+			$timeValue = fmod($timeValue,1);
+		} elseif ($timeValue < 0.0) {
+			return self::$_errorCodes['num'];
 		}
-		return (int) date('i',$timeValue);
+		$timeValue = PHPExcel_Shared_Date::ExcelToPHP($timeValue);
+
+		return (int) gmdate('i',$timeValue);
 	}	//	function MINUTEOFHOUR()
 
 
@@ -6177,15 +6687,14 @@ class PHPExcel_Calculation_Functions {
 			}
 		}
 		// Execute function
-		if (is_real($timeValue)) {
-			if ($timeValue >= 1) {
-				$timeValue = fmod($timeValue,1);
-			} elseif ($timeValue < 0.0) {
-				return self::$_errorCodes['num'];
-			}
-			$timeValue = PHPExcel_Shared_Date::ExcelToPHP($timeValue);
+		if ($timeValue >= 1) {
+			$timeValue = fmod($timeValue,1);
+		} elseif ($timeValue < 0.0) {
+			return self::$_errorCodes['num'];
 		}
-		return (int) date('s',$timeValue);
+		$timeValue = PHPExcel_Shared_Date::ExcelToPHP($timeValue);
+
+		return (int) gmdate('s',$timeValue);
 	}	//	function SECONDOFMINUTE()
 
 
@@ -6664,9 +7173,9 @@ class PHPExcel_Calculation_Functions {
 		if (preg_match_all('/[01234567]/',$x,$out) != strlen($x)) {
 			return self::$_errorCodes['num'];
 		}
-		$binVal = decbin(octdec($x));
+		$r = decbin(octdec($x));
 
-		return self::_nbrConversionFormat($binVal,$places);
+		return self::_nbrConversionFormat($r,$places);
 	}	//	function OCTTOBIN()
 
 
@@ -6786,12 +7295,13 @@ class PHPExcel_Calculation_Functions {
 	 * @return	string
 	 */
 	public static function COMPLEX($realNumber=0.0, $imaginary=0.0, $suffix='i') {
-		$realNumber	= self::flattenSingleValue($realNumber);
-		$imaginary	= self::flattenSingleValue($imaginary);
-		$suffix		= self::flattenSingleValue($suffix);
+		$realNumber	= (is_null($realNumber))	? 0.0 :	(float) self::flattenSingleValue($realNumber);
+		$imaginary	= (is_null($imaginary))		? 0.0 :	(float) self::flattenSingleValue($imaginary);
+		$suffix		= (is_null($suffix))		? 'i' :	self::flattenSingleValue($suffix);
 
 		if (((is_numeric($realNumber)) && (is_numeric($imaginary))) &&
 			(($suffix == 'i') || ($suffix == 'j') || ($suffix == ''))) {
+			if ($suffix == '') $suffix = 'i';
 			if ($realNumber == 0.0) {
 				if ($imaginary == 0.0) {
 					return (string) '0';
@@ -6892,16 +7402,16 @@ class PHPExcel_Calculation_Functions {
 			if ($parsedComplex['imaginary'] == 0.0) {
 				return 0.0;
 			} elseif($parsedComplex['imaginary'] < 0.0) {
-				return pi() / -2;
+				return M_PI / -2;
 			} else {
-				return pi() / 2;
+				return M_PI / 2;
 			}
 		} elseif ($parsedComplex['real'] > 0.0) {
 			return atan($parsedComplex['imaginary'] / $parsedComplex['real']);
 		} elseif ($parsedComplex['imaginary'] < 0.0) {
-			return 0 - (pi() - atan(abs($parsedComplex['imaginary']) / abs($parsedComplex['real'])));
+			return 0 - (M_PI - atan(abs($parsedComplex['imaginary']) / abs($parsedComplex['real'])));
 		} else {
-			return pi() - atan($parsedComplex['imaginary'] / abs($parsedComplex['real']));
+			return M_PI - atan($parsedComplex['imaginary'] / abs($parsedComplex['real']));
 		}
 	}	//	function IMARGUMENT()
 
@@ -8093,20 +8603,21 @@ class PHPExcel_Calculation_Functions {
 	 * @return	int
 	 */
 	public static function BESSELI($x, $n) {
-		$x	= self::flattenSingleValue($x);
-		$n	= floor(self::flattenSingleValue($n));
+		$x	= (is_null($x))	? 0.0 :	self::flattenSingleValue($x);
+		$n	= (is_null($n))	? 0.0 :	self::flattenSingleValue($n);
 
 		if ((is_numeric($x)) && (is_numeric($n))) {
+			$n	= floor($n);
 			if ($n < 0) {
 				return self::$_errorCodes['num'];
 			}
-			$f_2_PI = 2 * pi();
+			$f_2_PI = 2 * M_PI;
 
 			if (abs($x) <= 30) {
 				$fTerm = pow($x / 2, $n) / self::FACT($n);
 				$nK = 1;
 				$fResult = $fTerm;
-				$fSqrX = pow($x,2) / 4;
+				$fSqrX = ($x * $x) / 4;
 				do {
 					$fTerm *= $fSqrX;
 					$fTerm /= ($nK * ($nK + $n));
@@ -8135,23 +8646,23 @@ class PHPExcel_Calculation_Functions {
 	 * @return	int
 	 */
 	public static function BESSELJ($x, $n) {
-		$x	= self::flattenSingleValue($x);
-		$n	= floor(self::flattenSingleValue($n));
+		$x	= (is_null($x))	? 0.0 :	self::flattenSingleValue($x);
+		$n	= (is_null($n))	? 0.0 :	self::flattenSingleValue($n);
 
 		if ((is_numeric($x)) && (is_numeric($n))) {
+			$n	= floor($n);
 			if ($n < 0) {
 				return self::$_errorCodes['num'];
 			}
-			$f_2_DIV_PI = 2 / pi();
-			$f_PI_DIV_2 = pi() / 2;
-			$f_PI_DIV_4 = pi() / 4;
+			$f_PI_DIV_2 = M_PI / 2;
+			$f_PI_DIV_4 = M_PI / 4;
 
 			$fResult = 0;
 			if (abs($x) <= 30) {
 				$fTerm = pow($x / 2, $n) / self::FACT($n);
 				$nK = 1;
 				$fResult = $fTerm;
-				$fSqrX = pow($x,2) / -4;
+				$fSqrX = ($x * $x) / -4;
 				do {
 					$fTerm *= $fSqrX;
 					$fTerm /= ($nK * ($nK + $n));
@@ -8159,7 +8670,7 @@ class PHPExcel_Calculation_Functions {
 				} while ((abs($fTerm) > 1e-10) && (++$nK < 100));
 			} else {
 				$fXAbs = abs($x);
-				$fResult = sqrt($f_2_DIV_PI / $fXAbs) * cos($fXAbs - $n * $f_PI_DIV_2 - $f_PI_DIV_4);
+				$fResult = sqrt(M_2DIVPI / $fXAbs) * cos($fXAbs - $n * $f_PI_DIV_2 - $f_PI_DIV_4);
 				if (($n && 1) && ($x < 0)) {
 					$fResult = -$fResult;
 				}
@@ -8173,7 +8684,7 @@ class PHPExcel_Calculation_Functions {
 	private static function _Besselk0($fNum) {
 		if ($fNum <= 2) {
 			$fNum2 = $fNum * 0.5;
-			$y = pow($fNum2,2);
+			$y = ($fNum2 * $fNum2);
 			$fRet = -log($fNum2) * self::BESSELI($fNum, 0) +
 					(-0.57721566 + $y * (0.42278420 + $y * (0.23069756 + $y * (0.3488590e-1 + $y * (0.262698e-2 + $y *
 					(0.10750e-3 + $y * 0.74e-5))))));
@@ -8190,7 +8701,7 @@ class PHPExcel_Calculation_Functions {
 	private static function _Besselk1($fNum) {
 		if ($fNum <= 2) {
 			$fNum2 = $fNum * 0.5;
-			$y = pow($fNum2,2);
+			$y = ($fNum2 * $fNum2);
 			$fRet = log($fNum2) * self::BESSELI($fNum, 1) +
 					(1 + $y * (0.15443144 + $y * (-0.67278579 + $y * (-0.18156897 + $y * (-0.1919402e-1 + $y *
 					(-0.110404e-2 + $y * (-0.4686e-4))))))) / $fNum;
@@ -8214,15 +8725,15 @@ class PHPExcel_Calculation_Functions {
 	 * @return	float
 	 */
 	public static function BESSELK($x, $ord) {
-		$x		= self::flattenSingleValue($x);
-		$ord	= floor(self::flattenSingleValue($ord));
+		$x		= (is_null($x))		? 0.0 :	self::flattenSingleValue($x);
+		$ord	= (is_null($ord))	? 0.0 :	self::flattenSingleValue($ord);
 
 		if ((is_numeric($x)) && (is_numeric($ord))) {
-			if ($ord < 0) {
+			if (($ord < 0) || ($x == 0.0)) {
 				return self::$_errorCodes['num'];
 			}
 
-			switch($ord) {
+			switch(floor($ord)) {
 				case 0 :	return self::_Besselk0($x);
 							break;
 				case 1 :	return self::_Besselk1($x);
@@ -8244,17 +8755,17 @@ class PHPExcel_Calculation_Functions {
 
 	private static function _Bessely0($fNum) {
 		if ($fNum < 8.0) {
-			$y = pow($fNum,2);
+			$y = ($fNum * $fNum);
 			$f1 = -2957821389.0 + $y * (7062834065.0 + $y * (-512359803.6 + $y * (10879881.29 + $y * (-86327.92757 + $y * 228.4622733))));
 			$f2 = 40076544269.0 + $y * (745249964.8 + $y * (7189466.438 + $y * (47447.26470 + $y * (226.1030244 + $y))));
-			$fRet = $f1 / $f2 + 0.636619772 * self::BESSELJ($fNum, 0) * log($fNum);
+			$fRet = $f1 / $f2 + M_2DIVPI * self::BESSELJ($fNum, 0) * log($fNum);
 		} else {
 			$z = 8.0 / $fNum;
-			$y = pow($z,2);
+			$y = ($z * $z);
 			$xx = $fNum - 0.785398164;
 			$f1 = 1 + $y * (-0.1098628627e-2 + $y * (0.2734510407e-4 + $y * (-0.2073370639e-5 + $y * 0.2093887211e-6)));
 			$f2 = -0.1562499995e-1 + $y * (0.1430488765e-3 + $y * (-0.6911147651e-5 + $y * (0.7621095161e-6 + $y * (-0.934945152e-7))));
-			$fRet = sqrt(0.636619772 / $fNum) * (sin($xx) * $f1 + $z * cos($xx) * $f2);
+			$fRet = sqrt(M_2DIVPI / $fNum) * (sin($xx) * $f1 + $z * cos($xx) * $f2);
 		}
 		return $fRet;
 	}	//	function _Bessely0()
@@ -8262,21 +8773,21 @@ class PHPExcel_Calculation_Functions {
 
 	private static function _Bessely1($fNum) {
 		if ($fNum < 8.0) {
-			$y = pow($fNum,2);
+			$y = ($fNum * $fNum);
 			$f1 = $fNum * (-0.4900604943e13 + $y * (0.1275274390e13 + $y * (-0.5153438139e11 + $y * (0.7349264551e9 + $y *
 				(-0.4237922726e7 + $y * 0.8511937935e4)))));
 			$f2 = 0.2499580570e14 + $y * (0.4244419664e12 + $y * (0.3733650367e10 + $y * (0.2245904002e8 + $y *
 				(0.1020426050e6 + $y * (0.3549632885e3 + $y)))));
-			$fRet = $f1 / $f2 + 0.636619772 * ( self::BESSELJ($fNum, 1) * log($fNum) - 1 / $fNum);
+			$fRet = $f1 / $f2 + M_2DIVPI * ( self::BESSELJ($fNum, 1) * log($fNum) - 1 / $fNum);
 		} else {
 			$z = 8.0 / $fNum;
-			$y = pow($z,2);
+			$y = ($z * $z);
 			$xx = $fNum - 2.356194491;
 			$f1 = 1 + $y * (0.183105e-2 + $y * (-0.3516396496e-4 + $y * (0.2457520174e-5 + $y * (-0.240337019e6))));
 			$f2 = 0.04687499995 + $y * (-0.2002690873e-3 + $y * (0.8449199096e-5 + $y * (-0.88228987e-6 + $y * 0.105787412e-6)));
-			$fRet = sqrt(0.636619772 / $fNum) * (sin($xx) * $f1 + $z * cos($xx) * $f2);
+			$fRet = sqrt(M_2DIVPI / $fNum) * (sin($xx) * $f1 + $z * cos($xx) * $f2);
 			#i12430# ...but this seems to work much better.
-//			$fRet = sqrt(0.636619772 / $fNum) * sin($fNum - 2.356194491);
+//			$fRet = sqrt(M_2DIVPI / $fNum) * sin($fNum - 2.356194491);
 		}
 		return $fRet;
 	}	//	function _Bessely1()
@@ -8292,15 +8803,15 @@ class PHPExcel_Calculation_Functions {
 	 * @return	int
 	 */
 	public static function BESSELY($x, $ord) {
-		$x		= self::flattenSingleValue($x);
-		$ord	= floor(self::flattenSingleValue($ord));
+		$x		= (is_null($x))		? 0.0 :	self::flattenSingleValue($x);
+		$ord	= (is_null($ord))	? 0.0 :	self::flattenSingleValue($ord);
 
 		if ((is_numeric($x)) && (is_numeric($ord))) {
-			if ($ord < 0) {
+			if (($ord < 0) || ($x == 0.0)) {
 				return self::$_errorCodes['num'];
 			}
 
-			switch($ord) {
+			switch(floor($ord)) {
 				case 0 :	return self::_Bessely0($x);
 							break;
 				case 1 :	return self::_Bessely1($x);
@@ -8358,14 +8869,13 @@ class PHPExcel_Calculation_Functions {
 	//	Private method to calculate the erf value
 	//
 	private static $_two_sqrtpi = 1.128379167095512574;
-	private static $_rel_error = 1E-15;
 
 	private static function _erfVal($x) {
 		if (abs($x) > 2.2) {
 			return 1 - self::_erfcVal($x);
 		}
 		$sum = $term = $x;
-		$xsqr = pow($x,2);
+		$xsqr = ($x * $x);
 		$j = 1;
 		do {
 			$term *= $xsqr / $j;
@@ -8374,10 +8884,10 @@ class PHPExcel_Calculation_Functions {
 			$term *= $xsqr / $j;
 			$sum += $term / (2 * $j + 1);
 			++$j;
-			if ($sum == 0) {
+			if ($sum == 0.0) {
 				break;
 			}
-		} while (abs($term / $sum) > self::$_rel_error);
+		} while (abs($term / $sum) > PRECISION);
 		return self::$_two_sqrtpi * $sum;
 	}	//	function _erfVal()
 
@@ -8428,7 +8938,7 @@ class PHPExcel_Calculation_Functions {
 		}
 		$a = $n = 1;
 		$b = $c = $x;
-		$d = pow($x,2) + 0.5;
+		$d = ($x * $x) + 0.5;
 		$q1 = $q2 = $b / $d;
 		$t = 0;
 		do {
@@ -8441,7 +8951,7 @@ class PHPExcel_Calculation_Functions {
 			$n += 0.5;
 			$q1 = $q2;
 			$q2 = $b / $d;
-		} while ((abs($q1 - $q2) / $q2) > self::$_rel_error);
+		} while ((abs($q1 - $q2) / $q2) > PRECISION);
 		return self::$_one_sqrtpi * exp(-$x * $x) * $q2;
 	}	//	function _erfcVal()
 
@@ -8478,6 +8988,10 @@ class PHPExcel_Calculation_Functions {
 	public static function LOWERCASE($mixedCaseString) {
 		$mixedCaseString	= self::flattenSingleValue($mixedCaseString);
 
+		if (is_bool($mixedCaseString)) {
+			$mixedCaseString = ($mixedCaseString) ? 'TRUE' : 'FALSE';
+		}
+
 		if (function_exists('mb_convert_case')) {
 			return mb_convert_case($mixedCaseString, MB_CASE_LOWER, 'UTF-8');
 		} else {
@@ -8497,6 +9011,10 @@ class PHPExcel_Calculation_Functions {
 	public static function UPPERCASE($mixedCaseString) {
 		$mixedCaseString	= self::flattenSingleValue($mixedCaseString);
 
+		if (is_bool($mixedCaseString)) {
+			$mixedCaseString = ($mixedCaseString) ? 'TRUE' : 'FALSE';
+		}
+
 		if (function_exists('mb_convert_case')) {
 			return mb_convert_case($mixedCaseString, MB_CASE_UPPER, 'UTF-8');
 		} else {
@@ -8515,6 +9033,10 @@ class PHPExcel_Calculation_Functions {
 	 */
 	public static function PROPERCASE($mixedCaseString) {
 		$mixedCaseString	= self::flattenSingleValue($mixedCaseString);
+
+		if (is_bool($mixedCaseString)) {
+			$mixedCaseString = ($mixedCaseString) ? 'TRUE' : 'FALSE';
+		}
 
 		if (function_exists('mb_convert_case')) {
 			return mb_convert_case($mixedCaseString, MB_CASE_TITLE, 'UTF-8');
@@ -8538,7 +9060,7 @@ class PHPExcel_Calculation_Functions {
 	 */
 	public static function DOLLAR($value = 0, $decimals = 2) {
 		$value		= self::flattenSingleValue($value);
-		$decimals	= self::flattenSingleValue($decimals);
+		$decimals	= is_null($decimals) ? 0 : self::flattenSingleValue($decimals);
 
 		// Validate parameters
 		if (!is_numeric($value) || !is_numeric($decimals)) {
@@ -8731,6 +9253,22 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
+	 * FVSCHEDULE
+	 *
+	 */
+	public static function FVSCHEDULE($principal, $schedule) {
+		$principal	= self::flattenSingleValue($principal);
+		$schedule	= self::flattenArray($schedule);
+
+		foreach($schedule as $n) {
+			$principal *= 1 + $n;
+		}
+
+		return $principal;
+	}	//	function FVSCHEDULE()
+
+
+	/**
 	 * PMT
 	 *
 	 * Returns the constant payment (annuity) for a cash flow with a constant interest rate.
@@ -8800,6 +9338,7 @@ class PHPExcel_Calculation_Functions {
 			return (-$pv -$fv) / $pmt;
 		}
 	}	//	function NPER()
+
 
 
 	private static function _interestAndPrincipal($rate=0, $per=0, $nper=0, $pv=0, $fv=0, $type=0) {
@@ -8965,6 +9504,47 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
+	 *      ISPMT
+	 *
+	 *      Returns the interest payment for an investment based on an interest rate and a constant payment schedule.
+	 *
+	 *      Excel Function:
+	 *          =ISPMT(interest_rate, period, number_payments, PV)
+	 *
+	 *      interest_rate is the interest rate for the investment
+	 *
+	 *      period is the period to calculate the interest rate.  It must be betweeen 1 and number_payments.
+	 *
+	 *      number_payments is the number of payments for the annuity
+	 *
+	 *      PV is the loan amount or present value of the payments
+	 */
+	public static function ISPMT() {
+		// Return value
+		$returnValue = 0;
+
+		// Get the parameters
+		$aArgs = self::flattenArray(func_get_args());
+		$interestRate = array_shift($aArgs);
+		$period = array_shift($aArgs);
+		$numberPeriods = array_shift($aArgs);
+		$principleRemaining = array_shift($aArgs);
+
+		// Calculate
+		$principlePayment = ($principleRemaining * 1.0) / ($numberPeriods * 1.0);
+		for($i=0; $i <= $period; ++$i) {
+			$returnValue = $interestRate * $principleRemaining * -1;
+			$principleRemaining -= $principlePayment;
+			// principle needs to be 0 after the last payment, don't let floating point screw it up
+			if($i == $numberPeriods) {
+				$returnValue = 0;
+			}
+		}
+		return($returnValue);
+	}	//	function ISPMT()
+
+
+	/**
 	 * NPV
 	 *
 	 * Returns the Net Present Value of a cash flow series given a discount rate.
@@ -8977,7 +9557,7 @@ class PHPExcel_Calculation_Functions {
 		// Return value
 		$returnValue = 0;
 
-		// Loop trough arguments
+		// Loop through arguments
 		$aArgs = self::flattenArray(func_get_args());
 
 		// Calculate
@@ -8992,6 +9572,188 @@ class PHPExcel_Calculation_Functions {
 		// Return
 		return $returnValue;
 	}	//	function NPV()
+
+
+	/**
+	 *	XNPV
+	 *
+	 *	Returns the net present value for a schedule of cash flows that is not necessarily periodic.
+	 *	To calculate the net present value for a series of cash flows that is periodic, use the NPV function.
+	 *
+	 *	@param	float	Discount interest rate
+	 *	@param	array	Cash flow series
+	 *	@return	float
+	 */
+	public static function XNPV($rate, $values, $dates) {
+		if ((!is_array($values)) || (!is_array($dates))) return self::$_errorCodes['value'];
+		$values	= self::flattenArray($values);
+		$dates	= self::flattenArray($dates);
+		$valCount = count($values);
+		if ($valCount != count($dates)) return self::$_errorCodes['num'];
+
+		$xnpv = 0.0;
+		for ($i = 0; $i < $valCount; ++$i) {
+			$xnpv += $values[$i] / pow(1 + $rate, self::DATEDIF($dates[0],$dates[$i],'d') / 365);
+		}
+		return (is_finite($xnpv) ? $xnpv : self::$_errorCodes['value']);
+	}	//	function XNPV()
+
+
+	public static function IRR($values, $guess = 0.1) {
+		if (!is_array($values)) return self::$_errorCodes['value'];
+		$values = self::flattenArray($values);
+		$guess = self::flattenSingleValue($guess);
+
+		// create an initial range, with a root somewhere between 0 and guess
+		$x1 = 0.0;
+		$x2 = $guess;
+		$f1 = self::NPV($x1, $values);
+		$f2 = self::NPV($x2, $values);
+		for ($i = 0; $i < FINANCIAL_MAX_ITERATIONS; ++$i) {
+			if (($f1 * $f2) < 0.0) break;
+			if (abs($f1) < abs($f2)) {
+				$f1 = self::NPV($x1 += 1.6 * ($x1 - $x2), $values);
+			} else {
+				$f2 = self::NPV($x2 += 1.6 * ($x2 - $x1), $values);
+			}
+		}
+		if (($f1 * $f2) > 0.0) return self::$_errorCodes['value'];
+
+		$f = self::NPV($x1, $values);
+		if ($f < 0.0) {
+			$rtb = $x1;
+			$dx = $x2 - $x1;
+		} else {
+			$rtb = $x2;
+			$dx = $x1 - $x2;
+		}
+
+		for ($i = 0;  $i < FINANCIAL_MAX_ITERATIONS; ++$i) {
+			$dx *= 0.5;
+			$x_mid = $rtb + $dx;
+			$f_mid = self::NPV($x_mid, $values);
+			if ($f_mid <= 0.0) $rtb = $x_mid;
+			if ((abs($f_mid) < FINANCIAL_PRECISION) || (abs($dx) < FINANCIAL_PRECISION)) return $x_mid;
+		}
+		return self::$_errorCodes['value'];
+	}	//	function IRR()
+
+
+	public static function MIRR($values, $finance_rate, $reinvestment_rate) {
+		if (!is_array($values)) return self::$_errorCodes['value'];
+		$values				= self::flattenArray($values);
+		$finance_rate		= self::flattenSingleValue($finance_rate);
+		$reinvestment_rate	= self::flattenSingleValue($reinvestment_rate);
+		$n = count($values);
+
+		$rr = 1.0 + $reinvestment_rate;
+		$fr = 1.0 + $finance_rate;
+
+		$npv_pos = $npv_neg = 0.0;
+		foreach($values as $i => $v) {
+			if ($v >= 0) {
+				$npv_pos += $v / pow($rr, $i);
+			} else {
+				$npv_neg += $v / pow($fr, $i);
+			}
+		}
+
+		if (($npv_neg == 0) || ($npv_pos == 0) || ($reinvestment_rate <= -1)) {
+			return self::$_errorCodes['value'];
+		}
+
+		$mirr = pow((-$npv_pos * pow($rr, $n))
+				/ ($npv_neg * ($rr)), (1.0 / ($n - 1))) - 1.0;
+
+		return (is_finite($mirr) ? $mirr : self::$_errorCodes['value']);
+	}	//	function MIRR()
+
+
+	public static function XIRR($values, $dates, $guess = 0.1) {
+		if ((!is_array($values)) && (!is_array($dates))) return self::$_errorCodes['value'];
+		$values	= self::flattenArray($values);
+		$dates	= self::flattenArray($dates);
+		$guess = self::flattenSingleValue($guess);
+		if (count($values) != count($dates)) return self::$_errorCodes['num'];
+
+		// create an initial range, with a root somewhere between 0 and guess
+		$x1 = 0.0;
+		$x2 = $guess;
+		$f1 = self::XNPV($x1, $values, $dates);
+		$f2 = self::XNPV($x2, $values, $dates);
+		for ($i = 0; $i < FINANCIAL_MAX_ITERATIONS; ++$i) {
+			if (($f1 * $f2) < 0.0) break;
+			if (abs($f1) < abs($f2)) {
+				$f1 = self::XNPV($x1 += 1.6 * ($x1 - $x2), $values, $dates);
+			} else {
+				$f2 = self::XNPV($x2 += 1.6 * ($x2 - $x1), $values, $dates);
+			}
+		}
+		if (($f1 * $f2) > 0.0) return self::$_errorCodes['value'];
+
+		$f = self::XNPV($x1, $values, $dates);
+		if ($f < 0.0) {
+			$rtb = $x1;
+			$dx = $x2 - $x1;
+		} else {
+			$rtb = $x2;
+			$dx = $x1 - $x2;
+		}
+
+		for ($i = 0;  $i < FINANCIAL_MAX_ITERATIONS; ++$i) {
+			$dx *= 0.5;
+			$x_mid = $rtb + $dx;
+			$f_mid = self::XNPV($x_mid, $values, $dates);
+			if ($f_mid <= 0.0) $rtb = $x_mid;
+			if ((abs($f_mid) < FINANCIAL_PRECISION) || (abs($dx) < FINANCIAL_PRECISION)) return $x_mid;
+		}
+		return self::$_errorCodes['value'];
+	}
+
+
+	/**
+	 * RATE
+	 *
+	 **/
+	public static function RATE($nper, $pmt, $pv, $fv = 0.0, $type = 0, $guess = 0.1) {
+		$nper	= (int) self::flattenSingleValue($nper);
+		$pmt	= self::flattenSingleValue($pmt);
+		$pv		= self::flattenSingleValue($pv);
+		$fv		= (is_null($fv))	? 0.0	:	self::flattenSingleValue($fv);
+		$type	= (is_null($type))	? 0		:	(int) self::flattenSingleValue($type);
+		$guess	= (is_null($guess))	? 0.1	:	self::flattenSingleValue($guess);
+
+		$rate = $guess;
+		if (abs($rate) < FINANCIAL_PRECISION) {
+			$y = $pv * (1 + $nper * $rate) + $pmt * (1 + $rate * $type) * $nper + $fv;
+		} else {
+			$f = exp($nper * log(1 + $rate));
+			$y = $pv * $f + $pmt * (1 / $rate + $type) * ($f - 1) + $fv;
+		}
+		$y0 = $pv + $pmt * $nper + $fv;
+		$y1 = $pv * $f + $pmt * (1 / $rate + $type) * ($f - 1) + $fv;
+
+		// find root by secant method
+		$i  = $x0 = 0.0;
+		$x1 = $rate;
+		while ((abs($y0 - $y1) > FINANCIAL_PRECISION) && ($i < FINANCIAL_MAX_ITERATIONS)) {
+			$rate = ($y1 * $x0 - $y0 * $x1) / ($y1 - $y0);
+			$x0 = $x1;
+			$x1 = $rate;
+
+			if (abs($rate) < FINANCIAL_PRECISION) {
+				$y = $pv * (1 + $nper * $rate) + $pmt * (1 + $rate * $type) * $nper + $fv;
+			} else {
+				$f = exp($nper * log(1 + $rate));
+				$y = $pv * $f + $pmt * (1 / $rate + $type) * ($f - 1) + $fv;
+			}
+
+			$y0 = $y1;
+			$y1 = $y;
+			++$i;
+		}
+		return $rate;
+	}	//	function RATE()
 
 
 	/**
@@ -9039,6 +9801,9 @@ class PHPExcel_Calculation_Functions {
 				}
 				$previousDepreciation += $depreciation;
 			}
+			if (self::$compatibilityMode == self::COMPATIBILITY_GNUMERIC) {
+				$depreciation = round($depreciation,2);
+			}
 			return $depreciation;
 		}
 		return self::$_errorCodes['value'];
@@ -9080,6 +9845,9 @@ class PHPExcel_Calculation_Functions {
 				$depreciation = min( ($cost - $previousDepreciation) * ($factor / $life), ($cost - $salvage - $previousDepreciation) );
 				$previousDepreciation += $depreciation;
 			}
+			if (self::$compatibilityMode == self::COMPATIBILITY_GNUMERIC) {
+				$depreciation = round($depreciation,2);
+			}
 			return $depreciation;
 		}
 		return self::$_errorCodes['value'];
@@ -9097,7 +9865,7 @@ class PHPExcel_Calculation_Functions {
 				$daysPerYear = 365;
 				break;
 			case 1 :
-				if (self::_isLeapYear(self::YEAR($year))) {
+				if (self::_isLeapYear($year)) {
 					$daysPerYear = 366;
 				} else {
 					$daysPerYear = 365;
@@ -9133,9 +9901,9 @@ class PHPExcel_Calculation_Functions {
 		$firstinter	= self::flattenSingleValue($firstinter);
 		$settlement	= self::flattenSingleValue($settlement);
 		$rate		= (float) self::flattenSingleValue($rate);
-		$par		= (is_null($par))	? 1000	: (float) self::flattenSingleValue($par);
-		$frequency	= (is_null($frequency))	? 1	: (int) self::flattenSingleValue($frequency);
-		$basis		= (is_null($basis))	? 0		: (int) self::flattenSingleValue($basis);
+		$par		= (is_null($par))		? 1000 :	(float) self::flattenSingleValue($par);
+		$frequency	= (is_null($frequency))	? 1	: 		(int) self::flattenSingleValue($frequency);
+		$basis		= (is_null($basis))		? 0	:		(int) self::flattenSingleValue($basis);
 
 		//	Validate
 		if ((is_numeric($rate)) && (is_numeric($par))) {
@@ -9146,13 +9914,8 @@ class PHPExcel_Calculation_Functions {
 			if (!is_numeric($daysBetweenIssueAndSettlement)) {
 				return $daysBetweenIssueAndSettlement;
 			}
-			$daysPerYear = self::_daysPerYear(self::YEAR($issue),$basis);
-			if (!is_numeric($daysPerYear)) {
-				return $daysPerYear;
-			}
-			$daysBetweenIssueAndSettlement *= $daysPerYear;
 
-			return $par * $rate * ($daysBetweenIssueAndSettlement / $daysPerYear);
+			return $par * $rate * $daysBetweenIssueAndSettlement;
 		}
 		return self::$_errorCodes['value'];
 	}	//	function ACCRINT()
@@ -9179,8 +9942,8 @@ class PHPExcel_Calculation_Functions {
 		$issue		= self::flattenSingleValue($issue);
 		$settlement	= self::flattenSingleValue($settlement);
 		$rate		= (float) self::flattenSingleValue($rate);
-		$par		= (is_null($par))	? 1000	: (float) self::flattenSingleValue($par);
-		$basis		= (is_null($basis))	? 0		: (int) self::flattenSingleValue($basis);
+		$par		= (is_null($par))	? 1000 :	(float) self::flattenSingleValue($par);
+		$basis		= (is_null($basis))	? 0 :		(int) self::flattenSingleValue($basis);
 
 		//	Validate
 		if ((is_numeric($rate)) && (is_numeric($par))) {
@@ -9191,24 +9954,349 @@ class PHPExcel_Calculation_Functions {
 			if (!is_numeric($daysBetweenIssueAndSettlement)) {
 				return $daysBetweenIssueAndSettlement;
 			}
-			$daysPerYear = self::_daysPerYear(self::YEAR($issue),$basis);
-			if (!is_numeric($daysPerYear)) {
-				return $daysPerYear;
-			}
-			$daysBetweenIssueAndSettlement *= $daysPerYear;
-
-			return $par * $rate * ($daysBetweenIssueAndSettlement / $daysPerYear);
+			return $par * $rate * $daysBetweenIssueAndSettlement;
 		}
 		return self::$_errorCodes['value'];
 	}	//	function ACCRINTM()
 
 
 	public static function AMORDEGRC($cost, $purchased, $firstPeriod, $salvage, $period, $rate, $basis=0) {
+		$cost			= self::flattenSingleValue($cost);
+		$purchased		= self::flattenSingleValue($purchased);
+		$firstPeriod	= self::flattenSingleValue($firstPeriod);
+		$salvage		= self::flattenSingleValue($salvage);
+		$period			= floor(self::flattenSingleValue($period));
+		$rate			= self::flattenSingleValue($rate);
+		$basis			= (is_null($basis))	? 0 :	(int) self::flattenSingleValue($basis);
+
+		$fUsePer = 1.0 / $rate;
+
+		if ($fUsePer < 3.0) {
+			$amortiseCoeff = 1.0;
+		} elseif ($fUsePer < 5.0) {
+			$amortiseCoeff = 1.5;
+		} elseif ($fUsePer <= 6.0) {
+			$amortiseCoeff = 2.0;
+		} else {
+			$amortiseCoeff = 2.5;
+		}
+
+		$rate *= $amortiseCoeff;
+//		$fNRate = floor((self::YEARFRAC($purchased, $firstPeriod, $basis) * $rate * $cost) + 0.5);
+		$fNRate = round(self::YEARFRAC($purchased, $firstPeriod, $basis) * $rate * $cost,0);
+		$cost -= $fNRate;
+		$fRest = $cost - $salvage;
+
+		for ($n = 0; $n < $period; ++$n) {
+//			$fNRate = floor(($rate * $cost) + 0.5);
+			$fNRate = round($rate * $cost,0);
+			$fRest -= $fNRate;
+
+			if ($fRest < 0.0) {
+				switch ($period - $n) {
+					case 0	:
+					case 1	:
+//							  return floor(($cost * 0.5) + 0.5);
+							  return round($cost * 0.5,0);
+							  break;
+					default	: return 0.0;
+							  break;
+				}
+			}
+			$cost -= $fNRate;
+		}
+		return $fNRate;
 	}	//	function AMORDEGRC()
 
 
 	public static function AMORLINC($cost, $purchased, $firstPeriod, $salvage, $period, $rate, $basis=0) {
+		$cost			= self::flattenSingleValue($cost);
+		$purchased		= self::flattenSingleValue($purchased);
+		$firstPeriod	= self::flattenSingleValue($firstPeriod);
+		$salvage		= self::flattenSingleValue($salvage);
+		$period			= self::flattenSingleValue($period);
+		$rate			= self::flattenSingleValue($rate);
+		$basis			= (is_null($basis))	? 0 :	(int) self::flattenSingleValue($basis);
+
+		$fOneRate = $cost * $rate;
+		$fCostDelta = $cost - $salvage;
+		//	Note, quirky variation for leap years on the YEARFRAC for this function
+		$purchasedYear = self::YEAR($purchased);
+		$yearFrac = self::YEARFRAC($purchased, $firstPeriod, $basis);
+		if (($basis == 1) && ($yearFrac < 1) && (self::_isLeapYear($purchasedYear))) {
+			$yearFrac *= 365 / 366;
+		}
+		$f0Rate = $yearFrac * $rate * $cost;
+		$nNumOfFullPeriods = intval(($cost - $salvage - $f0Rate) / $fOneRate);
+
+		if ($period == 0) {
+			return $f0Rate;
+		} elseif ($period <= $nNumOfFullPeriods) {
+			return $fOneRate;
+		} elseif ($period == ($nNumOfFullPeriods + 1)) {
+            return ($fCostDelta - $fOneRate * $nNumOfFullPeriods - $f0Rate);
+		} else {
+			return 0.0;
+		}
 	}	//	function AMORLINC()
+
+
+	private static function _lastDayOfMonth($testDate) {
+		$date = clone $testDate;
+		$date->modify('+1 day');
+		return ($date->format('d') == 1);
+	}	//	function _lastDayOfMonth()
+
+	private static function _firstDayOfMonth($testDate) {
+		$date = clone $testDate;
+		return ($date->format('d') == 1);
+	}	//	function _lastDayOfMonth()
+
+	private static function _coupFirstPeriodDate($settlement, $maturity, $frequency, $next) {
+		$months = 12 / $frequency;
+
+		$result = PHPExcel_Shared_Date::ExcelToPHPObject($maturity);
+		$eom = self::_lastDayOfMonth($result);
+
+		while ($settlement < PHPExcel_Shared_Date::PHPToExcel($result)) {
+			$result->modify('-'.$months.' months');
+		}
+		if ($next) {
+			$result->modify('+'.$months.' months');
+		}
+
+		if ($eom) {
+			$result->modify('-1 day');
+		}
+
+		return PHPExcel_Shared_Date::PHPToExcel($result);
+	}	//	function _coupFirstPeriodDate()
+
+
+	private static function _validFrequency($frequency) {
+		if (($frequency == 1) || ($frequency == 2) || ($frequency == 4)) {
+			return true;
+		}
+		if ((self::$compatibilityMode == self::COMPATIBILITY_GNUMERIC) &&
+			(($frequency == 6) || ($frequency == 12))) {
+			return true;
+		}
+		return false;
+	}	//	function _validFrequency()
+
+	public static function COUPDAYS($settlement, $maturity, $frequency, $basis=0) {
+		$settlement	= self::flattenSingleValue($settlement);
+		$maturity	= self::flattenSingleValue($maturity);
+		$frequency	= (int) self::flattenSingleValue($frequency);
+		$basis		= (is_null($basis))	? 0 :	(int) self::flattenSingleValue($basis);
+
+		if (is_string($settlement = self::_getDateValue($settlement))) {
+			return self::$_errorCodes['value'];
+		}
+		if (is_string($maturity = self::_getDateValue($maturity))) {
+			return self::$_errorCodes['value'];
+		}
+
+		if (($settlement > $maturity) ||
+			(!self::_validFrequency($frequency)) ||
+			(($basis < 0) || ($basis > 4))) {
+			return self::$_errorCodes['num'];
+		}
+
+		switch ($basis) {
+			case 3: // Actual/365
+					return 365 / $frequency;
+			case 1: // Actual/actual
+					if ($frequency == 1) {
+						$daysPerYear = self::_daysPerYear(self::YEAR($maturity),$basis);
+						return ($daysPerYear / $frequency);
+					} else {
+						$prev = self::_coupFirstPeriodDate($settlement, $maturity, $frequency, False);
+						$next = self::_coupFirstPeriodDate($settlement, $maturity, $frequency, True);
+						return ($next - $prev);
+					}
+			default: // US (NASD) 30/360, Actual/360 or European 30/360
+					return 360 / $frequency;
+		}
+		return self::$_errorCodes['value'];
+	}	//	function COUPDAYS()
+
+
+	public static function COUPDAYBS($settlement, $maturity, $frequency, $basis=0) {
+		$settlement	= self::flattenSingleValue($settlement);
+		$maturity	= self::flattenSingleValue($maturity);
+		$frequency	= (int) self::flattenSingleValue($frequency);
+		$basis		= (is_null($basis))	? 0 :	(int) self::flattenSingleValue($basis);
+
+		if (is_string($settlement = self::_getDateValue($settlement))) {
+			return self::$_errorCodes['value'];
+		}
+		if (is_string($maturity = self::_getDateValue($maturity))) {
+			return self::$_errorCodes['value'];
+		}
+
+		if (($settlement > $maturity) ||
+			(!self::_validFrequency($frequency)) ||
+			(($basis < 0) || ($basis > 4))) {
+			return self::$_errorCodes['num'];
+		}
+
+		$daysPerYear = self::_daysPerYear(self::YEAR($settlement),$basis);
+		$prev = self::_coupFirstPeriodDate($settlement, $maturity, $frequency, False);
+
+		return self::YEARFRAC($prev, $settlement, $basis) * $daysPerYear;
+	}	//	function COUPDAYBS()
+
+
+	public static function COUPDAYSNC($settlement, $maturity, $frequency, $basis=0) {
+		$settlement	= self::flattenSingleValue($settlement);
+		$maturity	= self::flattenSingleValue($maturity);
+		$frequency	= (int) self::flattenSingleValue($frequency);
+		$basis		= (is_null($basis))	? 0 :	(int) self::flattenSingleValue($basis);
+
+		if (is_string($settlement = self::_getDateValue($settlement))) {
+			return self::$_errorCodes['value'];
+		}
+		if (is_string($maturity = self::_getDateValue($maturity))) {
+			return self::$_errorCodes['value'];
+		}
+
+		if (($settlement > $maturity) ||
+			(!self::_validFrequency($frequency)) ||
+			(($basis < 0) || ($basis > 4))) {
+			return self::$_errorCodes['num'];
+		}
+
+		$daysPerYear = self::_daysPerYear(self::YEAR($settlement),$basis);
+		$next = self::_coupFirstPeriodDate($settlement, $maturity, $frequency, True);
+
+		return self::YEARFRAC($settlement, $next, $basis) * $daysPerYear;
+	}	//	function COUPDAYSNC()
+
+
+	public static function COUPNCD($settlement, $maturity, $frequency, $basis=0) {
+		$settlement	= self::flattenSingleValue($settlement);
+		$maturity	= self::flattenSingleValue($maturity);
+		$frequency	= (int) self::flattenSingleValue($frequency);
+		$basis		= (is_null($basis))	? 0 :	(int) self::flattenSingleValue($basis);
+
+		if (is_string($settlement = self::_getDateValue($settlement))) {
+			return self::$_errorCodes['value'];
+		}
+		if (is_string($maturity = self::_getDateValue($maturity))) {
+			return self::$_errorCodes['value'];
+		}
+
+		if (($settlement > $maturity) ||
+			(!self::_validFrequency($frequency)) ||
+			(($basis < 0) || ($basis > 4))) {
+			return self::$_errorCodes['num'];
+		}
+
+		return self::_coupFirstPeriodDate($settlement, $maturity, $frequency, True);
+	}	//	function COUPNCD()
+
+
+	public static function COUPPCD($settlement, $maturity, $frequency, $basis=0) {
+		$settlement	= self::flattenSingleValue($settlement);
+		$maturity	= self::flattenSingleValue($maturity);
+		$frequency	= (int) self::flattenSingleValue($frequency);
+		$basis		= (is_null($basis))	? 0 :	(int) self::flattenSingleValue($basis);
+
+		if (is_string($settlement = self::_getDateValue($settlement))) {
+			return self::$_errorCodes['value'];
+		}
+		if (is_string($maturity = self::_getDateValue($maturity))) {
+			return self::$_errorCodes['value'];
+		}
+
+		if (($settlement > $maturity) ||
+			(!self::_validFrequency($frequency)) ||
+			(($basis < 0) || ($basis > 4))) {
+			return self::$_errorCodes['num'];
+		}
+
+		return self::_coupFirstPeriodDate($settlement, $maturity, $frequency, False);
+	}	//	function COUPPCD()
+
+
+	public static function COUPNUM($settlement, $maturity, $frequency, $basis=0) {
+		$settlement	= self::flattenSingleValue($settlement);
+		$maturity	= self::flattenSingleValue($maturity);
+		$frequency	= (int) self::flattenSingleValue($frequency);
+		$basis		= (is_null($basis))	? 0 :	(int) self::flattenSingleValue($basis);
+
+		if (is_string($settlement = self::_getDateValue($settlement))) {
+			return self::$_errorCodes['value'];
+		}
+		if (is_string($maturity = self::_getDateValue($maturity))) {
+			return self::$_errorCodes['value'];
+		}
+
+		if (($settlement > $maturity) ||
+			(!self::_validFrequency($frequency)) ||
+			(($basis < 0) || ($basis > 4))) {
+			return self::$_errorCodes['num'];
+		}
+
+		$settlement = self::_coupFirstPeriodDate($settlement, $maturity, $frequency, True);
+		$daysBetweenSettlementAndMaturity = self::YEARFRAC($settlement, $maturity, $basis) * 365;
+
+		switch ($frequency) {
+			case 1: // annual payments
+					return ceil($daysBetweenSettlementAndMaturity / 360);
+			case 2: // half-yearly
+					return ceil($daysBetweenSettlementAndMaturity / 180);
+			case 4: // quarterly
+					return ceil($daysBetweenSettlementAndMaturity / 90);
+			case 6: // bimonthly
+					return ceil($daysBetweenSettlementAndMaturity / 60);
+			case 12: // monthly
+					return ceil($daysBetweenSettlementAndMaturity / 30);
+		}
+		return self::$_errorCodes['value'];
+	}	//	function COUPNUM()
+
+
+	public static function PRICE($settlement, $maturity, $rate, $yield, $redemption, $frequency, $basis=0) {
+		$settlement	= self::flattenSingleValue($settlement);
+		$maturity	= self::flattenSingleValue($maturity);
+		$rate		= (float) self::flattenSingleValue($rate);
+		$yield		= (float) self::flattenSingleValue($yield);
+		$redemption	= (float) self::flattenSingleValue($redemption);
+		$frequency	= (int) self::flattenSingleValue($frequency);
+		$basis		= (is_null($basis))	? 0 :	(int) self::flattenSingleValue($basis);
+
+		if (is_string($settlement = self::_getDateValue($settlement))) {
+			return self::$_errorCodes['value'];
+		}
+		if (is_string($maturity = self::_getDateValue($maturity))) {
+			return self::$_errorCodes['value'];
+		}
+
+		if (($settlement > $maturity) ||
+			(!self::_validFrequency($frequency)) ||
+			(($basis < 0) || ($basis > 4))) {
+			return self::$_errorCodes['num'];
+		}
+
+		$dsc = self::COUPDAYSNC($settlement, $maturity, $frequency, $basis);
+		$e = self::COUPDAYS($settlement, $maturity, $frequency, $basis);
+		$n = self::COUPNUM($settlement, $maturity, $frequency, $basis);
+		$a = self::COUPDAYBS($settlement, $maturity, $frequency, $basis);
+
+		$baseYF	= 1.0 + ($yield / $frequency);
+		$rfp	= 100 * ($rate / $frequency);
+		$de	= $dsc / $e;
+
+		$result = $redemption / pow($baseYF, (--$n + $de));
+		for($k = 0; $k <= $n; ++$k) {
+			$result += $rfp / (pow($baseYF, ($k + $de)));
+		}
+		$result -= $rfp * ($a / $e);
+
+		return $result;
+	}	//	function PRICE()
 
 
 	/**
@@ -9466,12 +10554,15 @@ class PHPExcel_Calculation_Functions {
 		if (is_string($maturity = self::_getDateValue($maturity))) {
 			return self::$_errorCodes['value'];
 		}
-		++$maturity;
 
-		$daysBetweenSettlementAndMaturity = self::YEARFRAC($settlement, $maturity);
-		$daysBetweenSettlementAndMaturity *= 360;
+		if (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE) {
+			++$maturity;
+			$daysBetweenSettlementAndMaturity = self::YEARFRAC($settlement, $maturity) * 360;
+		} else {
+			$daysBetweenSettlementAndMaturity = (self::_getDateValue($maturity) - self::_getDateValue($settlement));
+		}
 
-		return (365 * $discount) / (360 - ($discount * ($daysBetweenSettlementAndMaturity)));
+		return (365 * $discount) / (360 - $discount * $daysBetweenSettlementAndMaturity);
 	}	//	function TBILLEQ()
 
 
@@ -9495,7 +10586,6 @@ class PHPExcel_Calculation_Functions {
 		if (is_string($maturity = self::_getDateValue($maturity))) {
 			return self::$_errorCodes['value'];
 		}
-		++$maturity;
 
 		//	Validate
 		if (is_numeric($discount)) {
@@ -9503,11 +10593,16 @@ class PHPExcel_Calculation_Functions {
 				return self::$_errorCodes['num'];
 			}
 
-			$daysBetweenSettlementAndMaturity = self::YEARFRAC($settlement, $maturity);
-			if (!is_numeric($daysBetweenSettlementAndMaturity)) {
-				return $daysBetweenSettlementAndMaturity;
+			if (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE) {
+				++$maturity;
+				$daysBetweenSettlementAndMaturity = self::YEARFRAC($settlement, $maturity) * 360;
+				if (!is_numeric($daysBetweenSettlementAndMaturity)) {
+					return $daysBetweenSettlementAndMaturity;
+				}
+			} else {
+				$daysBetweenSettlementAndMaturity = (self::_getDateValue($maturity) - self::_getDateValue($settlement));
 			}
-			$daysBetweenSettlementAndMaturity *= 360;
+
 			if ($daysBetweenSettlementAndMaturity > 360) {
 				return self::$_errorCodes['num'];
 			}
@@ -9545,14 +10640,16 @@ class PHPExcel_Calculation_Functions {
 				return self::$_errorCodes['num'];
 			}
 
-			$daysBetweenSettlementAndMaturity = self::YEARFRAC($settlement, $maturity);
-			if (!is_numeric($daysBetweenSettlementAndMaturity)) {
-				return $daysBetweenSettlementAndMaturity;
+			if (self::$compatibilityMode == self::COMPATIBILITY_OPENOFFICE) {
+				++$maturity;
+				$daysBetweenSettlementAndMaturity = self::YEARFRAC($settlement, $maturity) * 360;
+				if (!is_numeric($daysBetweenSettlementAndMaturity)) {
+					return $daysBetweenSettlementAndMaturity;
+				}
+			} else {
+				$daysBetweenSettlementAndMaturity = (self::_getDateValue($maturity) - self::_getDateValue($settlement));
 			}
 
-			$daysBetweenSettlementAndMaturity *= 360;
-//			Sometimes we need to add 1, sometimes not. I haven't yet worked out the rule which determines this.
-			++$daysBetweenSettlementAndMaturity;
 			if ($daysBetweenSettlementAndMaturity > 360) {
 				return self::$_errorCodes['num'];
 			}
@@ -9698,21 +10795,32 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * CELL_ADDRESS
+	 *	CELL_ADDRESS
 	 *
-	 * Returns the straight-line depreciation of an asset for one period
+	 *	Creates a cell address as text, given specified row and column numbers.
 	 *
-	 * @param	row			Row number to use in the cell reference
-	 * @param	column		Column number to use in the cell reference
-	 * @param	relativity	Flag indicating the type of reference to return
-	 * @param	sheetText	Name of worksheet to use
-	 * @return	string
+	 *	@param	row				Row number to use in the cell reference
+	 *	@param	column			Column number to use in the cell reference
+	 *	@param	relativity		Flag indicating the type of reference to return
+	 *								1 or omitted	Absolute
+	 *								2				Absolute row; relative column
+	 *								3				Relative row; absolute column
+	 *								4				Relative
+	 *	@param	referenceStyle	A logical value that specifies the A1 or R1C1 reference style.
+	 *								TRUE or omitted		CELL_ADDRESS returns an A1-style reference
+	 *								FALSE				CELL_ADDRESS returns an R1C1-style reference
+	 *	@param	sheetText		Optional Name of worksheet to use
+	 *	@return	string
 	 */
 	public static function CELL_ADDRESS($row, $column, $relativity=1, $referenceStyle=True, $sheetText='') {
 		$row		= self::flattenSingleValue($row);
 		$column		= self::flattenSingleValue($column);
 		$relativity	= self::flattenSingleValue($relativity);
 		$sheetText	= self::flattenSingleValue($sheetText);
+
+		if (($row < 1) || ($column < 1)) {
+			return self::$_errorCodes['value'];
+		}
 
 		if ($sheetText > '') {
 			if (strpos($sheetText,' ') !== False) { $sheetText = "'".$sheetText."'"; }
@@ -9732,85 +10840,276 @@ class PHPExcel_Calculation_Functions {
 	}	//	function CELL_ADDRESS()
 
 
+	/**
+	 *	COLUMN
+	 *
+	 *	Returns the column number of the given cell reference
+	 *	If the cell reference is a range of cells, COLUMN returns the column numbers of each column in the reference as a horizontal array.
+	 *	If cell reference is omitted, and the function is being called through the calculation engine, then it is assumed to be the
+	 *		reference of the cell in which the COLUMN function appears; otherwise this function returns 0.
+	 *
+	 *	@param	cellAddress		A reference to a range of cells for which you want the column numbers
+	 *	@return	integer or array of integer
+	 */
 	public static function COLUMN($cellAddress=Null) {
-		if (is_null($cellAddress) || $cellAddress === '') {
-			return 0;
-		}
+		if (is_null($cellAddress) || trim($cellAddress) === '') { return 0; }
 
-		foreach($cellAddress as $columnKey => $value) {
-			return PHPExcel_Cell::columnIndexFromString($columnKey);
+		if (is_array($cellAddress)) {
+			foreach($cellAddress as $columnKey => $value) {
+				$columnKey = preg_replace('/[^a-z]/i','',$columnKey);
+				return (integer) PHPExcel_Cell::columnIndexFromString($columnKey);
+			}
+		} else {
+			if (strpos($cellAddress,'!') !== false) {
+				list($sheet,$cellAddress) = explode('!',$cellAddress);
+			}
+			if (strpos($cellAddress,':') !== false) {
+				list($startAddress,$endAddress) = explode(':',$cellAddress);
+				$startAddress = preg_replace('/[^a-z]/i','',$startAddress);
+				$endAddress = preg_replace('/[^a-z]/i','',$endAddress);
+				$returnValue = array();
+				do {
+					$returnValue[] = (integer) PHPExcel_Cell::columnIndexFromString($startAddress);
+				} while ($startAddress++ != $endAddress);
+				return $returnValue;
+			} else {
+				$cellAddress = preg_replace('/[^a-z]/i','',$cellAddress);
+				return (integer) PHPExcel_Cell::columnIndexFromString($cellAddress);
+			}
 		}
 	}	//	function COLUMN()
 
 
-	public static function ROW($cellAddress=Null) {
-		if ($cellAddress === Null) {
-			return 0;
+	/**
+	 *	COLUMNS
+	 *
+	 *	Returns the number of columns in an array or reference.
+	 *
+	 *	@param	cellAddress		An array or array formula, or a reference to a range of cells for which you want the number of columns
+	 *	@return	integer
+	 */
+	public static function COLUMNS($cellAddress=Null) {
+		if (is_null($cellAddress) || $cellAddress === '') {
+			return 1;
+		} elseif (!is_array($cellAddress)) {
+			return self::$_errorCodes['value'];
 		}
 
-		foreach($cellAddress as $columnKey => $rowValue) {
-			foreach($rowValue as $rowKey => $cellValue) {
-				return $rowKey;
+		$x = array_keys($cellAddress);
+		$x = array_shift($x);
+		$isMatrix = (is_numeric($x));
+		list($columns,$rows) = PHPExcel_Calculation::_getMatrixDimensions($cellAddress);
+
+		if ($isMatrix) {
+			return $rows;
+		} else {
+			return $columns;
+		}
+	}	//	function COLUMNS()
+
+
+	/**
+	 *	ROW
+	 *
+	 *	Returns the row number of the given cell reference
+	 *	If the cell reference is a range of cells, ROW returns the row numbers of each row in the reference as a vertical array.
+	 *	If cell reference is omitted, and the function is being called through the calculation engine, then it is assumed to be the
+	 *		reference of the cell in which the ROW function appears; otherwise this function returns 0.
+	 *
+	 *	@param	cellAddress		A reference to a range of cells for which you want the row numbers
+	 *	@return	integer or array of integer
+	 */
+	public static function ROW($cellAddress=Null) {
+		if (is_null($cellAddress) || trim($cellAddress) === '') { return 0; }
+
+		if (is_array($cellAddress)) {
+			foreach($cellAddress as $columnKey => $rowValue) {
+				foreach($rowValue as $rowKey => $cellValue) {
+					return (integer) preg_replace('/[^0-9]/i','',$rowKey);
+				}
+			}
+		} else {
+			if (strpos($cellAddress,'!') !== false) {
+				list($sheet,$cellAddress) = explode('!',$cellAddress);
+			}
+			if (strpos($cellAddress,':') !== false) {
+				list($startAddress,$endAddress) = explode(':',$cellAddress);
+				$startAddress = preg_replace('/[^0-9]/','',$startAddress);
+				$endAddress = preg_replace('/[^0-9]/','',$endAddress);
+				$returnValue = array();
+				do {
+					$returnValue[][] = (integer) $startAddress;
+				} while ($startAddress++ != $endAddress);
+				return $returnValue;
+			} else {
+				list($cellAddress) = explode(':',$cellAddress);
+				return (integer) preg_replace('/[^0-9]/','',$cellAddress);
 			}
 		}
 	}	//	function ROW()
 
 
+	/**
+	 *	ROWS
+	 *
+	 *	Returns the number of rows in an array or reference.
+	 *
+	 *	@param	cellAddress		An array or array formula, or a reference to a range of cells for which you want the number of rows
+	 *	@return	integer
+	 */
+	public static function ROWS($cellAddress=Null) {
+		if (is_null($cellAddress) || $cellAddress === '') {
+			return 1;
+		} elseif (!is_array($cellAddress)) {
+			return self::$_errorCodes['value'];
+		}
+
+		$i = array_keys($cellAddress);
+		$isMatrix = (is_numeric(array_shift($i)));
+		list($columns,$rows) = PHPExcel_Calculation::_getMatrixDimensions($cellAddress);
+
+		if ($isMatrix) {
+			return $columns;
+		} else {
+			return $rows;
+		}
+	}	//	function ROWS()
+
+
+	/**
+	 *	INDIRECT
+	 *
+	 *	Returns the number of rows in an array or reference.
+	 *
+	 *	@param	cellAddress		An array or array formula, or a reference to a range of cells for which you want the number of rows
+	 *	@return	integer
+	 */
+	public static function INDIRECT($cellAddress=Null, PHPExcel_Cell $pCell = null) {
+		$cellAddress	= self::flattenSingleValue($cellAddress);
+		if (is_null($cellAddress) || $cellAddress === '') {
+			return self::REF();
+		}
+
+		$cellAddress1 = $cellAddress;
+		$cellAddress2 = NULL;
+		if (strpos($cellAddress,':') !== false) {
+			list($cellAddress1,$cellAddress2) = explode(':',$cellAddress);
+		}
+
+		if ((!preg_match('/^'.PHPExcel_Calculation::CALCULATION_REGEXP_CELLREF.'$/i', $cellAddress1, $matches)) ||
+			((!is_null($cellAddress2)) && (!preg_match('/^'.PHPExcel_Calculation::CALCULATION_REGEXP_CELLREF.'$/i', $cellAddress2, $matches)))) {
+			return self::REF();
+		}
+
+		if (strpos($cellAddress,'!') !== false) {
+			list($sheetName,$cellAddress) = explode('!',$cellAddress);
+			$pSheet = $pCell->getParent()->getParent()->getSheetByName($sheetName);
+		} else {
+			$pSheet = $pCell->getParent();
+		}
+
+		return PHPExcel_Calculation::getInstance()->extractCellRange($cellAddress, $pSheet, False);
+	}	//	function INDIRECT()
+
+
+	/**
+	 *	OFFSET
+	 *
+	 *	Returns a reference to a range that is a specified number of rows and columns from a cell or range of cells.
+	 *	The reference that is returned can be a single cell or a range of cells. You can specify the number of rows and
+	 *	the number of columns to be returned.
+	 *
+	 *	@param	cellAddress		The reference from which you want to base the offset. Reference must refer to a cell or
+	 *								range of adjacent cells; otherwise, OFFSET returns the #VALUE! error value.
+	 *	@param	rows			The number of rows, up or down, that you want the upper-left cell to refer to.
+	 *								Using 5 as the rows argument specifies that the upper-left cell in the reference is
+	 *								five rows below reference. Rows can be positive (which means below the starting reference)
+	 *								or negative (which means above the starting reference).
+	 *	@param	cols			The number of columns, to the left or right, that you want the upper-left cell of the result
+	 *								to refer to. Using 5 as the cols argument specifies that the upper-left cell in the
+	 *								reference is five columns to the right of reference. Cols can be positive (which means
+	 *								to the right of the starting reference) or negative (which means to the left of the
+	 *								starting reference).
+	 *	@param	height			The height, in number of rows, that you want the returned reference to be. Height must be a positive number.
+	 *	@param	width			The width, in number of columns, that you want the returned reference to be. Width must be a positive number.
+	 *	@return	string			A reference to a cell or range of cells
+	 */
 	public static function OFFSET($cellAddress=Null,$rows=0,$columns=0,$height=null,$width=null) {
+		$rows		= self::flattenSingleValue($rows);
+		$columns	= self::flattenSingleValue($columns);
+		$height		= self::flattenSingleValue($height);
+		$width		= self::flattenSingleValue($width);
 		if ($cellAddress == Null) {
 			return 0;
 		}
 
-		foreach($cellAddress as $startColumnKey => $rowValue) {
-			$startColumnIndex = PHPExcel_Cell::columnIndexFromString($startColumnKey);
-			foreach($rowValue as $startRowKey => $cellValue) {
-				break 2;
-			}
-		}
-
-		foreach($cellAddress as $endColumnKey => $rowValue) {
-			foreach($rowValue as $endRowKey => $cellValue) {
-			}
-		}
-		$endColumnIndex = PHPExcel_Cell::columnIndexFromString($endColumnKey);
-
-		$startColumnIndex += --$columns;
-		$startRowKey += $rows;
-
-		if ($width == null) {
-			$endColumnIndex += $columns -1;
-		} else {
-			$endColumnIndex = $startColumnIndex + $width;
-		}
-		if ($height == null) {
-			$endRowKey += $rows;
-		} else {
-			$endRowKey = $startRowKey + $height -1;
-		}
-
-		if (($startColumnIndex < 0) || ($startRowKey <= 0)) {
+		$args = func_get_args();
+		$pCell = array_pop($args);
+		if (!is_object($pCell)) {
 			return self::$_errorCodes['reference'];
 		}
 
-		$startColumnKey = PHPExcel_Cell::stringFromColumnIndex($startColumnIndex);
-		$endColumnKey = PHPExcel_Cell::stringFromColumnIndex($endColumnIndex);
-
-		$startCell = $startColumnKey.$startRowKey;
-		$endCell = $endColumnKey.$endRowKey;
-
-		if ($startCell == $endCell) {
-			return $startColumnKey.$startRowKey;
-		} else {
-			return $startColumnKey.$startRowKey.':'.$endColumnKey.$endRowKey;
+		$sheetName = null;
+		if (strpos($cellAddress,"!")) {
+			list($sheetName,$cellAddress) = explode("!",$cellAddress);
 		}
+		if (strpos($cellAddress,":")) {
+			list($startCell,$endCell) = explode(":",$cellAddress);
+		} else {
+			$startCell = $endCell = $cellAddress;
+		}
+		list($startCellColumn,$startCellRow) = PHPExcel_Cell::coordinateFromString($startCell);
+		list($endCellColumn,$endCellRow) = PHPExcel_Cell::coordinateFromString($endCell);
+
+		$startCellRow += $rows;
+		$startCellColumn = PHPExcel_Cell::columnIndexFromString($startCellColumn) - 1;
+		$startCellColumn += $columns;
+
+		if (($startCellRow <= 0) || ($startCellColumn < 0)) {
+			return self::$_errorCodes['reference'];
+		}
+		$endCellColumn = PHPExcel_Cell::columnIndexFromString($endCellColumn) - 1;
+		if (($width != null) && (!is_object($width))) {
+			$endCellColumn = $startCellColumn + $width - 1;
+		} else {
+			$endCellColumn += $columns;
+		}
+		$startCellColumn = PHPExcel_Cell::stringFromColumnIndex($startCellColumn);
+
+		if (($height != null) && (!is_object($height))) {
+			$endCellRow = $startCellRow + $height - 1;
+		} else {
+			$endCellRow += $rows;
+		}
+
+		if (($endCellRow <= 0) || ($endCellColumn < 0)) {
+			return self::$_errorCodes['reference'];
+		}
+		$endCellColumn = PHPExcel_Cell::stringFromColumnIndex($endCellColumn);
+
+		$cellAddress = $startCellColumn.$startCellRow;
+		if (($startCellColumn != $endCellColumn) || ($startCellRow != $endCellRow)) {
+			$cellAddress .= ':'.$endCellColumn.$endCellRow;
+		}
+
+		if ($sheetName !== null) {
+			$pSheet = $pCell->getParent()->getParent()->getSheetByName($sheetName);
+		} else {
+			$pSheet = $pCell->getParent();
+		}
+
+		return PHPExcel_Calculation::getInstance()->extractCellRange($cellAddress, $pSheet, False);
 	}	//	function OFFSET()
 
 
 	public static function CHOOSE() {
 		$chooseArgs = func_get_args();
-		$chosenEntry = self::flattenSingleValue(array_shift($chooseArgs));
+		$chosenEntry = self::flattenArray(array_shift($chooseArgs));
 		$entryCount = count($chooseArgs) - 1;
 
+		if(is_array($chosenEntry)) {
+			$chosenEntry = array_shift($chosenEntry);
+		}
 		if ((is_numeric($chosenEntry)) && (!is_bool($chosenEntry))) {
 			--$chosenEntry;
 		} else {
@@ -9830,12 +11129,14 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * MATCH
-	 * The MATCH function searches for a specified item in a range of cells
-	 * @param	lookup_value	The value that you want to match in lookup_array
-	 * @param	lookup_array	The range of cells being searched
-	 * @param	match_type		The number -1, 0, or 1. -1 means above, 0 means exact match, 1 means below. If match_type is 1 or -1, the list has to be ordered.
-	 * @return	integer		the relative position of the found item
+	 *	MATCH
+	 *
+	 *	The MATCH function searches for a specified item in a range of cells
+	 *
+	 *	@param	lookup_value	The value that you want to match in lookup_array
+	 *	@param	lookup_array	The range of cells being searched
+	 *	@param	match_type		The number -1, 0, or 1. -1 means above, 0 means exact match, 1 means below. If match_type is 1 or -1, the list has to be ordered.
+	 *	@return	integer			The relative position of the found item
 	 */
 	public static function MATCH($lookup_value, $lookup_array, $match_type=1) {
 
@@ -9949,6 +11250,8 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
+	 *	INDEX
+	 *
 	 * Uses an index to choose a value from a reference or array
 	 * implemented: Return the value of a specified cell or array of cells	Array form
 	 * not implemented: Return a reference to specified cells	Reference form
@@ -9963,8 +11266,13 @@ class PHPExcel_Calculation_Functions {
 			return self::$_errorCodes['value'];
 		}
 
+		if (!is_array($arrayValues)) {
+			return self::$_errorCodes['reference'];
+		}
+
 		$rowKeys = array_keys($arrayValues);
-		$columnKeys = array_keys($arrayValues[$rowKeys[0]]);
+		$columnKeys = @array_keys($arrayValues[$rowKeys[0]]);
+
 		if ($columnNum > count($columnKeys)) {
 			return self::$_errorCodes['value'];
 		} elseif ($columnNum == 0) {
@@ -9974,7 +11282,15 @@ class PHPExcel_Calculation_Functions {
 			$rowNum = $rowKeys[--$rowNum];
 			$returnArray = array();
 			foreach($arrayValues as $arrayColumn) {
-				$returnArray[] = $arrayColumn[$rowNum];
+				if (is_array($arrayColumn)) {
+					if (isset($arrayColumn[$rowNum])) {
+						$returnArray[] = $arrayColumn[$rowNum];
+					} else {
+						return $arrayValues[$rowNum];
+					}
+				} else {
+					return $arrayValues[$rowNum];
+				}
 			}
 			return $returnArray;
 		}
@@ -9988,6 +11304,102 @@ class PHPExcel_Calculation_Functions {
 
 		return $arrayValues[$rowNum][$columnNum];
 	}	//	function INDEX()
+
+
+	/**
+	 *	N
+	 *
+	 *	Returns a value converted to a number
+	 *
+	 *	@param	value		The value you want converted
+	 *	@return	number		N converts values listed in the following table
+	 *		If value is or refers to N returns
+	 *		A number			That number
+	 *		A date				The serial number of that date
+	 *		TRUE				1
+	 *		FALSE				0
+	 *		An error value		The error value
+	 *		Anything else		0
+	 */
+	public static function N($value) {
+		while (is_array($value)) {
+			$value = array_shift($value);
+		}
+
+		switch (gettype($value)) {
+			case 'double'	:
+			case 'float'	:
+			case 'integer'	:
+				return $value;
+				break;
+			case 'boolean'	:
+				return (integer) $value;
+				break;
+			case 'string'	:
+				//	Errors
+				if ((strlen($value) > 0) && ($value{0} == '#')) {
+					return $value;
+				}
+				break;
+		}
+		return 0;
+	}	//	function N()
+
+
+	/**
+	 *	TYPE
+	 *
+	 *	Returns a number that identifies the type of a value
+	 *
+	 *	@param	value		The value you want tested
+	 *	@return	number		N converts values listed in the following table
+	 *		If value is or refers to N returns
+	 *		A number			1
+	 *		Text				2
+	 *		Logical Value		4
+	 *		An error value		16
+	 *		Array or Matrix		64
+	 */
+	public static function TYPE($value) {
+		$value	= self::flattenArrayIndexed($value);
+		if (is_array($value) && (count($value) > 1)) {
+			$a = array_keys($value);
+			$a = array_pop($a);
+			//	Range of cells is an error
+			if (self::isCellValue($a)) {
+				return 16;
+			//	Test for Matrix
+			} elseif (self::isMatrixValue($a)) {
+				return 64;
+			}
+		} elseif(count($value) == 0) {
+			//	Empty Cell
+			return 1;
+		}
+		$value	= self::flattenSingleValue($value);
+
+		switch (gettype($value)) {
+			case 'double'	:
+			case 'float'	:
+			case 'integer'	:
+				return 1;
+				break;
+			case 'boolean'	:
+				return 4;
+				break;
+			case 'array'	:
+				return 64;
+				break;
+			case 'string'	:
+				//	Errors
+				if ((strlen($value) > 0) && ($value{0} == '#')) {
+					return 16;
+				}
+				return 2;
+				break;
+		}
+		return 0;
+	}	//	function TYPE()
 
 
 	/**
@@ -10009,7 +11421,7 @@ class PHPExcel_Calculation_Functions {
 
 		// Calculate
 		if ((is_numeric($cost)) && (is_numeric($salvage)) && (is_numeric($life)) && (is_numeric($period))) {
-			if (($life < 1) || ($salvage < $life) || ($period > $life)) {
+			if (($life < 1) || ($period > $life)) {
 				return self::$_errorCodes['num'];
 			}
 			return (($cost - $salvage) * ($life - $period + 1) * 2) / ($life * ($life + 1));
@@ -10034,7 +11446,7 @@ class PHPExcel_Calculation_Functions {
 		foreach($matrixData as $matrixRow) {
 			$row = 0;
 			foreach($matrixRow as $matrixCell) {
-				$returnMatrix[$column][$row] = $matrixCell;
+				$returnMatrix[$row][$column] = $matrixCell;
 				++$row;
 			}
 			++$column;
@@ -10163,6 +11575,37 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
+	 * SUMPRODUCT
+	 *
+	 * @param	mixed	$value	Value to check
+	 * @return	float
+	 */
+	public static function SUMPRODUCT() {
+		$arrayList = func_get_args();
+
+		$wrkArray = self::flattenArray(array_shift($arrayList));
+		$wrkCellCount = count($wrkArray);
+
+		foreach($arrayList as $matrixData) {
+			$array2 = self::flattenArray($matrixData);
+			$count = count($array2);
+			if ($wrkCellCount != $count) {
+				return self::$_errorCodes['value'];
+			}
+
+			foreach ($array2 as $i => $val) {
+				if (((is_numeric($wrkArray[$i])) && (!is_string($wrkArray[$i]))) &&
+					((is_numeric($val)) && (!is_string($val)))) {
+					$wrkArray[$i] *= $val;
+				}
+			}
+		}
+
+		return array_sum($wrkArray);
+	}	//	function SUMPRODUCT()
+
+
+	/**
 	 * SUMX2MY2
 	 *
 	 * @param	mixed	$value	Value to check
@@ -10249,6 +11692,16 @@ class PHPExcel_Calculation_Functions {
 	}	//	function SUMXMY2()
 
 
+	private static function _vlookupSort($a,$b) {
+		$f = array_keys($a);
+		$firstColumn = array_shift($f);
+		if (strtolower($a[$firstColumn]) == strtolower($b[$firstColumn])) {
+			return 0;
+		}
+		return (strtolower($a[$firstColumn]) < strtolower($b[$firstColumn])) ? -1 : 1;
+	}	//	function _vlookupSort()
+
+
 	/**
 	* VLOOKUP
 	* The VLOOKUP function searches for value in the left-most column of lookup_array and returns the value in the same row based on the index_number.
@@ -10259,115 +11712,148 @@ class PHPExcel_Calculation_Functions {
 	* @return	mixed			The value of the found cell
 	*/
 	public static function VLOOKUP($lookup_value, $lookup_array, $index_number, $not_exact_match=true) {
+		$lookup_value	= self::flattenSingleValue($lookup_value);
+		$index_number	= self::flattenSingleValue($index_number);
+		$not_exact_match	= self::flattenSingleValue($not_exact_match);
+
 		// index_number must be greater than or equal to 1
 		if ($index_number < 1) {
 			return self::$_errorCodes['value'];
 		}
 
 		// index_number must be less than or equal to the number of columns in lookup_array
-		if ($index_number > count($lookup_array)) {
+		if ((!is_array($lookup_array)) || (count($lookup_array) < 1)) {
 			return self::$_errorCodes['reference'];
-		}
-
-		// re-index lookup_array with numeric keys starting at 1
-		array_unshift($lookup_array, array());
-		$lookup_array = array_slice(array_values($lookup_array), 1, count($lookup_array), true);
-
-		// look for an exact match
-		$row_number = array_search($lookup_value, $lookup_array[1]);
-
-		// if an exact match is required, we have what we need to return an appropriate response
-		if ($not_exact_match == false) {
-			if ($row_number === false) {
-				return self::$_errorCodes['na'];
+		} else {
+			$f = array_keys($lookup_array);
+			$firstRow = array_pop($f);
+			if ((!is_array($lookup_array[$firstRow])) || ($index_number > count($lookup_array[$firstRow]))) {
+				return self::$_errorCodes['reference'];
 			} else {
-				return $lookup_array[$index_number][$row_number];
+				$columnKeys = array_keys($lookup_array[$firstRow]);
+				$returnColumn = $columnKeys[--$index_number];
+				$firstColumn = array_shift($columnKeys);
 			}
 		}
 
-		// TODO: The VLOOKUP spec in Excel states that, at this point, we should search for
-		// the highest value that is less than lookup_value. However, documentation on how string
-		// values should be treated here is sparse.
+		if (!$not_exact_match) {
+			uasort($lookup_array,array('self','_vlookupSort'));
+		}
+
+		$rowNumber = $rowValue = False;
+		foreach($lookup_array as $rowKey => $rowData) {
+			if (strtolower($rowData[$firstColumn]) > strtolower($lookup_value)) {
+				break;
+			}
+			$rowNumber = $rowKey;
+			$rowValue = $rowData[$firstColumn];
+		}
+
+		if ($rowNumber !== false) {
+			if ((!$not_exact_match) && ($rowValue != $lookup_value)) {
+				//	if an exact match is required, we have what we need to return an appropriate response
+				return self::$_errorCodes['na'];
+			} else {
+				//	otherwise return the appropriate value
+				return $lookup_array[$rowNumber][$returnColumn];
+			}
+		}
+
 		return self::$_errorCodes['na'];
 	}	//	function VLOOKUP()
 
+
 	/**
-	* LOOKUP
-	* The LOOKUP function searches for value either from a one-row or one-column range or from an array.
-	* @param	lookup_value	The value that you want to match in lookup_array
-	* @param	lookup_vector	The range of cells being searched
-	* @param	result_vector	The column from which the matching value must be returned
-	* @return	mixed			The value of the found cell
-	*/
+	 * LOOKUP
+	 * The LOOKUP function searches for value either from a one-row or one-column range or from an array.
+	 * @param	lookup_value	The value that you want to match in lookup_array
+	 * @param	lookup_vector	The range of cells being searched
+	 * @param	result_vector	The column from which the matching value must be returned
+	 * @return	mixed			The value of the found cell
+	 */
 	public static function LOOKUP($lookup_value, $lookup_vector, $result_vector=null) {
+		$lookup_value	= self::flattenSingleValue($lookup_value);
 
-		// check for LOOKUP Syntax (view Excel documentation)
-		if( is_null($result_vector) )
-		{
-		// TODO: Syntax 2 (array)
-		} else {
-		// Syntax 1 (vector)
-			// get key (column or row) of lookup_vector
-			$kl = key($lookup_vector);
-			// check if lookup_value exists in lookup_vector
-			if( in_array($lookup_value, $lookup_vector[$kl]) )
-			{
-			// FOUND IT! Get key of lookup_vector
-				$k_res = array_search($lookup_value, $lookup_vector[$kl]);
-			} else {
-			// value NOT FOUND
-				// Get the smallest value in lookup_vector
-				// The LOOKUP spec in Excel states --> IMPORTANT - The values in lookup_vector must be placed in ascending order!
-				$ksv = key($lookup_vector[$kl]);
-				$smallest_value = $lookup_vector[$kl][$ksv];
-				// If lookup_value is smaller than the smallest value in lookup_vector, LOOKUP gives the #N/A error value.
-				if( $lookup_value < $smallest_value )
-				{
-					return self::$_errorCodes['na'];
-				} else {
-					// If LOOKUP can't find the lookup_value, it matches the largest value in lookup_vector that is less than or equal to lookup_value.
-					// IMPORTANT : In Excel Documentation is not clear what happen if lookup_value is text!
-					foreach( $lookup_vector[$kl] AS $kk => $value )
-					{
-						if( $lookup_value >= $value )
-						{
-							$k_res = $kk;
-						}
-					}
-				}
-			}
-
-			// Returns a value from the same position in result_vector
-			// get key (column or row) of result_vector
-			$kr = key($result_vector);
-			if( isset($result_vector[$kr][$k_res]) )
-			{
-				return $result_vector[$kr][$k_res];
-			} else {
-				// TODO: In Excel Documentation is not clear what happen here...
-			}
+		if (!is_array($lookup_vector)) {
+			return self::$_errorCodes['na'];
 		}
+		$lookupRows = count($lookup_vector);
+		$l = array_keys($lookup_vector);
+		$l = array_shift($l);
+		$lookupColumns = count($lookup_vector[$l]);
+		if ((($lookupRows == 1) && ($lookupColumns > 1)) || (($lookupRows == 2) && ($lookupColumns != 2))) {
+			$lookup_vector = self::TRANSPOSE($lookup_vector);
+			$lookupRows = count($lookup_vector);
+			$l = array_keys($lookup_vector);
+			$lookupColumns = count($lookup_vector[array_shift($l)]);
+		}
+
+		if (is_null($result_vector)) {
+			$result_vector = $lookup_vector;
+		}
+		$resultRows = count($result_vector);
+		$l = array_keys($result_vector);
+		$l = array_shift($l);
+		$resultColumns = count($result_vector[$l]);
+		if ((($resultRows == 1) && ($resultColumns > 1)) || (($resultRows == 2) && ($resultColumns != 2))) {
+			$result_vector = self::TRANSPOSE($result_vector);
+			$resultRows = count($result_vector);
+			$r = array_keys($result_vector);
+			$resultColumns = count($result_vector[array_shift($r)]);
+		}
+
+		if ($lookupRows == 2) {
+			$result_vector = array_pop($lookup_vector);
+			$lookup_vector = array_shift($lookup_vector);
+		}
+		if ($lookupColumns != 2) {
+			foreach($lookup_vector as &$value) {
+				if (is_array($value)) {
+					$k = array_keys($value);
+					$key1 = $key2 = array_shift($k);
+					$key2++;
+					$dataValue1 = $value[$key1];
+				} else {
+					$key1 = 0;
+					$key2 = 1;
+					$dataValue1 = $value;
+				}
+				$dataValue2 = array_shift($result_vector);
+				if (is_array($dataValue2)) {
+					$dataValue2 = array_shift($dataValue2);
+				}
+				$value = array($key1 => $dataValue1, $key2 => $dataValue2);
+			}
+			unset($value);
+		}
+
+		return self::VLOOKUP($lookup_value,$lookup_vector,2);
  	}	//	function LOOKUP()
 
 
 	/**
-	 * Flatten multidemensional array
+	 *	Convert a multi-dimensional array to a simple 1-dimensional array
 	 *
-	 * @param	array	$array	Array to be flattened
-	 * @return	array	Flattened array
+	 *	@param	array	$array	Array to be flattened
+	 *	@return	array	Flattened array
 	 */
 	public static function flattenArray($array) {
-		if(!is_array ( $array ) ){
-			$array = array ( $array );
+		if (!is_array($array)) {
+			return (array) $array;
 		}
 
 		$arrayValues = array();
-
 		foreach ($array as $value) {
-			if (is_scalar($value)) {
-				$arrayValues[] = self::flattenSingleValue($value);
-			} elseif (is_array($value)) {
-				$arrayValues = array_merge($arrayValues, self::flattenArray($value));
+			if (is_array($value)) {
+				foreach ($value as $val) {
+					if (is_array($val)) {
+						foreach ($val as $v) {
+							$arrayValues[] = $v;
+						}
+					} else {
+						$arrayValues[] = $val;
+					}
+				}
 			} else {
 				$arrayValues[] = $value;
 			}
@@ -10378,15 +11864,48 @@ class PHPExcel_Calculation_Functions {
 
 
 	/**
-	 * Convert an array with one element to a flat value
+	 *	Convert a multi-dimensional array to a simple 1-dimensional array, but retain an element of indexing
 	 *
-	 * @param	mixed		$value		Array or flat value
-	 * @return	mixed
+	 *	@param	array	$array	Array to be flattened
+	 *	@return	array	Flattened array
+	 */
+	public static function flattenArrayIndexed($array) {
+		if (!is_array($array)) {
+			return (array) $array;
+		}
+
+		$arrayValues = array();
+		foreach ($array as $k1 => $value) {
+			if (is_array($value)) {
+				foreach ($value as $k2 => $val) {
+					if (is_array($val)) {
+						foreach ($val as $k3 => $v) {
+							$arrayValues[$k1.'.'.$k2.'.'.$k3] = $v;
+						}
+					} else {
+						$arrayValues[$k1.'.'.$k2] = $val;
+					}
+				}
+			} else {
+				$arrayValues[$k1] = $value;
+			}
+		}
+
+		return $arrayValues;
+	}	//	function flattenArrayIndexed()
+
+
+	/**
+	 *	Convert an array to a single scalar value by extracting the first element
+	 *
+	 *	@param	mixed		$value		Array or scalar value
+	 *	@return	mixed
 	 */
 	public static function flattenSingleValue($value = '') {
-		if (is_array($value)) {
-			$value = self::flattenSingleValue(array_pop($value));
+		while (is_array($value)) {
+			$value = array_pop($value);
 		}
+
 		return $value;
 	}	//	function flattenSingleValue()
 
@@ -10502,4 +12021,35 @@ if (!function_exists('money_format')) {
 		$format = str_replace($fmatch[0], $number, $format);
 		return $format;
 	}	//	function money_format()
+}
+
+
+//
+//	Strangely, PHP doesn't have a mb_str_replace multibyte function
+//	As we'll only ever use this function with UTF-8 characters, we can simply "hard-code" the character set
+//
+if ((!function_exists('mb_str_replace')) &&
+	(function_exists('mb_substr')) && (function_exists('mb_strlen')) && (function_exists('mb_strpos'))) {
+	function mb_str_replace($search, $replace, $subject) {
+		if(is_array($subject)) {
+			$ret = array();
+			foreach($subject as $key => $val) {
+				$ret[$key] = mb_str_replace($search, $replace, $val);
+			}
+			return $ret;
+		}
+
+		foreach((array) $search as $key => $s) {
+			if($s == '') {
+				continue;
+			}
+			$r = !is_array($replace) ? $replace : (array_key_exists($key, $replace) ? $replace[$key] : '');
+			$pos = mb_strpos($subject, $s, 0, 'UTF-8');
+			while($pos !== false) {
+				$subject = mb_substr($subject, 0, $pos, 'UTF-8') . $r . mb_substr($subject, $pos + mb_strlen($s, 'UTF-8'), 65535, 'UTF-8');
+				$pos = mb_strpos($subject, $s, $pos + mb_strlen($r, 'UTF-8'), 'UTF-8');
+			}
+		}
+		return $subject;
+	}
 }
