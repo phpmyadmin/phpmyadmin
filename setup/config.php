@@ -11,7 +11,7 @@
  * Core libraries.
  */
 require './lib/common.inc.php';
-require_once './setup/lib/Form.class.php';
+require_once './libraries/config/Form.class.php';
 require_once './setup/lib/FormDisplay.class.php';
 
 $form_display = new FormDisplay();

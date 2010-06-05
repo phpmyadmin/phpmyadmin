@@ -3,10 +3,10 @@ General
     DefaultLang (just persist main page settings?)
     DefaultConnectionCollation (just persist main page settings?)
     ThemeDefault (if ThemeManager == true)
-    NaturalOrder
-    InitialSlidersState
-    ErrorIconic
-    ReplaceHelpImg
+    NaturalOrder [s-]
+    InitialSlidersState [s-]
+    ErrorIconic [s-]
+    ReplaceHelpImg [s-]
 Text fields
     CharEditing [s]
     CharTextareaCols [s]
@@ -14,7 +14,6 @@ Text fields
     TextareaCols [s-]
     TextareaRows [s-]
     LongtextDoubleTextarea [s-]
-
 SQL Queries
     ShowSQL [s]
     Confirm [s]
@@ -90,14 +89,13 @@ In edit mode...
     ForeignKeyMaxLimit [s]
     CtrlArrowsMoving [s]
     DefaultPropDisplay [s-]
-
-
 Tabs display settings
     LightTabs [s]
     PropertiesIconic [s]
     DefaultTabServer [s]
     DefaultTabDatabase [s]
     DefaultTabTable [s]
+
 SQL Query Box
     Edit [s]
     Explain [s]

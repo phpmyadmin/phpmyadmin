@@ -14,7 +14,7 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Core libraries.
  */
-require_once './setup/lib/Form.class.php';
+require_once './libraries/config/Form.class.php';
 require_once './setup/lib/FormDisplay.class.php';
 require_once './setup/lib/form_processing.lib.php';
 

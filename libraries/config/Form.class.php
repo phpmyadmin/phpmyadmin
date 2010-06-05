@@ -2,9 +2,8 @@
 /**
  * Form handling code.
  *
- * @package    phpMyAdmin-setup
+ * @package    phpMyAdmin
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
  */
 
 /**

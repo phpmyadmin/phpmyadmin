@@ -55,7 +55,7 @@ class ConfigFile
         // apply default values overrides
         if (count($cfg_db['_overrides'])) {
             foreach ($cfg_db['_overrides'] as $path => $value) {
-                array_write($path, $cfg, $value);
+                PMA_array_write($path, $cfg, $value);
             }
         }
 
@@ -92,9 +92,9 @@ class ConfigFile
         $default_value = $this->getDefault($canonical_path);
         if (!isset($this->persistKeys[$canonical_path])
             && (($value == $default_value) || (empty($value) && empty($default_value)))) {
-            array_remove($path, $_SESSION['ConfigFile']);
+            PMA_array_remove($path, $_SESSION['ConfigFile']);
         } else {
-            array_write($path, $_SESSION['ConfigFile'], $value);
+            PMA_array_write($path, $_SESSION['ConfigFile'], $value);
         }
     }
 
@@ -107,7 +107,7 @@ class ConfigFile
      */
     public function get($path, $default = null)
     {
-        return array_read($path, $_SESSION['ConfigFile'], $default);
+        return PMA_array_read($path, $_SESSION['ConfigFile'], $default);
     }
 
     /**
@@ -121,7 +121,7 @@ class ConfigFile
      */
     public function getDefault($canonical_path, $default = null)
     {
-        return array_read($canonical_path, $this->cfg, $default);
+        return PMA_array_read($canonical_path, $this->cfg, $default);
     }
 
     /**
@@ -134,7 +134,7 @@ class ConfigFile
      */
     public function getValue($path, $default = null)
     {
-        $v = array_read($path, $_SESSION['ConfigFile'], null);
+        $v = PMA_array_read($path, $_SESSION['ConfigFile'], null);
         if ($v !== null) {
             return $v;
         }
@@ -161,7 +161,7 @@ class ConfigFile
      */
     public function getDbEntry($path, $default = null)
     {
-        return array_read($path, $this->cfgDb, $default);
+        return PMA_array_read($path, $this->cfgDb, $default);
     }
 
     /**
@@ -252,13 +252,18 @@ class ConfigFile
     }
 
     /**
-     * Returns config file path
+     * Returns config file path, relative to phpMyAdmin's root path
      *
      * @return unknown
      */
     public function getFilePath()
     {
-        return $this->getDbEntry('_config_file_path');
+        // Load paths
+        if (!defined('SETUP_CONFIG_FILE')) {
+            require_once './libraries/vendor_config.php';
+        }
+
+        return SETUP_CONFIG_FILE;
     }
 
     /**
