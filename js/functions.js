@@ -1268,13 +1268,13 @@ function setCheckboxColumn(theCheckbox){
   */
 function setSelectOptions(the_form, the_select, do_check)
 {
-    var selectObject = document.forms[the_form].elements[the_select];
-    var selectCount  = selectObject.length;
 
-    for (var i = 0; i < selectCount; i++) {
-        selectObject.options[i].selected = do_check;
-    } // end for
-
+    if( do_check ) {
+        $("form[name='"+ the_form +"']").find("select[name='"+the_select+"']").find("option").attr('selected', 'selected');
+    }
+    else {
+        $("form[name='"+ the_form +"']").find("select[name="+the_select+"]").find("option").removeAttr('selected');
+    }
     return true;
 } // end of the 'setSelectOptions()' function
 
