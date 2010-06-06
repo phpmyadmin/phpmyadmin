@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-04 16:07-0400\n"
-"PO-Revision-Date: 2010-06-04 23:39+0200\n"
+"PO-Revision-Date: 2010-06-06 22:21+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -8106,10 +8106,9 @@ msgid "Propose table structure"
 msgstr "Predlagaj strukturo tabele"
 
 #: tbl_structure.php:540
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add column"
-msgstr "Dodaj stolpec(-ce)"
+msgstr "Dodaj stolpec"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
@@ -8319,114 +8318,3 @@ msgstr "Ime VIEW"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr "Preimenuj pogled v"
-
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Dodaj polje"
-
-#~ msgid "Field"
-#~ msgstr "Polje"
-
-#~ msgid "Records"
-#~ msgstr "Zapisi"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Polja zaključena z"
-
-#~ msgid "Fields"
-#~ msgstr "Polja"
-
-#~ msgid "Add %s field(s)"
-#~ msgstr "Dodaj %s polj(e)"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "Polje %s je zavrženo"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Pokaži sliko/jpeg: vključeno"
-
-#~ msgid "zipped"
-#~ msgstr "zipano"
-
-#~ msgid "gzipped"
-#~ msgstr "gzipano"
-
-#~ msgid "bzipped"
-#~ msgstr "bzipano"
-
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr ""
-#~ "Dodaj prilagojen komentar v glavo (\n"
-#~ " prelomi vrstice)"
-
-#~ msgid "and"
-#~ msgstr "in"
-
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Onemogočeno"
-
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Omogočeno"
-
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Popravi"
-
-#~ msgid "Calendar"
-#~ msgstr "Koledar"
-
-#~ msgid "MySQL&nbsp;4.0 compatible"
-#~ msgstr "Združljivo z MySQL&nbsp;4.0"
-
-#~ msgid "Could not load default configuration from: \"%1$s\""
-#~ msgstr "Ne morem naložiti privzete konfiguracije iz: \"%1$s\""
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Ustvari indeks na&nbsp;%s&nbsp;stolpcih"
-
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Ustvari tabelo"
-
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Nobena"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Počisti tabelo (\"FLUSH\")"
-
-#~ msgid "Invalid server index: \"%s\""
-#~ msgstr "Neveljaven indeks strežnika: \"%s\""
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Opis"
-
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Brez"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Shema podatkovne zbirke \"%s\" - Stran %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "Tabela \"%s\" ne obstaja!"
-
-#~ msgid "running on %s"
-#~ msgstr "teče na %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "Faktor povečava je premajhen, da bi spravili shemo na eno stran"
-
-#~ msgid ""
-#~ "Cannot start session without errors, please check errors given in your "
-#~ "PHP and/or webserver log file and configure your PHP installation "
-#~ "properly."
-#~ msgstr ""
-#~ "Ne morem začeti seje brez napak; prosimo, preverite napake v vaši PHP in/"
-#~ "ali strežnikovi dneviški datoteki in primerno konfigurirajte vašo "
-#~ "namestitev PHP."
