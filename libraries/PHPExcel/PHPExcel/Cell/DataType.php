@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,22 +20,10 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Cell
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel_Cell_DefaultValueBinder */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell/DefaultValueBinder.php';
 
 
 /**
@@ -43,7 +31,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Cell/DefaultValueBinder.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_Cell
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Cell_DataType
 {
@@ -71,7 +59,7 @@ class PHPExcel_Cell_DataType
 	public static function getErrorCodes() {
 		return self::$_errorCodes;
 	}
-	
+
 	/**
 	 * DataType for value
 	 *
@@ -82,4 +70,44 @@ class PHPExcel_Cell_DataType
 	public static function dataTypeForValue($pValue = null) {
 		return PHPExcel_Cell_DefaultValueBinder::dataTypeForValue($pValue);
 	}
+
+	/**
+	 * Check a string that it satisfies Excel requirements
+	 *
+	 * @param mixed Value to sanitize to an Excel string
+	 * @return mixed Sanitized value
+	 */
+	public static function checkString($pValue = null)
+	{
+		if ($pValue instanceof PHPExcel_RichText) {
+			// TODO: Sanitize Rich-Text string (max. character count is 32,767)
+			return $pValue;
+		}
+
+		// string must never be longer than 32,767 characters, truncate if necessary
+		$pValue = PHPExcel_Shared_String::Substring($pValue, 0, 32767);
+
+		// we require that newline is represented as "\n" in core, not as "\r\n" or "\r"
+		$pValue = str_replace(array("\r\n", "\r"), "\n", $pValue);
+
+		return $pValue;
+	}
+
+	/**
+	 * Check a value that it is a valid error code
+	 *
+	 * @param mixed Value to sanitize to an Excel error code
+	 * @return string Sanitized value
+	 */
+	public static function checkErrorCode($pValue = null)
+	{
+		$pValue = (string)$pValue;
+
+		if ( !array_key_exists($pValue, self::$_errorCodes) ) {
+			$pValue = '#NULL!';
+		}
+
+		return $pValue;
+	}
+
 }

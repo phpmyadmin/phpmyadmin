@@ -20,16 +20,6 @@
 // $Id: Root.php,v 1.9 2005/04/23 21:53:49 dufuz Exp $
 
 
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../../');
-}
-
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE/OLE_PPS.php';
-
 /**
 * Class for creating Root PPS's for OLE containers
 *
@@ -40,18 +30,11 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/OLE/OLE_PPS.php';
 class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 	{
 	/**
-	* The temporary dir for storing the OLE file
-	* @var string
-	*/
-	public $_tmp_dir;
-
-	/**
 	 * @param integer $time_1st A timestamp
 	 * @param integer $time_2nd A timestamp
 	 */
 	public function __construct($time_1st, $time_2nd, $raChild)
 	{
-		$this->_tmp_dir = '';
 		parent::__construct(
 		   null,
 		   PHPExcel_Shared_OLE::Asc2Ucs('Root Entry'),
@@ -66,27 +49,13 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 	}
 
 	/**
-	* Sets the temp dir used for storing the OLE file
-	*
-	* @access public
-	* @param string $dir The dir to be used as temp dir
-	* @return true if given dir is valid, false otherwise
-	*/
-	public function setTempDir($dir)
-	{
-		if (is_dir($dir)) {
-			$this->_tmp_dir = $dir;
-			return true;
-		}
-		return false;
-	}
-
-	/**
 	* Method for saving the whole OLE container (including files).
 	* In fact, if called with an empty argument (or '-'), it saves to a
 	* temporary file and then outputs it's contents to stdout.
+	* If a resource pointer to a stream created by fopen() is passed
+	* it will be used, but you have to close such stream by yourself.
 	*
-	* @param string $filename The name of the file where to save the OLE container
+	* @param string|resource $filename The name of the file or stream where to save the OLE container.
 	* @access public
 	* @return mixed true on success
 	*/
@@ -98,8 +67,9 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 		$this->_SMALL_BLOCK_SIZE= pow(2,
 					  ((isset($this->_SMALL_BLOCK_SIZE))?  $this->_adjust2($this->_SMALL_BLOCK_SIZE): 6));
 
-		// Open temp file if we are sending output to stdout
-		if ($filename == '-' || $filename == '') {
+		if (is_resource($filename)) {
+		    $this->_FILEH_ = $filename;
+		} else if ($filename == '-' || $filename == '') {
 			$this->_tmp_filename = tempnam($this->_tmp_dir, "OLE_PPS_Root");
 			$this->_FILEH_ = fopen($this->_tmp_filename,"w+b");
 			if ($this->_FILEH_ == false) {
@@ -107,9 +77,9 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 			}
 		} else {
 			$this->_FILEH_ = fopen($filename, "wb");
-			if ($this->_FILEH_ == false) {
-				throw new Exception("Can't open $filename. It may be in use or protected.");
-			}
+		}
+		if ($this->_FILEH_ == false) {
+			throw new Exception("Can't open $filename. It may be in use or protected.");
 		}
 		// Make an array of PPS's (for Save)
 		$aList = array();
@@ -128,16 +98,10 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 		$this->_savePps($aList);
 		// Write Big Block Depot and BDList and Adding Header informations
 		$this->_saveBbd($iSBDcnt, $iBBcnt, $iPPScnt);
-		// Close File, send it to stdout if necessary
-		if (($filename == '-') || ($filename == '')) {
-			fseek($this->_FILEH_, 0);
-			fpassthru($this->_FILEH_);
-			fclose($this->_FILEH_);
-			// Delete the temporary file.
-			unlink($this->_tmp_filename);
-		} else {
-			fclose($this->_FILEH_);
-		}
+
+		if (!is_resource($filename)) {
+ 			fclose($this->_FILEH_);
+ 		}
 
 		return true;
 	}
@@ -248,7 +212,7 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 				  . pack("V", 0)
 				  . pack("V", 0x1000)
 				  . pack("V", $iSBDcnt ? 0 : -2)                  //Small Block Depot
-				  . pack("V", 1)
+				  . pack("V", $iSBDcnt)
 		  );
 		// Extra BDList Start, Count
 		if ($iBdCnt < $i1stBdL) {
@@ -290,16 +254,16 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 					(($raList[$i]->Type == PHPExcel_Shared_OLE::OLE_PPS_TYPE_ROOT) && isset($raList[$i]->_data)))
 				{
 					// Write Data
-					if (isset($raList[$i]->_PPS_FILE)) {
-						$iLen = 0;
-						fseek($raList[$i]->_PPS_FILE, 0); // To The Top
-						while($sBuff = fread($raList[$i]->_PPS_FILE, 4096)) {
-							$iLen += strlen($sBuff);
-							fwrite($FILE, $sBuff);
-						}
-					} else {
+					//if (isset($raList[$i]->_PPS_FILE)) {
+					//	$iLen = 0;
+					//	fseek($raList[$i]->_PPS_FILE, 0); // To The Top
+					//	while($sBuff = fread($raList[$i]->_PPS_FILE, 4096)) {
+					//		$iLen += strlen($sBuff);
+					//		fwrite($FILE, $sBuff);
+					//	}
+					//} else {
 						fwrite($FILE, $raList[$i]->_data);
-					}
+					//}
 
 					if ($raList[$i]->Size % $this->_BIG_BLOCK_SIZE) {
 						for ($j = 0; $j < ($this->_BIG_BLOCK_SIZE - ($raList[$i]->Size % $this->_BIG_BLOCK_SIZE)); ++$j) {
@@ -313,11 +277,11 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 								(($raList[$i]->Size % $this->_BIG_BLOCK_SIZE)? 1: 0));
 				}
 				// Close file for each PPS, and unlink it
-				if (isset($raList[$i]->_PPS_FILE)) {
-					fclose($raList[$i]->_PPS_FILE);
-					$raList[$i]->_PPS_FILE = null;
-					unlink($raList[$i]->_tmp_filename);
-				}
+				//if (isset($raList[$i]->_PPS_FILE)) {
+				//	fclose($raList[$i]->_PPS_FILE);
+				//	$raList[$i]->_PPS_FILE = null;
+				//	unlink($raList[$i]->_tmp_filename);
+				//}
 			}
 		}
 	}
@@ -349,15 +313,15 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 					}
 					fwrite($FILE, pack("V", -2));
 
-					// Add to Data String(this will be written for RootEntry)
-					if ($raList[$i]->_PPS_FILE) {
-						fseek($raList[$i]->_PPS_FILE, 0); // To The Top
-						while ($sBuff = fread($raList[$i]->_PPS_FILE, 4096)) {
-							$sRes .= $sBuff;
-						}
-					} else {
+					//// Add to Data String(this will be written for RootEntry)
+					//if ($raList[$i]->_PPS_FILE) {
+					//	fseek($raList[$i]->_PPS_FILE, 0); // To The Top
+					//	while ($sBuff = fread($raList[$i]->_PPS_FILE, 4096)) {
+					//		$sRes .= $sBuff;
+					//	}
+					//} else {
 						$sRes .= $raList[$i]->_data;
-					}
+					//}
 					if ($raList[$i]->Size % $this->_SMALL_BLOCK_SIZE) {
 						for ($j = 0; $j < ($this->_SMALL_BLOCK_SIZE - ($raList[$i]->Size % $this->_SMALL_BLOCK_SIZE)); ++$j) {
 							$sRes .= "\x00";

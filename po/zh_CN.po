@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-31 14:33-0400\n"
-"PO-Revision-Date: 2010-05-17 04:57+0200\n"
+"POT-Creation-Date: 2010-06-04 16:07-0400\n"
+"PO-Revision-Date: 2010-06-04 14:09+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +57,7 @@ msgstr "搜索"
 #: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: main.php:128 navigation.php:238 pdf_pages.php:292 pdf_pages.php:328
+#: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:625 server_privileges.php:1585
 #: server_privileges.php:1932 server_privileges.php:1979
@@ -110,10 +110,8 @@ msgstr "表注释"
 #: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
 #: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
-#, fuzzy
-#| msgid "Column names"
 msgid "Column"
-msgstr "字段名"
+msgstr "字段"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
 #: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
@@ -197,7 +195,7 @@ msgid "View dump (schema) of database"
 msgstr "查看数据库的转存(大纲)。"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
-#: db_tracking.php:35 export.php:359 navigation.php:346
+#: db_tracking.php:35 export.php:359 navigation.php:332
 msgid "No tables found in database."
 msgstr "数据库中没有表。"
 
@@ -343,7 +341,7 @@ msgstr "表"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
-#: navigation.php:652 navigation.php:674 server_databases.php:122
+#: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr "行数"
@@ -376,8 +374,7 @@ msgid "Last check"
 msgstr "最后检查"
 
 #: db_printview.php:222 db_structure.php:480
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s 张表"
@@ -451,10 +448,8 @@ msgid "Add/Delete criteria rows"
 msgstr "添加/删除条件行"
 
 #: db_qbe.php:596
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "添加/删除字段列"
+msgstr "添加/删除字段"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
@@ -710,11 +705,11 @@ msgstr "已追踪的表"
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
 #: libraries/export/sql.php:342 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
-#: libraries/header_printview.inc.php:58 navigation.php:233
-#: server_databases.php:169 server_privileges.php:1621
-#: server_privileges.php:1682 server_privileges.php:1940
-#: server_processlist.php:56 server_synchronize.php:1179
-#: server_synchronize.php:1183 tbl_tracking.php:591 test/theme.php:65
+#: libraries/header_printview.inc.php:58 server_databases.php:169
+#: server_privileges.php:1621 server_privileges.php:1682
+#: server_privileges.php:1940 server_processlist.php:56
+#: server_synchronize.php:1179 server_synchronize.php:1183
+#: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
 msgstr "数据库"
 
@@ -988,8 +983,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "请选择主键或唯一键"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-#, fuzzy
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "选择要显示的字段"
 
@@ -1946,8 +1939,6 @@ msgid "No Privileges"
 msgstr "无权限"
 
 #: libraries/display_create_table.lib.php:41
-#, fuzzy
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
 msgstr "数据表至少要有一个字段。"
 
@@ -1957,8 +1948,6 @@ msgid "Create table on database %s"
 msgstr "在数据库 %s 中新建一张数据表"
 
 #: libraries/display_create_table.lib.php:57
-#, fuzzy
-#| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "字段数"
 
@@ -1967,10 +1956,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
 #: libraries/display_export.lib.php:107
-#, fuzzy, php-format
-#| msgid "Dump %s row(s) starting at record # %s"
+#, php-format
 msgid "Dump %s row(s) starting at row # %s"
-msgstr "转存 %s 行，从记录 # %s 开始。"
+msgstr "从 # %2$s 行开始转储 %1$s 行"
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
@@ -2118,8 +2106,6 @@ msgstr ""
 "入大文件时是个很好的方法。"
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-#, fuzzy
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "跳过查询的数量"
 
@@ -2178,10 +2164,8 @@ msgid "%d is not valid row number."
 msgstr "%d 不是有效行数。"
 
 #: libraries/display_tbl.lib.php:310
-#, fuzzy
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "行，开始行数："
+msgstr "行，起始行 #"
 
 #: libraries/display_tbl.lib.php:316
 msgid "horizontal"
@@ -2238,8 +2222,6 @@ msgid "Relational key"
 msgstr "关联键"
 
 #: libraries/display_tbl.lib.php:588
-#, fuzzy
-#| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "关联显示字段"
 
@@ -2638,24 +2620,18 @@ msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:59 libraries/import/ldi.php:40
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "换行符"
+msgstr "字段分隔符"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:71 libraries/import/ldi.php:41
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
-msgstr "文字分隔符"
+msgstr "内容分隔符"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "字段转义符"
+msgstr "内容转义符"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #: libraries/import/csv.php:79 libraries/import/ldi.php:43
@@ -2671,20 +2647,16 @@ msgid "Replace NULL by"
 msgstr "将 NULL 替换为"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
-#| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
-msgstr "删除字段中的换行符"
+msgstr "删除字段中的回车换行符"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
 #: libraries/export/htmlword.php:26 libraries/export/latex.php:57
 #: libraries/export/ods.php:24 libraries/export/odt.php:50
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "将字段名放在第一行"
+msgstr "首行保存字段名"
 
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
@@ -2819,8 +2791,6 @@ msgid "Database export options"
 msgstr "数据库导出选项"
 
 #: libraries/export/sql.php:80
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "给数据表名及字段名加上反引号"
 
@@ -3039,8 +3009,7 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "CSV 输入的第 %d 行格式有错。"
 
 #: libraries/import/csv.php:312
-#, fuzzy, php-format
-#| msgid "Invalid field count in CSV input on line %d."
+#, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV 输入的第 %d 行字段数有错。"
 
@@ -4358,10 +4327,8 @@ msgid "Run SQL query/queries on database %s"
 msgstr "在数据库 %s 运行 SQL 查询"
 
 #: libraries/sql_query_form.lib.php:317
-#, fuzzy
-#| msgid "Column names"
 msgid "Columns"
-msgstr "字段名"
+msgstr "字段"
 
 #: libraries/sql_query_form.lib.php:352 sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
@@ -4473,21 +4440,14 @@ msgid "Length/Values"
 msgstr "长度/值"
 
 #: libraries/tbl_properties.inc.php:105
-#, fuzzy
-#| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"如字段类型是“enum”或“set”，请使用以下的格式输入：'a','b','c'...<br />如果您需"
-"要在值中输入反斜线(“\\”)或者单引号(“'”)，请在前面加上反斜线(如 '\\\\xyz' 或 "
-"'a\\'b')。"
+"如字段类型是“enum”或“set”，请使用以下格式输入：'a','b','c'...<br />如果需要输"
+"入反斜杠(“\\”)或单引号(“'”)，请在前面加上反斜杠(如 '\\\\xyz' 或 'a\\'b')。"
 
 #: libraries/tbl_properties.inc.php:106
 msgid ""
@@ -4554,14 +4514,11 @@ msgid "Save"
 msgstr "保存"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
-#, fuzzy, php-format
-#| msgid "Add column(s)"
+#, php-format
 msgid "Add %s column(s)"
-msgstr "增加字段"
+msgstr "添加 %s 个字段"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
-#, fuzzy
-#| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "至少要添加一个字段。"
 
@@ -4570,12 +4527,6 @@ msgid "Event"
 msgstr "事件"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "Displays a link to download the binary data of the field. You can use the "
-#| "first option to specify the filename, or use the second option as the "
-#| "name of a field which contains the filename. If you use the second "
-#| "option, you need to set the first option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -4583,7 +4534,7 @@ msgid ""
 "need to set the first option to the empty string."
 msgstr ""
 "字段中显示一个二进制数据的下载连接。第一个选项是文件名，或使用第二个选项，用"
-"表中的一个字段作为文件名。如果你使用第二个选项那么第一个选项必须留空。"
+"表中的一个字段值作为文件名。如果想使用字段值作为文件名，第一个选项必须留空。"
 
 #: libraries/transformations/application_octetstream__hex.inc.php:10
 msgid ""
@@ -4631,18 +4582,6 @@ msgstr ""
 "档)所到的结果是不一样的。"
 
 #: libraries/transformations/text_plain__external.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -4655,18 +4594,14 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
-"仅 LINUX：调用外部程序并通过标准输入填充字段数据。返回此应用程序的标准输出。"
-"默认为 Tidy，可以很好的打印 HTML 代码。为了安全起见，您需要手动编辑文件 "
-"libraries/transformations/text_plain__external.inc.php 然后插入允许您运行的工"
-"具。第一个选项是您想要使用的程序编号，而第二个选项是程序的参数。第三个参数如"
-"果设为 1 的话将会用 htmlspecialchars() 转换其输出 (默认为 1)。第四个参数如果"
-"设为 1 的话，将禁止换行，确保所有内容显示在一行中 (默认为 1)"
+"仅 LINUX：调用外部程序并通过标准输入传入字段数据。返回此应用程序的标准输出。"
+"默认为 Tidy，可以很好的打印 HTML 代码。为了安全起见，您需要手动编辑 "
+"libraries/transformations/text_plain__external.inc.php 文件来加入可以运行的工"
+"具。第一个选项是您想要使用的程序编号，第二个选项是程序的参数。第三个参数如果"
+"设为 1 的话将会用 htmlspecialchars() 处理输出 (默认为 1)。第四个参数如果设为 "
+"1 的话，将禁止换行，确保所有内容显示在一行中 (默认为 1)。"
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -4675,32 +4610,22 @@ msgstr ""
 "代码。"
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "Displays an image and a link; the field contains the filename. The first "
-#| "option is a URL prefix like \"http://www.example.com/\". The second and "
-#| "third options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
 "显示图像和链接，字段内包含文件名。第一个选项是类似“http://www.example.com/”这"
-"样的 URL 前缀，第二和第三个选项是以像素为单位的宽度和高度。"
+"样的 URL 前缀。第二和第三个选项是以像素为单位的宽度和高度。"
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "Displays a link; the field contains the filename. The first option is a "
-#| "URL prefix like \"http://www.example.com/\". The second option is a title "
-#| "for the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
 "显示链接，字段内包含文件名。第一个选项是类似“http://www.example.com/”这样的 "
-"URL 前缀，第二个选项是链接的标题 (title)。"
+"URL 前缀。第二个选项是链接的标题。"
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
 msgid ""
@@ -4879,21 +4804,21 @@ msgstr "刷新导航框架"
 msgid "No databases"
 msgstr "无数据库"
 
-#: navigation.php:318
+#: navigation.php:304
 msgid "Filter"
 msgstr "快速搜索"
 
-#: navigation.php:319 setup/frames/index.inc.php:218
+#: navigation.php:305 setup/frames/index.inc.php:218
 #: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "清除"
 
-#: navigation.php:350 navigation.php:351
+#: navigation.php:336 navigation.php:337
 msgctxt "short form"
 msgid "Create table"
 msgstr "新建数据表"
 
-#: navigation.php:353 navigation.php:516
+#: navigation.php:339 navigation.php:502
 msgid "Please select a database"
 msgstr "请选择数据库"
 
@@ -5045,18 +4970,13 @@ msgid "To select relation, click :"
 msgstr "要选择关系，点击："
 
 #: pmd_help.php:29
-#, fuzzy
-#| msgid ""
-#| "The display field is shown in pink. To set/unset a field as the display "
-#| "field, click the \"Choose field to display\" icon, then click on the "
-#| "appropriate field name."
 msgid ""
 "The display column is shown in pink. To set/unset a column as the display "
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"显示的字段为粉红色。要设置或取消显示的字段，点击“选择显示字段”图标，然后选择"
-"需要的字段名字。"
+"显示的字段为粉红色。要设置/取消显示的字段，点击“选择显示字段”图标，然后选择需"
+"要的字段名。"
 
 #: pmd_pdf.php:63
 msgid "Page has been created"
@@ -5235,10 +5155,8 @@ msgid "Do not change the password"
 msgstr "保持原密码"
 
 #: server_privileges.php:804 server_privileges.php:2166
-#, fuzzy
-#| msgid "No user(s) found."
 msgid "No user found."
-msgstr "找不到用户。"
+msgstr "未找到用户。"
 
 #: server_privileges.php:848
 #, php-format
@@ -5583,8 +5501,6 @@ msgid "Error management:"
 msgstr "错误管理:"
 
 #: server_replication.php:334
-#, fuzzy
-#| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr "忽略错误可能导致主从服务器间不同步！"
 
@@ -6117,22 +6033,15 @@ msgstr ""
 "Documentation.html#setup_script]文档[/a]中有说明。否则你只能下载或显示配置。"
 
 #: setup/lib/messages.inc.php:35
-#, fuzzy
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in fields"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
 "定义编辑 CHAR 和 VARCHAR 类型字段时应使用何种控件，[kbd]输入框 (input)[/kbd] "
-"- 允许限制输入长度，[kbd]文本框 (textarea)[/kbd] - 允许输入多行数据"
+"- 可以限制输入长度，[kbd]文本框 (textarea)[/kbd] - 可以输入多行数据"
 
 #: setup/lib/messages.inc.php:36
-#, fuzzy
-#| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "编辑 CHAR 类型字段"
 
@@ -6831,10 +6740,6 @@ msgid "GZip output buffering"
 msgstr "GZip 输出缓冲"
 
 #: setup/lib/messages.inc.php:217
-#, fuzzy
-#| msgid ""
-#| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
-#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -6859,14 +6764,10 @@ msgid "Iconic table operations"
 msgstr "数据表操作显示"
 
 #: setup/lib/messages.inc.php:224
-#, fuzzy
-#| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "禁止编辑 BLOB 和 BINARY 类型字段"
 
 #: setup/lib/messages.inc.php:225
-#, fuzzy
-#| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "保护二进制字段"
 
@@ -7310,19 +7211,12 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF 大纲: 数据表并发"
 
 #: setup/lib/messages.inc.php:320
-#, fuzzy
-#| msgid ""
-#| "Table to describe the display fields, leave blank for no support; "
-#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
-msgstr ""
-"描述显示字段的表，留空为关闭此项功能。默认值：[kbd]pma_table_info[/kbd]"
+msgstr "描述显示字段的表，不使用请留空，默认：[kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-#, fuzzy
-#| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "显示字段表"
 
@@ -7351,11 +7245,8 @@ msgid "Verbose name of this server"
 msgstr "服务器名称"
 
 #: setup/lib/messages.inc.php:329
-#, fuzzy
-#| msgid ""
-#| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "显示给用户一个 &quot;显示所有 (记录)&quot; 按钮"
+msgstr "设置是否给用户显示一个 &quot;显示所有 (记录)&quot; 的按钮"
 
 #: setup/lib/messages.inc.php:330
 msgid "Allow to display all the rows"
@@ -7633,10 +7524,8 @@ msgid "Ignore"
 msgstr "忽略"
 
 #: tbl_change.php:728
-#, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr " 由于长度限制<br />此字段可能无法编辑 "
+msgstr " 因长度问题，<br /> 该字段可能无法编辑 "
 
 #: tbl_change.php:888
 msgid "Remove BLOB Repository Reference"
@@ -7920,10 +7809,8 @@ msgid "Operator"
 msgstr "操作符"
 
 #: tbl_select.php:270
-#, fuzzy
-#| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "至少选择一个字段："
+msgstr "选择字段 (至少一个)："
 
 #: tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -7947,10 +7834,9 @@ msgid "None"
 msgstr "无"
 
 #: tbl_structure.php:374
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#, php-format
 msgid "Column %s has been dropped"
-msgstr "已删除表 %s "
+msgstr "已删除字段 %s "
 
 #: tbl_structure.php:385
 #, php-format
@@ -7972,9 +7858,9 @@ msgstr "规划表结构"
 
 #: tbl_structure.php:540
 #, fuzzy
-#| msgid "Add new field"
-msgid "Add field"
-msgstr "添加新字段"
+#| msgid "Add column(s)"
+msgid "Add column"
+msgstr "增加字段"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
@@ -8179,6 +8065,10 @@ msgstr "视图名"
 msgid "Rename view to"
 msgstr "将视图改名为"
 
+#~| msgid "Add new field"
+#~ msgid "Add field"
+#~ msgstr "添加字段"
+
 #~ msgid "Field"
 #~ msgstr "字段"
 
@@ -8292,8 +8182,3 @@ msgstr "将视图改名为"
 #~ msgstr ""
 #~ "无法在发生错误时创建会话，请检查 PHP 或网站服务器日志，并正确配置 PHP 安"
 #~ "装。"
-
-#, fuzzy
-#~| msgid "Import currencies ($5.00 to 5.00)"
-#~ msgid "Import currencies (.00 to 5.00)"
-#~ msgstr "转换货币 (如: $5.00 将被转换为 5.00)"

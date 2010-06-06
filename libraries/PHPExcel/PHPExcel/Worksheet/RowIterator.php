@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,40 +20,22 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Worksheet
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel */
-require_once PHPEXCEL_ROOT . 'PHPExcel.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Worksheet_Row */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet/Row.php';
 
 
 /**
  * PHPExcel_Worksheet_RowIterator
- * 
+ *
  * Used to iterate rows in a PHPExcel_Worksheet
  *
  * @category   PHPExcel
  * @package    PHPExcel_Worksheet
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
-class PHPExcel_Worksheet_RowIterator extends IteratorIterator
+class PHPExcel_Worksheet_RowIterator extends CachingIterator
 {
 	/**
 	 * PHPExcel_Worksheet to iterate
@@ -61,13 +43,13 @@ class PHPExcel_Worksheet_RowIterator extends IteratorIterator
 	 * @var PHPExcel_Worksheet
 	 */
 	private $_subject;
-	
+
 	/**
 	 * Current iterator position
 	 *
 	 * @var int
 	 */
-	private $_position = 0;
+	private $_position = 1;
 
 	/**
 	 * Create a new row iterator
@@ -78,14 +60,14 @@ class PHPExcel_Worksheet_RowIterator extends IteratorIterator
 		// Set subject
 		$this->_subject = $subject;
 	}
-	
+
 	/**
 	 * Destructor
 	 */
 	public function __destruct() {
 		unset($this->_subject);
 	}
-	
+
 	/**
 	 * Rewind iterator
 	 */

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-31 14:33-0400\n"
+"POT-Creation-Date: 2010-06-04 16:07-0400\n"
 "PO-Revision-Date: 2010-06-01 09:52+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
-"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -57,7 +57,7 @@ msgstr "Søk"
 #: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: main.php:128 navigation.php:238 pdf_pages.php:292 pdf_pages.php:328
+#: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:625 server_privileges.php:1585
 #: server_privileges.php:1932 server_privileges.php:1979
@@ -110,7 +110,6 @@ msgstr "Tabellkommentarer"
 #: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
 #: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
-#| msgid "Column names"
 msgid "Column"
 msgstr "Kolonne"
 
@@ -196,7 +195,7 @@ msgid "View dump (schema) of database"
 msgstr "Vis dump (skjema) av database"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
-#: db_tracking.php:35 export.php:359 navigation.php:346
+#: db_tracking.php:35 export.php:359 navigation.php:332
 msgid "No tables found in database."
 msgstr "Ingen tabeller i databasen."
 
@@ -344,7 +343,7 @@ msgstr "Tabell"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
-#: navigation.php:652 navigation.php:674 server_databases.php:122
+#: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr "Rader"
@@ -446,12 +445,10 @@ msgid "Modify"
 msgstr "Endre"
 
 #: db_qbe.php:584
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Legg til/Slett kriterierad"
 
 #: db_qbe.php:596
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Legg til/Slett kolonner"
 
@@ -547,7 +544,6 @@ msgid "Inside table(s):"
 msgstr "I tabell(ene):"
 
 #: db_search.php:355
-#| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "I kolonne:"
 
@@ -708,11 +704,11 @@ msgstr "Overvåkede tabeller"
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
 #: libraries/export/sql.php:342 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
-#: libraries/header_printview.inc.php:58 navigation.php:233
-#: server_databases.php:169 server_privileges.php:1621
-#: server_privileges.php:1682 server_privileges.php:1940
-#: server_processlist.php:56 server_synchronize.php:1179
-#: server_synchronize.php:1183 tbl_tracking.php:591 test/theme.php:65
+#: libraries/header_printview.inc.php:58 server_databases.php:169
+#: server_privileges.php:1621 server_privileges.php:1682
+#: server_privileges.php:1940 server_processlist.php:56
+#: server_synchronize.php:1179 server_synchronize.php:1183
+#: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
 msgstr "Database"
 
@@ -997,7 +993,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "Velg primærnøkkelen eller en unik nøkkel"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Velg kolonne for visning"
 
@@ -1970,7 +1965,6 @@ msgid "No Privileges"
 msgstr "Ingen privilegier"
 
 #: libraries/display_create_table.lib.php:41
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
 msgstr "Tabellen må ha minst en kolonne."
 
@@ -1980,7 +1974,6 @@ msgid "Create table on database %s"
 msgstr "Opprett ny tabell i database %s"
 
 #: libraries/display_create_table.lib.php:57
-#| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Antall kolonner"
 
@@ -1990,7 +1983,6 @@ msgstr "Kunne ikke laste eksporttillegg, kontroller din innstallasjon!"
 
 #: libraries/display_export.lib.php:107
 #, php-format
-#| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
 msgstr "Dumpe %s rader fra rad %s."
 
@@ -2146,7 +2138,6 @@ msgstr ""
 "på, men det kan knekke transaksjoner."
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Antall poster(spørringer) å hoppe over fra start"
 
@@ -2205,7 +2196,6 @@ msgid "%d is not valid row number."
 msgstr "%d er ikke et gyldig radnummer."
 
 #: libraries/display_tbl.lib.php:310
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "rader fra rad"
 
@@ -2264,7 +2254,6 @@ msgid "Relational key"
 msgstr "Relasjonsnøkkel"
 
 #: libraries/display_tbl.lib.php:588
-#| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "Relasjonsvisningskolonne"
 
@@ -2688,19 +2677,16 @@ msgstr "CSV-data"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:59 libraries/import/ldi.php:40
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "Kolonner avsluttet med"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:71 libraries/import/ldi.php:41
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Kolonner omsluttet av"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "Kolonner beskyttet med"
 
@@ -2718,7 +2704,6 @@ msgid "Replace NULL by"
 msgstr "Erstatt NULL med"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
 msgstr "Fjern CRLF tegn i kolonner"
 
@@ -2727,7 +2712,6 @@ msgstr "Fjern CRLF tegn i kolonner"
 #: libraries/export/ods.php:24 libraries/export/odt.php:50
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "Sett inn kolonnenavn i første rad"
 
@@ -2864,7 +2848,6 @@ msgid "Database export options"
 msgstr "Databaseeksportinnstillinger"
 
 #: libraries/export/sql.php:80
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Bruk venstre anførselstegn med tabell og kolonnenavn"
 
@@ -3087,7 +3070,6 @@ msgstr "Ugyldig format i CSV importen i linje %d."
 
 #: libraries/import/csv.php:312
 #, php-format
-#| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Ugyldig antall kolonner i CSV importen i linje %d."
 
@@ -4476,7 +4458,6 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Kjør SQL spørring/spørringer mot databasen %s"
 
 #: libraries/sql_query_form.lib.php:317
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Kolonner"
 
@@ -4596,11 +4577,6 @@ msgid "Length/Values"
 msgstr "Lengde/Sett*"
 
 #: libraries/tbl_properties.inc.php:105
-#| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -4608,9 +4584,9 @@ msgid ""
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Hvis kolonnetypen er \"enum\" eller \"set\", skriv inn verdien med dette "
-"formatet: 'a','b','c'...<br />Hvis du skulle trenge å ha en skråstrek (\"\\\") "
-"eller en enkel apostrof (\"'\") blant disse verdiene, skriv en skråstrek foran "
-"(eks. '\\\\xyz' eller 'a\\'b')."
+"formatet: 'a','b','c'...<br />Hvis du skulle trenge å ha en skråstrek (\"\\"
+"\") eller en enkel apostrof (\"'\") blant disse verdiene, skriv en skråstrek "
+"foran (eks. '\\\\xyz' eller 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:106
 msgid ""
@@ -4686,12 +4662,10 @@ msgstr "Lagre"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
 #, php-format
-#| msgid "Add column(s)"
 msgid "Add %s column(s)"
 msgstr "Legg til %s kolonne(r)"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
-#| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Du må sette inn minst en kolonne."
 
@@ -4700,11 +4674,6 @@ msgid "Event"
 msgstr "Hendelse"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
-#| msgid ""
-#| "Displays a link to download the binary data of the field. You can use the "
-#| "first option to specify the filename, or use the second option as the "
-#| "name of a field which contains the filename. If you use the second "
-#| "option, you need to set the first option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -4738,15 +4707,6 @@ msgid "Displays a link to download this image."
 msgstr "Viser en link til dette bildet (m.a.o. direkte blob-nedlasting)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
-#| msgid ""
-#| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-#| "formatted date. The first option is the offset (in hours) which will be "
-#| "added to the timestamp (Default: 0). Use second option to specify a "
-#| "different date/time format string. Third option determines whether you "
-#| "want to see local date or UTC one (use \"local\" or \"utc\" strings) for "
-#| "that. According to that, date format has different value - for \"local\" "
-#| "see the documentation for PHP's strftime() function and for \"utc\" it is "
-#| "done using gmdate() function."
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -4767,17 +4727,6 @@ msgstr ""
 "\"utc\" se gmdate() funksjonen."
 
 #: libraries/transformations/text_plain__external.inc.php:10
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -4802,9 +4751,6 @@ msgstr ""
 "reformatering (Standard er 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -4813,10 +4759,6 @@ msgstr ""
 "htmlspecialchars(). Kolonnen blir betraktet som å inneholde gyldig HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#| msgid ""
-#| "Displays an image and a link; the field contains the filename. The first "
-#| "option is a URL prefix like \"http://www.example.com/\". The second and "
-#| "third options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -4827,10 +4769,6 @@ msgstr ""
 "piksler, tredje er høyden."
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#| msgid ""
-#| "Displays a link; the field contains the filename. The first option is a "
-#| "URL prefix like \"http://www.example.com/\". The second option is a title "
-#| "for the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
@@ -5027,21 +4965,21 @@ msgstr "Endre navigasjonsrammen"
 msgid "No databases"
 msgstr "Ingen databaser"
 
-#: navigation.php:318
+#: navigation.php:304
 msgid "Filter"
 msgstr "Filter"
 
-#: navigation.php:319 setup/frames/index.inc.php:218
+#: navigation.php:305 setup/frames/index.inc.php:218
 #: setup/lib/messages.inc.php:42
 msgid "Clear"
 msgstr "Fjern"
 
-#: navigation.php:350 navigation.php:351
+#: navigation.php:336 navigation.php:337
 msgctxt "short form"
 msgid "Create table"
 msgstr "Opprett tabell"
 
-#: navigation.php:353 navigation.php:516
+#: navigation.php:339 navigation.php:502
 msgid "Please select a database"
 msgstr "Vennligst velg en database"
 
@@ -5059,12 +4997,10 @@ msgid "Create a page"
 msgstr "Lag en ny side"
 
 #: pdf_pages.php:310
-#| msgid "Page number:"
 msgid "Page name"
 msgstr "Sidenummer"
 
 #: pdf_pages.php:314
-#| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Automatisk disposisjon"
 
@@ -5193,18 +5129,14 @@ msgid "To select relation, click :"
 msgstr "For å velge relasjon, klikk :"
 
 #: pmd_help.php:29
-#| msgid ""
-#| "The display field is shown in pink. To set/unset a field as the display "
-#| "field, click the \"Choose field to display\" icon, then click on the "
-#| "appropriate field name."
 msgid ""
 "The display column is shown in pink. To set/unset a column as the display "
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
 "Visningskolonnen er markert i rosa. For å slå på/av et felt som "
-"visningskolonne, klikk på \"Velg kolonne for visning\" ikonet, klikk så på det "
-"aktuelle kolonnenavnet."
+"visningskolonne, klikk på \"Velg kolonne for visning\" ikonet, klikk så på "
+"det aktuelle kolonnenavnet."
 
 #: pmd_pdf.php:63
 msgid "Page has been created"
@@ -6296,21 +6228,16 @@ msgstr ""
 "eller fremvise den."
 
 #: setup/lib/messages.inc.php:35
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in fields"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
 "Definerer hvilken type redigeringskontroll som skal brukes for CHAR og "
-"VARCHAR kolonner; [kbd]input[/kbd] - tillater begrensning av lengde, "
-"[kbd]textarea[/kbd] - tillater linjeskift i kolonner"
+"VARCHAR kolonner; [kbd]input[/kbd] - tillater begrensning av lengde, [kbd]"
+"textarea[/kbd] - tillater linjeskift i kolonner"
 
 #: setup/lib/messages.inc.php:36
-#| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "CHAR kolonneredigering"
 
@@ -7039,9 +6966,6 @@ msgid "GZip output buffering"
 msgstr "GZip utbuffring"
 
 #: setup/lib/messages.inc.php:217
-#| msgid ""
-#| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
-#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -7066,12 +6990,10 @@ msgid "Iconic table operations"
 msgstr "Ikoniske tabelloperasjoner"
 
 #: setup/lib/messages.inc.php:224
-#| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Ikke tillat BLOB eller BLOB og BINARY kolonner å bli redigert"
 
 #: setup/lib/messages.inc.php:225
-#| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Beskytt binære kolonner"
 
@@ -7535,9 +7457,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF schema: tabellkoordinater"
 
 #: setup/lib/messages.inc.php:320
-#| msgid ""
-#| "Table to describe the display fields, leave blank for no support; "
-#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
@@ -7546,7 +7465,6 @@ msgstr ""
 "anbefalt: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-#| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "Visningskolonnetabell"
 
@@ -7579,8 +7497,6 @@ msgid "Verbose name of this server"
 msgstr "Fult navn for denne tjeneren"
 
 #: setup/lib/messages.inc.php:329
-#| msgid ""
-#| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Avgjør om en bruker får en &quot;vis alle (rader)&quot; knapp"
 
@@ -7874,7 +7790,6 @@ msgid "Ignore"
 msgstr "Ignorer"
 
 #: tbl_change.php:728
-#| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr ""
 " På grunn av sin lengde,<br /> så vil muligens denne kolonnen ikke være "
@@ -8169,7 +8084,6 @@ msgid "Operator"
 msgstr "Operator"
 
 #: tbl_select.php:270
-#| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Velg kolonner (minst ett):"
 
@@ -8196,7 +8110,6 @@ msgstr "Ingen"
 
 #: tbl_structure.php:374
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr "Kolonne %s har blitt slettet"
 
@@ -8219,9 +8132,10 @@ msgid "Propose table structure"
 msgstr "Foreslå tabellstruktur"
 
 #: tbl_structure.php:540
-#| msgid "Add new field"
-msgid "Add field"
-msgstr "Legg til felt"
+#, fuzzy
+#| msgid "Add column(s)"
+msgid "Add column"
+msgstr "Legg til kolonne(r)"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
@@ -8430,6 +8344,10 @@ msgstr "VIEW navn"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr "Endre tabellens navn"
+
+#~| msgid "Add new field"
+#~ msgid "Add field"
+#~ msgstr "Legg til felt"
 
 #~ msgid "Field"
 #~ msgstr "Felt"

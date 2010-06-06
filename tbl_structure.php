@@ -537,7 +537,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . __('Add field') . '"/>';
+        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . __('Add column') . '"/>';
     }
     echo sprintf(__('Add %s column(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
 
