@@ -1202,12 +1202,12 @@ function setVerticalPointer(theRow, theColNum, theAction, theDefaultClass1, theD
  * @return  boolean  always true
  */
 function setCheckboxes( container_id, state ) {
-    var checkboxes = document.getElementById(container_id).getElementsByTagName('input');
 
-    for ( var i = 0; i < checkboxes.length; i++ ) {
-        if ( checkboxes[i].type == 'checkbox' ) {
-            checkboxes[i].checked = state;
-        }
+    if(state) {
+        $("#"+container_id).find("input:checkbox").attr('checked', 'checked');
+    }
+    else {
+        $("#"+container_id).find("input:checkbox").removeAttr('checked');
     }
 
     return true;
