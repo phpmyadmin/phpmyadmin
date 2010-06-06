@@ -99,6 +99,9 @@ function confirmLink(theLink, theSqlQuery)
  * @param   object   the message to display
  *
  * @return  boolean  whether to run the query or not
+ *
+ * @todo used only by libraries/display_tbl.lib.php. figure out how it is used
+ *       and replace with a jQuery equivalent
  */
 function confirmAction(theMessage)
 {
@@ -924,26 +927,9 @@ $(document).ready(PMA_markRowsInit);
  * @param    container    DOM element
  */
 function markAllRows( container_id ) {
-    var rows = document.getElementById(container_id).getElementsByTagName('tr');
-    var unique_id;
-    var checkbox;
-
-    for ( var i = 0; i < rows.length; i++ ) {
-
-        checkbox = rows[i].getElementsByTagName( 'input' )[0];
-
-        if ( checkbox && checkbox.type == 'checkbox' ) {
-            unique_id = checkbox.name + checkbox.value;
-            if ( checkbox.disabled == false ) {
-                checkbox.checked = true;
-                if ( typeof(marked_row[unique_id]) == 'undefined' || !marked_row[unique_id] ) {
-                    rows[i].className += ' marked';
-                    marked_row[unique_id] = true;
-                }
-            }
-        }
-    }
-
+    
+    $("#"+container_id).find("input:checkbox:enabled").attr('checked', 'checked')
+    .parents("tr").addClass("marked");
     return true;
 }
 
@@ -954,22 +940,9 @@ function markAllRows( container_id ) {
  * @param    container    DOM element
  */
 function unMarkAllRows( container_id ) {
-    var rows = document.getElementById(container_id).getElementsByTagName('tr');
-    var unique_id;
-    var checkbox;
-
-    for ( var i = 0; i < rows.length; i++ ) {
-
-        checkbox = rows[i].getElementsByTagName( 'input' )[0];
-
-        if ( checkbox && checkbox.type == 'checkbox' ) {
-            unique_id = checkbox.name + checkbox.value;
-            checkbox.checked = false;
-            rows[i].className = rows[i].className.replace(' marked', '');
-            marked_row[unique_id] = false;
-        }
-    }
-
+    
+    $("#"+container_id).find("input:checkbox:enabled").removeAttr('checked')
+    .parents("tr").removeClass("marked");
     return true;
 }
 
@@ -1820,12 +1793,14 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
 };
 
 /**
- * jQuery code for Drop Database action on db_structure.php
+ * jQuery code for 'Drop Database', 'Truncate Table', 'Drop Table' action on
+ * db_structure.php
  *
  * @todo    move to a different file as it is not required on every page
  */
 $(document).ready(function() {
 
+    //Drop Database
     $("#drop_db_anchor").live('click', function(event) {
         event.preventDefault();
 
@@ -1841,5 +1816,50 @@ $(document).ready(function() {
                 window.parent.refreshMain();
             })
         });
-    })
-}, 'top.frame_content');
+    }); //end of Drop Database Ajax action
+
+    //Truncate Table
+    $(".truncate_table_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        //extract current table name and build the question string
+        var curr_table_name = $(this).parents('tr').children('th').children('a').text();
+        var question = 'TRUNCATE ' + curr_table_name;
+
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage("Processing Request");
+
+            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
+                PMA_ajaxShowMessage("Table Truncated");
+                //need to find a better solution here.  The icon should be replaced
+                $(this).remove();
+            })
+        })
+    }); //end of Truncate Table Ajax action
+
+    //Drop Table
+    $(".drop_table_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        //extract current table name and build the question string
+        var curr_table_name = $(this).parents('tr').children('th').children('a').text();
+        var question = 'DROP TABLE ' + curr_table_name;
+
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage("Processing Request");
+
+            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
+                PMA_ajaxShowMessage("Table Truncated");
+                //need to find a better solution here.  The icon should be replaced
+                $(this).remove();
+            });
+        });
+    }); //end of Drop Table Ajax action
+
+    //Drop Column
+    
+    //Drop Primary Key
+
+}, 'top.frame_content'); //end $(document).ready()
