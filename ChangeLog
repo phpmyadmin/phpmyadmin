@@ -82,6 +82,8 @@ $Id$
 + [doc] Incorporate synchronisation docs into main document.
 + [core] Include Content Security Policy HTTP headers.
 - bug #3004216 [CSS] Field attributes use inline CSS
+- patch #2999595, rfe #2998130 [interface] Cleanup navigation frame.
+- [core] Update library PHPExcel to version 1.7.3c
 
 3.3.4.0 (not yet released)
 - bug #2996161 [import] properly escape import value
@@ -93,6 +95,8 @@ $Id$
 - bug #2986383 [parser] Not all data being shown / counted
 - bug [synchronize] Rows were deleted in target table regardless of the
   "Would you like to delete..." option
+- bug [privileges] List of tables not shown when the db name has a wildcard
+- bug #3011126 [display] Edit link missing after long query
 
 3.3.3.0 (2010-05-10)
 - patch #2982480 [navi] Do not group if there would be one table in group,

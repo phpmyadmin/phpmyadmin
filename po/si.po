@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-05-31 14:33-0400\n"
+"POT-Creation-Date: 2010-06-04 16:07-0400\n"
 "PO-Revision-Date: 2010-03-30 23:09+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
@@ -57,7 +57,7 @@ msgstr "සෙවීම"
 #: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
-#: main.php:128 navigation.php:238 pdf_pages.php:292 pdf_pages.php:328
+#: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:625 server_privileges.php:1585
 #: server_privileges.php:1932 server_privileges.php:1979
@@ -197,7 +197,7 @@ msgid "View dump (schema) of database"
 msgstr "View dump (schema) of database"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
-#: db_tracking.php:35 export.php:359 navigation.php:346
+#: db_tracking.php:35 export.php:359 navigation.php:332
 msgid "No tables found in database."
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත."
 
@@ -352,7 +352,7 @@ msgstr "වගුව"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
-#: navigation.php:652 navigation.php:674 server_databases.php:122
+#: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr "පේළි"
@@ -721,11 +721,11 @@ msgstr "වගුව පරීක්ෂා කරන්න"
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
 #: libraries/export/sql.php:342 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
-#: libraries/header_printview.inc.php:58 navigation.php:233
-#: server_databases.php:169 server_privileges.php:1621
-#: server_privileges.php:1682 server_privileges.php:1940
-#: server_processlist.php:56 server_synchronize.php:1179
-#: server_synchronize.php:1183 tbl_tracking.php:591 test/theme.php:65
+#: libraries/header_printview.inc.php:58 server_databases.php:169
+#: server_privileges.php:1621 server_privileges.php:1682
+#: server_privileges.php:1940 server_processlist.php:56
+#: server_synchronize.php:1179 server_synchronize.php:1183
+#: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
 msgstr "දත්තගබඩාව"
 
@@ -5057,24 +5057,24 @@ msgstr ""
 msgid "No databases"
 msgstr "දත්තගබඩා නොමැත"
 
-#: navigation.php:318
+#: navigation.php:304
 #, fuzzy
 msgid "Filter"
 msgstr "ක්ෂේත්‍ර"
 
-#: navigation.php:319 setup/frames/index.inc.php:218
+#: navigation.php:305 setup/frames/index.inc.php:218
 #: setup/lib/messages.inc.php:42
 #, fuzzy
 msgid "Clear"
 msgstr "දින දර්ශනය"
 
-#: navigation.php:350 navigation.php:351
+#: navigation.php:336 navigation.php:337
 #, fuzzy
 msgctxt "short form"
 msgid "Create table"
 msgstr "නව පිටුවක් සාදන්න"
 
-#: navigation.php:353 navigation.php:516
+#: navigation.php:339 navigation.php:502
 msgid "Please select a database"
 msgstr "කරුණාකර දත්තගබඩාවක් තෝරන්න"
 
@@ -8118,9 +8118,9 @@ msgstr "Propose table structure"
 
 #: tbl_structure.php:540
 #, fuzzy
-#| msgid "Add new field"
-msgid "Add field"
-msgstr "නව ක්ෂේත්‍රයක් එක් කරන්න"
+#| msgid "Add %s field(s)"
+msgid "Add column"
+msgstr "%s ක්ෂේත්‍ර(යක්) එක් කරන්න"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
@@ -8335,6 +8335,11 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "වගුව බවට නම වෙනස් කරන්න"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add field"
+#~ msgstr "නව ක්ෂේත්‍රයක් එක් කරන්න"
 
 #~ msgid "Field"
 #~ msgstr "ක්ෂේත්‍රය"

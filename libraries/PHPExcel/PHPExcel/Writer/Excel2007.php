@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,73 +20,10 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel2007
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.0, 2009-08-10
+ * @version    1.7.3c, 2010-06-01
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel */
-require_once PHPEXCEL_ROOT . 'PHPExcel.php';
-
-/** PHPExcel_HashTable */
-require_once PHPEXCEL_ROOT . 'PHPExcel/HashTable.php';
-
-/** PHPExcel_IComparable */
-require_once PHPEXCEL_ROOT . 'PHPExcel/IComparable.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_IWriter */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/IWriter.php';
-
-/** PHPExcel_Shared_XMLWriter */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/XMLWriter.php';
-
-/** PHPExcel_Writer_Excel2007_WriterPart */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/WriterPart.php';
-
-/** PHPExcel_Writer_Excel2007_StringTable */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/StringTable.php';
-
-/** PHPExcel_Writer_Excel2007_ContentTypes */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/ContentTypes.php';
-
-/** PHPExcel_Writer_Excel2007_DocProps */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/DocProps.php';
-
-/** PHPExcel_Writer_Excel2007_Rels */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/Rels.php';
-
-/** PHPExcel_Writer_Excel2007_Theme */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/Theme.php';
-
-/** PHPExcel_Writer_Excel2007_Style */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/Style.php';
-
-/** PHPExcel_Writer_Excel2007_Workbook */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/Workbook.php';
-
-/** PHPExcel_Writer_Excel2007_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/Worksheet.php';
-
-/** PHPExcel_Writer_Excel2007_Drawing */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/Drawing.php';
-
-/** PHPExcel_Writer_Excel2007_Comments */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/Comments.php';
 
 
 /**
@@ -94,7 +31,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/Comments.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_Writer_Excel2007
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 {
@@ -181,7 +118,7 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 	 * @var boolean
 	 */
 	private $_useDiskCaching = false;
-	
+
 	/**
 	 * Disk caching directory
 	 *
@@ -198,7 +135,7 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
     {
     	// Assign PHPExcel
 		$this->setPHPExcel($pPHPExcel);
-		
+
 		// Set up disk caching location
 		$this->_diskCachingDirectory = './';
 
@@ -558,7 +495,7 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 	 */
 	public function setUseDiskCaching($pValue = false, $pDirectory = null) {
 		$this->_useDiskCaching = $pValue;
-		
+
 		if (!is_null($pDirectory)) {
     		if (is_dir($pDirectory)) {
     			$this->_diskCachingDirectory = $pDirectory;
@@ -568,7 +505,7 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 		}
 		return $this;
 	}
-	    
+
 	/**
 	 * Get disk caching directory
 	 *

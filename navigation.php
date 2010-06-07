@@ -230,7 +230,6 @@ if (! $GLOBALS['server']) {
 
     <div id="databaseList">
     <form method="post" action="index.php" target="_parent" id="left">
-    <label for="lightm_db"><?php echo __('Database'); ?></label>
     <?php
         echo PMA_generate_common_hidden_inputs() . "\n";
         echo $GLOBALS['pma']->databases->getHtmlSelectGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
@@ -299,19 +298,6 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         $db_tooltip     = $GLOBALS['db'];
     }
 
-    ?>
-    <p><a class="item"
-        href="<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $common_url_query; ?>"
-        title="<?php echo htmlspecialchars($db_tooltip); ?>" >
-    <?php
-    if ($GLOBALS['text_dir'] === 'rtl') {
-        echo ' <bdo dir="ltr">(' . $table_count . ')</bdo> ';
-    }
-    echo '<span class="navi_dbName">' . htmlspecialchars($disp_name) . '</span>';
-    if ($GLOBALS['text_dir'] === 'ltr') {
-        echo ' <bdo dir="ltr">(' . $table_count . ')</bdo> ';
-    }
-    echo '</a></p>';
     if ($table_count) {
         ?>
         <span id="NavFilter">

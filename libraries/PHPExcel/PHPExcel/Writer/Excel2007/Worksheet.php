@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,52 +20,10 @@
  *
  * @category   PHPExcel
  * @package	PHPExcel_Writer_Excel2007
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.0, 2009-08-10
+ * @version	1.7.3c, 2010-06-01
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../../');
-}
-
-/** PHPExcel_Writer_Excel2007 */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007.php';
-
-/** PHPExcel_Writer_Excel2007_WriterPart */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Writer/Excel2007/WriterPart.php';
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Style_Conditional */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/Conditional.php';
-
-/** PHPExcel_Style_NumberFormat */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Style/NumberFormat.php';
-
-/** PHPExcel_Shared_Font */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Font.php';
-
-/** PHPExcel_Shared_Date */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Date.php';
-
-/** PHPExcel_Shared_String */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/String.php';
-
-/** PHPExcel_RichText */
-require_once PHPEXCEL_ROOT . 'PHPExcel/RichText.php';
-
-/** PHPExcel_Shared_XMLWriter */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/XMLWriter.php';
 
 
 /**
@@ -73,7 +31,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/XMLWriter.php';
  *
  * @category   PHPExcel
  * @package	PHPExcel_Writer_Excel2007
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_WriterPart
 {
@@ -190,6 +148,13 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 		$objWriter->startElement('sheetPr');
 		//$objWriter->writeAttribute('codeName',		$pSheet->getTitle());
 
+			// tabColor
+			if ($pSheet->isTabColorSet()) {
+				$objWriter->startElement('tabColor');
+				$objWriter->writeAttribute('rgb',	$pSheet->getTabColor()->getARGB());
+				$objWriter->endElement();
+			}
+
 			// outlinePr
 			$objWriter->startElement('outlinePr');
 			$objWriter->writeAttribute('summaryBelow',	($pSheet->getShowSummaryBelow() ? '1' : '0'));
@@ -197,7 +162,7 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 			$objWriter->endElement();
 
 			// pageSetUpPr
-			if (!is_null($pSheet->getPageSetup()->getFitToHeight()) || !is_null($pSheet->getPageSetup()->getFitToWidth())) {
+			if ($pSheet->getPageSetup()->getFitToPage()) {
 				$objWriter->startElement('pageSetUpPr');
 				$objWriter->writeAttribute('fitToPage',	'1');
 				$objWriter->endElement();
@@ -237,13 +202,13 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 		    $sheetSelected = false;
 		    if ($this->getParentWriter()->getPHPExcel()->getIndex($pSheet) == $this->getParentWriter()->getPHPExcel()->getActiveSheetIndex())
 		        $sheetSelected = true;
-		    
-		
+
+
 			// sheetView
 			$objWriter->startElement('sheetView');
 			$objWriter->writeAttribute('tabSelected',		$sheetSelected ? '1' : '0');
 			$objWriter->writeAttribute('workbookViewId',	'0');
-			
+
 			    // Zoom scales
 			    if ($pSheet->getSheetView()->getZoomScale() != 100) {
 			        $objWriter->writeAttribute('zoomScale',	$pSheet->getSheetView()->getZoomScale());
@@ -258,7 +223,14 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 				} else {
 					$objWriter->writeAttribute('showGridLines',	'false');
 				}
-				
+
+				// Row and column headers
+				if ($pSheet->getShowRowColHeaders()) {
+					$objWriter->writeAttribute('showRowColHeaders', '1');
+				} else {
+					$objWriter->writeAttribute('showRowColHeaders', '0');
+				}
+
 				// Right-to-left
 				if ($pSheet->getRightToLeft()) {
 					$objWriter->writeAttribute('rightToLeft',	'true');
@@ -286,8 +258,8 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 
 				// Selection
 				$objWriter->startElement('selection');
-				$objWriter->writeAttribute('activeCell', $pSheet->getSelectedCell());
-				$objWriter->writeAttribute('sqref',	  $pSheet->getSelectedCell());
+				$objWriter->writeAttribute('activeCell', $pSheet->getActiveCell());
+				$objWriter->writeAttribute('sqref',	  $pSheet->getSelectedCells());
 				$objWriter->endElement();
 
 			$objWriter->endElement();
@@ -351,66 +323,59 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 	private function _writeCols(PHPExcel_Shared_XMLWriter $objWriter = null, PHPExcel_Worksheet $pSheet = null)
 	{
 		// cols
-		$objWriter->startElement('cols');
+		if (count($pSheet->getColumnDimensions()) > 0)  {
+			$objWriter->startElement('cols');
 
-			// Check if there is at least one column dimension specified. If not, create one.
-			if (count($pSheet->getColumnDimensions()) == 0) {
-				if ($pSheet->getDefaultColumnDimension()->getWidth() >= 0) {
-					$pSheet->getColumnDimension('A')->setWidth($pSheet->getDefaultColumnDimension()->getWidth());
-				} else {
-					$pSheet->getColumnDimension('A')->setWidth(9.10);
-				}
-			}
+				$pSheet->calculateColumnWidths();
 
-			$pSheet->calculateColumnWidths();
+				// Loop through column dimensions
+				foreach ($pSheet->getColumnDimensions() as $colDimension) {
+					// col
+					$objWriter->startElement('col');
+					$objWriter->writeAttribute('min',	PHPExcel_Cell::columnIndexFromString($colDimension->getColumnIndex()));
+					$objWriter->writeAttribute('max',	PHPExcel_Cell::columnIndexFromString($colDimension->getColumnIndex()));
 
-			// Loop trough column dimensions
-			foreach ($pSheet->getColumnDimensions() as $colDimension) {
-				// col
-				$objWriter->startElement('col');
-				$objWriter->writeAttribute('min',	PHPExcel_Cell::columnIndexFromString($colDimension->getColumnIndex()));
-				$objWriter->writeAttribute('max',	PHPExcel_Cell::columnIndexFromString($colDimension->getColumnIndex()));
+					if ($colDimension->getWidth() < 0) {
+						// No width set, apply default of 10
+						$objWriter->writeAttribute('width',		'9.10');
+					} else {
+						// Width set
+						$objWriter->writeAttribute('width',		PHPExcel_Shared_String::FormatNumber($colDimension->getWidth()));
+					}
 
-				if ($colDimension->getWidth() < 0) {
-					// No width set, apply default of 10
-					$objWriter->writeAttribute('width',		'9.10');
-				} else {
-					// Width set
-					$objWriter->writeAttribute('width',		PHPExcel_Shared_String::FormatNumber($colDimension->getWidth()));
-				}
+					// Column visibility
+					if ($colDimension->getVisible() == false) {
+						$objWriter->writeAttribute('hidden',		'true');
+					}
 
-				// Column visibility
-				if ($colDimension->getVisible() == false) {
-					$objWriter->writeAttribute('hidden',		'true');
-				}
+					// Auto size?
+					if ($colDimension->getAutoSize()) {
+						$objWriter->writeAttribute('bestFit',		'true');
+					}
 
-				// Auto size?
-				if ($colDimension->getAutoSize()) {
-					$objWriter->writeAttribute('bestFit',		'true');
-				}
+					// Custom width?
+					if ($colDimension->getWidth() != $pSheet->getDefaultColumnDimension()->getWidth()) {
+						$objWriter->writeAttribute('customWidth',	'true');
+					}
 
-				// Custom width?
-				if ($colDimension->getWidth() != $pSheet->getDefaultColumnDimension()->getWidth()) {
-					$objWriter->writeAttribute('customWidth',	'true');
-				}
+					// Collapsed
+					if ($colDimension->getCollapsed() == true) {
+						$objWriter->writeAttribute('collapsed',		'true');
+					}
 
-				// Collapsed
-				if ($colDimension->getCollapsed() == true) {
-					$objWriter->writeAttribute('collapsed',		'true');
-				}
+					// Outline level
+					if ($colDimension->getOutlineLevel() > 0) {
+						$objWriter->writeAttribute('outlineLevel',	$colDimension->getOutlineLevel());
+					}
 
-				// Outline level
-				if ($colDimension->getOutlineLevel() > 0) {
-					$objWriter->writeAttribute('outlineLevel',	$colDimension->getOutlineLevel());
+					// Style
+					$objWriter->writeAttribute('style', $colDimension->getXfIndex());
+
+					$objWriter->endElement();
 				}
 
-				// Style
-				$objWriter->writeAttribute('style', 0);
-
-				$objWriter->endElement();
-			}
-
-		$objWriter->endElement();
+			$objWriter->endElement();
+		}
 	}
 
 	/**
@@ -460,7 +425,7 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 		// Conditional id
 		$id = 1;
 
-		// Loop trough styles in the current worksheet
+		// Loop through styles in the current worksheet
 		foreach ($pSheet->getConditionalStylesCollection() as $cellCoordinate => $conditionalStyles) {
 			foreach ($conditionalStyles as $conditional) {
 				// WHY was this again?
@@ -485,13 +450,29 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 							&& $conditional->getOperatorType() != PHPExcel_Style_Conditional::OPERATOR_NONE) {
 							$objWriter->writeAttribute('operator',	$conditional->getOperatorType());
 						}
-						
+
 						if ($conditional->getConditionType() == PHPExcel_Style_Conditional::CONDITION_CONTAINSTEXT
 							&& !is_null($conditional->getText())) {
 							$objWriter->writeAttribute('text',	$conditional->getText());
 						}
 
-						if ($conditional->getConditionType() == PHPExcel_Style_Conditional::CONDITION_CELLIS
+ 						if ($conditional->getConditionType() == PHPExcel_Style_Conditional::CONDITION_CONTAINSTEXT
+ 							&& $conditional->getOperatorType() == PHPExcel_Style_Conditional::OPERATOR_CONTAINSTEXT
+ 							&& !is_null($conditional->getText())) {
+ 							$objWriter->writeElement('formula',	'NOT(ISERROR(SEARCH("' . $conditional->getText() . '",' . $cellCoordinate . ')))');
+ 						} else if ($conditional->getConditionType() == PHPExcel_Style_Conditional::CONDITION_CONTAINSTEXT
+ 							&& $conditional->getOperatorType() == PHPExcel_Style_Conditional::OPERATOR_BEGINSWITH
+ 							&& !is_null($conditional->getText())) {
+ 							$objWriter->writeElement('formula',	'LEFT(' . $cellCoordinate . ',' . strlen($conditional->getText()) . ')="' . $conditional->getText() . '"');
+ 						} else if ($conditional->getConditionType() == PHPExcel_Style_Conditional::CONDITION_CONTAINSTEXT
+ 							&& $conditional->getOperatorType() == PHPExcel_Style_Conditional::OPERATOR_ENDSWITH
+ 							&& !is_null($conditional->getText())) {
+ 							$objWriter->writeElement('formula',	'RIGHT(' . $cellCoordinate . ',' . strlen($conditional->getText()) . ')="' . $conditional->getText() . '"');
+ 						} else if ($conditional->getConditionType() == PHPExcel_Style_Conditional::CONDITION_CONTAINSTEXT
+ 							&& $conditional->getOperatorType() == PHPExcel_Style_Conditional::OPERATOR_NOTCONTAINS
+ 							&& !is_null($conditional->getText())) {
+ 							$objWriter->writeElement('formula',	'ISERROR(SEARCH("' . $conditional->getText() . '",' . $cellCoordinate . '))');
+ 						} else if ($conditional->getConditionType() == PHPExcel_Style_Conditional::CONDITION_CELLIS
 							|| $conditional->getConditionType() == PHPExcel_Style_Conditional::CONDITION_CONTAINSTEXT
 							|| $conditional->getConditionType() == PHPExcel_Style_Conditional::CONDITION_EXPRESSION) {
 							foreach ($conditional->getConditions() as $formula) {
@@ -517,20 +498,15 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 	 */
 	private function _writeDataValidations(PHPExcel_Shared_XMLWriter $objWriter = null, PHPExcel_Worksheet $pSheet = null)
 	{
-		// Build a temporary array of datavalidation objects
-		$aDataValidations = array();
-		foreach ($pSheet->getCellCollection() as $cell) {
-			if ($cell->hasDataValidation()) {
-				$aDataValidations[] = $cell->getDataValidation();
-			}
-		}
+		// Datavalidation collection
+		$dataValidationCollection = $pSheet->getDataValidationCollection();
 
 		// Write data validations?
-		if (count($aDataValidations) > 0) {
+		if (count($dataValidationCollection) > 0) {
 			$objWriter->startElement('dataValidations');
-			$objWriter->writeAttribute('count',	count($aDataValidations));
+			$objWriter->writeAttribute('count', count($dataValidationCollection));
 
-			foreach ($aDataValidations as $dv) {
+			foreach ($dataValidationCollection as $coordinate => $dv) {
 				$objWriter->startElement('dataValidation');
 
 				if ($dv->getType() != '') {
@@ -563,7 +539,7 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 					$objWriter->writeAttribute('prompt', $dv->getPrompt());
 				}
 
-				$objWriter->writeAttribute('sqref', $dv->getParent()->getCoordinate());
+				$objWriter->writeAttribute('sqref', $coordinate);
 
 				if ($dv->getFormula1() !== '') {
 					$objWriter->writeElement('formula1', $dv->getFormula1());
@@ -588,25 +564,20 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 	 */
 	private function _writeHyperlinks(PHPExcel_Shared_XMLWriter $objWriter = null, PHPExcel_Worksheet $pSheet = null)
 	{
-		// Build a temporary array of hyperlink objects
-		$aHyperlinks = array();
-		foreach ($pSheet->getCellCollection() as $cell) {
-			if ($cell->hasHyperlink()) {
-				$aHyperlinks[] = $cell->getHyperlink();
-			}
-		}
+		// Hyperlink collection
+		$hyperlinkCollection = $pSheet->getHyperlinkCollection();
 
 		// Relation ID
 		$relationId = 1;
 
 		// Write hyperlinks?
-		if (count($aHyperlinks) > 0) {
+		if (count($hyperlinkCollection) > 0) {
 			$objWriter->startElement('hyperlinks');
 
-			foreach ($aHyperlinks as $hyperlink) {
+			foreach ($hyperlinkCollection as $coordinate => $hyperlink) {
 				$objWriter->startElement('hyperlink');
 
-				$objWriter->writeAttribute('ref',	$hyperlink->getParent()->getCoordinate());
+				$objWriter->writeAttribute('ref', $coordinate);
 				if (!$hyperlink->isInternal()) {
 					$objWriter->writeAttribute('r:id',	'rId_hyperlink_' . $relationId);
 					++$relationId;
@@ -755,17 +726,21 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 		$objWriter->writeAttribute('orientation',	$pSheet->getPageSetup()->getOrientation());
 
 		if (!is_null($pSheet->getPageSetup()->getScale())) {
-			$objWriter->writeAttribute('scale',	$pSheet->getPageSetup()->getScale());
+			$objWriter->writeAttribute('scale',	             $pSheet->getPageSetup()->getScale());
 		}
 		if (!is_null($pSheet->getPageSetup()->getFitToHeight())) {
-			$objWriter->writeAttribute('fitToHeight',	$pSheet->getPageSetup()->getFitToHeight());
+			$objWriter->writeAttribute('fitToHeight',	     $pSheet->getPageSetup()->getFitToHeight());
 		} else {
-			$objWriter->writeAttribute('fitToHeight',	'0');
+			$objWriter->writeAttribute('fitToHeight',	     '0');
 		}
 		if (!is_null($pSheet->getPageSetup()->getFitToWidth())) {
-			$objWriter->writeAttribute('fitToWidth',	$pSheet->getPageSetup()->getFitToWidth());
+			$objWriter->writeAttribute('fitToWidth',	     $pSheet->getPageSetup()->getFitToWidth());
 		} else {
-			$objWriter->writeAttribute('fitToWidth',	'0');
+			$objWriter->writeAttribute('fitToWidth',	     '0');
+		}
+		if (!is_null($pSheet->getPageSetup()->getFirstPageNumber())) {
+			$objWriter->writeAttribute('firstPageNumber',    $pSheet->getPageSetup()->getFirstPageNumber());
+			$objWriter->writeAttribute('useFirstPageNumber', '1');
 		}
 
 		$objWriter->endElement();
@@ -876,60 +851,66 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 				// Highest row number
 				$highestRow = $pSheet->getHighestRow();
 
-				// Loop trough cells
-				$cellCollection = $pSheet->getCellCollection();
-
+				// Loop through cells
 				$cellsByRow = array();
-				foreach ($cellCollection as $cell) {
-					$cellsByRow[$cell->getRow()][] = $cell;
+				foreach ($pSheet->getCellCollection() as $cellID) {
+					$cellAddress = PHPExcel_Cell::coordinateFromString($cellID);
+					$cellsByRow[$cellAddress[1]][] = $cellID;
 				}
 
 				for ($currentRow = 1; $currentRow <= $highestRow; ++$currentRow) {
 					// Get row dimension
 					$rowDimension = $pSheet->getRowDimension($currentRow);
-	
+
 					// Write current row?
 					$writeCurrentRow = 	isset($cellsByRow[$currentRow]) ||
 										$rowDimension->getRowHeight() >= 0 ||
 										$rowDimension->getVisible() == false ||
 										$rowDimension->getCollapsed() == true ||
-										$rowDimension->getOutlineLevel() > 0;
-										
-					if ($writeCurrentRow) {					
+										$rowDimension->getOutlineLevel() > 0 ||
+										$rowDimension->getXfIndex() !== null;
+
+					if ($writeCurrentRow) {
 						// Start a new row
 						$objWriter->startElement('row');
 						$objWriter->writeAttribute('r',	$currentRow);
 						$objWriter->writeAttribute('spans',	'1:' . $colCount);
-	
+
 						// Row dimensions
 						if ($rowDimension->getRowHeight() >= 0) {
 							$objWriter->writeAttribute('customHeight',	'1');
 							$objWriter->writeAttribute('ht',			PHPExcel_Shared_String::FormatNumber($rowDimension->getRowHeight()));
 						}
-	
+
 						// Row visibility
 						if ($rowDimension->getVisible() == false) {
 							$objWriter->writeAttribute('hidden',		'true');
 						}
-	
+
 						// Collapsed
 						if ($rowDimension->getCollapsed() == true) {
 							$objWriter->writeAttribute('collapsed',		'true');
 						}
-	
+
 						// Outline level
 						if ($rowDimension->getOutlineLevel() > 0) {
 							$objWriter->writeAttribute('outlineLevel',	$rowDimension->getOutlineLevel());
 						}
-	
+
+						// Style
+						if ($rowDimension->getXfIndex() !== null) {
+							$objWriter->writeAttribute('s',	$rowDimension->getXfIndex());
+							$objWriter->writeAttribute('customFormat', '1');
+						}
+
 						// Write cells
 						if (isset($cellsByRow[$currentRow])) {
-							foreach($cellsByRow[$currentRow] as $cell) {
+							foreach($cellsByRow[$currentRow] as $cellAddress) {
 								// Write cell
-								$this->_writeCell($objWriter, $pSheet, $cell, $pStringTable, $aFlippedStringTable);
+								$this->_writeCell($objWriter, $pSheet, $cellAddress, $pStringTable, $aFlippedStringTable);
 							}
 						}
-	
+
 						// End row
 						$objWriter->endElement();
 					}
@@ -951,8 +932,10 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 	 * @param	string[]					$pFlippedStringTable	String table (flipped), for faster index searching
 	 * @throws	Exception
 	 */
-	private function _writeCell(PHPExcel_Shared_XMLWriter $objWriter = null, PHPExcel_Worksheet $pSheet = null, PHPExcel_Cell $pCell = null, $pStringTable = null, $pFlippedStringTable = null)
+	private function _writeCell(PHPExcel_Shared_XMLWriter $objWriter = null, PHPExcel_Worksheet $pSheet = null, $pCellAddress = null, $pStringTable = null, $pFlippedStringTable = null)
 	{
+		$pCell = $pSheet->getCell($pCellAddress);
+
 		if (is_array($pStringTable) && is_array($pFlippedStringTable)) {
 			// Cell
 			$objWriter->startElement('c');
@@ -982,8 +965,10 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 					case 'f':			// Formula
 						$calculatedValue = null;
 						if ($this->getParentWriter()->getPreCalculateFormulas()) {
+							$pCell->attach($pSheet);
 							$calculatedValue = $pCell->getCalculatedValue();
 						} else {
+							$pCell->attach($pSheet);
 							$calculatedValue = $pCell->getValue();
 						}
 						if (is_string($calculatedValue)) {
