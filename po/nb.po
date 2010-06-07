@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-04 16:07-0400\n"
-"PO-Revision-Date: 2010-06-01 09:52+0200\n"
+"PO-Revision-Date: 2010-06-07 10:58+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -8132,7 +8132,6 @@ msgid "Propose table structure"
 msgstr "Foreslå tabellstruktur"
 
 #: tbl_structure.php:540
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add column"
 msgstr "Legg til kolonne(r)"
@@ -8344,122 +8343,3 @@ msgstr "VIEW navn"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr "Endre tabellens navn"
-
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Legg til felt"
-
-#~ msgid "Field"
-#~ msgstr "Felt"
-
-#~ msgid "Records"
-#~ msgstr "Rader"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Felter avsluttet med"
-
-#~ msgid "Fields"
-#~ msgstr "Felter"
-
-#~ msgid "Add %s field(s)"
-#~ msgstr "Legg til %s felt(er)"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "Feltet %s har blitt slettet"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Se image/jpeg: inline"
-
-#~ msgid "zipped"
-#~ msgstr "Komprimert (zip)"
-
-#~ msgid "gzipped"
-#~ msgstr "Komprimert (gz)"
-
-#~ msgid "bzipped"
-#~ msgstr "Komprimert (bz2)"
-
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr ""
-#~ "Legg til egen kommentar i hodet (\n"
-#~ " lager linjeskift)"
-
-#~ msgid "and"
-#~ msgstr "og"
-
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Avslått"
-
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Påslått"
-
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Reparer"
-
-#~ msgid "Calendar"
-#~ msgstr "Kalender"
-
-#~ msgid "MySQL&nbsp;4.0 compatible"
-#~ msgstr "MySQL&nbsp;4.0 kompatibel"
-
-#~ msgid "Could not load default configuration from: \"%1$s\""
-#~ msgstr "Kunne ikke laste standard konfigurasjonsfil fra: \"%1$s\""
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Lag en indeks på&nbsp;%s&nbsp;kolonner"
-
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Opprett tabell"
-
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Ingen"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Oppfrisk tabellen (\"FLUSH\")"
-
-#~ msgid "Invalid server index: \"%s\""
-#~ msgstr "Ugyldig tjenerindeks: \"%s\""
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Beskrivelse"
-
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Ingen"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Skjema for \"%s\"-databasen - Side %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "Tabellen \"%s\" eksisterer ikke!"
-
-#~ msgid ""
-#~ "This MySQL server works as %s in <b>replication</b> process. For further "
-#~ "information about replication status on the server, please visit the <a "
-#~ "href=\"#replication\">replication section</a>."
-#~ msgstr ""
-#~ "Denne MySQL tjeneren som %s i <b>replikasjon<b>sprosess. For mer "
-#~ "informasjon om replikasjonsstatusen for tjeneren, gå til <a href="
-#~ "\"#replication\">replikasjonsseksjonen</a>."
-
-#~ msgid "running on %s"
-#~ msgstr "som kjører på %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "Skaleringsfaktoren er for liten til å romme alt på en side"
-
-#~ msgid ""
-#~ "Cannot start session without errors, please check errors given in your "
-#~ "PHP and/or webserver log file and configure your PHP installation "
-#~ "properly."
-#~ msgstr ""
-#~ "Kan ikke starte sessjonen uten feil, kontroller feilmeldinger i din PHP "
-#~ "og/eller webtjenerloggfil og konfigurer din PHP innstallasjon korrekt."
