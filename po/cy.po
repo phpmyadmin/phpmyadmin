@@ -35,6 +35,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"Nid oedd modd diweddaru ffenest y targed. Efallai eich bod chi wedi cau "
+"ffenest y rhiant, neu bod gosodiadau diogelwch eich porwr yn gwrthod "
+"caniatáu diweddariadau traws-ffenest."
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
@@ -42,7 +45,7 @@ msgstr ""
 #: libraries/common.lib.php:2829 libraries/db_links.inc.php:75
 #: libraries/tbl_links.inc.php:63
 msgid "Search"
-msgstr ""
+msgstr "Chwilio"
 
 #: browse_foreigners.php:153 db_operations.php:385 db_operations.php:429
 #: db_operations.php:499 db_operations.php:609 db_search.php:362
@@ -71,37 +74,37 @@ msgstr ""
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
-msgstr ""
+msgstr "Ewch"
 
 #: browse_foreigners.php:168 browse_foreigners.php:172
 #: libraries/Index.class.php:442 tbl_tracking.php:320
 msgid "Keyname"
-msgstr ""
+msgstr "Enw allweddol"
 
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: server_collations.php:55 server_collations.php:67 server_engines.php:59
 #: server_status.php:628
 msgid "Description"
-msgstr ""
+msgstr "Disgrifiad"
 
 #: browse_foreigners.php:247 browse_foreigners.php:256
 #: browse_foreigners.php:268 browse_foreigners.php:276
 msgid "Use this value"
-msgstr ""
+msgstr "Defnyddiwch y gwerth hwn"
 
 #: db_create.php:46
 #, possible-php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "Cafodd y gronfa ddata %1$s ei chreu."
 
 #: db_datadict.php:49 db_operations.php:378
 msgid "Database comment: "
-msgstr ""
+msgstr "Sylw cronfa ddata:"
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
 #: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
 msgid "Table comments"
-msgstr ""
+msgstr "Sylwadau tabl"
 
 #: db_datadict.php:174 db_qbe.php:174 libraries/Index.class.php:446
 #: libraries/export/htmlword.php:244 libraries/export/latex.php:360
@@ -112,7 +115,7 @@ msgstr ""
 #: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
 msgid "Column"
-msgstr ""
+msgstr "Colofn"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
 #: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
@@ -124,7 +127,7 @@ msgstr ""
 #: tbl_printview.php:313 tbl_select.php:136 tbl_structure.php:178
 #: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
-msgstr ""
+msgstr "Math"
 
 #: db_datadict.php:177 libraries/Index.class.php:449
 #: libraries/export/htmlword.php:246 libraries/export/latex.php:360
@@ -133,7 +136,7 @@ msgstr ""
 #: pdf_schema.php:1286 tbl_change.php:323 tbl_printview.php:145
 #: tbl_structure.php:181 tbl_tracking.php:276 tbl_tracking.php:327
 msgid "Null"
-msgstr ""
+msgstr "Null"
 
 #: db_datadict.php:178 db_structure.php:501 libraries/export/htmlword.php:247
 #: libraries/export/latex.php:360 libraries/export/odt.php:303
@@ -141,14 +144,14 @@ msgstr ""
 #: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:146
 #: tbl_structure.php:182 tbl_tracking.php:277
 msgid "Default"
-msgstr ""
+msgstr "Diofyn"
 
 #: db_datadict.php:182 libraries/export/htmlword.php:249
 #: libraries/export/latex.php:362 libraries/export/odt.php:307
 #: libraries/export/texytext.php:238 pdf_schema.php:1268 pdf_schema.php:1289
 #: tbl_printview.php:150
 msgid "Links to"
-msgstr ""
+msgstr "Cysylltu i"
 
 #: db_datadict.php:184 db_printview.php:112 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:45 libraries/export/latex.php:365
@@ -157,7 +160,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
 #: pdf_schema.php:1290 tbl_printview.php:152
 msgid "Comments"
-msgstr ""
+msgstr "Sylwadau"
 
 #: db_datadict.php:267 libraries/Index.class.php:359
 #: libraries/Index.class.php:386 libraries/export/htmlword.php:322
@@ -168,7 +171,7 @@ msgstr ""
 #: server_privileges.php:2148 sql.php:132 sql.php:194 tbl_printview.php:229
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
-msgstr ""
+msgstr "Na"
 
 #: db_datadict.php:267 libraries/Index.class.php:360
 #: libraries/Index.class.php:385 libraries/export/htmlword.php:322
@@ -185,131 +188,131 @@ msgstr ""
 #: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
-msgstr ""
+msgstr "Ie"
 
 #: db_datadict.php:322 db_printview.php:266 tbl_printview.php:498
 msgid "Print"
-msgstr ""
+msgstr "Argraffu"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "Dangos dadlwythiad (sgema) y gronfa ddata"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
 #: db_tracking.php:35 export.php:359 navigation.php:332
 msgid "No tables found in database."
-msgstr ""
+msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 
 #: db_export.php:43 db_search.php:344 server_export.php:27
 msgid "Select All"
-msgstr ""
+msgstr "Dewis Pob"
 
 #: db_export.php:45 db_search.php:347 server_export.php:29
 msgid "Unselect All"
-msgstr ""
+msgstr "Dad-ddewis Pob"
 
 #: db_operations.php:38 tbl_create.php:54
 msgid "The database name is empty!"
-msgstr ""
+msgstr "Mae enw'r gronfa ddata'n wag!"
 
 #: db_operations.php:236
 #, possible-php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "Cafodd cronfa ddata %s ei hailenwi i %s"
 
 #: db_operations.php:240
 #, possible-php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "Cafodd y gronfa ddata %s ei chopïo i %s"
 
 #: db_operations.php:412
 msgid "Rename database to"
-msgstr ""
+msgstr "Ailenwch y gronfa ddata i"
 
 #: db_operations.php:417 server_processlist.php:57
 msgid "Command"
-msgstr ""
+msgstr "Gorchymyn"
 
 #: db_operations.php:429 tbl_change.php:1143
 msgid "and then"
-msgstr ""
+msgstr "ac yna"
 
 #: db_operations.php:455
 msgid "Copy database to"
-msgstr ""
+msgstr "Copïwch y gronfa ddata i"
 
 #: db_operations.php:462 tbl_operations.php:528 tbl_tracking.php:388
 msgid "Structure only"
-msgstr ""
+msgstr "Strwythur yn unig"
 
 #: db_operations.php:463 tbl_operations.php:529 tbl_tracking.php:390
 msgid "Structure and data"
-msgstr ""
+msgstr "Strwythur a data"
 
 #: db_operations.php:464 tbl_operations.php:530 tbl_tracking.php:389
 msgid "Data only"
-msgstr ""
+msgstr "Data yn unig"
 
 #: db_operations.php:472
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "Defnyddiwch CREATE DATABASE cyn copïo"
 
 #: db_operations.php:475 libraries/export/sql.php:52
 #: libraries/export/sql.php:74 libraries/export/sql.php:76
 #: libraries/export/sql.php:82 tbl_operations.php:536
 #, possible-php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Ychwanegwch %s"
 
 #: db_operations.php:479 libraries/export/sql.php:78 tbl_operations.php:299
 #: tbl_operations.php:538
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "Ychwanegwch werth AUTO_INCREMENT"
 
 #: db_operations.php:483 tbl_operations.php:545
 msgid "Add constraints"
-msgstr ""
+msgstr "Ychwanegwch cyfyngiadau"
 
 #: db_operations.php:496
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Newidiwch i'r gronfa ddata a gopïwyd"
 
 #: db_operations.php:537
 msgid "BLOB Repository"
-msgstr ""
+msgstr "Ystorfa BLOB"
 
 #: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1350
 #: libraries/server_links.inc.php:49 server_processlist.php:59
 #: tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
-msgstr ""
+msgstr "Statws"
 
 #: db_operations.php:548
 msgctxt "BLOB repository"
 msgid "Enabled"
-msgstr ""
+msgstr "Galluogwyd"
 
 #: db_operations.php:552
 msgid "Disable"
-msgstr ""
+msgstr "Analluogwch"
 
 #: db_operations.php:562
 msgid "Damaged"
-msgstr ""
+msgstr "Wedi difrodi"
 
 #: db_operations.php:566
 msgctxt "BLOB repository"
 msgid "Repair"
-msgstr ""
+msgstr "Trwsiwch"
 
 #: db_operations.php:574
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr ""
+msgstr "Analluogwyd"
 
 #: db_operations.php:578
 msgid "Enable"
-msgstr ""
+msgstr "Galluogwch"
 
 #: db_operations.php:602 libraries/Index.class.php:448
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
@@ -318,7 +321,7 @@ msgstr ""
 #: tbl_operations.php:363 tbl_select.php:137 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
-msgstr ""
+msgstr "Coladiad"
 
 #: db_operations.php:615 main.php:316 pdf_schema.php:34
 #, possible-php-format
@@ -326,10 +329,12 @@ msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 msgstr ""
+"Mae'r nodweddion ar gyfer gweithio gyda thablau sydd wedi cysylltu wedi'u "
+"hanalluogi. Pwyswch %syma%s i ddarganfod pam."
 
 #: db_operations.php:648
 msgid "Edit PDF Pages"
-msgstr ""
+msgstr "Golygwch Dudalennau PDF"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
@@ -338,48 +343,48 @@ msgstr ""
 #: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
 #: test/theme.php:75
 msgid "Table"
-msgstr ""
+msgstr "Tabl"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
 #: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
-msgstr ""
+msgstr "Rhesi"
 
 #: db_printview.php:109 libraries/db_structure.lib.php:67 tbl_indexes.php:190
 msgid "Size"
-msgstr ""
+msgstr "Maint"
 
 #: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:559
 #: libraries/export/sql.php:899
 msgid "in use"
-msgstr ""
+msgstr "ar ddefnydd"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
 #: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:434
 #: tbl_structure.php:809
 msgid "Creation"
-msgstr ""
+msgstr "Cread"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
 #: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:444
 #: tbl_structure.php:817
 msgid "Last update"
-msgstr ""
+msgstr "Diweddariad diwethaf"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
 #: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:454
 #: tbl_structure.php:825
 msgid "Last check"
-msgstr ""
+msgstr "Gwiriad diwethaf"
 
 #: db_printview.php:222 db_structure.php:480
 #, possible-php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s tabl"
+msgstr[1] "%s tabl"
 
 #: db_qbe.php:29 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/sql_query_form.lib.php:140
@@ -1591,7 +1596,7 @@ msgstr ""
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
-msgstr ""
+msgstr "Gweinydd"
 
 #: libraries/common.inc.php:823
 msgid "Invalid authentication method set in configuration:"
@@ -1611,13 +1616,13 @@ msgstr ""
 #: libraries/common.lib.php:411
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:415
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
@@ -1631,19 +1636,19 @@ msgstr ""
 #: libraries/common.lib.php:595 libraries/header_printview.inc.php:61
 #: server_processlist.php:60 server_status.php:247
 msgid "SQL query"
-msgstr ""
+msgstr "Ymholiad SQL"
 
 #: libraries/common.lib.php:634
 msgid "MySQL said: "
-msgstr ""
+msgstr "Dywedodd MySQL:"
 
 #: libraries/common.lib.php:1177 setup/lib/messages.inc.php:353
 msgid "Explain SQL"
-msgstr ""
+msgstr "Esbonio SQL"
 
 #: libraries/common.lib.php:1180
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "Sgipio Esbonio SQL"
 
 #: libraries/common.lib.php:1212
 msgid "Without PHP Code"
@@ -1694,7 +1699,7 @@ msgstr ""
 
 #: libraries/common.lib.php:1379
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: libraries/common.lib.php:1379
 msgid "GiB"
