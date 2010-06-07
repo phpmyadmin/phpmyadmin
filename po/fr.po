@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-04 16:07-0400\n"
+"POT-Creation-Date: 2010-06-07 22:09+0200\n"
 "PO-Revision-Date: 2010-06-01 16:27+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -19,7 +19,7 @@ msgstr ""
 msgid "Show all"
 msgstr "Tout afficher"
 
-#: browse_foreigners.php:82 libraries/common.lib.php:2304
+#: browse_foreigners.php:82 libraries/common.lib.php:2313
 #: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:394
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
@@ -38,8 +38,8 @@ msgstr ""
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/common.lib.php:2822
-#: libraries/common.lib.php:2829 libraries/db_links.inc.php:75
+#: db_structure.php:106 libraries/common.lib.php:2831
+#: libraries/common.lib.php:2838 libraries/db_links.inc.php:75
 #: libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr "Rechercher"
@@ -49,7 +49,7 @@ msgstr "Rechercher"
 #: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
-#: libraries/common.lib.php:1333 libraries/common.lib.php:2279
+#: libraries/common.lib.php:1335 libraries/common.lib.php:2288
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
@@ -278,7 +278,7 @@ msgstr "Aller à la base de données copiée"
 msgid "BLOB Repository"
 msgstr "Dépôt BLOB"
 
-#: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1350
+#: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1352
 #: libraries/server_links.inc.php:49 server_processlist.php:59
 #: tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
@@ -466,7 +466,7 @@ msgstr "Utiliser les tables"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Requête SQL sur la base <b>%s</b>:"
 
-#: db_qbe.php:934 libraries/common.lib.php:1223
+#: db_qbe.php:934 libraries/common.lib.php:1225
 msgid "Submit Query"
 msgstr "Exécuter la requête"
 
@@ -505,7 +505,7 @@ msgstr "%s occurence(s) dans la table <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/common.lib.php:2824
+#: db_structure.php:105 libraries/common.lib.php:2833
 #: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
 #: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:467
 msgid "Browse"
@@ -550,13 +550,13 @@ msgstr "Dans la colonne:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/common.lib.php:2823 libraries/sql_query_form.lib.php:334
+#: libraries/common.lib.php:2832 libraries/sql_query_form.lib.php:334
 #: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr "Insérer"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
-#: libraries/common.lib.php:2820 libraries/common.lib.php:2827
+#: libraries/common.lib.php:2829 libraries/common.lib.php:2836
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
@@ -569,7 +569,7 @@ msgstr "Structure"
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
 #: db_structure.php:545 db_structure.php:546 db_tracking.php:91
-#: libraries/Index.class.php:483 libraries/common.lib.php:1654
+#: libraries/Index.class.php:483 libraries/common.lib.php:1656
 #: libraries/db_links.inc.php:100 libraries/mult_submits.inc.php:36
 #: libraries/mult_submits.inc.php:73 libraries/tbl_links.inc.php:127
 #: server_databases.php:352 tbl_structure.php:27 tbl_structure.php:151
@@ -579,7 +579,7 @@ msgstr "Supprimer"
 
 #: db_structure.php:86 db_structure.php:87 db_structure.php:99
 #: db_structure.php:100 db_structure.php:112 db_structure.php:113
-#: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1653
+#: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1655
 #: libraries/mult_submits.inc.php:39 libraries/tbl_links.inc.php:105
 msgid "Empty"
 msgstr "Vider"
@@ -610,11 +610,11 @@ msgstr "Le suivi n'est pas activé."
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Cette vue contient au moins ce nombre d'enregistrements. Veuillez référer à %"
-"sdocumentation%s."
+"Cette vue contient au moins ce nombre d'enregistrements. Veuillez référer à "
+"%sdocumentation%s."
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/tbl_info.inc.php:66 tbl_structure.php:185 test/theme.php:74
@@ -805,8 +805,8 @@ msgstr "Le fichier d'exportation a été sauvegardé sous %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
 "Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
@@ -1018,8 +1018,8 @@ msgid "Prev"
 msgstr "Précédent"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:77 libraries/common.lib.php:2344
-#: libraries/common.lib.php:2347 libraries/display_tbl.lib.php:338
+#: js/messages.php:77 libraries/common.lib.php:2353
+#: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:801
 msgid "Next"
@@ -1079,63 +1079,63 @@ msgid "December"
 msgstr "Décembre"
 
 #. l10n: Short month name
-#: js/messages.php:97 libraries/common.lib.php:1555
+#: js/messages.php:97 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr "Janvier"
 
 #. l10n: Short month name
-#: js/messages.php:99 libraries/common.lib.php:1557
+#: js/messages.php:99 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr "Février"
 
 #. l10n: Short month name
-#: js/messages.php:101 libraries/common.lib.php:1559
+#: js/messages.php:101 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr "Mars"
 
 #. l10n: Short month name
-#: js/messages.php:103 libraries/common.lib.php:1561
+#: js/messages.php:103 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr "Avril"
 
 #. l10n: Short month name
-#: js/messages.php:105 libraries/common.lib.php:1563
+#: js/messages.php:105 libraries/common.lib.php:1565
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:107 libraries/common.lib.php:1565
+#: js/messages.php:107 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr "Juin"
 
 #. l10n: Short month name
-#: js/messages.php:109 libraries/common.lib.php:1567
+#: js/messages.php:109 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr "Juillet"
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/common.lib.php:1569
+#: js/messages.php:111 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr "Août"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/common.lib.php:1571
+#: js/messages.php:113 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr "Septembre"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1573
+#: js/messages.php:115 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr "Octobre"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1575
+#: js/messages.php:117 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr "Novembre"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1577
+#: js/messages.php:119 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr "Décembre"
 
@@ -1168,37 +1168,37 @@ msgid "Saturday"
 msgstr "Samedi"
 
 #. l10n: Short week day name
-#: js/messages.php:132 libraries/common.lib.php:1580
+#: js/messages.php:132 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr "Dim"
 
 #. l10n: Short week day name
-#: js/messages.php:134 libraries/common.lib.php:1582
+#: js/messages.php:134 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:136 libraries/common.lib.php:1584
+#: js/messages.php:136 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:138 libraries/common.lib.php:1586
+#: js/messages.php:138 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:140 libraries/common.lib.php:1588
+#: js/messages.php:140 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr "Jeu"
 
 #. l10n: Short week day name
-#: js/messages.php:142 libraries/common.lib.php:1590
+#: js/messages.php:142 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr "Ven"
 
 #. l10n: Short week day name
-#: js/messages.php:144 libraries/common.lib.php:1592
+#: js/messages.php:144 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr "Sam"
 
@@ -1329,7 +1329,7 @@ msgid "Comment"
 msgstr "Commentaire"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
-#: libraries/common.lib.php:1199 libraries/display_tbl.lib.php:1117
+#: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
 #: libraries/import.lib.php:1087 libraries/import.lib.php:1111
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
@@ -1475,8 +1475,8 @@ msgstr "Bienvenue sur %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La raison probable est que vous n'avez pas créé de fichier de configuration. "
 "Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but."
@@ -1711,128 +1711,128 @@ msgstr "Expliquer SQL"
 msgid "Skip Explain SQL"
 msgstr "Ne pas expliquer SQL"
 
-#: libraries/common.lib.php:1212
+#: libraries/common.lib.php:1214
 msgid "Without PHP Code"
 msgstr "Sans source PHP"
 
-#: libraries/common.lib.php:1215 setup/lib/messages.inc.php:355
+#: libraries/common.lib.php:1217 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
 msgstr "Créer source PHP"
 
-#: libraries/common.lib.php:1233 server_status.php:341
+#: libraries/common.lib.php:1235 server_status.php:341
 #: setup/lib/messages.inc.php:354
 msgid "Refresh"
 msgstr "Actualiser"
 
-#: libraries/common.lib.php:1242
+#: libraries/common.lib.php:1244
 msgid "Skip Validate SQL"
 msgstr "Ne pas valider SQL"
 
-#: libraries/common.lib.php:1245 setup/lib/messages.inc.php:356 sql.php:518
+#: libraries/common.lib.php:1247 setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
 msgstr "Valider SQL"
 
-#: libraries/common.lib.php:1276
+#: libraries/common.lib.php:1278
 msgid "Inline edit of this query"
 msgstr "Éditer cette requête en ligne"
 
-#: libraries/common.lib.php:1278
+#: libraries/common.lib.php:1280
 msgid "Inline"
 msgstr "En ligne"
 
-#: libraries/common.lib.php:1332 libraries/common.lib.php:1347
+#: libraries/common.lib.php:1334 libraries/common.lib.php:1349
 msgid "Profiling"
 msgstr "Profilage"
 
-#: libraries/common.lib.php:1351 libraries/tbl_triggers.lib.php:28
+#: libraries/common.lib.php:1353 libraries/tbl_triggers.lib.php:28
 #: server_processlist.php:58
 msgid "Time"
 msgstr "Durée"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "B"
 msgstr "o"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "KiB"
 msgstr "Kio"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "MiB"
 msgstr "Mio"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "GiB"
 msgstr "Gio"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "TiB"
 msgstr "Tio"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "PiB"
 msgstr "Pio"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "EiB"
 msgstr "Eio"
 
 #. l10n: Thousands separator
-#: libraries/common.lib.php:1417
+#: libraries/common.lib.php:1419
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: libraries/common.lib.php:1419
+#: libraries/common.lib.php:1421
 msgid "."
 msgstr ","
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1596
+#: libraries/common.lib.php:1598
 #: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%A %d %B %Y à %H:%M"
 
-#: libraries/common.lib.php:1898
+#: libraries/common.lib.php:1907
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s jours, %s heures, %s minutes et %s secondes"
 
-#: libraries/common.lib.php:2313 libraries/common.lib.php:2316
+#: libraries/common.lib.php:2322 libraries/common.lib.php:2325
 #: libraries/display_tbl.lib.php:290 server_status.php:608
 msgid "Begin"
 msgstr "Début"
 
-#: libraries/common.lib.php:2314 libraries/common.lib.php:2317
+#: libraries/common.lib.php:2323 libraries/common.lib.php:2326
 #: libraries/display_tbl.lib.php:291 server_binlog.php:168
 #: server_binlog.php:170
 msgid "Previous"
 msgstr "Précédent"
 
-#: libraries/common.lib.php:2345 libraries/common.lib.php:2348
+#: libraries/common.lib.php:2354 libraries/common.lib.php:2357
 #: libraries/display_tbl.lib.php:353
 msgid "End"
 msgstr "Fin"
 
-#: libraries/common.lib.php:2421
+#: libraries/common.lib.php:2430
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Aller à la base de données &quot;%s&quot;."
 
-#: libraries/common.lib.php:2441
+#: libraries/common.lib.php:2450
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "La fonctionnalité %s est affectée par une anomalie connue, voir %s"
 
-#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/common.lib.php:2830 libraries/common.lib.php:2837
 #: libraries/db_links.inc.php:68 libraries/export/sql.php:25
 #: libraries/import/sql.php:18 libraries/server_links.inc.php:45
 #: libraries/tbl_links.inc.php:60 querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2830 libraries/db_links.inc.php:104
+#: libraries/common.lib.php:2839 libraries/db_links.inc.php:104
 #: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
 #: view_operations.php:89
 msgid "Operations"
@@ -2050,8 +2050,8 @@ msgstr "nom de table"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
@@ -4449,8 +4449,8 @@ msgstr ""
 "Quand la table Host est utilisée, ce champ est ignoré et les valeurs de la "
 "table Host sont utilisées à la place."
 
-#: libraries/select_lang.lib.php:480 libraries/select_lang.lib.php:486
-#: libraries/select_lang.lib.php:492
+#: libraries/select_lang.lib.php:482 libraries/select_lang.lib.php:488
+#: libraries/select_lang.lib.php:494
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Langue inconnue: %1$s."
@@ -5202,8 +5202,8 @@ msgid ""
 "appropriate column name."
 msgstr ""
 "La colonne descriptive est montrée en rose. Pour indiquer qu'une colonne est "
-"ou n'est plus la colonne descriptive, cliquer l'icône  «Colonne descriptive», "
-"puis cliquer sur le nom de colonne approprié."
+"ou n'est plus la colonne descriptive, cliquer l'icône  «Colonne "
+"descriptive», puis cliquer sur le nom de colonne approprié."
 
 #: pmd_pdf.php:63
 msgid "Page has been created"
@@ -5476,8 +5476,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
@@ -7140,9 +7140,9 @@ msgstr ""
 "La méthode d'authentification [kbd]config[/kbd] permet une connexion "
 "automatique, ce qui n'est pas souhaitable dans un environnement réel. Toute "
 "personne qui connaît l'URL d'accès peut entrer dans votre phpMyAdmin. Il est "
-"suggéré de régler votre [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]type d'authentification[/a] à [kbd]cookie[/kbd] ou [kbd]http[/"
-"kbd]."
+"suggéré de régler votre [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]type d'authentification[/a] à [kbd]cookie[/kbd] ou [kbd]http"
+"[/kbd]."
 
 #: setup/lib/messages.inc.php:239
 msgid "You should use mysqli for performance reasons"

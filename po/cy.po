@@ -4,9 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-04 16:07-0400\n"
+"POT-Creation-Date: 2010-06-07 22:09+0200\n"
 "PO-Revision-Date: 2010-06-07 20:23+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Show all"
 msgstr "Dangos pob"
 
-#: browse_foreigners.php:82 libraries/common.lib.php:2304
+#: browse_foreigners.php:82 libraries/common.lib.php:2313
 #: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:394
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
@@ -41,8 +41,8 @@ msgstr ""
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/common.lib.php:2822
-#: libraries/common.lib.php:2829 libraries/db_links.inc.php:75
+#: db_structure.php:106 libraries/common.lib.php:2831
+#: libraries/common.lib.php:2838 libraries/db_links.inc.php:75
 #: libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr "Chwilio"
@@ -52,7 +52,7 @@ msgstr "Chwilio"
 #: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
-#: libraries/common.lib.php:1333 libraries/common.lib.php:2279
+#: libraries/common.lib.php:1335 libraries/common.lib.php:2288
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
@@ -93,7 +93,7 @@ msgid "Use this value"
 msgstr "Defnyddiwch y gwerth hwn"
 
 #: db_create.php:46
-#, possible-php-format
+#, php-format
 msgid "Database %1$s has been created."
 msgstr "Cafodd y gronfa ddata %1$s ei chreu."
 
@@ -216,12 +216,12 @@ msgid "The database name is empty!"
 msgstr "Mae enw'r gronfa ddata'n wag!"
 
 #: db_operations.php:236
-#, possible-php-format
+#, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Cafodd cronfa ddata %s ei hailenwi i %s"
 
 #: db_operations.php:240
-#, possible-php-format
+#, php-format
 msgid "Database %s has been copied to %s"
 msgstr "Cafodd y gronfa ddata %s ei chopïo i %s"
 
@@ -260,7 +260,7 @@ msgstr "Defnyddiwch CREATE DATABASE cyn copïo"
 #: db_operations.php:475 libraries/export/sql.php:52
 #: libraries/export/sql.php:74 libraries/export/sql.php:76
 #: libraries/export/sql.php:82 tbl_operations.php:536
-#, possible-php-format
+#, php-format
 msgid "Add %s"
 msgstr "Ychwanegwch %s"
 
@@ -281,7 +281,7 @@ msgstr "Newidiwch i'r gronfa ddata a gopïwyd"
 msgid "BLOB Repository"
 msgstr "Ystorfa BLOB"
 
-#: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1350
+#: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1352
 #: libraries/server_links.inc.php:49 server_processlist.php:59
 #: tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
@@ -324,7 +324,7 @@ msgid "Collation"
 msgstr "Coladiad"
 
 #: db_operations.php:615 main.php:316 pdf_schema.php:34
-#, possible-php-format
+#, php-format
 msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
@@ -380,7 +380,7 @@ msgid "Last check"
 msgstr "Gwiriad diwethaf"
 
 #: db_printview.php:222 db_structure.php:480
-#, possible-php-format
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s tabl"
@@ -465,11 +465,11 @@ msgid "Use Tables"
 msgstr "Defnyddiwch Dablau"
 
 #: db_qbe.php:640
-#, possible-php-format
+#, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Ymholiad SQL ar gronfa ddata <b>%s</b>:"
 
-#: db_qbe.php:934 libraries/common.lib.php:1223
+#: db_qbe.php:934 libraries/common.lib.php:1225
 msgid "Submit Query"
 msgstr "Cyflwynwch yr Ymholiad"
 
@@ -497,18 +497,18 @@ msgid "as regular expression"
 msgstr "fel mynegiad arferol (regular expression)"
 
 #: db_search.php:242
-#, possible-php-format
+#, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Canlyniadau chwilio am \"<i>%s</i>\" %s:"
 
 #: db_search.php:260
-#, possible-php-format
+#, php-format
 msgid "%s match(es) inside table <i>%s</i>"
 msgstr ""
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/common.lib.php:2824
+#: db_structure.php:105 libraries/common.lib.php:2833
 #: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
 #: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:467
 msgid "Browse"
@@ -523,7 +523,7 @@ msgid "Delete"
 msgstr "Dileu"
 
 #: db_search.php:285
-#, possible-php-format
+#, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr ""
 
@@ -553,13 +553,13 @@ msgstr "Tu fewn colofn:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/common.lib.php:2823 libraries/sql_query_form.lib.php:334
+#: libraries/common.lib.php:2832 libraries/sql_query_form.lib.php:334
 #: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr "Mewnosod"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
-#: libraries/common.lib.php:2820 libraries/common.lib.php:2827
+#: libraries/common.lib.php:2829 libraries/common.lib.php:2836
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
@@ -572,7 +572,7 @@ msgstr "Strwythur"
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
 #: db_structure.php:545 db_structure.php:546 db_tracking.php:91
-#: libraries/Index.class.php:483 libraries/common.lib.php:1654
+#: libraries/Index.class.php:483 libraries/common.lib.php:1656
 #: libraries/db_links.inc.php:100 libraries/mult_submits.inc.php:36
 #: libraries/mult_submits.inc.php:73 libraries/tbl_links.inc.php:127
 #: server_databases.php:352 tbl_structure.php:27 tbl_structure.php:151
@@ -582,23 +582,23 @@ msgstr "Gollwng"
 
 #: db_structure.php:86 db_structure.php:87 db_structure.php:99
 #: db_structure.php:100 db_structure.php:112 db_structure.php:113
-#: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1653
+#: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1655
 #: libraries/mult_submits.inc.php:39 libraries/tbl_links.inc.php:105
 msgid "Empty"
 msgstr "Gwagu"
 
 #: db_structure.php:316 libraries/tbl_links.inc.php:100
-#, possible-php-format
+#, php-format
 msgid "Table %s has been emptied"
 msgstr "Cafodd tabl %s ei wagu"
 
 #: db_structure.php:326 libraries/tbl_links.inc.php:133
-#, possible-php-format
+#, php-format
 msgid "View %s has been dropped"
 msgstr "Cafodd golwg %s ei ollwng"
 
 #: db_structure.php:326 libraries/tbl_links.inc.php:133
-#, possible-php-format
+#, php-format
 msgid "Table %s has been dropped"
 msgstr "Cafodd tabl %s ei ollwng"
 
@@ -611,10 +611,10 @@ msgid "Tracking is not active."
 msgstr "Nid yw tracio'n weithredol"
 
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
-#, possible-php-format
+#, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
@@ -633,7 +633,7 @@ msgid "Sum"
 msgstr "Swm"
 
 #: db_structure.php:496 libraries/StorageEngine.class.php:356
-#, possible-php-format
+#, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
 
@@ -779,31 +779,31 @@ msgid "Selected export type has to be saved in file!"
 msgstr ""
 
 #: export.php:154 export.php:179 export.php:627
-#, possible-php-format
+#, php-format
 msgid "Insufficient space to save the file %s."
 msgstr ""
 
 #: export.php:294
-#, possible-php-format
+#, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 
 #: export.php:298 export.php:302
-#, possible-php-format
+#, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr ""
 
 #: export.php:629
-#, possible-php-format
+#, php-format
 msgid "Dump has been saved to file %s."
 msgstr ""
 
 #: import.php:60
-#, possible-php-format
+#, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
@@ -814,7 +814,7 @@ msgstr ""
 #: import.php:287 import.php:296 import.php:315 import.php:324
 #: libraries/File.class.php:1031 libraries/File.class.php:1039
 #: libraries/File.class.php:1055 libraries/File.class.php:1063
-#, possible-php-format
+#, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
@@ -840,12 +840,12 @@ msgid "Showing bookmark"
 msgstr ""
 
 #: import.php:403 sql.php:626
-#, possible-php-format
+#, php-format
 msgid "Bookmark %s created"
 msgstr ""
 
 #: import.php:409 import.php:415
-#, possible-php-format
+#, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr ""
 
@@ -898,7 +898,7 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr ""
 
 #: js/messages.php:35
-#, possible-php-format
+#, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
 
@@ -995,8 +995,8 @@ msgid "Prev"
 msgstr ""
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:77 libraries/common.lib.php:2344
-#: libraries/common.lib.php:2347 libraries/display_tbl.lib.php:338
+#: js/messages.php:77 libraries/common.lib.php:2353
+#: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:801
 msgid "Next"
@@ -1056,63 +1056,63 @@ msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:97 libraries/common.lib.php:1555
+#: js/messages.php:97 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:99 libraries/common.lib.php:1557
+#: js/messages.php:99 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:101 libraries/common.lib.php:1559
+#: js/messages.php:101 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:103 libraries/common.lib.php:1561
+#: js/messages.php:103 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:105 libraries/common.lib.php:1563
+#: js/messages.php:105 libraries/common.lib.php:1565
 msgctxt "Short month name"
 msgid "May"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:107 libraries/common.lib.php:1565
+#: js/messages.php:107 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:109 libraries/common.lib.php:1567
+#: js/messages.php:109 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/common.lib.php:1569
+#: js/messages.php:111 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/common.lib.php:1571
+#: js/messages.php:113 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1573
+#: js/messages.php:115 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1575
+#: js/messages.php:117 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1577
+#: js/messages.php:119 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr ""
 
@@ -1145,37 +1145,37 @@ msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:132 libraries/common.lib.php:1580
+#: js/messages.php:132 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:134 libraries/common.lib.php:1582
+#: js/messages.php:134 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:136 libraries/common.lib.php:1584
+#: js/messages.php:136 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:138 libraries/common.lib.php:1586
+#: js/messages.php:138 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:140 libraries/common.lib.php:1588
+#: js/messages.php:140 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:142 libraries/common.lib.php:1590
+#: js/messages.php:142 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:144 libraries/common.lib.php:1592
+#: js/messages.php:144 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr ""
 
@@ -1300,7 +1300,7 @@ msgid "Comment"
 msgstr ""
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
-#: libraries/common.lib.php:1199 libraries/display_tbl.lib.php:1117
+#: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
 #: libraries/import.lib.php:1087 libraries/import.lib.php:1111
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
@@ -1312,12 +1312,12 @@ msgid "The primary key has been dropped"
 msgstr ""
 
 #: libraries/Index.class.php:476
-#, possible-php-format
+#, php-format
 msgid "Index %s has been dropped"
 msgstr ""
 
 #: libraries/Index.class.php:576
-#, possible-php-format
+#, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
@@ -1337,21 +1337,21 @@ msgid "Error"
 msgstr ""
 
 #: libraries/Message.class.php:282
-#, possible-php-format
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/Message.class.php:301
-#, possible-php-format
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/Message.class.php:320
-#, possible-php-format
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] ""
@@ -1363,17 +1363,17 @@ msgid ""
 msgstr ""
 
 #: libraries/StorageEngine.class.php:359
-#, possible-php-format
+#, php-format
 msgid "%s is available on this MySQL server."
 msgstr ""
 
 #: libraries/StorageEngine.class.php:362
-#, possible-php-format
+#, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr ""
 
 #: libraries/StorageEngine.class.php:366
-#, possible-php-format
+#, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
 
@@ -1386,17 +1386,17 @@ msgid "Invalid table name"
 msgstr ""
 
 #: libraries/Table.class.php:1048
-#, possible-php-format
+#, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr ""
 
 #: libraries/Table.class.php:1132
-#, possible-php-format
+#, php-format
 msgid "Table %s has been renamed to %s"
 msgstr ""
 
 #: libraries/Theme.class.php:162
-#, possible-php-format
+#, php-format
 msgid "No valid image path for theme %s found!"
 msgstr ""
 
@@ -1409,17 +1409,17 @@ msgid "take it"
 msgstr ""
 
 #: libraries/Theme_Manager.class.php:115
-#, possible-php-format
+#, php-format
 msgid "Default theme %s not found!"
 msgstr ""
 
 #: libraries/Theme_Manager.class.php:153
-#, possible-php-format
+#, php-format
 msgid "Theme %s not found!"
 msgstr ""
 
 #: libraries/Theme_Manager.class.php:221
-#, possible-php-format
+#, php-format
 msgid "Theme path not found for theme %s!"
 msgstr ""
 
@@ -1435,15 +1435,15 @@ msgstr ""
 #: libraries/auth/config.auth.lib.php:92
 #: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
 #: test/theme.php:152
-#, possible-php-format
+#, php-format
 msgid "Welcome to %s"
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:107
-#, possible-php-format
+#, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:116
@@ -1498,7 +1498,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:675
 #: libraries/auth/signon.auth.lib.php:185
-#, possible-php-format
+#, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 
@@ -1513,7 +1513,7 @@ msgid "Wrong username/password. Access denied."
 msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
-#, possible-php-format
+#, php-format
 msgid "File %s does not contain any key id"
 msgstr ""
 
@@ -1572,7 +1572,7 @@ msgid ""
 msgstr ""
 
 #: libraries/common.inc.php:594
-#, possible-php-format
+#, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
@@ -1583,12 +1583,12 @@ msgid ""
 msgstr ""
 
 #: libraries/common.inc.php:629
-#, possible-php-format
+#, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
 #: libraries/common.inc.php:636
-#, possible-php-format
+#, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
@@ -1603,12 +1603,12 @@ msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
 #: libraries/common.inc.php:926
-#, possible-php-format
+#, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
 #: libraries/common.lib.php:147
-#, possible-php-format
+#, php-format
 msgid "Max: %s%s"
 msgstr ""
 
@@ -1650,135 +1650,135 @@ msgstr "Esbonio SQL"
 msgid "Skip Explain SQL"
 msgstr "Sgipio Esbonio SQL"
 
-#: libraries/common.lib.php:1212
+#: libraries/common.lib.php:1214
 msgid "Without PHP Code"
 msgstr ""
 
-#: libraries/common.lib.php:1215 setup/lib/messages.inc.php:355
+#: libraries/common.lib.php:1217 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
 msgstr ""
 
-#: libraries/common.lib.php:1233 server_status.php:341
+#: libraries/common.lib.php:1235 server_status.php:341
 #: setup/lib/messages.inc.php:354
 msgid "Refresh"
 msgstr ""
 
-#: libraries/common.lib.php:1242
+#: libraries/common.lib.php:1244
 msgid "Skip Validate SQL"
 msgstr ""
 
-#: libraries/common.lib.php:1245 setup/lib/messages.inc.php:356 sql.php:518
+#: libraries/common.lib.php:1247 setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
 msgstr ""
 
-#: libraries/common.lib.php:1276
+#: libraries/common.lib.php:1278
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/common.lib.php:1278
+#: libraries/common.lib.php:1280
 msgid "Inline"
 msgstr ""
 
-#: libraries/common.lib.php:1332 libraries/common.lib.php:1347
+#: libraries/common.lib.php:1334 libraries/common.lib.php:1349
 msgid "Profiling"
 msgstr ""
 
-#: libraries/common.lib.php:1351 libraries/tbl_triggers.lib.php:28
+#: libraries/common.lib.php:1353 libraries/tbl_triggers.lib.php:28
 #: server_processlist.php:58
 msgid "Time"
 msgstr ""
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "B"
 msgstr ""
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "KiB"
 msgstr ""
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "MiB"
 msgstr "MiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "GiB"
 msgstr ""
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "TiB"
 msgstr ""
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "PiB"
 msgstr ""
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "EiB"
 msgstr ""
 
 #. l10n: Thousands separator
-#: libraries/common.lib.php:1417
+#: libraries/common.lib.php:1419
 msgid ","
 msgstr ""
 
 #. l10n: Decimal separator
-#: libraries/common.lib.php:1419
+#: libraries/common.lib.php:1421
 msgid "."
 msgstr ""
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1596
+#: libraries/common.lib.php:1598
 #: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr ""
 
-#: libraries/common.lib.php:1898
-#, possible-php-format
+#: libraries/common.lib.php:1907
+#, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr ""
 
-#: libraries/common.lib.php:2313 libraries/common.lib.php:2316
+#: libraries/common.lib.php:2322 libraries/common.lib.php:2325
 #: libraries/display_tbl.lib.php:290 server_status.php:608
 msgid "Begin"
 msgstr ""
 
-#: libraries/common.lib.php:2314 libraries/common.lib.php:2317
+#: libraries/common.lib.php:2323 libraries/common.lib.php:2326
 #: libraries/display_tbl.lib.php:291 server_binlog.php:168
 #: server_binlog.php:170
 msgid "Previous"
 msgstr ""
 
-#: libraries/common.lib.php:2345 libraries/common.lib.php:2348
+#: libraries/common.lib.php:2354 libraries/common.lib.php:2357
 #: libraries/display_tbl.lib.php:353
 msgid "End"
 msgstr ""
 
-#: libraries/common.lib.php:2421
-#, possible-php-format
+#: libraries/common.lib.php:2430
+#, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr ""
 
-#: libraries/common.lib.php:2441
-#, possible-php-format
+#: libraries/common.lib.php:2450
+#, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/common.lib.php:2830 libraries/common.lib.php:2837
 #: libraries/db_links.inc.php:68 libraries/export/sql.php:25
 #: libraries/import/sql.php:18 libraries/server_links.inc.php:45
 #: libraries/tbl_links.inc.php:60 querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr ""
 
-#: libraries/common.lib.php:2830 libraries/db_links.inc.php:104
+#: libraries/common.lib.php:2839 libraries/db_links.inc.php:104
 #: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
 #: view_operations.php:89
 msgid "Operations"
 msgstr ""
 
 #: libraries/core.lib.php:284 libraries/dbg/setup.php:22
-#, possible-php-format
+#, php-format
 msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 "extension. Please check your PHP configuration."
@@ -1796,7 +1796,7 @@ msgid "Name"
 msgstr ""
 
 #: libraries/db_links.inc.php:45
-#, possible-php-format
+#, php-format
 msgid "Database %s has been dropped."
 msgstr ""
 
@@ -1928,7 +1928,7 @@ msgid "Table must have at least one column."
 msgstr ""
 
 #: libraries/display_create_table.lib.php:48
-#, possible-php-format
+#, php-format
 msgid "Create table on database %s"
 msgstr ""
 
@@ -1941,7 +1941,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/display_export.lib.php:107
-#, possible-php-format
+#, php-format
 msgid "Dump %s row(s) starting at row # %s"
 msgstr ""
 
@@ -1954,7 +1954,7 @@ msgid "Save as file"
 msgstr ""
 
 #: libraries/display_export.lib.php:134
-#, possible-php-format
+#, php-format
 msgid "Save on server in %s directory"
 msgstr ""
 
@@ -1979,11 +1979,11 @@ msgid "table name"
 msgstr ""
 
 #: libraries/display_export.lib.php:162
-#, possible-php-format
+#, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 
 #: libraries/display_export.lib.php:202
@@ -2063,7 +2063,7 @@ msgid "web server upload directory"
 msgstr ""
 
 #: libraries/display_import.lib.php:212
-#, possible-php-format
+#, php-format
 msgid "Imported file compression will be automatically detected from: %s"
 msgstr ""
 
@@ -2072,7 +2072,7 @@ msgid "Partial import"
 msgstr ""
 
 #: libraries/display_import.lib.php:225
-#, possible-php-format
+#, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
@@ -2138,7 +2138,7 @@ msgid "Language"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:304
-#, possible-php-format
+#, php-format
 msgid "%d is not valid row number."
 msgstr ""
 
@@ -2159,7 +2159,7 @@ msgid "vertical"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:324
-#, possible-php-format
+#, php-format
 msgid "in %s mode and repeat headers after %s cells"
 msgstr ""
 
@@ -2253,7 +2253,7 @@ msgid "total"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:1970 sql.php:524
-#, possible-php-format
+#, php-format
 msgid "Query took %01.4f sec"
 msgstr ""
 
@@ -2954,22 +2954,22 @@ msgstr ""
 
 #: libraries/import/csv.php:58 libraries/import/csv.php:70
 #: libraries/import/csv.php:74 libraries/import/csv.php:78
-#, possible-php-format
+#, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
 #: libraries/import/csv.php:119
-#, possible-php-format
+#, php-format
 msgid "Invalid column (%s) specified!"
 msgstr ""
 
 #: libraries/import/csv.php:177 libraries/import/csv.php:424
-#, possible-php-format
+#, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
 #: libraries/import/csv.php:312
-#, possible-php-format
+#, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
@@ -4154,9 +4154,9 @@ msgid ""
 "table are used instead."
 msgstr ""
 
-#: libraries/select_lang.lib.php:480 libraries/select_lang.lib.php:486
-#: libraries/select_lang.lib.php:492
-#, possible-php-format
+#: libraries/select_lang.lib.php:482 libraries/select_lang.lib.php:488
+#: libraries/select_lang.lib.php:494
+#, php-format
 msgid "Unknown language: %1$s."
 msgstr ""
 
@@ -4215,12 +4215,12 @@ msgid "Target database"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:223
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:240 libraries/sql_query_form.lib.php:265
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr ""
 
@@ -4308,7 +4308,7 @@ msgid "Unknown Punctuation String"
 msgstr ""
 
 #: libraries/sqlvalidator.lib.php:68
-#, possible-php-format
+#, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
@@ -4320,7 +4320,7 @@ msgid "Table seems to be empty!"
 msgstr ""
 
 #: libraries/tbl_links.inc.php:149
-#, possible-php-format
+#, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr ""
 
@@ -4348,7 +4348,7 @@ msgid "Attributes"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:137
-#, possible-php-format
+#, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
@@ -4376,7 +4376,7 @@ msgid "As defined:"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
-#, possible-php-format
+#, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
@@ -4399,7 +4399,7 @@ msgid "Save"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
-#, possible-php-format
+#, php-format
 msgid "Add %s column(s)"
 msgstr ""
 
@@ -4618,14 +4618,14 @@ msgid ""
 msgstr ""
 
 #: main.php:346
-#, possible-php-format
+#, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
 
 #: main.php:358
-#, possible-php-format
+#, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
@@ -4658,7 +4658,7 @@ msgid "Please select a database"
 msgstr ""
 
 #: pdf_pages.php:41 pdf_pages.php:47 pdf_pages.php:53 pdf_pages.php:58
-#, possible-php-format
+#, php-format
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr ""
 
@@ -4697,17 +4697,17 @@ msgid ""
 msgstr ""
 
 #: pdf_schema.php:636
-#, possible-php-format
+#, php-format
 msgid "The %s table doesn't exist!"
 msgstr ""
 
 #: pdf_schema.php:672
-#, possible-php-format
+#, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr ""
 
 #: pdf_schema.php:995
-#, possible-php-format
+#, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr ""
 
@@ -4882,7 +4882,7 @@ msgid "No databases selected."
 msgstr ""
 
 #: server_databases.php:63
-#, possible-php-format
+#, php-format
 msgid "%s databases have been dropped successfully."
 msgstr ""
 
@@ -4909,7 +4909,7 @@ msgid "Jump to database"
 msgstr ""
 
 #: server_databases.php:289
-#, possible-php-format
+#, php-format
 msgid "Check privileges for database &quot;%s&quot;."
 msgstr ""
 
@@ -4987,7 +4987,7 @@ msgid "No user found."
 msgstr ""
 
 #: server_privileges.php:848
-#, possible-php-format
+#, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
@@ -4996,22 +4996,22 @@ msgid "You have added a new user."
 msgstr ""
 
 #: server_privileges.php:1152
-#, possible-php-format
+#, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
 #: server_privileges.php:1176
-#, possible-php-format
+#, php-format
 msgid "You have revoked the privileges for %s"
 msgstr ""
 
 #: server_privileges.php:1212
-#, possible-php-format
+#, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
 #: server_privileges.php:1232
-#, possible-php-format
+#, php-format
 msgid "Deleting %s"
 msgstr ""
 
@@ -5071,12 +5071,12 @@ msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
 #: server_privileges.php:1597
-#, possible-php-format
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1645
@@ -5144,12 +5144,12 @@ msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
 #: server_privileges.php:2003
-#, possible-php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr ""
 
 #: server_privileges.php:2026
-#, possible-php-format
+#, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr ""
 
@@ -5166,12 +5166,12 @@ msgid "wildcard"
 msgstr ""
 
 #: server_processlist.php:22
-#, possible-php-format
+#, php-format
 msgid "Thread %s was successfully killed."
 msgstr ""
 
 #: server_processlist.php:24
-#, possible-php-format
+#, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
@@ -5185,7 +5185,7 @@ msgid "Unknown error"
 msgstr ""
 
 #: server_replication.php:58
-#, possible-php-format
+#, php-format
 msgid "Unable to connect to master %s."
 msgstr ""
 
@@ -5199,7 +5199,7 @@ msgid "Unable to change master"
 msgstr ""
 
 #: server_replication.php:74
-#, possible-php-format
+#, php-format
 msgid "Master server changed succesfully to %s"
 msgstr ""
 
@@ -5216,7 +5216,7 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: server_replication.php:210
-#, possible-php-format
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
@@ -5298,7 +5298,7 @@ msgid "Reset slave"
 msgstr ""
 
 #: server_replication.php:327
-#, possible-php-format
+#, php-format
 msgid "SQL Thread %s only"
 msgstr ""
 
@@ -5311,7 +5311,7 @@ msgid "Stop"
 msgstr ""
 
 #: server_replication.php:328
-#, possible-php-format
+#, php-format
 msgid "IO Thread %s only"
 msgstr ""
 
@@ -5336,7 +5336,7 @@ msgid "errors."
 msgstr ""
 
 #: server_replication.php:355
-#, possible-php-format
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
@@ -5412,7 +5412,7 @@ msgid "Reset"
 msgstr ""
 
 #: server_status.php:350
-#, possible-php-format
+#, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr ""
 
@@ -5482,7 +5482,7 @@ msgid "Aborted"
 msgstr ""
 
 #: server_status.php:490
-#, possible-php-format
+#, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
@@ -5514,7 +5514,7 @@ msgstr ""
 
 #: server_synchronize.php:122 server_synchronize.php:125 tbl_create.php:82
 #: tbl_get_field.php:20
-#, possible-php-format
+#, php-format
 msgid "'%s' database does not exist."
 msgstr ""
 
@@ -5599,7 +5599,7 @@ msgid "Current connection"
 msgstr ""
 
 #: server_synchronize.php:1152
-#, possible-php-format
+#, php-format
 msgid "Configuration: %s"
 msgstr ""
 
@@ -5723,7 +5723,7 @@ msgid "Incorrect value"
 msgstr ""
 
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
-#, possible-php-format
+#, php-format
 msgid "Set value: %s"
 msgstr ""
 
@@ -5814,7 +5814,7 @@ msgid "Bzip2"
 msgstr ""
 
 #: setup/lib/messages.inc.php:32
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
 "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -5966,7 +5966,7 @@ msgid "Submitted form contains errors"
 msgstr ""
 
 #: setup/lib/messages.inc.php:74
-#, possible-php-format
+#, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
 
@@ -5975,7 +5975,7 @@ msgid "Not a valid port number"
 msgstr ""
 
 #: setup/lib/messages.inc.php:77
-#, possible-php-format
+#, php-format
 msgid "Missing data for %s"
 msgstr ""
 
@@ -6245,7 +6245,7 @@ msgid "GZip"
 msgstr ""
 
 #: setup/lib/messages.inc.php:151
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -6296,7 +6296,7 @@ msgid "Insecure connection"
 msgstr ""
 
 #: setup/lib/messages.inc.php:165
-#, possible-php-format
+#, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
@@ -6584,7 +6584,7 @@ msgid "Save directory"
 msgstr ""
 
 #: setup/lib/messages.inc.php:238
-#, possible-php-format
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6731,7 +6731,7 @@ msgid "Disable use of INFORMATION_SCHEMA"
 msgstr ""
 
 #: setup/lib/messages.inc.php:271
-#, possible-php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - [a@?"
 "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication"
@@ -7146,14 +7146,14 @@ msgid "Got invalid version string from server"
 msgstr ""
 
 #: setup/lib/messages.inc.php:371
-#, possible-php-format
+#, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
 
 #: setup/lib/messages.inc.php:372
-#, possible-php-format
+#, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
@@ -7183,14 +7183,14 @@ msgid ""
 msgstr ""
 
 #: setup/lib/messages.inc.php:379
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 "requires functions (%s) which are unavailable on this system."
 msgstr ""
 
 #: setup/lib/messages.inc.php:380
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
 "requires functions (%s) which are unavailable on this system."
@@ -7201,7 +7201,7 @@ msgid "ZIP"
 msgstr ""
 
 #: sql.php:496 tbl_replace.php:386
-#, possible-php-format
+#, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
@@ -7214,7 +7214,7 @@ msgid "Showing SQL query"
 msgstr ""
 
 #: sql.php:639
-#, possible-php-format
+#, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
@@ -7223,7 +7223,7 @@ msgid "Label"
 msgstr ""
 
 #: tbl_addfield.php:189 tbl_alter.php:103 tbl_indexes.php:98
-#, possible-php-format
+#, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr ""
 
@@ -7290,17 +7290,17 @@ msgid ""
 msgstr ""
 
 #: tbl_change.php:1209
-#, possible-php-format
+#, php-format
 msgid "Restart insertion with %s rows"
 msgstr ""
 
 #: tbl_create.php:62
-#, possible-php-format
+#, php-format
 msgid "Table %s already exists!"
 msgstr ""
 
 #: tbl_create.php:249
-#, possible-php-format
+#, php-format
 msgid "Table %1$s has been created."
 msgstr ""
 
@@ -7342,7 +7342,7 @@ msgid ""
 msgstr ""
 
 #: tbl_indexes.php:251
-#, possible-php-format
+#, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr ""
 
@@ -7359,12 +7359,12 @@ msgid "Can't copy table to same one!"
 msgstr ""
 
 #: tbl_move_copy.php:56
-#, possible-php-format
+#, php-format
 msgid "Table %s has been moved to %s."
 msgstr ""
 
 #: tbl_move_copy.php:58
-#, possible-php-format
+#, php-format
 msgid "Table %s has been copied to %s."
 msgstr ""
 
@@ -7409,7 +7409,7 @@ msgid "Defragment table"
 msgstr ""
 
 #: tbl_operations.php:630
-#, possible-php-format
+#, php-format
 msgid "Table %s has been flushed"
 msgstr ""
 
@@ -7422,7 +7422,7 @@ msgid "Partition maintenance"
 msgstr ""
 
 #: tbl_operations.php:659
-#, possible-php-format
+#, php-format
 msgid "Partition %s"
 msgstr ""
 
@@ -7495,7 +7495,7 @@ msgid " Row size "
 msgstr ""
 
 #: tbl_relation.php:279
-#, possible-php-format
+#, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
@@ -7551,17 +7551,17 @@ msgid "None"
 msgstr ""
 
 #: tbl_structure.php:374
-#, possible-php-format
+#, php-format
 msgid "Column %s has been dropped"
 msgstr ""
 
 #: tbl_structure.php:385
-#, possible-php-format
+#, php-format
 msgid "A primary key has been added on %s"
 msgstr ""
 
 #: tbl_structure.php:400 tbl_structure.php:414 tbl_structure.php:428
-#, possible-php-format
+#, php-format
 msgid "An index has been added on %s"
 msgstr ""
 
@@ -7586,12 +7586,12 @@ msgid "At Beginning of Table"
 msgstr ""
 
 #: tbl_structure.php:556
-#, possible-php-format
+#, php-format
 msgid "After %s"
 msgstr ""
 
 #: tbl_structure.php:594
-#, possible-php-format
+#, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr ""
 
@@ -7600,22 +7600,22 @@ msgid "partitioned"
 msgstr ""
 
 #: tbl_tracking.php:114
-#, possible-php-format
+#, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
 #: tbl_tracking.php:187
-#, possible-php-format
+#, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
 msgstr ""
 
 #: tbl_tracking.php:195
-#, possible-php-format
+#, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
 msgstr ""
 
 #: tbl_tracking.php:203
-#, possible-php-format
+#, php-format
 msgid "Tracking for %s.%s , version %s is activated."
 msgstr ""
 
@@ -7642,7 +7642,7 @@ msgid "Close"
 msgstr ""
 
 #: tbl_tracking.php:262
-#, possible-php-format
+#, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
@@ -7651,7 +7651,7 @@ msgid "Tracking statements"
 msgstr ""
 
 #: tbl_tracking.php:397 tbl_tracking.php:504
-#, possible-php-format
+#, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
@@ -7688,7 +7688,7 @@ msgid "SQL execution"
 msgstr ""
 
 #: tbl_tracking.php:521
-#, possible-php-format
+#, php-format
 msgid "Export as %s"
 msgstr ""
 
@@ -7701,7 +7701,7 @@ msgid "Version"
 msgstr ""
 
 #: tbl_tracking.php:640
-#, possible-php-format
+#, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
@@ -7710,7 +7710,7 @@ msgid "Deactivate now"
 msgstr ""
 
 #: tbl_tracking.php:653
-#, possible-php-format
+#, php-format
 msgid "Activate tracking for %s.%s"
 msgstr ""
 
@@ -7719,7 +7719,7 @@ msgid "Activate now"
 msgstr ""
 
 #: tbl_tracking.php:668
-#, possible-php-format
+#, php-format
 msgid "Create version %s of %s.%s"
 msgstr ""
 
@@ -7736,7 +7736,7 @@ msgid "Create version"
 msgstr ""
 
 #: themes.php:32
-#, possible-php-format
+#, php-format
 msgid ""
 "No themes support; please check your configuration and/or your themes in "
 "directory %s."
