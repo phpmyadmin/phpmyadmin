@@ -875,72 +875,74 @@ msgstr ""
 #: server_synchronize.php:739 server_synchronize.php:767
 #: server_synchronize.php:795 server_synchronize.php:807
 msgid "Click to select"
-msgstr ""
+msgstr "Pwyso i ddewis"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "Pwyso i dad-ddewis"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "Mae datganiadau \"DROP DATABASE\" wedi'u hanalluogi."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:188
 msgid "Do you really want to "
-msgstr ""
+msgstr "A ydych chi wir am"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:172
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "Rydych am DINISTRIO cronfa ddata gyfan!"
 
 #: js/messages.php:34
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "Rydych yn mynd i ANALLUOGI Ystorfa BLOB!"
 
 #: js/messages.php:35
 #, php-format
+#, possible-php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
+"A ydych chi wir am analluogi pob cyfeiriad BLOB ar gyfer y gronfa ddata %s?"
 
 #: js/messages.php:38
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "Gwerth ar goll yn y ffurflen!"
 
 #: js/messages.php:39
 msgid "This is not a number!"
-msgstr ""
+msgstr "Nid yw hwn yn rhif!"
 
 #: js/messages.php:42
 msgid "The host name is empty!"
-msgstr ""
+msgstr "Mae enw'r gwesteiwr yn wag!"
 
 #: js/messages.php:43
 msgid "The user name is empty!"
-msgstr ""
+msgstr "Mae enw'r defnyddiwr yn wag!"
 
 #: js/messages.php:44 server_privileges.php:1197 user_password.php:70
 msgid "The password is empty!"
-msgstr ""
+msgstr "Mae'r cyfrinair yn wag!"
 
 #: js/messages.php:45 server_privileges.php:1195 user_password.php:73
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "Nid yw'r cyfrineiriau'n debyg!"
 
 #: js/messages.php:49 pmd_general.php:342 pmd_general.php:379
 msgid "Cancel"
-msgstr ""
+msgstr "Diddymu"
 
 #: js/messages.php:52 pmd_save_pos.php:54
 msgid "Modifications have been saved"
-msgstr ""
+msgstr "Cafodd yr addasiadau eu cadw"
 
 #: js/messages.php:53 pmd_relation_upd.php:49
 msgid "Relation deleted"
-msgstr ""
+msgstr "Perthynas wedi'i ddileu"
 
 #: js/messages.php:54 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "Perthynas FOREIGN KEY wedi'i ychwanegu"
 
 #: js/messages.php:55 pmd_relation_new.php:86
 msgid "Internal relation added"
@@ -7774,8 +7776,8 @@ msgstr ""
 
 #: view_create.php:142
 msgid "VIEW name"
-msgstr ""
+msgstr "Enw VIEW"
 
 #: view_operations.php:93
 msgid "Rename view to"
-msgstr ""
+msgstr "Ailenwch golwg i"
