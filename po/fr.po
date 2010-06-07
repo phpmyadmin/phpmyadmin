@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-07 22:09+0200\n"
-"PO-Revision-Date: 2010-06-01 16:27+0200\n"
+"PO-Revision-Date: 2010-06-07 22:50+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -8219,10 +8219,9 @@ msgid "Propose table structure"
 msgstr "Suggérer des optimisations quant à la structure de la table"
 
 #: tbl_structure.php:540
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add column"
-msgstr "Ajouter des colonnes"
+msgstr "Ajouter une colonne"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
@@ -8433,126 +8432,3 @@ msgstr "Nom de la vue"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
-
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Ajouter une colonne"
-
-#~ msgid "Field"
-#~ msgstr "Champ"
-
-#~ msgid "Records"
-#~ msgstr "Enregistrements"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Champs terminés par"
-
-#~ msgid "Fields"
-#~ msgstr "Champs"
-
-#~ msgid "Add %s field(s)"
-#~ msgstr "Ajouter %s champ(s)"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "Le champ %s a été effacé"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Voir image/jpeg: inline"
-
-#~ msgid "zipped"
-#~ msgstr "zippé"
-
-#~ msgid "gzipped"
-#~ msgstr "gzippé"
-
-#~ msgid "bzipped"
-#~ msgstr "bzippé"
-
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr ""
-#~ "Ajouter des commentaires au début (\n"
-#~ " sépare les lignes)"
-
-#~ msgid "and"
-#~ msgstr "et"
-
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Désactivé"
-
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Activé"
-
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Réparer"
-
-#~ msgid "Calendar"
-#~ msgstr "Calendrier"
-
-#~ msgid "MySQL&nbsp;4.0 compatible"
-#~ msgstr "compatible MySQL&nbsp;4.0"
-
-#~ msgid "Could not load default configuration from: \"%1$s\""
-#~ msgstr "Chargement de la configuration par défaut impossible depuis  «%1$s»"
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Créer un index sur&nbsp;%s&nbsp;colonnes"
-
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Créer une table"
-
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "aucune"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Recharger la table ( «FLUSH »)"
-
-#~ msgid "Invalid server index: \"%s\""
-#~ msgstr "Indice de serveur invalide:  «%s »"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Description"
-
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Aucun"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Schéma de la base «%s» - Page %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "La table «%s» n'existe pas !"
-
-#~ msgid ""
-#~ "This MySQL server works as %s in <b>replication</b> process. For further "
-#~ "information about replication status on the server, please visit the <a "
-#~ "href=\"#replication\">replication section</a>."
-#~ msgstr ""
-#~ "Ce serveur MySQL agit en tant que %s dans le processus de <b>réplication</"
-#~ "b>. Pour plus d'information sur l'état de la réplication sur ce serveur, "
-#~ "consultez la <a href=\"#replication\">section de réplication</a>."
-
-#~ msgid "running on %s"
-#~ msgstr "sur le serveur %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "Veuillez augmenter l'échelle car le schéma déborde la page"
-
-#~ msgid ""
-#~ "Cannot start session without errors, please check errors given in your "
-#~ "PHP and/or webserver log file and configure your PHP installation "
-#~ "properly."
-#~ msgstr ""
-#~ "Erreur lors du démarrage de la session, veuillez vérifier les erreurs "
-#~ "indiquées par PHP ou dans le fichier témoin du serveur web, et configurer "
-#~ "PHP correctement."
-
-#~ msgid "Import currencies (.00 to 5.00)"
-#~ msgstr "Importer les valeurs de monnaie (de .00 à 5.00)"
