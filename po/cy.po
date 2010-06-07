@@ -391,115 +391,115 @@ msgstr[1] "%s tabl"
 #: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
 #: view_operations.php:62
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "Cafodd eich ymholiad SQL ei gweithredu'n llwyddiannus"
 
 #: db_qbe.php:42
 msgid "You have to choose at least one column to display"
-msgstr ""
+msgstr "Mae'n rhaid dewis o leiaf un golofn i'w dangos"
 
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866
 msgid "Sort"
-msgstr ""
+msgstr "Trefnu"
 
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:260
 #: tbl_select.php:314
 msgid "Ascending"
-msgstr ""
+msgstr "Esgynnol"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:261
 #: tbl_select.php:315
 msgid "Descending"
-msgstr ""
+msgstr "Disgynnol"
 
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
 #: tbl_change.php:277 tbl_tracking.php:597
 msgid "Show"
-msgstr ""
+msgstr "Dangos"
 
 #: db_qbe.php:300
 msgid "Criteria"
-msgstr ""
+msgstr "Meini prawf"
 
 #: db_qbe.php:353 db_qbe.php:435 db_qbe.php:527 db_qbe.php:558
 msgid "Ins"
-msgstr ""
+msgstr "Ins"
 
 #: db_qbe.php:357 db_qbe.php:439 db_qbe.php:524 db_qbe.php:555
 msgid "And"
-msgstr ""
+msgstr "And"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:529 db_qbe.php:560
 msgid "Del"
-msgstr ""
+msgstr "Del"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/tbl_properties.inc.php:779
 #: server_privileges.php:258 tbl_change.php:1031 tbl_indexes.php:250
 #: tbl_select.php:288
 msgid "Or"
-msgstr ""
+msgstr "Or"
 
 #: db_qbe.php:507
 msgid "Modify"
-msgstr ""
+msgstr "Addasu"
 
 #: db_qbe.php:584
 msgid "Add/Delete criteria rows"
-msgstr ""
+msgstr "Ychwanegu/Dileu rhesi meini prawf"
 
 #: db_qbe.php:596
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "Ychwanegu/Dileu colofnau"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
-msgstr ""
+msgstr "Ymholiad Diweddaru"
 
 #: db_qbe.php:617
 msgid "Use Tables"
-msgstr ""
+msgstr "Defnyddiwch Dablau"
 
 #: db_qbe.php:640
 #, possible-php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "Ymholiad SQL ar gronfa ddata <b>%s</b>:"
 
 #: db_qbe.php:934 libraries/common.lib.php:1223
 msgid "Submit Query"
-msgstr ""
+msgstr "Cyflwynwch yr Ymholiad"
 
 #: db_search.php:68 libraries/auth/config.auth.lib.php:84
 #: libraries/auth/config.auth.lib.php:103
 #: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:183
 msgid "Access denied"
-msgstr ""
+msgstr "Mynediad wedi'i wrthod"
 
 #: db_search.php:80 db_search.php:311
 msgid "at least one of the words"
-msgstr ""
+msgstr "o leiaf un o'r geiriau"
 
 #: db_search.php:81 db_search.php:312
 msgid "all words"
-msgstr ""
+msgstr "pob gair"
 
 #: db_search.php:82 db_search.php:313
 msgid "the exact phrase"
-msgstr ""
+msgstr "y cymal union"
 
 #: db_search.php:83 db_search.php:314
 msgid "as regular expression"
-msgstr ""
+msgstr "fel mynegiad arferol (regular expression)"
 
 #: db_search.php:242
 #, possible-php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr ""
+msgstr "Canlyniadau chwilio am \"<i>%s</i>\" %s:"
 
 #: db_search.php:260
 #, possible-php-format
@@ -3766,215 +3766,215 @@ msgstr ""
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
 msgid "Primary"
-msgstr ""
+msgstr "Cynradd"
 
 #: libraries/mult_submits.inc.php:98 libraries/tbl_properties.inc.php:116
 #: libraries/tbl_properties.inc.php:525 tbl_printview.php:326
 #: tbl_structure.php:31 tbl_structure.php:154 tbl_structure.php:158
 #: tbl_structure.php:475 tbl_structure.php:673
 msgid "Index"
-msgstr ""
+msgstr "Indecs"
 
 #: libraries/mult_submits.inc.php:108 libraries/tbl_properties.inc.php:531
 #: tbl_structure.php:35 tbl_structure.php:156 tbl_structure.php:160
 #: tbl_structure.php:478
 msgid "Fulltext"
-msgstr ""
+msgstr "Testunllawn"
 
 #: libraries/mult_submits.inc.php:435 tbl_replace.php:331
 msgid "No change"
-msgstr ""
+msgstr "Dim newid"
 
 #: libraries/mysql_charsets.lib.php:107
 msgid "Charset"
-msgstr ""
+msgstr "Set nodau"
 
 #: libraries/mysql_charsets.lib.php:201 libraries/mysql_charsets.lib.php:402
 #: tbl_change.php:518
 msgid "Binary"
-msgstr ""
+msgstr "Deuaidd"
 
 #: libraries/mysql_charsets.lib.php:213
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bwlgareg"
 
 #: libraries/mysql_charsets.lib.php:217 libraries/mysql_charsets.lib.php:342
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "Tsieinëeg Syml"
 
 #: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:362
 msgid "Traditional Chinese"
-msgstr ""
+msgstr "Tsieinëeg Draddodiadol"
 
 #: libraries/mysql_charsets.lib.php:223 libraries/mysql_charsets.lib.php:409
 msgid "case-insensitive"
-msgstr ""
+msgstr "cas-ansensitif"
 
 #: libraries/mysql_charsets.lib.php:226 libraries/mysql_charsets.lib.php:411
 msgid "case-sensitive"
-msgstr ""
+msgstr "cas-sensitif"
 
 #: libraries/mysql_charsets.lib.php:229
 msgid "Croatian"
-msgstr ""
+msgstr "Croateg"
 
 #: libraries/mysql_charsets.lib.php:232
 msgid "Czech"
-msgstr ""
+msgstr "Tsieceg"
 
 #: libraries/mysql_charsets.lib.php:235
 msgid "Danish"
-msgstr ""
+msgstr "Daneg"
 
 #: libraries/mysql_charsets.lib.php:238
 msgid "English"
-msgstr ""
+msgstr "Saesneg"
 
 #: libraries/mysql_charsets.lib.php:241
 msgid "Esperanto"
-msgstr ""
+msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:244
 msgid "Estonian"
-msgstr ""
+msgstr "Estoneg"
 
 #: libraries/mysql_charsets.lib.php:247 libraries/mysql_charsets.lib.php:250
 msgid "German"
-msgstr ""
+msgstr "Almaeneg"
 
 #: libraries/mysql_charsets.lib.php:247
 msgid "dictionary"
-msgstr ""
+msgstr "geiriadur"
 
 #: libraries/mysql_charsets.lib.php:250
 msgid "phone book"
-msgstr ""
+msgstr "llyfr ffôn"
 
 #: libraries/mysql_charsets.lib.php:253
 msgid "Hungarian"
-msgstr ""
+msgstr "Hwngareg"
 
 #: libraries/mysql_charsets.lib.php:256
 msgid "Icelandic"
-msgstr ""
+msgstr "Islandeg"
 
 #: libraries/mysql_charsets.lib.php:259 libraries/mysql_charsets.lib.php:349
 msgid "Japanese"
-msgstr ""
+msgstr "Siapaneg"
 
 #: libraries/mysql_charsets.lib.php:262
 msgid "Latvian"
-msgstr ""
+msgstr "Latfieg"
 
 #: libraries/mysql_charsets.lib.php:265
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lithwaneg"
 
 #: libraries/mysql_charsets.lib.php:268 libraries/mysql_charsets.lib.php:371
 msgid "Korean"
-msgstr ""
+msgstr "Corëeg"
 
 #: libraries/mysql_charsets.lib.php:271
 msgid "Persian"
-msgstr ""
+msgstr "Perseg"
 
 #: libraries/mysql_charsets.lib.php:274
 msgid "Polish"
-msgstr ""
+msgstr "Pwyleg"
 
 #: libraries/mysql_charsets.lib.php:277 libraries/mysql_charsets.lib.php:325
 msgid "West European"
-msgstr ""
+msgstr "Ewropeaidd Gorllewinol"
 
 #: libraries/mysql_charsets.lib.php:280
 msgid "Romanian"
-msgstr ""
+msgstr "Rwmaneg"
 
 #: libraries/mysql_charsets.lib.php:283
 msgid "Slovak"
-msgstr ""
+msgstr "Slofaceg"
 
 #: libraries/mysql_charsets.lib.php:286
 msgid "Slovenian"
-msgstr ""
+msgstr "Slofeneg"
 
 #: libraries/mysql_charsets.lib.php:289
 msgid "Spanish"
-msgstr ""
+msgstr "Sbaeneg"
 
 #: libraries/mysql_charsets.lib.php:292
 msgid "Traditional Spanish"
-msgstr ""
+msgstr "Sbaeneg Draddodiadol"
 
 #: libraries/mysql_charsets.lib.php:295 libraries/mysql_charsets.lib.php:392
 msgid "Swedish"
-msgstr ""
+msgstr "Swedeg"
 
 #: libraries/mysql_charsets.lib.php:298 libraries/mysql_charsets.lib.php:395
 msgid "Thai"
-msgstr ""
+msgstr "Tai"
 
 #: libraries/mysql_charsets.lib.php:301 libraries/mysql_charsets.lib.php:389
 msgid "Turkish"
-msgstr ""
+msgstr "Twrceg"
 
 #: libraries/mysql_charsets.lib.php:304 libraries/mysql_charsets.lib.php:386
 msgid "Ukrainian"
-msgstr ""
+msgstr "Wcreineg"
 
 #: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
 msgid "Unicode"
-msgstr ""
+msgstr "Unicode"
 
 #: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
 #: libraries/mysql_charsets.lib.php:325 libraries/mysql_charsets.lib.php:332
 #: libraries/mysql_charsets.lib.php:354 libraries/mysql_charsets.lib.php:365
 msgid "multilingual"
-msgstr ""
+msgstr "amlieithog"
 
 #: libraries/mysql_charsets.lib.php:332
 msgid "Central European"
-msgstr ""
+msgstr "Ewropeaidd Canolog"
 
 #: libraries/mysql_charsets.lib.php:337
 msgid "Russian"
-msgstr ""
+msgstr "Rwseg"
 
 #: libraries/mysql_charsets.lib.php:354
 msgid "Baltic"
-msgstr ""
+msgstr "Balteg"
 
 #: libraries/mysql_charsets.lib.php:359
 msgid "Armenian"
-msgstr ""
+msgstr "Armeneg"
 
 #: libraries/mysql_charsets.lib.php:365
 msgid "Cyrillic"
-msgstr ""
+msgstr "Syrilig"
 
 #: libraries/mysql_charsets.lib.php:368
 msgid "Arabic"
-msgstr ""
+msgstr "Arabeg"
 
 #: libraries/mysql_charsets.lib.php:374
 msgid "Hebrew"
-msgstr ""
+msgstr "Iddeweg"
 
 #: libraries/mysql_charsets.lib.php:377
 msgid "Georgian"
-msgstr ""
+msgstr "Georgeg"
 
 #: libraries/mysql_charsets.lib.php:380
 msgid "Greek"
-msgstr ""
+msgstr "Groegeg"
 
 #: libraries/mysql_charsets.lib.php:383
 msgid "Czech-Slovak"
-msgstr ""
+msgstr "Tsiec-Slofac"
 
 #: libraries/mysql_charsets.lib.php:398 libraries/mysql_charsets.lib.php:405
 msgid "unknown"
-msgstr ""
+msgstr "anhysbys"
 
 #: libraries/navigation_header.inc.php:54
 #: libraries/navigation_header.inc.php:57
