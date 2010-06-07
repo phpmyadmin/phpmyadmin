@@ -220,6 +220,8 @@ function PMA_langDetails($lang) {
             return array('ca|catalan', 'ca', 'Catal&agrave;');
         case 'cs':
             return array('cs|czech', 'cs', '&#268;esky');
+        case 'cy':
+            return array('cy|welsh', 'cy', 'Cymraeg');
         case 'da':
             return array('da|danish', 'da', 'Dansk');
         case 'de':
