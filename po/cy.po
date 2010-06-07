@@ -27,7 +27,7 @@ msgstr "Dangos pob"
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
 msgid "Page number:"
-msgstr ""
+msgstr "Rhif tudalen:"
 
 #: browse_foreigners.php:132
 msgid ""
