@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"POT-Creation-Date: 2010-06-08 10:41+0200\n"
 "PO-Revision-Date: 2010-04-16 19:52+0200\n"
 "Last-Translator: Rytis <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
@@ -5225,6 +5225,17 @@ msgstr "Serverio nustatymai"
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Eiti į duomenų bazę"
+
+#: server_databases.php:267
+#, fuzzy
+msgid "Not replicated"
+msgstr "Serverio nustatymai"
+
+#: server_databases.php:273
+#, fuzzy
+#| msgid "Replication"
+msgid "Replicated"
+msgstr "Replikacija"
 
 #: server_databases.php:289
 #, php-format

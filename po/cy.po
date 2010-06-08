@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"POT-Creation-Date: 2010-06-08 10:41+0200\n"
 "PO-Revision-Date: 2010-06-07 20:23+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
@@ -503,7 +503,6 @@ msgstr "Canlyniadau chwilio am \"<i>%s</i>\" %s:"
 
 #: db_search.php:260
 #, php-format
-#, possible-php-format
 msgid "%s match(es) inside table <i>%s</i>"
 msgstr "%s ergyd mewn tabl <i>%s</i>"
 
@@ -525,7 +524,6 @@ msgstr "Dileu"
 
 #: db_search.php:285
 #, php-format
-#, possible-php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Cyfanswm:</b> <i>%s</i> ergyd"
 
@@ -614,7 +612,6 @@ msgstr "Nid yw tracio'n weithredol"
 
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
-#, possible-php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
@@ -638,7 +635,6 @@ msgstr "Swm"
 
 #: db_structure.php:496 libraries/StorageEngine.class.php:356
 #, php-format
-#, possible-php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s yw'r peiriant storio diofyn ar y gweinydd MySQL hwn."
 
@@ -785,13 +781,11 @@ msgstr "Mae'n rhaid cadw math yr allbwn hwn mewn ffeil!"
 
 #: export.php:154 export.php:179 export.php:627
 #, php-format
-#, possible-php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Lle annigonol i gadw'r ffeil %s."
 
 #: export.php:294
 #, php-format
-#, possible-php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
@@ -800,25 +794,22 @@ msgstr ""
 
 #: export.php:298 export.php:302
 #, php-format
-#, possible-php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Nid oes gan y gweinydd gwe yr hawl i gadw'r ffeil %s."
 
 #: export.php:629
 #, php-format
-#, possible-php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dadlwythiad wedi'i gadw i'r ffeil %s."
 
 #: import.php:60
 #, php-format
-#, possible-php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"Yn ôl pob tebyg, mae'r ffeil i rhy fawr i'w lanlwytho. Gweler y %"
-"sdogfennaeth%s am ffyrdd i weithio o gwmpas y cyfyngiad hwn."
+"Yn ôl pob tebyg, mae'r ffeil i rhy fawr i'w lanlwytho. Gweler y %sdogfennaeth"
+"%s am ffyrdd i weithio o gwmpas y cyfyngiad hwn."
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
 #: libraries/File.class.php:961
@@ -829,7 +820,6 @@ msgstr "Nid oedd modd darllen y ffeil hon."
 #: libraries/File.class.php:1031 libraries/File.class.php:1039
 #: libraries/File.class.php:1055 libraries/File.class.php:1063
 #, php-format
-#, possible-php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
@@ -845,8 +835,8 @@ msgid ""
 msgstr ""
 "Nid oedd data wedi'u derbyn i'w mewnforio. Naill ai nid oedd enw ffeil "
 "wedi'i osod, neu roedd maint y ffeil yn fwy na'r maint uchaf sy'n cael ei "
-"ganiatáu gan eich ffurfwedd PHP. Gweler  See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"ganiatáu gan eich ffurfwedd PHP. Gweler  See [a@./Documentation."
+"html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:372 libraries/display_import.lib.php:24
 msgid "Could not load import plugins, please check your installation!"
@@ -867,11 +857,9 @@ msgstr "Clustnodi %s a grëwyd"
 
 #: import.php:409 import.php:415
 #, php-format
-#, possible-php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr ""
-"Gorffennodd y mewnforiad yn llwyddiannus, gyda %d ymholiad wedi'u "
-"gweithredu."
+"Gorffennodd y mewnforiad yn llwyddiannus, gyda %d ymholiad wedi'u gweithredu."
 
 #: import.php:424
 msgid ""
@@ -923,7 +911,6 @@ msgstr "Rydych yn mynd i ANALLUOGI Ystorfa BLOB!"
 
 #: js/messages.php:35
 #, php-format
-#, possible-php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
 "A ydych chi wir am analluogi pob cyfeiriad BLOB ar gyfer y gronfa ddata %s?"
@@ -4939,6 +4926,16 @@ msgstr ""
 #: server_databases.php:230
 msgid "Jump to database"
 msgstr "Neidiwch i'r gronfa ddata"
+
+#: server_databases.php:267
+msgid "Not replicated"
+msgstr ""
+
+#: server_databases.php:273
+#, fuzzy
+#| msgid "Replication"
+msgid "Replicated"
+msgstr "Dyblygiad"
 
 #: server_databases.php:289
 #, php-format

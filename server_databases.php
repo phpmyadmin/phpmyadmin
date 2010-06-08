@@ -264,13 +264,13 @@ if ($databases_count > 0) {
                 echo '<td class="tool" style="text-align: center;">' . "\n";
 
                 if (strlen(array_search($current["SCHEMA_NAME"], ${"server_{$type}_Ignore_DB"}))>0) {
-                    echo '<img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="NOT REPLICATED" />' . "\n";
+                    echo '<img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="' . __('Not replicated') . '" />' . "\n";
                 } else {
                     $key = array_search($current["SCHEMA_NAME"], ${"server_{$type}_Do_DB"});
 
                     if (strlen($key) > 0 || (${"server_{$type}_Do_DB"}[0] == "" && count(${"server_{$type}_Do_DB"}) == 1)) {
                         // if ($key != null) did not work for index "0"
-                        echo '<img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="REPLICATED" />' . "\n";
+                        echo '<img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="' . __('Replicated') . '" />' . "\n";
                     } else {
                         echo '';
                     }

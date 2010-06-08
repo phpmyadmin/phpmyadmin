@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"POT-Creation-Date: 2010-06-08 10:41+0200\n"
 "PO-Revision-Date: 2010-05-14 12:35+0200\n"
 "Last-Translator:  <monymirza@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
@@ -4938,6 +4938,16 @@ msgstr ""
 #: server_databases.php:230
 msgid "Jump to database"
 msgstr ""
+
+#: server_databases.php:267
+msgid "Not replicated"
+msgstr ""
+
+#: server_databases.php:273
+#, fuzzy
+#| msgid "Replication"
+msgid "Replicated"
+msgstr "لپیٹنا"
 
 #: server_databases.php:289
 #, php-format

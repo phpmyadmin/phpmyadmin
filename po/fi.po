@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"POT-Creation-Date: 2010-06-08 10:41+0200\n"
 "PO-Revision-Date: 2010-04-30 18:08+0200\n"
 "Last-Translator:  <kajouni@gmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -5424,6 +5424,18 @@ msgstr "Alipalvelimen replikointi"
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Siirry tietokantaan"
+
+#: server_databases.php:267
+#, fuzzy
+#| msgid "Master replication"
+msgid "Not replicated"
+msgstr "Isäntäpalvelimen replikointi"
+
+#: server_databases.php:273
+#, fuzzy
+#| msgid "Replication"
+msgid "Replicated"
+msgstr "Replikaatio"
 
 #: server_databases.php:289
 #, php-format

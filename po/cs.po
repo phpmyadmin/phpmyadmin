@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
-"PO-Revision-Date: 2010-06-07 22:13+0200\n"
+"POT-Creation-Date: 2010-06-08 10:41+0200\n"
+"PO-Revision-Date: 2010-06-08 10:43+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -5227,6 +5227,16 @@ msgstr "Replikace podřízeného"
 msgid "Jump to database"
 msgstr "Přejít na databázi"
 
+#: server_databases.php:267
+#| msgid "Master replication"
+msgid "Not replicated"
+msgstr "Není replikováno"
+
+#: server_databases.php:273
+#| msgid "Replication"
+msgid "Replicated"
+msgstr "Replikováno"
+
 #: server_databases.php:289
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
@@ -8121,7 +8131,6 @@ msgid "Propose table structure"
 msgstr "Navrhnout strukturu tabulky"
 
 #: tbl_structure.php:540
-#| msgid "Add column(s)"
 msgid "Add column"
 msgstr "Přidat sloupec"
 

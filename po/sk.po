@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"POT-Creation-Date: 2010-06-08 10:41+0200\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: slovak <sk@li.org>\n"
@@ -5351,6 +5351,18 @@ msgstr "Slave replikácia"
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Prejsť do databázy"
+
+#: server_databases.php:267
+#, fuzzy
+#| msgid "Master replication"
+msgid "Not replicated"
+msgstr "Master replikácia"
+
+#: server_databases.php:273
+#, fuzzy
+#| msgid "Replication"
+msgid "Replicated"
+msgstr "Replikácia"
 
 #: server_databases.php:289
 #, php-format
