@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"POT-Creation-Date: 2010-06-08 10:41+0200\n"
 "PO-Revision-Date: 2010-04-03 11:44+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -5428,6 +5428,18 @@ msgstr "Slave kopya etme"
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Veritabanına git"
+
+#: server_databases.php:267
+#, fuzzy
+#| msgid "Master replication"
+msgid "Not replicated"
+msgstr "Asılı kopya etme"
+
+#: server_databases.php:273
+#, fuzzy
+#| msgid "Replication"
+msgid "Replicated"
+msgstr "Kopya etme"
 
 #: server_databases.php:289
 #, php-format

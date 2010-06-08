@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"POT-Creation-Date: 2010-06-08 10:41+0200\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: macedonian_cyrillic <mk@li.org>\n"
@@ -5235,6 +5235,15 @@ msgstr ""
 #, fuzzy
 msgid "Jump to database"
 msgstr "Базата на податоци не постои"
+
+#: server_databases.php:267
+msgid "Not replicated"
+msgstr ""
+
+#: server_databases.php:273
+#, fuzzy
+msgid "Replicated"
+msgstr "Релации"
 
 #: server_databases.php:289
 #, php-format

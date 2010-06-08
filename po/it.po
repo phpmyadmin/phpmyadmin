@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"POT-Creation-Date: 2010-06-08 10:41+0200\n"
 "PO-Revision-Date: 2010-05-24 21:25+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -5395,6 +5395,17 @@ msgstr "Configurazione del server"
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Vai al database"
+
+#: server_databases.php:267
+#, fuzzy
+msgid "Not replicated"
+msgstr "Configurazione del server"
+
+#: server_databases.php:273
+#, fuzzy
+#| msgid "Replication"
+msgid "Replicated"
+msgstr "Replicazione"
 
 #: server_databases.php:289
 #, php-format

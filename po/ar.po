@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"POT-Creation-Date: 2010-06-08 10:41+0200\n"
 "PO-Revision-Date: 2010-05-29 14:16+0200\n"
 "Last-Translator: Ahmed <aa.mahdawy.10@gmail.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
@@ -5100,6 +5100,14 @@ msgstr ""
 #| msgid "No databases"
 msgid "Jump to database"
 msgstr "لايوجد قواعد بيانات"
+
+#: server_databases.php:267
+msgid "Not replicated"
+msgstr ""
+
+#: server_databases.php:273
+msgid "Replicated"
+msgstr ""
 
 #: server_databases.php:289
 #, php-format
