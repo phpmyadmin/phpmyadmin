@@ -196,7 +196,7 @@ if ($databases_count > 0) {
       elseif($type == "slave")
         $name = __('Slave replication');
       if (${"server_{$type}_status"})
-        echo '    <th>'.$GLOBALS[$name].'</th>' . "\n";
+        echo '    <th>'. $name .'</th>' . "\n";
     }
 
     if ($is_superuser) {
