@@ -503,8 +503,9 @@ msgstr "Canlyniadau chwilio am \"<i>%s</i>\" %s:"
 
 #: db_search.php:260
 #, php-format
+#, possible-php-format
 msgid "%s match(es) inside table <i>%s</i>"
-msgstr ""
+msgstr "%s ergyd mewn tabl <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
@@ -524,8 +525,9 @@ msgstr "Dileu"
 
 #: db_search.php:285
 #, php-format
+#, possible-php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr ""
+msgstr "<b>Cyfanswm:</b> <i>%s</i> ergyd"
 
 #: db_search.php:299
 msgid "Search in database"
@@ -533,7 +535,7 @@ msgstr "Chwiliwch yn y gronfa ddata"
 
 #: db_search.php:302
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr ""
+msgstr "Geiriau neu werthoedd i'w chwilio amdanyn nhw (nod-chwiliwr: \"%\"):"
 
 #: db_search.php:307
 msgid "Find:"
@@ -541,7 +543,7 @@ msgstr "Darganfyddwch:"
 
 #: db_search.php:311 db_search.php:312
 msgid "Words are separated by a space character (\" \")."
-msgstr ""
+msgstr "Caiff geiriau eu gwahanu gan nod bwlch (\" \")."
 
 #: db_search.php:325
 msgid "Inside table(s):"
@@ -612,10 +614,12 @@ msgstr "Nid yw tracio'n weithredol"
 
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
+#, possible-php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
+"Mae gan yr olwg hon o leiaf y nifer hwn o resi. Gweler y %sdogfennaeth%s."
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/tbl_info.inc.php:66 tbl_structure.php:185 test/theme.php:74
@@ -634,8 +638,9 @@ msgstr "Swm"
 
 #: db_structure.php:496 libraries/StorageEngine.class.php:356
 #, php-format
+#, possible-php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s yw'r peiriant storio diofyn ar y gweinydd MySQL hwn."
 
 #: db_structure.php:524 db_structure.php:541 db_structure.php:542
 #: libraries/display_tbl.lib.php:2081 libraries/display_tbl.lib.php:2086
@@ -643,7 +648,7 @@ msgstr ""
 #: server_databases.php:351 server_privileges.php:1557 tbl_structure.php:455
 #: tbl_structure.php:464
 msgid "With selected:"
-msgstr ""
+msgstr "Gyda'r dewis:"
 
 #: db_structure.php:527 libraries/display_tbl.lib.php:2076
 #: server_databases.php:348 server_privileges.php:530
@@ -776,49 +781,61 @@ msgstr "Log cronfa ddata"
 
 #: export.php:62
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Mae'n rhaid cadw math yr allbwn hwn mewn ffeil!"
 
 #: export.php:154 export.php:179 export.php:627
 #, php-format
+#, possible-php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "Lle annigonol i gadw'r ffeil %s."
 
 #: export.php:294
 #, php-format
+#, possible-php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"Mae'r ffeil %s yn bodoli ar y gweinydd yn barod. Newidiwch enw'r ffeil neu "
+"gwiriwch yr opsiwn trosysgrifo."
 
 #: export.php:298 export.php:302
 #, php-format
+#, possible-php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "Nid oes gan y gweinydd gwe yr hawl i gadw'r ffeil %s."
 
 #: export.php:629
 #, php-format
+#, possible-php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "Dadlwythiad wedi'i gadw i'r ffeil %s."
 
 #: import.php:60
 #, php-format
+#, possible-php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
+"Yn ôl pob tebyg, mae'r ffeil i rhy fawr i'w lanlwytho. Gweler y %"
+"sdogfennaeth%s am ffyrdd i weithio o gwmpas y cyfyngiad hwn."
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
 #: libraries/File.class.php:961
 msgid "File could not be read"
-msgstr ""
+msgstr "Nid oedd modd darllen y ffeil hon."
 
 #: import.php:287 import.php:296 import.php:315 import.php:324
 #: libraries/File.class.php:1031 libraries/File.class.php:1039
 #: libraries/File.class.php:1055 libraries/File.class.php:1063
 #, php-format
+#, possible-php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Fe geisioch lwytho ffeil gyda chywasgiad sydd heb ei gynnal (%s). Naill ai "
+"bod dim cynhaliaeth ar gyfer hwn neu mae eich ffurfwedd wedi ei analluogi."
 
 #: import.php:337
 msgid ""
@@ -826,18 +843,22 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"Nid oedd data wedi'u derbyn i'w mewnforio. Naill ai nid oedd enw ffeil "
+"wedi'i osod, neu roedd maint y ffeil yn fwy na'r maint uchaf sy'n cael ei "
+"ganiatáu gan eich ffurfwedd PHP. Gweler  See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:372 libraries/display_import.lib.php:24
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "Nid oedd modd llwytho ategynnau mewnforio, gwiriwch eich arsefydliad!"
 
 #: import.php:397
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "Cafodd y clustnod ei ddileu."
 
 #: import.php:401
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Dangos clustnod"
 
 #: import.php:403 sql.php:626
 #, php-format
@@ -846,8 +867,11 @@ msgstr "Clustnodi %s a grëwyd"
 
 #: import.php:409 import.php:415
 #, php-format
+#, possible-php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr ""
+"Gorffennodd y mewnforiad yn llwyddiannus, gyda %d ymholiad wedi'u "
+"gweithredu."
 
 #: import.php:424
 msgid ""
@@ -946,29 +970,29 @@ msgstr "Perthynas FOREIGN KEY wedi'i ychwanegu"
 
 #: js/messages.php:55 pmd_relation_new.php:86
 msgid "Internal relation added"
-msgstr ""
+msgstr "Perthynas mewnol wedi'i ychwanegu"
 
 #: js/messages.php:56 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "Gwall: Perthynas heb ei ychwanegu."
 
 #: js/messages.php:57 pmd_relation_new.php:31
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Gwall: perthynas yn bodoli yn barod."
 
 #: js/messages.php:58
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "Gwall wrth gadw cyfesurynnau ar gyfer y Dyluniwr."
 
 #: js/messages.php:59 libraries/relation.lib.php:107
 #: libraries/relation.lib.php:119
 msgid "General relation features"
-msgstr ""
+msgstr "Nodweddion perthynas cyffredinol"
 
 #: js/messages.php:59 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
 msgid "Disabled"
-msgstr ""
+msgstr "Analluogwyd"
 
 #: js/messages.php:60
 msgid "Select referenced key"
@@ -976,7 +1000,7 @@ msgstr ""
 
 #: js/messages.php:61
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Dewis Allwedd Estron"
 
 #: js/messages.php:62
 msgid "Please select the primary key or a unique key"
@@ -984,7 +1008,7 @@ msgstr ""
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
 msgid "Choose column to display"
-msgstr ""
+msgstr "Dewis colofn i'w dangos"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
@@ -1240,7 +1264,7 @@ msgstr "Maint ffont"
 #: libraries/File.class.php:344 libraries/File.class.php:432
 #: libraries/File.class.php:569 libraries/File.class.php:708
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Gwall anhysbys wrth lanlwytho ffeil."
 
 #: libraries/File.class.php:414
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -1258,15 +1282,15 @@ msgstr ""
 
 #: libraries/File.class.php:423
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Ffolder dros dro ar goll."
 
 #: libraries/File.class.php:426
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Methu ag ysgrifennu i'r ddisg."
 
 #: libraries/File.class.php:429
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Cafodd y lanlwythiad ei atal gan estyniad."
 
 #: libraries/File.class.php:908
 msgid ""
@@ -1276,7 +1300,7 @@ msgstr ""
 
 #: libraries/Index.class.php:428 tbl_relation.php:529
 msgid "No index defined!"
-msgstr ""
+msgstr "Dim indecs wedi'i ddiffinio!"
 
 #: libraries/Index.class.php:433 server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
@@ -1291,7 +1315,7 @@ msgstr "Unigryw"
 
 #: libraries/Index.class.php:445 tbl_tracking.php:323
 msgid "Packed"
-msgstr ""
+msgstr "Paciwyd"
 
 #: libraries/Index.class.php:447 tbl_tracking.php:325
 msgid "Cardinality"
@@ -1329,14 +1353,14 @@ msgstr ""
 #: server_databases.php:88 server_privileges.php:1621
 #: setup/lib/messages.inc.php:110 test/theme.php:93
 msgid "Databases"
-msgstr ""
+msgstr "Cronfeydd Data"
 
 #: libraries/Message.class.php:211 libraries/common.lib.php:581
 #: libraries/core.lib.php:261 libraries/import.lib.php:134 pdf_schema.php:32
 #: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
 #: tbl_relation.php:290 view_operations.php:62
 msgid "Error"
-msgstr ""
+msgstr "Gwall"
 
 #: libraries/Message.class.php:282
 #, php-format
