@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-04 16:07-0400\n"
+"POT-Creation-Date: 2010-06-07 22:09+0200\n"
 "PO-Revision-Date: 2010-03-30 23:09+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: belarusian_latin <be@latin@li.org>\n"
+"Language: be@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be@latin\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -20,7 +20,7 @@ msgstr ""
 msgid "Show all"
 msgstr "Pakazać usie"
 
-#: browse_foreigners.php:82 libraries/common.lib.php:2304
+#: browse_foreigners.php:82 libraries/common.lib.php:2313
 #: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:394
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
@@ -39,8 +39,8 @@ msgstr ""
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/common.lib.php:2822
-#: libraries/common.lib.php:2829 libraries/db_links.inc.php:75
+#: db_structure.php:106 libraries/common.lib.php:2831
+#: libraries/common.lib.php:2838 libraries/db_links.inc.php:75
 #: libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr "Pošuk"
@@ -50,7 +50,7 @@ msgstr "Pošuk"
 #: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
-#: libraries/common.lib.php:1333 libraries/common.lib.php:2279
+#: libraries/common.lib.php:1335 libraries/common.lib.php:2288
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
@@ -281,7 +281,7 @@ msgstr "Pierajści da skapijavanaj bazy dadzienych"
 msgid "BLOB Repository"
 msgstr ""
 
-#: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1350
+#: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1352
 #: libraries/server_links.inc.php:49 server_processlist.php:59
 #: tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
@@ -481,7 +481,7 @@ msgstr "Vykarystoŭvać tablicy"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-zapyt da BD %s:"
 
-#: db_qbe.php:934 libraries/common.lib.php:1223
+#: db_qbe.php:934 libraries/common.lib.php:1225
 msgid "Submit Query"
 msgstr "Vykanać zapyt"
 
@@ -520,7 +520,7 @@ msgstr "%s supadzieńniaŭ u tablicy %s"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/common.lib.php:2824
+#: db_structure.php:105 libraries/common.lib.php:2833
 #: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
 #: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:467
 msgid "Browse"
@@ -567,13 +567,13 @@ msgstr "Unutry pola:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/common.lib.php:2823 libraries/sql_query_form.lib.php:334
+#: libraries/common.lib.php:2832 libraries/sql_query_form.lib.php:334
 #: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr "Ustavić"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
-#: libraries/common.lib.php:2820 libraries/common.lib.php:2827
+#: libraries/common.lib.php:2829 libraries/common.lib.php:2836
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
@@ -586,7 +586,7 @@ msgstr "Struktura"
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
 #: db_structure.php:545 db_structure.php:546 db_tracking.php:91
-#: libraries/Index.class.php:483 libraries/common.lib.php:1654
+#: libraries/Index.class.php:483 libraries/common.lib.php:1656
 #: libraries/db_links.inc.php:100 libraries/mult_submits.inc.php:36
 #: libraries/mult_submits.inc.php:73 libraries/tbl_links.inc.php:127
 #: server_databases.php:352 tbl_structure.php:27 tbl_structure.php:151
@@ -596,7 +596,7 @@ msgstr "Vydalić"
 
 #: db_structure.php:86 db_structure.php:87 db_structure.php:99
 #: db_structure.php:100 db_structure.php:112 db_structure.php:113
-#: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1653
+#: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1655
 #: libraries/mult_submits.inc.php:39 libraries/tbl_links.inc.php:105
 msgid "Empty"
 msgstr "Ačyścić"
@@ -627,11 +627,11 @@ msgstr ""
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da %"
-"sdakumentacyi%s."
+"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da "
+"%sdakumentacyi%s."
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/tbl_info.inc.php:66 tbl_structure.php:185 test/theme.php:74
@@ -822,8 +822,8 @@ msgstr "Damp zachavany ŭ fajł %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Vy, musić, pasprabavali zahruzić vielmi vialiki fajł. Kali łaska, "
 "źviarniciesia da %sdakumentacyi%s dla vyśviatleńnia sposabaŭ abyjści hetaje "
@@ -842,8 +842,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca (%"
-"s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
+"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca "
+"(%s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
 "kanfihuracyi."
 
 #: import.php:337
@@ -1036,8 +1036,8 @@ msgid "Prev"
 msgstr "Papiaredniaja staronka"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:77 libraries/common.lib.php:2344
-#: libraries/common.lib.php:2347 libraries/display_tbl.lib.php:338
+#: js/messages.php:77 libraries/common.lib.php:2353
+#: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:801
 msgid "Next"
@@ -1113,27 +1113,27 @@ msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:97 libraries/common.lib.php:1555
+#: js/messages.php:97 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr "Stu"
 
 #. l10n: Short month name
-#: js/messages.php:99 libraries/common.lib.php:1557
+#: js/messages.php:99 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr "Lut"
 
 #. l10n: Short month name
-#: js/messages.php:101 libraries/common.lib.php:1559
+#: js/messages.php:101 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr "Sak"
 
 #. l10n: Short month name
-#: js/messages.php:103 libraries/common.lib.php:1561
+#: js/messages.php:103 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr "Kra"
 
 #. l10n: Short month name
-#: js/messages.php:105 libraries/common.lib.php:1563
+#: js/messages.php:105 libraries/common.lib.php:1565
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1141,37 +1141,37 @@ msgid "May"
 msgstr "Tra"
 
 #. l10n: Short month name
-#: js/messages.php:107 libraries/common.lib.php:1565
+#: js/messages.php:107 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr "Čer"
 
 #. l10n: Short month name
-#: js/messages.php:109 libraries/common.lib.php:1567
+#: js/messages.php:109 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr "Lip"
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/common.lib.php:1569
+#: js/messages.php:111 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr "Žni"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/common.lib.php:1571
+#: js/messages.php:113 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr "Vier"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1573
+#: js/messages.php:115 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr "Kas"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1575
+#: js/messages.php:117 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr "Lis"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1577
+#: js/messages.php:119 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr "Śn"
 
@@ -1212,37 +1212,37 @@ msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:132 libraries/common.lib.php:1580
+#: js/messages.php:132 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr "Ndz"
 
 #. l10n: Short week day name
-#: js/messages.php:134 libraries/common.lib.php:1582
+#: js/messages.php:134 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr "Pan"
 
 #. l10n: Short week day name
-#: js/messages.php:136 libraries/common.lib.php:1584
+#: js/messages.php:136 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr "Aŭt"
 
 #. l10n: Short week day name
-#: js/messages.php:138 libraries/common.lib.php:1586
+#: js/messages.php:138 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr "Sier"
 
 #. l10n: Short week day name
-#: js/messages.php:140 libraries/common.lib.php:1588
+#: js/messages.php:140 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr "Cač"
 
 #. l10n: Short week day name
-#: js/messages.php:142 libraries/common.lib.php:1590
+#: js/messages.php:142 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr "Piat"
 
 #. l10n: Short week day name
-#: js/messages.php:144 libraries/common.lib.php:1592
+#: js/messages.php:144 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr "Sub"
 
@@ -1392,7 +1392,7 @@ msgid "Comment"
 msgstr "Kamentar"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
-#: libraries/common.lib.php:1199 libraries/display_tbl.lib.php:1117
+#: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
 #: libraries/import.lib.php:1087 libraries/import.lib.php:1111
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
@@ -1540,8 +1540,8 @@ msgstr "Zaprašajem u %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Imavierna, pryčyna hetaha ŭ tym, što nia stvorany kanfihuracyjny fajł. Kab "
 "jaho stvaryć, možna vykarystać %1$snaładačny skrypt%2$s."
@@ -1774,132 +1774,132 @@ msgstr "Tłumačyć SQL"
 msgid "Skip Explain SQL"
 msgstr "Nie tłumačyć SQL"
 
-#: libraries/common.lib.php:1212
+#: libraries/common.lib.php:1214
 msgid "Without PHP Code"
 msgstr "Biez PHP-kodu"
 
-#: libraries/common.lib.php:1215 setup/lib/messages.inc.php:355
+#: libraries/common.lib.php:1217 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
 msgstr "Stvaryć PHP-kod"
 
-#: libraries/common.lib.php:1233 server_status.php:341
+#: libraries/common.lib.php:1235 server_status.php:341
 #: setup/lib/messages.inc.php:354
 msgid "Refresh"
 msgstr "Abnavić"
 
-#: libraries/common.lib.php:1242
+#: libraries/common.lib.php:1244
 msgid "Skip Validate SQL"
 msgstr "Nie praviarać SQL"
 
-#: libraries/common.lib.php:1245 setup/lib/messages.inc.php:356 sql.php:518
+#: libraries/common.lib.php:1247 setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
 msgstr "Pravieryć SQL"
 
-#: libraries/common.lib.php:1276
+#: libraries/common.lib.php:1278
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/common.lib.php:1278
+#: libraries/common.lib.php:1280
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline"
 msgstr "Mašyny"
 
-#: libraries/common.lib.php:1332 libraries/common.lib.php:1347
+#: libraries/common.lib.php:1334 libraries/common.lib.php:1349
 msgid "Profiling"
 msgstr "Prafilavańnie"
 
-#: libraries/common.lib.php:1351 libraries/tbl_triggers.lib.php:28
+#: libraries/common.lib.php:1353 libraries/tbl_triggers.lib.php:28
 #: server_processlist.php:58
 msgid "Time"
 msgstr "Čas"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "B"
 msgstr "B"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "KiB"
 msgstr "KiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "MiB"
 msgstr "MiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "GiB"
 msgstr "GiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "TiB"
 msgstr "TiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "PiB"
 msgstr "PiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "EiB"
 msgstr "EiB"
 
 #. l10n: Thousands separator
-#: libraries/common.lib.php:1417
+#: libraries/common.lib.php:1419
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/common.lib.php:1419
+#: libraries/common.lib.php:1421
 msgid "."
 msgstr "."
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1596
+#: libraries/common.lib.php:1598
 #: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y, %H:%M"
 
-#: libraries/common.lib.php:1898
+#: libraries/common.lib.php:1907
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dzion, %s hadzinaŭ, %s chvilinaŭ i %s sekundaŭ"
 
-#: libraries/common.lib.php:2313 libraries/common.lib.php:2316
+#: libraries/common.lib.php:2322 libraries/common.lib.php:2325
 #: libraries/display_tbl.lib.php:290 server_status.php:608
 msgid "Begin"
 msgstr "Pieršaja staronka"
 
-#: libraries/common.lib.php:2314 libraries/common.lib.php:2317
+#: libraries/common.lib.php:2323 libraries/common.lib.php:2326
 #: libraries/display_tbl.lib.php:291 server_binlog.php:168
 #: server_binlog.php:170
 msgid "Previous"
 msgstr "Papiaredniaja staronka"
 
-#: libraries/common.lib.php:2345 libraries/common.lib.php:2348
+#: libraries/common.lib.php:2354 libraries/common.lib.php:2357
 #: libraries/display_tbl.lib.php:353
 msgid "End"
 msgstr "Apošniaja staronka"
 
-#: libraries/common.lib.php:2421
+#: libraries/common.lib.php:2430
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Pierajści da bazy dadzienych \"%s\"."
 
-#: libraries/common.lib.php:2441
+#: libraries/common.lib.php:2450
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 "Isnuje viadomaja pamyłka z vykarystańniem parametra %s, hladzicie apisańnie "
 "na %s"
 
-#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/common.lib.php:2830 libraries/common.lib.php:2837
 #: libraries/db_links.inc.php:68 libraries/export/sql.php:25
 #: libraries/import/sql.php:18 libraries/server_links.inc.php:45
 #: libraries/tbl_links.inc.php:60 querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2830 libraries/db_links.inc.php:104
+#: libraries/common.lib.php:2839 libraries/db_links.inc.php:104
 #: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
 #: view_operations.php:89
 msgid "Operations"
@@ -2122,8 +2122,8 @@ msgstr "imia tablicy"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 "Hetaje značeńnie interpretujecca z vykarystańniem %1$sstrftime%2$s, tamu "
 "možna vykarystoŭvać radki farmatavańnia času. Aproč hetaha, buduć "
@@ -4521,8 +4521,8 @@ msgid ""
 "table are used instead."
 msgstr ""
 
-#: libraries/select_lang.lib.php:480 libraries/select_lang.lib.php:486
-#: libraries/select_lang.lib.php:492
+#: libraries/select_lang.lib.php:482 libraries/select_lang.lib.php:488
+#: libraries/select_lang.lib.php:494
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Nieviadomaja mova: %1$s."
@@ -4697,8 +4697,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Niemahčyma prainicyjalizavać pravierku SQL. Kali łaska, praviercie, ci "
-"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ %"
-"sdakumentacyi%s."
+"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ "
+"%sdakumentacyi%s."
 
 #: libraries/tbl_links.inc.php:107 libraries/tbl_links.inc.php:140
 #: libraries/tbl_links.inc.php:141
@@ -4889,8 +4889,8 @@ msgstr ""
 "dadadzienyja da mietki času (pa zmoŭčańni — 0). Druhi parametar "
 "vykarystoŭvajcie, kab paznačyć inšy farmat daty/času. Treci parametar "
 "vyznačaje typ daty, jakaja budzie pakazanaja: vašaja lakalnaja data albo "
-"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). U "
-"zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
+"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). "
+"U zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
 "parametraŭ lakalnaj daty hladzicie dakumentacyju dla funkcyi PHP strftime(), "
 "a dla hrynvickaha času (parametar «utc») — dakumentacyju funkcyi gmdate()."
 
@@ -5614,8 +5614,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Zaŭvaha: phpMyAdmin atrymlivaje pryvilei karystalnikaŭ naŭprostava z tablic "
 "pryvilejaŭ MySQL. Źmieściva hetych tablic moža adroźnivacca ad pryvilejaŭ, "

@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-07 22:09+0200\n"
-"PO-Revision-Date: 2010-05-26 14:20+0200\n"
-"Last-Translator:  <veeven@gmail.com>\n"
-"Language-Team: Telugu <te@li.org>\n"
-"Language: te\n"
+"PO-Revision-Date: 2010-06-07 20:23+0200\n"
+"Last-Translator:  <ardavies@tiscali.co.uk>\n"
+"Language-Team: Welsh <cy@li.org>\n"
+"Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n==2) ? 1 : 0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
 #: libraries/display_tbl.lib.php:417 server_privileges.php:1475
 msgid "Show all"
-msgstr "అన్నీ చూపించు"
+msgstr "Dangos pob"
 
 #: browse_foreigners.php:82 libraries/common.lib.php:2313
 #: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:394
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
 msgid "Page number:"
-msgstr "పుట సంఖ్య:"
+msgstr "Rhif tudalen:"
 
 #: browse_foreigners.php:132
 msgid ""
@@ -35,15 +35,17 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"Nid oedd modd diweddaru ffenest y targed. Efallai eich bod chi wedi cau "
+"ffenest y rhiant, neu bod gosodiadau diogelwch eich porwr yn gwrthod "
+"caniatáu diweddariadau traws-ffenest."
 
-# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
 #: db_structure.php:106 libraries/common.lib.php:2831
 #: libraries/common.lib.php:2838 libraries/db_links.inc.php:75
 #: libraries/tbl_links.inc.php:63
 msgid "Search"
-msgstr "శోధించు"
+msgstr "Chwilio"
 
 #: browse_foreigners.php:153 db_operations.php:385 db_operations.php:429
 #: db_operations.php:499 db_operations.php:609 db_search.php:362
@@ -72,39 +74,38 @@ msgstr "శోధించు"
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
-msgstr "వెళ్ళు"
+msgstr "Ewch"
 
 #: browse_foreigners.php:168 browse_foreigners.php:172
 #: libraries/Index.class.php:442 tbl_tracking.php:320
 msgid "Keyname"
-msgstr ""
+msgstr "Enw allweddol"
 
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: server_collations.php:55 server_collations.php:67 server_engines.php:59
 #: server_status.php:628
 msgid "Description"
-msgstr "వివరణ"
+msgstr "Disgrifiad"
 
 #: browse_foreigners.php:247 browse_foreigners.php:256
 #: browse_foreigners.php:268 browse_foreigners.php:276
 msgid "Use this value"
-msgstr "ఈ విలువని ఉపయోగించు"
+msgstr "Defnyddiwch y gwerth hwn"
 
 #: db_create.php:46
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "Cafodd y gronfa ddata %1$s ei chreu."
 
 #: db_datadict.php:49 db_operations.php:378
 msgid "Database comment: "
-msgstr ""
+msgstr "Sylw cronfa ddata:"
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
 #: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
 msgid "Table comments"
-msgstr "పట్టిక వ్యాఖ్యలు"
+msgstr "Sylwadau tabl"
 
-# మొదటి అనువాదము
 #: db_datadict.php:174 db_qbe.php:174 libraries/Index.class.php:446
 #: libraries/export/htmlword.php:244 libraries/export/latex.php:360
 #: libraries/export/odt.php:294 libraries/export/texytext.php:233
@@ -113,10 +114,8 @@ msgstr "పట్టిక వ్యాఖ్యలు"
 #: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
 #: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
-#, fuzzy
-#| msgid "Command"
 msgid "Column"
-msgstr "ఆజ్ఞ"
+msgstr "Colofn"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
 #: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
@@ -128,7 +127,7 @@ msgstr "ఆజ్ఞ"
 #: tbl_printview.php:313 tbl_select.php:136 tbl_structure.php:178
 #: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
-msgstr "రకం"
+msgstr "Math"
 
 #: db_datadict.php:177 libraries/Index.class.php:449
 #: libraries/export/htmlword.php:246 libraries/export/latex.php:360
@@ -137,7 +136,7 @@ msgstr "రకం"
 #: pdf_schema.php:1286 tbl_change.php:323 tbl_printview.php:145
 #: tbl_structure.php:181 tbl_tracking.php:276 tbl_tracking.php:327
 msgid "Null"
-msgstr ""
+msgstr "Null"
 
 #: db_datadict.php:178 db_structure.php:501 libraries/export/htmlword.php:247
 #: libraries/export/latex.php:360 libraries/export/odt.php:303
@@ -145,14 +144,14 @@ msgstr ""
 #: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:146
 #: tbl_structure.php:182 tbl_tracking.php:277
 msgid "Default"
-msgstr ""
+msgstr "Diofyn"
 
 #: db_datadict.php:182 libraries/export/htmlword.php:249
 #: libraries/export/latex.php:362 libraries/export/odt.php:307
 #: libraries/export/texytext.php:238 pdf_schema.php:1268 pdf_schema.php:1289
 #: tbl_printview.php:150
 msgid "Links to"
-msgstr ""
+msgstr "Cysylltu i"
 
 #: db_datadict.php:184 db_printview.php:112 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:45 libraries/export/latex.php:365
@@ -161,7 +160,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
 #: pdf_schema.php:1290 tbl_printview.php:152
 msgid "Comments"
-msgstr "వ్యాఖ్యలు"
+msgstr "Sylwadau"
 
 #: db_datadict.php:267 libraries/Index.class.php:359
 #: libraries/Index.class.php:386 libraries/export/htmlword.php:322
@@ -172,7 +171,7 @@ msgstr "వ్యాఖ్యలు"
 #: server_privileges.php:2148 sql.php:132 sql.php:194 tbl_printview.php:229
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
-msgstr "కాదు"
+msgstr "Na"
 
 #: db_datadict.php:267 libraries/Index.class.php:360
 #: libraries/Index.class.php:385 libraries/export/htmlword.php:322
@@ -189,136 +188,131 @@ msgstr "కాదు"
 #: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
-msgstr "అవును"
+msgstr "Ie"
 
 #: db_datadict.php:322 db_printview.php:266 tbl_printview.php:498
 msgid "Print"
-msgstr "ముద్రించు"
+msgstr "Argraffu"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "Dangos dadlwythiad (sgema) y gronfa ddata"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
 #: db_tracking.php:35 export.php:359 navigation.php:332
 msgid "No tables found in database."
-msgstr ""
+msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 
 #: db_export.php:43 db_search.php:344 server_export.php:27
 msgid "Select All"
-msgstr ""
+msgstr "Dewis Pob"
 
 #: db_export.php:45 db_search.php:347 server_export.php:29
 msgid "Unselect All"
-msgstr ""
+msgstr "Dad-ddewis Pob"
 
-# మొదటి అనువాదము
 #: db_operations.php:38 tbl_create.php:54
 msgid "The database name is empty!"
-msgstr "డేటాబేస్ పేరు ఖాళీగా ఉన్నది"
+msgstr "Mae enw'r gronfa ddata'n wag!"
 
 #: db_operations.php:236
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "Cafodd cronfa ddata %s ei hailenwi i %s"
 
 #: db_operations.php:240
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "Cafodd y gronfa ddata %s ei chopïo i %s"
 
 #: db_operations.php:412
 msgid "Rename database to"
-msgstr ""
+msgstr "Ailenwch y gronfa ddata i"
 
-# మొదటి అనువాదము
 #: db_operations.php:417 server_processlist.php:57
 msgid "Command"
-msgstr "ఆజ్ఞ"
+msgstr "Gorchymyn"
 
-# మొదటి అనువాదము
 #: db_operations.php:429 tbl_change.php:1143
 msgid "and then"
-msgstr "మరియు తరువాత"
+msgstr "ac yna"
 
 #: db_operations.php:455
 msgid "Copy database to"
-msgstr ""
+msgstr "Copïwch y gronfa ddata i"
 
 #: db_operations.php:462 tbl_operations.php:528 tbl_tracking.php:388
 msgid "Structure only"
-msgstr ""
+msgstr "Strwythur yn unig"
 
 #: db_operations.php:463 tbl_operations.php:529 tbl_tracking.php:390
 msgid "Structure and data"
-msgstr ""
+msgstr "Strwythur a data"
 
 #: db_operations.php:464 tbl_operations.php:530 tbl_tracking.php:389
 msgid "Data only"
-msgstr ""
+msgstr "Data yn unig"
 
 #: db_operations.php:472
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "Defnyddiwch CREATE DATABASE cyn copïo"
 
 #: db_operations.php:475 libraries/export/sql.php:52
 #: libraries/export/sql.php:74 libraries/export/sql.php:76
 #: libraries/export/sql.php:82 tbl_operations.php:536
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Ychwanegwch %s"
 
 #: db_operations.php:479 libraries/export/sql.php:78 tbl_operations.php:299
 #: tbl_operations.php:538
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "Ychwanegwch werth AUTO_INCREMENT"
 
 #: db_operations.php:483 tbl_operations.php:545
 msgid "Add constraints"
-msgstr ""
+msgstr "Ychwanegwch cyfyngiadau"
 
 #: db_operations.php:496
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Newidiwch i'r gronfa ddata a gopïwyd"
 
 #: db_operations.php:537
 msgid "BLOB Repository"
-msgstr ""
+msgstr "Ystorfa BLOB"
 
 #: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1352
 #: libraries/server_links.inc.php:49 server_processlist.php:59
 #: tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
-msgstr "స్థితి"
+msgstr "Statws"
 
 #: db_operations.php:548
-#, fuzzy
-#| msgid "End"
 msgctxt "BLOB repository"
 msgid "Enabled"
-msgstr "ముగింపు"
+msgstr "Galluogwyd"
 
 #: db_operations.php:552
 msgid "Disable"
-msgstr ""
+msgstr "Analluogwch"
 
 #: db_operations.php:562
 msgid "Damaged"
-msgstr ""
+msgstr "Wedi difrodi"
 
 #: db_operations.php:566
 msgctxt "BLOB repository"
 msgid "Repair"
-msgstr ""
+msgstr "Trwsiwch"
 
 #: db_operations.php:574
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr ""
+msgstr "Analluogwyd"
 
 #: db_operations.php:578
 msgid "Enable"
-msgstr ""
+msgstr "Galluogwch"
 
 #: db_operations.php:602 libraries/Index.class.php:448
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
@@ -327,7 +321,7 @@ msgstr ""
 #: tbl_operations.php:363 tbl_select.php:137 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
-msgstr ""
+msgstr "Coladiad"
 
 #: db_operations.php:615 main.php:316 pdf_schema.php:34
 #, php-format
@@ -335,10 +329,12 @@ msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 msgstr ""
+"Mae'r nodweddion ar gyfer gweithio gyda thablau sydd wedi cysylltu wedi'u "
+"hanalluogi. Pwyswch %syma%s i ddarganfod pam."
 
 #: db_operations.php:648
 msgid "Edit PDF Pages"
-msgstr ""
+msgstr "Golygwch Dudalennau PDF"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
@@ -347,167 +343,163 @@ msgstr ""
 #: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
 #: test/theme.php:75
 msgid "Table"
-msgstr "పట్టిక"
+msgstr "Tabl"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
 #: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
-msgstr ""
+msgstr "Rhesi"
 
 #: db_printview.php:109 libraries/db_structure.lib.php:67 tbl_indexes.php:190
 msgid "Size"
-msgstr "పరిమాణం"
+msgstr "Maint"
 
-# మొదటి అనువాదము
 #: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:559
 #: libraries/export/sql.php:899
 msgid "in use"
-msgstr "వాడుకలో ఉన్నది"
+msgstr "ar ddefnydd"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
 #: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:434
 #: tbl_structure.php:809
 msgid "Creation"
-msgstr ""
+msgstr "Cread"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
 #: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:444
 #: tbl_structure.php:817
 msgid "Last update"
-msgstr ""
+msgstr "Diweddariad diwethaf"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
 #: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:454
 #: tbl_structure.php:825
 msgid "Last check"
-msgstr ""
+msgstr "Gwiriad diwethaf"
 
 #: db_printview.php:222 db_structure.php:480
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s tabl"
+msgstr[1] "%s tabl"
 
 #: db_qbe.php:29 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/sql_query_form.lib.php:140
 #: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
 #: view_operations.php:62
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "Cafodd eich ymholiad SQL ei gweithredu'n llwyddiannus"
 
 #: db_qbe.php:42
 msgid "You have to choose at least one column to display"
-msgstr ""
+msgstr "Mae'n rhaid dewis o leiaf un golofn i'w dangos"
 
-# మొదటి అనువాదము
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866
 msgid "Sort"
-msgstr "క్రమంలో పేర్చు"
+msgstr "Trefnu"
 
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:260
 #: tbl_select.php:314
 msgid "Ascending"
-msgstr "ఆరోహణ"
+msgstr "Esgynnol"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:261
 #: tbl_select.php:315
 msgid "Descending"
-msgstr "అవరోహణ"
+msgstr "Disgynnol"
 
-# మొదటి అనువాదము
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
 #: tbl_change.php:277 tbl_tracking.php:597
 msgid "Show"
-msgstr "చూపించు"
+msgstr "Dangos"
 
 #: db_qbe.php:300
 msgid "Criteria"
-msgstr ""
+msgstr "Meini prawf"
 
 #: db_qbe.php:353 db_qbe.php:435 db_qbe.php:527 db_qbe.php:558
 msgid "Ins"
-msgstr ""
+msgstr "Ins"
 
 #: db_qbe.php:357 db_qbe.php:439 db_qbe.php:524 db_qbe.php:555
 msgid "And"
-msgstr "మరియు"
+msgstr "And"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:529 db_qbe.php:560
 msgid "Del"
-msgstr ""
+msgstr "Del"
 
-# మొదటి అనువాదము
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/tbl_properties.inc.php:779
 #: server_privileges.php:258 tbl_change.php:1031 tbl_indexes.php:250
 #: tbl_select.php:288
 msgid "Or"
-msgstr "లేదా"
+msgstr "Or"
 
 #: db_qbe.php:507
 msgid "Modify"
-msgstr ""
+msgstr "Addasu"
 
 #: db_qbe.php:584
 msgid "Add/Delete criteria rows"
-msgstr ""
+msgstr "Ychwanegu/Dileu rhesi meini prawf"
 
 #: db_qbe.php:596
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "Ychwanegu/Dileu colofnau"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
-msgstr ""
+msgstr "Ymholiad Diweddaru"
 
 #: db_qbe.php:617
 msgid "Use Tables"
-msgstr ""
+msgstr "Defnyddiwch Dablau"
 
 #: db_qbe.php:640
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "Ymholiad SQL ar gronfa ddata <b>%s</b>:"
 
 #: db_qbe.php:934 libraries/common.lib.php:1225
 msgid "Submit Query"
-msgstr ""
+msgstr "Cyflwynwch yr Ymholiad"
 
 #: db_search.php:68 libraries/auth/config.auth.lib.php:84
 #: libraries/auth/config.auth.lib.php:103
 #: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:183
 msgid "Access denied"
-msgstr ""
+msgstr "Mynediad wedi'i wrthod"
 
 #: db_search.php:80 db_search.php:311
 msgid "at least one of the words"
-msgstr ""
+msgstr "o leiaf un o'r geiriau"
 
 #: db_search.php:81 db_search.php:312
 msgid "all words"
-msgstr "అన్ని పదాలూ"
+msgstr "pob gair"
 
 #: db_search.php:82 db_search.php:313
 msgid "the exact phrase"
-msgstr ""
+msgstr "y cymal union"
 
 #: db_search.php:83 db_search.php:314
 msgid "as regular expression"
-msgstr ""
+msgstr "fel mynegiad arferol (regular expression)"
 
 #: db_search.php:242
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr ""
+msgstr "Canlyniadau chwilio am \"<i>%s</i>\" %s:"
 
 #: db_search.php:260
 #, php-format
@@ -520,7 +512,7 @@ msgstr ""
 #: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
 #: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:467
 msgid "Browse"
-msgstr ""
+msgstr "Porwch"
 
 #: db_search.php:272 libraries/display_tbl.lib.php:1165
 #: libraries/display_tbl.lib.php:2056 libraries/sql_query_form.lib.php:470
@@ -528,25 +520,24 @@ msgstr ""
 #: pmd_general.php:377 setup/frames/index.inc.php:125
 #: setup/frames/index.inc.php:216 tbl_row_action.php:63
 msgid "Delete"
-msgstr "తొలగించు"
+msgstr "Dileu"
 
 #: db_search.php:285
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr "<b>మొత్తం:</b> <i>%s</i> పోలిక(లు)"
+msgstr ""
 
 #: db_search.php:299
 msgid "Search in database"
-msgstr ""
+msgstr "Chwiliwch yn y gronfa ddata"
 
 #: db_search.php:302
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgstr ""
 
-# మొదటి అనువాదము
 #: db_search.php:307
 msgid "Find:"
-msgstr "వెతుకు"
+msgstr "Darganfyddwch:"
 
 #: db_search.php:311 db_search.php:312
 msgid "Words are separated by a space character (\" \")."
@@ -554,18 +545,18 @@ msgstr ""
 
 #: db_search.php:325
 msgid "Inside table(s):"
-msgstr ""
+msgstr "Tu fewn tabl(au):"
 
 #: db_search.php:355
 msgid "Inside column:"
-msgstr ""
+msgstr "Tu fewn colofn:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
 #: libraries/common.lib.php:2832 libraries/sql_query_form.lib.php:334
 #: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
 msgid "Insert"
-msgstr ""
+msgstr "Mewnosod"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
 #: libraries/common.lib.php:2829 libraries/common.lib.php:2836
@@ -576,7 +567,7 @@ msgstr ""
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
 #: server_privileges.php:554 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
-msgstr ""
+msgstr "Strwythur"
 
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
@@ -587,38 +578,37 @@ msgstr ""
 #: server_databases.php:352 tbl_structure.php:27 tbl_structure.php:151
 #: tbl_structure.php:152 tbl_structure.php:471
 msgid "Drop"
-msgstr ""
+msgstr "Gollwng"
 
-# మొదటి అనువాదము
 #: db_structure.php:86 db_structure.php:87 db_structure.php:99
 #: db_structure.php:100 db_structure.php:112 db_structure.php:113
 #: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1655
 #: libraries/mult_submits.inc.php:39 libraries/tbl_links.inc.php:105
 msgid "Empty"
-msgstr "ఖాళీ"
+msgstr "Gwagu"
 
 #: db_structure.php:316 libraries/tbl_links.inc.php:100
 #, php-format
 msgid "Table %s has been emptied"
-msgstr ""
+msgstr "Cafodd tabl %s ei wagu"
 
 #: db_structure.php:326 libraries/tbl_links.inc.php:133
 #, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "Cafodd golwg %s ei ollwng"
 
 #: db_structure.php:326 libraries/tbl_links.inc.php:133
 #, php-format
 msgid "Table %s has been dropped"
-msgstr ""
+msgstr "Cafodd tabl %s ei ollwng"
 
 #: db_structure.php:333
 msgid "Tracking is active."
-msgstr ""
+msgstr "Mae tracio'n weithredol"
 
 #: db_structure.php:335
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Nid yw tracio'n weithredol"
 
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
@@ -627,22 +617,20 @@ msgid ""
 "%s."
 msgstr ""
 
-# మొదటి అనువాదము
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/tbl_info.inc.php:66 tbl_structure.php:185 test/theme.php:74
 msgid "View"
-msgstr "చూపుము"
+msgstr "Dangos"
 
 #: db_structure.php:485 libraries/db_structure.lib.php:49
 #: libraries/server_links.inc.php:70 server_replication.php:33
 #: server_replication.php:164 server_status.php:258
 msgid "Replication"
-msgstr ""
+msgstr "Dyblygiad"
 
-# మొదటి అనువాదము
 #: db_structure.php:489
 msgid "Sum"
-msgstr "మొత్తము"
+msgstr "Swm"
 
 #: db_structure.php:496 libraries/StorageEngine.class.php:356
 #, php-format
@@ -661,43 +649,43 @@ msgstr ""
 #: server_databases.php:348 server_privileges.php:530
 #: server_privileges.php:1560 tbl_structure.php:458
 msgid "Check All"
-msgstr ""
+msgstr "Dewis Pob"
 
 #: db_structure.php:531 libraries/display_tbl.lib.php:2077
 #: libraries/replication_gui.lib.php:33 server_databases.php:350
 #: server_privileges.php:533 server_privileges.php:1564 tbl_structure.php:462
 msgid "Uncheck All"
-msgstr ""
+msgstr "Dad-ddewis Pob"
 
 #: db_structure.php:536
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "Gwiriwch dablau â gorbenion"
 
 #: db_structure.php:547 db_structure.php:548 db_structure.php:599
 #: libraries/display_tbl.lib.php:2180 libraries/mult_submits.inc.php:28
 #: tbl_structure.php:492 tbl_structure.php:494
 msgid "Print view"
-msgstr ""
+msgstr "Argraffu golwg"
 
 #: db_structure.php:549 db_structure.php:550 libraries/mult_submits.inc.php:42
 #: tbl_operations.php:581
 msgid "Check table"
-msgstr ""
+msgstr "Gwirio tabl"
 
 #: db_structure.php:551 db_structure.php:552 libraries/mult_submits.inc.php:47
 #: tbl_operations.php:621 tbl_structure.php:709 tbl_structure.php:711
 msgid "Optimize table"
-msgstr ""
+msgstr "Optimeiddio tabl"
 
 #: db_structure.php:553 db_structure.php:554 libraries/mult_submits.inc.php:52
 #: tbl_operations.php:611
 msgid "Repair table"
-msgstr ""
+msgstr "Trwsio tabl"
 
 #: db_structure.php:555 db_structure.php:556 libraries/mult_submits.inc.php:57
 #: tbl_operations.php:601
 msgid "Analyze table"
-msgstr ""
+msgstr "Dadansoddi tabl"
 
 #: db_structure.php:557 db_structure.php:558 libraries/db_links.inc.php:71
 #: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2094
@@ -706,17 +694,16 @@ msgstr ""
 #: pmd_pdf.php:84 pmd_pdf.php:109 server_privileges.php:1341
 #: setup/frames/menu.inc.php:22 tbl_row_action.php:59
 msgid "Export"
-msgstr ""
+msgstr "Allforio"
 
 #: db_structure.php:606 libraries/display_pdf_schema.lib.php:44
 msgid "Data Dictionary"
-msgstr ""
+msgstr "Geiriadur Data"
 
 #: db_tracking.php:66
 msgid "Tracked tables"
-msgstr ""
+msgstr "Tablau a draciwyd"
 
-# మొదటి అనువాదము
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
 #: libraries/export/sql.php:342 libraries/export/texytext.php:84
@@ -727,65 +714,65 @@ msgstr ""
 #: server_synchronize.php:1179 server_synchronize.php:1183
 #: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
-msgstr "డేటాబేస్"
+msgstr "Cronfa ddata"
 
 #: db_tracking.php:73
 msgid "Last version"
-msgstr ""
+msgstr "Fersiwn diweddaraf"
 
 #: db_tracking.php:74 tbl_tracking.php:594
 msgid "Created"
-msgstr ""
+msgstr "Crëwyd"
 
 #: db_tracking.php:75 tbl_tracking.php:595
 msgid "Updated"
-msgstr ""
+msgstr "Diweddarwyd"
 
 #: db_tracking.php:77 libraries/Index.class.php:440
 #: libraries/db_structure.lib.php:53 server_databases.php:203
 #: server_privileges.php:1503 server_privileges.php:1686
 #: server_privileges.php:2034 tbl_structure.php:187
 msgid "Action"
-msgstr "చర్య"
+msgstr "Gweithred"
 
 #: db_tracking.php:88 db_tracking.php:120
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Dilëwch data tracio ar gyfer y tabl hwn"
 
 #: db_tracking.php:106 tbl_tracking.php:548 tbl_tracking.php:606
 #: tbl_tracking.php:613
 msgid "active"
-msgstr ""
+msgstr "gweithredol"
 
 #: db_tracking.php:108 tbl_tracking.php:550 tbl_tracking.php:608
 #: tbl_tracking.php:610
 msgid "not active"
-msgstr ""
+msgstr "ddim yn weithredol"
 
 #: db_tracking.php:121
 msgid "Versions"
-msgstr ""
+msgstr "Fersiynau"
 
 #: db_tracking.php:122 tbl_tracking.php:379 tbl_tracking.php:624
 msgid "Tracking report"
-msgstr ""
+msgstr "Adroddiad tracio"
 
 #: db_tracking.php:123 tbl_tracking.php:251 tbl_tracking.php:624
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Ciplun strwythur"
 
 #: db_tracking.php:152
 msgid "Untracked tables"
-msgstr ""
+msgstr "Tablau heb dracio "
 
 #: db_tracking.php:172 db_tracking.php:174 tbl_structure.php:528
 #: tbl_structure.php:530
 msgid "Track table"
-msgstr ""
+msgstr "Tracio tabl"
 
 #: db_tracking.php:200
 msgid "Database Log"
-msgstr ""
+msgstr "Log cronfa ddata"
 
 #: export.php:62
 msgid "Selected export type has to be saved in file!"
@@ -855,7 +842,7 @@ msgstr ""
 #: import.php:403 sql.php:626
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "Clustnodi %s a grëwyd"
 
 #: import.php:409 import.php:415
 #, php-format
@@ -877,7 +864,7 @@ msgstr ""
 #: import_status.php:31 libraries/common.lib.php:667 pdf_schema.php:241
 #: user_password.php:115
 msgid "Back"
-msgstr "వెనుకకి"
+msgstr "Nôl"
 
 #: index.php:190
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -888,73 +875,74 @@ msgstr ""
 #: server_synchronize.php:739 server_synchronize.php:767
 #: server_synchronize.php:795 server_synchronize.php:807
 msgid "Click to select"
-msgstr ""
+msgstr "Pwyso i ddewis"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "Pwyso i dad-ddewis"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "Mae datganiadau \"DROP DATABASE\" wedi'u hanalluogi."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:188
 msgid "Do you really want to "
-msgstr ""
+msgstr "A ydych chi wir am"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:172
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "Rydych am DINISTRIO cronfa ddata gyfan!"
 
 #: js/messages.php:34
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "Rydych yn mynd i ANALLUOGI Ystorfa BLOB!"
 
 #: js/messages.php:35
 #, php-format
+#, possible-php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
+"A ydych chi wir am analluogi pob cyfeiriad BLOB ar gyfer y gronfa ddata %s?"
 
 #: js/messages.php:38
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "Gwerth ar goll yn y ffurflen!"
 
 #: js/messages.php:39
 msgid "This is not a number!"
-msgstr ""
+msgstr "Nid yw hwn yn rhif!"
 
 #: js/messages.php:42
 msgid "The host name is empty!"
-msgstr ""
+msgstr "Mae enw'r gwesteiwr yn wag!"
 
-# మొదటి అనువాదము
 #: js/messages.php:43
 msgid "The user name is empty!"
-msgstr "వాడుకరి పేరులో ఏమీ లేదు"
+msgstr "Mae enw'r defnyddiwr yn wag!"
 
 #: js/messages.php:44 server_privileges.php:1197 user_password.php:70
 msgid "The password is empty!"
-msgstr "సంకేతపదం ఖాళీగా ఉంది!"
+msgstr "Mae'r cyfrinair yn wag!"
 
 #: js/messages.php:45 server_privileges.php:1195 user_password.php:73
 msgid "The passwords aren't the same!"
-msgstr "సంకేతపదాలు సరిపోలలేదు!"
+msgstr "Nid yw'r cyfrineiriau'n debyg!"
 
 #: js/messages.php:49 pmd_general.php:342 pmd_general.php:379
 msgid "Cancel"
-msgstr "రద్దుచేయి"
+msgstr "Diddymu"
 
 #: js/messages.php:52 pmd_save_pos.php:54
 msgid "Modifications have been saved"
-msgstr ""
+msgstr "Cafodd yr addasiadau eu cadw"
 
 #: js/messages.php:53 pmd_relation_upd.php:49
 msgid "Relation deleted"
-msgstr ""
+msgstr "Perthynas wedi'i ddileu"
 
 #: js/messages.php:54 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "Perthynas FOREIGN KEY wedi'i ychwanegu"
 
 #: js/messages.php:55 pmd_relation_new.php:86
 msgid "Internal relation added"
@@ -1001,304 +989,253 @@ msgstr ""
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
 msgid "Done"
-msgstr ""
+msgstr "Gorffen"
 
-# మొదటి అనువాదము
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:75
-#, fuzzy
-#| msgid "Previous"
 msgid "Prev"
-msgstr "క్రితము"
+msgstr "Cynt"
 
-# మొదటి అనువాదము
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:77 libraries/common.lib.php:2353
 #: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:801
 msgid "Next"
-msgstr "తదుపరి"
+msgstr "Nesaf"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:79
-#, fuzzy
-#| msgid "Total"
 msgid "Today"
-msgstr "మొత్తం"
+msgstr "Heddiw"
 
 #: js/messages.php:82
-#, fuzzy
-#| msgid "Jan"
 msgid "January"
-msgstr "జన"
+msgstr "Ionawr"
 
 #: js/messages.php:83
 msgid "February"
-msgstr ""
+msgstr "Chwefror"
 
 #: js/messages.php:84
-#, fuzzy
-#| msgid "Mar"
 msgid "March"
-msgstr "మార్చి"
+msgstr "Mawrth"
 
 #: js/messages.php:85
-#, fuzzy
-#| msgid "Apr"
 msgid "April"
-msgstr "ఏప్రి"
+msgstr "Ebrill"
 
 #: js/messages.php:86
 msgid "May"
-msgstr "మే"
+msgstr "Mai"
 
 #: js/messages.php:87
-#, fuzzy
-#| msgid "Jun"
 msgid "June"
-msgstr "జూన్"
+msgstr "Mehefin"
 
 #: js/messages.php:88
-#, fuzzy
-#| msgid "Jul"
 msgid "July"
-msgstr "జూలై"
+msgstr "Gorffennaf"
 
 #: js/messages.php:89
-#, fuzzy
-#| msgid "Aug"
 msgid "August"
-msgstr "ఆగ"
+msgstr "Awst"
 
 #: js/messages.php:90
 msgid "September"
-msgstr ""
+msgstr "Medi"
 
 #: js/messages.php:91
-#, fuzzy
-#| msgid "Oct"
 msgid "October"
-msgstr "అక్టో"
+msgstr "Hydref"
 
 #: js/messages.php:92
 msgid "November"
-msgstr ""
+msgstr "Tachwedd"
 
 #: js/messages.php:93
 msgid "December"
-msgstr ""
+msgstr "Rhagfyr"
 
 #. l10n: Short month name
 #: js/messages.php:97 libraries/common.lib.php:1557
 msgid "Jan"
-msgstr "జన"
+msgstr "Ion"
 
 #. l10n: Short month name
 #: js/messages.php:99 libraries/common.lib.php:1559
 msgid "Feb"
-msgstr "ఫిబ్ర"
+msgstr "Chwe"
 
 #. l10n: Short month name
 #: js/messages.php:101 libraries/common.lib.php:1561
 msgid "Mar"
-msgstr "మార్చి"
+msgstr "Maw"
 
 #. l10n: Short month name
 #: js/messages.php:103 libraries/common.lib.php:1563
 msgid "Apr"
-msgstr "ఏప్రి"
+msgstr "Ebr"
 
 #. l10n: Short month name
 #: js/messages.php:105 libraries/common.lib.php:1565
-#, fuzzy
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
-msgstr "మే"
+msgstr "Mai"
 
 #. l10n: Short month name
 #: js/messages.php:107 libraries/common.lib.php:1567
 msgid "Jun"
-msgstr "జూన్"
+msgstr "Meh"
 
 #. l10n: Short month name
 #: js/messages.php:109 libraries/common.lib.php:1569
 msgid "Jul"
-msgstr "జూలై"
+msgstr "Gor"
 
 #. l10n: Short month name
 #: js/messages.php:111 libraries/common.lib.php:1571
 msgid "Aug"
-msgstr "ఆగ"
+msgstr "Aws"
 
 #. l10n: Short month name
 #: js/messages.php:113 libraries/common.lib.php:1573
 msgid "Sep"
-msgstr "సెప్టె"
+msgstr "Med"
 
 #. l10n: Short month name
 #: js/messages.php:115 libraries/common.lib.php:1575
 msgid "Oct"
-msgstr "అక్టో"
+msgstr "Hyd"
 
 #. l10n: Short month name
 #: js/messages.php:117 libraries/common.lib.php:1577
 msgid "Nov"
-msgstr "నవం"
+msgstr "Tach"
 
 #. l10n: Short month name
 #: js/messages.php:119 libraries/common.lib.php:1579
 msgid "Dec"
-msgstr "డిసెం"
+msgstr "Rhag"
 
 #: js/messages.php:122
-#, fuzzy
-#| msgid "Sun"
 msgid "Sunday"
-msgstr "ఆది"
+msgstr "Dydd Sul"
 
 #: js/messages.php:123
-#, fuzzy
-#| msgid "Mon"
 msgid "Monday"
-msgstr "సోమ"
+msgstr "Dydd Llun"
 
 #: js/messages.php:124
-#, fuzzy
-#| msgid "Tue"
 msgid "Tuesday"
-msgstr "మంగళ"
+msgstr "Dydd Mawrth"
 
 #: js/messages.php:125
 msgid "Wednesday"
-msgstr ""
+msgstr "DYdd Mercher"
 
 #: js/messages.php:126
 msgid "Thursday"
-msgstr ""
+msgstr "Dydd Iau"
 
 #: js/messages.php:127
-#, fuzzy
-#| msgid "Fri"
 msgid "Friday"
-msgstr "శుక్ర"
+msgstr "Dydd Gwener"
 
 #: js/messages.php:128
 msgid "Saturday"
-msgstr ""
+msgstr "Dydd Sadwrn"
 
 #. l10n: Short week day name
 #: js/messages.php:132 libraries/common.lib.php:1582
 msgid "Sun"
-msgstr "ఆది"
+msgstr "Sul"
 
 #. l10n: Short week day name
 #: js/messages.php:134 libraries/common.lib.php:1584
 msgid "Mon"
-msgstr "సోమ"
+msgstr "Llun"
 
 #. l10n: Short week day name
 #: js/messages.php:136 libraries/common.lib.php:1586
 msgid "Tue"
-msgstr "మంగళ"
+msgstr "Maw"
 
 #. l10n: Short week day name
 #: js/messages.php:138 libraries/common.lib.php:1588
 msgid "Wed"
-msgstr "బుధ"
+msgstr "Mer"
 
 #. l10n: Short week day name
 #: js/messages.php:140 libraries/common.lib.php:1590
 msgid "Thu"
-msgstr "గురు"
+msgstr "Iau"
 
 #. l10n: Short week day name
 #: js/messages.php:142 libraries/common.lib.php:1592
 msgid "Fri"
-msgstr "శుక్ర"
+msgstr "Gwe"
 
 #. l10n: Short week day name
 #: js/messages.php:144 libraries/common.lib.php:1594
 msgid "Sat"
-msgstr "శని"
+msgstr "Sad"
 
 #. l10n: Minimal week day name
 #: js/messages.php:148
-#, fuzzy
-#| msgid "Sun"
 msgid "Su"
-msgstr "ఆది"
+msgstr "Su"
 
 #. l10n: Minimal week day name
 #: js/messages.php:150
-#, fuzzy
-#| msgid "Mon"
 msgid "Mo"
-msgstr "సోమ"
+msgstr "Llu"
 
 #. l10n: Minimal week day name
 #: js/messages.php:152
-#, fuzzy
-#| msgid "Tue"
 msgid "Tu"
-msgstr "మంగళ"
+msgstr "Ma"
 
 #. l10n: Minimal week day name
 #: js/messages.php:154
-#, fuzzy
-#| msgid "Wed"
 msgid "We"
-msgstr "బుధ"
+msgstr "Me"
 
 #. l10n: Minimal week day name
 #: js/messages.php:156
-#, fuzzy
-#| msgid "Thu"
 msgid "Th"
-msgstr "గురు"
+msgstr "Ia"
 
 #. l10n: Minimal week day name
 #: js/messages.php:158
-#, fuzzy
-#| msgid "Fri"
 msgid "Fr"
-msgstr "శుక్ర"
+msgstr "Gw"
 
 #. l10n: Minimal week day name
 #: js/messages.php:160
-#, fuzzy
-#| msgid "Sat"
 msgid "Sa"
-msgstr "శని"
+msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
-#, fuzzy
-#| msgid "Wiki"
 msgid "Wk"
-msgstr "వికీ"
+msgstr "Wy"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "Awr"
 
-# మొదటి అనువాదము
 #: js/messages.php:165
-#, fuzzy
-#| msgid "in use"
 msgid "Minute"
-msgstr "వాడుకలో ఉన్నది"
+msgstr "Munud"
 
 #: js/messages.php:166
-#, fuzzy
-#| msgid "per second"
 msgid "Second"
-msgstr "క్షణానికి"
+msgstr "Eiliad"
 
 #: libraries/Config.class.php:1015
 msgid "Font size"
-msgstr ""
+msgstr "Maint ffont"
 
 #: libraries/File.class.php:344 libraries/File.class.php:432
 #: libraries/File.class.php:569 libraries/File.class.php:708
@@ -1343,14 +1280,14 @@ msgstr ""
 
 #: libraries/Index.class.php:433 server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
-msgstr ""
+msgstr "Indecsau"
 
 #: libraries/Index.class.php:444 libraries/mult_submits.inc.php:103
 #: libraries/tbl_properties.inc.php:519 tbl_structure.php:33
 #: tbl_structure.php:155 tbl_structure.php:159 tbl_structure.php:474
 #: tbl_tracking.php:322
 msgid "Unique"
-msgstr ""
+msgstr "Unigryw"
 
 #: libraries/Index.class.php:445 tbl_tracking.php:323
 msgid "Packed"
@@ -1362,7 +1299,7 @@ msgstr ""
 
 #: libraries/Index.class.php:450 tbl_tracking.php:279 tbl_tracking.php:328
 msgid "Comment"
-msgstr "వ్యాఖ్య"
+msgstr "Sylw"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
@@ -1370,7 +1307,7 @@ msgstr "వ్యాఖ్య"
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
-msgstr "మార్చు"
+msgstr "Golygu"
 
 #: libraries/Index.class.php:472
 msgid "The primary key has been dropped"
@@ -1469,10 +1406,9 @@ msgstr ""
 msgid "No preview available."
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/Theme.class.php:387
 msgid "take it"
-msgstr "తీసుకొనుము"
+msgstr ""
 
 #: libraries/Theme_Manager.class.php:115
 #, php-format
@@ -1503,7 +1439,7 @@ msgstr ""
 #: test/theme.php:152
 #, php-format
 msgid "Welcome to %s"
-msgstr "%sకి స్వాగతం"
+msgstr ""
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -1522,7 +1458,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Log in"
-msgstr "ప్రవేశించు"
+msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:246
 #: libraries/auth/cookie.auth.lib.php:248
@@ -1540,14 +1476,13 @@ msgstr ""
 msgid "Server:"
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/auth/cookie.auth.lib.php:263
 msgid "Username:"
-msgstr "వాడుకరి పేరు"
+msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:267
 msgid "Password:"
-msgstr "సంకేతపదం:"
+msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:274
 msgid "Server Choice"
@@ -1597,19 +1532,17 @@ msgstr ""
 msgid "Authenticating..."
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/blobstreaming.lib.php:689
 msgid "View image"
-msgstr "చిత్రమును చూపుము"
+msgstr ""
 
 #: libraries/blobstreaming.lib.php:693
 msgid "Play audio"
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/blobstreaming.lib.php:698
 msgid "View video"
-msgstr "వీడియోను చూపుము"
+msgstr ""
 
 #: libraries/blobstreaming.lib.php:702
 msgid "Download file"
@@ -1665,7 +1598,7 @@ msgstr ""
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
-msgstr ""
+msgstr "Gweinydd"
 
 #: libraries/common.inc.php:823
 msgid "Invalid authentication method set in configuration:"
@@ -1679,19 +1612,19 @@ msgstr ""
 #: libraries/common.lib.php:147
 #, php-format
 msgid "Max: %s%s"
-msgstr "గరిష్ఠం: %s%s"
+msgstr "Uchaf: %s%s"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:411
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:415
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
@@ -1700,32 +1633,32 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
 #: main.php:229 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
-msgstr ""
+msgstr "Dogfennaeth"
 
 #: libraries/common.lib.php:595 libraries/header_printview.inc.php:61
 #: server_processlist.php:60 server_status.php:247
 msgid "SQL query"
-msgstr ""
+msgstr "Ymholiad SQL"
 
 #: libraries/common.lib.php:634
 msgid "MySQL said: "
-msgstr ""
+msgstr "Dywedodd MySQL:"
 
 #: libraries/common.lib.php:1177 setup/lib/messages.inc.php:353
 msgid "Explain SQL"
-msgstr ""
+msgstr "Esbonio SQL"
 
 #: libraries/common.lib.php:1180
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "Sgipio Esbonio SQL"
 
 #: libraries/common.lib.php:1214
 msgid "Without PHP Code"
-msgstr ""
+msgstr "Heb God PHP"
 
 #: libraries/common.lib.php:1217 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
-msgstr ""
+msgstr "Creu Cod PHP"
 
 #: libraries/common.lib.php:1235 server_status.php:341
 #: setup/lib/messages.inc.php:354
@@ -1734,96 +1667,94 @@ msgstr ""
 
 #: libraries/common.lib.php:1244
 msgid "Skip Validate SQL"
-msgstr ""
+msgstr "Sgipio Dilysu SQL"
 
 #: libraries/common.lib.php:1247 setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
-msgstr ""
+msgstr "Dilysu SQL"
 
 #: libraries/common.lib.php:1278
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Golygu mewnol yr ymholiad hwn"
 
 #: libraries/common.lib.php:1280
 msgid "Inline"
-msgstr ""
+msgstr "Mewnol"
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1349
 msgid "Profiling"
-msgstr ""
+msgstr "Proffilio"
 
 #: libraries/common.lib.php:1353 libraries/tbl_triggers.lib.php:28
 #: server_processlist.php:58
 msgid "Time"
-msgstr "సమయం"
+msgstr "Amser"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1381
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: libraries/common.lib.php:1381
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: libraries/common.lib.php:1381
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: libraries/common.lib.php:1381
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: libraries/common.lib.php:1381
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 #: libraries/common.lib.php:1381
 msgid "PiB"
-msgstr ""
+msgstr "PiB"
 
 #: libraries/common.lib.php:1381
 msgid "EiB"
-msgstr ""
+msgstr "EiB"
 
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1419
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/common.lib.php:1421
 msgid "."
-msgstr ""
+msgstr "."
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1598
 #: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y am %I:%M %p"
 
 #: libraries/common.lib.php:1907
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s రోజులు, %s గంటలు, %s నిమిషాలు మరియు %s క్షణాలు"
+msgstr "%s diwrnod, %s awr, %s munud a %s eiliad"
 
-# మొదటి అనువాదము
 #: libraries/common.lib.php:2322 libraries/common.lib.php:2325
 #: libraries/display_tbl.lib.php:290 server_status.php:608
 msgid "Begin"
-msgstr "మొదలు"
+msgstr "Dechrau"
 
-# మొదటి అనువాదము
 #: libraries/common.lib.php:2323 libraries/common.lib.php:2326
 #: libraries/display_tbl.lib.php:291 server_binlog.php:168
 #: server_binlog.php:170
 msgid "Previous"
-msgstr "క్రితము"
+msgstr "Cynt"
 
 #: libraries/common.lib.php:2354 libraries/common.lib.php:2357
 #: libraries/display_tbl.lib.php:353
 msgid "End"
-msgstr "ముగింపు"
+msgstr "Diwedd"
 
 #: libraries/common.lib.php:2430
 #, php-format
@@ -1840,13 +1771,13 @@ msgstr ""
 #: libraries/import/sql.php:18 libraries/server_links.inc.php:45
 #: libraries/tbl_links.inc.php:60 querywindow.php:99 test/theme.php:97
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/common.lib.php:2839 libraries/db_links.inc.php:104
 #: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
 #: view_operations.php:89
 msgid "Operations"
-msgstr ""
+msgstr "Gweithrediadau"
 
 #: libraries/core.lib.php:284 libraries/dbg/setup.php:22
 #, php-format
@@ -1858,13 +1789,13 @@ msgstr ""
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
 #: libraries/export/sql.php:415
 msgid "Events"
-msgstr ""
+msgstr "Digwyddiadau"
 
 #: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
 #: libraries/display_create_table.lib.php:53 libraries/tbl_triggers.lib.php:27
 #: setup/frames/index.inc.php:112
 msgid "Name"
-msgstr "పేరు"
+msgstr "Enw"
 
 #: libraries/db_links.inc.php:45
 #, php-format
@@ -1879,31 +1810,31 @@ msgstr ""
 #: libraries/db_links.inc.php:81 libraries/relation.lib.php:155
 #: libraries/tbl_links.inc.php:69
 msgid "Tracking"
-msgstr ""
+msgstr "Tracio"
 
 #: libraries/db_links.inc.php:86
 msgid "Query"
-msgstr ""
+msgstr "Ymholiad"
 
 #: libraries/db_links.inc.php:91 libraries/relation.lib.php:151
 msgid "Designer"
-msgstr ""
+msgstr "Dyluniwr"
 
 #: libraries/db_links.inc.php:98 libraries/server_links.inc.php:88
 #: libraries/tbl_links.inc.php:91 pmd_pdf.php:84 pmd_pdf.php:110
 #: setup/frames/menu.inc.php:21
 msgid "Import"
-msgstr ""
+msgstr "Mewnforio"
 
 #: libraries/db_links.inc.php:111 libraries/server_links.inc.php:66
 #: server_privileges.php:72 server_privileges.php:1683
 #: server_privileges.php:2032 test/theme.php:117
 msgid "Privileges"
-msgstr ""
+msgstr "Breintiau"
 
 #: libraries/db_routines.inc.php:30 libraries/db_routines.inc.php:32
 msgid "Routines"
-msgstr ""
+msgstr "Rheolweithiau"
 
 #: libraries/db_routines.inc.php:43
 msgid "Return type"
@@ -1918,7 +1849,7 @@ msgstr ""
 #: libraries/db_structure.lib.php:69 server_databases.php:142
 #: tbl_printview.php:336 tbl_structure.php:682
 msgid "Overhead"
-msgstr ""
+msgstr "Gorbenion"
 
 #: libraries/dbi/mysql.dbi.lib.php:112 libraries/dbi/mysqli.dbi.lib.php:124
 msgid "Connection for controluser as defined in your configuration failed."
@@ -1935,17 +1866,17 @@ msgstr ""
 
 #: libraries/dbi/mysql.dbi.lib.php:362 tbl_structure.php:608
 msgid "Details..."
-msgstr "వివరాలు..."
+msgstr ""
 
 #: libraries/display_change_password.lib.php:30 main.php:91
 #: user_password.php:111 user_password.php:129
 msgid "Change password"
-msgstr ""
+msgstr "Newid cyfrinair"
 
 #: libraries/display_change_password.lib.php:35
 #: libraries/replication_gui.lib.php:345 server_privileges.php:768
 msgid "No Password"
-msgstr "సంకేతపదం లేదు"
+msgstr "Dim Cyfrinair"
 
 #: libraries/display_change_password.lib.php:41
 #: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
@@ -1954,46 +1885,45 @@ msgstr "సంకేతపదం లేదు"
 #: server_privileges.php:761 server_privileges.php:772
 #: server_privileges.php:1499 server_synchronize.php:1175
 msgid "Password"
-msgstr "సంకేతపదం"
+msgstr "Cyfrinair"
 
 #: libraries/display_change_password.lib.php:46
 #: libraries/replication_gui.lib.php:353 libraries/replication_gui.lib.php:356
 #: server_privileges.php:776 server_privileges.php:779
 msgid "Re-type"
-msgstr ""
+msgstr "Ail-deipiwch"
 
 #: libraries/display_change_password.lib.php:52
 msgid "Password Hashing"
-msgstr ""
+msgstr "Stwnsio Cyfrinair"
 
 #: libraries/display_change_password.lib.php:66
 msgid "MySQL 4.0 compatible"
-msgstr ""
+msgstr "MySQL 4.0-cytûn"
 
 #: libraries/display_change_password.lib.php:72
 #: libraries/replication_gui.lib.php:360 server_privileges.php:783
 msgid "Generate Password"
-msgstr ""
+msgstr "Generadu Cyfrinair"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:363 server_privileges.php:786
 msgid "Generate"
-msgstr ""
+msgstr "Generadu"
 
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36
 msgid "Create new database"
-msgstr ""
+msgstr "Creu cronfa ddata newydd"
 
-# మొదటి అనువాదము
 #: libraries/display_create_database.lib.php:30
 msgid "Create"
-msgstr "సృష్టించు"
+msgstr "Creu"
 
 #: libraries/display_create_database.lib.php:40 server_privileges.php:74
 #: server_privileges.php:1388 server_replication.php:35
 msgid "No Privileges"
-msgstr ""
+msgstr "Dim Breintiau"
 
 #: libraries/display_create_table.lib.php:41
 msgid "Table must have at least one column."
@@ -2006,7 +1936,7 @@ msgstr ""
 
 #: libraries/display_create_table.lib.php:57
 msgid "Number of columns"
-msgstr ""
+msgstr "Nifer y colofnau"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
@@ -2019,7 +1949,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
-msgstr ""
+msgstr "Dadlwytho pob rhes"
 
 #: libraries/display_export.lib.php:125 setup/lib/messages.inc.php:82
 msgid "Save as file"
@@ -2118,7 +2048,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:137 libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
-msgstr "పాఠ్యపు దస్త్రం యొక్క ప్రాంతం"
+msgstr ""
 
 #: libraries/display_import.lib.php:148
 msgid "File uploads are not allowed on this server."
@@ -2174,7 +2104,7 @@ msgstr ""
 
 #: libraries/display_pdf_schema.lib.php:36
 msgid "Show color"
-msgstr "రంగుని చూపించు"
+msgstr ""
 
 #: libraries/display_pdf_schema.lib.php:38
 msgid "Show dimension of tables"
@@ -2194,7 +2124,7 @@ msgstr ""
 
 #: libraries/display_pdf_schema.lib.php:50
 msgid "Landscape"
-msgstr ""
+msgstr "Tirlun"
 
 #: libraries/display_pdf_schema.lib.php:51
 msgid "Portrait"
@@ -2202,12 +2132,12 @@ msgstr ""
 
 #: libraries/display_pdf_schema.lib.php:54
 msgid "Paper size"
-msgstr "కాగితపు పరిమాణం"
+msgstr "Maint papur"
 
 #: libraries/display_select_lang.lib.php:45
 #: libraries/display_select_lang.lib.php:46 setup/frames/index.inc.php:70
 msgid "Language"
-msgstr "భాష"
+msgstr "iaith"
 
 #: libraries/display_tbl.lib.php:304
 #, php-format
@@ -2220,7 +2150,7 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:316
 msgid "horizontal"
-msgstr ""
+msgstr "llorweddol"
 
 #: libraries/display_tbl.lib.php:317
 msgid "horizontal (rotated headers)"
@@ -2228,7 +2158,7 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:318
 msgid "vertical"
-msgstr ""
+msgstr "fertigol"
 
 #: libraries/display_tbl.lib.php:324
 #, php-format
@@ -2262,7 +2192,7 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:560 libraries/display_tbl.lib.php:570
 msgid "Partial Texts"
-msgstr "పాక్షిక పాఠ్యాలు"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:561 libraries/display_tbl.lib.php:574
 msgid "Full Texts"
@@ -2288,11 +2218,10 @@ msgstr ""
 msgid "Show binary contents as HEX"
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:314
 #: tbl_change.php:320
 msgid "Hide"
-msgstr "దాచు"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:607 libraries/relation.lib.php:135
 #: libraries/tbl_properties.inc.php:144 transformation_overview.php:47
@@ -2323,19 +2252,18 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:1962
 msgid "total"
-msgstr "మొత్తం"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:1970 sql.php:524
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/display_tbl.lib.php:2089 libraries/mult_submits.inc.php:113
 #: querywindow.php:125 querywindow.php:129 querywindow.php:132
 #: tbl_structure.php:25 tbl_structure.php:150 tbl_structure.php:470
 msgid "Change"
-msgstr "మార్చుము"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:2159
 msgid "Query results operations"
@@ -2401,12 +2329,11 @@ msgstr ""
 #: server_databases.php:305 server_status.php:414 server_status.php:475
 #: server_status.php:496 tbl_printview.php:351 tbl_structure.php:696
 msgid "Total"
-msgstr "మొత్తం"
+msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/engines/innodb.lib.php:197
 msgid "pages"
-msgstr "పుటలు"
+msgstr ""
 
 #: libraries/engines/innodb.lib.php:206
 msgid "Free pages"
@@ -2440,10 +2367,9 @@ msgstr ""
 msgid "Read requests"
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/engines/innodb.lib.php:260
 msgid "Write requests"
-msgstr "విన్నపములను వ్రాయుము"
+msgstr ""
 
 #: libraries/engines/innodb.lib.php:266
 msgid "Read misses"
@@ -2748,7 +2674,7 @@ msgstr ""
 #: libraries/export/latex.php:42 libraries/export/odt.php:35
 #: libraries/export/sql.php:91 tbl_relation.php:399
 msgid "Relations"
-msgstr "సంబంధాలు"
+msgstr ""
 
 #: libraries/export/latex.php:48 libraries/export/odt.php:41
 #: libraries/export/odt.php:318 libraries/export/sql.php:95
@@ -2830,10 +2756,9 @@ msgstr ""
 msgid "Enclose table and column names with backquotes"
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/export/sql.php:86
 msgid "Add into comments"
-msgstr "స్పందనలకు చేర్చు"
+msgstr ""
 
 #: libraries/export/sql.php:88
 msgid "Creation/Update/Check dates"
@@ -2869,7 +2794,7 @@ msgstr ""
 
 #: libraries/export/sql.php:122
 msgid "Export type"
-msgstr "ఎగుమతి రకం"
+msgstr ""
 
 #: libraries/export/sql.php:387
 msgid "Procedures"
@@ -2997,7 +2922,7 @@ msgstr ""
 
 #: libraries/import.lib.php:1087 libraries/import.lib.php:1111
 msgid "settings"
-msgstr "అమరికలు"
+msgstr ""
 
 #: libraries/import.lib.php:1106
 msgid "Go to table"
@@ -3100,11 +3025,9 @@ msgstr ""
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:145
-#, fuzzy
-#| msgid "No"
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr "కాదు"
+msgstr ""
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:151
@@ -3568,10 +3491,9 @@ msgstr ""
 msgid "The number of bytes written to the log file."
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/messages.inc.php:113
 msgid "The number of pages created."
-msgstr "సృష్టించబడిన పుటల సంఖ్య"
+msgstr ""
 
 #: libraries/messages.inc.php:114
 msgid ""
@@ -3579,15 +3501,13 @@ msgid ""
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/messages.inc.php:115
 msgid "The number of pages read."
-msgstr "చదివిన పుటల సంఖ్య"
+msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/messages.inc.php:116
 msgid "The number of pages written."
-msgstr "వ్రాసిన పుటల సంఖ్య"
+msgstr ""
 
 #: libraries/messages.inc.php:117
 msgid "The number of row locks currently being waited for."
@@ -3848,239 +3768,227 @@ msgstr ""
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
 msgid "Primary"
-msgstr ""
+msgstr "Cynradd"
 
 #: libraries/mult_submits.inc.php:98 libraries/tbl_properties.inc.php:116
 #: libraries/tbl_properties.inc.php:525 tbl_printview.php:326
 #: tbl_structure.php:31 tbl_structure.php:154 tbl_structure.php:158
 #: tbl_structure.php:475 tbl_structure.php:673
 msgid "Index"
-msgstr ""
+msgstr "Indecs"
 
 #: libraries/mult_submits.inc.php:108 libraries/tbl_properties.inc.php:531
 #: tbl_structure.php:35 tbl_structure.php:156 tbl_structure.php:160
 #: tbl_structure.php:478
 msgid "Fulltext"
-msgstr ""
+msgstr "Testunllawn"
 
 #: libraries/mult_submits.inc.php:435 tbl_replace.php:331
 msgid "No change"
-msgstr ""
+msgstr "Dim newid"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:107
 msgid "Charset"
-msgstr "అక్షరమాల"
+msgstr "Set nodau"
 
 #: libraries/mysql_charsets.lib.php:201 libraries/mysql_charsets.lib.php:402
 #: tbl_change.php:518
 msgid "Binary"
-msgstr ""
+msgstr "Deuaidd"
 
 #: libraries/mysql_charsets.lib.php:213
 msgid "Bulgarian"
-msgstr "బల్గేరియన్"
+msgstr "Bwlgareg"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:217 libraries/mysql_charsets.lib.php:342
 msgid "Simplified Chinese"
-msgstr "సరళ చైనీసు"
+msgstr "Tsieinëeg Syml"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:362
 msgid "Traditional Chinese"
-msgstr "సాంప్రదాయ చైనీస్"
+msgstr "Tsieinëeg Draddodiadol"
 
 #: libraries/mysql_charsets.lib.php:223 libraries/mysql_charsets.lib.php:409
 msgid "case-insensitive"
-msgstr ""
+msgstr "cas-ansensitif"
 
 #: libraries/mysql_charsets.lib.php:226 libraries/mysql_charsets.lib.php:411
 msgid "case-sensitive"
-msgstr ""
+msgstr "cas-sensitif"
 
 #: libraries/mysql_charsets.lib.php:229
 msgid "Croatian"
-msgstr "క్రొయోషియన్"
+msgstr "Croateg"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:232
 msgid "Czech"
-msgstr "ఛెక్"
+msgstr "Tsieceg"
 
 #: libraries/mysql_charsets.lib.php:235
 msgid "Danish"
-msgstr "డానిష్"
+msgstr "Daneg"
 
 #: libraries/mysql_charsets.lib.php:238
 msgid "English"
-msgstr "ఆంగ్లం"
+msgstr "Saesneg"
 
 #: libraries/mysql_charsets.lib.php:241
 msgid "Esperanto"
-msgstr ""
+msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:244
 msgid "Estonian"
-msgstr ""
+msgstr "Estoneg"
 
 #: libraries/mysql_charsets.lib.php:247 libraries/mysql_charsets.lib.php:250
 msgid "German"
-msgstr "జర్మన్"
+msgstr "Almaeneg"
 
 #: libraries/mysql_charsets.lib.php:247
 msgid "dictionary"
-msgstr "నిఘంటువు"
+msgstr "geiriadur"
 
 #: libraries/mysql_charsets.lib.php:250
 msgid "phone book"
-msgstr ""
+msgstr "llyfr ffôn"
 
 #: libraries/mysql_charsets.lib.php:253
 msgid "Hungarian"
-msgstr "హంగేరియన్"
+msgstr "Hwngareg"
 
 #: libraries/mysql_charsets.lib.php:256
 msgid "Icelandic"
-msgstr ""
+msgstr "Islandeg"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:259 libraries/mysql_charsets.lib.php:349
 msgid "Japanese"
-msgstr "జాపనీస్"
+msgstr "Siapaneg"
 
 #: libraries/mysql_charsets.lib.php:262
 msgid "Latvian"
-msgstr ""
+msgstr "Latfieg"
 
 #: libraries/mysql_charsets.lib.php:265
 msgid "Lithuanian"
-msgstr "లిథుయేనియన్"
+msgstr "Lithwaneg"
 
 #: libraries/mysql_charsets.lib.php:268 libraries/mysql_charsets.lib.php:371
 msgid "Korean"
-msgstr "కొరియన్"
+msgstr "Corëeg"
 
 #: libraries/mysql_charsets.lib.php:271
 msgid "Persian"
-msgstr "పెర్షియన్"
+msgstr "Perseg"
 
 #: libraries/mysql_charsets.lib.php:274
 msgid "Polish"
-msgstr "పోలిష్"
+msgstr "Pwyleg"
 
 #: libraries/mysql_charsets.lib.php:277 libraries/mysql_charsets.lib.php:325
 msgid "West European"
-msgstr "పశ్చిమ ఐరోపియన్"
+msgstr "Ewropeaidd Gorllewinol"
 
 #: libraries/mysql_charsets.lib.php:280
 msgid "Romanian"
-msgstr "రొమేనియన్"
+msgstr "Rwmaneg"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:283
 msgid "Slovak"
-msgstr "స్లోవాక్"
+msgstr "Slofaceg"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:286
 msgid "Slovenian"
-msgstr "స్లోవాక్ దేశరి"
+msgstr "Slofeneg"
 
 #: libraries/mysql_charsets.lib.php:289
 msgid "Spanish"
-msgstr "స్పానిష్"
+msgstr "Sbaeneg"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:292
 msgid "Traditional Spanish"
-msgstr "సాంప్రదాయ స్పానిష్"
+msgstr "Sbaeneg Draddodiadol"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:295 libraries/mysql_charsets.lib.php:392
 msgid "Swedish"
-msgstr "స్వీడీష్"
+msgstr "Swedeg"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:298 libraries/mysql_charsets.lib.php:395
 msgid "Thai"
-msgstr "థాయ్"
+msgstr "Tai"
 
 #: libraries/mysql_charsets.lib.php:301 libraries/mysql_charsets.lib.php:389
 msgid "Turkish"
-msgstr "టర్కిష్"
+msgstr "Twrceg"
 
 #: libraries/mysql_charsets.lib.php:304 libraries/mysql_charsets.lib.php:386
 msgid "Ukrainian"
-msgstr "ఉక్రేనియన్"
+msgstr "Wcreineg"
 
 #: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
 msgid "Unicode"
-msgstr "యూనికోడ్"
+msgstr "Unicode"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
 #: libraries/mysql_charsets.lib.php:325 libraries/mysql_charsets.lib.php:332
 #: libraries/mysql_charsets.lib.php:354 libraries/mysql_charsets.lib.php:365
 msgid "multilingual"
-msgstr "బహు భాషా"
+msgstr "amlieithog"
 
 #: libraries/mysql_charsets.lib.php:332
 msgid "Central European"
-msgstr ""
+msgstr "Ewropeaidd Canolog"
 
 #: libraries/mysql_charsets.lib.php:337
 msgid "Russian"
-msgstr "రష్యన్"
+msgstr "Rwseg"
 
 #: libraries/mysql_charsets.lib.php:354
 msgid "Baltic"
-msgstr ""
+msgstr "Balteg"
 
 #: libraries/mysql_charsets.lib.php:359
 msgid "Armenian"
-msgstr "ఆర్మేనియన్"
+msgstr "Armeneg"
 
 #: libraries/mysql_charsets.lib.php:365
 msgid "Cyrillic"
-msgstr ""
+msgstr "Syrilig"
 
 #: libraries/mysql_charsets.lib.php:368
 msgid "Arabic"
-msgstr "అరబిక్"
+msgstr "Arabeg"
 
 #: libraries/mysql_charsets.lib.php:374
 msgid "Hebrew"
-msgstr "హిబ్రూ"
+msgstr "Iddeweg"
 
 #: libraries/mysql_charsets.lib.php:377
 msgid "Georgian"
-msgstr ""
+msgstr "Georgeg"
 
 #: libraries/mysql_charsets.lib.php:380
 msgid "Greek"
-msgstr "గ్రీకు"
+msgstr "Groegeg"
 
-# మొదటి అనువాదము
 #: libraries/mysql_charsets.lib.php:383
 msgid "Czech-Slovak"
-msgstr "ఛెక్-స్లోవాక్"
+msgstr "Tsiec-Slofac"
 
 #: libraries/mysql_charsets.lib.php:398 libraries/mysql_charsets.lib.php:405
 msgid "unknown"
-msgstr ""
+msgstr "anhysbys"
 
 #: libraries/navigation_header.inc.php:54
 #: libraries/navigation_header.inc.php:57
 #: libraries/navigation_header.inc.php:58
 msgid "Home"
-msgstr "ముంగిలి"
+msgstr ""
 
 #: libraries/navigation_header.inc.php:67
 #: libraries/navigation_header.inc.php:70
 #: libraries/navigation_header.inc.php:71 main.php:99
 msgid "Log out"
-msgstr "నిష్క్రమించు"
+msgstr ""
 
 #: libraries/navigation_header.inc.php:80
 #: libraries/navigation_header.inc.php:83
@@ -4098,7 +4006,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:99 pmd_general.php:340
 msgid "OK"
-msgstr "సరే"
+msgstr ""
 
 #: libraries/relation.lib.php:100
 msgid "Enabled"
@@ -4127,7 +4035,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:147 querywindow.php:109 querywindow.php:217
 msgid "SQL history"
-msgstr "SQL చరిత్ర"
+msgstr ""
 
 #: libraries/relation.lib.php:159
 msgid "Quick steps to setup advanced features:"
@@ -4154,7 +4062,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:1173
 msgid "no description"
-msgstr "వివరణ లేదు"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:51
 msgid "Slave configuration"
@@ -4176,7 +4084,7 @@ msgstr ""
 #: server_privileges.php:675 server_privileges.php:682
 #: server_synchronize.php:1171
 msgid "User name"
-msgstr "వాడుకరి పేరు"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:67 server_synchronize.php:1163
 msgid "Port"
@@ -4199,7 +4107,7 @@ msgstr ""
 #: tbl_change.php:324 tbl_printview.php:370 tbl_select.php:139
 #: tbl_structure.php:729
 msgid "Value"
-msgstr "విలువ"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:173 server_binlog.php:218
 msgid "Server ID"
@@ -4215,10 +4123,9 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/replication_gui.lib.php:254 server_privileges.php:677
 msgid "Any user"
-msgstr "ఏ వాడుకరి ఐనను"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:323
 #: libraries/replication_gui.lib.php:346 server_privileges.php:678
@@ -4233,7 +4140,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:306 server_privileges.php:729
 msgid "Local"
-msgstr "స్థానిక"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:312 server_privileges.php:734
 msgid "This Host"
@@ -4303,7 +4210,7 @@ msgstr ""
 
 #: libraries/server_synchronize.lib.php:1348
 msgid "Difference"
-msgstr "తేడా"
+msgstr ""
 
 #: libraries/server_synchronize.lib.php:1367 server_synchronize.php:1112
 msgid "Target database"
@@ -4320,10 +4227,8 @@ msgid "Run SQL query/queries on database %s"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:317
-#, fuzzy
-#| msgid "Comments"
 msgid "Columns"
-msgstr "వ్యాఖ్యలు"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:352 sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
@@ -4351,7 +4256,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:462
 msgid "Submit"
-msgstr "దాఖలుచేయి"
+msgstr ""
 
 #: libraries/sql_query_form.lib.php:466
 msgid "View only"
@@ -4464,11 +4369,9 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:393
-#, fuzzy
-#| msgid "No"
 msgctxt "for default"
 msgid "None"
-msgstr "కాదు"
+msgstr ""
 
 #: libraries/tbl_properties.inc.php:394
 msgid "As defined:"
@@ -4495,21 +4398,16 @@ msgstr ""
 #: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1126 tbl_indexes.php:248
 #: tbl_relation.php:566
 msgid "Save"
-msgstr "భద్రపరచు"
+msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
-#, fuzzy, php-format
-#| msgid "Add into comments"
+#, php-format
 msgid "Add %s column(s)"
-msgstr "స్పందనలకు చేర్చు"
+msgstr ""
 
-# మొదటి అనువాదము
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
-#, fuzzy
-#| msgid "You have added a new user."
 msgid "You have to add at least one column."
-msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
+msgstr ""
 
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
@@ -4616,7 +4514,7 @@ msgstr ""
 
 #: main.php:68
 msgid "Actions"
-msgstr "చర్యలు"
+msgstr ""
 
 #: main.php:125
 msgid "MySQL connection collation"
@@ -4643,7 +4541,7 @@ msgstr ""
 #: server_privileges.php:1611 server_privileges.php:2029
 #: server_processlist.php:54
 msgid "User"
-msgstr "వాడుకరి"
+msgstr ""
 
 #: main.php:193
 msgid "MySQL charset"
@@ -4667,7 +4565,7 @@ msgstr ""
 
 #: main.php:230
 msgid "Wiki"
-msgstr "వికీ"
+msgstr ""
 
 #: main.php:233
 msgid "Official Homepage"
@@ -4752,13 +4650,10 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-# మొదటి అనువాదము
 #: navigation.php:336 navigation.php:337
-#, fuzzy
-#| msgid "Create a page"
 msgctxt "short form"
 msgid "Create table"
-msgstr "పుటని సృష్టించు"
+msgstr ""
 
 #: navigation.php:339 navigation.php:502
 msgid "Please select a database"
@@ -4773,16 +4668,13 @@ msgstr ""
 msgid "Please choose a page to edit"
 msgstr ""
 
-# మొదటి అనువాదము
 #: pdf_pages.php:304 pmd_pdf.php:114
 msgid "Create a page"
-msgstr "పుటని సృష్టించు"
+msgstr ""
 
 #: pdf_pages.php:310
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page name"
-msgstr "పుట సంఖ్య:"
+msgstr ""
 
 #: pdf_pages.php:314
 msgid "Automatic layout based on"
@@ -4790,7 +4682,7 @@ msgstr ""
 
 #: pdf_pages.php:316
 msgid "Internal relations"
-msgstr "అంతర్గత సంబంధాలు"
+msgstr ""
 
 #: pdf_pages.php:339
 msgid "Select Tables"
@@ -4838,10 +4730,9 @@ msgstr ""
 msgid "Extra"
 msgstr ""
 
-# మొదటి అనువాదము
 #: pmd_general.php:64
 msgid "Show/Hide left menu"
-msgstr "ఎడమవైపున మెనుని చూపించు/దాచు"
+msgstr ""
 
 #: pmd_general.php:68
 msgid "Save position"
@@ -4861,7 +4752,7 @@ msgstr ""
 
 #: pmd_general.php:83
 msgid "Help"
-msgstr "సహాయం"
+msgstr ""
 
 #: pmd_general.php:87
 msgid "Angular links"
@@ -4869,16 +4760,15 @@ msgstr ""
 
 #: pmd_general.php:87
 msgid "Direct links"
-msgstr "నేరు లంకెలు"
+msgstr ""
 
 #: pmd_general.php:91
 msgid "Snap to grid"
 msgstr ""
 
-# మొదటి అనువాదము
 #: pmd_general.php:95
 msgid "Small/Big All"
-msgstr "చిన్నవి / పెద్దవి అన్నియు"
+msgstr ""
 
 #: pmd_general.php:99
 msgid "Toggle small/big"
@@ -4892,10 +4782,9 @@ msgstr ""
 msgid "Move Menu"
 msgstr ""
 
-# మొదటి అనువాదము
 #: pmd_general.php:120
 msgid "Hide/Show all"
-msgstr "అన్నింటిని చూపుము/దాచుము"
+msgstr ""
 
 #: pmd_general.php:124
 msgid "Hide/Show Tables with no relation"
@@ -4920,15 +4809,13 @@ msgid ""
 "appropriate column name."
 msgstr ""
 
-# మొదటి అనువాదము
 #: pmd_pdf.php:63
 msgid "Page has been created"
-msgstr "పుటను సృష్టించడమైనది"
+msgstr ""
 
-# మొదటి అనువాదము
 #: pmd_pdf.php:65
 msgid "Page creation failed"
-msgstr "పుటని సృష్టించుటలో తప్పిదము జరిగినది"
+msgstr ""
 
 #: pmd_pdf.php:85
 msgid "Export/Import to scale"
@@ -4946,10 +4833,9 @@ msgstr ""
 msgid "Import files"
 msgstr ""
 
-# మొదటి అనువాదము
 #: querywindow.php:115
 msgid "All"
-msgstr "అన్నీ"
+msgstr ""
 
 #: server_binlog.php:120
 msgid "Select binary log to view"
@@ -4957,7 +4843,7 @@ msgstr ""
 
 #: server_binlog.php:136
 msgid "Files"
-msgstr "దస్త్రాలు"
+msgstr ""
 
 #: server_binlog.php:183 server_binlog.php:186 server_processlist.php:49
 #: server_processlist.php:51
@@ -4983,11 +4869,11 @@ msgstr ""
 
 #: server_binlog.php:219
 msgid "Original position"
-msgstr "అసలు స్థానం"
+msgstr ""
 
 #: server_binlog.php:220
 msgid "Information"
-msgstr "సమాచారం"
+msgstr ""
 
 #: server_collations.php:40
 msgid "Character Sets and Collations"
@@ -5035,11 +4921,11 @@ msgstr ""
 
 #: server_databases.php:358 server_databases.php:359
 msgid "Enable Statistics"
-msgstr "గణాంకాలని చేతనంచేయి"
+msgstr ""
 
 #: server_databases.php:362 server_databases.php:363
 msgid "Disable Statistics"
-msgstr "గణాంకాలని అచేతనంచేయి"
+msgstr ""
 
 #: server_databases.php:366
 msgid ""
@@ -5056,11 +4942,9 @@ msgid "View dump (schema) of databases"
 msgstr ""
 
 #: server_privileges.php:263 server_privileges.php:264
-#, fuzzy
-#| msgid "No"
 msgctxt "None privileges"
 msgid "None"
-msgstr "కాదు"
+msgstr ""
 
 #: server_privileges.php:392 server_privileges.php:527
 #: server_privileges.php:1679 server_privileges.php:1685
@@ -5082,7 +4966,7 @@ msgstr ""
 
 #: server_privileges.php:571
 msgid "Administration"
-msgstr "పరిపాలన"
+msgstr ""
 
 #: server_privileges.php:591
 msgid "Resource limits"
@@ -5094,7 +4978,7 @@ msgstr ""
 
 #: server_privileges.php:669
 msgid "Login Information"
-msgstr "ప్రవేశపు సమాచారం"
+msgstr ""
 
 #: server_privileges.php:763
 msgid "Do not change the password"
@@ -5109,10 +4993,9 @@ msgstr ""
 msgid "The user %s already exists!"
 msgstr ""
 
-# మొదటి అనువాదము
 #: server_privileges.php:931
 msgid "You have added a new user."
-msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
+msgstr ""
 
 #: server_privileges.php:1152
 #, php-format
@@ -5167,16 +5050,14 @@ msgstr ""
 msgid "Grant"
 msgstr ""
 
-# మొదటి అనువాదము
 #: server_privileges.php:1521 server_privileges.php:2123
 msgid "Any"
-msgstr "ఏదైనను"
+msgstr ""
 
-# మొదటి అనువాదము
 #: server_privileges.php:1570 server_privileges.php:1594
 #: server_privileges.php:1988 server_privileges.php:2177
 msgid "Add a new User"
-msgstr "క్రొత్త వినియోగదారుని చేర్చు"
+msgstr ""
 
 #: server_privileges.php:1575
 msgid "Remove selected users"
@@ -5228,10 +5109,9 @@ msgstr ""
 msgid "Create a new user with the same privileges and ..."
 msgstr ""
 
-# మొదటి అనువాదము
 #: server_privileges.php:1969
 msgid "... keep the old one."
-msgstr "... పాతదే ఉంచుము"
+msgstr ""
 
 #: server_privileges.php:1970
 msgid " ... delete the old one from the user tables."
@@ -5253,11 +5133,9 @@ msgid "Database for user"
 msgstr ""
 
 #: server_privileges.php:1998
-#, fuzzy
-#| msgid "No"
 msgctxt "Create none database for user"
 msgid "None"
-msgstr "కాదు"
+msgstr ""
 
 #: server_privileges.php:1999
 msgid "Create database with same name and grant all privileges"
@@ -5426,15 +5304,13 @@ msgstr ""
 msgid "SQL Thread %s only"
 msgstr ""
 
-# మొదటి అనువాదము
 #: server_replication.php:327 server_replication.php:328
 msgid "Start"
-msgstr "మొదలుపెట్టు"
+msgstr ""
 
-# మొదటి అనువాదము
 #: server_replication.php:327 server_replication.php:328
 msgid "Stop"
-msgstr "ఆపుము"
+msgstr ""
 
 #: server_replication.php:328
 #, php-format
@@ -5581,20 +5457,19 @@ msgstr ""
 #: server_status.php:389 server_status.php:434 server_status.php:497
 #: server_status.php:555
 msgid "per hour"
-msgstr "గంటకి"
+msgstr ""
 
 #: server_status.php:394
 msgid "Received"
 msgstr ""
 
-# మొదటి అనువాదము
 #: server_status.php:404
 msgid "Sent"
-msgstr "పంపించు"
+msgstr ""
 
 #: server_status.php:433
 msgid "Connections"
-msgstr "అనుసంధానాలు"
+msgstr ""
 
 #: server_status.php:440
 msgid "max. concurrent connections"
@@ -5617,11 +5492,11 @@ msgstr ""
 
 #: server_status.php:498
 msgid "per minute"
-msgstr "నిమిషానికి"
+msgstr ""
 
 #: server_status.php:499
 msgid "per second"
-msgstr "క్షణానికి"
+msgstr ""
 
 #: server_status.php:554
 msgid "Query type"
@@ -5722,16 +5597,13 @@ msgid "Enter manually"
 msgstr ""
 
 #: server_synchronize.php:1123
-#, fuzzy
-#| msgid "Connections"
 msgid "Current connection"
-msgstr "అనుసంధానాలు"
+msgstr ""
 
 #: server_synchronize.php:1152
-#, fuzzy, php-format
-#| msgid "Server configuration"
+#, php-format
 msgid "Configuration: %s"
-msgstr "సేవకి స్వరూపణం"
+msgstr ""
 
 #: server_synchronize.php:1167
 msgid "Socket"
@@ -5753,18 +5625,17 @@ msgstr ""
 
 #: server_variables.php:55 server_variables.php:89
 msgid "Global value"
-msgstr "సార్వత్రిక విలువ"
+msgstr ""
 
 #: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
 #: setup/lib/messages.inc.php:45
 msgid "Configuration file"
 msgstr ""
 
-# మొదటి అనువాదము
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
 #: setup/lib/messages.inc.php:65
 msgid "Download"
-msgstr "దించుకొనుము"
+msgstr ""
 
 #: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
 msgid ""
@@ -5799,16 +5670,15 @@ msgstr ""
 
 #: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
 msgid "- none -"
-msgstr "- ఏమీలేదు -"
+msgstr ""
 
 #: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
 msgid "Default server"
 msgstr ""
 
-# మొదటి అనువాదము
 #: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
 msgid "End of line"
-msgstr "వాక్యాంతము"
+msgstr ""
 
 #: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
 msgid "Display"
@@ -5865,7 +5735,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
 msgid "Warning"
-msgstr "హెచ్చరిక"
+msgstr ""
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
@@ -6155,7 +6025,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:92
 msgid "no"
-msgstr "కాదు"
+msgstr ""
 
 #: setup/lib/messages.inc.php:93
 msgid "Force secured connection while using phpMyAdmin"
@@ -6265,11 +6135,11 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:124
 msgid "Security"
-msgstr "భద్రత"
+msgstr ""
 
 #: setup/lib/messages.inc.php:125
 msgid "Basic settings"
-msgstr "ప్రాధమిక అమరికలు"
+msgstr ""
 
 #: setup/lib/messages.inc.php:126
 msgid ""
@@ -6279,7 +6149,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:127
 msgid "Server configuration"
-msgstr "సేవకి స్వరూపణం"
+msgstr ""
 
 #: setup/lib/messages.inc.php:128
 msgid "Enter server connection parameters"
@@ -6452,7 +6322,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:170
 msgid "Display logo"
-msgstr "చిహ్నాన్ని చూపించు"
+msgstr ""
 
 #: setup/lib/messages.inc.php:171
 msgid "Display server choice at the top of the left frame"
@@ -6818,7 +6688,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:261
 msgid "Connection type"
-msgstr "అనుసంధాన రకం"
+msgstr ""
 
 #: setup/lib/messages.inc.php:262
 msgid "Control user password"
@@ -7177,7 +7047,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:344
 msgid "Show statistics"
-msgstr "గణాంకాలను చూపించు"
+msgstr ""
 
 #: setup/lib/messages.inc.php:345
 msgid ""
@@ -7220,14 +7090,13 @@ msgid ""
 "possible) or keep the text field empty"
 msgstr ""
 
-# మొదటి అనువాదము
 #: setup/lib/messages.inc.php:358
 msgid "Suggest new database name"
-msgstr "క్రొత్త డేటాబేస్ పేరును సూచించుము"
+msgstr ""
 
 #: setup/lib/messages.inc.php:359
 msgid "yes"
-msgstr "అవును"
+msgstr ""
 
 #: setup/lib/messages.inc.php:360
 msgid ""
@@ -7401,19 +7270,17 @@ msgstr ""
 msgid "Show insert query"
 msgstr ""
 
-# మొదటి అనువాదము
 #: tbl_change.php:1147
 msgid "Go back to previous page"
-msgstr "మునుపటి పుటకు వెళ్ళు"
+msgstr ""
 
 #: tbl_change.php:1148
 msgid "Insert another new row"
 msgstr ""
 
-# మొదటి అనువాదము
 #: tbl_change.php:1152
 msgid "Go back to this page"
-msgstr "ఈ పుటకు తిరిగి వెళ్ళుము"
+msgstr ""
 
 #: tbl_change.php:1160
 msgid "Edit next row"
@@ -7561,10 +7428,9 @@ msgstr ""
 msgid "Partition %s"
 msgstr ""
 
-# మొదటి అనువాదము
 #: tbl_operations.php:662
 msgid "Analyze"
-msgstr "విశదీకరించు"
+msgstr ""
 
 #: tbl_operations.php:663
 msgid "Check"
@@ -7600,7 +7466,7 @@ msgstr ""
 
 #: tbl_printview.php:314 tbl_structure.php:660
 msgid "Usage"
-msgstr "వాడుక"
+msgstr ""
 
 #: tbl_printview.php:341 tbl_structure.php:687
 msgid "Effective"
@@ -7608,7 +7474,7 @@ msgstr ""
 
 #: tbl_printview.php:366 tbl_structure.php:725
 msgid "Row Statistics"
-msgstr "వరుసల గణాంకాలు"
+msgstr ""
 
 #: tbl_printview.php:369 tbl_structure.php:728
 msgid "Statements"
@@ -7636,10 +7502,8 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:405
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "అంతర్గత సంబంధాలు"
+msgstr ""
 
 #: tbl_relation.php:407
 msgid ""
@@ -7684,11 +7548,9 @@ msgid "Browse distinct values"
 msgstr ""
 
 #: tbl_structure.php:361
-#, fuzzy
-#| msgid "No"
 msgctxt "None for default"
 msgid "None"
-msgstr "కాదు"
+msgstr ""
 
 #: tbl_structure.php:374
 #, php-format
@@ -7713,12 +7575,9 @@ msgstr ""
 msgid "Propose table structure"
 msgstr ""
 
-# మొదటి అనువాదము
 #: tbl_structure.php:540
-#, fuzzy
-#| msgid "Add into comments"
 msgid "Add column"
-msgstr "స్పందనలకు చేర్చు"
+msgstr ""
 
 #: tbl_structure.php:554
 msgid "At End of Table"
@@ -7728,11 +7587,10 @@ msgstr ""
 msgid "At Beginning of Table"
 msgstr ""
 
-# మొదటి అనువాదము
 #: tbl_structure.php:556
 #, php-format
 msgid "After %s"
-msgstr "%s మార్లు తరువాత"
+msgstr ""
 
 #: tbl_structure.php:594
 #, php-format
@@ -7783,7 +7641,7 @@ msgstr ""
 
 #: tbl_tracking.php:251 tbl_tracking.php:379
 msgid "Close"
-msgstr "మూసివేయి"
+msgstr ""
 
 #: tbl_tracking.php:262
 #, php-format
@@ -7801,11 +7659,11 @@ msgstr ""
 
 #: tbl_tracking.php:410 tbl_tracking.php:461
 msgid "Date"
-msgstr "తేదీ"
+msgstr ""
 
 #: tbl_tracking.php:411 tbl_tracking.php:462
 msgid "Username"
-msgstr "వాడుకరిపేరు"
+msgstr ""
 
 #: tbl_tracking.php:412
 msgid "Data definition statement"
@@ -7904,11 +7762,9 @@ msgid "Available transformations"
 msgstr ""
 
 #: transformation_overview.php:48
-#, fuzzy
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr "వివరణ"
+msgstr ""
 
 #: user_password.php:54
 msgid "You don't have sufficient privileges to be here right now!"
@@ -7918,24 +7774,10 @@ msgstr ""
 msgid "The profile has been updated."
 msgstr ""
 
-# మొదటి అనువాదము
 #: view_create.php:142
 msgid "VIEW name"
-msgstr "నామధేయమును చూపుము"
+msgstr "Enw VIEW"
 
 #: view_operations.php:93
 msgid "Rename view to"
-msgstr ""
-
-# మొదటి అనువాదము
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "క్రొత్త ఫీల్డ్ చేర్చు"
-
-#~ msgid "and"
-#~ msgstr "మరియు"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "వివరణ"
+msgstr "Ailenwch golwg i"

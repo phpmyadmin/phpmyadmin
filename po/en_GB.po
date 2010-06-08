@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-04 16:07-0400\n"
-"PO-Revision-Date: 2010-05-25 16:41+0200\n"
+"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"PO-Revision-Date: 2010-06-04 22:01+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -19,7 +19,7 @@ msgstr ""
 msgid "Show all"
 msgstr "Show all"
 
-#: browse_foreigners.php:82 libraries/common.lib.php:2304
+#: browse_foreigners.php:82 libraries/common.lib.php:2313
 #: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:394
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
@@ -38,8 +38,8 @@ msgstr ""
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/common.lib.php:2822
-#: libraries/common.lib.php:2829 libraries/db_links.inc.php:75
+#: db_structure.php:106 libraries/common.lib.php:2831
+#: libraries/common.lib.php:2838 libraries/db_links.inc.php:75
 #: libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr "Search"
@@ -49,7 +49,7 @@ msgstr "Search"
 #: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
-#: libraries/common.lib.php:1333 libraries/common.lib.php:2279
+#: libraries/common.lib.php:1335 libraries/common.lib.php:2288
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
@@ -111,10 +111,8 @@ msgstr "Table comments"
 #: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
 #: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
-#, fuzzy
-#| msgid "Column names"
 msgid "Column"
-msgstr "Column names"
+msgstr "Column"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
 #: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
@@ -280,7 +278,7 @@ msgstr "Switch to copied database"
 msgid "BLOB Repository"
 msgstr "BLOB Repository"
 
-#: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1350
+#: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1352
 #: libraries/server_links.inc.php:49 server_processlist.php:59
 #: tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
@@ -448,16 +446,12 @@ msgid "Modify"
 msgstr "Modify"
 
 #: db_qbe.php:584
-#, fuzzy
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Add/Delete Criteria Row"
+msgstr "Add/Delete criteria rows"
 
 #: db_qbe.php:596
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Add/Delete Field Columns"
+msgstr "Add/Delete columns"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
@@ -472,7 +466,7 @@ msgstr "Use Tables"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL query on database <b>%s</b>:"
 
-#: db_qbe.php:934 libraries/common.lib.php:1223
+#: db_qbe.php:934 libraries/common.lib.php:1225
 msgid "Submit Query"
 msgstr "Submit Query"
 
@@ -511,7 +505,7 @@ msgstr "%s match(es) inside table <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/common.lib.php:2824
+#: db_structure.php:105 libraries/common.lib.php:2833
 #: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
 #: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:467
 msgid "Browse"
@@ -551,20 +545,18 @@ msgid "Inside table(s):"
 msgstr "Inside table(s):"
 
 #: db_search.php:355
-#, fuzzy
-#| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "Inside field:"
+msgstr "Inside column:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/common.lib.php:2823 libraries/sql_query_form.lib.php:334
+#: libraries/common.lib.php:2832 libraries/sql_query_form.lib.php:334
 #: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr "Insert"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
-#: libraries/common.lib.php:2820 libraries/common.lib.php:2827
+#: libraries/common.lib.php:2829 libraries/common.lib.php:2836
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
@@ -577,7 +569,7 @@ msgstr "Structure"
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
 #: db_structure.php:545 db_structure.php:546 db_tracking.php:91
-#: libraries/Index.class.php:483 libraries/common.lib.php:1654
+#: libraries/Index.class.php:483 libraries/common.lib.php:1656
 #: libraries/db_links.inc.php:100 libraries/mult_submits.inc.php:36
 #: libraries/mult_submits.inc.php:73 libraries/tbl_links.inc.php:127
 #: server_databases.php:352 tbl_structure.php:27 tbl_structure.php:151
@@ -587,7 +579,7 @@ msgstr "Drop"
 
 #: db_structure.php:86 db_structure.php:87 db_structure.php:99
 #: db_structure.php:100 db_structure.php:112 db_structure.php:113
-#: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1653
+#: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1655
 #: libraries/mult_submits.inc.php:39 libraries/tbl_links.inc.php:105
 msgid "Empty"
 msgstr "Empty"
@@ -618,11 +610,11 @@ msgstr "Tracking is not active."
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/tbl_info.inc.php:66 tbl_structure.php:185 test/theme.php:74
@@ -810,11 +802,11 @@ msgstr "Dump has been saved to file %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
 #: libraries/File.class.php:961
@@ -1000,10 +992,8 @@ msgid "Please select the primary key or a unique key"
 msgstr "Please select the primary key or a unique key"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-#, fuzzy
-#| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Choose field to display"
+msgstr "Choose column to display"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
@@ -1016,8 +1006,8 @@ msgid "Prev"
 msgstr "Prev"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:77 libraries/common.lib.php:2344
-#: libraries/common.lib.php:2347 libraries/display_tbl.lib.php:338
+#: js/messages.php:77 libraries/common.lib.php:2353
+#: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:801
 msgid "Next"
@@ -1077,63 +1067,63 @@ msgid "December"
 msgstr "December"
 
 #. l10n: Short month name
-#: js/messages.php:97 libraries/common.lib.php:1555
+#: js/messages.php:97 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:99 libraries/common.lib.php:1557
+#: js/messages.php:99 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:101 libraries/common.lib.php:1559
+#: js/messages.php:101 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:103 libraries/common.lib.php:1561
+#: js/messages.php:103 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:105 libraries/common.lib.php:1563
+#: js/messages.php:105 libraries/common.lib.php:1565
 msgctxt "Short month name"
 msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
-#: js/messages.php:107 libraries/common.lib.php:1565
+#: js/messages.php:107 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:109 libraries/common.lib.php:1567
+#: js/messages.php:109 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/common.lib.php:1569
+#: js/messages.php:111 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/common.lib.php:1571
+#: js/messages.php:113 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1573
+#: js/messages.php:115 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr "Oct"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1575
+#: js/messages.php:117 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1577
+#: js/messages.php:119 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr "Dec"
 
@@ -1166,37 +1156,37 @@ msgid "Saturday"
 msgstr "Saturday"
 
 #. l10n: Short week day name
-#: js/messages.php:132 libraries/common.lib.php:1580
+#: js/messages.php:132 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr "Sun"
 
 #. l10n: Short week day name
-#: js/messages.php:134 libraries/common.lib.php:1582
+#: js/messages.php:134 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr "Mon"
 
 #. l10n: Short week day name
-#: js/messages.php:136 libraries/common.lib.php:1584
+#: js/messages.php:136 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr "Tue"
 
 #. l10n: Short week day name
-#: js/messages.php:138 libraries/common.lib.php:1586
+#: js/messages.php:138 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr "Wed"
 
 #. l10n: Short week day name
-#: js/messages.php:140 libraries/common.lib.php:1588
+#: js/messages.php:140 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr "Thu"
 
 #. l10n: Short week day name
-#: js/messages.php:142 libraries/common.lib.php:1590
+#: js/messages.php:142 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr "Fri"
 
 #. l10n: Short week day name
-#: js/messages.php:144 libraries/common.lib.php:1592
+#: js/messages.php:144 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr "Sat"
 
@@ -1326,7 +1316,7 @@ msgid "Comment"
 msgstr "Comment"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
-#: libraries/common.lib.php:1199 libraries/display_tbl.lib.php:1117
+#: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
 #: libraries/import.lib.php:1087 libraries/import.lib.php:1111
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
@@ -1471,11 +1461,11 @@ msgstr "Welcome to %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -1699,128 +1689,128 @@ msgstr "Explain SQL"
 msgid "Skip Explain SQL"
 msgstr "Skip Explain SQL"
 
-#: libraries/common.lib.php:1212
+#: libraries/common.lib.php:1214
 msgid "Without PHP Code"
 msgstr "Without PHP Code"
 
-#: libraries/common.lib.php:1215 setup/lib/messages.inc.php:355
+#: libraries/common.lib.php:1217 setup/lib/messages.inc.php:355
 msgid "Create PHP Code"
 msgstr "Create PHP Code"
 
-#: libraries/common.lib.php:1233 server_status.php:341
+#: libraries/common.lib.php:1235 server_status.php:341
 #: setup/lib/messages.inc.php:354
 msgid "Refresh"
 msgstr "Refresh"
 
-#: libraries/common.lib.php:1242
+#: libraries/common.lib.php:1244
 msgid "Skip Validate SQL"
 msgstr "Skip Validate SQL"
 
-#: libraries/common.lib.php:1245 setup/lib/messages.inc.php:356 sql.php:518
+#: libraries/common.lib.php:1247 setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
 msgstr "Validate SQL"
 
-#: libraries/common.lib.php:1276
+#: libraries/common.lib.php:1278
 msgid "Inline edit of this query"
 msgstr "Inline edit of this query"
 
-#: libraries/common.lib.php:1278
+#: libraries/common.lib.php:1280
 msgid "Inline"
 msgstr "Inline"
 
-#: libraries/common.lib.php:1332 libraries/common.lib.php:1347
+#: libraries/common.lib.php:1334 libraries/common.lib.php:1349
 msgid "Profiling"
 msgstr "Profiling"
 
-#: libraries/common.lib.php:1351 libraries/tbl_triggers.lib.php:28
+#: libraries/common.lib.php:1353 libraries/tbl_triggers.lib.php:28
 #: server_processlist.php:58
 msgid "Time"
 msgstr "Time"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "B"
 msgstr "B"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "KiB"
 msgstr "KiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "MiB"
 msgstr "MiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "GiB"
 msgstr "GiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "TiB"
 msgstr "TiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "PiB"
 msgstr "PiB"
 
-#: libraries/common.lib.php:1379
+#: libraries/common.lib.php:1381
 msgid "EiB"
 msgstr "EiB"
 
 #. l10n: Thousands separator
-#: libraries/common.lib.php:1417
+#: libraries/common.lib.php:1419
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/common.lib.php:1419
+#: libraries/common.lib.php:1421
 msgid "."
 msgstr "."
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1596
+#: libraries/common.lib.php:1598
 #: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y at %I:%M %p"
 
-#: libraries/common.lib.php:1898
+#: libraries/common.lib.php:1907
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s days, %s hours, %s minutes and %s seconds"
 
-#: libraries/common.lib.php:2313 libraries/common.lib.php:2316
+#: libraries/common.lib.php:2322 libraries/common.lib.php:2325
 #: libraries/display_tbl.lib.php:290 server_status.php:608
 msgid "Begin"
 msgstr "Begin"
 
-#: libraries/common.lib.php:2314 libraries/common.lib.php:2317
+#: libraries/common.lib.php:2323 libraries/common.lib.php:2326
 #: libraries/display_tbl.lib.php:291 server_binlog.php:168
 #: server_binlog.php:170
 msgid "Previous"
 msgstr "Previous"
 
-#: libraries/common.lib.php:2345 libraries/common.lib.php:2348
+#: libraries/common.lib.php:2354 libraries/common.lib.php:2357
 #: libraries/display_tbl.lib.php:353
 msgid "End"
 msgstr "End"
 
-#: libraries/common.lib.php:2421
+#: libraries/common.lib.php:2430
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Jump to database &quot;%s&quot;."
 
-#: libraries/common.lib.php:2441
+#: libraries/common.lib.php:2450
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "The %s functionality is affected by a known bug, see %s"
 
-#: libraries/common.lib.php:2821 libraries/common.lib.php:2828
+#: libraries/common.lib.php:2830 libraries/common.lib.php:2837
 #: libraries/db_links.inc.php:68 libraries/export/sql.php:25
 #: libraries/import/sql.php:18 libraries/server_links.inc.php:45
 #: libraries/tbl_links.inc.php:60 querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2830 libraries/db_links.inc.php:104
+#: libraries/common.lib.php:2839 libraries/db_links.inc.php:104
 #: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
 #: view_operations.php:89
 msgid "Operations"
@@ -1977,10 +1967,8 @@ msgid "No Privileges"
 msgstr "No Privileges"
 
 #: libraries/display_create_table.lib.php:41
-#, fuzzy
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
-msgstr "Table must have at least one field."
+msgstr "Table must have at least one column."
 
 #: libraries/display_create_table.lib.php:48
 #, php-format
@@ -1988,20 +1976,17 @@ msgid "Create table on database %s"
 msgstr "Create table on database %s"
 
 #: libraries/display_create_table.lib.php:57
-#, fuzzy
-#| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Number of fields"
+msgstr "Number of columns"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Could not load export plug-ins, please check your installation!"
 
 #: libraries/display_export.lib.php:107
-#, fuzzy, php-format
-#| msgid "Dump %s row(s) starting at record # %s"
+#, php-format
 msgid "Dump %s row(s) starting at row # %s"
-msgstr "Dump %s row(s) starting at record # %s"
+msgstr "Dump %s row(s) starting at row # %s"
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
@@ -2040,12 +2025,12 @@ msgstr "table name"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 
 #: libraries/display_export.lib.php:202
 msgid "remember template"
@@ -2155,10 +2140,8 @@ msgstr ""
 "however it can break transactions."
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-#, fuzzy
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Number of records (queries) to skip from start"
+msgstr "Number of queries to skip from start"
 
 #: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
@@ -2215,10 +2198,8 @@ msgid "%d is not valid row number."
 msgstr "%d is not valid row number."
 
 #: libraries/display_tbl.lib.php:310
-#, fuzzy
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "row(s) starting from record #"
+msgstr "row(s) starting from row #"
 
 #: libraries/display_tbl.lib.php:316
 msgid "horizontal"
@@ -2275,10 +2256,8 @@ msgid "Relational key"
 msgstr "Relational key"
 
 #: libraries/display_tbl.lib.php:588
-#, fuzzy
-#| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Relational display field"
+msgstr "Relational display column"
 
 #: libraries/display_tbl.lib.php:595
 msgid "Show binary contents"
@@ -2700,24 +2679,18 @@ msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:59 libraries/import/ldi.php:40
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "Lines terminated by"
+msgstr "Columns terminated by"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:71 libraries/import/ldi.php:41
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
-msgstr "Fields enclosed by"
+msgstr "Columns enclosed by"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Fields escaped by"
+msgstr "Columns escaped by"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #: libraries/import/csv.php:79 libraries/import/ldi.php:43
@@ -2733,20 +2706,16 @@ msgid "Replace NULL by"
 msgstr "Replace NULL by"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
-#| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
-msgstr "Remove CRLF characters within fields"
+msgstr "Remove CRLF characters within columns"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
 #: libraries/export/htmlword.php:26 libraries/export/latex.php:57
 #: libraries/export/ods.php:24 libraries/export/odt.php:50
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "Put fields names in the first row"
+msgstr "Put columns names in the first row"
 
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
@@ -2881,10 +2850,8 @@ msgid "Database export options"
 msgstr "Database export options"
 
 #: libraries/export/sql.php:80
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Enclose table and field names with backquotes"
+msgstr "Enclose table and column names with backquotes"
 
 #: libraries/export/sql.php:86
 msgid "Add into comments"
@@ -3103,10 +3070,9 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Invalid format of CSV input on line %d."
 
 #: libraries/import/csv.php:312
-#, fuzzy, php-format
-#| msgid "Invalid field count in CSV input on line %d."
+#, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Invalid field count in CSV input on line %d."
+msgstr "Invalid column count in CSV input on line %d."
 
 #: libraries/import/docsql.php:29
 msgid "DocSQL"
@@ -4410,8 +4376,8 @@ msgstr ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 
-#: libraries/select_lang.lib.php:480 libraries/select_lang.lib.php:486
-#: libraries/select_lang.lib.php:492
+#: libraries/select_lang.lib.php:482 libraries/select_lang.lib.php:488
+#: libraries/select_lang.lib.php:494
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Unknown language: %1$s."
@@ -4481,10 +4447,8 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Run SQL query/queries on database %s"
 
 #: libraries/sql_query_form.lib.php:317
-#, fuzzy
-#| msgid "Column names"
 msgid "Columns"
-msgstr "Column names"
+msgstr "Columns"
 
 #: libraries/sql_query_form.lib.php:352 sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
@@ -4600,19 +4564,13 @@ msgid "Length/Values"
 msgstr "Length/Values"
 
 #: libraries/tbl_properties.inc.php:105
-#, fuzzy
-#| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"If field type is \"enum\" or \"set\", please enter the values using this "
+"If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
@@ -4690,37 +4648,28 @@ msgid "Save"
 msgstr "Save"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
-#, fuzzy, php-format
-#| msgid "Add column(s)"
+#, php-format
 msgid "Add %s column(s)"
-msgstr "Add column(s)"
+msgstr "Add %s column(s)"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
-#, fuzzy
-#| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "You have to add at least one field."
+msgstr "You have to add at least one column."
 
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
 msgstr "Event"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "Displays a link to download the binary data of the field. You can use the "
-#| "first option to specify the filename, or use the second option as the "
-#| "name of a field which contains the filename. If you use the second "
-#| "option, you need to set the first option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Displays a link to download the binary data of the field. You can use the "
+"Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
+"of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:10
@@ -4745,16 +4694,6 @@ msgid "Displays a link to download this image."
 msgstr "Displays a link to download this image."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-#| "formatted date. The first option is the offset (in hours) which will be "
-#| "added to the timestamp (Default: 0). Use second option to specify a "
-#| "different date/time format string. Third option determines whether you "
-#| "want to see local date or UTC one (use \"local\" or \"utc\" strings) for "
-#| "that. According to that, date format has different value - for \"local\" "
-#| "see the documentation for PHP's strftime() function and for \"utc\" it is "
-#| "done using gmdate() function."
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -4765,7 +4704,7 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
 "added to the timestamp (Default: 0). Use second option to specify a "
 "different date/time format string. Third option determines whether you want "
@@ -4775,18 +4714,6 @@ msgstr ""
 "gmdate() function."
 
 #: libraries/transformations/text_plain__external.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -4799,10 +4726,10 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
-"LINUX ONLY: Launches an external application and feeds it the field data via "
-"standard input. Returns the standard output of the application. The default "
-"is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
+"LINUX ONLY: Launches an external application and feeds it the column data "
+"via standard input. Returns the standard output of the application. The "
+"default is Tidy, to pretty-print HTML code. For security reasons, you have "
+"to manually edit the file libraries/transformations/text_plain__external.inc."
 "php and list the tools you want to make available. The first option is then "
 "the number of the program you want to use and the second option is the "
 "parameters for the program. The third option, if set to 1, will convert the "
@@ -4811,44 +4738,30 @@ msgstr ""
 "(Default 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+"Displays the contents of the column as-is, without running it through "
+"htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "Displays an image and a link; the field contains the filename. The first "
-#| "option is a URL prefix like \"http://www.example.com/\". The second and "
-#| "third options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Displays an image and a link; the field contains the filename. The first "
+"Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#, fuzzy
-#| msgid ""
-#| "Displays a link; the field contains the filename. The first option is a "
-#| "URL prefix like \"http://www.example.com/\". The second option is a title "
-#| "for the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Displays a link; the field contains the filename. The first option is a URL "
+"Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 
@@ -5073,16 +4986,12 @@ msgid "Create a page"
 msgstr "Create a page"
 
 #: pdf_pages.php:310
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page name"
-msgstr "Page number:"
+msgstr "Page name"
 
 #: pdf_pages.php:314
-#, fuzzy
-#| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Automatic layout"
+msgstr "Automatic layout based on"
 
 #: pdf_pages.php:316
 msgid "Internal relations"
@@ -5209,19 +5118,14 @@ msgid "To select relation, click :"
 msgstr "To select relation, click :"
 
 #: pmd_help.php:29
-#, fuzzy
-#| msgid ""
-#| "The display field is shown in pink. To set/unset a field as the display "
-#| "field, click the \"Choose field to display\" icon, then click on the "
-#| "appropriate field name."
 msgid ""
 "The display column is shown in pink. To set/unset a column as the display "
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"The display field is shown in pink. To set/unset a field as the display "
-"field, click the \"Choose field to display\" icon, then click on the "
-"appropriate field name."
+"The display column is shown in pink. To set/unset a column as the display "
+"column, click the \"Choose column to display\" icon, then click on the "
+"appropriate column name."
 
 #: pmd_pdf.php:63
 msgid "Page has been created"
@@ -5494,13 +5398,13 @@ msgstr "Drop the databases that have the same names as the users."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 
 #: server_privileges.php:1645
 msgid "The selected user was not found in the privilege table."
@@ -6311,25 +6215,18 @@ msgstr ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 
 #: setup/lib/messages.inc.php:35
-#, fuzzy
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in fields"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
-"fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
-"kbd] - allows newlines in fields"
+"columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
+"kbd] - allows newlines in columns"
 
 #: setup/lib/messages.inc.php:36
-#, fuzzy
-#| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
-msgstr "CHAR fields editing"
+msgstr "CHAR columns editing"
 
 #: setup/lib/messages.inc.php:37
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -7053,15 +6950,11 @@ msgid "GZip output buffering"
 msgstr "GZip output buffering"
 
 #: setup/lib/messages.inc.php:217
-#, fuzzy
-#| msgid ""
-#| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
-#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
+"[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 
 #: setup/lib/messages.inc.php:218
@@ -7081,16 +6974,12 @@ msgid "Iconic table operations"
 msgstr "Iconic table operations"
 
 #: setup/lib/messages.inc.php:224
-#, fuzzy
-#| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Disallow BLOB and BINARY fields from editing"
+msgstr "Disallow BLOB and BINARY columns from editing"
 
 #: setup/lib/messages.inc.php:225
-#, fuzzy
-#| msgid "Protect binary fields"
 msgid "Protect binary columns"
-msgstr "Protect binary fields"
+msgstr "Protect binary columns"
 
 #: setup/lib/messages.inc.php:226
 msgid ""
@@ -7554,22 +7443,16 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF schema: table coordinates"
 
 #: setup/lib/messages.inc.php:320
-#, fuzzy
-#| msgid ""
-#| "Table to describe the display fields, leave blank for no support; "
-#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Table to describe the display fields, leave blank for no support; suggested: "
-"[kbd]pma_table_info[/kbd]"
+"Table to describe the display columns, leave blank for no support; "
+"suggested: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-#, fuzzy
-#| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Display fields table"
+msgstr "Display columns table"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
@@ -7600,12 +7483,9 @@ msgid "Verbose name of this server"
 msgstr "Verbose name of this server"
 
 #: setup/lib/messages.inc.php:329
-#, fuzzy
-#| msgid ""
-#| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Whether a user should be displayed a &quot;show all (records)&quot; button"
+"Whether a user should be displayed a &quot;show all (rows)&quot; button"
 
 #: setup/lib/messages.inc.php:330
 msgid "Allow to display all the rows"
@@ -7897,10 +7777,8 @@ msgid "Ignore"
 msgstr "Ignore"
 
 #: tbl_change.php:728
-#, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Because of its length,<br /> this field might not be editable "
+msgstr " Because of its length,<br /> this column might not be editable "
 
 #: tbl_change.php:888
 msgid "Remove BLOB Repository Reference"
@@ -8188,10 +8066,8 @@ msgid "Operator"
 msgstr "Operator"
 
 #: tbl_select.php:270
-#, fuzzy
-#| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Select fields (at least one):"
+msgstr "Select columns (at least one):"
 
 #: tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -8215,10 +8091,9 @@ msgid "None"
 msgstr "None"
 
 #: tbl_structure.php:374
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#, php-format
 msgid "Column %s has been dropped"
-msgstr "Table %s has been dropped"
+msgstr "Column %s has been dropped"
 
 #: tbl_structure.php:385
 #, php-format
@@ -8239,10 +8114,8 @@ msgid "Propose table structure"
 msgstr "Propose table structure"
 
 #: tbl_structure.php:540
-#, fuzzy
-#| msgid "Add column(s)"
 msgid "Add column"
-msgstr "Add column(s)"
+msgstr "Add column"
 
 #: tbl_structure.php:554
 msgid "At End of Table"
