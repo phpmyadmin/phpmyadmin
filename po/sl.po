@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 10:41+0200\n"
-"PO-Revision-Date: 2010-06-06 22:21+0200\n"
+"PO-Revision-Date: 2010-06-08 13:43+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -5201,10 +5201,9 @@ msgid "Jump to database"
 msgstr "Pojdi v zbirko podatkov"
 
 #: server_databases.php:267
-#, fuzzy
 #| msgid "Master replication"
 msgid "Not replicated"
-msgstr "Podvojevanje glavnega strežnika"
+msgstr "Ni podvojeno"
 
 #: server_databases.php:273
 #, fuzzy
