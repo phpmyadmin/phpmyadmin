@@ -1482,7 +1482,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Log in"
-msgstr ""
+msgstr "Mewngofnodwch"
 
 #: libraries/auth/cookie.auth.lib.php:246
 #: libraries/auth/cookie.auth.lib.php:248
@@ -4116,26 +4116,26 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:103
 msgid "Master status"
-msgstr ""
+msgstr "Statws y meistr"
 
 #: libraries/replication_gui.lib.php:105
 msgid "Slave status"
-msgstr ""
+msgstr "Statws y caeth"
 
 #: libraries/replication_gui.lib.php:114 libraries/sql_query_form.lib.php:445
 #: server_status.php:626 server_variables.php:52
 msgid "Variable"
-msgstr ""
+msgstr "Newidyn"
 
 #: libraries/replication_gui.lib.php:115 server_status.php:627
 #: tbl_change.php:324 tbl_printview.php:370 tbl_select.php:139
 #: tbl_structure.php:729
 msgid "Value"
-msgstr ""
+msgstr "Gwerth"
 
 #: libraries/replication_gui.lib.php:173 server_binlog.php:218
 msgid "Server ID"
-msgstr ""
+msgstr "ID y Gweinydd"
 
 #: libraries/replication_gui.lib.php:192
 msgid ""
@@ -4149,30 +4149,30 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:254 server_privileges.php:677
 msgid "Any user"
-msgstr ""
+msgstr "Unrhyw ddefnyddiwr"
 
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:323
 #: libraries/replication_gui.lib.php:346 server_privileges.php:678
 #: server_privileges.php:745 server_privileges.php:769
 #: server_privileges.php:1889 server_privileges.php:1919
 msgid "Use text field"
-msgstr ""
+msgstr "Defnyddiwch faes testun"
 
 #: libraries/replication_gui.lib.php:302 server_privileges.php:725
 msgid "Any host"
-msgstr ""
+msgstr "Unrhyw westeiwr"
 
 #: libraries/replication_gui.lib.php:306 server_privileges.php:729
 msgid "Local"
-msgstr ""
+msgstr "Lleol"
 
 #: libraries/replication_gui.lib.php:312 server_privileges.php:734
 msgid "This Host"
-msgstr ""
+msgstr "Y Gwesteiwr Hwn"
 
 #: libraries/replication_gui.lib.php:318 server_privileges.php:740
 msgid "Use Host Table"
-msgstr ""
+msgstr "Defnyddiwch Dabl Gwesteiwyr"
 
 #: libraries/replication_gui.lib.php:331 server_privileges.php:753
 msgid ""
@@ -4182,63 +4182,67 @@ msgstr ""
 
 #: libraries/select_lang.lib.php:482 libraries/select_lang.lib.php:488
 #: libraries/select_lang.lib.php:494
+#: libraries/select_lang.lib.php:480
+#: libraries/select_lang.lib.php:486
+#: libraries/select_lang.lib.php:492
 #, php-format
+#, possible-php-format
 msgid "Unknown language: %1$s."
-msgstr ""
+msgstr "Iaith anhysbys: %1$s."
 
 #: libraries/select_server.lib.php:45 setup/frames/index.inc.php:97
 #: setup/lib/messages.inc.php:115
 msgid "Servers"
-msgstr ""
+msgstr "Gweinyddion"
 
 #: libraries/server_links.inc.php:53 server_engines.php:112
 #: server_engines.php:116 server_status.php:304 test/theme.php:105
 msgid "Variables"
-msgstr ""
+msgstr "Newidynnau"
 
 #: libraries/server_links.inc.php:57 test/theme.php:109
 msgid "Charsets"
-msgstr ""
+msgstr "Setiau nod"
 
 #: libraries/server_links.inc.php:61 test/theme.php:113
 msgid "Engines"
-msgstr ""
+msgstr "Peiriannau"
 
 #: libraries/server_links.inc.php:76 server_binlog.php:110
 #: server_status.php:253 test/theme.php:121
 msgid "Binary log"
-msgstr ""
+msgstr "Log deuaidd"
 
 #: libraries/server_links.inc.php:80
 msgid "Processes"
-msgstr ""
+msgstr "Prosesau"
 
 #: libraries/server_links.inc.php:92 server_synchronize.php:1092
 #: server_synchronize.php:1100
 msgid "Synchronize"
-msgstr ""
+msgstr "Cydamseru"
 
 #: libraries/server_synchronize.lib.php:1341 server_synchronize.php:1110
 msgid "Source database"
-msgstr ""
+msgstr "Cronfa ddata ffynhonnell"
 
 #: libraries/server_synchronize.lib.php:1343
 #: libraries/server_synchronize.lib.php:1369
 msgid "Current server"
-msgstr ""
+msgstr "Gweinydd cyfredol"
 
 #: libraries/server_synchronize.lib.php:1345
 #: libraries/server_synchronize.lib.php:1371
 msgid "Remote server"
-msgstr ""
+msgstr "Gweinydd pell"
 
 #: libraries/server_synchronize.lib.php:1348
 msgid "Difference"
-msgstr ""
+msgstr "Gwahaniaeth"
 
 #: libraries/server_synchronize.lib.php:1367 server_synchronize.php:1112
 msgid "Target database"
-msgstr ""
+msgstr "Cronfa ddata targed"
 
 #: libraries/sql_query_form.lib.php:223
 #, php-format
@@ -4252,11 +4256,11 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:317
 msgid "Columns"
-msgstr ""
+msgstr "Colofnau"
 
 #: libraries/sql_query_form.lib.php:352 sql.php:665 sql.php:666 sql.php:683
 msgid "Bookmark this SQL query"
-msgstr ""
+msgstr "Clustnodwch yr ymholiad SQL hwn"
 
 #: libraries/sql_query_form.lib.php:359 sql.php:677
 msgid "Let every user access this bookmark"
@@ -4272,19 +4276,19 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:388
 msgid "Delimiter"
-msgstr ""
+msgstr "Cyfyngydd"
 
 #: libraries/sql_query_form.lib.php:396
 msgid " Show this query here again "
-msgstr ""
+msgstr " Dangoswch  yr ymholiad hwn yma eto"
 
 #: libraries/sql_query_form.lib.php:462
 msgid "Submit"
-msgstr ""
+msgstr "Gyrru"
 
 #: libraries/sql_query_form.lib.php:466
 msgid "View only"
-msgstr ""
+msgstr "Dangos yn unig"
 
 #: libraries/sqlparser.lib.php:137
 msgid ""
@@ -4307,19 +4311,19 @@ msgstr ""
 
 #: libraries/sqlparser.lib.php:175
 msgid "BEGIN CUT"
-msgstr ""
+msgstr "BEGIN CUT"
 
 #: libraries/sqlparser.lib.php:177
 msgid "END CUT"
-msgstr ""
+msgstr "END CUT"
 
 #: libraries/sqlparser.lib.php:179
 msgid "BEGIN RAW"
-msgstr ""
+msgstr "BEGIN RAW"
 
 #: libraries/sqlparser.lib.php:183
 msgid "END RAW"
-msgstr ""
+msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:344
 msgid "Unclosed quote"
@@ -4395,11 +4399,11 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:393
 msgctxt "for default"
 msgid "None"
-msgstr ""
+msgstr "Dim"
 
 #: libraries/tbl_properties.inc.php:394
 msgid "As defined:"
-msgstr ""
+msgstr "Fel a ddiffiniwyd:"
 
 #: libraries/tbl_properties.inc.php:580 transformation_overview.php:58
 #, php-format
@@ -4411,31 +4415,32 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:726 server_engines.php:58
 #: tbl_operations.php:355
 msgid "Storage Engine"
-msgstr ""
+msgstr "Peiriant Storio"
 
 #: libraries/tbl_properties.inc.php:755
 msgid "PARTITION definition"
-msgstr ""
+msgstr "Diffiniad PARTITION"
 
 #: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
 #: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1126 tbl_indexes.php:248
 #: tbl_relation.php:566
 msgid "Save"
-msgstr ""
+msgstr "Cadw"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
 #, php-format
+#, possible-php-format
 msgid "Add %s column(s)"
-msgstr ""
+msgstr "Ychwanegwch %s colofn"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
 msgid "You have to add at least one column."
-msgstr ""
+msgstr "Rydych chi wedi ychwanegu o leiaf un golofn."
 
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
-msgstr ""
+msgstr "Digwyddiad"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -4460,7 +4465,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
-msgstr ""
+msgstr "Mae'n dangos dolen er mwyn lawrlwytho'r ddelwedd hon."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
@@ -4538,62 +4543,62 @@ msgstr ""
 
 #: main.php:68
 msgid "Actions"
-msgstr ""
+msgstr "Gweithredoedd"
 
 #: main.php:125
 msgid "MySQL connection collation"
-msgstr ""
+msgstr "Coladiad cysylltiad MySQL"
 
 #: main.php:139
 msgid "Interface"
-msgstr ""
+msgstr "Rhyngwyneb"
 
 #: main.php:159
 msgid "Custom color"
-msgstr ""
+msgstr "Lliw cwstwm"
 
 #: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
 #: tbl_change.php:1175
 msgid "Reset"
-msgstr ""
+msgstr "Ailosod"
 
 #: main.php:187
 msgid "Protocol version"
-msgstr ""
+msgstr "Fersiwn protocol"
 
 #: main.php:189 server_privileges.php:1350 server_privileges.php:1497
 #: server_privileges.php:1611 server_privileges.php:2029
 #: server_processlist.php:54
 msgid "User"
-msgstr ""
+msgstr "Defnyddiwr"
 
 #: main.php:193
 msgid "MySQL charset"
-msgstr ""
+msgstr "Set nodau MySQL"
 
 #: main.php:205
 msgid "Web server"
-msgstr ""
+msgstr "Gweinydd gwe"
 
 #: main.php:211
 msgid "MySQL client version"
-msgstr ""
+msgstr "Fersiwn cleient MySQL"
 
 #: main.php:213
 msgid "PHP extension"
-msgstr ""
+msgstr "Estyniad PHP"
 
 #: main.php:219
 msgid "Show PHP information"
-msgstr ""
+msgstr "Dangos gwybodaeth PHP"
 
 #: main.php:230
 msgid "Wiki"
-msgstr ""
+msgstr "Wici"
 
 #: main.php:233
 msgid "Official Homepage"
-msgstr ""
+msgstr "Hafan Swyddogol"
 
 #: main.php:266
 msgid ""
@@ -4663,30 +4668,31 @@ msgstr ""
 
 #: navigation.php:210 server_databases.php:371 server_synchronize.php:1191
 msgid "No databases"
-msgstr ""
+msgstr "Dim cronfeydd data"
 
 #: navigation.php:304
 msgid "Filter"
-msgstr ""
+msgstr "Hidlydd"
 
 #: navigation.php:305 setup/frames/index.inc.php:218
 #: setup/lib/messages.inc.php:42
 msgid "Clear"
-msgstr ""
+msgstr "Clirio"
 
 #: navigation.php:336 navigation.php:337
 msgctxt "short form"
 msgid "Create table"
-msgstr ""
+msgstr "Crëwch dabl"
 
 #: navigation.php:339 navigation.php:502
 msgid "Please select a database"
-msgstr ""
+msgstr "Dewiswch gronfa ddata"
 
 #: pdf_pages.php:41 pdf_pages.php:47 pdf_pages.php:53 pdf_pages.php:58
 #, php-format
+#, possible-php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr ""
+msgstr "Tabl <b>%s</b> heb ei ddarganfod neu heb ei osod mewn %s"
 
 #: pdf_pages.php:266
 msgid "Please choose a page to edit"
@@ -4694,11 +4700,11 @@ msgstr ""
 
 #: pdf_pages.php:304 pmd_pdf.php:114
 msgid "Create a page"
-msgstr ""
+msgstr "Crëwch dudalen"
 
 #: pdf_pages.php:310
 msgid "Page name"
-msgstr ""
+msgstr "Enw'r dudalen"
 
 #: pdf_pages.php:314
 msgid "Automatic layout based on"
@@ -4706,11 +4712,11 @@ msgstr ""
 
 #: pdf_pages.php:316
 msgid "Internal relations"
-msgstr ""
+msgstr "Perthnasau mewnol"
 
 #: pdf_pages.php:339
 msgid "Select Tables"
-msgstr ""
+msgstr "Dewis Tablau"
 
 #: pdf_pages.php:362
 msgid "Toggle scratchboard"
@@ -4739,20 +4745,20 @@ msgstr ""
 
 #: pdf_schema.php:1013
 msgid "No tables"
-msgstr ""
+msgstr "Dim tablau"
 
 #: pdf_schema.php:1032 pdf_schema.php:1141
 msgid "Relational schema"
-msgstr ""
+msgstr "Sgema perthynol"
 
 #: pdf_schema.php:1116
 msgid "Table of contents"
-msgstr ""
+msgstr "Tabl cynnwys"
 
 #: pdf_schema.php:1267 pdf_schema.php:1288 tbl_printview.php:147
 #: tbl_structure.php:183 tbl_tracking.php:278
 msgid "Extra"
-msgstr ""
+msgstr "Ychwanegol"
 
 #: pmd_general.php:64
 msgid "Show/Hide left menu"
@@ -4760,35 +4766,35 @@ msgstr ""
 
 #: pmd_general.php:68
 msgid "Save position"
-msgstr ""
+msgstr "Cadw safle"
 
 #: pmd_general.php:71 server_synchronize.php:429 server_synchronize.php:872
 msgid "Create table"
-msgstr ""
+msgstr "Crëwch dabl"
 
 #: pmd_general.php:74 pmd_general.php:306
 msgid "Create relation"
-msgstr ""
+msgstr "Crëwch berthynas"
 
 #: pmd_general.php:80
 msgid "Reload"
-msgstr ""
+msgstr "Ail-lwytho"
 
 #: pmd_general.php:83
 msgid "Help"
-msgstr ""
+msgstr "Cymorth"
 
 #: pmd_general.php:87
 msgid "Angular links"
-msgstr ""
+msgstr "Cysylltiadau onglog"
 
 #: pmd_general.php:87
 msgid "Direct links"
-msgstr ""
+msgstr "Cysylltiadau uniongyrchol"
 
 #: pmd_general.php:91
 msgid "Snap to grid"
-msgstr ""
+msgstr "Snap i'r grid"
 
 #: pmd_general.php:95
 msgid "Small/Big All"
@@ -4808,19 +4814,19 @@ msgstr ""
 
 #: pmd_general.php:120
 msgid "Hide/Show all"
-msgstr ""
+msgstr "Cuddio/Dangos pob"
 
 #: pmd_general.php:124
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "Cuddio/Dangos Tablau heb berthynas"
 
 #: pmd_general.php:164
 msgid "Number of tables"
-msgstr ""
+msgstr "Nifer y tablau"
 
 #: pmd_general.php:372
 msgid "Delete relation"
-msgstr ""
+msgstr "Dilëwch berthynas"
 
 #: pmd_help.php:27
 msgid "To select relation, click :"
@@ -4855,11 +4861,11 @@ msgstr ""
 
 #: querywindow.php:104
 msgid "Import files"
-msgstr ""
+msgstr "Mewnforiwch ffeiliau"
 
 #: querywindow.php:115
 msgid "All"
-msgstr ""
+msgstr "Pob"
 
 #: server_binlog.php:120
 msgid "Select binary log to view"
@@ -4867,7 +4873,7 @@ msgstr ""
 
 #: server_binlog.php:136
 msgid "Files"
-msgstr ""
+msgstr "Ffeiliau"
 
 #: server_binlog.php:183 server_binlog.php:186 server_processlist.php:49
 #: server_processlist.php:51
@@ -4881,31 +4887,31 @@ msgstr ""
 
 #: server_binlog.php:215
 msgid "Log name"
-msgstr ""
+msgstr "Enw'r log"
 
 #: server_binlog.php:216
 msgid "Position"
-msgstr ""
+msgstr "Safle"
 
 #: server_binlog.php:217
 msgid "Event type"
-msgstr ""
+msgstr "Math y digwyddiad"
 
 #: server_binlog.php:219
 msgid "Original position"
-msgstr ""
+msgstr "Safle gwreiddiol"
 
 #: server_binlog.php:220
 msgid "Information"
-msgstr ""
+msgstr "Gwybodaeth"
 
 #: server_collations.php:40
 msgid "Character Sets and Collations"
-msgstr ""
+msgstr "Setiau nod a Choladiadau"
 
 #: server_databases.php:52
 msgid "No databases selected."
-msgstr ""
+msgstr "Dim cronfeydd data wedi'u dewis."
 
 #: server_databases.php:63
 #, php-format
@@ -4914,12 +4920,12 @@ msgstr ""
 
 #: server_databases.php:88
 msgid "Databases statistics"
-msgstr ""
+msgstr "Ystadegau cronfeydd data"
 
 #: server_databases.php:117 server_status.php:260
 #: setup/lib/messages.inc.php:117
 msgid "Tables"
-msgstr ""
+msgstr "Tablau"
 
 #: server_databases.php:195 server_replication.php:181
 #: server_replication.php:209
@@ -4932,7 +4938,7 @@ msgstr ""
 
 #: server_databases.php:230
 msgid "Jump to database"
-msgstr ""
+msgstr "Neidiwch i'r gronfa ddata"
 
 #: server_databases.php:289
 #, php-format
@@ -4941,15 +4947,15 @@ msgstr ""
 
 #: server_databases.php:293 server_databases.php:294
 msgid "Check Privileges"
-msgstr ""
+msgstr "Gwirio Breintiau"
 
 #: server_databases.php:358 server_databases.php:359
 msgid "Enable Statistics"
-msgstr ""
+msgstr "Galluogi Ystadegau"
 
 #: server_databases.php:362 server_databases.php:363
 msgid "Disable Statistics"
-msgstr ""
+msgstr "Analluogi Ystadegau"
 
 #: server_databases.php:366
 msgid ""
@@ -4959,16 +4965,16 @@ msgstr ""
 
 #: server_engines.php:49
 msgid "Storage Engines"
-msgstr ""
+msgstr "Peiriannau Storio"
 
 #: server_export.php:21
 msgid "View dump (schema) of databases"
-msgstr ""
+msgstr "Gwylio dadlwythiad (sgema) cronfeydd data"
 
 #: server_privileges.php:263 server_privileges.php:264
 msgctxt "None privileges"
 msgid "None"
-msgstr ""
+msgstr "Dim"
 
 #: server_privileges.php:392 server_privileges.php:527
 #: server_privileges.php:1679 server_privileges.php:1685
