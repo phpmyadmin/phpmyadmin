@@ -472,9 +472,27 @@ _bindtextdomain('phpmyadmin', $GLOBALS['lang_path']);
 _bind_textdomain_codeset('phpmyadmin', 'UTF-8');
 _textdomain('phpmyadmin');
 
+/**
+ * Messages for phpMyAdmin.
+ *
+ * These messages are here for easy transition to Gettext. 
+ * You should not add any messages here, use instead gettext directly 
+ * in your template/PHP file.
+ */
 
-// Load messages
-require_once './libraries/messages.inc.php';
+if (! function_exists('__')) {
+    die('Bad invocation!');
+}
+
+/* We use only utf-8 */
+$charset = 'utf-8';
+
+/* l10n: Text direction, use either ltr or rtl */
+$text_dir = __('ltr');
+
+$strLatexContent = __('Content of table __TABLE__');
+$strLatexContinued = __('(continued)');
+$strLatexStructure = __('Structure of table __TABLE__');
 
 // now, that we have loaded the language strings we can send the errors
 if ($GLOBALS['lang_failed_cfg']) {
