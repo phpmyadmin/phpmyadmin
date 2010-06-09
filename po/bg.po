@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-09 10:35+0200\n"
+"PO-Revision-Date: 2010-06-09 10:37+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2000,7 +2000,7 @@ msgstr "Отново"
 
 #: libraries/display_change_password.lib.php:52
 msgid "Password Hashing"
-msgstr ""
+msgstr "Хеширане на паролата"
 
 #: libraries/display_change_password.lib.php:66
 #, fuzzy
