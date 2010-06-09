@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-09 10:34+0200\n"
+"PO-Revision-Date: 2010-06-09 10:35+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -4067,7 +4067,7 @@ msgstr ""
 
 #: main.php:159
 msgid "Custom color"
-msgstr ""
+msgstr "Потребителски зададен цвят"
 
 #: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
 #: tbl_change.php:1175
