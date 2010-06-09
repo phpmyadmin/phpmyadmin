@@ -5944,11 +5944,11 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:56
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Tab a ddengys wrth fyned i dabl"
 
 #: setup/lib/messages.inc.php:57
 msgid "Default table tab"
-msgstr ""
+msgstr "Tab tabl diofyn"
 
 #: setup/lib/messages.inc.php:58
 msgid ""
@@ -5962,7 +5962,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:60
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Dangos cronfeydd data fel rhestr"
 
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
@@ -5970,11 +5970,11 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Dangos gweinyddion fel rhestr"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Methu â chysylltu i'r gweinydd MySQL"
 
 #: setup/lib/messages.inc.php:68
 msgid "Empty phpMyAdmin control user password while using pmadb"
@@ -6007,20 +6007,21 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:75
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Nid yn rhif porth ddilys"
 
 #: setup/lib/messages.inc.php:77
 #, php-format
+#, possible-php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "Data ar goll ar gyfer %s"
 
 #: setup/lib/messages.inc.php:78
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "Nid yn rhif annegyddol"
 
 #: setup/lib/messages.inc.php:79
 msgid "Not a positive number"
-msgstr ""
+msgstr "Nid yn rhif bositif"
 
 #: setup/lib/messages.inc.php:80
 msgid ""
@@ -6034,31 +6035,31 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:83
 msgid "Character set of the file"
-msgstr ""
+msgstr "Set nodau y ffeil"
 
 #: setup/lib/messages.inc.php:85
 msgid "Database name template"
-msgstr ""
+msgstr "Templed enw cronfa ddata"
 
 #: setup/lib/messages.inc.php:86
 msgid "Server name template"
-msgstr ""
+msgstr "Templed enw gweinydd"
 
 #: setup/lib/messages.inc.php:87
 msgid "Table name template"
-msgstr ""
+msgstr "Templed enw tabl"
 
 #: setup/lib/messages.inc.php:89
 msgid "Save on server"
-msgstr ""
+msgstr "Cadw ar y gweinydd"
 
 #: setup/lib/messages.inc.php:91
 msgid "Remember file name template"
-msgstr ""
+msgstr "Cofio templed enw ffeil"
 
 #: setup/lib/messages.inc.php:92
 msgid "no"
-msgstr ""
+msgstr "na"
 
 #: setup/lib/messages.inc.php:93
 msgid "Force secured connection while using phpMyAdmin"
@@ -7733,42 +7734,45 @@ msgstr ""
 
 #: tbl_tracking.php:593
 msgid "Version"
-msgstr ""
+msgstr "Fersiwn"
 
 #: tbl_tracking.php:640
 #, php-format
+#, possible-php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Dadweithredwch dracio am  %s.%s"
 
 #: tbl_tracking.php:642
 msgid "Deactivate now"
-msgstr ""
+msgstr "Dadweithredwch nawr"
 
 #: tbl_tracking.php:653
 #, php-format
+#, possible-php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "Gweithredwch dracio am  %s.%s"
 
 #: tbl_tracking.php:655
 msgid "Activate now"
-msgstr ""
+msgstr "Gweithredwch nawr"
 
 #: tbl_tracking.php:668
 #, php-format
+#, possible-php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Crëwch fersiwn %s o %s.%s"
 
 #: tbl_tracking.php:672
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Traciwch y datganiadau diffiniad data hyn:"
 
 #: tbl_tracking.php:680
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Traciwch y datganiadau trin data hyn:"
 
 #: tbl_tracking.php:688
 msgid "Create version"
-msgstr ""
+msgstr "Crëwch fersiwn"
 
 #: themes.php:32
 #, php-format
@@ -7779,11 +7783,11 @@ msgstr ""
 
 #: themes.php:42
 msgid "Get more themes!"
-msgstr ""
+msgstr "Cael gafael ar mwy o themâu"
 
 #: transformation_overview.php:25
 msgid "Available MIME types"
-msgstr ""
+msgstr "Mathau MIME ar gael"
 
 #: transformation_overview.php:38
 msgid ""
@@ -7797,7 +7801,7 @@ msgstr ""
 #: transformation_overview.php:48
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr ""
+msgstr "Disgrifiad"
 
 #: user_password.php:54
 msgid "You don't have sufficient privileges to be here right now!"
