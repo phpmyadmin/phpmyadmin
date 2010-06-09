@@ -68,11 +68,6 @@ if (! empty($sql_query)) {
 echo PMA_pluginGetJavascript($export_list);
 ?>
 
-<div class="exportoptions" id="format">
-    <h3>Format:</h3>
-    <?php echo PMA_pluginGetChoice('Export', 'what', $export_list, 'format'); ?>
-</div>
-
 <div class="exportoptions" id="databases_and_tables">
     <?php
         if($export_type == 'server') {
@@ -237,6 +232,11 @@ echo PMA_pluginGetJavascript($export_list);
         <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext"><label for="radio_view_as_text">View output as text</label></li>
     </ul>
  </div>
+
+<div class="exportoptions" id="format">
+    <h3>Format:</h3>
+    <?php echo PMA_pluginGetChoice('Export', 'what', $export_list, 'format'); ?>
+</div>
 
 <div class="exportoptions" id="format_specific_opts">
     <h3><?php echo __('Format-Specific Options:'); ?></h3>
