@@ -965,3 +965,43 @@ function getColorByTarget( target )
 
   return color;    
 }
+
+function Click_option(id_this) 
+{
+	 var left = Glob_X - (document.getElementById(id_this).offsetWidth>>1);
+     document.getElementById(id_this).style.left = left + 'px';
+    // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
+     document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
+     document.getElementById(id_this).style.visibility = "visible";
+}
+
+function Close_option()
+{
+	document.getElementById('pmd_options').style.visibility = "hidden";
+}
+
+function Select_all(id_this)
+{
+	var parent= document.form1;
+	for(i = 0; i < parent.elements.length; i++) {
+		if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0,(7 + id_this.length)) == 'select_' + id_this) {
+				if(document.getElementById('select_all_' + id_this).checked == true)
+					parent.elements[i].checked = true;
+				else
+					parent.elements[i].checked = false;
+		}
+	}
+	Re_load();
+}
+
+function Table_onover(id_this,val)
+{
+	if(!val) {
+		document.getElementById("id_zag_" + id_this).className="tab_zag_2";
+		document.getElementById("id_zag_" + id_this + "_2").className="tab_zag_2";
+	}
+	else {
+		document.getElementById("id_zag_" + id_this).className="tab_zag";
+		document.getElementById("id_zag_" + id_this + "_2").className="tab_zag";
+	}
+}

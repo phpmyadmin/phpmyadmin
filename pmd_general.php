@@ -187,6 +187,13 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
          ">
 <thead>
 <tr>
+    <?php 
+	if(isset($_REQUEST['query'])) {
+		echo '<td class="select_all">';
+    	echo '<input type="checkbox" value="select_all_'.htmlspecialchars($t_n_url).'" style="margin: 0px;" ';
+        echo 'id="select_all_'.htmlspecialchars($t_n_url).'" title="select all" ';
+        echo 'onclick="Select_all(\''. htmlspecialchars($t_n_url). '\')" ></td>';
+	}?>
     <td class="small_tab" onmouseover="this.className='small_tab2';"
         onmouseout="this.className='small_tab';"
         id="id_hide_tbody_<?php echo $t_n_url ?>"
@@ -205,14 +212,20 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <img src="pmd/images/exec_small.png" alt="" /></td>
     <td nowrap="nowrap" id="id_zag_<?php echo $t_n_url ?>" class="tab_zag"
         onmousedown="cur_click=document.getElementById('<?php echo $t_n_url ?>');"
-        onmouseover="this.className = 'tab_zag_2'"
-        onmouseout="this.className = 'tab_zag'">
+        onmouseover="Table_onover('<?php echo $t_n_url ?>',0)"
+        onmouseout="Table_onover('<?php echo $t_n_url ?>',1)">
         <span class='owner'>
         <?php
         echo $GLOBALS['PMD_OUT']["OWNER"][$i];
         echo '.</span>';
         echo $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
         ?></td>
+    <?php 
+	if(isset($_REQUEST['query'])) {
+		echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
+        echo 'onmousedown="cur_click=document.getElementById(\''.htmlspecialchars($t_n_url).'\');"';
+        echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1)">';
+	}?>
 </tr>
 </thead>
 <tbody id="id_tbody_<?php echo $t_n_url ?>"
@@ -243,6 +256,13 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
             echo (isset($tables_all_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
         }
         ?>)">
+    <?php 
+	if(isset($_REQUEST['query'])) {
+    	echo '<td class="select_all">';
+	    echo '<input value="'.htmlspecialchars($t_n_url).urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'"'; 
+        echo 'type="checkbox" id="select_'.htmlspecialchars($t_n_url).urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
+ 		echo  'style="margin: 0px;" title="select_'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" onclick="" ></td>';
+	}?>
     <td width="10px" colspan="3"
         id="<?php echo $t_n_url.".".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>">
         <div style="white-space:nowrap">
@@ -276,6 +296,13 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         ?>
         </div>
    </td>
+   <?php 
+   if(isset($_REQUEST['query'])) {
+	   echo '<td class="small_tab_pref" onmouseover="this.className=\'small_tab_pref2\';"';
+	   echo 'onmouseout="this.className=\'small_tab_pref\';"';
+	   echo 'onclick="Click_option(\'pmd_optionse\')" >';
+	   echo  '<img src="pmd/images/exec_small.png" title="options" alt="" /></td> ';
+	} ?>
 </tr>
         <?php
     }
@@ -381,6 +408,95 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
             </td>
         </tr>
     </table></td>
+    <td class="frams6"></td>
+</tr>
+<tr>
+    <td class="frams4"><div class="bor"></div></td>
+    <td class="frams7"></td>
+    <td class="frams3"></td>
+</tr>
+</tbody>
+</table>
+
+<table id="pmd_optionse" style="visibility:<?php echo $hidden ?>;"
+    width="5%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+    <td class="frams1" width="10px"></td>
+    <td class="frams5" width="99%" ></td>
+    <td class="frams2" width="10px"><div class="bor"></div></td>
+</tr>
+<tr>
+    <td class="frams8"></td>
+    <td class="input_tab">
+        <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
+        <thead>
+        <tr>
+            <td colspan="2" align="center" nowrap="nowrap"><strong>Options</strong></td>
+        </tr>
+        </thead>
+        <tbody id="where">
+        <tr><td align="center" nowrap="nowrap"><b>Where</b></td></tr>
+        <tr>
+            <td width="58" nowrap="nowrap">Relation operator</td>
+            <td width="102"><select name="rel_opt" id="rel_opt">
+                    <option value="--" selected="selected"> -- </option>
+                    <option value="=" > = </option>
+                    <option value=">"> > </option>
+                    <option value="<"> < </option>
+                    <option value=">="> >= </option>
+                    <option value="<="> <= </option>
+                    <option value="NOT"> NOT </option>
+                    <option value="IN"> IN </option>
+                    <option value="EXCEPT"> Except </option>
+                    <option value="NOT IN"> Not In </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td nowrap="nowrap">Value/<br />Subquery</td>
+            <td><textarea name="Query" value=" " cols="15"></textarea>
+            </td>
+        </tr>
+        <tr><td align="center" nowrap="nowrap"><b>Rename To</b></td></tr>
+        <tr>
+            <td width="58" nowrap="nowrap">New Name</td>
+        	<td width="102"><input type="text" value="" /></td>
+        </tr>
+        <tr><td align="center" nowrap="nowrap"><b>Aggregate</b></td></tr>   
+         <tr>
+         <td width="58" nowrap="nowrap">Operator</td>
+            <td width="102"><select name="operator" id="operator">
+                    <option value="---" selected="selected">---</option>
+                    <option value="sum" > Sum </option>
+                    <option value="min"> Min </option>
+                    <option value="max"> Max </option>
+                    <option value="avg"> Avg </option>
+                    <option value="avg"> Count </option>
+                    </select>
+           </td></tr>
+           <tr>
+				<td nowrap="nowrap" width="58" align="center"><b>Group By</b></td>
+                <td><input type="checkbox" value="groupby" /></td>
+           </tr>           	
+           <tr>
+				<td nowrap="nowrap" width="58" align="center"><b>Order By</b></td>
+                <td><input type="checkbox" value="orderby" /></td>
+           </tr>
+        </tbody>
+        <tbody>
+        <tr>
+            <td colspan="2" align="center" nowrap="nowrap">
+                <input type="button" class="butt" name="Button"
+                    value="<?php echo __('OK'); ?>" onclick="New_relation()" />
+                <input type="button" class="butt" name="Button"
+                    value="<?php echo __('Cancel'); ?>"
+                    onclick="document.getElementById('pmd_optionse').style.visibility = 'hidden';" />
+            </td>
+        </tr>
+        </tbody>
+        </table>
+    </td>
     <td class="frams6"></td>
 </tr>
 <tr>

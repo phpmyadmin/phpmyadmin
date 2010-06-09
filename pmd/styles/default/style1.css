@@ -147,6 +147,23 @@ form {
     color: #888888;
 }
 
+.option_tab {
+	padding-left: 2px;
+	padding-right: 2px;
+	width: 5px;
+}
+
+.select_all {
+	vertical-align: top;
+	padding-left: 2px;
+	padding-right: 2px;
+	cursor: default;
+	width: 1px;
+	color: #000000;
+	background-image: url(images/Header.png);
+    background-repeat: repeat-x;
+}
+
 .small_tab {
     vertical-align: top;
     background-color: #0064ea;
@@ -365,6 +382,14 @@ a.M_butt:hover {
 }
 
 #layer_new_relation {
+    position: absolute;
+    left: 636px;
+    top: 85px;
+    z-index: 1000;
+    width: 153px;
+}
+
+#pmd_optionse {
     position: absolute;
     left: 636px;
     top: 85px;
