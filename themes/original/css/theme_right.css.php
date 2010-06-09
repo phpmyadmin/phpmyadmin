@@ -1228,3 +1228,48 @@ table#serverconnection_trg_local  {
   */
 .invalid_value
 {background:#F00;}
+
+/**
+  * Export styles
+  */
+select#db_select, select#table_select {
+    width: 400px;
+}
+
+.exportoptions h3, .importoptions h3 {
+    border-bottom: 1px #999999 solid;
+}
+
+.exportoptions ul, .importoptions ul, .format_specific_options ul {
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+.exportoptions li, .importoptions li {
+    margin: 7px;
+}
+
+.exportoptions label, .importoptions label {
+    margin: 5px;
+    float: none;
+}
+
+.exportoptions, .importoptions {
+    margin: 30px 0px 30px 10px
+}
+
+.export_sub_options {
+    margin: 30px 0px 0px 0px;
+}
+
+.export_sub_options h4 {
+    border-bottom: 1px #999999 solid;
+}
+
+p.desc {
+    margin: 5px;
+}
+
+.formelementrow {
+    margin: 5px 0px 5px 0px;
+}
