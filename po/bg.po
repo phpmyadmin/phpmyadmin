@@ -2061,7 +2061,7 @@ msgstr "Дъмп-ни %s ред(а) като започнеш от ред # %s."
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
-msgstr ""
+msgstr "Дъмп-ни всички редове"
 
 #: libraries/display_export.lib.php:125 setup/lib/messages.inc.php:82
 msgid "Save as file"
