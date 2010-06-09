@@ -2338,7 +2338,7 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:599
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Показване на BLOB-данните"
 
 #: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:314
 #: tbl_change.php:320
