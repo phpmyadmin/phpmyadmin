@@ -1351,24 +1351,27 @@ msgstr "Gwall"
 
 #: libraries/Message.class.php:282
 #, php-format
+#, possible-php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d rhes wedi'i heffeithio."
+msgstr[1] "%1$d rhes wedi'u heffeithio."
 
 #: libraries/Message.class.php:301
 #, php-format
+#, possible-php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d rhes wedi'i dileu."
+msgstr[1] "%1$d rhes wedi'u dileu."
 
 #: libraries/Message.class.php:320
 #, php-format
+#, possible-php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d rhes wedi'i hychwanegu."
+msgstr[1] "%1$d rhes wedi'u hychwanegu."
 
 #: libraries/StorageEngine.class.php:198
 msgid ""
@@ -1392,65 +1395,72 @@ msgstr ""
 
 #: libraries/Table.class.php:1019
 msgid "Invalid database"
-msgstr ""
+msgstr "Crofna ddata annilys"
 
 #: libraries/Table.class.php:1033 tbl_get_field.php:26
 msgid "Invalid table name"
-msgstr ""
+msgstr "Enw tabl annilys"
 
 #: libraries/Table.class.php:1048
 #, php-format
+#, possible-php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Gwall wrth ailenwi tabl %1$s i %2$s"
 
 #: libraries/Table.class.php:1132
 #, php-format
+#, possible-php-format
 msgid "Table %s has been renamed to %s"
-msgstr ""
+msgstr "Cafodd y tabl %s ei ailenwi i %s"
 
 #: libraries/Theme.class.php:162
 #, php-format
+#, possible-php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "Dim llwybr delwedd dilys ar gael ar gyfer thema %s."
 
 #: libraries/Theme.class.php:384
 msgid "No preview available."
-msgstr ""
+msgstr "Dim rhagolwg ar gael"
 
 #: libraries/Theme.class.php:387
 msgid "take it"
-msgstr ""
+msgstr "cymerwch e"
 
 #: libraries/Theme_Manager.class.php:115
 #, php-format
+#, possible-php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "Thema diofyn %s heb ei darganfod!"
 
 #: libraries/Theme_Manager.class.php:153
 #, php-format
+#, possible-php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "Heb ddarganfod thema ddiofyn %s!"
 
 #: libraries/Theme_Manager.class.php:221
 #, php-format
+#, possible-php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "Heb ddarganfod llwybr thema ar gyfer thema %s!"
 
 #: libraries/Theme_Manager.class.php:297 test/theme.php:161 themes.php:21
 #: themes.php:41
 msgid "Theme / Style"
-msgstr ""
+msgstr "Thema / Arddull"
 
 #: libraries/auth/config.auth.lib.php:77
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "Methu â chysylltu: gosodiadau annilys"
 
 #: libraries/auth/config.auth.lib.php:92
 #: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
 #: test/theme.php:152
 #, php-format
+#, possible-php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Croeso i %s"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -1476,28 +1486,30 @@ msgstr "Mewngofnodwch"
 #: libraries/navigation_header.inc.php:93
 #: libraries/navigation_header.inc.php:95
 msgid "phpMyAdmin documentation"
-msgstr ""
+msgstr "Dogfennaeth phpMyAdmin"
 
 #: libraries/auth/cookie.auth.lib.php:258
 #: libraries/auth/cookie.auth.lib.php:259
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
+"Gallwch gyflwyno enw'r gwesteiwr / cyfeiriad IP a'r porth gan eu gwahanu gan "
+"fwlch."
 
 #: libraries/auth/cookie.auth.lib.php:258
 msgid "Server:"
-msgstr ""
+msgstr "Gweinydd:"
 
 #: libraries/auth/cookie.auth.lib.php:263
 msgid "Username:"
-msgstr ""
+msgstr "Enw defnyddiwr:"
 
 #: libraries/auth/cookie.auth.lib.php:267
 msgid "Password:"
-msgstr ""
+msgstr "Cyfrinair:"
 
 #: libraries/auth/cookie.auth.lib.php:274
 msgid "Server Choice"
-msgstr ""
+msgstr "Dewis Gweinydd"
 
 #: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
