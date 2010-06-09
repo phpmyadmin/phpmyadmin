@@ -3,20 +3,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-07 22:09+0200\n"
+"POT-Creation-Date: 2010-06-08 12:32-0400\n"
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: serbian_cyrillic <sr@li.org>\n"
-"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
-#: libraries/display_tbl.lib.php:417 server_privileges.php:1475
+#: libraries/display_tbl.lib.php:417 server_privileges.php:1514
 msgid "Show all"
 msgstr "Прикажи све"
 
@@ -61,9 +61,9 @@ msgstr "Претраживање"
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
-#: server_privileges.php:625 server_privileges.php:1585
-#: server_privileges.php:1932 server_privileges.php:1979
-#: server_privileges.php:2018 server_replication.php:235
+#: server_privileges.php:664 server_privileges.php:1624
+#: server_privileges.php:1971 server_privileges.php:2018
+#: server_privileges.php:2057 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
 #: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
 #: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:265
@@ -81,7 +81,7 @@ msgstr "Име кључа"
 
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: server_collations.php:55 server_collations.php:67 server_engines.php:59
-#: server_status.php:628
+#: server_status.php:739
 msgid "Description"
 msgstr "Опис"
 
@@ -122,7 +122,7 @@ msgstr "Имена колона"
 #: libraries/db_structure.lib.php:60 libraries/export/htmlword.php:245
 #: libraries/export/latex.php:360 libraries/export/odt.php:297
 #: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:100
-#: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2031
+#: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2070
 #: tbl_change.php:287 tbl_change.php:314 tbl_printview.php:143
 #: tbl_printview.php:313 tbl_select.php:136 tbl_structure.php:178
 #: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
@@ -166,9 +166,9 @@ msgstr "Коментари"
 #: libraries/Index.class.php:386 libraries/export/htmlword.php:322
 #: libraries/export/latex.php:430 libraries/export/odt.php:368
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:263
-#: pdf_schema.php:1344 server_privileges.php:1529 server_privileges.php:1540
-#: server_privileges.php:1850 server_privileges.php:1855
-#: server_privileges.php:2148 sql.php:132 sql.php:194 tbl_printview.php:229
+#: pdf_schema.php:1344 server_privileges.php:1568 server_privileges.php:1579
+#: server_privileges.php:1889 server_privileges.php:1894
+#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:229
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "Не"
@@ -182,9 +182,9 @@ msgstr "Не"
 #: libraries/mult_submits.inc.php:101 libraries/mult_submits.inc.php:106
 #: libraries/mult_submits.inc.php:111 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:273 pdf_schema.php:1344
-#: server_databases.php:64 server_privileges.php:1526
-#: server_privileges.php:1540 server_privileges.php:1850
-#: server_privileges.php:1853 server_privileges.php:2148 sql.php:193
+#: server_databases.php:64 server_privileges.php:1565
+#: server_privileges.php:1579 server_privileges.php:1889
+#: server_privileges.php:1892 server_privileges.php:2187 sql.php:193
 #: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
@@ -345,8 +345,8 @@ msgstr "Уређивање PDF страна"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
-#: libraries/header.inc.php:126 pdf_pages.php:424 server_privileges.php:1626
-#: server_privileges.php:1682 server_privileges.php:1946
+#: libraries/header.inc.php:126 pdf_pages.php:424 server_privileges.php:1665
+#: server_privileges.php:1721 server_privileges.php:1985
 #: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
 #: test/theme.php:75
 msgid "Table"
@@ -448,7 +448,7 @@ msgstr "Del"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:166 libraries/tbl_properties.inc.php:779
-#: server_privileges.php:258 tbl_change.php:1031 tbl_indexes.php:250
+#: server_privileges.php:297 tbl_change.php:1031 tbl_indexes.php:250
 #: tbl_select.php:288
 msgid "Or"
 msgstr "или"
@@ -580,7 +580,7 @@ msgstr "Нови запис"
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
 #: libraries/export/texytext.php:23 libraries/import.lib.php:1104
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
-#: server_privileges.php:554 server_replication.php:315 tbl_tracking.php:269
+#: server_privileges.php:593 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
 msgstr "Структура"
 
@@ -628,8 +628,8 @@ msgstr ""
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
@@ -639,7 +639,7 @@ msgstr "Поглед"
 
 #: db_structure.php:485 libraries/db_structure.lib.php:49
 #: libraries/server_links.inc.php:70 server_replication.php:33
-#: server_replication.php:164 server_status.php:258
+#: server_replication.php:164 server_status.php:369
 msgid "Replication"
 msgstr "Репликација"
 
@@ -655,20 +655,20 @@ msgstr "%s је подразумевани погон складиштења н�
 #: db_structure.php:524 db_structure.php:541 db_structure.php:542
 #: libraries/display_tbl.lib.php:2081 libraries/display_tbl.lib.php:2086
 #: libraries/mult_submits.inc.php:16 server_databases.php:346
-#: server_databases.php:351 server_privileges.php:1557 tbl_structure.php:455
+#: server_databases.php:351 server_privileges.php:1596 tbl_structure.php:455
 #: tbl_structure.php:464
 msgid "With selected:"
 msgstr "Означено:"
 
 #: db_structure.php:527 libraries/display_tbl.lib.php:2076
-#: server_databases.php:348 server_privileges.php:530
-#: server_privileges.php:1560 tbl_structure.php:458
+#: server_databases.php:348 server_privileges.php:569
+#: server_privileges.php:1599 tbl_structure.php:458
 msgid "Check All"
 msgstr "Означи све"
 
 #: db_structure.php:531 libraries/display_tbl.lib.php:2077
 #: libraries/replication_gui.lib.php:33 server_databases.php:350
-#: server_privileges.php:533 server_privileges.php:1564 tbl_structure.php:462
+#: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
 msgid "Uncheck All"
 msgstr "ниједно"
 
@@ -706,7 +706,7 @@ msgstr "Анализирај табелу"
 #: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2094
 #: libraries/display_tbl.lib.php:2225 libraries/mult_submits.inc.php:62
 #: libraries/server_links.inc.php:84 libraries/tbl_links.inc.php:82
-#: pmd_pdf.php:84 pmd_pdf.php:109 server_privileges.php:1341
+#: pmd_pdf.php:84 pmd_pdf.php:109 server_privileges.php:1380
 #: setup/frames/menu.inc.php:22 tbl_row_action.php:59
 msgid "Export"
 msgstr "Извоз"
@@ -725,8 +725,8 @@ msgstr "Провери табелу"
 #: libraries/export/sql.php:342 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
 #: libraries/header_printview.inc.php:58 server_databases.php:169
-#: server_privileges.php:1621 server_privileges.php:1682
-#: server_privileges.php:1940 server_processlist.php:56
+#: server_privileges.php:1660 server_privileges.php:1721
+#: server_privileges.php:1979 server_processlist.php:56
 #: server_synchronize.php:1179 server_synchronize.php:1183
 #: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
@@ -748,8 +748,8 @@ msgstr ""
 
 #: db_tracking.php:77 libraries/Index.class.php:440
 #: libraries/db_structure.lib.php:53 server_databases.php:203
-#: server_privileges.php:1503 server_privileges.php:1686
-#: server_privileges.php:2034 tbl_structure.php:187
+#: server_privileges.php:1542 server_privileges.php:1725
+#: server_privileges.php:2073 tbl_structure.php:187
 msgid "Action"
 msgstr "Акција"
 
@@ -827,11 +827,11 @@ msgstr "Садржај базе је сачуван у датотеку %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Вероватно сте покушали да увезете превелику датотеку. Молимо погледајте "
-"%sдокументацију%s за начине превазилажења овог ограничења."
+"Вероватно сте покушали да увезете превелику датотеку. Молимо погледајте %"
+"sдокументацију%s за начине превазилажења овог ограничења."
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
 #: libraries/File.class.php:961
@@ -955,11 +955,11 @@ msgstr "Име домаћина је празно!"
 msgid "The user name is empty!"
 msgstr "Име корисника није унето!"
 
-#: js/messages.php:44 server_privileges.php:1197 user_password.php:70
+#: js/messages.php:44 server_privileges.php:1236 user_password.php:70
 msgid "The password is empty!"
 msgstr "Лозинка је празна!"
 
-#: js/messages.php:45 server_privileges.php:1195 user_password.php:73
+#: js/messages.php:45 server_privileges.php:1234 user_password.php:73
 msgid "The passwords aren't the same!"
 msgstr "Лозинке нису идентичне!"
 
@@ -1415,7 +1415,7 @@ msgid ""
 msgstr ""
 
 #: libraries/List_Database.class.php:431 libraries/server_links.inc.php:41
-#: server_databases.php:88 server_privileges.php:1621
+#: server_databases.php:88 server_privileges.php:1660
 #: setup/lib/messages.inc.php:110 test/theme.php:93
 msgid "Databases"
 msgstr "Базе"
@@ -1535,8 +1535,8 @@ msgstr "Добродошли на %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Вероватан разлог за ово је да нисте направили конфигурациону датотеку. "
 "Можете користити %1$sскрипт за инсталацију%2$s да бисте је направили."
@@ -1748,7 +1748,7 @@ msgid "Documentation"
 msgstr "Документација"
 
 #: libraries/common.lib.php:595 libraries/header_printview.inc.php:61
-#: server_processlist.php:60 server_status.php:247
+#: server_processlist.php:60 server_status.php:358
 msgid "SQL query"
 msgstr "SQL упит"
 
@@ -1772,7 +1772,7 @@ msgstr "без PHP кода"
 msgid "Create PHP Code"
 msgstr "Направи PHP код"
 
-#: libraries/common.lib.php:1235 server_status.php:341
+#: libraries/common.lib.php:1235 server_status.php:452
 #: setup/lib/messages.inc.php:354
 msgid "Refresh"
 msgstr "Освежи"
@@ -1855,7 +1855,7 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дана, %s сати, %s минута и %s секунди"
 
 #: libraries/common.lib.php:2322 libraries/common.lib.php:2325
-#: libraries/display_tbl.lib.php:290 server_status.php:608
+#: libraries/display_tbl.lib.php:290 server_status.php:719
 msgid "Begin"
 msgstr "Почетак"
 
@@ -1943,8 +1943,8 @@ msgid "Import"
 msgstr "Увоз"
 
 #: libraries/db_links.inc.php:111 libraries/server_links.inc.php:66
-#: server_privileges.php:72 server_privileges.php:1683
-#: server_privileges.php:2032 test/theme.php:117
+#: server_privileges.php:111 server_privileges.php:1722
+#: server_privileges.php:2071 test/theme.php:117
 msgid "Privileges"
 msgstr "Привилегије"
 
@@ -1992,22 +1992,22 @@ msgid "Change password"
 msgstr "Промени лозинку"
 
 #: libraries/display_change_password.lib.php:35
-#: libraries/replication_gui.lib.php:345 server_privileges.php:768
+#: libraries/replication_gui.lib.php:345 server_privileges.php:807
 msgid "No Password"
 msgstr "Нема лозинке"
 
 #: libraries/display_change_password.lib.php:41
 #: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
 #: libraries/replication_gui.lib.php:335 libraries/replication_gui.lib.php:339
-#: libraries/replication_gui.lib.php:349 server_privileges.php:757
-#: server_privileges.php:761 server_privileges.php:772
-#: server_privileges.php:1499 server_synchronize.php:1175
+#: libraries/replication_gui.lib.php:349 server_privileges.php:796
+#: server_privileges.php:800 server_privileges.php:811
+#: server_privileges.php:1538 server_synchronize.php:1175
 msgid "Password"
 msgstr "Лозинка"
 
 #: libraries/display_change_password.lib.php:46
 #: libraries/replication_gui.lib.php:353 libraries/replication_gui.lib.php:356
-#: server_privileges.php:776 server_privileges.php:779
+#: server_privileges.php:815 server_privileges.php:818
 msgid "Re-type"
 msgstr "Поновите унос"
 
@@ -2022,12 +2022,12 @@ msgid "MySQL 4.0 compatible"
 msgstr "MySQL&nbsp;4.0 компатибилно"
 
 #: libraries/display_change_password.lib.php:72
-#: libraries/replication_gui.lib.php:360 server_privileges.php:783
+#: libraries/replication_gui.lib.php:360 server_privileges.php:822
 msgid "Generate Password"
 msgstr "Направи лозинку"
 
 #: libraries/display_change_password.lib.php:75
-#: libraries/replication_gui.lib.php:363 server_privileges.php:786
+#: libraries/replication_gui.lib.php:363 server_privileges.php:825
 msgid "Generate"
 msgstr "Направи"
 
@@ -2040,8 +2040,8 @@ msgstr "Направи нову базу података"
 msgid "Create"
 msgstr "Направи"
 
-#: libraries/display_create_database.lib.php:40 server_privileges.php:74
-#: server_privileges.php:1388 server_replication.php:35
+#: libraries/display_create_database.lib.php:40 server_privileges.php:113
+#: server_privileges.php:1427 server_replication.php:35
 msgid "No Privileges"
 msgstr "Нема привилегија"
 
@@ -2110,8 +2110,8 @@ msgstr "назив табеле"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 "Ова вредност се тумачи коришћењем %1$sstrftime%2$s, тако да можете да "
 "користите стрингове за форматирање времена. Такође ће се десити и следеће "
@@ -2133,7 +2133,7 @@ msgstr "Компресија"
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
-#: server_privileges.php:1836 server_processlist.php:75
+#: server_privileges.php:1875 server_processlist.php:75
 msgid "None"
 msgstr "нема"
 
@@ -2463,7 +2463,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Скуп прихватника"
 
-#: libraries/engines/innodb.lib.php:145 server_status.php:306
+#: libraries/engines/innodb.lib.php:145 server_status.php:417
 msgid "InnoDB Status"
 msgstr "InnoDB статус"
 
@@ -2472,8 +2472,8 @@ msgid "Buffer Pool Usage"
 msgstr "Коришћење скупа прихватника"
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
-#: server_databases.php:305 server_status.php:414 server_status.php:475
-#: server_status.php:496 tbl_printview.php:351 tbl_structure.php:696
+#: server_databases.php:305 server_status.php:525 server_status.php:586
+#: server_status.php:607 tbl_printview.php:351 tbl_structure.php:696
 msgid "Total"
 msgstr "Укупно"
 
@@ -2806,7 +2806,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
 #: libraries/export/sql.php:106 libraries/export/sql.php:868
 #: libraries/export/texytext.php:27 server_databases.php:127
-#: server_privileges.php:537 server_replication.php:316 tbl_printview.php:317
+#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:317
 #: tbl_structure.php:665
 msgid "Data"
 msgstr "Подаци"
@@ -2856,9 +2856,9 @@ msgstr "MIME-типови"
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
 #: libraries/replication_gui.lib.php:63 libraries/replication_gui.lib.php:174
 #: libraries/replication_gui.lib.php:269 libraries/replication_gui.lib.php:272
-#: libraries/replication_gui.lib.php:329 server_privileges.php:692
-#: server_privileges.php:695 server_privileges.php:751
-#: server_privileges.php:1498 server_privileges.php:2030
+#: libraries/replication_gui.lib.php:329 server_privileges.php:731
+#: server_privileges.php:734 server_privileges.php:790
+#: server_privileges.php:1537 server_privileges.php:2069
 #: server_processlist.php:55 server_synchronize.php:1159
 msgid "Host"
 msgstr "Домаћин"
@@ -3218,852 +3218,6 @@ msgstr "нема"
 msgid "Convert to Kana"
 msgstr ""
 
-#. l10n: Text direction, use either ltr or rtl
-#: libraries/messages.inc.php:19
-msgid "ltr"
-msgstr "ltr"
-
-#: libraries/messages.inc.php:21
-msgid "Content of table __TABLE__"
-msgstr "Садржај табеле __TABLE__"
-
-#: libraries/messages.inc.php:22
-msgid "(continued)"
-msgstr "(настављено)"
-
-#: libraries/messages.inc.php:23
-msgid "Structure of table __TABLE__"
-msgstr "Структура табеле __TABLE__"
-
-#: libraries/messages.inc.php:25 server_privileges.php:227
-msgid "Includes all privileges except GRANT."
-msgstr "Укључује све привилегије осим GRANT."
-
-#: libraries/messages.inc.php:26 server_privileges.php:153
-#: server_privileges.php:476
-msgid "Allows altering the structure of existing tables."
-msgstr "Дозвољава измену структура постојећих табела."
-
-#: libraries/messages.inc.php:27 server_privileges.php:169
-#: server_privileges.php:482
-msgid "Allows altering and dropping stored routines."
-msgstr "Дозвољава измену и одбацивање сачуваних рутина."
-
-#: libraries/messages.inc.php:28 server_privileges.php:145
-#: server_privileges.php:475
-msgid "Allows creating new databases and tables."
-msgstr "Дозвољава креирање нових база и табела."
-
-#: libraries/messages.inc.php:29 server_privileges.php:168
-#: server_privileges.php:481
-msgid "Allows creating stored routines."
-msgstr "Дозвољава прављење сачуваних рутина."
-
-#: libraries/messages.inc.php:30 server_privileges.php:475
-msgid "Allows creating new tables."
-msgstr "Дозвољава креирање нових табела."
-
-#: libraries/messages.inc.php:31 server_privileges.php:156
-#: server_privileges.php:479
-msgid "Allows creating temporary tables."
-msgstr "Дозвољава креирање привремених табела.."
-
-#: libraries/messages.inc.php:32 server_privileges.php:170
-#: server_privileges.php:515
-msgid "Allows creating, dropping and renaming user accounts."
-msgstr "Дозвољава прављење, одбацивање и преименовање корисничких налога."
-
-#: libraries/messages.inc.php:33 server_privileges.php:160
-#: server_privileges.php:164 server_privileges.php:487
-#: server_privileges.php:491
-msgid "Allows creating new views."
-msgstr "Дозволи креирање нових погледа."
-
-#: libraries/messages.inc.php:34 server_privileges.php:144
-#: server_privileges.php:467
-msgid "Allows deleting data."
-msgstr "Дозвољава брисање података."
-
-#: libraries/messages.inc.php:35 server_privileges.php:146
-#: server_privileges.php:478
-msgid "Allows dropping databases and tables."
-msgstr "Дозвољава одбацивање база и табела."
-
-#: libraries/messages.inc.php:36 server_privileges.php:478
-msgid "Allows dropping tables."
-msgstr "Дозвољава одбацивање табела."
-
-#: libraries/messages.inc.php:37 server_privileges.php:161
-#: server_privileges.php:495
-msgid "Allows to set up events for the event scheduler"
-msgstr ""
-
-#: libraries/messages.inc.php:38 server_privileges.php:171
-#: server_privileges.php:483
-msgid "Allows executing stored routines."
-msgstr "Дозвољава извршавање сачуваних рутина."
-
-#: libraries/messages.inc.php:39 server_privileges.php:150
-#: server_privileges.php:470
-msgid "Allows importing data from and exporting data into files."
-msgstr "Дозвољава увоз података и њихов извоз у датотеке."
-
-#: libraries/messages.inc.php:40 server_privileges.php:501
-msgid ""
-"Allows adding users and privileges without reloading the privilege tables."
-msgstr ""
-"Дозвољава додавање корисника и привилегија без поновног учитавања табела "
-"привилегија."
-
-#: libraries/messages.inc.php:41 server_privileges.php:152
-#: server_privileges.php:477
-msgid "Allows creating and dropping indexes."
-msgstr "Дозвољава креирање и брисање кључева."
-
-#: libraries/messages.inc.php:42 server_privileges.php:142
-#: server_privileges.php:403 server_privileges.php:465
-msgid "Allows inserting and replacing data."
-msgstr "Дозвољава уметање и замену података."
-
-#: libraries/messages.inc.php:43 server_privileges.php:157
-#: server_privileges.php:510
-msgid "Allows locking tables for the current thread."
-msgstr "Дозвољава закључавање табела текућим процесима."
-
-#: libraries/messages.inc.php:44 server_privileges.php:607
-#: server_privileges.php:609
-msgid "Limits the number of new connections the user may open per hour."
-msgstr "Ограничава број нових конекција које корисник може та отвори на сат."
-
-#: libraries/messages.inc.php:45 server_privileges.php:595
-#: server_privileges.php:597
-msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Ограничава број упита које корисник може да упути серверу за сат."
-
-#: libraries/messages.inc.php:46 server_privileges.php:601
-#: server_privileges.php:603
-msgid ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
-msgstr ""
-"Ограничава број команди које мењају табеле или базе које корисник може да "
-"изврши на сат."
-
-#: libraries/messages.inc.php:47 server_privileges.php:613
-#: server_privileges.php:615
-msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Ограничава број истовремених конекција које корисник може да има."
-
-#: libraries/messages.inc.php:48 server_privileges.php:149
-#: server_privileges.php:505
-msgid "Allows viewing processes of all users"
-msgstr ""
-
-#: libraries/messages.inc.php:49 server_privileges.php:151
-#: server_privileges.php:409 server_privileges.php:511
-msgid "Has no effect in this MySQL version."
-msgstr "Нема ефекта у овој верзији MySQL-a."
-
-#: libraries/messages.inc.php:50 server_privileges.php:147
-#: server_privileges.php:506
-msgid "Allows reloading server settings and flushing the server's caches."
-msgstr ""
-"Дозвољава поновно учитавање подешавања сервера и пражњење кеша сервера."
-
-#: libraries/messages.inc.php:51 server_privileges.php:159
-#: server_privileges.php:513
-msgid "Allows the user to ask where the slaves / masters are."
-msgstr "Даје право кориснику да пита где су главни/помоћни сервери."
-
-#: libraries/messages.inc.php:52 server_privileges.php:158
-#: server_privileges.php:514
-msgid "Needed for the replication slaves."
-msgstr "Потребно због помоћних сервера за репликацију."
-
-#: libraries/messages.inc.php:53 server_privileges.php:141
-#: server_privileges.php:400 server_privileges.php:464
-msgid "Allows reading data."
-msgstr "Дозвољава читање података."
-
-#: libraries/messages.inc.php:54 server_privileges.php:154
-#: server_privileges.php:508
-msgid "Gives access to the complete list of databases."
-msgstr "Даје приступ комплетној листи база."
-
-#: libraries/messages.inc.php:55 server_privileges.php:165
-#: server_privileges.php:167 server_privileges.php:480
-msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Дозвољава извршавање SHOW CREATE VIEW упита."
-
-#: libraries/messages.inc.php:56 server_privileges.php:148
-#: server_privileges.php:507
-msgid "Allows shutting down the server."
-msgstr "Дозвољава гашење сервера."
-
-#: libraries/messages.inc.php:57 server_privileges.php:155
-#: server_privileges.php:504
-msgid ""
-"Allows connecting, even if maximum number of connections is reached; "
-"required for most administrative operations like setting global variables or "
-"killing threads of other users."
-msgstr ""
-" Дозвољава повезивање иако је достигнут максималан број дозвољених веза; "
-"Неопходно за већину административних опција као што су подешавање глобалних "
-"променљивих или прекидање процеса осталих корисника."
-
-#: libraries/messages.inc.php:58 server_privileges.php:162
-#: server_privileges.php:496
-#, fuzzy
-msgid "Allows creating and dropping triggers"
-msgstr "Дозвољава креирање и брисање кључева."
-
-#: libraries/messages.inc.php:59 server_privileges.php:143
-#: server_privileges.php:406 server_privileges.php:466
-msgid "Allows changing data."
-msgstr "Дозвољава измену података."
-
-#: libraries/messages.inc.php:60 server_privileges.php:221
-msgid "No privileges."
-msgstr "Нема привилегија."
-
-#: libraries/messages.inc.php:62
-msgid ""
-"The number of transactions that used the temporary binary log cache but that "
-"exceeded the value of binlog_cache_size and used a temporary file to store "
-"statements from the transaction."
-msgstr ""
-"Број транксакција које су користиле кеш привременог бинарног дневника али су "
-"превазишле вредност у binlog_cache_size и користиле привремену датотеку да "
-"сместе изразе из трансакције."
-
-#: libraries/messages.inc.php:63
-msgid "The number of transactions that used the temporary binary log cache."
-msgstr "Број трансакција које су користиле кеш привременог бинарног дневника."
-
-#: libraries/messages.inc.php:64
-msgid ""
-"The number of temporary tables on disk created automatically by the server "
-"while executing statements. If Created_tmp_disk_tables is big, you may want "
-"to increase the tmp_table_size  value to cause temporary tables to be memory-"
-"based instead of disk-based."
-msgstr ""
-"Број привремених табела које је сервер аутоматски креирао на диску док је "
-"извршавао изразе. Ако је Created_tmp_disk_tables велико, можда треба да "
-"повећате вредност tmp_table_size како би учинили да привремене табеле буду "
-"базиране у меморији уместо на диску."
-
-#: libraries/messages.inc.php:65
-msgid "How many temporary files mysqld has created."
-msgstr "Колико привремених датотека је mysqld направио."
-
-#: libraries/messages.inc.php:66
-msgid ""
-"The number of in-memory temporary tables created automatically by the server "
-"while executing statements."
-msgstr ""
-"Број привремених табела које је сервер аутоматски креирао у меморији док је "
-"извршавао изразе."
-
-#: libraries/messages.inc.php:67
-msgid ""
-"The number of rows written with INSERT DELAYED for which some error occurred "
-"(probably duplicate key)."
-msgstr ""
-"Број редова уписаних са INSERT DELAYED за које је јављена нека грешка "
-"(вероватно дуплирани кључ)."
-
-#: libraries/messages.inc.php:68
-msgid ""
-"The number of INSERT DELAYED handler threads in use. Every different table "
-"on which one uses INSERT DELAYED gets its own thread."
-msgstr ""
-"Број INSERT DELAYED руковалачких нити у употреби. Свака посебна табела над "
-"којом се користи INSERT DELAYED добија своју нит."
-
-#: libraries/messages.inc.php:69
-msgid "The number of INSERT DELAYED rows written."
-msgstr "Број уписаних INSERT DELAYED редова."
-
-#: libraries/messages.inc.php:70
-msgid "The number of executed FLUSH statements."
-msgstr "Број извршених FLUSH израза."
-
-#: libraries/messages.inc.php:71
-msgid "The number of internal COMMIT statements."
-msgstr "Број интерних COMMIT израза."
-
-#: libraries/messages.inc.php:72
-msgid "The number of times a row was deleted from a table."
-msgstr "Број брисања неког реда табеле."
-
-#: libraries/messages.inc.php:73
-msgid ""
-"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
-"table with a given name. This is called discovery. Handler_discover "
-"indicates the number of time tables have been discovered."
-msgstr ""
-"MySQL сервер може да упита погон складиштења NDB Cluster да ли зна за табелу "
-"одређеног имена. То се назива откривањем (discovery). Handler_discover "
-"означава број пута када је откривена табела."
-
-#: libraries/messages.inc.php:74
-msgid ""
-"The number of times the first entry was read from an index. If this is high, "
-"it suggests that the server is doing a lot of full index scans; for example, "
-"SELECT col1 FROM foo, assuming that col1 is indexed."
-msgstr ""
-"Број пута када је прва ставка прочитана из индекса. Ако је ово високо, то "
-"може значити да сервер ради пуно пуних скенирања индекса; на пример SELECT "
-"кол1 FROM нешто, под претпоставком да је кол1 индексирано."
-
-#: libraries/messages.inc.php:75
-msgid ""
-"The number of requests to read a row based on a key. If this is high, it is "
-"a good indication that your queries and tables are properly indexed."
-msgstr ""
-"Број захтева за читање реда заснованих на кључу. Ако је овај број висок, то "
-"је добар показатељ да су ваши упити и табеле прописно индексирани."
-
-#: libraries/messages.inc.php:76
-msgid ""
-"The number of requests to read the next row in key order. This is "
-"incremented if you are querying an index column with a range constraint or "
-"if you are doing an index scan."
-msgstr ""
-"Број захтева за читањем следећег реда у поретку кључева. Ово се повећава "
-"када радите упит по колони индекса са ограничењем опсега или ако радите "
-"скенирање индекса."
-
-#: libraries/messages.inc.php:77
-msgid ""
-"The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
-msgstr ""
-"Број захтева за читањем претходног реда у поретку кључева. Ова метода читања "
-"се углавном користи за оптимизацију ORDER BY ... DESC."
-
-#: libraries/messages.inc.php:78
-msgid ""
-"The number of requests to read a row based on a fixed position. This is high "
-"if you are doing a lot of queries that require sorting of the result. You "
-"probably have a lot of queries that require MySQL to scan whole tables or "
-"you have joins that don't use keys properly."
-msgstr ""
-"Број захтева за читање реда заснованих на фиксној позицији. Ово је високо "
-"ако радите много упита који захтевају сортирање резултата. Вероватно имате "
-"много упита који захтевају да MySQL скенира целе табеле или имате спојеве "
-"који не користе кључеве прописно."
-
-#: libraries/messages.inc.php:79
-msgid ""
-"The number of requests to read the next row in the data file. This is high "
-"if you are doing a lot of table scans. Generally this suggests that your "
-"tables are not properly indexed or that your queries are not written to take "
-"advantage of the indexes you have."
-msgstr ""
-"Број захтева за читањем следећег реда из датотеке података. Ово је високо "
-"ако радите пуно скенирања табела. Ово обично наговештава да ваше табеле нису "
-"прописно индексиране или да ваши упити нису написани да искористе већ "
-"постојеће индексе."
-
-#: libraries/messages.inc.php:80
-msgid "The number of internal ROLLBACK statements."
-msgstr "Број интерних ROLLBACK израза."
-
-#: libraries/messages.inc.php:81
-msgid "The number of requests to update a row in a table."
-msgstr "Број захтева за ажурирање реда у табели."
-
-#: libraries/messages.inc.php:82
-msgid "The number of requests to insert a row in a table."
-msgstr "Број захтева за уписивање реда у табелу."
-
-#: libraries/messages.inc.php:83
-msgid "The number of pages containing data (dirty or clean)."
-msgstr "Број страна које садрже податке (чистих или прљавих)."
-
-#: libraries/messages.inc.php:84
-msgid "The number of pages currently dirty."
-msgstr "Број страна које су тренутно прљаве."
-
-#: libraries/messages.inc.php:85
-msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr "Број страна у остави бафера за које је тражено да буду очишћене."
-
-#: libraries/messages.inc.php:86
-msgid "The number of free pages."
-msgstr "Број слободних страна."
-
-#: libraries/messages.inc.php:87
-msgid ""
-"The number of latched pages in InnoDB buffer pool. These are pages currently "
-"being read or written or that can't be flushed or removed for some other "
-"reason."
-msgstr ""
-"Број забрављених страна у InnoDB остави бафера. Са ових страна се тренутно "
-"чита или се у њих уписује или из неког другог разлога не могу бити очишћене "
-"нити уклоњене."
-
-#: libraries/messages.inc.php:88
-msgid ""
-"The number of pages busy because they have been allocated for administrative "
-"overhead such as row locks or the adaptive hash index. This value can also "
-"be calculated as Innodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
-msgstr ""
-"Број страна које су заузете зато што су одвојене за административне потребе, "
-"као што су закључавање редова или индекс прилагодљивог хеша. Ова вредност се "
-"такође може израчунати и на следећи начин Innodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
-
-#: libraries/messages.inc.php:89
-msgid "Total size of buffer pool, in pages."
-msgstr "Пуна величина оставе бафера, у странама."
-
-#: libraries/messages.inc.php:90
-msgid ""
-"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
-"query is to scan a large portion of a table but in random order."
-msgstr ""
-"Број „насумичних“ пред-читања која је InnoDB покренуо. Ово се дешава када "
-"упит треба да скенира велики део табеле али насумичним редоследом."
-
-#: libraries/messages.inc.php:91
-msgid ""
-"The number of sequential read-aheads InnoDB initiated. This happens when "
-"InnoDB does a sequential full table scan."
-msgstr ""
-"Број секвенцијалних пред-читања која је InnoDB покренуо. Ово се дешава када "
-"InnoDB ради секвенцијално скенирање целе табеле."
-
-#: libraries/messages.inc.php:92
-msgid "The number of logical read requests InnoDB has done."
-msgstr "Број логичких захтева за читање које је InnoDB урадио."
-
-#: libraries/messages.inc.php:93
-msgid ""
-"The number of logical reads that InnoDB could not satisfy from buffer pool "
-"and had to do a single-page read."
-msgstr ""
-"Број логичких читања која InnoDB није могао да задовољи из оставе бафера те "
-"је морао да ради читање појединачне стране."
-
-#: libraries/messages.inc.php:94
-msgid ""
-"Normally, writes to the InnoDB buffer pool happen in the background. "
-"However, if it's necessary to read or create a page and no clean pages are "
-"available, it's necessary to wait for pages to be flushed first. This "
-"counter counts instances of these waits. If the buffer pool size was set "
-"properly, this value should be small."
-msgstr ""
-"Нормално се уписи у InnoDB оставу бафера дешавају у позадини. Међутим, ако "
-"је неопходно прочитати или направити страну а нема доступних чистих страна, "
-"неопходно је сачекати да се стране претходно очисте. Овај бројач броји "
-"дешавања ових чекања. Ако је величина оставе бафера постављена како треба, "
-"ова вредност ви требало да је ниска."
-
-#: libraries/messages.inc.php:95
-msgid "The number writes done to the InnoDB buffer pool."
-msgstr "Број уписа учињених у InnoDB оставу бафера."
-
-#: libraries/messages.inc.php:96
-msgid "The number of fsync() operations so far."
-msgstr "Број fsync() операција до сада."
-
-#: libraries/messages.inc.php:97
-msgid "The current number of pending fsync() operations."
-msgstr "Тренутни број fsync() операција на чекању."
-
-#: libraries/messages.inc.php:98
-msgid "The current number of pending reads."
-msgstr "Тренутни број читања на чекању."
-
-#: libraries/messages.inc.php:99
-msgid "The current number of pending writes."
-msgstr "Тренутни број уписа на чекању."
-
-#: libraries/messages.inc.php:100
-msgid "The amount of data read so far, in bytes."
-msgstr "Количина података прочитаних до сада, у бајтовима."
-
-#: libraries/messages.inc.php:101
-msgid "The total number of data reads."
-msgstr "Укупан број читања података."
-
-#: libraries/messages.inc.php:102
-msgid "The total number of data writes."
-msgstr "Укупан број уписа података."
-
-#: libraries/messages.inc.php:103
-msgid "The amount of data written so far, in bytes."
-msgstr "Количина података уписаних до сада, у бајтовима"
-
-#: libraries/messages.inc.php:104
-msgid "The number of pages that have been written for doublewrite operations."
-msgstr ""
-"Број извршених двоуписних (doublewrite) уписа и број страна које су уписане "
-"у ову сврху."
-
-#: libraries/messages.inc.php:105
-msgid "The number of doublewrite operations that have been performed."
-msgstr ""
-"Број извршених двоуписних (doublewrite) уписа и број страна које су уписане "
-"у ову сврху."
-
-#: libraries/messages.inc.php:106
-msgid ""
-"The number of waits we had because log buffer was too small and we had to "
-"wait for it to be flushed before continuing."
-msgstr ""
-"Број чекања која смо имали зато што је бафер дневника био премали те смо "
-"морали да сачекамо да буде очишћен пре наставка."
-
-#: libraries/messages.inc.php:107
-msgid "The number of log write requests."
-msgstr "Број захтева за упис у дневник."
-
-#: libraries/messages.inc.php:108
-msgid "The number of physical writes to the log file."
-msgstr "Број физичких уписа у датотеку дневника."
-
-#: libraries/messages.inc.php:109
-msgid "The number of fsync() writes done to the log file."
-msgstr "Број fsyncs уписа начињених у датотеку дневника."
-
-#: libraries/messages.inc.php:110
-msgid "The number of pending log file fsyncs."
-msgstr "Број fsync-ова за датотеку дневника на чекању."
-
-#: libraries/messages.inc.php:111
-msgid "Pending log file writes."
-msgstr "Број уписа у датотеку дневника на чекању."
-
-#: libraries/messages.inc.php:112
-msgid "The number of bytes written to the log file."
-msgstr "Број бајтова уписаних у датотеку дневника."
-
-#: libraries/messages.inc.php:113
-msgid "The number of pages created."
-msgstr "Број направљених страна."
-
-#: libraries/messages.inc.php:114
-msgid ""
-"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
-"pages; the page size allows them to be easily converted to bytes."
-msgstr ""
-"Укомпајлирана величина стране за InnoDB (подразумевано 16КБ). Многе "
-"вредности се рачунају у странама; величина стране омогућава да се оне лако "
-"конвертују у бајтове."
-
-#: libraries/messages.inc.php:115
-msgid "The number of pages read."
-msgstr "Број прочитаних страна."
-
-#: libraries/messages.inc.php:116
-msgid "The number of pages written."
-msgstr "Број записаних страна."
-
-#: libraries/messages.inc.php:117
-msgid "The number of row locks currently being waited for."
-msgstr "Број брава за редове које се тренутно чекају."
-
-#: libraries/messages.inc.php:118
-msgid "The average time to acquire a row lock, in milliseconds."
-msgstr "Просечно време за добављање браве за ред, у милисекундама."
-
-#: libraries/messages.inc.php:119
-msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr "Укупно времена проведено у добављању брава за редове, у милисекундама."
-
-#: libraries/messages.inc.php:120
-msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr "Најдуже време за добављање браве за ред, у милисекундама."
-
-#: libraries/messages.inc.php:121
-msgid "The number of times a row lock had to be waited for."
-msgstr "Број пута када се морала чекати брава за ред."
-
-#: libraries/messages.inc.php:122
-msgid "The number of rows deleted from InnoDB tables."
-msgstr "Број редова обрисаних из InnoDB табела."
-
-#: libraries/messages.inc.php:123
-msgid "The number of rows inserted in InnoDB tables."
-msgstr "Број редова уметнутих у InnoDB табеле."
-
-#: libraries/messages.inc.php:124
-msgid "The number of rows read from InnoDB tables."
-msgstr "Број редова прочитаних из InnoDB табела."
-
-#: libraries/messages.inc.php:125
-msgid "The number of rows updated in InnoDB tables."
-msgstr "Број редова ажурираних у InnoDB табелама."
-
-#: libraries/messages.inc.php:126
-msgid ""
-"The number of key blocks in the key cache that have changed but haven't yet "
-"been flushed to disk. It used to be known as Not_flushed_key_blocks."
-msgstr ""
-"Број блокова кључева у кешу кључева који су измењени али још нису послати на "
-"диск. Ово је раније било познато као Not_flushed_key_blocks."
-
-#: libraries/messages.inc.php:127
-msgid ""
-"The number of unused blocks in the key cache. You can use this value to "
-"determine how much of the key cache is in use."
-msgstr ""
-"Број неискоришћених блокова у кешу кључева. Ову вредност можете да користите "
-"да утврдите колики део кеша кључева је у употреби."
-
-#: libraries/messages.inc.php:128
-msgid ""
-"The number of used blocks in the key cache. This value is a high-water mark "
-"that indicates the maximum number of blocks that have ever been in use at "
-"one time."
-msgstr ""
-"Број искоришћених блокова у кешу кључева. Ова вредност је ознака „високог "
-"водостаја“ која показује највећи икада број блокова који је био у употреби у "
-"исто време."
-
-#: libraries/messages.inc.php:129
-msgid "The number of requests to read a key block from the cache."
-msgstr "Број захтева за читање блока кључева из кеша."
-
-#: libraries/messages.inc.php:130
-msgid ""
-"The number of physical reads of a key block from disk. If Key_reads is big, "
-"then your key_buffer_size value is probably too small. The cache miss rate "
-"can be calculated as Key_reads/Key_read_requests."
-msgstr ""
-"Број физичких читања блока кључева са диска. Ако је Key_reads велико, онда "
-"је ваша вредност за key_buffer_size вероватно премала. Степен промашаја кеша "
-"се може израчунати као Key_reads/Key_read_requests."
-
-#: libraries/messages.inc.php:131
-msgid "The number of requests to write a key block to the cache."
-msgstr "Број захтева за уписивање блока кључева у кеш."
-
-#: libraries/messages.inc.php:132
-msgid "The number of physical writes of a key block to disk."
-msgstr "Број физичких уписа блока кључева на диск."
-
-#: libraries/messages.inc.php:133
-msgid ""
-"The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
-"same query. The default value of 0 means that no query has been compiled yet."
-msgstr ""
-"Укупна цена последњег компајлираног упита како ју је израчунао оптимизатор "
-"упита. Корисно за упоређивање цене различитих планова упита за исти упит. "
-"Подразумевана вредност 0 значи да још није био компајлиран ниједан упит."
-
-#: libraries/messages.inc.php:134
-msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr "Број редова у INSERT DELAYED редовима чекања који чекају уписивање."
-
-#: libraries/messages.inc.php:135
-msgid ""
-"The number of tables that have been opened. If opened tables is big, your "
-"table cache value is probably too small."
-msgstr ""
-"Број табела које су биле отваране. Ако је број велики, ваш кеш табела је "
-"вероватно премали."
-
-#: libraries/messages.inc.php:136
-msgid "The number of files that are open."
-msgstr "Број отворених датотека."
-
-#: libraries/messages.inc.php:137
-msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
-"Број отворених токова (користи се првенствено за вођење дневника (logging))."
-
-#: libraries/messages.inc.php:138
-msgid "The number of tables that are open."
-msgstr "Број отворених табела."
-
-#: libraries/messages.inc.php:139
-msgid "The number of free memory blocks in query cache."
-msgstr "Број слободних меморијских блокова у у кешу упита."
-
-#: libraries/messages.inc.php:140
-msgid "The amount of free memory for query cache."
-msgstr "Количина слободне меморије за кеш упита."
-
-#: libraries/messages.inc.php:141
-msgid "The number of cache hits."
-msgstr "Број погодака из кеша."
-
-#: libraries/messages.inc.php:142
-msgid "The number of queries added to the cache."
-msgstr "Број упита додатих у кеш."
-
-#: libraries/messages.inc.php:143
-msgid ""
-"The number of queries that have been removed from the cache to free up "
-"memory for caching new queries. This information can help you tune the query "
-"cache size. The query cache uses a least recently used (LRU) strategy to "
-"decide which queries to remove from the cache."
-msgstr ""
-"Број упита који су уклоњени из кеша да би се ослободила меморија за кеширање "
-"нових упита. Овај податак вам може помоћи да подесите величину кеша за "
-"упите. Кеш за упите користи стратегију најдуже некоришћеног (en: least "
-"recently used , LRU) да би одлучио које упите да уклони из кеша."
-
-#: libraries/messages.inc.php:144
-msgid ""
-"The number of non-cached queries (not cachable, or not cached due to the "
-"query_cache_type setting)."
-msgstr ""
-"Број некешираних упита (који се не могу кеширати или нису кеширани због "
-"подешавања query_cache_type)."
-
-#: libraries/messages.inc.php:145
-msgid "The number of queries registered in the cache."
-msgstr "Број упита регистрованих у кешу."
-
-#: libraries/messages.inc.php:146
-msgid "The total number of blocks in the query cache."
-msgstr "Укупан број блокова у кешу за упите."
-
-#: libraries/messages.inc.php:147
-msgctxt "$strShowStatusReset"
-msgid "Reset"
-msgstr "Ресет"
-
-#: libraries/messages.inc.php:148
-msgid "The status of failsafe replication (not yet implemented)."
-msgstr "Статус репликације отпорне на грешке (није још имплементирано)."
-
-#: libraries/messages.inc.php:149
-msgid ""
-"The number of joins that do not use indexes. If this value is not 0, you "
-"should carefully check the indexes of your tables."
-msgstr ""
-"Број спојева који не користе индексте. Ако ова вредност није 0, требало би "
-"пажљиво да проверите индексе ваших табела."
-
-#: libraries/messages.inc.php:150
-msgid "The number of joins that used a range search on a reference table."
-msgstr "Број спојева који су користили претрагу опсега на референтној табели."
-
-#: libraries/messages.inc.php:151
-msgid ""
-"The number of joins without keys that check for key usage after each row. "
-"(If this is not 0, you should carefully check the indexes of your tables.)"
-msgstr ""
-"Број спојева без кључева који проверавају употребу кључа после сваког реда. "
-"(Ако ово није 0, требало би пажљиво да проверите индексе ваших табела.)"
-
-#: libraries/messages.inc.php:152
-msgid ""
-"The number of joins that used ranges on the first table. (It's normally not "
-"critical even if this is big.)"
-msgstr ""
-"Број спојева који су користили опсеге на првој табели. (Обично није критично "
-"чак ни када је ово велико)"
-
-#: libraries/messages.inc.php:153
-msgid "The number of joins that did a full scan of the first table."
-msgstr "Број спојева који су урадили пуно скенирање прве табеле."
-
-#: libraries/messages.inc.php:154
-msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr "Број привремених табела тренутно отворених од стране помоћне SQL нити."
-
-#: libraries/messages.inc.php:155
-msgid ""
-"Total (since startup) number of times the replication slave SQL thread has "
-"retried transactions."
-msgstr ""
-"Укупан број пута (од покретања) када је помоћна SQL нит за репликацију "
-"покушала трансакције."
-
-#: libraries/messages.inc.php:156
-msgid "This is ON if this server is a slave that is connected to a master."
-msgstr "Ово је ON ако је овај сервер помоћни који је повезан на главни."
-
-#: libraries/messages.inc.php:157
-msgid ""
-"The number of threads that have taken more than slow_launch_time seconds to "
-"create."
-msgstr ""
-"Број нити за које је требало више од slow_launch_time секудни да би биле "
-"покренуте."
-
-#: libraries/messages.inc.php:158
-msgid ""
-"The number of queries that have taken more than long_query_time seconds."
-msgstr "Број упита за које је требало више од long_query_time секудни."
-
-#: libraries/messages.inc.php:159
-msgid ""
-"The number of merge passes the sort algorithm has had to do. If this value "
-"is large, you should consider increasing the value of the sort_buffer_size "
-"system variable."
-msgstr ""
-"Број пролаза за спајање које је алгоритам за сортирање морао да одради. Ако "
-"је ова вредност велика, требало би да размислите о повећању вредности "
-"системске променљиве sort_buffer_size."
-
-#: libraries/messages.inc.php:160
-msgid "The number of sorts that were done with ranges."
-msgstr "Број сортирања која су урађена са опсегом."
-
-#: libraries/messages.inc.php:161
-msgid "The number of sorted rows."
-msgstr "Број сортираних редова."
-
-#: libraries/messages.inc.php:162
-msgid "The number of sorts that were done by scanning the table."
-msgstr "Број сортирања до којих је дошло скенирањем табеле."
-
-#: libraries/messages.inc.php:163
-msgid "The number of times that a table lock was acquired immediately."
-msgstr "Број пута када је брава за табелу одмах добављена."
-
-#: libraries/messages.inc.php:164
-msgid ""
-"The number of times that a table lock could not be acquired immediately and "
-"a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
-"tables or use replication."
-msgstr ""
-"Број пута када брава за табелу није могла бити одмах добављена и било је "
-"потребно чекање. Ако је ово високо и имате проблема са перформансама, прво "
-"би требало да оптимизујете своје упите а потом да или поделите табелу или "
-"табеле или да користите репликацију."
-
-#: libraries/messages.inc.php:165
-msgid ""
-"The number of threads in the thread cache. The cache hit rate can be "
-"calculated as Threads_created/Connections. If this value is red you should "
-"raise your thread_cache_size."
-msgstr ""
-"Број нити у кешу за нити. Степен погодака кеша се може израчунати као "
-"Threads_created/Конекције. Ако је ова вредност црвена требало би да повећате "
-"ваш thread_cache_size."
-
-#: libraries/messages.inc.php:166
-msgid "The number of currently open connections."
-msgstr "Број тренутно отворених веза."
-
-#: libraries/messages.inc.php:167
-msgid ""
-"The number of threads created to handle connections. If Threads_created is "
-"big, you may want to increase the thread_cache_size value. (Normally this "
-"doesn't give a notable performance improvement if you have a good thread "
-"implementation.)"
-msgstr ""
-"Број нити креираних за руковање конекцијама. Ако је Threads_created велико, "
-"можда би требало да повећате вредност thread_cache_size. (Ако имате добру "
-"имплементацију нити, ово обично не доноси приметна побољшања у "
-"перформансама.)"
-
-#: libraries/messages.inc.php:168
-msgid "The number of threads that are not sleeping."
-msgstr "Број нити које нису успаване."
-
 #: libraries/mult_submits.inc.php:76 libraries/tbl_properties.inc.php:513
 #: tbl_structure.php:29 tbl_structure.php:153 tbl_structure.php:157
 #: tbl_structure.php:473
@@ -4381,8 +3535,8 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:55 libraries/replication_gui.lib.php:56
 #: libraries/replication_gui.lib.php:249 libraries/replication_gui.lib.php:252
-#: libraries/replication_gui.lib.php:259 server_privileges.php:672
-#: server_privileges.php:675 server_privileges.php:682
+#: libraries/replication_gui.lib.php:259 server_privileges.php:711
+#: server_privileges.php:714 server_privileges.php:721
 #: server_synchronize.php:1171
 msgid "User name"
 msgstr "Име корисника"
@@ -4403,11 +3557,11 @@ msgid "Slave status"
 msgstr "Прикажи статус подређених сервера"
 
 #: libraries/replication_gui.lib.php:114 libraries/sql_query_form.lib.php:445
-#: server_status.php:626 server_variables.php:52
+#: server_status.php:737 server_variables.php:52
 msgid "Variable"
 msgstr "Променљива"
 
-#: libraries/replication_gui.lib.php:115 server_status.php:627
+#: libraries/replication_gui.lib.php:115 server_status.php:738
 #: tbl_change.php:324 tbl_printview.php:370 tbl_select.php:139
 #: tbl_structure.php:729
 msgid "Value"
@@ -4427,41 +3581,58 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:254 server_privileges.php:677
+#: libraries/replication_gui.lib.php:254 server_privileges.php:716
 msgid "Any user"
 msgstr "Било који корисник"
 
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:323
-#: libraries/replication_gui.lib.php:346 server_privileges.php:678
-#: server_privileges.php:745 server_privileges.php:769
-#: server_privileges.php:1889 server_privileges.php:1919
+#: libraries/replication_gui.lib.php:346 server_privileges.php:717
+#: server_privileges.php:784 server_privileges.php:808
+#: server_privileges.php:1928 server_privileges.php:1958
 msgid "Use text field"
 msgstr "Користи текст поље"
 
-#: libraries/replication_gui.lib.php:302 server_privileges.php:725
+#: libraries/replication_gui.lib.php:302 server_privileges.php:764
 msgid "Any host"
 msgstr "Било који домаћин"
 
-#: libraries/replication_gui.lib.php:306 server_privileges.php:729
+#: libraries/replication_gui.lib.php:306 server_privileges.php:768
 msgid "Local"
 msgstr "Локални"
 
-#: libraries/replication_gui.lib.php:312 server_privileges.php:734
+#: libraries/replication_gui.lib.php:312 server_privileges.php:773
 msgid "This Host"
 msgstr "Овај сервер"
 
-#: libraries/replication_gui.lib.php:318 server_privileges.php:740
+#: libraries/replication_gui.lib.php:318 server_privileges.php:779
 msgid "Use Host Table"
 msgstr "Користи табелу домаћина"
 
-#: libraries/replication_gui.lib.php:331 server_privileges.php:753
+#: libraries/replication_gui.lib.php:331 server_privileges.php:792
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
-#: libraries/select_lang.lib.php:482 libraries/select_lang.lib.php:488
+#. l10n: Text direction, use either ltr or rtl
+#: libraries/select_lang.lib.php:491
+msgid "ltr"
+msgstr "ltr"
+
+#: libraries/select_lang.lib.php:493
+msgid "Content of table __TABLE__"
+msgstr "Садржај табеле __TABLE__"
+
 #: libraries/select_lang.lib.php:494
+msgid "(continued)"
+msgstr "(настављено)"
+
+#: libraries/select_lang.lib.php:495
+msgid "Structure of table __TABLE__"
+msgstr "Структура табеле __TABLE__"
+
+#: libraries/select_lang.lib.php:500 libraries/select_lang.lib.php:506
+#: libraries/select_lang.lib.php:512
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Непознат језик: %1$s."
@@ -4472,7 +3643,7 @@ msgid "Servers"
 msgstr "Сервери"
 
 #: libraries/server_links.inc.php:53 server_engines.php:112
-#: server_engines.php:116 server_status.php:304 test/theme.php:105
+#: server_engines.php:116 server_status.php:415 test/theme.php:105
 msgid "Variables"
 msgstr "Променљиве"
 
@@ -4485,7 +3656,7 @@ msgid "Engines"
 msgstr "Складиштења"
 
 #: libraries/server_links.inc.php:76 server_binlog.php:110
-#: server_status.php:253 test/theme.php:121
+#: server_status.php:364 test/theme.php:121
 msgid "Binary log"
 msgstr "Бинарни дневник"
 
@@ -4959,8 +4130,8 @@ msgstr "Поништи"
 msgid "Protocol version"
 msgstr "Верзија протокола"
 
-#: main.php:189 server_privileges.php:1350 server_privileges.php:1497
-#: server_privileges.php:1611 server_privileges.php:2029
+#: main.php:189 server_privileges.php:1389 server_privileges.php:1536
+#: server_privileges.php:1650 server_privileges.php:2068
 #: server_processlist.php:54
 msgid "User"
 msgstr "Корисник"
@@ -5347,7 +4518,7 @@ msgstr "%s база је успешно одбачено."
 msgid "Databases statistics"
 msgstr "Статистика базе"
 
-#: server_databases.php:117 server_status.php:260
+#: server_databases.php:117 server_status.php:371
 #: setup/lib/messages.inc.php:117
 msgid "Tables"
 msgstr "Табеле"
@@ -5365,6 +4536,16 @@ msgstr ""
 #, fuzzy
 msgid "Jump to database"
 msgstr "База не постоји"
+
+#: server_databases.php:267
+msgid "Not replicated"
+msgstr ""
+
+#: server_databases.php:273
+#, fuzzy
+#| msgid "Replication"
+msgid "Replicated"
+msgstr "Репликација"
 
 #: server_databases.php:289
 #, php-format
@@ -5399,240 +4580,431 @@ msgstr "Погони складиштења"
 msgid "View dump (schema) of databases"
 msgstr "Прикажи садржај (схему) базе"
 
-#: server_privileges.php:263 server_privileges.php:264
+#: server_privileges.php:24 server_privileges.php:266
+msgid "Includes all privileges except GRANT."
+msgstr "Укључује све привилегије осим GRANT."
+
+#: server_privileges.php:25 server_privileges.php:192
+#: server_privileges.php:515
+msgid "Allows altering the structure of existing tables."
+msgstr "Дозвољава измену структура постојећих табела."
+
+#: server_privileges.php:26 server_privileges.php:208
+#: server_privileges.php:521
+msgid "Allows altering and dropping stored routines."
+msgstr "Дозвољава измену и одбацивање сачуваних рутина."
+
+#: server_privileges.php:27 server_privileges.php:184
+#: server_privileges.php:514
+msgid "Allows creating new databases and tables."
+msgstr "Дозвољава креирање нових база и табела."
+
+#: server_privileges.php:28 server_privileges.php:207
+#: server_privileges.php:520
+msgid "Allows creating stored routines."
+msgstr "Дозвољава прављење сачуваних рутина."
+
+#: server_privileges.php:29 server_privileges.php:514
+msgid "Allows creating new tables."
+msgstr "Дозвољава креирање нових табела."
+
+#: server_privileges.php:30 server_privileges.php:195
+#: server_privileges.php:518
+msgid "Allows creating temporary tables."
+msgstr "Дозвољава креирање привремених табела.."
+
+#: server_privileges.php:31 server_privileges.php:209
+#: server_privileges.php:554
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr "Дозвољава прављење, одбацивање и преименовање корисничких налога."
+
+#: server_privileges.php:32 server_privileges.php:199
+#: server_privileges.php:203 server_privileges.php:526
+#: server_privileges.php:530
+msgid "Allows creating new views."
+msgstr "Дозволи креирање нових погледа."
+
+#: server_privileges.php:33 server_privileges.php:183
+#: server_privileges.php:506
+msgid "Allows deleting data."
+msgstr "Дозвољава брисање података."
+
+#: server_privileges.php:34 server_privileges.php:185
+#: server_privileges.php:517
+msgid "Allows dropping databases and tables."
+msgstr "Дозвољава одбацивање база и табела."
+
+#: server_privileges.php:35 server_privileges.php:517
+msgid "Allows dropping tables."
+msgstr "Дозвољава одбацивање табела."
+
+#: server_privileges.php:36 server_privileges.php:200
+#: server_privileges.php:534
+msgid "Allows to set up events for the event scheduler"
+msgstr ""
+
+#: server_privileges.php:37 server_privileges.php:210
+#: server_privileges.php:522
+msgid "Allows executing stored routines."
+msgstr "Дозвољава извршавање сачуваних рутина."
+
+#: server_privileges.php:38 server_privileges.php:189
+#: server_privileges.php:509
+msgid "Allows importing data from and exporting data into files."
+msgstr "Дозвољава увоз података и њихов извоз у датотеке."
+
+#: server_privileges.php:39 server_privileges.php:540
+msgid ""
+"Allows adding users and privileges without reloading the privilege tables."
+msgstr ""
+"Дозвољава додавање корисника и привилегија без поновног учитавања табела "
+"привилегија."
+
+#: server_privileges.php:40 server_privileges.php:191
+#: server_privileges.php:516
+msgid "Allows creating and dropping indexes."
+msgstr "Дозвољава креирање и брисање кључева."
+
+#: server_privileges.php:41 server_privileges.php:181
+#: server_privileges.php:442 server_privileges.php:504
+msgid "Allows inserting and replacing data."
+msgstr "Дозвољава уметање и замену података."
+
+#: server_privileges.php:42 server_privileges.php:196
+#: server_privileges.php:549
+msgid "Allows locking tables for the current thread."
+msgstr "Дозвољава закључавање табела текућим процесима."
+
+#: server_privileges.php:43 server_privileges.php:646
+#: server_privileges.php:648
+msgid "Limits the number of new connections the user may open per hour."
+msgstr "Ограничава број нових конекција које корисник може та отвори на сат."
+
+#: server_privileges.php:44 server_privileges.php:634
+#: server_privileges.php:636
+msgid "Limits the number of queries the user may send to the server per hour."
+msgstr "Ограничава број упита које корисник може да упути серверу за сат."
+
+#: server_privileges.php:45 server_privileges.php:640
+#: server_privileges.php:642
+msgid ""
+"Limits the number of commands that change any table or database the user may "
+"execute per hour."
+msgstr ""
+"Ограничава број команди које мењају табеле или базе које корисник може да "
+"изврши на сат."
+
+#: server_privileges.php:46 server_privileges.php:652
+#: server_privileges.php:654
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr "Ограничава број истовремених конекција које корисник може да има."
+
+#: server_privileges.php:47 server_privileges.php:188
+#: server_privileges.php:544
+msgid "Allows viewing processes of all users"
+msgstr ""
+
+#: server_privileges.php:48 server_privileges.php:190
+#: server_privileges.php:448 server_privileges.php:550
+msgid "Has no effect in this MySQL version."
+msgstr "Нема ефекта у овој верзији MySQL-a."
+
+#: server_privileges.php:49 server_privileges.php:186
+#: server_privileges.php:545
+msgid "Allows reloading server settings and flushing the server's caches."
+msgstr ""
+"Дозвољава поновно учитавање подешавања сервера и пражњење кеша сервера."
+
+#: server_privileges.php:50 server_privileges.php:198
+#: server_privileges.php:552
+msgid "Allows the user to ask where the slaves / masters are."
+msgstr "Даје право кориснику да пита где су главни/помоћни сервери."
+
+#: server_privileges.php:51 server_privileges.php:197
+#: server_privileges.php:553
+msgid "Needed for the replication slaves."
+msgstr "Потребно због помоћних сервера за репликацију."
+
+#: server_privileges.php:52 server_privileges.php:180
+#: server_privileges.php:439 server_privileges.php:503
+msgid "Allows reading data."
+msgstr "Дозвољава читање података."
+
+#: server_privileges.php:53 server_privileges.php:193
+#: server_privileges.php:547
+msgid "Gives access to the complete list of databases."
+msgstr "Даје приступ комплетној листи база."
+
+#: server_privileges.php:54 server_privileges.php:204
+#: server_privileges.php:206 server_privileges.php:519
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr "Дозвољава извршавање SHOW CREATE VIEW упита."
+
+#: server_privileges.php:55 server_privileges.php:187
+#: server_privileges.php:546
+msgid "Allows shutting down the server."
+msgstr "Дозвољава гашење сервера."
+
+#: server_privileges.php:56 server_privileges.php:194
+#: server_privileges.php:543
+msgid ""
+"Allows connecting, even if maximum number of connections is reached; "
+"required for most administrative operations like setting global variables or "
+"killing threads of other users."
+msgstr ""
+" Дозвољава повезивање иако је достигнут максималан број дозвољених веза; "
+"Неопходно за већину административних опција као што су подешавање глобалних "
+"променљивих или прекидање процеса осталих корисника."
+
+#: server_privileges.php:57 server_privileges.php:201
+#: server_privileges.php:535
+#, fuzzy
+msgid "Allows creating and dropping triggers"
+msgstr "Дозвољава креирање и брисање кључева."
+
+#: server_privileges.php:58 server_privileges.php:182
+#: server_privileges.php:445 server_privileges.php:505
+msgid "Allows changing data."
+msgstr "Дозвољава измену података."
+
+#: server_privileges.php:59 server_privileges.php:260
+msgid "No privileges."
+msgstr "Нема привилегија."
+
+#: server_privileges.php:302 server_privileges.php:303
 #, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "нема"
 
-#: server_privileges.php:392 server_privileges.php:527
-#: server_privileges.php:1679 server_privileges.php:1685
+#: server_privileges.php:431 server_privileges.php:566
+#: server_privileges.php:1718 server_privileges.php:1724
 msgid "Table-specific privileges"
 msgstr "Привилегије везане за табеле"
 
-#: server_privileges.php:393 server_privileges.php:535
-#: server_privileges.php:1501
+#: server_privileges.php:432 server_privileges.php:574
+#: server_privileges.php:1540
 msgid " Note: MySQL privilege names are expressed in English "
 msgstr " Напомена: MySQL имена привилегија морају да буду на енглеском "
 
-#: server_privileges.php:524 server_privileges.php:1500
+#: server_privileges.php:563 server_privileges.php:1539
 msgid "Global privileges"
 msgstr "Глобалне привилегије"
 
-#: server_privileges.php:526 server_privileges.php:1679
+#: server_privileges.php:565 server_privileges.php:1718
 msgid "Database-specific privileges"
 msgstr "Привилегије везане за базу"
 
-#: server_privileges.php:571
+#: server_privileges.php:610
 msgid "Administration"
 msgstr "Администрација"
 
-#: server_privileges.php:591
+#: server_privileges.php:630
 msgid "Resource limits"
 msgstr "Ограничења ресурса"
 
-#: server_privileges.php:592
+#: server_privileges.php:631
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Напомена: Постављање ових опција на 0 (нулу) уклања ограничења."
 
-#: server_privileges.php:669
+#: server_privileges.php:708
 msgid "Login Information"
 msgstr "Подаци о пријави"
 
-#: server_privileges.php:763
+#: server_privileges.php:802
 msgid "Do not change the password"
 msgstr "Немој да мењаш лозинку"
 
-#: server_privileges.php:804 server_privileges.php:2166
+#: server_privileges.php:843 server_privileges.php:2205
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Корисник није нађен."
 
-#: server_privileges.php:848
+#: server_privileges.php:887
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Корисник %s већ постоји!"
 
-#: server_privileges.php:931
+#: server_privileges.php:970
 msgid "You have added a new user."
 msgstr "Додали сте новог корисника."
 
-#: server_privileges.php:1152
+#: server_privileges.php:1191
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ажурирали сте привилегије за %s."
 
-#: server_privileges.php:1176
+#: server_privileges.php:1215
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Забранили сте привилегије за %s"
 
-#: server_privileges.php:1212
+#: server_privileges.php:1251
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Лозинка за %s је успешно промењена."
 
-#: server_privileges.php:1232
+#: server_privileges.php:1271
 #, php-format
 msgid "Deleting %s"
 msgstr "Бришем %s"
 
-#: server_privileges.php:1243
+#: server_privileges.php:1282
 msgid "No users selected for deleting!"
 msgstr "Ниједан корисник није одабран за брисање!"
 
-#: server_privileges.php:1246
+#: server_privileges.php:1285
 msgid "Reloading the privileges"
 msgstr "Поново учитавам привилегије"
 
-#: server_privileges.php:1261
+#: server_privileges.php:1300
 msgid "The selected users have been deleted successfully."
 msgstr "Изабрани корисници су успешно обрисани."
 
-#: server_privileges.php:1296
+#: server_privileges.php:1335
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегије су успешно поново учитане."
 
-#: server_privileges.php:1324 server_privileges.php:1610
+#: server_privileges.php:1363 server_privileges.php:1649
 msgid "Edit Privileges"
 msgstr "Промени привилегије"
 
-#: server_privileges.php:1333
+#: server_privileges.php:1372
 msgid "Revoke"
 msgstr "Забрани"
 
-#: server_privileges.php:1365
+#: server_privileges.php:1404
 msgid "User overview"
 msgstr "Преглед корисника"
 
-#: server_privileges.php:1502 server_privileges.php:1684
-#: server_privileges.php:2033
+#: server_privileges.php:1541 server_privileges.php:1723
+#: server_privileges.php:2072
 msgid "Grant"
 msgstr "Омогући"
 
-#: server_privileges.php:1521 server_privileges.php:2123
+#: server_privileges.php:1560 server_privileges.php:2162
 msgid "Any"
 msgstr "Било који"
 
-#: server_privileges.php:1570 server_privileges.php:1594
-#: server_privileges.php:1988 server_privileges.php:2177
+#: server_privileges.php:1609 server_privileges.php:1633
+#: server_privileges.php:2027 server_privileges.php:2216
 msgid "Add a new User"
 msgstr "Додај новог корисника"
 
-#: server_privileges.php:1575
+#: server_privileges.php:1614
 msgid "Remove selected users"
 msgstr "Уклони изабране кориснике"
 
-#: server_privileges.php:1578
+#: server_privileges.php:1617
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Обустави све активне привилегије корисника и затим их обриши."
 
-#: server_privileges.php:1579 server_privileges.php:1580
-#: server_privileges.php:1581
+#: server_privileges.php:1618 server_privileges.php:1619
+#: server_privileges.php:1620
 msgid "Drop the databases that have the same names as the users."
 msgstr "Одбаци базе које се зову исто као корисници."
 
-#: server_privileges.php:1597
+#: server_privileges.php:1636
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Напомена: phpMyAdmin узима привилегије корисника директно из MySQL табела "
 "привилегија. Садржај ове табеле може се разликовати од привилегија које "
 "сервер користи ако су вршене ручне измене. У том случају %sпоново учитајте "
 "привилегије%s пре него што наставите."
 
-#: server_privileges.php:1645
+#: server_privileges.php:1684
 msgid "The selected user was not found in the privilege table."
 msgstr "Изабрани корисник није пронађен у табели привилегија."
 
-#: server_privileges.php:1685
+#: server_privileges.php:1724
 msgid "Column-specific privileges"
 msgstr "Привилегије везане за колоне"
 
-#: server_privileges.php:1886
+#: server_privileges.php:1925
 msgid "Add privileges on the following database"
 msgstr "Додај привилегије на следећој бази"
 
-#: server_privileges.php:1904
+#: server_privileges.php:1943
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Пре џокера _ и % треба ставити знак \\ ако их користите самостално"
 
-#: server_privileges.php:1907
+#: server_privileges.php:1946
 msgid "Add privileges on the following table"
 msgstr "Додај привилегије на следећој табели"
 
-#: server_privileges.php:1964
+#: server_privileges.php:2003
 msgid "Change Login Information / Copy User"
 msgstr "Промени информације о пријави / Копирај корисника"
 
-#: server_privileges.php:1967
+#: server_privileges.php:2006
 msgid "Create a new user with the same privileges and ..."
 msgstr "Направи новог корисника са истим привилегијама и ..."
 
-#: server_privileges.php:1969
+#: server_privileges.php:2008
 msgid "... keep the old one."
 msgstr "... сачувај старе."
 
-#: server_privileges.php:1970
+#: server_privileges.php:2009
 msgid " ... delete the old one from the user tables."
 msgstr " ... обриши старе из табела корисника."
 
-#: server_privileges.php:1971
+#: server_privileges.php:2010
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
 msgstr " ... обустави све привилегије старог корисника и затим га обриши."
 
-#: server_privileges.php:1972
+#: server_privileges.php:2011
 msgid ""
 " ... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... обриши старог из табеле корисника и затим поново учитај привилегије."
 
-#: server_privileges.php:1994
+#: server_privileges.php:2033
 msgid "Database for user"
 msgstr "База за корисника"
 
-#: server_privileges.php:1998
+#: server_privileges.php:2037
 #, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "нема"
 
-#: server_privileges.php:1999
+#: server_privileges.php:2038
 msgid "Create database with same name and grant all privileges"
 msgstr "Направи базу са истим именом и додај све привилегије"
 
-#: server_privileges.php:2000
+#: server_privileges.php:2039
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Дај све привилегије на имену са џокерима (корисничко_име\\_%)"
 
-#: server_privileges.php:2003
+#: server_privileges.php:2042
 #, fuzzy, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Провери привилегије за базу &quot;%s&quot;."
 
-#: server_privileges.php:2026
+#: server_privileges.php:2065
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Корисници који имају приступ &quot;%s&quot;"
 
-#: server_privileges.php:2134
+#: server_privileges.php:2173
 msgid "global"
 msgstr "глобално"
 
-#: server_privileges.php:2136
+#: server_privileges.php:2175
 msgid "database-specific"
 msgstr "Специфично за базу"
 
-#: server_privileges.php:2138
+#: server_privileges.php:2177
 msgid "wildcard"
 msgstr "џокер"
 
@@ -5678,7 +5050,7 @@ msgstr ""
 msgid "This server is configured as master in a replication process."
 msgstr ""
 
-#: server_replication.php:184 server_status.php:281
+#: server_replication.php:184 server_status.php:392
 #, fuzzy
 msgid "Show master status"
 msgstr "Прикажи статус подређених сервера"
@@ -5818,103 +5190,741 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
+#: server_status.php:40
+msgid ""
+"The number of transactions that used the temporary binary log cache but that "
+"exceeded the value of binlog_cache_size and used a temporary file to store "
+"statements from the transaction."
+msgstr ""
+"Број транксакција које су користиле кеш привременог бинарног дневника али су "
+"превазишле вредност у binlog_cache_size и користиле привремену датотеку да "
+"сместе изразе из трансакције."
+
+#: server_status.php:41
+msgid "The number of transactions that used the temporary binary log cache."
+msgstr "Број трансакција које су користиле кеш привременог бинарног дневника."
+
+#: server_status.php:42
+msgid ""
+"The number of temporary tables on disk created automatically by the server "
+"while executing statements. If Created_tmp_disk_tables is big, you may want "
+"to increase the tmp_table_size  value to cause temporary tables to be memory-"
+"based instead of disk-based."
+msgstr ""
+"Број привремених табела које је сервер аутоматски креирао на диску док је "
+"извршавао изразе. Ако је Created_tmp_disk_tables велико, можда треба да "
+"повећате вредност tmp_table_size како би учинили да привремене табеле буду "
+"базиране у меморији уместо на диску."
+
+#: server_status.php:43
+msgid "How many temporary files mysqld has created."
+msgstr "Колико привремених датотека је mysqld направио."
+
+#: server_status.php:44
+msgid ""
+"The number of in-memory temporary tables created automatically by the server "
+"while executing statements."
+msgstr ""
+"Број привремених табела које је сервер аутоматски креирао у меморији док је "
+"извршавао изразе."
+
+#: server_status.php:45
+msgid ""
+"The number of rows written with INSERT DELAYED for which some error occurred "
+"(probably duplicate key)."
+msgstr ""
+"Број редова уписаних са INSERT DELAYED за које је јављена нека грешка "
+"(вероватно дуплирани кључ)."
+
 #: server_status.php:46
+msgid ""
+"The number of INSERT DELAYED handler threads in use. Every different table "
+"on which one uses INSERT DELAYED gets its own thread."
+msgstr ""
+"Број INSERT DELAYED руковалачких нити у употреби. Свака посебна табела над "
+"којом се користи INSERT DELAYED добија своју нит."
+
+#: server_status.php:47
+msgid "The number of INSERT DELAYED rows written."
+msgstr "Број уписаних INSERT DELAYED редова."
+
+#: server_status.php:48
+msgid "The number of executed FLUSH statements."
+msgstr "Број извршених FLUSH израза."
+
+#: server_status.php:49
+msgid "The number of internal COMMIT statements."
+msgstr "Број интерних COMMIT израза."
+
+#: server_status.php:50
+msgid "The number of times a row was deleted from a table."
+msgstr "Број брисања неког реда табеле."
+
+#: server_status.php:51
+msgid ""
+"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
+"table with a given name. This is called discovery. Handler_discover "
+"indicates the number of time tables have been discovered."
+msgstr ""
+"MySQL сервер може да упита погон складиштења NDB Cluster да ли зна за табелу "
+"одређеног имена. То се назива откривањем (discovery). Handler_discover "
+"означава број пута када је откривена табела."
+
+#: server_status.php:52
+msgid ""
+"The number of times the first entry was read from an index. If this is high, "
+"it suggests that the server is doing a lot of full index scans; for example, "
+"SELECT col1 FROM foo, assuming that col1 is indexed."
+msgstr ""
+"Број пута када је прва ставка прочитана из индекса. Ако је ово високо, то "
+"може значити да сервер ради пуно пуних скенирања индекса; на пример SELECT "
+"кол1 FROM нешто, под претпоставком да је кол1 индексирано."
+
+#: server_status.php:53
+msgid ""
+"The number of requests to read a row based on a key. If this is high, it is "
+"a good indication that your queries and tables are properly indexed."
+msgstr ""
+"Број захтева за читање реда заснованих на кључу. Ако је овај број висок, то "
+"је добар показатељ да су ваши упити и табеле прописно индексирани."
+
+#: server_status.php:54
+msgid ""
+"The number of requests to read the next row in key order. This is "
+"incremented if you are querying an index column with a range constraint or "
+"if you are doing an index scan."
+msgstr ""
+"Број захтева за читањем следећег реда у поретку кључева. Ово се повећава "
+"када радите упит по колони индекса са ограничењем опсега или ако радите "
+"скенирање индекса."
+
+#: server_status.php:55
+msgid ""
+"The number of requests to read the previous row in key order. This read "
+"method is mainly used to optimize ORDER BY ... DESC."
+msgstr ""
+"Број захтева за читањем претходног реда у поретку кључева. Ова метода читања "
+"се углавном користи за оптимизацију ORDER BY ... DESC."
+
+#: server_status.php:56
+msgid ""
+"The number of requests to read a row based on a fixed position. This is high "
+"if you are doing a lot of queries that require sorting of the result. You "
+"probably have a lot of queries that require MySQL to scan whole tables or "
+"you have joins that don't use keys properly."
+msgstr ""
+"Број захтева за читање реда заснованих на фиксној позицији. Ово је високо "
+"ако радите много упита који захтевају сортирање резултата. Вероватно имате "
+"много упита који захтевају да MySQL скенира целе табеле или имате спојеве "
+"који не користе кључеве прописно."
+
+#: server_status.php:57
+msgid ""
+"The number of requests to read the next row in the data file. This is high "
+"if you are doing a lot of table scans. Generally this suggests that your "
+"tables are not properly indexed or that your queries are not written to take "
+"advantage of the indexes you have."
+msgstr ""
+"Број захтева за читањем следећег реда из датотеке података. Ово је високо "
+"ако радите пуно скенирања табела. Ово обично наговештава да ваше табеле нису "
+"прописно индексиране или да ваши упити нису написани да искористе већ "
+"постојеће индексе."
+
+#: server_status.php:58
+msgid "The number of internal ROLLBACK statements."
+msgstr "Број интерних ROLLBACK израза."
+
+#: server_status.php:59
+msgid "The number of requests to update a row in a table."
+msgstr "Број захтева за ажурирање реда у табели."
+
+#: server_status.php:60
+msgid "The number of requests to insert a row in a table."
+msgstr "Број захтева за уписивање реда у табелу."
+
+#: server_status.php:61
+msgid "The number of pages containing data (dirty or clean)."
+msgstr "Број страна које садрже податке (чистих или прљавих)."
+
+#: server_status.php:62
+msgid "The number of pages currently dirty."
+msgstr "Број страна које су тренутно прљаве."
+
+#: server_status.php:63
+msgid "The number of buffer pool pages that have been requested to be flushed."
+msgstr "Број страна у остави бафера за које је тражено да буду очишћене."
+
+#: server_status.php:64
+msgid "The number of free pages."
+msgstr "Број слободних страна."
+
+#: server_status.php:65
+msgid ""
+"The number of latched pages in InnoDB buffer pool. These are pages currently "
+"being read or written or that can't be flushed or removed for some other "
+"reason."
+msgstr ""
+"Број забрављених страна у InnoDB остави бафера. Са ових страна се тренутно "
+"чита или се у њих уписује или из неког другог разлога не могу бити очишћене "
+"нити уклоњене."
+
+#: server_status.php:66
+msgid ""
+"The number of pages busy because they have been allocated for administrative "
+"overhead such as row locks or the adaptive hash index. This value can also "
+"be calculated as Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+msgstr ""
+"Број страна које су заузете зато што су одвојене за административне потребе, "
+"као што су закључавање редова или индекс прилагодљивог хеша. Ова вредност се "
+"такође може израчунати и на следећи начин Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+
+#: server_status.php:67
+msgid "Total size of buffer pool, in pages."
+msgstr "Пуна величина оставе бафера, у странама."
+
+#: server_status.php:68
+msgid ""
+"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
+"query is to scan a large portion of a table but in random order."
+msgstr ""
+"Број „насумичних“ пред-читања која је InnoDB покренуо. Ово се дешава када "
+"упит треба да скенира велики део табеле али насумичним редоследом."
+
+#: server_status.php:69
+msgid ""
+"The number of sequential read-aheads InnoDB initiated. This happens when "
+"InnoDB does a sequential full table scan."
+msgstr ""
+"Број секвенцијалних пред-читања која је InnoDB покренуо. Ово се дешава када "
+"InnoDB ради секвенцијално скенирање целе табеле."
+
+#: server_status.php:70
+msgid "The number of logical read requests InnoDB has done."
+msgstr "Број логичких захтева за читање које је InnoDB урадио."
+
+#: server_status.php:71
+msgid ""
+"The number of logical reads that InnoDB could not satisfy from buffer pool "
+"and had to do a single-page read."
+msgstr ""
+"Број логичких читања која InnoDB није могао да задовољи из оставе бафера те "
+"је морао да ради читање појединачне стране."
+
+#: server_status.php:72
+msgid ""
+"Normally, writes to the InnoDB buffer pool happen in the background. "
+"However, if it's necessary to read or create a page and no clean pages are "
+"available, it's necessary to wait for pages to be flushed first. This "
+"counter counts instances of these waits. If the buffer pool size was set "
+"properly, this value should be small."
+msgstr ""
+"Нормално се уписи у InnoDB оставу бафера дешавају у позадини. Међутим, ако "
+"је неопходно прочитати или направити страну а нема доступних чистих страна, "
+"неопходно је сачекати да се стране претходно очисте. Овај бројач броји "
+"дешавања ових чекања. Ако је величина оставе бафера постављена како треба, "
+"ова вредност ви требало да је ниска."
+
+#: server_status.php:73
+msgid "The number writes done to the InnoDB buffer pool."
+msgstr "Број уписа учињених у InnoDB оставу бафера."
+
+#: server_status.php:74
+msgid "The number of fsync() operations so far."
+msgstr "Број fsync() операција до сада."
+
+#: server_status.php:75
+msgid "The current number of pending fsync() operations."
+msgstr "Тренутни број fsync() операција на чекању."
+
+#: server_status.php:76
+msgid "The current number of pending reads."
+msgstr "Тренутни број читања на чекању."
+
+#: server_status.php:77
+msgid "The current number of pending writes."
+msgstr "Тренутни број уписа на чекању."
+
+#: server_status.php:78
+msgid "The amount of data read so far, in bytes."
+msgstr "Количина података прочитаних до сада, у бајтовима."
+
+#: server_status.php:79
+msgid "The total number of data reads."
+msgstr "Укупан број читања података."
+
+#: server_status.php:80
+msgid "The total number of data writes."
+msgstr "Укупан број уписа података."
+
+#: server_status.php:81
+msgid "The amount of data written so far, in bytes."
+msgstr "Количина података уписаних до сада, у бајтовима"
+
+#: server_status.php:82
+msgid "The number of pages that have been written for doublewrite operations."
+msgstr ""
+"Број извршених двоуписних (doublewrite) уписа и број страна које су уписане "
+"у ову сврху."
+
+#: server_status.php:83
+msgid "The number of doublewrite operations that have been performed."
+msgstr ""
+"Број извршених двоуписних (doublewrite) уписа и број страна које су уписане "
+"у ову сврху."
+
+#: server_status.php:84
+msgid ""
+"The number of waits we had because log buffer was too small and we had to "
+"wait for it to be flushed before continuing."
+msgstr ""
+"Број чекања која смо имали зато што је бафер дневника био премали те смо "
+"морали да сачекамо да буде очишћен пре наставка."
+
+#: server_status.php:85
+msgid "The number of log write requests."
+msgstr "Број захтева за упис у дневник."
+
+#: server_status.php:86
+msgid "The number of physical writes to the log file."
+msgstr "Број физичких уписа у датотеку дневника."
+
+#: server_status.php:87
+msgid "The number of fsync() writes done to the log file."
+msgstr "Број fsyncs уписа начињених у датотеку дневника."
+
+#: server_status.php:88
+msgid "The number of pending log file fsyncs."
+msgstr "Број fsync-ова за датотеку дневника на чекању."
+
+#: server_status.php:89
+msgid "Pending log file writes."
+msgstr "Број уписа у датотеку дневника на чекању."
+
+#: server_status.php:90
+msgid "The number of bytes written to the log file."
+msgstr "Број бајтова уписаних у датотеку дневника."
+
+#: server_status.php:91
+msgid "The number of pages created."
+msgstr "Број направљених страна."
+
+#: server_status.php:92
+msgid ""
+"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
+"pages; the page size allows them to be easily converted to bytes."
+msgstr ""
+"Укомпајлирана величина стране за InnoDB (подразумевано 16КБ). Многе "
+"вредности се рачунају у странама; величина стране омогућава да се оне лако "
+"конвертују у бајтове."
+
+#: server_status.php:93
+msgid "The number of pages read."
+msgstr "Број прочитаних страна."
+
+#: server_status.php:94
+msgid "The number of pages written."
+msgstr "Број записаних страна."
+
+#: server_status.php:95
+msgid "The number of row locks currently being waited for."
+msgstr "Број брава за редове које се тренутно чекају."
+
+#: server_status.php:96
+msgid "The average time to acquire a row lock, in milliseconds."
+msgstr "Просечно време за добављање браве за ред, у милисекундама."
+
+#: server_status.php:97
+msgid "The total time spent in acquiring row locks, in milliseconds."
+msgstr "Укупно времена проведено у добављању брава за редове, у милисекундама."
+
+#: server_status.php:98
+msgid "The maximum time to acquire a row lock, in milliseconds."
+msgstr "Најдуже време за добављање браве за ред, у милисекундама."
+
+#: server_status.php:99
+msgid "The number of times a row lock had to be waited for."
+msgstr "Број пута када се морала чекати брава за ред."
+
+#: server_status.php:100
+msgid "The number of rows deleted from InnoDB tables."
+msgstr "Број редова обрисаних из InnoDB табела."
+
+#: server_status.php:101
+msgid "The number of rows inserted in InnoDB tables."
+msgstr "Број редова уметнутих у InnoDB табеле."
+
+#: server_status.php:102
+msgid "The number of rows read from InnoDB tables."
+msgstr "Број редова прочитаних из InnoDB табела."
+
+#: server_status.php:103
+msgid "The number of rows updated in InnoDB tables."
+msgstr "Број редова ажурираних у InnoDB табелама."
+
+#: server_status.php:104
+msgid ""
+"The number of key blocks in the key cache that have changed but haven't yet "
+"been flushed to disk. It used to be known as Not_flushed_key_blocks."
+msgstr ""
+"Број блокова кључева у кешу кључева који су измењени али још нису послати на "
+"диск. Ово је раније било познато као Not_flushed_key_blocks."
+
+#: server_status.php:105
+msgid ""
+"The number of unused blocks in the key cache. You can use this value to "
+"determine how much of the key cache is in use."
+msgstr ""
+"Број неискоришћених блокова у кешу кључева. Ову вредност можете да користите "
+"да утврдите колики део кеша кључева је у употреби."
+
+#: server_status.php:106
+msgid ""
+"The number of used blocks in the key cache. This value is a high-water mark "
+"that indicates the maximum number of blocks that have ever been in use at "
+"one time."
+msgstr ""
+"Број искоришћених блокова у кешу кључева. Ова вредност је ознака „високог "
+"водостаја“ која показује највећи икада број блокова који је био у употреби у "
+"исто време."
+
+#: server_status.php:107
+msgid "The number of requests to read a key block from the cache."
+msgstr "Број захтева за читање блока кључева из кеша."
+
+#: server_status.php:108
+msgid ""
+"The number of physical reads of a key block from disk. If Key_reads is big, "
+"then your key_buffer_size value is probably too small. The cache miss rate "
+"can be calculated as Key_reads/Key_read_requests."
+msgstr ""
+"Број физичких читања блока кључева са диска. Ако је Key_reads велико, онда "
+"је ваша вредност за key_buffer_size вероватно премала. Степен промашаја кеша "
+"се може израчунати као Key_reads/Key_read_requests."
+
+#: server_status.php:109
+msgid "The number of requests to write a key block to the cache."
+msgstr "Број захтева за уписивање блока кључева у кеш."
+
+#: server_status.php:110
+msgid "The number of physical writes of a key block to disk."
+msgstr "Број физичких уписа блока кључева на диск."
+
+#: server_status.php:111
+msgid ""
+"The total cost of the last compiled query as computed by the query "
+"optimizer. Useful for comparing the cost of different query plans for the "
+"same query. The default value of 0 means that no query has been compiled yet."
+msgstr ""
+"Укупна цена последњег компајлираног упита како ју је израчунао оптимизатор "
+"упита. Корисно за упоређивање цене различитих планова упита за исти упит. "
+"Подразумевана вредност 0 значи да још није био компајлиран ниједан упит."
+
+#: server_status.php:112
+msgid "The number of rows waiting to be written in INSERT DELAYED queues."
+msgstr "Број редова у INSERT DELAYED редовима чекања који чекају уписивање."
+
+#: server_status.php:113
+msgid ""
+"The number of tables that have been opened. If opened tables is big, your "
+"table cache value is probably too small."
+msgstr ""
+"Број табела које су биле отваране. Ако је број велики, ваш кеш табела је "
+"вероватно премали."
+
+#: server_status.php:114
+msgid "The number of files that are open."
+msgstr "Број отворених датотека."
+
+#: server_status.php:115
+msgid "The number of streams that are open (used mainly for logging)."
+msgstr ""
+"Број отворених токова (користи се првенствено за вођење дневника (logging))."
+
+#: server_status.php:116
+msgid "The number of tables that are open."
+msgstr "Број отворених табела."
+
+#: server_status.php:117
+msgid "The number of free memory blocks in query cache."
+msgstr "Број слободних меморијских блокова у у кешу упита."
+
+#: server_status.php:118
+msgid "The amount of free memory for query cache."
+msgstr "Количина слободне меморије за кеш упита."
+
+#: server_status.php:119
+msgid "The number of cache hits."
+msgstr "Број погодака из кеша."
+
+#: server_status.php:120
+msgid "The number of queries added to the cache."
+msgstr "Број упита додатих у кеш."
+
+#: server_status.php:121
+msgid ""
+"The number of queries that have been removed from the cache to free up "
+"memory for caching new queries. This information can help you tune the query "
+"cache size. The query cache uses a least recently used (LRU) strategy to "
+"decide which queries to remove from the cache."
+msgstr ""
+"Број упита који су уклоњени из кеша да би се ослободила меморија за кеширање "
+"нових упита. Овај податак вам може помоћи да подесите величину кеша за "
+"упите. Кеш за упите користи стратегију најдуже некоришћеног (en: least "
+"recently used , LRU) да би одлучио које упите да уклони из кеша."
+
+#: server_status.php:122
+msgid ""
+"The number of non-cached queries (not cachable, or not cached due to the "
+"query_cache_type setting)."
+msgstr ""
+"Број некешираних упита (који се не могу кеширати или нису кеширани због "
+"подешавања query_cache_type)."
+
+#: server_status.php:123
+msgid "The number of queries registered in the cache."
+msgstr "Број упита регистрованих у кешу."
+
+#: server_status.php:124
+msgid "The total number of blocks in the query cache."
+msgstr "Укупан број блокова у кешу за упите."
+
+#: server_status.php:125
+msgctxt "$strShowStatusReset"
+msgid "Reset"
+msgstr "Ресет"
+
+#: server_status.php:126
+msgid "The status of failsafe replication (not yet implemented)."
+msgstr "Статус репликације отпорне на грешке (није још имплементирано)."
+
+#: server_status.php:127
+msgid ""
+"The number of joins that do not use indexes. If this value is not 0, you "
+"should carefully check the indexes of your tables."
+msgstr ""
+"Број спојева који не користе индексте. Ако ова вредност није 0, требало би "
+"пажљиво да проверите индексе ваших табела."
+
+#: server_status.php:128
+msgid "The number of joins that used a range search on a reference table."
+msgstr "Број спојева који су користили претрагу опсега на референтној табели."
+
+#: server_status.php:129
+msgid ""
+"The number of joins without keys that check for key usage after each row. "
+"(If this is not 0, you should carefully check the indexes of your tables.)"
+msgstr ""
+"Број спојева без кључева који проверавају употребу кључа после сваког реда. "
+"(Ако ово није 0, требало би пажљиво да проверите индексе ваших табела.)"
+
+#: server_status.php:130
+msgid ""
+"The number of joins that used ranges on the first table. (It's normally not "
+"critical even if this is big.)"
+msgstr ""
+"Број спојева који су користили опсеге на првој табели. (Обично није критично "
+"чак ни када је ово велико)"
+
+#: server_status.php:131
+msgid "The number of joins that did a full scan of the first table."
+msgstr "Број спојева који су урадили пуно скенирање прве табеле."
+
+#: server_status.php:132
+msgid "The number of temporary tables currently open by the slave SQL thread."
+msgstr "Број привремених табела тренутно отворених од стране помоћне SQL нити."
+
+#: server_status.php:133
+msgid ""
+"Total (since startup) number of times the replication slave SQL thread has "
+"retried transactions."
+msgstr ""
+"Укупан број пута (од покретања) када је помоћна SQL нит за репликацију "
+"покушала трансакције."
+
+#: server_status.php:134
+msgid "This is ON if this server is a slave that is connected to a master."
+msgstr "Ово је ON ако је овај сервер помоћни који је повезан на главни."
+
+#: server_status.php:135
+msgid ""
+"The number of threads that have taken more than slow_launch_time seconds to "
+"create."
+msgstr ""
+"Број нити за које је требало више од slow_launch_time секудни да би биле "
+"покренуте."
+
+#: server_status.php:136
+msgid ""
+"The number of queries that have taken more than long_query_time seconds."
+msgstr "Број упита за које је требало више од long_query_time секудни."
+
+#: server_status.php:137
+msgid ""
+"The number of merge passes the sort algorithm has had to do. If this value "
+"is large, you should consider increasing the value of the sort_buffer_size "
+"system variable."
+msgstr ""
+"Број пролаза за спајање које је алгоритам за сортирање морао да одради. Ако "
+"је ова вредност велика, требало би да размислите о повећању вредности "
+"системске променљиве sort_buffer_size."
+
+#: server_status.php:138
+msgid "The number of sorts that were done with ranges."
+msgstr "Број сортирања која су урађена са опсегом."
+
+#: server_status.php:139
+msgid "The number of sorted rows."
+msgstr "Број сортираних редова."
+
+#: server_status.php:140
+msgid "The number of sorts that were done by scanning the table."
+msgstr "Број сортирања до којих је дошло скенирањем табеле."
+
+#: server_status.php:141
+msgid "The number of times that a table lock was acquired immediately."
+msgstr "Број пута када је брава за табелу одмах добављена."
+
+#: server_status.php:142
+msgid ""
+"The number of times that a table lock could not be acquired immediately and "
+"a wait was needed. If this is high, and you have performance problems, you "
+"should first optimize your queries, and then either split your table or "
+"tables or use replication."
+msgstr ""
+"Број пута када брава за табелу није могла бити одмах добављена и било је "
+"потребно чекање. Ако је ово високо и имате проблема са перформансама, прво "
+"би требало да оптимизујете своје упите а потом да или поделите табелу или "
+"табеле или да користите репликацију."
+
+#: server_status.php:143
+msgid ""
+"The number of threads in the thread cache. The cache hit rate can be "
+"calculated as Threads_created/Connections. If this value is red you should "
+"raise your thread_cache_size."
+msgstr ""
+"Број нити у кешу за нити. Степен погодака кеша се може израчунати као "
+"Threads_created/Конекције. Ако је ова вредност црвена требало би да повећате "
+"ваш thread_cache_size."
+
+#: server_status.php:144
+msgid "The number of currently open connections."
+msgstr "Број тренутно отворених веза."
+
+#: server_status.php:145
+msgid ""
+"The number of threads created to handle connections. If Threads_created is "
+"big, you may want to increase the thread_cache_size value. (Normally this "
+"doesn't give a notable performance improvement if you have a good thread "
+"implementation.)"
+msgstr ""
+"Број нити креираних за руковање конекцијама. Ако је Threads_created велико, "
+"можда би требало да повећате вредност thread_cache_size. (Ако имате добру "
+"имплементацију нити, ово обично не доноси приметна побољшања у "
+"перформансама.)"
+
+#: server_status.php:146
+msgid "The number of threads that are not sleeping."
+msgstr "Број нити које нису успаване."
+
+#: server_status.php:157
 msgid "Runtime Information"
 msgstr "Информације о току рада"
 
-#: server_status.php:250
+#: server_status.php:361
 msgid "Handler"
 msgstr "Руковалац"
 
-#: server_status.php:251
+#: server_status.php:362
 msgid "Query cache"
 msgstr "Кеш упита"
 
-#: server_status.php:252
+#: server_status.php:363
 msgid "Threads"
 msgstr "Нити"
 
-#: server_status.php:254
+#: server_status.php:365
 msgid "Temporary data"
 msgstr "Привремени подаци"
 
-#: server_status.php:255
+#: server_status.php:366
 msgid "Delayed inserts"
 msgstr "Одложена уметања"
 
-#: server_status.php:256
+#: server_status.php:367
 msgid "Key cache"
 msgstr "Кеш кључева"
 
-#: server_status.php:257
+#: server_status.php:368
 msgid "Joins"
 msgstr "Спојеви"
 
-#: server_status.php:259
+#: server_status.php:370
 msgid "Sorting"
 msgstr "Сортирање"
 
-#: server_status.php:261
+#: server_status.php:372
 msgid "Transaction coordinator"
 msgstr "Координатор трансакција"
 
-#: server_status.php:271
+#: server_status.php:382
 msgid "Flush (close) all tables"
 msgstr "Очисти (затвори) све табеле"
 
-#: server_status.php:273
+#: server_status.php:384
 msgid "Show open tables"
 msgstr "Прикажи отворене табеле"
 
-#: server_status.php:278
+#: server_status.php:389
 msgid "Show slave hosts"
 msgstr "Прикажи подређене сервер"
 
-#: server_status.php:284
+#: server_status.php:395
 msgid "Show slave status"
 msgstr "Прикажи статус подређених сервера"
 
-#: server_status.php:289
+#: server_status.php:400
 msgid "Flush query cache"
 msgstr "Очисти кеш упита"
 
-#: server_status.php:294
+#: server_status.php:405
 msgid "Show processes"
 msgstr "Прикажи листу процеса"
 
-#: server_status.php:344
+#: server_status.php:455
 #, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "Поништи"
 
-#: server_status.php:350
+#: server_status.php:461
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "Овај MySQL сервер ради већ %s. Покренут је %s."
 
-#: server_status.php:360
+#: server_status.php:471
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
 
-#: server_status.php:362
+#: server_status.php:473
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 
-#: server_status.php:364
+#: server_status.php:475
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 
-#: server_status.php:366
+#: server_status.php:477
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
 
-#: server_status.php:383
+#: server_status.php:494
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
@@ -5922,11 +5932,11 @@ msgstr ""
 "<b>Саобраћај сервера</b>: Табеле показују статистике мрежног саобраћаја на "
 "овом MySQL серверу од његовог покретања."
 
-#: server_status.php:388
+#: server_status.php:499
 msgid "Traffic"
 msgstr "Саобраћај"
 
-#: server_status.php:388
+#: server_status.php:499
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -5934,36 +5944,36 @@ msgstr ""
 "На запосленом серверу бројачи бајтова могу да се прелију (overrun), тако да "
 "те статистике, онако како их пријављује MySQL сервер, могу бити нетачне."
 
-#: server_status.php:389 server_status.php:434 server_status.php:497
-#: server_status.php:555
+#: server_status.php:500 server_status.php:545 server_status.php:608
+#: server_status.php:666
 msgid "per hour"
 msgstr "на сат"
 
-#: server_status.php:394
+#: server_status.php:505
 msgid "Received"
 msgstr "Примљено"
 
-#: server_status.php:404
+#: server_status.php:515
 msgid "Sent"
 msgstr "Послато"
 
-#: server_status.php:433
+#: server_status.php:544
 msgid "Connections"
 msgstr "Конекције"
 
-#: server_status.php:440
+#: server_status.php:551
 msgid "max. concurrent connections"
 msgstr "макс. истовремених веза"
 
-#: server_status.php:447
+#: server_status.php:558
 msgid "Failed attempts"
 msgstr "Неуспелих покушаја"
 
-#: server_status.php:461
+#: server_status.php:572
 msgid "Aborted"
 msgstr "Прекинуто"
 
-#: server_status.php:490
+#: server_status.php:601
 #, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
@@ -5971,19 +5981,19 @@ msgid ""
 msgstr ""
 "<b>Статистике упита</b>: %s упита је постављено серверу од његовог покретања."
 
-#: server_status.php:498
+#: server_status.php:609
 msgid "per minute"
 msgstr "у минуту"
 
-#: server_status.php:499
+#: server_status.php:610
 msgid "per second"
 msgstr "у секунди"
 
-#: server_status.php:554
+#: server_status.php:665
 msgid "Query type"
 msgstr "Врста упита"
 
-#: server_status.php:721
+#: server_status.php:832
 #, fuzzy
 msgid "Replication status"
 msgstr "Репликација"
