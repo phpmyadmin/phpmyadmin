@@ -11,6 +11,8 @@
  */
 require_once './libraries/common.inc.php';
 
+$GLOBALS['js_include'][] = 'export.js';
+
 /**
  * Gets tables informations and displays top links
  */
