@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-09 10:19+0200\n"
+"PO-Revision-Date: 2010-06-09 10:20+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8110,7 +8110,7 @@ msgstr ""
 
 #: tbl_tracking.php:561
 msgid "Show versions"
-msgstr ""
+msgstr "Показване на версиите"
 
 #: tbl_tracking.php:593
 msgid "Version"
