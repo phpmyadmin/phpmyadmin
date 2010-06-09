@@ -2334,7 +2334,7 @@ msgstr "Показване на двоичните данни"
 
 #: libraries/display_tbl.lib.php:597
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Показване на BLOB-данните"
 
 #: libraries/display_tbl.lib.php:599
 msgid "Show binary contents as HEX"
