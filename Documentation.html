@@ -4366,8 +4366,8 @@ chmod o+rwx tmp
     the translations, since we define the right character set in the file.
     With HTML entities, the text on JavaScript messages would not
     display correctly.
-    However there are some entities that need to be there, for quotes
-    ,non-breakable spaces, ampersands, less than, greater than.
+    However there are some entities that need to be there, for quotes,
+    non-breakable spaces, ampersands, less than, greater than.
 </p>
 <p>
     You can then put your translations, as a zip file to avoid losing special
@@ -4417,7 +4417,7 @@ chmod o+rwx tmp
     <a href="#faq8_2">8.2 How can I protect phpMyAdmin against brute force attacks?</a></h4>
 
 <p> If you use Apache web server, phpMyAdmin exports information about 
-    authentication to Apache environment and it can be used in Apache logs.
+    authentication to the Apache environment and it can be used in Apache logs.
     Currently there are two variables available:
 </p>
 <dl>
@@ -4448,14 +4448,14 @@ LogFormat "%h %l %u %t \"%r\" %>s %b \
     <a href="#faq9_1">9.1 How can I synchronize two databases/tables in phpMyAdmin?</a></h4>
 
 <p> You can now synchronize databases/tables in phpMyAdmin using the Synchronize feature.
-It allows you to connect to local as well as remote servers.This requires you to enter 
+It allows you to connect to local as well as remote servers. This requires you to enter 
 server host name, username, password, port and the name of the database. Therefore you can 
 now synchronize your databases placed on the same server or some remote server.
 </p>
 
 <p>
 This feature is helpful for developers who need to replicate their
-databases’ structure as well as data. Moreover, this feature not only
+database&#8217;s structure as well as data. Moreover, this feature not only
 helps replication but also facilitates the user to keep his/her database
 in sync with another database. Other than the full database, certain
 tables of the databases can also be synchronized.
@@ -4476,29 +4476,29 @@ representation.
 </p>
 
 <p>
-On the left, are listed the source database table names.  Some of the
-names have a ‘+’ plus sign preceding them. This shows that these tables
+On the left, are listed the source database table names. Some of the
+names have a <code>+</code> plus sign preceding them. This shows that these tables
 are only present in source database and they need to be added to the
 target database in order to synchronize the target database. The tables
-whose names are not preceded by a ‘+’ sign are already present in the
+whose names are not preceded by a <code>+</code> sign are already present in the
 target database. 
 </p>
 
 <p>
 On the right, are listed the target database table names. There are few
-table names that have “(not present)” appended after their names. This
+table names that have <code>(not present)</code> appended after their names. This
 means that these tables are to be created in target database in order to
-synchronize target database with source database. Some tables’ names
-have a ‘-’ minus sign preceding them. This shows that these tables are
+synchronize target database with source database. Some table names
+have a <code>-</code> minus sign preceding them. This shows that these tables are
 only present in target database and they will remain unchanged in the
 target database. The column in the middle shows the difference between
 the source and target corresponding tables.
 </p>
 
 <p>
-The difference is depicted by the red and green buttons with S and D
+The difference is depicted by the red and green buttons with <tt>S</tt> and <tt>D</tt>
 letters, indicating that either Structure or Data are not up to date. By
-clicking on them, they will turn grey, what means that they will be synchronised.
+clicking on them, they will turn grey, what means that they will be synchronized.
 </p>
 
 <!-- DEVELOPERS -->
