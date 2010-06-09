@@ -4412,10 +4412,9 @@ msgid "Not replicated"
 msgstr "Not replicated"
 
 #: server_databases.php:273
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Replication"
+msgstr "Replicated"
 
 #: server_databases.php:289
 #, php-format
