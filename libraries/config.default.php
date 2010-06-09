@@ -1441,16 +1441,9 @@ $cfg['Export']['latex_structure_label'] = 'tab:__TABLE__-structure';
 /**
  *
  *
- * @global boolean $cfg['Export']['sql_structure']
+ * @global string $cfg['Export']['sql_structure_or_data']
  */
-$cfg['Export']['sql_structure'] = true;
-
-/**
- *
- *
- * @global boolean $cfg['Export']['sql_data']
- */
-$cfg['Export']['sql_data'] = true;
+$cfg['Export']['sql_structure_or_data'] = 'structure_and_data';
 
 /**
  *
@@ -1541,13 +1534,6 @@ $cfg['Export']['sql_relation'] = false;
 /**
  *
  *
- * @global boolean $cfg['Export']['sql_columns']
- */
-$cfg['Export']['sql_columns'] = true;
-
-/**
- *
- *
  * @global boolean $cfg['Export']['sql_delayed']
  */
 $cfg['Export']['sql_delayed'] = false;
@@ -1583,13 +1569,6 @@ $cfg['Export']['sql_type'] = 'insert';
 /**
  *
  *
- * @global boolean $cfg['Export']['sql_extended']
- */
-$cfg['Export']['sql_extended'] = true;
-
-/**
- *
- *
  * @global integer $cfg['Export']['sql_max_query_size']
  */
 $cfg['Export']['sql_max_query_size'] = 50000;
@@ -1614,6 +1593,20 @@ $cfg['Export']['sql_mime'] = false;
  * @global string $cfg['Export']['sql_header_comment']
  */
 $cfg['Export']['sql_header_comment'] = '';
+
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['sql_create_table_statements']
+ */
+$cfg['Export']['sql_create_table_statements'] = true;
+
+/**
+ * Whether to use complete inserts, extended inserts, both, or neither
+ *
+ * @global string $cfg['Export']['sql_insert_syntax']
+ */
+$cfg['Export']['sql_insert_syntax'] = 'both';
 
 /**
  *
