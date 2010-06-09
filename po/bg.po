@@ -2043,10 +2043,9 @@ msgid "Create table on database %s"
 msgstr "Създаване на нова таблица в БД %s"
 
 #: libraries/display_create_table.lib.php:57
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Брой полета"
+msgstr "Брой колони"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
