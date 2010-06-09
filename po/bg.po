@@ -8113,9 +8113,8 @@ msgid "Show versions"
 msgstr ""
 
 #: tbl_tracking.php:593
-#, fuzzy
 msgid "Version"
-msgstr "Персийски"
+msgstr "Версия"
 
 #: tbl_tracking.php:640
 #, php-format
