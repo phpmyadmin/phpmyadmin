@@ -16,6 +16,8 @@
  */
 require_once './libraries/common.inc.php';
 
+$GLOBALS['js_include'][] = 'export.js';
+
 // $sub_part is also used in db_info.inc.php to see if we are coming from
 // db_export.php, in which case we don't obey $cfg['MaxTableList']
 $sub_part  = '_export';
@@ -39,12 +41,12 @@ $checkall_url = 'db_export.php?'
               . PMA_generate_common_url($db)
               . '&amp;goto=db_export.php';
 
-$multi_values = '<div align="center">';
+$multi_values = '<div>';
 $multi_values .= '<a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">' . __('Select All') . '</a>
         /
         <a href="' . $checkall_url . '&amp;unselectall=1" onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">' . __('Unselect All') . '</a><br />';
 
-$multi_values .= '<select name="table_select[]" size="10" multiple="multiple">';
+$multi_values .= '<select name="table_select[]" id="table_select" size="10" multiple="multiple">';
 $multi_values .= "\n";
 
 if (!empty($selected_tbl) && empty($table_select)) {
@@ -65,7 +67,7 @@ foreach ($tables as $each_table) {
 } // end for
 
 $multi_values .= "\n";
-$multi_values .= '</select></div><br />';
+$multi_values .= '</select></div>';
 
 $export_type = 'database';
 require_once './libraries/display_export.lib.php';
