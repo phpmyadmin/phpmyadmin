@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-09 10:21+0200\n"
+"PO-Revision-Date: 2010-06-09 10:22+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -3153,7 +3153,7 @@ msgstr ""
 
 #: libraries/import/sql.php:42
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Да не се използва AUTO_INCREMENT за нулеви стойности"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 msgid ""
