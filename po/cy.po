@@ -6745,7 +6745,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:266
 msgid "Count tables"
-msgstr ""
+msgstr "Cyfrifwch y tablau"
 
 #: setup/lib/messages.inc.php:267
 msgid ""
@@ -6784,15 +6784,15 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:274
 msgid "PHP extension to use"
-msgstr ""
+msgstr "Estyniad PHP i'w ddefnyddio"
 
 #: setup/lib/messages.inc.php:275
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "Cuddio cronfeydd data sydd yn cydweddu â mynegiant arferol (PCRE)"
 
 #: setup/lib/messages.inc.php:276
 msgid "Hide databases"
-msgstr ""
+msgstr "Cuddio cronfeydd data"
 
 #: setup/lib/messages.inc.php:277
 msgid ""
@@ -6802,7 +6802,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:278
 msgid "SQL query history table"
-msgstr ""
+msgstr "Tabl hanes ymholiadau SQL"
 
 #: setup/lib/messages.inc.php:279
 msgid ""
@@ -6812,45 +6812,48 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:280
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "Tabl tracio ymholiadau SQL"
 
 #: setup/lib/messages.inc.php:281
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "Enw'r gwesteiwr ble mae'r gweinydd MySQL yn rhedeg"
 
 #: setup/lib/messages.inc.php:282
 msgid "Server hostname"
-msgstr ""
+msgstr "Enw gwesteiwr y gweinydd"
 
 #: setup/lib/messages.inc.php:283
 msgid "Logout URL"
-msgstr ""
+msgstr "URL allgofnodi"
 
 #: setup/lib/messages.inc.php:284
 msgid "Try to connect without password"
-msgstr ""
+msgstr "Ceisiwch â chysylltu heb gyfrinair"
 
 #: setup/lib/messages.inc.php:285
 msgid "Connect without password"
-msgstr ""
+msgstr "Cysylltwch heb gyfrinair"
 
 #: setup/lib/messages.inc.php:286
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgstr ""
+"Gallwch ddefnyddio nod-chwilwyr (% and _) MySQL. Bydd angen eu dianc os "
+"ydych am eu defnyddio'n llythrennol, h.y. defnyddiwch 'my\\_db' ac nid "
+"'my_db'"
 
 #: setup/lib/messages.inc.php:287
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Dangoswch gronfeydd data a restrir yn unig"
 
 #: setup/lib/messages.inc.php:288 setup/lib/messages.inc.php:322
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "Gadewch yn wag os nac ydych yn defnyddio 'config auth'"
 
 #: setup/lib/messages.inc.php:289
 msgid "Password for config auth"
-msgstr ""
+msgstr "Cyfrinair am 'config auth'"
 
 #: setup/lib/messages.inc.php:290
 msgid ""
