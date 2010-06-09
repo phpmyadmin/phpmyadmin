@@ -2054,10 +2054,10 @@ msgstr ""
 "инсталацията!"
 
 #: libraries/display_export.lib.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
-msgstr "Дъмп-ни %s реда като започнеш от %s."
+msgstr "Дъмп-ни %s ред(а) като започнеш от ред # %s."
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
