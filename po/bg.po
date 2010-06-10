@@ -4929,7 +4929,7 @@ msgstr "Няма"
 
 #: server_privileges.php:2038
 msgid "Create database with same name and grant all privileges"
-msgstr "Създаване на база от данни със същото име и даване на всички привилегии"
+msgstr "Създаване на база от данни със същото име и даване на пълни привилегии"
 
 #: server_privileges.php:2039
 msgid "Grant all privileges on wildcard name (username\\_%)"
