@@ -1322,19 +1322,23 @@ msgstr "Golygu"
 
 #: libraries/Index.class.php:472
 msgid "The primary key has been dropped"
-msgstr ""
+msgstr "Cafodd yr allwedd gynradd ei gollwng"
 
 #: libraries/Index.class.php:476
 #, php-format
+#, possible-php-format
 msgid "Index %s has been dropped"
-msgstr ""
+msgstr "Cafodd indecs %s ei ollwng"
 
 #: libraries/Index.class.php:576
 #, php-format
+#, possible-php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
+"Mae'n edrych fel bod yr indecsau %1$s a %2$s yn hafal. Gallwch chi dynnu un "
+"ohonyn nhw."
 
 #: libraries/List_Database.class.php:431 libraries/server_links.inc.php:41
 #: server_databases.php:88 server_privileges.php:1660
@@ -1377,21 +1381,25 @@ msgstr[1] "%1$d rhes wedi'u hychwanegu."
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
+"Does dim gwybodaeth statws fanwl ar gael ar gyfer y peiriant storio hwn."
 
 #: libraries/StorageEngine.class.php:359
 #, php-format
+#, possible-php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "Mae %s ar gael ar y gweinydd MySQL hwn."
 
 #: libraries/StorageEngine.class.php:362
 #, php-format
+#, possible-php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "Cafodd %s ei analluogi ar y gweinydd MySQL hwn."
 
 #: libraries/StorageEngine.class.php:366
 #, php-format
+#, possible-php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "Dyw'r gweinydd MySQL hwn ddim yn cynnal y peiriant storio %s."
 
 #: libraries/Table.class.php:1019
 msgid "Invalid database"
@@ -1464,10 +1472,13 @@ msgstr "Croeso i %s"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
+#, possible-php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
 msgstr ""
+"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r %"
+"1$sgript gosod%2$s  er mwyn ei chreu."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -1476,6 +1487,10 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
+"Ceisiodd phpMyAdmin gysylltu â'r gweinydd MySQL, ond gwrthododd y gweinydd y "
+"cysylltiad. Dylech wirio'r gwesteiwr, enw'r defnyddiwr a'r cyfrinair yn "
+"eich ffurfwedd a scirhau eu bod nhw'n cyfateb i'r wybodaeth a roddwyd gan "
+"weinyddwr y gweinydd MySQL."
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Log in"
@@ -1513,39 +1528,43 @@ msgstr "Dewis Gweinydd"
 
 #: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
-msgstr ""
+msgstr "Mae'n rhaid bod cwcis wedi'u galluogi heibio'r pwynt hwn."
 
 #: libraries/auth/cookie.auth.lib.php:671
 #: libraries/auth/signon.auth.lib.php:181
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
+"Nid oes hawl mewngofnodi heb gyfrinair. Dyma'r gosodiad yn eich ffurfwedd "
+"(gweler AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:675
 #: libraries/auth/signon.auth.lib.php:185
 #, php-format
+#, possible-php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr ""
+msgstr "Dim gweithredoedd o fewn %s eiliad; mewngofnodwch eto."
 
 #: libraries/auth/cookie.auth.lib.php:685
 #: libraries/auth/cookie.auth.lib.php:687
 #: libraries/auth/signon.auth.lib.php:191
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "Methu â mewngofnodi i'r gweinydd MySQL"
 
 #: libraries/auth/http.auth.lib.php:70
 msgid "Wrong username/password. Access denied."
-msgstr ""
+msgstr "Enw defnyddiwr/cyfrinair anghywir. Mynediad wedi'i wrthod."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
+#, possible-php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "Nid yw ffeil %s yn cynnwys unrhyw id allwedd"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "Dilysu caledwedd wedi methu"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
@@ -1553,23 +1572,23 @@ msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "Yn dilysu..."
 
 #: libraries/blobstreaming.lib.php:689
 msgid "View image"
-msgstr ""
+msgstr "Gweld delwedd"
 
 #: libraries/blobstreaming.lib.php:693
 msgid "Play audio"
-msgstr ""
+msgstr "Chwarae sain"
 
 #: libraries/blobstreaming.lib.php:698
 msgid "View video"
-msgstr ""
+msgstr "Gwylio fideo"
 
 #: libraries/blobstreaming.lib.php:702
 msgid "Download file"
-msgstr ""
+msgstr "Lawrlwytho ffeil"
 
 #: libraries/charset_conversion.lib.php:17
 msgid ""
@@ -1609,13 +1628,15 @@ msgstr ""
 
 #: libraries/common.inc.php:629
 #, php-format
+#, possible-php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "Indecs gweinydd annilys: %s"
 
 #: libraries/common.inc.php:636
 #, php-format
+#, possible-php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
+msgstr "Enw gwesteiwr annilys ar gyfer gweinydd %1$s. Adolygwch eich ffurfwedd."
 
 #: libraries/common.inc.php:645 libraries/header.inc.php:96
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
@@ -1629,8 +1650,9 @@ msgstr ""
 
 #: libraries/common.inc.php:926
 #, php-format
+#, possible-php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "Dylech uwchraddio i %s %s neu'n well."
 
 #: libraries/common.lib.php:147
 #, php-format
@@ -1685,8 +1707,10 @@ msgstr "Creu Cod PHP"
 
 #: libraries/common.lib.php:1235 server_status.php:452
 #: setup/lib/messages.inc.php:354
+#: libraries/common.lib.php:1233
+#: server_status.php:341
 msgid "Refresh"
-msgstr ""
+msgstr "Adfywio"
 
 #: libraries/common.lib.php:1244
 msgid "Skip Validate SQL"
@@ -1780,9 +1804,11 @@ msgid "End"
 msgstr "Diwedd"
 
 #: libraries/common.lib.php:2430
+#: libraries/common.lib.php:2421
 #, php-format
+#, possible-php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr ""
+msgstr "Neidio  i gronfa ddata &quot;%s&quot;."
 
 #: libraries/common.lib.php:2450
 #, php-format
@@ -1822,13 +1848,14 @@ msgstr "Enw"
 
 #: libraries/db_links.inc.php:45
 #, php-format
+#, possible-php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "Cafodd cronfa ddata %s ei gollwng."
 
 #: libraries/db_links.inc.php:57 libraries/db_links.inc.php:58
 #: libraries/db_links.inc.php:59
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "Mae'r gronfa ddata yn ymddangos yn wag!"
 
 #: libraries/db_links.inc.php:81 libraries/relation.lib.php:155
 #: libraries/tbl_links.inc.php:69
@@ -1889,7 +1916,7 @@ msgstr ""
 
 #: libraries/dbi/mysql.dbi.lib.php:362 tbl_structure.php:608
 msgid "Details..."
-msgstr ""
+msgstr "Manylion..."
 
 #: libraries/display_change_password.lib.php:30 main.php:91
 #: user_password.php:111 user_password.php:129
@@ -1976,7 +2003,7 @@ msgstr "Dadlwytho pob rhes"
 
 #: libraries/display_export.lib.php:125 setup/lib/messages.inc.php:82
 msgid "Save as file"
-msgstr ""
+msgstr "Cadw fel ffeil"
 
 #: libraries/display_export.lib.php:134
 #, php-format
@@ -1989,19 +2016,19 @@ msgstr ""
 
 #: libraries/display_export.lib.php:148
 msgid "File name template"
-msgstr ""
+msgstr "Templed enw ffeil"
 
 #: libraries/display_export.lib.php:152
 msgid "server name"
-msgstr ""
+msgstr "enw gweinydd"
 
 #: libraries/display_export.lib.php:155
 msgid "database name"
-msgstr ""
+msgstr "enw cronfa ddata"
 
 #: libraries/display_export.lib.php:158
 msgid "table name"
-msgstr ""
+msgstr "enw tabl"
 
 #: libraries/display_export.lib.php:162
 #, php-format
@@ -2013,40 +2040,41 @@ msgstr ""
 
 #: libraries/display_export.lib.php:202
 msgid "remember template"
-msgstr ""
+msgstr "cofio templed"
 
 #: libraries/display_export.lib.php:210 libraries/display_import.lib.php:178
 #: libraries/display_import.lib.php:191 libraries/sql_query_form.lib.php:549
 msgid "Character set of the file:"
-msgstr ""
+msgstr "Set nodau'r ffeil:"
 
 #: libraries/display_export.lib.php:235 setup/lib/messages.inc.php:84
 msgid "Compression"
-msgstr ""
+msgstr "Cywasgiad"
 
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1875 server_processlist.php:75
+#: server_privileges.php:1836
 msgid "None"
-msgstr ""
+msgstr "Dim"
 
 #: libraries/display_export.lib.php:247
 msgid "\"zipped\""
-msgstr ""
+msgstr "\"zip-iwyd\""
 
 #: libraries/display_export.lib.php:253
 msgid "\"gzipped\""
-msgstr ""
+msgstr "\"gzip-iwyd\""
 
 #: libraries/display_export.lib.php:259
 msgid "\"bzipped\""
-msgstr ""
+msgstr "\"bzip-iwyd\""
 
 #: libraries/display_export.lib.php:274 libraries/export/sql.php:43
 #: libraries/import/sql.php:32
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "Modd cytunedd SQL"
 
 #: libraries/display_import.lib.php:67
 msgid ""
@@ -2067,15 +2095,15 @@ msgstr ""
 
 #: libraries/display_import.lib.php:126
 msgid "File to import"
-msgstr ""
+msgstr "Ffeil i'w mewnforio"
 
 #: libraries/display_import.lib.php:137 libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
-msgstr ""
+msgstr "Lleoliad y ffeil destun"
 
 #: libraries/display_import.lib.php:148
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "Dyw lanlwytho ffeiliau ddim yn cael ei ganiatáu ar y gweinydd hwn."
 
 #: libraries/display_import.lib.php:163 libraries/sql_query_form.lib.php:533
 #: tbl_change.php:1028
