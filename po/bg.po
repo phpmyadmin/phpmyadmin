@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-10 21:18+0200\n"
+"PO-Revision-Date: 2010-06-10 21:19+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -4929,7 +4929,7 @@ msgstr "Няма"
 
 #: server_privileges.php:2038
 msgid "Create database with same name and grant all privileges"
-msgstr ""
+msgstr "Създаване на база от данни със същото име и даване на всички привилегии"
 
 #: server_privileges.php:2039
 msgid "Grant all privileges on wildcard name (username\\_%)"
