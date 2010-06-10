@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-10 21:12+0200\n"
+"PO-Revision-Date: 2010-06-10 21:13+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -3628,7 +3628,7 @@ msgstr "Процеси"
 #: libraries/server_links.inc.php:92 server_synchronize.php:1092
 #: server_synchronize.php:1100
 msgid "Synchronize"
-msgstr ""
+msgstr "Синхронизиране"
 
 #: libraries/server_synchronize.lib.php:1341 server_synchronize.php:1110
 #, fuzzy
