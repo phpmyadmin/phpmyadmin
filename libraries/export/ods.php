@@ -20,9 +20,9 @@ if (isset($plugin_list)) {
         'mime_type' => 'application/vnd.oasis.opendocument.spreadsheet',
         'force_file' => true,
         'options' => array(
-            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
+            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:')),
             array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
-            array('type' => 'hidden', 'name' => 'data'),
+            array('type' => 'hidden', 'name' => 'structure_or_data'),
             ),
         'options_text' => __('Options'),
         );
