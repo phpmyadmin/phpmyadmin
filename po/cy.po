@@ -2122,7 +2122,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:219
 msgid "Partial import"
-msgstr ""
+msgstr "Mewnforiad rhannol"
 
 #: libraries/display_import.lib.php:225
 #, php-format
@@ -2139,39 +2139,39 @@ msgstr ""
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "Nifer yr ymholiadau i'w neidio o'r dechrau"
 
 #: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
-msgstr ""
+msgstr "Fformat y ffeil a mewnforiwyd"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
-msgstr ""
+msgstr "Dangos sgema PDF"
 
 #: libraries/display_pdf_schema.lib.php:33
 msgid "Show grid"
-msgstr ""
+msgstr "Dangos grid"
 
 #: libraries/display_pdf_schema.lib.php:36
 msgid "Show color"
-msgstr ""
+msgstr "Dangos lliw"
 
 #: libraries/display_pdf_schema.lib.php:38
 msgid "Show dimension of tables"
-msgstr ""
+msgstr "Dangos dimensiynau'r tabl"
 
 #: libraries/display_pdf_schema.lib.php:41
 msgid "Display all tables with the same width"
-msgstr ""
+msgstr "Dangos pob tabl gyda'r un lled"
 
 #: libraries/display_pdf_schema.lib.php:46
 msgid "Only show keys"
-msgstr ""
+msgstr "Dangos allweddau'n unig"
 
 #: libraries/display_pdf_schema.lib.php:48
 msgid "Data Dictionary Format"
-msgstr ""
+msgstr "Fformat Geiriadur Data"
 
 #: libraries/display_pdf_schema.lib.php:50
 msgid "Landscape"
@@ -2179,7 +2179,7 @@ msgstr "Tirlun"
 
 #: libraries/display_pdf_schema.lib.php:51
 msgid "Portrait"
-msgstr ""
+msgstr "Portread"
 
 #: libraries/display_pdf_schema.lib.php:54
 msgid "Paper size"
@@ -2192,12 +2192,13 @@ msgstr "iaith"
 
 #: libraries/display_tbl.lib.php:304
 #, php-format
+#, possible-php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "Dydy %d ddim yn rhif rhes dilys."
 
 #: libraries/display_tbl.lib.php:310
 msgid "row(s) starting from row #"
-msgstr ""
+msgstr "rhes(i) yn dechrau o rhes #"
 
 #: libraries/display_tbl.lib.php:316
 msgid "horizontal"
@@ -2205,7 +2206,7 @@ msgstr "llorweddol"
 
 #: libraries/display_tbl.lib.php:317
 msgid "horizontal (rotated headers)"
-msgstr ""
+msgstr "llorweddol (penawdau wedi cylchdroi)"
 
 #: libraries/display_tbl.lib.php:318
 msgid "vertical"
@@ -2213,16 +2214,17 @@ msgstr "fertigol"
 
 #: libraries/display_tbl.lib.php:324
 #, php-format
+#, possible-php-format
 msgid "in %s mode and repeat headers after %s cells"
-msgstr ""
+msgstr "mewn modd %s ac ailadrodd penawdau ar ôl %s cell "
 
 #: libraries/display_tbl.lib.php:346
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "Gall y weithrediad hon gymryd amser hir. Parhau beth bynnag?"
 
 #: libraries/display_tbl.lib.php:512
 msgid "Sort by key"
-msgstr ""
+msgstr "Trefnu gan allwedd"
 
 #: libraries/display_tbl.lib.php:555 libraries/export/codegen.php:39
 #: libraries/export/csv.php:30 libraries/export/excel.php:35
@@ -2239,114 +2241,115 @@ msgstr ""
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
 #: libraries/import/xml.php:25 tbl_select.php:267 tbl_structure.php:753
 msgid "Options"
-msgstr ""
+msgstr "Opsiynau"
 
 #: libraries/display_tbl.lib.php:560 libraries/display_tbl.lib.php:570
 msgid "Partial Texts"
-msgstr ""
+msgstr "Testunau Rhannol"
 
 #: libraries/display_tbl.lib.php:561 libraries/display_tbl.lib.php:574
 msgid "Full Texts"
-msgstr ""
+msgstr "Testunau Llawn"
 
 #: libraries/display_tbl.lib.php:587
 msgid "Relational key"
-msgstr ""
+msgstr "Allwedd perthynol"
 
 #: libraries/display_tbl.lib.php:588
 msgid "Relational display column"
-msgstr ""
+msgstr "Colofn dangosydd perthynol"
 
 #: libraries/display_tbl.lib.php:595
 msgid "Show binary contents"
-msgstr ""
+msgstr "Dangos cynnwys deuaidd"
 
 #: libraries/display_tbl.lib.php:597
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Dangos cynnwys BLOB"
 
 #: libraries/display_tbl.lib.php:599
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Dangos cynnwys deuaidd fel HEX"
 
 #: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:314
 #: tbl_change.php:320
 msgid "Hide"
-msgstr ""
+msgstr "Cuddio"
 
 #: libraries/display_tbl.lib.php:607 libraries/relation.lib.php:135
 #: libraries/tbl_properties.inc.php:144 transformation_overview.php:47
 msgid "Browser transformation"
-msgstr ""
+msgstr "Trawsffurfiad porwr"
 
 #: libraries/display_tbl.lib.php:1126 libraries/display_tbl.lib.php:1130
 #: libraries/display_tbl.lib.php:1132
 msgid "Execute bookmarked query"
-msgstr ""
+msgstr "Gweithredu ymholiad a glustnodwyd"
 
 #: libraries/display_tbl.lib.php:1145 libraries/display_tbl.lib.php:1157
 msgid "The row has been deleted"
-msgstr ""
+msgstr "Cafodd y rhes ei dileu"
 
 #: libraries/display_tbl.lib.php:1184 libraries/display_tbl.lib.php:2056
 #: server_processlist.php:71 tbl_row_action.php:64
 msgid "Kill"
-msgstr ""
+msgstr "Lladd"
 
 #: libraries/display_tbl.lib.php:1934
 msgid "in query"
-msgstr ""
+msgstr "mewn ymholiad"
 
 #: libraries/display_tbl.lib.php:1952
 msgid "Showing rows"
-msgstr ""
+msgstr "Yn dangos rhesi"
 
 #: libraries/display_tbl.lib.php:1962
 msgid "total"
-msgstr ""
+msgstr "cyfanswm"
 
 #: libraries/display_tbl.lib.php:1970 sql.php:524
 #, php-format
+#, possible-php-format
 msgid "Query took %01.4f sec"
-msgstr ""
+msgstr "Cymerodd yr ymholiad %01.4f eiliad"
 
 #: libraries/display_tbl.lib.php:2089 libraries/mult_submits.inc.php:113
 #: querywindow.php:125 querywindow.php:129 querywindow.php:132
 #: tbl_structure.php:25 tbl_structure.php:150 tbl_structure.php:470
 msgid "Change"
-msgstr ""
+msgstr "Newid"
 
 #: libraries/display_tbl.lib.php:2159
 msgid "Query results operations"
-msgstr ""
+msgstr "Gweithrediadau canlyniadau ymholiad"
 
 #: libraries/display_tbl.lib.php:2187
 msgid "Print view (with full texts)"
-msgstr ""
+msgstr "Argraffu golwg (gyda thestunau llawn)"
 
 #: libraries/display_tbl.lib.php:2361
 msgid "Link not found"
-msgstr ""
+msgstr "Methu â darganfod y cysylltiad"
 
 #: libraries/engines/bdb.lib.php:21 main.php:228
 msgid "Version information"
-msgstr ""
+msgstr "Gwybodaeth y fersiwn"
 
 #: libraries/engines/innodb.lib.php:30
 msgid "Data home directory"
-msgstr ""
+msgstr "Cyfeiriadur hafan data"
 
 #: libraries/engines/innodb.lib.php:31
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "Y rhan gyffredin o lwybr y cyfeiriadur ar gyfer pob ffeil data InnoDB."
 
 #: libraries/engines/innodb.lib.php:34
 msgid "Data files"
-msgstr ""
+msgstr "Ffeiliau data"
 
 #: libraries/engines/innodb.lib.php:37
 msgid "Autoextend increment"
-msgstr ""
+msgstr "Cynyddiad awtoestyn"
 
 #: libraries/engines/innodb.lib.php:38
 msgid ""
@@ -2356,7 +2359,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:42
 msgid "Buffer pool size"
-msgstr ""
+msgstr "Maint y pwll byffer"
 
 #: libraries/engines/innodb.lib.php:43
 msgid ""
@@ -2366,77 +2369,81 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:144
 msgid "Buffer Pool"
-msgstr ""
+msgstr "Pwll Byffer"
 
 #: libraries/engines/innodb.lib.php:145 server_status.php:417
+#: server_status.php:306
 msgid "InnoDB Status"
-msgstr ""
+msgstr "Statws InnoDB"
 
 #: libraries/engines/innodb.lib.php:189
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "Defnydd Pwll Byffer"
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:525 server_status.php:586
 #: server_status.php:607 tbl_printview.php:351 tbl_structure.php:696
+#: server_status.php:414
+#: server_status.php:475
+#: server_status.php:496
 msgid "Total"
-msgstr ""
+msgstr "Cyfanswm"
 
 #: libraries/engines/innodb.lib.php:197
 msgid "pages"
-msgstr ""
+msgstr "tudalennau"
 
 #: libraries/engines/innodb.lib.php:206
 msgid "Free pages"
-msgstr ""
+msgstr "Tudalennau rhydd"
 
 #: libraries/engines/innodb.lib.php:212
 msgid "Dirty pages"
-msgstr ""
+msgstr "Tudalennau brwnt"
 
 #: libraries/engines/innodb.lib.php:218
 msgid "Pages containing data"
-msgstr ""
+msgstr "Tudalennau sy'n cynnwys data"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "Tudalennau i'w gwacáu"
 
 #: libraries/engines/innodb.lib.php:230
 msgid "Busy pages"
-msgstr ""
+msgstr "Tudalennau prysur"
 
 #: libraries/engines/innodb.lib.php:239
 msgid "Latched pages"
-msgstr ""
+msgstr "Tudalennau "
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "Gweithgaredd Pwll Byffer"
 
 #: libraries/engines/innodb.lib.php:254
 msgid "Read requests"
-msgstr ""
+msgstr "Ceisiadau darllen"
 
 #: libraries/engines/innodb.lib.php:260
 msgid "Write requests"
-msgstr ""
+msgstr "Ceisiadau ysgrifennu"
 
 #: libraries/engines/innodb.lib.php:266
 msgid "Read misses"
-msgstr ""
+msgstr "Colledion darllen"
 
 #: libraries/engines/innodb.lib.php:272
 msgid "Write waits"
-msgstr ""
+msgstr "Arosiadau ysgrifennu"
 
 #: libraries/engines/innodb.lib.php:278
 msgid "Read misses in %"
-msgstr ""
+msgstr "Colledion darllen mewn %"
 
 #: libraries/engines/innodb.lib.php:286
 msgid "Write waits in %"
-msgstr ""
+msgstr "Arosiadau ysgrifennu mewn %"
 
 #: libraries/engines/myisam.lib.php:23
 msgid "Data pointer size"
@@ -2450,7 +2457,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:28
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "Modd adferiad awtomatig"
 
 #: libraries/engines/myisam.lib.php:29
 msgid ""
