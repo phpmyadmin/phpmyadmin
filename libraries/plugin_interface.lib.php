@@ -259,7 +259,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         $ret .= '<input type="hidden" name="' . $plugin_name . '_' . $opt['name'] . '"'
             . ' value="' . PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']) . '"' . ' />';
     } elseif ($opt['type'] == 'begin_group') {
-        $ret .= '<div class="export_sub_options" id="' . $opt['name'] . '"><h4>' . PMA_getString($opt['text']) . '</h4><ul>';
+        $ret .= '<div class="export_sub_options" id="' . $plugin_name . '_' . $opt['name'] . '"><h4>' . PMA_getString($opt['text']) . '</h4><ul>';
     } elseif ($opt['type'] == 'end_group') {
         $ret .= '</ul></div>';
     } elseif ($opt['type'] == 'begin_subgroup') {
