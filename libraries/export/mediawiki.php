@@ -16,7 +16,7 @@ if (isset($plugin_list)) {
         'extension' => 'txt',
         'mime_type' => 'text/plain',
         'options' => array(
-            array('type' => 'hidden', 'name' => 'data'),
+            array('type' => 'hidden', 'name' => 'structure_or_data'),
             ),
         'options_text' => __('Options'),
         );

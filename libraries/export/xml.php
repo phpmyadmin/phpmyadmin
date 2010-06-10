@@ -19,7 +19,7 @@ if (isset($plugin_list)) {
         'extension' => 'xml',
         'mime_type' => 'text/xml',
         'options' => array(
-            array('type' => 'hidden', 'name' => 'data'),
+            array('type' => 'hidden', 'name' => 'structure_or_data'),
             ),
         'options_text' => __('Options')
         );
