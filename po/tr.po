@@ -306,11 +306,10 @@ msgid "Repair"
 msgstr "Onar"
 
 #: db_operations.php:574
-#, fuzzy
 #| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr "Etkisiz"
+msgstr "Etkisizleştirildi"
 
 #: db_operations.php:578
 msgid "Enable"
