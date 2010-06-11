@@ -1908,7 +1908,7 @@ msgstr ""
 #: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
 #: libraries/dbi/mysqli.dbi.lib.php:410
 msgid "The server is not responding"
-msgstr ""
+msgstr "Dyw'r gweinydd ddim yn ymateb"
 
 #: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
 msgid "(or the local MySQL server's socket is not correctly configured)"
@@ -1977,12 +1977,13 @@ msgstr "Dim Breintiau"
 
 #: libraries/display_create_table.lib.php:41
 msgid "Table must have at least one column."
-msgstr ""
+msgstr "Mae'n rhaid i'r tabl gael o leiaf un golofn."
 
 #: libraries/display_create_table.lib.php:48
 #, php-format
+#, possible-php-format
 msgid "Create table on database %s"
-msgstr ""
+msgstr "Creu tabl mewn cronfa ddata %s"
 
 #: libraries/display_create_table.lib.php:57
 msgid "Number of columns"
@@ -2012,7 +2013,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:142 setup/lib/messages.inc.php:90
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "Trosysgrifo ffeil(iau) sy'n bodoli yn barod"
 
 #: libraries/display_export.lib.php:148
 msgid "File name template"
@@ -2085,13 +2086,15 @@ msgstr ""
 
 #: libraries/display_import.lib.php:77
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Mae'r ffeil yn cael ei phrosesu. Byddwch yn amyneddgar."
 
 #: libraries/display_import.lib.php:99
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Byddwch yn amyneddgar, mae'r ffeil yn cael ei lanlwytho. Does dim manylion "
+"parthed y lanlwythiad ar gael."
 
 #: libraries/display_import.lib.php:126
 msgid "File to import"
@@ -2109,11 +2112,13 @@ msgstr "Dyw lanlwytho ffeiliau ddim yn cael ei ganiatáu ar y gweinydd hwn."
 #: tbl_change.php:1028
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
+"Does dim modd cyrraedd y cyfeiriadur a osodoch chi ar gyfer gwaith a "
+"lanwlythwyd"
 
 #: libraries/display_import.lib.php:166 libraries/sql_query_form.lib.php:536
 #: tbl_change.php:1031
 msgid "web server upload directory"
-msgstr ""
+msgstr "cyfeiriadur lanlwytho y gweinydd gwe"
 
 #: libraries/display_import.lib.php:212
 #, php-format
@@ -2489,7 +2494,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Repair threads"
-msgstr ""
+msgstr "Trwsio edafedd"
 
 #: libraries/engines/myisam.lib.php:43
 msgid ""
@@ -2499,7 +2504,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Sort buffer size"
-msgstr ""
+msgstr "Trefnu maint y byffer"
 
 #: libraries/engines/myisam.lib.php:48
 msgid ""
@@ -2509,7 +2514,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:23
 msgid "Index cache size"
-msgstr ""
+msgstr "Maint yr ystorfa indecs"
 
 #: libraries/engines/pbxt.lib.php:24
 msgid ""
@@ -2519,7 +2524,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Record cache size"
-msgstr ""
+msgstr "Maint yr ystorfa cofnod"
 
 #: libraries/engines/pbxt.lib.php:29
 msgid ""
@@ -2530,7 +2535,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Log cache size"
-msgstr ""
+msgstr "Maint yr ystorfa log"
 
 #: libraries/engines/pbxt.lib.php:34
 msgid ""
@@ -2540,7 +2545,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log file threshold"
-msgstr ""
+msgstr "Trothwy'r ffeil log"
 
 #: libraries/engines/pbxt.lib.php:39
 msgid ""
@@ -2632,31 +2637,31 @@ msgstr ""
 #: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
 #: tbl_printview.php:376 tbl_structure.php:737
 msgid "Format"
-msgstr ""
+msgstr "Fformat"
 
 #: libraries/export/csv.php:17 libraries/import/csv.php:22
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:59 libraries/import/ldi.php:40
 msgid "Columns terminated by"
-msgstr ""
+msgstr "Terfynwyd colofnau gan"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:71 libraries/import/ldi.php:41
 msgid "Columns enclosed by"
-msgstr ""
+msgstr "Amgaewyd colofnau gan"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
 msgid "Columns escaped by"
-msgstr ""
+msgstr "Colofnau wedi'u dianc gan"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #: libraries/import/csv.php:79 libraries/import/ldi.php:43
 msgid "Lines terminated by"
-msgstr ""
+msgstr "Terfynwyd llinellau gan"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:25 libraries/export/latex.php:65
@@ -2664,11 +2669,11 @@ msgstr ""
 #: libraries/export/texytext.php:31 libraries/export/xls.php:23
 #: libraries/export/xlsx.php:23
 msgid "Replace NULL by"
-msgstr ""
+msgstr "Amnewid NULL gan"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Tynnu nodau CRLF tu fewn colofnau"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
 #: libraries/export/htmlword.php:26 libraries/export/latex.php:57
@@ -2676,19 +2681,19 @@ msgstr ""
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
 msgid "Put columns names in the first row"
-msgstr ""
+msgstr "Rhoi enwau colofnau yn y rhes gyntaf"
 
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
-msgstr ""
+msgstr "CSV ar gyfer MS Excel"
 
 #: libraries/export/excel.php:32
 msgid "Excel edition"
-msgstr ""
+msgstr "Argraffiad Excel"
 
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/export/htmlword.php:24 libraries/export/latex.php:55
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
@@ -2696,30 +2701,31 @@ msgstr ""
 #: libraries/export/texytext.php:27 server_databases.php:127
 #: server_privileges.php:576 server_replication.php:316 tbl_printview.php:317
 #: tbl_structure.php:665
+#: server_privileges.php:537
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 #: libraries/export/htmlword.php:132 libraries/export/odt.php:168
 #: libraries/export/sql.php:881 libraries/export/texytext.php:130
 msgid "Dumping data for table"
-msgstr ""
+msgstr "Dadlwytho data ar gyfer y tabl"
 
 #: libraries/export/htmlword.php:185 libraries/export/odt.php:238
 #: libraries/export/sql.php:785 libraries/export/texytext.php:177
 msgid "Table structure for table"
-msgstr ""
+msgstr "Strwythur y tabl ar gyfer y tabl"
 
 #: libraries/export/latex.php:22
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 #: libraries/export/latex.php:26
 msgid "Include table caption"
-msgstr ""
+msgstr "Cynnwys pennawd y tabl"
 
 #: libraries/export/latex.php:35 libraries/export/latex.php:59
 msgid "Table caption"
-msgstr ""
+msgstr "Pennawd y tabl"
 
 #: libraries/export/latex.php:37 libraries/export/latex.php:61
 msgid "Continued table caption"
@@ -2727,18 +2733,18 @@ msgstr ""
 
 #: libraries/export/latex.php:39 libraries/export/latex.php:63
 msgid "Label key"
-msgstr ""
+msgstr "Allwedd y label"
 
 #: libraries/export/latex.php:42 libraries/export/odt.php:35
 #: libraries/export/sql.php:91 tbl_relation.php:399
 msgid "Relations"
-msgstr ""
+msgstr "Perthnasau"
 
 #: libraries/export/latex.php:48 libraries/export/odt.php:41
 #: libraries/export/odt.php:318 libraries/export/sql.php:95
 #: libraries/tbl_properties.inc.php:143
 msgid "MIME type"
-msgstr ""
+msgstr "Math MIME"
 
 #: libraries/export/latex.php:125 libraries/export/sql.php:232
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
@@ -2748,39 +2754,44 @@ msgstr ""
 #: server_privileges.php:734 server_privileges.php:790
 #: server_privileges.php:1537 server_privileges.php:2069
 #: server_processlist.php:55 server_synchronize.php:1159
+#: server_privileges.php:692
+#: server_privileges.php:695
+#: server_privileges.php:751
+#: server_privileges.php:1498
+#: server_privileges.php:2030
 msgid "Host"
-msgstr ""
+msgstr "Gwesteiwr"
 
 #: libraries/export/latex.php:130 libraries/export/sql.php:233
 #: libraries/export/xml.php:107 libraries/header_printview.inc.php:59
 msgid "Generation Time"
-msgstr ""
+msgstr "Amser Generadu"
 
 #: libraries/export/latex.php:131 libraries/export/sql.php:235
 #: libraries/export/xml.php:108 main.php:186
 msgid "Server version"
-msgstr ""
+msgstr "Fersiwn y gweinydd"
 
 #: libraries/export/latex.php:132 libraries/export/sql.php:236
 #: libraries/export/xml.php:109
 msgid "PHP Version"
-msgstr ""
+msgstr "Fersiwn PHP"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabl MediaWiki"
 
 #: libraries/export/ods.php:18 libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "Taenlen Open Document"
 
 #: libraries/export/odt.php:22
 msgid "Open Document Text"
-msgstr ""
+msgstr "Testun Open Document"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: libraries/export/pdf.php:23
 msgid "(Generates a report containing the data of a single table)"
@@ -2788,11 +2799,11 @@ msgstr ""
 
 #: libraries/export/pdf.php:24
 msgid "Report title"
-msgstr ""
+msgstr "Teitl yr adroddiad"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
-msgstr ""
+msgstr "Aräe PHP"
 
 #: libraries/export/sql.php:29
 msgid "Add custom comment into header (\\n splits lines)"
@@ -2852,15 +2863,15 @@ msgstr ""
 
 #: libraries/export/sql.php:122
 msgid "Export type"
-msgstr ""
+msgstr "Math allbwn"
 
 #: libraries/export/sql.php:387
 msgid "Procedures"
-msgstr ""
+msgstr "Gweithdrefnau"
 
 #: libraries/export/sql.php:401
 msgid "Functions"
-msgstr ""
+msgstr "Swyddogaethau"
 
 #: libraries/export/sql.php:618
 msgid "Constraints for dumped tables"
