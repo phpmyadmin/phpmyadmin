@@ -1084,7 +1084,7 @@ msgstr "Ekim"
 
 #: js/messages.php:92
 msgid "November"
-msgstr ""
+msgstr "Kasım"
 
 #: js/messages.php:93
 msgid "December"
