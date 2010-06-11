@@ -1056,7 +1056,7 @@ msgstr "Nisan"
 
 #: js/messages.php:86
 msgid "May"
-msgstr "May"
+msgstr "Mayıs"
 
 #: js/messages.php:87
 #| msgid "Jun"
