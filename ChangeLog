@@ -99,6 +99,7 @@ $Id$
 - bug #3011126 [display] Edit link missing after long query
 - patch #3013264 [doc] FAQ 1.40 uses a comma instead of a period,
   thanks to Isaac Bennetch - ibennetch
+- [engines] Fix getting InnoDB status.
 
 3.3.3.0 (2010-05-10)
 - patch #2982480 [navi] Do not group if there would be one table in group,
