@@ -1249,13 +1249,30 @@ select#db_select, select#table_select {
     margin: 7px;
 }
 
-.exportoptions label, .importoptions label {
+.exportoptions label, .importoptions label, .exportoptions p, .importoptions p	 {
     margin: 5px;
     float: none;
 }
 
+#csv_options .desc, #latex_options .desc, #output .desc{
+    float: left;
+    width: 15em;
+}
+
 .exportoptions, .importoptions {
-    margin: 30px 0px 30px 10px
+    margin: 30px 30px 30px 10px
+}
+
+.exportoptions #buttonGo, .importoptions #buttonGo {
+    padding: 5px 30px;
+    -moz-border-radius: 11px;
+    -webkit-border-radius:
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    border: 1px solid #444444;
+    background-color: #ffffff;
+    cursor: pointer;
 }
 
 .export_sub_options {
@@ -1264,6 +1281,11 @@ select#db_select, select#table_select {
 
 .export_sub_options h4 {
     border-bottom: 1px #999999 solid;
+}
+
+.importoptions #import_notification {
+    margin: 10px 0px;
+    font-style: italic;
 }
 
 p.desc {
