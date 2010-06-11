@@ -1153,10 +1153,9 @@ msgid "Dec"
 msgstr "Ara"
 
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "Paz"
+msgstr "Pazar"
 
 #: js/messages.php:123
 #, fuzzy
