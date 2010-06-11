@@ -29,7 +29,7 @@ if (isset($plugin_list)) {
             array(
                 'type'      => 'select',
                 'name'      => 'compatibility',
-                'text'      => __('SQL compatibility mode'),
+                'text'      => __('SQL compatibility mode:'),
                 'values'    => $values,
                 'doc'       => array(
                     'manual_MySQL_Database_Administration',
@@ -39,7 +39,7 @@ if (isset($plugin_list)) {
             array(
                 'type' => 'bool', 
                 'name' => 'no_auto_value_on_zero', 
-                'text' => __('Do not use AUTO_INCREMENT for zero values'),
+                'text' => __('Do not use <code>AUTO_INCREMENT</code> for zero values'),
                 'doc'       => array(
                     'manual_MySQL_Database_Administration',
                     'Server_SQL_mode',
