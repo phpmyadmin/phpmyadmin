@@ -65,7 +65,6 @@ echo '<input type="hidden" name="export_type" value="' . $export_type . '" />' .
 if (! empty($sql_query)) {
     echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
 }
-echo PMA_pluginGetJavascript($export_list);
 ?>
 
 <div class="exportoptions" id="databases_and_tables">
@@ -128,9 +127,9 @@ echo PMA_pluginGetJavascript($export_list);
                 </li>
                 <?php } ?>
                 <li>
-                    <label for="filename_template">
+                    <label for="filename_template" class="desc">
                     <?php
-                    echo __('File name template');
+                    echo __('File name template:');
                     $trans = new PMA_Message;
                     $trans->addMessage('__SERVER__/');
                     $trans->addString(__('server name'));
@@ -151,7 +150,7 @@ echo PMA_pluginGetJavascript($export_list);
 
                     echo PMA_showHint($message);
                     ?>
-                    </label>:
+                    </label>
                     <input type="text" name="filename_template" id="filename_template"
                     <?php
                         echo ' value="';
@@ -177,19 +176,17 @@ echo PMA_pluginGetJavascript($export_list);
                         echo '"';
                     ?>
                     />
-                    (
                     <input type="checkbox" name="remember_template"
                         id="checkbox_remember_template"
                         <?php PMA_exportCheckboxCheck('remember_file_template'); ?> />
                     <label for="checkbox_remember_template">
-                        <?php echo __('remember template'); ?></label>
-                    )
+                        <?php echo __('use this for future exports'); ?></label>
                 </li>
                 <li>
                      <?php
                     // charset of file
                     if ($cfg['AllowAnywhereRecoding']) {
-                        echo '        <label for="select_charset_of_file">'
+                        echo '        <label for="select_charset_of_file" class="desc">'
                             . __('Character set of the file:') . '</label>' . "\n";
                         reset($cfg['AvailableCharsets']);
                         echo '<select id="select_charset_of_file" name="charset_of_file" size="1">';
@@ -212,7 +209,7 @@ echo PMA_pluginGetJavascript($export_list);
                     $is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
                     $is_bzip = ($cfg['BZipDump'] && @function_exists('bzcompress'));
                     if ($is_zip || $is_gzip || $is_bzip) { ?>
-                        <label for="compression"><?php echo __('Compression:'); ?></label>
+                        <label for="compression" class="desc"><?php echo __('Compression:'); ?></label>
                         <select id="compression" name="compression">
                             <option value="none"><?php echo __('None'); ?></option>
                             <?php if ($is_zip) { ?>
@@ -249,8 +246,8 @@ echo PMA_pluginGetJavascript($export_list);
 <?php echo PMA_set_enc_form('            '); ?>
 <?php } ?>
 
-<fieldset class="tblFooters">
+<div class="exportoptions" id="submit">
 <?php PMA_externalBug(__('SQL compatibility mode'), 'mysql', '50027', '14515'); ?>
     <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
-</fieldset>
+</div>
 </form>
