@@ -1173,7 +1173,7 @@ msgstr "Çarşamba"
 
 #: js/messages.php:126
 msgid "Thursday"
-msgstr ""
+msgstr "Perşembe"
 
 #: js/messages.php:127
 #, fuzzy
