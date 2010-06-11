@@ -1088,7 +1088,7 @@ msgstr "Kasım"
 
 #: js/messages.php:93
 msgid "December"
-msgstr ""
+msgstr "Aralık"
 
 #. l10n: Short month name
 #: js/messages.php:97 libraries/common.lib.php:1557
