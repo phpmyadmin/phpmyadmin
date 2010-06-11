@@ -1241,7 +1241,7 @@ msgstr "Sa"
 #: js/messages.php:154
 #| msgid "Wed"
 msgid "We"
-msgstr "Çar"
+msgstr "Ça"
 
 #. l10n: Minimal week day name
 #: js/messages.php:156
