@@ -120,7 +120,6 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         echo PMA_generate_common_hidden_inputs($db, $table, 1);
     }
     echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />'."\n";
-    echo PMA_pluginGetJavascript($import_list);
     ?>
     <div class="importoptions">
         <h3><?php echo __('File to Import:'); ?></h3>
@@ -139,7 +138,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         }
         // We don't have show anything about compression, when no supported
         if ($compressions != array()) {
-             printf(__('<i>File may be compressed (%s) or uncompressed</i>'), implode(", ", $compressions));
+             printf(__('<p>File may be compressed (%s) or uncompressed.</p><p>A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b></p>'), implode(", ", $compressions));
          }
 
         if ($GLOBALS['is_upload']) {
@@ -248,6 +247,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     <div class="importoptions">
         <h3><?php echo __('Format:'); ?></h3>
         <?php echo PMA_pluginGetChoice('Import', 'format', $import_list); ?>
+        <div id="import_notification"></div>
     </div>
 
     <div class="importoptions" id="format_specific_opts">
@@ -263,8 +263,8 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     }
     echo "\n";
     ?>
-    <fieldset class="tblFooters">
+    <div class="importoptions" id="submit">
         <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
-    </fieldset>
+    </div>
 </form>
 </div>
