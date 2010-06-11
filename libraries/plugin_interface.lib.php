@@ -228,7 +228,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             . (isset($opt['len']) ? ' maxlength="' . $opt['len'] . '"' : '') . ' />';
     } elseif ($opt['type'] == 'message_only') {
         $ret .= '<li>' . "\n";
-        $ret .= '<p class="desc">' . PMA_getString($opt['text']) . '</p>';
+        $ret .= '<p>' . PMA_getString($opt['text']) . '</p>';
     } elseif ($opt['type'] == 'select') {
         $ret .= '<li>' . "\n";
         $ret .= '<label for="select_' . $plugin_name . '_' . $opt['name'] . '" class="desc">'
@@ -321,42 +321,3 @@ function PMA_pluginGetOptions($section, &$list)
     }
     return $ret;
 }
-
-/**
- * string PMA_pluginGetJavascript(array &$list)
- *
- * return html/javascript code which is needed for handling plugin stuff
- *
- * @param   array   &$list      array with plugin configuration defined in plugin file
- * @return  string              html fieldset with plugin options
- */
- //TODO eliminate this eventually
-function PMA_pluginGetJavascript(&$list) {
-    $ret = '
-    <script type="text/javascript">
-    //<![CDATA[' . "\n" .
-   'function match_file(fname) {
-        farr = fname.toLowerCase().split(".");
-        if (farr.length != 0) {
-            len = farr.length
-            if (farr[len - 1] == "gz" || farr[len - 1] == "bz2" || farr[len -1] == "zip") len--;
-            switch (farr[len - 1]) {
-                ';
-    foreach ($list as $plugin_name => $val) {
-        $ret .= 'case "' . $val['extension'] . '" :';
-        $ret .= 'document.getElementById("radio_plugin_' . $plugin_name . '").checked = true;';
-        $ret .= 'init_options();';
-        $ret .= 'break;' . "\n";
-    }
-    $ret .='
-            }
-        }
-    }
-
-    $(document).ready(init_options);
-    //]]>
-    </script>
-    ';
-    return $ret;
-}
-?>
