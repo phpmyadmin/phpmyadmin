@@ -1269,7 +1269,7 @@ msgstr "Hs"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "Saat"
 
 #: js/messages.php:165
 #, fuzzy
