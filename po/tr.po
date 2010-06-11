@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-11 21:18+0200\n"
+"PO-Revision-Date: 2010-06-11 21:21+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1263,10 +1263,9 @@ msgstr "Ctesi"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "Viki"
+msgstr "Hs"
 
 #: js/messages.php:164
 msgid "Hour"
