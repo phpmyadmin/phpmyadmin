@@ -1323,7 +1323,9 @@ msgstr "Dosya gönderme uzantısından dolayı durduruldu."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Gönderilen dosyayı taşıma hatası, SSS 1.11'e bakın"
+msgstr ""
+"Gönderilen dosyayı taşıma hatası, "
+"[a@./Documentation.html#faq1_11@Documentation]SSS 1.11[/a]'e bakın"
 
 #: libraries/Index.class.php:428 tbl_relation.php:529
 msgid "No index defined!"
