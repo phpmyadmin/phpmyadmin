@@ -1651,6 +1651,12 @@ $cfg['Export']['sql_insert_syntax'] = 'both';
 $cfg['Export']['pdf_report_title'] = '';
 
 /**
+ *
+ *
+ *@global string $cfg['Export']['xml_structure_or_data']
+ */
+$cfg['Export']['xml_structure_or_data'] = 'data';
+/**
  * Export schema for each structure
  *
  * @global string $cfg['Export']['xml_export_struc']
