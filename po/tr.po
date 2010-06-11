@@ -1257,7 +1257,6 @@ msgstr "Cu"
 
 #. l10n: Minimal week day name
 #: js/messages.php:160
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Ctesi"
