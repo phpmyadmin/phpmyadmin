@@ -1245,10 +1245,9 @@ msgstr "Çar"
 
 #. l10n: Minimal week day name
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
-msgstr "Per"
+msgstr "Pe"
 
 #. l10n: Minimal week day name
 #: js/messages.php:158
