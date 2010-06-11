@@ -1647,10 +1647,10 @@ msgstr ""
 "karşınıza çıkıyorsa, her şey yolunda demektir."
 
 #: libraries/common.inc.php:594
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Varsayılan yapılandırma bundan yüklenemedi: \"%1$s\""
+msgstr "Varsayılan yapılandırma bundan yüklenemedi: %1$s"
 
 #: libraries/common.inc.php:599
 msgid ""
