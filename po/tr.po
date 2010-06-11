@@ -551,10 +551,9 @@ msgid "Inside table(s):"
 msgstr "Tablo içindeki(ler):"
 
 #: db_search.php:355
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "İç alan:"
+msgstr "İç sütun:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
