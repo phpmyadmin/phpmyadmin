@@ -1272,10 +1272,9 @@ msgid "Hour"
 msgstr "Saat"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "kullanımda"
+msgstr "Dakika"
 
 #: js/messages.php:166
 #, fuzzy
