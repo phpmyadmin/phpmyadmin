@@ -25,7 +25,7 @@ function display_form_top($action = null, $method = 'post', $hidden_fields = nul
         $method = 'get';
     }
 ?>
-<form method="<?php echo $method ?>" action="<?php echo htmlspecialchars($action) ?>">
+<form method="<?php echo $method ?>" action="<?php echo htmlspecialchars($action) ?>" class="config-form">
 <?php
     // we do validation on page refresh when browser remembers field values,
     // add a field with known value which will be used for checks
@@ -115,14 +115,18 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
 {
     $field_class = $value_is_default ? '' : ' class="custom"';
     $name_id = 'name="' . $path . '" id="' . $path . '"';
-?>
+    $base_dir = defined('PMA_SETUP') ? '../' : '';
+    $img_path = defined('PMA_SETUP')
+        ? $GLOBALS['cfg']['ThemePath'] . '/original/img/'
+        : $_SESSION['PMA_Theme']->img_path;
+d?>
 <tr>
     <th>
         <label for="<?php echo htmlspecialchars($path) ?>"><?php echo $name ?></label>
         <?php if (!empty($opts['doc']) || !empty($opts['wiki'])): ?>
         <span class="doc">
-            <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $opts['doc']  ?>" target="documentation"><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_help.png" width="11" height="11" alt="Doc" title="<?php echo __('Documentation') ?>" /></a><?php } ?>
-            <?php if (!empty($opts['wiki'])){ ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_info.png" width="11" height="11" alt="Wiki" title="Wiki" /></a><?php } ?>
+            <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $base_dir . $opts['doc']  ?>" target="documentation"><img class="icon" src="<?php echo $img_path ?>b_help.png" width="11" height="11" alt="Doc" title="<?php echo __('Documentation') ?>" /></a><?php } ?>
+            <?php if (!empty($opts['wiki'])){ ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><img class="icon" src="<?php echo $img_path ?>b_info.png" width="11" height="11" alt="Wiki" title="Wiki" /></a><?php } ?>
         </span>
         <?php endif; ?>
         <?php if (!empty($description)) { ?><small><?php echo $description ?></small><?php } ?>
@@ -179,12 +183,12 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     }
     if (isset($opts['setvalue']) && $opts['setvalue']) {
         ?>
-        <a class="set-value" href="#<?php echo "$path={$opts['setvalue']}" ?>" title="<?php echo sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue'])) ?>" style="display:none"><img alt="set-value" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_edit.png" width="16" height="16" /></a>
+        <a class="set-value" href="#<?php echo "$path={$opts['setvalue']}" ?>" title="<?php echo sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue'])) ?>" style="display:none"><img alt="set-value" src="<?php echo $img_path ?>b_edit.png" width="16" height="16" /></a>
         <?php
     }
     if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
         ?>
-        <a class="restore-default" href="#<?php echo $path ?>" title="<?php echo __('Restore default value') ?>" style="display:none"><img alt="restore-default" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/s_reload.png" width="16" height="16" /></a>
+        <a class="restore-default" href="#<?php echo $path ?>" title="<?php echo __('Restore default value') ?>" style="display:none"><img alt="restore-default" src="../<?php echo $img_path ?>s_reload.png" width="16" height="16" /></a>
         <?php
     }
     // this must match with displayErrors() in scripts.js

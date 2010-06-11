@@ -84,7 +84,7 @@ if (!$form_display->process(false)) {
         exit;
     }
 }
-
+print_r($_SESSION);
 /**
  * Displays the footer
  */

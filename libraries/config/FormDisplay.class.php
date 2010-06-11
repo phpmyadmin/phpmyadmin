@@ -16,7 +16,7 @@
 /**
  * Core libraries.
  */
-require_once './setup/lib/FormDisplay.tpl.php';
+require_once './libraries/config/FormDisplay.tpl.php';
 require_once './setup/lib/validate.lib.php';
 require_once './libraries/js_escape.lib.php';
 
@@ -225,7 +225,7 @@ class FormDisplay
             foreach ($this->js_lang_strings as $str) {
                 $lang = isset($GLOBALS["strSetup$str"])
                     ? $GLOBALS["strSetup$str"]
-                    : filter_input($GLOBALS["str$str"]); // null if not set
+                    : filter_var($GLOBALS["str$str"]); // null if not set
                 $js_lang[] = "'$str': '" . PMA_jsFormat($lang, false) . '\'';
             }
             $js[] = '$.extend(PMA_messages, {' . implode(",\n\t", $js_lang) . '})';
@@ -541,7 +541,7 @@ class FormDisplay
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }
-        return '../Documentation.html#cfg_' . self::_getOptName($path);
+        return 'Documentation.html#cfg_' . self::_getOptName($path);
     }
 
     /**
