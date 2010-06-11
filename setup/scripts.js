@@ -1,7 +1,5 @@
 /**
- * functions used in setup script
- * 
- * @version $Id$
+ * Functions used in configuration forms
  */
 
 // show this window in top frame
@@ -18,7 +16,7 @@ var PMA_messages = {};
 /**
  * Returns field type
  *
- * @param Element field
+ * @param {Element} field
  */
 function getFieldType(field) {
 	field = $(field);
@@ -42,9 +40,9 @@ function getFieldType(field) {
  * o boolean - if field_type is 'checkbox'
  * o Array of values - if field_type is 'select'
  *
- * @param Element field
- * @param String  field_type  see getFieldType
- * @param mixed   value
+ * @param {Element} field
+ * @param {String}  field_type  see {@link #getFieldType}
+ * @param {String|Boolean}  [value]
  */
 function setFieldValue(field, field_type, value) {
 	field = $(field);
@@ -80,9 +78,9 @@ function setFieldValue(field, field_type, value) {
  * o boolean - if type is 'checkbox'
  * o Array of values - if type is 'select'
  *
- * @param Element field
- * @param String  field_type  see getFieldType
- * @return mixed
+ * @param {Element} field
+ * @param {String}  field_type returned by {@link #getFieldType}
+ * @type Boolean|String|String[]
  */
 function getFieldValue(field, field_type) {
 	field = $(field);
@@ -127,8 +125,8 @@ function getAllValues() {
 /**
  * Checks whether field has its default value
  *
- * @param Element field
- * @param String  type
+ * @param {Element} field
+ * @param {String}  type
  * @return boolean
  */
 function checkFieldDefault(field, type) {
@@ -160,7 +158,7 @@ function checkFieldDefault(field, type) {
 
 /**
  * Returns element's id prefix
- * @param Element element
+ * @param {Element} element
  */
 function getIdPrefix(element) {
     return $(element).attr('id').replace(/[^-]+$/, '');
@@ -210,7 +208,7 @@ var validators = {
     /**
      * Validates positive number
      *
-     * @param boolean isKeyUp
+     * @param {boolean} isKeyUp
      */
     validate_positive_number: function (isKeyUp) {
         var result = this.value != '0' && validators._regexp_numeric.test(this.value);
@@ -219,7 +217,7 @@ var validators = {
     /**
      * Validates non-negative number
      *
-     * @param boolean isKeyUp
+     * @param {boolean} isKeyUp
      */
     validate_non_negative_number: function (isKeyUp) {
         var result = validators._regexp_numeric.test(this.value);
@@ -228,7 +226,7 @@ var validators = {
     /**
      * Validates port number
      *
-     * @param boolean isKeyUp
+     * @param {boolean} isKeyUp
      */
     validate_port_number: function(isKeyUp) {
         var result = validators._regexp_numeric.test(this.value) && this.value != '0';
@@ -242,7 +240,7 @@ var validators = {
         /**
          * hide_db field
          *
-         * @param boolean isKeyUp
+         * @param {boolean} isKeyUp
          */
         hide_db: function(isKeyUp) {
             if (!isKeyUp && this.value != '') {
@@ -255,7 +253,7 @@ var validators = {
 		/**
          * TrustedProxies field
          *
-         * @param boolean isKeyUp
+         * @param {boolean} isKeyUp
          */
         TrustedProxies: function(isKeyUp) {
             if (!isKeyUp && this.value != '') {
@@ -271,7 +269,7 @@ var validators = {
         /**
          * Validates Server fieldset
          *
-         * @param boolean isKeyUp
+         * @param {boolean} isKeyUp
          */
         Server: function(isKeyUp) {
             if (!isKeyUp) {
@@ -282,7 +280,7 @@ var validators = {
         /**
          * Validates Server_login_options fieldset
          *
-         * @param boolean isKeyUp
+         * @param {boolean} isKeyUp
          */
         Server_login_options: function(isKeyUp) {
             return validators._fieldset.Server.apply(this, [isKeyUp]);
@@ -290,7 +288,7 @@ var validators = {
         /**
          * Validates Server_pmadb fieldset
          *
-         * @param boolean isKeyUp
+         * @param {boolean} isKeyUp
          */
         Server_pmadb: function(isKeyUp) {
             if (isKeyUp) {
@@ -311,9 +309,9 @@ var validators = {
 /**
  * Calls server-side validation procedures
  *
- * @param Element parent  input field in <fieldset> or <fieldset>
- * @param String id       validator id
- * @param Object values   values hash (element_id: value)
+ * @param {Element} parent  input field in <fieldset> or <fieldset>
+ * @param {String}  id      validator id
+ * @param {Object}  values  values hash {element1_id: value, ...}
  */
 function ajaxValidate(parent, id, values) {
 	parent = $(parent);
@@ -349,7 +347,7 @@ function ajaxValidate(parent, id, values) {
             } else if (typeof response['error'] != 'undefined') {
                 error[parent.id] = [response['error']];
             } else {
-                for (key in response) {
+                for (var key in response) {
                 	var value = response[key];
                     error[key] = jQuery.isArray(value) ? value : [value];
                 }
@@ -367,10 +365,10 @@ function ajaxValidate(parent, id, values) {
 /**
  * Registers validator for given field
  *
- * @param String  id       field id
- * @param String  type     validator (key in validators object)
- * @param boolean onKeyUp  whether fire on key up
- * @param mixed   params   validation function parameters
+ * @param {String}  id       field id
+ * @param {String}  type     validator (key in validators object)
+ * @param {boolean} onKeyUp  whether fire on key up
+ * @param {object}  params   validation function parameters
  */
 function validateField(id, type, onKeyUp, params) {
     if (typeof validators[type] == 'undefined') {
@@ -385,9 +383,10 @@ function validateField(id, type, onKeyUp, params) {
 /**
  * Returns valdiation functions associated with form field
  *
- * @param  String  field_id     form field id
- * @param  boolean onKeyUpOnly  see validateField
- * @return Array  array of [function, paramseters to be passed to function]
+ * @param  {String}  field_id     form field id
+ * @param  {boolean} onKeyUpOnly  see validateField
+ * @type Array
+ * @return array of [function, paramseters to be passed to function]
  */
 function getFieldValidators(field_id, onKeyUpOnly) {
     // look for field bound validator
@@ -417,10 +416,10 @@ function getFieldValidators(field_id, onKeyUpOnly) {
  * WARNING: created DOM elements must be identical with the ones made by
  * display_input() in FormDisplay.tpl.php!
  *
- * @param Object  error list (key: field id, value: error array)
+ * @param {Object} error_list list of errors in the form {field id: error array}
  */
 function displayErrors(error_list) {
-    for (field_id in error_list) {
+    for (var field_id in error_list) {
         var errors = error_list[field_id];
         var field = $('#'+field_id);
         var isFieldset = field.attr('tagName') == 'FIELDSET';
@@ -460,9 +459,9 @@ function displayErrors(error_list) {
 /**
  * Validates fieldset and puts errors in 'errors' object
  *
- * @param Element field
- * @param boolean isKeyUp
- * @param Object  errors
+ * @param {Element} fieldset
+ * @param {boolean} isKeyUp
+ * @param {Object}  errors
  */
 function validate_fieldset(fieldset, isKeyUp, errors) {
 	fieldset = $(fieldset);
@@ -483,9 +482,9 @@ function validate_fieldset(fieldset, isKeyUp, errors) {
 /**
  * Validates form field and puts errors in 'errors' object
  *
- * @param Element field
- * @param boolean isKeyUp
- * @param Object  errors
+ * @param {Element} field
+ * @param {boolean} isKeyUp
+ * @param {Object}  errors
  */
 function validate_field(field, isKeyUp, errors) {
 	field = $(field);
@@ -506,8 +505,8 @@ function validate_field(field, isKeyUp, errors) {
 /**
  * Validates form field and parent fieldset
  *
- * @param Element field
- * @param boolean isKeyUp
+ * @param {Element} field
+ * @param {boolean} isKeyUp
  */
 function validate_field_and_fieldset(field, isKeyUp) {
 	field = $(field);
@@ -520,7 +519,7 @@ function validate_field_and_fieldset(field, isKeyUp) {
 /**
  * Marks field depending on its value (system default or custom)
  *
- * @param Element field
+ * @param {Element} field
  */
 function markField(field) {
 	field = $(field);
@@ -536,8 +535,8 @@ function markField(field) {
 /**
  * Enables or disables the "restore default value" button
  *
- * @param Element field
- * @param bool    display
+ * @param {Element} field
+ * @param {boolean} display
  */
 function setRestoreDefaultBtn(field, display) {
     var el = $(field).closest('td').find('.restore-default');
@@ -599,7 +598,7 @@ $(function() {
 /**
  * Sets active tab
  *
- * @param Element tab_link
+ * @param {Element} tab_link
  */
 function setTab(tab_link) {
     var tabs_menu = $(tab_link).closest('.tabs');
@@ -666,7 +665,7 @@ $(function() {
 //
 
 $(function() {
-    $('input[type=button]').click(function(e) {
+    $('input[type=button]').click(function() {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         for (var i = 0, imax = fields.length; i < imax; i++) {
             setFieldValue(fields[i], getFieldType(fields[i]));
@@ -685,7 +684,7 @@ $(function() {
 /**
  * Restores field's default value
  *
- * @param String field_id
+ * @param {String} field_id
  */
 function restoreField(field_id) {
     var field = $('#'+field_id);
