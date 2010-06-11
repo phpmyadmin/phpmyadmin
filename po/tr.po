@@ -300,7 +300,6 @@ msgid "Damaged"
 msgstr "Hasarlı"
 
 #: db_operations.php:566
-#, fuzzy
 #| msgid "Repair"
 msgctxt "BLOB repository"
 msgid "Repair"
