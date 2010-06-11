@@ -1228,3 +1228,70 @@ table#serverconnection_trg_local  {
   */
 .invalid_value
 {background:#F00;}
+
+/**
+  * Export styles
+  */
+select#db_select, select#table_select {
+    width: 400px;
+}
+
+.exportoptions h3, .importoptions h3 {
+    border-bottom: 1px #999999 solid;
+}
+
+.exportoptions ul, .importoptions ul, .format_specific_options ul {
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+.exportoptions li, .importoptions li {
+    margin: 7px;
+}
+
+.exportoptions label, .importoptions label, .exportoptions p, .importoptions p	 {
+    margin: 5px;
+    float: none;
+}
+
+#csv_options .desc, #latex_options .desc, #output .desc{
+    float: left;
+    width: 15em;
+}
+
+.exportoptions, .importoptions {
+    margin: 30px 30px 30px 10px
+}
+
+.exportoptions #buttonGo, .importoptions #buttonGo {
+    padding: 5px 30px;
+    -moz-border-radius: 11px;
+    -webkit-border-radius:
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    border: 1px solid #444444;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.export_sub_options {
+    margin: 30px 0px 0px 0px;
+}
+
+.export_sub_options h4 {
+    border-bottom: 1px #999999 solid;
+}
+
+.importoptions #import_notification {
+    margin: 10px 0px;
+    font-style: italic;
+}
+
+p.desc {
+    margin: 5px;
+}
+
+.formelementrow {
+    margin: 5px 0px 5px 0px;
+}

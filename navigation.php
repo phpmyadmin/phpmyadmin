@@ -238,16 +238,10 @@ if (! $GLOBALS['server']) {
             .'</noscript>' . "\n"
             .'</form>' . "\n";
     } else {
-        if (! empty($db)) {
-            echo '<div id="databaseList">' . "\n";
-        }
         echo $GLOBALS['pma']->databases->getHtmlListGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
     }
     $_url_params = array('pos' => $pos);
     PMA_listNavigator(count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
-    if (! empty($db)) {
-        echo '</div>' . "\n";
-    }
 }
 ?>
 

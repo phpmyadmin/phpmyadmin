@@ -24,17 +24,17 @@ if (isset($plugin_list)) {
         'options' => array(
             array('type' => 'bool', 'name' => 'replace', 'text' => __('Replace table data with file')),
             array('type' => 'bool', 'name' => 'ignore', 'text' => __('Ignore duplicate rows')),
-            array('type' => 'text', 'name' => 'terminated', 'text' => __('Columns terminated by'), 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'enclosed', 'text' => __('Columns enclosed by'), 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped by'), 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'new_line', 'text' => __('Lines terminated by'), 'size' => 2),
+            array('type' => 'text', 'name' => 'terminated', 'text' => __('Columns terminated with:'), 'size' => 2, 'len' => 2),
+            array('type' => 'text', 'name' => 'enclosed', 'text' => __('Columns enclosed with:'), 'size' => 2, 'len' => 2),
+            array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped with:'), 'size' => 2, 'len' => 2),
+            array('type' => 'text', 'name' => 'new_line', 'text' => __('Lines terminated with:'), 'size' => 2),
             ),
         'options_text' => __('Options'),
         );
 
     if ($plugin_param !== 'table') {
         $plugin_list['csv']['options'][] =
-            array('type' => 'bool', 'name' => 'col_names', 'text' => __('Column names in first row'));
+            array('type' => 'bool', 'name' => 'col_names', 'text' => __('The first line of the file contains the table column names <i>(if this is unchecked, the first line will become part of the data)</i>'));
     } else {
         $plugin_list['csv']['options'][] =
             array('type' => 'text', 'name' => 'columns', 'text' => __('Column names'));

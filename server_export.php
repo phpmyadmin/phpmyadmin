@@ -12,6 +12,7 @@
 require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'functions.js';
+$GLOBALS['js_include'][] = 'export.js';
 
 /**
  * Displays the links
@@ -23,12 +24,12 @@ $checkall_url = 'server_export.php?'
               . PMA_generate_common_url()
               . '&amp;goto=db_export.php';
 
-$multi_values = '<div align="center">';
+$multi_values = '<div align="left">';
 $multi_values .= '<a href="' . $checkall_url . '&amp;selectall=1" onclick="setSelectOptions(\'dump\', \'db_select[]\', true); return false;">' . __('Select All') . '</a>
         /
         <a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'db_select[]\', false); return false;">' . __('Unselect All') . '</a><br />';
 
-$multi_values .= '<select name="db_select[]" size="10" multiple="multiple">';
+$multi_values .= '<select name="db_select[]" id="db_select" size="10" multiple="multiple">';
 $multi_values .= "\n";
 
 foreach ($GLOBALS['pma']->databases as $current_db) {
@@ -41,7 +42,7 @@ foreach ($GLOBALS['pma']->databases as $current_db) {
     $multi_values .= '                <option value="' . $current_db . '"' . $is_selected . '>' . $current_db . '</option>' . "\n";
 } // end while
 $multi_values .= "\n";
-$multi_values .= '</select></div><br />';
+$multi_values .= '</select></div>';
 
 $export_type = 'server';
 require_once './libraries/display_export.lib.php';

@@ -21,7 +21,7 @@ if (isset($plugin_list)) {
         'text' => __('Excel 97-2003 XLS Workbook'),
         'extension' => 'xls',
         'options' => array(
-                array('type' => 'bool', 'name' => 'col_names', 'text' => __('Column names in first row')),
+                array('type' => 'bool', 'name' => 'col_names', 'text' => __('The first line of the file contains the table column names <i>(if this is unchecked, the first line will become part of the data)</i>')),
             ),
         'options_text' => __('Options'),
         );

@@ -120,12 +120,26 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         echo PMA_generate_common_hidden_inputs($db, $table, 1);
     }
     echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />'."\n";
-    echo PMA_pluginGetJavascript($import_list);
     ?>
-    <fieldset class="options">
-        <legend><?php echo __('File to import'); ?></legend>
-
+    <div class="importoptions">
+        <h3><?php echo __('File to Import:'); ?></h3>
         <?php
+        // zip, gzip and bzip2 encode features
+        $compressions = array();
+
+        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+            $compressions[] = 'gzip';
+        }
+        if ($cfg['BZipDump'] && @function_exists('bzopen')) {
+            $compressions[] = 'bzip2';
+        }
+        if ($cfg['ZipDump'] && @function_exists('zip_open')) {
+            $compressions[] = 'zip';
+        }
+        // We don't have show anything about compression, when no supported
+        if ($compressions != array()) {
+             printf(__('<p>File may be compressed (%s) or uncompressed.</p><p>A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b></p>'), implode(", ", $compressions));
+         }
 
         if ($GLOBALS['is_upload']) {
             $uid = uniqid("");
@@ -134,13 +148,13 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             <div id="upload_form_status" style="display: none;"></div>
             <div id="upload_form_status_info" style="display: none;"></div>
             <div id="upload_form_form">
-                <label for="input_import_file"><?php echo __('Location of the text file'); ?></label>
+                <label for="input_import_file"><?php echo __('Location of the file:'); ?></label>
                 <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
-                    <?php
+                <?php
                     echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
                     // some browsers should respect this :)
                     echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
-                    ?>
+                ?>
             </div>
         </div>
             <?php
@@ -192,31 +206,10 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', FALSE);
         } // end if (recoding)
         echo '</div>' . "\n";
-
-// zip, gzip and bzip2 encode features
-        $compressions = __('None');
-
-        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-            $compressions .= ', gzip';
-        }
-        if ($cfg['BZipDump'] && @function_exists('bzopen')) {
-            $compressions .= ', bzip2';
-        }
-        if ($cfg['ZipDump'] && @function_exists('zip_open')) {
-            $compressions .= ', zip';
-        }
-
-// We don't have show anything about compression, when no supported
-        if ($compressions != __('None')) {
-            echo '<div class="formelementrow">' . "\n";
-            printf(__('Imported file compression will be automatically detected from: %s'), $compressions);
-            echo '</div>' . "\n";
-        }
-        echo "\n";
         ?>
-    </fieldset>
-    <fieldset class="options">
-        <legend><?php echo __('Partial import'); ?></legend>
+    </div>
+    <div class="importoptions">
+        <h3><?php echo __('Partial Import:'); ?></h3>
 
         <?php
         if (isset($timeout_passed) && $timeout_passed) {
@@ -229,14 +222,14 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         <div class="formelementrow">
             <input type="checkbox" name="allow_interrupt" value="yes"
                    id="checkbox_allow_interrupt" <?php echo PMA_pluginCheckboxCheck('Import', 'allow_interrupt'); ?>/>
-            <label for="checkbox_allow_interrupt"><?php echo __('Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. This might be good way to import large files, however it can break transactions.'); ?></label><br />
+            <label for="checkbox_allow_interrupt"><?php echo __('Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <i>(This might be good way to import large files, however it can break transactions.)</i>'); ?></label><br />
         </div>
 
         <?php
         if (! (isset($timeout_passed) && $timeout_passed)) {
             ?>
         <div class="formelementrow">
-            <label for="text_skip_queries"><?php echo __('Number of queries to skip from start'); ?></label>
+            <label for="text_skip_queries"><?php echo __('Number of rows to skip, starting from the first row:'); ?></label>
             <input type="text" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
         </div>
             <?php
@@ -249,22 +242,20 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             <?php
         }
         ?>
-    </fieldset>
+    </div>
 
-    <fieldset class="options">
-        <legend><?php echo __('Format of imported file'); ?></legend>
-        <?php
-// Let's show format options now
-        echo '<div style="float: left;">';
-        echo PMA_pluginGetChoice('Import', 'format', $import_list);
-        echo '</div>';
+    <div class="importoptions">
+        <h3><?php echo __('Format:'); ?></h3>
+        <?php echo PMA_pluginGetChoice('Import', 'format', $import_list); ?>
+        <div id="import_notification"></div>
+    </div>
 
-        echo '<div style="float: left;">';
-        echo PMA_pluginGetOptions('Import', $import_list);
-        echo '</div>';
-        ?>
+    <div class="importoptions" id="format_specific_opts">
+        <h3><?php echo __('Format-Specific Options:'); ?></h3>
+        <?php echo PMA_pluginGetOptions('Import', $import_list); ?>
+    </div>
         <div class="clearfloat"></div>
-    </fieldset>
+    </div>
     <?php
 // Encoding setting form appended by Y.Kawada
     if (function_exists('PMA_set_enc_form')) {
@@ -272,8 +263,8 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     }
     echo "\n";
     ?>
-    <fieldset class="tblFooters">
+    <div class="importoptions" id="submit">
         <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
-    </fieldset>
+    </div>
 </form>
 </div>

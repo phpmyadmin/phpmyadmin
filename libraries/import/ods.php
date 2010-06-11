@@ -22,10 +22,10 @@ if (isset($plugin_list)) {
         'text' => __('Open Document Spreadsheet'),
         'extension' => 'ods',
         'options' => array(
-                array('type' => 'bool', 'name' => 'col_names', 'text' => __('Column names in first row')),
+                array('type' => 'bool', 'name' => 'col_names', 'text' => __('The first line of the file contains the table column names <i>(if this is unchecked, the first line will become part of the data)</i>')),
                 array('type' => 'bool', 'name' => 'empty_rows', 'text' => __('Do not import empty rows')),
-                array('type' => 'bool', 'name' => 'recognize_percentages', 'text' => __('Import percentages as proper decimals (12.00% to .12)')),
-                array('type' => 'bool', 'name' => 'recognize_currency', 'text' => __('Import currencies ($5.00 to 5.00)')),
+                array('type' => 'bool', 'name' => 'recognize_percentages', 'text' => __('Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>')),
+                array('type' => 'bool', 'name' => 'recognize_currency', 'text' => __('Import currencies <i>(ex. $5.00 to 5.00)</i>')),
             ),
         'options_text' => __('Options'),
         );
