@@ -6973,7 +6973,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:306
 msgid "Statements to track"
-msgstr ""
+msgstr "Datganiadau i'w tracio"
 
 #: setup/lib/messages.inc.php:307
 msgid ""
@@ -6983,7 +6983,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:308
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Ychwanegu DROP VIEW"
 
 #: setup/lib/messages.inc.php:309
 msgid ""
@@ -6993,7 +6993,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:310
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Ychwanegu DROP TABLE"
 
 #: setup/lib/messages.inc.php:311
 msgid ""
@@ -7003,7 +7003,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:312
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Ychwanegu DROP DATABASE"
 
 #: setup/lib/messages.inc.php:313
 msgid "You should use SSL connections if your web server supports it"
@@ -7015,7 +7015,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:315
 msgid "Server socket"
-msgstr ""
+msgstr "Soced gweinydd"
 
 #: setup/lib/messages.inc.php:316
 msgid "Enable SSL for connection to MySQL server"
@@ -7023,7 +7023,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:317
 msgid "Use SSL"
-msgstr ""
+msgstr "Defnyddio SSL"
 
 #: setup/lib/messages.inc.php:318
 msgid ""
@@ -7032,7 +7032,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:319
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "Sgena PDF: cyfesurynnau tabl"
 
 #: setup/lib/messages.inc.php:320
 msgid ""
@@ -7042,7 +7042,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:321
 msgid "Display columns table"
-msgstr ""
+msgstr "Dangos tabl colofnau"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
@@ -7085,15 +7085,15 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:332
 msgid "Show password change form"
-msgstr ""
+msgstr "Dangos ffurflen newid cyfrinair"
 
 #: setup/lib/messages.inc.php:333
 msgid "Show create database form"
-msgstr ""
+msgstr "Dangos ffurflen creu cronfa ddata"
 
 #: setup/lib/messages.inc.php:334
 msgid "Show form"
-msgstr ""
+msgstr "Dangos ffurflen"
 
 #: setup/lib/messages.inc.php:335
 msgid "Display the function fields in edit/insert mode"
@@ -7101,17 +7101,19 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
-msgstr ""
+msgstr "Dangos meysydd swyddogaeth"
 
 #: setup/lib/messages.inc.php:338
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
+"Dangos cysylltiad i allbwn "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: setup/lib/messages.inc.php:339
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Dangos cysylltiad i phpinfo()"
 
 #: setup/lib/messages.inc.php:340
 msgid "Show detailed MySQL server information"
@@ -7123,7 +7125,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:342
 msgid "Show SQL queries"
-msgstr ""
+msgstr "Dangos ymholiadau SQL"
 
 #: setup/lib/messages.inc.php:343
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -7131,7 +7133,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:344
 msgid "Show statistics"
-msgstr ""
+msgstr "Dangos ystadegau"
 
 #: setup/lib/messages.inc.php:345
 msgid ""
@@ -7166,7 +7168,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:351
 msgid "Skip locked tables"
-msgstr ""
+msgstr "Neidio tablau ar glo"
 
 #: setup/lib/messages.inc.php:357
 msgid ""
@@ -7180,7 +7182,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:359
 msgid "yes"
-msgstr ""
+msgstr "ie"
 
 #: setup/lib/messages.inc.php:360
 msgid ""
@@ -7200,7 +7202,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:363
 msgid "Upload directory"
-msgstr ""
+msgstr "Cyfeiriadur lanlwytho"
 
 #: setup/lib/messages.inc.php:364
 msgid "Allow for searching inside the entire database"
@@ -7208,7 +7210,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:365
 msgid "Use database search"
-msgstr ""
+msgstr "Defnyddio chwiliad cronfa ddata"
 
 #: setup/lib/messages.inc.php:366
 msgid ""
@@ -7255,7 +7257,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:375
 msgid "Version check"
-msgstr ""
+msgstr "Gwirio fersiwn"
 
 #: setup/lib/messages.inc.php:376
 msgid ""
@@ -7284,7 +7286,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: sql.php:496 tbl_replace.php:386
 #, php-format
@@ -7320,11 +7322,11 @@ msgstr ""
 
 #: tbl_change.php:282 tbl_change.php:320
 msgid "Function"
-msgstr ""
+msgstr "Swyddogaeth"
 
 #: tbl_change.php:302 tbl_indexes.php:200 tbl_indexes.php:225
 msgid "Ignore"
-msgstr ""
+msgstr "Anwybyddu"
 
 #: tbl_change.php:728
 msgid " Because of its length,<br /> this column might not be editable "
@@ -7336,15 +7338,15 @@ msgstr ""
 
 #: tbl_change.php:894
 msgid "Binary - do not edit"
-msgstr ""
+msgstr "Deuaidd - peidiwch â golygu"
 
 #: tbl_change.php:987
 msgid "Upload to BLOB repository"
-msgstr ""
+msgstr "Lanlwytho i storfa BLOB"
 
 #: tbl_change.php:1130
 msgid "Insert as new row"
-msgstr ""
+msgstr "Mewnosod fel rhes newydd"
 
 #: tbl_change.php:1131
 msgid "Insert as new row and ignore errors"
@@ -7352,28 +7354,30 @@ msgstr ""
 
 #: tbl_change.php:1132
 msgid "Show insert query"
-msgstr ""
+msgstr "Dangos ymholiad mewnosod"
 
 #: tbl_change.php:1147
 msgid "Go back to previous page"
-msgstr ""
+msgstr "Dychwelyd i'r dudalen flaenorol"
 
 #: tbl_change.php:1148
 msgid "Insert another new row"
-msgstr ""
+msgstr "Mewnosod rhes newydd arall"
 
 #: tbl_change.php:1152
 msgid "Go back to this page"
-msgstr ""
+msgstr "Dychwelyd i'r dudalen hon"
 
 #: tbl_change.php:1160
 msgid "Edit next row"
-msgstr ""
+msgstr "Golygu'r rhes nesaf"
 
 #: tbl_change.php:1171
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
+"Defnyddiwch y bysell TAB i symud o un gwerth i'r llall, neu CTRL + saethau i "
+"symud unrhyw le"
 
 #: tbl_change.php:1209
 #, php-format
@@ -7476,7 +7480,7 @@ msgstr ""
 
 #: tbl_operations.php:340
 msgid "Rename table to"
-msgstr ""
+msgstr "Ailenwi tabl i"
 
 #: tbl_operations.php:511
 msgid "Copy table to (database<b>.</b>table):"
@@ -7505,36 +7509,37 @@ msgstr ""
 
 #: tbl_operations.php:651
 msgid "Partition maintenance"
-msgstr ""
+msgstr "Cynhaliaeth ymraniadau"
 
 #: tbl_operations.php:659
 #, php-format
+#, possible-php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Ymraniad %s"
 
 #: tbl_operations.php:662
 msgid "Analyze"
-msgstr ""
+msgstr "Dadansoddi"
 
 #: tbl_operations.php:663
 msgid "Check"
-msgstr ""
+msgstr "Gwirio"
 
 #: tbl_operations.php:664
 msgid "Optimize"
-msgstr ""
+msgstr "Optimeiddio"
 
 #: tbl_operations.php:665
 msgid "Rebuild"
-msgstr ""
+msgstr "Ailadeiladu"
 
 #: tbl_operations.php:666
 msgid "Repair"
-msgstr ""
+msgstr "Trwsio"
 
 #: tbl_operations.php:678
 msgid "Remove partitioning"
-msgstr ""
+msgstr "Tynnu'r ymraniadu"
 
 #: tbl_operations.php:704
 msgid "Check referential integrity:"
