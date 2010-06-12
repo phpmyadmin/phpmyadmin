@@ -968,7 +968,7 @@ msgstr "FOREIGN KEY bağlantısı eklendi"
 
 #: js/messages.php:55 pmd_relation_new.php:86
 msgid "Internal relation added"
-msgstr "Dahili ilişki eklendi"
+msgstr "Dahili bağlantı eklendi"
 
 #: js/messages.php:56 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
