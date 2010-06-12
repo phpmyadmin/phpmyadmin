@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-12 19:25+0200\n"
+"PO-Revision-Date: 2010-06-12 19:26+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8178,10 +8178,9 @@ msgid "Table %s has been flushed"
 msgstr "%s tablosu temizlendi"
 
 #: tbl_operations.php:636
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Tabloyu temizle (\"FLUSH\")"
+msgstr "Tabloyu temizle (FLUSH)"
 
 #: tbl_operations.php:651
 msgid "Partition maintenance"
