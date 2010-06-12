@@ -972,7 +972,7 @@ msgstr "Dahili bağlantı eklendi"
 
 #: js/messages.php:56 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
-msgstr "Hata: İlişki eklenmedi."
+msgstr "Hata: Bağlantı eklenmedi."
 
 #: js/messages.php:57 pmd_relation_new.php:31
 msgid "Error: relation already exists."
