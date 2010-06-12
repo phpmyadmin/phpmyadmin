@@ -5909,7 +5909,6 @@ msgid "Show processes"
 msgstr "İşlemleri göster"
 
 #: server_status.php:455
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
