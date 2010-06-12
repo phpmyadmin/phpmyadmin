@@ -1703,7 +1703,7 @@ msgstr "en"
 #: libraries/common.lib.php:415
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr "tr"
+msgstr "en"
 
 #: libraries/common.lib.php:428 libraries/common.lib.php:430
 #: libraries/common.lib.php:432 libraries/common.lib.php:448
