@@ -2750,10 +2750,9 @@ msgstr "Sütunu kapsayan:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Alanları dolduran:"
+msgstr "Sütunu dolduran:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #: libraries/import/csv.php:79 libraries/import/ldi.php:43
