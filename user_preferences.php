@@ -17,7 +17,7 @@ require_once './libraries/config/ConfigFile.class.php';
 require_once './libraries/config/Form.class.php';
 require_once './libraries/config/FormDisplay.class.php';
 
-$GLOBALS['js_include'][] = 'js/settings_forms.js';
+$GLOBALS['js_include'][] = 'js/config.js';
 
 require_once './libraries/header.inc.php';
 

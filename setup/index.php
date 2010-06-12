@@ -37,6 +37,7 @@ require './libraries/header_http.inc.php';
 <script type="text/javascript" src="../js/jquery/jquery-1.4.2.js"></script>
 <script type="text/javascript" src="../js/jquery/jquery-ui-1.8.custom.js"></script>
 <script type="text/javascript" src="../js/jquery/jquery.json-2.2.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
