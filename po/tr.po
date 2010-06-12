@@ -4043,7 +4043,7 @@ msgid ""
 "third options are the width and the height in pixels."
 msgstr ""
 "Bir resim ve bir bağlantı görüntüler; sütun, dosya adını içerir. İlk seçenek "
-"\"http://www.example.com/\" gibi bir URL ön ekidir. İkinci ve üçüncü "
+"\"http://www.adresim.com/\" gibi bir URL ön ekidir. İkinci ve üçüncü "
 "seçenekler piksel cinsinden genişlik ve yüksekliktir."
 
 #: libraries/transformations/text_plain__link.inc.php:10
