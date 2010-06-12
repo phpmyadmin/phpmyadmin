@@ -2521,7 +2521,7 @@ msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
-"-myisam-recover sunucusu başlat seçeneği yoluyla ayarlanan, çökmüş MyISAM "
+"--myisam-recover sunucusu başlat seçeneği yoluyla ayarlanan, çökmüş MyISAM "
 "tablolarını otomatik kurtarmak için kip."
 
 #: libraries/engines/myisam.lib.php:32
