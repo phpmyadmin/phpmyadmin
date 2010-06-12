@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-12 16:11+0200\n"
+"PO-Revision-Date: 2010-06-12 16:12+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7139,7 +7139,6 @@ msgid "GZip output buffering"
 msgstr "GZip çıktı arabellekleme"
 
 #: setup/lib/messages.inc.php:217
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -7147,8 +7146,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - örn. TIME, DATE, DATETIME ve TIMESTAMP türü alanları için "
-"büyükten küçüğe sıralama, aksi halde küçükten büyüğe sıralama"
+"[kbd]SMART[/kbd] - örn. TIME, DATE, DATETIME ve TIMESTAMP türü sütunları "
+"için büyükten küçüğe sıralama, aksi halde küçükten büyüğe sıralama"
 
 #: setup/lib/messages.inc.php:218
 msgid "Default sorting order"
