@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-12 16:06+0200\n"
+"PO-Revision-Date: 2010-06-12 16:07+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5929,11 +5929,11 @@ msgstr ""
 "<b>slave</b> olarak çalışır."
 
 #: server_status.php:473
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Bu sunucu kopya etme işlemi sırasında asıl sunucu olarak yapılandırıldı."
+"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>master</b> olarak "
+"çalışır"
 
 #: server_status.php:475
 #, fuzzy
