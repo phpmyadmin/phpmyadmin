@@ -2311,10 +2311,9 @@ msgid "Relational key"
 msgstr "Bağlantılı anahtar"
 
 #: libraries/display_tbl.lib.php:588
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Bağlantılı görüntü alanı"
+msgstr "Bağlantılı görüntü sütunu"
 
 #: libraries/display_tbl.lib.php:595
 msgid "Show binary contents"
