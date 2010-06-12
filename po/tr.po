@@ -4817,10 +4817,9 @@ msgid "Do not change the password"
 msgstr "Parolayı değiştirme"
 
 #: server_privileges.php:843 server_privileges.php:2205
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
-msgstr "Kullanıcı(lar) bulunamadı."
+msgstr "Kullanıcı bulunamadı."
 
 #: server_privileges.php:887
 #, php-format
