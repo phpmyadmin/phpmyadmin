@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-12 19:27+0200\n"
+"PO-Revision-Date: 2010-06-12 19:28+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8296,10 +8296,9 @@ msgid "Operator"
 msgstr "İşletici"
 
 #: tbl_select.php:270
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Alanları seç (en az bir):"
+msgstr "Sütunları seç (en az bir):"
 
 #: tbl_select.php:288
 msgid "Add search conditions (body of the \"where\" clause):"
