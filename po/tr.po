@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-12 15:37+0200\n"
+"PO-Revision-Date: 2010-06-12 15:38+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3910,10 +3910,9 @@ msgid "Add %s column(s)"
 msgstr "%s sütun ekle"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "En az bir alan eklemek zorundasınız."
+msgstr "En az bir sütun eklemek zorundasınız."
 
 #: libraries/tbl_triggers.lib.php:29
 msgid "Event"
