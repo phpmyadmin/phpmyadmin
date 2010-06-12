@@ -2023,10 +2023,9 @@ msgid "Create table on database %s"
 msgstr "%s veritabanında yeni tablo oluştur"
 
 #: libraries/display_create_table.lib.php:57
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Alan sayısı"
+msgstr "Sütun sayısı"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
