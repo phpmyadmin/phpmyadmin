@@ -2013,10 +2013,9 @@ msgid "No Privileges"
 msgstr "Yetkiniz yok"
 
 #: libraries/display_create_table.lib.php:41
-#, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
-msgstr "Tablonun en az bir alanı olmalı."
+msgstr "Tablonun en az bir sütunu olmalı."
 
 #: libraries/display_create_table.lib.php:48
 #, php-format
