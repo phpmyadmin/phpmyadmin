@@ -6386,7 +6386,6 @@ msgstr ""
 "görüntülemenize izin verecektir."
 
 #: setup/lib/messages.inc.php:35
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -6396,9 +6395,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"CHAR ve VARCHAR alanları için hangi tür düzenleme denetimlerinin "
+"CHAR ve VARCHAR sütunları için hangi tür düzenleme denetimlerinin "
 "kullanılacağını tanımlar; [kbd]girdi[/kbd] - girdi uzunluğunun sınırlamasına "
-"izin verir, [kbd]metinalanı[/kbd] - alanlarda yeni satırlara izin verir"
+"izin verir, [kbd]metinalanı[/kbd] - sütunlarda yeni satırlara izin verir"
 
 #: setup/lib/messages.inc.php:36
 #, fuzzy
