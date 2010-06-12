@@ -8323,10 +8323,10 @@ msgid "None"
 msgstr "Hiçbiri"
 
 #: tbl_structure.php:374
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "%s tablosu kaldırıldı"
+msgstr "Sütun %s kaldırıldı"
 
 #: tbl_structure.php:385
 #, php-format
