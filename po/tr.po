@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-12 16:08+0200\n"
+"PO-Revision-Date: 2010-06-12 16:09+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6123,10 +6123,10 @@ msgid "Current connection"
 msgstr "Şu anki bağlantı"
 
 #: server_synchronize.php:1152
-#, fuzzy, php-format
+#, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
-msgstr "Yapılandırma dosyası"
+msgstr "Yapılandırma: %s"
 
 #: server_synchronize.php:1167
 msgid "Socket"
