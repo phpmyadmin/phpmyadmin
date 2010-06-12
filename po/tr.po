@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-12 19:36+0200\n"
+"PO-Revision-Date: 2010-06-12 19:37+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5507,7 +5507,7 @@ msgstr "Günlük dosyasına fiziksel yazma sayısıdır."
 
 #: server_status.php:87
 msgid "The number of fsync() writes done to the log file."
-msgstr "Günlük dosyasına bitmiş fsyncs yazma sayısıdır."
+msgstr "Günlük dosyasına bitmiş fsync() yazma sayısıdır."
 
 #: server_status.php:88
 msgid "The number of pending log file fsyncs."
