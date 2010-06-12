@@ -96,7 +96,7 @@ msgstr "Veritabanı %1$s oluşturuldu."
 
 #: db_datadict.php:49 db_operations.php:378
 msgid "Database comment: "
-msgstr "Veritabanı yorumu:  "
+msgstr "Veritabanı yorumu:   "
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
 #: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
