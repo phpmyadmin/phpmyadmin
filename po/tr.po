@@ -1757,10 +1757,9 @@ msgid "Inline edit of this query"
 msgstr "Bu sorguyu sıralı düzenle"
 
 #: libraries/common.lib.php:1280
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline"
-msgstr "Motorlar"
+msgstr "Sıralı"
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1349
 msgid "Profiling"
