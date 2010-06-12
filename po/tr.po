@@ -8266,10 +8266,9 @@ msgstr ""
 "%1$s üzerinde dış anahtar oluşturma hatası (veri türlerini kontrol edin)"
 
 #: tbl_relation.php:405
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Dahili ilişkiler"
+msgstr "Dahili ilişki"
 
 #: tbl_relation.php:407
 msgid ""
