@@ -7653,7 +7653,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF şeması: tablo koordinatları"
 
 #: setup/lib/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -7661,8 +7660,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Görüntü alanlarını tanımlayan tablodur, destek istenmiyorsa boş bırakın; "
-"varsayılan: [kbd]pma_table_info[/kbd]"
+"Görüntü sütunlarını tanımlayan tablodur, destek istenmiyorsa boş bırakın; "
+"önerilen: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
 #, fuzzy
