@@ -7166,10 +7166,9 @@ msgid "Iconic table operations"
 msgstr "Simgesel tablo işlemleri"
 
 #: setup/lib/messages.inc.php:224
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "BLOB ve BINARY alanlarını düzenlemeye izin vermez"
+msgstr "BLOB ve BINARY sütunlarını düzenlemeye izin vermez"
 
 #: setup/lib/messages.inc.php:225
 #, fuzzy
