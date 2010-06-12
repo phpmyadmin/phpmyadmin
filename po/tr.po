@@ -6118,10 +6118,9 @@ msgid "Enter manually"
 msgstr "Elle giriş"
 
 #: server_synchronize.php:1123
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Güvensiz bağlantı"
+msgstr "Şu anki bağlantı"
 
 #: server_synchronize.php:1152
 #, fuzzy, php-format
