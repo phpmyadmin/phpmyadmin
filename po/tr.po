@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-12 15:30+0200\n"
+"PO-Revision-Date: 2010-06-12 15:31+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3135,10 +3135,10 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "CSV girişinin %d. satırında geçersiz biçim."
 
 #: libraries/import/csv.php:312
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
-msgstr "CSV girişinde %d. satırda geçersiz alan sayısı."
+msgstr "CSV girişinde %d. satırda geçersiz sütun sayısı."
 
 #: libraries/import/docsql.php:29
 msgid "DocSQL"
