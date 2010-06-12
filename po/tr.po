@@ -2914,10 +2914,9 @@ msgid "Database export options"
 msgstr "Veritabanı dışarı aktarma seçenekleri"
 
 #: libraries/export/sql.php:80
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Tablo ve alan adlarını ters tırnak ile kapsa"
+msgstr "Tablo ve sütun adlarını ters tırnak ile kapsa"
 
 #: libraries/export/sql.php:86
 msgid "Add into comments"
