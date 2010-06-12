@@ -4324,10 +4324,10 @@ msgid "Please configure the coordinates for table %s"
 msgstr "Lütfen %s tablosu için koordinatları yapılandırın"
 
 #: pdf_schema.php:995
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr " \"%s\" veritabanının şeması - Sayfa %s"
+msgstr "%s veritabanının şeması - Sayfa %s"
 
 #: pdf_schema.php:1013
 msgid "No tables"
