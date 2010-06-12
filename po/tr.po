@@ -7439,7 +7439,6 @@ msgid "SQL query history table"
 msgstr "SQL sorgu geçmişi tablosu"
 
 #: setup/lib/messages.inc.php:279
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -7447,8 +7446,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"SQL sorgu geçmişi desteği istenmiyorsa boş bırakın, varsayılan: [kbd]"
-"pma_history[/kbd]"
+"SQL sorgu izleme desteği istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
 #, fuzzy
