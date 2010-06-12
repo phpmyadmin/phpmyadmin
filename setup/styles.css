@@ -253,10 +253,6 @@ fieldset th {
     vertical-align: top;
 }
 
-fieldset th small {
-    display: block;
-}
-
 fieldset .doc {
     margin-left: 1em;
 }
@@ -267,6 +263,7 @@ fieldset td {
 }
 
 fieldset th small {
+    display: block;
     font-weight: normal;
     font-family: sans-serif;
     font-size: x-small;
@@ -314,16 +311,16 @@ fieldset.simple .lastrow {
 
 span.checkbox {
     padding: 2px;
+    display: inline-block;    
 }
 
 .custom { /* customized field */
     background: #FFC;
 }
 
-span.checkbox.custom {
+.checkbox.custom {
     padding: 1px;
     border: 1px #EDEC90 solid;
-    background: #FFC;
 }
 
 input[type="text"], select, textarea {

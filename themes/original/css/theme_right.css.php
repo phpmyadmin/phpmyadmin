@@ -582,7 +582,7 @@ form.login label {
 /* specific elements */
 
 /* topmenu */
-ul#topmenu {
+ul#topmenu, ul.tabs {
     font-weight:        bold;
     list-style-type:    none;
     margin:             0;
@@ -1232,3 +1232,146 @@ table#serverconnection_trg_local  {
   */
 .invalid_value
 {background:#F00;}
+
+/* config forms */
+.config-form ul.tabs {
+    margin:      1em 0.2em 0;
+    padding:     0 0 0.3em 0;
+    list-style:  none;
+    font-weight: bold;
+}
+
+.config-form ul.tabs li {
+    float: <?php echo $left; ?>;
+}
+
+.config-form ul.tabs li a {
+    display:          block;
+    margin:           0.1em 0.2em 0;
+    padding:          0.1em 0.4em;
+    white-space:      nowrap;
+    text-decoration:  none;
+    background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    border:           1px solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    border-bottom:    none;
+}
+
+.config-form ul.tabs li a:hover,
+.config-form ul.tabs li a:active,
+.config-form ul.tabs li a.active {
+    margin:           0;
+    padding:          0.1em 0.6em 0.2em;
+}
+
+.config-form ul.tabs li a.active {
+    background-color: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+}
+
+.config-form fieldset {
+    margin-top:   0;
+    padding:      0;
+    clear:        both;
+    border-color: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+}
+
+.config-form legend {
+    display: none;
+}
+
+.config-form fieldset p {
+    margin:  0;
+    padding: 0.5em;
+}
+
+.config-form fieldset .errors { /* form error list */
+    margin:       0 -2px 1em -2px;
+    padding:      0.5em 1.5em;
+    background:   #FBEAD9;
+    border: 1px   #C83838 solid;
+    border-width: 1px 0;
+    list-style:   none;
+    font-family:  sans-serif;
+    font-size:    small;
+}
+
+.config-form fieldset .inline_errors { /* field error list */
+    margin:     0.3em 0.3em 0.3em 0;
+    padding:    0;
+    list-style: none;
+    color:      #9A0000;
+	font-size:  small;
+}
+
+.config-form fieldset th {
+    padding:        0.3em 0.3em 0.3em 0.5em;
+    text-align:     left;
+    vertical-align: top;
+    width:          40%;
+    background:     transparent;
+}
+
+.config-form fieldset .doc {
+    margin-left: 1em;
+}
+
+.config-form fieldset td {
+    padding-top:    0.3em;
+    padding-bottom: 0.3em;
+    vertical-align: top;
+}
+
+.config-form fieldset th small {
+    display:     block;
+    font-weight: normal;
+    font-family: sans-serif;
+    font-size:   x-small;
+    color:       #444;
+}
+
+.config-form fieldset th, fieldset td {
+    border-top: 1px #666 dotted;
+}
+
+.config-form .lastrow {
+    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;;
+    padding:    0.5em;
+    text-align: center;
+}
+
+.config-form .form .lastrow {
+    border-top: 1px #555 dotted;
+}
+
+.config-form .lastrow input {
+    font-weight: bold;
+}
+
+/* form elements */
+
+.config-form span.checkbox {
+    padding: 2px;
+    display: inline-block;
+}
+
+.config-form .custom { /* customized field */
+    background: #FFC;
+}
+
+.config-form span.checkbox.custom {
+    padding:    1px;
+    border:     1px #EDEC90 solid;
+    background: #FFC;
+}
+
+.config-form input[type="text"],
+.config-form select,
+.config-form textarea {
+    border: 1px #A7A6AA solid;
+}
+
+.config-form input[type="text"]:focus,
+.config-form select:focus,
+.config-form textarea:focus {
+    border:     1px #6676FF solid;
+    background: #F7FBFF;
+}

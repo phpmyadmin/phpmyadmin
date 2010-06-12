@@ -17,7 +17,7 @@ require_once './libraries/config/ConfigFile.class.php';
 require_once './libraries/config/Form.class.php';
 require_once './libraries/config/FormDisplay.class.php';
 
-$GLOBALS['js_include'][] = 'js/config.js';
+$GLOBALS['js_include'][] = 'config.js';
 
 require_once './libraries/header.inc.php';
 
@@ -84,7 +84,7 @@ if (!$form_display->process(false)) {
         exit;
     }
 }
-print_r($_SESSION);
+
 /**
  * Displays the footer
  */

@@ -117,9 +117,9 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     $name_id = 'name="' . $path . '" id="' . $path . '"';
     $base_dir = defined('PMA_SETUP') ? '../' : '';
     $img_path = defined('PMA_SETUP')
-        ? $GLOBALS['cfg']['ThemePath'] . '/original/img/'
+        ? '../' . ltrim($GLOBALS['cfg']['ThemePath'], './') . '/original/img/'
         : $_SESSION['PMA_Theme']->img_path;
-d?>
+?>
 <tr>
     <th>
         <label for="<?php echo htmlspecialchars($path) ?>"><?php echo $name ?></label>
@@ -188,7 +188,7 @@ d?>
     }
     if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
         ?>
-        <a class="restore-default" href="#<?php echo $path ?>" title="<?php echo __('Restore default value') ?>" style="display:none"><img alt="restore-default" src="../<?php echo $img_path ?>s_reload.png" width="16" height="16" /></a>
+        <a class="restore-default" href="#<?php echo $path ?>" title="<?php echo __('Restore default value') ?>" style="display:none"><img alt="restore-default" src="<?php echo $img_path ?>s_reload.png" width="16" height="16" /></a>
         <?php
     }
     // this must match with displayErrors() in scripts.js
