@@ -4283,10 +4283,9 @@ msgid "Create a page"
 msgstr "Yeni bir sayfa oluştur"
 
 #: pdf_pages.php:310
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Sayfa numarası:"
+msgstr "Sayfa adı"
 
 #: pdf_pages.php:314
 #, fuzzy
