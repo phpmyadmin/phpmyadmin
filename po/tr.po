@@ -8543,7 +8543,6 @@ msgid "Available transformations"
 msgstr "Mevcut dönüşümler"
 
 #: transformation_overview.php:48
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
