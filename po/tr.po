@@ -7606,7 +7606,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:310
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "DROP TABLE ifadesi ekle"
 
 #: setup/lib/messages.inc.php:311
 msgid ""
