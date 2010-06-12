@@ -4530,7 +4530,6 @@ msgid "Slave replication"
 msgstr "Slave kopya etme"
 
 #: server_databases.php:230
-#, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Veritabanına git"
