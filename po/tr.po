@@ -7580,10 +7580,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "Yeni sürümler için otomatik oluşturma kullanan ifade listesini tanımlar"
 
 #: setup/lib/messages.inc.php:306
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "İfadeler"
+msgstr "İfadelerden izlere"
 
 #: setup/lib/messages.inc.php:307
 msgid ""
