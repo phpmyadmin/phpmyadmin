@@ -976,7 +976,7 @@ msgstr "Hata: Bağlantı eklenmedi."
 
 #: js/messages.php:57 pmd_relation_new.php:31
 msgid "Error: relation already exists."
-msgstr "Hata: İlişki zaten var."
+msgstr "Hata: Bağlantı zaten var."
 
 #: js/messages.php:58
 msgid "Error saving coordinates for Designer."
