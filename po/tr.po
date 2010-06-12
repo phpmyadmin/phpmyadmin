@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-12 16:10+0200\n"
+"PO-Revision-Date: 2010-06-12 16:11+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6760,6 +6760,8 @@ msgstr "PMA veritabanı"
 #: setup/lib/messages.inc.php:133
 msgid "Tracking of changes made in database. Requires configured PMA database."
 msgstr ""
+"İzlenen değişiklikler veritabanında yapıldı. Yapılandırılmış PMA veritabanı "
+"gerekir."
 
 #: setup/lib/messages.inc.php:134
 msgid "Changes tracking"
