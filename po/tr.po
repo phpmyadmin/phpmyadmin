@@ -4260,7 +4260,6 @@ msgid "Clear"
 msgstr "Temizle"
 
 #: navigation.php:336 navigation.php:337
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
