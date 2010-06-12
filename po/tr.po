@@ -4972,7 +4972,6 @@ msgid "Database for user"
 msgstr "Kullanıcı için veritabanı"
 
 #: server_privileges.php:2037
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
