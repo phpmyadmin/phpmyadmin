@@ -5936,11 +5936,11 @@ msgstr ""
 "çalışır"
 
 #: server_status.php:475
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Bu sunucu kopya etme işlemi sırasında asıl sunucu olarak yapılandırıldı."
+"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>slave</b> olarak "
+"çalışır"
 
 #: server_status.php:477
 #, fuzzy
