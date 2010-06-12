@@ -4057,7 +4057,7 @@ msgid ""
 "the link."
 msgstr ""
 "Bir bağlantı görüntüler; sütun, dosya adını içerir. İlk seçenek "
-"\"http://www.adresim.com/\" gibi bir URL ön ekidir. İkinci seçenek bağlantı "
+"\"http://www.example.com/\" gibi bir URL ön ekidir. İkinci seçenek bağlantı "
 "için başlıktır."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
