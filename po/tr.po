@@ -3193,7 +3193,6 @@ msgstr "Şifreleme dönüştürme"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:145
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
