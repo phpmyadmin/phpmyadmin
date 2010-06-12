@@ -4540,10 +4540,9 @@ msgid "Not replicated"
 msgstr "Kopya edilmedi"
 
 #: server_databases.php:273
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Kopya etme"
+msgstr "Kopya edildi"
 
 #: server_databases.php:289
 #, php-format
