@@ -7571,10 +7571,9 @@ msgstr ""
 "oluşturur"
 
 #: setup/lib/messages.inc.php:304
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Otomatik kurtarma kipi"
+msgstr "Otomatik olarak sürümleri oluştur"
 
 #: setup/lib/messages.inc.php:305
 msgid "Defines the list of statements the auto-creation uses for new versions."
