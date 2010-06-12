@@ -4033,7 +4033,6 @@ msgstr ""
 "görüntüler. Bu, geçerli HTML içerdiği var sayılan sütundur."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -4043,7 +4042,7 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Bir resim ve bir bağlantı görüntüler; alan dosya adını içerir. İlk seçenek "
+"Bir resim ve bir bağlantı görüntüler; sütun, dosya adını içerir. İlk seçenek "
 "\"http://www.adresim.com/\" gibi bir URL ön ekidir. İkinci ve üçüncü "
 "seçenekler piksel cinsinden genişlik ve yüksekliktir."
 
