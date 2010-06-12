@@ -1703,13 +1703,13 @@ function changeMIMEType(db, table, reference, mime_type)
  */
 $(document).ready(function(){
     var $oldText,$db,$table,$token,$sql_query;
-    $oldText=$(".syntax").html();
+    $oldText=$(".inner_sql").html();
     $("#inline_edit").click(function(){
         $db=$("input[name='db']").val();
         $table=$("input[name='table']").val();
         $token=$("input[name='token']").val();
         $sql_query=$("input[name='sql_query']").val();
-        $(".syntax").replaceWith("<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">"+ $sql_query +"</textarea><input type=\"button\" id=\"btnSave\" value=\"" + PMA_messages['strGo'] + "\"><input type=\"button\" id=\"btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">");
+        $(".inner_sql").replaceWith("<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">"+ $sql_query +"</textarea><input type=\"button\" id=\"btnSave\" value=\"" + PMA_messages['strGo'] + "\"><input type=\"button\" id=\"btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">");
         return false;
     });
 
@@ -1718,7 +1718,7 @@ $(document).ready(function(){
     });
 
     $("#btnDiscard").live("click",function(){
-        $(".sql").html("<span class=\"syntax\">"+$oldText+"</span>");
+        $(".sql").html("<span class=\"syntax\"><span class=\"inner_sql\">"+$oldText+"</span></span>");
     });
 
     $('.sqlbutton').click(function(evt){
