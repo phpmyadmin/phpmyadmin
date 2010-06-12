@@ -253,7 +253,7 @@ msgstr "Sadece veri"
 
 #: db_operations.php:472
 msgid "CREATE DATABASE before copying"
-msgstr "Kopyalamadan önce CREATE DATABASE (Veritabanı Oluştur)"
+msgstr "Kopyalamadan önce VERİTABANI OLUŞTUR"
 
 #: db_operations.php:475 libraries/export/sql.php:52
 #: libraries/export/sql.php:74 libraries/export/sql.php:76
