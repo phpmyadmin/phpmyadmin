@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-12 16:03+0200\n"
+"PO-Revision-Date: 2010-06-12 16:04+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5178,10 +5178,9 @@ msgid "Error management:"
 msgstr "Hata yönetimi:"
 
 #: server_replication.php:334
-#, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr "Hata(ları)yı atlamak master ve slave'i eşitlenmemeye sürükleyebilir!"
+msgstr "Hataları atlamak master ve slave'i eşitlenmemeye sürükleyebilir!"
 
 #: server_replication.php:336
 msgid "Skip current error"
