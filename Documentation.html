@@ -3141,7 +3141,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 in your Apache configuration. See <a href="http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions">http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions</a>.</p>
 
 <h4 id="faq1_40">
-    <a href="#faq1_40">1.40 When accessing phpMyAdmin via an Apache reverse proxy, cookie login does not work,</a></h4>
+    <a href="#faq1_40">1.40 When accessing phpMyAdmin via an Apache reverse proxy, cookie login does not work.</a></h4>
 
 <p>To be able to use cookie auth Apache must know that it has to rewrite the set-cookie headers.<br />
 	Example from the Apache 2.2 documentation:</p>
@@ -4344,21 +4344,22 @@ chmod o+rwx tmp
     under the Bugs section.<br /><br />
 
     But please first discuss your bug with other users:<br />
-    <a href="http://sf.net/projects/phpmyadmin/">
-        http://sf.net/projects/phpmyadmin/</a> (and choose Forums)</p>
+    <a href="https://sourceforge.net/projects/phpmyadmin/forums">
+    https://sourceforge.net/projects/phpmyadmin/forums</a>.
+</p>
 
 <h4 id="faq7_2">
     <a href="#faq7_2">7.2 I want to translate the messages to a new language or upgrade an
     existing language, where do I start?</a></h4>
 
-<p> Always use latest Git version of po file to translate. You can optionally
+<p> Always use latest Git version of the po file to translate. You can optionally
     translate online at our <a href="http://l10n.cihar.com/">translation
-    server</a> where you can also get latest po files and merge them
-    with your translations. For creating new translation simply use
+    server</a> where you can also get the latest po files and merge them
+    with your translations. For creating a new translation simply use
     <code>po/phpmyadmin.pot</code> and generate
     <code>po/LANG_CODE.po</code> for your language (you can use
     <code>msginit -i po/phpmyadmin.pot -l LANG_CODE --no-translator -o po/LANG_CODE.po</code>
-    to do this) or ask on mailing list to add the translation to the web
+    to do this) or ask on the mailing list to add the translation to the web
     interface. More details are available on <a href="http://wiki.phpmyadmin.net/pma/Devel:Gettext_for_translators">our wiki</a>.
 </p>
 <p>
@@ -4366,16 +4367,28 @@ chmod o+rwx tmp
     the translations, since we define the right character set in the file.
     With HTML entities, the text on JavaScript messages would not
     display correctly.
-    However there are some entities that need to be there, for quotes
-    ,non-breakable spaces, ampersands, less than, greater than.
+    However there are some entities that need to be there: quotes,
+    non-breakable spaces, ampersands, less than, greater than.
 </p>
 <p>
     You can then put your translations, as a zip file to avoid losing special
-    characters, on the sourceforge.net translation tracker.
+    characters, on the sourceforge.net <a href="https://sourceforge.net/tracker/?group_id=23067&atid=387645">translation tracker.</a>
 </p>
 <p>
-    It would be a good idea to subscribe to the phpmyadmin-translators mailing
+    It would be a good idea to subscribe to the <a href="https://lists.sourceforge.net/lists/listinfo/phpmyadmin-translators">phpmyadmin-translators</a> mailing
     list, because this is where we ask for translations of new messages.
+</p>
+
+<p>
+    Documentation is being translated using po4a and gettext (see 
+    <a href="http://www.phpmyadmin.net/home_page/docs.php">documentation</a>
+    for existing translations). To start, checkout
+    <a href="http://phpmyadmin.git.sourceforge.net/git/gitweb.cgi?p=phpmyadmin/localized_docs;a=tree;f=po"><code>localized_docs/po</code></a>
+    from Git, or just go to the <a href="https://l10n.cihar.com/projects/pmadoc/">translation server</a>
+    and translate it online. If your language is missing, just contact
+    <a href="mailto:michal@cihar.com">Michal Čihař</a>; he will add it. If
+    you prefer to directly translate the po files, please put updated ones into our
+    <a href="https://sourceforge.net/tracker/?group_id=23067&amp;atid=387645">translation tracker</a>. 
 </p>
 
 <h4 id="faq7_3">
@@ -4417,7 +4430,7 @@ chmod o+rwx tmp
     <a href="#faq8_2">8.2 How can I protect phpMyAdmin against brute force attacks?</a></h4>
 
 <p> If you use Apache web server, phpMyAdmin exports information about 
-    authentication to Apache environment and it can be used in Apache logs.
+    authentication to the Apache environment and it can be used in Apache logs.
     Currently there are two variables available:
 </p>
 <dl>
@@ -4448,14 +4461,14 @@ LogFormat "%h %l %u %t \"%r\" %>s %b \
     <a href="#faq9_1">9.1 How can I synchronize two databases/tables in phpMyAdmin?</a></h4>
 
 <p> You can now synchronize databases/tables in phpMyAdmin using the Synchronize feature.
-It allows you to connect to local as well as remote servers.This requires you to enter 
+It allows you to connect to local as well as remote servers. This requires you to enter 
 server host name, username, password, port and the name of the database. Therefore you can 
 now synchronize your databases placed on the same server or some remote server.
 </p>
 
 <p>
 This feature is helpful for developers who need to replicate their
-databases’ structure as well as data. Moreover, this feature not only
+database&#8217;s structure as well as data. Moreover, this feature not only
 helps replication but also facilitates the user to keep his/her database
 in sync with another database. Other than the full database, certain
 tables of the databases can also be synchronized.
@@ -4476,29 +4489,29 @@ representation.
 </p>
 
 <p>
-On the left, are listed the source database table names.  Some of the
-names have a ‘+’ plus sign preceding them. This shows that these tables
+On the left, are listed the source database table names. Some of the
+names have a <code>+</code> plus sign preceding them. This shows that these tables
 are only present in source database and they need to be added to the
 target database in order to synchronize the target database. The tables
-whose names are not preceded by a ‘+’ sign are already present in the
+whose names are not preceded by a <code>+</code> sign are already present in the
 target database. 
 </p>
 
 <p>
 On the right, are listed the target database table names. There are few
-table names that have “(not present)” appended after their names. This
+table names that have <code>(not present)</code> appended after their names. This
 means that these tables are to be created in target database in order to
-synchronize target database with source database. Some tables’ names
-have a ‘-’ minus sign preceding them. This shows that these tables are
+synchronize target database with source database. Some table names
+have a <code>-</code> minus sign preceding them. This shows that these tables are
 only present in target database and they will remain unchanged in the
 target database. The column in the middle shows the difference between
 the source and target corresponding tables.
 </p>
 
 <p>
-The difference is depicted by the red and green buttons with S and D
+The difference is depicted by the red and green buttons with <tt>S</tt> and <tt>D</tt>
 letters, indicating that either Structure or Data are not up to date. By
-clicking on them, they will turn grey, what means that they will be synchronised.
+clicking on them, they will turn grey, what means that they will be synchronized.
 </p>
 
 <!-- DEVELOPERS -->

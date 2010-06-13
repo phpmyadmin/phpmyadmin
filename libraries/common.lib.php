@@ -320,7 +320,7 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
     switch ($cfg['SQP']['fmtType']) {
         case 'none':
             if ($unparsed_sql != '') {
-                $formatted_sql = "<pre>\n" . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n</pre>";
+                $formatted_sql = '<span class="inner_sql"><pre>' . "\n" . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n" . '</pre></span>';
             } else {
                 $formatted_sql = PMA_SQP_formatNone($parsed_sql);
             }
