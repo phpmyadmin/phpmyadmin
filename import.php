@@ -446,6 +446,15 @@ if (isset($my_die)) {
     }
 }
 
+// we want to see the results of the last query that returned at least a row
+if (! empty($last_query_with_results)) {
+    // but we want to show intermediate results too
+    $disp_query = $sql_query;
+    $disp_message = $strSuccess;
+    $sql_query = $last_query_with_results;
+    $go_sql = true;
+}
+
 if ($go_sql) {
     require './sql.php';
 } else {
