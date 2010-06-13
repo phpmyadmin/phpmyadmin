@@ -200,6 +200,18 @@ var validators = {
         }
         return result;
     },
+    /**
+     * DefaultPropDisplay validator
+     *
+     * @param {boolean} isKeyUp
+     */
+    validate_DefaultPropDisplay: function(isKeyUp) {
+        if (isKeyUp && this.value == '') {
+            return true;
+        }
+        var valid = this.value.match(/^(?:horizontal|vertical|[0-9]+)$/) != null;
+        return valid ? true : PMA_messages['error_invalid_value']
+    },
     // field validators
     _field: {
     },

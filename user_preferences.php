@@ -68,7 +68,7 @@ if (!$form_display->process(false)) {
         ?>
         <div class="warning">
             <h4><?php echo __('Warning') ?></h4>
-            <?php echo PMA_lang('error_form') ?><br />
+            <?php echo __('Submitted form contains errors') ?><br />
             <a href="?form=<?php echo $form_param ?>&amp;mode=revert"><?php echo PMA_lang('RevertErroneousFields') ?></a>
         </div>
         <?php $form_display->displayErrors() ?>

@@ -323,20 +323,20 @@ function perform_config_checks()
         if ($blowfish_secret_set) {
             // 'cookie' auth used, blowfish_secret was generated
             messages_set('notice', 'blowfish_secret_created', 'blowfish_secret_name',
-                 PMA_lang('BlowfishSecretMsg'));
+                 __('You didn\'t have blowfish secret set and have enabled cookie authentication, so a key was automatically generated for you. It is used to encrypt cookies; you don\'t need to remember it.'));
         } else {
             $blowfish_warnings = array();
             // check length
             if (strlen($blowfish_secret) < 8) {
                 // too short key
-                $blowfish_warnings[] = PMA_lang('BlowfishSecretLengthMsg');
+                $blowfish_warnings[] = __('Key is too short, it should have at least 8 characters');
             }
             // check used characters
             $has_digits = (bool) preg_match('/\d/', $blowfish_secret);
             $has_chars = (bool) preg_match('/\S/', $blowfish_secret);
             $has_nonword = (bool) preg_match('/\W/', $blowfish_secret);
             if (!$has_digits || !$has_chars || !$has_nonword) {
-                $blowfish_warnings[] = PMA_lang('BlowfishSecretCharsMsg');
+                $blowfish_warnings[] = PMA_sanitize(__('Key should contain letters, numbers [em]and[/em] special characters'));
             }
             if (!empty($blowfish_warnings)) {
                 messages_set('warning', 'blowfish_warnings' . count($blowfish_warnings),
@@ -413,7 +413,7 @@ function perform_config_checks()
             ? ''
             : ($functions ? ', ' : '') . 'bzcompress';
         messages_set('warning', 'BZipDump', 'BZipDump_name',
-            PMA_lang('BZipDumpWarning', $functions));
+            PMA_sanitize(sprintf(__('[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and decompression[/a] requires functions (%s) which are unavailable on this system.'), $functions)));
     }
 
     //

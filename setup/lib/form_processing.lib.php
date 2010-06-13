@@ -41,7 +41,7 @@ function process_formset(FormDisplay $form_display) {
             ?>
             <div class="warning">
                 <h4><?php echo __('Warning') ?></h4>
-                <?php echo PMA_lang('error_form') ?><br />
+                <?php echo __('Submitted form contains errors') ?><br />
                 <a href="?page=<?php echo $page . $formset . $id . $separator ?>mode=revert"><?php echo PMA_lang('RevertErroneousFields') ?></a>
             </div>
             <?php $form_display->displayErrors() ?>

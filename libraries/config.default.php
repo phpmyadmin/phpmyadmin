@@ -2149,7 +2149,7 @@ $cfg['DefaultDisplay'] = 'horizontal';
 /**
  * default display direction for altering/creating columns (tbl_properties)
  * (horizontal|vertical|<number>)
- * number indicates maximal number for which vertical model is used
+ * number indicates maximum number for which vertical model is used
  *
  * @global integer $cfg['DefaultPropDisplay']
  */

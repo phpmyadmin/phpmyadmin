@@ -1251,7 +1251,6 @@ table#serverconnection_trg_local  {
     padding:          0.1em 0.4em;
     white-space:      nowrap;
     text-decoration:  none;
-    background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     border:           1px solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
     border-bottom:    none;
 }
@@ -1264,7 +1263,7 @@ table#serverconnection_trg_local  {
 }
 
 .config-form ul.tabs li a.active {
-    background-color: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 .config-form fieldset {
@@ -1374,4 +1373,13 @@ table#serverconnection_trg_local  {
 .config-form textarea:focus {
     border:     1px #6676FF solid;
     background: #F7FBFF;
+}
+
+/* error list */
+dd {
+    margin-left: 0.5em;
+}
+
+dd:before {
+    content: "\25B8  ";
 }

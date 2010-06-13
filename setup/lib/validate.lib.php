@@ -131,14 +131,14 @@ function test_db_connection($extension, $connect_type, $host, $port, $socket, $u
     if ($extension == 'mysql') {
         $conn = @mysql_connect($host . $socket . $port, $user, $pass);
         if (!$conn) {
-            $error = PMA_lang('error_connection');
+            $error = __('Could not connect to MySQL server');
         } else {
             mysql_close($conn);
         }
     } else {
         $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
         if (!$conn) {
-            $error = PMA_lang('error_connection');
+            $error = __('Could not connect to MySQL server');
         } else {
             mysqli_close($conn);
         }
@@ -162,15 +162,15 @@ function validate_server($path, $values)
     $result = array('Server' => '', 'Servers/1/user' => '', 'Servers/1/SignonSession' => '', 'Servers/1/SignonURL' => '');
     $error = false;
     if ($values['Servers/1/auth_type'] == 'config' && empty($values['Servers/1/user'])) {
-        $result['Servers/1/user'] = PMA_lang('error_empty_user_for_config_auth');
+        $result['Servers/1/user'] = __('Empty username while using config authentication method');
         $error = true;
     }
     if ($values['Servers/1/auth_type'] == 'signon' && empty($values['Servers/1/SignonSession'])) {
-        $result['Servers/1/SignonSession'] = PMA_lang('error_empty_signon_session');
+        $result['Servers/1/SignonSession'] = __('Empty signon session name while using signon authentication method');
         $error = true;
     }
     if ($values['Servers/1/auth_type'] == 'signon' && empty($values['Servers/1/SignonURL'])) {
-        $result['Servers/1/SignonURL'] = PMA_lang('error_empty_signon_url');
+        $result['Servers/1/SignonURL'] = __('Empty signon URL while using signon authentication method');
         $error = true;
     }
 
@@ -203,15 +203,17 @@ function validate_pmadb($path, $values)
 
     $result = array();
     if ($values['Servers/1/controluser'] == '') {
-        $result['Servers/1/controluser'] = PMA_lang('error_empty_pmadb_user');
+        $result['Servers/1/controluser'] = __('Empty phpMyAdmin control user while using pmadb');
         $error = true;
     }
     if ($values['Servers/1/controlpass'] == '') {
-        $result['Servers/1/controlpass'] = PMA_lang('error_empty_pmadb_password');
+        $result['Servers/1/controlpass'] = __('Empty phpMyAdmin control user password while using pmadb');
         $error = true;
     }
     if (!$error) {
-        $test = test_db_connection($values['Servers/1/extension'], $values['Servers/1/connect_type'], $values['Servers/1/host'], $values['Servers/1/port'], $values['Servers/1/socket'], $values['Servers/1/controluser'], $values['Servers/1/controlpass'], 'Server_pmadb');
+        $test = test_db_connection($values['Servers/1/extension'], $values['Servers/1/connect_type'],
+            $values['Servers/1/host'], $values['Servers/1/port'], $values['Servers/1/socket'],
+            $values['Servers/1/controluser'], $values['Servers/1/controlpass'], 'Server_pmadb');
         if ($test !== true) {
             $result = array_merge($result, $test);
         }
@@ -283,14 +285,14 @@ function validate_trusted_proxies($path, $values)
         $matches = array();
         // we catch anything that may (or may not) be an IP
         if (!preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
-            $result[$path][] = PMA_lang('error_incorrect_value') . ': ' . $line;
+            $result[$path][] = __('Incorrect value') . ': ' . $line;
             continue;
         }
         // now let's check whether we really have an IP address
         if (filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false
             && filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
             $ip = htmlspecialchars(trim($matches[1]));
-            $result[$path][] = PMA_lang('error_incorrect_ip_address', $ip);
+            $result[$path][] = sprintf(__('Incorrect IP address: %s'), $ip);
             continue;
         }
     }
@@ -307,17 +309,17 @@ function validate_trusted_proxies($path, $values)
  * @param bool   $allow_neg       allow negative values
  * @param bool   $allow_zero      allow zero
  * @param int    $max_value       max allowed value
- * @param string $error_lang_key  error message key: $GLOBALS["strSetup$error_lang_key"]
+ * @param string $error_string    error message key: $GLOBALS["strSetup$error_lang_key"]
  * @return string  empty string if test is successful
  */
-function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error_lang_key)
+function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error_string)
 {
     if ($values[$path] === '') {
         return '';
     }
 
     if (intval($values[$path]) != $values[$path] || (!$allow_neg && $values[$path] < 0) || (!$allow_zero && $values[$path] == 0) || $values[$path] > $max_value) {
-        return PMA_lang($error_lang_key);
+        return $error_string;
     }
 
     return '';
@@ -332,7 +334,7 @@ function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error
  */
 function validate_port_number($path, $values)
 {
-    return array($path => test_number($path, $values, false, false, 65536, 'error_incorrect_port'));
+    return array($path => test_number($path, $values, false, false, 65536, __('Not a valid port number')));
 }
 
 /**
@@ -344,7 +346,7 @@ function validate_port_number($path, $values)
  */
 function validate_positive_number($path, $values)
 {
-    return array($path => test_number($path, $values, false, false, PHP_INT_MAX, 'error_nan_p'));
+    return array($path => test_number($path, $values, false, false, PHP_INT_MAX, __('Not a positive number')));
 }
 
 /**
@@ -356,6 +358,19 @@ function validate_positive_number($path, $values)
  */
 function validate_non_negative_number($path, $values)
 {
-    return array($path => test_number($path, $values, false, true, PHP_INT_MAX, 'error_nan_nneg'));
+    return array($path => test_number($path, $values, false, true, PHP_INT_MAX, __('Not a non-negative number')));
+}
+
+/**
+ * Validates DefaultPropDisplay field
+ *
+ * @param  $path
+ * @param  $values
+ * @return array
+ */
+function validate_DefaultPropDisplay($path, $values)
+{
+    $result = preg_match('/^(?:horizontal|vertical|\d+)$/',  $values[$path]);
+    return array($path => ($result ? '' : __('Incorrect value')));
 }
 ?>

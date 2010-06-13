@@ -8,9 +8,6 @@
 
 $forms = array();
 $forms['Features']['General'] = array(
-    'DefaultLang',
-    'DefaultConnectionCollation',
-    'ThemeDefault',
     'NaturalOrder',
     'InitialSlidersState',
     'ErrorIconic',
@@ -28,26 +25,21 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'IgnoreMultiSubmitErrors',
     'VerboseMultiSubmit',
     'MaxCharactersInDisplayedSQL',// [s-]
-    'SQLQuery/Edit',// [s-]
-    'SQLQuery/Explain',// [s-]
-    'SQLQuery/ShowAsPHP',// [s-]
-    'SQLQuery/Validate',// [false or no override]
-    'SQLQuery/Refresh',// [s-]
     'EditInWindow',// [s-]
     'QueryWindowWidth',// [s-]
     'QueryWindowHeight',// [s-]
     'QueryWindowDefTab');// [s-]
 $forms['Sql_queries']['Sql_box'] = array(
-    'Edit',
-    'Explain',
-    'ShowAsPHP',
-    'Validate',// (false or no override)
-    'Refresh');
+    'SQLQuery/Edit',// [s-]
+    'SQLQuery/Explain',// [s-]
+    'SQLQuery/ShowAsPHP',// [s-]
+    'SQLQuery/Validate',// [false or no override]
+    'SQLQuery/Refresh');// [s-]
 $forms['Features']['Page_titles'] = array(
+    'TitleDefault',// [s-]
     'TitleTable',// [s-]
     'TitleDatabase',// [s-]
-    'TitleServer',// [s-]
-    'TitleDefault');// [s-]
+    'TitleServer');// [s-]
 $forms['Left_frame']['Left_frame'] = array(
     'LeftFrameLight',
     'LeftDisplayLogo',

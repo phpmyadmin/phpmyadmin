@@ -64,6 +64,7 @@ $cfg_db['QueryWindowDefTab'] = array(
 	'files',   // Import files
 	'history', // SQL history
 	'full');   // All (SQL and SQL history)
+$cfg_db['InitialSlidersState'] = array('open', 'closed');
 $cfg_db['Import']['format'] = array(
     'csv',    // CSV
     'docsql', // DocSQL
@@ -110,5 +111,6 @@ $cfg_db['_validators'] = array(
     'CharTextareaRows' => 'validate_positive_number',
     'InsertRows' => 'validate_positive_number',
     'ForeignKeyMaxLimit' => 'validate_positive_number',
+    'DefaultPropDisplay' => 'validate_DefaultPropDisplay',
     'Import/skip_queries' => 'validate_non_negative_number');
 ?>

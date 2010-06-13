@@ -58,14 +58,23 @@ class FormDisplay
      * Will be looked up in $GLOBALS: str{value} or strSetup{value}
      * @var array
      */
-    private $js_lang_strings = array('error_nan_p', 'error_nan_nneg',
-        'error_incorrect_port');
+    private $js_lang_strings = array();
 
     /**
      * Tells whether forms have been validated
      * @var bool
      */
     private $is_valdiated = true;
+
+    public function __construct()
+    {
+        $this->js_lang_strings = array(
+            'error_nan_p' => __('Not a positive number'),
+            'error_nan_nneg' => __('Not a non-negative number'),
+            'error_incorrect_port' => __('Not a valid port number'),
+            'error_invalid_value' => __('Incorrect value')
+        );
+    }
 
     /**
      * Registers form in form manager
@@ -222,11 +231,8 @@ class FormDisplay
         if (!$js_lang_sent) {
             $js_lang_sent = true;
             $js_lang = array();
-            foreach ($this->js_lang_strings as $str) {
-                $lang = isset($GLOBALS["strSetup$str"])
-                    ? $GLOBALS["strSetup$str"]
-                    : filter_var($GLOBALS["str$str"]); // null if not set
-                $js_lang[] = "'$str': '" . PMA_jsFormat($lang, false) . '\'';
+            foreach ($this->js_lang_strings as $strName => $strValue) {
+                $js_lang[] = "'$strName': '" . PMA_jsFormat($strValue, false) . '\'';
             }
             $js[] = '$.extend(PMA_messages, {' . implode(",\n\t", $js_lang) . '})';
         }
@@ -434,8 +440,8 @@ class FormDisplay
                     if ($form->getOptionType($field) == 'boolean') {
                         $_POST[$key] = false;
                     } else {
-                        $this->errors[$form->name][] = PMA_lang(
-                            'error_missing_field_data',
+                        $this->errors[$form->name][] = sprintf(
+                            __('Missing data for %s'),
                             '<i>' . PMA_lang_name($system_path) . '</i>');
                         $result = false;
                         continue;
