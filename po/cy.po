@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-08 12:32-0400\n"
+"POT-Creation-Date: 2010-06-13 09:03-0400\n"
 "PO-Revision-Date: 2010-06-07 20:23+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
@@ -346,7 +346,7 @@ msgid "Table"
 msgstr "Tabl"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
-#: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
+#: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
@@ -386,7 +386,7 @@ msgid_plural "%s tables"
 msgstr[0] "%s tabl"
 msgstr[1] "%s tabl"
 
-#: db_qbe.php:29 libraries/Message.class.php:191
+#: db_qbe.php:29 import.php:454 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/sql_query_form.lib.php:140
 #: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
 #: view_operations.php:62
@@ -563,7 +563,7 @@ msgstr "Mewnosod"
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
-#: libraries/export/texytext.php:23 libraries/import.lib.php:1104
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1106
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
 #: server_privileges.php:593 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
@@ -893,7 +893,7 @@ msgstr "Pwyso i ddewis"
 msgid "Click to unselect"
 msgstr "Pwyso i dad-ddewis"
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:89
+#: js/messages.php:27 libraries/import.lib.php:104 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Mae datganiadau \"DROP DATABASE\" wedi'u hanalluogi."
 
@@ -1314,7 +1314,7 @@ msgstr "Sylw"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
-#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
@@ -1326,13 +1326,11 @@ msgstr "Cafodd yr allwedd gynradd ei gollwng"
 
 #: libraries/Index.class.php:476
 #, php-format
-#, possible-php-format
 msgid "Index %s has been dropped"
 msgstr "Cafodd indecs %s ei ollwng"
 
 #: libraries/Index.class.php:576
 #, php-format
-#, possible-php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
@@ -1347,7 +1345,7 @@ msgid "Databases"
 msgstr "Cronfeydd Data"
 
 #: libraries/Message.class.php:211 libraries/common.lib.php:581
-#: libraries/core.lib.php:261 libraries/import.lib.php:134 pdf_schema.php:32
+#: libraries/core.lib.php:261 libraries/import.lib.php:135 pdf_schema.php:32
 #: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
 #: tbl_relation.php:290 view_operations.php:62
 msgid "Error"
@@ -1355,7 +1353,6 @@ msgstr "Gwall"
 
 #: libraries/Message.class.php:282
 #, php-format
-#, possible-php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d rhes wedi'i heffeithio."
@@ -1363,7 +1360,6 @@ msgstr[1] "%1$d rhes wedi'u heffeithio."
 
 #: libraries/Message.class.php:301
 #, php-format
-#, possible-php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d rhes wedi'i dileu."
@@ -1371,7 +1367,6 @@ msgstr[1] "%1$d rhes wedi'u dileu."
 
 #: libraries/Message.class.php:320
 #, php-format
-#, possible-php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d rhes wedi'i hychwanegu."
@@ -1385,19 +1380,16 @@ msgstr ""
 
 #: libraries/StorageEngine.class.php:359
 #, php-format
-#, possible-php-format
 msgid "%s is available on this MySQL server."
 msgstr "Mae %s ar gael ar y gweinydd MySQL hwn."
 
 #: libraries/StorageEngine.class.php:362
 #, php-format
-#, possible-php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "Cafodd %s ei analluogi ar y gweinydd MySQL hwn."
 
 #: libraries/StorageEngine.class.php:366
 #, php-format
-#, possible-php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Dyw'r gweinydd MySQL hwn ddim yn cynnal y peiriant storio %s."
 
@@ -1411,19 +1403,16 @@ msgstr "Enw tabl annilys"
 
 #: libraries/Table.class.php:1048
 #, php-format
-#, possible-php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Gwall wrth ailenwi tabl %1$s i %2$s"
 
 #: libraries/Table.class.php:1132
 #, php-format
-#, possible-php-format
 msgid "Table %s has been renamed to %s"
 msgstr "Cafodd y tabl %s ei ailenwi i %s"
 
 #: libraries/Theme.class.php:162
 #, php-format
-#, possible-php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Dim llwybr delwedd dilys ar gael ar gyfer thema %s."
 
@@ -1437,19 +1426,16 @@ msgstr "cymerwch e"
 
 #: libraries/Theme_Manager.class.php:115
 #, php-format
-#, possible-php-format
 msgid "Default theme %s not found!"
 msgstr "Thema diofyn %s heb ei darganfod!"
 
 #: libraries/Theme_Manager.class.php:153
 #, php-format
-#, possible-php-format
 msgid "Theme %s not found!"
 msgstr "Heb ddarganfod thema ddiofyn %s!"
 
 #: libraries/Theme_Manager.class.php:221
 #, php-format
-#, possible-php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Heb ddarganfod llwybr thema ar gyfer thema %s!"
 
@@ -1466,19 +1452,17 @@ msgstr "Methu â chysylltu: gosodiadau annilys"
 #: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
 #: test/theme.php:152
 #, php-format
-#, possible-php-format
 msgid "Welcome to %s"
 msgstr "Croeso i %s"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
-#, possible-php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
 msgstr ""
-"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r %"
-"1$sgript gosod%2$s  er mwyn ei chreu."
+"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r %1"
+"$sgript gosod%2$s  er mwyn ei chreu."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -1488,8 +1472,8 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "Ceisiodd phpMyAdmin gysylltu â'r gweinydd MySQL, ond gwrthododd y gweinydd y "
-"cysylltiad. Dylech wirio'r gwesteiwr, enw'r defnyddiwr a'r cyfrinair yn "
-"eich ffurfwedd a scirhau eu bod nhw'n cyfateb i'r wybodaeth a roddwyd gan "
+"cysylltiad. Dylech wirio'r gwesteiwr, enw'r defnyddiwr a'r cyfrinair yn eich "
+"ffurfwedd a scirhau eu bod nhw'n cyfateb i'r wybodaeth a roddwyd gan "
 "weinyddwr y gweinydd MySQL."
 
 #: libraries/auth/cookie.auth.lib.php:244
@@ -1541,7 +1525,6 @@ msgstr ""
 #: libraries/auth/cookie.auth.lib.php:675
 #: libraries/auth/signon.auth.lib.php:185
 #, php-format
-#, possible-php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Dim gweithredoedd o fewn %s eiliad; mewngofnodwch eto."
 
@@ -1557,7 +1540,6 @@ msgstr "Enw defnyddiwr/cyfrinair anghywir. Mynediad wedi'i wrthod."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
-#, possible-php-format
 msgid "File %s does not contain any key id"
 msgstr "Nid yw ffeil %s yn cynnwys unrhyw id allwedd"
 
@@ -1628,15 +1610,14 @@ msgstr ""
 
 #: libraries/common.inc.php:629
 #, php-format
-#, possible-php-format
 msgid "Invalid server index: %s"
 msgstr "Indecs gweinydd annilys: %s"
 
 #: libraries/common.inc.php:636
 #, php-format
-#, possible-php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr "Enw gwesteiwr annilys ar gyfer gweinydd %1$s. Adolygwch eich ffurfwedd."
+msgstr ""
+"Enw gwesteiwr annilys ar gyfer gweinydd %1$s. Adolygwch eich ffurfwedd."
 
 #: libraries/common.inc.php:645 libraries/header.inc.php:96
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
@@ -1650,7 +1631,6 @@ msgstr ""
 
 #: libraries/common.inc.php:926
 #, php-format
-#, possible-php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Dylech uwchraddio i %s %s neu'n well."
 
@@ -1707,8 +1687,6 @@ msgstr "Creu Cod PHP"
 
 #: libraries/common.lib.php:1235 server_status.php:452
 #: setup/lib/messages.inc.php:354
-#: libraries/common.lib.php:1233
-#: server_status.php:341
 msgid "Refresh"
 msgstr "Adfywio"
 
@@ -1804,9 +1782,7 @@ msgid "End"
 msgstr "Diwedd"
 
 #: libraries/common.lib.php:2430
-#: libraries/common.lib.php:2421
 #, php-format
-#, possible-php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Neidio  i gronfa ddata &quot;%s&quot;."
 
@@ -1848,7 +1824,6 @@ msgstr "Enw"
 
 #: libraries/db_links.inc.php:45
 #, php-format
-#, possible-php-format
 msgid "Database %s has been dropped."
 msgstr "Cafodd cronfa ddata %s ei gollwng."
 
@@ -2055,7 +2030,6 @@ msgstr "Cywasgiad"
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1875 server_processlist.php:75
-#: server_privileges.php:1836
 msgid "None"
 msgstr "Dim"
 
@@ -2192,7 +2166,6 @@ msgstr "iaith"
 
 #: libraries/display_tbl.lib.php:304
 #, php-format
-#, possible-php-format
 msgid "%d is not valid row number."
 msgstr "Dydy %d ddim yn rhif rhes dilys."
 
@@ -2214,7 +2187,6 @@ msgstr "fertigol"
 
 #: libraries/display_tbl.lib.php:324
 #, php-format
-#, possible-php-format
 msgid "in %s mode and repeat headers after %s cells"
 msgstr "mewn modd %s ac ailadrodd penawdau ar ôl %s cell "
 
@@ -2234,8 +2206,8 @@ msgstr "Trefnu gan allwedd"
 #: libraries/export/php_array.php:25 libraries/export/sql.php:34
 #: libraries/export/texytext.php:37 libraries/export/xls.php:27
 #: libraries/export/xlsx.php:27 libraries/export/xml.php:24
-#: libraries/export/yaml.php:28 libraries/import.lib.php:1082
-#: libraries/import.lib.php:1104 libraries/import/csv.php:32
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1084
+#: libraries/import.lib.php:1106 libraries/import/csv.php:32
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
@@ -2309,7 +2281,6 @@ msgstr "cyfanswm"
 
 #: libraries/display_tbl.lib.php:1970 sql.php:524
 #, php-format
-#, possible-php-format
 msgid "Query took %01.4f sec"
 msgstr "Cymerodd yr ymholiad %01.4f eiliad"
 
@@ -2372,7 +2343,6 @@ msgid "Buffer Pool"
 msgstr "Pwll Byffer"
 
 #: libraries/engines/innodb.lib.php:145 server_status.php:417
-#: server_status.php:306
 msgid "InnoDB Status"
 msgstr "Statws InnoDB"
 
@@ -2383,9 +2353,6 @@ msgstr "Defnydd Pwll Byffer"
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:525 server_status.php:586
 #: server_status.php:607 tbl_printview.php:351 tbl_structure.php:696
-#: server_status.php:414
-#: server_status.php:475
-#: server_status.php:496
 msgid "Total"
 msgstr "Cyfanswm"
 
@@ -2951,46 +2918,46 @@ msgstr ""
 msgid "Generated by"
 msgstr ""
 
-#: libraries/import.lib.php:150 sql.php:520 tbl_change.php:181
+#: libraries/import.lib.php:152 sql.php:520 tbl_change.php:181
 #: tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: libraries/import.lib.php:1078
+#: libraries/import.lib.php:1080
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1079
+#: libraries/import.lib.php:1081
 msgid "View a structure`s contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1080
+#: libraries/import.lib.php:1082
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1081
+#: libraries/import.lib.php:1083
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1084
+#: libraries/import.lib.php:1086
 msgid "Go to database"
 msgstr ""
 
-#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
 msgid "settings"
 msgstr ""
 
-#: libraries/import.lib.php:1106
+#: libraries/import.lib.php:1108
 msgid "Go to table"
 msgstr ""
 
-#: libraries/import.lib.php:1109
+#: libraries/import.lib.php:1111
 msgid "structure"
 msgstr ""
 
-#: libraries/import.lib.php:1115
+#: libraries/import.lib.php:1117
 msgid "Go to view"
 msgstr ""
 
@@ -5794,7 +5761,6 @@ msgstr "Gwerth anghywir"
 
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
 #, php-format
-#, possible-php-format
 msgid "Set value: %s"
 msgstr "Gosod gwerth: %s"
 
@@ -6047,7 +6013,6 @@ msgstr "Nid yn rhif porth ddilys"
 
 #: setup/lib/messages.inc.php:77
 #, php-format
-#, possible-php-format
 msgid "Missing data for %s"
 msgstr "Data ar goll ar gyfer %s"
 
@@ -7777,7 +7742,6 @@ msgstr "Fersiwn"
 
 #: tbl_tracking.php:640
 #, php-format
-#, possible-php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "Dadweithredwch dracio am  %s.%s"
 
@@ -7787,7 +7751,6 @@ msgstr "Dadweithredwch nawr"
 
 #: tbl_tracking.php:653
 #, php-format
-#, possible-php-format
 msgid "Activate tracking for %s.%s"
 msgstr "Gweithredwch dracio am  %s.%s"
 
@@ -7797,7 +7760,6 @@ msgstr "Gweithredwch nawr"
 
 #: tbl_tracking.php:668
 #, php-format
-#, possible-php-format
 msgid "Create version %s of %s.%s"
 msgstr "Crëwch fersiwn %s o %s.%s"
 
