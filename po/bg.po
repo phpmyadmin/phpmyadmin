@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-10 21:20+0200\n"
+"PO-Revision-Date: 2010-06-11 17:28+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -90,9 +90,9 @@ msgid "Use this value"
 msgstr "Използвахте тази стойност"
 
 #: db_create.php:46
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "Базата данни %s беше изтрита."
+msgstr "Базата данни %1$s беше създадена."
 
 #: db_datadict.php:49 db_operations.php:378
 msgid "Database comment: "
@@ -278,7 +278,7 @@ msgstr "Прехвърляна към копираната база от дан�
 
 #: db_operations.php:537
 msgid "BLOB Repository"
-msgstr ""
+msgstr "BLOB хранилище"
 
 #: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1352
 #: libraries/server_links.inc.php:49 server_processlist.php:59
