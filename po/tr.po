@@ -8540,7 +8540,7 @@ msgstr "Mevcut MIME türleri"
 msgid ""
 "MIME types printed in italics do not have a separate transformation function"
 msgstr ""
-"İtalik olarak yazılmış MIME türleri ayrı bir dönüşüm işlevine sahip değildir."
+"İtalik olarak yazılmış MIME türleri ayrı bir dönüşüm işlevine sahip değildir"
 
 #: transformation_overview.php:43
 msgid "Available transformations"
