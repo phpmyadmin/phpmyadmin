@@ -16,6 +16,12 @@ var sql_box_locked = false;
 var only_once_elements = new Array();
 
 /**
+ * @var ajax_notification_visible   boolean boolean that stores status of
+ *      notification for PMA_ajaxShowNotification
+ */
+var ajax_message_init = false;
+
+/**
  * selects the content of a given object, f.e. a textarea
  *
  * @param   object  element     element of which the content will be selected
@@ -1735,6 +1741,7 @@ function PMA_ajaxInsertResponse(divisions_map) {
  */
 
 function PMA_ajaxShowMessage(message, timeout) {
+    
     if(!message) {
         var msg = 'Loading...';
     }
@@ -1749,16 +1756,28 @@ function PMA_ajaxShowMessage(message, timeout) {
         var to = timeout;
     }
 
-    $(function(){
-        $('<span id="loading" class="ajax_notification"></span>')
-        .insertBefore("#serverinfo")
-        .text(msg)
+    if( !ajax_message_init) {
+        $(function(){
+            $('<span id="loading" class="ajax_notification"></span>')
+            .insertBefore("#serverinfo")
+            .html(msg)
+            .slideDown('medium')
+            .delay(to)
+            .slideUp('medium', function(){
+                $(this).html(""); //Clear the message
+            });
+        }, 'top.frame_content');
+        ajax_message_init = true;
+    }
+    else {
+        $("#loading")
+        .html(msg)
         .slideDown('medium')
         .delay(to)
-        .slideUp('medium', function(){
-            $(this).remove();
-        });
-    }, 'top.frame_content')
+        .slideUp('medium', function() {
+            $(this).html("");
+        })
+    }
 }
 
 /**
