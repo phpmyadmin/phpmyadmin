@@ -2036,7 +2036,7 @@ msgstr ""
 #, php-format
 #| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
-msgstr "%s satır dökümü, %s. satırdan başlıyor."
+msgstr "%s satır dökümü, %s. satırdan başlıyor"
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
