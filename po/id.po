@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 01:40+0200\n"
+"PO-Revision-Date: 2010-06-16 01:41+0200\n"
 "Last-Translator:  <jack.hakim@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -630,9 +630,8 @@ msgstr "Gambarkan"
 #: db_structure.php:485 libraries/db_structure.lib.php:49
 #: libraries/server_links.inc.php:70 server_replication.php:33
 #: server_replication.php:164 server_status.php:369
-#, fuzzy
 msgid "Replication"
-msgstr "Tabel Relasi"
+msgstr "Tiruan"
 
 #: db_structure.php:489
 msgid "Sum"
