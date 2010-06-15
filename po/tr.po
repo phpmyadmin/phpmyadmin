@@ -5934,7 +5934,7 @@ msgstr ""
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>master</b> olarak "
-"çalışır"
+"çalışır."
 
 #: server_status.php:475
 #| msgid "This server is configured as master in a replication process."
