@@ -36,7 +36,7 @@ $(document).ready(function() {
             if (extension == "gz" || extension == "bz2" || extension == "zip") {
                 len--;
             }
-            $("option:selected").removeAttr("selected");
+            $("#plugins option:selected").removeAttr("selected");
             switch (fname_array[len - 1]) {
                 case "csv" : $("select[name='format'] option[value='csv']").attr('selected', 'selected'); break;
                 case "docsql" : $("select[name='format'] option[value='docsql']").attr('selected', 'selected'); break;
