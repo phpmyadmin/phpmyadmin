@@ -4721,7 +4721,7 @@ msgstr ""
 #: server_privileges.php:552
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
-"Kullanıcılara Slave / Master'ların nerede olduğunu sormasına izin verir."
+"Kullanıcılara slave / master'ların nerede olduğunu sormasına izin verir."
 
 #: server_privileges.php:51 server_privileges.php:197
 #: server_privileges.php:553
