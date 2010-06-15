@@ -909,7 +909,7 @@ msgstr "\"DROP DATABASE\" ifadesi etkisizleştirildi."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:188
 msgid "Do you really want to "
-msgstr "Bunu uygulamak istiyor musunuz:"
+msgstr "Bunu uygulamak istiyor musunuz: "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:172
 msgid "You are about to DESTROY a complete database!"
