@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-15 12:18+0200\n"
+"PO-Revision-Date: 2010-06-15 12:19+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1618,7 +1618,7 @@ msgid ""
 msgstr ""
 "Karakter grubu dönüşümü için gerekli olan iconv veya recode uzantıları "
 "yüklenemedi. Ya PHP'yi bu uzantıları etkinleştirmek için yapılandırın ya da "
-"phpMyAdmin içinde karakter grubu dönüşümünü etkisizleştirin..."
+"phpMyAdmin içinde karakter grubu dönüşümünü etkisizleştirin."
 
 #: libraries/charset_conversion.lib.php:79
 #: libraries/charset_conversion.lib.php:90
