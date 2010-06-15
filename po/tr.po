@@ -4953,7 +4953,7 @@ msgstr "... eski olanı sakla."
 
 #: server_privileges.php:2009
 msgid " ... delete the old one from the user tables."
-msgstr "... eski olanı kullanıcı tablolarından sil."
+msgstr " ... eski olanı kullanıcı tablolarından sil."
 
 #: server_privileges.php:2010
 msgid ""
