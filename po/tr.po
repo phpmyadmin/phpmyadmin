@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-15 13:27+0200\n"
+"PO-Revision-Date: 2010-06-15 13:28+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5232,7 +5232,7 @@ msgstr ""
 
 #: server_status.php:43
 msgid "How many temporary files mysqld has created."
-msgstr "mysqld'nin kaç tane geçici dosya oluşturduğudur."
+msgstr "Mysqld'nin kaç tane geçici dosya oluşturduğudur."
 
 #: server_status.php:44
 msgid ""
