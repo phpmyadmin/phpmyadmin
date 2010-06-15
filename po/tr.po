@@ -3468,7 +3468,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "Sütun_Yorumları tablonuzun nasıl güncelleneceğini öğrenmek için lütfen "
-"belgelere bakın."
+"belgelere bakın"
 
 #: libraries/relation.lib.php:143 libraries/sql_query_form.lib.php:433
 msgid "Bookmarked SQL query"
