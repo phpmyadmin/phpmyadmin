@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-15 12:21+0200\n"
+"PO-Revision-Date: 2010-06-15 12:22+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2810,7 +2810,7 @@ msgstr "Tablo döküm verisi"
 #: libraries/export/htmlword.php:185 libraries/export/odt.php:238
 #: libraries/export/sql.php:785 libraries/export/texytext.php:177
 msgid "Table structure for table"
-msgstr "Tablo için tablo yapısı:"
+msgstr "Tablo için tablo yapısı"
 
 #: libraries/export/latex.php:22
 msgid "LaTeX"
