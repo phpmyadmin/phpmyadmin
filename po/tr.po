@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-15 12:23+0200\n"
+"PO-Revision-Date: 2010-06-15 12:24+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4715,7 +4715,7 @@ msgstr "Bu MySQL sürümünde etkisi yoktur."
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Sunucu ayarlarının yeniden yüklenmesine ve sunucunun önbelleğinin "
-"temizlenmesine izin verir"
+"temizlenmesine izin verir."
 
 #: server_privileges.php:50 server_privileges.php:198
 #: server_privileges.php:552
