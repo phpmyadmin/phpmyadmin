@@ -3,7 +3,7 @@
 /**
  * main css file from theme Paradice
  *
- * @version $Id$
+ * @version $Id: theme_right.css.php 31 2010-04-06 18:39:37Z andyscherzinger $
  * @package phpMyAdmin-theme
  * @subpackage Paradice
  */
@@ -16,7 +16,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 /******************************************************************************/
 /* general tags */
 html {
-    font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']);?>;
+    font-size: <?php echo (null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']);?>;
 }
 
 input, select, textarea {
@@ -1267,7 +1267,8 @@ li#li_select_lang {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_lang.png);
 }
 
-li#li_select_mysql_collation {
+li#li_select_mysql_collation,
+li#li_select_mysql_charset {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
     color:			  #1F457E;
 }
@@ -1529,4 +1530,28 @@ code.sql {
 	margin: 			0;
 	display:            block;
 	border:     		1px solid #FBFBFF;
+}
+
+/**
+  *  Progress bar styles
+  */
+div.upload_progress_bar_outer
+{
+    border: 1px solid black; 
+    width: 202px;
+}
+
+div.upload_progress_bar_inner
+{
+    background-color: <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>; 
+    width: 0px; 
+    height: 12px; 
+    margin: 1px;
+}
+
+table#serverconnection_src_remote, 
+table#serverconnection_trg_remote,
+table#serverconnection_src_local, 
+table#serverconnection_trg_local  {
+  float:left;
 }

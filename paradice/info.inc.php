@@ -3,7 +3,7 @@
 /**
  * Theme information
  *
- * @version $Id$
+ * @version $Id: info.inc.php 12 2008-05-28 20:51:41Z andyscherzinger $
  * @package phpMyAdmin-theme
  * @subpackage Paradice
  */

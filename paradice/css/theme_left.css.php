@@ -3,7 +3,7 @@
 /**
  * navigation css file from theme Paradice
  *
- * @version $Id$
+ * @version $Id: theme_left.css.php 31 2010-04-06 18:39:37Z andyscherzinger $
  * @package phpMyAdmin-theme
  * @subpackage Paradice
  */
@@ -12,11 +12,14 @@
 if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
+
+$ipath = $_SESSION['PMA_Theme']->getImgPath();
+
 ?>
 /******************************************************************************/
 /* general tags */
 html {
-    font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']); ?>;
+    font-size: <?php echo (null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']); ?>;
 }
 
 input, select, textarea {
@@ -28,11 +31,11 @@ body {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
 	font-size:			0.8em;
-    background:         <?php echo (isset($_SESSION['tmp_user_values']['custom_color']) ? $_SESSION['tmp_user_values']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
+    background:         <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin:             0;
     padding:            0.2em 0.2em 0.2em 0.2em;
-	background-image: 	url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>leftBgnd.png);
+	background-image: 	url(<?php echo $ipath; ?>leftBgnd.png);	                                   
 	background-position:left top;
 	background-repeat: 	repeat-y;
 }
@@ -67,7 +70,7 @@ select#lightm_db {
 	width:				100%;
     font-weight:        bold;
     text-align:			left;
-    background-image: 	url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_db.png);
+    background-image: 	url(<?php echo $ipath; ?>s_db.png);
 	background-position:left top;
 	background-repeat: 	no-repeat;
 	padding-left:		16px;
@@ -129,11 +132,11 @@ ul#databaseList {
     padding-left: 		1.5em;
     list-style-type:    none;
     list-style-position:outside;
-    list-style-image: 	url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/paradice/img/dbitem_ltr.png);
+    list-style-image: 	url(<?php echo $ipath; ?>dbitem_ltr.png);
 }
 
 ul#databaseList ul {
-    list-style-image: 	url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/paradice/img/dbitem_ltr2.png);
+    list-style-image: 	url(<?php echo $ipath; ?>dbitem_ltr2.png);
     padding-left:		18px;
 }
 
@@ -178,7 +181,7 @@ div#leftframelinks a:hover {
 
 /* serverlist */
 #body_leftFrame #list_server {
-    list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
+    list-style-image: url(<?php echo $ipath; ?>s_host.png);
     list-style-position: inside;
     list-style-type: none;
     margin: 0;
@@ -198,7 +201,7 @@ div#left_tableList {
 div#left_tableList ul  {
     list-style-type:    none;
     list-style-position: outside;
-    list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/paradice/img/bd_sbrowse.png);
+    list-style-image: url(<?php echo $ipath; ?>bd_sbrowse.png);
     margin:             0;
     padding:            0;
 }
@@ -227,7 +230,7 @@ div#left_tableList li {
 /* marked items */
 div#left_tableList > ul li.marked > a,
 div#left_tableList > ul li.marked {
-    background: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 <?php } ?>
@@ -246,9 +249,9 @@ div#left_tableList img {
 }
 
 div#left_tableList ul ul {
-    margin-left:        0;
-    padding-left:       0.1em;
-    border-left:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin-<?php echo $left; ?>:        0;
+    padding-<?php echo $left; ?>:       0.1em;
+    border-<?php echo $left; ?>:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     padding-bottom:     0.1em;
     border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
