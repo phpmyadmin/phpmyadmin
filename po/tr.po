@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-15 13:09+0200\n"
+"PO-Revision-Date: 2010-06-15 13:12+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4721,7 +4721,7 @@ msgstr ""
 #: server_privileges.php:552
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
-"Kullanıcılara Slave ve Master'ların nerede olduğunu sormasına izin verir."
+"Kullanıcılara Slave / Master'ların nerede olduğunu sormasına izin verir."
 
 #: server_privileges.php:51 server_privileges.php:197
 #: server_privileges.php:553
