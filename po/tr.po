@@ -1534,7 +1534,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:258
 msgid "Server:"
-msgstr "Sunucu"
+msgstr "Sunucu:"
 
 #: libraries/auth/cookie.auth.lib.php:263
 msgid "Username:"
