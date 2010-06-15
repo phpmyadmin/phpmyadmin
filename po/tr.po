@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-15 13:25+0200\n"
+"PO-Revision-Date: 2010-06-15 13:26+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3427,7 +3427,7 @@ msgstr "Giriş"
 #: libraries/navigation_header.inc.php:70
 #: libraries/navigation_header.inc.php:71 main.php:99
 msgid "Log out"
-msgstr "Oturumu Kapat"
+msgstr "Oturumu kapat"
 
 #: libraries/navigation_header.inc.php:80
 #: libraries/navigation_header.inc.php:83
