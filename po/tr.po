@@ -4958,7 +4958,7 @@ msgstr " ... eski olanı kullanıcı tablolarından sil."
 #: server_privileges.php:2010
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
-msgstr "... eski olandan bütün aktif yetkileri iptal et ve sonra da sil."
+msgstr " ... eski olandan bütün aktif yetkileri iptal et ve sonra da sil."
 
 #: server_privileges.php:2011
 msgid ""
