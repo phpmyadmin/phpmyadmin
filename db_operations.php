@@ -23,6 +23,11 @@ require_once './libraries/mysql_charsets.lib.php';
 // add blobstreaming library functions
 require_once "./libraries/blobstreaming.lib.php";
 
+// add a javascript file for jQuery functions to handle Ajax actions
+// also add jQueryUI
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'db_operations.js';
+
 /**
  * Rename/move or copy database
  */
@@ -391,7 +396,7 @@ if (!$is_information_schema) {
      * rename database
      */
     ?>
-    <form method="post" action="db_operations.php"
+    <form id="rename_db_form" method="post" action="db_operations.php"
         onsubmit="return emptyFormElements(this, 'newname')">
         <?php
     if (isset($db_collation)) {
@@ -426,7 +431,7 @@ if (!$is_information_schema) {
     echo ')'; ?>
     </fieldset>
     <fieldset class="tblFooters">
-        <input type="submit" value="<?php echo __('Go'); ?>" onclick="return confirmLink(this, 'CREATE DATABASE ... <?php echo __('and then'); ?> DROP DATABASE <?php echo PMA_jsFormat($db); ?>')" />
+        <input id="rename_db_input" type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
     </form>
 
