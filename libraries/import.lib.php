@@ -84,6 +84,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
 {
     global $import_run_buffer, $go_sql, $complete_query, $display_query,
         $sql_query, $my_die, $error, $reload,
+        $last_query_with_results,
         $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
         $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
     $read_multiply = 1;
@@ -143,6 +144,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             $a_aff_rows = (int)@PMA_DBI_affected_rows();
                             if ($a_num_rows > 0) {
                                 $msg .= __('Rows'). ': ' . $a_num_rows;
+                                $last_query_with_results = $import_run_buffer['sql'];
                             } elseif ($a_aff_rows > 0) {
                                 $message = PMA_Message::affected_rows($a_aff_rows);
                                 $msg .= $message->getMessage();
