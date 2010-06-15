@@ -2526,7 +2526,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:32
 msgid "Maximum size for temporary sort files"
-msgstr "Geçici sıralama dosyaları için en fazla boyut."
+msgstr "Geçici sıralama dosyaları için en fazla boyut"
 
 #: libraries/engines/myisam.lib.php:33
 msgid ""
