@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-15 13:05+0200\n"
+"PO-Revision-Date: 2010-06-15 13:06+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7339,7 +7339,8 @@ msgstr "Bağlantıyı sıkıştır"
 #: setup/lib/messages.inc.php:260
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
-"Sunucuya nasıl bağlanılacağıdır, eğer emin değilseniz tcp olarak bırakın"
+"Sunucuya nasıl bağlanılacağıdır, eğer emin değilseniz [kbd]tcp[/kbd] olarak "
+"bırakın"
 
 #: setup/lib/messages.inc.php:261
 msgid "Connection type"
