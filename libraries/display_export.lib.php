@@ -67,7 +67,21 @@ if (! empty($sql_query)) {
 }
 ?>
 
-<div class="exportoptions" id="databases_and_tables">
+<div class="exportoptions" id="quick_or_custom">
+	<h3><?php echo __('Export Method:'); ?></h3>
+	<ul>
+        <li>
+            <?php echo '<input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export" checked="checked" />';
+                echo '<label for ="radio_quick_export">' . __('Quick - display only the minimal options to configure') . '</label>'; ?>
+        </li>
+        <li>
+            <?php echo '<input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export" />';
+            echo '<label for="radio_custom_export">' . __('Custom - display all possible options to configure') . '</label>';?>
+        </li>
+    </ul>
+</div>
+
+<div class="exportoptions" id="databases_and_tables" style="display: none";>
     <?php
         if($export_type == 'server') {
             echo '<h3>' . __('Database(s):') . '</h3>';
@@ -81,7 +95,7 @@ if (! empty($sql_query)) {
 </div>
 
 <?php if (strlen($table) && ! isset($num_tables) && ! PMA_Table::isMerge($db, $table)) { ?>
-    <div class="exportoptions" id="rows">
+    <div class="exportoptions" id="rows" style="display: none;">
         <h3><?php echo __('Rows:'); ?></h3>
         <ul>
             <li>
@@ -103,7 +117,30 @@ if (! empty($sql_query)) {
      </div>
 <?php } ?>
 
-<div class="exportoptions" id="output">
+
+<?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
+	<div class="exportoptions" id="output_quick_export">
+		<h3><?php echo __('Output:'); ?></h3>
+		<ul>
+	        <li>
+	            <input type="checkbox" name="quick_export_onserver" value="saveit"
+	                id="checkbox_quick_dump_onserver"
+	                <?php PMA_exportCheckboxCheck('onserver'); ?> />
+	            <label for="checkbox_quick_dump_onserver">
+	                <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
+	            </label>
+	        </li>
+	        <li>
+	            <input type="checkbox" name="quick_export_onserverover" value="saveitover"
+	            id="checkbox_quick_dump_onserverover"
+	            <?php PMA_exportCheckboxCheck('onserver_overwrite'); ?> />
+	            <label for="checkbox_quick_dump_onserverover"><?php echo __('Overwrite existing file(s)'); ?></label>
+	        </li>
+		</ul>
+	</div>
+<?php } ?>
+
+<div class="exportoptions" id="output" style="display: none;">
     <h3><?php echo __('Output:'); ?></h3>
     <ul id="output">
         <li>
@@ -116,7 +153,7 @@ if (! empty($sql_query)) {
                         id="checkbox_dump_onserver"
                         <?php PMA_exportCheckboxCheck('onserver'); ?> />
                     <label for="checkbox_dump_onserver">
-                        <?php echo sprintf(__('Save on server in %s directory'), htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
+                        <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
                     </label>
                 </li>
                 <li>
@@ -231,11 +268,11 @@ if (! empty($sql_query)) {
  </div>
 
 <div class="exportoptions" id="format">
-    <h3>Format:</h3>
+    <h3><?php echo __('Format:'); ?></h3>
     <?php echo PMA_pluginGetChoice('Export', 'what', $export_list, 'format'); ?>
 </div>
 
-<div class="exportoptions" id="format_specific_opts">
+<div class="exportoptions" id="format_specific_opts" style="display: none;">
     <h3><?php echo __('Format-Specific Options:'); ?></h3>
     <?php echo PMA_pluginGetOptions('Export', $export_list); ?>
 </div>
@@ -243,7 +280,6 @@ if (! empty($sql_query)) {
 <?php if (function_exists('PMA_set_enc_form')) { ?>
 <!-- Encoding setting form appended by Y.Kawada -->
 <!-- Japanese encoding setting -->
-<?php echo PMA_set_enc_form('            '); ?>
 <?php } ?>
 
 <div class="exportoptions" id="submit">
