@@ -8053,7 +8053,7 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Değerden değere geçmek için TAB tuşunu veya herhangi bir yere gitmek için "
-"CTRL+OK TUŞLARI'nı kullanın."
+"CTRL+OK TUŞLARI'nı kullanın"
 
 #: tbl_change.php:1209
 #, php-format
