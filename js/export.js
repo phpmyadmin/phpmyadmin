@@ -148,3 +148,27 @@ $(document).ready(function() {
         }
     });
 });
+
+/**
+ * Toggles display of options when quick and custom export are selected
+ */
+$(document).ready(function() {
+    $("input[type='radio'][name='quick_or_custom']").change(function() {
+        export_type = $("input[type='radio'][name='quick_or_custom']:checked").attr("value");
+        if(export_type == "custom") {
+            $("#databases_and_tables").show();
+            $("#rows").show();
+            $("#output").show();
+            $("#format_specific_opts").show();
+            $("#output_quick_export").hide();
+            var selected_plugin_name = $("#plugins option:selected").attr("value");
+            $("#" + selected_plugin_name + "_options").show();
+        } else {
+            $("#databases_and_tables").hide();
+            $("#rows").hide();
+            $("#output").hide();
+            $("#format_specific_opts").hide();
+            $("#output_quick_export").show();
+        }
+    });
+});
