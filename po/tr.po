@@ -2271,7 +2271,7 @@ msgstr "dikey"
 #: libraries/display_tbl.lib.php:324
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
-msgstr "%s kipinde ve %s hücre sonra başlığı tekrarla."
+msgstr "%s kipinde ve %s hücre sonra başlığı tekrarla"
 
 #: libraries/display_tbl.lib.php:346
 msgid "This operation could take a long time. Proceed anyway?"
