@@ -1550,7 +1550,7 @@ msgstr "Sunucu Seçimi"
 
 #: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
-msgstr "Bu kısmı geçmek için tanımlama bilgileri (Cookies) açık olmalı."
+msgstr "Bu kısmı geçmek için tanımlama bilgileri (cookies) açık olmalı."
 
 #: libraries/auth/cookie.auth.lib.php:671
 #: libraries/auth/signon.auth.lib.php:181
