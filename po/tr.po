@@ -5941,7 +5941,7 @@ msgstr ""
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>slave</b> olarak "
-"çalışır"
+"çalışır."
 
 #: server_status.php:477
 #| msgid ""
