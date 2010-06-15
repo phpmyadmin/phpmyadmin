@@ -7555,8 +7555,8 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
-"Örnek için [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]Kimlik "
-"denetimi türlerine[/a] bakın"
+"Örnek için [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]kimlik "
+"doğrulama türlerine[/a] bakın"
 
 #: setup/lib/messages.inc.php:301
 msgid "Signon session name"
