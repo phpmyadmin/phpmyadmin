@@ -11,21 +11,21 @@ class PMA_Chart
      * Colors for the different slices in the pie chart.
      */
     protected $colors = array(
-        '#485E70',
-        '#484A70',
-        '#594870',
-        '#6D4870',
-        '#70485E',
         '#70484A',
         '#705948',
-        '#706D48',
-        '#5E7048',
-        '#4A7048',
+        '#6D4870',
+        '#70485E',
+        '#485E70',
+        '#484A70',
         '#487059',
         '#48706D',
-        '#5F7E95',
+        '#594870',
+        '#5E7048',
         '#839CAF',
         '#95775F',
+        '#5F7E95',
+        '#706D48',
+        '#4A7048',
         '#AF9683',
     );
 
@@ -44,14 +44,29 @@ class PMA_Chart
      */
     protected $height = 250;
 
-    /*
-     * Colors in the colors array have been written down in an gradient
-     * order. Without shuffling pie chart has an angular gradient.
-     * Colors could also be shuffles in the array initializer.
-     */
     function __construct()
     {
-        shuffle(&$this->colors);
+
+    }
+
+    /*
+     * A function which handles passed parameters. Useful if desired
+     * chart needs to be a little bit different from the default one.
+     *
+     * Option handling could be made more efficient if options would be
+     * stored in an array.
+     */
+    function handleOptions($options)
+    {
+        if (is_null($options))
+            return;
+
+        if (isset($options['bgColor']))
+            $this->bgColor = $options['bgColor'];
+        if (isset($options['width']))
+            $this->width = $options['width'];
+        if (isset($options['height']))
+            $this->height = $options['height'];
     }
 }
 

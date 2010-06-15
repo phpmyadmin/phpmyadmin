@@ -7,9 +7,11 @@ require_once('pma_ofc_chart.php');
  */
 class PMA_OFC_Pie extends PMA_OFC_Chart
 {
-    function __construct($titleText, $data)
+    function __construct($titleText, $data, $options = null)
     {
         parent::__construct();
+
+        $this->handleOptions($options);
 
         include './libraries/chart/ofc/open-flash-chart.php';
 

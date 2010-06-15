@@ -607,7 +607,7 @@ else {
     }
 
     if (isset($profiling_results)) {
-        PMA_profilingResults($profiling_results);
+        PMA_profilingResults($profiling_results, true);
     }
 
     // Displays the results in a table
