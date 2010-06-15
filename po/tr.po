@@ -8100,7 +8100,7 @@ msgstr "İndeks ismi:"
 
 #: tbl_indexes.php:174
 msgid "Index type:"
-msgstr "İndeks türü :"
+msgstr "İndeks türü:"
 
 #: tbl_indexes.php:184
 msgid ""
