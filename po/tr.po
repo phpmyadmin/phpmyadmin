@@ -7571,7 +7571,7 @@ msgid ""
 "automatically."
 msgstr ""
 "İzleme mekanizması tablolar ve görünümler için otomatik olarak sürümler "
-"oluşturur"
+"oluşturur."
 
 #: setup/lib/messages.inc.php:304
 #| msgid "Automatic recovery mode"
