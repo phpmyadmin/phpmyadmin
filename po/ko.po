@@ -268,7 +268,7 @@ msgstr "%s 추가"
 #: db_operations.php:479 libraries/export/sql.php:78 tbl_operations.php:299
 #: tbl_operations.php:538
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "AUTO_INCREMENT 값 추가"
 
 #: db_operations.php:483 tbl_operations.php:545
 msgid "Add constraints"
