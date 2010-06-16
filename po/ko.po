@@ -327,7 +327,7 @@ msgstr "데이터정렬방식"
 msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
-msgstr "링크 테이블을 처리하는 부가 기능이 비활성화되어 있습니다. 원인을 확인하려면 %s여기를 클릭%s하십시오."
+msgstr "링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 %s여기를 클릭%s하십시오."
 
 #: db_operations.php:648
 msgid "Edit PDF Pages"
