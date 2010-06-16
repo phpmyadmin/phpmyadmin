@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 18:08+0200\n"
+"PO-Revision-Date: 2010-06-16 18:09+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -223,9 +223,8 @@ msgid "Database %s has been copied to %s"
 msgstr "데이터베이스 %s 를  %s 로 복사하였습니다."
 
 #: db_operations.php:412
-#, fuzzy
 msgid "Rename database to"
-msgstr "테이블 이름 바꾸기"
+msgstr "데이터베이스 이름 변경"
 
 #: db_operations.php:417 server_processlist.php:57
 #, fuzzy
