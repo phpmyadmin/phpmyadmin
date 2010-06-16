@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 17:52+0200\n"
+"PO-Revision-Date: 2010-06-16 17:53+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1522,9 +1522,8 @@ msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:258
-#, fuzzy
 msgid "Server:"
-msgstr "서버"
+msgstr "서버:"
 
 #: libraries/auth/cookie.auth.lib.php:263
 msgid "Username:"
