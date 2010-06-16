@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-08 12:32-0400\n"
+"POT-Creation-Date: 2010-06-13 09:03-0400\n"
 "PO-Revision-Date: 2010-06-07 20:23+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
@@ -346,7 +346,7 @@ msgid "Table"
 msgstr "Tabl"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
-#: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
+#: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
@@ -386,7 +386,7 @@ msgid_plural "%s tables"
 msgstr[0] "%s tabl"
 msgstr[1] "%s tabl"
 
-#: db_qbe.php:29 libraries/Message.class.php:191
+#: db_qbe.php:29 import.php:454 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/sql_query_form.lib.php:140
 #: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
 #: view_operations.php:62
@@ -563,7 +563,7 @@ msgstr "Mewnosod"
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
-#: libraries/export/texytext.php:23 libraries/import.lib.php:1104
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1106
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
 #: server_privileges.php:593 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
@@ -893,7 +893,7 @@ msgstr "Pwyso i ddewis"
 msgid "Click to unselect"
 msgstr "Pwyso i dad-ddewis"
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:89
+#: js/messages.php:27 libraries/import.lib.php:104 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Mae datganiadau \"DROP DATABASE\" wedi'u hanalluogi."
 
@@ -1314,7 +1314,7 @@ msgstr "Sylw"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
-#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
@@ -1322,12 +1322,12 @@ msgstr "Golygu"
 
 #: libraries/Index.class.php:472
 msgid "The primary key has been dropped"
-msgstr ""
+msgstr "Cafodd yr allwedd gynradd ei gollwng"
 
 #: libraries/Index.class.php:476
 #, php-format
 msgid "Index %s has been dropped"
-msgstr ""
+msgstr "Cafodd indecs %s ei ollwng"
 
 #: libraries/Index.class.php:576
 #, php-format
@@ -1335,6 +1335,8 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
+"Mae'n edrych fel bod yr indecsau %1$s a %2$s yn hafal. Gallwch chi dynnu un "
+"ohonyn nhw."
 
 #: libraries/List_Database.class.php:431 libraries/server_links.inc.php:41
 #: server_databases.php:88 server_privileges.php:1660
@@ -1343,7 +1345,7 @@ msgid "Databases"
 msgstr "Cronfeydd Data"
 
 #: libraries/Message.class.php:211 libraries/common.lib.php:581
-#: libraries/core.lib.php:261 libraries/import.lib.php:134 pdf_schema.php:32
+#: libraries/core.lib.php:261 libraries/import.lib.php:135 pdf_schema.php:32
 #: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
 #: tbl_relation.php:290 view_operations.php:62
 msgid "Error"
@@ -1351,7 +1353,6 @@ msgstr "Gwall"
 
 #: libraries/Message.class.php:282
 #, php-format
-#, possible-php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d rhes wedi'i heffeithio."
@@ -1359,7 +1360,6 @@ msgstr[1] "%1$d rhes wedi'u heffeithio."
 
 #: libraries/Message.class.php:301
 #, php-format
-#, possible-php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d rhes wedi'i dileu."
@@ -1367,7 +1367,6 @@ msgstr[1] "%1$d rhes wedi'u dileu."
 
 #: libraries/Message.class.php:320
 #, php-format
-#, possible-php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d rhes wedi'i hychwanegu."
@@ -1377,21 +1376,22 @@ msgstr[1] "%1$d rhes wedi'u hychwanegu."
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
+"Does dim gwybodaeth statws fanwl ar gael ar gyfer y peiriant storio hwn."
 
 #: libraries/StorageEngine.class.php:359
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "Mae %s ar gael ar y gweinydd MySQL hwn."
 
 #: libraries/StorageEngine.class.php:362
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "Cafodd %s ei analluogi ar y gweinydd MySQL hwn."
 
 #: libraries/StorageEngine.class.php:366
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "Dyw'r gweinydd MySQL hwn ddim yn cynnal y peiriant storio %s."
 
 #: libraries/Table.class.php:1019
 msgid "Invalid database"
@@ -1403,19 +1403,16 @@ msgstr "Enw tabl annilys"
 
 #: libraries/Table.class.php:1048
 #, php-format
-#, possible-php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Gwall wrth ailenwi tabl %1$s i %2$s"
 
 #: libraries/Table.class.php:1132
 #, php-format
-#, possible-php-format
 msgid "Table %s has been renamed to %s"
 msgstr "Cafodd y tabl %s ei ailenwi i %s"
 
 #: libraries/Theme.class.php:162
 #, php-format
-#, possible-php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Dim llwybr delwedd dilys ar gael ar gyfer thema %s."
 
@@ -1429,19 +1426,16 @@ msgstr "cymerwch e"
 
 #: libraries/Theme_Manager.class.php:115
 #, php-format
-#, possible-php-format
 msgid "Default theme %s not found!"
 msgstr "Thema diofyn %s heb ei darganfod!"
 
 #: libraries/Theme_Manager.class.php:153
 #, php-format
-#, possible-php-format
 msgid "Theme %s not found!"
 msgstr "Heb ddarganfod thema ddiofyn %s!"
 
 #: libraries/Theme_Manager.class.php:221
 #, php-format
-#, possible-php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Heb ddarganfod llwybr thema ar gyfer thema %s!"
 
@@ -1458,7 +1452,6 @@ msgstr "Methu â chysylltu: gosodiadau annilys"
 #: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
 #: test/theme.php:152
 #, php-format
-#, possible-php-format
 msgid "Welcome to %s"
 msgstr "Croeso i %s"
 
@@ -1468,6 +1461,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
 msgstr ""
+"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r %1"
+"$sgript gosod%2$s  er mwyn ei chreu."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -1476,6 +1471,10 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
+"Ceisiodd phpMyAdmin gysylltu â'r gweinydd MySQL, ond gwrthododd y gweinydd y "
+"cysylltiad. Dylech wirio'r gwesteiwr, enw'r defnyddiwr a'r cyfrinair yn eich "
+"ffurfwedd a scirhau eu bod nhw'n cyfateb i'r wybodaeth a roddwyd gan "
+"weinyddwr y gweinydd MySQL."
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Log in"
@@ -1513,39 +1512,41 @@ msgstr "Dewis Gweinydd"
 
 #: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
-msgstr ""
+msgstr "Mae'n rhaid bod cwcis wedi'u galluogi heibio'r pwynt hwn."
 
 #: libraries/auth/cookie.auth.lib.php:671
 #: libraries/auth/signon.auth.lib.php:181
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
+"Nid oes hawl mewngofnodi heb gyfrinair. Dyma'r gosodiad yn eich ffurfwedd "
+"(gweler AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:675
 #: libraries/auth/signon.auth.lib.php:185
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr ""
+msgstr "Dim gweithredoedd o fewn %s eiliad; mewngofnodwch eto."
 
 #: libraries/auth/cookie.auth.lib.php:685
 #: libraries/auth/cookie.auth.lib.php:687
 #: libraries/auth/signon.auth.lib.php:191
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "Methu â mewngofnodi i'r gweinydd MySQL"
 
 #: libraries/auth/http.auth.lib.php:70
 msgid "Wrong username/password. Access denied."
-msgstr ""
+msgstr "Enw defnyddiwr/cyfrinair anghywir. Mynediad wedi'i wrthod."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "Nid yw ffeil %s yn cynnwys unrhyw id allwedd"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "Dilysu caledwedd wedi methu"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
@@ -1553,23 +1554,23 @@ msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "Yn dilysu..."
 
 #: libraries/blobstreaming.lib.php:689
 msgid "View image"
-msgstr ""
+msgstr "Gweld delwedd"
 
 #: libraries/blobstreaming.lib.php:693
 msgid "Play audio"
-msgstr ""
+msgstr "Chwarae sain"
 
 #: libraries/blobstreaming.lib.php:698
 msgid "View video"
-msgstr ""
+msgstr "Gwylio fideo"
 
 #: libraries/blobstreaming.lib.php:702
 msgid "Download file"
-msgstr ""
+msgstr "Lawrlwytho ffeil"
 
 #: libraries/charset_conversion.lib.php:17
 msgid ""
@@ -1610,12 +1611,13 @@ msgstr ""
 #: libraries/common.inc.php:629
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "Indecs gweinydd annilys: %s"
 
 #: libraries/common.inc.php:636
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
+"Enw gwesteiwr annilys ar gyfer gweinydd %1$s. Adolygwch eich ffurfwedd."
 
 #: libraries/common.inc.php:645 libraries/header.inc.php:96
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
@@ -1630,7 +1632,7 @@ msgstr ""
 #: libraries/common.inc.php:926
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "Dylech uwchraddio i %s %s neu'n well."
 
 #: libraries/common.lib.php:147
 #, php-format
@@ -1686,7 +1688,7 @@ msgstr "Creu Cod PHP"
 #: libraries/common.lib.php:1235 server_status.php:452
 #: setup/lib/messages.inc.php:354
 msgid "Refresh"
-msgstr ""
+msgstr "Adfywio"
 
 #: libraries/common.lib.php:1244
 msgid "Skip Validate SQL"
@@ -1782,7 +1784,7 @@ msgstr "Diwedd"
 #: libraries/common.lib.php:2430
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr ""
+msgstr "Neidio  i gronfa ddata &quot;%s&quot;."
 
 #: libraries/common.lib.php:2450
 #, php-format
@@ -1823,12 +1825,12 @@ msgstr "Enw"
 #: libraries/db_links.inc.php:45
 #, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "Cafodd cronfa ddata %s ei gollwng."
 
 #: libraries/db_links.inc.php:57 libraries/db_links.inc.php:58
 #: libraries/db_links.inc.php:59
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "Mae'r gronfa ddata yn ymddangos yn wag!"
 
 #: libraries/db_links.inc.php:81 libraries/relation.lib.php:155
 #: libraries/tbl_links.inc.php:69
@@ -1881,7 +1883,7 @@ msgstr ""
 #: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
 #: libraries/dbi/mysqli.dbi.lib.php:410
 msgid "The server is not responding"
-msgstr ""
+msgstr "Dyw'r gweinydd ddim yn ymateb"
 
 #: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
 msgid "(or the local MySQL server's socket is not correctly configured)"
@@ -1889,7 +1891,7 @@ msgstr ""
 
 #: libraries/dbi/mysql.dbi.lib.php:362 tbl_structure.php:608
 msgid "Details..."
-msgstr ""
+msgstr "Manylion..."
 
 #: libraries/display_change_password.lib.php:30 main.php:91
 #: user_password.php:111 user_password.php:129
@@ -1950,12 +1952,13 @@ msgstr "Dim Breintiau"
 
 #: libraries/display_create_table.lib.php:41
 msgid "Table must have at least one column."
-msgstr ""
+msgstr "Mae'n rhaid i'r tabl gael o leiaf un golofn."
 
 #: libraries/display_create_table.lib.php:48
 #, php-format
+#, possible-php-format
 msgid "Create table on database %s"
-msgstr ""
+msgstr "Creu tabl mewn cronfa ddata %s"
 
 #: libraries/display_create_table.lib.php:57
 msgid "Number of columns"
@@ -1976,7 +1979,7 @@ msgstr "Dadlwytho pob rhes"
 
 #: libraries/display_export.lib.php:125 setup/lib/messages.inc.php:82
 msgid "Save as file"
-msgstr ""
+msgstr "Cadw fel ffeil"
 
 #: libraries/display_export.lib.php:134
 #, php-format
@@ -1985,23 +1988,23 @@ msgstr ""
 
 #: libraries/display_export.lib.php:142 setup/lib/messages.inc.php:90
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "Trosysgrifo ffeil(iau) sy'n bodoli yn barod"
 
 #: libraries/display_export.lib.php:148
 msgid "File name template"
-msgstr ""
+msgstr "Templed enw ffeil"
 
 #: libraries/display_export.lib.php:152
 msgid "server name"
-msgstr ""
+msgstr "enw gweinydd"
 
 #: libraries/display_export.lib.php:155
 msgid "database name"
-msgstr ""
+msgstr "enw cronfa ddata"
 
 #: libraries/display_export.lib.php:158
 msgid "table name"
-msgstr ""
+msgstr "enw tabl"
 
 #: libraries/display_export.lib.php:162
 #, php-format
@@ -2013,40 +2016,40 @@ msgstr ""
 
 #: libraries/display_export.lib.php:202
 msgid "remember template"
-msgstr ""
+msgstr "cofio templed"
 
 #: libraries/display_export.lib.php:210 libraries/display_import.lib.php:178
 #: libraries/display_import.lib.php:191 libraries/sql_query_form.lib.php:549
 msgid "Character set of the file:"
-msgstr ""
+msgstr "Set nodau'r ffeil:"
 
 #: libraries/display_export.lib.php:235 setup/lib/messages.inc.php:84
 msgid "Compression"
-msgstr ""
+msgstr "Cywasgiad"
 
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
 #: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1875 server_processlist.php:75
 msgid "None"
-msgstr ""
+msgstr "Dim"
 
 #: libraries/display_export.lib.php:247
 msgid "\"zipped\""
-msgstr ""
+msgstr "\"zip-iwyd\""
 
 #: libraries/display_export.lib.php:253
 msgid "\"gzipped\""
-msgstr ""
+msgstr "\"gzip-iwyd\""
 
 #: libraries/display_export.lib.php:259
 msgid "\"bzipped\""
-msgstr ""
+msgstr "\"bzip-iwyd\""
 
 #: libraries/display_export.lib.php:274 libraries/export/sql.php:43
 #: libraries/import/sql.php:32
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "Modd cytunedd SQL"
 
 #: libraries/display_import.lib.php:67
 msgid ""
@@ -2057,35 +2060,39 @@ msgstr ""
 
 #: libraries/display_import.lib.php:77
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Mae'r ffeil yn cael ei phrosesu. Byddwch yn amyneddgar."
 
 #: libraries/display_import.lib.php:99
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Byddwch yn amyneddgar, mae'r ffeil yn cael ei lanlwytho. Does dim manylion "
+"parthed y lanlwythiad ar gael."
 
 #: libraries/display_import.lib.php:126
 msgid "File to import"
-msgstr ""
+msgstr "Ffeil i'w mewnforio"
 
 #: libraries/display_import.lib.php:137 libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
-msgstr ""
+msgstr "Lleoliad y ffeil destun"
 
 #: libraries/display_import.lib.php:148
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "Dyw lanlwytho ffeiliau ddim yn cael ei ganiatáu ar y gweinydd hwn."
 
 #: libraries/display_import.lib.php:163 libraries/sql_query_form.lib.php:533
 #: tbl_change.php:1028
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
+"Does dim modd cyrraedd y cyfeiriadur a osodoch chi ar gyfer gwaith a "
+"lanwlythwyd"
 
 #: libraries/display_import.lib.php:166 libraries/sql_query_form.lib.php:536
 #: tbl_change.php:1031
 msgid "web server upload directory"
-msgstr ""
+msgstr "cyfeiriadur lanlwytho y gweinydd gwe"
 
 #: libraries/display_import.lib.php:212
 #, php-format
@@ -2094,7 +2101,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:219
 msgid "Partial import"
-msgstr ""
+msgstr "Mewnforiad rhannol"
 
 #: libraries/display_import.lib.php:225
 #, php-format
@@ -2111,39 +2118,39 @@ msgstr ""
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "Nifer yr ymholiadau i'w neidio o'r dechrau"
 
 #: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
-msgstr ""
+msgstr "Fformat y ffeil a mewnforiwyd"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
-msgstr ""
+msgstr "Dangos sgema PDF"
 
 #: libraries/display_pdf_schema.lib.php:33
 msgid "Show grid"
-msgstr ""
+msgstr "Dangos grid"
 
 #: libraries/display_pdf_schema.lib.php:36
 msgid "Show color"
-msgstr ""
+msgstr "Dangos lliw"
 
 #: libraries/display_pdf_schema.lib.php:38
 msgid "Show dimension of tables"
-msgstr ""
+msgstr "Dangos dimensiynau'r tabl"
 
 #: libraries/display_pdf_schema.lib.php:41
 msgid "Display all tables with the same width"
-msgstr ""
+msgstr "Dangos pob tabl gyda'r un lled"
 
 #: libraries/display_pdf_schema.lib.php:46
 msgid "Only show keys"
-msgstr ""
+msgstr "Dangos allweddau'n unig"
 
 #: libraries/display_pdf_schema.lib.php:48
 msgid "Data Dictionary Format"
-msgstr ""
+msgstr "Fformat Geiriadur Data"
 
 #: libraries/display_pdf_schema.lib.php:50
 msgid "Landscape"
@@ -2151,7 +2158,7 @@ msgstr "Tirlun"
 
 #: libraries/display_pdf_schema.lib.php:51
 msgid "Portrait"
-msgstr ""
+msgstr "Portread"
 
 #: libraries/display_pdf_schema.lib.php:54
 msgid "Paper size"
@@ -2165,11 +2172,11 @@ msgstr "iaith"
 #: libraries/display_tbl.lib.php:304
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "Dydy %d ddim yn rhif rhes dilys."
 
 #: libraries/display_tbl.lib.php:310
 msgid "row(s) starting from row #"
-msgstr ""
+msgstr "rhes(i) yn dechrau o rhes #"
 
 #: libraries/display_tbl.lib.php:316
 msgid "horizontal"
@@ -2177,7 +2184,7 @@ msgstr "llorweddol"
 
 #: libraries/display_tbl.lib.php:317
 msgid "horizontal (rotated headers)"
-msgstr ""
+msgstr "llorweddol (penawdau wedi cylchdroi)"
 
 #: libraries/display_tbl.lib.php:318
 msgid "vertical"
@@ -2186,15 +2193,15 @@ msgstr "fertigol"
 #: libraries/display_tbl.lib.php:324
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
-msgstr ""
+msgstr "mewn modd %s ac ailadrodd penawdau ar ôl %s cell "
 
 #: libraries/display_tbl.lib.php:346
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "Gall y weithrediad hon gymryd amser hir. Parhau beth bynnag?"
 
 #: libraries/display_tbl.lib.php:512
 msgid "Sort by key"
-msgstr ""
+msgstr "Trefnu gan allwedd"
 
 #: libraries/display_tbl.lib.php:555 libraries/export/codegen.php:39
 #: libraries/export/csv.php:30 libraries/export/excel.php:35
@@ -2204,121 +2211,121 @@ msgstr ""
 #: libraries/export/php_array.php:25 libraries/export/sql.php:34
 #: libraries/export/texytext.php:37 libraries/export/xls.php:27
 #: libraries/export/xlsx.php:27 libraries/export/xml.php:24
-#: libraries/export/yaml.php:28 libraries/import.lib.php:1082
-#: libraries/import.lib.php:1104 libraries/import/csv.php:32
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1084
+#: libraries/import.lib.php:1106 libraries/import/csv.php:32
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
 #: libraries/import/xml.php:25 tbl_select.php:267 tbl_structure.php:753
 msgid "Options"
-msgstr ""
+msgstr "Opsiynau"
 
 #: libraries/display_tbl.lib.php:560 libraries/display_tbl.lib.php:570
 msgid "Partial Texts"
-msgstr ""
+msgstr "Testunau Rhannol"
 
 #: libraries/display_tbl.lib.php:561 libraries/display_tbl.lib.php:574
 msgid "Full Texts"
-msgstr ""
+msgstr "Testunau Llawn"
 
 #: libraries/display_tbl.lib.php:587
 msgid "Relational key"
-msgstr ""
+msgstr "Allwedd perthynol"
 
 #: libraries/display_tbl.lib.php:588
 msgid "Relational display column"
-msgstr ""
+msgstr "Colofn dangosydd perthynol"
 
 #: libraries/display_tbl.lib.php:595
 msgid "Show binary contents"
-msgstr ""
+msgstr "Dangos cynnwys deuaidd"
 
 #: libraries/display_tbl.lib.php:597
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Dangos cynnwys BLOB"
 
 #: libraries/display_tbl.lib.php:599
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Dangos cynnwys deuaidd fel HEX"
 
 #: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:314
 #: tbl_change.php:320
 msgid "Hide"
-msgstr ""
+msgstr "Cuddio"
 
 #: libraries/display_tbl.lib.php:607 libraries/relation.lib.php:135
 #: libraries/tbl_properties.inc.php:144 transformation_overview.php:47
 msgid "Browser transformation"
-msgstr ""
+msgstr "Trawsffurfiad porwr"
 
 #: libraries/display_tbl.lib.php:1126 libraries/display_tbl.lib.php:1130
 #: libraries/display_tbl.lib.php:1132
 msgid "Execute bookmarked query"
-msgstr ""
+msgstr "Gweithredu ymholiad a glustnodwyd"
 
 #: libraries/display_tbl.lib.php:1145 libraries/display_tbl.lib.php:1157
 msgid "The row has been deleted"
-msgstr ""
+msgstr "Cafodd y rhes ei dileu"
 
 #: libraries/display_tbl.lib.php:1184 libraries/display_tbl.lib.php:2056
 #: server_processlist.php:71 tbl_row_action.php:64
 msgid "Kill"
-msgstr ""
+msgstr "Lladd"
 
 #: libraries/display_tbl.lib.php:1934
 msgid "in query"
-msgstr ""
+msgstr "mewn ymholiad"
 
 #: libraries/display_tbl.lib.php:1952
 msgid "Showing rows"
-msgstr ""
+msgstr "Yn dangos rhesi"
 
 #: libraries/display_tbl.lib.php:1962
 msgid "total"
-msgstr ""
+msgstr "cyfanswm"
 
 #: libraries/display_tbl.lib.php:1970 sql.php:524
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr ""
+msgstr "Cymerodd yr ymholiad %01.4f eiliad"
 
 #: libraries/display_tbl.lib.php:2089 libraries/mult_submits.inc.php:113
 #: querywindow.php:125 querywindow.php:129 querywindow.php:132
 #: tbl_structure.php:25 tbl_structure.php:150 tbl_structure.php:470
 msgid "Change"
-msgstr ""
+msgstr "Newid"
 
 #: libraries/display_tbl.lib.php:2159
 msgid "Query results operations"
-msgstr ""
+msgstr "Gweithrediadau canlyniadau ymholiad"
 
 #: libraries/display_tbl.lib.php:2187
 msgid "Print view (with full texts)"
-msgstr ""
+msgstr "Argraffu golwg (gyda thestunau llawn)"
 
 #: libraries/display_tbl.lib.php:2361
 msgid "Link not found"
-msgstr ""
+msgstr "Methu â darganfod y cysylltiad"
 
 #: libraries/engines/bdb.lib.php:21 main.php:228
 msgid "Version information"
-msgstr ""
+msgstr "Gwybodaeth y fersiwn"
 
 #: libraries/engines/innodb.lib.php:30
 msgid "Data home directory"
-msgstr ""
+msgstr "Cyfeiriadur hafan data"
 
 #: libraries/engines/innodb.lib.php:31
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "Y rhan gyffredin o lwybr y cyfeiriadur ar gyfer pob ffeil data InnoDB."
 
 #: libraries/engines/innodb.lib.php:34
 msgid "Data files"
-msgstr ""
+msgstr "Ffeiliau data"
 
 #: libraries/engines/innodb.lib.php:37
 msgid "Autoextend increment"
-msgstr ""
+msgstr "Cynyddiad awtoestyn"
 
 #: libraries/engines/innodb.lib.php:38
 msgid ""
@@ -2328,7 +2335,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:42
 msgid "Buffer pool size"
-msgstr ""
+msgstr "Maint y pwll byffer"
 
 #: libraries/engines/innodb.lib.php:43
 msgid ""
@@ -2338,77 +2345,77 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:144
 msgid "Buffer Pool"
-msgstr ""
+msgstr "Pwll Byffer"
 
 #: libraries/engines/innodb.lib.php:145 server_status.php:417
 msgid "InnoDB Status"
-msgstr ""
+msgstr "Statws InnoDB"
 
 #: libraries/engines/innodb.lib.php:189
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "Defnydd Pwll Byffer"
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:525 server_status.php:586
 #: server_status.php:607 tbl_printview.php:351 tbl_structure.php:696
 msgid "Total"
-msgstr ""
+msgstr "Cyfanswm"
 
 #: libraries/engines/innodb.lib.php:197
 msgid "pages"
-msgstr ""
+msgstr "tudalennau"
 
 #: libraries/engines/innodb.lib.php:206
 msgid "Free pages"
-msgstr ""
+msgstr "Tudalennau rhydd"
 
 #: libraries/engines/innodb.lib.php:212
 msgid "Dirty pages"
-msgstr ""
+msgstr "Tudalennau brwnt"
 
 #: libraries/engines/innodb.lib.php:218
 msgid "Pages containing data"
-msgstr ""
+msgstr "Tudalennau sy'n cynnwys data"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "Tudalennau i'w gwacáu"
 
 #: libraries/engines/innodb.lib.php:230
 msgid "Busy pages"
-msgstr ""
+msgstr "Tudalennau prysur"
 
 #: libraries/engines/innodb.lib.php:239
 msgid "Latched pages"
-msgstr ""
+msgstr "Tudalennau "
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "Gweithgaredd Pwll Byffer"
 
 #: libraries/engines/innodb.lib.php:254
 msgid "Read requests"
-msgstr ""
+msgstr "Ceisiadau darllen"
 
 #: libraries/engines/innodb.lib.php:260
 msgid "Write requests"
-msgstr ""
+msgstr "Ceisiadau ysgrifennu"
 
 #: libraries/engines/innodb.lib.php:266
 msgid "Read misses"
-msgstr ""
+msgstr "Colledion darllen"
 
 #: libraries/engines/innodb.lib.php:272
 msgid "Write waits"
-msgstr ""
+msgstr "Arosiadau ysgrifennu"
 
 #: libraries/engines/innodb.lib.php:278
 msgid "Read misses in %"
-msgstr ""
+msgstr "Colledion darllen mewn %"
 
 #: libraries/engines/innodb.lib.php:286
 msgid "Write waits in %"
-msgstr ""
+msgstr "Arosiadau ysgrifennu mewn %"
 
 #: libraries/engines/myisam.lib.php:23
 msgid "Data pointer size"
@@ -2422,7 +2429,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:28
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "Modd adferiad awtomatig"
 
 #: libraries/engines/myisam.lib.php:29
 msgid ""
@@ -2454,7 +2461,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Repair threads"
-msgstr ""
+msgstr "Trwsio edafedd"
 
 #: libraries/engines/myisam.lib.php:43
 msgid ""
@@ -2464,7 +2471,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Sort buffer size"
-msgstr ""
+msgstr "Trefnu maint y byffer"
 
 #: libraries/engines/myisam.lib.php:48
 msgid ""
@@ -2474,7 +2481,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:23
 msgid "Index cache size"
-msgstr ""
+msgstr "Maint yr ystorfa indecs"
 
 #: libraries/engines/pbxt.lib.php:24
 msgid ""
@@ -2484,7 +2491,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Record cache size"
-msgstr ""
+msgstr "Maint yr ystorfa cofnod"
 
 #: libraries/engines/pbxt.lib.php:29
 msgid ""
@@ -2495,7 +2502,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Log cache size"
-msgstr ""
+msgstr "Maint yr ystorfa log"
 
 #: libraries/engines/pbxt.lib.php:34
 msgid ""
@@ -2505,7 +2512,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log file threshold"
-msgstr ""
+msgstr "Trothwy'r ffeil log"
 
 #: libraries/engines/pbxt.lib.php:39
 msgid ""
@@ -2597,31 +2604,31 @@ msgstr ""
 #: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
 #: tbl_printview.php:376 tbl_structure.php:737
 msgid "Format"
-msgstr ""
+msgstr "Fformat"
 
 #: libraries/export/csv.php:17 libraries/import/csv.php:22
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:59 libraries/import/ldi.php:40
 msgid "Columns terminated by"
-msgstr ""
+msgstr "Terfynwyd colofnau gan"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:71 libraries/import/ldi.php:41
 msgid "Columns enclosed by"
-msgstr ""
+msgstr "Amgaewyd colofnau gan"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
 msgid "Columns escaped by"
-msgstr ""
+msgstr "Colofnau wedi'u dianc gan"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 #: libraries/import/csv.php:79 libraries/import/ldi.php:43
 msgid "Lines terminated by"
-msgstr ""
+msgstr "Terfynwyd llinellau gan"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:25 libraries/export/latex.php:65
@@ -2629,11 +2636,11 @@ msgstr ""
 #: libraries/export/texytext.php:31 libraries/export/xls.php:23
 #: libraries/export/xlsx.php:23
 msgid "Replace NULL by"
-msgstr ""
+msgstr "Amnewid NULL gan"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Tynnu nodau CRLF tu fewn colofnau"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
 #: libraries/export/htmlword.php:26 libraries/export/latex.php:57
@@ -2641,19 +2648,19 @@ msgstr ""
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
 msgid "Put columns names in the first row"
-msgstr ""
+msgstr "Rhoi enwau colofnau yn y rhes gyntaf"
 
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
-msgstr ""
+msgstr "CSV ar gyfer MS Excel"
 
 #: libraries/export/excel.php:32
 msgid "Excel edition"
-msgstr ""
+msgstr "Argraffiad Excel"
 
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/export/htmlword.php:24 libraries/export/latex.php:55
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
@@ -2661,30 +2668,31 @@ msgstr ""
 #: libraries/export/texytext.php:27 server_databases.php:127
 #: server_privileges.php:576 server_replication.php:316 tbl_printview.php:317
 #: tbl_structure.php:665
+#: server_privileges.php:537
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 #: libraries/export/htmlword.php:132 libraries/export/odt.php:168
 #: libraries/export/sql.php:881 libraries/export/texytext.php:130
 msgid "Dumping data for table"
-msgstr ""
+msgstr "Dadlwytho data ar gyfer y tabl"
 
 #: libraries/export/htmlword.php:185 libraries/export/odt.php:238
 #: libraries/export/sql.php:785 libraries/export/texytext.php:177
 msgid "Table structure for table"
-msgstr ""
+msgstr "Strwythur y tabl ar gyfer y tabl"
 
 #: libraries/export/latex.php:22
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 #: libraries/export/latex.php:26
 msgid "Include table caption"
-msgstr ""
+msgstr "Cynnwys pennawd y tabl"
 
 #: libraries/export/latex.php:35 libraries/export/latex.php:59
 msgid "Table caption"
-msgstr ""
+msgstr "Pennawd y tabl"
 
 #: libraries/export/latex.php:37 libraries/export/latex.php:61
 msgid "Continued table caption"
@@ -2692,18 +2700,18 @@ msgstr ""
 
 #: libraries/export/latex.php:39 libraries/export/latex.php:63
 msgid "Label key"
-msgstr ""
+msgstr "Allwedd y label"
 
 #: libraries/export/latex.php:42 libraries/export/odt.php:35
 #: libraries/export/sql.php:91 tbl_relation.php:399
 msgid "Relations"
-msgstr ""
+msgstr "Perthnasau"
 
 #: libraries/export/latex.php:48 libraries/export/odt.php:41
 #: libraries/export/odt.php:318 libraries/export/sql.php:95
 #: libraries/tbl_properties.inc.php:143
 msgid "MIME type"
-msgstr ""
+msgstr "Math MIME"
 
 #: libraries/export/latex.php:125 libraries/export/sql.php:232
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
@@ -2713,39 +2721,44 @@ msgstr ""
 #: server_privileges.php:734 server_privileges.php:790
 #: server_privileges.php:1537 server_privileges.php:2069
 #: server_processlist.php:55 server_synchronize.php:1159
+#: server_privileges.php:692
+#: server_privileges.php:695
+#: server_privileges.php:751
+#: server_privileges.php:1498
+#: server_privileges.php:2030
 msgid "Host"
-msgstr ""
+msgstr "Gwesteiwr"
 
 #: libraries/export/latex.php:130 libraries/export/sql.php:233
 #: libraries/export/xml.php:107 libraries/header_printview.inc.php:59
 msgid "Generation Time"
-msgstr ""
+msgstr "Amser Generadu"
 
 #: libraries/export/latex.php:131 libraries/export/sql.php:235
 #: libraries/export/xml.php:108 main.php:186
 msgid "Server version"
-msgstr ""
+msgstr "Fersiwn y gweinydd"
 
 #: libraries/export/latex.php:132 libraries/export/sql.php:236
 #: libraries/export/xml.php:109
 msgid "PHP Version"
-msgstr ""
+msgstr "Fersiwn PHP"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabl MediaWiki"
 
 #: libraries/export/ods.php:18 libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "Taenlen Open Document"
 
 #: libraries/export/odt.php:22
 msgid "Open Document Text"
-msgstr ""
+msgstr "Testun Open Document"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: libraries/export/pdf.php:23
 msgid "(Generates a report containing the data of a single table)"
@@ -2753,11 +2766,11 @@ msgstr ""
 
 #: libraries/export/pdf.php:24
 msgid "Report title"
-msgstr ""
+msgstr "Teitl yr adroddiad"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
-msgstr ""
+msgstr "Aräe PHP"
 
 #: libraries/export/sql.php:29
 msgid "Add custom comment into header (\\n splits lines)"
@@ -2817,15 +2830,15 @@ msgstr ""
 
 #: libraries/export/sql.php:122
 msgid "Export type"
-msgstr ""
+msgstr "Math allbwn"
 
 #: libraries/export/sql.php:387
 msgid "Procedures"
-msgstr ""
+msgstr "Gweithdrefnau"
 
 #: libraries/export/sql.php:401
 msgid "Functions"
-msgstr ""
+msgstr "Swyddogaethau"
 
 #: libraries/export/sql.php:618
 msgid "Constraints for dumped tables"
@@ -2916,46 +2929,46 @@ msgstr ""
 msgid "Generated by"
 msgstr ""
 
-#: libraries/import.lib.php:150 sql.php:520 tbl_change.php:181
+#: libraries/import.lib.php:152 sql.php:520 tbl_change.php:181
 #: tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: libraries/import.lib.php:1078
+#: libraries/import.lib.php:1080
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1079
+#: libraries/import.lib.php:1081
 msgid "View a structure`s contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1080
+#: libraries/import.lib.php:1082
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1081
+#: libraries/import.lib.php:1083
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1084
+#: libraries/import.lib.php:1086
 msgid "Go to database"
 msgstr ""
 
-#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
 msgid "settings"
 msgstr ""
 
-#: libraries/import.lib.php:1106
+#: libraries/import.lib.php:1108
 msgid "Go to table"
 msgstr ""
 
-#: libraries/import.lib.php:1109
+#: libraries/import.lib.php:1111
 msgid "structure"
 msgstr ""
 
-#: libraries/import.lib.php:1115
+#: libraries/import.lib.php:1117
 msgid "Go to view"
 msgstr ""
 
@@ -5759,7 +5772,6 @@ msgstr "Gwerth anghywir"
 
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
 #, php-format
-#, possible-php-format
 msgid "Set value: %s"
 msgstr "Gosod gwerth: %s"
 
@@ -6012,7 +6024,6 @@ msgstr "Nid yn rhif porth ddilys"
 
 #: setup/lib/messages.inc.php:77
 #, php-format
-#, possible-php-format
 msgid "Missing data for %s"
 msgstr "Data ar goll ar gyfer %s"
 
@@ -6927,7 +6938,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:306
 msgid "Statements to track"
-msgstr ""
+msgstr "Datganiadau i'w tracio"
 
 #: setup/lib/messages.inc.php:307
 msgid ""
@@ -6937,7 +6948,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:308
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Ychwanegu DROP VIEW"
 
 #: setup/lib/messages.inc.php:309
 msgid ""
@@ -6947,7 +6958,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:310
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Ychwanegu DROP TABLE"
 
 #: setup/lib/messages.inc.php:311
 msgid ""
@@ -6957,7 +6968,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:312
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Ychwanegu DROP DATABASE"
 
 #: setup/lib/messages.inc.php:313
 msgid "You should use SSL connections if your web server supports it"
@@ -6969,7 +6980,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:315
 msgid "Server socket"
-msgstr ""
+msgstr "Soced gweinydd"
 
 #: setup/lib/messages.inc.php:316
 msgid "Enable SSL for connection to MySQL server"
@@ -6977,7 +6988,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:317
 msgid "Use SSL"
-msgstr ""
+msgstr "Defnyddio SSL"
 
 #: setup/lib/messages.inc.php:318
 msgid ""
@@ -6986,7 +6997,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:319
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "Sgena PDF: cyfesurynnau tabl"
 
 #: setup/lib/messages.inc.php:320
 msgid ""
@@ -6996,7 +7007,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:321
 msgid "Display columns table"
-msgstr ""
+msgstr "Dangos tabl colofnau"
 
 #: setup/lib/messages.inc.php:323
 msgid "User for config auth"
@@ -7039,15 +7050,15 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:332
 msgid "Show password change form"
-msgstr ""
+msgstr "Dangos ffurflen newid cyfrinair"
 
 #: setup/lib/messages.inc.php:333
 msgid "Show create database form"
-msgstr ""
+msgstr "Dangos ffurflen creu cronfa ddata"
 
 #: setup/lib/messages.inc.php:334
 msgid "Show form"
-msgstr ""
+msgstr "Dangos ffurflen"
 
 #: setup/lib/messages.inc.php:335
 msgid "Display the function fields in edit/insert mode"
@@ -7055,17 +7066,19 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:336
 msgid "Show function fields"
-msgstr ""
+msgstr "Dangos meysydd swyddogaeth"
 
 #: setup/lib/messages.inc.php:338
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
+"Dangos cysylltiad i allbwn "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: setup/lib/messages.inc.php:339
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Dangos cysylltiad i phpinfo()"
 
 #: setup/lib/messages.inc.php:340
 msgid "Show detailed MySQL server information"
@@ -7077,7 +7090,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:342
 msgid "Show SQL queries"
-msgstr ""
+msgstr "Dangos ymholiadau SQL"
 
 #: setup/lib/messages.inc.php:343
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -7085,7 +7098,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:344
 msgid "Show statistics"
-msgstr ""
+msgstr "Dangos ystadegau"
 
 #: setup/lib/messages.inc.php:345
 msgid ""
@@ -7120,7 +7133,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:351
 msgid "Skip locked tables"
-msgstr ""
+msgstr "Neidio tablau ar glo"
 
 #: setup/lib/messages.inc.php:357
 msgid ""
@@ -7134,7 +7147,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:359
 msgid "yes"
-msgstr ""
+msgstr "ie"
 
 #: setup/lib/messages.inc.php:360
 msgid ""
@@ -7154,7 +7167,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:363
 msgid "Upload directory"
-msgstr ""
+msgstr "Cyfeiriadur lanlwytho"
 
 #: setup/lib/messages.inc.php:364
 msgid "Allow for searching inside the entire database"
@@ -7162,7 +7175,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:365
 msgid "Use database search"
-msgstr ""
+msgstr "Defnyddio chwiliad cronfa ddata"
 
 #: setup/lib/messages.inc.php:366
 msgid ""
@@ -7209,7 +7222,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:375
 msgid "Version check"
-msgstr ""
+msgstr "Gwirio fersiwn"
 
 #: setup/lib/messages.inc.php:376
 msgid ""
@@ -7238,7 +7251,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:381
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: sql.php:496 tbl_replace.php:386
 #, php-format
@@ -7274,11 +7287,11 @@ msgstr ""
 
 #: tbl_change.php:282 tbl_change.php:320
 msgid "Function"
-msgstr ""
+msgstr "Swyddogaeth"
 
 #: tbl_change.php:302 tbl_indexes.php:200 tbl_indexes.php:225
 msgid "Ignore"
-msgstr ""
+msgstr "Anwybyddu"
 
 #: tbl_change.php:728
 msgid " Because of its length,<br /> this column might not be editable "
@@ -7290,15 +7303,15 @@ msgstr ""
 
 #: tbl_change.php:894
 msgid "Binary - do not edit"
-msgstr ""
+msgstr "Deuaidd - peidiwch â golygu"
 
 #: tbl_change.php:987
 msgid "Upload to BLOB repository"
-msgstr ""
+msgstr "Lanlwytho i storfa BLOB"
 
 #: tbl_change.php:1130
 msgid "Insert as new row"
-msgstr ""
+msgstr "Mewnosod fel rhes newydd"
 
 #: tbl_change.php:1131
 msgid "Insert as new row and ignore errors"
@@ -7306,28 +7319,30 @@ msgstr ""
 
 #: tbl_change.php:1132
 msgid "Show insert query"
-msgstr ""
+msgstr "Dangos ymholiad mewnosod"
 
 #: tbl_change.php:1147
 msgid "Go back to previous page"
-msgstr ""
+msgstr "Dychwelyd i'r dudalen flaenorol"
 
 #: tbl_change.php:1148
 msgid "Insert another new row"
-msgstr ""
+msgstr "Mewnosod rhes newydd arall"
 
 #: tbl_change.php:1152
 msgid "Go back to this page"
-msgstr ""
+msgstr "Dychwelyd i'r dudalen hon"
 
 #: tbl_change.php:1160
 msgid "Edit next row"
-msgstr ""
+msgstr "Golygu'r rhes nesaf"
 
 #: tbl_change.php:1171
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
+"Defnyddiwch y bysell TAB i symud o un gwerth i'r llall, neu CTRL + saethau i "
+"symud unrhyw le"
 
 #: tbl_change.php:1209
 #, php-format
@@ -7430,7 +7445,7 @@ msgstr ""
 
 #: tbl_operations.php:340
 msgid "Rename table to"
-msgstr ""
+msgstr "Ailenwi tabl i"
 
 #: tbl_operations.php:511
 msgid "Copy table to (database<b>.</b>table):"
@@ -7459,36 +7474,37 @@ msgstr ""
 
 #: tbl_operations.php:651
 msgid "Partition maintenance"
-msgstr ""
+msgstr "Cynhaliaeth ymraniadau"
 
 #: tbl_operations.php:659
 #, php-format
+#, possible-php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Ymraniad %s"
 
 #: tbl_operations.php:662
 msgid "Analyze"
-msgstr ""
+msgstr "Dadansoddi"
 
 #: tbl_operations.php:663
 msgid "Check"
-msgstr ""
+msgstr "Gwirio"
 
 #: tbl_operations.php:664
 msgid "Optimize"
-msgstr ""
+msgstr "Optimeiddio"
 
 #: tbl_operations.php:665
 msgid "Rebuild"
-msgstr ""
+msgstr "Ailadeiladu"
 
 #: tbl_operations.php:666
 msgid "Repair"
-msgstr ""
+msgstr "Trwsio"
 
 #: tbl_operations.php:678
 msgid "Remove partitioning"
-msgstr ""
+msgstr "Tynnu'r ymraniadu"
 
 #: tbl_operations.php:704
 msgid "Check referential integrity:"
@@ -7742,7 +7758,6 @@ msgstr "Fersiwn"
 
 #: tbl_tracking.php:640
 #, php-format
-#, possible-php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "Dadweithredwch dracio am  %s.%s"
 
@@ -7752,7 +7767,6 @@ msgstr "Dadweithredwch nawr"
 
 #: tbl_tracking.php:653
 #, php-format
-#, possible-php-format
 msgid "Activate tracking for %s.%s"
 msgstr "Gweithredwch dracio am  %s.%s"
 
@@ -7762,7 +7776,6 @@ msgstr "Gweithredwch nawr"
 
 #: tbl_tracking.php:668
 #, php-format
-#, possible-php-format
 msgid "Create version %s of %s.%s"
 msgstr "Crëwch fersiwn %s o %s.%s"
 
