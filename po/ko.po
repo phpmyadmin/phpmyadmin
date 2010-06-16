@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 17:59+0200\n"
+"PO-Revision-Date: 2010-06-16 18:01+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1983,10 +1983,9 @@ msgid "No Privileges"
 msgstr "권한 없음"
 
 #: libraries/display_create_table.lib.php:41
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column."
-msgstr "출력하려면 적어도 1개 이상의 열(칼럼)을 선택해야 합니다."
+msgstr "테이블은 적어도 1개 이상의 컬럼을 갖고 있어야 합니다."
 
 #: libraries/display_create_table.lib.php:48
 #, php-format
