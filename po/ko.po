@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 17:53+0200\n"
+"PO-Revision-Date: 2010-06-16 17:54+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1539,7 +1539,7 @@ msgstr "서버 선택"
 
 #: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
-msgstr "쿠키 사용이 가능해야 합니다 past this point."
+msgstr "이 페이지를 넘기려면 쿠키 사용을 허용해야 합니다."
 
 #: libraries/auth/cookie.auth.lib.php:671
 #: libraries/auth/signon.auth.lib.php:181
