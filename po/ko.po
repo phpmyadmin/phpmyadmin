@@ -285,11 +285,10 @@ msgid "Status"
 msgstr "상태"
 
 #: db_operations.php:548
-#, fuzzy
 #| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
-msgstr "사용가능"
+msgstr "유효"
 
 #: db_operations.php:552
 #, fuzzy
