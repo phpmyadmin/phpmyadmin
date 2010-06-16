@@ -1267,7 +1267,7 @@ msgstr ""
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "시"
 
 #: js/messages.php:165
 #, fuzzy
