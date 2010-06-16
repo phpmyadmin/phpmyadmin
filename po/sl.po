@@ -5313,7 +5313,7 @@ msgid ""
 "and had to do a single-page read."
 msgstr ""
 "Število logičnih bralnih zahtev, katerih InnoDB ni mogel izpolniti iz zaloge "
-"medpomnilnika in je moral izvesti enostransko branje. "
+"medpomnilnika in je moral izvesti enostransko branje."
 
 #: server_status.php:72
 msgid ""
