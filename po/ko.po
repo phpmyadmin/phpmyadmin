@@ -1270,10 +1270,9 @@ msgid "Hour"
 msgstr "시"
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "사용중"
+msgstr "분"
 
 #: js/messages.php:166
 #, fuzzy
