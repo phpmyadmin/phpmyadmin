@@ -1351,24 +1351,27 @@ msgstr "Gwall"
 
 #: libraries/Message.class.php:282
 #, php-format
+#, possible-php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d rhes wedi'i heffeithio."
+msgstr[1] "%1$d rhes wedi'u heffeithio."
 
 #: libraries/Message.class.php:301
 #, php-format
+#, possible-php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d rhes wedi'i dileu."
+msgstr[1] "%1$d rhes wedi'u dileu."
 
 #: libraries/Message.class.php:320
 #, php-format
+#, possible-php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d rhes wedi'i hychwanegu."
+msgstr[1] "%1$d rhes wedi'u hychwanegu."
 
 #: libraries/StorageEngine.class.php:198
 msgid ""
@@ -1392,65 +1395,72 @@ msgstr ""
 
 #: libraries/Table.class.php:1019
 msgid "Invalid database"
-msgstr ""
+msgstr "Crofna ddata annilys"
 
 #: libraries/Table.class.php:1033 tbl_get_field.php:26
 msgid "Invalid table name"
-msgstr ""
+msgstr "Enw tabl annilys"
 
 #: libraries/Table.class.php:1048
 #, php-format
+#, possible-php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Gwall wrth ailenwi tabl %1$s i %2$s"
 
 #: libraries/Table.class.php:1132
 #, php-format
+#, possible-php-format
 msgid "Table %s has been renamed to %s"
-msgstr ""
+msgstr "Cafodd y tabl %s ei ailenwi i %s"
 
 #: libraries/Theme.class.php:162
 #, php-format
+#, possible-php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "Dim llwybr delwedd dilys ar gael ar gyfer thema %s."
 
 #: libraries/Theme.class.php:384
 msgid "No preview available."
-msgstr ""
+msgstr "Dim rhagolwg ar gael"
 
 #: libraries/Theme.class.php:387
 msgid "take it"
-msgstr ""
+msgstr "cymerwch e"
 
 #: libraries/Theme_Manager.class.php:115
 #, php-format
+#, possible-php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "Thema diofyn %s heb ei darganfod!"
 
 #: libraries/Theme_Manager.class.php:153
 #, php-format
+#, possible-php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "Heb ddarganfod thema ddiofyn %s!"
 
 #: libraries/Theme_Manager.class.php:221
 #, php-format
+#, possible-php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "Heb ddarganfod llwybr thema ar gyfer thema %s!"
 
 #: libraries/Theme_Manager.class.php:297 test/theme.php:161 themes.php:21
 #: themes.php:41
 msgid "Theme / Style"
-msgstr ""
+msgstr "Thema / Arddull"
 
 #: libraries/auth/config.auth.lib.php:77
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "Methu â chysylltu: gosodiadau annilys"
 
 #: libraries/auth/config.auth.lib.php:92
 #: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
 #: test/theme.php:152
 #, php-format
+#, possible-php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Croeso i %s"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -1476,28 +1486,30 @@ msgstr "Mewngofnodwch"
 #: libraries/navigation_header.inc.php:93
 #: libraries/navigation_header.inc.php:95
 msgid "phpMyAdmin documentation"
-msgstr ""
+msgstr "Dogfennaeth phpMyAdmin"
 
 #: libraries/auth/cookie.auth.lib.php:258
 #: libraries/auth/cookie.auth.lib.php:259
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
+"Gallwch gyflwyno enw'r gwesteiwr / cyfeiriad IP a'r porth gan eu gwahanu gan "
+"fwlch."
 
 #: libraries/auth/cookie.auth.lib.php:258
 msgid "Server:"
-msgstr ""
+msgstr "Gweinydd:"
 
 #: libraries/auth/cookie.auth.lib.php:263
 msgid "Username:"
-msgstr ""
+msgstr "Enw defnyddiwr:"
 
 #: libraries/auth/cookie.auth.lib.php:267
 msgid "Password:"
-msgstr ""
+msgstr "Cyfrinair:"
 
 #: libraries/auth/cookie.auth.lib.php:274
 msgid "Server Choice"
-msgstr ""
+msgstr "Dewis Gweinydd"
 
 #: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
@@ -5667,100 +5679,101 @@ msgstr ""
 #: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
 #: setup/lib/messages.inc.php:219
 msgid "Overview"
-msgstr ""
+msgstr "Gorolwg"
 
 #: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "Dangos negeseuon cudd (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
 msgid "There are no configured servers"
-msgstr ""
+msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
 
 #: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
 msgid "New server"
-msgstr ""
+msgstr "Gweinydd newydd"
 
 #: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
 msgid "Default language"
-msgstr ""
+msgstr "Iaith ddiofyn"
 
 #: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
 msgid "let the user choose"
-msgstr ""
+msgstr "gadewch i'r defnyddiwr ddewis"
 
 #: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
 msgid "- none -"
-msgstr ""
+msgstr "-dim-"
 
 #: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
 msgid "Default server"
-msgstr ""
+msgstr "Gweinydd diofyn"
 
 #: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
 msgid "End of line"
-msgstr ""
+msgstr "Diwedd y llinell"
 
 #: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
 msgid "Display"
-msgstr ""
+msgstr "Dangos"
 
 #: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
 msgid "Load"
-msgstr ""
+msgstr "llwytho"
 
 #: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
 msgid "phpMyAdmin homepage"
-msgstr ""
+msgstr "hafan phpMyAdmin"
 
 #: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
 msgid "Donate"
-msgstr ""
+msgstr "Rhodd"
 
 #: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
 msgid "Check for latest version"
-msgstr ""
+msgstr "Gwiriwch y fersiwn diweddaraf"
 
 #: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
 msgid "Features"
-msgstr ""
+msgstr "Nodweddion"
 
 #: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
 msgid "Navigation frame"
-msgstr ""
+msgstr "Ffrâm llywio"
 
 #: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
 msgid "Main frame"
-msgstr ""
+msgstr "Prif ffrâm"
 
 #: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
 msgid "Edit server"
-msgstr ""
+msgstr "Golygu gweinydd"
 
 #: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
 msgid "Add a new server"
-msgstr ""
+msgstr "Ychwanegwch weinydd newydd"
 
 #: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:76
 msgid "Incorrect value"
-msgstr ""
+msgstr "Gwerth anghywir"
 
 #: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
 #, php-format
+#, possible-php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Gosod gwerth: %s"
 
 #: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
 msgid "Restore default value"
-msgstr ""
+msgstr "Adfer gwerth diofyn"
 
 #: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
 msgid "Warning"
-msgstr ""
+msgstr "Rhybudd"
 
 #: setup/lib/messages.inc.php:16
 msgid "Allow character set conversion"
-msgstr ""
+msgstr "Caniatáu trosi set nodau"
 
 #: setup/lib/messages.inc.php:17
 msgid ""
@@ -5779,7 +5792,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:19
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "Caniatáu mewngofnodi i unrhyw weinydd MySQL"
 
 #: setup/lib/messages.inc.php:20
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -5932,11 +5945,11 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:56
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Tab a ddengys wrth fyned i dabl"
 
 #: setup/lib/messages.inc.php:57
 msgid "Default table tab"
-msgstr ""
+msgstr "Tab tabl diofyn"
 
 #: setup/lib/messages.inc.php:58
 msgid ""
@@ -5950,7 +5963,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:60
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Dangos cronfeydd data fel rhestr"
 
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
@@ -5958,11 +5971,11 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Dangos gweinyddion fel rhestr"
 
 #: setup/lib/messages.inc.php:67
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Methu â chysylltu i'r gweinydd MySQL"
 
 #: setup/lib/messages.inc.php:68
 msgid "Empty phpMyAdmin control user password while using pmadb"
@@ -5995,20 +6008,21 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:75
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Nid yn rhif porth ddilys"
 
 #: setup/lib/messages.inc.php:77
 #, php-format
+#, possible-php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "Data ar goll ar gyfer %s"
 
 #: setup/lib/messages.inc.php:78
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "Nid yn rhif annegyddol"
 
 #: setup/lib/messages.inc.php:79
 msgid "Not a positive number"
-msgstr ""
+msgstr "Nid yn rhif bositif"
 
 #: setup/lib/messages.inc.php:80
 msgid ""
@@ -6022,31 +6036,31 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:83
 msgid "Character set of the file"
-msgstr ""
+msgstr "Set nodau y ffeil"
 
 #: setup/lib/messages.inc.php:85
 msgid "Database name template"
-msgstr ""
+msgstr "Templed enw cronfa ddata"
 
 #: setup/lib/messages.inc.php:86
 msgid "Server name template"
-msgstr ""
+msgstr "Templed enw gweinydd"
 
 #: setup/lib/messages.inc.php:87
 msgid "Table name template"
-msgstr ""
+msgstr "Templed enw tabl"
 
 #: setup/lib/messages.inc.php:89
 msgid "Save on server"
-msgstr ""
+msgstr "Cadw ar y gweinydd"
 
 #: setup/lib/messages.inc.php:91
 msgid "Remember file name template"
-msgstr ""
+msgstr "Cofio templed enw ffeil"
 
 #: setup/lib/messages.inc.php:92
 msgid "no"
-msgstr ""
+msgstr "na"
 
 #: setup/lib/messages.inc.php:93
 msgid "Force secured connection while using phpMyAdmin"
@@ -6731,7 +6745,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:266
 msgid "Count tables"
-msgstr ""
+msgstr "Cyfrifwch y tablau"
 
 #: setup/lib/messages.inc.php:267
 msgid ""
@@ -6770,15 +6784,15 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:274
 msgid "PHP extension to use"
-msgstr ""
+msgstr "Estyniad PHP i'w ddefnyddio"
 
 #: setup/lib/messages.inc.php:275
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "Cuddio cronfeydd data sydd yn cydweddu â mynegiant arferol (PCRE)"
 
 #: setup/lib/messages.inc.php:276
 msgid "Hide databases"
-msgstr ""
+msgstr "Cuddio cronfeydd data"
 
 #: setup/lib/messages.inc.php:277
 msgid ""
@@ -6788,7 +6802,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:278
 msgid "SQL query history table"
-msgstr ""
+msgstr "Tabl hanes ymholiadau SQL"
 
 #: setup/lib/messages.inc.php:279
 msgid ""
@@ -6798,45 +6812,48 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:280
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "Tabl tracio ymholiadau SQL"
 
 #: setup/lib/messages.inc.php:281
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "Enw'r gwesteiwr ble mae'r gweinydd MySQL yn rhedeg"
 
 #: setup/lib/messages.inc.php:282
 msgid "Server hostname"
-msgstr ""
+msgstr "Enw gwesteiwr y gweinydd"
 
 #: setup/lib/messages.inc.php:283
 msgid "Logout URL"
-msgstr ""
+msgstr "URL allgofnodi"
 
 #: setup/lib/messages.inc.php:284
 msgid "Try to connect without password"
-msgstr ""
+msgstr "Ceisiwch â chysylltu heb gyfrinair"
 
 #: setup/lib/messages.inc.php:285
 msgid "Connect without password"
-msgstr ""
+msgstr "Cysylltwch heb gyfrinair"
 
 #: setup/lib/messages.inc.php:286
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgstr ""
+"Gallwch ddefnyddio nod-chwilwyr (% and _) MySQL. Bydd angen eu dianc os "
+"ydych am eu defnyddio'n llythrennol, h.y. defnyddiwch 'my\\_db' ac nid "
+"'my_db'"
 
 #: setup/lib/messages.inc.php:287
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Dangoswch gronfeydd data a restrir yn unig"
 
 #: setup/lib/messages.inc.php:288 setup/lib/messages.inc.php:322
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "Gadewch yn wag os nac ydych yn defnyddio 'config auth'"
 
 #: setup/lib/messages.inc.php:289
 msgid "Password for config auth"
-msgstr ""
+msgstr "Cyfrinair am 'config auth'"
 
 #: setup/lib/messages.inc.php:290
 msgid ""
@@ -7721,42 +7738,45 @@ msgstr ""
 
 #: tbl_tracking.php:593
 msgid "Version"
-msgstr ""
+msgstr "Fersiwn"
 
 #: tbl_tracking.php:640
 #, php-format
+#, possible-php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Dadweithredwch dracio am  %s.%s"
 
 #: tbl_tracking.php:642
 msgid "Deactivate now"
-msgstr ""
+msgstr "Dadweithredwch nawr"
 
 #: tbl_tracking.php:653
 #, php-format
+#, possible-php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "Gweithredwch dracio am  %s.%s"
 
 #: tbl_tracking.php:655
 msgid "Activate now"
-msgstr ""
+msgstr "Gweithredwch nawr"
 
 #: tbl_tracking.php:668
 #, php-format
+#, possible-php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Crëwch fersiwn %s o %s.%s"
 
 #: tbl_tracking.php:672
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Traciwch y datganiadau diffiniad data hyn:"
 
 #: tbl_tracking.php:680
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Traciwch y datganiadau trin data hyn:"
 
 #: tbl_tracking.php:688
 msgid "Create version"
-msgstr ""
+msgstr "Crëwch fersiwn"
 
 #: themes.php:32
 #, php-format
@@ -7767,11 +7787,11 @@ msgstr ""
 
 #: themes.php:42
 msgid "Get more themes!"
-msgstr ""
+msgstr "Cael gafael ar mwy o themâu"
 
 #: transformation_overview.php:25
 msgid "Available MIME types"
-msgstr ""
+msgstr "Mathau MIME ar gael"
 
 #: transformation_overview.php:38
 msgid ""
@@ -7785,7 +7805,7 @@ msgstr ""
 #: transformation_overview.php:48
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr ""
+msgstr "Disgrifiad"
 
 #: user_password.php:54
 msgid "You don't have sufficient privileges to be here right now!"

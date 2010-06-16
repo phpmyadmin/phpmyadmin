@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-07 22:50+0200\n"
+"PO-Revision-Date: 2010-06-08 18:57+0200\n"
 "Last-Translator: Marc <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -4451,16 +4451,14 @@ msgid "Jump to database"
 msgstr "Aller à la base de données"
 
 #: server_databases.php:267
-#, fuzzy
 #| msgid "Master replication"
 msgid "Not replicated"
-msgstr "Réplication maître"
+msgstr "Non répliqué"
 
 #: server_databases.php:273
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Réplication"
+msgstr "Répliqué"
 
 #: server_databases.php:289
 #, php-format
