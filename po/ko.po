@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 17:08+0200\n"
+"PO-Revision-Date: 2010-06-16 17:11+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -652,7 +652,7 @@ msgstr "계"
 #: db_structure.php:496 libraries/StorageEngine.class.php:356
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s는 이 MySQL 서버의 기본 스토리지 엔진입니다."
 
 #: db_structure.php:524 db_structure.php:541 db_structure.php:542
 #: libraries/display_tbl.lib.php:2081 libraries/display_tbl.lib.php:2086
