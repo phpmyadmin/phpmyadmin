@@ -1172,7 +1172,7 @@ msgstr "수요일"
 
 #: js/messages.php:126
 msgid "Thursday"
-msgstr ""
+msgstr "목요일"
 
 #: js/messages.php:127
 #, fuzzy
