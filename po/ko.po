@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 17:49+0200\n"
+"PO-Revision-Date: 2010-06-16 17:50+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1426,7 +1426,7 @@ msgstr ""
 #: libraries/StorageEngine.class.php:366
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "이 MySQL 서버는 %s 스토리지 엔진을 지원하지 않습니다."
 
 #: libraries/Table.class.php:1019
 msgid "Invalid database"
