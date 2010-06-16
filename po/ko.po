@@ -32,6 +32,8 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"대상 브라우저 창을 업데이트할 수 없습니다. 부모 창을 닫았거나 브라우저의 보안 설정이 다른 창을 업데이트하지 못하도록 설정되어 있는 것 "
+"같습니다."
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
