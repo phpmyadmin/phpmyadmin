@@ -22,7 +22,8 @@ require './setup/lib/forms.inc.php';
 
 $formsets = array(
     'features' => array(
-        'forms' => array('Import_export', 'Security', 'Sql_queries', 'Other_core_settings')),
+        'forms' => array('Import_export', 'Security', 'Sql_queries', 'Page_titles',
+                         'Other_core_settings')),
     'left_frame' => array(
         'forms' => array('Left_frame', 'Left_servers', 'Left_databases', 'Left_tables')),
     'main_frame' => array(

@@ -99,7 +99,17 @@ $forms['Sql_queries'] = array(
     'QueryHistoryDB',
     'QueryHistoryMax',
     'IgnoreMultiSubmitErrors',
-    'VerboseMultiSubmit');
+    'VerboseMultiSubmit',
+    'MaxCharactersInDisplayedSQL',
+    'EditInWindow',
+    'QueryWindowWidth',
+    'QueryWindowHeight',
+    'QueryWindowDefTab');
+$forms['Page_titles'] = array(
+    'TitleDefault',
+    'TitleTable',
+    'TitleDatabase',
+    'TitleServer');
 $forms['Other_core_settings'] = array(
     'MaxDbList',
     'MaxTableList',
@@ -144,16 +154,26 @@ $forms['Browse'] = array(
     'MaxRows',
     'Order',
     'BrowsePointerEnable',
-    'BrowseMarkerEnable');
+    'BrowseMarkerEnable',
+    'RepeatCells',
+    'LimitChars',
+    'ModifyDeleteAtLeft',
+    'ModifyDeleteAtRight',
+    'DefaultDisplay');
 $forms['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',
+    'ShowFieldTypesInDataEditView',
     'CharEditing',
     'CharTextareaCols',
     'CharTextareaRows',
+    'TextareaCols',
+    'TextareaRows',
+    'LongtextDoubleTextarea',
     'InsertRows',
     'ForeignKeyDropdownOrder',
-    'ForeignKeyMaxLimit');
+    'ForeignKeyMaxLimit',
+    'DefaultPropDisplay');
 $forms['Tabs'] = array(
     'LightTabs',
     'PropertiesIconic',
