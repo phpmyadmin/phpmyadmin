@@ -80,9 +80,8 @@ msgstr "키 이름"
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: server_collations.php:55 server_collations.php:67 server_engines.php:59
 #: server_status.php:739
-#, fuzzy
 msgid "Description"
-msgstr "설명이 없습니다"
+msgstr "설명"
 
 #: browse_foreigners.php:247 browse_foreigners.php:256
 #: browse_foreigners.php:268 browse_foreigners.php:276
