@@ -16,30 +16,30 @@ $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'CharTextareaCols',
     'CharTextareaRows',
-    'TextareaCols',// [s-]
-    'TextareaRows',// [s-]
-    'LongtextDoubleTextarea');// [s-]
+    'TextareaCols',
+    'TextareaRows',
+    'LongtextDoubleTextarea');
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
     'Confirm',
     'IgnoreMultiSubmitErrors',
     'VerboseMultiSubmit',
-    'MaxCharactersInDisplayedSQL',// [s-]
-    'EditInWindow',// [s-]
-    'QueryWindowWidth',// [s-]
-    'QueryWindowHeight',// [s-]
-    'QueryWindowDefTab');// [s-]
+    'MaxCharactersInDisplayedSQL',
+    'EditInWindow',
+    'QueryWindowWidth',
+    'QueryWindowHeight',
+    'QueryWindowDefTab');
 $forms['Sql_queries']['Sql_box'] = array(
-    'SQLQuery/Edit',// [s-]
-    'SQLQuery/Explain',// [s-]
-    'SQLQuery/ShowAsPHP',// [s-]
+    'SQLQuery/Edit',
+    'SQLQuery/Explain',
+    'SQLQuery/ShowAsPHP',
     'SQLQuery/Validate',// [false or no override]
-    'SQLQuery/Refresh');// [s-]
+    'SQLQuery/Refresh');
 $forms['Features']['Page_titles'] = array(
-    'TitleDefault',// [s-]
-    'TitleTable',// [s-]
-    'TitleDatabase',// [s-]
-    'TitleServer');// [s-]
+    'TitleDefault',
+    'TitleTable',
+    'TitleDatabase',
+    'TitleServer');
 $forms['Left_frame']['Left_frame'] = array(
     'LeftFrameLight',
     'LeftDisplayLogo',
@@ -72,20 +72,20 @@ $forms['Main_frame']['Browse'] = array(
     'DisplayBinaryAsHex',
     'BrowsePointerEnable',
     'BrowseMarkerEnable',
-    'RepeatCells',// [s-]
-    'LimitChars',// [s-]
-    'ModifyDeleteAtLeft',// [s-]
-    'ModifyDeleteAtRight',// [s-]
-    'DefaultDisplay');// [s-]
+    'RepeatCells',
+    'LimitChars',
+    'ModifyDeleteAtLeft',
+    'ModifyDeleteAtRight',
+    'DefaultDisplay');
 $forms['Main_frame']['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',
-    'ShowFieldTypesInDataEditView',// [s-]
+    'ShowFieldTypesInDataEditView',
     'InsertRows',
     'ForeignKeyDropdownOrder',// [s, ? custom text value]
     'ForeignKeyMaxLimit',
     'CtrlArrowsMoving',
-    'DefaultPropDisplay');// [s-]
+    'DefaultPropDisplay');
 $forms['Main_frame']['Tabs'] = array(
     'LightTabs',
     'PropertiesIconic',

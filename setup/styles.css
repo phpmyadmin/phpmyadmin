@@ -270,7 +270,7 @@ fieldset th small {
     color: #666;
 }
 
-fieldset th, fieldset td {
+fieldset th, fieldset td, .form .lastrow {
     border-top: 1px #555 dotted;
 }
 
@@ -278,10 +278,6 @@ fieldset .lastrow, .form .lastrow {
     background: #F7FBFF;
     padding: 0.5em;
     text-align: center;
-}
-
-.form .lastrow {
-    border-top: 1px #555 dotted;
 }
 
 fieldset .lastrow input, .form .lastrow input {

@@ -169,13 +169,16 @@ var validate = {};
 // form validator list
 var validators = {
     // regexp: numeric value
-    _regexp_numeric: new RegExp('^[0-9]*$'),
+    _regexp_numeric: new RegExp('^[0-9]+$'),
     /**
      * Validates positive number
      *
      * @param {boolean} isKeyUp
      */
     validate_positive_number: function (isKeyUp) {
+        if (isKeyUp && this.value == '') {
+            return true;
+        }
         var result = this.value != '0' && validators._regexp_numeric.test(this.value);
         return result ? true : PMA_messages['error_nan_p'];
     },
@@ -185,6 +188,9 @@ var validators = {
      * @param {boolean} isKeyUp
      */
     validate_non_negative_number: function (isKeyUp) {
+        if (isKeyUp && this.value == '') {
+            return true;
+        }
         var result = validators._regexp_numeric.test(this.value);
         return result ? true : PMA_messages['error_nan_nneg'];
     },
@@ -194,6 +200,9 @@ var validators = {
      * @param {boolean} isKeyUp
      */
     validate_port_number: function(isKeyUp) {
+        if (isKeyUp && this.value == '') {
+            return true;
+        }
         var result = validators._regexp_numeric.test(this.value) && this.value != '0';
         if (!result || this.value > 65536) {
             result = PMA_messages['error_incorrect_port'];

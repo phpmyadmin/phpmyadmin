@@ -1228,14 +1228,14 @@ table#serverconnection_trg_local  {
   float:left;
 }
 /**
-  *  Validation error message styles
+  *  Validation error message styles<style>/*
   */
 .invalid_value
 {background:#F00;}
 
 /* config forms */
 .config-form ul.tabs {
-    margin:      1em 0.2em 0;
+    margin:      1.1em 0.2em 0;
     padding:     0 0 0.3em 0;
     list-style:  none;
     font-weight: bold;
@@ -1270,7 +1270,7 @@ table#serverconnection_trg_local  {
     margin-top:   0;
     padding:      0;
     clear:        both;
-    border-color: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    /*border-color: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;*/
 }
 
 .config-form legend {
@@ -1286,7 +1286,7 @@ table#serverconnection_trg_local  {
     margin:       0 -2px 1em -2px;
     padding:      0.5em 1.5em;
     background:   #FBEAD9;
-    border: 1px   #C83838 solid;
+    border:       0 #C83838 solid;
     border-width: 1px 0;
     list-style:   none;
     font-family:  sans-serif;
@@ -1327,18 +1327,18 @@ table#serverconnection_trg_local  {
     color:       #444;
 }
 
-.config-form fieldset th, fieldset td {
-    border-top: 1px #666 dotted;
+.config-form fieldset th, .config-form fieldset td {
+    border-top: 1px <?php echo $GLOBALS['cfg']['BgTwo']; ?> solid;
+}
+
+.config-form .lastrow {
+    border-top: 1px #000 solid;
 }
 
 .config-form .lastrow {
     background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;;
     padding:    0.5em;
     text-align: center;
-}
-
-.config-form .form .lastrow {
-    border-top: 1px #555 dotted;
 }
 
 .config-form .lastrow input {
