@@ -86,7 +86,7 @@ msgstr "설명"
 #: browse_foreigners.php:247 browse_foreigners.php:256
 #: browse_foreigners.php:268 browse_foreigners.php:276
 msgid "Use this value"
-msgstr ""
+msgstr "이 값을 사용합니다"
 
 #: db_create.php:46
 #, fuzzy, php-format
