@@ -5502,7 +5502,7 @@ msgstr ""
 
 #: server_status.php:109
 msgid "The number of requests to write a key block to the cache."
-msgstr ""
+msgstr "Število zahtev za pisanje bloka ključev v predpomnilnik."
 
 #: server_status.php:110
 msgid "The number of physical writes of a key block to disk."
