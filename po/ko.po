@@ -303,7 +303,7 @@ msgstr "사용불가"
 
 #: db_operations.php:562
 msgid "Damaged"
-msgstr ""
+msgstr "손상됨"
 
 #: db_operations.php:566
 #, fuzzy
