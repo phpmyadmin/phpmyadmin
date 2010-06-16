@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-17 00:46+0200\n"
+"PO-Revision-Date: 2010-06-17 00:48+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5635,6 +5635,7 @@ msgstr "Število stikov, ki so izvedli celotni pregled na prvi tabeli."
 #: server_status.php:132
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
+"Število začasnih tabel, ki so trenutno odprte s strani niti SQL podrejencev."
 
 #: server_status.php:133
 msgid ""
