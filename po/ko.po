@@ -1181,7 +1181,7 @@ msgstr "금요일"
 
 #: js/messages.php:128
 msgid "Saturday"
-msgstr ""
+msgstr "토요일"
 
 #. l10n: Short week day name
 #: js/messages.php:132 libraries/common.lib.php:1582
