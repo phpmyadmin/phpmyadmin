@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-08 12:32-0400\n"
-"PO-Revision-Date: 2010-06-10 21:20+0200\n"
+"POT-Creation-Date: 2010-06-13 09:03-0400\n"
+"PO-Revision-Date: 2010-06-11 17:28+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
-"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -90,9 +90,9 @@ msgid "Use this value"
 msgstr "Използвахте тази стойност"
 
 #: db_create.php:46
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "Базата данни %s беше изтрита."
+msgstr "Базата данни %1$s беше създадена."
 
 #: db_datadict.php:49 db_operations.php:378
 msgid "Database comment: "
@@ -278,7 +278,7 @@ msgstr "Прехвърляна към копираната база от дан�
 
 #: db_operations.php:537
 msgid "BLOB Repository"
-msgstr ""
+msgstr "BLOB хранилище"
 
 #: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1352
 #: libraries/server_links.inc.php:49 server_processlist.php:59
@@ -352,7 +352,7 @@ msgid "Table"
 msgstr "Таблица "
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
-#: libraries/header_printview.inc.php:63 libraries/import.lib.php:145
+#: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
@@ -393,7 +393,7 @@ msgid_plural "%s tables"
 msgstr[0] "%s таблица(и)"
 msgstr[1] "%s таблица(и)"
 
-#: db_qbe.php:29 libraries/Message.class.php:191
+#: db_qbe.php:29 import.php:454 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/sql_query_form.lib.php:140
 #: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
 #: view_operations.php:62
@@ -576,7 +576,7 @@ msgstr "Вмъкване"
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
-#: libraries/export/texytext.php:23 libraries/import.lib.php:1104
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1106
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
 #: server_privileges.php:593 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
@@ -907,7 +907,7 @@ msgstr ""
 msgid "Click to unselect"
 msgstr ""
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:89
+#: js/messages.php:27 libraries/import.lib.php:104 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" заявката е забранена."
 
@@ -1381,7 +1381,7 @@ msgstr "Коментари"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
-#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
@@ -1410,7 +1410,7 @@ msgid "Databases"
 msgstr "Бази от данни"
 
 #: libraries/Message.class.php:211 libraries/common.lib.php:581
-#: libraries/core.lib.php:261 libraries/import.lib.php:134 pdf_schema.php:32
+#: libraries/core.lib.php:261 libraries/import.lib.php:135 pdf_schema.php:32
 #: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
 #: tbl_relation.php:290 view_operations.php:62
 msgid "Error"
@@ -2033,7 +2033,6 @@ msgid "No Privileges"
 msgstr "Няма привилегии"
 
 #: libraries/display_create_table.lib.php:41
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
 msgstr "Таблицата трябва да има поне една колона."
 
@@ -2043,7 +2042,6 @@ msgid "Create table on database %s"
 msgstr "Създаване на нова таблица в БД %s"
 
 #: libraries/display_create_table.lib.php:57
-#| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Брой колони"
 
@@ -2055,7 +2053,6 @@ msgstr ""
 
 #: libraries/display_export.lib.php:107
 #, php-format
-#| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
 msgstr "Дъмп-ни %s ред(а) като започнеш от ред # %s."
 
@@ -2297,8 +2294,8 @@ msgstr "Сортиране по ключ"
 #: libraries/export/php_array.php:25 libraries/export/sql.php:34
 #: libraries/export/texytext.php:37 libraries/export/xls.php:27
 #: libraries/export/xlsx.php:27 libraries/export/xml.php:24
-#: libraries/export/yaml.php:28 libraries/import.lib.php:1082
-#: libraries/import.lib.php:1104 libraries/import/csv.php:32
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1084
+#: libraries/import.lib.php:1106 libraries/import/csv.php:32
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
@@ -3031,48 +3028,48 @@ msgstr "SQL резултат"
 msgid "Generated by"
 msgstr "Генерирано от"
 
-#: libraries/import.lib.php:150 sql.php:520 tbl_change.php:181
+#: libraries/import.lib.php:152 sql.php:520 tbl_change.php:181
 #: tbl_get_field.php:35
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL върна празен резултат (т.е. нула редове)."
 
-#: libraries/import.lib.php:1078
+#: libraries/import.lib.php:1080
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1079
+#: libraries/import.lib.php:1081
 msgid "View a structure`s contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1080
+#: libraries/import.lib.php:1082
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1081
+#: libraries/import.lib.php:1083
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1084
+#: libraries/import.lib.php:1086
 #, fuzzy
 msgid "Go to database"
 msgstr "Няма бази от данни"
 
-#: libraries/import.lib.php:1087 libraries/import.lib.php:1111
+#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
 msgid "settings"
 msgstr ""
 
-#: libraries/import.lib.php:1106
+#: libraries/import.lib.php:1108
 msgid "Go to table"
 msgstr ""
 
-#: libraries/import.lib.php:1109
+#: libraries/import.lib.php:1111
 #, fuzzy
 msgid "structure"
 msgstr "Структура"
 
-#: libraries/import.lib.php:1115
+#: libraries/import.lib.php:1117
 msgid "Go to view"
 msgstr ""
 
