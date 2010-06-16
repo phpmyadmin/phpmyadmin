@@ -1689,7 +1689,7 @@ msgstr "ko"
 #: libraries/sql_query_form.lib.php:451 libraries/sql_query_form.lib.php:454
 #: main.php:229 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
-msgstr "도움말"
+msgstr "문서"
 
 #: libraries/common.lib.php:595 libraries/header_printview.inc.php:61
 #: server_processlist.php:60 server_status.php:358
