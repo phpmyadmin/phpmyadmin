@@ -604,7 +604,7 @@ msgstr "테이블 %s 을 제거했습니다."
 
 #: db_structure.php:333
 msgid "Tracking is active."
-msgstr ""
+msgstr "트래킹이 활성화되었습니다."
 
 #: db_structure.php:335
 msgid "Tracking is not active."
