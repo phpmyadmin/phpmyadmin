@@ -1722,9 +1722,8 @@ msgid "Refresh"
 msgstr ""
 
 #: libraries/common.lib.php:1244
-#, fuzzy
 msgid "Skip Validate SQL"
-msgstr "SQL 검사"
+msgstr "SQL 검사 생략"
 
 #: libraries/common.lib.php:1247 setup/lib/messages.inc.php:356 sql.php:518
 msgid "Validate SQL"
