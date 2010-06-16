@@ -2029,9 +2029,8 @@ msgid "File name template"
 msgstr "파일명 템플릿"
 
 #: libraries/display_export.lib.php:152
-#, fuzzy
 msgid "server name"
-msgstr "사용자명"
+msgstr "서버명"
 
 #: libraries/display_export.lib.php:155
 msgid "database name"
