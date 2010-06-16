@@ -1226,7 +1226,6 @@ msgstr "일"
 
 #. l10n: Minimal week day name
 #: js/messages.php:150
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "월"
