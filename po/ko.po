@@ -498,7 +498,7 @@ msgstr "정규표현식"
 #: db_search.php:242
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr ""
+msgstr "\"<i>%s</i>\"의 검색 결과 %s:"
 
 #: db_search.php:260
 #, php-format
