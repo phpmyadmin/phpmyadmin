@@ -227,9 +227,8 @@ msgid "Rename database to"
 msgstr "데이터베이스 이름 변경"
 
 #: db_operations.php:417 server_processlist.php:57
-#, fuzzy
 msgid "Command"
-msgstr "설명(코멘트)"
+msgstr "커맨드"
 
 #: db_operations.php:429 tbl_change.php:1143
 msgid "and then"
