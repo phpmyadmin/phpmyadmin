@@ -451,10 +451,9 @@ msgid "Add/Delete criteria rows"
 msgstr "조건행 추가/삭제"
 
 #: db_qbe.php:596
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "열(칼럼) 추가/삭제"
+msgstr "컬럼 추가/삭제"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
