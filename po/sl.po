@@ -5477,7 +5477,7 @@ msgid ""
 "determine how much of the key cache is in use."
 msgstr ""
 "Število neuporabljenih blokov v predpomnilniku ključev. To vrednost lahko "
-"uporabite, da ugotovite, koliko predpomnilnika ključev je v uporabi. "
+"uporabite, da ugotovite, koliko predpomnilnika ključev je v uporabi."
 
 #: server_status.php:106
 msgid ""
