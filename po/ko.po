@@ -1168,7 +1168,7 @@ msgstr "화요일"
 
 #: js/messages.php:125
 msgid "Wednesday"
-msgstr ""
+msgstr "수요일"
 
 #: js/messages.php:126
 msgid "Thursday"
