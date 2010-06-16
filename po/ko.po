@@ -221,7 +221,7 @@ msgstr "데이터베이스 %s 의 이름을 %s 로 변경하였습니다."
 #: db_operations.php:240
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "데이터베이스 %s을(를)  %s 로 복사하였습니다."
+msgstr "데이터베이스 %s 를  %s 로 복사하였습니다."
 
 #: db_operations.php:412
 #, fuzzy
