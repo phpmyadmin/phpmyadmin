@@ -5491,7 +5491,7 @@ msgstr ""
 
 #: server_status.php:107
 msgid "The number of requests to read a key block from the cache."
-msgstr ""
+msgstr "Število zahtev za branje bloka ključev iz predpomnilnika."
 
 #: server_status.php:108
 msgid ""
