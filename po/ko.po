@@ -1263,7 +1263,7 @@ msgstr "토"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
 msgid "Wk"
-msgstr ""
+msgstr "주"
 
 #: js/messages.php:164
 msgid "Hour"
