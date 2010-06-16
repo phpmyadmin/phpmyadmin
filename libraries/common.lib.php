@@ -2860,4 +2860,38 @@ function PMA_js($code, $print=true)
 
   return $out;
 }
+
+/**
+ * function that generates a json output for an ajax request and ends script
+ * execution
+ *
+ * @param   boolean success whether the ajax request was successfull
+ * @param   string  message string containing the html of the message
+ * @param   array   extra_data  optional - any other data as part of the json request
+ *
+ * @uses    header()
+ * @uses    json_encode()
+ */
+function PMA_ajaxResponse($message, $success = true, $extra_data = array())
+{
+    $response = array();
+    if( $success == true ) {
+        $response['success'] = true;
+        $response['message'] = $message->getDisplay();
+    }
+    else {
+        $response['success'] = false;
+        $response['error'] = $message;
+    }
+
+    if( count($extra_data) > 0 ) {
+        $response = array_merge($response, $extra_data);
+    }
+
+    if(!$GLOBALS['is_header_sent']) {
+        header("Content-Type: application/json");
+    }
+    echo json_encode($response);
+    exit;
+}
 ?>
