@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 18:17+0200\n"
+"PO-Revision-Date: 2010-06-16 18:18+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -547,10 +547,9 @@ msgid "Inside table(s):"
 msgstr "찾을 테이블:"
 
 #: db_search.php:355
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "찾을 테이블:"
+msgstr "검색할 컬럼:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
