@@ -306,10 +306,9 @@ msgid "Damaged"
 msgstr "손상됨"
 
 #: db_operations.php:566
-#, fuzzy
 msgctxt "BLOB repository"
 msgid "Repair"
-msgstr "테이블 복구"
+msgstr "복구"
 
 #: db_operations.php:574
 #, fuzzy
