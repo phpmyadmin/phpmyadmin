@@ -5630,7 +5630,7 @@ msgstr ""
 
 #: server_status.php:131
 msgid "The number of joins that did a full scan of the first table."
-msgstr ""
+msgstr "Število stikov, ki so izvedli celotni pregled na prvi tabeli."
 
 #: server_status.php:132
 msgid "The number of temporary tables currently open by the slave SQL thread."
