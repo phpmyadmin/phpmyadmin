@@ -271,7 +271,6 @@ msgid "Add constraints"
 msgstr "제약조건 추가"
 
 #: db_operations.php:496
-#, fuzzy
 msgid "Switch to copied database"
 msgstr "복사한 테이블로 옮겨감"
 
