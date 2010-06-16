@@ -1579,7 +1579,7 @@ msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "인증중입니다..."
 
 #: libraries/blobstreaming.lib.php:689
 msgid "View image"
