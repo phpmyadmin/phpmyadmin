@@ -263,7 +263,7 @@ msgstr "복사 전에 CREATE DATABASE 실행"
 #: libraries/export/sql.php:82 tbl_operations.php:536
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "%s 추가"
 
 #: db_operations.php:479 libraries/export/sql.php:78 tbl_operations.php:299
 #: tbl_operations.php:538
