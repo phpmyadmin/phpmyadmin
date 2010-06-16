@@ -141,49 +141,29 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
              printf(__('<p>File may be compressed (%s) or uncompressed.</p><p>A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b></p>'), implode(", ", $compressions));
          }
 
-        if ($GLOBALS['is_upload']) {
+        if($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
+            <ul>
+            <li>
+                <input type="radio" name="file_location" id="upload_file_input">
+                <?php PMA_browseUploadFile($max_upload_size); ?>
+            </li>
+            <li>
+                <input type="radio" name="file_location" id="upload_file_uploaddir">
+                <?php PMA_selectUploadFile($import_list, $cfg['UploadDir']); ?>
+            </li>
+            </ul>
+        <?php } else if ($GLOBALS['is_upload']) {
             $uid = uniqid("");
             ?>
         <div class="formelementrow" id="upload_form">
-            <div id="upload_form_status" style="display: none;"></div>
-            <div id="upload_form_status_info" style="display: none;"></div>
-            <div id="upload_form_form">
-                <label for="input_import_file"><?php echo __('Location of the file:'); ?></label>
-                <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
-                <?php
-                    echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
-                    // some browsers should respect this :)
-                    echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
-                ?>
-            </div>
+           <?php PMA_browseUploadFile($max_upload_size); ?>
+        </div>
         </div>
             <?php
-        } else {
+        } else if (!$GLOBALS['is_upload']) {
             PMA_Message::warning(__('File uploads are not allowed on this server.'))->display();
-        }
-        if (!empty($cfg['UploadDir'])) {
-            $extensions = '';
-            foreach ($import_list as $key => $val) {
-                if (!empty($extensions)) {
-                    $extensions .= '|';
-                }
-                $extensions .= $val['extension'];
-            }
-            $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
-
-            $files = PMA_getFileSelectOptions(PMA_userDir($cfg['UploadDir']), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
-            echo '<div class="formelementrow">' . "\n";
-            if ($files === FALSE) {
-                PMA_Message::error(__('The directory you set for upload work cannot be reached'))->display();
-            } elseif (!empty($files)) {
-                echo "\n";
-                echo '    <i>' . __('Or') . '</i><br/><label for="select_local_import_file">' . __('web server upload directory') . '</label>&nbsp;: ' . "\n";
-                echo '    <select style="margin: 5px" size="1" name="local_import_file" onchange="match_file(this.value)" id="select_local_import_file">' . "\n";
-                echo '        <option value="">&nbsp;</option>' . "\n";
-                echo $files;
-                echo '    </select>' . "\n";
-            }
-            echo '</div>' . "\n";
+        } else if (!empty($cfg['UploadDir'])) {
+            PMA_selectUploadFile($import_list, $cfg['UploadDir']);
         } // end if (web-server upload directory)
 
 // charset of file
