@@ -1124,7 +1124,7 @@ msgstr "6월"
 #. l10n: Short month name
 #: js/messages.php:109 libraries/common.lib.php:1569
 msgid "Jul"
-msgstr "견우직녀달"
+msgstr "7월"
 
 #. l10n: Short month name
 #: js/messages.php:111 libraries/common.lib.php:1571
