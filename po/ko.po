@@ -1241,7 +1241,6 @@ msgstr "화"
 
 #. l10n: Minimal week day name
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "수"
