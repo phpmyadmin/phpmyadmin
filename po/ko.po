@@ -1290,7 +1290,7 @@ msgstr "파일 업로드 중에 알 수 없는 오류가 발생했습니다."
 
 #: libraries/File.class.php:414
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "php.ini 파일에 지정된 upload_max_filesize 값보다 더 큰 파일이 업로드되었습니다."
 
 #: libraries/File.class.php:417
 msgid ""
