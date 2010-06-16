@@ -1304,7 +1304,7 @@ msgstr ""
 
 #: libraries/File.class.php:423
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "임시 폴더가 없습니다."
 
 #: libraries/File.class.php:426
 msgid "Failed to write file to disk."
