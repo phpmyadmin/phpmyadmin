@@ -524,7 +524,7 @@ msgstr "삭제"
 #: db_search.php:285
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr ""
+msgstr "<b>총:</b> <i>%s</i> 건 일치"
 
 #: db_search.php:299
 msgid "Search in database"
