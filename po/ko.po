@@ -2225,7 +2225,7 @@ msgstr ""
 #: libraries/display_select_lang.lib.php:45
 #: libraries/display_select_lang.lib.php:46 setup/frames/index.inc.php:70
 msgid "Language"
-msgstr ""
+msgstr "언어"
 
 #: libraries/display_tbl.lib.php:304
 #, php-format
