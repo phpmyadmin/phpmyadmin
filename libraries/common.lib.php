@@ -2856,4 +2856,46 @@ function PMA_js($code, $print=true)
 
   return $out;
 }
+
+/**
+ * Display the form used to browse anywhere on the server for the file to import
+ */
+function PMA_browseUploadFile($max_upload_size) {
+    $uid = uniqid("");
+    echo '<label for="upload_file_input">' . __("Browse the server:") . '</label>';
+    echo '<div id="upload_form_status" style="display: none;"></div>';
+    echo '<div id="upload_form_status_info" style="display: none;"></div>';
+    echo '<input style="margin: 5px" type="file" name="import_file" id="input_import_file";" />';
+    echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
+    // some browsers should respect this :)
+    echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+}
+
+/**
+ * Display the form used to select a file to import from the server upload directory
+ */
+function PMA_selectUploadFile($import_list, $uploaddir) {
+	echo '<label for="select_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
+	$extensions = '';
+    foreach ($import_list as $key => $val) {
+        if (!empty($extensions)) {
+            $extensions .= '|';
+        }
+        $extensions .= $val['extension'];
+    }
+    $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
+
+    $files = PMA_getFileSelectOptions(PMA_userDir($uploaddir), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
+    if ($files === FALSE) {
+        PMA_Message::error(__('The directory you set for upload work cannot be reached'))->display();
+    } elseif (!empty($files)) {
+        echo "\n";
+        echo '    <select style="margin: 5px" size="1" name="local_import_file" id="select_local_import_file">' . "\n";
+        echo '        <option value="">&nbsp;</option>' . "\n";
+        echo $files;
+        echo '    </select>' . "\n";
+    } elseif (empty ($files)) {
+        echo '<i>There are no files to upload</i>';
+    }
+}
 ?>
