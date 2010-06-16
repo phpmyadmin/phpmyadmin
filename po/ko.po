@@ -210,9 +210,8 @@ msgid "Unselect All"
 msgstr "모두 선택안함"
 
 #: db_operations.php:38 tbl_create.php:54
-#, fuzzy
 msgid "The database name is empty!"
-msgstr "테이블명이 없습니다!"
+msgstr "데이터베이스명이 없습니다!"
 
 #: db_operations.php:236
 #, fuzzy, php-format
