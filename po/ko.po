@@ -1030,10 +1030,9 @@ msgstr "다음"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:79
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "전체 사용량"
+msgstr "오늘"
 
 #: js/messages.php:82
 #, fuzzy
