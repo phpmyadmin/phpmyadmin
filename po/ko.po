@@ -1993,10 +1993,9 @@ msgid "Create table on database %s"
 msgstr "데이터베이스 %s에 새로운 테이블을 만듭니다."
 
 #: libraries/display_create_table.lib.php:57
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of columns"
-msgstr "페이지당 레코드 수"
+msgstr "컬럼수"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
