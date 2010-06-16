@@ -2034,7 +2034,7 @@ msgstr "서버명"
 
 #: libraries/display_export.lib.php:155
 msgid "database name"
-msgstr ""
+msgstr "데이터베이스명"
 
 #: libraries/display_export.lib.php:158
 msgid "table name"
