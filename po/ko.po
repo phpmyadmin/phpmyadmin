@@ -186,7 +186,7 @@ msgstr " 아니오 "
 #: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
-msgstr " 예 "
+msgstr "예"
 
 #: db_datadict.php:322 db_printview.php:266 tbl_printview.php:498
 msgid "Print"
