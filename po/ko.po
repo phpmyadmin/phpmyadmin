@@ -2038,7 +2038,7 @@ msgstr "데이터베이스명"
 
 #: libraries/display_export.lib.php:158
 msgid "table name"
-msgstr ""
+msgstr "테이블명"
 
 #: libraries/display_export.lib.php:162
 #, php-format
