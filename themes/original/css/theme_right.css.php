@@ -1254,7 +1254,7 @@ select#db_select, select#table_select {
     float: none;
 }
 
-#csv_options .desc, #latex_options .desc, #output .desc{
+#csv_options .desc, #ldi_options .desc, #latex_options .desc, #output .desc{
     float: left;
     width: 15em;
 }
