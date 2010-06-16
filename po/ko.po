@@ -1308,7 +1308,7 @@ msgstr "임시 폴더가 없습니다."
 
 #: libraries/File.class.php:426
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "디스크 쓰기가 실패했습니다."
 
 #: libraries/File.class.php:429
 msgid "File upload stopped by extension."
