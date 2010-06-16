@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 18:10+0200\n"
+"PO-Revision-Date: 2010-06-16 18:11+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -304,11 +304,10 @@ msgid "Repair"
 msgstr "복구"
 
 #: db_operations.php:574
-#, fuzzy
 #| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr "사용불가"
+msgstr "무효화됨"
 
 #: db_operations.php:578
 #, fuzzy
