@@ -291,9 +291,8 @@ msgid "Enabled"
 msgstr "유효"
 
 #: db_operations.php:552
-#, fuzzy
 msgid "Disable"
-msgstr "사용불가"
+msgstr "무효"
 
 #: db_operations.php:562
 msgid "Damaged"
