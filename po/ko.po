@@ -235,7 +235,6 @@ msgid "and then"
 msgstr "이어서"
 
 #: db_operations.php:455
-#, fuzzy
 msgid "Copy database to"
 msgstr "데이터베이스 복사"
 
