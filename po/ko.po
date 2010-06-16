@@ -4,14 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-03-12 09:16+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-06-16 17:05+0200\n"
+"Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
 #: libraries/display_tbl.lib.php:417 server_privileges.php:1514
@@ -92,9 +93,8 @@ msgid "Database %1$s has been created."
 msgstr "데이터베이스 %s 를 제거했습니다."
 
 #: db_datadict.php:49 db_operations.php:378
-#, fuzzy
 msgid "Database comment: "
-msgstr "테이블 설명"
+msgstr "데이터베이스 설명:"
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
 #: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
@@ -8042,213 +8042,3 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "테이블 이름 바꾸기"
-
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "필드 추가하기"
-
-#~ msgid "Field"
-#~ msgstr "필드"
-
-#~ msgid "Records"
-#~ msgstr "레코드수"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "필드 구분자 "
-
-#~ msgid "Fields"
-#~ msgstr "필드"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "필드 %s 를 제거했습니다"
-
-#, fuzzy
-#~| msgid "\"zipped\""
-#~ msgid "zipped"
-#~ msgstr "zip 압축"
-
-#, fuzzy
-#~| msgid "\"gzipped\""
-#~ msgid "gzipped"
-#~ msgstr "gz 압축"
-
-#, fuzzy
-#~| msgid "\"bzipped\""
-#~ msgid "bzipped"
-#~ msgstr "\"bz 압축\""
-
-#, fuzzy
-#~ msgid "and"
-#~ msgstr "그리고"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "사용불가"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "사용가능"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "테이블 복구"
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "%s 개 열(칼럼)에 인덱스 만들기 "
-
-#, fuzzy
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "새 페이지 만들기"
-
-#, fuzzy
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "없음"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "테이블 닫기(캐시 삭제)"
-
-#, fuzzy
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "설명이 없습니다"
-
-#, fuzzy
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "없음"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "\"%s\" 데이터베이스의 스킴(윤곽) - 페이지 %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "\"%s\" 테이블이 존재하지 않습니다!"
-
-#~ msgid "running on %s"
-#~ msgstr "입니다. (%s)"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "없음"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "없음"
-
-#, fuzzy
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "\"%s\" 테이블이 존재하지 않습니다!"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ " %s 확장모듈을 불러올 수 없습니다.<br />PHP 환경설정을 검사하십시오."
-
-#, fuzzy
-#~ msgid "(or the local MySQL server"
-#~ msgstr "MySQL 서버에 로그인할 수 없습니다"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV 데이터"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "사용자를 삭제하고 사용권한을 갱신함."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "가장 확실한 방법이지만, 사용권한 테이블을 다시 읽어들이는데는 약간의 시간"
-#~ "이 걸립니다."
-
-#~ msgid "has been altered."
-#~ msgstr "을(를) 변경하였습니다."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "사용권한이 갱신되기까지는 &quot;삭제된&quot; 사용자들도 여전히 서버를 사용"
-#~ "할 수 있습니다."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "권한 테이블에서 사용자를 삭제하기만 함."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr "저장프로시저(SP) 사용을 허용; 이 MySQL 버전에는 효과가 없음."
-
-#~ msgid "Process list"
-#~ msgstr "프로세스 목록"
-
-#, fuzzy
-#~ msgid "Reload privileges"
-#~ msgstr "전체적 권한"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "사용권한이 다시 로딩되기까지는 이 사용자들은 여전히 USAGE 권한을 갖고 있습"
-#~ "니다."
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "모두 선택"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "모두 선택"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "삽입"
-
-#, fuzzy
-#~| msgid "Update Query"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "질의 업데이트"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "삭제"
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
-
-#~ msgid "Jan0"
-#~ msgstr "해오름달0"
-
-#~ msgid "Jan1"
-#~ msgstr "해오름달1"
-
-#~ msgid "Jan2"
-#~ msgstr "해오름달2"
