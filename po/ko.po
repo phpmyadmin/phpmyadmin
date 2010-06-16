@@ -148,7 +148,7 @@ msgstr "기본값"
 #: libraries/export/texytext.php:238 pdf_schema.php:1268 pdf_schema.php:1289
 #: tbl_printview.php:150
 msgid "Links to"
-msgstr ""
+msgstr "링크 대상:"
 
 #: db_datadict.php:184 db_printview.php:112 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:45 libraries/export/latex.php:365
