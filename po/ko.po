@@ -1275,10 +1275,9 @@ msgid "Minute"
 msgstr "분"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Records"
 msgid "Second"
-msgstr "레코드수"
+msgstr "초"
 
 #: libraries/Config.class.php:1015
 msgid "Font size"
