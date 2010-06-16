@@ -1084,7 +1084,7 @@ msgstr "하늘연달"
 
 #: js/messages.php:92
 msgid "November"
-msgstr ""
+msgstr "11월"
 
 #: js/messages.php:93
 msgid "December"
