@@ -19,26 +19,26 @@ if (isset($plugin_list)) {
         'extension' => 'xml',
         'mime_type' => 'text/xml',
         'options' => array(
-            array('type' => 'hidden', 'name' => 'data'),
+            array('type' => 'hidden', 'name' => 'structure_or_data'),
             ),
         'options_text' => __('Options')
         );
     
     /* Export structure */
     $plugin_list['xml']['options'][] =
-        array('type' => 'bgroup', 'name' => 'export_struc', 'text' => __('Export Structure Schemas (recommended)'));
+        array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'name' => 'export_struc', 'text' => __('Structure schemas to export (all are recommended):')));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_functions', 'text' => __('Export functions'));
+        array('type' => 'bool', 'name' => 'export_functions', 'text' => __('Functions'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_procedures', 'text' => __('Export procedures'));
+        array('type' => 'bool', 'name' => 'export_procedures', 'text' => __('Procedures'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_tables', 'text' => __('Export tables'));
+        array('type' => 'bool', 'name' => 'export_tables', 'text' => __('Tables'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_triggers', 'text' => __('Export triggers'));
+        array('type' => 'bool', 'name' => 'export_triggers', 'text' => __('Triggers'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_views', 'text' => __('Export views'));
+        array('type' => 'bool', 'name' => 'export_views', 'text' => __('Views'));
     $plugin_list['xml']['options'][] =
-        array('type' => 'egroup');
+        array('type' => 'end_subgroup');
     
     /* Data */
     $plugin_list['xml']['options'][] =

@@ -27,44 +27,52 @@ if (isset($plugin_list)) {
             ),
         'options_text' => __('Options'),
         );
+
+    /* what to dump (structure/data/both) */
+    $plugin_list['latex']['options'][] =
+        array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Dump table')));
+    $plugin_list['latex']['options'][] =
+        array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
+    $plugin_list['latex']['options'][] = array('type' => 'end_subgroup');
+
     /* Structure options */
     if (!$hide_structure) {
         $plugin_list['latex']['options'][] =
-            array('type' => 'bgroup', 'name' => 'structure', 'text' => __('Structure'), 'force' => 'data');
+            array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options'), 'force' => 'data');
         $plugin_list['latex']['options'][] =
-            array('type' => 'text', 'name' => 'structure_caption', 'text' => __('Table caption'));
+            array('type' => 'text', 'name' => 'structure_caption', 'text' => __('Table caption:'));
         $plugin_list['latex']['options'][] =
-            array('type' => 'text', 'name' => 'structure_continued_caption', 'text' => __('Continued table caption'));
+            array('type' => 'text', 'name' => 'structure_continued_caption', 'text' => __('Table caption (continued):'));
         $plugin_list['latex']['options'][] =
-            array('type' => 'text', 'name' => 'structure_label', 'text' => __('Label key'));
+            array('type' => 'text', 'name' => 'structure_label', 'text' => __('Label key:'));
         if (!empty($GLOBALS['cfgRelation']['relation'])) {
             $plugin_list['latex']['options'][] =
-                array('type' => 'bool', 'name' => 'relation', 'text' => __('Relations'));
+                array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
         }
         $plugin_list['latex']['options'][] =
-            array('type' => 'bool', 'name' => 'comments', 'text' => __('Comments'));
+            array('type' => 'bool', 'name' => 'comments', 'text' => __('Display comments'));
         if (!empty($GLOBALS['cfgRelation']['mimework'])) {
             $plugin_list['latex']['options'][] =
-                array('type' => 'bool', 'name' => 'mime', 'text' => __('MIME type'));
+                array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
         }
         $plugin_list['latex']['options'][] =
-            array('type' => 'egroup');
+            array('type' => 'end_group');
     }
     /* Data */
     $plugin_list['latex']['options'][] =
-        array('type' => 'bgroup', 'name' => 'data', 'text' => __('Data'), 'force' => 'structure');
+        array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure');
     $plugin_list['latex']['options'][] =
         array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
     $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'data_caption', 'text' => __('Table caption'));
+        array('type' => 'text', 'name' => 'data_caption', 'text' => __('Table caption:'));
     $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'data_continued_caption', 'text' => __('Continued table caption'));
+        array('type' => 'text', 'name' => 'data_continued_caption', 'text' => __('Table caption (continued):'));
     $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'data_label', 'text' => __('Label key'));
+        array('type' => 'text', 'name' => 'data_label', 'text' => __('Label key:'));
     $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by'));
+        array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:'));
     $plugin_list['latex']['options'][] =
-        array('type' => 'egroup');
+        array('type' => 'end_group');
 } else {
 
 /**

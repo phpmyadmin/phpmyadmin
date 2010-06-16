@@ -19,7 +19,7 @@ if (isset($plugin_list)) {
         'options'       => array(
             array(
                 'type' => 'hidden',
-                'name' => 'data',
+                'name' => 'structure_or_data',
             ),
         ),
         'options_text'  => __('Options'),

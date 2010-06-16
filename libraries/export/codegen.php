@@ -32,9 +32,9 @@ if (isset($plugin_list)) {
         'text' => 'CodeGen',
         'extension' => 'cs',
         'mime_type' => 'text/cs',
-          'options' => array(
-          	array('type' => 'hidden', 'name' => 'data'),
-            array('type' => 'select', 'name' => 'format', 'text' => __('Format'), 'values' => $CG_FORMATS),
+        'options' => array(
+            array('type' => 'hidden', 'name' => 'structure_or_data'),
+            array('type' => 'select', 'name' => 'format', 'text' => __('Format:'), 'values' => $CG_FORMATS),
             ),
         'options_text' => __('Options'),
         );
