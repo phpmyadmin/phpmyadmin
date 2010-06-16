@@ -608,7 +608,7 @@ msgstr "트래킹이 활성화되었습니다."
 
 #: db_structure.php:335
 msgid "Tracking is not active."
-msgstr ""
+msgstr "트래킹이 활성화되어 있지 않습니다."
 
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
