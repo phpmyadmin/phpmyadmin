@@ -303,7 +303,9 @@ function PMA_pluginGetOptions($section, &$list)
     // Options for plugins that support them
     foreach ($list as $plugin_name => $val) {
         $ret .= '<div id="' . $plugin_name . '_options" class="format_specific_options"';
-        if($plugin_name != $default) {
+        if($section == 'Import' && $plugin_name == $default) {
+            $ret .= '>';
+        } else {
             $ret .= ' style="display: none;">';
         }
         $ret .= '<ul>';
