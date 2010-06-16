@@ -1999,7 +1999,7 @@ msgstr "컬럼수"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
-msgstr ""
+msgstr "내보내기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
 #: libraries/display_export.lib.php:107
 #, fuzzy, php-format
