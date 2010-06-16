@@ -311,7 +311,7 @@ msgstr "무효화됨"
 
 #: db_operations.php:578
 msgid "Enable"
-msgstr "유효화됨"
+msgstr "유효"
 
 #: db_operations.php:602 libraries/Index.class.php:448
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
