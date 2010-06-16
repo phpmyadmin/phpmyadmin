@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 17:30+0200\n"
+"PO-Revision-Date: 2010-06-16 17:33+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -608,9 +608,9 @@ msgid "Table %s has been emptied"
 msgstr "테이블 %s 을 비웠습니다"
 
 #: db_structure.php:326 libraries/tbl_links.inc.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped"
-msgstr "필드 %s 를 제거했습니다"
+msgstr "뷰 %s가 제거되었습니다."
 
 #: db_structure.php:326 libraries/tbl_links.inc.php:133
 #, php-format
