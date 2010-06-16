@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-16 18:13+0200\n"
+"PO-Revision-Date: 2010-06-16 18:15+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -319,9 +319,8 @@ msgstr "유효"
 #: server_collations.php:54 server_collations.php:66 server_databases.php:111
 #: tbl_operations.php:363 tbl_select.php:137 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
-#, fuzzy
 msgid "Collation"
-msgstr "생성"
+msgstr "데이터정렬방식"
 
 #: db_operations.php:615 main.php:316 pdf_schema.php:34
 #, php-format
