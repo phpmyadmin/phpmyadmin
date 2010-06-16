@@ -1055,7 +1055,7 @@ msgstr "4월"
 
 #: js/messages.php:86
 msgid "May"
-msgstr "푸른달"
+msgstr "5월"
 
 #: js/messages.php:87
 #, fuzzy
