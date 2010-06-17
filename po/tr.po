@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-12 19:55+0200\n"
+"PO-Revision-Date: 2010-06-15 13:31+0200\n"
 "Last-Translator:  <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -96,7 +96,7 @@ msgstr "Veritabanı %1$s oluşturuldu."
 
 #: db_datadict.php:49 db_operations.php:378
 msgid "Database comment: "
-msgstr "Veritabanı yorumu:"
+msgstr "Veritabanı yorumu: "
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
 #: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
@@ -221,7 +221,7 @@ msgstr "%s veritabanı %s olarak yeniden adlandırıldı"
 #: db_operations.php:240
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "%s veritabanı %s'e kopyalandı."
+msgstr "%s veritabanı %s'e kopyalandı"
 
 #: db_operations.php:412
 msgid "Rename database to"
@@ -245,7 +245,7 @@ msgstr "Sadece yapı"
 
 #: db_operations.php:463 tbl_operations.php:529 tbl_tracking.php:390
 msgid "Structure and data"
-msgstr "Yapı ve Veri"
+msgstr "Yapı ve veri"
 
 #: db_operations.php:464 tbl_operations.php:530 tbl_tracking.php:389
 msgid "Data only"
@@ -273,7 +273,7 @@ msgstr "Kısıtlamaları ekle"
 
 #: db_operations.php:496
 msgid "Switch to copied database"
-msgstr "Kopyalanmış veritabanına geç."
+msgstr "Kopyalanmış veritabanına geç"
 
 #: db_operations.php:537
 msgid "BLOB Repository"
@@ -536,7 +536,7 @@ msgstr "Veritabanında ara"
 
 #: db_search.php:302
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Aranacak kelime(ler) veya değer(ler) ( joker: \"%\" ):"
+msgstr "Aranacak kelime(ler) veya değer(ler) (joker: \"%\"):"
 
 #: db_search.php:307
 msgid "Find:"
@@ -805,7 +805,7 @@ msgstr "Web sunucusu %s dosyasını kaydetmek için izne sahip değil."
 #: export.php:629
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Döküm dosyası %s dosyasına kaydedildi"
+msgstr "Döküm dosyası %s dosyasına kaydedildi."
 
 #: import.php:60
 #, php-format
@@ -905,11 +905,11 @@ msgstr "Seçimi kaldırmak için tıklayın"
 
 #: js/messages.php:27 libraries/import.lib.php:104 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "\"DROP DATABASE\" ifadesi etkisiz."
+msgstr "\"DROP DATABASE\" ifadesi etkisizleştirildi."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:188
 msgid "Do you really want to "
-msgstr "Aşağıdaki komutu uygulamak istediğinize emin misiniz? "
+msgstr "Bunu uygulamak istiyor musunuz: "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:172
 msgid "You are about to DESTROY a complete database!"
@@ -976,7 +976,7 @@ msgstr "Hata: Bağlantı eklenmedi."
 
 #: js/messages.php:57 pmd_relation_new.php:31
 msgid "Error: relation already exists."
-msgstr "Hata: Bağlantı zaten var."
+msgstr "Hata: bağlantı zaten var."
 
 #: js/messages.php:58
 msgid "Error saving coordinates for Designer."
@@ -1516,7 +1516,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Log in"
-msgstr "Oturum Aç"
+msgstr "Oturum aç"
 
 #: libraries/auth/cookie.auth.lib.php:246
 #: libraries/auth/cookie.auth.lib.php:248
@@ -1534,7 +1534,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:258
 msgid "Server:"
-msgstr "Sunucu"
+msgstr "Sunucu:"
 
 #: libraries/auth/cookie.auth.lib.php:263
 msgid "Username:"
@@ -1550,7 +1550,7 @@ msgstr "Sunucu Seçimi"
 
 #: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
-msgstr "Bu kısmı geçmek için tanımlama bilgileri (Cookies) açık olmalı."
+msgstr "Bu kısmı geçmek için tanımlama bilgileri (cookies) açık olmalı."
 
 #: libraries/auth/cookie.auth.lib.php:671
 #: libraries/auth/signon.auth.lib.php:181
@@ -1618,7 +1618,7 @@ msgid ""
 msgstr ""
 "Karakter grubu dönüşümü için gerekli olan iconv veya recode uzantıları "
 "yüklenemedi. Ya PHP'yi bu uzantıları etkinleştirmek için yapılandırın ya da "
-"phpMyAdmin içinde karakter grubu dönüşümünü etkisizleştirin..."
+"phpMyAdmin içinde karakter grubu dönüşümünü etkisizleştirin."
 
 #: libraries/charset_conversion.lib.php:79
 #: libraries/charset_conversion.lib.php:90
@@ -2036,7 +2036,7 @@ msgstr ""
 #, php-format
 #| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
-msgstr "%s satır dökümü, %s. satırdan başlıyor."
+msgstr "%s satır dökümü, %s. satırdan başlıyor"
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
@@ -2188,9 +2188,9 @@ msgid ""
 "to the PHP timeout limit. This might be good way to import large files, "
 "however it can break transactions."
 msgstr ""
-"Küçük programcığın zaman sınırına yaklaşıldığını algılaması durumunda içeri "
-"aktarımı kesmeye izin ver. Bu büyük dosyaların içeri aktarımı için iyi bir "
-"yol olabilir, ancak hareketleri kesebilir."
+"Küçük programcığın PHP zaman aşımı sınırına yaklaşıldığını algılaması "
+"durumunda içeri aktarımı kesmeye izin ver. Bu büyük dosyaların içeri "
+"aktarımı için iyi bir yol olabilir, ancak hareketleri kesebilir."
 
 #: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
 #| msgid "Number of records (queries) to skip from start"
@@ -2219,7 +2219,7 @@ msgstr "Tabloların boyutlarını göster"
 
 #: libraries/display_pdf_schema.lib.php:41
 msgid "Display all tables with the same width"
-msgstr "Bütün tablolar aynı genişlikte gösterilsin?"
+msgstr "Bütün tablolar aynı genişlikte gösterilsin"
 
 #: libraries/display_pdf_schema.lib.php:46
 msgid "Only show keys"
@@ -2271,7 +2271,7 @@ msgstr "dikey"
 #: libraries/display_tbl.lib.php:324
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
-msgstr "%s kipinde ve %s hücre sonra başlığı tekrarla."
+msgstr "%s kipinde ve %s hücre sonra başlığı tekrarla"
 
 #: libraries/display_tbl.lib.php:346
 msgid "This operation could take a long time. Proceed anyway?"
@@ -2411,7 +2411,7 @@ msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-"Tablo dolduğunda otomatik genişleyen tablo alanının genişlemesi için artış "
+" Tablo dolduğunda otomatik genişleyen tablo alanının genişlemesi için artış "
 "miktarı boyutu."
 
 #: libraries/engines/innodb.lib.php:42
@@ -2526,7 +2526,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:32
 msgid "Maximum size for temporary sort files"
-msgstr "Geçici sıralama dosyaları için en fazla boyut."
+msgstr "Geçici sıralama dosyaları için en fazla boyut"
 
 #: libraries/engines/myisam.lib.php:33
 msgid ""
@@ -2810,7 +2810,7 @@ msgstr "Tablo döküm verisi"
 #: libraries/export/htmlword.php:185 libraries/export/odt.php:238
 #: libraries/export/sql.php:785 libraries/export/texytext.php:177
 msgid "Table structure for table"
-msgstr "Tablo için tablo yapısı:"
+msgstr "Tablo için tablo yapısı"
 
 #: libraries/export/latex.php:22
 msgid "LaTeX"
@@ -2980,7 +2980,7 @@ msgstr "TABLO MIME TÜRLERİ"
 
 #: libraries/export/sql.php:739
 msgid "RELATIONS FOR TABLE"
-msgstr "TABLO İLİŞKİLERİ"
+msgstr "TABLO BAĞLANTILARI"
 
 #: libraries/export/sql.php:796 libraries/tbl_triggers.lib.php:19
 msgid "Triggers"
@@ -3427,7 +3427,7 @@ msgstr "Giriş"
 #: libraries/navigation_header.inc.php:70
 #: libraries/navigation_header.inc.php:71 main.php:99
 msgid "Log out"
-msgstr "Oturumu Kapat"
+msgstr "Oturumu kapat"
 
 #: libraries/navigation_header.inc.php:80
 #: libraries/navigation_header.inc.php:83
@@ -3468,7 +3468,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "Sütun_Yorumları tablonuzun nasıl güncelleneceğini öğrenmek için lütfen "
-"belgelere bakın."
+"belgelere bakın"
 
 #: libraries/relation.lib.php:143 libraries/sql_query_form.lib.php:433
 msgid "Bookmarked SQL query"
@@ -3721,7 +3721,7 @@ msgstr "Sınırlayıcı"
 
 #: libraries/sql_query_form.lib.php:396
 msgid " Show this query here again "
-msgstr "Bu sorguyu burada tekrar göster"
+msgstr " Bu sorguyu burada tekrar göster "
 
 #: libraries/sql_query_form.lib.php:462
 msgid "Submit"
@@ -3736,8 +3736,9 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
-"SQL sorgunuzda bir hata olduğu görünüyor. Eğer varsa, aşağıdaki MySQL sunucu "
-"hata çıktısı, sorunu teşhis etmenizde ayrıca size yardımcı olabilir."
+"SQL sorgunuzda bir hata olduğu görünüyor. MySQL sunucusu hata çıktısı "
+"aşağıdadır, eğer varsa, sorunu teşhis etmenizde ayrıca size yardımcı "
+"olabilir"
 
 #: libraries/sqlparser.lib.php:173
 msgid ""
@@ -3797,7 +3798,7 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "SQL onaylayıcısı başlatılamadı. %sBelgelerde%s anlatıldığı gibi lütfen "
-"gerekli php uzantılarının kurulu olduğunu kontrol edin."
+"gerekli PHP uzantılarının kurulu olduğunu kontrol edin."
 
 #: libraries/tbl_links.inc.php:107 libraries/tbl_links.inc.php:140
 #: libraries/tbl_links.inc.php:141
@@ -4364,7 +4365,7 @@ msgstr "İlişki oluştur"
 
 #: pmd_general.php:80
 msgid "Reload"
-msgstr "Yeniden Yükle"
+msgstr "Yeniden yükle"
 
 #: pmd_general.php:83
 msgid "Help"
@@ -4714,13 +4715,13 @@ msgstr "Bu MySQL sürümünde etkisi yoktur."
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Sunucu ayarlarının yeniden yüklenmesine ve sunucunun önbelleğinin "
-"temizlenmesine izin verir"
+"temizlenmesine izin verir."
 
 #: server_privileges.php:50 server_privileges.php:198
 #: server_privileges.php:552
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
-"Kullanıcılara Slave ve Master'ların nerede olduğunu sormasına izin verir."
+"Kullanıcılara slave / master'ların nerede olduğunu sormasına izin verir."
 
 #: server_privileges.php:51 server_privileges.php:197
 #: server_privileges.php:553
@@ -4932,7 +4933,7 @@ msgstr "Aşağıdaki veritabanına yetkileri ekle"
 
 #: server_privileges.php:1943
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
-msgstr "_ ve % jokerleri harfi harfine kullanılmak için \\ ile doldurun."
+msgstr "_ ve % jokerleri harfi harfine kullanılmak için \\ ile doldurun"
 
 #: server_privileges.php:1946
 msgid "Add privileges on the following table"
@@ -4952,19 +4953,19 @@ msgstr "... eski olanı sakla."
 
 #: server_privileges.php:2009
 msgid " ... delete the old one from the user tables."
-msgstr "... eski olanı kullanıcı tablolarından sil."
+msgstr " ... eski olanı kullanıcı tablolarından sil."
 
 #: server_privileges.php:2010
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
-msgstr "... eski olandan bütün aktif yetkileri iptal et ve sonra da sil."
+msgstr " ... eski olandan bütün aktif yetkileri iptal et ve sonra da sil."
 
 #: server_privileges.php:2011
 msgid ""
 " ... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... eski olanı kullanıcı tablolarından sil ve sonra da yetkileri yeniden "
+" ... eski olanı kullanıcı tablolarından sil ve sonra da yetkileri yeniden "
 "yükle."
 
 #: server_privileges.php:2033
@@ -5103,8 +5104,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Şimdi, aşağıdaki satırları my.cnf dosyamın sonuna ekle ve ondan sonra lütfen "
-"MySQL sunucusunu yeniden başlatın."
+"Şimdi, aşağıdaki satırları my.cnf dosyanız içindeki [mysqld] bölümünün "
+"sonuna ekleyin ve ondan sonra lütfen MySQL sunucusunu yeniden başlatın."
 
 #: server_replication.php:230
 msgid ""
@@ -5227,11 +5228,11 @@ msgstr ""
 "İfadeler çalıştırılırken sunucu tarafından disk üzerindeki geçici tablo "
 "sayıları otomatik olarak oluşturuldu. Eğer Created_tmp_disk_tables değeri "
 "büyük ise, geçici tabloların disk tabanlı yerine bellek tabanlı olamasına "
-"sebep olmak için tmp_table_size değerini arttırmak isteyebilirsiniz."
+"sebep olmak için tmp_table_size  değerini arttırmak isteyebilirsiniz."
 
 #: server_status.php:43
 msgid "How many temporary files mysqld has created."
-msgstr "mysqld'nin kaç tane geçici dosya oluşturduğudur."
+msgstr "Mysqld'nin kaç tane geçici dosya oluşturduğudur."
 
 #: server_status.php:44
 msgid ""
@@ -5774,7 +5775,7 @@ msgstr ""
 #: server_status.php:136
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
-msgstr "long_query_time saniyeden daha uzun zaman almış sorgu sayısıdır."
+msgstr "Long_query_time saniyeden daha uzun zaman almış sorgu sayısıdır."
 
 #: server_status.php:137
 msgid ""
@@ -5933,14 +5934,14 @@ msgstr ""
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>master</b> olarak "
-"çalışır"
+"çalışır."
 
 #: server_status.php:475
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>slave</b> olarak "
-"çalışır"
+"çalışır."
 
 #: server_status.php:477
 #| msgid ""
@@ -6287,10 +6288,11 @@ msgstr ""
 "Bu [a@?page=form&amp;formset=features#tab_Security]seçenek[/a] "
 "etkisizleştirilmedikçe saldırganların herhangi bir MySQL sunucusuna "
 "bruteforce yöntemiyle oturum açmasına izin verecektir. Eğer bunun gerekli "
-"olduğunu düşünüyorsanız, [a@?page=form&amp;formset=features#tab_Security]"
-"güvenilir proksi listesi[/a] kullanın. Ancak, IP-tabanlı koruma eğer IP'niz, "
-"sizinde dahil olduğunuz binlerce kullanıcıya sahip ve bağlı olduğunuz bir "
-"ISS'e aitse güvenilir olmayabilir ."
+"olduğunu düşünüyorsanız, "
+"[a@?page=form&amp;formset=features#tab_Security]güvenilir proksi listesi[/a] "
+"kullanın. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz "
+"binlerce kullanıcıya sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir "
+"olmayabilir."
 
 #: setup/lib/messages.inc.php:19
 msgid "Allow login to any MySQL server"
@@ -7337,7 +7339,8 @@ msgstr "Bağlantıyı sıkıştır"
 #: setup/lib/messages.inc.php:260
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
-"Sunucuya nasıl bağlanılacağıdır, eğer emin değilseniz tcp olarak bırakın"
+"Sunucuya nasıl bağlanılacağıdır, eğer emin değilseniz [kbd]tcp[/kbd] olarak "
+"bırakın"
 
 #: setup/lib/messages.inc.php:261
 msgid "Connection type"
@@ -7403,10 +7406,11 @@ msgid ""
 msgstr ""
 "Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- "
 "[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]anamakine "
-"kimlik denetimi[/a] ayarları ve [a@?page=form&amp;"
-"formset=features#tab_Security]güvenilir proksi listesi[/a]. Ancak, IP-"
-"tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce kullanıcıya "
-"sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir olmayabilir ."
+"kimlik denetimi[/a] ayarları ve "
+"[a@?page=form&amp;formset=features#tab_Security]güvenilir proksi "
+"listesi[/a]. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz "
+"binlerce kullanıcıya sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir "
+"olmayabilir."
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -7514,7 +7518,7 @@ msgid ""
 msgstr ""
 "İlişkiler, yer imleri ve PDF özellikleri için kullanılan veritabanı. Tam "
 "bilgi için [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]'ye bakın. "
-"Destek istenmiyorsa boş bırakın. Varsayılan: [kbd]phpmyadmin[/kbd]"
+"Destek istenmiyorsa boş bırakın. Önerilen: [kbd]phpmyadmin[/kbd]"
 
 #: setup/lib/messages.inc.php:294
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -7551,8 +7555,8 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
-"Örnek için [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]Kimlik "
-"denetimi türlerine[/a] bakın"
+"Örnek için [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]kimlik "
+"doğrulama türlerine[/a] bakın"
 
 #: setup/lib/messages.inc.php:301
 msgid "Signon session name"
@@ -7568,7 +7572,7 @@ msgid ""
 "automatically."
 msgstr ""
 "İzleme mekanizması tablolar ve görünümler için otomatik olarak sürümler "
-"oluşturur"
+"oluşturur."
 
 #: setup/lib/messages.inc.php:304
 #| msgid "Automatic recovery mode"
@@ -7577,7 +7581,8 @@ msgstr "Otomatik olarak sürümleri oluştur"
 
 #: setup/lib/messages.inc.php:305
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr "Yeni sürümler için otomatik oluşturma kullanan ifade listesini tanımlar"
+msgstr ""
+"Yeni sürümler için otomatik oluşturma kullanan ifade listesini tanımlar."
 
 #: setup/lib/messages.inc.php:306
 #| msgid "Statements"
@@ -7743,7 +7748,7 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] çıktısına "
+"[a@http://php.net/manual/function.phpinfo.php]Phpinfo()[/a] çıktısına "
 "bağlantıyı gösterir"
 
 #: setup/lib/messages.inc.php:339
@@ -7922,7 +7927,7 @@ msgstr "Eşleştirilemez sürüm dizgisi"
 
 #: setup/lib/messages.inc.php:375
 msgid "Version check"
-msgstr "Sürüm  kontrolü"
+msgstr "Sürüm kontrolü"
 
 #: setup/lib/messages.inc.php:376
 msgid ""
@@ -8049,7 +8054,7 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Değerden değere geçmek için TAB tuşunu veya herhangi bir yere gitmek için "
-"CTRL+OK TUŞLARI'nı kullanın."
+"CTRL+OK TUŞLARI'nı kullanın"
 
 #: tbl_change.php:1209
 #, php-format
@@ -8096,14 +8101,14 @@ msgstr "İndeks ismi:"
 
 #: tbl_indexes.php:174
 msgid "Index type:"
-msgstr "İndeks türü :"
+msgstr "İndeks türü:"
 
 #: tbl_indexes.php:184
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
 "(\"PRIMARY\" <b>sadece ve sadece</b> bir birincil anahtarın ismi "
-"<b>olmalıdır!</b>"
+"<b>olmalıdır!</b>)"
 
 #: tbl_indexes.php:251
 #, php-format
@@ -8536,7 +8541,7 @@ msgstr "Mevcut MIME türleri"
 msgid ""
 "MIME types printed in italics do not have a separate transformation function"
 msgstr ""
-"İtalik olarak yazılmış MIME türleri ayrı bir dönüşüm işlevine sahip değildir."
+"İtalik olarak yazılmış MIME türleri ayrı bir dönüşüm işlevine sahip değildir"
 
 #: transformation_overview.php:43
 msgid "Available transformations"
