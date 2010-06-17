@@ -27,11 +27,7 @@ function PMA_chart_status($data)
     //$chart = new PMA_OFC_Pie(__('Query type'), $chartData, $options);
     $chart = new PMA_pChart_Pie(
             __('Query statistics'),
-            $chartData,
-            array(
-                'width' => 500,
-                'height' => 325,
-            ));
+            $chartData);
     echo $chart->toString();
 }
 
@@ -49,13 +45,7 @@ function PMA_chart_profiling($data)
 
     $chart = new PMA_pChart_Pie(
             __('Query execution time comparison (in microseconds)'),
-            $chartData,
-            array(
-                'bgColor' => '#e5e5e5',
-                'width' => 500,
-                'height' => 325,
-            )
-    );
+            $chartData);
     echo $chart->toString();
 }
 

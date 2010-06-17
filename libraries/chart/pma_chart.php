@@ -34,17 +34,17 @@ class PMA_Chart
     /*
      * Chart background color.
      */
-    protected $bgColor = '#f5f5f5';
+    protected $bgColor = '#E5E5E5';
 
     /*
      * The width of the chart.
      */
-    protected $width = 400;
+    protected $width = 500;
 
     /*
      * The height of the chart.
      */
-    protected $height = 250;
+    protected $height = 325;
 
     function __construct($options = null)
     {
@@ -69,6 +69,11 @@ class PMA_Chart
             $this->width = $options['width'];
         if (isset($options['height']))
             $this->height = $options['height'];
+    }
+
+    function getBgColorComp($component)
+    {
+        return hexdec(substr($this->bgColor, ($component * 2) + 1, 2));
     }
 }
 

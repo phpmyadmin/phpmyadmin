@@ -15,49 +15,53 @@ class PMA_pChart_Pie extends PMA_pChart_Chart
         require_once './libraries/chart/pChart/pChart.class';
 
         // Dataset definition 
-        $DataSet = new pData;
-        $DataSet->AddPoint(array_values($data),"Serie1");
-        $DataSet->AddPoint(array_keys($data),"Serie2");
-        $DataSet->AddAllSeries();
-        $DataSet->SetAbsciseLabelSerie("Serie2");
+        $dataSet = new pData;
+        $dataSet->AddPoint(array_values($data),"Values");
+        $dataSet->AddPoint(array_keys($data),"Keys");
+        $dataSet->AddAllSeries();
+        $dataSet->SetAbsciseLabelSerie("Keys");
 
         // Initialise the graph
-        $Test = new pChart($this->width, $this->height);
+        $chart = new pChart($this->width, $this->height);
         foreach ($this->colors as $key => $color) {
-            $Test->setColorPalette(
+            $chart->setColorPalette(
                     $key,
                     hexdec(substr($color, 1, 2)),
                     hexdec(substr($color, 3, 2)),
                     hexdec(substr($color, 5, 2))
             );
         }
-        $Test->setFontProperties($this->fontPath.'tahoma.ttf', 8);
-        $Test->drawFilledRoundedRectangle(
+        $chart->setFontProperties($this->fontPath.'tahoma.ttf', 8);
+        $chart->drawFilledRoundedRectangle(
                 $this->border1Width,
                 $this->border1Width,
                 $this->width - $this->border1Width,
                 $this->height - $this->border1Width,
-                5,240,240,240);
-        $Test->drawRoundedRectangle(
+                5,
+                $this->getBgColorComp(0),
+                $this->getBgColorComp(1),
+                $this->getBgColorComp(2)
+                );
+        $chart->drawRoundedRectangle(
                 $this->border1Width,
                 $this->border1Width,
                 $this->width - $this->border1Width,
                 $this->height - $this->border1Width,
-                5,230,230,230);
+                5,0,0,0);
 
         // Draw the pie chart
-        $Test->AntialiasQuality = 0;
-        $Test->setShadowProperties(2,2,200,200,200);
+        $chart->AntialiasQuality = 0;
+        $chart->setShadowProperties(2,2,200,200,200);
         //$Test->drawFlatPieGraphWithShadow($DataSet->GetData(),$DataSet->GetDataDescription(),180,160,120,PIE_PERCENTAGE,8);
         //$Test->drawBasicPieGraph($DataSet->GetData(),$DataSet->GetDataDescription(),180,160,120,PIE_PERCENTAGE,255,255,218,2);
-        $Test->drawPieGraph($DataSet->GetData(),$DataSet->GetDataDescription(),180,160,120,PIE_PERCENTAGE,FALSE,60,30,10,1);
-        $Test->clearShadow();
+        $chart->drawPieGraph($dataSet->GetData(),$dataSet->GetDataDescription(),180,160,120,PIE_PERCENTAGE,FALSE,60,30,10,1);
+        $chart->clearShadow();
 
-        $Test->drawTitle(10,20,$titleText,0,0,0);
-        $Test->drawPieLegend(340,15,$DataSet->GetData(),$DataSet->GetDataDescription(),250,250,250);
+        $chart->drawTitle(20,20,$titleText,0,0,0);
+        $chart->drawPieLegend(350,15,$dataSet->GetData(),$dataSet->GetDataDescription(),250,250,250);
 
         ob_start();
-        imagepng($Test->Picture);
+        imagepng($chart->Picture);
         $output = ob_get_contents();
         ob_end_clean();
 
