@@ -112,6 +112,7 @@ $(document).ready(function() {
      * Attach AJAX event handlers to 'Add a New User'
      *
      * @todo create standard options for dialog boxes
+     * @todo hook in checkAddUser()
      */
     $("#fieldset_add_user a").live("click", function(event) {
         event.preventDefault();
@@ -121,12 +122,30 @@ $(document).ready(function() {
         $(this).append('<div id="add_user_dialog"></div>');
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
             $("#add_user_dialog")
-            .prepend(data).dialog({
+            .prepend(data)
+            .find("#fieldset_add_user_footer").hide() //showing the "Go" and "Create User" buttons together will confuse the user
+            .end()
+            .find("#addUsersForm").append('<input type="hidden" name="ajax_request" value="true" />')
+            .end()
+            .dialog({
                 title: 'Add a New User',
                 width: 800,
                 modal: true,
                 buttons: {"Create User": function() {
-                        //code here to submit the form
+
+
+                                var the_form = $(this).find("#addUsersForm");
+
+                                //We also need to post the value of the submit button in order to get this to work correctly
+                                $.post($(the_form).attr('action'), $(the_form).serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
+                                    if(data.success == true) {
+                                        $("#add_user_dialog").dialog("close");
+                                        PMA_ajaxShowMessage(data.message);
+                                    }
+                                    else {
+                                        PMA_ajaxShowMessage("Error in processing request :"+data.error, "7000");
+                                    }
+                                })
                             },
                             "Cancel": function() {$(this).dialog("close")}
                         } //buttons end
@@ -135,6 +154,12 @@ $(document).ready(function() {
 
     });//end of Add New User AJAX event handler
 
+
+   /*$("#adduser_submit").live('click',function(event) {
+       event.preventDefault();
+       alert($(this).attr('value'));
+       return false;
+   })*/
     /**
      * Attach Ajax event handler to 'Reload Privileges' anchor
      */
@@ -147,7 +172,7 @@ $(document).ready(function() {
             .prepend(data)
             .dialog({
                 title: 'Reload Privileges',
-                buttons: { "Close": function() {$(this).dialog("close")} }
+                buttons: {"Close": function() {$(this).dialog("close")}}
             }); //dialog options end
         });
     }); //end of Reload Privileges Ajax event handler
