@@ -9,24 +9,26 @@ class PMA_Chart
 
     /*
      * Colors for the different slices in the pie chart.
-     */
+     */    
     protected $colors = array(
-        '#70484A',
-        '#705948',
-        '#6D4870',
-        '#70485E',
-        '#485E70',
-        '#484A70',
-        '#487059',
-        '#48706D',
-        '#594870',
-        '#5E7048',
-        '#839CAF',
-        '#95775F',
-        '#5F7E95',
-        '#706D48',
-        '#4A7048',
-        '#AF9683',
+        '#BCE02E',
+        '#E0642E',
+        '#E0D62E',
+        '#2E97E0',
+        '#B02EE0',
+        '#E02E75',
+        '#5CE02E',
+        '#E0B02E',
+        '#000000',
+        '#0022E0',
+        '#726CB1',
+        '#481A36',
+        '#BAC658',
+        '#127224',
+        '#825119',
+        '#238C74',
+        '#4C489B',
+        '#1D674A',
     );
 
     /*
@@ -44,9 +46,9 @@ class PMA_Chart
      */
     protected $height = 250;
 
-    function __construct()
+    function __construct($options = null)
     {
-
+        $this->handleOptions($options);
     }
 
     /*

@@ -1,6 +1,6 @@
 <?php
 
-require_once('pma_chart.php');
+require_once 'pma_chart.php';
 
 /*
  * Base class for every chart implemented using OFC.
@@ -8,13 +8,13 @@ require_once('pma_chart.php');
  */
 class PMA_OFC_Chart extends PMA_Chart
 {
-    protected $flashBaseUrl = 'js/';
+    protected $flashBaseUrl = 'flash/';
 
     protected $chart = null;
 
-    function __construct()
+    function __construct($options = null)
     {
-        parent::__construct();
+        parent::__construct($options);
     }
 
     function get_embed_code($data)

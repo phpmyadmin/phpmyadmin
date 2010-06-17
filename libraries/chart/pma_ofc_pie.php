@@ -1,6 +1,6 @@
 <?php
 
-require_once('pma_ofc_chart.php');
+require_once 'pma_ofc_chart.php';
 
 /*
  * Implementation of pie chart using OFC.
@@ -9,11 +9,9 @@ class PMA_OFC_Pie extends PMA_OFC_Chart
 {
     function __construct($titleText, $data, $options = null)
     {
-        parent::__construct();
+        parent::__construct($options);
 
-        $this->handleOptions($options);
-
-        include './libraries/chart/ofc/open-flash-chart.php';
+        require_once './libraries/chart/ofc/open-flash-chart.php';
 
         // create and style chart title
         $title = new title($titleText);
