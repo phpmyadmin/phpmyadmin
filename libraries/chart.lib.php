@@ -25,7 +25,13 @@ function PMA_chart_status($data)
     }
     
     //$chart = new PMA_OFC_Pie(__('Query type'), $chartData, $options);
-    $chart = new PMA_pChart_Pie(__('Query type'), $chartData);
+    $chart = new PMA_pChart_Pie(
+            __('Query statistics'),
+            $chartData,
+            array(
+                'width' => 500,
+                'height' => 325,
+            ));
     echo $chart->toString();
 }
 
