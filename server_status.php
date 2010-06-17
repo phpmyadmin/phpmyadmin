@@ -592,13 +592,7 @@ foreach ($used_queries as $name => $value) {
 
 <div>    
     <?php
-    // format keys which will be shown in the chart
-    $chart_data = array();
-    foreach($used_queries as $key => $value) {
-        $key = str_replace(array('Com_', '_'), array('', ' '), $key);
-        $chart_data[ucwords($key)] = (int)$value;
-    }
-    echo PMA_chart_pie(__('Query type'), $chart_data);
+    echo PMA_chart_status($used_queries);
     ?>
 </div>
 

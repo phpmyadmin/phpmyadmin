@@ -1,4 +1,8 @@
 <?php
+
+require_once './libraries/chart/pma_ofc_pie.php';
+require_once './libraries/chart/pma_pChart_pie.php';
+
 /**
  * Chart functions used to generate various types
  * of charts.
@@ -7,11 +11,45 @@
  * @package phpMyAdmin
  */
 
-function PMA_chart_pie($titleText, $data, $options = null)
+/*
+ * Formats a chart for status page.
+ */
+function PMA_chart_status($data)
 {
-    require_once('./libraries/chart/pma_ofc_pie.php');
+    // format keys which will be shown in the chart
+    $chartData = array();
+    foreach($data as $dataKey => $dataValue) {
+        $key = ucwords(str_replace(array('Com_', '_'), array('', ' '), $dataKey));
+        $value = (int)$dataValue;
+        $chartData[$key] = $value;
+    }
+    
+    //$chart = new PMA_OFC_Pie(__('Query type'), $chartData, $options);
+    $chart = new PMA_pChart_Pie(__('Query type'), $chartData);
+    echo $chart->toString();
+}
 
-    $chart = new PMA_OFC_Pie($titleText, $data, $options);
+/*
+ * Formats a chart for profiling page.
+ */
+function PMA_chart_profiling($data)
+{
+    $chartData = array();
+    foreach($data as $dataValue) {
+        $value = (int)($dataValue['Duration']*1000000);
+        $key = ucwords($dataValue['Status']);
+        $chartData[$key] = $value;
+    }
+
+    $chart = new PMA_pChart_Pie(
+            __('Query execution time comparison (in microseconds)'),
+            $chartData,
+            array(
+                'bgColor' => '#e5e5e5',
+                'width' => 500,
+                'height' => 325,
+            )
+    );
     echo $chart->toString();
 }
 

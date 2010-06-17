@@ -1363,41 +1363,13 @@ function PMA_profilingResults($profiling_results, $show_chart = false)
     echo '</div>';
 
     if ($show_chart) {
+        require_once './libraries/chart.lib.php';
         echo '<div style="float: left;">';
-        PMA_profilingResultsChart($profiling_results);
+        PMA_chart_profiling($profiling_results);
         echo '</div>';
     }
 
     echo '</fieldset>' . "\n";
-}
-
-/**
- * Displays the results of SHOW PROFILE as a chart
- *
- * @param    array   the results
- * @access  public
- *
- */
-function PMA_profilingResultsChart($profiling_results)
-{
-    require_once './libraries/chart.lib.php';
-
-    $chart_data = array();
-    foreach($profiling_results as $one_result) {
-        $value = (int)($one_result['Duration']*1000000);
-        $key = ucwords($one_result['Status']);
-        $chart_data[$key] = $value;
-    }
-
-    echo PMA_chart_pie(
-            __('Query execution time comparison (in microseconds)'),
-            $chart_data,
-            array(
-                'bgColor' => '#e5e5e5',
-                'width' => 500,
-                'height' => 300,
-            )
-    );
 }
 
 /**
