@@ -566,10 +566,10 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
                     ? __('Database-specific privileges')
                     : __('Table-specific privileges'))) . "\n"
            . '        (<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', true); return false;">'
+            . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'addUsersForm\', true); return false;">'
             . __('Check All') . '</a> /' . "\n"
            . '        <a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'usersForm\', false); return false;">'
+            . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'addUsersForm\', false); return false;">'
             . __('Uncheck All') . '</a>)' . "\n"
            . '    </legend>' . "\n"
            . '    <p><small><i>' . __(' Note: MySQL privilege names are expressed in English ') . '</i></small></p>' . "\n"
@@ -1031,6 +1031,10 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             $queries_for_display[$tmp_count - 1] = $sql_query;
         }
         unset($res, $real_sql_query);
+    }
+
+    if( $GLOBALS['is_ajax_request'] ) {
+        PMA_ajaxResponse($message, true);
     }
 }
 
@@ -2037,7 +2041,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     echo '<h2>' . "\n"
        . PMA_getIcon('b_usradd.png') . __('Add a new User') . "\n"
        . '</h2>' . "\n"
-       . '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post" onsubmit="return checkAddUser(this);">' . "\n"
+       . '<form name="usersForm" id="addUsersForm" action="server_privileges.php" method="post">' . "\n"
        . PMA_generate_common_hidden_inputs('', '');
     PMA_displayLoginInformationFields('new');
     echo '<fieldset id="fieldset_add_user_database">' . "\n"
