@@ -29,6 +29,7 @@ class PMA_Chart
         '#238C74',
         '#4C489B',
         '#1D674A',
+        '#87C9BF',
     );
 
     /*
@@ -39,7 +40,7 @@ class PMA_Chart
     /*
      * The width of the chart.
      */
-    protected $width = 500;
+    protected $width = 520;
 
     /*
      * The height of the chart.
