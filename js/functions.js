@@ -1850,9 +1850,14 @@ $(document).ready(function() {
             PMA_ajaxShowMessage("Processing Request");
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                PMA_ajaxShowMessage("Table Truncated");
-                //need to find a better solution here.  The icon should be replaced
-                $(this).remove();
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    //need to find a better solution here.  The icon should be replaced
+                    $(this).remove();
+                }
+                else {
+                    PMA_ajaxShowMessage("Error in processing request : " + data.error);
+                }
             })
         })
     }); //end of Truncate Table Ajax action
@@ -1870,15 +1875,64 @@ $(document).ready(function() {
             PMA_ajaxShowMessage("Processing Request");
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                PMA_ajaxShowMessage("Table Truncated");
-                //need to find a better solution here.  The icon should be replaced
-                $(this).remove();
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    //need to find a better solution here.  The icon should be replaced
+                    $(this).remove();
+                }
+                else {
+                    PMA_ajaxShowMessage("Error in processing request : " + data.error);
+                }
             });
         });
     }); //end of Drop Table Ajax action
 
     //Drop Column
+    $(".drop_column_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        var curr_table_name = window.parent.table;
+        var curr_column_name = $(this).parents('tr').children('th').children('label').text();
+        var question = 'Do you really want to :\n ALTER TABLE `' + curr_table_name + '` DROP `' + curr_column_name + '`';
+
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage("Dropping Column");
+
+            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $(this).remove();
+                }
+                else {
+                    PMA_ajaxShowMessage("Error in processing request : " + data.error);
+                }
+            })
+        }); //end of Drop Column Anchor action
+    })
     
-    //Drop Primary Key
+    //Add Primary Key
+    $(".add_primary_key_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        var curr_table_name = window.parent.table;
+        var curr_column_name = $(this).parents('tr').children('th').children('label').text();
+        var question = 'Do you really want to  :\n ALTER TABLE `' + curr_table_name + '` ADD PRIMARY KEY(`' + curr_column_name + '`)';
+
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage("Adding Primary Key");
+
+            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $(this).remove();
+                }
+                else {
+                    PMA_ajaxShowMessage("Error in processing request : " + data.error);
+                }
+            })
+        })
+    })
 
 }, 'top.frame_content'); //end $(document).ready()
