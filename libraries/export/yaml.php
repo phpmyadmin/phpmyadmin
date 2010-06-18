@@ -20,10 +20,12 @@ if (isset($plugin_list)) {
         'mime_type'     => 'text/yaml',
         'force_file'    => true,
         'options'       => array(
+            array('type' => 'begin_group', 'name' => 'general_opts'),
             array(
                 'type' => 'hidden',
                 'name' => 'structure_or_data',
             ),
+            array('type' => 'end_group')
         ),
         'options_text'  => __('Options'),
     );

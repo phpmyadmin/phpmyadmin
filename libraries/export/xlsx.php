@@ -20,9 +20,11 @@ if (isset($plugin_list)) {
         'mime_type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         'force_file' => true,
         'options' => array(
+            array('type' => 'begin_group', 'name' => 'general_opts'),
             array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:')),
             array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
             array('type' => 'hidden', 'name' => 'structure_or_data'),
+            array('type' => 'end_group')
             ),
         'options_text' => __('Options'),
         );

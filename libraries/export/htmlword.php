@@ -21,9 +21,9 @@ if (isset($plugin_list)) {
         'force_file' => true,
         'options' => array(
             /* what to dump (structure/data/both) */
-            array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Dump table'))),
+            array('type' => 'begin_group', 'name' => 'dump_what', 'text' => __('Dump table')),
             array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data'))),
-            array('type' => 'end_subgroup'),
+            array('type' => 'end_group'),
             /* data options */
             array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure'),
             array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:')),

@@ -18,6 +18,7 @@ if (isset($plugin_list)) {
         'extension' => 'csv',
         'mime_type' => 'text/comma-separated-values',
         'options' => array(
+            array('type' => 'begin_group', 'name' => 'general_opts'),
             array('type' => 'text', 'name' => 'separator', 'text' => __('Columns terminated with:')),
             array('type' => 'text', 'name' => 'enclosed', 'text' => __('Columns enclosed with:')),
             array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped with:')),
@@ -26,6 +27,7 @@ if (isset($plugin_list)) {
             array('type' => 'bool', 'name' => 'removeCRLF', 'text' => __('Remove carriage return/line field characters within columns')),
             array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
             array('type' => 'hidden', 'name' => 'structure_or_data'),
+            array('type' => 'end_group'),
             ),
         'options_text' => __('Options'),
         );

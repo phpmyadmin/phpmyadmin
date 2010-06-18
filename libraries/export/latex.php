@@ -23,17 +23,19 @@ if (isset($plugin_list)) {
         'extension' => 'tex',
         'mime_type' => 'application/x-tex',
         'options' => array(
+            array('type' => 'begin_group', 'name' => 'general_opts'),
             array('type' => 'bool', 'name' => 'caption', 'text' => __('Include table caption')),
+            array('type' => 'end_group')
             ),
         'options_text' => __('Options'),
         );
 
     /* what to dump (structure/data/both) */
     $plugin_list['latex']['options'][] =
-        array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Dump table')));
+        array('type' => 'begin_group', 'name' => 'dump_what', 'text' => __('Dump table'));
     $plugin_list['latex']['options'][] =
         array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
-    $plugin_list['latex']['options'][] = array('type' => 'end_subgroup');
+    $plugin_list['latex']['options'][] = array('type' => 'end_group');
 
     /* Structure options */
     if (!$hide_structure) {
