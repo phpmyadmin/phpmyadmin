@@ -1276,7 +1276,7 @@ select#db_select, select#table_select {
 }
 
 .export_sub_options {
-    margin: 30px 0px 0px 30px;
+    margin: 30px 0px 0px 0px;
 }
 
 .export_sub_options h4 {
