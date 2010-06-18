@@ -1135,6 +1135,26 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         <br/><br/>
     </dd>
 
+    <dt id="userconfig">
+        <span id="cfg_Servers_userconfig">$cfg['Servers'][$i]['userconfig']</span> string
+    </dt>
+    <dd>
+        Since release 3.4.x phpMyAdmin allows users to set most preferences by themselves
+        and store them in the database.
+        <br /><br />
+
+        If you don't allow for storing preferences in <a href="#pmadb">pmadb</a>, users can
+        still personalize phpMyAdmin, but settings will be saved in browser's local storage,
+        or, it is is unavailable, until the end of session.
+        <br /><br />
+
+        To allow the usage of this functionality:
+
+        <ul>
+            <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
+            <li>put the table name in <tt>$cfg['Servers'][$i]['userconfig']</tt></li>
+        </ul>
+    </dd>
 
     <dt id="designer_coords">
         <span id="cfg_Servers_designer_coords">$cfg['Servers'][$i]['designer_coords']</span> string

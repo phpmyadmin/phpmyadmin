@@ -84,6 +84,8 @@ function PMA_getRelationsParam($verbose = false)
  * @uses    __('Please see the documentation on how to update your column_comments table')
  * @uses    __('SQL history')
  * @uses    __('Designer')
+ * @uses    __('Tracking')
+ * @uses    __('User preferences')
  * @uses    $cfg['Server']['pmadb']
  * @uses    sprintf()
  * @uses    PMA_printDiagMessageForFeature()
@@ -153,6 +155,10 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
     PMA_printDiagMessageForParameter('tracking', isset($cfgRelation['tracking']), $messages, 'tracking');
 
     PMA_printDiagMessageForFeature(__('Tracking'), 'trackingwork', $messages);
+
+    PMA_printDiagMessageForParameter('userconfig', isset($cfgRelation['userconfig']), $messages, 'userconfig');
+
+    PMA_printDiagMessageForFeature(__('User preferences'), 'userconfigwork', $messages);
 
     echo '</table>' . "\n";
 
@@ -230,6 +236,7 @@ function PMA__getRelationsParam()
     $cfgRelation['historywork'] = false;
     $cfgRelation['trackingwork'] = false;
     $cfgRelation['designerwork'] = false;
+    $cfgRelation['userconfigwork'] = false;
     $cfgRelation['allworks']    = false;
     $cfgRelation['user']        = null;
     $cfgRelation['db']          = null;
@@ -280,6 +287,8 @@ function PMA__getRelationsParam()
             $cfgRelation['history'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['tracking']) {
             $cfgRelation['tracking'] = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['userconfig']) {
+            $cfgRelation['userconfig'] = $curr_table[0];
         }
     } // end while
     PMA_DBI_free_result($tab_rs);
@@ -334,6 +343,10 @@ function PMA__getRelationsParam()
         $cfgRelation['trackingwork']     = true;
     }
 
+    if (isset($cfgRelation['userconfig'])) {
+        $cfgRelation['userconfigwork']   = true;
+    }
+
     // we do not absolutely need that the internal relations or the PDF
     // schema feature be activated
     if (isset($cfgRelation['designer_coords'])) {
@@ -347,7 +360,7 @@ function PMA__getRelationsParam()
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
      && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
      && $cfgRelation['mimework'] && $cfgRelation['historywork']
-     && $cfgRelation['trackingwork']
+     && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
      && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']) {
         $cfgRelation['allworks'] = true;
     }
