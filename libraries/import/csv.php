@@ -22,6 +22,7 @@ if (isset($plugin_list)) {
         'text' => __('CSV'),
         'extension' => 'csv',
         'options' => array(
+            array('type' => 'begin_group', 'name' => 'general_opts'),
             array('type' => 'bool', 'name' => 'replace', 'text' => __('Replace table data with file')),
             array('type' => 'bool', 'name' => 'ignore', 'text' => __('Ignore duplicate rows')),
             array('type' => 'text', 'name' => 'terminated', 'text' => __('Columns terminated with:'), 'size' => 2, 'len' => 2),
@@ -39,6 +40,7 @@ if (isset($plugin_list)) {
         $plugin_list['csv']['options'][] =
             array('type' => 'text', 'name' => 'columns', 'text' => __('Column names'));
     }
+    $plugin_list['csv']['options'][] = array('type' => 'end_group');
 
     /* We do not define function when plugin is just queried for information above */
     return;

@@ -29,7 +29,9 @@ if (isset($plugin_list)) {
         'text' => __('DocSQL'),                // text to be displayed as choice
         'extension' => '',                  // extension this plugin can handle
         'options' => array(                 // array of options for your plugin (optional)
+            array('type' => 'begin_group', 'name' => 'general_opts'),
             array('type' => 'text', 'name' => 'table', 'text' => __('Table name')),
+            array('type' => 'end_group')
         ),
         'options_text' => __('Options'), // text to describe plugin options (must be set if options are used)
         );

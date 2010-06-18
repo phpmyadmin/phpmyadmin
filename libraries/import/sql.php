@@ -26,6 +26,7 @@ if (isset($plugin_list)) {
             $values[$val] = $val;
         }
         $plugin_list['sql']['options'] = array(
+            array('type' => 'begin_group', 'name' => 'general_opts'),
             array(
                 'type'      => 'select',
                 'name'      => 'compatibility',
@@ -47,6 +48,7 @@ if (isset($plugin_list)) {
                 ),
 
             ),
+            array('type' => 'end_group'),
         );
     }
 
