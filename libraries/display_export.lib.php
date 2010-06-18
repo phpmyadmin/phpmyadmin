@@ -81,7 +81,7 @@ if (! empty($sql_query)) {
     </ul>
 </div>
 
-<div class="exportoptions" id="databases_and_tables" style="display: none";>
+<div class="exportoptions" id="databases_and_tables" style="display: none;">
     <?php
         if($export_type == 'server') {
             echo '<h3>' . __('Database(s):') . '</h3>';
@@ -142,7 +142,7 @@ if (! empty($sql_query)) {
 
 <div class="exportoptions" id="output" style="display: none;">
     <h3><?php echo __('Output:'); ?></h3>
-    <ul id="output">
+    <ul id="ul_output">
         <li>
             <input type="radio" name="output_format" value="sendit" id="radio_dump_asfile" <?php PMA_exportCheckboxCheck('asfile'); ?> />
             <label for="radio_dump_asfile"><?php echo __('Save output to a file'); ?></label>
@@ -263,7 +263,7 @@ if (! empty($sql_query)) {
                 </li>
             </ul>
         </li>
-        <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext"><label for="radio_view_as_text">View output as text</label></li>
+        <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext" /><label for="radio_view_as_text">View output as text</label></li>
     </ul>
  </div>
 
