@@ -26,7 +26,7 @@ if (empty($import_list)) {
 }
 ?>
 
-<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none"></iframe>
+<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none;"></iframe>
 <div id="import_form_status" style="display: none;"></div>
 <div id="importmain">
     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
@@ -144,11 +144,11 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         if($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
             <ul>
             <li>
-                <input type="radio" name="file_location" id="upload_file_input">
+                <input type="radio" name="file_location" id="upload_file_input" />
                 <?php PMA_browseUploadFile($max_upload_size); ?>
             </li>
             <li>
-                <input type="radio" name="file_location" id="upload_file_uploaddir">
+                <input type="radio" name="file_location" id="upload_file_uploaddir" />
                 <?php PMA_selectUploadFile($import_list, $cfg['UploadDir']); ?>
             </li>
             </ul>
