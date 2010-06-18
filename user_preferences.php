@@ -16,6 +16,7 @@ require_once './libraries/config/messages.inc.php';
 require_once './libraries/config/ConfigFile.class.php';
 require_once './libraries/config/Form.class.php';
 require_once './libraries/config/FormDisplay.class.php';
+require_once './libraries/config/user_preferences.forms.php';
 
 $GLOBALS['js_include'][] = 'config.js';
 

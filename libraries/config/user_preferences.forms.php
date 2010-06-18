@@ -1,7 +1,16 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Functions for displaying user preferences pages
+ * List of avaible forms, each form is described as an array of fields to display.
+ * Fields MUST have their counterparts in the $cfg array.
+ *
+ * There are two possible notations:
+ * $forms['Form name'] = array('Servers' => array(1 => array('host')));
+ * can be written as
+ * $forms['Form name'] = array('Servers/1/host');
+ *
+ * You can assign default values set by special button ("set value: ..."), eg.:
+ * $forms['Server_pmadb'] = array('Servers' => array(1 => array(
+ *  'pmadb' => 'phpmyadmin')));
  *
  * @package phpMyAdmin
  */

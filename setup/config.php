@@ -14,7 +14,7 @@ require './lib/common.inc.php';
 require_once './libraries/config/Form.class.php';
 require_once './libraries/config/FormDisplay.class.php';
 
-require './setup/lib/forms.inc.php';
+require './libraries/config/setup.forms.php';
 
 $form_display = new FormDisplay();
 $form_display->registerForm('_config.php', $forms['_config.php']);
