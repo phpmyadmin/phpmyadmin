@@ -2865,7 +2865,7 @@ function PMA_browseUploadFile($max_upload_size) {
     echo '<label for="upload_file_input">' . __("Browse the server:") . '</label>';
     echo '<div id="upload_form_status" style="display: none;"></div>';
     echo '<div id="upload_form_status_info" style="display: none;"></div>';
-    echo '<input style="margin: 5px" type="file" name="import_file" id="input_import_file" />';
+    echo '<input style="margin: 5px" type="file" name="import_file" id="input_import_file";" />';
     echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
     // some browsers should respect this :)
     echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
