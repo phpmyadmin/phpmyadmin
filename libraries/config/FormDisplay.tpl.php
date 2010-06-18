@@ -152,7 +152,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
             foreach ($opts['values'] as $opt_value => $opt_name) {
                 // set names for boolean values
                 if (is_bool($opt_name)) {
-                    $opt_name = $GLOBALS['strSetup' . ($opt_value ? 'True' : 'False')];
+                    $opt_name = $GLOBALS['strSetup' . ($opt_value ? __('Yes') : __('No'))];
                 }
                 // cast boolean values to integers
                 $display_value = is_bool($opt_value) ? (int) $opt_value : $opt_value;

@@ -348,6 +348,15 @@ $cfg['Servers'][$i]['designer_coords'] = '';
 $cfg['Servers'][$i]['tracking'] = '';
 
 /**
+ * table to store user preferences
+ *   - leave blank to disable server storage
+ *     SUGGESTED: 'pma_userconfig'
+ *
+ * @global string $cfg['Servers'][$i]['userconfig']
+ */
+$cfg['Servers'][$i]['userconfig'] = '';
+
+/**
  * set to false if you know that your pma_* tables are up to date.
  * This prevents compatibility checks and thereby increases performance.
  *

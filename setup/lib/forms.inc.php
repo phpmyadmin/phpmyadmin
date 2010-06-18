@@ -57,12 +57,13 @@ $forms['Server_pmadb'] = array('Servers' => array(1 => array(
     'verbose_check',
     'bookmarktable' => 'pma_bookmark',
     'relation' => 'pma_relation',
+    'userconfig' => 'pma_userconfig',
     'table_info' => 'pma_table_info',
-    'table_coords' => 'pma_table_coords',
-    'pdf_pages' => 'pma_pdf_pages',
     'column_info' => 'pma_column_info',
     'history' => 'pma_history',
     'tracking' => 'pma_tracking',
+    'table_coords' => 'pma_table_coords',
+    'pdf_pages' => 'pma_pdf_pages',
     'designer_coords' => 'pma_designer_coords')));
 $forms['Server_tracking'] = array('Servers' => array(1 => array(
     'tracking_version_auto_create',
