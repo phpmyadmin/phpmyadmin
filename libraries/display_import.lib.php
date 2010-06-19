@@ -237,10 +237,13 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         <div class="clearfloat"></div>
     </div>
     <?php
-// Encoding setting form appended by Y.Kawada
-    if (function_exists('PMA_set_enc_form')) {
-        echo PMA_set_enc_form('            ');
-    }
+    // Encoding setting form appended by Y.Kawada
+    if (function_exists('PMA_set_enc_form')) { ?>
+        <div class="importoptions" id="kanji_encoding">
+            <h3><?php echo __('Encoding Conversion:'); ?></h3>
+            <?php echo PMA_set_enc_form('            '); ?>
+        </div>
+    <?php }
     echo "\n";
     ?>
     <div class="importoptions" id="submit">
