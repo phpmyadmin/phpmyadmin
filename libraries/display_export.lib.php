@@ -68,8 +68,8 @@ if (! empty($sql_query)) {
 ?>
 
 <div class="exportoptions" id="quick_or_custom">
-	<h3><?php echo __('Export Method:'); ?></h3>
-	<ul>
+    <h3><?php echo __('Export Method:'); ?></h3>
+    <ul>
         <li>
             <?php echo '<input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export" checked="checked" />';
                 echo '<label for ="radio_quick_export">' . __('Quick - display only the minimal options to configure') . '</label>'; ?>
@@ -119,25 +119,25 @@ if (! empty($sql_query)) {
 
 
 <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
-	<div class="exportoptions" id="output_quick_export">
-		<h3><?php echo __('Output:'); ?></h3>
-		<ul>
-	        <li>
-	            <input type="checkbox" name="quick_export_onserver" value="saveit"
-	                id="checkbox_quick_dump_onserver"
-	                <?php PMA_exportCheckboxCheck('onserver'); ?> />
-	            <label for="checkbox_quick_dump_onserver">
-	                <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
-	            </label>
-	        </li>
-	        <li>
-	            <input type="checkbox" name="quick_export_onserverover" value="saveitover"
-	            id="checkbox_quick_dump_onserverover"
-	            <?php PMA_exportCheckboxCheck('onserver_overwrite'); ?> />
-	            <label for="checkbox_quick_dump_onserverover"><?php echo __('Overwrite existing file(s)'); ?></label>
-	        </li>
-		</ul>
-	</div>
+    <div class="exportoptions" id="output_quick_export">
+        <h3><?php echo __('Output:'); ?></h3>
+        <ul>
+            <li>
+                <input type="checkbox" name="quick_export_onserver" value="saveit"
+                    id="checkbox_quick_dump_onserver"
+                    <?php PMA_exportCheckboxCheck('onserver'); ?> />
+                <label for="checkbox_quick_dump_onserver">
+                    <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
+                </label>
+            </li>
+            <li>
+                <input type="checkbox" name="quick_export_onserverover" value="saveitover"
+                id="checkbox_quick_dump_onserverover"
+                <?php PMA_exportCheckboxCheck('onserver_overwrite'); ?> />
+                <label for="checkbox_quick_dump_onserverover"><?php echo __('Overwrite existing file(s)'); ?></label>
+            </li>
+        </ul>
+    </div>
 <?php } ?>
 
 <div class="exportoptions" id="output" style="display: none;">
@@ -280,6 +280,10 @@ if (! empty($sql_query)) {
 <?php if (function_exists('PMA_set_enc_form')) { ?>
 <!-- Encoding setting form appended by Y.Kawada -->
 <!-- Japanese encoding setting -->
+    <div class="exportoptions" id="kanji_encoding">
+        <h3><?php echo __('Encoding Conversion:'); ?></h3>
+        <?php echo PMA_set_enc_form('            '); ?>
+    </div>
 <?php } ?>
 
 <div class="exportoptions" id="submit">
