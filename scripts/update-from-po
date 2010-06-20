@@ -66,7 +66,7 @@ CODE2LANG = {
     'uz@latin': 'uzbek_latin',
 }
 
-if len(sys.argv) != 2:
+if len(sys.argv) < 2:
     print 'Usage: update-from-po PO_FILES'
     sys.exit(1)
 
