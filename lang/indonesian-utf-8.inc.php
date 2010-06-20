@@ -1061,7 +1061,7 @@ $strReplicationMasterChooseAll = 'Replicate all databases; Ignore:';  //to trans
 $strReplicationMasterChooseIgn = 'Ignore all databases; Replicate:';  //to translate
 $strReplicationMasterChooseMode = 'This server is not configured as master server in a replication process. You can choose from either replicating all databases and ignoring certain (useful if you want to replicate majority of databases) or you can choose to ignore all databases by default and allow only certain databases to be replicated. Please select the mode:';  //to translate
 $strReplicationMaster = 'Master replication';  //to translate
-$strReplication = 'Replication';  //to translate
+$strReplication = 'Tiruan';
 $strReplicationRestartServer = 'Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informing you, that this server <b>is</b> configured as master';  //to translate
 $strReplicationSelectDatabases = 'Please select databases:';  //to translate
 $strReplicationServernConfiguredMaster = 'This server is not configured as master in a replication process. Would you like to <a href="%s">configure</a> it?';  //to translate
@@ -1450,7 +1450,7 @@ $strShowBinaryContentsAsHex = 'Show binary contents as HEX';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
 $strShowHideLeftMenu = 'Show/Hide left menu';  //to translate
-$strShowingBookmark = 'Showing bookmark';  //to translate
+$strShowingBookmark = 'Tampilkan bookmark';
 $strShowingPhp = 'Showing as PHP code';  //to translate
 $strShowingSQL = 'Showing SQL query';  //to translate
 $strShowKeys = 'Only show keys';  //to translate
