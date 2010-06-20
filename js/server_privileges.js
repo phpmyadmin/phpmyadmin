@@ -98,7 +98,7 @@ function suggestPassword(passwd_form) {
  * Add all AJAX scripts for server_privileges page here.
  *
  * Actions to be ajaxified here:
- * Add a new user - submission of form to be handled
+ * Add a new user - done
  * Revoke a user (and also drop databases with same name as user) - #fieldset_delete_user #buttonGo - confirm, ajax post.
  * Edit privileges - no id/class yet. 7th col in table - use dialog, submit form
  * Export privileges - no id/class yet. 8th col in table - use ajax and load response. new div container necessary for response
@@ -136,6 +136,11 @@ $(document).ready(function() {
 
                                 var the_form = $(this).find("#addUsersForm");
 
+                                /*if(!checkAddUser(the_form)) {
+                                    PMA_ajaxShowMessage("Check the form!");
+                                    return false;
+                                }*/
+
                                 //We also need to post the value of the submit button in order to get this to work correctly
                                 $.post($(the_form).attr('action'), $(the_form).serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
                                     if(data.success == true) {
@@ -155,11 +160,6 @@ $(document).ready(function() {
     });//end of Add New User AJAX event handler
 
 
-   /*$("#adduser_submit").live('click',function(event) {
-       event.preventDefault();
-       alert($(this).attr('value'));
-       return false;
-   })*/
     /**
      * Attach Ajax event handler to 'Reload Privileges' anchor
      */
@@ -168,13 +168,32 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage("Reloading Privileges");
         $.get($(this).attr("href"), {'ajax_request': true}, function(data) {
-            $('<div id="reload_privileges_dialog"></div>')
-            .prepend(data)
-            .dialog({
-                title: 'Reload Privileges',
-                buttons: {"Close": function() {$(this).dialog("close")}}
-            }); //dialog options end
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+            }
+            else {
+                PMA_ajaxShowMessage(data.error);
+            }
         });
     }); //end of Reload Privileges Ajax event handler
+
+    //Revoke User
+    $("#fieldset_delete_user_footer #buttonGo").live('click', function(event) {
+        event.preventDefault();
+
+        PMA_ajaxShowMessage("Removing Selected Users");
+        
+        $.post($("#usersForm").attr('action'), $("#usersForm").serialize() + "&delete=" + $(this).attr('value') + "&ajax_request=true", function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                $("#usersForm").find("input:checkbox:checked").parents("tr").slideUp("medium", function() {
+                    $(this).remove();
+                })
+            }
+            else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        })
+    }) // end Revoke User
 
 }); //end $(document).ready()
