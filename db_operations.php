@@ -264,6 +264,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $message = PMA_Message::error();
         }
     }
+
+    if( $GLOBALS['is_ajax_request'] == true) {
+        PMA_ajaxResponse($message, $message->isSuccess());
+    };
 }
 
 /*
@@ -440,7 +444,7 @@ if (!$is_information_schema) {
      * Copy database
      */
     ?>
-    <form method="post" action="db_operations.php"
+    <form id="copy_db_form" method="post" action="db_operations.php"
         onsubmit="return emptyFormElements(this, 'newname')">
     <?php
     if (isset($db_collation)) {
@@ -596,7 +600,7 @@ if (!$is_information_schema) {
     /**
      * Change database charset
      */
-    echo '<form method="post" action="./db_operations.php">' . "\n"
+    echo '<form id="change_db_charset_form" method="post" action="./db_operations.php">' . "\n"
        . PMA_generate_common_hidden_inputs($db, $table)
        . '<fieldset>' . "\n"
        . '    <legend>';
