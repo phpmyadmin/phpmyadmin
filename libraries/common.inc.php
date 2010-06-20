@@ -954,6 +954,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     } // end server connecting
 
+    // load user preferences
+    $GLOBALS['PMA_Config']->loadUserPreferences();
+
     /**
      * check if profiling was requested and remember it
      * (note: when $cfg['ServerDefault'] = 0, constant is not defined)

@@ -93,7 +93,7 @@ class Form
 
     /**
      * array_walk callback function, reads path of form fields from
-     * array (see file comment in forms.inc.php)
+     * array (see file comment in setup.forms.php or user_preferences.forms.inc)
      *
      * @param   mixed   $value
      * @param   mixed   $key
@@ -102,14 +102,14 @@ class Form
     private function _readFormPathsCallback($value, $key, $prefix)
     {
         if (is_array($value)) {
-            $prefix .= (empty($prefix) ? '' : '/') . $key;
+            $prefix .= $key . '/';
             array_walk($value, array($this, '_readFormPathsCallback'), $prefix);
         } else {
             if (!is_int($key)) {
-                $this->default[$prefix . '/' . $key] = $value;
+                $this->default[$prefix . $key] = $value;
                 $value = $key;
             }
-            $this->fields[] = $prefix . '/' . $value;
+            $this->fields[] = $prefix . $value;
         }
     }
 
@@ -129,7 +129,6 @@ class Form
         $paths = $this->fields;
         $this->fields = array();
         foreach ($paths as $path) {
-            $path = ltrim($path, '/');
             $key = ltrim(substr($path, strrpos($path, '/')), '/');
             $this->fields[$key] = $path;
         }

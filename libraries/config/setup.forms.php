@@ -103,8 +103,8 @@ $forms['Sql_queries'] = array(
     'VerboseMultiSubmit',
     'MaxCharactersInDisplayedSQL',
     'EditInWindow',
-    'QueryWindowWidth',
-    'QueryWindowHeight',
+    //'QueryWindowWidth', // overridden in theme
+    //'QueryWindowHeight',
     'QueryWindowDefTab');
 $forms['Page_titles'] = array(
     'TitleDefault',
@@ -112,6 +112,10 @@ $forms['Page_titles'] = array(
     'TitleDatabase',
     'TitleServer');
 $forms['Other_core_settings'] = array(
+    'NaturalOrder',
+    'InitialSlidersState',
+    'ErrorIconic',
+    'ReplaceHelpImg',
     'MaxDbList',
     'MaxTableList',
     'MaxCharactersInDisplayedSQL',

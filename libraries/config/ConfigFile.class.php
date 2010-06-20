@@ -29,7 +29,25 @@ class ConfigFile
      * Keys which will be always written to config file
      * @var array
      */
-    private $persistKeys;
+    private $persistKeys = array();
+
+    /**
+     * Key filter for {@link set()}
+     * @var array|null
+     */
+    private $setFilter;
+
+    /**
+     * Instance id (key in $_SESSION array, separate for each server - ConfigFile{server id})
+     * @var string
+     */
+    private $id;
+
+    /**
+     * Result for {@link _flattenArray()}
+     * @var array
+     */
+    private $_flattenArrayResult;
 
     /**
      * ConfigFile instance
@@ -55,6 +73,11 @@ class ConfigFile
             foreach ($cfg_db['_overrides'] as $path => $value) {
                 PMA_array_write($path, $cfg, $value);
             }
+        }
+
+        $this->id = 'ConfigFile' . $GLOBALS['server'];
+        if (!isset($_SESSION[$this->id])) {
+            $_SESSION[$this->id] = array();
         }
     }
 
@@ -84,6 +107,40 @@ class ConfigFile
     }
 
     /**
+     * By default ConfigFile allows setting of all configuration keys, use this method
+     * to set up a filter on {@link set()} method
+     *
+     * @param array|null $keys array of allowed keys or null to remove filter
+     */
+    public function setAllowedKeys($keys)
+    {
+        if ($keys === null) {
+            $this->setFilter = null;
+            return;
+        }
+        // checking key presence is much faster than searching so move values to keys
+        $this->setFilter = array_flip($keys);
+    }
+
+    /**
+     * Resets configuration data
+     */
+    public function resetConfigData()
+    {
+        $_SESSION[$this->id] = array();
+    }
+
+    /**
+     * Sets configuration data (overrides old data)
+     *
+     * @param array $cfg
+     */
+    public function setConfigData(array $cfg)
+    {
+        $_SESSION[$this->id] = $cfg;
+    }
+
+    /**
      * Sets config value
      *
      * @param string $path
@@ -95,13 +152,57 @@ class ConfigFile
         if ($canonical_path === null) {
             $canonical_path = $this->getCanonicalPath($path);
         }
+        // apply key whitelist
+        if ($this->setFilter !== null && !isset($this->setFilter[$canonical_path])) {
+            return;
+        }
         // remove if the path isn't protected and it's empty or has a default value
         $default_value = $this->getDefault($canonical_path);
         if (!isset($this->persistKeys[$canonical_path])
-            && (($value == $default_value) || (empty($value) && empty($default_value)))) {
-            PMA_array_remove($path, $_SESSION['ConfigFile']);
+                && (($value == $default_value) || (empty($value) && empty($default_value)))) {
+            PMA_array_remove($path, $_SESSION[$this->id]);
         } else {
-            PMA_array_write($path, $_SESSION['ConfigFile'], $value);
+            PMA_array_write($path, $_SESSION[$this->id], $value);
+        }
+    }
+
+    /**
+     * Flattens multidimensional array, changes indices to paths (eg. 'key/subkey')
+     *
+     * @param mixed $value
+     * @param mixed $key
+     * @param mixed $prefix
+     */
+    private function _flattenArray($value, $key, $prefix)
+    {
+        // no recursion for numeric arrays
+        if (is_array($value) && !isset($value[0])) {
+            //$prefix .= (empty($prefix) ? '' : '/') . $key;
+            $prefix .= $key . '/';
+            array_walk($value, array($this, '_flattenArray'), $prefix);
+        } else {
+            //$this->_flattenArrayResult[$prefix . '/' . $key] = $value;
+            $this->_flattenArrayResult[$prefix . $key] = $value;
+        }
+    }
+
+    /**
+     * Updates config with values read from PMA_Config class
+     * (config will contain differences to defaults from config.defaults.php).
+     *
+     * @param PMA_Config $PMA_Config
+     */
+    public function updateWithGlobalConfig(PMA_Config $PMA_Config)
+    {
+        // load config array and flatten it
+        $this->_flattenArrayResult = array();
+        array_walk($PMA_Config->settings, array($this, '_flattenArray'), '');
+        $flat_cfg = $this->_flattenArrayResult;
+        $this->_flattenArrayResult = null;
+
+        // save values
+        foreach ($flat_cfg as $path => $value) {
+            $this->set($path, $value, $path);
         }
     }
 
@@ -114,7 +215,7 @@ class ConfigFile
      */
     public function get($path, $default = null)
     {
-        return PMA_array_read($path, $_SESSION['ConfigFile'], $default);
+        return PMA_array_read($path, $_SESSION[$this->id], $default);
     }
 
     /**
@@ -141,7 +242,7 @@ class ConfigFile
      */
     public function getValue($path, $default = null)
     {
-        $v = PMA_array_read($path, $_SESSION['ConfigFile'], null);
+        $v = PMA_array_read($path, $_SESSION[$this->id], null);
         if ($v !== null) {
             return $v;
         }
@@ -178,9 +279,21 @@ class ConfigFile
      */
     public function getServerCount()
     {
-      return isset($_SESSION['ConfigFile']['Servers'])
-          ? count($_SESSION['ConfigFile']['Servers'])
+      return isset($_SESSION[$this->id]['Servers'])
+          ? count($_SESSION[$this->id]['Servers'])
           : 0;
+    }
+
+    /**
+     * Returns server list
+     *
+     * @return array|null
+     */
+    public function getServers()
+    {
+      return isset($_SESSION[$this->id]['Servers'])
+          ? $_SESSION[$this->id]['Servers']
+          : null;
     }
 
     /**
@@ -191,7 +304,7 @@ class ConfigFile
      */
     function getServerDSN($server)
     {
-        if (!isset($_SESSION['ConfigFile']['Servers'][$server])) {
+        if (!isset($_SESSION[$this->id]['Servers'][$server])) {
             return '';
         }
 
@@ -224,7 +337,7 @@ class ConfigFile
      */
     public function getServerName($id)
     {
-        if (!isset($_SESSION['ConfigFile']['Servers'][$id])) {
+        if (!isset($_SESSION[$this->id]['Servers'][$id])) {
             return '';
         }
         $verbose = $this->get("Servers/$id/verbose");
@@ -242,19 +355,19 @@ class ConfigFile
      */
     public function removeServer($server)
     {
-        if (!isset($_SESSION['ConfigFile']['Servers'][$server])) {
+        if (!isset($_SESSION[$this->id]['Servers'][$server])) {
             return;
         }
         $last_server = $this->getServerCount();
 
         for ($i = $server; $i < $last_server; $i++) {
-            $_SESSION['ConfigFile']['Servers'][$i] = $_SESSION['ConfigFile']['Servers'][$i+1];
+            $_SESSION[$this->id]['Servers'][$i] = $_SESSION[$this->id]['Servers'][$i+1];
         }
-        unset($_SESSION['ConfigFile']['Servers'][$last_server]);
+        unset($_SESSION[$this->id]['Servers'][$last_server]);
 
-        if (isset($_SESSION['ConfigFile']['ServerDefault'])
-            && $_SESSION['ConfigFile']['ServerDefault'] >= 0) {
-            unset($_SESSION['ConfigFile']['ServerDefault']);
+        if (isset($_SESSION[$this->id]['ServerDefault'])
+            && $_SESSION[$this->id]['ServerDefault'] >= 0) {
+            unset($_SESSION[$this->id]['ServerDefault']);
         }
     }
 
@@ -274,6 +387,23 @@ class ConfigFile
     }
 
     /**
+     * Returns configuration array
+     *
+     * @return array
+     */
+    public function getConfigArray()
+    {
+        $c = $_SESSION[$this->id];
+        $persistKeys = array_diff(array_keys($this->persistKeys), array_keys($c));
+        foreach ($persistKeys as $k) {
+            if (strpos($k, '/') === false) {
+                $c[$k] = $this->getDefault($k);
+            }
+        }
+        return $c;
+    }
+
+    /**
      * Creates config file
      *
      * @return string
@@ -281,7 +411,7 @@ class ConfigFile
     public function getConfigFile()
     {
         $crlf = (isset($_SESSION['eol']) && $_SESSION['eol'] == 'win') ? "\r\n" : "\n";
-        $c = $_SESSION['ConfigFile'];
+        $c = $_SESSION[$this->id];
 
         // header
         $ret = '<?php' . $crlf

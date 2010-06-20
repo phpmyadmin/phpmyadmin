@@ -116,7 +116,7 @@ display_form_top('index.php', 'get', array(
     <th><?php echo __('Authentication type') ?></th>
     <th colspan="2">DSN</th>
 </tr>
-<?php foreach ($_SESSION['ConfigFile']['Servers'] as $id => $server): ?>
+<?php foreach ($cf->getServers() as $id => $server): ?>
 <tr>
     <td><?php echo $id ?></td>
     <td><?php echo $cf->getServerName($id) ?></td>
@@ -189,7 +189,7 @@ if ($cf->getServerCount() > 0) {
     }
     $opts['values_disabled'][] = '-';
 
-    foreach ($_SESSION['ConfigFile']['Servers'] as $id => $server) {
+    foreach ($cf->getServers() as $id => $server) {
         $opts['values'][(string)$id] = $cf->getServerName($id) . " [$id]";
     }
 } else {

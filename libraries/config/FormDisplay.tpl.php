@@ -116,6 +116,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     $field_class = $value_is_default ? '' : ' class="custom"';
     $name_id = 'name="' . $path . '" id="' . $path . '"';
     $base_dir = defined('PMA_SETUP') ? '../' : '';
+    //todo use PMA_showDocu(), create and use PMA_showWiki()    
     $img_path = defined('PMA_SETUP')
         ? '../' . ltrim($GLOBALS['cfg']['ThemePath'], './') . '/original/img/'
         : $_SESSION['PMA_Theme']->img_path;
@@ -152,7 +153,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
             foreach ($opts['values'] as $opt_value => $opt_name) {
                 // set names for boolean values
                 if (is_bool($opt_name)) {
-                    $opt_name = $GLOBALS['strSetup' . ($opt_value ? __('Yes') : __('No'))];
+                    $opt_name = strtolower($opt_value ? __('Yes') : __('No'));
                 }
                 // cast boolean values to integers
                 $display_value = is_bool($opt_value) ? (int) $opt_value : $opt_value;

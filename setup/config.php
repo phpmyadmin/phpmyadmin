@@ -29,7 +29,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
 	//
 	// Clear current config and return to main page
 	//
-	$_SESSION['ConfigFile'] = array();
+	ConfigFile::getInstance()->resetConfigData();
     // drop post data
     header('HTTP/1.1 303 See Other');
     header('Location: index.php');
@@ -56,7 +56,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
 	//
     $cfg = array();
     require_once $config_file_path;
-    $_SESSION['ConfigFile'] = $cfg;
+    ConfigFile::getInstance()->setConfigData($cfg);
     header('HTTP/1.1 303 See Other');
     header('Location: index.php');
     exit;

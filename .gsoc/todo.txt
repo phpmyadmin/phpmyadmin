@@ -1,0 +1,1 @@
+restore cache'ing in phpmyadmin.css.php

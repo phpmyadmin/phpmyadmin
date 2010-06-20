@@ -18,7 +18,7 @@ require_once './libraries/config/Form.class.php';
 require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/form_processing.lib.php';
 
-require './setup/lib/forms.inc.php';
+require './libraries/config/setup.forms.php';
 
 $formsets = array(
     'features' => array(

@@ -28,7 +28,7 @@ class FormDisplay
 {
     /**
      * Form list
-     * @var array
+     * @var Form[]
      */
     private $forms = array();
 

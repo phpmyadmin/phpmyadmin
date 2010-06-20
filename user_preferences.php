@@ -16,33 +16,51 @@ require_once './libraries/config/messages.inc.php';
 require_once './libraries/config/ConfigFile.class.php';
 require_once './libraries/config/Form.class.php';
 require_once './libraries/config/FormDisplay.class.php';
-require_once './libraries/config/user_preferences.forms.php';
+require './libraries/config/user_preferences.forms.php';
 
 $GLOBALS['js_include'][] = 'config.js';
 
 require_once './libraries/header.inc.php';
 
-// Any message to display?
-if (! empty($message)) {
-    PMA_showMessage($message);
-    unset($message);
-}
-
+// build tabs
 $tabs = array();
 $form_param = filter_input(INPUT_GET, 'form');
 if (!isset($forms[$form_param])) {
-    $form_param = array_shift(array_keys($forms));
+    $forms_keys = array_keys($forms);
+    $form_param = array_shift($forms_keys);
 }
-foreach (array_keys($forms) as $form) {
+foreach (array_keys($forms) as $formset) {
     $tabs[] = array(
         'link' => 'user_preferences.php',
-        'text' => PMA_ifSetOr($GLOBALS['strSetupForm_' . $form], $form), // TODO: remove ifSetOr
-        'active' => $form == $form_param,
-        'url_params' => array('form' => $form)
+        'text' => PMA_ifSetOr($GLOBALS['strSetupForm_' . $formset], $formset), // TODO: remove ifSetOr
+        'active' => $formset == $form_param,
+        'url_params' => array('form' => $formset)
     );
 }
 
 echo PMA_generate_html_tabs($tabs, array());
+
+// handle form display and processing
+$forms_all_keys = array();
+foreach ($forms as $formset) {
+    foreach ($formset as $form) {
+        $forms_all_keys = array_merge($forms_all_keys, $form);
+    }
+}
+
+$cf = ConfigFile::getInstance();
+$cf->setAllowedKeys($forms_all_keys);
+$cf->updateWithGlobalConfig($GLOBALS['PMA_Config']);
+
+// todo: debug - remove
+$arr = $cf->getConfigArray();
+$arr2 = array();
+foreach ($arr as $k => $v) {
+    $arr2[] = "<b>$k</b> " . var_export($v, true);
+}
+$arr2 = implode(', ', $arr2);
+$msg = !empty($arr2) ? PMA_Message::notice('Debug: ' . $arr2) : PMA_Message::notice('no settings');
+$msg->display();
 
 $form_display = new FormDisplay();
 foreach ($forms[$form_param] as $form_name => $form) {
@@ -78,13 +96,23 @@ if (!$form_display->process(false)) {
         <a class="btn" href="?form=<?php echo $form_param ?>&amp;mode=edit"><?php echo PMA_lang('ShowForm') ?></a>
         <?php
     } else {
-        // redirect
-        $url_params = array('form' => $form_param);
-        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'user_preferences.php'
-                . PMA_generate_common_url($url_params, '&'));
-        exit;
+        // save settings
+        $result = PMA_save_userprefs();
+        if ($result === true) {
+            $message = PMA_Message::rawSuccess(__('Configuration has been saved'));
+            $message->display();
+            // redirect
+            //$url_params = array('form' => $form_param);
+            //PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'user_preferences.php'
+            //        . PMA_generate_common_url($url_params, '&'));
+            //exit;
+        } else {
+            $result->display();
+        }
+        $form_display->display(true, true);
     }
 }
+$GLOBALS['error_handler']->dispAllErrors();
 
 /**
  * Displays the footer

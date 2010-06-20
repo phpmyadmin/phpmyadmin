@@ -410,6 +410,40 @@ class PMA_Config
     }
 
     /**
+     * loads user preferences and merges them with current config
+     * must be called after control connection has been estabilished
+     *
+     * @uses PMA_array_merge_recursive
+     * @uses PMA_backquote()
+     * @uses PMA_DBI_fetch_value
+     * @uses PMA_getRelationsParam()
+     * @uses PMA_sqlAddslashes()
+     * @uses $GLOBALS['cfg']
+     * @uses $GLOBALS['controllink']
+     * @return boolean
+     */
+    function loadUserPreferences()
+    {
+        $cfgRelation = PMA_getRelationsParam();
+        if (!$cfgRelation['userconfigwork']) {
+            return false;
+        }
+        $query_table = PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['userconfig']);
+        $query = '
+            SELECT `config_data`
+            FROM ' . $query_table . '
+              WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
+        $config_data = PMA_DBI_fetch_value($query, 0, 0, $GLOBALS['controllink']);
+        if (!$config_data) {
+            return false;
+        }
+        $config_data = unserialize($config_data);
+        $this->settings = PMA_array_merge_recursive($this->settings, $config_data);
+        $GLOBALS['cfg'] = PMA_array_merge_recursive($GLOBALS['cfg'], $config_data);
+        $this->set('user_preferences_loaded', true);
+    }
+
+    /**
      * set source
      * @param   string  $source
      */
