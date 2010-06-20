@@ -489,7 +489,7 @@ class PMA_Config
     }
 
     /**
-     * verifies the permissions on config file (if asked by configuration) 
+     * verifies the permissions on config file (if asked by configuration)
      * (must be called after config.inc.php has been merged)
      */
     function checkPermissions()
