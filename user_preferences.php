@@ -67,7 +67,7 @@ foreach ($forms[$form_param] as $form_name => $form) {
     $form_display->registerForm($form_name, $form);
 }
 
-if (filter_input(INPUT_GET, 'mode') == 'revert') {
+if (isset($_POST['revert'])) {
     // revert erroneous fields to their default values
     $form_display->fixErrors();
     // redirect
@@ -82,19 +82,14 @@ if (!$form_display->process(false)) {
 } else {
     // check for form errors
     if ($form_display->hasErrors()) {
-        // form has errors, show warning
-        $separator = PMA_get_arg_separator('html');
+        // form has errors
         ?>
-        <div class="warning">
-            <h4><?php echo __('Warning') ?></h4>
-            <?php echo __('Submitted form contains errors') ?><br />
-            <a href="?form=<?php echo $form_param ?>&amp;mode=revert"><?php echo PMA_lang('RevertErroneousFields') ?></a>
-        </div>
-        <?php $form_display->displayErrors() ?>
-        <a class="btn" href="user_preferences.php"><?php echo PMA_lang('IgnoreErrors') ?></a>
-        &nbsp;
-        <a class="btn" href="?form=<?php echo $form_param ?>&amp;mode=edit"><?php echo PMA_lang('ShowForm') ?></a>
+        <fieldset>
+            <b><?php echo __('Submitted form contains errors') ?></b>
+            <?php $form_display->displayErrors(); ?>
+        </fieldset>
         <?php
+        $form_display->display(true, true);
     } else {
         // save settings
         $result = PMA_save_userprefs();
