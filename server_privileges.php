@@ -1372,7 +1372,7 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 /**
  * defines some standard links
  */
-$link_edit = '<a href="server_privileges.php?' . $GLOBALS['url_query']
+$link_edit = '<a class="edit_user_anchor" href="server_privileges.php?' . $GLOBALS['url_query']
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;dbname=%s'
@@ -1389,7 +1389,7 @@ $link_revoke = '<a href="server_privileges.php?' . $GLOBALS['url_query']
     . PMA_getIcon('b_usrdrop.png', __('Revoke'))
     . '</a>';
 
-$link_export = '<a href="server_privileges.php?' . $GLOBALS['url_query']
+$link_export = '<a class="export_user_anchor" href="server_privileges.php?' . $GLOBALS['url_query']
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;initial=%s'
@@ -1411,6 +1411,9 @@ if (isset($_REQUEST['export'])) {
     }
     echo '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
+    if( $GLOBALS['is_ajax_request']) {
+        exit;
+    }
 }
 
 if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs))) {
