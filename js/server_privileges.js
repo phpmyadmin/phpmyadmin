@@ -196,4 +196,22 @@ $(document).ready(function() {
         })
     }) // end Revoke User
 
+    //Export Privileges
+    $(".export_user_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        PMA_ajaxShowMessage();
+
+        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            $('<div id="export_dialog"></div>')
+            .prepend(data)
+            .dialog({
+                width : 500,
+                buttons: { "Close" : function() { 
+                        $(this).dialog("close");
+                    }}
+            });
+        }) //end $.get
+    }) //end export privileges
+
 }); //end $(document).ready()
