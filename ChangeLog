@@ -5,6 +5,8 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+3.3.5.0 (not yet released)
+
 3.3.4.0 (not yet released)
 - bug #2996161 [import] properly escape import value
 - bug #2998889 [import] Import button does not work in Catalan
