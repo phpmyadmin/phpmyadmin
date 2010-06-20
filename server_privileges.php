@@ -1307,6 +1307,10 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
         }
         unset($queries);
     }
+
+    if( $GLOBALS['is_ajax_request']) {
+        PMA_ajaxResponse($message, $message->isSuccess());
+    }
 }
 
 
@@ -1344,8 +1348,7 @@ if (isset($_REQUEST['flush_privileges'])) {
      * jQuery will take care of displaying the data with a dialog
      */
     if( $GLOBALS['is_ajax_request'] ) {
-        PMA_showMessage($message);
-        exit;
+        PMA_ajaxResponse($message);
     }
 }
 
