@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-21 19:36+0200\n"
+"PO-Revision-Date: 2010-06-21 19:41+0200\n"
 "Last-Translator: Burak <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1409,7 +1409,7 @@ msgstr[0] "%1$d satır silindi."
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d satır eklendi."
+msgstr[0] "--review %1$d satır eklendi."
 
 #: libraries/StorageEngine.class.php:198
 msgid ""
