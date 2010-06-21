@@ -2,9 +2,8 @@
 /**
  * Form templates
  *
- * @package    phpMyAdmin-setup
+ * @package    phpMyAdmin
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
  */
 
 /**
@@ -98,7 +97,7 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  * o errors - error array
  * o setvalue - (string) shows button allowing to set poredefined value
  * o show_restore_default - (boolean) whether show "restore default" button
- * o userprefs_allow - whether show user preferences allow/deny checkbox (null - no, true/false - yes)
+ * o userprefs_allow - whether user preferences are enabled for this field (null - no support, true/false - enabled/disabled)
  * o values - key - value paris for <select> fields
  * o values_escaped - (boolean) tells whether values array is already escaped (defaults to false)
  * o values_disabled -  (array)list of disabled values (keys from values)
@@ -116,21 +115,20 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
 {
     static $base_dir, $img_path;
 
+    $is_setup_script = defined('PMA_SETUP') && PMA_SETUP;
     if ($base_dir === null) {
-        $is_setup_script = defined('PMA_SETUP') && PMA_SETUP;
         $base_dir = $is_setup_script ? '../' : '';
         $img_path = $is_setup_script
             ? '../' . ltrim($GLOBALS['cfg']['ThemePath'], './') . '/original/img/'
             : $_SESSION['PMA_Theme']->img_path;
     }
     $has_errors = isset($opts['errors']) && !empty($opts['errors']);
-    $field_class = $type == 'checkbox' ? '' : 'checkbox';
+    $field_class = $type == 'checkbox' ? 'checkbox' : '';
     if (!$value_is_default) {
         $field_class .= ($field_class == '' ? '' : ' ') . ($has_errors ? 'custom field-error' : 'custom');
     }
-    $field_class = 'class="' . $field_class . '"';
+    $field_class = $field_class ? ' class="' . $field_class . '"' : '';
     $name_id = 'name="' . $path . '" id="' . $path . '"';
-
 ?>
 <tr>
     <th>
@@ -152,8 +150,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
                 . ' value="' . htmlspecialchars($value) . '" />';
           break;
         case 'checkbox':
-            echo '<span ' . $field_class
-              . '"><input type="checkbox" ' . $name_id
+            echo '<span' . $field_class . '><input type="checkbox" ' . $name_id
               . ($value ? ' checked="checked"' : '') . ' /></span>';
           break;
         case 'select':
@@ -212,8 +209,18 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
         echo '</dl>';
     }
     ?>
-
     </td>
+    <?php
+    if ($is_setup_script && isset($opts['userprefs_allow'])) {
+    ?>
+    <td class="userprefs-allow" title="<?php echo __('Allow users to customize this value') ?>">
+        <input type="checkbox" name="<?php echo $path ?>-userprefs-allow" <?php if ($opts['userprefs_allow']) echo 'checked="checked"' ?> />
+    </td>
+    <?php
+    } else if ($is_setup_script) {
+        echo '<td>&nbsp;</td>';
+    }
+    ?>
 </tr>
 <?php
 }
@@ -225,9 +232,13 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
  */
 function display_fieldset_bottom()
 {
+    $colspan = 2;
+    if (defined('PMA_SETUP') && PMA_SETUP) {
+        $colspan++;
+    }
 ?>
 <tr>
-    <td colspan="2" class="lastrow">
+    <td colspan="<?php echo $colspan ?>" class="lastrow">
         <input type="submit" name="submit_save" value="<?php echo __('Save') ?>" class="green" />
         <input type="button" name="submit_reset" value="<?php echo __('Reset') ?>" />
     </td>

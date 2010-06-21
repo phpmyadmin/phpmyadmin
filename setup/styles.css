@@ -262,6 +262,18 @@ fieldset td {
     vertical-align: top;
 }
 
+fieldset td.userprefs-allow {
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+    width: 3em;
+}
+
+fieldset td.userprefs-allow:hover {
+    cursor: pointer;
+    background-color: #EEE;
+}
+
 fieldset th small {
     display: block;
     font-weight: normal;
@@ -307,7 +319,7 @@ fieldset.simple .lastrow {
 
 span.checkbox {
     padding: 2px;
-    display: inline-block;    
+    display: inline-block;
 }
 
 .custom { /* customized field */

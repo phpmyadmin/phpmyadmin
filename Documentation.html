@@ -2176,6 +2176,11 @@ setfacl -d -m "g:www-data:rwx" tmp
     closed state. A value of <tt>'open'</tt> does the reverse. To completely 
     disable all visual sliders, use <tt>'disabled'</tt>.</dd>
 
+    <dt id="cfg_UserprefsDisallow">$cfg['UserprefsDisallow'] array</dt>
+    <dd>Contains names of configuration options (keys in <tt>$cfg</tt> array)
+        that users can't set through user preferences. For possible values, refer
+        to <tt>libraries/config/user_preferences.forms.php</tt>.</dd>
+
     <dt id="cfg_TitleTable">$cfg['TitleTable'] string</dt>
     <dt id="cfg_TitleDatabase">$cfg['TitleDatabase'] string</dt>
     <dt id="cfg_TitleServer">$cfg['TitleServer'] string</dt>

@@ -499,8 +499,9 @@ class ConfigFile
             } else {
                 // more than 4 values - value per line
                 $ret = "\$cfg['$var_name'] = array(";
-                for ($i = 0, $imax = count($ret)-1; $i <= $imax; $i++) {
-                    $ret .= ($i < $imax ? $crlf : '') . '    ' . $v;
+                $imax = count($retv)-1;
+                for ($i = 0; $i <= $imax; $i++) {
+                    $ret .= ($i < $imax ? ($i > 0 ? ',' : '') : '') . $crlf . '    ' . $retv[$i];
                 }
                 $ret .= ');' . $crlf;
             }

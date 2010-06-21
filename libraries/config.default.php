@@ -2282,7 +2282,13 @@ $cfg['NaturalOrder'] = true;
  */
 $cfg['InitialSlidersState'] = 'closed';
 
-
+/**
+ * User preferences: disallow these settings
+ * For possible setting names look in libraries/config/user_preferences.forms.php
+ *
+ * @global array $cfg['UserprefsDisallow']
+ */
+$cfg['UserprefsDisallow'] = array();
 
 //-----------------------------------------------------------------------------
 // custom-setup by mkkeck: 2004-05-04

@@ -571,7 +571,8 @@ function restoreField(field_id) {
 $(function() {
     $('.restore-default, .set-value').each(function() {
         var link = $(this);
-        link.css('opacity', 0.25);
+        // inline-block for IE so opacity inheritance works
+        link.css('display', 'inline-block').css('opacity', 0.25);
         if (!link.hasClass('restore-default')) {
             // restore-default is handled by markField
         	link.css('display', '');

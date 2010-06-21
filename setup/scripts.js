@@ -168,3 +168,25 @@ function ajaxValidate(parent, id, values) {
 
     return true;
 }
+
+//
+// END: Form validation and field operations
+// ------------------------------------------------------------------
+
+// ------------------------------------------------------------------
+// User preferences allow/disallow UI
+//
+
+$(function() {
+   $('.userprefs-allow').click(function(e) {
+       if (this != e.target) {
+           return;
+       }
+       var el = $(this).find('input');
+       el.attr('checked', !el.attr('checked'));
+   });
+});
+
+//
+// END: User preferences allow/disallow UI
+// ------------------------------------------------------------------

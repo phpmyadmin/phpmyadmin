@@ -8,9 +8,8 @@
  * o translated_path - work_path modified for HTML field name, a path with
  *                     slashes changed to hyphens, eg. Servers-4-verbose
  *
- * @package    phpMyAdmin-setup
+ * @package    phpMyAdmin
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
  */
 
 /**
@@ -64,7 +63,19 @@ class FormDisplay
      * Tells whether forms have been validated
      * @var bool
      */
-    private $is_valdiated = true;
+    private $is_validated = true;
+
+    /**
+     * Dictionary with user preferences keys
+     * @var array
+     */
+    private $userprefs_keys;
+
+    /**
+     * Dictionary with disallowed user preferences keys
+     * @var array
+     */
+    private $userprefs_disallow;
 
     public function __construct()
     {
@@ -86,7 +97,7 @@ class FormDisplay
     public function registerForm($form_name, array $form, $server_id = null)
     {
         $this->forms[$form_name] = new Form($form_name, $form, $server_id);
-        $this->is_valdiated = false;
+        $this->is_validated = false;
         foreach ($this->forms[$form_name]->fields as $path) {
             $work_path = $server_id === null
                 ? $path
@@ -121,7 +132,7 @@ class FormDisplay
      */
     private function _validate()
     {
-        if ($this->is_valdiated) {
+        if ($this->is_validated) {
             return;
         }
 
@@ -155,7 +166,7 @@ class FormDisplay
                 $this->errors[$work_path] = $error_list;
             }
         }
-        $this->is_valdiated = true;
+        $this->is_validated = true;
     }
 
 
@@ -197,6 +208,16 @@ class FormDisplay
             $this->_validate();
         }
 
+        // user preferences
+        if ($this->userprefs_keys === null) {
+            $this->userprefs_keys = array_flip(PMA_read_userprefs_fieldnames());
+            // read real config for user preferences display
+            $userprefs_disallow = defined('PMA_SETUP') && PMA_SETUP
+                ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
+                : $GLOBALS['cfg']['UserprefsDisallow'];
+            $this->userprefs_disallow = array_flip($userprefs_disallow);
+        }
+
         // display forms
         foreach ($this->forms as $form) {
             /* @var $form Form */
@@ -211,9 +232,13 @@ class FormDisplay
             foreach ($form->fields as $field => $path) {
                 $work_path = array_search($path, $this->system_paths);
                 $translated_path = $this->translated_paths[$work_path];
+                // always true/false for user preferences display
+                $userprefs_allow = isset($this->userprefs_keys[$path])
+                    ? !isset($this->userprefs_disallow[$path])
+                    : null;
                 // display input
                 $this->_displayFieldInput($form, $field, $path, $work_path,
-                    $translated_path, $show_restore_default, $js_default);
+                    $translated_path, $show_restore_default, $userprefs_allow, $js_default);
                 // register JS validators for this field
                 if (isset($validators[$path])) {
                     js_validate($translated_path, $validators[$path], $js);
@@ -250,10 +275,11 @@ class FormDisplay
      * @param string $work_path             work path, eg. Servers/4/verbose
      * @param string $translated_path       work path changed so that it can be used as XHTML id
      * @param bool   $show_restore_default  whether show "restore default" button besides the input field
+     * @param mixed  $userprefs_allow       whether user preferences are enabled for this field (null - no support, true/false - enabled/disabled)
      * @param array  &$js_default           array which stores JavaScript code to be displayed
      */
     private function _displayFieldInput(Form $form, $field, $system_path, $work_path,
-        $translated_path, $show_restore_default, array &$js_default)
+            $translated_path, $show_restore_default, $userprefs_allow, array &$js_default)
     {
         $name = PMA_lang_name($system_path);
         $description = PMA_lang_desc($system_path);
@@ -270,7 +296,8 @@ class FormDisplay
         $opts = array(
             'doc' => $this->getDocLink($system_path),
             'wiki' =>  $this->getWikiLink($system_path),
-            'show_restore_default' => $show_restore_default);
+            'show_restore_default' => $show_restore_default,
+            'userprefs_allow' => $userprefs_allow);
         if (isset($form->default[$system_path])) {
             $opts['setvalue'] = $form->default[$system_path];
         }
@@ -417,6 +444,16 @@ class FormDisplay
 
         $values = array();
         $to_save = array();
+        $is_setup_script = defined('PMA_SETUP') && PMA_SETUP;
+        if ($is_setup_script && $this->userprefs_keys === null) {
+            $this->userprefs_keys = array_flip(PMA_read_userprefs_fieldnames());
+            // read real config for user preferences display
+            $userprefs_disallow = $is_setup_script
+                ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
+                : $GLOBALS['cfg']['UserprefsDisallow'];
+            $this->userprefs_disallow = array_flip($userprefs_disallow);
+        }
+
         $this->errors = array();
         foreach ($forms as $form) {
             /* @var $form Form */
@@ -445,6 +482,16 @@ class FormDisplay
                             '<i>' . PMA_lang_name($system_path) . '</i>');
                         $result = false;
                         continue;
+                    }
+                }
+
+                // user preferences allow/disallow
+                if ($is_setup_script && isset($this->userprefs_keys[$system_path])) {
+                    if (isset($this->userprefs_disallow[$system_path])
+                            && isset($_POST[$key . '-userprefs-allow'])) {
+                        unset($this->userprefs_disallow[$system_path]);
+                    } else if (!isset($_POST[$key . '-userprefs-allow'])) {
+                        $this->userprefs_disallow[$system_path] = true;
                     }
                 }
 
@@ -515,6 +562,9 @@ class FormDisplay
                     $values[$path] = $proxies;
                 }
                 $cf->set($work_path, $values[$path], $path);
+            }
+            if ($is_setup_script) {
+                $cf->set('UserprefsDisallow', array_keys($this->userprefs_disallow));
             }
         }
 
