@@ -41,13 +41,8 @@ foreach (array_keys($forms) as $formset) {
 echo PMA_generate_html_tabs($tabs, array());
 
 // handle form display and processing
-$forms_all_keys = array();
-foreach ($forms as $formset) {
-    foreach ($formset as $form) {
-        $forms_all_keys = array_merge($forms_all_keys, $form);
-    }
-}
 
+$forms_all_keys = PMA_read_userprefs_fieldnames($forms);
 $cf = ConfigFile::getInstance();
 $cf->setAllowedKeys($forms_all_keys);
 $cf->updateWithGlobalConfig($GLOBALS['PMA_Config']);

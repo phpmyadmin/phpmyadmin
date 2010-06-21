@@ -121,12 +121,11 @@ $strSetupForm_Server_pmadb_desc = __('Configure phpMyAdmin database to gain acce
 $strSetupForm_Server_pmadb = __('PMA database');
 $strSetupForm_Server_tracking_desc = __('Tracking of changes made in database. Requires configured PMA database.');
 $strSetupForm_Server_tracking = __('Changes tracking');
-$strSetupFormset_customization = __('Customization');
-$strSetupFormset_export = __('Customize export options');
-$strSetupFormset_features = __('Features');
-$strSetupFormset_import = __('Customize import defaults');
-$strSetupFormset_left_frame = __('Customize navigation frame');
-$strSetupFormset_main_frame = __('Customize main frame');
+$strSetupFormset_Export = __('Customize export options');
+$strSetupFormset_Features = __('Features');
+$strSetupFormset_Import = __('Customize import defaults');
+$strSetupFormset_Left_frame = __('Customize navigation frame');
+$strSetupFormset_Main_frame = __('Customize main frame');
 $strSetupForm_Sql_box_desc = __('Customize links shown in SQL Query boxes');
 $strSetupForm_Sql_box = __('SQL Query box');
 $strSetupForm_Sql_queries_desc = __('SQL queries settings, for SQL Query box options see [a@?page=form&amp;formset=main_frame#tab_Sql_box]Navigation frame[/a] settings');

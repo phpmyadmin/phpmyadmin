@@ -43,10 +43,8 @@ if (isset($page_title)) {
     echo '<h2>' . $page_title . '</h2>';
 }
 $form_display = new FormDisplay();
-$form_display->registerForm('Server', $forms['Server'], $id);
-$form_display->registerForm('Server_login_options', $forms['Server_login_options'], $id);
-$form_display->registerForm('Server_config', $forms['Server_config'], $id);
-$form_display->registerForm('Server_pmadb', $forms['Server_pmadb'], $id);
-$form_display->registerForm('Server_tracking', $forms['Server_tracking'], $id);
+foreach ($forms['Servers'] as $form_name => $form) {
+    $form_display->registerForm($form_name, $form, $id);
+}
 process_formset($form_display);
 ?>

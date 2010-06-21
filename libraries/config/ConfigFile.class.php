@@ -177,11 +177,9 @@ class ConfigFile
     {
         // no recursion for numeric arrays
         if (is_array($value) && !isset($value[0])) {
-            //$prefix .= (empty($prefix) ? '' : '/') . $key;
             $prefix .= $key . '/';
             array_walk($value, array($this, '_flattenArray'), $prefix);
         } else {
-            //$this->_flattenArrayResult[$prefix . '/' . $key] = $value;
             $this->_flattenArrayResult[$prefix . $key] = $value;
         }
     }

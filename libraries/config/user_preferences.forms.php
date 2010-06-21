@@ -7,8 +7,7 @@
  * $forms['Form group']['Form name'] = array('Servers/1/host');
  *
  * You can assign default values set by special button ("set value: ..."), eg.:
- * $forms['Server_pmadb'] = array('Servers' => array(1 => array(
- *  'pmadb' => 'phpmyadmin')));
+ * $forms['Server']['pmadb form'] = array('Servers/1/pmadb' => 'phpmyadmin');
  *
  * @package phpMyAdmin
  */
