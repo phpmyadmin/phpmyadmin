@@ -319,6 +319,10 @@ span.checkbox {
     border: 1px #EDEC90 solid;
 }
 
+.field-error {
+    border-color: #C11 !important;
+}
+
 input[type="text"], select, textarea {
     border: 1px #A7A6AA solid;
 }

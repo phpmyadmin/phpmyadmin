@@ -1362,6 +1362,10 @@ table#serverconnection_trg_local  {
     background: #FFC;
 }
 
+.config-form .field-error {
+    border-color: #A11 !important;
+}
+
 .config-form input[type="text"],
 .config-form select,
 .config-form textarea {
@@ -1376,10 +1380,10 @@ table#serverconnection_trg_local  {
 }
 
 /* error list */
-dd {
+.config-form dd {
     margin-left: 0.5em;
 }
 
-dd:before {
+.config-form dd:before {
     content: "\25B8  ";
 }

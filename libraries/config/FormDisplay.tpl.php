@@ -98,6 +98,7 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  * o errors - error array
  * o setvalue - (string) shows button allowing to set poredefined value
  * o show_restore_default - (boolean) whether show "restore default" button
+ * o userprefs_allow - whether show user preferences allow/deny checkbox (null - no, true/false - yes)
  * o values - key - value paris for <select> fields
  * o values_escaped - (boolean) tells whether values array is already escaped (defaults to false)
  * o values_disabled -  (array)list of disabled values (keys from values)
@@ -113,13 +114,23 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  */
 function display_input($path, $name, $description = '', $type, $value, $value_is_default = true, $opts = null)
 {
-    $field_class = $value_is_default ? '' : ' class="custom"';
+    static $base_dir, $img_path;
+
+    if ($base_dir === null) {
+        $is_setup_script = defined('PMA_SETUP') && PMA_SETUP;
+        $base_dir = $is_setup_script ? '../' : '';
+        $img_path = $is_setup_script
+            ? '../' . ltrim($GLOBALS['cfg']['ThemePath'], './') . '/original/img/'
+            : $_SESSION['PMA_Theme']->img_path;
+    }
+    $has_errors = isset($opts['errors']) && !empty($opts['errors']);
+    $field_class = $type == 'checkbox' ? '' : 'checkbox';
+    if (!$value_is_default) {
+        $field_class .= ($field_class == '' ? '' : ' ') . ($has_errors ? 'custom field-error' : 'custom');
+    }
+    $field_class = 'class="' . $field_class . '"';
     $name_id = 'name="' . $path . '" id="' . $path . '"';
-    $base_dir = defined('PMA_SETUP') ? '../' : '';
-    //todo use PMA_showDocu(), create and use PMA_showWiki()    
-    $img_path = defined('PMA_SETUP')
-        ? '../' . ltrim($GLOBALS['cfg']['ThemePath'], './') . '/original/img/'
-        : $_SESSION['PMA_Theme']->img_path;
+
 ?>
 <tr>
     <th>
@@ -141,7 +152,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
                 . ' value="' . htmlspecialchars($value) . '" />';
           break;
         case 'checkbox':
-            echo '<span class="checkbox' . ($value_is_default ? '' : ' custom')
+            echo '<span ' . $field_class
               . '"><input type="checkbox" ' . $name_id
               . ($value ? ' checked="checked"' : '') . ' /></span>';
           break;
@@ -192,8 +203,8 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
         <a class="restore-default" href="#<?php echo $path ?>" title="<?php echo __('Restore default value') ?>" style="display:none"><img alt="restore-default" src="<?php echo $img_path ?>s_reload.png" width="16" height="16" /></a>
         <?php
     }
-    // this must match with displayErrors() in scripts.js
-    if (isset($opts['errors']) && !empty($opts['errors'])) {
+    // this must match with displayErrors() in scripts/config.js
+    if ($has_errors) {
         echo "\n        <dl class=\"inline_errors\">";
         foreach ($opts['errors'] as $error) {
             echo '<dd>' . htmlspecialchars($error) . '</dd>';

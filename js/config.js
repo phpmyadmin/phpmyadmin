@@ -299,6 +299,13 @@ function displayErrors(error_list) {
             return item != '';
         });
 
+        // CSS error class
+        if (!isFieldset) {
+            // checkboxes uses parent <span> for marking
+            var fieldMarker = (field.attr('type') == 'checkbox') ? field.parent() : field;
+            fieldMarker[errors.length ? 'addClass' : 'removeClass']('field-error');
+        }
+
         if (errors.length) {
             // if error container doesn't exist, create it
             if (errorCnt.length == 0) {
