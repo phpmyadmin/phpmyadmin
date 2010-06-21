@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-21 19:57+0200\n"
+"PO-Revision-Date: 2010-06-21 19:58+0200\n"
 "Last-Translator: Burak <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1584,7 +1584,7 @@ msgstr "%s dosyası herhangi bir anahtar kimliği içermiyor"
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr "Donanım kimlik denetimi başarısız"
+msgstr "Donanım kimlik doğrulama başarısız"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
