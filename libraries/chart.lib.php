@@ -1,7 +1,9 @@
 <?php
 
 require_once './libraries/chart/pma_ofc_pie.php';
+
 require_once './libraries/chart/pma_pChart_pie.php';
+require_once './libraries/chart/pma_pChart_bar.php';
 
 /**
  * Chart functions used to generate various types
@@ -45,6 +47,28 @@ function PMA_chart_profiling($data)
 
     $chart = new PMA_pChart_Pie(
             __('Query execution time comparison (in microseconds)'),
+            $chartData);
+    echo $chart->toString();
+}
+
+/*
+ * Formats a chart for query results page.
+ */
+function PMA_chart_results($data)
+{
+    $chartData = array();
+
+    // loop through the rows
+    foreach ($data as $row) {
+
+        // loop through the columns in the row
+        foreach ($row as $key => $value) {
+            $chartData[$key][] = $value;
+        }
+    }
+
+    $chart = new PMA_pChart_bar(
+            __('Query results'),
             $chartData);
     echo $chart->toString();
 }

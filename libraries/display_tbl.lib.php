@@ -2228,7 +2228,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
         // show chart
         echo PMA_linkOrButton(
             'tbl_chart.php' . PMA_generate_common_url($_url_params),
-            PMA_getIcon('b_chart.png', __('Show chart'), false, true),
+            PMA_getIcon('b_chart.png', __('Display chart'), false, true),
             '', true, true, '') . "\n";
     }
 
