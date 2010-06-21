@@ -442,7 +442,7 @@ class ConfigFile
         $persistKeys = $this->persistKeys;
         foreach ($c as $k => $v) {
             $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
-            $ret .= "\$cfg['$k'] = " . var_export($v, true) . ';' . $crlf;
+            $ret .= $this->_getVarExport($k, $v, $crlf);
             if (isset($persistKeys[$k])) {
                 unset($persistKeys[$k]);
             }
@@ -451,11 +451,66 @@ class ConfigFile
         foreach (array_keys($persistKeys) as $k) {
             if (strpos($k, '/') === false) {
                 $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
-                $ret .= "\$cfg['$k'] = " . var_export($this->getDefault($k), true) . ';' . $crlf;
+                $ret .= $this->_getVarExport($k, $this->getDefault($k), $crlf);
             }
         }
         $ret .= '?>';
 
+        return $ret;
+    }
+
+    /**
+     * Returns exported configuration variable
+     *
+     * @param string $var_name
+     * @param mixed  $var_value
+     * @param string $crlf
+     * @return string
+     */
+    private function _getVarExport($var_name, $var_value, $crlf)
+    {
+        if (!is_array($var_value) || empty($var_value)) {
+            return "\$cfg['$var_name'] = " . var_export($var_value, true) . ';' . $crlf;
+        }
+        $numeric_keys = true;
+        foreach (array_keys($var_value) as $k) {
+            if (!is_numeric($k)) {
+                $numeric_keys = false;
+                break;
+            }
+        }
+        if ($numeric_keys) {
+            for ($i = 0; $i < count($var_value); $i++) {
+                if (!isset($var_value[$i])) {
+                    $numeric_keys = false;
+                    break;
+                }
+            }
+        }
+        $ret = '';
+        if ($numeric_keys) {
+            $retv = array();
+            foreach ($var_value as $v) {
+                $retv[] = var_export($v, true);
+            }
+            if (count($retv) <= 4) {
+                // up to 4 values - one line
+                $ret = "\$cfg['$var_name'] = array(" . implode(', ', $retv) . ');' . $crlf;
+            } else {
+                // more than 4 values - value per line
+                $ret = "\$cfg['$var_name'] = array(";
+                for ($i = 0, $imax = count($ret)-1; $i <= $imax; $i++) {
+                    $ret .= ($i < $imax ? $crlf : '') . '    ' . $v;
+                }
+                $ret .= ');' . $crlf;
+            }
+        } else {
+            // string keys: $cfg[key][subkey] = value
+            foreach ($var_value as $k => $v) {
+                $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
+                $ret = "\$cfg['$var_name']['$k'] = " . var_export($v, true) . ';' . $crlf;
+            }
+        }
         return $ret;
     }
 }
