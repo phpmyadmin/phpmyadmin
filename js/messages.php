@@ -43,10 +43,22 @@ $js_messages['strHostEmpty'] = __('The host name is empty!');
 $js_messages['strUserEmpty'] = __('The user name is empty!');
 $js_messages['strPasswordEmpty'] = __('The password is empty!');
 $js_messages['strPasswordNotSame'] = __('The passwords aren\'t the same!');
+$js_messages['strAddNewUser'] = __('Add a New User');
+$js_messages['strCancel'] = __('Cancel');
+$js_messages['strCreateUser'] = __('Create User');
+$js_messages['strReloadingPrivileges'] = __('Reloading Privileges');
+$js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');
+
+/* For Ajax Notifications */
+$js_messages['strLoading'] = __('Loading');
+$js_messages['strProcessingRequest'] = __('Processing Request');
+$js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
+$js_messages['strDroppingColumn'] = __('Dropping Column');
+$js_messages['strAddingPrimaryKey'] = __('Adding Primary Key');
 
 /* Designer */
 $js_messages['strModifications'] = __('Modifications have been saved');

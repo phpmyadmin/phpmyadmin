@@ -16,7 +16,7 @@ var sql_box_locked = false;
 var only_once_elements = new Array();
 
 /**
- * @var ajax_notification_visible   boolean boolean that stores status of
+ * @var ajax_message_init   boolean boolean that stores status of
  *      notification for PMA_ajaxShowNotification
  */
 var ajax_message_init = false;
@@ -1743,7 +1743,7 @@ function PMA_ajaxInsertResponse(divisions_map) {
 function PMA_ajaxShowMessage(message, timeout) {
     
     if(!message) {
-        var msg = 'Loading...';
+        var msg = PMA_messages['strLoading'];
     }
     else {
         var msg = message;
@@ -1828,7 +1828,7 @@ $(document).ready(function() {
 
         $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
 
-            PMA_ajaxShowMessage("Processing Request");
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
                 //Database deleted successfully, refresh both the frames
                 window.parent.refreshNavigation();
@@ -1847,7 +1847,7 @@ $(document).ready(function() {
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
-            PMA_ajaxShowMessage("Processing Request");
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
@@ -1856,7 +1856,7 @@ $(document).ready(function() {
                     $(this).remove();
                 }
                 else {
-                    PMA_ajaxShowMessage("Error in processing request : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }
             })
         })
@@ -1872,7 +1872,7 @@ $(document).ready(function() {
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
-            PMA_ajaxShowMessage("Processing Request");
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
@@ -1881,7 +1881,7 @@ $(document).ready(function() {
                     $(this).remove();
                 }
                 else {
-                    PMA_ajaxShowMessage("Error in processing request : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }
             });
         });
@@ -1893,11 +1893,11 @@ $(document).ready(function() {
 
         var curr_table_name = window.parent.table;
         var curr_column_name = $(this).parents('tr').children('th').children('label').text();
-        var question = 'Do you really want to :\n ALTER TABLE `' + curr_table_name + '` DROP `' + curr_column_name + '`';
+        var question = PMA_message['strDoYouReally'] + ' :\n ALTER TABLE `' + curr_table_name + '` DROP `' + curr_column_name + '`';
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
-            PMA_ajaxShowMessage("Dropping Column");
+            PMA_ajaxShowMessage(PMA_messages['strDroppingColumn']);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
@@ -1905,7 +1905,7 @@ $(document).ready(function() {
                     $(this).remove();
                 }
                 else {
-                    PMA_ajaxShowMessage("Error in processing request : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }
             })
         }); //end of Drop Column Anchor action
@@ -1917,11 +1917,11 @@ $(document).ready(function() {
 
         var curr_table_name = window.parent.table;
         var curr_column_name = $(this).parents('tr').children('th').children('label').text();
-        var question = 'Do you really want to  :\n ALTER TABLE `' + curr_table_name + '` ADD PRIMARY KEY(`' + curr_column_name + '`)';
+        var question = PMA_messages['strDoYouReally'] + ' :\n ALTER TABLE `' + curr_table_name + '` ADD PRIMARY KEY(`' + curr_column_name + '`)';
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
-            PMA_ajaxShowMessage("Adding Primary Key");
+            PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey']);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
@@ -1929,7 +1929,7 @@ $(document).ready(function() {
                     $(this).remove();
                 }
                 else {
-                    PMA_ajaxShowMessage("Error in processing request : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }
             })
         })
