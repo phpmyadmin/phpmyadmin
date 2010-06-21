@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-21 19:56+0200\n"
+"PO-Revision-Date: 2010-06-21 19:57+0200\n"
 "Last-Translator: Burak <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1592,7 +1592,7 @@ msgstr "Geçerli kimlik denetimi anahtarı takılı değil"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr "Kimlik denetleniyor..."
+msgstr "Kimlik doğrulanıyor..."
 
 #: libraries/blobstreaming.lib.php:689
 msgid "View image"
