@@ -1,15 +1,15 @@
 <?php
 
-require_once 'pma_pchart_chart.php';
+require_once 'pma_pchart_bar.php';
 
-class PMA_pChart_stacked extends PMA_pChart_Chart
+class PMA_pChart_stacked extends PMA_pChart_bar
 {
-    private $labelHeight = 20;
+    public function __construct($titleText, $data, $options = null)
+    {
+        parent::__construct($titleText, $data, $options);
 
-    // as in CSS (top, right, bottom, left)
-    private $areaMargins = array(20, 20, 40, 60);
-
-    private $legendLeftMargin = 10;
+        $this->settings['legendLeftMargin'] = 10;
+    }
 
     protected function prepareDataSet()
     {
@@ -38,14 +38,19 @@ class PMA_pChart_stacked extends PMA_pChart_Chart
     protected function prepareChart()
     {
         // Initialise the graph
-        $this->chart = new pChart($this->width, $this->height);
+        $this->chart = new pChart($this->getWidth(), $this->getHeight());
         $this->chart->drawGraphAreaGradient(132,173,131,50,TARGET_BACKGROUND);
 
-        $this->chart->setFontProperties($this->fontPath.'tahoma.ttf', 8);
+        $this->chart->setFontProperties($this->getFontPath().'tahoma.ttf', 8);
 
         $legendSize = $this->chart->getLegendBoxSize($this->dataSet->GetDataDescription());
 
-        $this->chart->setGraphArea($this->areaMargins[3],$this->labelHeight + $this->areaMargins[0],$this->width - $this->areaMargins[1] - $legendSize[0],$this->height - $this->areaMargins[2]);
+        $this->chart->setGraphArea(
+                $this->getAreaMargin(LEFT),
+                $this->getLabelHeight() + $this->getAreaMargin(TOP),
+                $this->getWidth() - $this->getAreaMargin(RIGHT) - $legendSize[0],
+                $this->getHeight() - $this->getAreaMargin(BOTTOM)
+        );
         $this->chart->drawGraphArea(213,217,221,FALSE);
         $this->chart->drawScale($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),SCALE_ADDALLSTART0,213,217,221,TRUE,0,2,TRUE);
         $this->chart->drawGraphAreaGradient(163,203,167,50);
@@ -55,12 +60,22 @@ class PMA_pChart_stacked extends PMA_pChart_Chart
         $this->chart->drawStackedBarGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),70);
 
         // Draw the title
-        $this->chart->drawTextBox(0,0,$this->width,$this->labelHeight,$this->titleText,0,255,255,255,ALIGN_CENTER,TRUE,0,0,0,30);
+        $this->chart->drawTextBox(0,0,$this->getWidth(),$this->getLabelHeight(),$this->titleText,0,255,255,255,ALIGN_CENTER,TRUE,0,0,0,30);
 
         // Draw the legend
-        $this->chart->drawLegend($this->width - $this->areaMargins[1] - $legendSize[0] + $this->legendLeftMargin,$this->labelHeight + $this->areaMargins[0],$this->dataSet->GetDataDescription(),250,250,250,50,50,50);
+        $this->chart->drawLegend(
+                $this->getWidth() - $this->getAreaMargin(RIGHT) - $legendSize[0] + $this->getLegendMargin(LEFT),
+                $this->getLabelHeight() + $this->getAreaMargin(TOP),
+                $this->dataSet->GetDataDescription(),
+                250,250,250,50,50,50
+        );
 
         $this->chart->addBorder(2);
+    }
+
+    protected function getLegendMargin($side)
+    {
+        return $this->settings['legendLeftMargin'];
     }
 }
 

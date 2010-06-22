@@ -18,14 +18,14 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
     protected $imageEncoded;
 
-    protected $fontPath = './libraries/chart/pChart/fonts/';
-
     public function __construct($titleText, $data, $options = null)
     {
         parent::__construct($options);
 
         $this->titleText = $titleText;
         $this->data = $data;
+
+        $this->settings['fontPath'] = './libraries/chart/pChart/fonts/';
     }
 
     abstract protected function prepareDataSet();
@@ -48,6 +48,11 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         $this->render();
 
         return '<img id="pChartPicture1" src="data:image/png;base64,'.$this->imageEncoded.'" />';
+    }
+
+    protected function getFontPath()
+    {
+        return $this->settings['fontPath'];
     }
 }
 

@@ -55,7 +55,7 @@ function PMA_chart_profiling($data)
 /*
  * Formats a chart for query results page.
  */
-function PMA_chart_results($data)
+function PMA_chart_results($data, &$chartSettings)
 {
     $chartData = array();
     $chart = null;
@@ -78,7 +78,7 @@ function PMA_chart_results($data)
             }
         }
 
-        $chart = new PMA_pChart_bar($chartTitle, $chartData);
+        $chart = new PMA_pChart_bar($chartTitle, $chartData, $chartSettings);
     }
     else if (count($data[0]) == 3) {
         // Three columns (x axis, y axis, series) in every row.
@@ -117,14 +117,15 @@ function PMA_chart_results($data)
             }
         }
 
-        $chart = new PMA_pChart_stacked($chartTitle, $chartData);
+        $chart = new PMA_pChart_stacked($chartTitle, $chartData, $chartSettings);
     }
     else {
         // unknown data
         return;
     }
 
-    echo $chart->toString();
+    $chartSettings = $chart->getSettings();
+    return $chart->toString();
 }
 
 ?>

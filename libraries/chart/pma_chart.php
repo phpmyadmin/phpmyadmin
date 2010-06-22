@@ -3,49 +3,54 @@
 class PMA_Chart
 {
     /*
-     * The style of the chart title.
+     * The settings array. All the default values are here.
      */
-    protected $titleStyle = 'font-size: 12px; font-weight: bold;';
+    protected $settings = array(
+        /*
+        * The style of the chart title.
+        */
+        'titleStyle' => 'font-size: 12px; font-weight: bold;',
 
-    /*
-     * Colors for the different slices in the pie chart.
-     */    
-    protected $colors = array(
-        '#BCE02E',
-        '#E0642E',
-        '#E0D62E',
-        '#2E97E0',
-        '#B02EE0',
-        '#E02E75',
-        '#5CE02E',
-        '#E0B02E',
-        '#000000',
-        '#0022E0',
-        '#726CB1',
-        '#481A36',
-        '#BAC658',
-        '#127224',
-        '#825119',
-        '#238C74',
-        '#4C489B',
-        '#1D674A',
-        '#87C9BF',
+        /*
+         * Colors for the different slices in the pie chart.
+         */
+        'colors' => array(
+            '#BCE02E',
+            '#E0642E',
+            '#E0D62E',
+            '#2E97E0',
+            '#B02EE0',
+            '#E02E75',
+            '#5CE02E',
+            '#E0B02E',
+            '#000000',
+            '#0022E0',
+            '#726CB1',
+            '#481A36',
+            '#BAC658',
+            '#127224',
+            '#825119',
+            '#238C74',
+            '#4C489B',
+            '#1D674A',
+            '#87C9BF',
+        ),
+
+        /*
+         * Chart background color.
+         */
+        'bgColor' => '#E5E5E5',
+
+        /*
+         * The width of the chart.
+         */
+        'width' => 520,
+
+         /*
+         * The height of the chart.
+         */
+        'height' => 325,
     );
-
-    /*
-     * Chart background color.
-     */
-    protected $bgColor = '#E5E5E5';
-
-    /*
-     * The width of the chart.
-     */
-    protected $width = 520;
-
-    /*
-     * The height of the chart.
-     */
-    protected $height = 325;
 
     function __construct($options = null)
     {
@@ -64,17 +69,37 @@ class PMA_Chart
         if (is_null($options))
             return;
 
-        if (isset($options['bgColor']))
-            $this->bgColor = $options['bgColor'];
-        if (isset($options['width']))
-            $this->width = $options['width'];
-        if (isset($options['height']))
-            $this->height = $options['height'];
+        $this->settings = array_merge($this->settings, $options);
+    }
+
+    function getTitleStyle()
+    {
+        return $this->settings['titleStyle'];
+    }
+
+    function getColors()
+    {
+        return $this->settings['colors'];
+    }
+
+    function getWidth()
+    {
+        return $this->settings['width'];
+    }
+
+    function getHeight()
+    {
+        return $this->settings['height'];
     }
 
     function getBgColorComp($component)
     {
-        return hexdec(substr($this->bgColor, ($component * 2) + 1, 2));
+        return hexdec(substr($this->settings['bgColor'], ($component * 2) + 1, 2));
+    }
+
+    function getSettings()
+    {
+        return $this->settings;
     }
 }
 

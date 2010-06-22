@@ -4,8 +4,13 @@ require_once 'pma_pchart_chart.php';
 
 class PMA_pChart_Pie extends PMA_pChart_Chart
 {
-    private $border1Width = 7;
-    private $border2Width = 5;
+    public function __construct($titleText, $data, $options = null)
+    {
+        parent::__construct($titleText, $data, $options);
+
+        $this->settings['border1Width'] = 7;
+        $this->settings['border2Width'] = 8;
+    }
 
     protected function prepareDataSet()
     {
@@ -20,8 +25,8 @@ class PMA_pChart_Pie extends PMA_pChart_Chart
     protected function prepareChart()
     {
         // Initialise the graph
-        $this->chart = new pChart($this->width, $this->height);
-        foreach ($this->colors as $key => $color) {
+        $this->chart = new pChart($this->getWidth(), $this->getHeight());
+        foreach ($this->getColors() as $key => $color) {
             $this->chart->setColorPalette(
                     $key,
                     hexdec(substr($color, 1, 2)),
@@ -29,22 +34,22 @@ class PMA_pChart_Pie extends PMA_pChart_Chart
                     hexdec(substr($color, 5, 2))
             );
         }
-        $this->chart->setFontProperties($this->fontPath.'tahoma.ttf', 8);
+        $this->chart->setFontProperties($this->getFontPath().'tahoma.ttf', 8);
         $this->chart->drawFilledRoundedRectangle(
-                $this->border1Width,
-                $this->border1Width,
-                $this->width - $this->border1Width,
-                $this->height - $this->border1Width,
+                $this->getBorder1Width(),
+                $this->getBorder1Width(),
+                $this->getWidth() - $this->getBorder1Width(),
+                $this->getHeight() - $this->getBorder1Width(),
                 5,
                 $this->getBgColorComp(0),
                 $this->getBgColorComp(1),
                 $this->getBgColorComp(2)
                 );
         $this->chart->drawRoundedRectangle(
-                $this->border1Width,
-                $this->border1Width,
-                $this->width - $this->border1Width,
-                $this->height - $this->border1Width,
+                $this->getBorder2Width(),
+                $this->getBorder2Width(),
+                $this->getWidth() - $this->getBorder2Width(),
+                $this->getHeight() - $this->getBorder2Width(),
                 5,0,0,0);
 
         // Draw the pie chart
@@ -57,6 +62,16 @@ class PMA_pChart_Pie extends PMA_pChart_Chart
 
         $this->chart->drawTitle(20,20,$this->titleText,0,0,0);
         $this->chart->drawPieLegend(350,15,$this->dataSet->GetData(),$this->dataSet->GetDataDescription(),250,250,250);
+    }
+
+    protected function getBorder1Width()
+    {
+        return $this->settings['border1Width'];
+    }
+
+    protected function getBorder2Width()
+    {
+        return $this->settings['border2Width'];
     }
 }
 

@@ -45,6 +45,15 @@ while ($row = PMA_DBI_fetch_assoc($result)) {
     }*/
 }
 
+// get settings if any posted
+$chartSettings = array();
+if (PMA_isValid($_REQUEST['chartSettings'], 'array')) {
+    $chartSettings = $_REQUEST['chartSettings'];
+}
+
+// get the chart and settings used to generate chart
+$chart = PMA_chart_results($data, $chartSettings);
+
 /**
  * Displays top menu links
  * We use db links because a chart is not necessarily on a single table
@@ -59,17 +68,32 @@ $url_params['reload'] = 1;
  * Displays the page
  */
 ?>
-<!-- CREATE VIEW options -->
+<!-- Display Chart options -->
 <div id="div_view_options">
-<form method="post" action="view_create.php">
+<form method="post" action="tbl_chart.php">
 <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
 <fieldset>
     <legend><?php echo __('Display chart'); ?></legend>
-    <?php echo PMA_chart_results($data); ?>
+
+    <div style="float: right">
+        <?php echo $chart; ?>
+    </div>
+
+    <input type="hidden" name="sql_query" id="sql_query" value="<?php echo $sql_query; ?>" />
+
+    <table>
+    <tr><td><label for="width"><?php echo __("Width"); ?></label></td>
+        <td><input type="text" name="chartSettings[width]" id="width" value="<?php echo $chartSettings['width']; ?>" /></td>
+    </tr>
+
+    <tr><td><label for="height"><?php echo __("Height"); ?></label></td>
+        <td><input type="text" name="chartSettings[height]" id="height" value="<?php echo $chartSettings['height']; ?>" /></td>
+    </tr>
+    </table>
 
 </fieldset>
 <fieldset class="tblFooters">
-    <input type="submit" name="displayChart" value="<?php echo __('Go'); ?>" />
+    <input type="submit" name="displayChart" value="<?php echo __('Redraw'); ?>" />
 </fieldset>
 </form>
 </div>
