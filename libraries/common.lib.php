@@ -2888,7 +2888,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
         $response = array_merge($response, $extra_data);
     }
 
-    if(!$GLOBALS['is_header_sent']) {
+    if(!isset($GLOBALS['is_header_sent'])) {
         header("Content-Type: application/json");
     }
     echo json_encode($response);
