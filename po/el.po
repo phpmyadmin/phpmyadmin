@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-22 00:55+0530\n"
+"POT-Creation-Date: 2010-06-22 11:26+0530\n"
 "PO-Revision-Date: 2010-03-30 23:16+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -1005,76 +1005,100 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:64 pmd_save_pos.php:54
+#: js/messages.php:64
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Renaming Databases"
+msgstr "Μετονομασία βάσης δεδομένων σε"
+
+#: js/messages.php:65
+#, fuzzy
+#| msgid "Database"
+msgid "Reload Database"
+msgstr "Βάση"
+
+#: js/messages.php:66
+#, fuzzy
+#| msgid "Copy database to"
+msgid "Copying Database"
+msgstr "Αντιγραφή βάσης δεδομένων σε"
+
+#: js/messages.php:67
+#, fuzzy
+#| msgid "Charset"
+msgid "Changing Charset"
+msgstr "Σύνολο χαρακτήρων"
+
+#: js/messages.php:70 pmd_save_pos.php:54
 msgid "Modifications have been saved"
 msgstr "Οι αλλαγές αποθηκεύτηκαν"
 
-#: js/messages.php:65 pmd_relation_upd.php:49
+#: js/messages.php:71 pmd_relation_upd.php:49
 msgid "Relation deleted"
 msgstr "Η συσχέτιση διαγράφηκε"
 
-#: js/messages.php:66 pmd_relation_new.php:64
+#: js/messages.php:72 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
 msgstr "Προστέθηκε η συσχέτιση ΜΗ ΔΙΑΚΡΙΤΟΥ ΚΛΕΙΔΙΟΥ (FOREIGN KEY)"
 
-#: js/messages.php:67 pmd_relation_new.php:86
+#: js/messages.php:73 pmd_relation_new.php:86
 msgid "Internal relation added"
 msgstr "Η εσωτερική συσχέτιση προστέθηκε"
 
-#: js/messages.php:68 pmd_relation_new.php:63 pmd_relation_new.php:88
+#: js/messages.php:74 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
 msgstr "Σφάλμα: Δεν προστέθηκε η συσχέτιση."
 
-#: js/messages.php:69 pmd_relation_new.php:31
+#: js/messages.php:75 pmd_relation_new.php:31
 msgid "Error: relation already exists."
 msgstr "Σφάλμα: Η συσχέτιση υπαρχει ήδη."
 
-#: js/messages.php:70
+#: js/messages.php:76
 msgid "Error saving coordinates for Designer."
 msgstr "Σφάλμα αποθήκευσης συντεταγμένων για τον Σχεδιαστή."
 
-#: js/messages.php:71 libraries/relation.lib.php:107
+#: js/messages.php:77 libraries/relation.lib.php:107
 #: libraries/relation.lib.php:119
 msgid "General relation features"
 msgstr "Γενικές λειτουργίες συσχέτισης"
 
-#: js/messages.php:71 libraries/relation.lib.php:101
+#: js/messages.php:77 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
 msgid "Disabled"
 msgstr "Απενεργοποιημένη"
 
-#: js/messages.php:72
+#: js/messages.php:78
 msgid "Select referenced key"
 msgstr "Επιλέξτε αναφερθέν κλειδί"
 
-#: js/messages.php:73
+#: js/messages.php:79
 msgid "Select Foreign Key"
 msgstr "Επιλέξτε Μη Διακριτό Κλειδί"
 
-#: js/messages.php:74
+#: js/messages.php:80
 msgid "Please select the primary key or a unique key"
 msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί"
 
-#: js/messages.php:75 pmd_general.php:77 tbl_relation.php:548
+#: js/messages.php:81 pmd_general.php:77 tbl_relation.php:548
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Επιλέξτε πεδίο για εμφάνιση"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:85
+#: js/messages.php:91
 #, fuzzy
 msgid "Done"
 msgstr "Δωρεά"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:87
+#: js/messages.php:93
 #, fuzzy
 msgid "Prev"
 msgstr "Προηγούμενο"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:89 libraries/common.lib.php:2357
+#: js/messages.php:95 libraries/common.lib.php:2357
 #: libraries/common.lib.php:2360 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:799
@@ -1082,253 +1106,253 @@ msgid "Next"
 msgstr "Επόμενο"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:91
+#: js/messages.php:97
 #, fuzzy
 msgid "Today"
 msgstr "Σύνολο"
 
-#: js/messages.php:94
+#: js/messages.php:100
 #, fuzzy
 msgid "January"
 msgstr "Δυαδικό"
 
-#: js/messages.php:95
+#: js/messages.php:101
 msgid "February"
 msgstr ""
 
-#: js/messages.php:96
+#: js/messages.php:102
 #, fuzzy
 msgid "March"
 msgstr "Μαρτίου"
 
-#: js/messages.php:97
+#: js/messages.php:103
 #, fuzzy
 msgid "April"
 msgstr "Απριλίου"
 
-#: js/messages.php:98
+#: js/messages.php:104
 msgid "May"
 msgstr "Μαΐου"
 
-#: js/messages.php:99
+#: js/messages.php:105
 #, fuzzy
 msgid "June"
 msgstr "Ιουνίου"
 
-#: js/messages.php:100
+#: js/messages.php:106
 #, fuzzy
 msgid "July"
 msgstr "Ιουλίου"
 
-#: js/messages.php:101
+#: js/messages.php:107
 #, fuzzy
 msgid "August"
 msgstr "Αυγούστου"
 
-#: js/messages.php:102
+#: js/messages.php:108
 msgid "September"
 msgstr ""
 
-#: js/messages.php:103
+#: js/messages.php:109
 #, fuzzy
 msgid "October"
 msgstr "Οκτωβρίου"
 
-#: js/messages.php:104
+#: js/messages.php:110
 msgid "November"
 msgstr ""
 
-#: js/messages.php:105
+#: js/messages.php:111
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:109 libraries/common.lib.php:1557
+#: js/messages.php:115 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr "Ιανουαρίου"
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/common.lib.php:1559
+#: js/messages.php:117 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr "Φεβρουαρίου"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/common.lib.php:1561
+#: js/messages.php:119 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr "Μαρτίου"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1563
+#: js/messages.php:121 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr "Απριλίου"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1565
+#: js/messages.php:123 libraries/common.lib.php:1565
 #, fuzzy
 msgctxt "Short month name"
 msgid "May"
 msgstr "Μαΐου"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1567
+#: js/messages.php:125 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr "Ιουνίου"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/common.lib.php:1569
+#: js/messages.php:127 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr "Ιουλίου"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/common.lib.php:1571
+#: js/messages.php:129 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr "Αυγούστου"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/common.lib.php:1573
+#: js/messages.php:131 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr "Σεπτεμβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/common.lib.php:1575
+#: js/messages.php:133 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr "Οκτωβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/common.lib.php:1577
+#: js/messages.php:135 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr "Νοεμβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/common.lib.php:1579
+#: js/messages.php:137 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr "Δεκεμβρίου"
 
-#: js/messages.php:134
+#: js/messages.php:140
 #, fuzzy
 msgid "Sunday"
 msgstr "Κυριακή"
 
-#: js/messages.php:135
+#: js/messages.php:141
 #, fuzzy
 msgid "Monday"
 msgstr "Δευτέρα"
 
-#: js/messages.php:136
+#: js/messages.php:142
 #, fuzzy
 msgid "Tuesday"
 msgstr "Τρίτη"
 
-#: js/messages.php:137
+#: js/messages.php:143
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:138
+#: js/messages.php:144
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:139
+#: js/messages.php:145
 #, fuzzy
 msgid "Friday"
 msgstr "Παρασκευή"
 
-#: js/messages.php:140
+#: js/messages.php:146
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:144 libraries/common.lib.php:1582
+#: js/messages.php:150 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr "Κυριακή"
 
 #. l10n: Short week day name
-#: js/messages.php:146 libraries/common.lib.php:1584
+#: js/messages.php:152 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr "Δευτέρα"
 
 #. l10n: Short week day name
-#: js/messages.php:148 libraries/common.lib.php:1586
+#: js/messages.php:154 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr "Τρίτη"
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/common.lib.php:1588
+#: js/messages.php:156 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr "Τετάρτη"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/common.lib.php:1590
+#: js/messages.php:158 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr "Πέμπτη"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/common.lib.php:1592
+#: js/messages.php:160 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr "Παρασκευή"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/common.lib.php:1594
+#: js/messages.php:162 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr "Σάββατο"
 
 #. l10n: Minimal week day name
-#: js/messages.php:160
+#: js/messages.php:166
 #, fuzzy
 msgid "Su"
 msgstr "Κυριακή"
 
 #. l10n: Minimal week day name
-#: js/messages.php:162
+#: js/messages.php:168
 #, fuzzy
 msgid "Mo"
 msgstr "Δευτέρα"
 
 #. l10n: Minimal week day name
-#: js/messages.php:164
+#: js/messages.php:170
 #, fuzzy
 msgid "Tu"
 msgstr "Τρίτη"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:172
 #, fuzzy
 msgid "We"
 msgstr "Τετάρτη"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:174
 #, fuzzy
 msgid "Th"
 msgstr "Πέμπτη"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:176
 #, fuzzy
 msgid "Fr"
 msgstr "Παρασκευή"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:178
 #, fuzzy
 msgid "Sa"
 msgstr "Σάββατο"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:174
+#: js/messages.php:180
 #, fuzzy
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:176
+#: js/messages.php:182
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:177
+#: js/messages.php:183
 #, fuzzy
 msgid "Minute"
 msgstr "σε χρήση"
 
-#: js/messages.php:178
+#: js/messages.php:184
 #, fuzzy
 msgid "Second"
 msgstr "ανά δευτερόλεπτο"

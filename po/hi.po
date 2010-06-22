@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-22 00:55+0530\n"
+"POT-Creation-Date: 2010-06-22 11:26+0530\n"
 "PO-Revision-Date: 2010-05-21 05:48+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -987,74 +987,96 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:64 pmd_save_pos.php:54
+#: js/messages.php:64
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Renaming Databases"
+msgstr "डेटाबेस का नाम बदल कर ____ रखें"
+
+#: js/messages.php:65
+#, fuzzy
+#| msgid "Database"
+msgid "Reload Database"
+msgstr " डाटाबेस"
+
+#: js/messages.php:66
+#, fuzzy
+#| msgid "Copy database to"
+msgid "Copying Database"
+msgstr "डेटाबेस को ______ में कॉपी करें"
+
+#: js/messages.php:67
+msgid "Changing Charset"
+msgstr ""
+
+#: js/messages.php:70 pmd_save_pos.php:54
 msgid "Modifications have been saved"
 msgstr "संशोधनों को बचाया गया है"
 
-#: js/messages.php:65 pmd_relation_upd.php:49
+#: js/messages.php:71 pmd_relation_upd.php:49
 msgid "Relation deleted"
 msgstr "रिश्ते को नष्ट कर दिया"
 
-#: js/messages.php:66 pmd_relation_new.php:64
+#: js/messages.php:72 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
 msgstr "विदेशी कुंजी रिश्ता जोड़ा."
 
-#: js/messages.php:67 pmd_relation_new.php:86
+#: js/messages.php:73 pmd_relation_new.php:86
 msgid "Internal relation added"
 msgstr "आंतरिक संबंध जोड़ा."
 
-#: js/messages.php:68 pmd_relation_new.php:63 pmd_relation_new.php:88
+#: js/messages.php:74 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
 msgstr "त्रुटि: रिलेशन नहीं जोड़ा गया."
 
-#: js/messages.php:69 pmd_relation_new.php:31
+#: js/messages.php:75 pmd_relation_new.php:31
 msgid "Error: relation already exists."
 msgstr "त्रुटि: रिश्ता पहले से ही मौजूद है. "
 
-#: js/messages.php:70
+#: js/messages.php:76
 msgid "Error saving coordinates for Designer."
 msgstr "डिजाइनर के लिए निर्देशांक बचाने में त्रुटि आ रही है"
 
-#: js/messages.php:71 libraries/relation.lib.php:107
+#: js/messages.php:77 libraries/relation.lib.php:107
 #: libraries/relation.lib.php:119
 msgid "General relation features"
 msgstr "सामान्य सुविधाओं के संबंध"
 
-#: js/messages.php:71 libraries/relation.lib.php:101
+#: js/messages.php:77 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
 msgid "Disabled"
 msgstr "अक्षम"
 
-#: js/messages.php:72
+#: js/messages.php:78
 msgid "Select referenced key"
 msgstr "संदर्भित कुंजी का चयन करें."
 
-#: js/messages.php:73
+#: js/messages.php:79
 msgid "Select Foreign Key"
 msgstr "विदेश कुंजी का चयन करें."
 
-#: js/messages.php:74
+#: js/messages.php:80
 msgid "Please select the primary key or a unique key"
 msgstr "कृपया प्राथमिक कुंजी या एक अद्वितीय कुंजी का चयन करें"
 
-#: js/messages.php:75 pmd_general.php:77 tbl_relation.php:548
+#: js/messages.php:81 pmd_general.php:77 tbl_relation.php:548
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "क्षेत्र प्रदर्शित करने के लिए चयन करें."
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:85
+#: js/messages.php:91
 msgid "Done"
 msgstr "किया"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:87
+#: js/messages.php:93
 msgid "Prev"
 msgstr "पिछला"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:89 libraries/common.lib.php:2357
+#: js/messages.php:95 libraries/common.lib.php:2357
 #: libraries/common.lib.php:2360 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:799
@@ -1062,231 +1084,231 @@ msgid "Next"
 msgstr " अगला"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:91
+#: js/messages.php:97
 msgid "Today"
 msgstr "आज"
 
-#: js/messages.php:94
+#: js/messages.php:100
 msgid "January"
 msgstr "जनवरी"
 
-#: js/messages.php:95
+#: js/messages.php:101
 msgid "February"
 msgstr "फरवरी"
 
-#: js/messages.php:96
+#: js/messages.php:102
 msgid "March"
 msgstr "मार्च"
 
-#: js/messages.php:97
+#: js/messages.php:103
 msgid "April"
 msgstr "अप्रैल"
 
-#: js/messages.php:98
+#: js/messages.php:104
 msgid "May"
 msgstr "मई"
 
-#: js/messages.php:99
+#: js/messages.php:105
 msgid "June"
 msgstr "जून"
 
-#: js/messages.php:100
+#: js/messages.php:106
 msgid "July"
 msgstr "जुलाई"
 
-#: js/messages.php:101
+#: js/messages.php:107
 msgid "August"
 msgstr "अगस्त"
 
-#: js/messages.php:102
+#: js/messages.php:108
 msgid "September"
 msgstr "सितम्बर"
 
-#: js/messages.php:103
+#: js/messages.php:109
 msgid "October"
 msgstr "अक्तूबर"
 
-#: js/messages.php:104
+#: js/messages.php:110
 msgid "November"
 msgstr "नवम्बर"
 
-#: js/messages.php:105
+#: js/messages.php:111
 msgid "December"
 msgstr "दिसम्बर"
 
 #. l10n: Short month name
-#: js/messages.php:109 libraries/common.lib.php:1557
+#: js/messages.php:115 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr "जनवरी"
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/common.lib.php:1559
+#: js/messages.php:117 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr "फरवरी"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/common.lib.php:1561
+#: js/messages.php:119 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr "मार्च"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1563
+#: js/messages.php:121 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr "अप्रैल"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1565
+#: js/messages.php:123 libraries/common.lib.php:1565
 msgctxt "Short month name"
 msgid "May"
 msgstr "मई"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1567
+#: js/messages.php:125 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr "जून"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/common.lib.php:1569
+#: js/messages.php:127 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr "जुलाई"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/common.lib.php:1571
+#: js/messages.php:129 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr "अगस्त"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/common.lib.php:1573
+#: js/messages.php:131 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr "सितम्बर"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/common.lib.php:1575
+#: js/messages.php:133 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr "अक्तूबर"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/common.lib.php:1577
+#: js/messages.php:135 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr "नवम्बर"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/common.lib.php:1579
+#: js/messages.php:137 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr "दिसमबर"
 
-#: js/messages.php:134
+#: js/messages.php:140
 msgid "Sunday"
 msgstr "रविवार"
 
-#: js/messages.php:135
+#: js/messages.php:141
 msgid "Monday"
 msgstr "सोमवार"
 
-#: js/messages.php:136
+#: js/messages.php:142
 msgid "Tuesday"
 msgstr "मन्गलवार"
 
-#: js/messages.php:137
+#: js/messages.php:143
 msgid "Wednesday"
 msgstr "बुधवार"
 
-#: js/messages.php:138
+#: js/messages.php:144
 msgid "Thursday"
 msgstr "गुरूवार"
 
-#: js/messages.php:139
+#: js/messages.php:145
 msgid "Friday"
 msgstr "शुक्रवार"
 
-#: js/messages.php:140
+#: js/messages.php:146
 msgid "Saturday"
 msgstr "शनिवार"
 
 #. l10n: Short week day name
-#: js/messages.php:144 libraries/common.lib.php:1582
+#: js/messages.php:150 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr "रविवार"
 
 #. l10n: Short week day name
-#: js/messages.php:146 libraries/common.lib.php:1584
+#: js/messages.php:152 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr "सोमवार"
 
 #. l10n: Short week day name
-#: js/messages.php:148 libraries/common.lib.php:1586
+#: js/messages.php:154 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr "मन्गलवार"
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/common.lib.php:1588
+#: js/messages.php:156 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr "बुधवार"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/common.lib.php:1590
+#: js/messages.php:158 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr "गुरुवार"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/common.lib.php:1592
+#: js/messages.php:160 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr "शुक्रवार"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/common.lib.php:1594
+#: js/messages.php:162 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr "शनिवार"
 
 #. l10n: Minimal week day name
-#: js/messages.php:160
+#: js/messages.php:166
 msgid "Su"
 msgstr "रविवार"
 
 #. l10n: Minimal week day name
-#: js/messages.php:162
+#: js/messages.php:168
 msgid "Mo"
 msgstr "सोमवार"
 
 #. l10n: Minimal week day name
-#: js/messages.php:164
+#: js/messages.php:170
 msgid "Tu"
 msgstr "मन्गलवार"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:172
 msgid "We"
 msgstr "बुधवार"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:174
 msgid "Th"
 msgstr "गुरुवार"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:176
 msgid "Fr"
 msgstr "शुक्रवार"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:178
 msgid "Sa"
 msgstr "शनिवार"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:174
+#: js/messages.php:180
 msgid "Wk"
 msgstr "हफ्ता"
 
-#: js/messages.php:176
+#: js/messages.php:182
 msgid "Hour"
 msgstr "घंटा"
 
-#: js/messages.php:177
+#: js/messages.php:183
 msgid "Minute"
 msgstr "मिनट"
 
-#: js/messages.php:178
+#: js/messages.php:184
 msgid "Second"
 msgstr "सेकंड"
 

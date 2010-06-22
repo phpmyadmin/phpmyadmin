@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-22 00:55+0530\n"
+"POT-Creation-Date: 2010-06-22 11:26+0530\n"
 "PO-Revision-Date: 2010-06-09 14:17+0200\n"
 "Last-Translator:  <sven.erik.andersen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -987,72 +987,96 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:64 pmd_save_pos.php:54
+#: js/messages.php:64
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Renaming Databases"
+msgstr "Endre databasens navn til"
+
+#: js/messages.php:65
+#, fuzzy
+#| msgid "Database"
+msgid "Reload Database"
+msgstr "Database"
+
+#: js/messages.php:66
+#, fuzzy
+#| msgid "Copy database to"
+msgid "Copying Database"
+msgstr "Kopier databasen til"
+
+#: js/messages.php:67
+#, fuzzy
+#| msgid "Charset"
+msgid "Changing Charset"
+msgstr "Tegnsett"
+
+#: js/messages.php:70 pmd_save_pos.php:54
 msgid "Modifications have been saved"
 msgstr "Endringene er lagret"
 
-#: js/messages.php:65 pmd_relation_upd.php:49
+#: js/messages.php:71 pmd_relation_upd.php:49
 msgid "Relation deleted"
 msgstr "Relasjon slettet"
 
-#: js/messages.php:66 pmd_relation_new.php:64
+#: js/messages.php:72 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relasjon lagt til"
 
-#: js/messages.php:67 pmd_relation_new.php:86
+#: js/messages.php:73 pmd_relation_new.php:86
 msgid "Internal relation added"
 msgstr "Intern relasjon lagt til"
 
-#: js/messages.php:68 pmd_relation_new.php:63 pmd_relation_new.php:88
+#: js/messages.php:74 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
 msgstr "Feil: Relasjon ikke opprettet."
 
-#: js/messages.php:69 pmd_relation_new.php:31
+#: js/messages.php:75 pmd_relation_new.php:31
 msgid "Error: relation already exists."
 msgstr "Feil: relasjoner eksisterer allerede."
 
-#: js/messages.php:70
+#: js/messages.php:76
 msgid "Error saving coordinates for Designer."
 msgstr "Feil oppstod under lagring av Designerkoordinater."
 
-#: js/messages.php:71 libraries/relation.lib.php:107
+#: js/messages.php:77 libraries/relation.lib.php:107
 #: libraries/relation.lib.php:119
 msgid "General relation features"
 msgstr "Generelle relasjonsegenskaper"
 
-#: js/messages.php:71 libraries/relation.lib.php:101
+#: js/messages.php:77 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
 msgid "Disabled"
 msgstr "Avslått"
 
-#: js/messages.php:72
+#: js/messages.php:78
 msgid "Select referenced key"
 msgstr "Velg referert nøkkel"
 
-#: js/messages.php:73
+#: js/messages.php:79
 msgid "Select Foreign Key"
 msgstr "Velg fremmednøkkel"
 
-#: js/messages.php:74
+#: js/messages.php:80
 msgid "Please select the primary key or a unique key"
 msgstr "Velg primærnøkkelen eller en unik nøkkel"
 
-#: js/messages.php:75 pmd_general.php:77 tbl_relation.php:548
+#: js/messages.php:81 pmd_general.php:77 tbl_relation.php:548
 msgid "Choose column to display"
 msgstr "Velg kolonne for visning"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:85
+#: js/messages.php:91
 msgid "Done"
 msgstr "Utført"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:87
+#: js/messages.php:93
 msgid "Prev"
 msgstr "Forrige"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:89 libraries/common.lib.php:2357
+#: js/messages.php:95 libraries/common.lib.php:2357
 #: libraries/common.lib.php:2360 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:799
@@ -1060,231 +1084,231 @@ msgid "Next"
 msgstr "Neste"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:91
+#: js/messages.php:97
 msgid "Today"
 msgstr "I dag"
 
-#: js/messages.php:94
+#: js/messages.php:100
 msgid "January"
 msgstr "Januar"
 
-#: js/messages.php:95
+#: js/messages.php:101
 msgid "February"
 msgstr "Februar"
 
-#: js/messages.php:96
+#: js/messages.php:102
 msgid "March"
 msgstr "Mars"
 
-#: js/messages.php:97
+#: js/messages.php:103
 msgid "April"
 msgstr "April"
 
-#: js/messages.php:98
+#: js/messages.php:104
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:99
+#: js/messages.php:105
 msgid "June"
 msgstr "Juni"
 
-#: js/messages.php:100
+#: js/messages.php:106
 msgid "July"
 msgstr "Juli"
 
-#: js/messages.php:101
+#: js/messages.php:107
 msgid "August"
 msgstr "August"
 
-#: js/messages.php:102
+#: js/messages.php:108
 msgid "September"
 msgstr "September"
 
-#: js/messages.php:103
+#: js/messages.php:109
 msgid "October"
 msgstr "Oktober"
 
-#: js/messages.php:104
+#: js/messages.php:110
 msgid "November"
 msgstr "November"
 
-#: js/messages.php:105
+#: js/messages.php:111
 msgid "December"
 msgstr "Desember"
 
 #. l10n: Short month name
-#: js/messages.php:109 libraries/common.lib.php:1557
+#: js/messages.php:115 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/common.lib.php:1559
+#: js/messages.php:117 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/common.lib.php:1561
+#: js/messages.php:119 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1563
+#: js/messages.php:121 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1565
+#: js/messages.php:123 libraries/common.lib.php:1565
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1567
+#: js/messages.php:125 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/common.lib.php:1569
+#: js/messages.php:127 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/common.lib.php:1571
+#: js/messages.php:129 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/common.lib.php:1573
+#: js/messages.php:131 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/common.lib.php:1575
+#: js/messages.php:133 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/common.lib.php:1577
+#: js/messages.php:135 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/common.lib.php:1579
+#: js/messages.php:137 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr "Des"
 
-#: js/messages.php:134
+#: js/messages.php:140
 msgid "Sunday"
 msgstr "Søndag"
 
-#: js/messages.php:135
+#: js/messages.php:141
 msgid "Monday"
 msgstr "Mandag"
 
-#: js/messages.php:136
+#: js/messages.php:142
 msgid "Tuesday"
 msgstr "Tirsdag"
 
-#: js/messages.php:137
+#: js/messages.php:143
 msgid "Wednesday"
 msgstr "Onsdag"
 
-#: js/messages.php:138
+#: js/messages.php:144
 msgid "Thursday"
 msgstr "Torsdag"
 
-#: js/messages.php:139
+#: js/messages.php:145
 msgid "Friday"
 msgstr "Fredag"
 
-#: js/messages.php:140
+#: js/messages.php:146
 msgid "Saturday"
 msgstr "Lørdag"
 
 #. l10n: Short week day name
-#: js/messages.php:144 libraries/common.lib.php:1582
+#: js/messages.php:150 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr "Søn"
 
 #. l10n: Short week day name
-#: js/messages.php:146 libraries/common.lib.php:1584
+#: js/messages.php:152 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr "Man"
 
 #. l10n: Short week day name
-#: js/messages.php:148 libraries/common.lib.php:1586
+#: js/messages.php:154 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr "Tir"
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/common.lib.php:1588
+#: js/messages.php:156 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr "Ons"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/common.lib.php:1590
+#: js/messages.php:158 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr "Tor"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/common.lib.php:1592
+#: js/messages.php:160 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr "Fre"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/common.lib.php:1594
+#: js/messages.php:162 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr "Lør"
 
 #. l10n: Minimal week day name
-#: js/messages.php:160
+#: js/messages.php:166
 msgid "Su"
 msgstr "Søndag"
 
 #. l10n: Minimal week day name
-#: js/messages.php:162
+#: js/messages.php:168
 msgid "Mo"
 msgstr "Man"
 
 #. l10n: Minimal week day name
-#: js/messages.php:164
+#: js/messages.php:170
 msgid "Tu"
 msgstr "Tir"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:172
 msgid "We"
 msgstr "Ons"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:174
 msgid "Th"
 msgstr "Tor"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:176
 msgid "Fr"
 msgstr "Fre"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:178
 msgid "Sa"
 msgstr "Lør"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:174
+#: js/messages.php:180
 msgid "Wk"
 msgstr "Uke"
 
-#: js/messages.php:176
+#: js/messages.php:182
 msgid "Hour"
 msgstr "Time"
 
-#: js/messages.php:177
+#: js/messages.php:183
 msgid "Minute"
 msgstr "Minutt"
 
-#: js/messages.php:178
+#: js/messages.php:184
 msgid "Second"
 msgstr "Sekund"
 

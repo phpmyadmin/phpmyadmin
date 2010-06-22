@@ -25,12 +25,13 @@ $(document).ready(function() {
 
         var question = 'CREATE DATABASE ... and then DROP DATABASE ' + window.parent.db;
         $(this).PMA_confirm(question, $(this).attr('action'), function(url) {
-            PMA_ajaxShowMessage("Renaming Database");
+            PMA_ajaxShowMessage(PMA_messages['strRenamingDatabases']);
+            $(this).append('<input type="hidden" name="ajax_request" value="true" />');
 
-            $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1&ajax_request=true', function(data) {
+            $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    $("<span>Reload Database?</span>").dialog({
+                    $("<span>" + PMA_messages['strReloadDatabase'] + "?</span>").dialog({
                         buttons: {"Yes": function() {
                                             refreshMain("main.php");
                                            },
@@ -51,7 +52,7 @@ $(document).ready(function() {
     $("#copy_db_form").live('submit', function(event) {
         event.preventDefault();
 
-        PMA_ajaxShowMessage("Copying Database");
+        PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase']);
         $(this).append('<input type="hidden" name="ajax_request" value="true" />');
 
         $.get($(this).attr('action'), $(this).serialize(), function(data) {
@@ -73,7 +74,7 @@ $(document).ready(function() {
 
         $(this).append('<input type="hidden" name="ajax_request" value="true" />');
 
-        PMA_ajaxShowMessage("Changing charset");
+        PMA_ajaxShowMessage(PMA_messages['strChangingCharset']);
         $.get($(this).attr('action'), $(this).serialize() + "&submitcollation=" + $(this).find("input[name=submitcollation]").attr('value'), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);

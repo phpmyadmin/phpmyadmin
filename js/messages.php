@@ -60,6 +60,12 @@ $js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
 $js_messages['strDroppingColumn'] = __('Dropping Column');
 $js_messages['strAddingPrimaryKey'] = __('Adding Primary Key');
 
+/* For db_operations.js */
+$js_messages['strRenamingDatabases'] = __('Renaming Databases');
+$js_messages['strReloadDatabase'] = __('Reload Database');
+$js_messages['strCopyingDatabase'] = __('Copying Database');
+$js_messages['strChangingCharset'] = __('Changing Charset');
+
 /* Designer */
 $js_messages['strModifications'] = __('Modifications have been saved');
 $js_messages['strRelationDeleted'] = __('Relation deleted');
