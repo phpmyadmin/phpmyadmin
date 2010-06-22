@@ -128,18 +128,18 @@ $(document).ready(function() {
             .find("#addUsersForm").append('<input type="hidden" name="ajax_request" value="true" />')
             .end()
             .dialog({
-                title: 'Add a New User',
+                title: PMA_messages['strAddNewUser'],
                 width: 800,
                 modal: true,
-                buttons: {"Create User": function() {
+                buttons: { "Create User" : function() {
 
 
                                 var the_form = $(this).find("#addUsersForm");
 
-                                /*if(!checkAddUser(the_form)) {
-                                    PMA_ajaxShowMessage("Check the form!");
+                                if(!checkAddUser($(the_form).get(0))) {
+                                    PMA_ajaxShowMessage(PMA_messages['strFormIncomplete']);
                                     return false;
-                                }*/
+                                }
 
                                 //We also need to post the value of the submit button in order to get this to work correctly
                                 $.post($(the_form).attr('action'), $(the_form).serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
@@ -148,11 +148,11 @@ $(document).ready(function() {
                                         PMA_ajaxShowMessage(data.message);
                                     }
                                     else {
-                                        PMA_ajaxShowMessage("Error in processing request :"+data.error, "7000");
+                                        PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
                                     }
                                 })
                             },
-                            "Cancel": function() {$(this).dialog("close")}
+                            "Cancel" : function() {$(this).dialog("close")}
                         } //buttons end
             }); //dialog options end
         });
@@ -166,7 +166,7 @@ $(document).ready(function() {
     $("#reload_privileges_anchor").live("click", function(event) {
         event.preventDefault();
 
-        PMA_ajaxShowMessage("Reloading Privileges");
+        PMA_ajaxShowMessage(PMA_messages['strReloadingPrivileges']);
         $.get($(this).attr("href"), {'ajax_request': true}, function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
@@ -181,7 +181,7 @@ $(document).ready(function() {
     $("#fieldset_delete_user_footer #buttonGo").live('click', function(event) {
         event.preventDefault();
 
-        PMA_ajaxShowMessage("Removing Selected Users");
+        PMA_ajaxShowMessage(PMA_messages['strRemovingSelectedUsers']);
         
         $.post($("#usersForm").attr('action'), $("#usersForm").serialize() + "&delete=" + $(this).attr('value') + "&ajax_request=true", function(data) {
             if(data.success == true) {
@@ -196,6 +196,24 @@ $(document).ready(function() {
         })
     }) // end Revoke User
 
+    //Edit User
+    $(".edit_user_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        PMA_ajaxShowMessage();
+
+        $(this).append('<div id="edit_user_dialog"></div>');
+        $.get($(this).attr('href'), {'ajax_request':true}, function(data) {
+            $("#edit_user_dialog")
+            .append(data)
+            .dialog({
+                width: 900
+                //buttons: { }
+            })
+        })
+    })
+    //end Edit user
+
     //Export Privileges
     $(".export_user_anchor").live('click', function(event) {
         event.preventDefault();
@@ -207,7 +225,7 @@ $(document).ready(function() {
             .prepend(data)
             .dialog({
                 width : 500,
-                buttons: { "Close" : function() { 
+                buttons: {"Close" : function() { 
                         $(this).dialog("close");
                     }}
             });
