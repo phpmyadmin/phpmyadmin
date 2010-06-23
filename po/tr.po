@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-17 21:32+0200\n"
-"Last-Translator:  <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2010-06-21 19:58+0200\n"
+"Last-Translator: Burak <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -96,7 +96,7 @@ msgstr "Veritabanı %1$s oluşturuldu."
 
 #: db_datadict.php:49 db_operations.php:378
 msgid "Database comment: "
-msgstr "Veritabanı yorumu: "
+msgstr "Veritabanı yorumu:"
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
 #: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
@@ -1584,7 +1584,7 @@ msgstr "%s dosyası herhangi bir anahtar kimliği içermiyor"
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr "Donanım kimlik denetimi başarısız"
+msgstr "Donanım kimlik doğrulama başarısız"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
@@ -1592,7 +1592,7 @@ msgstr "Geçerli kimlik denetimi anahtarı takılı değil"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr "Kimlik denetleniyor..."
+msgstr "Kimlik doğrulanıyor..."
 
 #: libraries/blobstreaming.lib.php:689
 msgid "View image"
@@ -1604,7 +1604,7 @@ msgstr "Ses çal"
 
 #: libraries/blobstreaming.lib.php:698
 msgid "View video"
-msgstr "Videoyu göster"
+msgstr "Görüntüyü göster"
 
 #: libraries/blobstreaming.lib.php:702
 msgid "Download file"
