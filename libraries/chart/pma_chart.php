@@ -66,8 +66,9 @@ class PMA_Chart
      */
     function handleOptions($options)
     {
-        if (is_null($options))
+        if (is_null($options)) {
             return;
+        }
 
         $this->settings = array_merge($this->settings, $options);
     }
