@@ -112,7 +112,6 @@ $(document).ready(function() {
      * Attach AJAX event handlers to 'Add a New User'
      *
      * @todo create standard options for dialog boxes
-     * @todo hook in checkAddUser()
      */
     $("#fieldset_add_user a").live("click", function(event) {
         event.preventDefault();
@@ -131,13 +130,12 @@ $(document).ready(function() {
                 title: PMA_messages['strAddNewUser'],
                 width: 800,
                 modal: true,
-                buttons: { "Create User" : function() {
-
+                buttons: {"Create User" : function() {
 
                                 var the_form = $(this).find("#addUsersForm");
 
-                                if(!checkAddUser($(the_form).get(0))) {
-                                    PMA_ajaxShowMessage(PMA_messages['strFormIncomplete']);
+                                if( ! checkAddUser($(the_form).get(0)) ) {
+                                    PMA_ajaxShowMessage(PMA_messages['strFormEmpty']);
                                     return false;
                                 }
 
