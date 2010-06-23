@@ -2,9 +2,9 @@
 
 require_once './libraries/chart/pma_ofc_pie.php';
 
-require_once './libraries/chart/pma_pChart_pie.php';
-require_once './libraries/chart/pma_pChart_bar.php';
-require_once './libraries/chart/pma_pChart_stacked.php';
+require_once './libraries/chart/pma_pchart_pie.php';
+require_once './libraries/chart/pma_pchart_bar.php';
+require_once './libraries/chart/pma_pchart_stacked.php';
 
 /**
  * Chart functions used to generate various types
