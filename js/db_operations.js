@@ -18,22 +18,49 @@
 $(document).ready(function() {
 
     //Create Table
+    $("#create_table_form_minimal").live('submit', function(event) {
+        event.preventDefault();
+
+        /* @todo Validate this form! */
+
+        PMA_ajaxShowMessage();
+        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        $.get($(this).attr('action'), $(this).serialize(), function(data) {
+            $('<div id="create_table_dialog"></div>')
+            .append(data)
+            .dialog({
+                title: PMA_messages['strCreateTable'],
+                width: 900,
+                buttons : {
+                            "Create Table" : function() {
+                                //handle form here
+                            },
+                            "Cancel" : function() {$(this).dialog('close');}
+                }
+            });
+        })
+    })
 
     //Rename Database
     $("#rename_db_form").live('submit', function(event) {
         event.preventDefault();
 
         var question = 'CREATE DATABASE ... and then DROP DATABASE ' + window.parent.db;
+        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+
         $(this).PMA_confirm(question, $(this).attr('action'), function(url) {
             PMA_ajaxShowMessage(PMA_messages['strRenamingDatabases']);
-            $(this).append('<input type="hidden" name="ajax_request" value="true" />');
 
             $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function(data) {
                 if(data.success == true) {
+                    
                     PMA_ajaxShowMessage(data.message);
+                    window.parent.db = data.newname;
+
                     $("<span>" + PMA_messages['strReloadDatabase'] + "?</span>").dialog({
                         buttons: {"Yes": function() {
-                                            refreshMain("main.php");
+                                            window.parent.refreshMain();
                                            },
                                    "No" : function() {
                                             $(this).dialog("close");
@@ -59,7 +86,8 @@ $(document).ready(function() {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 if( $("#checkbox_switch").is(":checked")) {
-                    refreshMain("main.php");
+                    window.parent.db = data.newname;
+                    window.parent.refreshMain();
                 }
             }
             else {
