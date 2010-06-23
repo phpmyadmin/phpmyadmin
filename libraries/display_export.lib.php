@@ -219,49 +219,47 @@ if (! empty($sql_query)) {
                     <label for="checkbox_remember_template">
                         <?php echo __('use this for future exports'); ?></label>
                 </li>
-                <li>
-                     <?php
-                    // charset of file
-                    if ($cfg['AllowAnywhereRecoding']) {
-                        echo '        <label for="select_charset_of_file" class="desc">'
-                            . __('Character set of the file:') . '</label>' . "\n";
-                        reset($cfg['AvailableCharsets']);
-                        echo '<select id="select_charset_of_file" name="charset_of_file" size="1">';
-                        foreach ($cfg['AvailableCharsets'] as $temp_charset) {
-                            echo '<option value="' . $temp_charset . '"';
-                            if ((empty($cfg['Export']['charset']) && $temp_charset == $charset)
-                              || $temp_charset == $cfg['Export']['charset']) {
-                                echo ' selected="selected"';
-                            }
-                            echo '>' . $temp_charset . '</option>';
-                        } // end foreach
-                        echo '</select>';
-                    } // end if
-                    ?>
-                </li>
-                <li>
-                    <?php
-                    // zip, gzip and bzip2 encode features
-                    $is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
-                    $is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
-                    $is_bzip = ($cfg['BZipDump'] && @function_exists('bzcompress'));
-                    if ($is_zip || $is_gzip || $is_bzip) { ?>
-                        <label for="compression" class="desc"><?php echo __('Compression:'); ?></label>
-                        <select id="compression" name="compression">
-                            <option value="none"><?php echo __('None'); ?></option>
-                            <?php if ($is_zip) { ?>
-                                <option value="zip"><?php echo __('zipped'); ?></option>
-                            <?php } if ($is_gzip) { ?>
-                                <option value="gzip"><?php echo __('gzipped'); ?></option>
-                            <?php } if ($is_bzip) { ?>
-                                <option value="bzip"><?php echo __('bzipped'); ?></option>
-                            <?php } ?>
-                        </select>
-                    <?php } else { ?>
-                        <input type="hidden" name="compression" value="none" />
-                    <?php } ?>
-                </li>
-            </ul>
+                <?php
+                // charset of file
+                if ($cfg['AllowAnywhereRecoding']) {
+                    echo '        <li><label for="select_charset_of_file" class="desc">'
+                        . __('Character set of the file:') . '</label>' . "\n";
+                    reset($cfg['AvailableCharsets']);
+                    echo '<select id="select_charset_of_file" name="charset_of_file" size="1">';
+                    foreach ($cfg['AvailableCharsets'] as $temp_charset) {
+                        echo '<option value="' . $temp_charset . '"';
+                        if ((empty($cfg['Export']['charset']) && $temp_charset == $charset)
+                          || $temp_charset == $cfg['Export']['charset']) {
+                            echo ' selected="selected"';
+                        }
+                        echo '>' . $temp_charset . '</option>';
+                    } // end foreach
+                    echo '</select></li>';
+                } // end if
+                ?>
+                 <?php
+                // zip, gzip and bzip2 encode features
+                $is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
+                $is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
+                $is_bzip = ($cfg['BZipDump'] && @function_exists('bzcompress'));
+                if ($is_zip || $is_gzip || $is_bzip) { ?>
+                    <li>
+                    <label for="compression" class="desc"><?php echo __('Compression:'); ?></label>
+                    <select id="compression" name="compression">
+                        <option value="none"><?php echo __('None'); ?></option>
+                        <?php if ($is_zip) { ?>
+                            <option value="zip"><?php echo __('zipped'); ?></option>
+                        <?php } if ($is_gzip) { ?>
+                            <option value="gzip"><?php echo __('gzipped'); ?></option>
+                        <?php } if ($is_bzip) { ?>
+                            <option value="bzip"><?php echo __('bzipped'); ?></option>
+                        <?php } ?>
+                    </select>
+                    </li>
+                <?php } else { ?>
+                    <input type="hidden" name="compression" value="none" />
+                <?php } ?>
+             </ul>
         </li>
         <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext" /><label for="radio_view_as_text">View output as text</label></li>
     </ul>
