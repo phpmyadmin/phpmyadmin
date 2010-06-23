@@ -1230,12 +1230,8 @@ table#serverconnection_trg_local  {
 {background:#F00;}
 
 /**
-  * Export styles
+  * Export and Import styles
   */
-select#db_select, select#table_select {
-    width: 400px;
-}
-
 .exportoptions h3, .importoptions h3 {
     border-bottom: 1px #999999 solid;
 }
@@ -1248,13 +1244,12 @@ select#db_select, select#table_select {
 .exportoptions li, .importoptions li {
     margin: 7px;
 }
-
 .exportoptions label, .importoptions label, .exportoptions p, .importoptions p	 {
     margin: 5px;
     float: none;
 }
 
-#csv_options .desc, #ldi_options .desc, #latex_options .desc, #output .desc{
+#csv_options label.desc, #ldi_options label.desc, #latex_options label.desc, #output label.desc{
     float: left;
     width: 15em;
 }
@@ -1266,13 +1261,24 @@ select#db_select, select#table_select {
 .exportoptions #buttonGo, .importoptions #buttonGo {
     padding: 5px 30px;
     -moz-border-radius: 11px;
-    -webkit-border-radius:
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
     background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
     border: 1px solid #444444;
-    background-color: #ffffff;
     cursor: pointer;
+}
+
+p.desc {
+    margin: 5px;
+}
+
+/**
+  * Export styles only
+  */
+select#db_select, select#table_select {
+    width: 400px;
 }
 
 .export_sub_options {
@@ -1283,12 +1289,16 @@ select#db_select, select#table_select {
     border-bottom: 1px #999999 solid;
 }
 
+/**
+ * Import styles only
+ */
+
 .importoptions #import_notification {
     margin: 10px 0px;
     font-style: italic;
 }
 
-p.desc {
+input#input_import_file {
     margin: 5px;
 }
 
