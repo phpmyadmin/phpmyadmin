@@ -138,10 +138,11 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         }
         // We don't have show anything about compression, when no supported
         if ($compressions != array()) {
-             printf(__('<p>File may be compressed (%s) or uncompressed.</p><p>A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b></p>'), implode(", ", $compressions));
-         }
+             printf(__('<div class="formelementrow" id="compression_info">File may be compressed (%s) or uncompressed.<br />A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b></div>'), implode(", ", $compressions));
+         }?>
 
-        if($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
+        <div class="formelementrow" id="upload_form">
+        <?php if($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
             <ul>
             <li>
                 <input type="radio" name="file_location" id="upload_file_input" />
@@ -154,20 +155,17 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             </ul>
         <?php } else if ($GLOBALS['is_upload']) {
             $uid = uniqid("");
-            ?>
-        <div class="formelementrow" id="upload_form">
-           <?php PMA_browseUploadFile($max_upload_size); ?>
-        </div>
-        </div>
-            <?php
+            PMA_browseUploadFile($max_upload_size);
         } else if (!$GLOBALS['is_upload']) {
             PMA_Message::warning(__('File uploads are not allowed on this server.'))->display();
         } else if (!empty($cfg['UploadDir'])) {
             PMA_selectUploadFile($import_list, $cfg['UploadDir']);
         } // end if (web-server upload directory)
+        ?>
+        </div>
 
-// charset of file
-        echo '<div class="formelementrow">' . "\n";
+       <div class="formelementrow" id="charaset_of_file">
+        <?php // charset of file
         if ($cfg['AllowAnywhereRecoding']) {
             echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>';
             reset($cfg['AvailableCharsets']);
@@ -185,8 +183,8 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>' . "\n";
             echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', FALSE);
         } // end if (recoding)
-        echo '</div>' . "\n";
         ?>
+        </div>
     </div>
     <div class="importoptions">
         <h3><?php echo __('Partial Import:'); ?></h3>
