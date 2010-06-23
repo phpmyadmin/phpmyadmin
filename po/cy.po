@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-22 11:26+0530\n"
+"POT-Creation-Date: 2010-06-22 12:29+0530\n"
 "PO-Revision-Date: 2010-06-07 20:23+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
@@ -54,7 +54,7 @@ msgstr "Chwilio"
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1335 libraries/common.lib.php:2292
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_create_table.lib.php:63
+#: libraries/display_create_table.lib.php:62
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
 #: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
@@ -1010,72 +1010,84 @@ msgstr "Copïwch y gronfa ddata i"
 msgid "Changing Charset"
 msgstr "Set nodau"
 
-#: js/messages.php:70 pmd_save_pos.php:54
+#: js/messages.php:68
+#, fuzzy
+#| msgid "Table must have at least one column."
+msgid "Table must have atleast 1 column"
+msgstr "Mae'n rhaid i'r tabl gael o leiaf un golofn."
+
+#: js/messages.php:69
+#, fuzzy
+#| msgid "Create table"
+msgid "Create Table"
+msgstr "Crëwch dabl"
+
+#: js/messages.php:72 pmd_save_pos.php:54
 msgid "Modifications have been saved"
 msgstr "Cafodd yr addasiadau eu cadw"
 
-#: js/messages.php:71 pmd_relation_upd.php:49
+#: js/messages.php:73 pmd_relation_upd.php:49
 msgid "Relation deleted"
 msgstr "Perthynas wedi'i ddileu"
 
-#: js/messages.php:72 pmd_relation_new.php:64
+#: js/messages.php:74 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
 msgstr "Perthynas FOREIGN KEY wedi'i ychwanegu"
 
-#: js/messages.php:73 pmd_relation_new.php:86
+#: js/messages.php:75 pmd_relation_new.php:86
 msgid "Internal relation added"
 msgstr "Perthynas mewnol wedi'i ychwanegu"
 
-#: js/messages.php:74 pmd_relation_new.php:63 pmd_relation_new.php:88
+#: js/messages.php:76 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
 msgstr "Gwall: Perthynas heb ei ychwanegu."
 
-#: js/messages.php:75 pmd_relation_new.php:31
+#: js/messages.php:77 pmd_relation_new.php:31
 msgid "Error: relation already exists."
 msgstr "Gwall: perthynas yn bodoli yn barod."
 
-#: js/messages.php:76
+#: js/messages.php:78
 msgid "Error saving coordinates for Designer."
 msgstr "Gwall wrth gadw cyfesurynnau ar gyfer y Dyluniwr."
 
-#: js/messages.php:77 libraries/relation.lib.php:107
+#: js/messages.php:79 libraries/relation.lib.php:107
 #: libraries/relation.lib.php:119
 msgid "General relation features"
 msgstr "Nodweddion perthynas cyffredinol"
 
-#: js/messages.php:77 libraries/relation.lib.php:101
+#: js/messages.php:79 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
 msgid "Disabled"
 msgstr "Analluogwyd"
 
-#: js/messages.php:78
+#: js/messages.php:80
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:79
+#: js/messages.php:81
 msgid "Select Foreign Key"
 msgstr "Dewis Allwedd Estron"
 
-#: js/messages.php:80
+#: js/messages.php:82
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:81 pmd_general.php:77 tbl_relation.php:548
+#: js/messages.php:83 pmd_general.php:77 tbl_relation.php:548
 msgid "Choose column to display"
 msgstr "Dewis colofn i'w dangos"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:91
+#: js/messages.php:93
 msgid "Done"
 msgstr "Gorffen"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:93
+#: js/messages.php:95
 msgid "Prev"
 msgstr "Cynt"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:95 libraries/common.lib.php:2357
+#: js/messages.php:97 libraries/common.lib.php:2357
 #: libraries/common.lib.php:2360 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:799
@@ -1083,231 +1095,231 @@ msgid "Next"
 msgstr "Nesaf"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:97
+#: js/messages.php:99
 msgid "Today"
 msgstr "Heddiw"
 
-#: js/messages.php:100
+#: js/messages.php:102
 msgid "January"
 msgstr "Ionawr"
 
-#: js/messages.php:101
+#: js/messages.php:103
 msgid "February"
 msgstr "Chwefror"
 
-#: js/messages.php:102
+#: js/messages.php:104
 msgid "March"
 msgstr "Mawrth"
 
-#: js/messages.php:103
+#: js/messages.php:105
 msgid "April"
 msgstr "Ebrill"
 
-#: js/messages.php:104
+#: js/messages.php:106
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:105
+#: js/messages.php:107
 msgid "June"
 msgstr "Mehefin"
 
-#: js/messages.php:106
+#: js/messages.php:108
 msgid "July"
 msgstr "Gorffennaf"
 
-#: js/messages.php:107
+#: js/messages.php:109
 msgid "August"
 msgstr "Awst"
 
-#: js/messages.php:108
+#: js/messages.php:110
 msgid "September"
 msgstr "Medi"
 
-#: js/messages.php:109
+#: js/messages.php:111
 msgid "October"
 msgstr "Hydref"
 
-#: js/messages.php:110
+#: js/messages.php:112
 msgid "November"
 msgstr "Tachwedd"
 
-#: js/messages.php:111
+#: js/messages.php:113
 msgid "December"
 msgstr "Rhagfyr"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1557
+#: js/messages.php:117 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr "Ion"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1559
+#: js/messages.php:119 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr "Chwe"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1561
+#: js/messages.php:121 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr "Maw"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/common.lib.php:1563
+#: js/messages.php:123 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr "Ebr"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/common.lib.php:1565
+#: js/messages.php:125 libraries/common.lib.php:1565
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/common.lib.php:1567
+#: js/messages.php:127 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr "Meh"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/common.lib.php:1569
+#: js/messages.php:129 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr "Gor"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/common.lib.php:1571
+#: js/messages.php:131 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr "Aws"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/common.lib.php:1573
+#: js/messages.php:133 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr "Med"
 
 #. l10n: Short month name
-#: js/messages.php:133 libraries/common.lib.php:1575
+#: js/messages.php:135 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr "Hyd"
 
 #. l10n: Short month name
-#: js/messages.php:135 libraries/common.lib.php:1577
+#: js/messages.php:137 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr "Tach"
 
 #. l10n: Short month name
-#: js/messages.php:137 libraries/common.lib.php:1579
+#: js/messages.php:139 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr "Rhag"
 
-#: js/messages.php:140
+#: js/messages.php:142
 msgid "Sunday"
 msgstr "Dydd Sul"
 
-#: js/messages.php:141
+#: js/messages.php:143
 msgid "Monday"
 msgstr "Dydd Llun"
 
-#: js/messages.php:142
+#: js/messages.php:144
 msgid "Tuesday"
 msgstr "Dydd Mawrth"
 
-#: js/messages.php:143
+#: js/messages.php:145
 msgid "Wednesday"
 msgstr "DYdd Mercher"
 
-#: js/messages.php:144
+#: js/messages.php:146
 msgid "Thursday"
 msgstr "Dydd Iau"
 
-#: js/messages.php:145
+#: js/messages.php:147
 msgid "Friday"
 msgstr "Dydd Gwener"
 
-#: js/messages.php:146
+#: js/messages.php:148
 msgid "Saturday"
 msgstr "Dydd Sadwrn"
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/common.lib.php:1582
+#: js/messages.php:152 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr "Sul"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/common.lib.php:1584
+#: js/messages.php:154 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr "Llun"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/common.lib.php:1586
+#: js/messages.php:156 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr "Maw"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/common.lib.php:1588
+#: js/messages.php:158 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:158 libraries/common.lib.php:1590
+#: js/messages.php:160 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr "Iau"
 
 #. l10n: Short week day name
-#: js/messages.php:160 libraries/common.lib.php:1592
+#: js/messages.php:162 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr "Gwe"
 
 #. l10n: Short week day name
-#: js/messages.php:162 libraries/common.lib.php:1594
+#: js/messages.php:164 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr "Sad"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:168
 msgid "Su"
 msgstr "Su"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:170
 msgid "Mo"
 msgstr "Llu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:172
 msgid "Tu"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:174
 msgid "We"
 msgstr "Me"
 
 #. l10n: Minimal week day name
-#: js/messages.php:174
+#: js/messages.php:176
 msgid "Th"
 msgstr "Ia"
 
 #. l10n: Minimal week day name
-#: js/messages.php:176
+#: js/messages.php:178
 msgid "Fr"
 msgstr "Gw"
 
 #. l10n: Minimal week day name
-#: js/messages.php:178
+#: js/messages.php:180
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:180
+#: js/messages.php:182
 msgid "Wk"
 msgstr "Wy"
 
-#: js/messages.php:182
+#: js/messages.php:184
 msgid "Hour"
 msgstr "Awr"
 
-#: js/messages.php:183
+#: js/messages.php:185
 msgid "Minute"
 msgstr "Munud"
 
-#: js/messages.php:184
+#: js/messages.php:186
 msgid "Second"
 msgstr "Eiliad"
 
@@ -1884,7 +1896,7 @@ msgid "Events"
 msgstr "Digwyddiadau"
 
 #: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
-#: libraries/display_create_table.lib.php:53 libraries/tbl_triggers.lib.php:27
+#: libraries/display_create_table.lib.php:52 libraries/tbl_triggers.lib.php:27
 #: setup/frames/index.inc.php:112
 msgid "Name"
 msgstr "Enw"
@@ -2017,16 +2029,12 @@ msgstr "Creu"
 msgid "No Privileges"
 msgstr "Dim Breintiau"
 
-#: libraries/display_create_table.lib.php:41
-msgid "Table must have at least one column."
-msgstr "Mae'n rhaid i'r tabl gael o leiaf un golofn."
-
-#: libraries/display_create_table.lib.php:48
+#: libraries/display_create_table.lib.php:47
 #, php-format
 msgid "Create table on database %s"
 msgstr "Creu tabl mewn cronfa ddata %s"
 
-#: libraries/display_create_table.lib.php:57
+#: libraries/display_create_table.lib.php:56
 msgid "Number of columns"
 msgstr "Nifer y colofnau"
 

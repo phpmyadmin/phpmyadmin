@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-22 11:26+0530\n"
+"POT-Creation-Date: 2010-06-22 12:29+0530\n"
 "PO-Revision-Date: 2010-06-04 14:09+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "搜索"
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1335 libraries/common.lib.php:2292
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_create_table.lib.php:63
+#: libraries/display_create_table.lib.php:62
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
 #: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
@@ -1001,72 +1001,84 @@ msgstr "复制数据库到"
 msgid "Changing Charset"
 msgstr "字符集"
 
-#: js/messages.php:70 pmd_save_pos.php:54
+#: js/messages.php:68
+#, fuzzy
+#| msgid "Table must have at least one column."
+msgid "Table must have atleast 1 column"
+msgstr "数据表至少要有一个字段。"
+
+#: js/messages.php:69
+#, fuzzy
+#| msgid "Create table"
+msgid "Create Table"
+msgstr "新建数据表"
+
+#: js/messages.php:72 pmd_save_pos.php:54
 msgid "Modifications have been saved"
 msgstr "已保存修改。"
 
-#: js/messages.php:71 pmd_relation_upd.php:49
+#: js/messages.php:73 pmd_relation_upd.php:49
 msgid "Relation deleted"
 msgstr "已删除关系"
 
-#: js/messages.php:72 pmd_relation_new.php:64
+#: js/messages.php:74 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
 msgstr "已添加外键关联"
 
-#: js/messages.php:73 pmd_relation_new.php:86
+#: js/messages.php:75 pmd_relation_new.php:86
 msgid "Internal relation added"
 msgstr "已添加内联关系"
 
-#: js/messages.php:74 pmd_relation_new.php:63 pmd_relation_new.php:88
+#: js/messages.php:76 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
 msgstr "错误：关系未添加"
 
-#: js/messages.php:75 pmd_relation_new.php:31
+#: js/messages.php:77 pmd_relation_new.php:31
 msgid "Error: relation already exists."
 msgstr "错误：关系已存在"
 
-#: js/messages.php:76
+#: js/messages.php:78
 msgid "Error saving coordinates for Designer."
 msgstr "保存设计器坐标时出错。"
 
-#: js/messages.php:77 libraries/relation.lib.php:107
+#: js/messages.php:79 libraries/relation.lib.php:107
 #: libraries/relation.lib.php:119
 msgid "General relation features"
 msgstr "基本功能"
 
-#: js/messages.php:77 libraries/relation.lib.php:101
+#: js/messages.php:79 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
 msgid "Disabled"
 msgstr "已禁用"
 
-#: js/messages.php:78
+#: js/messages.php:80
 msgid "Select referenced key"
 msgstr "选择外键"
 
-#: js/messages.php:79
+#: js/messages.php:81
 msgid "Select Foreign Key"
 msgstr "选择外键"
 
-#: js/messages.php:80
+#: js/messages.php:82
 msgid "Please select the primary key or a unique key"
 msgstr "请选择主键或唯一键"
 
-#: js/messages.php:81 pmd_general.php:77 tbl_relation.php:548
+#: js/messages.php:83 pmd_general.php:77 tbl_relation.php:548
 msgid "Choose column to display"
 msgstr "选择要显示的字段"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:91
+#: js/messages.php:93
 msgid "Done"
 msgstr "完成"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:93
+#: js/messages.php:95
 msgid "Prev"
 msgstr "上个月"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:95 libraries/common.lib.php:2357
+#: js/messages.php:97 libraries/common.lib.php:2357
 #: libraries/common.lib.php:2360 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:799
@@ -1074,231 +1086,231 @@ msgid "Next"
 msgstr "下个月"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:97
+#: js/messages.php:99
 msgid "Today"
 msgstr "今天"
 
-#: js/messages.php:100
+#: js/messages.php:102
 msgid "January"
 msgstr "一月"
 
-#: js/messages.php:101
+#: js/messages.php:103
 msgid "February"
 msgstr "二月"
 
-#: js/messages.php:102
+#: js/messages.php:104
 msgid "March"
 msgstr "三月"
 
-#: js/messages.php:103
+#: js/messages.php:105
 msgid "April"
 msgstr "四月"
 
-#: js/messages.php:104
+#: js/messages.php:106
 msgid "May"
 msgstr "五月"
 
-#: js/messages.php:105
+#: js/messages.php:107
 msgid "June"
 msgstr "六月"
 
-#: js/messages.php:106
+#: js/messages.php:108
 msgid "July"
 msgstr "七月"
 
-#: js/messages.php:107
+#: js/messages.php:109
 msgid "August"
 msgstr "八月"
 
-#: js/messages.php:108
+#: js/messages.php:110
 msgid "September"
 msgstr "九月"
 
-#: js/messages.php:109
+#: js/messages.php:111
 msgid "October"
 msgstr "十月"
 
-#: js/messages.php:110
+#: js/messages.php:112
 msgid "November"
 msgstr "十一月"
 
-#: js/messages.php:111
+#: js/messages.php:113
 msgid "December"
 msgstr "十二月"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1557
+#: js/messages.php:117 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr "一月"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1559
+#: js/messages.php:119 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr "二月"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1561
+#: js/messages.php:121 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr "三月"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/common.lib.php:1563
+#: js/messages.php:123 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr "四月"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/common.lib.php:1565
+#: js/messages.php:125 libraries/common.lib.php:1565
 msgctxt "Short month name"
 msgid "May"
 msgstr "五月"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/common.lib.php:1567
+#: js/messages.php:127 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr "六月"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/common.lib.php:1569
+#: js/messages.php:129 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr "七月"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/common.lib.php:1571
+#: js/messages.php:131 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr "八月"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/common.lib.php:1573
+#: js/messages.php:133 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr "九月"
 
 #. l10n: Short month name
-#: js/messages.php:133 libraries/common.lib.php:1575
+#: js/messages.php:135 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr "十月"
 
 #. l10n: Short month name
-#: js/messages.php:135 libraries/common.lib.php:1577
+#: js/messages.php:137 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr "十一月"
 
 #. l10n: Short month name
-#: js/messages.php:137 libraries/common.lib.php:1579
+#: js/messages.php:139 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr "十二月"
 
-#: js/messages.php:140
+#: js/messages.php:142
 msgid "Sunday"
 msgstr "星期日"
 
-#: js/messages.php:141
+#: js/messages.php:143
 msgid "Monday"
 msgstr "星期一"
 
-#: js/messages.php:142
+#: js/messages.php:144
 msgid "Tuesday"
 msgstr "星期二"
 
-#: js/messages.php:143
+#: js/messages.php:145
 msgid "Wednesday"
 msgstr "星期三"
 
-#: js/messages.php:144
+#: js/messages.php:146
 msgid "Thursday"
 msgstr "星期四"
 
-#: js/messages.php:145
+#: js/messages.php:147
 msgid "Friday"
 msgstr "星期五"
 
-#: js/messages.php:146
+#: js/messages.php:148
 msgid "Saturday"
 msgstr "星期六"
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/common.lib.php:1582
+#: js/messages.php:152 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr "周日"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/common.lib.php:1584
+#: js/messages.php:154 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr "周一"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/common.lib.php:1586
+#: js/messages.php:156 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr "周二"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/common.lib.php:1588
+#: js/messages.php:158 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr "周三"
 
 #. l10n: Short week day name
-#: js/messages.php:158 libraries/common.lib.php:1590
+#: js/messages.php:160 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr "周四"
 
 #. l10n: Short week day name
-#: js/messages.php:160 libraries/common.lib.php:1592
+#: js/messages.php:162 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr "周五"
 
 #. l10n: Short week day name
-#: js/messages.php:162 libraries/common.lib.php:1594
+#: js/messages.php:164 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr "周六"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:168
 msgid "Su"
 msgstr "日"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:170
 msgid "Mo"
 msgstr "一"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:172
 msgid "Tu"
 msgstr "二"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:174
 msgid "We"
 msgstr "三"
 
 #. l10n: Minimal week day name
-#: js/messages.php:174
+#: js/messages.php:176
 msgid "Th"
 msgstr "四"
 
 #. l10n: Minimal week day name
-#: js/messages.php:176
+#: js/messages.php:178
 msgid "Fr"
 msgstr "五"
 
 #. l10n: Minimal week day name
-#: js/messages.php:178
+#: js/messages.php:180
 msgid "Sa"
 msgstr "六"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:180
+#: js/messages.php:182
 msgid "Wk"
 msgstr "周"
 
-#: js/messages.php:182
+#: js/messages.php:184
 msgid "Hour"
 msgstr "时"
 
-#: js/messages.php:183
+#: js/messages.php:185
 msgid "Minute"
 msgstr "分"
 
-#: js/messages.php:184
+#: js/messages.php:186
 msgid "Second"
 msgstr "秒"
 
@@ -1873,7 +1885,7 @@ msgid "Events"
 msgstr "事件"
 
 #: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
-#: libraries/display_create_table.lib.php:53 libraries/tbl_triggers.lib.php:27
+#: libraries/display_create_table.lib.php:52 libraries/tbl_triggers.lib.php:27
 #: setup/frames/index.inc.php:112
 msgid "Name"
 msgstr "名字"
@@ -2007,16 +2019,12 @@ msgstr "创建"
 msgid "No Privileges"
 msgstr "无权限"
 
-#: libraries/display_create_table.lib.php:41
-msgid "Table must have at least one column."
-msgstr "数据表至少要有一个字段。"
-
-#: libraries/display_create_table.lib.php:48
+#: libraries/display_create_table.lib.php:47
 #, php-format
 msgid "Create table on database %s"
 msgstr "在数据库 %s 中新建一张数据表"
 
-#: libraries/display_create_table.lib.php:57
+#: libraries/display_create_table.lib.php:56
 msgid "Number of columns"
 msgstr "字段数"
 

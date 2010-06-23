@@ -65,6 +65,8 @@ $js_messages['strRenamingDatabases'] = __('Renaming Databases');
 $js_messages['strReloadDatabase'] = __('Reload Database');
 $js_messages['strCopyingDatabase'] = __('Copying Database');
 $js_messages['strChangingCharset'] = __('Changing Charset');
+$js_messages['strTableMustHaveAtleastOneColumn'] = __('Table must have atleast 1 column');
+$js_messages['strCreateTable'] = __('Create Table');
 
 /* Designer */
 $js_messages['strModifications'] = __('Modifications have been saved');

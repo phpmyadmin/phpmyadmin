@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-22 11:26+0530\n"
+"POT-Creation-Date: 2010-06-22 12:29+0530\n"
 "PO-Revision-Date: 2010-03-21 05:17+0200\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -51,7 +51,7 @@ msgstr "Procurar"
 #: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
 #: libraries/common.lib.php:1335 libraries/common.lib.php:2292
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_create_table.lib.php:63
+#: libraries/display_create_table.lib.php:62
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
 #: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
@@ -1033,77 +1033,89 @@ msgstr "Copiar Banco de Dados para"
 msgid "Changing Charset"
 msgstr "Conjunto de caracteres"
 
-#: js/messages.php:70 pmd_save_pos.php:54
+#: js/messages.php:68
+#, fuzzy
+#| msgid "Table must have at least one field."
+msgid "Table must have atleast 1 column"
+msgstr "Tabela deve ter pelo menos um campo."
+
+#: js/messages.php:69
+#, fuzzy
+#| msgid "Create table"
+msgid "Create Table"
+msgstr "Criar tabela"
+
+#: js/messages.php:72 pmd_save_pos.php:54
 msgid "Modifications have been saved"
 msgstr "Modificações foram salvas"
 
-#: js/messages.php:71 pmd_relation_upd.php:49
+#: js/messages.php:73 pmd_relation_upd.php:49
 msgid "Relation deleted"
 msgstr "Relacionamento apagado"
 
-#: js/messages.php:72 pmd_relation_new.php:64
+#: js/messages.php:74 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
 msgstr ""
 
-#: js/messages.php:73 pmd_relation_new.php:86
+#: js/messages.php:75 pmd_relation_new.php:86
 msgid "Internal relation added"
 msgstr "Adicionado relacionamento Interno"
 
-#: js/messages.php:74 pmd_relation_new.php:63 pmd_relation_new.php:88
+#: js/messages.php:76 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
 msgstr "Erro: relacionamento não adicionado."
 
-#: js/messages.php:75 pmd_relation_new.php:31
+#: js/messages.php:77 pmd_relation_new.php:31
 msgid "Error: relation already exists."
 msgstr "Erro: relacionamento já existe."
 
-#: js/messages.php:76
+#: js/messages.php:78
 msgid "Error saving coordinates for Designer."
 msgstr "Erro ao salvar coordenada para o Designer."
 
-#: js/messages.php:77 libraries/relation.lib.php:107
+#: js/messages.php:79 libraries/relation.lib.php:107
 #: libraries/relation.lib.php:119
 msgid "General relation features"
 msgstr "Recursos de relações gerais"
 
-#: js/messages.php:77 libraries/relation.lib.php:101
+#: js/messages.php:79 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
 msgid "Disabled"
 msgstr "Desabilitado"
 
-#: js/messages.php:78
+#: js/messages.php:80
 msgid "Select referenced key"
 msgstr "Seleciona chave referenciada"
 
-#: js/messages.php:79
+#: js/messages.php:81
 msgid "Select Foreign Key"
 msgstr "Selecionar Chave Estrangeira"
 
-#: js/messages.php:80
+#: js/messages.php:82
 msgid "Please select the primary key or a unique key"
 msgstr "Por favor, selecione uma chave primária ou uma chave única"
 
-#: js/messages.php:81 pmd_general.php:77 tbl_relation.php:548
+#: js/messages.php:83 pmd_general.php:77 tbl_relation.php:548
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Escolha o campo para exibir"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:91
+#: js/messages.php:93
 #, fuzzy
 msgid "Done"
 msgstr "Dados"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:93
+#: js/messages.php:95
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Anterior"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:95 libraries/common.lib.php:2357
+#: js/messages.php:97 libraries/common.lib.php:2357
 #: libraries/common.lib.php:2360 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
 #: tbl_structure.php:799
@@ -1111,96 +1123,96 @@ msgid "Next"
 msgstr "Próximo"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:97
+#: js/messages.php:99
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Total"
 
-#: js/messages.php:100
+#: js/messages.php:102
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr " Binário "
 
-#: js/messages.php:101
+#: js/messages.php:103
 msgid "February"
 msgstr ""
 
-#: js/messages.php:102
+#: js/messages.php:104
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:103
+#: js/messages.php:105
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Abr"
 
-#: js/messages.php:104
+#: js/messages.php:106
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:105
+#: js/messages.php:107
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Jun"
 
-#: js/messages.php:106
+#: js/messages.php:108
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Jul"
 
-#: js/messages.php:107
+#: js/messages.php:109
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Ago"
 
-#: js/messages.php:108
+#: js/messages.php:110
 msgid "September"
 msgstr ""
 
-#: js/messages.php:109
+#: js/messages.php:111
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Out"
 
-#: js/messages.php:110
+#: js/messages.php:112
 msgid "November"
 msgstr ""
 
-#: js/messages.php:111
+#: js/messages.php:113
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1557
+#: js/messages.php:117 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1559
+#: js/messages.php:119 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr "Fev"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1561
+#: js/messages.php:121 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/common.lib.php:1563
+#: js/messages.php:123 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr "Abr"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/common.lib.php:1565
+#: js/messages.php:125 libraries/common.lib.php:1565
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1208,176 +1220,176 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/common.lib.php:1567
+#: js/messages.php:127 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/common.lib.php:1569
+#: js/messages.php:129 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/common.lib.php:1571
+#: js/messages.php:131 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr "Ago"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/common.lib.php:1573
+#: js/messages.php:133 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr "Set"
 
 #. l10n: Short month name
-#: js/messages.php:133 libraries/common.lib.php:1575
+#: js/messages.php:135 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr "Out"
 
 #. l10n: Short month name
-#: js/messages.php:135 libraries/common.lib.php:1577
+#: js/messages.php:137 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:137 libraries/common.lib.php:1579
+#: js/messages.php:139 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr "Dez"
 
-#: js/messages.php:140
+#: js/messages.php:142
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Dom"
 
-#: js/messages.php:141
+#: js/messages.php:143
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Seg"
 
-#: js/messages.php:142
+#: js/messages.php:144
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Ter"
 
-#: js/messages.php:143
+#: js/messages.php:145
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:144
+#: js/messages.php:146
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:145
+#: js/messages.php:147
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Sex"
 
-#: js/messages.php:146
+#: js/messages.php:148
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:150 libraries/common.lib.php:1582
+#: js/messages.php:152 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr "Dom"
 
 #. l10n: Short week day name
-#: js/messages.php:152 libraries/common.lib.php:1584
+#: js/messages.php:154 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr "Seg"
 
 #. l10n: Short week day name
-#: js/messages.php:154 libraries/common.lib.php:1586
+#: js/messages.php:156 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr "Ter"
 
 #. l10n: Short week day name
-#: js/messages.php:156 libraries/common.lib.php:1588
+#: js/messages.php:158 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr "Qua"
 
 #. l10n: Short week day name
-#: js/messages.php:158 libraries/common.lib.php:1590
+#: js/messages.php:160 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr "Qui"
 
 #. l10n: Short week day name
-#: js/messages.php:160 libraries/common.lib.php:1592
+#: js/messages.php:162 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr "Sex"
 
 #. l10n: Short week day name
-#: js/messages.php:162 libraries/common.lib.php:1594
+#: js/messages.php:164 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr "Sab"
 
 #. l10n: Minimal week day name
-#: js/messages.php:166
+#: js/messages.php:168
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Dom"
 
 #. l10n: Minimal week day name
-#: js/messages.php:168
+#: js/messages.php:170
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Seg"
 
 #. l10n: Minimal week day name
-#: js/messages.php:170
+#: js/messages.php:172
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Ter"
 
 #. l10n: Minimal week day name
-#: js/messages.php:172
+#: js/messages.php:174
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Qua"
 
 #. l10n: Minimal week day name
-#: js/messages.php:174
+#: js/messages.php:176
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Qui"
 
 #. l10n: Minimal week day name
-#: js/messages.php:176
+#: js/messages.php:178
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Sex"
 
 #. l10n: Minimal week day name
-#: js/messages.php:178
+#: js/messages.php:180
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sab"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:180
+#: js/messages.php:182
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:182
+#: js/messages.php:184
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:183
+#: js/messages.php:185
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "em uso"
 
-#: js/messages.php:184
+#: js/messages.php:186
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1977,7 +1989,7 @@ msgid "Events"
 msgstr "Eventos"
 
 #: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
-#: libraries/display_create_table.lib.php:53 libraries/tbl_triggers.lib.php:27
+#: libraries/display_create_table.lib.php:52 libraries/tbl_triggers.lib.php:27
 #: setup/frames/index.inc.php:112
 msgid "Name"
 msgstr "Nome"
@@ -2114,18 +2126,12 @@ msgstr "Criar"
 msgid "No Privileges"
 msgstr "Sem privilégios"
 
-#: libraries/display_create_table.lib.php:41
-#, fuzzy
-#| msgid "Table must have at least one field."
-msgid "Table must have at least one column."
-msgstr "Tabela deve ter pelo menos um campo."
-
-#: libraries/display_create_table.lib.php:48
+#: libraries/display_create_table.lib.php:47
 #, php-format
 msgid "Create table on database %s"
 msgstr "Criar nova tabela no Banco de Dados %s"
 
-#: libraries/display_create_table.lib.php:57
+#: libraries/display_create_table.lib.php:56
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
