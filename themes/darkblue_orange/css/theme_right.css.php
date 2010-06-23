@@ -1202,6 +1202,10 @@ label.desc {
     float: <?php echo $left; ?>;
 }
 
+label.desc sup {
+    position: absolute;
+}
+
 code.sql {
     display:            block;
     padding:            0.3em;
