@@ -59,7 +59,12 @@ function PMA_chart_results($data, &$chartSettings)
 {
     $chartData = array();
     $chart = null;
-    $chartTitle = __('Query results');
+    if (!empty($chartSettings['title'])) {
+        $chartTitle = $chartSettings['title'];
+    }
+    else {
+        $chartTitle = __('Query results');
+    }
 
     if (!isset($data[0])) {
         // empty data

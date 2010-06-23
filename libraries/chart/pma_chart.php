@@ -50,6 +50,16 @@ class PMA_Chart
          * The height of the chart.
          */
         'height' => 325,
+
+        /*
+         * Default X Axis label. If empty, label will be taken from the data.
+         */
+        'xLabel' => '',
+
+        /*
+         * Default Y Axis label. If empty, label will be taken from the data.
+         */
+        'yLabel' => '',
     );
 
     function __construct($options = null)
@@ -96,6 +106,16 @@ class PMA_Chart
     function getBgColorComp($component)
     {
         return hexdec(substr($this->settings['bgColor'], ($component * 2) + 1, 2));
+    }
+
+    function getXLabel()
+    {
+        return $this->settings['xLabel'];
+    }
+
+    function getYLabel()
+    {
+        return $this->settings['yLabel'];
     }
 
     function getSettings()

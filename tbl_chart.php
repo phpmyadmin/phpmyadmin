@@ -25,7 +25,7 @@ require_once './libraries/common.inc.php';
  */
 require './libraries/db_common.inc.php';
 $url_params['goto'] = $cfg['DefaultTabDatabase'];
-$url_params['back'] = 'view_create.php';
+$url_params['back'] = 'tbl_chart.php';
 
 /*
  * Import chart functions
@@ -40,9 +40,6 @@ $data = array();
 $result = PMA_DBI_try_query($sql_query);
 while ($row = PMA_DBI_fetch_assoc($result)) {
     $data[] = $row;
-    /*foreach ($row as $key => $value) {
-        $chartData[$key][] = $value;
-    }*/
 }
 
 // get settings if any posted
@@ -88,6 +85,18 @@ $url_params['reload'] = 1;
 
     <tr><td><label for="height"><?php echo __("Height"); ?></label></td>
         <td><input type="text" name="chartSettings[height]" id="height" value="<?php echo $chartSettings['height']; ?>" /></td>
+    </tr>
+
+    <tr><td><label for="title"><?php echo __("Title"); ?></label></td>
+        <td><input type="text" name="chartSettings[title]" id="height" value="<?php echo $chartSettings['title']; ?>" /></td>
+    </tr>
+
+    <tr><td><label for="xLabel"><?php echo __("X Axis label"); ?></label></td>
+        <td><input type="text" name="chartSettings[xLabel]" id="height" value="<?php echo $chartSettings['xLabel']; ?>" /></td>
+    </tr>
+
+    <tr><td><label for="yLabel"><?php echo __("Y Axis label"); ?></label></td>
+        <td><input type="text" name="chartSettings[yLabel]" id="height" value="<?php echo $chartSettings['yLabel']; ?>" /></td>
     </tr>
     </table>
 

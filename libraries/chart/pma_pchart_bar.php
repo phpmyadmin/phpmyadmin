@@ -31,8 +31,18 @@ class PMA_pChart_bar extends PMA_pChart_Chart
         $this->dataSet->AddAllSeries();
         //$DataSet->RemoveSerie("Serie3");
         $this->dataSet->SetAbsciseLabelSerie("Keys");
-        $this->dataSet->SetXAxisName($keys[0]);
-        $this->dataSet->SetYAxisName($keys[1]);
+
+        $xLabel = $this->getXLabel();
+        if (empty($xLabel)) {
+            $xLabel = $keys[0];
+        }
+        $this->dataSet->SetXAxisName($xLabel);
+
+        $yLabel = $this->getYLabel();
+        if (empty($yLabel)) {
+            $yLabel = $keys[1];
+        }
+        $this->dataSet->SetYAxisName($yLabel);
         //$DataSet->SetYAxisUnit("°C");
         //$DataSet->SetXAxisUnit("h");
     }
