@@ -1434,14 +1434,8 @@ function refreshDragOption(e) {
 function refreshLayout() {
     var elm = $('#pdflayout')
     var orientation = $('#orientation_opt').val();
-	if($('#paper_opt').length==1)
-	{
-	var paper = $('#paper_opt').val();		
-	}
-	else
-	{
-		var paper = 'A4';
-		}
+    var paper = $('#paper_opt').val();
+
     if (orientation == 'P') {
         posa = 'x';
         posb = 'y';
@@ -1731,24 +1725,5 @@ $(document).ready(function(){
         insertQuery(evt.target.id);
         return false;
     });
-	
-	$("#export_type").change(function(){
-						
-						if($("#export_type").val()!='pdf')
-						{
-							$("#show_grid_opt").attr("disabled","disabled");
-							$("#orientation_opt").attr("disabled","disabled");
-							$("#with_doc").attr("disabled","disabled");
-							$(this).css("background-color","yellow");
-
-							}
-						if($("#export_type").val()=='pdf')
-						{
-							$("#show_grid_opt").removeAttr("disabled");
-							$("#orientation_opt").removeAttr("disabled");
-							$("#with_doc").removeAttr("disabled","disabled");
-							}	
-						
-						});
 });
 

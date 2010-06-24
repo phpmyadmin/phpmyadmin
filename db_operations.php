@@ -646,13 +646,6 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
             .' alt="" width="16" height="16" />';
     }
     echo __('Edit PDF Pages') . '</a></fieldset>';
-	// Export Relational Schema View
-	echo '<fieldset><a href="export_relation_schema.php?' . $url_query . '">';
-    if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
-            .' alt="" width="16" height="16" />';
-    }
-    echo __('Export Relational Schema View') . '</a></fieldset>';
 } // end if
 
 /**
