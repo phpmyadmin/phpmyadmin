@@ -145,11 +145,11 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         <?php if($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
             <ul>
             <li>
-                <input type="radio" name="file_location" id="upload_file_input" />
+                <input type="radio" name="file_location" id="radio_import_file" />
                 <?php PMA_browseUploadFile($max_upload_size); ?>
             </li>
             <li>
-                <input type="radio" name="file_location" id="upload_file_uploaddir" />
+                <input type="radio" name="file_location" id="radio_local_import_file" />
                 <?php PMA_selectUploadFile($import_list, $cfg['UploadDir']); ?>
             </li>
             </ul>

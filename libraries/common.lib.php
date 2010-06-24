@@ -2862,7 +2862,7 @@ function PMA_js($code, $print=true)
  */
 function PMA_browseUploadFile($max_upload_size) {
     $uid = uniqid("");
-    echo '<label for="upload_file_input">' . __("Browse the server:") . '</label>';
+    echo '<label for="radio_import_file">' . __("Browse the server:") . '</label>';
     echo '<div id="upload_form_status" style="display: none;"></div>';
     echo '<div id="upload_form_status_info" style="display: none;"></div>';
     echo '<input type="file" name="import_file" id="input_import_file" />';
@@ -2875,7 +2875,7 @@ function PMA_browseUploadFile($max_upload_size) {
  * Display the form used to select a file to import from the server upload directory
  */
 function PMA_selectUploadFile($import_list, $uploaddir) {
-	echo '<label for="select_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
+	echo '<label for="radio_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
 	$extensions = '';
     foreach ($import_list as $key => $val) {
         if (!empty($extensions)) {
