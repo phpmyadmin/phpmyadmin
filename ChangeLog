@@ -86,6 +86,8 @@ $Id$
 - [core] Update library PHPExcel to version 1.7.3c
 
 3.3.5.0 (not yet released)
+- patch #2932113 [information_schema] Slow export when having lots of
+  databases, thanks to Stéphane Pontier - shadow_walker
 
 3.3.4.0 (not yet released)
 - bug #2996161 [import] properly escape import value
