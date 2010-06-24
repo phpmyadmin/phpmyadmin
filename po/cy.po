@@ -1863,7 +1863,7 @@ msgstr "Rheolweithiau"
 
 #: libraries/db_routines.inc.php:43
 msgid "Return type"
-msgstr ""
+msgstr "Dychwelyd math"
 
 #: libraries/db_structure.lib.php:57 libraries/display_tbl.lib.php:1848
 msgid ""
@@ -1970,8 +1970,9 @@ msgstr ""
 
 #: libraries/display_export.lib.php:107
 #, php-format
+#, possible-php-format
 msgid "Dump %s row(s) starting at row # %s"
-msgstr ""
+msgstr "Dympio %s rhes wrth ddechrau ar res #%s"
 
 #: libraries/display_export.lib.php:115
 msgid "Dump all rows"
@@ -1983,8 +1984,9 @@ msgstr "Cadw fel ffeil"
 
 #: libraries/display_export.lib.php:134
 #, php-format
+#, possible-php-format
 msgid "Save on server in %s directory"
-msgstr ""
+msgstr "Cadw ar weinydd mewn cyfeiriadur %s"
 
 #: libraries/display_export.lib.php:142 setup/lib/messages.inc.php:90
 msgid "Overwrite existing file(s)"
@@ -2564,7 +2566,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Log buffer size"
-msgstr ""
+msgstr "Maint log y byffer"
 
 #: libraries/engines/pbxt.lib.php:64
 msgid ""
@@ -2575,7 +2577,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "Data file grow size"
-msgstr ""
+msgstr "Maint tyfu'r ffeil ddata"
 
 #: libraries/engines/pbxt.lib.php:69
 msgid "The grow size of the handle data (.xtd) files."
@@ -2583,7 +2585,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "Row file grow size"
-msgstr ""
+msgstr "Maint tyfu'r ffeil rhes"
 
 #: libraries/engines/pbxt.lib.php:74
 msgid "The grow size of the row pointer (.xtr) files."
@@ -2591,7 +2593,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:78
 msgid "Log file count"
-msgstr ""
+msgstr "Cyfrif ffeiliau log"
 
 #: libraries/engines/pbxt.lib.php:79
 msgid ""
@@ -7695,16 +7697,17 @@ msgstr ""
 
 #: tbl_tracking.php:251 tbl_tracking.php:379
 msgid "Close"
-msgstr ""
+msgstr "Cau"
 
 #: tbl_tracking.php:262
 #, php-format
+#, possible-php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "Ciplun fersiwn %s (cod SQL)"
 
 #: tbl_tracking.php:381
 msgid "Tracking statements"
-msgstr ""
+msgstr "Datganiadau tracio"
 
 #: tbl_tracking.php:397 tbl_tracking.php:504
 #, php-format
@@ -7713,44 +7716,45 @@ msgstr ""
 
 #: tbl_tracking.php:410 tbl_tracking.php:461
 msgid "Date"
-msgstr ""
+msgstr "Dyddiad"
 
 #: tbl_tracking.php:411 tbl_tracking.php:462
 msgid "Username"
-msgstr ""
+msgstr "Enw defnyddiwr"
 
 #: tbl_tracking.php:412
 msgid "Data definition statement"
-msgstr ""
+msgstr "Datganiad diffiniad data"
 
 #: tbl_tracking.php:463
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Datganiad trin data"
 
 #: tbl_tracking.php:507
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "Dadlwythiad SQL (lawrlwytho ffeil)"
 
 #: tbl_tracking.php:508
 msgid "SQL dump"
-msgstr ""
+msgstr "Dadlwythiad SQL"
 
 #: tbl_tracking.php:509
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "Bydd yr opsiwn hwn yn disodli eich tabl a'r data sydd ynddo."
 
 #: tbl_tracking.php:509
 msgid "SQL execution"
-msgstr ""
+msgstr "Gweithrediad SQL"
 
 #: tbl_tracking.php:521
 #, php-format
+#, possible-php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Allforio fel %s"
 
 #: tbl_tracking.php:561
 msgid "Show versions"
-msgstr ""
+msgstr "Dangos fersiynau"
 
 #: tbl_tracking.php:593
 msgid "Version"
