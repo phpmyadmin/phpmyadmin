@@ -61,5 +61,18 @@ $(document).ready(function() {
 
     $("#select_local_import_file").change(function() {
         matchFile($(this).attr("value"));
-    })
+    });
+
+    /*
+     * When the "Browse the server" form is clicked or the "Select from the web server upload directory"
+     * form is clicked, the radio button beside it becomes selected and the other form becomes disabled.
+     */
+     $("#input_import_file").focus(function() {
+         $("#radio_import_file").attr('checked', 'checked');
+         $("#radio_local_import_file").removeAttr('checked');
+      });
+      $("#select_local_import_file").focus(function() {
+         $("#radio_local_import_file").attr('checked', 'checked');
+         $("#radio_import_file").removeAttr('checked');
+      });
  });
