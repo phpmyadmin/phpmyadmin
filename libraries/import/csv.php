@@ -25,7 +25,7 @@ if (isset($plugin_list)) {
             array('type' => 'begin_group', 'name' => 'general_opts'),
             array('type' => 'bool', 'name' => 'replace', 'text' => __('Replace table data with file')),
             array('type' => 'bool', 'name' => 'ignore', 'text' => __('Ignore duplicate rows')),
-            array('type' => 'text', 'name' => 'terminated', 'text' => __('Columns terminated with:'), 'size' => 2, 'len' => 2),
+            array('type' => 'text', 'name' => 'terminated', 'text' => __('Columns separated with:'), 'size' => 2, 'len' => 2),
             array('type' => 'text', 'name' => 'enclosed', 'text' => __('Columns enclosed with:'), 'size' => 2, 'len' => 2),
             array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped with:'), 'size' => 2, 'len' => 2),
             array('type' => 'text', 'name' => 'new_line', 'text' => __('Lines terminated with:'), 'size' => 2),
@@ -37,8 +37,9 @@ if (isset($plugin_list)) {
         $plugin_list['csv']['options'][] =
             array('type' => 'bool', 'name' => 'col_names', 'text' => __('The first line of the file contains the table column names <i>(if this is unchecked, the first line will become part of the data)</i>'));
     } else {
+        $hint = new PMA_Message(__('If the data in each row of the file is not in the same order as in the database, list the corresponding column names here. Column names must be separated by commas and not enclosed in quotations.'));
         $plugin_list['csv']['options'][] =
-            array('type' => 'text', 'name' => 'columns', 'text' => __('Column names'));
+            array('type' => 'text', 'name' => 'columns', 'text' => __('Column names: ' . PMA_showHint($hint)));
     }
     $plugin_list['csv']['options'][] = array('type' => 'end_group');
 
@@ -118,7 +119,7 @@ if (!$analyze) {
                 }
             }
             if (!$found) {
-                $message = PMA_Message::error(__('Invalid column (%s) specified!'));
+                $message = PMA_Message::error(__('Invalid column (%s) specified! Ensure that columns names are spelled correctly, separated by commas, and not enclosed in quotes.' ));
                 $message->addParam($val);
                 $error = TRUE;
                 break;
