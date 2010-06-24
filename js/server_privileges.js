@@ -142,7 +142,7 @@ $(document).ready(function() {
                                 //We also need to post the value of the submit button in order to get this to work correctly
                                 $.post($(the_form).attr('action'), $(the_form).serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
                                     if(data.success == true) {
-                                        $("#add_user_dialog").dialog("close");
+                                        $("#add_user_dialog").dialog("close").remove();
                                         PMA_ajaxShowMessage(data.message);
                                     }
                                     else {
@@ -150,7 +150,7 @@ $(document).ready(function() {
                                     }
                                 })
                             },
-                            "Cancel" : function() {$(this).dialog("close")}
+                            "Cancel" : function() {$(this).dialog("close").remove();}
                         } //buttons end
             }); //dialog options end
         });
@@ -224,7 +224,7 @@ $(document).ready(function() {
             .dialog({
                 width : 500,
                 buttons: {"Close" : function() { 
-                        $(this).dialog("close");
+                        $(this).dialog("close").remove();
                     }}
             });
         }) //end $.get

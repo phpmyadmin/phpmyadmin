@@ -1798,14 +1798,14 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
     .prepend(question)
     .dialog({
         buttons: {"OK": function(){
-                            $(this).dialog("close");
+                            $(this).dialog("close").remove();
 
                             if($.isFunction(callbackFn)) {
                                 callbackFn.call(this, url);
                             }
                         },
                  "Cancel": function(){
-                            $(this).dialog("close");
+                            $(this).dialog("close").remove();
                         }
                  }
     });
@@ -1935,4 +1935,4 @@ $(document).ready(function() {
         })
     })
 
-}, 'top.frame_content'); //end $(document).ready()
+}, 'top.frame_content'); //end $(document).ready() for db_structure.php

@@ -34,9 +34,9 @@ $(document).ready(function() {
                 width: 900,
                 buttons : {
                             "Create Table" : function() {
-                                //handle form here
+                                $('#create_table_form').trigger("submit");
                             },
-                            "Cancel" : function() {$(this).dialog('close');}
+                            "Cancel" : function() {$(this).dialog('close').remove() ;}
                 }
             });
         })
@@ -63,7 +63,7 @@ $(document).ready(function() {
                                             window.parent.refreshMain();
                                            },
                                    "No" : function() {
-                                            $(this).dialog("close");
+                                            $(this).dialog("close").remove();
                                           }
                                  }
                     }) //end dialog options
