@@ -38,20 +38,20 @@ if (isset($plugin_list)) {
             array('type' => 'bool', 'name' => 'dates', 'text' => __('Include a timestamp of when databases were created, last updated, and last checked'));
         if (!empty($GLOBALS['cfgRelation']['relation'])) {
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'relation', 'text' => __('Foreign key relationships'));
+                array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
         }
         if (!empty($GLOBALS['cfgRelation']['mimework'])) {
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'mime', 'text' => __('MIME types'));
+                array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
         }
         $plugin_list['sql']['options'][] = array('type' => 'end_subgroup');
         /* end comments */
 
         /* enclose in a transaction */
-        $plugin_list['sql']['options'][] = array('type' => 'bool', 'name' => 'use_transaction', 'text' => __('Enclose export in a transaction'));
+        $plugin_list['sql']['options'][] = array('type' => 'bool', 'name' => 'use_transaction', 'text' => __('Enclose export in a transaction'), 'doc' => array('programs', 'mysqldump', 'option_mysqldump_single-transaction'));
 
         /* disable foreign key checks */
-        $plugin_list['sql']['options'][] = array('type' => 'bool', 'name' => 'disable_fk', 'text' => __('Disable foreign key checks'));
+        $plugin_list['sql']['options'][] = array('type' => 'bool', 'name' => 'disable_fk', 'text' => __('Disable foreign key checks'), 'doc' => array('manual_MySQL_Database_Administration', 'server-system-variables', 'sysvar_foreign_key_checks'));
 
         $plugin_list['sql']['options_text'] = __('Options');
 
@@ -134,11 +134,11 @@ if (isset($plugin_list)) {
 
         /* begin SQL statements */
         $plugin_list['sql']['options'][] =
-            array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Add statements:')));        
+            array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Instead of <code>INSERT</code> statements, use:')));        
         $plugin_list['sql']['options'][] =
-            array('type' => 'bool', 'name' => 'delayed', 'text' => __('<code>INSERT DELAYED</code>'));
+            array('type' => 'bool', 'name' => 'delayed', 'text' => __('<code>INSERT DELAYED</code> statements'), 'doc' => array('manual_MySQL_Database_Administration', 'insert_delayed'));
         $plugin_list['sql']['options'][] =
-            array('type' => 'bool', 'name' => 'ignore', 'text' => __('<code>INSERT IGNORE</code>'));
+            array('type' => 'bool', 'name' => 'ignore', 'text' => __('<code>INSERT IGNORE</code> statements'), 'doc' => array('manual_MySQL_Database_Administration', 'insert'));
         $plugin_list['sql']['options'][] =
             array('type' => 'end_subgroup');
         /* end SQL statements */
