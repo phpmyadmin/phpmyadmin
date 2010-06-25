@@ -28,6 +28,7 @@ $hidden           = "hidden";
     <link rel="shortcut icon" href="pmd/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'] ?>/style1.css" />
     <title>Designer</title>
+     <script src="./js/jquery/jquery-1.4.2.js" type="text/javascript"></script>
     <script type="text/javascript">
     // <![CDATA[
 <?php
@@ -35,8 +36,18 @@ echo '
     var server = "' . PMA_escapeJsString($server) . '";
     var db = "' . PMA_escapeJsString($db) . '";
     var token = "' . PMA_escapeJsString($token) . '";';
+	echo "\n";
+	if($_REQUEST['query']) {
+	echo '
+	 $(document).ready(function(){
+		$(".trigger").click(function(){
+		$(".panel").toggle("fast");
+		$(this).toggleClass("active");
+		return false;
+		});
+	});';
+	}
 ?>
-
     // ]]>
     </script>
 <?php
@@ -47,7 +58,8 @@ if (isset($GLOBALS['db'])) {
 ?>
     <script src="js/messages.php<?php echo PMA_generate_common_url($params); ?>" type="text/javascript"></script>
     <script src="pmd/scripts/ajax.js" type="text/javascript"></script>
-    <script src="pmd/scripts/move.js" type="text/javascript"></script>
+    <script src="pmd/scripts/history.js" type="text/javascript"></script> 
+	<script src="pmd/scripts/move.js" type="text/javascript"></script>
     <!--[if IE]>
     <script src="pmd/scripts/iecanvas.js" type="text/javascript"></script>
     <![endif]-->
@@ -298,9 +310,10 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
    </td>
    <?php 
    if(isset($_REQUEST['query'])) {
+	   $temp = $GLOBALS['PMD_OUT']["OWNER"][$i].'.'.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
 	   echo '<td class="small_tab_pref" onmouseover="this.className=\'small_tab_pref2\';"';
 	   echo 'onmouseout="this.className=\'small_tab_pref\';"';
-	   echo 'onclick="Click_option(\'pmd_optionse\')" >';
+	   echo 'onclick="Click_option(\'pmd_optionse\',\''.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'\',\''.$temp.'\')" >';
 	   echo  '<img src="pmd/images/exec_small.png" title="options" alt="" /></td> ';
 	} ?>
 </tr>
@@ -430,10 +443,11 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     <td class="frams8"></td>
     <td class="input_tab">
         <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
-        <thead>
+       <thead>
         <tr>
-            <td colspan="2" align="center" nowrap="nowrap"><strong>Options</strong></td>
+            <td colspan="2" align="center" nowrap="nowrap"><strong>Options For</strong></td>
         </tr>
+        <tr ><td id="option_col_name"></td></tr>
         </thead>
         <tbody id="where">
         <tr><td align="center" nowrap="nowrap"><b>Where</b></td></tr>
@@ -455,13 +469,13 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         </tr>
         <tr>
             <td nowrap="nowrap">Value/<br />Subquery</td>
-            <td><textarea name="Query" value=" " cols="15"></textarea>
+            <td><textarea name="Query" value="" cols="15"></textarea>
             </td>
         </tr>
         <tr><td align="center" nowrap="nowrap"><b>Rename To</b></td></tr>
         <tr>
             <td width="58" nowrap="nowrap">New Name</td>
-        	<td width="102"><input type="text" value="" /></td>
+        	<td width="102"><input type="text" value="" id="new_name"/></td>
         </tr>
         <tr><td align="center" nowrap="nowrap"><b>Aggregate</b></td></tr>   
          <tr>
@@ -477,21 +491,21 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
            </td></tr>
            <tr>
 				<td nowrap="nowrap" width="58" align="center"><b>Group By</b></td>
-                <td><input type="checkbox" value="groupby" /></td>
+                <td><input type="checkbox" value="groupby" id="groupby"/></td>
            </tr>           	
            <tr>
 				<td nowrap="nowrap" width="58" align="center"><b>Order By</b></td>
-                <td><input type="checkbox" value="orderby" /></td>
+                <td><input type="checkbox" value="orderby" id="orderby"/></td>
            </tr>
         </tbody>
         <tbody>
         <tr>
             <td colspan="2" align="center" nowrap="nowrap">
                 <input type="button" class="butt" name="Button"
-                    value="<?php echo __('OK'); ?>" onclick="New_relation()" />
+                    value="<?php echo __('OK'); ?>" onclick="add_object()" />
                 <input type="button" class="butt" name="Button"
                     value="<?php echo __('Cancel'); ?>"
-                    onclick="document.getElementById('pmd_optionse').style.visibility = 'hidden';" />
+                    onclick="Close_option()" />
             </td>
         </tr>
         </tbody>
@@ -506,6 +520,14 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tr>
 </tbody>
 </table>
+
+ <div class="panel">
+  <div style="clear:both;"></div>
+   <div id="ab"></div>
+ 
+  <div style="clear:both;"></div>
+  </div>
+  <a class="trigger" href="#">History</a>
 <!-- cache images -->
 <img src="pmd/images/2leftarrow_m.png" width="0" height="0" alt="" />
 <img src="pmd/images/rightarrow1.png" width="0" height="0" alt="" />

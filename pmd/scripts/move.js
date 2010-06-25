@@ -966,18 +966,21 @@ function getColorByTarget( target )
   return color;    
 }
 
-function Click_option(id_this) 
+function Click_option(id_this,column_name,table_name) 
 {
-	 var left = Glob_X - (document.getElementById(id_this).offsetWidth>>1);
+	  var left = Glob_X - (document.getElementById(id_this).offsetWidth>>1);
      document.getElementById(id_this).style.left = left + 'px';
     // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
      document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
      document.getElementById(id_this).style.visibility = "visible";
+	 document.getElementById('option_col_name').innerHTML = 'column_name';
+	 col_name = column_name;
+	 tab_name = table_name;
 }
 
 function Close_option()
 {
-	document.getElementById('pmd_options').style.visibility = "hidden";
+	document.getElementById('pmd_optionse').style.visibility = "hidden";
 }
 
 function Select_all(id_this)
@@ -1004,4 +1007,55 @@ function Table_onover(id_this,val)
 		document.getElementById("id_zag_" + id_this).className="tab_zag";
 		document.getElementById("id_zag_" + id_this + "_2").className="tab_zag";
 	}
+}
+
+
+function add_object() {
+	var rel = document.getElementById('rel_opt');
+	var sum = 0;
+	var init = history_array.length;
+	if (rel.value != '--') {
+		if (document.getElementsByName('Query').value == "") {
+			document.getElementById('hint').innerHTML = "value/subQuery is empty" ;
+		    document.getElementById('hint').style.visibility = "visible";
+			return;
+		}
+		 var w = document.getElementById('rel_opt').value;
+		 var p = document.getElementsByName('Query');
+		 var where_obj = new where(w,p.value);//make where object
+		 history_array.push(new history(col_name,where_obj,tab_name,h_tabs[tab_name],"Where"));
+		 sum = sum + 1;
+	}
+	if (document.getElementById('new_name').value !="") {
+		var rename_obj = new rename(document.getElementById('new_name').value);//make Rename object
+		history_array.push(new history(col_name,rename_obj,tab_name,h_tabs[tab_name],"Rename"));
+		sum = sum + 1;
+		document.getElementById('new_name').value = "" ;
+	}
+	if (document.getElementById('operator').value != '---') {
+		var aggregate_obj = new aggregate(document.getElementById('operator').value) ;
+		history_array.push(new history(col_name,aggregate_obj,tab_name,h_tabs[tab_name],"Aggregate"));
+		sum = sum + 1;
+		//make aggregate operator
+	}
+	if (document.getElementById('groupby').checked == true ) {
+		history_array.push(new history(col_name,'GroupBy',tab_name,h_tabs[tab_name],"Group By"));
+		sum = sum + 1;
+		document.getElementById('groupby').checked = false;
+		//make groupby
+	}
+	if (document.getElementById('orderby').checked == true) {
+		history_array.push(new history(col_name,'OrderBy',tab_name,h_tabs[tab_name],"Order By"));
+		sum = sum + 1;
+		document.getElementById('orderby').checked = false;
+		//make orderby
+	}
+	document.getElementById('hint').innerHTML = sum + "object created" ;
+    document.getElementById('hint').style.visibility = "visible";
+	//output sum new objects created
+	var existingDiv = document.getElementById('ab');
+	existingDiv.innerHTML = display(init,history_array.length);
+	Close_option();
+	panel();
+	
 }
