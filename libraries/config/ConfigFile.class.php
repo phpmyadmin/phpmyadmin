@@ -167,7 +167,8 @@ class ConfigFile
     }
 
     /**
-     * Flattens multidimensional array, changes indices to paths (eg. 'key/subkey')
+     * Flattens multidimensional array, changes indices to paths (eg. 'key/subkey').
+     * Used as array_walk() callback.
      *
      * @param mixed $value
      * @param mixed $key
@@ -385,18 +386,20 @@ class ConfigFile
     }
 
     /**
-     * Returns configuration array
+     * Returns configuration array (flat format)
      *
      * @return array
      */
     public function getConfigArray()
     {
-        $c = $_SESSION[$this->id];
+        $this->_flattenArrayResult = array();
+        array_walk($_SESSION[$this->id], array($this, '_flattenArray'), '');
+        $c = $this->_flattenArrayResult;
+        $this->_flattenArrayResult = null;
+
         $persistKeys = array_diff(array_keys($this->persistKeys), array_keys($c));
         foreach ($persistKeys as $k) {
-            if (strpos($k, '/') === false) {
-                $c[$k] = $this->getDefault($k);
-            }
+            $c[$k] = $this->getDefault($k);
         }
         return $c;
     }

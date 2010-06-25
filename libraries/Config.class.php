@@ -413,31 +413,38 @@ class PMA_Config
      * loads user preferences and merges them with current config
      * must be called after control connection has been estabilished
      *
-     * @uses PMA_array_merge_recursive
-     * @uses PMA_backquote()
-     * @uses PMA_DBI_fetch_value
-     * @uses PMA_getRelationsParam()
-     * @uses PMA_sqlAddslashes()
      * @uses $GLOBALS['cfg']
-     * @uses $GLOBALS['controllink']
+     * @uses $_SESSION['cache']['config_mtime']
+     * @uses $_SESSION['cache']['userprefs']
+     * @uses $_SESSION['cache']['userprefs_mtime']
+     * @uses PMA_apply_userprefs()
+     * @uses PMA_array_merge_recursive()
+     * @uses PMA_load_userprefs()
      * @return boolean
      */
     function loadUserPreferences()
     {
-        $cfgRelation = PMA_getRelationsParam();
-        if (!$cfgRelation['userconfigwork']) {
-            return false;
+        // index.php should load these settings, so that phpmyadmin.css.php
+        // will have everything avaiable in session cache
+        if (!defined('PMA_MINIMUM_COMMON')) {
+            $config_mtime = max($this->default_source_mtime, $this->source_mtime);
+            // cache user preferences, use database only when needed
+            if (!isset($_SESSION['cache']['userprefs'])
+                    || $_SESSION['cache']['config_mtime'] < $config_mtime) {
+                require_once './libraries/user_preferences.lib.php';
+                require_once './libraries/config/config_functions.lib.php';
+                $prefs = PMA_load_userprefs();
+                $_SESSION['cache']['userprefs'] = PMA_apply_userprefs($prefs['config_data']);
+                $_SESSION['cache']['userprefs_mtime'] = $prefs['mtime'];
+                $_SESSION['cache']['config_mtime'] = $config_mtime;
+            }
+        } else if (!isset($_SESSION['cache']['userprefs'])) {
+            return;
         }
-        $query_table = PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['userconfig']);
-        $query = '
-            SELECT `config_data`
-            FROM ' . $query_table . '
-              WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
-        $config_data = PMA_DBI_fetch_value($query, 0, 0, $GLOBALS['controllink']);
+        $config_data = $_SESSION['cache']['userprefs'];
         if (!$config_data) {
             return false;
         }
-        $config_data = unserialize($config_data);
         $this->settings = PMA_array_merge_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = PMA_array_merge_recursive($GLOBALS['cfg'], $config_data);
         $this->set('user_preferences_loaded', true);
@@ -572,6 +579,7 @@ class PMA_Config
             $fontsize +
             $this->source_mtime +
             $this->default_source_mtime +
+            (isset($_SESSION['cache']['userprefs_mtime']) ? $_SESSION['cache']['userprefs_mtime'] : 0) +
             $_SESSION['PMA_Theme']->mtime_info +
             $_SESSION['PMA_Theme']->filesize_info)
             . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'],1,6) : '');

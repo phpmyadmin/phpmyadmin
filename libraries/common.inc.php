@@ -954,9 +954,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     } // end server connecting
 
-    // load user preferences
-    $GLOBALS['PMA_Config']->loadUserPreferences();
-
     /**
      * check if profiling was requested and remember it
      * (note: when $cfg['ServerDefault'] = 0, constant is not defined)
@@ -977,6 +974,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         checkBLOBStreamableDatabases();
     }
 } // end if !defined('PMA_MINIMUM_COMMON')
+
+// load user preferences
+$GLOBALS['PMA_Config']->loadUserPreferences();
 
 // remove sensitive values from session
 $GLOBALS['PMA_Config']->set('blowfish_secret', '');

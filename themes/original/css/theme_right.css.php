@@ -1309,8 +1309,15 @@ table#serverconnection_trg_local  {
     background:     transparent;
 }
 
-.config-form fieldset .doc {
+.config-form fieldset .doc, .config-form fieldset .disabled-notice {
     margin-left: 1em;
+}
+
+.config-form fieldset .disabled-notice {
+    font-size: 80%;
+    text-transform: uppercase;
+    color: #E00;
+    cursor: help;
 }
 
 .config-form fieldset td {

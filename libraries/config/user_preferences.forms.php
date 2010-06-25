@@ -59,7 +59,6 @@ $forms['Left_frame']['Left_databases'] = array(
     'DisplayDatabasesList',
     'LeftFrameDBTree',
     'LeftFrameDBSeparator',
-    'LeftFrameTableLevel',
     'ShowTooltipAliasDB');
 $forms['Left_frame']['Left_tables'] = array(
     'LeftDefaultTabTable',

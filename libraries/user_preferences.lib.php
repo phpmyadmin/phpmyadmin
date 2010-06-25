@@ -7,8 +7,56 @@
  */
 
 /**
+ * Loads user preferences
+ *
+ * Returns false or an array:
+ * * config_data - path => value pairs
+ * * mtime - last modification time
+ *
+ * @uses PMA_array_merge_recursive
+ * @uses PMA_backquote()
+ * @uses PMA_DBI_fetch_single_row()
+ * @uses PMA_getRelationsParam()
+ * @uses PMA_sqlAddslashes()
+ * @uses $GLOBALS['controllink']
+ * @return false|array
+ */
+function PMA_load_userprefs()
+{
+    $cfgRelation = PMA_getRelationsParam();
+    if (!$cfgRelation['userconfigwork']) {
+        return false;
+    }
+    $query_table = PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['userconfig']);
+    $query = '
+        SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts
+        FROM ' . $query_table . '
+          WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
+    $row = PMA_DBI_fetch_single_row($query, 'ASSOC', $GLOBALS['controllink']);
+    if (!$row) {
+        return false;
+    }
+    $config_data = unserialize($row['config_data']);
+    return array(
+        'config_data' => $config_data,
+        'mtime' => $row['ts']);
+}
+
+/**
  * Saves user preferences
  *
+ * @uses $GLOBALS['controllink']
+ * @uses $_SESSION['cache']['userprefs']
+ * @uses ConfigFile::getConfigArray()
+ * @uses ConfigFile::getInstance()
+ * @uses PMA_backquote()
+ * @uses PMA_DBI_fetch_value
+ * @uses PMA_DBI_getError()
+ * @uses PMA_DBI_try_query()
+ * @uses PMA_Message::addMessage()
+ * @uses PMA_Message::error()
+ * @uses PMA_Message::rawError()
+ * @uses PMA_sqlAddslashes()
  * @uses PMA_getRelationsParam()
  * @return true|PMA_Message
  */
@@ -37,6 +85,9 @@ function PMA_save_userprefs()
             VALUES (\'' . PMA_sqlAddslashes($cfgRelation['user']) . '\',
                 \'' . PMA_sqlAddslashes($config_data) . '\')';
     }
+    if (isset($_SESSION['cache']['userprefs'])) {
+        unset($_SESSION['cache']['userprefs']);
+    }
     if (!PMA_DBI_try_query($query, $GLOBALS['controllink'])) {
         $message = PMA_Message::error(__('Could not save configuration'));
         $message->addMessage('<br /><br />');
@@ -44,5 +95,28 @@ function PMA_save_userprefs()
         return $message;
     }
     return true;
+}
+
+/**
+ * Returns a user preferences array filtered by $cfg['UserprefsDisallow']
+ * (blacklist) and keys from user preferences form (whitelist)
+ *
+ * @uses PMA_array_write()
+ * @uses PMA_read_userprefs_fieldnames()
+ * @param array $config_data path => value pairs
+ * @return array
+ */
+function PMA_apply_userprefs(array $config_data)
+{
+    $cfg = array();
+    $blacklist = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
+    $whitelist = array_flip(PMA_read_userprefs_fieldnames());
+    foreach ($config_data as $path => $value) {
+        if (!isset($whitelist[$path]) || isset($blacklist[$path])) {
+            continue;
+        }
+        PMA_array_write($path, $cfg, $value);
+    }
+    return $cfg;
 }
 ?>
