@@ -1936,3 +1936,34 @@ $(document).ready(function() {
     })
 
 }, 'top.frame_content'); //end $(document).ready() for db_structure.php
+
+/**
+ * jQuery coding for 'Create Table'.  Used on db_operations.php,
+ * db_structure.php and db_tracking.php (i.e., wherever
+ * libraries/display_create_table.lib.php is used)
+ */
+$(document).ready(function() {
+    $("#create_table_form_minimal").live('submit', function(event) {
+        event.preventDefault();
+
+        /* @todo Validate this form! */
+
+        PMA_ajaxShowMessage();
+        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        $.get($(this).attr('action'), $(this).serialize(), function(data) {
+            $('<div id="create_table_dialog"></div>')
+            .append(data)
+            .dialog({
+                title: PMA_messages['strCreateTable'],
+                width: 900,
+                buttons : {
+                            "Create Table" : function() {
+                                $('#create_table_form').trigger("submit");
+                            },
+                            "Cancel" : function() {$(this).dialog('close').remove() ;}
+                }
+            });
+        })
+    })
+}, 'top.frame_content');

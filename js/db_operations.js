@@ -8,39 +8,12 @@
 /**
  * Add Ajax event handlers here for db_operations.php
  *
- * no id for any form, will need to add for all
- * Create table - make ajax call, open dialog, submit form, show success/error, ask and refreshMain()
- * Rename Database - make ajax call, show success/error, ask and refresh()
- * Copy Database - make ajax call, show success/error, ask and refreshMain()
- * Change charset - make ajax call, show success/error
+ * Rename Database
+ * Copy Database
+ * Change charset
  */
 
 $(document).ready(function() {
-
-    //Create Table
-    $("#create_table_form_minimal").live('submit', function(event) {
-        event.preventDefault();
-
-        /* @todo Validate this form! */
-
-        PMA_ajaxShowMessage();
-        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
-
-        $.get($(this).attr('action'), $(this).serialize(), function(data) {
-            $('<div id="create_table_dialog"></div>')
-            .append(data)
-            .dialog({
-                title: PMA_messages['strCreateTable'],
-                width: 900,
-                buttons : {
-                            "Create Table" : function() {
-                                $('#create_table_form').trigger("submit");
-                            },
-                            "Cancel" : function() {$(this).dialog('close').remove() ;}
-                }
-            });
-        })
-    })
 
     //Rename Database
     $("#rename_db_form").live('submit', function(event) {
