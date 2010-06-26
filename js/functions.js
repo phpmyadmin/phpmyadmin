@@ -1893,7 +1893,7 @@ $(document).ready(function() {
 
         var curr_table_name = window.parent.table;
         var curr_column_name = $(this).parents('tr').children('th').children('label').text();
-        var question = PMA_message['strDoYouReally'] + ' :\n ALTER TABLE `' + curr_table_name + '` DROP `' + curr_column_name + '`';
+        var question = PMA_messages['strDoYouReally'] + ' :\n ALTER TABLE `' + curr_table_name + '` DROP `' + curr_column_name + '`';
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
@@ -1943,6 +1943,8 @@ $(document).ready(function() {
  * libraries/display_create_table.lib.php is used)
  */
 $(document).ready(function() {
+
+    //make Ajax call and create the dialog with the full create table form
     $("#create_table_form_minimal").live('submit', function(event) {
         event.preventDefault();
 
@@ -1957,13 +1959,40 @@ $(document).ready(function() {
             .dialog({
                 title: PMA_messages['strCreateTable'],
                 width: 900,
-                buttons : {
-                            "Create Table" : function() {
-                                $('#create_table_form').trigger("submit");
-                            },
-                            "Cancel" : function() {$(this).dialog('close').remove() ;}
+                buttons : {"Cancel" : function() {$(this).dialog('close').remove() ;}
                 }
-            });
-        })
-    })
-}, 'top.frame_content');
+            }); // end dialog options
+        }) // end $.get()
+        
+    });
+
+    $("#create_table_form").find("input[name=submit_num_fields], input[name=do_save_data]").live('click', function(event) {
+        event.preventDefault();
+
+        var the_form = $("#create_table_form");
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        if($(this).attr('name') == 'submit_num_fields') {
+            //User wants to add more fields to the table
+            $.post($(the_form).attr('action'), $(the_form).serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
+                $("#create_table_dialog").html(data);
+                
+            }) //end $.post()
+        }
+        else if($(this).attr('name') == 'do_save_data') {
+            //User wants to submit the form
+            $.post($(the_form).attr('action'), $(the_form).serialize() + "&do_save_data=" + $(this).val(), function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("#create_table_dialog").dialog("close").remove();
+                }
+                else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }) // end $.post()
+        }
+    }) // end create table form submit button actions
+
+}, 'top.frame_content'); //end $(document).ready for 'Create Table'
