@@ -48,27 +48,27 @@ try
 	switch($export_type)
 		{
 			case 'pdf';
-				include_once("./libraries/schema/pdf_relation_schema.php");
-				$obj_schema=new PMA_PDF_RELAION_SCHEMA($pdf_page_number, $show_table_dimension, $show_color,
+				include_once("./libraries/schema/Pdf_Relation_Schema.class.php");
+				$obj_schema=new PMA_Pdf_Relation_Schema($pdf_page_number, $show_table_dimension, $show_color,
 													   $show_grid, $all_table_same_wide, $orientation, $paper,
 														$show_keys
 														);
 				break;
 			case 'svg';
-				include_once("./libraries/schema/svg_relation_schema.php");
-				$obj_schema=new PMA_SVG_RELAION_SCHEMA($pdf_page_number, $show_table_dimension, $show_color,
+				include_once("./libraries/schema/Svg_Relation_Schema.class.php");
+				$obj_schema=new PMA_Svg_Relation_Schema($pdf_page_number, $show_table_dimension, $show_color,
 													   $all_table_same_wide,$show_keys);
 				break;
 			case 'dia';
-				include_once("./libraries/schema/diaSchema.class.php");
+				include_once("./libraries/schema/Dia_Relation_Schema.class.php");
 				$obj_schema=new diaSchema();
 				break;
 			case 'visio';
-				include_once("./libraries/schema/visioSchema.class.php");
+				include_once("./libraries/schema/Visio_Relation_Schema.class.php");
 				$obj_schema=new visioSchema();
 				break;
 			case 'eps';
-				include_once("./libraries/schema/epsSchema.class.php");
+				include_once("./libraries/schema/Eps_Relation_Schema.class.php");
 				$obj_schema=new epsSchema();
 				break;
 		} 

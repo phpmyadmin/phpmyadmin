@@ -69,7 +69,7 @@ if ($cfgRelation['pdfwork']) {
 	 */
 	
 	require_once './libraries/schema/user_schema.php';
-	$user_schema = new PMA_USER_SCHEMA();
+	$user_schema = new PMA_User_Schema();
 
 	/**
 	 * This function will process the user input
