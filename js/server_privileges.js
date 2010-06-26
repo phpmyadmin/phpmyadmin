@@ -97,13 +97,13 @@ function suggestPassword(passwd_form) {
 /**
  * Add all AJAX scripts for server_privileges page here.
  *
- * Actions to be ajaxified here:
- * Add a new user - done
- * Revoke a user (and also drop databases with same name as user) - #fieldset_delete_user #buttonGo - confirm, ajax post.
- * Edit privileges - no id/class yet. 7th col in table - use dialog, submit form
- * Export privileges - no id/class yet. 8th col in table - use ajax and load response. new div container necessary for response
+ * Actions ajaxified here:
+ * Add a new user
+ * Revoke a user
+ * Edit privileges
+ * Export privileges
  * Paginate table of users - use ajax, replace #usersForm
- * Flush privileges - done!
+ * Flush privileges
  */
 
 $(document).ready(function() {
@@ -205,10 +205,31 @@ $(document).ready(function() {
             $("#edit_user_dialog")
             .append(data)
             .dialog({
-                width: 900
-                //buttons: { }
+                width: 900,
+                buttons: {"Cancel": function() {$(this).dialog("close").remove() ;}}
             })
         })
+    })
+
+    $("#edit_user_dialog").find("form").live('submit', function(event) {
+        event.preventDefault();
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+
+        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        var curr_submit_name = $(this).find('.tblFooters').find('input:submit').attr('name');
+        var curr_submit_value = $(this).find('.tblFooters').find('input:submit').val();
+
+        $.post($(this).attr('action'), $(this).serialize() + '&' + curr_submit_name + '=' + curr_submit_value, function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                $("#edit_user_dialog").dialog("close").remove();
+            }
+            else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
     })
     //end Edit user
 
@@ -229,5 +250,24 @@ $(document).ready(function() {
             });
         }) //end $.get
     }) //end export privileges
+
+    //Paginate Users Table
+    $("#initials_table").find("a").live('click', function(event) {
+        event.preventDefault();
+
+        PMA_ajaxShowMessage();
+
+        $.get($(this).attr('href'), {'ajax_request' : true}, function(data) {
+            $("#usersForm")
+            .hide("medium")
+            .siblings("#topmenucontainer")
+            .after(data)
+            .show("medium")
+            .end()
+            .remove();
+            $("#topmenucontainer").siblings("#initials_table").not(":first").remove();
+            $("#initials_table").siblings("h2").not(":first").remove();
+        })
+    })
 
 }); //end $(document).ready()
