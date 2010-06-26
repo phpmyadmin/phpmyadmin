@@ -464,6 +464,7 @@ h2.tiger{
 	font-size:14px;
 	padding: 50 20 50 20px;
 	margin: 0 0 5px 0;
+	width: 300px;
 	float: left;
 	color : #333;
 	text-align: center;
@@ -471,12 +472,14 @@ h2.tiger{
 
 h2.tiger a {
 	text-align: center;
+	text-decoration: none;
 	color : #333;
 	display: block;
 }
 
 h2.tiger a:hover {  
-	color: #ccc; 
+	color: #000; 
+	background-image: url(images/Header_Linked.png);
 }
 
 h2.active {
@@ -490,7 +493,8 @@ h2.active {
 	margin: 0 0 5px;
 	padding: 0;
 	border-top: 1px solid #d6d6d6;
-	background: #83B0B8 ;
+	background: #FFF ;
+	width: 300px;
 	overflow: hidden;
 	font-size: 1.2em;
 	clear: both;

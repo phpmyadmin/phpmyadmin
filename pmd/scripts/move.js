@@ -973,7 +973,7 @@ function Click_option(id_this,column_name,table_name)
     // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
      document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
      document.getElementById(id_this).style.visibility = "visible";
-	 document.getElementById('option_col_name').innerHTML = 'column_name';
+	 document.getElementById('option_col_name').innerHTML = '<strong>Options For "' +column_name+ '" column</strong>';
 	 col_name = column_name;
 	 tab_name = table_name;
 }
@@ -1009,7 +1009,6 @@ function Table_onover(id_this,val)
 	}
 }
 
-
 function add_object() {
 	var rel = document.getElementById('rel_opt');
 	var sum = 0;
@@ -1020,11 +1019,12 @@ function add_object() {
 		    document.getElementById('hint').style.visibility = "visible";
 			return;
 		}
-		 var w = document.getElementById('rel_opt').value;
 		 var p = document.getElementsByName('Query');
-		 var where_obj = new where(w,p.value);//make where object
+		 var where_obj = new where(rel.value,p.value);//make where object
 		 history_array.push(new history(col_name,where_obj,tab_name,h_tabs[tab_name],"Where"));
 		 sum = sum + 1;
+		 rel.value = '--';
+		 p.value = "";
 	}
 	if (document.getElementById('new_name').value !="") {
 		var rename_obj = new rename(document.getElementById('new_name').value);//make Rename object
@@ -1036,6 +1036,7 @@ function add_object() {
 		var aggregate_obj = new aggregate(document.getElementById('operator').value) ;
 		history_array.push(new history(col_name,aggregate_obj,tab_name,h_tabs[tab_name],"Aggregate"));
 		sum = sum + 1;
+		document.getElementById('operator').value = '---';
 		//make aggregate operator
 	}
 	if (document.getElementById('groupby').checked == true ) {

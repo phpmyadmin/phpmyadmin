@@ -25,7 +25,7 @@ function display(init,final) {
 	 str ='';
 	 for ( var i=0; i < history_array.length; i++){
 		var temp = history_array[i].get_tab() + '.' + history_array[i].get_obj_no();
-		str += '<h2 class="tiger"><a href="#"></a>' + temp + '</h2>';  				
+		str += '<h2 class="tiger"><a href="#">' + temp + '</a></h2>';  				
 		str +='<div class="toggle_container">\n';
 		while((history_array[i].get_tab() + '.' + history_array[i].get_obj_no()) == temp) {
 			str +='<div class="block"> <table>';

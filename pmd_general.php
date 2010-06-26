@@ -445,9 +445,8 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
        <thead>
         <tr>
-            <td colspan="2" align="center" nowrap="nowrap"><strong>Options For</strong></td>
+        	<td colspan="2" rowspan="2" id="option_col_name" nowrap="nowrap" align="center"></td>
         </tr>
-        <tr ><td id="option_col_name"></td></tr>
         </thead>
         <tbody id="where">
         <tr><td align="center" nowrap="nowrap"><b>Where</b></td></tr>
@@ -520,14 +519,15 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tr>
 </tbody>
 </table>
-
- <div class="panel">
-  <div style="clear:both;"></div>
-   <div id="ab"></div>
- 
-  <div style="clear:both;"></div>
-  </div>
-  <a class="trigger" href="#">History</a>
+<?php 
+if($_REQUEST['query']) {
+	echo '<div class="panel">';
+  	echo '<div style="clear:both;"></div>';
+   	echo '<div id="ab"></div>';
+ 	echo '<div style="clear:both;"></div>';
+  	echo '</div>';
+	echo '<a class="trigger" href="#">History</a>';
+} ?>
 <!-- cache images -->
 <img src="pmd/images/2leftarrow_m.png" width="0" height="0" alt="" />
 <img src="pmd/images/rightarrow1.png" width="0" height="0" alt="" />
