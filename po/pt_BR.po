@@ -5390,7 +5390,7 @@ msgid ""
 "method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
 "O número de requisições para ler a linha precedente na ordem da chave. Este "
-"método de leitura é usado principalmente para otimizar ORDER B"
+"método de leitura é usado principalmente para otimizar ORDER BY ... DESC."
 
 #: server_status.php:56
 msgid ""
