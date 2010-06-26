@@ -1032,10 +1032,6 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         }
         unset($res, $real_sql_query);
     }
-
-    if( $GLOBALS['is_ajax_request'] ) {
-        PMA_ajaxResponse($message, true);
-    }
 }
 
 
@@ -1307,10 +1303,6 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
         }
         unset($queries);
     }
-
-    if( $GLOBALS['is_ajax_request']) {
-        PMA_ajaxResponse($message, $message->isSuccess());
-    }
 }
 
 
@@ -1342,16 +1334,17 @@ if (isset($_REQUEST['flush_privileges'])) {
     $sql_query = 'FLUSH PRIVILEGES;';
     PMA_DBI_query($sql_query);
     $message = PMA_Message::success(__('The privileges were reloaded successfully.'));
-
-    /**
-     * If we are in an Ajax request, just display the message and exit.
-     * jQuery will take care of displaying the data with a dialog
-     */
-    if( $GLOBALS['is_ajax_request'] ) {
-        PMA_ajaxResponse($message);
-    }
 }
 
+/**
+ * If we are in an Ajax request for Create User/Edit User/Revoke User/Flush Privileges,
+ * show $message and exit.
+ *
+ * @todo How to show the queries? Refactoring PMA_ajaxShowMessage might help
+ */
+if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUEST['adduser']) && !isset($_REQUEST['initial']) && !isset($_REQUEST['showall'])) {
+    PMA_ajaxResponse($message, $message->isSuccess());
+}
 
 /**
  * Displays the links
@@ -1505,34 +1498,37 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
              * Displays the initials
              */
 
-            // initialize to FALSE the letters A-Z
-            for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
-                if (! isset($array_initials[chr($letter_counter + 64)])) {
-                    $array_initials[chr($letter_counter + 64)] = FALSE;
+            if( !$GLOBALS['is_ajax_request'] ) {
+
+                // initialize to FALSE the letters A-Z
+                for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
+                    if (! isset($array_initials[chr($letter_counter + 64)])) {
+                        $array_initials[chr($letter_counter + 64)] = FALSE;
+                    }
                 }
-            }
 
-            $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC', null, PMA_DBI_QUERY_STORE);
-            while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
-                $array_initials[$tmp_initial] = TRUE;
-            }
-
-            // Display the initials, which can be any characters, not
-            // just letters. For letters A-Z, we add the non-used letters
-            // as greyed out.
-
-            uksort($array_initials, "strnatcasecmp");
-
-            echo '<table cellspacing="5"><tr>';
-            foreach ($array_initials as $tmp_initial => $initial_was_found) {
-                if ($initial_was_found) {
-                    echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a></td>' . "\n";
-                } else {
-                    echo '<td>' . $tmp_initial . '</td>';
+                $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC', null, PMA_DBI_QUERY_STORE);
+                while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
+                    $array_initials[$tmp_initial] = TRUE;
                 }
+
+                // Display the initials, which can be any characters, not
+                // just letters. For letters A-Z, we add the non-used letters
+                // as greyed out.
+
+                uksort($array_initials, "strnatcasecmp");
+
+                echo '<table id="initials_table" cellspacing="5"><tr>';
+                foreach ($array_initials as $tmp_initial => $initial_was_found) {
+                    if ($initial_was_found) {
+                        echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a></td>' . "\n";
+                    } else {
+                        echo '<td>' . $tmp_initial . '</td>';
+                    }
+                }
+                echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;showall=1">[' . __('Show all') . ']</a></td>' . "\n";
+                echo '</tr></table>';
             }
-            echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;showall=1">[' . __('Show all') . ']</a></td>' . "\n";
-            echo '</tr></table>';
 
             /**
             * Display the user overview
@@ -1653,6 +1649,11 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            ' . __('Add a new User') . '</a>' . "\n"
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
+
+            if( $GLOBALS['is_ajax_request'] ) {
+                exit;
+            }
+
             $flushnote = new PMA_Message(__('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'), PMA_Message::NOTICE);
             $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1" id="reload_privileges_anchor">', false);
             $flushnote->addParam('</a>', false);
