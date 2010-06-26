@@ -249,8 +249,6 @@ if (isset($_REQUEST['do_save_data'])) {
         $message = PMA_Message::success(__('Table %1$s has been created.'));
         $message->addParam(PMA_backquote($db) . '.' . PMA_backquote($table));
 
-        PMA_ajaxResponse($message, $message->isSuccess());
-
         $display_query = $sql_query;
         $sql_query = '';
 

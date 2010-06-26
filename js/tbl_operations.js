@@ -8,11 +8,11 @@
 /**
  * Add all AJAX scripts for tbl_operations.php page here.
  *
- * Alter table order - #div_table_order form
- * Move Table - #div_table_rename form
- * Table Options - #div_table_options form
- * Copy Table - #div_table_copy form
- * Table Maintenance - #div_table_maintenance (need to id each anchor)
+ * Alter table order
+ * Move Table
+ * Table Options
+ * Copy Table
+ * Table Maintenance
  *  Check
  *  Repair
  *  Analyze
