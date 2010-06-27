@@ -576,17 +576,19 @@ else {
     } else {
         $GLOBALS['js_include'][] = 'functions.js';
         unset($message);
-        if (strlen($table)) {
-            require './libraries/tbl_common.php';
-            $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
-            require './libraries/tbl_info.inc.php';
-            require './libraries/tbl_links.inc.php';
-        } elseif (strlen($db)) {
-            require './libraries/db_common.inc.php';
-            require './libraries/db_info.inc.php';
-        } else {
-            require './libraries/server_common.inc.php';
-            require './libraries/server_links.inc.php';
+        if( $GLOBALS['is_ajax_request'] != true) {
+            if (strlen($table)) {
+                require './libraries/tbl_common.php';
+                $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
+                require './libraries/tbl_info.inc.php';
+                require './libraries/tbl_links.inc.php';
+            } elseif (strlen($db)) {
+                require './libraries/db_common.inc.php';
+                require './libraries/db_info.inc.php';
+            } else {
+                require './libraries/server_common.inc.php';
+                require './libraries/server_links.inc.php';
+            }
         }
     }
 
