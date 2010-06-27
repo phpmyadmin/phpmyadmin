@@ -2551,10 +2551,16 @@ function PMA_generate_slider_effect($id, $message)
         echo '<div id="' . $id . '">';
         return;
     }
+    /**
+     * Bad hack on the next line. document.write() conflicts with jQuery, hence,
+     * opening the <div> with PHP itself instead of JavaScript.
+     *
+     * @todo find a better solution that uses $.append(), the recommended method
+     */
     ?>
+<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?>>
     <script type="text/javascript">
 // <![CDATA[
-    document.write('<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?>>');
 
     function PMA_set_status_label_<?php echo $id; ?>() {
         if ($('#<?php echo $id; ?>').css('display') == 'none') {
