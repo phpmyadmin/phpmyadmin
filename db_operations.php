@@ -267,6 +267,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
     if( $GLOBALS['is_ajax_request'] == true) {
         $extra_data['newname'] = $newname;
+        $extra_data['sqlquery'] = PMA_showMessage(NULL, $sql_query);
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
     };
 }

@@ -30,6 +30,7 @@ $(document).ready(function() {
                     
                     PMA_ajaxShowMessage(data.message);
                     window.parent.db = data.newname;
+                    $("#topmenucontainer").after(data.sqlquery);
 
                     $("<span>" + PMA_messages['strReloadDatabase'] + "?</span>").dialog({
                         buttons: {"Yes": function() {
