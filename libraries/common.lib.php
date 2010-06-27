@@ -1021,6 +1021,9 @@ if (!$jsonly)
  */
 function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view = false)
 {
+    if( $GLOBALS['is_ajax_request'] == true) {
+        ob_start("PMA_ajaxOutputBufferHandler");
+    }
     global $cfg;
 
     if (null === $sql_query) {
@@ -1285,6 +1288,12 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         echo '</div>';
     }
     echo '</div><br />' . "\n";
+
+    if( $GLOBALS['is_ajax_request'] == true) {
+        $buffer_contents =  ob_get_contents();
+        ob_end_clean();
+        return $buffer_contents;
+    }
 } // end of the 'PMA_showMessage()' function
 
 /**
@@ -2881,7 +2890,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     }
     else {
         $response['success'] = false;
-        $response['error'] = $message;
+        $response['error'] = $message->getDisplay();
     }
 
     if( count($extra_data) > 0 ) {
@@ -2893,5 +2902,11 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     }
     echo json_encode($response);
     exit;
+}
+
+function PMA_ajaxOutputBufferHandler($output_buffer) {
+    $response = array();
+    $response['message'] = $output_buffer;
+    return json_encode($response);
 }
 ?>
