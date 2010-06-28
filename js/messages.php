@@ -48,6 +48,7 @@ $js_messages['strCancel'] = __('Cancel');
 $js_messages['strCreateUser'] = __('Create User');
 $js_messages['strReloadingPrivileges'] = __('Reloading Privileges');
 $js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
+$js_messages['strClose'] = __('Close');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
@@ -59,6 +60,7 @@ $js_messages['strProcessingRequest'] = __('Processing Request');
 $js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
 $js_messages['strDroppingColumn'] = __('Dropping Column');
 $js_messages['strAddingPrimaryKey'] = __('Adding Primary Key');
+$js_messages['strOK'] = __('OK');
 
 /* For db_operations.js */
 $js_messages['strRenamingDatabases'] = __('Renaming Databases');
@@ -67,6 +69,8 @@ $js_messages['strCopyingDatabase'] = __('Copying Database');
 $js_messages['strChangingCharset'] = __('Changing Charset');
 $js_messages['strTableMustHaveAtleastOneColumn'] = __('Table must have atleast 1 column');
 $js_messages['strCreateTable'] = __('Create Table');
+$js_messages['strYes'] = __('Yes');
+$js_messages['strNo'] = __('No');
 
 /* Designer */
 $js_messages['strModifications'] = __('Modifications have been saved');
