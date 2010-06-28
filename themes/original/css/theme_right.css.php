@@ -1228,3 +1228,18 @@ table#serverconnection_trg_local  {
   */
 .invalid_value
 {background:#F00;}
+
+/**
+  *  Ajax notification styling
+  */
+ .ajax_notification {
+    top: 0px;
+    left: 45%;
+    position: fixed;
+    margin: 0 auto;
+    padding: 3px 5px;
+    min-width: 70px;
+    background-color: #FFD700;
+    z-index: 1100;
+    text-align: center;
+ }
