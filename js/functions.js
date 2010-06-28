@@ -1764,7 +1764,8 @@ function PMA_ajaxShowMessage(message, timeout) {
             .slideDown('medium')
             .delay(to)
             .slideUp('medium', function(){
-                $(this).html(""); //Clear the message
+                $(this).hide()
+                .html(""); //Clear the message
             });
         }, 'top.frame_content');
         ajax_message_init = true;
@@ -1775,7 +1776,8 @@ function PMA_ajaxShowMessage(message, timeout) {
         .slideDown('medium')
         .delay(to)
         .slideUp('medium', function() {
-            $(this).html("");
+            $(this).hide()
+            .html("");
         })
     }
 }
