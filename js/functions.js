@@ -1796,21 +1796,19 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
         return true;
     }
 
+    var button_options = {};
+    button_options[PMA_messages['strOK']] = function(){
+                                                $(this).dialog("close").remove();
+
+                                                if($.isFunction(callbackFn)) {
+                                                    callbackFn.call(this, url);
+                                                }
+                                            };
+    button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
+
     $('<div id="confirm_dialog"></div>')
     .prepend(question)
-    .dialog({
-        buttons: {"OK": function(){
-                            $(this).dialog("close").remove();
-
-                            if($.isFunction(callbackFn)) {
-                                callbackFn.call(this, url);
-                            }
-                        },
-                 "Cancel": function(){
-                            $(this).dialog("close").remove();
-                        }
-                 }
-    });
+    .dialog({ buttons: button_options });
 };
 
 /**
@@ -1952,6 +1950,9 @@ $(document).ready(function() {
 
         /* @todo Validate this form! */
 
+        var button_options = {};
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove(); }
+
         PMA_ajaxShowMessage();
         $(this).append('<input type="hidden" name="ajax_request" value="true" />');
 
@@ -1961,8 +1962,7 @@ $(document).ready(function() {
             .dialog({
                 title: PMA_messages['strCreateTable'],
                 width: 900,
-                buttons : {"Cancel" : function() {$(this).dialog('close').remove() ;}
-                }
+                buttons : button_options
             }); // end dialog options
         }) // end $.get()
         
