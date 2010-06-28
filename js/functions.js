@@ -1867,7 +1867,8 @@ $(document).ready(function() {
         event.preventDefault();
 
         //extract current table name and build the question string
-        var curr_table_name = $(this).parents('tr').children('th').children('a').text();
+        var curr_row = $(this).parents('tr');
+        var curr_table_name = $(curr_row).children('th').children('a').text();
         var question = 'DROP TABLE ' + curr_table_name;
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
@@ -1878,7 +1879,7 @@ $(document).ready(function() {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
                     //need to find a better solution here.  The icon should be replaced
-                    $(this).remove();
+                    $(curr_row).hide("medium").remove();
                 }
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
