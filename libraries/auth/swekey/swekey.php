@@ -390,7 +390,7 @@ function Swekey_GetFastHalfRndToken()
         $_SESSION['rnd-token-date'] = time();
         if (! empty($cachefile))
         {
-        	// we unlink the file so no possible tempfile race attack (thanks Thijs)
+        	// we unlink the file so no possible tempfile race attack
         	unlink($cachefile);
 	   		$file = fopen($cachefile , "x");
 	   		if ($file != FALSE)
