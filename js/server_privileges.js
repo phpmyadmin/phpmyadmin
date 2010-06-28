@@ -118,6 +118,29 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage();
 
+        var button_options = {};
+        button_options[PMA_messages['strCreateUser']] = function() {
+
+                                                        var the_form = $(this).find("#addUsersForm");
+
+                                                        if( ! checkAddUser($(the_form).get(0)) ) {
+                                                            PMA_ajaxShowMessage(PMA_messages['strFormEmpty']);
+                                                            return false;
+                                                        }
+
+                                                        //We also need to post the value of the submit button in order to get this to work correctly
+                                                        $.post($(the_form).attr('action'), $(the_form).serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
+                                                            if(data.success == true) {
+                                                                $("#add_user_dialog").dialog("close").remove();
+                                                                PMA_ajaxShowMessage(data.message);
+                                                            }
+                                                            else {
+                                                                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
+                                                            }
+                                                        })
+                                                    };
+        button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
+
         $(this).append('<div id="add_user_dialog"></div>');
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
             $("#add_user_dialog")
@@ -130,28 +153,7 @@ $(document).ready(function() {
                 title: PMA_messages['strAddNewUser'],
                 width: 800,
                 modal: true,
-                buttons: {"Create User" : function() {
-
-                                var the_form = $(this).find("#addUsersForm");
-
-                                if( ! checkAddUser($(the_form).get(0)) ) {
-                                    PMA_ajaxShowMessage(PMA_messages['strFormEmpty']);
-                                    return false;
-                                }
-
-                                //We also need to post the value of the submit button in order to get this to work correctly
-                                $.post($(the_form).attr('action'), $(the_form).serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
-                                    if(data.success == true) {
-                                        $("#add_user_dialog").dialog("close").remove();
-                                        PMA_ajaxShowMessage(data.message);
-                                    }
-                                    else {
-                                        PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
-                                    }
-                                })
-                            },
-                            "Cancel" : function() {$(this).dialog("close").remove();}
-                        } //buttons end
+                buttons: button_options
             }); //dialog options end
         });
 
@@ -200,13 +202,16 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage();
 
+        var button_options = {};
+        button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
+
         $(this).append('<div id="edit_user_dialog"></div>');
         $.get($(this).attr('href'), {'ajax_request':true}, function(data) {
             $("#edit_user_dialog")
             .append(data)
             .dialog({
                 width: 900,
-                buttons: {"Cancel": function() {$(this).dialog("close").remove() ;}}
+                buttons: button_options
             })
         })
     })
@@ -239,14 +244,15 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage();
 
+        var button_options = {};
+        button_options[PMA_messages['strClose']] = function() { $(this).dialog("close").remove(); }
+
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
             $('<div id="export_dialog"></div>')
             .prepend(data)
             .dialog({
                 width : 500,
-                buttons: {"Close" : function() { 
-                        $(this).dialog("close").remove();
-                    }}
+                buttons: button_options
             });
         }) //end $.get
     }) //end export privileges
