@@ -22,6 +22,13 @@ $(document).ready(function() {
         var question = 'CREATE DATABASE ... and then DROP DATABASE ' + window.parent.db;
         $(this).append('<input type="hidden" name="ajax_request" value="true" />');
 
+        var button_options = {};
+        button_options[PMA_messages['strYes']] = function() {
+                                                    window.parent.refreshMain();
+                                                    window.parent.refreshNavigation();
+                                                };
+        button_options[PMA_messages['strNo']] = function() { $(this).dialog("close").remove(); }
+
         $(this).PMA_confirm(question, $(this).attr('action'), function(url) {
             PMA_ajaxShowMessage(PMA_messages['strRenamingDatabases']);
 
@@ -33,13 +40,7 @@ $(document).ready(function() {
                     $("#topmenucontainer").after(data.sqlquery);
 
                     $("<span>" + PMA_messages['strReloadDatabase'] + "?</span>").dialog({
-                        buttons: {"Yes": function() {
-                                            window.parent.refreshMain();
-                                           },
-                                   "No" : function() {
-                                            $(this).dialog("close").remove();
-                                          }
-                                 }
+                        buttons: button_options
                     }) //end dialog options
                 }
                 else {
