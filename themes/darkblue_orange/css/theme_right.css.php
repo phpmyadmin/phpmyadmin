@@ -1378,3 +1378,53 @@ input#input_import_file {
 .formelementrow {
     margin: 5px 0px 5px 0px;
 }
+
+/**
+ * ENUM/SET editor styles
+ */
+p.enum_notice {
+    margin: 5px 2px;
+    font-size: 80%;
+}
+
+#enum_editor {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE */
+    width: 50%;
+    height: 80%;
+    background: #D0DCE0;
+    z-index: 101;
+    padding: 15px;
+    overflow: auto;
+}
+
+#popup_background {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 100;
+}
+
+a.close_enum_editor {
+    float: right;
+}
+
+#enum_editor #values {
+    margin: 15px 0px;
+}
+
+#enum_editor #values input {
+    margin: 5px 0px;
+    float: top;
+    width: 100%;
+}
+
+#enum_editor input {
+    float: bottom;
+}
