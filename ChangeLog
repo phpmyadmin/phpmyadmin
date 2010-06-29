@@ -8,6 +8,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 3.3.5.0 (not yet released)
 - patch #2932113 [information_schema] Slow export when having lots of
   databases, thanks to Stéphane Pontier - shadow_walker
+- bug #3022705 [import] Import button does not work in Catalan when there
+  is no progress bar possible
 
 3.3.4.0 (2010-06-28)
 - bug #2996161 [import] properly escape import value
