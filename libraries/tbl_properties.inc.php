@@ -279,8 +279,9 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column type
+    $select_id = 'field_' . $i . '_' . ($ci - $ci_offset);
     $content_cells[$i][$ci] = '<select name="field_type[' . $i . ']"'
-        .' id="field_' . $i . '_' . ($ci - $ci_offset) . '" >';
+        .' id="' . $select_id . '" onchange="toggle_enum_notice(\'' . $select_id . '\');" >';
 
     if (empty($row['Type'])) {
         // creating a column
@@ -367,7 +368,14 @@ for ($i = 0; $i < $num_fields; $i++) {
     $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
         . ' type="text" name="field_length[' . $i . ']" size="' . $length_values_input_size . '"'
         . ' value="' . htmlspecialchars($length_to_display) . '"'
-        . ' class="textfield" />';
+        . ' class="textfield" />'
+        . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset) . '"';
+    if($type_upper == 'ENUM' || $type_upper == 'SET') {
+        $content_cells[$i][$ci] .= '>';
+    } else {
+        $content_cells[$i][$ci] .= ' style="display: none;">';
+    }
+    $content_cells[$i][$ci] .= 'Data too long? <a class="open_enum_editor">Open in ENUM/SET editor</a></p>';
     $ci++;
 
     // column default
@@ -789,3 +797,13 @@ if ($action == 'tbl_create.php') {
 </form>
 
 <center><?php echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE'); ?></center>
+
+<div id="enum_editor">
+<a class="close_enum_editor">Close</a>
+<p>Enter each value in a separate field.</p>
+<div id="values"></div>
+<p><a class="add_value">+ Add value</a></p>
+<input type="submit" value="Done" /> <a class="cancel_enum_editor">Cancel</a>
+</div>
+
+<div id="popup_background"></div>
