@@ -264,12 +264,11 @@ $(document).ready(function() {
         $.get($(this).attr('href'), {'ajax_request' : true}, function(data) {
             $("#usersForm")
             .hide("medium")
-            .siblings("#topmenucontainer")
+            .siblings("#initials_table")
             .after(data)
             .show("medium")
             .end()
             .remove();
-            $("#topmenucontainer").siblings("#initials_table").not(":first").remove();
             $("#initials_table").siblings("h2").not(":first").remove();
         })
     })
