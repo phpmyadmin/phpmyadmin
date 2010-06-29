@@ -197,7 +197,6 @@ if (isset($where_clause)) {
     $rows = array_fill(0, $cfg['InsertRows'], false);
 }
 
-// <markus@noga.de>
 // retrieve keys into foreign fields, if any
 $foreigners  = PMA_getForeigners($db, $table);
 
@@ -507,7 +506,6 @@ foreach ($rows as $row_id => $vrow) {
 
         // The function column
         // -------------------
-        // Change by Bernard M. Piller <bernard@bmpsystems.com>
         // We don't want binary data to be destroyed
         // Note: from the MySQL manual: "BINARY doesn't affect how the column is
         //       stored or retrieved" so it does not mean that the contents is
@@ -831,7 +829,6 @@ foreach ($rows as $row_id => $vrow) {
                 </select>
             <?php
         }
-        // Change by Bernard M. Piller <bernard@bmpsystems.com>
         // We don't want binary data destroyed
         elseif ($field['is_binary'] || $field['is_blob']) {
             if (($cfg['ProtectBinary'] && $field['is_blob'])

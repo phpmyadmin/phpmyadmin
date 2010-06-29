@@ -53,8 +53,7 @@ PMA_DBI_select_db($db);
 
 
 /**
- * Multi-tables printview thanks to Christophe Gesche from the "MySQL Form
- * Generator for PHPMyAdmin" (http://sourceforge.net/projects/phpmysqlformgen/)
+ * Multi-tables printview 
  */
 if (isset($selected_tbl) && is_array($selected_tbl)) {
     $the_tables   = $selected_tbl;

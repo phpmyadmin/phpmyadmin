@@ -2,8 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Set of functions used to run cookie based authentication.
- * Thanks to Piotr Roszatycki <d3xter at users.sourceforge.net> and
- * Dan Wilson who built this patch for the Debian package.
  *
  * @package phpMyAdmin-Auth-Cookie
  * @version $Id$
