@@ -7,9 +7,6 @@
 #
 # Takes input from STDIN, sends output to STDOUT
 #
-# By Robin Johnson robbat2@users.sourceforge.net
-# Many thanks to Patrick Lougheed pat@tfsb.org
-#
 
 while(<>) 
 {	s/\$cfg(\w+)/\$cfg\[\'$1\'\]/g; 

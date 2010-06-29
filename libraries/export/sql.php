@@ -535,7 +535,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
         $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table, $sql_backquotes) . ';' . $crlf;
     }
 
-    // Steve Alberty's patch for complete table dump,
+    // Complete table dump,
     // Whether to quote table and fields names or not
     if ($sql_backquotes) {
         PMA_DBI_query('SET SQL_QUOTE_SHOW_CREATE = 1');

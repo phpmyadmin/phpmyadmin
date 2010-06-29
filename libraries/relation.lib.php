@@ -965,7 +965,6 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
 
 /**
  * Gets foreign keys in preparation for a drop-down selector
- * Thanks to <markus@noga.de>
  *
  * @uses    PMA_Table::countRecords()
  * @uses    PMA_backquote()

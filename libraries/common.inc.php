@@ -568,13 +568,6 @@ $GLOBALS['footnotes'] = array();
 /* loading language file                       LABEL_loading_language_file    */
 
 /**
- * Added messages while developing:
- */
-if (file_exists('./lang/added_messages.php')) {
-    include './lang/added_messages.php';
-}
-
-/**
  * lang detection is done here
  */
 require_once './libraries/select_lang.lib.php';
