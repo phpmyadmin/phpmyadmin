@@ -193,7 +193,7 @@ msgstr "Natisni"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "Preglej povzetek stanja zbirke podatkov"
+msgstr "Preglej povzetek stanja podatkovne zbirke"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
 #: db_tracking.php:35 export.php:359 navigation.php:332
