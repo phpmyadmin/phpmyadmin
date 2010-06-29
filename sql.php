@@ -532,6 +532,11 @@ if (0 == $num_rows || $is_affected) {
         $goto = PMA_securePath($goto);
         // Checks for a valid target script
         $is_db = $is_table = false;
+
+        if( $GLOBALS['is_ajax_request'] == true) {
+            PMA_ajaxResponse($message);
+        }
+        
         include 'libraries/db_table_exists.lib.php';
         if (strpos($goto, 'tbl_') === 0 && ! $is_table) {
             if (strlen($table)) {
