@@ -280,8 +280,8 @@ for ($i = 0; $i < $num_fields; $i++) {
 
     // column type
     $select_id = 'field_' . $i . '_' . ($ci - $ci_offset);
-    $content_cells[$i][$ci] = '<select name="field_type[' . $i . ']"'
-        .' id="' . $select_id . '" onchange="toggle_enum_notice(\'' . $select_id . '\');" >';
+    $content_cells[$i][$ci] = '<select class="column_type" name="field_type[' . $i . ']"'
+        .' id="' . $select_id . '">';
 
     if (empty($row['Type'])) {
         // creating a column
@@ -369,13 +369,8 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' type="text" name="field_length[' . $i . ']" size="' . $length_values_input_size . '"'
         . ' value="' . htmlspecialchars($length_to_display) . '"'
         . ' class="textfield" />'
-        . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset) . '"';
-    if($type_upper == 'ENUM' || $type_upper == 'SET') {
-        $content_cells[$i][$ci] .= '>';
-    } else {
-        $content_cells[$i][$ci] .= ' style="display: none;">';
-    }
-    $content_cells[$i][$ci] .= 'Data too long? <a class="open_enum_editor">Open in ENUM/SET editor</a></p>';
+        . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset) . '">';
+    $content_cells[$i][$ci] .= 'ENUM or SET data too long? <a href="enum_editor.php" class="open_enum_editor" target="blank">Get more editing space</a></p>';
     $ci++;
 
     // column default
