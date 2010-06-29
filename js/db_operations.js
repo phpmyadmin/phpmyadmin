@@ -24,6 +24,7 @@ $(document).ready(function() {
 
         var button_options = {};
         button_options[PMA_messages['strYes']] = function() {
+                                                    $(this).dialog("close").remove();
                                                     window.parent.refreshMain();
                                                     window.parent.refreshNavigation();
                                                 };
