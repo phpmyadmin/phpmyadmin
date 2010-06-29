@@ -1342,7 +1342,7 @@ if (isset($_REQUEST['flush_privileges'])) {
  *
  * @todo How to show the queries? Refactoring PMA_ajaxShowMessage might help
  */
-if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUEST['adduser']) && !isset($_REQUEST['initial']) && !isset($_REQUEST['showall'])) {
+if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUEST['adduser']) && !isset($_REQUEST['initial']) && !isset($_REQUEST['showall']) && !isset($_REQUEST['edit_user_dialog'])) {
     PMA_ajaxResponse($message, $message->isSuccess());
 }
 
@@ -1498,7 +1498,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
              * Displays the initials
              */
 
-            if( !$GLOBALS['is_ajax_request'] ) {
+            if( $GLOBALS['is_ajax_request'] != true ) {
 
                 // initialize to FALSE the letters A-Z
                 for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
