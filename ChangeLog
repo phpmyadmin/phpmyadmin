@@ -90,6 +90,7 @@ $Id$
   databases, thanks to Stéphane Pontier - shadow_walker
 - bug #3022705 [import] Import button does not work in Catalan when there
   is no progress bar possible
+- bug [replication] Do not offer information_schema in the list of databases
 
 3.3.4.0 (2010-06-28)
 - bug #2996161 [import] properly escape import value
