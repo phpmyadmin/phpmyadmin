@@ -1878,7 +1878,6 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    //need to find a better solution here.  The icon should be replaced
                     $(curr_row).hide("medium").remove();
                 }
                 else {
@@ -1893,7 +1892,8 @@ $(document).ready(function() {
         event.preventDefault();
 
         var curr_table_name = window.parent.table;
-        var curr_column_name = $(this).parents('tr').children('th').children('label').text();
+        var curr_row = $(this).parents('tr');
+        var curr_column_name = $(curr_row).children('th').children('label').text();
         var question = PMA_messages['strDoYouReally'] + ' :\n ALTER TABLE `' + curr_table_name + '` DROP `' + curr_column_name + '`';
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
@@ -1903,7 +1903,7 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    $(this).remove();
+                    $(curr_row).hide("medium").remove();
                 }
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
@@ -1927,6 +1927,7 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
+                    // @todo Need a better response here. Just removing the button shouldn't be the best solution.
                     $(this).remove();
                 }
                 else {
