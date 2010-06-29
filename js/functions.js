@@ -1727,3 +1727,81 @@ $(document).ready(function(){
     });
 });
 
+/**
+ * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
+ */
+function toggle_enum_notice(dropdown_id) {
+    // Find the selected value in the drop down list before this
+    $selected_value = $("select[id='" + dropdown_id + "'] option:selected").attr("value");
+    var enum_notice_id = dropdown_id.split("_")[1];
+    enum_notice_id += "_" + (parseInt(dropdown_id.split("_")[2]) + 1);
+    if($selected_value == "ENUM" || $selected_value == "SET") {
+        $("p[id='enum_notice_" + enum_notice_id + "']").show();
+    } else {
+        $("p[id='enum_notice_" + enum_notice_id + "']").hide();
+    }
+}
+
+/**
+ * Closes the ENUM/SET editor and removes the data in it
+ */
+function disable_popup() {
+    $("#popup_background").fadeOut("fast");
+    $("#enum_editor").fadeOut("fast");
+    // clear the data from the text boxes
+    $("#enum_editor #values input").remove();
+}
+
+/**
+ * Opens the ENUM/SET editor and controls its functions
+ */
+$(document).ready(function() {
+    $("a[class='open_enum_editor']").click(function() {
+        // Center the popup
+        var windowWidth = document.documentElement.clientWidth;
+        var windowHeight = document.documentElement.clientHeight;
+        var popupWidth = $("#enum_editor").width();g
+        var popupHeight = $("#enum_editor").height();
+        var top = windowHeight/2 - popupHeight/2;
+        var left = windowWidth/2 - popupWidth/2;
+        $("#enum_editor").css({"position":"absolute", "top": top, "left": left});
+        // Make it appear
+        $("#popup_background").css({"opacity":"0.7"});
+        $("#popup_background").fadeIn("fast");
+        $("#enum_editor").fadeIn("fast");
+        // Get the values
+        var values = $("p[class='enum_notice']").prev("input").attr("value").split(",");
+        $.each(values, function(index, val) {
+            $("#enum_editor #values").append("<input type='text' value=" + val + " />");
+        });
+    });
+
+    // If the "close" link is clicked, close the enum editor
+    $("a[class='close_enum_editor']").click(function() {
+        disable_popup();
+    });
+
+    // If the "cancel" link is clicked, close the enum editor
+    $("a[class='cancel_enum_editor']").click(function() {
+        disable_popup();
+    });
+
+    // If the "add value" link is clicked, insert another text box
+    $("a[class='add_value']").click(function() {
+        $("#enum_editor #values").append("<input type='text' />");
+    });
+
+    // When the submit button is clicked, put the data back into the original form
+    $("#enum_editor input[type='submit']").click(function() {
+        var value_array = new Array();
+        $.each($("#enum_editor #values input"), function(index, input_element) {
+            val = jQuery.trim(input_element.value);
+            if(val != "") {
+                value_array.push("'" + val + "'");
+            }
+        });
+
+        $("p[class='enum_notice']").prev("input").attr("value", value_array.join(","));
+        disable_popup();
+    });
+});
