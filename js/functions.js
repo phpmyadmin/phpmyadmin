@@ -1760,7 +1760,7 @@ $(document).ready(function() {
         // Center the popup
         var windowWidth = document.documentElement.clientWidth;
         var windowHeight = document.documentElement.clientHeight;
-        var popupWidth = $("#enum_editor").width();g
+        var popupWidth = $("#enum_editor").width();
         var popupHeight = $("#enum_editor").height();
         var top = windowHeight/2 - popupHeight/2;
         var left = windowWidth/2 - popupWidth/2;
