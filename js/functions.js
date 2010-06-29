@@ -1730,17 +1730,29 @@ $(document).ready(function(){
 /**
  * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
  */
-function toggle_enum_notice(dropdown_id) {
-    // Find the selected value in the drop down list before this
-    $selected_value = $("select[id='" + dropdown_id + "'] option:selected").attr("value");
-    var enum_notice_id = dropdown_id.split("_")[1];
-    enum_notice_id += "_" + (parseInt(dropdown_id.split("_")[2]) + 1);
-    if($selected_value == "ENUM" || $selected_value == "SET") {
+function toggle_enum_notice(selectElement) {
+    var enum_notice_id = selectElement.attr("id").split("_")[1];
+    enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2]) + 1);
+    var selectedType = selectElement.attr("value");
+    if(selectedType == "ENUM" || selectedType == "SET") {
         $("p[id='enum_notice_" + enum_notice_id + "']").show();
     } else {
-        $("p[id='enum_notice_" + enum_notice_id + "']").hide();
+          $("p[id='enum_notice_" + enum_notice_id + "']").hide();
     }
 }
+
+/**
+ * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when
+ * the page loads and when the selected data type changes
+ */
+$(document).ready(function() {
+    $.each($("select[class='column_type']"), function() {
+        toggle_enum_notice($(this));
+    });
+    $("select[class='column_type']").change(function() {
+        toggle_enum_notice($(this));
+    });
+});
 
 /**
  * Closes the ENUM/SET editor and removes the data in it
@@ -1750,6 +1762,7 @@ function disable_popup() {
     $("#enum_editor").fadeOut("fast");
     // clear the data from the text boxes
     $("#enum_editor #values input").remove();
+    $("#enum_editor input[type='hidden']").remove();
 }
 
 /**
@@ -1770,10 +1783,13 @@ $(document).ready(function() {
         $("#popup_background").fadeIn("fast");
         $("#enum_editor").fadeIn("fast");
         // Get the values
-        var values = $("p[class='enum_notice']").prev("input").attr("value").split(",");
+        var values = $(this).parent().prev("input").attr("value").split(",");
         $.each(values, function(index, val) {
             $("#enum_editor #values").append("<input type='text' value=" + val + " />");
         });
+        // So we know which column's data is being edited
+        $("#enum_editor").append("<input type='hidden' value='" + $(this).parent().prev("input").attr("id") + "' />");
+        return false;
     });
 
     // If the "close" link is clicked, close the enum editor
@@ -1800,8 +1816,8 @@ $(document).ready(function() {
                 value_array.push("'" + val + "'");
             }
         });
-
-        $("p[class='enum_notice']").prev("input").attr("value", value_array.join(","));
+        var values_id = $("#enum_editor input[type='hidden']").attr("value");
+        $("input[id='" + values_id + "']").attr("value", value_array.join(","));
         disable_popup();
     });
 });
