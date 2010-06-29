@@ -141,9 +141,8 @@ $(document).ready(function() {
                                                     };
         button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
 
-        $(this).append('<div id="add_user_dialog"></div>');
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
-            $("#add_user_dialog")
+            $('<div id="add_user_dialog"></div>')
             .prepend(data)
             .find("#fieldset_add_user_footer").hide() //showing the "Go" and "Create User" buttons together will confuse the user
             .end()
@@ -205,9 +204,8 @@ $(document).ready(function() {
         var button_options = {};
         button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
 
-        $(this).append('<div id="edit_user_dialog"></div>');
-        $.get($(this).attr('href'), {'ajax_request':true}, function(data) {
-            $("#edit_user_dialog")
+        $.get($(this).attr('href'), {'ajax_request':true, 'edit_user_dialog': true}, function(data) {
+            $('<div id="edit_user_dialog"></div>')
             .append(data)
             .dialog({
                 width: 900,
