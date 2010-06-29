@@ -1339,11 +1339,12 @@ if (isset($_REQUEST['flush_privileges'])) {
 /**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/Flush Privileges,
  * show $message and exit.
- *
- * @todo How to show the queries? Refactoring PMA_ajaxShowMessage might help
  */
 if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUEST['adduser']) && !isset($_REQUEST['initial']) && !isset($_REQUEST['showall']) && !isset($_REQUEST['edit_user_dialog'])) {
-    PMA_ajaxResponse($message, $message->isSuccess());
+    if(isset($sql_query)) {
+        $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+    }
+    PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
 }
 
 /**

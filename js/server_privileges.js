@@ -133,6 +133,7 @@ $(document).ready(function() {
                                                             if(data.success == true) {
                                                                 $("#add_user_dialog").dialog("close").remove();
                                                                 PMA_ajaxShowMessage(data.message);
+                                                                $("#topmenucontainer").after(data.sql_query);
                                                             }
                                                             else {
                                                                 PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
