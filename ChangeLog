@@ -11,6 +11,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #3022705 [import] Import button does not work in Catalan when there
   is no progress bar possible
 - bug [replication] Do not offer information_schema in the list of databases
+- bug [js] Avoid loading twice a js file
 
 3.3.4.0 (2010-06-28)
 - bug #2996161 [import] properly escape import value

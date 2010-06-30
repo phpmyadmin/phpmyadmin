@@ -112,6 +112,8 @@ $GLOBALS['js_events'][] = array(
     'function'  => 'PMA_TT_init',
 );
 
+// avoid loading twice a js file
+$GLOBALS['js_include'] = array_unique($GLOBALS['js_include']);
 foreach ($GLOBALS['js_include'] as $js_script_file) {
     echo '<script src="./js/' . $js_script_file . '" type="text/javascript"></script>' . "\n";
 }
