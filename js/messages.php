@@ -44,7 +44,6 @@ $js_messages['strUserEmpty'] = __('The user name is empty!');
 $js_messages['strPasswordEmpty'] = __('The password is empty!');
 $js_messages['strPasswordNotSame'] = __('The passwords aren\'t the same!');
 $js_messages['strAddNewUser'] = __('Add a New User');
-$js_messages['strCancel'] = __('Cancel');
 $js_messages['strCreateUser'] = __('Create User');
 $js_messages['strReloadingPrivileges'] = __('Reloading Privileges');
 $js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
