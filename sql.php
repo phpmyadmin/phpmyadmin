@@ -312,6 +312,11 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
             }
             $active_page = $goto;
             $message = htmlspecialchars(PMA_Message::rawError($error));
+
+            if( $GLOBALS['is_ajax_request'] == true) {
+                PMA_ajaxResponse($message, false);
+            }
+            
             /**
              * Go to target path.
              */
@@ -580,6 +585,7 @@ else {
         require_once './libraries/header_printview.inc.php';
     } else {
         $GLOBALS['js_include'][] = 'functions.js';
+        $GLOBALS['js_include'][] = 'sql.js';
         unset($message);
         if( $GLOBALS['is_ajax_request'] != true) {
             if (strlen($table)) {
@@ -607,12 +613,17 @@ else {
         $fields_meta = PMA_DBI_get_fields_meta($result);
         $fields_cnt  = count($fields_meta);
     }
+    
+    if( $GLOBALS['is_ajax_request'] != true ) {
+        //begin the sqlqueryresults div here. container div
+        echo '<div id="sqlqueryresults">';
+    }
 
     // Display previous update query (from tbl_replace)
     if (isset($disp_query) && $cfg['ShowSQL'] == true) {
         PMA_showMessage($disp_message, $disp_query, 'success');
     }
-
+    
     if (isset($profiling_results)) {
         PMA_profilingResults($profiling_results);
     }
@@ -709,6 +720,10 @@ window.onload = function()
 </script>
         <?php
     } // end print case
+
+    if( $GLOBALS['is_ajax_request'] != true) {
+        echo '</div>'; // end sqlqueryresults div
+    }
 } // end rows returned
 
 /**
