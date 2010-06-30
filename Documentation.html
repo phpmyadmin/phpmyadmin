@@ -935,7 +935,8 @@ since this link provides funding for phpMyAdmin.
         table. To allow the usage of this functionality:
         <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
             <li>put the table name in
-                <tt>$cfg['Servers'][$i]['table_info']</tt></li>
+                <tt>$cfg['Servers'][$i]['table_info']</tt> (e.g.
+                'pma_table_info')</li>
             <li>then for each table where you want to use this feature,
                 click &quot;Structure/Relation view/Choose field to display&quot;
                 to choose the field.</li>
@@ -994,7 +995,8 @@ since this link provides funding for phpMyAdmin.
         <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
                 infrastructure</li>
             <li>put the table name in
-                <tt>$cfg['Servers'][$i]['column_info']</tt></li>
+                <tt>$cfg['Servers'][$i]['column_info']</tt> (e.g.
+                'pma_column_info')</li>
             <li>to update your PRE-2.5.0 Column_comments Table use this:
 
                 <pre>
@@ -1034,6 +1036,7 @@ ALTER TABLE `pma_column_comments`
         <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
                 infrastructure</li>
             <li>put the table name in <tt>$cfg['Servers'][$i]['history']</tt>
+            (e.g. 'pma_history')
                 </li>
         </ul>
     </dd>
@@ -1064,7 +1067,7 @@ ALTER TABLE `pma_column_comments`
 
         <ul>
             <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
-            <li>put the table name in <tt>$cfg['Servers'][$i]['tracking']</tt></li>
+            <li>put the table name in <tt>$cfg['Servers'][$i]['tracking']</tt> (e.g. 'pma_tracking')</li>
         </ul>
     </dd>
 
@@ -1136,7 +1139,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 
         <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
                 infrastructure</li>
-            <li>put the table name in <tt>$cfg['Servers'][$i]['designer_coords']</tt>
+            <li>put the table name in <tt>$cfg['Servers'][$i]['designer_coords']</tt> (e.g. 'pma_designer_coords')
                 </li>
         </ul>
     </dd>
