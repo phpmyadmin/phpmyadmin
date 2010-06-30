@@ -1022,7 +1022,7 @@ if (!$jsonly)
 function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view = false)
 {
     if( $GLOBALS['is_ajax_request'] == true) {
-        ob_start("PMA_ajaxOutputBufferHandler");
+        ob_start();
     }
     global $cfg;
 
@@ -2908,11 +2908,5 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     }
     echo json_encode($response);
     exit;
-}
-
-function PMA_ajaxOutputBufferHandler($output_buffer) {
-    $response = array();
-    $response['message'] = $output_buffer;
-    return json_encode($response);
 }
 ?>
