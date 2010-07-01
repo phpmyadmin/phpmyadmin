@@ -1989,7 +1989,7 @@ msgstr "Créer"
 #: libraries/display_create_database.lib.php:40 server_privileges.php:113
 #: server_privileges.php:1427 server_replication.php:35
 msgid "No Privileges"
-msgstr "aucun privilège"
+msgstr "Aucun privilège"
 
 #: libraries/display_create_table.lib.php:41
 msgid "Table must have at least one column."
