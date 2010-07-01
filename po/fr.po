@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-07-01 19:47+0200\n"
+"PO-Revision-Date: 2010-07-01 19:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3163,7 +3163,7 @@ msgstr "Conversion de l'encodage"
 #: libraries/kanji-encoding.lib.php:145
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr "aucune"
+msgstr "Aucune"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:151
