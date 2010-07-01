@@ -3280,7 +3280,7 @@ msgstr "Lituanien"
 
 #: libraries/mysql_charsets.lib.php:268 libraries/mysql_charsets.lib.php:371
 msgid "Korean"
-msgstr "coréen"
+msgstr "Coréen"
 
 #: libraries/mysql_charsets.lib.php:271
 msgid "Persian"
