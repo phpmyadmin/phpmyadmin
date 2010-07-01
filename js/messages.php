@@ -71,6 +71,9 @@ $js_messages['strCreateTable'] = __('Create Table');
 $js_messages['strYes'] = __('Yes');
 $js_messages['strNo'] = __('No');
 
+/* For db_search.js */
+$js_messages['strSearching'] = __('Searching');
+
 /* Designer */
 $js_messages['strModifications'] = __('Modifications have been saved');
 $js_messages['strRelationDeleted'] = __('Relation deleted');
