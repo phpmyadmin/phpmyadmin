@@ -3284,7 +3284,7 @@ msgstr "Coréen"
 
 #: libraries/mysql_charsets.lib.php:271
 msgid "Persian"
-msgstr "perse"
+msgstr "Perse"
 
 #: libraries/mysql_charsets.lib.php:274
 msgid "Polish"
