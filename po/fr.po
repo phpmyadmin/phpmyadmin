@@ -6261,7 +6261,7 @@ msgstr "Secret Blowfish"
 
 #: setup/lib/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr "(utilisé quand on clique sur une ligne)"
+msgstr "Utilisé quand on clique sur une ligne"
 
 #: setup/lib/messages.inc.php:27
 msgid "Row marker"
