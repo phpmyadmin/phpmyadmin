@@ -3304,7 +3304,7 @@ msgstr "Slovaque"
 
 #: libraries/mysql_charsets.lib.php:286
 msgid "Slovenian"
-msgstr "slovène"
+msgstr "Slovène"
 
 #: libraries/mysql_charsets.lib.php:289
 msgid "Spanish"
