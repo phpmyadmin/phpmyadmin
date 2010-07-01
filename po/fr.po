@@ -3312,7 +3312,7 @@ msgstr "Espagnol"
 
 #: libraries/mysql_charsets.lib.php:292
 msgid "Traditional Spanish"
-msgstr "espagnol traditionnel"
+msgstr "Espagnol traditionnel"
 
 #: libraries/mysql_charsets.lib.php:295 libraries/mysql_charsets.lib.php:392
 msgid "Swedish"
