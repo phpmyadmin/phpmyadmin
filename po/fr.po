@@ -3212,7 +3212,7 @@ msgstr "Chinois simplifié"
 
 #: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:362
 msgid "Traditional Chinese"
-msgstr "chinois traditionnel"
+msgstr "Chinois traditionnel"
 
 #: libraries/mysql_charsets.lib.php:223 libraries/mysql_charsets.lib.php:409
 msgid "case-insensitive"
