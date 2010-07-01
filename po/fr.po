@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-07-01 19:53+0200\n"
+"PO-Revision-Date: 2010-07-01 19:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6849,7 +6849,7 @@ msgstr "Affichage du logo"
 
 #: setup/lib/messages.inc.php:171
 msgid "Display server choice at the top of the left frame"
-msgstr "...en haut du panneau de navigation"
+msgstr "Montrer le choix de serveurs au haut du panneau de navigation"
 
 #: setup/lib/messages.inc.php:172
 msgid "Display servers selection"
