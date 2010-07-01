@@ -3316,7 +3316,7 @@ msgstr "Espagnol traditionnel"
 
 #: libraries/mysql_charsets.lib.php:295 libraries/mysql_charsets.lib.php:392
 msgid "Swedish"
-msgstr "suédois"
+msgstr "Suédois"
 
 #: libraries/mysql_charsets.lib.php:298 libraries/mysql_charsets.lib.php:395
 msgid "Thai"
