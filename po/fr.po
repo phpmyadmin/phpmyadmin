@@ -3288,7 +3288,7 @@ msgstr "Perse"
 
 #: libraries/mysql_charsets.lib.php:274
 msgid "Polish"
-msgstr "polonais"
+msgstr "Polonais"
 
 #: libraries/mysql_charsets.lib.php:277 libraries/mysql_charsets.lib.php:325
 msgid "West European"
