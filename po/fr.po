@@ -3228,7 +3228,7 @@ msgstr "Croate"
 
 #: libraries/mysql_charsets.lib.php:232
 msgid "Czech"
-msgstr "tchèque"
+msgstr "Tchèque"
 
 #: libraries/mysql_charsets.lib.php:235
 msgid "Danish"
