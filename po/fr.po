@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-07-01 19:52+0200\n"
+"PO-Revision-Date: 2010-07-01 19:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6420,7 +6420,7 @@ msgstr "Affiche les bases de données sous forme de liste"
 
 #: setup/lib/messages.inc.php:62
 msgid "Show server listing as a list instead of a drop down"
-msgstr "...au lieu d'un menu déroulant"
+msgstr "Montrer la liste des serveurs au lieu d'un menu déroulant"
 
 #: setup/lib/messages.inc.php:63
 msgid "Display servers as a list"
