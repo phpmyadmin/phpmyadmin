@@ -3374,7 +3374,7 @@ msgstr "Géorgien"
 
 #: libraries/mysql_charsets.lib.php:380
 msgid "Greek"
-msgstr "grec"
+msgstr "Grec"
 
 #: libraries/mysql_charsets.lib.php:383
 msgid "Czech-Slovak"
