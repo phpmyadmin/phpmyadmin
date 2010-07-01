@@ -3346,7 +3346,7 @@ msgstr "Europe centrale"
 
 #: libraries/mysql_charsets.lib.php:337
 msgid "Russian"
-msgstr "russe"
+msgstr "Russe"
 
 #: libraries/mysql_charsets.lib.php:354
 msgid "Baltic"
