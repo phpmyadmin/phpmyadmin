@@ -1942,7 +1942,7 @@ msgstr "Modifier le mot de passe"
 #: libraries/display_change_password.lib.php:35
 #: libraries/replication_gui.lib.php:345 server_privileges.php:807
 msgid "No Password"
-msgstr "aucun mot de passe"
+msgstr "Aucun mot de passe"
 
 #: libraries/display_change_password.lib.php:41
 #: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
