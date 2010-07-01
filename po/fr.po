@@ -3366,7 +3366,7 @@ msgstr "Arabe"
 
 #: libraries/mysql_charsets.lib.php:374
 msgid "Hebrew"
-msgstr "hébreu"
+msgstr "Hébreu"
 
 #: libraries/mysql_charsets.lib.php:377
 msgid "Georgian"
