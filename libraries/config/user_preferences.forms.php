@@ -97,6 +97,40 @@ $forms['Main_frame']['Tabs'] = array(
     'DefaultTabServer',
     'DefaultTabDatabase',
     'DefaultTabTable');
-$forms['Import']['Import_defaults'] = array();
-$forms['Export']['Export_defaults'] = array();
+$forms['Import']['Import_defaults'] = array(
+    'Import/format',
+    'Import/allow_interrupt',
+    'Import/skip_queries');
+$forms['Import']['Sql'] = array(
+    'Import/sql_compatibility',
+    'Import/sql_no_auto_value_on_zero');
+$forms['Import']['Csv'] = array(
+    'Import/csv_replace',
+    'Import/csv_ignore',
+    'Import/csv_terminated',
+    'Import/csv_enclosed',
+    'Import/csv_escaped',
+    'Import/csv_col_names');
+$forms['Import']['Ldi'] = array(
+    'Import/ldi_replace',
+    'Import/ldi_ignore',
+    'Import/ldi_terminated',
+    'Import/ldi_enclosed',
+    'Import/ldi_escaped',
+    'Import/ldi_local_option');
+$forms['Import']['Excel'] = array(
+    'Import/xls_col_names',
+    'Import/xlsx_col_names');
+$forms['Import']['Ods'] = array(
+    'Import/ods_col_names',
+    'Import/ods_empty_rows',
+    'Import/ods_recognize_percentages',
+    'Import/ods_recognize_currency');
+$forms['Export']['Export_defaults'] = array(
+    'Export/format',
+    'Export/compression',
+    'Export/remember_file_template',
+    'Export/file_template_table',
+    'Export/file_template_database',
+    'Export/file_template_server');
 ?>

@@ -196,6 +196,31 @@ $forms['Import']['Import_defaults'] = array('Import' => array(
     'format',
     'allow_interrupt',
     'skip_queries'));
+$forms['Import']['Sql'] = array('Import' => array(
+    'sql_compatibility',
+    'sql_no_auto_value_on_zero'));
+$forms['Import']['Csv'] = array('Import' => array(
+    'csv_replace',
+    'csv_ignore',
+    'csv_terminated',
+    'csv_enclosed',
+    'csv_escaped',
+    'csv_col_names'));
+$forms['Import']['Ldi'] = array('Import' => array(
+    'ldi_replace',
+    'ldi_ignore',
+    'ldi_terminated',
+    'ldi_enclosed',
+    'ldi_escaped',
+    'ldi_local_option'));
+$forms['Import']['Excel'] = array('Import' => array(
+    'xls_col_names',
+    'xlsx_col_names'));
+$forms['Import']['Ods'] = array('Import' => array(
+    'ods_col_names',
+    'ods_empty_rows',
+    'ods_recognize_percentages',
+    'ods_recognize_currency'));
 $forms['Export']['Export_defaults'] = array('Export' => array(
     'format',
     'compression',

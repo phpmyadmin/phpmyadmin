@@ -221,6 +221,30 @@ var validators = {
         var valid = this.value.match(/^(?:horizontal|vertical|[0-9]+)$/) != null;
         return valid ? true : PMA_messages['error_invalid_value']
     },
+    /**
+     * Validates string length - must be 1 character long
+     *
+     * @param {boolean} isKeyUp
+     */
+    validate_str1: function (isKeyUp) {
+        if (isKeyUp && this.value == '') {
+            return true;
+        }
+        var result = this.value.length == 1;
+        return result ? true : PMA_messages['error_invalid_value'];
+    },
+    /**
+     * Validates string length - must be 0 or 1 character long
+     *
+     * @param {boolean} isKeyUp
+     */
+    validate_str01: function (isKeyUp) {
+        if (isKeyUp && this.value == '') {
+            return true;
+        }
+        var result = this.value.length <= 1;
+        return result ? true : PMA_messages['error_invalid_value'];
+    },
     // field validators
     _field: {
     },

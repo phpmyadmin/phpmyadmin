@@ -364,13 +364,39 @@ function validate_non_negative_number($path, $values)
 /**
  * Validates DefaultPropDisplay field
  *
- * @param  $path
- * @param  $values
+ * @param string $path
+ * @param array $values
  * @return array
  */
 function validate_DefaultPropDisplay($path, $values)
 {
     $result = preg_match('/^(?:horizontal|vertical|\d+)$/',  $values[$path]);
+    return array($path => ($result ? '' : __('Incorrect value')));
+}
+
+/**
+ * Validates string length - must be 1 character long
+ *
+ * @param string $path
+ * @param array $values
+ * @return array
+ */
+function validate_str1($path, $values)
+{
+    $result = strlen($values[$path]) == 1;
+    return array($path => ($result ? '' : __('Incorrect value')));
+}
+
+/**
+ * Validates string length - must be 0 or 1 character long
+ *
+ * @param string $path
+ * @param array $values
+ * @return array
+ */
+function validate_str01($path, $values)
+{
+    $result = strlen($values[$path]) <= 1;
     return array($path => ($result ? '' : __('Incorrect value')));
 }
 ?>

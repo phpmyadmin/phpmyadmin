@@ -1726,7 +1726,7 @@ $cfg['Import']['allow_interrupt'] = true;
  *
  * @global integer $cfg['Import']['skip_queries']
  */
-$cfg['Import']['skip_queries'] = '0';
+$cfg['Import']['skip_queries'] = 0;
 
 /**
  *
@@ -1748,6 +1748,13 @@ $cfg['Import']['sql_no_auto_value_on_zero'] = true;
  * @global boolean $cfg['Import']['csv_replace']
  */
 $cfg['Import']['csv_replace'] = false;
+
+/**
+ *
+ *
+ * @global boolean $cfg['Import']['csv_ignore']
+ */
+$cfg['Import']['csv_ignore'] = false;
 
 /**
  *
@@ -1797,6 +1804,13 @@ $cfg['Import']['csv_col_names'] = false;
  * @global boolean $cfg['Import']['ldi_replace']
  */
 $cfg['Import']['ldi_replace'] = false;
+
+/**
+ *
+ *
+ * @global boolean $cfg['Import']['ldi_ignore']
+ */
+$cfg['Import']['ldi_ignore'] = false;
 
 /**
  *
@@ -1881,6 +1895,13 @@ $cfg['Import']['xls_col_names'] = false;
  * @global string $cfg['Import']['xml_empty_rows']
  */
 $cfg['Import']['xls_empty_rows'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Import']['xlsx_col_names']
+ */
+$cfg['Import']['xlsx_col_names'] = false;
 
 /**
  * Link to the official MySQL documentation.
