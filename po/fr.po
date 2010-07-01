@@ -3244,7 +3244,7 @@ msgstr "Espéranto"
 
 #: libraries/mysql_charsets.lib.php:244
 msgid "Estonian"
-msgstr "estonien"
+msgstr "Estonien"
 
 #: libraries/mysql_charsets.lib.php:247 libraries/mysql_charsets.lib.php:250
 msgid "German"
