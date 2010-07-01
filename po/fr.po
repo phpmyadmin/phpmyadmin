@@ -6538,8 +6538,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"[kbd]content[/kbd] signifie la donnée référencée, [kbd]id[/kbd] représente "
-"la valeur de la clé"
+"Ordre du tri pour les éléments de clé étrangère; [kbd]content[/kbd] signifie "
+"la donnée référencée, [kbd]id[/kbd] représente la valeur de la clé"
 
 #: setup/lib/messages.inc.php:97
 msgid "Foreign key dropdown order"
