@@ -3208,7 +3208,7 @@ msgstr "Bulgare"
 
 #: libraries/mysql_charsets.lib.php:217 libraries/mysql_charsets.lib.php:342
 msgid "Simplified Chinese"
-msgstr "chinois simplifié"
+msgstr "Chinois simplifié"
 
 #: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:362
 msgid "Traditional Chinese"
