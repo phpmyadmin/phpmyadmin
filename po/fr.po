@@ -287,7 +287,7 @@ msgstr "État"
 #: db_operations.php:548
 msgctxt "BLOB repository"
 msgid "Enabled"
-msgstr "activé"
+msgstr "Activé"
 
 #: db_operations.php:552
 msgid "Disable"
