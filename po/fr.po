@@ -3224,7 +3224,7 @@ msgstr "sensible à la casse"
 
 #: libraries/mysql_charsets.lib.php:229
 msgid "Croatian"
-msgstr "croate"
+msgstr "Croate"
 
 #: libraries/mysql_charsets.lib.php:232
 msgid "Czech"
