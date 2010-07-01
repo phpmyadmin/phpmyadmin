@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-06-08 18:57+0200\n"
-"Last-Translator: Marc <marc@infomarc.info>\n"
+"PO-Revision-Date: 2010-07-01 19:38+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -224,7 +224,7 @@ msgstr "La base de données %s a été copiée sur %s"
 
 #: db_operations.php:412
 msgid "Rename database to"
-msgstr "<b>Changer le nom</b> de la base de données pour"
+msgstr "Changer le nom de la base de données pour"
 
 #: db_operations.php:417 server_processlist.php:57
 msgid "Command"
