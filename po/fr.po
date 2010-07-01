@@ -3324,7 +3324,7 @@ msgstr "Thaï"
 
 #: libraries/mysql_charsets.lib.php:301 libraries/mysql_charsets.lib.php:389
 msgid "Turkish"
-msgstr "turc"
+msgstr "Turc"
 
 #: libraries/mysql_charsets.lib.php:304 libraries/mysql_charsets.lib.php:386
 msgid "Ukrainian"
