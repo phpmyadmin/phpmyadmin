@@ -3300,7 +3300,7 @@ msgstr "Roumain"
 
 #: libraries/mysql_charsets.lib.php:283
 msgid "Slovak"
-msgstr "slovaque"
+msgstr "Slovaque"
 
 #: libraries/mysql_charsets.lib.php:286
 msgid "Slovenian"
