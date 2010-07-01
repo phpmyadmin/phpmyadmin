@@ -2175,7 +2175,7 @@ msgstr "Format du fichier d'importation"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
-msgstr "<b>Afficher le schéma</b> en PDF"
+msgstr "Afficher le schéma en PDF"
 
 #: libraries/display_pdf_schema.lib.php:33
 msgid "Show grid"
