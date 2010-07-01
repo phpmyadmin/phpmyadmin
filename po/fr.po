@@ -3236,7 +3236,7 @@ msgstr "Danois"
 
 #: libraries/mysql_charsets.lib.php:238
 msgid "English"
-msgstr "anglais"
+msgstr "Anglais"
 
 #: libraries/mysql_charsets.lib.php:241
 msgid "Esperanto"
