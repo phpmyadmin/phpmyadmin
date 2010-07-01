@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-06-13 09:03-0400\n"
-"PO-Revision-Date: 2010-07-01 19:45+0200\n"
+"PO-Revision-Date: 2010-07-01 19:46+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -888,8 +888,8 @@ msgstr "Retour"
 #: index.php:190
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
-"L'utilisation de phpMyAdmin est plus aisée avec un navigateur <b>supportant "
-"les cadres</b>."
+"phpMyAdmin est plus convivial avec un navigateur <b>supportant les "
+"cadres</b>."
 
 #: js/messages.php:25 server_synchronize.php:345 server_synchronize.php:357
 #: server_synchronize.php:373 server_synchronize.php:380
