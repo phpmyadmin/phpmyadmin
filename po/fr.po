@@ -3362,7 +3362,7 @@ msgstr "Cyrillique"
 
 #: libraries/mysql_charsets.lib.php:368
 msgid "Arabic"
-msgstr "arabe"
+msgstr "Arabe"
 
 #: libraries/mysql_charsets.lib.php:374
 msgid "Hebrew"
