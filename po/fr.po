@@ -3416,7 +3416,7 @@ msgstr "OK"
 
 #: libraries/relation.lib.php:100
 msgid "Enabled"
-msgstr "activé"
+msgstr "Activé"
 
 #: libraries/relation.lib.php:123
 msgid "Display Features"
