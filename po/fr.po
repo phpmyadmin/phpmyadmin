@@ -6841,7 +6841,7 @@ msgstr "Cible de l'icône d'accès rapide"
 
 #: setup/lib/messages.inc.php:169
 msgid "Show logo in left frame"
-msgstr "...dans le panneau de navigation"
+msgstr "Montrer le logo dans le panneau de navigation"
 
 #: setup/lib/messages.inc.php:170
 msgid "Display logo"
