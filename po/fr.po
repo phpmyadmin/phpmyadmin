@@ -3328,7 +3328,7 @@ msgstr "Turc"
 
 #: libraries/mysql_charsets.lib.php:304 libraries/mysql_charsets.lib.php:386
 msgid "Ukrainian"
-msgstr "ukrainien"
+msgstr "Ukrainien"
 
 #: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
 msgid "Unicode"
