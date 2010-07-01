@@ -2075,7 +2075,7 @@ msgstr "Compression"
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1875 server_processlist.php:75
 msgid "None"
-msgstr "aucune"
+msgstr "Aucune"
 
 #: libraries/display_export.lib.php:247
 msgid "\"zipped\""
