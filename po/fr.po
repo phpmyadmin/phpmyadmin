@@ -305,7 +305,7 @@ msgstr "Réparer"
 #: db_operations.php:574
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr "désactivé"
+msgstr "Désactivé"
 
 #: db_operations.php:578
 msgid "Enable"
