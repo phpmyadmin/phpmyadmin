@@ -6857,7 +6857,7 @@ msgstr "Affiche la liste des serveurs"
 
 #: setup/lib/messages.inc.php:173
 msgid "String that separates databases into different tree levels"
-msgstr "...pour la séparation en niveaux"
+msgstr "Chaîne qui sépare les noms de bases de données en niveaux"
 
 #: setup/lib/messages.inc.php:174
 msgid "Database tree separator"
