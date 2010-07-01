@@ -989,7 +989,7 @@ msgstr "Fonctions relationnelles"
 #: js/messages.php:59 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
 msgid "Disabled"
-msgstr "désactivé"
+msgstr "Désactivé"
 
 #: js/messages.php:60
 msgid "Select referenced key"
