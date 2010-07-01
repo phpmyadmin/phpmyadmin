@@ -6412,7 +6412,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:59
 msgid "Show database listing as a list instead of a drop down"
-msgstr "...au lieu d'un menu déroulant"
+msgstr "Montrer la liste des bases de données au lieu d'un menu déroulant"
 
 #: setup/lib/messages.inc.php:60
 msgid "Display databases as a list"
