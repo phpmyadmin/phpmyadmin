@@ -3204,7 +3204,7 @@ msgstr "Binaire"
 
 #: libraries/mysql_charsets.lib.php:213
 msgid "Bulgarian"
-msgstr "bulgare"
+msgstr "Bulgare"
 
 #: libraries/mysql_charsets.lib.php:217 libraries/mysql_charsets.lib.php:342
 msgid "Simplified Chinese"
