@@ -3833,7 +3833,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:393
 msgctxt "for default"
 msgid "None"
-msgstr "aucune"
+msgstr "Aucune"
 
 #: libraries/tbl_properties.inc.php:394
 msgid "As defined:"
