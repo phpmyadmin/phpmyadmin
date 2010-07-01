@@ -2705,7 +2705,7 @@ msgstr ""
 #: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
 #: tbl_printview.php:376 tbl_structure.php:737
 msgid "Format"
-msgstr "format"
+msgstr "Format"
 
 #: libraries/export/csv.php:17 libraries/import/csv.php:22
 msgid "CSV"
