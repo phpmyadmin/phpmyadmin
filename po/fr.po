@@ -6988,7 +6988,7 @@ msgstr "Durée de validité de la connexion (mode cookie)"
 
 #: setup/lib/messages.inc.php:200
 msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr "...en nombre de caractères"
+msgstr "Nombre maximum de caractères quand une requête SQL est affichée"
 
 #: setup/lib/messages.inc.php:201
 msgid "Maximum displayed SQL length"
