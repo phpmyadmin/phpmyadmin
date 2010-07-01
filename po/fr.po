@@ -3276,7 +3276,7 @@ msgstr "Letton"
 
 #: libraries/mysql_charsets.lib.php:265
 msgid "Lithuanian"
-msgstr "lituanien"
+msgstr "Lituanien"
 
 #: libraries/mysql_charsets.lib.php:268 libraries/mysql_charsets.lib.php:371
 msgid "Korean"
