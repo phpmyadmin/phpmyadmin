@@ -1962,7 +1962,7 @@ $(document).ready(function() {
             $('<div id="create_table_dialog"></div>')
             .append(data)
             .dialog({
-                title: PMA_messages['strCreateTable'],
+                title: top.frame_content.PMA_messages['strCreateTable'],
                 width: 900,
                 buttons : button_options
             }); // end dialog options
