@@ -3358,7 +3358,7 @@ msgstr "Arménien"
 
 #: libraries/mysql_charsets.lib.php:365
 msgid "Cyrillic"
-msgstr "cyrillique"
+msgstr "Cyrillique"
 
 #: libraries/mysql_charsets.lib.php:368
 msgid "Arabic"
