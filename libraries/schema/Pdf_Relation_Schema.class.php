@@ -325,7 +325,7 @@ class PMA_PDF extends TCPDF {
                     $this->_out('/First ' . ($this->n + 1) . ' 0 R');
                     $this->_out('/Last ' . ($this->n + $last - $i) . ' 0 R');
                     $this->_out('/Count -' . $kids);
-                }tur
+                }
                 $this->_out('>>');
                 $this->_out('endobj');
             }
