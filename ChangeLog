@@ -12,6 +12,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   is no progress bar possible
 - bug [replication] Do not offer information_schema in the list of databases
 - bug [js] Avoid loading twice a js file
+- bug #3024344 [setup] Setup forces numeric MemoryLimit
 
 3.3.4.0 (2010-06-28)
 - bug #2996161 [import] properly escape import value
