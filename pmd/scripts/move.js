@@ -1014,12 +1014,12 @@ function add_object() {
 	var sum = 0;
 	var init = history_array.length;
 	if (rel.value != '--') {
-		if (document.getElementsByName('Query').value == "") {
+		if (document.getElementById('Query').value == "") {
 			document.getElementById('hint').innerHTML = "value/subQuery is empty" ;
 		    document.getElementById('hint').style.visibility = "visible";
 			return;
 		}
-		 var p = document.getElementsByName('Query');
+		 var p = document.getElementById('Query');
 		 var where_obj = new where(rel.value,p.value);//make where object
 		 history_array.push(new history(col_name,where_obj,tab_name,h_tabs[tab_name],"Where"));
 		 sum = sum + 1;
@@ -1040,13 +1040,13 @@ function add_object() {
 		//make aggregate operator
 	}
 	if (document.getElementById('groupby').checked == true ) {
-		history_array.push(new history(col_name,'GroupBy',tab_name,h_tabs[tab_name],"Group By"));
+		history_array.push(new history(col_name,'GroupBy',tab_name,h_tabs[tab_name],"GroupBy"));
 		sum = sum + 1;
 		document.getElementById('groupby').checked = false;
 		//make groupby
 	}
 	if (document.getElementById('orderby').checked == true) {
-		history_array.push(new history(col_name,'OrderBy',tab_name,h_tabs[tab_name],"Order By"));
+		history_array.push(new history(col_name,'OrderBy',tab_name,h_tabs[tab_name],"OrderBy"));
 		sum = sum + 1;
 		document.getElementById('orderby').checked = false;
 		//make orderby
@@ -1057,6 +1057,6 @@ function add_object() {
 	var existingDiv = document.getElementById('ab');
 	existingDiv.innerHTML = display(init,history_array.length);
 	Close_option();
-	panel();
+	panel(0);
 	
 }

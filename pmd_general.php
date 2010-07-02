@@ -468,7 +468,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         </tr>
         <tr>
             <td nowrap="nowrap">Value/<br />Subquery</td>
-            <td><textarea name="Query" value="" cols="15"></textarea>
+            <td><textarea id="Query" value="" cols="18"></textarea>
             </td>
         </tr>
         <tr><td align="center" nowrap="nowrap"><b>Rename To</b></td></tr>
@@ -519,6 +519,172 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tr>
 </tbody>
 </table>
+
+<table id="query_rename_to" style="visibility:<?php echo $hidden ?>;"
+    width="5%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+    <td class="frams1" width="10px"></td>
+    <td class="frams5" width="99%" ></td>
+    <td class="frams2" width="10px"><div class="bor"></div></td>
+</tr>
+<tr>
+    <td class="frams8"></td>
+    <td class="input_tab">
+        <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
+        <thead>
+        <tr>
+            <td colspan="2" align="center" nowrap="nowrap"><strong>Rename To</strong></td>
+        </tr>
+        </thead>
+        <tbody id="rename_to">
+        <tr>
+            <td width="58" nowrap="nowrap">New Name</td>
+            <td width="102">
+            	<input type="text" value="" id="e_rename"/>
+            </td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr>
+            <td colspan="2" align="center" nowrap="nowrap">
+                <input type="button" class="butt" name="Button"
+                    value="<?php echo __('OK'); ?>" onclick="edit('Rename')" />
+                <input type="button" class="butt" name="Button"
+                    value="<?php echo __('Cancel'); ?>"
+                    onclick="document.getElementById('query_rename_to').style.visibility = 'hidden';" />
+            </td>
+        </tr>
+        </tbody>
+        </table>
+    </td>
+    <td class="frams6"></td>
+</tr>
+<tr>
+    <td class="frams4"><div class="bor"></div></td>
+    <td class="frams7"></td>
+    <td class="frams3"></td>
+</tr>
+</tbody>
+</table>
+
+<table id="query_Aggregate" style="visibility:<?php echo $hidden ?>;"
+    width="5%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+    <td class="frams1" width="10px"></td>
+    <td class="frams5" width="99%" ></td>
+    <td class="frams2" width="10px"><div class="bor"></div></td>
+</tr>
+<tr>
+    <td class="frams8"></td>
+    <td class="input_tab">
+        <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
+        <thead>
+        <tr>
+            <td colspan="2" align="center" nowrap="nowrap"><strong>Aggregate</strong></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td width="58" nowrap="nowrap">Operator</td>
+            <td width="102">
+            	<select name="operator" id="e_operator">
+                	<option value="---" selected="selected">---</option>
+                	<option value="sum" > Sum </option>
+                	<option value="min"> Min </option>
+                	<option value="max"> Max </option>
+   	            	<option value="avg"> Avg </option>
+                	<option value="avg"> Count </option>
+                </select>
+           </td></tr>   
+        </tbody>
+        <tbody>
+        <tr>
+            <td colspan="2" align="center" nowrap="nowrap">
+                <input type="button" class="butt" name="Button"
+                    value="<?php echo __('OK'); ?>" onclick="edit('Aggregate')" />
+                <input type="button" class="butt" name="Button"
+                    value="<?php echo __('Cancel'); ?>"
+                    onclick="document.getElementById('query_Aggregate').style.visibility = 'hidden';" />
+            </td>
+        </tr>
+        </tbody>
+        </table>
+    </td>
+    <td class="frams6"></td>
+</tr>
+<tr>
+    <td class="frams4"><div class="bor"></div></td>
+    <td class="frams7"></td>
+    <td class="frams3"></td>
+</tr>
+</tbody>
+</table>
+
+<table id="query_where" style="visibility:<?php echo $hidden ?>;"
+    width="5%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+	<tr>
+    	<td class="frams1" width="10px"></td>
+    	<td class="frams5" width="99%" ></td>
+    	<td class="frams2" width="10px"><div class="bor"></div></td>
+	</tr>
+<tr>
+    <td class="frams8"></td>
+    <td class="input_tab">
+    <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
+       <thead>
+        <tr>
+          <td colspan="2" align="center" nowrap="nowrap"><strong>Where</strong></td>
+        </tr>
+        </thead>
+        <tbody id="rename_to">
+        <tr>
+           <td width="58" nowrap="nowrap">Opeartor</td>
+            <td width="102"><select name="erel_opt" id="erel_opt">
+            	<option value="--" selected="selected"> -- </option>
+                    <option value="=" > = </option>
+                    <option value=">"> > </option>
+                    <option value="<"> < </option>
+                    <option value=">="> >= </option>
+                    <option value="<="> <= </option>
+                    <option value="NOT"> NOT </option>
+                    <option value="IN"> IN </option>
+                    <option value="EXCEPT"> Except </option>
+                    <option value="NOT IN"> Not In </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+           <td nowrap="nowrap">Value/<br />Subquery</td>
+            <td><textarea id="eQuery" value="" cols="18"></textarea>
+            </td>
+        	</tr>
+         </tbody>
+        <tbody>
+        <tr>
+            <td colspan="2" align="center" nowrap="nowrap">
+                <input type="button" class="butt" name="Button"
+                    value="<?php echo __('OK'); ?>" onclick="edit('Where')" />
+                <input type="button" class="butt" name="Button"
+                    value="<?php echo __('Cancel'); ?>"
+                    onclick="document.getElementById('query_where').style.visibility = 'hidden';" />
+            </td>
+        </tr>
+        </tbody>
+        </table>
+    </td>
+    <td class="frams6"></td>
+</tr>
+<tr>
+    <td class="frams4"><div class="bor"></div></td>
+    <td class="frams7"></td>
+    <td class="frams3"></td>
+</tr>
+</tbody>
+</table>
+
 <?php 
 if($_REQUEST['query']) {
 	echo '<div class="panel">';

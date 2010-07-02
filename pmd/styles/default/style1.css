@@ -411,7 +411,7 @@ right: 0;
 display: none;
 background: #FFF;
 border:1px solid #F5F5F5;
-width: auto;
+width: 350 px;
 height: auto;
 padding: 30px 170px 30px 30px;
 color:#FFF;
@@ -457,20 +457,20 @@ z-index:999;
 }
 
 h2.tiger{
-	background-image: url(images/Header.png);
-    background-repeat: repeat-x;
+	background-repeat: repeat-x;
     padding: 1px;
     font-weight: bold;
 	font-size:14px;
 	padding: 50 20 50 20px;
 	margin: 0 0 5px 0;
-	width: 300px;
+	width: 250px;
 	float: left;
 	color : #333;
 	text-align: center;
 }
 
 h2.tiger a {
+	background-image: url(images/Header.png);
 	text-align: center;
 	text-decoration: none;
 	color : #333;
@@ -487,22 +487,32 @@ h2.active {
     background-repeat: repeat-x;
     padding: 1px;
 	background-position: left bottom;
-} /*--When toggle is tigered, it will shift the image to the bottom to show its "opened" state--*/
+} 
 
 .toggle_container {
 	margin: 0 0 5px;
 	padding: 0;
 	border-top: 1px solid #d6d6d6;
 	background: #FFF ;
-	width: 300px;
+	width: 250px;
 	overflow: hidden;
 	font-size: 1.2em;
 	clear: both;
 }
 
 .toggle_container .block {
-	background-color: #E7E7E7;
+	background-color: #DBE4E8;
 	padding:40 15 40 15px; /*--Padding of Container--*/
 	border:1px solid #999;
 	color:#000;
+}
+
+.history_table {
+	text-align: center;
+	background-color: #9999CC;
+}
+
+.history_table2 {
+	text-align: center;
+	background-color: #DBE4E8;
 }
