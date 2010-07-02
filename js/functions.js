@@ -867,9 +867,9 @@ function PMA_markRowsInit() {
                 checkbox.checked = marked_row[unique_id];
                 if (typeof(event) == 'object') {
                     table = this.parentNode;
-                    i = 0;
-                    while (table.tagName.toLowerCase() != 'table' && i < 20) {
-                        i++;
+                    parentTableLimit = 0;
+                    while (table.tagName.toLowerCase() != 'table' && parentTableLimit < 20) {
+                        parentTableLimit++;
                         table = table.parentNode;
                     }
 
@@ -884,7 +884,7 @@ function PMA_markRowsInit() {
                         }
 
                         while (i != this.rowIndex) {
-                            table.rows[i].onmousedown();
+                            $(table.rows[i]).mousedown();
                             if (i < this.rowIndex) {
                                 i++;
                             } else {
