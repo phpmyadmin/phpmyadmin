@@ -1021,7 +1021,7 @@ if (!$jsonly)
  */
 function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view = false)
 {
-    if( $GLOBALS['is_ajax_request'] == true) {
+    if( $GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['buffer_message']) ) {
         ob_start();
     }
     global $cfg;
@@ -1289,7 +1289,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     }
     echo '</div><br />' . "\n";
 
-    if( $GLOBALS['is_ajax_request'] == true) {
+    if( $GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['buffer_message']) ) {
         $buffer_contents =  ob_get_contents();
         ob_end_clean();
         return $buffer_contents;
