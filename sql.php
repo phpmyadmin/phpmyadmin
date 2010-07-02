@@ -325,6 +325,10 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
             /**
              * HTML header.
              */
+            if( $GLOBALS['is_ajax_request'] == true) {
+                PMA_ajaxResponse(NULL, false);
+            }
+
             require_once './libraries/header.inc.php';
             $full_err_url = (preg_match('@^(db|tbl)_@', $err_url))
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
@@ -587,6 +591,7 @@ else {
         $GLOBALS['js_include'][] = 'functions.js';
         $GLOBALS['js_include'][] = 'sql.js';
         unset($message);
+        
         if( $GLOBALS['is_ajax_request'] != true) {
             if (strlen($table)) {
                 require './libraries/tbl_common.php';
@@ -600,6 +605,11 @@ else {
                 require './libraries/server_common.inc.php';
                 require './libraries/server_links.inc.php';
             }
+        }
+        else {
+            //we don't need to buffer the output in PMA_showMessage here.
+            //set a global variable and check against it in the function
+            $GLOBALS['buffer_message'] = false;
         }
     }
 
