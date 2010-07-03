@@ -1708,7 +1708,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             //require_once './libraries/footer.inc.php';
         }
 
-        echo '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post">' . "\n";
+        echo '<form name="usersForm" id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
         $_params = array(
             'username' => $username,
             'hostname' => $hostname,
