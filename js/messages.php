@@ -74,6 +74,9 @@ $js_messages['strNo'] = __('No');
 /* For db_search.js */
 $js_messages['strSearching'] = __('Searching');
 
+/* For sql.js */
+$js_messages['strToggleQueryBox'] = __('Toggle Query Box Visibility');
+
 /* Designer */
 $js_messages['strModifications'] = __('Modifications have been saved');
 $js_messages['strRelationDeleted'] = __('Relation deleted');

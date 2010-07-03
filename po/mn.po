@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-02 03:37+0530\n"
+"POT-Creation-Date: 2010-07-03 21:45+0530\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: mongolian <mn@li.org>\n"
@@ -50,10 +50,10 @@ msgstr "Хайх"
 #: libraries/common.lib.php:1344 libraries/common.lib.php:2301
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
+#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
-#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
-#: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
+#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:76
+#: libraries/replication_gui.lib.php:372 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:403 libraries/sql_query_form.lib.php:480
 #: libraries/sql_query_form.lib.php:555 libraries/tbl_properties.inc.php:782
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
@@ -438,7 +438,7 @@ msgid "Del"
 msgstr "Устгах"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
-#: libraries/display_import.lib.php:166 libraries/tbl_properties.inc.php:779
+#: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
 #: server_privileges.php:298 tbl_change.php:1028 tbl_indexes.php:250
 #: tbl_select.php:286
 msgid "Or"
@@ -658,7 +658,7 @@ msgid "Check All"
 msgstr "Бүгдийг чагтлах"
 
 #: db_structure.php:529 libraries/display_tbl.lib.php:2077
-#: libraries/replication_gui.lib.php:33 server_databases.php:350
+#: libraries/replication_gui.lib.php:36 server_databases.php:350
 #: server_privileges.php:573 server_privileges.php:1620 tbl_structure.php:460
 msgid "Uncheck All"
 msgstr "Бүх чагтыг болих"
@@ -834,7 +834,7 @@ msgid ""
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
 
-#: import.php:372 libraries/display_import.lib.php:24
+#: import.php:372 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Оруулах нэмэлтүүд дуудагдсангүй, суулгацаа шалгана уу!"
 
@@ -846,7 +846,7 @@ msgstr "Тэмдэглэгээ устгагдсан."
 msgid "Showing bookmark"
 msgstr "Тэмдэглэл харуулах"
 
-#: import.php:403 sql.php:648
+#: import.php:403 sql.php:654
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Тэмдэглэл %s нь үүсгэгдлээ"
@@ -1035,78 +1035,82 @@ msgstr "Хүснэгт үүсгэх"
 msgid "Searching"
 msgstr "Хайх"
 
-#: js/messages.php:78 pmd_save_pos.php:54
+#: js/messages.php:78
+msgid "Toggle Query Box Visibility"
+msgstr ""
+
+#: js/messages.php:81 pmd_save_pos.php:54
 msgid "Modifications have been saved"
 msgstr "Өөрчлөлт хадгалагдав"
 
-#: js/messages.php:79 pmd_relation_upd.php:49
+#: js/messages.php:82 pmd_relation_upd.php:49
 msgid "Relation deleted"
 msgstr "Холбоо устав"
 
-#: js/messages.php:80 pmd_relation_new.php:64
+#: js/messages.php:83 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
 msgstr ""
 
-#: js/messages.php:81 pmd_relation_new.php:86
+#: js/messages.php:84 pmd_relation_new.php:86
 msgid "Internal relation added"
 msgstr "Дотоод холбоо нэмэгдэв"
 
-#: js/messages.php:82 pmd_relation_new.php:63 pmd_relation_new.php:88
+#: js/messages.php:85 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
 msgstr ""
 
-#: js/messages.php:83 pmd_relation_new.php:31
+#: js/messages.php:86 pmd_relation_new.php:31
 msgid "Error: relation already exists."
 msgstr ""
 
-#: js/messages.php:84
+#: js/messages.php:87
 msgid "Error saving coordinates for Designer."
 msgstr ""
 
-#: js/messages.php:85 libraries/relation.lib.php:107
+#: js/messages.php:88 libraries/relation.lib.php:107
 #: libraries/relation.lib.php:119
 msgid "General relation features"
 msgstr "Ерөнхий хамаатай онцлог"
 
-#: js/messages.php:85 libraries/relation.lib.php:101
+#: js/messages.php:88 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
 msgid "Disabled"
 msgstr "Хаагдсан"
 
-#: js/messages.php:86
+#: js/messages.php:89
 msgid "Select referenced key"
 msgstr "Хамаарагдсан түлхүүр сонгох"
 
-#: js/messages.php:87
+#: js/messages.php:90
 msgid "Select Foreign Key"
 msgstr "Гадаад түлхүүр сонгох"
 
-#: js/messages.php:88
+#: js/messages.php:91
 msgid "Please select the primary key or a unique key"
 msgstr "Үндсэн түлхүүр эсвэл орь ганц түлхүүр сонгон уу"
 
-#: js/messages.php:89 pmd_general.php:77 tbl_relation.php:548
+#: js/messages.php:92 pmd_general.php:77 tbl_relation.php:548
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Харуулах талбарыг соль"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:99
+#: js/messages.php:102
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Байхгүй"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:101
+#: js/messages.php:104
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Өмнөх"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:103 libraries/common.lib.php:2366
+#: js/messages.php:106 libraries/common.lib.php:2366
 #: libraries/common.lib.php:2369 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
 #: tbl_structure.php:799
@@ -1114,96 +1118,96 @@ msgid "Next"
 msgstr "Цааш"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:105
+#: js/messages.php:108
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Нийт"
 
-#: js/messages.php:108
+#: js/messages.php:111
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr " Хоёртын "
 
-#: js/messages.php:109
+#: js/messages.php:112
 msgid "February"
 msgstr ""
 
-#: js/messages.php:110
+#: js/messages.php:113
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "3-р"
 
-#: js/messages.php:111
+#: js/messages.php:114
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "4-р"
 
-#: js/messages.php:112
+#: js/messages.php:115
 msgid "May"
 msgstr "5-р"
 
-#: js/messages.php:113
+#: js/messages.php:116
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "6-р"
 
-#: js/messages.php:114
+#: js/messages.php:117
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "7-р"
 
-#: js/messages.php:115
+#: js/messages.php:118
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "8-р"
 
-#: js/messages.php:116
+#: js/messages.php:119
 msgid "September"
 msgstr ""
 
-#: js/messages.php:117
+#: js/messages.php:120
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "10р"
 
-#: js/messages.php:118
+#: js/messages.php:121
 msgid "November"
 msgstr ""
 
-#: js/messages.php:119
+#: js/messages.php:122
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/common.lib.php:1566
+#: js/messages.php:126 libraries/common.lib.php:1566
 msgid "Jan"
 msgstr "1-р"
 
 #. l10n: Short month name
-#: js/messages.php:125 libraries/common.lib.php:1568
+#: js/messages.php:128 libraries/common.lib.php:1568
 msgid "Feb"
 msgstr "2-р"
 
 #. l10n: Short month name
-#: js/messages.php:127 libraries/common.lib.php:1570
+#: js/messages.php:130 libraries/common.lib.php:1570
 msgid "Mar"
 msgstr "3-р"
 
 #. l10n: Short month name
-#: js/messages.php:129 libraries/common.lib.php:1572
+#: js/messages.php:132 libraries/common.lib.php:1572
 msgid "Apr"
 msgstr "4-р"
 
 #. l10n: Short month name
-#: js/messages.php:131 libraries/common.lib.php:1574
+#: js/messages.php:134 libraries/common.lib.php:1574
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1211,176 +1215,176 @@ msgid "May"
 msgstr "5-р"
 
 #. l10n: Short month name
-#: js/messages.php:133 libraries/common.lib.php:1576
+#: js/messages.php:136 libraries/common.lib.php:1576
 msgid "Jun"
 msgstr "6-р"
 
 #. l10n: Short month name
-#: js/messages.php:135 libraries/common.lib.php:1578
+#: js/messages.php:138 libraries/common.lib.php:1578
 msgid "Jul"
 msgstr "7-р"
 
 #. l10n: Short month name
-#: js/messages.php:137 libraries/common.lib.php:1580
+#: js/messages.php:140 libraries/common.lib.php:1580
 msgid "Aug"
 msgstr "8-р"
 
 #. l10n: Short month name
-#: js/messages.php:139 libraries/common.lib.php:1582
+#: js/messages.php:142 libraries/common.lib.php:1582
 msgid "Sep"
 msgstr "9-р"
 
 #. l10n: Short month name
-#: js/messages.php:141 libraries/common.lib.php:1584
+#: js/messages.php:144 libraries/common.lib.php:1584
 msgid "Oct"
 msgstr "10р"
 
 #. l10n: Short month name
-#: js/messages.php:143 libraries/common.lib.php:1586
+#: js/messages.php:146 libraries/common.lib.php:1586
 msgid "Nov"
 msgstr "11р"
 
 #. l10n: Short month name
-#: js/messages.php:145 libraries/common.lib.php:1588
+#: js/messages.php:148 libraries/common.lib.php:1588
 msgid "Dec"
 msgstr "12р"
 
-#: js/messages.php:148
+#: js/messages.php:151
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ня"
 
-#: js/messages.php:149
+#: js/messages.php:152
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Да"
 
-#: js/messages.php:150
+#: js/messages.php:153
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Мя"
 
-#: js/messages.php:151
+#: js/messages.php:154
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:152
+#: js/messages.php:155
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:153
+#: js/messages.php:156
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Ба"
 
-#: js/messages.php:154
+#: js/messages.php:157
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:158 libraries/common.lib.php:1591
+#: js/messages.php:161 libraries/common.lib.php:1591
 msgid "Sun"
 msgstr "Ня"
 
 #. l10n: Short week day name
-#: js/messages.php:160 libraries/common.lib.php:1593
+#: js/messages.php:163 libraries/common.lib.php:1593
 msgid "Mon"
 msgstr "Да"
 
 #. l10n: Short week day name
-#: js/messages.php:162 libraries/common.lib.php:1595
+#: js/messages.php:165 libraries/common.lib.php:1595
 msgid "Tue"
 msgstr "Мя"
 
 #. l10n: Short week day name
-#: js/messages.php:164 libraries/common.lib.php:1597
+#: js/messages.php:167 libraries/common.lib.php:1597
 msgid "Wed"
 msgstr "Лх"
 
 #. l10n: Short week day name
-#: js/messages.php:166 libraries/common.lib.php:1599
+#: js/messages.php:169 libraries/common.lib.php:1599
 msgid "Thu"
 msgstr "Пү"
 
 #. l10n: Short week day name
-#: js/messages.php:168 libraries/common.lib.php:1601
+#: js/messages.php:171 libraries/common.lib.php:1601
 msgid "Fri"
 msgstr "Ба"
 
 #. l10n: Short week day name
-#: js/messages.php:170 libraries/common.lib.php:1603
+#: js/messages.php:173 libraries/common.lib.php:1603
 msgid "Sat"
 msgstr "Бя"
 
 #. l10n: Minimal week day name
-#: js/messages.php:174
+#: js/messages.php:177
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ня"
 
 #. l10n: Minimal week day name
-#: js/messages.php:176
+#: js/messages.php:179
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Да"
 
 #. l10n: Minimal week day name
-#: js/messages.php:178
+#: js/messages.php:181
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Мя"
 
 #. l10n: Minimal week day name
-#: js/messages.php:180
+#: js/messages.php:183
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Лх"
 
 #. l10n: Minimal week day name
-#: js/messages.php:182
+#: js/messages.php:185
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Пү"
 
 #. l10n: Minimal week day name
-#: js/messages.php:184
+#: js/messages.php:187
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Ба"
 
 #. l10n: Minimal week day name
-#: js/messages.php:186
+#: js/messages.php:189
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Бя"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:188
+#: js/messages.php:191
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:190
+#: js/messages.php:193
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:191
+#: js/messages.php:194
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "хэрэглэгдэж байна"
 
-#: js/messages.php:192
+#: js/messages.php:195
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2048,21 +2052,21 @@ msgid "Change password"
 msgstr "Нууц үг солих"
 
 #: libraries/display_change_password.lib.php:35
-#: libraries/replication_gui.lib.php:345 server_privileges.php:808
+#: libraries/replication_gui.lib.php:348 server_privileges.php:808
 msgid "No Password"
 msgstr "Нууц үггүй"
 
 #: libraries/display_change_password.lib.php:41
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:335 libraries/replication_gui.lib.php:339
-#: libraries/replication_gui.lib.php:349 server_privileges.php:797
+#: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
+#: libraries/replication_gui.lib.php:338 libraries/replication_gui.lib.php:342
+#: libraries/replication_gui.lib.php:352 server_privileges.php:797
 #: server_privileges.php:801 server_privileges.php:812
 #: server_privileges.php:1555 server_synchronize.php:1175
 msgid "Password"
 msgstr "Нууц үг"
 
 #: libraries/display_change_password.lib.php:46
-#: libraries/replication_gui.lib.php:353 libraries/replication_gui.lib.php:356
+#: libraries/replication_gui.lib.php:356 libraries/replication_gui.lib.php:359
 #: server_privileges.php:816 server_privileges.php:819
 msgid "Re-type"
 msgstr "Дахин бич"
@@ -2078,12 +2082,12 @@ msgid "MySQL 4.0 compatible"
 msgstr "MySQL&nbsp;4.0 compatible"
 
 #: libraries/display_change_password.lib.php:72
-#: libraries/replication_gui.lib.php:360 server_privileges.php:823
+#: libraries/replication_gui.lib.php:363 server_privileges.php:823
 msgid "Generate Password"
 msgstr "Нууц үг бий болгох"
 
 #: libraries/display_change_password.lib.php:75
-#: libraries/replication_gui.lib.php:363 server_privileges.php:826
+#: libraries/replication_gui.lib.php:366 server_privileges.php:826
 msgid "Generate"
 msgstr "Бий болгох"
 
@@ -2170,8 +2174,8 @@ msgstr ""
 msgid "remember template"
 msgstr "загварыг санах"
 
-#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:178
-#: libraries/display_import.lib.php:191 libraries/sql_query_form.lib.php:552
+#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:552
 msgid "Character set of the file:"
 msgstr "Файлын кодлол:"
 
@@ -2179,8 +2183,8 @@ msgstr "Файлын кодлол:"
 msgid "Compression"
 msgstr "Шахалт"
 
-#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
-#: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
+#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:196
+#: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1897 server_processlist.php:75
 msgid "None"
@@ -2203,61 +2207,61 @@ msgstr "bzip-ээр шахагдсан"
 msgid "SQL compatibility mode"
 msgstr "SQL нийцтэй горим"
 
-#: libraries/display_import.lib.php:67
+#: libraries/display_import.lib.php:66
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
 
-#: libraries/display_import.lib.php:77
+#: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
 msgstr ""
 
-#: libraries/display_import.lib.php:99
+#: libraries/display_import.lib.php:98
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
 
-#: libraries/display_import.lib.php:126
+#: libraries/display_import.lib.php:125
 msgid "File to import"
 msgstr "Оруулах файл"
 
-#: libraries/display_import.lib.php:137 libraries/sql_query_form.lib.php:527
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:527
 msgid "Location of the text file"
 msgstr "Бичвэрфайлын байрлал"
 
-#: libraries/display_import.lib.php:148
+#: libraries/display_import.lib.php:147
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: libraries/display_import.lib.php:163 libraries/sql_query_form.lib.php:536
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:536
 #: tbl_change.php:1025
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Таны сонгосон хавтас \"upload\" хийгдэхгүй байна"
 
-#: libraries/display_import.lib.php:166 libraries/sql_query_form.lib.php:539
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:539
 #: tbl_change.php:1028
 msgid "web server upload directory"
 msgstr "web-сервэр түлхэх хавтас"
 
-#: libraries/display_import.lib.php:212
+#: libraries/display_import.lib.php:211
 #, php-format
 msgid "Imported file compression will be automatically detected from: %s"
 msgstr "Оруулсан файлын шахалт нь автоматаар илрүүлэгдэх нь: %s"
 
-#: libraries/display_import.lib.php:219
+#: libraries/display_import.lib.php:218
 msgid "Partial import"
 msgstr "Хэсэгчлэн оруулах"
 
-#: libraries/display_import.lib.php:225
+#: libraries/display_import.lib.php:224
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: libraries/display_import.lib.php:232
+#: libraries/display_import.lib.php:231
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. This might be good way to import large files, "
@@ -2267,11 +2271,11 @@ msgstr ""
 "зөвшөөрөх. Магадгүй энэ нь том файлыг оруулахад боломжийн арга боловч, "
 "хэлэлцээрийг зогсоож чадна."
 
-#: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
+#: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:161
 msgid "Number of queries to skip from start"
 msgstr ""
 
-#: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
+#: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
 msgstr "Оруулсан файлын тогтнол"
 
@@ -2894,9 +2898,9 @@ msgstr "MIME-төрөл"
 
 #: libraries/export/latex.php:125 libraries/export/sql.php:232
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
-#: libraries/replication_gui.lib.php:63 libraries/replication_gui.lib.php:174
-#: libraries/replication_gui.lib.php:269 libraries/replication_gui.lib.php:272
-#: libraries/replication_gui.lib.php:329 server_privileges.php:732
+#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
+#: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
+#: libraries/replication_gui.lib.php:332 server_privileges.php:732
 #: server_privileges.php:735 server_privileges.php:791
 #: server_privileges.php:1554 server_privileges.php:2092
 #: server_processlist.php:55 server_synchronize.php:1159
@@ -3546,93 +3550,93 @@ msgstr ""
 msgid "no description"
 msgstr "тайлбаргүй"
 
-#: libraries/replication_gui.lib.php:51
+#: libraries/replication_gui.lib.php:54
 msgid "Slave configuration"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:51 server_replication.php:347
+#: libraries/replication_gui.lib.php:54 server_replication.php:347
 msgid "Change or reconfigure master server"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:52
+#: libraries/replication_gui.lib.php:55
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:55 libraries/replication_gui.lib.php:56
-#: libraries/replication_gui.lib.php:249 libraries/replication_gui.lib.php:252
-#: libraries/replication_gui.lib.php:259 server_privileges.php:712
+#: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
+#: libraries/replication_gui.lib.php:252 libraries/replication_gui.lib.php:255
+#: libraries/replication_gui.lib.php:262 server_privileges.php:712
 #: server_privileges.php:715 server_privileges.php:722
 #: server_synchronize.php:1171
 msgid "User name"
 msgstr "Хэрэглэгчийн нэр"
 
-#: libraries/replication_gui.lib.php:67 server_synchronize.php:1163
+#: libraries/replication_gui.lib.php:70 server_synchronize.php:1163
 msgid "Port"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:103
+#: libraries/replication_gui.lib.php:106
 msgid "Master status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:105
+#: libraries/replication_gui.lib.php:108
 msgid "Slave status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:114 libraries/sql_query_form.lib.php:448
+#: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:448
 #: server_status.php:737 server_variables.php:52
 msgid "Variable"
 msgstr "Хувьсагч"
 
-#: libraries/replication_gui.lib.php:115 server_status.php:738
+#: libraries/replication_gui.lib.php:118 server_status.php:738
 #: tbl_change.php:323 tbl_printview.php:369 tbl_select.php:138
 #: tbl_structure.php:727
 msgid "Value"
 msgstr "Утга"
 
-#: libraries/replication_gui.lib.php:173 server_binlog.php:218
+#: libraries/replication_gui.lib.php:176 server_binlog.php:218
 msgid "Server ID"
 msgstr "Server ID"
 
-#: libraries/replication_gui.lib.php:192
+#: libraries/replication_gui.lib.php:195
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:240 server_replication.php:194
+#: libraries/replication_gui.lib.php:243 server_replication.php:194
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:254 server_privileges.php:717
+#: libraries/replication_gui.lib.php:257 server_privileges.php:717
 msgid "Any user"
 msgstr "Дурын хэрэглэгч"
 
-#: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:323
-#: libraries/replication_gui.lib.php:346 server_privileges.php:718
+#: libraries/replication_gui.lib.php:258 libraries/replication_gui.lib.php:326
+#: libraries/replication_gui.lib.php:349 server_privileges.php:718
 #: server_privileges.php:785 server_privileges.php:809
 #: server_privileges.php:1950 server_privileges.php:1980
 msgid "Use text field"
 msgstr "Бичвэр талбар хэрэглэх"
 
-#: libraries/replication_gui.lib.php:302 server_privileges.php:765
+#: libraries/replication_gui.lib.php:305 server_privileges.php:765
 msgid "Any host"
 msgstr "Дурын хост"
 
-#: libraries/replication_gui.lib.php:306 server_privileges.php:769
+#: libraries/replication_gui.lib.php:309 server_privileges.php:769
 msgid "Local"
 msgstr "Local"
 
-#: libraries/replication_gui.lib.php:312 server_privileges.php:774
+#: libraries/replication_gui.lib.php:315 server_privileges.php:774
 msgid "This Host"
 msgstr "Энэ хост"
 
-#: libraries/replication_gui.lib.php:318 server_privileges.php:780
+#: libraries/replication_gui.lib.php:321 server_privileges.php:780
 msgid "Use Host Table"
 msgstr "Хост хүснэгт хэрэглэх"
 
-#: libraries/replication_gui.lib.php:331 server_privileges.php:793
+#: libraries/replication_gui.lib.php:334 server_privileges.php:793
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -3731,11 +3735,11 @@ msgstr "Өгөгдлийн сан %s дээрх SQL асуултыг ажилл�
 msgid "Columns"
 msgstr "Баганын нэрс"
 
-#: libraries/sql_query_form.lib.php:355 sql.php:687 sql.php:688 sql.php:705
+#: libraries/sql_query_form.lib.php:355 sql.php:693 sql.php:694 sql.php:711
 msgid "Bookmark this SQL query"
 msgstr "Энэ SQL-асуулт-ыг тэмдэглэх"
 
-#: libraries/sql_query_form.lib.php:362 sql.php:699
+#: libraries/sql_query_form.lib.php:362 sql.php:705
 msgid "Let every user access this bookmark"
 msgstr "Энэ тэмдэглэгээг бүх хэрэглэгчид хандахыг зөвшөөрөх"
 
@@ -7636,12 +7640,12 @@ msgstr "PHP кодоор харуулах"
 msgid "Showing SQL query"
 msgstr "SQL асуудал харуулах"
 
-#: sql.php:661
+#: sql.php:667
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Хүснэгт `%s`-ийн индекс асуудалтай"
 
-#: sql.php:693
+#: sql.php:699
 msgid "Label"
 msgstr "Хаяг"
 
