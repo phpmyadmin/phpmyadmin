@@ -1,6 +1,22 @@
 <?php
-// Using Abstract Factory Pattern for exporting relational Schema in different Formats !
-abstract class PMA_Export_Relation_Schema
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ *
+ * @version $Id$
+ * @package phpMyAdmin
+ */
+
+/**
+ * This class is inherited by all schema classes
+ * It contains those methods which are common in them
+ *
+ * @name
+ * @author Muhammad Adnan <hiddenpearls@gmail.com>
+ * @copyright
+ * @license
+ */
+
+class PMA_Export_Relation_Schema
 {
 	private $_pageTitle; // Title of the page
 	private  $_autoLayoutType; // Internal or Foreign Key Relations;
@@ -31,7 +47,7 @@ abstract class PMA_Export_Relation_Schema
 		// echo $tab_sql;
         $tab_rs = PMA_query_as_controluser($tab_sql, null, PMA_DBI_QUERY_STORE);
         if (!$tab_rs || !PMA_DBI_num_rows($tab_rs) > 0) {
-            $this->PMA_SCHEMA_die('',__('No tables'));
+            $this->_die('',__('No tables'));
         } while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
             $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
         }
@@ -47,7 +63,7 @@ abstract class PMA_Export_Relation_Schema
 	/**
      * Displays an error message
      */
-    function PMA_Schema_die($type = '',$error_message = '')
+    function _die($type = '',$error_message = '')
     {
         global $db;
 

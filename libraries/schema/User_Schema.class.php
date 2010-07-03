@@ -705,16 +705,15 @@ class PMA_User_Schema
 
     private function _processExportSchema()
 	{
-        $pdf_page_number        = isset($pdf_page_number) ? $pdf_page_number : 1;
-        $show_grid              = (isset($show_grid) && $show_grid == 'on') ? 1 : 0;
-        $show_color             = (isset($show_color) && $show_color == 'on') ? 1 : 0;
-        $show_table_dimension   = (isset($show_table_dimension) && $show_table_dimension == 'on') ? 1 : 0;
-        $all_table_same_wide    = (isset($all_table_same_wide) && $all_table_same_wide == 'on') ? 1 : 0;
-        $with_doc               = (isset($with_doc) && $with_doc == 'on') ? 1 : 0;
-        $orientation            = (isset($orientation) && $orientation == 'P') ? 'P' : 'L';
-        $paper                  = isset($paper) ? $paper : 'A4';
-        $show_keys              = (isset($show_keys) && $show_keys == 'on') ? 1 : 0;
-        $export_type            = isset($export_type) ? $export_type : 'pdf';  // default is PDF
+        /**
+        * Settings for relation stuff
+        */
+        require_once './libraries/transformations.lib.php';
+        require_once './libraries/Index.class.php';
+        /**
+         * default is PDF
+         */ 
+        $export_type            = isset($export_type) ? $export_type : 'pdf';
         PMA_DBI_select_db($db);
 
         include("./libraries/schema/".ucfirst($export_type)."_Relation_Schema.class.php");

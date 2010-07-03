@@ -219,7 +219,7 @@ class PMA_PDF extends TCPDF {
      */
     function Error($error_message = '')
     {
-       PMA_Relation_Schema::PMA_Schema_die($error_message);
+       PMA_Export_Relation_Schema::_die($error_message);
     } // end of the "Error()" method
     function Header()
     {
@@ -822,15 +822,24 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @access private
      * @see PMA_PDF
      */
-    function __construct($page_number, $show_info = 0, $change_color = 0, $show_grid = 0, $all_table_same_wide = 0, $orientation = 'L', $paper = 'A4', $show_keys = 0)
+    function __construct()
     {
-        global $pdf, $db, $cfgRelation, $with_doc;
+    //global $pdf,$db,$export_type,$cfgRelation,$pdf_page_number,$show_keys,$change_color,$show_table_dimension,$orientation, $with_doc,$show_grid,$paper;
+        global $pdf,$db,$export_type,$cfgRelation,$pdf_page_number,$show_grid,$show_keys,$change_color,$show_color,$show_info,$all_table_same_wide,$show_table_dimension,$orientation, $with_doc,$show_grid,$paper;	
+	    $pdf_page_number            =  isset($pdf_page_number) ? $pdf_page_number : 1;
+        $show_grid              = (isset($show_grid) && $show_grid == 'on') ? 1 : 0;
+        $change_color             = (isset($show_color) && $show_color == 'on') ? 1 : 0;
+        $show_info              = (isset($show_table_dimension) && $show_table_dimension == 'on') ? 1 : 0;
+        $all_table_same_wide    = (isset($all_table_same_wide) && $all_table_same_wide == 'on') ? 1 : 0;
+        $with_doc               = (isset($with_doc) && $with_doc == 'on') ? 1 : 0;
+        $orientation            = (isset($orientation) && $orientation == 'P') ? 'P' : 'L';
+        $paper                  = isset($paper) ? $paper : 'A4';
+        $show_keys              = (isset($show_keys) && $show_keys == 'on') ? 1 : 0;
 
         $this->setSameWidthTables($all_table_same_wide);
-		
         // Initializes a new document
         $pdf = new PMA_PDF('L', 'mm', $paper);
-        $pdf->SetTitle(sprintf(__('Schema of the %s database - Page %s'), $GLOBALS['db'], $page_number));
+        $pdf->SetTitle(sprintf(__('Schema of the %s database - Page %s'), $GLOBALS['db'], $pdf_page_number));
         $pdf->setCMargin(0);
         $pdf->Open();
         $pdf->SetAuthor('phpMyAdmin ' . PMA_VERSION);
@@ -839,29 +848,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
         $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
         $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
-      //  $this->ff = PMA_PDF_FONT;
-
         $pdf->SetFont($this->ff, '', 14);
         $pdf->SetAutoPageBreak('auto');
-		
+        $alltables = $this->getAllTables($db,$pdf_page_number);
 
-        // Gets tables on this page
-/*        $tab_sql = 'SELECT table_name FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-         . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-         . ' AND pdf_page_number = ' . $page_number;
-		 echo $tab_sql;
-        $tab_rs = PMA_query_as_controluser($tab_sql, null, PMA_DBI_QUERY_STORE);
-        if (!$tab_rs || !PMA_DBI_num_rows($tab_rs) > 0) {
-            $pdf->PMA_PDF_die(__('No tables'));
-            // die('No tables');
-        } while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
-            $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
-            // $intable     = '\'' . implode('\', \'', $alltables) . '\'';
-        }*/
-		$alltables=$this->getAllTables($db,$page_number);
-
-
-        // make doc                    //
         if ($with_doc) {
             $pdf->SetAutoPageBreak('auto', 15);
             $pdf->setCMargin(1);
@@ -879,9 +869,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $this->t_marg = 28;
             $this->b_marg = 28;
         }
-		
-        /* snip */
 
+        /* snip */
         foreach ($alltables as $table) {
             if (!isset($this->tables[$table])) {
                 $this->tables[$table] = new PMA_RT_Table($table, $this->ff, $this->_tablewidth, $show_keys, $show_info);
@@ -937,16 +926,14 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             } // end if
         } // end while
 		
-/*		print '<pre>';
-		print_r(get_object_vars($this));
-		print '</pre>';
-		exit();*/
+
 		
         if ($seen_a_relation) {
             $this->PMA_RT_drawRelations($change_color);
         }
 
         $this->PMA_RT_drawTables($change_color);
+				
 
         $this->PMA_RT_showRt();
     } // end of the "PMA_RT()" Constructor method
@@ -1074,6 +1061,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if (empty($filename)) {
             $filename = $pdf_page_number . '.pdf';
         }
+		//exit();
         // $pdf->Output($db . '_' . $filename, TRUE);
         $pdf->Output($db . '_' . $filename, 'I'); // destination: Inline
     } // end of the "PMA_RT_showRt()" method
