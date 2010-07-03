@@ -101,10 +101,13 @@ function setDb(new_db) {
         var old_db = db;
         db = new_db;
 
+        // the db name as an id exists only when LeftFrameLight is false
         if (window.frame_navigation.document.getElementById(db) == null) {
+            // happens when LeftFrameLight is true
             // db is unknown, reload complete left frame
             refreshNavigation();
         } else {
+            // happens when LeftFrameLight is false
             unmarkDbTable(old_db);
             markDbTable(db);
         }
