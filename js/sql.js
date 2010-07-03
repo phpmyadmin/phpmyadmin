@@ -6,6 +6,14 @@
  */
 
 $(document).ready(function() {
+
+    $('<span id="togglequerybox"></span>')
+    .html(PMA_messages['strToggleQueryBox'])
+    .appendTo("#sqlqueryform");
+
+    $("#togglequerybox").live('click', function() {
+        $(this).siblings().slideToggle("medium");
+    })
     
     //SQL Query Submit
     $("#sqlqueryform").live('submit', function(event) {
@@ -17,6 +25,9 @@ $(document).ready(function() {
 
         $.post($(this).attr('action'), $(this).serialize() , function(data) {
             $("#sqlqueryresults").html(data);
+            if($("#togglequerybox").siblings(":visible").length > 0) {
+            $("#togglequerybox").trigger('click');
+            }
         })
     }) // end SQL Query submit
 
@@ -32,4 +43,15 @@ $(document).ready(function() {
             $("#sqlqueryresults").html(data);
         })
     })// end Paginate results table
+
+    //Sort results table
+    $("#table_results").find("a[title=Sort]").live('click', function(event) {
+        event.preventDefault();
+
+        PMA_ajaxShowMessage();
+
+        $.get($(this).attr('href'), $(this).serialize() + '&ajax_request=true', function(data) {
+            $("#sqlqueryresults").html(data);
+        })
+    })//end Sort results table
 })
