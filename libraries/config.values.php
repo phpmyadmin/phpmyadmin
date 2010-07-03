@@ -97,8 +97,8 @@ $cfg_db['_overrides']['Servers/1/extension'] = extension_loaded('mysqli')
     ? 'mysqli' : 'mysql';
 
 /**
- * Validator assignments (functions from setup/validate.lib.php and 'validators'
- * object in setup/scripts.js)
+ * Validator assignments (functions from libraries/config/validate.lib.php and 'validators'
+ * object in js/config.js)
  * Use only full paths and form ids
  */
 $cfg_db['_validators'] = array(

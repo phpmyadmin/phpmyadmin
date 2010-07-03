@@ -14,7 +14,7 @@
 require './lib/common.inc.php';
 
 $validators = array();
-require './setup/lib/validate.lib.php';
+require './libraries/config/validate.lib.php';
 
 header('Content-type: application/json');
 
