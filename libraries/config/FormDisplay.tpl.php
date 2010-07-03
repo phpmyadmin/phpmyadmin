@@ -137,7 +137,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     $tr_class = $_FormDisplayGroup ? ' class="group-field"' : '';
     if (isset($opts['setvalue']) && $opts['setvalue'] == ':group') {
         unset($opts['setvalue']);
-        $tr_class = ' class="group-header"';
+        $tr_class = ' class="group-header-field"';
         if ($_FormDisplayGroup) {
             display_group_footer();
         }

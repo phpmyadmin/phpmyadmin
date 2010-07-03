@@ -39,7 +39,7 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/Edit',
     'SQLQuery/Explain',
     'SQLQuery/ShowAsPHP',
-    'SQLQuery/Validate',// [false or no override]
+//    'SQLQuery/Validate',// [false or no override]
     'SQLQuery/Refresh');
 $forms['Features']['Page_titles'] = array(
     'TitleDefault',

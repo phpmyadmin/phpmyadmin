@@ -1,6 +1,2 @@
-cache'ing of user preferences to avoid round trips to server on each page refresh
-
-backlog:
-- Import and Export options
-
 restore cache'ing in phpmyadmin.css.php
+make CSS for darkblue_orange

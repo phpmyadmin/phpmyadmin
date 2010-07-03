@@ -1338,6 +1338,18 @@ table#serverconnection_trg_local  {
     border-top: 1px <?php echo $GLOBALS['cfg']['BgTwo']; ?> solid;
 }
 
+fieldset .group-header th {
+    background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+}
+
+fieldset .group-header + tr th {
+    padding-top: 0.6em;
+}
+
+fieldset .group-field th {
+    padding-left: 1.5em;
+}
+
 .config-form .lastrow {
     border-top: 1px #000 solid;
 }
@@ -1377,6 +1389,7 @@ table#serverconnection_trg_local  {
 .config-form select,
 .config-form textarea {
     border: 1px #A7A6AA solid;
+    height: auto;
 }
 
 .config-form input[type="text"]:focus,

@@ -286,14 +286,14 @@ fieldset th, fieldset td, .form .lastrow {
     border-top: 1px #555 dotted;
 }
 
-fieldset .group-header th, fieldset .group-header td {
-    background: #F7FBFF;
-    border: 0 #DEE1FF solid;
-    border-width: 2px 0 0 0.5em;
+fieldset .group-header th {
+    background: #EAEDFF;
+    border: none;
 }
 
-fieldset .group-header td {
-    border-left: none;
+fieldset .group-header + tr th, fieldset .group-header + tr td,
+fieldset p + table tr:first-child td, fieldset p + table tr:first-child th {
+    border-top: none;
 }
 
 fieldset .group-field th {

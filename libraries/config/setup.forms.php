@@ -94,18 +94,6 @@ $forms['Features']['Security'] = array(
     'LoginCookieValidity',
     'LoginCookieStore',
     'LoginCookieDeleteAll');
-$forms['Features']['Sql_queries'] = array(
-    'ShowSQL',
-    'Confirm',
-    'QueryHistoryDB',
-    'QueryHistoryMax',
-    'IgnoreMultiSubmitErrors',
-    'VerboseMultiSubmit',
-    'MaxCharactersInDisplayedSQL',
-    'EditInWindow',
-    //'QueryWindowWidth', // overridden in theme
-    //'QueryWindowHeight',
-    'QueryWindowDefTab');
 $forms['Features']['Page_titles'] = array(
     'TitleDefault',
     'TitleTable',
@@ -125,6 +113,24 @@ $forms['Features']['Other_core_settings'] = array(
     'MemoryLimit',
     'SkipLockedTables',
     'UseDbSearch');
+$forms['Sql_queries']['Sql_queries'] = array(
+    'ShowSQL',
+    'Confirm',
+    'QueryHistoryDB',
+    'QueryHistoryMax',
+    'IgnoreMultiSubmitErrors',
+    'VerboseMultiSubmit',
+    'MaxCharactersInDisplayedSQL',
+    'EditInWindow',
+    //'QueryWindowWidth', // overridden in theme
+    //'QueryWindowHeight',
+    'QueryWindowDefTab');
+$forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
+    'Edit',
+    'Explain',
+    'ShowAsPHP',
+    'Validate',
+    'Refresh'));
 $forms['Left_frame']['Left_frame'] = array(
     'LeftFrameLight',
     'LeftDisplayLogo',
@@ -145,7 +151,7 @@ $forms['Left_frame']['Left_tables'] = array(
     'LeftFrameTableLevel',
     'ShowTooltip',
     'ShowTooltipAliasTB');
-$forms['Startup'] = array(
+$forms['Main_frame']['Startup'] = array(
     'MainPageIconic',
     'ShowStats',
     'ShowPhpInfo',
@@ -186,12 +192,6 @@ $forms['Main_frame']['Tabs'] = array(
     'DefaultTabDatabase',
     'DefaultTabTable',
 	'QueryWindowDefTab');
-$forms['Main_frame']['Sql_box'] = array('SQLQuery' => array(
-    'Edit',
-    'Explain',
-    'ShowAsPHP',
-    'Validate',
-    'Refresh'));
 $forms['Import']['Import_defaults'] = array('Import' => array(
     'format',
     'allow_interrupt',
