@@ -42,12 +42,12 @@ function process_formset(FormDisplay $form_display) {
             <div class="warning">
                 <h4><?php echo __('Warning') ?></h4>
                 <?php echo __('Submitted form contains errors') ?><br />
-                <a href="?page=<?php echo $page . $formset . $id . $separator ?>mode=revert"><?php echo PMA_lang('RevertErroneousFields') ?></a>
+                <a href="?page=<?php echo $page . $formset . $id . $separator ?>mode=revert"><?php echo __('Try to revert erroneous fields to their default values') ?></a>
             </div>
             <?php $form_display->displayErrors() ?>
-            <a class="btn" href="index.php"><?php echo PMA_lang('IgnoreErrors') ?></a>
+            <a class="btn" href="index.php"><?php echo __('Ignore errors') ?></a>
             &nbsp;
-            <a class="btn" href="?page=<?php echo $page . $formset . $id . $separator ?>mode=edit"><?php echo PMA_lang('ShowForm') ?></a>
+            <a class="btn" href="?page=<?php echo $page . $formset . $id . $separator ?>mode=edit"><?php echo __('Show form') ?></a>
             <?php
         } else {
             // drop post data
