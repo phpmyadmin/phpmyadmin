@@ -88,13 +88,25 @@ class Form
             trigger_error("$option_path - not a static value list", E_USER_ERROR);
             return array();
         }
-        // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
-        // and array('#', 'a', 'b') to array('a', 'b')
-        if ($value[0] == '#') {
+        // convert array('#', 'a', 'b') to array('a', 'b')
+        if (isset($value[0]) && $value[0] == '#') {
+            // remove first element ('#')
             array_shift($value);
-            return $value;
+        } else {
+            // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
+            $has_string_keys = false;
+            for ($i = 0; $i < count($value); $i++) {
+                if (!isset($value[$i])) {
+                    $has_string_keys = true;
+                    break;
+                }
+            }
+            if (!$has_string_keys) {
+                $value = array_combine($value, $value);
+            }
         }
-        return array_combine($value, $value);
+        // $value has keys and value names, return it
+        return $value;
     }
 
     /**
@@ -148,6 +160,10 @@ class Form
     {
         $cf = ConfigFile::getInstance();
         foreach ($this->fields as $name => $path) {
+            if (strpos($name, ':group:') === 0) {
+                $this->fieldsTypes[$name] = 'group';
+                continue;
+            }
             $v = $cf->getDbEntry($path);
             if ($v !== null) {
                 $type = is_array($v) ? 'select' : $v;

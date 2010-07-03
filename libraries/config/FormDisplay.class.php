@@ -327,6 +327,14 @@ class FormDisplay
                 $value = (array) $value;
                 $value_default = (array) $value_default;
                 break;
+            case 'group':
+                $text = substr($field, 7);
+                if ($text != 'end') {
+                    display_group_header($text);
+                } else {
+                    display_group_footer();
+                }
+                return;
             case 'NULL':
             	trigger_error("Field $system_path has no type", E_USER_WARNING);
             	return;

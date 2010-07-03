@@ -66,6 +66,10 @@ function display_tabs_top($tabs) {
  */
 function display_fieldset_top($title = '', $description = '', $errors = null, $attributes = array())
 {
+    global $_FormDisplayGroup;
+
+    $_FormDisplayGroup = false;
+
     $attributes = array_merge(array('class' => 'optbox'), $attributes);
     foreach ($attributes as $k => &$attr) {
         $attr = $k . '="' . htmlspecialchars($attr) . '"';
@@ -113,6 +117,7 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  */
 function display_input($path, $name, $description = '', $type, $value, $value_is_default = true, $opts = null)
 {
+    global $_FormDisplayGroup;
     static $base_dir, $img_path;
 
     $is_setup_script = defined('PMA_SETUP') && PMA_SETUP;
@@ -129,8 +134,17 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     }
     $field_class = $field_class ? ' class="' . $field_class . '"' : '';
     $name_id = 'name="' . $path . '" id="' . $path . '"';
+    $tr_class = $_FormDisplayGroup ? ' class="group-field"' : '';
+    if (isset($opts['setvalue']) && $opts['setvalue'] == ':group') {
+        unset($opts['setvalue']);
+        $tr_class = ' class="group-header"';
+        if ($_FormDisplayGroup) {
+            display_group_footer();
+        }
+        $_FormDisplayGroup = true;
+    }
 ?>
-<tr>
+<tr<?php echo $tr_class ?>>
     <th>
         <label for="<?php echo htmlspecialchars($path) ?>"><?php echo $name ?></label>
         <?php if (!empty($opts['doc']) || !empty($opts['wiki'])): ?>
@@ -229,9 +243,46 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
 }
 
 /**
- * Displays bottom part of a fieldset
+ * Display group header
  *
- * @param array $js_array
+ * @param string $header_text
+ */
+function display_group_header($header_text)
+{
+    global $_FormDisplayGroup;
+
+    if ($_FormDisplayGroup) {
+        display_group_footer();
+    }
+    $_FormDisplayGroup = true;
+    if (!$header_text) {
+        return;
+    }
+    $colspan = 2;
+    if (defined('PMA_SETUP') && PMA_SETUP) {
+        $colspan++;
+    }
+?>
+<tr class="group-header">
+    <th colspan="<?php echo $colspan ?>">
+        <?php echo $header_text ?>
+    </th>
+</tr>
+<?php
+}
+
+/**
+ * Display group footer
+ */
+function display_group_footer()
+{
+    global $_FormDisplayGroup;
+
+    $_FormDisplayGroup = false;
+}
+
+/**
+ * Displays bottom part of a fieldset
  */
 function display_fieldset_bottom()
 {

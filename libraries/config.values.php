@@ -84,6 +84,8 @@ $cfg_db['Export']['format'] = array('codegen', 'csv', 'excel', 'htmlexcel',
 $cfg_db['Export']['compression'] = array('none', 'zip', 'gzip', 'bzip2');
 $cfg_db['Export']['charset'] = array_merge(array(''), $GLOBALS['cfg']['AvailableCharsets']);
 $cfg_db['Export']['codegen_format'] = array('#', 'NHibernate C# DO', 'NHibernate XML');
+$cfg_db['Export']['excel_edition'] = array('win' => 'Windows',
+    'mac_excel2003' => 'Excel 2003 / Macintosh', 'mac_excel2008' => 'Excel 2008 / Macintosh');
 
 /**
  * Default values overrides
