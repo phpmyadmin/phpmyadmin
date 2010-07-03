@@ -88,7 +88,13 @@ class Form
             trigger_error("$option_path - not a static value list", E_USER_ERROR);
             return array();
         }
-        return $value;
+        // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
+        // and array('#', 'a', 'b') to array('a', 'b')
+        if ($value[0] == '#') {
+            array_shift($value);
+            return $value;
+        }
+        return array_combine($value, $value);
     }
 
     /**

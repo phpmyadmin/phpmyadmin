@@ -512,7 +512,7 @@ class ConfigFile
             // string keys: $cfg[key][subkey] = value
             foreach ($var_value as $k => $v) {
                 $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
-                $ret = "\$cfg['$var_name']['$k'] = " . var_export($v, true) . ';' . $crlf;
+                $ret .= "\$cfg['$var_name']['$k'] = " . var_export($v, true) . ';' . $crlf;
             }
         }
         return $ret;

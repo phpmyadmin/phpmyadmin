@@ -320,11 +320,7 @@ class FormDisplay
                 break;
             case 'select':
                 $type = 'select';
-                $opts['values'] = array();
-                $values = $form->getOptionValueList($form->fields[$field]);
-                foreach ($values as $v) {
-                    $opts['values'][$v] = $v;
-                }
+                $opts['values'] = $form->getOptionValueList($form->fields[$field]);
                 break;
             case 'array':
                 $type = 'list';
@@ -508,7 +504,7 @@ class FormDisplay
                         }
                         break;
                     case 'select':
-                        if (!$this->_validateSelect($_POST[$key], $form->getOptionValueList($system_path))) {
+                        if (!$this->_validateSelect($_POST[$key], array_keys($form->getOptionValueList($system_path)))) {
                             $this->errors[$work_path][] = __('Incorrect value');
                             $result = false;
                             continue;
