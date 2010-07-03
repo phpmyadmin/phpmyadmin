@@ -221,7 +221,7 @@ class FormDisplay
         // display forms
         foreach ($this->forms as $form) {
             /* @var $form Form */
-            $form_desc = isset($GLOBALS["strSetupForm_{$form->name}_desc"])
+            $form_desc = isset($GLOBALS["strConfigForm_{$form->name}_desc"])
                 ? PMA_lang("Form_{$form->name}_desc")
                 : '';
             $form_errors = isset($this->errors[$form->name])
@@ -389,7 +389,7 @@ class FormDisplay
                 $path = $this->system_paths[$system_path];
                 $name = PMA_lang_name($path);
             } else {
-                $name = $GLOBALS["strSetupForm_$system_path"];
+                $name = $GLOBALS["strConfigForm_$system_path"];
             }
             display_errors($name, $error_list);
         }

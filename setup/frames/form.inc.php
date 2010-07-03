@@ -26,8 +26,8 @@ if (!isset($forms[$formset_id])) {
     die('Incorrect formset, check $formsets array in setup/frames/form.inc.php');
 }
 
-if (isset($GLOBALS['strSetupFormset_' . $formset_id])) {
-    echo '<h2>' . $GLOBALS['strSetupFormset_' . $formset_id] . '</h2>';
+if (isset($GLOBALS['strConfigFormset_' . $formset_id])) {
+    echo '<h2>' . $GLOBALS['strConfigFormset_' . $formset_id] . '</h2>';
 }
 $form_display = new FormDisplay();
 foreach ($forms[$formset_id] as $form_name => $form) {

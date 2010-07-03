@@ -126,7 +126,7 @@ function PMA_lang($lang_key)
         $search = array_keys($replace_pairs);
         $replace = array_values($replace_pairs);
     }
-    $message = isset($GLOBALS["strSetup$lang_key"]) ? $GLOBALS["strSetup$lang_key"] : $lang_key;
+    $message = isset($GLOBALS["strConfig$lang_key"]) ? $GLOBALS["strConfig$lang_key"] : $lang_key;
     $message = str_replace($search, $replace, $message);
     // replace [a@"$1"]$2[/a] with <a href="$1">$2</a>
     $message = preg_replace('#\[a@("?)([^\]]+)\1\]([^\[]+)\[/a\]#e',
@@ -153,8 +153,8 @@ function PMA_lang_name($canonical_path)
     	array('Servers/1/', '/'),
     	array('Servers/', '_'),
     	$canonical_path) . '_name';
-    return isset($GLOBALS["strSetup$lang_key"])
-        ? $GLOBALS["strSetup$lang_key"]
+    return isset($GLOBALS["strConfig$lang_key"])
+        ? $GLOBALS["strConfig$lang_key"]
         : $lang_key;
 }
 
@@ -170,7 +170,7 @@ function PMA_lang_desc($canonical_path)
     	array('Servers/1/', '/'),
     	array('Servers/', '_'),
     	$canonical_path) . '_desc';
-    return isset($GLOBALS["strSetup$lang_key"])
+    return isset($GLOBALS["strConfig$lang_key"])
         ? PMA_lang($lang_key)
         : '';
 }

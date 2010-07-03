@@ -39,7 +39,7 @@ $tabs_icons = array(
 foreach (array_keys($forms) as $formset) {
     $tabs[] = array(
         'link' => 'user_preferences.php',
-        'text' => PMA_ifSetOr($GLOBALS['strSetupForm_' . $formset], $formset), // TODO: remove ifSetOr
+        'text' => PMA_lang('Form_' . $formset),
         'icon' => $tabs_icons[$formset],
         'active' => $formset == $form_param,
         'url_params' => array('form' => $formset));
