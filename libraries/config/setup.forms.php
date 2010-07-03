@@ -213,10 +213,13 @@ $forms['Import']['Ldi'] = array('Import' => array(
     'ldi_enclosed',
     'ldi_escaped',
     'ldi_local_option'));
-$forms['Import']['Excel'] = array('Import' => array(
+$forms['Import']['Microsoft_Office'] = array('Import' => array(
+    ':group:' . __('Excel 97-2003 XLS Workbook'),
     'xls_col_names',
+    ':group:' . __('Excel 2007 XLSX Workbook'),
     'xlsx_col_names'));
-$forms['Import']['Ods'] = array('Import' => array(
+$forms['Import']['Open_Document'] = array('Import' => array(
+    ':group:' . __('Open Document Spreadsheet'),
     'ods_col_names',
     'ods_empty_rows',
     'ods_recognize_percentages',
@@ -224,12 +227,99 @@ $forms['Import']['Ods'] = array('Import' => array(
 $forms['Export']['Export_defaults'] = array('Export' => array(
     'format',
     'compression',
-    'asfile',
     'charset',
+    'asfile' => ':group',
     'onserver',
     'onserver_overwrite',
+    ':group:end',
     'remember_file_template',
     'file_template_table',
     'file_template_database',
     'file_template_server'));
+$forms['Export']['Sql'] = array('Export' => array(
+    'sql_include_comments',
+    'sql_use_transaction',
+    'sql_disable_fk',
+    'sql_compatibility',
+    ':group:' . __('Database export options'),
+    'sql_drop_database',
+    'sql_structure' => ':group',
+    'sql_drop_table',
+    'sql_if_not_exists',
+    'sql_auto_increment',
+    'sql_backquotes',
+    'sql_procedure_function',
+    ':group:' . __('Add into comments'),
+    'sql_dates',
+    'sql_relation',
+    'sql_mime',
+    'sql_data' => ':group',
+    'sql_columns',
+    'sql_extended',
+    'sql_max_query_size',
+    'sql_delayed',
+    'sql_ignore',
+    'sql_hex_for_blob',
+    'sql_utc_time',
+    'sql_type'));
+$forms['Export']['CodeGen'] = array('Export' => array(
+    'codegen_format'));
+$forms['Export']['Csv'] = array('Export' => array(
+    ':group:' . __('CSV'),
+    'csv_separator',
+    'csv_enclosed',
+    'csv_escaped',
+    'csv_terminated',
+    'csv_null',
+    'csv_removeCRLF',
+    'csv_columns',
+    ':group:' . __('CSV for MS Excel'),
+    'excel_null',
+    'excel_removeCRLF',
+    'excel_columns',
+    'excel_edition'));
+$forms['Export']['Latex'] = array('Export' => array(
+    'latex_caption',
+    'latex_structure' => ':group',
+    'latex_structure_caption',
+    'latex_structure_continued_caption',
+    'latex_structure_label',
+    'latex_relation',
+    'latex_comments',
+    'latex_mime',
+    'latex_data' => ':group',
+    'latex_columns',
+    'latex_data_caption',
+    'latex_data_continued_caption',
+    'latex_data_label',
+    'latex_null'));
+$forms['Export']['Microsoft_Office'] = array('Export' => array(
+    ':group:' . __('Excel 97-2003 XLS Workbook'),
+    'xls_null',
+    'xls_columns',
+    ':group:' . __('Excel 2007 XLSX Workbook'),
+    'xlsx_null',
+    'xlsx_columns',
+    ':group:' . __('Microsoft Word 2000'),
+    'htmlword_structure',
+    'htmlword_data',
+    'htmlword_null',
+    'htmlword_columns'));
+$forms['Export']['Open_Document'] = array('Export' => array(
+    ':group:' . __('Open Document Spreadsheet'),
+    'ods_null',
+    'ods_columns',
+    ':group:' . __('Open Document Text'),
+    'odt_structure' => ':group',
+    'odt_relation',
+    'odt_comments',
+    'odt_mime',
+    'odt_data' => ':group',
+    'odt_columns',
+    'odt_null'));
+$forms['Export']['Texy'] = array('Export' => array(
+    'texytext_structure',
+    'texytext_data' => ':group',
+    'texytext_null',
+    'texytext_columns'));
 ?>

@@ -71,7 +71,7 @@ $cfg_db['Import']['format'] = array(
     'docsql', // DocSQL
     'ldi',    // CSV using LOAD DATA
     'sql');   // SQL
-$cfg_db['Import']['sql_compatibility'] = array(
+$cfg_db['Import']['sql_compatibility'] = $cfg_db['Export']['sql_compatibility'] = array(
     'NONE', 'ANSI', 'DB2', 'MAXDB', 'MYSQL323', 'MYSQL40', 'MSSQL', 'ORACLE',
     // removed; in MySQL 5.0.33, this produces exports that
     // can't be read by POSTGRESQL (see our bug #1596328)
@@ -86,6 +86,7 @@ $cfg_db['Export']['charset'] = array_merge(array(''), $GLOBALS['cfg']['Available
 $cfg_db['Export']['codegen_format'] = array('#', 'NHibernate C# DO', 'NHibernate XML');
 $cfg_db['Export']['excel_edition'] = array('win' => 'Windows',
     'mac_excel2003' => 'Excel 2003 / Macintosh', 'mac_excel2008' => 'Excel 2008 / Macintosh');
+$cfg_db['Export']['sql_type'] = array('INSERT', 'UPDATE', 'REPLACE');
 
 /**
  * Default values overrides
@@ -104,6 +105,7 @@ $cfg_db['_validators'] = array(
     'CharTextareaCols' => 'validate_positive_number',
     'CharTextareaRows' => 'validate_positive_number',
     'DefaultPropDisplay' => 'validate_DefaultPropDisplay',
+    'Export/sql_max_query_size' => 'validate_positive_number',
     'ForeignKeyMaxLimit' => 'validate_positive_number',
     'Import/csv_enclosed' => 'validate_str01',
     'Import/csv_escaped' => 'validate_str1',

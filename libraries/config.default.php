@@ -1140,6 +1140,13 @@ $cfg['Export']['file_template_database'] = '__DB__';
 $cfg['Export']['file_template_server'] = '__SERVER__';
 
 /**
+ * 
+ *
+ * @global $cfg['Export']['codegen_format']
+ */
+$cfg['Export']['codegen_format'] = 0;
+
+/**
  *
  *
  * @global boolean $cfg['Export']['ods_columns']
@@ -1331,6 +1338,13 @@ $cfg['Export']['csv_terminated'] = 'AUTO';
 /**
  *
  *
+ * @global string $cfg['Export']['csv_removeCRLF']
+ */
+$cfg['Export']['csv_removeCRLF'] = false;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['excel_columns']
  */
 $cfg['Export']['excel_columns'] = false;
@@ -1348,6 +1362,13 @@ $cfg['Export']['excel_null'] = 'NULL';
  * @global string $cfg['Export']['excel_edition']
  */
 $cfg['Export']['excel_edition'] = 'win';
+
+/**
+ *
+ *
+ * @global string $cfg['Export']['excel_removeCRLF']
+ */
+$cfg['Export']['excel_removeCRLF'] = false;
 
 /**
  *
@@ -1587,7 +1608,7 @@ $cfg['Export']['sql_hex_for_blob'] = true;
  *
  * @global string $cfg['Export']['sql_type']
  */
-$cfg['Export']['sql_type'] = 'insert';
+$cfg['Export']['sql_type'] = 'INSERT';
 
 /**
  *
