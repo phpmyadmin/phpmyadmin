@@ -25,7 +25,8 @@ class PMA_User_Schema
      * you can set the table positions on the paper via scratchboard
      * for table positions, put the x,y co-ordinates
      * 
-     * @param string $do It is hidden value
+     * @param string $do It tells what the Schema is supposed to do
+     *                  create and select a page, generate schema etc
      * @access public
      */
 

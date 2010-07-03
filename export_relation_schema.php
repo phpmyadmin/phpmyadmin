@@ -76,19 +76,26 @@ if ($cfgRelation['pdfwork']) {
     $user_schema = new PMA_User_Schema();
 
     /**
-     * This function will process the user input
+     * This function will process the user defined pages
+     * and tables which will be exported as Relational schema
+     * you can set the table positions on the paper via scratchboard
+     * for table positions, put the x,y co-ordinates
+     * 
+     * @param string $do It tells what the Schema is supposed to do
+     *                  create and select a page, generate schema etc             
      */
 
     $user_schema->processUserPreferences($do);
 
     /**
-     * Now first show some possibility to select a page for the export of relation schema
+     * Show some possibility to select a page for the export of relation schema
+     * Lists all pages created before and can select and edit from them
      */
 
     $user_schema->selectPage();
 
     /**
-     * Possibility to create a new page: 
+     * Create a new page where relations will be drawn 
      */
 
     $user_schema->createPage();
