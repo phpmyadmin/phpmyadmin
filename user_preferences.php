@@ -113,7 +113,7 @@ if (!$form_display->process(false)) {
     } else {
         // save settings
         $old_settings = PMA_load_userprefs();
-        $result = PMA_save_userprefs();
+        $result = PMA_save_userprefs($cf->getConfigArray());
         if ($result === true) {
             // compute differences and check whether left frame should be refreshed
             $old_settings = isset($old_settings['config_data'])

@@ -7,91 +7,6 @@
  */
 
 /**
- * Returns value of an element in $array given by $path.
- * $path is a string describing position of an element in an associative array,
- * eg. Servers/1/host refers to $array[Servers][1][host]
- *
- * @param  string   $path
- * @param  array    $array
- * @param  mixed    $default
- * @return mixed    array element or $default
- */
-function PMA_array_read($path, $array, $default = null)
-{
-    $keys = explode('/', $path);
-    $value =& $array;
-    foreach ($keys as $key) {
-        if (!isset($value[$key])) {
-            return $default;
-        }
-        $value =& $value[$key];
-    }
-    return $value;
-}
-
-/**
- * Stores value in an array
- *
- * @param  string   $path
- * @param  array    &$array
- * @param  mixed    $value
- */
-function PMA_array_write($path, &$array, $value)
-{
-    $keys = explode('/', $path);
-    $last_key = array_pop($keys);
-    $a =& $array;
-    foreach ($keys as $key) {
-        if (!isset($a[$key])) {
-            $a[$key] = array();
-        }
-        $a =& $a[$key];
-    }
-    $a[$last_key] = $value;
-}
-
-/**
- * Removes value from an array
- *
- * @param  string   $path
- * @param  array    &$array
- * @param  mixed    $value
- */
-function PMA_array_remove($path, &$array)
-{
-    $keys = explode('/', $path);
-    $keys_last = array_pop($keys);
-    $path = array();
-    $depth = 0;
-
-    $path[0] =& $array;
-    $found = true;
-    // go as deep as required or possible
-    foreach ($keys as $key) {
-        if (!isset($path[$depth][$key])) {
-            $found = false;
-            break;
-        }
-        $depth++;
-        $path[$depth] =& $path[$depth-1][$key];
-    }
-    // if element found, remove it
-    if ($found) {
-        unset($path[$depth][$keys_last]);
-        $depth--;
-    }
-
-    // remove empty nested arrays
-    for (; $depth >= 0; $depth--) {
-        if (!isset($path[$depth+1]) || count($path[$depth+1]) == 0) {
-            unset($path[$depth][$keys[$depth]]);
-        } else {
-            break;
-        }
-    }
-}
-
-/**
  * Returns sanitized language string, taking into account our special codes
  * for formatting. Takes variable number of arguments.
  * Based on PMA_sanitize from sanitize.lib.php.
@@ -196,34 +111,5 @@ function PMA_lang_link_replace($link, $text)
     }
 
     return '<a href="' . $link . '">' . $text . '</a>';
-}
-
-/**
- * Reads user preferences field names
- *
- * @param array|null $forms
- * @return array
- */
-function PMA_read_userprefs_fieldnames(array $forms = null)
-{
-    static $names;
-
-    // return cached results
-    if ($names !== null) {
-        return $names;
-    }
-    if (is_null($forms)) {
-        $forms = array();
-        include 'libraries/config/user_preferences.forms.php';
-    }
-    $names = array();
-    foreach ($forms as $formset) {
-        foreach ($formset as $form) {
-            foreach ($form as $k => $v) {
-                $names[] = is_int($k) ? $v : $k;
-            }
-        }
-    }
-    return $names;
 }
 ?>

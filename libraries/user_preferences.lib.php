@@ -58,14 +58,13 @@ function PMA_load_userprefs()
  * @uses PMA_Message::rawError()
  * @uses PMA_sqlAddslashes()
  * @uses PMA_getRelationsParam()
+ * @param array $config_data
  * @return true|PMA_Message
  */
-function PMA_save_userprefs()
+function PMA_save_userprefs(array $config_array)
 {
     $cfgRelation = PMA_getRelationsParam();
-    $cf = ConfigFile::getInstance();
-
-    $config_data = serialize($cf->getConfigArray());
+    $config_data = serialize($config_array);
 
     $query_table = PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['userconfig']);
     $query = '
@@ -118,5 +117,58 @@ function PMA_apply_userprefs(array $config_data)
         PMA_array_write($path, $cfg, $value);
     }
     return $cfg;
+}
+
+/**
+ * Reads user preferences field names
+ *
+ * @param array|null $forms
+ * @return array
+ */
+function PMA_read_userprefs_fieldnames(array $forms = null)
+{
+    static $names;
+
+    // return cached results
+    if ($names !== null) {
+        return $names;
+    }
+    if (is_null($forms)) {
+        $forms = array();
+        include 'libraries/config/user_preferences.forms.php';
+    }
+    $names = array();
+    foreach ($forms as $formset) {
+        foreach ($formset as $form) {
+            foreach ($form as $k => $v) {
+                $names[] = is_int($k) ? $v : $k;
+            }
+        }
+    }
+    return $names;
+}
+
+/**
+ * Updates one user preferences option (loads and saves to database).
+ *
+ * No validation is done!
+ *
+ * @param string $cfg_name
+ * @param mixed $value
+ * @return void
+ */
+function PMA_persist_option($path, $value, $default_value)
+{
+    $prefs = PMA_load_userprefs();
+    if ($value === $default_value) {
+        if (isset($prefs['config_data'][$path])) {
+            unset($prefs['config_data'][$path]);
+        } else {
+            return;
+        }
+    } else {
+        $prefs['config_data'][$path] = $value;
+    }
+    PMA_save_userprefs($prefs['config_data']);
 }
 ?>

@@ -25,6 +25,11 @@ class PMA_Config
     var $default_source = './libraries/config.default.php';
 
     /**
+     * @var array   default configuration settings
+     */
+    var $default = array();
+
+    /**
      * @var array   configuration settings
      */
     var $settings = array();
@@ -321,6 +326,7 @@ class PMA_Config
         $this->default_server = $cfg['Servers'][1];
         unset($cfg['Servers']);
 
+        $this->default = $cfg;
         $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
 
         $this->error_config_default_file = false;
@@ -431,8 +437,8 @@ class PMA_Config
             // cache user preferences, use database only when needed
             if (!isset($_SESSION['cache']['userprefs'])
                     || $_SESSION['cache']['config_mtime'] < $config_mtime) {
+                // load required libraries
                 require_once './libraries/user_preferences.lib.php';
-                require_once './libraries/config/config_functions.lib.php';
                 $prefs = PMA_load_userprefs();
                 $_SESSION['cache']['userprefs'] = PMA_apply_userprefs($prefs['config_data']);
                 $_SESSION['cache']['userprefs_mtime'] = $prefs['mtime'];
@@ -447,7 +453,49 @@ class PMA_Config
         }
         $this->settings = PMA_array_merge_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = PMA_array_merge_recursive($GLOBALS['cfg'], $config_data);
-        $this->set('user_preferences_loaded', true);
+        $this->set('user_preferences', true);
+    }
+
+    /**
+     * Sets config value which is stored in user preferences (if available) or in a cookie
+     *
+     * @param  $cookie_name
+     * @param  $cfg_path
+     * @param  $new_cfg_value
+     * @return void
+     */
+    function setUserValue($cookie_name, $cfg_path, $new_cfg_value)
+    {
+        // use permanent user preferences if possible
+        if ($this->get('user_preferences')) {
+            require_once './libraries/user_preferences.lib.php';
+            PMA_persist_option($cfg_path, $new_cfg_value, PMA_array_read($cfg_path, $this->default));
+        } else {
+            // fall back to cookies
+            $this->setCookie($cookie_name, $new_cfg_value, PMA_array_read($cfg_path, $this->settings));
+        }
+    }
+
+    /**
+     * Reads value stored by {@link setUserValue()}
+     *
+     * @param  $cookie_name
+     * @param  $cfg_value
+     * @return
+     */
+    function getUserValue($cookie_name, $cfg_value)
+    {
+        $cookie_exists = isset($_COOKIE) && !empty($_COOKIE[$cookie_name]);
+        if ($this->get('user_preferences')) {
+            // user preferences value exists, remove cookie
+            if ($cookie_exists) {
+                $this->removeCookie($cookie_name);
+            }
+        } else if ($cookie_exists) {
+            return $_COOKIE[$cookie_name];
+        }
+        // return value from $cfg array
+        return $cfg_value;
     }
 
     /**

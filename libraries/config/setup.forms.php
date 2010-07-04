@@ -200,13 +200,14 @@ $forms['Import']['Sql'] = array('Import' => array(
     'sql_compatibility',
     'sql_no_auto_value_on_zero'));
 $forms['Import']['Csv'] = array('Import' => array(
+    ':group:' . __('CSV'),
     'csv_replace',
     'csv_ignore',
     'csv_terminated',
     'csv_enclosed',
     'csv_escaped',
-    'csv_col_names'));
-$forms['Import']['Ldi'] = array('Import' => array(
+    'csv_col_names',
+    ':group:' . __('CSV using LOAD DATA'),
     'ldi_replace',
     'ldi_ignore',
     'ldi_terminated',

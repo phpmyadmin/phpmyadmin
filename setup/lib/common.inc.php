@@ -23,6 +23,7 @@ require_once './libraries/config/config_functions.lib.php';
 require_once './libraries/config/messages.inc.php';
 require_once './libraries/config/ConfigFile.class.php';
 require_once './libraries/url_generating.lib.php';
+require_once './libraries/user_preferences.lib.php';
 
 // use default error handler
 restore_error_handler();
