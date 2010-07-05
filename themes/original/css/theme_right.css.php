@@ -1379,6 +1379,6 @@ a.close_enum_editor {
     float: bottom;
 }
 
-#enum_editor output {
+#enum_editor_output {
     margin-top: 50px;
 }
