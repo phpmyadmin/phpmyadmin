@@ -1802,22 +1802,27 @@ $(document).ready(function() {
         disable_popup();
     });
 
-    // If the "add value" link is clicked, insert another text box
-    $("a[class='add_value']").click(function() {
-        $("#enum_editor #values").append("<input type='text' />");
-    });
-
-    // When the submit button is clicked, put the data back into the original form
+    // When the submit button is clicked, put the data back into the original form if
+    // the "add x more values" checkbox is not checked. Otherwise, just insert x more
+    // textboxes
     $("#enum_editor input[type='submit']").click(function() {
-        var value_array = new Array();
-        $.each($("#enum_editor #values input"), function(index, input_element) {
-            val = jQuery.trim(input_element.value);
-            if(val != "") {
-                value_array.push("'" + val + "'");
+        if($("input[type='checkbox'][name='add_extra_fields']").attr("checked")) {
+            for(i = 0; i < $("input[type='text'][name='extra_fields']").attr("value"); i++) {
+                $("#enum_editor #values").append("<input type='text' />");
             }
-        });
-        var values_id = $("#enum_editor input[type='hidden']").attr("value");
-        $("input[id='" + values_id + "']").attr("value", value_array.join(","));
-        disable_popup();
+            // Uncheck it
+            $("input[type='checkbox'][name='add_extra_fields']").removeAttr("checked");
+        } else {
+            var value_array = new Array();
+            $.each($("#enum_editor #values input"), function(index, input_element) {
+                val = jQuery.trim(input_element.value);
+                if(val != "") {
+                    value_array.push("'" + val + "'");
+                }
+            });
+            var values_id = $("#enum_editor input[type='hidden']").attr("value");
+            $("input[id='" + values_id + "']").attr("value", value_array.join(","));
+            disable_popup();
+        }
     });
 });
