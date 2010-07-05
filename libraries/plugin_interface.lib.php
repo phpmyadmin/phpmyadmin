@@ -314,13 +314,9 @@ function PMA_pluginGetOptions($section, &$list)
     $default = PMA_pluginGetDefault('Export', 'format');
     // Options for plugins that support them
     foreach ($list as $plugin_name => $val) {
-        $ret .= '<div id="' . $plugin_name . '_options" class="format_specific_options"';
-        if($section == 'Import' && $plugin_name == $default) {
-            $ret .= '>';
-        } else {
-            $ret .= ' style="display: none;">';
-        }
+        $ret .= '<div id="' . $plugin_name . '_options" class="format_specific_options">';
         $count = 0;
+            $ret .= '<h3>' . PMA_getString($val['text']) . '</h3>';
         if (isset($val['options']) && count($val['options']) > 0) {
             foreach ($val['options'] as $id => $opt) {
                 if ($opt['type'] != 'hidden' && $opt['type'] != 'begin_group' && $opt['type'] != 'end_group' && $opt['type'] != 'begin_subgroup' && $opt['type'] != 'end_subgroup') {
@@ -330,7 +326,7 @@ function PMA_pluginGetOptions($section, &$list)
             }
         }
         if ($count == 0) {
-            $ret .= __('This format has no options');
+            $ret .= __('<p>This format has no options</p>');
         }
         $ret .= '</div>';
     }

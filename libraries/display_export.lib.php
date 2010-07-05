@@ -67,7 +67,7 @@ if (! empty($sql_query)) {
 }
 ?>
 
-<div class="exportoptions" id="quick_or_custom">
+<div class="exportoptions" id="quick_or_custom" style="display:none;">
     <h3><?php echo __('Export Method:'); ?></h3>
     <ul>
         <li>
@@ -81,7 +81,7 @@ if (! empty($sql_query)) {
     </ul>
 </div>
 
-<div class="exportoptions" id="databases_and_tables" style="display: none;">
+<div class="exportoptions" id="databases_and_tables">
     <?php
         if($export_type == 'server') {
             echo '<h3>' . __('Database(s):') . '</h3>';
@@ -95,7 +95,7 @@ if (! empty($sql_query)) {
 </div>
 
 <?php if (strlen($table) && ! isset($num_tables) && ! PMA_Table::isMerge($db, $table)) { ?>
-    <div class="exportoptions" id="rows" style="display: none;">
+    <div class="exportoptions" id="rows">
         <h3><?php echo __('Rows:'); ?></h3>
         <ul>
             <li>
@@ -119,7 +119,7 @@ if (! empty($sql_query)) {
 
 
 <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
-    <div class="exportoptions" id="output_quick_export">
+    <div class="exportoptions" id="output_quick_export" style="display:none;">
         <h3><?php echo __('Output:'); ?></h3>
         <ul>
             <li>
@@ -140,7 +140,7 @@ if (! empty($sql_query)) {
     </div>
 <?php } ?>
 
-<div class="exportoptions" id="output" style="display: none;">
+<div class="exportoptions" id="output">
     <h3><?php echo __('Output:'); ?></h3>
     <ul id="ul_output">
         <li>
@@ -270,8 +270,9 @@ if (! empty($sql_query)) {
     <?php echo PMA_pluginGetChoice('Export', 'what', $export_list, 'format'); ?>
 </div>
 
-<div class="exportoptions" id="format_specific_opts" style="display: none;">
+<div class="exportoptions" id="format_specific_opts">
     <h3><?php echo __('Format-Specific Options:'); ?></h3>
+    <p class="no_js_msg" id="scroll_to_options_msg">Scroll down to fill in the options for the selected format and ignore the options for other formats.</p>
     <?php echo PMA_pluginGetOptions('Export', $export_list); ?>
 </div>
 

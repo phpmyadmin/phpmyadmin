@@ -230,6 +230,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 
     <div class="importoptions" id="format_specific_opts">
         <h3><?php echo __('Format-Specific Options:'); ?></h3>
+        <p class="no_js_msg" id="scroll_to_options_msg">Scroll down to fill in the options for the selected format and ignore the options for other formats.</p>
         <?php echo PMA_pluginGetOptions('Import', $import_list); ?>
     </div>
         <div class="clearfloat"></div>
