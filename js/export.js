@@ -172,3 +172,19 @@ $(document).ready(function() {
         }
     });
 });
+
+/**
+ * Sets up the interface for Javascript-enabled browsers since the default is for
+ *  Javascript-disabled browsers
+ */
+ $(document).ready(function() {
+    $("#quick_or_custom").show();
+    $("#databases_and_tables").hide();
+    $("#output_quick_export").show();
+    $("#output").hide();
+    $("#format_specific_opts").hide();
+    $("#scroll_to_options_msg").hide();
+    $(".format_specific_options").hide();
+    $(".format_specific_options").css({ "border": 0, "margin": 0, "padding": 0});
+    $(".format_specific_options h3").remove();
+});
