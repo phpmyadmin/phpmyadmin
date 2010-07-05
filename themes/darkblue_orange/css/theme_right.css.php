@@ -57,11 +57,12 @@ pre, tt, code {
     font-size:          110%;
 }
 
-a:link,
+a, a:link,
 a:visited,
 a:active {
     text-decoration:    none;
     color:              #333399;
+    cursor: pointer;
 }
 
 a:hover {
@@ -1316,7 +1317,6 @@ table#serverconnection_trg_local  {
 .exportoptions li, .importoptions li {
     margin: 7px;
 }
-
 .exportoptions label, .importoptions label, .exportoptions p, .importoptions p {
     margin: 5px;
     float: none;
@@ -1343,6 +1343,17 @@ table#serverconnection_trg_local  {
     cursor: pointer;
 }
 
+.format_specific_options h3 {
+    margin: 10px 0px 0px 10px;
+    border: 0px;
+}
+
+.format_specific_options {
+    border: 1px solid #999999;
+    margin: 7px 0px;
+    padding: 3px;
+}
+
 p.desc {
     margin: 5px;
 }
@@ -1355,7 +1366,7 @@ select#db_select, select#table_select {
 }
 
 .export_sub_options {
-    margin: 30px 0px 0px 30px;
+    margin: 20px 0px 0px 30px;
 }
 
 .export_sub_options h4 {
@@ -1391,12 +1402,19 @@ p.enum_notice {
     display: none;
     position: fixed;
     _position: absolute; /* hack for IE */
+    z-index: 101;
+    overflow: auto;
+}
+
+#enum_editor_no_js {
+   margin: auto auto;
+}
+
+#enum_editor, #enum_editor_no_js {
     width: 50%;
     height: 80%;
     background: #D0DCE0;
-    z-index: 101;
     padding: 15px;
-    overflow: auto;
 }
 
 #popup_background {
@@ -1415,16 +1433,20 @@ a.close_enum_editor {
     float: right;
 }
 
-#enum_editor #values {
+#enum_editor #values, #enum_editor_no_js #values {
     margin: 15px 0px;
 }
 
-#enum_editor #values input {
+#enum_editor #values input, #enum_editor_no_js #values input {
     margin: 5px 0px;
     float: top;
     width: 100%;
 }
 
-#enum_editor input {
+#enum_editor input, #enum_editor_no_js input {
     float: bottom;
+}
+
+#enum_editor output {
+    margin-top: 50px;
 }
