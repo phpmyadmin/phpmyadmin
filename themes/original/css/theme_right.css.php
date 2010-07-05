@@ -1276,14 +1276,14 @@ table#serverconnection_trg_local  {
 }
 
 .format_specific_options h3 {
-	margin: 10px 0px 0px 10px;
-	border: 0px;
+    margin: 10px 0px 0px 10px;
+    border: 0px;
 }
 
 .format_specific_options {
-	border: 1px solid #999999;
-	margin: 7px 0px;
-	padding: 3px;
+    border: 1px solid #999999;
+    margin: 7px 0px;
+    padding: 3px;
 }
 
 p.desc {
@@ -1380,5 +1380,5 @@ a.close_enum_editor {
 }
 
 #enum_editor output {
-	margin-top: 50px;
+    margin-top: 50px;
 }
