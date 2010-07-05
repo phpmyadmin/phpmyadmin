@@ -370,7 +370,9 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' value="' . htmlspecialchars($length_to_display) . '"'
         . ' class="textfield" />'
         . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset) . '">';
-    $content_cells[$i][$ci] .= 'ENUM or SET data too long? <a href="enum_editor.php" class="open_enum_editor" target="blank">Get more editing space</a></p>';
+    $content_cells[$i][$ci] .= __('ENUM or SET data too long?')
+        . '<a href="enum_editor.php?' . PMA_generate_common_url() . '&values=' . urlencode($length_to_display) . '&field=' . $field . '" class="open_enum_editor" target="blank"> '
+        . __('Get more editing space') . '</a></p>';
     $ci++;
 
     // column default
@@ -797,8 +799,8 @@ if ($action == 'tbl_create.php') {
 <a class="close_enum_editor">Close</a>
 <p>Enter each value in a separate field.</p>
 <div id="values"></div>
-<p><a class="add_value">+ Add value</a></p>
-<input type="submit" value="Done" /> <a class="cancel_enum_editor">Cancel</a>
+<p><input type="checkbox" name="add_extra_fields" /> Add <input type="text" value="1" name="extra_fields" size="2" /> more values</p>
+<input type="submit" value="Go" /> <a class="cancel_enum_editor">Cancel</a>
 </div>
 
 <div id="popup_background"></div>
