@@ -580,11 +580,11 @@ $cfg['Confirm'] = true;
 $cfg['LoginCookieRecall'] = true;
 
 /**
- * validity of cookie login (in seconds)
+ * validity of cookie login (in seconds; 1800 seconds is 30 minutes)
  *
  * @global integer $cfg['LoginCookieValidity']
  */
-$cfg['LoginCookieValidity'] = 1440;
+$cfg['LoginCookieValidity'] = 1800;
 
 /**
  * how long login cookie should be stored (in seconds)
