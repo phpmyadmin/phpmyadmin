@@ -46,9 +46,12 @@ function PMA_chart_profiling($data)
         $chartData[$key] = $value;
     }
 
+    error_reporting(E_ALL);
+    echo "before new";
     $chart = new PMA_pChart_Pie(
             __('Query execution time comparison (in microseconds)'),
             $chartData);
+    echo "after new";
     echo $chart->toString();
 }
 
@@ -105,7 +108,7 @@ function PMA_chart_results($data, &$chartSettings)
         foreach ($data as $row) {
 
             // save the label
-            // use the same as the value to get rid of duplicate results
+            // use the same value as the key and the value to get rid of duplicate results
             $chartData[$xAxisKey][$row[$xAxisKey]] = $row[$xAxisKey];
 
             // make sure to set value to every serie
