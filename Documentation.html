@@ -946,7 +946,8 @@ since this link provides funding for phpMyAdmin.
         table. To allow the usage of this functionality:
         <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
             <li>put the table name in
-                <tt>$cfg['Servers'][$i]['table_info']</tt></li>
+                <tt>$cfg['Servers'][$i]['table_info']</tt> (e.g.
+                'pma_table_info')</li>
             <li>then for each table where you want to use this feature,
                 click &quot;Structure/Relation view/Choose column to display&quot;
                 to choose the column.</li>
@@ -1005,7 +1006,8 @@ since this link provides funding for phpMyAdmin.
         <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
                 infrastructure</li>
             <li>put the table name in
-                <tt>$cfg['Servers'][$i]['column_info']</tt></li>
+                <tt>$cfg['Servers'][$i]['column_info']</tt> (e.g.
+                'pma_column_info')</li>
             <li>to update your PRE-2.5.0 Column_comments Table use this:
 
                 <pre>
@@ -1045,6 +1047,7 @@ ALTER TABLE `pma_column_comments`
         <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
                 infrastructure</li>
             <li>put the table name in <tt>$cfg['Servers'][$i]['history']</tt>
+            (e.g. 'pma_history')
                 </li>
         </ul>
     </dd>
@@ -1075,7 +1078,7 @@ ALTER TABLE `pma_column_comments`
 
         <ul>
             <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
-            <li>put the table name in <tt>$cfg['Servers'][$i]['tracking']</tt></li>
+            <li>put the table name in <tt>$cfg['Servers'][$i]['tracking']</tt> (e.g. 'pma_tracking')</li>
         </ul>
     </dd>
 
@@ -1147,7 +1150,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 
         <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
                 infrastructure</li>
-            <li>put the table name in <tt>$cfg['Servers'][$i]['designer_coords']</tt>
+            <li>put the table name in <tt>$cfg['Servers'][$i]['designer_coords']</tt> (e.g. 'pma_designer_coords')
                 </li>
         </ul>
     </dd>
@@ -1312,7 +1315,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Path for storing session data (<a
     href="http://php.net/session_save_path">session_save_path PHP parameter</a>).</dd>
 
-    <dt id="cfg_MemoryLimit">$cfg['MemoryLimit'] integer [number of bytes]</dt>
+    <dt id="cfg_MemoryLimit">$cfg['MemoryLimit'] string [number of bytes]</dt>
     <dd>Set the number of bytes a script is allowed to allocate. If set
         to zero, no limit is imposed.<br />
         This setting is used while importing/exporting dump files and at some
@@ -3365,7 +3368,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 
 <h4 id="login_bug">
     <a href="#login_bug">3.1 When using
-    <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication, an user
+    <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication, a user
     who logged out can not log in again in with the same nick.</a></h4>
 
 <p> This is related to the authentication mechanism (protocol) used by
@@ -4334,6 +4337,12 @@ chmod o+rwx tmp
 	<li>Finally when you browse your table, you'll see in your column a link to stream your data, for example &quot;View image&quot;. A header containing the correct MIME-type will be sent to your browser; this MIME-type was stored at upload time but in case it's incorrect, it's possible to edit it by clicking on the displayed MIME-type.</li> 
 </ol>	
 
+<h4 id="faq6_26">
+    <a href="#faq6_26">6.26 How can I select a range of rows?</a></h4>
+
+<p> Click the first row of the range, hold the shift key and click the last row of the range. This works everywhere you see rows, for example in Browse mode or on the Structure page.</p>
+
+
 <h3 id="faqproject">phpMyAdmin project</h3>
 
 <h4 id="faq7_1">
@@ -4372,7 +4381,7 @@ chmod o+rwx tmp
 </p>
 <p>
     You can then put your translations, as a zip file to avoid losing special
-    characters, on the sourceforge.net <a href="https://sourceforge.net/tracker/?group_id=23067&atid=387645">translation tracker.</a>
+    characters, on the sourceforge.net <a href="https://sourceforge.net/tracker/?group_id=23067&amp;atid=387645">translation tracker.</a>
 </p>
 <p>
     It would be a good idea to subscribe to the <a href="https://lists.sourceforge.net/lists/listinfo/phpmyadmin-translators">phpmyadmin-translators</a> mailing

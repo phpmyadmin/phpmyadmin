@@ -66,6 +66,9 @@ $GLOBALS['js_events'][] = array(
  * upgrade phpMyAdmin are not stuck with older .js files in their
  * browser cache. This produces an HTTP 304 request for each file.
  */
+
+// avoid loading twice a js file
+$GLOBALS['js_include'] = array_unique($GLOBALS['js_include']);
 foreach ($GLOBALS['js_include'] as $js_script_file) {
     if (strpos($js_script_file, '?') === FALSE) {
         echo '<script src="./js/' . $js_script_file . '?ts=' . filemtime('./js/' . $js_script_file) . '" type="text/javascript"></script>' . "\n";

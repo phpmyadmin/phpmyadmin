@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-13 09:03-0400\n"
+"POT-Creation-Date: 2010-07-03 09:00-0400\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: bangla <bn@li.org>\n"
@@ -47,14 +47,14 @@ msgstr "খুঁজুন"
 #: db_operations.php:499 db_operations.php:609 db_search.php:362
 #: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
-#: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
+#: libraries/auth/cookie.auth.lib.php:290 libraries/common.lib.php:719
 #: libraries/common.lib.php:1335 libraries/common.lib.php:2288
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
+#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
-#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
-#: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
+#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:76
+#: libraries/replication_gui.lib.php:372 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
@@ -63,10 +63,10 @@ msgstr "খুঁজুন"
 #: server_privileges.php:1971 server_privileges.php:2018
 #: server_privileges.php:2057 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
-#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:265
+#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
+#: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
-#: tbl_operations.php:681 tbl_select.php:327 tbl_structure.php:562
+#: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
@@ -98,7 +98,7 @@ msgid "Database comment: "
 msgstr "ডাটাবেজ মন্তব্যসমূহঃ"
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
-#: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
+#: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:129
 msgid "Table comments"
 msgstr "Table comments"
 
@@ -106,9 +106,9 @@ msgstr "Table comments"
 #: libraries/export/htmlword.php:244 libraries/export/latex.php:360
 #: libraries/export/odt.php:294 libraries/export/texytext.php:233
 #: libraries/tbl_properties.inc.php:99 libraries/tbl_properties.inc.php:275
-#: pdf_schema.php:1262 pdf_schema.php:1283 tbl_change.php:308
-#: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
-#: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
+#: pdf_schema.php:1262 pdf_schema.php:1283 tbl_change.php:307
+#: tbl_indexes.php:189 tbl_printview.php:141 tbl_relation.php:402
+#: tbl_select.php:134 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
 #, fuzzy
 #| msgid "Column names"
@@ -121,8 +121,8 @@ msgstr "কলামের নাম"
 #: libraries/export/latex.php:360 libraries/export/odt.php:297
 #: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:100
 #: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2070
-#: tbl_change.php:287 tbl_change.php:314 tbl_printview.php:143
-#: tbl_printview.php:313 tbl_select.php:136 tbl_structure.php:178
+#: tbl_change.php:286 tbl_change.php:313 tbl_printview.php:142
+#: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
 #: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
 msgstr "Type"
@@ -131,7 +131,7 @@ msgstr "Type"
 #: libraries/export/htmlword.php:246 libraries/export/latex.php:360
 #: libraries/export/odt.php:300 libraries/export/texytext.php:235
 #: libraries/tbl_properties.inc.php:109 pdf_schema.php:1265
-#: pdf_schema.php:1286 tbl_change.php:323 tbl_printview.php:145
+#: pdf_schema.php:1286 tbl_change.php:322 tbl_printview.php:144
 #: tbl_structure.php:181 tbl_tracking.php:276 tbl_tracking.php:327
 msgid "Null"
 msgstr "খালি"
@@ -139,7 +139,7 @@ msgstr "খালি"
 #: db_datadict.php:178 db_structure.php:501 libraries/export/htmlword.php:247
 #: libraries/export/latex.php:360 libraries/export/odt.php:303
 #: libraries/export/texytext.php:236 libraries/tbl_properties.inc.php:106
-#: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:146
+#: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:145
 #: tbl_structure.php:182 tbl_tracking.php:277
 msgid "Default"
 msgstr "ডিফল্ট"
@@ -147,7 +147,7 @@ msgstr "ডিফল্ট"
 #: db_datadict.php:182 libraries/export/htmlword.php:249
 #: libraries/export/latex.php:362 libraries/export/odt.php:307
 #: libraries/export/texytext.php:238 pdf_schema.php:1268 pdf_schema.php:1289
-#: tbl_printview.php:150
+#: tbl_printview.php:149
 msgid "Links to"
 msgstr "Links to"
 
@@ -156,7 +156,7 @@ msgstr "Links to"
 #: libraries/export/odt.php:38 libraries/export/odt.php:312
 #: libraries/export/sql.php:30 libraries/export/texytext.php:241
 #: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
-#: pdf_schema.php:1290 tbl_printview.php:152
+#: pdf_schema.php:1290 tbl_printview.php:151
 msgid "Comments"
 msgstr "মন্তব্যসমূহ"
 
@@ -166,7 +166,7 @@ msgstr "মন্তব্যসমূহ"
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:263
 #: pdf_schema.php:1344 server_privileges.php:1568 server_privileges.php:1579
 #: server_privileges.php:1889 server_privileges.php:1894
-#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:229
+#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:228
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "না"
@@ -183,12 +183,12 @@ msgstr "না"
 #: server_databases.php:64 server_privileges.php:1565
 #: server_privileges.php:1579 server_privileges.php:1889
 #: server_privileges.php:1892 server_privileges.php:2187 sql.php:193
-#: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:350
+#: tbl_printview.php:228 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
 msgstr "হ্যাঁ"
 
-#: db_datadict.php:322 db_printview.php:266 tbl_printview.php:498
+#: db_datadict.php:322 db_printview.php:266 tbl_printview.php:497
 msgid "Print"
 msgstr "প্রিন্ট কর"
 
@@ -231,7 +231,7 @@ msgstr "ডাটাবেজ রিনেম কর"
 msgid "Command"
 msgstr "নির্দেশ"
 
-#: db_operations.php:429 tbl_change.php:1143
+#: db_operations.php:429 tbl_change.php:1140
 msgid "and then"
 msgstr "এবং তারপর"
 
@@ -323,7 +323,7 @@ msgstr "Enabled"
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
 #: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
 #: server_collations.php:54 server_collations.php:66 server_databases.php:111
-#: tbl_operations.php:363 tbl_select.php:137 tbl_structure.php:179
+#: tbl_operations.php:363 tbl_select.php:136 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "Collation"
@@ -353,7 +353,7 @@ msgstr "টেবিল"
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
-#: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
+#: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr "Rows"
 
@@ -367,19 +367,19 @@ msgid "in use"
 msgstr "in use"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
-#: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:434
+#: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
 #: tbl_structure.php:809
 msgid "Creation"
 msgstr "Creation"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
-#: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:444
+#: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
 #: tbl_structure.php:817
 msgid "Last update"
 msgstr "সর্বশেষ আপডেট"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
-#: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:454
+#: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
 #: tbl_structure.php:825
 msgid "Last check"
 msgstr "Last check"
@@ -411,19 +411,19 @@ msgstr "সাজাঁন"
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:260
-#: tbl_select.php:314
+#: tbl_select.php:312
 msgid "Ascending"
 msgstr "Ascending"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:261
-#: tbl_select.php:315
+#: tbl_select.php:313
 msgid "Descending"
 msgstr "Descending"
 
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
-#: tbl_change.php:277 tbl_tracking.php:597
+#: tbl_change.php:276 tbl_tracking.php:597
 msgid "Show"
 msgstr "দেখান"
 
@@ -444,9 +444,9 @@ msgid "Del"
 msgstr "Del"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
-#: libraries/display_import.lib.php:166 libraries/tbl_properties.inc.php:779
-#: server_privileges.php:297 tbl_change.php:1031 tbl_indexes.php:250
-#: tbl_select.php:288
+#: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
+#: server_privileges.php:297 tbl_change.php:1028 tbl_indexes.php:250
+#: tbl_select.php:286
 msgid "Or"
 msgstr "অথবা"
 
@@ -485,7 +485,7 @@ msgstr "Submit Query"
 
 #: db_search.php:68 libraries/auth/config.auth.lib.php:84
 #: libraries/auth/config.auth.lib.php:103
-#: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:671 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:183
 msgid "Access denied"
 msgstr "প্রবেশ নিষেধ"
@@ -664,7 +664,7 @@ msgid "Check All"
 msgstr "সব পরীক্ষা করুন"
 
 #: db_structure.php:531 libraries/display_tbl.lib.php:2077
-#: libraries/replication_gui.lib.php:33 server_databases.php:350
+#: libraries/replication_gui.lib.php:36 server_databases.php:350
 #: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
 msgid "Uncheck All"
 msgstr "Uncheck All"
@@ -855,7 +855,7 @@ msgstr ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "FAQ 1.16."
 
-#: import.php:372 libraries/display_import.lib.php:24
+#: import.php:372 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr "ইমপোর্ট প্লাগ ইন লোড করা যায়নি, আপনার ইন্সষ্টলেশন পরীক্ষা করুন"
 
@@ -1036,7 +1036,7 @@ msgstr "পূর্ববর্তী"
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:77 libraries/common.lib.php:2353
 #: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
-#: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
+#: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
 #: tbl_structure.php:801
 msgid "Next"
 msgstr "পরবর্তী"
@@ -1416,7 +1416,7 @@ msgstr "ডাটাবেজসমূহ Databases"
 
 #: libraries/Message.class.php:211 libraries/common.lib.php:581
 #: libraries/core.lib.php:261 libraries/import.lib.php:135 pdf_schema.php:32
-#: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
+#: pdf_schema.php:232 tbl_change.php:1024 tbl_operations.php:213
 #: tbl_relation.php:290 view_operations.php:62
 msgid "Error"
 msgstr "ভূল"
@@ -1521,7 +1521,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "সংযোগ স্থাপন করা যায়নিঃ invalid settings."
 
 #: libraries/auth/config.auth.lib.php:92
-#: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:217 libraries/auth/http.auth.lib.php:65
 #: test/theme.php:152
 #, php-format
 msgid "Welcome to %s"
@@ -1548,56 +1548,56 @@ msgstr ""
 "পরীক্ষা করুন এবং তা আপনার Mysql সার্ভারের অ্যাডমিনিষ্টেট্রররের দেওয়া তথ্যের অনুরুপ "
 "কিনা তা নিশ্চত করুন।"
 
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:242
 msgid "Log in"
 msgstr "লগ ইন"
 
+#: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:246
-#: libraries/auth/cookie.auth.lib.php:248
 #: libraries/navigation_header.inc.php:93
 #: libraries/navigation_header.inc.php:95
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin documentation"
 
-#: libraries/auth/cookie.auth.lib.php:258
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:256
+#: libraries/auth/cookie.auth.lib.php:257
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:258
+#: libraries/auth/cookie.auth.lib.php:256
 msgid "Server:"
 msgstr "সার্ভার"
 
-#: libraries/auth/cookie.auth.lib.php:263
+#: libraries/auth/cookie.auth.lib.php:261
 msgid "Username:"
 msgstr "ব্যাবহারকারী"
 
-#: libraries/auth/cookie.auth.lib.php:267
+#: libraries/auth/cookie.auth.lib.php:265
 msgid "Password:"
 msgstr "পাসওয়ার্ড"
 
-#: libraries/auth/cookie.auth.lib.php:274
+#: libraries/auth/cookie.auth.lib.php:272
 msgid "Server Choice"
 msgstr "Server Choice"
 
-#: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
+#: libraries/auth/cookie.auth.lib.php:318 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
 msgstr "Cookies must be enabled past this point."
 
-#: libraries/auth/cookie.auth.lib.php:671
+#: libraries/auth/cookie.auth.lib.php:669
 #: libraries/auth/signon.auth.lib.php:181
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:675
+#: libraries/auth/cookie.auth.lib.php:673
 #: libraries/auth/signon.auth.lib.php:185
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "No activity within %s seconds; please log in again"
 
+#: libraries/auth/cookie.auth.lib.php:683
 #: libraries/auth/cookie.auth.lib.php:685
-#: libraries/auth/cookie.auth.lib.php:687
 #: libraries/auth/signon.auth.lib.php:191
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL সার্ভার এ লগ ইন করা যায়নি"
@@ -1660,7 +1660,7 @@ msgstr ""
 "Couldn't use either the iconv, libiconv or recode_string functions, although "
 "the necessary extensions appear to be loaded. Check your PHP configuration."
 
-#: libraries/common.inc.php:583
+#: libraries/common.inc.php:576
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1676,13 +1676,13 @@ msgstr ""
 "semicolon is missing somewhere.<br />If you receive a blank page, everything "
 "is fine."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:587
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "\"%1$s\" হতে ডিফল্ট কনফিগারেশন লোড করা যায়নি"
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:592
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1690,28 +1690,28 @@ msgstr ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:622
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Invalid server index: \"%s\""
 
-#: libraries/common.inc.php:636
+#: libraries/common.inc.php:629
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Invalid hostname for server %1$s. Please review your configuration."
 
-#: libraries/common.inc.php:645 libraries/header.inc.php:96
+#: libraries/common.inc.php:638 libraries/header.inc.php:96
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
 msgstr "সার্ভার"
 
-#: libraries/common.inc.php:823
+#: libraries/common.inc.php:816
 msgid "Invalid authentication method set in configuration:"
 msgstr "Invalid authentication method set in configuration:"
 
-#: libraries/common.inc.php:926
+#: libraries/common.inc.php:919
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "You should upgrade to %s %s or later."
@@ -1962,7 +1962,7 @@ msgid ""
 msgstr "হয়ত আনুমানিক। FAQ ৩.১১ দেখ। "
 
 #: libraries/db_structure.lib.php:69 server_databases.php:142
-#: tbl_printview.php:336 tbl_structure.php:682
+#: tbl_printview.php:335 tbl_structure.php:682
 msgid "Overhead"
 msgstr "Overhead"
 
@@ -1989,21 +1989,21 @@ msgid "Change password"
 msgstr "পাসওয়ার্ড পরিবর্তন কর"
 
 #: libraries/display_change_password.lib.php:35
-#: libraries/replication_gui.lib.php:345 server_privileges.php:807
+#: libraries/replication_gui.lib.php:348 server_privileges.php:807
 msgid "No Password"
 msgstr "কোন পাসওয়ার্ড নাই"
 
 #: libraries/display_change_password.lib.php:41
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:335 libraries/replication_gui.lib.php:339
-#: libraries/replication_gui.lib.php:349 server_privileges.php:796
+#: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
+#: libraries/replication_gui.lib.php:338 libraries/replication_gui.lib.php:342
+#: libraries/replication_gui.lib.php:352 server_privileges.php:796
 #: server_privileges.php:800 server_privileges.php:811
 #: server_privileges.php:1538 server_synchronize.php:1175
 msgid "Password"
 msgstr "পাসওয়ার্ড"
 
 #: libraries/display_change_password.lib.php:46
-#: libraries/replication_gui.lib.php:353 libraries/replication_gui.lib.php:356
+#: libraries/replication_gui.lib.php:356 libraries/replication_gui.lib.php:359
 #: server_privileges.php:815 server_privileges.php:818
 msgid "Re-type"
 msgstr "Re-type"
@@ -2019,12 +2019,12 @@ msgid "MySQL 4.0 compatible"
 msgstr "MySQL&nbsp;4.0 compatible"
 
 #: libraries/display_change_password.lib.php:72
-#: libraries/replication_gui.lib.php:360 server_privileges.php:822
+#: libraries/replication_gui.lib.php:363 server_privileges.php:822
 msgid "Generate Password"
 msgstr "পাসওয়ার্ড তৈরী কর"
 
 #: libraries/display_change_password.lib.php:75
-#: libraries/replication_gui.lib.php:363 server_privileges.php:825
+#: libraries/replication_gui.lib.php:366 server_privileges.php:825
 msgid "Generate"
 msgstr "তৈরী কর"
 
@@ -2117,8 +2117,8 @@ msgstr ""
 msgid "remember template"
 msgstr "টেমপ্লেট মনে রাখ"
 
-#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:178
-#: libraries/display_import.lib.php:191 libraries/sql_query_form.lib.php:549
+#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:549
 msgid "Character set of the file:"
 msgstr "ফাইল এর অক্ষরসমূহঃ"
 
@@ -2126,8 +2126,8 @@ msgstr "ফাইল এর অক্ষরসমূহঃ"
 msgid "Compression"
 msgstr "সংকোচন"
 
-#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
-#: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
+#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:196
+#: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1875 server_processlist.php:75
 msgid "None"
@@ -2150,62 +2150,62 @@ msgstr "\"bzipped\""
 msgid "SQL compatibility mode"
 msgstr "SQL compatibility mode"
 
-#: libraries/display_import.lib.php:67
+#: libraries/display_import.lib.php:66
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
 
-#: libraries/display_import.lib.php:77
+#: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
 msgstr ""
 
-#: libraries/display_import.lib.php:99
+#: libraries/display_import.lib.php:98
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
 
-#: libraries/display_import.lib.php:126
+#: libraries/display_import.lib.php:125
 msgid "File to import"
 msgstr "ইম্পোর্ট করার জন্য ফাইল"
 
-#: libraries/display_import.lib.php:137 libraries/sql_query_form.lib.php:524
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr "Location of the text file"
 
-#: libraries/display_import.lib.php:148
+#: libraries/display_import.lib.php:147
 msgid "File uploads are not allowed on this server."
 msgstr "File uploads are not allowed on this server."
 
-#: libraries/display_import.lib.php:163 libraries/sql_query_form.lib.php:533
-#: tbl_change.php:1028
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:533
+#: tbl_change.php:1025
 msgid "The directory you set for upload work cannot be reached"
 msgstr "The directory you set for upload work cannot be reached"
 
-#: libraries/display_import.lib.php:166 libraries/sql_query_form.lib.php:536
-#: tbl_change.php:1031
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:536
+#: tbl_change.php:1028
 msgid "web server upload directory"
 msgstr "web server upload directory"
 
-#: libraries/display_import.lib.php:212
+#: libraries/display_import.lib.php:211
 #, php-format
 msgid "Imported file compression will be automatically detected from: %s"
 msgstr "আমদানিকৃত ফাইল সংকোচন %s হতে স্বয়ংক্রিয়ভাবে মুছে ফেলা হবে"
 
-#: libraries/display_import.lib.php:219
+#: libraries/display_import.lib.php:218
 msgid "Partial import"
 msgstr "Partial import"
 
-#: libraries/display_import.lib.php:225
+#: libraries/display_import.lib.php:224
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 "Previous import timed out, after resubmitting will continue from position %d."
 
-#: libraries/display_import.lib.php:232
+#: libraries/display_import.lib.php:231
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. This might be good way to import large files, "
@@ -2215,13 +2215,13 @@ msgstr ""
 "This might be good way to import large files, however it can break "
 "transactions."
 
-#: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
+#: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:161
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Number of records(queries) to skip from start"
 
-#: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
+#: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
 msgstr "ইম্পোর্ট করা ফাইল ফরমেট কর"
 
@@ -2319,7 +2319,7 @@ msgstr "Sort by key"
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
-#: libraries/import/xml.php:25 tbl_select.php:267 tbl_structure.php:753
+#: libraries/import/xml.php:25 tbl_select.php:265 tbl_structure.php:753
 #, fuzzy
 msgid "Options"
 msgstr "Operations"
@@ -2355,8 +2355,8 @@ msgstr ""
 msgid "Show binary contents as HEX"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:314
-#: tbl_change.php:320
+#: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:313
+#: tbl_change.php:319
 msgid "Hide"
 msgstr ""
 
@@ -2468,7 +2468,7 @@ msgstr "Buffer Pool Usage"
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:525 server_status.php:586
-#: server_status.php:607 tbl_printview.php:351 tbl_structure.php:696
+#: server_status.php:607 tbl_printview.php:350 tbl_structure.php:696
 msgid "Total"
 msgstr "মোট"
 
@@ -2729,7 +2729,7 @@ msgid ""
 msgstr ""
 
 #: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
-#: tbl_printview.php:376 tbl_structure.php:737
+#: tbl_printview.php:375 tbl_structure.php:737
 msgid "Format"
 msgstr "ফরমেট"
 
@@ -2801,7 +2801,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
 #: libraries/export/sql.php:106 libraries/export/sql.php:868
 #: libraries/export/texytext.php:27 server_databases.php:127
-#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:317
+#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:316
 #: tbl_structure.php:665
 msgid "Data"
 msgstr "ডাটা"
@@ -2849,9 +2849,9 @@ msgstr "মাইম এর ধরন"
 
 #: libraries/export/latex.php:125 libraries/export/sql.php:232
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
-#: libraries/replication_gui.lib.php:63 libraries/replication_gui.lib.php:174
-#: libraries/replication_gui.lib.php:269 libraries/replication_gui.lib.php:272
-#: libraries/replication_gui.lib.php:329 server_privileges.php:731
+#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
+#: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
+#: libraries/replication_gui.lib.php:332 server_privileges.php:731
 #: server_privileges.php:734 server_privileges.php:790
 #: server_privileges.php:1537 server_privileges.php:2069
 #: server_processlist.php:55 server_synchronize.php:1159
@@ -3223,7 +3223,7 @@ msgid "Primary"
 msgstr "প্রাথমিক"
 
 #: libraries/mult_submits.inc.php:98 libraries/tbl_properties.inc.php:116
-#: libraries/tbl_properties.inc.php:525 tbl_printview.php:326
+#: libraries/tbl_properties.inc.php:525 tbl_printview.php:325
 #: tbl_structure.php:31 tbl_structure.php:154 tbl_structure.php:158
 #: tbl_structure.php:475 tbl_structure.php:673
 msgid "Index"
@@ -3243,190 +3243,190 @@ msgstr "No change"
 msgid "Charset"
 msgstr "Charset"
 
-#: libraries/mysql_charsets.lib.php:201 libraries/mysql_charsets.lib.php:402
-#: tbl_change.php:518
+#: libraries/mysql_charsets.lib.php:211 libraries/mysql_charsets.lib.php:412
+#: tbl_change.php:516
 msgid "Binary"
 msgstr "বাইনারী"
 
-#: libraries/mysql_charsets.lib.php:213
+#: libraries/mysql_charsets.lib.php:223
 msgid "Bulgarian"
 msgstr "বুলগেরিয়ান"
 
-#: libraries/mysql_charsets.lib.php:217 libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:352
 msgid "Simplified Chinese"
 msgstr "Simplified Chinese"
 
-#: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:362
+#: libraries/mysql_charsets.lib.php:229 libraries/mysql_charsets.lib.php:372
 msgid "Traditional Chinese"
 msgstr "Traditional Chinese"
 
-#: libraries/mysql_charsets.lib.php:223 libraries/mysql_charsets.lib.php:409
+#: libraries/mysql_charsets.lib.php:233 libraries/mysql_charsets.lib.php:419
 msgid "case-insensitive"
 msgstr "case-insensitive"
 
-#: libraries/mysql_charsets.lib.php:226 libraries/mysql_charsets.lib.php:411
+#: libraries/mysql_charsets.lib.php:236 libraries/mysql_charsets.lib.php:421
 msgid "case-sensitive"
 msgstr "case-sensitive"
 
-#: libraries/mysql_charsets.lib.php:229
+#: libraries/mysql_charsets.lib.php:239
 msgid "Croatian"
 msgstr "Croatian"
 
-#: libraries/mysql_charsets.lib.php:232
+#: libraries/mysql_charsets.lib.php:242
 msgid "Czech"
 msgstr "চেক"
 
-#: libraries/mysql_charsets.lib.php:235
+#: libraries/mysql_charsets.lib.php:245
 msgid "Danish"
 msgstr "ড্যানিশ"
 
-#: libraries/mysql_charsets.lib.php:238
+#: libraries/mysql_charsets.lib.php:248
 msgid "English"
 msgstr "ইংরেজী"
 
-#: libraries/mysql_charsets.lib.php:241
+#: libraries/mysql_charsets.lib.php:251
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/mysql_charsets.lib.php:244
+#: libraries/mysql_charsets.lib.php:254
 msgid "Estonian"
 msgstr "Estonian"
 
-#: libraries/mysql_charsets.lib.php:247 libraries/mysql_charsets.lib.php:250
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:260
 msgid "German"
 msgstr "জার্মান"
 
-#: libraries/mysql_charsets.lib.php:247
+#: libraries/mysql_charsets.lib.php:257
 msgid "dictionary"
 msgstr "অভিধান"
 
-#: libraries/mysql_charsets.lib.php:250
+#: libraries/mysql_charsets.lib.php:260
 msgid "phone book"
 msgstr "phone book"
 
-#: libraries/mysql_charsets.lib.php:253
+#: libraries/mysql_charsets.lib.php:263
 msgid "Hungarian"
 msgstr "হাংগেরিয়ান"
 
-#: libraries/mysql_charsets.lib.php:256
+#: libraries/mysql_charsets.lib.php:266
 msgid "Icelandic"
 msgstr "Icelandic"
 
-#: libraries/mysql_charsets.lib.php:259 libraries/mysql_charsets.lib.php:349
+#: libraries/mysql_charsets.lib.php:269 libraries/mysql_charsets.lib.php:359
 msgid "Japanese"
 msgstr "Japanese"
 
-#: libraries/mysql_charsets.lib.php:262
+#: libraries/mysql_charsets.lib.php:272
 msgid "Latvian"
 msgstr "Latvian"
 
-#: libraries/mysql_charsets.lib.php:265
+#: libraries/mysql_charsets.lib.php:275
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: libraries/mysql_charsets.lib.php:268 libraries/mysql_charsets.lib.php:371
+#: libraries/mysql_charsets.lib.php:278 libraries/mysql_charsets.lib.php:381
 msgid "Korean"
 msgstr "কোরিয়ান"
 
-#: libraries/mysql_charsets.lib.php:271
+#: libraries/mysql_charsets.lib.php:281
 msgid "Persian"
 msgstr "পারসিয়ান"
 
-#: libraries/mysql_charsets.lib.php:274
+#: libraries/mysql_charsets.lib.php:284
 msgid "Polish"
 msgstr "পোলিশ"
 
-#: libraries/mysql_charsets.lib.php:277 libraries/mysql_charsets.lib.php:325
+#: libraries/mysql_charsets.lib.php:287 libraries/mysql_charsets.lib.php:335
 msgid "West European"
 msgstr "West European"
 
-#: libraries/mysql_charsets.lib.php:280
+#: libraries/mysql_charsets.lib.php:290
 msgid "Romanian"
 msgstr "রোমানিয়ান"
 
-#: libraries/mysql_charsets.lib.php:283
+#: libraries/mysql_charsets.lib.php:293
 msgid "Slovak"
 msgstr "Slovak"
 
-#: libraries/mysql_charsets.lib.php:286
+#: libraries/mysql_charsets.lib.php:296
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: libraries/mysql_charsets.lib.php:289
+#: libraries/mysql_charsets.lib.php:299
 msgid "Spanish"
 msgstr "Spanish"
 
-#: libraries/mysql_charsets.lib.php:292
+#: libraries/mysql_charsets.lib.php:302
 msgid "Traditional Spanish"
 msgstr "Traditional Spanish"
 
-#: libraries/mysql_charsets.lib.php:295 libraries/mysql_charsets.lib.php:392
+#: libraries/mysql_charsets.lib.php:305 libraries/mysql_charsets.lib.php:402
 msgid "Swedish"
 msgstr "সুইডিশ"
 
-#: libraries/mysql_charsets.lib.php:298 libraries/mysql_charsets.lib.php:395
+#: libraries/mysql_charsets.lib.php:308 libraries/mysql_charsets.lib.php:405
 msgid "Thai"
 msgstr "Thai"
 
-#: libraries/mysql_charsets.lib.php:301 libraries/mysql_charsets.lib.php:389
+#: libraries/mysql_charsets.lib.php:311 libraries/mysql_charsets.lib.php:399
 msgid "Turkish"
 msgstr "Turkish"
 
-#: libraries/mysql_charsets.lib.php:304 libraries/mysql_charsets.lib.php:386
+#: libraries/mysql_charsets.lib.php:314 libraries/mysql_charsets.lib.php:396
 msgid "Ukrainian"
 msgstr "Ukrainian"
 
-#: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
+#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
 msgid "Unicode"
 msgstr "ইউনিকোড"
 
-#: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
-#: libraries/mysql_charsets.lib.php:325 libraries/mysql_charsets.lib.php:332
-#: libraries/mysql_charsets.lib.php:354 libraries/mysql_charsets.lib.php:365
+#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
+#: libraries/mysql_charsets.lib.php:335 libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:364 libraries/mysql_charsets.lib.php:375
 msgid "multilingual"
 msgstr "বহুভাষী"
 
-#: libraries/mysql_charsets.lib.php:332
+#: libraries/mysql_charsets.lib.php:342
 msgid "Central European"
 msgstr "Central European"
 
-#: libraries/mysql_charsets.lib.php:337
+#: libraries/mysql_charsets.lib.php:347
 msgid "Russian"
 msgstr "রাশিয়ান"
 
-#: libraries/mysql_charsets.lib.php:354
+#: libraries/mysql_charsets.lib.php:364
 msgid "Baltic"
 msgstr "ব্যাল্টিক"
 
-#: libraries/mysql_charsets.lib.php:359
+#: libraries/mysql_charsets.lib.php:369
 msgid "Armenian"
 msgstr "আরমেনিয়ান"
 
-#: libraries/mysql_charsets.lib.php:365
+#: libraries/mysql_charsets.lib.php:375
 msgid "Cyrillic"
 msgstr "Cyrillic"
 
-#: libraries/mysql_charsets.lib.php:368
+#: libraries/mysql_charsets.lib.php:378
 msgid "Arabic"
 msgstr "আরবী"
 
-#: libraries/mysql_charsets.lib.php:374
+#: libraries/mysql_charsets.lib.php:384
 msgid "Hebrew"
 msgstr "হীব্রূ"
 
-#: libraries/mysql_charsets.lib.php:377
+#: libraries/mysql_charsets.lib.php:387
 msgid "Georgian"
 msgstr "জরজীয়ান"
 
-#: libraries/mysql_charsets.lib.php:380
+#: libraries/mysql_charsets.lib.php:390
 msgid "Greek"
 msgstr "গ্রীক"
 
-#: libraries/mysql_charsets.lib.php:383
+#: libraries/mysql_charsets.lib.php:393
 msgid "Czech-Slovak"
 msgstr "চেক-স্লোভাক"
 
-#: libraries/mysql_charsets.lib.php:398 libraries/mysql_charsets.lib.php:405
+#: libraries/mysql_charsets.lib.php:408 libraries/mysql_charsets.lib.php:415
 msgid "unknown"
 msgstr "অজানা"
 
@@ -3513,100 +3513,100 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1173
+#: libraries/relation.lib.php:1172
 msgid "no description"
 msgstr "কোন বর্ণনা নাই"
 
-#: libraries/replication_gui.lib.php:51
+#: libraries/replication_gui.lib.php:54
 msgid "Slave configuration"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:51 server_replication.php:347
+#: libraries/replication_gui.lib.php:54 server_replication.php:347
 msgid "Change or reconfigure master server"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:52
+#: libraries/replication_gui.lib.php:55
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:55 libraries/replication_gui.lib.php:56
-#: libraries/replication_gui.lib.php:249 libraries/replication_gui.lib.php:252
-#: libraries/replication_gui.lib.php:259 server_privileges.php:711
+#: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
+#: libraries/replication_gui.lib.php:252 libraries/replication_gui.lib.php:255
+#: libraries/replication_gui.lib.php:262 server_privileges.php:711
 #: server_privileges.php:714 server_privileges.php:721
 #: server_synchronize.php:1171
 msgid "User name"
 msgstr "ব্যাভারকারীর নাম"
 
-#: libraries/replication_gui.lib.php:67 server_synchronize.php:1163
+#: libraries/replication_gui.lib.php:70 server_synchronize.php:1163
 #, fuzzy
 msgid "Port"
 msgstr "সাজাঁন"
 
-#: libraries/replication_gui.lib.php:103
+#: libraries/replication_gui.lib.php:106
 #, fuzzy
 msgid "Master status"
 msgstr "Show slave status"
 
-#: libraries/replication_gui.lib.php:105
+#: libraries/replication_gui.lib.php:108
 #, fuzzy
 msgid "Slave status"
 msgstr "Show slave status"
 
-#: libraries/replication_gui.lib.php:114 libraries/sql_query_form.lib.php:445
+#: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:445
 #: server_status.php:737 server_variables.php:52
 msgid "Variable"
 msgstr "চলক"
 
-#: libraries/replication_gui.lib.php:115 server_status.php:738
-#: tbl_change.php:324 tbl_printview.php:370 tbl_select.php:139
+#: libraries/replication_gui.lib.php:118 server_status.php:738
+#: tbl_change.php:323 tbl_printview.php:369 tbl_select.php:138
 #: tbl_structure.php:729
 msgid "Value"
 msgstr "মান"
 
-#: libraries/replication_gui.lib.php:173 server_binlog.php:218
+#: libraries/replication_gui.lib.php:176 server_binlog.php:218
 msgid "Server ID"
 msgstr "সার্ভারের আইডি"
 
-#: libraries/replication_gui.lib.php:192
+#: libraries/replication_gui.lib.php:195
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:240 server_replication.php:194
+#: libraries/replication_gui.lib.php:243 server_replication.php:194
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:254 server_privileges.php:716
+#: libraries/replication_gui.lib.php:257 server_privileges.php:716
 msgid "Any user"
 msgstr "যেকোন ব্যাবহারকারী"
 
-#: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:323
-#: libraries/replication_gui.lib.php:346 server_privileges.php:717
+#: libraries/replication_gui.lib.php:258 libraries/replication_gui.lib.php:326
+#: libraries/replication_gui.lib.php:349 server_privileges.php:717
 #: server_privileges.php:784 server_privileges.php:808
 #: server_privileges.php:1928 server_privileges.php:1958
 msgid "Use text field"
 msgstr "Use text field"
 
-#: libraries/replication_gui.lib.php:302 server_privileges.php:764
+#: libraries/replication_gui.lib.php:305 server_privileges.php:764
 msgid "Any host"
 msgstr "যেকোন হোষ্ট"
 
-#: libraries/replication_gui.lib.php:306 server_privileges.php:768
+#: libraries/replication_gui.lib.php:309 server_privileges.php:768
 msgid "Local"
 msgstr "লোকাল"
 
-#: libraries/replication_gui.lib.php:312 server_privileges.php:773
+#: libraries/replication_gui.lib.php:315 server_privileges.php:773
 msgid "This Host"
 msgstr "This Host"
 
-#: libraries/replication_gui.lib.php:318 server_privileges.php:779
+#: libraries/replication_gui.lib.php:321 server_privileges.php:779
 msgid "Use Host Table"
 msgstr "Use Host Table"
 
-#: libraries/replication_gui.lib.php:331 server_privileges.php:792
+#: libraries/replication_gui.lib.php:334 server_privileges.php:792
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -3847,7 +3847,7 @@ msgstr ""
 "escaping or quotes, using this format: a"
 
 #: libraries/tbl_properties.inc.php:108 pdf_schema.php:1264
-#: pdf_schema.php:1285 tbl_printview.php:144 tbl_structure.php:180
+#: pdf_schema.php:1285 tbl_printview.php:143 tbl_structure.php:180
 msgid "Attributes"
 msgstr "Attributes"
 
@@ -3907,7 +3907,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
-#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1126 tbl_indexes.php:248
+#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1123 tbl_indexes.php:248
 #: tbl_relation.php:566
 msgid "Save"
 msgstr "সেভ করুন"
@@ -4123,7 +4123,7 @@ msgid "Custom color"
 msgstr ""
 
 #: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
-#: tbl_change.php:1175
+#: tbl_change.php:1172
 msgid "Reset"
 msgstr "রিসেট করুন"
 
@@ -4343,7 +4343,7 @@ msgstr "Relational schema"
 msgid "Table of contents"
 msgstr "Table of contents"
 
-#: pdf_schema.php:1267 pdf_schema.php:1288 tbl_printview.php:147
+#: pdf_schema.php:1267 pdf_schema.php:1288 tbl_printview.php:146
 #: tbl_structure.php:183 tbl_tracking.php:278
 msgid "Extra"
 msgstr "অতিরিক্ত"
@@ -7789,72 +7789,72 @@ msgstr "লেবেল"
 msgid "Table %1$s has been altered successfully"
 msgstr "The selected users have been deleted successfully."
 
-#: tbl_change.php:252 tbl_select.php:27 tbl_select.php:28 tbl_select.php:31
+#: tbl_change.php:251 tbl_select.php:27 tbl_select.php:28 tbl_select.php:31
 #: tbl_select.php:34
 msgid "Browse foreign values"
 msgstr "Browse foreign values"
 
-#: tbl_change.php:282 tbl_change.php:320
+#: tbl_change.php:281 tbl_change.php:319
 msgid "Function"
 msgstr "ফাংশন"
 
-#: tbl_change.php:302 tbl_indexes.php:200 tbl_indexes.php:225
+#: tbl_change.php:301 tbl_indexes.php:200 tbl_indexes.php:225
 msgid "Ignore"
 msgstr "Ignore"
 
-#: tbl_change.php:728
+#: tbl_change.php:726
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Because of its length,<br /> this field might not be editable "
 
-#: tbl_change.php:888
+#: tbl_change.php:885
 msgid "Remove BLOB Repository Reference"
 msgstr ""
 
-#: tbl_change.php:894
+#: tbl_change.php:891
 msgid "Binary - do not edit"
 msgstr "বাইনারী -সম্পাদনা করবেন না"
 
-#: tbl_change.php:987
+#: tbl_change.php:984
 msgid "Upload to BLOB repository"
 msgstr ""
 
-#: tbl_change.php:1130
+#: tbl_change.php:1127
 msgid "Insert as new row"
 msgstr "Insert as new row"
 
-#: tbl_change.php:1131
+#: tbl_change.php:1128
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:1132
+#: tbl_change.php:1129
 msgid "Show insert query"
 msgstr ""
 
-#: tbl_change.php:1147
+#: tbl_change.php:1144
 msgid "Go back to previous page"
 msgstr "পূর্বের পাতায় ফিরে যাও"
 
-#: tbl_change.php:1148
+#: tbl_change.php:1145
 msgid "Insert another new row"
 msgstr "নতুন আরেকটি সাড়ি যোগ করুন"
 
-#: tbl_change.php:1152
+#: tbl_change.php:1149
 msgid "Go back to this page"
 msgstr "এই পাতায় ফিরে যাও"
 
-#: tbl_change.php:1160
+#: tbl_change.php:1157
 msgid "Edit next row"
 msgstr "পরবর্তী সাড়ি সম্পাদনা করুন"
 
-#: tbl_change.php:1171
+#: tbl_change.php:1168
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 
-#: tbl_change.php:1209
+#: tbl_change.php:1206
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr ""
@@ -8025,43 +8025,43 @@ msgstr ""
 msgid "Check referential integrity:"
 msgstr "Check referential integrity:"
 
-#: tbl_printview.php:75
+#: tbl_printview.php:74
 msgid "Show tables"
 msgstr "Show tables"
 
-#: tbl_printview.php:310 tbl_structure.php:656
+#: tbl_printview.php:309 tbl_structure.php:656
 msgid "Space usage"
 msgstr "Space usage"
 
-#: tbl_printview.php:314 tbl_structure.php:660
+#: tbl_printview.php:313 tbl_structure.php:660
 msgid "Usage"
 msgstr "ব্যাবহার"
 
-#: tbl_printview.php:341 tbl_structure.php:687
+#: tbl_printview.php:340 tbl_structure.php:687
 msgid "Effective"
 msgstr "Effective"
 
-#: tbl_printview.php:366 tbl_structure.php:725
+#: tbl_printview.php:365 tbl_structure.php:725
 msgid "Row Statistics"
 msgstr "Row Statistics"
 
-#: tbl_printview.php:369 tbl_structure.php:728
+#: tbl_printview.php:368 tbl_structure.php:728
 msgid "Statements"
 msgstr "Statements"
 
-#: tbl_printview.php:380 tbl_structure.php:740
+#: tbl_printview.php:379 tbl_structure.php:740
 msgid "static"
 msgstr ""
 
-#: tbl_printview.php:382 tbl_structure.php:742
+#: tbl_printview.php:381 tbl_structure.php:742
 msgid "dynamic"
 msgstr "ডায়নামিক"
 
-#: tbl_printview.php:404 tbl_structure.php:785
+#: tbl_printview.php:403 tbl_structure.php:785
 msgid "Row length"
 msgstr "সাড়ির দৈর্ঘ্য"
 
-#: tbl_printview.php:414 tbl_structure.php:793
+#: tbl_printview.php:413 tbl_structure.php:793
 msgid " Row size "
 msgstr " সাড়ির আকার"
 
@@ -8090,29 +8090,29 @@ msgstr ""
 msgid "No rows selected"
 msgstr "No rows selected"
 
-#: tbl_select.php:132
+#: tbl_select.php:131
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Do a \"query by example\" (wildcard: \"%\")"
 
-#: tbl_select.php:138
+#: tbl_select.php:137
 msgid "Operator"
 msgstr "অপারেটর"
 
-#: tbl_select.php:270
+#: tbl_select.php:268
 #, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Select fields (at least one):"
 
-#: tbl_select.php:288
+#: tbl_select.php:286
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "খোঁজার শর্ত যোগ কর (body of the \"where\" clause):"
 
-#: tbl_select.php:295
+#: tbl_select.php:293
 msgid "Number of rows per page"
 msgstr "Number of rows per page"
 
-#: tbl_select.php:301
+#: tbl_select.php:299
 msgid "Display order:"
 msgstr "ক্রম প্রদর্শন কর"
 

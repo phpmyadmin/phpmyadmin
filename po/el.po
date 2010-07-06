@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-13 09:03-0400\n"
+"POT-Creation-Date: 2010-07-03 09:00-0400\n"
 "PO-Revision-Date: 2010-03-30 23:16+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -48,14 +48,14 @@ msgstr "Αναζήτηση"
 #: db_operations.php:499 db_operations.php:609 db_search.php:362
 #: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
-#: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
+#: libraries/auth/cookie.auth.lib.php:290 libraries/common.lib.php:719
 #: libraries/common.lib.php:1335 libraries/common.lib.php:2288
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
+#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
-#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
-#: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
+#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:76
+#: libraries/replication_gui.lib.php:372 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
@@ -64,10 +64,10 @@ msgstr "Αναζήτηση"
 #: server_privileges.php:1971 server_privileges.php:2018
 #: server_privileges.php:2057 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
-#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:265
+#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
+#: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
-#: tbl_operations.php:681 tbl_select.php:327 tbl_structure.php:562
+#: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
@@ -99,7 +99,7 @@ msgid "Database comment: "
 msgstr "Σχόλιο βάσης: "
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
-#: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
+#: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:129
 msgid "Table comments"
 msgstr "Σχόλια Πίνακα"
 
@@ -107,9 +107,9 @@ msgstr "Σχόλια Πίνακα"
 #: libraries/export/htmlword.php:244 libraries/export/latex.php:360
 #: libraries/export/odt.php:294 libraries/export/texytext.php:233
 #: libraries/tbl_properties.inc.php:99 libraries/tbl_properties.inc.php:275
-#: pdf_schema.php:1262 pdf_schema.php:1283 tbl_change.php:308
-#: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
-#: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
+#: pdf_schema.php:1262 pdf_schema.php:1283 tbl_change.php:307
+#: tbl_indexes.php:189 tbl_printview.php:141 tbl_relation.php:402
+#: tbl_select.php:134 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
 #, fuzzy
 #| msgid "Column names"
@@ -122,8 +122,8 @@ msgstr "Ονόματα στηλών"
 #: libraries/export/latex.php:360 libraries/export/odt.php:297
 #: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:100
 #: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2070
-#: tbl_change.php:287 tbl_change.php:314 tbl_printview.php:143
-#: tbl_printview.php:313 tbl_select.php:136 tbl_structure.php:178
+#: tbl_change.php:286 tbl_change.php:313 tbl_printview.php:142
+#: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
 #: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
 msgstr "Τύπος"
@@ -132,7 +132,7 @@ msgstr "Τύπος"
 #: libraries/export/htmlword.php:246 libraries/export/latex.php:360
 #: libraries/export/odt.php:300 libraries/export/texytext.php:235
 #: libraries/tbl_properties.inc.php:109 pdf_schema.php:1265
-#: pdf_schema.php:1286 tbl_change.php:323 tbl_printview.php:145
+#: pdf_schema.php:1286 tbl_change.php:322 tbl_printview.php:144
 #: tbl_structure.php:181 tbl_tracking.php:276 tbl_tracking.php:327
 msgid "Null"
 msgstr "Κενό"
@@ -140,7 +140,7 @@ msgstr "Κενό"
 #: db_datadict.php:178 db_structure.php:501 libraries/export/htmlword.php:247
 #: libraries/export/latex.php:360 libraries/export/odt.php:303
 #: libraries/export/texytext.php:236 libraries/tbl_properties.inc.php:106
-#: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:146
+#: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:145
 #: tbl_structure.php:182 tbl_tracking.php:277
 msgid "Default"
 msgstr "Προκαθορισμένο"
@@ -148,7 +148,7 @@ msgstr "Προκαθορισμένο"
 #: db_datadict.php:182 libraries/export/htmlword.php:249
 #: libraries/export/latex.php:362 libraries/export/odt.php:307
 #: libraries/export/texytext.php:238 pdf_schema.php:1268 pdf_schema.php:1289
-#: tbl_printview.php:150
+#: tbl_printview.php:149
 msgid "Links to"
 msgstr "Σύνδεση με"
 
@@ -157,7 +157,7 @@ msgstr "Σύνδεση με"
 #: libraries/export/odt.php:38 libraries/export/odt.php:312
 #: libraries/export/sql.php:30 libraries/export/texytext.php:241
 #: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
-#: pdf_schema.php:1290 tbl_printview.php:152
+#: pdf_schema.php:1290 tbl_printview.php:151
 msgid "Comments"
 msgstr "Σχόλια"
 
@@ -167,7 +167,7 @@ msgstr "Σχόλια"
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:263
 #: pdf_schema.php:1344 server_privileges.php:1568 server_privileges.php:1579
 #: server_privileges.php:1889 server_privileges.php:1894
-#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:229
+#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:228
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "Όχι"
@@ -184,12 +184,12 @@ msgstr "Όχι"
 #: server_databases.php:64 server_privileges.php:1565
 #: server_privileges.php:1579 server_privileges.php:1889
 #: server_privileges.php:1892 server_privileges.php:2187 sql.php:193
-#: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:350
+#: tbl_printview.php:228 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
 msgstr "Ναι"
 
-#: db_datadict.php:322 db_printview.php:266 tbl_printview.php:498
+#: db_datadict.php:322 db_printview.php:266 tbl_printview.php:497
 msgid "Print"
 msgstr "Εκτύπωση"
 
@@ -232,7 +232,7 @@ msgstr "Μετονομασία βάσης δεδομένων σε"
 msgid "Command"
 msgstr "Εντολή"
 
-#: db_operations.php:429 tbl_change.php:1143
+#: db_operations.php:429 tbl_change.php:1140
 msgid "and then"
 msgstr "και μετά"
 
@@ -320,7 +320,7 @@ msgstr "Ενεργοποίηση"
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
 #: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
 #: server_collations.php:54 server_collations.php:66 server_databases.php:111
-#: tbl_operations.php:363 tbl_select.php:137 tbl_structure.php:179
+#: tbl_operations.php:363 tbl_select.php:136 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "Σύνθεση"
@@ -350,7 +350,7 @@ msgstr "Πίνακας "
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
-#: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
+#: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr "Εγγραφές"
 
@@ -364,19 +364,19 @@ msgid "in use"
 msgstr "σε χρήση"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
-#: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:434
+#: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
 #: tbl_structure.php:809
 msgid "Creation"
 msgstr "Δημιουργία"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
-#: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:444
+#: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
 #: tbl_structure.php:817
 msgid "Last update"
 msgstr "Τελευταία ενημέρωση"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
-#: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:454
+#: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
 #: tbl_structure.php:825
 msgid "Last check"
 msgstr "τελευταίος έλεγχος"
@@ -408,19 +408,19 @@ msgstr "Ταξινόμηση"
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:260
-#: tbl_select.php:314
+#: tbl_select.php:312
 msgid "Ascending"
 msgstr "Αύξουσα"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:261
-#: tbl_select.php:315
+#: tbl_select.php:313
 msgid "Descending"
 msgstr "Φθίνουσα"
 
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
-#: tbl_change.php:277 tbl_tracking.php:597
+#: tbl_change.php:276 tbl_tracking.php:597
 msgid "Show"
 msgstr "Εμφάνιση"
 
@@ -441,9 +441,9 @@ msgid "Del"
 msgstr "Διαγραφή"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
-#: libraries/display_import.lib.php:166 libraries/tbl_properties.inc.php:779
-#: server_privileges.php:297 tbl_change.php:1031 tbl_indexes.php:250
-#: tbl_select.php:288
+#: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
+#: server_privileges.php:297 tbl_change.php:1028 tbl_indexes.php:250
+#: tbl_select.php:286
 msgid "Or"
 msgstr "Ή"
 
@@ -482,7 +482,7 @@ msgstr "Υποβολή ερωτήματος"
 
 #: db_search.php:68 libraries/auth/config.auth.lib.php:84
 #: libraries/auth/config.auth.lib.php:103
-#: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:671 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:183
 msgid "Access denied"
 msgstr "Άρνηση Πρόσβασης"
@@ -664,7 +664,7 @@ msgid "Check All"
 msgstr "Επιλογή όλων"
 
 #: db_structure.php:531 libraries/display_tbl.lib.php:2077
-#: libraries/replication_gui.lib.php:33 server_databases.php:350
+#: libraries/replication_gui.lib.php:36 server_databases.php:350
 #: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
 msgid "Uncheck All"
 msgstr "Απεπιλογή όλων"
@@ -849,7 +849,7 @@ msgstr ""
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
 "της ΡΗΡ. Δείτε τις ΣΑΕ 1.16."
 
-#: import.php:372 libraries/display_import.lib.php:24
+#: import.php:372 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Αδύνατη η φόρτωση προσθέτων εισαγωγής. Ελέξτε την εγκατάστασή σας!"
 
@@ -1031,7 +1031,7 @@ msgstr "Προηγούμενο"
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:77 libraries/common.lib.php:2353
 #: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
-#: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
+#: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
 #: tbl_structure.php:801
 msgid "Next"
 msgstr "Επόμενο"
@@ -1394,7 +1394,7 @@ msgstr "Βάσεις Δεδομένων"
 
 #: libraries/Message.class.php:211 libraries/common.lib.php:581
 #: libraries/core.lib.php:261 libraries/import.lib.php:135 pdf_schema.php:32
-#: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
+#: pdf_schema.php:232 tbl_change.php:1024 tbl_operations.php:213
 #: tbl_relation.php:290 view_operations.php:62
 msgid "Error"
 msgstr "λάθος"
@@ -1498,7 +1498,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Αδύνατη η σύνδεση: άκυρες ρυθμίσεις."
 
 #: libraries/auth/config.auth.lib.php:92
-#: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:217 libraries/auth/http.auth.lib.php:65
 #: test/theme.php:152
 #, php-format
 msgid "Welcome to %s"
@@ -1526,45 +1526,45 @@ msgstr ""
 "και να βεβαιωθείτε ότι αντιστοιχούν σε αυτά που σας έχει δώσει ο "
 "διαχειρηστής του διακομιστή MySQL."
 
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:242
 msgid "Log in"
 msgstr "Σύνδεση"
 
+#: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:246
-#: libraries/auth/cookie.auth.lib.php:248
 #: libraries/navigation_header.inc.php:93
 #: libraries/navigation_header.inc.php:95
 msgid "phpMyAdmin documentation"
 msgstr "Τεκμηρίωση phpMyAdmin"
 
-#: libraries/auth/cookie.auth.lib.php:258
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:256
+#: libraries/auth/cookie.auth.lib.php:257
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Μπορείτε να εισάγετε όνομα διακομιστή/διεύθυνση ΙΡ και θύρα χωρισμένα με "
 "κενό."
 
-#: libraries/auth/cookie.auth.lib.php:258
+#: libraries/auth/cookie.auth.lib.php:256
 msgid "Server:"
 msgstr "Διακομιστής"
 
-#: libraries/auth/cookie.auth.lib.php:263
+#: libraries/auth/cookie.auth.lib.php:261
 msgid "Username:"
 msgstr "Όνομα χρήστη:"
 
-#: libraries/auth/cookie.auth.lib.php:267
+#: libraries/auth/cookie.auth.lib.php:265
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: libraries/auth/cookie.auth.lib.php:274
+#: libraries/auth/cookie.auth.lib.php:272
 msgid "Server Choice"
 msgstr "Επιλογή Διακομιστή"
 
-#: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
+#: libraries/auth/cookie.auth.lib.php:318 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
 msgstr "Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένα cookies."
 
-#: libraries/auth/cookie.auth.lib.php:671
+#: libraries/auth/cookie.auth.lib.php:669
 #: libraries/auth/signon.auth.lib.php:181
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -1572,15 +1572,15 @@ msgstr ""
 "Η σύνδεση χωρίς κωδικό πρόσβασης απαγορεύεται από τις ρυθμίσεις (δείτε τη "
 "μεταβλητή AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:675
+#: libraries/auth/cookie.auth.lib.php:673
 #: libraries/auth/signon.auth.lib.php:185
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "Καμιά δραστηριότητα εδώ και %s δευτερόλεπτα τουλάχιστον. Ξανασυνδεθείτε"
 
+#: libraries/auth/cookie.auth.lib.php:683
 #: libraries/auth/cookie.auth.lib.php:685
-#: libraries/auth/cookie.auth.lib.php:687
 #: libraries/auth/signon.auth.lib.php:191
 msgid "Cannot log in to the MySQL server"
 msgstr "Δεν ήταν δυνατή η σύνδεση με τον διακομιστή MySQL"
@@ -1645,7 +1645,7 @@ msgstr ""
 "ρουτίνας recode_string, ενώ η επέκταση έχει φορτωθεί. Ελέξτε τις ρυθμίσεις "
 "της php."
 
-#: libraries/common.inc.php:583
+#: libraries/common.inc.php:576
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1662,12 +1662,12 @@ msgstr ""
 "(\") ή ερωτηματικά (;).<br />Εάν η php επιστρέψει μια λευκή σελίδα, όλα "
 "είναι σωστά."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:587
 #, fuzzy, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Αδύνατη η φόρτωση της προεπιλεγμένης ρύθμισης από: «%1$s»"
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:592
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1675,29 +1675,29 @@ msgstr ""
 "Η εντολή <tt>$cfg['PmaAbsoluteUri']</tt> ΠΡΕΠΕΙ να οριστεί στο αρχείο "
 "ρυθμίσεων!"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:622
 #, fuzzy, php-format
 msgid "Invalid server index: %s"
 msgstr "Μη έγκυρο ευρετήριο διακομιστή: «%s»"
 
-#: libraries/common.inc.php:636
+#: libraries/common.inc.php:629
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Μη έγκυρο όνομα διακομιστή για τον διακομιστή %1$s. Ξαναδείτε τις ρυθμίσεις "
 "σας."
 
-#: libraries/common.inc.php:645 libraries/header.inc.php:96
+#: libraries/common.inc.php:638 libraries/header.inc.php:96
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
 msgstr "Διακομιστής"
 
-#: libraries/common.inc.php:823
+#: libraries/common.inc.php:816
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ορίστηκε εσφαλμένη μέθοδος πιστοποίησης στη ρύθμιση:"
 
-#: libraries/common.inc.php:926
+#: libraries/common.inc.php:919
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Πρέπει να αναβαθμίσετε σε %s %s ή νεότερη."
@@ -1943,7 +1943,7 @@ msgid ""
 msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις ΣΑΕ 3.11"
 
 #: libraries/db_structure.lib.php:69 server_databases.php:142
-#: tbl_printview.php:336 tbl_structure.php:682
+#: tbl_printview.php:335 tbl_structure.php:682
 msgid "Overhead"
 msgstr "Περίσσεια"
 
@@ -1970,21 +1970,21 @@ msgid "Change password"
 msgstr "Αλλαγή κωδικού πρόσβασης"
 
 #: libraries/display_change_password.lib.php:35
-#: libraries/replication_gui.lib.php:345 server_privileges.php:807
+#: libraries/replication_gui.lib.php:348 server_privileges.php:807
 msgid "No Password"
 msgstr "Χωρίς Κωδικό Πρόσβασης"
 
 #: libraries/display_change_password.lib.php:41
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:335 libraries/replication_gui.lib.php:339
-#: libraries/replication_gui.lib.php:349 server_privileges.php:796
+#: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
+#: libraries/replication_gui.lib.php:338 libraries/replication_gui.lib.php:342
+#: libraries/replication_gui.lib.php:352 server_privileges.php:796
 #: server_privileges.php:800 server_privileges.php:811
 #: server_privileges.php:1538 server_synchronize.php:1175
 msgid "Password"
 msgstr "Κωδικός Πρόσβασης"
 
 #: libraries/display_change_password.lib.php:46
-#: libraries/replication_gui.lib.php:353 libraries/replication_gui.lib.php:356
+#: libraries/replication_gui.lib.php:356 libraries/replication_gui.lib.php:359
 #: server_privileges.php:815 server_privileges.php:818
 msgid "Re-type"
 msgstr "Επαναεισαγωγή"
@@ -1999,12 +1999,12 @@ msgid "MySQL 4.0 compatible"
 msgstr "Συμβατό με MySQL 4.0"
 
 #: libraries/display_change_password.lib.php:72
-#: libraries/replication_gui.lib.php:360 server_privileges.php:822
+#: libraries/replication_gui.lib.php:363 server_privileges.php:822
 msgid "Generate Password"
 msgstr "Παραγωγή Κωδικού Πρόσβασης"
 
 #: libraries/display_change_password.lib.php:75
-#: libraries/replication_gui.lib.php:363 server_privileges.php:825
+#: libraries/replication_gui.lib.php:366 server_privileges.php:825
 msgid "Generate"
 msgstr "Παραγωγή"
 
@@ -2098,8 +2098,8 @@ msgstr ""
 msgid "remember template"
 msgstr "αποθήκευση μορφής"
 
-#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:178
-#: libraries/display_import.lib.php:191 libraries/sql_query_form.lib.php:549
+#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:549
 msgid "Character set of the file:"
 msgstr "Σύνολο χαρακτήρων του αρχείου:"
 
@@ -2107,8 +2107,8 @@ msgstr "Σύνολο χαρακτήρων του αρχείου:"
 msgid "Compression"
 msgstr "Συμπίεση"
 
-#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
-#: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
+#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:196
+#: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1875 server_processlist.php:75
 msgid "None"
@@ -2131,7 +2131,7 @@ msgstr "συμπίεση «bzip»"
 msgid "SQL compatibility mode"
 msgstr "Κατάσταση συμβατότητας SQL"
 
-#: libraries/display_import.lib.php:67
+#: libraries/display_import.lib.php:66
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -2141,11 +2141,11 @@ msgstr ""
 "αυτό είναι ένα γνωστό σφάλμα φυλλομετρητή (Safari, Google Chrome, Arora "
 "κλπ.)."
 
-#: libraries/display_import.lib.php:77
+#: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
 msgstr "Η εισαγωγή του αρχείου είναι σε εξέλιξη, υπομονή."
 
-#: libraries/display_import.lib.php:99
+#: libraries/display_import.lib.php:98
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -2153,39 +2153,39 @@ msgstr ""
 "Υπομονή, το αρχείο αποστέλεται. Λεπτομέρειες για την αποστολή δεν είναι "
 "διαθέσιμες."
 
-#: libraries/display_import.lib.php:126
+#: libraries/display_import.lib.php:125
 msgid "File to import"
 msgstr "Αρχείο για εισαγωγή"
 
-#: libraries/display_import.lib.php:137 libraries/sql_query_form.lib.php:524
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr "Τοποθεσία του αρχείου κειμένου"
 
-#: libraries/display_import.lib.php:148
+#: libraries/display_import.lib.php:147
 msgid "File uploads are not allowed on this server."
 msgstr "Οι αποστολές αρχείων δεν επιτρέπονται σε αυτό τον διακομιστή."
 
-#: libraries/display_import.lib.php:163 libraries/sql_query_form.lib.php:533
-#: tbl_change.php:1028
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:533
+#: tbl_change.php:1025
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 "Ο υποκατάλογος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί"
 
-#: libraries/display_import.lib.php:166 libraries/sql_query_form.lib.php:536
-#: tbl_change.php:1031
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:536
+#: tbl_change.php:1028
 msgid "web server upload directory"
 msgstr "Υποκατάλογος αποθήκευσης αρχείων διακομιστή"
 
-#: libraries/display_import.lib.php:212
+#: libraries/display_import.lib.php:211
 #, php-format
 msgid "Imported file compression will be automatically detected from: %s"
 msgstr "Η συμπίεση του εισαχθέντος αρχείου θα αναγνωριστεί αυτόματα από: %s"
 
-#: libraries/display_import.lib.php:219
+#: libraries/display_import.lib.php:218
 msgid "Partial import"
 msgstr "Μερική εισαγωγή"
 
-#: libraries/display_import.lib.php:225
+#: libraries/display_import.lib.php:224
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -2193,7 +2193,7 @@ msgstr ""
 "Η προηγούμενη εισαγωγή εξάντλησε το χρονικό όριο, μετά την επανυποβολή θα "
 "συνεχίσει από τη θέση %d."
 
-#: libraries/display_import.lib.php:232
+#: libraries/display_import.lib.php:231
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. This might be good way to import large files, "
@@ -2203,13 +2203,13 @@ msgstr ""
 "εφαρμογή του κώδικα προσεγγίζει το χρονικό όριο. Αυτό μπορεί να είναι καλό "
 "για εισαγωγή μεγάλων αρχείων, ωστόσο, μπορεί να κόψει τις μεταφορές."
 
-#: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
+#: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:161
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Αριθμός εγγραφών (ερωτημάτων) που θα παραβλεφθούν από την αρχή"
 
-#: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
+#: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
 msgstr "Μορφή εισαχθέντος αρχείου"
 
@@ -2307,7 +2307,7 @@ msgstr "Ταξινόμηση ανά κλειδί"
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
-#: libraries/import/xml.php:25 tbl_select.php:267 tbl_structure.php:753
+#: libraries/import/xml.php:25 tbl_select.php:265 tbl_structure.php:753
 msgid "Options"
 msgstr "Επιλογές"
 
@@ -2341,8 +2341,8 @@ msgstr "Εμφάνιση περιεχομένων BLOB"
 msgid "Show binary contents as HEX"
 msgstr "Εμφάνιση δυαδικών περιεχομένων ως Δεκαεξαδικά"
 
-#: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:314
-#: tbl_change.php:320
+#: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:313
+#: tbl_change.php:319
 msgid "Hide"
 msgstr "Απόκρυψη"
 
@@ -2455,7 +2455,7 @@ msgstr "Χρήση Buffer Pool"
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:525 server_status.php:586
-#: server_status.php:607 tbl_printview.php:351 tbl_structure.php:696
+#: server_status.php:607 tbl_printview.php:350 tbl_structure.php:696
 msgid "Total"
 msgstr "Σύνολο"
 
@@ -2747,7 +2747,7 @@ msgstr ""
 "τους δίδεται ο επόμενος αύξων αριθμός."
 
 #: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
-#: tbl_printview.php:376 tbl_structure.php:737
+#: tbl_printview.php:375 tbl_structure.php:737
 msgid "Format"
 msgstr "Μορφοποίηση"
 
@@ -2821,7 +2821,7 @@ msgstr "Έγγραφο Microsoft Word 2000"
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
 #: libraries/export/sql.php:106 libraries/export/sql.php:868
 #: libraries/export/texytext.php:27 server_databases.php:127
-#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:317
+#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:316
 #: tbl_structure.php:665
 msgid "Data"
 msgstr "Δεδομένα"
@@ -2869,9 +2869,9 @@ msgstr "Τύπος MIME"
 
 #: libraries/export/latex.php:125 libraries/export/sql.php:232
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
-#: libraries/replication_gui.lib.php:63 libraries/replication_gui.lib.php:174
-#: libraries/replication_gui.lib.php:269 libraries/replication_gui.lib.php:272
-#: libraries/replication_gui.lib.php:329 server_privileges.php:731
+#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
+#: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
+#: libraries/replication_gui.lib.php:332 server_privileges.php:731
 #: server_privileges.php:734 server_privileges.php:790
 #: server_privileges.php:1537 server_privileges.php:2069
 #: server_processlist.php:55 server_synchronize.php:1159
@@ -3234,7 +3234,7 @@ msgid "Primary"
 msgstr "Πρωτεύον"
 
 #: libraries/mult_submits.inc.php:98 libraries/tbl_properties.inc.php:116
-#: libraries/tbl_properties.inc.php:525 tbl_printview.php:326
+#: libraries/tbl_properties.inc.php:525 tbl_printview.php:325
 #: tbl_structure.php:31 tbl_structure.php:154 tbl_structure.php:158
 #: tbl_structure.php:475 tbl_structure.php:673
 msgid "Index"
@@ -3254,190 +3254,190 @@ msgstr "Χωρίς αλλαγή"
 msgid "Charset"
 msgstr "Σύνολο χαρακτήρων"
 
-#: libraries/mysql_charsets.lib.php:201 libraries/mysql_charsets.lib.php:402
-#: tbl_change.php:518
+#: libraries/mysql_charsets.lib.php:211 libraries/mysql_charsets.lib.php:412
+#: tbl_change.php:516
 msgid "Binary"
 msgstr "Δυαδικό"
 
-#: libraries/mysql_charsets.lib.php:213
+#: libraries/mysql_charsets.lib.php:223
 msgid "Bulgarian"
 msgstr "Βουλγαρικά"
 
-#: libraries/mysql_charsets.lib.php:217 libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:352
 msgid "Simplified Chinese"
 msgstr "Απλοποιημένα Κινεζικά"
 
-#: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:362
+#: libraries/mysql_charsets.lib.php:229 libraries/mysql_charsets.lib.php:372
 msgid "Traditional Chinese"
 msgstr "Παραδοσιακά Κινεζικά"
 
-#: libraries/mysql_charsets.lib.php:223 libraries/mysql_charsets.lib.php:409
+#: libraries/mysql_charsets.lib.php:233 libraries/mysql_charsets.lib.php:419
 msgid "case-insensitive"
 msgstr "χωρίς ταίριασμα πεζών-κεφαλαίων"
 
-#: libraries/mysql_charsets.lib.php:226 libraries/mysql_charsets.lib.php:411
+#: libraries/mysql_charsets.lib.php:236 libraries/mysql_charsets.lib.php:421
 msgid "case-sensitive"
 msgstr "ταίριασμα πεζών-κεφαλαίων"
 
-#: libraries/mysql_charsets.lib.php:229
+#: libraries/mysql_charsets.lib.php:239
 msgid "Croatian"
 msgstr "Κροατικά"
 
-#: libraries/mysql_charsets.lib.php:232
+#: libraries/mysql_charsets.lib.php:242
 msgid "Czech"
 msgstr "Τσεχικά"
 
-#: libraries/mysql_charsets.lib.php:235
+#: libraries/mysql_charsets.lib.php:245
 msgid "Danish"
 msgstr "Δανικά"
 
-#: libraries/mysql_charsets.lib.php:238
+#: libraries/mysql_charsets.lib.php:248
 msgid "English"
 msgstr "Αγγλικά"
 
-#: libraries/mysql_charsets.lib.php:241
+#: libraries/mysql_charsets.lib.php:251
 msgid "Esperanto"
 msgstr "Εσπεράντο"
 
-#: libraries/mysql_charsets.lib.php:244
+#: libraries/mysql_charsets.lib.php:254
 msgid "Estonian"
 msgstr "Εσθονικά"
 
-#: libraries/mysql_charsets.lib.php:247 libraries/mysql_charsets.lib.php:250
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:260
 msgid "German"
 msgstr "Γερμανικά"
 
-#: libraries/mysql_charsets.lib.php:247
+#: libraries/mysql_charsets.lib.php:257
 msgid "dictionary"
 msgstr "περιληπτικός πίνακας"
 
-#: libraries/mysql_charsets.lib.php:250
+#: libraries/mysql_charsets.lib.php:260
 msgid "phone book"
 msgstr "τηλ. κατάλογος"
 
-#: libraries/mysql_charsets.lib.php:253
+#: libraries/mysql_charsets.lib.php:263
 msgid "Hungarian"
 msgstr "Ουγγρικά"
 
-#: libraries/mysql_charsets.lib.php:256
+#: libraries/mysql_charsets.lib.php:266
 msgid "Icelandic"
 msgstr "Ισλανδικά"
 
-#: libraries/mysql_charsets.lib.php:259 libraries/mysql_charsets.lib.php:349
+#: libraries/mysql_charsets.lib.php:269 libraries/mysql_charsets.lib.php:359
 msgid "Japanese"
 msgstr "Ιαπωνικά"
 
-#: libraries/mysql_charsets.lib.php:262
+#: libraries/mysql_charsets.lib.php:272
 msgid "Latvian"
 msgstr "Λιθουανικά"
 
-#: libraries/mysql_charsets.lib.php:265
+#: libraries/mysql_charsets.lib.php:275
 msgid "Lithuanian"
 msgstr "Λιθουανικά"
 
-#: libraries/mysql_charsets.lib.php:268 libraries/mysql_charsets.lib.php:371
+#: libraries/mysql_charsets.lib.php:278 libraries/mysql_charsets.lib.php:381
 msgid "Korean"
 msgstr "Κορεατικά"
 
-#: libraries/mysql_charsets.lib.php:271
+#: libraries/mysql_charsets.lib.php:281
 msgid "Persian"
 msgstr "Περσικά"
 
-#: libraries/mysql_charsets.lib.php:274
+#: libraries/mysql_charsets.lib.php:284
 msgid "Polish"
 msgstr "Πολωνικά"
 
-#: libraries/mysql_charsets.lib.php:277 libraries/mysql_charsets.lib.php:325
+#: libraries/mysql_charsets.lib.php:287 libraries/mysql_charsets.lib.php:335
 msgid "West European"
 msgstr "Δυτικής Ευρώπης"
 
-#: libraries/mysql_charsets.lib.php:280
+#: libraries/mysql_charsets.lib.php:290
 msgid "Romanian"
 msgstr "Ρουμάνικα"
 
-#: libraries/mysql_charsets.lib.php:283
+#: libraries/mysql_charsets.lib.php:293
 msgid "Slovak"
 msgstr "Σλοβάκικα"
 
-#: libraries/mysql_charsets.lib.php:286
+#: libraries/mysql_charsets.lib.php:296
 msgid "Slovenian"
 msgstr "Σλοβένικα"
 
-#: libraries/mysql_charsets.lib.php:289
+#: libraries/mysql_charsets.lib.php:299
 msgid "Spanish"
 msgstr "Ισπανικά"
 
-#: libraries/mysql_charsets.lib.php:292
+#: libraries/mysql_charsets.lib.php:302
 msgid "Traditional Spanish"
 msgstr "Παραδοσιακά Ισπανικά"
 
-#: libraries/mysql_charsets.lib.php:295 libraries/mysql_charsets.lib.php:392
+#: libraries/mysql_charsets.lib.php:305 libraries/mysql_charsets.lib.php:402
 msgid "Swedish"
 msgstr "Σουηδικά"
 
-#: libraries/mysql_charsets.lib.php:298 libraries/mysql_charsets.lib.php:395
+#: libraries/mysql_charsets.lib.php:308 libraries/mysql_charsets.lib.php:405
 msgid "Thai"
 msgstr "Ταϊλανδικά"
 
-#: libraries/mysql_charsets.lib.php:301 libraries/mysql_charsets.lib.php:389
+#: libraries/mysql_charsets.lib.php:311 libraries/mysql_charsets.lib.php:399
 msgid "Turkish"
 msgstr "Τουρκικά"
 
-#: libraries/mysql_charsets.lib.php:304 libraries/mysql_charsets.lib.php:386
+#: libraries/mysql_charsets.lib.php:314 libraries/mysql_charsets.lib.php:396
 msgid "Ukrainian"
 msgstr "Ουκρανικά"
 
-#: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
+#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
-#: libraries/mysql_charsets.lib.php:325 libraries/mysql_charsets.lib.php:332
-#: libraries/mysql_charsets.lib.php:354 libraries/mysql_charsets.lib.php:365
+#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
+#: libraries/mysql_charsets.lib.php:335 libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:364 libraries/mysql_charsets.lib.php:375
 msgid "multilingual"
 msgstr "πολυγλωσσικό"
 
-#: libraries/mysql_charsets.lib.php:332
+#: libraries/mysql_charsets.lib.php:342
 msgid "Central European"
 msgstr "Κεντρικής Ευρώπης"
 
-#: libraries/mysql_charsets.lib.php:337
+#: libraries/mysql_charsets.lib.php:347
 msgid "Russian"
 msgstr "Ρωσικά"
 
-#: libraries/mysql_charsets.lib.php:354
+#: libraries/mysql_charsets.lib.php:364
 msgid "Baltic"
 msgstr "Βαλτικής"
 
-#: libraries/mysql_charsets.lib.php:359
+#: libraries/mysql_charsets.lib.php:369
 msgid "Armenian"
 msgstr "Αρμενικά"
 
-#: libraries/mysql_charsets.lib.php:365
+#: libraries/mysql_charsets.lib.php:375
 msgid "Cyrillic"
 msgstr "Κυριλλικά"
 
-#: libraries/mysql_charsets.lib.php:368
+#: libraries/mysql_charsets.lib.php:378
 msgid "Arabic"
 msgstr "Αραβικά"
 
-#: libraries/mysql_charsets.lib.php:374
+#: libraries/mysql_charsets.lib.php:384
 msgid "Hebrew"
 msgstr "Εβραϊκά"
 
-#: libraries/mysql_charsets.lib.php:377
+#: libraries/mysql_charsets.lib.php:387
 msgid "Georgian"
 msgstr "Γεωργιανά"
 
-#: libraries/mysql_charsets.lib.php:380
+#: libraries/mysql_charsets.lib.php:390
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: libraries/mysql_charsets.lib.php:383
+#: libraries/mysql_charsets.lib.php:393
 msgid "Czech-Slovak"
 msgstr "Τσέχο-Σλοβάκικα"
 
-#: libraries/mysql_charsets.lib.php:398 libraries/mysql_charsets.lib.php:405
+#: libraries/mysql_charsets.lib.php:408 libraries/mysql_charsets.lib.php:415
 msgid "unknown"
 msgstr "άγνωστο"
 
@@ -3525,19 +3525,19 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1173
+#: libraries/relation.lib.php:1172
 msgid "no description"
 msgstr "χωρίς περιγραφή"
 
-#: libraries/replication_gui.lib.php:51
+#: libraries/replication_gui.lib.php:54
 msgid "Slave configuration"
 msgstr "Ρύθμιση δευτερεύοντος"
 
-#: libraries/replication_gui.lib.php:51 server_replication.php:347
+#: libraries/replication_gui.lib.php:54 server_replication.php:347
 msgid "Change or reconfigure master server"
 msgstr "Αλλαγή ή επαναρύθμιση του πρωτεύοντος διακομιστή"
 
-#: libraries/replication_gui.lib.php:52
+#: libraries/replication_gui.lib.php:55
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -3545,42 +3545,42 @@ msgstr ""
 "Σιγουρευτείτε ότι έχετε μοναδική ταυτότητα διακομιστή στο αρχείο ρυθμίσεων "
 "(my.cnf). Αν όχι, προσθέστε την παρακάτω γραμμή στον τομέα [mysqld]:"
 
-#: libraries/replication_gui.lib.php:55 libraries/replication_gui.lib.php:56
-#: libraries/replication_gui.lib.php:249 libraries/replication_gui.lib.php:252
-#: libraries/replication_gui.lib.php:259 server_privileges.php:711
+#: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
+#: libraries/replication_gui.lib.php:252 libraries/replication_gui.lib.php:255
+#: libraries/replication_gui.lib.php:262 server_privileges.php:711
 #: server_privileges.php:714 server_privileges.php:721
 #: server_synchronize.php:1171
 msgid "User name"
 msgstr "Όνομα χρήστη"
 
-#: libraries/replication_gui.lib.php:67 server_synchronize.php:1163
+#: libraries/replication_gui.lib.php:70 server_synchronize.php:1163
 msgid "Port"
 msgstr "Θύρα"
 
-#: libraries/replication_gui.lib.php:103
+#: libraries/replication_gui.lib.php:106
 msgid "Master status"
 msgstr "Κατάσταση πρωτεύοντος"
 
-#: libraries/replication_gui.lib.php:105
+#: libraries/replication_gui.lib.php:108
 msgid "Slave status"
 msgstr "Κατάσταση δευτερεύοντος"
 
-#: libraries/replication_gui.lib.php:114 libraries/sql_query_form.lib.php:445
+#: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:445
 #: server_status.php:737 server_variables.php:52
 msgid "Variable"
 msgstr "Μεταβλητή"
 
-#: libraries/replication_gui.lib.php:115 server_status.php:738
-#: tbl_change.php:324 tbl_printview.php:370 tbl_select.php:139
+#: libraries/replication_gui.lib.php:118 server_status.php:738
+#: tbl_change.php:323 tbl_printview.php:369 tbl_select.php:138
 #: tbl_structure.php:729
 msgid "Value"
 msgstr "Τιμή"
 
-#: libraries/replication_gui.lib.php:173 server_binlog.php:218
+#: libraries/replication_gui.lib.php:176 server_binlog.php:218
 msgid "Server ID"
 msgstr "Ταυτότητα Διακομιστή"
 
-#: libraries/replication_gui.lib.php:192
+#: libraries/replication_gui.lib.php:195
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -3588,38 +3588,38 @@ msgstr ""
 "Μόνο οι δευτερεύοντες που εκκινούν με την ρύθμιση --report-host=host_name "
 "είναι ορατοί σε αυτή τη λίστα."
 
-#: libraries/replication_gui.lib.php:240 server_replication.php:194
+#: libraries/replication_gui.lib.php:243 server_replication.php:194
 msgid "Add slave replication user"
 msgstr "Προσθήκη δευτερέοντα χρήστη αναπαραγωγής"
 
-#: libraries/replication_gui.lib.php:254 server_privileges.php:716
+#: libraries/replication_gui.lib.php:257 server_privileges.php:716
 msgid "Any user"
 msgstr "Οποιοσδήποτε Χρήστης"
 
-#: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:323
-#: libraries/replication_gui.lib.php:346 server_privileges.php:717
+#: libraries/replication_gui.lib.php:258 libraries/replication_gui.lib.php:326
+#: libraries/replication_gui.lib.php:349 server_privileges.php:717
 #: server_privileges.php:784 server_privileges.php:808
 #: server_privileges.php:1928 server_privileges.php:1958
 msgid "Use text field"
 msgstr "Χρησιμοποιήστε το πεδίο κειμένου"
 
-#: libraries/replication_gui.lib.php:302 server_privileges.php:764
+#: libraries/replication_gui.lib.php:305 server_privileges.php:764
 msgid "Any host"
 msgstr "Οποιοδήποτε Σύστημα"
 
-#: libraries/replication_gui.lib.php:306 server_privileges.php:768
+#: libraries/replication_gui.lib.php:309 server_privileges.php:768
 msgid "Local"
 msgstr "Τοπικό"
 
-#: libraries/replication_gui.lib.php:312 server_privileges.php:773
+#: libraries/replication_gui.lib.php:315 server_privileges.php:773
 msgid "This Host"
 msgstr "Αυτός ο διακομιστής"
 
-#: libraries/replication_gui.lib.php:318 server_privileges.php:779
+#: libraries/replication_gui.lib.php:321 server_privileges.php:779
 msgid "Use Host Table"
 msgstr "Χρήση Οικείου Πίνακα"
 
-#: libraries/replication_gui.lib.php:331 server_privileges.php:792
+#: libraries/replication_gui.lib.php:334 server_privileges.php:792
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -3862,7 +3862,7 @@ msgstr ""
 "διαφυγής ή εισαγωγικά, χρησιμοποιώντας τη μορφή: a"
 
 #: libraries/tbl_properties.inc.php:108 pdf_schema.php:1264
-#: pdf_schema.php:1285 tbl_printview.php:144 tbl_structure.php:180
+#: pdf_schema.php:1285 tbl_printview.php:143 tbl_structure.php:180
 msgid "Attributes"
 msgstr "Χαρακτηριστικά"
 
@@ -3921,7 +3921,7 @@ msgstr "Ορισμός ΚΑΤΑΤΜΗΣΗΣ (PARTITION)"
 
 #: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
-#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1126 tbl_indexes.php:248
+#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1123 tbl_indexes.php:248
 #: tbl_relation.php:566
 msgid "Save"
 msgstr "Αποθήκευση"
@@ -4144,7 +4144,7 @@ msgid "Custom color"
 msgstr "Προσαρμοσμένο χρώμα"
 
 #: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
-#: tbl_change.php:1175
+#: tbl_change.php:1172
 msgid "Reset"
 msgstr "Επαναφορά"
 
@@ -4375,7 +4375,7 @@ msgstr "Σχεσιακό σχήμα"
 msgid "Table of contents"
 msgstr "Πίνακας περιεχομένων"
 
-#: pdf_schema.php:1267 pdf_schema.php:1288 tbl_printview.php:147
+#: pdf_schema.php:1267 pdf_schema.php:1288 tbl_printview.php:146
 #: tbl_structure.php:183 tbl_tracking.php:278
 msgid "Extra"
 msgstr "Πρόσθετα"
@@ -8087,20 +8087,20 @@ msgstr "Τίτλος"
 msgid "Table %1$s has been altered successfully"
 msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς"
 
-#: tbl_change.php:252 tbl_select.php:27 tbl_select.php:28 tbl_select.php:31
+#: tbl_change.php:251 tbl_select.php:27 tbl_select.php:28 tbl_select.php:31
 #: tbl_select.php:34
 msgid "Browse foreign values"
 msgstr "Αναζήτηση μη διακριτών τιμών"
 
-#: tbl_change.php:282 tbl_change.php:320
+#: tbl_change.php:281 tbl_change.php:319
 msgid "Function"
 msgstr "Έλεγχος"
 
-#: tbl_change.php:302 tbl_indexes.php:200 tbl_indexes.php:225
+#: tbl_change.php:301 tbl_indexes.php:200 tbl_indexes.php:225
 msgid "Ignore"
 msgstr "Παράληψη"
 
-#: tbl_change.php:728
+#: tbl_change.php:726
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
@@ -8108,55 +8108,55 @@ msgstr ""
 " Εξαιτίας του μεγέθος του,<br /> αυτό το πεδίο ίσως να μη μπορεί να "
 "διορθωθεί "
 
-#: tbl_change.php:888
+#: tbl_change.php:885
 msgid "Remove BLOB Repository Reference"
 msgstr "Απομάκρυνση της Αναφοράς Αποθήκης BLOB"
 
-#: tbl_change.php:894
+#: tbl_change.php:891
 msgid "Binary - do not edit"
 msgstr "Δυαδικό - χωρίς δυνατότητα επεξεργασίας"
 
-#: tbl_change.php:987
+#: tbl_change.php:984
 msgid "Upload to BLOB repository"
 msgstr "Μεταφορά στην αποθήκη BLOB"
 
-#: tbl_change.php:1130
+#: tbl_change.php:1127
 msgid "Insert as new row"
 msgstr "Εισαγωγή ως νέα εγγραφή"
 
-#: tbl_change.php:1131
+#: tbl_change.php:1128
 msgid "Insert as new row and ignore errors"
 msgstr "Εισαγωγή ως νέα γραμμή και παράβλεψη σφαλμάτων"
 
-#: tbl_change.php:1132
+#: tbl_change.php:1129
 #, fuzzy
 msgid "Show insert query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: tbl_change.php:1147
+#: tbl_change.php:1144
 msgid "Go back to previous page"
 msgstr "Επιστροφή"
 
-#: tbl_change.php:1148
+#: tbl_change.php:1145
 msgid "Insert another new row"
 msgstr "Εισαγωγή νέας εγγραφής"
 
-#: tbl_change.php:1152
+#: tbl_change.php:1149
 msgid "Go back to this page"
 msgstr "Επιστροφή σε αυτή τη σελίδα"
 
-#: tbl_change.php:1160
+#: tbl_change.php:1157
 msgid "Edit next row"
 msgstr "Επεξεργασία επόμενης γραμμής"
 
-#: tbl_change.php:1171
+#: tbl_change.php:1168
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Χρήση του πλήκτρου TAB για μετακίνηση από τιμή σε τιμή ή CTRL+βέλη για "
 "μετακίνηση παντού"
 
-#: tbl_change.php:1209
+#: tbl_change.php:1206
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr "Επανεκκίνηση εισαγωγής με %s εγγραφές"
@@ -8324,43 +8324,43 @@ msgstr "Απομάκρυνση κατάτμησης"
 msgid "Check referential integrity:"
 msgstr "Έλεγχος ακεραιότητας συσχετίσεων:"
 
-#: tbl_printview.php:75
+#: tbl_printview.php:74
 msgid "Show tables"
 msgstr "Εμφάνιση πινάκων"
 
-#: tbl_printview.php:310 tbl_structure.php:656
+#: tbl_printview.php:309 tbl_structure.php:656
 msgid "Space usage"
 msgstr "Χρήση χώρου"
 
-#: tbl_printview.php:314 tbl_structure.php:660
+#: tbl_printview.php:313 tbl_structure.php:660
 msgid "Usage"
 msgstr "Χρήση"
 
-#: tbl_printview.php:341 tbl_structure.php:687
+#: tbl_printview.php:340 tbl_structure.php:687
 msgid "Effective"
 msgstr "Αποτελεσματικός"
 
-#: tbl_printview.php:366 tbl_structure.php:725
+#: tbl_printview.php:365 tbl_structure.php:725
 msgid "Row Statistics"
 msgstr "Στατιστικά Εγγραφών"
 
-#: tbl_printview.php:369 tbl_structure.php:728
+#: tbl_printview.php:368 tbl_structure.php:728
 msgid "Statements"
 msgstr "Δηλώσεις"
 
-#: tbl_printview.php:380 tbl_structure.php:740
+#: tbl_printview.php:379 tbl_structure.php:740
 msgid "static"
 msgstr "στατικό"
 
-#: tbl_printview.php:382 tbl_structure.php:742
+#: tbl_printview.php:381 tbl_structure.php:742
 msgid "dynamic"
 msgstr "δυναμικά"
 
-#: tbl_printview.php:404 tbl_structure.php:785
+#: tbl_printview.php:403 tbl_structure.php:785
 msgid "Row length"
 msgstr "Μέγεθος Γραμμής"
 
-#: tbl_printview.php:414 tbl_structure.php:793
+#: tbl_printview.php:413 tbl_structure.php:793
 msgid " Row size "
 msgstr " Μέγεθος Εγγραφής "
 
@@ -8393,29 +8393,29 @@ msgstr "Όριο μη διακριτού κλειδιού"
 msgid "No rows selected"
 msgstr "Δεν επιλέχθηκαν γραμμές"
 
-#: tbl_select.php:132
+#: tbl_select.php:131
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Εκτέλεσε ένα «επερώτημα κατά παράδειγμα» (χαρακτήρας μπαλαντέρ «%»)"
 
-#: tbl_select.php:138
+#: tbl_select.php:137
 msgid "Operator"
 msgstr "Τελεστής"
 
-#: tbl_select.php:270
+#: tbl_select.php:268
 #, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Επιλογή πεδίων (τουλάχιστον ένα)"
 
-#: tbl_select.php:288
+#: tbl_select.php:286
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Προσθήκη νέου όρου (σώμα της πρότασης «where» πρότασης):"
 
-#: tbl_select.php:295
+#: tbl_select.php:293
 msgid "Number of rows per page"
 msgstr "Εγγραφές ανά σελίδα"
 
-#: tbl_select.php:301
+#: tbl_select.php:299
 msgid "Display order:"
 msgstr "Σειρά εμφάνισης:"
 
