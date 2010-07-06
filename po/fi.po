@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-13 09:03-0400\n"
+"POT-Creation-Date: 2010-07-03 09:00-0400\n"
 "PO-Revision-Date: 2010-04-30 18:08+0200\n"
 "Last-Translator:  <kajouni@gmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -48,14 +48,14 @@ msgstr "Etsi"
 #: db_operations.php:499 db_operations.php:609 db_search.php:362
 #: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
-#: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
+#: libraries/auth/cookie.auth.lib.php:290 libraries/common.lib.php:719
 #: libraries/common.lib.php:1335 libraries/common.lib.php:2288
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
+#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
-#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
-#: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
+#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:76
+#: libraries/replication_gui.lib.php:372 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
@@ -64,10 +64,10 @@ msgstr "Etsi"
 #: server_privileges.php:1971 server_privileges.php:2018
 #: server_privileges.php:2057 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
-#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:265
+#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
+#: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
-#: tbl_operations.php:681 tbl_select.php:327 tbl_structure.php:562
+#: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
@@ -99,7 +99,7 @@ msgid "Database comment: "
 msgstr "Tietokannan kommentti: "
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
-#: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
+#: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:129
 msgid "Table comments"
 msgstr "Taulun kommentit"
 
@@ -107,9 +107,9 @@ msgstr "Taulun kommentit"
 #: libraries/export/htmlword.php:244 libraries/export/latex.php:360
 #: libraries/export/odt.php:294 libraries/export/texytext.php:233
 #: libraries/tbl_properties.inc.php:99 libraries/tbl_properties.inc.php:275
-#: pdf_schema.php:1262 pdf_schema.php:1283 tbl_change.php:308
-#: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
-#: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
+#: pdf_schema.php:1262 pdf_schema.php:1283 tbl_change.php:307
+#: tbl_indexes.php:189 tbl_printview.php:141 tbl_relation.php:402
+#: tbl_select.php:134 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
 #, fuzzy
 #| msgid "Column names"
@@ -122,8 +122,8 @@ msgstr "Sarakkeiden nimet"
 #: libraries/export/latex.php:360 libraries/export/odt.php:297
 #: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:100
 #: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2070
-#: tbl_change.php:287 tbl_change.php:314 tbl_printview.php:143
-#: tbl_printview.php:313 tbl_select.php:136 tbl_structure.php:178
+#: tbl_change.php:286 tbl_change.php:313 tbl_printview.php:142
+#: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
 #: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
 msgstr "Tyyppi"
@@ -132,7 +132,7 @@ msgstr "Tyyppi"
 #: libraries/export/htmlword.php:246 libraries/export/latex.php:360
 #: libraries/export/odt.php:300 libraries/export/texytext.php:235
 #: libraries/tbl_properties.inc.php:109 pdf_schema.php:1265
-#: pdf_schema.php:1286 tbl_change.php:323 tbl_printview.php:145
+#: pdf_schema.php:1286 tbl_change.php:322 tbl_printview.php:144
 #: tbl_structure.php:181 tbl_tracking.php:276 tbl_tracking.php:327
 msgid "Null"
 msgstr "Tyhjä"
@@ -140,7 +140,7 @@ msgstr "Tyhjä"
 #: db_datadict.php:178 db_structure.php:501 libraries/export/htmlword.php:247
 #: libraries/export/latex.php:360 libraries/export/odt.php:303
 #: libraries/export/texytext.php:236 libraries/tbl_properties.inc.php:106
-#: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:146
+#: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:145
 #: tbl_structure.php:182 tbl_tracking.php:277
 msgid "Default"
 msgstr "Oletusarvo"
@@ -148,7 +148,7 @@ msgstr "Oletusarvo"
 #: db_datadict.php:182 libraries/export/htmlword.php:249
 #: libraries/export/latex.php:362 libraries/export/odt.php:307
 #: libraries/export/texytext.php:238 pdf_schema.php:1268 pdf_schema.php:1289
-#: tbl_printview.php:150
+#: tbl_printview.php:149
 msgid "Links to"
 msgstr "Linkitys sarakkeeseen:"
 
@@ -157,7 +157,7 @@ msgstr "Linkitys sarakkeeseen:"
 #: libraries/export/odt.php:38 libraries/export/odt.php:312
 #: libraries/export/sql.php:30 libraries/export/texytext.php:241
 #: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
-#: pdf_schema.php:1290 tbl_printview.php:152
+#: pdf_schema.php:1290 tbl_printview.php:151
 msgid "Comments"
 msgstr "Kommentit"
 
@@ -167,7 +167,7 @@ msgstr "Kommentit"
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:263
 #: pdf_schema.php:1344 server_privileges.php:1568 server_privileges.php:1579
 #: server_privileges.php:1889 server_privileges.php:1894
-#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:229
+#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:228
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "Ei"
@@ -184,12 +184,12 @@ msgstr "Ei"
 #: server_databases.php:64 server_privileges.php:1565
 #: server_privileges.php:1579 server_privileges.php:1889
 #: server_privileges.php:1892 server_privileges.php:2187 sql.php:193
-#: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:350
+#: tbl_printview.php:228 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
 msgstr "Kyllä"
 
-#: db_datadict.php:322 db_printview.php:266 tbl_printview.php:498
+#: db_datadict.php:322 db_printview.php:266 tbl_printview.php:497
 msgid "Print"
 msgstr "Tulosta"
 
@@ -232,7 +232,7 @@ msgstr "Muuta tietokannan nimi"
 msgid "Command"
 msgstr "Komento"
 
-#: db_operations.php:429 tbl_change.php:1143
+#: db_operations.php:429 tbl_change.php:1140
 msgid "and then"
 msgstr "ja sen jälkeen"
 
@@ -323,7 +323,7 @@ msgstr "Ota käyttöön"
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
 #: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
 #: server_collations.php:54 server_collations.php:66 server_databases.php:111
-#: tbl_operations.php:363 tbl_select.php:137 tbl_structure.php:179
+#: tbl_operations.php:363 tbl_select.php:136 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "Aakkosjärjestys"
@@ -353,7 +353,7 @@ msgstr "Taulu"
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
-#: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
+#: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr "Kpl rivejä"
 
@@ -367,19 +367,19 @@ msgid "in use"
 msgstr "käytössä"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
-#: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:434
+#: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
 #: tbl_structure.php:809
 msgid "Creation"
 msgstr "Luotu"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
-#: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:444
+#: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
 #: tbl_structure.php:817
 msgid "Last update"
 msgstr "Viimeksi päivitetty"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
-#: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:454
+#: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
 #: tbl_structure.php:825
 msgid "Last check"
 msgstr "Viimeksi tarkistettu"
@@ -411,19 +411,19 @@ msgstr "Järjestys"
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:260
-#: tbl_select.php:314
+#: tbl_select.php:312
 msgid "Ascending"
 msgstr "Nouseva"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:261
-#: tbl_select.php:315
+#: tbl_select.php:313
 msgid "Descending"
 msgstr "Laskeva"
 
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
-#: tbl_change.php:277 tbl_tracking.php:597
+#: tbl_change.php:276 tbl_tracking.php:597
 msgid "Show"
 msgstr "Näytä"
 
@@ -444,9 +444,9 @@ msgid "Del"
 msgstr "Poista"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
-#: libraries/display_import.lib.php:166 libraries/tbl_properties.inc.php:779
-#: server_privileges.php:297 tbl_change.php:1031 tbl_indexes.php:250
-#: tbl_select.php:288
+#: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
+#: server_privileges.php:297 tbl_change.php:1028 tbl_indexes.php:250
+#: tbl_select.php:286
 msgid "Or"
 msgstr "Tai"
 
@@ -485,7 +485,7 @@ msgstr "Suorita"
 
 #: db_search.php:68 libraries/auth/config.auth.lib.php:84
 #: libraries/auth/config.auth.lib.php:103
-#: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:671 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:183
 msgid "Access denied"
 msgstr "Käyttö estetty"
@@ -666,7 +666,7 @@ msgid "Check All"
 msgstr "Valitse kaikki"
 
 #: db_structure.php:531 libraries/display_tbl.lib.php:2077
-#: libraries/replication_gui.lib.php:33 server_databases.php:350
+#: libraries/replication_gui.lib.php:36 server_databases.php:350
 #: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
 msgid "Uncheck All"
 msgstr "Poista valinta kaikista"
@@ -850,7 +850,7 @@ msgstr ""
 "Tuotavia tietoja ei ole. Tiedostonimeä ei joko annettu tai tiedoston koko "
 "ylitti PHP:n asetusten salliman enimmäiskoon. Katso FAQ 1.16."
 
-#: import.php:372 libraries/display_import.lib.php:24
+#: import.php:372 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
 
@@ -1032,7 +1032,7 @@ msgstr "Edellinen"
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:77 libraries/common.lib.php:2353
 #: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
-#: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
+#: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
 #: tbl_structure.php:801
 msgid "Next"
 msgstr "Seuraava"
@@ -1418,7 +1418,7 @@ msgstr "Tietokannat"
 
 #: libraries/Message.class.php:211 libraries/common.lib.php:581
 #: libraries/core.lib.php:261 libraries/import.lib.php:135 pdf_schema.php:32
-#: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
+#: pdf_schema.php:232 tbl_change.php:1024 tbl_operations.php:213
 #: tbl_relation.php:290 view_operations.php:62
 msgid "Error"
 msgstr "Virhe"
@@ -1524,7 +1524,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Yhteyttä ei voitu muodostaa: virheelliset asetukset."
 
 #: libraries/auth/config.auth.lib.php:92
-#: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:217 libraries/auth/http.auth.lib.php:65
 #: test/theme.php:152
 #, php-format
 msgid "Welcome to %s"
@@ -1551,44 +1551,44 @@ msgstr ""
 "php-tiedostosta ja varmista, että ne vastaavat MySQL-palvelimen "
 "järjestelmänvalvojan antamia tietoja."
 
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:242
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
+#: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:246
-#: libraries/auth/cookie.auth.lib.php:248
 #: libraries/navigation_header.inc.php:93
 #: libraries/navigation_header.inc.php:95
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdminin ohjeet"
 
-#: libraries/auth/cookie.auth.lib.php:258
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:256
+#: libraries/auth/cookie.auth.lib.php:257
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Voit syöttää verkkotunnuksen/IP-osoitteen ja portin välilyönnillä erotettuna."
 
-#: libraries/auth/cookie.auth.lib.php:258
+#: libraries/auth/cookie.auth.lib.php:256
 msgid "Server:"
 msgstr "Palvelin"
 
-#: libraries/auth/cookie.auth.lib.php:263
+#: libraries/auth/cookie.auth.lib.php:261
 msgid "Username:"
 msgstr "Käyttäjätunnus:"
 
-#: libraries/auth/cookie.auth.lib.php:267
+#: libraries/auth/cookie.auth.lib.php:265
 msgid "Password:"
 msgstr "Salasana:"
 
-#: libraries/auth/cookie.auth.lib.php:274
+#: libraries/auth/cookie.auth.lib.php:272
 msgid "Server Choice"
 msgstr "Valitse palvelin"
 
-#: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
+#: libraries/auth/cookie.auth.lib.php:318 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
 msgstr "Selaimessa on oltava evästeet päällä tästä lähtien."
 
-#: libraries/auth/cookie.auth.lib.php:671
+#: libraries/auth/cookie.auth.lib.php:669
 #: libraries/auth/signon.auth.lib.php:181
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -1596,7 +1596,7 @@ msgstr ""
 "Kirjautuminen ilman salasanaa on kielletty asetuksissa (katso "
 "AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:675
+#: libraries/auth/cookie.auth.lib.php:673
 #: libraries/auth/signon.auth.lib.php:185
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -1604,8 +1604,8 @@ msgstr ""
 "Yhteys on ollut toimettomana %s sekuntia tai kauemmin. Kirjaudu sisään "
 "uudestaan."
 
+#: libraries/auth/cookie.auth.lib.php:683
 #: libraries/auth/cookie.auth.lib.php:685
-#: libraries/auth/cookie.auth.lib.php:687
 #: libraries/auth/signon.auth.lib.php:191
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL-palvelimelle ei voitu kirjautua"
@@ -1668,7 +1668,7 @@ msgstr ""
 "Iconv-, libiconv- tai recode_string-funktioita ei voitu käyttää. Tarkista "
 "PHP:n asetukset."
 
-#: libraries/common.inc.php:583
+#: libraries/common.inc.php:576
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1683,40 +1683,40 @@ msgstr ""
 "Todennäköisimmin joltain riviltä puuttuu lainausmerkki tai puolipiste.<br /"
 ">Jos linkistä avautuva sivu on tyhjä, asetustiedostossa ei ollut virhettä."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:587
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Oletusasetuksia ei voitu ladata kohteesta: \"%1$s\""
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:592
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr "<tt>$cfg['PmaAbsoluteUri']</tt> täytyy määritellä asetustiedostossa!"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:622
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Virheellinen palvelimen indeksi: \"%s\""
 
-#: libraries/common.inc.php:636
+#: libraries/common.inc.php:629
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Palvelimella %1$s virheellinen nimi. Tarkista asetukset."
 
-#: libraries/common.inc.php:645 libraries/header.inc.php:96
+#: libraries/common.inc.php:638 libraries/header.inc.php:96
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
 msgstr "Palvelin"
 
-#: libraries/common.inc.php:823
+#: libraries/common.inc.php:816
 msgid "Invalid authentication method set in configuration:"
 msgstr "Asetuksissa on virheellinen todennustapa:"
 
-#: libraries/common.inc.php:926
+#: libraries/common.inc.php:919
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Sinun tulisi päivittää versioon %s %s tai sitä uudempaan."
@@ -1963,7 +1963,7 @@ msgid ""
 msgstr "Saattaa olla summittainen. Katso FAQ 3.11"
 
 #: libraries/db_structure.lib.php:69 server_databases.php:142
-#: tbl_printview.php:336 tbl_structure.php:682
+#: tbl_printview.php:335 tbl_structure.php:682
 msgid "Overhead"
 msgstr "Ylijäämä"
 
@@ -1993,21 +1993,21 @@ msgid "Change password"
 msgstr "Vaihda salasana"
 
 #: libraries/display_change_password.lib.php:35
-#: libraries/replication_gui.lib.php:345 server_privileges.php:807
+#: libraries/replication_gui.lib.php:348 server_privileges.php:807
 msgid "No Password"
 msgstr "Ei salasanaa"
 
 #: libraries/display_change_password.lib.php:41
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:335 libraries/replication_gui.lib.php:339
-#: libraries/replication_gui.lib.php:349 server_privileges.php:796
+#: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
+#: libraries/replication_gui.lib.php:338 libraries/replication_gui.lib.php:342
+#: libraries/replication_gui.lib.php:352 server_privileges.php:796
 #: server_privileges.php:800 server_privileges.php:811
 #: server_privileges.php:1538 server_synchronize.php:1175
 msgid "Password"
 msgstr "Salasana"
 
 #: libraries/display_change_password.lib.php:46
-#: libraries/replication_gui.lib.php:353 libraries/replication_gui.lib.php:356
+#: libraries/replication_gui.lib.php:356 libraries/replication_gui.lib.php:359
 #: server_privileges.php:815 server_privileges.php:818
 msgid "Re-type"
 msgstr "Kirjoita uudelleen"
@@ -2023,12 +2023,12 @@ msgid "MySQL 4.0 compatible"
 msgstr "MySQL&nbsp;4.0 -yhteensopiva"
 
 #: libraries/display_change_password.lib.php:72
-#: libraries/replication_gui.lib.php:360 server_privileges.php:822
+#: libraries/replication_gui.lib.php:363 server_privileges.php:822
 msgid "Generate Password"
 msgstr "Keksi salasana"
 
 #: libraries/display_change_password.lib.php:75
-#: libraries/replication_gui.lib.php:363 server_privileges.php:825
+#: libraries/replication_gui.lib.php:366 server_privileges.php:825
 msgid "Generate"
 msgstr "Keksi"
 
@@ -2121,8 +2121,8 @@ msgstr ""
 msgid "remember template"
 msgstr "muista pohja"
 
-#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:178
-#: libraries/display_import.lib.php:191 libraries/sql_query_form.lib.php:549
+#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:549
 msgid "Character set of the file:"
 msgstr "Tiedoston merkistö:"
 
@@ -2130,8 +2130,8 @@ msgstr "Tiedoston merkistö:"
 msgid "Compression"
 msgstr "Pakkaus"
 
-#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
-#: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
+#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:196
+#: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1875 server_processlist.php:75
 msgid "None"
@@ -2154,7 +2154,7 @@ msgstr "\"bzip-pakkaus\""
 msgid "SQL compatibility mode"
 msgstr "SQL-yhteensopiva tila"
 
-#: libraries/display_import.lib.php:67
+#: libraries/display_import.lib.php:66
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -2164,11 +2164,11 @@ msgstr ""
 "tunnettu vika Webkit-pohjaisissa (Safari, Google Chrome, Arora jne) "
 "selaimissa."
 
-#: libraries/display_import.lib.php:77
+#: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
 msgstr "Tiedostoa käsitellään, ole kärsivällinen."
 
-#: libraries/display_import.lib.php:99
+#: libraries/display_import.lib.php:98
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -2176,38 +2176,38 @@ msgstr ""
 "Ole kärsivällinen, tiedostoa lähetetään. Lähetyksen yksityiskohdat eivät ole "
 "saatavilla."
 
-#: libraries/display_import.lib.php:126
+#: libraries/display_import.lib.php:125
 msgid "File to import"
 msgstr "Tuotava tiedosto"
 
-#: libraries/display_import.lib.php:137 libraries/sql_query_form.lib.php:524
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr "Tiedoston sijainti"
 
-#: libraries/display_import.lib.php:148
+#: libraries/display_import.lib.php:147
 msgid "File uploads are not allowed on this server."
 msgstr "Tällä palvelimella ei ole sallittu tiedostojen lähetystä."
 
-#: libraries/display_import.lib.php:163 libraries/sql_query_form.lib.php:533
-#: tbl_change.php:1028
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:533
+#: tbl_change.php:1025
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää"
 
-#: libraries/display_import.lib.php:166 libraries/sql_query_form.lib.php:536
-#: tbl_change.php:1031
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:536
+#: tbl_change.php:1028
 msgid "web server upload directory"
 msgstr "palvelimen lähetyshakemisto"
 
-#: libraries/display_import.lib.php:212
+#: libraries/display_import.lib.php:211
 #, php-format
 msgid "Imported file compression will be automatically detected from: %s"
 msgstr "Seuraavat tiedostonpakkausmuodot havaitaan automaattisesti: %s"
 
-#: libraries/display_import.lib.php:219
+#: libraries/display_import.lib.php:218
 msgid "Partial import"
 msgstr "Osittainen tuonti"
 
-#: libraries/display_import.lib.php:225
+#: libraries/display_import.lib.php:224
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -2215,7 +2215,7 @@ msgstr ""
 "Edellinen tuonti keskeytyi aikakatkaisun takia. Kun lähetät tiedoston "
 "uudestaan, jatkamme kohdasta %d."
 
-#: libraries/display_import.lib.php:232
+#: libraries/display_import.lib.php:231
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. This might be good way to import large files, "
@@ -2225,13 +2225,13 @@ msgstr ""
 "Tätä kannattaa käyttää tuotaessa suuria tiedostoja; se voi kuitenkin "
 "aiheuttaa häiriöitä transaktioihin."
 
-#: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
+#: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:161
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Alusta ohitettavien tietueiden (kyselyjen) määrä"
 
-#: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
+#: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
 msgstr "Tuotavan tiedoston muoto"
 
@@ -2329,7 +2329,7 @@ msgstr "Lajittele avaimen mukaan"
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
-#: libraries/import/xml.php:25 tbl_select.php:267 tbl_structure.php:753
+#: libraries/import/xml.php:25 tbl_select.php:265 tbl_structure.php:753
 msgid "Options"
 msgstr "Valinnat"
 
@@ -2363,8 +2363,8 @@ msgstr "Näytä BLOB-sisältö"
 msgid "Show binary contents as HEX"
 msgstr "Näytä binaarisisältö heksamuodossa"
 
-#: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:314
-#: tbl_change.php:320
+#: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:313
+#: tbl_change.php:319
 msgid "Hide"
 msgstr "Kätke"
 
@@ -2475,7 +2475,7 @@ msgstr "Puskurivarannon käyttö"
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:525 server_status.php:586
-#: server_status.php:607 tbl_printview.php:351 tbl_structure.php:696
+#: server_status.php:607 tbl_printview.php:350 tbl_structure.php:696
 msgid "Total"
 msgstr "Yhteensä"
 
@@ -2760,7 +2760,7 @@ msgstr ""
 "numero."
 
 #: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
-#: tbl_printview.php:376 tbl_structure.php:737
+#: tbl_printview.php:375 tbl_structure.php:737
 msgid "Format"
 msgstr "Muoto"
 
@@ -2834,7 +2834,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
 #: libraries/export/sql.php:106 libraries/export/sql.php:868
 #: libraries/export/texytext.php:27 server_databases.php:127
-#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:317
+#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:316
 #: tbl_structure.php:665
 msgid "Data"
 msgstr "Tietoa"
@@ -2882,9 +2882,9 @@ msgstr "MIME-tyyppi"
 
 #: libraries/export/latex.php:125 libraries/export/sql.php:232
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
-#: libraries/replication_gui.lib.php:63 libraries/replication_gui.lib.php:174
-#: libraries/replication_gui.lib.php:269 libraries/replication_gui.lib.php:272
-#: libraries/replication_gui.lib.php:329 server_privileges.php:731
+#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
+#: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
+#: libraries/replication_gui.lib.php:332 server_privileges.php:731
 #: server_privileges.php:734 server_privileges.php:790
 #: server_privileges.php:1537 server_privileges.php:2069
 #: server_processlist.php:55 server_synchronize.php:1159
@@ -3250,7 +3250,7 @@ msgid "Primary"
 msgstr "Perusavain"
 
 #: libraries/mult_submits.inc.php:98 libraries/tbl_properties.inc.php:116
-#: libraries/tbl_properties.inc.php:525 tbl_printview.php:326
+#: libraries/tbl_properties.inc.php:525 tbl_printview.php:325
 #: tbl_structure.php:31 tbl_structure.php:154 tbl_structure.php:158
 #: tbl_structure.php:475 tbl_structure.php:673
 msgid "Index"
@@ -3270,190 +3270,190 @@ msgstr "Ei muutoksia"
 msgid "Charset"
 msgstr "Merkistökoodaus"
 
-#: libraries/mysql_charsets.lib.php:201 libraries/mysql_charsets.lib.php:402
-#: tbl_change.php:518
+#: libraries/mysql_charsets.lib.php:211 libraries/mysql_charsets.lib.php:412
+#: tbl_change.php:516
 msgid "Binary"
 msgstr "Binääritietoa"
 
-#: libraries/mysql_charsets.lib.php:213
+#: libraries/mysql_charsets.lib.php:223
 msgid "Bulgarian"
 msgstr "Bulgarialainen"
 
-#: libraries/mysql_charsets.lib.php:217 libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:352
 msgid "Simplified Chinese"
 msgstr "Yksinkertaistettu kiina"
 
-#: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:362
+#: libraries/mysql_charsets.lib.php:229 libraries/mysql_charsets.lib.php:372
 msgid "Traditional Chinese"
 msgstr "Perinteinen kiina"
 
-#: libraries/mysql_charsets.lib.php:223 libraries/mysql_charsets.lib.php:409
+#: libraries/mysql_charsets.lib.php:233 libraries/mysql_charsets.lib.php:419
 msgid "case-insensitive"
 msgstr "kirjainkoolla ei väliä"
 
-#: libraries/mysql_charsets.lib.php:226 libraries/mysql_charsets.lib.php:411
+#: libraries/mysql_charsets.lib.php:236 libraries/mysql_charsets.lib.php:421
 msgid "case-sensitive"
 msgstr "tarkka kirjainkoko"
 
-#: libraries/mysql_charsets.lib.php:229
+#: libraries/mysql_charsets.lib.php:239
 msgid "Croatian"
 msgstr "Kroaatti"
 
-#: libraries/mysql_charsets.lib.php:232
+#: libraries/mysql_charsets.lib.php:242
 msgid "Czech"
 msgstr "Tsekkiläinen"
 
-#: libraries/mysql_charsets.lib.php:235
+#: libraries/mysql_charsets.lib.php:245
 msgid "Danish"
 msgstr "Tanskalainen"
 
-#: libraries/mysql_charsets.lib.php:238
+#: libraries/mysql_charsets.lib.php:248
 msgid "English"
 msgstr "Englantilainen"
 
-#: libraries/mysql_charsets.lib.php:241
+#: libraries/mysql_charsets.lib.php:251
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/mysql_charsets.lib.php:244
+#: libraries/mysql_charsets.lib.php:254
 msgid "Estonian"
 msgstr "Virolainen"
 
-#: libraries/mysql_charsets.lib.php:247 libraries/mysql_charsets.lib.php:250
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:260
 msgid "German"
 msgstr "Saksalainen"
 
-#: libraries/mysql_charsets.lib.php:247
+#: libraries/mysql_charsets.lib.php:257
 msgid "dictionary"
 msgstr "sanasto"
 
-#: libraries/mysql_charsets.lib.php:250
+#: libraries/mysql_charsets.lib.php:260
 msgid "phone book"
 msgstr "puhelinluettelo"
 
-#: libraries/mysql_charsets.lib.php:253
+#: libraries/mysql_charsets.lib.php:263
 msgid "Hungarian"
 msgstr "Unkarilainen"
 
-#: libraries/mysql_charsets.lib.php:256
+#: libraries/mysql_charsets.lib.php:266
 msgid "Icelandic"
 msgstr "Islantilainen"
 
-#: libraries/mysql_charsets.lib.php:259 libraries/mysql_charsets.lib.php:349
+#: libraries/mysql_charsets.lib.php:269 libraries/mysql_charsets.lib.php:359
 msgid "Japanese"
 msgstr "Japanilainen"
 
-#: libraries/mysql_charsets.lib.php:262
+#: libraries/mysql_charsets.lib.php:272
 msgid "Latvian"
 msgstr "Latvialainen"
 
-#: libraries/mysql_charsets.lib.php:265
+#: libraries/mysql_charsets.lib.php:275
 msgid "Lithuanian"
 msgstr "Liettualainen"
 
-#: libraries/mysql_charsets.lib.php:268 libraries/mysql_charsets.lib.php:371
+#: libraries/mysql_charsets.lib.php:278 libraries/mysql_charsets.lib.php:381
 msgid "Korean"
 msgstr "Korealainen"
 
-#: libraries/mysql_charsets.lib.php:271
+#: libraries/mysql_charsets.lib.php:281
 msgid "Persian"
 msgstr "Persialainen"
 
-#: libraries/mysql_charsets.lib.php:274
+#: libraries/mysql_charsets.lib.php:284
 msgid "Polish"
 msgstr "Puolalainen"
 
-#: libraries/mysql_charsets.lib.php:277 libraries/mysql_charsets.lib.php:325
+#: libraries/mysql_charsets.lib.php:287 libraries/mysql_charsets.lib.php:335
 msgid "West European"
 msgstr "Länsieurooppalainen"
 
-#: libraries/mysql_charsets.lib.php:280
+#: libraries/mysql_charsets.lib.php:290
 msgid "Romanian"
 msgstr "Romanialainen"
 
-#: libraries/mysql_charsets.lib.php:283
+#: libraries/mysql_charsets.lib.php:293
 msgid "Slovak"
 msgstr "Slovakialainen"
 
-#: libraries/mysql_charsets.lib.php:286
+#: libraries/mysql_charsets.lib.php:296
 msgid "Slovenian"
 msgstr "Slovenialainen"
 
-#: libraries/mysql_charsets.lib.php:289
+#: libraries/mysql_charsets.lib.php:299
 msgid "Spanish"
 msgstr "Espanjalainen"
 
-#: libraries/mysql_charsets.lib.php:292
+#: libraries/mysql_charsets.lib.php:302
 msgid "Traditional Spanish"
 msgstr "Perinteinen espanja"
 
-#: libraries/mysql_charsets.lib.php:295 libraries/mysql_charsets.lib.php:392
+#: libraries/mysql_charsets.lib.php:305 libraries/mysql_charsets.lib.php:402
 msgid "Swedish"
 msgstr "Ruotsalainen"
 
-#: libraries/mysql_charsets.lib.php:298 libraries/mysql_charsets.lib.php:395
+#: libraries/mysql_charsets.lib.php:308 libraries/mysql_charsets.lib.php:405
 msgid "Thai"
 msgstr "Thai"
 
-#: libraries/mysql_charsets.lib.php:301 libraries/mysql_charsets.lib.php:389
+#: libraries/mysql_charsets.lib.php:311 libraries/mysql_charsets.lib.php:399
 msgid "Turkish"
 msgstr "Turkkilainen"
 
-#: libraries/mysql_charsets.lib.php:304 libraries/mysql_charsets.lib.php:386
+#: libraries/mysql_charsets.lib.php:314 libraries/mysql_charsets.lib.php:396
 msgid "Ukrainian"
 msgstr "Ukrainalainen"
 
-#: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
+#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
-#: libraries/mysql_charsets.lib.php:325 libraries/mysql_charsets.lib.php:332
-#: libraries/mysql_charsets.lib.php:354 libraries/mysql_charsets.lib.php:365
+#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
+#: libraries/mysql_charsets.lib.php:335 libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:364 libraries/mysql_charsets.lib.php:375
 msgid "multilingual"
 msgstr "monikielinen"
 
-#: libraries/mysql_charsets.lib.php:332
+#: libraries/mysql_charsets.lib.php:342
 msgid "Central European"
 msgstr "Keskieurooppalainen"
 
-#: libraries/mysql_charsets.lib.php:337
+#: libraries/mysql_charsets.lib.php:347
 msgid "Russian"
 msgstr "Venäläinen"
 
-#: libraries/mysql_charsets.lib.php:354
+#: libraries/mysql_charsets.lib.php:364
 msgid "Baltic"
 msgstr "Baltilainen"
 
-#: libraries/mysql_charsets.lib.php:359
+#: libraries/mysql_charsets.lib.php:369
 msgid "Armenian"
 msgstr "Armenialainen"
 
-#: libraries/mysql_charsets.lib.php:365
+#: libraries/mysql_charsets.lib.php:375
 msgid "Cyrillic"
 msgstr "Kyrillinen"
 
-#: libraries/mysql_charsets.lib.php:368
+#: libraries/mysql_charsets.lib.php:378
 msgid "Arabic"
 msgstr "Arabialainen"
 
-#: libraries/mysql_charsets.lib.php:374
+#: libraries/mysql_charsets.lib.php:384
 msgid "Hebrew"
 msgstr "Hebrealainen"
 
-#: libraries/mysql_charsets.lib.php:377
+#: libraries/mysql_charsets.lib.php:387
 msgid "Georgian"
 msgstr "Georgialainen"
 
-#: libraries/mysql_charsets.lib.php:380
+#: libraries/mysql_charsets.lib.php:390
 msgid "Greek"
 msgstr "Kreikkalainen"
 
-#: libraries/mysql_charsets.lib.php:383
+#: libraries/mysql_charsets.lib.php:393
 msgid "Czech-Slovak"
 msgstr "Tsekkoslovakialainen"
 
-#: libraries/mysql_charsets.lib.php:398 libraries/mysql_charsets.lib.php:405
+#: libraries/mysql_charsets.lib.php:408 libraries/mysql_charsets.lib.php:415
 msgid "unknown"
 msgstr "tuntematon"
 
@@ -3539,19 +3539,19 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1173
+#: libraries/relation.lib.php:1172
 msgid "no description"
 msgstr "ei kuvausta"
 
-#: libraries/replication_gui.lib.php:51
+#: libraries/replication_gui.lib.php:54
 msgid "Slave configuration"
 msgstr "Alipalvelimen asetusten määrittely"
 
-#: libraries/replication_gui.lib.php:51 server_replication.php:347
+#: libraries/replication_gui.lib.php:54 server_replication.php:347
 msgid "Change or reconfigure master server"
 msgstr "Vaihda isäntäpalvelin tai muuta sen asetuksia"
 
-#: libraries/replication_gui.lib.php:52
+#: libraries/replication_gui.lib.php:55
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -3559,42 +3559,42 @@ msgstr ""
 "Varmista, että my.cnf-asetustiedostossa on yksikäsitteinen palvelintunnus. "
 "Jos ei ole, lisää seuraava rivi [mysqld]-osaan:"
 
-#: libraries/replication_gui.lib.php:55 libraries/replication_gui.lib.php:56
-#: libraries/replication_gui.lib.php:249 libraries/replication_gui.lib.php:252
-#: libraries/replication_gui.lib.php:259 server_privileges.php:711
+#: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
+#: libraries/replication_gui.lib.php:252 libraries/replication_gui.lib.php:255
+#: libraries/replication_gui.lib.php:262 server_privileges.php:711
 #: server_privileges.php:714 server_privileges.php:721
 #: server_synchronize.php:1171
 msgid "User name"
 msgstr "Käyttäjänimi"
 
-#: libraries/replication_gui.lib.php:67 server_synchronize.php:1163
+#: libraries/replication_gui.lib.php:70 server_synchronize.php:1163
 msgid "Port"
 msgstr "Port"
 
-#: libraries/replication_gui.lib.php:103
+#: libraries/replication_gui.lib.php:106
 msgid "Master status"
 msgstr "Isännän tila"
 
-#: libraries/replication_gui.lib.php:105
+#: libraries/replication_gui.lib.php:108
 msgid "Slave status"
 msgstr "Alipalvelimen tila"
 
-#: libraries/replication_gui.lib.php:114 libraries/sql_query_form.lib.php:445
+#: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:445
 #: server_status.php:737 server_variables.php:52
 msgid "Variable"
 msgstr "Muuttuja"
 
-#: libraries/replication_gui.lib.php:115 server_status.php:738
-#: tbl_change.php:324 tbl_printview.php:370 tbl_select.php:139
+#: libraries/replication_gui.lib.php:118 server_status.php:738
+#: tbl_change.php:323 tbl_printview.php:369 tbl_select.php:138
 #: tbl_structure.php:729
 msgid "Value"
 msgstr "Arvo"
 
-#: libraries/replication_gui.lib.php:173 server_binlog.php:218
+#: libraries/replication_gui.lib.php:176 server_binlog.php:218
 msgid "Server ID"
 msgstr "Palvelimen tunnus"
 
-#: libraries/replication_gui.lib.php:192
+#: libraries/replication_gui.lib.php:195
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -3602,38 +3602,38 @@ msgstr ""
 "Luettelossa on näkyvillä vain ne alipalvelimet, joilla on valinta --report-"
 "host=host_name."
 
-#: libraries/replication_gui.lib.php:240 server_replication.php:194
+#: libraries/replication_gui.lib.php:243 server_replication.php:194
 msgid "Add slave replication user"
 msgstr "Lisää alireplikaatiokäyttäjä"
 
-#: libraries/replication_gui.lib.php:254 server_privileges.php:716
+#: libraries/replication_gui.lib.php:257 server_privileges.php:716
 msgid "Any user"
 msgstr "Kuka tahansa käyttäjä"
 
-#: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:323
-#: libraries/replication_gui.lib.php:346 server_privileges.php:717
+#: libraries/replication_gui.lib.php:258 libraries/replication_gui.lib.php:326
+#: libraries/replication_gui.lib.php:349 server_privileges.php:717
 #: server_privileges.php:784 server_privileges.php:808
 #: server_privileges.php:1928 server_privileges.php:1958
 msgid "Use text field"
 msgstr "Käytä tekstikenttää"
 
-#: libraries/replication_gui.lib.php:302 server_privileges.php:764
+#: libraries/replication_gui.lib.php:305 server_privileges.php:764
 msgid "Any host"
 msgstr "Mikä tahansa palvelin"
 
-#: libraries/replication_gui.lib.php:306 server_privileges.php:768
+#: libraries/replication_gui.lib.php:309 server_privileges.php:768
 msgid "Local"
 msgstr "Paikallinen"
 
-#: libraries/replication_gui.lib.php:312 server_privileges.php:773
+#: libraries/replication_gui.lib.php:315 server_privileges.php:773
 msgid "This Host"
 msgstr "Tämä isäntä"
 
-#: libraries/replication_gui.lib.php:318 server_privileges.php:779
+#: libraries/replication_gui.lib.php:321 server_privileges.php:779
 msgid "Use Host Table"
 msgstr "Käytä isäntätaulua"
 
-#: libraries/replication_gui.lib.php:331 server_privileges.php:792
+#: libraries/replication_gui.lib.php:334 server_privileges.php:792
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -3873,7 +3873,7 @@ msgstr ""
 "lainausmerkkejä) tässä muodossa: a"
 
 #: libraries/tbl_properties.inc.php:108 pdf_schema.php:1264
-#: pdf_schema.php:1285 tbl_printview.php:144 tbl_structure.php:180
+#: pdf_schema.php:1285 tbl_printview.php:143 tbl_structure.php:180
 msgid "Attributes"
 msgstr "Attribuutit"
 
@@ -3932,7 +3932,7 @@ msgstr "PARTITION-määritelmä"
 
 #: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
-#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1126 tbl_indexes.php:248
+#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1123 tbl_indexes.php:248
 #: tbl_relation.php:566
 msgid "Save"
 msgstr "Tallenna"
@@ -4152,7 +4152,7 @@ msgid "Custom color"
 msgstr "Muu väri"
 
 #: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
-#: tbl_change.php:1175
+#: tbl_change.php:1172
 msgid "Reset"
 msgstr "Nollaa"
 
@@ -4379,7 +4379,7 @@ msgstr "Relaatioskeema"
 msgid "Table of contents"
 msgstr "Sisällysluettelo"
 
-#: pdf_schema.php:1267 pdf_schema.php:1288 tbl_printview.php:147
+#: pdf_schema.php:1267 pdf_schema.php:1288 tbl_printview.php:146
 #: tbl_structure.php:183 tbl_tracking.php:278
 msgid "Extra"
 msgstr "Lisätiedot"
@@ -8048,74 +8048,74 @@ msgstr "Tunniste"
 msgid "Table %1$s has been altered successfully"
 msgstr "Taulun %1$s muuttaminen onnistui."
 
-#: tbl_change.php:252 tbl_select.php:27 tbl_select.php:28 tbl_select.php:31
+#: tbl_change.php:251 tbl_select.php:27 tbl_select.php:28 tbl_select.php:31
 #: tbl_select.php:34
 msgid "Browse foreign values"
 msgstr "Selaa viitearvoja"
 
-#: tbl_change.php:282 tbl_change.php:320
+#: tbl_change.php:281 tbl_change.php:319
 msgid "Function"
 msgstr "Funktio"
 
-#: tbl_change.php:302 tbl_indexes.php:200 tbl_indexes.php:225
+#: tbl_change.php:301 tbl_indexes.php:200 tbl_indexes.php:225
 msgid "Ignore"
 msgstr "Älä huomioi"
 
-#: tbl_change.php:728
+#: tbl_change.php:726
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Pituudestaan johtuen<br /> tätä saraketta ei voine muokata "
 
-#: tbl_change.php:888
+#: tbl_change.php:885
 msgid "Remove BLOB Repository Reference"
 msgstr "Poista BLOB-tietokantaviittaus"
 
-#: tbl_change.php:894
+#: tbl_change.php:891
 msgid "Binary - do not edit"
 msgstr "Binääritietoa - älä muokkaa"
 
-#: tbl_change.php:987
+#: tbl_change.php:984
 msgid "Upload to BLOB repository"
 msgstr "Lähetä BLOB-tietokantaan"
 
-#: tbl_change.php:1130
+#: tbl_change.php:1127
 msgid "Insert as new row"
 msgstr "Lisää uutena rivinä"
 
-#: tbl_change.php:1131
+#: tbl_change.php:1128
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:1132
+#: tbl_change.php:1129
 #, fuzzy
 msgid "Show insert query"
 msgstr "Näytetään SQL-kysely"
 
-#: tbl_change.php:1147
+#: tbl_change.php:1144
 msgid "Go back to previous page"
 msgstr "Takaisin"
 
-#: tbl_change.php:1148
+#: tbl_change.php:1145
 msgid "Insert another new row"
 msgstr "Lisää uusi rivi"
 
-#: tbl_change.php:1152
+#: tbl_change.php:1149
 msgid "Go back to this page"
 msgstr "Palaa tälle sivulle"
 
-#: tbl_change.php:1160
+#: tbl_change.php:1157
 msgid "Edit next row"
 msgstr "Muokkaa seuraavaa riviä"
 
-#: tbl_change.php:1171
+#: tbl_change.php:1168
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Käytä arvojen välillä siirtymiseen sarkainta. Ctrl- ja nuolinäppäimillä voi "
 "siirtyä mihin tahansa kohtaan."
 
-#: tbl_change.php:1209
+#: tbl_change.php:1206
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr "Aloita lisäys alusta %s rivillä"
@@ -8282,43 +8282,43 @@ msgstr "Poista ositus"
 msgid "Check referential integrity:"
 msgstr "Tarkista viitteiden eheys:"
 
-#: tbl_printview.php:75
+#: tbl_printview.php:74
 msgid "Show tables"
 msgstr "Näytä taulut"
 
-#: tbl_printview.php:310 tbl_structure.php:656
+#: tbl_printview.php:309 tbl_structure.php:656
 msgid "Space usage"
 msgstr "Levytilan käyttö"
 
-#: tbl_printview.php:314 tbl_structure.php:660
+#: tbl_printview.php:313 tbl_structure.php:660
 msgid "Usage"
 msgstr "Käyttö"
 
-#: tbl_printview.php:341 tbl_structure.php:687
+#: tbl_printview.php:340 tbl_structure.php:687
 msgid "Effective"
 msgstr "Pätevä"
 
-#: tbl_printview.php:366 tbl_structure.php:725
+#: tbl_printview.php:365 tbl_structure.php:725
 msgid "Row Statistics"
 msgstr "Rivitilastot"
 
-#: tbl_printview.php:369 tbl_structure.php:728
+#: tbl_printview.php:368 tbl_structure.php:728
 msgid "Statements"
 msgstr "Tieto"
 
-#: tbl_printview.php:380 tbl_structure.php:740
+#: tbl_printview.php:379 tbl_structure.php:740
 msgid "static"
 msgstr "staattinen"
 
-#: tbl_printview.php:382 tbl_structure.php:742
+#: tbl_printview.php:381 tbl_structure.php:742
 msgid "dynamic"
 msgstr "dynaaminen"
 
-#: tbl_printview.php:404 tbl_structure.php:785
+#: tbl_printview.php:403 tbl_structure.php:785
 msgid "Row length"
 msgstr "Rivin pituus"
 
-#: tbl_printview.php:414 tbl_structure.php:793
+#: tbl_printview.php:413 tbl_structure.php:793
 msgid " Row size "
 msgstr " Rivin koko "
 
@@ -8351,29 +8351,29 @@ msgstr "Viiteavaimen rajoitus"
 msgid "No rows selected"
 msgstr "Ei yhtään riviä valittu"
 
-#: tbl_select.php:132
+#: tbl_select.php:131
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Suorita mallin mukainen kysely (jokerimerkki: \"%\")"
 
-#: tbl_select.php:138
+#: tbl_select.php:137
 msgid "Operator"
 msgstr "Operaattori"
 
-#: tbl_select.php:270
+#: tbl_select.php:268
 #, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Valitse sarakkeet (vähintään yksi):"
 
-#: tbl_select.php:288
+#: tbl_select.php:286
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Lisää hakuehtoja (\"WHERE\"-lauseen sisältö):"
 
-#: tbl_select.php:295
+#: tbl_select.php:293
 msgid "Number of rows per page"
 msgstr "Rivejä sivulla"
 
-#: tbl_select.php:301
+#: tbl_select.php:299
 msgid "Display order:"
 msgstr "Lajittelujärjestys:"
 

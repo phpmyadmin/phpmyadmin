@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-06-13 09:03-0400\n"
+"POT-Creation-Date: 2010-07-03 09:00-0400\n"
 "PO-Revision-Date: 2010-06-21 19:58+0200\n"
 "Last-Translator: Burak <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -48,14 +48,14 @@ msgstr "Ara"
 #: db_operations.php:499 db_operations.php:609 db_search.php:362
 #: db_structure.php:567 js/messages.php:48 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
-#: libraries/auth/cookie.auth.lib.php:292 libraries/common.lib.php:719
+#: libraries/auth/cookie.auth.lib.php:290 libraries/common.lib.php:719
 #: libraries/common.lib.php:1335 libraries/common.lib.php:2288
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:63
-#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:276
+#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
-#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:73
-#: libraries/replication_gui.lib.php:369 libraries/select_server.lib.php:104
+#: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:76
+#: libraries/replication_gui.lib.php:372 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
@@ -64,10 +64,10 @@ msgstr "Ara"
 #: server_privileges.php:1971 server_privileges.php:2018
 #: server_privileges.php:2057 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1209 tbl_change.php:330 tbl_change.php:1174
-#: tbl_change.php:1211 tbl_indexes.php:254 tbl_operations.php:265
+#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
+#: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
-#: tbl_operations.php:681 tbl_select.php:327 tbl_structure.php:562
+#: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
@@ -99,7 +99,7 @@ msgid "Database comment: "
 msgstr "Veritabanı yorumu:"
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
-#: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:130
+#: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:129
 msgid "Table comments"
 msgstr "Tablo yorumları"
 
@@ -107,11 +107,10 @@ msgstr "Tablo yorumları"
 #: libraries/export/htmlword.php:244 libraries/export/latex.php:360
 #: libraries/export/odt.php:294 libraries/export/texytext.php:233
 #: libraries/tbl_properties.inc.php:99 libraries/tbl_properties.inc.php:275
-#: pdf_schema.php:1262 pdf_schema.php:1283 tbl_change.php:308
-#: tbl_indexes.php:189 tbl_printview.php:142 tbl_relation.php:402
-#: tbl_select.php:135 tbl_structure.php:177 tbl_tracking.php:273
+#: pdf_schema.php:1262 pdf_schema.php:1283 tbl_change.php:307
+#: tbl_indexes.php:189 tbl_printview.php:141 tbl_relation.php:402
+#: tbl_select.php:134 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
-#| msgid "Column names"
 msgid "Column"
 msgstr "Sütun"
 
@@ -121,8 +120,8 @@ msgstr "Sütun"
 #: libraries/export/latex.php:360 libraries/export/odt.php:297
 #: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:100
 #: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2070
-#: tbl_change.php:287 tbl_change.php:314 tbl_printview.php:143
-#: tbl_printview.php:313 tbl_select.php:136 tbl_structure.php:178
+#: tbl_change.php:286 tbl_change.php:313 tbl_printview.php:142
+#: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
 #: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
 msgstr "Türü"
@@ -131,7 +130,7 @@ msgstr "Türü"
 #: libraries/export/htmlword.php:246 libraries/export/latex.php:360
 #: libraries/export/odt.php:300 libraries/export/texytext.php:235
 #: libraries/tbl_properties.inc.php:109 pdf_schema.php:1265
-#: pdf_schema.php:1286 tbl_change.php:323 tbl_printview.php:145
+#: pdf_schema.php:1286 tbl_change.php:322 tbl_printview.php:144
 #: tbl_structure.php:181 tbl_tracking.php:276 tbl_tracking.php:327
 msgid "Null"
 msgstr "Boş"
@@ -139,7 +138,7 @@ msgstr "Boş"
 #: db_datadict.php:178 db_structure.php:501 libraries/export/htmlword.php:247
 #: libraries/export/latex.php:360 libraries/export/odt.php:303
 #: libraries/export/texytext.php:236 libraries/tbl_properties.inc.php:106
-#: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:146
+#: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:145
 #: tbl_structure.php:182 tbl_tracking.php:277
 msgid "Default"
 msgstr "Varsayılan"
@@ -147,7 +146,7 @@ msgstr "Varsayılan"
 #: db_datadict.php:182 libraries/export/htmlword.php:249
 #: libraries/export/latex.php:362 libraries/export/odt.php:307
 #: libraries/export/texytext.php:238 pdf_schema.php:1268 pdf_schema.php:1289
-#: tbl_printview.php:150
+#: tbl_printview.php:149
 msgid "Links to"
 msgstr "Şuna bağlantı ver ->"
 
@@ -156,7 +155,7 @@ msgstr "Şuna bağlantı ver ->"
 #: libraries/export/odt.php:38 libraries/export/odt.php:312
 #: libraries/export/sql.php:30 libraries/export/texytext.php:241
 #: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
-#: pdf_schema.php:1290 tbl_printview.php:152
+#: pdf_schema.php:1290 tbl_printview.php:151
 msgid "Comments"
 msgstr "Yorumlar"
 
@@ -166,7 +165,7 @@ msgstr "Yorumlar"
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:263
 #: pdf_schema.php:1344 server_privileges.php:1568 server_privileges.php:1579
 #: server_privileges.php:1889 server_privileges.php:1894
-#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:229
+#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:228
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "Hayır"
@@ -183,12 +182,12 @@ msgstr "Hayır"
 #: server_databases.php:64 server_privileges.php:1565
 #: server_privileges.php:1579 server_privileges.php:1889
 #: server_privileges.php:1892 server_privileges.php:2187 sql.php:193
-#: tbl_printview.php:229 tbl_structure.php:40 tbl_structure.php:350
+#: tbl_printview.php:228 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
 msgstr "Evet"
 
-#: db_datadict.php:322 db_printview.php:266 tbl_printview.php:498
+#: db_datadict.php:322 db_printview.php:266 tbl_printview.php:497
 msgid "Print"
 msgstr "Yazdır"
 
@@ -231,7 +230,7 @@ msgstr "Veritabanını şuna yeniden adlandır"
 msgid "Command"
 msgstr "Komut"
 
-#: db_operations.php:429 tbl_change.php:1143
+#: db_operations.php:429 tbl_change.php:1140
 msgid "and then"
 msgstr "ve sonra"
 
@@ -286,7 +285,6 @@ msgid "Status"
 msgstr "Durum"
 
 #: db_operations.php:548
-#| msgid "Enabled"
 msgctxt "BLOB repository"
 msgid "Enabled"
 msgstr "Etkinleştirildi"
@@ -300,13 +298,11 @@ msgid "Damaged"
 msgstr "Hasarlı"
 
 #: db_operations.php:566
-#| msgid "Repair"
 msgctxt "BLOB repository"
 msgid "Repair"
 msgstr "Onar"
 
 #: db_operations.php:574
-#| msgid "Disabled"
 msgctxt "BLOB repository"
 msgid "Disabled"
 msgstr "Etkisizleştirildi"
@@ -319,7 +315,7 @@ msgstr "Etkin"
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
 #: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
 #: server_collations.php:54 server_collations.php:66 server_databases.php:111
-#: tbl_operations.php:363 tbl_select.php:137 tbl_structure.php:179
+#: tbl_operations.php:363 tbl_select.php:136 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr "Karşılaştırma"
@@ -349,7 +345,7 @@ msgstr "Tablo"
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
-#: tbl_printview.php:394 tbl_structure.php:365 tbl_structure.php:777
+#: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr "Satır"
 
@@ -363,26 +359,25 @@ msgid "in use"
 msgstr "kullanımda"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
-#: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:434
+#: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
 #: tbl_structure.php:809
 msgid "Creation"
 msgstr "Oluşturma"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
-#: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:444
+#: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
 #: tbl_structure.php:817
 msgid "Last update"
 msgstr "Son güncellenme"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
-#: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:454
+#: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
 #: tbl_structure.php:825
 msgid "Last check"
 msgstr "Son kontrol"
 
 #: db_printview.php:222 db_structure.php:480
 #, php-format
-#| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s tablo"
@@ -406,19 +401,19 @@ msgstr "Sırala"
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:260
-#: tbl_select.php:314
+#: tbl_select.php:312
 msgid "Ascending"
 msgstr "Küçükten Büyüğe"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:261
-#: tbl_select.php:315
+#: tbl_select.php:313
 msgid "Descending"
 msgstr "Büyükten Küçüğe"
 
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
-#: tbl_change.php:277 tbl_tracking.php:597
+#: tbl_change.php:276 tbl_tracking.php:597
 msgid "Show"
 msgstr "Göster"
 
@@ -439,9 +434,9 @@ msgid "Del"
 msgstr "Del"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
-#: libraries/display_import.lib.php:166 libraries/tbl_properties.inc.php:779
-#: server_privileges.php:297 tbl_change.php:1031 tbl_indexes.php:250
-#: tbl_select.php:288
+#: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
+#: server_privileges.php:297 tbl_change.php:1028 tbl_indexes.php:250
+#: tbl_select.php:286
 msgid "Or"
 msgstr "Veya"
 
@@ -450,12 +445,10 @@ msgid "Modify"
 msgstr "Değiştir"
 
 #: db_qbe.php:584
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Kriter satırı Ekle/Sil"
 
 #: db_qbe.php:596
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Sütun Ekle/Sil"
 
@@ -478,7 +471,7 @@ msgstr "Sorguyu Gönder"
 
 #: db_search.php:68 libraries/auth/config.auth.lib.php:84
 #: libraries/auth/config.auth.lib.php:103
-#: libraries/auth/cookie.auth.lib.php:673 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:671 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:183
 msgid "Access denied"
 msgstr "Erişim engellendi"
@@ -551,7 +544,6 @@ msgid "Inside table(s):"
 msgstr "Tablo içindeki(ler):"
 
 #: db_search.php:355
-#| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "İç sütun:"
 
@@ -658,7 +650,7 @@ msgid "Check All"
 msgstr "Tümünü Seç"
 
 #: db_structure.php:531 libraries/display_tbl.lib.php:2077
-#: libraries/replication_gui.lib.php:33 server_databases.php:350
+#: libraries/replication_gui.lib.php:36 server_databases.php:350
 #: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
 msgid "Uncheck All"
 msgstr "Hiçbirini Seçme"
@@ -839,10 +831,10 @@ msgid ""
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
 "İçeri aktarmak için veri alınmadı. Ya dosya adı gönderilmedi ya da PHP "
-"yapılandırmanız tarafından izin verilen en fazla boyut aşıldı. "
-"[a@./Documentation.html#faq1_16@Documentation]SSS 1.16[/a]'ya bakın."
+"yapılandırmanız tarafından izin verilen en fazla boyut aşıldı. [a@./"
+"Documentation.html#faq1_16@Documentation]SSS 1.16[/a]'ya bakın."
 
-#: import.php:372 libraries/display_import.lib.php:24
+#: import.php:372 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "İçeri aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
@@ -1005,38 +997,33 @@ msgid "Please select the primary key or a unique key"
 msgstr "Lütfen birincil anaktarı veya benzersiz anahtarı seçin"
 
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Göstermek için sütun seçin"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
-#| msgid "Donate"
 msgid "Done"
 msgstr "Bitti"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:75
-#| msgid "Previous"
 msgid "Prev"
 msgstr "Önceki"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:77 libraries/common.lib.php:2353
 #: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
-#: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:424
+#: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
 #: tbl_structure.php:801
 msgid "Next"
 msgstr "Sonraki"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:79
-#| msgid "Total"
 msgid "Today"
 msgstr "Bugün"
 
 #: js/messages.php:82
-#| msgid "Binary"
 msgid "January"
 msgstr "Ocak"
 
@@ -1045,12 +1032,10 @@ msgid "February"
 msgstr "Şubat"
 
 #: js/messages.php:84
-#| msgid "Mar"
 msgid "March"
 msgstr "Mart"
 
 #: js/messages.php:85
-#| msgid "Apr"
 msgid "April"
 msgstr "Nisan"
 
@@ -1059,17 +1044,14 @@ msgid "May"
 msgstr "Mayıs"
 
 #: js/messages.php:87
-#| msgid "Jun"
 msgid "June"
 msgstr "Haziran"
 
 #: js/messages.php:88
-#| msgid "Jul"
 msgid "July"
 msgstr "Temmuz"
 
 #: js/messages.php:89
-#| msgid "Aug"
 msgid "August"
 msgstr "Ağustos"
 
@@ -1078,7 +1060,6 @@ msgid "September"
 msgstr "Eylül"
 
 #: js/messages.php:91
-#| msgid "Oct"
 msgid "October"
 msgstr "Ekim"
 
@@ -1112,7 +1093,6 @@ msgstr "Nis"
 
 #. l10n: Short month name
 #: js/messages.php:105 libraries/common.lib.php:1565
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "May"
@@ -1153,17 +1133,14 @@ msgid "Dec"
 msgstr "Ara"
 
 #: js/messages.php:122
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "Pazar"
 
 #: js/messages.php:123
-#| msgid "Mon"
 msgid "Monday"
 msgstr "Pazartesi"
 
 #: js/messages.php:124
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "Salı"
 
@@ -1176,7 +1153,6 @@ msgid "Thursday"
 msgstr "Perşembe"
 
 #: js/messages.php:127
-#| msgid "Fri"
 msgid "Friday"
 msgstr "Cuma"
 
@@ -1221,49 +1197,41 @@ msgstr "Ctesi"
 
 #. l10n: Minimal week day name
 #: js/messages.php:148
-#| msgid "Sun"
 msgid "Su"
 msgstr "Paz"
 
 #. l10n: Minimal week day name
 #: js/messages.php:150
-#| msgid "Mon"
 msgid "Mo"
 msgstr "Ptesi"
 
 #. l10n: Minimal week day name
 #: js/messages.php:152
-#| msgid "Tue"
 msgid "Tu"
 msgstr "Sa"
 
 #. l10n: Minimal week day name
 #: js/messages.php:154
-#| msgid "Wed"
 msgid "We"
 msgstr "Ça"
 
 #. l10n: Minimal week day name
 #: js/messages.php:156
-#| msgid "Thu"
 msgid "Th"
 msgstr "Pe"
 
 #. l10n: Minimal week day name
 #: js/messages.php:158
-#| msgid "Fri"
 msgid "Fr"
 msgstr "Cu"
 
 #. l10n: Minimal week day name
 #: js/messages.php:160
-#| msgid "Sat"
 msgid "Sa"
 msgstr "Ctesi"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
-#| msgid "Wiki"
 msgid "Wk"
 msgstr "Hs"
 
@@ -1272,12 +1240,10 @@ msgid "Hour"
 msgstr "Saat"
 
 #: js/messages.php:165
-#| msgid "in use"
 msgid "Minute"
 msgstr "Dakika"
 
 #: js/messages.php:166
-#| msgid "per second"
 msgid "Second"
 msgstr "Saniye"
 
@@ -1324,8 +1290,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Gönderilen dosyayı taşıma hatası, "
-"[a@./Documentation.html#faq1_11@Documentation]SSS 1.11[/a]'e bakın"
+"Gönderilen dosyayı taşıma hatası, [a@./Documentation."
+"html#faq1_11@Documentation]SSS 1.11[/a]'e bakın"
 
 #: libraries/Index.class.php:428 tbl_relation.php:529
 msgid "No index defined!"
@@ -1388,7 +1354,7 @@ msgstr "Veritabanları"
 
 #: libraries/Message.class.php:211 libraries/common.lib.php:581
 #: libraries/core.lib.php:261 libraries/import.lib.php:135 pdf_schema.php:32
-#: pdf_schema.php:232 tbl_change.php:1027 tbl_operations.php:213
+#: pdf_schema.php:232 tbl_change.php:1024 tbl_operations.php:213
 #: tbl_relation.php:290 view_operations.php:62
 msgid "Error"
 msgstr "Hata"
@@ -1487,7 +1453,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Bağlanamıyor: geçersiz ayarlar."
 
 #: libraries/auth/config.auth.lib.php:92
-#: libraries/auth/cookie.auth.lib.php:219 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:217 libraries/auth/http.auth.lib.php:65
 #: test/theme.php:152
 #, php-format
 msgid "Welcome to %s"
@@ -1514,45 +1480,45 @@ msgstr ""
 "parolayı kontrol edin ve MySQL sunucusu yöneticisi tarafından verilen "
 "bilgiyle uyuştuğundan emin olun."
 
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:242
 msgid "Log in"
 msgstr "Oturum aç"
 
+#: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:246
-#: libraries/auth/cookie.auth.lib.php:248
 #: libraries/navigation_header.inc.php:93
 #: libraries/navigation_header.inc.php:95
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin belgeleri"
 
-#: libraries/auth/cookie.auth.lib.php:258
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:256
+#: libraries/auth/cookie.auth.lib.php:257
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Anamakine adı/IP adresi ve bağlantı noktasını boşluk bırakarak ayrı "
 "girebilirsiniz."
 
-#: libraries/auth/cookie.auth.lib.php:258
+#: libraries/auth/cookie.auth.lib.php:256
 msgid "Server:"
 msgstr "Sunucu:"
 
-#: libraries/auth/cookie.auth.lib.php:263
+#: libraries/auth/cookie.auth.lib.php:261
 msgid "Username:"
 msgstr "Kullanıcı Adı:"
 
-#: libraries/auth/cookie.auth.lib.php:267
+#: libraries/auth/cookie.auth.lib.php:265
 msgid "Password:"
 msgstr "Parola:"
 
-#: libraries/auth/cookie.auth.lib.php:274
+#: libraries/auth/cookie.auth.lib.php:272
 msgid "Server Choice"
 msgstr "Sunucu Seçimi"
 
-#: libraries/auth/cookie.auth.lib.php:320 libraries/header.inc.php:59
+#: libraries/auth/cookie.auth.lib.php:318 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
 msgstr "Bu kısmı geçmek için tanımlama bilgileri (cookies) açık olmalı."
 
-#: libraries/auth/cookie.auth.lib.php:671
+#: libraries/auth/cookie.auth.lib.php:669
 #: libraries/auth/signon.auth.lib.php:181
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -1560,14 +1526,14 @@ msgstr ""
 "Yapılandırma tarafından parolasız oturum açma yasaktır (AllowNoPassword'a "
 "bakın)"
 
-#: libraries/auth/cookie.auth.lib.php:675
+#: libraries/auth/cookie.auth.lib.php:673
 #: libraries/auth/signon.auth.lib.php:185
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s saniye içinde hiçbir işlem yapılmadı, lütfen yeniden oturum açın"
 
+#: libraries/auth/cookie.auth.lib.php:683
 #: libraries/auth/cookie.auth.lib.php:685
-#: libraries/auth/cookie.auth.lib.php:687
 #: libraries/auth/signon.auth.lib.php:191
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL sunucusuna oturum açılamıyor"
@@ -1630,7 +1596,7 @@ msgstr ""
 "Gerekli uzantılar yüklenmiş görünmesine rağmen, ne iconv, ne libinconv, ne "
 "de recode_string işlevi kullanılamadı. PHP yapılandırmanızı kontrol edin."
 
-#: libraries/common.inc.php:583
+#: libraries/common.inc.php:576
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1646,13 +1612,12 @@ msgstr ""
 "bir yerde tırnak veya noktalı virgül eksiktir.<br />Eğer boş bir sayfa "
 "karşınıza çıkıyorsa, her şey yolunda demektir."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:587
 #, php-format
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Varsayılan yapılandırma bundan yüklenemedi: %1$s"
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:592
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1660,30 +1625,29 @@ msgstr ""
 "<tt>$cfg['PmaAbsoluteUri']</tt> talimatı yapılandırma dosyanız içinde "
 "AYARLANMAK zorundadır!"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:622
 #, php-format
-#| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Geçersiz sunucu indeksi: %s"
 
-#: libraries/common.inc.php:636
+#: libraries/common.inc.php:629
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "%1$s sunucusu için geçersiz anamakine. Lütfen yapılandırmanızı gözden "
 "geçirin."
 
-#: libraries/common.inc.php:645 libraries/header.inc.php:96
+#: libraries/common.inc.php:638 libraries/header.inc.php:96
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
 msgstr "Sunucu"
 
-#: libraries/common.inc.php:823
+#: libraries/common.inc.php:816
 msgid "Invalid authentication method set in configuration:"
 msgstr "Yapılandırma içinde geçersiz kimlik denetimi yöntemi ayarı:"
 
-#: libraries/common.inc.php:926
+#: libraries/common.inc.php:919
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s %s veya sonrasına yükseltmelisiniz."
@@ -1757,7 +1721,6 @@ msgid "Inline edit of this query"
 msgstr "Bu sorguyu sıralı düzenle"
 
 #: libraries/common.lib.php:1280
-#| msgid "Engines"
 msgid "Inline"
 msgstr "Sıralı"
 
@@ -1931,7 +1894,7 @@ msgstr ""
 "a]'e bakın"
 
 #: libraries/db_structure.lib.php:69 server_databases.php:142
-#: tbl_printview.php:336 tbl_structure.php:682
+#: tbl_printview.php:335 tbl_structure.php:682
 msgid "Overhead"
 msgstr "Ek Yük"
 
@@ -1960,21 +1923,21 @@ msgid "Change password"
 msgstr "Parola değiştir"
 
 #: libraries/display_change_password.lib.php:35
-#: libraries/replication_gui.lib.php:345 server_privileges.php:807
+#: libraries/replication_gui.lib.php:348 server_privileges.php:807
 msgid "No Password"
 msgstr "Parola yok"
 
 #: libraries/display_change_password.lib.php:41
-#: libraries/replication_gui.lib.php:59 libraries/replication_gui.lib.php:60
-#: libraries/replication_gui.lib.php:335 libraries/replication_gui.lib.php:339
-#: libraries/replication_gui.lib.php:349 server_privileges.php:796
+#: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
+#: libraries/replication_gui.lib.php:338 libraries/replication_gui.lib.php:342
+#: libraries/replication_gui.lib.php:352 server_privileges.php:796
 #: server_privileges.php:800 server_privileges.php:811
 #: server_privileges.php:1538 server_synchronize.php:1175
 msgid "Password"
 msgstr "Parola"
 
 #: libraries/display_change_password.lib.php:46
-#: libraries/replication_gui.lib.php:353 libraries/replication_gui.lib.php:356
+#: libraries/replication_gui.lib.php:356 libraries/replication_gui.lib.php:359
 #: server_privileges.php:815 server_privileges.php:818
 msgid "Re-type"
 msgstr "Yeniden gir"
@@ -1984,17 +1947,16 @@ msgid "Password Hashing"
 msgstr "Parola Hesaplanıyor"
 
 #: libraries/display_change_password.lib.php:66
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL 4.0 uyumlu"
 
 #: libraries/display_change_password.lib.php:72
-#: libraries/replication_gui.lib.php:360 server_privileges.php:822
+#: libraries/replication_gui.lib.php:363 server_privileges.php:822
 msgid "Generate Password"
 msgstr "Parola Üret"
 
 #: libraries/display_change_password.lib.php:75
-#: libraries/replication_gui.lib.php:363 server_privileges.php:825
+#: libraries/replication_gui.lib.php:366 server_privileges.php:825
 msgid "Generate"
 msgstr "Üret"
 
@@ -2013,7 +1975,6 @@ msgid "No Privileges"
 msgstr "Yetkiniz yok"
 
 #: libraries/display_create_table.lib.php:41
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column."
 msgstr "Tablonun en az bir sütunu olmalı."
 
@@ -2023,7 +1984,6 @@ msgid "Create table on database %s"
 msgstr "%s veritabanında yeni tablo oluştur"
 
 #: libraries/display_create_table.lib.php:57
-#| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Sütun sayısı"
 
@@ -2034,7 +1994,6 @@ msgstr ""
 
 #: libraries/display_export.lib.php:107
 #, php-format
-#| msgid "Dump %s row(s) starting at record # %s"
 msgid "Dump %s row(s) starting at row # %s"
 msgstr "%s satır dökümü, %s. satırdan başlıyor"
 
@@ -2086,8 +2045,8 @@ msgstr ""
 msgid "remember template"
 msgstr "şablonu hatırla"
 
-#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:178
-#: libraries/display_import.lib.php:191 libraries/sql_query_form.lib.php:549
+#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:549
 msgid "Character set of the file:"
 msgstr "Dosyanın karakter grubu:"
 
@@ -2095,8 +2054,8 @@ msgstr "Dosyanın karakter grubu:"
 msgid "Compression"
 msgstr "Sıkıştırma"
 
-#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:197
-#: libraries/display_import.lib.php:210 libraries/display_tbl.lib.php:530
+#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:196
+#: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1875 server_processlist.php:75
 msgid "None"
@@ -2119,7 +2078,7 @@ msgstr "\"bzip olarak\""
 msgid "SQL compatibility mode"
 msgstr "SQL uyumluluk kipi"
 
-#: libraries/display_import.lib.php:67
+#: libraries/display_import.lib.php:66
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -2129,11 +2088,11 @@ msgstr ""
 "webkit tabanlı (Safari, Google Chrome, Arora vs.) tarayıcılardaki bilinen "
 "bir hatadır."
 
-#: libraries/display_import.lib.php:77
+#: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
 msgstr "Dosya işleme alındı, lütfen sabırlı olun."
 
-#: libraries/display_import.lib.php:99
+#: libraries/display_import.lib.php:98
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -2141,40 +2100,40 @@ msgstr ""
 "Lütfen sabırlı olun, dosya gönderilmekte. Gönderme ile ilgili ayrıntılar "
 "mevcut değil."
 
-#: libraries/display_import.lib.php:126
+#: libraries/display_import.lib.php:125
 msgid "File to import"
 msgstr "İçeri aktarmak için dosya"
 
-#: libraries/display_import.lib.php:137 libraries/sql_query_form.lib.php:524
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr "Metin dosyasının yeri"
 
-#: libraries/display_import.lib.php:148
+#: libraries/display_import.lib.php:147
 msgid "File uploads are not allowed on this server."
 msgstr "Bu sunucuda dosya gönderimlerine izin verilmez."
 
-#: libraries/display_import.lib.php:163 libraries/sql_query_form.lib.php:533
-#: tbl_change.php:1028
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:533
+#: tbl_change.php:1025
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor"
 
-#: libraries/display_import.lib.php:166 libraries/sql_query_form.lib.php:536
-#: tbl_change.php:1031
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:536
+#: tbl_change.php:1028
 msgid "web server upload directory"
 msgstr "web sunucusu gönderme dizini"
 
-#: libraries/display_import.lib.php:212
+#: libraries/display_import.lib.php:211
 #, php-format
 msgid "Imported file compression will be automatically detected from: %s"
 msgstr ""
 "İçeri aktarılmış dosya sıkıştırması otomatik olarak bu dosya türlerinden "
 "algılanacak: %s"
 
-#: libraries/display_import.lib.php:219
+#: libraries/display_import.lib.php:218
 msgid "Partial import"
 msgstr "Kısmi içeri aktarma"
 
-#: libraries/display_import.lib.php:225
+#: libraries/display_import.lib.php:224
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -2182,7 +2141,7 @@ msgstr ""
 "Önceki içeri aktarma zaman aşımına uğradı, sonradan yeniden gönderim %d "
 "konumundan devam edecek."
 
-#: libraries/display_import.lib.php:232
+#: libraries/display_import.lib.php:231
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. This might be good way to import large files, "
@@ -2192,12 +2151,11 @@ msgstr ""
 "durumunda içeri aktarımı kesmeye izin ver. Bu büyük dosyaların içeri "
 "aktarımı için iyi bir yol olabilir, ancak hareketleri kesebilir."
 
-#: libraries/display_import.lib.php:239 setup/lib/messages.inc.php:161
-#| msgid "Number of records (queries) to skip from start"
+#: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:161
 msgid "Number of queries to skip from start"
 msgstr "Başlangıçtan atlanacak sorgu sayısı"
 
-#: libraries/display_import.lib.php:255 setup/lib/messages.inc.php:160
+#: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:160
 msgid "Format of imported file"
 msgstr "İçeri aktarılmış dosyanın biçimi"
 
@@ -2252,7 +2210,6 @@ msgid "%d is not valid row number."
 msgstr "%d geçerli bir satır sayısı değil."
 
 #: libraries/display_tbl.lib.php:310
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "satır, başlayacağı satır numarası"
 
@@ -2294,7 +2251,7 @@ msgstr "Anahtara göre sırala"
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
-#: libraries/import/xml.php:25 tbl_select.php:267 tbl_structure.php:753
+#: libraries/import/xml.php:25 tbl_select.php:265 tbl_structure.php:753
 msgid "Options"
 msgstr "Seçenekler"
 
@@ -2311,7 +2268,6 @@ msgid "Relational key"
 msgstr "Bağlantılı anahtar"
 
 #: libraries/display_tbl.lib.php:588
-#| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "Bağlantılı görüntü sütunu"
 
@@ -2327,8 +2283,8 @@ msgstr "BLOB içerikleri göster"
 msgid "Show binary contents as HEX"
 msgstr "Binari içerikleri HEX olarak göster"
 
-#: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:314
-#: tbl_change.php:320
+#: libraries/display_tbl.lib.php:607 pmd_general.php:141 tbl_change.php:313
+#: tbl_change.php:319
 msgid "Hide"
 msgstr "Gizle"
 
@@ -2440,7 +2396,7 @@ msgstr "Ara Bellek Havuzu Kullanımı"
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:525 server_status.php:586
-#: server_status.php:607 tbl_printview.php:351 tbl_structure.php:696
+#: server_status.php:607 tbl_printview.php:350 tbl_structure.php:696
 msgid "Total"
 msgstr "Toplam"
 
@@ -2728,7 +2684,7 @@ msgstr ""
 "diğer taraftan yeniden adlandırılır ve bir sonraki en yüksek numara verilir."
 
 #: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
-#: tbl_printview.php:376 tbl_structure.php:737
+#: tbl_printview.php:375 tbl_structure.php:737
 msgid "Format"
 msgstr "Biçim"
 
@@ -2738,19 +2694,16 @@ msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:59 libraries/import/ldi.php:40
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "Sütunu sonlandıran:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:71 libraries/import/ldi.php:41
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Sütunu kapsayan:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:75 libraries/import/ldi.php:42
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "Sütunu dolduran:"
 
@@ -2768,7 +2721,6 @@ msgid "Replace NULL by"
 msgstr "NULL'u bunla değiştir:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
 msgstr "Sütunlardaki CRLF karakterlerini kaldır"
 
@@ -2777,7 +2729,6 @@ msgstr "Sütunlardaki CRLF karakterlerini kaldır"
 #: libraries/export/ods.php:24 libraries/export/odt.php:50
 #: libraries/export/texytext.php:34 libraries/export/xls.php:24
 #: libraries/export/xlsx.php:24
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "İlk satır içine sütun adlarını koy"
 
@@ -2797,7 +2748,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
 #: libraries/export/sql.php:106 libraries/export/sql.php:868
 #: libraries/export/texytext.php:27 server_databases.php:127
-#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:317
+#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:316
 #: tbl_structure.php:665
 msgid "Data"
 msgstr "Veri"
@@ -2845,9 +2796,9 @@ msgstr "MIME türü"
 
 #: libraries/export/latex.php:125 libraries/export/sql.php:232
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
-#: libraries/replication_gui.lib.php:63 libraries/replication_gui.lib.php:174
-#: libraries/replication_gui.lib.php:269 libraries/replication_gui.lib.php:272
-#: libraries/replication_gui.lib.php:329 server_privileges.php:731
+#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
+#: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
+#: libraries/replication_gui.lib.php:332 server_privileges.php:731
 #: server_privileges.php:734 server_privileges.php:790
 #: server_privileges.php:1537 server_privileges.php:2069
 #: server_processlist.php:55 server_synchronize.php:1159
@@ -2914,7 +2865,6 @@ msgid "Database export options"
 msgstr "Veritabanı dışarı aktarma seçenekleri"
 
 #: libraries/export/sql.php:80
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Tablo ve sütun adlarını ters tırnak ile kapsa"
 
@@ -3136,7 +3086,6 @@ msgstr "CSV girişinin %d. satırında geçersiz biçim."
 
 #: libraries/import/csv.php:312
 #, php-format
-#| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV girişinde %d. satırda geçersiz sütun sayısı."
 
@@ -3187,13 +3136,11 @@ msgstr ""
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:143
-#| msgid "Recoding engine"
 msgid "Encoding conversion"
 msgstr "Şifreleme dönüştürme"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:145
-#| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "Hiçbiri"
@@ -3210,7 +3157,7 @@ msgid "Primary"
 msgstr "Birincil"
 
 #: libraries/mult_submits.inc.php:98 libraries/tbl_properties.inc.php:116
-#: libraries/tbl_properties.inc.php:525 tbl_printview.php:326
+#: libraries/tbl_properties.inc.php:525 tbl_printview.php:325
 #: tbl_structure.php:31 tbl_structure.php:154 tbl_structure.php:158
 #: tbl_structure.php:475 tbl_structure.php:673
 msgid "Index"
@@ -3230,190 +3177,190 @@ msgstr "Değişiklik yok"
 msgid "Charset"
 msgstr "Karakter grubu"
 
-#: libraries/mysql_charsets.lib.php:201 libraries/mysql_charsets.lib.php:402
-#: tbl_change.php:518
+#: libraries/mysql_charsets.lib.php:211 libraries/mysql_charsets.lib.php:412
+#: tbl_change.php:516
 msgid "Binary"
 msgstr "Binari"
 
-#: libraries/mysql_charsets.lib.php:213
+#: libraries/mysql_charsets.lib.php:223
 msgid "Bulgarian"
 msgstr "Bulgarca"
 
-#: libraries/mysql_charsets.lib.php:217 libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:352
 msgid "Simplified Chinese"
 msgstr "Basitleştirilmiş Çince"
 
-#: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:362
+#: libraries/mysql_charsets.lib.php:229 libraries/mysql_charsets.lib.php:372
 msgid "Traditional Chinese"
 msgstr "Geleneksel Çince"
 
-#: libraries/mysql_charsets.lib.php:223 libraries/mysql_charsets.lib.php:409
+#: libraries/mysql_charsets.lib.php:233 libraries/mysql_charsets.lib.php:419
 msgid "case-insensitive"
 msgstr "büyük küçük harfe duyarsız"
 
-#: libraries/mysql_charsets.lib.php:226 libraries/mysql_charsets.lib.php:411
+#: libraries/mysql_charsets.lib.php:236 libraries/mysql_charsets.lib.php:421
 msgid "case-sensitive"
 msgstr "büyük küçük harfe duyarlı"
 
-#: libraries/mysql_charsets.lib.php:229
+#: libraries/mysql_charsets.lib.php:239
 msgid "Croatian"
 msgstr "Hırvatça"
 
-#: libraries/mysql_charsets.lib.php:232
+#: libraries/mysql_charsets.lib.php:242
 msgid "Czech"
 msgstr "Çekçe"
 
-#: libraries/mysql_charsets.lib.php:235
+#: libraries/mysql_charsets.lib.php:245
 msgid "Danish"
 msgstr "Danca"
 
-#: libraries/mysql_charsets.lib.php:238
+#: libraries/mysql_charsets.lib.php:248
 msgid "English"
 msgstr "İngilizce"
 
-#: libraries/mysql_charsets.lib.php:241
+#: libraries/mysql_charsets.lib.php:251
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/mysql_charsets.lib.php:244
+#: libraries/mysql_charsets.lib.php:254
 msgid "Estonian"
 msgstr "Estçe"
 
-#: libraries/mysql_charsets.lib.php:247 libraries/mysql_charsets.lib.php:250
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:260
 msgid "German"
 msgstr "Almanca"
 
-#: libraries/mysql_charsets.lib.php:247
+#: libraries/mysql_charsets.lib.php:257
 msgid "dictionary"
 msgstr "sözlük"
 
-#: libraries/mysql_charsets.lib.php:250
+#: libraries/mysql_charsets.lib.php:260
 msgid "phone book"
 msgstr "telefon defteri"
 
-#: libraries/mysql_charsets.lib.php:253
+#: libraries/mysql_charsets.lib.php:263
 msgid "Hungarian"
 msgstr "Macarca"
 
-#: libraries/mysql_charsets.lib.php:256
+#: libraries/mysql_charsets.lib.php:266
 msgid "Icelandic"
 msgstr "İzlandaca"
 
-#: libraries/mysql_charsets.lib.php:259 libraries/mysql_charsets.lib.php:349
+#: libraries/mysql_charsets.lib.php:269 libraries/mysql_charsets.lib.php:359
 msgid "Japanese"
 msgstr "Japonca"
 
-#: libraries/mysql_charsets.lib.php:262
+#: libraries/mysql_charsets.lib.php:272
 msgid "Latvian"
 msgstr "Litvanyaca"
 
-#: libraries/mysql_charsets.lib.php:265
+#: libraries/mysql_charsets.lib.php:275
 msgid "Lithuanian"
 msgstr "Litvanyaca"
 
-#: libraries/mysql_charsets.lib.php:268 libraries/mysql_charsets.lib.php:371
+#: libraries/mysql_charsets.lib.php:278 libraries/mysql_charsets.lib.php:381
 msgid "Korean"
 msgstr "Korece"
 
-#: libraries/mysql_charsets.lib.php:271
+#: libraries/mysql_charsets.lib.php:281
 msgid "Persian"
 msgstr "Farsça"
 
-#: libraries/mysql_charsets.lib.php:274
+#: libraries/mysql_charsets.lib.php:284
 msgid "Polish"
 msgstr "Polonyaca"
 
-#: libraries/mysql_charsets.lib.php:277 libraries/mysql_charsets.lib.php:325
+#: libraries/mysql_charsets.lib.php:287 libraries/mysql_charsets.lib.php:335
 msgid "West European"
 msgstr "Batı Avrupa"
 
-#: libraries/mysql_charsets.lib.php:280
+#: libraries/mysql_charsets.lib.php:290
 msgid "Romanian"
 msgstr "Romence"
 
-#: libraries/mysql_charsets.lib.php:283
+#: libraries/mysql_charsets.lib.php:293
 msgid "Slovak"
 msgstr "Slovakça"
 
-#: libraries/mysql_charsets.lib.php:286
+#: libraries/mysql_charsets.lib.php:296
 msgid "Slovenian"
 msgstr "Slovence"
 
-#: libraries/mysql_charsets.lib.php:289
+#: libraries/mysql_charsets.lib.php:299
 msgid "Spanish"
 msgstr "İspanyolca"
 
-#: libraries/mysql_charsets.lib.php:292
+#: libraries/mysql_charsets.lib.php:302
 msgid "Traditional Spanish"
 msgstr "Geleneksel İspanyolca"
 
-#: libraries/mysql_charsets.lib.php:295 libraries/mysql_charsets.lib.php:392
+#: libraries/mysql_charsets.lib.php:305 libraries/mysql_charsets.lib.php:402
 msgid "Swedish"
 msgstr "İsveççe"
 
-#: libraries/mysql_charsets.lib.php:298 libraries/mysql_charsets.lib.php:395
+#: libraries/mysql_charsets.lib.php:308 libraries/mysql_charsets.lib.php:405
 msgid "Thai"
 msgstr "Tayca"
 
-#: libraries/mysql_charsets.lib.php:301 libraries/mysql_charsets.lib.php:389
+#: libraries/mysql_charsets.lib.php:311 libraries/mysql_charsets.lib.php:399
 msgid "Turkish"
 msgstr "Türkçe"
 
-#: libraries/mysql_charsets.lib.php:304 libraries/mysql_charsets.lib.php:386
+#: libraries/mysql_charsets.lib.php:314 libraries/mysql_charsets.lib.php:396
 msgid "Ukrainian"
 msgstr "Ukraynaca"
 
-#: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
+#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/mysql_charsets.lib.php:307 libraries/mysql_charsets.lib.php:316
-#: libraries/mysql_charsets.lib.php:325 libraries/mysql_charsets.lib.php:332
-#: libraries/mysql_charsets.lib.php:354 libraries/mysql_charsets.lib.php:365
+#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:326
+#: libraries/mysql_charsets.lib.php:335 libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:364 libraries/mysql_charsets.lib.php:375
 msgid "multilingual"
 msgstr "çokdilli"
 
-#: libraries/mysql_charsets.lib.php:332
+#: libraries/mysql_charsets.lib.php:342
 msgid "Central European"
 msgstr "Orta Avrupa"
 
-#: libraries/mysql_charsets.lib.php:337
+#: libraries/mysql_charsets.lib.php:347
 msgid "Russian"
 msgstr "Rusça"
 
-#: libraries/mysql_charsets.lib.php:354
+#: libraries/mysql_charsets.lib.php:364
 msgid "Baltic"
 msgstr "Baltık"
 
-#: libraries/mysql_charsets.lib.php:359
+#: libraries/mysql_charsets.lib.php:369
 msgid "Armenian"
 msgstr "Ermenice"
 
-#: libraries/mysql_charsets.lib.php:365
+#: libraries/mysql_charsets.lib.php:375
 msgid "Cyrillic"
 msgstr "Kiril"
 
-#: libraries/mysql_charsets.lib.php:368
+#: libraries/mysql_charsets.lib.php:378
 msgid "Arabic"
 msgstr "Arapça"
 
-#: libraries/mysql_charsets.lib.php:374
+#: libraries/mysql_charsets.lib.php:384
 msgid "Hebrew"
 msgstr "İbranice"
 
-#: libraries/mysql_charsets.lib.php:377
+#: libraries/mysql_charsets.lib.php:387
 msgid "Georgian"
 msgstr "Gürcüce"
 
-#: libraries/mysql_charsets.lib.php:380
+#: libraries/mysql_charsets.lib.php:390
 msgid "Greek"
 msgstr "Yunanca"
 
-#: libraries/mysql_charsets.lib.php:383
+#: libraries/mysql_charsets.lib.php:393
 msgid "Czech-Slovak"
 msgstr "Çekçe-Slovakça"
 
-#: libraries/mysql_charsets.lib.php:398 libraries/mysql_charsets.lib.php:405
+#: libraries/mysql_charsets.lib.php:408 libraries/mysql_charsets.lib.php:415
 msgid "unknown"
 msgstr "bilinmeyen"
 
@@ -3505,19 +3452,19 @@ msgstr ""
 "Güncellenmiş yapılandırma dosyasını yüklemek için phpMyAdmin'e yeniden "
 "oturum açın."
 
-#: libraries/relation.lib.php:1173
+#: libraries/relation.lib.php:1172
 msgid "no description"
 msgstr "Açıklama yok"
 
-#: libraries/replication_gui.lib.php:51
+#: libraries/replication_gui.lib.php:54
 msgid "Slave configuration"
 msgstr "Slave yapılandırması"
 
-#: libraries/replication_gui.lib.php:51 server_replication.php:347
+#: libraries/replication_gui.lib.php:54 server_replication.php:347
 msgid "Change or reconfigure master server"
 msgstr "Asıl sunucuyu değiştir veya yeniden yapılandır"
 
-#: libraries/replication_gui.lib.php:52
+#: libraries/replication_gui.lib.php:55
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -3525,42 +3472,42 @@ msgstr ""
 "Yapılandırma dosyanız (my.cnf) içinde benzersiz sunucu-id olduğundan emin "
 "olun. Eğer değilseniz lütfen aşağıdaki satırı [mysqld] bölümü içine ekleyin:"
 
-#: libraries/replication_gui.lib.php:55 libraries/replication_gui.lib.php:56
-#: libraries/replication_gui.lib.php:249 libraries/replication_gui.lib.php:252
-#: libraries/replication_gui.lib.php:259 server_privileges.php:711
+#: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
+#: libraries/replication_gui.lib.php:252 libraries/replication_gui.lib.php:255
+#: libraries/replication_gui.lib.php:262 server_privileges.php:711
 #: server_privileges.php:714 server_privileges.php:721
 #: server_synchronize.php:1171
 msgid "User name"
 msgstr "Kullanıcı Adı"
 
-#: libraries/replication_gui.lib.php:67 server_synchronize.php:1163
+#: libraries/replication_gui.lib.php:70 server_synchronize.php:1163
 msgid "Port"
 msgstr "B.Noktası"
 
-#: libraries/replication_gui.lib.php:103
+#: libraries/replication_gui.lib.php:106
 msgid "Master status"
 msgstr "Master durumu"
 
-#: libraries/replication_gui.lib.php:105
+#: libraries/replication_gui.lib.php:108
 msgid "Slave status"
 msgstr "Slave durumu"
 
-#: libraries/replication_gui.lib.php:114 libraries/sql_query_form.lib.php:445
+#: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:445
 #: server_status.php:737 server_variables.php:52
 msgid "Variable"
 msgstr "Değişken"
 
-#: libraries/replication_gui.lib.php:115 server_status.php:738
-#: tbl_change.php:324 tbl_printview.php:370 tbl_select.php:139
+#: libraries/replication_gui.lib.php:118 server_status.php:738
+#: tbl_change.php:323 tbl_printview.php:369 tbl_select.php:138
 #: tbl_structure.php:729
 msgid "Value"
 msgstr "Değer"
 
-#: libraries/replication_gui.lib.php:173 server_binlog.php:218
+#: libraries/replication_gui.lib.php:176 server_binlog.php:218
 msgid "Server ID"
 msgstr "Sunucu ID"
 
-#: libraries/replication_gui.lib.php:192
+#: libraries/replication_gui.lib.php:195
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -3568,38 +3515,38 @@ msgstr ""
 "Sadece slave'ler, bu listede --report-host=host_name seçeneğiyle görünen bu "
 "şekilde başlar."
 
-#: libraries/replication_gui.lib.php:240 server_replication.php:194
+#: libraries/replication_gui.lib.php:243 server_replication.php:194
 msgid "Add slave replication user"
 msgstr "Slave kopya etme kullanıcısı ekle"
 
-#: libraries/replication_gui.lib.php:254 server_privileges.php:716
+#: libraries/replication_gui.lib.php:257 server_privileges.php:716
 msgid "Any user"
 msgstr "Herhangi kullanıcı"
 
-#: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:323
-#: libraries/replication_gui.lib.php:346 server_privileges.php:717
+#: libraries/replication_gui.lib.php:258 libraries/replication_gui.lib.php:326
+#: libraries/replication_gui.lib.php:349 server_privileges.php:717
 #: server_privileges.php:784 server_privileges.php:808
 #: server_privileges.php:1928 server_privileges.php:1958
 msgid "Use text field"
 msgstr "Metin alanını kullan"
 
-#: libraries/replication_gui.lib.php:302 server_privileges.php:764
+#: libraries/replication_gui.lib.php:305 server_privileges.php:764
 msgid "Any host"
 msgstr "Herhangi anamakine"
 
-#: libraries/replication_gui.lib.php:306 server_privileges.php:768
+#: libraries/replication_gui.lib.php:309 server_privileges.php:768
 msgid "Local"
 msgstr "Yerel"
 
-#: libraries/replication_gui.lib.php:312 server_privileges.php:773
+#: libraries/replication_gui.lib.php:315 server_privileges.php:773
 msgid "This Host"
 msgstr "Bu Anamakine"
 
-#: libraries/replication_gui.lib.php:318 server_privileges.php:779
+#: libraries/replication_gui.lib.php:321 server_privileges.php:779
 msgid "Use Host Table"
 msgstr "Anamakine Tablosu kullan"
 
-#: libraries/replication_gui.lib.php:331 server_privileges.php:792
+#: libraries/replication_gui.lib.php:334 server_privileges.php:792
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -3695,7 +3642,6 @@ msgid "Run SQL query/queries on database %s"
 msgstr "%s veritabanı üzerinde SQL sorgusunu/sorgularını çalıştır"
 
 #: libraries/sql_query_form.lib.php:317
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Sütun"
 
@@ -3737,8 +3683,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
 "SQL sorgunuzda bir hata olduğu görünüyor. MySQL sunucusu hata çıktısı "
-"aşağıdadır, eğer varsa, sorunu teşhis etmenizde ayrıca size yardımcı "
-"olabilir"
+"aşağıdadır, eğer varsa, sorunu teşhis etmenizde ayrıca size yardımcı olabilir"
 
 #: libraries/sqlparser.lib.php:173
 msgid ""
@@ -3815,21 +3760,16 @@ msgid "Length/Values"
 msgstr "Uzunluk/Değerler"
 
 #: libraries/tbl_properties.inc.php:105
-#| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Eğer sütun türü \"enum\" veya \"set\" ise lütfen değerleri bu biçimi kullanarak "
-"girin: 'a','b','c'...<br />Eğer bu değerler arasına hep ters eğik çizgi "
-"(\"\\\") veya tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik çizgi "
-"koyun (örneğin '\\\\xyz' veya 'a\\'b')."
+"Eğer sütun türü \"enum\" veya \"set\" ise lütfen değerleri bu biçimi "
+"kullanarak girin: 'a','b','c'...<br />Eğer bu değerler arasına hep ters eğik "
+"çizgi (\"\\\") veya tek tırnak (\"'\") koymanız gerekirse, önlerine ters "
+"eğik çizgi koyun (örneğin '\\\\xyz' veya 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:106
 msgid ""
@@ -3840,7 +3780,7 @@ msgstr ""
 "değer girin. Bu biçimi kullanın: a"
 
 #: libraries/tbl_properties.inc.php:108 pdf_schema.php:1264
-#: pdf_schema.php:1285 tbl_printview.php:144 tbl_structure.php:180
+#: pdf_schema.php:1285 tbl_printview.php:143 tbl_structure.php:180
 msgid "Attributes"
 msgstr "Öznitelikler"
 
@@ -3870,7 +3810,6 @@ msgstr ""
 "(örneğin '\\\\xyz' veya 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:393
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Hiçbiri"
@@ -3899,19 +3838,17 @@ msgstr "PARTITION tanımı"
 
 #: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
-#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1126 tbl_indexes.php:248
+#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1123 tbl_indexes.php:248
 #: tbl_relation.php:566
 msgid "Save"
 msgstr "Kaydet"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:542
 #, php-format
-#| msgid "Add column(s)"
 msgid "Add %s column(s)"
 msgstr "%s sütun ekle"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
-#| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "En az bir sütun eklemek zorundasınız."
 
@@ -3920,11 +3857,6 @@ msgid "Event"
 msgstr "Olay"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
-#| msgid ""
-#| "Displays a link to download the binary data of the field. You can use the "
-#| "first option to specify the filename, or use the second option as the "
-#| "name of a field which contains the filename. If you use the second "
-#| "option, you need to set the first option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -3959,15 +3891,6 @@ msgid "Displays a link to download this image."
 msgstr "Bu resmi indirme için bağlantı görüntüler."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
-#| msgid ""
-#| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-#| "formatted date. The first option is the offset (in hours) which will be "
-#| "added to the timestamp (Default: 0). Use second option to specify a "
-#| "different date/time format string. Third option determines whether you "
-#| "want to see local date or UTC one (use \"local\" or \"utc\" strings) for "
-#| "that. According to that, date format has different value - for \"local\" "
-#| "see the documentation for PHP's strftime() function and for \"utc\" it is "
-#| "done using gmdate() function."
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -3980,25 +3903,14 @@ msgid ""
 msgstr ""
 "Biçimlendirilmiş tarih olarak ZAMAN, ZAMAN BİLGİSİ, TARİH veya sayısal unix "
 "zaman bilgisi sütununu görüntüler. İlk seçenek zaman bilgisine (Varsayılan: "
-"0) eklenecek olan karşılık (saat cinsinden). İkinci seçeneği farklı "
-"tarih/zaman biçimi dizgisini belirtmek için kullanın. Üçüncü seçenek yerel "
-"tarihi veya bunun için UTC olanı (\"local\" veya \"utc\" dizgisi kullanın) "
-"görmek istediğinizi belirler. Buna göre tarih biçimi farklı değere sahiptir "
-"- \"local\" için PHP'nin strftime() işlevine belgelerden bakın ve \"utc\" ise "
+"0) eklenecek olan karşılık (saat cinsinden). İkinci seçeneği farklı tarih/"
+"zaman biçimi dizgisini belirtmek için kullanın. Üçüncü seçenek yerel tarihi "
+"veya bunun için UTC olanı (\"local\" veya \"utc\" dizgisi kullanın) görmek "
+"istediğinizi belirler. Buna göre tarih biçimi farklı değere sahiptir - "
+"\"local\" için PHP'nin strftime() işlevine belgelerden bakın ve \"utc\" ise "
 "gmdate() işlevi kullanılarak olur."
 
 #: libraries/transformations/text_plain__external.inc.php:10
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -4013,19 +3925,16 @@ msgid ""
 msgstr ""
 "SADECE LINUX: Harici bir uygulama çalıştırır ve sütun verisini standart "
 "giriş yoluyla besler. Uygulamanın standart çıktısı döner. Düzgün HTML kodu "
-"baskısı için varsayılan düzenlidir. Güvenlik nedeniyle "
-"libraries/transformations/text_plain__external.inc.php dosyasını elle "
-"düzenlemeli ve olmasını istediğiniz araçları listelemelisiniz. İlk seçenek "
-"kullanmak istediğiniz program sayısı ve ikinci seçenek program için "
-"parametrelerdir. Üçüncü seçenek, eğer 1'e ayarlanırsa, htmlspecialchars() "
-"işlevi kullanılarak çıktıyı dönüştürecektir (Varsayılan 1). Dördüncü "
-"seçenek, eğer 1'e ayarlanırsa, sözcük kaydırma korunacak ve tüm çıktı tek "
-"bir satırda görünecektir (Varsayılan 1)."
+"baskısı için varsayılan düzenlidir. Güvenlik nedeniyle libraries/"
+"transformations/text_plain__external.inc.php dosyasını elle düzenlemeli ve "
+"olmasını istediğiniz araçları listelemelisiniz. İlk seçenek kullanmak "
+"istediğiniz program sayısı ve ikinci seçenek program için parametrelerdir. "
+"Üçüncü seçenek, eğer 1'e ayarlanırsa, htmlspecialchars() işlevi kullanılarak "
+"çıktıyı dönüştürecektir (Varsayılan 1). Dördüncü seçenek, eğer 1'e "
+"ayarlanırsa, sözcük kaydırma korunacak ve tüm çıktı tek bir satırda "
+"görünecektir (Varsayılan 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -4034,10 +3943,6 @@ msgstr ""
 "görüntüler. Bu, geçerli HTML içerdiği var sayılan sütundur."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#| msgid ""
-#| "Displays an image and a link; the field contains the filename. The first "
-#| "option is a URL prefix like \"http://www.example.com/\". The second and "
-#| "third options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -4048,18 +3953,14 @@ msgstr ""
 "seçenekler piksel cinsinden genişlik ve yüksekliktir."
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#| msgid ""
-#| "Displays a link; the field contains the filename. The first option is a "
-#| "URL prefix like \"http://www.example.com/\". The second option is a title "
-#| "for the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Bir bağlantı görüntüler; sütun, dosya adını içerir. İlk seçenek "
-"\"http://www.example.com/\" gibi bir URL ön ekidir. İkinci seçenek bağlantı "
-"için başlıktır."
+"Bir bağlantı görüntüler; sütun, dosya adını içerir. İlk seçenek \"http://www."
+"example.com/\" gibi bir URL ön ekidir. İkinci seçenek bağlantı için "
+"başlıktır."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
 msgid ""
@@ -4113,7 +4014,7 @@ msgid "Custom color"
 msgstr "Özel renk"
 
 #: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
-#: tbl_change.php:1175
+#: tbl_change.php:1172
 msgid "Reset"
 msgstr "Sıfırla"
 
@@ -4261,7 +4162,6 @@ msgid "Clear"
 msgstr "Temizle"
 
 #: navigation.php:336 navigation.php:337
-#| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
 msgstr "Tablo oluştur"
@@ -4284,12 +4184,10 @@ msgid "Create a page"
 msgstr "Yeni bir sayfa oluştur"
 
 #: pdf_pages.php:310
-#| msgid "Page number:"
 msgid "Page name"
 msgstr "Sayfa adı"
 
 #: pdf_pages.php:314
-#| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Otomatik yerleşim tabanı"
 
@@ -4315,7 +4213,6 @@ msgstr ""
 
 #: pdf_schema.php:636
 #, php-format
-#| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "%s tablosu yok!"
 
@@ -4326,7 +4223,6 @@ msgstr "Lütfen %s tablosu için koordinatları yapılandırın"
 
 #: pdf_schema.php:995
 #, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "%s veritabanının şeması - Sayfa %s"
 
@@ -4342,7 +4238,7 @@ msgstr "İlişkisel şema"
 msgid "Table of contents"
 msgstr "İçerik tablosu"
 
-#: pdf_schema.php:1267 pdf_schema.php:1288 tbl_printview.php:147
+#: pdf_schema.php:1267 pdf_schema.php:1288 tbl_printview.php:146
 #: tbl_structure.php:183 tbl_tracking.php:278
 msgid "Extra"
 msgstr "Ekstra"
@@ -4420,18 +4316,14 @@ msgid "To select relation, click :"
 msgstr "İlişkiyi seçmek için buraya tıklayın :"
 
 #: pmd_help.php:29
-#| msgid ""
-#| "The display field is shown in pink. To set/unset a field as the display "
-#| "field, click the \"Choose field to display\" icon, then click on the "
-#| "appropriate field name."
 msgid ""
 "The display column is shown in pink. To set/unset a column as the display "
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"Görüntü sütunu pembe ile gösterilir. Alanı, görüntü sütunu olarak "
-"ayarlamak/ayarı kaldırmak için \"Görüntülemek için sütun seç\" simgesine "
-"tıklayın, sonrada uygun sütun adı üzerine tıklayın."
+"Görüntü sütunu pembe ile gösterilir. Alanı, görüntü sütunu olarak ayarlamak/"
+"ayarı kaldırmak için \"Görüntülemek için sütun seç\" simgesine tıklayın, "
+"sonrada uygun sütun adı üzerine tıklayın."
 
 #: pmd_pdf.php:63
 msgid "Page has been created"
@@ -4531,17 +4423,14 @@ msgid "Slave replication"
 msgstr "Slave kopya etme"
 
 #: server_databases.php:230
-#| msgid "Go to database"
 msgid "Jump to database"
 msgstr "Veritabanına git"
 
 #: server_databases.php:267
-#| msgid "Master replication"
 msgid "Not replicated"
 msgstr "Kopya edilmedi"
 
 #: server_databases.php:273
-#| msgid "Replication"
 msgid "Replicated"
 msgstr "Kopya edildi"
 
@@ -4774,7 +4663,6 @@ msgid "No privileges."
 msgstr "Yetkiniz yok."
 
 #: server_privileges.php:302 server_privileges.php:303
-#| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Hiçbiri"
@@ -4818,7 +4706,6 @@ msgid "Do not change the password"
 msgstr "Parolayı değiştirme"
 
 #: server_privileges.php:843 server_privileges.php:2205
-#| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Kullanıcı bulunamadı."
 
@@ -4973,7 +4860,6 @@ msgid "Database for user"
 msgstr "Kullanıcı için veritabanı"
 
 #: server_privileges.php:2037
-#| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "Hiçbiri"
@@ -5179,7 +5065,6 @@ msgid "Error management:"
 msgstr "Hata yönetimi:"
 
 #: server_replication.php:334
-#| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr "Hataları atlamak master ve slave'i eşitlenmemeye sürükleyebilir!"
 
@@ -5910,7 +5795,6 @@ msgid "Show processes"
 msgstr "İşlemleri göster"
 
 #: server_status.php:455
-#| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "Sıfırla"
@@ -5921,7 +5805,6 @@ msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "Bu MySQL sunucusunun çalışma süresi: %s. Başlatıldığı zaman: %s."
 
 #: server_status.php:471
-#| msgid "This server is configured as master in a replication process."
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -5930,24 +5813,18 @@ msgstr ""
 "<b>slave</b> olarak çalışır."
 
 #: server_status.php:473
-#| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>master</b> olarak "
 "çalışır."
 
 #: server_status.php:475
-#| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>slave</b> olarak "
 "çalışır."
 
 #: server_status.php:477
-#| msgid ""
-#| "This MySQL server works as %s in <b>replication</b> process. For further "
-#| "information about replication status on the server, please visit the <a "
-#| "href=\"#replication\">replication section</a>."
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
@@ -6119,13 +5996,11 @@ msgid "Enter manually"
 msgstr "Elle giriş"
 
 #: server_synchronize.php:1123
-#| msgid "Insecure connection"
 msgid "Current connection"
 msgstr "Şu anki bağlantı"
 
 #: server_synchronize.php:1152
 #, php-format
-#| msgid "Configuration file"
 msgid "Configuration: %s"
 msgstr "Yapılandırma: %s"
 
@@ -6288,11 +6163,10 @@ msgstr ""
 "Bu [a@?page=form&amp;formset=features#tab_Security]seçenek[/a] "
 "etkisizleştirilmedikçe saldırganların herhangi bir MySQL sunucusuna "
 "bruteforce yöntemiyle oturum açmasına izin verecektir. Eğer bunun gerekli "
-"olduğunu düşünüyorsanız, "
-"[a@?page=form&amp;formset=features#tab_Security]güvenilir proksi listesi[/a] "
-"kullanın. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz "
-"binlerce kullanıcıya sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir "
-"olmayabilir."
+"olduğunu düşünüyorsanız, [a@?page=form&amp;formset=features#tab_Security]"
+"güvenilir proksi listesi[/a] kullanın. Ancak, IP-tabanlı koruma eğer IP'niz, "
+"sizinde dahil olduğunuz binlerce kullanıcıya sahip ve bağlı olduğunuz bir "
+"ISS'e aitse güvenilir olmayabilir."
 
 #: setup/lib/messages.inc.php:19
 msgid "Allow login to any MySQL server"
@@ -6388,10 +6262,6 @@ msgstr ""
 "görüntülemenize izin verecektir."
 
 #: setup/lib/messages.inc.php:35
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in fields"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -6402,7 +6272,6 @@ msgstr ""
 "izin verir, [kbd]metinalanı[/kbd] - sütunlarda yeni satırlara izin verir"
 
 #: setup/lib/messages.inc.php:36
-#| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "CHAR sütununu düzenleme"
 
@@ -7141,9 +7010,6 @@ msgid "GZip output buffering"
 msgstr "GZip çıktı arabellekleme"
 
 #: setup/lib/messages.inc.php:217
-#| msgid ""
-#| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
-#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -7168,12 +7034,10 @@ msgid "Iconic table operations"
 msgstr "Simgesel tablo işlemleri"
 
 #: setup/lib/messages.inc.php:224
-#| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "BLOB ve BINARY sütunlarını düzenlemeye izin vermez"
 
 #: setup/lib/messages.inc.php:225
-#| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Binari sütunlarını koru"
 
@@ -7406,11 +7270,10 @@ msgid ""
 msgstr ""
 "Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- "
 "[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]anamakine "
-"kimlik denetimi[/a] ayarları ve "
-"[a@?page=form&amp;formset=features#tab_Security]güvenilir proksi "
-"listesi[/a]. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz "
-"binlerce kullanıcıya sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir "
-"olmayabilir."
+"kimlik denetimi[/a] ayarları ve [a@?page=form&amp;"
+"formset=features#tab_Security]güvenilir proksi listesi[/a]. Ancak, IP-"
+"tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce kullanıcıya "
+"sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir olmayabilir."
 
 #: setup/lib/messages.inc.php:273
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -7443,18 +7306,14 @@ msgid "SQL query history table"
 msgstr "SQL sorgu geçmişi tablosu"
 
 #: setup/lib/messages.inc.php:279
-#| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"SQL sorgu izleme desteği istenmiyorsa boş bırakın, önerilen: "
-"[kbd]pma_tracking[/kbd]"
+"SQL sorgu izleme desteği istenmiyorsa boş bırakın, önerilen: [kbd]"
+"pma_tracking[/kbd]"
 
 #: setup/lib/messages.inc.php:280
-#| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL sorgu izleme tablosu"
 
@@ -7575,7 +7434,6 @@ msgstr ""
 "oluşturur."
 
 #: setup/lib/messages.inc.php:304
-#| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Otomatik olarak sürümleri oluştur"
 
@@ -7585,7 +7443,6 @@ msgstr ""
 "Yeni sürümler için otomatik oluşturma kullanan ifade listesini tanımlar."
 
 #: setup/lib/messages.inc.php:306
-#| msgid "Statements"
 msgid "Statements to track"
 msgstr "İfadelerden izlere"
 
@@ -7658,9 +7515,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF şeması: tablo koordinatları"
 
 #: setup/lib/messages.inc.php:320
-#| msgid ""
-#| "Table to describe the display fields, leave blank for no support; "
-#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
@@ -7669,7 +7523,6 @@ msgstr ""
 "önerilen: [kbd]pma_table_info[/kbd]"
 
 #: setup/lib/messages.inc.php:321
-#| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "Görüntü sütunları tablosu"
 
@@ -7702,8 +7555,6 @@ msgid "Verbose name of this server"
 msgstr "Sunucunun fazladan adı"
 
 #: setup/lib/messages.inc.php:329
-#| msgid ""
-#| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 "Kullanıcının &quot;tümünü (satırları) göster&quot; düğmesini görüntüleyip "
@@ -7907,9 +7758,6 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:372
 #, php-format
-#| msgid ""
-#| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-#| "latest stable version is %s, released on %s."
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
@@ -7991,72 +7839,71 @@ msgstr "Etiket"
 msgid "Table %1$s has been altered successfully"
 msgstr "Tablo %1$s başarılı olarak değiştirldi"
 
-#: tbl_change.php:252 tbl_select.php:27 tbl_select.php:28 tbl_select.php:31
+#: tbl_change.php:251 tbl_select.php:27 tbl_select.php:28 tbl_select.php:31
 #: tbl_select.php:34
 msgid "Browse foreign values"
 msgstr "Dış değerlere gözat"
 
-#: tbl_change.php:282 tbl_change.php:320
+#: tbl_change.php:281 tbl_change.php:319
 msgid "Function"
 msgstr "İşlev"
 
-#: tbl_change.php:302 tbl_indexes.php:200 tbl_indexes.php:225
+#: tbl_change.php:301 tbl_indexes.php:200 tbl_indexes.php:225
 msgid "Ignore"
 msgstr "Yoksay"
 
-#: tbl_change.php:728
-#| msgid " Because of its length,<br /> this field might not be editable "
+#: tbl_change.php:726
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " Uzunluğu nedeniyle,<br /> bu sütun düzenlenebilir olmayabilir "
 
-#: tbl_change.php:888
+#: tbl_change.php:885
 msgid "Remove BLOB Repository Reference"
 msgstr "BLOB Havuzu Referansını kaldır"
 
-#: tbl_change.php:894
+#: tbl_change.php:891
 msgid "Binary - do not edit"
 msgstr "Binari - düzenlemeyiniz"
 
-#: tbl_change.php:987
+#: tbl_change.php:984
 msgid "Upload to BLOB repository"
 msgstr "BLOB Havuzuna gönder"
 
-#: tbl_change.php:1130
+#: tbl_change.php:1127
 msgid "Insert as new row"
 msgstr "Yeni satır olarak ekle"
 
-#: tbl_change.php:1131
+#: tbl_change.php:1128
 msgid "Insert as new row and ignore errors"
 msgstr "Yeni satır olarak ekle ve hataları yoksay"
 
-#: tbl_change.php:1132
+#: tbl_change.php:1129
 msgid "Show insert query"
 msgstr "Ekleme sorgusunu göster"
 
-#: tbl_change.php:1147
+#: tbl_change.php:1144
 msgid "Go back to previous page"
 msgstr "Önceki sayfaya geri dön"
 
-#: tbl_change.php:1148
+#: tbl_change.php:1145
 msgid "Insert another new row"
 msgstr "Yeni başka bir satır ekle"
 
-#: tbl_change.php:1152
+#: tbl_change.php:1149
 msgid "Go back to this page"
 msgstr "Bu sayfaya geri dön"
 
-#: tbl_change.php:1160
+#: tbl_change.php:1157
 msgid "Edit next row"
 msgstr "Sonraki satırı düzenle"
 
-#: tbl_change.php:1171
+#: tbl_change.php:1168
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Değerden değere geçmek için TAB tuşunu veya herhangi bir yere gitmek için "
 "CTRL+OK TUŞLARI'nı kullanın"
 
-#: tbl_change.php:1209
+#: tbl_change.php:1206
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr "%s satırlı eklemeyi yeniden başlat"
@@ -8183,7 +8030,6 @@ msgid "Table %s has been flushed"
 msgstr "%s tablosu temizlendi"
 
 #: tbl_operations.php:636
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Tabloyu temizle (FLUSH)"
 
@@ -8224,43 +8070,43 @@ msgstr "Bölümlendirmeyi kaldır"
 msgid "Check referential integrity:"
 msgstr "İlgili bütünlük kontrolü:"
 
-#: tbl_printview.php:75
+#: tbl_printview.php:74
 msgid "Show tables"
 msgstr "Tabloları göster"
 
-#: tbl_printview.php:310 tbl_structure.php:656
+#: tbl_printview.php:309 tbl_structure.php:656
 msgid "Space usage"
 msgstr "Alan kullanımı"
 
-#: tbl_printview.php:314 tbl_structure.php:660
+#: tbl_printview.php:313 tbl_structure.php:660
 msgid "Usage"
 msgstr "Kullanım"
 
-#: tbl_printview.php:341 tbl_structure.php:687
+#: tbl_printview.php:340 tbl_structure.php:687
 msgid "Effective"
 msgstr "Etkili"
 
-#: tbl_printview.php:366 tbl_structure.php:725
+#: tbl_printview.php:365 tbl_structure.php:725
 msgid "Row Statistics"
 msgstr "Satır İstatistikleri"
 
-#: tbl_printview.php:369 tbl_structure.php:728
+#: tbl_printview.php:368 tbl_structure.php:728
 msgid "Statements"
 msgstr "İfadeler"
 
-#: tbl_printview.php:380 tbl_structure.php:740
+#: tbl_printview.php:379 tbl_structure.php:740
 msgid "static"
 msgstr "sabit"
 
-#: tbl_printview.php:382 tbl_structure.php:742
+#: tbl_printview.php:381 tbl_structure.php:742
 msgid "dynamic"
 msgstr "değişken"
 
-#: tbl_printview.php:404 tbl_structure.php:785
+#: tbl_printview.php:403 tbl_structure.php:785
 msgid "Row length"
 msgstr "Satır uzunluğu"
 
-#: tbl_printview.php:414 tbl_structure.php:793
+#: tbl_printview.php:413 tbl_structure.php:793
 msgid " Row size "
 msgstr " Satır boyutu "
 
@@ -8271,7 +8117,6 @@ msgstr ""
 "%1$s üzerinde dış anahtar oluşturma hatası (veri türlerini kontrol edin)"
 
 #: tbl_relation.php:405
-#| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Dahili bağlantılı"
 
@@ -8284,7 +8129,6 @@ msgstr ""
 "mümkün değildir."
 
 #: tbl_relation.php:413
-#| msgid "Foreign key limit"
 msgid "Foreign key constraint"
 msgstr "Dış anahtar kısıtlaması"
 
@@ -8292,28 +8136,27 @@ msgstr "Dış anahtar kısıtlaması"
 msgid "No rows selected"
 msgstr "Satır seçilmedi"
 
-#: tbl_select.php:132
+#: tbl_select.php:131
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "\"Örnek sorgu\" yap. (joker: \"%\")"
 
-#: tbl_select.php:138
+#: tbl_select.php:137
 msgid "Operator"
 msgstr "İşletici"
 
-#: tbl_select.php:270
-#| msgid "Select fields (at least one):"
+#: tbl_select.php:268
 msgid "Select columns (at least one):"
 msgstr "Sütunları seç (en az bir):"
 
-#: tbl_select.php:288
+#: tbl_select.php:286
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Arama koşulu ekle (\"where\" koşulu gövdesi):"
 
-#: tbl_select.php:295
+#: tbl_select.php:293
 msgid "Number of rows per page"
 msgstr "Sayfa başına satır sayısı"
 
-#: tbl_select.php:301
+#: tbl_select.php:299
 msgid "Display order:"
 msgstr "Görünüm düzeni:"
 
@@ -8322,14 +8165,12 @@ msgid "Browse distinct values"
 msgstr "Belirgin değerlere gözat"
 
 #: tbl_structure.php:361
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Hiçbiri"
 
 #: tbl_structure.php:374
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr "Sütun %s kaldırıldı"
 
@@ -8352,7 +8193,6 @@ msgid "Propose table structure"
 msgstr "Tablo yapısı öner"
 
 #: tbl_structure.php:540
-#| msgid "Add column(s)"
 msgid "Add column"
 msgstr "Sütun ekle"
 
@@ -8371,7 +8211,6 @@ msgstr "%s tablosundan sonra"
 
 #: tbl_structure.php:594
 #, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "&nbsp;%s&nbsp;sütunda indeks oluştur"
 
@@ -8548,7 +8387,6 @@ msgid "Available transformations"
 msgstr "Mevcut dönüşümler"
 
 #: transformation_overview.php:48
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Açıklama"
