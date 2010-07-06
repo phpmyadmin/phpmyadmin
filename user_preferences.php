@@ -22,8 +22,10 @@ $GLOBALS['js_include'][] = 'config.js';
 
 require_once './libraries/header.inc.php';
 
-// build tabs
-$tabs = array();
+// show server tabs
+require './libraries/server_links.inc.php';
+
+// build user preferences menu
 $form_param = filter_input(INPUT_GET, 'form');
 if (!isset($forms[$form_param])) {
     $forms_keys = array_keys($forms);
@@ -36,16 +38,16 @@ $tabs_icons = array(
     'Main_frame'  => 'b_props.png',
     'Import'      => 'b_import.png',
     'Export'      => 'b_export.png');
+echo '<ul id="topmenu2">';
 foreach (array_keys($forms) as $formset) {
-    $tabs[] = array(
+    $tab = array(
         'link' => 'user_preferences.php',
         'text' => PMA_lang('Form_' . $formset),
         'icon' => $tabs_icons[$formset],
-        'active' => $formset == $form_param,
-        'url_params' => array('form' => $formset));
+        'active' => $formset == $form_param);
+    echo PMA_generate_html_tab($tab, array('form' => $formset));
 }
-
-echo PMA_generate_html_tabs($tabs, array());
+echo '</ul>';
 
 // show "configuration saved" message and reload navigation frame if needed
 if (!empty($_GET['saved'])) {

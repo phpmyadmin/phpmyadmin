@@ -582,55 +582,62 @@ form.login label {
 /* specific elements */
 
 /* topmenu */
-ul#topmenu, ul.tabs {
+ul#topmenu, ul#topmenu2, ul.tabs {
     font-weight:        bold;
     list-style-type:    none;
     margin:             0;
     padding:            0;
 }
 
-ul#topmenu li {
+ul#topmenu li, ul#topmenu2 li {
     float:              <?php echo $left; ?>;
     margin:             0;
     padding:            0;
     vertical-align:     middle;
 }
 
-#topmenu img {
+#topmenu img, #topmenu2 img {
     vertical-align:     middle;
     margin-<?php echo $right; ?>:       0.1em;
 }
 
 /* default tab styles */
-.tab, .tabcaution, .tabactive {
+ul#topmenu .tab, ul#topmenu .tabcaution, ul#topmenu .tabactive {
     display:            block;
     margin:             0.2em 0.2em 0 0.2em;
     padding:            0.2em 0.2em 0 0.2em;
     white-space:        nowrap;
 }
 
+ul#topmenu2 .tab, ul#topmenu2 .tabactive {
+    display:            block;
+    margin:             0.1em;
+    padding:            0.2em;
+    white-space:        nowrap;
+}
+
 /* disabled tabs */
-span.tab {
+ul#topmenu span.tab {
     color:              #666666;
 }
 
 /* disabled drop/empty tabs */
-span.tabcaution {
+ul#topmenu span.tabcaution {
     color:              #ff6666;
 }
 
 /* enabled drop/empty tabs */
-a.tabcaution {
+ul#topmenu a.tabcaution {
     color:              #FF0000;
 }
-a.tabcaution:hover {
+ul#topmenu a.tabcaution:hover {
     color: #FFFFFF;
     background-color:   #FF0000;
 }
 
 <?php if ($GLOBALS['cfg']['LightTabs']) { ?>
 /* active tab */
-a.tabactive {
+ul#topmenu a.tabactive, ul#topmenu2 a.tabactive {
     color:              black;
 }
 <?php } else { ?>
@@ -639,12 +646,18 @@ a.tabactive {
     padding:            0.1em 0.3em 0.1em 0.3em;
 }
 
+ul#topmenu2 {
+    margin: 0.25em 0.5em 0;
+    height: 2em;
+    clear: both;
+}
+
 ul#topmenu li {
     border-bottom:      1pt solid black;
 }
 
 /* default tab styles */
-.tab, .tabcaution, .tabactive {
+ul#topmenu .tab, ul#topmenu .tabcaution, ul#topmenu .tabactive {
     background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     border:             1pt solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
     border-bottom:      0;
@@ -653,18 +666,26 @@ ul#topmenu li {
 }
 
 /* enabled hover/active tabs */
-a.tab:hover,
-a.tabcaution:hover,
-.tabactive,
-.tabactive:hover {
+ul#topmenu a.tab:hover,
+ul#topmenu a.tabcaution:hover,
+ul#topmenu .tabactive,
+ul#topmenu .tabactive:hover {
     margin:             0;
     padding:            0.2em 0.4em 0.2em 0.4em;
     text-decoration:    none;
 }
 
-a.tab:hover,
-.tabactive {
+ul#topmenu a.tab:hover,
+ul#topmenu .tabactive {
     background-color:   <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+}
+
+ul#topmenu2 a.tab:hover,
+ul#topmenu2 a.tabactive {
+    background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    -moz-border-radius: 0.3em;
+    border-radius:      0.3em;
+    text-decoration:    none;
 }
 
 /* to be able to cancel the bottom border, use <li class="active"> */
@@ -673,9 +694,9 @@ ul#topmenu li.active {
 }
 
 /* disabled drop/empty tabs */
-span.tab,
+ul#topmenu span.tab,
 a.warning,
-span.tabcaution {
+ul#topmenu span.tabcaution {
     cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
 }
 <?php } ?>
