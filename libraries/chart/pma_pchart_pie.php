@@ -25,6 +25,7 @@ class PMA_pChart_Pie extends PMA_pChart_Chart
     protected function prepareChart()
     {
         // Initialise the graph
+        echo "before new\n";
         $this->chart = new pChart($this->getWidth(), $this->getHeight());
         echo "after new\n";
         foreach ($this->getColors() as $key => $color) {
