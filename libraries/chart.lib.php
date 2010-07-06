@@ -46,12 +46,9 @@ function PMA_chart_profiling($data)
         $chartData[$key] = $value;
     }
 
-    error_reporting(E_ALL);
-    echo "before new";
     $chart = new PMA_pChart_Pie(
             __('Query execution time comparison (in microseconds)'),
             $chartData);
-    echo "after new";
     echo $chart->toString();
 }
 
