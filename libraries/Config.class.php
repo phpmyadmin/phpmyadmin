@@ -1086,10 +1086,13 @@ class PMA_Config
         if ($validity == null) {
             $validity = 2592000;
         }
-        if (strlen($value) && null !== $default && $value === $default
-         && isset($_COOKIE[$cookie])) {
-            // remove cookie, default value is used
-            return $this->removeCookie($cookie);
+        if (strlen($value) && null !== $default && $value === $default) {
+            // default value is used
+            if (isset($_COOKIE[$cookie])) {
+                // remove cookie
+                return $this->removeCookie($cookie);
+            }
+            return false;
         }
 
         if (! strlen($value) && isset($_COOKIE[$cookie])) {

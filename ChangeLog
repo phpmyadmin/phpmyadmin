@@ -84,6 +84,8 @@ $Id$
 - bug #3004216 [CSS] Field attributes use inline CSS
 - patch #2999595, rfe #2998130 [interface] Cleanup navigation frame.
 - [core] Update library PHPExcel to version 1.7.3c
+- patch #3025161 [core] Prevent sending of unnecessary cookies, 
+  thanks to Piotr Przybylski  - crackpl
 
 3.3.5.0 (not yet released)
 - patch #2932113 [information_schema] Slow export when having lots of
