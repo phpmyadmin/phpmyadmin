@@ -199,6 +199,8 @@
      $this->XSize   = $XSize;
      $this->YSize   = $YSize;
      echo "before imagecreatetruecolor\n";
+     echo "php version:".phpversion();
+     var_dump(gd_info());
      $this->Picture = imagecreatetruecolor($XSize,$YSize);
      echo "before this->AllocateColor\n";
      $C_White =$this->AllocateColor($this->Picture,255,255,255);
