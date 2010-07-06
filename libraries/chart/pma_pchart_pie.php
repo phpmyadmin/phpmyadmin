@@ -26,6 +26,7 @@ class PMA_pChart_Pie extends PMA_pChart_Chart
     {
         // Initialise the graph
         $this->chart = new pChart($this->getWidth(), $this->getHeight());
+        echo "after new\n";
         foreach ($this->getColors() as $key => $color) {
             $this->chart->setColorPalette(
                     $key,
@@ -34,7 +35,9 @@ class PMA_pChart_Pie extends PMA_pChart_Chart
                     hexdec(substr($color, 5, 2))
             );
         }
+        echo "after palette\n";
         $this->chart->setFontProperties($this->getFontPath().'tahoma.ttf', 8);
+        echo "after font\n";
         $this->chart->drawFilledRoundedRectangle(
                 $this->getBorder1Width(),
                 $this->getBorder1Width(),
@@ -45,12 +48,14 @@ class PMA_pChart_Pie extends PMA_pChart_Chart
                 $this->getBgColorComp(1),
                 $this->getBgColorComp(2)
                 );
+        echo "after drawFilledRoundedRectangle\n";
         $this->chart->drawRoundedRectangle(
                 $this->getBorder2Width(),
                 $this->getBorder2Width(),
                 $this->getWidth() - $this->getBorder2Width(),
                 $this->getHeight() - $this->getBorder2Width(),
                 5,0,0,0);
+        echo "after drawRoundedRectangle\n";
 
         // Draw the pie chart
         $this->chart->AntialiasQuality = 0;
@@ -58,10 +63,13 @@ class PMA_pChart_Pie extends PMA_pChart_Chart
         //$Test->drawFlatPieGraphWithShadow($DataSet->GetData(),$DataSet->GetDataDescription(),180,160,120,PIE_PERCENTAGE,8);
         //$Test->drawBasicPieGraph($DataSet->GetData(),$DataSet->GetDataDescription(),180,160,120,PIE_PERCENTAGE,255,255,218,2);
         $this->chart->drawPieGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),180,160,120,PIE_PERCENTAGE,FALSE,60,30,10,1);
+        echo "after drawPieGraph\n";
         $this->chart->clearShadow();
 
         $this->chart->drawTitle(20,20,$this->titleText,0,0,0);
+        echo "after drawTitle\n";
         $this->chart->drawPieLegend(350,15,$this->dataSet->GetData(),$this->dataSet->GetDataDescription(),250,250,250);
+        echo "after drawPieLegend\n";
     }
 
     protected function getBorder1Width()
