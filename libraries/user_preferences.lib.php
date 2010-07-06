@@ -110,6 +110,8 @@ function PMA_apply_userprefs(array $config_data)
     $cfg = array();
     $blacklist = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
     $whitelist = array_flip(PMA_read_userprefs_fieldnames());
+    $whitelist['ThemeDefault'] = true;
+    $whitelist['fontsize'] = true;
     foreach ($config_data as $path => $value) {
         if (!isset($whitelist[$path]) || isset($blacklist[$path])) {
             continue;
@@ -153,6 +155,7 @@ function PMA_read_userprefs_fieldnames(array $forms = null)
  *
  * No validation is done!
  *
+ * @uses PMA_save_userprefs()
  * @param string $cfg_name
  * @param mixed $value
  * @return void

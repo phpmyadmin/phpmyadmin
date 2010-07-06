@@ -423,6 +423,7 @@ class PMA_Config
      * @uses $_SESSION['cache']['config_mtime']
      * @uses $_SESSION['cache']['userprefs']
      * @uses $_SESSION['cache']['userprefs_mtime']
+     * @uses $_SESSION['PMA_Theme_Manager']
      * @uses PMA_apply_userprefs()
      * @uses PMA_array_merge_recursive()
      * @uses PMA_load_userprefs()
@@ -445,43 +446,94 @@ class PMA_Config
                 $_SESSION['cache']['config_mtime'] = $config_mtime;
             }
         } else if (!isset($_SESSION['cache']['userprefs'])) {
+            $this->set('user_preferences', false);
             return;
         }
         $config_data = $_SESSION['cache']['userprefs'];
+        // todo: check for empty user data, user_preferences should then be true
         if (!$config_data) {
+            $this->set('user_preferences', false);
             return false;
         }
+        $this->set('user_preferences', true);
+
+        // backup some settings
+        $fontsize = $this->get('fontsize');
+        // load config array
         $this->settings = PMA_array_merge_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = PMA_array_merge_recursive($GLOBALS['cfg'], $config_data);
-        $this->set('user_preferences', true);
+
+        if (defined('PMA_MINIMUM_COMMON')) {
+            return;
+        }
+
+        // settings below start really working on next page load, but
+        // changes are made only in index.php so everything is set when
+        // in frames
+
+        // load/save theme
+        // theme cookie exists only if we are using non-default theme
+        $tmanager = $_SESSION['PMA_Theme_Manager'];
+        if (isset($_REQUEST['set_theme'])) {
+            // new theme was set in common.inc.php
+            $this->setUserValue(null, 'ThemeDefault', $tmanager->theme->id);
+        } else if (!$tmanager->getThemeCookie()) {
+            // no cookie - read default from settings
+            if ($this->settings['ThemeDefault'] != $tmanager->theme
+                    && $tmanager->checkTheme($this->settings['ThemeDefault'])) {
+                $tmanager->setActiveTheme($this->settings['ThemeDefault']);
+                $tmanager->setThemeCookie();
+            }
+        }
+        // save new font size
+        // fontsize cookie exists only if we are using a non-default size
+        if (isset($_POST['set_fontsize']) || isset($_COOKIE['pma_fontsize'])) {
+            // cookie with new fontsize exists, save setting to database and remove it
+            $this->setUserValue('pma_fontsize', 'fontsize', $fontsize, '82%');
+        }
     }
 
     /**
-     * Sets config value which is stored in user preferences (if available) or in a cookie
+     * Sets config value which is stored in user preferences (if available) or in a cookie.
      *
-     * @param  $cookie_name
-     * @param  $cfg_path
-     * @param  $new_cfg_value
-     * @return void
+     * If user preferences are not yet initialized, option is applied to global config and
+     * added to a update queue, which is processed by {@link loadUserPreferences()}
+     *
+     * @uses $GLOBALS['cfg']
+     * @uses PMA_array_read()
+     * @uses PMA_array_write()
+     * @uses PMA_persist_option()
+     * @param string $cookie_name can be null
+     * @param string $cfg_path
+     * @param mixed  $new_cfg_value
+     * @param mixed  $default_value
      */
-    function setUserValue($cookie_name, $cfg_path, $new_cfg_value)
+    function setUserValue($cookie_name, $cfg_path, $new_cfg_value, $default_value = null)
     {
         // use permanent user preferences if possible
         if ($this->get('user_preferences')) {
             require_once './libraries/user_preferences.lib.php';
-            PMA_persist_option($cfg_path, $new_cfg_value, PMA_array_read($cfg_path, $this->default));
-        } else {
+            if ($default_value === null) {
+                $default_value = PMA_array_read($cfg_path, $this->default);
+            }
+            PMA_persist_option($cfg_path, $new_cfg_value, $default_value);
+        } else if ($cookie_name) {
             // fall back to cookies
-            $this->setCookie($cookie_name, $new_cfg_value, PMA_array_read($cfg_path, $this->settings));
+            if ($default_value === null) {
+                $default_value = PMA_array_read($cfg_path, $this->settings);
+            }
+            $this->setCookie($cookie_name, $new_cfg_value, $default_value);
         }
+        PMA_array_write($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
+        PMA_array_write($cfg_path, $this->settings, $new_cfg_value);
     }
 
     /**
      * Reads value stored by {@link setUserValue()}
      *
-     * @param  $cookie_name
-     * @param  $cfg_value
-     * @return
+     * @param string $cookie_name
+     * @param mixed $cfg_value
+     * @return mixed
      */
     function getUserValue($cookie_name, $cfg_value)
     {
@@ -1103,7 +1155,7 @@ class PMA_Config
         $options = PMA_Config::_getFontsizeOptions($current_size);
 
         $return = '<label for="select_fontsize">' . __('Font size') . ':</label>' . "\n";
-        $return .= '<select name="fontsize" id="select_fontsize" onchange="this.form.submit();">' . "\n";
+        $return .= '<select name="set_fontsize" id="select_fontsize" onchange="this.form.submit();">' . "\n";
         foreach ($options as $option) {
             $return .= '<option value="' . $option . '"';
             if ($option == $current_size) {
@@ -1176,10 +1228,13 @@ class PMA_Config
         if ($validity == null) {
             $validity = 2592000;
         }
-        if (strlen($value) && null !== $default && $value === $default
-         && isset($_COOKIE[$cookie])) {
-            // remove cookie, default value is used
-            return $this->removeCookie($cookie);
+        if (strlen($value) && null !== $default && $value === $default) {
+            // default value is used
+            if (isset($_COOKIE[$cookie])) {
+                // remove cookie
+                return $this->removeCookie($cookie);
+            }
+            return false;
         }
 
         if (! strlen($value) && isset($_COOKIE[$cookie])) {
