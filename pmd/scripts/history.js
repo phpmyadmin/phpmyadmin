@@ -1,6 +1,12 @@
-var history_array = [];
-var tab_array = [];
+var history_array = []; // Global array to store history objects
 var g_index;
+
+/**
+ * J-query function for panel, hides and shows toggle_container <div>
+ *
+ * @param	index	has value 1 or 0,decides wheter to hide toggle_container on load. 
+**/
+
 function panel(index) {
 	if (!index) {
 		$(".toggle_container").hide(); 
@@ -9,6 +15,19 @@ function panel(index) {
 		$(this).toggleClass("active").next().slideToggle("slow");
 		});
 }
+
+/**
+ * Sorts history_array[] first then generates the HTML code for history tab,clubbing all objects of same tables together
+ * This function is called whenever changes are made in history_array[]
+ *
+ * @uses	and_or()
+ * @uses	history_edit()
+ * @uses	history_delete()
+ * 	
+ * @param	init	starting index of unsorted array   
+ * @param	fianl	last index of unsorted array
+ *
+**/
 
 function display(init,final) {
 	 var str,i,j,k,sto;
@@ -25,7 +44,7 @@ function display(init,final) {
 			}
 		}
 	 }
-	 str ='';
+	 str =''; // string to store Html code for history tab
 	 for ( var i=0; i < history_array.length; i++){
 		var temp = history_array[i].get_tab() + '.' + history_array[i].get_obj_no();
 		str += '<h2 class="tiger"><a href="#">' + temp + '</a></h2>';  				
@@ -57,7 +76,16 @@ function display(init,final) {
 	 }
 	 return str;
 }
- 
+
+/**
+ * To change And/Or relation in history tab 
+ * 
+ * @uses	panel()
+ *
+ * @param	index	index of history_array where change is to be made
+ *
+**/
+
 function and_or(index) {
 	if (history_array[index].get_and_or()) {
 		history_array[index].set_and_or(0);
@@ -69,6 +97,13 @@ function and_or(index) {
 	existingDiv.innerHTML = display(0,0);
 	panel(1);
 }
+
+/**
+ * To display details of obects(where,rename,aggregate,groupby,orderby)
+ * 
+ * @param	index	index of history_array where change is to be made
+ *
+**/
 
 function detail (index) {
 	var type = history_array[index].get_type();
@@ -90,13 +125,30 @@ function detail (index) {
 	}
 	return str;
 }
+
+/**
+ * Deletes entry in history_array
+ *
+ * @uses	panel()
+ * @uses	display()
+ * @param	index	index of history_array[] which is to be deleted
+ *
+**/
+
 function history_delete(index) {
 	history_array.splice(index,1);
 	var existingDiv = document.getElementById('ab');
 	existingDiv.innerHTML = display(0,0);
 	panel(1);
 }
- 
+
+/**
+ * To show where,rename,aggregate forms to edit a object
+ * 
+ * @param	index	index of history_array where change is to be made
+ *
+**/
+
 function history_edit(index) {
 	g_index = index;
 	var type = history_array[index].get_type();
@@ -105,21 +157,35 @@ function history_edit(index) {
 		document.getElementById('erel_opt').value = history_array[index].get_obj().getrelation_operator();
 		document.getElementById('query_where').style.left =  '230px';
      	document.getElementById('query_where').style.top  = '330px';
+		document.getElementById('query_where').style.position  = 'absolute';
+		document.getElementById('query_where').style.zIndex = '9';
 		document.getElementById('query_where').style.visibility = 'visible';
 	}
 	if (type == "Rename") {
-		//var left = screen.availWidth/2 ;
      	document.getElementById('query_rename_to').style.left =  '230px';
      	document.getElementById('query_rename_to').style.top  = '330px';
+		document.getElementById('query_rename_to').style.position  = 'absolute';
+		document.getElementById('query_rename_to').style.zIndex = '9';
 		document.getElementById('query_rename_to').style.visibility = 'visible';
 	}
 	if (type == "Aggregate") {
-		var left = Glob_X - (document.getElementById('query_Aggregate').offsetWidth>>1);
-     	document.getElementById('query_Aggregate').style.left = left + 'px';
-     	document.getElementById('query_Aggregate').style.top  = (screen.height / 4) + 'px';
+		document.getElementById('query_Aggregate').style.left = '530px';
+     	document.getElementById('query_Aggregate').style.top  = '130px';
+		document.getElementById('query_Aggregate').style.position  = 'absolute';
+		document.getElementById('query_Aggregate').style.zIndex = '9';
 		document.getElementById('query_Aggregate').style.visibility = 'visible';
 	}
 }
+
+/**
+ * Make changes in history_array when Edit is clicked
+ * 
+ * @uses	panel()
+ * @uses	display()
+ *
+ * @param	index	index of history_array where change is to be made
+**/
+
 function edit(type) {
 	if (type == "Rename") {
 		if (document.getElementById('e_rename').value != "") {
@@ -139,8 +205,6 @@ function edit(type) {
 		if (document.getElementById('erel_opt').value != '--' && document.getElementById('eQuery').value !="") {
 			history_array[g_index].get_obj().setquery(document.getElementById('eQuery').value);
 			history_array[g_index].get_obj().setrelation_operator(document.getElementById('erel_opt').value);
-			document.getElementById('eQuery').value = "";
-			document.getElementById('erel_opt').value = '--';
 		}
 		document.getElementById('query_where').style.visibility = 'hidden';
 	}
@@ -148,6 +212,18 @@ function edit(type) {
 	existingDiv.innerHTML = display(0,0);
 	panel(1);
 }
+
+/**
+ * history object closure  
+ *
+ * @param	ncolumn_name	name of the column on which conditions are put
+ * @param	nobj			object details(where,rename,orderby,groupby,aggregate)
+ * @param	ntab			table name of the column on which conditions are applied
+ * @param	nobj_no			object no used for inner join
+ * @param	ntype			type of object
+ *
+**/
+
 function history(ncolumn_name,nobj,ntab,nobj_no,ntype) {
 	var and_or;
 	var obj;
@@ -202,6 +278,14 @@ function history(ncolumn_name,nobj,ntab,nobj_no,ntype) {
 	this.set_type(ntype);
 };
 
+/**
+ * where object closure, makes an object with all information of where
+ *
+ * @param	nrelation_operator	type of relation operator to be applied
+ * @param	nquery				stores value of value/sub-query 
+ *
+**/
+
 var where = function (nrelation_operator,nquery) {
 	var relation_operator;
 	var query;
@@ -221,6 +305,13 @@ var where = function (nrelation_operator,nquery) {
 	this.setrelation_operator(nrelation_operator);
 };
 
+/**
+ * rename object closure,makes an object with all information of rename
+ *
+ * @param	nrename_to	new name information
+ *
+**/
+
 var rename = function(nrename_to) {
 	var rename_to;
 	this.setrename_to = function(nrename_to) {
@@ -231,6 +322,14 @@ var rename = function(nrename_to) {
 	};
 	this.setrename_to(nrename_to);
 };
+
+/**
+ * aggregate object closure
+ *
+ * @param	noperator	aggregte operator
+ *
+**/
+
 var aggregate = function(noperator) {
 	var operator;
 	this.set_operator = function(noperator) {

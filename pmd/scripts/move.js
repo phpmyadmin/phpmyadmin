@@ -1009,6 +1009,19 @@ function Table_onover(id_this,val)
 	}
 }
 
+/**
+ * This function builds object and adds them to history_array
+ * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
+ * then a new history object is made and finally all these history objects are addded to history_array[]
+ * 
+ * @uses	where()
+ * @uses	history()
+ * @uses	aggregate()
+ * @uses	rename()
+ * @uses	panel()
+ * @uses	display()
+**/
+
 function add_object() {
 	var rel = document.getElementById('rel_opt');
 	var sum = 0;
