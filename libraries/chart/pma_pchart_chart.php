@@ -33,26 +33,26 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
     protected function render()
     {
-        echo "before ob_start";
         ob_start();
         imagepng($this->chart->Picture);
         $output = ob_get_contents();
         ob_end_clean();
-        echo "after ob_end_clean";
 
         $this->imageEncoded = base64_encode($output);
     }
 
     public function toString()
     {
-        $this->prepareDataSet();
-        echo "after neprepareDataSetw";
-        $this->prepareChart();
-        echo "after prepareChart";
-        $this->render();
-        echo "after render";
+        if (function_exists('gd_info')) {
+            $this->prepareDataSet();
+            $this->prepareChart();
+            $this->render();
 
-        return '<img id="pChartPicture1" src="data:image/png;base64,'.$this->imageEncoded.'" />';
+            return '<img id="pChartPicture1" src="data:image/png;base64,'.$this->imageEncoded.'" />';
+        }
+        else {
+            return 'Missing GD library.';
+        }
     }
 
     protected function getFontPath()

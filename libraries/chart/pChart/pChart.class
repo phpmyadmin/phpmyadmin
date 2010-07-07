@@ -198,17 +198,10 @@
     {
      $this->XSize   = $XSize;
      $this->YSize   = $YSize;
-     echo "before imagecreatetruecolor\n";
-     echo "php version:".phpversion();
-     var_dump(function_exists('gd_info'));
      $this->Picture = imagecreatetruecolor($XSize,$YSize);
-     echo "before this->AllocateColor\n";
      $C_White =$this->AllocateColor($this->Picture,255,255,255);
-     echo "before imagefilledrectangle\n";
      imagefilledrectangle($this->Picture,0,0,$XSize,$YSize,$C_White);
-     echo "before imagecolortransparent";
      imagecolortransparent($this->Picture,$C_White);
-     echo "after imagecolortransparent";
      $this->setFontProperties("tahoma.ttf",8);
     }
 
