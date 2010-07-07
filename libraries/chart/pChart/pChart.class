@@ -975,6 +975,23 @@
      return(array($MaxWidth,$MaxHeight));
     }
 
+    function getPieLegendBoxSize($Data)
+    {
+      $MaxWidth = 0; $MaxHeight = 8;
+      foreach($Data as $Value)
+      {
+       $Position   = imageftbbox($this->FontSize,0,$this->FontName,$Value['Keys']);
+       $TextWidth  = $Position[2]-$Position[0];
+       $TextHeight = $Position[1]-$Position[7];
+       if ( $TextWidth > $MaxWidth) { $MaxWidth = $TextWidth; }
+       $MaxHeight = $MaxHeight + $TextHeight + 4;
+      }
+     $MaxHeight = $MaxHeight - 3;
+     $MaxWidth  = $MaxWidth + 32;
+
+     return(array($MaxWidth,$MaxHeight));
+    }
+
    /* Draw the data legends */
    function drawLegend($XPos,$YPos,$DataDescription,$R,$G,$B,$Rs=-1,$Gs=-1,$Bs=-1,$Rt=0,$Gt=0,$Bt=0,$Border=TRUE)
     {
