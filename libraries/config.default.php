@@ -587,11 +587,12 @@ $cfg['Confirm'] = true;
 $cfg['LoginCookieRecall'] = true;
 
 /**
- * validity of cookie login (in seconds; 1800 seconds is 30 minutes)
+ * validity of cookie login (in seconds; 1440 matches php.ini's
+ * session.gc_maxlifetime)
  *
  * @global integer $cfg['LoginCookieValidity']
  */
-$cfg['LoginCookieValidity'] = 1800;
+$cfg['LoginCookieValidity'] = 1440;
 
 /**
  * how long login cookie should be stored (in seconds)
