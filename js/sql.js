@@ -44,6 +44,17 @@ $(document).ready(function() {
         })
     })// end Paginate results table
 
+    //Paginate results with Page Selector
+    $("#pageselector").live('change', function(event) {
+        event.preventDefault();
+
+        //PMA_ajaxShowMessage();
+
+        $.get($(this).attr('href'), $(this).serialize() + '&ajax_request=true', function(data) {
+            $("#sqlqueryresults").html(data);
+        })
+    })// end Paginate results with Page Selector
+
     //Sort results table
     $("#table_results").find("a[title=Sort]").live('click', function(event) {
         event.preventDefault();

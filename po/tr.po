@@ -3,7 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2010-07-03 21:45+0530\n"
+=======
+"POT-Creation-Date: 2010-07-03 09:00-0400\n"
+>>>>>>> origin/master
 "PO-Revision-Date: 2010-06-21 19:58+0200\n"
 "Last-Translator: Burak <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -49,15 +53,26 @@ msgstr "Ara"
 #: db_structure.php:565 js/messages.php:53 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:290 libraries/common.lib.php:719
+<<<<<<< HEAD
 #: libraries/common.lib.php:1344 libraries/common.lib.php:2301
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:62
+=======
+#: libraries/common.lib.php:1335 libraries/common.lib.php:2288
+#: libraries/display_change_password.lib.php:82
+#: libraries/display_create_table.lib.php:63
+>>>>>>> origin/master
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
 #: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:76
 #: libraries/replication_gui.lib.php:372 libraries/select_server.lib.php:104
+<<<<<<< HEAD
 #: libraries/sql_query_form.lib.php:403 libraries/sql_query_form.lib.php:480
 #: libraries/sql_query_form.lib.php:555 libraries/tbl_properties.inc.php:782
+=======
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+>>>>>>> origin/master
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:665 server_privileges.php:1641
@@ -67,8 +82,13 @@ msgstr "Ara"
 #: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
 #: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
+<<<<<<< HEAD
 #: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:560
 #: tbl_structure.php:595 tbl_tracking.php:395 tbl_tracking.php:512
+=======
+#: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
+#: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
+>>>>>>> origin/master
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Git"
@@ -119,10 +139,17 @@ msgstr "Sütun"
 #: libraries/db_structure.lib.php:60 libraries/export/htmlword.php:245
 #: libraries/export/latex.php:360 libraries/export/odt.php:297
 #: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:100
+<<<<<<< HEAD
 #: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2093
 #: tbl_change.php:286 tbl_change.php:313 tbl_printview.php:142
 #: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
 #: tbl_structure.php:657 tbl_tracking.php:274 tbl_tracking.php:321
+=======
+#: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2070
+#: tbl_change.php:286 tbl_change.php:313 tbl_printview.php:142
+#: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
+#: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
+>>>>>>> origin/master
 msgid "Type"
 msgstr "Türü"
 
@@ -163,9 +190,15 @@ msgstr "Yorumlar"
 #: libraries/Index.class.php:386 libraries/export/htmlword.php:322
 #: libraries/export/latex.php:430 libraries/export/odt.php:368
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:263
+<<<<<<< HEAD
 #: pdf_schema.php:1344 server_privileges.php:1585 server_privileges.php:1596
 #: server_privileges.php:1911 server_privileges.php:1916
 #: server_privileges.php:2210 sql.php:132 sql.php:194 tbl_printview.php:228
+=======
+#: pdf_schema.php:1344 server_privileges.php:1568 server_privileges.php:1579
+#: server_privileges.php:1889 server_privileges.php:1894
+#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:228
+>>>>>>> origin/master
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "Hayır"
@@ -179,9 +212,15 @@ msgstr "Hayır"
 #: libraries/mult_submits.inc.php:101 libraries/mult_submits.inc.php:106
 #: libraries/mult_submits.inc.php:111 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:273 pdf_schema.php:1344
+<<<<<<< HEAD
 #: server_databases.php:64 server_privileges.php:1582
 #: server_privileges.php:1596 server_privileges.php:1911
 #: server_privileges.php:1914 server_privileges.php:2210 sql.php:193
+=======
+#: server_databases.php:64 server_privileges.php:1565
+#: server_privileges.php:1579 server_privileges.php:1889
+#: server_privileges.php:1892 server_privileges.php:2187 sql.php:193
+>>>>>>> origin/master
 #: tbl_printview.php:228 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
@@ -230,7 +269,15 @@ msgstr "Veritabanını şuna yeniden adlandır"
 msgid "Command"
 msgstr "Komut"
 
+<<<<<<< HEAD
 #: db_operations.php:466
+=======
+#: db_operations.php:429 tbl_change.php:1140
+msgid "and then"
+msgstr "ve sonra"
+
+#: db_operations.php:455
+>>>>>>> origin/master
 msgid "Copy database to"
 msgstr "Veritabanını şuraya kopyala:"
 
@@ -280,7 +327,11 @@ msgstr "BLOB Havuzu"
 msgid "Status"
 msgstr "Durum"
 
+<<<<<<< HEAD
 #: db_operations.php:559
+=======
+#: db_operations.php:548
+>>>>>>> origin/master
 msgctxt "BLOB repository"
 msgid "Enabled"
 msgstr "Etkinleştirildi"
@@ -293,12 +344,20 @@ msgstr "Etkisiz"
 msgid "Damaged"
 msgstr "Hasarlı"
 
+<<<<<<< HEAD
 #: db_operations.php:577
+=======
+#: db_operations.php:566
+>>>>>>> origin/master
 msgctxt "BLOB repository"
 msgid "Repair"
 msgstr "Onar"
 
+<<<<<<< HEAD
 #: db_operations.php:585
+=======
+#: db_operations.php:574
+>>>>>>> origin/master
 msgctxt "BLOB repository"
 msgid "Disabled"
 msgstr "Etkisizleştirildi"
@@ -312,7 +371,11 @@ msgstr "Etkin"
 #: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
 #: server_collations.php:54 server_collations.php:66 server_databases.php:111
 #: tbl_operations.php:363 tbl_select.php:136 tbl_structure.php:179
+<<<<<<< HEAD
 #: tbl_structure.php:765 tbl_tracking.php:275 tbl_tracking.php:326
+=======
+#: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
+>>>>>>> origin/master
 msgid "Collation"
 msgstr "Karşılaştırma"
 
@@ -341,7 +404,11 @@ msgstr "Tablo"
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
+<<<<<<< HEAD
 #: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:775
+=======
+#: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:777
+>>>>>>> origin/master
 msgid "Rows"
 msgstr "Satır"
 
@@ -356,19 +423,31 @@ msgstr "kullanımda"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
 #: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
+<<<<<<< HEAD
 #: tbl_structure.php:807
+=======
+#: tbl_structure.php:809
+>>>>>>> origin/master
 msgid "Creation"
 msgstr "Oluşturma"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
 #: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
+<<<<<<< HEAD
 #: tbl_structure.php:815
+=======
+#: tbl_structure.php:817
+>>>>>>> origin/master
 msgid "Last update"
 msgstr "Son güncellenme"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
 #: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
+<<<<<<< HEAD
 #: tbl_structure.php:823
+=======
+#: tbl_structure.php:825
+>>>>>>> origin/master
 msgid "Last check"
 msgstr "Son kontrol"
 
@@ -431,7 +510,11 @@ msgstr "Del"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
+<<<<<<< HEAD
 #: server_privileges.php:298 tbl_change.php:1028 tbl_indexes.php:250
+=======
+#: server_privileges.php:297 tbl_change.php:1028 tbl_indexes.php:250
+>>>>>>> origin/master
 #: tbl_select.php:286
 msgid "Or"
 msgstr "Veya"
@@ -539,7 +622,11 @@ msgstr "Kelimeler boşlukla ayrılır (\" \")."
 msgid "Inside table(s):"
 msgstr "Tablo içindeki(ler):"
 
+<<<<<<< HEAD
 #: db_search.php:367
+=======
+#: db_search.php:355
+>>>>>>> origin/master
 msgid "Inside column:"
 msgstr "İç sütun:"
 
@@ -645,9 +732,15 @@ msgstr "Seçilileri:"
 msgid "Check All"
 msgstr "Tümünü Seç"
 
+<<<<<<< HEAD
 #: db_structure.php:529 libraries/display_tbl.lib.php:2077
 #: libraries/replication_gui.lib.php:36 server_databases.php:350
 #: server_privileges.php:573 server_privileges.php:1620 tbl_structure.php:460
+=======
+#: db_structure.php:531 libraries/display_tbl.lib.php:2077
+#: libraries/replication_gui.lib.php:36 server_databases.php:350
+#: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
+>>>>>>> origin/master
 msgid "Uncheck All"
 msgstr "Hiçbirini Seçme"
 
@@ -1094,34 +1187,61 @@ msgstr "Dış Anahtarı seç"
 msgid "Please select the primary key or a unique key"
 msgstr "Lütfen birincil anaktarı veya benzersiz anahtarı seçin"
 
+<<<<<<< HEAD
 #: js/messages.php:92 pmd_general.php:77 tbl_relation.php:548
+=======
+#: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
+>>>>>>> origin/master
 msgid "Choose column to display"
 msgstr "Göstermek için sütun seçin"
 
 #. l10n: Display text for calendar close link
+<<<<<<< HEAD
 #: js/messages.php:102
+=======
+#: js/messages.php:73
+>>>>>>> origin/master
 msgid "Done"
 msgstr "Bitti"
 
 #. l10n: Display text for previous month link in calendar
+<<<<<<< HEAD
 #: js/messages.php:104
+=======
+#: js/messages.php:75
+>>>>>>> origin/master
 msgid "Prev"
 msgstr "Önceki"
 
 #. l10n: Display text for next month link in calendar
+<<<<<<< HEAD
 #: js/messages.php:106 libraries/common.lib.php:2366
 #: libraries/common.lib.php:2369 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
 #: tbl_structure.php:799
+=======
+#: js/messages.php:77 libraries/common.lib.php:2353
+#: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
+#: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
+#: tbl_structure.php:801
+>>>>>>> origin/master
 msgid "Next"
 msgstr "Sonraki"
 
 #. l10n: Display text for current month link in calendar
+<<<<<<< HEAD
 #: js/messages.php:108
 msgid "Today"
 msgstr "Bugün"
 
 #: js/messages.php:111
+=======
+#: js/messages.php:79
+msgid "Today"
+msgstr "Bugün"
+
+#: js/messages.php:82
+>>>>>>> origin/master
 msgid "January"
 msgstr "Ocak"
 
@@ -1129,11 +1249,19 @@ msgstr "Ocak"
 msgid "February"
 msgstr "Şubat"
 
+<<<<<<< HEAD
 #: js/messages.php:113
 msgid "March"
 msgstr "Mart"
 
 #: js/messages.php:114
+=======
+#: js/messages.php:84
+msgid "March"
+msgstr "Mart"
+
+#: js/messages.php:85
+>>>>>>> origin/master
 msgid "April"
 msgstr "Nisan"
 
@@ -1141,6 +1269,7 @@ msgstr "Nisan"
 msgid "May"
 msgstr "Mayıs"
 
+<<<<<<< HEAD
 #: js/messages.php:116
 msgid "June"
 msgstr "Haziran"
@@ -1150,6 +1279,17 @@ msgid "July"
 msgstr "Temmuz"
 
 #: js/messages.php:118
+=======
+#: js/messages.php:87
+msgid "June"
+msgstr "Haziran"
+
+#: js/messages.php:88
+msgid "July"
+msgstr "Temmuz"
+
+#: js/messages.php:89
+>>>>>>> origin/master
 msgid "August"
 msgstr "Ağustos"
 
@@ -1157,7 +1297,11 @@ msgstr "Ağustos"
 msgid "September"
 msgstr "Eylül"
 
+<<<<<<< HEAD
 #: js/messages.php:120
+=======
+#: js/messages.php:91
+>>>>>>> origin/master
 msgid "October"
 msgstr "Ekim"
 
@@ -1190,7 +1334,11 @@ msgid "Apr"
 msgstr "Nis"
 
 #. l10n: Short month name
+<<<<<<< HEAD
 #: js/messages.php:134 libraries/common.lib.php:1574
+=======
+#: js/messages.php:105 libraries/common.lib.php:1565
+>>>>>>> origin/master
 msgctxt "Short month name"
 msgid "May"
 msgstr "May"
@@ -1230,6 +1378,7 @@ msgstr "Kas"
 msgid "Dec"
 msgstr "Ara"
 
+<<<<<<< HEAD
 #: js/messages.php:151
 msgid "Sunday"
 msgstr "Pazar"
@@ -1239,6 +1388,17 @@ msgid "Monday"
 msgstr "Pazartesi"
 
 #: js/messages.php:153
+=======
+#: js/messages.php:122
+msgid "Sunday"
+msgstr "Pazar"
+
+#: js/messages.php:123
+msgid "Monday"
+msgstr "Pazartesi"
+
+#: js/messages.php:124
+>>>>>>> origin/master
 msgid "Tuesday"
 msgstr "Salı"
 
@@ -1250,7 +1410,11 @@ msgstr "Çarşamba"
 msgid "Thursday"
 msgstr "Perşembe"
 
+<<<<<<< HEAD
 #: js/messages.php:156
+=======
+#: js/messages.php:127
+>>>>>>> origin/master
 msgid "Friday"
 msgstr "Cuma"
 
@@ -1294,42 +1458,74 @@ msgid "Sat"
 msgstr "Ctesi"
 
 #. l10n: Minimal week day name
+<<<<<<< HEAD
 #: js/messages.php:177
+=======
+#: js/messages.php:148
+>>>>>>> origin/master
 msgid "Su"
 msgstr "Paz"
 
 #. l10n: Minimal week day name
+<<<<<<< HEAD
 #: js/messages.php:179
+=======
+#: js/messages.php:150
+>>>>>>> origin/master
 msgid "Mo"
 msgstr "Ptesi"
 
 #. l10n: Minimal week day name
+<<<<<<< HEAD
 #: js/messages.php:181
+=======
+#: js/messages.php:152
+>>>>>>> origin/master
 msgid "Tu"
 msgstr "Sa"
 
 #. l10n: Minimal week day name
+<<<<<<< HEAD
 #: js/messages.php:183
+=======
+#: js/messages.php:154
+>>>>>>> origin/master
 msgid "We"
 msgstr "Ça"
 
 #. l10n: Minimal week day name
+<<<<<<< HEAD
 #: js/messages.php:185
+=======
+#: js/messages.php:156
+>>>>>>> origin/master
 msgid "Th"
 msgstr "Pe"
 
 #. l10n: Minimal week day name
+<<<<<<< HEAD
 #: js/messages.php:187
+=======
+#: js/messages.php:158
+>>>>>>> origin/master
 msgid "Fr"
 msgstr "Cu"
 
 #. l10n: Minimal week day name
+<<<<<<< HEAD
 #: js/messages.php:189
+=======
+#: js/messages.php:160
+>>>>>>> origin/master
 msgid "Sa"
 msgstr "Ctesi"
 
 #. l10n: Column header for week of the year in calendar
+<<<<<<< HEAD
 #: js/messages.php:191
+=======
+#: js/messages.php:162
+>>>>>>> origin/master
 msgid "Wk"
 msgstr "Hs"
 
@@ -1337,11 +1533,19 @@ msgstr "Hs"
 msgid "Hour"
 msgstr "Saat"
 
+<<<<<<< HEAD
 #: js/messages.php:194
 msgid "Minute"
 msgstr "Dakika"
 
 #: js/messages.php:195
+=======
+#: js/messages.php:165
+msgid "Minute"
+msgstr "Dakika"
+
+#: js/messages.php:166
+>>>>>>> origin/master
 msgid "Second"
 msgstr "Saniye"
 
@@ -1612,7 +1816,11 @@ msgstr "Parola:"
 msgid "Server Choice"
 msgstr "Sunucu Seçimi"
 
+<<<<<<< HEAD
 #: libraries/auth/cookie.auth.lib.php:318 libraries/header.inc.php:63
+=======
+#: libraries/auth/cookie.auth.lib.php:318 libraries/header.inc.php:59
+>>>>>>> origin/master
 msgid "Cookies must be enabled past this point."
 msgstr "Bu kısmı geçmek için tanımlama bilgileri (cookies) açık olmalı."
 
@@ -1694,7 +1902,11 @@ msgstr ""
 "Gerekli uzantılar yüklenmiş görünmesine rağmen, ne iconv, ne libinconv, ne "
 "de recode_string işlevi kullanılamadı. PHP yapılandırmanızı kontrol edin."
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:580
+=======
+#: libraries/common.inc.php:576
+>>>>>>> origin/master
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1710,12 +1922,20 @@ msgstr ""
 "bir yerde tırnak veya noktalı virgül eksiktir.<br />Eğer boş bir sayfa "
 "karşınıza çıkıyorsa, her şey yolunda demektir."
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:591
+=======
+#: libraries/common.inc.php:587
+>>>>>>> origin/master
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Varsayılan yapılandırma bundan yüklenemedi: %1$s"
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:596
+=======
+#: libraries/common.inc.php:592
+>>>>>>> origin/master
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1723,29 +1943,49 @@ msgstr ""
 "<tt>$cfg['PmaAbsoluteUri']</tt> talimatı yapılandırma dosyanız içinde "
 "AYARLANMAK zorundadır!"
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:626
+=======
+#: libraries/common.inc.php:622
+>>>>>>> origin/master
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Geçersiz sunucu indeksi: %s"
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:633
+=======
+#: libraries/common.inc.php:629
+>>>>>>> origin/master
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "%1$s sunucusu için geçersiz anamakine. Lütfen yapılandırmanızı gözden "
 "geçirin."
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:642 libraries/header.inc.php:100
+=======
+#: libraries/common.inc.php:638 libraries/header.inc.php:96
+>>>>>>> origin/master
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
 msgstr "Sunucu"
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:820
 msgid "Invalid authentication method set in configuration:"
 msgstr "Yapılandırma içinde geçersiz kimlik denetimi yöntemi ayarı:"
 
 #: libraries/common.inc.php:923
+=======
+#: libraries/common.inc.php:816
+msgid "Invalid authentication method set in configuration:"
+msgstr "Yapılandırma içinde geçersiz kimlik denetimi yöntemi ayarı:"
+
+#: libraries/common.inc.php:919
+>>>>>>> origin/master
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s %s veya sonrasına yükseltmelisiniz."
@@ -1818,7 +2058,11 @@ msgstr "SQL'i onayla"
 msgid "Inline edit of this query"
 msgstr "Bu sorguyu sıralı düzenle"
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:1283
+=======
+#: libraries/common.lib.php:1280
+>>>>>>> origin/master
 msgid "Inline"
 msgstr "Sıralı"
 
@@ -1992,7 +2236,11 @@ msgstr ""
 "a]'e bakın"
 
 #: libraries/db_structure.lib.php:69 server_databases.php:142
+<<<<<<< HEAD
 #: tbl_printview.php:335 tbl_structure.php:680
+=======
+#: tbl_printview.php:335 tbl_structure.php:682
+>>>>>>> origin/master
 msgid "Overhead"
 msgstr "Ek Yük"
 
@@ -2021,22 +2269,36 @@ msgid "Change password"
 msgstr "Parola değiştir"
 
 #: libraries/display_change_password.lib.php:35
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:348 server_privileges.php:808
+=======
+#: libraries/replication_gui.lib.php:348 server_privileges.php:807
+>>>>>>> origin/master
 msgid "No Password"
 msgstr "Parola yok"
 
 #: libraries/display_change_password.lib.php:41
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:338 libraries/replication_gui.lib.php:342
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:352 server_privileges.php:797
 #: server_privileges.php:801 server_privileges.php:812
 #: server_privileges.php:1555 server_synchronize.php:1175
+=======
+#: libraries/replication_gui.lib.php:352 server_privileges.php:796
+#: server_privileges.php:800 server_privileges.php:811
+#: server_privileges.php:1538 server_synchronize.php:1175
+>>>>>>> origin/master
 msgid "Password"
 msgstr "Parola"
 
 #: libraries/display_change_password.lib.php:46
 #: libraries/replication_gui.lib.php:356 libraries/replication_gui.lib.php:359
+<<<<<<< HEAD
 #: server_privileges.php:816 server_privileges.php:819
+=======
+#: server_privileges.php:815 server_privileges.php:818
+>>>>>>> origin/master
 msgid "Re-type"
 msgstr "Yeniden gir"
 
@@ -2049,12 +2311,20 @@ msgid "MySQL 4.0 compatible"
 msgstr "MySQL 4.0 uyumlu"
 
 #: libraries/display_change_password.lib.php:72
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:363 server_privileges.php:823
+=======
+#: libraries/replication_gui.lib.php:363 server_privileges.php:822
+>>>>>>> origin/master
 msgid "Generate Password"
 msgstr "Parola Üret"
 
 #: libraries/display_change_password.lib.php:75
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:366 server_privileges.php:826
+=======
+#: libraries/replication_gui.lib.php:366 server_privileges.php:825
+>>>>>>> origin/master
 msgid "Generate"
 msgstr "Üret"
 
@@ -2072,12 +2342,24 @@ msgstr "Oluştur"
 msgid "No Privileges"
 msgstr "Yetkiniz yok"
 
+<<<<<<< HEAD
 #: libraries/display_create_table.lib.php:47
+=======
+#: libraries/display_create_table.lib.php:41
+msgid "Table must have at least one column."
+msgstr "Tablonun en az bir sütunu olmalı."
+
+#: libraries/display_create_table.lib.php:48
+>>>>>>> origin/master
 #, php-format
 msgid "Create table on database %s"
 msgstr "%s veritabanında yeni tablo oluştur"
 
+<<<<<<< HEAD
 #: libraries/display_create_table.lib.php:56
+=======
+#: libraries/display_create_table.lib.php:57
+>>>>>>> origin/master
 msgid "Number of columns"
 msgstr "Sütun sayısı"
 
@@ -2140,7 +2422,11 @@ msgid "remember template"
 msgstr "şablonu hatırla"
 
 #: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
+<<<<<<< HEAD
 #: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:552
+=======
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:549
+>>>>>>> origin/master
 msgid "Character set of the file:"
 msgstr "Dosyanın karakter grubu:"
 
@@ -2198,7 +2484,11 @@ msgstr ""
 msgid "File to import"
 msgstr "İçeri aktarmak için dosya"
 
+<<<<<<< HEAD
 #: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:527
+=======
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:524
+>>>>>>> origin/master
 msgid "Location of the text file"
 msgstr "Metin dosyasının yeri"
 
@@ -2206,12 +2496,20 @@ msgstr "Metin dosyasının yeri"
 msgid "File uploads are not allowed on this server."
 msgstr "Bu sunucuda dosya gönderimlerine izin verilmez."
 
+<<<<<<< HEAD
 #: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:536
+=======
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:533
+>>>>>>> origin/master
 #: tbl_change.php:1025
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor"
 
+<<<<<<< HEAD
 #: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:539
+=======
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:536
+>>>>>>> origin/master
 #: tbl_change.php:1028
 msgid "web server upload directory"
 msgstr "web sunucusu gönderme dizini"
@@ -2345,7 +2643,11 @@ msgstr "Anahtara göre sırala"
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
+<<<<<<< HEAD
 #: libraries/import/xml.php:25 tbl_select.php:265 tbl_structure.php:751
+=======
+#: libraries/import/xml.php:25 tbl_select.php:265 tbl_structure.php:753
+>>>>>>> origin/master
 msgid "Options"
 msgstr "Seçenekler"
 
@@ -2490,7 +2792,11 @@ msgstr "Ara Bellek Havuzu Kullanımı"
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:525 server_status.php:586
+<<<<<<< HEAD
 #: server_status.php:607 tbl_printview.php:350 tbl_structure.php:694
+=======
+#: server_status.php:607 tbl_printview.php:350 tbl_structure.php:696
+>>>>>>> origin/master
 msgid "Total"
 msgstr "Toplam"
 
@@ -2778,7 +3084,11 @@ msgstr ""
 "diğer taraftan yeniden adlandırılır ve bir sonraki en yüksek numara verilir."
 
 #: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
+<<<<<<< HEAD
 #: tbl_printview.php:375 tbl_structure.php:735
+=======
+#: tbl_printview.php:375 tbl_structure.php:737
+>>>>>>> origin/master
 msgid "Format"
 msgstr "Biçim"
 
@@ -2842,8 +3152,13 @@ msgstr "Microsoft Word 2000"
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
 #: libraries/export/sql.php:106 libraries/export/sql.php:868
 #: libraries/export/texytext.php:27 server_databases.php:127
+<<<<<<< HEAD
 #: server_privileges.php:577 server_replication.php:316 tbl_printview.php:316
 #: tbl_structure.php:663
+=======
+#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:316
+#: tbl_structure.php:665
+>>>>>>> origin/master
 msgid "Data"
 msgstr "Veri"
 
@@ -2892,9 +3207,15 @@ msgstr "MIME türü"
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
 #: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:332 server_privileges.php:732
 #: server_privileges.php:735 server_privileges.php:791
 #: server_privileges.php:1554 server_privileges.php:2092
+=======
+#: libraries/replication_gui.lib.php:332 server_privileges.php:731
+#: server_privileges.php:734 server_privileges.php:790
+#: server_privileges.php:1537 server_privileges.php:2069
+>>>>>>> origin/master
 #: server_processlist.php:55 server_synchronize.php:1159
 msgid "Host"
 msgstr "Anamakine"
@@ -3564,8 +3885,13 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:252 libraries/replication_gui.lib.php:255
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:262 server_privileges.php:712
 #: server_privileges.php:715 server_privileges.php:722
+=======
+#: libraries/replication_gui.lib.php:262 server_privileges.php:711
+#: server_privileges.php:714 server_privileges.php:721
+>>>>>>> origin/master
 #: server_synchronize.php:1171
 msgid "User name"
 msgstr "Kullanıcı Adı"
@@ -3582,14 +3908,22 @@ msgstr "Master durumu"
 msgid "Slave status"
 msgstr "Slave durumu"
 
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:448
+=======
+#: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:445
+>>>>>>> origin/master
 #: server_status.php:737 server_variables.php:52
 msgid "Variable"
 msgstr "Değişken"
 
 #: libraries/replication_gui.lib.php:118 server_status.php:738
 #: tbl_change.php:323 tbl_printview.php:369 tbl_select.php:138
+<<<<<<< HEAD
 #: tbl_structure.php:727
+=======
+#: tbl_structure.php:729
+>>>>>>> origin/master
 msgid "Value"
 msgstr "Değer"
 
@@ -3609,11 +3943,16 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr "Slave kopya etme kullanıcısı ekle"
 
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:257 server_privileges.php:717
+=======
+#: libraries/replication_gui.lib.php:257 server_privileges.php:716
+>>>>>>> origin/master
 msgid "Any user"
 msgstr "Herhangi kullanıcı"
 
 #: libraries/replication_gui.lib.php:258 libraries/replication_gui.lib.php:326
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:349 server_privileges.php:718
 #: server_privileges.php:785 server_privileges.php:809
 #: server_privileges.php:1950 server_privileges.php:1980
@@ -3637,6 +3976,31 @@ msgid "Use Host Table"
 msgstr "Anamakine Tablosu kullan"
 
 #: libraries/replication_gui.lib.php:334 server_privileges.php:793
+=======
+#: libraries/replication_gui.lib.php:349 server_privileges.php:717
+#: server_privileges.php:784 server_privileges.php:808
+#: server_privileges.php:1928 server_privileges.php:1958
+msgid "Use text field"
+msgstr "Metin alanını kullan"
+
+#: libraries/replication_gui.lib.php:305 server_privileges.php:764
+msgid "Any host"
+msgstr "Herhangi anamakine"
+
+#: libraries/replication_gui.lib.php:309 server_privileges.php:768
+msgid "Local"
+msgstr "Yerel"
+
+#: libraries/replication_gui.lib.php:315 server_privileges.php:773
+msgid "This Host"
+msgstr "Bu Anamakine"
+
+#: libraries/replication_gui.lib.php:321 server_privileges.php:779
+msgid "Use Host Table"
+msgstr "Anamakine Tablosu kullan"
+
+#: libraries/replication_gui.lib.php:334 server_privileges.php:792
+>>>>>>> origin/master
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -3731,7 +4095,11 @@ msgstr "%s sunucusu üzerinde SQL sorgusunu/sorgularını çalıştır"
 msgid "Run SQL query/queries on database %s"
 msgstr "%s veritabanı üzerinde SQL sorgusunu/sorgularını çalıştır"
 
+<<<<<<< HEAD
 #: libraries/sql_query_form.lib.php:320
+=======
+#: libraries/sql_query_form.lib.php:317
+>>>>>>> origin/master
 msgid "Columns"
 msgstr "Sütun"
 
@@ -3938,7 +4306,11 @@ msgstr "Kaydet"
 msgid "Add %s column(s)"
 msgstr "%s sütun ekle"
 
+<<<<<<< HEAD
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:534
+=======
+#: libraries/tbl_properties.inc.php:784 tbl_structure.php:536
+>>>>>>> origin/master
 msgid "You have to add at least one column."
 msgstr "En az bir sütun eklemek zorundasınız."
 
@@ -4752,7 +5124,11 @@ msgstr "Veri değiştirilmesine izin ver."
 msgid "No privileges."
 msgstr "Yetkiniz yok."
 
+<<<<<<< HEAD
 #: server_privileges.php:303 server_privileges.php:304
+=======
+#: server_privileges.php:302 server_privileges.php:303
+>>>>>>> origin/master
 msgctxt "None privileges"
 msgid "None"
 msgstr "Hiçbiri"
@@ -4795,7 +5171,11 @@ msgstr "Oturum Açma Bilgisi"
 msgid "Do not change the password"
 msgstr "Parolayı değiştirme"
 
+<<<<<<< HEAD
 #: server_privileges.php:844 server_privileges.php:2228
+=======
+#: server_privileges.php:843 server_privileges.php:2205
+>>>>>>> origin/master
 msgid "No user found."
 msgstr "Kullanıcı bulunamadı."
 
@@ -4949,7 +5329,11 @@ msgstr ""
 msgid "Database for user"
 msgstr "Kullanıcı için veritabanı"
 
+<<<<<<< HEAD
 #: server_privileges.php:2060
+=======
+#: server_privileges.php:2037
+>>>>>>> origin/master
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "Hiçbiri"
@@ -7970,10 +8354,13 @@ msgstr "Yeni satır olarak ekle ve hataları yoksay"
 msgid "Show insert query"
 msgstr "Ekleme sorgusunu göster"
 
+<<<<<<< HEAD
 #: tbl_change.php:1140
 msgid "and then"
 msgstr "ve sonra"
 
+=======
+>>>>>>> origin/master
 #: tbl_change.php:1144
 msgid "Go back to previous page"
 msgstr "Önceki sayfaya geri dön"
@@ -8168,6 +8555,7 @@ msgstr "İlgili bütünlük kontrolü:"
 msgid "Show tables"
 msgstr "Tabloları göster"
 
+<<<<<<< HEAD
 #: tbl_printview.php:309 tbl_structure.php:654
 msgid "Space usage"
 msgstr "Alan kullanımı"
@@ -8201,6 +8589,41 @@ msgid "Row length"
 msgstr "Satır uzunluğu"
 
 #: tbl_printview.php:413 tbl_structure.php:791
+=======
+#: tbl_printview.php:309 tbl_structure.php:656
+msgid "Space usage"
+msgstr "Alan kullanımı"
+
+#: tbl_printview.php:313 tbl_structure.php:660
+msgid "Usage"
+msgstr "Kullanım"
+
+#: tbl_printview.php:340 tbl_structure.php:687
+msgid "Effective"
+msgstr "Etkili"
+
+#: tbl_printview.php:365 tbl_structure.php:725
+msgid "Row Statistics"
+msgstr "Satır İstatistikleri"
+
+#: tbl_printview.php:368 tbl_structure.php:728
+msgid "Statements"
+msgstr "İfadeler"
+
+#: tbl_printview.php:379 tbl_structure.php:740
+msgid "static"
+msgstr "sabit"
+
+#: tbl_printview.php:381 tbl_structure.php:742
+msgid "dynamic"
+msgstr "değişken"
+
+#: tbl_printview.php:403 tbl_structure.php:785
+msgid "Row length"
+msgstr "Satır uzunluğu"
+
+#: tbl_printview.php:413 tbl_structure.php:793
+>>>>>>> origin/master
 msgid " Row size "
 msgstr " Satır boyutu "
 
@@ -8286,7 +8709,11 @@ msgstr "İlişki görünümü"
 msgid "Propose table structure"
 msgstr "Tablo yapısı öner"
 
+<<<<<<< HEAD
 #: tbl_structure.php:538
+=======
+#: tbl_structure.php:540
+>>>>>>> origin/master
 msgid "Add column"
 msgstr "Sütun ekle"
 

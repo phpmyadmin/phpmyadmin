@@ -2235,8 +2235,7 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
     $pageNowPlusRange = ($pageNow + $range);
 
     $gotopage = $prompt
-              . ' <select name="pos" onchange="goToUrl(this, \''
-              . $url . '\');">' . "\n";
+              . ' <select id="pageselector" name="pos" >' . "\n";
     if ($nbTotalPage < $showAll) {
         $pages = range(1, $nbTotalPage);
     } else {

@@ -3,7 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2010-07-03 21:45+0530\n"
+=======
+"POT-Creation-Date: 2010-07-03 09:00-0400\n"
+>>>>>>> origin/master
 "PO-Revision-Date: 2010-03-30 23:47+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: serbian_cyrillic <sr@li.org>\n"
@@ -50,15 +54,26 @@ msgstr "Претраживање"
 #: db_structure.php:565 js/messages.php:53 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:290 libraries/common.lib.php:719
+<<<<<<< HEAD
 #: libraries/common.lib.php:1344 libraries/common.lib.php:2301
 #: libraries/display_change_password.lib.php:82
 #: libraries/display_create_table.lib.php:62
+=======
+#: libraries/common.lib.php:1335 libraries/common.lib.php:2288
+#: libraries/display_change_password.lib.php:82
+#: libraries/display_create_table.lib.php:63
+>>>>>>> origin/master
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
 #: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:76
 #: libraries/replication_gui.lib.php:372 libraries/select_server.lib.php:104
+<<<<<<< HEAD
 #: libraries/sql_query_form.lib.php:403 libraries/sql_query_form.lib.php:480
 #: libraries/sql_query_form.lib.php:555 libraries/tbl_properties.inc.php:782
+=======
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+>>>>>>> origin/master
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:665 server_privileges.php:1641
@@ -68,8 +83,13 @@ msgstr "Претраживање"
 #: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
 #: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
+<<<<<<< HEAD
 #: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:560
 #: tbl_structure.php:595 tbl_tracking.php:395 tbl_tracking.php:512
+=======
+#: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
+#: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
+>>>>>>> origin/master
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr "Крени"
@@ -122,10 +142,17 @@ msgstr "Имена колона"
 #: libraries/db_structure.lib.php:60 libraries/export/htmlword.php:245
 #: libraries/export/latex.php:360 libraries/export/odt.php:297
 #: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:100
+<<<<<<< HEAD
 #: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2093
 #: tbl_change.php:286 tbl_change.php:313 tbl_printview.php:142
 #: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
 #: tbl_structure.php:657 tbl_tracking.php:274 tbl_tracking.php:321
+=======
+#: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2070
+#: tbl_change.php:286 tbl_change.php:313 tbl_printview.php:142
+#: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
+#: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
+>>>>>>> origin/master
 msgid "Type"
 msgstr "Тип"
 
@@ -166,9 +193,15 @@ msgstr "Коментари"
 #: libraries/Index.class.php:386 libraries/export/htmlword.php:322
 #: libraries/export/latex.php:430 libraries/export/odt.php:368
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:263
+<<<<<<< HEAD
 #: pdf_schema.php:1344 server_privileges.php:1585 server_privileges.php:1596
 #: server_privileges.php:1911 server_privileges.php:1916
 #: server_privileges.php:2210 sql.php:132 sql.php:194 tbl_printview.php:228
+=======
+#: pdf_schema.php:1344 server_privileges.php:1568 server_privileges.php:1579
+#: server_privileges.php:1889 server_privileges.php:1894
+#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:228
+>>>>>>> origin/master
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "Не"
@@ -182,9 +215,15 @@ msgstr "Не"
 #: libraries/mult_submits.inc.php:101 libraries/mult_submits.inc.php:106
 #: libraries/mult_submits.inc.php:111 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:273 pdf_schema.php:1344
+<<<<<<< HEAD
 #: server_databases.php:64 server_privileges.php:1582
 #: server_privileges.php:1596 server_privileges.php:1911
 #: server_privileges.php:1914 server_privileges.php:2210 sql.php:193
+=======
+#: server_databases.php:64 server_privileges.php:1565
+#: server_privileges.php:1579 server_privileges.php:1889
+#: server_privileges.php:1892 server_privileges.php:2187 sql.php:193
+>>>>>>> origin/master
 #: tbl_printview.php:228 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
@@ -233,7 +272,15 @@ msgstr "Преименуј базу у"
 msgid "Command"
 msgstr "Наредба"
 
+<<<<<<< HEAD
 #: db_operations.php:466
+=======
+#: db_operations.php:429 tbl_change.php:1140
+msgid "and then"
+msgstr "и онда"
+
+#: db_operations.php:455
+>>>>>>> origin/master
 msgid "Copy database to"
 msgstr "Копирај базу у"
 
@@ -322,7 +369,11 @@ msgstr "Омогућено"
 #: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
 #: server_collations.php:54 server_collations.php:66 server_databases.php:111
 #: tbl_operations.php:363 tbl_select.php:136 tbl_structure.php:179
+<<<<<<< HEAD
 #: tbl_structure.php:765 tbl_tracking.php:275 tbl_tracking.php:326
+=======
+#: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
+>>>>>>> origin/master
 msgid "Collation"
 msgstr "Сортирање"
 
@@ -351,7 +402,11 @@ msgstr "Табела"
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
+<<<<<<< HEAD
 #: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:775
+=======
+#: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:777
+>>>>>>> origin/master
 msgid "Rows"
 msgstr "Редова"
 
@@ -366,19 +421,31 @@ msgstr "се користи"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
 #: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
+<<<<<<< HEAD
 #: tbl_structure.php:807
+=======
+#: tbl_structure.php:809
+>>>>>>> origin/master
 msgid "Creation"
 msgstr "Направљено"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
 #: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
+<<<<<<< HEAD
 #: tbl_structure.php:815
+=======
+#: tbl_structure.php:817
+>>>>>>> origin/master
 msgid "Last update"
 msgstr "Последња измена"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
 #: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
+<<<<<<< HEAD
 #: tbl_structure.php:823
+=======
+#: tbl_structure.php:825
+>>>>>>> origin/master
 msgid "Last check"
 msgstr "Последња провера"
 
@@ -444,7 +511,11 @@ msgstr "Del"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
+<<<<<<< HEAD
 #: server_privileges.php:298 tbl_change.php:1028 tbl_indexes.php:250
+=======
+#: server_privileges.php:297 tbl_change.php:1028 tbl_indexes.php:250
+>>>>>>> origin/master
 #: tbl_select.php:286
 msgid "Or"
 msgstr "или"
@@ -662,9 +733,15 @@ msgstr "Означено:"
 msgid "Check All"
 msgstr "Означи све"
 
+<<<<<<< HEAD
 #: db_structure.php:529 libraries/display_tbl.lib.php:2077
 #: libraries/replication_gui.lib.php:36 server_databases.php:350
 #: server_privileges.php:573 server_privileges.php:1620 tbl_structure.php:460
+=======
+#: db_structure.php:531 libraries/display_tbl.lib.php:2077
+#: libraries/replication_gui.lib.php:36 server_databases.php:350
+#: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
+>>>>>>> origin/master
 msgid "Uncheck All"
 msgstr "ниједно"
 
@@ -1133,10 +1210,17 @@ msgid "Prev"
 msgstr "Претходна"
 
 #. l10n: Display text for next month link in calendar
+<<<<<<< HEAD
 #: js/messages.php:106 libraries/common.lib.php:2366
 #: libraries/common.lib.php:2369 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
 #: tbl_structure.php:799
+=======
+#: js/messages.php:77 libraries/common.lib.php:2353
+#: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
+#: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
+#: tbl_structure.php:801
+>>>>>>> origin/master
 msgid "Next"
 msgstr "Следећи"
 
@@ -1681,7 +1765,11 @@ msgstr "Лозинка:"
 msgid "Server Choice"
 msgstr "Избор сервера"
 
+<<<<<<< HEAD
 #: libraries/auth/cookie.auth.lib.php:318 libraries/header.inc.php:63
+=======
+#: libraries/auth/cookie.auth.lib.php:318 libraries/header.inc.php:59
+>>>>>>> origin/master
 msgid "Cookies must be enabled past this point."
 msgstr "Колачићи (Cookies) морају у овом случају бити активни."
 
@@ -1761,7 +1849,11 @@ msgstr ""
 "Не могу да користим iconv или libiconv или recode_string функције иако "
 "екстензија пријављује да је учитана. Проверите вашу PHP конфигурацију."
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:580
+=======
+#: libraries/common.inc.php:576
+>>>>>>> origin/master
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1777,13 +1869,21 @@ msgstr ""
 "недостаје наводник или тачка-зарез.<br />Ако добијете празну страну, све је "
 "у реду."
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:591
+=======
+#: libraries/common.inc.php:587
+>>>>>>> origin/master
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:596
+=======
+#: libraries/common.inc.php:592
+>>>>>>> origin/master
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1791,28 +1891,48 @@ msgstr ""
 "<tt>$cfg['PmaAbsoluteUri']</tt> директива МОРА бити подешена у "
 "конфигурационој датотеци!"
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:626
+=======
+#: libraries/common.inc.php:622
+>>>>>>> origin/master
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Неисправан индекс сервера: \"%s\""
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:633
+=======
+#: libraries/common.inc.php:629
+>>>>>>> origin/master
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Неисправан назив сервера %1$s. Молимо проверите своју конфигурацију."
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:642 libraries/header.inc.php:100
+=======
+#: libraries/common.inc.php:638 libraries/header.inc.php:96
+>>>>>>> origin/master
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
 msgstr "Сервер"
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:820
 msgid "Invalid authentication method set in configuration:"
 msgstr "Неисправан метод аутентикације је задат у конфигурацији:"
 
 #: libraries/common.inc.php:923
+=======
+#: libraries/common.inc.php:816
+msgid "Invalid authentication method set in configuration:"
+msgstr "Неисправан метод аутентикације је задат у конфигурацији:"
+
+#: libraries/common.inc.php:919
+>>>>>>> origin/master
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Требало би да унапредите ваш %s сервер на верзију %s или новију."
@@ -2059,7 +2179,11 @@ msgid ""
 msgstr "Може бити приближно. Видите FAQ 3.11"
 
 #: libraries/db_structure.lib.php:69 server_databases.php:142
+<<<<<<< HEAD
 #: tbl_printview.php:335 tbl_structure.php:680
+=======
+#: tbl_printview.php:335 tbl_structure.php:682
+>>>>>>> origin/master
 msgid "Overhead"
 msgstr "Прекорачење"
 
@@ -2088,22 +2212,36 @@ msgid "Change password"
 msgstr "Промени лозинку"
 
 #: libraries/display_change_password.lib.php:35
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:348 server_privileges.php:808
+=======
+#: libraries/replication_gui.lib.php:348 server_privileges.php:807
+>>>>>>> origin/master
 msgid "No Password"
 msgstr "Нема лозинке"
 
 #: libraries/display_change_password.lib.php:41
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:338 libraries/replication_gui.lib.php:342
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:352 server_privileges.php:797
 #: server_privileges.php:801 server_privileges.php:812
 #: server_privileges.php:1555 server_synchronize.php:1175
+=======
+#: libraries/replication_gui.lib.php:352 server_privileges.php:796
+#: server_privileges.php:800 server_privileges.php:811
+#: server_privileges.php:1538 server_synchronize.php:1175
+>>>>>>> origin/master
 msgid "Password"
 msgstr "Лозинка"
 
 #: libraries/display_change_password.lib.php:46
 #: libraries/replication_gui.lib.php:356 libraries/replication_gui.lib.php:359
+<<<<<<< HEAD
 #: server_privileges.php:816 server_privileges.php:819
+=======
+#: server_privileges.php:815 server_privileges.php:818
+>>>>>>> origin/master
 msgid "Re-type"
 msgstr "Поновите унос"
 
@@ -2118,12 +2256,20 @@ msgid "MySQL 4.0 compatible"
 msgstr "MySQL&nbsp;4.0 компатибилно"
 
 #: libraries/display_change_password.lib.php:72
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:363 server_privileges.php:823
+=======
+#: libraries/replication_gui.lib.php:363 server_privileges.php:822
+>>>>>>> origin/master
 msgid "Generate Password"
 msgstr "Направи лозинку"
 
 #: libraries/display_change_password.lib.php:75
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:366 server_privileges.php:826
+=======
+#: libraries/replication_gui.lib.php:366 server_privileges.php:825
+>>>>>>> origin/master
 msgid "Generate"
 msgstr "Направи"
 
@@ -2212,7 +2358,11 @@ msgid "remember template"
 msgstr "запамти шаблон"
 
 #: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
+<<<<<<< HEAD
 #: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:552
+=======
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:549
+>>>>>>> origin/master
 msgid "Character set of the file:"
 msgstr "Карактер сет датотеке:"
 
@@ -2265,7 +2415,11 @@ msgstr ""
 msgid "File to import"
 msgstr "Датотека за увоз"
 
+<<<<<<< HEAD
 #: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:527
+=======
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:524
+>>>>>>> origin/master
 msgid "Location of the text file"
 msgstr "Локација текстуалне датотеке"
 
@@ -2273,12 +2427,20 @@ msgstr "Локација текстуалне датотеке"
 msgid "File uploads are not allowed on this server."
 msgstr "Слање датотека на овај сервер није дозвољено."
 
+<<<<<<< HEAD
 #: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:536
+=======
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:533
+>>>>>>> origin/master
 #: tbl_change.php:1025
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Директоријум који сте изабрали за слање није доступан"
 
+<<<<<<< HEAD
 #: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:539
+=======
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:536
+>>>>>>> origin/master
 #: tbl_change.php:1028
 msgid "web server upload directory"
 msgstr "директоријум за слање веб сервера "
@@ -2414,7 +2576,11 @@ msgstr "Сортирај по кључу"
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
+<<<<<<< HEAD
 #: libraries/import/xml.php:25 tbl_select.php:265 tbl_structure.php:751
+=======
+#: libraries/import/xml.php:25 tbl_select.php:265 tbl_structure.php:753
+>>>>>>> origin/master
 msgid "Options"
 msgstr "Опције"
 
@@ -2563,7 +2729,11 @@ msgstr "Коришћење скупа прихватника"
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:525 server_status.php:586
+<<<<<<< HEAD
 #: server_status.php:607 tbl_printview.php:350 tbl_structure.php:694
+=======
+#: server_status.php:607 tbl_printview.php:350 tbl_structure.php:696
+>>>>>>> origin/master
 msgid "Total"
 msgstr "Укупно"
 
@@ -2824,7 +2994,11 @@ msgid ""
 msgstr ""
 
 #: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
+<<<<<<< HEAD
 #: tbl_printview.php:375 tbl_structure.php:735
+=======
+#: tbl_printview.php:375 tbl_structure.php:737
+>>>>>>> origin/master
 msgid "Format"
 msgstr "Формат"
 
@@ -2896,8 +3070,13 @@ msgstr "Microsoft Word 2000"
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
 #: libraries/export/sql.php:106 libraries/export/sql.php:868
 #: libraries/export/texytext.php:27 server_databases.php:127
+<<<<<<< HEAD
 #: server_privileges.php:577 server_replication.php:316 tbl_printview.php:316
 #: tbl_structure.php:663
+=======
+#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:316
+#: tbl_structure.php:665
+>>>>>>> origin/master
 msgid "Data"
 msgstr "Подаци"
 
@@ -2946,9 +3125,15 @@ msgstr "MIME-типови"
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
 #: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:332 server_privileges.php:732
 #: server_privileges.php:735 server_privileges.php:791
 #: server_privileges.php:1554 server_privileges.php:2092
+=======
+#: libraries/replication_gui.lib.php:332 server_privileges.php:731
+#: server_privileges.php:734 server_privileges.php:790
+#: server_privileges.php:1537 server_privileges.php:2069
+>>>>>>> origin/master
 #: server_processlist.php:55 server_synchronize.php:1159
 msgid "Host"
 msgstr "Домаћин"
@@ -3621,8 +3806,13 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:252 libraries/replication_gui.lib.php:255
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:262 server_privileges.php:712
 #: server_privileges.php:715 server_privileges.php:722
+=======
+#: libraries/replication_gui.lib.php:262 server_privileges.php:711
+#: server_privileges.php:714 server_privileges.php:721
+>>>>>>> origin/master
 #: server_synchronize.php:1171
 msgid "User name"
 msgstr "Име корисника"
@@ -3642,14 +3832,22 @@ msgstr "Прикажи статус подређених сервера"
 msgid "Slave status"
 msgstr "Прикажи статус подређених сервера"
 
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:448
+=======
+#: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:445
+>>>>>>> origin/master
 #: server_status.php:737 server_variables.php:52
 msgid "Variable"
 msgstr "Променљива"
 
 #: libraries/replication_gui.lib.php:118 server_status.php:738
 #: tbl_change.php:323 tbl_printview.php:369 tbl_select.php:138
+<<<<<<< HEAD
 #: tbl_structure.php:727
+=======
+#: tbl_structure.php:729
+>>>>>>> origin/master
 msgid "Value"
 msgstr "Вредност"
 
@@ -3667,11 +3865,16 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:257 server_privileges.php:717
+=======
+#: libraries/replication_gui.lib.php:257 server_privileges.php:716
+>>>>>>> origin/master
 msgid "Any user"
 msgstr "Било који корисник"
 
 #: libraries/replication_gui.lib.php:258 libraries/replication_gui.lib.php:326
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:349 server_privileges.php:718
 #: server_privileges.php:785 server_privileges.php:809
 #: server_privileges.php:1950 server_privileges.php:1980
@@ -3695,6 +3898,31 @@ msgid "Use Host Table"
 msgstr "Користи табелу домаћина"
 
 #: libraries/replication_gui.lib.php:334 server_privileges.php:793
+=======
+#: libraries/replication_gui.lib.php:349 server_privileges.php:717
+#: server_privileges.php:784 server_privileges.php:808
+#: server_privileges.php:1928 server_privileges.php:1958
+msgid "Use text field"
+msgstr "Користи текст поље"
+
+#: libraries/replication_gui.lib.php:305 server_privileges.php:764
+msgid "Any host"
+msgstr "Било који домаћин"
+
+#: libraries/replication_gui.lib.php:309 server_privileges.php:768
+msgid "Local"
+msgstr "Локални"
+
+#: libraries/replication_gui.lib.php:315 server_privileges.php:773
+msgid "This Host"
+msgstr "Овај сервер"
+
+#: libraries/replication_gui.lib.php:321 server_privileges.php:779
+msgid "Use Host Table"
+msgstr "Користи табелу домаћина"
+
+#: libraries/replication_gui.lib.php:334 server_privileges.php:792
+>>>>>>> origin/master
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -7913,10 +8141,13 @@ msgstr ""
 msgid "Show insert query"
 msgstr "Приказ као SQL упит"
 
+<<<<<<< HEAD
 #: tbl_change.php:1140
 msgid "and then"
 msgstr "и онда"
 
+=======
+>>>>>>> origin/master
 #: tbl_change.php:1144
 msgid "Go back to previous page"
 msgstr "Назад на претходну страну"
@@ -8114,6 +8345,7 @@ msgstr "Провери референцијални интегритет:"
 msgid "Show tables"
 msgstr "Прикажи табеле"
 
+<<<<<<< HEAD
 #: tbl_printview.php:309 tbl_structure.php:654
 msgid "Space usage"
 msgstr "Заузеће"
@@ -8147,6 +8379,41 @@ msgid "Row length"
 msgstr "Дужина реда"
 
 #: tbl_printview.php:413 tbl_structure.php:791
+=======
+#: tbl_printview.php:309 tbl_structure.php:656
+msgid "Space usage"
+msgstr "Заузеће"
+
+#: tbl_printview.php:313 tbl_structure.php:660
+msgid "Usage"
+msgstr "Заузеће"
+
+#: tbl_printview.php:340 tbl_structure.php:687
+msgid "Effective"
+msgstr "Ефективне"
+
+#: tbl_printview.php:365 tbl_structure.php:725
+msgid "Row Statistics"
+msgstr "Статистике реда"
+
+#: tbl_printview.php:368 tbl_structure.php:728
+msgid "Statements"
+msgstr "Име"
+
+#: tbl_printview.php:379 tbl_structure.php:740
+msgid "static"
+msgstr ""
+
+#: tbl_printview.php:381 tbl_structure.php:742
+msgid "dynamic"
+msgstr "динамички"
+
+#: tbl_printview.php:403 tbl_structure.php:785
+msgid "Row length"
+msgstr "Дужина реда"
+
+#: tbl_printview.php:413 tbl_structure.php:793
+>>>>>>> origin/master
 msgid " Row size "
 msgstr "Величина реда"
 
