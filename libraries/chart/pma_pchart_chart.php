@@ -37,7 +37,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         $this->settings['labelHeight'] = 20;
 
         // as in CSS (top, right, bottom, left)
-        $this->settings['areaMargins'] = array(20, 20, 40, 60);
+        $this->setAreaMargins(array(20, 20, 40, 60));
 
         // create pChart object
         $this->chart = new pChart($this->getWidth(), $this->getHeight());
@@ -136,6 +136,13 @@ abstract class PMA_pChart_Chart extends PMA_Chart
     protected function getLabelHeight()
     {
         return $this->settings['labelHeight'];
+    }
+
+    protected function setAreaMargins($areaMargins)
+    {
+        if (!isset($this->settings['areaMargins'])) {
+            $this->settings['areaMargins'] = $areaMargins;
+        }
     }
 
     protected function getAreaMargin($side)

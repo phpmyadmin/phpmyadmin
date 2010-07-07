@@ -13,7 +13,7 @@ abstract class PMA_pChart_multi extends PMA_pChart_chart
         parent::__construct($titleText, $data, $options);
 
         // as in CSS (top, right, bottom, left)
-        $this->settings['legendMargins'] = array(20, 10, 0, 0);
+        $this->setLegendMargins(array(20, 10, 0, 0));
     }
 
     protected function prepareDataSet()
@@ -63,6 +63,13 @@ abstract class PMA_pChart_multi extends PMA_pChart_chart
                 $this->dataSet->GetDataDescription(),
                 250,250,250,50,50,50
         );
+    }
+
+    protected function setLegendMargins($legendMargins)
+    {
+        if (!isset($this->settings['legendMargins'])) {
+            $this->settings['legendMargins'] = $legendMargins;
+        }
     }
 
     protected function getLegendMargin($side)

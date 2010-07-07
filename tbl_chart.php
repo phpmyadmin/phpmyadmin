@@ -98,12 +98,43 @@ $url_params['reload'] = 1;
     <tr><td><label for="yLabel"><?php echo __("Y Axis label"); ?></label></td>
         <td><input type="text" name="chartSettings[yLabel]" id="yLabel" value="<?php echo $chartSettings['yLabel']; ?>" /></td>
     </tr>
+
+    <tr><td><label for="areaMargins"><?php echo __("Area margins"); ?></label></td>
+        <td>
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo $chartSettings['areaMargins'][0]; ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo $chartSettings['areaMargins'][1]; ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo $chartSettings['areaMargins'][2]; ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo $chartSettings['areaMargins'][3]; ?>" />
+        </td>
+    </tr>
+
+    <?php if (isset($chartSettings['multi']) && $chartSettings['multi'] == true) { ?>
+    <tr><td><label for="legendMargins"><?php echo __("Legend margins"); ?></label></td>
+        <td>
+            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo $chartSettings['legendMargins'][0]; ?>" />
+            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo $chartSettings['legendMargins'][1]; ?>" />
+            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo $chartSettings['legendMargins'][2]; ?>" />
+            <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo $chartSettings['legendMargins'][3]; ?>" />
+        </td>
+    </tr>
+    <?php } ?>
+
     <tr><td><label for="type"><?php echo __("Type"); ?></label></td>
         <td>
             <input type="radio" name="chartSettings[type]" value="bar" <?php echo ($chartSettings['type'] == 'bar' ? 'checked' : ''); ?>>Bar
             <input type="radio" name="chartSettings[type]" value="line" <?php echo ($chartSettings['type'] == 'line' ? 'checked' : ''); ?>>Line
         </td>
     </tr>
+
+    <?php if ($chartSettings['type'] == 'bar' && isset($chartSettings['multi']) && $chartSettings['multi'] == true) { ?>
+    <tr><td><label for="barType"><?php echo __("Bar type"); ?></label></td>
+        <td>
+            <input type="radio" name="chartSettings[barType]" value="stacked" <?php echo ($chartSettings['barType'] == 'stacked' ? 'checked' : ''); ?>>Stacked
+            <input type="radio" name="chartSettings[barType]" value="multi" <?php echo ($chartSettings['barType'] == 'multi' ? 'checked' : ''); ?>>Multi
+        </td>
+    </tr>
+    <?php } ?>
+    
     </table>
 
 </fieldset>

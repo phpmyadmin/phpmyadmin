@@ -4,6 +4,7 @@ require_once './libraries/chart/pma_ofc_pie.php';
 
 require_once './libraries/chart/pma_pchart_pie.php';
 require_once './libraries/chart/pma_pchart_single_bar.php';
+require_once './libraries/chart/pma_pchart_multi_bar.php';
 require_once './libraries/chart/pma_pchart_stacked_bar.php';
 require_once './libraries/chart/pma_pchart_single_line.php';
 require_once './libraries/chart/pma_pchart_multi_line.php';
@@ -75,6 +76,11 @@ function PMA_chart_results($data, &$chartSettings)
         $chartSettings['type'] = 'bar';
     }
 
+    // set default bar type if needed
+    if ($chartSettings['type'] == 'bar' && empty($chartSettings['barType'])) {
+        $chartSettings['barType'] = 'stacked';
+    }
+
     if (!isset($data[0])) {
         // empty data
         return __('No data found for the chart.');
@@ -92,8 +98,9 @@ function PMA_chart_results($data, &$chartSettings)
             }
         }
 
-        switch ($chartSettings['type'])
-        {
+        $chartSettings['multi'] = false;
+
+        switch ($chartSettings['type']) {
             case 'bar':
             default:
                 $chart = new PMA_pChart_single_bar($chartTitle, $chartData, $chartSettings);
@@ -140,12 +147,25 @@ function PMA_chart_results($data, &$chartSettings)
             }
         }
 
-        switch ($chartSettings['type'])
-        {
+        $chartSettings['multi'] = true;
+
+        // determine the chart type
+        switch ($chartSettings['type']) {
             case 'bar':
             default:
-                $chart = new PMA_pChart_stacked_bar($chartTitle, $chartData, $chartSettings);
+
+                // determine the bar chart type
+                switch ($chartSettings['barType']) {
+                    case 'stacked':
+                    default:
+                        $chart = new PMA_pChart_stacked_bar($chartTitle, $chartData, $chartSettings);
+                        break;
+                    case 'multi':
+                        $chart = new PMA_pChart_multi_bar($chartTitle, $chartData, $chartSettings);
+                        break;
+                }
                 break;
+            
             case 'line':
                 $chart = new PMA_pChart_multi_line($chartTitle, $chartData, $chartSettings);
                 break;
