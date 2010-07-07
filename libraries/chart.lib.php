@@ -68,7 +68,7 @@ function PMA_chart_results($data, &$chartSettings)
 
     if (!isset($data[0])) {
         // empty data
-        return;
+        return __('No data found for the chart.');
     }
 
     if (count($data[0]) == 2) {
@@ -126,7 +126,7 @@ function PMA_chart_results($data, &$chartSettings)
     }
     else {
         // unknown data
-        return;
+        return __('Unknown data format.');
     }
 
     $chartSettings = $chart->getSettings();
