@@ -3,8 +3,10 @@
 require_once './libraries/chart/pma_ofc_pie.php';
 
 require_once './libraries/chart/pma_pchart_pie.php';
-require_once './libraries/chart/pma_pchart_bar.php';
-require_once './libraries/chart/pma_pchart_stacked.php';
+require_once './libraries/chart/pma_pchart_single_bar.php';
+require_once './libraries/chart/pma_pchart_stacked_bar.php';
+require_once './libraries/chart/pma_pchart_single_line.php';
+require_once './libraries/chart/pma_pchart_multi_line.php';
 
 /**
  * Chart functions used to generate various types
@@ -59,11 +61,18 @@ function PMA_chart_results($data, &$chartSettings)
 {
     $chartData = array();
     $chart = null;
+
+    // set default title if not already set
     if (!empty($chartSettings['title'])) {
         $chartTitle = $chartSettings['title'];
     }
     else {
         $chartTitle = __('Query results');
+    }
+
+    // set default type if not already set
+    if (empty($chartSettings['type'])) {
+        $chartSettings['type'] = 'bar';
     }
 
     if (!isset($data[0])) {
@@ -83,7 +92,16 @@ function PMA_chart_results($data, &$chartSettings)
             }
         }
 
-        $chart = new PMA_pChart_bar($chartTitle, $chartData, $chartSettings);
+        switch ($chartSettings['type'])
+        {
+            case 'bar':
+            default:
+                $chart = new PMA_pChart_single_bar($chartTitle, $chartData, $chartSettings);
+                break;
+            case 'line':            
+                $chart = new PMA_pChart_single_line($chartTitle, $chartData, $chartSettings);
+                break;
+        }
     }
     else if (count($data[0]) == 3) {
         // Three columns (x axis, y axis, series) in every row.
@@ -122,7 +140,16 @@ function PMA_chart_results($data, &$chartSettings)
             }
         }
 
-        $chart = new PMA_pChart_stacked($chartTitle, $chartData, $chartSettings);
+        switch ($chartSettings['type'])
+        {
+            case 'bar':
+            default:
+                $chart = new PMA_pChart_stacked_bar($chartTitle, $chartData, $chartSettings);
+                break;
+            case 'line':
+                $chart = new PMA_pChart_multi_line($chartTitle, $chartData, $chartSettings);
+                break;
+        }
     }
     else {
         // unknown data

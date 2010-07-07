@@ -88,15 +88,21 @@ $url_params['reload'] = 1;
     </tr>
 
     <tr><td><label for="title"><?php echo __("Title"); ?></label></td>
-        <td><input type="text" name="chartSettings[title]" id="height" value="<?php echo $chartSettings['title']; ?>" /></td>
+        <td><input type="text" name="chartSettings[title]" id="title" value="<?php echo $chartSettings['title']; ?>" /></td>
     </tr>
 
     <tr><td><label for="xLabel"><?php echo __("X Axis label"); ?></label></td>
-        <td><input type="text" name="chartSettings[xLabel]" id="height" value="<?php echo $chartSettings['xLabel']; ?>" /></td>
+        <td><input type="text" name="chartSettings[xLabel]" id="xLabel" value="<?php echo $chartSettings['xLabel']; ?>" /></td>
     </tr>
 
     <tr><td><label for="yLabel"><?php echo __("Y Axis label"); ?></label></td>
-        <td><input type="text" name="chartSettings[yLabel]" id="height" value="<?php echo $chartSettings['yLabel']; ?>" /></td>
+        <td><input type="text" name="chartSettings[yLabel]" id="yLabel" value="<?php echo $chartSettings['yLabel']; ?>" /></td>
+    </tr>
+    <tr><td><label for="type"><?php echo __("Type"); ?></label></td>
+        <td>
+            <input type="radio" name="chartSettings[type]" value="bar" <?php echo ($chartSettings['type'] == 'bar' ? 'checked' : ''); ?>>Bar
+            <input type="radio" name="chartSettings[type]" value="line" <?php echo ($chartSettings['type'] == 'line' ? 'checked' : ''); ?>>Line
+        </td>
     </tr>
     </table>
 
