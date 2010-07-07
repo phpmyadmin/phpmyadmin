@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-07 18:31+0530\n"
+"POT-Creation-Date: 2010-07-03 09:00-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Show all"
 msgstr ""
 
-#: browse_foreigners.php:82 libraries/common.lib.php:2325
+#: browse_foreigners.php:82 libraries/common.lib.php:2326
 #: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:394
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
@@ -38,8 +38,8 @@ msgstr ""
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
-#: db_structure.php:106 libraries/common.lib.php:2849
-#: libraries/common.lib.php:2856 libraries/db_links.inc.php:75
+#: db_structure.php:106 libraries/common.lib.php:2850
+#: libraries/common.lib.php:2857 libraries/db_links.inc.php:75
 #: libraries/tbl_links.inc.php:63
 msgid "Search"
 msgstr ""
@@ -49,15 +49,15 @@ msgstr ""
 #: db_structure.php:565 js/messages.php:53 libraries/Config.class.php:1046
 #: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:290 libraries/common.lib.php:719
-#: libraries/common.lib.php:1344 libraries/common.lib.php:2300
+#: libraries/common.lib.php:1335 libraries/common.lib.php:2288
 #: libraries/display_change_password.lib.php:82
-#: libraries/display_create_table.lib.php:62
+#: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
 #: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:76
 #: libraries/replication_gui.lib.php:372 libraries/select_server.lib.php:104
-#: libraries/sql_query_form.lib.php:403 libraries/sql_query_form.lib.php:480
-#: libraries/sql_query_form.lib.php:555 libraries/tbl_properties.inc.php:782
+#: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
+#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:665 server_privileges.php:1641
@@ -67,8 +67,8 @@ msgstr ""
 #: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
 #: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
-#: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:560
-#: tbl_structure.php:595 tbl_tracking.php:395 tbl_tracking.php:512
+#: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
+#: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
 msgstr ""
@@ -119,10 +119,10 @@ msgstr ""
 #: libraries/db_structure.lib.php:60 libraries/export/htmlword.php:245
 #: libraries/export/latex.php:360 libraries/export/odt.php:297
 #: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:100
-#: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2093
+#: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2070
 #: tbl_change.php:286 tbl_change.php:313 tbl_printview.php:142
 #: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
-#: tbl_structure.php:657 tbl_tracking.php:274 tbl_tracking.php:321
+#: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
 msgstr ""
 
@@ -163,9 +163,9 @@ msgstr ""
 #: libraries/Index.class.php:386 libraries/export/htmlword.php:322
 #: libraries/export/latex.php:430 libraries/export/odt.php:368
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:263
-#: pdf_schema.php:1344 server_privileges.php:1585 server_privileges.php:1596
-#: server_privileges.php:1911 server_privileges.php:1916
-#: server_privileges.php:2210 sql.php:132 sql.php:194 tbl_printview.php:228
+#: pdf_schema.php:1344 server_privileges.php:1568 server_privileges.php:1579
+#: server_privileges.php:1889 server_privileges.php:1894
+#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:228
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr ""
@@ -179,9 +179,9 @@ msgstr ""
 #: libraries/mult_submits.inc.php:101 libraries/mult_submits.inc.php:106
 #: libraries/mult_submits.inc.php:111 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:273 pdf_schema.php:1344
-#: server_databases.php:64 server_privileges.php:1582
-#: server_privileges.php:1596 server_privileges.php:1911
-#: server_privileges.php:1914 server_privileges.php:2210 sql.php:193
+#: server_databases.php:64 server_privileges.php:1565
+#: server_privileges.php:1579 server_privileges.php:1889
+#: server_privileges.php:1892 server_privileges.php:2187 sql.php:193
 #: tbl_printview.php:228 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
@@ -230,7 +230,11 @@ msgstr ""
 msgid "Command"
 msgstr ""
 
-#: db_operations.php:466
+#: db_operations.php:429 tbl_change.php:1140
+msgid "and then"
+msgstr ""
+
+#: db_operations.php:455
 msgid "Copy database to"
 msgstr ""
 
@@ -312,7 +316,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:107 libraries/tbl_properties.inc.php:730
 #: server_collations.php:54 server_collations.php:66 server_databases.php:111
 #: tbl_operations.php:363 tbl_select.php:136 tbl_structure.php:179
-#: tbl_structure.php:765 tbl_tracking.php:275 tbl_tracking.php:326
+#: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
 msgstr ""
 
@@ -339,7 +343,7 @@ msgstr ""
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
-#: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:775
+#: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
 msgstr ""
 
@@ -354,19 +358,19 @@ msgstr ""
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
 #: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
-#: tbl_structure.php:807
+#: tbl_structure.php:809
 msgid "Creation"
 msgstr ""
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
 #: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
-#: tbl_structure.php:815
+#: tbl_structure.php:817
 msgid "Last update"
 msgstr ""
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
 #: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
-#: tbl_structure.php:823
+#: tbl_structure.php:825
 msgid "Last check"
 msgstr ""
 
@@ -430,7 +434,7 @@ msgstr ""
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
-#: server_privileges.php:298 tbl_change.php:1028 tbl_indexes.php:250
+#: server_privileges.php:297 tbl_change.php:1028 tbl_indexes.php:250
 #: tbl_select.php:286
 msgid "Or"
 msgstr ""
@@ -499,7 +503,7 @@ msgstr ""
 
 #: db_search.php:273 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/common.lib.php:2851
+#: db_structure.php:105 libraries/common.lib.php:2852
 #: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
 #: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:465
 msgid "Browse"
@@ -544,13 +548,13 @@ msgstr ""
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
-#: libraries/common.lib.php:2850 libraries/sql_query_form.lib.php:337
+#: libraries/common.lib.php:2851 libraries/sql_query_form.lib.php:337
 #: libraries/sql_query_form.lib.php:340 libraries/tbl_links.inc.php:76
 msgid "Insert"
 msgstr ""
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
-#: libraries/common.lib.php:2847 libraries/common.lib.php:2854
+#: libraries/common.lib.php:2848 libraries/common.lib.php:2855
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
@@ -642,9 +646,9 @@ msgstr ""
 msgid "Check All"
 msgstr ""
 
-#: db_structure.php:529 libraries/display_tbl.lib.php:2077
+#: db_structure.php:531 libraries/display_tbl.lib.php:2077
 #: libraries/replication_gui.lib.php:36 server_databases.php:350
-#: server_privileges.php:573 server_privileges.php:1620 tbl_structure.php:460
+#: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
 msgid "Uncheck All"
 msgstr ""
 
@@ -1062,10 +1066,10 @@ msgid "Prev"
 msgstr ""
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:106 libraries/common.lib.php:2365
-#: libraries/common.lib.php:2368 libraries/display_tbl.lib.php:338
+#: js/messages.php:77 libraries/common.lib.php:2353
+#: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
-#: tbl_structure.php:799
+#: tbl_structure.php:801
 msgid "Next"
 msgstr ""
 
@@ -1553,7 +1557,7 @@ msgstr ""
 msgid "Server Choice"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:318 libraries/header.inc.php:63
+#: libraries/auth/cookie.auth.lib.php:318 libraries/header.inc.php:59
 msgid "Cookies must be enabled past this point."
 msgstr ""
 
@@ -1628,7 +1632,7 @@ msgid ""
 "necessary extensions appear to be loaded. Check your PHP configuration."
 msgstr ""
 
-#: libraries/common.inc.php:580
+#: libraries/common.inc.php:576
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1638,38 +1642,38 @@ msgid ""
 "is fine."
 msgstr ""
 
-#: libraries/common.inc.php:591
+#: libraries/common.inc.php:587
 #, possible-php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/common.inc.php:596
+#: libraries/common.inc.php:592
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:622
 #, possible-php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:629
 #, possible-php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
-#: libraries/common.inc.php:642 libraries/header.inc.php:100
+#: libraries/common.inc.php:638 libraries/header.inc.php:96
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
 msgstr ""
 
-#: libraries/common.inc.php:820
+#: libraries/common.inc.php:816
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:923
+#: libraries/common.inc.php:919
 #, possible-php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
@@ -1805,40 +1809,40 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr ""
 
-#: libraries/common.lib.php:2334 libraries/common.lib.php:2337
+#: libraries/common.lib.php:2335 libraries/common.lib.php:2338
 #: libraries/display_tbl.lib.php:290 server_status.php:719
 msgid "Begin"
 msgstr ""
 
-#: libraries/common.lib.php:2335 libraries/common.lib.php:2338
+#: libraries/common.lib.php:2336 libraries/common.lib.php:2339
 #: libraries/display_tbl.lib.php:291 server_binlog.php:168
 #: server_binlog.php:170
 msgid "Previous"
 msgstr ""
 
-#: libraries/common.lib.php:2366 libraries/common.lib.php:2369
+#: libraries/common.lib.php:2367 libraries/common.lib.php:2370
 #: libraries/display_tbl.lib.php:353
 msgid "End"
 msgstr ""
 
-#: libraries/common.lib.php:2442
+#: libraries/common.lib.php:2443
 #, possible-php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr ""
 
-#: libraries/common.lib.php:2462
+#: libraries/common.lib.php:2463
 #, possible-php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/common.lib.php:2848 libraries/common.lib.php:2855
+#: libraries/common.lib.php:2849 libraries/common.lib.php:2856
 #: libraries/db_links.inc.php:68 libraries/export/sql.php:25
 #: libraries/import/sql.php:18 libraries/server_links.inc.php:46
 #: libraries/tbl_links.inc.php:60 querywindow.php:99 test/theme.php:97
 msgid "SQL"
 msgstr ""
 
-#: libraries/common.lib.php:2857 libraries/db_links.inc.php:104
+#: libraries/common.lib.php:2858 libraries/db_links.inc.php:104
 #: libraries/tbl_links.inc.php:95 libraries/tbl_links.inc.php:117
 #: view_operations.php:89
 msgid "Operations"
@@ -1912,7 +1916,7 @@ msgid ""
 msgstr ""
 
 #: libraries/db_structure.lib.php:69 server_databases.php:142
-#: tbl_printview.php:335 tbl_structure.php:680
+#: tbl_printview.php:335 tbl_structure.php:682
 msgid "Overhead"
 msgstr ""
 
@@ -1939,22 +1943,22 @@ msgid "Change password"
 msgstr ""
 
 #: libraries/display_change_password.lib.php:35
-#: libraries/replication_gui.lib.php:348 server_privileges.php:808
+#: libraries/replication_gui.lib.php:348 server_privileges.php:807
 msgid "No Password"
 msgstr ""
 
 #: libraries/display_change_password.lib.php:41
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:338 libraries/replication_gui.lib.php:342
-#: libraries/replication_gui.lib.php:352 server_privileges.php:797
-#: server_privileges.php:801 server_privileges.php:812
-#: server_privileges.php:1555 server_synchronize.php:1175
+#: libraries/replication_gui.lib.php:352 server_privileges.php:796
+#: server_privileges.php:800 server_privileges.php:811
+#: server_privileges.php:1538 server_synchronize.php:1175
 msgid "Password"
 msgstr ""
 
 #: libraries/display_change_password.lib.php:46
 #: libraries/replication_gui.lib.php:356 libraries/replication_gui.lib.php:359
-#: server_privileges.php:816 server_privileges.php:819
+#: server_privileges.php:815 server_privileges.php:818
 msgid "Re-type"
 msgstr ""
 
@@ -1967,12 +1971,12 @@ msgid "MySQL 4.0 compatible"
 msgstr ""
 
 #: libraries/display_change_password.lib.php:72
-#: libraries/replication_gui.lib.php:363 server_privileges.php:823
+#: libraries/replication_gui.lib.php:363 server_privileges.php:822
 msgid "Generate Password"
 msgstr ""
 
 #: libraries/display_change_password.lib.php:75
-#: libraries/replication_gui.lib.php:366 server_privileges.php:826
+#: libraries/replication_gui.lib.php:366 server_privileges.php:825
 msgid "Generate"
 msgstr ""
 
@@ -2054,7 +2058,7 @@ msgid "remember template"
 msgstr ""
 
 #: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
-#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:552
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:549
 msgid "Character set of the file:"
 msgstr ""
 
@@ -2107,7 +2111,7 @@ msgstr ""
 msgid "File to import"
 msgstr ""
 
-#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:527
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:524
 msgid "Location of the text file"
 msgstr ""
 
@@ -2115,12 +2119,12 @@ msgstr ""
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:536
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:533
 #: tbl_change.php:1025
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 
-#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:539
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:536
 #: tbl_change.php:1028
 msgid "web server upload directory"
 msgstr ""
@@ -2247,7 +2251,7 @@ msgstr ""
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
-#: libraries/import/xml.php:25 tbl_select.php:265 tbl_structure.php:751
+#: libraries/import/xml.php:25 tbl_select.php:265 tbl_structure.php:753
 msgid "Options"
 msgstr ""
 
@@ -2388,7 +2392,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:194 server_databases.php:137
 #: server_databases.php:305 server_status.php:525 server_status.php:586
-#: server_status.php:607 tbl_printview.php:350 tbl_structure.php:694
+#: server_status.php:607 tbl_printview.php:350 tbl_structure.php:696
 msgid "Total"
 msgstr ""
 
@@ -2633,7 +2637,7 @@ msgid ""
 msgstr ""
 
 #: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
-#: tbl_printview.php:375 tbl_structure.php:735
+#: tbl_printview.php:375 tbl_structure.php:737
 msgid "Format"
 msgstr ""
 
@@ -2697,8 +2701,8 @@ msgstr ""
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
 #: libraries/export/sql.php:106 libraries/export/sql.php:868
 #: libraries/export/texytext.php:27 server_databases.php:127
-#: server_privileges.php:577 server_replication.php:316 tbl_printview.php:316
-#: tbl_structure.php:663
+#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:316
+#: tbl_structure.php:665
 msgid "Data"
 msgstr ""
 
@@ -2747,9 +2751,9 @@ msgstr ""
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
 #: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
-#: libraries/replication_gui.lib.php:332 server_privileges.php:732
-#: server_privileges.php:735 server_privileges.php:791
-#: server_privileges.php:1554 server_privileges.php:2092
+#: libraries/replication_gui.lib.php:332 server_privileges.php:731
+#: server_privileges.php:734 server_privileges.php:790
+#: server_privileges.php:1537 server_privileges.php:2069
 #: server_processlist.php:55 server_synchronize.php:1159
 msgid "Host"
 msgstr ""
@@ -3407,8 +3411,8 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:252 libraries/replication_gui.lib.php:255
-#: libraries/replication_gui.lib.php:262 server_privileges.php:712
-#: server_privileges.php:715 server_privileges.php:722
+#: libraries/replication_gui.lib.php:262 server_privileges.php:711
+#: server_privileges.php:714 server_privileges.php:721
 #: server_synchronize.php:1171
 msgid "User name"
 msgstr ""
@@ -3425,14 +3429,14 @@ msgstr ""
 msgid "Slave status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:448
+#: libraries/replication_gui.lib.php:117 libraries/sql_query_form.lib.php:445
 #: server_status.php:737 server_variables.php:52
 msgid "Variable"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:118 server_status.php:738
 #: tbl_change.php:323 tbl_printview.php:369 tbl_select.php:138
-#: tbl_structure.php:727
+#: tbl_structure.php:729
 msgid "Value"
 msgstr ""
 
@@ -3450,34 +3454,34 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:257 server_privileges.php:717
+#: libraries/replication_gui.lib.php:257 server_privileges.php:716
 msgid "Any user"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:258 libraries/replication_gui.lib.php:326
-#: libraries/replication_gui.lib.php:349 server_privileges.php:718
-#: server_privileges.php:785 server_privileges.php:809
-#: server_privileges.php:1950 server_privileges.php:1980
+#: libraries/replication_gui.lib.php:349 server_privileges.php:717
+#: server_privileges.php:784 server_privileges.php:808
+#: server_privileges.php:1928 server_privileges.php:1958
 msgid "Use text field"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:305 server_privileges.php:765
+#: libraries/replication_gui.lib.php:305 server_privileges.php:764
 msgid "Any host"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:309 server_privileges.php:769
+#: libraries/replication_gui.lib.php:309 server_privileges.php:768
 msgid "Local"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:315 server_privileges.php:774
+#: libraries/replication_gui.lib.php:315 server_privileges.php:773
 msgid "This Host"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:321 server_privileges.php:780
+#: libraries/replication_gui.lib.php:321 server_privileges.php:779
 msgid "Use Host Table"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:334 server_privileges.php:793
+#: libraries/replication_gui.lib.php:334 server_privileges.php:792
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -7335,10 +7339,6 @@ msgstr ""
 msgid "Show insert query"
 msgstr ""
 
-#: tbl_change.php:1140
-msgid "and then"
-msgstr ""
-
 #: tbl_change.php:1144
 msgid "Go back to previous page"
 msgstr ""
@@ -7529,39 +7529,39 @@ msgstr ""
 msgid "Show tables"
 msgstr ""
 
-#: tbl_printview.php:309 tbl_structure.php:654
+#: tbl_printview.php:309 tbl_structure.php:656
 msgid "Space usage"
 msgstr ""
 
-#: tbl_printview.php:313 tbl_structure.php:658
+#: tbl_printview.php:313 tbl_structure.php:660
 msgid "Usage"
 msgstr ""
 
-#: tbl_printview.php:340 tbl_structure.php:685
+#: tbl_printview.php:340 tbl_structure.php:687
 msgid "Effective"
 msgstr ""
 
-#: tbl_printview.php:365 tbl_structure.php:723
+#: tbl_printview.php:365 tbl_structure.php:725
 msgid "Row Statistics"
 msgstr ""
 
-#: tbl_printview.php:368 tbl_structure.php:726
+#: tbl_printview.php:368 tbl_structure.php:728
 msgid "Statements"
 msgstr ""
 
-#: tbl_printview.php:379 tbl_structure.php:738
+#: tbl_printview.php:379 tbl_structure.php:740
 msgid "static"
 msgstr ""
 
-#: tbl_printview.php:381 tbl_structure.php:740
+#: tbl_printview.php:381 tbl_structure.php:742
 msgid "dynamic"
 msgstr ""
 
-#: tbl_printview.php:403 tbl_structure.php:783
+#: tbl_printview.php:403 tbl_structure.php:785
 msgid "Row length"
 msgstr ""
 
-#: tbl_printview.php:413 tbl_structure.php:791
+#: tbl_printview.php:413 tbl_structure.php:793
 msgid " Row size "
 msgstr ""
 
