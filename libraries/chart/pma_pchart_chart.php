@@ -7,8 +7,8 @@ define('LEFT', 3);
 
 require_once 'pma_chart.php';
 
-include "pChart/pData.class";
-include "pChart/pChart.class";
+require_once 'pChart/pData.class';
+require_once 'pChart/pChart.class';
 
 /*
  * Base class for every chart implemented using pChart.
@@ -75,7 +75,11 @@ abstract class PMA_pChart_Chart extends PMA_Chart
     protected function drawCommon()
     {
         $this->chart->setFontProperties($this->getFontPath().'tahoma.ttf', 8);
-        $this->chart->drawGraphAreaGradient(132,173,131,50,TARGET_BACKGROUND);
+        $this->chart->drawGraphAreaGradient(
+                $this->getBgColor(RED),
+                $this->getBgColor(GREEN),
+                $this->getBgColor(BLUE),
+                50,TARGET_BACKGROUND);
         $this->chart->addBorder(2);
     }
 

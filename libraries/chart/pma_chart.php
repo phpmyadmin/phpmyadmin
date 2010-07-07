@@ -1,5 +1,9 @@
 <?php
 
+define('RED', 0);
+define('GREEN', 1);
+define('BLUE', 2);
+
 class PMA_Chart
 {
     /*
@@ -39,7 +43,7 @@ class PMA_Chart
         /*
          * Chart background color.
          */
-        'bgColor' => '#E5E5E5',
+        'bgColor' => '#84AD83',
 
         /*
          * The width of the chart.
@@ -103,7 +107,7 @@ class PMA_Chart
         return $this->settings['height'];
     }
 
-    function getBgColorComp($component)
+    function getBgColor($component)
     {
         return hexdec(substr($this->settings['bgColor'], ($component * 2) + 1, 2));
     }
