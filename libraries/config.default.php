@@ -1305,7 +1305,7 @@ $cfg['Export']['csv_null'] = 'NULL';
  *
  * @global string $cfg['Export']['csv_separator']
  */
-$cfg['Export']['csv_separator'] = ';';
+$cfg['Export']['csv_separator'] = ',';
 
 /**
  *
