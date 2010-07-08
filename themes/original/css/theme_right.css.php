@@ -1305,6 +1305,9 @@ select#db_select, select#table_select {
     border-bottom: 1px #999999 solid;
 }
 
+#quick_or_custom, #output_quick_export {
+    display: none;
+}
 /**
  * Import styles only
  */
