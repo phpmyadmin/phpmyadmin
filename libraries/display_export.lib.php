@@ -67,6 +67,20 @@ if (! empty($sql_query)) {
 }
 ?>
 
+<div class="exportoptions" id="header">
+    <h2>
+        <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_export.png" />
+        <?php
+        if($export_type == 'server') {
+            echo __('Exporting databases in the current server');
+        } elseif($export_type == 'database') {
+            echo __('Exporting tables in the database "' . $db . '"');
+        } else {
+            echo __('Exporting rows in the table "' . $table . '"');
+        }?>
+    </h2>
+</div>
+
 <div class="exportoptions" id="quick_or_custom">
     <h3><?php echo __('Export Method:'); ?></h3>
     <ul>

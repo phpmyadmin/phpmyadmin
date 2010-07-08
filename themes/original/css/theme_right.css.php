@@ -1237,8 +1237,10 @@ table#serverconnection_trg_local  {
 /**
   * Export and Import styles
   */
+
 .exportoptions h3, .importoptions h3 {
     border-bottom: 1px #999999 solid;
+    font-size: 110%;
 }
 
 .exportoptions ul, .importoptions ul, .format_specific_options ul {
@@ -1260,7 +1262,7 @@ table#serverconnection_trg_local  {
 }
 
 .exportoptions, .importoptions {
-    margin: 30px 30px 30px 10px
+    margin: 20px 30px 30px 10px
 }
 
 .exportoptions #buttonGo, .importoptions #buttonGo {
