@@ -35,7 +35,7 @@ function PMA_chart_status($data)
     //$chart = new PMA_OFC_Pie(__('Query type'), $chartData, $options);
     $chart = new PMA_pChart_Pie(
             __('Query statistics'),
-            $chartData);
+            array_slice($chartData, 0, 20, true));
     echo $chart->toString();
 }
 
@@ -203,8 +203,9 @@ function PMA_chart_results($data, &$chartSettings)
         return __('Unknown data format.');
     }
 
+    $chartCode = $chart->toString();
     $chartSettings = $chart->getSettings();
-    return $chart->toString();
+    return $chartCode;
 }
 
 ?>

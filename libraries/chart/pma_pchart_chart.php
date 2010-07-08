@@ -42,6 +42,8 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
     protected function init()
     {
+        parent::init();
+
         // create pChart object
         $this->chart = new pChart($this->getWidth(), $this->getHeight());
 
@@ -145,9 +147,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
     protected function setAreaMargins($areaMargins)
     {
-        if (!isset($this->settings['areaMargins'])) {
-            $this->settings['areaMargins'] = $areaMargins;
-        }
+        $this->settings['areaMargins'] = $areaMargins;
     }
 
     protected function getAreaMargin($side)

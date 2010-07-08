@@ -8,7 +8,7 @@ class PMA_pChart_Pie extends PMA_pChart_multi
     {
         parent::__construct($titleText, $data, $options);
 
-        $this->setAreaMargins(array(20, 20, 20, 10));
+        $this->setAreaMargins(array(20, 10, 20, 20));
     }
 
     protected function prepareDataSet()

@@ -66,63 +66,70 @@ class PMA_Chart
         'yLabel' => '',
     );
 
+    /*
+     * Options that the user has specified
+     */
+    private $userSpecifiedSettings = null;
+
     function __construct($options = null)
     {
-        $this->handleOptions($options);
+        $this->userSpecifiedSettings = $options;
+    }
+
+    protected function init()
+    {
+        $this->handleOptions();
     }
 
     /*
      * A function which handles passed parameters. Useful if desired
      * chart needs to be a little bit different from the default one.
-     *
-     * Option handling could be made more efficient if options would be
-     * stored in an array.
      */
-    function handleOptions($options)
+    private function handleOptions()
     {
-        if (is_null($options)) {
+        if (is_null($this->userSpecifiedSettings)) {
             return;
         }
 
-        $this->settings = array_merge($this->settings, $options);
+        $this->settings = array_merge($this->settings, $this->userSpecifiedSettings);
     }
 
-    function getTitleStyle()
+    protected function getTitleStyle()
     {
         return $this->settings['titleStyle'];
     }
 
-    function getColors()
+    protected function getColors()
     {
         return $this->settings['colors'];
     }
 
-    function getWidth()
+    protected function getWidth()
     {
         return $this->settings['width'];
     }
 
-    function getHeight()
+    protected function getHeight()
     {
         return $this->settings['height'];
     }
 
-    function getBgColor($component)
+    protected function getBgColor($component)
     {
         return hexdec(substr($this->settings['bgColor'], ($component * 2) + 1, 2));
     }
 
-    function getXLabel()
+    protected function getXLabel()
     {
         return $this->settings['xLabel'];
     }
 
-    function getYLabel()
+    protected function getYLabel()
     {
         return $this->settings['yLabel'];
     }
 
-    function getSettings()
+    public function getSettings()
     {
         return $this->settings;
     }
