@@ -1,4 +1,5 @@
 var history_array = []; // Global array to store history objects
+var select_field = [];
 var g_index;
 
 /**

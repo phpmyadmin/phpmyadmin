@@ -983,15 +983,20 @@ function Close_option()
 	document.getElementById('pmd_optionse').style.visibility = "hidden";
 }
 
-function Select_all(id_this)
+function Select_all(id_this,owner)
 {
 	var parent= document.form1;
+	var len = owner.length + 8;
 	for(i = 0; i < parent.elements.length; i++) {
 		if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0,(7 + id_this.length)) == 'select_' + id_this) {
-				if(document.getElementById('select_all_' + id_this).checked == true)
+				if(document.getElementById('select_all_' + id_this).checked == true) {
 					parent.elements[i].checked = true;
-				else
+					store_column(parent.elements[i].id.substring(len),owner);
+				}	
+				else {
 					parent.elements[i].checked = false;
+					store_column(parent.elements[i].id.substring(len),owner);
+				}
 		}
 	}
 	Re_load();
@@ -1006,6 +1011,25 @@ function Table_onover(id_this,val)
 	else {
 		document.getElementById("id_zag_" + id_this).className="tab_zag";
 		document.getElementById("id_zag_" + id_this + "_2").className="tab_zag";
+	}
+}
+
+/* This function stores selected column information in select_field[]
+ * In case column is checked it add else it deletes
+ *
+ */
+function store_column(id_this,owner) {
+	var i = 0;
+	if (document.getElementById('select_' + owner + '.' + id_this).checked == true) {
+		select_field.push(id_this);	
+	}
+	else {
+		for(i; i < select_field.length ;i++) {
+			if ( select_field[i] == id_this ) {
+				select_field.splice(i,1);
+				break;
+			}
+		}
 	}
 }
 

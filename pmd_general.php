@@ -204,7 +204,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 		echo '<td class="select_all">';
     	echo '<input type="checkbox" value="select_all_'.htmlspecialchars($t_n_url).'" style="margin: 0px;" ';
         echo 'id="select_all_'.htmlspecialchars($t_n_url).'" title="select all" ';
-        echo 'onclick="Select_all(\''. htmlspecialchars($t_n_url). '\')" ></td>';
+        echo 'onclick="Select_all(\''. htmlspecialchars($t_n_url) .'\',\''.htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\')"></td>';
 	}?>
     <td class="small_tab" onmouseover="this.className='small_tab2';"
         onmouseout="this.className='small_tab';"
@@ -272,8 +272,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 	if(isset($_REQUEST['query'])) {
     	echo '<td class="select_all">';
 	    echo '<input value="'.htmlspecialchars($t_n_url).urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'"'; 
-        echo 'type="checkbox" id="select_'.htmlspecialchars($t_n_url).urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
- 		echo  'style="margin: 0px;" title="select_'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" onclick="" ></td>';
+        echo 'type="checkbox" id="select_'.htmlspecialchars($t_n_url).'.'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
+ 		echo 'style="margin: 0px;" title="select_'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
+		echo 'onclick="store_column(\''.urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]).'.'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'\',\''.htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\')"></td>';
 	}?>
     <td width="10px" colspan="3"
         id="<?php echo $t_n_url.".".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>">
