@@ -19,7 +19,7 @@ if (isset($plugin_list)) {
         'mime_type' => 'text/comma-separated-values',
         'options' => array(
             array('type' => 'begin_group', 'name' => 'general_opts'),
-            array('type' => 'text', 'name' => 'separator', 'text' => __('Columns terminated with:')),
+            array('type' => 'text', 'name' => 'separator', 'text' => __('Columns separated with:')),
             array('type' => 'text', 'name' => 'enclosed', 'text' => __('Columns enclosed with:')),
             array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped with:')),
             array('type' => 'text', 'name' => 'terminated', 'text' => __('Lines terminated with:')),
