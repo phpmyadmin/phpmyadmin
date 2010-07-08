@@ -2088,7 +2088,7 @@
     }
 
    /* This function draw radar axis centered on the graph area */
-   function drawRadarAxis($Data,$DataDescription,$Mosaic=TRUE,$BorderOffset=10,$A_R=60,$A_G=60,$A_B=60,$S_R=200,$S_G=200,$S_B=200,$MaxValue=-1)
+   function drawRadarAxis($Data,$DataDescription,$Mosaic=TRUE,$BorderOffset=10,$A_R=60,$A_G=60,$A_B=60,$S_R=200,$S_G=200,$S_B=200,$MaxValue=-1,$valueMod=1)
     {
      /* Validate the Data and DataDescription array */
      $this->validateDataDescription("drawRadarAxis",$DataDescription);
@@ -2204,6 +2204,9 @@
      /* Write the values */
      for ( $t=1; $t<=$MaxValue; $t++)
       {
+       if ($t % $valueMod != 0)
+        { continue; }
+
        $TRadius = ( $Radius / $MaxValue ) * $t;
 
        $Angle = -90 + 360 / $Points;
