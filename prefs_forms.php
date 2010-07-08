@@ -41,7 +41,7 @@ $tabs_icons = array(
 echo '<ul id="topmenu2">';
 foreach (array_keys($forms) as $formset) {
     $tab = array(
-        'link' => 'user_preferences.php',
+        'link' => 'prefs_forms.php',
         'text' => PMA_lang('Form_' . $formset),
         'icon' => $tabs_icons[$formset],
         'active' => $formset == $form_param);
@@ -94,7 +94,7 @@ if (isset($_POST['revert'])) {
     $form_display->fixErrors();
     // redirect
     $url_params = array('form' => $form_param);
-    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'user_preferences.php'
+    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'prefs_forms.php'
             . PMA_generate_common_url($url_params, '&'));
     exit;
 }
@@ -135,7 +135,7 @@ if (!$form_display->process(false)) {
                 'form' => $form_param,
                 'saved' => 1,
                 'refresh_left_frame' => $refresh_left_frame);
-            PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'user_preferences.php'
+            PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'prefs_forms.php'
                     . PMA_generate_common_url($url_params, '&'));
             exit;
         } else {

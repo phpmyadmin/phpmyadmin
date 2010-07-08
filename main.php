@@ -176,7 +176,7 @@ echo '</ul>';
 
 echo '<ul>';
 echo PMA_printListItem(__('More settings'), 'li_user_preferences',
-                    './user_preferences.php?' . $common_url_query);
+                    './prefs_forms.php?' . $common_url_query);
 echo '<ul>';
 
 echo '</div>';
