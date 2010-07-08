@@ -2,3 +2,5 @@ restore cache'ing in phpmyadmin.css.php
 make CSS for darkblue_orange
 check input escaping, $cfg is no longer safe to use
 
+preference:
+- synchronize language, theme ThemeDefault

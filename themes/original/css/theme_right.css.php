@@ -1214,6 +1214,12 @@ code.sql {
     margin-top:         0;
 }
 
+.group-cnt {
+    padding: 0 0 0 0.5em;
+    display: inline-block;
+    width: 100%;
+}
+
 /* for elements that should be revealed only via js */
 .hide {
     display:            none;

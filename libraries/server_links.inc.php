@@ -92,8 +92,10 @@ $tabs['synchronize']['link'] = 'server_synchronize.php';
 $tabs['synchronize']['text'] = __('Synchronize');
 
 $tabs['settings']['icon'] = 'b_tblops.png';
-$tabs['settings']['link'] = 'prefs_forms.php';
+$tabs['settings']['link'] = 'prefs_manage.php';
 $tabs['settings']['text'] = __('Settings');
+$tabs['settings']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']),
+    array('prefs_forms.php', 'prefs_manage.php'));
 
 echo PMA_generate_html_tabs($tabs, array());
 unset($tabs);

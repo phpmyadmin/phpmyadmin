@@ -174,4 +174,38 @@ function PMA_persist_option($path, $value, $default_value)
     }
     PMA_save_userprefs($prefs['config_data']);
 }
+
+/**
+ * Redirects after saving new user preferences
+ *
+ * @param array  $forms
+ * @param array  $old_settings
+ * @param string $file_name
+ * @param array  $params
+ */
+function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $params = null)
+{
+    // compute differences and check whether left frame should be refreshed
+    $old_settings = isset($old_settings['config_data'])
+            ? $old_settings['config_data']
+            : array();
+    $new_settings = ConfigFile::getInstance()->getConfigArray();
+    $diff_keys = array_keys(array_diff_assoc($old_settings, $new_settings)
+            + array_diff_assoc($new_settings, $old_settings));
+    $check_keys = array('NaturalOrder', 'MainPageIconic', 'DefaultTabDatabase');
+    $check_keys = array_merge($check_keys, $forms['Left_frame']['Left_frame'],
+         $forms['Left_frame']['Left_servers'], $forms['Left_frame']['Left_databases']);
+    $diff = array_intersect($check_keys, $diff_keys);
+    $refresh_left_frame = !empty($diff);
+
+    // redirect
+    $url_params = array(
+        'saved' => 1,
+        'refresh_left_frame' => $refresh_left_frame);
+    if (is_array($params)) {
+        $url_params = array_merge($params, $url_params);
+    }
+    PMA_sendHeaderLocation($GLOBALS['cfg']['PmaAbsoluteUri'] . $file_name
+            . PMA_generate_common_url($url_params, '&'));
+}
 ?>

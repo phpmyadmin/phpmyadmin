@@ -186,6 +186,20 @@ class ConfigFile
     }
 
     /**
+     * Returns default config in a flattened array
+     *
+     * @return array
+     */
+    public function getFlatDefaultConfig()
+    {
+        $this->_flattenArrayResult = array();
+        array_walk($this->cfg, array($this, '_flattenArray'), '');
+        $flat_cfg = $this->_flattenArrayResult;
+        $this->_flattenArrayResult = null;
+        return $flat_cfg;
+    }
+
+    /**
      * Updates config with values read from PMA_Config class
      * (config will contain differences to defaults from config.defaults.php).
      *

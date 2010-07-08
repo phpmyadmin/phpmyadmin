@@ -111,12 +111,12 @@ class FormDisplay
      * Processes forms, returns true on successful save
      *
      * @param  bool  $allow_partial_save  allows for partial form saving on failed validation
+     * @param  bool  $check_form_submit   whether check for $_POST['submit_save']
      * @return boolean
      */
-    public function process($allow_partial_save = true)
+    public function process($allow_partial_save = true, $check_form_submit = true)
     {
-        // gather list of forms to save
-        if (!isset($_POST['submit_save'])) {
+        if ($check_form_submit && !isset($_POST['submit_save'])) {
             return false;
         }
 
@@ -474,6 +474,11 @@ class FormDisplay
             foreach ($form->fields as $field => $system_path) {
                 $work_path = array_search($system_path, $this->system_paths);
                 $key = $this->translated_paths[$work_path];
+
+                // skip groups
+                if ($form->getOptionType($field) == 'group') {
+                    continue;
+                }
 
                 // ensure the value is set
                 if (!isset($_POST[$key])) {

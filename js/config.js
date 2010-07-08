@@ -1,5 +1,5 @@
 /**
- * Functions used in configuration forms
+ * Functions used in configuration forms and on user preferences pages
  */
 
 // default values for fields
@@ -624,4 +624,49 @@ $(function() {
 
 //
 // END: "Restore default" and "set value" buttons
+// ------------------------------------------------------------------
+
+// ------------------------------------------------------------------
+// User preferences import/export
+//
+
+$(function() {
+    var radios = $('#import_local_storage, #export_local_storage');
+    if (!radios.length) {
+        return;
+    }
+
+    // enable JavaScript dependent fields
+    radios
+        .attr('disabled', false)
+        .add('#export_text_file, #import_text_file')
+        .click(function(){
+            var show_id = $(this).attr('id');
+            var hide_id = show_id.match(/local_storage$/)
+                ? show_id.replace(/local_storage$/, 'text_file')
+                : show_id.replace(/text_file$/, 'local_storage');
+        $('#opts_'+hide_id).hide('fast');
+        $('#opts_'+show_id).show('fast');
+    });
+
+    // detect localStorage state
+    var ls_supported = window.localStorage || false;
+    var ls_exists = ls_supported ? (window.localStorage['config'] || false) : false;
+    $('.localStorage-'+(ls_supported ? 'un' : '')+'supported').hide();
+    $('.localStorage-'+(ls_exists ? 'empty' : 'exists')).hide();
+    $('form.prefs-form').change(function(){
+        var form = $(this);
+        var disabled = false;
+        if (!ls_supported) {
+            disabled = form.find('input[type=radio][value$=local_storage]').attr('checked');
+        } else if (!ls_exists && form.attr('name') == 'prefs_import'
+                && $('#import_local_storage')[0].checked) {
+            disabled = true;
+        }
+        form.find('input[type=submit]').attr('disabled', disabled);
+    });
+});
+
+//
+// END: User preferences import/export
 // ------------------------------------------------------------------

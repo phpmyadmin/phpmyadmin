@@ -19,70 +19,10 @@ require_once './libraries/config/FormDisplay.class.php';
 require './libraries/config/user_preferences.forms.php';
 
 $GLOBALS['js_include'][] = 'config.js';
-
 require_once './libraries/header.inc.php';
-
-// show server tabs
-require './libraries/server_links.inc.php';
-
-// build user preferences menu
-$form_param = filter_input(INPUT_GET, 'form');
-if (!isset($forms[$form_param])) {
-    $forms_keys = array_keys($forms);
-    $form_param = array_shift($forms_keys);
-}
-$tabs_icons = array(
-    'Features'    => 'b_tblops.png',
-    'Sql_queries' => 'b_sql.png',
-    'Left_frame'  => 'b_select.png',
-    'Main_frame'  => 'b_props.png',
-    'Import'      => 'b_import.png',
-    'Export'      => 'b_export.png');
-echo '<ul id="topmenu2">';
-foreach (array_keys($forms) as $formset) {
-    $tab = array(
-        'link' => 'prefs_forms.php',
-        'text' => PMA_lang('Form_' . $formset),
-        'icon' => $tabs_icons[$formset],
-        'active' => $formset == $form_param);
-    echo PMA_generate_html_tab($tab, array('form' => $formset));
-}
-echo '</ul>';
-
-// show "configuration saved" message and reload navigation frame if needed
-if (!empty($_GET['saved'])) {
-    $message = PMA_Message::rawSuccess(__('Configuration has been saved'));
-    $message->display();
-    if (isset($_GET['refresh_left_frame']) && $_GET['refresh_left_frame'] == '1') {
-?>
-<script type="text/javascript">
-if (window.parent && window.parent.frame_navigation) {
-    window.parent.frame_navigation.location.reload();
-}
-</script>
-<?php
-    }
-}
+require_once './libraries/user_preferences.inc.php';
 
 // handle form display and processing
-
-$forms_all_keys = PMA_read_userprefs_fieldnames($forms);
-$cf = ConfigFile::getInstance();
-$cf->setAllowedKeys($forms_all_keys);
-$cf->updateWithGlobalConfig($GLOBALS['PMA_Config']);
-
-// todo: debug - remove
-$arr = $cf->getConfigArray();
-$arr2 = array();
-foreach ($arr as $k => $v) {
-    $arr2[] = "<b>$k</b> " . var_export($v, true);
-}
-$arr2 = implode(', ', $arr2);
-$arr2 .= '<br />Blacklist: ' . (empty($cfg['UserprefsDisallow'])
-        ? '<i>empty</i>'
-        : implode(', ', $cfg['UserprefsDisallow']));
-$msg = PMA_Message::notice('Debug: ' . $arr2);
-$msg->display();
 
 $form_display = new FormDisplay();
 foreach ($forms[$form_param] as $form_name => $form) {
@@ -117,26 +57,8 @@ if (!$form_display->process(false)) {
         $old_settings = PMA_load_userprefs();
         $result = PMA_save_userprefs($cf->getConfigArray());
         if ($result === true) {
-            // compute differences and check whether left frame should be refreshed
-            $old_settings = isset($old_settings['config_data'])
-                    ? $old_settings['config_data']
-                    : array();
-            $new_settings = ConfigFile::getInstance()->getConfigArray();
-            $diff_keys = array_keys(array_diff_assoc($old_settings, $new_settings)
-                    + array_diff_assoc($new_settings, $old_settings));
-            $check_keys = array('NaturalOrder', 'MainPageIconic', 'DefaultTabDatabase');
-            $check_keys = array_merge($check_keys, $forms['Left_frame']['Left_frame'],
-                 $forms['Left_frame']['Left_servers'], $forms['Left_frame']['Left_databases']);
-            $diff = array_intersect($check_keys, $diff_keys);
-            $refresh_left_frame = !empty($diff);
-
-            // redirect
-            $url_params = array(
-                'form' => $form_param,
-                'saved' => 1,
-                'refresh_left_frame' => $refresh_left_frame);
-            PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'prefs_forms.php'
-                    . PMA_generate_common_url($url_params, '&'));
+            PMA_userprefs_redirect($forms, $old_settings, 'prefs_forms.php', array(
+                'form' => $form_param));
             exit;
         } else {
             $result->display();
