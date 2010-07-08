@@ -360,24 +360,24 @@ foreach ($tables as $keyname => $each_table) {
         ) {
             $do = true;
         }
-        foreach ($server_slave_Wild_Do_Table as $table) {
-            if (($db == PMA_replication_strout($table)) && (preg_match("@^" . substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true)) - 1) . "@", $truename)))
+        foreach ($server_slave_Wild_Do_Table as $db_table) {
+            $table_part = PMA_extract_db_or_table($db_table, 'table');
+            if (($db == PMA_extract_db_or_table($db_table, 'db')) && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))) {
                 $do = true;
+            }
         }
         ////////////////////////////////////////////////////////////////////
         if ((strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)  || (strlen(array_search($db, $server_slave_Ignore_DB)) > 0)) {
             $ignored = true;
         }
-        foreach ($server_slave_Wild_Ignore_Table as $table) {
-            if (($db == PMA_replication_strout($table)) && (preg_match("@^" . substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true)) - 1) . "@", $truename)))
+        foreach ($server_slave_Wild_Ignore_Table as $db_table) {
+            $table_part = PMA_extract_db_or_table($db_table, 'table');
+            if (($db == PMA_extract_db_or_table($db_table)) && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))) {
                 $ignored = true;
+            }
         }
-    }/* elseif ($server_master_status) {
-        if ((strlen(array_search($db, $server_master_Do_DB))>0) || count($server_master_Do_DB)==1)
-            $do = true;
-        elseif ((strlen(array_search($db, $server_master_Ignore_DB))>0) || count($server_master_Ignore_DB)==1)
-            $ignored = true;
-    }*/
+        unset($table_part);
+    }
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
     <td align="center">
