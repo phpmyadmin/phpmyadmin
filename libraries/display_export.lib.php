@@ -67,7 +67,7 @@ if (! empty($sql_query)) {
 }
 ?>
 
-<div class="exportoptions" id="quick_or_custom" style="display:none;">
+<div class="exportoptions" id="quick_or_custom">
     <h3><?php echo __('Export Method:'); ?></h3>
     <ul>
         <li>
@@ -102,10 +102,10 @@ if (! empty($sql_query)) {
                 <?php echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" checked="checked" />';
                     echo '<label for ="radio_allrows_0">' . __('Dump some row(s)') . '</label>'; ?>
                 <ul>
-                    <li> <?php echo __('Number of rows:') . ' <input type="text" name="limit_to" size="5" value="'
+                    <li><label for="limit_to"><?php echo __('Number of rows:') . '</label> <input type="text" id="limit_to" name="limit_to" size="5" value="'
                 . (isset($unlim_num_rows) ? $unlim_num_rows : PMA_Table::countRecords($db, $table))
                 . '" onfocus="this.select()" />' ?></li>
-                    <li><?php echo __('Row to begin at:') . ' <input type="text" name="limit_from" value="0" size="5"'
+                    <li><label for="limit_from"><?php echo __('Row to begin at:') . '</label> <input type="text" id="limit_from" name="limit_from" value="0" size="5"'
                 .' onfocus="this.select()" />'; ?></li>
                 </ul>
             </li>
@@ -119,7 +119,7 @@ if (! empty($sql_query)) {
 
 
 <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
-    <div class="exportoptions" id="output_quick_export" style="display:none;">
+    <div class="exportoptions" id="output_quick_export">
         <h3><?php echo __('Output:'); ?></h3>
         <ul>
             <li>
@@ -168,13 +168,13 @@ if (! empty($sql_query)) {
                     <?php
                     echo __('File name template:');
                     $trans = new PMA_Message;
-                    $trans->addMessage('__SERVER__/');
+                    $trans->addMessage('__SERVER__ will become the');
                     $trans->addString(__('server name'));
                     if ($export_type == 'database' || $export_type == 'table') {
-                        $trans->addMessage('__DB__/');
+                        $trans->addMessage(', __DB__ will become the');
                         $trans->addString(__('database name'));
                         if ($export_type == 'table') {
-                            $trans->addMessage('__TABLE__/');
+                            $trans->addMessage(', __TABLE__ will become the');
                             $trans->addString(__('table name'));
                         }
                     }
