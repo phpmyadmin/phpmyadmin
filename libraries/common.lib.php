@@ -2858,11 +2858,11 @@ function PMA_js($code, $print=true)
 }
 
 /**
- * Display the form used to browse anywhere on the server for the file to import
+ * Display the form used to browse anywhere on the local server for the file to import
  */
 function PMA_browseUploadFile($max_upload_size) {
     $uid = uniqid("");
-    echo '<label for="radio_import_file">' . __("Browse the server:") . '</label>';
+    echo '<label for="radio_import_file">' . __("Browse your computer:") . '</label>';
     echo '<div id="upload_form_status" style="display: none;"></div>';
     echo '<div id="upload_form_status_info" style="display: none;"></div>';
     echo '<input type="file" name="import_file" id="input_import_file" />';
