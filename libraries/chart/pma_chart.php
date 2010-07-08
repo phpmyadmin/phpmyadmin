@@ -71,6 +71,11 @@ class PMA_Chart
      */
     private $userSpecifiedSettings = null;
 
+    /*
+     * Error codes will be stored here
+     */
+    protected $errors = null;
+
     function __construct($options = null)
     {
         $this->userSpecifiedSettings = $options;
@@ -132,6 +137,11 @@ class PMA_Chart
     public function getSettings()
     {
         return $this->settings;
+    }
+
+    public function getErrors()
+    {
+        return $this->errors;
     }
 }
 

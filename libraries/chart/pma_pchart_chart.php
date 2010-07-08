@@ -136,7 +136,8 @@ abstract class PMA_pChart_Chart extends PMA_Chart
             return '<img id="chart" src="data:image/png;base64,'.$this->imageEncoded.'" />';
         }
         else {
-            return __('GD library needed for chart is missing.');
+            $this->errors = 1; // stub
+            return '';
         }
     }
 

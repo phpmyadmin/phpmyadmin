@@ -36,7 +36,9 @@ function PMA_chart_status($data)
     $chart = new PMA_pChart_Pie(
             __('Query statistics'),
             array_slice($chartData, 0, 20, true));
-    echo $chart->toString();
+    $chartCode = $chart->toString();
+    PMA_handle_chart_err($chart->getErrors());
+    echo $chartCode;
 }
 
 /*
@@ -54,7 +56,9 @@ function PMA_chart_profiling($data)
     $chart = new PMA_pChart_Pie(
             __('Query execution time comparison (in microseconds)'),
             $chartData);
-    echo $chart->toString();
+    $chartCode = $chart->toString();
+    PMA_handle_chart_err($chart->getErrors());
+    echo $chartCode;
 }
 
 /*
@@ -205,7 +209,13 @@ function PMA_chart_results($data, &$chartSettings)
 
     $chartCode = $chart->toString();
     $chartSettings = $chart->getSettings();
+    PMA_handle_chart_err($chart->getErrors());
     return $chartCode;
+}
+
+function PMA_handle_chart_err($errors)
+{
+    PMA_warnMissingExtension('GD', false, 'GD extension is needed for charts.');
 }
 
 ?>
