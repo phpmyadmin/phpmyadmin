@@ -38,7 +38,10 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
         // as in CSS (top, right, bottom, left)
         $this->setAreaMargins(array(20, 20, 40, 60));
+    }
 
+    protected function init()
+    {
         // create pChart object
         $this->chart = new pChart($this->getWidth(), $this->getHeight());
 
@@ -54,6 +57,8 @@ abstract class PMA_pChart_Chart extends PMA_Chart
                     hexdec(substr($color, 5, 2))
             );
         }
+
+        $this->chart->setFontProperties($this->getFontPath().'tahoma.ttf', 8);
     }
 
     abstract protected function prepareDataSet();
@@ -74,7 +79,6 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
     protected function drawCommon()
     {
-        $this->chart->setFontProperties($this->getFontPath().'tahoma.ttf', 8);
         $this->chart->drawGraphAreaGradient(
                 $this->getBgColor(RED),
                 $this->getBgColor(GREEN),
@@ -122,14 +126,15 @@ abstract class PMA_pChart_Chart extends PMA_Chart
     public function toString()
     {
         if (function_exists('gd_info')) {
+            $this->init();
             $this->prepareDataSet();
             $this->prepareChart();
             $this->render();
 
-            return '<img id="pChartPicture1" src="data:image/png;base64,'.$this->imageEncoded.'" />';
+            return '<img id="chart" src="data:image/png;base64,'.$this->imageEncoded.'" />';
         }
         else {
-            return 'Missing GD library.';
+            return __('GD library needed for chart is missing.');
         }
     }
 

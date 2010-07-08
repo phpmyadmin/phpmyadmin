@@ -13,8 +13,6 @@ class PMA_pChart_single_bar extends PMA_pChart_single
     {
         // Draw the bar chart
         $this->chart->drawStackedBarGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),70);
-        //$this->chart->drawLineGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription());
-        //$this->chart->drawPlotGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),4,2,-1,-1,-1,TRUE);
     }
 }
 
