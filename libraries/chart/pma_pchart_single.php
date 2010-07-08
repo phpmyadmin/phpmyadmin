@@ -20,8 +20,10 @@ abstract class PMA_pChart_single extends PMA_pChart_chart
         // Dataset definition
         $this->dataSet->AddPoint($values[1], "Values");
         $this->dataSet->AddPoint($values[0], "Keys");
-        $this->dataSet->AddAllSeries();
-        //$DataSet->RemoveSerie("Serie3");
+        
+        //$this->dataSet->AddAllSeries();
+        $this->dataSet->AddSerie("Values");
+
         $this->dataSet->SetAbsciseLabelSerie("Keys");
 
         $xLabel = $this->getXLabel();
@@ -35,8 +37,6 @@ abstract class PMA_pChart_single extends PMA_pChart_chart
             $yLabel = $keys[1];
         }
         $this->dataSet->SetYAxisName($yLabel);
-        //$DataSet->SetYAxisUnit("°C");
-        //$DataSet->SetXAxisUnit("h");
     }
 }
 

@@ -91,7 +91,7 @@ $url_params['reload'] = 1;
         <td><input type="text" name="chartSettings[title]" id="title" value="<?php echo $chartSettings['title']; ?>" /></td>
     </tr>
 
-    <?php if ($chartSettings['type'] != 'pie') { ?>
+    <?php if ($chartSettings['type'] != 'pie' && $chartSettings['type'] != 'radar') { ?>
     <tr><td><label for="xLabel"><?php echo __("X Axis label"); ?></label></td>
         <td><input type="text" name="chartSettings[xLabel]" id="xLabel" value="<?php echo $chartSettings['xLabel']; ?>" /></td>
     </tr>
@@ -125,6 +125,7 @@ $url_params['reload'] = 1;
         <td>
             <input type="radio" name="chartSettings[type]" value="bar" <?php echo ($chartSettings['type'] == 'bar' ? 'checked' : ''); ?>>Bar
             <input type="radio" name="chartSettings[type]" value="line" <?php echo ($chartSettings['type'] == 'line' ? 'checked' : ''); ?>>Line
+            <input type="radio" name="chartSettings[type]" value="radar" <?php echo ($chartSettings['type'] == 'radar' ? 'checked' : ''); ?>>Radar
             <?php if ($chartSettings['multi'] == false) { ?>
             <input type="radio" name="chartSettings[type]" value="pie" <?php echo ($chartSettings['type'] == 'pie' ? 'checked' : ''); ?>>Pie
             <?php } ?>

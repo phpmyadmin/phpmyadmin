@@ -8,6 +8,8 @@ require_once './libraries/chart/pma_pchart_multi_bar.php';
 require_once './libraries/chart/pma_pchart_stacked_bar.php';
 require_once './libraries/chart/pma_pchart_single_line.php';
 require_once './libraries/chart/pma_pchart_multi_line.php';
+require_once './libraries/chart/pma_pchart_single_radar.php';
+require_once './libraries/chart/pma_pchart_multi_radar.php';
 
 /**
  * Chart functions used to generate various types
@@ -124,6 +126,9 @@ function PMA_chart_results($data, &$chartSettings)
                 case 'line':
                     $chart = new PMA_pChart_single_line($chartTitle, $chartData, $chartSettings);
                     break;
+                case 'radar':
+                    $chart = new PMA_pChart_single_radar($chartTitle, $chartData, $chartSettings);
+                    break;
             }
         }        
     }
@@ -187,6 +192,9 @@ function PMA_chart_results($data, &$chartSettings)
             
             case 'line':
                 $chart = new PMA_pChart_multi_line($chartTitle, $chartData, $chartSettings);
+                break;
+            case 'radar':
+                $chart = new PMA_pChart_multi_radar($chartTitle, $chartData, $chartSettings);
                 break;
         }
     }
