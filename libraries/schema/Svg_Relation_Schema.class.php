@@ -48,17 +48,17 @@ class PMA_SVG extends XMLWriter
 
     function setTitle($title)
     {
-        $this->title=$title;
+        $this->title = $title;
     }
     
     function setAuthor($author)
     {
-        $this->author=$author;
+        $this->author = $author;
     }
 
     function setFont($font)
     {
-        $this->font=$font;
+        $this->font = $font;
     }
     function getFont()
     {
@@ -67,7 +67,7 @@ class PMA_SVG extends XMLWriter
 
     function setFontSize($fontSize)
     {
-        $this->fontSize=$fontSize;
+        $this->fontSize = $fontSize;
     }
 
     function getFontSize()
@@ -101,7 +101,7 @@ class PMA_SVG extends XMLWriter
         print $output;
     }
 
-    function printElement($name,$x,$y,$width='',$height='',$text='',$styles='')
+    function printElement($name,$x,$y,$width = '',$height = '',$text = '',$styles = '')
     {
         $this->startElement($name);
         $this->writeAttribute('width',$width);
@@ -148,7 +148,7 @@ class PMA_SVG extends XMLWriter
         $count = $count + ((strlen($text) - strlen(str_replace(array("m","M"),"",$text)))*0.84);//mM
         $count = $count + ((strlen($text) - strlen(str_replace("W","",$text)))*.95);//W
         $count = $count + ((strlen($text) - strlen(str_replace(" ","",$text)))*.28);//" "
-        $text = str_replace(" ","",$text);//remove the " "'s
+        $text  = str_replace(" ","",$text);//remove the " "'s
         $count = $count + (strlen(preg_replace("/[a-z0-9]/i","",$text))*0.3); //all other chrs
 
         $modifier = 1;
@@ -354,14 +354,14 @@ class Table_Stats {
             'fill:none;stroke:black;'
             );
         foreach ($this->fields as $field) {
-                $currentCell+=$this->heightCell;
-                $showColor='none';
+                $currentCell += $this->heightCell;
+                $showColor    = 'none';
                 if ($showColor) {
                     if (in_array($field, $this->primary)) {
-                        $showColor='#0c0';
+                        $showColor = '#0c0';
                     }
                     if ($field == $this->displayfield) {
-                        $showColor='none';
+                        $showColor = 'none';
                     }
                 }
                 $svg->printElement('rect', $this->x,$this->y  + $currentCell,
@@ -408,46 +408,46 @@ class Relation_Stats {
      */
     function __construct($master_table, $master_field, $foreign_table, $foreign_field)
     {
-        $src_pos = $this->_getXy($master_table, $master_field);
+        $src_pos  = $this->_getXy($master_table, $master_field);
         $dest_pos = $this->_getXy($foreign_table, $foreign_field);
         /*
         * [0] is x-left
         * [1] is x-right
         * [2] is y
         */
-        $src_left = $src_pos[0] - $this->wTick;
-        $src_right = $src_pos[1] + $this->wTick;
-        $dest_left = $dest_pos[0] - $this->wTick;
+        $src_left   = $src_pos[0] - $this->wTick;
+        $src_right  = $src_pos[1] + $this->wTick;
+        $dest_left  = $dest_pos[0] - $this->wTick;
         $dest_right = $dest_pos[1] + $this->wTick;
 
         $d1 = abs($src_left - $dest_left);
         $d2 = abs($src_right - $dest_left);
         $d3 = abs($src_left - $dest_right);
         $d4 = abs($src_right - $dest_right);
-        $d = min($d1, $d2, $d3, $d4);
+        $d  = min($d1, $d2, $d3, $d4);
 
         if ($d == $d1) {
-            $this->xSrc = $src_pos[0];
-            $this->srcDir = -1;
-            $this->xDest = $dest_pos[0];
+            $this->xSrc    = $src_pos[0];
+            $this->srcDir  = -1;
+            $this->xDest   = $dest_pos[0];
             $this->destDir = -1;
         } elseif ($d == $d2) {
-            $this->xSrc = $src_pos[1];
-            $this->srcDir = 1;
-            $this->xDest = $dest_pos[0];
+            $this->xSrc    = $src_pos[1];
+            $this->srcDir  = 1;
+            $this->xDest   = $dest_pos[0];
             $this->destDir = -1;
         } elseif ($d == $d3) {
-            $this->xSrc = $src_pos[0];
-            $this->srcDir = -1;
-            $this->xDest = $dest_pos[1];
+            $this->xSrc    = $src_pos[0];
+            $this->srcDir  = -1;
+            $this->xDest   = $dest_pos[1];
             $this->destDir = 1;
         } else {
-            $this->xSrc = $src_pos[1];
-            $this->srcDir = 1;
-            $this->xDest = $dest_pos[1];
+            $this->xSrc    = $src_pos[1];
+            $this->srcDir  = 1;
+            $this->xDest   = $dest_pos[1];
             $this->destDir = 1;
         }
-        $this->ySrc = $src_pos[2];
+        $this->ySrc   = $src_pos[2];
         $this->y_dest = $dest_pos[2];
     }
 
@@ -480,7 +480,7 @@ class Relation_Stats {
         global $svg;
 
         if ($changeColor) {
-            $listOfColors=array(
+            $listOfColors = array(
                 'red',
                 'grey',
                 'black',
@@ -554,10 +554,10 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     {
         global $svg,$db,$pdf_page_number,$show_info,$show_table_dimension,$show_color,$change_color,$all_table_same_wide;
 
-        $pdf_page_number            =  isset($pdf_page_number) ? $pdf_page_number : 1;
+        $pdf_page_number        =  isset($pdf_page_number) ? $pdf_page_number : 1;
         $show_info              = (isset($show_table_dimension) && $show_table_dimension == 'on') ? 1 : 0;
         $all_table_same_wide    = (isset($all_table_same_wide) && $all_table_same_wide == 'on') ? 1 : 0;
-        $change_color             = (isset($show_color) && $show_color == 'on') ? 1 : 0;
+        $change_color           = (isset($show_color) && $show_color == 'on') ? 1 : 0;
         $show_keys              = (isset($show_keys) && $show_keys == 'on') ? 1 : 0;
         $svg = new PMA_SVG();
         $this->setSameWidthTables($all_table_same_wide);
@@ -566,7 +566,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $svg->setFont('Arial');
         $svg->setFontSize('16px');
         $svg->startSvgDoc('1000px','600px');
-        $alltables=$this->getAllTables($db,$pdf_page_number);
+        $alltables = $this->getAllTables($db,$pdf_page_number);
 
         foreach ($alltables AS $table) {
             if (!isset($this->tables[$table])) {
