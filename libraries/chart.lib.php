@@ -81,6 +81,12 @@ function PMA_chart_results($data, &$chartSettings)
         $chartSettings['barType'] = 'stacked';
     }
 
+    // default for legend
+    $chartSettings['legend'] = false;
+
+    // default for muti series
+    $chartSettings['multi'] = false;
+
     if (!isset($data[0])) {
         // empty data
         return __('No data found for the chart.');
@@ -90,29 +96,42 @@ function PMA_chart_results($data, &$chartSettings)
         // Two columns in every row.
         // This data is suitable for a simple bar chart.
 
-        // loop through the rows
-        foreach ($data as $row) {
-            // loop through the columns in the row
-            foreach ($row as $key => $value) {
-                $chartData[$key][] = $value;
+        if ($chartSettings['type'] == 'pie') {
+            // loop through the rows, data for pie chart has to be formated
+            // in a different way then in other charts.
+            foreach ($data as $row) {
+                $values = array_values($row);
+                $chartData[$values[0]] = $values[1];
             }
-        }
 
-        $chartSettings['multi'] = false;
-
-        switch ($chartSettings['type']) {
-            case 'bar':
-            default:
-                $chart = new PMA_pChart_single_bar($chartTitle, $chartData, $chartSettings);
-                break;
-            case 'line':            
-                $chart = new PMA_pChart_single_line($chartTitle, $chartData, $chartSettings);
-                break;
+            $chartSettings['legend'] = true;
+            $chart = new PMA_pChart_pie($chartTitle, $chartData, $chartSettings);
         }
+        else {
+            // loop through the rows
+            foreach ($data as $row) {
+                // loop through the columns in the row
+                foreach ($row as $key => $value) {
+                    $chartData[$key][] = $value;
+                }
+            }
+
+            switch ($chartSettings['type']) {
+                case 'bar':
+                default:
+                    $chart = new PMA_pChart_single_bar($chartTitle, $chartData, $chartSettings);
+                    break;
+                case 'line':
+                    $chart = new PMA_pChart_single_line($chartTitle, $chartData, $chartSettings);
+                    break;
+            }
+        }        
     }
     else if (count($data[0]) == 3) {
         // Three columns (x axis, y axis, series) in every row.
         // This data is suitable for a stacked bar chart.
+        $chartSettings['multi'] = true;
+
         $keys = array_keys($data[0]);
         $xAxisKey = $keys[0];
         $yAxisKey = $keys[1];
@@ -147,7 +166,7 @@ function PMA_chart_results($data, &$chartSettings)
             }
         }
 
-        $chartSettings['multi'] = true;
+        $chartSettings['legend'] = true;
 
         // determine the chart type
         switch ($chartSettings['type']) {

@@ -8,7 +8,7 @@ class PMA_pChart_Pie extends PMA_pChart_multi
     {
         parent::__construct($titleText, $data, $options);
 
-        $this->settings['areaMargins'] = array(20, 20, 20, 10);
+        $this->setAreaMargins(array(20, 20, 20, 10));
     }
 
     protected function prepareDataSet()
@@ -30,10 +30,19 @@ class PMA_pChart_Pie extends PMA_pChart_multi
     {
         parent::drawChart();
 
+         // draw pie chart in the middle of graph area
+        $middleX = ($this->chart->GArea_X1 + $this->chart->GArea_X2) / 2;
+        $middleY = ($this->chart->GArea_Y1 + $this->chart->GArea_Y2) / 2;
+
         $this->chart->drawPieGraph(
                 $this->dataSet->GetData(),
                 $this->dataSet->GetDataDescription(),
-                180,160,120,PIE_PERCENTAGE,FALSE,60,30,10,1);
+                $middleX,
+                // pie graph is skewed. Upper part is shorter than the
+                // lower part. This is why we set an offset to the
+                // Y middle coordiantes.
+                $middleY - 15,
+                120,PIE_PERCENTAGE,FALSE,60,30,10,1);
     }
 
     protected function drawLegend()

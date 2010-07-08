@@ -91,6 +91,7 @@ $url_params['reload'] = 1;
         <td><input type="text" name="chartSettings[title]" id="title" value="<?php echo $chartSettings['title']; ?>" /></td>
     </tr>
 
+    <?php if ($chartSettings['type'] != 'pie') { ?>
     <tr><td><label for="xLabel"><?php echo __("X Axis label"); ?></label></td>
         <td><input type="text" name="chartSettings[xLabel]" id="xLabel" value="<?php echo $chartSettings['xLabel']; ?>" /></td>
     </tr>
@@ -98,6 +99,7 @@ $url_params['reload'] = 1;
     <tr><td><label for="yLabel"><?php echo __("Y Axis label"); ?></label></td>
         <td><input type="text" name="chartSettings[yLabel]" id="yLabel" value="<?php echo $chartSettings['yLabel']; ?>" /></td>
     </tr>
+    <?php } ?>
 
     <tr><td><label for="areaMargins"><?php echo __("Area margins"); ?></label></td>
         <td>
@@ -108,7 +110,7 @@ $url_params['reload'] = 1;
         </td>
     </tr>
 
-    <?php if (isset($chartSettings['multi']) && $chartSettings['multi'] == true) { ?>
+    <?php if ($chartSettings['legend'] == true) { ?>
     <tr><td><label for="legendMargins"><?php echo __("Legend margins"); ?></label></td>
         <td>
             <input type="text" name="chartSettings[legendMargins][]" size="2" value="<?php echo $chartSettings['legendMargins'][0]; ?>" />
@@ -123,6 +125,9 @@ $url_params['reload'] = 1;
         <td>
             <input type="radio" name="chartSettings[type]" value="bar" <?php echo ($chartSettings['type'] == 'bar' ? 'checked' : ''); ?>>Bar
             <input type="radio" name="chartSettings[type]" value="line" <?php echo ($chartSettings['type'] == 'line' ? 'checked' : ''); ?>>Line
+            <?php if ($chartSettings['multi'] == false) { ?>
+            <input type="radio" name="chartSettings[type]" value="pie" <?php echo ($chartSettings['type'] == 'pie' ? 'checked' : ''); ?>>Pie
+            <?php } ?>
         </td>
     </tr>
 
