@@ -120,6 +120,21 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     }
     echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />'."\n";
     ?>
+
+    <div class="exportoptions" id="header">
+        <h2>
+            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_import.png" />
+            <?php
+            if($import_type == 'server') {
+                echo __('Importing into the current server');
+            } elseif($import_type == 'database') {
+                echo __('Importing into the database "' . $db . '"');
+            } else {
+                echo __('Importing into the table "' . $table . '"');
+            }?>
+        </h2>
+    </div>
+
     <div class="importoptions">
         <h3><?php echo __('File to Import:'); ?></h3>
         <?php
