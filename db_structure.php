@@ -361,7 +361,7 @@ foreach ($tables as $keyname => $each_table) {
             $do = true;
         }
         foreach ($server_slave_Wild_Do_Table as $table) {
-            if (($db == PMA_replication_strout($table)) && (ereg("^".substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true))-1), $truename)))
+            if (($db == PMA_replication_strout($table)) && (preg_match("@^" . substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true)) - 1) . "@", $truename)))
                 $do = true;
         }
         ////////////////////////////////////////////////////////////////////
@@ -369,7 +369,7 @@ foreach ($tables as $keyname => $each_table) {
             $ignored = true;
         }
         foreach ($server_slave_Wild_Ignore_Table as $table) {
-            if (($db == PMA_replication_strout($table)) && (ereg("^".substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true))-1), $truename)))
+            if (($db == PMA_replication_strout($table)) && (preg_match("@^" . substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true)) - 1) . "@", $truename)))
                 $ignored = true;
         }
     }/* elseif ($server_master_status) {
