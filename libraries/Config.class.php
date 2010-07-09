@@ -416,7 +416,7 @@ class PMA_Config
     }
 
     /**
-     * loads user preferences and merges them with current config
+     * Loads user preferences and merges them with current config
      * must be called after control connection has been estabilished
      *
      * @uses $GLOBALS['cfg']
@@ -443,6 +443,7 @@ class PMA_Config
                 $prefs = PMA_load_userprefs();
                 $_SESSION['cache']['userprefs'] = PMA_apply_userprefs($prefs['config_data']);
                 $_SESSION['cache']['userprefs_mtime'] = $prefs['mtime'];
+                $_SESSION['cache']['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache']['config_mtime'] = $config_mtime;
             }
         } else if (!isset($_SESSION['cache']['userprefs'])) {
@@ -450,12 +451,11 @@ class PMA_Config
             return;
         }
         $config_data = $_SESSION['cache']['userprefs'];
-        // todo: check for empty user data, user_preferences should then be true
+        // type id 'db' or 'session'
+        $this->set('user_preferences', $_SESSION['cache']['userprefs_type']);
         if (!$config_data) {
-            $this->set('user_preferences', false);
             return false;
         }
-        $this->set('user_preferences', true);
 
         // backup some settings
         $fontsize = $this->get('fontsize');
@@ -511,13 +511,15 @@ class PMA_Config
     function setUserValue($cookie_name, $cfg_path, $new_cfg_value, $default_value = null)
     {
         // use permanent user preferences if possible
-        if ($this->get('user_preferences')) {
+        $prefs_type = $this->get('user_preferences');
+        if ($prefs_type) {
             require_once './libraries/user_preferences.lib.php';
             if ($default_value === null) {
                 $default_value = PMA_array_read($cfg_path, $this->default);
             }
             PMA_persist_option($cfg_path, $new_cfg_value, $default_value);
-        } else if ($cookie_name) {
+        }
+        if ($prefs_type != 'db' && $cookie_name) {
             // fall back to cookies
             if ($default_value === null) {
                 $default_value = PMA_array_read($cfg_path, $this->settings);
@@ -538,8 +540,9 @@ class PMA_Config
     function getUserValue($cookie_name, $cfg_value)
     {
         $cookie_exists = isset($_COOKIE) && !empty($_COOKIE[$cookie_name]);
-        if ($this->get('user_preferences')) {
-            // user preferences value exists, remove cookie
+        $prefs_type = $this->get('user_preferences');
+        if ($prefs_type == 'db') {
+            // permanent user preferences value exists, remove cookie
             if ($cookie_exists) {
                 $this->removeCookie($cookie_name);
             }

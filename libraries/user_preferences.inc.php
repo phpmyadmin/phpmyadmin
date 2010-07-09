@@ -74,6 +74,11 @@ $arr2 .= '<br />Blacklist: ' . (empty($cfg['UserprefsDisallow'])
 $msg = PMA_Message::notice('Debug: ' . $arr2);
 $msg->display();
 
+// warn about using session storage for settings
+$msg = __('Your preferences will be saved only for current session. Storing them permanently requires %s pmadb %s.');
+$msg = PMA_sanitize(sprintf($msg, '[a@http://wiki.phpmyadmin.net/pma/pmadb@_blank]', '[/a]'));
+PMA_Message::notice($msg)->display();
+
 if (isset($error) && $error) {
     if (!$error instanceof PMA_Message) {
         $error = PMA_Message::error($error);

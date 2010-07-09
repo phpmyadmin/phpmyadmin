@@ -1217,7 +1217,7 @@ code.sql {
 .group-cnt {
     padding: 0 0 0 0.5em;
     display: inline-block;
-    width: 100%;
+    width: 98%;
 }
 
 /* for elements that should be revealed only via js */

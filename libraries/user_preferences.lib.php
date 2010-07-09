@@ -12,7 +12,9 @@
  * Returns false or an array:
  * * config_data - path => value pairs
  * * mtime - last modification time
+ * * type - 'db' (config read from pmadb) or 'session' (read from user session)
  *
+ * @uses $_SESSION['userconfig']
  * @uses PMA_array_merge_recursive
  * @uses PMA_backquote()
  * @uses PMA_DBI_fetch_single_row()
@@ -25,8 +27,18 @@ function PMA_load_userprefs()
 {
     $cfgRelation = PMA_getRelationsParam();
     if (!$cfgRelation['userconfigwork']) {
-        return false;
+        // no pmadb table, use session storage
+        if (!isset($_SESSION['userconfig'])) {
+            $_SESSION['userconfig'] = array(
+                'db' => array(),
+                'ts' => time());
+        }
+        return array(
+            'config_data' => $_SESSION['userconfig']['db'],
+            'mtime' => $_SESSION['userconfig']['ts'],
+            'type' => 'session');
     }
+    // load configuration from pmadb
     $query_table = PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['userconfig']);
     $query = '
         SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts
@@ -39,7 +51,8 @@ function PMA_load_userprefs()
     $config_data = unserialize($row['config_data']);
     return array(
         'config_data' => $config_data,
-        'mtime' => $row['ts']);
+        'mtime' => $row['ts'],
+        'type' => 'db');
 }
 
 /**
@@ -47,6 +60,7 @@ function PMA_load_userprefs()
  *
  * @uses $GLOBALS['controllink']
  * @uses $_SESSION['cache']['userprefs']
+ * @uses $_SESSION['userconfig']
  * @uses ConfigFile::getConfigArray()
  * @uses ConfigFile::getInstance()
  * @uses PMA_backquote()
@@ -64,8 +78,18 @@ function PMA_load_userprefs()
 function PMA_save_userprefs(array $config_array)
 {
     $cfgRelation = PMA_getRelationsParam();
-    $config_data = serialize($config_array);
+    if (!$cfgRelation['userconfigwork']) {
+        // no pmadb table, use session storage
+        $_SESSION['userconfig'] = array(
+            'db' => $config_array,
+            'ts' => time());
+        if (isset($_SESSION['cache']['userprefs'])) {
+           unset($_SESSION['cache']['userprefs']);
+        }
+        return true;
+    }
 
+    // save configuration to pmadb
     $query_table = PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['userconfig']);
     $query = '
         SELECT `username`
@@ -73,6 +97,7 @@ function PMA_save_userprefs(array $config_array)
           WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
 
     $has_config = PMA_DBI_fetch_value($query, 0, 0, $GLOBALS['controllink']);
+    $config_data = serialize($config_array);
     if ($has_config) {
         $query = '
             UPDATE ' . $query_table . '
