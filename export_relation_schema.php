@@ -71,7 +71,7 @@ if ($cfgRelation['pdfwork']) {
     * User object created for presenting the HTML options
     * so, user can interact with it and perform export of relations schema
     */
-	
+    
     require_once './libraries/schema/User_Schema.class.php';
     $user_schema = new PMA_User_Schema();
 
@@ -98,7 +98,7 @@ if ($cfgRelation['pdfwork']) {
      * Create a new page where relations will be drawn 
      */
 
-    $user_schema->createPage();
+    $user_schema->createPage($db);
 
     /**
      * After selection of page or creating a page 
@@ -110,8 +110,8 @@ if ($cfgRelation['pdfwork']) {
 
     if (isset($do)
     && ($do == 'edcoord'
-       || ($do == 'selectpage' && isset($chpage) && $chpage != 0)
-       || ($do == 'createpage' && isset($chpage) && $chpage != 0))) {
+       || ($do == 'selectpage' && isset($user_schema->choosenPage) && $user_schema->choosenPage != 0)
+       || ($do == 'createpage' && isset($user_schema->choosenPage) && $user_schema->choosenPage != 0))) {
 
       /** 
        * show Export schema generation options
@@ -119,12 +119,12 @@ if ($cfgRelation['pdfwork']) {
        $user_schema->displaySchemaGenerationOptions();
 
         if ((isset($showwysiwyg) && $showwysiwyg == '1')) {
-			?>
-			<script type="text/javascript">
-			//<![CDATA[
-			ToggleDragDrop('pdflayout');
-			//]]>
-			</script>
+            ?>
+            <script type="text/javascript">
+            //<![CDATA[
+            ToggleDragDrop('pdflayout');
+            //]]>
+            </script>
             <?php
       }
     } // end if
