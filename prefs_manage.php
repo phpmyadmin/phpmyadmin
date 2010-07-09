@@ -31,7 +31,9 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
 } else if (isset($_POST['submit_get_json'])) {
     $settings = PMA_load_userprefs();
     header('Content-Type: application/json');
-    echo json_encode(array('prefs' => json_encode($settings['config_data'])));
+    echo json_encode(array(
+        'prefs' => json_encode($settings['config_data']),
+        'mtime' => $settings['mtime']));
     return;
 } else if (isset($_POST['submit_import'])) {
     // load from JSON file
@@ -124,7 +126,7 @@ require_once './libraries/user_preferences.inc.php';
 ?>
 <script type="text/javascript">
 <?php
-PMA_printJsValue("PMA_messages['strPrefsSaved']", __('Settings have been saved'));
+PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: __DATE__'));
 ?>
 </script>
 <div id="maincontainer">
@@ -151,6 +153,9 @@ PMA_printJsValue("PMA_messages['strPrefsSaved']", __('Settings have been saved')
                 <div id="opts_import_local_storage" style="display:none">
                     <span class="localStorage-supported">
                         <?php echo __('Settings will be imported from your browser\'s local storage.') ?>
+                        <span class="localStorage-exists">
+                            <?php echo __('Saved on: __DATE__') ?>
+                        </span>
                         <span class="localStorage-empty">
                             <?php  PMA_Message::notice(__('You have no saved settings!'))->display() ?>
                         </span>

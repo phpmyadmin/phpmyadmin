@@ -654,6 +654,9 @@ $(function() {
     var ls_exists = ls_supported ? (window.localStorage['config'] || false) : false;
     $('.localStorage-'+(ls_supported ? 'un' : '')+'supported').hide();
     $('.localStorage-'+(ls_exists ? 'empty' : 'exists')).hide();
+    if (ls_exists) {
+        updatePrefsDate();
+    }
     $('form.prefs-form').change(function(){
         var form = $(this);
         var disabled = false;
@@ -697,7 +700,10 @@ function savePrefsToLocalStorage(form)
             submit_get_json: true
         },
         success: function(response) {
-            window.localStorage.setItem('config', response.prefs);
+            window.localStorage['config'] = response.prefs;
+            window.localStorage['config_mtime'] = response.mtime;
+            window.localStorage['config_mtime_local'] = (new Date()).toUTCString();
+            updatePrefsDate();
             $('.localStorage-empty').hide();
             $('.localStorage-exists').show();
         },
@@ -705,6 +711,30 @@ function savePrefsToLocalStorage(form)
             submit.attr('disabled', false);
         }
     });
+}
+
+/**
+ * Updates preferences timestamp in Import form
+ */
+function updatePrefsDate()
+{
+    var d = new Date(window.localStorage['config_mtime_local']);
+    var msg = PMA_messages['strSavedOn'].replace('__DATE__', formatDate(d));
+    $('#opts_import_local_storage .localStorage-exists').html(msg);
+}
+
+/**
+ * Returns date formatted as YYYY-MM-DD HH:II
+ *
+ * @param {Date} d
+ */
+function formatDate(d)
+{
+    return d.getFullYear() + '-'
+        + (d.getMonth() < 10 ? '0'+d.getMonth() : d.getMonth())
+        + '-' + (d.getDay() < 10 ? '0'+d.getDay() : d.getDay())
+        + ' ' + (d.getHours() < 10 ? '0'+d.getHours() : d.getHours())
+        + ':' + (d.getMinutes() < 10 ? '0'+d.getMinutes() : d.getMinutes());
 }
 
 //
