@@ -213,9 +213,14 @@ function PMA_chart_results($data, &$chartSettings)
     return $chartCode;
 }
 
+/*
+ * Simple handler of chart errors.
+ */
 function PMA_handle_chart_err($errors)
 {
-    PMA_warnMissingExtension('GD', false, 'GD extension is needed for charts.');
+    if (!empty($errors)) {
+        PMA_warnMissingExtension('GD', false, 'GD extension is needed for charts.');
+    }
 }
 
 ?>
