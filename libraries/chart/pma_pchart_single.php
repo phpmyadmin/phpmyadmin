@@ -28,15 +28,15 @@ abstract class PMA_pChart_single extends PMA_pChart_chart
 
         $xLabel = $this->getXLabel();
         if (empty($xLabel)) {
-            $xLabel = $keys[0];
+            $this->setXLabel($keys[0]);
         }
-        $this->dataSet->SetXAxisName($xLabel);
-
         $yLabel = $this->getYLabel();
         if (empty($yLabel)) {
-            $yLabel = $keys[1];
+            $this->setYLabel($keys[1]);
         }
-        $this->dataSet->SetYAxisName($yLabel);
+
+        $this->dataSet->SetXAxisName($this->getXLabel());
+        $this->dataSet->SetYAxisName($this->getYLabel());
     }
 }
 

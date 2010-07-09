@@ -123,9 +123,19 @@ class PMA_Chart
         return hexdec(substr($this->settings['bgColor'], ($component * 2) + 1, 2));
     }
 
+    protected function setXLabel($label)
+    {
+        $this->settings['xLabel'] = $label;
+    }
+
     protected function getXLabel()
     {
         return $this->settings['xLabel'];
+    }
+
+    protected function setYLabel($label)
+    {
+        $this->settings['yLabel'] = $label;
     }
 
     protected function getYLabel()
