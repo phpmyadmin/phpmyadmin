@@ -35,8 +35,17 @@ abstract class PMA_pChart_multi extends PMA_pChart_chart
         $this->dataSet->RemoveSerie("Keys");
         $this->dataSet->SetAbsciseLabelSerie("Keys");
 
-        $this->dataSet->SetXAxisName($keys[0]);
-        $this->dataSet->SetYAxisName($keys[1]);
+        $xLabel = $this->getXLabel();
+        if (empty($xLabel)) {
+            $this->setXLabel($keys[0]);
+        }
+        $yLabel = $this->getYLabel();
+        if (empty($yLabel)) {
+            $this->setYLabel($keys[1]);
+        }
+
+        $this->dataSet->SetXAxisName($this->getXLabel());
+        $this->dataSet->SetYAxisName($this->getYLabel());
     }
 
     protected function setGraphAreaDimensions()
