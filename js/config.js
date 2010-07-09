@@ -664,8 +664,48 @@ $(function() {
             disabled = true;
         }
         form.find('input[type=submit]').attr('disabled', disabled);
+    }).submit(function(e) {
+        var form = $(this);
+        if (form.attr('name') == 'prefs_export' && $('#export_local_storage')[0].checked) {
+            e.preventDefault();
+            // use AJAX to read JSON settings and save them
+            savePrefsToLocalStorage(form);
+        } else if (form.attr('name') == 'prefs_import' && $('#import_local_storage')[0].checked) {
+            // set 'json' input and submit form
+            form.find('input[name=json]').val(window.localStorage['config']);
+        }
     });
 });
+
+/**
+ * Saves user preferences to localStorage
+ *
+ * @param {Element} form
+ */
+function savePrefsToLocalStorage(form)
+{
+    form = $(form);
+    var submit = form.find('input[type=submit]');
+    //PMA_messages['strPrefsSaved']
+    submit.attr('disabled', true);
+    $.ajax({
+        url: 'prefs_manage.php',
+        cache: false,
+        type: 'POST',
+        data: {
+            token: form.find('input[name=token]').val(),
+            submit_get_json: true
+        },
+        success: function(response) {
+            window.localStorage.setItem('config', response.prefs);
+            $('.localStorage-empty').hide();
+            $('.localStorage-exists').show();
+        },
+        complete: function() {
+            submit.attr('disabled', false);
+        }
+    });
+}
 
 //
 // END: User preferences import/export

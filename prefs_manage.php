@@ -28,6 +28,11 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
     $settings = PMA_load_userprefs();
     echo json_encode($settings['config_data']);
     return;
+} else if (isset($_POST['submit_get_json'])) {
+    $settings = PMA_load_userprefs();
+    header('Content-Type: application/json');
+    echo json_encode(array('prefs' => json_encode($settings['config_data'])));
+    return;
 } else if (isset($_POST['submit_import'])) {
     // load from JSON file
     $json = '';
@@ -117,15 +122,21 @@ $GLOBALS['js_include'][] = 'config.js';
 require_once './libraries/header.inc.php';
 require_once './libraries/user_preferences.inc.php';
 ?>
+<script type="text/javascript">
+<?php
+PMA_printJsValue("PMA_messages['strPrefsSaved']", __('Settings have been saved'));
+?>
+</script>
 <div id="maincontainer">
     <div id="main_pane_left">
         <div class="group">
             <h2><?php echo __('Import') ?></h2>
             <form class="group-cnt prefs-form" name="prefs_import" action="prefs_manage.php" method="post" enctype="multipart/form-data">
-            <?php
-            echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
-            echo PMA_generate_common_hidden_inputs() . "\n";
-            ?>
+                <?php
+                echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+                echo PMA_generate_common_hidden_inputs() . "\n";
+                ?>
+                <input type="hidden" name="json" value="" />
                 <div style="padding-bottom:0.5em">
                     <input type="radio" id="import_text_file" name="import_type" value="text_file" checked="checked" />
                     <label for="import_text_file"><?php echo __('Import from text file') ?></label>
@@ -184,7 +195,7 @@ require_once './libraries/user_preferences.inc.php';
         </div>
         <div class="group">
             <h2><?php echo __('Reset') ?></h2>
-            <form class="group-cnt prefs-form" name="prefs_export" action="prefs_manage.php" method="post">
+            <form class="group-cnt prefs-form" name="prefs_reset" action="prefs_manage.php" method="post">
             <?php echo PMA_generate_common_hidden_inputs() . "\n" ?>
                 <?php echo __('You can reset all your settings and restore them to default values') ?>
                 <br /><br />

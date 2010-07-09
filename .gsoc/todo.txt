@@ -4,3 +4,5 @@ check input escaping, $cfg is no longer safe to use
 
 preference:
 - synchronize language, theme ThemeDefault
+
+allow to import ThemeDefault
