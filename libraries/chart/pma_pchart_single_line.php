@@ -4,9 +4,9 @@ require_once 'pma_pchart_single.php';
 
 class PMA_pChart_single_line extends PMA_pChart_single
 {
-    public function __construct($titleText, $data, $options = null)
+    public function __construct($data, $options = null)
     {
-        parent::__construct($titleText, $data, $options);
+        parent::__construct($data, $options);
     }
 
     protected function drawChart()

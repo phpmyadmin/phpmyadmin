@@ -87,8 +87,8 @@ $url_params['reload'] = 1;
         <td><input type="text" name="chartSettings[height]" id="height" value="<?php echo $chartSettings['height']; ?>" /></td>
     </tr>
 
-    <tr><td><label for="title"><?php echo __("Title"); ?></label></td>
-        <td><input type="text" name="chartSettings[title]" id="title" value="<?php echo $chartSettings['title']; ?>" /></td>
+    <tr><td><label for="titleText"><?php echo __("Title"); ?></label></td>
+        <td><input type="text" name="chartSettings[titleText]" id="titleText" value="<?php echo $chartSettings['titleText']; ?>" /></td>
     </tr>
 
     <?php if ($chartSettings['type'] != 'pie' && $chartSettings['type'] != 'radar') { ?>

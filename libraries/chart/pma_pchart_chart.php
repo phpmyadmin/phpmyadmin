@@ -23,11 +23,10 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
     protected $imageEncoded;
 
-    public function __construct($titleText, $data, $options = null)
+    public function __construct($data, $options = null)
     {
         parent::__construct($options);
 
-        $this->titleText = $titleText;
         $this->data = $data;
 
         $this->settings['fontPath'] = './libraries/chart/pChart/fonts/';
@@ -92,7 +91,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
     protected function drawTitle()
     {
         // Draw the title
-        $this->chart->drawTextBox(0,0,$this->getWidth(),$this->getLabelHeight(),$this->titleText,0,255,255,255,ALIGN_CENTER,TRUE,0,0,0,30);
+        $this->chart->drawTextBox(0,0,$this->getWidth(),$this->getLabelHeight(),$this->getTitleText(),0,255,255,255,ALIGN_CENTER,TRUE,0,0,0,30);
     }
 
     protected function setGraphAreaDimensions()

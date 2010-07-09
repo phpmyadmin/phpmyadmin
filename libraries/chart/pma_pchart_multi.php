@@ -8,9 +8,9 @@ require_once 'pma_pchart_chart.php';
  */
 abstract class PMA_pChart_multi extends PMA_pChart_chart
 {
-    public function __construct($titleText, $data, $options = null)
+    public function __construct($data, $options = null)
     {
-        parent::__construct($titleText, $data, $options);
+        parent::__construct($data, $options);
 
         // as in CSS (top, right, bottom, left)
         $this->setLegendMargins(array(20, 10, 0, 0));

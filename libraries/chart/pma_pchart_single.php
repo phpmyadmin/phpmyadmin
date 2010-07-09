@@ -7,9 +7,9 @@ require_once 'pma_pchart_chart.php';
  */
 abstract class PMA_pChart_single extends PMA_pChart_chart
 {
-    public function __construct($titleText, $data, $options = null)
+    public function __construct($data, $options = null)
     {
-        parent::__construct($titleText, $data, $options);
+        parent::__construct($data, $options);
     }
 
     protected function prepareDataSet()

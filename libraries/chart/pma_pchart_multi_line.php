@@ -4,9 +4,9 @@ require_once 'pma_pchart_multi.php';
 
 class PMA_pChart_multi_line extends PMA_pChart_multi
 {
-    public function __construct($titleText, $data, $options = null)
+    public function __construct($data, $options = null)
     {
-        parent::__construct($titleText, $data, $options);
+        parent::__construct($data, $options);
 
         $this->settings['scale'] = SCALE_NORMAL;
     }

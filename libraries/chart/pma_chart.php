@@ -10,6 +10,12 @@ class PMA_Chart
      * The settings array. All the default values are here.
      */
     protected $settings = array(
+
+        /*
+         * Default title for every chart.
+         */
+        'titleText' => 'Chart',
+
         /*
         * The style of the chart title.
         */
@@ -96,6 +102,11 @@ class PMA_Chart
         }
 
         $this->settings = array_merge($this->settings, $this->userSpecifiedSettings);
+    }
+
+    protected function getTitleText()
+    {
+        return $this->settings['titleText'];
     }
 
     protected function getTitleStyle()

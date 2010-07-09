@@ -4,9 +4,9 @@ require_once 'pma_pchart_multi.php';
 
 class PMA_pChart_Pie extends PMA_pChart_multi
 {
-    public function __construct($titleText, $data, $options = null)
+    public function __construct($data, $options = null)
     {
-        parent::__construct($titleText, $data, $options);
+        parent::__construct($data, $options);
 
         $this->setAreaMargins(array(20, 10, 20, 20));
     }

@@ -32,10 +32,10 @@ function PMA_chart_status($data)
         $chartData[$key] = $value;
     }
     
-    //$chart = new PMA_OFC_Pie(__('Query type'), $chartData, $options);
     $chart = new PMA_pChart_Pie(
-            __('Query statistics'),
-            array_slice($chartData, 0, 18, true));
+            array_slice($chartData, 0, 18, true),
+            array('titleText' => __('Query statistics'))
+    );
     $chartCode = $chart->toString();
     PMA_handle_chart_err($chart->getErrors());
     echo $chartCode;
@@ -54,8 +54,9 @@ function PMA_chart_profiling($data)
     }
 
     $chart = new PMA_pChart_Pie(
-            __('Query execution time comparison (in microseconds)'),
-            array_slice($chartData, 0, 18, true));
+            array_slice($chartData, 0, 18, true),
+            array('titleText' => __('Query execution time comparison (in microseconds)'))
+    );
     $chartCode = $chart->toString();
     PMA_handle_chart_err($chart->getErrors());
     echo $chartCode;
@@ -70,11 +71,8 @@ function PMA_chart_results($data, &$chartSettings)
     $chart = null;
 
     // set default title if not already set
-    if (!empty($chartSettings['title'])) {
-        $chartTitle = $chartSettings['title'];
-    }
-    else {
-        $chartTitle = __('Query results');
+    if (empty($chartSettings['titleText'])) {
+        $chartSettings['titleText'] = __('Query results');
     }
 
     // set default type if not already set
@@ -111,7 +109,7 @@ function PMA_chart_results($data, &$chartSettings)
             }
 
             $chartSettings['legend'] = true;
-            $chart = new PMA_pChart_pie($chartTitle, $chartData, $chartSettings);
+            $chart = new PMA_pChart_pie($chartData, $chartSettings);
         }
         else {
             // loop through the rows
@@ -125,13 +123,13 @@ function PMA_chart_results($data, &$chartSettings)
             switch ($chartSettings['type']) {
                 case 'bar':
                 default:
-                    $chart = new PMA_pChart_single_bar($chartTitle, $chartData, $chartSettings);
+                    $chart = new PMA_pChart_single_bar($chartData, $chartSettings);
                     break;
                 case 'line':
-                    $chart = new PMA_pChart_single_line($chartTitle, $chartData, $chartSettings);
+                    $chart = new PMA_pChart_single_line($chartData, $chartSettings);
                     break;
                 case 'radar':
-                    $chart = new PMA_pChart_single_radar($chartTitle, $chartData, $chartSettings);
+                    $chart = new PMA_pChart_single_radar($chartData, $chartSettings);
                     break;
             }
         }        
@@ -186,19 +184,19 @@ function PMA_chart_results($data, &$chartSettings)
                 switch ($chartSettings['barType']) {
                     case 'stacked':
                     default:
-                        $chart = new PMA_pChart_stacked_bar($chartTitle, $chartData, $chartSettings);
+                        $chart = new PMA_pChart_stacked_bar($chartData, $chartSettings);
                         break;
                     case 'multi':
-                        $chart = new PMA_pChart_multi_bar($chartTitle, $chartData, $chartSettings);
+                        $chart = new PMA_pChart_multi_bar($chartData, $chartSettings);
                         break;
                 }
                 break;
             
             case 'line':
-                $chart = new PMA_pChart_multi_line($chartTitle, $chartData, $chartSettings);
+                $chart = new PMA_pChart_multi_line($chartData, $chartSettings);
                 break;
             case 'radar':
-                $chart = new PMA_pChart_multi_radar($chartTitle, $chartData, $chartSettings);
+                $chart = new PMA_pChart_multi_radar($chartData, $chartSettings);
                 break;
         }
     }
