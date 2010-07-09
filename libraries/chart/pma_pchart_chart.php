@@ -135,7 +135,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
             return '<img id="chart" src="data:image/png;base64,'.$this->imageEncoded.'" />';
         }
         else {
-            $this->errors = 1; // stub
+            array_push($this->errors, ERR_NO_GD);
             return '';
         }
     }

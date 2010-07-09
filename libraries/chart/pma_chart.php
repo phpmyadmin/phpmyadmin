@@ -79,7 +79,7 @@ class PMA_Chart
     /*
      * Error codes will be stored here
      */
-    protected $errors = null;
+    protected $errors = array();
 
     function __construct($options = null)
     {

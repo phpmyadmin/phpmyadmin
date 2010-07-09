@@ -25,7 +25,7 @@ require_once './libraries/common.inc.php';
  */
 require './libraries/db_common.inc.php';
 $url_params['goto'] = $cfg['DefaultTabDatabase'];
-$url_params['back'] = 'tbl_chart.php';
+$url_params['back'] = 'sql.php';
 
 /*
  * Import chart functions
@@ -48,8 +48,16 @@ if (PMA_isValid($_REQUEST['chartSettings'], 'array')) {
     $chartSettings = $_REQUEST['chartSettings'];
 }
 
-// get the chart and settings used to generate chart
-$chart = PMA_chart_results($data, $chartSettings);
+// get the chart and settings and errors after chart generation
+$chartErrors = array();
+$chart = PMA_chart_results($data, $chartSettings, $chartErrors);
+
+if (empty($chartErrors)) {
+    $message = PMA_Message::success(__('Chart generated successfully.'));
+}
+else {
+    $message = PMA_Message::error(__('The result of this query can\'t be used for a chart.'));
+}
 
 /**
  * Displays top menu links
@@ -80,33 +88,33 @@ $url_params['reload'] = 1;
 
     <table>
     <tr><td><label for="width"><?php echo __("Width"); ?></label></td>
-        <td><input type="text" name="chartSettings[width]" id="width" value="<?php echo $chartSettings['width']; ?>" /></td>
+        <td><input type="text" name="chartSettings[width]" id="width" value="<?php echo (isset($chartSettings['width']) ? $chartSettings['width'] : ''); ?>" /></td>
     </tr>
 
     <tr><td><label for="height"><?php echo __("Height"); ?></label></td>
-        <td><input type="text" name="chartSettings[height]" id="height" value="<?php echo $chartSettings['height']; ?>" /></td>
+        <td><input type="text" name="chartSettings[height]" id="height" value="<?php echo (isset($chartSettings['height']) ? $chartSettings['height'] : ''); ?>" /></td>
     </tr>
 
     <tr><td><label for="titleText"><?php echo __("Title"); ?></label></td>
-        <td><input type="text" name="chartSettings[titleText]" id="titleText" value="<?php echo $chartSettings['titleText']; ?>" /></td>
+        <td><input type="text" name="chartSettings[titleText]" id="titleText" value="<?php echo (isset($chartSettings['titleText']) ? $chartSettings['titleText'] : ''); ?>" /></td>
     </tr>
 
     <?php if ($chartSettings['type'] != 'pie' && $chartSettings['type'] != 'radar') { ?>
     <tr><td><label for="xLabel"><?php echo __("X Axis label"); ?></label></td>
-        <td><input type="text" name="chartSettings[xLabel]" id="xLabel" value="<?php echo $chartSettings['xLabel']; ?>" /></td>
+        <td><input type="text" name="chartSettings[xLabel]" id="xLabel" value="<?php echo (isset($chartSettings['xLabel']) ? $chartSettings['xLabel'] : ''); ?>" /></td>
     </tr>
 
     <tr><td><label for="yLabel"><?php echo __("Y Axis label"); ?></label></td>
-        <td><input type="text" name="chartSettings[yLabel]" id="yLabel" value="<?php echo $chartSettings['yLabel']; ?>" /></td>
+        <td><input type="text" name="chartSettings[yLabel]" id="yLabel" value="<?php echo (isset($chartSettings['yLabel']) ? $chartSettings['yLabel'] : ''); ?>" /></td>
     </tr>
     <?php } ?>
 
     <tr><td><label for="areaMargins"><?php echo __("Area margins"); ?></label></td>
         <td>
-            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo $chartSettings['areaMargins'][0]; ?>" />
-            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo $chartSettings['areaMargins'][1]; ?>" />
-            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo $chartSettings['areaMargins'][2]; ?>" />
-            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo $chartSettings['areaMargins'][3]; ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][0]) ? $chartSettings['areaMargins'][0] : ''); ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][1]) ? $chartSettings['areaMargins'][1] : ''); ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][2]) ? $chartSettings['areaMargins'][2] : ''); ?>" />
+            <input type="text" name="chartSettings[areaMargins][]" size="2" value="<?php echo (isset($chartSettings['areaMargins'][3]) ? $chartSettings['areaMargins'][3] : ''); ?>" />
         </td>
     </tr>
 

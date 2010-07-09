@@ -1,5 +1,8 @@
 <?php
 
+define('ERR_NO_GD', 0);
+define('ERR_UNKNOWN_FORMAT', 1);
+
 require_once './libraries/chart/pma_ofc_pie.php';
 
 require_once './libraries/chart/pma_pchart_pie.php';
@@ -65,7 +68,7 @@ function PMA_chart_profiling($data)
 /*
  * Formats a chart for query results page.
  */
-function PMA_chart_results($data, &$chartSettings)
+function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
 {
     $chartData = array();
     $chart = null;
@@ -202,12 +205,15 @@ function PMA_chart_results($data, &$chartSettings)
     }
     else {
         // unknown data
-        return __('Unknown data format.');
+        array_push($chartErrors, ERR_UNKNOWN_FORMAT);
+        return '';
     }
 
     $chartCode = $chart->toString();
     $chartSettings = $chart->getSettings();
-    PMA_handle_chart_err($chart->getErrors());
+    $chartErrors = array_merge($chartErrors, $chart->getErrors());
+    PMA_handle_chart_err($chartErrors);
+    
     return $chartCode;
 }
 
@@ -216,7 +222,7 @@ function PMA_chart_results($data, &$chartSettings)
  */
 function PMA_handle_chart_err($errors)
 {
-    if (!empty($errors)) {
+    if (in_array(ERR_NO_GD, $errors)) {
         PMA_warnMissingExtension('GD', false, 'GD extension is needed for charts.');
     }
 }
