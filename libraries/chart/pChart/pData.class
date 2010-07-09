@@ -52,7 +52,7 @@
 
    function pData()
     {
-     $this->Data                           = "";
+     $this->Data                           = array();
      $this->DataDescription                = "";
      $this->DataDescription["Position"]    = "Name";
      $this->DataDescription["Format"]["X"] = "number";
