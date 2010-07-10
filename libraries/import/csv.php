@@ -101,7 +101,7 @@ if (!$analyze) {
     } else {
         $sql_template .= ' (';
         $fields = array();
-        $tmp   = split(',( ?)', $csv_columns);
+        $tmp   = preg_split('/,( ?)/', $csv_columns);
         foreach ($tmp as $key => $val) {
             if (count($fields) > 0) {
                 $sql_template .= ', ';

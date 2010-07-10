@@ -21,7 +21,7 @@ function Swekey_auth_check()
 	if ($_SESSION['SWEKEY']['ENABLED'] && empty($_SESSION['SWEKEY']['CONF_LOADED'])) {
         $_SESSION['SWEKEY']['CONF_LOADED'] = true;
         $_SESSION['SWEKEY']['VALID_SWEKEYS'] = array();
-        $valid_swekeys = split("\n",@file_get_contents($confFile));
+        $valid_swekeys = explode("\n",@file_get_contents($confFile));
         foreach ($valid_swekeys as $line) {
             if (preg_match("/^[0-9A-F]{32}:.+$/", $line) != false)
 			{

@@ -15,6 +15,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #3024344 [setup] Setup forces numeric MemoryLimit
 - bug #3025975 [auth] Odd LoginCookieValidity default value
 - bug #3026400 [PHP] ereg functions are deprecated
+- bug #3027557 [PHP] split() deprecated in PHP 5.3 (backport fixes from
+master, todo: update PHP excel?)
 
 3.3.4.0 (2010-06-28)
 - bug #2996161 [import] properly escape import value
