@@ -19,7 +19,7 @@ require_once './libraries/tcpdf/tcpdf.php';
 /**
  * Extends the "TCPDF" class and helps
  * in developing the structure of PDF Schema Export
- * *
+ * 
  * @name PMA_PDF
  * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
@@ -685,19 +685,73 @@ class Table_Stats {
 /**
  * Draws relation links
  *
- * @access private
- * @see 
- * @package phpMyAdmin
+ * @access public 
+ * @see PMA_PDF
  */
-class Relation_Stats {
+class Relation_Stats 
+{
     /**
-     * Defines private properties
+     * Defines properties
      */
-    var $x_src, $y_src;
-    var $src_dir ;
-    var $dest_dir;
-    var $x_dest, $y_dest;
-    var $w_tick = 5;
+    public $xSrc, $ySrc;
+    public $srcDir;
+    public $destDir;
+    public $xDest, $yDest;
+    public $wTick = 5;
+
+    /**
+     * The "Relation_Stats" constructor
+     *
+     * @param string master_table The master table name
+     * @param string master_field The relation field in the master table
+     * @param string foreign_table The foreign table name
+     * @param string foreigh_field The relation field in the foreign table
+     * @see Relation_Stats::_getXy
+     */
+    function __construct($master_table, $master_field, $foreign_table, $foreign_field)
+    {
+        $src_pos  = $this->_getXy($master_table, $master_field);
+        $dest_pos = $this->_getXy($foreign_table, $foreign_field);
+        /*
+        * [0] is x-left
+        * [1] is x-right
+        * [2] is y
+        */
+        $src_left   = $src_pos[0] - $this->wTick;
+        $src_right  = $src_pos[1] + $this->wTick;
+        $dest_left  = $dest_pos[0] - $this->wTick;
+        $dest_right = $dest_pos[1] + $this->wTick;
+
+        $d1 = abs($src_left - $dest_left);
+        $d2 = abs($src_right - $dest_left);
+        $d3 = abs($src_left - $dest_right);
+        $d4 = abs($src_right - $dest_right);
+        $d  = min($d1, $d2, $d3, $d4);
+
+        if ($d == $d1) {
+            $this->xSrc    = $src_pos[0];
+            $this->srcDir  = -1;
+            $this->xDest   = $dest_pos[0];
+            $this->destDir = -1;
+        } elseif ($d == $d2) {
+            $this->xSrc    = $src_pos[1];
+            $this->srcDir  = 1;
+            $this->xDest   = $dest_pos[0];
+            $this->destDir = -1;
+        } elseif ($d == $d3) {
+            $this->xSrc    = $src_pos[0];
+            $this->srcDir  = -1;
+            $this->xDest   = $dest_pos[1];
+            $this->destDir = 1;
+        } else {
+            $this->xSrc    = $src_pos[1];
+            $this->srcDir  = 1;
+            $this->xDest   = $dest_pos[1];
+            $this->destDir = 1;
+        }
+        $this->ySrc   = $src_pos[2];
+        $this->yDest = $dest_pos[2];
+    }
 
     /**
      * Gets arrows coordinates
@@ -715,7 +769,8 @@ class Relation_Stats {
     }
 
     /**
-     * Do draws relation links
+     * draws relation links and arrows
+     * shows foreign key relations
      *
      * @param boolean changeColor Whether to use one color per relation or not
      * @param integer i The id of the link to draw
@@ -745,69 +800,22 @@ class Relation_Stats {
             $pdf->SetDrawColor($a * 255 * $e, $b * 255 * $e, $c * 255 * $e);
         } else {
             $pdf->SetDrawColor(0);
-        } // end if... else...
-        $pdf->PMA_PDF_setLineWidthScale(0.2);
-        $pdf->PMA_PDF_lineScale($this->x_src, $this->y_src, $this->x_src + $this->src_dir * $this->w_tick, $this->y_src);
-        $pdf->PMA_PDF_lineScale($this->x_dest + $this->dest_dir * $this->w_tick, $this->y_dest, $this->x_dest, $this->y_dest);
-        $pdf->PMA_PDF_setLineWidthScale(0.1);
-        $pdf->PMA_PDF_lineScale($this->x_src + $this->src_dir * $this->w_tick, $this->y_src, $this->x_dest + $this->dest_dir * $this->w_tick, $this->y_dest);
-        // arrow
-        $root2 = 2 * sqrt(2);
-        $pdf->PMA_PDF_lineScale($this->x_src + $this->src_dir * $this->w_tick * 0.75, $this->y_src, $this->x_src + $this->src_dir * (0.75 - 1 / $root2) * $this->w_tick, $this->y_src + $this->w_tick / $root2);
-        $pdf->PMA_PDF_lineScale($this->x_src + $this->src_dir * $this->w_tick * 0.75, $this->y_src, $this->x_src + $this->src_dir * (0.75 - 1 / $root2) * $this->w_tick, $this->y_src - $this->w_tick / $root2);
-
-        $pdf->PMA_PDF_lineScale($this->x_dest + $this->dest_dir * $this->w_tick / 2, $this->y_dest, $this->x_dest + $this->dest_dir * (0.5 + 1 / $root2) * $this->w_tick, $this->y_dest + $this->w_tick / $root2);
-        $pdf->PMA_PDF_lineScale($this->x_dest + $this->dest_dir * $this->w_tick / 2, $this->y_dest, $this->x_dest + $this->dest_dir * (0.5 + 1 / $root2) * $this->w_tick, $this->y_dest - $this->w_tick / $root2);
-        $pdf->SetDrawColor(0);
-    }
-
-    /**
-     * The "Relation_Stats" constructor
-     *
-     * @param string masterTable The master table name
-     * @param string masterField The relation field in the master table
-     * @param string foreignTable The foreign table name
-     * @param string foreignField The relation field in the foreign table
-     * @see _Relation::_getXy
-     */
-    function __construct($masterTable, $masterField, $foreignTable, $foreignField)
-    {
-        $src_pos = $this->_getXy($masterTable, $masterField);
-        $dest_pos = $this->_getXy($foreignTable, $foreignField);
-        $src_left = $src_pos[0] - $this->w_tick;
-        $src_right = $src_pos[1] + $this->w_tick;
-        $dest_left = $dest_pos[0] - $this->w_tick;
-        $dest_right = $dest_pos[1] + $this->w_tick;
-
-        $d1 = abs($src_left - $dest_left);
-        $d2 = abs($src_right - $dest_left);
-        $d3 = abs($src_left - $dest_right);
-        $d4 = abs($src_right - $dest_right);
-        $d = min($d1, $d2, $d3, $d4);
-
-        if ($d == $d1) {
-            $this->x_src = $src_pos[0];
-            $this->src_dir = -1;
-            $this->x_dest = $dest_pos[0];
-            $this->dest_dir = -1;
-        } elseif ($d == $d2) {
-            $this->x_src = $src_pos[1];
-            $this->src_dir = 1;
-            $this->x_dest = $dest_pos[0];
-            $this->dest_dir = -1;
-        } elseif ($d == $d3) {
-            $this->x_src = $src_pos[0];
-            $this->src_dir = -1;
-            $this->x_dest = $dest_pos[1];
-            $this->dest_dir = 1;
-        } else {
-            $this->x_src = $src_pos[1];
-            $this->src_dir = 1;
-            $this->x_dest = $dest_pos[1];
-            $this->dest_dir = 1;
         }
-        $this->y_src = $src_pos[2];
-        $this->y_dest = $dest_pos[2];
+        $pdf->PMA_PDF_setLineWidthScale(0.2);
+        $pdf->PMA_PDF_lineScale($this->xSrc, $this->ySrc, $this->xSrc + $this->srcDir * $this->wTick, $this->ySrc);
+        $pdf->PMA_PDF_lineScale($this->xDest + $this->destDir * $this->wTick, $this->yDest, $this->xDest, $this->yDest);
+        $pdf->PMA_PDF_setLineWidthScale(0.1);
+        $pdf->PMA_PDF_lineScale($this->xSrc + $this->srcDir * $this->wTick, $this->ySrc, $this->xDest + $this->destDir * $this->wTick, $this->yDest);
+        /*
+		 * Draws arrows ->
+		 */
+        $root2 = 2 * sqrt(2);
+        $pdf->PMA_PDF_lineScale($this->xSrc + $this->srcDir * $this->wTick * 0.75, $this->ySrc, $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick, $this->ySrc + $this->wTick / $root2);
+        $pdf->PMA_PDF_lineScale($this->xSrc + $this->srcDir * $this->wTick * 0.75, $this->ySrc, $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick, $this->ySrc - $this->wTick / $root2);
+
+        $pdf->PMA_PDF_lineScale($this->xDest + $this->destDir * $this->wTick / 2, $this->yDest, $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick, $this->yDest + $this->wTick / $root2);
+        $pdf->PMA_PDF_lineScale($this->xDest + $this->destDir * $this->wTick / 2, $this->yDest, $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick, $this->yDest - $this->wTick / $root2);
+        $pdf->SetDrawColor(0);
     }
 }
 
