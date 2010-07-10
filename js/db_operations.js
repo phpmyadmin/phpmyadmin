@@ -38,7 +38,11 @@ $(document).ready(function() {
                     
                     PMA_ajaxShowMessage(data.message);
                     window.parent.db = data.newname;
-                    $("#topmenucontainer").after(data.sql_query);
+                    $("#topmenucontainer")
+                    .next('div')
+                    .remove()
+                    .end()
+                    .after(data.sql_query);
 
                     $("<span>" + PMA_messages['strReloadDatabase'] + "?</span>").dialog({
                         buttons: button_options

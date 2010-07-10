@@ -265,7 +265,11 @@ $(document).ready(function() {
         $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-                $("#topmenucontainer").after(data.sql_query);
+                $("#topmenucontainer")
+                .next('div')
+                .remove()
+                .end()
+                .after(data.sql_query);
                 $(the_form).find('input:reset').trigger('click');
             }
             else {
