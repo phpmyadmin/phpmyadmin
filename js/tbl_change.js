@@ -247,3 +247,75 @@ function unNullify(urlField, multi_edit)
 
     return true;
 } // end of the 'unNullify()' function
+
+/**
+ * Ajax handlers for this page
+ */
+$(document).ready(function() {
+
+    //Submission of data to be inserted into table
+    $("#insertForm").live('submit', function(event) {
+
+        var the_form = $(this);
+        event.preventDefault();
+
+        PMA_ajaxShowMessage();
+        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                $("#topmenucontainer").after(data.sql_query);
+                $(the_form).find('input:reset').trigger('click');
+            }
+            else {
+                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
+            }
+        })
+    }) // end submission of data to be inserted into table
+
+    //Restart Insertion form
+    $("#insert_rows").live('change', function(event) {
+        event.preventDefault();
+
+        var curr_rows = $(".insertRowTable").length;
+        var target_rows = $("#insert_rows").val();
+
+        if(curr_rows < target_rows ) {
+            while( curr_rows < target_rows ) {
+                var last_row = $("#insertForm").find(".insertRowTable:last");
+                //var name = $(last_row).find('input[name^=fields_name]').attr('name');
+
+                //Clone the insert tables
+                $(last_row)
+                .clone()
+                .insertBefore("#insertForm > fieldset");
+
+                //Insert/Clone the ignore checkboxes
+                if(curr_rows == 1 ) {
+                    $('<input id="insert_ignore_check_1" type="checkbox" name="insert_ignore_check_1" checked="checked" />')
+                    .insertBefore(".insertRowTable:last")
+                    .after('<label for="insert_ignore_check_1">' + PMA_messages['strIgnore'] + '</label>');
+                }
+                else {
+                    $("#insertForm")
+                    .children('input:checkbox:last')
+                    .add('label[for^=insert_ignore_check]:last')
+                    .clone()
+                    .before('<br />')
+                    .insertBefore(".insertRowTable:last");
+                }
+                curr_rows++;
+            }
+        }
+        else if( curr_rows > target_rows) {
+            while(curr_rows > target_rows) {
+                $("input[id^=insert_ignore_check]:last")
+                .nextUntil("fieldset")
+                .andSelf()
+                .remove();
+                curr_rows--;
+            }
+        }
+    })
+}, 'top.frame_content'); //end Ajax handlers
