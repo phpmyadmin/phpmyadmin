@@ -1986,6 +1986,30 @@ $(document).ready(function() {
     })
     //end Drop Procedure
 
+    //Drop Tracking
+    $('.drop_tracking_anchor').live('click', function(event) {
+        event.preventDefault();
+
+        var curr_tracking_row = $(this).parents('tr');
+        var question = PMA_messages['strDeleteTrackingData'];
+
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strDeletingTrackingData']);
+
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $(curr_tracking_row).hide("medium").remove();
+                }
+                else {
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                }
+            })
+        })
+    })
+    //end Drop Tracking
+
 }, 'top.frame_content'); //end $(document).ready() for db_structure.php
 
 /**

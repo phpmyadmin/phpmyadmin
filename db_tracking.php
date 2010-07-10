@@ -11,7 +11,12 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/Table.class.php';
 
-require './libraries/db_common.inc.php';
+//Get some js files needed for Ajax
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+
+if($GLOBALS['is_ajax_request'] != true) {
+    require './libraries/db_common.inc.php';
+}
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 
 // Get the database structure
@@ -25,6 +30,11 @@ require_once './libraries/relation.lib.php';
 //  (here, do not use $_REQUEST['db] as it can be crafted)
 if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
     PMA_Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
+
+    if($GLOBALS['is_ajax_request'] == true) {
+        $message = PMA_Message::success();
+        PMA_ajaxResponse($message, true);
+    }
 }
 
 // Get tracked data about the database
@@ -117,7 +127,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
-            <td><a href="<?php echo $delete_link;?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat(__('Delete tracking data for this table'), false); ?>')"><?php echo $drop_image_or_text; ?></a></td>
+            <td><a class="drop_tracking_anchor" href="<?php echo $delete_link;?>" ><?php echo $drop_image_or_text; ?></a></td>
             <td> <a href="<?php echo $tmp_link; ?>"><?php echo __('Versions');?></a>
                | <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Tracking report');?></a>
                | <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Structure snapshot');?></a></td>

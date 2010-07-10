@@ -31,6 +31,8 @@ $js_messages['strDoYouReally'] = __('Do you really want to ');
 $js_messages['strDropDatabaseStrongWarning'] = __('You are about to DESTROY a complete database!');
 $js_messages['strDroppingEvent'] = __('Dropping Event');
 $js_messages['strDroppingProcedure'] = __('Dropping Procedure');
+$js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table');
+$js_messages['strDeletingTrackingData'] = __('Deleting tracking data');
 
 /* For blobstreaming */
 $js_messages['strBLOBRepositoryDisableStrongWarning'] = __('You are about to DISABLE a BLOB Repository!');
