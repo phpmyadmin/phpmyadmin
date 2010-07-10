@@ -33,6 +33,7 @@ $js_messages['strDroppingEvent'] = __('Dropping Event');
 $js_messages['strDroppingProcedure'] = __('Dropping Procedure');
 $js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table');
 $js_messages['strDeletingTrackingData'] = __('Deleting tracking data');
+$js_messages['strDroppingPrimaryKeyIndex'] = __('Dropping Primary Key/Index');
 
 /* For blobstreaming */
 $js_messages['strBLOBRepositoryDisableStrongWarning'] = __('You are about to DISABLE a BLOB Repository!');

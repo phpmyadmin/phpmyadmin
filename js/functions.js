@@ -2010,6 +2010,30 @@ $(document).ready(function() {
     })
     //end Drop Tracking
 
+    //Drop Primary Key/Index
+    $('.drop_primary_key_index_anchor').live('click', function(event) {
+        event.preventDefault();
+
+        var curr_row = $(this).parents('tr');
+        var question = $(curr_row).children('.drop_primary_key_index_msg').val();
+
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex']);
+
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $(curr_row).hide("medium").remove();
+                }
+                else {
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                }
+            })
+        })
+    })
+    //end Drop Primary Key/Index
+
 }, 'top.frame_content'); //end $(document).ready() for db_structure.php
 
 /**
