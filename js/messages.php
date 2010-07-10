@@ -29,6 +29,7 @@ $js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled
 /* For confirmations */
 $js_messages['strDoYouReally'] = __('Do you really want to ');
 $js_messages['strDropDatabaseStrongWarning'] = __('You are about to DESTROY a complete database!');
+$js_messages['strDroppingEvent'] = __('Dropping Event');
 
 /* For blobstreaming */
 $js_messages['strBLOBRepositoryDisableStrongWarning'] = __('You are about to DISABLE a BLOB Repository!');

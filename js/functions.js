@@ -1804,11 +1804,11 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
                                                     callbackFn.call(this, url);
                                                 }
                                             };
-    button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
+    button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
 
     $('<div id="confirm_dialog"></div>')
     .prepend(question)
-    .dialog({ buttons: button_options });
+    .dialog({buttons: button_options});
 };
 
 /**
@@ -1935,7 +1935,32 @@ $(document).ready(function() {
                 }
             })
         })
+    })//end Add Primary Key
+
+    //Drop Event
+    $('.drop_event_anchor').live('click', function(event) {
+        event.preventDefault();
+
+        var curr_event_row = $(this).parents('tr');
+        var curr_event_name = $(curr_event_row).children('td:first').text();
+        var question = 'DROP EVENT ' + curr_event_name;
+
+        $(this).PMA_confirm(question, $(this).attr('href') , function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strDroppingEvent']);
+
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $(curr_event_row).hide("medium").remove();
+                }
+                else {
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                }
+            })
+        })
     })
+    //end Drop Event
 
 }, 'top.frame_content'); //end $(document).ready() for db_structure.php
 
@@ -1953,7 +1978,7 @@ $(document).ready(function() {
         /* @todo Validate this form! */
 
         var button_options = {};
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove(); }
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
 
         PMA_ajaxShowMessage();
         $(this).append('<input type="hidden" name="ajax_request" value="true" />');
