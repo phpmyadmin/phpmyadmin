@@ -52,9 +52,10 @@ $forms['Left_frame']['Left_frame'] = array(
     'LeftLogoLink',
     'LeftLogoLinkWindow',
     'LeftPointerEnable');
-$forms['Left_frame']['Left_servers'] = array(
+// pmadb is unavailable when these settings are used
+/*$forms['Left_frame']['Left_servers'] = array(
     'LeftDisplayServers',
-    'DisplayServersList');
+    'DisplayServersList');*/
 $forms['Left_frame']['Left_databases'] = array(
     'DisplayDatabasesList',
     'LeftFrameDBTree',

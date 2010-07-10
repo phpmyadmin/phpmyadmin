@@ -78,13 +78,17 @@ function PMA_load_userprefs()
 function PMA_save_userprefs(array $config_array)
 {
     $cfgRelation = PMA_getRelationsParam();
+    $server = isset($GLOBALS['server'])
+        ? $GLOBALS['server']
+        : $GLOBALS['cfg']['ServerDefault'];
+    $cache_key = 'server_' . $server;
     if (!$cfgRelation['userconfigwork']) {
         // no pmadb table, use session storage
         $_SESSION['userconfig'] = array(
             'db' => $config_array,
             'ts' => time());
-        if (isset($_SESSION['cache']['userprefs'])) {
-           unset($_SESSION['cache']['userprefs']);
+        if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
+           unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
         return true;
     }
@@ -109,8 +113,8 @@ function PMA_save_userprefs(array $config_array)
             VALUES (\'' . PMA_sqlAddslashes($cfgRelation['user']) . '\',
                 \'' . PMA_sqlAddslashes($config_data) . '\')';
     }
-    if (isset($_SESSION['cache']['userprefs'])) {
-        unset($_SESSION['cache']['userprefs']);
+    if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
+        unset($_SESSION['cache'][$cache_key]['userprefs']);
     }
     if (!PMA_DBI_try_query($query, $GLOBALS['controllink'])) {
         $message = PMA_Message::error(__('Could not save configuration'));
@@ -219,7 +223,7 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $
             + array_diff_assoc($new_settings, $old_settings));
     $check_keys = array('NaturalOrder', 'MainPageIconic', 'DefaultTabDatabase');
     $check_keys = array_merge($check_keys, $forms['Left_frame']['Left_frame'],
-         $forms['Left_frame']['Left_servers'], $forms['Left_frame']['Left_databases']);
+         $forms['Left_frame']['Left_databases']);
     $diff = array_intersect($check_keys, $diff_keys);
     $refresh_left_frame = !empty($diff);
 

@@ -433,26 +433,30 @@ class PMA_Config
     {
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything avaiable in session cache
-        if (!defined('PMA_MINIMUM_COMMON')) {
+        $server = isset($GLOBALS['server'])
+            ? $GLOBALS['server']
+            : $GLOBALS['cfg']['ServerDefault'];
+        $cache_key = 'server_' . $server;
+        if ($server > 0 && !defined('PMA_MINIMUM_COMMON')) {
             $config_mtime = max($this->default_source_mtime, $this->source_mtime);
             // cache user preferences, use database only when needed
-            if (!isset($_SESSION['cache']['userprefs'])
-                    || $_SESSION['cache']['config_mtime'] < $config_mtime) {
+            if (!isset($_SESSION['cache'][$cache_key]['userprefs'])
+                    || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime) {
                 // load required libraries
                 require_once './libraries/user_preferences.lib.php';
                 $prefs = PMA_load_userprefs();
-                $_SESSION['cache']['userprefs'] = PMA_apply_userprefs($prefs['config_data']);
-                $_SESSION['cache']['userprefs_mtime'] = $prefs['mtime'];
-                $_SESSION['cache']['userprefs_type'] = $prefs['type'];
-                $_SESSION['cache']['config_mtime'] = $config_mtime;
+                $_SESSION['cache'][$cache_key]['userprefs'] = PMA_apply_userprefs($prefs['config_data']);
+                $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
+                $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
+                $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
             }
-        } else if (!isset($_SESSION['cache']['userprefs'])) {
+        } else if ($server == 0 || !isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             $this->set('user_preferences', false);
             return;
         }
-        $config_data = $_SESSION['cache']['userprefs'];
+        $config_data = $_SESSION['cache'][$cache_key]['userprefs'];
         // type id 'db' or 'session'
-        $this->set('user_preferences', $_SESSION['cache']['userprefs_type']);
+        $this->set('user_preferences', $_SESSION['cache'][$cache_key]['userprefs_type']);
         if (!$config_data) {
             return false;
         }

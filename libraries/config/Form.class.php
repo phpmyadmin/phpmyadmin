@@ -95,14 +95,16 @@ class Form
         } else {
             // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
             $has_string_keys = false;
+            $keys = array();
             for ($i = 0; $i < count($value); $i++) {
                 if (!isset($value[$i])) {
                     $has_string_keys = true;
                     break;
                 }
+                $keys[] = is_bool($value[$i]) ? (int)$value[$i] : $value[$i];
             }
             if (!$has_string_keys) {
-                $value = array_combine($value, $value);
+                $value = array_combine($keys, $value);
             }
         }
         // $value has keys and value names, return it
