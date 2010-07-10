@@ -284,12 +284,34 @@ $(document).ready(function() {
         if(curr_rows < target_rows ) {
             while( curr_rows < target_rows ) {
                 var last_row = $("#insertForm").find(".insertRowTable:last");
-                //var name = $(last_row).find('input[name^=fields_name]').attr('name');
 
                 //Clone the insert tables
                 $(last_row)
                 .clone()
-                .insertBefore("#insertForm > fieldset");
+                .insertBefore("#insertForm > fieldset")
+                .find('input[name*=multi_edit],select[name*=multi_edit]')
+                .each(function() {
+
+                    /**
+                     * Extract the index from the name attribute for all input/select fields and increment it
+                     * name is of format funcs[multi_edit][10][<long random string of alphanum chars>]
+                     */
+
+                    var this_name = $(this).attr('name');
+                    //split at [10], so we have the parts that can be concatenated later
+                    var name_parts = this_name.split(/\[\d+\]/);
+                    //extract the [10]
+                    var old_row_index_string = this_name.match(/\[\d+\]/)[0];
+                    //extract 10 - had to split into two steps to accomodate double digits
+                    var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0]);
+
+                    //calculate next index i.e. 11
+                    var new_row_index = old_row_index + 1;
+                    //generate the new name i.e. funcs[multi_edit][11][foobarbaz]
+                    var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
+
+                    $(this).attr('name', new_name);
+                });
 
                 //Insert/Clone the ignore checkboxes
                 if(curr_rows == 1 ) {
@@ -298,10 +320,18 @@ $(document).ready(function() {
                     .after('<label for="insert_ignore_check_1">' + PMA_messages['strIgnore'] + '</label>');
                 }
                 else {
-                    $("#insertForm")
-                    .children('input:checkbox:last')
+                    var last_checkbox = $("#insertForm").children('input:checkbox:last');
+
+                    var last_checkbox_name = $(last_checkbox).attr('name');
+                    var last_checkbox_index = parseInt(last_checkbox_name.match(/\d+/));
+                    var new_name = last_checkbox_name.replace(/\d+/,last_checkbox_index+1);
+
+                    $(last_checkbox)
+                    .clone()
+                    .attr({'id':new_name, 'name': new_name})
                     .add('label[for^=insert_ignore_check]:last')
                     .clone()
+                    .attr('for', new_name)
                     .before('<br />')
                     .insertBefore(".insertRowTable:last");
                 }
