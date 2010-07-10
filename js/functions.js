@@ -1962,6 +1962,30 @@ $(document).ready(function() {
     })
     //end Drop Event
 
+    //Drop Procedure
+    $('.drop_procedure_anchor').live('click', function(event) {
+        event.preventDefault();
+
+        var curr_proc_row = $(this).parents('tr');
+        var question = $(curr_proc_row).children('.drop_procedure_sql').val();
+
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strDroppingProcedure']);
+
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $(curr_event_row).hide("medium").remove();
+                }
+                else {
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                }
+            })
+        })
+    })
+    //end Drop Procedure
+
 }, 'top.frame_content'); //end $(document).ready() for db_structure.php
 
 /**
