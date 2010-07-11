@@ -2034,6 +2034,19 @@ $(document).ready(function() {
     })
     //end Drop Primary Key/Index
 
+    //Calculate Real End for InnoDB
+    $('#real_end_input').live('click', function(event) {
+        event.preventDefault();
+
+        var question = PMA_messages['strOperationTakesLongTime'];
+
+        $(this).PMA_confirm(question, '', function() {
+            return true;
+        })
+        return false;
+    })
+    //end Calculate Real End for InnoDB
+
 }, 'top.frame_content'); //end $(document).ready() for db_structure.php
 
 /**

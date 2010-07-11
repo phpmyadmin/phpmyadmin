@@ -341,9 +341,9 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
 
         // prepare some options for the End button
         if ($is_innodb && $unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
-            $input_for_real_end = '<input type="hidden" name="find_real_end" value="1" />';
+            $input_for_real_end = '<input id="real_end_input" type="hidden" name="find_real_end" value="1" />';
             // no backquote around this message
-            $onclick = ' onclick="return confirmAction(\'' . PMA_jsFormat(__('This operation could take a long time. Proceed anyway?'), false) . '\')"';
+            $onclick = '';
         } else {
             $input_for_real_end = $onclick = '';
         }
