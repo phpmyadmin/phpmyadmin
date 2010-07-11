@@ -98,7 +98,7 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
     $tabs['empty']['args']['reload']    = 1;
     $tabs['empty']['args']['sql_query'] = 'TRUNCATE TABLE ' . PMA_backquote($table);
     $tabs['empty']['args']['zero_rows'] = sprintf(__('Table %s has been emptied'), htmlspecialchars($table));
-    $tabs['empty']['attr']  = 'onclick="return confirmLink(this, \'TRUNCATE TABLE ' . PMA_jsFormat($table) . '\')"';
+    $tabs['empty']['id'] = 'empty_table_anchor';
     $tabs['empty']['args']['goto'] = 'tbl_structure.php';
     $tabs['empty']['class'] = 'caution';
     $tabs['empty']['icon'] = 'b_empty.png';
@@ -131,7 +131,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
     $tabs['drop']['args']['sql_query']  = $drop_command . ' ' . PMA_backquote($table);
     $tabs['drop']['args']['goto']       = 'db_structure.php';
     $tabs['drop']['args']['zero_rows']  = sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table));
-    $tabs['drop']['attr'] = 'onclick="return confirmLink(this, \'' . $drop_command . ' ' . PMA_jsFormat($table) . '\')"';
+    $tabs['drop']['id'] = 'drop_table_anchor';
     unset($drop_command);
     $tabs['drop']['class'] = 'caution';
 }

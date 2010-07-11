@@ -1872,3 +1872,61 @@ $(document).ready(function() {
     }) // end create table form submit button actions
 
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
+
+/**
+ * jQuery coding for Empty Table and Drop Table.  Used wherever libraries/
+ * tbl_links.inc.php is used.
+ */
+$(document).ready(function() {
+
+    //Empty Table
+    $("#empty_table_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        var question = 'TRUNCATE TABLE ' + window.parent.table;
+
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("#topmenucontainer")
+                    .next('div')
+                    .remove()
+                    .end()
+                    .after(data.sql_query);
+                }
+                else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }) // end $.get
+        })
+    }) // end Empty Table
+
+    //Drop Table
+    $("#drop_table_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        var question = 'DROP TABLE/VIEW ' + window.parent.table;
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("#topmenucontainer")
+                    .next('div')
+                    .remove()
+                    .end()
+                    .after(data.sql_query);
+                    window.parent.table = '';
+                    window.parent.refreshNavigation();
+                }
+                else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }) // end $.get
+        })
+    })
+}); //end $(document).ready() for libraries/tbl_links.inc.php
