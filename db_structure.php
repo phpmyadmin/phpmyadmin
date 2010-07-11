@@ -13,6 +13,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/Table.class.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'db_structure.js';
 
 /**
  * Prepares the tables list if the user where not redirected to this script
