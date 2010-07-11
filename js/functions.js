@@ -1929,7 +1929,7 @@ $(document).ready(function() {
             }) // end $.get
         })
     })
-}); //end $(document).ready() for libraries/tbl_links.inc.php
+}, 'top.frame_content'); //end $(document).ready() for libraries/tbl_links.inc.php
 
 /**
  * jQuery coding for Drop Trigger.  Used on tbl_structure.php
@@ -1961,4 +1961,4 @@ $(document).ready(function() {
             }) // end $.get
         })
     })
-}); //end $(document).ready() for Drop Trigger
+}, 'top.frame_content'); //end $(document).ready() for Drop Trigger
