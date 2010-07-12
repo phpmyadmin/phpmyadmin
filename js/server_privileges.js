@@ -102,7 +102,7 @@ function suggestPassword(passwd_form) {
  * Revoke a user
  * Edit privileges
  * Export privileges
- * Paginate table of users - use ajax, replace #usersForm
+ * Paginate table of users
  * Flush privileges
  */
 
@@ -144,6 +144,37 @@ $(document).ready(function() {
                                                                 if($(notice_class).text() == '') {
                                                                     $(notice_class).remove();
                                                                 }
+
+                                                                //Append the newly retrived user to the table now
+
+                                                                //Calculate the index for the new row
+                                                                var curr_last_row = $("#usersForm").find('tbody').find('tr:last');
+                                                                var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+                                                                var curr_last_row_index = parseFloat(curr_last_row_index_string);
+                                                                var new_last_row_index = curr_last_row_index + 1;
+                                                                var new_last_row_id = 'checkbox_sel_users_' + new_last_row_index;
+
+                                                                //Append to the table and set the id/names correctly
+                                                                $(data.new_user_string)
+                                                                .insertAfter($(curr_last_row))
+                                                                .find('input:checkbox')
+                                                                .attr('id', new_last_row_id)
+                                                                .val(function() {
+                                                                    //the insert messes up the &amp;27; part. let's fix it
+                                                                    return $(this).val().replace(/&/,'&amp;');
+                                                                })
+                                                                .end()
+                                                                .find('label')
+                                                                .attr('for', new_last_row_id)
+                                                                .end();
+
+                                                                //Re-check the classes of each row
+                                                                $("#usersForm")
+                                                                .find('tbody').find('tr:odd')
+                                                                .removeClass('even').addClass('odd')
+                                                                .end()
+                                                                .find('tr:even')
+                                                                .removeClass('odd').addClass('even');
                                                             }
                                                             else {
                                                                 PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");

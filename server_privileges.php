@@ -981,8 +981,11 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                         $message = PMA_Message::rawError(PMA_DBI_getError());
                         break;
                     }
-                    $GLOBALS['reload'] = TRUE;
-                    PMA_reloadNavigation();
+
+                    if($GLOBALS['is_ajax_request'] != true) {
+                        $GLOBALS['reload'] = TRUE;
+                        PMA_reloadNavigation();
+                    }
 
                     $q = 'GRANT ALL PRIVILEGES ON '
                         . PMA_backquote(PMA_sqlAddslashes($username)) . '.* TO \''
@@ -1337,33 +1340,6 @@ if (isset($_REQUEST['flush_privileges'])) {
 }
 
 /**
- * If we are in an Ajax request for Create User/Edit User/Revoke User/Flush Privileges,
- * show $message and exit.
- */
-if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUEST['adduser']) && !isset($_REQUEST['initial']) && !isset($_REQUEST['showall']) && !isset($_REQUEST['edit_user_dialog'])) {
-    if(isset($sql_query)) {
-        $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
-    }
-    PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
-}
-
-/**
- * Displays the links
- */
-if (isset($viewing_mode) && $viewing_mode == 'db') {
-    $db = $checkprivs;
-    $url_query .= '&amp;goto=db_operations.php';
-
-    // Gets the database structure
-    $sub_part = '_structure';
-    require './libraries/db_info.inc.php';
-    echo "\n";
-} else {
-    require './libraries/server_links.inc.php';
-}
-
-
-/**
  * defines some standard links
  */
 $link_edit = '<a class="edit_user_anchor" href="server_privileges.php?' . $GLOBALS['url_query']
@@ -1390,6 +1366,68 @@ $link_export = '<a class="export_user_anchor" href="server_privileges.php?' . $G
     . '&amp;export=1">'
     . PMA_getIcon('b_tblexport.png', __('Export'))
     . '</a>';
+
+/**
+ * If we are in an Ajax request for Create User/Edit User/Revoke User/Flush Privileges,
+ * show $message and exit.
+ */
+if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUEST['adduser']) && !isset($_REQUEST['initial']) && !isset($_REQUEST['showall']) && !isset($_REQUEST['edit_user_dialog'])) {
+    if(isset($sql_query)) {
+        $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+    }
+    if(isset($_REQUEST['adduser_submit'])) {
+        //generate html on the fly for the new user that was just created.
+        $new_user_string = '<tr>'."\n"
+                           .'<td> <input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_" value="' . htmlspecialchars($username) . '&amp;#27;' . htmlspecialchars($hostname) . '" /> </td>'."\n"
+                           .'<td><label for="checkbox_sel_users_">' . (empty($username) ? '<span style="color: #FF0000">' . __('Any') . '</span>' : htmlspecialchars($username) ) . '</label></td>' . "\n"
+                           .'<td>' . htmlspecialchars($hostname) . '</td>' . "\n";
+        $new_user_string .= '<td>';
+
+        if(!empty($password) || isset($pma_pw)) {
+            $new_user_string .= __('Yes');
+        }
+        else {
+            $new_user_string .= '<span style="color: #FF0000">' . __('No') . '</span>';
+        };
+
+        $new_user_string .= '</td>'."\n";
+        $new_user_string .= '<td><tt>' . join(', ', PMA_extractPrivInfo()) . '</tt></td>'; //Fill in privileges here
+        $new_user_string .= '<td>';
+
+        if((isset($Grant_priv) && $Grant_priv == 'Y')) {
+            $new_user_string .= __('Yes');
+        }
+        else {
+            $new_user_string .= __('No');
+        }
+
+        $new_user_string .='</td>';
+
+        $new_user_string .= '<td>'.sprintf($link_edit, urlencode($username), urlencode($host), '', '' ).'</td>'."\n";
+        $new_user_string .= '<td>'.sprintf($link_export, urlencode($username), urlencode($hostname), (isset($initial) ? $initial : '')).'</td>'."\n";
+
+        $new_user_string .= '</tr>';
+
+        $extra_data['new_user_string'] = $new_user_string;
+    }
+    PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+}
+
+/**
+ * Displays the links
+ */
+if (isset($viewing_mode) && $viewing_mode == 'db') {
+    $db = $checkprivs;
+    $url_query .= '&amp;goto=db_operations.php';
+
+    // Gets the database structure
+    $sub_part = '_structure';
+    require './libraries/db_info.inc.php';
+    echo "\n";
+} else {
+    require './libraries/server_links.inc.php';
+}
+
 
 /**
  * Displays the page
