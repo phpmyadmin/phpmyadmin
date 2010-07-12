@@ -1434,3 +1434,7 @@ fieldset .group-field th {
 .config-form dd:before {
     content: "\25B8  ";
 }
+
+.click-hide-message {
+    cursor: pointer;
+}

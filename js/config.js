@@ -678,6 +678,12 @@ $(function() {
             form.find('input[name=json]').val(window.localStorage['config']);
         }
     });
+
+    $('.click-hide-message').live('click', function(){
+        var div = $(this);
+        div.hide().parent('.group').css('height', '');
+        div.next('form').show();
+    });
 });
 
 /**
@@ -706,6 +712,10 @@ function savePrefsToLocalStorage(form)
             updatePrefsDate();
             $('.localStorage-empty').hide();
             $('.localStorage-exists').show();
+            var group = form.parent('.group');
+            group.css('height', group.height() + 'px');
+            form.hide('fast');
+            form.prev('.click-hide-message').show('fast');
         },
         complete: function() {
             submit.attr('disabled', false);

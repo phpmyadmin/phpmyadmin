@@ -174,6 +174,12 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: __DATE__'));
     <div id="main_pane_right">
         <div class="group">
             <h2><?php echo __('Export') ?></h2>
+            <div class="click-hide-message group-cnt" style="display:none">
+                <?php
+                $message = PMA_Message::rawSuccess(__('Configuration has been saved'));
+                $message->display();
+                ?>
+            </div>
             <form class="group-cnt prefs-form" name="prefs_export" action="prefs_manage.php" method="post">
             <?php echo PMA_generate_common_hidden_inputs() . "\n" ?>
                 <div style="padding-bottom:0.5em">
