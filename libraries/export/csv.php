@@ -75,10 +75,10 @@ function PMA_exportHeader() {
             // as tested on Windows with Excel 2002 and Excel 2007
             $csv_separator = ';';
             break;
-        case 'max_excel2003':
+        case 'mac_excel2003':
             $csv_separator = ';';
             break;
-        case 'max_excel2008':
+        case 'mac_excel2008':
             $csv_separator = ',';
             break;
         }
