@@ -1438,3 +1438,7 @@ fieldset .group-field th {
 .click-hide-message {
     cursor: pointer;
 }
+
+.prefsmanage_opts {
+    margin-<?php echo $left; ?>: 2em;
+}

@@ -645,8 +645,8 @@ $(function() {
             var hide_id = show_id.match(/local_storage$/)
                 ? show_id.replace(/local_storage$/, 'text_file')
                 : show_id.replace(/text_file$/, 'local_storage');
-        $('#opts_'+hide_id).hide('fast');
-        $('#opts_'+show_id).show('fast');
+        $('#opts_'+hide_id).hide();
+        $('#opts_'+show_id).show();
     });
 
     // detect localStorage state
