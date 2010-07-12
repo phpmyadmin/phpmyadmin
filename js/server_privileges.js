@@ -303,7 +303,7 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage();
 
-        $.get($(this).attr('href'), {'ajax_request' : true}, function(data) {
+        $.get($(this).attr('href'), {'ajax_request' : true, 'random': Math.random()}, function(data) {
             $("#usersForm")
             .hide("medium")
             .siblings("#initials_table")
