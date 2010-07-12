@@ -138,13 +138,19 @@ $(document).ready(function() {
                                                                 .remove()
                                                                 .end()
                                                                 .after(data.sql_query);
+                                                                
+                                                                //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
+                                                                var notice_class = $("#topmenucontainer").next("div").find('.notice');
+                                                                if($(notice_class).text() == '') {
+                                                                    $(notice_class).remove();
+                                                                }
                                                             }
                                                             else {
                                                                 PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
                                                             }
                                                         })
                                                     };
-        button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
 
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
             $('<div id="add_user_dialog"></div>')
@@ -207,7 +213,7 @@ $(document).ready(function() {
         PMA_ajaxShowMessage();
 
         var button_options = {};
-        button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
 
         $.get($(this).attr('href'), {'ajax_request':true, 'edit_user_dialog': true}, function(data) {
             $('<div id="edit_user_dialog"></div>')
@@ -248,7 +254,7 @@ $(document).ready(function() {
         PMA_ajaxShowMessage();
 
         var button_options = {};
-        button_options[PMA_messages['strClose']] = function() { $(this).dialog("close").remove(); }
+        button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
 
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
             $('<div id="export_dialog"></div>')

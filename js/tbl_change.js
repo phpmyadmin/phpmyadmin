@@ -270,6 +270,13 @@ $(document).ready(function() {
                 .remove()
                 .end()
                 .after(data.sql_query);
+
+                //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
+                var notice_class = $("#topmenucontainer").next("div").find('.notice');
+                if($(notice_class).text() == '') {
+                    $(notice_class).remove();
+                }
+
                 $(the_form).find('input:reset').trigger('click');
             }
             else {
