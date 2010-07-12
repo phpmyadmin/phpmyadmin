@@ -1742,6 +1742,11 @@ function PMA_ajaxInsertResponse(divisions_map) {
 
 function PMA_ajaxShowMessage(message, timeout) {
     
+    //Handle the case when a empty data.message is passed.  We don't want the empty message
+    if(message = '') {
+        return true;
+    }
+
     if(!message) {
         var msg = PMA_messages['strLoading'];
     }
