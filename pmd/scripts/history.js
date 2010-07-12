@@ -334,10 +334,52 @@ var rename = function(nrename_to) {
 var aggregate = function(noperator) {
 	var operator;
 	this.set_operator = function(noperator) {
-		operator=noperator;
+		operator = noperator;
 	};
 	this.get_operator = function() {
 		return operator;
 	};
 	this.set_operator(noperator);
 };
+
+function build_query() {
+	var q_select = "SELECT ";
+	var temp;
+	for(i = 0;i < select_field.length; i++) {
+		temp = check_aggregate(select_field[i]);
+		if (temp != "") {
+			q_select += temp;
+			temp = check_rename(select_field[i]);
+			q_select += temp + ",";
+		}
+		else {
+			temp = check_rename(select_field[i]);
+			q_select += select_field[i] + temp +","; 
+		}
+	}
+	q_select = q_select.substring(0,q_select.length - 1); //PDF_save()
+	document.getElementById('hint').innerHTML = q_select;
+	document.getElementById('hint').style.visibility = "visible";
+}
+
+function check_aggregate(id_this) {
+	var i = 0;
+	for(i;i < history_array.length;i++) {
+		var temp = '\'' + history_array[i].get_tab() + '\'.\'' +history_array[i].get_column_name() +'\'';
+		if(temp == id_this && history_array[i].get_type() == "Aggregate") {
+			return history_array[i].get_obj().get_operator() + '(' + id_this +')';
+		}
+	}
+	return "";
+}
+
+function check_rename(id_this) {
+	var i = 0;
+	for (i;i < history_array.length;i++) {
+		var temp = '\'' + history_array[i].get_tab() + '\'.\'' +history_array[i].get_column_name() +'\'';
+		if(temp == id_this && history_array[i].get_type() == "Rename") {
+			return  " AS \'" + history_array[i].get_obj().getrename_to() +"\',";
+		}
+	}
+	return "";
+}

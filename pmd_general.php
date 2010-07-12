@@ -110,7 +110,7 @@ echo $script_tabs . $script_contr . $script_display_field;
             class="M_butt" target="_self"
         ><img title="<?php echo __('Toggle small/big'); ?>" alt="key" src="pmd/images/bottom.png"
         /></a><img class="M_bord" src="pmd/images/bord.png" alt=""
-        /><a href="javascript:PDF_save();" onmousedown="return false;"
+        /><a href="javascript:build_query()" onmousedown="return false;"
             class="M_butt" target="_self"
         ><img src="pmd/images/pdf.png" alt="key" width="20" height="20"
                 title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a>
@@ -272,9 +272,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 	if(isset($_REQUEST['query'])) {
     	echo '<td class="select_all">';
 	    echo '<input value="'.htmlspecialchars($t_n_url).urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'"'; 
-        echo 'type="checkbox" id="select_'.htmlspecialchars($t_n_url).'.'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
+        echo 'type="checkbox" id="select_'.htmlspecialchars($t_n_url).'._'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
  		echo 'style="margin: 0px;" title="select_'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
-		echo 'onclick="store_column(\''.urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]).'.'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'\',\''.htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\')"></td>';
+		echo 'onclick="store_column(\''.urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]).'\',\''.htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\',\''.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'\')"></td>';
 	}?>
     <td width="10px" colspan="3"
         id="<?php echo $t_n_url.".".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>">
@@ -311,10 +311,10 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
    </td>
    <?php 
    if(isset($_REQUEST['query'])) {
-	   $temp = $GLOBALS['PMD_OUT']["OWNER"][$i].'.'.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
+	   //$temp = $GLOBALS['PMD_OUT']["OWNER"][$i].'.'.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
 	   echo '<td class="small_tab_pref" onmouseover="this.className=\'small_tab_pref2\';"';
 	   echo 'onmouseout="this.className=\'small_tab_pref\';"';
-	   echo 'onclick="Click_option(\'pmd_optionse\',\''.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'\',\''.$temp.'\')" >';
+	   echo 'onclick="Click_option(\'pmd_optionse\',\''.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'\',\''.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i].'\')" >';
 	   echo  '<img src="pmd/images/exec_small.png" title="options" alt="" /></td> ';
 	} ?>
 </tr>

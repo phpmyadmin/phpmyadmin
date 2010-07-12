@@ -986,17 +986,28 @@ function Close_option()
 function Select_all(id_this,owner)
 {
 	var parent= document.form1;
-	var len = owner.length + 8;
+	var i;
 	for(i = 0; i < parent.elements.length; i++) {
-		if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0,(7 + id_this.length)) == 'select_' + id_this) {
-				if(document.getElementById('select_all_' + id_this).checked == true) {
-					parent.elements[i].checked = true;
-					store_column(parent.elements[i].id.substring(len),owner);
-				}	
-				else {
-					parent.elements[i].checked = false;
-					store_column(parent.elements[i].id.substring(len),owner);
-				}
+		if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0,(9 + id_this.length)) == 'select_' + id_this + '._') {
+			if(document.getElementById('select_all_' + id_this).checked == true) {
+				parent.elements[i].checked = true;
+				parent.elements[i].disabled = true;
+				var temp = '\'' + id_this.substring(owner.length +1) + '\'.*';
+			}	
+			else {
+				parent.elements[i].checked = false;
+				parent.elements[i].disabled = false;	
+			}
+		}
+	}
+	if(document.getElementById('select_all_' + id_this).checked == true) {
+		select_field.push('\'' + id_this.substring(owner.length +1) + '\'.*');
+	}
+	else {
+		for (i =0; i < select_field.length; i++) {
+			if (select_field[i] == ('\'' + id_this.substring(owner.length +1) + '\'.*')) {
+				select_field.splice(i,1);
+			}
 		}
 	}
 	Re_load();
@@ -1018,14 +1029,14 @@ function Table_onover(id_this,val)
  * In case column is checked it add else it deletes
  *
  */
-function store_column(id_this,owner) {
+function store_column(id_this,owner,col) {
 	var i = 0;
-	if (document.getElementById('select_' + owner + '.' + id_this).checked == true) {
-		select_field.push(id_this);	
+	if (document.getElementById('select_' + owner + '.' + id_this + '._' + col).checked == true) {
+		select_field.push('\'' + id_this + '\'.\'' + col +'\'');	
 	}
 	else {
 		for(i; i < select_field.length ;i++) {
-			if ( select_field[i] == id_this ) {
+			if (select_field[i] == ('\'' + id_this + '\'.\'' + col +'\'')) {
 				select_field.splice(i,1);
 				break;
 			}
