@@ -1080,6 +1080,7 @@ foreach ($rows as $row_id => $vrow) {
                 if ($field['pma_type'] == 'date' || $field['pma_type'] == 'datetime' || substr($field['pma_type'], 0, 9) == 'timestamp') {
                     // the _3 suffix points to the date field
                     // the _2 suffix points to the corresponding NULL checkbox
+                    // in dateFormat, 'yy' means the year with 4 digits
                     ?>
 <script type="text/javascript">
 //<![CDATA[
@@ -1090,6 +1091,7 @@ $(function() {
 		 stepMinutes: 1,
         stepHours: 1,
         <?php echo ($field['pma_type'] == 'date' ? "showTime: false,":"showTime: true,"); ?>
+        dateFormat: 'yy-mm-dd',
 		altTimeField: '',
         constrainInput: false
      });

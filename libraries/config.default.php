@@ -596,7 +596,8 @@ $cfg['Confirm'] = true;
 $cfg['LoginCookieRecall'] = true;
 
 /**
- * validity of cookie login (in seconds)
+ * validity of cookie login (in seconds; 1440 matches php.ini's
+ * session.gc_maxlifetime)
  *
  * @global integer $cfg['LoginCookieValidity']
  */

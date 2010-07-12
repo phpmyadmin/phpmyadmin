@@ -831,8 +831,8 @@ $import_notice = NULL;
  * @uses    SIZES
  * @uses    strcmp()
  * @uses    count()
- * @uses    ereg()
- * @uses    ereg_replace()
+ * @uses    preg_match()
+ * @uses    preg_replace()
  * @uses    PMA_isView()
  * @uses    PMA_backquote()
  * @uses    PMA_importRunQuery()
@@ -903,17 +903,17 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
          *
          * $pattern = 'CREATE (TABLE|VIEW|TRIGGER|FUNCTION|PROCEDURE)';
          */
-        $pattern = 'CREATE .*(TABLE)';
+        $pattern = '/CREATE .*(TABLE)/';
         $replacement = 'CREATE \\1 IF NOT EXISTS';
         
         /* Change CREATE statements to CREATE IF NOT EXISTS to support inserting into existing structures */
         for ($i = 0; $i < $additional_sql_len; ++$i) {
-            $additional_sql[$i] = ereg_replace($pattern, $replacement, $additional_sql[$i]);
+            $additional_sql[$i] = preg_replace($pattern, $replacement, $additional_sql[$i]);
             /* Execute the resulting statements */
             PMA_importRunQuery($additional_sql[$i], $additional_sql[$i]);
         }
     }
-    
+
     if ($analyses != NULL) {
         $type_array = array(NONE => "NULL", VARCHAR => "varchar", INT => "int", DECIMAL => "decimal");
         
@@ -1038,8 +1038,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     
     /* Add the viewable structures from $additional_sql to $tables so they are also displayed */
     
-    $view_pattern = 'VIEW `[^`]+`\.`([^`]+)';
-    $table_pattern = 'CREATE TABLE IF NOT EXISTS `([^`]+)`';
+    $view_pattern = '@VIEW `[^`]+`\.`([^`]+)@';
+    $table_pattern = '@CREATE TABLE IF NOT EXISTS `([^`]+)`@';
     /* Check a third pattern to make sure its not a "USE `db_name`;" statement */
     
     $regs = array();
@@ -1048,10 +1048,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     
     $additional_sql_len = count($additional_sql);
     for ($i = 0; $i < $additional_sql_len; ++$i) {
-        ereg($view_pattern, $additional_sql[$i], $regs);
+        preg_match($view_pattern, $additional_sql[$i], $regs);
         
         if (count($regs) == 0) {
-            ereg($table_pattern, $additional_sql[$i], $regs);
+            preg_match($table_pattern, $additional_sql[$i], $regs);
         }
         
         if (count($regs)) {
