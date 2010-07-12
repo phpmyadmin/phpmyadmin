@@ -27,21 +27,13 @@
     // if media type and BS reference are specified
     if (isset($mediaType) && isset($bsReference))
     {
-        // load PMA configuration
-        $PMA_Config = $GLOBALS['PMA_Config'];
-
-        // if PMA configuration exists
-        if (!empty($PMA_Config))
-        {
-            // retrieve BS server variables from PMA configuration
-            $bs_server = $PMA_Config->get('BLOBSTREAMING_SERVER');
-            if (empty($bs_server)) die('No blob streaming server configured!');
-
-            $bs_file_path = "http://" . $bs_server . '/' . $bsReference;
-
 	    if (isset($customType) && $customType)
-
 		    $bs_file_path = 'bs_disp_as_mime_type.php' . PMA_generate_common_url(array('reference' => $bsReference, 'c_type' => $mediaType));
+		else {
+			// Get the BLOB streaming URL
+			$bs_file_path = PMA_BS_getURL($bsReference);
+			if (empty($bs_file_path)) die('No blob streaming server configured!');
+		}
 
             ?>
 <html>
@@ -69,7 +61,6 @@
     </body>
 </html>
             <?php
-        } // end if (!empty($PMA_Config))
     } // end if (isset($mediaType) && isset($bsReference))
 
 ?>

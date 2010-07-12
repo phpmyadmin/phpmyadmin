@@ -791,18 +791,12 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
     // load PMA configuration
     $PMA_Config = $GLOBALS['PMA_Config'];
 
-    // if PMA configuration exists
-    if (!empty($PMA_Config))
-        $session_bs_tables = $GLOBALS['PMA_Config']->get('BLOBSTREAMING_TABLES');
-
     foreach ($tables as $table_name => $table) {
         // if BS tables exist
-        if (isset($session_bs_tables))
-            // compare table name to tables in list of blobstreaming tables
-            foreach ($session_bs_tables as $table_key=>$table_val)
-                // if table is in list, skip outer foreach loop
-                if ($table_name == $table_key)
-                    continue 2;
+		if (PMA_BS_IsHiddenTable($table_name)) {
+			continue;
+		}
+
 
         // check for correct row count
         if (null === $table['Rows']) {

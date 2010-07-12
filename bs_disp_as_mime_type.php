@@ -9,13 +9,6 @@
  */
 require_once './libraries/common.inc.php';
 
-// load PMA configuration
-$PMA_Config = $GLOBALS['PMA_Config'];
-
-// retrieve BS server variables from PMA configuration
-$bs_server = $PMA_Config->get('BLOBSTREAMING_SERVER');
-if (empty($bs_server)) die('No blob streaming server configured!');
-
 // Check URL parameters
 PMA_checkParameters(array('reference', 'c_type'));
 
@@ -30,7 +23,9 @@ $reference = $_REQUEST['reference'];
  */
 $c_type = preg_replace('/[^A-Za-z0-9/_-]/', '_', $_REQUEST['c_type']);
 
-$filename = 'http://' . $bs_server . '/' . $reference;
+// Get the blob streaming URL
+$filename = PMA_BS_getURL($reference);
+if (empty($filename)) die('No blob streaming server configured!');
 
 $hdrs = get_headers($filename, 1);
 

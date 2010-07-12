@@ -210,10 +210,6 @@ foreach ($loop_array as $rowcount => $where_clause) {
         ? $_REQUEST['auto_increment']['multi_edit'][$rowcount]
         : null;
 
-    if ($blob_streaming_active) {
-        $primary_field = PMA_BS_GetPrimaryField($GLOBALS['db'], $GLOBALS['table']);
-    }
-
     // Fetch the current values of a row to use in case we have a protected field
     // @todo possibly move to ./libraries/tbl_replace_fields.inc.php
     if ($is_insert && $using_key && isset($me_fields_type) && is_array($me_fields_type) && isset($where_clause)) {

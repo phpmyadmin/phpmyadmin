@@ -285,112 +285,24 @@ class PMA_File
         // if request is an upload to the BLOB repository
         if ($is_bs_upload)
         {
-            // load PMA configuration
-            $PMA_Config = $GLOBALS['PMA_Config'];
+			$bs_db = $_REQUEST['db'];
+			$bs_table = $_REQUEST['table'];
+			$tmp_filename = $file['tmp_name'];
+			$tmp_file_type = $file['type'];
 
-            // if PMA configuration is loaded
-            if (!empty($PMA_Config))
-            {
-                // load BS variables from PMA configuration
-                $pluginsExist  = $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST');
-                $curlExists = $PMA_Config->get('CURL_EXISTS');
-                $bs_database = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
-                $bs_database = $bs_database[$_REQUEST['db']];
+			if (!$tmp_file_type)
+				$tmp_file_type = NULL;
 
-                $allBSTablesExist = TRUE;
 
-                // determine if plugins and curl exist
-                if ($pluginsExist && $curlExists)
-                {
-                    foreach ($bs_database as $table_key=>$table)
-                    {
-                        if (!$bs_database[$table_key]['Exists'])
-                        {
-                            $allBSTablesExist = FALSE;
-                            break;
-                        }
-                    }
-                }
-                else
-                    $allBSTablesExist = FALSE;
+			if (!$bs_db || !$bs_table)
+			{
+				$this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+				return FALSE;
+			}
+			$blob_url =  PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
+			PMA_File::setRecentBLOBReference($blob_url);
 
-                // if necessary BS tables exist
-                if ($allBSTablesExist)
-                {
-                    // setup bs variables for uploading
-                    $bs_server = $PMA_Config->get('BLOBSTREAMING_SERVER');
-                    $bs_db = $_REQUEST['db'];
-                    $bs_table = $_REQUEST['table'];
-
-                    // setup file handle and related variables
-                    $tmp_file = fopen($file['tmp_name'], 'r');
-                    $tmp_file_type = $file['type'];
-                    $tmp_file_size = $file['size'];
-
-                    if (!$tmp_file_type)
-                        $tmp_file_type = NULL;
-
-                    // if none of the required variables contain data, return with an unknown error message
-                    if (!$bs_server || !$bs_db || !$bs_table || !$tmp_file || !$tmp_file_size)
-                    {
-                        $this->_error_message = __('Unknown error in file upload.');
-                        return FALSE;
-                    }
-                    else
-                        $bs_server_path = 'http://' . $bs_server . '/' . $bs_db . '/' . $bs_table;
-
-                    // init curl handle
-                    $curlHnd = curl_init ($bs_server_path);
-
-                    // if curl handle init successful
-                    if ($curlHnd)
-                    {
-                        // specify custom header
-                        $customHeader = array(
-                            "Accept-Language: en-us;en;q=0;5",
-                            "Accept-Charset: ISO-8859-1;utf-8;q=0.7,*;q=0.7",
-                            "Content-type: $tmp_file_type"
-                        );
-
-                        // specify CURL options in array
-                        $curlOptArr = array(
-                            CURLOPT_PUT => TRUE,
-                            CURLOPT_HEADER => TRUE,
-                            CURLOPT_HTTPHEADER => $customHeader,
-                            CURLOPT_INFILESIZE => $tmp_file_size,
-                            CURLOPT_INFILE => $tmp_file,
-                            CURLOPT_RETURNTRANSFER => TRUE
-                        );
-
-                        // pass array of options to curl handle setup function
-                        curl_setopt_array($curlHnd, $curlOptArr);
-
-                        // execute curl request and retrieve error message(s) (if any)
-                        $ret = curl_exec($curlHnd);
-                        $errRet = curl_error($curlHnd);
-
-                        // close curl handle
-                        curl_close($curlHnd);
-
-                        // split entire string into array of lines
-                        $retArr = explode("\r\n", $ret);
-
-                        // check each line as a valid string of a BLOB reference
-                        foreach ($retArr as $value)
-                            if (strlen($value) > strlen("~*$bs_db/~") && "~*$bs_db/~" == substr($value, 0, strlen($bs_db) + 4))
-                            {
-                                // is a valid reference, so set as current and break
-                                PMA_File::setRecentBLOBReference($value);
-                                break;
-                            }
-
-                        // close file handle
-                        if ($tmp_file)
-                            fclose($tmp_file);
-                    }   // end if ($curlHnd)
-                }   // end if ($allBSTablesExist)
-            }   // end if ($PMA_Config)
-        }   // end if ($is_bs_upload)
+         }   // end if ($is_bs_upload)
 
         // check for file upload errors
         switch ($file['error']) {
@@ -493,129 +405,40 @@ class PMA_File
                 // is a request to upload file to BLOB repository using uploadDir mechanism
                 if ($is_bs_upload)
                 {
-                    // load PMA configuration
-                    $PMA_Config = $GLOBALS['PMA_Config'];
+					$bs_db = $_REQUEST['db'];
+					$bs_table = $_REQUEST['table'];
+					$tmp_filename = $GLOBALS['cfg']['UploadDir'] . '/' . $_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary];
 
-                    // if the PMA configuration was loaded
-                    if (!empty($PMA_Config))
-                    {
-                        // load BS variables from PMA configuration
-                        $pluginsExist  = $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST');
-                        $curlExists = $PMA_Config->get('CURL_EXISTS');
-                        $bs_database = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
-                        $bs_database = $bs_database[$_REQUEST['db']];
+					// check if fileinfo library exists
+					if ($PMA_Config->get('FILEINFO_EXISTS'))
+					{
+						// attempt to init fileinfo
+						$finfo = finfo_open(FILEINFO_MIME);
 
-                        $allBSTablesExist = TRUE;
+						// fileinfo exists
+						if ($finfo)
+						{
+							// pass in filename to fileinfo and close fileinfo handle after
+							$tmp_file_type = finfo_file($finfo, $tmp_filename);
+							finfo_close($finfo);
+						}
+					}
+					else // no fileinfo library exists, use file command
+						$tmp_file_type = exec("file -bi " . escapeshellarg($tmp_filename));
 
-                        // if plugins and curl exist
-                        if ($pluginsExist && $curlExists)
-                        {
-                            foreach ($bs_database as $table_key=>$table)
-                            {
-                                if (!$bs_database[$table_key]['Exists'])
-                                {
-                                    $allBSTablesExist = FALSE;
-                                    break;
-                                }
-                            }
-                        }
-                        else
-                            $allBSTablesExist = FALSE;
+					if (!$tmp_file_type)
+						$tmp_file_type = NULL;
 
-                        // if necessary BS tables exist
-                        if ($allBSTablesExist)
-                        {
-                            // load BS variables
-                            $bs_server = $PMA_Config->get('BLOBSTREAMING_SERVER');
-                            $bs_db = $_REQUEST['db'];
-                            $bs_table = $_REQUEST['table'];
 
-                            // setup uploadDir mechanism and file variables
-                            $tmp_filename = $GLOBALS['cfg']['UploadDir'] . '/' . $_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary];
-                            $tmp_file = fopen($tmp_filename, 'r');
-                            $tmp_file_size = filesize($tmp_filename);
+					if (!$bs_db || !$bs_table)
+					{
+						$this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+						return FALSE;
+					}
+					$blob_url =  PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
+					PMA_File::setRecentBLOBReference($blob_url);
 
-                            // check if fileinfo library exists
-                            if ($PMA_Config->get('FILEINFO_EXISTS'))
-                            {
-                                // attempt to init fileinfo
-                                $finfo = finfo_open(FILEINFO_MIME);
-
-                                // fileinfo exists
-                                if ($finfo)
-                                {
-                                    // pass in filename to fileinfo and close fileinfo handle after
-                                    $tmp_file_type = finfo_file($finfo, $tmp_filename);
-                                    finfo_close($finfo);
-                                }
-                            }
-                            else // no fileinfo library exists, use file command
-                                $tmp_file_type = exec("file -bi " . escapeshellarg($tmp_filename));
-
-                            if (!$tmp_file_type)
-                                $tmp_file_type = NULL;
-
-                            // necessary variables aren't loaded, return error message (unknown error)
-                            if (!$bs_server || !$bs_db || !$bs_table || !$tmp_file || !$tmp_file_size)
-                            {
-                                $this->_error_message = __('Unknown error in file upload.');
-                                return FALSE;
-                            }
-                            else
-                                $bs_server_path = 'http://' . $bs_server . '/' . $bs_db . '/' . $bs_table;
-
-                            // init curl handle
-                            $curlHnd = curl_init ($bs_server_path);
-
-                            // curl handle exists
-                            if ($curlHnd)
-                            {
-                                // specify custom header
-                                $customHeader = array(
-                                        "Accept-Language: en-us;en;q=0;5",
-                                        "Accept-Charset: ISO-8859-1;utf-8;q=0.7,*;q=0.7",
-                                        "Content-type: $tmp_file_type"
-                                        );
-
-                                // specify custom curl options
-                                $curlOptArr = array(
-                                        CURLOPT_PUT => TRUE,
-                                        CURLOPT_HEADER => TRUE,
-                                        CURLOPT_HTTPHEADER => $customHeader,
-                                        CURLOPT_INFILESIZE => $tmp_file_size,
-                                        CURLOPT_INFILE => $tmp_file,
-                                        CURLOPT_RETURNTRANSFER => TRUE
-                                        );
-
-                                // setup custom curl options (as specified in above array)
-                                curl_setopt_array($curlHnd, $curlOptArr);
-
-                                // execute curl request and retrieve error message(s) (if any)
-                                $ret = curl_exec($curlHnd);
-                                $errRet = curl_error($curlHnd);
-
-                                // close curl handle
-                                curl_close($curlHnd);
-
-                                // split return string into lines
-                                $retArr = explode("\r\n", $ret);
-
-                                // check subsequent lines for valid BLOB reference string
-                                foreach ($retArr as $value)
-                                    if (strlen($value) > strlen("~*$bs_db/~") && "~*$bs_db/~" == substr($value, 0, strlen($bs_db) + 4))
-                                    {
-                                        // is a valid reference, so set as current and break
-                                        PMA_File::setRecentBLOBReference($value);
-                                        break;
-                                    }
-
-                                // close file handle
-                                if ($tmp_file)
-                                    fclose($tmp_file);
-                            }   // end if ($curlHnd)
-                        }   // end if ($allBSTablesExist)
-                    }   // end if ($PMA_Config)
-                }   // end if ($is_bs_upload)
+				}   // end if ($is_bs_upload)
 
                 return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary]);
             } else {
@@ -633,127 +456,36 @@ class PMA_File
             // is a request to upload file to BLOB repository using uploadDir mechanism
             if ($is_bs_upload)
             {
-                // load PMA configuration
-                $PMA_Config = $GLOBALS['PMA_Config'];
+				// check if fileinfo library exists
+				if ($PMA_Config->get('FILEINFO_EXISTS'))
+				{
+					// attempt to init fileinfo
+					$finfo = finfo_open(FILEINFO_MIME);
 
-                // if the PMA configuration was loaded
-                if (!empty($PMA_Config))
-                {
-                    // load BS variables from PMA configuration
-                    $pluginsExist  = $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST');
-                    $curlExists = $PMA_Config->get('CURL_EXISTS');
-                    $bs_database = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
-                    $bs_database = $bs_database[$_REQUEST['db']];
+					// if fileinfo exists
+					if ($finfo)
+					{
+						// pass in filename to fileinfo and close fileinfo handle after
+						$tmp_file_type = finfo_file($finfo, $tmp_filename);
+						finfo_close($finfo);
+					}
+				}
+				else // no fileinfo library exists, use file command
+					$tmp_file_type = exec("file -bi " . escapeshellarg($tmp_filename));
 
-                    $allBSTablesExist = TRUE;
+				if (!$tmp_file_type)
+					$tmp_file_type = NULL;
 
-                    // if plugins and curl exist
-                    if ($pluginsExist && $curlExists)
-                    {
-                        foreach ($bs_database as $table_key=>$table)
-                        {
-                            if (!$bs_database[$table_key]['Exists'])
-                            {
-                                $allBSTablesExist = FALSE;
-                                break;
-                            }
-                        }
-                    }
-                    else
-                        $allBSTablesExist = FALSE;
+			    $bs_db = $_REQUEST['db'];
+				$bs_table = $_REQUEST['table'];
+				if (!$bs_db || !$bs_table)
+				{
+					$this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+					return FALSE;
+				}
+ 				$blob_url =  PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
+				PMA_File::setRecentBLOBReference($blob_url);
 
-                    if ($allBSTablesExist)
-                    {
-                        // load BS variables
-                        $bs_server = $PMA_Config->get('BLOBSTREAMING_SERVER');
-                        $bs_db = $_REQUEST['db'];
-                        $bs_table = $_REQUEST['table'];
-
-                        // setup uploadDir mechanism and file variables
-                        $tmp_filename = $GLOBALS['cfg']['UploadDir'] . '/' . $_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary];
-                        $tmp_file = fopen($tmp_filename, 'r');
-                        $tmp_file_size = filesize($tmp_filename);
-
-                        // check if fileinfo library exists
-                        if ($PMA_Config->get('FILEINFO_EXISTS'))
-                        {
-                            // attempt to init fileinfo
-                            $finfo = finfo_open(FILEINFO_MIME);
-
-                            // if fileinfo exists
-                            if ($finfo)
-                            {
-                                // pass in filename to fileinfo and close fileinfo handle after
-                                $tmp_file_type = finfo_file($finfo, $tmp_filename);
-                                finfo_close($finfo);
-                            }
-                        }
-                        else // no fileinfo library exists, use file command
-                            $tmp_file_type = exec("file -bi " . escapeshellarg($tmp_filename));
-
-                        if (!$tmp_file_type)
-                            $tmp_file_type = NULL;
-
-                        // necessary variables aren't loaded, return error message (unknown error)
-                        if (!$bs_server || !$bs_db || !$bs_table || !$tmp_file || !$tmp_file_size)
-                        {
-                            $this->_error_message = __('Unknown error in file upload.');
-                            return FALSE;
-                        }
-                        else
-                            $bs_server_path = 'http://' . $bs_server . '/' . $bs_db . '/' . $bs_table;
-
-                        // init curl handle
-                        $curlHnd = curl_init ($bs_server_path);
-
-                        // if curl handle exists
-                        if ($curlHnd)
-                        {
-                            // specify custom header
-                            $customHeader = array(
-                                    "Accept-Language: en-us;en;q=0;5",
-                                    "Accept-Charset: ISO-8859-1;utf-8;q=0.7,*;q=0.7",
-                                    "Content-type: $tmp_file_type"
-                                    );
-
-                            // specify custom curl options
-                            $curlOptArr = array(
-                                    CURLOPT_PUT => TRUE,
-                                    CURLOPT_HEADER => TRUE,
-                                    CURLOPT_HTTPHEADER => $customHeader,
-                                    CURLOPT_INFILESIZE => $tmp_file_size,
-                                    CURLOPT_INFILE => $tmp_file,
-                                    CURLOPT_RETURNTRANSFER => TRUE
-                                    );
-
-                            // setup custom curl options (as specified in above array)
-                            curl_setopt_array($curlHnd, $curlOptArr);
-
-                            // execute curl request and retrieve error message(s) (if any)
-                            $ret = curl_exec($curlHnd);
-                            $errRet = curl_error($curlHnd);
-
-                            // close curl handle
-                            curl_close($curlHnd);
-
-                            // split return string into lines
-                            $retArr = explode("\r\n", $ret);
-
-                            // check subsequent lines for valid BLOB reference string
-                            foreach ($retArr as $value)
-                                if (strlen($value) > strlen("~*$bs_db/~") && "~*$bs_db/~" == substr($value, 0, strlen($bs_db) + 4))
-                                {
-                                    // is a valid reference, so set as current and break
-                                    PMA_File::setRecentBLOBReference($value);
-                                    break;
-                                }
-
-                            // close file handle
-                            if ($tmp_file)
-                                fclose($tmp_file);
-                        }   // end if ($curlHnd)
-                    }   // end if ($allBSTablesExist)
-                }   // end if ($PMA_Config)
             }   // end if ($is_bs_upload)
 
             return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal_' . $key]);

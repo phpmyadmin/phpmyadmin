@@ -30,70 +30,21 @@
     $bsNewMIMEType = isset($_REQUEST['bs_new_mime_type']) ? urldecode($_REQUEST['bs_new_mime_type']) : NULL;
 
     // necessary variables exist
-    if ($bsDB && $bsTable && $bsReference && $bsNewMIMEType)
+   if ($bsDB && $bsTable && $bsReference && $bsNewMIMEType)
     {
-        // load PMA configuration
-        $PMA_Config = $GLOBALS['PMA_Config'];
+		if (PMA_BS_SetContentType($bsDB, $bsTable, $bsReference, $bsNewMIMEType)) 
+		{
+			// determine redirector page
+			$newLoc = $cfg['PmaAbsoluteUri'] . 'sql.php?' . PMA_generate_common_url ('','', '&') . (isset($bsDB) ? '&db=' . urlencode($bsDB) : '') . (isset($bsTable) ? '&table=' . urlencode($bsTable) : '') . (isset($token) ? '&token=' . urlencode($token) : '') . (isset($goto) ? '&goto=' . urlencode($goto) : '') . '&reload=1&purge=1';
 
-        // if PMA configuration exists
-        if (!empty($PMA_Config))
-        {
-            // if BS plugins exist
-            if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST'))
-            {
-                $pbms_ref_tbl = $PMA_Config->get('PBMS_NAME') . '_reference';
-                $pbms_cust_content_type_tbl = $PMA_Config->get('PBMS_NAME') . '_custom_content_type';
-
-                // if specified DB is selected
-                if (PMA_DBI_select_db($bsDB))
-                {
-                    $query = "SELECT * FROM " . PMA_backquote($pbms_ref_tbl);
-                    $query .= " WHERE Blob_url='" . PMA_sqlAddslashes($bsReference) . "'";
-
-                    $result = PMA_DBI_query($query);
-
-                    // if record exists
-                    if ($data = PMA_DBI_fetch_assoc($result))
-                    {
-                        $query = "SELECT count(*) FROM " . PMA_backquote($pbms_cust_content_type_tbl);
-			$query .= " WHERE Blob_url='" . PMA_sqlAddslashes($bsReference) . "'";
-
-                        $result = PMA_DBI_query($query);
-
-                        // if record exists
-                        if ($data = PMA_DBI_fetch_assoc($result))
-                        {
-                            if (1 == $data['count(*)'])
-                            {
-                                $query = "UPDATE " . PMA_backquote($pbms_cust_content_type_tbl) . " SET Content_type='";
-                                $query .= PMA_sqlAddslashes($bsNewMIMEType) . "' WHERE Blob_url='" . PMA_sqlAddslashes($bsReference) . "'";
-                            }
-                            else
-                            {
-                                $query = "INSERT INTO " . PMA_backquote($pbms_cust_content_type_tbl) . " (Blob_url, Content_type)";
-                                $query .= " VALUES('" . PMA_sqlAddslashes($bsReference) . "', '" . PMA_sqlAddslashes($bsNewMIMEType) . "')";
-                            }
-
-                            $result = PMA_DBI_query($query);
-
-                            // if query execution succeeded
-                            if ($result)
-                            {
-                                // determine redirector page
-                                $newLoc = $cfg['PmaAbsoluteUri'] . 'sql.php?' . PMA_generate_common_url ('','', '&') . (isset($bsDB) ? '&db=' . urlencode($bsDB) : '') . (isset($bsTable) ? '&table=' . urlencode($bsTable) : '') . (isset($token) ? '&token=' . urlencode($token) : '') . (isset($goto) ? '&goto=' . urlencode($goto) : '') . '&reload=1&purge=1';
-
-                                // redirect to specified page
-                                ?>
-                                <script>
-                                    window.location = "<?php echo $newLoc ?>";
-                                </script>
-                                <?php
-                            } // end if ($result)
-                        } // end if ($data = PMA_DBI_fetch_assoc($result))
-                    } // end if ($data = PMA_DBI_fetch_assoc($result))
-                } // end if (PMA_DBI_select_db($bsDB))
-            } // end if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST'))
-        } // end if (!empty($PMA_Config))
+			// redirect to specified page
+			?>
+			<script>
+				window.location = "<?php echo $newLoc ?>";
+			</script>
+			<?php
+		} // end if ($result)
+		
     } // end if ($bsDB && $bsTable && $bsReference && $bsNewMIMEType)
 
 ?>

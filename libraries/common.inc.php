@@ -788,7 +788,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();
 
-    if (! empty($cfg['Server'])) {
+   if (! empty($cfg['Server'])) {
 
         /**
          * Loads the proper database interface for this server
@@ -797,7 +797,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         require_once './libraries/logging.lib.php';
 
-        // Gets the authentication library that fits the $cfg['Server'] settings
+       // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
 
         // to allow HTTP or http
@@ -809,14 +809,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * the required auth type plugin
          */
         require_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
-
         if (!PMA_auth_check()) {
             PMA_auth();
         } else {
             PMA_auth_set_user();
         }
 
-        // Check IP-based Allow/Deny rules as soon as possible to reject the
+         // Check IP-based Allow/Deny rules as soon as possible to reject the
         // user
         // Based on mod_access in Apache:
         // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
@@ -953,9 +952,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     // checks for blobstreaming plugins and databases that support
     // blobstreaming (by having the necessary tables for blobstreaming)
-    if (checkBLOBStreamingPlugins()) {
-        checkBLOBStreamableDatabases();
-    }
+    checkBLOBStreamingPlugins();
+	
 } // end if !defined('PMA_MINIMUM_COMMON')
 
 // remove sensitive values from session
