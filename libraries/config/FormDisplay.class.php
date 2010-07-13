@@ -528,7 +528,9 @@ class FormDisplay
                         break;
                     case 'array':
                         // eliminate empty values and ensure we have an array
-                        $post_values = explode("\n", $_POST[$key]);
+                        $post_values = is_array($_POST[$key])
+                            ? $_POST[$key]
+                            : explode("\n", $_POST[$key]);
                         $_POST[$key] = array();
                         foreach ($post_values as $v) {
                             $v = trim($v);

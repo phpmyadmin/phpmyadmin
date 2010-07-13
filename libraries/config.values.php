@@ -130,5 +130,6 @@ $cfg_db['_validators'] = array(
     'Servers/1/port' => 'validate_port_number',
     'Servers/1/hide_db' => 'validate_regex',
     'TextareaCols' => 'validate_positive_number',
+    'TextareaRows' => 'validate_positive_number',
     'TrustedProxies' => 'validate_trusted_proxies');
 ?>
