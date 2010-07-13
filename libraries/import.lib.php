@@ -344,28 +344,42 @@ function PMA_getColumnAlphaName($num)
 
 /**
  * Returns the column number based on the Excel name.
- * So "A" = 1, "AZ" = 27, etc.
+ * So "A" = 1, "Z" = 26, "AA" = 27, etc.
  *
- * @author  Derek Schaefer (derek.schaefer@gmail.com)
+ * Basicly this is a base26 (A-Z) to base10 (0-9) conversion.
+ * It iterates through all characters in the column name and
+ * calculates the corresponding value, based on character value
+ * (A = 1, ..., Z = 26) and position in the string.
  *
  * @access  public
  *
  * @uses    strtoupper()
  * @uses    strlen()
- * @uses    count()
  * @uses    ord()
  * @param   string $name (i.e. "A", or "BC", etc.)
  * @return  int The column number
  */
 function PMA_getColumnNumberFromName($name) {
-    if (strlen($name) != 0) {
+    if (!empty($name)) {
         $name = strtoupper($name);
-        $num_chars = count($name);
-        $number = 0;
+        $num_chars = strlen($name);
+        $column_number = 0;
         for ($i = 0; $i < $num_chars; ++$i) {
-            $number += (ord($name[$i]) - 64);
+		// read string from back to front
+		$char_pos = ($num_chars - 1) - $i;
+
+		// convert capital character to ASCII value
+		// and subtract 64 to get corresponding decimal value
+		// ASCII value of "A" is 65, "B" is 66, etc.
+		// Decimal equivalent of "A" is 1, "B" is 2, etc.
+		$number = (ord($name[$char_pos]) - 64);
+
+		// base26 to base10 conversion : multiply each number
+		// with corresponding value of the position, in this case
+		// $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
+		$column_number += $number * pow(26,$i);
         }
-        return $number;
+        return $column_number;
     } else {
         return 0;
     }
