@@ -9,7 +9,7 @@
 /**
  * Loads user preferences
  *
- * Returns false or an array:
+ * Returns an array:
  * * config_data - path => value pairs
  * * mtime - last modification time
  * * type - 'db' (config read from pmadb) or 'session' (read from user session)
@@ -21,7 +21,7 @@
  * @uses PMA_getRelationsParam()
  * @uses PMA_sqlAddslashes()
  * @uses $GLOBALS['controllink']
- * @return false|array
+ * @return array
  */
 function PMA_load_userprefs()
 {
@@ -45,13 +45,9 @@ function PMA_load_userprefs()
         FROM ' . $query_table . '
           WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
     $row = PMA_DBI_fetch_single_row($query, 'ASSOC', $GLOBALS['controllink']);
-    if (!$row) {
-        return false;
-    }
-    $config_data = unserialize($row['config_data']);
     return array(
-        'config_data' => $config_data,
-        'mtime' => $row['ts'],
+        'config_data' => $row ? unserialize($row['config_data']) : array(),
+        'mtime' => $row ? $row['ts'] : time(),
         'type' => 'db');
 }
 
@@ -225,7 +221,8 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $
     $check_keys = array_merge($check_keys, $forms['Left_frame']['Left_frame'],
          $forms['Left_frame']['Left_databases']);
     $diff = array_intersect($check_keys, $diff_keys);
-    $refresh_left_frame = !empty($diff);
+    $refresh_left_frame = !empty($diff)
+            || (isset($params['refresh_left_frame']) && $params['refresh_left_frame']);
 
     // redirect
     $url_params = array(

@@ -455,11 +455,8 @@ class PMA_Config
             return;
         }
         $config_data = $_SESSION['cache'][$cache_key]['userprefs'];
-        // type id 'db' or 'session'
+        // type is 'db' or 'session'
         $this->set('user_preferences', $_SESSION['cache'][$cache_key]['userprefs_type']);
-        if (!$config_data) {
-            return false;
-        }
 
         // backup some settings
         $fontsize = $this->get('fontsize');
@@ -478,10 +475,13 @@ class PMA_Config
         // load/save theme
         // theme cookie exists only if we are using non-default theme
         $tmanager = $_SESSION['PMA_Theme_Manager'];
-        if (isset($_REQUEST['set_theme'])) {
-            // new theme was set in common.inc.php
-            $this->setUserValue(null, 'ThemeDefault', $tmanager->theme->id);
-        } else if (!$tmanager->getThemeCookie()) {
+        if ($tmanager->getThemeCookie()) {
+            if (!isset($config_data['ThemeDefault'])
+                    || $config_data['ThemeDefault'] != $tmanager->theme->getId()) {
+                // new theme was set in common.inc.php
+                $this->setUserValue(null, 'ThemeDefault', $tmanager->theme->getId(), 'original');
+            }
+        } else {
             // no cookie - read default from settings
             if ($this->settings['ThemeDefault'] != $tmanager->theme
                     && $tmanager->checkTheme($this->settings['ThemeDefault'])) {
@@ -489,10 +489,9 @@ class PMA_Config
                 $tmanager->setThemeCookie();
             }
         }
+
         // save new font size
-        // fontsize cookie exists only if we are using a non-default size
-        if (isset($_POST['set_fontsize']) || isset($_COOKIE['pma_fontsize'])) {
-            // cookie with new fontsize exists, save setting to database and remove it
+        if (!isset($config_data['fontsize']) || $fontsize != $config_data['fontsize']) {
             $this->setUserValue('pma_fontsize', 'fontsize', $fontsize, '82%');
         }
     }
@@ -876,10 +875,10 @@ class PMA_Config
     {
         $new_fontsize = '';
 
-        if (isset($_GET['fontsize'])) {
-            $new_fontsize = $_GET['fontsize'];
-        } elseif (isset($_POST['fontsize'])) {
-            $new_fontsize = $_POST['fontsize'];
+        if (isset($_GET['set_fontsize'])) {
+            $new_fontsize = $_GET['set_fontsize'];
+        } elseif (isset($_POST['set_fontsize'])) {
+            $new_fontsize = $_POST['set_fontsize'];
         } elseif (isset($_COOKIE['pma_fontsize'])) {
             $new_fontsize = $_COOKIE['pma_fontsize'];
         }

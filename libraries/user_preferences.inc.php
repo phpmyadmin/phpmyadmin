@@ -58,6 +58,7 @@ if (window.parent && window.parent.frame_navigation) {
 
 $forms_all_keys = PMA_read_userprefs_fieldnames($forms);
 $cf = ConfigFile::getInstance();
+$cf->resetConfigData(); // start with a clean instance
 $cf->setAllowedKeys($forms_all_keys);
 $cf->updateWithGlobalConfig($GLOBALS['PMA_Config']);
 
