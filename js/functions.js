@@ -1870,6 +1870,26 @@ $(document).ready(function() {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
                     $("#create_table_dialog").dialog("close").remove();
+
+                    var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
+
+                    var curr_last_row = $(tables_table).find('tr:last');
+                    var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+                    var curr_last_row_index = parseFloat(curr_last_row_index_string);
+                    var new_last_row_index = curr_last_row_index + 1;
+                    var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
+
+                    $(data.new_table_string)
+                    .find('input:checkbox')
+                    .val(new_last_row_id)
+                    .end()
+                    .appendTo(tables_table);
+
+                    $(tables_table)
+                    .find('tr:even')
+                    .removeClass('odd').addClass('even')
+                    .end().find('tr:odd')
+                    .removeClass('even').addClass('odd');
                 }
                 else {
                     PMA_ajaxShowMessage(data.error);
