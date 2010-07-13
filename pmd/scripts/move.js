@@ -33,6 +33,7 @@ var timeoutID;
 var layer_menu_cur_click = 0;
 var step = 10;
 var old_class;
+var downer;
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
@@ -986,6 +987,7 @@ function Close_option()
 function Select_all(id_this,owner)
 {
 	var parent= document.form1;
+	downer =owner;
 	var i;
 	for(i = 0; i < parent.elements.length; i++) {
 		if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0,(9 + id_this.length)) == 'select_' + id_this + '._') {
@@ -1069,32 +1071,32 @@ function add_object() {
 		}
 		 var p = document.getElementById('Query');
 		 var where_obj = new where(rel.value,p.value);//make where object
-		 history_array.push(new history(col_name,where_obj,tab_name,h_tabs[tab_name],"Where"));
+		 history_array.push(new history(col_name,where_obj,tab_name,h_tabs[downer + '.' + tab_name],"Where"));
 		 sum = sum + 1;
 		 rel.value = '--';
 		 p.value = "";
 	}
 	if (document.getElementById('new_name').value !="") {
 		var rename_obj = new rename(document.getElementById('new_name').value);//make Rename object
-		history_array.push(new history(col_name,rename_obj,tab_name,h_tabs[tab_name],"Rename"));
+		history_array.push(new history(col_name,rename_obj,tab_name,h_tabs[downer + '.' + tab_name],"Rename"));
 		sum = sum + 1;
 		document.getElementById('new_name').value = "" ;
 	}
 	if (document.getElementById('operator').value != '---') {
 		var aggregate_obj = new aggregate(document.getElementById('operator').value) ;
-		history_array.push(new history(col_name,aggregate_obj,tab_name,h_tabs[tab_name],"Aggregate"));
+		history_array.push(new history(col_name,aggregate_obj,tab_name,h_tabs[downer + '.' + tab_name],"Aggregate"));
 		sum = sum + 1;
 		document.getElementById('operator').value = '---';
 		//make aggregate operator
 	}
 	if (document.getElementById('groupby').checked == true ) {
-		history_array.push(new history(col_name,'GroupBy',tab_name,h_tabs[tab_name],"GroupBy"));
+		history_array.push(new history(col_name,'GroupBy',tab_name,h_tabs[downer + '.' +tab_name],"GroupBy"));
 		sum = sum + 1;
 		document.getElementById('groupby').checked = false;
 		//make groupby
 	}
 	if (document.getElementById('orderby').checked == true) {
-		history_array.push(new history(col_name,'OrderBy',tab_name,h_tabs[tab_name],"OrderBy"));
+		history_array.push(new history(col_name,'OrderBy',tab_name,h_tabs[downer + '.' + tab_name],"OrderBy"));
 		sum = sum + 1;
 		document.getElementById('orderby').checked = false;
 		//make orderby

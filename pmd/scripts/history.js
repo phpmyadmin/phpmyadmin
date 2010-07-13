@@ -342,7 +342,7 @@ var aggregate = function(noperator) {
 	this.set_operator(noperator);
 };
 
-function build_query() {
+function build_query(formtitle, fadin) {
 	var q_select = "SELECT ";
 	var temp;
 	for(i = 0;i < select_field.length; i++) {
@@ -357,15 +357,28 @@ function build_query() {
 			q_select += select_field[i] + temp +","; 
 		}
 	}
-	q_select = q_select.substring(0,q_select.length - 1); //PDF_save()
-	document.getElementById('hint').innerHTML = q_select;
-	document.getElementById('hint').style.visibility = "visible";
+	q_select = q_select.substring(0,q_select.length - 1); 
+	 var box = document.getElementById('box'); 
+  	document.getElementById('filter').style.display='block';
+  	var btitle = document.getElementById('boxtitle');
+  	btitle.innerHTML = formtitle;
+  	if(fadin)
+  	{
+		 gradient("box", 0);
+	 	fadein("box");
+  	}
+  	else
+  	{ 	
+  	  box.style.display='block';
+  	}  	
+	document.getElementById('textSqlquery').innerHTML = q_select;
+//	document.getElementById('hint').style.visibility = "visible";
 }
 
 function check_aggregate(id_this) {
 	var i = 0;
 	for(i;i < history_array.length;i++) {
-		var temp = '\'' + history_array[i].get_tab() + '\'.\'' +history_array[i].get_column_name() +'\'';
+		var temp = '`' + history_array[i].get_tab() + '`.`' +history_array[i].get_column_name() +'`';
 		if(temp == id_this && history_array[i].get_type() == "Aggregate") {
 			return history_array[i].get_obj().get_operator() + '(' + id_this +')';
 		}
@@ -376,10 +389,37 @@ function check_aggregate(id_this) {
 function check_rename(id_this) {
 	var i = 0;
 	for (i;i < history_array.length;i++) {
-		var temp = '\'' + history_array[i].get_tab() + '\'.\'' +history_array[i].get_column_name() +'\'';
+		var temp = '`' + history_array[i].get_tab() + '`.`' +history_array[i].get_column_name() +'`';
 		if(temp == id_this && history_array[i].get_type() == "Rename") {
-			return  " AS \'" + history_array[i].get_obj().getrename_to() +"\',";
+			return  " AS `" + history_array[i].get_obj().getrename_to() +"`";
 		}
 	}
 	return "";
+}
+function gradient(id, level)
+{
+	var box = document.getElementById(id);
+	box.style.opacity = level;
+	box.style.MozOpacity = level;
+	box.style.KhtmlOpacity = level;
+	box.style.filter = "alpha(opacity=" + level * 100 + ")";
+	box.style.display="block";
+	return;
+}
+
+
+function fadein(id) 
+{
+	var level = 0;
+	while(level <= 1)
+	{
+		setTimeout( "gradient('" + id + "'," + level + ")", (level* 1000) + 10);
+		level += 0.01;
+	}
+}
+
+function closebox()
+{
+   document.getElementById('box').style.display='none';
+   document.getElementById('filter').style.display='none';
 }
