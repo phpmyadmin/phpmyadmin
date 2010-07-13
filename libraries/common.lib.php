@@ -668,6 +668,9 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             $error_msg_output .= '</fieldset>' . "\n\n";
         }
 
+        if($GLOBALS['is_ajax_request'] == true) {
+            PMA_ajaxResponse($error_msg_output, false);
+        }
         echo $error_msg_output;
         /**
          * display footer and exit
@@ -2891,11 +2894,21 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     $response = array();
     if( $success == true ) {
         $response['success'] = true;
-        $response['message'] = $message->getDisplay();
+        if ($message instanceof PMA_Message) {
+            $response['message'] = $message->getDisplay();
+        }
+        else {
+            $response['message'] = $message;
+        }
     }
     else {
         $response['success'] = false;
-        $response['error'] = $message->getDisplay();
+        if($message instanceof PMA_Message) {
+            $response['error'] = $message->getDisplay();
+        }
+        else {
+            $response['error'] = $message;
+        }
     }
 
     if( count($extra_data) > 0 ) {
