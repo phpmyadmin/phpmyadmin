@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-03 09:00-0400\n"
-"PO-Revision-Date: 2010-07-13 23:56+0200\n"
+"PO-Revision-Date: 2010-07-13 23:57+0200\n"
 "Last-Translator: William  Bachion <william@bachiondesign.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -8326,7 +8326,7 @@ msgstr ""
 
 #: tbl_tracking.php:655
 msgid "Activate now"
-msgstr ""
+msgstr "Ativar agora"
 
 #: tbl_tracking.php:668
 #, php-format
