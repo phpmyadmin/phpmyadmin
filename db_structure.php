@@ -467,7 +467,7 @@ if ($is_show_stats) {
 }
 ?>
 </tbody>
-<tbody>
+<tbody id="tbl_summary_row">
 <tr><th></th>
     <th align="center" nowrap="nowrap">
         <?php
