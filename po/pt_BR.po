@@ -8246,7 +8246,7 @@ msgstr ""
 
 #: tbl_tracking.php:251 tbl_tracking.php:379
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: tbl_tracking.php:262
 #, php-format
