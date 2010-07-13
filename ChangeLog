@@ -101,6 +101,7 @@ master, todo: update PHP excel?)
 - bug #3023507 [core] No result set display from stored procedure SELECT
 - bug [export] CSV for MS Excel (Windows) should have semi-colon as separator
 - [core] Update library PHPExcel to version 1.7.3c
+- bug #2994885 [import] Convert Excel column name correctly
 
 3.3.4.0 (2010-06-28)
 - bug #2996161 [import] properly escape import value
