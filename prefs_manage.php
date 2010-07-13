@@ -89,19 +89,57 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
         }
         $_POST = array_merge($_POST, $config);
         $all_ok = $form_display->process(true, false);
+        $all_ok = $all_ok && !$form_display->hasErrors();
         $_POST = $_POST_bak;
 
+        if (!$all_ok && isset($_POST['fix_errors'])) {
+            $form_display->fixErrors();
+            $all_ok = true;
+        }
         if (!$all_ok) {
-            // todo: ask about saving that what can be saved
+            // mimic original form and post json in a hidden field
+            require_once './libraries/header.inc.php';
+            require_once './libraries/user_preferences.inc.php';
+            $msg = PMA_Message::warning(__('Configuration contains incorrect data for some fields.'));
+            $msg->display();
+            echo '<div class="config-form">';
             $form_display->displayErrors();
-            die('errors');
+            echo '</div>';
+            ?>
+            <form action="prefs_manage.php" method="post">
+                <?php echo PMA_generate_common_hidden_inputs() . "\n"; ?>
+                <input type="hidden" name="json" value="<?php echo htmlspecialchars($json) ?>" />
+                <input type="hidden" name="fix_errors" value="1" />
+                <?php if (!empty($_POST['import_merge'])): ?>
+                <input type="hidden" name="import_merge" value="1" />
+                <?php endif; ?>
+                <p><?php echo __('Do you want to import remaining settings?') ?></p>
+                <input type="submit" name="submit_import" value="<?php echo __('Yes') ?>" />
+                <input type="submit" name="submit_ignore" value="<?php echo __('No') ?>" />
+            </form>
+            <?php
+            require_once './libraries/footer.inc.php';
+            return;
+        }
+
+        // check for ThemeDefault and fontsize
+        $params = array();
+        if (isset($config['ThemeDefault'])
+                && $_SESSION['PMA_Theme_Manager']->checkTheme($config['ThemeDefault'])) {
+            $_SESSION['PMA_Theme_Manager']->setActiveTheme($config['ThemeDefault']);
+            $_SESSION['PMA_Theme_Manager']->setThemeCookie();
+            $params['refresh_left_frame'] = true;
+        }
+        if (isset($config['fontsize'])) {
+            $params['set_fontsize'] = $config['fontsize'];
+            $params['refresh_left_frame'] = true;
         }
 
         // save settings
         $old_settings = PMA_load_userprefs();
         $result = PMA_save_userprefs($cf->getConfigArray());
         if ($result === true) {
-            PMA_userprefs_redirect($forms, $old_settings, 'prefs_manage.php');
+            PMA_userprefs_redirect($forms, $old_settings, 'prefs_manage.php', $params);
             exit;
         } else {
             $error = $result;
@@ -110,9 +148,19 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
 } else if (isset($_POST['submit_clear'])) {
     $old_settings = PMA_load_userprefs();
     $result = PMA_save_userprefs(array());
-    ConfigFile::getInstance()->resetConfigData();
     if ($result === true) {
-        PMA_userprefs_redirect($forms, $old_settings, 'prefs_manage.php');
+        $params = array();
+        if ($_SESSION['PMA_Theme_Manager']->theme->getId() != 'original') {
+            $GLOBALS['PMA_Config']->removeCookie($_SESSION['PMA_Theme_Manager']->getThemeCookieName());
+            unset($_SESSION['PMA_Theme_Manager']);
+            unset($_SESSION['PMA_Theme']);
+            $params['refresh_left_frame'] = true;
+        }
+        if ($GLOBALS['PMA_Config']->get('fontsize') != '82%') {
+            $GLOBALS['PMA_Config']->removeCookie('pma_fontsize');
+            $params['refresh_left_frame'] = true;
+        }
+        PMA_userprefs_redirect($forms, $old_settings, 'prefs_manage.php', $params);
         exit;
     } else {
         $error = $result;

@@ -46,10 +46,10 @@ if (!$form_display->process(false)) {
     if ($form_display->hasErrors()) {
         // form has errors
         ?>
-        <fieldset>
+        <div class="warning config-form">
             <b><?php echo __('Submitted form contains errors') ?></b>
             <?php $form_display->displayErrors(); ?>
-        </fieldset>
+        </div>
         <?php
         $form_display->display(true, true);
     } else {
@@ -66,6 +66,7 @@ if (!$form_display->process(false)) {
         $form_display->display(true, true);
     }
 }
+// todo: remove debug
 $GLOBALS['error_handler']->dispAllErrors();
 
 /**
