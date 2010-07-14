@@ -10,13 +10,13 @@ include_once("Export_Relation_Schema.class.php");
 
 /**
  * This Class inherits the XMLwriter class and
- * helps in developing structure of SVG Schema
- * 
+ * helps in developing structure of SVG Schema Export
  *
  * @name PMA_SVG
  * @author Muhammad Adnan <hiddenpearls@gmail.com>
  * @copyright
  * @license
+ * @access public
  * @see http://php.net/manual/en/book.xmlwriter.php
  */
 
@@ -27,6 +27,14 @@ class PMA_SVG extends XMLWriter
     public $font;
     public $fontSize;
 
+    /**
+     * The "PMA_SVG" constructor
+     *
+     * Upon instantiation This starts writing the Svg XML document
+     *
+     * @return void
+     * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
+     */
     function __construct()
     {
         $this->openMemory();
@@ -43,38 +51,92 @@ class PMA_SVG extends XMLWriter
 
         $this->startDocument('1.0','UTF-8');
         $this->startDtd('svg','-//W3C//DTD SVG 1.1//EN','http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd');
-        $this->endDtd();        
+        $this->endDtd();
     }
 
-    function setTitle($title)
+    /**
+     * Set document title
+     *
+     * @param string value sets the title text
+     * @return void
+     * @access public
+     */
+    function setTitle($value)
     {
-        $this->title = $title;
-    }
-    
-    function setAuthor($author)
-    {
-        $this->author = $author;
+        $this->title = $value;
     }
 
-    function setFont($font)
+    /**
+     * Set document author
+     *
+     * @param string value sets the author
+     * @return void
+     * @access public
+     */
+    function setAuthor($value)
     {
-        $this->font = $font;
+        $this->author = $value;
     }
+
+    /**
+     * Set document font
+     *
+     * @param string value sets the font e.g Arial, Sans-serif etc
+     * @return void
+     * @access public
+     */
+    function setFont($value)
+    {
+        $this->font = $value;
+    }
+
+    /**
+     * Get document font
+     *
+     * @return string returns the font name
+     * @access public
+     */
     function getFont()
     {
         return $this->font;
     }
 
-    function setFontSize($fontSize)
+    /**
+     * Set document font size
+     *
+     * @param string value sets the font size in pixels
+     * @return void
+     * @access public
+     */
+    function setFontSize($value)
     {
-        $this->fontSize = $fontSize;
+        $this->fontSize = $value;
     }
 
+    /**
+     * Get document font size
+     *
+     * @return string returns the font size
+     * @access public
+     */
     function getFontSize()
     {
         return $this->fontSize;
     }
 
+    /**
+     * Starts Svg Document
+     * 
+     * svg document starts by first initializing svg tag
+     * which contains all the attributes and namespace that needed
+     * to define the svg document
+     *
+     * @param integer width total width of the Svg document
+     * @param integer height total height of the Svg document
+     * @return void
+     * @access public
+     * @see XMLWriter::startElement(),XMLWriter::writeAttribute()
+     */
     function startSvgDoc($width,$height)
     {
         $this->startElement('svg');
@@ -84,23 +146,65 @@ class PMA_SVG extends XMLWriter
         $this->writeAttribute('version', '1.1');
     }
 
+    /**
+     * Ends Svg Document
+     * 
+     * @return void
+     * @access public
+     * @see XMLWriter::endElement(),XMLWriter::endDocument()
+     */
     function endSvgDoc()
     {
         $this->endElement();
         $this->endDocument();
     }
 
-    function showOutput()
+    /**
+     * output Svg Document
+     * 
+     * svg document prompted to the user for download
+     * Svg document saved in .svg extension and can be
+     * easily changeable by using any svg IDE
+     *
+     * @return void
+     * @access public
+     * @see XMLWriter::startElement(),XMLWriter::writeAttribute()
+     */
+    function showOutput($fileName)
     {
         if(ob_end_clean()){
             ob_end_clean();
             //ob_start();
         }
         header('Content-type: image/svg+xml');
+        //header('Content-Disposition: attachment; filename="downloaded.svg"');
         $output = $this->flush();
         print $output;
     }
 
+    /**
+     * Draws Svg elements
+     * 
+     * SVG has some predefined shape elements like rectangle & text 
+     * and other elements who have x,y co-ordinates are drawn.
+     * specify their width and height and can give styles too.
+     *
+     * @param string name Svg element name
+     * @param integer x The x attribute defines the left position of the element
+                        (e.g. x="0" places the element 0 pixels from the left of 
+                        the browser window)
+     * @param integer y The y attribute defines the top position of the element
+                        (e.g. y="0" places the element 0 pixels from the top of 
+                        the browser window)
+     * @param integer width The width attribute defines the width the element
+     * @param integer height The height attribute defines the height the element
+     * @param string text The text attribute defines the text the element
+     * @param string styles The style attribute defines the style the element
+                            styles can be defined like CSS styles
+     * @return void
+     * @access public
+     * @see XMLWriter::startElement(),XMLWriter::writeAttribute(),XMLWriter::text(),XMLWriter::endElement()
+     */
     function printElement($name,$x,$y,$width = '',$height = '',$text = '',$styles = '')
     {
         $this->startElement($name);
@@ -117,6 +221,24 @@ class PMA_SVG extends XMLWriter
         $this->endElement();
     }
 
+    /**
+     * Draws Svg Line element
+     * 
+     * Svg line element is drawn for connecting the tables.
+     * arrows are also drawn by specify its start and ending 
+     * co-ordinates
+     *
+     * @param string name Svg element name i.e line
+     * @param integer x1 The x1 attribute defines the start of the line on the x-axis
+     * @param integer y1 The y1 attribute defines the start of the line on the y-axis
+     * @param integer x2 The x2 attribute defines the end of the line on the x-axis
+     * @param integer y2 The y2 attribute defines the end of the line on the y-axis
+     * @param string styles The style attribute defines the style the element
+                            styles can be defined like CSS styles
+     * @return void
+     * @access public
+     * @see XMLWriter::startElement(),XMLWriter::writeAttribute(),XMLWriter::endElement()
+     */
     function printElementLine($name,$x1,$y1,$x2,$y2,$styles)
     {
         $this->startElement($name);
@@ -128,6 +250,21 @@ class PMA_SVG extends XMLWriter
         $this->endElement();
     }
 
+    /**
+     * get width of string/text
+     * 
+     * Svg text element width is calcualted depending on font name
+     * and font size. It is very important to know the width of text
+     * because rectangle is drawn around it.
+     * 
+     * This is a bit hardcore method. I didn't found any other than this.
+     *
+     * @param string text string that width will be calculated 
+     * @param integer font name of the font like Arial,sans-serif etc
+     * @param integer fontSize size of font
+     * @return integer width of the text
+     * @access public
+     */
     function getStringWidth($text,$font,$fontSize)
     {
         /*
@@ -180,10 +317,12 @@ class PMA_SVG extends XMLWriter
         return ceil($textWidth*$modifier);
     }
 }
+
 /**
  * Draws tables schema
  */
-class Table_Stats {
+class Table_Stats 
+{
     /**
      * Defines properties
      */
@@ -198,7 +337,6 @@ class Table_Stats {
     public $x, $y;
     public $primary = array();
 
-    
     /**
      * The "Table_Stats" constructor
      *
@@ -216,9 +354,9 @@ class Table_Stats {
      * @see PMA_PDF, Table_Stats::Table_Stats_setWidth,
             Table_Stats::Table_Stats_setHeight
      */
-    function __construct($tableName, $font, $fontSize, &$same_wide_width, $showKeys = false, $showInfo = false)
+    function __construct($tableName, $font, $fontSize, $pageNumber, &$same_wide_width, $showKeys = false, $showInfo = false)
     {
-        global $svg, $pdf_page_number, $cfgRelation, $db;
+        global $svg, $cfgRelation, $db;
 
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_backquote($tableName);
@@ -262,7 +400,7 @@ class Table_Stats {
          . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
          . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
          . ' AND   table_name = \'' . PMA_sqlAddslashes($tableName) . '\''
-         . ' AND   pdf_page_number = ' . $pdf_page_number;
+         . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
 
         if (!$result || !PMA_DBI_num_rows($result)) {
@@ -290,7 +428,7 @@ class Table_Stats {
      *
      * @access private
      */
-    function _getTitle()
+    private function _getTitle()
     {
         return ($this->_showInfo ? sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->heightCell) : '') . ' ' . $this->_tableName;
     }
@@ -316,7 +454,7 @@ class Table_Stats {
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
          */ 
-        while ($this->width < $svg->GetStringWidth($this->_getTitle(),$font,$fontSize)) {
+        while ($this->width < $svg->getStringWidth($this->_getTitle(),$font,$fontSize)) {
             $this->width += 7;
         }
     }
@@ -374,7 +512,6 @@ class Table_Stats {
                     $field,
                     'fill:none;stroke:black;'
                     );
-        //echo $field.'<br />';
         }
     }
 }
@@ -386,7 +523,8 @@ class Table_Stats {
  * @access public
  * @see PMA_SVG,PMA_SVG::printElementLine
  */
-class Relation_Stats {
+class Relation_Stats 
+{
     /**
      * Defines properties
      */
@@ -403,7 +541,6 @@ class Relation_Stats {
      * @param string master_field The relation field in the master table
      * @param string foreign_table The foreign table name
      * @param string foreigh_field The relation field in the foreign table
-     * @access private
      * @see Relation_Stats::_getXy
      */
     function __construct($master_table, $master_field, $foreign_table, $foreign_field)
@@ -448,7 +585,7 @@ class Relation_Stats {
             $this->destDir = 1;
         }
         $this->ySrc   = $src_pos[2];
-        $this->y_dest = $dest_pos[2];
+        $this->yDest = $dest_pos[2];
     }
 
     /**
@@ -499,12 +636,12 @@ class Relation_Stats {
             $this->xSrc + $this->srcDir * $this->wTick,$this->ySrc,
             'fill:'.$color.';stroke:black;stroke-width:2;'
             );
-        $svg->printElementLine('line',$this->xDest + $this->destDir * $this->wTick, $this->y_dest,
-            $this->xDest, $this->y_dest,
+        $svg->printElementLine('line',$this->xDest + $this->destDir * $this->wTick, $this->yDest,
+            $this->xDest, $this->yDest,
             'fill:'.$color.';stroke:black;stroke-width:2;'
             );
         $svg->printElementLine('line',$this->xSrc + $this->srcDir * $this->wTick,$this->ySrc,
-            $this->xDest + $this->destDir * $this->wTick, $this->y_dest,
+            $this->xDest + $this->destDir * $this->wTick, $this->yDest,
             'fill:'.$color.';stroke:'.$color.';stroke-width:1;'
             );
         $root2 = 2 * sqrt(2);
@@ -518,13 +655,13 @@ class Relation_Stats {
             $this->ySrc - $this->wTick / $root2 ,
             'fill:'.$color.';stroke:black;stroke-width:2;'
             );
-        $svg->printElementLine('line',$this->xDest + $this->destDir * $this->wTick / 2 , $this->y_dest ,
+        $svg->printElementLine('line',$this->xDest + $this->destDir * $this->wTick / 2 , $this->yDest ,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
-            $this->y_dest + $this->wTick / $root2 ,
+            $this->yDest + $this->wTick / $root2 ,
             'fill:'.$color.';stroke:black;stroke-width:2;');
         $svg->printElementLine('line',$this->xDest + $this->destDir * $this->wTick / 2 ,
-            $this->y_dest , $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick ,
-            $this->y_dest - $this->wTick / $root2 ,
+            $this->yDest , $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick ,
+            $this->yDest - $this->wTick / $root2 ,
             'fill:'.$color.';stroke:black;stroke-width:2;'
             );
     }
@@ -533,7 +670,23 @@ class Relation_Stats {
 * end of the "Relation_Stats" class
 */
 
-
+/**
+ * Svg Relation Schema Class
+ *
+ * Purpose of this class is to generate the SVG XML Document
+ * which is used for representing the database diagrams as image in Dia IDE
+ * This class uses Database Table and Reference Objects of Dia and with 
+ * the combination of these objects actually helps in preparing Dia XML.
+ *
+ * Dia XML is generated by using XMLWriter php extension and this class
+ * inherits Export_Relation_Schema class has common functionality added
+ * to this class
+ *
+ * @name Dia_Relation_Schema
+ * @author Muhammad Adnan <hiddenpearls@gmail.com>
+ * @copyright
+ * @license
+ */
 class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
 {
 
@@ -549,28 +702,38 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     private $l_marg = 10;
     private $r_marg = 10;
     private $_tablewidth;
-    
+
+    /**
+     * The "PMA_Svg_Relation_Schema" constructor
+     *
+     * Upon instantiation This starts writing the SVG XML document
+     * user will be prompted for download as .svg extension
+     *
+     * @return void
+     * @see PMA_SVG
+     */
     function __construct()
     {
-        global $svg,$db,$pdf_page_number,$show_info,$show_table_dimension,$show_color,$change_color,$all_table_same_wide;
+        global $svg,$db;
 
-        $pdf_page_number        =  isset($pdf_page_number) ? $pdf_page_number : 1;
-        $show_info              = (isset($show_table_dimension) && $show_table_dimension == 'on') ? 1 : 0;
-        $all_table_same_wide    = (isset($all_table_same_wide) && $all_table_same_wide == 'on') ? 1 : 0;
-        $change_color           = (isset($show_color) && $show_color == 'on') ? 1 : 0;
-        $show_keys              = (isset($show_keys) && $show_keys == 'on') ? 1 : 0;
+        $this->setPageNumber($_POST['pdf_page_number']);
+        $this->setShowColor($_POST['show_color']);
+        $this->setShowKeys($_POST['show_keys']);
+        $this->setTableDimension($_POST['show_table_dimension']);
+        $this->setAllTableSameWidth($_POST['all_table_same_wide']);
+        $this->setExportType($_POST['export_type']);
+
         $svg = new PMA_SVG();
-        $this->setSameWidthTables($all_table_same_wide);
-        $svg->setTitle(sprintf(__('Schema of the %s database - Page %s'), $db, $pdf_page_number));
+        $svg->setTitle(sprintf(__('Schema of the %s database - Page %s'), $db, $this->pageNumber));
         $svg->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $svg->setFont('Arial');
         $svg->setFontSize('16px');
         $svg->startSvgDoc('1000px','600px');
-        $alltables = $this->getAllTables($db,$pdf_page_number);
+        $alltables = $this->getAllTables($db,$this->pageNumber);
 
         foreach ($alltables AS $table) {
             if (!isset($this->tables[$table])) {
-                $this->tables[$table] = new Table_Stats($table,$svg->getFont(),$svg->getFontSize(), $this->_tablewidth, $show_keys, $show_info);
+                $this->tables[$table] = new Table_Stats($table,$svg->getFont(),$svg->getFontSize(), $this->pageNumber, $this->_tablewidth, $this->showKeys, $this->tableDimension);
             }
 
             if ($this->sameWide) {
@@ -590,25 +753,25 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
                     * to do a === FALSE and this is not PHP3 compatible)
                     */
                     if (in_array($rel['foreign_table'], $alltables)) {
-                        $this->_addRelation($one_table,$svg->getFont(),$svg->getFontSize(), $master_field, $rel['foreign_table'], $rel['foreign_field'], $show_info);
+                        $this->_addRelation($one_table,$svg->getFont(),$svg->getFontSize(), $master_field, $rel['foreign_table'], $rel['foreign_field'], $this->tableDimension);
                     }
                 }
             }
         }
-
         if ($seen_a_relation) {
-            $this->_drawRelations($change_color);
+            $this->_drawRelations($this->showColor);
         }
 
-        $this->_drawTables($change_color);
+        $this->_drawTables($this->showColor);
         $svg->endSvgDoc();
-        $svg->showOutput();
-      //  print '<pre>';
-        //print_r(get_object_vars($svg));
+        $svg->showOutput($db.'-'.$this->pageNumber);
+        exit();
+        print '<pre>';
+        print_r(get_object_vars($svg));
         //print_r($alltables);
-        //print_r($this);
-        //print '</pre>';
-        //exit();
+        print_r($this);
+        print '</pre>';
+
     }
 
     /**
@@ -617,7 +780,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * @param string table The table name
      * @access private
      */
-    function _setMinMax($table)
+    private function _setMinMax($table)
     {
         $this->_xMax = max($this->_xMax, $table->x + $table->width);
         $this->_yMax = max($this->_yMax, $table->y + $table->height);
@@ -636,19 +799,19 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * @access private
      * @see _setMinMax,Table_Stats::__construct(),Relation_Stats::__construct()
      */
-    function _addRelation($masterTable,$font,$fontSize, $masterField, $foreignTable, $foreignField, $showInfo)
+    private function _addRelation($masterTable,$font,$fontSize, $masterField, $foreignTable, $foreignField, $showInfo)
     {
         if (!isset($this->tables[$masterTable])) {
-            $this->tables[$masterTable] = new Table_Stats($masterTable,$font,$fontSize, $this->_tablewidth, false, $showInfo);
+            $this->tables[$masterTable] = new Table_Stats($masterTable, $font, $fontSize, $this->pageNumber, $this->_tablewidth, false, $showInfo);
             $this->_setMinMax($this->tables[$masterTable]);
         }
         if (!isset($this->tables[$foreignTable])) {
-            $this->tables[$foreignTable] = new Table_Stats($foreignTable,$font,$fontSize, $this->_tablewidth, false, $showInfo);
+            $this->tables[$foreignTable] = new Table_Stats($foreignTable,$font,$fontSize,$this->pageNumber, $this->_tablewidth, false, $showInfo);
             $this->_setMinMax($this->tables[$foreignTable]);
         }
         $this->_relations[] = new Relation_Stats($this->tables[$masterTable], $masterField, $this->tables[$foreignTable], $foreignField);
     }
-    
+
     /**
      * Draws relation arrows and lines
      * connects master table's master field to 
@@ -664,17 +827,16 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
             $relation->relationDraw($changeColor);
         }
     }
-    
+
     /**
      * Draws tables
      *
-     * @param boolean showColor Whether to show color for primary fields or not
+     * @param boolean changeColor Whether to show color for primary fields or not
      * @access private
      * @see Table_Stats::Table_Stats_tableDraw()
      */
     private function _drawTables($changeColor)
     {
-        global $svg;
         foreach ($this->tables as $table) {
             $table->tableDraw($changeColor);
         }
