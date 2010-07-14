@@ -631,6 +631,7 @@ $(function() {
 //
 
 $(function() {
+    offerPrefsAutoimport();
     var radios = $('#import_local_storage, #export_local_storage');
     if (!radios.length) {
         return;
@@ -745,6 +746,32 @@ function formatDate(d)
         + '-' + (d.getDay() < 10 ? '0'+d.getDay() : d.getDay())
         + ' ' + (d.getHours() < 10 ? '0'+d.getHours() : d.getHours())
         + ':' + (d.getMinutes() < 10 ? '0'+d.getMinutes() : d.getMinutes());
+}
+
+/**
+ * Prepares message which informs that localStorage preferences are available and can be imported
+ */
+function offerPrefsAutoimport()
+{
+    var has_config = (window.localStorage || false) && (window.localStorage['config'] || false);
+    var cnt = $('#prefs_autoload');
+    if (!cnt.length || !has_config) {
+        return;
+    }
+    cnt.find('a').click(function(e) {
+        e.stopPropagation();
+        var a = $(this);
+        if (a.attr('href') == '#no') {
+            cnt.remove();
+            $.post('main.php', {
+                token: cnt.find('input[name=token]').val(),
+                prefs_autoload: 'hide'});
+            return;
+        }
+        cnt.find('input[name=json]').val(window.localStorage['config']);
+        cnt.find('form').submit();
+    });
+    cnt.show();
 }
 
 //

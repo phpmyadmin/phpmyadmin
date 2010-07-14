@@ -1442,3 +1442,7 @@ fieldset .group-field th {
 .prefsmanage_opts {
     margin-<?php echo $left; ?>: 2em;
 }
+
+#prefs_autoload {
+    margin-bottom: 0.5em;
+}

@@ -68,7 +68,12 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
         // read from POST value (json)
         $json = filter_input(INPUT_POST, 'json');
     }
+
+    // hide header message
+    $_SESSION['userprefs_autoload'] = true;
+
     $config = json_decode($json, true);
+    $return_url = filter_input(INPUT_POST, 'return_url');
     if (!is_array($config)) {
         $error = __('Could not import configuration');
     } else {
@@ -113,6 +118,9 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
                 <?php if (!empty($_POST['import_merge'])): ?>
                 <input type="hidden" name="import_merge" value="1" />
                 <?php endif; ?>
+                <?php if ($return_url): ?>
+                <input type="hidden" name="return_url" value="<?php echo htmlspecialchars($return_url) ?>" />
+                <?php endif; ?>
                 <p><?php echo __('Do you want to import remaining settings?') ?></p>
                 <input type="submit" name="submit_import" value="<?php echo __('Yes') ?>" />
                 <input type="submit" name="submit_ignore" value="<?php echo __('No') ?>" />
@@ -128,18 +136,32 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
                 && $_SESSION['PMA_Theme_Manager']->checkTheme($config['ThemeDefault'])) {
             $_SESSION['PMA_Theme_Manager']->setActiveTheme($config['ThemeDefault']);
             $_SESSION['PMA_Theme_Manager']->setThemeCookie();
-            $params['refresh_left_frame'] = true;
+            $params['reload_left_frame'] = true;
         }
         if (isset($config['fontsize'])) {
             $params['set_fontsize'] = $config['fontsize'];
-            $params['refresh_left_frame'] = true;
+            $params['reload_left_frame'] = true;
         }
 
         // save settings
         $old_settings = PMA_load_userprefs();
         $result = PMA_save_userprefs($cf->getConfigArray());
         if ($result === true) {
-            PMA_userprefs_redirect($forms, $old_settings, 'prefs_manage.php', $params);
+            if ($return_url) {
+                $query = explode('&', parse_url($return_url, PHP_URL_QUERY));
+                $return_url = parse_url($return_url, PHP_URL_PATH);
+                foreach ($query as $q) {
+                    $pos = strpos($q, '=');
+                    $k = substr($q, 0, $pos);
+                    if ($k == 'token') {
+                        continue;
+                    }
+                    $params[$k] = substr($q, $pos+1);
+                }
+            } else {
+                $return_url = 'prefs_manage.php';
+            }
+            PMA_userprefs_redirect($forms, $old_settings, $return_url, $params);
             exit;
         } else {
             $error = $result;
@@ -154,11 +176,11 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
             $GLOBALS['PMA_Config']->removeCookie($_SESSION['PMA_Theme_Manager']->getThemeCookieName());
             unset($_SESSION['PMA_Theme_Manager']);
             unset($_SESSION['PMA_Theme']);
-            $params['refresh_left_frame'] = true;
+            $params['reload_left_frame'] = true;
         }
         if ($GLOBALS['PMA_Config']->get('fontsize') != '82%') {
             $GLOBALS['PMA_Config']->removeCookie('pma_fontsize');
-            $params['refresh_left_frame'] = true;
+            $params['reload_left_frame'] = true;
         }
         PMA_userprefs_redirect($forms, $old_settings, 'prefs_manage.php', $params);
         exit;

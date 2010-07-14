@@ -45,15 +45,6 @@ echo '</ul>';
 if (!empty($_GET['saved'])) {
     $message = PMA_Message::rawSuccess(__('Configuration has been saved'));
     $message->display();
-    if (isset($_GET['refresh_left_frame']) && $_GET['refresh_left_frame'] == '1') {
-?>
-<script type="text/javascript">
-if (window.parent && window.parent.frame_navigation) {
-    window.parent.frame_navigation.location.reload();
-}
-</script>
-<?php
-    }
 }
 
 $forms_all_keys = PMA_read_userprefs_fieldnames($forms);

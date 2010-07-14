@@ -221,17 +221,40 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $
     $check_keys = array_merge($check_keys, $forms['Left_frame']['Left_frame'],
          $forms['Left_frame']['Left_databases']);
     $diff = array_intersect($check_keys, $diff_keys);
-    $refresh_left_frame = !empty($diff)
-            || (isset($params['refresh_left_frame']) && $params['refresh_left_frame']);
+    $reload_left_frame = !empty($diff)
+            || (isset($params['reload_left_frame']) && $params['reload_left_frame']);
 
     // redirect
     $url_params = array(
         'saved' => 1,
-        'refresh_left_frame' => $refresh_left_frame);
+        'reload_left_frame' => $reload_left_frame);
     if (is_array($params)) {
         $url_params = array_merge($params, $url_params);
     }
     PMA_sendHeaderLocation($GLOBALS['cfg']['PmaAbsoluteUri'] . $file_name
             . PMA_generate_common_url($url_params, '&'));
+}
+
+function PMA_userprefs_autoload_header()
+{
+    if (isset($_REQUEST['prefs_autoload']) && $_REQUEST['prefs_autoload'] == 'hide') {
+        $_SESSION['userprefs_autoload'] = true;
+        exit;
+    }
+    $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
+    $return_url = $script_name . '?' . http_build_query($_GET, '', '&');
+    ?>
+    <div id="prefs_autoload" class="notice" style="display:none">
+        <form action="prefs_manage.php" method="post">
+            <?php echo PMA_generate_common_hidden_inputs() . "\n"; ?>
+            <input type="hidden" name="json" value="" />
+            <input type="hidden" name="submit_import" value="1" />
+            <input type="hidden" name="return_url" value="<?php echo htmlspecialchars($return_url) ?>" />
+            <?php echo __('Your browser has phpMyAdmin configuration for this domain. Would you like to import it for current session?') ?>
+            <br />
+            <a href="#yes"><?php echo __('Yes') ?></a> / <a href="#no"><?php echo __('No') ?></a>
+        </form>
+    </div>
+    <?php
 }
 ?>
