@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-14 14:54+0200\n"
+"PO-Revision-Date: 2010-07-14 14:55+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -112,7 +112,7 @@ msgstr "جەدۋەل ئىزاھاتى"
 #: tbl_select.php:134 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
 msgid "Column"
-msgstr ""
+msgstr "سۆزلەم"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
 #: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
