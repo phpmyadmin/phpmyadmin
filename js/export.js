@@ -152,23 +152,27 @@ $(document).ready(function() {
 /**
  * Toggles display of options when quick and custom export are selected
  */
+function toggle_quick_or_custom() {
+    if($("$(this):checked").attr("value") == "custom") {
+        $("#databases_and_tables").show();
+        $("#rows").show();
+        $("#output").show();
+        $("#format_specific_opts").show();
+        $("#output_quick_export").hide();
+        var selected_plugin_name = $("#plugins option:selected").attr("value");
+        $("#" + selected_plugin_name + "_options").show();
+    } else {
+        $("#databases_and_tables").hide();
+        $("#rows").hide();
+        $("#output").hide();
+        $("#format_specific_opts").hide();
+        $("#output_quick_export").show();
+    }
+}
+
 $(document).ready(function() {
     $("input[type='radio'][name='quick_or_custom']").change(function() {
-        if($("$(this):checked").attr("value") == "custom") {
-            $("#databases_and_tables").show();
-            $("#rows").show();
-            $("#output").show();
-            $("#format_specific_opts").show();
-            $("#output_quick_export").hide();
-            var selected_plugin_name = $("#plugins option:selected").attr("value");
-            $("#" + selected_plugin_name + "_options").show();
-        } else {
-            $("#databases_and_tables").hide();
-            $("#rows").hide();
-            $("#output").hide();
-            $("#format_specific_opts").hide();
-            $("#output_quick_export").show();
-        }
+        toggle_quick_or_custom();
     });
 });
 
@@ -177,16 +181,14 @@ $(document).ready(function() {
  *  Javascript-disabled browsers
  */
  $(document).ready(function() {
-    $("#quick_or_custom").show();
-    $("#databases_and_tables").hide();
-    $("#rows").hide();
-    $("#output_quick_export").show();
-    $("#output").hide();
-    $("#format_specific_opts").hide();
+    if($("input[type='hidden'][name='export_method']").attr("value") != "custom-no-form") {
+        $("#quick_or_custom").show();
+    }
     $("#scroll_to_options_msg").hide();
     $(".format_specific_options").hide();
     $(".format_specific_options").css({ "border": 0, "margin": 0, "padding": 0});
     $(".format_specific_options h3").remove();
+    toggle_quick_or_custom();
 });
 
 /**
@@ -194,7 +196,6 @@ $(document).ready(function() {
  */
  $(document).ready(function() {
      $("input[type='radio'][name='allrows']").change(function() {
-//         alert(("$(this):checked").attr("name"));
          if($("input[type='radio'][name='allrows']:checked").attr("value") == "1") {
             $("label[for='limit_to']").fadeTo('fast', 0.4);
              $("label[for='limit_from']").fadeTo('fast', 0.4);
