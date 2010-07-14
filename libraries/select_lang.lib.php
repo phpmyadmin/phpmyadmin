@@ -312,6 +312,8 @@ function PMA_langDetails($lang) {
             return array('tr|turkish', 'tr', 'T&uuml;rk&ccedil;e');
         case 'tt':
             return array('tt|tatarish', 'tt', 'Tatar&ccedil;a');
+        case 'ug':
+            return array('ug|uyghur', 'ug', 'ئۇيغۇرچە');
         case 'uk':
             return array('uk|ukrainian', 'uk', '&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;');
         case 'ur':
@@ -475,8 +477,8 @@ _textdomain('phpmyadmin');
 /**
  * Messages for phpMyAdmin.
  *
- * These messages are here for easy transition to Gettext. 
- * You should not add any messages here, use instead gettext directly 
+ * These messages are here for easy transition to Gettext.
+ * You should not add any messages here, use instead gettext directly
  * in your template/PHP file.
  */
 
