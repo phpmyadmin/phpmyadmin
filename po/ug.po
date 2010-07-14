@@ -185,7 +185,7 @@ msgstr "يوق"
 #: tbl_printview.php:228 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
-msgstr ""
+msgstr "بولدى"
 
 #: db_datadict.php:322 db_printview.php:266 tbl_printview.php:497
 msgid "Print"
