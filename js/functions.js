@@ -1829,4 +1829,28 @@ $(document).ready(function() {
             disable_popup();
         }
     });
+
+    /**
+     * Hides certain table structure actions, replacing them with the word "More". They are displayed
+     * in a dropdown menu when the user hovers over the word "More."
+     */
+    // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
+    $("table[id='tablestructure'] td[class='browse']").remove();
+    $("table[id='tablestructure'] td[class='primary']").remove();
+    $("table[id='tablestructure'] td[class='unique']").remove();
+    $("table[id='tablestructure'] td[class='index']").remove();
+    $("table[id='tablestructure'] td[class='fulltext']").remove();
+
+    // Display the "more" text
+    $("table[id='tablestructure'] td[class='more_opts']").show()
+
+    // When "more" is hovered over, show the hidden actions
+    $("table[id='tablestructure'] td[class='more_opts']").hover(
+        function() {
+            $(this).children(".structure_actions_dropdown").show();
+        },
+        function() {
+            $(this).children(".structure_actions_dropdown").hide();
+        }
+    );
 });

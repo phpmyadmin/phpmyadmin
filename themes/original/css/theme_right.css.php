@@ -210,7 +210,8 @@ table tr.marked {
 /* hovered items */
 .odd:hover,
 .even:hover,
-.hover {
+.hover,
+.structure_actions_dropdown {
     background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
@@ -1391,4 +1392,22 @@ a.close_enum_editor {
 
 #enum_editor_output {
     margin-top: 50px;
+}
+
+/**
+ * Table structure styles
+ */
+.structure_actions_dropdown {
+    position: absolute;
+    padding: 3px;
+    display: none;
+    margin-left: 30px;
+}
+
+td.more_opts {
+    display: none;
+}
+
+table#tablestructure {
+    margin-right: 50px;
 }

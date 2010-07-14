@@ -160,6 +160,18 @@ $titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'), tru
 $titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'), true);
 $titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), true);
 
+// hidden action titles (image and string)
+$hidden_titles = array();
+$hidden_titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), true, true);
+$hidden_titles['Primary']              = PMA_getIcon('b_primary.png', __('Primary'), true, true);
+$hidden_titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Primary'), true, true);
+$hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Index'), true, true);
+$hidden_titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'), true, true);
+$hidden_titles['Unique']               = PMA_getIcon('b_unique.png', __('Unique'), true, true);
+$hidden_titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'), true, true);
+$hidden_titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Fulltext'), true, true);
+$hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'), true, true);
+
 /**
  * Displays the table structure ('show table' works correct since 3.23.03)
  */
@@ -361,59 +373,63 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         echo '<i>' . _pgettext('None for default','None') . '</i>';
     } ?></td>
     <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
-    <td align="center">
+    <td align="center" class="browse">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
             <?php echo $titles['BrowseDistinctValues']; ?></a>
     </td>
     <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
-    <td align="center">
+    <td align="center" class="edit">
         <a href="tbl_alter.php?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
             <?php echo $titles['Change']; ?></a>
     </td>
-    <td align="center">
+    <td align="center" class="drop">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;cpurge=1&amp;purgekey=<?php echo urlencode($row['Field']); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP <?php echo PMA_jsFormat($row['Field']); ?>')">
             <?php echo $titles['Drop']; ?></a>
     </td>
-    <td align="center">
+    <td align="center" class="primary">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || ($primary && $primary->hasColumn($field_name))) {
             echo $titles['NoPrimary'] . "\n";
+            $primary = false;
         } else {
             echo "\n";
             ?>
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table) . ($primary ? ' DROP PRIMARY KEY,' : ''); ?> ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
             <?php echo $titles['Primary']; ?></a>
-            <?php
+            <?php $primary = true;
         }
         echo "\n";
         ?>
     </td>
-    <td align="center">
+    <td align="center" class="unique">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || isset($columns_with_unique_index[$field_name])) {
             echo $titles['NoUnique'] . "\n";
+            $unique = false;
         } else {
             echo "\n";
             ?>
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Unique']; ?></a>
-            <?php
+            <?php $unique = true;
         }
         echo "\n";
         ?>
     </td>
-    <td align="center">
+    <td align="center" class="index">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoIndex'] . "\n";
+            $index = false;
         } else {
             echo "\n";
             ?>
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Index']; ?></a>
             <?php
+            $index = true;
         }
         echo "\n";
         ?>
@@ -424,22 +440,84 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
             echo "\n";
             ?>
-    <td align="center" nowrap="nowrap">
+    <td align="center" nowrap="nowrap" class="fulltext">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
+            <?php $fulltext = true; ?>
     </td>
             <?php
         } else {
             echo "\n";
         ?>
-    <td align="center" nowrap="nowrap">
+    <td align="center" nowrap="nowrap" class="fulltext">
         <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
+        <?php $fulltext = false; ?>
     </td>
         <?php
         } // end if... else...
         echo "\n";
     } // end if (! $tbl_is_view && ! $db_is_information_schema)
     ?>
+    <td class="more_opts" id="<?php echo $rownum; ?>">
+        More <img src="<?php echo $pmaThemeImage . 'more.png'; ?>">
+        <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
+
+            <div class="action_browse">
+                <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
+                    <?php echo $hidden_titles['BrowseDistinctValues']; ?>
+                </a>
+            </div>
+            <div class="action_primary">
+                <?php
+                if($primary) { ?>
+                     <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>"
+                     onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table) . ($primary ? ' DROP PRIMARY KEY,' : ''); ?> ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
+                        <?php echo $hidden_titles['Primary']; ?>
+                    </a>
+                <?php
+                } else {
+                    echo $hidden_titles['NoPrimary'];
+                }
+                ?>
+            </div>
+            <div class="action_unique">
+                <?php
+                if($unique) { ?>
+                    <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                        <?php echo $hidden_titles['Unique']; ?>
+                    </a>
+                <?php
+                } else {
+                    echo $hidden_titles['NoUnique'];
+                }
+                ?>
+            </div>
+            <div class="action_index">
+               <?php
+                if($index) { ?>
+                    <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                        <?php echo $hidden_titles['Index']; ?>
+                    </a>
+                <?php
+                } else {
+                    echo $hidden_titles['NoIndex'];
+                }
+                ?>
+             </div>
+            <div class="action_fulltext">
+                <?php
+                if($fulltext) { ?>
+                    <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                        <?php echo $hidden_titles['IdxFulltext']; ?>
+                    </a>
+                <?php
+                } else {
+                    echo $hidden_titles['NoIdxFulltext'];
+                }
+                ?>
+             </div>
+        </div>
+    </td>
 </tr>
     <?php
     unset($field_charset);
