@@ -994,7 +994,7 @@ function Select_all(id_this,owner)
 			if(document.getElementById('select_all_' + id_this).checked == true) {
 				parent.elements[i].checked = true;
 				parent.elements[i].disabled = true;
-				var temp = '\'' + id_this.substring(owner.length +1) + '\'.*';
+				var temp = '`' + id_this.substring(owner.length +1) + '`.*';
 			}	
 			else {
 				parent.elements[i].checked = false;
@@ -1003,11 +1003,11 @@ function Select_all(id_this,owner)
 		}
 	}
 	if(document.getElementById('select_all_' + id_this).checked == true) {
-		select_field.push('\'' + id_this.substring(owner.length +1) + '\'.*');
+		select_field.push('`' + id_this.substring(owner.length +1) + '`.*');
 	}
 	else {
 		for (i =0; i < select_field.length; i++) {
-			if (select_field[i] == ('\'' + id_this.substring(owner.length +1) + '\'.*')) {
+			if (select_field[i] == ('`' + id_this.substring(owner.length +1) + '`.*')) {
 				select_field.splice(i,1);
 			}
 		}
@@ -1034,11 +1034,11 @@ function Table_onover(id_this,val)
 function store_column(id_this,owner,col) {
 	var i = 0;
 	if (document.getElementById('select_' + owner + '.' + id_this + '._' + col).checked == true) {
-		select_field.push('\'' + id_this + '\'.\'' + col +'\'');	
+		select_field.push('`' + id_this + '`.`' + col +'`');	
 	}
 	else {
 		for(i; i < select_field.length ;i++) {
-			if (select_field[i] == ('\'' + id_this + '\'.\'' + col +'\'')) {
+			if (select_field[i] == ('`' + id_this + '`.`' + col +'`')) {
 				select_field.splice(i,1);
 				break;
 			}
