@@ -492,7 +492,9 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
     }
 
     // footnotemarker used in js/tooltip.js
-    return '<sup class="footnotemarker" id="footnote_sup_' . $nr . '_' . $instance . '">' . $nr . '</sup>';
+    return '<sup class="footnotemarker" id="footnote_sup_' . $nr . '_' . $instance . '">' . $nr . '</sup>' .
+    '<img class="footnotemarker" id="footnote_sup_' . $nr . '_' . $instance . '" src="' .
+    $GLOBALS['pmaThemeImage'] . 'b_help.png" />';
 }
 
 /**
