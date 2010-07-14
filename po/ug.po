@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-14 14:46+0200\n"
+"PO-Revision-Date: 2010-07-14 14:48+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -82,7 +82,7 @@ msgstr ""
 #: server_collations.php:55 server_collations.php:67 server_engines.php:59
 #: server_status.php:739
 msgid "Description"
-msgstr ""
+msgstr "ئىزاھات"
 
 #: browse_foreigners.php:247 browse_foreigners.php:256
 #: browse_foreigners.php:268 browse_foreigners.php:276
