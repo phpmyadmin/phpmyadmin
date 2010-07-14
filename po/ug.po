@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-14 14:56+0200\n"
+"PO-Revision-Date: 2010-07-14 14:57+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -157,7 +157,7 @@ msgstr "ئۇلانما"
 #: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
 #: pdf_schema.php:1290 tbl_printview.php:151
 msgid "Comments"
-msgstr ""
+msgstr "ئىزاھلار"
 
 #: db_datadict.php:267 libraries/Index.class.php:359
 #: libraries/Index.class.php:386 libraries/export/htmlword.php:322
