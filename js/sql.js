@@ -24,9 +24,17 @@ $(document).ready(function() {
         $(this).append('<input type="hidden" name="ajax_request" value="true" />');
 
         $.post($(this).attr('action'), $(this).serialize() , function(data) {
-            $("#sqlqueryresults").html(data);
-            if($("#togglequerybox").siblings(":visible").length > 0) {
-            $("#togglequerybox").trigger('click');
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+            }
+            else if (data.success == false ) {
+                PMA_ajaxShowMessage(data.error);
+            }
+            else {
+                $("#sqlqueryresults").html(data);
+                if($("#togglequerybox").siblings(":visible").length > 0) {
+                $("#togglequerybox").trigger('click');
+                }
             }
         })
     }) // end SQL Query submit
