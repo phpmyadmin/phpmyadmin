@@ -32,7 +32,7 @@ var myTooltipContainer = null;
 function PMA_TT_init()
 {
     // get all 'light bubbles' on page
-    var tooltip_icons = window.parent.getElementsByClassName('footnotemarker', document, 'sup');
+    var tooltip_icons = $("img[class='footnotemarker']");
     var tooltip_count = tooltip_icons.length;
 
     if (tooltip_count < 1) {
@@ -158,8 +158,11 @@ function moveTooltip(posX, posY)
  */
 function pmaTooltip(e)
 {
-    var theText = document.getElementById('footnote_' + this.innerHTML).innerHTML;
 
+    var footnoteID = this.id.split("_")[2];
+    var footnote = $('#footnote_' + footnoteID);
+    // Remove the footnote number since it is not needed
+    footnote.children("sup").remove();
     var plusX = 0, plusY = 0, docX = 0, docY = 0;
     var divHeight = myTooltipContainer.clientHeight;
     var divWidth  = myTooltipContainer.clientWidth;
@@ -190,7 +193,7 @@ function pmaTooltip(e)
     if ((ttYpos + divHeight) > docY)
         ttYpos = ttYpos - (divHeight + (ttYadd * 2));
 
-    PMA_TT_setText(theText);
+    PMA_TT_setText(footnote.html());
     moveTooltip((ttXpos + ttXadd), (ttYpos + ttYadd));
     holdTooltip();
 }
@@ -210,3 +213,12 @@ function mouseMove(e) {
     }
     moveTooltip((ttXpos + ttXadd), (ttYpos + ttYadd));
 }
+
+$(document).ready(function() {
+    // Hide the footnotes from the footer (which are displayed for
+    // JavaScript-disabled browsers) since the tooltip is sufficient
+    $(".notice").hide();
+    // Replace the superscripts with the help icon
+    $("sup[class='footnotemarker']").remove();
+    $("img[class='footnotemarker']").show();
+});
