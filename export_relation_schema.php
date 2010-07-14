@@ -85,7 +85,7 @@ if ($cfgRelation['pdfwork']) {
      *                  create and select a page, generate schema etc             
      */
 
-    $user_schema->processUserPreferences($do);
+    $user_schema->processUserPreferences($_REQUEST['do']);
 
     /**
      * Show some possibility to select a page for the export of relation schema
@@ -108,10 +108,10 @@ if ($cfgRelation['pdfwork']) {
 
     $user_schema->showTableDashBoard();
 
-    if (isset($do)
-    && ($do == 'edcoord'
-       || ($do == 'selectpage' && isset($user_schema->choosenPage) && $user_schema->choosenPage != 0)
-       || ($do == 'createpage' && isset($user_schema->choosenPage) && $user_schema->choosenPage != 0))) {
+    if (isset($_REQUEST['do'])
+    && ($_REQUEST['do'] == 'edcoord'
+       || ($_REQUEST['do']== 'selectpage' && isset($user_schema->choosenPage) && $user_schema->choosenPage != 0)
+       || ($_REQUEST['do'] == 'createpage' && isset($user_schema->choosenPage) && $user_schema->choosenPage != 0))) {
 
       /** 
        * show Export schema generation options
@@ -129,7 +129,6 @@ if ($cfgRelation['pdfwork']) {
       }
     } // end if
 } // end if ($cfgRelation['pdfwork'])
-
 
 /**
  * Displays the footer
