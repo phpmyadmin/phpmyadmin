@@ -189,7 +189,7 @@ msgstr "بولدى"
 
 #: db_datadict.php:322 db_printview.php:266 tbl_printview.php:497
 msgid "Print"
-msgstr ""
+msgstr "يازدۇر"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
