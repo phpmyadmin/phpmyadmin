@@ -26,7 +26,15 @@ class PMA_DIA extends XMLWriter
     public $author;
     public $font;
     public $fontSize;
-    
+
+    /**
+     * The "PMA_DIA" constructor
+     *
+     * Upon instantiation This starts writing the Dia XML document
+     *
+     * @return void
+     * @see PMA_DIA,Table_Stats,Relation_Stats
+     */
     function __construct()
     {
         $this->openMemory();
@@ -44,6 +52,24 @@ class PMA_DIA extends XMLWriter
         $this->startDocument('1.0','UTF-8');
     }
 
+    /**
+     * Starts Dia Document
+     * 
+     * dia document starts by first initializing dia:diagram tag
+     * then dia:diagramdata contains all the attributes that needed
+     * to define the document, then finally a Layer starts which
+	 * holds all the objects.
+     *
+     * @param string paper The size of the paper/document
+     * @param float topMargin top margin of the paper/document in cm
+     * @param float bottomMargin bottom margin of the paper/document in cm
+     * @param float leftMargin left margin of the paper/document in cm
+     * @param float rightMargin right margin of the paper/document in cm
+     * @param string portrait document will be portrait or landscape
+     * @return void
+     * @access public
+     * @see XMLWriter::startElement(),XMLWriter::writeAttribute(),XMLWriter::writeRaw()
+     */
     function startDiaDoc($paper,$topMargin,$bottomMargin,$leftMargin,$rightMargin,$portrait)
     {
         if($portrait == 'P'){
@@ -123,20 +149,35 @@ class PMA_DIA extends XMLWriter
         
     }
 
+    /**
+     * Ends Dia Document
+     *
+     * @return void
+     * @access public
+     * @see XMLWriter::endElement(),XMLWriter::endDocument()
+     */
     function endDiaDoc()
     {
         $this->endElement();
         $this->endDocument();
     }
 
-    function showOutput()
+    /**
+     * Output Dia Document for download
+     *
+	 * @param string fileName name of the dia document
+     * @return void
+     * @access public
+     * @see XMLWriter::flush()
+     */
+    function showOutput($fileName)
     {
          if(ob_end_clean()){
             ob_end_clean();
             //ob_start();
         }
         //header('Content-type: text/xml');
-        header('Content-Disposition: attachment; filename="downloaded.dia"');
+        header('Content-Disposition: attachment; filename="'.$fileName.'.dia"');
         $output = $this->flush();
         print $output;
     }
@@ -173,7 +214,7 @@ class Table_Stats
      * @param integer pageNumber The current page number (from the
      *                     $cfg['Servers'][$i]['table_coords'] table)
      * @param boolean showKeys Whether to display ONLY keys or not
-	 * @return void
+     * @return void
      * @global object    The current dia document
      * @global array     The relations settings
      * @global string    The current db name
@@ -426,7 +467,7 @@ class Relation_Stats
      * @param string master_field The relation field in the master table
      * @param string foreign_table The foreign table name
      * @param string foreigh_field The relation field in the foreign table
-	 * @return void
+     * @return void
      * @see Relation_Stats::_getXy
      */
     function __construct($master_table, $master_field, $foreign_table, $foreign_field)
@@ -445,10 +486,10 @@ class Relation_Stats
 
     /**
      * Each Table object have connection points
-	 * which is used to connect to other objects in Dia
-	 * we detect the position of key in fields and 
-	 * then determines its left and right connection
-	 * points.
+     * which is used to connect to other objects in Dia
+     * we detect the position of key in fields and 
+     * then determines its left and right connection
+     * points.
      *
      * @param string table The current table name
      * @param string column The relation column name
@@ -618,6 +659,15 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
     private $_rightMargin = 2.8222000598907471;
     public static $objectId = 0;
 
+    /**
+     * The "PMA_Dia_Relation_Schema" constructor
+     *
+     * Upon instantiation This outputs the Dia XML document
+     * that user can download
+     *
+     * @return void
+     * @see PMA_DIA,Table_Stats,Relation_Stats
+     */
     function __construct()
     {
         global $dia,$db;
@@ -662,7 +712,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
             $this->_drawRelations($this->showColor);
         }
         $dia->endDiaDoc();
-        $dia->showOutput();
+        $dia->showOutput($db.'-'.$this->pageNumber);
         exit();
         print '<pre>';
         print_r(get_object_vars($dia));
