@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-03 09:00-0400\n"
+"POT-Creation-Date: 2010-07-14 11:36+0200\n"
 "PO-Revision-Date: 2010-07-01 19:56+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -64,8 +64,8 @@ msgstr "Rechercher"
 #: server_privileges.php:1971 server_privileges.php:2018
 #: server_privileges.php:2057 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
-#: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
+#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1173
+#: tbl_change.php:1210 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
 #: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
@@ -230,7 +230,7 @@ msgstr "Changer le nom de la base de données pour"
 msgid "Command"
 msgstr "Commande"
 
-#: db_operations.php:429 tbl_change.php:1140
+#: db_operations.php:429 tbl_change.php:1142
 msgid "and then"
 msgstr "et ensuite"
 
@@ -560,7 +560,7 @@ msgstr "Insérer"
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
-#: libraries/export/texytext.php:23 libraries/import.lib.php:1106
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1121
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
 #: server_privileges.php:593 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
@@ -610,11 +610,11 @@ msgstr "Le suivi n'est pas activé."
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Cette vue contient au moins ce nombre d'enregistrements. Veuillez référer à %"
-"sdocumentation%s."
+"Cette vue contient au moins ce nombre d'enregistrements. Veuillez référer à "
+"%sdocumentation%s."
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/tbl_info.inc.php:66 tbl_structure.php:185 test/theme.php:74
@@ -805,8 +805,8 @@ msgstr "Le fichier d'exportation a été sauvegardé sous %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
 "Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
@@ -1330,7 +1330,7 @@ msgstr "Commentaire"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
-#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
+#: libraries/import.lib.php:1104 libraries/import.lib.php:1128
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
@@ -1475,8 +1475,8 @@ msgstr "Bienvenue sur %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La raison probable est que vous n'avez pas créé de fichier de configuration. "
 "Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but."
@@ -2050,8 +2050,8 @@ msgstr "nom de table"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
@@ -2260,8 +2260,8 @@ msgstr "Trier sur l'index"
 #: libraries/export/php_array.php:25 libraries/export/sql.php:34
 #: libraries/export/texytext.php:37 libraries/export/xls.php:27
 #: libraries/export/xlsx.php:27 libraries/export/xml.php:24
-#: libraries/export/yaml.php:28 libraries/import.lib.php:1084
-#: libraries/import.lib.php:1106 libraries/import/csv.php:32
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1099
+#: libraries/import.lib.php:1121 libraries/import/csv.php:32
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
@@ -3030,43 +3030,43 @@ msgstr "Généré par"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL n'a retourné aucun enregistrement."
 
-#: libraries/import.lib.php:1080
+#: libraries/import.lib.php:1095
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Les structures suivanates ont été créées ou modifiées. Ici vous pouvez :"
 
-#: libraries/import.lib.php:1081
+#: libraries/import.lib.php:1096
 msgid "View a structure`s contents by clicking on its name"
 msgstr "Consulter le contenu d'une structure en cliquant sur son nom"
 
-#: libraries/import.lib.php:1082
+#: libraries/import.lib.php:1097
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 "Modifiez l'un des réglages en cliquant le lien  «Options » correspondant"
 
-#: libraries/import.lib.php:1083
+#: libraries/import.lib.php:1098
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr "Modifier sa structure via le lien  «Structure »"
 
-#: libraries/import.lib.php:1086
+#: libraries/import.lib.php:1101
 msgid "Go to database"
 msgstr "Aller à la base de données"
 
-#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
+#: libraries/import.lib.php:1104 libraries/import.lib.php:1128
 msgid "settings"
 msgstr "réglages"
 
-#: libraries/import.lib.php:1108
+#: libraries/import.lib.php:1123
 msgid "Go to table"
 msgstr "Aller à la table"
 
-#: libraries/import.lib.php:1111
+#: libraries/import.lib.php:1126
 msgid "structure"
 msgstr "structure"
 
-#: libraries/import.lib.php:1117
+#: libraries/import.lib.php:1132
 msgid "Go to view"
 msgstr "Aller à la vue"
 
@@ -3859,7 +3859,7 @@ msgstr "Définition de PARTITION"
 
 #: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
-#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1123 tbl_indexes.php:248
+#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1125 tbl_indexes.php:248
 #: tbl_relation.php:566
 msgid "Save"
 msgstr "Sauvegarder"
@@ -4037,7 +4037,7 @@ msgid "Custom color"
 msgstr "Couleur au choix"
 
 #: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
-#: tbl_change.php:1172
+#: tbl_change.php:1174
 msgid "Reset"
 msgstr "Réinitialiser"
 
@@ -4346,8 +4346,8 @@ msgid ""
 "appropriate column name."
 msgstr ""
 "La colonne descriptive est montrée en rose. Pour indiquer qu'une colonne est "
-"ou n'est plus la colonne descriptive, cliquer l'icône  «Colonne descriptive», "
-"puis cliquer sur le nom de colonne approprié."
+"ou n'est plus la colonne descriptive, cliquer l'icône  «Colonne "
+"descriptive», puis cliquer sur le nom de colonne approprié."
 
 #: pmd_pdf.php:63
 msgid "Page has been created"
@@ -4833,8 +4833,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
@@ -7148,9 +7148,9 @@ msgstr ""
 "La méthode d'authentification [kbd]config[/kbd] permet une connexion "
 "automatique, ce qui n'est pas souhaitable dans un environnement réel. Toute "
 "personne qui connaît l'URL d'accès peut entrer dans votre phpMyAdmin. Il est "
-"suggéré de régler votre [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]type d'authentification[/a] à [kbd]cookie[/kbd] ou [kbd]http[/"
-"kbd]."
+"suggéré de régler votre [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]type d'authentification[/a] à [kbd]cookie[/kbd] ou [kbd]http"
+"[/kbd]."
 
 #: setup/lib/messages.inc.php:239
 msgid "You should use mysqli for performance reasons"
@@ -7903,42 +7903,42 @@ msgstr "Binaire - ne pas éditer"
 msgid "Upload to BLOB repository"
 msgstr "Télécharger vers le dépôt BLOB"
 
-#: tbl_change.php:1127
+#: tbl_change.php:1129
 msgid "Insert as new row"
 msgstr "Sauvegarder un nouvel enregistrement"
 
-#: tbl_change.php:1128
+#: tbl_change.php:1130
 msgid "Insert as new row and ignore errors"
 msgstr "Sauvegarder un nouvel enregistrement (ignorer les erreurs)"
 
-#: tbl_change.php:1129
+#: tbl_change.php:1131
 msgid "Show insert query"
 msgstr "Afficher l'énoncé d'insertion"
 
-#: tbl_change.php:1144
+#: tbl_change.php:1146
 msgid "Go back to previous page"
 msgstr "Retourner à la page précédente"
 
-#: tbl_change.php:1145
+#: tbl_change.php:1147
 msgid "Insert another new row"
 msgstr "Insérer un nouvel enregistrement"
 
-#: tbl_change.php:1149
+#: tbl_change.php:1151
 msgid "Go back to this page"
 msgstr "Demeurer sur cette page"
 
-#: tbl_change.php:1157
+#: tbl_change.php:1159
 msgid "Edit next row"
 msgstr "Modifier l'enregistrement suivant"
 
-#: tbl_change.php:1168
+#: tbl_change.php:1170
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Utilisez la tabulation pour aller d'une valeur à l'autre, ou CTRL+flèches "
 "pour aller n'importe où"
 
-#: tbl_change.php:1206
+#: tbl_change.php:1208
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr "Recommencer l'insertion avec %s lignes"

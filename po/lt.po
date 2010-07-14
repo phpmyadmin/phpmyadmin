@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-03 09:00-0400\n"
+"POT-Creation-Date: 2010-07-14 11:36+0200\n"
 "PO-Revision-Date: 2010-04-16 19:52+0200\n"
 "Last-Translator: Rytis <rytis.s@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lt\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
-"100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -64,8 +64,8 @@ msgstr "Paieška"
 #: server_privileges.php:1971 server_privileges.php:2018
 #: server_privileges.php:2057 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
-#: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
+#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1173
+#: tbl_change.php:1210 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
 #: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
@@ -232,7 +232,7 @@ msgstr "Pervadinti duombazę į"
 msgid "Command"
 msgstr "Komanda"
 
-#: db_operations.php:429 tbl_change.php:1140
+#: db_operations.php:429 tbl_change.php:1142
 msgid "and then"
 msgstr "ir tada"
 
@@ -334,8 +334,8 @@ msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 msgstr ""
-"Nėra PMA lentelių, kurios leidžia dirbti su jungtinėmis MySQL lentelėmis. %"
-"sPaaiškinimas%s."
+"Nėra PMA lentelių, kurios leidžia dirbti su jungtinėmis MySQL lentelėmis. "
+"%sPaaiškinimas%s."
 
 #: db_operations.php:648
 msgid "Edit PDF Pages"
@@ -576,7 +576,7 @@ msgstr "Įterpti"
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
-#: libraries/export/texytext.php:23 libraries/import.lib.php:1106
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1121
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
 #: server_privileges.php:593 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
@@ -626,8 +626,8 @@ msgstr ""
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
@@ -822,8 +822,8 @@ msgstr "Duombazės atvaizdis išsaugotas faile %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
@@ -1377,7 +1377,7 @@ msgstr "Komentaras"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
-#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
+#: libraries/import.lib.php:1104 libraries/import.lib.php:1128
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
@@ -1522,8 +1522,8 @@ msgstr "Jūs naudojate %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Turbūt dar nesukūrėte nustatymų failo. Galite pasinaudoti %1$snustatymų "
 "skriptu%2$s, kad sukurtumėte failą."
@@ -2094,8 +2094,8 @@ msgstr "lentelės vardas"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 "Ši reikšmė interpretuojama naudojant %1$sstrftime%2$s, taigi, galite naudoti "
 "laiko formatavimo eilutes. Taip pat pakeičiamos šios eilutės: %3$s. Kitas "
@@ -2301,8 +2301,8 @@ msgstr "Rūšiuoti pagal raktą"
 #: libraries/export/php_array.php:25 libraries/export/sql.php:34
 #: libraries/export/texytext.php:37 libraries/export/xls.php:27
 #: libraries/export/xlsx.php:27 libraries/export/xml.php:24
-#: libraries/export/yaml.php:28 libraries/import.lib.php:1084
-#: libraries/import.lib.php:1106 libraries/import/csv.php:32
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1099
+#: libraries/import.lib.php:1121 libraries/import/csv.php:32
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
@@ -3049,42 +3049,42 @@ msgstr "Generavo:"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gražino tuščią rezultatų rinkinį (nėra eilučių)."
 
-#: libraries/import.lib.php:1080
+#: libraries/import.lib.php:1095
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1081
+#: libraries/import.lib.php:1096
 msgid "View a structure`s contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1082
+#: libraries/import.lib.php:1097
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1083
+#: libraries/import.lib.php:1098
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1086
+#: libraries/import.lib.php:1101
 msgid "Go to database"
 msgstr "Eiti į duomenų bazę"
 
-#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
+#: libraries/import.lib.php:1104 libraries/import.lib.php:1128
 msgid "settings"
 msgstr "nustatymai"
 
-#: libraries/import.lib.php:1108
+#: libraries/import.lib.php:1123
 msgid "Go to table"
 msgstr "Eiti į lentelę"
 
-#: libraries/import.lib.php:1111
+#: libraries/import.lib.php:1126
 #, fuzzy
 msgid "structure"
 msgstr "Struktūra"
 
-#: libraries/import.lib.php:1117
+#: libraries/import.lib.php:1132
 msgid "Go to view"
 msgstr ""
 
@@ -3880,7 +3880,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
-#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1123 tbl_indexes.php:248
+#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1125 tbl_indexes.php:248
 #: tbl_relation.php:566
 msgid "Save"
 msgstr "Išsaugoti"
@@ -4077,7 +4077,7 @@ msgid "Custom color"
 msgstr "Pasirinkta spalva"
 
 #: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
-#: tbl_change.php:1172
+#: tbl_change.php:1174
 msgid "Reset"
 msgstr "Atstatyti į pradinę būseną"
 
@@ -4865,8 +4865,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Pastaba: phpMyAdmin gauna vartotojų teises tiesiai iš MySQL privilegijų "
 "lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo nustatymų "
@@ -7679,42 +7679,42 @@ msgstr "Dvejetainis - nekeisti"
 msgid "Upload to BLOB repository"
 msgstr ""
 
-#: tbl_change.php:1127
+#: tbl_change.php:1129
 msgid "Insert as new row"
 msgstr "Įterpti naują įrašą"
 
-#: tbl_change.php:1128
+#: tbl_change.php:1130
 msgid "Insert as new row and ignore errors"
 msgstr "Įterpti kaip naują eilutę ir ignoruoti klaidas"
 
-#: tbl_change.php:1129
+#: tbl_change.php:1131
 #, fuzzy
 msgid "Show insert query"
 msgstr "Rodoma SQL užklausa"
 
-#: tbl_change.php:1144
+#: tbl_change.php:1146
 msgid "Go back to previous page"
 msgstr "Sugrįžti į buvusį puslapį"
 
-#: tbl_change.php:1145
+#: tbl_change.php:1147
 msgid "Insert another new row"
 msgstr "Įterpti kitą naują eilutę"
 
-#: tbl_change.php:1149
+#: tbl_change.php:1151
 msgid "Go back to this page"
 msgstr "Grįžti atgal į šį puslapį"
 
-#: tbl_change.php:1157
+#: tbl_change.php:1159
 msgid "Edit next row"
 msgstr "Redaguoti kitą įrašą"
 
-#: tbl_change.php:1168
+#: tbl_change.php:1170
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Šokinėjimui tarp reikšmių naudokite TAB mygtuką arba naudokite CTRL+rodyklės"
 
-#: tbl_change.php:1206
+#: tbl_change.php:1208
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr ""

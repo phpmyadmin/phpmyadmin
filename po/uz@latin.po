@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-03 09:00-0400\n"
+"POT-Creation-Date: 2010-07-14 11:36+0200\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
@@ -63,8 +63,8 @@ msgstr "Qidirish"
 #: server_privileges.php:1971 server_privileges.php:2018
 #: server_privileges.php:2057 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
-#: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
+#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1173
+#: tbl_change.php:1210 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
 #: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
@@ -231,7 +231,7 @@ msgstr "Ma`lumotlar bazasi nomini quyidagiga o‘zgartirish"
 msgid "Command"
 msgstr "Buyruq"
 
-#: db_operations.php:429 tbl_change.php:1140
+#: db_operations.php:429 tbl_change.php:1142
 msgid "and then"
 msgstr "va so‘ng"
 
@@ -575,7 +575,7 @@ msgstr "Qo‘yish"
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
-#: libraries/export/texytext.php:23 libraries/import.lib.php:1106
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1121
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
 #: server_privileges.php:593 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
@@ -625,8 +625,8 @@ msgstr "Kuzatish faol emas."
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Ushbu namoyish kamida ko‘rsatilgan miqdorda qatorlarga ega. Batafsil "
 "ma`lumot uchun %sdokumentatsiyaga%s qarang."
@@ -818,8 +818,8 @@ msgstr "Damp \"%s\" faylida saqlandi."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Ehtimol, yuklanayotgan fayl hajmi juda katta. Bu muammoni yechishning "
 "usullari %sdokumentatsiyada%s keltirilgan."
@@ -1398,7 +1398,7 @@ msgstr "Izoh"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
-#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
+#: libraries/import.lib.php:1104 libraries/import.lib.php:1128
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
@@ -1542,8 +1542,8 @@ msgstr "\"%s\" dasturiga xush kelibsiz"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Ehtimol, konfiguratsiya fayli tuzilmagan. Uni tuzish uchun %1$sso‘rnatish "
 "ssenariysidan%2$s foydalanishingiz mumkin."
@@ -1981,8 +1981,8 @@ msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
-"Taxminiy bo‘lishi mumkin. [a@./Documentation.html#faq3_11@Documentation]"
-"\"FAQ 3.11\"[/a]ga qarang"
+"Taxminiy bo‘lishi mumkin. [a@./Documentation."
+"html#faq3_11@Documentation]\"FAQ 3.11\"[/a]ga qarang"
 
 #: libraries/db_structure.lib.php:69 server_databases.php:142
 #: tbl_printview.php:335 tbl_structure.php:682
@@ -2133,8 +2133,8 @@ msgstr "jadval nomi"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 "Qiymat %1$sstrftime%2$s funksiyasi bilan qayta ishlangan, shuning uchun "
 "hozirgi vaqt va sanani qo‘yish mumkin. Qo‘shimcha ravishda quyidagilar "
@@ -2351,8 +2351,8 @@ msgstr "Indeks bo‘yicha sortirovka qilish"
 #: libraries/export/php_array.php:25 libraries/export/sql.php:34
 #: libraries/export/texytext.php:37 libraries/export/xls.php:27
 #: libraries/export/xlsx.php:27 libraries/export/xml.php:24
-#: libraries/export/yaml.php:28 libraries/import.lib.php:1084
-#: libraries/import.lib.php:1106 libraries/import/csv.php:32
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1099
+#: libraries/import.lib.php:1121 libraries/import/csv.php:32
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
@@ -3133,43 +3133,43 @@ msgstr "Tuzilgan"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL bo‘sh natija berdi (ya`ni nolta satr)."
 
-#: libraries/import.lib.php:1080
+#: libraries/import.lib.php:1095
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Quyidagi tuzilishlar yo tuzildi yo o‘zgartirildi. Bu yerda siz quyidagi "
 "amallarni bajarishingiz mumkin:"
 
-#: libraries/import.lib.php:1081
+#: libraries/import.lib.php:1096
 msgid "View a structure`s contents by clicking on its name"
 msgstr "Tuzilmani ko‘rish uchun uning nomi ustiga sichqoncha tugmasini bosing"
 
-#: libraries/import.lib.php:1082
+#: libraries/import.lib.php:1097
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr "Quyidagi tanlovlarni o‘zgartirish uchun, \"Tanlovlar\" bog‘iga bosing"
 
-#: libraries/import.lib.php:1083
+#: libraries/import.lib.php:1098
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr "Tuzilmani o‘zgartirish uchun, \"Tuzilma\" bog‘iga kiring"
 
-#: libraries/import.lib.php:1086
+#: libraries/import.lib.php:1101
 msgid "Go to database"
 msgstr "Ushbu bazaga o‘tish"
 
-#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
+#: libraries/import.lib.php:1104 libraries/import.lib.php:1128
 msgid "settings"
 msgstr "tanlovlar"
 
-#: libraries/import.lib.php:1108
+#: libraries/import.lib.php:1123
 msgid "Go to table"
 msgstr "Ushbu jadvalga o‘tish"
 
-#: libraries/import.lib.php:1111
+#: libraries/import.lib.php:1126
 msgid "structure"
 msgstr "tuzilish"
 
-#: libraries/import.lib.php:1117
+#: libraries/import.lib.php:1132
 msgid "Go to view"
 msgstr "Ushbu ko‘rinishga o‘tish"
 
@@ -3985,7 +3985,7 @@ msgstr "Bo‘laklarni (PARTITIONS) belgilash"
 
 #: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
-#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1123 tbl_indexes.php:248
+#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1125 tbl_indexes.php:248
 #: tbl_relation.php:566
 msgid "Save"
 msgstr "Saqlash"
@@ -4208,7 +4208,7 @@ msgid "Custom color"
 msgstr "Rangni tanlash"
 
 #: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
-#: tbl_change.php:1172
+#: tbl_change.php:1174
 msgid "Reset"
 msgstr "Tozalash"
 
@@ -5032,8 +5032,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "IZOH: phpMyAdmin foydalanuvchilar privilegiyalari haqidagi ma`lumotlarni "
 "to‘g‘ridan-to‘g‘ri MySQL privilegiyalari jadvalidan oladi. Ushbu jadvaldagi "
@@ -7423,9 +7423,9 @@ msgstr ""
 "real xostlar uchun tavsiya etilmaydi. Serverdagi phpMyAdmin turgan katalog "
 "adresini bilgan yoki taxmin qilgan har kim ushbu dasturga bemalol kirib, "
 "serverdagi ma`lumotlar bazalari bilan istalgan operatsiyalarni amalga "
-"oshirishi mumkin. Server [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki [kbd]http[/"
-"kbd] deb belgilash tavsiya etiladi."
+"oshirishi mumkin. Server [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki [kbd]http"
+"[/kbd] deb belgilash tavsiya etiladi."
 
 #: setup/lib/messages.inc.php:239
 msgid "You should use mysqli for performance reasons"
@@ -7573,9 +7573,9 @@ msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Ko‘proq ma`lumot uchun [a@http://sf.net/support/tracker.php?aid=1849494]"
-"\"PMA bug tracker\"[/a] va [a@http://bugs.mysql.com/19588]\"MySQL Bugs\"[/a]"
-"larga qarang"
+"Ko‘proq ma`lumot uchun [a@http://sf.net/support/tracker.php?"
+"aid=1849494]\"PMA bug tracker\"[/a] va [a@http://bugs.mysql."
+"com/19588]\"MySQL Bugs\"[/a]larga qarang"
 
 #: setup/lib/messages.inc.php:270
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -7694,8 +7694,8 @@ msgstr "\"config\" autentifikatsiya usuli paroli"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: [kbd]"
-"\"pma_pdf_pages\"[/kbd]"
+"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
+"[kbd]\"pma_pdf_pages\"[/kbd]"
 
 #: setup/lib/messages.inc.php:291
 msgid "PDF schema: pages table"
@@ -7709,8 +7709,8 @@ msgid ""
 msgstr ""
 "Aloqalar, xatcho‘plar va PDF imkoniyatlari uchun ishlatiladigan baza.  "
 "Batafsil ma`lumot uchun [a@http://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\"[/a]"
-"ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: [kbd]"
-"\"phpmyadmin\"[/kbd]"
+"ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: "
+"[kbd]\"phpmyadmin\"[/kbd]"
 
 #: setup/lib/messages.inc.php:294
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -7835,8 +7835,8 @@ msgstr "SSL ulanishdan foydalanish"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: [kbd]"
-"\"pma_table_coords\"[/kbd]"
+"PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: "
+"[kbd]\"pma_table_coords\"[/kbd]"
 
 #: setup/lib/messages.inc.php:319
 msgid "PDF schema: table coordinates"
@@ -8213,42 +8213,42 @@ msgstr "Ikkilik ma`lumot - tahrirlash mumkin emas"
 msgid "Upload to BLOB repository"
 msgstr "BLOB omboriga yuklash"
 
-#: tbl_change.php:1127
+#: tbl_change.php:1129
 msgid "Insert as new row"
 msgstr "Yozuv kiritish"
 
-#: tbl_change.php:1128
+#: tbl_change.php:1130
 msgid "Insert as new row and ignore errors"
 msgstr "Yangi qator sifatida qo‘shish va xatoliklarga e’tibor bеrmaslik"
 
-#: tbl_change.php:1129
+#: tbl_change.php:1131
 msgid "Show insert query"
 msgstr "Kiritilgan so‘rovni ko‘rsatish"
 
-#: tbl_change.php:1144
+#: tbl_change.php:1146
 msgid "Go back to previous page"
 msgstr "Oldingi sahifaga o‘tish"
 
-#: tbl_change.php:1145
+#: tbl_change.php:1147
 msgid "Insert another new row"
 msgstr "Yangi yozuv kiritish"
 
-#: tbl_change.php:1149
+#: tbl_change.php:1151
 msgid "Go back to this page"
 msgstr "Ushbu sahifaga qaytish"
 
-#: tbl_change.php:1157
+#: tbl_change.php:1159
 msgid "Edit next row"
 msgstr "Keyingi qatorni tahrirlash"
 
-#: tbl_change.php:1168
+#: tbl_change.php:1170
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Maydonlararo o‘tish uchun TAB tugmasi yoki CTRL+strelka tugmalaridan "
 "foydalaning"
 
-#: tbl_change.php:1206
+#: tbl_change.php:1208
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr "Qo‘yilayotgan qatorlar soni: \"%s\""
