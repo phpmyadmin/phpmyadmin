@@ -97,6 +97,7 @@ $cfg_db['Export']['format'] = array('codegen', 'csv', 'excel', 'htmlexcel',
     'yaml');
 $cfg_db['Export']['compression'] = array('none', 'zip', 'gzip', 'bzip2');
 $cfg_db['Export']['charset'] = array_merge(array(''), $GLOBALS['cfg']['AvailableCharsets']);
+$cfg_db['Export']['method'] = array('quick', 'custom', 'custom-no-form');
 
 /**
  * Config options which will be placed in config file even if they are set

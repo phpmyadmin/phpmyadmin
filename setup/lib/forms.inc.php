@@ -172,6 +172,7 @@ $forms['Import_defaults'] = array('Import' => array(
     'skip_queries'));
 $forms['Export_defaults'] = array('Export' => array(
     'format',
+    'method',
     'compression',
     'asfile',
     'charset',
