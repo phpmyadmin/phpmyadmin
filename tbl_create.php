@@ -259,6 +259,33 @@ if (isset($_REQUEST['do_save_data'])) {
             $tbl_url_params['table'] = $table;
             $is_show_stats = $cfg['ShowStats'];
 
+            $tbl_stats_result = PMA_DBI_query('SHOW TABLE STATUS FROM '
+                    . PMA_backquote($db) . ' LIKE \'' . addslashes($table) . '\';');
+            $tbl_stats = PMA_DBI_fetch_assoc($tbl_stats_result);
+            PMA_DBI_free_result($tbl_stats_result);
+            unset($tbl_stats_result);
+
+            if ($is_show_stats) {
+                $sum_size       = (double) 0;
+                $overhead_size  = (double) 0;
+                $overhead_check = '';
+
+                $tblsize                    =  doubleval($tbl_stats['Data_length']) + doubleval($tbl_stats['Index_length']);
+                $sum_size                   += $tblsize;
+                list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+                if (isset($tbl_stats['Data_free']) && $tbl_stats['Data_free'] > 0) {
+                    list($formatted_overhead, $overhead_unit)     = PMA_formatByteDown($tbl_stats['Data_free'], 3, ($tbl_stats['Data_free'] > 0) ? 1 : 0);
+                    $overhead_size           += $tbl_stats['Data_free'];
+                }
+
+                if (isset($formatted_overhead)) {
+                        $overhead = $formatted_overhead . ' ' . $overhead_unit;
+                        unset($formatted_overhead);
+                    } else {
+                        $overhead = '-';
+                }
+           }
+
             $new_table_string = '<tr>' . "\n";
             $new_table_string .= '<td align="center"> <input type="checkbox" id="checkbox_tbl_" name="selected_tbl[]" value="'.htmlspecialchars($table).'" /> </td>' . "\n";
 
@@ -296,15 +323,15 @@ if (isset($_REQUEST['do_save_data'])) {
             $new_table_string .= '<img class="icon" width="16" height="16" src="' .$pmaThemeImage . 'b_drop.png" alt="' . __('Drop') . '" title="' . __('Drop') . '" />';
             $new_table_string .= '</a> </td>' . "\n";
 
-            $new_table_string .= '<td class="value">0</td>' . "\n"; //In a newly created table, number of rows has to be zero.
+            $new_table_string .= '<td class="value">' . $tbl_stats['Rows'] . '</td>' . "\n";
 
-            $new_table_string .= '<td nowrap="nowrap">' . $_REQUEST['tbl_type'] . '</td>' . "\n";
+            $new_table_string .= '<td nowrap="nowrap">' . $tbl_stats['Engine'] . '</td>' . "\n";
 
-            $new_table_string .= '<td> <dfn title="' . PMA_getCollationDescr($_REQUEST['tbl_collation']) . '">'. $_REQUEST['tbl_collation'] .'</dfn></td>' . "\n";
+            $new_table_string .= '<td> <dfn title="' . PMA_getCollationDescr($tbl_stats['Collation']) . '">'. $tbl_stats['Collation'] .'</dfn></td>' . "\n";
 
             if($is_show_stats) {
-                $new_table_string .= '<td class="value"> <a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '#showusage" > Size </a> </td>' . "\n" ;
-                $new_table_string .= '<td class="value">-</td>' . "\n" ;
+                $new_table_string .= '<td class="value"> <a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '#showusage" >' . $formatted_size . ' ' . $unit . '</a> </td>' . "\n" ;
+                $new_table_string .= '<td class="value">' . $overhead . '</td>' . "\n" ;
             }
 
             $new_table_string .= '</tr>' . "\n";
