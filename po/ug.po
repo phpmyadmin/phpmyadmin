@@ -71,7 +71,7 @@ msgstr "ئىزدەش"
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
-msgstr ""
+msgstr "ئىجرا قىلىش"
 
 #: browse_foreigners.php:168 browse_foreigners.php:172
 #: libraries/Index.class.php:442 tbl_tracking.php:320
