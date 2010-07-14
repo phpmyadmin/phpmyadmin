@@ -352,11 +352,16 @@ img.lightbulb {
 }
 
 /* leave some space between icons and text */
-.icon {
+.icon, .footnotemarker {
     vertical-align:     middle;
     margin-right:       0.3em;
     margin-left:        0.3em;
 }
+
+.footnotemarker {
+    display: none;
+}
+
 /* no extra space in table cells */
 td .icon {
     margin: 0;
