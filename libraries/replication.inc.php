@@ -116,14 +116,17 @@ foreach ($replication_types as $type) {
 
 
 /**
- * @param $string - 
- * @param $table - 
- * @return 
+ * @param $string contains "dbname.tablename"
+ * @param $what   what to extract (db|table)
+ * @return $string the extracted part
  */
-function PMA_replication_strout($string, $table = false) {
+function PMA_extract_db_or_table($string, $what = 'db') {
     $list = explode(".", $string);
-
-    return $list[(int)$table];
+    if ('db' == $what) {
+        return $list[0];
+    } else {
+        return $list[1];
+    }
 }
 /**
  * @param String $action - possible values: START or STOP

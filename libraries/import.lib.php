@@ -343,27 +343,42 @@ function PMA_getColumnAlphaName($num)
 
 /**
  * Returns the column number based on the Excel name.
- * So "A" = 1, "AZ" = 27, etc.
+ * So "A" = 1, "Z" = 26, "AA" = 27, etc.
  *
+ * Basicly this is a base26 (A-Z) to base10 (0-9) conversion.
+ * It iterates through all characters in the column name and
+ * calculates the corresponding value, based on character value
+ * (A = 1, ..., Z = 26) and position in the string.
  *
  * @access  public
  *
  * @uses    strtoupper()
  * @uses    strlen()
- * @uses    count()
  * @uses    ord()
  * @param   string $name (i.e. "A", or "BC", etc.)
  * @return  int The column number
  */
 function PMA_getColumnNumberFromName($name) {
-    if (strlen($name) != 0) {
+    if (!empty($name)) {
         $name = strtoupper($name);
-        $num_chars = count($name);
-        $number = 0;
+        $num_chars = strlen($name);
+        $column_number = 0;
         for ($i = 0; $i < $num_chars; ++$i) {
-            $number += (ord($name[$i]) - 64);
+		// read string from back to front
+		$char_pos = ($num_chars - 1) - $i;
+
+		// convert capital character to ASCII value
+		// and subtract 64 to get corresponding decimal value
+		// ASCII value of "A" is 65, "B" is 66, etc.
+		// Decimal equivalent of "A" is 1, "B" is 2, etc.
+		$number = (ord($name[$char_pos]) - 64);
+
+		// base26 to base10 conversion : multiply each number
+		// with corresponding value of the position, in this case
+		// $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
+		$column_number += $number * pow(26,$i);
         }
-        return $number;
+        return $column_number;
     } else {
         return 0;
     }
@@ -831,8 +846,8 @@ $import_notice = NULL;
  * @uses    SIZES
  * @uses    strcmp()
  * @uses    count()
- * @uses    ereg()
- * @uses    ereg_replace()
+ * @uses    preg_match()
+ * @uses    preg_replace()
  * @uses    PMA_isView()
  * @uses    PMA_backquote()
  * @uses    PMA_importRunQuery()
@@ -903,17 +918,17 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
          *
          * $pattern = 'CREATE (TABLE|VIEW|TRIGGER|FUNCTION|PROCEDURE)';
          */
-        $pattern = 'CREATE .*(TABLE)';
+        $pattern = '/CREATE .*(TABLE)/';
         $replacement = 'CREATE \\1 IF NOT EXISTS';
         
         /* Change CREATE statements to CREATE IF NOT EXISTS to support inserting into existing structures */
         for ($i = 0; $i < $additional_sql_len; ++$i) {
-            $additional_sql[$i] = ereg_replace($pattern, $replacement, $additional_sql[$i]);
+            $additional_sql[$i] = preg_replace($pattern, $replacement, $additional_sql[$i]);
             /* Execute the resulting statements */
             PMA_importRunQuery($additional_sql[$i], $additional_sql[$i]);
         }
     }
-    
+
     if ($analyses != NULL) {
         $type_array = array(NONE => "NULL", VARCHAR => "varchar", INT => "int", DECIMAL => "decimal");
         
@@ -1038,8 +1053,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     
     /* Add the viewable structures from $additional_sql to $tables so they are also displayed */
     
-    $view_pattern = 'VIEW `[^`]+`\.`([^`]+)';
-    $table_pattern = 'CREATE TABLE IF NOT EXISTS `([^`]+)`';
+    $view_pattern = '@VIEW `[^`]+`\.`([^`]+)@';
+    $table_pattern = '@CREATE TABLE IF NOT EXISTS `([^`]+)`@';
     /* Check a third pattern to make sure its not a "USE `db_name`;" statement */
     
     $regs = array();
@@ -1048,10 +1063,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     
     $additional_sql_len = count($additional_sql);
     for ($i = 0; $i < $additional_sql_len; ++$i) {
-        ereg($view_pattern, $additional_sql[$i], $regs);
+        preg_match($view_pattern, $additional_sql[$i], $regs);
         
         if (count($regs) == 0) {
-            ereg($table_pattern, $additional_sql[$i], $regs);
+            preg_match($table_pattern, $additional_sql[$i], $regs);
         }
         
         if (count($regs)) {
