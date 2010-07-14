@@ -60,7 +60,7 @@ class PMA_User_Schema
             case 'edcoord':
                 $this->choosenPage = $_POST['chpage'];
                 $this->c_table_rows = $_POST['c_table_rows'];
-                $this->editCoordinates($db, $cfgRelation);
+                $this->_editCoordinates($db, $cfgRelation);
                 break;
             case 'deleteCrap':
                 $this->_deleteTableRows($delrow,$cfgRelation,$db,$this->choosenPage);
@@ -73,13 +73,14 @@ class PMA_User_Schema
         } // end if (isset($do))
 
     }
-    
+
     /**
      * shows/displays the HTML FORM to create the page 
      *
+     * @param string db name of the selected database
+     * @return void
      * @access public
      */
-
     public function createPage($db)
     {
         ?>
@@ -122,14 +123,14 @@ class PMA_User_Schema
         </form>
         <?php
     }
-    
+
     /**
      * shows/displays the created page names in a drop down list
      * User can select any page number and edit it using dashboard etc
      *
+     * @return void
      * @access public
      */
-
     public function selectPage()
     {
         global $db,$table,$query_default_option,$cfgRelation;
@@ -181,8 +182,9 @@ class PMA_User_Schema
      * A dashboard is displayed to AutoLayout the position of tables
      * users can drag n drop the tables and change their positions
      * 
-     */    
-
+     * @return void
+     * @access public
+     */
     public function showTableDashBoard()
     {
         global $db,$cfgRelation,$table,$cfg,$with_field_names;
@@ -317,7 +319,7 @@ class PMA_User_Schema
                 echo "\n" . '    <input type="submit" value="' . __('Save') . '" />';
                 echo "\n" . '</form>' . "\n\n";
         } // end if
-        
+
         $this->_deleteTables($db, $this->choosenPage, $tabExist);
     }
 
@@ -325,6 +327,9 @@ class PMA_User_Schema
      * show Export relational schema generation options
      * user can select export type of his own choice
      * and the attributes related to it
+     * 
+     * @return void
+     * @access public
      */
 
     public function displaySchemaGenerationOptions()
@@ -413,7 +418,11 @@ class PMA_User_Schema
     /**
     * Check if there are tables that need to be deleted in dashboard,
     * if there are, ask the user for allowance
-    * @param string $chpage selected page
+    *
+    * @param string db name of database selected
+    * @param integer chpage selected page
+    * @param array tabExist 
+    * @return void
     * @access private
     */
     private function _deleteTables($db, $chpage, $tabExist)
@@ -449,8 +458,10 @@ class PMA_User_Schema
     /**
      * Check if there are tables that need to be deleted in dashboard,
      * if there are, ask the user for allowance
+     *
+     * @return void
+     * @access private
      */
-
     private function _displayScratchboardTables($array_sh_page,$draginit,$reset_draginit)
     {
         global $with_field_names,$cfg,$db;
@@ -514,10 +525,14 @@ class PMA_User_Schema
 
     /**
      * delete the table rows with table co-ordinates
-     *  
+     *
+     * @param int delrow delete selected table from list of tables
+     * @param array cfgRelation relation settings
+     * @param string db database name
+     * @param integer chpage selected page for adding relations etc
+     * @return void
      * @access private
      */
-
     private function _deleteTableRows($delrow,$cfgRelation,$db,$chpage)
     {
         foreach ($delrow as $current_row) {
@@ -534,9 +549,9 @@ class PMA_User_Schema
      * get all the export options and verify
      * call and include the appropriate Schema Class depending on $export_type
      *  
+     * @return void
      * @access private
      */
-
     private function _processExportSchema()
     {
         /**
@@ -555,6 +570,15 @@ class PMA_User_Schema
         $obj_schema = eval("new PMA_".ucfirst($export_type)."_Relation_Schema();");
     }
 
+    /**
+     * delete X and Y coordinates
+     *
+     * @param string db The database name
+     * @param array cfgRelation relation settings
+     * @param integer choosePage selected page for adding relations etc
+     * @return void
+     * @access private
+     */
     public function deleteCoordinates($db, $cfgRelation, $choosePage, $query_default_option)
     {
         $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
@@ -563,6 +587,15 @@ class PMA_User_Schema
         PMA_query_as_controluser($query, FALSE, $query_default_option);
     }
 
+    /**
+     * delete pages
+     *
+     * @param string db The database name
+     * @param array cfgRelation relation settings
+     * @param integer choosePage selected page for adding relations etc
+     * @return void
+     * @access private
+     */
     public function deletePages($db, $cfgRelation, $choosePage, $query_default_option)
     {
         $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
@@ -571,6 +604,15 @@ class PMA_User_Schema
         PMA_query_as_controluser($query, FALSE, $query_default_option);
     }
 
+    /**
+     * process internal and foreign key relations
+     *
+     * @param string db The database name
+     * @param array cfgRelation relation settings
+     * @param integer pageNumber document number/Id
+     * @return void
+     * @access private
+     */
     public function processRelations($db, $pageNumber, $cfgRelation, $query_default_option)
     {
         /*
@@ -662,7 +704,16 @@ class PMA_User_Schema
         $this->choosenPage = $pageNumber;
     }
 
-
+    /**
+     * Add X and Y coordinates for a table
+     *
+     * @param string db The database name
+     * @param array cfgRelation relation settings
+     * @param integer pageNumber document number/Id
+     * @param array all_tables A list of all tables involved
+     * @return void
+     * @access private
+     */
     public function addRelationCoordinates($all_tables,$pageNumber,$db, $cfgRelation,$query_default_option)
     {
         /*
@@ -711,7 +762,15 @@ class PMA_User_Schema
         }
     }
 
-    public function editCoordinates($db, $cfgRelation)
+    /**
+     * update X and Y coordinates for a table
+     *
+     * @param string db The database name
+     * @param array cfgRelation relation settings
+     * @return void
+     * @access private
+     */
+    private function _editCoordinates($db, $cfgRelation)
     {
         for ($i = 0; $i < $this->c_table_rows; $i++) {
             $arrvalue = 'c_table_' . $i;

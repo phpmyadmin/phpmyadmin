@@ -483,7 +483,8 @@ class PMA_PDF extends TCPDF
  * Draws tables schema
  *
  */
-class Table_Stats {
+class Table_Stats 
+{
     /**
      * Defines properties
      */
@@ -1084,7 +1085,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if (empty($filename)) {
             $filename = $pageNumber . '.pdf';
         }
-        $pdf->Output($db . '_' . $filename, 'I'); // destination: Inline
+        $pdf->Output($db . '_' . $filename, 'D'); // destination: download
     }
 
     public function dataDictionaryDoc($alltables)
@@ -1206,6 +1207,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             } else {
                 $have_rel = false;
             } // end if
+
             /**
              * Displays the comments of the table if MySQL >= 3.23
              */
