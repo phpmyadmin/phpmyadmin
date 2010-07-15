@@ -540,7 +540,7 @@ msgstr ""
 
 #: db_search.php:325
 msgid "Inside table(s):"
-msgstr ""
+msgstr "تۆۋەندىكى جەدۋەل(لەر): "
 
 #: db_search.php:355
 msgid "Inside column:"
