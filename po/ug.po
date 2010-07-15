@@ -466,7 +466,7 @@ msgstr "SQL ئىجرا بولۋاتقان ساندان <b>%s</b>:"
 
 #: db_qbe.php:934 libraries/common.lib.php:1225
 msgid "Submit Query"
-msgstr ""
+msgstr "تاپشۇرۇش"
 
 #: db_search.php:68 libraries/auth/config.auth.lib.php:84
 #: libraries/auth/config.auth.lib.php:103
