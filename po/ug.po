@@ -621,7 +621,7 @@ msgstr "قاراش"
 #: libraries/server_links.inc.php:70 server_replication.php:33
 #: server_replication.php:164 server_status.php:369
 msgid "Replication"
-msgstr ""
+msgstr "كۆچۈرۈش"
 
 #: db_structure.php:489
 msgid "Sum"
