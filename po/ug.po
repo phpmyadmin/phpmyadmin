@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 05:43+0200\n"
+"PO-Revision-Date: 2010-07-15 05:44+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -430,7 +430,7 @@ msgstr "ۋە"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:529 db_qbe.php:560
 msgid "Del"
-msgstr ""
+msgstr "ئۆچۈرۈش"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
