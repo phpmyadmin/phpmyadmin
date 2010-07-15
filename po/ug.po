@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 10:56+0200\n"
+"PO-Revision-Date: 2010-07-15 10:57+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -536,7 +536,7 @@ msgstr "تاپقىنى:"
 
 #: db_search.php:311 db_search.php:312
 msgid "Words are separated by a space character (\" \")."
-msgstr ""
+msgstr "ھەر بىر تاق سۆزنى  (\" \") بەلگىسى ئارقىلىق ئايرىڭ."
 
 #: db_search.php:325
 msgid "Inside table(s):"
