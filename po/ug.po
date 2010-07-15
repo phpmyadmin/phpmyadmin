@@ -305,7 +305,7 @@ msgstr "ئوڭشاش"
 #: db_operations.php:574
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr ""
+msgstr "تاقالدى"
 
 #: db_operations.php:578
 msgid "Enable"
