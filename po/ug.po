@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 05:40+0200\n"
+"PO-Revision-Date: 2010-07-15 05:41+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -409,7 +409,7 @@ msgstr "ئارتىش"
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:261
 #: tbl_select.php:313
 msgid "Descending"
-msgstr ""
+msgstr "كېمىيىش"
 
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
 #: tbl_change.php:276 tbl_tracking.php:597
