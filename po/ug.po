@@ -426,7 +426,7 @@ msgstr "قىستۇرۇش"
 
 #: db_qbe.php:357 db_qbe.php:439 db_qbe.php:524 db_qbe.php:555
 msgid "And"
-msgstr ""
+msgstr "ۋە"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:529 db_qbe.php:560
 msgid "Del"
