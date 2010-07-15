@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:17+0200\n"
+"PO-Revision-Date: 2010-07-15 06:18+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -680,7 +680,7 @@ msgstr "جەدۋەلنى ئوڭشاش"
 #: db_structure.php:555 db_structure.php:556 libraries/mult_submits.inc.php:57
 #: tbl_operations.php:601
 msgid "Analyze table"
-msgstr ""
+msgstr "جەدۋەل تەھلىلى"
 
 #: db_structure.php:557 db_structure.php:558 libraries/db_links.inc.php:71
 #: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2094
