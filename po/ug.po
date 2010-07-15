@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 05:32+0200\n"
+"PO-Revision-Date: 2010-07-15 05:33+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -372,7 +372,7 @@ msgstr "ئاخىرقى يېڭلىنىش"
 #: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
 #: tbl_structure.php:825
 msgid "Last check"
-msgstr ""
+msgstr "ئاخىرقى تەكشۈرۈش"
 
 #: db_printview.php:222 db_structure.php:480
 #, php-format
