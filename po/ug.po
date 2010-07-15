@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:11+0200\n"
+"PO-Revision-Date: 2010-07-15 06:12+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -650,7 +650,7 @@ msgstr "ھەممىنى تاللاش"
 #: libraries/replication_gui.lib.php:36 server_databases.php:350
 #: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
 msgid "Uncheck All"
-msgstr ""
+msgstr "تاللاشنى بىكار قىلىش"
 
 #: db_structure.php:536
 msgid "Check tables having overhead"
