@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 05:25+0200\n"
+"PO-Revision-Date: 2010-07-15 05:26+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -345,7 +345,7 @@ msgstr "جەدۋەل"
 #: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
-msgstr ""
+msgstr "قاتار سانى"
 
 #: db_printview.php:109 libraries/db_structure.lib.php:67 tbl_indexes.php:190
 msgid "Size"
