@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:12+0200\n"
+"PO-Revision-Date: 2010-07-15 06:14+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -654,7 +654,7 @@ msgstr "تاللاشنى بىكار قىلىش"
 
 #: db_structure.php:536
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "مەزمۇن بارلارنى تاللاش"
 
 #: db_structure.php:547 db_structure.php:548 db_structure.php:599
 #: libraries/display_tbl.lib.php:2180 libraries/mult_submits.inc.php:28
