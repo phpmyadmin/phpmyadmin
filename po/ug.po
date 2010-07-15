@@ -595,7 +595,7 @@ msgstr ""
 #: db_structure.php:326 libraries/tbl_links.inc.php:133
 #, php-format
 msgid "Table %s has been dropped"
-msgstr ""
+msgstr "%s جەدىۋەل ئۆچۈرۈلدى"
 
 #: db_structure.php:333
 msgid "Tracking is active."
