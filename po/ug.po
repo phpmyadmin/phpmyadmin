@@ -282,7 +282,7 @@ msgstr "BLOB ئامبىرى"
 #: libraries/server_links.inc.php:49 server_processlist.php:59
 #: tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
-msgstr ""
+msgstr "ھالەت"
 
 #: db_operations.php:548
 msgctxt "BLOB repository"
