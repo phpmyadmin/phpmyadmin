@@ -366,7 +366,7 @@ msgstr "قۇرۇش"
 #: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
 #: tbl_structure.php:817
 msgid "Last update"
-msgstr ""
+msgstr "ئاخىرقى يېڭلىنىش"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
 #: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
