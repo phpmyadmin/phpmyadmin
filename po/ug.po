@@ -236,7 +236,7 @@ msgstr "كېيىن"
 
 #: db_operations.php:455
 msgid "Copy database to"
-msgstr ""
+msgstr "كۆچۈرۈلگەن ساندان"
 
 #: db_operations.php:462 tbl_operations.php:528 tbl_tracking.php:388
 msgid "Structure only"
