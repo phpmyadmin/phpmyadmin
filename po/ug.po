@@ -837,7 +837,7 @@ msgstr "خەتكۈچنى كۆرسىتىش"
 #: import.php:403 sql.php:626
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "قۇرۇلغان خەتكۈچ %s"
 
 #: import.php:409 import.php:415
 #, php-format
