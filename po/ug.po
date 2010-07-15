@@ -721,7 +721,7 @@ msgstr "قۇرۇش"
 
 #: db_tracking.php:75 tbl_tracking.php:595
 msgid "Updated"
-msgstr ""
+msgstr "يېڭلاش"
 
 #: db_tracking.php:77 libraries/Index.class.php:440
 #: libraries/db_structure.lib.php:53 server_databases.php:203
