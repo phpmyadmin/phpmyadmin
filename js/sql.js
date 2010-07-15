@@ -110,7 +110,9 @@ $(document).ready(function() {
         $(input_siblings).each(function() {
             var data_value = $(this).html();
 
-            $(this).html('<textarea>'+data_value+'</textarea>');
+            if($(this).is(':not(.truncated, .transformed, .relation)')) {
+                $(this).html('<textarea>'+data_value+'</textarea>');
+            }
         })
     })
 
@@ -130,7 +132,9 @@ $(document).ready(function() {
         $(input_siblings).each(function() {
             var new_data_value = $(this).find('textarea').html();
 
-            $(this).html(new_data_value);
+            if($(this).is(':not(.truncated, .transformed, .relation)')) {
+                $(this).html(new_data_value);
+            }
         })
     })
 })
