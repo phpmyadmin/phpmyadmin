@@ -295,7 +295,7 @@ msgstr "تاقاش"
 
 #: db_operations.php:562
 msgid "Damaged"
-msgstr ""
+msgstr "بۇزۇلغان"
 
 #: db_operations.php:566
 msgctxt "BLOB repository"
