@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:27+0200\n"
+"PO-Revision-Date: 2010-07-15 06:37+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -804,7 +804,7 @@ msgstr ""
 #: import.php:279 import.php:332 libraries/File.class.php:849
 #: libraries/File.class.php:961
 msgid "File could not be read"
-msgstr ""
+msgstr "ھۆججەتنى ئوقۇيالمىدى"
 
 #: import.php:287 import.php:296 import.php:315 import.php:324
 #: libraries/File.class.php:1031 libraries/File.class.php:1039
