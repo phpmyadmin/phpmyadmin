@@ -625,7 +625,7 @@ msgstr "كۆچۈرۈش"
 
 #: db_structure.php:489
 msgid "Sum"
-msgstr ""
+msgstr "جەمئىي"
 
 #: db_structure.php:496 libraries/StorageEngine.class.php:356
 #, php-format
