@@ -1115,6 +1115,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $edit_url = 'tbl_change.php' . PMA_generate_common_url($_url_params);
 
                 $edit_str = PMA_getIcon('b_edit.png', __('Edit'), true);
+
+                $edit_anchor_class = "edit_row_anchor";
             } // end if (1.2.1)
 
             if (isset($GLOBALS['cfg']['Bookmark']['table']) && isset($GLOBALS['cfg']['Bookmark']['db']) && $table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db'] && isset($row[1]) && isset($row[0])) {
@@ -1462,7 +1464,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
 
         if (isset($edit_url)) {
-            $vertical_display['edit'][$row_no]   .= '    <td align="center" class="' . $class . '" ' . $column_style_vertical . '>' . "\n"
+            $vertical_display['edit'][$row_no]   .= '    <td align="center" class="' . $class . ' ' . $edit_anchor_class . '" ' . $column_style_vertical . '>' . "\n"
                                                  . PMA_linkOrButton($edit_url, $edit_str, array(), false)
                                                  . $bookmark_go
                                                  .  '    </td>' . "\n";
@@ -2329,8 +2331,9 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  */
 function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options) {
 
+    $data_inline_edit_class = 'data_inline_edit';
     // continue the <td> tag started before calling this function:
-    $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap . '">';
+    $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap . ' ' . $data_inline_edit_class . '">';
 
     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
         foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
