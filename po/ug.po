@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 11:58+0200\n"
+"PO-Revision-Date: 2010-07-15 12:01+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -886,7 +886,7 @@ msgstr ""
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:172
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "ساندان تولۇق ئۆچۈرۈلدى!"
 
 #: js/messages.php:34
 msgid "You are about to DISABLE a BLOB Repository!"
