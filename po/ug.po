@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 05:48+0200\n"
+"PO-Revision-Date: 2010-07-15 05:50+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -462,7 +462,7 @@ msgstr "جەدۋەللەرنى ئىشلىتىش"
 #: db_qbe.php:640
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "SQL ئىجرا بولۋاتقان ساندان <b>%s</b>:"
 
 #: db_qbe.php:934 libraries/common.lib.php:1225
 msgid "Submit Query"
