@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:14+0200\n"
+"PO-Revision-Date: 2010-07-15 06:15+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -660,7 +660,7 @@ msgstr "مەزمۇن بارلارنى تاللاش"
 #: libraries/display_tbl.lib.php:2180 libraries/mult_submits.inc.php:28
 #: tbl_structure.php:492 tbl_structure.php:494
 msgid "Print view"
-msgstr ""
+msgstr "بېسىپ كۆرسىتىش"
 
 #: db_structure.php:549 db_structure.php:550 libraries/mult_submits.inc.php:42
 #: tbl_operations.php:581
