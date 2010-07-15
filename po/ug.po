@@ -874,7 +874,7 @@ msgstr "بىر چىكىپ تاللاڭ"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "بىر چىكىپ بىكار قىلىڭ"
 
 #: js/messages.php:27 libraries/import.lib.php:104 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
