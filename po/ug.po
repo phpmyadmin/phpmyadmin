@@ -717,7 +717,7 @@ msgstr "ېيڭى نەشىر"
 
 #: db_tracking.php:74 tbl_tracking.php:594
 msgid "Created"
-msgstr ""
+msgstr "قۇرۇش"
 
 #: db_tracking.php:75 tbl_tracking.php:595
 msgid "Updated"
