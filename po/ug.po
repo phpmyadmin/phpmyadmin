@@ -713,7 +713,7 @@ msgstr "ساندان"
 
 #: db_tracking.php:73
 msgid "Last version"
-msgstr ""
+msgstr "ېيڭى نەشىر"
 
 #: db_tracking.php:74 tbl_tracking.php:594
 msgid "Created"
