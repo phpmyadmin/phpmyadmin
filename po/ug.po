@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 05:13+0200\n"
+"PO-Revision-Date: 2010-07-15 05:24+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -318,7 +318,7 @@ msgstr "ئېچىش"
 #: tbl_operations.php:363 tbl_select.php:136 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
-msgstr ""
+msgstr "تاسقاش"
 
 #: db_operations.php:615 main.php:316 pdf_schema.php:34
 #, php-format
