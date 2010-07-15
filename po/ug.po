@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:38+0200\n"
+"PO-Revision-Date: 2010-07-15 06:39+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -832,7 +832,7 @@ msgstr "خەتكۈچ ئۆچۈرۈلدى"
 
 #: import.php:401
 msgid "Showing bookmark"
-msgstr ""
+msgstr "خەتكۈچنى كۆرسىتىش"
 
 #: import.php:403 sql.php:626
 #, php-format
