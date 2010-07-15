@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:21+0200\n"
+"PO-Revision-Date: 2010-07-15 06:22+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -709,7 +709,7 @@ msgstr "ئىزلانغان جەدۋەل"
 #: server_synchronize.php:1179 server_synchronize.php:1183
 #: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
-msgstr ""
+msgstr "ساندان"
 
 #: db_tracking.php:73
 msgid "Last version"
