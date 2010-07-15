@@ -309,7 +309,7 @@ msgstr "تاقالدى"
 
 #: db_operations.php:578
 msgid "Enable"
-msgstr ""
+msgstr "ئېچىش"
 
 #: db_operations.php:602 libraries/Index.class.php:448
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
