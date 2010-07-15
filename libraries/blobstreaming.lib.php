@@ -109,10 +109,11 @@ function checkBLOBStreamingPlugins()
         $PMA_Config->set('PHP_PBMS_EXISTS', FALSE);
         $PMA_Config->set('FILEINFO_EXISTS', FALSE);
 
-		// Check to see if the BLOB Streaming PHP extension is loaded
-		if (extension_loaded("PBMS")) {
-			$PMA_Config->set('PHP_PBMS_EXISTS', TRUE);
-		}
+		// Create the 'pbms' database if it doesn't exist. 
+		// PBMS creates this database automaticly as soon as
+		// a PBMS enabled table is accessed but we may need it earlier
+		// when a select is done on pbms.pbms_enabled.
+		PMA_DBI_query("create database IF NOT EXISTS pbms;" );
  
 		// check if PECL's fileinfo library exist
         $finfo = NULL;
@@ -323,6 +324,9 @@ function PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)
 
     // return if unable to load PMA configuration
     if (empty($PMA_Config))
+        return FALSE;
+		
+	if (!$PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST') ) 
         return FALSE;
 
 	// This information should be cached rather than selecting it each time.
