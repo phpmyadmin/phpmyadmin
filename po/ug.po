@@ -763,7 +763,7 @@ msgstr "ئىزلانمىغان جەدۋەللەر"
 #: db_tracking.php:172 db_tracking.php:174 tbl_structure.php:528
 #: tbl_structure.php:530
 msgid "Track table"
-msgstr ""
+msgstr "جەدۋەل ئىزلاش"
 
 #: db_tracking.php:200
 msgid "Database Log"
