@@ -248,7 +248,7 @@ msgstr "تۈزۈلىشى ۋە ئۇچۇر"
 
 #: db_operations.php:464 tbl_operations.php:530 tbl_tracking.php:389
 msgid "Data only"
-msgstr ""
+msgstr "ئۇچۇرنىلا"
 
 #: db_operations.php:472
 msgid "CREATE DATABASE before copying"
