@@ -354,7 +354,7 @@ msgstr "ھەجىم"
 #: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:559
 #: libraries/export/sql.php:899
 msgid "in use"
-msgstr ""
+msgstr "ئىشلىتىلمەكتە"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
 #: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
