@@ -414,7 +414,7 @@ msgstr "كېمىيىش"
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
 #: tbl_change.php:276 tbl_tracking.php:597
 msgid "Show"
-msgstr ""
+msgstr "كۆرسىتىش"
 
 #: db_qbe.php:300
 msgid "Criteria"
