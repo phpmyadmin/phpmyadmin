@@ -7,6 +7,9 @@
 
 $(document).ready(function() {
 
+    /**
+     * @var disp_mode   current value of the direction in which the table is displayed
+     */
     var disp_mode = $("#top_direction_dropdown").val();
 
     $("#top_direction_dropdown, #bottom_direction_dropdown").live('change', function(event) {
@@ -80,6 +83,17 @@ $(document).ready(function() {
         })
     })//end Sort results table
 
+    //displayOptionsForm handler
+    $("#displayOptionsForm").live('submit', function(event) {
+        event.preventDefault();
+
+        $.post($(this).attr('action'), $(this).serialize() + '&ajax_request=true' , function(data) {
+            $("#sqlqueryresults").html(data);
+        })
+    })
+    //end displayOptionsForm handler
+
+    //Inline Edit
     $(".edit_row_anchor").live('click', function(event) {
         event.preventDefault();
 
