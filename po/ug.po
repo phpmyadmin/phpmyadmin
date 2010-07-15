@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 12:06+0200\n"
+"PO-Revision-Date: 2010-07-15 12:07+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -907,7 +907,7 @@ msgstr "سان كىرگۈزىڭ !"
 
 #: js/messages.php:42
 msgid "The host name is empty!"
-msgstr ""
+msgstr "مۇلازىمىتېر ئىسمى بوشكەن!"
 
 #: js/messages.php:43
 msgid "The user name is empty!"
