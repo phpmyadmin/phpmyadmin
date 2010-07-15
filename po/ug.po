@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 05:45+0200\n"
+"PO-Revision-Date: 2010-07-15 05:46+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -445,7 +445,7 @@ msgstr "ئۆزگەرتىش"
 
 #: db_qbe.php:584
 msgid "Add/Delete criteria rows"
-msgstr ""
+msgstr "رەت قوشۇش\\ئۆچۈرۈش"
 
 #: db_qbe.php:596
 msgid "Add/Delete columns"
