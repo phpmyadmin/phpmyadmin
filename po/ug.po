@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 05:42+0200\n"
+"PO-Revision-Date: 2010-07-15 05:43+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -422,7 +422,7 @@ msgstr "شەرت"
 
 #: db_qbe.php:353 db_qbe.php:435 db_qbe.php:527 db_qbe.php:558
 msgid "Ins"
-msgstr ""
+msgstr "قىستۇرۇش"
 
 #: db_qbe.php:357 db_qbe.php:439 db_qbe.php:524 db_qbe.php:555
 msgid "And"
