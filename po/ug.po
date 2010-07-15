@@ -675,7 +675,7 @@ msgstr "جەدۋەلنى ئەلالاش"
 #: db_structure.php:553 db_structure.php:554 libraries/mult_submits.inc.php:52
 #: tbl_operations.php:611
 msgid "Repair table"
-msgstr ""
+msgstr "جەدۋەلنى ئوڭشاش"
 
 #: db_structure.php:555 db_structure.php:556 libraries/mult_submits.inc.php:57
 #: tbl_operations.php:601
