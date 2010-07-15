@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 05:57+0200\n"
+"PO-Revision-Date: 2010-07-15 05:59+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -499,7 +499,7 @@ msgstr "\"<i>%s</i>\" نىڭ ئىزلەش نەتىجىسى %s:"
 #: db_search.php:260
 #, php-format
 msgid "%s match(es) inside table <i>%s</i>"
-msgstr ""
+msgstr "%s ئۇيغۇنلۇق تىپىلدى، جەدۋىلى <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
