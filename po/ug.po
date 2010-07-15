@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:01+0200\n"
+"PO-Revision-Date: 2010-07-15 06:03+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -551,7 +551,7 @@ msgstr ""
 #: libraries/common.lib.php:2832 libraries/sql_query_form.lib.php:334
 #: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
 msgid "Insert"
-msgstr ""
+msgstr "قىستۇرۇش"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
 #: libraries/common.lib.php:2829 libraries/common.lib.php:2836
