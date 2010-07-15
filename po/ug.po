@@ -449,7 +449,7 @@ msgstr "رەت قوشۇش\\ئۆچۈرۈش"
 
 #: db_qbe.php:596
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
