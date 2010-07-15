@@ -689,7 +689,7 @@ msgstr "جەدۋەل تەھلىلى"
 #: pmd_pdf.php:84 pmd_pdf.php:109 server_privileges.php:1380
 #: setup/frames/menu.inc.php:22 tbl_row_action.php:59
 msgid "Export"
-msgstr ""
+msgstr "چىقىرىش"
 
 #: db_structure.php:606 libraries/display_pdf_schema.lib.php:44
 msgid "Data Dictionary"
