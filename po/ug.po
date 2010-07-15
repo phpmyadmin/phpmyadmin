@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:19+0200\n"
+"PO-Revision-Date: 2010-07-15 06:21+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -697,7 +697,7 @@ msgstr "مەلۇمات لۇغىتى"
 
 #: db_tracking.php:66
 msgid "Tracked tables"
-msgstr ""
+msgstr "ئىزلانغان جەدۋەل"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
