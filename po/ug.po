@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:41+0200\n"
+"PO-Revision-Date: 2010-07-15 06:42+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -870,7 +870,7 @@ msgstr ""
 #: server_synchronize.php:739 server_synchronize.php:767
 #: server_synchronize.php:795 server_synchronize.php:807
 msgid "Click to select"
-msgstr ""
+msgstr "بىر چىكىپ تاللاڭ"
 
 #: js/messages.php:26
 msgid "Click to unselect"
