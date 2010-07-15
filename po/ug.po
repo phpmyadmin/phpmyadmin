@@ -927,7 +927,7 @@ msgstr "بىكار قىلىش"
 
 #: js/messages.php:52 pmd_save_pos.php:54
 msgid "Modifications have been saved"
-msgstr ""
+msgstr "ئۆزگەرتىشلەر ساقلاندى"
 
 #: js/messages.php:53 pmd_relation_upd.php:49
 msgid "Relation deleted"
