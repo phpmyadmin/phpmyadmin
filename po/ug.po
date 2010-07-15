@@ -228,7 +228,7 @@ msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
 
 #: db_operations.php:417 server_processlist.php:57
 msgid "Command"
-msgstr ""
+msgstr "بۇيرۇق"
 
 #: db_operations.php:429 tbl_change.php:1142
 msgid "and then"
