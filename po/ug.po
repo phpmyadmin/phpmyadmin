@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 05:34+0200\n"
+"PO-Revision-Date: 2010-07-15 05:38+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -390,7 +390,7 @@ msgstr "SQL بۇيرىقى غەلبىلىك بىجىرىلدى"
 
 #: db_qbe.php:42
 msgid "You have to choose at least one column to display"
-msgstr ""
+msgstr "بۇنى بىجىرىش ئۈچۈن مەزمۇن تاللانغان بولۇشى كېرەك"
 
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866
