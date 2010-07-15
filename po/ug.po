@@ -437,7 +437,7 @@ msgstr "ئۆچۈرۈش"
 #: server_privileges.php:297 tbl_change.php:1028 tbl_indexes.php:250
 #: tbl_select.php:286
 msgid "Or"
-msgstr ""
+msgstr "ياكى"
 
 #: db_qbe.php:507
 msgid "Modify"
