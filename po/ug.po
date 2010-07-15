@@ -329,7 +329,7 @@ msgstr ""
 
 #: db_operations.php:648
 msgid "Edit PDF Pages"
-msgstr ""
+msgstr "PDF بېتىنى تەھرىرلەش"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
