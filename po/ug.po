@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-15 06:39+0200\n"
+"PO-Revision-Date: 2010-07-15 06:41+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -859,7 +859,7 @@ msgstr ""
 #: import_status.php:31 libraries/common.lib.php:667 pdf_schema.php:241
 #: user_password.php:115
 msgid "Back"
-msgstr ""
+msgstr "قايتىش"
 
 #: index.php:190
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
