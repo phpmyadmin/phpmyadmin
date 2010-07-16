@@ -1065,7 +1065,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     }
     unset($tbl_status);
 
-    echo '<div align="' . $GLOBALS['cell_align_left'] . '">' . "\n";
+    echo '<div align="' . ( isset($GLOBALS['cell_align_left']) ? $GLOBALS['cell_align_left'] : '' ) . '">' . "\n";
 
     if ($message instanceof PMA_Message) {
         if (isset($GLOBALS['special_message'])) {
