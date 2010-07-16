@@ -1100,7 +1100,7 @@ msgstr "تومۇز"
 #. l10n: Short month name
 #: js/messages.php:113 libraries/common.lib.php:1573
 msgid "Sep"
-msgstr ""
+msgstr "مىزان"
 
 #. l10n: Short month name
 #: js/messages.php:115 libraries/common.lib.php:1575
