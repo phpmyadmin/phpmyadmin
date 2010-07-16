@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 06:43+0200\n"
+"PO-Revision-Date: 2010-07-16 06:44+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1230,7 +1230,7 @@ msgstr "سېكنۇت"
 
 #: libraries/Config.class.php:1015
 msgid "Font size"
-msgstr ""
+msgstr "دۇكان"
 
 #: libraries/File.class.php:344 libraries/File.class.php:432
 #: libraries/File.class.php:569 libraries/File.class.php:708
