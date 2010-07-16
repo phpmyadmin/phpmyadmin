@@ -1030,7 +1030,7 @@ msgstr "6-ئاي"
 
 #: js/messages.php:88
 msgid "July"
-msgstr ""
+msgstr "7-ئاي"
 
 #: js/messages.php:89
 msgid "August"
