@@ -217,7 +217,7 @@ msgstr "ساندان ئىسمىنى بوش قويماڭ!"
 #: db_operations.php:236
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "%s ساندان ئىسمى %s غا ئۆزگەرتىلدى."
+msgstr "%s ساندان ئىسمى %s غا ئۆزگەرتىلدى"
 
 #: db_operations.php:240
 #, php-format
