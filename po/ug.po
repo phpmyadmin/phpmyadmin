@@ -1110,7 +1110,7 @@ msgstr "ئوغۇز"
 #. l10n: Short month name
 #: js/messages.php:117 libraries/common.lib.php:1577
 msgid "Nov"
-msgstr ""
+msgstr "ئوغلاق"
 
 #. l10n: Short month name
 #: js/messages.php:119 libraries/common.lib.php:1579
