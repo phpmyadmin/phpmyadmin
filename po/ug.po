@@ -1018,7 +1018,7 @@ msgstr "ھۇت"
 
 #: js/messages.php:84
 msgid "March"
-msgstr ""
+msgstr "نورۇز"
 
 #: js/messages.php:85
 msgid "April"
