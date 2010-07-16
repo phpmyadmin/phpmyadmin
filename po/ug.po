@@ -966,7 +966,7 @@ msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 #: js/messages.php:59 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
 msgid "Disabled"
-msgstr ""
+msgstr "تاقالدى"
 
 #: js/messages.php:60
 msgid "Select referenced key"
