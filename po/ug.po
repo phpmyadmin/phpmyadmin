@@ -7711,7 +7711,7 @@ msgstr ""
 
 #: tbl_tracking.php:642
 msgid "Deactivate now"
-msgstr "دەرھال ئىشلىتىشنى توختۇتىڭ"
+msgstr "دەرھال ئىشلىتىشنى توختۇتۇڭ"
 
 #: tbl_tracking.php:653
 #, php-format
