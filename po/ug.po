@@ -945,7 +945,7 @@ msgstr "ئىچكى ئۇلىنىش مۇاسىۋىتى قۇشۇلدى"
 
 #: js/messages.php:56 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
-msgstr "خاتالىق:مۇناسىۋەت قۇشۇلمىغان"
+msgstr "!خاتالىق:مۇناسىۋەت قۇشۇلمىغان"
 
 #: js/messages.php:57 pmd_relation_new.php:31
 msgid "Error: relation already exists."
