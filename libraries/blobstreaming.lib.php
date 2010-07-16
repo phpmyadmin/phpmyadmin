@@ -4,6 +4,39 @@
  * @package     BLOBStreaming
  */
 
+function initPBMSDatabase()
+{
+	$query = "create database IF NOT EXISTS pbms;"; // If no other choice then try this.
+	/*
+	 * The user may not have privileges to create the 'pbms' database
+	 * so if it doesn't exist then we perform a select on a pbms system
+	 * table in an already existing database which will cause the PBMS
+	 * daemon to create the 'pbms' database.
+	 */
+	$db_array =PMA_DBI_fetch_result('SHOW DATABASES;');	
+	if (!empty($db_array)) {
+		$target = "";
+		foreach ($db_array as $current_db) {
+			if ($current_db == 'pbms')
+				return TRUE;
+				
+			if ($target == "") {
+				if (($current_db != 'pbxt') && ($current_db != 'mysql')  && ($current_db != 'information_schema'))
+					$target = $current_db;
+			}
+		}
+		
+		if ($target != "") 
+			$query = "select * from $target.pbms_metadata_header"; // If it exists this table will not contain much
+	}
+ 
+	$result = PMA_DBI_query($query );
+	if (!$result)
+		return FALSE;
+		
+	return TRUE;
+ }
+
 /**
  * checks whether the necessary plugins for BLOBStreaming exist
  *
@@ -27,12 +60,6 @@ function checkBLOBStreamingPlugins()
         return FALSE;
     }
 
-    // At this point we might already know that plugins do not exist
-    // because this was recorded in the session (cache).
-    if (PMA_cacheGet('skip_blobstreaming', true)) {
-        return false;
-    }
-	
     // If we don't know that we can skip blobstreaming, we continue
     // verifications; anyway, in case we won't skip blobstreaming,
     // we still need to set some variables in non-persistent settings,
@@ -95,8 +122,8 @@ function checkBLOBStreamingPlugins()
          // get BS server port
         $BS_PORT = $bs_variables['pbms_port'];
 
-        // if no BS server port exists, set plugin existance to false and return
-        if (! $BS_PORT) {
+        // if no BS server port or 'pbms' database exists, set plugin existance to false and return
+        if ((! $BS_PORT) || (! initPBMSDatabase())) {
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', FALSE);
             PMA_cacheSet('skip_blobstreaming', true, true);
             return FALSE;
@@ -109,12 +136,6 @@ function checkBLOBStreamingPlugins()
         $PMA_Config->set('PHP_PBMS_EXISTS', FALSE);
         $PMA_Config->set('FILEINFO_EXISTS', FALSE);
 
-		// Create the 'pbms' database if it doesn't exist. 
-		// PBMS creates this database automaticly as soon as
-		// a PBMS enabled table is accessed but we may need it earlier
-		// when a select is done on pbms.pbms_enabled.
-		PMA_DBI_query("create database IF NOT EXISTS pbms;" );
- 
 		// check if PECL's fileinfo library exist
         $finfo = NULL;
 
@@ -240,6 +261,9 @@ function PMA_do_disconnect()
 */
 function PMA_BS_IsPBMSReference($bs_reference, $db_name)
 {
+	if (PMA_cacheGet('skip_blobstreaming', true))
+		return FALSE;
+		
 	if (PMA_do_connect($db_name, TRUE) == FALSE) {
 		return FALSE;
 	}
@@ -316,6 +340,9 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
 // they are not currently needed.
 function PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)
 {
+	if (PMA_cacheGet('skip_blobstreaming', true))
+		return FALSE;
+		
 	if ((isset($tbl_type) == FALSE) || (strlen($tbl_type) == 0))
 		return FALSE;
 	
@@ -345,6 +372,9 @@ function PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)
 function PMA_BS_UpLoadFile($db_name, $tbl_name, $file_type, $file_name)
 {
 
+	if (PMA_cacheGet('skip_blobstreaming', true))
+		return FALSE;
+		
 	if (PMA_do_connect($db_name, FALSE) == FALSE) {
 		return FALSE;
 	}
@@ -372,6 +402,9 @@ function PMA_BS_UpLoadFile($db_name, $tbl_name, $file_type, $file_name)
 //------------
 function PMA_BS_SetContentType($db_name, $bsTable, $blobReference, $contentType)
 {
+	if (PMA_cacheGet('skip_blobstreaming', true))
+		return FALSE;
+		
 	// This is a really ugly way to do this but currently there is nothing better.
 	// In a future version of PBMS the system tables will be redesigned to make this
 	// more eficient.
