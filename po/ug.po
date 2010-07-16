@@ -1065,7 +1065,7 @@ msgstr "2-ئاي"
 #. l10n: Short month name
 #: js/messages.php:101 libraries/common.lib.php:1561
 msgid "Mar"
-msgstr ""
+msgstr "3-ئاي"
 
 #. l10n: Short month name
 #: js/messages.php:103 libraries/common.lib.php:1563
