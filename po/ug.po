@@ -1022,7 +1022,7 @@ msgstr "نورۇز"
 
 #: js/messages.php:85
 msgid "April"
-msgstr ""
+msgstr "ئۈمىد"
 
 #: js/messages.php:86
 msgid "May"
