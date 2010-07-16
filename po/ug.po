@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:15+0200\n"
+"PO-Revision-Date: 2010-07-16 13:16+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -27,7 +27,7 @@ msgstr "ھەممىسىنى كۆرسىتىش"
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
 msgid "Page number:"
-msgstr "بەت نومۇرى"
+msgstr "بەت نومۇرى:"
 
 #: browse_foreigners.php:132
 msgid ""
