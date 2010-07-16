@@ -1135,7 +1135,7 @@ msgstr "پەيشەنبە"
 
 #: js/messages.php:127
 msgid "Friday"
-msgstr ""
+msgstr "جۈمە"
 
 #: js/messages.php:128
 msgid "Saturday"
