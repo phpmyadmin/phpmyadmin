@@ -949,7 +949,7 @@ msgstr "خاتالىق:مۇناسىۋەت قۇشۇلمىغان"
 
 #: js/messages.php:57 pmd_relation_new.php:31
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "خاتالىق:بۇناسىۋەت ئاللىقاچان مەۋجۈت"
 
 #: js/messages.php:58
 msgid "Error saving coordinates for Designer."
