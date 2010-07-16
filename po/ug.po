@@ -1193,7 +1193,7 @@ msgstr "دۈشەنبە"
 #. l10n: Minimal week day name
 #: js/messages.php:152
 msgid "Tu"
-msgstr ""
+msgstr "سەيشەنبە"
 
 #. l10n: Minimal week day name
 #: js/messages.php:154
