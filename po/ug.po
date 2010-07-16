@@ -1286,7 +1286,7 @@ msgstr "بىردىنبىر"
 
 #: libraries/Index.class.php:445 tbl_tracking.php:323
 msgid "Packed"
-msgstr ""
+msgstr "ئىخچام"
 
 #: libraries/Index.class.php:447 tbl_tracking.php:325
 msgid "Cardinality"
