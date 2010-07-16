@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 06:31+0200\n"
+"PO-Revision-Date: 2010-07-16 06:32+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -933,7 +933,7 @@ msgstr "ئۆزگەرتىشلەر ساقلاندى"
 
 #: js/messages.php:53 pmd_relation_upd.php:49
 msgid "Relation deleted"
-msgstr "باغلانمىلار ئۆچۈرۈلدى"
+msgstr ".باغلانمىلار ئۆچۈرۈلدى"
 
 #: js/messages.php:54 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
