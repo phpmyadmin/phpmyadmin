@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:01+0200\n"
+"PO-Revision-Date: 2010-07-16 13:05+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -786,6 +786,8 @@ msgstr "ھۆججەتنى ساقلاشقا يىتەرلىك بوشلۇق يوق %
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"%s بۇ ھۆججەت مۇلازىمىتېردا باركەن، ھۆججەت ئىسمىنى ئۆزگەرتىڭ ياكى قاپلاپ "
+"كۆچۈرۈش تۈرىنى تالالڭ."
 
 #: export.php:298 export.php:302
 #, php-format
