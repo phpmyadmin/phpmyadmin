@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:54+0200\n"
+"PO-Revision-Date: 2010-07-16 13:55+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1407,7 +1407,7 @@ msgstr ""
 
 #: libraries/Theme.class.php:387
 msgid "take it"
-msgstr ""
+msgstr "ئېلىش"
 
 #: libraries/Theme_Manager.class.php:115
 #, php-format
