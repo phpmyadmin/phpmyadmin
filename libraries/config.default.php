@@ -1773,7 +1773,7 @@ $cfg['Import']['csv_replace'] = false;
  *
  * @global string $cfg['Import']['csv_terminated']
  */
-$cfg['Import']['csv_terminated'] = ';';
+$cfg['Import']['csv_terminated'] = ',';
 
 /**
  *
