@@ -1476,8 +1476,3 @@ a.close_enum_editor {
 td.more_opts {
     display: none;
 }
-
-table#tablestructure td, table#tablestructure th {
-    max-width: 200px;
-    overflow: hidden;
-}
