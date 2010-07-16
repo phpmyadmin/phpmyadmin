@@ -941,7 +941,7 @@ msgstr "سىرتقى مۇناسىۋەتلىك ئۇلانما قۇشۇلدى"
 
 #: js/messages.php:55 pmd_relation_new.php:86
 msgid "Internal relation added"
-msgstr ""
+msgstr "ئىچكى ئۇلىنىش مۇاسىۋىتى قۇشۇلدى"
 
 #: js/messages.php:56 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
