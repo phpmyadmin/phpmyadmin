@@ -1115,7 +1115,7 @@ msgstr "ئوغلاق"
 #. l10n: Short month name
 #: js/messages.php:119 libraries/common.lib.php:1579
 msgid "Dec"
-msgstr ""
+msgstr "كۆنەك"
 
 #: js/messages.php:122
 msgid "Sunday"
