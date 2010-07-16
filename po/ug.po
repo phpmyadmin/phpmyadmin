@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:50+0200\n"
+"PO-Revision-Date: 2010-07-16 13:51+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1279,7 +1279,7 @@ msgstr "index قىممىتى بەلگىلەنمىگەن!"
 
 #: libraries/Index.class.php:433 server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
-msgstr ""
+msgstr "تېزىسلار"
 
 #: libraries/Index.class.php:444 libraries/mult_submits.inc.php:103
 #: libraries/tbl_properties.inc.php:519 tbl_structure.php:33
