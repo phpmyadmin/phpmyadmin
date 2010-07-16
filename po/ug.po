@@ -7748,7 +7748,7 @@ msgstr " %sتېمىنى قوللىمايدۇ،تەڭشەك ۋە تېما ھۆج�
 
 #: themes.php:42
 msgid "Get more themes!"
-msgstr ""
+msgstr "تېخىمۇ كۆپ تېمىغا ئىرىشىش !"
 
 #: transformation_overview.php:25
 msgid "Available MIME types"
