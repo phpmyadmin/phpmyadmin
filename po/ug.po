@@ -1208,7 +1208,7 @@ msgstr "پەيشەنبە"
 #. l10n: Minimal week day name
 #: js/messages.php:158
 msgid "Fr"
-msgstr ""
+msgstr "جۈمە"
 
 #. l10n: Minimal week day name
 #: js/messages.php:160
