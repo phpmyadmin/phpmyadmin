@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:48+0200\n"
+"PO-Revision-Date: 2010-07-16 13:50+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1275,7 +1275,7 @@ msgstr ""
 
 #: libraries/Index.class.php:428 tbl_relation.php:529
 msgid "No index defined!"
-msgstr ""
+msgstr "index قىممىتى بەلگىلەنمىگەن!"
 
 #: libraries/Index.class.php:433 server_databases.php:132 tbl_tracking.php:316
 msgid "Indexes"
