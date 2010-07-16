@@ -103,7 +103,7 @@ msgstr "ساندان ئىزاھاتى:"
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
 #: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:129
 msgid "Table comments"
-msgstr "جەدۋەل ئىزاھاتى"
+msgstr "جەدۋەل ئىزاھى"
 
 #: db_datadict.php:174 db_qbe.php:174 libraries/Index.class.php:446
 #: libraries/export/htmlword.php:244 libraries/export/latex.php:360
