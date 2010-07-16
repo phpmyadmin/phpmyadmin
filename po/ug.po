@@ -94,7 +94,7 @@ msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
 #: db_create.php:46
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s  ساندان غەلبىلىك قۇرۇلدى"
+msgstr "%1$s ساندان غەلبىلىك قۇرۇلدى"
 
 #: db_datadict.php:49 db_operations.php:378
 msgid "Database comment: "
