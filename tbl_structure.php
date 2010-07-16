@@ -391,14 +391,14 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || ($primary && $primary->hasColumn($field_name))) {
             echo $titles['NoPrimary'] . "\n";
-            $primary = false;
+            $primary_enabled = false;
         } else {
             echo "\n";
             ?>
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table) . ($primary ? ' DROP PRIMARY KEY,' : ''); ?> ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
             <?php echo $titles['Primary']; ?></a>
-            <?php $primary = true;
+            <?php $primary_enabled = true;
         }
         echo "\n";
         ?>
@@ -407,13 +407,13 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || isset($columns_with_unique_index[$field_name])) {
             echo $titles['NoUnique'] . "\n";
-            $unique = false;
+            $unique_enabled = false;
         } else {
             echo "\n";
             ?>
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Unique']; ?></a>
-            <?php $unique = true;
+            <?php $unique_enabled = true;
         }
         echo "\n";
         ?>
@@ -422,14 +422,14 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoIndex'] . "\n";
-            $index = false;
+            $index_enabled = false;
         } else {
             echo "\n";
             ?>
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Index']; ?></a>
             <?php
-            $index = true;
+            $index_enabled = true;
         }
         echo "\n";
         ?>
@@ -443,7 +443,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td align="center" nowrap="nowrap" class="fulltext">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
-            <?php $fulltext = true; ?>
+            <?php $fulltext_enabled = true; ?>
     </td>
             <?php
         } else {
@@ -451,7 +451,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         ?>
     <td align="center" nowrap="nowrap" class="fulltext">
         <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
-        <?php $fulltext = false; ?>
+        <?php $fulltext_enabled = false; ?>
     </td>
         <?php
         } // end if... else...
@@ -482,7 +482,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             </div>
             <div class="action_unique">
                 <?php
-                if($unique) { ?>
+                if($unique_enabled) { ?>
                     <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                         <?php echo $hidden_titles['Unique']; ?>
                     </a>
@@ -494,7 +494,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             </div>
             <div class="action_index">
                <?php
-                if($index) { ?>
+                if($index_enabled) { ?>
                     <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                         <?php echo $hidden_titles['Index']; ?>
                     </a>
@@ -506,7 +506,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
              </div>
             <div class="action_fulltext">
                 <?php
-                if($fulltext) { ?>
+                if($fulltext_enabled) { ?>
                     <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                         <?php echo $hidden_titles['IdxFulltext']; ?>
                     </a>
