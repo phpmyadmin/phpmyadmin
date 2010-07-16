@@ -7,26 +7,27 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2010-07-16 08:52+0200\n"
+"Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
 #: libraries/display_tbl.lib.php:417 server_privileges.php:1514
 msgid "Show all"
-msgstr ""
+msgstr "ھەممىسىنى كۆرسىتىش"
 
 #: browse_foreigners.php:82 libraries/common.lib.php:2313
 #: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:394
 #: libraries/export/pdf.php:147 pdf_schema.php:283 pdf_schema.php:1123
 #: pdf_schema.php:1139
 msgid "Page number:"
-msgstr ""
+msgstr "بەت نومۇرى"
 
 #: browse_foreigners.php:132
 msgid ""
@@ -34,6 +35,8 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"كۆزنەكنى يىڭىلاشقا ئامالسىز،سىز بەلكەم باش كۆزنەكنى تاقىۋەتكەن بۇلىشىڭىز "
+"ياكى تور كۆرەۈچىڭىزنىڭ بىخەتەرلىك تەڭشىكى تسقۇنلۇق قىلغان بۇلىشى مۇمكىن."
 
 #: browse_foreigners.php:150 db_structure.php:79 db_structure.php:80
 #: db_structure.php:91 db_structure.php:93 db_structure.php:104
@@ -41,7 +44,7 @@ msgstr ""
 #: libraries/common.lib.php:2838 libraries/db_links.inc.php:75
 #: libraries/tbl_links.inc.php:63
 msgid "Search"
-msgstr ""
+msgstr "ئىزدەش"
 
 #: browse_foreigners.php:153 db_operations.php:385 db_operations.php:429
 #: db_operations.php:499 db_operations.php:609 db_search.php:362
@@ -70,37 +73,37 @@ msgstr ""
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
 #: view_create.php:182 view_operations.php:101
 msgid "Go"
-msgstr ""
+msgstr "ئىجرا قىلىش"
 
 #: browse_foreigners.php:168 browse_foreigners.php:172
 #: libraries/Index.class.php:442 tbl_tracking.php:320
 msgid "Keyname"
-msgstr ""
+msgstr "قىممەت ئىسمى"
 
 #: browse_foreigners.php:169 browse_foreigners.php:171
 #: server_collations.php:55 server_collations.php:67 server_engines.php:59
 #: server_status.php:739
 msgid "Description"
-msgstr ""
+msgstr "ئىزاھات"
 
 #: browse_foreigners.php:247 browse_foreigners.php:256
 #: browse_foreigners.php:268 browse_foreigners.php:276
 msgid "Use this value"
-msgstr ""
+msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
 
 #: db_create.php:46
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "%1$s  ساندان غەلبىلىك قۇرۇلدى"
 
 #: db_datadict.php:49 db_operations.php:378
 msgid "Database comment: "
-msgstr ""
+msgstr "ساندان ئىزاھاتى"
 
 #: db_datadict.php:165 libraries/tbl_properties.inc.php:724
 #: pdf_schema.php:1236 tbl_operations.php:347 tbl_printview.php:129
 msgid "Table comments"
-msgstr ""
+msgstr "جەدۋەل ئىزاھاتى"
 
 #: db_datadict.php:174 db_qbe.php:174 libraries/Index.class.php:446
 #: libraries/export/htmlword.php:244 libraries/export/latex.php:360
@@ -111,7 +114,7 @@ msgstr ""
 #: tbl_select.php:134 tbl_structure.php:177 tbl_tracking.php:273
 #: tbl_tracking.php:324
 msgid "Column"
-msgstr ""
+msgstr "سۆزلەم"
 
 #: db_datadict.php:175 db_printview.php:106 libraries/Index.class.php:443
 #: libraries/db_events.inc.php:31 libraries/db_routines.inc.php:42
@@ -123,7 +126,7 @@ msgstr ""
 #: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
 #: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
 msgid "Type"
-msgstr ""
+msgstr "تۈرى"
 
 #: db_datadict.php:177 libraries/Index.class.php:449
 #: libraries/export/htmlword.php:246 libraries/export/latex.php:360
@@ -132,7 +135,7 @@ msgstr ""
 #: pdf_schema.php:1286 tbl_change.php:322 tbl_printview.php:144
 #: tbl_structure.php:181 tbl_tracking.php:276 tbl_tracking.php:327
 msgid "Null"
-msgstr ""
+msgstr "بوش"
 
 #: db_datadict.php:178 db_structure.php:501 libraries/export/htmlword.php:247
 #: libraries/export/latex.php:360 libraries/export/odt.php:303
@@ -140,14 +143,14 @@ msgstr ""
 #: pdf_schema.php:1266 pdf_schema.php:1287 tbl_printview.php:145
 #: tbl_structure.php:182 tbl_tracking.php:277
 msgid "Default"
-msgstr ""
+msgstr "ئەندىز"
 
 #: db_datadict.php:182 libraries/export/htmlword.php:249
 #: libraries/export/latex.php:362 libraries/export/odt.php:307
 #: libraries/export/texytext.php:238 pdf_schema.php:1268 pdf_schema.php:1289
 #: tbl_printview.php:149
 msgid "Links to"
-msgstr ""
+msgstr "ئۇلانما"
 
 #: db_datadict.php:184 db_printview.php:112 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:45 libraries/export/latex.php:365
@@ -156,7 +159,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:130 pdf_schema.php:1279
 #: pdf_schema.php:1290 tbl_printview.php:151
 msgid "Comments"
-msgstr ""
+msgstr "ئىزاھلار"
 
 #: db_datadict.php:267 libraries/Index.class.php:359
 #: libraries/Index.class.php:386 libraries/export/htmlword.php:322
@@ -167,7 +170,7 @@ msgstr ""
 #: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:228
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
-msgstr ""
+msgstr "يوق"
 
 #: db_datadict.php:267 libraries/Index.class.php:360
 #: libraries/Index.class.php:385 libraries/export/htmlword.php:322
@@ -184,131 +187,131 @@ msgstr ""
 #: tbl_printview.php:228 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
-msgstr ""
+msgstr "بولدى"
 
 #: db_datadict.php:322 db_printview.php:266 tbl_printview.php:497
 msgid "Print"
-msgstr ""
+msgstr "يازدۇر"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "ساندان قالدۇقىنى كۆرسىتىش"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
 #: db_tracking.php:35 export.php:359 navigation.php:332
 msgid "No tables found in database."
-msgstr ""
+msgstr "سانداندا جەدۋەل يوق"
 
 #: db_export.php:43 db_search.php:344 server_export.php:27
 msgid "Select All"
-msgstr ""
+msgstr "ھەممىنى تاللاش"
 
 #: db_export.php:45 db_search.php:347 server_export.php:29
 msgid "Unselect All"
-msgstr ""
+msgstr "ھەممە تاللاشنى قالدۇرۇش"
 
 #: db_operations.php:38 tbl_create.php:54
 msgid "The database name is empty!"
-msgstr ""
+msgstr "ساندان ئىسمىنى بوش قويماڭ!"
 
 #: db_operations.php:236
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "%s ساندان ئىسمى %s غا ئۆزگەرتىلدى."
 
 #: db_operations.php:240
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "%s ساندان %s غا كۆچۈرۈلدى"
 
 #: db_operations.php:412
 msgid "Rename database to"
-msgstr ""
+msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
 
 #: db_operations.php:417 server_processlist.php:57
 msgid "Command"
-msgstr ""
+msgstr "بۇيرۇق"
 
 #: db_operations.php:429 tbl_change.php:1142
 msgid "and then"
-msgstr ""
+msgstr "كېيىن"
 
 #: db_operations.php:455
 msgid "Copy database to"
-msgstr ""
+msgstr "كۆچۈرۈلگەن ساندان"
 
 #: db_operations.php:462 tbl_operations.php:528 tbl_tracking.php:388
 msgid "Structure only"
-msgstr ""
+msgstr "تۈزىلىشىنىلا"
 
 #: db_operations.php:463 tbl_operations.php:529 tbl_tracking.php:390
 msgid "Structure and data"
-msgstr ""
+msgstr "تۈزۈلىشى ۋە ئۇچۇر"
 
 #: db_operations.php:464 tbl_operations.php:530 tbl_tracking.php:389
 msgid "Data only"
-msgstr ""
+msgstr "ئۇچۇرنىلا"
 
 #: db_operations.php:472
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "ئاندىنقى سانداننى كۆپەيتىپ ساندان قۇرۇش"
 
 #: db_operations.php:475 libraries/export/sql.php:52
 #: libraries/export/sql.php:74 libraries/export/sql.php:76
 #: libraries/export/sql.php:82 tbl_operations.php:536
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "قوشۇلغىنى %s"
 
 #: db_operations.php:479 libraries/export/sql.php:78 tbl_operations.php:299
 #: tbl_operations.php:538
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "AUTO_INCREMENT قوشۇش"
 
 #: db_operations.php:483 tbl_operations.php:545
 msgid "Add constraints"
-msgstr ""
+msgstr "مەجبۇرى قوشۇش"
 
 #: db_operations.php:496
 msgid "Switch to copied database"
-msgstr ""
+msgstr "كۆپەيتىلگەن ساندانغا كۆچۈش"
 
 #: db_operations.php:537
 msgid "BLOB Repository"
-msgstr ""
+msgstr "BLOB ئامبىرى"
 
 #: db_operations.php:540 db_tracking.php:76 libraries/common.lib.php:1352
 #: libraries/server_links.inc.php:49 server_processlist.php:59
 #: tbl_tracking.php:596 test/theme.php:101
 msgid "Status"
-msgstr ""
+msgstr "ھالەت"
 
 #: db_operations.php:548
 msgctxt "BLOB repository"
 msgid "Enabled"
-msgstr ""
+msgstr "ئېچىلدى"
 
 #: db_operations.php:552
 msgid "Disable"
-msgstr ""
+msgstr "تاقاش"
 
 #: db_operations.php:562
 msgid "Damaged"
-msgstr ""
+msgstr "بۇزۇلغان"
 
 #: db_operations.php:566
 msgctxt "BLOB repository"
 msgid "Repair"
-msgstr ""
+msgstr "ئوڭشاش"
 
 #: db_operations.php:574
 msgctxt "BLOB repository"
 msgid "Disabled"
-msgstr ""
+msgstr "تاقالدى"
 
 #: db_operations.php:578
 msgid "Enable"
-msgstr ""
+msgstr "ئېچىش"
 
 #: db_operations.php:602 libraries/Index.class.php:448
 #: libraries/db_structure.lib.php:62 libraries/mysql_charsets.lib.php:107
@@ -317,7 +320,7 @@ msgstr ""
 #: tbl_operations.php:363 tbl_select.php:136 tbl_structure.php:179
 #: tbl_structure.php:767 tbl_tracking.php:275 tbl_tracking.php:326
 msgid "Collation"
-msgstr ""
+msgstr "تاسقاش"
 
 #: db_operations.php:615 main.php:316 pdf_schema.php:34
 #, php-format
@@ -328,7 +331,7 @@ msgstr ""
 
 #: db_operations.php:648
 msgid "Edit PDF Pages"
-msgstr ""
+msgstr "PDF بېتىنى تەھرىرلەش"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
@@ -337,168 +340,167 @@ msgstr ""
 #: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
 #: test/theme.php:75
 msgid "Table"
-msgstr ""
+msgstr "جەدۋەل"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:56
 #: libraries/header_printview.inc.php:63 libraries/import.lib.php:146
 #: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
-msgstr ""
+msgstr "قاتار سانى"
 
 #: db_printview.php:109 libraries/db_structure.lib.php:67 tbl_indexes.php:190
 msgid "Size"
-msgstr ""
+msgstr "ھەجىم"
 
 #: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:559
 #: libraries/export/sql.php:899
 msgid "in use"
-msgstr ""
+msgstr "ئىشلىتىلمەكتە"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
 #: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
 #: tbl_structure.php:809
 msgid "Creation"
-msgstr ""
+msgstr "قۇرۇش"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
 #: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
 #: tbl_structure.php:817
 msgid "Last update"
-msgstr ""
+msgstr "ئاخىرقى يېڭلىنىش"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
 #: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
 #: tbl_structure.php:825
 msgid "Last check"
-msgstr ""
+msgstr "ئاخىرقى تەكشۈرۈش"
 
 #: db_printview.php:222 db_structure.php:480
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s جەدۋەل"
 
 #: db_qbe.php:29 import.php:454 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/sql_query_form.lib.php:140
 #: tbl_operations.php:213 tbl_relation.php:292 tbl_row_action.php:131
 #: view_operations.php:62
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "SQL بۇيرىقى غەلبىلىك بىجىرىلدى"
 
 #: db_qbe.php:42
 msgid "You have to choose at least one column to display"
-msgstr ""
+msgstr "بۇنى بىجىرىش ئۈچۈن مەزمۇن تاللانغان بولۇشى كېرەك"
 
 #: db_qbe.php:200 libraries/db_structure.lib.php:104
 #: libraries/display_tbl.lib.php:866
 msgid "Sort"
-msgstr ""
+msgstr "تۈرلەش"
 
 #: db_qbe.php:209 db_qbe.php:243 libraries/db_structure.lib.php:111
 #: libraries/display_tbl.lib.php:523 libraries/display_tbl.lib.php:828
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:260
 #: tbl_select.php:312
 msgid "Ascending"
-msgstr ""
+msgstr "ئارتىش"
 
 #: db_qbe.php:210 db_qbe.php:251 libraries/db_structure.lib.php:119
 #: libraries/display_tbl.lib.php:528 libraries/display_tbl.lib.php:825
 #: server_databases.php:170 server_databases.php:187 tbl_operations.php:261
 #: tbl_select.php:313
 msgid "Descending"
-msgstr ""
+msgstr "كېمىيىش"
 
 #: db_qbe.php:264 db_tracking.php:78 libraries/display_tbl.lib.php:308
 #: tbl_change.php:276 tbl_tracking.php:597
 msgid "Show"
-msgstr ""
+msgstr "كۆرسىتىش"
 
 #: db_qbe.php:300
 msgid "Criteria"
-msgstr ""
+msgstr "شەرت"
 
 #: db_qbe.php:353 db_qbe.php:435 db_qbe.php:527 db_qbe.php:558
 msgid "Ins"
-msgstr ""
+msgstr "قىستۇرۇش"
 
 #: db_qbe.php:357 db_qbe.php:439 db_qbe.php:524 db_qbe.php:555
 msgid "And"
-msgstr ""
+msgstr "ۋە"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:529 db_qbe.php:560
 msgid "Del"
-msgstr ""
+msgstr "ئۆچۈرۈش"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
 #: server_privileges.php:297 tbl_change.php:1028 tbl_indexes.php:250
 #: tbl_select.php:286
 msgid "Or"
-msgstr ""
+msgstr "ياكى"
 
 #: db_qbe.php:507
 msgid "Modify"
-msgstr ""
+msgstr "ئۆزگەرتىش"
 
 #: db_qbe.php:584
 msgid "Add/Delete criteria rows"
-msgstr ""
+msgstr "رەت قوشۇش\\ئۆچۈرۈش"
 
 #: db_qbe.php:596
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
 #: db_qbe.php:609 db_qbe.php:634
 msgid "Update Query"
-msgstr ""
+msgstr "يېڭلاش"
 
 #: db_qbe.php:617
 msgid "Use Tables"
-msgstr ""
+msgstr "جەدۋەللەرنى ئىشلىتىش"
 
 #: db_qbe.php:640
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "SQL ئىجرا بولۋاتقان ساندان <b>%s</b>:"
 
 #: db_qbe.php:934 libraries/common.lib.php:1225
 msgid "Submit Query"
-msgstr ""
+msgstr "تاپشۇرۇش"
 
 #: db_search.php:68 libraries/auth/config.auth.lib.php:84
 #: libraries/auth/config.auth.lib.php:103
 #: libraries/auth/cookie.auth.lib.php:671 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:183
 msgid "Access denied"
-msgstr ""
+msgstr "رەت قىلىندى"
 
 #: db_search.php:80 db_search.php:311
 msgid "at least one of the words"
-msgstr ""
+msgstr "سۆزلەردىن ئەڭ ئازدىن بىرى"
 
 #: db_search.php:81 db_search.php:312
 msgid "all words"
-msgstr ""
+msgstr "بارلىق سۆزلەر"
 
 #: db_search.php:82 db_search.php:313
 msgid "the exact phrase"
-msgstr ""
+msgstr "ئېنىق ماسلىق"
 
 #: db_search.php:83 db_search.php:314
 msgid "as regular expression"
-msgstr ""
+msgstr "مۇنتىزىم ئىپادە"
 
 #: db_search.php:242
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr ""
+msgstr "\"<i>%s</i>\" نىڭ ئىزلەش نەتىجىسى %s:"
 
 #: db_search.php:260
 #, php-format
 msgid "%s match(es) inside table <i>%s</i>"
-msgstr ""
+msgstr "%s ئۇيغۇنلۇق تىپىلدى، جەدۋىلى <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
@@ -506,7 +508,7 @@ msgstr ""
 #: libraries/mult_submits.inc.php:116 libraries/tbl_links.inc.php:50
 #: tbl_structure.php:37 tbl_structure.php:49 tbl_structure.php:467
 msgid "Browse"
-msgstr ""
+msgstr "كۆزەت"
 
 #: db_search.php:272 libraries/display_tbl.lib.php:1165
 #: libraries/display_tbl.lib.php:2056 libraries/sql_query_form.lib.php:470
@@ -514,43 +516,43 @@ msgstr ""
 #: pmd_general.php:377 setup/frames/index.inc.php:125
 #: setup/frames/index.inc.php:216 tbl_row_action.php:63
 msgid "Delete"
-msgstr ""
+msgstr "ئۆچۈرۈش"
 
 #: db_search.php:285
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr ""
+msgstr "<b>جەمئىي:</b> <i>%s</i> ئوخشاشلىق"
 
 #: db_search.php:299
 msgid "Search in database"
-msgstr ""
+msgstr "سانداندىن ئىزدەش"
 
 #: db_search.php:302
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr ""
+msgstr "ئىزدەشكە تىگىشلىك خەت ياكى قىقىممىتى(دەرىجىسى:«%»"
 
 #: db_search.php:307
 msgid "Find:"
-msgstr ""
+msgstr "تاپقىنى:"
 
 #: db_search.php:311 db_search.php:312
 msgid "Words are separated by a space character (\" \")."
-msgstr ""
+msgstr "ھەر بىر تاق سۆزنى  (\" \") بەلگىسى ئارقىلىق ئايرىڭ."
 
 #: db_search.php:325
 msgid "Inside table(s):"
-msgstr ""
+msgstr "تۆۋەندىكى جەدۋەل(لەر): "
 
 #: db_search.php:355
 msgid "Inside column:"
-msgstr ""
+msgstr "ئىچىدىكى سۆزلەم:"
 
 #: db_structure.php:81 db_structure.php:82 db_structure.php:94
 #: db_structure.php:95 db_structure.php:107 db_structure.php:108
 #: libraries/common.lib.php:2832 libraries/sql_query_form.lib.php:334
 #: libraries/sql_query_form.lib.php:337 libraries/tbl_links.inc.php:76
 msgid "Insert"
-msgstr ""
+msgstr "قىستۇرۇش"
 
 #: db_structure.php:83 db_structure.php:96 db_structure.php:109
 #: libraries/common.lib.php:2829 libraries/common.lib.php:2836
@@ -561,7 +563,7 @@ msgstr ""
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
 #: server_privileges.php:593 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
-msgstr ""
+msgstr "تۈزۈلىشى"
 
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
@@ -572,37 +574,37 @@ msgstr ""
 #: server_databases.php:352 tbl_structure.php:27 tbl_structure.php:151
 #: tbl_structure.php:152 tbl_structure.php:471
 msgid "Drop"
-msgstr ""
+msgstr "ئۆچۈرۈش"
 
 #: db_structure.php:86 db_structure.php:87 db_structure.php:99
 #: db_structure.php:100 db_structure.php:112 db_structure.php:113
 #: db_structure.php:543 db_structure.php:544 libraries/common.lib.php:1655
 #: libraries/mult_submits.inc.php:39 libraries/tbl_links.inc.php:105
 msgid "Empty"
-msgstr ""
+msgstr "تازىلاش"
 
 #: db_structure.php:316 libraries/tbl_links.inc.php:100
 #, php-format
 msgid "Table %s has been emptied"
-msgstr ""
+msgstr " %s جەدۋەل تازىلاندى"
 
 #: db_structure.php:326 libraries/tbl_links.inc.php:133
 #, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "%s كۆرۈنمە ئۆچۈرۈلدى"
 
 #: db_structure.php:326 libraries/tbl_links.inc.php:133
 #, php-format
 msgid "Table %s has been dropped"
-msgstr ""
+msgstr "%s جەدىۋەل ئۆچۈرۈلدى"
 
 #: db_structure.php:333
 msgid "Tracking is active."
-msgstr ""
+msgstr "ئاكتىپ ئىزلاش"
 
 #: db_structure.php:335
 msgid "Tracking is not active."
-msgstr ""
+msgstr "ئىزلاش ئاكتىپ ئەمەس"
 
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
@@ -614,22 +616,22 @@ msgstr ""
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/tbl_info.inc.php:66 tbl_structure.php:185 test/theme.php:74
 msgid "View"
-msgstr ""
+msgstr "قاراش"
 
 #: db_structure.php:485 libraries/db_structure.lib.php:49
 #: libraries/server_links.inc.php:70 server_replication.php:33
 #: server_replication.php:164 server_status.php:369
 msgid "Replication"
-msgstr ""
+msgstr "كۆچۈرۈش"
 
 #: db_structure.php:489
 msgid "Sum"
-msgstr ""
+msgstr "جەمئىي"
 
 #: db_structure.php:496 libraries/StorageEngine.class.php:356
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s بولسا MySQL مۇلازىمىتېرنىڭ ساقلاش ئەندىزە موتۇرى"
 
 #: db_structure.php:524 db_structure.php:541 db_structure.php:542
 #: libraries/display_tbl.lib.php:2081 libraries/display_tbl.lib.php:2086
@@ -637,49 +639,49 @@ msgstr ""
 #: server_databases.php:351 server_privileges.php:1596 tbl_structure.php:455
 #: tbl_structure.php:464
 msgid "With selected:"
-msgstr ""
+msgstr "تاللانغىنى:"
 
 #: db_structure.php:527 libraries/display_tbl.lib.php:2076
 #: server_databases.php:348 server_privileges.php:569
 #: server_privileges.php:1599 tbl_structure.php:458
 msgid "Check All"
-msgstr ""
+msgstr "ھەممىنى تاللاش"
 
 #: db_structure.php:531 libraries/display_tbl.lib.php:2077
 #: libraries/replication_gui.lib.php:36 server_databases.php:350
 #: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
 msgid "Uncheck All"
-msgstr ""
+msgstr "تاللاشنى بىكار قىلىش"
 
 #: db_structure.php:536
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "مەزمۇن بارلارنى تاللاش"
 
 #: db_structure.php:547 db_structure.php:548 db_structure.php:599
 #: libraries/display_tbl.lib.php:2180 libraries/mult_submits.inc.php:28
 #: tbl_structure.php:492 tbl_structure.php:494
 msgid "Print view"
-msgstr ""
+msgstr "بېسىپ كۆرسىتىش"
 
 #: db_structure.php:549 db_structure.php:550 libraries/mult_submits.inc.php:42
 #: tbl_operations.php:581
 msgid "Check table"
-msgstr ""
+msgstr "جەدۋەل تەكشۈرۈش"
 
 #: db_structure.php:551 db_structure.php:552 libraries/mult_submits.inc.php:47
 #: tbl_operations.php:621 tbl_structure.php:709 tbl_structure.php:711
 msgid "Optimize table"
-msgstr ""
+msgstr "جەدۋەلنى ئەلالاش"
 
 #: db_structure.php:553 db_structure.php:554 libraries/mult_submits.inc.php:52
 #: tbl_operations.php:611
 msgid "Repair table"
-msgstr ""
+msgstr "جەدۋەلنى ئوڭشاش"
 
 #: db_structure.php:555 db_structure.php:556 libraries/mult_submits.inc.php:57
 #: tbl_operations.php:601
 msgid "Analyze table"
-msgstr ""
+msgstr "جەدۋەل تەھلىلى"
 
 #: db_structure.php:557 db_structure.php:558 libraries/db_links.inc.php:71
 #: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2094
@@ -688,15 +690,15 @@ msgstr ""
 #: pmd_pdf.php:84 pmd_pdf.php:109 server_privileges.php:1380
 #: setup/frames/menu.inc.php:22 tbl_row_action.php:59
 msgid "Export"
-msgstr ""
+msgstr "چىقىرىش"
 
 #: db_structure.php:606 libraries/display_pdf_schema.lib.php:44
 msgid "Data Dictionary"
-msgstr ""
+msgstr "مەلۇمات لۇغىتى"
 
 #: db_tracking.php:66
 msgid "Tracked tables"
-msgstr ""
+msgstr "ئىزلانغان جەدۋەل"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
@@ -708,74 +710,74 @@ msgstr ""
 #: server_synchronize.php:1179 server_synchronize.php:1183
 #: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
-msgstr ""
+msgstr "ساندان"
 
 #: db_tracking.php:73
 msgid "Last version"
-msgstr ""
+msgstr "ېيڭى نەشىر"
 
 #: db_tracking.php:74 tbl_tracking.php:594
 msgid "Created"
-msgstr ""
+msgstr "قۇرۇش"
 
 #: db_tracking.php:75 tbl_tracking.php:595
 msgid "Updated"
-msgstr ""
+msgstr "يېڭلاش"
 
 #: db_tracking.php:77 libraries/Index.class.php:440
 #: libraries/db_structure.lib.php:53 server_databases.php:203
 #: server_privileges.php:1542 server_privileges.php:1725
 #: server_privileges.php:2073 tbl_structure.php:187
 msgid "Action"
-msgstr ""
+msgstr "ئامال"
 
 #: db_tracking.php:88 db_tracking.php:120
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
 
 #: db_tracking.php:106 tbl_tracking.php:548 tbl_tracking.php:606
 #: tbl_tracking.php:613
 msgid "active"
-msgstr ""
+msgstr "پائال"
 
 #: db_tracking.php:108 tbl_tracking.php:550 tbl_tracking.php:608
 #: tbl_tracking.php:610
 msgid "not active"
-msgstr ""
+msgstr "پائالسىز"
 
 #: db_tracking.php:121
 msgid "Versions"
-msgstr ""
+msgstr "نەشىر"
 
 #: db_tracking.php:122 tbl_tracking.php:379 tbl_tracking.php:624
 msgid "Tracking report"
-msgstr ""
+msgstr "ئىزلاش خاتىرىسى"
 
 #: db_tracking.php:123 tbl_tracking.php:251 tbl_tracking.php:624
 msgid "Structure snapshot"
-msgstr ""
+msgstr "تۈزۈلمە رەسىمى"
 
 #: db_tracking.php:152
 msgid "Untracked tables"
-msgstr ""
+msgstr "ئىزلانمىغان جەدۋەللەر"
 
 #: db_tracking.php:172 db_tracking.php:174 tbl_structure.php:528
 #: tbl_structure.php:530
 msgid "Track table"
-msgstr ""
+msgstr "جەدۋەل ئىزلاش"
 
 #: db_tracking.php:200
 msgid "Database Log"
-msgstr ""
+msgstr "ساندان خاتىرىسى"
 
 #: export.php:62
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "چىقارماقچى بولغان ھۆججەت تۈرىنى تاللاڭ!"
 
 #: export.php:154 export.php:179 export.php:627
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "ھۆججەتنى ساقلاشقا يىتەرلىك بوشلۇق يوق %s。"
 
 #: export.php:294
 #, php-format
@@ -791,7 +793,7 @@ msgstr ""
 #: export.php:629
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "%s ھۆججىتىدە ساقلاندى."
 
 #: import.php:60
 #, php-format
@@ -803,7 +805,7 @@ msgstr ""
 #: import.php:279 import.php:332 libraries/File.class.php:849
 #: libraries/File.class.php:961
 msgid "File could not be read"
-msgstr ""
+msgstr "ھۆججەتنى ئوقۇيالمىدى"
 
 #: import.php:287 import.php:296 import.php:315 import.php:324
 #: libraries/File.class.php:1031 libraries/File.class.php:1039
@@ -827,16 +829,16 @@ msgstr ""
 
 #: import.php:397
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "خەتكۈچ ئۆچۈرۈلدى"
 
 #: import.php:401
 msgid "Showing bookmark"
-msgstr ""
+msgstr "خەتكۈچنى كۆرسىتىش"
 
 #: import.php:403 sql.php:626
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "قۇرۇلغان خەتكۈچ %s"
 
 #: import.php:409 import.php:415
 #, php-format
@@ -858,7 +860,7 @@ msgstr ""
 #: import_status.php:31 libraries/common.lib.php:667 pdf_schema.php:241
 #: user_password.php:115
 msgid "Back"
-msgstr ""
+msgstr "قايتىش"
 
 #: index.php:190
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -869,27 +871,27 @@ msgstr ""
 #: server_synchronize.php:739 server_synchronize.php:767
 #: server_synchronize.php:795 server_synchronize.php:807
 msgid "Click to select"
-msgstr ""
+msgstr "بىر چىكىپ تاللاڭ"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "بىر چىكىپ بىكار قىلىڭ"
 
 #: js/messages.php:27 libraries/import.lib.php:104 sql.php:89
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "ساندان ئۆچۈرۈش بۇيرۇقى (\"DROP DATABASE\") چەكلەنگەن."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:258 sql.php:188
 msgid "Do you really want to "
-msgstr ""
+msgstr "راستىنلا ئجرا قىلىمسىز"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:172
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "ساندان تولۇق ئۆچۈرۈلدى!"
 
 #: js/messages.php:34
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "سىز BLOB ئامبىرنى توقتاتماقچى!"
 
 #: js/messages.php:35
 #, php-format
@@ -898,55 +900,55 @@ msgstr ""
 
 #: js/messages.php:38
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "بۇ ئورۇننىڭ قىممىتى تولدۇرۇلمىغان !"
 
 #: js/messages.php:39
 msgid "This is not a number!"
-msgstr ""
+msgstr "سان كىرگۈزىڭ !"
 
 #: js/messages.php:42
 msgid "The host name is empty!"
-msgstr ""
+msgstr "مۇلازىمىتېر ئىسمى بوشكەن!"
 
 #: js/messages.php:43
 msgid "The user name is empty!"
-msgstr ""
+msgstr "قوللانغۇچى ئىسمى بوشكەن!"
 
 #: js/messages.php:44 server_privileges.php:1236 user_password.php:70
 msgid "The password is empty!"
-msgstr ""
+msgstr "پارول بوشكەن!"
 
 #: js/messages.php:45 server_privileges.php:1234 user_password.php:73
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "كىرگۈزگەن پارولار ئوخشاش ئەمەس!"
 
 #: js/messages.php:49 pmd_general.php:342 pmd_general.php:379
 msgid "Cancel"
-msgstr ""
+msgstr "بىكار قىلىش"
 
 #: js/messages.php:52 pmd_save_pos.php:54
 msgid "Modifications have been saved"
-msgstr ""
+msgstr "ئۆزگەرتىشلەر ساقلاندى"
 
 #: js/messages.php:53 pmd_relation_upd.php:49
 msgid "Relation deleted"
-msgstr ""
+msgstr ".باغلانمىلار ئۆچۈرۈلدى"
 
 #: js/messages.php:54 pmd_relation_new.php:64
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "سىرتقى مۇناسىۋەتلىك ئۇلانما قۇشۇلدى"
 
 #: js/messages.php:55 pmd_relation_new.php:86
 msgid "Internal relation added"
-msgstr ""
+msgstr ".ئىچكى ئۇلىنىش مۇاسىۋىتى قۇشۇلدى"
 
 #: js/messages.php:56 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "!خاتالىق:مۇناسىۋەت قۇشۇلمىغان"
 
 #: js/messages.php:57 pmd_relation_new.php:31
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "!خاتالىق:بۇناسىۋەت ئاللىقاچان مەۋجۈت"
 
 #: js/messages.php:58
 msgid "Error saving coordinates for Designer."
@@ -1023,62 +1025,62 @@ msgstr ""
 
 #: js/messages.php:87
 msgid "June"
-msgstr ""
+msgstr "6-ئاي"
 
 #: js/messages.php:88
 msgid "July"
-msgstr ""
+msgstr "7-ئاي"
 
 #: js/messages.php:89
 msgid "August"
-msgstr ""
+msgstr "8-ئاي"
 
 #: js/messages.php:90
 msgid "September"
-msgstr ""
+msgstr "9-ئاي"
 
 #: js/messages.php:91
 msgid "October"
-msgstr ""
+msgstr "10-ئاي"
 
 #: js/messages.php:92
 msgid "November"
-msgstr ""
+msgstr "11-ئاي"
 
 #: js/messages.php:93
 msgid "December"
-msgstr ""
+msgstr "12-ئاي"
 
 #. l10n: Short month name
 #: js/messages.php:97 libraries/common.lib.php:1557
 msgid "Jan"
-msgstr ""
+msgstr "1-ئاي"
 
 #. l10n: Short month name
 #: js/messages.php:99 libraries/common.lib.php:1559
 msgid "Feb"
-msgstr ""
+msgstr "2-ئاي"
 
 #. l10n: Short month name
 #: js/messages.php:101 libraries/common.lib.php:1561
 msgid "Mar"
-msgstr ""
+msgstr "3-ئاي"
 
 #. l10n: Short month name
 #: js/messages.php:103 libraries/common.lib.php:1563
 msgid "Apr"
-msgstr ""
+msgstr "4-ئاي"
 
 #. l10n: Short month name
 #: js/messages.php:105 libraries/common.lib.php:1565
 msgctxt "Short month name"
 msgid "May"
-msgstr ""
+msgstr "5-ئاي"
 
 #. l10n: Short month name
 #: js/messages.php:107 libraries/common.lib.php:1567
 msgid "Jun"
-msgstr ""
+msgstr "6-ئاي"
 
 #. l10n: Short month name
 #: js/messages.php:109 libraries/common.lib.php:1569
@@ -1128,35 +1130,35 @@ msgstr ""
 
 #: js/messages.php:126
 msgid "Thursday"
-msgstr ""
+msgstr "پەيشەنبە"
 
 #: js/messages.php:127
 msgid "Friday"
-msgstr ""
+msgstr "جۈمە"
 
 #: js/messages.php:128
 msgid "Saturday"
-msgstr ""
+msgstr "شەنبە"
 
 #. l10n: Short week day name
 #: js/messages.php:132 libraries/common.lib.php:1582
 msgid "Sun"
-msgstr ""
+msgstr "يەكشەنبە"
 
 #. l10n: Short week day name
 #: js/messages.php:134 libraries/common.lib.php:1584
 msgid "Mon"
-msgstr ""
+msgstr "دۈشەنبە"
 
 #. l10n: Short week day name
 #: js/messages.php:136 libraries/common.lib.php:1586
 msgid "Tue"
-msgstr ""
+msgstr "سەيشەنبە"
 
 #. l10n: Short week day name
 #: js/messages.php:138 libraries/common.lib.php:1588
 msgid "Wed"
-msgstr ""
+msgstr "چارشەنبە"
 
 #. l10n: Short week day name
 #: js/messages.php:140 libraries/common.lib.php:1590
@@ -1211,23 +1213,23 @@ msgstr ""
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
 msgid "Wk"
-msgstr ""
+msgstr "ھەپتە"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "سائەت"
 
 #: js/messages.php:165
 msgid "Minute"
-msgstr ""
+msgstr "مىنۇت"
 
 #: js/messages.php:166
 msgid "Second"
-msgstr ""
+msgstr "سېكنۇت"
 
 #: libraries/Config.class.php:1015
 msgid "Font size"
-msgstr ""
+msgstr "خەتنىڭ چوڭ-كىچىكلىكى"
 
 #: libraries/File.class.php:344 libraries/File.class.php:432
 #: libraries/File.class.php:569 libraries/File.class.php:708
@@ -1279,19 +1281,19 @@ msgstr ""
 #: tbl_structure.php:155 tbl_structure.php:159 tbl_structure.php:474
 #: tbl_tracking.php:322
 msgid "Unique"
-msgstr ""
+msgstr "بىردىنبىر"
 
 #: libraries/Index.class.php:445 tbl_tracking.php:323
 msgid "Packed"
-msgstr ""
+msgstr "ئىخچام"
 
 #: libraries/Index.class.php:447 tbl_tracking.php:325
 msgid "Cardinality"
-msgstr ""
+msgstr "تۈپ سان"
 
 #: libraries/Index.class.php:450 tbl_tracking.php:279 tbl_tracking.php:328
 msgid "Comment"
-msgstr ""
+msgstr "ئىزاھات"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
@@ -1299,7 +1301,7 @@ msgstr ""
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
-msgstr ""
+msgstr "تەھىرلەش"
 
 #: libraries/Index.class.php:472
 msgid "The primary key has been dropped"
