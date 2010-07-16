@@ -175,6 +175,9 @@ $(document).ready(function() {
                                                                 .end()
                                                                 .find('tr:even')
                                                                 .removeClass('odd').addClass('even');
+
+                                                                $("#initials_table").find('td:contains('+data.new_user_initial+')')
+                                                                .html(data.new_user_initial_string);
                                                             }
                                                             else {
                                                                 PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");

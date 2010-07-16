@@ -1409,6 +1409,13 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUE
         $new_user_string .= '</tr>';
 
         $extra_data['new_user_string'] = $new_user_string;
+
+        //Generate the string for this alphabet's initial
+        $new_user_initial = strtoupper(substr($username, 0, 1));
+        $new_user_initial_string = '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&initial=' . $new_user_initial
+            .'>' . $new_user_initial . '</a>';
+        $extra_data['new_user_initial'] = $new_user_initial;
+        $extra_data['new_user_initial_string'] = $new_user_initial_string;
     }
     PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
 }
