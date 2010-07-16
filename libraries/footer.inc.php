@@ -68,7 +68,7 @@ if ($GLOBALS['error_handler']->hasDisplayErrors()) {
 }
 
 if (count($GLOBALS['footnotes'])) {
-    echo '<div class="notice">';
+    echo '<div class="footnotes">';
     foreach ($GLOBALS['footnotes'] as $footnote) {
         echo '<span id="footnote_' . $footnote['nr'] . '"><sup>'
             . $footnote['nr'] . '</sup> ' . $footnote['note'] . '</span><br />';

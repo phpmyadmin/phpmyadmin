@@ -217,7 +217,10 @@ function mouseMove(e) {
 $(document).ready(function() {
     // Hide the footnotes from the footer (which are displayed for
     // JavaScript-disabled browsers) since the tooltip is sufficient
-    $(".notice").hide();
+    $(".footnotes").hide();
+    // The border and padding must be removed otherwise a thin yellow box remains visible
+    $(".footnotes").css("border", "none");
+    $(".footnotes").css("padding", "0px");
     // Replace the superscripts with the help icon
     $("sup[class='footnotemarker']").remove();
     $("img[class='footnotemarker']").show();

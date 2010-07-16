@@ -387,7 +387,8 @@ div.error h1 {
 div.success,
 div.notice,
 div.warning,
-div.error {
+div.error,
+div.footnotes {
     margin:             0.3em 0 0 0;
     border:             2px solid;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
@@ -419,12 +420,13 @@ div.success {
     border-color:       #00FF00;
 }
 
-.notice {
+.notice, .footnotes {
     color:              #000000;
     background-color:   #FFFFDD;
 }
 h1.notice,
-div.notice {
+div.notice,
+div.footnotes {
     border-color:       #FFD700;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
@@ -488,6 +490,7 @@ fieldset.confirmation legend {
         <?php } ?>
     <?php } ?>
 }
+
 /* end messageboxes */
 
 
