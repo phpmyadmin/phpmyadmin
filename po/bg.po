@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-03 09:00-0400\n"
+"POT-Creation-Date: 2010-07-14 11:36+0200\n"
 "PO-Revision-Date: 2010-06-11 17:28+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -64,8 +64,8 @@ msgstr "Търсене"
 #: server_privileges.php:1971 server_privileges.php:2018
 #: server_privileges.php:2057 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
-#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1171
-#: tbl_change.php:1208 tbl_indexes.php:254 tbl_operations.php:265
+#: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1173
+#: tbl_change.php:1210 tbl_indexes.php:254 tbl_operations.php:265
 #: tbl_operations.php:302 tbl_operations.php:499 tbl_operations.php:561
 #: tbl_operations.php:681 tbl_select.php:325 tbl_structure.php:562
 #: tbl_structure.php:597 tbl_tracking.php:395 tbl_tracking.php:512
@@ -232,7 +232,7 @@ msgstr "Преименуване на базата от данни на"
 msgid "Command"
 msgstr "Команда"
 
-#: db_operations.php:429 tbl_change.php:1140
+#: db_operations.php:429 tbl_change.php:1142
 msgid "and then"
 msgstr "и след това"
 
@@ -576,7 +576,7 @@ msgstr "Вмъкване"
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
-#: libraries/export/texytext.php:23 libraries/import.lib.php:1106
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1121
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
 #: server_privileges.php:593 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
@@ -626,8 +626,8 @@ msgstr ""
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
@@ -822,8 +822,8 @@ msgstr "Схемата(дъмп) беше записана във файл %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Вероятно сте направили опит да качите твърде голям файл. Моля, обърнете се "
 "към %sdдокументацията%s за да намерите начин да избегнете това ограничение."
@@ -1381,7 +1381,7 @@ msgstr "Коментари"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
-#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
+#: libraries/import.lib.php:1104 libraries/import.lib.php:1128
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
@@ -1524,8 +1524,8 @@ msgstr "Добре дошли в %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:116
@@ -2093,8 +2093,8 @@ msgstr "име на таблицата"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 
 #: libraries/display_export.lib.php:202
@@ -2294,8 +2294,8 @@ msgstr "Сортиране по ключ"
 #: libraries/export/php_array.php:25 libraries/export/sql.php:34
 #: libraries/export/texytext.php:37 libraries/export/xls.php:27
 #: libraries/export/xlsx.php:27 libraries/export/xml.php:24
-#: libraries/export/yaml.php:28 libraries/import.lib.php:1084
-#: libraries/import.lib.php:1106 libraries/import/csv.php:32
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1099
+#: libraries/import.lib.php:1121 libraries/import/csv.php:32
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
@@ -3033,43 +3033,43 @@ msgstr "Генерирано от"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL върна празен резултат (т.е. нула редове)."
 
-#: libraries/import.lib.php:1080
+#: libraries/import.lib.php:1095
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1081
+#: libraries/import.lib.php:1096
 msgid "View a structure`s contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1082
+#: libraries/import.lib.php:1097
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1083
+#: libraries/import.lib.php:1098
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1086
+#: libraries/import.lib.php:1101
 #, fuzzy
 msgid "Go to database"
 msgstr "Няма бази от данни"
 
-#: libraries/import.lib.php:1089 libraries/import.lib.php:1113
+#: libraries/import.lib.php:1104 libraries/import.lib.php:1128
 msgid "settings"
 msgstr ""
 
-#: libraries/import.lib.php:1108
+#: libraries/import.lib.php:1123
 msgid "Go to table"
 msgstr ""
 
-#: libraries/import.lib.php:1111
+#: libraries/import.lib.php:1126
 #, fuzzy
 msgid "structure"
 msgstr "Структура"
 
-#: libraries/import.lib.php:1117
+#: libraries/import.lib.php:1132
 msgid "Go to view"
 msgstr ""
 
@@ -3765,8 +3765,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "SQL валидатора не може да бъде инициализиран. Моля проверете дали сте "
-"инсталирали необходимите PHP разширения, така както е описано в %"
-"sдокументацията%s."
+"инсталирали необходимите PHP разширения, така както е описано в "
+"%sдокументацията%s."
 
 #: libraries/tbl_links.inc.php:107 libraries/tbl_links.inc.php:140
 #: libraries/tbl_links.inc.php:141
@@ -3870,7 +3870,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:776 pdf_pages.php:503
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
-#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1123 tbl_indexes.php:248
+#: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1125 tbl_indexes.php:248
 #: tbl_relation.php:566
 msgid "Save"
 msgstr "Записване"
@@ -4066,7 +4066,7 @@ msgid "Custom color"
 msgstr "Потребителски зададен цвят"
 
 #: main.php:163 pdf_pages.php:363 setup/lib/FormDisplay.tpl.php:216
-#: tbl_change.php:1172
+#: tbl_change.php:1174
 msgid "Reset"
 msgstr "Изчистване"
 
@@ -4854,8 +4854,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Забележка: phpMyAdmin взема потребителските привилегии директно от таблицата "
 "на привилегиите на MySQL. Съдържанието на тази таблица може да се различава "
@@ -7644,42 +7644,42 @@ msgstr " Двоично - не се редактира "
 msgid "Upload to BLOB repository"
 msgstr ""
 
-#: tbl_change.php:1127
+#: tbl_change.php:1129
 msgid "Insert as new row"
 msgstr "Вмъкване като нов ред"
 
-#: tbl_change.php:1128
+#: tbl_change.php:1130
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:1129
+#: tbl_change.php:1131
 msgid "Show insert query"
 msgstr ""
 
-#: tbl_change.php:1144
+#: tbl_change.php:1146
 msgid "Go back to previous page"
 msgstr "връщане обратно"
 
-#: tbl_change.php:1145
+#: tbl_change.php:1147
 msgid "Insert another new row"
 msgstr "вмъкване на нов запис"
 
-#: tbl_change.php:1149
+#: tbl_change.php:1151
 msgid "Go back to this page"
 msgstr "връщане към тази страница"
 
-#: tbl_change.php:1157
+#: tbl_change.php:1159
 msgid "Edit next row"
 msgstr "редактиране на следващия ред"
 
-#: tbl_change.php:1168
+#: tbl_change.php:1170
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Използвайте клавиша TAB за да премествате крурсора от стойност на стойност "
 "или CTRL+стрелка за да премествате курсора в съответната посока"
 
-#: tbl_change.php:1206
+#: tbl_change.php:1208
 #, php-format
 msgid "Restart insertion with %s rows"
 msgstr ""
