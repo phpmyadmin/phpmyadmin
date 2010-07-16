@@ -1046,7 +1046,7 @@ msgstr "10-ئاي"
 
 #: js/messages.php:92
 msgid "November"
-msgstr ""
+msgstr "11-ئاي"
 
 #: js/messages.php:93
 msgid "December"
