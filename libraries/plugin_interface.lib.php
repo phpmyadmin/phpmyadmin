@@ -162,12 +162,11 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = NULL)
     $ret = '<select id="plugins" name="' . $name . '">';
     $default = PMA_pluginGetDefault($section, $cfgname);
     foreach ($list as $plugin_name => $val) {
-        $ret .= '<!-- ' . $plugin_name . ' -->' . "\n";
         $ret .= '<option';
         if($plugin_name == $default) {
             $ret .= ' selected="selected"';
         }
-         $ret .= ' value="' . $plugin_name . '">' . PMA_getString($val['text']) . '</option> \n';
+         $ret .= ' value="' . $plugin_name . '">' . PMA_getString($val['text']) . '</option>' . "\n";
     }
     $ret .= '</select>' . "\n";
 
@@ -179,7 +178,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = NULL)
         } else {
             $ret .= 'false';
         }
-        $ret .= '">'. "\n";
+        $ret .= '" />'. "\n";
     }
     return $ret;
 }
@@ -252,21 +251,30 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             if($key == $default) {
                 $ret .= 'checked="checked"';
             }
-            $ret .= '>' . '<label for="radio_' . $plugin_name . '_' . $opt['name'] . '_' . $key . '">'
-            . PMA_getString($val) . '</label>';
+            $ret .= ' />' . '<label for="radio_' . $plugin_name . '_' . $opt['name'] . '_' . $key . '">'
+            . PMA_getString($val) . '</label></li>';
         }
     } elseif ($opt['type'] == 'hidden') {
-        $ret .= '<input type="hidden" name="' . $plugin_name . '_' . $opt['name'] . '"'
-            . ' value="' . PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']) . '"' . ' />';
+        $ret .= '<li><input type="hidden" name="' . $plugin_name . '_' . $opt['name'] . '"'
+            . ' value="' . PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']) . '"' . ' /></li>';
     } elseif ($opt['type'] == 'begin_group') {
-        $ret .= '<div class="export_sub_options" id="' . $plugin_name . '_' . $opt['name'] . '"><h4>' . PMA_getString($opt['text']) . '</h4><ul>';
+        $ret .= '<div class="export_sub_options" id="' . $plugin_name . '_' . $opt['name'] . '">';
+        if (isset($opt['text'])) {
+            $ret .= '<h4>' . PMA_getString($opt['text']) . '</h4>';
+        }
+        $ret .= '<ul>';
     } elseif ($opt['type'] == 'end_group') {
         $ret .= '</ul></div>';
     } elseif ($opt['type'] == 'begin_subgroup') {
         /* each subgroup can have a header, which may also be a form element */
-        $ret .= PMA_pluginGetOneOption($section, $plugin_name, $id, $opt['subgroup_header']) . '<ul id="ul_' . $opt['subgroup_header']['name'] . '">';
+        $ret .=  PMA_pluginGetOneOption($section, $plugin_name, $id, $opt['subgroup_header']) . '<li><ul';
+        if(isset($opt['subgroup_header']['name'])) {
+            $ret .= ' id="ul_' . $opt['subgroup_header']['name'] . '">';
+        } else {
+            $ret .= '>';
+        }
     } elseif ($opt['type'] == 'end_subgroup') {
-        $ret .= '</ul>';
+        $ret .= '</ul></li>';
     } else {
         /* This should be seen only by plugin writers, so I do not thing this
          * needs translation. */
@@ -280,6 +288,10 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         }
     }
 
+    // Close the list element after $opt['doc'] link is displayed
+    if($opt['type'] == 'bool' || $opt['type'] == 'text' || $opt['type'] == 'message_only' || $opt['type'] == 'select') {
+        $ret .= '</li>';
+    }
     $ret .= "\n";
     return $ret;
 }
@@ -302,22 +314,21 @@ function PMA_pluginGetOptions($section, &$list)
     $default = PMA_pluginGetDefault('Export', 'format');
     // Options for plugins that support them
     foreach ($list as $plugin_name => $val) {
-        $ret .= '<div id="' . $plugin_name . '_options" class="format_specific_options"';
-        if($plugin_name != $default) {
-            $ret .= ' style="display: none;">';
-        }
-        $ret .= '<ul>';
+        $ret .= '<div id="' . $plugin_name . '_options" class="format_specific_options">';
         $count = 0;
+            $ret .= '<h3>' . PMA_getString($val['text']) . '</h3>';
         if (isset($val['options']) && count($val['options']) > 0) {
             foreach ($val['options'] as $id => $opt) {
-                if ($opt['type'] != 'hidden') $count++;
+                if ($opt['type'] != 'hidden' && $opt['type'] != 'begin_group' && $opt['type'] != 'end_group' && $opt['type'] != 'begin_subgroup' && $opt['type'] != 'end_subgroup') {
+                    $count++;
+                }
                 $ret .= PMA_pluginGetOneOption($section, $plugin_name, $id, $opt);
             }
         }
         if ($count == 0) {
-            $ret .= __('This format has no options');
+            $ret .= __('<p>This format has no options</p>');
         }
-        $ret .= '</ul></div>';
+        $ret .= '</div>';
     }
     return $ret;
 }

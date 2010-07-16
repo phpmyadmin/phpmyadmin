@@ -57,11 +57,12 @@ pre, tt, code {
     font-size:          110%;
 }
 
-a:link,
+a, a:link,
 a:visited,
 a:active {
     text-decoration:    none;
     color:              #333399;
+    cursor: pointer;
 }
 
 a:hover {
@@ -1202,6 +1203,10 @@ label.desc {
     float: <?php echo $left; ?>;
 }
 
+label.desc sup {
+    position: absolute;
+}
+
 code.sql {
     display:            block;
     padding:            0.3em;
@@ -1296,3 +1301,152 @@ table#serverconnection_trg_local  {
   */
 .invalid_value
 {background:#F00;}
+
+/**
+  * Export and Import styles
+  */
+.exportoptions h3, .importoptions h3 {
+    border-bottom: 1px #999999 solid;
+}
+
+.exportoptions ul, .importoptions ul, .format_specific_options ul {
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+.exportoptions li, .importoptions li {
+    margin: 7px;
+}
+.exportoptions label, .importoptions label, .exportoptions p, .importoptions p {
+    margin: 5px;
+    float: none;
+}
+
+#csv_options label.desc, #ldi_options label.desc, #latex_options label.desc, #output label.desc{
+    float: left;
+    width: 15em;
+}
+
+.exportoptions, .importoptions {
+    margin: 30px 30px 30px 10px
+}
+
+.exportoptions #buttonGo, .importoptions #buttonGo {
+    padding: 5px 30px;
+    -moz-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');
+    border: 1px solid #444444;
+    cursor: pointer;
+}
+
+.format_specific_options h3 {
+    margin: 10px 0px 0px 10px;
+    border: 0px;
+}
+
+.format_specific_options {
+    border: 1px solid #999999;
+    margin: 7px 0px;
+    padding: 3px;
+}
+
+p.desc {
+    margin: 5px;
+}
+
+/**
+  * Export styles only
+  */
+select#db_select, select#table_select {
+    width: 400px;
+}
+
+.export_sub_options {
+    margin: 20px 0px 0px 30px;
+}
+
+.export_sub_options h4 {
+    border-bottom: 1px #999999 solid;
+}
+
+/**
+ * Import styles only
+ */
+
+.importoptions #import_notification {
+    margin: 10px 0px;
+    font-style: italic;
+}
+
+input#input_import_file {
+    margin: 5px;
+}
+
+.formelementrow {
+    margin: 5px 0px 5px 0px;
+}
+
+/**
+ * ENUM/SET editor styles
+ */
+p.enum_notice {
+    margin: 5px 2px;
+    font-size: 80%;
+}
+
+#enum_editor {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE */
+    z-index: 101;
+    overflow: auto;
+}
+
+#enum_editor_no_js {
+   margin: auto auto;
+}
+
+#enum_editor, #enum_editor_no_js {
+    width: 50%;
+    height: 80%;
+    background: #D0DCE0;
+    padding: 15px;
+}
+
+#popup_background {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 100;
+}
+
+a.close_enum_editor {
+    float: right;
+}
+
+#enum_editor #values, #enum_editor_no_js #values {
+    margin: 15px 0px;
+}
+
+#enum_editor #values input, #enum_editor_no_js #values input {
+    margin: 5px 0px;
+    float: top;
+    width: 100%;
+}
+
+#enum_editor input, #enum_editor_no_js input {
+    float: bottom;
+}
+
+#enum_editor_output {
+    margin-top: 50px;
+}

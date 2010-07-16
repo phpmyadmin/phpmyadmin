@@ -25,7 +25,7 @@ if (empty($import_list)) {
 }
 ?>
 
-<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none"></iframe>
+<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none;"></iframe>
 <div id="import_form_status" style="display: none;"></div>
 <div id="importmain">
     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
@@ -120,6 +120,21 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     }
     echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />'."\n";
     ?>
+
+    <div class="exportoptions" id="header">
+        <h2>
+            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_import.png" />
+            <?php
+            if($import_type == 'server') {
+                echo __('Importing into the current server');
+            } elseif($import_type == 'database') {
+                echo __('Importing into the database "' . $db . '"');
+            } else {
+                echo __('Importing into the table "' . $table . '"');
+            }?>
+        </h2>
+    </div>
+
     <div class="importoptions">
         <h3><?php echo __('File to Import:'); ?></h3>
         <?php
@@ -137,56 +152,34 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         }
         // We don't have show anything about compression, when no supported
         if ($compressions != array()) {
-             printf(__('<p>File may be compressed (%s) or uncompressed.</p><p>A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b></p>'), implode(", ", $compressions));
-         }
+             printf(__('<div class="formelementrow" id="compression_info">File may be compressed (%s) or uncompressed.<br />A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b></div>'), implode(", ", $compressions));
+         }?>
 
-        if ($GLOBALS['is_upload']) {
-            $uid = uniqid("");
-            ?>
         <div class="formelementrow" id="upload_form">
-            <div id="upload_form_status" style="display: none;"></div>
-            <div id="upload_form_status_info" style="display: none;"></div>
-            <div id="upload_form_form">
-                <label for="input_import_file"><?php echo __('Location of the file:'); ?></label>
-                <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
-                <?php
-                    echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
-                    // some browsers should respect this :)
-                    echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
-                ?>
-            </div>
-        </div>
-            <?php
-        } else {
+        <?php if($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
+            <ul>
+            <li>
+                <input type="radio" name="file_location" id="radio_import_file" />
+                <?php PMA_browseUploadFile($max_upload_size); ?>
+            </li>
+            <li>
+                <input type="radio" name="file_location" id="radio_local_import_file" />
+                <?php PMA_selectUploadFile($import_list, $cfg['UploadDir']); ?>
+            </li>
+            </ul>
+        <?php } else if ($GLOBALS['is_upload']) {
+            $uid = uniqid("");
+            PMA_browseUploadFile($max_upload_size);
+        } else if (!$GLOBALS['is_upload']) {
             PMA_Message::warning(__('File uploads are not allowed on this server.'))->display();
-        }
-        if (!empty($cfg['UploadDir'])) {
-            $extensions = '';
-            foreach ($import_list as $key => $val) {
-                if (!empty($extensions)) {
-                    $extensions .= '|';
-                }
-                $extensions .= $val['extension'];
-            }
-            $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
-
-            $files = PMA_getFileSelectOptions(PMA_userDir($cfg['UploadDir']), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
-            echo '<div class="formelementrow">' . "\n";
-            if ($files === FALSE) {
-                PMA_Message::error(__('The directory you set for upload work cannot be reached'))->display();
-            } elseif (!empty($files)) {
-                echo "\n";
-                echo '    <i>' . __('Or') . '</i><br/><label for="select_local_import_file">' . __('web server upload directory') . '</label>&nbsp;: ' . "\n";
-                echo '    <select style="margin: 5px" size="1" name="local_import_file" onchange="match_file(this.value)" id="select_local_import_file">' . "\n";
-                echo '        <option value="">&nbsp;</option>' . "\n";
-                echo $files;
-                echo '    </select>' . "\n";
-            }
-            echo '</div>' . "\n";
+        } else if (!empty($cfg['UploadDir'])) {
+            PMA_selectUploadFile($import_list, $cfg['UploadDir']);
         } // end if (web-server upload directory)
+        ?>
+        </div>
 
-// charset of file
-        echo '<div class="formelementrow">' . "\n";
+       <div class="formelementrow" id="charaset_of_file">
+        <?php // charset of file
         if ($cfg['AllowAnywhereRecoding']) {
             echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>';
             reset($cfg['AvailableCharsets']);
@@ -204,8 +197,8 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>' . "\n";
             echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', FALSE);
         } // end if (recoding)
-        echo '</div>' . "\n";
         ?>
+        </div>
     </div>
     <div class="importoptions">
         <h3><?php echo __('Partial Import:'); ?></h3>
@@ -251,15 +244,19 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 
     <div class="importoptions" id="format_specific_opts">
         <h3><?php echo __('Format-Specific Options:'); ?></h3>
+        <p class="no_js_msg" id="scroll_to_options_msg">Scroll down to fill in the options for the selected format and ignore the options for other formats.</p>
         <?php echo PMA_pluginGetOptions('Import', $import_list); ?>
     </div>
         <div class="clearfloat"></div>
     </div>
     <?php
-// Encoding setting form appended by Y.Kawada
-    if (function_exists('PMA_set_enc_form')) {
-        echo PMA_set_enc_form('            ');
-    }
+    // Encoding setting form appended by Y.Kawada
+    if (function_exists('PMA_set_enc_form')) { ?>
+        <div class="importoptions" id="kanji_encoding">
+            <h3><?php echo __('Encoding Conversion:'); ?></h3>
+            <?php echo PMA_set_enc_form('            '); ?>
+        </div>
+    <?php }
     echo "\n";
     ?>
     <div class="importoptions" id="submit">

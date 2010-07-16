@@ -1306,7 +1306,7 @@ $cfg['Export']['csv_null'] = 'NULL';
  *
  * @global string $cfg['Export']['csv_separator']
  */
-$cfg['Export']['csv_separator'] = ';';
+$cfg['Export']['csv_separator'] = ',';
 
 /**
  *
@@ -1539,7 +1539,7 @@ $cfg['Export']['sql_if_not_exists'] = true;
  *
  * @global boolean $cfg['Export']['sql_procedure_function']
  */
-$cfg['Export']['sql_procedure_function'] = false;
+$cfg['Export']['sql_procedure_function'] = true;
 
 /**
  *

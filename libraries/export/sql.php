@@ -27,6 +27,8 @@ if (isset($plugin_list)) {
             'mime_type' => 'text/x-sql',
             'options' => array());
 
+        $plugin_list['sql']['options'][] = array('type' => 'begin_group', 'name' => 'general_opts');
+
         /* comments */
         $plugin_list['sql']['options'][] =
             array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'bool', 'name' => 'include_comments', 'text' => __('Display comments <i>(includes info such as export timestamp, PHP version, and server version)</i>')));
@@ -36,20 +38,20 @@ if (isset($plugin_list)) {
             array('type' => 'bool', 'name' => 'dates', 'text' => __('Include a timestamp of when databases were created, last updated, and last checked'));
         if (!empty($GLOBALS['cfgRelation']['relation'])) {
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'relation', 'text' => __('Foreign key relationships'));
+                array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
         }
         if (!empty($GLOBALS['cfgRelation']['mimework'])) {
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'mime', 'text' => __('MIME types'));
+                array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
         }
         $plugin_list['sql']['options'][] = array('type' => 'end_subgroup');
         /* end comments */
 
         /* enclose in a transaction */
-        $plugin_list['sql']['options'][] = array('type' => 'bool', 'name' => 'use_transaction', 'text' => __('Enclose export in a transaction'));
+        $plugin_list['sql']['options'][] = array('type' => 'bool', 'name' => 'use_transaction', 'text' => __('Enclose export in a transaction'), 'doc' => array('programs', 'mysqldump', 'option_mysqldump_single-transaction'));
 
         /* disable foreign key checks */
-        $plugin_list['sql']['options'][] = array('type' => 'bool', 'name' => 'disable_fk', 'text' => __('Disable foreign key checks'));
+        $plugin_list['sql']['options'][] = array('type' => 'bool', 'name' => 'disable_fk', 'text' => __('Disable foreign key checks'), 'doc' => array('manual_MySQL_Database_Administration', 'server-system-variables', 'sysvar_foreign_key_checks'));
 
         $plugin_list['sql']['options_text'] = __('Options');
 
@@ -78,6 +80,8 @@ if (isset($plugin_list)) {
             array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
         $plugin_list['sql']['options'][] = array('type' => 'end_subgroup');
 
+        $plugin_list['sql']['options'][] = array('type' => 'end_group');
+        
         /* begin Structure options */
          if (!$hide_structure) {
             $plugin_list['sql']['options'][] =
@@ -130,11 +134,11 @@ if (isset($plugin_list)) {
 
         /* begin SQL statements */
         $plugin_list['sql']['options'][] =
-            array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Add statements:')));        
+            array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Instead of <code>INSERT</code> statements, use:')));        
         $plugin_list['sql']['options'][] =
-            array('type' => 'bool', 'name' => 'delayed', 'text' => __('<code>INSERT DELAYED</code>'));
+            array('type' => 'bool', 'name' => 'delayed', 'text' => __('<code>INSERT DELAYED</code> statements'), 'doc' => array('manual_MySQL_Database_Administration', 'insert_delayed'));
         $plugin_list['sql']['options'][] =
-            array('type' => 'bool', 'name' => 'ignore', 'text' => __('<code>INSERT IGNORE</code>'));
+            array('type' => 'bool', 'name' => 'ignore', 'text' => __('<code>INSERT IGNORE</code> statements'), 'doc' => array('manual_MySQL_Database_Administration', 'insert'));
         $plugin_list['sql']['options'][] =
             array('type' => 'end_subgroup');
         /* end SQL statements */
@@ -148,10 +152,10 @@ if (isset($plugin_list)) {
             array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Syntax to use when inserting data:')));
         $plugin_list['sql']['options'][] =
             array('type' => 'radio', 'name' => 'insert_syntax', 'values' => array(
-                'complete' => __('include column names in every <code>INSERT</code> statement <br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>'), 
-                'extended' => __('insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>'), 
-                'both' => __('both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>'), 
-                'none' => __('neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3)</code>')));  
+                'complete' => __('include column names in every <code>INSERT</code> statement <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>'), 
+                'extended' => __('insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>'), 
+                'both' => __('both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>'), 
+                'none' => __('neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3)</code>')));  
           $plugin_list['sql']['options'][] =
             array('type' => 'end_subgroup');
 

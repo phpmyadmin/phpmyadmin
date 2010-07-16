@@ -29,10 +29,10 @@ if (isset($plugin_list)) {
 
     /* what to dump (structure/data/both) */
     $plugin_list['odt']['options'][] =
-        array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Dump table')));
+        array('type' => 'begin_group', 'text' => __('Dump table') , 'name' => 'general_opts');
     $plugin_list['odt']['options'][] =
         array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
-    $plugin_list['odt']['options'][] = array('type' => 'end_subgroup');
+    $plugin_list['odt']['options'][] = array('type' => 'end_group');
 
     /* Structure options */
     if (!$hide_structure) {

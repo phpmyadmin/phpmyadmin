@@ -279,8 +279,9 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column type
-    $content_cells[$i][$ci] = '<select name="field_type[' . $i . ']"'
-        .' id="field_' . $i . '_' . ($ci - $ci_offset) . '" >';
+    $select_id = 'field_' . $i . '_' . ($ci - $ci_offset);
+    $content_cells[$i][$ci] = '<select class="column_type" name="field_type[' . $i . ']"'
+        .' id="' . $select_id . '">';
 
     if (empty($row['Type'])) {
         // creating a column
@@ -367,7 +368,11 @@ for ($i = 0; $i < $num_fields; $i++) {
     $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
         . ' type="text" name="field_length[' . $i . ']" size="' . $length_values_input_size . '"'
         . ' value="' . htmlspecialchars($length_to_display) . '"'
-        . ' class="textfield" />';
+        . ' class="textfield" />'
+        . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset) . '">';
+    $content_cells[$i][$ci] .= __('ENUM or SET data too long?')
+        . '<a href="enum_editor.php?' . PMA_generate_common_url() . '&values=' . urlencode($length_to_display) . '&field=' . $field . '" class="open_enum_editor" target="blank"> '
+        . __('Get more editing space') . '</a></p>';
     $ci++;
 
     // column default
@@ -789,3 +794,13 @@ if ($action == 'tbl_create.php') {
 </form>
 
 <center><?php echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE'); ?></center>
+
+<div id="enum_editor">
+<a class="close_enum_editor">Close</a>
+<p>Enter each value in a separate field.</p>
+<div id="values"></div>
+<p><input type="checkbox" name="add_extra_fields" /> Add <input type="text" value="1" name="extra_fields" size="2" /> more values</p>
+<input type="submit" value="Go" /> <a class="cancel_enum_editor">Cancel</a>
+</div>
+
+<div id="popup_background"></div>

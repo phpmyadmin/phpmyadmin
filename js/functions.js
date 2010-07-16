@@ -1727,3 +1727,102 @@ $(document).ready(function(){
     });
 });
 
+/**
+ * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
+ */
+function toggle_enum_notice(selectElement) {
+    var enum_notice_id = selectElement.attr("id").split("_")[1];
+    enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2]) + 1);
+    var selectedType = selectElement.attr("value");
+    if(selectedType == "ENUM" || selectedType == "SET") {
+        $("p[id='enum_notice_" + enum_notice_id + "']").show();
+    } else {
+          $("p[id='enum_notice_" + enum_notice_id + "']").hide();
+    }
+}
+
+/**
+ * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when
+ * the page loads and when the selected data type changes
+ */
+$(document).ready(function() {
+    $.each($("select[class='column_type']"), function() {
+        toggle_enum_notice($(this));
+    });
+    $("select[class='column_type']").change(function() {
+        toggle_enum_notice($(this));
+    });
+});
+
+/**
+ * Closes the ENUM/SET editor and removes the data in it
+ */
+function disable_popup() {
+    $("#popup_background").fadeOut("fast");
+    $("#enum_editor").fadeOut("fast");
+    // clear the data from the text boxes
+    $("#enum_editor #values input").remove();
+    $("#enum_editor input[type='hidden']").remove();
+}
+
+/**
+ * Opens the ENUM/SET editor and controls its functions
+ */
+$(document).ready(function() {
+    $("a[class='open_enum_editor']").click(function() {
+        // Center the popup
+        var windowWidth = document.documentElement.clientWidth;
+        var windowHeight = document.documentElement.clientHeight;
+        var popupWidth = $("#enum_editor").width();
+        var popupHeight = $("#enum_editor").height();
+        var top = windowHeight/2 - popupHeight/2;
+        var left = windowWidth/2 - popupWidth/2;
+        $("#enum_editor").css({"position":"absolute", "top": top, "left": left});
+        // Make it appear
+        $("#popup_background").css({"opacity":"0.7"});
+        $("#popup_background").fadeIn("fast");
+        $("#enum_editor").fadeIn("fast");
+        // Get the values
+        var values = $(this).parent().prev("input").attr("value").split(",");
+        $.each(values, function(index, val) {
+            $("#enum_editor #values").append("<input type='text' value=" + val + " />");
+        });
+        // So we know which column's data is being edited
+        $("#enum_editor").append("<input type='hidden' value='" + $(this).parent().prev("input").attr("id") + "' />");
+        return false;
+    });
+
+    // If the "close" link is clicked, close the enum editor
+    $("a[class='close_enum_editor']").click(function() {
+        disable_popup();
+    });
+
+    // If the "cancel" link is clicked, close the enum editor
+    $("a[class='cancel_enum_editor']").click(function() {
+        disable_popup();
+    });
+
+    // When the submit button is clicked, put the data back into the original form if
+    // the "add x more values" checkbox is not checked. Otherwise, just insert x more
+    // textboxes
+    $("#enum_editor input[type='submit']").click(function() {
+        if($("input[type='checkbox'][name='add_extra_fields']").attr("checked")) {
+            for(i = 0; i < $("input[type='text'][name='extra_fields']").attr("value"); i++) {
+                $("#enum_editor #values").append("<input type='text' />");
+            }
+            // Uncheck it
+            $("input[type='checkbox'][name='add_extra_fields']").removeAttr("checked");
+        } else {
+            var value_array = new Array();
+            $.each($("#enum_editor #values input"), function(index, input_element) {
+                val = jQuery.trim(input_element.value);
+                if(val != "") {
+                    value_array.push("'" + val + "'");
+                }
+            });
+            var values_id = $("#enum_editor input[type='hidden']").attr("value");
+            $("input[id='" + values_id + "']").attr("value", value_array.join(","));
+            disable_popup();
+        }
+    });
+});

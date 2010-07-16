@@ -42,6 +42,14 @@ $compression = false;
 $onserver = false;
 $save_on_server = false;
 $buffer_needed = false;
+
+// Is it a quick or custom export?
+if($_REQUEST['quick_or_custom'] == 'quick') {
+    $quick_export = true;
+} else {
+    $quick_export = false;
+}
+
 if ($_REQUEST['output_format'] == 'astext') {
     $asfile = false;
 } else {
@@ -50,12 +58,17 @@ if ($_REQUEST['output_format'] == 'astext') {
         $compression = $_REQUEST['compression'];
         $buffer_needed = true;
     }
-    if (!empty($_REQUEST['onserver'])) {
-        $onserver = $_REQUEST['onserver'];
+    if (($quick_export && !empty($_REQUEST['quick_export_onserver'])) || (!$quick_export && !empty($_REQUEST['onserver']))) {
+        if($quick_export) {
+            $onserver = $_REQUEST['quick_export_onserver'];
+        } else {
+            $onserver = $_REQUEST['onserver'];
+        }
         // Will we save dump on server?
         $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
     }
 }
+
 // Does export require to be into file?
 if (isset($export_list[$type]['force_file']) && ! $asfile) {
     $message = PMA_Message::error(__('Selected export type has to be saved in file!'));
@@ -289,7 +302,7 @@ if ($asfile) {
 if ($save_on_server) {
     $save_filename = PMA_userDir($cfg['SaveDir']) . preg_replace('@[/\\\\]@', '_', $filename);
     unset($message);
-    if (file_exists($save_filename) && empty($onserverover)) {
+    if (file_exists($save_filename) && ((!$quick_export && empty($onserverover)) || ($quick_export && $_REQUEST['quick_export_onserverover'] != 'saveitover'))) {
         $message = PMA_Message::error(__('File %s already exists on server, change filename or check overwrite option.'));
         $message->addParam($save_filename);
     } else {
@@ -528,7 +541,7 @@ if ($export_type == 'server') {
     }
 
     $is_view = PMA_Table::isView($db, $table);
-    if (isset($GLOBALS[$what . '_structure'])) {
+    if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
         if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, $is_view ? 'create_view' : 'create_table', $export_type)) {
             break;
         }
@@ -536,7 +549,7 @@ if ($export_type == 'server') {
     // If this is an export of a single view, we have to export data;
     // for example, a PDF report
     // if it is a merge table, no data is exported
-    if (isset($GLOBALS[$what . '_data']) && ! PMA_Table::isMerge($db, $table)) {
+    if (($GLOBALS[$what . '_structure_or_data'] == 'data' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') && ! PMA_Table::isMerge($db, $table)) {
         if (!empty($sql_query)) {
             // only preg_replace if needed
             if (!empty($add_query)) {
@@ -554,7 +567,7 @@ if ($export_type == 'server') {
     }
     // now export the triggers (needs to be done after the data because
     // triggers can modify already imported tables)
-    if (isset($GLOBALS[$what . '_structure'])) {
+    if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
         if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'triggers', $export_type)) {
             break 2;
         }

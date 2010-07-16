@@ -118,7 +118,7 @@ $(document).ready(function() {
 });
 
 /**
- * For SQL plugin, if "CREATE TABLE options" is checked/uncheck, check/uncheck each of its sub-options 
+ * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options 
  */ 
 $(document).ready(function() {
      $("#checkbox_sql_create_table_statements").change(function() {
@@ -147,4 +147,64 @@ $(document).ready(function() {
             $("#radio_view_as_text").parent().fadeTo('fast', 1);
         }
     });
+});
+
+/**
+ * Toggles display of options when quick and custom export are selected
+ */
+$(document).ready(function() {
+    $("input[type='radio'][name='quick_or_custom']").change(function() {
+        if($("$(this):checked").attr("value") == "custom") {
+            $("#databases_and_tables").show();
+            $("#rows").show();
+            $("#output").show();
+            $("#format_specific_opts").show();
+            $("#output_quick_export").hide();
+            var selected_plugin_name = $("#plugins option:selected").attr("value");
+            $("#" + selected_plugin_name + "_options").show();
+        } else {
+            $("#databases_and_tables").hide();
+            $("#rows").hide();
+            $("#output").hide();
+            $("#format_specific_opts").hide();
+            $("#output_quick_export").show();
+        }
+    });
+});
+
+/**
+ * Sets up the interface for Javascript-enabled browsers since the default is for
+ *  Javascript-disabled browsers
+ */
+ $(document).ready(function() {
+    $("#quick_or_custom").show();
+    $("#databases_and_tables").hide();
+    $("#rows").hide();
+    $("#output_quick_export").show();
+    $("#output").hide();
+    $("#format_specific_opts").hide();
+    $("#scroll_to_options_msg").hide();
+    $(".format_specific_options").hide();
+    $(".format_specific_options").css({ "border": 0, "margin": 0, "padding": 0});
+    $(".format_specific_options h3").remove();
+});
+
+/**
+ * Disables the "Dump some row(s)" sub-options when it is not selected
+ */
+ $(document).ready(function() {
+     $("input[type='radio'][name='allrows']").change(function() {
+//         alert(("$(this):checked").attr("name"));
+         if($("input[type='radio'][name='allrows']:checked").attr("value") == "1") {
+            $("label[for='limit_to']").fadeTo('fast', 0.4);
+             $("label[for='limit_from']").fadeTo('fast', 0.4);
+             $("input[type='text'][name='limit_to']").attr('disabled', 'disabled');
+             $("input[type='text'][name='limit_from']").attr('disabled', 'disabled');
+         } else {
+            $("label[for='limit_to']").fadeTo('fast', 1);
+            $("label[for='limit_from']").fadeTo('fast', 1);
+            $("input[type='text'][name='limit_to']").removeAttr('disabled');
+            $("input[type='text'][name='limit_from']").removeAttr('disabled');
+         }
+     });
 });
