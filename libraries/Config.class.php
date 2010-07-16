@@ -459,7 +459,7 @@ class PMA_Config
         $this->set('user_preferences', $_SESSION['cache'][$cache_key]['userprefs_type']);
 
         // backup some settings
-        $fontsize = $this->get('fontsize');
+        $org_fontsize = $this->settings['fontsize'];
         // load config array
         $this->settings = PMA_array_merge_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = PMA_array_merge_recursive($GLOBALS['cfg'], $config_data);
@@ -475,7 +475,9 @@ class PMA_Config
         // load/save theme
         // theme cookie exists only if we are using non-default theme
         $tmanager = $_SESSION['PMA_Theme_Manager'];
-        if ($tmanager->getThemeCookie()) {
+
+        // save new theme
+        if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
             if (!isset($config_data['ThemeDefault'])
                     || $config_data['ThemeDefault'] != $tmanager->theme->getId()) {
                 // new theme was set in common.inc.php
@@ -483,7 +485,7 @@ class PMA_Config
             }
         } else {
             // no cookie - read default from settings
-            if ($this->settings['ThemeDefault'] != $tmanager->theme
+            if ($this->settings['ThemeDefault'] != $tmanager->theme->getId()
                     && $tmanager->checkTheme($this->settings['ThemeDefault'])) {
                 $tmanager->setActiveTheme($this->settings['ThemeDefault']);
                 $tmanager->setThemeCookie();
@@ -491,8 +493,8 @@ class PMA_Config
         }
 
         // save new font size
-        if (!isset($config_data['fontsize']) || $fontsize != $config_data['fontsize']) {
-            $this->setUserValue('pma_fontsize', 'fontsize', $fontsize, '82%');
+        if (!isset($config_data['fontsize']) || $org_fontsize != $config_data['fontsize']) {
+            $this->setUserValue('pma_fontsize', 'fontsize', $org_fontsize, '82%');
         }
     }
 
