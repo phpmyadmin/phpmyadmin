@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:52+0200\n"
+"PO-Revision-Date: 2010-07-16 13:53+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1380,7 +1380,7 @@ msgstr ""
 
 #: libraries/Table.class.php:1019
 msgid "Invalid database"
-msgstr ""
+msgstr "ئۈنۈمسىز ساندان"
 
 #: libraries/Table.class.php:1033 tbl_get_field.php:26
 msgid "Invalid table name"
