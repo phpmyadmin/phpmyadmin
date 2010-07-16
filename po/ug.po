@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:36+0200\n"
+"PO-Revision-Date: 2010-07-16 13:38+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -961,7 +961,7 @@ msgstr ""
 #: js/messages.php:59 libraries/relation.lib.php:107
 #: libraries/relation.lib.php:119
 msgid "General relation features"
-msgstr ""
+msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
 #: js/messages.php:59 libraries/relation.lib.php:101
 #: libraries/relation.lib.php:108
