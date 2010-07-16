@@ -1014,7 +1014,7 @@ msgstr "قەھرىتان"
 
 #: js/messages.php:83
 msgid "February"
-msgstr ""
+msgstr "ھۇت"
 
 #: js/messages.php:84
 msgid "March"
