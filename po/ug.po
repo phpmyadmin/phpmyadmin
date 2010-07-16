@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 07:48+0200\n"
+"PO-Revision-Date: 2010-07-16 08:00+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -380,8 +380,7 @@ msgstr "ئاخىرقى تەكشۈرۈش"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s جەدۋەل"
 
 #: db_qbe.php:29 import.php:454 libraries/Message.class.php:191
 #: libraries/display_tbl.lib.php:1981 libraries/sql_query_form.lib.php:140
