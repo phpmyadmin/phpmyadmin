@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:58+0200\n"
+"PO-Revision-Date: 2010-07-16 13:59+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1427,7 +1427,7 @@ msgstr ""
 #: libraries/Theme_Manager.class.php:297 test/theme.php:161 themes.php:21
 #: themes.php:41
 msgid "Theme / Style"
-msgstr ""
+msgstr "تېما \\ ئۇسلۇب"
 
 #: libraries/auth/config.auth.lib.php:77
 msgid "Cannot connect: invalid settings."
