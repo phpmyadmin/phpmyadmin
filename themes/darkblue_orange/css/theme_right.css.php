@@ -234,7 +234,8 @@ table tr.marked {
 /* hovered items */
 .odd:hover,
 .even:hover,
-.hover {
+.hover,
+.structure_actions_dropdown {
     background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
@@ -375,11 +376,16 @@ img.lightbulb {
 }
 
 /* leave some space between icons and text */
-.icon {
+.icon, img.footnotemarker {
     vertical-align:     middle;
     margin-right:       0.3em;
     margin-left:        0.3em;
 }
+
+img.footnotemarker {
+    display: none;
+}
+
 /* no extra space in table cells */
 td .icon {
     margin: 0;
@@ -404,7 +410,8 @@ div.error h1 {
 div.success,
 div.notice,
 div.warning,
-div.error {
+div.error,
+div.footnotes {
     margin:             0.3em 0 0 0;
     border:             2px solid;
     width:              90%;
@@ -437,12 +444,13 @@ div.success {
     border-color:       #00FF00;
 }
 
-.notice {
+.notice, .footnotes {
     color:              #000000;
     background-color:   #FFFFDD;
 }
 h1.notice,
-div.notice {
+div.notice,
+div.footnotes {
     border-color:       #FFD700;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
@@ -1328,7 +1336,7 @@ table#serverconnection_trg_local  {
 }
 
 .exportoptions, .importoptions {
-    margin: 30px 30px 30px 10px
+    margin: 20px 30px 30px 10px
 }
 
 .exportoptions #buttonGo, .importoptions #buttonGo {
@@ -1371,6 +1379,10 @@ select#db_select, select#table_select {
 
 .export_sub_options h4 {
     border-bottom: 1px #999999 solid;
+}
+
+#quick_or_custom, #output_quick_export {
+    display: none;
 }
 
 /**
@@ -1449,4 +1461,23 @@ a.close_enum_editor {
 
 #enum_editor_output {
     margin-top: 50px;
+}
+
+/**
+ * Table structure styles
+ */
+.structure_actions_dropdown {
+    position: absolute;
+    padding: 3px;
+    display: none;
+    margin-left: 30px;
+}
+
+td.more_opts {
+    display: none;
+}
+
+table#tablestructure td, table#tablestructure th {
+    max-width: 200px;
+    overflow: hidden;
 }
