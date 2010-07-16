@@ -97,7 +97,7 @@ $cfg_db['_overrides']['Servers/1/extension'] = extension_loaded('mysqli')
     ? 'mysqli' : 'mysql';
 
 /**
- * Validator assignments (functions from libraries/config/validate.lib.php and 'validators'
+ * Basic validator assignments (functions from libraries/config/validate.lib.php and 'validators'
  * object in js/config.js)
  * Use only full paths and form ids
  */
@@ -105,6 +105,7 @@ $cfg_db['_validators'] = array(
     'CharTextareaCols' => 'validate_positive_number',
     'CharTextareaRows' => 'validate_positive_number',
     'DefaultPropDisplay' => 'validate_DefaultPropDisplay',
+    'ExecTimeLimit' => 'validate_non_negative_number',
     'Export/sql_max_query_size' => 'validate_positive_number',
     'ForeignKeyMaxLimit' => 'validate_positive_number',
     'Import/csv_enclosed' => 'validate_str01',
@@ -119,8 +120,11 @@ $cfg_db['_validators'] = array(
     'LimitChars' => 'validate_positive_number',
     'LoginCookieValidity' => 'validate_positive_number',
     'LoginCookieStore' => 'validate_non_negative_number',
+    'MaxDbList' => 'validate_positive_number',
     'MaxCharactersInDisplayedSQL' => 'validate_positive_number',
     'MaxRows' => 'validate_positive_number',
+    'MaxTableList' => 'validate_positive_number',
+    'MemoryLimit' => 'validate_non_negative_number',
     'QueryHistoryMax' => 'validate_positive_number',
     'QueryWindowWidth' => 'validate_positive_number',
     'QueryWindowHeight' => 'validate_positive_number',

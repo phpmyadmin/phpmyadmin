@@ -437,8 +437,8 @@ function markField(field) {
  * @param {boolean} display
  */
 function setRestoreDefaultBtn(field, display) {
-    var el = $(field).closest('td').find('.restore-default');
-    el.css('display', (el.css('display') ? '' : 'none'));
+    var el = $(field).closest('td').find('.restore-default img');
+    el[display ? 'show' : 'hide']();
 }
 
 $(function() {
@@ -596,10 +596,10 @@ $(function() {
     $('.restore-default, .set-value').each(function() {
         var link = $(this);
         // inline-block for IE so opacity inheritance works
-        link.css('display', 'inline-block').css('opacity', 0.25);
-        if (!link.hasClass('restore-default')) {
+        link.css({display: 'inline-block', opacity: 0.25});
+        if (link.hasClass('restore-default')) {
             // restore-default is handled by markField
-        	link.css('display', '');
+        	link.find('img').hide();
         }
         link.bind({
             mouseenter: function() {$(this).css('opacity', 1);},

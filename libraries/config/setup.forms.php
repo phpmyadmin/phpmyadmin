@@ -106,7 +106,6 @@ $forms['Features']['Other_core_settings'] = array(
     'ReplaceHelpImg',
     'MaxDbList',
     'MaxTableList',
-    'MaxCharactersInDisplayedSQL',
     'OBGzip',
     'PersistentConnections',
     'ExecTimeLimit',

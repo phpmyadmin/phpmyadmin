@@ -17,7 +17,8 @@ $forms['Features']['General'] = array(
     'NaturalOrder',
     'InitialSlidersState',
     'ErrorIconic',
-    'ReplaceHelpImg');
+    'ReplaceHelpImg',
+    'SkipLockedTables');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'CharTextareaCols',
