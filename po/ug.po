@@ -1218,7 +1218,7 @@ msgstr "ھەپتە"
 
 #: js/messages.php:164
 msgid "Hour"
-msgstr ""
+msgstr "سائەت"
 
 #: js/messages.php:165
 msgid "Minute"
