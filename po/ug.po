@@ -1213,7 +1213,7 @@ msgstr "جۈمە"
 #. l10n: Minimal week day name
 #: js/messages.php:160
 msgid "Sa"
-msgstr ""
+msgstr "شەنبە"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:162
