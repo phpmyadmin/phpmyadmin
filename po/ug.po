@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 06:29+0200\n"
+"PO-Revision-Date: 2010-07-16 06:30+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -945,7 +945,7 @@ msgstr "ئىچكى ئۇلىنىش مۇاسىۋىتى قۇشۇلدى"
 
 #: js/messages.php:56 pmd_relation_new.php:63 pmd_relation_new.php:88
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "خاتالىق:مۇناسىۋەت قۇشۇلمىغان"
 
 #: js/messages.php:57 pmd_relation_new.php:31
 msgid "Error: relation already exists."
