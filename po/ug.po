@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:40+0200\n"
+"PO-Revision-Date: 2010-07-16 13:41+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -980,9 +980,10 @@ msgstr "تاشقى ئاچقۇق قىممىتى"
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
+# column نى سۆزلەم دەپ ئالساق مۇۋاپىق بولغىدەك
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
 msgid "Choose column to display"
-msgstr ""
+msgstr "سۆزلەمنى كۆرسەتمەسلىك"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:73
