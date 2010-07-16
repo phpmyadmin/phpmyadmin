@@ -1173,7 +1173,7 @@ msgstr "جۈمە"
 #. l10n: Short week day name
 #: js/messages.php:144 libraries/common.lib.php:1594
 msgid "Sat"
-msgstr ""
+msgstr "شەنبە"
 
 #. l10n: Minimal week day name
 #: js/messages.php:148
