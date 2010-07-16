@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 06:40+0200\n"
+"PO-Revision-Date: 2010-07-16 06:41+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1081,7 +1081,7 @@ msgstr "5-ئاي"
 #. l10n: Short month name
 #: js/messages.php:107 libraries/common.lib.php:1567
 msgid "Jun"
-msgstr ""
+msgstr "6-ئاي"
 
 #. l10n: Short month name
 #: js/messages.php:109 libraries/common.lib.php:1569
