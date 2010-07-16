@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:47+0200\n"
+"PO-Revision-Date: 2010-07-16 13:48+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1261,7 +1261,7 @@ msgstr "ۋاقىتلىق ھۆججەت ساقلاش مۇندەرىجىسى تىپ
 
 #: libraries/File.class.php:426
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "ھۆججەتنى دېسكىغا يىزىشتا خاتالىق كۆرۈلدى."
 
 #: libraries/File.class.php:429
 msgid "File upload stopped by extension."
