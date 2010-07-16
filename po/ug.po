@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 06:41+0200\n"
+"PO-Revision-Date: 2010-07-16 06:42+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1144,7 +1144,7 @@ msgstr "شەنبە"
 #. l10n: Short week day name
 #: js/messages.php:132 libraries/common.lib.php:1582
 msgid "Sun"
-msgstr ""
+msgstr "يەكشەنبە"
 
 #. l10n: Short week day name
 #: js/messages.php:134 libraries/common.lib.php:1584
