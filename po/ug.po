@@ -1294,7 +1294,7 @@ msgstr "تۈپ سان"
 
 #: libraries/Index.class.php:450 tbl_tracking.php:279 tbl_tracking.php:328
 msgid "Comment"
-msgstr ""
+msgstr "ئىزاھات"
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
