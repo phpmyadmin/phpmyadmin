@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:21+0200\n"
+"PO-Revision-Date: 2010-07-16 13:22+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -222,7 +222,7 @@ msgstr "ساندان ئىسمى %s غا ئۆزگەرتىلدى %s"
 #: db_operations.php:240
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "%s ساندان %s غا كۆچۈرۈلدى"
+msgstr "ساندان %s غا كۆچۈرۈلدى %s"
 
 #: db_operations.php:412
 msgid "Rename database to"
