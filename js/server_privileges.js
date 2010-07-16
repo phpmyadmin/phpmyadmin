@@ -231,7 +231,13 @@ $(document).ready(function() {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 $("#usersForm").find("input:checkbox:checked").parents("tr").slideUp("medium", function() {
+                    var this_user_initial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
                     $(this).remove();
+
+                    //If this is the last user with this_user_initial, remove the link from #initials_table
+                    if($("#tableuserrights").find('input:checkbox[value^=' + this_user_initial + ']').length == 0) {
+                        $("#initials_table").find('td > a:contains(' + this_user_initial + ')').parent('td').html(this_user_initial);
+                    }
                 })
             }
             else {
