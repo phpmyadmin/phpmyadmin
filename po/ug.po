@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 06:22+0200\n"
+"PO-Revision-Date: 2010-07-16 06:25+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -734,7 +734,7 @@ msgstr "ئامال"
 
 #: db_tracking.php:88 db_tracking.php:120
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
 
 #: db_tracking.php:106 tbl_tracking.php:548 tbl_tracking.php:606
 #: tbl_tracking.php:613
