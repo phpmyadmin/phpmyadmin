@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-14 11:36+0200\n"
-"PO-Revision-Date: 2010-07-16 13:31+0200\n"
+"PO-Revision-Date: 2010-07-16 13:34+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -829,7 +829,7 @@ msgstr ""
 
 #: import.php:372 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "قىستۇرمىلار كىرگۈزىشكە ئامالسىز، قاچىلانمىنى تەكشۈرۈپ بىقىڭ!"
 
 #: import.php:397
 msgid "The bookmark has been deleted."
