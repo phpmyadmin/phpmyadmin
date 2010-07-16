@@ -1226,7 +1226,7 @@ msgstr "مىنۇت"
 
 #: js/messages.php:166
 msgid "Second"
-msgstr ""
+msgstr "سېكنۇت"
 
 #: libraries/Config.class.php:1015
 msgid "Font size"
