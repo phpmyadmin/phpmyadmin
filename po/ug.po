@@ -349,7 +349,7 @@ msgstr "جەدۋەل"
 #: navigation.php:638 navigation.php:660 server_databases.php:122
 #: tbl_printview.php:393 tbl_structure.php:365 tbl_structure.php:777
 msgid "Rows"
-msgstr "قاتار سانى"
+msgstr "سەپ سانى"
 
 #: db_printview.php:109 libraries/db_structure.lib.php:67 tbl_indexes.php:190
 msgid "Size"
