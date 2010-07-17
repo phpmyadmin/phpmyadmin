@@ -29,7 +29,7 @@
  * @param bool          $isPostSource  tells whether $values are directly from POST request
  * @return bool|array
  */
-function validate($validator_id, &$values, $isPostSource)
+function PMA_config_validate($validator_id, &$values, $isPostSource)
 {
     // find validators
     $cf = ConfigFile::getInstance();
@@ -59,7 +59,12 @@ function validate($validator_id, &$values, $isPostSource)
     // validate
     $result = array();
     foreach ($vids as $vid) {
-        $r = call_user_func($validators[$vid], $vid, $arguments);
+        // call appropriate validation function
+        $vdef = (array) $validators[$vid];
+        $vname = array_shift($vdef);
+        $args = array_merge(array($vid, &$arguments), $vdef);
+        $r = call_user_func_array($vname, $args);
+
         // merge results
         if (is_array($r)) {
             foreach ($r as $key => $error_list) {
@@ -299,7 +304,6 @@ function validate_trusted_proxies($path, $values)
     return $result;
 }
 
-
 /**
  * Tests integer value
  *
@@ -361,41 +365,31 @@ function validate_non_negative_number($path, $values)
 }
 
 /**
- * Validates DefaultPropDisplay field
+ * Validates value according to given regular expression
+ * Pattern and modifiers must be a valid for PCRE <b>and</b> JavaScript RegExp
  *
  * @param string $path
- * @param array $values
- * @return array
+ * @param array  $values
+ * @param string $regex
+ * @return void
  */
-function validate_DefaultPropDisplay($path, $values)
+function validate_by_regex($path, $values, $regex)
 {
-    $result = preg_match('/^(?:horizontal|vertical|\d+)$/',  $values[$path]);
+    $result = preg_match($regex, $values[$path]);
     return array($path => ($result ? '' : __('Incorrect value')));
 }
 
 /**
- * Validates string length - must be 1 character long
- *
+ * Validates upper bound for numeric inputs
+ * 
  * @param string $path
- * @param array $values
+ * @param array  $values
+ * @param int    $max_value
  * @return array
  */
-function validate_str1($path, $values)
+function validate_upper_bound($path, $values, $max_value)
 {
-    $result = strlen($values[$path]) == 1;
-    return array($path => ($result ? '' : __('Incorrect value')));
-}
-
-/**
- * Validates string length - must be 0 or 1 character long
- *
- * @param string $path
- * @param array $values
- * @return array
- */
-function validate_str01($path, $values)
-{
-    $result = strlen($values[$path]) <= 1;
-    return array($path => ($result ? '' : __('Incorrect value')));
+    $result = $values[$path] <= $max_value;
+    return array($path => ($result ? '' : sprintf(__('Value must be equal or lower than %s'), $max_value)));
 }
 ?>

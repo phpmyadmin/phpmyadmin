@@ -43,7 +43,8 @@ function display_form_top($action = null, $method = 'post', $hidden_fields = nul
  *
  * @param array $tabs
  */
-function display_tabs_top($tabs) {
+function display_tabs_top($tabs)
+{
 ?>
 <ul class="tabs">
 <?php foreach ($tabs as $tab_id => $tab_name): ?>
@@ -163,7 +164,15 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     <?php
     switch ($type) {
         case 'text':
-            echo '<input type="text" size="50" ' . $name_id . $field_class
+            echo '<input type="text" size="60" ' . $name_id . $field_class
+                . ' value="' . htmlspecialchars($value) . '" />';
+          break;
+        case 'short_text':
+            echo '<input type="text" size="25" ' . $name_id . $field_class
+                . ' value="' . htmlspecialchars($value) . '" />';
+          break;
+        case 'number_text':
+            echo '<input type="text" size="15" ' . $name_id . $field_class
                 . ' value="' . htmlspecialchars($value) . '" />';
           break;
         case 'checkbox':
@@ -318,7 +327,8 @@ function display_fieldset_bottom_simple()
 /**
  * Closes form tabs
  */
-function display_tabs_bottom() {
+function display_tabs_bottom()
+{
     echo "</div>\n";
 }
 
@@ -337,8 +347,16 @@ function display_form_bottom()
  * @param string $validator
  * @param array  $js_array
  */
-function js_validate($field_id, $validator, &$js_array) {
-    $js_array[] = "validateField('$field_id', '$validator', true)";
+function js_validate($field_id, $validator, &$js_array)
+{
+    $validator = (array)$validator;
+    $v_name = array_shift($validator);
+    $v_args = array();
+    foreach ($validator as $arg) {
+        $v_args[] = PMA_escapeJsString($arg);
+    }
+    $v_args = $v_args ? ", ['" . implode("', '", $v_args) . "']" : '';
+    $js_array[] = "validateField('$field_id', '$v_name', true$v_args)";
 }
 
 /**
@@ -346,7 +364,8 @@ function js_validate($field_id, $validator, &$js_array) {
  *
  * @param array $js_array
  */
-function display_js($js_array) {
+function display_js($js_array)
+{
     if (empty($js_array)) {
         return;
     }
@@ -363,7 +382,8 @@ function display_js($js_array) {
  * @param string $name
  * @param array  $error_list
  */
-function display_errors($name, $error_list) {
+function display_errors($name, $error_list)
+{
     echo '<dl>';
     echo '<dt>' . htmlspecialchars($name) . '</dt>';
     foreach ($error_list as $error) {

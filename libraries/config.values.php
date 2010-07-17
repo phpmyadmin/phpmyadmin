@@ -27,6 +27,7 @@ $cfg_db['Servers'] = array(1 => array(
 $cfg_db['RecodingEngine'] = array('auto', 'iconv', 'recode');
 $cfg_db['DefaultCharset'] = $GLOBALS['cfg']['AvailableCharsets'];
 $cfg_db['OBGzip'] = array('auto', true, false);
+$cfg_db['MemoryLimit'] = 'short_string';
 $cfg_db['ShowTooltipAliasTB'] = array('nested', true, false);
 $cfg_db['DisplayDatabasesList'] = array('auto', true, false);
 $cfg_db['LeftLogoLinkWindow'] = array('main', 'new');
@@ -36,6 +37,8 @@ $cfg_db['LeftDefaultTabTable'] = array(
     'tbl_select.php',    // search page
     'tbl_change.php',    // insert row page
     'sql.php');          // browse page
+$cfg_db['LeftFrameDBSeparator'] = 'short_string';
+$cfg_db['LeftFrameTableSeparator'] = 'short_string';
 $cfg_db['NavigationBarIconic'] = array(true, false, 'both');
 $cfg_db['Order'] = array('ASC', 'DESC', 'SMART');
 $cfg_db['ProtectBinary'] = array(false, 'blob', 'all');
@@ -77,6 +80,12 @@ $cfg_db['Import']['sql_compatibility'] = $cfg_db['Export']['sql_compatibility'] 
     // can't be read by POSTGRESQL (see our bug #1596328)
     //'POSTGRESQL',
     'TRADITIONAL');
+$cfg_db['Import']['csv_terminated'] = 'short_string';
+$cfg_db['Import']['csv_enclosed'] = 'short_string';
+$cfg_db['Import']['csv_escaped'] = 'short_string';
+$cfg_db['Import']['ldi_terminated'] = 'short_string';
+$cfg_db['Import']['ldi_enclosed'] = 'short_string';
+$cfg_db['Import']['ldi_escaped'] = 'short_string';
 $cfg_db['Import']['ldi_local_option'] = array('auto', true, false);
 $cfg_db['Export']['format'] = array('codegen', 'csv', 'excel', 'htmlexcel',
     'htmlword', 'latex', 'ods', 'odt', 'pdf', 'sql', 'texytext', 'xls', 'xml',
@@ -84,9 +93,21 @@ $cfg_db['Export']['format'] = array('codegen', 'csv', 'excel', 'htmlexcel',
 $cfg_db['Export']['compression'] = array('none', 'zip', 'gzip', 'bzip2');
 $cfg_db['Export']['charset'] = array_merge(array(''), $GLOBALS['cfg']['AvailableCharsets']);
 $cfg_db['Export']['codegen_format'] = array('#', 'NHibernate C# DO', 'NHibernate XML');
+$cfg_db['Export']['csv_separator'] = 'short_string';
+$cfg_db['Export']['csv_terminated'] = 'short_string';
+$cfg_db['Export']['csv_enclosed'] = 'short_string';
+$cfg_db['Export']['csv_escaped'] = 'short_string';
+$cfg_db['Export']['csv_null'] = 'short_string';
+$cfg_db['Export']['excel_null'] = 'short_string';
 $cfg_db['Export']['excel_edition'] = array('win' => 'Windows',
     'mac_excel2003' => 'Excel 2003 / Macintosh', 'mac_excel2008' => 'Excel 2008 / Macintosh');
 $cfg_db['Export']['sql_type'] = array('INSERT', 'UPDATE', 'REPLACE');
+$cfg_db['Export']['xls_null'] = 'short_string';
+$cfg_db['Export']['xlsx_null'] = 'short_string';
+$cfg_db['Export']['htmlword_null'] = 'short_string';
+$cfg_db['Export']['ods_null'] = 'short_string';
+$cfg_db['Export']['odt_null'] = 'short_string';
+$cfg_db['Export']['texytext_null'] = 'short_string';
 
 /**
  * Default values overrides
@@ -104,16 +125,16 @@ $cfg_db['_overrides']['Servers/1/extension'] = extension_loaded('mysqli')
 $cfg_db['_validators'] = array(
     'CharTextareaCols' => 'validate_positive_number',
     'CharTextareaRows' => 'validate_positive_number',
-    'DefaultPropDisplay' => 'validate_DefaultPropDisplay',
+    'DefaultPropDisplay' => array('validate_by_regex', '/^(?:horizontal|vertical|\d+)$/'),
     'ExecTimeLimit' => 'validate_non_negative_number',
     'Export/sql_max_query_size' => 'validate_positive_number',
     'ForeignKeyMaxLimit' => 'validate_positive_number',
-    'Import/csv_enclosed' => 'validate_str01',
-    'Import/csv_escaped' => 'validate_str1',
-    'Import/csv_terminated' => 'validate_str1',
-    'Import/ldi_enclosed' => 'validate_str01',
-    'Import/ldi_escaped' => 'validate_str1',
-    'Import/ldi_terminated' => 'validate_str1',
+    'Import/csv_enclosed' => array('validate_by_regex', '/^.?$/'),
+    'Import/csv_escaped' => array('validate_by_regex', '/^.$/'),
+    'Import/csv_terminated' => array('validate_by_regex', '/^.$/'),
+    'Import/ldi_enclosed' => array('validate_by_regex', '/^.?$/'),
+    'Import/ldi_escaped' => array('validate_by_regex', '/^.$/'),
+    'Import/ldi_terminated' => array('validate_by_regex', '/^.$/'),
     'Import/skip_queries' => 'validate_non_negative_number',
     'InsertRows' => 'validate_positive_number',
     'LeftFrameTableLevel' => 'validate_positive_number',
@@ -124,7 +145,7 @@ $cfg_db['_validators'] = array(
     'MaxCharactersInDisplayedSQL' => 'validate_positive_number',
     'MaxRows' => 'validate_positive_number',
     'MaxTableList' => 'validate_positive_number',
-    'MemoryLimit' => 'validate_non_negative_number',
+    'MemoryLimit' => array('validate_by_regex', '/^\d+(?:[kmg])?$/i'),
     'QueryHistoryMax' => 'validate_positive_number',
     'QueryWindowWidth' => 'validate_positive_number',
     'QueryWindowHeight' => 'validate_positive_number',

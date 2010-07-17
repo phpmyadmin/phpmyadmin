@@ -151,7 +151,7 @@ class FormDisplay
         }
 
         // run validation
-        $errors = validate($paths, $values, false);
+        $errors = PMA_config_validate($paths, $values, false);
 
         // change error keys from canonical paths to work paths
         if (is_array($errors) && count($errors) > 0) {
@@ -259,10 +259,10 @@ class FormDisplay
             foreach ($this->js_lang_strings as $strName => $strValue) {
                 $js_lang[] = "'$strName': '" . PMA_jsFormat($strValue, false) . '\'';
             }
-            $js[] = '$.extend(PMA_messages, {' . implode(",\n\t", $js_lang) . '})';
+            $js[] = "$.extend(PMA_messages, {\n\t" . implode(",\n\t", $js_lang) . '})';
         }
 
-        $js[] = '$.extend(defaultValues, {' . implode(",\n\t", $js_default) . '})';
+        $js[] = "$.extend(defaultValues, {\n\t" . implode(",\n\t", $js_default) . '})';
         display_js($js);
     }
 
@@ -309,11 +309,12 @@ class FormDisplay
             case 'string':
                 $type = 'text';
                 break;
-            case 'double':
-                $type = 'text';
+            case 'short_string':
+                $type = 'short_text';
                 break;
+            case 'double':
             case 'integer':
-                $type = 'text';
+                $type = 'number_text';
                 break;
             case 'boolean':
                 $type = 'checkbox';
@@ -353,6 +354,8 @@ class FormDisplay
         $js_line = '\'' . $translated_path . '\': ';
         switch ($type) {
             case 'text':
+            case 'short_text':
+            case 'number_text':
                 $js_line .= '\'' . PMA_escapeJsString($value_default) . '\'';
                 break;
             case 'checkbox':
@@ -474,16 +477,17 @@ class FormDisplay
             foreach ($form->fields as $field => $system_path) {
                 $work_path = array_search($system_path, $this->system_paths);
                 $key = $this->translated_paths[$work_path];
+                $type = $form->getOptionType($field);
 
                 // skip groups
-                if ($form->getOptionType($field) == 'group') {
+                if ($type == 'group') {
                     continue;
                 }
 
                 // ensure the value is set
                 if (!isset($_POST[$key])) {
                     // checkboxes aren't set by browsers if they're off
-                    if ($form->getOptionType($field) == 'boolean') {
+                    if ($type == 'boolean') {
                         $_POST[$key] = false;
                     } else {
                         $this->errors[$form->name][] = sprintf(
@@ -505,7 +509,6 @@ class FormDisplay
                 }
 
                 // cast variables to correct type
-                $type = $form->getOptionType($field);
                 switch ($type) {
                     case 'double':
                         settype($_POST[$key], 'float');
@@ -524,6 +527,7 @@ class FormDisplay
                         }
                         break;
                     case 'string':
+                    case 'short_string':
                         $_POST[$key] = trim($_POST[$key]);
                         break;
                     case 'array':

@@ -24,7 +24,7 @@ if (!($values instanceof stdClass)) {
     die('Wrong data');
 }
 $values = (array)$values;
-$result = validate($vids, $values, true);
+$result = PMA_config_validate($vids, $values, true);
 if ($result === false) {
     $result = 'Wrong data or no validation for ' . $vids;
 }

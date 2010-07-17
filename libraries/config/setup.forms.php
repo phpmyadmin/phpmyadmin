@@ -30,7 +30,7 @@ $forms['Servers']['Server'] = array('Servers' => array(1 => array(
     'connect_type',
     'extension',
     'compress',
-    'auth_type',
+    'auth_type' => ':group',
     'auth_http_realm',
     'user',
     'password',

@@ -169,7 +169,9 @@ var validate = {};
 // form validator list
 var validators = {
     // regexp: numeric value
-    _regexp_numeric: new RegExp('^[0-9]+$'),
+    _regexp_numeric: /^[0-9]+$/,
+    // regexp: extract parts from PCRE expression
+    _regexp_pcre_extract: /(.)(.*)\1(.*)?/,
     /**
      * Validates positive number
      *
@@ -210,40 +212,19 @@ var validators = {
         return result;
     },
     /**
-     * DefaultPropDisplay validator
+     * Validates value according to given regular expression
      *
      * @param {boolean} isKeyUp
+     * @param {string}  regexp
      */
-    validate_DefaultPropDisplay: function(isKeyUp) {
+    validate_by_regex: function(isKeyUp, regexp) {
         if (isKeyUp && this.value == '') {
             return true;
         }
-        var valid = this.value.match(/^(?:horizontal|vertical|[0-9]+)$/) != null;
+        // convert PCRE regexp
+        var parts = regexp.match(validators._regexp_pcre_extract);
+        var valid = this.value.match(new RegExp(parts[2], parts[3])) != null;
         return valid ? true : PMA_messages['error_invalid_value']
-    },
-    /**
-     * Validates string length - must be 1 character long
-     *
-     * @param {boolean} isKeyUp
-     */
-    validate_str1: function (isKeyUp) {
-        if (isKeyUp && this.value == '') {
-            return true;
-        }
-        var result = this.value.length == 1;
-        return result ? true : PMA_messages['error_invalid_value'];
-    },
-    /**
-     * Validates string length - must be 0 or 1 character long
-     *
-     * @param {boolean} isKeyUp
-     */
-    validate_str01: function (isKeyUp) {
-        if (isKeyUp && this.value == '') {
-            return true;
-        }
-        var result = this.value.length <= 1;
-        return result ? true : PMA_messages['error_invalid_value'];
     },
     // field validators
     _field: {
@@ -259,7 +240,7 @@ var validators = {
  * @param {String}  id       field id
  * @param {String}  type     validator (key in validators object)
  * @param {boolean} onKeyUp  whether fire on key up
- * @param {object}  params   validation function parameters
+ * @param {Array}   params   validation function parameters
  */
 function validateField(id, type, onKeyUp, params) {
     if (typeof validators[type] == 'undefined') {
@@ -390,7 +371,11 @@ function validate_field(field, isKeyUp, errors) {
     errors[field_id] = [];
     var functions = getFieldValidators(field_id, isKeyUp);
     for (var i = 0; i < functions.length; i++) {
-        var result = functions[i][0].apply(field[0], [isKeyUp, functions[i][1]]);
+        var args = functions[i][1] != null
+            ? functions[i][1].slice(0)
+            : [];
+        args.unshift(isKeyUp);
+        var result = functions[i][0].apply(field[0], args);
         if (result !== true) {
             if (typeof result == 'string') {
             	result = [result];
