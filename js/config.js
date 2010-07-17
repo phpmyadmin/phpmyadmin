@@ -224,7 +224,20 @@ var validators = {
         // convert PCRE regexp
         var parts = regexp.match(validators._regexp_pcre_extract);
         var valid = this.value.match(new RegExp(parts[2], parts[3])) != null;
-        return valid ? true : PMA_messages['error_invalid_value']
+        return valid ? true : PMA_messages['error_invalid_value'];
+    },
+    /**
+     * Validates upper bound for numeric inputs
+     *
+     * @param {boolean} isKeyUp
+     * @param {int} max_value
+     */
+    validate_upper_bound: function(isKeyUp, max_value) {
+        var val = parseInt(this.value);
+        if (isNaN(val)) {
+            return true;
+        }
+        return val <= max_value ? true : PMA_messages['error_value_lte'].replace('%s', max_value);
     },
     // field validators
     _field: {

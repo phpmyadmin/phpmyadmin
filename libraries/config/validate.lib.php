@@ -16,6 +16,43 @@
  */
 
 /**
+ * Returns validator list
+ *
+ * @uses ConfigFile::getDbEntry()
+ * @uses ConfigFile::getInstance()
+ * @return array
+ */
+function PMA_config_get_validators()
+{
+    static $validators = null;
+
+    if ($validators === null) {
+        $cf = ConfigFile::getInstance();
+        $validators = $cf->getDbEntry('_validators', array());
+        if (!defined('PMA_SETUP') || !PMA_SETUP) {
+            $uvs = $cf->getDbEntry('_userValidators', array());
+            foreach ($uvs as $field => $uv_list) {
+                $uv_list = (array)$uv_list;
+                foreach ($uv_list as &$uv) {
+                    if (!is_array($uv)) {
+                        continue;
+                    }
+                    for ($i = 1; $i < count($uv); $i++) {
+                        if (substr($uv[$i], 0, 6) == 'value:') {
+                            $uv[$i] = PMA_array_read(substr($uv[$i], 6), $GLOBALS['cfg']);
+                        }
+                    }
+                }
+                $validators[$field] = isset($validators[$field])
+                    ? array_merge((array)$validators[$field], $uv_list)
+                    : $uv_list;
+            }
+        }
+    }
+    return $validators;
+}
+
+/**
  * Runs validation $validator_id on values $values and returns error list.
  *
  * Return values:
@@ -24,6 +61,9 @@
  *   cleanup in HTML documen
  * o false - when no validators match name(s) given by $validator_id
  *
+ * @uses ConfigFile::getCanonicalPath()
+ * @uses ConfigFile::getInstance()
+ * @uses PMA_config_get_validators()
  * @param string|array  $validator_id
  * @param array         $values
  * @param bool          $isPostSource  tells whether $values are directly from POST request
@@ -32,10 +72,10 @@
 function PMA_config_validate($validator_id, &$values, $isPostSource)
 {
     // find validators
-    $cf = ConfigFile::getInstance();
     $validator_id = (array) $validator_id;
-    $validators = $cf->getDbEntry('_validators');
+    $validators = PMA_config_get_validators();
     $vids = array();
+    $cf = ConfigFile::getInstance();
     foreach ($validator_id as &$vid) {
         $vid = $cf->getCanonicalPath($vid);
         if (isset($validators[$vid])) {
@@ -59,23 +99,25 @@ function PMA_config_validate($validator_id, &$values, $isPostSource)
     // validate
     $result = array();
     foreach ($vids as $vid) {
-        // call appropriate validation function
-        $vdef = (array) $validators[$vid];
-        $vname = array_shift($vdef);
-        $args = array_merge(array($vid, &$arguments), $vdef);
-        $r = call_user_func_array($vname, $args);
+        // call appropriate validation functions
+        foreach ((array)$validators[$vid] as $validator) {
+            $vdef = (array) $validator;
+            $vname = array_shift($vdef);
+            $args = array_merge(array($vid, &$arguments), $vdef);
+            $r = call_user_func_array($vname, $args);
 
-        // merge results
-        if (is_array($r)) {
-            foreach ($r as $key => $error_list) {
-                // skip empty values if $isPostSource is false
-                if (!$isPostSource && empty($error_list)) {
-                    continue;
+            // merge results
+            if (is_array($r)) {
+                foreach ($r as $key => $error_list) {
+                    // skip empty values if $isPostSource is false
+                    if (!$isPostSource && empty($error_list)) {
+                        continue;
+                    }
+                    if (!isset($result[$key])) {
+                        $result[$key] = array();
+                    }
+                    $result[$key] = array_merge($result[$key], (array)$error_list);
                 }
-                if (!isset($result[$key])) {
-                    $result[$key] = array();
-                }
-                $result[$key] = array_merge($result[$key], (array)$error_list);
             }
         }
     }
@@ -157,6 +199,7 @@ function test_db_connection($extension, $connect_type, $host, $port, $socket, $u
 /**
  * Validate server config
  *
+ * @uses test_db_connection()
  * @param string $path
  * @param array  $values
  * @return array
@@ -191,6 +234,7 @@ function validate_server($path, $values)
 /**
  * Validate pmadb config
  *
+ * @uses test_db_connection()
  * @param string $path
  * @param array  $values
  * @return array
@@ -229,6 +273,7 @@ function validate_pmadb($path, $values)
 /**
  * Validates regular expression
  *
+ * @uses test_php_errormsg()
  * @param string $path
  * @param array  $values
  * @return array
@@ -331,6 +376,7 @@ function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error
 /**
  * Validates port number
  *
+ * @uses test_number()
  * @param string $path
  * @param array  $values
  * @return array
@@ -343,6 +389,7 @@ function validate_port_number($path, $values)
 /**
  * Validates positive number
  *
+ * @uses test_number()
  * @param string $path
  * @param array  $values
  * @return array
@@ -355,6 +402,7 @@ function validate_positive_number($path, $values)
 /**
  * Validates non-negative number
  *
+ * @uses test_number()
  * @param string $path
  * @param array  $values
  * @return array

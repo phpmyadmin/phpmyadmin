@@ -343,20 +343,22 @@ function display_form_bottom()
 /**
  * Appends JS validation code to $js_array
  *
- * @param string $field_id
- * @param string $validator
- * @param array  $js_array
+ * @param string       $field_id
+ * @param string|array $validator
+ * @param array        $js_array
  */
-function js_validate($field_id, $validator, &$js_array)
+function js_validate($field_id, $validators, &$js_array)
 {
-    $validator = (array)$validator;
-    $v_name = array_shift($validator);
-    $v_args = array();
-    foreach ($validator as $arg) {
-        $v_args[] = PMA_escapeJsString($arg);
+    foreach ((array)$validators as $validator) {
+        $validator = (array)$validator;
+        $v_name = array_shift($validator);
+        $v_args = array();
+        foreach ($validator as $arg) {
+            $v_args[] = PMA_escapeJsString($arg);
+        }
+        $v_args = $v_args ? ", ['" . implode("', '", $v_args) . "']" : '';
+        $js_array[] = "validateField('$field_id', '$v_name', true$v_args)";
     }
-    $v_args = $v_args ? ", ['" . implode("', '", $v_args) . "']" : '';
-    $js_array[] = "validateField('$field_id', '$v_name', true$v_args)";
 }
 
 /**

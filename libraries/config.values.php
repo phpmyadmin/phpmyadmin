@@ -125,16 +125,16 @@ $cfg_db['_overrides']['Servers/1/extension'] = extension_loaded('mysqli')
 $cfg_db['_validators'] = array(
     'CharTextareaCols' => 'validate_positive_number',
     'CharTextareaRows' => 'validate_positive_number',
-    'DefaultPropDisplay' => array('validate_by_regex', '/^(?:horizontal|vertical|\d+)$/'),
+    'DefaultPropDisplay' => array(array('validate_by_regex', '/^(?:horizontal|vertical|\d+)$/')),
     'ExecTimeLimit' => 'validate_non_negative_number',
     'Export/sql_max_query_size' => 'validate_positive_number',
     'ForeignKeyMaxLimit' => 'validate_positive_number',
-    'Import/csv_enclosed' => array('validate_by_regex', '/^.?$/'),
-    'Import/csv_escaped' => array('validate_by_regex', '/^.$/'),
-    'Import/csv_terminated' => array('validate_by_regex', '/^.$/'),
-    'Import/ldi_enclosed' => array('validate_by_regex', '/^.?$/'),
-    'Import/ldi_escaped' => array('validate_by_regex', '/^.$/'),
-    'Import/ldi_terminated' => array('validate_by_regex', '/^.$/'),
+    'Import/csv_enclosed' => array(array('validate_by_regex', '/^.?$/')),
+    'Import/csv_escaped' => array(array('validate_by_regex', '/^.$/')),
+    'Import/csv_terminated' => array(array('validate_by_regex', '/^.$/')),
+    'Import/ldi_enclosed' => array(array('validate_by_regex', '/^.?$/')),
+    'Import/ldi_escaped' => array(array('validate_by_regex', '/^.$/')),
+    'Import/ldi_terminated' => array(array('validate_by_regex', '/^.$/')),
     'Import/skip_queries' => 'validate_non_negative_number',
     'InsertRows' => 'validate_positive_number',
     'LeftFrameTableLevel' => 'validate_positive_number',
@@ -145,7 +145,7 @@ $cfg_db['_validators'] = array(
     'MaxCharactersInDisplayedSQL' => 'validate_positive_number',
     'MaxRows' => 'validate_positive_number',
     'MaxTableList' => 'validate_positive_number',
-    'MemoryLimit' => array('validate_by_regex', '/^\d+(?:[kmg])?$/i'),
+    'MemoryLimit' => array(array('validate_by_regex', '/^\d+(?:[kmg])?$/i')),
     'QueryHistoryMax' => 'validate_positive_number',
     'QueryWindowWidth' => 'validate_positive_number',
     'QueryWindowHeight' => 'validate_positive_number',
@@ -157,4 +157,11 @@ $cfg_db['_validators'] = array(
     'TextareaCols' => 'validate_positive_number',
     'TextareaRows' => 'validate_positive_number',
     'TrustedProxies' => 'validate_trusted_proxies');
+
+/**
+ * Additional validators used for user preferences
+ */
+$cfg_db['_userValidators'] = array(
+    'MaxDbList' => array(array('validate_upper_bound', 'value:MaxDbList')),
+    'MaxTableList' => array(array('validate_upper_bound', 'value:MaxTableList')));
 ?>

@@ -18,7 +18,9 @@ $forms['Features']['General'] = array(
     'InitialSlidersState',
     'ErrorIconic',
     'ReplaceHelpImg',
-    'SkipLockedTables');
+    'SkipLockedTables',
+    'MaxDbList',
+    'MaxTableList');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'CharTextareaCols',
