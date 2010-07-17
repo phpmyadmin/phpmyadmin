@@ -195,6 +195,11 @@ ul.tabs li a:hover, ul.tabs li a:active {
     margin-bottom: -3px;
 }
 
+.userprefs-comment {
+    cursor: help;
+    float: right;
+}
+
 /* forms */
 
 fieldset {

@@ -105,6 +105,7 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  * o setvalue - (string) shows button allowing to set poredefined value
  * o show_restore_default - (boolean) whether show "restore default" button
  * o userprefs_allow - whether user preferences are enabled for this field (null - no support, true/false - enabled/disabled)
+ * o userprefs_comment - (string) field comment
  * o values - key - value paris for <select> fields
  * o values_escaped - (boolean) tells whether values array is already escaped (defaults to false)
  * o values_disabled -  (array)list of disabled values (keys from values)
@@ -164,7 +165,6 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
             <span class="disabled-notice" title="<?php echo __('This setting is disabled, it will not be applied to your configuration') ?>"><?php echo __('Disabled') ?></span>
         <?php endif; ?>
         <?php if (!empty($description)) { ?><small><?php echo $description ?></small><?php } ?>
-
     </th>
     <td>
     <?php
@@ -221,6 +221,11 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
                 . htmlspecialchars(implode("\n", $value))
                 . '</textarea>';
             break;
+    }
+    if ($is_setup_script && isset($opts['userprefs_comment']) && $opts['userprefs_comment']) {
+        ?>
+        <a class="userprefs-comment" title="<?php echo htmlspecialchars($opts['userprefs_comment']) ?>"><img alt="comment" src="<?php echo $img_path ?>b_tblops.png" width="16" height="16" /></a>
+        <?php
     }
     if (isset($opts['setvalue']) && $opts['setvalue']) {
         ?>

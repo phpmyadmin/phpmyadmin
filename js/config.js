@@ -597,7 +597,6 @@ $(function() {
         link.css({display: 'inline-block', opacity: 0.25});
         if (link.hasClass('restore-default')) {
             // restore-default is handled by markField
-        	link.find('img').hide();
         }
         link.bind({
             mouseenter: function() {$(this).css('opacity', 1);},

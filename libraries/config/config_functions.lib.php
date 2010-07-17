@@ -57,37 +57,22 @@ function PMA_lang($lang_key)
 }
 
 /**
- * Returns translated field name
+ * Returns translated field name/description or comment
  *
  * @param string $canonical_path
+ * @param string $type  'name', 'desc' or 'cmt'
+ * @param mixed  $default
  * @return string
  */
-function PMA_lang_name($canonical_path)
+function PMA_lang_name($canonical_path, $type = 'name', $default = 'key')
 {
     $lang_key = str_replace(
     	array('Servers/1/', '/'),
     	array('Servers/', '_'),
-    	$canonical_path) . '_name';
+    	$canonical_path) . '_' . $type;
     return isset($GLOBALS["strConfig$lang_key"])
         ? $GLOBALS["strConfig$lang_key"]
-        : $lang_key;
-}
-
-/**
- * Returns translated field description
- *
- * @param string $canonical_path
- * @return string
- */
-function PMA_lang_desc($canonical_path)
-{
-    $lang_key = str_replace(
-    	array('Servers/1/', '/'),
-    	array('Servers/', '_'),
-    	$canonical_path) . '_desc';
-    return isset($GLOBALS["strConfig$lang_key"])
-        ? PMA_lang($lang_key)
-        : '';
+        : ($default == 'key' ? $lang_key : $default);
 }
 
 /**

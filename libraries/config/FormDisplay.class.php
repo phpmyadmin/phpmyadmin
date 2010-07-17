@@ -313,7 +313,7 @@ class FormDisplay
             $translated_path, $show_restore_default, $userprefs_allow, array &$js_default)
     {
         $name = PMA_lang_name($system_path);
-        $description = PMA_lang_desc($system_path);
+        $description = PMA_lang_name($system_path, 'desc', '');
 
         $cf = ConfigFile::getInstance();
         $value = $cf->get($work_path);
@@ -328,7 +328,8 @@ class FormDisplay
             'doc' => $this->getDocLink($system_path),
             'wiki' =>  $this->getWikiLink($system_path),
             'show_restore_default' => $show_restore_default,
-            'userprefs_allow' => $userprefs_allow);
+            'userprefs_allow' => $userprefs_allow,
+            'userprefs_comment' => PMA_lang_name($system_path, 'cmt', ''));
         if (isset($form->default[$system_path])) {
             $opts['setvalue'] = $form->default[$system_path];
         }
