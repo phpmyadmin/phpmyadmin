@@ -9,6 +9,8 @@
 /**
  * Displays top part of the form
  *
+ * @uses PMA_generate_common_hidden_inputs()
+ * @uses PMA_getHiddenFields()
  * @param string $action         default: $_SERVER['REQUEST_URI']
  * @param string $method         'post' or 'get'
  * @param array  $hidden_fields  array of form hidden fields (key: field name)
@@ -108,6 +110,10 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  * o values_disabled -  (array)list of disabled values (keys from values)
  * o wiki - (string) wiki link
  *
+ * @uses $GLOBALS['_FormDisplayGroup']
+ * @uses $GLOBALS['cfg']['ThemePath']
+ * @uses $_SESSION['PMA_Theme']
+ * @uses display_group_footer()
  * @param string $path
  * @param string $name
  * @param string $description
@@ -254,6 +260,8 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
 /**
  * Display group header
  *
+ * @uses $GLOBALS['_FormDisplayGroup']
+ * @uses display_group_footer()
  * @param string $header_text
  */
 function display_group_header($header_text)
@@ -282,6 +290,8 @@ function display_group_header($header_text)
 
 /**
  * Display group footer
+ *
+ * @uses $GLOBALS['_FormDisplayGroup']
  */
 function display_group_footer()
 {
@@ -343,6 +353,7 @@ function display_form_bottom()
 /**
  * Appends JS validation code to $js_array
  *
+ * @uses PMA_escapeJsString()
  * @param string       $field_id
  * @param string|array $validator
  * @param array        $js_array

@@ -74,6 +74,8 @@ class Form
     /**
      * Returns allowed values for select fields
      *
+     * @uses ConfigFile::getDbEntry()
+     * @uses ConfigFile::getInstance()
      * @param   string  $option_path
      * @return  array
      */
@@ -157,6 +159,10 @@ class Form
 
     /**
      * Reads fields' types to $this->fieldsTypes
+     *
+     * @uses ConfigFile::getDbEntry()
+     * @uses ConfigFile::getDefault()
+     * @uses ConfigFile::getInstance()
      */
     protected function readTypes()
     {
