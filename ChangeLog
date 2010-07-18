@@ -86,6 +86,8 @@ $Id$
 - patch #3025161 [core] Prevent sending of unnecessary cookies, 
   thanks to Piotr Przybylski  - crackpl
 
+3.3.6.0 (not yet released)
+
 3.3.5.0 (not yet released)
 - patch #2932113 [information_schema] Slow export when having lots of
   databases, thanks to Stéphane Pontier - shadow_walker
