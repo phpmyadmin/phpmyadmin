@@ -4237,7 +4237,7 @@ msgid ""
 "like to delete those references?"
 msgstr ""
 "Cette page fait référence à des tables qui n'existent plus. Voulez-vous "
-"effacer ces références?"
+"effacer ces références ?"
 
 #: pdf_schema.php:636
 #, php-format
