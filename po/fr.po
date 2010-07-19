@@ -5052,7 +5052,7 @@ msgstr "Le fil d'exécution SQL ne tourne pas sur le serveur esclave !"
 
 #: server_replication.php:296
 msgid "Slave IO Thread not running!"
-msgstr "Le fil d'exécution IO ne tourne pas sur le serveur esclave!"
+msgstr "Le fil d'exécution IO ne tourne pas sur le serveur esclave !"
 
 #: server_replication.php:305
 msgid ""
