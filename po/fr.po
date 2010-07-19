@@ -2549,7 +2549,7 @@ msgid ""
 msgstr ""
 "La mémoire tampon qui est allouée pour trier les index MyISAM durant une "
 "opération REPAIR TABLE ou pour créer les index lors d'un CREATE INDEX ou "
-"ALTER TABLE"
+"ALTER TABLE."
 
 #: libraries/engines/pbxt.lib.php:23
 msgid "Index cache size"
