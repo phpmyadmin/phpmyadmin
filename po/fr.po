@@ -464,7 +464,7 @@ msgstr "Utiliser les tables"
 #: db_qbe.php:640
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Requête SQL sur la base <b>%s</b>:"
+msgstr "Requête SQL sur la base <b>%s</b>: "
 
 #: db_qbe.php:934 libraries/common.lib.php:1225
 msgid "Submit Query"
