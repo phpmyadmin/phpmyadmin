@@ -6114,7 +6114,7 @@ msgstr "Afficher les messages cachés (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
 msgid "There are no configured servers"
-msgstr "Aucun serveur n'est configuré."
+msgstr "Aucun serveur n'est configuré"
 
 #: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
 msgid "New server"
