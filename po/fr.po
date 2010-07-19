@@ -4996,7 +4996,7 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 "Ce serveur n'est pas configuré comme maître dans un processus de "
-"réplication. Désirez-vous le <a href=\"%s\">configurer</a>?"
+"réplication. Désirez-vous le <a href=\"%s\">configurer</a> ?"
 
 #: server_replication.php:217
 msgid "Master configuration"
