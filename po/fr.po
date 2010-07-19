@@ -5034,7 +5034,7 @@ msgid ""
 "and please restart the MySQL server afterwards."
 msgstr ""
 "Maintenant, ajoutez les lignes suivantes à la fin de votre fichier my.cnf "
-"puis redémarrez le serveur MySQL"
+"puis redémarrez le serveur MySQL."
 
 #: server_replication.php:230
 msgid ""
