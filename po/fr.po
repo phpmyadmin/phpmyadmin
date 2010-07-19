@@ -4355,7 +4355,7 @@ msgstr ""
 
 #: pmd_pdf.php:63
 msgid "Page has been created"
-msgstr "La page a été créée."
+msgstr "La page a été créée"
 
 #: pmd_pdf.php:65
 msgid "Page creation failed"
