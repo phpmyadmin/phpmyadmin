@@ -3913,7 +3913,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
-msgstr "Affiche un lien vers cette image"
+msgstr "Affiche un lien vers cette image."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
