@@ -3097,7 +3097,7 @@ msgstr "Paramètres invalides pour l'importation CSV: %s"
 #: libraries/import/csv.php:119
 #, php-format
 msgid "Invalid column (%s) specified!"
-msgstr "La colonne %s est invalide!"
+msgstr "La colonne %s est invalide !"
 
 #: libraries/import/csv.php:177 libraries/import/csv.php:424
 #, php-format
