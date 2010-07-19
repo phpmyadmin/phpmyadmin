@@ -916,7 +916,7 @@ msgstr "Vous êtes sur le point de DÉTRUIRE une base de données !"
 
 #: js/messages.php:34
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Vous allez DÉSACTIVER un dépôt BLOB!"
+msgstr "Vous allez DÉSACTIVER un dépôt BLOB !"
 
 #: js/messages.php:35
 #, php-format
