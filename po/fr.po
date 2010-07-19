@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-19 10:04-0400\n"
-"PO-Revision-Date: 2010-07-19 19:41+0200\n"
+"PO-Revision-Date: 2010-07-19 19:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4778,7 +4778,7 @@ msgstr "Destruction de %s"
 
 #: server_privileges.php:1275
 msgid "No users selected for deleting!"
-msgstr "Aucun utilisateur n'a été choisi en vue de le détruire!"
+msgstr "Aucun utilisateur n'a été choisi en vue de le détruire !"
 
 #: server_privileges.php:1278
 msgid "Reloading the privileges"
