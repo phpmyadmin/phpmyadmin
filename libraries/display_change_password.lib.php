@@ -58,22 +58,13 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
             </label>
         </td>
         </tr>
-        <tr>
+        <tr id="tr_element_before_generate_password">
             <td>&nbsp;</td>
         <td>
             <input type="radio" name="pw_hash" id="radio_pw_hash_old" value="old" />
             <label for="radio_pw_hash_old">
                 <?php echo __('MySQL 4.0 compatible'); ?>
             </label>
-        </td>
-        </tr>
-        <tr>
-        <td>
-            <?php echo __('Generate Password'); ?>
-        </td>
-        <td>
-            <input type="button" id="button_generate_password" value="<?php echo __('Generate'); ?>" onclick="suggestPassword(this.form)" />
-            <input type="text" name="generated_pw" id="generated_pw" />
         </td>
         </tr>
         </table>
