@@ -2910,7 +2910,7 @@ msgstr "Taille maximum de la requête générée"
 
 #: libraries/export/sql.php:114
 msgid "Use delayed inserts"
-msgstr "Insertions avec délais (DELAYED)"
+msgstr "Insertions avec délais (delayed)"
 
 #: libraries/export/sql.php:116
 msgid "Use ignore inserts"
