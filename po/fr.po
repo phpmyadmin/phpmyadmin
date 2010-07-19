@@ -1994,7 +1994,7 @@ msgstr "Aucun privilège"
 
 #: libraries/display_create_table.lib.php:41
 msgid "Table must have at least one column."
-msgstr "La table doit comporter au moins une colonne"
+msgstr "La table doit comporter au moins une colonne."
 
 #: libraries/display_create_table.lib.php:48
 #, php-format
