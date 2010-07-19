@@ -257,7 +257,7 @@ if (isset($_REQUEST['submit_search'])) {
         $sql_query .= $newsearchsqls['select_count'];
 
         echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
-            .'<td>' . sprintf(__('%s match(es) inside table <i>%s</i>'), $res_cnt,
+            .'<td>' . sprintf(_ngettext('%s match inside table <i>%s</i>', '%s matches inside table <i>%s</i>', $res_cnt), $res_cnt,
                 htmlspecialchars($each_table)) . "</td>\n";
 
         if ($res_cnt > 0) {
@@ -282,7 +282,7 @@ if (isset($_REQUEST['submit_search'])) {
     echo '</table>' . "\n";
 
     if (count($tables_selected) > 1) {
-        echo '<p>' . sprintf(__('<b>Total:</b> <i>%s</i> match(es)'),
+        echo '<p>' . sprintf(_ngettext('<b>Total:</b> <i>%s</i> match', '<b>Total:</b> <i>%s</i> matches', $num_search_result_total),
             $num_search_result_total) . '</p>' . "\n";
     }
 } // end 1.
