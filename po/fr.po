@@ -923,7 +923,7 @@ msgstr "Vous allez DÉSACTIVER un dépôt BLOB !"
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
 "Êtes-vous certain de vouloir désactiver toutes les références BLOB pour la "
-"base %s?"
+"base %s ?"
 
 #: js/messages.php:38
 msgid "Missing value in the form!"
