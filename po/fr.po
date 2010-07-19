@@ -4847,7 +4847,7 @@ msgstr ""
 
 #: server_privileges.php:1677
 msgid "The selected user was not found in the privilege table."
-msgstr "L'utilisateur choisi n'existe pas dans la table des privilèges"
+msgstr "L'utilisateur choisi n'existe pas dans la table des privilèges."
 
 #: server_privileges.php:1717
 msgid "Column-specific privileges"
