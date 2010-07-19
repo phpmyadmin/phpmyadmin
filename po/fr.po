@@ -2103,7 +2103,7 @@ msgid ""
 msgstr ""
 "Le fichier téléchargé est probablement plus grand que le maximum alloué, ou "
 "bien il s'agit d'une anomalie connue dans les navigateurs basés sur webkit "
-"(Safari, Google Chrome, Arora, etc)"
+"(Safari, Google Chrome, Arora, etc)."
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
