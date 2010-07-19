@@ -3047,7 +3047,7 @@ msgstr "Modifiez l'un des réglages en cliquant le lien «Options» correspondan
 
 #: libraries/import.lib.php:1114
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr "Modifier sa structure via le lien  «Structure »"
+msgstr "Modifier sa structure via le lien «Structure»"
 
 #: libraries/import.lib.php:1117
 msgid "Go to database"
