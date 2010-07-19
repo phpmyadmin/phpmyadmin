@@ -788,7 +788,7 @@ msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 "Le fichier %s existe déjà sur le serveur, veuillez changer le nom, ou cocher "
-"l'option «écraser»"
+"l'option «écraser»."
 
 #: export.php:298 export.php:302
 #, php-format
