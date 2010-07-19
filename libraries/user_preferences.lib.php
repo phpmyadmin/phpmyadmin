@@ -135,8 +135,11 @@ function PMA_apply_userprefs(array $config_data)
     $cfg = array();
     $blacklist = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
     $whitelist = array_flip(PMA_read_userprefs_fieldnames());
+    // whitelist some additional fields which are custom handled
     $whitelist['ThemeDefault'] = true;
     $whitelist['fontsize'] = true;
+    $whitelist['lang'] = true;
+    $whitelist['collation_connection'] = true;
     foreach ($config_data as $path => $value) {
         if (!isset($whitelist[$path]) || isset($blacklist[$path])) {
             continue;
@@ -210,19 +213,21 @@ function PMA_persist_option($path, $value, $default_value)
  */
 function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $params = null)
 {
-    // compute differences and check whether left frame should be refreshed
-    $old_settings = isset($old_settings['config_data'])
-            ? $old_settings['config_data']
-            : array();
-    $new_settings = ConfigFile::getInstance()->getConfigArray();
-    $diff_keys = array_keys(array_diff_assoc($old_settings, $new_settings)
-            + array_diff_assoc($new_settings, $old_settings));
-    $check_keys = array('NaturalOrder', 'MainPageIconic', 'DefaultTabDatabase');
-    $check_keys = array_merge($check_keys, $forms['Left_frame']['Left_frame'],
-         $forms['Left_frame']['Left_databases']);
-    $diff = array_intersect($check_keys, $diff_keys);
-    $reload_left_frame = !empty($diff)
-            || (isset($params['reload_left_frame']) && $params['reload_left_frame']);
+    $reload_left_frame = isset($params['reload_left_frame']) && $params['reload_left_frame'];
+    if (!$reload_left_frame) {
+        // compute differences and check whether left frame should be refreshed
+        $old_settings = isset($old_settings['config_data'])
+                ? $old_settings['config_data']
+                : array();
+        $new_settings = ConfigFile::getInstance()->getConfigArray();
+        $diff_keys = array_keys(array_diff_assoc($old_settings, $new_settings)
+                + array_diff_assoc($new_settings, $old_settings));
+        $check_keys = array('NaturalOrder', 'MainPageIconic', 'DefaultTabDatabase');
+        $check_keys = array_merge($check_keys, $forms['Left_frame']['Left_frame'],
+             $forms['Left_frame']['Left_databases']);
+        $diff = array_intersect($check_keys, $diff_keys);
+        $reload_left_frame = !empty($diff);
+    }
 
     // redirect
     $url_params = array(

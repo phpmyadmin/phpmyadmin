@@ -420,9 +420,11 @@ class PMA_Config
      * must be called after control connection has been estabilished
      *
      * @uses $GLOBALS['cfg']
-     * @uses $_SESSION['cache']['config_mtime']
-     * @uses $_SESSION['cache']['userprefs']
-     * @uses $_SESSION['cache']['userprefs_mtime']
+     * @uses $GLOBALS['collation_connection']
+     * @uses $GLOBALS['lang']
+     * @uses $_SESSION['cache']['server_$server']['config_mtime']
+     * @uses $_SESSION['cache']['server_$server']['userprefs']
+     * @uses $_SESSION['cache']['server_$server']['userprefs_mtime']
      * @uses $_SESSION['PMA_Theme_Manager']
      * @uses PMA_apply_userprefs()
      * @uses PMA_array_merge_recursive()
@@ -472,14 +474,11 @@ class PMA_Config
         // changes are made only in index.php so everything is set when
         // in frames
 
-        // load/save theme
-        // theme cookie exists only if we are using non-default theme
+        // save theme
         $tmanager = $_SESSION['PMA_Theme_Manager'];
-
-        // save new theme
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
-            if (!isset($config_data['ThemeDefault'])
-                    || $config_data['ThemeDefault'] != $tmanager->theme->getId()) {
+            if ((!isset($config_data['ThemeDefault']) && $tmanager->theme->getId() != 'original')
+                    || isset($config_data['ThemeDefault']) && $config_data['ThemeDefault'] != $tmanager->theme->getId()) {
                 // new theme was set in common.inc.php
                 $this->setUserValue(null, 'ThemeDefault', $tmanager->theme->getId(), 'original');
             }
@@ -492,9 +491,37 @@ class PMA_Config
             }
         }
 
-        // save new font size
-        if (!isset($config_data['fontsize']) || $org_fontsize != $config_data['fontsize']) {
-            $this->setUserValue('pma_fontsize', 'fontsize', $org_fontsize, '82%');
+        // save font size
+        if ((!isset($config_data['fontsize']) && $org_fontsize != '82%')
+                || isset($config_data['fontsize']) && $org_fontsize != $config_data['fontsize']) {
+            $this->setUserValue(null, 'fontsize', $org_fontsize, '82%');
+        }
+
+        // save language
+        if (isset($_COOKIE['pma_lang']) || isset($_POST['lang'])) {
+            if ((!isset($config_data['lang']) && $GLOBALS['lang'] != 'en')
+                    || isset($config_data['lang']) && $GLOBALS['lang'] != $config_data['lang']) {
+                $this->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
+            }
+        } else {
+            // read language from settings
+            if (isset($config_data['lang']) && PMA_langSet($config_data['lang'])) {
+                $this->setCookie('pma_lang', $GLOBALS['lang']);
+            }
+        }
+
+        // save connection collation
+        if (isset($_COOKIE['pma_collation_connection']) || isset($_POST['collation_connection'])) {
+            if ((!isset($config_data['collation_connection']) && $GLOBALS['collation_connection'] != 'utf8_general_ci')
+                    || isset($config_data['collation_connection']) && $GLOBALS['collation_connection'] != $config_data['collation_connection']) {
+                $this->setUserValue(null, 'collation_connection', $GLOBALS['collation_connection'], 'utf8_general_ci');
+            }
+        } else {
+            // read collation from settings
+            if (isset($config_data['collation_connection'])) {
+                $GLOBALS['collation_connection'] = $config_data['collation_connection'];
+                $this->setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
+            }
         }
     }
 
