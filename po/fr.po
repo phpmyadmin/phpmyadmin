@@ -4531,7 +4531,7 @@ msgstr "Permission de créer des tables temporaires."
 #: server_privileges.php:32 server_privileges.php:210
 #: server_privileges.php:555
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr "Permission de créer, supprimer et renommer des comptes utilisateurs"
+msgstr "Permission de créer, supprimer et renommer des comptes utilisateurs."
 
 #: server_privileges.php:33 server_privileges.php:200
 #: server_privileges.php:204 server_privileges.php:527
