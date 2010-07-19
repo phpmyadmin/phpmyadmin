@@ -4830,7 +4830,7 @@ msgstr "Effacer tous les privilèges de ces utilisateurs, puis les effacer."
 #: server_privileges.php:1613
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
-"Supprimer les bases de données portant le même nom que les utilisateurs"
+"Supprimer les bases de données portant le même nom que les utilisateurs."
 
 #: server_privileges.php:1629
 #, php-format
