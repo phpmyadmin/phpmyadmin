@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-19 10:04-0400\n"
-"PO-Revision-Date: 2010-07-19 19:39+0200\n"
+"PO-Revision-Date: 2010-07-19 19:40+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3539,7 +3539,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:243 server_replication.php:194
 msgid "Add slave replication user"
-msgstr "Ajouter un utilisateur pour la réplication vers l'esclave?"
+msgstr "Ajouter un utilisateur pour la réplication vers l'esclave"
 
 #: libraries/replication_gui.lib.php:257 server_privileges.php:717
 msgid "Any user"
