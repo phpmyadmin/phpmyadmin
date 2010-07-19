@@ -4017,7 +4017,7 @@ msgstr ""
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
-msgstr "Aucun fichier présent dans l'archive ZIP!"
+msgstr "Aucun fichier présent dans l'archive ZIP !"
 
 #: libraries/zip_extension.lib.php:49 libraries/zip_extension.lib.php:51
 #: libraries/zip_extension.lib.php:66
