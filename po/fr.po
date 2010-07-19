@@ -6247,7 +6247,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:23
 msgid "Key is too short, it should have at least 8 characters"
-msgstr "La clé doit avoir un minimum de 8 caractères."
+msgstr "La clé doit avoir un minimum de 8 caractères"
 
 #: setup/lib/messages.inc.php:24
 msgid ""
