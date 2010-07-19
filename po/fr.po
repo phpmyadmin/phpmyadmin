@@ -5071,7 +5071,7 @@ msgstr "Synchroniser les bases de données avec le serveur maître"
 
 #: server_replication.php:322
 msgid "Control slave:"
-msgstr "Contrôler le serveur esclave:"
+msgstr "Contrôler le serveur esclave: "
 
 #: server_replication.php:325
 msgid "Full start"
