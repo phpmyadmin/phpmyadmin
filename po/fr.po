@@ -6100,8 +6100,8 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
-"Votre connexion n'est pas sécurisée; toutes les données sont transférées non-"
-"encryptées!"
+"Votre connexion n'est pas sécurisée; toutes les données sont transférées "
+"non-encryptées !"
 
 #: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
 #: setup/lib/messages.inc.php:219
