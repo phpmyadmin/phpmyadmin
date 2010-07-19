@@ -3816,7 +3816,7 @@ msgid ""
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
 "La %sdescription des transformations%s explique les transformations "
-"possibles en fonction des types MIME."
+"possibles en fonction des types MIME"
 
 #: libraries/tbl_properties.inc.php:145
 msgid "Transformation options"
