@@ -2914,7 +2914,7 @@ msgstr "Insertions avec délais (delayed)"
 
 #: libraries/export/sql.php:116
 msgid "Use ignore inserts"
-msgstr "Ignorer les erreurs de doublons (INSERT IGNORE)"
+msgstr "Ignorer les erreurs de doublons (insert ignore)"
 
 #: libraries/export/sql.php:118
 msgid "Use hexadecimal for BLOB"
