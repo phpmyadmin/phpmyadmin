@@ -836,8 +836,8 @@ msgid ""
 msgstr ""
 "Aucune données n'a été reçu en vue de l'importation. Aucun nom de fichier "
 "n'a été fourni, ou encore la taille du fichier a dépassé la limite permise "
-"par votre configuration de PHP. Voir [a@./Documentation."
-"html#faq1_16@Documentation]FAQ 1.16[/a]"
+"par votre configuration de PHP. Voir "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:372 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
