@@ -5304,7 +5304,7 @@ msgstr "Le nombre de pages de mémoire-tampon qui ont été effacées."
 
 #: server_status.php:64
 msgid "The number of free pages."
-msgstr "Le nombre de pages libres"
+msgstr "Le nombre de pages libres."
 
 #: server_status.php:65
 msgid ""
