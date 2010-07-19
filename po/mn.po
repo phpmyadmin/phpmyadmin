@@ -3,18 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-14 11:36+0200\n"
+"POT-Creation-Date: 2010-07-19 10:04-0400\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: mongolian <mn@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:38 browse_foreigners.php:59
-#: libraries/display_tbl.lib.php:417 server_privileges.php:1514
+#: libraries/display_tbl.lib.php:417 server_privileges.php:1507
 msgid "Show all"
 msgstr "Бүгдийг харах"
 
@@ -48,7 +48,7 @@ msgstr "Хайх"
 #: libraries/Theme_Manager.class.php:311
 #: libraries/auth/cookie.auth.lib.php:290 libraries/common.lib.php:719
 #: libraries/common.lib.php:1335 libraries/common.lib.php:2288
-#: libraries/display_change_password.lib.php:82
+#: libraries/display_change_password.lib.php:73
 #: libraries/display_create_table.lib.php:63
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:532
@@ -58,9 +58,9 @@ msgstr "Хайх"
 #: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
-#: server_privileges.php:664 server_privileges.php:1624
-#: server_privileges.php:1971 server_privileges.php:2018
-#: server_privileges.php:2057 server_replication.php:235
+#: server_privileges.php:665 server_privileges.php:1617
+#: server_privileges.php:1964 server_privileges.php:2011
+#: server_privileges.php:2050 server_replication.php:235
 #: server_replication.php:318 server_replication.php:341
 #: server_synchronize.php:1209 tbl_change.php:329 tbl_change.php:1173
 #: tbl_change.php:1210 tbl_indexes.php:254 tbl_operations.php:265
@@ -119,7 +119,7 @@ msgstr "Баганын нэрс"
 #: libraries/db_structure.lib.php:60 libraries/export/htmlword.php:245
 #: libraries/export/latex.php:360 libraries/export/odt.php:297
 #: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:100
-#: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2070
+#: pdf_schema.php:1263 pdf_schema.php:1284 server_privileges.php:2063
 #: tbl_change.php:286 tbl_change.php:313 tbl_printview.php:142
 #: tbl_printview.php:312 tbl_select.php:135 tbl_structure.php:178
 #: tbl_structure.php:659 tbl_tracking.php:274 tbl_tracking.php:321
@@ -163,9 +163,9 @@ msgstr "Тайлбар"
 #: libraries/Index.class.php:386 libraries/export/htmlword.php:322
 #: libraries/export/latex.php:430 libraries/export/odt.php:368
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:263
-#: pdf_schema.php:1344 server_privileges.php:1568 server_privileges.php:1579
-#: server_privileges.php:1889 server_privileges.php:1894
-#: server_privileges.php:2187 sql.php:132 sql.php:194 tbl_printview.php:228
+#: pdf_schema.php:1344 server_privileges.php:1561 server_privileges.php:1572
+#: server_privileges.php:1882 server_privileges.php:1887
+#: server_privileges.php:2180 sql.php:132 sql.php:194 tbl_printview.php:228
 #: tbl_structure.php:350 tbl_tracking.php:337 tbl_tracking.php:342
 msgid "No"
 msgstr "Үгүй"
@@ -179,9 +179,9 @@ msgstr "Үгүй"
 #: libraries/mult_submits.inc.php:101 libraries/mult_submits.inc.php:106
 #: libraries/mult_submits.inc.php:111 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:273 pdf_schema.php:1344
-#: server_databases.php:64 server_privileges.php:1565
-#: server_privileges.php:1579 server_privileges.php:1889
-#: server_privileges.php:1892 server_privileges.php:2187 sql.php:193
+#: server_databases.php:64 server_privileges.php:1558
+#: server_privileges.php:1572 server_privileges.php:1882
+#: server_privileges.php:1885 server_privileges.php:2180 sql.php:193
 #: tbl_printview.php:228 tbl_structure.php:40 tbl_structure.php:350
 #: tbl_tracking.php:335 tbl_tracking.php:340
 msgid "Yes"
@@ -341,8 +341,8 @@ msgstr "PDF-хуудаснуудыг засах"
 
 #: db_printview.php:104 db_tracking.php:72 db_tracking.php:157
 #: libraries/db_structure.lib.php:46 libraries/export/xml.php:328
-#: libraries/header.inc.php:126 pdf_pages.php:424 server_privileges.php:1665
-#: server_privileges.php:1721 server_privileges.php:1985
+#: libraries/header.inc.php:126 pdf_pages.php:424 server_privileges.php:1658
+#: server_privileges.php:1714 server_privileges.php:1978
 #: server_synchronize.php:423 server_synchronize.php:866 tbl_tracking.php:592
 #: test/theme.php:75
 msgid "Table"
@@ -443,7 +443,7 @@ msgstr "Устгах"
 
 #: db_qbe.php:370 db_qbe.php:451 db_qbe.php:522 db_qbe.php:553
 #: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:779
-#: server_privileges.php:297 tbl_change.php:1028 tbl_indexes.php:250
+#: server_privileges.php:298 tbl_change.php:1028 tbl_indexes.php:250
 #: tbl_select.php:286
 msgid "Or"
 msgstr "Эсвэл"
@@ -573,9 +573,9 @@ msgstr "Оруулах"
 #: libraries/db_links.inc.php:63 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:33 libraries/export/latex.php:337
 #: libraries/export/odt.php:32 libraries/export/sql.php:60
-#: libraries/export/texytext.php:23 libraries/import.lib.php:1121
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1137
 #: libraries/tbl_links.inc.php:56 pmd_general.php:134
-#: server_privileges.php:593 server_replication.php:315 tbl_tracking.php:269
+#: server_privileges.php:594 server_replication.php:315 tbl_tracking.php:269
 msgid "Structure"
 msgstr "Бүтэц"
 
@@ -623,8 +623,8 @@ msgstr ""
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
@@ -650,20 +650,20 @@ msgstr "%s нь уг MySQL сервэрийн анхдагч агуулах хө
 #: db_structure.php:524 db_structure.php:541 db_structure.php:542
 #: libraries/display_tbl.lib.php:2081 libraries/display_tbl.lib.php:2086
 #: libraries/mult_submits.inc.php:16 server_databases.php:346
-#: server_databases.php:351 server_privileges.php:1596 tbl_structure.php:455
+#: server_databases.php:351 server_privileges.php:1589 tbl_structure.php:455
 #: tbl_structure.php:464
 msgid "With selected:"
 msgstr "Сонгогдсонтой:"
 
 #: db_structure.php:527 libraries/display_tbl.lib.php:2076
-#: server_databases.php:348 server_privileges.php:569
-#: server_privileges.php:1599 tbl_structure.php:458
+#: server_databases.php:348 server_privileges.php:570
+#: server_privileges.php:1592 tbl_structure.php:458
 msgid "Check All"
 msgstr "Бүгдийг чагтлах"
 
 #: db_structure.php:531 libraries/display_tbl.lib.php:2077
 #: libraries/replication_gui.lib.php:36 server_databases.php:350
-#: server_privileges.php:572 server_privileges.php:1603 tbl_structure.php:462
+#: server_privileges.php:573 server_privileges.php:1596 tbl_structure.php:462
 msgid "Uncheck All"
 msgstr "Бүх чагтыг болих"
 
@@ -701,7 +701,7 @@ msgstr "Хүснэгтийг задлах"
 #: libraries/display_export.lib.php:83 libraries/display_tbl.lib.php:2094
 #: libraries/display_tbl.lib.php:2225 libraries/mult_submits.inc.php:62
 #: libraries/server_links.inc.php:84 libraries/tbl_links.inc.php:82
-#: pmd_pdf.php:84 pmd_pdf.php:109 server_privileges.php:1380
+#: pmd_pdf.php:84 pmd_pdf.php:109 server_privileges.php:1373
 #: setup/frames/menu.inc.php:22 tbl_row_action.php:59
 msgid "Export"
 msgstr "Гаргах"
@@ -719,8 +719,8 @@ msgstr ""
 #: libraries/export/sql.php:342 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
 #: libraries/header_printview.inc.php:58 server_databases.php:169
-#: server_privileges.php:1660 server_privileges.php:1721
-#: server_privileges.php:1979 server_processlist.php:56
+#: server_privileges.php:1653 server_privileges.php:1714
+#: server_privileges.php:1972 server_processlist.php:56
 #: server_synchronize.php:1179 server_synchronize.php:1183
 #: tbl_tracking.php:591 test/theme.php:65
 msgid "Database"
@@ -740,8 +740,8 @@ msgstr ""
 
 #: db_tracking.php:77 libraries/Index.class.php:440
 #: libraries/db_structure.lib.php:53 server_databases.php:203
-#: server_privileges.php:1542 server_privileges.php:1725
-#: server_privileges.php:2073 tbl_structure.php:187
+#: server_privileges.php:1535 server_privileges.php:1718
+#: server_privileges.php:2066 tbl_structure.php:187
 msgid "Action"
 msgstr "Үйлдэл"
 
@@ -813,8 +813,8 @@ msgstr "Асгалт %s файлд хадгалагдсан."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
@@ -873,7 +873,7 @@ msgid ""
 msgstr ""
 
 #: import_status.php:31 libraries/common.lib.php:667 pdf_schema.php:241
-#: user_password.php:115
+#: user_password.php:118
 msgid "Back"
 msgstr "Өмнөх"
 
@@ -929,11 +929,11 @@ msgstr "Хостын нэр хоосон!"
 msgid "The user name is empty!"
 msgstr "Хэрэглэгчийн нэр хоосон!"
 
-#: js/messages.php:44 server_privileges.php:1236 user_password.php:70
+#: js/messages.php:44 server_privileges.php:1229 user_password.php:73
 msgid "The password is empty!"
 msgstr "Нууц үг хоосон байна!"
 
-#: js/messages.php:45 server_privileges.php:1234 user_password.php:73
+#: js/messages.php:45 server_privileges.php:1227 user_password.php:76
 msgid "The passwords aren't the same!"
 msgstr "Нууц їгнїїд ялгаатай байна!"
 
@@ -997,22 +997,32 @@ msgstr "Үндсэн түлхүүр эсвэл орь ганц түлхүүр с
 msgid "Choose column to display"
 msgstr "Харуулах талбарыг соль"
 
+#: js/messages.php:66
+#, fuzzy
+#| msgid "Generate Password"
+msgid "Generate password"
+msgstr "Нууц үг бий болгох"
+
+#: js/messages.php:67 libraries/replication_gui.lib.php:366
+msgid "Generate"
+msgstr "Бий болгох"
+
 #. l10n: Display text for calendar close link
-#: js/messages.php:73
+#: js/messages.php:77
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Байхгүй"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:75
+#: js/messages.php:79
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Өмнөх"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:77 libraries/common.lib.php:2353
+#: js/messages.php:81 libraries/common.lib.php:2353
 #: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:338
 #: server_binlog.php:205 server_binlog.php:207 tbl_printview.php:423
 #: tbl_structure.php:801
@@ -1020,96 +1030,96 @@ msgid "Next"
 msgstr "Цааш"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:79
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Нийт"
 
-#: js/messages.php:82
+#: js/messages.php:86
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr " Хоёртын "
 
-#: js/messages.php:83
+#: js/messages.php:87
 msgid "February"
 msgstr ""
 
-#: js/messages.php:84
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "3-р"
 
-#: js/messages.php:85
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "4-р"
 
-#: js/messages.php:86
+#: js/messages.php:90
 msgid "May"
 msgstr "5-р"
 
-#: js/messages.php:87
+#: js/messages.php:91
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "6-р"
 
-#: js/messages.php:88
+#: js/messages.php:92
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "7-р"
 
-#: js/messages.php:89
+#: js/messages.php:93
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "8-р"
 
-#: js/messages.php:90
+#: js/messages.php:94
 msgid "September"
 msgstr ""
 
-#: js/messages.php:91
+#: js/messages.php:95
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "10р"
 
-#: js/messages.php:92
+#: js/messages.php:96
 msgid "November"
 msgstr ""
 
-#: js/messages.php:93
+#: js/messages.php:97
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:97 libraries/common.lib.php:1557
+#: js/messages.php:101 libraries/common.lib.php:1557
 msgid "Jan"
 msgstr "1-р"
 
 #. l10n: Short month name
-#: js/messages.php:99 libraries/common.lib.php:1559
+#: js/messages.php:103 libraries/common.lib.php:1559
 msgid "Feb"
 msgstr "2-р"
 
 #. l10n: Short month name
-#: js/messages.php:101 libraries/common.lib.php:1561
+#: js/messages.php:105 libraries/common.lib.php:1561
 msgid "Mar"
 msgstr "3-р"
 
 #. l10n: Short month name
-#: js/messages.php:103 libraries/common.lib.php:1563
+#: js/messages.php:107 libraries/common.lib.php:1563
 msgid "Apr"
 msgstr "4-р"
 
 #. l10n: Short month name
-#: js/messages.php:105 libraries/common.lib.php:1565
+#: js/messages.php:109 libraries/common.lib.php:1565
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1117,176 +1127,176 @@ msgid "May"
 msgstr "5-р"
 
 #. l10n: Short month name
-#: js/messages.php:107 libraries/common.lib.php:1567
+#: js/messages.php:111 libraries/common.lib.php:1567
 msgid "Jun"
 msgstr "6-р"
 
 #. l10n: Short month name
-#: js/messages.php:109 libraries/common.lib.php:1569
+#: js/messages.php:113 libraries/common.lib.php:1569
 msgid "Jul"
 msgstr "7-р"
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/common.lib.php:1571
+#: js/messages.php:115 libraries/common.lib.php:1571
 msgid "Aug"
 msgstr "8-р"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/common.lib.php:1573
+#: js/messages.php:117 libraries/common.lib.php:1573
 msgid "Sep"
 msgstr "9-р"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1575
+#: js/messages.php:119 libraries/common.lib.php:1575
 msgid "Oct"
 msgstr "10р"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1577
+#: js/messages.php:121 libraries/common.lib.php:1577
 msgid "Nov"
 msgstr "11р"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1579
+#: js/messages.php:123 libraries/common.lib.php:1579
 msgid "Dec"
 msgstr "12р"
 
-#: js/messages.php:122
+#: js/messages.php:126
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ня"
 
-#: js/messages.php:123
+#: js/messages.php:127
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Да"
 
-#: js/messages.php:124
+#: js/messages.php:128
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Мя"
 
-#: js/messages.php:125
+#: js/messages.php:129
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:126
+#: js/messages.php:130
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:127
+#: js/messages.php:131
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Ба"
 
-#: js/messages.php:128
+#: js/messages.php:132
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:132 libraries/common.lib.php:1582
+#: js/messages.php:136 libraries/common.lib.php:1582
 msgid "Sun"
 msgstr "Ня"
 
 #. l10n: Short week day name
-#: js/messages.php:134 libraries/common.lib.php:1584
+#: js/messages.php:138 libraries/common.lib.php:1584
 msgid "Mon"
 msgstr "Да"
 
 #. l10n: Short week day name
-#: js/messages.php:136 libraries/common.lib.php:1586
+#: js/messages.php:140 libraries/common.lib.php:1586
 msgid "Tue"
 msgstr "Мя"
 
 #. l10n: Short week day name
-#: js/messages.php:138 libraries/common.lib.php:1588
+#: js/messages.php:142 libraries/common.lib.php:1588
 msgid "Wed"
 msgstr "Лх"
 
 #. l10n: Short week day name
-#: js/messages.php:140 libraries/common.lib.php:1590
+#: js/messages.php:144 libraries/common.lib.php:1590
 msgid "Thu"
 msgstr "Пү"
 
 #. l10n: Short week day name
-#: js/messages.php:142 libraries/common.lib.php:1592
+#: js/messages.php:146 libraries/common.lib.php:1592
 msgid "Fri"
 msgstr "Ба"
 
 #. l10n: Short week day name
-#: js/messages.php:144 libraries/common.lib.php:1594
+#: js/messages.php:148 libraries/common.lib.php:1594
 msgid "Sat"
 msgstr "Бя"
 
 #. l10n: Minimal week day name
-#: js/messages.php:148
+#: js/messages.php:152
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ня"
 
 #. l10n: Minimal week day name
-#: js/messages.php:150
+#: js/messages.php:154
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Да"
 
 #. l10n: Minimal week day name
-#: js/messages.php:152
+#: js/messages.php:156
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Мя"
 
 #. l10n: Minimal week day name
-#: js/messages.php:154
+#: js/messages.php:158
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Лх"
 
 #. l10n: Minimal week day name
-#: js/messages.php:156
+#: js/messages.php:160
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Пү"
 
 #. l10n: Minimal week day name
-#: js/messages.php:158
+#: js/messages.php:162
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Ба"
 
 #. l10n: Minimal week day name
-#: js/messages.php:160
+#: js/messages.php:164
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Бя"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:162
+#: js/messages.php:166
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:164
+#: js/messages.php:168
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:165
+#: js/messages.php:169
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "хэрэглэгдэж байна"
 
-#: js/messages.php:166
+#: js/messages.php:170
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1362,7 +1372,7 @@ msgstr ""
 
 #: libraries/Index.class.php:466 libraries/common.lib.php:616
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
-#: libraries/import.lib.php:1104 libraries/import.lib.php:1128
+#: libraries/import.lib.php:1120 libraries/import.lib.php:1144
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:352 tbl_row_action.php:69
 msgid "Edit"
@@ -1385,7 +1395,7 @@ msgid ""
 msgstr ""
 
 #: libraries/List_Database.class.php:431 libraries/server_links.inc.php:41
-#: server_databases.php:88 server_privileges.php:1660
+#: server_databases.php:88 server_privileges.php:1653
 #: setup/lib/messages.inc.php:110 test/theme.php:93
 msgid "Databases"
 msgstr "Өгөгдлийн сангууд"
@@ -1505,11 +1515,11 @@ msgstr "%s-д тавтай морилно уу"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Үүний шалтгаан нь магадгүй та тохиргооны файл үүсгээгүй байж болох юм. Та "
-"%1$ssetup script%2$s -ийг ашиглаж нэгийг үүсгэж болно."
+"Үүний шалтгаан нь магадгүй та тохиргооны файл үүсгээгүй байж болох юм. Та %1"
+"$ssetup script%2$s -ийг ашиглаж нэгийг үүсгэж болно."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -1907,8 +1917,8 @@ msgid "Import"
 msgstr "Оруулах"
 
 #: libraries/db_links.inc.php:111 libraries/server_links.inc.php:66
-#: server_privileges.php:111 server_privileges.php:1722
-#: server_privileges.php:2071 test/theme.php:117
+#: server_privileges.php:112 server_privileges.php:1715
+#: server_privileges.php:2064 test/theme.php:117
 msgid "Privileges"
 msgstr "Онцгой эрхүүд"
 
@@ -1949,27 +1959,27 @@ msgid "Details..."
 msgstr ""
 
 #: libraries/display_change_password.lib.php:30 main.php:91
-#: user_password.php:111 user_password.php:129
+#: user_password.php:114 user_password.php:132
 msgid "Change password"
 msgstr "Нууц үг солих"
 
 #: libraries/display_change_password.lib.php:35
-#: libraries/replication_gui.lib.php:348 server_privileges.php:807
+#: libraries/replication_gui.lib.php:348 server_privileges.php:808
 msgid "No Password"
 msgstr "Нууц үггүй"
 
 #: libraries/display_change_password.lib.php:41
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:338 libraries/replication_gui.lib.php:342
-#: libraries/replication_gui.lib.php:352 server_privileges.php:796
-#: server_privileges.php:800 server_privileges.php:811
-#: server_privileges.php:1538 server_synchronize.php:1175
+#: libraries/replication_gui.lib.php:352 server_privileges.php:797
+#: server_privileges.php:801 server_privileges.php:812
+#: server_privileges.php:1531 server_synchronize.php:1175
 msgid "Password"
 msgstr "Нууц үг"
 
 #: libraries/display_change_password.lib.php:46
 #: libraries/replication_gui.lib.php:356 libraries/replication_gui.lib.php:359
-#: server_privileges.php:815 server_privileges.php:818
+#: server_privileges.php:816 server_privileges.php:819
 msgid "Re-type"
 msgstr "Дахин бич"
 
@@ -1983,16 +1993,6 @@ msgstr "Нууц үг хувиргах"
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL&nbsp;4.0 compatible"
 
-#: libraries/display_change_password.lib.php:72
-#: libraries/replication_gui.lib.php:363 server_privileges.php:822
-msgid "Generate Password"
-msgstr "Нууц үг бий болгох"
-
-#: libraries/display_change_password.lib.php:75
-#: libraries/replication_gui.lib.php:366 server_privileges.php:825
-msgid "Generate"
-msgstr "Бий болгох"
-
 #: libraries/display_create_database.lib.php:22
 #: libraries/display_create_database.lib.php:36
 msgid "Create new database"
@@ -2002,8 +2002,8 @@ msgstr "Шинэ ӨС үүсгэх"
 msgid "Create"
 msgstr "Үүсгэх"
 
-#: libraries/display_create_database.lib.php:40 server_privileges.php:113
-#: server_privileges.php:1427 server_replication.php:35
+#: libraries/display_create_database.lib.php:40 server_privileges.php:114
+#: server_privileges.php:1420 server_replication.php:35
 msgid "No Privileges"
 msgstr "Онцгой эрхгүй"
 
@@ -2071,12 +2071,12 @@ msgstr "хүснэгтийн нэр"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 "Энэ утга нь %1$sstrftime%2$s -ийг хэрэглэж үүссэн, тиймээс та хугацааны "
-"тогтнолын тэмдэгтийг хэрэглэж болно. Нэмэлтээр дараах хувиргалт байх болно: "
-"%3$s. Бусад бичвэрүүд үүн шиг хадгалагдана."
+"тогтнолын тэмдэгтийг хэрэглэж болно. Нэмэлтээр дараах хувиргалт байх болно: %"
+"3$s. Бусад бичвэрүүд үүн шиг хадгалагдана."
 
 #: libraries/display_export.lib.php:202
 msgid "remember template"
@@ -2094,7 +2094,7 @@ msgstr "Шахалт"
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:196
 #: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:530
 #: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
-#: server_privileges.php:1875 server_processlist.php:75
+#: server_privileges.php:1868 server_processlist.php:75
 msgid "None"
 msgstr "Байхгүй"
 
@@ -2276,8 +2276,8 @@ msgstr "Түлхүүрээр эрэмбэлэх"
 #: libraries/export/php_array.php:25 libraries/export/sql.php:34
 #: libraries/export/texytext.php:37 libraries/export/xls.php:27
 #: libraries/export/xlsx.php:27 libraries/export/xml.php:24
-#: libraries/export/yaml.php:28 libraries/import.lib.php:1099
-#: libraries/import.lib.php:1121 libraries/import/csv.php:32
+#: libraries/export/yaml.php:28 libraries/import.lib.php:1115
+#: libraries/import.lib.php:1137 libraries/import/csv.php:32
 #: libraries/import/docsql.php:34 libraries/import/ldi.php:47
 #: libraries/import/ods.php:30 libraries/import/sql.php:20
 #: libraries/import/xls.php:26 libraries/import/xlsx.php:26
@@ -2758,7 +2758,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
 #: libraries/export/sql.php:106 libraries/export/sql.php:868
 #: libraries/export/texytext.php:27 server_databases.php:127
-#: server_privileges.php:576 server_replication.php:316 tbl_printview.php:316
+#: server_privileges.php:577 server_replication.php:316 tbl_printview.php:316
 #: tbl_structure.php:665
 msgid "Data"
 msgstr "Өгөгдөл"
@@ -2808,9 +2808,9 @@ msgstr "MIME-төрөл"
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
 #: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
-#: libraries/replication_gui.lib.php:332 server_privileges.php:731
-#: server_privileges.php:734 server_privileges.php:790
-#: server_privileges.php:1537 server_privileges.php:2069
+#: libraries/replication_gui.lib.php:332 server_privileges.php:732
+#: server_privileges.php:735 server_privileges.php:791
+#: server_privileges.php:1530 server_privileges.php:2062
 #: server_processlist.php:55 server_synchronize.php:1159
 msgid "Host"
 msgstr "Хост"
@@ -3022,41 +3022,41 @@ msgstr "Үүсгэгч"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL хоосон үр дүн буцаалаа (тэг мөрүүд г.м.)."
 
-#: libraries/import.lib.php:1095
+#: libraries/import.lib.php:1111
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1096
+#: libraries/import.lib.php:1112
 msgid "View a structure`s contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1097
+#: libraries/import.lib.php:1113
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1098
+#: libraries/import.lib.php:1114
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1101
+#: libraries/import.lib.php:1117
 msgid "Go to database"
 msgstr ""
 
-#: libraries/import.lib.php:1104 libraries/import.lib.php:1128
+#: libraries/import.lib.php:1120 libraries/import.lib.php:1144
 msgid "settings"
 msgstr ""
 
-#: libraries/import.lib.php:1123
+#: libraries/import.lib.php:1139
 msgid "Go to table"
 msgstr ""
 
-#: libraries/import.lib.php:1126
+#: libraries/import.lib.php:1142
 msgid "structure"
 msgstr ""
 
-#: libraries/import.lib.php:1132
+#: libraries/import.lib.php:1148
 msgid "Go to view"
 msgstr ""
 
@@ -3478,8 +3478,8 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:252 libraries/replication_gui.lib.php:255
-#: libraries/replication_gui.lib.php:262 server_privileges.php:711
-#: server_privileges.php:714 server_privileges.php:721
+#: libraries/replication_gui.lib.php:262 server_privileges.php:712
+#: server_privileges.php:715 server_privileges.php:722
 #: server_synchronize.php:1171
 msgid "User name"
 msgstr "Хэрэглэгчийн нэр"
@@ -3521,58 +3521,62 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:257 server_privileges.php:716
+#: libraries/replication_gui.lib.php:257 server_privileges.php:717
 msgid "Any user"
 msgstr "Дурын хэрэглэгч"
 
 #: libraries/replication_gui.lib.php:258 libraries/replication_gui.lib.php:326
-#: libraries/replication_gui.lib.php:349 server_privileges.php:717
-#: server_privileges.php:784 server_privileges.php:808
-#: server_privileges.php:1928 server_privileges.php:1958
+#: libraries/replication_gui.lib.php:349 server_privileges.php:718
+#: server_privileges.php:785 server_privileges.php:809
+#: server_privileges.php:1921 server_privileges.php:1951
 msgid "Use text field"
 msgstr "Бичвэр талбар хэрэглэх"
 
-#: libraries/replication_gui.lib.php:305 server_privileges.php:764
+#: libraries/replication_gui.lib.php:305 server_privileges.php:765
 msgid "Any host"
 msgstr "Дурын хост"
 
-#: libraries/replication_gui.lib.php:309 server_privileges.php:768
+#: libraries/replication_gui.lib.php:309 server_privileges.php:769
 msgid "Local"
 msgstr "Local"
 
-#: libraries/replication_gui.lib.php:315 server_privileges.php:773
+#: libraries/replication_gui.lib.php:315 server_privileges.php:774
 msgid "This Host"
 msgstr "Энэ хост"
 
-#: libraries/replication_gui.lib.php:321 server_privileges.php:779
+#: libraries/replication_gui.lib.php:321 server_privileges.php:780
 msgid "Use Host Table"
 msgstr "Хост хүснэгт хэрэглэх"
 
-#: libraries/replication_gui.lib.php:334 server_privileges.php:792
+#: libraries/replication_gui.lib.php:334 server_privileges.php:793
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
+#: libraries/replication_gui.lib.php:363
+msgid "Generate Password"
+msgstr "Нууц үг бий болгох"
+
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:491
+#: libraries/select_lang.lib.php:493
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:495
 msgid "Content of table __TABLE__"
 msgstr "__TABLE__ хүснэгтийн агуулга"
 
-#: libraries/select_lang.lib.php:494
+#: libraries/select_lang.lib.php:496
 msgid "(continued)"
 msgstr "(үргэлжилнэ)"
 
-#: libraries/select_lang.lib.php:495
+#: libraries/select_lang.lib.php:497
 msgid "Structure of table __TABLE__"
 msgstr "__TABLE__ хүснэгтийн бүтэц"
 
-#: libraries/select_lang.lib.php:500 libraries/select_lang.lib.php:506
-#: libraries/select_lang.lib.php:512
+#: libraries/select_lang.lib.php:502 libraries/select_lang.lib.php:508
+#: libraries/select_lang.lib.php:514
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Үл мэдэгдэх хэл: %1$s."
@@ -4049,8 +4053,8 @@ msgstr "Да.эхлэх"
 msgid "Protocol version"
 msgstr "Протоколын хувилбар"
 
-#: main.php:189 server_privileges.php:1389 server_privileges.php:1536
-#: server_privileges.php:1650 server_privileges.php:2068
+#: main.php:189 server_privileges.php:1382 server_privileges.php:1529
+#: server_privileges.php:1643 server_privileges.php:2061
 #: server_processlist.php:54
 msgid "User"
 msgstr "Хэрэглэгч"
@@ -4484,113 +4488,113 @@ msgstr "Агуулах хөдөлгүүрүүд"
 msgid "View dump (schema) of databases"
 msgstr "ӨС-ийн схем харах"
 
-#: server_privileges.php:24 server_privileges.php:266
+#: server_privileges.php:25 server_privileges.php:267
 msgid "Includes all privileges except GRANT."
 msgstr "Includes all privileges except GRANT."
 
-#: server_privileges.php:25 server_privileges.php:192
-#: server_privileges.php:515
+#: server_privileges.php:26 server_privileges.php:193
+#: server_privileges.php:516
 msgid "Allows altering the structure of existing tables."
 msgstr "Байгаа хүснэгтийн бүтцийг өөрчлөхийг зөвшөөрөх."
 
-#: server_privileges.php:26 server_privileges.php:208
-#: server_privileges.php:521
+#: server_privileges.php:27 server_privileges.php:209
+#: server_privileges.php:522
 msgid "Allows altering and dropping stored routines."
 msgstr "Хадгалагдсан заншил устгах, өөрчлөхийг зөвшөөрөх."
 
-#: server_privileges.php:27 server_privileges.php:184
-#: server_privileges.php:514
+#: server_privileges.php:28 server_privileges.php:185
+#: server_privileges.php:515
 msgid "Allows creating new databases and tables."
 msgstr "Шинэ өгөгдлийн сан, хүснэгт үүсгэхийг зөвшөөрөх."
 
-#: server_privileges.php:28 server_privileges.php:207
-#: server_privileges.php:520
+#: server_privileges.php:29 server_privileges.php:208
+#: server_privileges.php:521
 msgid "Allows creating stored routines."
 msgstr "Хадгалагдсан заншил үүсгэхийг зөвшөөрөх."
 
-#: server_privileges.php:29 server_privileges.php:514
+#: server_privileges.php:30 server_privileges.php:515
 msgid "Allows creating new tables."
 msgstr "Шинэ хүснэгт үүсгэхийг зөвшөөрөх."
 
-#: server_privileges.php:30 server_privileges.php:195
-#: server_privileges.php:518
+#: server_privileges.php:31 server_privileges.php:196
+#: server_privileges.php:519
 msgid "Allows creating temporary tables."
 msgstr "Завсрын хүснэгт үүсгэхийг зөвшөөрөх."
 
-#: server_privileges.php:31 server_privileges.php:209
-#: server_privileges.php:554
+#: server_privileges.php:32 server_privileges.php:210
+#: server_privileges.php:555
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Хэрэглэгчийн эрхийг үүсгэх, устгах, да.нэрлэхийг зөвшөөрөх."
 
-#: server_privileges.php:32 server_privileges.php:199
-#: server_privileges.php:203 server_privileges.php:526
-#: server_privileges.php:530
+#: server_privileges.php:33 server_privileges.php:200
+#: server_privileges.php:204 server_privileges.php:527
+#: server_privileges.php:531
 msgid "Allows creating new views."
 msgstr "Шинэ харц үүсгэхийг зөвшөөрөх."
 
-#: server_privileges.php:33 server_privileges.php:183
-#: server_privileges.php:506
+#: server_privileges.php:34 server_privileges.php:184
+#: server_privileges.php:507
 msgid "Allows deleting data."
 msgstr "Өгөгдөл устгахыг зөвшөөрөх."
 
-#: server_privileges.php:34 server_privileges.php:185
-#: server_privileges.php:517
+#: server_privileges.php:35 server_privileges.php:186
+#: server_privileges.php:518
 msgid "Allows dropping databases and tables."
 msgstr "ӨС, хүснэгт устгахыг зөвшөөрөх "
 
-#: server_privileges.php:35 server_privileges.php:517
+#: server_privileges.php:36 server_privileges.php:518
 msgid "Allows dropping tables."
 msgstr "Хүснэгт устгахыг зөвшөөрөх."
 
-#: server_privileges.php:36 server_privileges.php:200
-#: server_privileges.php:534
+#: server_privileges.php:37 server_privileges.php:201
+#: server_privileges.php:535
 msgid "Allows to set up events for the event scheduler"
 msgstr ""
 
-#: server_privileges.php:37 server_privileges.php:210
-#: server_privileges.php:522
+#: server_privileges.php:38 server_privileges.php:211
+#: server_privileges.php:523
 msgid "Allows executing stored routines."
 msgstr "Хадгалагдсан заншлыг ажиллуулахыг зөвшөөрөх."
 
-#: server_privileges.php:38 server_privileges.php:189
-#: server_privileges.php:509
+#: server_privileges.php:39 server_privileges.php:190
+#: server_privileges.php:510
 msgid "Allows importing data from and exporting data into files."
 msgstr "Өгөгдөл оруулах, файл руу гаргахыг зөвшөөрөх."
 
-#: server_privileges.php:39 server_privileges.php:540
+#: server_privileges.php:40 server_privileges.php:541
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Хэрэглэгч болон онцгой эрхийг онцгой эрхийн хүснэгтийг дуудалгүй нэмэхийг "
 "зөвшөөрөх."
 
-#: server_privileges.php:40 server_privileges.php:191
-#: server_privileges.php:516
+#: server_privileges.php:41 server_privileges.php:192
+#: server_privileges.php:517
 msgid "Allows creating and dropping indexes."
 msgstr "Индекс үүсгэх, устгахыг зөвшөөрөх."
 
-#: server_privileges.php:41 server_privileges.php:181
-#: server_privileges.php:442 server_privileges.php:504
+#: server_privileges.php:42 server_privileges.php:182
+#: server_privileges.php:443 server_privileges.php:505
 msgid "Allows inserting and replacing data."
 msgstr "Өгөгдөл нэмэх, солихыг зөвшөөрөх."
 
-#: server_privileges.php:42 server_privileges.php:196
-#: server_privileges.php:549
+#: server_privileges.php:43 server_privileges.php:197
+#: server_privileges.php:550
 msgid "Allows locking tables for the current thread."
 msgstr "Тухайн процесст хүснэгт түгжихийг зөвшөөрөх."
 
-#: server_privileges.php:43 server_privileges.php:646
-#: server_privileges.php:648
+#: server_privileges.php:44 server_privileges.php:647
+#: server_privileges.php:649
 msgid "Limits the number of new connections the user may open per hour."
 msgstr "Цаг тутамд шинээр холбогдох хэрэглэгчийн тоог хязгаарлах."
 
-#: server_privileges.php:44 server_privileges.php:634
-#: server_privileges.php:636
+#: server_privileges.php:45 server_privileges.php:635
+#: server_privileges.php:637
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr "Цаг тутамд хэрэглэгчийн асуулт (query) илгээхийг хязгаарлах."
 
-#: server_privileges.php:45 server_privileges.php:640
-#: server_privileges.php:642
+#: server_privileges.php:46 server_privileges.php:641
+#: server_privileges.php:643
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -4598,58 +4602,58 @@ msgstr ""
 "Цаг тутамд хэрэглэгчийн хүснэгт эсвэл өгөгдлийн сан солих командыг "
 "хязгаарлах."
 
-#: server_privileges.php:46 server_privileges.php:652
-#: server_privileges.php:654
+#: server_privileges.php:47 server_privileges.php:653
+#: server_privileges.php:655
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Хэрэглэгчдэд байх зэрэг холболтын хязгаарлах тоо."
 
-#: server_privileges.php:47 server_privileges.php:188
-#: server_privileges.php:544
+#: server_privileges.php:48 server_privileges.php:189
+#: server_privileges.php:545
 msgid "Allows viewing processes of all users"
 msgstr ""
 
-#: server_privileges.php:48 server_privileges.php:190
-#: server_privileges.php:448 server_privileges.php:550
+#: server_privileges.php:49 server_privileges.php:191
+#: server_privileges.php:449 server_privileges.php:551
 msgid "Has no effect in this MySQL version."
 msgstr "MySQL-ын энэ хувилбарт үйлчлэлгүй."
 
-#: server_privileges.php:49 server_privileges.php:186
-#: server_privileges.php:545
+#: server_privileges.php:50 server_privileges.php:187
+#: server_privileges.php:546
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Сервэрийн тохиргоог дахин дуудахыг зөвшөөрөх."
 
-#: server_privileges.php:50 server_privileges.php:198
-#: server_privileges.php:552
+#: server_privileges.php:51 server_privileges.php:199
+#: server_privileges.php:553
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Gives the right to the user to ask where the slaves / masters are."
 
-#: server_privileges.php:51 server_privileges.php:197
-#: server_privileges.php:553
+#: server_privileges.php:52 server_privileges.php:198
+#: server_privileges.php:554
 msgid "Needed for the replication slaves."
 msgstr "Needed for the replication slaves."
 
-#: server_privileges.php:52 server_privileges.php:180
-#: server_privileges.php:439 server_privileges.php:503
+#: server_privileges.php:53 server_privileges.php:181
+#: server_privileges.php:440 server_privileges.php:504
 msgid "Allows reading data."
 msgstr "Өгөгдөл уншихыг зөвшөөрөх."
 
-#: server_privileges.php:53 server_privileges.php:193
-#: server_privileges.php:547
+#: server_privileges.php:54 server_privileges.php:194
+#: server_privileges.php:548
 msgid "Gives access to the complete list of databases."
 msgstr "Өгөгдлийн сангийн бүрэн жагсаалт руу хандахыг өгөх."
 
-#: server_privileges.php:54 server_privileges.php:204
-#: server_privileges.php:206 server_privileges.php:519
+#: server_privileges.php:55 server_privileges.php:205
+#: server_privileges.php:207 server_privileges.php:520
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "SHOW CREATE VIEW асуултыг хийхийг зөвшөөрөх."
 
-#: server_privileges.php:55 server_privileges.php:187
-#: server_privileges.php:546
+#: server_privileges.php:56 server_privileges.php:188
+#: server_privileges.php:547
 msgid "Allows shutting down the server."
 msgstr "Сервэрийг унтраахыг зөвшөөрөх."
 
-#: server_privileges.php:56 server_privileges.php:194
-#: server_privileges.php:543
+#: server_privileges.php:57 server_privileges.php:195
+#: server_privileges.php:544
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -4658,212 +4662,212 @@ msgstr ""
 "Хэрэв ХИ холболтын тоо гүйцсэн ч холбогдохыг зөвшөөрөх. Бусад хэрэглэгчийн "
 "процессыг үгүй хийх эсвэл глобал утгыг өөрчлөх шаардлагатай болно."
 
-#: server_privileges.php:57 server_privileges.php:201
-#: server_privileges.php:535
+#: server_privileges.php:58 server_privileges.php:202
+#: server_privileges.php:536
 msgid "Allows creating and dropping triggers"
 msgstr ""
 
-#: server_privileges.php:58 server_privileges.php:182
-#: server_privileges.php:445 server_privileges.php:505
+#: server_privileges.php:59 server_privileges.php:183
+#: server_privileges.php:446 server_privileges.php:506
 msgid "Allows changing data."
 msgstr "Өгөгдөл солихыг зөвшөөрөх."
 
-#: server_privileges.php:59 server_privileges.php:260
+#: server_privileges.php:60 server_privileges.php:261
 msgid "No privileges."
 msgstr "Онцгой эрхгүй."
 
-#: server_privileges.php:302 server_privileges.php:303
+#: server_privileges.php:303 server_privileges.php:304
 #, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Байхгүй"
 
-#: server_privileges.php:431 server_privileges.php:566
-#: server_privileges.php:1718 server_privileges.php:1724
+#: server_privileges.php:432 server_privileges.php:567
+#: server_privileges.php:1711 server_privileges.php:1717
 msgid "Table-specific privileges"
 msgstr " Хүснэгтийн тусгай онцгой эрхүүд"
 
-#: server_privileges.php:432 server_privileges.php:574
-#: server_privileges.php:1540
+#: server_privileges.php:433 server_privileges.php:575
+#: server_privileges.php:1533
 msgid " Note: MySQL privilege names are expressed in English "
 msgstr " Тэмдэглэл: MySQL онцгой эрхийн нэр нь англиар илэрхийлэгдсэн "
 
-#: server_privileges.php:563 server_privileges.php:1539
+#: server_privileges.php:564 server_privileges.php:1532
 msgid "Global privileges"
 msgstr "Глобал онцгой эрх"
 
-#: server_privileges.php:565 server_privileges.php:1718
+#: server_privileges.php:566 server_privileges.php:1711
 msgid "Database-specific privileges"
 msgstr " Онцгой эрх, өгөгдлийн сангийн эрх"
 
-#: server_privileges.php:610
+#: server_privileges.php:611
 msgid "Administration"
 msgstr "Зохион байгуулалт"
 
-#: server_privileges.php:630
+#: server_privileges.php:631
 msgid "Resource limits"
 msgstr "Нөөцийн хязгаар"
 
-#: server_privileges.php:631
+#: server_privileges.php:632
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Тэмдэглэл: Тохируулгын сонголтыг  0 (тэг) болговол хязгаарыг хасна."
 
-#: server_privileges.php:708
+#: server_privileges.php:709
 msgid "Login Information"
 msgstr "Нэвтрэх мэдээлэл"
 
-#: server_privileges.php:802
+#: server_privileges.php:803
 msgid "Do not change the password"
 msgstr "Нууц үгийг солихгүй"
 
-#: server_privileges.php:843 server_privileges.php:2205
+#: server_privileges.php:836 server_privileges.php:2198
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Хэрэглэгч олдсонгүй."
 
-#: server_privileges.php:887
+#: server_privileges.php:880
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Хэрэглэгч %s оршин байна!"
 
-#: server_privileges.php:970
+#: server_privileges.php:963
 msgid "You have added a new user."
 msgstr "Шинэ хэрэглэгч нэмэгдлээ."
 
-#: server_privileges.php:1191
+#: server_privileges.php:1184
 #, fuzzy, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Онцгой эрх шинэчлэгдлээ"
 
-#: server_privileges.php:1215
+#: server_privileges.php:1208
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Онцгой эрх %s -ыг хүчингүй болголоо"
 
-#: server_privileges.php:1251
+#: server_privileges.php:1244
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s-ы нууц үг солигдлоо."
 
-#: server_privileges.php:1271
+#: server_privileges.php:1264
 #, php-format
 msgid "Deleting %s"
 msgstr "%s-г устгаж байна"
 
-#: server_privileges.php:1282
+#: server_privileges.php:1275
 msgid "No users selected for deleting!"
 msgstr "Устгахаар хэрэглэгч сонгогдсонгүй!"
 
-#: server_privileges.php:1285
+#: server_privileges.php:1278
 msgid "Reloading the privileges"
 msgstr "Онцгой эрхийг дахин дуудаж байна"
 
-#: server_privileges.php:1300
+#: server_privileges.php:1293
 msgid "The selected users have been deleted successfully."
 msgstr "Сонгогдсон хэрэглэгч устгагдлаа."
 
-#: server_privileges.php:1335
+#: server_privileges.php:1328
 msgid "The privileges were reloaded successfully."
 msgstr "Онцгой эрхүүд дахин дуудагдлаа."
 
-#: server_privileges.php:1363 server_privileges.php:1649
+#: server_privileges.php:1356 server_privileges.php:1642
 msgid "Edit Privileges"
 msgstr "Онцгой эрхүүдийг засах"
 
-#: server_privileges.php:1372
+#: server_privileges.php:1365
 msgid "Revoke"
 msgstr "Хүчингүй"
 
-#: server_privileges.php:1404
+#: server_privileges.php:1397
 msgid "User overview"
 msgstr "User overview"
 
-#: server_privileges.php:1541 server_privileges.php:1723
-#: server_privileges.php:2072
+#: server_privileges.php:1534 server_privileges.php:1716
+#: server_privileges.php:2065
 msgid "Grant"
 msgstr "Хандив"
 
-#: server_privileges.php:1560 server_privileges.php:2162
+#: server_privileges.php:1553 server_privileges.php:2155
 msgid "Any"
 msgstr "Дурын"
 
-#: server_privileges.php:1609 server_privileges.php:1633
-#: server_privileges.php:2027 server_privileges.php:2216
+#: server_privileges.php:1602 server_privileges.php:1626
+#: server_privileges.php:2020 server_privileges.php:2209
 msgid "Add a new User"
 msgstr "Шинэ хэрэглэгч нэмэх"
 
-#: server_privileges.php:1614
+#: server_privileges.php:1607
 msgid "Remove selected users"
 msgstr "Сонгогдсон хэрэглэгчдийг хасах"
 
-#: server_privileges.php:1617
+#: server_privileges.php:1610
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Устгахын төгсгөлд нь хэрэглэгчдээс идэвхтэй бүх онцгой эрхийг хүчингүй "
 "болгох."
 
-#: server_privileges.php:1618 server_privileges.php:1619
-#: server_privileges.php:1620
+#: server_privileges.php:1611 server_privileges.php:1612
+#: server_privileges.php:1613
 msgid "Drop the databases that have the same names as the users."
 msgstr "Хэрэглэгчтэй адил нэртэй өгөгдлийн санг устгах."
 
-#: server_privileges.php:1636
+#: server_privileges.php:1629
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Тэмдэглэл: phpMyAdmin нь MySQL-ийн онцгой эрхийн хүснэгтээс хэрэглэгчдийн "
 "онцгой эрхийг авна. Хэрэв тэд гараар өөрчлөгдсөн бол эдгээр хүснэгтийн "
 "агуулга нь сервэрт хэрэглэгдэж буйгаас өөр байна. Энэ тохиолдолд %sдахин "
 "дуудаж%s үргэлжлүүлнэ үү."
 
-#: server_privileges.php:1684
+#: server_privileges.php:1677
 msgid "The selected user was not found in the privilege table."
 msgstr "Сонгогдсон хэрэглэгч онцгой эрхийн хүснэгтэд алга байна."
 
-#: server_privileges.php:1724
+#: server_privileges.php:1717
 msgid "Column-specific privileges"
 msgstr "Онцгой эрх, баганын эрх"
 
-#: server_privileges.php:1925
+#: server_privileges.php:1918
 msgid "Add privileges on the following database"
 msgstr "Дараах өгөгдлийн санд онцгой эрх нэмэх"
 
-#: server_privileges.php:1943
+#: server_privileges.php:1936
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 
-#: server_privileges.php:1946
+#: server_privileges.php:1939
 msgid "Add privileges on the following table"
 msgstr "Дараах хүснэгтэд онцгой эрх нэмэх"
 
-#: server_privileges.php:2003
+#: server_privileges.php:1996
 msgid "Change Login Information / Copy User"
 msgstr "Нэвтрэх мэдээллийг солих/ Хэрэглэгч хуулах"
 
-#: server_privileges.php:2006
+#: server_privileges.php:1999
 msgid "Create a new user with the same privileges and ..."
 msgstr "Адил онцгой эрхтэй хэрэглэгч үүсгэх ба ..."
 
-#: server_privileges.php:2008
+#: server_privileges.php:2001
 msgid "... keep the old one."
 msgstr "... хуучныг үлдээх."
 
-#: server_privileges.php:2009
+#: server_privileges.php:2002
 msgid " ... delete the old one from the user tables."
 msgstr " ... хэрэглэгчийн хүснэгтүүдээс устгах."
 
-#: server_privileges.php:2010
+#: server_privileges.php:2003
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
 msgstr " ... хуучнаас бүх онцгой эрхийг хүчингүй болгоод дараа нь устга."
 
-#: server_privileges.php:2011
+#: server_privileges.php:2004
 msgid ""
 " ... delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -4871,44 +4875,44 @@ msgstr ""
 " ... хэрэглэгчийн хүснэгтүүдээс нэгийг устгаад дараа нь онцгой эрхийг дахин "
 "дууд."
 
-#: server_privileges.php:2033
+#: server_privileges.php:2026
 msgid "Database for user"
 msgstr "Хэрэглэгчийн өгөгдлийн сан"
 
-#: server_privileges.php:2037
+#: server_privileges.php:2030
 #, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "Байхгүй"
 
-#: server_privileges.php:2038
+#: server_privileges.php:2031
 msgid "Create database with same name and grant all privileges"
 msgstr ""
 
-#: server_privileges.php:2039
+#: server_privileges.php:2032
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
-#: server_privileges.php:2042
+#: server_privileges.php:2035
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr ""
 
-#: server_privileges.php:2065
+#: server_privileges.php:2058
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Хэрэглэгчдийн хандсан нь &quot;%s&quot;"
 
-#: server_privileges.php:2173
+#: server_privileges.php:2166
 msgid "global"
 msgstr "global"
 
-#: server_privileges.php:2175
+#: server_privileges.php:2168
 msgid "database-specific"
 msgstr "Өгөгдлийн сангийн эрх"
 
-#: server_privileges.php:2177
+#: server_privileges.php:2170
 msgid "wildcard"
 msgstr "загвар"
 
@@ -8125,11 +8129,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Тайлбар"
 
-#: user_password.php:54
+#: user_password.php:57
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Танд хангалттай эрх байхгүй!"
 
-#: user_password.php:112
+#: user_password.php:115
 msgid "The profile has been updated."
 msgstr "Профиль шинэчлэгдлээ."
 
