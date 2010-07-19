@@ -4729,7 +4729,7 @@ msgstr "Administration"
 
 #: server_privileges.php:631
 msgid "Resource limits"
-msgstr "Limites de ressources."
+msgstr "Limites de ressources"
 
 #: server_privileges.php:632
 msgid "Note: Setting these options to 0 (zero) removes the limit."
