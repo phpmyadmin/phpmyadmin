@@ -935,7 +935,7 @@ msgstr "Ce n'est pas un nombre !"
 
 #: js/messages.php:42
 msgid "The host name is empty!"
-msgstr "Le nom de serveur est vide"
+msgstr "Le nom de serveur est vide !"
 
 #: js/messages.php:43
 msgid "The user name is empty!"
