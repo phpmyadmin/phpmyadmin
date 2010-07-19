@@ -3043,8 +3043,7 @@ msgstr "Consulter le contenu d'une structure en cliquant sur son nom"
 #: libraries/import.lib.php:1113
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr ""
-"Modifiez l'un des réglages en cliquant le lien  «Options » correspondant"
+msgstr "Modifiez l'un des réglages en cliquant le lien «Options» correspondant"
 
 #: libraries/import.lib.php:1114
 msgid "Edit its structure by following the \"Structure\" link"
