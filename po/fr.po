@@ -7025,7 +7025,7 @@ msgstr "Nombre maximum d'enregistrements à afficher"
 
 #: setup/lib/messages.inc.php:206
 msgid "Maximum number of tables displayed in table list"
-msgstr "...affichées dans la liste des tables"
+msgstr "Nombre maximum de tables affichées dans la liste des tables"
 
 #: setup/lib/messages.inc.php:207
 msgid "Maximum tables"
