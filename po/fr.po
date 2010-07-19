@@ -1607,7 +1607,8 @@ msgid ""
 msgstr ""
 "Erreur lors du chargement de l'extension iconv ou recode, utilisée pour "
 "convertir le jeu de caractères. Veuillez activer l'une de ces extensions "
-"dans PHP, ou désactiver la conversion des jeux de caractères dans phpMyAdmin"
+"dans PHP, ou désactiver la conversion des jeux de caractères dans "
+"phpMyAdmin."
 
 #: libraries/charset_conversion.lib.php:79
 #: libraries/charset_conversion.lib.php:90
