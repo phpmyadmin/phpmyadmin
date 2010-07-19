@@ -5251,7 +5251,7 @@ msgid ""
 "method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
 "Le nombre de requêtes de lecture de l'enregistrement précédent, en ordre de "
-"clé. Utilisé surtout pour optimiser ORDER BY ... DESC"
+"clé. Utilisé surtout pour optimiser ORDER BY ... DESC."
 
 #: server_status.php:56
 msgid ""
