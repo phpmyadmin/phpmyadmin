@@ -2247,7 +2247,7 @@ msgstr "en mode %s et répéter les en-têtes à chaque groupe de %s"
 
 #: libraries/display_tbl.lib.php:346
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Cette opération pourrait être longue. Procéder quand même?"
+msgstr "Cette opération pourrait être longue. Procéder quand même ?"
 
 #: libraries/display_tbl.lib.php:512
 msgid "Sort by key"
