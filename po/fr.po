@@ -4754,7 +4754,7 @@ msgstr "L'utilisateur %s existe déjà !"
 
 #: server_privileges.php:963
 msgid "You have added a new user."
-msgstr "Vous avez ajouté un utilisateur"
+msgstr "Vous avez ajouté un utilisateur."
 
 #: server_privileges.php:1184
 #, php-format
