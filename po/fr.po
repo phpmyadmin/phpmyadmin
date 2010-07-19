@@ -4103,7 +4103,7 @@ msgid ""
 msgstr ""
 "Vous avez activé mbstring.func_overload dans votre configuration PHP. Cette "
 "option est incompatible avec phpMyAdmin et peut nuire au traitement des "
-"données!"
+"données !"
 
 #: main.php:282
 msgid ""
