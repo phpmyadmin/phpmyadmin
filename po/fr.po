@@ -3128,7 +3128,7 @@ msgstr "Utiliser l'option LOCAL"
 
 #: libraries/import/ldi.php:55
 msgid "This plugin does not support compressed imports!"
-msgstr "Ce greffon ne supporte pas les importations en format comprimé!"
+msgstr "Ce greffon ne supporte pas les importations en format comprimé !"
 
 #: libraries/import/ods.php:26
 msgid "Do not import empty rows"
