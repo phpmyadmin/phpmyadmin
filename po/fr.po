@@ -5105,7 +5105,7 @@ msgstr "%s seulement le fil d'exécution des entrées-sorties"
 
 #: server_replication.php:332
 msgid "Error management:"
-msgstr "Gestion des erreurs"
+msgstr "Gestion des erreurs : "
 
 #: server_replication.php:334
 msgid "Skipping errors might lead into unsynchronized master and slave!"
