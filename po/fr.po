@@ -4563,7 +4563,7 @@ msgstr ""
 #: server_privileges.php:38 server_privileges.php:211
 #: server_privileges.php:523
 msgid "Allows executing stored routines."
-msgstr "Permission d'exécuter des procédures stockées"
+msgstr "Permission d'exécuter des procédures stockées."
 
 #: server_privileges.php:39 server_privileges.php:190
 #: server_privileges.php:510
