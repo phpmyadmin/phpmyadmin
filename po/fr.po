@@ -2374,7 +2374,7 @@ msgstr "Fichiers de données"
 
 #: libraries/engines/innodb.lib.php:37
 msgid "Autoextend increment"
-msgstr "Auto-croissant: Taille de l'incrément"
+msgstr "Auto-croissant: taille de l'incrément"
 
 #: libraries/engines/innodb.lib.php:38
 msgid ""
