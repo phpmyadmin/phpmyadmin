@@ -955,7 +955,7 @@ msgstr "Annuler"
 
 #: js/messages.php:52 pmd_save_pos.php:54
 msgid "Modifications have been saved"
-msgstr "Les modifications ont été sauvegardées."
+msgstr "Les modifications ont été sauvegardées"
 
 #: js/messages.php:53 pmd_relation_upd.php:49
 msgid "Relation deleted"
