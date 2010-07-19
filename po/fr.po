@@ -2007,7 +2007,7 @@ msgstr "Nombre de colonnes"
 
 #: libraries/display_export.lib.php:42
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Erreur lors du chargement des modules d'exportation!"
+msgstr "Erreur lors du chargement des modules d'exportation !"
 
 #: libraries/display_export.lib.php:107
 #, php-format
