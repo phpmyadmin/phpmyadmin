@@ -4698,7 +4698,7 @@ msgstr "Permission de changer des données."
 
 #: server_privileges.php:60 server_privileges.php:261
 msgid "No privileges."
-msgstr "Pas de privilèges"
+msgstr "Pas de privilèges."
 
 #: server_privileges.php:303 server_privileges.php:304
 msgctxt "None privileges"
