@@ -1454,7 +1454,7 @@ msgstr "utiliser celui-ci"
 #: libraries/Theme_Manager.class.php:115
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "Thème par défaut %s inexistant!"
+msgstr "Thème par défaut %s inexistant !"
 
 #: libraries/Theme_Manager.class.php:153
 #, php-format
