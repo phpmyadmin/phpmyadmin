@@ -912,7 +912,7 @@ msgstr "Voulez-vous vraiment effectuer "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:258 sql.php:172
 msgid "You are about to DESTROY a complete database!"
-msgstr "Vous êtes sur le point de DÉTRUIRE une base de données!"
+msgstr "Vous êtes sur le point de DÉTRUIRE une base de données !"
 
 #: js/messages.php:34
 msgid "You are about to DISABLE a BLOB Repository!"
