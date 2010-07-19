@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-19 10:04-0400\n"
-"PO-Revision-Date: 2010-07-19 18:40+0200\n"
+"PO-Revision-Date: 2010-07-19 18:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2136,7 +2136,7 @@ msgstr "Le répertoire de transfert est inaccessible"
 #: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:536
 #: tbl_change.php:1028
 msgid "web server upload directory"
-msgstr "répertoire de transfert du serveur Web"
+msgstr "répertoire de transfert du serveur web"
 
 #: libraries/display_import.lib.php:211
 #, php-format
