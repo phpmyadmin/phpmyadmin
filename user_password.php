@@ -42,6 +42,9 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
  */
 require_once './libraries/common.inc.php';
 
+$GLOBALS['js_include'][] = 'server_privileges.js';
+$GLOBALS['js_include'][] = 'password_generation.js';
+
 /**
  * Displays an error message and exits if the user isn't allowed to use this
  * script
@@ -124,8 +127,8 @@ if (isset($_REQUEST['nopass'])) {
  * aren't valid -> displays the form
  */
 // Loads the headers
-$GLOBALS['js_include'][] = 'server_privileges.js';
 require_once './libraries/header.inc.php';
+
 echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
 
 // Displays an error message if required

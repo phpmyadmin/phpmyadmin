@@ -85,6 +85,8 @@ $Id$
 - patch #2999595, rfe #2998130 [interface] Cleanup navigation frame.
 - patch #3025161 [core] Prevent sending of unnecessary cookies, 
   thanks to Piotr Przybylski  - crackpl
+- bug [password] Generate password only available if JS is enabled
+  (fixed for Privileges and Change password)
 
 3.3.6.0 (not yet released)
 
