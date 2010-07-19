@@ -939,7 +939,7 @@ msgstr "Le nom de serveur est vide !"
 
 #: js/messages.php:43
 msgid "The user name is empty!"
-msgstr "Le nom d'utilisateur est vide"
+msgstr "Le nom d'utilisateur est vide !"
 
 #: js/messages.php:44 server_privileges.php:1229 user_password.php:73
 msgid "The password is empty!"
