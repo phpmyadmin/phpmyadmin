@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-19 10:04-0400\n"
-"PO-Revision-Date: 2010-07-19 18:41+0200\n"
+"PO-Revision-Date: 2010-07-19 18:42+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3400,7 +3400,7 @@ msgstr "Quitter"
 #: libraries/navigation_header.inc.php:83
 #: libraries/navigation_header.inc.php:86 setup/lib/messages.inc.php:122
 msgid "Query window"
-msgstr "Fenêtre SQL"
+msgstr "Fenêtre de requête"
 
 #: libraries/plugin_interface.lib.php:312
 msgid "This format has no options"
