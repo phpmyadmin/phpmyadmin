@@ -6436,7 +6436,7 @@ msgstr "Connexion au serveur MySQL impossible"
 
 #: setup/lib/messages.inc.php:68
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr "Le controlpass est vide."
+msgstr "Le controlpass est vide"
 
 #: setup/lib/messages.inc.php:69
 msgid "Empty phpMyAdmin control user while using pmadb"
