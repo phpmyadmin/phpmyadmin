@@ -1531,7 +1531,7 @@ msgstr "Utilisateur : "
 
 #: libraries/auth/cookie.auth.lib.php:265
 msgid "Password:"
-msgstr "Mot de passe&nbsp;:"
+msgstr "Mot de passe : "
 
 #: libraries/auth/cookie.auth.lib.php:272
 msgid "Server Choice"
