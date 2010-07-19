@@ -2493,7 +2493,7 @@ msgid ""
 "myisam-recover server startup option."
 msgstr ""
 "Le mode de recouvrement automatique en cas de tables MyISAM en mauvais état, "
-"tel que réglé via l'option --myisam-recover au départ du serveur"
+"tel que réglé via l'option --myisam-recover au départ du serveur."
 
 #: libraries/engines/myisam.lib.php:32
 msgid "Maximum size for temporary sort files"
