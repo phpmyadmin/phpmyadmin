@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-19 10:04-0400\n"
-"PO-Revision-Date: 2010-07-19 18:58+0200\n"
+"PO-Revision-Date: 2010-07-19 18:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7000,7 +7000,9 @@ msgstr "Taille maximum des requêtes SQL affichées"
 
 #: setup/lib/messages.inc.php:202
 msgid "Maximum number of databases displayed in left frame and database list"
-msgstr "...affichées dans le panneau de gauche et la liste des bases"
+msgstr ""
+"Nombre maximum de bases de données affichées dans le panneau de gauche et la "
+"liste des bases"
 
 #: setup/lib/messages.inc.php:203
 msgid "Maximum databases"
