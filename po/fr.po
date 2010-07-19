@@ -1459,7 +1459,7 @@ msgstr "Thème par défaut %s inexistant !"
 #: libraries/Theme_Manager.class.php:153
 #, php-format
 msgid "Theme %s not found!"
-msgstr "Thème %s inexistant!"
+msgstr "Thème %s inexistant !"
 
 #: libraries/Theme_Manager.class.php:221
 #, php-format
