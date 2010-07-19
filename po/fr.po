@@ -7955,7 +7955,7 @@ msgstr "Recommencer l'insertion avec %s lignes"
 #: tbl_create.php:62
 #, php-format
 msgid "Table %s already exists!"
-msgstr "La table %s existe déjà!"
+msgstr "La table %s existe déjà !"
 
 #: tbl_create.php:249
 #, php-format
