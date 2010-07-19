@@ -2065,7 +2065,7 @@ msgstr "se souvenir du modèle"
 #: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
 #: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:549
 msgid "Character set of the file:"
-msgstr "Jeu de caractères du fichier:"
+msgstr "Jeu de caractères du fichier: "
 
 #: libraries/display_export.lib.php:235 setup/lib/messages.inc.php:84
 msgid "Compression"
