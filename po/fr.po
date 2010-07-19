@@ -7220,7 +7220,7 @@ msgstr "Type d'authentification"
 
 #: setup/lib/messages.inc.php:253
 msgid "Authentication type"
-msgstr "Type d'Authentification"
+msgstr "Type d'authentification"
 
 #: setup/lib/messages.inc.php:254
 msgid ""
