@@ -2507,7 +2507,7 @@ msgid ""
 msgstr ""
 "La taille maximum du fichier temporaire qu'il est permis à MySQL d'allouer "
 "pour recréer un index MyISAM (durant un REPAIR TABLE, ALTER TABLE ou LOAD "
-"DATA INFILE)"
+"DATA INFILE)."
 
 #: libraries/engines/myisam.lib.php:37
 msgid "Maximum size for temporary files on index creation"
