@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-19 10:04-0400\n"
-"PO-Revision-Date: 2010-07-19 19:43+0200\n"
+"PO-Revision-Date: 2010-07-19 19:44+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5048,7 +5048,7 @@ msgstr ""
 
 #: server_replication.php:293
 msgid "Slave SQL Thread not running!"
-msgstr "Le fil d'exécution SQL ne tourne pas sur le serveur esclave!"
+msgstr "Le fil d'exécution SQL ne tourne pas sur le serveur esclave !"
 
 #: server_replication.php:296
 msgid "Slave IO Thread not running!"
