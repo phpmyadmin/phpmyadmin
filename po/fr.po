@@ -775,7 +775,7 @@ msgstr "Journal de la base de données"
 
 #: export.php:62
 msgid "Selected export type has to be saved in file!"
-msgstr "Ce choix d'exportation doit être sauvegardé dans un fichier!"
+msgstr "Ce choix d'exportation doit être sauvegardé dans un fichier !"
 
 #: export.php:154 export.php:179 export.php:627
 #, php-format
