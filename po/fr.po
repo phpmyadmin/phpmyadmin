@@ -3773,7 +3773,7 @@ msgstr ""
 #: libraries/tbl_links.inc.php:107 libraries/tbl_links.inc.php:140
 #: libraries/tbl_links.inc.php:141
 msgid "Table seems to be empty!"
-msgstr "La table semble vide!"
+msgstr "La table semble vide !"
 
 #: libraries/tbl_links.inc.php:149
 #, php-format
