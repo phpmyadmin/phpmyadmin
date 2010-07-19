@@ -236,7 +236,8 @@ if (! $GLOBALS['server']) {
         echo '<noscript>' . "\n"
             .'<input type="submit" name="Go" value="' . __('Go') . '" />' . "\n"
             .'</noscript>' . "\n"
-            .'</form>' . "\n";
+            .'</form>' . "\n"
+            . '</div>' . "\n";
     } else {
         echo $GLOBALS['pma']->databases->getHtmlListGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
     }
