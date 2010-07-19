@@ -8126,7 +8126,7 @@ msgstr "Espace"
 
 #: tbl_printview.php:340 tbl_structure.php:687
 msgid "Effective"
-msgstr "effectif"
+msgstr "Effectif"
 
 #: tbl_printview.php:365 tbl_structure.php:725
 msgid "Row Statistics"
