@@ -3434,7 +3434,7 @@ msgstr "Commentaires de colonnes"
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
-"La documentation indique comment mettre à jour votre table Column_comments"
+"La documentation indique comment mettre à jour votre table column_comments"
 
 #: libraries/relation.lib.php:143 libraries/sql_query_form.lib.php:433
 msgid "Bookmarked SQL query"
