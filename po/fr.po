@@ -4587,7 +4587,7 @@ msgstr "Permission de créer et d'effacer des index."
 #: server_privileges.php:42 server_privileges.php:182
 #: server_privileges.php:443 server_privileges.php:505
 msgid "Allows inserting and replacing data."
-msgstr "Permission d'ajouter et de remplacer des données"
+msgstr "Permission d'ajouter et de remplacer des données."
 
 #: server_privileges.php:43 server_privileges.php:197
 #: server_privileges.php:550
