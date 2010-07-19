@@ -4979,7 +4979,7 @@ msgstr "Le serveur maître est maintenant %s"
 
 #: server_replication.php:182
 msgid "This server is configured as master in a replication process."
-msgstr "Ce serveur est un serveur maître dans le processus de réplication"
+msgstr "Ce serveur est un serveur maître dans le processus de réplication."
 
 #: server_replication.php:184 server_status.php:392
 msgid "Show master status"
