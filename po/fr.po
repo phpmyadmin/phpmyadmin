@@ -8210,7 +8210,7 @@ msgstr "Affiche les valeurs distinctes"
 #: tbl_structure.php:361
 msgctxt "None for default"
 msgid "None"
-msgstr "aucune"
+msgstr "Aucune"
 
 #: tbl_structure.php:374
 #, php-format
