@@ -4341,7 +4341,7 @@ msgstr "Effacer la relation"
 
 #: pmd_help.php:27
 msgid "To select relation, click :"
-msgstr "Pour sélectionner un lien, cliquez :"
+msgstr "Pour sélectionner un lien, cliquez : "
 
 #: pmd_help.php:29
 msgid ""
