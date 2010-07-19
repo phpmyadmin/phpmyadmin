@@ -5296,7 +5296,7 @@ msgstr "Le nombre de pages contenant des données."
 
 #: server_status.php:62
 msgid "The number of pages currently dirty."
-msgstr "Le nombre de pages contenant des données «dirty»"
+msgstr "Le nombre de pages contenant des données «dirty»."
 
 #: server_status.php:63
 msgid "The number of buffer pool pages that have been requested to be flushed."
