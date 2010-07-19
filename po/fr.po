@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-19 10:04-0400\n"
-"PO-Revision-Date: 2010-07-19 19:40+0200\n"
+"PO-Revision-Date: 2010-07-19 19:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4256,7 +4256,7 @@ msgstr "Schéma de la base %s - Page %s"
 
 #: pdf_schema.php:1013
 msgid "No tables"
-msgstr "Pas de table !"
+msgstr "Pas de table"
 
 #: pdf_schema.php:1032 pdf_schema.php:1141
 msgid "Relational schema"
