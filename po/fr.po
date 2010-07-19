@@ -5132,7 +5132,7 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 "Ce serveur n'est pas configuré comme esclave dans un processus de "
-"réplication. Désirez-vous le <a href=\"%s\">configurer</a>?"
+"réplication. Désirez-vous le <a href=\"%s\">configurer</a> ?"
 
 #: server_status.php:40
 msgid ""
