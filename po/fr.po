@@ -5026,7 +5026,7 @@ msgstr "Ignorer toutes les bases de données; Répliquer :"
 
 #: server_replication.php:225
 msgid "Please select databases:"
-msgstr "Sélectionnez les bases de données"
+msgstr "Sélectionnez les bases de données : "
 
 #: server_replication.php:228
 msgid ""
