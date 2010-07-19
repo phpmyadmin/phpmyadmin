@@ -2196,7 +2196,7 @@ msgstr "Afficher toutes les tables avec une largeur identique"
 
 #: libraries/display_pdf_schema.lib.php:46
 msgid "Only show keys"
-msgstr "Ne montrer que les clés."
+msgstr "Ne montrer que les clés"
 
 #: libraries/display_pdf_schema.lib.php:48
 msgid "Data Dictionary Format"
