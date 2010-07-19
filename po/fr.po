@@ -5111,7 +5111,7 @@ msgstr "Gestion des erreurs : "
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 "Ignorer les erreurs peut mener à une désynchronisation entre les serveurs "
-"maître et esclave!"
+"maître et esclave !"
 
 #: server_replication.php:336
 msgid "Skip current error"
