@@ -3107,7 +3107,7 @@ msgstr "Format invalide pour les données CSV à la ligne %d."
 #: libraries/import/csv.php:312
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Nombre de colonnes invalide dans les données CSV à la ligne %d"
+msgstr "Nombre de colonnes invalide dans les données CSV à la ligne %d."
 
 #: libraries/import/docsql.php:29
 msgid "DocSQL"
