@@ -4782,7 +4782,7 @@ msgstr "Aucun utilisateur n'a été choisi en vue de le détruire !"
 
 #: server_privileges.php:1278
 msgid "Reloading the privileges"
-msgstr "Chargement des privilèges en cours."
+msgstr "Chargement des privilèges en cours"
 
 #: server_privileges.php:1293
 msgid "The selected users have been deleted successfully."
