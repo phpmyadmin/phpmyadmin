@@ -1563,7 +1563,7 @@ msgstr "Connexion au serveur MySQL non permise"
 
 #: libraries/auth/http.auth.lib.php:70
 msgid "Wrong username/password. Access denied."
-msgstr "Erreur d'utilisateur/mot de passe. Accès refusé"
+msgstr "Erreur d'utilisateur/mot de passe. Accès refusé."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
