@@ -3152,7 +3152,7 @@ msgid ""
 "the issue and try again."
 msgstr ""
 "Le fichier XML spécifié était mal formé ou incomplet. Veuillez le corriger "
-"et essayer à nouveau"
+"et essayer à nouveau."
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:143
