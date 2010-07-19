@@ -304,7 +304,19 @@ function PMA_importGetNextChunk($size = 32768)
 
 /**
  * Returns the "Excel" column name (i.e. 1 = "A", 26 = "Z", 27 = "AA", etc.)
- * This algorithm only works up to ZZ. it fails on AAA (up to 701 columns) 
+ *
+ * This functions uses recursion to build the Excel column name.
+ *
+ * The column number (1-26) is converted to the responding ASCII character (A-Z) and returned.
+ *
+ * If the column number is bigger than 26 (= num of letters in alfabet),
+ * an extra character needs to be added. To find this extra character, the number is divided by 26 
+ * and this value is passed to another instance of the same function (hence recursion). 
+ * In that new instance the number is evaluated again, and if it is still bigger than 26, it is divided again 
+ * and passed to another instance of the same function. This continues until the number is smaller than 26.
+ * Then the last called function returns the corresponding ASCII character to the function that called it.
+ * Each time a called function ends an extra character is added to the column name.
+ * When the first function is reached, the last character is addded and the complete column name is returned.
  *
  * @access  public
  *
@@ -314,56 +326,75 @@ function PMA_importGetNextChunk($size = 32768)
  */
 function PMA_getColumnAlphaName($num)
 {
-    /* ASCII value for capital "A" */
-    $A = 65;
-    $sCol = "";
-    $iRemain = 0;
-    
-    /* This algorithm only works up to ZZ. it fails on AAA */
-    
-    if ($num > 701) {                
-        return $num;
-    } elseif ($num <= 26) {
-        if ($num == 0) {
-            $sCol = chr(($A + 26) - 1);
-        } else {
-            $sCol = chr(($A + $num) - 1);
-        }
-    } else {
-        $iRemain = (($num / 26)) - 1;
-        if (($num % 26) == 0) {
-            $sCol = PMA_getColumnAlphaName($iRemain) . PMA_getColumnAlphaName($num % 26);
-        } else {
-            $sCol = chr($A + $iRemain) . PMA_getColumnAlphaName($num % 26);
-        }
-    }
-    
-    return $sCol;
+	$A = 65; // ASCII value for capital "A"
+	$col_name = "";
+
+	if ($num > 26) {
+		$div = (int)($num / 26);
+		$remain = (int)($num % 26);
+
+		// subtract 1 of divided value in case the modulus is 0,
+		// this is necessary because A-Z has no 'zero'
+		if ($remain == 0) {
+			$div--;
+		}
+
+		// recursive function call
+		$col_name = PMA_getColumnAlphaName($div);
+		// use modulus as new column number
+		$num = $remain;
+	}
+
+	if ($num == 0) {
+		// use 'Z' if column number is 0,
+		// this is necessary because A-Z has no 'zero'
+		$col_name .= chr(($A + 26) - 1);
+	} else {
+		// convert column number to ASCII character
+		$col_name .= chr(($A + $num) - 1);
+	}
+
+	return $col_name;
 }
 
 /**
  * Returns the column number based on the Excel name.
- * So "A" = 1, "AZ" = 27, etc.
+ * So "A" = 1, "Z" = 26, "AA" = 27, etc.
  *
+ * Basicly this is a base26 (A-Z) to base10 (0-9) conversion.
+ * It iterates through all characters in the column name and
+ * calculates the corresponding value, based on character value
+ * (A = 1, ..., Z = 26) and position in the string.
  *
  * @access  public
  *
  * @uses    strtoupper()
  * @uses    strlen()
- * @uses    count()
  * @uses    ord()
  * @param   string $name (i.e. "A", or "BC", etc.)
  * @return  int The column number
  */
 function PMA_getColumnNumberFromName($name) {
-    if (strlen($name) != 0) {
+    if (!empty($name)) {
         $name = strtoupper($name);
-        $num_chars = count($name);
-        $number = 0;
+        $num_chars = strlen($name);
+        $column_number = 0;
         for ($i = 0; $i < $num_chars; ++$i) {
-            $number += (ord($name[$i]) - 64);
+		// read string from back to front
+		$char_pos = ($num_chars - 1) - $i;
+
+		// convert capital character to ASCII value
+		// and subtract 64 to get corresponding decimal value
+		// ASCII value of "A" is 65, "B" is 66, etc.
+		// Decimal equivalent of "A" is 1, "B" is 2, etc.
+		$number = (ord($name[$char_pos]) - 64);
+
+		// base26 to base10 conversion : multiply each number
+		// with corresponding value of the position, in this case
+		// $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
+		$column_number += $number * pow(26,$i);
         }
-        return $number;
+        return $column_number;
     } else {
         return 0;
     }

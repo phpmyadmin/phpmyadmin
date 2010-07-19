@@ -137,6 +137,7 @@ $forms['Import']['Open_Document'] = array(
 $forms['Export']['Export_defaults'] = array(
     'Export/format',
     'Export/compression',
+    'Export/asfile',
     'Export/remember_file_template',
     'Export/file_template_table',
     'Export/file_template_database',
