@@ -4750,7 +4750,7 @@ msgstr "Aucun utilisateur n'a été trouvé."
 #: server_privileges.php:880
 #, php-format
 msgid "The user %s already exists!"
-msgstr "L'utilisateur %s existe déjà!"
+msgstr "L'utilisateur %s existe déjà !"
 
 #: server_privileges.php:963
 msgid "You have added a new user."
