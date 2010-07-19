@@ -2200,7 +2200,7 @@ msgstr "Ne montrer que les clés"
 
 #: libraries/display_pdf_schema.lib.php:48
 msgid "Data Dictionary Format"
-msgstr "Orientation du dictionnaire:"
+msgstr "Orientation du dictionnaire"
 
 #: libraries/display_pdf_schema.lib.php:50
 msgid "Landscape"
