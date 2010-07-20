@@ -12,9 +12,8 @@ if (! defined('PHPMYADMIN')) {
 
 define('PMA_CHARSET_NONE', 0);
 define('PMA_CHARSET_ICONV', 1);
-define('PMA_CHARSET_LIBICONV', 2);
-define('PMA_CHARSET_RECODE', 3);
-define('PMA_CHARSET_ICONV_AIX', 4);
+define('PMA_CHARSET_RECODE', 2);
+define('PMA_CHARSET_ICONV_AIX', 3);
 
 // Finally detect which function we will use:
 if ($cfg['RecodingEngine'] == 'iconv') {
@@ -24,8 +23,6 @@ if ($cfg['RecodingEngine'] == 'iconv') {
         } else {
             $PMA_recoding_engine = PMA_CHARSET_ICONV;
         }
-    } elseif (@function_exists('libiconv')) {
-        $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
     } else {
         $PMA_recoding_engine = PMA_CHARSET_NONE;
         PMA_warnMissingExtension('iconv');
@@ -44,8 +41,6 @@ if ($cfg['RecodingEngine'] == 'iconv') {
         } else {
             $PMA_recoding_engine = PMA_CHARSET_ICONV;
         }
-    } elseif (@function_exists('libiconv')) {
-        $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
     } elseif (@function_exists('recode_string')) {
         $PMA_recoding_engine = PMA_CHARSET_RECODE;
     } else {
@@ -84,8 +79,6 @@ function PMA_convert_string($src_charset, $dest_charset, $what) {
             return iconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
         case PMA_CHARSET_ICONV_AIX:
             return PMA_aix_iconv_wrapper($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
-        case PMA_CHARSET_LIBICONV:
-            return libiconv($src_charset, $dest_charset, $what);
         default:
             return $what;
     }
@@ -123,8 +116,6 @@ function PMA_convert_file($src_charset, $dest_charset, $file) {
                         $dist = iconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $line);
                     } elseif ($GLOBALS['PMA_recoding_engine'] == PMA_CHARSET_ICONV_AIX) {
                         $dist = PMA_aix_iconv_wrapper($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $line);
-                    } else {
-                        $dist = libiconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $line);
                     }
                     fputs($fout, $dist);
                 } // end while
