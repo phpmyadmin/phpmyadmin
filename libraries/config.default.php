@@ -2258,14 +2258,6 @@ $cfg['InitialSlidersState'] = 'closed';
 
 
 
-//-----------------------------------------------------------------------------
-// custom-setup by mkkeck: 2004-05-04
-//    some specials for new icons and scrolling
-/**
- * @todo We need to rearrange these variables.
- */
-
-
 /*******************************************************************************
  * Window title settings
  */
