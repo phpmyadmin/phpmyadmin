@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-19 10:04-0400\n"
-"PO-Revision-Date: 2010-07-20 11:27+0200\n"
+"PO-Revision-Date: 2010-07-20 11:28+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -989,7 +989,7 @@ msgstr "سۆزلەمنى كۆرسەتمەسلىك"
 
 #: js/messages.php:66
 msgid "Generate password"
-msgstr ""
+msgstr "پارول ھاسىللاش"
 
 #: js/messages.php:67 libraries/replication_gui.lib.php:366
 msgid "Generate"
