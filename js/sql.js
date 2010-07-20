@@ -102,16 +102,67 @@ $(document).ready(function() {
         if(disp_mode == 'vertical') {
             var this_row_index = $(this).index();
             var input_siblings = $(this).parents('tbody').find('tr').find('.data_inline_edit:nth('+this_row_index+')');
+            var where_clause = $(this).parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
         }
         else {
             var input_siblings = $(this).parent('tr').find('.data_inline_edit');
+            var where_clause = $(this).parent('tr').find('.where_clause').val();
+        }
+
+        if($(this).is('.nonunique')) {
+            var nonunique = true;
+        }
+        else {
+            var nonunique = false;
         }
 
         $(input_siblings).each(function() {
             var data_value = $(this).html();
 
             if($(this).is(':not(.truncated, .transformed, .relation)')) {
-                $(this).html('<textarea>'+data_value+'</textarea>');
+                //handle non-truncated, non-transformed, non-relation values
+                $(this).html('<textarea>'+data_value+'</textarea>')
+                .append('<span class="original_data">'+data_value+'</span>');
+                $(".original_data").hide();
+            }
+            else if($(this).not('.transformed').is('.truncated')) {
+                //handle truncated values
+                
+                if(disp_mode == 'vertical') {
+                    var this_field = $(this);
+                    var field_name = $(this).siblings('th').text();
+                    field_name = $.trim(field_name);
+                    
+                    var sql_query = 'SELECT ' + field_name + ' FROM ' + window.parent.table + ' WHERE ' + where_clause;
+
+                    $.post('sql.php', {
+                        'token' : window.parent.token,
+                        'db' : window.parent.db,
+                        'ajax_request' : true,
+                        'sql_query' : sql_query,
+                        'inline_edit' : true
+                    }, function(data) {
+                        if(data.success == true) {
+                            $(this_field).html('<textarea>'+data.value+'</textarea>')
+                            .append('<span class="original_data">'+data_value+'</span>');
+                            $(".original_data").hide();
+                        }
+                        else {
+                            PMA_ajaxShowMessage(data.error);
+                        }
+                    })
+                }
+                else {
+                    alert('where clause '+where_clause);
+                    //var field_name = $(this).parents('table').find('thead').find('th:nth('+this_row_index+')').html();
+                    //alert(field_name);
+                }
+            }
+            else if($(this).is('.transformed')) {
+                //handle transformed values
+            }
+            else if($(this).is('.relation')) {
+                //handle relations
             }
         })
     })
@@ -130,9 +181,9 @@ $(document).ready(function() {
         }
 
         $(input_siblings).each(function() {
-            var new_data_value = $(this).find('textarea').html();
+            var new_data_value = $(this).find('.original_data').html();
 
-            if($(this).is(':not(.truncated, .transformed, .relation)')) {
+            if($(this).is(':not(.transformed, .relation)')) {
                 $(this).html(new_data_value);
             }
         })
