@@ -60,6 +60,8 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         }
 
         $this->chart->setFontProperties($this->getFontPath().'tahoma.ttf', 8);
+
+        $this->chart->setImageMap(true, 'mapid');
     }
 
     abstract protected function prepareDataSet();
@@ -132,7 +134,14 @@ abstract class PMA_pChart_Chart extends PMA_Chart
             $this->prepareChart();
             $this->render();
 
-            return '<img id="chart" src="data:image/png;base64,'.$this->imageEncoded.'" />';
+            $returnData = '<img id="chart" src="data:image/png;base64,'.$this->imageEncoded.'" OnMouseMove="getMousePosition(event);" OnMouseOut="nd();"/>';
+            $returnData .= '
+                <script type="text/javascript">
+                LoadImageMap("chart", "'.implode("-", $this->getImageMap()).'");
+                </script>
+            ';
+
+            return $returnData;
         }
         else {
             array_push($this->errors, ERR_NO_GD);
@@ -163,6 +172,11 @@ abstract class PMA_pChart_Chart extends PMA_Chart
     protected function getScale()
     {
         return $this->settings['scale'];
+    }
+
+    protected function getImageMap()
+    {
+        return $this->chart->ImageMap;
     }
 }
 
