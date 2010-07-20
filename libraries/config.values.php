@@ -73,6 +73,7 @@ $cfg_db['Import']['format'] = array(
     'docsql', // DocSQL
     'ldi',    // CSV using LOAD DATA
     'sql');   // SQL
+$cfg_db['Import']['charset'] = array_merge(array(''), $GLOBALS['cfg']['AvailableCharsets']);
 $cfg_db['Import']['sql_compatibility'] = $cfg_db['Export']['sql_compatibility'] = array(
     'NONE', 'ANSI', 'DB2', 'MAXDB', 'MYSQL323', 'MYSQL40', 'MSSQL', 'ORACLE',
     // removed; in MySQL 5.0.33, this produces exports that

@@ -223,6 +223,7 @@ $strConfigIgnoreMultiSubmitErrors_desc = __('If enabled, phpMyAdmin continues co
 $strConfigIgnoreMultiSubmitErrors_name = __('Ignore multiple statement errors');
 $strConfigImport_allow_interrupt_desc = __('Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.');
 $strConfigImport_allow_interrupt_name = __('Partial import: allow interrupt');
+$strConfigImport_charset_name = __('Character set of the file');
 $strConfigImport_csv_col_names_name = __('Lines terminated by');
 $strConfigImport_csv_enclosed_name = __('Columns enclosed by');
 $strConfigImport_csv_escaped_name = __('Columns escaped by');

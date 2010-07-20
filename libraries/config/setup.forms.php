@@ -75,8 +75,9 @@ $forms['Servers']['Server_tracking'] = array('Servers' => array(1 => array(
 $forms['Features']['Import_export'] = array(
     'UploadDir',
     'SaveDir',
-    'RecodingEngine',
+    'RecodingEngine' => ':group',
     'IconvExtraParams',
+    ':group:end',
     'ZipDump',
     'GZipDump',
     'BZipDump',
@@ -191,6 +192,7 @@ $forms['Main_frame']['Tabs'] = array(
 	'QueryWindowDefTab');
 $forms['Import']['Import_defaults'] = array('Import' => array(
     'format',
+    'charset',
     'allow_interrupt',
     'skip_queries'));
 $forms['Import']['Sql'] = array('Import' => array(

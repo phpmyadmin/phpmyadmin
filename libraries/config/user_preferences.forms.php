@@ -103,6 +103,7 @@ $forms['Main_frame']['Tabs'] = array(
     'DefaultTabTable');
 $forms['Import']['Import_defaults'] = array(
     'Import/format',
+    'Import/charset',    
     'Import/allow_interrupt',
     'Import/skip_queries');
 $forms['Import']['Sql'] = array(
@@ -137,6 +138,7 @@ $forms['Import']['Open_Document'] = array(
 $forms['Export']['Export_defaults'] = array(
     'Export/format',
     'Export/compression',
+    'Export/charset',
     'Export/asfile',
     'Export/remember_file_template',
     'Export/file_template_table',
