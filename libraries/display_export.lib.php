@@ -62,6 +62,10 @@ if (isset($single_table)) {
 
 echo '<input type="hidden" name="export_type" value="' . $export_type . '" />' . "\n";
 
+// If the export method was not set, the default is quick
+if(!isset($cfg['Export']['method'])) {
+    $cfg['Export']['method'] = 'quick';
+}
 // The export method (quick, custom or custom-no-form)
 echo '<input type="hidden" name="export_method" value="' . $cfg['Export']['method'] . '" />';
 
