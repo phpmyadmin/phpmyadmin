@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-20 12:14+0200\n"
-"PO-Revision-Date: 2010-07-20 11:03+0200\n"
+"PO-Revision-Date: 2010-07-20 11:46+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -984,7 +984,7 @@ msgstr "تاشقى ئاچقۇق قىممىتى"
 
 #: js/messages.php:62
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "ئاساسىي قىممەت ياكى بىردىنبىر قىمەتنى تاللاڭ"
 
 # column نى سۆزلەم دەپ ئالساق مۇۋاپىق بولغىدەك
 #: js/messages.php:63 pmd_general.php:77 tbl_relation.php:548
@@ -993,11 +993,11 @@ msgstr "سۆزلەمنى كۆرسەتمەسلىك"
 
 #: js/messages.php:66
 msgid "Generate password"
-msgstr ""
+msgstr "پارول ھاسىللاش"
 
 #: js/messages.php:67 libraries/replication_gui.lib.php:366
 msgid "Generate"
-msgstr ""
+msgstr "ھاسىللاش"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:77
@@ -1324,7 +1324,7 @@ msgstr "تەھىرلەش"
 
 #: libraries/Index.class.php:472
 msgid "The primary key has been dropped"
-msgstr ""
+msgstr "ئاساسىي قىممەت ئۆچۈرۈلدى"
 
 #: libraries/Index.class.php:476
 #, php-format
