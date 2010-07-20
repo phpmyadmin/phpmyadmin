@@ -487,7 +487,6 @@ function PMA_sqlQueryFormBookmark()
  * @uses    $GLOBALS['cfg']['BZipDump']
  * @uses    $GLOBALS['cfg']['UploadDir']
  * @uses    $GLOBALS['cfg']['AvailableCharsets']
- * @uses    $GLOBALS['cfg']['AllowAnywhereRecoding']
  * @uses    __('bzipped')
  * @uses    __('Character set of the file:')
  * @uses    __('Compression')

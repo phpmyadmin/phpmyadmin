@@ -207,7 +207,7 @@ if ($what == 'sql') {
 $output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xls';
 
 // Do we need to convert charset?
-$output_charset_conversion = $asfile && $cfg['AllowAnywhereRecoding']
+$output_charset_conversion = $asfile && $GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE
     && isset($charset_of_file) && $charset_of_file != $charset
     && $type != 'xls';
 

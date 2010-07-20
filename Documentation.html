@@ -1703,18 +1703,6 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         expression. For example if you want only Czech and English, you should
         set filter to <code>'^(cs|en)'</code>.</dd>
 
-    <dt id="cfg_AllowAnywhereRecoding">$cfg['AllowAnywhereRecoding'] boolean</dt>
-    <dd>Allow character set recoding of MySQL queries. You need recode or iconv
-        support (compiled in or module) in PHP to allow MySQL queries recoding
-        and used language file must have it enabled (by default only these
-        which are in Unicode, just to avoid losing some characters).<br /><br />
-
-        Setting this to <tt>TRUE</tt> also activates a pull-down menu
-        in the Export and Import pages, to choose the character set when 
-        exporting a file. The default value in this menu comes from 
-        <tt>$cfg['Export']['charset']</tt> and <tt>$cfg['Import']['charset']</tt>.
-    </dd>
-
     <dt id="cfg_RecodingEngine">$cfg['RecodingEngine'] string</dt>
     <dd>You can select here which functions will be used for character set
         conversion. Possible values are:
@@ -1722,8 +1710,15 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
                 iconv, then recode)</li>
             <li>iconv  - use iconv or libiconv functions</li>
             <li>recode - use recode_string function</li>
+            <li>none - disable encoding conversion</li>
         </ul>
         Default is auto.</dd>
+    <dd>
+        Enabled charset conversion activates a pull-down menu
+        in the Export and Import pages, to choose the character set when 
+        exporting a file. The default value in this menu comes from 
+        <tt>$cfg['Export']['charset']</tt> and <tt>$cfg['Import']['charset']</tt>.
+        </dd>
 
     <dt id="cfg_IconvExtraParams">$cfg['IconvExtraParams'] string</dt>
     <dd>Specify some parameters for iconv used in charset conversion. See

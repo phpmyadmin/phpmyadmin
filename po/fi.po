@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-19 10:04-0400\n"
+"POT-Creation-Date: 2010-07-20 12:14+0200\n"
 "PO-Revision-Date: 2010-04-30 18:08+0200\n"
 "Last-Translator:  <kajouni@gmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -57,7 +57,7 @@ msgstr "Etsi"
 #: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:76
 #: libraries/replication_gui.lib.php:372 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
-#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+#: libraries/sql_query_form.lib.php:551 libraries/tbl_properties.inc.php:782
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:665 server_privileges.php:1617
@@ -198,7 +198,7 @@ msgid "View dump (schema) of database"
 msgstr "Tee vedos tietokannasta"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
-#: db_tracking.php:35 export.php:359 navigation.php:332
+#: db_tracking.php:35 export.php:355 navigation.php:332
 msgid "No tables found in database."
 msgstr "Tietokannassa ei ole tauluja."
 
@@ -361,25 +361,25 @@ msgstr "Kpl rivejä"
 msgid "Size"
 msgstr "Koko"
 
-#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:559
-#: libraries/export/sql.php:899
+#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:557
+#: libraries/export/sql.php:897
 msgid "in use"
 msgstr "käytössä"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
-#: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
+#: libraries/export/sql.php:512 pdf_schema.php:1241 tbl_printview.php:433
 #: tbl_structure.php:809
 msgid "Creation"
 msgstr "Luotu"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
-#: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
+#: libraries/export/sql.php:517 pdf_schema.php:1246 tbl_printview.php:443
 #: tbl_structure.php:817
 msgid "Last update"
 msgstr "Viimeksi päivitetty"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
-#: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
+#: libraries/export/sql.php:522 pdf_schema.php:1251 tbl_printview.php:453
 #: tbl_structure.php:825
 msgid "Last check"
 msgstr "Viimeksi tarkistettu"
@@ -512,9 +512,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Tulokset hakusanalla \"<i>%s</i>\" %s:"
 
 #: db_search.php:260
-#, php-format
-msgid "%s match(es) inside table <i>%s</i>"
-msgstr "%s hakutulosta taulussa <i>%s</i>"
+#, fuzzy, php-format
+#| msgid "%s match(es) inside table <i>%s</i>"
+msgid "%s match inside table <i>%s</i>"
+msgid_plural "%s matches inside table <i>%s</i>"
+msgstr[0] "%s hakutulosta taulussa <i>%s</i>"
+msgstr[1] "%s hakutulosta taulussa <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
@@ -533,9 +536,12 @@ msgid "Delete"
 msgstr "Poista"
 
 #: db_search.php:285
-#, php-format
-msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
+#, fuzzy, php-format
+#| msgid "<b>Total:</b> <i>%s</i> match(es)"
+msgid "<b>Total:</b> <i>%s</i> match"
+msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgstr[0] "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
+msgstr[1] "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
 
 #: db_search.php:299
 msgid "Search in database"
@@ -625,11 +631,11 @@ msgstr "Seuranta ei ole käytössä."
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja %"
-"sohjeista%s."
+"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
+"%sohjeista%s."
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
 #: libraries/tbl_info.inc.php:66 tbl_structure.php:185 test/theme.php:74
@@ -720,7 +726,7 @@ msgstr "Seurattavat taulut"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
-#: libraries/export/sql.php:342 libraries/export/texytext.php:84
+#: libraries/export/sql.php:340 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
 #: libraries/header_printview.inc.php:58 server_databases.php:169
 #: server_privileges.php:1653 server_privileges.php:1714
@@ -792,12 +798,12 @@ msgstr "Tietokantaloki"
 msgid "Selected export type has to be saved in file!"
 msgstr "Valittu vientityyppi on tallennettava tiedostoon!"
 
-#: export.php:154 export.php:179 export.php:627
+#: export.php:154 export.php:179 export.php:623
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Liian vähän tilaa tiedoston %s tallentamiseen."
 
-#: export.php:294
+#: export.php:290
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -805,12 +811,12 @@ msgstr ""
 "Tiedosto %s on jo olemassa palvelimella, vaihda tiedostonimeä tai tarkista "
 "korvausasetuksen tila."
 
-#: export.php:298 export.php:302
+#: export.php:294 export.php:298
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Palvelimella ei ole lupaa tallentaa tiedostoa %s."
 
-#: export.php:629
+#: export.php:625
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Vedos tallennettiin tiedostoon %s."
@@ -818,8 +824,8 @@ msgstr "Vedos tallennettiin tiedostoon %s."
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Yritit todennäköisesti lähettää palvelimelle liian suurta tiedostoa. Katso "
 "tämän rajoituksen muuttamisesta lisätietoja %sohjeista%s."
@@ -1398,7 +1404,7 @@ msgstr "Kommentti"
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
 #: libraries/import.lib.php:1120 libraries/import.lib.php:1144
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
-#: setup/lib/messages.inc.php:352 tbl_row_action.php:69
+#: setup/lib/messages.inc.php:349 tbl_row_action.php:69
 msgid "Edit"
 msgstr "Muokkaa"
 
@@ -1422,7 +1428,7 @@ msgstr ""
 
 #: libraries/List_Database.class.php:431 libraries/server_links.inc.php:41
 #: server_databases.php:88 server_privileges.php:1653
-#: setup/lib/messages.inc.php:110 test/theme.php:93
+#: setup/lib/messages.inc.php:107 test/theme.php:93
 msgid "Databases"
 msgstr "Tietokannat"
 
@@ -1543,11 +1549,11 @@ msgstr "Tervetuloa, toivottaa %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %1"
-"$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
+"%1$sasetusskriptillä%2$s."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -1658,27 +1664,7 @@ msgstr "Näytä video"
 msgid "Download file"
 msgstr "Lataa tiedosto"
 
-#: libraries/charset_conversion.lib.php:17
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"Merkistön muunnokseen tarvittavaa iconv- tai recode-laajennusta ei voitu "
-"ladata. Muokkaa PHP:n asetuksia ottaen käyttöön nämä laajennukset tai muuta "
-"phpMyAdminin asetuksia siinä määrin ettei muunnosta suoriteta."
-
-#: libraries/charset_conversion.lib.php:79
-#: libraries/charset_conversion.lib.php:90
-#: libraries/charset_conversion.lib.php:109
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"Iconv-, libiconv- tai recode_string-funktioita ei voitu käyttää. Tarkista "
-"PHP:n asetukset."
-
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:568
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1693,40 +1679,40 @@ msgstr ""
 "Todennäköisimmin joltain riviltä puuttuu lainausmerkki tai puolipiste.<br /"
 ">Jos linkistä avautuva sivu on tyhjä, asetustiedostossa ei ollut virhettä."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:579
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Oletusasetuksia ei voitu ladata kohteesta: \"%1$s\""
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:584
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr "<tt>$cfg['PmaAbsoluteUri']</tt> täytyy määritellä asetustiedostossa!"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:614
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Virheellinen palvelimen indeksi: \"%s\""
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:621
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Palvelimella %1$s virheellinen nimi. Tarkista asetukset."
 
-#: libraries/common.inc.php:638 libraries/header.inc.php:96
+#: libraries/common.inc.php:630 libraries/header.inc.php:96
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
 msgstr "Palvelin"
 
-#: libraries/common.inc.php:816
+#: libraries/common.inc.php:807
 msgid "Invalid authentication method set in configuration:"
 msgstr "Asetuksissa on virheellinen todennustapa:"
 
-#: libraries/common.inc.php:919
+#: libraries/common.inc.php:910
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Sinun tulisi päivittää versioon %s %s tai sitä uudempaan."
@@ -1768,7 +1754,7 @@ msgstr "SQL-kysely"
 msgid "MySQL said: "
 msgstr "MySQL ilmoittaa: "
 
-#: libraries/common.lib.php:1177 setup/lib/messages.inc.php:353
+#: libraries/common.lib.php:1177 setup/lib/messages.inc.php:350
 msgid "Explain SQL"
 msgstr "Selitä SQL-kysely"
 
@@ -1780,12 +1766,12 @@ msgstr "Älä selitä SQL-kyselyä"
 msgid "Without PHP Code"
 msgstr "Kätke PHP-koodi"
 
-#: libraries/common.lib.php:1217 setup/lib/messages.inc.php:355
+#: libraries/common.lib.php:1217 setup/lib/messages.inc.php:352
 msgid "Create PHP Code"
 msgstr "Näytä PHP-koodi"
 
 #: libraries/common.lib.php:1235 server_status.php:452
-#: setup/lib/messages.inc.php:354
+#: setup/lib/messages.inc.php:351
 msgid "Refresh"
 msgstr "Päivitä"
 
@@ -1793,7 +1779,7 @@ msgstr "Päivitä"
 msgid "Skip Validate SQL"
 msgstr "Älä tarkista SQL-kyselyä"
 
-#: libraries/common.lib.php:1247 setup/lib/messages.inc.php:356 sql.php:518
+#: libraries/common.lib.php:1247 setup/lib/messages.inc.php:353 sql.php:518
 msgid "Validate SQL"
 msgstr "Tarkista SQL-lause"
 
@@ -1913,7 +1899,7 @@ msgid ""
 msgstr "Laajennuksen %s lataus ei onnistu; tarkista PHP:n asetukset"
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
-#: libraries/export/sql.php:415
+#: libraries/export/sql.php:413
 msgid "Events"
 msgstr "Tapahtumat"
 
@@ -1983,11 +1969,11 @@ msgstr ""
 "Yhteyden muodostus asetuksissa määriteltyyn superuser-käyttäjään epäonnistui."
 
 #: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
-#: libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/dbi/mysqli.dbi.lib.php:408
 msgid "The server is not responding"
 msgstr "Palvelin ei vastaa"
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:408
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 "(tai paikallisen MySQL-palvelimen pistokkeen asetuksia ei ole määritelty "
@@ -2077,7 +2063,7 @@ msgstr "Tee vedos %s rivistä, alkaen riviltä: %s."
 msgid "Dump all rows"
 msgstr "Vedosta kaikki rivit"
 
-#: libraries/display_export.lib.php:125 setup/lib/messages.inc.php:82
+#: libraries/display_export.lib.php:125 setup/lib/messages.inc.php:79
 msgid "Save as file"
 msgstr "Tallenna tiedostoon"
 
@@ -2086,7 +2072,7 @@ msgstr "Tallenna tiedostoon"
 msgid "Save on server in %s directory"
 msgstr "Tallenna palvelimelle hakemistoon %s"
 
-#: libraries/display_export.lib.php:142 setup/lib/messages.inc.php:90
+#: libraries/display_export.lib.php:142 setup/lib/messages.inc.php:87
 msgid "Overwrite existing file(s)"
 msgstr "Korvaa jo olemassa oleva(t) tiedosto(t)"
 
@@ -2110,8 +2096,8 @@ msgstr "taulun nimi"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 "Tämä arvo on %1$sstrftime%2$s-funktion mukainen, joten "
 "ajanmuodostostusmerkkijonoja voi käyttää. Lisäksi tapahtuu seuraavat "
@@ -2122,17 +2108,17 @@ msgid "remember template"
 msgstr "muista pohja"
 
 #: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
-#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:549
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:548
 msgid "Character set of the file:"
 msgstr "Tiedoston merkistö:"
 
-#: libraries/display_export.lib.php:235 setup/lib/messages.inc.php:84
+#: libraries/display_export.lib.php:235 setup/lib/messages.inc.php:81
 msgid "Compression"
 msgstr "Pakkaus"
 
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:196
 #: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:530
-#: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
+#: libraries/export/sql.php:866 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1868 server_processlist.php:75
 msgid "None"
 msgstr "Ei mitään"
@@ -2180,7 +2166,7 @@ msgstr ""
 msgid "File to import"
 msgstr "Tuotava tiedosto"
 
-#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:524
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:523
 msgid "Location of the text file"
 msgstr "Tiedoston sijainti"
 
@@ -2188,12 +2174,12 @@ msgstr "Tiedoston sijainti"
 msgid "File uploads are not allowed on this server."
 msgstr "Tällä palvelimella ei ole sallittu tiedostojen lähetystä."
 
-#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:533
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:532
 #: tbl_change.php:1025
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää"
 
-#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:536
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:535
 #: tbl_change.php:1028
 msgid "web server upload directory"
 msgstr "palvelimen lähetyshakemisto"
@@ -2225,13 +2211,13 @@ msgstr ""
 "Tätä kannattaa käyttää tuotaessa suuria tiedostoja; se voi kuitenkin "
 "aiheuttaa häiriöitä transaktioihin."
 
-#: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:161
+#: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:158
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Alusta ohitettavien tietueiden (kyselyjen) määrä"
 
-#: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:160
+#: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:157
 msgid "Format of imported file"
 msgstr "Tuotavan tiedoston muoto"
 
@@ -2759,7 +2745,7 @@ msgstr ""
 "poistetaan; muuten ne nimetään uudelleen antamalla niille seuraavaksi suurin "
 "numero."
 
-#: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
+#: libraries/export/codegen.php:37 setup/lib/messages.inc.php:85
 #: tbl_printview.php:375 tbl_structure.php:737
 msgid "Format"
 msgstr "Muoto"
@@ -2832,7 +2818,7 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/export/htmlword.php:24 libraries/export/latex.php:55
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
-#: libraries/export/sql.php:106 libraries/export/sql.php:868
+#: libraries/export/sql.php:106 libraries/export/sql.php:866
 #: libraries/export/texytext.php:27 server_databases.php:127
 #: server_privileges.php:577 server_replication.php:316 tbl_printview.php:316
 #: tbl_structure.php:665
@@ -2840,12 +2826,12 @@ msgid "Data"
 msgstr "Tietoa"
 
 #: libraries/export/htmlword.php:132 libraries/export/odt.php:168
-#: libraries/export/sql.php:881 libraries/export/texytext.php:130
+#: libraries/export/sql.php:879 libraries/export/texytext.php:130
 msgid "Dumping data for table"
 msgstr "Vedos taulusta"
 
 #: libraries/export/htmlword.php:185 libraries/export/odt.php:238
-#: libraries/export/sql.php:785 libraries/export/texytext.php:177
+#: libraries/export/sql.php:783 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "Rakenne taululle"
 
@@ -2880,7 +2866,7 @@ msgstr "Relaatiot"
 msgid "MIME type"
 msgstr "MIME-tyyppi"
 
-#: libraries/export/latex.php:125 libraries/export/sql.php:232
+#: libraries/export/latex.php:125 libraries/export/sql.php:231
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
 #: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
@@ -2891,17 +2877,17 @@ msgstr "MIME-tyyppi"
 msgid "Host"
 msgstr "Palvelin"
 
-#: libraries/export/latex.php:130 libraries/export/sql.php:233
+#: libraries/export/latex.php:130 libraries/export/sql.php:232
 #: libraries/export/xml.php:107 libraries/header_printview.inc.php:59
 msgid "Generation Time"
 msgstr "Luontiaika"
 
-#: libraries/export/latex.php:131 libraries/export/sql.php:235
+#: libraries/export/latex.php:131 libraries/export/sql.php:234
 #: libraries/export/xml.php:108 main.php:186
 msgid "Server version"
 msgstr "Palvelimen versio"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:236
+#: libraries/export/latex.php:132 libraries/export/sql.php:235
 #: libraries/export/xml.php:109
 msgid "PHP Version"
 msgstr "PHP:n versio"
@@ -2996,39 +2982,39 @@ msgstr ""
 msgid "Export type"
 msgstr "Vientityyppi"
 
-#: libraries/export/sql.php:387
+#: libraries/export/sql.php:385
 msgid "Procedures"
 msgstr "Proseduurit"
 
-#: libraries/export/sql.php:401
+#: libraries/export/sql.php:399
 msgid "Functions"
 msgstr "Funktiot"
 
-#: libraries/export/sql.php:618
+#: libraries/export/sql.php:616
 msgid "Constraints for dumped tables"
 msgstr "Rajoitteet vedostauluille"
 
-#: libraries/export/sql.php:627
+#: libraries/export/sql.php:625
 msgid "Constraints for table"
 msgstr "Rajoitteet taululle"
 
-#: libraries/export/sql.php:727
+#: libraries/export/sql.php:725
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME-TYYPIT TAULULLE"
 
-#: libraries/export/sql.php:739
+#: libraries/export/sql.php:737
 msgid "RELATIONS FOR TABLE"
 msgstr "RELAATIOT TAULULLE"
 
-#: libraries/export/sql.php:796 libraries/tbl_triggers.lib.php:19
+#: libraries/export/sql.php:794 libraries/tbl_triggers.lib.php:19
 msgid "Triggers"
 msgstr "Herättimet"
 
-#: libraries/export/sql.php:808
+#: libraries/export/sql.php:806
 msgid "Structure for view"
 msgstr "Näkymän rakenne"
 
-#: libraries/export/sql.php:817
+#: libraries/export/sql.php:815
 msgid "Stand-in structure for view"
 msgstr "Näkymän vararakenne"
 
@@ -3471,7 +3457,7 @@ msgstr "Poistu"
 
 #: libraries/navigation_header.inc.php:80
 #: libraries/navigation_header.inc.php:83
-#: libraries/navigation_header.inc.php:86 setup/lib/messages.inc.php:122
+#: libraries/navigation_header.inc.php:86 setup/lib/messages.inc.php:119
 msgid "Query window"
 msgstr "Kyselyikkuna"
 
@@ -3646,30 +3632,30 @@ msgid "Generate Password"
 msgstr "Keksi salasana"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:495
+#: libraries/select_lang.lib.php:484
 msgid "Content of table __TABLE__"
 msgstr "Taulun __TABLE__ sisältö"
 
-#: libraries/select_lang.lib.php:496
+#: libraries/select_lang.lib.php:485
 msgid "(continued)"
 msgstr "(jatkuu)"
 
-#: libraries/select_lang.lib.php:497
+#: libraries/select_lang.lib.php:486
 msgid "Structure of table __TABLE__"
 msgstr "Taulun __TABLE__ rakenne"
 
-#: libraries/select_lang.lib.php:502 libraries/select_lang.lib.php:508
-#: libraries/select_lang.lib.php:514
+#: libraries/select_lang.lib.php:491 libraries/select_lang.lib.php:497
+#: libraries/select_lang.lib.php:503
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Tuntematon kieli: %1$s."
 
 #: libraries/select_server.lib.php:45 setup/frames/index.inc.php:97
-#: setup/lib/messages.inc.php:115
+#: setup/lib/messages.inc.php:112
 msgid "Servers"
 msgstr "Palvelimet"
 
@@ -4294,7 +4280,7 @@ msgid "Filter"
 msgstr "Suodatin"
 
 #: navigation.php:305 setup/frames/index.inc.php:218
-#: setup/lib/messages.inc.php:42
+#: setup/lib/messages.inc.php:41
 msgid "Clear"
 msgstr "Tyhjennä"
 
@@ -4560,7 +4546,7 @@ msgid "Databases statistics"
 msgstr "Tietokantatilastot"
 
 #: server_databases.php:117 server_status.php:371
-#: setup/lib/messages.inc.php:117
+#: setup/lib/messages.inc.php:114
 msgid "Tables"
 msgstr "Taulut"
 
@@ -4957,8 +4943,8 @@ msgstr "Poista tietokannat, joilla on sama nimi kuin käyttäjillä."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen "
 "käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen "
@@ -6228,16 +6214,16 @@ msgid "Global value"
 msgstr "Globaali arvo"
 
 #: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
-#: setup/lib/messages.inc.php:45
+#: setup/lib/messages.inc.php:44
 msgid "Configuration file"
 msgstr "Asetustiedosto"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
-#: setup/lib/messages.inc.php:65
+#: setup/lib/messages.inc.php:62
 msgid "Download"
 msgstr "Lataa koneelle"
 
-#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:161
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -6246,111 +6232,107 @@ msgstr ""
 "mahdollisesti arkaa tietoa kuten salasanoja) siirretään salaamattomana!"
 
 #: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
-#: setup/lib/messages.inc.php:219
+#: setup/lib/messages.inc.php:216
 msgid "Overview"
 msgstr "Yleiskatsaus"
 
-#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:334
 msgid "Show hidden messages (#MSG_COUNT)"
 msgstr "Näytä piilotetut sanomat (#MSG_COUNT)"
 
-#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:210
 msgid "There are no configured servers"
 msgstr "Palvelimia ei ole määritelty"
 
-#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:209
 msgid "New server"
 msgstr "Uusi palvelin"
 
-#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
+#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:47
 msgid "Default language"
 msgstr "Oletuskieli"
 
-#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:184
 msgid "let the user choose"
 msgstr "anna käyttäjän valita"
 
-#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:213
 msgid "- none -"
 msgstr "- ei mitään -"
 
-#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
+#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:48
 msgid "Default server"
 msgstr "Oletuspalvelin"
 
-#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
+#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:63
 msgid "End of line"
 msgstr "Rivin loppu"
 
-#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
+#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:58
 msgid "Display"
 msgstr "Näytä"
 
-#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:187
 msgid "Load"
 msgstr "Lataa asetukset"
 
-#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:149
 msgid "phpMyAdmin homepage"
 msgstr "phpMyAdminin verkkosivut"
 
-#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
+#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:61
 msgid "Donate"
 msgstr "Lahjoita"
 
-#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:367
 msgid "Check for latest version"
 msgstr "Tarkista uusin versio"
 
-#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:134
 msgid "Features"
 msgstr "Ominaisuudet"
 
-#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:110
 msgid "Navigation frame"
 msgstr "Navigointikehys"
 
-#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:115
 msgid "Main frame"
 msgstr "Pääkehys"
 
-#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:269
 msgid "Edit server"
 msgstr "Muokkaa palvelinta"
 
-#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:238
 msgid "Add a new server"
 msgstr "Lisää uusi palvelin"
 
-#: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:76
+#: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:73
 msgid "Incorrect value"
 msgstr "Virheellinen arvo"
 
-#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:325
 #, php-format
 msgid "Set value: %s"
 msgstr "Aseta arvo: %s"
 
-#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:231
 msgid "Restore default value"
 msgstr "Palauta oletusarvo"
 
-#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:374
 msgid "Warning"
 msgstr "Varoitus"
 
 #: setup/lib/messages.inc.php:16
-msgid "Allow character set conversion"
-msgstr "Salli merkistömuunnos"
-
-#: setup/lib/messages.inc.php:17
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Jos käytössä, käyttäjä voi syöttää minkä tahansa MySQL-palvelimen "
 "kirjautumislomakkeeseen evästetodennusta varten"
 
-#: setup/lib/messages.inc.php:18
+#: setup/lib/messages.inc.php:17
 msgid ""
 "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 "disabled as it allows attackers to bruteforce login to any MySQL server. If "
@@ -6368,30 +6350,30 @@ msgstr ""
 "palveluntarjoajalle, johon sinun lisäksesi tuhannet käyttäjät ovat "
 "yhteydessä."
 
-#: setup/lib/messages.inc.php:19
+#: setup/lib/messages.inc.php:18
 msgid "Allow login to any MySQL server"
 msgstr "Salli kirjautuminen mihin tahansa MySQL-palvelimeen"
 
-#: setup/lib/messages.inc.php:20
+#: setup/lib/messages.inc.php:19
 msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr "Näytä tavallisille käyttäjille &quot;Tuhoa tietokanta&quot;"
 
-#: setup/lib/messages.inc.php:21
+#: setup/lib/messages.inc.php:20
 msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgstr ""
 "Avaimen tulisi sisältää merkkejä, numeroita [em]ja[/em] erikoismerkkejä"
 
-#: setup/lib/messages.inc.php:22
+#: setup/lib/messages.inc.php:21
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr "Evästeiden salausavain [kbd]cookie[/kbd]-todennuksessa"
 
-#: setup/lib/messages.inc.php:23
+#: setup/lib/messages.inc.php:22
 msgid "Key is too short, it should have at least 8 characters"
 msgstr "Avain on liian lyhyt; siinä tulisi olla ainakin 8 merkkiä"
 
-#: setup/lib/messages.inc.php:24
+#: setup/lib/messages.inc.php:23
 msgid ""
 "You didn't have blowfish secret set and have enabled cookie authentication, "
 "so a key was automatically generated for you. It is used to encrypt cookies; "
@@ -6400,27 +6382,27 @@ msgstr ""
 "Et asettanut blowfish-salausavainta ja evästetodennus on käytössä, joten "
 "sinulle luotiin automaattisesti avain; sitä ei tarvitse muistaa."
 
-#: setup/lib/messages.inc.php:25
+#: setup/lib/messages.inc.php:24
 msgid "Blowfish secret"
 msgstr "Blowfish-salausavain"
 
-#: setup/lib/messages.inc.php:26
+#: setup/lib/messages.inc.php:25
 msgid "Highlight selected rows"
 msgstr "Korosta valitut rivit"
 
-#: setup/lib/messages.inc.php:27
+#: setup/lib/messages.inc.php:26
 msgid "Row marker"
 msgstr "Rivin merkintä"
 
-#: setup/lib/messages.inc.php:28
+#: setup/lib/messages.inc.php:27
 msgid "Highlight row pointed by the mouse cursor"
 msgstr "Korosta rivi, jota kohdistin osoittaa"
 
-#: setup/lib/messages.inc.php:29
+#: setup/lib/messages.inc.php:28
 msgid "Highlight pointer"
 msgstr "Korosta osoitin"
 
-#: setup/lib/messages.inc.php:30
+#: setup/lib/messages.inc.php:29
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
@@ -6428,11 +6410,11 @@ msgstr ""
 "Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/Bzip2]"
 "bzip2[/a]-pakkausta"
 
-#: setup/lib/messages.inc.php:31
+#: setup/lib/messages.inc.php:30
 msgid "Bzip2"
 msgstr "Bzip2"
 
-#: setup/lib/messages.inc.php:32
+#: setup/lib/messages.inc.php:31
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
@@ -6443,11 +6425,11 @@ msgstr ""
 "purkuun[/a] tarvitaan funktioita (%s), jotka eivät ole käytettävissä tässä "
 "järjestelmässä."
 
-#: setup/lib/messages.inc.php:33
+#: setup/lib/messages.inc.php:32
 msgid "Cannot load or save configuration"
 msgstr "Asetuksia ei voi ladata tai tallentaa"
 
-#: setup/lib/messages.inc.php:34
+#: setup/lib/messages.inc.php:33
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [a@../Documentation.html#setup_script]"
@@ -6457,7 +6439,7 @@ msgstr ""
 "a] mukaisesti [em]config[/em]-niminen kansio, johon verkkopalvelin voi "
 "kirjoittaa. Muutoin asetuksia voi vain ladata ja tarkastella."
 
-#: setup/lib/messages.inc.php:35
+#: setup/lib/messages.inc.php:34
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
@@ -6472,33 +6454,33 @@ msgstr ""
 "[kbd]input[/kbd] - sallii syötön pituuden rajoittamisen, [kbd]textarea[/kbd] "
 "- sallii kentissä uudet rivit"
 
-#: setup/lib/messages.inc.php:36
+#: setup/lib/messages.inc.php:35
 #, fuzzy
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "CHAR-kenttien muokkaus"
 
-#: setup/lib/messages.inc.php:37
+#: setup/lib/messages.inc.php:36
 msgid "Number of columns for CHAR/VARCHAR textareas"
 msgstr "CHAR- ja VARCHAR-tekstikenttien sarakemäärä"
 
-#: setup/lib/messages.inc.php:38
+#: setup/lib/messages.inc.php:37
 msgid "CHAR textarea columns"
 msgstr "CHAR-tekstikentän sarakkeet"
 
-#: setup/lib/messages.inc.php:39
+#: setup/lib/messages.inc.php:38
 msgid "Number of rows for CHAR/VARCHAR textareas"
 msgstr "CHAR- ja VARCHAR-tekstikenttien rivimäärä"
 
-#: setup/lib/messages.inc.php:40
+#: setup/lib/messages.inc.php:39
 msgid "CHAR textarea rows"
 msgstr "CHAR-tekstikentän rivit"
 
-#: setup/lib/messages.inc.php:41
+#: setup/lib/messages.inc.php:40
 msgid "Check config file permissions"
 msgstr "Tarkista asetustiedoston käyttöoikeudet"
 
-#: setup/lib/messages.inc.php:43
+#: setup/lib/messages.inc.php:42
 msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
@@ -6507,11 +6489,11 @@ msgstr ""
 "kohtaat ongelmia luoduissa gzip- ja bzip2-tiedostoissa, poista tämä "
 "ominaisuus käytöstä"
 
-#: setup/lib/messages.inc.php:44
+#: setup/lib/messages.inc.php:43
 msgid "Compress on the fly"
 msgstr "Pakkaa lennossa"
 
-#: setup/lib/messages.inc.php:46
+#: setup/lib/messages.inc.php:45
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
@@ -6519,43 +6501,35 @@ msgstr ""
 "Pitääkö näyttää varoitus (\"Haluatko varmasti...\"), kun tietoja aiotaan "
 "kadottaa."
 
-#: setup/lib/messages.inc.php:47
+#: setup/lib/messages.inc.php:46
 msgid "Confirm DROP queries"
 msgstr "Vahvista DROP-kyselyt"
 
-#: setup/lib/messages.inc.php:48
-msgid "Default character set used for conversions"
-msgstr "Muunnoksissa käytettävä oletusmerkistö"
-
 #: setup/lib/messages.inc.php:49
-msgid "Default character set"
-msgstr "Oletusmerkistö"
-
-#: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
 msgstr "Tietokantaa syötettäessä näytettävä välilehti"
 
-#: setup/lib/messages.inc.php:53
+#: setup/lib/messages.inc.php:50
 msgid "Default database tab"
 msgstr "Oletusarvoinen tietokantavälilehti"
 
-#: setup/lib/messages.inc.php:54
+#: setup/lib/messages.inc.php:51
 msgid "Tab that is displayed when entering a server"
 msgstr "Palvelinta syötettäessä näytettävä välilehti"
 
-#: setup/lib/messages.inc.php:55
+#: setup/lib/messages.inc.php:52
 msgid "Default server tab"
 msgstr "Oletusarvoinen palvelinvälilehti"
 
-#: setup/lib/messages.inc.php:56
+#: setup/lib/messages.inc.php:53
 msgid "Tab that is displayed when entering a table"
 msgstr "Taulua syötettäessä näytettävä välilehti"
 
-#: setup/lib/messages.inc.php:57
+#: setup/lib/messages.inc.php:54
 msgid "Default table tab"
 msgstr "Oletusarvoinen tauluvälilehti"
 
-#: setup/lib/messages.inc.php:58
+#: setup/lib/messages.inc.php:55
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
@@ -6564,74 +6538,74 @@ msgstr ""
 "hakemisto ole koko maailman käytettävissä ja etteivät palvelimen muut "
 "käyttäjät voi lukea tai kirjoittaa siihen."
 
-#: setup/lib/messages.inc.php:59
+#: setup/lib/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
 msgstr "Näyttää tietokannat luettelona eikä pudotusvalikkona"
 
-#: setup/lib/messages.inc.php:60
+#: setup/lib/messages.inc.php:57
 msgid "Display databases as a list"
 msgstr "Näytä tietokannat luettelona"
 
-#: setup/lib/messages.inc.php:62
+#: setup/lib/messages.inc.php:59
 msgid "Show server listing as a list instead of a drop down"
 msgstr "Näytä palvelimet luettelona eikä pudotusvalikkona"
 
-#: setup/lib/messages.inc.php:63
+#: setup/lib/messages.inc.php:60
 msgid "Display servers as a list"
 msgstr "Näytä palvelimet luettelona"
 
-#: setup/lib/messages.inc.php:67
+#: setup/lib/messages.inc.php:64
 msgid "Could not connect to MySQL server"
 msgstr "MySQL-palvelimeen ei voitu yhdistää"
 
-#: setup/lib/messages.inc.php:68
+#: setup/lib/messages.inc.php:65
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
 "Tyhjennä phpMyAdminin hallintakäyttäjän salasana käytettäessä pmadb-kantaa"
 
-#: setup/lib/messages.inc.php:69
+#: setup/lib/messages.inc.php:66
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr "Tyhjennä phpMyAdminin hallintakäyttäjä käytettäessä pmadb-kantaa"
 
-#: setup/lib/messages.inc.php:70
+#: setup/lib/messages.inc.php:67
 msgid "Empty signon session name while using signon authentication method"
 msgstr "Tyhjennä kirjautumisistunnon nimi käytettäessä signon-todennustapaa"
 
-#: setup/lib/messages.inc.php:71
+#: setup/lib/messages.inc.php:68
 msgid "Empty signon URL while using signon authentication method"
 msgstr "Tyhjennä kirjautumisen verkko-osoite käytettäessä signon-todennustapaa"
 
-#: setup/lib/messages.inc.php:72
+#: setup/lib/messages.inc.php:69
 msgid "Empty username while using config authentication method"
 msgstr "Tyhjennä käyttäjänimi käytettäessä config-todennustapaa"
 
-#: setup/lib/messages.inc.php:73
+#: setup/lib/messages.inc.php:70
 msgid "Submitted form contains errors"
 msgstr "Lähetetyssä lomakkeessa on virheitä"
 
-#: setup/lib/messages.inc.php:74
+#: setup/lib/messages.inc.php:71
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Virheellinen IP-osoite: %s"
 
-#: setup/lib/messages.inc.php:75
+#: setup/lib/messages.inc.php:72
 msgid "Not a valid port number"
 msgstr "Virheellinen porttinumero"
 
-#: setup/lib/messages.inc.php:77
+#: setup/lib/messages.inc.php:74
 #, php-format
 msgid "Missing data for %s"
 msgstr "Kohteesta %s puuttuu tiedot"
 
-#: setup/lib/messages.inc.php:78
+#: setup/lib/messages.inc.php:75
 msgid "Not a non-negative number"
 msgstr "Ei ole epänegatiivinen luku"
 
-#: setup/lib/messages.inc.php:79
+#: setup/lib/messages.inc.php:76
 msgid "Not a positive number"
 msgstr "Ei ole positiivinen luku"
 
-#: setup/lib/messages.inc.php:80
+#: setup/lib/messages.inc.php:77
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
@@ -6639,43 +6613,43 @@ msgstr ""
 "Aseta enimmäissekuntimäärä, jonka skripti saa ajaa ([kbd]0[/kbd] = ei "
 "aikarajaa)"
 
-#: setup/lib/messages.inc.php:81
+#: setup/lib/messages.inc.php:78
 msgid "Maximum execution time"
 msgstr "Suorituksen enimmäiskesto"
 
-#: setup/lib/messages.inc.php:83
+#: setup/lib/messages.inc.php:80
 msgid "Character set of the file"
 msgstr "Tiedoston merkistö"
 
-#: setup/lib/messages.inc.php:85
+#: setup/lib/messages.inc.php:82
 msgid "Database name template"
 msgstr "Tietokantanimen pohja"
 
-#: setup/lib/messages.inc.php:86
+#: setup/lib/messages.inc.php:83
 msgid "Server name template"
 msgstr "Palvelinnimen pohja"
 
-#: setup/lib/messages.inc.php:87
+#: setup/lib/messages.inc.php:84
 msgid "Table name template"
 msgstr "Taulunimen pohja"
 
-#: setup/lib/messages.inc.php:89
+#: setup/lib/messages.inc.php:86
 msgid "Save on server"
 msgstr "Tallenna palvelimelle"
 
-#: setup/lib/messages.inc.php:91
+#: setup/lib/messages.inc.php:88
 msgid "Remember file name template"
 msgstr "Muista tiedostonimen pohja"
 
-#: setup/lib/messages.inc.php:92
+#: setup/lib/messages.inc.php:89
 msgid "no"
 msgstr "ei"
 
-#: setup/lib/messages.inc.php:93
+#: setup/lib/messages.inc.php:90
 msgid "Force secured connection while using phpMyAdmin"
 msgstr "Pakota käyttämään phpMyAdminissa suojattua yhteyttä"
 
-#: setup/lib/messages.inc.php:94
+#: setup/lib/messages.inc.php:91
 msgid ""
 "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 "enabled if your web server supports it"
@@ -6683,11 +6657,11 @@ msgstr ""
 "Tämä [a@?page=form&amp;formset=features#tab_Security]valinta[/a] tulisi "
 "ottaa käyttöön, jos verkkopalvelin tukee sitä"
 
-#: setup/lib/messages.inc.php:95
+#: setup/lib/messages.inc.php:92
 msgid "Force SSL connection"
 msgstr "Pakota käyttämään SSL-yhteyttä"
 
-#: setup/lib/messages.inc.php:96
+#: setup/lib/messages.inc.php:93
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
@@ -6695,87 +6669,87 @@ msgstr ""
 "Lajittelujärjestys viiteavaimen pudotusvalikon kohteille; [kbd]content[/kbd] "
 "on viitatut tiedot, [kbd]id[/kbd] on avainarvo"
 
-#: setup/lib/messages.inc.php:97
+#: setup/lib/messages.inc.php:94
 msgid "Foreign key dropdown order"
 msgstr "Viiteavaimen pudotusvalikon järjestys"
 
-#: setup/lib/messages.inc.php:98
+#: setup/lib/messages.inc.php:95
 msgid "A dropdown will be used if fewer items are present"
 msgstr "Pudotusvalikkoa käytetään, jos kohteita on enemmän"
 
-#: setup/lib/messages.inc.php:99
+#: setup/lib/messages.inc.php:96
 msgid "Foreign key limit"
 msgstr "Viiteavaimen rajoitus"
 
-#: setup/lib/messages.inc.php:100
+#: setup/lib/messages.inc.php:97
 msgid "Browse mode"
 msgstr "Selaustila"
 
-#: setup/lib/messages.inc.php:101
+#: setup/lib/messages.inc.php:98
 msgid "Customize browse mode"
 msgstr "Mukauta selaustilaa"
 
-#: setup/lib/messages.inc.php:102
+#: setup/lib/messages.inc.php:99
 msgid "Customize edit mode"
 msgstr "Mukauta muokkaustilaa"
 
-#: setup/lib/messages.inc.php:103
+#: setup/lib/messages.inc.php:100
 msgid "Edit mode"
 msgstr "Muokkaustila"
 
-#: setup/lib/messages.inc.php:104
+#: setup/lib/messages.inc.php:101
 msgid "Customize default export options"
 msgstr "Mukauta viennin oletusasetuksia"
 
-#: setup/lib/messages.inc.php:105
+#: setup/lib/messages.inc.php:102
 msgid "Export defaults"
 msgstr "Vie oletusarvot"
 
-#: setup/lib/messages.inc.php:106
+#: setup/lib/messages.inc.php:103
 msgid "Customize default common import options"
 msgstr "Mukauta yleistuonnin oletusasetuksia"
 
-#: setup/lib/messages.inc.php:107
+#: setup/lib/messages.inc.php:104
 msgid "Import defaults"
 msgstr "Tuo oletusarvot"
 
-#: setup/lib/messages.inc.php:108
+#: setup/lib/messages.inc.php:105
 msgid "Set import and export directories and compression options"
 msgstr "Aseta tuonti- ja vientihakemistot sekä pakkauksen asetukset"
 
-#: setup/lib/messages.inc.php:109
+#: setup/lib/messages.inc.php:106
 msgid "Import / export"
 msgstr "Tuonti ja vienti"
 
-#: setup/lib/messages.inc.php:111
+#: setup/lib/messages.inc.php:108
 msgid "Databases display options"
 msgstr "Tietokantojen näyttöasetukset"
 
-#: setup/lib/messages.inc.php:112
+#: setup/lib/messages.inc.php:109
 msgid "Customize appearance of the navigation frame"
 msgstr "Mukauta navigointikehyksen näkymää"
 
-#: setup/lib/messages.inc.php:114
+#: setup/lib/messages.inc.php:111
 msgid "Servers display options"
 msgstr "Palvelinten näyttöasetukset"
 
-#: setup/lib/messages.inc.php:116
+#: setup/lib/messages.inc.php:113
 msgid "Tables display options"
 msgstr "Taulujen näyttöasetukset"
 
-#: setup/lib/messages.inc.php:119
+#: setup/lib/messages.inc.php:116
 msgid "Settings that didn't fit enywhere else"
 msgstr "Asetukset, jotka eivät sovi muualle"
 
-#: setup/lib/messages.inc.php:120
+#: setup/lib/messages.inc.php:117
 msgid "Other core settings"
 msgstr "Muut ydinasetukset"
 
-#: setup/lib/messages.inc.php:121
+#: setup/lib/messages.inc.php:118
 msgid "Customize query window options"
 msgstr "Mukauta kyselyikkunan asetuksia"
 
-#: setup/lib/messages.inc.php:123
+#: setup/lib/messages.inc.php:120
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
@@ -6783,15 +6757,15 @@ msgstr ""
 "Huomaa, että phpMyAdmin on vain käyttöliittymä, ja sen ominaisuuksia ei ole "
 "rajoitettu MySQL-tietokantaan"
 
-#: setup/lib/messages.inc.php:124
+#: setup/lib/messages.inc.php:121
 msgid "Security"
 msgstr "Turvallisuus"
 
-#: setup/lib/messages.inc.php:125
+#: setup/lib/messages.inc.php:122
 msgid "Basic settings"
 msgstr "Perusasetukset"
 
-#: setup/lib/messages.inc.php:126
+#: setup/lib/messages.inc.php:123
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
@@ -6799,23 +6773,23 @@ msgstr ""
 "Palvelimen lisämäärittely; älä muuta näitä valintoja, ellet tiedä, mihin "
 "niitä käytetään."
 
-#: setup/lib/messages.inc.php:127
+#: setup/lib/messages.inc.php:124
 msgid "Server configuration"
 msgstr "Palvelimen määrittely"
 
-#: setup/lib/messages.inc.php:128
+#: setup/lib/messages.inc.php:125
 msgid "Enter server connection parameters"
 msgstr "Anna palvelimen yhteysparametrit"
 
-#: setup/lib/messages.inc.php:129
+#: setup/lib/messages.inc.php:126
 msgid "Enter login options for signon authentication"
 msgstr "Anna kirjautumistodennuksen kirjautumisasetukset"
 
-#: setup/lib/messages.inc.php:130
+#: setup/lib/messages.inc.php:127
 msgid "Signon login options"
 msgstr "Kirjautumistodennuksen asetukset"
 
-#: setup/lib/messages.inc.php:131
+#: setup/lib/messages.inc.php:128
 msgid ""
 "Configure phpMyAdmin database to gain access to additional features, see "
 "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
@@ -6825,47 +6799,47 @@ msgstr ""
 "ohjeista [a@../Documentation.html#linked-tables]linkitettyjen taulujen "
 "infrastruktuuri[/a]."
 
-#: setup/lib/messages.inc.php:132 setup/lib/messages.inc.php:293
+#: setup/lib/messages.inc.php:129 setup/lib/messages.inc.php:290
 msgid "PMA database"
 msgstr "PMA-tietokanta"
 
-#: setup/lib/messages.inc.php:133
+#: setup/lib/messages.inc.php:130
 msgid "Tracking of changes made in database. Requires configured PMA database."
 msgstr ""
 
-#: setup/lib/messages.inc.php:134
+#: setup/lib/messages.inc.php:131
 msgid "Changes tracking"
 msgstr ""
 
-#: setup/lib/messages.inc.php:135
+#: setup/lib/messages.inc.php:132
 msgid "Customization"
 msgstr "Mukauttaminen"
 
-#: setup/lib/messages.inc.php:136
+#: setup/lib/messages.inc.php:133
 msgid "Customize export options"
 msgstr "Mukauta viennin oletusasetuksia"
 
-#: setup/lib/messages.inc.php:138
+#: setup/lib/messages.inc.php:135
 msgid "Customize import defaults"
 msgstr "Mukauta tuonnin oletusasetuksia"
 
-#: setup/lib/messages.inc.php:139
+#: setup/lib/messages.inc.php:136
 msgid "Customize navigation frame"
 msgstr "Mukauta navigointikehystä"
 
-#: setup/lib/messages.inc.php:140
+#: setup/lib/messages.inc.php:137
 msgid "Customize main frame"
 msgstr "Mukauta pääkehystä"
 
-#: setup/lib/messages.inc.php:141
+#: setup/lib/messages.inc.php:138
 msgid "Customize links shown in SQL Query boxes"
 msgstr "Mukauta SQL-kyselykentässä näytettäviä linkkejä"
 
-#: setup/lib/messages.inc.php:142
+#: setup/lib/messages.inc.php:139
 msgid "SQL Query box"
 msgstr "SQL-kyselykenttä"
 
-#: setup/lib/messages.inc.php:143
+#: setup/lib/messages.inc.php:140
 msgid ""
 "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
 "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
@@ -6873,27 +6847,27 @@ msgstr ""
 "SQL-kyselyjen asetukset; SQL-kyselykentän asetuksia varten katso [a@?"
 "page=form&amp;formset=main_frame#tab_Sql_box]navigointikehyksen[/a] asetukset"
 
-#: setup/lib/messages.inc.php:144
+#: setup/lib/messages.inc.php:141
 msgid "SQL queries"
 msgstr "SQL-kyselyt"
 
-#: setup/lib/messages.inc.php:145
+#: setup/lib/messages.inc.php:142
 msgid "Customize startup page"
 msgstr "Mukauta käynnistyssivua"
 
-#: setup/lib/messages.inc.php:146
+#: setup/lib/messages.inc.php:143
 msgid "Startup"
 msgstr "Käynnistys"
 
-#: setup/lib/messages.inc.php:147
+#: setup/lib/messages.inc.php:144
 msgid "Choose how you want tabs to work"
 msgstr "Valitse haluamasi välilehtien toiminta"
 
-#: setup/lib/messages.inc.php:148
+#: setup/lib/messages.inc.php:145
 msgid "Tabs"
 msgstr "Välilehdet"
 
-#: setup/lib/messages.inc.php:149
+#: setup/lib/messages.inc.php:146
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
@@ -6901,11 +6875,11 @@ msgstr ""
 "Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/Gzip]gzip"
 "[/a]-pakkausta"
 
-#: setup/lib/messages.inc.php:150
+#: setup/lib/messages.inc.php:147
 msgid "GZip"
 msgstr "GZip"
 
-#: setup/lib/messages.inc.php:151
+#: setup/lib/messages.inc.php:148
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
@@ -6916,15 +6890,15 @@ msgstr ""
 "purkuun[/a] tarvitaan funktioita (%s), jotka eivät ole käytettävissä tässä "
 "järjestelmässä."
 
-#: setup/lib/messages.inc.php:153
+#: setup/lib/messages.inc.php:150
 msgid "Extra parameters for iconv"
 msgstr "Iconv-laajennuksen lisäparametrit"
 
-#: setup/lib/messages.inc.php:154
+#: setup/lib/messages.inc.php:151
 msgid "Ignore errors"
 msgstr "Älä välitä virheistä"
 
-#: setup/lib/messages.inc.php:155
+#: setup/lib/messages.inc.php:152
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
@@ -6932,11 +6906,11 @@ msgstr ""
 "Jos käytössä, phpMyAdmin jatkaa monilausekyselyjen laskemista, vaikka yksi "
 "kyselyistä epäonnistui"
 
-#: setup/lib/messages.inc.php:156
+#: setup/lib/messages.inc.php:153
 msgid "Ignore multiple statement errors"
 msgstr "Älä välitä peräkkäisistä lausevirheistä"
 
-#: setup/lib/messages.inc.php:157
+#: setup/lib/messages.inc.php:154
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
@@ -6946,11 +6920,11 @@ msgstr ""
 "Tätä kannattaa käyttää tuotaessa suuria tiedostoja; se saattaa kuitenkin "
 "katkaista transaktiot."
 
-#: setup/lib/messages.inc.php:158
+#: setup/lib/messages.inc.php:155
 msgid "Partial import: allow interrupt"
 msgstr "Osittainen tuonti: salli keskeytys"
 
-#: setup/lib/messages.inc.php:159
+#: setup/lib/messages.inc.php:156
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
@@ -6958,15 +6932,15 @@ msgstr ""
 "Oletusmuoto; huomaa, että tämä luettelo riippu sijainnista (tietokanta, "
 "taulu), ja käytettävissä on vain SQL"
 
-#: setup/lib/messages.inc.php:162
+#: setup/lib/messages.inc.php:159
 msgid "Partial import: skip queries"
 msgstr "Osittainen tuonti: ohita kyselyjä"
 
-#: setup/lib/messages.inc.php:163
+#: setup/lib/messages.inc.php:160
 msgid "Insecure connection"
 msgstr "Salaamaton yhteys"
 
-#: setup/lib/messages.inc.php:165
+#: setup/lib/messages.inc.php:162
 #, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
@@ -6975,43 +6949,43 @@ msgstr ""
 "Jos palvelimen asetukset on määritetty hyväksymään HTTPS-pyynnöt, [a@%s]ota "
 "käyttöön[/a] salattu yhteys."
 
-#: setup/lib/messages.inc.php:166
+#: setup/lib/messages.inc.php:163
 msgid "How many rows can be inserted at one time"
 msgstr "Kuinka monta riviä voi lisätä kerrallaan"
 
-#: setup/lib/messages.inc.php:167
+#: setup/lib/messages.inc.php:164
 msgid "Number of inserted rows"
 msgstr "Lisättyjen rivien määrä"
 
-#: setup/lib/messages.inc.php:168
+#: setup/lib/messages.inc.php:165
 msgid "Target for quick access icon"
 msgstr "Pikakäyttökuvakkeen kohde"
 
-#: setup/lib/messages.inc.php:169
+#: setup/lib/messages.inc.php:166
 msgid "Show logo in left frame"
 msgstr "Näytä vasemmassa kehyksessä logo"
 
-#: setup/lib/messages.inc.php:170
+#: setup/lib/messages.inc.php:167
 msgid "Display logo"
 msgstr "Näytä logo"
 
-#: setup/lib/messages.inc.php:171
+#: setup/lib/messages.inc.php:168
 msgid "Display server choice at the top of the left frame"
 msgstr "Näytä palvelimen alinta vasemman kehyksen yläkulmassa"
 
-#: setup/lib/messages.inc.php:172
+#: setup/lib/messages.inc.php:169
 msgid "Display servers selection"
 msgstr "Näytä palvelinten valinta"
 
-#: setup/lib/messages.inc.php:173
+#: setup/lib/messages.inc.php:170
 msgid "String that separates databases into different tree levels"
 msgstr "Merkkijono, joka jakaa tietokannat eri puutasoille"
 
-#: setup/lib/messages.inc.php:174
+#: setup/lib/messages.inc.php:171
 msgid "Database tree separator"
 msgstr "Tietokantapuun erotin"
 
-#: setup/lib/messages.inc.php:175
+#: setup/lib/messages.inc.php:172
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
@@ -7019,35 +6993,35 @@ msgstr ""
 "Vain kevyt versio; näytä tietokannat puuna (puu määritellään alla "
 "osoitetulla erottimella)"
 
-#: setup/lib/messages.inc.php:176
+#: setup/lib/messages.inc.php:173
 msgid "Display databases in a tree"
 msgstr "Näytä tietokannat puuna"
 
-#: setup/lib/messages.inc.php:177
+#: setup/lib/messages.inc.php:174
 msgid "Disable this if you want to see all databases at once"
 msgstr "Poista tämä käytöstä, jos haluat nähdä kaikki tietokannat kerralla"
 
-#: setup/lib/messages.inc.php:178
+#: setup/lib/messages.inc.php:175
 msgid "Use light version"
 msgstr "Käytä kevyttä versiota"
 
-#: setup/lib/messages.inc.php:179
+#: setup/lib/messages.inc.php:176
 msgid "Maximum table tree depth"
 msgstr "Taulupuun enimmäissyvyys"
 
-#: setup/lib/messages.inc.php:180
+#: setup/lib/messages.inc.php:177
 msgid "String that separates tables into different tree levels"
 msgstr "Merkkijono, joka jakaa taulut eri puutasoille"
 
-#: setup/lib/messages.inc.php:181
+#: setup/lib/messages.inc.php:178
 msgid "Table tree separator"
 msgstr "Taulupuun erotin"
 
-#: setup/lib/messages.inc.php:182
+#: setup/lib/messages.inc.php:179
 msgid "Logo link URL"
 msgstr "Logon linkin osoite"
 
-#: setup/lib/messages.inc.php:183
+#: setup/lib/messages.inc.php:180
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
@@ -7055,27 +7029,27 @@ msgstr ""
 "Avaa linkitetty sivu pääikkunassa: ([kbd]main[/kbd]) tai uudessa ikkunassa: "
 "([kbd]new[/kbd])"
 
-#: setup/lib/messages.inc.php:184
+#: setup/lib/messages.inc.php:181
 msgid "Logo link target"
 msgstr "Logon linkin kohde"
 
-#: setup/lib/messages.inc.php:185
+#: setup/lib/messages.inc.php:182
 msgid "Highlight server under the mouse cursor"
 msgstr "Korosta kohdistimen alla oleva palvelin"
 
-#: setup/lib/messages.inc.php:186
+#: setup/lib/messages.inc.php:183
 msgid "Enable highlighting"
 msgstr "Käytä korostusta"
 
-#: setup/lib/messages.inc.php:188
+#: setup/lib/messages.inc.php:185
 msgid "Use less graphically intense tabs"
 msgstr "Käytä pelkistettyjä välilehtiä"
 
-#: setup/lib/messages.inc.php:189
+#: setup/lib/messages.inc.php:186
 msgid "Light tabs"
 msgstr "Kevyet välilehdet"
 
-#: setup/lib/messages.inc.php:191
+#: setup/lib/messages.inc.php:188
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -7086,22 +7060,22 @@ msgstr ""
 "asetetaan FALSE:ksi, saattaa helposti unohtaa kirjata muut palvelimet ulos, "
 "mikäli yhteyksiä on muodostettu useisiin palvelimiin."
 
-#: setup/lib/messages.inc.php:192
+#: setup/lib/messages.inc.php:189
 msgid "Delete all cookies on logout"
 msgstr "Poista kaikki evästeet uloskirjauduttaessa"
 
-#: setup/lib/messages.inc.php:193
+#: setup/lib/messages.inc.php:190
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
 "Määritä, onko evästetodennustilassa muistettava edellinen kirjautuminen"
 
-#: setup/lib/messages.inc.php:194
+#: setup/lib/messages.inc.php:191
 msgid "Recall user name"
 msgstr "Anna käyttäjänimi"
 
-#: setup/lib/messages.inc.php:195
+#: setup/lib/messages.inc.php:192
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -7113,15 +7087,15 @@ msgstr ""
 "ajan ja poistetaan, kun selainikkuna suljetaan. Tätä suositellaan "
 "epäluotetuille ympäristöille."
 
-#: setup/lib/messages.inc.php:196
+#: setup/lib/messages.inc.php:193
 msgid "Login cookie store"
 msgstr "Kirjautumisevästeen tallennus"
 
-#: setup/lib/messages.inc.php:197
+#: setup/lib/messages.inc.php:194
 msgid "Define how long (in seconds) a login cookie is valid"
 msgstr "Määrittele sekunteina, kuinka pitkään kirjautumiseväste on kelvollinen"
 
-#: setup/lib/messages.inc.php:198
+#: setup/lib/messages.inc.php:195
 msgid ""
 "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
 "be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
@@ -7132,29 +7106,29 @@ msgstr ""
 "suuremmat arvot saattavat johtaa tietoturvariskiin esimerkiksi toisena "
 "käyttäjänä esiintymisen muodossa."
 
-#: setup/lib/messages.inc.php:199
+#: setup/lib/messages.inc.php:196
 msgid "Login cookie validity"
 msgstr "Kirjautumisevästeen kelpoisuus"
 
-#: setup/lib/messages.inc.php:200
+#: setup/lib/messages.inc.php:197
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr "Näytettävän SQL-kyselyn enimmäispituus"
 
-#: setup/lib/messages.inc.php:201
+#: setup/lib/messages.inc.php:198
 msgid "Maximum displayed SQL length"
 msgstr "Näytettävän SQL-kyselyn enimmäispituus"
 
-#: setup/lib/messages.inc.php:202
+#: setup/lib/messages.inc.php:199
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
 "Vasemmassa kehyksessä ja tietokantaluettelossa näkyvien tietokantojen "
 "enimmäismäärä"
 
-#: setup/lib/messages.inc.php:203
+#: setup/lib/messages.inc.php:200
 msgid "Maximum databases"
 msgstr "Tietokantoja enintään"
 
-#: setup/lib/messages.inc.php:204
+#: setup/lib/messages.inc.php:201
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
@@ -7164,19 +7138,19 @@ msgstr ""
 "enemmän rivejä, näytetään &quot;Edellinen&quot;- ja &quot;Seuraava&quot;-"
 "linkit."
 
-#: setup/lib/messages.inc.php:205
+#: setup/lib/messages.inc.php:202
 msgid "Maximum number of rows to display"
 msgstr "Näytettävien rivien enimmäismäärä"
 
-#: setup/lib/messages.inc.php:206
+#: setup/lib/messages.inc.php:203
 msgid "Maximum number of tables displayed in table list"
 msgstr "Taululuettelossa näkyvien taulujen enimmäismäärä"
 
-#: setup/lib/messages.inc.php:207
+#: setup/lib/messages.inc.php:204
 msgid "Maximum tables"
 msgstr "Tauluja enintään"
 
-#: setup/lib/messages.inc.php:208
+#: setup/lib/messages.inc.php:205
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
@@ -7184,27 +7158,27 @@ msgstr ""
 "Skriptin varaama enimmäistavumäärä, esim. [kbd]32M[/kbd] ([kbd]0[/kbd] = ei "
 "rajoitusta)"
 
-#: setup/lib/messages.inc.php:209
+#: setup/lib/messages.inc.php:206
 msgid "Memory limit"
 msgstr "Muistirajoitus"
 
-#: setup/lib/messages.inc.php:210 setup/lib/messages.inc.php:222
+#: setup/lib/messages.inc.php:207 setup/lib/messages.inc.php:219
 msgid "Use only icons, only text or both"
 msgstr "Käytä vain kuvakkeita, vain tekstiä tai molempia"
 
-#: setup/lib/messages.inc.php:211
+#: setup/lib/messages.inc.php:208
 msgid "Iconic navigation bar"
 msgstr "Navigointipalkki, jossa kuvakkeet"
 
-#: setup/lib/messages.inc.php:214
+#: setup/lib/messages.inc.php:211
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr "käytä Gzip-ulostulon puskurointia nopeuttaaksesi HTTP-siirtoja"
 
-#: setup/lib/messages.inc.php:215
+#: setup/lib/messages.inc.php:212
 msgid "GZip output buffering"
 msgstr "GZip-ulostulon puskurointi"
 
-#: setup/lib/messages.inc.php:217
+#: setup/lib/messages.inc.php:214
 #, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
@@ -7216,35 +7190,35 @@ msgstr ""
 "[kbd]SMART[/kbd] - eli laskeva järjestys kentille, joiden tyyppi on TIME, "
 "DATE, DATETIME tai TIMESTAMP; muulloin nouseva järjestys"
 
-#: setup/lib/messages.inc.php:218
+#: setup/lib/messages.inc.php:215
 msgid "Default sorting order"
 msgstr "Oletuslajittelujärjestys"
 
-#: setup/lib/messages.inc.php:220
+#: setup/lib/messages.inc.php:217
 msgid "Use persistent connections to MySQL databases"
 msgstr "Käytä MySQL-tietokantojen jatkuvia yhteyksiä"
 
-#: setup/lib/messages.inc.php:221
+#: setup/lib/messages.inc.php:218
 msgid "Persistent connections"
 msgstr "Jatkuvat yhteydet"
 
-#: setup/lib/messages.inc.php:223
+#: setup/lib/messages.inc.php:220
 msgid "Iconic table operations"
 msgstr "Kuvakkeellisen taulun toiminnot"
 
-#: setup/lib/messages.inc.php:224
+#: setup/lib/messages.inc.php:221
 #, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Estä BLOB- ja BINARY-kenttien muokkaus"
 
-#: setup/lib/messages.inc.php:225
+#: setup/lib/messages.inc.php:222
 #, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Suojaa binäärikentät"
 
-#: setup/lib/messages.inc.php:226
+#: setup/lib/messages.inc.php:223
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
 "this utilizes JS-routines to display query history (lost by window close)."
@@ -7253,47 +7227,47 @@ msgstr ""
 "tarvitaan). Jos poistettu käytöstä, tämä käyttää JavaScript-rutiineja "
 "kyselyhistorian näyttämisessä (katoaa, kun ikkuna suljetaan)."
 
-#: setup/lib/messages.inc.php:227
+#: setup/lib/messages.inc.php:224
 msgid "Permanent query history"
 msgstr "Pysyvä kyselyhistoria"
 
-#: setup/lib/messages.inc.php:228
+#: setup/lib/messages.inc.php:225
 msgid "How many queries are kept in history"
 msgstr "Kuinka monta kyselyä historiassa pidetään"
 
-#: setup/lib/messages.inc.php:229
+#: setup/lib/messages.inc.php:226
 msgid "Query history length"
 msgstr "Kyselyhistorian pituus"
 
-#: setup/lib/messages.inc.php:230
+#: setup/lib/messages.inc.php:227
 msgid "Tab displayed when opening a new query window"
 msgstr "Uutta kyselyikkunaa avattaessa näytettävä välilehti"
 
-#: setup/lib/messages.inc.php:231
+#: setup/lib/messages.inc.php:228
 msgid "Default query window tab"
 msgstr "Oletusarvoinen kyselyikkunavälilehti"
 
-#: setup/lib/messages.inc.php:232
+#: setup/lib/messages.inc.php:229
 msgid "Select which functions will be used for character set conversion"
 msgstr "Valitse, mitä funktioita käytetään merkistömuunnoksessa"
 
-#: setup/lib/messages.inc.php:233
+#: setup/lib/messages.inc.php:230
 msgid "Recoding engine"
 msgstr "Merkistön uudelleenkoodaus"
 
-#: setup/lib/messages.inc.php:235
+#: setup/lib/messages.inc.php:232
 msgid "Try to revert erroneous fields to their default values"
 msgstr "Yritä palauttaa virheelliset kentät oletusarvoilleen"
 
-#: setup/lib/messages.inc.php:236
+#: setup/lib/messages.inc.php:233
 msgid "Directory where exports can be saved on server"
 msgstr "Hakemisto, jonne viennit voi tallentaa palvelimella"
 
-#: setup/lib/messages.inc.php:237
+#: setup/lib/messages.inc.php:234
 msgid "Save directory"
 msgstr "Tallennushakemisto"
 
-#: setup/lib/messages.inc.php:238
+#: setup/lib/messages.inc.php:235
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -7309,47 +7283,47 @@ msgstr ""
 "mode=edit&amp;id=%1$d#tab_Server]Todennustyypiksi[/a] kannattaa asettaa [kbd]"
 "cookie[/kbd] tai [kbd]http[/kbd]."
 
-#: setup/lib/messages.inc.php:239
+#: setup/lib/messages.inc.php:236
 msgid "You should use mysqli for performance reasons"
 msgstr "Suorituskykysyistä tulisi käyttää mysqli-laajennusta."
 
-#: setup/lib/messages.inc.php:240
+#: setup/lib/messages.inc.php:237
 msgid "You allow for connecting to the server without a password."
 msgstr "Sallit yhteyden muodostamisen palvelimeen ilman salasanaa."
 
-#: setup/lib/messages.inc.php:242
+#: setup/lib/messages.inc.php:239
 msgid "Leave blank if not used"
 msgstr "Jätä tyhjäksi, jos tätä ei käytetä"
 
-#: setup/lib/messages.inc.php:243
+#: setup/lib/messages.inc.php:240
 msgid "Host authentication order"
 msgstr "Palvelintodennuksen järjestys"
 
-#: setup/lib/messages.inc.php:244
+#: setup/lib/messages.inc.php:241
 msgid "Leave blank for defaults"
 msgstr "Käytä oletusarvoja jättämällä tyhjäksi"
 
-#: setup/lib/messages.inc.php:245
+#: setup/lib/messages.inc.php:242
 msgid "Host authentication rules"
 msgstr "Palvelintodennuksen säännöt"
 
-#: setup/lib/messages.inc.php:246
+#: setup/lib/messages.inc.php:243
 msgid "Allow logins without a password"
 msgstr "Salli kirjautumiset ilman salasanaa"
 
-#: setup/lib/messages.inc.php:247
+#: setup/lib/messages.inc.php:244
 msgid "Allow root login"
 msgstr "Salli pääkäyttäjän kirjautuminen"
 
-#: setup/lib/messages.inc.php:248
+#: setup/lib/messages.inc.php:245
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
 
-#: setup/lib/messages.inc.php:249
+#: setup/lib/messages.inc.php:246
 msgid "HTTP Realm"
 msgstr ""
 
-#: setup/lib/messages.inc.php:250
+#: setup/lib/messages.inc.php:247
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -7358,19 +7332,19 @@ msgstr ""
 "[a@http://swekey.com]SweKey-laitteistotodennuksen[/a] asetustiedoston polku "
 "(ei dokumenttijuuressa; suositeltu: /etc/swekey.conf)"
 
-#: setup/lib/messages.inc.php:251
+#: setup/lib/messages.inc.php:248
 msgid "SweKey config file"
 msgstr "SweKey-asetustiedosto"
 
-#: setup/lib/messages.inc.php:252
+#: setup/lib/messages.inc.php:249
 msgid "Authentication method to use"
 msgstr "Käytettävä todennustyyppi"
 
-#: setup/lib/messages.inc.php:253
+#: setup/lib/messages.inc.php:250
 msgid "Authentication type"
 msgstr "Todennustyyppi"
 
-#: setup/lib/messages.inc.php:254
+#: setup/lib/messages.inc.php:251
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -7378,11 +7352,11 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/bookmark]"
 "kirjanmerkki[/a]tukea; oletusarvo: [kbd]pma_bookmark[/kbd]"
 
-#: setup/lib/messages.inc.php:255
+#: setup/lib/messages.inc.php:252
 msgid "Bookmark table"
 msgstr "Kirjanmerkkitaulu"
 
-#: setup/lib/messages.inc.php:256
+#: setup/lib/messages.inc.php:253
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
@@ -7390,31 +7364,31 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua sarakkeiden kommentteja ja mime-tyyppejä; "
 "oletusarvo: [kbd]pma_column_info[/kbd]"
 
-#: setup/lib/messages.inc.php:257
+#: setup/lib/messages.inc.php:254
 msgid "Column information table"
 msgstr "Saraketietojen taulu"
 
-#: setup/lib/messages.inc.php:258
+#: setup/lib/messages.inc.php:255
 msgid "Compress connection to MySQL server"
 msgstr "Pakkaa MySQL-palvelimen yhteys"
 
-#: setup/lib/messages.inc.php:259
+#: setup/lib/messages.inc.php:256
 msgid "Compress connection"
 msgstr "Pakkaa yhteys"
 
-#: setup/lib/messages.inc.php:260
+#: setup/lib/messages.inc.php:257
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr "Kuinka palvelimeen yhdistetään; käytä tcp:tä, jos olet epävarma"
 
-#: setup/lib/messages.inc.php:261
+#: setup/lib/messages.inc.php:258
 msgid "Connection type"
 msgstr "Yhteystyyppi"
 
-#: setup/lib/messages.inc.php:262
+#: setup/lib/messages.inc.php:259
 msgid "Control user password"
 msgstr "Hallintakäyttäjän salasana"
 
-#: setup/lib/messages.inc.php:263
+#: setup/lib/messages.inc.php:260
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -7423,19 +7397,19 @@ msgstr ""
 "lisätietoja saatavilla [a@http://wiki.phpmyadmin.net/pma/controluser]wikissä"
 "[/a]"
 
-#: setup/lib/messages.inc.php:264
+#: setup/lib/messages.inc.php:261
 msgid "Control user"
 msgstr "Hallintakäyttäjä"
 
-#: setup/lib/messages.inc.php:265
+#: setup/lib/messages.inc.php:262
 msgid "Count tables when showing database list"
 msgstr "Laske taulujen määrä, kun tietokantaluettelo näytetään"
 
-#: setup/lib/messages.inc.php:266
+#: setup/lib/messages.inc.php:263
 msgid "Count tables"
 msgstr "Laske taulujen määrä"
 
-#: setup/lib/messages.inc.php:267
+#: setup/lib/messages.inc.php:264
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
@@ -7443,11 +7417,11 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua Suunnittelija-taulua; oletusarvo: [kbd]"
 "pma_designer_coords[/kbd]"
 
-#: setup/lib/messages.inc.php:268
+#: setup/lib/messages.inc.php:265
 msgid "Designer table"
 msgstr "Suunnittelija-taulu"
 
-#: setup/lib/messages.inc.php:269
+#: setup/lib/messages.inc.php:266
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -7456,11 +7430,11 @@ msgstr ""
 "virheenjäljittimestä[/a] ja [a@http://bugs.mysql.com/19588]MySQL:n "
 "ohjelmavirheistä[/a]"
 
-#: setup/lib/messages.inc.php:270
+#: setup/lib/messages.inc.php:267
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Poista INFORMATION_SCHEMA käytöstä"
 
-#: setup/lib/messages.inc.php:271
+#: setup/lib/messages.inc.php:268
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - [a@?"
@@ -7478,24 +7452,24 @@ msgstr ""
 "palveluntarjoajalle, johon sinun lisäksesi tuhannet käyttäjät ovat "
 "yhteydessä."
 
-#: setup/lib/messages.inc.php:273
+#: setup/lib/messages.inc.php:270
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 "Käytettävä PHP-laajennus; mysqli-laajennusta tulisi käyttää, jos sitä tuetaan"
 
-#: setup/lib/messages.inc.php:274
+#: setup/lib/messages.inc.php:271
 msgid "PHP extension to use"
 msgstr "Käytettävä PHP-laajennus"
 
-#: setup/lib/messages.inc.php:275
+#: setup/lib/messages.inc.php:272
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "Piilota tietokannat, jotka vastaavat säännöllistä lauseketta (PCRE)"
 
-#: setup/lib/messages.inc.php:276
+#: setup/lib/messages.inc.php:273
 msgid "Hide databases"
 msgstr "Piilota tietokannat"
 
-#: setup/lib/messages.inc.php:277
+#: setup/lib/messages.inc.php:274
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
@@ -7503,11 +7477,11 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
 "pma_history[/kbd]"
 
-#: setup/lib/messages.inc.php:278
+#: setup/lib/messages.inc.php:275
 msgid "SQL query history table"
 msgstr "SQL-kyselyhistorian taulu"
 
-#: setup/lib/messages.inc.php:279
+#: setup/lib/messages.inc.php:276
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
@@ -7519,33 +7493,33 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
 "pma_history[/kbd]"
 
-#: setup/lib/messages.inc.php:280
+#: setup/lib/messages.inc.php:277
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL-kyselyhistorian taulu"
 
-#: setup/lib/messages.inc.php:281
+#: setup/lib/messages.inc.php:278
 msgid "Hostname where MySQL server is running"
 msgstr "MySQL-palvelimen verkkonimi"
 
-#: setup/lib/messages.inc.php:282
+#: setup/lib/messages.inc.php:279
 msgid "Server hostname"
 msgstr "Palvelimen verkkonimi"
 
-#: setup/lib/messages.inc.php:283
+#: setup/lib/messages.inc.php:280
 msgid "Logout URL"
 msgstr "Uloskirjautumisen verkko-osoite"
 
-#: setup/lib/messages.inc.php:284
+#: setup/lib/messages.inc.php:281
 msgid "Try to connect without password"
 msgstr "Yritä yhdistää ilman salasanaa"
 
-#: setup/lib/messages.inc.php:285
+#: setup/lib/messages.inc.php:282
 msgid "Connect without password"
 msgstr "Yhdistä ilman salasanaa"
 
-#: setup/lib/messages.inc.php:286
+#: setup/lib/messages.inc.php:283
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -7554,30 +7528,30 @@ msgstr ""
 "koodinvaihtomerkin, mikäli haluat käyttää niiden todellista ilmentymää; "
 "käytä esimerkiksi 'oma\\_db' eikä 'oma_db'."
 
-#: setup/lib/messages.inc.php:287
+#: setup/lib/messages.inc.php:284
 msgid "Show only listed databases"
 msgstr "Näytä vain luetteloidut tietokannat"
 
-#: setup/lib/messages.inc.php:288 setup/lib/messages.inc.php:322
+#: setup/lib/messages.inc.php:285 setup/lib/messages.inc.php:319
 msgid "Leave empty if not using config auth"
 msgstr "Jätä tyhjäksi, jot et käytä config-todennusta"
 
-#: setup/lib/messages.inc.php:289
+#: setup/lib/messages.inc.php:286
 msgid "Password for config auth"
 msgstr "Config-todennuksen salasana"
 
-#: setup/lib/messages.inc.php:290
+#: setup/lib/messages.inc.php:287
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 "Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: [kbd]"
 "pma_pdf_pages[/kbd]"
 
-#: setup/lib/messages.inc.php:291
+#: setup/lib/messages.inc.php:288
 msgid "PDF schema: pages table"
 msgstr "PDF-kaavio: sivujen taulu"
 
-#: setup/lib/messages.inc.php:292
+#: setup/lib/messages.inc.php:289
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -7587,16 +7561,16 @@ msgstr ""
 "Katso täydet tiedot aiheesta [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
 "a]. Jätä tyhjäksi, jos et halua tukea. Oletusarvo: [kbd]phpmyadmin[/kbd]"
 
-#: setup/lib/messages.inc.php:294
+#: setup/lib/messages.inc.php:291
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Portti, jota MySQL-palvelin kuuntelee; käytä oletusarvoa jättämällä tyhjäksi"
 
-#: setup/lib/messages.inc.php:295
+#: setup/lib/messages.inc.php:292
 msgid "Server port"
 msgstr "Palvelinportti"
 
-#: setup/lib/messages.inc.php:296
+#: setup/lib/messages.inc.php:293
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -7604,19 +7578,19 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/relation]"
 "relaatiolinkki[/a]tukea; oletusarvo: [kbd]pma_relation[/kbd]"
 
-#: setup/lib/messages.inc.php:297
+#: setup/lib/messages.inc.php:294
 msgid "Relation table"
 msgstr "Relaatiotaulu"
 
-#: setup/lib/messages.inc.php:298
+#: setup/lib/messages.inc.php:295
 msgid "SQL command to fetch available databases"
 msgstr "Mahdollisten tietokantojen noutoon käytettävä SQL-käsky"
 
-#: setup/lib/messages.inc.php:299
+#: setup/lib/messages.inc.php:296
 msgid "SHOW DATABASES command"
 msgstr "SHOW DATABASES -käsky"
 
-#: setup/lib/messages.inc.php:300
+#: setup/lib/messages.inc.php:297
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -7624,100 +7598,100 @@ msgstr ""
 "Katso [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]todennustyyppien[/"
 "a] esimerkit"
 
-#: setup/lib/messages.inc.php:301
+#: setup/lib/messages.inc.php:298
 msgid "Signon session name"
 msgstr "Signon-istunnon nimi"
 
-#: setup/lib/messages.inc.php:302
+#: setup/lib/messages.inc.php:299
 msgid "Signon URL"
 msgstr "Signon-kirjautumisen verkko-osoite"
 
-#: setup/lib/messages.inc.php:303
+#: setup/lib/messages.inc.php:300
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: setup/lib/messages.inc.php:304
+#: setup/lib/messages.inc.php:301
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Automaattinen palautuminen"
 
-#: setup/lib/messages.inc.php:305
+#: setup/lib/messages.inc.php:302
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: setup/lib/messages.inc.php:306
+#: setup/lib/messages.inc.php:303
 #, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
 msgstr "Tieto"
 
-#: setup/lib/messages.inc.php:307
+#: setup/lib/messages.inc.php:304
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: setup/lib/messages.inc.php:308
+#: setup/lib/messages.inc.php:305
 msgid "Add DROP VIEW"
 msgstr ""
 
-#: setup/lib/messages.inc.php:309
+#: setup/lib/messages.inc.php:306
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
-#: setup/lib/messages.inc.php:310
+#: setup/lib/messages.inc.php:307
 msgid "Add DROP TABLE"
 msgstr ""
 
-#: setup/lib/messages.inc.php:311
+#: setup/lib/messages.inc.php:308
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
-#: setup/lib/messages.inc.php:312
+#: setup/lib/messages.inc.php:309
 msgid "Add DROP DATABASE"
 msgstr ""
 
-#: setup/lib/messages.inc.php:313
+#: setup/lib/messages.inc.php:310
 msgid "You should use SSL connections if your web server supports it"
 msgstr "SSL-yhteyttä tulisi käyttää, jos verkkopalvelin tukee sitä."
 
-#: setup/lib/messages.inc.php:314
+#: setup/lib/messages.inc.php:311
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Palvelinpistoke, jota MySQL-palvelin kuuntelee; käytä oletusarvoa jättämällä "
 "tyhjäksi"
 
-#: setup/lib/messages.inc.php:315
+#: setup/lib/messages.inc.php:312
 msgid "Server socket"
 msgstr "Palvelinpistoke"
 
-#: setup/lib/messages.inc.php:316
+#: setup/lib/messages.inc.php:313
 msgid "Enable SSL for connection to MySQL server"
 msgstr "Yhdistä MySQL-palvelimeen käyttäen SSL-yhteyttä"
 
-#: setup/lib/messages.inc.php:317
+#: setup/lib/messages.inc.php:314
 msgid "Use SSL"
 msgstr "Käytä SSL-yhteyttä"
 
-#: setup/lib/messages.inc.php:318
+#: setup/lib/messages.inc.php:315
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 "Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea; oletusarvo: [kbd]"
 "pma_table_coords[/kbd]"
 
-#: setup/lib/messages.inc.php:319
+#: setup/lib/messages.inc.php:316
 msgid "PDF schema: table coordinates"
 msgstr "PDF-kaavio: taulun koordinaatit"
 
-#: setup/lib/messages.inc.php:320
+#: setup/lib/messages.inc.php:317
 #, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
@@ -7729,17 +7703,17 @@ msgstr ""
 "Taulu, joka kuvaa näyttökentät; jätä tyhjäksi, jos et halua tukea; "
 "oletusarvo: [kbd]pma_table_info[/kbd]"
 
-#: setup/lib/messages.inc.php:321
+#: setup/lib/messages.inc.php:318
 #, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "Näyttökenttien taulu"
 
-#: setup/lib/messages.inc.php:323
+#: setup/lib/messages.inc.php:320
 msgid "User for config auth"
 msgstr "Config-todennuksen käyttäjä"
 
-#: setup/lib/messages.inc.php:324
+#: setup/lib/messages.inc.php:321
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
@@ -7747,11 +7721,11 @@ msgstr ""
 "Poista käytöstä, mikäli tiedät pma_*-taulujesi olevan ajan tasalla. Tämä "
 "estää yhteensopivuustarkistukset ja lisää siten suorituskykyä."
 
-#: setup/lib/messages.inc.php:325
+#: setup/lib/messages.inc.php:322
 msgid "Verbose check"
 msgstr "Yksityiskohtainen tarkistus"
 
-#: setup/lib/messages.inc.php:326
+#: setup/lib/messages.inc.php:323
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -7759,22 +7733,22 @@ msgstr ""
 "Käyttäjäystävällinen kuvaus tästä palvelimesta. Jätä tyhjäksi, jos haluat, "
 "että tässä lukee sen sijaan palvelimen verkkonimi."
 
-#: setup/lib/messages.inc.php:327
+#: setup/lib/messages.inc.php:324
 msgid "Verbose name of this server"
 msgstr "Tämän palvelimen yksityiskohtainen nimi"
 
-#: setup/lib/messages.inc.php:329
+#: setup/lib/messages.inc.php:326
 #, fuzzy
 #| msgid ""
 #| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Pitääkö käyttäjälle näyttää \"Näytä kaikki (tietueet)\" -painike"
 
-#: setup/lib/messages.inc.php:330
+#: setup/lib/messages.inc.php:327
 msgid "Allow to display all the rows"
 msgstr "Salli kaikkien rivien näyttäminen"
 
-#: setup/lib/messages.inc.php:331
+#: setup/lib/messages.inc.php:328
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -7784,27 +7758,27 @@ msgstr ""
 "todennusta käytettäessä, koska salasana lukee suoraan asetustiedostossa; "
 "tämä ei estä saman komennon suorittamista suoraan."
 
-#: setup/lib/messages.inc.php:332
+#: setup/lib/messages.inc.php:329
 msgid "Show password change form"
 msgstr "Näytä salasananvaihtolomake"
 
-#: setup/lib/messages.inc.php:333
+#: setup/lib/messages.inc.php:330
 msgid "Show create database form"
 msgstr "Näytä tietokannanluontilomake"
 
-#: setup/lib/messages.inc.php:334
+#: setup/lib/messages.inc.php:331
 msgid "Show form"
 msgstr "Näytä lomake"
 
-#: setup/lib/messages.inc.php:335
+#: setup/lib/messages.inc.php:332
 msgid "Display the function fields in edit/insert mode"
 msgstr "Näytä funktiokentät muokkaus- ja liäsystilassa"
 
-#: setup/lib/messages.inc.php:336
+#: setup/lib/messages.inc.php:333
 msgid "Show function fields"
 msgstr "Näytä funktiokentät"
 
-#: setup/lib/messages.inc.php:338
+#: setup/lib/messages.inc.php:335
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -7812,31 +7786,31 @@ msgstr ""
 "Näyät linkki [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]-"
 "käskyn tulosteeseen"
 
-#: setup/lib/messages.inc.php:339
+#: setup/lib/messages.inc.php:336
 msgid "Show phpinfo() link"
 msgstr "Näytä phpinfo()-linkki"
 
-#: setup/lib/messages.inc.php:340
+#: setup/lib/messages.inc.php:337
 msgid "Show detailed MySQL server information"
 msgstr "Näytä MySQL-palvelimen tarkat tiedot"
 
-#: setup/lib/messages.inc.php:341
+#: setup/lib/messages.inc.php:338
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "Määrittele, pitääkö phpMyAdminin luomat SQL-kyselyt näyttää"
 
-#: setup/lib/messages.inc.php:342
+#: setup/lib/messages.inc.php:339
 msgid "Show SQL queries"
 msgstr "Näytä SQL-kyselyt"
 
-#: setup/lib/messages.inc.php:343
+#: setup/lib/messages.inc.php:340
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr "Salli tietokannan ja taulun tilastojen (eli tilankäytön) näyttäminen"
 
-#: setup/lib/messages.inc.php:344
+#: setup/lib/messages.inc.php:341
 msgid "Show statistics"
 msgstr "Näytä tilastot"
 
-#: setup/lib/messages.inc.php:345
+#: setup/lib/messages.inc.php:342
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
@@ -7844,11 +7818,11 @@ msgstr ""
 "Jos työkaluvihjeet ovat päällä ja tietokannan kommentti on asetettu, tämä "
 "näyttää kommentin ja oikean nimen"
 
-#: setup/lib/messages.inc.php:346
+#: setup/lib/messages.inc.php:343
 msgid "Display database comment instead of its name"
 msgstr "Näytä tietokannan kommentti, ei nimi"
 
-#: setup/lib/messages.inc.php:347
+#: setup/lib/messages.inc.php:344
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -7860,26 +7834,26 @@ msgstr ""
 "['LeftFrameTableSeparator']-asetuksen mukaisesti, jolloin vain kansiota "
 "kutsutaan aliaksena, itse taulun nimi pysyy muuttumattomana"
 
-#: setup/lib/messages.inc.php:348
+#: setup/lib/messages.inc.php:345
 msgid "Display table comment instead of its name"
 msgstr "Näytä taulun kommentti, ei nimi"
 
-#: setup/lib/messages.inc.php:349
+#: setup/lib/messages.inc.php:346
 msgid "Display table comments in tooltips"
 msgstr "Näytä taulun kommentit työkaluvihjeissä"
 
-#: setup/lib/messages.inc.php:350
+#: setup/lib/messages.inc.php:347
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Merkitse käytetyt taulut ja mahdollista lukittuja tauluja sisältävien "
 "tietokantojen näyttäminen"
 
-#: setup/lib/messages.inc.php:351
+#: setup/lib/messages.inc.php:348
 msgid "Skip locked tables"
 msgstr "Ohita lukitut taulut"
 
-#: setup/lib/messages.inc.php:357
+#: setup/lib/messages.inc.php:354
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
@@ -7887,15 +7861,15 @@ msgstr ""
 "Ehdota tietokannan nimeä &quot;Luo tietokanta&quot; -lomakkeessa "
 "(mahdollisuuksien mukaan) tai pidä tekstikenttä tyhjänä"
 
-#: setup/lib/messages.inc.php:358
+#: setup/lib/messages.inc.php:355
 msgid "Suggest new database name"
 msgstr "Ehdota uuden tietokannan nimeä"
 
-#: setup/lib/messages.inc.php:359
+#: setup/lib/messages.inc.php:356
 msgid "yes"
 msgstr "kyllä"
 
-#: setup/lib/messages.inc.php:360
+#: setup/lib/messages.inc.php:357
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -7907,29 +7881,29 @@ msgstr ""
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) -otsakkeeseen, joka tulee "
 "välipalvelimelta 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: setup/lib/messages.inc.php:361
+#: setup/lib/messages.inc.php:358
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 "Luotettujen välipalvelimien luettelo IP-osoitteden sallimista ja estämistä "
 "varten"
 
-#: setup/lib/messages.inc.php:362
+#: setup/lib/messages.inc.php:359
 msgid "Directory on server where you can upload files for import"
 msgstr "Palvelimen hakemisto, jonne tuotavia tiedostoja voi lähettää"
 
-#: setup/lib/messages.inc.php:363
+#: setup/lib/messages.inc.php:360
 msgid "Upload directory"
 msgstr "Lähetyshakemisto"
 
-#: setup/lib/messages.inc.php:364
+#: setup/lib/messages.inc.php:361
 msgid "Allow for searching inside the entire database"
 msgstr "Antaa hakea koko tietokannasta"
 
-#: setup/lib/messages.inc.php:365
+#: setup/lib/messages.inc.php:362
 msgid "Use database search"
 msgstr "Käytä tietokantahakua"
 
-#: setup/lib/messages.inc.php:366
+#: setup/lib/messages.inc.php:363
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -7938,11 +7912,11 @@ msgstr ""
 "Näytä monilausekyselyjen kaikki vaikuttuneet rivit. Katso libraries/import."
 "lib.php-tiedoston oletusarvoista, kuinka monta kyselyä lauseessa voi olla."
 
-#: setup/lib/messages.inc.php:367
+#: setup/lib/messages.inc.php:364
 msgid "Verbose multiple statements"
 msgstr "Yksityiskohtaiset peräkkäiset lauseet"
 
-#: setup/lib/messages.inc.php:368
+#: setup/lib/messages.inc.php:365
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
@@ -7950,11 +7924,11 @@ msgstr ""
 "Version luku epäonnistui. Verkko on ehkä yhteydettömässä tilassa, tai "
 "päivityspalvelin ei vastaa."
 
-#: setup/lib/messages.inc.php:369
+#: setup/lib/messages.inc.php:366
 msgid "Got invalid version string from server"
 msgstr "Palvelimelta saatiin virheellinen versiomerkkijono."
 
-#: setup/lib/messages.inc.php:371
+#: setup/lib/messages.inc.php:368
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -7963,7 +7937,7 @@ msgstr ""
 "phpMyAdminista on saatavilla uusi versio. Kannattaa harkita päivitystä. "
 "Uusin versio on %s, ja se on julkaistu %s."
 
-#: setup/lib/messages.inc.php:372
+#: setup/lib/messages.inc.php:369
 #, fuzzy, php-format
 #| msgid ""
 #| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
@@ -7975,25 +7949,25 @@ msgstr ""
 "Käytössä on subversion-versio, suorita [kbd]svn update[/kbd] :-)[br]Uusin "
 "vakaa versio on %s, joka julkaistiin %s."
 
-#: setup/lib/messages.inc.php:373
+#: setup/lib/messages.inc.php:370
 msgid "No newer stable version is available"
 msgstr "Saatavilla ei ole uudempaa vakaata versiota."
 
-#: setup/lib/messages.inc.php:374
+#: setup/lib/messages.inc.php:371
 msgid "Unparsable version string"
 msgstr "Jäsentämättömissä oleva versiomerkkijono"
 
-#: setup/lib/messages.inc.php:375
+#: setup/lib/messages.inc.php:372
 msgid "Version check"
 msgstr "Version tarkistus"
 
-#: setup/lib/messages.inc.php:376
+#: setup/lib/messages.inc.php:373
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
 "Versiota ei voi tarkistaa, koska URL- tai CURL-käärettä ei ole saatavilla."
 
-#: setup/lib/messages.inc.php:378
+#: setup/lib/messages.inc.php:375
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -8001,7 +7975,7 @@ msgstr ""
 "Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/ZIP_"
 "(file_format)]ZIP[/a]-pakkausta"
 
-#: setup/lib/messages.inc.php:379
+#: setup/lib/messages.inc.php:376
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
@@ -8011,7 +7985,7 @@ msgstr ""
 "tarvitaan funktioita (%s), jotka eivät ole käytettävissä tässä "
 "järjestelmässä."
 
-#: setup/lib/messages.inc.php:380
+#: setup/lib/messages.inc.php:377
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
@@ -8021,7 +7995,7 @@ msgstr ""
 "tarvitaan funktioita (%s), jotka eivät ole käytettävissä tässä "
 "järjestelmässä."
 
-#: setup/lib/messages.inc.php:381
+#: setup/lib/messages.inc.php:378
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -8631,6 +8605,32 @@ msgstr "VIEW-arvon nimi"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
+
+#~ msgid ""
+#~ "Couldn't load the iconv or recode extension needed for charset "
+#~ "conversion. Either configure PHP to enable these extensions or disable "
+#~ "charset conversion in phpMyAdmin."
+#~ msgstr ""
+#~ "Merkistön muunnokseen tarvittavaa iconv- tai recode-laajennusta ei voitu "
+#~ "ladata. Muokkaa PHP:n asetuksia ottaen käyttöön nämä laajennukset tai "
+#~ "muuta phpMyAdminin asetuksia siinä määrin ettei muunnosta suoriteta."
+
+#~ msgid ""
+#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
+#~ "the necessary extensions appear to be loaded. Check your PHP "
+#~ "configuration."
+#~ msgstr ""
+#~ "Iconv-, libiconv- tai recode_string-funktioita ei voitu käyttää. Tarkista "
+#~ "PHP:n asetukset."
+
+#~ msgid "Allow character set conversion"
+#~ msgstr "Salli merkistömuunnos"
+
+#~ msgid "Default character set used for conversions"
+#~ msgstr "Muunnoksissa käytettävä oletusmerkistö"
+
+#~ msgid "Default character set"
+#~ msgstr "Oletusmerkistö"
 
 #, fuzzy
 #~| msgid "Add new field"

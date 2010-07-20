@@ -10,109 +10,44 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Failure on loading recode/iconv extensions.
- */
-function PMA_failRecoding() {
-    PMA_fatalError(__('Couldn\'t load the iconv or recode extension needed for charset conversion. Either configure PHP to enable these extensions or disable charset conversion in phpMyAdmin.'));
-}
-
-/**
- * Loads the recode or iconv extensions if any of it is not loaded yet
- */
-if (isset($cfg['AllowAnywhereRecoding'])
-    && $cfg['AllowAnywhereRecoding']) {
-
-    if ($cfg['RecodingEngine'] == 'recode') {
-        if (!@extension_loaded('recode')) {
-            PMA_failRecoding();
-        }
-        $PMA_recoding_engine             = 'recode';
-    } elseif ($cfg['RecodingEngine'] == 'iconv') {
-        if (!@extension_loaded('iconv')) {
-            PMA_failRecoding();
-        }
-        $PMA_recoding_engine             = 'iconv';
-    } else {
-        if (@extension_loaded('iconv')) {
-            $PMA_recoding_engine         = 'iconv';
-        } elseif (@extension_loaded('recode')) {
-            $PMA_recoding_engine         = 'recode';
-        } else {
-            PMA_failRecoding();
-        }
-    }
-} // end load recode/iconv extension
-
 define('PMA_CHARSET_NONE', 0);
 define('PMA_CHARSET_ICONV', 1);
-define('PMA_CHARSET_LIBICONV', 2);
-define('PMA_CHARSET_RECODE', 3);
-define('PMA_CHARSET_ICONV_AIX', 4);
-
-if (!isset($cfg['IconvExtraParams'])) {
-    $cfg['IconvExtraParams'] = '';
-}
+define('PMA_CHARSET_RECODE', 2);
+define('PMA_CHARSET_ICONV_AIX', 3);
 
 // Finally detect which function we will use:
-if (isset($cfg['AllowAnywhereRecoding'])
-    && $cfg['AllowAnywhereRecoding']) {
-
-    if (!isset($PMA_recoding_engine)) {
-        $PMA_recoding_engine = $cfg['RecodingEngine'];
-    }
-    if ($PMA_recoding_engine == 'iconv') {
-        if (@function_exists('iconv')) {
-            if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
-                $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
-            } else {
-                $PMA_recoding_engine = PMA_CHARSET_ICONV;
-            }
-        } elseif (@function_exists('libiconv')) {
-            $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
+if ($cfg['RecodingEngine'] == 'iconv') {
+    if (@function_exists('iconv')) {
+        if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
+            $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
         } else {
-            $PMA_recoding_engine = PMA_CHARSET_NONE;
-
-            if (!isset($GLOBALS['is_header_sent'])) {
-                include './libraries/header.inc.php';
-            }
-            echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
-            require_once './libraries/footer.inc.php';
-            exit();
-        }
-    } elseif ($PMA_recoding_engine == 'recode') {
-        if (@function_exists('recode_string')) {
-            $PMA_recoding_engine = PMA_CHARSET_RECODE;
-        } else {
-            $PMA_recoding_engine = PMA_CHARSET_NONE;
-
-            require_once './libraries/header.inc.php';
-            echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
-            require_once './libraries/footer.inc.php';
-            exit;
+            $PMA_recoding_engine = PMA_CHARSET_ICONV;
         }
     } else {
-        if (@function_exists('iconv')) {
-            if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
-                $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
-            } else {
-                $PMA_recoding_engine = PMA_CHARSET_ICONV;
-            }
-        } elseif (@function_exists('libiconv')) {
-            $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
-        } elseif (@function_exists('recode_string')) {
-            $PMA_recoding_engine = PMA_CHARSET_RECODE;
+        $PMA_recoding_engine = PMA_CHARSET_NONE;
+        PMA_warnMissingExtension('iconv');
+    }
+} elseif ($cfg['RecodingEngine'] == 'recode') {
+    if (@function_exists('recode_string')) {
+        $PMA_recoding_engine = PMA_CHARSET_RECODE;
+    } else {
+        $PMA_recoding_engine = PMA_CHARSET_NONE;
+        PMA_warnMissingExtension('recode');
+    }
+} elseif ($cfg['RecodingEngine'] == 'auto') {
+    if (@function_exists('iconv')) {
+        if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
+            $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
         } else {
-            $PMA_recoding_engine = PMA_CHARSET_NONE;
-
-            require_once './libraries/header.inc.php';
-            echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
-            require_once './libraries/footer.inc.php';
-            exit;
+            $PMA_recoding_engine = PMA_CHARSET_ICONV;
         }
+    } elseif (@function_exists('recode_string')) {
+        $PMA_recoding_engine = PMA_CHARSET_RECODE;
+    } else {
+        $PMA_recoding_engine = PMA_CHARSET_NONE;
     }
 } else {
-    $PMA_recoding_engine         = PMA_CHARSET_NONE;
+    $PMA_recoding_engine = PMA_CHARSET_NONE;
 }
 
 /* Load AIX iconv wrapper if needed */
@@ -144,8 +79,6 @@ function PMA_convert_string($src_charset, $dest_charset, $what) {
             return iconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
         case PMA_CHARSET_ICONV_AIX:
             return PMA_aix_iconv_wrapper($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
-        case PMA_CHARSET_LIBICONV:
-            return libiconv($src_charset, $dest_charset, $what);
         default:
             return $what;
     }
@@ -170,7 +103,6 @@ function PMA_convert_file($src_charset, $dest_charset, $file) {
     switch ($GLOBALS['PMA_recoding_engine']) {
         case PMA_CHARSET_RECODE:
         case PMA_CHARSET_ICONV:
-        case PMA_CHARSET_LIBICONV:
             $tmpfname = tempnam('', 'PMA_convert_file');
             $fin      = fopen($file, 'r');
             $fout     = fopen($tmpfname, 'w');
@@ -183,8 +115,6 @@ function PMA_convert_file($src_charset, $dest_charset, $file) {
                         $dist = iconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $line);
                     } elseif ($GLOBALS['PMA_recoding_engine'] == PMA_CHARSET_ICONV_AIX) {
                         $dist = PMA_aix_iconv_wrapper($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $line);
-                    } else {
-                        $dist = libiconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $line);
                     }
                     fputs($fout, $dist);
                 } // end while

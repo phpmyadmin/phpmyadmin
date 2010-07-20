@@ -343,7 +343,7 @@ if ($import_file != 'none' && !$error) {
 //$_SESSION['Import_message'] = $message->getDisplay();
 
 // Convert the file's charset if necessary
-if ($cfg['AllowAnywhereRecoding'] && isset($charset_of_file)) {
+if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_file)) {
     if ($charset_of_file != $charset) {
         $charset_conversion = TRUE;
     }
@@ -451,7 +451,7 @@ if (isset($my_die)) {
 if (! empty($last_query_with_results)) {
     // but we want to show intermediate results too
     $disp_query = $sql_query;
-    $disp_message = __('Your SQL query has been executed successfully'); 
+    $disp_message = __('Your SQL query has been executed successfully');
     $sql_query = $last_query_with_results;
     $go_sql = true;
 }
