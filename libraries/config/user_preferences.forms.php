@@ -42,8 +42,12 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/Edit',
     'SQLQuery/Explain',
     'SQLQuery/ShowAsPHP',
-//    'SQLQuery/Validate',// [false or no override]
+    'SQLQuery/Validate',
     'SQLQuery/Refresh');
+$forms['Sql_queries']['Sql_validator'] = array('SQLValidator' => array(
+    'use',
+    'username',
+    'password'));
 $forms['Features']['Page_titles'] = array(
     'TitleDefault',
     'TitleTable',
