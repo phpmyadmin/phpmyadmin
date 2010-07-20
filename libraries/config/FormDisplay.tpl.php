@@ -155,15 +155,15 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
 <tr<?php echo $tr_class ?>>
     <th>
         <label for="<?php echo htmlspecialchars($path) ?>"><?php echo $name ?></label>
-        <?php if (!empty($opts['doc']) || !empty($opts['wiki'])): ?>
+        <?php if (!empty($opts['doc']) || !empty($opts['wiki'])) { ?>
         <span class="doc">
             <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $base_dir . $opts['doc']  ?>" target="documentation"><img class="icon" src="<?php echo $img_path ?>b_help.png" width="11" height="11" alt="Doc" title="<?php echo __('Documentation') ?>" /></a><?php } ?>
             <?php if (!empty($opts['wiki'])){ ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><img class="icon" src="<?php echo $img_path ?>b_info.png" width="11" height="11" alt="Wiki" title="Wiki" /></a><?php } ?>
         </span>
-        <?php endif; ?>
-        <?php if (!$is_setup_script && isset($opts['userprefs_allow']) && !$opts['userprefs_allow']): ?>
+        <?php } ?>
+        <?php if (!$is_setup_script && isset($opts['userprefs_allow']) && !$opts['userprefs_allow']) { ?>
             <span class="disabled-notice" title="<?php echo __('This setting is disabled, it will not be applied to your configuration') ?>"><?php echo __('Disabled') ?></span>
-        <?php endif; ?>
+        <?php } ?>
         <?php if (!empty($description)) { ?><small><?php echo $description ?></small><?php } ?>
     </th>
     <td>

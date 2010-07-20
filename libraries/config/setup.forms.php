@@ -155,12 +155,13 @@ $forms['Left_frame']['Left_tables'] = array(
     'ShowTooltipAliasTB');
 $forms['Main_frame']['Startup'] = array(
     'MainPageIconic',
+    'ShowCreateDb' => ':group',
+    'SuggestDBName',
+    ':group:end',
     'ShowStats',
-    'ShowPhpInfo',
     'ShowServerInfo',
-    'ShowChgPassword',
-    'ShowCreateDb',
-    'SuggestDBName');
+    'ShowPhpInfo',
+    'ShowChgPassword');
 $forms['Main_frame']['Browse'] = array(
     'NavigationBarIconic',
     'ShowAll',

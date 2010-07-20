@@ -318,6 +318,7 @@ $strConfigProtectBinary_desc = __('Disallow BLOB and BINARY columns from editing
 $strConfigProtectBinary_name = __('Protect binary columns');
 $strConfigQueryHistoryDB_desc = __('Enable if you want DB-based query history (requires pmadb). If disabled, this utilizes JS-routines to display query history (lost by window close).');
 $strConfigQueryHistoryDB_name = __('Permanent query history');
+$strConfigQueryHistoryMax_cmt = __('Users cannot set a higher value');
 $strConfigQueryHistoryMax_desc = __('How many queries are kept in history');
 $strConfigQueryHistoryMax_name = __('Query history length');
 $strConfigQueryWindowDefTab_desc = __('Tab displayed when opening a new query window');

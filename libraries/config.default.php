@@ -2316,6 +2316,17 @@ $cfg['InitialSlidersState'] = 'closed';
  */
 $cfg['UserprefsDisallow'] = array();
 
+/**
+ * User preferences: disabling options by users
+ */
+$cfg['disable'] = array(
+    'AllowUserDropDatabase' => false,
+    'UseDbSearch' => false,
+    'QueryHistoryDB' => false,
+    'ShowPhpInfo' => false,
+    'ShowChgPassword' => false
+);
+
 //-----------------------------------------------------------------------------
 // custom-setup by mkkeck: 2004-05-04
 //    some specials for new icons and scrolling

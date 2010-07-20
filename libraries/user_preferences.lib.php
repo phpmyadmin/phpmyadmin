@@ -144,6 +144,22 @@ function PMA_apply_userprefs(array $config_data)
         if (!isset($whitelist[$path]) || isset($blacklist[$path])) {
             continue;
         }
+        if (strpos($path, 'disable/') === 0) {
+            // write disable/ value
+            PMA_array_write($path, $cfg, $value);
+            // prepare path and value for disabled key
+            $path = substr($path, 8);
+            switch (gettype(PMA_array_read($path, $GLOBALS['PMA_Config']->default))) {
+                case 'string':
+                    $value = '';
+                    break;
+                case 'double':
+                case 'integer':
+                    $value = 0;
+                default:
+                    $value = false;
+            }
+        }
         PMA_array_write($path, $cfg, $value);
     }
     return $cfg;

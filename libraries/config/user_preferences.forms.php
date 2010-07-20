@@ -20,7 +20,10 @@ $forms['Features']['General'] = array(
     'ReplaceHelpImg',
     'SkipLockedTables',
     'MaxDbList',
-    'MaxTableList');
+    'MaxTableList',
+    'disable/AllowUserDropDatabase',
+    'disable/UseDbSearch',
+    'disable/QueryHistoryDB');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'CharTextareaCols',
@@ -31,6 +34,7 @@ $forms['Features']['Text_fields'] = array(
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
     'Confirm',
+    'QueryHistoryMax',
     'IgnoreMultiSubmitErrors',
     'VerboseMultiSubmit',
     'MaxCharactersInDisplayedSQL',
@@ -44,10 +48,10 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/ShowAsPHP',
     'SQLQuery/Validate',
     'SQLQuery/Refresh');
-$forms['Sql_queries']['Sql_validator'] = array('SQLValidator' => array(
-    'use',
-    'username',
-    'password'));
+$forms['Sql_queries']['Sql_validator'] = array(
+    'SQLValidator/use',
+    'SQLValidator/username',
+    'SQLValidator/password');
 $forms['Features']['Page_titles'] = array(
     'TitleDefault',
     'TitleTable',
@@ -76,7 +80,13 @@ $forms['Left_frame']['Left_tables'] = array(
     'ShowTooltipAliasTB');
 $forms['Main_frame']['Startup'] = array(
     'MainPageIconic',
-    'SuggestDBName');
+    'ShowCreateDb' => ':group',
+    'SuggestDBName',
+    ':group:end',
+    'ShowStats',
+    'ShowServerInfo',
+    'disable/ShowPhpInfo',
+    'disable/ShowChgPassword');
 $forms['Main_frame']['Browse'] = array(
     'NavigationBarIconic',
     'ShowAll',

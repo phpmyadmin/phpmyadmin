@@ -699,7 +699,9 @@ class FormDisplay
      */
     private static function _getOptName($path)
     {
-      return str_replace(array('Servers/1/', '/'), array('Servers/', '_'), $path);
+      return str_replace(
+          array('Servers/1/', 'disable/', '/'),
+          array('Servers/', '', '_'), $path);
     }
 }
 ?>
