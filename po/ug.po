@@ -993,7 +993,7 @@ msgstr "پارول ھاسىللاش"
 
 #: js/messages.php:67 libraries/replication_gui.lib.php:366
 msgid "Generate"
-msgstr ""
+msgstr "ھاسىللاش"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:77
