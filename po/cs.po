@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-20 12:14+0200\n"
-"PO-Revision-Date: 2010-07-20 11:10+0200\n"
+"PO-Revision-Date: 2010-07-20 12:17+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -502,13 +502,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Výsledky vyhledávání pro „<i>%s</i>“ %s:"
 
 #: db_search.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s odpovídající(ch) záznam(ů) v tabulce <i>%s</i>"
-msgstr[1] "%s odpovídající(ch) záznam(ů) v tabulce <i>%s</i>"
-msgstr[2] "%s odpovídající(ch) záznam(ů) v tabulce <i>%s</i>"
+msgstr[0] "%s odpovídající záznam v tabulce <i>%s</i>"
+msgstr[1] "%s odpovídající záznamy v tabulce <i>%s</i>"
+msgstr[2] "%s odpovídajících záznamů v tabulce <i>%s</i>"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
@@ -527,13 +527,13 @@ msgid "Delete"
 msgstr "Odstranit"
 
 #: db_search.php:285
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Celkem:</b> <i>%s</i> odpovídající(ch) záznam(ů)"
-msgstr[1] "<b>Celkem:</b> <i>%s</i> odpovídající(ch) záznam(ů)"
-msgstr[2] "<b>Celkem:</b> <i>%s</i> odpovídající(ch) záznam(ů)"
+msgstr[0] "<b>Celkem:</b> <i>%s</i> odpovídající záznam"
+msgstr[1] "<b>Celkem:</b> <i>%s</i> odpovídající záznamy"
+msgstr[2] "<b>Celkem:</b> <i>%s</i> odpovídajících záznamů"
 
 #: db_search.php:299
 msgid "Search in database"
