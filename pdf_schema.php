@@ -224,7 +224,7 @@ class PMA_PDF extends TCPDF {
     function PMA_PDF_die($error_message = '')
     {
         global $cfg;
-        global $server, $lang, $convcharset, $db;
+        global $server, $lang, $db;
         global $charset, $text_dir;
 
         require_once './libraries/header.inc.php';

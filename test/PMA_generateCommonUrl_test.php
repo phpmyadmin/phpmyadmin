@@ -21,14 +21,13 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        unset($_COOKIE['pma_lang'], $_COOKIE['pma_charset'], $_COOKIE['pma_collation_connection']);
+        unset($_COOKIE['pma_lang'], $_COOKIE['pma_collation_connection']);
     }
 
     public function testOldStyle()
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
-        $GLOBALS['convcharset'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
@@ -36,7 +35,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=x' . htmlentities($separator)
-            . 'convcharset=x' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
             . 'token=x'
             ;
@@ -52,7 +50,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
-        $GLOBALS['convcharset'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
@@ -60,7 +57,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=x' . htmlentities($separator)
-            . 'convcharset=x' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
             . 'token=x'
             ;
@@ -75,7 +71,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
-        $GLOBALS['convcharset'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
@@ -83,7 +78,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=x' . htmlentities($separator)
-            . 'convcharset=x' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
             . 'token=x'
             ;
@@ -99,7 +93,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
-        $GLOBALS['convcharset'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
@@ -107,7 +100,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . $separator
             . 'lang=x' . $separator
-            . 'convcharset=x' . $separator
             . 'collation_connection=x' . $separator
             . 'token=x'
             ;
@@ -120,7 +112,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
-        $GLOBALS['convcharset'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
@@ -128,7 +119,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . $separator
             . 'lang=x' . $separator
-            . 'convcharset=x' . $separator
             . 'collation_connection=x' . $separator
             . 'token=x'
             ;
@@ -141,7 +131,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
-        $GLOBALS['convcharset'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
@@ -149,7 +138,6 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=x' . htmlentities($separator)
-            . 'convcharset=x' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
             . 'token=x'
             ;
