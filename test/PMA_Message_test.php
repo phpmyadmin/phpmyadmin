@@ -3,7 +3,6 @@
 /**
  * Test for PMA_Message class
  *
- * @version $Id$
  */
 
 /**

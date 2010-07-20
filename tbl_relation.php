@@ -10,7 +10,6 @@
  * @todo check foreign fields to be from same type and size, all other makes no sense
  * @todo add an link to create an index required for constraints, or an option to do automatically
  * @todo if above todos are fullfilled we can add all fields meet requirements in the select dropdown
- * @version $Id$
  * @package phpMyAdmin
  */
 

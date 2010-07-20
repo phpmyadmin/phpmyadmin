@@ -3,7 +3,6 @@
 /**
  * Displays form for creating database (if user has privileges for that)
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

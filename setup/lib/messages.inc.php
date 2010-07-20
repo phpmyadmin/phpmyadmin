@@ -13,7 +13,6 @@ if (!function_exists('__')) {
 }
 
 
-$strSetupAllowAnywhereRecoding_name = __('Allow character set conversion');
 $strSetupAllowArbitraryServer_desc = __('If enabled user can enter any MySQL server in login form for cookie auth');
 $strSetupAllowArbitraryServerMsg = __('This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
 $strSetupAllowArbitraryServer_name = __('Allow login to any MySQL server');
@@ -45,8 +44,6 @@ $strSetupCompressOnFly_name = __('Compress on the fly');
 $strSetupConfigurationFile = __('Configuration file');
 $strSetupConfirm_desc = __('Whether a warning (&quot;Are your really sure...&quot;) should be displayed when you\'re about to lose data');
 $strSetupConfirm_name = __('Confirm DROP queries');
-$strSetupDefaultCharset_desc = __('Default character set used for conversions');
-$strSetupDefaultCharset_name = __('Default character set');
 $strSetupDefaultLanguage = __('Default language');
 $strSetupDefaultServer = __('Default server');
 $strSetupDefaultTabDatabase_desc = __('Tab that is displayed when entering a database');

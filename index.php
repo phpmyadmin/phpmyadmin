@@ -3,8 +3,6 @@
 /**
  * forms frameset
  *
- * @version $Id$
- * @uses    __('phpMyAdmin is more friendly with a <b>frames-capable</b> browser.')
  * @uses    $GLOBALS['cfg']['QueryHistoryDB']
  * @uses    $GLOBALS['cfg']['Server']['user']
  * @uses    $GLOBALS['cfg']['DefaultTabServer']     as src for the mainframe
@@ -63,7 +61,7 @@ unset($cfgRelation);
 /**
  * pass variables to child pages
  */
-$drops = array('lang', 'server', 'convcharset', 'collation_connection',
+$drops = array('lang', 'server', 'collation_connection',
     'db', 'table');
 
 foreach ($drops as $each_drop) {

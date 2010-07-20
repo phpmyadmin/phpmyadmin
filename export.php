@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @todo    too much die here, or?
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -219,7 +218,7 @@ if ($what == 'sql') {
 $output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xls';
 
 // Do we need to convert charset?
-$output_charset_conversion = $asfile && $cfg['AllowAnywhereRecoding']
+$output_charset_conversion = $asfile && $GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE
     && isset($charset_of_file) && $charset_of_file != $charset
     && $type != 'xls';
 
@@ -274,11 +273,7 @@ if ($asfile) {
     }
 
     // convert filename to iso-8859-1, it is safer
-    if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] )) {
-        $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
-    } else {
-        $filename = PMA_convert_string($convcharset, 'iso-8859-1', $filename);
-    }
+    $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
 
     // Grab basic dump extension and mime type
     $filename  .= '.' . $export_list[$type]['extension'];

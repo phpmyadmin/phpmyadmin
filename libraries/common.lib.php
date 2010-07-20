@@ -3,7 +3,6 @@
 /**
  * Misc functions used all over the scripts.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -130,7 +129,6 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
 /**
  * Displays the maximum size for an upload
  *
- * @uses    __('Max: %s%s')
  * @uses    PMA_formatByteDown()
  * @uses    sprintf()
  * @param   integer  the size
@@ -346,7 +344,6 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
  * @uses    $cfg['MySQLManualType']
  * @uses    $cfg['MySQLManualBase']
  * @uses    $cfg['ReplaceHelpImg']
- * @uses    __('Documentation')
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    PMA_MYSQL_INT_VERSION
  * @uses    strtolower()
@@ -501,11 +498,7 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
  * @uses    footer.inc.php
  * @uses    header.inc.php
  * @uses    $GLOBALS['sql_query']
- * @uses    __('Error')
- * @uses    __('SQL query')
  * @uses    $GLOBALS['pmaThemeImage']
- * @uses    __('Edit')
- * @uses    __('MySQL said: ')
  * @uses    $GLOBALS['cfg']['PropertiesIconic']
  * @uses    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
  * @uses    PMA_backquote()
@@ -1614,8 +1607,6 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * If the variables $link and $args ar left empty, an inactive tab is created
  *
  * @uses    $GLOBALS['PMA_PHP_SELF']
- * @uses    __('Empty')
- * @uses    __('Drop')
  * @uses    $GLOBALS['active_page']
  * @uses    $GLOBALS['url_query']
  * @uses    $cfg['MainPageIconic']
@@ -1882,7 +1873,6 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 /**
  * Returns a given timespan value in a readable format.
  *
- * @uses    __('%s days, %s hours, %s minutes and %s seconds')
  * @uses    sprintf()
  * @uses    floor()
  * @param  int     the timespan
@@ -2191,7 +2181,6 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
  * Generate a pagination selector for browsing resultsets
  *
  * @todo $url is not javascript escaped!?
- * @uses    __('Page number:')
  * @uses    range()
  * @param   string      URL for the JavaScript
  * @param   string      Number of rows in the pagination set
@@ -2295,7 +2284,6 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
  * Generate navigation for a list
  *
  * @todo    use $pos from $_url_params
- * @uses    __('Page number:')
  * @uses    range()
  * @param   integer     number of elements in the list
  * @param   integer     current position in the list
@@ -2406,7 +2394,6 @@ function PMA_userDir($dir)
  *
  * @uses    $cfg['DefaultTabDatabase']
  * @uses    $GLOBALS['db']
- * @uses    __('Jump to database &quot;%s&quot;.')
  * @uses    PMA_generate_common_url()
  * @uses    PMA_unescape_mysql_wildcards()
  * @uses    strlen()
@@ -2436,7 +2423,6 @@ function PMA_getDbLink($database = null)
  * that affects a functionality
  *
  * @uses    PMA_MYSQL_INT_VERSION
- * @uses    __('The %s functionality is affected by a known bug, see %s')
  * @uses    PMA_showHint()
  * @uses    sprintf()
  * @param   string  $functionality localized message explaining the func.
@@ -2826,7 +2812,7 @@ function PMA_getTitleForTarget($target) {
 
 $mapping = array(
 	// Values for $cfg['DefaultTabTable']
-	'tbl_structure.php' =>  __('Structure'), 
+	'tbl_structure.php' =>  __('Structure'),
 	'tbl_sql.php' => __('SQL'),
 	'tbl_select.php' =>__('Search'),
 	'tbl_change.php' =>__('Insert'),

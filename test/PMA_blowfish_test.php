@@ -4,7 +4,6 @@
  * Test for blowfish encryption.
  *
  * @package phpMyAdmin-test
- * @version $Id$
  */
 
 /**

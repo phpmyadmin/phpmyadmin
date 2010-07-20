@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @package phpMyAdmin-Export-CSV
- * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
     exit;

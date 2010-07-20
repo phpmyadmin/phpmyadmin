@@ -85,6 +85,15 @@ $Id$
 - patch #2999595, rfe #2998130 [interface] Cleanup navigation frame.
 - patch #3025161 [core] Prevent sending of unnecessary cookies, 
   thanks to Piotr Przybylski  - crackpl
+- bug [password] Generate password only available if JS is enabled
+  (fixed for Privileges and Change password)
+- [core] RecodingEngine now accepts none as valid option.
++ [core] Dropped AllowAnywhereRecoding configuration variable.
+- rfe #3016457 [interface] Define tab order in SQL form to allow easier tab
+  navigation.
+
+3.3.6.0 (not yet released)
+- bug #3031705 [core] Do not use CONCAT for DECIMAL fields.
 
 3.3.5.0 (not yet released)
 - patch #2932113 [information_schema] Slow export when having lots of

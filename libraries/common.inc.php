@@ -28,7 +28,6 @@
  * - db connection
  * - authentication work
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -454,7 +453,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * f.e. PMA_Config: fontsize
  *
  * @todo variables should be handled by their respective owners (objects)
- * f.e. lang, server, convcharset, collation_connection in PMA_Config
+ * f.e. lang, server, collation_connection in PMA_Config
  */
 if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /**
@@ -468,7 +467,7 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
         /* Session ID */
         'phpMyAdmin',
         /* Cookie preferences */
-        'pma_lang', 'pma_charset', 'pma_collation_connection',
+        'pma_lang', 'pma_collation_connection',
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
         /* for playing blobstreamable media */
@@ -487,14 +486,6 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
 
 }
 
-
-/**
- * @global string $GLOBALS['convcharset']
- * @see select_lang.lib.php
- */
-if (isset($_REQUEST['convcharset'])) {
-    $GLOBALS['convcharset'] = strip_tags($_REQUEST['convcharset']);
-}
 
 /**
  * current selected database
@@ -793,7 +784,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * @todo should be done in PMA_Config
      */
     $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
-    $GLOBALS['PMA_Config']->setCookie('pma_charset', $GLOBALS['convcharset']);
     $GLOBALS['PMA_Config']->setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();

@@ -4,7 +4,6 @@
  * Set of functions used to run cookie based authentication.
  *
  * @package phpMyAdmin-Auth-Cookie
- * @version $Id$
  */
 
 if (! defined('PHPMYADMIN')) {
@@ -115,17 +114,6 @@ function PMA_get_blowfish_secret() {
  * @uses    $GLOBALS['target']
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['table']
- * @uses    __('Welcome to %s')
- * @uses    __('The configuration file now needs a secret passphrase (blowfish_secret).')
- * @uses    __('Error')
- * @uses    __('Log in')
- * @uses    __('Server:')
- * @uses    __('Username:')
- * @uses    __('Password:')
- * @uses    __('Server Choice')
- * @uses    __('Go')
- * @uses    __('Cookies must be enabled past this point.')
- * @uses    __('phpMyAdmin documentation')
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    $cfg['Servers']
  * @uses    $cfg['LoginCookieRecall']
@@ -644,9 +632,6 @@ function PMA_auth_set_user()
  *
  * @uses    $GLOBALS['server']
  * @uses    $GLOBALS['allowDeny_forbidden']
- * @uses    __('Access denied')
- * @uses    __('No activity within %s seconds; please log in again')
- * @uses    __('Cannot log in to the MySQL server')
  * @uses    $GLOBALS['no_activity']
  * @uses    $cfg['LoginCookieValidity']
  * @uses    $GLOBALS['PMA_Config']->removeCookie()

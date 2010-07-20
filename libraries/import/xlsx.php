@@ -4,7 +4,6 @@
  * Microsoft Office Excel 2007 XLSX import plugin for phpMyAdmin
  *
  * @todo    Pretty much everything
- * @version $Id$
  * @package phpMyAdmin-Import
  */
 

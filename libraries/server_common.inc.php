@@ -7,7 +7,6 @@
  * @uses    PMA_DBI_fetch_result()
  * @uses    PMA_DBI_QUERY_STORE
  * @uses    $userlink
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

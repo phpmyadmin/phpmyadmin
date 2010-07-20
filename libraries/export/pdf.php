@@ -4,7 +4,6 @@
  * Produce a PDF report (export) from a query
  *
  * @package phpMyAdmin-Export-PDF
- * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
     exit;

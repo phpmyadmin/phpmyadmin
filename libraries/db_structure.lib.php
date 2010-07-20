@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -17,14 +16,6 @@ if (! defined('PHPMYADMIN')) {
  * @uses    PMA_showHint()
  * @uses    $GLOBALS['cfg']['PropertiesNumColumns']
  * @uses    $GLOBALS['is_show_stats']
- * @uses    __('Table')
- * @uses    __('Action')
- * @uses    __('Rows')
- * @uses    __('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]')
- * @uses    __('Type')
- * @uses    __('Collation')
- * @uses    __('Size')
- * @uses    __('Overhead')
  * @uses    $GLOBALS['colspan_for_structure']
  * @uses    PMA_SortableTableHeader()
  * @param   boolean $db_is_information_schema

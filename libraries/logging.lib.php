@@ -5,7 +5,6 @@
  *
  * This includes web server specific code to log some information.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
