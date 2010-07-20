@@ -235,7 +235,7 @@ if (! empty($sql_query)) {
                 </li>
                 <?php
                 // charset of file
-                if ($cfg['AllowAnywhereRecoding']) {
+                if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
                     echo '        <li><label for="select_charset_of_file" class="desc">'
                         . __('Character set of the file:') . '</label>' . "\n";
                     reset($cfg['AvailableCharsets']);
