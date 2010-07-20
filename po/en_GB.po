@@ -499,12 +499,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Search results for \"<i>%s</i>\" %s:"
 
 #: db_search.php:242
-#, fuzzy, php-format
+#, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s match(es) inside table <i>%s</i>"
-msgstr[1] "%s match(es) inside table <i>%s</i>"
+msgstr[0] "%s match inside table <i>%s</i>"
+msgstr[1] "%s matches inside table <i>%s</i>"
 
 #: db_search.php:249 db_structure.php:76 db_structure.php:77
 #: db_structure.php:89 db_structure.php:91 db_structure.php:102
@@ -523,12 +524,13 @@ msgid "Delete"
 msgstr "Delete"
 
 #: db_search.php:267
-#, fuzzy, php-format
+#, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> match(es)"
-msgstr[1] "<b>Total:</b> <i>%s</i> match(es)"
+msgstr[0] "<b>Total:</b> <i>%s</i> match"
+msgstr[1] "<b>Total:</b> <i>%s</i> matches"
 
 #: db_search.php:281
 msgid "Search in database"
@@ -1002,10 +1004,9 @@ msgid "Choose column to display"
 msgstr "Choose column to display"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
-msgstr "Generate Password"
+msgstr "Generate password"
 
 #: js/messages.php:67 libraries/replication_gui.lib.php:365
 msgid "Generate"
