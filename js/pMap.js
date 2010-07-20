@@ -24,7 +24,7 @@
  var pMap_ImageID       = "";
  var pMap_MouseX        = 0;
  var pMap_MouseY        = 0;
- var pMap_CurrentMap    = -1;
+ var pMap_CurrentKey    = -1;
  var pMap_URL           = "";
  var pMap_Tries         = 0;
  var pMap_MaxTries      = 5;
@@ -49,22 +49,58 @@
    pMap_MouseX -= document.getElementById(pMap_ImageID).offsetLeft;
    pMap_MouseY -= document.getElementById(pMap_ImageID).offsetTop;
 
-   /* Check if we are flying over a map zone */
+   /* Check if we are flying over a map zone
+    * Lets use the following method to check if a given
+    * point is in any convex polygon.
+    * http://www.programmingforums.org/post168124-3.html
+    */
    Found = false;
-   for (Map in pMap_ImageMap)
+   for (Key in pMap_ImageMap)
     {
-     Values = pMap_ImageMap[Map].split(",");
-     if ( pMap_MouseX>=Values[0] && pMap_MouseX<=Values[2])
+     Values = Key.split("--");
+     SeriesName = Values[0];
+     SeriesValue = Values[1];
+     SignSum = 0;
+     for (i = 0; i <= pMap_ImageMap[Key].length - 1; i++)
       {
-       if ( pMap_MouseY>=Values[1] && pMap_MouseY<=Values[3] )
-        {
-         Found = true;
-         if ( pMap_CurrentMap != Map )
-          { overlib(Values[5], CAPTION, Values[4], WIDTH, 80); pMap_CurrentMap = Map; }
-        }
+      if (i == pMap_ImageMap[Key].length - 1)
+       {
+         index1 = i;
+         index2 = 0;
+       }
+      else
+       {
+         index1 = i;
+         index2 = i+1;
+       }
+      result = getDeterminant(
+            pMap_ImageMap[Key][index1][0],
+            pMap_ImageMap[Key][index1][1],
+            pMap_ImageMap[Key][index2][0],
+            pMap_ImageMap[Key][index2][1],
+            pMap_MouseX,
+            pMap_MouseY
+       );
+       if (result > 0) { SignSum += 1; } else { SignSum += -1; }
       }
-     if ( !Found && pMap_CurrentMap != -1 ) { nd(); pMap_CurrentMap = -1; }
+     //console.log(Key+": "+SignSum);
+     if (Math.abs(SignSum) == pMap_ImageMap[Key].length)
+      {
+       Found = true;
+       if ( pMap_CurrentKey != Key )
+        { overlib(SeriesValue, CAPTION, SeriesName, WIDTH, 80); pMap_CurrentKey = Key; }
+      }
     }
+   if ( !Found && pMap_CurrentKey != -1 ) { nd(); pMap_CurrentKey = -1; }
   }
 
- function LoadImageMap(ID, map)  { pMap_ImageID = ID, pMap_ImageMap = map.split("-"); }
+ function getDeterminant(X1, Y1, X2, Y2, X3, Y3)
+  {
+   return (X2*Y3 - X3*Y2) - (X1*Y3 - X3*Y1) + (X1*Y2 - X2*Y1);
+  }
+  
+ function LoadImageMap(ID, map)
+  {
+   pMap_ImageID = ID;
+   pMap_ImageMap = JSON.parse(map);   
+  }

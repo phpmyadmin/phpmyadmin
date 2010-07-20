@@ -2748,6 +2748,25 @@
         }
       }
 
+     /* Add points to Image Map.
+      * The center point abd the first, middle and last of the arc is taken.
+      */
+     foreach ($TopPlots as $key => $PointArr)
+      {
+       // last point of the arc
+       $this->addPointToImageMap($PointArr[count($PointArr)-4],$PointArr[count($PointArr)-3],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+
+       // the point at the middle
+       $this->addPointToImageMap($PointArr[0],$PointArr[1],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+
+       // firs point in the arc
+       $this->addPointToImageMap($PointArr[2],$PointArr[3],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+
+       // point in the middle of the arc
+       $middle = count($PointArr)/2;
+       $this->addPointToImageMap($PointArr[$middle + ($middle % 2)],$PointArr[$middle + ($middle % 2)+1],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+      }
+     
      /* Draw Top polygons */
      for($Key=count($iValues)-1;$Key>=0;$Key--)
       { 
@@ -3371,9 +3390,17 @@
    /* Add a box into the image map */
    function addToImageMap($X1,$Y1,$X2,$Y2,$SerieName,$Value,$CallerFunction)
     {
-     if ( $this->MapFunction == NULL || $this->MapFunction == $CallerFunction )
-      {
-       $this->ImageMap[]  = round($X1).",".round($Y1).",".round($X2).",".round($Y2).",".$SerieName.",".$Value;
+     $this->addPointToImageMap($X1,$Y1,$SerieName,$Value,$CallerFunction);
+     $this->addPointToImageMap($X2,$Y1,$SerieName,$Value,$CallerFunction);
+     $this->addPointToImageMap($X2,$Y2,$SerieName,$Value,$CallerFunction);
+     $this->addPointToImageMap($X1,$Y2,$SerieName,$Value,$CallerFunction);
+    }
+
+   function addPointToImageMap($X1,$Y1,$SerieName,$Value,$CallerFunction)
+    {
+     if ( $this->MapFunction == NULL || $this->MapFunction == $CallerFunction)
+      {       
+       $this->ImageMap["$SerieName--$Value"][] = array(round($X1), round($Y1));
        $this->MapFunction = $CallerFunction;
       }
     }
