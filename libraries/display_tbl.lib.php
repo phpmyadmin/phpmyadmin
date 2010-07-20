@@ -1117,6 +1117,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $edit_str = PMA_getIcon('b_edit.png', __('Edit'), true);
 
                 $edit_anchor_class = "edit_row_anchor";
+                if( $clause_is_unique == 0) {
+                    $edit_anchor_class .= ' nonunique';
+                }
             } // end if (1.2.1)
 
             if (isset($GLOBALS['cfg']['Bookmark']['table']) && isset($GLOBALS['cfg']['Bookmark']['db']) && $table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db'] && isset($row[1]) && isset($row[0])) {
@@ -1444,6 +1447,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $vertical_display['edit'][$row_no]       = '';
             $vertical_display['delete'][$row_no]     = '';
             $vertical_display['row_delete'][$row_no] = '';
+            $vertical_display['where_clause'][$row_no] = '';
         }
 
         $column_style_vertical = '';
@@ -1481,6 +1485,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                                                  .  '    </td>' . "\n";
         } else {
             unset($vertical_display['delete'][$row_no]);
+        }
+
+        if( !empty($where_clause) ) {
+            $vertical_display['where_clause'][$row_no] = '<input type="hidden" class="where_clause" value ="' . $where_clause . '" />';
+        }
+        else {
+            unset($vertical_display['where_clause'][$row_no]);
         }
 
         echo (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal' || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') ? "\n" : '');
@@ -1552,6 +1563,22 @@ function PMA_displayVerticalTable()
         }
         $foo_counter = 0;
         foreach ($vertical_display['delete'] as $val) {
+            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
+                echo '<th></th>' . "\n";
+            }
+
+            echo $val;
+            $foo_counter++;
+        } // end while
+        echo '</tr>' . "\n";
+    } // end if
+
+    // Generates the 'where_clause' hidden input field for inline ajax edit if required
+    if ( is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 ) ) {
+        echo '<tr>' . "\n";
+
+        $foo_counter = 0;
+        foreach ($vertical_display['where_clause'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
                 echo '<th></th>' . "\n";
             }

@@ -57,4 +57,7 @@ if ($doWriteModifyAt == 'left') {
            . '    </td>' . "\n";
     }
 }
+if( !empty($where_clause)) {
+    echo '<input type="hidden" class="where_clause" value ="' . $where_clause . '" />';
+}
 ?>
