@@ -580,6 +580,15 @@ if (0 == $num_rows || $is_affected) {
 
 // At least one row is returned -> displays a table with results
 else {
+    //If we are retrieving the full value of a truncated field or the original
+    // value of a transformed field, show it here and exit
+    if( $GLOBALS['inline_edit'] == true) {
+        $row = PMA_DBI_fetch_row($result);
+        $extra_data = array();
+        $extra_data['value'] = $row[0];
+        PMA_ajaxResponse(NULL, true, $extra_data);
+    }
+
     // Displays the headers
     if (isset($show_query)) {
         unset($show_query);
