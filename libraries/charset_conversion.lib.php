@@ -33,14 +33,16 @@ if (isset($cfg['AllowAnywhereRecoding'])
             PMA_failRecoding();
         }
         $PMA_recoding_engine             = 'iconv';
-    } else {
+    } elseif ($cfg['RecodingEngine'] == 'auto') {
         if (@extension_loaded('iconv')) {
             $PMA_recoding_engine         = 'iconv';
         } elseif (@extension_loaded('recode')) {
             $PMA_recoding_engine         = 'recode';
         } else {
-            PMA_failRecoding();
+            $PMA_recoding_engine         = 'none';
         }
+    } else {
+        $PMA_recoding_engine         = 'none';
     }
 } // end load recode/iconv extension
 

@@ -1967,6 +1967,7 @@ $cfg['AllowAnywhereRecoding'] = false;
  *               recode)
  *      iconv  - use iconv or libiconv functions
  *      recode - use recode_string function
+ *      none   - disable encoding conversion
  *
  * @global string $cfg['RecodingEngine']
  */
