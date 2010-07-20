@@ -328,8 +328,12 @@ class FormDisplay
             'doc' => $this->getDocLink($system_path),
             'wiki' =>  $this->getWikiLink($system_path),
             'show_restore_default' => $show_restore_default,
-            'userprefs_allow' => $userprefs_allow,
-            'userprefs_comment' => PMA_lang_name($system_path, 'cmt', ''));
+            'userprefs_allow' => $userprefs_allow);
+        $comment = PMA_lang_name($system_path, 'cmt', '');
+        if ($cf->getDefault('disable/' . $system_path) === false) {
+            $comment .= ($comment ? "\n" : '') . __('Users can disable this option');
+        }
+        $opts['userprefs_comment'] = $comment;
         if (isset($form->default[$system_path])) {
             $opts['setvalue'] = $form->default[$system_path];
         }

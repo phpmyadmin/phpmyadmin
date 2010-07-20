@@ -141,7 +141,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
         $field_class .= ($field_class == '' ? '' : ' ') . ($has_errors ? 'custom field-error' : 'custom');
     }
     $field_class = $field_class ? ' class="' . $field_class . '"' : '';
-    $name_id = 'name="' . $path . '" id="' . $path . '"';
+    $name_id = 'name="' . htmlspecialchars($path) . '" id="' . htmlspecialchars($path) . '"';
     $tr_class = $_FormDisplayGroup ? ' class="group-field"' : '';
     if (isset($opts['setvalue']) && $opts['setvalue'] == ':group') {
         unset($opts['setvalue']);
@@ -182,6 +182,9 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
                 . ' value="' . htmlspecialchars($value) . '" />';
           break;
         case 'checkbox':
+            if (strpos($path, 'disable-') === 0) {
+                echo '<label for="' . htmlspecialchars($path) . '" title="' . __('Mark to disable this option') . '">' . __('Disable') . '</label> ';
+            }
             echo '<span' . $field_class . '><input type="checkbox" ' . $name_id
               . ($value ? ' checked="checked"' : '') . ' /></span>';
           break;

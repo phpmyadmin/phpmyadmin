@@ -66,9 +66,6 @@ function PMA_lang($lang_key)
  */
 function PMA_lang_name($canonical_path, $type = 'name', $default = 'key')
 {
-    if ($type == 'name' && strpos($canonical_path, 'disable/') === 0) {
-        return __('Disable') . ': ' . lcfirst(PMA_lang_name(substr($canonical_path, 8), $type, $default));
-    }
     $lang_key = str_replace(
     	array('Servers/1/', 'disable/', '/'),
     	array('Servers/', '', '_'),

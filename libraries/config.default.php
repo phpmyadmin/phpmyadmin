@@ -2324,8 +2324,7 @@ $cfg['disable'] = array(
     'UseDbSearch' => false,
     'QueryHistoryDB' => false,
     'ShowPhpInfo' => false,
-    'ShowChgPassword' => false
-);
+    'ShowChgPassword' => false);
 
 //-----------------------------------------------------------------------------
 // custom-setup by mkkeck: 2004-05-04
