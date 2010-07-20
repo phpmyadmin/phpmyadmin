@@ -75,7 +75,6 @@ $forms['Import_export'] = array(
     'UploadDir',
     'SaveDir',
     'AllowAnywhereRecoding',
-    'DefaultCharset',
     'RecodingEngine',
     'IconvExtraParams',
     'ZipDump',

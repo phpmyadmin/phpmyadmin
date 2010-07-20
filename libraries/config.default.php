@@ -544,7 +544,7 @@ $cfg['SessionSavePath'] = '';
 /**
  * maximum allocated bytes ('0' for no limit)
  * this is a string because '16M' is a valid value; we must put here
- * a string as the default value so that /setup accepts strings 
+ * a string as the default value so that /setup accepts strings
  *
  * @global string $cfg['MemoryLimit']
  */
@@ -1949,16 +1949,6 @@ $cfg['DefaultConnectionCollation'] = 'utf8_general_ci';
  * @global string $cfg['FilterLanguages']
  */
 $cfg['FilterLanguages'] = '';
-
-/**
- * Default character set to use for recoding of MySQL queries, does not take
- * any effect when character sets recoding is switched off by
- * $cfg['AllowAnywhereRecoding'] or in language file
- * (see $cfg['AvailableCharsets'] to possible choices, you can add your own)
- *
- * @global string $cfg['DefaultCharset']
- */
-$cfg['DefaultCharset'] = 'utf-8';
 
 /**
  * Allow character set recoding of MySQL queries, must be also enabled in language
