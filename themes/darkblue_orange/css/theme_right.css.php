@@ -1470,9 +1470,11 @@ a.close_enum_editor {
     position: absolute;
     padding: 3px;
     display: none;
-    margin-left: 30px;
+    margin-left: 10px;
+    width: 150px;
 }
 
 td.more_opts {
     display: none;
+    white-space: wrap;
 }
