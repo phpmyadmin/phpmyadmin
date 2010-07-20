@@ -362,7 +362,7 @@ if ($analyze) {
         }
     }
 
-    if ($_REQUEST['csv_col_names']) {
+    if (isset($_REQUEST['csv_col_names'])) {
         $col_names = array_splice($rows, 0, 1);
         $col_names = $col_names[0];
     }
