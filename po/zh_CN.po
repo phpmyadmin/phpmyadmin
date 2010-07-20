@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-19 10:04-0400\n"
+"POT-Creation-Date: 2010-07-20 12:14+0200\n"
 "PO-Revision-Date: 2010-06-04 14:09+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -56,7 +56,7 @@ msgstr "搜索"
 #: libraries/display_tbl.lib.php:614 libraries/replication_gui.lib.php:76
 #: libraries/replication_gui.lib.php:372 libraries/select_server.lib.php:104
 #: libraries/sql_query_form.lib.php:400 libraries/sql_query_form.lib.php:477
-#: libraries/sql_query_form.lib.php:552 libraries/tbl_properties.inc.php:782
+#: libraries/sql_query_form.lib.php:551 libraries/tbl_properties.inc.php:782
 #: main.php:128 navigation.php:237 pdf_pages.php:292 pdf_pages.php:328
 #: pdf_pages.php:530 pmd_pdf.php:116 server_binlog.php:142
 #: server_privileges.php:665 server_privileges.php:1617
@@ -195,7 +195,7 @@ msgid "View dump (schema) of database"
 msgstr "查看数据库的转存(大纲)。"
 
 #: db_export.php:33 db_printview.php:96 db_qbe.php:102 db_structure.php:51
-#: db_tracking.php:35 export.php:359 navigation.php:332
+#: db_tracking.php:35 export.php:355 navigation.php:332
 msgid "No tables found in database."
 msgstr "数据库中没有表。"
 
@@ -350,25 +350,25 @@ msgstr "行数"
 msgid "Size"
 msgstr "大小"
 
-#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:559
-#: libraries/export/sql.php:899
+#: db_printview.php:162 db_structure.php:457 libraries/export/sql.php:557
+#: libraries/export/sql.php:897
 msgid "in use"
 msgstr "使用中"
 
 #: db_printview.php:187 libraries/db_info.inc.php:88
-#: libraries/export/sql.php:514 pdf_schema.php:1241 tbl_printview.php:433
+#: libraries/export/sql.php:512 pdf_schema.php:1241 tbl_printview.php:433
 #: tbl_structure.php:809
 msgid "Creation"
 msgstr "创建时间"
 
 #: db_printview.php:196 libraries/db_info.inc.php:93
-#: libraries/export/sql.php:519 pdf_schema.php:1246 tbl_printview.php:443
+#: libraries/export/sql.php:517 pdf_schema.php:1246 tbl_printview.php:443
 #: tbl_structure.php:817
 msgid "Last update"
 msgstr "最后更新"
 
 #: db_printview.php:205 libraries/db_info.inc.php:98
-#: libraries/export/sql.php:524 pdf_schema.php:1251 tbl_printview.php:453
+#: libraries/export/sql.php:522 pdf_schema.php:1251 tbl_printview.php:453
 #: tbl_structure.php:825
 msgid "Last check"
 msgstr "最后检查"
@@ -497,9 +497,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "“<i>%s</i>”的搜索结果 %s："
 
 #: db_search.php:260
-#, php-format
-msgid "%s match(es) inside table <i>%s</i>"
-msgstr "%s 个匹配 - 于表 <i>%s</i> 中"
+#, fuzzy, php-format
+#| msgid "%s match(es) inside table <i>%s</i>"
+msgid "%s match inside table <i>%s</i>"
+msgid_plural "%s matches inside table <i>%s</i>"
+msgstr[0] "%s 个匹配 - 于表 <i>%s</i> 中"
 
 #: db_search.php:267 db_structure.php:77 db_structure.php:78
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
@@ -518,9 +520,11 @@ msgid "Delete"
 msgstr "删除"
 
 #: db_search.php:285
-#, php-format
-msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgstr "<b>总计：</b> <i>%s</i> 个匹配"
+#, fuzzy, php-format
+#| msgid "<b>Total:</b> <i>%s</i> match(es)"
+msgid "<b>Total:</b> <i>%s</i> match"
+msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgstr[0] "<b>总计：</b> <i>%s</i> 个匹配"
 
 #: db_search.php:299
 msgid "Search in database"
@@ -610,8 +614,8 @@ msgstr "追踪已禁用。"
 #: db_structure.php:420 libraries/display_tbl.lib.php:1944
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
 #: db_structure.php:434 db_structure.php:448 libraries/header.inc.php:126
@@ -703,7 +707,7 @@ msgstr "已追踪的表"
 
 #: db_tracking.php:71 libraries/export/htmlword.php:86
 #: libraries/export/latex.php:148 libraries/export/odt.php:113
-#: libraries/export/sql.php:342 libraries/export/texytext.php:84
+#: libraries/export/sql.php:340 libraries/export/texytext.php:84
 #: libraries/export/xml.php:255 libraries/header.inc.php:106
 #: libraries/header_printview.inc.php:58 server_databases.php:169
 #: server_privileges.php:1653 server_privileges.php:1714
@@ -775,23 +779,23 @@ msgstr "数据库日志"
 msgid "Selected export type has to be saved in file!"
 msgstr "选择导出文件的类型！"
 
-#: export.php:154 export.php:179 export.php:627
+#: export.php:154 export.php:179 export.php:623
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "没有足够的空间保存文件 %s。"
 
-#: export.php:294
+#: export.php:290
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "服务器上已存在文件 %s，请修改文件名或选中覆盖选项。"
 
-#: export.php:298 export.php:302
+#: export.php:294 export.php:298
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "网站服务器没有保存文件 %s 的权限。"
 
-#: export.php:629
+#: export.php:625
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "转存已经保存到文件 %s 中。"
@@ -799,8 +803,8 @@ msgstr "转存已经保存到文件 %s 中。"
 #: import.php:60
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:279 import.php:332 libraries/File.class.php:849
@@ -1317,7 +1321,7 @@ msgstr "注释"
 #: libraries/common.lib.php:1201 libraries/display_tbl.lib.php:1117
 #: libraries/import.lib.php:1120 libraries/import.lib.php:1144
 #: pdf_pages.php:285 setup/frames/index.inc.php:124
-#: setup/lib/messages.inc.php:352 tbl_row_action.php:69
+#: setup/lib/messages.inc.php:349 tbl_row_action.php:69
 msgid "Edit"
 msgstr "编辑"
 
@@ -1339,7 +1343,7 @@ msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一个将可能被删除
 
 #: libraries/List_Database.class.php:431 libraries/server_links.inc.php:41
 #: server_databases.php:88 server_privileges.php:1653
-#: setup/lib/messages.inc.php:110 test/theme.php:93
+#: setup/lib/messages.inc.php:107 test/theme.php:93
 msgid "Databases"
 msgstr "数据库"
 
@@ -1453,8 +1457,8 @@ msgstr "欢迎使用 %s"
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -1560,26 +1564,7 @@ msgstr "播放视频"
 msgid "Download file"
 msgstr "下载文件"
 
-#: libraries/charset_conversion.lib.php:17
-msgid ""
-"Couldn't load the iconv or recode extension needed for charset conversion. "
-"Either configure PHP to enable these extensions or disable charset "
-"conversion in phpMyAdmin."
-msgstr ""
-"无法加载 iconv 或可用于转换字符集所需的重编码扩展，请配置 PHP 启用这些扩展或"
-"在 phpMyAdmin 中禁用字符集转换功能。"
-
-#: libraries/charset_conversion.lib.php:79
-#: libraries/charset_conversion.lib.php:90
-#: libraries/charset_conversion.lib.php:109
-msgid ""
-"Couldn't use the iconv, libiconv, or recode_string functions, although the "
-"necessary extensions appear to be loaded. Check your PHP configuration."
-msgstr ""
-"虽然必须的扩展已经加载，但还是无法使用 iconv、libiconv 和 recode_string 函"
-"数。请检查您的 PHP 配置。"
-
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:568
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1593,38 +1578,38 @@ msgstr ""
 "常的错误都是因为某处漏了引号或分号。<br />如果您看到的是一个空白页，则代表没"
 "有任何问题。"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:579
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "无法加载默认配置: %1$s"
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:584
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr "必须在您的配置文件中设置 <tt>$cfg['PmaAbsoluteUri']</tt> ！"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:614
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "无效的服务器索引: %s"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:621
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "无效的主机名 %1$s，请检查配置文件。"
 
-#: libraries/common.inc.php:638 libraries/header.inc.php:96
+#: libraries/common.inc.php:630 libraries/header.inc.php:96
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:47
 #: main.php:185 test/theme.php:57
 msgid "Server"
 msgstr "服务器"
 
-#: libraries/common.inc.php:816
+#: libraries/common.inc.php:807
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
-#: libraries/common.inc.php:919
+#: libraries/common.inc.php:910
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
@@ -1664,7 +1649,7 @@ msgstr "SQL 查询"
 msgid "MySQL said: "
 msgstr "MySQL 返回："
 
-#: libraries/common.lib.php:1177 setup/lib/messages.inc.php:353
+#: libraries/common.lib.php:1177 setup/lib/messages.inc.php:350
 msgid "Explain SQL"
 msgstr "解释 SQL"
 
@@ -1676,12 +1661,12 @@ msgstr "略过解释 SQL"
 msgid "Without PHP Code"
 msgstr "无 PHP 代码"
 
-#: libraries/common.lib.php:1217 setup/lib/messages.inc.php:355
+#: libraries/common.lib.php:1217 setup/lib/messages.inc.php:352
 msgid "Create PHP Code"
 msgstr "创建 PHP 代码"
 
 #: libraries/common.lib.php:1235 server_status.php:452
-#: setup/lib/messages.inc.php:354
+#: setup/lib/messages.inc.php:351
 msgid "Refresh"
 msgstr "刷新"
 
@@ -1689,7 +1674,7 @@ msgstr "刷新"
 msgid "Skip Validate SQL"
 msgstr "略过校验 SQL"
 
-#: libraries/common.lib.php:1247 setup/lib/messages.inc.php:356 sql.php:518
+#: libraries/common.lib.php:1247 setup/lib/messages.inc.php:353 sql.php:518
 msgid "Validate SQL"
 msgstr "校验 SQL"
 
@@ -1809,7 +1794,7 @@ msgstr ""
 "扩展，请检查您的 PHP 配置。"
 
 #: libraries/db_events.inc.php:20 libraries/db_events.inc.php:22
-#: libraries/export/sql.php:415
+#: libraries/export/sql.php:413
 msgid "Events"
 msgstr "事件"
 
@@ -1879,11 +1864,11 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用配置文件中定义的控制用户连接失败。"
 
 #: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysql.dbi.lib.php:355
-#: libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/dbi/mysqli.dbi.lib.php:408
 msgid "The server is not responding"
 msgstr "服务器没有响应"
 
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:410
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:408
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(或者本地 MySQL 服务器的套接字没有正确配置)"
 
@@ -1964,7 +1949,7 @@ msgstr "从 # %2$s 行开始转储 %1$s 行"
 msgid "Dump all rows"
 msgstr "转储所有行"
 
-#: libraries/display_export.lib.php:125 setup/lib/messages.inc.php:82
+#: libraries/display_export.lib.php:125 setup/lib/messages.inc.php:79
 msgid "Save as file"
 msgstr "另存为文件"
 
@@ -1973,7 +1958,7 @@ msgstr "另存为文件"
 msgid "Save on server in %s directory"
 msgstr "保存于服务器的 %s 文件夹"
 
-#: libraries/display_export.lib.php:142 setup/lib/messages.inc.php:90
+#: libraries/display_export.lib.php:142 setup/lib/messages.inc.php:87
 msgid "Overwrite existing file(s)"
 msgstr "覆盖已有文件"
 
@@ -1997,8 +1982,8 @@ msgstr "数据表名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。"
@@ -2008,17 +1993,17 @@ msgid "remember template"
 msgstr "记住模板"
 
 #: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
-#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:549
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:548
 msgid "Character set of the file:"
 msgstr "文件的字符集："
 
-#: libraries/display_export.lib.php:235 setup/lib/messages.inc.php:84
+#: libraries/display_export.lib.php:235 setup/lib/messages.inc.php:81
 msgid "Compression"
 msgstr "压缩"
 
 #: libraries/display_export.lib.php:240 libraries/display_import.lib.php:196
 #: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:530
-#: libraries/export/sql.php:868 libraries/tbl_properties.inc.php:575
+#: libraries/export/sql.php:866 libraries/tbl_properties.inc.php:575
 #: server_privileges.php:1868 server_processlist.php:75
 msgid "None"
 msgstr "无"
@@ -2063,7 +2048,7 @@ msgstr "正在上传，没有详细信息，请稍候。"
 msgid "File to import"
 msgstr "要导入的文件"
 
-#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:524
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:523
 msgid "Location of the text file"
 msgstr "文本文件的位置"
 
@@ -2071,12 +2056,12 @@ msgstr "文本文件的位置"
 msgid "File uploads are not allowed on this server."
 msgstr "此服务器禁止了文件上传。"
 
-#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:533
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:532
 #: tbl_change.php:1025
 msgid "The directory you set for upload work cannot be reached"
 msgstr "用于上传的文件夹出错，无法使用"
 
-#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:536
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:535
 #: tbl_change.php:1028
 msgid "web server upload directory"
 msgstr "网站服务器上传文件夹"
@@ -2105,11 +2090,11 @@ msgstr ""
 "在导入时脚本若检测到可能需要花费很长时间则允许中断。尽管这会中断事务，但在导"
 "入大文件时是个很好的方法。"
 
-#: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:161
+#: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:158
 msgid "Number of queries to skip from start"
 msgstr "跳过查询的数量"
 
-#: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:160
+#: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:157
 msgid "Format of imported file"
 msgstr "导入文件的格式"
 
@@ -2609,7 +2594,7 @@ msgstr ""
 "系统维护的事务日志数量 (pbxt/system/*.xt)。如果日志数量大于此值，旧的日志将会"
 "被删除，或者被以升序数字序列重命名。"
 
-#: libraries/export/codegen.php:37 setup/lib/messages.inc.php:88
+#: libraries/export/codegen.php:37 setup/lib/messages.inc.php:85
 #: tbl_printview.php:375 tbl_structure.php:737
 msgid "Format"
 msgstr "格式"
@@ -2672,7 +2657,7 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/export/htmlword.php:24 libraries/export/latex.php:55
 #: libraries/export/latex.php:201 libraries/export/odt.php:48
-#: libraries/export/sql.php:106 libraries/export/sql.php:868
+#: libraries/export/sql.php:106 libraries/export/sql.php:866
 #: libraries/export/texytext.php:27 server_databases.php:127
 #: server_privileges.php:577 server_replication.php:316 tbl_printview.php:316
 #: tbl_structure.php:665
@@ -2680,12 +2665,12 @@ msgid "Data"
 msgstr "数据"
 
 #: libraries/export/htmlword.php:132 libraries/export/odt.php:168
-#: libraries/export/sql.php:881 libraries/export/texytext.php:130
+#: libraries/export/sql.php:879 libraries/export/texytext.php:130
 msgid "Dumping data for table"
 msgstr "转存表中的数据"
 
 #: libraries/export/htmlword.php:185 libraries/export/odt.php:238
-#: libraries/export/sql.php:785 libraries/export/texytext.php:177
+#: libraries/export/sql.php:783 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "表的结构"
 
@@ -2720,7 +2705,7 @@ msgstr "关系"
 msgid "MIME type"
 msgstr "MIME 类型"
 
-#: libraries/export/latex.php:125 libraries/export/sql.php:232
+#: libraries/export/latex.php:125 libraries/export/sql.php:231
 #: libraries/export/xml.php:102 libraries/header_printview.inc.php:57
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:177
 #: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
@@ -2731,17 +2716,17 @@ msgstr "MIME 类型"
 msgid "Host"
 msgstr "主机"
 
-#: libraries/export/latex.php:130 libraries/export/sql.php:233
+#: libraries/export/latex.php:130 libraries/export/sql.php:232
 #: libraries/export/xml.php:107 libraries/header_printview.inc.php:59
 msgid "Generation Time"
 msgstr "生成日期"
 
-#: libraries/export/latex.php:131 libraries/export/sql.php:235
+#: libraries/export/latex.php:131 libraries/export/sql.php:234
 #: libraries/export/xml.php:108 main.php:186
 msgid "Server version"
 msgstr "服务器版本"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:236
+#: libraries/export/latex.php:132 libraries/export/sql.php:235
 #: libraries/export/xml.php:109
 msgid "PHP Version"
 msgstr "PHP 版本"
@@ -2834,39 +2819,39 @@ msgstr "以协调世界时 (UTC) 导出时间"
 msgid "Export type"
 msgstr "导出类型"
 
-#: libraries/export/sql.php:387
+#: libraries/export/sql.php:385
 msgid "Procedures"
 msgstr "存储过程"
 
-#: libraries/export/sql.php:401
+#: libraries/export/sql.php:399
 msgid "Functions"
 msgstr "函数"
 
-#: libraries/export/sql.php:618
+#: libraries/export/sql.php:616
 msgid "Constraints for dumped tables"
 msgstr "限制导出的表"
 
-#: libraries/export/sql.php:627
+#: libraries/export/sql.php:625
 msgid "Constraints for table"
 msgstr "限制表"
 
-#: libraries/export/sql.php:727
+#: libraries/export/sql.php:725
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME 类型表"
 
-#: libraries/export/sql.php:739
+#: libraries/export/sql.php:737
 msgid "RELATIONS FOR TABLE"
 msgstr "表的关联"
 
-#: libraries/export/sql.php:796 libraries/tbl_triggers.lib.php:19
+#: libraries/export/sql.php:794 libraries/tbl_triggers.lib.php:19
 msgid "Triggers"
 msgstr "触发器"
 
-#: libraries/export/sql.php:808
+#: libraries/export/sql.php:806
 msgid "Structure for view"
 msgstr "视图结构"
 
-#: libraries/export/sql.php:817
+#: libraries/export/sql.php:815
 msgid "Stand-in structure for view"
 msgstr "替换视图以便查看"
 
@@ -3300,7 +3285,7 @@ msgstr "退出"
 
 #: libraries/navigation_header.inc.php:80
 #: libraries/navigation_header.inc.php:83
-#: libraries/navigation_header.inc.php:86 setup/lib/messages.inc.php:122
+#: libraries/navigation_header.inc.php:86 setup/lib/messages.inc.php:119
 msgid "Query window"
 msgstr "查询窗口"
 
@@ -3473,30 +3458,30 @@ msgid "Generate Password"
 msgstr "生成密码"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:482
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:495
+#: libraries/select_lang.lib.php:484
 msgid "Content of table __TABLE__"
 msgstr "__TABLE__ 表的内容"
 
-#: libraries/select_lang.lib.php:496
+#: libraries/select_lang.lib.php:485
 msgid "(continued)"
 msgstr "(延续的)"
 
-#: libraries/select_lang.lib.php:497
+#: libraries/select_lang.lib.php:486
 msgid "Structure of table __TABLE__"
 msgstr "__TABLE__ 表的结构"
 
-#: libraries/select_lang.lib.php:502 libraries/select_lang.lib.php:508
-#: libraries/select_lang.lib.php:514
+#: libraries/select_lang.lib.php:491 libraries/select_lang.lib.php:497
+#: libraries/select_lang.lib.php:503
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "未知的语言：%1$s."
 
 #: libraries/select_server.lib.php:45 setup/frames/index.inc.php:97
-#: setup/lib/messages.inc.php:115
+#: setup/lib/messages.inc.php:112
 msgid "Servers"
 msgstr "服务器"
 
@@ -4042,7 +4027,7 @@ msgid "Filter"
 msgstr "快速搜索"
 
 #: navigation.php:305 setup/frames/index.inc.php:218
-#: setup/lib/messages.inc.php:42
+#: setup/lib/messages.inc.php:41
 msgid "Clear"
 msgstr "清除"
 
@@ -4295,7 +4280,7 @@ msgid "Databases statistics"
 msgstr "数据库统计"
 
 #: server_databases.php:117 server_status.php:371
-#: setup/lib/messages.inc.php:117
+#: setup/lib/messages.inc.php:114
 msgid "Tables"
 msgstr "数据表"
 
@@ -4676,12 +4661,12 @@ msgstr "删除与用户同名的数据库。"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
-"s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
+"限%s。"
 
 #: server_privileges.php:1677
 msgid "The selected user was not found in the privilege table."
@@ -5830,125 +5815,121 @@ msgid "Global value"
 msgstr "全局值"
 
 #: setup/frames/config.inc.php:25 setup/frames/index.inc.php:152
-#: setup/lib/messages.inc.php:45
+#: setup/lib/messages.inc.php:44
 msgid "Configuration file"
 msgstr "配置文件"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:212
-#: setup/lib/messages.inc.php:65
+#: setup/lib/messages.inc.php:62
 msgid "Download"
 msgstr "下载"
 
-#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:164
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:161
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr "你现在没有使用安全连接，所有数据(包括敏感信息，如密码)均为明文传输！"
 
 #: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
-#: setup/lib/messages.inc.php:219
+#: setup/lib/messages.inc.php:216
 msgid "Overview"
 msgstr "概要"
 
-#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:337
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:334
 msgid "Show hidden messages (#MSG_COUNT)"
 msgstr "显示隐藏信息 (#MSG_COUNT)"
 
-#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:213
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:210
 msgid "There are no configured servers"
 msgstr "没有配置好的服务器"
 
-#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:212
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:209
 msgid "New server"
 msgstr "新建服务器"
 
-#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:50
+#: setup/frames/index.inc.php:172 setup/lib/messages.inc.php:47
 msgid "Default language"
 msgstr "默认语言"
 
-#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:187
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:184
 msgid "let the user choose"
 msgstr "让用户选择"
 
-#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:216
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:213
 msgid "- none -"
 msgstr "- 无 -"
 
-#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:51
+#: setup/frames/index.inc.php:196 setup/lib/messages.inc.php:48
 msgid "Default server"
 msgstr "默认服务器"
 
-#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:66
+#: setup/frames/index.inc.php:206 setup/lib/messages.inc.php:63
 msgid "End of line"
 msgstr "换行符"
 
-#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:61
+#: setup/frames/index.inc.php:211 setup/lib/messages.inc.php:58
 msgid "Display"
 msgstr "显示"
 
-#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:190
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:187
 msgid "Load"
 msgstr "加载"
 
-#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:152
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:149
 msgid "phpMyAdmin homepage"
 msgstr "phpMyAdmin 主页 (外链，英文)"
 
-#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:64
+#: setup/frames/index.inc.php:227 setup/lib/messages.inc.php:61
 msgid "Donate"
 msgstr "捐助 (外链，英文)"
 
-#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:370
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:367
 msgid "Check for latest version"
 msgstr "检查更新"
 
-#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:137
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:134
 msgid "Features"
 msgstr "功能"
 
-#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:113
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:110
 msgid "Navigation frame"
 msgstr "导航框架"
 
-#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:118
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:115
 msgid "Main frame"
 msgstr "主框架"
 
-#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:272
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:269
 msgid "Edit server"
 msgstr "编辑服务器"
 
-#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:241
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:238
 msgid "Add a new server"
 msgstr "添加服务器"
 
-#: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:76
+#: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:73
 msgid "Incorrect value"
 msgstr "输入的值不正确"
 
-#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:328
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:325
 #, php-format
 msgid "Set value: %s"
 msgstr "设置值: %s"
 
-#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:234
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:231
 msgid "Restore default value"
 msgstr "还原默认值"
 
-#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:377
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:374
 msgid "Warning"
 msgstr "警告"
 
 #: setup/lib/messages.inc.php:16
-msgid "Allow character set conversion"
-msgstr "允许转换字符集"
-
-#: setup/lib/messages.inc.php:17
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr "如果启用，用户可以在 cookie 认证方式中输入任意 MySQL 服务器"
 
-#: setup/lib/messages.inc.php:18
+#: setup/lib/messages.inc.php:17
 msgid ""
 "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 "disabled as it allows attackers to bruteforce login to any MySQL server. If "
@@ -5962,29 +5943,29 @@ msgstr ""
 "formset=features#tab_Security]可信代理表[/a]。但如果您和许多人使用同一个IP地"
 "址，该措施的安全性将下降。"
 
-#: setup/lib/messages.inc.php:19
+#: setup/lib/messages.inc.php:18
 msgid "Allow login to any MySQL server"
 msgstr "允许登录到任意 MySQL 服务器"
 
-#: setup/lib/messages.inc.php:20
+#: setup/lib/messages.inc.php:19
 msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr "显示 &quot;删除数据库&quot; 链接给普通用户"
 
-#: setup/lib/messages.inc.php:21
+#: setup/lib/messages.inc.php:20
 msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgstr "短语密码应包含字母、数字[em]和[/em]特殊字符"
 
-#: setup/lib/messages.inc.php:22
+#: setup/lib/messages.inc.php:21
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr "在 [kbd]cookie[/kbd] 认证方式下用于加密 cookies 的短语密码"
 
-#: setup/lib/messages.inc.php:23
+#: setup/lib/messages.inc.php:22
 msgid "Key is too short, it should have at least 8 characters"
 msgstr "短语密码太短，至少应含有8个字符"
 
-#: setup/lib/messages.inc.php:24
+#: setup/lib/messages.inc.php:23
 msgid ""
 "You didn't have blowfish secret set and have enabled cookie authentication, "
 "so a key was automatically generated for you. It is used to encrypt cookies; "
@@ -5993,27 +5974,27 @@ msgstr ""
 "您打开了 Cookies 认证方式，但没有设置短语密码，因此系统自动生成了一个短语密"
 "码，该密语用于加密 Cookies。您不需要记住这个短语密码。"
 
-#: setup/lib/messages.inc.php:25
+#: setup/lib/messages.inc.php:24
 msgid "Blowfish secret"
 msgstr "短语密码"
 
-#: setup/lib/messages.inc.php:26
+#: setup/lib/messages.inc.php:25
 msgid "Highlight selected rows"
 msgstr "高亮选中的行"
 
-#: setup/lib/messages.inc.php:27
+#: setup/lib/messages.inc.php:26
 msgid "Row marker"
 msgstr "行标记"
 
-#: setup/lib/messages.inc.php:28
+#: setup/lib/messages.inc.php:27
 msgid "Highlight row pointed by the mouse cursor"
 msgstr "高亮鼠标指针所在的行"
 
-#: setup/lib/messages.inc.php:29
+#: setup/lib/messages.inc.php:28
 msgid "Highlight pointer"
 msgstr "高亮指针"
 
-#: setup/lib/messages.inc.php:30
+#: setup/lib/messages.inc.php:29
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
@@ -6021,11 +6002,11 @@ msgstr ""
 "允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2 (外链，英"
 "文)[/a] 压缩"
 
-#: setup/lib/messages.inc.php:31
+#: setup/lib/messages.inc.php:30
 msgid "Bzip2"
 msgstr "Bzip2"
 
-#: setup/lib/messages.inc.php:32
+#: setup/lib/messages.inc.php:31
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
@@ -6035,11 +6016,11 @@ msgstr ""
 "此系统目前不支持 [a@?page=form&amp;formset=features#tab_Import_export]Bzip2 "
 "压缩和解压缩[/a]所必须的 (%s) 函数。"
 
-#: setup/lib/messages.inc.php:33
+#: setup/lib/messages.inc.php:32
 msgid "Cannot load or save configuration"
 msgstr "无法加载或保存配置"
 
-#: setup/lib/messages.inc.php:34
+#: setup/lib/messages.inc.php:33
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [a@../Documentation.html#setup_script]"
@@ -6048,7 +6029,7 @@ msgstr ""
 "请在 phpMyAdmin 的根文件夹下创建可以写入的 [em]config[/em] 文件夹，[a@../"
 "Documentation.html#setup_script]文档[/a]中有说明。否则你只能下载或显示配置。"
 
-#: setup/lib/messages.inc.php:35
+#: setup/lib/messages.inc.php:34
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -6057,31 +6038,31 @@ msgstr ""
 "定义编辑 CHAR 和 VARCHAR 类型字段时应使用何种控件，[kbd]输入框 (input)[/kbd] "
 "- 可以限制输入长度，[kbd]文本框 (textarea)[/kbd] - 可以输入多行数据"
 
-#: setup/lib/messages.inc.php:36
+#: setup/lib/messages.inc.php:35
 msgid "CHAR columns editing"
 msgstr "编辑 CHAR 类型字段"
 
-#: setup/lib/messages.inc.php:37
+#: setup/lib/messages.inc.php:36
 msgid "Number of columns for CHAR/VARCHAR textareas"
 msgstr "CHAR/VARCHAR 文本框的列数"
 
-#: setup/lib/messages.inc.php:38
+#: setup/lib/messages.inc.php:37
 msgid "CHAR textarea columns"
 msgstr "CHAR 文本框列"
 
-#: setup/lib/messages.inc.php:39
+#: setup/lib/messages.inc.php:38
 msgid "Number of rows for CHAR/VARCHAR textareas"
 msgstr "CHAR/VARCHAR 文本框的行数"
 
-#: setup/lib/messages.inc.php:40
+#: setup/lib/messages.inc.php:39
 msgid "CHAR textarea rows"
 msgstr "CHAR 文本框行"
 
-#: setup/lib/messages.inc.php:41
+#: setup/lib/messages.inc.php:40
 msgid "Check config file permissions"
 msgstr "检查配置文件权限"
 
-#: setup/lib/messages.inc.php:43
+#: setup/lib/messages.inc.php:42
 msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
@@ -6089,53 +6070,45 @@ msgstr ""
 "使用较少的内存进行 gzip/bzip2 实时压缩。如果创建压缩文档时发生错误，请禁用该"
 "选项"
 
-#: setup/lib/messages.inc.php:44
+#: setup/lib/messages.inc.php:43
 msgid "Compress on the fly"
 msgstr "实时压缩"
 
-#: setup/lib/messages.inc.php:46
+#: setup/lib/messages.inc.php:45
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr "当查询可能丢失数据时是否显示警告 (&quot;您真的要...&quot;)"
 
-#: setup/lib/messages.inc.php:47
+#: setup/lib/messages.inc.php:46
 msgid "Confirm DROP queries"
 msgstr "确认删除(DROP)查询"
 
-#: setup/lib/messages.inc.php:48
-msgid "Default character set used for conversions"
-msgstr "转换时的默认字符集"
-
 #: setup/lib/messages.inc.php:49
-msgid "Default character set"
-msgstr "默认字符集"
-
-#: setup/lib/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
 msgstr "在进入数据库标签时默认显示的页面"
 
-#: setup/lib/messages.inc.php:53
+#: setup/lib/messages.inc.php:50
 msgid "Default database tab"
 msgstr "默认数据库标签"
 
-#: setup/lib/messages.inc.php:54
+#: setup/lib/messages.inc.php:51
 msgid "Tab that is displayed when entering a server"
 msgstr "在进入服务器标签时默认显示的页面"
 
-#: setup/lib/messages.inc.php:55
+#: setup/lib/messages.inc.php:52
 msgid "Default server tab"
 msgstr "默认服务器标签"
 
-#: setup/lib/messages.inc.php:56
+#: setup/lib/messages.inc.php:53
 msgid "Tab that is displayed when entering a table"
 msgstr "在进入数据表标签时默认显示的页面"
 
-#: setup/lib/messages.inc.php:57
+#: setup/lib/messages.inc.php:54
 msgid "Default table tab"
 msgstr "默认数据表标签"
 
-#: setup/lib/messages.inc.php:58
+#: setup/lib/messages.inc.php:55
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
@@ -6143,115 +6116,115 @@ msgstr ""
 "对该值应该进行小心谨慎的检查，确保服务器上的其他用户对该文件夹都没有读取和写"
 "入的权限。"
 
-#: setup/lib/messages.inc.php:59
+#: setup/lib/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
 msgstr "直接显示数据库列表而不使用下拉框"
 
-#: setup/lib/messages.inc.php:60
+#: setup/lib/messages.inc.php:57
 msgid "Display databases as a list"
 msgstr "显示数据库为列表"
 
-#: setup/lib/messages.inc.php:62
+#: setup/lib/messages.inc.php:59
 msgid "Show server listing as a list instead of a drop down"
 msgstr "直接显示服务器列表而不使用下拉框"
 
-#: setup/lib/messages.inc.php:63
+#: setup/lib/messages.inc.php:60
 msgid "Display servers as a list"
 msgstr "显示服务器为列表"
 
-#: setup/lib/messages.inc.php:67
+#: setup/lib/messages.inc.php:64
 msgid "Could not connect to MySQL server"
 msgstr "无法连接到 MySQL 服务器"
 
-#: setup/lib/messages.inc.php:68
+#: setup/lib/messages.inc.php:65
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr "使用 PMA 数据时控制用户的密码不能为空"
 
-#: setup/lib/messages.inc.php:69
+#: setup/lib/messages.inc.php:66
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr "使用 PMA 数据库时控制用户不能为空"
 
-#: setup/lib/messages.inc.php:70
+#: setup/lib/messages.inc.php:67
 msgid "Empty signon session name while using signon authentication method"
 msgstr "使用 singon 认证方式时 Signon 会话名不能为空"
 
-#: setup/lib/messages.inc.php:71
+#: setup/lib/messages.inc.php:68
 msgid "Empty signon URL while using signon authentication method"
 msgstr "使用 singon 认证方式时登录地址不能为空"
 
-#: setup/lib/messages.inc.php:72
+#: setup/lib/messages.inc.php:69
 msgid "Empty username while using config authentication method"
 msgstr "使用 config 认证方式时 config 认证方式的用户名不能为空"
 
-#: setup/lib/messages.inc.php:73
+#: setup/lib/messages.inc.php:70
 msgid "Submitted form contains errors"
 msgstr "提交的表单中有错误"
 
-#: setup/lib/messages.inc.php:74
+#: setup/lib/messages.inc.php:71
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "%s 是一个错误的 IP 地址"
 
-#: setup/lib/messages.inc.php:75
+#: setup/lib/messages.inc.php:72
 msgid "Not a valid port number"
 msgstr "非法的端口号"
 
-#: setup/lib/messages.inc.php:77
+#: setup/lib/messages.inc.php:74
 #, php-format
 msgid "Missing data for %s"
 msgstr "在 %s 中丢失数据"
 
-#: setup/lib/messages.inc.php:78
+#: setup/lib/messages.inc.php:75
 msgid "Not a non-negative number"
 msgstr "输入值不是非负数"
 
-#: setup/lib/messages.inc.php:79
+#: setup/lib/messages.inc.php:76
 msgid "Not a positive number"
 msgstr "输入值不是正数"
 
-#: setup/lib/messages.inc.php:80
+#: setup/lib/messages.inc.php:77
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr "设置脚本最大运行时间 (单位：秒，[kbd]0[/kbd] 为不限制)"
 
-#: setup/lib/messages.inc.php:81
+#: setup/lib/messages.inc.php:78
 msgid "Maximum execution time"
 msgstr "最长执行时间"
 
-#: setup/lib/messages.inc.php:83
+#: setup/lib/messages.inc.php:80
 msgid "Character set of the file"
 msgstr "文件字符集"
 
-#: setup/lib/messages.inc.php:85
+#: setup/lib/messages.inc.php:82
 msgid "Database name template"
 msgstr "数据库名模板"
 
-#: setup/lib/messages.inc.php:86
+#: setup/lib/messages.inc.php:83
 msgid "Server name template"
 msgstr "服务器名模板"
 
-#: setup/lib/messages.inc.php:87
+#: setup/lib/messages.inc.php:84
 msgid "Table name template"
 msgstr "数据表名模板"
 
-#: setup/lib/messages.inc.php:89
+#: setup/lib/messages.inc.php:86
 msgid "Save on server"
 msgstr "保存在服务器上"
 
-#: setup/lib/messages.inc.php:91
+#: setup/lib/messages.inc.php:88
 msgid "Remember file name template"
 msgstr "记住文件名模板"
 
-#: setup/lib/messages.inc.php:92
+#: setup/lib/messages.inc.php:89
 msgid "no"
 msgstr "否"
 
-#: setup/lib/messages.inc.php:93
+#: setup/lib/messages.inc.php:90
 msgid "Force secured connection while using phpMyAdmin"
 msgstr "强制使用安全连接访问 phpMyAdmin"
 
-#: setup/lib/messages.inc.php:94
+#: setup/lib/messages.inc.php:91
 msgid ""
 "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 "enabled if your web server supports it"
@@ -6259,11 +6232,11 @@ msgstr ""
 "若服务器支持，建议启用该[a@?page=form&amp;formset=features#tab_Security]选项"
 "[/a]"
 
-#: setup/lib/messages.inc.php:95
+#: setup/lib/messages.inc.php:92
 msgid "Force SSL connection"
 msgstr "强制 SSL 连接"
 
-#: setup/lib/messages.inc.php:96
+#: setup/lib/messages.inc.php:93
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
@@ -6271,123 +6244,123 @@ msgstr ""
 "外键下拉框中选项的排序顺序，[kbd]content[/kbd] 为关联内容，[kbd]id[/kbd] 为键"
 "值"
 
-#: setup/lib/messages.inc.php:97
+#: setup/lib/messages.inc.php:94
 msgid "Foreign key dropdown order"
 msgstr "外键下拉框顺序"
 
-#: setup/lib/messages.inc.php:98
+#: setup/lib/messages.inc.php:95
 msgid "A dropdown will be used if fewer items are present"
 msgstr "下拉框中选项个数的限制"
 
-#: setup/lib/messages.inc.php:99
+#: setup/lib/messages.inc.php:96
 msgid "Foreign key limit"
 msgstr "外键限制"
 
-#: setup/lib/messages.inc.php:100
+#: setup/lib/messages.inc.php:97
 msgid "Browse mode"
 msgstr "浏览模式"
 
-#: setup/lib/messages.inc.php:101
+#: setup/lib/messages.inc.php:98
 msgid "Customize browse mode"
 msgstr "自定义浏览模式"
 
-#: setup/lib/messages.inc.php:102
+#: setup/lib/messages.inc.php:99
 msgid "Customize edit mode"
 msgstr "自定义编辑模式"
 
-#: setup/lib/messages.inc.php:103
+#: setup/lib/messages.inc.php:100
 msgid "Edit mode"
 msgstr "编辑模式"
 
-#: setup/lib/messages.inc.php:104
+#: setup/lib/messages.inc.php:101
 msgid "Customize default export options"
 msgstr "自定义导出选项的默认值"
 
-#: setup/lib/messages.inc.php:105
+#: setup/lib/messages.inc.php:102
 msgid "Export defaults"
 msgstr "导出选项"
 
-#: setup/lib/messages.inc.php:106
+#: setup/lib/messages.inc.php:103
 msgid "Customize default common import options"
 msgstr "自定义导入选项的默认值"
 
-#: setup/lib/messages.inc.php:107
+#: setup/lib/messages.inc.php:104
 msgid "Import defaults"
 msgstr "导入选项"
 
-#: setup/lib/messages.inc.php:108
+#: setup/lib/messages.inc.php:105
 msgid "Set import and export directories and compression options"
 msgstr "设置导入和导出文件夹以及压缩选项"
 
-#: setup/lib/messages.inc.php:109
+#: setup/lib/messages.inc.php:106
 msgid "Import / export"
 msgstr "导入 / 导出"
 
-#: setup/lib/messages.inc.php:111
+#: setup/lib/messages.inc.php:108
 msgid "Databases display options"
 msgstr "数据库显示选项"
 
-#: setup/lib/messages.inc.php:112
+#: setup/lib/messages.inc.php:109
 msgid "Customize appearance of the navigation frame"
 msgstr "自定义导航框架"
 
-#: setup/lib/messages.inc.php:114
+#: setup/lib/messages.inc.php:111
 msgid "Servers display options"
 msgstr "服务器显示选项"
 
-#: setup/lib/messages.inc.php:116
+#: setup/lib/messages.inc.php:113
 msgid "Tables display options"
 msgstr "数据表显示选项"
 
-#: setup/lib/messages.inc.php:119
+#: setup/lib/messages.inc.php:116
 msgid "Settings that didn't fit enywhere else"
 msgstr "其他设置"
 
-#: setup/lib/messages.inc.php:120
+#: setup/lib/messages.inc.php:117
 msgid "Other core settings"
 msgstr "其他核心设置"
 
-#: setup/lib/messages.inc.php:121
+#: setup/lib/messages.inc.php:118
 msgid "Customize query window options"
 msgstr "自定义查询窗口选项"
 
-#: setup/lib/messages.inc.php:123
+#: setup/lib/messages.inc.php:120
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr "注意：phpMyAdmin 只是一个用户接口，其功能不会对 MySQL 有限制"
 
-#: setup/lib/messages.inc.php:124
+#: setup/lib/messages.inc.php:121
 msgid "Security"
 msgstr "安全"
 
-#: setup/lib/messages.inc.php:125
+#: setup/lib/messages.inc.php:122
 msgid "Basic settings"
 msgstr "基本设置"
 
-#: setup/lib/messages.inc.php:126
+#: setup/lib/messages.inc.php:123
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr "高级服务器设置，如果你不知道这些是什么，请不要修改"
 
-#: setup/lib/messages.inc.php:127
+#: setup/lib/messages.inc.php:124
 msgid "Server configuration"
 msgstr "服务器设置"
 
-#: setup/lib/messages.inc.php:128
+#: setup/lib/messages.inc.php:125
 msgid "Enter server connection parameters"
 msgstr "服务器连接参数"
 
-#: setup/lib/messages.inc.php:129
+#: setup/lib/messages.inc.php:126
 msgid "Enter login options for signon authentication"
 msgstr "设置 signon 认证方式选项"
 
-#: setup/lib/messages.inc.php:130
+#: setup/lib/messages.inc.php:127
 msgid "Signon login options"
 msgstr "Signon 登录参数"
 
-#: setup/lib/messages.inc.php:131
+#: setup/lib/messages.inc.php:128
 msgid ""
 "Configure phpMyAdmin database to gain access to additional features, see "
 "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
@@ -6396,47 +6369,47 @@ msgstr ""
 "配置 phpMyAdmin 数据库获得更多功能，参见文档[a@../Documentation.html#linked-"
 "tables]链接表的附加功能[/a]。"
 
-#: setup/lib/messages.inc.php:132 setup/lib/messages.inc.php:293
+#: setup/lib/messages.inc.php:129 setup/lib/messages.inc.php:290
 msgid "PMA database"
 msgstr "PMA 数据库"
 
-#: setup/lib/messages.inc.php:133
+#: setup/lib/messages.inc.php:130
 msgid "Tracking of changes made in database. Requires configured PMA database."
 msgstr "追踪数据库的修改。需要设置 PMA 数据库。"
 
-#: setup/lib/messages.inc.php:134
+#: setup/lib/messages.inc.php:131
 msgid "Changes tracking"
 msgstr "修改追踪"
 
-#: setup/lib/messages.inc.php:135
+#: setup/lib/messages.inc.php:132
 msgid "Customization"
 msgstr "自定义"
 
-#: setup/lib/messages.inc.php:136
+#: setup/lib/messages.inc.php:133
 msgid "Customize export options"
 msgstr "自定义导出选项"
 
-#: setup/lib/messages.inc.php:138
+#: setup/lib/messages.inc.php:135
 msgid "Customize import defaults"
 msgstr "自定义导入选项"
 
-#: setup/lib/messages.inc.php:139
+#: setup/lib/messages.inc.php:136
 msgid "Customize navigation frame"
 msgstr "自定义导航框架"
 
-#: setup/lib/messages.inc.php:140
+#: setup/lib/messages.inc.php:137
 msgid "Customize main frame"
 msgstr "自定义主框架"
 
-#: setup/lib/messages.inc.php:141
+#: setup/lib/messages.inc.php:138
 msgid "Customize links shown in SQL Query boxes"
 msgstr "自定义显示在 SQL 查询框中的链接"
 
-#: setup/lib/messages.inc.php:142
+#: setup/lib/messages.inc.php:139
 msgid "SQL Query box"
 msgstr "SQL 查询框"
 
-#: setup/lib/messages.inc.php:143
+#: setup/lib/messages.inc.php:140
 msgid ""
 "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
 "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
@@ -6444,27 +6417,27 @@ msgstr ""
 "SQL 查询设置，要设置 SQL 查询框请到[a@?page=form&amp;"
 "formset=main_frame#tab_Sql_box]主框架[/a]设置中修改"
 
-#: setup/lib/messages.inc.php:144
+#: setup/lib/messages.inc.php:141
 msgid "SQL queries"
 msgstr "SQL 查询"
 
-#: setup/lib/messages.inc.php:145
+#: setup/lib/messages.inc.php:142
 msgid "Customize startup page"
 msgstr "自定义起始页"
 
-#: setup/lib/messages.inc.php:146
+#: setup/lib/messages.inc.php:143
 msgid "Startup"
 msgstr "起始页"
 
-#: setup/lib/messages.inc.php:147
+#: setup/lib/messages.inc.php:144
 msgid "Choose how you want tabs to work"
 msgstr "选择你想让标签怎样工作"
 
-#: setup/lib/messages.inc.php:148
+#: setup/lib/messages.inc.php:145
 msgid "Tabs"
 msgstr "标签"
 
-#: setup/lib/messages.inc.php:149
+#: setup/lib/messages.inc.php:146
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
@@ -6472,11 +6445,11 @@ msgstr ""
 "允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/Gzip]gzip (外链，英文)"
 "[/a] 压缩"
 
-#: setup/lib/messages.inc.php:150
+#: setup/lib/messages.inc.php:147
 msgid "GZip"
 msgstr "GZip"
 
-#: setup/lib/messages.inc.php:151
+#: setup/lib/messages.inc.php:148
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
@@ -6486,15 +6459,15 @@ msgstr ""
 "此系统目前不支持 [a@?page=form&amp;formset=features#tab_Import_export]GZip 压"
 "缩和解压缩[/a]所必须的 (%s) 函数。"
 
-#: setup/lib/messages.inc.php:153
+#: setup/lib/messages.inc.php:150
 msgid "Extra parameters for iconv"
 msgstr "iconv 的额外参数"
 
-#: setup/lib/messages.inc.php:154
+#: setup/lib/messages.inc.php:151
 msgid "Ignore errors"
 msgstr "忽略错误"
 
-#: setup/lib/messages.inc.php:155
+#: setup/lib/messages.inc.php:152
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
@@ -6502,11 +6475,11 @@ msgstr ""
 "如果打开此选项，在执行多语句查询的时候，即使有一条或多条语句发生错误，"
 "phpMyAdmin 也会继续执行其他的语句"
 
-#: setup/lib/messages.inc.php:156
+#: setup/lib/messages.inc.php:153
 msgid "Ignore multiple statement errors"
 msgstr "忽略多个语句错误"
 
-#: setup/lib/messages.inc.php:157
+#: setup/lib/messages.inc.php:154
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
@@ -6515,129 +6488,129 @@ msgstr ""
 "该功能作用于在导入时脚本检测到可能需要花费很长时间。尽管这会中断事务，但在导"
 "入大文件时是个很好的方法。"
 
-#: setup/lib/messages.inc.php:158
+#: setup/lib/messages.inc.php:155
 msgid "Partial import: allow interrupt"
 msgstr "部分导入：允许中断"
 
-#: setup/lib/messages.inc.php:159
+#: setup/lib/messages.inc.php:156
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
 "默认格式，此列表根据位置(数据库或数据表)不同将有所改变，只有 SQL 总是可用的"
 
-#: setup/lib/messages.inc.php:162
+#: setup/lib/messages.inc.php:159
 msgid "Partial import: skip queries"
 msgstr "部分导入：跳过查询"
 
-#: setup/lib/messages.inc.php:163
+#: setup/lib/messages.inc.php:160
 msgid "Insecure connection"
 msgstr "非安全连接"
 
-#: setup/lib/messages.inc.php:165
+#: setup/lib/messages.inc.php:162
 #, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr "如果你的服务器已经配置好支持 HTTPS，请[a@%s]点击这里[/a]使用安全连接。"
 
-#: setup/lib/messages.inc.php:166
+#: setup/lib/messages.inc.php:163
 msgid "How many rows can be inserted at one time"
 msgstr "一次可以插入的行数"
 
-#: setup/lib/messages.inc.php:167
+#: setup/lib/messages.inc.php:164
 msgid "Number of inserted rows"
 msgstr "插入的行数"
 
-#: setup/lib/messages.inc.php:168
+#: setup/lib/messages.inc.php:165
 msgid "Target for quick access icon"
 msgstr "快速访问图标的目标"
 
-#: setup/lib/messages.inc.php:169
+#: setup/lib/messages.inc.php:166
 msgid "Show logo in left frame"
 msgstr "在左侧框架中显示 logo"
 
-#: setup/lib/messages.inc.php:170
+#: setup/lib/messages.inc.php:167
 msgid "Display logo"
 msgstr "显示 logo"
 
-#: setup/lib/messages.inc.php:171
+#: setup/lib/messages.inc.php:168
 msgid "Display server choice at the top of the left frame"
 msgstr "在左侧框架顶部显示服务器选择"
 
-#: setup/lib/messages.inc.php:172
+#: setup/lib/messages.inc.php:169
 msgid "Display servers selection"
 msgstr "显示服务器选择"
 
-#: setup/lib/messages.inc.php:173
+#: setup/lib/messages.inc.php:170
 msgid "String that separates databases into different tree levels"
 msgstr "将数据库分为不同树的分隔字符串"
 
-#: setup/lib/messages.inc.php:174
+#: setup/lib/messages.inc.php:171
 msgid "Database tree separator"
 msgstr "树状数据库分隔符"
 
-#: setup/lib/messages.inc.php:175
+#: setup/lib/messages.inc.php:172
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr "只使用轻量级版本，以树形显示数据库 (以下面的树形分隔符来显示)"
 
-#: setup/lib/messages.inc.php:176
+#: setup/lib/messages.inc.php:173
 msgid "Display databases in a tree"
 msgstr "以树形显示数据库"
 
-#: setup/lib/messages.inc.php:177
+#: setup/lib/messages.inc.php:174
 msgid "Disable this if you want to see all databases at once"
 msgstr "如果想一次性浏览所有数据库，则禁用该选项"
 
-#: setup/lib/messages.inc.php:178
+#: setup/lib/messages.inc.php:175
 msgid "Use light version"
 msgstr "使用轻量级版本"
 
-#: setup/lib/messages.inc.php:179
+#: setup/lib/messages.inc.php:176
 msgid "Maximum table tree depth"
 msgstr "数据表树最大深度"
 
-#: setup/lib/messages.inc.php:180
+#: setup/lib/messages.inc.php:177
 msgid "String that separates tables into different tree levels"
 msgstr "将表分为不同树的分隔符"
 
-#: setup/lib/messages.inc.php:181
+#: setup/lib/messages.inc.php:178
 msgid "Table tree separator"
 msgstr "树形表分隔符"
 
-#: setup/lib/messages.inc.php:182
+#: setup/lib/messages.inc.php:179
 msgid "Logo link URL"
 msgstr "Logo 链接地址"
 
-#: setup/lib/messages.inc.php:183
+#: setup/lib/messages.inc.php:180
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr "在主窗口 ([kbd]main[/kbd]) 或新窗口 ([kbd]new[/kbd]) 打开目标页面"
 
-#: setup/lib/messages.inc.php:184
+#: setup/lib/messages.inc.php:181
 msgid "Logo link target"
 msgstr "Logo 链接目标"
 
-#: setup/lib/messages.inc.php:185
+#: setup/lib/messages.inc.php:182
 msgid "Highlight server under the mouse cursor"
 msgstr "高亮显示鼠标所在位置的服务器"
 
-#: setup/lib/messages.inc.php:186
+#: setup/lib/messages.inc.php:183
 msgid "Enable highlighting"
 msgstr "启用高亮"
 
-#: setup/lib/messages.inc.php:188
+#: setup/lib/messages.inc.php:185
 msgid "Use less graphically intense tabs"
 msgstr "不在标签上使用背景"
 
-#: setup/lib/messages.inc.php:189
+#: setup/lib/messages.inc.php:186
 msgid "Light tabs"
 msgstr "简化标签"
 
-#: setup/lib/messages.inc.php:191
+#: setup/lib/messages.inc.php:188
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -6646,21 +6619,21 @@ msgstr ""
 "如果设为 TRUE，在退出时将会删除所有服务器的 Cookies。如果设为 FALSE，在您登录"
 "多台服务器的时候，容易忘记退出登录。"
 
-#: setup/lib/messages.inc.php:192
+#: setup/lib/messages.inc.php:189
 msgid "Delete all cookies on logout"
 msgstr "退出时删除所有 cookies"
 
-#: setup/lib/messages.inc.php:193
+#: setup/lib/messages.inc.php:190
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr "定义在 cookie 认证方式中是否显示上次登录的用户名"
 
-#: setup/lib/messages.inc.php:194
+#: setup/lib/messages.inc.php:191
 msgid "Recall user name"
 msgstr "显示上次登录的用户名"
 
-#: setup/lib/messages.inc.php:195
+#: setup/lib/messages.inc.php:192
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -6671,15 +6644,15 @@ msgstr ""
 "为浏览器进程，在关闭浏览器之后 Cookies 就会被删除。默认值为0。在不安全的环境"
 "下建议使用默认值。"
 
-#: setup/lib/messages.inc.php:196
+#: setup/lib/messages.inc.php:193
 msgid "Login cookie store"
 msgstr "登录 cookie 存储"
 
-#: setup/lib/messages.inc.php:197
+#: setup/lib/messages.inc.php:194
 msgid "Define how long (in seconds) a login cookie is valid"
 msgstr "定义登录 cookie 的有效期 (单位：秒)"
 
-#: setup/lib/messages.inc.php:198
+#: setup/lib/messages.inc.php:195
 msgid ""
 "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
 "be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
@@ -6688,27 +6661,27 @@ msgstr ""
 "[a@?page=form&formset=features#tab_Security]登录 cookie 有效期[/a]应小于 "
 "1800 秒 (30 分钟)。如果有效期大于 1800 秒，将会增加安全风险。"
 
-#: setup/lib/messages.inc.php:199
+#: setup/lib/messages.inc.php:196
 msgid "Login cookie validity"
 msgstr "登录 cookie 有效期"
 
-#: setup/lib/messages.inc.php:200
+#: setup/lib/messages.inc.php:197
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr "显示 SQL 语句时可以使用的最多字符数"
 
-#: setup/lib/messages.inc.php:201
+#: setup/lib/messages.inc.php:198
 msgid "Maximum displayed SQL length"
 msgstr "显示 SQL 语句的最大长度"
 
-#: setup/lib/messages.inc.php:202
+#: setup/lib/messages.inc.php:199
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr "在左栏和数据库列表中最多显示的数据库个数"
 
-#: setup/lib/messages.inc.php:203
+#: setup/lib/messages.inc.php:200
 msgid "Maximum databases"
 msgstr "最大数据库数量"
 
-#: setup/lib/messages.inc.php:204
+#: setup/lib/messages.inc.php:201
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
@@ -6717,45 +6690,45 @@ msgstr ""
 "浏览一个结果集时一次显示的最多行数。如果结果集超过此值，将会显示 &quot;上一页"
 "&quot; 和 &quot;下一页&quot; 的链接。"
 
-#: setup/lib/messages.inc.php:205
+#: setup/lib/messages.inc.php:202
 msgid "Maximum number of rows to display"
 msgstr "显示的最多行数"
 
-#: setup/lib/messages.inc.php:206
+#: setup/lib/messages.inc.php:203
 msgid "Maximum number of tables displayed in table list"
 msgstr "在数据表列表中最多显示的数据表个数"
 
-#: setup/lib/messages.inc.php:207
+#: setup/lib/messages.inc.php:204
 msgid "Maximum tables"
 msgstr "最大数据表数量"
 
-#: setup/lib/messages.inc.php:208
+#: setup/lib/messages.inc.php:205
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr "一个脚本可分配到的内存大小，例 [kbd]32MB[kbd] ([kbd]0[/kbd]为不限制)"
 
-#: setup/lib/messages.inc.php:209
+#: setup/lib/messages.inc.php:206
 msgid "Memory limit"
 msgstr "内存限制"
 
-#: setup/lib/messages.inc.php:210 setup/lib/messages.inc.php:222
+#: setup/lib/messages.inc.php:207 setup/lib/messages.inc.php:219
 msgid "Use only icons, only text or both"
 msgstr "仅使用图标、文本或都使用"
 
-#: setup/lib/messages.inc.php:211
+#: setup/lib/messages.inc.php:208
 msgid "Iconic navigation bar"
 msgstr "导航条显示"
 
-#: setup/lib/messages.inc.php:214
+#: setup/lib/messages.inc.php:211
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr "使用 GZip 输出缓冲以加快 HTTP 传输速度"
 
-#: setup/lib/messages.inc.php:215
+#: setup/lib/messages.inc.php:212
 msgid "GZip output buffering"
 msgstr "GZip 输出缓冲"
 
-#: setup/lib/messages.inc.php:217
+#: setup/lib/messages.inc.php:214
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -6763,31 +6736,31 @@ msgstr ""
 "[kbd]SMART[/kbd] - 如：对 TIME、DATE、DATETIME 和 TIMESTAMP 类型的字段递减排"
 "序，其他字段递增"
 
-#: setup/lib/messages.inc.php:218
+#: setup/lib/messages.inc.php:215
 msgid "Default sorting order"
 msgstr "默认排序"
 
-#: setup/lib/messages.inc.php:220
+#: setup/lib/messages.inc.php:217
 msgid "Use persistent connections to MySQL databases"
 msgstr "在连接到 MySQL 数据库时使用持久连接"
 
-#: setup/lib/messages.inc.php:221
+#: setup/lib/messages.inc.php:218
 msgid "Persistent connections"
 msgstr "持久连接"
 
-#: setup/lib/messages.inc.php:223
+#: setup/lib/messages.inc.php:220
 msgid "Iconic table operations"
 msgstr "数据表操作显示"
 
-#: setup/lib/messages.inc.php:224
+#: setup/lib/messages.inc.php:221
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "禁止编辑 BLOB 和 BINARY 类型字段"
 
-#: setup/lib/messages.inc.php:225
+#: setup/lib/messages.inc.php:222
 msgid "Protect binary columns"
 msgstr "保护二进制字段"
 
-#: setup/lib/messages.inc.php:226
+#: setup/lib/messages.inc.php:223
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
 "this utilizes JS-routines to display query history (lost by window close)."
@@ -6795,47 +6768,47 @@ msgstr ""
 "允许使用基于数据库的查询历史 (需要 PMA 数据库)。如果禁用，将使用 JavaScript "
 "来显示查询历史 (JS-routines，关闭窗口后当前显示的历史会丢失)。"
 
-#: setup/lib/messages.inc.php:227
+#: setup/lib/messages.inc.php:224
 msgid "Permanent query history"
 msgstr "持久查询历史"
 
-#: setup/lib/messages.inc.php:228
+#: setup/lib/messages.inc.php:225
 msgid "How many queries are kept in history"
 msgstr "记录查询历史的数量"
 
-#: setup/lib/messages.inc.php:229
+#: setup/lib/messages.inc.php:226
 msgid "Query history length"
 msgstr "查询历史个数"
 
-#: setup/lib/messages.inc.php:230
+#: setup/lib/messages.inc.php:227
 msgid "Tab displayed when opening a new query window"
 msgstr "打开一个新查询窗口时默认显示的页面"
 
-#: setup/lib/messages.inc.php:231
+#: setup/lib/messages.inc.php:228
 msgid "Default query window tab"
 msgstr "默认查询窗口标签"
 
-#: setup/lib/messages.inc.php:232
+#: setup/lib/messages.inc.php:229
 msgid "Select which functions will be used for character set conversion"
 msgstr "选择进行字符集转换时使用的函数"
 
-#: setup/lib/messages.inc.php:233
+#: setup/lib/messages.inc.php:230
 msgid "Recoding engine"
 msgstr "记录引擎"
 
-#: setup/lib/messages.inc.php:235
+#: setup/lib/messages.inc.php:232
 msgid "Try to revert erroneous fields to their default values"
 msgstr "尝试恢复错误参数为默认值"
 
-#: setup/lib/messages.inc.php:236
+#: setup/lib/messages.inc.php:233
 msgid "Directory where exports can be saved on server"
 msgstr "服务器上用来保存导出文件的文件夹"
 
-#: setup/lib/messages.inc.php:237
+#: setup/lib/messages.inc.php:234
 msgid "Save directory"
 msgstr "保存文件夹"
 
-#: setup/lib/messages.inc.php:238
+#: setup/lib/messages.inc.php:235
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -6846,51 +6819,51 @@ msgid ""
 msgstr ""
 "您设置了 [kbd]config[/kbd] 认证方式，且为了能够自动登录而保存了用户名和密码，"
 "但在常用主机上不建议这样设置。如果有人知道 phpMyAdmin 的地址，他们就能够进入 "
-"phpMyAdmin 的管理界面。建议将[a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]登录认证方式[/a]设置为 [kbd]cookie 认证[/kbd]或 [kbd]HTTP 认证"
-"[/kbd]。"
+"phpMyAdmin 的管理界面。建议将[a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]登录认证方式[/a]设置为 [kbd]cookie 认证[/kbd]或 [kbd]HTTP 认"
+"证[/kbd]。"
 
-#: setup/lib/messages.inc.php:239
+#: setup/lib/messages.inc.php:236
 msgid "You should use mysqli for performance reasons"
 msgstr "您可以使用 mysqli 以获得更高的性能"
 
-#: setup/lib/messages.inc.php:240
+#: setup/lib/messages.inc.php:237
 msgid "You allow for connecting to the server without a password."
 msgstr "该服务器现在允许空密码登录。"
 
-#: setup/lib/messages.inc.php:242
+#: setup/lib/messages.inc.php:239
 msgid "Leave blank if not used"
 msgstr "不使用请留空"
 
-#: setup/lib/messages.inc.php:243
+#: setup/lib/messages.inc.php:240
 msgid "Host authentication order"
 msgstr "主机认证"
 
-#: setup/lib/messages.inc.php:244
+#: setup/lib/messages.inc.php:241
 msgid "Leave blank for defaults"
 msgstr "默认请留空"
 
-#: setup/lib/messages.inc.php:245
+#: setup/lib/messages.inc.php:242
 msgid "Host authentication rules"
 msgstr "主机认证规则"
 
-#: setup/lib/messages.inc.php:246
+#: setup/lib/messages.inc.php:243
 msgid "Allow logins without a password"
 msgstr "允许空密码登录"
 
-#: setup/lib/messages.inc.php:247
+#: setup/lib/messages.inc.php:244
 msgid "Allow root login"
 msgstr "允许 root 用户登录"
 
-#: setup/lib/messages.inc.php:248
+#: setup/lib/messages.inc.php:245
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr "使用 HTTP 基本认证时显示给用户的提示信息"
 
-#: setup/lib/messages.inc.php:249
+#: setup/lib/messages.inc.php:246
 msgid "HTTP Realm"
 msgstr "HTTP 提示信息"
 
-#: setup/lib/messages.inc.php:250
+#: setup/lib/messages.inc.php:247
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -6899,19 +6872,19 @@ msgstr ""
 "[a@http://swekey.com]SweKey 硬件认证 (外链，英文)[/a]的配置文件路径 (请勿置于"
 "你的文档根文件夹，推荐使用：/etc/swekey.conf)"
 
-#: setup/lib/messages.inc.php:251
+#: setup/lib/messages.inc.php:248
 msgid "SweKey config file"
 msgstr "SweKey 配置文件"
 
-#: setup/lib/messages.inc.php:252
+#: setup/lib/messages.inc.php:249
 msgid "Authentication method to use"
 msgstr "要使用的认证方式"
 
-#: setup/lib/messages.inc.php:253
+#: setup/lib/messages.inc.php:250
 msgid "Authentication type"
 msgstr "认证方式"
 
-#: setup/lib/messages.inc.php:254
+#: setup/lib/messages.inc.php:251
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -6919,41 +6892,41 @@ msgstr ""
 "不使用[a@http://wiki.phpmyadmin.net/pma/bookmark]书签 (外链，英文)[/a]功能请"
 "留空，默认：[kbd]pma_bookmark[/kbd]"
 
-#: setup/lib/messages.inc.php:255
+#: setup/lib/messages.inc.php:252
 msgid "Bookmark table"
 msgstr "书签表"
 
-#: setup/lib/messages.inc.php:256
+#: setup/lib/messages.inc.php:253
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr "留空则不使用列信息和MIME类型。默认值：[kbd]pma_column_info[/kbd]"
 
-#: setup/lib/messages.inc.php:257
+#: setup/lib/messages.inc.php:254
 msgid "Column information table"
 msgstr "列信息表"
 
-#: setup/lib/messages.inc.php:258
+#: setup/lib/messages.inc.php:255
 msgid "Compress connection to MySQL server"
 msgstr "压缩连接到 MySQL 服务器"
 
-#: setup/lib/messages.inc.php:259
+#: setup/lib/messages.inc.php:256
 msgid "Compress connection"
 msgstr "压缩连接"
 
-#: setup/lib/messages.inc.php:260
+#: setup/lib/messages.inc.php:257
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr "怎样连接到服务器，如果不确定，请选择 tcp"
 
-#: setup/lib/messages.inc.php:261
+#: setup/lib/messages.inc.php:258
 msgid "Connection type"
 msgstr "连接方式"
 
-#: setup/lib/messages.inc.php:262
+#: setup/lib/messages.inc.php:259
 msgid "Control user password"
 msgstr "控制用户的密码"
 
-#: setup/lib/messages.inc.php:263
+#: setup/lib/messages.inc.php:260
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -6961,29 +6934,29 @@ msgstr ""
 "一个特殊的被限制权限的 MySQL 用户，参见 [a@http://wiki.phpmyadmin.net/pma/"
 "controluser]wiki (外链，英文)[/a]"
 
-#: setup/lib/messages.inc.php:264
+#: setup/lib/messages.inc.php:261
 msgid "Control user"
 msgstr "控制用户"
 
-#: setup/lib/messages.inc.php:265
+#: setup/lib/messages.inc.php:262
 msgid "Count tables when showing database list"
 msgstr "显示数据库列表时计算数据表的数量"
 
-#: setup/lib/messages.inc.php:266
+#: setup/lib/messages.inc.php:263
 msgid "Count tables"
 msgstr "统计数据表"
 
-#: setup/lib/messages.inc.php:267
+#: setup/lib/messages.inc.php:264
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr "不使用设计功能请留空，默认：[kbd]pma_designer_coords[/kbd]"
 
-#: setup/lib/messages.inc.php:268
+#: setup/lib/messages.inc.php:265
 msgid "Designer table"
 msgstr "设计表"
 
-#: setup/lib/messages.inc.php:269
+#: setup/lib/messages.inc.php:266
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -6992,11 +6965,11 @@ msgstr ""
 "统 (外链，英文)[/a] 和 [a@http://bugs.mysql.com/19588]MySQL 缺陷 (Bugs) (外"
 "链，英文)[/a]"
 
-#: setup/lib/messages.inc.php:270
+#: setup/lib/messages.inc.php:267
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "禁止使用 INFORMATION_SCHEMA"
 
-#: setup/lib/messages.inc.php:271
+#: setup/lib/messages.inc.php:268
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - [a@?"
@@ -7011,63 +6984,63 @@ msgstr ""
 "formset=features#tab_Security]可信代理表[/a]。但如果您和许多人使用同一个IP地"
 "址，该措施的安全性将下降。"
 
-#: setup/lib/messages.inc.php:273
+#: setup/lib/messages.inc.php:270
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr "要使用的 PHP 扩展，如果支持，推荐使用 mysqli。"
 
-#: setup/lib/messages.inc.php:274
+#: setup/lib/messages.inc.php:271
 msgid "PHP extension to use"
 msgstr "要使用的 PHP 扩展"
 
-#: setup/lib/messages.inc.php:275
+#: setup/lib/messages.inc.php:272
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "该正则表达式 (PCRE，Perl 兼容) 所匹配的数据库将被隐藏"
 
-#: setup/lib/messages.inc.php:276
+#: setup/lib/messages.inc.php:273
 msgid "Hide databases"
 msgstr "隐藏数据库"
 
-#: setup/lib/messages.inc.php:277
+#: setup/lib/messages.inc.php:274
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr "不使用 SQL 查询历史功能请留空，默认：[kbd]pma_history[/kbd]"
 
-#: setup/lib/messages.inc.php:278
+#: setup/lib/messages.inc.php:275
 msgid "SQL query history table"
 msgstr "SQL 查询历史表"
 
-#: setup/lib/messages.inc.php:279
+#: setup/lib/messages.inc.php:276
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr "不使用 SQL 查询追踪功能请留空，默认：[kbd]pma_tracking[/kbd]"
 
-#: setup/lib/messages.inc.php:280
+#: setup/lib/messages.inc.php:277
 msgid "SQL query tracking table"
 msgstr "SQL 查询追踪表"
 
-#: setup/lib/messages.inc.php:281
+#: setup/lib/messages.inc.php:278
 msgid "Hostname where MySQL server is running"
 msgstr "MySQL 服务器的主机名"
 
-#: setup/lib/messages.inc.php:282
+#: setup/lib/messages.inc.php:279
 msgid "Server hostname"
 msgstr "服务器主机名"
 
-#: setup/lib/messages.inc.php:283
+#: setup/lib/messages.inc.php:280
 msgid "Logout URL"
 msgstr "退出地址"
 
-#: setup/lib/messages.inc.php:284
+#: setup/lib/messages.inc.php:281
 msgid "Try to connect without password"
 msgstr "尝试用空密码连接"
 
-#: setup/lib/messages.inc.php:285
+#: setup/lib/messages.inc.php:282
 msgid "Connect without password"
 msgstr "用空密码连接"
 
-#: setup/lib/messages.inc.php:286
+#: setup/lib/messages.inc.php:283
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -7075,28 +7048,28 @@ msgstr ""
 "可以使用 MySQL 通配符 (% 和 _)，若要用它们的实例，请转义，例：用 'my\\_db' 而"
 "不是 'my_db'"
 
-#: setup/lib/messages.inc.php:287
+#: setup/lib/messages.inc.php:284
 msgid "Show only listed databases"
 msgstr "仅显示列出的数据库"
 
-#: setup/lib/messages.inc.php:288 setup/lib/messages.inc.php:322
+#: setup/lib/messages.inc.php:285 setup/lib/messages.inc.php:319
 msgid "Leave empty if not using config auth"
 msgstr "如果不使用 config 认证方式，请留空"
 
-#: setup/lib/messages.inc.php:289
+#: setup/lib/messages.inc.php:286
 msgid "Password for config auth"
 msgstr "config 认证方式的密码"
 
-#: setup/lib/messages.inc.php:290
+#: setup/lib/messages.inc.php:287
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr "不使用 PDF 大纲功能请留空，默认：[kbd]pma_pdf_pages[/kbd]"
 
-#: setup/lib/messages.inc.php:291
+#: setup/lib/messages.inc.php:288
 msgid "PDF schema: pages table"
 msgstr "PDF 大纲: 数据表页"
 
-#: setup/lib/messages.inc.php:292
+#: setup/lib/messages.inc.php:289
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -7105,15 +7078,15 @@ msgstr ""
 "关系、书签、PDF 功能所用的数据库。参见 [a@http://wiki.phpmyadmin.net/pma/"
 "pmadb]pmadb (外链，英文)[/a]。不使用请留空。默认： [kbd]phpmyadmin[/kbd]"
 
-#: setup/lib/messages.inc.php:294
+#: setup/lib/messages.inc.php:291
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr "MySQL 服务器监听的端口，留空为默认"
 
-#: setup/lib/messages.inc.php:295
+#: setup/lib/messages.inc.php:292
 msgid "Server port"
 msgstr "服务器端口"
 
-#: setup/lib/messages.inc.php:296
+#: setup/lib/messages.inc.php:293
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -7121,19 +7094,19 @@ msgstr ""
 "不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功"
 "能请留空，默认：[kbd]pma_relation[/kbd]"
 
-#: setup/lib/messages.inc.php:297
+#: setup/lib/messages.inc.php:294
 msgid "Relation table"
 msgstr "关系表"
 
-#: setup/lib/messages.inc.php:298
+#: setup/lib/messages.inc.php:295
 msgid "SQL command to fetch available databases"
 msgstr "取得所有可用数据库的 SQL 语句"
 
-#: setup/lib/messages.inc.php:299
+#: setup/lib/messages.inc.php:296
 msgid "SHOW DATABASES command"
 msgstr "显示数据库(SHOW DATABASES)命令"
 
-#: setup/lib/messages.inc.php:300
+#: setup/lib/messages.inc.php:297
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -7141,134 +7114,134 @@ msgstr ""
 "参见[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]认证方式 (外链，英文)"
 "[/a]中的例子"
 
-#: setup/lib/messages.inc.php:301
+#: setup/lib/messages.inc.php:298
 msgid "Signon session name"
 msgstr "Signon 会话名"
 
-#: setup/lib/messages.inc.php:302
+#: setup/lib/messages.inc.php:299
 msgid "Signon URL"
 msgstr "登录地址"
 
-#: setup/lib/messages.inc.php:303
+#: setup/lib/messages.inc.php:300
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr "设置追踪系统是否自动为数据表和视图创建版本。"
 
-#: setup/lib/messages.inc.php:304
+#: setup/lib/messages.inc.php:301
 msgid "Automatically create versions"
 msgstr "自动创建版本"
 
-#: setup/lib/messages.inc.php:305
+#: setup/lib/messages.inc.php:302
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "定义自动创建新版的命令列表。"
 
-#: setup/lib/messages.inc.php:306
+#: setup/lib/messages.inc.php:303
 msgid "Statements to track"
 msgstr "要追踪的命令"
 
-#: setup/lib/messages.inc.php:307
+#: setup/lib/messages.inc.php:304
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr "设置当记录视图创建时，是否在前面加上 DROP VIEW IF EXISTS 命令。"
 
-#: setup/lib/messages.inc.php:308
+#: setup/lib/messages.inc.php:305
 msgid "Add DROP VIEW"
 msgstr "添加 DROP VIEW"
 
-#: setup/lib/messages.inc.php:309
+#: setup/lib/messages.inc.php:306
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr "设置当记录数据表创建时，是否在前面加上 DROP TABLE IF EXISTS 命令。"
 
-#: setup/lib/messages.inc.php:310
+#: setup/lib/messages.inc.php:307
 msgid "Add DROP TABLE"
 msgstr "添加 DROP TABLE"
 
-#: setup/lib/messages.inc.php:311
+#: setup/lib/messages.inc.php:308
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr "设置当记录数据库创建时，是否在前面加上 DROP DATABASE IF EXISTS 命令。"
 
-#: setup/lib/messages.inc.php:312
+#: setup/lib/messages.inc.php:309
 msgid "Add DROP DATABASE"
 msgstr "添加 DROP DATABASE"
 
-#: setup/lib/messages.inc.php:313
+#: setup/lib/messages.inc.php:310
 msgid "You should use SSL connections if your web server supports it"
 msgstr "如果浏览器支持，建议使用 SSL 连接。"
 
-#: setup/lib/messages.inc.php:314
+#: setup/lib/messages.inc.php:311
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr "MySQL 服务器监听的套接字，留空为默认"
 
-#: setup/lib/messages.inc.php:315
+#: setup/lib/messages.inc.php:312
 msgid "Server socket"
 msgstr "服务器套接字 (socket)"
 
-#: setup/lib/messages.inc.php:316
+#: setup/lib/messages.inc.php:313
 msgid "Enable SSL for connection to MySQL server"
 msgstr "使用 SSL 连接到 MySQL 服务器"
 
-#: setup/lib/messages.inc.php:317
+#: setup/lib/messages.inc.php:314
 msgid "Use SSL"
 msgstr "使用 SSL"
 
-#: setup/lib/messages.inc.php:318
+#: setup/lib/messages.inc.php:315
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr "不使用 PDF 大纲功能请留空，默认：[kbd]pma_table_coords[/kbd]"
 
-#: setup/lib/messages.inc.php:319
+#: setup/lib/messages.inc.php:316
 msgid "PDF schema: table coordinates"
 msgstr "PDF 大纲: 数据表并发"
 
-#: setup/lib/messages.inc.php:320
+#: setup/lib/messages.inc.php:317
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr "描述显示字段的表，不使用请留空，默认：[kbd]pma_table_info[/kbd]"
 
-#: setup/lib/messages.inc.php:321
+#: setup/lib/messages.inc.php:318
 msgid "Display columns table"
 msgstr "显示字段表"
 
-#: setup/lib/messages.inc.php:323
+#: setup/lib/messages.inc.php:320
 msgid "User for config auth"
 msgstr "config 认证方式的用户名"
 
-#: setup/lib/messages.inc.php:324
+#: setup/lib/messages.inc.php:321
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
 msgstr "如果你确定 pma_* 数据表都是最新的，可以禁用此项。此功能提供兼容性检查"
 
-#: setup/lib/messages.inc.php:325
+#: setup/lib/messages.inc.php:322
 msgid "Verbose check"
 msgstr "详细检查"
 
-#: setup/lib/messages.inc.php:326
+#: setup/lib/messages.inc.php:323
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "一个好记的名字。留空将显示主机名。"
 
-#: setup/lib/messages.inc.php:327
+#: setup/lib/messages.inc.php:324
 msgid "Verbose name of this server"
 msgstr "服务器名称"
 
-#: setup/lib/messages.inc.php:329
+#: setup/lib/messages.inc.php:326
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "设置是否给用户显示一个 &quot;显示所有 (记录)&quot; 的按钮"
 
-#: setup/lib/messages.inc.php:330
+#: setup/lib/messages.inc.php:327
 msgid "Allow to display all the rows"
 msgstr "允许显示所有行"
 
-#: setup/lib/messages.inc.php:331
+#: setup/lib/messages.inc.php:328
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -7277,27 +7250,27 @@ msgstr ""
 "注意：该选项不影响 [kbd]config[/kbd] 认证方式，因为密码是保存在配置文件中，该"
 "选项也不限制直接执行可实现相同功能的命令。"
 
-#: setup/lib/messages.inc.php:332
+#: setup/lib/messages.inc.php:329
 msgid "Show password change form"
 msgstr "显示修改密码"
 
-#: setup/lib/messages.inc.php:333
+#: setup/lib/messages.inc.php:330
 msgid "Show create database form"
 msgstr "显示创建数据库表单"
 
-#: setup/lib/messages.inc.php:334
+#: setup/lib/messages.inc.php:331
 msgid "Show form"
 msgstr "显示表单"
 
-#: setup/lib/messages.inc.php:335
+#: setup/lib/messages.inc.php:332
 msgid "Display the function fields in edit/insert mode"
 msgstr "在编辑/插入模式中显示函数列"
 
-#: setup/lib/messages.inc.php:336
+#: setup/lib/messages.inc.php:333
 msgid "Show function fields"
 msgstr "显示函数列"
 
-#: setup/lib/messages.inc.php:338
+#: setup/lib/messages.inc.php:335
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -7305,42 +7278,42 @@ msgstr ""
 "显示 [a@http://php.net/manual/function.phpinfo.php]phpinfo() (外链，英文)[/"
 "a] 输出的链接"
 
-#: setup/lib/messages.inc.php:339
+#: setup/lib/messages.inc.php:336
 msgid "Show phpinfo() link"
 msgstr "显示 phpinfo() 链接"
 
-#: setup/lib/messages.inc.php:340
+#: setup/lib/messages.inc.php:337
 msgid "Show detailed MySQL server information"
 msgstr "显示 MySQL 服务器详细信息"
 
-#: setup/lib/messages.inc.php:341
+#: setup/lib/messages.inc.php:338
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "定义是否显示 phpMyAdmin 生成的 SQL 查询"
 
-#: setup/lib/messages.inc.php:342
+#: setup/lib/messages.inc.php:339
 msgid "Show SQL queries"
 msgstr "显示 SQL 查询"
 
-#: setup/lib/messages.inc.php:343
+#: setup/lib/messages.inc.php:340
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr "允许显示数据库和数据表的统计信息 (如：空间使用)"
 
-#: setup/lib/messages.inc.php:344
+#: setup/lib/messages.inc.php:341
 msgid "Show statistics"
 msgstr "显示统计"
 
-#: setup/lib/messages.inc.php:345
+#: setup/lib/messages.inc.php:342
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
 "如果启用了悬停提示且设置了数据库备注，这里将简略显示数据库备注和数据库名"
 
-#: setup/lib/messages.inc.php:346
+#: setup/lib/messages.inc.php:343
 msgid "Display database comment instead of its name"
 msgstr "显示数据库的备注而不显示数据库名"
 
-#: setup/lib/messages.inc.php:347
+#: setup/lib/messages.inc.php:344
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -7351,38 +7324,38 @@ msgstr ""
 "['LeftFrameTableSeparator'] 作分割/层叠用，所有只有目录的名字像别名，数据表自"
 "己的名字并不改变"
 
-#: setup/lib/messages.inc.php:348
+#: setup/lib/messages.inc.php:345
 msgid "Display table comment instead of its name"
 msgstr "显示表备注而不显示表名"
 
-#: setup/lib/messages.inc.php:349
+#: setup/lib/messages.inc.php:346
 msgid "Display table comments in tooltips"
 msgstr "悬停时显示表备注"
 
-#: setup/lib/messages.inc.php:350
+#: setup/lib/messages.inc.php:347
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr "将已锁定的数据表在数据库中显示为使用中"
 
-#: setup/lib/messages.inc.php:351
+#: setup/lib/messages.inc.php:348
 msgid "Skip locked tables"
 msgstr "跳过锁定的表"
 
-#: setup/lib/messages.inc.php:357
+#: setup/lib/messages.inc.php:354
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr "如果可能，在 &quot;新建数据库&quot; 表单中建议一个名字，或留空"
 
-#: setup/lib/messages.inc.php:358
+#: setup/lib/messages.inc.php:355
 msgid "Suggest new database name"
 msgstr "建议新数据库名"
 
-#: setup/lib/messages.inc.php:359
+#: setup/lib/messages.inc.php:356
 msgid "yes"
 msgstr "是"
 
-#: setup/lib/messages.inc.php:360
+#: setup/lib/messages.inc.php:357
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -7393,27 +7366,27 @@ msgstr ""
 "信任从代理 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd] 发来的 "
 "HTTP_X_FORWARDED_FOR 头"
 
-#: setup/lib/messages.inc.php:361
+#: setup/lib/messages.inc.php:358
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "可信代理IP列表"
 
-#: setup/lib/messages.inc.php:362
+#: setup/lib/messages.inc.php:359
 msgid "Directory on server where you can upload files for import"
 msgstr "服务器上用来存放导入文件的文件夹"
 
-#: setup/lib/messages.inc.php:363
+#: setup/lib/messages.inc.php:360
 msgid "Upload directory"
 msgstr "上传文件夹"
 
-#: setup/lib/messages.inc.php:364
+#: setup/lib/messages.inc.php:361
 msgid "Allow for searching inside the entire database"
 msgstr "允许搜索整个数据库"
 
-#: setup/lib/messages.inc.php:365
+#: setup/lib/messages.inc.php:362
 msgid "Use database search"
 msgstr "使用数据库搜索"
 
-#: setup/lib/messages.inc.php:366
+#: setup/lib/messages.inc.php:363
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -7422,28 +7395,28 @@ msgstr ""
 "在进行多个语句查询时，显示每个语句所影响的行数。默认一次查询可以包含的查询语"
 "句数可以在 libraries/import.lib.php 中找到。"
 
-#: setup/lib/messages.inc.php:367
+#: setup/lib/messages.inc.php:364
 msgid "Verbose multiple statements"
 msgstr "为多个语句输出更多信息"
 
-#: setup/lib/messages.inc.php:368
+#: setup/lib/messages.inc.php:365
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr "读取版本信息失败。您可能尚未接入网络或更新服务器未响应。"
 
-#: setup/lib/messages.inc.php:369
+#: setup/lib/messages.inc.php:366
 msgid "Got invalid version string from server"
 msgstr "从服务器获得版本错误"
 
-#: setup/lib/messages.inc.php:371
+#: setup/lib/messages.inc.php:368
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr "有新的 phpMyAdmin 可用，请考虑升级。最新的版本是 %s，于 %s 发布。"
 
-#: setup/lib/messages.inc.php:372
+#: setup/lib/messages.inc.php:369
 #, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
@@ -7452,24 +7425,24 @@ msgstr ""
 "你现在使用的是开发版，请通过 [kbd]git pull[/kbd] 检查更新 :-)[br]最新正式版"
 "为 %s，于 %s 发布。"
 
-#: setup/lib/messages.inc.php:373
+#: setup/lib/messages.inc.php:370
 msgid "No newer stable version is available"
 msgstr "没有更新的可用版本"
 
-#: setup/lib/messages.inc.php:374
+#: setup/lib/messages.inc.php:371
 msgid "Unparsable version string"
 msgstr "无法解析版本"
 
-#: setup/lib/messages.inc.php:375
+#: setup/lib/messages.inc.php:372
 msgid "Version check"
 msgstr "检查更新"
 
-#: setup/lib/messages.inc.php:376
+#: setup/lib/messages.inc.php:373
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr "URL 协议和 CURL 都不可用，无法检查新版本。"
 
-#: setup/lib/messages.inc.php:378
+#: setup/lib/messages.inc.php:375
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -7477,7 +7450,7 @@ msgstr ""
 "允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP "
 "(外链，英文)[/a] 压缩"
 
-#: setup/lib/messages.inc.php:379
+#: setup/lib/messages.inc.php:376
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
@@ -7486,7 +7459,7 @@ msgstr ""
 "此系统目前不支持 [a@?page=form&amp;formset=features#tab_Import_export]Zip 压"
 "缩 (外链，英文)[/a]所必须的 (%s) 函数。"
 
-#: setup/lib/messages.inc.php:380
+#: setup/lib/messages.inc.php:377
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
@@ -7495,7 +7468,7 @@ msgstr ""
 "此系统目前不支持 [a@?page=form&amp;formset=features#tab_Import_export]Zip 解"
 "压缩 (外链，英文)[/a]所必须的 (%s) 函数。"
 
-#: setup/lib/messages.inc.php:381
+#: setup/lib/messages.inc.php:378
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -8080,6 +8053,31 @@ msgstr "视图名"
 #: view_operations.php:93
 msgid "Rename view to"
 msgstr "将视图改名为"
+
+#~ msgid ""
+#~ "Couldn't load the iconv or recode extension needed for charset "
+#~ "conversion. Either configure PHP to enable these extensions or disable "
+#~ "charset conversion in phpMyAdmin."
+#~ msgstr ""
+#~ "无法加载 iconv 或可用于转换字符集所需的重编码扩展，请配置 PHP 启用这些扩展"
+#~ "或在 phpMyAdmin 中禁用字符集转换功能。"
+
+#~ msgid ""
+#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
+#~ "the necessary extensions appear to be loaded. Check your PHP "
+#~ "configuration."
+#~ msgstr ""
+#~ "虽然必须的扩展已经加载，但还是无法使用 iconv、libiconv 和 recode_string 函"
+#~ "数。请检查您的 PHP 配置。"
+
+#~ msgid "Allow character set conversion"
+#~ msgstr "允许转换字符集"
+
+#~ msgid "Default character set used for conversions"
+#~ msgstr "转换时的默认字符集"
+
+#~ msgid "Default character set"
+#~ msgstr "默认字符集"
 
 #~| msgid "Add new field"
 #~ msgid "Add field"
