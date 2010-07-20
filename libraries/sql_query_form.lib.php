@@ -3,7 +3,6 @@
 /**
  * functions for displaying the sql query form
  *
- * @version $Id$
  * @usedby  server_sql.php
  * @usedby  db_sql.php
  * @usedby  tbl_sql.php

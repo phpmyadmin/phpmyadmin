@@ -46,7 +46,6 @@
  * @uses    array_intersect()
  * @uses    sprintf()
  * @uses    in_array()
- * @version $Id$
  * @package phpMyAdmin
  */
 

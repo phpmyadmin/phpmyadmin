@@ -3,7 +3,6 @@
 /**
  * hold PMA_Theme class
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

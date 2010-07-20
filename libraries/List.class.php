@@ -3,7 +3,6 @@
 /**
  * hold the PMA_List base class
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

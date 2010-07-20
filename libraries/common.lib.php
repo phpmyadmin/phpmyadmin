@@ -3,7 +3,6 @@
 /**
  * Misc functions used all over the scripts.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @todo    too much die here, or?
- * @version $Id$
  * @package phpMyAdmin
  */
 

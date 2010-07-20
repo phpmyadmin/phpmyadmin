@@ -3,7 +3,6 @@
 /**
  * phpMyAdmin fatal error display page
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

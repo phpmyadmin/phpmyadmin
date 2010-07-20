@@ -3,7 +3,6 @@
 /**
  * tests for environment like OS, PHP, modules, ...
  *
- * @version $Id$
  * @package phpMyAdmin-test
  */
 

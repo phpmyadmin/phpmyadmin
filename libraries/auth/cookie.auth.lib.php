@@ -4,7 +4,6 @@
  * Set of functions used to run cookie based authentication.
  *
  * @package phpMyAdmin-Auth-Cookie
- * @version $Id$
  */
 
 if (! defined('PHPMYADMIN')) {

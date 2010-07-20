@@ -3,7 +3,6 @@
 /**
  * file upload functions
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

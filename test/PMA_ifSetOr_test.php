@@ -3,7 +3,6 @@
 /**
  * tests for PMA_ifSetOr()
  *
- * @version $Id$
  * @package phpMyAdmin-test
  */
 

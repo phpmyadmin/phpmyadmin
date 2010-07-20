@@ -16,7 +16,6 @@
  *
  * All directives are explained in Documentation.html
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

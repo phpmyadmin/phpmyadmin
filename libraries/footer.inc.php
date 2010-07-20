@@ -41,7 +41,6 @@
  * @uses    PMA_generate_common_url()
  * @uses    basename()
  * @uses    file_exists()
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

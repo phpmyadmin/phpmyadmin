@@ -3,7 +3,6 @@
 /**
  * phpMyAdmin Language Loading File
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

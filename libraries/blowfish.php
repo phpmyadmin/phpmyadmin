@@ -11,7 +11,6 @@
  * See the enclosed file COPYING for license information (LGPL). If you
  * did not receive this file, see http://www.fsf.org/copyleft/lgpl.html.
  *
- * @version $Id$
  * @since   Horde 2.2
  * @package horde.cipher
  */

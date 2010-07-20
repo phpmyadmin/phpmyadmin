@@ -3,7 +3,6 @@
 /**
  * Common Option Constants For DBI Functions
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

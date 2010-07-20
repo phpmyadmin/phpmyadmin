@@ -4,7 +4,6 @@
  * Core script for import, this is just the glue around all other stuff
  *
  * @uses    PMA_Bookmark_getList()
- * @version $Id$
  * @package phpMyAdmin
  */
 

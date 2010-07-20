@@ -3,7 +3,6 @@
 /**
  * Library for extracting information about the available storage engines
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

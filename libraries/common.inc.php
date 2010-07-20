@@ -28,7 +28,6 @@
  * - db connection
  * - authentication work
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

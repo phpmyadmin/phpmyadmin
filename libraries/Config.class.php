@@ -3,7 +3,6 @@
 /**
  *
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

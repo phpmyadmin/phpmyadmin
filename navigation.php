@@ -3,7 +3,6 @@
 /**
  * the navigation frame - displays server, db and table selection tree
  *
- * @version $Id$
  * @package phpMyAdmin
  * @uses $GLOBALS['pma']->databases
  * @uses $GLOBALS['server']

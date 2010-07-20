@@ -3,7 +3,6 @@
 /**
  * Displays form for password change
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

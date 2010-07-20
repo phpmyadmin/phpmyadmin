@@ -3,7 +3,6 @@
 /**
  * Code for displaying server selection
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

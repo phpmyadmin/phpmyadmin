@@ -3,7 +3,6 @@
 /**
  * holds the database index class
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

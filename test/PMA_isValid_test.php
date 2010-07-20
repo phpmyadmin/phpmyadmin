@@ -3,7 +3,6 @@
 /**
  * tests for PMA_pow()
  *
- * @version $Id$
  * @package phpMyAdmin-test
  */
 

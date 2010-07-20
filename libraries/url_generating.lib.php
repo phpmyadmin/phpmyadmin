@@ -3,7 +3,6 @@
 /**
  * URL/hidden inputs generating.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

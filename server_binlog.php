@@ -35,7 +35,6 @@
  * @uses    array_key_exists()
  * @uses    implode()
  * @uses    htmlspecialchars()
- * @version $Id$
  * @package phpMyAdmin
  */
 

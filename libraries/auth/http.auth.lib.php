@@ -5,7 +5,6 @@
  * NOTE: Requires PHP loaded as a Apache module.
  *
  * @package phpMyAdmin-Auth-HTTP
- * @version $Id$
  */
 
 

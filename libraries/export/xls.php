@@ -4,7 +4,6 @@
  *
  *
  * @package phpMyAdmin-Export-XLS
- * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
     exit;

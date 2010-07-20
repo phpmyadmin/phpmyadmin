@@ -31,7 +31,6 @@
  * @uses    strlen()
  * @uses    sprintf()
  * @uses    htmlspecialchars()
- * @version $Id$
  * @package phpMyAdmin
  */
 
