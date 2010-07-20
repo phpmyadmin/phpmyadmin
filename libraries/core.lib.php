@@ -201,7 +201,6 @@ function PMA_securePath($path)
  * @todo    use detected argument separator (PMA_Config)
  * @uses    $GLOBALS['session_name']
  * @uses    $GLOBALS['text_dir']
- * @uses    __('Error')
  * @uses    $GLOBALS['available_languages']
  * @uses    $GLOBALS['lang']
  * @uses    $GLOBALS['PMA_Config']->removeCookie()

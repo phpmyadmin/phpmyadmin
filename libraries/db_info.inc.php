@@ -58,7 +58,6 @@ $pos = $_SESSION['tmp_user_values']['table_limit_offset'];
  * fills given tooltip arrays
  *
  * @uses    $cfg['ShowTooltipAliasTB']
- * @uses    __('Creation')
  * @uses    PMA_localisedDate()
  * @uses    strtotime()
  * @param   array   $tooltip_truename   tooltip data

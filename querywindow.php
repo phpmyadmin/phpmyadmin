@@ -12,15 +12,6 @@
  * @uses    $cfg['Confirm']
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['table']
- * @uses    __('SQL')
- * @uses    __('Import files') 
- * @uses    __('SQL history') 
- * @uses    __('All')
- * @uses    __('Change')
- * @uses    __('Missing value in the form!') 
- * @uses    __('This is not a number!') 
- * @uses    __('"DROP DATABASE" statements are disabled.') 
- * @uses    __('Do you really want to ') 
  * @uses    PMA_isSuperuser()
  * @uses    PMA_outBufferPre()
  * @uses    PMA_getRelationsParam()

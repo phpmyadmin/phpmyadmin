@@ -43,7 +43,6 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * @uses    $GLOBALS['cfg']['DefaultQueryDatabase']
  * @uses    $GLOBALS['cfg']['DefaultQueryTable']
  * @uses    $GLOBALS['cfg']['Bookmark']
- * @uses    __('Your SQL query has been executed successfully')
  * @uses    PMA_generate_common_url()
  * @uses    PMA_backquote()
  * @uses    PMA_DBI_fetch_result()
@@ -184,8 +183,6 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
  * @uses    $GLOBALS['cfg']['TextareaAutoSelect']
  * @uses    $GLOBALS['cfg']['TextareaCols']
  * @uses    $GLOBALS['cfg']['TextareaRows']
- * @uses    __(' Show this query here again ')
- * @uses    __('Go')
  * @uses    PMA_USR_OS
  * @uses    PMA_USR_BROWSER_AGENT
  * @uses    PMA_USR_BROWSER_VER
@@ -404,13 +401,6 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    $GLOBALS['cfg']['ReplaceHelpImg']
- * @uses    __('Bookmarked SQL query')
- * @uses    __('View only')
- * @uses    __('Delete')
- * @uses    __('Documentation')
- * @uses    __('Go')
- * @uses    __('Submit')
- * @uses    __('Variable')
  * @uses    count()
  * @uses    htmlspecialchars()
  */
@@ -480,15 +470,6 @@ function PMA_sqlQueryFormBookmark()
  * @uses    $GLOBALS['cfg']['BZipDump']
  * @uses    $GLOBALS['cfg']['UploadDir']
  * @uses    $GLOBALS['cfg']['AvailableCharsets']
- * @uses    __('bzipped')
- * @uses    __('Character set of the file:')
- * @uses    __('Compression')
- * @uses    __('Error')
- * @uses    __('Go')
- * @uses    __('gzipped')
- * @uses    __('Location of the text file')
- * @uses    __('web server upload directory')
- * @uses    __('The directory you set for upload work cannot be reached')
  * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['max_upload_size']
  * @uses    PMA_supportedDecompressions()

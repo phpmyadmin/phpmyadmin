@@ -7,23 +7,6 @@
  * @todo    display executed query, optional?
  * @uses    $cfg['UseDbSearch']
  * @uses    $GLOBALS['db']
- * @uses    __('Access denied') 
- * @uses    __('at least one of the words') 
- * @uses    __('all words') 
- * @uses    __('the exact phrase') 
- * @uses    __('as regular expression') 
- * @uses    __('Search results for "<i>%s</i>" %s:') 
- * @uses    __('%s match(es) inside table <i>%s</i>') 
- * @uses    __('Browse')
- * @uses    __('Delete')
- * @uses    __('<b>Total:</b> <i>%s</i> match(es)') 
- * @uses    __('Search in database') 
- * @uses    __('Word(s) or value(s) to search for (wildcard: "%"):') 
- * @uses    __('Find:') 
- * @uses    __('Words are separated by a space character (" ").') 
- * @uses    __('Inside table(s):') 
- * @uses    __('Unselect All')
- * @uses    __('Select All') 
  * @uses    PMA_DBI_get_tables()
  * @uses    PMA_sqlAddslashes()
  * @uses    PMA_getSearchSqls()

@@ -363,8 +363,6 @@ function PMA_DBI_get_client_info()
  * @uses    PMA_DBI_convert_message()
  * @uses    $GLOBALS['errno']
  * @uses    $GLOBALS['userlink']
- * @uses    __('The server is not responding')
- * @uses    __('(or the local MySQL server's socket is not correctly configured)')
  * @uses    mysqli_errno()
  * @uses    mysqli_error()
  * @uses    mysqli_connect_errno()

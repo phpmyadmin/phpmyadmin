@@ -144,7 +144,6 @@ class PMA_Theme {
      * @uses    PMA_Theme::setImgPath()
      * @uses    PMA_Theme::getName()
      * @uses    $GLOBALS['cfg']['ThemePath']
-     * @uses    __('No valid image path for theme %s found!')
      * @uses    is_dir()
      * @uses    sprintf()
      */
@@ -356,8 +355,6 @@ class PMA_Theme {
      * @uses    PMA_Theme::getVersion()
      * @uses    PMA_Theme::getId()
      * @uses    PMA_Theme::getPath()
-     * @uses    __('No preview available.')
-     * @uses    __('take it')
      * @uses    PMA_generate_common_url()
      * @uses    addslashes()
      * @uses    file_exists()

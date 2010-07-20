@@ -31,7 +31,6 @@
  * @uses    $cfg['NavigationBarIconic']
  * @uses    $cfg['DBG']['enable']
  * @uses    $cfg['DBG']['profile']['enable']
- * @uses    __('Open new phpMyAdmin window')
  * @uses    $cfg['MaxCharactersInDisplayedSQL']
  * @uses    PMA_isValid()
  * @uses    PMA_setHistory()

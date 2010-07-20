@@ -8,19 +8,6 @@
  * @uses    $cfg['MaxRows']
  * @uses    $cfg['LimitChars']
  * @uses    $pmaThemeImage
- * @uses    __('Binary log')
- * @uses    __('Go')
- * @uses    __('Truncate Shown Queries')
- * @uses    __('Show Full Queries')
- * @uses    __('Log name')
- * @uses    __('Position')
- * @uses    __('Event type')
- * @uses    __('Server ID')
- * @uses    __('Original position')
- * @uses    __('Information')
- * @uses    __('Files')
- * @uses    __('Previous')
- * @uses    __('Next')
  * @uses    $binary_logs
  * @uses    PMA_generate_common_hidden_inputs()
  * @uses    PMA_generate_common_url()

@@ -2308,7 +2308,6 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * @uses    PMA_DBI_try_query()
  * @uses    PMA_DBI_num_rows()
  * @uses    PMA_DBI_fetch_row()
- * @uses    __('Link not found')
  * @uses    PMA_DBI_free_result()
  * @uses    $GLOBALS['printview']
  * @uses    htmlspecialchars()

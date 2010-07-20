@@ -154,7 +154,6 @@ class PMA_StorageEngine
      * @uses    PMA_ENGINE_DETAILS_TYPE_SIZE
      * @uses    PMA_ENGINE_DETAILS_TYPE_NUMERIC
      * @uses    PMA_StorageEngine::getVariablesStatus()
-     * @uses    __('There is no detailed status information available for this storage engine.')
      * @uses    PMA_showHint()
      * @uses    PMA_formatByteDown()
      * @uses    PMA_formatNumber()
@@ -334,11 +333,6 @@ class PMA_StorageEngine
     /**
      * public String getSupportInformationMessage()
      *
-     * @uses    __('%s is the default storage engine on this MySQL server.')
-     * @uses    __('%s is available on this MySQL server.')
-     * @uses    __('%s has been disabled for this MySQL server.')
-     * @uses    __('This MySQL server does not support the %s storage engine.')
-     * @uses    __('This MySQL server does not support the %s storage engine.')
      * @uses    PMA_ENGINE_SUPPORT_DEFAULT
      * @uses    PMA_ENGINE_SUPPORT_YES
      * @uses    PMA_ENGINE_SUPPORT_DISABLED

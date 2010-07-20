@@ -11,13 +11,6 @@
 class PMA_StorageEngine_innodb extends PMA_StorageEngine
 {
     /**
-     * @uses    __('Data home directory')
-     * @uses    __('The common part of the directory path for all InnoDB data files.')
-     * @uses    __('Data files')
-     * @uses    __('Autoextend increment')
-     * @uses    __(' The increment size for extending the size of an autoextending tablespace when it becomes full.')
-     * @uses    __('Buffer pool size')
-     * @uses    __('The size of the memory buffer InnoDB uses to cache data and indexes of its tables.')
      * @uses    PMA_ENGINE_DETAILS_TYPE_NUMERIC
      * @uses    PMA_ENGINE_DETAILS_TYPE_SIZE
      * @return  array
@@ -130,8 +123,6 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     /**
      * @uses    $this->support
      * @uses    PMA_ENGINE_SUPPORT_YES
-     * @uses    __('Buffer Pool')
-     * @uses    __('InnoDB Status')
      * @return  array   detail pages
      */
     function getInfoPages()
@@ -151,22 +142,6 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      * @uses    PMA_DBI_fetch_result()
      * @uses    PMA_formatNumber()
      * @uses    PMA_formatByteDown()
-     * @uses    __('Buffer Pool Usage')
-     * @uses    __('Total')
-     * @uses    __('pages')
-     * @uses    __('Free pages')
-     * @uses    __('Dirty pages')
-     * @uses    __('Pages containing data')
-     * @uses    __('Pages to be flushed')
-     * @uses    __('Busy pages')
-     * @uses    __('Latched pages')
-     * @uses    __('Buffer Pool Activity')
-     * @uses    __('Read requests')
-     * @uses    __('Write requests')
-     * @uses    __('Read misses')
-     * @uses    __('Write waits')
-     * @uses    __('Read misses in %')
-     * @uses    __('Write waits in %')
      * @uses    join()
      * @uses    htmlspecialchars()
      * @uses    PMA_formatNumber()

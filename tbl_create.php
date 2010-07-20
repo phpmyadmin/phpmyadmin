@@ -4,10 +4,6 @@
  * @uses    $cfg['DefaultTabDatabase']
  * @uses    $GLOBALS['table']
  * @uses    $GLOBALS['db']
- * @uses    __('The table name is empty!')
- * @uses    __('Table %s already exists!')
- * @uses    __('Table')
- * @uses    __('Table %1 has been created.')
  * @uses    PMA_Table::generateFieldSpec()
  * @uses    PMA_checkParameters()
  * @uses    PMA_generateCharsetQueryPart()
