@@ -28,24 +28,14 @@ if ($cfg['RecodingEngine'] == 'iconv') {
         $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
     } else {
         $PMA_recoding_engine = PMA_CHARSET_NONE;
-
-        if (!isset($GLOBALS['is_header_sent'])) {
-            include './libraries/header.inc.php';
-        }
-        echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
-        require_once './libraries/footer.inc.php';
-        exit();
+        PMA_warnMissingExtension('iconv');
     }
 } elseif ($cfg['RecodingEngine'] == 'recode') {
     if (@function_exists('recode_string')) {
         $PMA_recoding_engine = PMA_CHARSET_RECODE;
     } else {
         $PMA_recoding_engine = PMA_CHARSET_NONE;
-
-        require_once './libraries/header.inc.php';
-        echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
-        require_once './libraries/footer.inc.php';
-        exit;
+        PMA_warnMissingExtension('recode');
     }
 } elseif ($cfg['RecodingEngine'] == 'auto') {
     if (@function_exists('iconv')) {
