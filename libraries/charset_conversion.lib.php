@@ -64,11 +64,6 @@ if ($cfg['RecodingEngine'] == 'iconv') {
         $PMA_recoding_engine = PMA_CHARSET_RECODE;
     } else {
         $PMA_recoding_engine = PMA_CHARSET_NONE;
-
-        require_once './libraries/header.inc.php';
-        echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
-        require_once './libraries/footer.inc.php';
-        exit;
     }
 } else {
     $PMA_recoding_engine = PMA_CHARSET_NONE;
