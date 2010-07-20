@@ -103,7 +103,6 @@ function PMA_convert_file($src_charset, $dest_charset, $file) {
     switch ($GLOBALS['PMA_recoding_engine']) {
         case PMA_CHARSET_RECODE:
         case PMA_CHARSET_ICONV:
-        case PMA_CHARSET_LIBICONV:
             $tmpfname = tempnam('', 'PMA_convert_file');
             $fin      = fopen($file, 'r');
             $fout     = fopen($tmpfname, 'w');
