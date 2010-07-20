@@ -71,7 +71,6 @@ $_import_blacklist = array(
     '/^goto$/i',        // page to display
     '/^back$/i',        // the page go back
     '/^lang$/i',        // selected language
-    '/^convcharset$/i', // PMA convert charset
     '/^collation_connection$/i', //
     '/^set_theme$/i',   //
     '/^sql_query$/i',   // the query to be executed

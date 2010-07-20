@@ -121,43 +121,6 @@ if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
 }
 
 /**
- * Converts encoding of text according to current settings.
- *
- * @param   string   what to convert
- *
- * @return  string   converted text
- *
- * @global  array    the configuration array
- * @global  boolean  whether recoding is allowed or not
- * @global  string   the current charset
- * @global  array    the charset to convert to
- *
- * @access  public
- *
- */
-function PMA_convert_charset($what) {
-    global $cfg, $charset, $convcharset;
-
-    if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] )
-        || $convcharset == $charset) { // if input and output charset are the same, we don't have to do anything...
-        return $what;
-    } else {
-        switch ($GLOBALS['PMA_recoding_engine']) {
-            case PMA_CHARSET_RECODE:
-                return recode_string($charset . '..'  . $convcharset, $what);
-            case PMA_CHARSET_ICONV:
-                return iconv($charset, $convcharset . $cfg['IconvExtraParams'], $what);
-            case PMA_CHARSET_ICONV_AIX:
-                return PMA_aix_iconv_wrapper($charset, $convcharset . $cfg['IconvExtraParams'], $what);
-            case PMA_CHARSET_LIBICONV:
-                return libiconv($charset, $convcharset . $GLOBALS['cfg']['IconvExtraParams'], $what);
-            default:
-                return $what;
-        }
-    }
-} //  end of the "PMA_convert_charset()" function
-
-/**
  * Converts encoding of text according to parameters with detected
  * conversion function.
  *

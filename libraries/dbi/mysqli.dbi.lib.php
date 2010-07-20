@@ -144,7 +144,6 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
  * selects given database
  *
  * @uses    $GLOBALS['userlink']
- * @uses    PMA_convert_charset()
  * @uses    mysqli_select_db()
  * @param   string          $dbname database name to select
  * @param   object mysqli   $link   the mysqli object
@@ -168,7 +167,6 @@ function PMA_DBI_select_db($dbname, $link = null)
  * @uses    PMA_DBI_QUERY_STORE
  * @uses    PMA_DBI_QUERY_UNBUFFERED
  * @uses    $GLOBALS['userlink']
- * @uses    PMA_convert_charset()
  * @uses    MYSQLI_STORE_RESULT
  * @uses    MYSQLI_USE_RESULT
  * @uses    mysqli_query()

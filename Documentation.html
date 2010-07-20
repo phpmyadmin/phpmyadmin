@@ -1703,15 +1703,6 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         expression. For example if you want only Czech and English, you should
         set filter to <code>'^(cs|en)'</code>.</dd>
 
-    <dt id="cfg_DefaultCharset">$cfg['DefaultCharset'] string</dt>
-    <dd>Default character set to use for recoding of MySQL queries. This must be
-        enabled and it's described by
-        <a href="#cfg_AllowAnywhereRecoding" class="configrule">$cfg['AllowAnywhereRecoding']</a>
-        option.<br />
-        You can give here any character set which is in
-        <a href="#cfg_AvailableCharsets" class="configrule">$cfg['AvailableCharsets']</a>
-        array and this is just default choice, user can select any of them.</dd>
-
     <dt id="cfg_AllowAnywhereRecoding">$cfg['AllowAnywhereRecoding'] boolean</dt>
     <dd>Allow character set recoding of MySQL queries. You need recode or iconv
         support (compiled in or module) in PHP to allow MySQL queries recoding

@@ -32,7 +32,6 @@ function PMA_langName($tmplang) {
  * @uses    $GLOBALS['lang_failed_cfg']
  * @uses    $GLOBALS['lang_failed_cookie']
  * @uses    $GLOBALS['lang_failed_request']
- * @uses    $GLOBALS['convcharset'] to set it if not set
  * @uses    $_REQUEST['lang']
  * @uses    $_COOKIE['pma_lang']
  * @uses    $_SERVER['HTTP_ACCEPT_LANGUAGE']
@@ -443,16 +442,6 @@ $GLOBALS['mysql_charset_map'] = array(
 /*
  * Do the work!
  */
-
-if (empty($GLOBALS['convcharset'])) {
-    if (isset($_COOKIE['pma_charset'])) {
-        $GLOBALS['convcharset'] = $_COOKIE['pma_charset'];
-    } else {
-        // session.save_path might point to a bad folder, in which case
-        // $GLOBALS['cfg'] would not exist
-        $GLOBALS['convcharset'] = isset($GLOBALS['cfg']['DefaultCharset']) ? $GLOBALS['cfg']['DefaultCharset'] : 'utf-8';
-    }
-}
 
 if (! PMA_langCheck()) {
     // fallback language

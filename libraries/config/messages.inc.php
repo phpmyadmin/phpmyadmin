@@ -13,7 +13,6 @@ if (!function_exists('__')) {
 }
 
 
-$strConfigAllowAnywhereRecoding_name = __('Allow character set conversion');
 $strConfigAllowArbitraryServer_desc = __('If enabled user can enter any MySQL server in login form for cookie auth');
 $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
 $strConfigAllowUserDropDatabase_name = __('Show &quot;Drop database&quot; link to normal users');
@@ -38,8 +37,6 @@ $strConfigConfigurationFile = __('Configuration file');
 $strConfigConfirm_desc = __('Whether a warning (&quot;Are your really sure...&quot;) should be displayed when you\'re about to lose data');
 $strConfigConfirm_name = __('Confirm DROP queries');
 $strConfigCtrlArrowsMoving_name = __('Field navigation using Ctrl+Arrows');
-$strConfigDefaultCharset_desc = __('Default character set used for conversions');
-$strConfigDefaultCharset_name = __('Default character set');
 $strConfigDefaultDisplay_name = __('Default display direction');
 $strConfigDefaultPropDisplay_desc = __('[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates maximum number for which vertical model is used');
 $strConfigDefaultPropDisplay_name = __('Display direction for altering/creating columns');

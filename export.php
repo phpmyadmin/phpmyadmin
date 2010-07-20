@@ -265,11 +265,7 @@ if ($asfile) {
     }
 
     // convert filename to iso-8859-1, it is safer
-    if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] )) {
-        $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
-    } else {
-        $filename = PMA_convert_string($convcharset, 'iso-8859-1', $filename);
-    }
+    $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
 
     // Grab basic dump extension and mime type
     $filename  .= '.' . $export_list[$type]['extension'];
