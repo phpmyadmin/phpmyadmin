@@ -243,7 +243,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         // for the case ENUM('&#8211;','&ldquo;')
         $type         = htmlspecialchars($type);
         if(strlen($type) > $GLOBALS['cfg']['LimitChars']) {
-            $type = substr($type, 0, $GLOBALS['cfg']['LimitChars']);
+            $type = '<abbr title="full text">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
         }
 
         $type_nowrap  = '';
