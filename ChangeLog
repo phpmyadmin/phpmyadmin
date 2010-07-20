@@ -89,6 +89,8 @@ $Id$
   (fixed for Privileges and Change password)
 - [core] RecodingEngine now accepts none as valid option.
 + [core] Dropped AllowAnywhereRecoding configuration variable.
+- rfe #3016457 [interface] Define tab order in SQL form to allow easier tab
+  navigation.
 
 3.3.6.0 (not yet released)
 

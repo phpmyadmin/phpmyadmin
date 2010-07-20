@@ -290,7 +290,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     echo '<legend>' . $legend . '</legend>' . "\n";
     echo '<div id="queryfieldscontainer">' . "\n";
     echo '<div id="' . $sqlquerycontainer_id . '">' . "\n"
-        .'<textarea name="sql_query" id="sqlquery"'
+        .'<textarea tabindex="100" name="sql_query" id="sqlquery"'
         .'  cols="' . $GLOBALS['cfg']['TextareaCols'] . '"'
         .'  rows="' . $height . '"'
         .'  dir="' . $GLOBALS['text_dir'] . '"'
@@ -343,16 +343,16 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         <div class="formelement">
         <label for="bkm_label">
             <?php echo __('Bookmark this SQL query'); ?>:</label>
-        <input type="text" name="bkm_label" id="bkm_label" value="" />
+        <input type="text" name="bkm_label" id="bkm_label" tabindex="110" value="" />
         </div>
         <div class="formelement">
-        <input type="checkbox" name="bkm_all_users" id="id_bkm_all_users"
+        <input type="checkbox" name="bkm_all_users" tabindex="111" id="id_bkm_all_users"
             value="true" />
         <label for="id_bkm_all_users">
             <?php echo __('Let every user access this bookmark'); ?></label>
         </div>
         <div class="formelement">
-        <input type="checkbox" name="bkm_replace" id="id_bkm_replace"
+        <input type="checkbox" name="bkm_replace" tabindex="112" id="id_bkm_replace"
             value="true" />
         <label for="id_bkm_replace">
             <?php echo __('Replace existing bookmark of same name'); ?></label>
@@ -371,7 +371,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         ?>
         <script type="text/javascript">
         //<![CDATA[
-            document.writeln(' <input type="checkbox" name="LockFromUpdate" value="1" id="checkbox_lock" /> <label for="checkbox_lock"><?php echo __('Do not overwrite this query from outside the window'); ?></label> ');
+            document.writeln(' <input type="checkbox" name="LockFromUpdate" value="1" tabindex="120" id="checkbox_lock" /> <label for="checkbox_lock"><?php echo __('Do not overwrite this query from outside the window'); ?></label> ');
         //]]>
         </script>
         <?php
@@ -380,17 +380,17 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     echo '<div class="formelement">' . "\n";
     echo '<label for="id_sql_delimiter">[ ' . __('Delimiter')
         .'</label>' . "\n";
-    echo '<input type="text" name="sql_delimiter" size="3" '
+    echo '<input type="text" name="sql_delimiter" tabindex="131" size="3" '
         .'value="' . $delimiter . '" '
         .'id="id_sql_delimiter" /> ]' . "\n";
 
     echo '<input type="checkbox" name="show_query" value="1" '
-        .'id="checkbox_show_query" checked="checked" />' . "\n"
+        .'id="checkbox_show_query" tabindex="132" checked="checked" />' . "\n"
         .'<label for="checkbox_show_query">' . __(' Show this query here again ')
         .'</label>' . "\n";
 
     echo '</div>' . "\n";
-    echo '<input type="submit" name="SQL" value="' . __('Go') . '" />'
+    echo '<input type="submit" name="SQL" tabindex="200" value="' . __('Go') . '" />'
         ."\n";
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</fieldset>' . "\n";
