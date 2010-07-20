@@ -1725,5 +1725,6 @@ $(document).ready(function(){
         insertQuery(evt.target.id);
         return false;
     });
+    $('#sqlquery').focus();
 });
 

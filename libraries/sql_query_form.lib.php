@@ -305,12 +305,6 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     }
     echo '</div>' . "\n";
 
-    echo '<script type="text/javascript">' . "\n"
-        .'//<![CDATA[' . "\n"
-        .'document.getElementById("sqlquery").focus();' . "\n"
-        .'//]]>' . "\n"
-        .'</script>' . "\n";
-
     if (count($fields_list)) {
         echo '<div id="tablefieldscontainer">' . "\n"
             .'<label>' . __('Columns') . '</label>' . "\n"
