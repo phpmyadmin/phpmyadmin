@@ -16,10 +16,6 @@ define('PMA_CHARSET_LIBICONV', 2);
 define('PMA_CHARSET_RECODE', 3);
 define('PMA_CHARSET_ICONV_AIX', 4);
 
-if (!isset($cfg['IconvExtraParams'])) {
-    $cfg['IconvExtraParams'] = '';
-}
-
 // Finally detect which function we will use:
 if ($cfg['RecodingEngine'] == 'iconv') {
     if (@function_exists('iconv')) {
