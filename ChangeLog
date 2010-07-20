@@ -6,6 +6,7 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 3.3.6.0 (not yet released)
+- bug #3031705 [core] Do not use CONCAT for DECIMAL fields.
 
 3.3.5.0 (not yet released)
 - patch #2932113 [information_schema] Slow export when having lots of
