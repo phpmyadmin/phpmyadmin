@@ -2825,7 +2825,7 @@ function PMA_getTitleForTarget($target) {
 
 $mapping = array(
 	// Values for $cfg['DefaultTabTable']
-	'tbl_structure.php' =>  __('Structure'), 
+	'tbl_structure.php' =>  __('Structure'),
 	'tbl_sql.php' => __('SQL'),
 	'tbl_select.php' =>__('Search'),
 	'tbl_change.php' =>__('Insert'),
