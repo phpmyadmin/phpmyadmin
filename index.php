@@ -63,7 +63,7 @@ unset($cfgRelation);
 /**
  * pass variables to child pages
  */
-$drops = array('lang', 'server', 'convcharset', 'collation_connection',
+$drops = array('lang', 'server', 'collation_connection',
     'db', 'table');
 
 foreach ($drops as $each_drop) {
