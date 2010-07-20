@@ -3,7 +3,6 @@
 /**
  * URL/hidden inputs generating.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -56,10 +55,6 @@ function PMA_generate_common_hidden_inputs($db = '', $table = '', $indent = 0, $
     if (empty($_COOKIE['pma_lang'])
     && ! empty($GLOBALS['lang'])) {
         $params['lang'] = $GLOBALS['lang'];
-    }
-    if (empty($_COOKIE['pma_charset'])
-    && ! empty($GLOBALS['convcharset'])) {
-        $params['convcharset'] = $GLOBALS['convcharset'];
     }
     if (empty($_COOKIE['pma_collation_connection'])
     && ! empty($GLOBALS['collation_connection'])) {
@@ -170,8 +165,6 @@ function PMA_getHiddenFields($values, $pre = '')
  * @uses    $GLOBALS['cfg']['ServerDefault']
  * @uses    $_COOKIE['pma_lang']
  * @uses    $GLOBALS['lang']
- * @uses    $_COOKIE['pma_charset']
- * @uses    $GLOBALS['convcharset']
  * @uses    $_COOKIE['pma_collation_connection']
  * @uses    $GLOBALS['collation_connection']
  * @uses    $_SESSION[' PMA_token ']
@@ -248,10 +241,6 @@ function PMA_generate_common_url()
     if (empty($_COOKIE['pma_lang'])
       && ! empty($GLOBALS['lang'])) {
         $params['lang'] = $GLOBALS['lang'];
-    }
-    if (empty($_COOKIE['pma_charset'])
-      && ! empty($GLOBALS['convcharset'])) {
-        $params['convcharset'] = $GLOBALS['convcharset'];
     }
     if (empty($_COOKIE['pma_collation_connection'])
       && ! empty($GLOBALS['collation_connection'])) {

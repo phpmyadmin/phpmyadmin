@@ -4,7 +4,6 @@
  * displays status variables with descriptions and some hints an optmizing
  *  + reset status variables
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

@@ -7,23 +7,6 @@
  * @todo    display executed query, optional?
  * @uses    $cfg['UseDbSearch']
  * @uses    $GLOBALS['db']
- * @uses    __('Access denied') 
- * @uses    __('at least one of the words') 
- * @uses    __('all words') 
- * @uses    __('the exact phrase') 
- * @uses    __('as regular expression') 
- * @uses    __('Search results for "<i>%s</i>" %s:') 
- * @uses    __('%s match(es) inside table <i>%s</i>') 
- * @uses    __('Browse')
- * @uses    __('Delete')
- * @uses    __('<b>Total:</b> <i>%s</i> match(es)') 
- * @uses    __('Search in database') 
- * @uses    __('Word(s) or value(s) to search for (wildcard: "%"):') 
- * @uses    __('Find:') 
- * @uses    __('Words are separated by a space character (" ").') 
- * @uses    __('Inside table(s):') 
- * @uses    __('Unselect All')
- * @uses    __('Select All') 
  * @uses    PMA_DBI_get_tables()
  * @uses    PMA_sqlAddslashes()
  * @uses    PMA_getSearchSqls()
@@ -46,7 +29,6 @@
  * @uses    array_intersect()
  * @uses    sprintf()
  * @uses    in_array()
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -257,7 +239,7 @@ if (isset($_REQUEST['submit_search'])) {
         $sql_query .= $newsearchsqls['select_count'];
 
         echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
-            .'<td>' . sprintf(__('%s match(es) inside table <i>%s</i>'), $res_cnt,
+            .'<td>' . sprintf(_ngettext('%s match inside table <i>%s</i>', '%s matches inside table <i>%s</i>', $res_cnt), $res_cnt,
                 htmlspecialchars($each_table)) . "</td>\n";
 
         if ($res_cnt > 0) {
@@ -282,7 +264,7 @@ if (isset($_REQUEST['submit_search'])) {
     echo '</table>' . "\n";
 
     if (count($tables_selected) > 1) {
-        echo '<p>' . sprintf(__('<b>Total:</b> <i>%s</i> match(es)'),
+        echo '<p>' . sprintf(_ngettext('<b>Total:</b> <i>%s</i> match', '<b>Total:</b> <i>%s</i> matches', $num_search_result_total),
             $num_search_result_total) . '</p>' . "\n";
     }
 } // end 1.

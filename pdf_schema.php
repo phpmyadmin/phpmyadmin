@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -224,7 +223,7 @@ class PMA_PDF extends TCPDF {
     function PMA_PDF_die($error_message = '')
     {
         global $cfg;
-        global $server, $lang, $convcharset, $db;
+        global $server, $lang, $db;
         global $charset, $text_dir;
 
         require_once './libraries/header.inc.php';

@@ -3,7 +3,6 @@
 /**
  * This is in a separate script because it's called from a number of scripts
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

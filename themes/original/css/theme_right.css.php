@@ -3,7 +3,6 @@
 /**
  * main css file from theme Original
  *
- * @version $Id$
  * @package phpMyAdmin-theme
  * @subpackage Original
  */

@@ -3,7 +3,6 @@
 /**
  * Code for displaying language selection
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

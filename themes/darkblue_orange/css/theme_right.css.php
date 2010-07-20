@@ -3,7 +3,6 @@
 /**
  * main css file from theme Darkblue Orange
  *
- * @version $Id$
  * @package phpMyAdmin-theme
  * @subpackage Darkblue_orange
  */

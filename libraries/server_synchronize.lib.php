@@ -1324,10 +1324,6 @@ function PMA_displayQuery($query) {
 
 /**
  * PMA_syncDisplayHeaderSource() shows the header for source database 
- * @uses   __('Source database') 
- * @uses   __('Difference') 
- * @uses   __('Current server') 
- * @uses   __('Remote server') 
  * @uses   $_SESSION['src_type'] 
  * @uses   $_SESSION['src_server']['host'] 
  *
@@ -1351,9 +1347,6 @@ function PMA_syncDisplayHeaderSource($src_db) {
 
 /**
  * PMA_syncDisplayHeaderTargetAndMatchingTables() shows the header for target database and the matching tables
- * @uses   __('Target database') 
- * @uses   __('Current server') 
- * @uses   __('Remote server') 
  * @uses   $_SESSION['trg_type'] 
  * @uses   $_SESSION['trg_server']['host'] 
  * 

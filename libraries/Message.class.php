@@ -3,7 +3,6 @@
 /**
  * Holds class PMA_Message
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

@@ -3,7 +3,6 @@
 /**
  * Generic plugin interface.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

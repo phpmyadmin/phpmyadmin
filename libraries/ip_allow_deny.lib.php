@@ -4,7 +4,6 @@
  * This library is used with the server IP allow/deny host authentication
  * feature
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

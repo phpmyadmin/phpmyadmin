@@ -3,7 +3,6 @@
 /**
  * Library that provides common import functions that are used by import plugins
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
