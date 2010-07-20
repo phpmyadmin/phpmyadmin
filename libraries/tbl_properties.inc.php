@@ -371,7 +371,7 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' class="textfield" />'
         . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset) . '">';
     $content_cells[$i][$ci] .= __('ENUM or SET data too long?')
-        . '<a href="enum_editor.php?' . PMA_generate_common_url() . '&values=' . urlencode($length_to_display) . '&field=' . $field . '" class="open_enum_editor" target="blank"> '
+        . '<a onclick="return false;" href="enum_editor.php?' . PMA_generate_common_url() . '&values=' . urlencode($length_to_display) . '&field=' .  (isset($row['Field']) ? urlencode($row['Field']) : "") . '" class="open_enum_editor" target="_blank"> '
         . __('Get more editing space') . '</a></p>';
     $ci++;
 
@@ -797,9 +797,10 @@ if ($action == 'tbl_create.php') {
 
 <div id="enum_editor">
 <a class="close_enum_editor">Close</a>
-<p>Enter each value in a separate field.</p>
+<h3><?php echo __('Values for the column "' . (isset($row['Field']) ? urlencode($row['Field']) : "") . '"'); ?></h3>
+<p><?php echo __('Enter each value in a separate field. If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'); ?></p>
 <div id="values"></div>
-<p><input type="checkbox" name="add_extra_fields" /> Add <input type="text" value="1" name="extra_fields" size="2" /> more values</p>
+<p><a class="add_value">+ Add a new value</a></p>
 <input type="submit" value="Go" /> <a class="cancel_enum_editor">Cancel</a>
 </div>
 

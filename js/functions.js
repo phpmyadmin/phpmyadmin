@@ -1786,9 +1786,11 @@ $(document).ready(function() {
         var values = $(this).parent().prev("input").attr("value").split(",");
         $.each(values, function(index, val) {
             if(jQuery.trim(val) != "") {
+                // escape the single quotes, except the mandatory ones enclosing the entire string
+                val = val.substr(1, val.length-2).replace(/'/g, "&#039;");
+                // escape the greater-than symbol
+                val = val.replace(/>/g, "&gt;");
                 $("#enum_editor #values").append("<input type='text' value=" + val + " />");
-            } else {
-                $("#enum_editor #values").append("<input type='text' value='' />");
             }
         });
         // So we know which column's data is being edited
@@ -1806,29 +1808,25 @@ $(document).ready(function() {
         disable_popup();
     });
 
-    // When the submit button is clicked, put the data back into the original form if
-    // the "add x more values" checkbox is not checked. Otherwise, just insert x more
-    // textboxes
-    $("#enum_editor input[type='submit']").click(function() {
-        if($("input[type='checkbox'][name='add_extra_fields']").attr("checked")) {
-            for(i = 0; i < $("input[type='text'][name='extra_fields']").attr("value"); i++) {
-                $("#enum_editor #values").append("<input type='text' />");
-            }
-            // Uncheck it
-            $("input[type='checkbox'][name='add_extra_fields']").removeAttr("checked");
-        } else {
-            var value_array = new Array();
-            $.each($("#enum_editor #values input"), function(index, input_element) {
-                val = jQuery.trim(input_element.value);
-                if(val != "") {
-                    value_array.push("'" + val + "'");
-                }
-            });
-            var values_id = $("#enum_editor input[type='hidden']").attr("value");
-            $("input[id='" + values_id + "']").attr("value", value_array.join(","));
-            disable_popup();
-        }
+    // When "add a new value" is clicked, append an empty text field
+    $("a[class='add_value']").click(function() {
+        $("#enum_editor #values").append("<input type='text' />");
     });
+
+    // When the submit button is clicked, put the data back into the original form
+    $("#enum_editor input[type='submit']").click(function() {
+        var value_array = new Array();
+        $.each($("#enum_editor #values input"), function(index, input_element) {
+            val = jQuery.trim(input_element.value);
+            if(val != "") {
+                value_array.push("'" + val + "'");
+            }
+        });
+        // get the Length/Values text field where this value belongs
+        var values_id = $("#enum_editor input[type='hidden']").attr("value");
+        $("input[id='" + values_id + "']").attr("value", value_array.join(","));
+        disable_popup();
+     });
 
     /**
      * Hides certain table structure actions, replacing them with the word "More". They are displayed

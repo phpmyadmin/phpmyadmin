@@ -10,50 +10,51 @@ require_once './libraries/header_meta_style.inc.php';
 <body>
     <form action="enum_editor.php" method="get">
         <div id="enum_editor_no_js">
-            <h3>Values for the column "<?php echo $_GET['field']; ?>"</h3>
-            <p>Enter each value in a separate field.</p>
+            <h3><?php echo __('Values for the column "' . urldecode($_GET['field']) . '"'); ?></h3>
+            <p><?php echo __('Enter each value in a separate field, enclosed in single quotes. If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'); ?></p>
             <div id="values">
             <?php
-                // Get the new values from the submitted form or the old ones from tbl_alter.php
                 $values = '';
-                for($i = 1; $i <= $_GET['num_fields']; $i++) {
-                    $input_name = "field" . $i;
-                    $values .= $_GET[$input_name] . ',';
-                }
                 if (isset($_GET['values'])) {
                     $values = urldecode($_GET['values']);
+                } elseif (isset($_GET['num_fields'])) {
+                    for($field_num = 1; $field_num <= $_GET['num_fields']; $field_num++) {
+                        $values .= $_GET['field' . $field_num] . ",";
+                    }
                 }
-                // Display the input fields containing each of the values, removing the empty ones
+
                 $field_counter = 0;
                 $stripped_values = array();
                 foreach(split(",", $values) as $value) {
                     if(trim($value) != "") {
                         $field_counter++;
-                        echo '<input type="text" size="30" value=' . $value . ' name="field' . $field_counter . '" />';
-                        $stripped_values[] = $value;
+                        echo sprintf('<input type="text" size="30" value="%s" name="field' . $field_counter . '" />', htmlspecialchars($value));
+                        $stripped_values[] = htmlspecialchars($value);
                     }
                 }
+
+                $total_fields = $field_counter;
                 // If extra fields are added, display them
-                if($_GET['add_extra_fields']) {
-                    $extra_fields = $_GET['extra_fields'];
-                    $total_fields = $extra_fields + $field_counter;
-                    for($i = ($field_counter+1); $i <= $total_fields; $i++) {
+                if(isset($_GET['extra_fields'])) {
+                    $total_fields += $_GET['extra_fields'];
+                    for($i = $field_counter+1; $i <= $total_fields; $i++) {
                         echo '<input type="text" size="30" name="field' . $i . '"/>';
                     }
-                } else {
-                    $total_fields = $field_counter;
                 }
+
             ?>
             </div>
             <p>
-                <input type="checkbox" name="add_extra_fields"> Add <input type="text" value="1" name="extra_fields" size="2"/> more values
+               <a href="enum_editor.php?token=<?php echo urlencode($_GET['token']); ?>&field=<?php echo urlencode($_GET['field']); ?>&extra_fields=<?php echo $_GET['extra_fields'] + 1; ?>&values=<?php echo $values; ?>">
+                   + Restart insertion and add a new value
+               </a>
             </p>
              <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>" />
-             <input type="hidden" name="num_fields" value="<?php echo $total_fields; ?>" />
              <input type="hidden" name="field" value="<?php echo $_GET['field']; ?>" />
+             <input type="hidden" name="num_fields" value="<?php echo $total_fields; ?>" />
             <input type="submit" value="Go" />
         </form>
-        
+
         <div id="enum_editor_output">
             <h3>Output</h3>
             <p>Copy and paste the joined values into the "Length/Values" field</p>
