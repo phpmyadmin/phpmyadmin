@@ -20,31 +20,27 @@ function PMA_failRecoding() {
 /**
  * Loads the recode or iconv extensions if any of it is not loaded yet
  */
-if (isset($cfg['AllowAnywhereRecoding'])
-    && $cfg['AllowAnywhereRecoding']) {
-
-    if ($cfg['RecodingEngine'] == 'recode') {
-        if (!@extension_loaded('recode')) {
-            PMA_failRecoding();
-        }
-        $PMA_recoding_engine             = 'recode';
-    } elseif ($cfg['RecodingEngine'] == 'iconv') {
-        if (!@extension_loaded('iconv')) {
-            PMA_failRecoding();
-        }
-        $PMA_recoding_engine             = 'iconv';
-    } elseif ($cfg['RecodingEngine'] == 'auto') {
-        if (@extension_loaded('iconv')) {
-            $PMA_recoding_engine         = 'iconv';
-        } elseif (@extension_loaded('recode')) {
-            $PMA_recoding_engine         = 'recode';
-        } else {
-            $PMA_recoding_engine         = 'none';
-        }
+if ($cfg['RecodingEngine'] == 'recode') {
+    if (!@extension_loaded('recode')) {
+        PMA_failRecoding();
+    }
+    $PMA_recoding_engine             = 'recode';
+} elseif ($cfg['RecodingEngine'] == 'iconv') {
+    if (!@extension_loaded('iconv')) {
+        PMA_failRecoding();
+    }
+    $PMA_recoding_engine             = 'iconv';
+} elseif ($cfg['RecodingEngine'] == 'auto') {
+    if (@extension_loaded('iconv')) {
+        $PMA_recoding_engine         = 'iconv';
+    } elseif (@extension_loaded('recode')) {
+        $PMA_recoding_engine         = 'recode';
     } else {
         $PMA_recoding_engine         = 'none';
     }
-} // end load recode/iconv extension
+} else {
+    $PMA_recoding_engine         = 'none';
+}
 
 define('PMA_CHARSET_NONE', 0);
 define('PMA_CHARSET_ICONV', 1);
@@ -57,64 +53,55 @@ if (!isset($cfg['IconvExtraParams'])) {
 }
 
 // Finally detect which function we will use:
-if (isset($cfg['AllowAnywhereRecoding'])
-    && $cfg['AllowAnywhereRecoding']) {
-
-    if (!isset($PMA_recoding_engine)) {
-        $PMA_recoding_engine = $cfg['RecodingEngine'];
-    }
-    if ($PMA_recoding_engine == 'iconv') {
-        if (@function_exists('iconv')) {
-            if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
-                $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
-            } else {
-                $PMA_recoding_engine = PMA_CHARSET_ICONV;
-            }
-        } elseif (@function_exists('libiconv')) {
-            $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
+if ($PMA_recoding_engine == 'iconv') {
+    if (@function_exists('iconv')) {
+        if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
+            $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
         } else {
-            $PMA_recoding_engine = PMA_CHARSET_NONE;
-
-            if (!isset($GLOBALS['is_header_sent'])) {
-                include './libraries/header.inc.php';
-            }
-            echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
-            require_once './libraries/footer.inc.php';
-            exit();
+            $PMA_recoding_engine = PMA_CHARSET_ICONV;
         }
-    } elseif ($PMA_recoding_engine == 'recode') {
-        if (@function_exists('recode_string')) {
-            $PMA_recoding_engine = PMA_CHARSET_RECODE;
-        } else {
-            $PMA_recoding_engine = PMA_CHARSET_NONE;
-
-            require_once './libraries/header.inc.php';
-            echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
-            require_once './libraries/footer.inc.php';
-            exit;
-        }
+    } elseif (@function_exists('libiconv')) {
+        $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
     } else {
-        if (@function_exists('iconv')) {
-            if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
-                $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
-            } else {
-                $PMA_recoding_engine = PMA_CHARSET_ICONV;
-            }
-        } elseif (@function_exists('libiconv')) {
-            $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
-        } elseif (@function_exists('recode_string')) {
-            $PMA_recoding_engine = PMA_CHARSET_RECODE;
-        } else {
-            $PMA_recoding_engine = PMA_CHARSET_NONE;
+        $PMA_recoding_engine = PMA_CHARSET_NONE;
 
-            require_once './libraries/header.inc.php';
-            echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
-            require_once './libraries/footer.inc.php';
-            exit;
+        if (!isset($GLOBALS['is_header_sent'])) {
+            include './libraries/header.inc.php';
         }
+        echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
+        require_once './libraries/footer.inc.php';
+        exit();
+    }
+} elseif ($PMA_recoding_engine == 'recode') {
+    if (@function_exists('recode_string')) {
+        $PMA_recoding_engine = PMA_CHARSET_RECODE;
+    } else {
+        $PMA_recoding_engine = PMA_CHARSET_NONE;
+
+        require_once './libraries/header.inc.php';
+        echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
+        require_once './libraries/footer.inc.php';
+        exit;
     }
 } else {
-    $PMA_recoding_engine         = PMA_CHARSET_NONE;
+    if (@function_exists('iconv')) {
+        if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
+            $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
+        } else {
+            $PMA_recoding_engine = PMA_CHARSET_ICONV;
+        }
+    } elseif (@function_exists('libiconv')) {
+        $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
+    } elseif (@function_exists('recode_string')) {
+        $PMA_recoding_engine = PMA_CHARSET_RECODE;
+    } else {
+        $PMA_recoding_engine = PMA_CHARSET_NONE;
+
+        require_once './libraries/header.inc.php';
+        echo __('Couldn\'t use the iconv, libiconv, or recode_string functions, although the necessary extensions appear to be loaded. Check your PHP configuration.');
+        require_once './libraries/footer.inc.php';
+        exit;
+    }
 }
 
 /* Load AIX iconv wrapper if needed */

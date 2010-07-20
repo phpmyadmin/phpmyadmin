@@ -173,7 +173,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 
 // charset of file
         echo '<div class="formelementrow">' . "\n";
-        if ($cfg['AllowAnywhereRecoding']) {
+        if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
             echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>';
             reset($cfg['AvailableCharsets']);
             echo '<select id="charset_of_file" name="charset_of_file" size="1">';

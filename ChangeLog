@@ -88,6 +88,7 @@ $Id$
 - bug [password] Generate password only available if JS is enabled
   (fixed for Privileges and Change password)
 - [core] RecodingEngine now accepts none as valid option.
++ [core] Dropped AllowAnywhereRecoding configuration variable.
 
 3.3.6.0 (not yet released)
 

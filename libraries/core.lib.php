@@ -226,7 +226,7 @@ function PMA_fatalError($error_message, $message_args = null)
     if (! isset($GLOBALS['available_languages'])) {
         $GLOBALS['cfg'] = array(
             'DefaultLang'           => 'en',
-            'AllowAnywhereRecoding' => false);
+            );
 
         // Loads the language file
         require_once './libraries/select_lang.lib.php';

@@ -74,7 +74,6 @@ $forms['Server_tracking'] = array('Servers' => array(1 => array(
 $forms['Import_export'] = array(
     'UploadDir',
     'SaveDir',
-    'AllowAnywhereRecoding',
     'RecodingEngine',
     'IconvExtraParams',
     'ZipDump',

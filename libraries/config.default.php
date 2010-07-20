@@ -1951,16 +1951,6 @@ $cfg['DefaultConnectionCollation'] = 'utf8_general_ci';
 $cfg['FilterLanguages'] = '';
 
 /**
- * Allow character set recoding of MySQL queries, must be also enabled in language
- * file to make harder using other language files than Unicode.
- * Default value is false to avoid problems on servers without the iconv
- * extension
- *
- * @global boolean $cfg['AllowAnywhereRecoding']
- */
-$cfg['AllowAnywhereRecoding'] = false;
-
-/**
  * You can select here which functions will be used for character set conversion.
  * Possible values are:
  *      auto   - automatically use available one (first is tested iconv, then

@@ -29,7 +29,7 @@ $gnu_iconv_to_aix_iconv_codepage_map = array (
     // "big5" --> "IBM-eucTW" according to http://kadesh.cepba.upc.es/mancpp/classref/ref/ITranscoder_DSC.htm
     'big5' => 'IBM-eucTW',
 
-    // Other mappings corresponding to the phpMyAdmin dropdown box when using the AllowAnywhereRecoding feature
+    // Other mappings corresponding to the phpMyAdmin dropdown box when using the charset conversion feature
     'euc-jp' => 'IBM-eucJP',
     'koi8-r' => 'IBM-eucKR',
     'ks_c_5601-1987' => 'KSC5601.1987-0',
