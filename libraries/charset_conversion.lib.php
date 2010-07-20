@@ -10,38 +10,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Failure on loading recode/iconv extensions.
- */
-function PMA_failRecoding() {
-    PMA_fatalError(__('Couldn\'t load the iconv or recode extension needed for charset conversion. Either configure PHP to enable these extensions or disable charset conversion in phpMyAdmin.'));
-}
-
-/**
- * Loads the recode or iconv extensions if any of it is not loaded yet
- */
-if ($cfg['RecodingEngine'] == 'recode') {
-    if (!@extension_loaded('recode')) {
-        PMA_failRecoding();
-    }
-    $PMA_recoding_engine             = 'recode';
-} elseif ($cfg['RecodingEngine'] == 'iconv') {
-    if (!@extension_loaded('iconv')) {
-        PMA_failRecoding();
-    }
-    $PMA_recoding_engine             = 'iconv';
-} elseif ($cfg['RecodingEngine'] == 'auto') {
-    if (@extension_loaded('iconv')) {
-        $PMA_recoding_engine         = 'iconv';
-    } elseif (@extension_loaded('recode')) {
-        $PMA_recoding_engine         = 'recode';
-    } else {
-        $PMA_recoding_engine         = 'none';
-    }
-} else {
-    $PMA_recoding_engine         = 'none';
-}
-
 define('PMA_CHARSET_NONE', 0);
 define('PMA_CHARSET_ICONV', 1);
 define('PMA_CHARSET_LIBICONV', 2);
@@ -53,7 +21,7 @@ if (!isset($cfg['IconvExtraParams'])) {
 }
 
 // Finally detect which function we will use:
-if ($PMA_recoding_engine == 'iconv') {
+if ($cfg['RecodingEngine'] == 'iconv') {
     if (@function_exists('iconv')) {
         if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
             $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
@@ -72,7 +40,7 @@ if ($PMA_recoding_engine == 'iconv') {
         require_once './libraries/footer.inc.php';
         exit();
     }
-} elseif ($PMA_recoding_engine == 'recode') {
+} elseif ($cfg['RecodingEngine'] == 'recode') {
     if (@function_exists('recode_string')) {
         $PMA_recoding_engine = PMA_CHARSET_RECODE;
     } else {
@@ -83,7 +51,7 @@ if ($PMA_recoding_engine == 'iconv') {
         require_once './libraries/footer.inc.php';
         exit;
     }
-} else {
+} elseif ($cfg['RecodingEngine'] == 'auto') {
     if (@function_exists('iconv')) {
         if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
             $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
@@ -102,6 +70,8 @@ if ($PMA_recoding_engine == 'iconv') {
         require_once './libraries/footer.inc.php';
         exit;
     }
+} else {
+    $PMA_recoding_engine = PMA_CHARSET_NONE;
 }
 
 /* Load AIX iconv wrapper if needed */
