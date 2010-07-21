@@ -1201,7 +1201,7 @@ label.desc {
     float: <?php echo $left; ?>;
 }
 
-code.sql {
+code.sql, div.sqlvalidate {
     display:            block;
     padding:            0.3em;
     margin-top:         0;
