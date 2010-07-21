@@ -1993,3 +1993,28 @@ $(document).ready(function() {
         })
     })
 }, 'top.frame_content'); //end $(document).ready() for Drop Trigger
+
+/**
+ * jQuery coding for Drop Database. Moved here from db_structure.js as it was
+ * also required on db_create.php
+ *
+ */
+$(document).ready(function() {
+    //Drop Database
+    $("#drop_db_anchor").live('click', function(event) {
+        event.preventDefault();
+
+        //context is top.frame_content, so we need to use window.parent.db to access the db var
+        var question = PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP DATABASE ' + window.parent.db;
+
+        $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
+
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
+                //Database deleted successfully, refresh both the frames
+                window.parent.refreshNavigation();
+                window.parent.refreshMain();
+            })
+        });
+    }); //end of Drop Database Ajax action
+})
