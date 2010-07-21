@@ -247,18 +247,16 @@ if ($asfile) {
         if (isset($remember_template)) {
             $GLOBALS['PMA_Config']->setCookie('pma_server_filename_template', $filename_template);
         }
-        $filename = str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template));
     } elseif ($export_type == 'database') {
         if (isset($remember_template)) {
             $GLOBALS['PMA_Config']->setCookie('pma_db_filename_template', $filename_template);
         }
-        $filename = str_replace('__DB__', $db, str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template)));
     } else {
         if (isset($remember_template)) {
             $GLOBALS['PMA_Config']->setCookie('pma_table_filename_template', $filename_template);
         }
-        $filename = str_replace('__TABLE__', $table, str_replace('__DB__', $db, str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template))));
     }
+    $filename = PMA_expandUserString($filename_template);
 
     // convert filename to iso-8859-1, it is safer
     $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);

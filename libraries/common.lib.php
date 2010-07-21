@@ -2835,21 +2835,27 @@ function PMA_expandUserString($string) {
         array(
             '@HTTP_HOST@',
             '@SERVER@',
+            '__SERVER__',
             '@VERBOSE@',
             '@VSERVER@',
             '@DATABASE@',
+            '__DB__',
             '@TABLE@',
+            '__TABLE__',
             '@PHPMYADMIN@',
             ),
         array(
             PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '',
             $GLOBALS['cfg']['Server']['host'],
+            $GLOBALS['cfg']['Server']['host'],
             $GLOBALS['cfg']['Server']['verbose'],
             !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'],
             $GLOBALS['db'],
+            $GLOBALS['db'],
+            $GLOBALS['table'],
             $GLOBALS['table'],
             'phpMyAdmin ' . PMA_VERSION,
             ),
-        $string);
+        strftime($string));
 }
 ?>
