@@ -4108,26 +4108,34 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     <a href="#faqsqlvalidator">6.14 How do I set up the
     <abbr title="structured query language">SQL</abbr> Validator?</a></h4>
 
-<p> To use it, you need a very recent version of PHP, 4.3.0 recommended, with
+<p> 
+    To use SQL Validator, you need PHP with 
     <abbr title="Extensible Markup Language">XML</abbr>,
     <abbr title="Perl Compatible Regular Expressions">PCRE</abbr> and
     <abbr title="PHP Extension and Application Repository">PEAR</abbr> support.
-    You either need a SOAP PHP extension or install PEAR SOAP module.
-    On your system command line, run <tt>"pear install Net_Socket Net_URL
-    HTTP_Request Mail_Mime Net_DIME SOAP"</tt> to get the necessary
-    <abbr title="PHP Extension and Application Repository">PEAR</abbr> modules
-    for usage.<br />
-    On a more recent pear version, I had problems with the state of Net_DIME
-    being beta, so this single command
-    <tt>"pear -d preferred_state=beta install -a SOAP"</tt> installed all the
-    needed modules.<br />
+    In addition you need a <abbr title="Simple Object Access
+    Protocol">SOAP</abbr> support, either as a PHP extension or as a PEAR SOAP
+    module.
+</p>
+
+<p>
+    To install <abbr title="PHP Extension and Application
+    Repository">PEAR</abbr> <abbr title="Simple Object Access
+    Protocol">SOAP</abbr> module, run <tt>"pear install Net_Socket Net_URL
+    HTTP_Request Mail_Mime Net_DIME SOAP"</tt> to get the necessary <abbr
+    title="PHP Extension and Application Repository">PEAR</abbr> modules for
+    usage.
+</p>
+
+<p>
     If you use the Validator, you should be aware that any
     <abbr title="structured query language">SQL</abbr> statement you
     submit will be stored anonymously (database/table/column names,
     strings, numbers replaced with generic values). The Mimer
     <abbr title="structured query language">SQL</abbr>
     Validator itself, is &copy; 2001 Upright Database Technology.
-    We utilize it as free SOAP service.</p>
+    We utilize it as free SOAP service.
+</p>
 
 <h4 id="faq6_15">
     <a href="#faq6_15">6.15 I want to add a BLOB column and put an index on
