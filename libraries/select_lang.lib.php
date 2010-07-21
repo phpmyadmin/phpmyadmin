@@ -480,10 +480,6 @@ $charset = 'utf-8';
 /* l10n: Text direction, use either ltr or rtl */
 $text_dir = __('ltr');
 
-$strLatexContent = __('Content of table __TABLE__');
-$strLatexContinued = __('(continued)');
-$strLatexStructure = __('Structure of table __TABLE__');
-
 // now, that we have loaded the language strings we can send the errors
 if ($GLOBALS['lang_failed_cfg']) {
     trigger_error(
