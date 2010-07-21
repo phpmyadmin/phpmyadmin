@@ -123,7 +123,17 @@ if (!$GLOBALS['sqlvalidator_error']) {
                                       $connection_technology, $connection_technology_version,
                                       $interactive)
         {
-    $use_array = array("a_userName" => $username, "a_password" => $password, "a_callingProgram" => $calling_program, "a_callingProgramVersion" => $calling_program_version, "a_targetDbms" => $target_dbms, "a_targetDbmsVersion" => $target_dbms_version, "a_connectionTechnology" => $connection_technology, "a_connectionTechnologyVersion" => $connection_technology_version, "a_interactive" => $interactive);
+            $use_array = array(
+                "a_userName" => $username,
+                "a_password" => $password,
+                "a_callingProgram" => $calling_program,
+                "a_callingProgramVersion" => $calling_program_version,
+                "a_targetDbms" => $target_dbms,
+                "a_targetDbmsVersion" => $target_dbms_version,
+                "a_connectionTechnology" => $connection_technology,
+                "a_connectionTechnologyVersion" => $connection_technology_version,
+                "a_interactive" => $interactive,
+            );
             if ($GLOBALS['sqlvalidator_soap'] == 'PHP') {
                 $ret = $obj->__soapCall("openSession", $use_array);
             } else {
@@ -155,7 +165,12 @@ if (!$GLOBALS['sqlvalidator_error']) {
          */
         function _validateSQL($obj, $session, $sql, $method)
         {
-    $use_array = array("a_sessionId" => $session->sessionId, "a_sessionKey" => $session->sessionKey, "a_SQL" => $sql, "a_resultType" => $this->output_type);
+            $use_array = array(
+                "a_sessionId" => $session->sessionId,
+                "a_sessionKey" => $session->sessionKey,
+                "a_SQL" => $sql,
+                "a_resultType" => $this->output_type,
+            );
             if ($GLOBALS['sqlvalidator_soap'] == 'PHP') {
                 $res = $obj->__soapCall("validateSQL", $use_array);
             } else {
