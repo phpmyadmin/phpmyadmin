@@ -202,14 +202,11 @@ var validators = {
      * @param {boolean} isKeyUp
      */
     validate_port_number: function(isKeyUp) {
-        if (isKeyUp && this.value == '') {
+        if (this.value == '') {
             return true;
         }
         var result = validators._regexp_numeric.test(this.value) && this.value != '0';
-        if (!result || this.value > 65536) {
-            result = PMA_messages['error_incorrect_port'];
-        }
-        return result;
+        return result && this.value <= 65535 ? true : PMA_messages['error_incorrect_port'];
     },
     /**
      * Validates value according to given regular expression

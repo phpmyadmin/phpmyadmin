@@ -1203,7 +1203,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         <span id="cfg_Servers_AllowDeny_order">$cfg['Servers'][$i]['AllowDeny']['order']</span> string
     </dt>
     <dd>If your rule order is empty, then <abbr title="Internet Protocol">IP</abbr>
-        authentication is disabled.<br /><br />
+        authorization is disabled.<br /><br />
 
         If your rule order is set to <tt>'deny,allow'</tt> then the system applies
         all deny rules followed by allow rules. Access is allowed by default. Any
@@ -1215,7 +1215,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         default.  Any client which does not match an Allow directive or does
         match a Deny directive will be denied access to the server.<br /><br />
 
-        If your rule order is set to 'explicit', the authentication is
+        If your rule order is set to 'explicit', authorization is
         performed in a similar fashion to rule order 'deny,allow', with the
         added restriction that your host/username combination <b>must</b> be
         listed in the <i>allow</i> rules, and not listed in the <i>deny</i>

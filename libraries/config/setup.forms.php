@@ -30,13 +30,17 @@ $forms['Servers']['Server'] = array('Servers' => array(1 => array(
     'connect_type',
     'extension',
     'compress',
-    'auth_type' => ':group',
-    'auth_http_realm',
+    'nopassword')));
+$forms['Servers']['Server_auth'] = array('Servers' => array(1 => array(
+    'auth_type',
+    ':group:' . __('Config authentication'),
     'user',
     'password',
-    'nopassword',
-    'auth_swekey_config' => './swekey.conf')));
-$forms['Servers']['Server_login_options'] = array('Servers' => array(1 => array(
+    ':group:' . __('Cookie authentication'),
+    'auth_swekey_config' => './swekey.conf',
+    ':group:' . __('HTTP authentication'),
+    'auth_http_realm',
+    ':group:' . __('Signon authentication'),
     'SignonSession',
     'SignonURL',
     'LogoutURL')));

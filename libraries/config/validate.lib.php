@@ -383,7 +383,7 @@ function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error
  */
 function validate_port_number($path, $values)
 {
-    return array($path => test_number($path, $values, false, false, 65536, __('Not a valid port number')));
+    return array($path => test_number($path, $values, false, false, 65535, __('Not a valid port number')));
 }
 
 /**
