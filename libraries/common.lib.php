@@ -2829,6 +2829,9 @@ $mapping = array(
 
 /**
  * Formats user string, expading @VARIABLES@, accepting strftime format string.
+ *
+ * @param string Text where to do expansion.
+ * @param function Function to call for escaping variable values.
  */
 function PMA_expandUserString($string, $escape = NULL) {
     /* Content */
