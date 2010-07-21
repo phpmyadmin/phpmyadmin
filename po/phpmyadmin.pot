@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-21 08:57+0200\n"
+"POT-Creation-Date: 2010-07-21 10:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr ""
 #: libraries/common.lib.php:1328 libraries/common.lib.php:2277
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:274 libraries/display_import.lib.php:275
+#: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:531
 #: libraries/display_tbl.lib.php:613 libraries/replication_gui.lib.php:75
 #: libraries/replication_gui.lib.php:371 libraries/select_server.lib.php:101
@@ -105,7 +105,7 @@ msgid "Table comments"
 msgstr ""
 
 #: db_datadict.php:173 db_qbe.php:173 libraries/Index.class.php:445
-#: libraries/export/htmlword.php:243 libraries/export/latex.php:359
+#: libraries/export/htmlword.php:243 libraries/export/latex.php:364
 #: libraries/export/odt.php:293 libraries/export/texytext.php:233
 #: libraries/tbl_properties.inc.php:98 libraries/tbl_properties.inc.php:274
 #: pdf_schema.php:1261 pdf_schema.php:1282 tbl_change.php:306
@@ -118,7 +118,7 @@ msgstr ""
 #: db_datadict.php:174 db_printview.php:105 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
 #: libraries/db_structure.lib.php:51 libraries/export/htmlword.php:244
-#: libraries/export/latex.php:359 libraries/export/odt.php:296
+#: libraries/export/latex.php:364 libraries/export/odt.php:296
 #: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:99
 #: pdf_schema.php:1262 pdf_schema.php:1283 server_privileges.php:2062
 #: tbl_change.php:285 tbl_change.php:312 tbl_printview.php:141
@@ -128,7 +128,7 @@ msgid "Type"
 msgstr ""
 
 #: db_datadict.php:176 libraries/Index.class.php:448
-#: libraries/export/htmlword.php:245 libraries/export/latex.php:359
+#: libraries/export/htmlword.php:245 libraries/export/latex.php:364
 #: libraries/export/odt.php:299 libraries/export/texytext.php:235
 #: libraries/tbl_properties.inc.php:108 pdf_schema.php:1264
 #: pdf_schema.php:1285 tbl_change.php:321 tbl_printview.php:143
@@ -137,7 +137,7 @@ msgid "Null"
 msgstr ""
 
 #: db_datadict.php:177 db_structure.php:500 libraries/export/htmlword.php:246
-#: libraries/export/latex.php:359 libraries/export/odt.php:302
+#: libraries/export/latex.php:364 libraries/export/odt.php:302
 #: libraries/export/texytext.php:236 libraries/tbl_properties.inc.php:105
 #: pdf_schema.php:1265 pdf_schema.php:1286 tbl_printview.php:144
 #: tbl_structure.php:181 tbl_tracking.php:276
@@ -145,14 +145,14 @@ msgid "Default"
 msgstr ""
 
 #: db_datadict.php:181 libraries/export/htmlword.php:248
-#: libraries/export/latex.php:361 libraries/export/odt.php:306
+#: libraries/export/latex.php:366 libraries/export/odt.php:306
 #: libraries/export/texytext.php:238 pdf_schema.php:1267 pdf_schema.php:1288
 #: tbl_printview.php:148
 msgid "Links to"
 msgstr ""
 
 #: db_datadict.php:183 db_printview.php:111 libraries/export/htmlword.php:251
-#: libraries/export/latex.php:44 libraries/export/latex.php:364
+#: libraries/export/latex.php:49 libraries/export/latex.php:369
 #: libraries/export/odt.php:37 libraries/export/odt.php:311
 #: libraries/export/sql.php:29 libraries/export/texytext.php:241
 #: libraries/tbl_properties.inc.php:129 pdf_schema.php:1278
@@ -162,7 +162,7 @@ msgstr ""
 
 #: db_datadict.php:266 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/export/htmlword.php:321
-#: libraries/export/latex.php:429 libraries/export/odt.php:367
+#: libraries/export/latex.php:434 libraries/export/odt.php:367
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:262
 #: pdf_schema.php:1343 server_privileges.php:1560 server_privileges.php:1571
 #: server_privileges.php:1881 server_privileges.php:1886
@@ -173,7 +173,7 @@ msgstr ""
 
 #: db_datadict.php:266 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/export/htmlword.php:321
-#: libraries/export/latex.php:429 libraries/export/odt.php:367
+#: libraries/export/latex.php:434 libraries/export/odt.php:367
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:44
 #: libraries/mult_submits.inc.php:49 libraries/mult_submits.inc.php:54
 #: libraries/mult_submits.inc.php:59 libraries/mult_submits.inc.php:91
@@ -197,7 +197,7 @@ msgid "View dump (schema) of database"
 msgstr ""
 
 #: db_export.php:32 db_printview.php:95 db_qbe.php:101 db_structure.php:50
-#: db_tracking.php:34 export.php:354 navigation.php:326
+#: db_tracking.php:34 export.php:352 navigation.php:326
 msgid "No tables found in database."
 msgstr ""
 
@@ -471,7 +471,7 @@ msgstr ""
 
 #: db_search.php:50 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:656 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:640 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:182
 msgid "Access denied"
 msgstr ""
@@ -561,7 +561,7 @@ msgstr ""
 #: db_structure.php:82 db_structure.php:95 db_structure.php:108
 #: libraries/common.lib.php:2815 libraries/common.lib.php:2822
 #: libraries/db_links.inc.php:62 libraries/export/htmlword.php:22
-#: libraries/export/latex.php:32 libraries/export/latex.php:336
+#: libraries/export/latex.php:37 libraries/export/latex.php:341
 #: libraries/export/odt.php:31 libraries/export/sql.php:59
 #: libraries/export/texytext.php:23 libraries/import.lib.php:1136
 #: libraries/tbl_links.inc.php:55 pmd_general.php:133
@@ -705,7 +705,7 @@ msgid "Tracked tables"
 msgstr ""
 
 #: db_tracking.php:70 libraries/export/htmlword.php:85
-#: libraries/export/latex.php:147 libraries/export/odt.php:112
+#: libraries/export/latex.php:152 libraries/export/odt.php:112
 #: libraries/export/sql.php:339 libraries/export/texytext.php:84
 #: libraries/export/xml.php:254 libraries/header.inc.php:105
 #: libraries/header_printview.inc.php:57 server_databases.php:168
@@ -778,23 +778,23 @@ msgstr ""
 msgid "Selected export type has to be saved in file!"
 msgstr ""
 
-#: export.php:153 export.php:178 export.php:622
+#: export.php:153 export.php:178 export.php:620
 #, possible-php-format
 msgid "Insufficient space to save the file %s."
 msgstr ""
 
-#: export.php:289
+#: export.php:287
 #, possible-php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 
-#: export.php:293 export.php:297
+#: export.php:291 export.php:295
 #, possible-php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr ""
 
-#: export.php:624
+#: export.php:622
 #, possible-php-format
 msgid "Dump has been saved to file %s."
 msgstr ""
@@ -1498,20 +1498,20 @@ msgstr ""
 msgid "Cookies must be enabled past this point."
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:654
+#: libraries/auth/cookie.auth.lib.php:638
 #: libraries/auth/signon.auth.lib.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:658
+#: libraries/auth/cookie.auth.lib.php:642
 #: libraries/auth/signon.auth.lib.php:184
 #, possible-php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:668
-#: libraries/auth/cookie.auth.lib.php:670
+#: libraries/auth/cookie.auth.lib.php:652
+#: libraries/auth/cookie.auth.lib.php:654
 #: libraries/auth/signon.auth.lib.php:190
 msgid "Cannot log in to the MySQL server"
 msgstr ""
@@ -1967,39 +1967,39 @@ msgid ""
 "%3$s. Other text will be kept as is."
 msgstr ""
 
-#: libraries/display_export.lib.php:201
+#: libraries/display_export.lib.php:202
 msgid "remember template"
 msgstr ""
 
-#: libraries/display_export.lib.php:209 libraries/display_import.lib.php:177
+#: libraries/display_export.lib.php:210 libraries/display_import.lib.php:177
 #: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:522
 msgid "Character set of the file:"
 msgstr ""
 
-#: libraries/display_export.lib.php:234 setup/lib/messages.inc.php:81
+#: libraries/display_export.lib.php:235 setup/lib/messages.inc.php:81
 msgid "Compression"
 msgstr ""
 
-#: libraries/display_export.lib.php:239 libraries/display_import.lib.php:196
+#: libraries/display_export.lib.php:240 libraries/display_import.lib.php:196
 #: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:529
 #: libraries/export/sql.php:865 libraries/tbl_properties.inc.php:574
 #: server_privileges.php:1867 server_processlist.php:74
 msgid "None"
 msgstr ""
 
-#: libraries/display_export.lib.php:246
+#: libraries/display_export.lib.php:247
 msgid "\"zipped\""
 msgstr ""
 
-#: libraries/display_export.lib.php:252
+#: libraries/display_export.lib.php:253
 msgid "\"gzipped\""
 msgstr ""
 
-#: libraries/display_export.lib.php:258
+#: libraries/display_export.lib.php:259
 msgid "\"bzipped\""
 msgstr ""
 
-#: libraries/display_export.lib.php:273 libraries/export/sql.php:42
+#: libraries/display_export.lib.php:274 libraries/export/sql.php:42
 #: libraries/import/sql.php:31
 msgid "SQL compatibility mode"
 msgstr ""
@@ -2154,7 +2154,7 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:554 libraries/export/codegen.php:38
 #: libraries/export/csv.php:29 libraries/export/excel.php:34
-#: libraries/export/htmlword.php:28 libraries/export/latex.php:27
+#: libraries/export/htmlword.php:28 libraries/export/latex.php:32
 #: libraries/export/mediawiki.php:21 libraries/export/ods.php:26
 #: libraries/export/odt.php:26 libraries/export/pdf.php:26
 #: libraries/export/php_array.php:25 libraries/export/sql.php:33
@@ -2580,7 +2580,7 @@ msgid "Lines terminated by"
 msgstr ""
 
 #: libraries/export/csv.php:24 libraries/export/excel.php:21
-#: libraries/export/htmlword.php:24 libraries/export/latex.php:64
+#: libraries/export/htmlword.php:24 libraries/export/latex.php:69
 #: libraries/export/ods.php:22 libraries/export/odt.php:51
 #: libraries/export/texytext.php:31 libraries/export/xls.php:22
 #: libraries/export/xlsx.php:22
@@ -2592,7 +2592,7 @@ msgid "Remove CRLF characters within columns"
 msgstr ""
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#: libraries/export/htmlword.php:25 libraries/export/latex.php:56
+#: libraries/export/htmlword.php:25 libraries/export/latex.php:61
 #: libraries/export/ods.php:23 libraries/export/odt.php:49
 #: libraries/export/texytext.php:34 libraries/export/xls.php:23
 #: libraries/export/xlsx.php:23
@@ -2611,8 +2611,8 @@ msgstr ""
 msgid "Microsoft Word 2000"
 msgstr ""
 
-#: libraries/export/htmlword.php:23 libraries/export/latex.php:54
-#: libraries/export/latex.php:200 libraries/export/odt.php:47
+#: libraries/export/htmlword.php:23 libraries/export/latex.php:59
+#: libraries/export/latex.php:205 libraries/export/odt.php:47
 #: libraries/export/sql.php:105 libraries/export/sql.php:865
 #: libraries/export/texytext.php:27 server_databases.php:126
 #: server_privileges.php:576 server_replication.php:315 tbl_printview.php:315
@@ -2630,38 +2630,50 @@ msgstr ""
 msgid "Table structure for table"
 msgstr ""
 
-#: libraries/export/latex.php:21
+#: libraries/export/latex.php:13
+msgid "Content of table @TABLE@"
+msgstr ""
+
+#: libraries/export/latex.php:14
+msgid "(continued)"
+msgstr ""
+
+#: libraries/export/latex.php:15
+msgid "Structure of table @TABLE@"
+msgstr ""
+
+#: libraries/export/latex.php:26
 msgid "LaTeX"
 msgstr ""
 
-#: libraries/export/latex.php:25
+#: libraries/export/latex.php:30
 msgid "Include table caption"
 msgstr ""
 
-#: libraries/export/latex.php:34 libraries/export/latex.php:58
+#: libraries/export/latex.php:39 libraries/export/latex.php:63
 msgid "Table caption"
 msgstr ""
 
-#: libraries/export/latex.php:36 libraries/export/latex.php:60
+#: libraries/export/latex.php:41 libraries/export/latex.php:65
 msgid "Continued table caption"
 msgstr ""
 
-#: libraries/export/latex.php:38 libraries/export/latex.php:62
+#: libraries/export/latex.php:43 libraries/export/latex.php:67
 msgid "Label key"
 msgstr ""
 
-#: libraries/export/latex.php:41 libraries/export/odt.php:34
+#: libraries/export/latex.php:46 libraries/export/odt.php:34
 #: libraries/export/sql.php:90 tbl_relation.php:398
 msgid "Relations"
 msgstr ""
 
-#: libraries/export/latex.php:47 libraries/export/odt.php:40
+#: libraries/export/latex.php:52 libraries/export/odt.php:40
 #: libraries/export/odt.php:317 libraries/export/sql.php:94
 #: libraries/tbl_properties.inc.php:142
 msgid "MIME type"
 msgstr ""
 
-#: libraries/export/latex.php:124 libraries/export/sql.php:230
+#: libraries/export/latex.php:129 libraries/export/sql.php:230
 #: libraries/export/xml.php:101 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:176
 #: libraries/replication_gui.lib.php:271 libraries/replication_gui.lib.php:274
@@ -2672,17 +2684,17 @@ msgstr ""
 msgid "Host"
 msgstr ""
 
-#: libraries/export/latex.php:129 libraries/export/sql.php:231
+#: libraries/export/latex.php:134 libraries/export/sql.php:231
 #: libraries/export/xml.php:106 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr ""
 
-#: libraries/export/latex.php:130 libraries/export/sql.php:233
+#: libraries/export/latex.php:135 libraries/export/sql.php:233
 #: libraries/export/xml.php:107 main.php:185
 msgid "Server version"
 msgstr ""
 
-#: libraries/export/latex.php:131 libraries/export/sql.php:234
+#: libraries/export/latex.php:136 libraries/export/sql.php:234
 #: libraries/export/xml.php:108
 msgid "PHP Version"
 msgstr ""
@@ -3245,7 +3257,7 @@ msgstr ""
 msgid "Query window"
 msgstr ""
 
-#: libraries/plugin_interface.lib.php:311
+#: libraries/plugin_interface.lib.php:313
 msgid "This format has no options"
 msgstr ""
 
@@ -3414,20 +3426,8 @@ msgstr ""
 msgid "ltr"
 msgstr ""
 
-#: libraries/select_lang.lib.php:483
-msgid "Content of table __TABLE__"
-msgstr ""
-
-#: libraries/select_lang.lib.php:484
-msgid "(continued)"
-msgstr ""
-
-#: libraries/select_lang.lib.php:485
-msgid "Structure of table __TABLE__"
-msgstr ""
-
-#: libraries/select_lang.lib.php:490 libraries/select_lang.lib.php:496
-#: libraries/select_lang.lib.php:502
+#: libraries/select_lang.lib.php:486 libraries/select_lang.lib.php:492
+#: libraries/select_lang.lib.php:498
 #, possible-php-format
 msgid "Unknown language: %1$s."
 msgstr ""
