@@ -2150,24 +2150,8 @@ setfacl -d -m "g:www-data:rwx" tmp
     <dt id="cfg_TitleDatabase">$cfg['TitleDatabase'] string</dt>
     <dt id="cfg_TitleServer">$cfg['TitleServer'] string</dt>
     <dt id="cfg_TitleDefault">$cfg['TitleDefault'] string</dt>
-    <dd>Allows you to specify window's title bar. Following magic string can
-        be used to get special values:
-        <dl>
-            <dt><code>@HTTP_HOST@</code></dt>
-                <dd>HTTP host that runs phpMyAdmin</dd>
-            <dt><code>@SERVER@</code></dt>
-                <dd>MySQL server name</dd>
-            <dt><code>@VERBOSE@</code></dt>
-                <dd>Verbose MySQL server name as defined in <a href="#cfg_Servers_verbose">server configuration</a></dd>
-            <dt><code>@VSERVER@</code></dt>
-                <dd>Verbose MySQL server name if set, otherwise normal</dd>
-            <dt><code>@DATABASE@</code></dt>
-                <dd>Currently opened database</dd>
-            <dt><code>@TABLE@</code></dt>
-                <dd>Currently opened table</dd>
-            <dt><code>@PHPMYADMIN@</code></dt>
-                <dd>phpMyAdmin with version</dd>
-        </dl>
+    <dd>Allows you to specify window's title bar. You can use 
+        <a href="#faq6_27">format string expansion</a>.
     </dd>
 
     <dt id="cfg_ErrorIconic">$cfg['ErrorIconic'] boolean</dt>
@@ -4329,6 +4313,33 @@ chmod o+rwx tmp
 
 <p> Click the first row of the range, hold the shift key and click the last row of the range. This works everywhere you see rows, for example in Browse mode or on the Structure page.</p>
 
+
+<h4 id="faq6_27">
+    <a href="#faq6_27">6.27 What format strings can I use?</a></h4>
+
+<p>
+    In all places where phpMyAdmin accepts format strings, you can use
+    <code>@VARIABLE@</code> expansion and 
+    <a href="http://php.net/strftime">strftime</a> format strings. The
+    expanded variables depend on a context (eg. if you don't have chosen 
+    table, you can not get table name), but following variables can be used:
+</p>
+<dl>
+    <dt><code>@HTTP_HOST@</code></dt>
+        <dd>HTTP host that runs phpMyAdmin</dd>
+    <dt><code>@SERVER@</code></dt>
+        <dd>MySQL server name</dd>
+    <dt><code>@VERBOSE@</code></dt>
+        <dd>Verbose MySQL server name as defined in <a href="#cfg_Servers_verbose">server configuration</a></dd>
+    <dt><code>@VSERVER@</code></dt>
+        <dd>Verbose MySQL server name if set, otherwise normal</dd>
+    <dt><code>@DATABASE@</code></dt>
+        <dd>Currently opened database</dd>
+    <dt><code>@TABLE@</code></dt>
+        <dd>Currently opened table</dd>
+    <dt><code>@PHPMYADMIN@</code></dt>
+        <dd>phpMyAdmin with version</dd>
+</dl>
 
 <h3 id="faqproject">phpMyAdmin project</h3>
 
