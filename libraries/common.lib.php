@@ -1250,7 +1250,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             $validate_link = '';
         } //validator
 
-        echo '<code class="sql">';
+        if (!empty($GLOBALS['validatequery'])) {
+            echo '<div class="sqlvalidate">';
+        } else {
+            echo '<code class="sql">';
+        }
         if ($query_too_big) {
             echo $shortened_query_base;
         } else {
@@ -1261,7 +1265,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($GLOBALS['show_as_php'])) {
             echo '";';
         }
-        echo '</code>';
+        if (!empty($GLOBALS['validatequery'])) {
+            echo '</div>';
+        } else {
+            echo '</code>';
+        }
 
         echo '<div class="tools">';
         // avoid displaying a Profiling checkbox that could
