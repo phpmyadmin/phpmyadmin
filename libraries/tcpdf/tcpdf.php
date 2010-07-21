@@ -2999,7 +2999,8 @@ if(!class_exists('TCPDF', false)) {
 				//	if(ob_get_contents()) {
 					//	$this->Error(ob_get_contents().'Some data has already been output, can\'t send PDF file');
 					//}
-				
+					ob_end_clean();
+					ob_start();
 					if(isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'],'MSIE')) {
 						header('Content-Type: application/force-download');
 					} else {
