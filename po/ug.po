@@ -804,7 +804,7 @@ msgid "Dump has been saved to file %s."
 msgstr "%s ھۆججىتىدە ساقلاندى."
 
 #: import.php:59
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
