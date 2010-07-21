@@ -2827,19 +2827,4 @@ $mapping = array(
     return $mapping[$target];
 }
 
-function PMA_js($code, $print=true)
-{
-    // these generated newlines are needed
-  $out  = '';
-  $out .= '<script type="text/javascript">'."\n";
-  $out .= "\n" . '// <![CDATA[' . "\n";
-  $out .= $code;
-  $out .= "\n" . '// ]]>' . "\n";
-  $out .= '</script>'."\n";
-
-  if ($print)
-    echo $out;
-
-  return $out;
-}
 ?>
