@@ -71,7 +71,7 @@ if ($cfgRelation['pdfwork']) {
     * User object created for presenting the HTML options
     * so, user can interact with it and perform export of relations schema
     */
-    
+
     require_once './libraries/schema/User_Schema.class.php';
     $user_schema = new PMA_User_Schema();
 
@@ -84,8 +84,10 @@ if ($cfgRelation['pdfwork']) {
      * @param string $do It tells what the Schema is supposed to do
      *                  create and select a page, generate schema etc             
      */
-
-    $user_schema->processUserPreferences($_REQUEST['do']);
+    if(isset($_REQUEST['do'])){
+        $user_schema->setAction($_REQUEST['do']);
+        $user_schema->processUserPreferences();
+    }    
 
     /**
      * Show some possibility to select a page for the export of relation schema
