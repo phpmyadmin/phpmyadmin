@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-21 10:31+0200\n"
+"PO-Revision-Date: 2010-07-21 13:55+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1684,10 +1684,9 @@ msgid "MySQL said: "
 msgstr "MySQL hlásí: "
 
 #: libraries/common.lib.php:1136
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Nepodařilo se připojit k MySQL serveru"
+msgstr "Nepodařilo se připojit k serveru ověřujícím SQL!"
 
 #: libraries/common.lib.php:1174 setup/lib/messages.inc.php:350
 msgid "Explain SQL"
