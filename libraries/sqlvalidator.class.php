@@ -34,11 +34,13 @@ if (! defined('PHPMYADMIN')) {
  * Load SOAP client.
  */
 if (class_exists('SOAPClient')) {
+    $GLOBALS['sqlvalidator_error'] = false;
     $GLOBALS['sqlvalidator_soap'] = 'PHP';
 } else {
     @include_once 'SOAP/Client.php';
     if (class_exists('SOAP_Client')) {
         $GLOBALS['sqlvalidator_soap'] = 'PEAR';
+        $GLOBALS['sqlvalidator_error'] = false;
     } else {
         $GLOBALS['sqlvalidator_soap'] = 'NONE';
         $GLOBALS['sqlvalidator_error'] = TRUE;
