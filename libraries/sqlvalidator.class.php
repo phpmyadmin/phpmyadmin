@@ -13,17 +13,8 @@
  * Make sure you have a really recent PHP with PEAR support
  * run this: "pear install Mail_Mime Net_DIME SOAP"
  *
- * If you got this file from somewhere other than phpMyAdmin
- * please be aware that the latest copy will always be in the
- * phpMyAdmin subversion tree as
- *
- * This code that also used to depend on the PHP overload module, but that has been
- * removed now.
- *
  * @access   public
  *
- *
- * @version  $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -134,18 +125,12 @@ if (!$GLOBALS['sqlvalidator_error']) {
                 "a_connectionTechnologyVersion" => $connection_technology_version,
                 "a_interactive" => $interactive,
             );
+
             if ($GLOBALS['sqlvalidator_soap'] == 'PHP') {
                 $ret = $obj->__soapCall("openSession", $use_array);
             } else {
                 $ret = $obj->call("openSession", $use_array);
             }
-
-           // This is the old version that needed the overload extension
-           /* $ret = $obj->openSession($username, $password,
-                                     $calling_program, $calling_program_version,
-                                     $target_dbms, $target_dbms_version,
-                                     $connection_technology, $connection_technology_version,
-                                     $interactive); */
 
             return $ret;
         } // end of the "_openSession()" function
@@ -171,14 +156,13 @@ if (!$GLOBALS['sqlvalidator_error']) {
                 "a_SQL" => $sql,
                 "a_resultType" => $this->output_type,
             );
+
             if ($GLOBALS['sqlvalidator_soap'] == 'PHP') {
                 $res = $obj->__soapCall("validateSQL", $use_array);
             } else {
                 $res = $obj->call("validateSQL", $use_array);
             }
 
-           // This is the old version that needed the overload extension
-           // $res = $obj->validateSQL($session->sessionId, $session->sessionKey, $sql, $this->output_type);
             return $res;
         } // end of the "validateSQL()" function
 
