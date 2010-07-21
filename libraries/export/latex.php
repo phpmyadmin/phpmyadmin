@@ -36,11 +36,11 @@ if (isset($plugin_list)) {
         $plugin_list['latex']['options'][] =
             array('type' => 'bgroup', 'name' => 'structure', 'text' => __('Structure'), 'force' => 'data');
         $plugin_list['latex']['options'][] =
-            array('type' => 'text', 'name' => 'structure_caption', 'text' => __('Table caption'));
+            array('type' => 'text', 'name' => 'structure_caption', 'text' => __('Table caption'), 'doc' => 'faq6_27');
         $plugin_list['latex']['options'][] =
-            array('type' => 'text', 'name' => 'structure_continued_caption', 'text' => __('Continued table caption'));
+            array('type' => 'text', 'name' => 'structure_continued_caption', 'text' => __('Continued table caption'), 'doc' => 'faq6_27');
         $plugin_list['latex']['options'][] =
-            array('type' => 'text', 'name' => 'structure_label', 'text' => __('Label key'));
+            array('type' => 'text', 'name' => 'structure_label', 'text' => __('Label key'), 'doc' => 'faq6_27');
         if (!empty($GLOBALS['cfgRelation']['relation'])) {
             $plugin_list['latex']['options'][] =
                 array('type' => 'bool', 'name' => 'relation', 'text' => __('Relations'));
@@ -60,11 +60,11 @@ if (isset($plugin_list)) {
     $plugin_list['latex']['options'][] =
         array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
     $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'data_caption', 'text' => __('Table caption'));
+        array('type' => 'text', 'name' => 'data_caption', 'text' => __('Table caption'), 'doc' => 'faq6_27');
     $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'data_continued_caption', 'text' => __('Continued table caption'));
+        array('type' => 'text', 'name' => 'data_continued_caption', 'text' => __('Continued table caption'), 'doc' => 'faq6_27');
     $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'data_label', 'text' => __('Label key'));
+        array('type' => 'text', 'name' => 'data_label', 'text' => __('Label key'), 'doc' => 'faq6_27');
     $plugin_list['latex']['options'][] =
         array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by'));
     $plugin_list['latex']['options'][] =
