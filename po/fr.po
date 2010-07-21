@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 10:29+0200\n"
-"PO-Revision-Date: 2010-07-21 14:39+0200\n"
+"PO-Revision-Date: 2010-07-21 14:40+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1014,7 +1014,6 @@ msgid "Choose column to display"
 msgstr "Colonne descriptive"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Générer un mot de passe"
