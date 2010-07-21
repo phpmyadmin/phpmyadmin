@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 10:29+0200\n"
-"PO-Revision-Date: 2010-05-19 13:02+0200\n"
-"Last-Translator: Laurent <laurenti@alblinux.net>\n"
+"PO-Revision-Date: 2010-07-21 14:51+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: albanian <sq@li.org>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
@@ -2746,10 +2746,9 @@ msgid "Table structure for table"
 msgstr "Struktura e tabelës"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Përmbajtja e tabelës __TABLE__"
+msgstr "Përmbajtja e tabelës @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
@@ -8167,108 +8166,3 @@ msgstr "Riemërto tabelën në"
 #~ "I pamundur përdorimi i funksioneve iconv apo libiconv apo recode_string "
 #~ "për shkak se ekstensioni duhet të ngarkohet. Kontrolloni konfigurimin e "
 #~ "php."
-
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Shto një fushë të re"
-
-#~ msgid "Field"
-#~ msgstr "Fusha"
-
-#~ msgid "Records"
-#~ msgstr "Regjistrime"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Fushë që mbaron me"
-
-#~ msgid "Fields"
-#~ msgstr "Fusha"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "Fusha %s u eleminua"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Shiko figurën/jpeg: në linjë"
-
-#, fuzzy
-#~| msgid "\"zipped\""
-#~ msgid "zipped"
-#~ msgstr "\"kompresuar me zip\""
-
-#, fuzzy
-#~| msgid "\"gzipped\""
-#~ msgid "gzipped"
-#~ msgstr "\"kompresuar me gzip\""
-
-#, fuzzy
-#~| msgid "\"bzipped\""
-#~ msgid "bzipped"
-#~ msgstr "\"kompresuar me bzip2\""
-
-#, fuzzy
-#~| msgid "Add custom comment into header (\\n splits lines)"
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr "Shto një koment të personalizuar në header (\\n ndërpret rreshtin)"
-
-#, fuzzy
-#~ msgid "and"
-#~ msgstr "Dhe"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Jo aktiv"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Aktiv"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Riparo tabelën"
-
-#~ msgid "Calendar"
-#~ msgstr "Kalendari"
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Krijo një tregues tek &nbsp;%s&nbsp;columns"
-
-#, fuzzy
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Krijo një faqe të re"
-
-#, fuzzy
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Asnjë lloj"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Rifillo (\"FLUSH\") tabelën"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Përshkrimi"
-
-#, fuzzy
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Asnjë lloj"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Skema e databazës \"%s\" - Faqja %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "Tabela \"%s\" nuk ekziston!"
-
-#~ msgid "running on %s"
-#~ msgstr "në ekzekutim tek %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr ""
-#~ "Faktori i shkallës është shumë i vogël për të plotësuar skemën në faqe"
