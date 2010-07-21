@@ -2844,6 +2844,10 @@ function PMA_expandUserString($string, $escape = NULL) {
     $phpmyadmin_version = 'phpMyAdmin ' . PMA_VERSION;
 
     /* Replacement mapping */
+    /*
+     * The __VAR__ ones are for backward compatibility, because user
+     * might still have it in cookies.
+     */
     $replace = array(
         '@HTTP_HOST@' => $http_host,
         '@SERVER@' => $server_name,
