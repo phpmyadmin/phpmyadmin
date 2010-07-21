@@ -2828,34 +2828,33 @@ $mapping = array(
 }
 
 /**
- * Formats user string, expading @VARIABLES@.
+ * Formats user string, expading @VARIABLES@, accepting strftime format string.
  */
 function PMA_expandUserString($string) {
-    return str_replace(
-        array(
-            '@HTTP_HOST@',
-            '@SERVER@',
-            '__SERVER__',
-            '@VERBOSE@',
-            '@VSERVER@',
-            '@DATABASE@',
-            '__DB__',
-            '@TABLE@',
-            '__TABLE__',
-            '@PHPMYADMIN@',
-            ),
-        array(
-            PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '',
-            $GLOBALS['cfg']['Server']['host'],
-            $GLOBALS['cfg']['Server']['host'],
-            $GLOBALS['cfg']['Server']['verbose'],
-            !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'],
-            $GLOBALS['db'],
-            $GLOBALS['db'],
-            $GLOBALS['table'],
-            $GLOBALS['table'],
-            'phpMyAdmin ' . PMA_VERSION,
-            ),
-        strftime($string));
+    /* Content */
+    $http_host = PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '';
+    $server_name = $GLOBALS['cfg']['Server']['host'];
+    $server_verbose = $GLOBALS['cfg']['Server']['verbose'];
+    $server_verbose_or_name = !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'];
+    $database = $GLOBALS['db'];
+    $table = $GLOBALS['table'];
+    $phpmyadmin_version = 'phpMyAdmin ' . PMA_VERSION;
+
+    /* Replacement mapping */
+    $replace = array(
+            '@HTTP_HOST@' => $http_host,
+            '@SERVER@' => $server_name,
+            '__SERVER__' => $server_name,
+            '@VERBOSE@' => $server_verbose,
+            '@VSERVER@' => $server_verbose_or_name,
+            '@DATABASE@' => $database,
+            '__DB__' => $database,
+            '@TABLE@' => $table,
+            '__TABLE__' => $table,
+            '@PHPMYADMIN@' => $phpmyadmin_version,
+            );
+
+    /* Do the replacement */
+    return str_replace(array_keys($replace), array_values($replace), strftime($string));
 }
 ?>
