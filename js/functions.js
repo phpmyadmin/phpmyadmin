@@ -1778,6 +1778,7 @@ function PMA_ajaxShowMessage(message, timeout) {
     }
     else {
         $("#loading")
+        .clearQueue()
         .html(msg)
         .slideDown('medium')
         .delay(to)
