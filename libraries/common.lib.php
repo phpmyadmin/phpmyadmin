@@ -1130,7 +1130,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($GLOBALS['show_as_php'])) {
             $query_base = '$sql  = "' . $query_base;
         } elseif (! empty($GLOBALS['validatequery'])) {
-            $query_base = PMA_validateSQL($query_base);
+            try {
+                $query_base = PMA_validateSQL($query_base);
+            } catch (Exception $e) {
+                PMA_Message::error(__('Failed to connect to SQL validator!'))->display();
+            }
         } elseif (isset($parsed_sql)) {
             $query_base = PMA_formatSql($parsed_sql, $query_base);
         }
