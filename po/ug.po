@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-20 15:10+0200\n"
-"PO-Revision-Date: 2010-07-20 11:46+0200\n"
-"Last-Translator:  <gheni@yahoo.cn>\n"
+"PO-Revision-Date: 2010-07-21 06:37+0200\n"
+"Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
@@ -500,7 +500,7 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>%s</i>\" نىڭ ئىزلەش نەتىجىسى %s:"
 
 #: db_search.php:242
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
@@ -523,7 +523,7 @@ msgid "Delete"
 msgstr "ئۆچۈرۈش"
 
 #: db_search.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
@@ -804,7 +804,7 @@ msgid "Dump has been saved to file %s."
 msgstr "%s ھۆججىتىدە ساقلاندى."
 
 #: import.php:59
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
@@ -1471,14 +1471,14 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:230
 msgid "Log in"
-msgstr ""
+msgstr "كىرىش"
 
 #: libraries/auth/cookie.auth.lib.php:232
 #: libraries/auth/cookie.auth.lib.php:234
 #: libraries/navigation_header.inc.php:92
 #: libraries/navigation_header.inc.php:94
 msgid "phpMyAdmin documentation"
-msgstr ""
+msgstr "phpMyAdmin ھۆججىتى"
 
 #: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:245
@@ -1487,19 +1487,19 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Server:"
-msgstr ""
+msgstr "مۇلازىمىتېر:"
 
 #: libraries/auth/cookie.auth.lib.php:249
 msgid "Username:"
-msgstr ""
+msgstr "ئابۇنىت ئىسمى:"
 
 #: libraries/auth/cookie.auth.lib.php:253
 msgid "Password:"
-msgstr ""
+msgstr "شىفىر"
 
 #: libraries/auth/cookie.auth.lib.php:260
 msgid "Server Choice"
-msgstr ""
+msgstr "مۇلازىمىتېر تاللاش"
 
 #: libraries/auth/cookie.auth.lib.php:306 libraries/header.inc.php:58
 msgid "Cookies must be enabled past this point."
@@ -1551,15 +1551,15 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:693
 msgid "Play audio"
-msgstr ""
+msgstr "ئاۋاز قۇيۇش"
 
 #: libraries/blobstreaming.lib.php:698
 msgid "View video"
-msgstr ""
+msgstr "سىن قۇيۇش"
 
 #: libraries/blobstreaming.lib.php:702
 msgid "Download file"
-msgstr ""
+msgstr "ھۆججەت چۈشۈرۈش"
 
 #: libraries/common.inc.php:567
 msgid ""
