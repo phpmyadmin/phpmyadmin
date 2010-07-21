@@ -125,41 +125,43 @@ $(document).ready(function() {
                 .append('<span class="original_data">'+data_value+'</span>');
                 $(".original_data").hide();
             }
-            else if($(this).not('.transformed').is('.truncated')) {
-                //handle truncated values
+            else if($(this).is('.truncated, .transformed')) {
+                //handle truncated/transformed values values
                 
                 if(disp_mode == 'vertical') {
                     var this_field = $(this);
                     var field_name = $(this).siblings('th').text();
-                    field_name = $.trim(field_name);
-                    
-                    var sql_query = 'SELECT ' + field_name + ' FROM ' + window.parent.table + ' WHERE ' + where_clause;
-
-                    $.post('sql.php', {
-                        'token' : window.parent.token,
-                        'db' : window.parent.db,
-                        'ajax_request' : true,
-                        'sql_query' : sql_query,
-                        'inline_edit' : true
-                    }, function(data) {
-                        if(data.success == true) {
-                            $(this_field).html('<textarea>'+data.value+'</textarea>')
-                            .append('<span class="original_data">'+data_value+'</span>');
-                            $(".original_data").hide();
-                        }
-                        else {
-                            PMA_ajaxShowMessage(data.error);
-                        }
-                    })
                 }
                 else {
-                    alert('where clause '+where_clause);
-                    //var field_name = $(this).parents('table').find('thead').find('th:nth('+this_row_index+')').html();
-                    //alert(field_name);
+                    var this_field = $(this);
+                    var this_field_index = $(this).index();
+                    if(window.parent.text_dir == 'ltr') {
+                        var field_name = $(this).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
+                    }
+                    else {
+                        var field_name = $(this).parents('table').find('thead').find('th:nth('+ this_field_index+')').text();
+                    }
                 }
-            }
-            else if($(this).is('.transformed')) {
-                //handle transformed values
+
+                field_name = $.trim(field_name);
+                var sql_query = 'SELECT ' + field_name + ' FROM ' + window.parent.table + ' WHERE ' + where_clause;
+
+                $.post('sql.php', {
+                    'token' : window.parent.token,
+                    'db' : window.parent.db,
+                    'ajax_request' : true,
+                    'sql_query' : sql_query,
+                    'inline_edit' : true
+                }, function(data) {
+                    if(data.success == true) {
+                        $(this_field).html('<textarea>'+data.value+'</textarea>')
+                        .append('<span class="original_data">'+data_value+'</span>');
+                        $(".original_data").hide();
+                    }
+                    else {
+                        PMA_ajaxShowMessage(data.error);
+                    }
+                })
             }
             else if($(this).is('.relation')) {
                 //handle relations
@@ -183,7 +185,7 @@ $(document).ready(function() {
         $(input_siblings).each(function() {
             var new_data_value = $(this).find('.original_data').html();
 
-            if($(this).is(':not(.transformed, .relation)')) {
+            if($(this).is(':not(.relation)')) {
                 $(this).html(new_data_value);
             }
         })
