@@ -1706,11 +1706,11 @@ msgstr "Obnovit"
 
 #: libraries/common.lib.php:1237
 msgid "Skip Validate SQL"
-msgstr "Bez kontroly SQL"
+msgstr "Bez ověření SQL"
 
 #: libraries/common.lib.php:1240 setup/lib/messages.inc.php:353 sql.php:517
 msgid "Validate SQL"
-msgstr "Zkontrolovat SQL"
+msgstr "Ověřit SQL"
 
 #: libraries/common.lib.php:1271
 msgid "Inline edit of this query"
