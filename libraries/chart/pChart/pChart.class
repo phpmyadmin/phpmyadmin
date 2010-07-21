@@ -2198,6 +2198,28 @@
           { $XOffset = -$Width; }
 
          imagettftext($this->Picture,$this->FontSize,0,$X+$XOffset,$Y+$YOffset,$C_TextColor,$this->FontName,$Label);
+
+         if ( $this->BuildMap )
+          {
+           $vecX = $X - $XCenter;
+           $vecY = $Y - $YCenter;
+
+           // get a perpendicular vector
+           $vecXtemp = $vecX;
+           $vecX = -$vecY;
+           $vecY = $vecXtemp;
+
+           // normalization
+           $vecLength = sqrt($vecX * $vecX + $vecY * $vecY);
+           $vecX = $vecX / $vecLength;
+           $vecY = $vecY / $vecLength;
+           
+           $offset = 10;
+           $this->addPointToImageMap($X+$vecX*-$offset,$Y+$vecY*-$offset,$Label,'Value','Radar');
+           $this->addPointToImageMap($X+$vecX*+$offset,$Y+$vecY*+$offset,$Label,'Value','Radar');
+           $this->addPointToImageMap($XCenter+$vecX*+$offset,$YCenter+$vecY*+$offset,$Label,'Value','Radar');
+           $this->addPointToImageMap($XCenter+$vecX*-$offset,$YCenter+$vecY*-$offset,$Label,'Value','Radar');
+          }
         }
       }
 
@@ -2748,23 +2770,26 @@
         }
       }
 
+     if ( $this->BuildMap )
+      {
      /* Add points to Image Map.
       * The center point abd the first, middle and last of the arc is taken.
       */
-     foreach ($TopPlots as $key => $PointArr)
-      {
-       // last point of the arc
-       $this->addPointToImageMap($PointArr[count($PointArr)-4],$PointArr[count($PointArr)-3],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+       foreach ($TopPlots as $key => $PointArr)
+        {
+         // last point of the arc
+         $this->addPointToImageMap($PointArr[count($PointArr)-4],$PointArr[count($PointArr)-3],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
 
-       // the point at the middle
-       $this->addPointToImageMap($PointArr[0],$PointArr[1],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+         // the point at the middle
+         $this->addPointToImageMap($PointArr[0],$PointArr[1],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
 
-       // firs point in the arc
-       $this->addPointToImageMap($PointArr[2],$PointArr[3],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+         // firs point in the arc
+         $this->addPointToImageMap($PointArr[2],$PointArr[3],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
 
-       // point in the middle of the arc
-       $middle = count($PointArr)/2;
-       $this->addPointToImageMap($PointArr[$middle + ($middle % 2)],$PointArr[$middle + ($middle % 2)+1],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+         // point in the middle of the arc
+         $middle = count($PointArr)/2;
+         $this->addPointToImageMap($PointArr[$middle + ($middle % 2)],$PointArr[$middle + ($middle % 2)+1],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+        }
       }
      
      /* Draw Top polygons */
