@@ -21,25 +21,7 @@ if ( false === $GLOBALS['cfg']['AllowThirdPartyFraming']) {
 <?php
 }
 // generate title
-$title = str_replace(
-            array(
-                '@HTTP_HOST@',
-                '@SERVER@',
-                '@VERBOSE@',
-                '@VSERVER@',
-                '@DATABASE@',
-                '@TABLE@',
-                '@PHPMYADMIN@',
-                ),
-            array(
-                PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '',
-                isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : '',
-                isset($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : '',
-                !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : (isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : ''),
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                'phpMyAdmin ' . PMA_VERSION,
-                ),
+$title = PMA_expandUserString(
             !empty($GLOBALS['table']) ? $GLOBALS['cfg']['TitleTable'] :
             (!empty($GLOBALS['db']) ? $GLOBALS['cfg']['TitleDatabase'] :
             (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :

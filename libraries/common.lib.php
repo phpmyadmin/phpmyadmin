@@ -2827,4 +2827,29 @@ $mapping = array(
     return $mapping[$target];
 }
 
+/**
+ * Formats user string, expading @VARIABLES@.
+ */
+function PMA_expandUserString($string) {
+    return str_replace(
+        array(
+            '@HTTP_HOST@',
+            '@SERVER@',
+            '@VERBOSE@',
+            '@VSERVER@',
+            '@DATABASE@',
+            '@TABLE@',
+            '@PHPMYADMIN@',
+            ),
+        array(
+            PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '',
+            $GLOBALS['cfg']['Server']['host'],
+            $GLOBALS['cfg']['Server']['verbose'],
+            !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'],
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            'phpMyAdmin ' . PMA_VERSION,
+            ),
+        $string);
+}
 ?>
