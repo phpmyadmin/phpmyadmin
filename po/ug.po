@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-20 15:10+0200\n"
-"PO-Revision-Date: 2010-07-21 04:32+0200\n"
-"Last-Translator:  <gheni@yahoo.cn>\n"
+"PO-Revision-Date: 2010-07-21 06:27+0200\n"
+"Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
@@ -1471,7 +1471,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:230
 msgid "Log in"
-msgstr ""
+msgstr "كىرىش"
 
 #: libraries/auth/cookie.auth.lib.php:232
 #: libraries/auth/cookie.auth.lib.php:234
