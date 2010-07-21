@@ -33,7 +33,7 @@ class PMA_DIA extends XMLWriter
      * Upon instantiation This starts writing the Dia XML document
      *
      * @return void
-     * @see PMA_DIA,Table_Stats,Relation_Stats
+     * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
      */
     function __construct()
     {
@@ -58,7 +58,7 @@ class PMA_DIA extends XMLWriter
      * dia document starts by first initializing dia:diagram tag
      * then dia:diagramdata contains all the attributes that needed
      * to define the document, then finally a Layer starts which
-	 * holds all the objects.
+     * holds all the objects.
      *
      * @param string paper The size of the paper/document
      * @param float topMargin top margin of the paper/document in cm
@@ -165,16 +165,15 @@ class PMA_DIA extends XMLWriter
     /**
      * Output Dia Document for download
      *
-	 * @param string fileName name of the dia document
+     * @param string fileName name of the dia document
      * @return void
      * @access public
      * @see XMLWriter::flush()
      */
     function showOutput($fileName)
     {
-         if(ob_end_clean()){
+         if(ob_get_clean()){
             ob_end_clean();
-            //ob_start();
         }
         //header('Content-type: text/xml');
         header('Content-Disposition: attachment; filename="'.$fileName.'.dia"');
@@ -352,7 +351,7 @@ class Table_Stats
                 <dia:real val="0.10000000000000001"/>
             </dia:attribute>
             <dia:attribute name="name">
-                <dia:string>#'.$this->_tableName.'#</dia:string>
+                <dia:string>#'.$this->tableName.'#</dia:string>
             </dia:attribute>
             <dia:attribute name="comment">
                 <dia:string>##</dia:string>
@@ -388,7 +387,7 @@ class Table_Stats
                 <dia:real val="0.69999999999999996"/>
             </dia:attribute>'
             );
-            
+
         $dia->startElement('dia:attribute');
         $dia->writeAttribute('name', 'attributes');
 
@@ -673,10 +672,10 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         global $dia,$db;
 
         $this->setPageNumber($_POST['pdf_page_number']);
-        $this->setShowGrid($_POST['show_grid']);
+        $this->setShowGrid(isset($_POST['show_grid']));
         $this->setShowColor($_POST['show_color']);
-        $this->setShowKeys($_POST['show_keys']);
-        $this->setOrientation($_POST['orientation']);
+        $this->setShowKeys(isset($_POST['show_keys']));
+        $this->setOrientation(isset($_POST['orientation']));
         $this->setPaper($_POST['paper']);
         $this->setExportType($_POST['export_type']);
 

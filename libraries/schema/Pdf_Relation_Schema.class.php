@@ -808,8 +808,8 @@ class Relation_Stats
         $pdf->PMA_PDF_setLineWidthScale(0.1);
         $pdf->PMA_PDF_lineScale($this->xSrc + $this->srcDir * $this->wTick, $this->ySrc, $this->xDest + $this->destDir * $this->wTick, $this->yDest);
         /*
-		 * Draws arrows ->
-		 */
+         * Draws arrows ->
+         */
         $root2 = 2 * sqrt(2);
         $pdf->PMA_PDF_lineScale($this->xSrc + $this->srcDir * $this->wTick * 0.75, $this->ySrc, $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick, $this->ySrc + $this->wTick / $root2);
         $pdf->PMA_PDF_lineScale($this->xSrc + $this->srcDir * $this->wTick * 0.75, $this->ySrc, $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick, $this->ySrc - $this->wTick / $root2);
@@ -853,11 +853,11 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         global $pdf,$db,$cfgRelation;
 
         $this->setPageNumber($_POST['pdf_page_number']);
-        $this->setShowGrid($_POST['show_grid']);
-        $this->setShowColor($_POST['show_color']);
-        $this->setShowKeys($_POST['show_keys']);
-        $this->setTableDimension($_POST['show_table_dimension']);
-        $this->setAllTableSameWidth($_POST['all_table_same_wide']);
+        $this->setShowGrid(isset($_POST['show_grid']));
+        $this->setShowColor(isset($_POST['show_color']));
+        $this->setShowKeys(isset($_POST['show_keys']));
+        $this->setTableDimension(isset($_POST['show_table_dimension']));
+        $this->setAllTableSameWidth(isset($_POST['all_table_same_wide']));
         $this->setWithDataDictionary($_POST['with_doc']);
         $this->setOrientation($_POST['orientation']);
         $this->setPaper($_POST['paper']);
@@ -950,10 +950,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         print_r(get_object_vars($this));
         print_r(get_object_vars($pdf));
         print '</pre>';
-        exit();
         */
         $this->_drawTables($this->showColor);
         $this->_showOutput($this->pageNumber);
+        exit();
     }
 
     /**

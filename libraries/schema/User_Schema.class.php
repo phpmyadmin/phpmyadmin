@@ -25,24 +25,29 @@ class PMA_User_Schema
     public $autoLayoutInternal;
     public $pageNumber;
     public $c_table_rows;
-
+    public $action;
+    
+    public function setAction($value)
+    {
+        $this->action = $value;
+    }
     /**
      * This function will process the user defined pages
      * and tables which will be exported as Relational schema
      * you can set the table positions on the paper via scratchboard
      * for table positions, put the x,y co-ordinates
      * 
-     * @param string $action It tells what the Schema is supposed to do
+     * @param string $this->action It tells what the Schema is supposed to do
      *                       create and select a page, generate schema etc
      * @access public
      */
 
-    public function processUserPreferences($action)
+    public function processUserPreferences()
     {
         global $action_choose,$db,$cfgRelation,$cfg,$query_default_option;
 
-        if (isset($action)) {
-            switch ($action) {
+        if (isset($this->action)) {
+            switch ($this->action) {
             case 'selectpage':
                 $this->choosenPage = $_REQUEST['chpage'];
                 if ($action_choose=="1") {
@@ -187,7 +192,7 @@ class PMA_User_Schema
      */
     public function showTableDashBoard()
     {
-        global $db,$cfgRelation,$table,$cfg,$with_field_names;
+        global $db,$cfgRelation,$table,$cfg,$with_field_names,$query_default_option;
         /*
          * We will need an array of all tables in this db
          */
@@ -320,7 +325,7 @@ class PMA_User_Schema
                 echo "\n" . '</form>' . "\n\n";
         } // end if
 
-        $this->_deleteTables($db, $this->choosenPage, $tabExist);
+        $this->_deleteTables($db, $this->choosenPage, isset($tabExist));
     }
 
     /** 

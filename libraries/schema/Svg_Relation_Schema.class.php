@@ -172,12 +172,9 @@ class PMA_SVG extends XMLWriter
      */
     function showOutput($fileName)
     {
-        if(ob_end_clean()){
-            ob_end_clean();
-            //ob_start();
-        }
+        ob_get_clean();
         header('Content-type: image/svg+xml');
-        //header('Content-Disposition: attachment; filename="downloaded.svg"');
+        header('Content-Disposition: attachment; filename="'.$fileName.'.svg"');
         $output = $this->flush();
         print $output;
     }
@@ -334,6 +331,7 @@ class Table_Stats
     public $height;
     public $fields = array();
     public $heightCell = 0;
+    public $currentCell = 0;
     public $x, $y;
     public $primary = array();
 
@@ -492,7 +490,7 @@ class Table_Stats
             'fill:none;stroke:black;'
             );
         foreach ($this->fields as $field) {
-                $currentCell += $this->heightCell;
+                $this->currentCell += $this->heightCell;
                 $showColor    = 'none';
                 if ($showColor) {
                     if (in_array($field, $this->primary)) {
@@ -502,12 +500,12 @@ class Table_Stats
                         $showColor = 'none';
                     }
                 }
-                $svg->printElement('rect', $this->x,$this->y  + $currentCell,
+                $svg->printElement('rect', $this->x,$this->y  + $this->currentCell,
                     $this->width, $this->heightCell,
                     NULL,
                     'fill:'.$showColor.';stroke:black;'
                     );
-                $svg->printElement('text', $this->x + 5, $this->y + 14 + $currentCell,
+                $svg->printElement('text', $this->x + 5, $this->y + 14 + $this->currentCell,
                     $this->width, $this->heightCell,
                     $field,
                     'fill:none;stroke:black;'
@@ -717,10 +715,10 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         global $svg,$db;
 
         $this->setPageNumber($_POST['pdf_page_number']);
-        $this->setShowColor($_POST['show_color']);
-        $this->setShowKeys($_POST['show_keys']);
-        $this->setTableDimension($_POST['show_table_dimension']);
-        $this->setAllTableSameWidth($_POST['all_table_same_wide']);
+        $this->setShowColor(isset($_POST['show_color']));
+        $this->setShowKeys(isset($_POST['show_keys']));
+        $this->setTableDimension(isset($_POST['show_table_dimension']));
+        $this->setAllTableSameWidth(isset($_POST['all_table_same_wide']));
         $this->setExportType($_POST['export_type']);
 
         $svg = new PMA_SVG();
