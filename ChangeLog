@@ -93,6 +93,7 @@ $Id$
   navigation.
 + [code] Centralized format string expansion, @VARIABLES@ are recommended way
   now.
++ [validator] SQL validator works also with SOAP PHP extension.
 
 3.3.6.0 (not yet released)
 - bug #3031705 [core] Do not use CONCAT for DECIMAL fields.
