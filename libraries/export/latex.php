@@ -212,8 +212,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 
     $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
     if (isset($GLOBALS['latex_caption'])) {
-        $buffer .= ' \\caption{' . PMA_expandUserString($GLOBALS['latex_data_caption'], 'PMA_texEscape')
-                   . '} \\label{' . PMA_expandUserString($GLOBALS['latex_data_label']) . '} \\\\';
+        $buffer .= ' \\caption{' . PMA_expandUserString($GLOBALS['latex_data_caption'], 'PMA_texEscape', array('table' => $table, 'database' => $db))
+                   . '} \\label{' . PMA_expandUserString($GLOBALS['latex_data_label'], NULL, array('table' => $table, 'database' => $db)) . '} \\\\';
     }
     if (!PMA_exportOutputHandler($buffer)) {
         return FALSE;
@@ -231,7 +231,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             return FALSE;
         }
         if (isset($GLOBALS['latex_caption'])) {
-            if (!PMA_exportOutputHandler('\\caption{' . PMA_expandUserString($GLOBALS['latex_data_continued_caption'], 'PMA_texEscape') . '} \\\\ ')) return FALSE;
+            if (!PMA_exportOutputHandler('\\caption{' . PMA_expandUserString($GLOBALS['latex_data_continued_caption'], 'PMA_texEscape', array('table' => $table, 'database' => $db)) . '} \\\\ ')) return FALSE;
         }
         if (!PMA_exportOutputHandler($buffer . '\\endhead \\endfoot' . $crlf)) {
             return FALSE;
@@ -378,14 +378,14 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 
     // Table caption for first page and label
     if (isset($GLOBALS['latex_caption'])) {
-        $buffer .= ' \\caption{'. PMA_expandUserString($GLOBALS['latex_structure_caption'], 'PMA_texEscape')
-                   . '} \\label{' . PMA_expandUserString($GLOBALS['latex_structure_label'])
+        $buffer .= ' \\caption{'. PMA_expandUserString($GLOBALS['latex_structure_caption'], 'PMA_texEscape', array('table' => $table, 'database' => $db))
+                   . '} \\label{' . PMA_expandUserString($GLOBALS['latex_structure_label'], NULL, array('table' => $table, 'database' => $db))
                    . '} \\\\' . $crlf;
     }
     $buffer .= $header . ' \\\\ \\hline \\hline' . $crlf . '\\endfirsthead' . $crlf;
     // Table caption on next pages
     if (isset($GLOBALS['latex_caption'])) {
-        $buffer .= ' \\caption{'. PMA_expandUserString($GLOBALS['latex_structure_continued_caption'], 'PMA_texEscape')
+        $buffer .= ' \\caption{'. PMA_expandUserString($GLOBALS['latex_structure_continued_caption'], 'PMA_texEscape', array('table' => $table, 'database' => $db))
                    . '} \\\\ ' . $crlf;
     }
     $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ' . $crlf;

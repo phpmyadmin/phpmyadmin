@@ -2832,16 +2832,22 @@ $mapping = array(
  *
  * @param string Text where to do expansion.
  * @param function Function to call for escaping variable values.
+ * @param array Array with overrides for default parameters (obtained from GLOBALS).
  */
-function PMA_expandUserString($string, $escape = NULL) {
+function PMA_expandUserString($string, $escape = NULL, $updates = array()) {
     /* Content */
-    $http_host = PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '';
-    $server_name = $GLOBALS['cfg']['Server']['host'];
-    $server_verbose = $GLOBALS['cfg']['Server']['verbose'];
-    $server_verbose_or_name = !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'];
-    $database = $GLOBALS['db'];
-    $table = $GLOBALS['table'];
-    $phpmyadmin_version = 'phpMyAdmin ' . PMA_VERSION;
+    $vars['http_host'] = PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '';
+    $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
+    $vars['server_verbose'] = $GLOBALS['cfg']['Server']['verbose'];
+    $vars['server_verbose_or_name'] = !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'];
+    $vars['database'] = $GLOBALS['db'];
+    $vars['table'] = $GLOBALS['table'];
+    $vars['phpmyadmin_version'] = 'phpMyAdmin ' . PMA_VERSION;
+
+    /* Update forced variables */
+    foreach($updates as $key => $val) {
+        $vars[$key] = $val;
+    }
 
     /* Replacement mapping */
     /*
@@ -2849,16 +2855,16 @@ function PMA_expandUserString($string, $escape = NULL) {
      * might still have it in cookies.
      */
     $replace = array(
-        '@HTTP_HOST@' => $http_host,
-        '@SERVER@' => $server_name,
-        '__SERVER__' => $server_name,
-        '@VERBOSE@' => $server_verbose,
-        '@VSERVER@' => $server_verbose_or_name,
-        '@DATABASE@' => $database,
-        '__DB__' => $database,
-        '@TABLE@' => $table,
-        '__TABLE__' => $table,
-        '@PHPMYADMIN@' => $phpmyadmin_version,
+        '@HTTP_HOST@' => $vars['http_host'],
+        '@SERVER@' => $vars['server_name'],
+        '__SERVER__' => $vars['server_name'],
+        '@VERBOSE@' => $vars['server_verbose'],
+        '@VSERVER@' => $vars['server_verbose_or_name'],
+        '@DATABASE@' => $vars['database'],
+        '__DB__' => $vars['database'],
+        '@TABLE@' => $vars['table'],
+        '__TABLE__' => $vars['table'],
+        '@PHPMYADMIN@' => $vars['phpmyadmin_version'],
         );
 
     /* Optional escaping */
