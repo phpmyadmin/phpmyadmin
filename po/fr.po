@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 10:29+0200\n"
-"PO-Revision-Date: 2010-07-19 19:46+0200\n"
+"PO-Revision-Date: 2010-07-21 14:39+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -499,12 +499,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Résultats de la recherche de «<i>%s</i>» %s :"
 
 #: db_search.php:242
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s occurence(s) dans la table <i>%s</i>"
-msgstr[1] "%s occurence(s) dans la table <i>%s</i>"
+msgstr[0] "%s occurence dans la table <i>%s</i>"
+msgstr[1] "%s occurences dans la table <i>%s</i>"
 
 #: db_search.php:249 db_structure.php:76 db_structure.php:77
 #: db_structure.php:89 db_structure.php:91 db_structure.php:102
