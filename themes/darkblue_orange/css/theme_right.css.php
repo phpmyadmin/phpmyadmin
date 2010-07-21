@@ -1445,6 +1445,13 @@ fieldset .group-field th {
     padding-left: 1.5em;
 }
 
+fieldset .disabled-field th,
+fieldset .disabled-field th small,
+fieldset .disabled-field td {
+    color: #777;
+    background-color: #eee;
+}
+
 .config-form .lastrow {
     border-top: 1px #000 solid;
 }

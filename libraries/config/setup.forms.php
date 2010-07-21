@@ -106,6 +106,11 @@ $forms['Features']['Warnings'] = array(
     'PmaNoRelation_DisableWarning',
     'SuhosinDisableWarning',
     'McryptDisableWarning');
+$forms['Features']['Developer'] = array(
+    'Error_Handler/display',
+    'Error_Handler/gather',
+    'DBG/sql',
+    'DBG/php');
 $forms['Features']['Other_core_settings'] = array(
     'NaturalOrder',
     'InitialSlidersState',

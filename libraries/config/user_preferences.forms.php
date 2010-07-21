@@ -31,6 +31,20 @@ $forms['Features']['Text_fields'] = array(
     'TextareaCols',
     'TextareaRows',
     'LongtextDoubleTextarea');
+$forms['Features']['Page_titles'] = array(
+    'TitleDefault',
+    'TitleTable',
+    'TitleDatabase',
+    'TitleServer');
+$forms['Features']['Warnings'] = array(
+    'PmaNoRelation_DisableWarning',
+    'SuhosinDisableWarning',
+    'McryptDisableWarning');
+$forms['Features']['Developer'] = array(
+    'Error_Handler/display',
+    'Error_Handler/gather',
+    'DBG/sql',
+    'DBG/php');
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
     'Confirm',
@@ -52,15 +66,6 @@ $forms['Sql_queries']['Sql_validator'] = array(
     'SQLValidator/use',
     'SQLValidator/username',
     'SQLValidator/password');
-$forms['Features']['Page_titles'] = array(
-    'TitleDefault',
-    'TitleTable',
-    'TitleDatabase',
-    'TitleServer');
-$forms['Features']['Warnings'] = array(
-    'PmaNoRelation_DisableWarning',
-    'SuhosinDisableWarning',
-    'McryptDisableWarning');
 $forms['Left_frame']['Left_frame'] = array(
     'LeftFrameLight',
     'LeftDisplayLogo',

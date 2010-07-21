@@ -175,7 +175,6 @@ class FormDisplay
         $this->is_validated = true;
     }
 
-
     /**
      * Outputs HTML for forms
      *
@@ -192,7 +191,6 @@ class FormDisplay
      * @uses PMA_config_get_validators()
      * @uses PMA_jsFormat()
      * @uses PMA_lang()
-     * @uses PMA_read_userprefs_fieldnames()
      * @param bool $tabbed_form
      * @param bool   $show_restore_default  whether show "restore default" button besides the input field
      */
@@ -229,14 +227,9 @@ class FormDisplay
         }
 
         // user preferences
-        if ($this->userprefs_keys === null) {
-            $this->userprefs_keys = array_flip(PMA_read_userprefs_fieldnames());
-            // read real config for user preferences display
-            $userprefs_disallow = defined('PMA_SETUP') && PMA_SETUP
-                ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
-                : $GLOBALS['cfg']['UserprefsDisallow'];
-            $this->userprefs_disallow = array_flip($userprefs_disallow);
-        }
+        $this->_loadUserprefsInfo();
+        $default_disallow = array_flip(
+            ConfigFile::getInstance()->getDefault('UserprefsDisallow', array()));
 
         // display forms
         foreach ($this->forms as $form) {
@@ -252,9 +245,10 @@ class FormDisplay
             foreach ($form->fields as $field => $path) {
                 $work_path = array_search($path, $this->system_paths);
                 $translated_path = $this->translated_paths[$work_path];
-                // always true/false for user preferences display
+                // always true/false/'disable' for user preferences display
+                // otherwise null
                 $userprefs_allow = isset($this->userprefs_keys[$path])
-                    ? !isset($this->userprefs_disallow[$path])
+                    ? (isset($default_disallow[$path]) ? 'disable' : !isset($this->userprefs_disallow[$path]))
                     : null;
                 // display input
                 $this->_displayFieldInput($form, $field, $path, $work_path,
@@ -306,7 +300,8 @@ class FormDisplay
      * @param string $work_path             work path, eg. Servers/4/verbose
      * @param string $translated_path       work path changed so that it can be used as XHTML id
      * @param bool   $show_restore_default  whether show "restore default" button besides the input field
-     * @param mixed  $userprefs_allow       whether user preferences are enabled for this field (null - no support, true/false - enabled/disabled)
+     * @param mixed  $userprefs_allow       whether user preferences are enabled for this field
+     *                                      (null - no support, true/false - enabled/disabled)
      * @param array  &$js_default           array which stores JavaScript code to be displayed
      */
     private function _displayFieldInput(Form $form, $field, $system_path, $work_path,
@@ -490,7 +485,6 @@ class FormDisplay
      * @uses Form::getOptionType()
      * @uses Form::getOptionValueList()
      * @uses PMA_lang_name()
-     * @uses PMA_read_userprefs_fieldnames()
      * @param  array|string  $forms               array of form names
      * @param  bool          $allow_partial_save  allows for partial form saving on failed validation
      * @return boolean  true on success (no errors and all saved)
@@ -504,13 +498,8 @@ class FormDisplay
         $values = array();
         $to_save = array();
         $is_setup_script = defined('PMA_SETUP') && PMA_SETUP;
-        if ($is_setup_script && $this->userprefs_keys === null) {
-            $this->userprefs_keys = array_flip(PMA_read_userprefs_fieldnames());
-            // read real config for user preferences display
-            $userprefs_disallow = $is_setup_script
-                ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
-                : $GLOBALS['cfg']['UserprefsDisallow'];
-            $this->userprefs_disallow = array_flip($userprefs_disallow);
+        if ($is_setup_script) {
+            $this->_loadUserprefsInfo();
         }
 
         $this->errors = array();
@@ -664,7 +653,7 @@ class FormDisplay
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }
-        return 'Documentation.html#cfg_' . self::_getOptName($path);
+        return 'Documentation.html#cfg_' . $this->_getOptName($path);
     }
 
     /**
@@ -675,7 +664,7 @@ class FormDisplay
      */
     public function getWikiLink($path)
     {
-        $opt_name = self::_getOptName($path);
+        $opt_name = $this->_getOptName($path);
         if (substr($opt_name, 0, 7) == 'Servers') {
             $opt_name = substr($opt_name, 8);
             if (strpos($opt_name, 'AllowDeny') === 0) {
@@ -701,11 +690,28 @@ class FormDisplay
      * @param string $path
      * @return string
      */
-    private static function _getOptName($path)
+    private function _getOptName($path)
     {
       return str_replace(
           array('Servers/1/', 'disable/', '/'),
           array('Servers/', '', '_'), $path);
+    }
+
+    /**
+     * Fills out {@link userprefs_keys} and {@link userprefs_disallow}
+     *
+     * @uses PMA_read_userprefs_fieldnames()
+     */
+    private function _loadUserprefsInfo()
+    {
+        if ($this->userprefs_keys === null) {
+            $this->userprefs_keys = array_flip(PMA_read_userprefs_fieldnames());
+            // read real config for user preferences display
+            $userprefs_disallow = defined('PMA_SETUP') && PMA_SETUP
+                ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
+                : $GLOBALS['cfg']['UserprefsDisallow'];
+            $this->userprefs_disallow = array_flip($userprefs_disallow);
+        }
     }
 }
 ?>

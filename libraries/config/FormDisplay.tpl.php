@@ -104,7 +104,8 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  * o errors - error array
  * o setvalue - (string) shows button allowing to set poredefined value
  * o show_restore_default - (boolean) whether show "restore default" button
- * o userprefs_allow - whether user preferences are enabled for this field (null - no support, true/false - enabled/disabled)
+ * o userprefs_allow - whether user preferences are enabled for this field (null - no support,
+ *                     true/false - enabled/disabled, 'disable' - false and field is disabled)
  * o userprefs_comment - (string) field comment
  * o values - key - value paris for <select> fields
  * o values_escaped - (boolean) tells whether values array is already escaped (defaults to false)
@@ -136,21 +137,26 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
             : $_SESSION['PMA_Theme']->img_path;
     }
     $has_errors = isset($opts['errors']) && !empty($opts['errors']);
+    $option_is_disabled = !$is_setup_script && isset($opts['userprefs_allow']) && !$opts['userprefs_allow'];
+    $name_id = 'name="' . htmlspecialchars($path) . '" id="' . htmlspecialchars($path) . '"';
     $field_class = $type == 'checkbox' ? 'checkbox' : '';
     if (!$value_is_default) {
         $field_class .= ($field_class == '' ? '' : ' ') . ($has_errors ? 'custom field-error' : 'custom');
     }
     $field_class = $field_class ? ' class="' . $field_class . '"' : '';
-    $name_id = 'name="' . htmlspecialchars($path) . '" id="' . htmlspecialchars($path) . '"';
-    $tr_class = $_FormDisplayGroup ? ' class="group-field"' : '';
+    $tr_class = $_FormDisplayGroup ? 'group-field' : '';
     if (isset($opts['setvalue']) && $opts['setvalue'] == ':group') {
         unset($opts['setvalue']);
-        $tr_class = ' class="group-header-field"';
+        $tr_class = 'group-header-field';
         if ($_FormDisplayGroup) {
             display_group_footer();
         }
         $_FormDisplayGroup = true;
     }
+    if ($option_is_disabled) {
+        $tr_class .= ($tr_class ? ' ' : '') . 'disabled-field';
+    }
+    $tr_class = $tr_class ? ' class="' . $tr_class . '"' : '';
 ?>
 <tr<?php echo $tr_class ?>>
     <th>
@@ -161,7 +167,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
             <?php if (!empty($opts['wiki'])){ ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><img class="icon" src="<?php echo $img_path ?>b_info.png" width="11" height="11" alt="Wiki" title="Wiki" /></a><?php } ?>
         </span>
         <?php } ?>
-        <?php if (!$is_setup_script && isset($opts['userprefs_allow']) && !$opts['userprefs_allow']) { ?>
+        <?php if ($option_is_disabled) { ?>
             <span class="disabled-notice" title="<?php echo __('This setting is disabled, it will not be applied to your configuration') ?>"><?php echo __('Disabled') ?></span>
         <?php } ?>
         <?php if (!empty($description)) { ?><small><?php echo $description ?></small><?php } ?>
@@ -252,9 +258,14 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     </td>
     <?php
     if ($is_setup_script && isset($opts['userprefs_allow'])) {
+        $disabled = '';
+        if ($opts['userprefs_allow'] === 'disable') {
+            $opts['userprefs_allow'] = false;
+            $disabled = ' disabled="$disabled"';
+        }
     ?>
     <td class="userprefs-allow" title="<?php echo __('Allow users to customize this value') ?>">
-        <input type="checkbox" name="<?php echo $path ?>-userprefs-allow" <?php if ($opts['userprefs_allow']) echo 'checked="checked"' ?> />
+        <input type="checkbox"<?php echo $disabled ?> name="<?php echo $path ?>-userprefs-allow" <?php if ($opts['userprefs_allow']) echo 'checked="checked"' ?> />
     </td>
     <?php
     } else if ($is_setup_script) {

@@ -30,7 +30,7 @@ echo PMA_generate_html_tab(array(
     'link' => 'prefs_manage.php',
     'text' => __('Manage your settings'))) . "\n";
 echo '<li>&nbsp; &nbsp;</li>' . "\n";
-$script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
+$script_name = basename($GLOBALS['PMA_PHP_SELF']);
 foreach (array_keys($forms) as $formset) {
     $tab = array(
         'link' => 'prefs_forms.php',

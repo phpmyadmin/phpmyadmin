@@ -520,18 +520,23 @@ class ConfigFile
             foreach ($var_value as $v) {
                 $retv[] = var_export($v, true);
             }
+            $ret = "\$cfg['$var_name'] = array(";
+            $ret_end = ');' . $crlf;
+            if ($var_name == 'UserprefsDisallow') {
+                $ret = "\$cfg['$var_name'] = array_merge(\$this->settings['UserprefsDisallow'],\n\tarray(";
+                $ret_end = ')' . $ret_end;
+            }
             if (count($retv) <= 4) {
                 // up to 4 values - one line
-                $ret = "\$cfg['$var_name'] = array(" . implode(', ', $retv) . ');' . $crlf;
+                $ret .= implode(', ', $retv);
             } else {
                 // more than 4 values - value per line
-                $ret = "\$cfg['$var_name'] = array(";
                 $imax = count($retv)-1;
                 for ($i = 0; $i <= $imax; $i++) {
                     $ret .= ($i < $imax ? ($i > 0 ? ',' : '') : '') . $crlf . '    ' . $retv[$i];
                 }
-                $ret .= ');' . $crlf;
             }
+            $ret .= $ret_end;
         } else {
             // string keys: $cfg[key][subkey] = value
             foreach ($var_value as $k => $v) {

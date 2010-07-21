@@ -183,6 +183,9 @@ $(function() {
            return;
        }
        var el = $(this).find('input');
+       if (el.attr('disabled')) {
+           return;
+       }
        el.attr('checked', !el.attr('checked'));
    });
 });
