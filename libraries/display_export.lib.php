@@ -147,13 +147,13 @@ echo PMA_pluginGetJavascript($export_list);
         echo __('File name template');
 
         $trans = new PMA_Message;
-        $trans->addMessage('__SERVER__/');
+        $trans->addMessage('@SERVER@/');
         $trans->addString(__('server name'));
         if ($export_type == 'database' || $export_type == 'table') {
-            $trans->addMessage('__DB__/');
+            $trans->addMessage('@DB@/');
             $trans->addString(__('database name'));
             if ($export_type == 'table') {
-                $trans->addMessage('__TABLE__/');
+                $trans->addMessage('@TABLE@/');
                 $trans->addString(__('table name'));
             }
         }
@@ -163,6 +163,7 @@ echo PMA_pluginGetJavascript($export_list);
             . __('Documentation') . '">', false);
         $message->addParam('</a>', false);
         $message->addParam($trans);
+        $message->addMessage(' ' . PMA_showDocu('faq6_27'));
 
         echo PMA_showHint($message);
         ?>

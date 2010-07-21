@@ -10,9 +10,9 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Messages used in default captions */
-$GLOBALS['strLatexContent'] = __('Content of table __TABLE__');
+$GLOBALS['strLatexContent'] = __('Content of table @TABLE@');
 $GLOBALS['strLatexContinued'] = __('(continued)');
-$GLOBALS['strLatexStructure'] = __('Structure of table __TABLE__');
+$GLOBALS['strLatexStructure'] = __('Structure of table @TABLE@');
 
 /**
  *
