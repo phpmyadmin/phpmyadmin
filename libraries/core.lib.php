@@ -279,7 +279,8 @@ function PMA_fatalError($error_message, $message_args = null)
  */
 function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 {
-    $message = sprintf(__('Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] extension. Please check your PHP configuration.'), $extension);
+    $message = sprintf(__('The %s extension is missing. Please check your PHP configuration.'),
+        sprintf('[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a]', $extension));
     if ($extra != '') {
         $message .= ' ' . $extra;
     }
