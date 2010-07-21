@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 10:29+0200\n"
-"PO-Revision-Date: 2010-06-03 21:04+0200\n"
-"Last-Translator:  <canin@in.com>\n"
+"PO-Revision-Date: 2010-07-21 14:44+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -2779,10 +2779,9 @@ msgid "Table structure for table"
 msgstr "Tabellenstruktur für Tabelle"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Inhalt der Tabelle __TABLE__"
+msgstr "Inhalt der Tabelle @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
@@ -8603,38 +8602,3 @@ msgstr "View umbenennen in"
 
 #~ msgid "Default character set"
 #~ msgstr "Standardzeichensatz"
-
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Neue Felder hinzufügen"
-
-#~ msgid "Field"
-#~ msgstr "Feld"
-
-#~ msgid "Records"
-#~ msgstr "Einträge"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Felder getrennt mit"
-
-#~ msgid "Fields"
-#~ msgstr "Felder"
-
-#~ msgid "Add %s field(s)"
-#~ msgstr "%s Felder hinzufügen"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "Spalte %s wurde entfernt."
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Siehe image/jpeg: inline"
-
-#~ msgid "zipped"
-#~ msgstr "Zip-komprimiert"
-
-#~ msgid "gzipped"
-#~ msgstr "GZip-komprimiert"
-
-#~ msgid "bzipped"
-#~ msgstr "BZip-komprimiert"
