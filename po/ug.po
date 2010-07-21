@@ -1495,7 +1495,7 @@ msgstr "ئابۇنىت ئىسمى:"
 
 #: libraries/auth/cookie.auth.lib.php:253
 msgid "Password:"
-msgstr ""
+msgstr "شىفىر"
 
 #: libraries/auth/cookie.auth.lib.php:260
 msgid "Server Choice"
