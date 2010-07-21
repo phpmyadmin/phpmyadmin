@@ -807,7 +807,7 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"سىز يوللىماقچى بولغان ھۆججەت بەك چوڭكەن، %ياردەم%s ھۆججىتىدىن ھەل قىلىش "
+"سىز يوللىماقچى بولغان ھۆججەت بەك چوڭكەن، %sياردەم%s ھۆججىتىدىن ھەل قىلىش "
 "چارىسىنى كۆرۈڭ."
 
 #: import.php:278 import.php:331 libraries/File.class.php:840
