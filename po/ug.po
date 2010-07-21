@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-20 15:10+0200\n"
-"PO-Revision-Date: 2010-07-21 06:31+0200\n"
+"PO-Revision-Date: 2010-07-21 06:32+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1499,7 +1499,7 @@ msgstr "شىفىر"
 
 #: libraries/auth/cookie.auth.lib.php:260
 msgid "Server Choice"
-msgstr ""
+msgstr "مۇلازىمىتېر تاللاش"
 
 #: libraries/auth/cookie.auth.lib.php:306 libraries/header.inc.php:58
 msgid "Cookies must be enabled past this point."
