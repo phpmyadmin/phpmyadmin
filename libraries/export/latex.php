@@ -81,12 +81,12 @@ if (isset($plugin_list)) {
  * @access  private
  */
 function PMA_texEscape($string) {
-   $escape = array('$', '%', '{', '}',  '&',  '#', '_', '^');
-   $cnt_escape = count($escape);
-   for ($k=0; $k < $cnt_escape; $k++) {
-      $string = str_replace($escape[$k], '\\' . $escape[$k], $string);
-   }
-   return $string;
+    $escape = array('$', '%', '{', '}',  '&',  '#', '_', '^');
+    $cnt_escape = count($escape);
+    for ($k=0; $k < $cnt_escape; $k++) {
+        $string = str_replace($escape[$k], '\\' . $escape[$k], $string);
+    }
+    return $string;
 }
 
 /**

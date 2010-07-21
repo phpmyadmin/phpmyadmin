@@ -2842,18 +2842,19 @@ function PMA_expandUserString($string, $escape = NULL) {
 
     /* Replacement mapping */
     $replace = array(
-            '@HTTP_HOST@' => $http_host,
-            '@SERVER@' => $server_name,
-            '__SERVER__' => $server_name,
-            '@VERBOSE@' => $server_verbose,
-            '@VSERVER@' => $server_verbose_or_name,
-            '@DATABASE@' => $database,
-            '__DB__' => $database,
-            '@TABLE@' => $table,
-            '__TABLE__' => $table,
-            '@PHPMYADMIN@' => $phpmyadmin_version,
-            );
+        '@HTTP_HOST@' => $http_host,
+        '@SERVER@' => $server_name,
+        '__SERVER__' => $server_name,
+        '@VERBOSE@' => $server_verbose,
+        '@VSERVER@' => $server_verbose_or_name,
+        '@DATABASE@' => $database,
+        '__DB__' => $database,
+        '@TABLE@' => $table,
+        '__TABLE__' => $table,
+        '@PHPMYADMIN@' => $phpmyadmin_version,
+        );
 
+    /* Optional escaping */
     if (!is_null($escape)) {
         foreach($replace as $key => $val) {
             $replace[$key] = $escape($val);
