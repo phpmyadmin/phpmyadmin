@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-03-31 10:40+0200\n"
-"Last-Translator:  <hey_neken@mundurat.net>\n"
+"PO-Revision-Date: 2010-07-21 14:53+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
@@ -2761,20 +2761,18 @@ msgid "Table structure for table"
 msgstr "Taularen egitura taula honentzat: "
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "__TABLE__ taularen edukina"
+msgstr "@TABLE@ taularen edukina"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
 msgstr ""
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "__TABLE__ taularen egitura"
+msgstr "@TABLE@ taularen egitura"
 
 #: libraries/export/latex.php:26
 msgid "LaTeX"
@@ -8187,252 +8185,3 @@ msgstr "Taula berrizendatu izen honetara: "
 #~ "Ezin dira erabili ez iconv, ez libiconv ezta recode_string funtzioa "
 #~ "luzapenen txostena kargatzen den bitartean. Berpasatu php-ren "
 #~ "konfigurazioa."
-
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Eremu berria gehitu"
-
-#~ msgid "Field"
-#~ msgstr "Eremua"
-
-#~ msgid "Records"
-#~ msgstr "Erregistroak"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Eremuak honekin bukatuak:"
-
-#~ msgid "Fields"
-#~ msgstr "Eremuak"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "%s eremua ezabatu da"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Ikusi image/jpeg: inline"
-
-#, fuzzy
-#~| msgid "\"zipped\""
-#~ msgid "zipped"
-#~ msgstr "\"zipatuta\""
-
-#, fuzzy
-#~| msgid "\"gzipped\""
-#~ msgid "gzipped"
-#~ msgstr "\"gzip-ez trinkotuta\""
-
-#, fuzzy
-#~| msgid "\"bzipped\""
-#~ msgid "bzipped"
-#~ msgstr "\"Bzip-ez trinkotua\""
-
-#~ msgid "and"
-#~ msgstr "eta"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Ezgaituta"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Gaituta"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Taula konpondu"
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Indize bat sortu &nbsp;%s&nbsp; zutabetan"
-
-#, fuzzy
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Orri berri bat sortu"
-
-#, fuzzy
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Batez"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Taularen cachea hustu (\"FLUSH\")"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Deskribapena"
-
-#, fuzzy
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Batez"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "\"%s\" datu-basearen eskema- Orria %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "\"%s\" taula ez da existitzen!"
-
-#~ msgid "running on %s"
-#~ msgstr "hemen ibiltzen: %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "Eskalaren faktorea txikiegia da eskema orri bakar batean azaltzeko"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Batez"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "Batez"
-
-#, fuzzy
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "&quot;%s&quot; datu-basearen pribilegioak egiaztatu."
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "\"%s\" taula ez da existitzen!"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "ezinezkoa %s luzapena kargatzea ,<br />mesedez, berpasatu zure PHPren "
-#~ "konfigurazioa."
-
-#, fuzzy
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Ezinezkoa MySql zerbitzarian saioa hastea"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Baliteke zuk SQL analizatzailean errore bat topatu izana. Mesedez arretaz "
-#~ "aztertu zure kontsulta, eta egiaztatu komatxoak zuzen erabiliak eta "
-#~ "bikoitiak direla. Akatsaren bestelako jatorri bat izan liteke zu datu "
-#~ "binariodun fitxategi bat igotzen saiatzea mugatutako testu-eremutik at. "
-#~ "Zure kontsulta MySQL-ren komando-interfazean ere exekutatzen saia "
-#~ "zenezake. MySql zeritzariak itzulitako erroreak, baldin badago, arazoa "
-#~ "diagnostikatzen lagundu zaitzake. Arazoak bere horretan badirau edota "
-#~ "komando-interfazeak arrakasta duen lekuan analizatzaileak huts egiten "
-#~ "badu, mesedez murriztu ezazu zure SQL kontsulta arazoa sortzen duen "
-#~ "zatira, eta bidal ezazu errore-txosten bat behean seinalaturiko MOZKETA "
-#~ "atalean datu-katea paratuz:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV datuak"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Erabiltzaileak ezabatu eta ondoren pribilegioak berkargatu."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Hau da biderik garbiena, baina pribilegioak berkargatzeak denbora behar "
-#~ "du."
-
-#~ msgid "has been altered."
-#~ msgstr "aldatua izan da."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "&quot;Ezabatutako&quot; erabiltzaileak ohizko eran zerbitzarira sartzeko "
-#~ "aukera izaten jarraituko dute harik eta pribilegioak berkargatu arte."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Pribilegioen taulatik erabiltzaileak ezabatzea besterik ez duzu."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Gordetako prozedurak exekutatzea baimentzen du; Ez du eraginik MySQL "
-#~ "bertsio honetan."
-
-#~ msgid "Process list"
-#~ msgstr "Prozesuen zerrenda"
-
-#, fuzzy
-#~ msgid "Reload privileges"
-#~ msgstr "Pribilegio orokorrak"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Erabiltzaileak USAGE pribilegioa izaten jarraituko dute harik eta "
-#~ "pribilegioak berkargatu arte."
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "Dena hautatu"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "Dena hautatu"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "Txertatu"
-
-#, fuzzy
-#~| msgid "Update Query"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "Kontsulta eguneratu"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "Ezabatu"
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
-
-#~ msgid "Jan0"
-#~ msgstr "Urt0"
-
-#~ msgid "Jan1"
-#~ msgstr "Urt1"
-
-#~ msgid "Jan2"
-#~ msgstr "Urt2"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-19 19:46+0200\n"
+"PO-Revision-Date: 2010-07-21 14:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -499,12 +499,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Résultats de la recherche de «<i>%s</i>» %s :"
 
 #: db_search.php:242
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s occurence(s) dans la table <i>%s</i>"
-msgstr[1] "%s occurence(s) dans la table <i>%s</i>"
+msgstr[0] "%s occurence dans la table <i>%s</i>"
+msgstr[1] "%s occurences dans la table <i>%s</i>"
 
 #: db_search.php:249 db_structure.php:76 db_structure.php:77
 #: db_structure.php:89 db_structure.php:91 db_structure.php:102
@@ -523,12 +523,12 @@ msgid "Delete"
 msgstr "Effacer"
 
 #: db_search.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total :</b> <i>%s</i> occurence(s)"
-msgstr[1] "<b>Total :</b> <i>%s</i> occurence(s)"
+msgstr[0] "<b>Total :</b> <i>%s</i> occurence"
+msgstr[1] "<b>Total :</b> <i>%s</i> occurences"
 
 #: db_search.php:281
 msgid "Search in database"
@@ -1014,7 +1014,6 @@ msgid "Choose column to display"
 msgstr "Colonne descriptive"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Générer un mot de passe"
@@ -1842,7 +1841,7 @@ msgstr "Opérations"
 #: libraries/core.lib.php:282 libraries/dbg/setup.php:21
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "Il manque l'extension %s. Veuillez vérifier votre configuration PHP."
 
 #: libraries/db_events.inc.php:19 libraries/db_events.inc.php:21
 #: libraries/export/sql.php:412
@@ -2770,20 +2769,18 @@ msgid "Table structure for table"
 msgstr "Structure de la table"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Contenu de la table __TABLE__"
+msgstr "Contenu de la table @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
 msgstr "(suite)"
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "Structure de la table __TABLE__"
+msgstr "Structure de la table @TABLE@"
 
 #: libraries/export/latex.php:26
 msgid "LaTeX"
