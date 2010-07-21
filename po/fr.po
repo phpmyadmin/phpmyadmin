@@ -523,12 +523,12 @@ msgid "Delete"
 msgstr "Effacer"
 
 #: db_search.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total :</b> <i>%s</i> occurence(s)"
-msgstr[1] "<b>Total :</b> <i>%s</i> occurence(s)"
+msgstr[0] "<b>Total :</b> <i>%s</i> occurence"
+msgstr[1] "<b>Total :</b> <i>%s</i> occurences"
 
 #: db_search.php:281
 msgid "Search in database"
