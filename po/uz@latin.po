@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-21 10:29+0200\n"
+"POT-Creation-Date: 2010-07-21 13:53+0200\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Show all"
 msgstr "Barchasini ko‘rsatish"
 
-#: browse_foreigners.php:81 libraries/common.lib.php:2301
+#: browse_foreigners.php:81 libraries/common.lib.php:2313
 #: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:393
 #: libraries/export/pdf.php:146 pdf_schema.php:282 pdf_schema.php:1122
 #: pdf_schema.php:1138
@@ -37,8 +37,8 @@ msgstr ""
 
 #: browse_foreigners.php:149 db_structure.php:78 db_structure.php:79
 #: db_structure.php:90 db_structure.php:92 db_structure.php:103
-#: db_structure.php:105 libraries/common.lib.php:2817
-#: libraries/common.lib.php:2824 libraries/db_links.inc.php:74
+#: db_structure.php:105 libraries/common.lib.php:2829
+#: libraries/common.lib.php:2836 libraries/db_links.inc.php:74
 #: libraries/tbl_links.inc.php:62
 msgid "Search"
 msgstr "Qidirish"
@@ -48,7 +48,7 @@ msgstr "Qidirish"
 #: db_structure.php:566 js/messages.php:48 libraries/Config.class.php:1043
 #: libraries/Theme_Manager.class.php:310
 #: libraries/auth/cookie.auth.lib.php:278 libraries/common.lib.php:712
-#: libraries/common.lib.php:1328 libraries/common.lib.php:2277
+#: libraries/common.lib.php:1340 libraries/common.lib.php:2289
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
 #: libraries/display_export.lib.php:275 libraries/display_import.lib.php:275
@@ -279,7 +279,7 @@ msgstr "Nusxa olingan ma`lumotlar bazasiga o‘tish"
 msgid "BLOB Repository"
 msgstr "BLOB ombori"
 
-#: db_operations.php:539 db_tracking.php:75 libraries/common.lib.php:1345
+#: db_operations.php:539 db_tracking.php:75 libraries/common.lib.php:1357
 #: libraries/server_links.inc.php:48 server_processlist.php:58
 #: tbl_tracking.php:595 test/theme.php:100
 msgid "Status"
@@ -478,7 +478,7 @@ msgstr "Jadvallarni ishlatish"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "<b>\"%s\"</b> ma`lumotlar bazasiga SQL-so‘rov: "
 
-#: db_qbe.php:933 libraries/common.lib.php:1218
+#: db_qbe.php:933 libraries/common.lib.php:1222
 msgid "Submit Query"
 msgstr "so‘rovni bajarish"
 
@@ -520,7 +520,7 @@ msgstr[1] "<i>\"%s\"</i> jadvalida o‘xshashliklar soni \"%s\" ta"
 
 #: db_search.php:249 db_structure.php:76 db_structure.php:77
 #: db_structure.php:89 db_structure.php:91 db_structure.php:102
-#: db_structure.php:104 libraries/common.lib.php:2819
+#: db_structure.php:104 libraries/common.lib.php:2831
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:49
 #: tbl_structure.php:36 tbl_structure.php:48 tbl_structure.php:466
 msgid "Browse"
@@ -571,13 +571,13 @@ msgstr "Quyidagi maydon(lar)da qidirish: "
 
 #: db_structure.php:80 db_structure.php:81 db_structure.php:93
 #: db_structure.php:94 db_structure.php:106 db_structure.php:107
-#: libraries/common.lib.php:2818 libraries/sql_query_form.lib.php:324
+#: libraries/common.lib.php:2830 libraries/sql_query_form.lib.php:324
 #: libraries/sql_query_form.lib.php:327 libraries/tbl_links.inc.php:75
 msgid "Insert"
 msgstr "Qo‘yish"
 
 #: db_structure.php:82 db_structure.php:95 db_structure.php:108
-#: libraries/common.lib.php:2815 libraries/common.lib.php:2822
+#: libraries/common.lib.php:2827 libraries/common.lib.php:2834
 #: libraries/db_links.inc.php:62 libraries/export/htmlword.php:22
 #: libraries/export/latex.php:37 libraries/export/latex.php:341
 #: libraries/export/odt.php:31 libraries/export/sql.php:59
@@ -590,7 +590,7 @@ msgstr "Tuzilishi"
 #: db_structure.php:83 db_structure.php:84 db_structure.php:96
 #: db_structure.php:97 db_structure.php:109 db_structure.php:110
 #: db_structure.php:544 db_structure.php:545 db_tracking.php:90
-#: libraries/Index.class.php:482 libraries/common.lib.php:1647
+#: libraries/Index.class.php:482 libraries/common.lib.php:1659
 #: libraries/db_links.inc.php:99 libraries/mult_submits.inc.php:35
 #: libraries/mult_submits.inc.php:72 libraries/tbl_links.inc.php:126
 #: server_databases.php:351 tbl_structure.php:26 tbl_structure.php:150
@@ -600,7 +600,7 @@ msgstr "O‘chirish"
 
 #: db_structure.php:85 db_structure.php:86 db_structure.php:98
 #: db_structure.php:99 db_structure.php:111 db_structure.php:112
-#: db_structure.php:542 db_structure.php:543 libraries/common.lib.php:1646
+#: db_structure.php:542 db_structure.php:543 libraries/common.lib.php:1658
 #: libraries/mult_submits.inc.php:38 libraries/tbl_links.inc.php:104
 msgid "Empty"
 msgstr "Tozalash"
@@ -1056,8 +1056,8 @@ msgid "Prev"
 msgstr "Orqaga"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:81 libraries/common.lib.php:2341
-#: libraries/common.lib.php:2344 libraries/display_tbl.lib.php:337
+#: js/messages.php:81 libraries/common.lib.php:2353
+#: libraries/common.lib.php:2356 libraries/display_tbl.lib.php:337
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:422
 #: tbl_structure.php:800
 msgid "Next"
@@ -1133,27 +1133,27 @@ msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:101 libraries/common.lib.php:1550
+#: js/messages.php:101 libraries/common.lib.php:1562
 msgid "Jan"
 msgstr "Yanv"
 
 #. l10n: Short month name
-#: js/messages.php:103 libraries/common.lib.php:1552
+#: js/messages.php:103 libraries/common.lib.php:1564
 msgid "Feb"
 msgstr "Fev"
 
 #. l10n: Short month name
-#: js/messages.php:105 libraries/common.lib.php:1554
+#: js/messages.php:105 libraries/common.lib.php:1566
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:107 libraries/common.lib.php:1556
+#: js/messages.php:107 libraries/common.lib.php:1568
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:109 libraries/common.lib.php:1558
+#: js/messages.php:109 libraries/common.lib.php:1570
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1161,37 +1161,37 @@ msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/common.lib.php:1560
+#: js/messages.php:111 libraries/common.lib.php:1572
 msgid "Jun"
 msgstr "Iyun"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/common.lib.php:1562
+#: js/messages.php:113 libraries/common.lib.php:1574
 msgid "Jul"
 msgstr "Iyul"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1564
+#: js/messages.php:115 libraries/common.lib.php:1576
 msgid "Aug"
 msgstr "Avg"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1566
+#: js/messages.php:117 libraries/common.lib.php:1578
 msgid "Sep"
 msgstr "Sen"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1568
+#: js/messages.php:119 libraries/common.lib.php:1580
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/common.lib.php:1570
+#: js/messages.php:121 libraries/common.lib.php:1582
 msgid "Nov"
 msgstr "Noya"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/common.lib.php:1572
+#: js/messages.php:123 libraries/common.lib.php:1584
 msgid "Dec"
 msgstr "Dek"
 
@@ -1232,37 +1232,37 @@ msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:136 libraries/common.lib.php:1575
+#: js/messages.php:136 libraries/common.lib.php:1587
 msgid "Sun"
 msgstr "Yaksh"
 
 #. l10n: Short week day name
-#: js/messages.php:138 libraries/common.lib.php:1577
+#: js/messages.php:138 libraries/common.lib.php:1589
 msgid "Mon"
 msgstr "Dush"
 
 #. l10n: Short week day name
-#: js/messages.php:140 libraries/common.lib.php:1579
+#: js/messages.php:140 libraries/common.lib.php:1591
 msgid "Tue"
 msgstr "Sesh"
 
 #. l10n: Short week day name
-#: js/messages.php:142 libraries/common.lib.php:1581
+#: js/messages.php:142 libraries/common.lib.php:1593
 msgid "Wed"
 msgstr "Chor"
 
 #. l10n: Short week day name
-#: js/messages.php:144 libraries/common.lib.php:1583
+#: js/messages.php:144 libraries/common.lib.php:1595
 msgid "Thu"
 msgstr "Pay"
 
 #. l10n: Short week day name
-#: js/messages.php:146 libraries/common.lib.php:1585
+#: js/messages.php:146 libraries/common.lib.php:1597
 msgid "Fri"
 msgstr "Jum"
 
 #. l10n: Short week day name
-#: js/messages.php:148 libraries/common.lib.php:1587
+#: js/messages.php:148 libraries/common.lib.php:1599
 msgid "Sat"
 msgstr "Shan"
 
@@ -1413,7 +1413,7 @@ msgid "Comment"
 msgstr "Izoh"
 
 #: libraries/Index.class.php:465 libraries/common.lib.php:609
-#: libraries/common.lib.php:1194 libraries/display_tbl.lib.php:1116
+#: libraries/common.lib.php:1198 libraries/display_tbl.lib.php:1116
 #: libraries/import.lib.php:1119 libraries/import.lib.php:1143
 #: pdf_pages.php:284 setup/frames/index.inc.php:124
 #: setup/lib/messages.inc.php:349 tbl_row_action.php:68
@@ -1768,140 +1768,146 @@ msgstr "SQL so‘rovi"
 msgid "MySQL said: "
 msgstr "MySQL javobi: "
 
-#: libraries/common.lib.php:1170 setup/lib/messages.inc.php:350
+#: libraries/common.lib.php:1136
+#, fuzzy
+#| msgid "Could not connect to MySQL server"
+msgid "Failed to connect to SQL validator!"
+msgstr "MySQL-serverga ulanib bo‘lmadi"
+
+#: libraries/common.lib.php:1174 setup/lib/messages.inc.php:350
 msgid "Explain SQL"
 msgstr "So‘rov tahlili"
 
-#: libraries/common.lib.php:1173
+#: libraries/common.lib.php:1177
 msgid "Skip Explain SQL"
 msgstr "Tahlil kerak emas"
 
-#: libraries/common.lib.php:1207
+#: libraries/common.lib.php:1211
 msgid "Without PHP Code"
 msgstr "PHP-kod olib tashlash"
 
-#: libraries/common.lib.php:1210 setup/lib/messages.inc.php:352
+#: libraries/common.lib.php:1214 setup/lib/messages.inc.php:352
 msgid "Create PHP Code"
 msgstr "PHP-kod"
 
-#: libraries/common.lib.php:1228 server_status.php:451
+#: libraries/common.lib.php:1232 server_status.php:451
 #: setup/lib/messages.inc.php:351
 msgid "Refresh"
 msgstr "Yangilash"
 
-#: libraries/common.lib.php:1237
+#: libraries/common.lib.php:1241
 msgid "Skip Validate SQL"
 msgstr "SQL sintaksisi tekshiruvini olib tashlash"
 
-#: libraries/common.lib.php:1240 setup/lib/messages.inc.php:353 sql.php:517
+#: libraries/common.lib.php:1244 setup/lib/messages.inc.php:353
 msgid "Validate SQL"
 msgstr "SQL to‘g‘riligini tekshirish"
 
-#: libraries/common.lib.php:1271
+#: libraries/common.lib.php:1283
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/common.lib.php:1273
+#: libraries/common.lib.php:1285
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline"
 msgstr "Jadval turlari"
 
-#: libraries/common.lib.php:1327 libraries/common.lib.php:1342
+#: libraries/common.lib.php:1339 libraries/common.lib.php:1354
 msgid "Profiling"
 msgstr "Profillashtirish"
 
-#: libraries/common.lib.php:1346 libraries/tbl_triggers.lib.php:27
+#: libraries/common.lib.php:1358 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:57
 msgid "Time"
 msgstr "Vaqt"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1374
+#: libraries/common.lib.php:1386
 msgid "B"
 msgstr "Bayt"
 
-#: libraries/common.lib.php:1374
+#: libraries/common.lib.php:1386
 msgid "KiB"
 msgstr "KB"
 
-#: libraries/common.lib.php:1374
+#: libraries/common.lib.php:1386
 msgid "MiB"
 msgstr "MB"
 
-#: libraries/common.lib.php:1374
+#: libraries/common.lib.php:1386
 msgid "GiB"
 msgstr "GB"
 
-#: libraries/common.lib.php:1374
+#: libraries/common.lib.php:1386
 msgid "TiB"
 msgstr "TB"
 
-#: libraries/common.lib.php:1374
+#: libraries/common.lib.php:1386
 msgid "PiB"
 msgstr "PB"
 
-#: libraries/common.lib.php:1374
+#: libraries/common.lib.php:1386
 msgid "EiB"
 msgstr "EB"
 
 #. l10n: Thousands separator
-#: libraries/common.lib.php:1412
+#: libraries/common.lib.php:1424
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: libraries/common.lib.php:1414
+#: libraries/common.lib.php:1426
 msgid "."
 msgstr ","
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1591
+#: libraries/common.lib.php:1603
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y y., %H:%M"
 
-#: libraries/common.lib.php:1897
+#: libraries/common.lib.php:1909
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "\"%s\" kun, \"%s\" soat, \"%s\" minut va \"%s\" sekund"
 
-#: libraries/common.lib.php:2310 libraries/common.lib.php:2313
+#: libraries/common.lib.php:2322 libraries/common.lib.php:2325
 #: libraries/display_tbl.lib.php:289 server_status.php:718
 msgid "Begin"
 msgstr "Boshi"
 
-#: libraries/common.lib.php:2311 libraries/common.lib.php:2314
+#: libraries/common.lib.php:2323 libraries/common.lib.php:2326
 #: libraries/display_tbl.lib.php:290 server_binlog.php:154
 #: server_binlog.php:156
 msgid "Previous"
 msgstr "Orqaga"
 
-#: libraries/common.lib.php:2342 libraries/common.lib.php:2345
+#: libraries/common.lib.php:2354 libraries/common.lib.php:2357
 #: libraries/display_tbl.lib.php:352
 msgid "End"
 msgstr "Oxiri"
 
-#: libraries/common.lib.php:2417
+#: libraries/common.lib.php:2429
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr " \"%s\" ma`lumotlar bazasiga o‘tish"
 
-#: libraries/common.lib.php:2436
+#: libraries/common.lib.php:2448
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 " \"%s\" parametrining ishi ma`lum xatolikka olib kelishi mumkin, batafsil "
 "ma`lumot uchun qarang \"%s\""
 
-#: libraries/common.lib.php:2816 libraries/common.lib.php:2823
+#: libraries/common.lib.php:2828 libraries/common.lib.php:2835
 #: libraries/db_links.inc.php:67 libraries/export/sql.php:24
 #: libraries/import/sql.php:17 libraries/server_links.inc.php:44
 #: libraries/tbl_links.inc.php:59 querywindow.php:89 test/theme.php:96
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2825 libraries/db_links.inc.php:103
+#: libraries/common.lib.php:2837 libraries/db_links.inc.php:103
 #: libraries/tbl_links.inc.php:94 libraries/tbl_links.inc.php:116
 #: view_operations.php:88
 msgid "Operations"
@@ -8143,6 +8149,12 @@ msgstr "PHP-kod sifatida ko‘rsatish"
 #: sql.php:515 tbl_replace.php:359
 msgid "Showing SQL query"
 msgstr "SQL-so‘rovni ko‘rsatish"
+
+#: sql.php:517
+#, fuzzy
+#| msgid "Validate SQL"
+msgid "Validated SQL"
+msgstr "SQL to‘g‘riligini tekshirish"
 
 #: sql.php:638
 #, php-format
