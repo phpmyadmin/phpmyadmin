@@ -1891,6 +1891,9 @@ $(document).ready(function() {
                     .removeClass('odd').addClass('even')
                     .end().find('tr:odd')
                     .removeClass('even').addClass('odd');
+
+                    //Refresh navigation frame
+                    window.parent.refreshNavigation();
                 }
                 else {
                     PMA_ajaxShowMessage(data.error);
