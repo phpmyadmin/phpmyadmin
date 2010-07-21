@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-20 15:10+0200\n"
+"POT-Creation-Date: 2010-07-21 08:57+0200\n"
 "PO-Revision-Date: 2010-06-16 18:18+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -1801,12 +1801,8 @@ msgstr "테이블 작업"
 
 #: libraries/core.lib.php:282 libraries/dbg/setup.php:21
 #, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
+msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
-"[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] 확장모듈을 불러올 수 "
-"없습니다. PHP 설정을 확인해주세요."
 
 #: libraries/db_events.inc.php:19 libraries/db_events.inc.php:21
 #: libraries/export/sql.php:412
@@ -7961,6 +7957,13 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "테이블 이름 바꾸기"
+
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "extension. Please check your PHP configuration."
+#~ msgstr ""
+#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] 확장모듈을 불러올 "
+#~ "수 없습니다. PHP 설정을 확인해주세요."
 
 #~ msgid ""
 #~ "Couldn't use the iconv, libiconv, or recode_string functions, although "

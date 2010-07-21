@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-20 15:10+0200\n"
+"POT-Creation-Date: 2010-07-21 08:57+0200\n"
 "PO-Revision-Date: 2010-07-21 06:37+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -501,7 +501,6 @@ msgstr "\"<i>%s</i>\" نىڭ ئىزلەش نەتىجىسى %s:"
 
 #: db_search.php:242
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s ئۇيغۇنلۇق تىپىلدى، جەدۋىلى <i>%s</i>"
@@ -524,7 +523,6 @@ msgstr "ئۆچۈرۈش"
 
 #: db_search.php:267
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>جەمئىي:</b> <i>%s</i> ئوخشاشلىق"
@@ -1779,9 +1777,7 @@ msgstr ""
 
 #: libraries/core.lib.php:282 libraries/dbg/setup.php:21
 #, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
+msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
 #: libraries/db_events.inc.php:19 libraries/db_events.inc.php:21

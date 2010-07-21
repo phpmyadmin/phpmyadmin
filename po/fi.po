@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-20 15:10+0200\n"
+"POT-Creation-Date: 2010-07-21 08:57+0200\n"
 "PO-Revision-Date: 2010-04-30 18:08+0200\n"
 "Last-Translator:  <kajouni@gmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -1893,10 +1893,8 @@ msgstr "Toiminnot"
 
 #: libraries/core.lib.php:282 libraries/dbg/setup.php:21
 #, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
-msgstr "Laajennuksen %s lataus ei onnistu; tarkista PHP:n asetukset"
+msgid "The %s extension is missing. Please check your PHP configuration."
+msgstr ""
 
 #: libraries/db_events.inc.php:19 libraries/db_events.inc.php:21
 #: libraries/export/sql.php:412
@@ -8605,6 +8603,11 @@ msgstr "VIEW-arvon nimi"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
+
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "extension. Please check your PHP configuration."
+#~ msgstr "Laajennuksen %s lataus ei onnistu; tarkista PHP:n asetukset"
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "

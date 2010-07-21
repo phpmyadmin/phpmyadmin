@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-20 15:10+0200\n"
+"POT-Creation-Date: 2010-07-21 08:57+0200\n"
 "PO-Revision-Date: 2010-06-04 14:09+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -1786,12 +1786,8 @@ msgstr "操作"
 
 #: libraries/core.lib.php:282 libraries/dbg/setup.php:21
 #, php-format
-msgid ""
-"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-"extension. Please check your PHP configuration."
+msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
-"无法加载 [a@http://php.net/%1$s@Documentation][em]%1$s (外链，英语)[/em][/a] "
-"扩展，请检查您的 PHP 配置。"
 
 #: libraries/db_events.inc.php:19 libraries/db_events.inc.php:21
 #: libraries/export/sql.php:412
@@ -8053,6 +8049,13 @@ msgstr "视图名"
 #: view_operations.php:92
 msgid "Rename view to"
 msgstr "将视图改名为"
+
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "extension. Please check your PHP configuration."
+#~ msgstr ""
+#~ "无法加载 [a@http://php.net/%1$s@Documentation][em]%1$s (外链，英语)[/em][/"
+#~ "a] 扩展，请检查您的 PHP 配置。"
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "
