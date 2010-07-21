@@ -98,6 +98,10 @@ $forms['Features']['Page_titles'] = array(
     'TitleTable',
     'TitleDatabase',
     'TitleServer');
+$forms['Features']['Warnings'] = array(
+    'PmaNoRelation_DisableWarning',
+    'SuhosinDisableWarning',
+    'McryptDisableWarning');
 $forms['Features']['Other_core_settings'] = array(
     'NaturalOrder',
     'InitialSlidersState',
@@ -110,7 +114,8 @@ $forms['Features']['Other_core_settings'] = array(
     'ExecTimeLimit',
     'MemoryLimit',
     'SkipLockedTables',
-    'UseDbSearch');
+    'UseDbSearch',
+    'AllowThirdPartyFraming');
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
     'Confirm',

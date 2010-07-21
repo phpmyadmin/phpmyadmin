@@ -1,1 +1,2 @@
 restore cache'ing in phpmyadmin.css.php
+remove debug from user preferences header

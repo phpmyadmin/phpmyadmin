@@ -57,6 +57,10 @@ $forms['Features']['Page_titles'] = array(
     'TitleTable',
     'TitleDatabase',
     'TitleServer');
+$forms['Features']['Warnings'] = array(
+    'PmaNoRelation_DisableWarning',
+    'SuhosinDisableWarning',
+    'McryptDisableWarning');
 $forms['Left_frame']['Left_frame'] = array(
     'LeftFrameLight',
     'LeftDisplayLogo',
