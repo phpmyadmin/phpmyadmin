@@ -2830,7 +2830,7 @@ $mapping = array(
 /**
  * Formats user string, expading @VARIABLES@, accepting strftime format string.
  */
-function PMA_expandUserString($string) {
+function PMA_expandUserString($string, $escape = NULL) {
     /* Content */
     $http_host = PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '';
     $server_name = $GLOBALS['cfg']['Server']['host'];
@@ -2853,6 +2853,12 @@ function PMA_expandUserString($string) {
             '__TABLE__' => $table,
             '@PHPMYADMIN@' => $phpmyadmin_version,
             );
+
+    if (!is_null($escape)) {
+        foreach($replace as $key => $val) {
+            $replace[$key] = $escape($val);
+        }
+    }
 
     /* Do the replacement */
     return str_replace(array_keys($replace), array_values($replace), strftime($string));

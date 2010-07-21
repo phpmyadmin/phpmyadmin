@@ -207,8 +207,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 
     $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
     if (isset($GLOBALS['latex_caption'])) {
-        $buffer .= ' \\caption{' . str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_data_caption'])
-                   . '} \\label{' . str_replace('__TABLE__', $table, $GLOBALS['latex_data_label']) . '} \\\\';
+        $buffer .= ' \\caption{' . PMA_expandUserString($GLOBALS['latex_data_caption'], 'PMA_texEscape')
+                   . '} \\label{' . PMA_expandUserString($GLOBALS['latex_data_label']) . '} \\\\';
     }
     if (!PMA_exportOutputHandler($buffer)) {
         return FALSE;
@@ -226,7 +226,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             return FALSE;
         }
         if (isset($GLOBALS['latex_caption'])) {
-            if (!PMA_exportOutputHandler('\\caption{' . str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_data_continued_caption']) . '} \\\\ ')) return FALSE;
+            if (!PMA_exportOutputHandler('\\caption{' . PMA_expandUserString($GLOBALS['latex_data_continued_caption'], 'PMA_texEscape') . '} \\\\ ')) return FALSE;
         }
         if (!PMA_exportOutputHandler($buffer . '\\endhead \\endfoot' . $crlf)) {
             return FALSE;
@@ -289,7 +289,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
  *
  * @access  public
  */
- // @@@ Table structure 
+ // @@@ Table structure
 function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $dummy)
 {
     global $cfgRelation;
@@ -373,14 +373,14 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 
     // Table caption for first page and label
     if (isset($GLOBALS['latex_caption'])) {
-        $buffer .= ' \\caption{'. str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_structure_caption'])
-                   . '} \\label{' . str_replace('__TABLE__', $table, $GLOBALS['latex_structure_label'])
+        $buffer .= ' \\caption{'. PMA_expandUserString($GLOBALS['latex_structure_caption'], 'PMA_texEscape')
+                   . '} \\label{' . PMA_expandUserString($GLOBALS['latex_structure_label'])
                    . '} \\\\' . $crlf;
     }
     $buffer .= $header . ' \\\\ \\hline \\hline' . $crlf . '\\endfirsthead' . $crlf;
     // Table caption on next pages
     if (isset($GLOBALS['latex_caption'])) {
-        $buffer .= ' \\caption{'. str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_structure_continued_caption'])
+        $buffer .= ' \\caption{'. PMA_expandUserString($GLOBALS['latex_structure_continued_caption'], 'PMA_texEscape')
                    . '} \\\\ ' . $crlf;
     }
     $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ' . $crlf;
@@ -425,8 +425,8 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 
         $field_name = $row['Field'];
 
-        $local_buffer = $field_name . "\000" . $type . "\000" 
-            . (($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes'))  
+        $local_buffer = $field_name . "\000" . $type . "\000"
+            . (($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes'))
             . "\000" . (isset($row['Default']) ? $row['Default'] : '');
 
         if ($do_relation && $have_rel) {
