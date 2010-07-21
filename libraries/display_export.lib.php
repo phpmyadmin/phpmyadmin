@@ -163,7 +163,6 @@ echo PMA_pluginGetJavascript($export_list);
             . __('Documentation') . '">', false);
         $message->addParam('</a>', false);
         $message->addParam($trans);
-        $message->addMessage(' ' . PMA_showDocu('faq6_27'));
 
         echo PMA_showHint($message);
         ?>
@@ -194,6 +193,7 @@ echo PMA_pluginGetJavascript($export_list);
     ?>
     />
 
+    <?php echo PMA_showDocu('faq6_27'); ?>
     (
     <input type="checkbox" name="remember_template"
         id="checkbox_remember_template"
