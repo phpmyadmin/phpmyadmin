@@ -222,7 +222,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
             $this->username                      = 'anonymous';
             $this->password                      = '';
             $this->calling_program               = 'PHP_SQLValidator';
-            $this->calling_program_version       = '$Revision$';
+            $this->calling_program_version       = PMA_VERSION;
             $this->target_dbms                   = 'N/A';
             $this->target_dbms_version           = 'N/A';
             $this->connection_technology         = 'PHP';
