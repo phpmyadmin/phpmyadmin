@@ -1372,9 +1372,11 @@ $link_export = '<a class="export_user_anchor" href="server_privileges.php?' . $G
  * show $message and exit.
  */
 if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUEST['adduser']) && !isset($_REQUEST['initial']) && !isset($_REQUEST['showall']) && !isset($_REQUEST['edit_user_dialog'])) {
+
     if(isset($sql_query)) {
         $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
     }
+
     if(isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         //generate html on the fly for the new user that was just created.
         $new_user_string = '<tr>'."\n"
@@ -1417,6 +1419,13 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUE
         $extra_data['new_user_initial'] = $new_user_initial;
         $extra_data['new_user_initial_string'] = $new_user_initial_string;
     }
+
+    if(isset($update_privs)) {
+        $new_privileges = join(', ', PMA_extractPrivInfo());
+
+        $extra_data['new_privileges'] = $new_privileges;
+    }
+
     PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
 }
 

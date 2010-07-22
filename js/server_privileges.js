@@ -252,6 +252,8 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage();
 
+        $(this).parents('tr').addClass('current_row');
+
         var button_options = {};
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
 
@@ -327,6 +329,17 @@ $(document).ready(function() {
                     $("#initials_table").find('td:contains('+data.new_user_initial+')')
                     .html(data.new_user_initial_string);
                 }
+
+                if(data.new_privileges) {
+                    $("#usersForm")
+                    .find('.current_row')
+                    .find('tt')
+                    .html(data.new_privileges);
+                }
+
+                $("#usersForm")
+                .find('.current_row')
+                .removeClass('current_row');
             }
             else {
                 PMA_ajaxShowMessage(data.error);
