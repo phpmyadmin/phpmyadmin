@@ -636,12 +636,12 @@ $(function() {
         .attr('disabled', false)
         .add('#export_text_file, #import_text_file')
         .click(function(){
-            var show_id = $(this).attr('id');
-            var hide_id = show_id.match(/local_storage$/)
-                ? show_id.replace(/local_storage$/, 'text_file')
-                : show_id.replace(/text_file$/, 'local_storage');
-        $('#opts_'+hide_id).hide();
-        $('#opts_'+show_id).show();
+            var enable_id = $(this).attr('id');
+            var disable_id = enable_id.match(/local_storage$/)
+                ? enable_id.replace(/local_storage$/, 'text_file')
+                : enable_id.replace(/text_file$/, 'local_storage');
+        $('#opts_'+disable_id).addClass('disabled').find('input').attr('disabled', true);
+        $('#opts_'+enable_id).removeClass('disabled').find('input').attr('disabled', false);;
     });
 
     // detect localStorage state
@@ -690,7 +690,6 @@ function savePrefsToLocalStorage(form)
 {
     form = $(form);
     var submit = form.find('input[type=submit]');
-    //PMA_messages['strPrefsSaved']
     submit.attr('disabled', true);
     $.ajax({
         url: 'prefs_manage.php',
@@ -737,7 +736,7 @@ function formatDate(d)
 {
     return d.getFullYear() + '-'
         + (d.getMonth() < 10 ? '0'+d.getMonth() : d.getMonth())
-        + '-' + (d.getDay() < 10 ? '0'+d.getDay() : d.getDay())
+        + '-' + (d.getDate() < 10 ? '0'+d.getDate() : d.getDate())
         + ' ' + (d.getHours() < 10 ? '0'+d.getHours() : d.getHours())
         + ':' + (d.getMinutes() < 10 ? '0'+d.getMinutes() : d.getMinutes());
 }

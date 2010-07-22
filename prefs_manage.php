@@ -223,18 +223,15 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: __DATE__'));
                 echo PMA_generate_common_hidden_inputs() . "\n";
                 ?>
                 <input type="hidden" name="json" value="" />
-                <div>
-                    <input type="radio" id="import_text_file" name="import_type" value="text_file" checked="checked" />
-                    <label for="import_text_file"><?php echo __('Import from text file') ?></label>
-                    <br />
-                    <input type="radio" id="import_local_storage" name="import_type" value="local_storage" disabled="disabled" />
-                    <label for="import_local_storage"><?php echo __('Import from browser\'s storage') ?></label>
-                </div>
+                <input type="radio" id="import_text_file" name="import_type" value="text_file" checked="checked" />
+                <label for="import_text_file"><?php echo __('Import from file') ?></label>
                 <div id="opts_import_text_file" class="prefsmanage_opts">
                     <label for="input_import_file"><?php echo __('Location of the text file'); ?></label>
                     <input type="file" name="import_file" id="input_import_file" />
                 </div>
-                <div id="opts_import_local_storage" class="prefsmanage_opts" style="display:none">
+                <input type="radio" id="import_local_storage" name="import_type" value="local_storage" disabled="disabled" />
+                <label for="import_local_storage"><?php echo __('Import from browser\'s storage') ?></label>
+                <div id="opts_import_local_storage" class="prefsmanage_opts disabled">
                     <div class="localStorage-supported">
                         <?php echo __('Settings will be imported from your browser\'s local storage.') ?>
                         <br />
@@ -249,6 +246,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: __DATE__'));
                         <?php PMA_Message::notice(__('This feature is not supported by your web browser'))->display() ?>
                     </span>
                 </div>
+
                 <input type="checkbox" id="import_merge" name="import_merge" />
                 <label for="import_merge"><?php echo __('Merge with current configuration') ?></label>
                 <br /><br />
@@ -274,11 +272,11 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: __DATE__'));
                     <input type="radio" id="export_local_storage" name="export_type" value="local_storage" disabled="disabled" />
                     <label for="export_local_storage"><?php echo __('Save to browser\'s storage') ?></label>
                 </div>
-                <div id="opts_export_local_storage" class="prefsmanage_opts" style="display:none">
+                <div id="opts_export_local_storage" class="prefsmanage_opts disabled">
                     <span class="localStorage-supported">
                         <?php echo __('Settings will be saved in your browser\'s local storage.') ?>
                         <span class="localStorage-exists">
-                            <b><?php PMA_Message::notice(__('Existing settings will be overridden!'))->display() ?></b>
+                            <br /><b><?php echo __('Existing settings will be overwritten!') ?></b>
                         </span>
                     </span>
                     <span class="localStorage-unsupported">
