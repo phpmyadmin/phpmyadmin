@@ -27,17 +27,8 @@ require_once './libraries/user_preferences.inc.php';
 $form_display = new FormDisplay();
 foreach ($forms[$form_param] as $form_name => $form) {
     // skip Developer form if no setting is available
-    if ($form_name == 'Developer') {
-        $show = false;
-        foreach ($form as $field_name) {
-            if (array_search($field_name, $GLOBALS['cfg']['UserprefsDisallow']) === false) {
-                $show = true;
-                break;
-            }
-        }
-        if (!$show) {
-            continue;
-        }
+    if ($form_name == 'Developer' && !$GLOBALS['cfg']['UserprefsDeveloperTab']) {
+        continue;
     }
     $form_display->registerForm($form_name, $form);
 }

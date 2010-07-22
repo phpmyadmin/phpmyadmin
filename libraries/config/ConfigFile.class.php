@@ -521,11 +521,6 @@ class ConfigFile
                 $retv[] = var_export($v, true);
             }
             $ret = "\$cfg['$var_name'] = array(";
-            $ret_end = ');' . $crlf;
-            if ($var_name == 'UserprefsDisallow') {
-                $ret = "\$cfg['$var_name'] = array_merge(\$this->settings['UserprefsDisallow'],\n\tarray(";
-                $ret_end = ')' . $ret_end;
-            }
             if (count($retv) <= 4) {
                 // up to 4 values - one line
                 $ret .= implode(', ', $retv);
@@ -536,7 +531,7 @@ class ConfigFile
                     $ret .= ($i < $imax ? ($i > 0 ? ',' : '') : '') . $crlf . '    ' . $retv[$i];
                 }
             }
-            $ret .= $ret_end;
+            $ret .= ');' . $crlf;
         } else {
             // string keys: $cfg[key][subkey] = value
             foreach ($var_value as $k => $v) {

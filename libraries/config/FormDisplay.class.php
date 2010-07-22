@@ -228,8 +228,6 @@ class FormDisplay
 
         // user preferences
         $this->_loadUserprefsInfo();
-        $default_disallow = array_flip(
-            ConfigFile::getInstance()->getDefault('UserprefsDisallow', array()));
 
         // display forms
         foreach ($this->forms as $form) {
@@ -245,10 +243,10 @@ class FormDisplay
             foreach ($form->fields as $field => $path) {
                 $work_path = array_search($path, $this->system_paths);
                 $translated_path = $this->translated_paths[$work_path];
-                // always true/false/'disable' for user preferences display
+                // always true/false for user preferences display
                 // otherwise null
                 $userprefs_allow = isset($this->userprefs_keys[$path])
-                    ? (isset($default_disallow[$path]) ? 'disable' : !isset($this->userprefs_disallow[$path]))
+                    ? !isset($this->userprefs_disallow[$path])
                     : null;
                 // display input
                 $this->_displayFieldInput($form, $field, $path, $work_path,

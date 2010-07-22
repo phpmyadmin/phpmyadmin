@@ -105,7 +105,7 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  * o setvalue - (string) shows button allowing to set poredefined value
  * o show_restore_default - (boolean) whether show "restore default" button
  * o userprefs_allow - whether user preferences are enabled for this field (null - no support,
- *                     true/false - enabled/disabled, 'disable' - false and field is disabled)
+ *                     true/false - enabled/disabled)
  * o userprefs_comment - (string) field comment
  * o values - key - value paris for <select> fields
  * o values_escaped - (boolean) tells whether values array is already escaped (defaults to false)
@@ -258,14 +258,9 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     </td>
     <?php
     if ($is_setup_script && isset($opts['userprefs_allow'])) {
-        $disabled = '';
-        if ($opts['userprefs_allow'] === 'disable') {
-            $opts['userprefs_allow'] = false;
-            $disabled = ' disabled="$disabled"';
-        }
     ?>
     <td class="userprefs-allow" title="<?php echo __('Allow users to customize this value') ?>">
-        <input type="checkbox"<?php echo $disabled ?> name="<?php echo $path ?>-userprefs-allow" <?php if ($opts['userprefs_allow']) echo 'checked="checked"' ?> />
+        <input type="checkbox" name="<?php echo $path ?>-userprefs-allow" <?php if ($opts['userprefs_allow']) echo 'checked="checked"' ?> />
     </td>
     <?php
     } else if ($is_setup_script) {

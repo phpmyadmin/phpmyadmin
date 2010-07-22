@@ -134,6 +134,13 @@ function PMA_apply_userprefs(array $config_data)
 {
     $cfg = array();
     $blacklist = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
+    if (!$GLOBALS['cfg']['UserprefsDeveloperTab']) {
+        // disallow everything in the Developers tab
+        $blacklist['Error_Handler/display'] = true;
+        $blacklist['Error_Handler/gather'] = true;
+        $blacklist['DBG/sql'] = true;
+        $blacklist['DBG/php'] = true;
+    }
     $whitelist = array_flip(PMA_read_userprefs_fieldnames());
     // whitelist some additional fields which are custom handled
     $whitelist['ThemeDefault'] = true;

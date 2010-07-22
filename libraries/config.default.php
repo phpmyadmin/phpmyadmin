@@ -2310,16 +2310,16 @@ $cfg['InitialSlidersState'] = 'closed';
 
 /**
  * User preferences: disallow these settings
- * For possible setting names look in libraries/config/user_preferences.forms.php. Use
- * <code>
- * $cfg['UserprefsDisallow'] = array_merge($this->settings['UserprefsDisallow'], array());
- * </code>
- * to append new keys.
+ * For possible setting names look in libraries/config/user_preferences.forms.php
  *
  * @global array $cfg['UserprefsDisallow']
  */
-$cfg['UserprefsDisallow'] = array(
-    'Error_Handler/display', 'Error_Handler/gather', 'DBG/sql', 'DBG/php');
+$cfg['UserprefsDisallow'] = array();
+
+/**
+ * User preferences: enable the Developer tab
+ */
+$cfg['UserprefsDeveloperTab'] = false;
 
 /**
  * User preferences: disabling options by users

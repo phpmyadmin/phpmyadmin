@@ -107,6 +107,7 @@ $forms['Features']['Warnings'] = array(
     'SuhosinDisableWarning',
     'McryptDisableWarning');
 $forms['Features']['Developer'] = array(
+    'UserprefsDeveloperTab',
     'Error_Handler/display',
     'Error_Handler/gather',
     'DBG/sql',
