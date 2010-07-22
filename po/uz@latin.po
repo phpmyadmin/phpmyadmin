@@ -2880,10 +2880,9 @@ msgid "(continued)"
 msgstr "(davomi)"
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr " __TABLE__ jadvalining tuzilishi"
+msgstr " @TABLE@ jadvalining tuzilishi"
 
 #: libraries/export/latex.php:26
 msgid "LaTeX"
