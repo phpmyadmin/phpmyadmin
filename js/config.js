@@ -752,7 +752,7 @@ function offerPrefsAutoimport()
         return;
     }
     cnt.find('a').click(function(e) {
-        e.stopPropagation();
+        e.preventDefault();
         var a = $(this);
         if (a.attr('href') == '#no') {
             cnt.remove();

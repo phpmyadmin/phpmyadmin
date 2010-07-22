@@ -79,8 +79,6 @@ if (!$form_display->process(false)) {
         $form_display->display(true, true);
     }
 }
-// todo: remove debug
-$GLOBALS['error_handler']->dispAllErrors();
 
 /**
  * Displays the footer
