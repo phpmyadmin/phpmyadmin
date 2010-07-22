@@ -15,7 +15,7 @@
     $mediaType = isset($_REQUEST['media_type']) ? $_REQUEST['media_type'] : NULL;
 
     /*
-     * @var     string	indicates whether media type is of custom type
+     * @var     string  indicates whether media type is of custom type
      */
     $customType = isset($_REQUEST['custom_type']) ? $_REQUEST['custom_type'] : false;
 
@@ -25,16 +25,16 @@
     $bsReference = isset($_REQUEST['bs_reference']) ? $_REQUEST['bs_reference'] : NULL;
 
     // if media type and BS reference are specified
-    if (isset($mediaType) && isset($bsReference))
-    {
-	    if (isset($customType) && $customType)
-		    $bs_file_path = 'bs_disp_as_mime_type.php' . PMA_generate_common_url(array('reference' => $bsReference, 'c_type' => $mediaType));
-		else {
-			// Get the BLOB streaming URL
-			$bs_file_path = PMA_BS_getURL($bsReference);
-			if (empty($bs_file_path)) die('No blob streaming server configured!');
-		}
-
+    if (isset($mediaType) && isset($bsReference)) {
+        if (isset($customType) && $customType) {
+            $bs_file_path = 'bs_disp_as_mime_type.php' . PMA_generate_common_url(array('reference' => $bsReference, 'c_type' => $mediaType));
+        } else {
+            // Get the BLOB streaming URL
+            $bs_file_path = PMA_BS_getURL($bsReference);
+            if (empty($bs_file_path)) {
+                die(__('No blob streaming server configured!'));
+            }
+        }
             ?>
 <html>
     <head>

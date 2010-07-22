@@ -150,17 +150,13 @@ $hidden_fields = array();
 $odd_row       = true;
 $sum_row_count_pre = '';
 
-// added by rajk - for blobstreaming
-$PMA_Config = $GLOBALS['PMA_Config'];
-
 $tableReductionCount = 0;   // the amount to reduce the table count by
 
 foreach ($tables as $keyname => $each_table) {
-
-	if (PMA_BS_IsHiddenTable($keyname)) {
-		$tableReductionCount++;
-		continue;
-	}
+    if (PMA_BS_IsHiddenTable($keyname)) {
+        $tableReductionCount++;
+        continue;
+    }
 	
     // Get valid statistics whatever is the table type
 

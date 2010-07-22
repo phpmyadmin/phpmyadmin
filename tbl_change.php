@@ -456,17 +456,17 @@ foreach ($rows as $row_id => $vrow) {
             } else {
                 // special binary "characters"
                 if ($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary'])) {
-                	if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
-                		$vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
-                		$field['display_binary_as_hex'] = true;
-					} else {
-                    	$vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]);
-					}
+                    if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
+                        $vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
+                        $field['display_binary_as_hex'] = true;
+                    } else {
+                        $vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]);
+                    }
                 } // end if
                 $special_chars   = htmlspecialchars($vrow[$field['Field']]);
 
-		//We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column
-	        $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
+            //We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column
+                $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
 
                 $data            = $vrow[$field['Field']];
             } // end if... else...
@@ -562,9 +562,9 @@ foreach ($rows as $row_id => $vrow) {
                 }
 
                 // this is set only when appropriate and is always true
-				if (isset($field['display_binary_as_hex'])) {
-                	$default_function = 'UNHEX';
-				}
+                if (isset($field['display_binary_as_hex'])) {
+                    $default_function = 'UNHEX';
+                }
 
                 // loop on the dropdown array and print all available options for that field.
                 foreach ($dropdown as $each_dropdown){
@@ -834,7 +834,7 @@ foreach ($rows as $row_id => $vrow) {
                 || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
                 echo "\n";
                     // for blobstreaming
-					if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
+                if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
                     {
                         echo '<input type="hidden" name="remove_blob_ref_' . $field['Field_md5'] . $vkey . '" value="' . $data . '" />';
                         echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . __('Remove BLOB Repository Reference') . "<br />";
@@ -889,10 +889,9 @@ foreach ($rows as $row_id => $vrow) {
 
             if ($is_upload && $field['is_blob']) {
                 // check if field type is of longblob and  if the table is PBMS enabled.
-                if (($field['pma_type'] == "longblob") && PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type))
-                {
-					echo '<br />';
-					echo '<input type="checkbox" name="upload_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' .  __('Upload to BLOB repository');
+                if (($field['pma_type'] == "longblob") && PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)) {
+                    echo '<br />';
+                    echo '<input type="checkbox" name="upload_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' .  __('Upload to BLOB repository');
                 }
 
                 echo '<br />';

@@ -18,12 +18,12 @@ class PMA_StorageEngine_pbms extends PMA_StorageEngine
      */
     function engine_init()
     {
-		$this->engine  = "PBMS";
-		$this->title   = "PrimeBase Media Streaming Daemon";
-		$this->comment = "Provides BLOB streaming service for storage engines,";
-		$this->support = PMA_ENGINE_SUPPORT_YES;
-	}
-	
+        $this->engine  = "PBMS";
+        $this->title   = "PrimeBase Media Streaming Daemon";
+        $this->comment = "Provides BLOB streaming service for storage engines,";
+        $this->support = PMA_ENGINE_SUPPORT_YES;
+    }
+
    function getVariables()
     {
         return array(
@@ -64,16 +64,16 @@ class PMA_StorageEngine_pbms extends PMA_StorageEngine
             ),
         );
     }
-	
-	//--------------------
-	function getInfoPages()
+
+    //--------------------
+    function getInfoPages()
     {
         $pages = array();
-         $pages['Documentation'] = __('Documentation');
+        $pages['Documentation'] = __('Documentation');
         return $pages;
     }
 
-	//--------------------
+    //--------------------
     function getPage($id)
     {
         if (! array_key_exists($id, $this->getInfoPages())) {
@@ -87,27 +87,27 @@ class PMA_StorageEngine_pbms extends PMA_StorageEngine
 
     function getPageConfigure()
     {
-	}
+    }
 
     function getPageDocumentation()
     {
-		$output = '<p> Documentation and furtther information about PBMS can be found on '  . "\n"
-		        . '<a href="http://www.blobstreaming.org/" target="_blank">The PrimeBase Media Streaming home page</a>.<br><br>' . "\n"		
-				. '<table id="PBMS_Related_Links" >' . "\n"
+        $output = '<p> Documentation and further information about PBMS can be found on '  . "\n"
+        . '<a href="http://www.blobstreaming.org/" target="_blank">The PrimeBase Media Streaming home page</a>.<br><br>' . "\n"
+        . '<table id="PBMS_Related_Links" >' . "\n"
                 . '<tr>' . "\n"
-		        . '<td>' . "\n"
-		        . '<p>' . "\n"
-		        . '<strong><font size="2"><b>Related Links</b></font></strong>' . "\n"
-		        . '<br>' . "\n"
-		        . '<a href="http://bpbdev.blogspot.com/" target="_blank">The PrimeBase Media Streaming Blog by Barry Leslie</a><br><br>' . "\n"
-		        . '<a href="http://www.primebase.com/xt" target="_blank">PrimeBase XT Home Page</a><br><br>' . "\n"
-		        . '</font>' . "\n"
-		        . '</td>' . "\n"
-		        . '</tr>' . "\n"
-		        . '</table>' . "\n";
+        . '<td>' . "\n"
+        . '<p>' . "\n"
+        . '<strong><font size="2"><b>Related Links</b></font></strong>' . "\n"
+        . '<br>' . "\n"
+        . '<a href="http://bpbdev.blogspot.com/" target="_blank">The PrimeBase Media Streaming Blog by Barry Leslie</a><br><br>' . "\n"
+        . '<a href="http://www.primebase.com/xt" target="_blank">PrimeBase XT Home Page</a><br><br>' . "\n"
+        . '</font>' . "\n"
+        . '</td>' . "\n"
+        . '</tr>' . "\n"
+        . '</table>' . "\n";
 
-		return $output;
-	}
+        return $output;
+    }
 }
 
 ?>

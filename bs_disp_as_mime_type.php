@@ -25,15 +25,21 @@ $c_type = preg_replace('/[^A-Za-z0-9/_-]/', '_', $_REQUEST['c_type']);
 
 // Get the blob streaming URL
 $filename = PMA_BS_getURL($reference);
-if (empty($filename)) die('No blob streaming server configured!');
+if (empty($filename)) {
+    die(__('No blob streaming server configured!'));
+}
 
 $hdrs = get_headers($filename, 1);
 
-if ($hdrs === FALSE) die('Failed to fetch headers');
+if ($hdrs === FALSE) {
+    die(__('Failed to fetch headers'));
+}
 
 $fHnd = fopen($filename, "rb");
 
-if ($fHnd === FALSE) die('Failed to open remote URL');
+if ($fHnd === FALSE) {
+    die(__('Failed to open remote URL'));
+}
 
 $f_size = $hdrs['Content-Length'];
 
@@ -53,8 +59,9 @@ while (!feof($fHnd)) {
     $content .= fread($fHnd, $f_size);
     $pos = strlen($content);
 
-    if ($pos >= $f_size)
+    if ($pos >= $f_size) {
         break;
+    }
 }
 
 echo $content;

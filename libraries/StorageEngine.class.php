@@ -139,8 +139,9 @@ class PMA_StorageEngine
      */
     static public function isValid($engine)
     {
-		if ($engine == "PBMS")
-			return TRUE;
+        if ($engine == "PBMS") {
+            return TRUE;
+        }
         $storage_engines = PMA_StorageEngine::getStorageEngines();
         return isset($storage_engines[$engine]);
     }
@@ -303,7 +304,7 @@ class PMA_StorageEngine
                     $this->support = PMA_ENGINE_SUPPORT_NO;
             }
         } else {
-			$this->engine_init();
+            $this->engine_init();
 		}
     }
 

@@ -32,19 +32,17 @@
     // necessary variables exist
    if ($bsDB && $bsTable && $bsReference && $bsNewMIMEType)
     {
-		if (PMA_BS_SetContentType($bsDB, $bsTable, $bsReference, $bsNewMIMEType)) 
-		{
-			// determine redirector page
-			$newLoc = $cfg['PmaAbsoluteUri'] . 'sql.php?' . PMA_generate_common_url ('','', '&') . (isset($bsDB) ? '&db=' . urlencode($bsDB) : '') . (isset($bsTable) ? '&table=' . urlencode($bsTable) : '') . (isset($token) ? '&token=' . urlencode($token) : '') . (isset($goto) ? '&goto=' . urlencode($goto) : '') . '&reload=1&purge=1';
+        if (PMA_BS_SetContentType($bsDB, $bsTable, $bsReference, $bsNewMIMEType)) {
+            // determine redirector page
+            $newLoc = $cfg['PmaAbsoluteUri'] . 'sql.php?' . PMA_generate_common_url ('','', '&') . (isset($bsDB) ? '&db=' . urlencode($bsDB) : '') . (isset($bsTable) ? '&table=' . urlencode($bsTable) : '') . (isset($token) ? '&token=' . urlencode($token) : '') . (isset($goto) ? '&goto=' . urlencode($goto) : '') . '&reload=1&purge=1';
 
-			// redirect to specified page
-			?>
-			<script>
-				window.location = "<?php echo $newLoc ?>";
-			</script>
-			<?php
-		} // end if ($result)
-		
+            // redirect to specified page
+            ?>
+<script>
+window.location = "<?php echo $newLoc ?>";
+</script>
+            <?php
+        } // end if ($result)
     } // end if ($bsDB && $bsTable && $bsReference && $bsNewMIMEType)
 
 ?>

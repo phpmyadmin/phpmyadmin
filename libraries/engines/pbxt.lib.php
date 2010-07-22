@@ -98,16 +98,16 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
         }
         return PMA_formatByteDown($value);
     }
-	
-	//--------------------
-	function getInfoPages()
+
+    //--------------------
+    function getInfoPages()
     {
         $pages = array();
-         $pages['Documentation'] = __('Documentation');
+        $pages['Documentation'] = __('Documentation');
         return $pages;
     }
 
-	//--------------------
+    //--------------------
     function getPage($id)
     {
         if (! array_key_exists($id, $this->getInfoPages())) {
@@ -121,23 +121,23 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
 
     function getPageDocumentation()
     {
-		$output = '<p> Documentation and furtther information about PBXT can be found on the '  . "\n"
-		        . '<a href="http://www.primebase.com/xt/" target="_blank">PrimeBase XT Home Page</a>.<br><br>' . "\n"		
-				. '<table id="PBMS_Related_Links" >' . "\n"
-                . '<tr>' . "\n"
-		        . '<td>' . "\n"
-		        . '<p>' . "\n"
-		        . '<strong><font size="2"><b>Related Links</b></font></strong>' . "\n"
-		        . '<br>' . "\n"
-		        . '<a href="http://pbxt.blogspot.com/" target="_blank">The PrimeBase XT Blog by Paul McCullagh</a><br><br>' . "\n"
-		        . '<a href="http://www.blobstreaming.org/" target="_blank">The PrimeBase Media Streaming (PBMS) home page</a>.<br><br>' . "\n"		
-		        . '</font>' . "\n"
-		        . '</td>' . "\n"
-		        . '</tr>' . "\n"
-		        . '</table>' . "\n";
+        $output = '<p> Documentation and further information about PBXT can be found on the '  . "\n"
+        . '<a href="http://www.primebase.com/xt/" target="_blank">PrimeBase XT Home Page</a>.<br><br>' . "\n"
+        . '<table id="PBMS_Related_Links" >' . "\n"
+        . '<tr>' . "\n"
+        . '<td>' . "\n"
+        . '<p>' . "\n"
+        . '<strong><font size="2"><b>Related Links</b></font></strong>' . "\n"
+        . '<br>' . "\n"
+        . '<a href="http://pbxt.blogspot.com/" target="_blank">The PrimeBase XT Blog by Paul McCullagh</a><br><br>' . "\n"
+        . '<a href="http://www.blobstreaming.org/" target="_blank">The PrimeBase Media Streaming (PBMS) home page</a>.<br><br>' . "\n"
+        . '</font>' . "\n"
+        . '</td>' . "\n"
+        . '</tr>' . "\n"
+        . '</table>' . "\n";
 
-		return $output;
-	}
+        return $output;
+    }
 }
 
 ?>

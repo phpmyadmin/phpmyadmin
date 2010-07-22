@@ -654,19 +654,19 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
                 $back_url .= '?no_history=true';
             }
 
-	     $_SESSION['Import_message']['go_back_url'] = $back_url;
+            $_SESSION['Import_message']['go_back_url'] = $back_url;
 
             $error_msg_output .= '<fieldset class="tblFooters">';
             $error_msg_output .= '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]';
             $error_msg_output .= '</fieldset>' . "\n\n";
-        }
+       }
 
-        echo $error_msg_output;
-        /**
-         * display footer and exit
-         */
+       echo $error_msg_output;
+       /**
+        * display footer and exit
+        */
 
-        require_once './libraries/footer.inc.php';
+       require_once './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
     }
@@ -793,10 +793,9 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
 
     foreach ($tables as $table_name => $table) {
         // if BS tables exist
-		if (PMA_BS_IsHiddenTable($table_name)) {
-			continue;
-		}
-
+        if (PMA_BS_IsHiddenTable($table_name)) {
+            continue;
+        }
 
         // check for correct row count
         if (null === $table['Rows']) {

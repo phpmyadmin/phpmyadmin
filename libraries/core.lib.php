@@ -311,10 +311,11 @@ function PMA_getTableCount($db)
         $num_tables = PMA_DBI_num_rows($tables);
 
         // do not count hidden blobstreaming tables
-		while ((($num_tables > 0)) && $data = PMA_DBI_fetch_assoc($tables)) {
-			if (PMA_BS_IsHiddenTable($data['Tables_in_' . $db])) 
-				$num_tables--;
-		}
+        while ((($num_tables > 0)) && $data = PMA_DBI_fetch_assoc($tables)) {
+            if (PMA_BS_IsHiddenTable($data['Tables_in_' . $db])) {
+                $num_tables--;
+            }
+        }
  
         PMA_DBI_free_result($tables);
     } else {

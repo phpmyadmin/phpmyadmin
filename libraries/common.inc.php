@@ -788,7 +788,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();
 
-   if (! empty($cfg['Server'])) {
+    if (! empty($cfg['Server'])) {
 
         /**
          * Loads the proper database interface for this server
@@ -953,7 +953,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     // checks for blobstreaming plugins and databases that support
     // blobstreaming (by having the necessary tables for blobstreaming)
     checkBLOBStreamingPlugins();
-	
+
 } // end if !defined('PMA_MINIMUM_COMMON')
 
 // remove sensitive values from session
