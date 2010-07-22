@@ -279,6 +279,54 @@ $(document).ready(function() {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 $("#edit_user_dialog").dialog("close").remove();
+
+                if(data.sql_query) {
+                    $("#topmenucontainer")
+                    .next('div')
+                    .remove()
+                    .end()
+                    .after(data.sql_query);
+                    var notice_class = $("#topmenucontainer").next("div").find('.notice');
+                    if($(notice_class).text() == '') {
+                        $(notice_class).remove();
+                    }
+                }
+
+                if(data.new_user_string) {
+                    //Append the newly retrived user to the table now
+
+                    //Calculate the index for the new row
+                    var curr_last_row = $("#usersForm").find('tbody').find('tr:last');
+                    var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+                    var curr_last_row_index = parseFloat(curr_last_row_index_string);
+                    var new_last_row_index = curr_last_row_index + 1;
+                    var new_last_row_id = 'checkbox_sel_users_' + new_last_row_index;
+
+                    //Append to the table and set the id/names correctly
+                    $(data.new_user_string)
+                    .insertAfter($(curr_last_row))
+                    .find('input:checkbox')
+                    .attr('id', new_last_row_id)
+                    .val(function() {
+                        //the insert messes up the &amp;27; part. let's fix it
+                        return $(this).val().replace(/&/,'&amp;');
+                    })
+                    .end()
+                    .find('label')
+                    .attr('for', new_last_row_id)
+                    .end();
+
+                    //Re-check the classes of each row
+                    $("#usersForm")
+                    .find('tbody').find('tr:odd')
+                    .removeClass('even').addClass('odd')
+                    .end()
+                    .find('tr:even')
+                    .removeClass('odd').addClass('even');
+
+                    $("#initials_table").find('td:contains('+data.new_user_initial+')')
+                    .html(data.new_user_initial_string);
+                }
             }
             else {
                 PMA_ajaxShowMessage(data.error);

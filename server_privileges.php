@@ -1375,7 +1375,7 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUE
     if(isset($sql_query)) {
         $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
     }
-    if(isset($_REQUEST['adduser_submit'])) {
+    if(isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         //generate html on the fly for the new user that was just created.
         $new_user_string = '<tr>'."\n"
                            .'<td> <input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_" value="' . htmlspecialchars($username) . '&amp;#27;' . htmlspecialchars($hostname) . '" /> </td>'."\n"
