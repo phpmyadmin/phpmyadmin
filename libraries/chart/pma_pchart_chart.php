@@ -134,10 +134,10 @@ abstract class PMA_pChart_Chart extends PMA_Chart
             $this->prepareChart();
             $this->render();
 
-            $returnData = '<img id="chart" src="data:image/png;base64,'.$this->imageEncoded.'" OnMouseMove="getMousePosition(event);" OnMouseOut="nd();"/>';
+            $returnData = '<img id="chart" src="data:image/png;base64,'.$this->imageEncoded.'" />';
             $returnData .= '
                 <script type="text/javascript">
-                LoadImageMap("chart", \''.json_encode($this->getImageMap()).'\');
+                imageMap.loadImageMap(\''.json_encode($this->getImageMap()).'\');
                 </script>
             ';
 
