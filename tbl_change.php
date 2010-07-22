@@ -889,7 +889,7 @@ foreach ($rows as $row_id => $vrow) {
 
             if ($is_upload && $field['is_blob']) {
                 // check if field type is of longblob and  if the table is PBMS enabled.
-                if (($field['pma_type'] == "longblob") && PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)) {
+                if (($field['pma_type'] == "longblob") && PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)) {
                     echo '<br />';
                     echo '<input type="checkbox" name="upload_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' .  __('Upload to BLOB repository');
                 }
