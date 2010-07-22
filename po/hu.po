@@ -2863,10 +2863,9 @@ msgid "(continued)"
 msgstr "(folytatás)"
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "__TABLE__ tábla szerkezete"
+msgstr "@TABLE@ tábla szerkezete"
 
 #: libraries/export/latex.php:26
 msgid "LaTeX"
