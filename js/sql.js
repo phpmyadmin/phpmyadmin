@@ -93,12 +93,15 @@ $(document).ready(function() {
     })
     //end displayOptionsForm handler
 
-    //Inline Edit
+    // Inline Edit
+
+    // On click, replace the current field with an input/textarea
     $(".edit_row_anchor").live('click', function(event) {
         event.preventDefault();
 
         $(this).removeClass('edit_row_anchor').addClass('edit_row_anchor_active');
-        
+
+        // Initialize some variables
         if(disp_mode == 'vertical') {
             var this_row_index = $(this).index();
             var input_siblings = $(this).parents('tbody').find('tr').find('.data_inline_edit:nth('+this_row_index+')');
@@ -109,25 +112,23 @@ $(document).ready(function() {
             var where_clause = $(this).parent('tr').find('.where_clause').val();
         }
 
-        if($(this).is('.nonunique')) {
-            var nonunique = true;
-        }
-        else {
-            var nonunique = false;
-        }
-
         $(input_siblings).each(function() {
             var data_value = $(this).html();
 
+            // In each input sibling, wrap the current value in a textarea
+            // and store the current value in a hidden span
             if($(this).is(':not(.truncated, .transformed, .relation)')) {
-                //handle non-truncated, non-transformed, non-relation values
+                // handle non-truncated, non-transformed, non-relation values
+                // We don't need to get any more data, just wrap the value
                 $(this).html('<textarea>'+data_value+'</textarea>')
                 .append('<span class="original_data">'+data_value+'</span>');
                 $(".original_data").hide();
             }
             else if($(this).is('.truncated, .transformed')) {
                 //handle truncated/transformed values values
-                
+
+                // We need to retrieve the value from the server
+                // Find the field name
                 if(disp_mode == 'vertical') {
                     var this_field = $(this);
                     var field_name = $(this).siblings('th').text();
@@ -136,6 +137,7 @@ $(document).ready(function() {
                     var this_field = $(this);
                     var this_field_index = $(this).index();
                     if(window.parent.text_dir == 'ltr') {
+                        // 3 columns to account for the checkbox, edit and delete anchors
                         var field_name = $(this).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
                     }
                     else {
@@ -146,6 +148,7 @@ $(document).ready(function() {
                 field_name = $.trim(field_name);
                 var sql_query = 'SELECT ' + field_name + ' FROM ' + window.parent.table + ' WHERE ' + where_clause;
 
+                // Make the Ajax call and get the data, wrap it and insert it
                 $.post('sql.php', {
                     'token' : window.parent.token,
                     'db' : window.parent.db,
@@ -167,27 +170,96 @@ $(document).ready(function() {
                 //handle relations
             }
         })
-    })
+    }) // End On click, replace the current field with an input/textarea
 
+    // After editing, clicking again should post data
     $(".edit_row_anchor_active").live('click', function(event) {
         event.preventDefault();
 
-        $(this).removeClass('edit_row_anchor_active').addClass('edit_row_anchor');
+        var this_row = $(this);
 
+        // Initialize variables
         if(disp_mode == 'vertical') {
             var this_row_index = $(this).index();
             var input_siblings = $(this).parents('tbody').find('tr').find('.data_inline_edit:nth('+this_row_index+')');
+            var where_clause = $(this).parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
         }
         else {
             var input_siblings = $(this).parent('tr').find('.data_inline_edit');
+            var where_clause = $(this).parent('tr').find('.where_clause').val();
         }
 
-        $(input_siblings).each(function() {
-            var new_data_value = $(this).find('.original_data').html();
+        if($(this).is('.nonunique')) {
+            var nonunique = 0;
+        }
+        else {
+            var nonunique = 1;
+        }
 
-            if($(this).is(':not(.relation)')) {
-                $(this).html(new_data_value);
+        // Collect values of all fields to submit, we don't know which changed
+        var params_to_submit = {};
+
+        $(input_siblings).each(function() {
+
+            if(disp_mode == 'vertical') {
+                var this_field = $(this);
+                var field_name = $(this).siblings('th').text();
             }
+            else {
+                var this_field = $(this);
+                var this_field_index = $(this).index();
+                if(window.parent.text_dir == 'ltr') {
+                    var field_name = $(this).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
+                }
+                else {
+                    var field_name = $(this).parents('table').find('thead').find('th:nth('+ this_field_index+')').text();
+                }
+            }
+            field_name = $.trim(field_name);
+
+            var this_field_params = {};
+            this_field_params[field_name] = $(this).find('textarea').val();
+
+            $.extend(params_to_submit, this_field_params);
         })
-    })
+
+        //generate the SQL query to update this row
+        var sql_query = 'UPDATE ' + window.parent.table + ' SET ';
+
+        $.each(params_to_submit, function(key, value) {
+            sql_query += ' ' + key + "='" + value + "' , ";
+        })
+        sql_query = sql_query.replace(/,\s$/, '');
+        sql_query += ' WHERE ' + where_clause;
+
+        // Make the Ajax post after setting all parameters
+        var post_params = {'ajax_request' : true,
+                            'sql_query' : sql_query,
+                            'disp_direction' : disp_mode,
+                            'token' : window.parent.token,
+                            'db' : window.parent.db,
+                            'table' : window.parent.table,
+                            'clause_is_unique' : nonunique,
+                            'where_clause' : where_clause,
+                            'goto' : 'sql.php'
+                          };
+
+        $.post('tbl_replace.php', post_params, function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                $(this_row).removeClass('edit_row_anchor_active').addClass('edit_row_anchor');
+
+                $(input_siblings).each(function() {
+                    // Inline edit post has been successful.
+                    if($(this).is(':not(.relation)')) {
+                        var new_html = $(this).find('textarea').val();
+                        $(this).html(new_html);
+                    }
+                })
+            }
+            else {
+                PMA_ajaxShowMessage(data.error);
+            };
+        })
+    }) // End After editing, clicking again should post data
 })
