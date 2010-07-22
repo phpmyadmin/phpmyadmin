@@ -1278,7 +1278,10 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
         if (isset($_REQUEST['drop_users_db'])) {
             $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
             $GLOBALS['reload'] = TRUE;
-            PMA_reloadNavigation();
+            
+            if($GLOBALS['is_ajax_request'] != true) {
+                PMA_reloadNavigation();
+            }
         }
     }
     if (empty($_REQUEST['change_copy'])) {
