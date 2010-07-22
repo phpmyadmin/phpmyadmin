@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-22 02:25+0200\n"
+"PO-Revision-Date: 2010-07-22 02:26+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -2822,10 +2822,9 @@ msgid "(continued)"
 msgstr "(pokračovanie)"
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "Štruktúra tabuľky __TABLE__"
+msgstr "Štruktúra tabuľky @TABLE@"
 
 #: libraries/export/latex.php:26
 msgid "LaTeX"
