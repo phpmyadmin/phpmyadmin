@@ -3,7 +3,6 @@
 /**
  * tests for PMA_sanitize()
  *
- * @version $Id$
  * @package phpMyAdmin-test
  */
 

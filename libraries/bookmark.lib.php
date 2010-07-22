@@ -3,7 +3,6 @@
 /**
  * Set of functions used with the bookmark feature
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

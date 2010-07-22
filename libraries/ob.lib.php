@@ -9,7 +9,6 @@
  * Check for all the needed functions for output buffering
  * Make some wrappers for the top and bottoms of our files.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

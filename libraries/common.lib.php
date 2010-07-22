@@ -3,7 +3,6 @@
 /**
  * Misc functions used all over the scripts.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -130,7 +129,6 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
 /**
  * Displays the maximum size for an upload
  *
- * @uses    __('Max: %s%s')
  * @uses    PMA_formatByteDown()
  * @uses    sprintf()
  * @param   integer  the size
@@ -346,7 +344,6 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
  * @uses    $cfg['MySQLManualType']
  * @uses    $cfg['MySQLManualBase']
  * @uses    $cfg['ReplaceHelpImg']
- * @uses    __('Documentation')
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    PMA_MYSQL_INT_VERSION
  * @uses    strtolower()
@@ -501,11 +498,7 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
  * @uses    footer.inc.php
  * @uses    header.inc.php
  * @uses    $GLOBALS['sql_query']
- * @uses    __('Error')
- * @uses    __('SQL query')
  * @uses    $GLOBALS['pmaThemeImage']
- * @uses    __('Edit')
- * @uses    __('MySQL said: ')
  * @uses    $GLOBALS['cfg']['PropertiesIconic']
  * @uses    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
  * @uses    PMA_backquote()
@@ -1137,7 +1130,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($GLOBALS['show_as_php'])) {
             $query_base = '$sql  = "' . $query_base;
         } elseif (! empty($GLOBALS['validatequery'])) {
-            $query_base = PMA_validateSQL($query_base);
+            try {
+                $query_base = PMA_validateSQL($query_base);
+            } catch (Exception $e) {
+                PMA_Message::error(__('Failed to connect to SQL validator!'))->display();
+            }
         } elseif (isset($parsed_sql)) {
             $query_base = PMA_formatSql($parsed_sql, $query_base);
         }
@@ -1253,7 +1250,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             $validate_link = '';
         } //validator
 
-        echo '<code class="sql">';
+        if (!empty($GLOBALS['validatequery'])) {
+            echo '<div class="sqlvalidate">';
+        } else {
+            echo '<code class="sql">';
+        }
         if ($query_too_big) {
             echo $shortened_query_base;
         } else {
@@ -1264,7 +1265,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($GLOBALS['show_as_php'])) {
             echo '";';
         }
-        echo '</code>';
+        if (!empty($GLOBALS['validatequery'])) {
+            echo '</div>';
+        } else {
+            echo '</code>';
+        }
 
         echo '<div class="tools">';
         // avoid displaying a Profiling checkbox that could
@@ -1614,8 +1619,6 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * If the variables $link and $args ar left empty, an inactive tab is created
  *
  * @uses    $GLOBALS['PMA_PHP_SELF']
- * @uses    __('Empty')
- * @uses    __('Drop')
  * @uses    $GLOBALS['active_page']
  * @uses    $GLOBALS['url_query']
  * @uses    $cfg['MainPageIconic']
@@ -1882,7 +1885,6 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 /**
  * Returns a given timespan value in a readable format.
  *
- * @uses    __('%s days, %s hours, %s minutes and %s seconds')
  * @uses    sprintf()
  * @uses    floor()
  * @param  int     the timespan
@@ -2191,7 +2193,6 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
  * Generate a pagination selector for browsing resultsets
  *
  * @todo $url is not javascript escaped!?
- * @uses    __('Page number:')
  * @uses    range()
  * @param   string      URL for the JavaScript
  * @param   string      Number of rows in the pagination set
@@ -2295,7 +2296,6 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
  * Generate navigation for a list
  *
  * @todo    use $pos from $_url_params
- * @uses    __('Page number:')
  * @uses    range()
  * @param   integer     number of elements in the list
  * @param   integer     current position in the list
@@ -2406,7 +2406,6 @@ function PMA_userDir($dir)
  *
  * @uses    $cfg['DefaultTabDatabase']
  * @uses    $GLOBALS['db']
- * @uses    __('Jump to database &quot;%s&quot;.')
  * @uses    PMA_generate_common_url()
  * @uses    PMA_unescape_mysql_wildcards()
  * @uses    strlen()
@@ -2436,7 +2435,6 @@ function PMA_getDbLink($database = null)
  * that affects a functionality
  *
  * @uses    PMA_MYSQL_INT_VERSION
- * @uses    __('The %s functionality is affected by a known bug, see %s')
  * @uses    PMA_showHint()
  * @uses    sprintf()
  * @param   string  $functionality localized message explaining the func.
@@ -2826,7 +2824,7 @@ function PMA_getTitleForTarget($target) {
 
 $mapping = array(
 	// Values for $cfg['DefaultTabTable']
-	'tbl_structure.php' =>  __('Structure'), 
+	'tbl_structure.php' =>  __('Structure'),
 	'tbl_sql.php' => __('SQL'),
 	'tbl_select.php' =>__('Search'),
 	'tbl_change.php' =>__('Insert'),
@@ -2841,19 +2839,54 @@ $mapping = array(
     return $mapping[$target];
 }
 
-function PMA_js($code, $print=true)
-{
-    // these generated newlines are needed
-  $out  = '';
-  $out .= '<script type="text/javascript">'."\n";
-  $out .= "\n" . '// <![CDATA[' . "\n";
-  $out .= $code;
-  $out .= "\n" . '// ]]>' . "\n";
-  $out .= '</script>'."\n";
+/**
+ * Formats user string, expading @VARIABLES@, accepting strftime format string.
+ *
+ * @param string Text where to do expansion.
+ * @param function Function to call for escaping variable values.
+ * @param array Array with overrides for default parameters (obtained from GLOBALS).
+ */
+function PMA_expandUserString($string, $escape = NULL, $updates = array()) {
+    /* Content */
+    $vars['http_host'] = PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '';
+    $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
+    $vars['server_verbose'] = $GLOBALS['cfg']['Server']['verbose'];
+    $vars['server_verbose_or_name'] = !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'];
+    $vars['database'] = $GLOBALS['db'];
+    $vars['table'] = $GLOBALS['table'];
+    $vars['phpmyadmin_version'] = 'phpMyAdmin ' . PMA_VERSION;
 
-  if ($print)
-    echo $out;
+    /* Update forced variables */
+    foreach($updates as $key => $val) {
+        $vars[$key] = $val;
+    }
 
-  return $out;
+    /* Replacement mapping */
+    /*
+     * The __VAR__ ones are for backward compatibility, because user
+     * might still have it in cookies.
+     */
+    $replace = array(
+        '@HTTP_HOST@' => $vars['http_host'],
+        '@SERVER@' => $vars['server_name'],
+        '__SERVER__' => $vars['server_name'],
+        '@VERBOSE@' => $vars['server_verbose'],
+        '@VSERVER@' => $vars['server_verbose_or_name'],
+        '@DATABASE@' => $vars['database'],
+        '__DB__' => $vars['database'],
+        '@TABLE@' => $vars['table'],
+        '__TABLE__' => $vars['table'],
+        '@PHPMYADMIN@' => $vars['phpmyadmin_version'],
+        );
+
+    /* Optional escaping */
+    if (!is_null($escape)) {
+        foreach($replace as $key => $val) {
+            $replace[$key] = $escape($val);
+        }
+    }
+
+    /* Do the replacement */
+    return str_replace(array_keys($replace), array_values($replace), strftime($string));
 }
 ?>

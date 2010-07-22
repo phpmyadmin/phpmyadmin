@@ -340,7 +340,8 @@ rm -rf config                      # remove not needed directory
     <abbr title="Frequently Asked Questions">FAQ</abbr> 1.23</a>).</p>
 
 <p> If you already had this infrastructure and upgraded to MySQL 4.1.2
-    or newer, please use <i>./scripts/upgrade_tables_mysql_4_1_2+.sql</i>.</p>
+    or newer, please use <i>./scripts/upgrade_tables_mysql_4_1_2+.sql</i>
+    and then create new tables by importing <i>./scripts/create_tables.sql</i>.</p>
 
 <p> You can use your phpMyAdmin to create the tables for you. Please be aware
     that you may need special (administrator) privileges to create the database
@@ -396,7 +397,7 @@ rm -rf config                      # remove not needed directory
         In cookie mode, the password is stored, encrypted with the blowfish
         algorithm, in a temporary cookie.</li>
 
-    <li id="pmausr">Note: starting with phpMyAdmin 2.6.1, this section is only applicable if
+    <li id="pmausr">Note: this section is only applicable if
         your MySQL server is running with <tt>--skip-show-database</tt>.<br /><br />
 
         For '<abbr title="HyperText Transfer Protocol">HTTP</abbr>' and 'cookie'
@@ -715,7 +716,7 @@ since this link provides funding for phpMyAdmin.
     <dd>This special account is used for 2 distinct purposes: to make possible
         all relational features (see
         <a href="#pmadb" class="configrule">$cfg['Servers'][$i]['pmadb']</a>)
-        and, for a MySQL server previous to 4.1.2 or running with
+        and, for a MySQL server running with
         <tt>--skip-show-database</tt>, to enable a multi-user installation
         (<abbr title="HyperText Transfer Protocol">HTTP</abbr> or cookie
         authentication mode).<br /><br />
@@ -1361,8 +1362,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Define how long is login cookie valid. Please note that php
         configuration option <a href="http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime">session.gc_maxlifetime</a> 
         might limit session validity and if session is lost, login cookie is
-        also invalidated. So it is good idea to set <code>session.gc_maxlifetime</code> 
-        at least as high is $cfg['LoginCookieValidity'] is set.</dd>
+        also invalidated. So it is a good idea to set <code>session.gc_maxlifetime</code> 
+        not lower than the value of $cfg['LoginCookieValidity'].</dd>
 
     <dt id="cfg_LoginCookieStore">$cfg['LoginCookieStore'] integer [number of seconds]</dt>
     <dd>Define how long is login cookie should be stored in browser. Default 0
@@ -1683,27 +1684,6 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         expression. For example if you want only Czech and English, you should
         set filter to <code>'^(cs|en)'</code>.</dd>
 
-    <dt id="cfg_DefaultCharset">$cfg['DefaultCharset'] string</dt>
-    <dd>Default character set to use for recoding of MySQL queries. This must be
-        enabled and it's described by
-        <a href="#cfg_AllowAnywhereRecoding" class="configrule">$cfg['AllowAnywhereRecoding']</a>
-        option.<br />
-        You can give here any character set which is in
-        <a href="#cfg_AvailableCharsets" class="configrule">$cfg['AvailableCharsets']</a>
-        array and this is just default choice, user can select any of them.</dd>
-
-    <dt id="cfg_AllowAnywhereRecoding">$cfg['AllowAnywhereRecoding'] boolean</dt>
-    <dd>Allow character set recoding of MySQL queries. You need recode or iconv
-        support (compiled in or module) in PHP to allow MySQL queries recoding
-        and used language file must have it enabled (by default only these
-        which are in Unicode, just to avoid losing some characters).<br /><br />
-
-        Setting this to <tt>TRUE</tt> also activates a pull-down menu
-        in the Export and Import pages, to choose the character set when 
-        exporting a file. The default value in this menu comes from 
-        <tt>$cfg['Export']['charset']</tt> and <tt>$cfg['Import']['charset']</tt>.
-    </dd>
-
     <dt id="cfg_RecodingEngine">$cfg['RecodingEngine'] string</dt>
     <dd>You can select here which functions will be used for character set
         conversion. Possible values are:
@@ -1711,8 +1691,15 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
                 iconv, then recode)</li>
             <li>iconv  - use iconv or libiconv functions</li>
             <li>recode - use recode_string function</li>
+            <li>none - disable encoding conversion</li>
         </ul>
         Default is auto.</dd>
+    <dd>
+        Enabled charset conversion activates a pull-down menu
+        in the Export and Import pages, to choose the character set when 
+        exporting a file. The default value in this menu comes from 
+        <tt>$cfg['Export']['charset']</tt> and <tt>$cfg['Import']['charset']</tt>.
+        </dd>
 
     <dt id="cfg_IconvExtraParams">$cfg['IconvExtraParams'] string</dt>
     <dd>Specify some parameters for iconv used in charset conversion. See
@@ -1867,7 +1854,7 @@ $cfg['TrustedProxies'] =
         editing.</dd>
 
     <dt id="cfg_LimitChars">$cfg['LimitChars'] integer</dt>
-    <dd>Maximum number of characters showen in any non-numeric column on browse view.
+    <dd>Maximum number of characters shown in any non-numeric field on browse view.
         Can be turned off by a toggle button on the browse page.</dd>
 
     <dt><span id="cfg_ModifyDeleteAtLeft">$cfg['ModifyDeleteAtLeft'] </span>boolean
@@ -2163,24 +2150,8 @@ setfacl -d -m "g:www-data:rwx" tmp
     <dt id="cfg_TitleDatabase">$cfg['TitleDatabase'] string</dt>
     <dt id="cfg_TitleServer">$cfg['TitleServer'] string</dt>
     <dt id="cfg_TitleDefault">$cfg['TitleDefault'] string</dt>
-    <dd>Allows you to specify window's title bar. Following magic string can
-        be used to get special values:
-        <dl>
-            <dt><code>@HTTP_HOST@</code></dt>
-                <dd>HTTP host that runs phpMyAdmin</dd>
-            <dt><code>@SERVER@</code></dt>
-                <dd>MySQL server name</dd>
-            <dt><code>@VERBOSE@</code></dt>
-                <dd>Verbose MySQL server name as defined in <a href="#cfg_Servers_verbose">server configuration</a></dd>
-            <dt><code>@VSERVER@</code></dt>
-                <dd>Verbose MySQL server name if set, otherwise normal</dd>
-            <dt><code>@DATABASE@</code></dt>
-                <dd>Currently opened database</dd>
-            <dt><code>@TABLE@</code></dt>
-                <dd>Currently opened table</dd>
-            <dt><code>@PHPMYADMIN@</code></dt>
-                <dd>phpMyAdmin with version</dd>
-        </dl>
+    <dd>Allows you to specify window's title bar. You can use 
+        <a href="#faq6_27">format string expansion</a>.
     </dd>
 
     <dt id="cfg_ErrorIconic">$cfg['ErrorIconic'] boolean</dt>
@@ -4137,25 +4108,34 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     <a href="#faqsqlvalidator">6.14 How do I set up the
     <abbr title="structured query language">SQL</abbr> Validator?</a></h4>
 
-<p> To use it, you need a very recent version of PHP, 4.3.0 recommended, with
+<p> 
+    To use SQL Validator, you need PHP with 
     <abbr title="Extensible Markup Language">XML</abbr>,
     <abbr title="Perl Compatible Regular Expressions">PCRE</abbr> and
     <abbr title="PHP Extension and Application Repository">PEAR</abbr> support.
-    On your system command line, run <tt>"pear install Net_Socket Net_URL
-    HTTP_Request Mail_Mime Net_DIME SOAP"</tt> to get the necessary
-    <abbr title="PHP Extension and Application Repository">PEAR</abbr> modules
-    for usage.<br />
-    On a more recent pear version, I had problems with the state of Net_DIME
-    being beta, so this single command
-    <tt>"pear -d preferred_state=beta install -a SOAP"</tt> installed all the
-    needed modules.<br />
+    In addition you need a <abbr title="Simple Object Access
+    Protocol">SOAP</abbr> support, either as a PHP extension or as a PEAR SOAP
+    module.
+</p>
+
+<p>
+    To install <abbr title="PHP Extension and Application
+    Repository">PEAR</abbr> <abbr title="Simple Object Access
+    Protocol">SOAP</abbr> module, run <tt>"pear install Net_Socket Net_URL
+    HTTP_Request Mail_Mime Net_DIME SOAP"</tt> to get the necessary <abbr
+    title="PHP Extension and Application Repository">PEAR</abbr> modules for
+    usage.
+</p>
+
+<p>
     If you use the Validator, you should be aware that any
     <abbr title="structured query language">SQL</abbr> statement you
     submit will be stored anonymously (database/table/column names,
     strings, numbers replaced with generic values). The Mimer
     <abbr title="structured query language">SQL</abbr>
     Validator itself, is &copy; 2001 Upright Database Technology.
-    We utilize it as free SOAP service.</p>
+    We utilize it as free SOAP service.
+</p>
 
 <h4 id="faq6_15">
     <a href="#faq6_15">6.15 I want to add a BLOB column and put an index on
@@ -4342,6 +4322,33 @@ chmod o+rwx tmp
 
 <p> Click the first row of the range, hold the shift key and click the last row of the range. This works everywhere you see rows, for example in Browse mode or on the Structure page.</p>
 
+
+<h4 id="faq6_27">
+    <a href="#faq6_27">6.27 What format strings can I use?</a></h4>
+
+<p>
+    In all places where phpMyAdmin accepts format strings, you can use
+    <code>@VARIABLE@</code> expansion and 
+    <a href="http://php.net/strftime">strftime</a> format strings. The
+    expanded variables depend on a context (eg. if you don't have chosen 
+    table, you can not get table name), but following variables can be used:
+</p>
+<dl>
+    <dt><code>@HTTP_HOST@</code></dt>
+        <dd>HTTP host that runs phpMyAdmin</dd>
+    <dt><code>@SERVER@</code></dt>
+        <dd>MySQL server name</dd>
+    <dt><code>@VERBOSE@</code></dt>
+        <dd>Verbose MySQL server name as defined in <a href="#cfg_Servers_verbose">server configuration</a></dd>
+    <dt><code>@VSERVER@</code></dt>
+        <dd>Verbose MySQL server name if set, otherwise normal</dd>
+    <dt><code>@DATABASE@</code></dt>
+        <dd>Currently opened database</dd>
+    <dt><code>@TABLE@</code></dt>
+        <dd>Currently opened table</dd>
+    <dt><code>@PHPMYADMIN@</code></dt>
+        <dd>phpMyAdmin with version</dd>
+</dl>
 
 <h3 id="faqproject">phpMyAdmin project</h3>
 

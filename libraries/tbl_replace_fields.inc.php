@@ -17,7 +17,6 @@
  *
  * note: grab_globals has extracted the fields from _FILES or HTTP_POST_FILES
  *
- * @version $Id$
  *
  * @uses $_REQUEST
  * @uses defined()

@@ -3,7 +3,6 @@
 /**
  * dumps a database
  *
- * @version $Id$
  * @uses    libraries/db_common.inc.php
  * @uses    libraries/db_info.inc.php
  * @uses    libraries/display_export.lib.php

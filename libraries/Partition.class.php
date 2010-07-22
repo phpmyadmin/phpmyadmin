@@ -3,7 +3,6 @@
 /**
  * Library for extracting information about the partitions
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

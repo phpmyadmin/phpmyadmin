@@ -3,7 +3,6 @@
 /**
  * handle row specifc actions like edit, delete, export
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

@@ -4,7 +4,6 @@
  * Set of functions used to build SQL dumps of tables
  *
  * @package phpMyAdmin-Export-SQL
- * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -187,7 +186,6 @@ function PMA_exportFooter()
     }
 
     // restore connection settings
-    // (not set if $cfg['AllowAnywhereRecoding'] is false)
     $charset_of_file = isset($GLOBALS['charset_of_file']) ? $GLOBALS['charset_of_file'] : '';
     if (!empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file])) {
         $foot .=  $crlf
@@ -276,8 +274,7 @@ function PMA_exportHeader()
         // so that a utility like the mysql client can interpret
         // the file correctly
         if (isset($GLOBALS['charset_of_file']) && isset($mysql_charset_map[$GLOBALS['charset_of_file']])) {
-            // $cfg['AllowAnywhereRecoding'] was true so we got a charset from
-            // the export dialog
+            // we got a charset from the export dialog
             $set_names = $mysql_charset_map[$GLOBALS['charset_of_file']];
         } else {
             // by default we use the connection charset

@@ -8,7 +8,6 @@
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
  *
- * @version $Id$
  * @package phpMyAdmin-debug
  */
 

@@ -3,7 +3,6 @@
 /**
  * Displays index edit/creation form and handles it
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
