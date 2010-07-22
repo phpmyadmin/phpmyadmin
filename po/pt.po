@@ -4,14 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-03-12 09:17+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-07-22 02:23+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: portuguese <pt@li.org>\n"
-"Language: \n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:37 browse_foreigners.php:58
 #: libraries/display_tbl.lib.php:416 server_privileges.php:1506
@@ -2764,10 +2765,9 @@ msgid "Table structure for table"
 msgstr "Estrutura da tabela"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Conteúdo da tabela __TABLE__"
+msgstr "Conteúdo da tabela @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
@@ -8149,253 +8149,3 @@ msgstr "Renomeia a tabela para "
 #~ "Não é possível usar <i>iconv</i> nem <i>libiconv</i> nem a função "
 #~ "<i>recode_string</i> enquanto a extensão reportar que está ligada. "
 #~ "Confira a configuração do seu php."
-
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Adiciona novo campo"
-
-#~ msgid "Field"
-#~ msgstr "Campo"
-
-#~ msgid "Records"
-#~ msgstr "Registos"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Campos terminados por"
-
-#~ msgid "Fields"
-#~ msgstr "Qtd Campos"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "O campo %s foi eliminado"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Ver imagem/jpeg: inline"
-
-#, fuzzy
-#~| msgid "\"zipped\""
-#~ msgid "zipped"
-#~ msgstr "\"Compressão zip\""
-
-#, fuzzy
-#~| msgid "\"gzipped\""
-#~ msgid "gzipped"
-#~ msgstr "\"Compressão gzip\""
-
-#, fuzzy
-#~| msgid "\"bzipped\""
-#~ msgid "bzipped"
-#~ msgstr "\"Compressão bzip\""
-
-#, fuzzy
-#~ msgid "and"
-#~ msgstr "E"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Desactidado"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Activado"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Reparar tabela"
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Criar um índice com&nbsp;%s&nbsp;coluna(s)"
-
-#, fuzzy
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Criar uma Página nova"
-
-#, fuzzy
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Nenhum"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Fecha a tabela (\"FLUSH\")"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Descrição"
-
-#, fuzzy
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Nenhum"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Esquema da base de dados \"%s\" - Página %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "A tabela \"%s\" não existe!"
-
-#~ msgid "running on %s"
-#~ msgstr "a correr em %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "O factor escala é muito pequeno para encaixar o esquema numa página"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Nenhum"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "Nenhum"
-
-#, fuzzy
-#~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "Verificar Privilégios para a Base de Dados &quot;%s&quot;."
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "A tabela \"%s\" não existe!"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr ""
-#~ "não é possível carregar a extensão %s ;<br />verifique a configuração do "
-#~ "PHP por favor"
-
-#, fuzzy
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Não é possível fazer login no servidor MySQL"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Talvez tenha encontrado um bug no analizador (parser) do SQL. Analise o "
-#~ "seu query aprofundadamente, e verifique se as aspas estão correctas e não "
-#~ "estão desencontradas. Outra possibilidade de falha é o facto de estar a "
-#~ "fazer o upload de um ficheiro com outside binário, de de uma área de "
-#~ "texto citada. Pode também experimentar a sua query na interface da linha "
-#~ "de comandos do MySQL. A saída de erro do MySQL abaixo, isto se existir "
-#~ "alguma, também o poderá ajudar a diagnosticar o problema. Se continuar a "
-#~ "ter problemas ou se o analisador (parser) falhar onde a interface da "
-#~ "linha de comandos tiver sucesso, reduza por favor a entrada do query SQL "
-#~ "até aquele que causa o problema, e envie o relatório de bug com os dados "
-#~ "do chunk na secção CUT abaixo:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "Dados CSV"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Apagar os utilizadores e recarreguar os privilégios a seguir."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Este é o processo mais limpo, mas recarregar os privilégios poderá "
-#~ "demorar um pouco."
-
-#~ msgid "has been altered."
-#~ msgstr "foi alterado(a)."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "Os utilizadores &quot;deleted&quot; continuarão a conseguir aceder ao "
-#~ "servidor até que os privilégios sejam recarregados."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Apagar apenas os utilizadores da tabela de privilégios."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Permite executar procedimentos armazenados; Não tem efeito nesta versão "
-#~ "do MySQL."
-
-#~ msgid "Process list"
-#~ msgstr "Lista de Processos"
-
-#, fuzzy
-#~ msgid "Reload privileges"
-#~ msgstr "Privilégios Globais"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "O utilizadores manterão o privilégio de USAGE até que os privilégios "
-#~ "sejam recarregados."
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "Selecciona Todas"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "Selecciona Todas"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "Insere"
-
-#, fuzzy
-#~| msgid "Update Query"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "Actualiza Comando SQL"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "Apagar"
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
-
-#~ msgid "Jan0"
-#~ msgstr "Jan0"
-
-#~ msgid "Jan1"
-#~ msgstr "Jan1"
-
-#~ msgid "Jan2"
-#~ msgstr "Jan2"
