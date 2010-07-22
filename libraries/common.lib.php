@@ -1277,6 +1277,17 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($refresh_link)) {
             PMA_profilingCheckbox($sql_query);
         }
+        // if needed, generate an invisible form that contains controls for the
+        // Inline link; this way, the behavior of the Inline link does not
+        // depend on the profiling support or on the refresh link
+        if (empty($refresh_link) || ! PMA_profilingSupported()) {
+            echo '<form action="sql.php" method="post">';
+            echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+            echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />';
+            echo '</form>';
+        }
+
+        // see in js/functions.js the jQuery code attached to id inline_edit
         $inline_edit = "<script type=\"text/javascript\">\n" .
             "//<![CDATA[\n" .
             "document.write('[<a href=\"#\" title=\"" .
