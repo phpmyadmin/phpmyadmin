@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-05-16 01:40+0200\n"
-"Last-Translator:  <ssuceveanu@yahoo.com>\n"
+"PO-Revision-Date: 2010-07-22 02:28+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -2844,10 +2844,9 @@ msgid "Table structure for table"
 msgstr "Structura de tabel pentru tabelul"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Conținutul tabelului __TABLE__"
+msgstr "Conținutul tabelului @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
@@ -8438,125 +8437,3 @@ msgstr "Redenumire tabel la"
 #~ msgstr ""
 #~ "Nu pot folosi funcțiile iconv nici libiconv nici recode_string în timp ce "
 #~ "extensia este încărcată. Verificați configurația PHP."
-
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Adaugă cîmp nou"
-
-#~ msgid "Field"
-#~ msgstr "Cîmp"
-
-#~ msgid "Records"
-#~ msgstr "Înregistrări"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Cîmpuri terminate de"
-
-#~ msgid "Fields"
-#~ msgstr "Cîmpuri"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "Cîmpul %s a fost aruncat"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Vezi imagine/jpeg: inline"
-
-#, fuzzy
-#~| msgid "\"zipped\""
-#~ msgid "zipped"
-#~ msgstr "„arhivat”"
-
-#, fuzzy
-#~| msgid "\"gzipped\""
-#~ msgid "gzipped"
-#~ msgstr "cu „gzip”"
-
-#, fuzzy
-#~| msgid "\"bzipped\""
-#~ msgid "bzipped"
-#~ msgstr "cu „bzip2”"
-
-#, fuzzy
-#~| msgid "Add custom comment into header (\\n splits lines)"
-#~ msgid ""
-#~ "Add custom comment into header (\n"
-#~ " splits lines)"
-#~ msgstr "Adăugare comentariu la antet (\\n înseamnă delimitare de rînd)"
-
-#, fuzzy
-#~ msgid "and"
-#~ msgstr "Și"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryDisabled"
-#~ msgid "Disabled"
-#~ msgstr "Dezactivat"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryEnabled"
-#~ msgid "Enabled"
-#~ msgstr "Activat"
-
-#, fuzzy
-#~ msgctxt "$strBLOBRepositoryRepair"
-#~ msgid "Repair"
-#~ msgstr "Repară"
-
-#~ msgid "Calendar"
-#~ msgstr "Calendar"
-
-#~ msgid "MySQL&nbsp;4.0 compatible"
-#~ msgstr "Compatibil MySQL&nbsp;4.0"
-
-#~ msgid "Could not load default configuration from: \"%1$s\""
-#~ msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Creează un index pe&nbsp;%s&nbsp;coloană"
-
-#, fuzzy
-#~ msgctxt "$strCreateTableShort"
-#~ msgid "Create table"
-#~ msgstr "Creare tabel"
-
-#, fuzzy
-#~ msgctxt "$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Nici unul(a)"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Curățarea tabelului (\"FLUSH\")"
-
-#~ msgid "Invalid server index: \"%s\""
-#~ msgstr "Index de server nevalid: „%s”"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Descriere"
-
-#, fuzzy
-#~ msgctxt "$strNoneDefault"
-#~ msgid "None"
-#~ msgstr "Nici unul(a)"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Schema bazei de date \"%s\" - Pagina %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "Tabelul „%s” nu există!"
-
-#~ msgid "running on %s"
-#~ msgstr "rulînd pe %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "Factorul de scalare este prea mica pentru a inchepe in pagina"
-
-#~ msgid ""
-#~ "Cannot start session without errors, please check errors given in your "
-#~ "PHP and/or webserver log file and configure your PHP installation "
-#~ "properly."
-#~ msgstr ""
-#~ "Cannot start session without errors, please check errors given in your "
-#~ "PHP and/or webserver log file and configure your PHP installation "
-#~ "properly."
