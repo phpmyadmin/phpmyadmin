@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-23 07:43+0200\n"
+"PO-Revision-Date: 2010-07-23 07:56+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1396,7 +1396,7 @@ msgstr "%s نى بۇ MySQL مۇلازىمىتېرىدا ئىشلىتىشكە ب�
 #: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s نى بۇ MySQL مۇلازىمىتېرىدا ئىشلىتىشكە بولمايدۇ."
 
 #: libraries/StorageEngine.class.php:359
 #, php-format
