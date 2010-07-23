@@ -89,11 +89,17 @@ var imageMap = {
     },
 
     'loadImageMap': function(map) {
-        imageMap.imageMap = JSON.parse(map);
+        this.imageMap = JSON.parse(map);
+        for (key in this.imageMap)
+        {
+            // FIXME
+            // without this loop image map does not work
+            // on IE8 in the status page
+        }
     },
 
     'init': function() {
-        $("img#chart").bind('mousemove',function(e) {
+        $("div#chart").bind('mousemove',function(e) {
             imageMap.mouseMoved(e, this);
         });
 

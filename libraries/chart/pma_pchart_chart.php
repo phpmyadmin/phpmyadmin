@@ -21,7 +21,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
     protected $dataSet;
     protected $chart;
 
-    protected $imageEncoded;
+    protected $partsEncoded = array();
 
     public function __construct($data, $options = null)
     {
@@ -116,14 +116,32 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
     protected abstract function drawChart();
 
-    protected function render()
+    protected function render($parts = 1)
     {
-        ob_start();
-        imagepng($this->chart->Picture);
-        $output = ob_get_contents();
-        ob_end_clean();
+        $fullWidth = 0;
 
-        $this->imageEncoded = base64_encode($output);
+        for ($i = 0; $i < $parts; $i++) {
+            $partHeight = $this->chart->YSize;
+            $partWidth = round($this->chart->XSize / $parts);
+            $fullWidth += $partWidth;
+            $partX = $partWidth * $i;
+
+            if ($i == $parts - 1) {
+                // compensate for the rounding errors in the last part
+                $partWidth += $this->chart->XSize - $fullWidth;
+            }
+
+            $part = imagecreatetruecolor($partWidth, $partHeight);
+            imagecopy($part, $this->chart->Picture, 0, 0, $partX, 0, $partWidth, $partHeight);
+
+            ob_start();
+            imagepng($part, NULL, 9, PNG_ALL_FILTERS);
+            $output = ob_get_contents();
+            ob_end_clean();
+
+            $partEncoded = base64_encode($output);
+            $this->partsEncoded[$i] = $partEncoded;
+        }
     }
 
     public function toString()
@@ -132,9 +150,13 @@ abstract class PMA_pChart_Chart extends PMA_Chart
             $this->init();
             $this->prepareDataSet();
             $this->prepareChart();
-            $this->render();
+            $this->render(20);
 
-            $returnData = '<img id="chart" src="data:image/png;base64,'.$this->imageEncoded.'" />';
+            $returnData = '<div id="chart">';
+            foreach ($this->partsEncoded as $part) {
+                $returnData .= '<img src="data:image/png;base64,'.$part.'" />';
+            }
+            $returnData .= '</div>';
             $returnData .= '
                 <script type="text/javascript">
                 imageMap.loadImageMap(\''.json_encode($this->getImageMap()).'\');
