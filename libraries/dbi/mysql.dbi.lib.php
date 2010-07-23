@@ -4,7 +4,6 @@
  * Interface to the classic MySQL extension
  *
  * @package phpMyAdmin-DBI-MySQL
- * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -308,9 +307,6 @@ function PMA_DBI_get_client_info()
  * @uses    PMA_DBI_convert_message()
  * @uses    $GLOBALS['errno']
  * @uses    $GLOBALS['userlink']
- * @uses    __('The server is not responding')
- * @uses    __('(or the local MySQL server's socket is not correctly configured)')
- * @uses    __('Details...')
  * @uses    mysql_errno()
  * @uses    mysql_error()
  * @uses    defined()

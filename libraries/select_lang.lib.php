@@ -3,7 +3,6 @@
 /**
  * phpMyAdmin Language Loading File
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -32,7 +31,6 @@ function PMA_langName($tmplang) {
  * @uses    $GLOBALS['lang_failed_cfg']
  * @uses    $GLOBALS['lang_failed_cookie']
  * @uses    $GLOBALS['lang_failed_request']
- * @uses    $GLOBALS['convcharset'] to set it if not set
  * @uses    $_REQUEST['lang']
  * @uses    $_COOKIE['pma_lang']
  * @uses    $_SERVER['HTTP_ACCEPT_LANGUAGE']
@@ -444,16 +442,6 @@ $GLOBALS['mysql_charset_map'] = array(
  * Do the work!
  */
 
-if (empty($GLOBALS['convcharset'])) {
-    if (isset($_COOKIE['pma_charset'])) {
-        $GLOBALS['convcharset'] = $_COOKIE['pma_charset'];
-    } else {
-        // session.save_path might point to a bad folder, in which case
-        // $GLOBALS['cfg'] would not exist
-        $GLOBALS['convcharset'] = isset($GLOBALS['cfg']['DefaultCharset']) ? $GLOBALS['cfg']['DefaultCharset'] : 'utf-8';
-    }
-}
-
 if (! PMA_langCheck()) {
     // fallback language
     $fall_back_lang = 'en';
@@ -491,10 +479,6 @@ $charset = 'utf-8';
 
 /* l10n: Text direction, use either ltr or rtl */
 $text_dir = __('ltr');
-
-$strLatexContent = __('Content of table __TABLE__');
-$strLatexContinued = __('(continued)');
-$strLatexStructure = __('Structure of table __TABLE__');
 
 // now, that we have loaded the language strings we can send the errors
 if ($GLOBALS['lang_failed_cfg']) {

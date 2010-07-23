@@ -31,7 +31,6 @@
  * @uses    $cfg['NavigationBarIconic']
  * @uses    $cfg['DBG']['enable']
  * @uses    $cfg['DBG']['profile']['enable']
- * @uses    __('Open new phpMyAdmin window')
  * @uses    $cfg['MaxCharactersInDisplayedSQL']
  * @uses    PMA_isValid()
  * @uses    PMA_setHistory()
@@ -41,7 +40,6 @@
  * @uses    PMA_generate_common_url()
  * @uses    basename()
  * @uses    file_exists()
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

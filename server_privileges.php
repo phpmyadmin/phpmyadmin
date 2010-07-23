@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -17,6 +16,7 @@ require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'password_generation.js';
 require './libraries/server_common.inc.php';
 
 /**
@@ -811,22 +811,14 @@ function PMA_displayLoginInformationFields($mode = 'new')
        . '</span>' . "\n"
        . '<input type="password" id="text_pma_pw" name="pma_pw" title="' . __('Password') . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
        . '</div>' . "\n"
-       . '<div class="item">' . "\n"
+       . '<div class="item" id="div_element_before_generate_password">' . "\n"
        . '<label for="text_pma_pw2">' . "\n"
        . '    ' . __('Re-type') . ':' . "\n"
        . '</label>' . "\n"
        . '<span class="options">&nbsp;</span>' . "\n"
        . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="' . __('Re-type') . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
        . '</div>' . "\n"
-       . '<div class="item">' . "\n"
-       . '<label for="button_generate_password">' . "\n"
-       . '    ' . __('Generate Password') . ':' . "\n"
-       . '</label>' . "\n"
-       . '<span class="options">' . "\n"
-       . '    <input type="button" id="button_generate_password" value="' . __('Generate') . '" onclick="suggestPassword(this.form)" />' . "\n"
-       . '</span>' . "\n"
-       . '<input type="text" name="generated_pw" id="generated_pw" />' . "\n"
-       . '</div>' . "\n"
+       // Generate password added here via jQuery
        . '</fieldset>' . "\n";
 } // end of the 'PMA_displayUserAndHostFields()' function
 

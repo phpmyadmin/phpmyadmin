@@ -5,7 +5,6 @@
  *
  * @package phpMyAdmin
  *
- * @version $Id$
  */
 
 /**

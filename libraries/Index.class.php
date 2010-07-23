@@ -3,7 +3,6 @@
 /**
  * holds the database index class
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -541,7 +540,6 @@ class PMA_Index
     /**
      * Function to check over array of indexes and look for common problems
      *
-     * @uses    __('The indexes %1 and %2 seem to be equal and one of them could possibly be removed.')
      * @uses    is_string()
      * @uses    is_array()
      * @uses    count()

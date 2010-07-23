@@ -203,7 +203,7 @@ function confirmQuery(theForm1, sqlQuery1)
  * Displays a confirmation box before disabling the BLOB repository for a given database.
  * This function is called while clicking links
  *
- * @param   object   the database 
+ * @param   object   the database
  *
  * @return  boolean  whether to disable the repository or not
  */
@@ -291,10 +291,10 @@ function checkSqlQuery(theForm)
 // Global variable row_class is set to even
 var row_class = 'even';
 
-/** 
+/**
 * Generates a row dynamically in the differences table displaying
-* the complete statistics of difference in  table like number of 
-* rows to be updated, number of rows to be inserted, number of 
+* the complete statistics of difference in  table like number of
+* rows to be updated, number of rows to be inserted, number of
 * columns to be added, number of columns to be removed, etc.
 *
 * @param  index         index of matching table
@@ -303,17 +303,17 @@ var row_class = 'even';
 * @param  remove_size   number of columns to be removed
 * @param  insert_index  number of indexes to be inserted
 * @param  remove_index  number of indexes to be removed
-* @param  img_obj       image object 
+* @param  img_obj       image object
 * @param  table_name    name of the table
 */
 
 function showDetails(i, update_size, insert_size, remove_size, insert_index, remove_index, img_obj, table_name)
-{   
+{
     // The path of the image is split to facilitate comparison
-    var relative_path = (img_obj.src).split("themes/"); 
-    
+    var relative_path = (img_obj.src).split("themes/");
+
     // The image source is changed when the showDetails function is called.
-    if (relative_path[1] == 'original/img/new_data_hovered.jpg') {    
+    if (relative_path[1] == 'original/img/new_data_hovered.jpg') {
         img_obj.src = "./themes/original/img/new_data_selected_hovered.jpg";
         img_obj.alt = PMA_messages['strClickToUnselect'];  //only for IE browser
     } else if (relative_path[1] == 'original/img/new_struct_hovered.jpg') {
@@ -322,76 +322,76 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
     } else if (relative_path[1] == 'original/img/new_struct_selected_hovered.jpg') {
         img_obj.src = "./themes/original/img/new_struct_hovered.jpg";
         img_obj.alt = PMA_messages['strClickToSelect'];
-    } else if (relative_path[1] == 'original/img/new_data_selected_hovered.jpg') {    
+    } else if (relative_path[1] == 'original/img/new_data_selected_hovered.jpg') {
         img_obj.src = "./themes/original/img/new_data_hovered.jpg";
         img_obj.alt = PMA_messages['strClickToSelect'];
-    } 
-    
-    var div = document.getElementById("list");    
-    var table = div.getElementsByTagName("table")[0]; 
+    }
+
+    var div = document.getElementById("list");
+    var table = div.getElementsByTagName("table")[0];
     var table_body = table.getElementsByTagName("tbody")[0];
-    
+
     //Global variable row_class is being used
     if (row_class == 'even') {
         row_class = 'odd';
     } else {
-        row_class = 'even'; 
+        row_class = 'even';
     }
-    // If the red or green button against a table name is pressed then append a new row to show the details of differences of this table. 
-    if ((relative_path[1] != 'original/img/new_struct_selected_hovered.jpg') && (relative_path[1] != 'original/img/new_data_selected_hovered.jpg')) { 
-        
-        var newRow = document.createElement("tr");    
+    // If the red or green button against a table name is pressed then append a new row to show the details of differences of this table.
+    if ((relative_path[1] != 'original/img/new_struct_selected_hovered.jpg') && (relative_path[1] != 'original/img/new_data_selected_hovered.jpg')) {
+
+        var newRow = document.createElement("tr");
         newRow.setAttribute("class", row_class);
-        newRow.className = row_class; 
-        // Id assigned to this row element is same as the index of this table name in the  matching_tables/source_tables_uncommon array  
+        newRow.className = row_class;
+        // Id assigned to this row element is same as the index of this table name in the  matching_tables/source_tables_uncommon array
         newRow.setAttribute("id" , i);
-            
+
         var table_name_cell = document.createElement("td");
         table_name_cell.align = "center";
         table_name_cell.innerHTML = table_name ;
-        
+
         newRow.appendChild(table_name_cell);
-       
+
         var create_table = document.createElement("td");
         create_table.align = "center";
-           
+
         var add_cols = document.createElement("td");
         add_cols.align = "center";
-        
+
         var remove_cols = document.createElement("td");
         remove_cols.align = "center";
-        
+
         var alter_cols = document.createElement("td");
         alter_cols.align = "center";
-        
+
         var add_index = document.createElement("td");
         add_index.align = "center";
-        
+
         var delete_index = document.createElement("td");
         delete_index.align = "center";
-        
+
         var update_rows = document.createElement("td");
         update_rows.align = "center";
-        
+
         var insert_rows = document.createElement("td");
         insert_rows.align = "center";
-        
+
         var tick_image = document.createElement("img");
-        tick_image.src = "./themes/original/img/s_success.png"; 
+        tick_image.src = "./themes/original/img/s_success.png";
 
         if (update_size == '' && insert_size == '' && remove_size == '') {
           /**
-          This is the case when the table needs to be created in target database. 
+          This is the case when the table needs to be created in target database.
           */
             create_table.appendChild(tick_image);
             add_cols.innerHTML = "--";
-            remove_cols.innerHTML = "--";         
+            remove_cols.innerHTML = "--";
             alter_cols.innerHTML = "--";
             delete_index.innerHTML = "--";
             add_index.innerHTML = "--";
             update_rows.innerHTML = "--";
             insert_rows.innerHTML = "--";
- 
+
             newRow.appendChild(create_table);
             newRow.appendChild(add_cols);
             newRow.appendChild(remove_cols);
@@ -400,43 +400,21 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
             newRow.appendChild(add_index);
             newRow.appendChild(update_rows);
             newRow.appendChild(insert_rows);
-            
+
         } else if (update_size == '' && remove_size == '') {
            /**
-           This is the case when data difference is displayed in the 
-           table which is present in source but absent from target database 
+           This is the case when data difference is displayed in the
+           table which is present in source but absent from target database
           */
             create_table.innerHTML = "--";
             add_cols.innerHTML = "--";
-            remove_cols.innerHTML = "--";         
+            remove_cols.innerHTML = "--";
             alter_cols.innerHTML = "--";
             add_index.innerHTML = "--";
             delete_index.innerHTML = "--";
             update_rows.innerHTML = "--";
             insert_rows.innerHTML = insert_size;
-            
-            newRow.appendChild(create_table);
-            newRow.appendChild(add_cols);
-            newRow.appendChild(remove_cols);
-            newRow.appendChild(alter_cols);
-            newRow.appendChild(delete_index); 
-            newRow.appendChild(add_index);
-            newRow.appendChild(update_rows);
-            newRow.appendChild(insert_rows);
-            
-        } else if (remove_size == '') {
-            /**
-             This is the case when data difference between matching_tables is displayed. 
-            */
-            create_table.innerHTML = "--";
-            add_cols.innerHTML = "--";
-            remove_cols.innerHTML = "--";         
-            alter_cols.innerHTML = "--";
-            add_index.innerHTML = "--";
-            delete_index.innerHTML = "--";
-            update_rows.innerHTML = update_size;
-            insert_rows.innerHTML = insert_size;
-            
+
             newRow.appendChild(create_table);
             newRow.appendChild(add_cols);
             newRow.appendChild(remove_cols);
@@ -445,41 +423,63 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
             newRow.appendChild(add_index);
             newRow.appendChild(update_rows);
             newRow.appendChild(insert_rows);
-            
+
+        } else if (remove_size == '') {
+            /**
+             This is the case when data difference between matching_tables is displayed.
+            */
+            create_table.innerHTML = "--";
+            add_cols.innerHTML = "--";
+            remove_cols.innerHTML = "--";
+            alter_cols.innerHTML = "--";
+            add_index.innerHTML = "--";
+            delete_index.innerHTML = "--";
+            update_rows.innerHTML = update_size;
+            insert_rows.innerHTML = insert_size;
+
+            newRow.appendChild(create_table);
+            newRow.appendChild(add_cols);
+            newRow.appendChild(remove_cols);
+            newRow.appendChild(alter_cols);
+            newRow.appendChild(delete_index);
+            newRow.appendChild(add_index);
+            newRow.appendChild(update_rows);
+            newRow.appendChild(insert_rows);
+
         } else {
             /**
             This is the case when structure difference between matching_tables id displayed
             */
             create_table.innerHTML = "--";
             add_cols.innerHTML = insert_size;
-            remove_cols.innerHTML = remove_size;         
+            remove_cols.innerHTML = remove_size;
             alter_cols.innerHTML = update_size;
             delete_index.innerHTML = remove_index;
             add_index.innerHTML = insert_index;
             update_rows.innerHTML = "--";
             insert_rows.innerHTML = "--";
-           
+
             newRow.appendChild(create_table);
             newRow.appendChild(add_cols);
             newRow.appendChild(remove_cols);
-            newRow.appendChild(alter_cols); 
+            newRow.appendChild(alter_cols);
             newRow.appendChild(delete_index);
             newRow.appendChild(add_index);
             newRow.appendChild(update_rows);
             newRow.appendChild(insert_rows);
         }
         table_body.appendChild(newRow);
-      
+
     } else if ((relative_path[1] != 'original/img/new_struct_hovered.jpg') && (relative_path[1] != 'original/img/new_data_hovered.jpg')) {
       //The case when the row showing the details need to be removed from the table i.e. the difference button is deselected now.
         var table_rows = table_body.getElementsByTagName("tr");
         var j;
         var index = 0;
-        for (j=0; j < table_rows.length; j++) 
-        {   
-            if (table_rows[j].id == i) { 
+        for (j=0; j < table_rows.length; j++)
+        {
+            if (table_rows[j].id == i) {
                 index = j;
-                table_rows[j].parentNode.removeChild(table_rows[j]);     
+                table_rows[j].parentNode.removeChild(table_rows[j]);
             }
         }
         //The table row css is being adjusted. Class "odd" for odd rows and "even" for even rows should be maintained.
@@ -490,11 +490,11 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
                 table_rows[index].setAttribute("class","odd");  // for Mozilla firefox
                 table_rows[index].className = "odd";            // for IE browser
             } else {
-                table_rows[index].setAttribute("class","even"); // for Mozilla firefox  
-                table_rows[index].className = "even";           // for IE browser       
+                table_rows[index].setAttribute("class","even"); // for Mozilla firefox
+                table_rows[index].className = "even";           // for IE browser
             }
-        }    
-    }     
+        }
+    }
 }
 
 /**
@@ -503,35 +503,35 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
  * @param   img_obj   the image object whose source needs to be changed
  *
  */
- 
+
 function change_Image(img_obj)
 {
-     var relative_path = (img_obj.src).split("themes/"); 
-    
-    if (relative_path[1] == 'original/img/new_data.jpg') {    
-        img_obj.src = "./themes/original/img/new_data_hovered.jpg";  
+     var relative_path = (img_obj.src).split("themes/");
+
+    if (relative_path[1] == 'original/img/new_data.jpg') {
+        img_obj.src = "./themes/original/img/new_data_hovered.jpg";
     } else if (relative_path[1] == 'original/img/new_struct.jpg') {
         img_obj.src = "./themes/original/img/new_struct_hovered.jpg";
     } else if (relative_path[1] == 'original/img/new_struct_hovered.jpg') {
         img_obj.src = "./themes/original/img/new_struct.jpg";
-    } else if (relative_path[1] == 'original/img/new_data_hovered.jpg') {    
-        img_obj.src = "./themes/original/img/new_data.jpg";  
-    } else if (relative_path[1] == 'original/img/new_data_selected.jpg') {    
-        img_obj.src = "./themes/original/img/new_data_selected_hovered.jpg";  
-    } else if(relative_path[1] == 'original/img/new_struct_selected.jpg') {    
-        img_obj.src = "./themes/original/img/new_struct_selected_hovered.jpg";  
-    } else if (relative_path[1] == 'original/img/new_struct_selected_hovered.jpg') {    
-        img_obj.src = "./themes/original/img/new_struct_selected.jpg";  
-    } else if (relative_path[1] == 'original/img/new_data_selected_hovered.jpg') {    
-        img_obj.src = "./themes/original/img/new_data_selected.jpg";  
+    } else if (relative_path[1] == 'original/img/new_data_hovered.jpg') {
+        img_obj.src = "./themes/original/img/new_data.jpg";
+    } else if (relative_path[1] == 'original/img/new_data_selected.jpg') {
+        img_obj.src = "./themes/original/img/new_data_selected_hovered.jpg";
+    } else if(relative_path[1] == 'original/img/new_struct_selected.jpg') {
+        img_obj.src = "./themes/original/img/new_struct_selected_hovered.jpg";
+    } else if (relative_path[1] == 'original/img/new_struct_selected_hovered.jpg') {
+        img_obj.src = "./themes/original/img/new_struct_selected.jpg";
+    } else if (relative_path[1] == 'original/img/new_data_selected_hovered.jpg') {
+        img_obj.src = "./themes/original/img/new_data_selected.jpg";
     }
 }
 
 /**
- * Generates the URL containing the list of selected table ids for synchronization and 
- * a variable checked for confirmation of deleting previous rows from target tables 
+ * Generates the URL containing the list of selected table ids for synchronization and
+ * a variable checked for confirmation of deleting previous rows from target tables
  *
- * @param   token   the token generated for each PMA form 
+ * @param   token   the token generated for each PMA form
  *
  */
 
@@ -545,15 +545,15 @@ function ApplySelectedChanges(token)
     var x = table_rows.length;
     var i;
     /**
-     Append the token at the beginning of the query string followed by  
-    Table_ids that shows that "Apply Selected Changes" button is pressed            
+     Append the token at the beginning of the query string followed by
+    Table_ids that shows that "Apply Selected Changes" button is pressed
     */
     var append_string = "?token="+token+"&Table_ids="+1;
     for(i=0; i<x; i++){
-           append_string += "&";    
-           append_string += i+"="+table_rows[i].id; 
+           append_string += "&";
+           append_string += i+"="+table_rows[i].id;
     }
-    
+
     // Getting the value of checkbox delete_rows
     var checkbox = document.getElementById("delete_rows");
     if (checkbox.checked){
@@ -561,13 +561,13 @@ function ApplySelectedChanges(token)
     } else {
          append_string += "&checked=false";
     }
-    //Appending the token and list of table ids in the URL 
+    //Appending the token and list of table ids in the URL
     location.href += token;
     location.href += append_string;
 }
 
-/** 
-* Displays error message if any text field 
+/**
+* Displays error message if any text field
 * is left empty other than port field.
 *
 * @param  string   the form name
@@ -576,7 +576,7 @@ function ApplySelectedChanges(token)
 * @return  boolean  whether the form field is empty or not
 */
 function validateConnection(form_name, form_obj)
-{   
+{
     var check = true;
     var src_hostfilled = true;
     var trg_hostfilled = true;
@@ -611,7 +611,7 @@ function validateConnection(form_name, form_obj)
     }
     return check;
 }
-    
+
 /**
  * Check if a form's element is empty
  * should be
@@ -1616,8 +1616,8 @@ function pdfPaperSize(format, axis) {
 /**
  * for playing media from the BLOB repository
  *
- * @param   var     
- * @param   var     url_params  main purpose is to pass the token 
+ * @param   var
+ * @param   var     url_params  main purpose is to pass the token
  * @param   var     bs_ref      BLOB repository reference
  * @param   var     m_type      type of BLOB repository media
  * @param   var     w_width     width of popup window
@@ -1669,12 +1669,12 @@ function requestMIMETypeChange(db, table, reference, current_mime_type)
  */
 function changeMIMEType(db, table, reference, mime_type)
 {
-    // specify url and parameters for jQuery POST 
+    // specify url and parameters for jQuery POST
     var mime_chg_url = 'bs_change_mime_type.php';
     var params = {bs_db: db, bs_table: table, bs_reference: reference, bs_new_mime_type: mime_type};
 
     // jQuery POST
-    jQuery.post(mime_chg_url, params); 
+    jQuery.post(mime_chg_url, params);
 }
 
 /**
@@ -1704,6 +1704,14 @@ $(document).ready(function(){
         insertQuery(evt.target.id);
         return false;
     });
+    $('#sqlquery').focus();
+    if ($('#input_username')) {
+        if ($('#input_username').val() == '') {
+            $('#input_username').focus();
+        } else {
+            $('#input_password').focus();
+        }
+    }
 });
 
 /**

@@ -7,7 +7,6 @@
  * - reversed the right modify links: 1. drop, 2. edit, 3. checkbox
  * - also changes made in js/functions.js
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

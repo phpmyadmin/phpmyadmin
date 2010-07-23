@@ -3,7 +3,6 @@
 /**
  * Set of functions used for cleaning up phpMyAdmin tables
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

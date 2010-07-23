@@ -3,7 +3,6 @@
 /**
  * runs all defined Selenium tests
  *
- * @version $Id$
  * @package phpMyAdmin-test
  */
 

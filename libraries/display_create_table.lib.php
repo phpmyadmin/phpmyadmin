@@ -22,7 +22,6 @@
  * warnings about the lack of privileges for CREATE TABLE. Tested
  * on MySQL 5.0.18.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

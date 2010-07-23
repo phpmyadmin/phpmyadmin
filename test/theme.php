@@ -5,7 +5,6 @@
  *
  * @uses    libraries/common.inc.php        global fnctions
  * @package phpMyAdmin-test
- * @version $Id$
  */
 
 chdir('..');

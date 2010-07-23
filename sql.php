@@ -3,7 +3,6 @@
 /**
  * @todo    we must handle the case if sql.php is called directly with a query
  *          that returns 0 rows - to prevent cyclic redirects or includes
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -523,7 +522,7 @@ if (0 == $num_rows || $is_affected) {
         /* User disable showing as PHP, query is only displayed */
         $message = PMA_Message::notice(__('Showing SQL query'));
     } elseif (!empty($GLOBALS['validatequery'])) {
-        $message = PMA_Message::notice(__('Validate SQL'));
+        $message = PMA_Message::notice(__('Validated SQL'));
     } else {
         $message = PMA_Message::success(__('MySQL returned an empty result set (i.e. zero rows).'));
     }

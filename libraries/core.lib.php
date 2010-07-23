@@ -5,7 +5,6 @@
  * This script is distinct from libraries/common.inc.php because this
  * script is called from /test.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -202,7 +201,6 @@ function PMA_securePath($path)
  * @todo    use detected argument separator (PMA_Config)
  * @uses    $GLOBALS['session_name']
  * @uses    $GLOBALS['text_dir']
- * @uses    __('Error')
  * @uses    $GLOBALS['available_languages']
  * @uses    $GLOBALS['lang']
  * @uses    $GLOBALS['PMA_Config']->removeCookie()
@@ -226,7 +224,7 @@ function PMA_fatalError($error_message, $message_args = null)
     if (! isset($GLOBALS['available_languages'])) {
         $GLOBALS['cfg'] = array(
             'DefaultLang'           => 'en',
-            'AllowAnywhereRecoding' => false);
+            );
 
         // Loads the language file
         require_once './libraries/select_lang.lib.php';
@@ -281,7 +279,8 @@ function PMA_fatalError($error_message, $message_args = null)
  */
 function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 {
-    $message = sprintf(__('Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] extension. Please check your PHP configuration.'), $extension);
+    $message = sprintf(__('The %s extension is missing. Please check your PHP configuration.'),
+        sprintf('[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a]', $extension));
     if ($extra != '') {
         $message .= ' ' . $extra;
     }

@@ -3,7 +3,6 @@
 /**
  * MIME detection code.
  *
- * @version $Id$
  * @package phpMyAdmin
  * @todo Maybe we could try to use fileinfo module if loaded
  */

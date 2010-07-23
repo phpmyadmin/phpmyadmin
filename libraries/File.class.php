@@ -3,7 +3,6 @@
 /**
  * file upload functions
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -259,13 +258,6 @@ class PMA_File
      * @uses    PMA_File::setRecentBLOBReference()
      * @uses    curl_setopt_array()
      * @uses    PMA_File::$_error_message
-     * @uses    __('The uploaded file exceeds the upload_max_filesize directive in php.ini.')
-     * @uses    __('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.')
-     * @uses    __('The uploaded file was only partially uploaded.')
-     * @uses    __('Missing a temporary folder.')
-     * @uses    __('Failed to write file to disk.')
-     * @uses    __('File upload stopped by extension.')
-     * @uses    __('Unknown error in file upload.')
      * @uses    $_FILES
      * @param   string  $key    a numeric key used to identify the different rows
      * @param   string  $primary_key
@@ -832,7 +824,6 @@ class PMA_File
     /**
      *
      * @access  public
-     * @uses    __('File could not be read')
      * @uses    PMA_File::setName()
      * @uses    PMA_securePath()
      * @uses    PMA_userDir()
@@ -881,7 +872,6 @@ class PMA_File
      * @todo move check of $cfg['TempDir'] into PMA_Config?
      * @access  public
      * @uses    $cfg['TempDir']
-     * @uses    __('Error moving the uploaded file, see [a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]')
      * @uses    PMA_File::isReadable()
      * @uses    PMA_File::getName()
      * @uses    PMA_File::setName()
@@ -937,7 +927,6 @@ class PMA_File
      *
      * @todo    move file read part into readChunk() or getChunk()
      * @todo    add support for compression plugins
-     * @uses    __('File could not be read')
      * @uses    PMA_File::$_compression to set it
      * @uses    PMA_File::getName()
      * @uses    fopen()

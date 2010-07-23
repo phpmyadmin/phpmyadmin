@@ -3,7 +3,6 @@
 /**
  * Code for displaying server selection
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -11,9 +10,7 @@
  * display server selection in list or selectbox form, or option tags only
  *
  * @uses    $GLOBALS['cfg']['DisplayServersList']
- * @uses    __('Server')
  * @uses    $GLOBALS['cfg']['Servers']
- * @uses    __('Go')
  * @uses    implode()
  * @uses    htmlspecialchars()
  * @uses    PMA_generate_common_hidden_inputs()
