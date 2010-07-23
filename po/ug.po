@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-23 07:23+0200\n"
+"PO-Revision-Date: 2010-07-23 07:25+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -913,7 +913,7 @@ msgstr "سىز BLOB ئامبىرنى توقتاتماقچى!"
 #: js/messages.php:35
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
+msgstr "سىز ھەقىقەتەن %s ئۈستىدىكى BLOB ئىقتىدارىنى تاقىماقچىمۇ؟"
 
 #: js/messages.php:38
 msgid "Missing value in the form!"
