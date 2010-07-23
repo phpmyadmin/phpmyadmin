@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-23 07:30+0200\n"
+"PO-Revision-Date: 2010-07-23 07:31+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1276,7 +1276,7 @@ msgstr "سز يۈكلىگەن ھۆججەت HTML نىڭ MAX_FILE_SIZE  چېكىد
 
 #: libraries/File.class.php:412
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "سىز يۈكلىگەن ھۆججەتنىڭ پەقەت بىر قىسىمىلا يۈكلەندى."
 
 #: libraries/File.class.php:415
 msgid "Missing a temporary folder."
