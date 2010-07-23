@@ -494,34 +494,4 @@ function PMA_BS_getURL($reference)
     return $bs_url;
 }
 
-/**
- * returns the field name for a primary key of a given table in a given database
- *
- * @access  public
- * @param   string - database name
- * @param   string - table name
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_fetch_assoc()
- * @return  string - field name for primary key
-*/
-function PMA_BS_GetPrimaryField($db_name, $tbl_name)
-{
-    // select specified database
-    PMA_DBI_select_db($db_name);
-
-    // retrieve table fields
-    $query = "SHOW FULL FIELDS FROM " . PMA_backquote($tbl_name);
-    $result = PMA_DBI_query($query);
-
-    // while there are records to parse
-    while ($data = PMA_DBI_fetch_assoc($result)) {
-        if ("PRI" == $data['Key']) {
-            return $data['Field'];
-        }
-    }
-    // return NULL on no primary key
-    return NULL;
-}
 ?>
