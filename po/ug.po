@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-23 07:20+0200\n"
+"PO-Revision-Date: 2010-07-23 07:23+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -881,7 +881,7 @@ msgstr "قايتىش"
 
 #: index.php:188
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr ""
+msgstr "phpMyAdmin <b>دەستەك</b> توركۆرگۈچلەردە ياخشى ئىشلەيدۇ."
 
 #: js/messages.php:25 server_synchronize.php:344 server_synchronize.php:356
 #: server_synchronize.php:372 server_synchronize.php:379
