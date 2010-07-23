@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-23 07:26+0200\n"
+"PO-Revision-Date: 2010-07-23 07:27+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1265,6 +1265,8 @@ msgstr "ھۆججەت يۈكلەشتە ئېنىقسىز خاتالىق كۆرۈل
 #: libraries/File.class.php:406
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"سىز يۈكلىگەن ھۆججەت php.ini نىڭ ئىچىدىكى upload_max_filesize  چەكلىمىسىدىن "
+"ئېشىپ كەتتى."
 
 #: libraries/File.class.php:409
 msgid ""
