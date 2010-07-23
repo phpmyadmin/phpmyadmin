@@ -2216,7 +2216,7 @@
 
            $tooltipValue = '';
            foreach ($DataDescription['Description'] as $key => $value) {
-               $tooltipValue .= $value.':'.sprintf("%.2f", $Data[$i][$key]).' ';
+               $tooltipValue .= $value.' : '.sprintf("%.2f", $Data[$i][$key]).';';
            }
            
            $offset = 10;

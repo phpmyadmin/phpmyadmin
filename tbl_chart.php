@@ -20,7 +20,6 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
  */
 require_once './libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'overlib.js';
 $GLOBALS['js_include'][] = 'pMap.js';
 
 /**

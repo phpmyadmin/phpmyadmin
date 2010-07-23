@@ -16,7 +16,6 @@ require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
-$GLOBALS['js_include'][] = 'overlib.js';
 $GLOBALS['js_include'][] = 'pMap.js';
 
 /**

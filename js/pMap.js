@@ -29,8 +29,6 @@ var imageMap = {
 
         //console.log("X: " + mouseX + ", Y: " + mouseY);
 
-        //return;
-
         /* Check if we are flying over a map zone
         * Lets use the following method to check if a given
         * point is in any convex polygon.
@@ -66,20 +64,23 @@ var imageMap = {
                 );
                 if (result > 0) { signSum += 1; } else { signSum += -1; }
             }
-            //console.log(Key+": "+SignSum);
+            
             if (Math.abs(signSum) == this.imageMap[key].length)
             {
                 found = true;
                 if (this.currentKey != key)
                 {
-                    overlib(seriesValue, CAPTION, seriesName, WIDTH, 80);
+                    this.tooltip.show();
+                    this.tooltip.title(seriesName);
+                    this.tooltip.text(seriesValue);
                     this.currentKey = key;
                 }
+                this.tooltip.move(mouseX + 20, mouseY + 20);
             }
         }
         if (!found && this.currentKey != -1 )
         {
-            nd();
+            this.tooltip.hide();
             this.currentKey = -1;
         }
     },
@@ -99,14 +100,71 @@ var imageMap = {
     },
 
     'init': function() {
+        this.tooltip.init();
+
         $("div#chart").bind('mousemove',function(e) {
             imageMap.mouseMoved(e, this);
         });
 
+        this.tooltip.attach("div#chart");
+
         this.currentKey = -1;
+    },
+
+    'tooltip': {
+        'init': function () {
+            this.el = $('<div></div>');
+            this.el.css('position', 'absolute');
+            this.el.css('font-family', 'tahoma');
+            this.el.css('background-color', '#373737');
+            this.el.css('color', '#BEBEBE');
+            this.el.css('padding', '3px');
+
+            var title = $('<p></p>');
+            title.attr('id', 'title');
+            title.css('margin', '0px');
+            title.css('padding', '3px');
+            title.css('background-color', '#606060');
+            title.css('text-align', 'center');
+            title.html('Title');
+            this.el.append(title);
+
+            var text = $('<p></p>');
+            text.attr('id', 'text');
+            text.css('margin', '0');
+            text.html('Text');
+            this.el.append(text);
+            
+            this.hide();
+        },
+
+        'attach': function (element) {
+            $(element).prepend(this.el);
+        },
+
+        'move': function (x, y) {
+            this.el.css('margin-left', x);
+            this.el.css('margin-top', y);
+        },
+
+        'hide': function () {
+            this.el.css('display', 'none');
+        },
+
+        'show': function () {
+            this.el.css('display', 'block');
+        },
+
+        'title': function (title) {
+            this.el.find("p#title").html(title);
+        },
+
+        'text': function (text) {
+            this.el.find("p#text").html(text.replace(/;/g, "<br />"));
+        }
     }
 };
 
 $(document).ready(function() {
-    imageMap.init()
+    imageMap.init();
 });
