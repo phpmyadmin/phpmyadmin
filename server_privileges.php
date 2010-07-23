@@ -1388,7 +1388,7 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUE
         };
 
         $new_user_string .= '</td>'."\n";
-        $new_user_string .= '<td><tt>' . join(', ', PMA_extractPrivInfo()) . '</tt></td>'; //Fill in privileges here
+        $new_user_string .= '<td><tt>' . join(', ', PMA_extractPrivInfo('', true)) . '</tt></td>'; //Fill in privileges here
         $new_user_string .= '<td>';
 
         if((isset($Grant_priv) && $Grant_priv == 'Y')) {
@@ -1416,7 +1416,7 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUE
     }
 
     if(isset($update_privs)) {
-        $new_privileges = join(', ', PMA_extractPrivInfo());
+        $new_privileges = join(', ', PMA_extractPrivInfo('', true));
 
         $extra_data['new_privileges'] = $new_privileges;
     }
