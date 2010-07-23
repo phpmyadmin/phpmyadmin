@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-23 07:31+0200\n"
+"PO-Revision-Date: 2010-07-23 07:34+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1288,7 +1288,7 @@ msgstr "ھۆججەتنى دېسكىغا يىزىشتا خاتالىق كۆرۈل
 
 #: libraries/File.class.php:421
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "كېڭەيتىلمە ئىسمى بۇنداق ھۆججەتلەرنى يوللاشقا بولمايدۇ."
 
 #: libraries/File.class.php:898
 msgid ""
