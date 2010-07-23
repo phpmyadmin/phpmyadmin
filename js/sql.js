@@ -115,6 +115,26 @@ $(document).ready(function() {
         $(input_siblings).each(function() {
             var data_value = $(this).html();
 
+            // We need to retrieve the value from the server for truncated/relation fields
+            // Find the field name
+            if(disp_mode == 'vertical') {
+                var this_field = $(this);
+                var field_name = $(this).siblings('th').text();
+            }
+            else {
+                var this_field = $(this);
+                var this_field_index = $(this).index();
+                if(window.parent.text_dir == 'ltr') {
+                    // 3 columns to account for the checkbox, edit and delete anchors
+                    var field_name = $(this).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
+                }
+                else {
+                    var field_name = $(this).parents('table').find('thead').find('th:nth('+ this_field_index+')').text();
+                }
+            }
+
+            field_name = $.trim(field_name);
+
             // In each input sibling, wrap the current value in a textarea
             // and store the current value in a hidden span
             if($(this).is(':not(.truncated, .transformed, .relation)')) {
@@ -127,25 +147,6 @@ $(document).ready(function() {
             else if($(this).is('.truncated, .transformed')) {
                 //handle truncated/transformed values values
 
-                // We need to retrieve the value from the server
-                // Find the field name
-                if(disp_mode == 'vertical') {
-                    var this_field = $(this);
-                    var field_name = $(this).siblings('th').text();
-                }
-                else {
-                    var this_field = $(this);
-                    var this_field_index = $(this).index();
-                    if(window.parent.text_dir == 'ltr') {
-                        // 3 columns to account for the checkbox, edit and delete anchors
-                        var field_name = $(this).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
-                    }
-                    else {
-                        var field_name = $(this).parents('table').find('thead').find('th:nth('+ this_field_index+')').text();
-                    }
-                }
-
-                field_name = $.trim(field_name);
                 var sql_query = 'SELECT ' + field_name + ' FROM ' + window.parent.table + ' WHERE ' + where_clause;
 
                 // Make the Ajax call and get the data, wrap it and insert it
@@ -168,6 +169,24 @@ $(document).ready(function() {
             }
             else if($(this).is('.relation')) {
                 //handle relations
+
+                var curr_value = $(this).find('a').text();
+
+                var post_params = {
+                        'ajax_request' : true,
+                        'get_relational_values' : true,
+                        'db' : window.parent.db,
+                        'table' : window.parent.table,
+                        'column' : field_name,
+                        'token' : window.parent.token,
+                        'curr_value' : curr_value
+                }
+
+                $.post('sql.php', post_params, function(data) {
+                    $(this_field).html(data.dropdown)
+                    .append('<span class="original_data">'+data_value+'</span>');
+                    $(".original_data").hide();
+                })
             }
         })
     }) // End On click, replace the current field with an input/textarea
@@ -218,7 +237,12 @@ $(document).ready(function() {
             field_name = $.trim(field_name);
 
             var this_field_params = {};
-            this_field_params[field_name] = $(this).find('textarea').val();
+            if($(this).is(":not(.relation)")) {
+                this_field_params[field_name] = $(this).find('textarea').val();
+            }
+            else {
+                this_field_params[field_name] = $(this).find('select').val();
+            }
 
             $.extend(params_to_submit, this_field_params);
         })
@@ -253,8 +277,11 @@ $(document).ready(function() {
                     // Inline edit post has been successful.
                     if($(this).is(':not(.relation)')) {
                         var new_html = $(this).find('textarea').val();
-                        $(this).html(new_html);
                     }
+                    else {
+                        var new_html = $(this).find('select').val();
+                    }
+                    $(this).html(new_html);
                 })
             }
             else {

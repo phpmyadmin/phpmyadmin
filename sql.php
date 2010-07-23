@@ -48,6 +48,29 @@ if (isset($fields['dbase'])) {
     $db = $fields['dbase'];
 }
 
+/**
+ * During inline edit, if we have a relational field, show the dropdown for it
+ *
+ * This doesn't seem to be the right place to do this, but I can't think of any
+ * better place either.
+ */
+if(isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values'] == true) {
+    require_once 'libraries/relation.lib.php';
+
+    $column = $_REQUEST['column'];
+    $foreigners = PMA_getForeigners($db, $table, $column);
+
+    $foreignData = PMA_getForeignData($foreigners, $column, false, '', '');
+
+    $dropdown = PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'], $foreignData['foreign_display'], $_REQUEST['curr_value'], $cfg['ForeignKeyMaxLimit']);
+    
+    $dropdown = '<select>' . $dropdown . '</select>';
+
+    $extra_data['dropdown'] = $dropdown;
+    PMA_ajaxResponse(NULL, true, $extra_data);
+}
+
+
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
