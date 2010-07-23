@@ -871,6 +871,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"However on last run no data has been parsed, this usually means phpMyAdmin "
+"won't be able to finish this import unless you increase php time limits."
 
 #: import_status.php:30 libraries/common.lib.php:660 pdf_schema.php:240
 #: user_password.php:110
