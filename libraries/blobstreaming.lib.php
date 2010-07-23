@@ -13,7 +13,7 @@ function initPBMSDatabase()
      * table in an already existing database which will cause the PBMS
      * daemon to create the 'pbms' database.
      */
-    $db_array = PMA_DBI_fetch_result('SHOW DATABASES;');	
+    $db_array = PMA_DBI_fetch_result('SHOW DATABASES;');
     if (! empty($db_array)) {
         $target = "";
         foreach ($db_array as $current_db) {
@@ -26,7 +26,7 @@ function initPBMSDatabase()
                 }
             }
         }
-		
+
         if ($target != "") {
             $query = "select * from $target.pbms_metadata_header"; // If it exists this table will not contain much
         }
@@ -100,7 +100,7 @@ function checkBLOBStreamingPlugins()
         foreach ($existing_plugins as $one_existing_plugin) {
             // check if required plugins exist
             if ( strtolower($one_existing_plugin['Library']) == 'libpbms.so'
-					&& $one_existing_plugin['Status'] == "ACTIVE") {
+                && $one_existing_plugin['Status'] == "ACTIVE") {
                 $has_blobstreaming = true;
                 break;
             }
@@ -303,16 +303,16 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
     }
 
     if (pbms_get_info(trim($bs_reference)) == FALSE) {
-        PMA_BS_ReportPBMSError("PBMS get BLOB info failed: pbms_get_info($bs_reference)");	
+        PMA_BS_ReportPBMSError("PBMS get BLOB info failed: pbms_get_info($bs_reference)");
         PMA_do_disconnect();
         return 'Error';
     }
 
-	$content_type = pbms_get_metadata_value("Content-Type");
+    $content_type = pbms_get_metadata_value("Content-Type");
     if ($content_type == FALSE) {
         $br = trim($bs_reference);
         PMA_BS_ReportPBMSError("'$content_type' PMA_BS_CreateReferenceLink('$br', '$db_name'): get BLOB Content-Type failed: ");
-	}
+    }
 
     PMA_do_disconnect();
 
@@ -322,9 +322,9 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
 
     $bs_url = PMA_BS_getURL($bs_reference);
     if (empty($bs_url)) {
-        PMA_BS_ReportPBMSError("No blob streaming server configured!");	
+        PMA_BS_ReportPBMSError("No blob streaming server configured!");
         return 'Error';
-	}
+    }
 
     $output = "<a href=\"#\" onclick=\"requestMIMETypeChange('" . urlencode($db_name) . "', '" . urlencode($GLOBALS['table']) . "', '" . urlencode($bs_reference) . "', '" . urlencode($content_type) . "')\">$content_type</a>";
 
@@ -339,7 +339,7 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
         case 'image/png':
             $output .= ' (<a href="' . $bs_url . '" target="new">' . __('View image') . '</a>)';
         break;
-		// audio content
+        // audio content
         case 'audio/mpeg':
             $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . urlencode($content_type) . '\',' . ($is_custom_type ? 1 : 0) . ', 640, 120)">' . __('Play audio'). '</a>)';
             break;
@@ -379,7 +379,7 @@ function PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)
         return FALSE;
     }
 
-	if (! $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST')) {
+    if (! $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST')) {
         return FALSE;
     }
 
@@ -403,7 +403,7 @@ function PMA_BS_UpLoadFile($db_name, $tbl_name, $file_type, $file_name)
     if (PMA_cacheGet('skip_blobstreaming', true)) {
         return FALSE;
     }
-		
+
     if (PMA_do_connect($db_name, FALSE) == FALSE) {
         return FALSE;
     }
@@ -411,9 +411,9 @@ function PMA_BS_UpLoadFile($db_name, $tbl_name, $file_type, $file_name)
     $fh = fopen($file_name, 'r');
     if (! $fh) {
         PMA_do_disconnect();
-        PMA_showMessage("Could not open file: $file_name");	
+        PMA_showMessage("Could not open file: $file_name");
         return FALSE;
-	}
+    }
 
     pbms_add_metadata("Content-Type", $file_type);
 
@@ -433,7 +433,7 @@ function PMA_BS_SetContentType($db_name, $bsTable, $blobReference, $contentType)
     if (PMA_cacheGet('skip_blobstreaming', true)) {
         return FALSE;
     }
-		
+
     // This is a really ugly way to do this but currently there is nothing better.
     // In a future version of PBMS the system tables will be redesigned to make this
     // more eficient.
@@ -447,7 +447,7 @@ function PMA_BS_SetContentType($db_name, $bsTable, $blobReference, $contentType)
         $where = "WHERE Repository_id=" . $data['Repository_id'] . " AND Repo_blob_offset=" . $data['Repo_blob_offset'] ;
         $query = "SELECT name from  pbms_metadata $where";
         $result = PMA_DBI_query($query);
-		
+
         if (PMA_DBI_num_rows($result) == 0) {
             $query = "INSERT into pbms_metadata Values( ". $data['Repository_id'] . ", " . $data['Repo_blob_offset']  . ", 'Content_type', '" . PMA_sqlAddslashes($contentType)  . "')";
         } else {
@@ -489,7 +489,7 @@ function PMA_BS_getURL($reference)
     if (empty($bs_server)) {
         return FALSE;
     }
-		
+
     $bs_url = 'http://' . $bs_server . '/' . rtrim($reference);
     return $bs_url;
 }
