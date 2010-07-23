@@ -151,6 +151,14 @@ $url_params['reload'] = 1;
         </td>
     </tr>
     <?php } ?>
+
+    <?php if ($chartSettings['type'] == 'radar') { ?>
+    <tr><td colspan="2">
+        <p>
+        When drawing a radar chart all values are normalized to a range [0..10].
+        </p>
+    </td></tr>
+    <?php } ?>
     
     </table>
 

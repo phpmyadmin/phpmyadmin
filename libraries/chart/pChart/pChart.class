@@ -2213,12 +2213,17 @@
            $vecLength = sqrt($vecX * $vecX + $vecY * $vecY);
            $vecX = $vecX / $vecLength;
            $vecY = $vecY / $vecLength;
+
+           $tooltipValue = '';
+           foreach ($DataDescription['Description'] as $key => $value) {
+               $tooltipValue .= $value.':'.sprintf("%.2f", $Data[$i][$key]).' ';
+           }
            
            $offset = 10;
-           $this->addPointToImageMap($X+$vecX*-$offset,$Y+$vecY*-$offset,$Label,'Value','Radar');
-           $this->addPointToImageMap($X+$vecX*+$offset,$Y+$vecY*+$offset,$Label,'Value','Radar');
-           $this->addPointToImageMap($XCenter+$vecX*+$offset,$YCenter+$vecY*+$offset,$Label,'Value','Radar');
-           $this->addPointToImageMap($XCenter+$vecX*-$offset,$YCenter+$vecY*-$offset,$Label,'Value','Radar');
+           $this->addPointToImageMap($X+$vecX*-$offset,$Y+$vecY*-$offset,$Label,$tooltipValue,'Radar');
+           $this->addPointToImageMap($X+$vecX*+$offset,$Y+$vecY*+$offset,$Label,$tooltipValue,'Radar');
+           $this->addPointToImageMap($XCenter+$vecX*+$offset,$YCenter+$vecY*+$offset,$Label,$tooltipValue,'Radar');
+           $this->addPointToImageMap($XCenter+$vecX*-$offset,$YCenter+$vecY*-$offset,$Label,$tooltipValue,'Radar');
           }
         }
       }
