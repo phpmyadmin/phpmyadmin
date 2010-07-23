@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-23 07:59+0200\n"
+"PO-Revision-Date: 2010-07-23 08:00+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1414,7 +1414,7 @@ msgstr "ئۈنۈمسىز جەدۋەل ئىسمى"
 #: libraries/Table.class.php:1047
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "%1$s بۇ جەدۋەل ئىسمىنى %2$s غا ئۆزگەرتىشتە خاتالىق كۆرۈلدى."
 
 #: libraries/Table.class.php:1131
 #, php-format
