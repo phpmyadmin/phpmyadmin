@@ -121,6 +121,33 @@ function checkBLOBStreamingPlugins()
             return FALSE;
         } // end if (count($bs_variables) <= 0)
 
+        // Check that the required pbms functions exist:
+        if ((function_exists("pbms_connect") == FALSE) ||
+            (function_exists("pbms_error") == FALSE) ||
+            (function_exists("pbms_close") == FALSE) ||
+            (function_exists("pbms_is_blob_reference") == FALSE) ||
+            (function_exists("pbms_get_info") == FALSE) ||
+            (function_exists("pbms_get_metadata_value") == FALSE) ||
+            (function_exists("pbms_add_metadata") == FALSE) ||
+            (function_exists("pbms_read_stream") == FALSE)) {
+
+            // We should probably notify the user that they need to install
+            // the pbms client lib and PHP extension to make use of blob streaming.
+            $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', FALSE);
+            PMA_cacheSet('skip_blobstreaming', true, true);
+            return FALSE;
+        }
+
+        if (function_exists("pbms_connection_pool_size")) {
+            if ( $PMA_Config->settings['pbms_connection_pool_size'] == "") {
+                $pool_size = 1;
+            } else {
+                $pool_size = $PMA_Config->settings['pbms_connection_pool_size'];
+            }
+                
+           pbms_connection_pool_size($pool_size);
+        }
+
          // get BS server port
         $BS_PORT = $bs_variables['pbms_port'];
 
@@ -151,7 +178,7 @@ function checkBLOBStreamingPlugins()
         $PMA_Config->set('BLOBSTREAMING_SERVER', $serverCfg['host'] . ':' . $BS_PORT);
         $PMA_Config->set('PHP_PBMS_EXISTS', FALSE);
         $PMA_Config->set('FILEINFO_EXISTS', FALSE);
-
+		
         // check if PECL's fileinfo library exist
         $finfo = NULL;
 
