@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-23 07:41+0200\n"
+"PO-Revision-Date: 2010-07-23 07:43+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1391,7 +1391,7 @@ msgstr "بۇ ساقلىغۇچقا مۇناسىۋەتلىك باشقا ئۇچۇر
 #: libraries/StorageEngine.class.php:352
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "%s نى بۇ MySQL مۇلازىمىتېرىدا ئىشلىتىشكە بولىدۇ."
 
 #: libraries/StorageEngine.class.php:355
 #, php-format
