@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-22 12:44+0200\n"
+"PO-Revision-Date: 2010-07-23 08:08+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -823,6 +823,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
 
 #: import.php:336
 msgid ""
@@ -830,6 +832,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"No data was received to import. Either no file name was submitted, or the "
+"file size exceeded the maximum size permitted by your PHP configuration. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -858,12 +863,16 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"Script timeout passed, if you want to finish import, please resubmit same "
+"file and import will resume."
 
 #: import.php:425
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"However on last run no data has been parsed, this usually means phpMyAdmin "
+"won't be able to finish this import unless you increase php time limits."
 
 #: import_status.php:30 libraries/common.lib.php:660 pdf_schema.php:240
 #: user_password.php:110
@@ -872,7 +881,7 @@ msgstr "قايتىش"
 
 #: index.php:188
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr ""
+msgstr "phpMyAdmin <b>دەستەك</b> توركۆرگۈچلەردە ياخشى ئىشلەيدۇ."
 
 #: js/messages.php:25 server_synchronize.php:344 server_synchronize.php:356
 #: server_synchronize.php:372 server_synchronize.php:379
@@ -904,7 +913,7 @@ msgstr "سىز BLOB ئامبىرنى توقتاتماقچى!"
 #: js/messages.php:35
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
+msgstr "سىز ھەقىقەتەن %s ئۈستىدىكى BLOB ئىقتىدارىنى تاقىماقچىمۇ؟"
 
 #: js/messages.php:38
 msgid "Missing value in the form!"
@@ -960,7 +969,7 @@ msgstr "!خاتالىق:بۇناسىۋەت ئاللىقاچان مەۋجۈت"
 
 #: js/messages.php:58
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "ساقلاشتا خاتالىق كۆرۈلدى."
 
 #: js/messages.php:59 libraries/relation.lib.php:94
 #: libraries/relation.lib.php:106
@@ -1256,16 +1265,18 @@ msgstr "ھۆججەت يۈكلەشتە ئېنىقسىز خاتالىق كۆرۈل
 #: libraries/File.class.php:406
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"سىز يۈكلىگەن ھۆججەت php.ini نىڭ ئىچىدىكى upload_max_filesize  چەكلىمىسىدىن "
+"ئېشىپ كەتتى."
 
 #: libraries/File.class.php:409
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr ""
+msgstr "سز يۈكلىگەن ھۆججەت HTML نىڭ MAX_FILE_SIZE  چېكىدىن ئېشىپ كەتتى."
 
 #: libraries/File.class.php:412
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "سىز يۈكلىگەن ھۆججەتنىڭ پەقەت بىر قىسىمىلا يۈكلەندى."
 
 #: libraries/File.class.php:415
 msgid "Missing a temporary folder."
@@ -1277,13 +1288,15 @@ msgstr "ھۆججەتنى دېسكىغا يىزىشتا خاتالىق كۆرۈل
 
 #: libraries/File.class.php:421
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "كېڭەيتىلمە ئىسمى بۇنداق ھۆججەتلەرنى يوللاشقا بولمايدۇ."
 
 #: libraries/File.class.php:898
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
+"Error moving the uploaded file, see "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:528
 msgid "No index defined!"
@@ -1373,22 +1386,22 @@ msgstr[1] ""
 #: libraries/StorageEngine.class.php:196
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
+msgstr "بۇ ساقلىغۇچقا مۇناسىۋەتلىك باشقا ئۇچۇرلار مەۋجۇت ئەمەس."
 
 #: libraries/StorageEngine.class.php:352
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "%s نى بۇ MySQL مۇلازىمىتېرىدا ئىشلىتىشكە بولىدۇ."
 
 #: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s نى بۇ MySQL مۇلازىمىتېرىدا ئىشلىتىشكە بولمايدۇ."
 
 #: libraries/StorageEngine.class.php:359
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "بۇ MySQL مۇلازىمىتېرى %s نى قوللىمايدۇ."
 
 #: libraries/Table.class.php:1018
 msgid "Invalid database"
@@ -1401,12 +1414,12 @@ msgstr "ئۈنۈمسىز جەدۋەل ئىسمى"
 #: libraries/Table.class.php:1047
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "%1$s بۇ جەدۋەل ئىسمىنى %2$s غا ئۆزگەرتىشتە خاتالىق كۆرۈلدى."
 
 #: libraries/Table.class.php:1131
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr ""
+msgstr "%1$s بۇ جەدۋەل ئىسمىنى %2$s غا ئۆزگەرتىش غەلبىلىك بولدى."
 
 #: libraries/Theme.class.php:160
 #, php-format
