@@ -131,6 +131,20 @@ function checkBLOBStreamingPlugins()
             return FALSE;
         } // end if (!$BS_PORT)
 
+        // Ping PBMS: the database doesn't need to exist for this to work.
+        if (pbms_connect($serverCfg['host'], $BS_PORT, "anydb") == FALSE) {
+            $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', FALSE);
+            PMA_cacheSet('skip_blobstreaming', true, true);
+            return FALSE;
+        }
+        pbms_close();
+
+        if (function_exists("pbms_pconnect")) {
+            $PMA_Config->set('PBMS_PCONNECT_EXISTS', TRUE);
+        } else {
+            $PMA_Config->set('PBMS_PCONNECT_EXISTS', FALSE);
+        }
+
         // add selected BS, CURL and fileinfo library variables to PMA configuration
         $PMA_Config->set('BLOBSTREAMING_PORT', $BS_PORT);
         $PMA_Config->set('BLOBSTREAMING_HOST', $serverCfg['host']);
@@ -242,9 +256,16 @@ function PMA_do_connect($db_name, $quiet)
     $pbms_host = $PMA_Config->get('BLOBSTREAMING_HOST');
     $pbms_port = $PMA_Config->get('BLOBSTREAMING_PORT');
 
-    if (pbms_connect($pbms_host, $pbms_port, $db_name) == FALSE) {
+    if ($PMA_Config->get('PBMS_PCONNECT_EXISTS')) {
+        // Open a persistent connection.
+        $ok = pbms_pconnect($pbms_host, $pbms_port, $db_name);
+    } else {
+        $ok = pbms_connect($pbms_host, $pbms_port, $db_name);
+    }
+
+    if ($ok == FALSE) {
         if ($quiet == FALSE) {
-            PMA_BS_ReportPBMSError("PBMS Connectiuon failed: pbms_connect($pbms_host, $pbms_port, $db_name)");
+            PMA_BS_ReportPBMSError("PBMS Connection failed: pbms_connect($pbms_host, $pbms_port, $db_name)");
         }
         return FALSE;
     }
@@ -268,11 +289,9 @@ function PMA_BS_IsPBMSReference($bs_reference, $db_name)
         return FALSE;
     }
 
-    if (PMA_do_connect($db_name, TRUE) == FALSE) {
-        return FALSE;
-    }
+    // You do not really need a connection to the PBMS Daemon
+    // to check if a reference looks valid.
     $ok = pbms_is_blob_reference($bs_reference);
-    PMA_do_disconnect();
     return $ok ;
 }
 
@@ -283,15 +302,16 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
         return 'Error';
     }
 
-    if (pbms_get_info($bs_reference) == FALSE) {
+    if (pbms_get_info(trim($bs_reference)) == FALSE) {
         PMA_BS_ReportPBMSError("PBMS get BLOB info failed: pbms_get_info($bs_reference)");	
         PMA_do_disconnect();
         return 'Error';
     }
 
-	$content_type = pbms_get_metadata_value("Content-type");
-	if ($content_type == FALSE) {
-		PMA_BS_ReportPBMSError("PMA_BS_CreateReferenceLink($bs_reference, $db_name): get BLOB Content-type failed: ");	
+	$content_type = pbms_get_metadata_value("Content-Type");
+    if ($content_type == FALSE) {
+        $br = trim($bs_reference);
+        PMA_BS_ReportPBMSError("'$content_type' PMA_BS_CreateReferenceLink('$br', '$db_name'): get BLOB Content-Type failed: ");
 	}
 
     PMA_do_disconnect();
@@ -395,7 +415,7 @@ function PMA_BS_UpLoadFile($db_name, $tbl_name, $file_type, $file_name)
         return FALSE;
 	}
 
-    pbms_add_metadata("Content-type", $file_type);
+    pbms_add_metadata("Content-Type", $file_type);
 
     $pbms_blob_url = pbms_read_stream($fh, filesize($file_name), $tbl_name);
     if (! $pbms_blob_url) {
