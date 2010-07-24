@@ -272,6 +272,14 @@ $(document).ready(function() {
                     if($("#tableuserrights").find('input:checkbox[value^=' + this_user_initial + ']').length == 0) {
                         $("#initials_table").find('td > a:contains(' + this_user_initial + ')').parent('td').html(this_user_initial);
                     }
+
+                    //Re-check the classes of each row
+                    $("#usersForm")
+                    .find('tbody').find('tr:odd')
+                    .removeClass('even').addClass('odd')
+                    .end()
+                    .find('tr:even')
+                    .removeClass('odd').addClass('even');
                 })
             }
             else {
