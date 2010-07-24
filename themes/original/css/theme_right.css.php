@@ -969,12 +969,12 @@ div#queryboxcontainer div#bookmarkoptions {
 }
 
 #maincontainer ul {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_<?php echo $GLOBALS['text_dir']; ?>.png);
+    list-style-type: disc;
     vertical-align: middle;
 }
 
 #maincontainer li {
-    margin-bottom:  0.3em;
+    margin:  0.2em 0em;
 }
 /* END main page */
 
@@ -989,18 +989,12 @@ li#li_select_lang {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_lang.png);
 }
 
-li#li_select_mysql_collation,
-li#li_select_mysql_charset {
+li#li_select_mysql_collation {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
 }
 
 li#li_select_theme{
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_theme.png);
-}
-
-li#li_server_info,
-li#li_server_version{
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
 }
 
 li#li_user_info{
@@ -1051,17 +1045,8 @@ li#li_log_out {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_loggoff.png);
 }
 
-li#li_pma_docs,
-li#li_pma_wiki {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_docs.png);
-}
-
 li#li_phpinfo {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>php_sym.png);
-}
-
-li#li_pma_homepage {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_home.png);
 }
 
 li#li_mysql_privilegs{
@@ -1197,7 +1182,7 @@ code.sql {
 }
 
 .group h2 {
-    background-color:   <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    background:   <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     padding:            0.1em 0.3em;
     margin-top:         0;
 }
@@ -1208,9 +1193,11 @@ code.sql {
 }
 
 #li_select_server {
-    padding-bottom:     0.3em;
-    border-bottom:      0.3em solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-    margin-bottom:      0.3em;
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
+}
+
+#list_server {
+    list-style-image: none;
 }
 
 /**

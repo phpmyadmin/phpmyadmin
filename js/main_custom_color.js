@@ -6,7 +6,7 @@
 $(document).ready(function() {
     $('#li_custom_color').show();
     // Choosing another id does not work! 
-    $('#colorSelector').ColorPicker({
+    $("input[type='submit'][name='custom_color_choose']").ColorPicker({
         color: '#0000ff',
         onShow: function (colpkr) {
             $(colpkr).fadeIn(500);
