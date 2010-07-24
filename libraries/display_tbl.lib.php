@@ -3,7 +3,6 @@
 /**
  * library for displaying table with results from all sort of select queries
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -1286,47 +1285,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
                     } else {
                         // for blobstreaming
-
-                        $bs_reference_exists = $allBSTablesExist = FALSE;
-
-                        // load PMA configuration
-                        $PMA_Config = $GLOBALS['PMA_Config'];
-
-                        // if PMA configuration exists
-                        if ($PMA_Config) {
-                            // load BS variables
-                            $pluginsExist = $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST');
-
-                            // if BS plugins exist
-                            if ($pluginsExist) {
-                                // load BS databases
-                                $bs_tables = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
-
-                                // if BS db array and specified db string not empty and valid
-                                if (!empty($bs_tables) && strlen($db) > 0) {
-                                    $bs_tables = $bs_tables[$db];
-
-                                    if (isset($bs_tables)) {
-                                        $allBSTablesExist = TRUE;
-
-                                        // check if BS tables exist for given database
-                                        foreach ($bs_tables as $table_key=>$bs_tbl)
-                                            if (!$bs_tables[$table_key]['Exists']) {
-                                                $allBSTablesExist = FALSE;
-                                                break;
-                                            }
-                                    }
-                                }
-                            }
-                        }
-
-                        // if necessary BS tables exist
-                        if ($allBSTablesExist) {
-                            $bs_reference_exists = PMA_BS_ReferenceExists($row[$i], $db);
-                        }
-
                         // if valid BS reference exists
-                        if ($bs_reference_exists) {
+                        if (PMA_BS_IsPBMSReference($row[$i], $db)) {
                             $blobtext = PMA_BS_CreateReferenceLink($row[$i], $db);
                         } else {
                             $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta, $_url_params);
@@ -1379,9 +1339,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                             // user asked to see the real contents of BINARY
                             // fields
                             if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && PMA_contains_nonprintable_ascii($row[$i])) {
-                            	$row[$i] = bin2hex($row[$i]);
-							}
-							else {
+                                $row[$i] = bin2hex($row[$i]);
+                            } else {
                             	$row[$i] = htmlspecialchars(PMA_replace_binary_contents($row[$i]));
 							}
                         } else {
@@ -1735,7 +1694,7 @@ function PMA_displayTable_checkConfigParams()
     } else {
         // display_binary_as_hex config option
         if (isset($GLOBALS['cfg']['DisplayBinaryAsHex']) && true === $GLOBALS['cfg']['DisplayBinaryAsHex']) {
-        	$_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary_as_hex'] = true;
+            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary_as_hex'] = true;
 		}
     }
 
@@ -2309,7 +2268,6 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * @uses    PMA_DBI_try_query()
  * @uses    PMA_DBI_num_rows()
  * @uses    PMA_DBI_fetch_row()
- * @uses    __('Link not found')
  * @uses    PMA_DBI_free_result()
  * @uses    $GLOBALS['printview']
  * @uses    htmlspecialchars()

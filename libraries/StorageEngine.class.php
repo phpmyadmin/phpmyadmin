@@ -3,7 +3,6 @@
 /**
  * Library for extracting information about the available storage engines
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -92,12 +91,7 @@ class PMA_StorageEngine
               && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED')) {
                 continue;
             }
-            // currently (MySQL 5.1.26) there is no way we can be informed
-            // that PBMS does not support normal table creation so
-            // we use an exception here
-            if ('PBMS' == $details['Engine']) {
-                continue;
-            }
+
             $output .= '    <option value="' . htmlspecialchars($key). '"'
                 . (empty($details['Comment'])
                     ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
@@ -145,6 +139,9 @@ class PMA_StorageEngine
      */
     static public function isValid($engine)
     {
+        if ($engine == "PBMS") {
+            return TRUE;
+        }
         $storage_engines = PMA_StorageEngine::getStorageEngines();
         return isset($storage_engines[$engine]);
     }
@@ -155,7 +152,6 @@ class PMA_StorageEngine
      * @uses    PMA_ENGINE_DETAILS_TYPE_SIZE
      * @uses    PMA_ENGINE_DETAILS_TYPE_NUMERIC
      * @uses    PMA_StorageEngine::getVariablesStatus()
-     * @uses    __('There is no detailed status information available for this storage engine.')
      * @uses    PMA_showHint()
      * @uses    PMA_formatByteDown()
      * @uses    PMA_formatNumber()
@@ -267,6 +263,8 @@ class PMA_StorageEngine
         return $mysql_vars;
     }
 
+    function engine_init() {}
+
     /**
      * Constructor
      *
@@ -305,7 +303,9 @@ class PMA_StorageEngine
                 default:
                     $this->support = PMA_ENGINE_SUPPORT_NO;
             }
-        }
+        } else {
+            $this->engine_init();
+		}
     }
 
     /**
@@ -335,11 +335,6 @@ class PMA_StorageEngine
     /**
      * public String getSupportInformationMessage()
      *
-     * @uses    __('%s is the default storage engine on this MySQL server.')
-     * @uses    __('%s is available on this MySQL server.')
-     * @uses    __('%s has been disabled for this MySQL server.')
-     * @uses    __('This MySQL server does not support the %s storage engine.')
-     * @uses    __('This MySQL server does not support the %s storage engine.')
      * @uses    PMA_ENGINE_SUPPORT_DEFAULT
      * @uses    PMA_ENGINE_SUPPORT_YES
      * @uses    PMA_ENGINE_SUPPORT_DISABLED

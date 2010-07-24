@@ -69,7 +69,7 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
                 </li>
 		<li>To support uploading of ZIP files, you need the PHP <tt>zip</tt> extension.</li>
         <li>For proper support of multibyte strings (eg. UTF-8, which is
-            currently default), you should install mbstring and ctype
+            currently the default), you should install the mbstring and ctype
             extensions.
         </li>
             <li>You need GD2 support in PHP to display inline
@@ -84,6 +84,9 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
                 </li>
                 <li>To support upload progress bars, see <a href="#faq2_9">
                     <abbr title="Frequently Asked Questions">FAQ</abbr> 2.9</a>.</li>
+                <li>To support BLOB streaming, see PHP and MySQL requirements
+                in <a href="#faq6_25">
+                    <abbr title="Frequently Asked Questions">FAQ</abbr> 6.25</a>.</li>
         </ul>
     </li>
     <li><b>MySQL</b> 5.0 or newer (<a href="#faq1_17">details</a>);</li>
@@ -340,7 +343,8 @@ rm -rf config                      # remove not needed directory
     <abbr title="Frequently Asked Questions">FAQ</abbr> 1.23</a>).</p>
 
 <p> If you already had this infrastructure and upgraded to MySQL 4.1.2
-    or newer, please use <i>./scripts/upgrade_tables_mysql_4_1_2+.sql</i>.</p>
+    or newer, please use <i>./scripts/upgrade_tables_mysql_4_1_2+.sql</i>
+    and then create new tables by importing <i>./scripts/create_tables.sql</i>.</p>
 
 <p> You can use your phpMyAdmin to create the tables for you. Please be aware
     that you may need special (administrator) privileges to create the database
@@ -2174,24 +2178,8 @@ setfacl -d -m "g:www-data:rwx" tmp
     <dt id="cfg_TitleDatabase">$cfg['TitleDatabase'] string</dt>
     <dt id="cfg_TitleServer">$cfg['TitleServer'] string</dt>
     <dt id="cfg_TitleDefault">$cfg['TitleDefault'] string</dt>
-    <dd>Allows you to specify window's title bar. Following magic string can
-        be used to get special values:
-        <dl>
-            <dt><code>@HTTP_HOST@</code></dt>
-                <dd>HTTP host that runs phpMyAdmin</dd>
-            <dt><code>@SERVER@</code></dt>
-                <dd>MySQL server name</dd>
-            <dt><code>@VERBOSE@</code></dt>
-                <dd>Verbose MySQL server name as defined in <a href="#cfg_Servers_verbose">server configuration</a></dd>
-            <dt><code>@VSERVER@</code></dt>
-                <dd>Verbose MySQL server name if set, otherwise normal</dd>
-            <dt><code>@DATABASE@</code></dt>
-                <dd>Currently opened database</dd>
-            <dt><code>@TABLE@</code></dt>
-                <dd>Currently opened table</dd>
-            <dt><code>@PHPMYADMIN@</code></dt>
-                <dd>phpMyAdmin with version</dd>
-        </dl>
+    <dd>Allows you to specify window's title bar. You can use 
+        <a href="#faq6_27">format string expansion</a>.
     </dd>
 
     <dt id="cfg_ErrorIconic">$cfg['ErrorIconic'] boolean</dt>
@@ -4148,25 +4136,34 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     <a href="#faqsqlvalidator">6.14 How do I set up the
     <abbr title="structured query language">SQL</abbr> Validator?</a></h4>
 
-<p> To use it, you need a very recent version of PHP, 4.3.0 recommended, with
+<p> 
+    To use SQL Validator, you need PHP with 
     <abbr title="Extensible Markup Language">XML</abbr>,
     <abbr title="Perl Compatible Regular Expressions">PCRE</abbr> and
     <abbr title="PHP Extension and Application Repository">PEAR</abbr> support.
-    On your system command line, run <tt>"pear install Net_Socket Net_URL
-    HTTP_Request Mail_Mime Net_DIME SOAP"</tt> to get the necessary
-    <abbr title="PHP Extension and Application Repository">PEAR</abbr> modules
-    for usage.<br />
-    On a more recent pear version, I had problems with the state of Net_DIME
-    being beta, so this single command
-    <tt>"pear -d preferred_state=beta install -a SOAP"</tt> installed all the
-    needed modules.<br />
+    In addition you need a <abbr title="Simple Object Access
+    Protocol">SOAP</abbr> support, either as a PHP extension or as a PEAR SOAP
+    module.
+</p>
+
+<p>
+    To install <abbr title="PHP Extension and Application
+    Repository">PEAR</abbr> <abbr title="Simple Object Access
+    Protocol">SOAP</abbr> module, run <tt>"pear install Net_Socket Net_URL
+    HTTP_Request Mail_Mime Net_DIME SOAP"</tt> to get the necessary <abbr
+    title="PHP Extension and Application Repository">PEAR</abbr> modules for
+    usage.
+</p>
+
+<p>
     If you use the Validator, you should be aware that any
     <abbr title="structured query language">SQL</abbr> statement you
     submit will be stored anonymously (database/table/column names,
     strings, numbers replaced with generic values). The Mimer
     <abbr title="structured query language">SQL</abbr>
     Validator itself, is &copy; 2001 Upright Database Technology.
-    We utilize it as free SOAP service.</p>
+    We utilize it as free SOAP service.
+</p>
 
 <h4 id="faq6_15">
     <a href="#faq6_15">6.15 I want to add a BLOB column and put an index on
@@ -4337,13 +4334,20 @@ chmod o+rwx tmp
 <h4 id="faq6_25">
 	<a href="#faq6_25">6.25 How does BLOB streaming work in phpMyAdmin?</a></h4>
 
-<p> First, for general information about BLOB streaming on MySQL, visit <a href="http://blobstreaming.org">blobstreaming.org</a>. We currently support streaming if you are running MySQL 5.1 with the PBXT and PBMS storage engines. Moreover, only PBMS 0.5.04 is supported.</p>
+<p> For general information about BLOB streaming on MySQL, visit <a href="http://blobstreaming.org">blobstreaming.org</a>. You need the following components:</p>
+<ul>
+    <li>PBMS BLOB Streaming Daemon for MySQL (0.5.15 or later)</li>
+    <li>Streaming enabled PBXT Storage engine for MySQL (1.0.11-6 or
+    later)</li>
+    <li>PBMS Client Library for MySQL (0.5.15 or later)</li>
+    <li>PBMS PHP Extension for MySQL (0.1.1 or later)</li>
+</ul>
+
+<p>Here are details about configuration and operation:</p>
 
 <ol>
-	<li>In <tt>config.inc.php</tt> your host should be defined with a FQDN (fully qualified domain name) instead of something like &quot;localhost&quot;.</li>
-	<li>A current limitation is that your first login via phpMyAdmin to a freshly-started server must be done with an account that has the SUPER privilege.</li>
-	<li>On your target database, go to Operations and in the &quot;BLOB Repository&quot; section, click &quot;Enable&quot;. This creates the PBMS system tables inside your database.</li>
-	<li>Ensure that your target table is under the PBXT storage engine and has a LONGBLOB column.</li>
+	<li>In <tt>config.inc.php</tt> your host should be defined with a FQDN (fully qualified domain name) instead of &quot;localhost&quot;.</li>
+	<li>Ensure that your target table is under the PBXT storage engine and has a LONGBLOB column and a primary key.</li>
 	<li>When you insert or update a row in this table, put a checkmark on the &quot;Upload to BLOB repository&quot; optional choice; otherwise, the upload will be done directly in your column instead of the repository.</li>
 	<li>Finally when you browse your table, you'll see in your column a link to stream your data, for example &quot;View image&quot;. A header containing the correct MIME-type will be sent to your browser; this MIME-type was stored at upload time but in case it's incorrect, it's possible to edit it by clicking on the displayed MIME-type.</li> 
 </ol>	
@@ -4353,6 +4357,33 @@ chmod o+rwx tmp
 
 <p> Click the first row of the range, hold the shift key and click the last row of the range. This works everywhere you see rows, for example in Browse mode or on the Structure page.</p>
 
+
+<h4 id="faq6_27">
+    <a href="#faq6_27">6.27 What format strings can I use?</a></h4>
+
+<p>
+    In all places where phpMyAdmin accepts format strings, you can use
+    <code>@VARIABLE@</code> expansion and 
+    <a href="http://php.net/strftime">strftime</a> format strings. The
+    expanded variables depend on a context (eg. if you don't have chosen 
+    table, you can not get table name), but following variables can be used:
+</p>
+<dl>
+    <dt><code>@HTTP_HOST@</code></dt>
+        <dd>HTTP host that runs phpMyAdmin</dd>
+    <dt><code>@SERVER@</code></dt>
+        <dd>MySQL server name</dd>
+    <dt><code>@VERBOSE@</code></dt>
+        <dd>Verbose MySQL server name as defined in <a href="#cfg_Servers_verbose">server configuration</a></dd>
+    <dt><code>@VSERVER@</code></dt>
+        <dd>Verbose MySQL server name if set, otherwise normal</dd>
+    <dt><code>@DATABASE@</code></dt>
+        <dd>Currently opened database</dd>
+    <dt><code>@TABLE@</code></dt>
+        <dd>Currently opened table</dd>
+    <dt><code>@PHPMYADMIN@</code></dt>
+        <dd>phpMyAdmin with version</dd>
+</dl>
 
 <h3 id="faqproject">phpMyAdmin project</h3>
 
@@ -4847,6 +4878,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <li>Tom&#225;&#353; Srnka (Google Summer of Code 2009)
 <ul>
   <li>Replication support</li>
+</ul></li>
+
+<li>Barrie Leslie
+<ul>
+  <li>BLOBstreaming support with PBMS PHP extension</li>
 </ul></li>
 
 </ul>

@@ -12,7 +12,6 @@
  *
  * The SQL Parser code relies heavily on these functions.
  *
- * @version $Id$
  * @uses    extension_loaded()
  * @uses    substr()
  * @uses    function_exists()

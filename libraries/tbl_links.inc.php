@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -38,7 +37,6 @@ $err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url($url_params);
 /**
  * Displays headers
  */
-$GLOBALS['js_include'][] = 'functions.js';
 require_once './libraries/header.inc.php';
 
 /**

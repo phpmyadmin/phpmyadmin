@@ -3,7 +3,6 @@
 /**
  * Set of functions used with the relation and pdf feature
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -72,20 +71,6 @@ function PMA_getRelationsParam($verbose = false)
  *
  * @uses    $GLOBALS['server']
  * @uses    $GLOBALS['controllink']
- * @uses    __('not OK')
- * @uses    __('Documentation')
- * @uses    __('General relation features')
- * @uses    __('Disabled')
- * @uses    __('Enabled')
- * @uses    __('Display Features')
- * @uses    __('Creation of PDFs')
- * @uses    __('Displaying Column Comments')
- * @uses    __('Bookmarked SQL query')
- * @uses    __('Please see the documentation on how to update your column_comments table')
- * @uses    __('SQL history')
- * @uses    __('Designer')
- * @uses    __('Tracking')
- * @uses    __('User preferences')
  * @uses    $cfg['Server']['pmadb']
  * @uses    sprintf()
  * @uses    PMA_printDiagMessageForFeature()
@@ -1167,7 +1152,6 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
 /**
  * Create a PDF page
  *
- * @uses    __('no description')
  * @uses    PMA_backquote()
  * @uses    $GLOBALS['cfgRelation']['db']
  * @uses    PMA_sqlAddslashes()

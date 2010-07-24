@@ -4,10 +4,6 @@
  * @uses    $cfg['DefaultTabDatabase']
  * @uses    $GLOBALS['table']
  * @uses    $GLOBALS['db']
- * @uses    __('The table name is empty!')
- * @uses    __('Table %s already exists!')
- * @uses    __('Table')
- * @uses    __('Table %1 has been created.')
  * @uses    PMA_Table::generateFieldSpec()
  * @uses    PMA_checkParameters()
  * @uses    PMA_generateCharsetQueryPart()
@@ -31,7 +27,6 @@
  * @uses    strlen()
  * @uses    sprintf()
  * @uses    htmlspecialchars()
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -41,7 +36,6 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/Table.class.php';
 
-$GLOBALS['js_include'][] = 'functions.js';
 $action = 'tbl_create.php';
 
 require_once './libraries/header.inc.php';

@@ -3,7 +3,6 @@
 /**
  *
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -1171,7 +1170,6 @@ class PMA_Config
      * @uses    $GLOBALS['PMA_Config']
      * @uses    PMA_Config::get()
      * @uses    PMA_Config::_getFontsizeOptions()
-     * @uses    __('Font size')
      * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
@@ -1208,7 +1206,6 @@ class PMA_Config
      *
      * @uses    PMA_generate_common_hidden_inputs()
      * @uses    PMA_Config::_getFontsizeSelection()
-     * @uses    __('Go')
      * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox

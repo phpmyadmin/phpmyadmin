@@ -6,7 +6,6 @@
  * linked from table_structure, uses libraries/tbl_properties.inc.php to display
  * form and handles this form data
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -16,7 +15,6 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/Table.class.php';
 
-$GLOBALS['js_include'][] = 'functions.js';
 require_once './libraries/header.inc.php';
 
 // Check parameters

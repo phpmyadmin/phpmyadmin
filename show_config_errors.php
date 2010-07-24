@@ -3,7 +3,6 @@
 /**
  * Simple wrapper just to enable error reporting and include config
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

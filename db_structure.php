@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -151,27 +150,14 @@ $hidden_fields = array();
 $odd_row       = true;
 $sum_row_count_pre = '';
 
-// for blobstreaming
-$PMA_Config = $GLOBALS['PMA_Config'];
-
-if (!empty($PMA_Config))
-    $session_bs_tables = $PMA_Config->get('BLOBSTREAMING_TABLES'); // list of blobstreaming tables
-
 $tableReductionCount = 0;   // the amount to reduce the table count by
 
 foreach ($tables as $keyname => $each_table) {
-    if (isset($session_bs_tables))
-    {
-        // compare table name against blobstreaming tables
-        foreach ($session_bs_tables as $table_key=>$table_val)
-            // if the table is a blobstreaming table, reduce table count and skip outer foreach loop
-            if ($table_key == $keyname)
-            {
-                $tableReductionCount++;
-                continue 2;
-            }
+    if (PMA_BS_IsHiddenTable($keyname)) {
+        $tableReductionCount++;
+        continue;
     }
-
+	
     // Get valid statistics whatever is the table type
 
     $table_is_view = false;

@@ -3,7 +3,6 @@
 /**
  * Functions for cleanup of user input.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

@@ -4,7 +4,6 @@
  * Interface to the improved MySQL extension (MySQLi)
  *
  * @package phpMyAdmin-DBI-MySQLi
- * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -364,8 +363,6 @@ function PMA_DBI_get_client_info()
  * @uses    PMA_DBI_convert_message()
  * @uses    $GLOBALS['errno']
  * @uses    $GLOBALS['userlink']
- * @uses    __('The server is not responding')
- * @uses    __('(or the local MySQL server's socket is not correctly configured)')
  * @uses    mysqli_errno()
  * @uses    mysqli_error()
  * @uses    mysqli_connect_errno()
@@ -491,8 +488,8 @@ function PMA_DBI_get_fields_meta($result)
 {
     // Build an associative array for a type look up
     $typeAr = array();
-    $typeAr[MYSQLI_TYPE_DECIMAL]     = 'real';
-    $typeAr[MYSQLI_TYPE_NEWDECIMAL]  = 'real';
+    $typeAr[MYSQLI_TYPE_DECIMAL]     = 'decimal';
+    $typeAr[MYSQLI_TYPE_NEWDECIMAL]  = 'decimal';
     $typeAr[MYSQLI_TYPE_BIT]         = 'int';
     $typeAr[MYSQLI_TYPE_TINY]        = 'int';
     $typeAr[MYSQLI_TYPE_SHORT]       = 'int';

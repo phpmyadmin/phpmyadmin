@@ -4,7 +4,6 @@
  * Test for javascript escaping.
  *
  * @package phpMyAdmin-test
- * @version $Id$
  */
 
 /**

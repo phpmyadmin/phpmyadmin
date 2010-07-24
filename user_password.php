@@ -4,14 +4,7 @@
  * displays and handles the form where the user can change his password
  * linked from main.php
  *
- * @uses    __('The profile has been updated.')
- * @uses    __('Back')
  * @uses    $GLOBALS['js_include']
- * @uses    __('Change password')
- * @uses    __('The password is empty!')
- * @uses    __('The passwords aren't the same!')
- * @uses    __('Error')
- * @uses    __('You don\'t have sufficient privileges to be here right now!')
  * @uses    $cfg['ShowChgPassword']
  * @uses    $cfg['Server']['auth_type']
  * @uses    PMA_DBI_select_db()
@@ -25,7 +18,6 @@
  * @uses    PMA_blowfish_encrypt()
  * @uses    PMA_showMessage()
  * @uses    define()
- * @version $Id$
  * @package phpMyAdmin
  */
 

@@ -3,7 +3,6 @@
 /**
  * @todo    we must handle the case if sql.php is called directly with a query
  *          that returns 0 rows - to prevent cyclic redirects or includes
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -515,7 +514,7 @@ if (0 == $num_rows || $is_affected) {
         /* User disable showing as PHP, query is only displayed */
         $message = PMA_Message::notice(__('Showing SQL query'));
     } elseif (!empty($GLOBALS['validatequery'])) {
-        $message = PMA_Message::notice(__('Validate SQL'));
+        $message = PMA_Message::notice(__('Validated SQL'));
     } else {
         $message = PMA_Message::success(__('MySQL returned an empty result set (i.e. zero rows).'));
     }
@@ -546,10 +545,6 @@ if (0 == $num_rows || $is_affected) {
             $goto = 'main.php';
         }
         // Loads to target script
-        if (strpos($goto, 'db_') === 0
-         || strpos($goto, 'tbl_') === 0) {
-            $GLOBALS['js_include'][] = 'functions.js';
-        }
         if ($goto != 'main.php') {
             require_once './libraries/header.inc.php';
         }
@@ -574,7 +569,6 @@ else {
     if (isset($printview) && $printview == '1') {
         require_once './libraries/header_printview.inc.php';
     } else {
-        $GLOBALS['js_include'][] = 'functions.js';
         unset($message);
         if (strlen($table)) {
             require './libraries/tbl_common.php';

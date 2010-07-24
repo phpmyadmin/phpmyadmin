@@ -4,7 +4,6 @@
  * Set of functions used to build CSV dumps of tables
  *
  * @package phpMyAdmin-Export-HTMLWord
- * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
     exit;

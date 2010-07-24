@@ -3,7 +3,6 @@
 /**
  * Holds class PMA_Error_Handler
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

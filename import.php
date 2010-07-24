@@ -4,7 +4,6 @@
  * Core script for import, this is just the glue around all other stuff
  *
  * @uses    PMA_Bookmark_getList()
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -13,7 +12,6 @@
  */
 require_once './libraries/common.inc.php';
 //require_once './libraries/display_import_functions.lib.php';
-$GLOBALS['js_include'][] = 'functions.js';
 
 // reset import messages for ajax request
 $_SESSION['Import_message']['message'] = null;

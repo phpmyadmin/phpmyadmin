@@ -3,7 +3,6 @@
 /**
  * Test for PMA_sendHeaderLocation
  *
- * @version $Id$
  */
 
 /**

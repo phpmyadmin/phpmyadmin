@@ -6,7 +6,6 @@
  * variables from them. It does the same work for $HTTP_ACCEPT_LANGUAGE and
  * $HTTP_AUTHORIZATION.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
