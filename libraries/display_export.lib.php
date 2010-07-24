@@ -130,7 +130,6 @@ if (! empty($sql_query)) {
      </div>
 <?php } ?>
 
-
 <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
     <div class="exportoptions" id="output_quick_export">
         <h3><?php echo __('Output:'); ?></h3>
@@ -181,22 +180,24 @@ if (! empty($sql_query)) {
                     <?php
                     echo __('File name template:');
                     $trans = new PMA_Message;
-                    $trans->addMessage('__SERVER__ will become the');
+                    $trans->addMessage('@SERVER@ will become the');
                     $trans->addString(__('server name'));
                     if ($export_type == 'database' || $export_type == 'table') {
-                        $trans->addMessage(', __DB__ will become the');
+                        $trans->addMessage(', @DB@ will become the');
                         $trans->addString(__('database name'));
                         if ($export_type == 'table') {
-                            $trans->addMessage(', __TABLE__ will become the');
+                            $trans->addMessage(', @TABLE@ will become the');
                             $trans->addString(__('table name'));
                         }
                     }
 
-                    $message = new PMA_Message(__('This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.'));
+                    $message = new PMA_Message(__('This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details.'));
                     $message->addParam('<a href="http://php.net/strftime" target="documentation" title="'
                         . __('Documentation') . '">', false);
                     $message->addParam('</a>', false);
                     $message->addParam($trans);
+                    $message->addParam('<a href="Documentation.html#faq6_27" target="documentation">', false);
+                    $message->addParam('</a>', false);
 
                     echo PMA_showHint($message);
                     ?>

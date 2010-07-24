@@ -282,6 +282,8 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
     if (isset($opt['doc'])) {
         if (count($opt['doc']) == 3) {
             $ret .= PMA_showMySQLDocu($opt['doc'][0], $opt['doc'][1], false, $opt['doc'][2]);
+        } elseif (count($opt['doc']) == 1) {
+            $ret .= PMA_showDocu($opt['doc'][0]);
         } else {
             $ret .= PMA_showMySQLDocu($opt['doc'][0], $opt['doc'][1]);
         }

@@ -279,7 +279,8 @@ function PMA_fatalError($error_message, $message_args = null)
  */
 function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 {
-    $message = sprintf(__('Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] extension. Please check your PHP configuration.'), $extension);
+    $message = sprintf(__('The %s extension is missing. Please check your PHP configuration.'),
+        sprintf('[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a]', $extension));
     if ($extra != '') {
         $message .= ' ' . $extra;
     }
@@ -309,32 +310,13 @@ function PMA_getTableCount($db)
     if ($tables) {
         $num_tables = PMA_DBI_num_rows($tables);
 
-        // for blobstreaming - get blobstreaming tables
-        // for use in determining if a table here is a blobstreaming table
-
-        // load PMA configuration
-        $PMA_Config = $GLOBALS['PMA_Config'];
-
-        // if PMA configuration exists
-        if (!empty($PMA_Config))
-        {
-            // load BS tables
-            $session_bs_tables = $GLOBALS['PMA_Config']->get('BLOBSTREAMING_TABLES');
-
-            // if BS tables exist
-            if (isset ($session_bs_tables))
-                while ($data = PMA_DBI_fetch_assoc($tables))
-                    foreach ($session_bs_tables as $table_key=>$table_val)
-                        // if the table is a blobstreaming table, reduce the table count
-                        if ($data['Tables_in_' . $db] == $table_key)
-                        {
-                            if ($num_tables > 0)
-                                $num_tables--;
-
-                            break;
-                        }
-        } // end if PMA configuration exists
-
+        // do not count hidden blobstreaming tables
+        while ((($num_tables > 0)) && $data = PMA_DBI_fetch_assoc($tables)) {
+            if (PMA_BS_IsHiddenTable($data['Tables_in_' . $db])) {
+                $num_tables--;
+            }
+        }
+ 
         PMA_DBI_free_result($tables);
     } else {
         $num_tables = 0;

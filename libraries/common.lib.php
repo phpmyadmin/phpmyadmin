@@ -656,19 +656,19 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
                 $back_url .= '?no_history=true';
             }
 
-	     $_SESSION['Import_message']['go_back_url'] = $back_url;
+            $_SESSION['Import_message']['go_back_url'] = $back_url;
 
             $error_msg_output .= '<fieldset class="tblFooters">';
             $error_msg_output .= '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]';
             $error_msg_output .= '</fieldset>' . "\n\n";
-        }
+       }
 
-        echo $error_msg_output;
-        /**
-         * display footer and exit
-         */
+       echo $error_msg_output;
+       /**
+        * display footer and exit
+        */
 
-        require_once './libraries/footer.inc.php';
+       require_once './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
     }
@@ -793,18 +793,11 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
     // load PMA configuration
     $PMA_Config = $GLOBALS['PMA_Config'];
 
-    // if PMA configuration exists
-    if (!empty($PMA_Config))
-        $session_bs_tables = $GLOBALS['PMA_Config']->get('BLOBSTREAMING_TABLES');
-
     foreach ($tables as $table_name => $table) {
         // if BS tables exist
-        if (isset($session_bs_tables))
-            // compare table name to tables in list of blobstreaming tables
-            foreach ($session_bs_tables as $table_key=>$table_val)
-                // if table is in list, skip outer foreach loop
-                if ($table_name == $table_key)
-                    continue 2;
+        if (PMA_BS_IsHiddenTable($table_name)) {
+            continue;
+        }
 
         // check for correct row count
         if (null === $table['Rows']) {
@@ -1132,7 +1125,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($GLOBALS['show_as_php'])) {
             $query_base = '$sql  = "' . $query_base;
         } elseif (! empty($GLOBALS['validatequery'])) {
-            $query_base = PMA_validateSQL($query_base);
+            try {
+                $query_base = PMA_validateSQL($query_base);
+            } catch (Exception $e) {
+                PMA_Message::error(__('Failed to connect to SQL validator!'))->display();
+            }
         } elseif (isset($parsed_sql)) {
             $query_base = PMA_formatSql($parsed_sql, $query_base);
         }
@@ -1248,7 +1245,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             $validate_link = '';
         } //validator
 
-        echo '<code class="sql">';
+        if (!empty($GLOBALS['validatequery'])) {
+            echo '<div class="sqlvalidate">';
+        } else {
+            echo '<code class="sql">';
+        }
         if ($query_too_big) {
             echo $shortened_query_base;
         } else {
@@ -1259,7 +1260,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($GLOBALS['show_as_php'])) {
             echo '";';
         }
-        echo '</code>';
+        if (!empty($GLOBALS['validatequery'])) {
+            echo '</div>';
+        } else {
+            echo '</code>';
+        }
 
         echo '<div class="tools">';
         // avoid displaying a Profiling checkbox that could
@@ -1267,6 +1272,17 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($refresh_link)) {
             PMA_profilingCheckbox($sql_query);
         }
+        // if needed, generate an invisible form that contains controls for the
+        // Inline link; this way, the behavior of the Inline link does not
+        // depend on the profiling support or on the refresh link
+        if (empty($refresh_link) || ! PMA_profilingSupported()) {
+            echo '<form action="sql.php" method="post">';
+            echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+            echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />';
+            echo '</form>';
+        }
+
+        // see in js/functions.js the jQuery code attached to id inline_edit
         $inline_edit = "<script type=\"text/javascript\">\n" .
             "//<![CDATA[\n" .
             "document.write('[<a href=\"#\" title=\"" .
@@ -2829,20 +2845,55 @@ $mapping = array(
     return $mapping[$target];
 }
 
-function PMA_js($code, $print=true)
-{
-    // these generated newlines are needed
-  $out  = '';
-  $out .= '<script type="text/javascript">'."\n";
-  $out .= "\n" . '// <![CDATA[' . "\n";
-  $out .= $code;
-  $out .= "\n" . '// ]]>' . "\n";
-  $out .= '</script>'."\n";
+/**
+ * Formats user string, expading @VARIABLES@, accepting strftime format string.
+ *
+ * @param string Text where to do expansion.
+ * @param function Function to call for escaping variable values.
+ * @param array Array with overrides for default parameters (obtained from GLOBALS).
+ */
+function PMA_expandUserString($string, $escape = NULL, $updates = array()) {
+    /* Content */
+    $vars['http_host'] = PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '';
+    $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
+    $vars['server_verbose'] = $GLOBALS['cfg']['Server']['verbose'];
+    $vars['server_verbose_or_name'] = !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'];
+    $vars['database'] = $GLOBALS['db'];
+    $vars['table'] = $GLOBALS['table'];
+    $vars['phpmyadmin_version'] = 'phpMyAdmin ' . PMA_VERSION;
 
-  if ($print)
-    echo $out;
+    /* Update forced variables */
+    foreach($updates as $key => $val) {
+        $vars[$key] = $val;
+    }
 
-  return $out;
+    /* Replacement mapping */
+    /*
+     * The __VAR__ ones are for backward compatibility, because user
+     * might still have it in cookies.
+     */
+    $replace = array(
+        '@HTTP_HOST@' => $vars['http_host'],
+        '@SERVER@' => $vars['server_name'],
+        '__SERVER__' => $vars['server_name'],
+        '@VERBOSE@' => $vars['server_verbose'],
+        '@VSERVER@' => $vars['server_verbose_or_name'],
+        '@DATABASE@' => $vars['database'],
+        '__DB__' => $vars['database'],
+        '@TABLE@' => $vars['table'],
+        '__TABLE__' => $vars['table'],
+        '@PHPMYADMIN@' => $vars['phpmyadmin_version'],
+        );
+
+    /* Optional escaping */
+    if (!is_null($escape)) {
+        foreach($replace as $key => $val) {
+            $replace[$key] = $escape($val);
+        }
+    }
+
+    /* Do the replacement */
+    return str_replace(array_keys($replace), array_values($replace), strftime($string));
 }
 
 /**

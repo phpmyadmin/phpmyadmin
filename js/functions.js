@@ -1726,6 +1726,13 @@ $(document).ready(function(){
         return false;
     });
     $('#sqlquery').focus();
+    if ($('#input_username')) {
+        if ($('#input_username').val() == '') {
+            $('#input_username').focus();
+        } else {
+            $('#input_password').focus();
+        }
+    }
 });
 
 /**

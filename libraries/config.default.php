@@ -137,12 +137,6 @@ $cfg['Servers'][$i]['connect_type'] = 'tcp';
  */
 $cfg['Servers'][$i]['extension'] = 'mysql';
 
-/* added for blobstreaming */
-$cfg['Servers'][$i]['bs_garbage_threshold'] = '';
-$cfg['Servers'][$i]['bs_repository_threshold'] = '';
-$cfg['Servers'][$i]['bs_temp_blob_timeout'] = '';
-$cfg['Servers'][$i]['bs_temp_log_threshold'] = '';
-
 /**
  * Use compressed protocol for the MySQL connection (requires PHP >= 4.3.0)
  *
@@ -1116,21 +1110,21 @@ $cfg['Export']['remember_file_template'] = true;
  *
  * @global string $cfg['Export']['file_template_table']
  */
-$cfg['Export']['file_template_table'] = '__TABLE__';
+$cfg['Export']['file_template_table'] = '@TABLE@';
 
 /**
  *
  *
  * @global string $cfg['Export']['file_template_database']
  */
-$cfg['Export']['file_template_database'] = '__DB__';
+$cfg['Export']['file_template_database'] = '@DB@';
 
 /**
  *
  *
  * @global string $cfg['Export']['file_template_server']
  */
-$cfg['Export']['file_template_server'] = '__SERVER__';
+$cfg['Export']['file_template_server'] = '@SERVER@';
 
 /**
  *
@@ -1438,14 +1432,14 @@ $cfg['Export']['latex_data_continued_caption'] = 'strLatexContent strLatexContin
  *
  * @global string $cfg['Export']['latex_data_label']
  */
-$cfg['Export']['latex_data_label'] = 'tab:__TABLE__-data';
+$cfg['Export']['latex_data_label'] = 'tab:@TABLE@-data';
 
 /**
  *
  *
  * @global string $cfg['Export']['latex_structure_label']
  */
-$cfg['Export']['latex_structure_label'] = 'tab:__TABLE__-structure';
+$cfg['Export']['latex_structure_label'] = 'tab:@TABLE@-structure';
 
 /**
  *
