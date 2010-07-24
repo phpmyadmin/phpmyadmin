@@ -95,6 +95,72 @@ function suggestPassword(passwd_form) {
 }
 
 /**
+ * When a new user is created and retrieved over Ajax, append the user's row to
+ * the user's table
+ *
+ * @param   new_user_string         the html for the new user's row
+ * @param   new_user_initial        the first alphabet of the user's name
+ * @param   new_user_initial_string html to replace the initial for pagination
+ */
+function appendNewUser(new_user_string, new_user_initial, new_user_initial_string) {
+    //Append the newly retrived user to the table now
+
+    //Calculate the index for the new row
+    var curr_last_row = $("#usersForm").find('tbody').find('tr:last');
+    var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+    var curr_last_row_index = parseFloat(curr_last_row_index_string);
+    var new_last_row_index = curr_last_row_index + 1;
+    var new_last_row_id = 'checkbox_sel_users_' + new_last_row_index;
+
+    //Append to the table and set the id/names correctly
+    $(new_user_string)
+    .insertAfter($(curr_last_row))
+    .find('input:checkbox')
+    .attr('id', new_last_row_id)
+    .val(function() {
+        //the insert messes up the &amp;27; part. let's fix it
+        return $(this).val().replace(/&/,'&amp;');
+    })
+    .end()
+    .find('label')
+    .attr('for', new_last_row_id)
+    .end();
+
+    //Let us sort the table alphabetically
+    var rows = $("#usersForm").find('tbody tr').get();
+
+    $.each(rows, function(index, row) {
+        row.sortKey = $(row).find('label').text().toLowerCase();
+    })
+
+    rows.sort(function(a,b) {
+        if(a.sortKey < b.sortKey) {
+            return -1;
+        }
+        if(a.sortKey > b.sortKey) {
+            return 1;
+        }
+        return 0;
+    })
+
+    $.each(rows, function(index, row) {
+        $('#usersForm').find('tbody').append(row);
+        row.sortKey = null;
+    })
+
+    //Re-check the classes of each row
+    $("#usersForm")
+    .find('tbody').find('tr:odd')
+    .removeClass('even').addClass('odd')
+    .end()
+    .find('tr:even')
+    .removeClass('odd').addClass('even');
+
+    $("#initials_table").find('td:contains('+new_user_initial+')')
+    .html(new_user_initial_string);
+};
+
+/**
  * Add all AJAX scripts for server_privileges page here.
  *
  * Actions ajaxified here:
@@ -145,39 +211,7 @@ $(document).ready(function() {
                                                                     $(notice_class).remove();
                                                                 }
 
-                                                                //Append the newly retrived user to the table now
-
-                                                                //Calculate the index for the new row
-                                                                var curr_last_row = $("#usersForm").find('tbody').find('tr:last');
-                                                                var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
-                                                                var curr_last_row_index = parseFloat(curr_last_row_index_string);
-                                                                var new_last_row_index = curr_last_row_index + 1;
-                                                                var new_last_row_id = 'checkbox_sel_users_' + new_last_row_index;
-
-                                                                //Append to the table and set the id/names correctly
-                                                                $(data.new_user_string)
-                                                                .insertAfter($(curr_last_row))
-                                                                .find('input:checkbox')
-                                                                .attr('id', new_last_row_id)
-                                                                .val(function() {
-                                                                    //the insert messes up the &amp;27; part. let's fix it
-                                                                    return $(this).val().replace(/&/,'&amp;');
-                                                                })
-                                                                .end()
-                                                                .find('label')
-                                                                .attr('for', new_last_row_id)
-                                                                .end();
-
-                                                                //Re-check the classes of each row
-                                                                $("#usersForm")
-                                                                .find('tbody').find('tr:odd')
-                                                                .removeClass('even').addClass('odd')
-                                                                .end()
-                                                                .find('tr:even')
-                                                                .removeClass('odd').addClass('even');
-
-                                                                $("#initials_table").find('td:contains('+data.new_user_initial+')')
-                                                                .html(data.new_user_initial_string);
+                                                                appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
                                                             }
                                                             else {
                                                                 PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
@@ -295,39 +329,7 @@ $(document).ready(function() {
                 }
 
                 if(data.new_user_string) {
-                    //Append the newly retrived user to the table now
-
-                    //Calculate the index for the new row
-                    var curr_last_row = $("#usersForm").find('tbody').find('tr:last');
-                    var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
-                    var curr_last_row_index = parseFloat(curr_last_row_index_string);
-                    var new_last_row_index = curr_last_row_index + 1;
-                    var new_last_row_id = 'checkbox_sel_users_' + new_last_row_index;
-
-                    //Append to the table and set the id/names correctly
-                    $(data.new_user_string)
-                    .insertAfter($(curr_last_row))
-                    .find('input:checkbox')
-                    .attr('id', new_last_row_id)
-                    .val(function() {
-                        //the insert messes up the &amp;27; part. let's fix it
-                        return $(this).val().replace(/&/,'&amp;');
-                    })
-                    .end()
-                    .find('label')
-                    .attr('for', new_last_row_id)
-                    .end();
-
-                    //Re-check the classes of each row
-                    $("#usersForm")
-                    .find('tbody').find('tr:odd')
-                    .removeClass('even').addClass('odd')
-                    .end()
-                    .find('tr:even')
-                    .removeClass('odd').addClass('even');
-
-                    $("#initials_table").find('td:contains('+data.new_user_initial+')')
-                    .html(data.new_user_initial_string);
+                    appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
                 }
 
                 if(data.new_privileges) {
