@@ -1888,12 +1888,36 @@ $(document).ready(function() {
                     var new_last_row_index = curr_last_row_index + 1;
                     var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
 
+                    //append to table
                     $(data.new_table_string)
                     .find('input:checkbox')
                     .val(new_last_row_id)
                     .end()
                     .appendTo(tables_table);
 
+                    //sort the table
+                    var rows = $(tables_table).find('tr').get();
+
+                    $.each(rows, function(index, row) {
+                        row.sortKey = $(row).find('th').text().toLowerCase();
+                    })
+
+                    rows.sort(function(a,b) {
+                        if(a.sortKey < b.sortKey) {
+                            return -1;
+                        }
+                        if(a.sortKey > b.sortKey) {
+                            return 1;
+                        }
+                        return 0;
+                    })
+
+                    $.each(rows, function(index, row) {
+                        $(tables_table).append(row);
+                        row.sortKey = null;
+                    })
+
+                    //fix the row classes
                     $(tables_table)
                     .find('tr:even')
                     .removeClass('odd').addClass('even')
