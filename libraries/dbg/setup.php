@@ -18,8 +18,8 @@ if ($GLOBALS['cfg']['DBG']['php']) {
      * Loads the DBG extension if needed
      */
     if (! @extension_loaded('dbg') ) {
-        $message = PMA_Message::error(__('Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] extension. Please check your PHP configuration.'));
-        $message->addParam('DBG');
+        $message = PMA_Message::error(__('The %s extension is missing. Please check your PHP configuration.'),
+        $message->addParam(sprintf('[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a]', 'dbg'));
         $message->addMessage('<a href="./Documentation.html#faqdbg" target="documentation">', false);
         $message->addString(__('Documentation'));
         $message->addMessage('</a>', false);

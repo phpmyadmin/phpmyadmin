@@ -172,14 +172,14 @@ function PMA_auth()
     ?>
 <script src="./js/jquery/jquery-1.4.2.js" type="text/javascript"></script>
 <script src="./js/update-location.js" type="text/javascript"></script>
-<script type="text/javascript">
-//<![CDATA[
-// show login form in top frame
-if (top != self) {
-    window.top.location.href=location;
+<?php
+if ( false === $GLOBALS['cfg']['AllowThirdPartyFraming']) {
+?>
+<script src="./js/cross_framing_protection.js" type="text/javascript"></script>
+<?php
 }
-//]]>
-</script>
+?>
+<script src="./js/functions.js" type="text/javascript"></script>
 </head>
 
 <body class="loginform">
@@ -312,22 +312,6 @@ if (top != self) {
     }
     ?>
 </div>
-<script type="text/javascript">
-// <![CDATA[
-function PMA_focusInput()
-{
-    var input_username = document.getElementById('input_username');
-    var input_password = document.getElementById('input_password');
-    if (input_username.value == '') {
-        input_username.focus();
-    } else {
-        input_password.focus();
-    }
-}
-
-window.setTimeout('PMA_focusInput()', 500);
-// ]]>
-</script>
     <?php
     if (file_exists(CUSTOM_FOOTER_FILE)) {
         require CUSTOM_FOOTER_FILE;

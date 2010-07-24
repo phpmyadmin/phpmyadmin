@@ -22,8 +22,8 @@
  * run this: "pear install Mail_Mime Net_DIME SOAP"
  *
  * Enable the SQL Validator options in the configuration file
- * $cfg['SQLQuery']['Validate'] = TRUE;
- * $cfg['SQLValidator']['use']  = FALSE;
+ * $cfg['SQLQuery']['Validate'] = true;
+ * $cfg['SQLValidator']['use']  = true;
  *
  * Also set a username and password if you have a private one
  *
