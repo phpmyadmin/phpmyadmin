@@ -65,7 +65,6 @@ if (isset($submitcollation) && !empty($db_collation)) {
     unset($db_charset, $db_collation);
 }
 
-$GLOBALS['js_include'][] = 'functions.js';
 require_once './libraries/header.inc.php';
 
 /**

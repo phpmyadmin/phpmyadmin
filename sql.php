@@ -545,10 +545,6 @@ if (0 == $num_rows || $is_affected) {
             $goto = 'main.php';
         }
         // Loads to target script
-        if (strpos($goto, 'db_') === 0
-         || strpos($goto, 'tbl_') === 0) {
-            $GLOBALS['js_include'][] = 'functions.js';
-        }
         if ($goto != 'main.php') {
             require_once './libraries/header.inc.php';
         }
@@ -573,7 +569,6 @@ else {
     if (isset($printview) && $printview == '1') {
         require_once './libraries/header_printview.inc.php';
     } else {
-        $GLOBALS['js_include'][] = 'functions.js';
         unset($message);
         if (strlen($table)) {
             require './libraries/tbl_common.php';

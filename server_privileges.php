@@ -14,7 +14,6 @@ require_once './libraries/common.inc.php';
  * Does the common work
  */
 $GLOBALS['js_include'][] = 'server_privileges.js';
-$GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'password_generation.js';
 require './libraries/server_common.inc.php';
 

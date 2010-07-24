@@ -10,8 +10,6 @@
  */
 require_once './libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'functions.js';
-
 /**
  * Displays the links
  */

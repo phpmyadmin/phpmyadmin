@@ -111,7 +111,6 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 
 // Displays headers (if needed)
-$GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'indexes.js';
 
 require_once './libraries/tbl_info.inc.php';

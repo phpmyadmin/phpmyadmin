@@ -10,8 +10,6 @@
  */
 require_once './libraries/common.inc.php';
 
-
-$GLOBALS['js_include'][] = 'functions.js';
 require './libraries/server_common.inc.php';
 require './libraries/replication.inc.php';
 

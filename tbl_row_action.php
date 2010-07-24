@@ -71,7 +71,6 @@ switch($submit_mult) {
 }
 
 $GLOBALS['js_include'][] = 'tbl_change.js';
-$GLOBALS['js_include'][] = 'functions.js';
 
 require_once './libraries/header.inc.php';
 

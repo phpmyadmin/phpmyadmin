@@ -155,7 +155,6 @@ $sql_query = '';
  * prepare JavaScript functionality
  */
 $js_include[] = 'common.js';
-$js_include[] = 'functions.js';
 $js_include[] = 'querywindow.js';
 
 if (PMA_isValid($_REQUEST['auto_commit'], 'identical', 'true')) {
