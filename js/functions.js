@@ -1795,6 +1795,10 @@ function menuResize()
 }
 
 $(function() {
+    var topmenu = $('#topmenu');
+    if (topmenu.length == 0) {
+        return;
+    }
     // create submenu container
     var link = $('<a />')
         .attr({href: '#', 'class': 'tab'})
@@ -1802,7 +1806,7 @@ $(function() {
         .click(function(e) {
             e.preventDefault();
         });
-    var img = $('#topmenucontainer li:first-child').find('img');
+    var img = topmenu.find('li:first-child').find('img');
     if (img.length) {
         img = img.clone();
         img.attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
@@ -1822,7 +1826,7 @@ $(function() {
             }
         })
         .hide();
-    $('#topmenu').append(submenu);
+    topmenu.append(submenu);
 
     // populate submenu and register resize event
     $(window).resize(menuResize);

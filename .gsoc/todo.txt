@@ -1,2 +1,9 @@
 restore cache'ing in phpmyadmin.css.php
 remove debug from user preferences header
+
+marker for extension dependent options (SOAP for sql validation)
+
+info about setup script in prefs manage, it seems many people still don't know it exists
+(and maybe some description in docs on making it work with live configuration?)
+
+info for constrained values (eg. MaxDbList)?
