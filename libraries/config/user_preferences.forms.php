@@ -20,10 +20,7 @@ $forms['Features']['General'] = array(
     'ReplaceHelpImg',
     'SkipLockedTables',
     'MaxDbList',
-    'MaxTableList',
-    'disable/AllowUserDropDatabase',
-    'disable/UseDbSearch',
-    'disable/QueryHistoryDB');
+    'MaxTableList');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'CharTextareaCols',
@@ -94,9 +91,7 @@ $forms['Main_frame']['Startup'] = array(
     'SuggestDBName',
     ':group:end',
     'ShowStats',
-    'ShowServerInfo',
-    'disable/ShowPhpInfo',
-    'disable/ShowChgPassword');
+    'ShowServerInfo');
 $forms['Main_frame']['Browse'] = array(
     'NavigationBarIconic',
     'ShowAll',

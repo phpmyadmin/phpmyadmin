@@ -67,8 +67,8 @@ function PMA_lang($lang_key)
 function PMA_lang_name($canonical_path, $type = 'name', $default = 'key')
 {
     $lang_key = str_replace(
-    	array('Servers/1/', 'disable/', '/'),
-    	array('Servers/', '', '_'),
+    	array('Servers/1/', '/'),
+    	array('Servers/', '_'),
     	$canonical_path) . '_' . $type;
     return isset($GLOBALS["strConfig$lang_key"])
         ? ($type == 'desc' ? PMA_lang($lang_key) : $GLOBALS["strConfig$lang_key"])

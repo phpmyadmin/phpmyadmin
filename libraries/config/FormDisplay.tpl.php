@@ -188,9 +188,6 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
                 . ' value="' . htmlspecialchars($value) . '" />';
           break;
         case 'checkbox':
-            if (strpos($path, 'disable-') === 0) {
-                echo '<label for="' . htmlspecialchars($path) . '" title="' . __('Mark to disable this option') . '">' . __('Disable') . '</label> ';
-            }
             echo '<span' . $field_class . '><input type="checkbox" ' . $name_id
               . ($value ? ' checked="checked"' : '') . ' /></span>';
           break;

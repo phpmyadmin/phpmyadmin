@@ -2314,16 +2314,6 @@ $cfg['UserprefsDisallow'] = array();
  */
 $cfg['UserprefsDeveloperTab'] = false;
 
-/**
- * User preferences: disabling options by users
- */
-$cfg['disable'] = array(
-    'AllowUserDropDatabase' => false,
-    'UseDbSearch' => false,
-    'QueryHistoryDB' => false,
-    'ShowPhpInfo' => false,
-    'ShowChgPassword' => false);
-
 /*******************************************************************************
  * Window title settings
  */
