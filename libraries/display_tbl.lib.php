@@ -2360,11 +2360,17 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
 function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated ) {
 
     $data_inline_edit_class = 'data_inline_edit';
+    $enum_class = '';
+    if(strpos($meta->flags, 'enum') !== false) {
+        $enum_class = ' enum';
+    }
+
     // continue the <td> tag started before calling this function:
     $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap 
     . ' ' . $data_inline_edit_class . ($is_field_truncated ? ' truncated' : '')
     . ($transform_function != $default_function ? ' transformed' : '')
-    . (isset($map[$meta->name]) ? ' relation' : '') . '">';
+    . (isset($map[$meta->name]) ? ' relation' : '')
+    . $enum_class . '">';
 
     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
         foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {

@@ -70,6 +70,32 @@ if(isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values
     PMA_ajaxResponse(NULL, true, $extra_data);
 }
 
+/**
+ * Just like above, find possible values for enum fields during inline edit.
+ */
+if(isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
+    $field_info_query = 'SHOW FIELDS FROM `' . $db . '`.`' . $table . '` LIKE \'' . $_REQUEST['column'] . '\' ;';
+
+    $field_info_result = PMA_DBI_fetch_result($field_info_query, null, null, null, PMA_DBI_QUERY_STORE);
+
+    $search = array('enum', '(', ')', "'");
+
+    $values = explode(',', str_replace($search, '', $field_info_result[0]['Type']));
+
+    $dropdown = '';
+    foreach($values as $value) {
+        $dropdown .= '<option value="' . htmlspecialchars($value) . '"';
+        if($value == $_REQUEST['curr_value']) {
+            $dropdown .= ' selected="selected"';
+        }
+        $dropdown .= '>' . $value . '</option>';
+    }
+
+    $dropdown = '<select>' . $dropdown . '</select>';
+
+    $extra_data['dropdown'] = $dropdown;
+    PMA_ajaxResponse(NULL, true, $extra_data);
+}
 
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)

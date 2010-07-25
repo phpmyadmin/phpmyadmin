@@ -137,7 +137,7 @@ $(document).ready(function() {
 
             // In each input sibling, wrap the current value in a textarea
             // and store the current value in a hidden span
-            if($(this).is(':not(.truncated, .transformed, .relation)')) {
+            if($(this).is(':not(.truncated, .transformed, .relation, .enum)')) {
                 // handle non-truncated, non-transformed, non-relation values
                 // We don't need to get any more data, just wrap the value
                 $(this).html('<textarea>'+data_value+'</textarea>')
@@ -175,6 +175,26 @@ $(document).ready(function() {
                 var post_params = {
                         'ajax_request' : true,
                         'get_relational_values' : true,
+                        'db' : window.parent.db,
+                        'table' : window.parent.table,
+                        'column' : field_name,
+                        'token' : window.parent.token,
+                        'curr_value' : curr_value
+                }
+
+                $.post('sql.php', post_params, function(data) {
+                    $(this_field).html(data.dropdown)
+                    .append('<span class="original_data">'+data_value+'</span>');
+                    $(".original_data").hide();
+                })
+            }
+            else if($(this).is('.enum')) {
+                //handle enum fields
+                var curr_value = $(this).text();
+
+                var post_params = {
+                        'ajax_request' : true,
+                        'get_enum_values' : true,
                         'db' : window.parent.db,
                         'table' : window.parent.table,
                         'column' : field_name,
@@ -237,7 +257,7 @@ $(document).ready(function() {
             field_name = $.trim(field_name);
 
             var this_field_params = {};
-            if($(this).is(":not(.relation)")) {
+            if($(this).is(":not(.relation, .enum)")) {
                 this_field_params[field_name] = $(this).find('textarea').val();
             }
             else {
@@ -275,7 +295,7 @@ $(document).ready(function() {
 
                 $(input_siblings).each(function() {
                     // Inline edit post has been successful.
-                    if($(this).is(':not(.relation)')) {
+                    if($(this).is(':not(.relation, .enum)')) {
                         var new_html = $(this).find('textarea').val();
                     }
                     else {
