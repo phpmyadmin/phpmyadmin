@@ -20,6 +20,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [export] CSV for MS Excel (Windows) should have semi-colon as separator
 - [core] Update library PHPExcel to version 1.7.3c
 - bug #2994885, bug #3029168 [import] Convert Excel column name correctly
+- bug [scripts] MySQL 5.5.5 does not accept TIMESTAMP(14) in create_tables.sql
 
 3.3.4.0 (2010-06-28)
 - bug #2996161 [import] properly escape import value
