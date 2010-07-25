@@ -31,6 +31,9 @@ var myTooltipContainer = null;
  */
 function PMA_TT_init()
 {
+    if (!window.parent.getElementsByClassName) {
+        return;
+    }
     // get all 'light bubbles' on page
     var tooltip_icons = window.parent.getElementsByClassName('footnotemarker', document, 'sup');
     var tooltip_count = tooltip_icons.length;
@@ -48,7 +51,7 @@ function PMA_TT_init()
     document.body.appendChild(myTooltipContainer);
 
     // capture mouse-events
-    for (i = 0; i < tooltip_count; i++) {
+    for (var i = 0; i < tooltip_count; i++) {
         window.parent.addEvent(tooltip_icons[i], 'mousemove', mouseMove);
         window.parent.addEvent(tooltip_icons[i], 'mouseover', pmaTooltip);
         window.parent.addEvent(tooltip_icons[i], 'mouseout', swapTooltip);

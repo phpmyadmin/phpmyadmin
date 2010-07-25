@@ -1735,3 +1735,96 @@ $(document).ready(function(){
     }
 });
 
+function menuResize()
+{
+    var cnt = $('#topmenu');
+    var wmax = cnt.width() - 5; // 5 px margin for jumping menu in Chrome
+    var submenu = cnt.find('.submenu');
+    var submenu_w = submenu.outerWidth(true);
+    var submenu_ul = submenu.find('ul');
+    var li = $('#topmenu > li');
+    var li2 = submenu_ul.find('li');
+    var more_shown = li2.length > 0;
+    var w = more_shown ? submenu_w : 0;
+
+    // hide menu items
+    var hide_start = 0;
+    for (var i = 0; i < li.length-1; i++) { // li.length-1: skip .submenu element
+        var el = $(li[i]);
+        var el_width = el.outerWidth(true);
+        el.data('width', el_width);
+        w += el_width;
+        if (w > wmax) {
+            w -= el_width;
+            if (w + submenu_w < wmax) {
+                hide_start = i;
+            } else {
+                hide_start = i-1;
+                w -= $(li[i-1]).data('width');
+            }
+            break;
+        }
+    }
+
+    if (hide_start > 0) {
+        for (var i = hide_start; i < li.length-1; i++) {
+            $(li[i])[more_shown ? 'prependTo' : 'appendTo'](submenu_ul);
+        }
+        submenu.show();
+    } else if (more_shown) {
+        w -= submenu_w;
+        // nothing hidden, maybe something can be restored
+        for (var i = 0; i < li2.length; i++) {
+            //console.log(li2[i], submenu_w);
+            w += $(li2[i]).data('width');
+            if (w+submenu_w < wmax ) {//|| (i == li2.length-1 && w < wmax)
+                $(li2[i]).insertBefore(submenu);
+                if (i == li2.length-1) {
+                    submenu.hide();
+                }
+                continue;
+            }
+            break;
+        }
+    }
+    if (submenu.find('.tabactive').length) {
+        submenu.addClass('active').find('> a').removeClass('tab').addClass('tabactive');
+    } else {
+        submenu.removeClass('active').find('> a').addClass('tab').removeClass('tabactive');
+    }
+}
+
+$(function() {
+    // create submenu container
+    var link = $('<a />')
+        .attr({href: '#', 'class': 'tab'})
+        .text('More')
+        .click(function(e) {
+            e.preventDefault();
+        });
+    var img = $('#topmenucontainer li:first-child').find('img');
+    if (img.length) {
+        img = img.clone();
+        img.attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
+    }
+    var submenu = $('<li />')
+        .attr('class', 'submenu')
+        .append(link)
+        .append($('<ul />').append($('#topmenu li.subitem')))
+        .mouseenter(function() {
+            if ($(this).find('ul .tabactive').length == 0) {
+                $(this).addClass('submenuhover').find('> a').addClass('tabactive');
+            }
+        })
+        .mouseleave(function() {
+            if ($(this).find('ul .tabactive').length == 0) {
+                $(this).removeClass('submenuhover').find('> a').removeClass('tabactive');
+            }
+        })
+        .hide();
+    $('#topmenu').append(submenu);
+
+    // populate submenu and register resize event
+    $(window).resize(menuResize);
+    menuResize();
+});

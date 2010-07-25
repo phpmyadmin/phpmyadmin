@@ -626,14 +626,44 @@ ul#topmenu li, ul#topmenu2 li {
 }
 
 /* default tab styles */
-ul#topmenu .tab, ul#topmenu .tabcaution, ul#topmenu .tabactive {
+ul#topmenu a, ul#topmenu span {
     display:            block;
     margin:             0.2em 0.2em 0 0.2em;
     padding:            0.2em 0.2em 0 0.2em;
     white-space:        nowrap;
 }
 
-ul#topmenu2 .tab, ul#topmenu2 .tabactive {
+ul#topmenu ul a {
+    margin:         0;
+    padding-bottom: 0.2em;
+}
+
+ul#topmenu .submenu {
+    position: relative;
+}
+
+ul#topmenu ul {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    list-style-type: none;
+    display: none;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    border: 1px #666 solid;
+}
+
+ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
+    display: block;
+}
+
+ul#topmenu ul li {
+    width: 100%;
+}
+
+ul#topmenu2 a {
     display:            block;
     margin:             0.1em;
     padding:            0.2em;
@@ -676,26 +706,39 @@ ul#topmenu2 {
     clear: both;
 }
 
-ul#topmenu li {
+ul#topmenu > li {
     border-bottom:      1pt solid black;
 }
 
 /* default tab styles */
-ul#topmenu .tab, ul#topmenu .tabcaution, ul#topmenu .tabactive {
-    background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
-    border:             1pt solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
-    border-bottom:      0;
+ul#topmenu a, ul#topmenu span {
+    background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    border:           0 solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    border-width:       1pt 1pt 0 1pt;
     -moz-border-radius: 0.4em 0.4em 0 0;
     border-radius:      0.4em 0.4em 0 0;
 }
 
+ul#topmenu ul a {
+    border-width:       1pt 0 0 0;
+    -moz-border-radius: 0;
+    border-radius:      0;
+}
+
+ul#topmenu ul li:first-child a {
+    border-width:       0;
+}
+
 /* enabled hover/active tabs */
-ul#topmenu a.tab:hover,
-ul#topmenu a.tabcaution:hover,
-ul#topmenu .tabactive,
-ul#topmenu .tabactive:hover {
+ul#topmenu > li > a:hover,
+ul#topmenu > li > .tabactive {
     margin:             0;
     padding:            0.2em 0.4em 0.2em 0.4em;
+    text-decoration:    none;
+}
+
+ul#topmenu ul a:hover,
+ul#topmenu ul .tabactive {
     text-decoration:    none;
 }
 
@@ -713,7 +756,7 @@ ul#topmenu2 a.tabactive {
 }
 
 /* to be able to cancel the bottom border, use <li class="active"> */
-ul#topmenu li.active {
+ul#topmenu > li.active {
      border-bottom:      1pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
