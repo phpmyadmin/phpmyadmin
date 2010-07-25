@@ -942,6 +942,8 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                         $message = PMA_Message::rawError(PMA_DBI_getError());
                         break;
                     }
+                    // this is needed in case tracking is on:
+                    $GLOBALS['db'] = $username;
                     $GLOBALS['reload'] = TRUE;
                     PMA_reloadNavigation();
 
@@ -1255,6 +1257,9 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
                     }
                 }
             }
+            // tracking sets this, causing the deleted db to be shown in navi
+            unset($GLOBALS['db']);
+
             $sql_query = join("\n", $queries);
             if (! empty($drop_user_error)) {
                 $message = PMA_Message::rawError($drop_user_error);
