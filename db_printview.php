@@ -26,7 +26,6 @@ $err_url = 'db_sql.php?' . PMA_generate_common_url($db);
 /**
  * Settings for relations stuff
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**

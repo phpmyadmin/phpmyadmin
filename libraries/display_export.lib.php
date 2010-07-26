@@ -14,7 +14,6 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/Table.class.php';
 
 // Get relations & co. status
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 

@@ -262,7 +262,6 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
  * Settings for relations stuff
  */
 
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**

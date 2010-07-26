@@ -23,7 +23,6 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 /**
  * Gets relation settings
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**

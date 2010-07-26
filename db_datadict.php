@@ -18,10 +18,10 @@ if (!isset($selected_tbl)) {
 /**
  * Gets the relations settings
  */
-require_once './libraries/relation.lib.php';
+$cfgRelation  = PMA_getRelationsParam();
+
 require_once './libraries/transformations.lib.php';
 
-$cfgRelation  = PMA_getRelationsParam();
 
 /**
  * Check parameters

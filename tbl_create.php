@@ -223,7 +223,6 @@ if (isset($_REQUEST['do_save_data'])) {
     if ($result) {
 
         // If comments were sent, enable relation stuff
-        require_once './libraries/relation.lib.php';
         require_once './libraries/transformations.lib.php';
 
         // Update comment table for mime types [MIME]

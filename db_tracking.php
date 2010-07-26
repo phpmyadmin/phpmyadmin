@@ -17,9 +17,6 @@ $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 $sub_part = '_structure';
 require './libraries/db_info.inc.php';
 
-// Get relation settings
-require_once './libraries/relation.lib.php';
-
 // Work to do?
 //  (here, do not use $_REQUEST['db] as it can be crafted)
 if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {

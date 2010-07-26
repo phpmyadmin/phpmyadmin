@@ -13,7 +13,6 @@ require_once './libraries/common.inc.php';
 /**
  * Settings for relation stuff
  */
-require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
 require_once './libraries/Index.class.php';
 

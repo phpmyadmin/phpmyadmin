@@ -143,7 +143,6 @@ if (empty($GLOBALS['is_header_sent'])) {
                 /**
                  * Settings for relations stuff
                  */
-                require_once './libraries/relation.lib.php';
                 $cfgRelation = PMA_getRelationsParam();
 
                 // Get additional information about tables for tooltip is done

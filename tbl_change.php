@@ -45,11 +45,6 @@ if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
 }
 
 /**
- * load relation data, foreign keys
- */
-require_once './libraries/relation.lib.php';
-
-/**
  * file listing
  */
 require_once './libraries/file_listing.php';

@@ -29,7 +29,6 @@ if (! isset($the_tables) || ! is_array($the_tables)) {
 /**
  * Gets the relations settings
  */
-require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
 require_once './libraries/Index.class.php';
 

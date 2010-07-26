@@ -14,7 +14,6 @@ define('IS_TRANSFORMATION_WRAPPER', true);
  * Gets a core script and starts output buffering work
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/relation.lib.php'; // foreign keys
 require_once './libraries/transformations.lib.php'; // Transformations
 $cfgRelation = PMA_getRelationsParam();
 

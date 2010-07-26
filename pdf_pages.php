@@ -20,7 +20,6 @@ require_once './libraries/db_info.inc.php';
 /**
  * Settings for relation stuff
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 // This is to avoid "Command out of sync" errors. Before switching this to

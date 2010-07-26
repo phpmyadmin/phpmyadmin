@@ -6,11 +6,6 @@
  */
 
 /**
- * Gets relation settings
- */
-require_once './libraries/relation.lib.php';
-
-/**
  * This class tracks changes on databases, tables and views.
  * For more information please see phpMyAdmin/Documentation.html
  *
