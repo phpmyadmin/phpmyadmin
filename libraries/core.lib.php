@@ -220,6 +220,7 @@ function PMA_securePath($path)
  */
 function PMA_fatalError($error_message, $message_args = null)
 {
+    /* Use format string if applicable */
     if (is_string($message_args)) {
         $error_message = sprintf($error_message, $message_args);
     } elseif (is_array($message_args)) {
