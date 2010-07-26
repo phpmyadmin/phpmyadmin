@@ -220,21 +220,6 @@ function PMA_securePath($path)
  */
 function PMA_fatalError($error_message, $message_args = null)
 {
-    // it could happen PMA_fatalError() is called before language file is loaded
-    if (! isset($GLOBALS['available_languages'])) {
-        $GLOBALS['cfg'] = array(
-            'DefaultLang'           => 'en',
-            );
-
-        // Loads the language file
-        require_once './libraries/select_lang.lib.php';
-
-        // $text_dir is set in po file
-        if (isset($text_dir)) {
-            $GLOBALS['text_dir'] = $text_dir;
-        }
-    }
-
     if (is_string($message_args)) {
         $error_message = sprintf($error_message, $message_args);
     } elseif (is_array($message_args)) {
