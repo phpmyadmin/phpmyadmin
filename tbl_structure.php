@@ -11,7 +11,6 @@
  */
 require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
-require_once './libraries/relation.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
@@ -211,7 +210,6 @@ $comments_map = array();
 $mime_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
-    require_once './libraries/relation.lib.php';
     require_once './libraries/transformations.lib.php';
 
     //$cfgRelation = PMA_getRelationsParam();
@@ -925,5 +923,5 @@ echo '<div class="clearfloat"></div>' . "\n";
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

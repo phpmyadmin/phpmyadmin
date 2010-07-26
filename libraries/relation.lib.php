@@ -10,11 +10,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- *
- */
-require_once './libraries/Table.class.php';
-
-/**
  * Executes a query as controluser if possible, otherwise as normal user
  *
  * @param   string    the query to execute

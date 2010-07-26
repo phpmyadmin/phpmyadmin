@@ -9,7 +9,6 @@
  *
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
@@ -56,7 +55,7 @@ if ($num_tables == 0) {
     /**
      * Displays the footer
      */
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
     exit;
 }
 
@@ -157,7 +156,7 @@ foreach ($tables as $keyname => $each_table) {
         $tableReductionCount++;
         continue;
     }
-	
+
     // Get valid statistics whatever is the table type
 
     $table_is_view = false;
@@ -599,5 +598,5 @@ if (empty($db_is_information_schema)) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

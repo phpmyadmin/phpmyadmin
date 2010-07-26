@@ -9,7 +9,7 @@
 /**
  * Input sanitizing.
  */
-require_once './libraries/sanitizing.lib.php';
+require './libraries/sanitizing.lib.php';
 
 /* Get variables */
 if (! empty($_REQUEST['lang']) && is_string($_REQUEST['lang'])) {

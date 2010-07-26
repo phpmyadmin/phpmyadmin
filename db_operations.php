@@ -16,7 +16,6 @@
  * requirements
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 require_once './libraries/mysql_charsets.lib.php';
 
 /**
@@ -262,7 +261,6 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
  * Settings for relations stuff
  */
 
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -463,7 +461,7 @@ if (!$is_information_schema) {
 
     if ($num_tables > 0
       && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
-        $message = PMA_Message::notice(__('The additional features for working with linked tables have been deactivated. To find out why click %shere%s.'));
+        $message = PMA_Message::notice(__('The phpMyAdmin configuration storage has been deactivated. To find out why click %shere%s.'));
         $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">', false);
         $message->addParam('</a>', false);
         /* Show error if user has configured something, notice elsewhere */
@@ -502,5 +500,5 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

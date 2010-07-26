@@ -14,7 +14,6 @@ require_once './libraries/common.inc.php';
 /**
  * Does the common work
  */
-$GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'server_synchronize.js';
 require_once './libraries/server_common.inc.php';
 
@@ -1215,5 +1214,5 @@ if (isset($_REQUEST['synchronize_db'])) {
  /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

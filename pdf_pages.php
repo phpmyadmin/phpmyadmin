@@ -20,7 +20,6 @@ require_once './libraries/db_info.inc.php';
 /**
  * Settings for relation stuff
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 // This is to avoid "Command out of sync" errors. Before switching this to
@@ -39,24 +38,24 @@ $query_default_option = PMA_DBI_QUERY_STORE;
 if (!$cfgRelation['relwork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'relation', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('relation') . "\n";
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 }
 
 if (!$cfgRelation['displaywork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_info', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('table_info') . "\n";
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 }
 
 if (!isset($cfgRelation['table_coords'])){
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_coords', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('table_coords') . "\n";
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 }
 if (!isset($cfgRelation['pdf_pages'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'pdf_page', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('pdf_pages') . "\n";
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 }
 
 if ($cfgRelation['pdfwork']) {
@@ -556,5 +555,5 @@ ToggleDragDrop('pdflayout');
  * Displays the footer
  */
 echo "\n";
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

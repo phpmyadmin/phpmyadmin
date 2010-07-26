@@ -30,6 +30,7 @@ $title = PMA_expandUserString(
 // here, the function does not exist with this configuration: $cfg['ServerDefault'] = 0;
 $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 
+$GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'tooltip.js';
 $params = array('lang' => $GLOBALS['lang']);
 if (isset($GLOBALS['db'])) {

@@ -50,9 +50,8 @@ require_once './libraries/ob.lib.php';
 PMA_outBufferPre();
 
 /**
- * load relations
+ * load relation params
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -155,7 +154,6 @@ $sql_query = '';
  * prepare JavaScript functionality
  */
 $js_include[] = 'common.js';
-$js_include[] = 'functions.js';
 $js_include[] = 'querywindow.js';
 
 if (PMA_isValid($_REQUEST['auto_commit'], 'identical', 'true')) {

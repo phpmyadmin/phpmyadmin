@@ -49,7 +49,7 @@ if (!defined('E_DEPRECATED')) {
 /**
  * the error handler
  */
-require_once './libraries/Error_Handler.class.php';
+require './libraries/Error_Handler.class.php';
 
 /**
  * initialize the error handler
@@ -78,42 +78,42 @@ define('PHPMYADMIN', true);
 /**
  * core functions
  */
-require_once './libraries/core.lib.php';
+require './libraries/core.lib.php';
 
 /**
  * Input sanitizing
  */
-require_once './libraries/sanitizing.lib.php';
+require './libraries/sanitizing.lib.php';
 
 /**
  * the PMA_Theme class
  */
-require_once './libraries/Theme.class.php';
+require './libraries/Theme.class.php';
 
 /**
  * the PMA_Theme_Manager class
  */
-require_once './libraries/Theme_Manager.class.php';
+require './libraries/Theme_Manager.class.php';
 
 /**
  * the PMA_Config class
  */
-require_once './libraries/Config.class.php';
+require './libraries/Config.class.php';
 
 /**
  * the relation lib, tracker needs it
  */
-require_once './libraries/relation.lib.php';
+require './libraries/relation.lib.php';
 
 /**
  * the PMA_Tracker class
  */
-require_once './libraries/Tracker.class.php';
+require './libraries/Tracker.class.php';
 
 /**
  * the PMA_Table class
  */
-require_once './libraries/Table.class.php';
+require './libraries/Table.class.php';
 
 if (!defined('PMA_MINIMUM_COMMON')) {
     /**
@@ -334,7 +334,7 @@ if ($GLOBALS['PMA_Config']->get('ForceSSL')
 /**
  * include session handling after the globals, to prevent overwriting
  */
-require_once './libraries/session.inc.php';
+require './libraries/session.inc.php';
 
 /**
  * init some variables LABEL_variables_init
@@ -478,7 +478,7 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
     /**
      * Require cleanup functions
      */
-    require_once './libraries/cleanup.lib.php';
+    require './libraries/cleanup.lib.php';
     /**
      * Do actual cleanup
      */
@@ -557,7 +557,7 @@ $GLOBALS['footnotes'] = array();
 /**
  * lang detection is done here
  */
-require_once './libraries/select_lang.lib.php';
+require './libraries/select_lang.lib.php';
 
 /**
  * check for errors occurred while loading configuration

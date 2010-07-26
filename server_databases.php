@@ -10,8 +10,6 @@
  */
 require_once './libraries/common.inc.php';
 
-
-$GLOBALS['js_include'][] = 'functions.js';
 require './libraries/server_common.inc.php';
 require './libraries/replication.inc.php';
 
@@ -384,6 +382,6 @@ if ($cfg['ShowCreateDb']) {
 /**
  * Sends the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 ?>

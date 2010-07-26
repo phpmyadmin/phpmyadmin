@@ -159,6 +159,6 @@ if (empty($_REQUEST['engine'])
 /**
  * Sends the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 ?>

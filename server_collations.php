@@ -95,6 +95,6 @@ unset($table_row_count);
 echo '</table>' . "\n"
    . '</div>' . "\n";
 
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 ?>
