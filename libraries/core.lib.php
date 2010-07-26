@@ -235,15 +235,6 @@ function PMA_fatalError($error_message, $message_args = null)
         }
     }
 
-    // $error_message could be a language string identifier: strString
-    if (substr($error_message, 0, 3) === 'str') {
-        if (isset($$error_message)) {
-            $error_message = $$error_message;
-        } elseif (isset($GLOBALS[$error_message])) {
-            $error_message = $GLOBALS[$error_message];
-        }
-    }
-
     if (is_string($message_args)) {
         $error_message = sprintf($error_message, $message_args);
     } elseif (is_array($message_args)) {
@@ -316,7 +307,7 @@ function PMA_getTableCount($db)
                 $num_tables--;
             }
         }
- 
+
         PMA_DBI_free_result($tables);
     } else {
         $num_tables = 0;
