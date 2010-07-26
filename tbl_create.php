@@ -34,9 +34,7 @@
  * Get some core libraries
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
-$GLOBALS['js_include'][] = 'functions.js';
 $action = 'tbl_create.php';
 
 require_once './libraries/header.inc.php';
@@ -224,7 +222,6 @@ if (isset($_REQUEST['do_save_data'])) {
     if ($result) {
 
         // If comments were sent, enable relation stuff
-        require_once './libraries/relation.lib.php';
         require_once './libraries/transformations.lib.php';
 
         // Update comment table for mime types [MIME]
@@ -274,5 +271,5 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 require './libraries/tbl_properties.inc.php';
 // Displays the footer
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

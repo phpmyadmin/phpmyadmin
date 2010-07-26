@@ -110,9 +110,8 @@ if ($GLOBALS['server'] && ! strlen($GLOBALS['db'])) {
 $db_start = $GLOBALS['db'];
 
 /**
- * the relation library
+ * the relation settings
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**

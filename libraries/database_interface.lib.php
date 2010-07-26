@@ -237,8 +237,6 @@ function PMA_usort_comparison_callback($a, $b)
 function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = false, $link = null,
      $limit_offset = 0, $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC')
 {
-    require_once './libraries/Table.class.php';
-
     if (true === $limit_count) {
         $limit_count = $GLOBALS['cfg']['MaxTableList'];
     }

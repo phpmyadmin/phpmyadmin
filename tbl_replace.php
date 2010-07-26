@@ -328,7 +328,6 @@ if ($is_insert && count($value_sets) > 0) {
 } elseif (empty($query)) {
     // No change -> move back to the calling script
     $message = PMA_Message::success(__('No change'));
-    $GLOBALS['js_include'][] = 'functions.js';
     $active_page = $goto_include;
     require_once './libraries/header.inc.php';
     require './' . PMA_securePath($goto_include);
@@ -428,7 +427,6 @@ if (isset($return_to_sql_query)) {
 }
 
 $GLOBALS['js_include'][] = 'tbl_change.js';
-$GLOBALS['js_include'][] = 'functions.js';
 // in case we call sql.php which needs those:
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 

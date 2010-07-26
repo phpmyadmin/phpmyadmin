@@ -7,11 +7,6 @@
  */
 
 /**
- *
- */
-require_once './libraries/relation.lib.php';
-
-/**
  * Defines the bookmark parameters for the current user
  *
  * @uses    $GLOBALS['server']
