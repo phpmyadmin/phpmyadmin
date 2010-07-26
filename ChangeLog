@@ -95,6 +95,8 @@ $Id$
   now.
 + [validator] SQL validator works also with SOAP PHP extension.
 - [interface] Better formatting for SQL validator results.
+- [doc] The linked-tables infrastructure is now called phpMyAdmin
+  configuration storage.
 
 3.3.6.0 (not yet released)
 - bug #3033063 [core] Navi gets wrong db name

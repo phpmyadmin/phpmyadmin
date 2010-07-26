@@ -29,7 +29,7 @@ $cfgRelation = PMA_getRelationsParam();
 if (!$cfgRelation['pdfwork']) {
     echo '<font color="red">' . __('Error') . '</font><br />' . "\n";
     $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">';
-    echo sprintf(__('The additional features for working with linked tables have been deactivated. To find out why click %shere%s.'), $url_to_goto, '</a>') . "\n";
+    echo sprintf(__('The phpMyAdmin configuration storage has been deactivated. To find out why click %shere%s.'), $url_to_goto, '</a>') . "\n";
 }
 
 /**
