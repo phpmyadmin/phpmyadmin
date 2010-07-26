@@ -198,14 +198,6 @@ function PMA_getServerCollation() {
  * @return  string  collation description
  */
 function PMA_getCollationDescr($collation) {
-    static $collation_cache;
-
-    if (!is_array($collation_cache)) {
-        $collation_cache = array();
-    } elseif (isset($collation_cache[$collation])) {
-        return $collation_cache[$collation];
-    }
-
     if ($collation == 'binary') {
         return __('Binary');
     }
