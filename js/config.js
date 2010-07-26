@@ -94,6 +94,7 @@ function getFieldValue(field, field_type) {
             }
             return items;
     }
+    return null;
 }
 
 /**
@@ -491,62 +492,42 @@ $(function() {
 /**
  * Sets active tab
  *
- * @param {Element} tab_link
+ * @param {String} tab_id
  */
-function setTab(tab_link) {
-    var tabs_menu = $(tab_link).closest('.tabs');
-
-    var links = tabs_menu.find('a');
-    var contents, link;
-    for (var i = 0, imax = links.length; i < imax; i++) {
-    	link = $(links[i]);
-        contents = $(link.attr('href'));
-        if (links[i] == tab_link) {
-        	link.addClass('active');
-            contents.css('display', 'block');
-        } else {
-            link.removeClass('active');
-            contents.css('display', 'none');
-        }
-    }
-    location.hash = 'tab_' + $(tab_link).attr('href').substr(1);
+function setTab(tab_id) {
+    $('.tabs a').removeClass('active').filter('[href=' + tab_id + ']').addClass('active');
+    $('.tabs_contents fieldset').hide().filter(tab_id).show();
+    location.hash = 'tab_' + tab_id.substr(1);
 }
 
 $(function() {
     var tabs = $('.tabs');
-    var url_tab = location.hash.match(/^#tab_.+/)
-        ? $('a[href$="' + location.hash.substr(5) + '"]') : null;
-    if (url_tab) {
-        url_tab = url_tab[0];
+    if (!tabs.length) {
+        return;
     }
     // add tabs events and activate one tab (the first one or indicated by location hash)
-    for (var i = 0, imax = tabs.length; i < imax; i++) {
-        var links = $(tabs[i]).find('a');
-        var selected_tab = links[0];
-        for (var j = 0, jmax = links.length; j < jmax; j++) {
-            $(links[j]).click(function(e) {
-                e.preventDefault();
-                setTab(this);
-            });
-            if (links[j] == url_tab) {
-                selected_tab = links[j];
-            }
-        }
-        setTab(selected_tab);
-    }
+    tabs.find('a')
+        .click(function(e) {
+            e.preventDefault();
+            setTab($(this).attr('href'));
+        })
+        .filter(':first')
+        .addClass('active');
+    $('.tabs_contents fieldset').hide().filter(':first').show();
+
     // tab links handling, check each 200ms
     // (works with history in FF, further browser support here would be an overkill)
-    var prev_hash = location.hash;
-    setInterval(function() {
+    var prev_hash;
+    var tab_check_fnc = function() {
         if (location.hash != prev_hash) {
             prev_hash = location.hash;
-            var url_tab = location.hash.match(/^#tab_.+/)
-                ? $('a[href$="' + location.hash.substr(5) + '"]') : null;
-            if (url_tab) {
-                setTab(url_tab[0]);
+            if (location.hash.match(/^#tab_.+/) && $('#' + location.hash.substr(5)).length) {
+                setTab('#' + location.hash.substr(5));
             }
         }
-    }, 200);
+    };
+    tab_check_fnc();
+    setInterval(tab_check_fnc, 200);
 });
 
 //
@@ -558,7 +539,7 @@ $(function() {
 //
 
 $(function() {
-    $('input[type=button]').click(function() {
+    $('input[type=button][name=submit_reset]').click(function() {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         for (var i = 0, imax = fields.length; i < imax; i++) {
             setFieldValue(fields[i], getFieldType(fields[i]));
@@ -588,32 +569,26 @@ function restoreField(field_id) {
 }
 
 $(function() {
-    $('.restore-default, .set-value').each(function() {
-        var link = $(this);
-        // inline-block for IE so opacity inheritance works
-        link.css({display: 'inline-block', opacity: 0.25});
-        if (link.hasClass('restore-default')) {
-            // restore-default is handled by markField
-        }
-        link.bind({
-            mouseenter: function() {$(this).css('opacity', 1);},
-            mouseleave: function() {$(this).css('opacity', 0.25);},
-            click: function(e) {
-                e.preventDefault();
-                var href = $(this).attr('href').substr(1);
-                var field_id;
-                if ($(this).hasClass('restore-default')) {
-                    field_id = href;
-                    restoreField(field_id);
-                } else {
-                    field_id = href.match(/^[^=]+/)[0];
-                    var value = href.match(/=(.+)$/)[1];
-                    setFieldValue($('#'+field_id), 'text', value);
-                }
-                $('#'+field_id).trigger('change');
+    $('.tabs_contents')
+        .delegate('.restore-default, .set-value', 'mouseenter', function(){$(this).css('opacity', 1)})
+        .delegate('.restore-default, .set-value', 'mouseleave', function(){$(this).css('opacity', 0.25)})
+        .delegate('.restore-default, .set-value', 'click', function(e) {
+            e.preventDefault();
+            var href = $(this).attr('href');
+            var field_sel;
+            if ($(this).hasClass('restore-default')) {
+                field_sel = href;
+                restoreField(field_sel.substr(1));
+            } else {
+                field_sel = href.match(/^[^=]+/)[0];
+                var value = href.match(/=(.+)$/)[1];
+                setFieldValue($(field_sel), 'text', value);
             }
-        });
-    });
+            $(field_sel).trigger('change');
+        })
+        .find('.restore-default, .set-value')
+        // inline-block for IE so opacity inheritance works
+        .css({display: 'inline-block', opacity: 0.25});
 });
 
 //
@@ -640,9 +615,9 @@ $(function() {
             var disable_id = enable_id.match(/local_storage$/)
                 ? enable_id.replace(/local_storage$/, 'text_file')
                 : enable_id.replace(/text_file$/, 'local_storage');
-        $('#opts_'+disable_id).addClass('disabled').find('input').attr('disabled', true);
-        $('#opts_'+enable_id).removeClass('disabled').find('input').attr('disabled', false);;
-    });
+            $('#opts_'+disable_id).addClass('disabled').find('input').attr('disabled', true);
+            $('#opts_'+enable_id).removeClass('disabled').find('input').attr('disabled', false);
+        });
 
     // detect localStorage state
     var ls_supported = window.localStorage || false;
