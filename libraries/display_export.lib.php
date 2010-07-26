@@ -8,11 +8,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- *
- */
-require_once './libraries/Table.class.php';
-
 // Get relations & co. status
 $cfgRelation = PMA_getRelationsParam();
 

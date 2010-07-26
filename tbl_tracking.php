@@ -7,7 +7,6 @@
 
 // Run common work
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.php';

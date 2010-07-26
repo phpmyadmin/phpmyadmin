@@ -9,7 +9,6 @@
  *
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
@@ -157,7 +156,7 @@ foreach ($tables as $keyname => $each_table) {
         $tableReductionCount++;
         continue;
     }
-	
+
     // Get valid statistics whatever is the table type
 
     $table_is_view = false;

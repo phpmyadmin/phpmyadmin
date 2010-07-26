@@ -10,8 +10,6 @@
  * requirements
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
-
 
 /**
  * Gets the relation settings

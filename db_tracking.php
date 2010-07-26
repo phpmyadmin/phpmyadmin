@@ -8,7 +8,6 @@
  * Run common work
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
 require './libraries/db_common.inc.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
