@@ -97,8 +97,9 @@ $Id$
 - [interface] Better formatting for SQL validator results.
 
 3.3.6.0 (not yet released)
-- bug #3031705 [core] Do not use CONCAT for DECIMAL fields.
 - bug #3033063 [core] Navi gets wrong db name
+- bug #3031705 [core] Fix generating condition for real numbers by comparing
+  them to string.
 
 3.3.5.0 (not yet released)
 - patch #2932113 [information_schema] Slow export when having lots of
