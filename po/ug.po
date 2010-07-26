@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-26 04:59+0200\n"
+"PO-Revision-Date: 2010-07-26 05:00+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1499,7 +1499,7 @@ msgstr "phpMyAdmin ھۆججىتى"
 #: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:245
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
+msgstr "You can enter hostname/IP address and port separated by space."
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Server:"
