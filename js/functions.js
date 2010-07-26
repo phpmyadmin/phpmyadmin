@@ -1850,6 +1850,18 @@ $(document).ready(function() {
     // Display the "more" text
     $("table[id='tablestructure'] td[class='more_opts']").show()
 
+    // Move the dropdown to the left so the right edge is aligned with the parent cell's right edge
+    // All the more_opts table cells have the same left offset so choose any
+    var parent_cell = $("table[id='tablestructure'] td[class='more_opts']");
+    var cell_right_edge_offset = parent_cell.offset().left + parent_cell.innerWidth();
+    // All the structure_actions_dropdown divs have the same left offset so choose any
+    var left_offset = cell_right_edge_offset - $(".structure_actions_dropdown").innerWidth();
+//    var curr_top_offset = $(".structure_actions_dropdown").offset().top;
+
+    $.each($(".structure_actions_dropdown"), function() {
+        $(this).offset({ left: left_offset });
+    });
+
     // When "more" is hovered over, show the hidden actions
     $("table[id='tablestructure'] td[class='more_opts']").hover(
         function() {
