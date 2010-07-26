@@ -6,7 +6,6 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 3.3.6.0 (not yet released)
-- bug #3031705 [core] Do not use CONCAT for DECIMAL fields.
 - bug #3033063 [core] Navi gets wrong db name
 
 3.3.5.0 (not yet released)
