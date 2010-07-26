@@ -557,7 +557,7 @@ $GLOBALS['footnotes'] = array();
 /**
  * lang detection is done here
  */
-require_once './libraries/select_lang.lib.php';
+require './libraries/select_lang.lib.php';
 
 /**
  * check for errors occurred while loading configuration
