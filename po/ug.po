@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-21 13:53+0200\n"
-"PO-Revision-Date: 2010-07-26 04:54+0200\n"
+"PO-Revision-Date: 2010-07-26 04:56+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1446,7 +1446,7 @@ msgstr "تېما %s تېپىلمىدى!"
 #: libraries/Theme_Manager.class.php:220
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "ماۋزۇ %s تېپىلمىدى."
 
 #: libraries/Theme_Manager.class.php:296 test/theme.php:160 themes.php:20
 #: themes.php:40
