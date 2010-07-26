@@ -2025,7 +2025,8 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
             $condition .= 'IS NULL AND';
         } else {
             // timestamp is numeric on some MySQL 4.1
-            if ($meta->numeric && $meta->type != 'timestamp') {
+            // for real we use CONCAT above and it should compare to string
+            if ($meta->numeric && $meta->type != 'timestamp' && $meta->type != 'real') {
                 $condition .= '= ' . $row[$i] . ' AND';
             } elseif (($meta->type == 'blob' || $meta->type == 'string')
                 // hexify only if this is a true not empty BLOB or a BINARY
