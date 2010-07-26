@@ -317,7 +317,6 @@ if (file_exists('./config')) {
  * Check whether relations are supported.
  */
 if ($server > 0) {
-    require_once './libraries/relation.lib.php';
     $cfgRelation = PMA_getRelationsParam();
     if(!$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
         $message = PMA_Message::notice(__('The additional features for working with linked tables have been deactivated. To find out why click %shere%s.'));
@@ -399,5 +398,5 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

@@ -7,11 +7,6 @@
 
 /**
  *
- */
-require_once './libraries/Theme.class.php';
-
-/**
- *
  * @package phpMyAdmin
  */
 class PMA_Theme_Manager

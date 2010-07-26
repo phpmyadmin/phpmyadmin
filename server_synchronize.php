@@ -1214,5 +1214,5 @@ if (isset($_REQUEST['synchronize_db'])) {
  /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

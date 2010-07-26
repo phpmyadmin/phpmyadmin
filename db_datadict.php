@@ -18,10 +18,10 @@ if (!isset($selected_tbl)) {
 /**
  * Gets the relations settings
  */
-require_once './libraries/relation.lib.php';
+$cfgRelation  = PMA_getRelationsParam();
+
 require_once './libraries/transformations.lib.php';
 
-$cfgRelation  = PMA_getRelationsParam();
 
 /**
  * Check parameters
@@ -320,5 +320,5 @@ function printPage()
 <?php
 echo '<br /><br /><input type="button" id="print" value="' . __('Print') . '" onclick="printPage()" />';
 
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

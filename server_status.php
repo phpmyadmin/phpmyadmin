@@ -847,5 +847,5 @@ if ($server_master_status || $server_slave_status)
 /**
  * Sends the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

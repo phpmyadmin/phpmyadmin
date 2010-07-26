@@ -10,11 +10,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- *
- */
-require_once './libraries/Table.class.php';
-
 if (empty($is_db)) {
     if (strlen($db)) {
         $is_db = @PMA_DBI_select_db($db);

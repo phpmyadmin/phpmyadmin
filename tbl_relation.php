@@ -38,8 +38,6 @@ $avoid_show_comment = TRUE;
  */
 require_once './libraries/tbl_links.inc.php';
 
-require_once './libraries/relation.lib.php';
-
 $options_array = array(
     'CASCADE'   => 'CASCADE',
     'SET_NULL'  => 'SET NULL',
@@ -571,5 +569,5 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

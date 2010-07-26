@@ -386,7 +386,6 @@ $do_relation = isset($GLOBALS[$what . '_relation']);
 $do_comments = isset($GLOBALS[$what . '_comments']);
 $do_mime     = isset($GLOBALS[$what . '_mime']);
 if ($do_relation || $do_comments || $do_mime) {
-    require_once './libraries/relation.lib.php';
     $cfgRelation = PMA_getRelationsParam();
 }
 if ($do_mime) {
@@ -671,6 +670,6 @@ else {
 //]]>
 </script>
 <?php
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 } // end if
 ?>

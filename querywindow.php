@@ -50,9 +50,8 @@ require_once './libraries/ob.lib.php';
 PMA_outBufferPre();
 
 /**
- * load relations
+ * load relation params
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**

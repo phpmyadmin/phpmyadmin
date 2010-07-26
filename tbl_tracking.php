@@ -7,16 +7,12 @@
 
 // Run common work
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
 $url_params['goto'] = 'tbl_tracking.php';;
 $url_params['back'] = 'tbl_tracking.php';
-
-// Get relation settings
-require_once './libraries/relation.lib.php';
 
 // Init vars for tracking report
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
@@ -694,5 +690,5 @@ if ($last_version > 0) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

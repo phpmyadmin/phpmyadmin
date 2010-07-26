@@ -13,11 +13,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- *
- */
-require_once './libraries/Table.class.php';
-
-/**
  * requirements
  */
 require_once './libraries/common.inc.php';

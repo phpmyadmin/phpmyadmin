@@ -32,11 +32,6 @@
  */
 require_once './libraries/common.inc.php';
 
-/**
- * Includes the ThemeManager if it hasn't been included yet
- */
-require_once './libraries/relation.lib.php';
-
 // free the session file, for the other frames to be loaded
 session_write_close();
 

@@ -16,11 +16,6 @@ if (!defined('PHPMYADMIN')) {
 }
 
 /**
- * Load vendor config.
- */
-require_once('./libraries/vendor_config.php');
-
-/**
  * Initializes message list
  */
 function messages_begin()

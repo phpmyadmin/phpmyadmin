@@ -186,6 +186,6 @@ $url_params['reload'] = 1;
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 ?>

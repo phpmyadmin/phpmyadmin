@@ -8,7 +8,6 @@
  *
  */
 include_once 'pmd_common.php';
-require_once './libraries/relation.lib.php';
 
 
 $table = $T;

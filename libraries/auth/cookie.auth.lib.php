@@ -172,13 +172,14 @@ function PMA_auth()
     ?>
 <script src="./js/jquery/jquery-1.4.2.js" type="text/javascript"></script>
 <script src="./js/update-location.js" type="text/javascript"></script>
-<?php
-if ( false === $GLOBALS['cfg']['AllowThirdPartyFraming']) {
-?>
-<script src="./js/cross_framing_protection.js" type="text/javascript"></script>
-<?php
+<script type="text/javascript">
+//<![CDATA[
+// show login form in top frame
+if (top != self) {
+    window.top.location.href=location;
 }
-?>
+//]]>
+</script>
 <script src="./js/functions.js" type="text/javascript"></script>
 </head>
 

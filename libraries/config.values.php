@@ -7,6 +7,10 @@
  * @package phpMyAdmin
  */
 
+if (!defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Value meaning:
  * o array - select field, array contains allowed values

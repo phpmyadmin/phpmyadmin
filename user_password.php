@@ -47,7 +47,7 @@ if (!$cfg['ShowChgPassword']) {
 if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
     require_once './libraries/header.inc.php';
     PMA_Message::error(__('You don\'t have sufficient privileges to be here right now!'))->display();
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 } // end if
 
 
@@ -109,7 +109,7 @@ if (isset($_REQUEST['nopass'])) {
         <a href="index.php<?php echo PMA_generate_common_url($_url_params); ?>" target="_parent">
             <strong><?php echo __('Back'); ?></strong></a>
         <?php
-        require_once './libraries/footer.inc.php';
+        require './libraries/footer.inc.php';
     } // end if
 } // end if
 
@@ -133,5 +133,5 @@ require_once './libraries/display_change_password.lib.php';
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

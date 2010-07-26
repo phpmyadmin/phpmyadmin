@@ -170,7 +170,7 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
 
 <ol><li><a href="#quick_install">Quick Install</a></li>
     <li><a href="#setup_script">Setup script usage</a></li>
-    <li><a href="#linked-tables">Linked-tables infrastructure</a></li>
+    <li><a href="#linked-tables">phpMyAdmin configuration storage</a></li>
     <li><a href="#upgrading">Upgrading from an older version</a></li>
     <li><a href="#authentication_modes">Using authentication modes</a></li>
 </ol>
@@ -326,7 +326,7 @@ rm -rf config                      # remove not needed directory
     </li>
 </ol>
 
-<h3 id="linked-tables">Linked-tables infrastructure</h3>
+<h3 id="linked-tables">phpMyAdmin configuration storage</h3>
 
 <p> For a whole set of new features (bookmarks, comments,
     <abbr title="structured query language">SQL</abbr>-history,
@@ -373,7 +373,7 @@ rm -rf config                      # remove not needed directory
     is version-specific.</p>
 
 <p> If you have upgraded your MySQL server from a version previous to 4.1.2 to
-    version 4.1.2 or newer and if you use the pmadb/linked table infrastructure,
+    version 4.1.2 or newer and if you use the phpMyAdmin configuration storage,
     you should run the SQL script found in
     <tt>scripts/upgrade_tables_mysql_4_1_2+.sql</tt>.</p>
 
@@ -443,8 +443,9 @@ GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
 GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 </pre>
 
-        (this of course requires that your <a href="#linked-tables">linked-tables
-        infrastructure</a> be set up).<br /></li>
+        (this of course requires that your <a href="#linked-tables">phpMyAdmin
+        configuration storage</a> be set up).  
+    <br /></li>
 
     <li>Then each of the <i>true</i> users should be granted a set of privileges
         on a set of particular databases. Normally you shouldn't give global
@@ -865,11 +866,11 @@ since this link provides funding for phpMyAdmin.
     <dt id="pmadb">
         <span id="cfg_Servers_pmadb">$cfg['Servers'][$i]['pmadb']</span> string
     </dt>
-    <dd>The name of the database containing the linked-tables infrastructure.
+    <dd>The name of the database containing the phpMyAdmin configuration storage.
         <br /><br />
 
-        See the <a href="#linked-tables">Linked-tables infrastructure</a>
-        section in this document to see the benefits of this infrastructure,
+        See the <a href="#linked-tables">phpMyAdmin configuration storage</a>
+        section in this document to see the benefits of this feature,
         and for a quick way of creating this database and the needed tables.
         <br /><br />
 
@@ -878,7 +879,7 @@ since this link provides funding for phpMyAdmin.
         case, just put your current database name in
         <tt>$cfg['Servers'][$i]['pmadb']</tt>. For a multi-user installation,
         set this parameter to the name of your central database containing
-        the linked-tables infrastructure.</dd>
+        the phpMyAdmin configuration storage.</dd>
 
     <dt id="bookmark">
         <span id="cfg_Servers_bookmarktable">$cfg['Servers'][$i]['bookmarktable']</span> string
@@ -887,7 +888,7 @@ since this link provides funding for phpMyAdmin.
         useful for queries you often run.<br /><br />
 
         To allow the usage of this functionality:
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>enter the table name in
                 <tt>$cfg['Servers'][$i]['bookmarktable']</tt></li>
         </ul>
@@ -923,8 +924,8 @@ since this link provides funding for phpMyAdmin.
 
         To allow the usage of this functionality:
 
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
-                infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin 
+                configuration storage</li>
             <li>put the relation table name in
                 <tt>$cfg['Servers'][$i]['relation']</tt></li>
             <li>now as normal user open phpMyAdmin and for each one of your
@@ -948,7 +949,7 @@ since this link provides funding for phpMyAdmin.
         cursor over the corresponding key.<br />
         This configuration variable will hold the name of this special
         table. To allow the usage of this functionality:
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in
                 <tt>$cfg['Servers'][$i]['table_info']</tt> (e.g.
                 'pma_table_info')</li>
@@ -975,8 +976,7 @@ since this link provides funding for phpMyAdmin.
 
         To allow the usage of this functionality:
 
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
-                infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the correct table names in
                 <tt>$cfg['Servers'][$i]['table_coords']</tt> and
                 <tt>$cfg['Servers'][$i]['pdf_pages']</tt></li>
@@ -1007,8 +1007,7 @@ since this link provides funding for phpMyAdmin.
         <br /><br />
 
         To allow the usage of this functionality:
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
-                infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in
                 <tt>$cfg['Servers'][$i]['column_info']</tt> (e.g.
                 'pma_column_info')</li>
@@ -1048,8 +1047,7 @@ ALTER TABLE `pma_column_comments`
 
         To allow the usage of this functionality:
 
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
-                infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in <tt>$cfg['Servers'][$i]['history']</tt>
             (e.g. 'pma_history')
                 </li>
@@ -1081,7 +1079,7 @@ ALTER TABLE `pma_column_comments`
         To allow the usage of this functionality:
 
         <ul>
-            <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
+            <li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in <tt>$cfg['Servers'][$i]['tracking']</tt> (e.g. 'pma_tracking')</li>
         </ul>
     </dd>
@@ -1172,8 +1170,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 
         To allow the usage of this functionality:
 
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
-                infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in <tt>$cfg['Servers'][$i]['designer_coords']</tt> (e.g. 'pma_designer_coords')
                 </li>
         </ul>
