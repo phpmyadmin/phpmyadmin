@@ -1348,6 +1348,8 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
 
 #: libraries/List_Database.class.php:430 libraries/server_links.inc.php:40
 #: server_databases.php:87 server_privileges.php:1652
