@@ -126,7 +126,7 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
                 <input type="submit" name="submit_ignore" value="<?php echo __('No') ?>" />
             </form>
             <?php
-            require_once './libraries/footer.inc.php';
+            require './libraries/footer.inc.php';
             return;
         }
 
@@ -304,5 +304,5 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: __DATE__'));
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>
