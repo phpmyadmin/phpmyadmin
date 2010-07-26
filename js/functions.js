@@ -1742,7 +1742,7 @@ function menuResize()
     var submenu = cnt.find('.submenu');
     var submenu_w = submenu.outerWidth(true);
     var submenu_ul = submenu.find('ul');
-    var li = $('#topmenu > li');
+    var li = cnt.find('> li');
     var li2 = submenu_ul.find('li');
     var more_shown = li2.length > 0;
     var w = more_shown ? submenu_w : 0;
@@ -1777,7 +1777,8 @@ function menuResize()
         for (var i = 0; i < li2.length; i++) {
             //console.log(li2[i], submenu_w);
             w += $(li2[i]).data('width');
-            if (w+submenu_w < wmax ) {//|| (i == li2.length-1 && w < wmax)
+            // item fits or (it is the last item and it would fit if More got removed)
+            if (w+submenu_w < wmax || (i == li2.length-1 && w < wmax)) {
                 $(li2[i]).insertBefore(submenu);
                 if (i == li2.length-1) {
                     submenu.hide();
@@ -1800,21 +1801,18 @@ $(function() {
         return;
     }
     // create submenu container
-    var link = $('<a />')
-        .attr({href: '#', 'class': 'tab'})
-        .text('More')
+    var link = $('<a />', {href: '#', 'class': 'tab'})
+        .text(PMA_messages['strMore'])
         .click(function(e) {
             e.preventDefault();
         });
-    var img = topmenu.find('li:first-child').find('img');
+    var img = topmenu.find('li:first-child img');
     if (img.length) {
-        img = img.clone();
-        img.attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
+        img.clone().attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
     }
-    var submenu = $('<li />')
-        .attr('class', 'submenu')
+    var submenu = $('<li />', {'class': 'submenu'})
         .append(link)
-        .append($('<ul />').append($('#topmenu li.subitem')))
+        .append($('<ul />'))
         .mouseenter(function() {
             if ($(this).find('ul .tabactive').length == 0) {
                 $(this).addClass('submenuhover').find('> a').addClass('tabactive');
