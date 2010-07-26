@@ -15,11 +15,6 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Load paths.
- */
-require_once('./libraries/vendor_config.php');
-
 $cfg_db = array();
 
 // path to config file, relative to phpMyAdmin's root path
