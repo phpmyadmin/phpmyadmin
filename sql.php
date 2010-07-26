@@ -198,7 +198,7 @@ if ($do_confirm) {
     /**
      * Displays the footer and exit
      */
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 } // end if $do_confirm
 
 
@@ -700,5 +700,5 @@ window.onload = function()
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

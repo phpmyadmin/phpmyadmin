@@ -35,7 +35,7 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
     }
 
     // Display the footer
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
     exit;
 }
 
@@ -199,5 +199,5 @@ if (count($data['ddlog']) > 0) {
 /**
  * Display the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

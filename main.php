@@ -390,5 +390,5 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

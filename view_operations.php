@@ -106,5 +106,5 @@ $url_params['back'] = 'view_operations.php';
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

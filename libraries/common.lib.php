@@ -666,7 +666,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         * display footer and exit
         */
 
-       require_once './libraries/footer.inc.php';
+       require './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
     }

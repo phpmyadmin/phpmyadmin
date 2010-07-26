@@ -667,6 +667,6 @@ else {
 //]]>
 </script>
 <?php
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 } // end if
 ?>

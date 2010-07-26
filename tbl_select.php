@@ -324,7 +324,7 @@ $(function() {
 </fieldset>
 </form>
     <?php
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 }
 
 

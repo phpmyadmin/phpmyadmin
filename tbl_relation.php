@@ -569,5 +569,5 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

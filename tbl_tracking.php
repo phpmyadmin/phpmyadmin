@@ -691,5 +691,5 @@ if ($last_version > 0) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

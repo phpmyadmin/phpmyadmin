@@ -56,7 +56,7 @@ if ($num_tables == 0) {
     /**
      * Displays the footer
      */
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
     exit;
 }
 
@@ -599,5 +599,5 @@ if (empty($db_is_information_schema)) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

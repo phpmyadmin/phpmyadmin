@@ -842,5 +842,5 @@ echo '<div class="clearfloat"></div>' . "\n";
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

@@ -264,5 +264,5 @@ function printPage()
     id="print" value="<?php echo __('Print'); ?>" onclick="printPage()" />
 
 <?php
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

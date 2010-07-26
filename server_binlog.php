@@ -234,6 +234,6 @@ while ($value = PMA_DBI_fetch_assoc($result)) {
 /**
  * Sends the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 ?>

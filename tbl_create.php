@@ -272,5 +272,5 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 require './libraries/tbl_properties.inc.php';
 // Displays the footer
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

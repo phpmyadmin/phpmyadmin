@@ -174,7 +174,7 @@ if (isset($where_clause)) {
             unset($rows[$key_id], $where_clause_array[$key_id]);
             PMA_showMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
             echo "\n";
-            require_once './libraries/footer.inc.php';
+            require './libraries/footer.inc.php';
         } else { // end if (no row returned)
             $meta = PMA_DBI_get_fields_meta($result[$key_id]);
             list($unique_condition, $tmp_clause_is_unique) = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
@@ -1111,5 +1111,5 @@ if ($insert_mode) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

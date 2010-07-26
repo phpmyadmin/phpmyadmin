@@ -239,7 +239,7 @@ class PMA_PDF extends TCPDF {
          . '">' . __('Back') . '</a>';
         echo "\n";
 
-        require_once './libraries/footer.inc.php';
+        require './libraries/footer.inc.php';
     } // end of the "PMA_PDF_die()" function
     /**
      * Aliases the "Error()" function from the FPDF class to the

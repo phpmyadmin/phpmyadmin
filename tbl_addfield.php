@@ -224,7 +224,7 @@ if ($abort == false) {
     require_once './libraries/tbl_properties.inc.php';
 
     // Diplays the footer
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 }
 
 ?>

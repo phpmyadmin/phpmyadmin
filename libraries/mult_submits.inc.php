@@ -261,7 +261,7 @@ if (!empty($submit_mult) && !empty($what)) {
     <input type="submit" name="mult_btn" value="<?php echo __('No'); ?>" id="buttonNo" />
 </fieldset>
     <?php
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 } // end if
 
 

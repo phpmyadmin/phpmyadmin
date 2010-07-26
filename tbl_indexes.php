@@ -261,5 +261,5 @@ echo '<input type="submit" name="add_fields" value="' . __('Go') . '"'
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

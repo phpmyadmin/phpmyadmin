@@ -320,5 +320,5 @@ function printPage()
 <?php
 echo '<br /><br /><input type="button" id="print" value="' . __('Print') . '" onclick="printPage()" />';
 
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

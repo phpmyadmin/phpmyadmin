@@ -743,7 +743,7 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 
 function PMA_set_global_variables_for_engine($tbl_type)
