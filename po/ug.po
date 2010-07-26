@@ -1368,8 +1368,7 @@ msgstr "خاتالىق"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d row affected."
 
 #: libraries/Message.class.php:300
 #, php-format
