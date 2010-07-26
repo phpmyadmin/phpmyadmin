@@ -1932,8 +1932,7 @@ $cfg['DefaultLang'] = 'en';
 $cfg['DefaultConnectionCollation'] = 'utf8_general_ci';
 
 /**
- * Force: always use this language - must be defined in
- *        libraries/select_lang.lib.php
+ * Force: always use this language
  * $cfg['Lang'] = 'en';
  *
  * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
