@@ -47,6 +47,29 @@ $tabs['status']['icon'] = 's_status.png';
 $tabs['status']['link'] = 'server_status.php';
 $tabs['status']['text'] = __('Status');
 
+if (! empty($binary_logs)) {
+    $tabs['binlog']['icon'] = 's_tbl.png';
+    $tabs['binlog']['link'] = 'server_binlog.php';
+    $tabs['binlog']['text'] = __('Binary log');
+}
+$tabs['process']['icon'] = 's_process.png';
+$tabs['process']['link'] = 'server_processlist.php';
+$tabs['process']['text'] = __('Processes');
+
+if ($is_superuser) {
+    $tabs['rights']['icon'] = 's_rights.png';
+    $tabs['rights']['link'] = 'server_privileges.php';
+    $tabs['rights']['text'] = __('Privileges');
+}
+
+$tabs['export']['icon'] = 'b_export.png';
+$tabs['export']['link'] = 'server_export.php';
+$tabs['export']['text'] = __('Export');
+
+$tabs['import']['icon'] = 'b_import.png';
+$tabs['import']['link'] = 'server_import.php';
+$tabs['import']['text'] = __('Import');
+
 $tabs['vars']['icon'] = 's_vars.png';
 $tabs['vars']['link'] = 'server_variables.php';
 $tabs['vars']['text'] = __('Variables');
@@ -60,31 +83,10 @@ $tabs['engine']['link'] = 'server_engines.php';
 $tabs['engine']['text'] = __('Engines');
 
 if ($is_superuser) {
-    $tabs['rights']['icon'] = 's_rights.png';
-    $tabs['rights']['link'] = 'server_privileges.php';
-    $tabs['rights']['text'] = __('Privileges');
-
     $tabs['replication']['icon'] = 's_replication.png';
     $tabs['replication']['link'] = 'server_replication.php';
     $tabs['replication']['text'] = __('Replication');
 }
-
-if (! empty($binary_logs)) {
-    $tabs['binlog']['icon'] = 's_tbl.png';
-    $tabs['binlog']['link'] = 'server_binlog.php';
-    $tabs['binlog']['text'] = __('Binary log');
-}
-$tabs['process']['icon'] = 's_process.png';
-$tabs['process']['link'] = 'server_processlist.php';
-$tabs['process']['text'] = __('Processes');
-
-$tabs['export']['icon'] = 'b_export.png';
-$tabs['export']['link'] = 'server_export.php';
-$tabs['export']['text'] = __('Export');
-
-$tabs['import']['icon'] = 'b_import.png';
-$tabs['import']['link'] = 'server_import.php';
-$tabs['import']['text'] = __('Import');
 
 $tabs['synchronize']['icon'] = 's_sync.png';
 $tabs['synchronize']['link'] = 'server_synchronize.php';

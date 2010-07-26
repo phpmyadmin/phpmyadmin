@@ -61,13 +61,6 @@ $tabs['search']['icon'] = 'b_search.png';
 $tabs['search']['text'] = __('Search');
 $tabs['search']['link'] = 'tbl_select.php';
 
-if(PMA_Tracker::isActive())
-{
-    $tabs['tracking']['icon'] = 'eye.png';
-    $tabs['tracking']['text'] = __('Tracking');
-    $tabs['tracking']['link'] = 'tbl_tracking.php';
-}
-
 if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
     $tabs['insert']['icon'] = 'b_insrow.png';
     $tabs['insert']['link'] = 'tbl_change.php';
@@ -91,7 +84,13 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
     $tabs['operation']['icon'] = 'b_tblops.png';
     $tabs['operation']['link'] = 'tbl_operations.php';
     $tabs['operation']['text'] = __('Operations');
-
+}
+if(PMA_Tracker::isActive()) {
+    $tabs['tracking']['icon'] = 'eye.png';
+    $tabs['tracking']['text'] = __('Tracking');
+    $tabs['tracking']['link'] = 'tbl_tracking.php';
+}
+if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
     $tabs['empty']['link']  = 'sql.php';
     $tabs['empty']['args']['reload']    = 1;
     $tabs['empty']['args']['sql_query'] = 'TRUNCATE TABLE ' . PMA_backquote($table);
