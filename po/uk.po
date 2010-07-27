@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 23:16+0200\n"
+"PO-Revision-Date: 2010-07-27 23:19+0200\n"
 "Last-Translator:  <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -33,6 +33,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"Активне вікно оглядача неможливо оновити. Можливо ви закрили батьківське "
+"вікно, або налаштування безпеки Вашого оглядача блокують між-віконні "
+"оновлення."
 
 #: browse_foreigners.php:148 db_structure.php:77 db_structure.php:78
 #: db_structure.php:89 db_structure.php:91 db_structure.php:102
