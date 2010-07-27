@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 23:14+0200\n"
+"PO-Revision-Date: 2010-07-27 23:15+0200\n"
 "Last-Translator:  <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -264,7 +264,7 @@ msgstr "Знищити базу даних (DROP)"
 
 #: db_operations.php:424
 msgid "Copy database to"
-msgstr ""
+msgstr "Копіювати базу даних в"
 
 #: db_operations.php:431 tbl_operations.php:525 tbl_tracking.php:382
 msgid "Structure only"
