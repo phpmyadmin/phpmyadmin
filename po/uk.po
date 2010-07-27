@@ -232,7 +232,7 @@ msgstr "Базу даних %s перейменовано в %s"
 #: db_operations.php:235
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "Базу даних %s скопійовано в %s"
 
 #: db_operations.php:347
 msgid "Rename database to"
