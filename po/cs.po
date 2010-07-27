@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-21 13:55+0200\n"
+"PO-Revision-Date: 2010-07-27 10:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -93,17 +93,16 @@ msgstr "Použít tuto hodnotu"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Není nastaven žádný streamovací server!"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Chyba při zapisování souboru na disk."
+msgstr "Chyba při čtení hlaviček"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Nepodařilo se otevřít vzdálené URL"
 
 #: db_create.php:44
 #, php-format
@@ -251,10 +250,9 @@ msgid "and then"
 msgstr "a poté"
 
 #: db_operations.php:379
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Přejmenovat databázi na"
+msgstr "Odstranit databázi"
 
 #: db_operations.php:391
 #, php-format
@@ -262,10 +260,9 @@ msgid "Database %s has been dropped."
 msgstr "Databáze %s byla zrušena."
 
 #: db_operations.php:396
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Přejít na databázi"
+msgstr "Odstranit databázi (DROP)"
 
 #: db_operations.php:424
 msgid "Copy database to"
@@ -317,7 +314,7 @@ msgid "Collation"
 msgstr "Porovnávání"
 
 #: db_operations.php:498 pdf_schema.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -2511,21 +2508,18 @@ msgstr ""
 "příkazem CREATE INDEX nebo opravování příkazem ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
-msgstr "Největší velikost odpadu (garbage)"
+msgstr "Práh velikosti odpadu (garbage)"
 
 #: libraries/engines/pbms.lib.php:32
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
 "Procentuální podíl odpadu (garbage) v souboru datového logu předtím, než je "
-"soubor stlačen. Tato hodnota se může pohybovat mezi 1 a 99. Výchozí hodnota "
-"je 50."
+"soubor stlačen."
 
 #: libraries/engines/pbms.lib.php:36 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
@@ -2537,10 +2531,12 @@ msgid ""
 "The port for the PBMS stream-based communications. Setting this value to 0 "
 "will disable HTTP communication with the daemon."
 msgstr ""
+"Port pro PBMS streamovou komunikaci. Nastavení na 0 vypne HTTP komunikaci s "
+"démonem."
 
 #: libraries/engines/pbms.lib.php:41
 msgid "Repository Threshold"
-msgstr ""
+msgstr "Práh velikosti skladiště"
 
 #: libraries/engines/pbms.lib.php:42
 msgid ""
@@ -2548,22 +2544,25 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Maximální velikost souboru ve skladišti BLOBů. Můžete použít Kb, MB nebo GB "
+"pro určení jednotek. Bez uvedení jednotek se předpokládá hodnota v bajtech."
 
 #: libraries/engines/pbms.lib.php:46
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "Ponechaní dočasného BLOBu"
 
 #: libraries/engines/pbms.lib.php:47
 msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
+"Doba v sekundách po kterou bude ponechán dočasný BLOB. Nahraná BLOB data "
+"jsou po této době odstraněna, pokud nejsou odkazována záznamem v databázi."
 
 #: libraries/engines/pbms.lib.php:51
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Prahová hodnota logového souboru"
+msgstr "Práh velikosti dočasného logového souboru"
 
 #: libraries/engines/pbms.lib.php:52
 msgid ""
@@ -2571,26 +2570,33 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Maximální velikost dočasného logovacího BLOB souboru. Můžete použít Kb, MB "
+"nebo GB pro určení jednotek. Bez uvedení jednotek se předpokládá hodnota v "
+"bajtech."
 
 #: libraries/engines/pbms.lib.php:56
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "Doba držení spojení"
 
 #: libraries/engines/pbms.lib.php:57
 msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"Doba po kterou bude držena neaktivní spojení. Po této době budou uzavřena. "
+"Doba se udává v milisekundách (1/1000)."
 
 #: libraries/engines/pbms.lib.php:61
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Hlavičky metadat"
 
 #: libraries/engines/pbms.lib.php:62
 msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
+"Dvojtečkou (\":\") oddělený seznam hlaviček metadat, který bude použit pro "
+"inicializaci tabulky pbms_metadata_header při vytváření databáze."
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
@@ -6632,7 +6638,6 @@ msgid "Signon login options"
 msgstr "Volby přihlašování pomocí Signon"
 
 #: setup/lib/messages.inc.php:128
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -6643,8 +6648,8 @@ msgid ""
 "in documentation"
 msgstr ""
 "Nastavení databáze phpMyAdmina tak, aby získal přístup k dodatečným funkcím, "
-"viz [a@../Documentation.html#linked-tables]infrastruktura propojených tabulek"
-"[/a] v dokumentaci"
+"viz sekce [a@../Documentation.html#linked-tables]úložiště nastavení "
+"phpMyAdmina[/a] v dokumentaci"
 
 #: setup/lib/messages.inc.php:129 setup/lib/messages.inc.php:290
 msgid "PMA database"
@@ -8040,18 +8045,17 @@ msgid "Flush the table (FLUSH)"
 msgstr "Vyprázdnit vyrovnávací paměť pro tabulku („FLUSH“)"
 
 #: tbl_operations.php:642
-#, fuzzy
 #| msgid "Table name"
 msgid "Table removal"
-msgstr "Jméno tabulky"
+msgstr "Odstranění tabulky"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Vyprázdnit tabulku (TRUNCATE)"
 
 #: tbl_operations.php:675
 msgid "Drop the table (DROP)"
-msgstr ""
+msgstr "Odstranit tabulku (DROP)"
 
 #: tbl_operations.php:696
 msgid "Partition maintenance"
