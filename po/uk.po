@@ -249,10 +249,9 @@ msgid "and then"
 msgstr "і потім"
 
 #: db_operations.php:379
-#, fuzzy
 #| msgid "No databases"
 msgid "Remove database"
-msgstr "БД відсутні"
+msgstr "Видалити базу даних"
 
 #: db_operations.php:391
 #, php-format
