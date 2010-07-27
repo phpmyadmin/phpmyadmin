@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-26 17:18+0200\n"
-"PO-Revision-Date: 2010-07-27 04:31+0200\n"
+"PO-Revision-Date: 2010-07-27 04:34+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1510,7 +1510,7 @@ msgstr "Cookies نى قوزغاتقاندىن كېيىن ئاندىن كېرىڭ
 #: libraries/auth/signon.auth.lib.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
+msgstr "پارولسىز كىرىش چەكلەنگەن (پارولسىز كىرىش ئىقازىتىنى كۆرۈڭ)"
 
 #: libraries/auth/cookie.auth.lib.php:642
 #: libraries/auth/signon.auth.lib.php:184
