@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 23:05+0200\n"
+"PO-Revision-Date: 2010-07-27 23:07+0200\n"
 "Last-Translator:  <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4433,7 +4433,7 @@ msgstr "Не вибрано бази даних."
 #: server_databases.php:60
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "%s баз(а\\и) даних успішно знищено."
+msgstr "%s база(и) даних успішно знищено."
 
 #: server_databases.php:85
 msgid "Databases statistics"
