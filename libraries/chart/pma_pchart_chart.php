@@ -150,7 +150,13 @@ abstract class PMA_pChart_Chart extends PMA_Chart
             $this->init();
             $this->prepareDataSet();
             $this->prepareChart();
-            $this->render(20);
+
+            if ($this->isContinuous()) {
+                $this->render(1);
+            }
+            else {
+                $this->render(20);
+            }
 
             $returnData = '<div id="chart">';
             foreach ($this->partsEncoded as $part) {
@@ -194,6 +200,11 @@ abstract class PMA_pChart_Chart extends PMA_Chart
     protected function getScale()
     {
         return $this->settings['scale'];
+    }
+
+    protected function isContinuous()
+    {
+        return $this->settings['continuous'] == 'on';
     }
 
     protected function getImageMap()

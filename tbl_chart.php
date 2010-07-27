@@ -151,10 +151,17 @@ $url_params['reload'] = 1;
     </tr>
     <?php } ?>
 
+    <tr><td><label for="continuous"><?php echo __("Continuous image"); ?></label></td>
+        <td>
+            <input type="checkbox" name="chartSettings[continuous]" <?php echo ($chartSettings['continuous'] == 'on' ? 'checked="checked"' : ''); ?>>
+            <i><?php echo _('(May not work on IE8)'); ?></i>
+        </td>
+    </tr>
+
     <?php if ($chartSettings['type'] == 'radar') { ?>
     <tr><td colspan="2">
         <p>
-        When drawing a radar chart all values are normalized to a range [0..10].
+            <?php echo _('When drawing a radar chart all values are normalized to a range [0..10].'); ?>
         </p>
     </td></tr>
     <?php } ?>

@@ -88,6 +88,11 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
         $chartSettings['barType'] = 'stacked';
     }
 
+    // set default if image is continuous (one part)
+    if (empty($chartSettings['continuous'])) {
+        $chartSettings['continuous'] = 'off';
+    }
+
     // default for legend
     $chartSettings['legend'] = false;
 
