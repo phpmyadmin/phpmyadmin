@@ -4756,9 +4756,9 @@ msgid "You have added a new user."
 msgstr "Було додано нового користувача."
 
 #: server_privileges.php:1184
-#, fuzzy, php-format
+#, php-format
 msgid "You have updated the privileges for %s."
-msgstr "Було змінено привілеї для"
+msgstr "Ви оновили привілеї для %s."
 
 #: server_privileges.php:1208
 #, php-format
