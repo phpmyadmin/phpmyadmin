@@ -1561,7 +1561,7 @@ msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ..."
 
 #: libraries/blobstreaming.lib.php:340
 msgid "View image"
-msgstr ""
+msgstr "رەسىمنى كۆرۈش"
 
 #: libraries/blobstreaming.lib.php:344
 msgid "Play audio"
