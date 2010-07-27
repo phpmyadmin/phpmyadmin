@@ -308,8 +308,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن "
-"%sبۇ يەرنى كۆرۈڭ%s."
+"ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن %"
+"sبۇ يەرنى كۆرۈڭ%s."
 
 #: db_operations.php:497
 msgid "Edit PDF Pages"
