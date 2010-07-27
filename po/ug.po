@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-26 17:18+0200\n"
-"PO-Revision-Date: 2010-07-27 04:34+0200\n"
+"PO-Revision-Date: 2010-07-27 04:48+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1516,7 +1516,7 @@ msgstr "پارولسىز كىرىش چەكلەنگەن (پارولسىز كىر�
 #: libraries/auth/signon.auth.lib.php:184
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr ""
+msgstr "No activity within %s seconds; please log in again"
 
 #: libraries/auth/cookie.auth.lib.php:652
 #: libraries/auth/cookie.auth.lib.php:654
