@@ -1668,7 +1668,7 @@ msgstr "Failed to connect to SQL validator!"
 
 #: libraries/common.lib.php:1167 setup/lib/messages.inc.php:350
 msgid "Explain SQL"
-msgstr ""
+msgstr "SQL ئىزاھى"
 
 #: libraries/common.lib.php:1170
 msgid "Skip Explain SQL"
