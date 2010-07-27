@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-26 17:18+0200\n"
-"PO-Revision-Date: 2010-07-26 05:01+0200\n"
+"PO-Revision-Date: 2010-07-27 04:51+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -93,7 +93,7 @@ msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "No blob streaming server configured!"
 
 #: bs_disp_as_mime_type.php:35
 #, fuzzy
@@ -103,7 +103,7 @@ msgstr "ھۆججەتنى دېسكىغا يىزىشتا خاتالىق كۆرۈل
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "URL نى ئېچىش مەغلۇب بولدى."
 
 #: db_create.php:44
 #, php-format
@@ -308,8 +308,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن "
-"%sبۇ يەرنى كۆرۈڭ%s."
+"ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن %"
+"sبۇ يەرنى كۆرۈڭ%s."
 
 #: db_operations.php:497
 msgid "Edit PDF Pages"
@@ -1510,23 +1510,23 @@ msgstr "Cookies نى قوزغاتقاندىن كېيىن ئاندىن كېرىڭ
 #: libraries/auth/signon.auth.lib.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
+msgstr "پارولسىز كىرىش چەكلەنگەن (پارولسىز كىرىش ئىقازىتىنى كۆرۈڭ)"
 
 #: libraries/auth/cookie.auth.lib.php:642
 #: libraries/auth/signon.auth.lib.php:184
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr ""
+msgstr "No activity within %s seconds; please log in again"
 
 #: libraries/auth/cookie.auth.lib.php:652
 #: libraries/auth/cookie.auth.lib.php:654
 #: libraries/auth/signon.auth.lib.php:190
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "MySQL مۇلازىمىتېرىغا ئۇلىنالمىدى."
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr ""
+msgstr "كىرگۈزگەن ئىسلەتكۈچى ئىسمى\\پارول خاتا، زايارەت رەت قىلىندى."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
