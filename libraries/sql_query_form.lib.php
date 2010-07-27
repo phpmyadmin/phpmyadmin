@@ -40,8 +40,6 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * @uses    $GLOBALS['cfg']['DefaultQueryDatabase']
  * @uses    $GLOBALS['cfg']['Servers']
  * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
- * @uses    $GLOBALS['cfg']['DefaultQueryDatabase']
- * @uses    $GLOBALS['cfg']['DefaultQueryTable']
  * @uses    $GLOBALS['cfg']['Bookmark']
  * @uses    PMA_generate_common_url()
  * @uses    PMA_backquote()
