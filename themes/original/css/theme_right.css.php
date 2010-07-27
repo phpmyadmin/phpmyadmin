@@ -588,6 +588,12 @@ ul#topmenu, ul#topmenu2, ul.tabs {
     padding:            0;
 }
 
+ul#topmenu2 {
+    margin: 0.25em 0.5em 0;
+    height: 2em;
+    clear: both;
+}
+
 ul#topmenu li, ul#topmenu2 li {
     float:              <?php echo $left; ?>;
     margin:             0;
@@ -609,33 +615,30 @@ ul#topmenu a, ul#topmenu span {
 }
 
 ul#topmenu ul a {
-    margin: 0;
-    padding-bottom: 0.2em;
+    margin:             0;
+    padding-bottom:     0.2em;
 }
 
 ul#topmenu .submenu {
-    position: relative;
+    position:           relative;
 }
 
 ul#topmenu ul {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    list-style-type: none;
-    display: none;
-    -moz-box-shadow: 2px 2px 3px #666;
-    -webkit-box-shadow: 2px 2px 3px #666;
-    box-shadow: 2px 2px 3px #666;
-    border: 1px #666 solid;
+    margin:             0;
+    padding:            0;
+    position:           absolute;
+    right:              0;
+    list-style-type:    none;
+    display:            none;
+    border:             1px #666 solid;
 }
 
 ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
-    display: block;
+    display:            block;
 }
 
 ul#topmenu ul li {
-    width: 100%;
+    width:              100%;
 }
 
 ul#topmenu2 a {
@@ -669,16 +672,20 @@ ul#topmenu a.tabcaution:hover {
 ul#topmenu a.tabactive, ul#topmenu2 a.tabactive {
     color:              black;
 }
+
+ul#topmenu ul {
+    background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+}
 <?php } else { ?>
 #topmenu {
     margin-top:         0.5em;
     padding:            0.1em 0.3em 0.1em 0.3em;
 }
 
-ul#topmenu2 {
-    margin: 0.25em 0.5em 0;
-    height: 2em;
-    clear: both;
+ul#topmenu ul {
+    -moz-box-shadow:    2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow:         2px 2px 3px #666;
 }
 
 ul#topmenu > li {

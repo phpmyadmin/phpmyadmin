@@ -66,10 +66,6 @@ $forms['Left_frame']['Left_frame'] = array(
     'LeftLogoLink',
     'LeftLogoLinkWindow',
     'LeftPointerEnable');
-// pmadb is unavailable when these settings are used
-/*$forms['Left_frame']['Left_servers'] = array(
-    'LeftDisplayServers',
-    'DisplayServersList');*/
 $forms['Left_frame']['Left_databases'] = array(
     'DisplayDatabasesList',
     'LeftFrameDBTree',
@@ -106,7 +102,7 @@ $forms['Main_frame']['Edit'] = array(
     'ShowFunctionFields',
     'ShowFieldTypesInDataEditView',
     'InsertRows',
-    'ForeignKeyDropdownOrder',// [s, ? custom text value]
+    'ForeignKeyDropdownOrder',
     'ForeignKeyMaxLimit',
     'CtrlArrowsMoving',
     'DefaultPropDisplay');

@@ -436,7 +436,7 @@ class PMA_Config
         // will have everything avaiable in session cache
         $server = isset($GLOBALS['server'])
             ? $GLOBALS['server']
-            : $GLOBALS['cfg']['ServerDefault'];
+            : (!empty($GLOBALS['cfg']['ServerDefault']) ? $GLOBALS['cfg']['ServerDefault'] : 0);
         $cache_key = 'server_' . $server;
         if ($server > 0 && !defined('PMA_MINIMUM_COMMON')) {
             $config_mtime = max($this->default_source_mtime, $this->source_mtime);
@@ -464,7 +464,6 @@ class PMA_Config
         // load config array
         $this->settings = PMA_array_merge_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = PMA_array_merge_recursive($GLOBALS['cfg'], $config_data);
-
         if (defined('PMA_MINIMUM_COMMON')) {
             return;
         }
