@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 23:07+0200\n"
+"PO-Revision-Date: 2010-07-27 23:12+0200\n"
 "Last-Translator:  <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3966,14 +3966,15 @@ msgstr ""
 "показано без переформатування (за замовчуванням: 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "Зберігає початкове форматування поля. Не вносяться модифікації."
+msgstr ""
+"Відображує вміст поля як воно є, не пропускаючи його через функцію "
+"htmlspecialchars(). Це значить що поле передбачає містити справжній HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
 #, fuzzy
