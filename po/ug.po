@@ -1635,7 +1635,7 @@ msgstr "ئەڭ چوڭ:%s%s"
 #: libraries/common.lib.php:408
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:412
