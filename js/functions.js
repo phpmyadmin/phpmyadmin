@@ -1841,34 +1841,36 @@ $(document).ready(function() {
      * in a dropdown menu when the user hovers over the word "More."
      */
     // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
-    $("table[id='tablestructure'] td[class='browse']").remove();
-    $("table[id='tablestructure'] td[class='primary']").remove();
-    $("table[id='tablestructure'] td[class='unique']").remove();
-    $("table[id='tablestructure'] td[class='index']").remove();
-    $("table[id='tablestructure'] td[class='fulltext']").remove();
+    // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
+    if($("input[type='hidden'][name='table_type']").attr("value") == "table") {
+         $("table[id='tablestructure'] td[class='browse']").remove();
+         $("table[id='tablestructure'] td[class='primary']").remove();
+         $("table[id='tablestructure'] td[class='unique']").remove();
+         $("table[id='tablestructure'] td[class='index']").remove();
+         $("table[id='tablestructure'] td[class='fulltext']").remove();
 
-    // Display the "more" text
-    $("table[id='tablestructure'] td[class='more_opts']").show()
+         // Display the "more" text
+         $("table[id='tablestructure'] td[class='more_opts']").show()
 
-    // Move the dropdown to the left so the right edge is aligned with the parent cell's right edge
-    // All the more_opts table cells have the same left offset so choose any
-    var parent_cell = $("table[id='tablestructure'] td[class='more_opts']");
-    var cell_right_edge_offset = parent_cell.offset().left + parent_cell.innerWidth();
-    // All the structure_actions_dropdown divs have the same left offset so choose any
-    var left_offset = cell_right_edge_offset - $(".structure_actions_dropdown").innerWidth();
-//    var curr_top_offset = $(".structure_actions_dropdown").offset().top;
+         // Move the dropdown to the left so the right edge is aligned with the parent cell's right edge
+         // All the more_opts table cells have the same left offset so choose any
+         var parent_cell = $("table[id='tablestructure'] td[class='more_opts']");
+         var cell_right_edge_offset = parent_cell.offset().left + parent_cell.innerWidth();
+         // All the structure_actions_dropdown divs have the same left offset so choose any
+         var left_offset = cell_right_edge_offset - $(".structure_actions_dropdown").innerWidth();
 
-    $.each($(".structure_actions_dropdown"), function() {
-        $(this).offset({ left: left_offset });
-    });
+         $.each($(".structure_actions_dropdown"), function() {
+             $(this).offset({ left: left_offset });
+         });
 
-    // When "more" is hovered over, show the hidden actions
-    $("table[id='tablestructure'] td[class='more_opts']").hover(
-        function() {
-            $(this).children(".structure_actions_dropdown").show();
-        },
-        function() {
-            $(this).children(".structure_actions_dropdown").hide();
-        }
-    );
+         // When "more" is hovered over, show the hidden actions
+         $("table[id='tablestructure'] td[class='more_opts']").hover(
+             function() {
+                 $(this).children(".structure_actions_dropdown").show();
+             },
+             function() {
+                 $(this).children(".structure_actions_dropdown").hide();
+             }
+         );
+    }
 });

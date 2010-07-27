@@ -199,10 +199,17 @@ $i = 0;
 </tr>
 </thead>
 <tbody>
+
 <?php
 unset($i);
-
-
+echo '<input type="hidden" name="table_type" value=';
+if($db_is_information_schema) {
+     echo '"information_schema" />';
+} else if ($tbl_is_view) {
+     echo '"view" />';
+} else {
+     echo '"table" />';
+}
 // table body
 
 // prepare comments
@@ -469,52 +476,56 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             </div>
             <div class="action_primary">
                 <?php
-                if($primary) { ?>
-                     <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>"
-                     onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table) . ($primary ? ' DROP PRIMARY KEY,' : ''); ?> ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
-                        <?php echo $hidden_titles['Primary']; ?>
-                    </a>
-                <?php
-                } else {
-                    echo $hidden_titles['NoPrimary'];
-                }
-                ?>
+                if(isset($primary_enabled)) {
+                     if($primary_enabled) { ?>
+                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>"
+                          onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table) . ($primary ? ' DROP PRIMARY KEY,' : ''); ?> ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
+                             <?php echo $hidden_titles['Primary']; ?>
+                         </a>
+                     <?php
+                     } else {
+                         echo $hidden_titles['NoPrimary'];
+                     }
+                } ?>
             </div>
             <div class="action_unique">
                 <?php
-                if($unique_enabled) { ?>
-                    <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                        <?php echo $hidden_titles['Unique']; ?>
-                    </a>
-                <?php
-                } else {
-                    echo $hidden_titles['NoUnique'];
-                }
-                ?>
+                if(isset($unique_enabled)) {
+                     if($uniqe_enabled) { ?>
+                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                             <?php echo $hidden_titles['Unique']; ?>
+                         </a>
+                     <?php
+                     } else {
+                         echo $hidden_titles['NoUnique'];
+                     }
+                } ?>
             </div>
             <div class="action_index">
                <?php
-                if($index_enabled) { ?>
-                    <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                        <?php echo $hidden_titles['Index']; ?>
-                    </a>
-                <?php
-                } else {
-                    echo $hidden_titles['NoIndex'];
-                }
-                ?>
+                if(isset($index_enabled)) {
+                     if($index_enabled) { ?>
+                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                             <?php echo $hidden_titles['Index']; ?>
+                         </a>
+                     <?php
+                     } else {
+                         echo $hidden_titles['NoIndex'];
+                     }
+                  } ?>
              </div>
             <div class="action_fulltext">
                 <?php
-                if($fulltext_enabled) { ?>
-                    <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                        <?php echo $hidden_titles['IdxFulltext']; ?>
-                    </a>
-                <?php
-                } else {
-                    echo $hidden_titles['NoIdxFulltext'];
-                }
-                ?>
+                if(isset($fulltext_enabled)) {
+                     if($fulltext_enabled) { ?>
+                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                             <?php echo $hidden_titles['IdxFulltext']; ?>
+                         </a>
+                     <?php
+                     } else {
+                         echo $hidden_titles['NoIdxFulltext'];
+                     }
+                } ?>
              </div>
         </div>
     </td>
