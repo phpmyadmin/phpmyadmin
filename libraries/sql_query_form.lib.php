@@ -233,8 +233,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         // $tmp_db_link = htmlspecialchars($db);
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query)) {
-            $query = str_replace('%d',
-                PMA_backquote($db), $GLOBALS['cfg']['DefaultQueryDatabase']);
+            $query = PMA_expandUserString($GLOBALS['cfg']['DefaultQueryDatabase'], 'PMA_backquote');
         }
     } else {
         $table  = $GLOBALS['table'];
@@ -257,18 +256,8 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         // else use
         // $tmp_db_link = htmlspecialchars($db);
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
-        if (empty($query) && count($fields_list)) {
-            $field_names = array();
-            foreach ($fields_list as $field) {
-                $field_names[] = PMA_backquote($field['Field']);
-            }
-            $query =
-                str_replace('%d', PMA_backquote($db),
-                    str_replace('%t', PMA_backquote($table),
-                        str_replace('%f',
-                            implode(', ', $field_names),
-                            $GLOBALS['cfg']['DefaultQueryTable'])));
-            unset($field_names);
+        if (empty($query)) {
+            $query = PMA_expandUserString($GLOBALS['cfg']['DefaultQueryTable'], 'PMA_backquote');
         }
     }
     $legend .= ': ' . PMA_showMySQLDocu('SQL-Syntax', 'SELECT');

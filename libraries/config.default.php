@@ -2344,22 +2344,14 @@ $cfg['ThemePerServer'] = false;
  */
 
 /**
- * Default queries
- * %d will be replaced by the database name.
- * %t will be replaced by the table name.
- * %f will be replaced by a list of field names.
- * (%t and %f only applies to DefaultQueryTable)
+ * Default query for table
  *
  * @global string $cfg['DefaultQueryTable']
  */
-$cfg['DefaultQueryTable'] = 'SELECT * FROM %t WHERE 1';
+$cfg['DefaultQueryTable'] = 'SELECT * FROM @TABLE@ WHERE 1';
 
 /**
- * Default queries
- * %d will be replaced by the database name.
- * %t will be replaced by the table name.
- * %f will be replaced by a list of field names.
- * (%t and %f only applies to DefaultQueryTable)
+ * Default query for database
  *
  * @global string $cfg['DefaultQueryDatabase']
  */
