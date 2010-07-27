@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 12:25+0200\n"
+"PO-Revision-Date: 2010-07-27 12:26+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1609,7 +1609,7 @@ msgstr "ئۈنۈمسىز مۇلازىمىتېر :%s"
 #: libraries/common.inc.php:620
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
+msgstr "مۇلازىمىتېر %1$s ئۈنۈمسىز. تەڭشەك ھۆجقىتىنى تەشۈرۈڭ."
 
 #: libraries/common.inc.php:629 libraries/header.inc.php:95
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
