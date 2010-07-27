@@ -1615,7 +1615,7 @@ msgstr "مۇلازىمىتېر %1$s ئۈنۈمسىز. تەڭشەك ھۆجقىت�
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
 #: main.php:184 test/theme.php:56
 msgid "Server"
-msgstr ""
+msgstr "مۇلازىمىتېر"
 
 #: libraries/common.inc.php:806
 msgid "Invalid authentication method set in configuration:"
