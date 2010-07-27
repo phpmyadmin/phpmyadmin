@@ -129,15 +129,15 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
             // loop through the rows
             foreach ($data as $rowKey => $row) {
 
+                // loop through the columns in the row                
+                foreach ($row as $valueKey => $value) {
+                    $chartData[$valueKey][] = $value;
+                }
+
                 // if only one column, we need to add
                 // placeholder data for x axis
                 if (count($row) == 1) {
                     $chartData[''][] = $rowKey;
-                }
-
-                // loop through the columns in the row                
-                foreach ($row as $valueKey => $value) {
-                    $chartData[$valueKey][] = $value;
                 }
             }
 
