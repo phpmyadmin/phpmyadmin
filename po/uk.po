@@ -244,7 +244,7 @@ msgstr "Команда"
 
 #: db_operations.php:364 tbl_change.php:1039
 msgid "and then"
-msgstr ""
+msgstr "і потім"
 
 #: db_operations.php:379
 #, fuzzy
