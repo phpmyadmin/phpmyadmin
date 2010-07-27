@@ -491,7 +491,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             <div class="action_unique">
                 <?php
                 if(isset($unique_enabled)) {
-                     if($uniqe_enabled) { ?>
+                     if($unique_enabled) { ?>
                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Unique']; ?>
                          </a>
