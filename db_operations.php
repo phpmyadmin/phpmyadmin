@@ -364,7 +364,41 @@ if (!$is_information_schema) {
         <input type="submit" value="<?php echo __('Go'); ?>" onclick="return confirmLink(this, 'CREATE DATABASE ... <?php echo __('and then'); ?> DROP DATABASE <?php echo PMA_jsFormat($db); ?>')" />
     </fieldset>
     </form>
+<?php
+// Drop link if allowed
+// Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
+// Don't allow to easilly drop mysql database, RFE #1327514.
+if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_information_schema && ($db != 'mysql')) {
+?>
+<fieldset class="caution">
+ <legend><?php
+if ($cfg['PropertiesIconic']) {
+    echo '<img class="icon" src="' . $pmaThemeImage . 'b_deltbl.png"'
+        .' alt="" width="16" height="16" />';
+}
+echo __('Remove database');
+?></legend>
 
+<ul>
+<?php
+    $this_sql_query = 'DROP DATABASE ' . PMA_backquote($GLOBALS['db']);
+    $this_url_params = array(
+            'sql_query' => $this_sql_query,
+            'back' => 'db_operations.php',
+            'goto' => 'main.php',
+            'reload' => '1',
+            'purge' => '1',
+            'zero_rows' => sprintf(__('Database %s has been dropped.'), htmlspecialchars(PMA_backquote($db))),
+            'db' => NULL,
+        );
+    ?>
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLinkDropDB(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
+            <?php echo __('Drop the database (DROP)'); ?></a>
+        <?php echo PMA_showMySQLDocu('SQL-Syntax', 'DROP_DATABASE'); ?>
+    </li>
+</ul>
+</fieldset>
+<?php } ?>
     <?php
     /**
      * Copy database
