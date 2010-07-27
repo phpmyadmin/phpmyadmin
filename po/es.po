@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-26 17:18+0200\n"
+"POT-Creation-Date: 2010-07-27 10:12+0200\n"
 "PO-Revision-Date: 2010-03-12 11:23+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -39,16 +39,16 @@ msgstr ""
 #: browse_foreigners.php:148 db_structure.php:77 db_structure.php:78
 #: db_structure.php:89 db_structure.php:91 db_structure.php:102
 #: db_structure.php:104 libraries/common.lib.php:2834
-#: libraries/common.lib.php:2841 libraries/db_links.inc.php:73
+#: libraries/common.lib.php:2841 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "Buscar"
 
 #: browse_foreigners.php:151 db_operations.php:320 db_operations.php:364
-#: db_operations.php:434 db_operations.php:458 db_search.php:344
+#: db_operations.php:468 db_operations.php:492 db_search.php:344
 #: db_structure.php:552 js/messages.php:48 libraries/Config.class.php:1043
 #: libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:278 libraries/common.lib.php:712
+#: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:712
 #: libraries/common.lib.php:1344 libraries/common.lib.php:2294
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
@@ -56,8 +56,8 @@ msgstr "Buscar"
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:530
 #: libraries/display_tbl.lib.php:612 libraries/replication_gui.lib.php:75
 #: libraries/replication_gui.lib.php:371 libraries/select_server.lib.php:101
-#: libraries/sql_query_form.lib.php:390 libraries/sql_query_form.lib.php:460
-#: libraries/sql_query_form.lib.php:525 libraries/tbl_properties.inc.php:780
+#: libraries/sql_query_form.lib.php:377 libraries/sql_query_form.lib.php:447
+#: libraries/sql_query_form.lib.php:512 libraries/tbl_properties.inc.php:780
 #: main.php:127 navigation.php:230 pdf_pages.php:290 pdf_pages.php:326
 #: pdf_pages.php:528 pmd_pdf.php:113 server_binlog.php:128
 #: server_privileges.php:663 server_privileges.php:1620
@@ -67,7 +67,7 @@ msgstr "Buscar"
 #: server_synchronize.php:1207 tbl_change.php:323 tbl_change.php:1070
 #: tbl_change.php:1107 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:496 tbl_operations.php:558
-#: tbl_operations.php:678 tbl_select.php:323 tbl_structure.php:559
+#: tbl_operations.php:726 tbl_select.php:323 tbl_structure.php:559
 #: tbl_structure.php:594 tbl_tracking.php:389 tbl_tracking.php:506
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -250,47 +250,63 @@ msgstr "Comando"
 msgid "and then"
 msgstr "y luego"
 
-#: db_operations.php:390
+#: db_operations.php:379
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Remove database"
+msgstr "Cambiar el nombre de la base de datos a"
+
+#: db_operations.php:391
+#, php-format
+msgid "Database %s has been dropped."
+msgstr "La base de datos %s ha sido eliminada."
+
+#: db_operations.php:396
+#, fuzzy
+msgid "Drop the database (DROP)"
+msgstr "No hay bases de datos"
+
+#: db_operations.php:424
 msgid "Copy database to"
 msgstr "Copiar la base de datos a"
 
-#: db_operations.php:397 tbl_operations.php:525 tbl_tracking.php:382
+#: db_operations.php:431 tbl_operations.php:525 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "Únicamente la estructura "
 
-#: db_operations.php:398 tbl_operations.php:526 tbl_tracking.php:384
+#: db_operations.php:432 tbl_operations.php:526 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "Estructura y datos"
 
-#: db_operations.php:399 tbl_operations.php:527 tbl_tracking.php:383
+#: db_operations.php:433 tbl_operations.php:527 tbl_tracking.php:383
 msgid "Data only"
 msgstr "Solamente datos"
 
-#: db_operations.php:407
+#: db_operations.php:441
 msgid "CREATE DATABASE before copying"
 msgstr "CREAR BASE DE DATOS antes de copiar"
 
-#: db_operations.php:410 libraries/export/sql.php:51
+#: db_operations.php:444 libraries/export/sql.php:51
 #: libraries/export/sql.php:73 libraries/export/sql.php:75
 #: libraries/export/sql.php:81 tbl_operations.php:533
 #, php-format
 msgid "Add %s"
 msgstr "Añada %s"
 
-#: db_operations.php:414 libraries/export/sql.php:77 tbl_operations.php:296
+#: db_operations.php:448 libraries/export/sql.php:77 tbl_operations.php:296
 #: tbl_operations.php:535
 msgid "Add AUTO_INCREMENT value"
 msgstr "Añadir el valor AUTO_INCREMENT"
 
-#: db_operations.php:418 tbl_operations.php:542
+#: db_operations.php:452 tbl_operations.php:542
 msgid "Add constraints"
 msgstr "Añadir restricciones"
 
-#: db_operations.php:431
+#: db_operations.php:465
 msgid "Switch to copied database"
 msgstr "Seleccionar la base de datos copiada"
 
-#: db_operations.php:451 libraries/Index.class.php:447
+#: db_operations.php:485 libraries/Index.class.php:447
 #: libraries/db_structure.lib.php:53 libraries/mysql_charsets.lib.php:106
 #: libraries/tbl_properties.inc.php:106 libraries/tbl_properties.inc.php:728
 #: server_collations.php:53 server_collations.php:65 server_databases.php:108
@@ -299,7 +315,7 @@ msgstr "Seleccionar la base de datos copiada"
 msgid "Collation"
 msgstr "Cotejamiento"
 
-#: db_operations.php:464 pdf_schema.php:32
+#: db_operations.php:498 pdf_schema.php:32
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -311,7 +327,7 @@ msgstr ""
 "Las opciones adicionales para trabajar con tablas vinculadas fueron "
 "desactivadas. Para saber porqué, dé clic %saquí%s."
 
-#: db_operations.php:497
+#: db_operations.php:531
 msgid "Edit PDF Pages"
 msgstr "Editar las páginas PDF"
 
@@ -367,7 +383,7 @@ msgstr[0] "%s tabla(s)"
 msgstr[1] "%s tabla(s)"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
-#: libraries/display_tbl.lib.php:1939 libraries/sql_query_form.lib.php:138
+#: libraries/display_tbl.lib.php:1939 libraries/sql_query_form.lib.php:136
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:129
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -459,7 +475,7 @@ msgstr "Ejecutar la consulta"
 
 #: db_search.php:50 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:640 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:182
 msgid "Access denied"
 msgstr "Acceso denegado "
@@ -502,7 +518,7 @@ msgid "Browse"
 msgstr "Examinar"
 
 #: db_search.php:254 libraries/display_tbl.lib.php:1163
-#: libraries/display_tbl.lib.php:2014 libraries/sql_query_form.lib.php:453
+#: libraries/display_tbl.lib.php:2014 libraries/sql_query_form.lib.php:440
 #: pdf_pages.php:284 pdf_pages.php:423 pdf_pages.php:459 pdf_pages.php:487
 #: pmd_general.php:376 setup/frames/index.inc.php:125
 #: setup/frames/index.inc.php:216 tbl_row_action.php:62
@@ -545,14 +561,14 @@ msgstr "Dentro del campo:"
 
 #: db_structure.php:79 db_structure.php:80 db_structure.php:92
 #: db_structure.php:93 db_structure.php:105 db_structure.php:106
-#: libraries/common.lib.php:2835 libraries/sql_query_form.lib.php:324
-#: libraries/sql_query_form.lib.php:327 libraries/tbl_links.inc.php:74
+#: libraries/common.lib.php:2835 libraries/sql_query_form.lib.php:311
+#: libraries/sql_query_form.lib.php:314 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Insertar"
 
 #: db_structure.php:81 db_structure.php:94 db_structure.php:107
 #: libraries/common.lib.php:2832 libraries/common.lib.php:2839
-#: libraries/db_links.inc.php:61 libraries/export/htmlword.php:22
+#: libraries/db_links.inc.php:48 libraries/export/htmlword.php:22
 #: libraries/export/latex.php:37 libraries/export/latex.php:341
 #: libraries/export/odt.php:31 libraries/export/sql.php:59
 #: libraries/export/texytext.php:23 libraries/import.lib.php:1136
@@ -565,8 +581,7 @@ msgstr "Estructura"
 #: db_structure.php:96 db_structure.php:108 db_structure.php:109
 #: db_structure.php:530 db_structure.php:531 db_tracking.php:86
 #: libraries/Index.class.php:482 libraries/common.lib.php:1663
-#: libraries/db_links.inc.php:98 libraries/mult_submits.inc.php:35
-#: libraries/mult_submits.inc.php:72 libraries/tbl_links.inc.php:125
+#: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
 #: server_databases.php:349 tbl_structure.php:25 tbl_structure.php:149
 #: tbl_structure.php:150 tbl_structure.php:468
 msgid "Drop"
@@ -575,21 +590,21 @@ msgstr "Eliminar"
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
 #: db_structure.php:528 db_structure.php:529 libraries/common.lib.php:1662
-#: libraries/mult_submits.inc.php:38 libraries/tbl_links.inc.php:103
+#: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "Vaciar"
 
-#: db_structure.php:301 libraries/tbl_links.inc.php:98
+#: db_structure.php:301 tbl_operations.php:653
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Se ha vaciado la tabla %s"
 
-#: db_structure.php:311 libraries/tbl_links.inc.php:131
+#: db_structure.php:311 tbl_operations.php:670
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Se descartó el modo de visualización %s"
 
-#: db_structure.php:311 libraries/tbl_links.inc.php:131
+#: db_structure.php:311 tbl_operations.php:670
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Se ha eliminado la tabla %s"
@@ -682,7 +697,7 @@ msgstr "Reparar la tabla"
 msgid "Analyze table"
 msgstr "Analizar la tabla"
 
-#: db_structure.php:542 db_structure.php:543 libraries/db_links.inc.php:69
+#: db_structure.php:542 db_structure.php:543 libraries/db_links.inc.php:56
 #: libraries/display_export.lib.php:76 libraries/display_tbl.lib.php:2052
 #: libraries/display_tbl.lib.php:2183 libraries/mult_submits.inc.php:61
 #: libraries/server_links.inc.php:83 libraries/tbl_links.inc.php:80
@@ -1425,7 +1440,7 @@ msgid "Databases"
 msgstr "Bases de datos"
 
 #: libraries/Message.class.php:210 libraries/common.lib.php:574
-#: libraries/core.lib.php:236 libraries/import.lib.php:134 pdf_schema.php:30
+#: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
 msgid "Error"
@@ -1537,7 +1552,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "No se estableció la conexión: los parámetros están incorrectos."
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:205 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:206 libraries/auth/http.auth.lib.php:64
 #: test/theme.php:151
 #, php-format
 msgid "Welcome to %s"
@@ -1564,51 +1579,51 @@ msgstr ""
 "config.inc.php y asegurarse que corresponden con la información provista por "
 "el administrador del servidor MySQL."
 
-#: libraries/auth/cookie.auth.lib.php:230
+#: libraries/auth/cookie.auth.lib.php:231
 msgid "Log in"
 msgstr "Iniciar sesión"
 
-#: libraries/auth/cookie.auth.lib.php:232
-#: libraries/auth/cookie.auth.lib.php:234
+#: libraries/auth/cookie.auth.lib.php:233
+#: libraries/auth/cookie.auth.lib.php:235
 #: libraries/navigation_header.inc.php:92
 #: libraries/navigation_header.inc.php:94
 msgid "phpMyAdmin documentation"
 msgstr "Documentación de phpMyAdmin"
 
-#: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:245
+#: libraries/auth/cookie.auth.lib.php:246
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Puede escribir el nombre del proveedor de servicios/dirección IP y el "
 "puerto, separado por un espacio."
 
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:245
 msgid "Server:"
 msgstr "Servidor"
 
-#: libraries/auth/cookie.auth.lib.php:249
+#: libraries/auth/cookie.auth.lib.php:250
 msgid "Username:"
 msgstr "Usuario:"
 
-#: libraries/auth/cookie.auth.lib.php:253
+#: libraries/auth/cookie.auth.lib.php:254
 msgid "Password:"
 msgstr "Contraseña:"
 
-#: libraries/auth/cookie.auth.lib.php:260
+#: libraries/auth/cookie.auth.lib.php:261
 msgid "Server Choice"
 msgstr "Elección del servidor"
 
-#: libraries/auth/cookie.auth.lib.php:306 libraries/header.inc.php:58
+#: libraries/auth/cookie.auth.lib.php:307 libraries/header.inc.php:58
 msgid "Cookies must be enabled past this point."
 msgstr "Las \"cookies\" deben estar habilitadas."
 
-#: libraries/auth/cookie.auth.lib.php:638
+#: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:642
+#: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:184
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -1616,8 +1631,8 @@ msgstr ""
 "No ha habido actividad desde hace %s o más segundos, por favor reingrese al "
 "sitio"
 
-#: libraries/auth/cookie.auth.lib.php:652
-#: libraries/auth/cookie.auth.lib.php:654
+#: libraries/auth/cookie.auth.lib.php:653
+#: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:190
 msgid "Cannot log in to the MySQL server"
 msgstr "El servidor MySQL no autorizó su ingreso"
@@ -1741,7 +1756,7 @@ msgstr "es"
 #: libraries/common.lib.php:447 libraries/dbg/setup.php:24
 #: libraries/display_export.lib.php:157 libraries/engines/pbms.lib.php:72
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:79
-#: libraries/sql_query_form.lib.php:434 libraries/sql_query_form.lib.php:437
+#: libraries/sql_query_form.lib.php:421 libraries/sql_query_form.lib.php:424
 #: main.php:228 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Documentación"
@@ -1886,19 +1901,19 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "La funcionalidad %s está afectada por un fallo conocido, vea %s"
 
 #: libraries/common.lib.php:2833 libraries/common.lib.php:2840
-#: libraries/db_links.inc.php:66 libraries/export/sql.php:24
+#: libraries/db_links.inc.php:53 libraries/export/sql.php:24
 #: libraries/import/sql.php:17 libraries/server_links.inc.php:44
 #: libraries/tbl_links.inc.php:58 querywindow.php:88 test/theme.php:96
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2842 libraries/db_links.inc.php:102
-#: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:115
+#: libraries/common.lib.php:2842 libraries/db_links.inc.php:86
+#: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:102
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Operaciones"
 
-#: libraries/core.lib.php:259 libraries/dbg/setup.php:21
+#: libraries/core.lib.php:265 libraries/dbg/setup.php:21
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -1914,36 +1929,31 @@ msgstr "Eventos"
 msgid "Name"
 msgstr "Nombre"
 
-#: libraries/db_links.inc.php:43
-#, php-format
-msgid "Database %s has been dropped."
-msgstr "La base de datos %s ha sido eliminada."
-
-#: libraries/db_links.inc.php:55 libraries/db_links.inc.php:56
-#: libraries/db_links.inc.php:57
+#: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
+#: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
 msgstr "La base de datos, ¡parece estar vacía!"
 
-#: libraries/db_links.inc.php:79 libraries/relation.lib.php:137
+#: libraries/db_links.inc.php:66 libraries/relation.lib.php:137
 #: libraries/tbl_links.inc.php:67
 msgid "Tracking"
 msgstr ""
 
-#: libraries/db_links.inc.php:84
+#: libraries/db_links.inc.php:71
 msgid "Query"
 msgstr "Generar una consulta"
 
-#: libraries/db_links.inc.php:89 libraries/relation.lib.php:133
+#: libraries/db_links.inc.php:76 libraries/relation.lib.php:133
 msgid "Designer"
 msgstr "Diseñador"
 
-#: libraries/db_links.inc.php:96 libraries/server_links.inc.php:87
+#: libraries/db_links.inc.php:83 libraries/server_links.inc.php:87
 #: libraries/tbl_links.inc.php:89 pmd_pdf.php:81 pmd_pdf.php:107
 #: setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "Importar"
 
-#: libraries/db_links.inc.php:109 libraries/server_links.inc.php:65
+#: libraries/db_links.inc.php:93 libraries/server_links.inc.php:65
 #: server_privileges.php:110 server_privileges.php:1718
 #: server_privileges.php:2067 test/theme.php:116
 msgid "Privileges"
@@ -2116,7 +2126,7 @@ msgid "remember template"
 msgstr "recordar la plantilla"
 
 #: libraries/display_export.lib.php:204 libraries/display_import.lib.php:177
-#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:522
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "Juego de caracteres del archivo:"
 
@@ -2169,7 +2179,7 @@ msgstr ""
 msgid "File to import"
 msgstr "Archivo a importar"
 
-#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:497
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:484
 msgid "Location of the text file"
 msgstr "Localización del archivo de texto"
 
@@ -2177,13 +2187,13 @@ msgstr "Localización del archivo de texto"
 msgid "File uploads are not allowed on this server."
 msgstr "No está permitido subir archivos a este servidor."
 
-#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:506
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 "No está disponible el directorio que usted habilitó para subir las tareas"
 
-#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:509
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:925
 msgid "web server upload directory"
 msgstr "directorio en el servidor web para subir los archivos"
@@ -3619,7 +3629,7 @@ msgstr ""
 "Para actualizar su tabla Columna_comentarios (Column_comments), por favor "
 "revise la documentación"
 
-#: libraries/relation.lib.php:125 libraries/sql_query_form.lib.php:416
+#: libraries/relation.lib.php:125 libraries/sql_query_form.lib.php:403
 msgid "Bookmarked SQL query"
 msgstr "Consulta guardada en favoritos"
 
@@ -3687,7 +3697,7 @@ msgstr "Mostrar el estado del esclavo"
 msgid "Slave status"
 msgstr "Mostrar el estado del esclavo"
 
-#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:428
+#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:415
 #: server_status.php:736 server_variables.php:51
 msgid "Variable"
 msgstr "Variable"
@@ -3817,51 +3827,51 @@ msgstr ""
 msgid "Target database"
 msgstr "Buscar en la base de datos"
 
-#: libraries/sql_query_form.lib.php:219
+#: libraries/sql_query_form.lib.php:217
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "Ejecute la o las consultas SQL en el servidor %s"
 
-#: libraries/sql_query_form.lib.php:236 libraries/sql_query_form.lib.php:261
+#: libraries/sql_query_form.lib.php:234 libraries/sql_query_form.lib.php:258
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Ejecutar la(s) consulta(s) SQL en la base de datos %s"
 
-#: libraries/sql_query_form.lib.php:307
+#: libraries/sql_query_form.lib.php:294
 #, fuzzy
 #| msgid "Column names"
 msgid "Columns"
 msgstr "Nombre de las columnas"
 
-#: libraries/sql_query_form.lib.php:342 sql.php:657 sql.php:658 sql.php:675
+#: libraries/sql_query_form.lib.php:329 sql.php:657 sql.php:658 sql.php:675
 msgid "Bookmark this SQL query"
 msgstr "Guardar esta consulta en favoritos"
 
-#: libraries/sql_query_form.lib.php:349 sql.php:669
+#: libraries/sql_query_form.lib.php:336 sql.php:669
 msgid "Let every user access this bookmark"
 msgstr "Permitir que todo usuario pueda acceder a este favorito"
 
-#: libraries/sql_query_form.lib.php:355
+#: libraries/sql_query_form.lib.php:342
 msgid "Replace existing bookmark of same name"
 msgstr "Reemplazar el favorito existente que tenga el mismo nombre"
 
-#: libraries/sql_query_form.lib.php:371
+#: libraries/sql_query_form.lib.php:358
 msgid "Do not overwrite this query from outside the window"
 msgstr "No sobreescribir esta consulta desde fuera de la ventana"
 
-#: libraries/sql_query_form.lib.php:378
+#: libraries/sql_query_form.lib.php:365
 msgid "Delimiter"
 msgstr "Delimitador"
 
-#: libraries/sql_query_form.lib.php:386
+#: libraries/sql_query_form.lib.php:373
 msgid " Show this query here again "
 msgstr " Mostrar esta consulta otra vez "
 
-#: libraries/sql_query_form.lib.php:445
+#: libraries/sql_query_form.lib.php:432
 msgid "Submit"
 msgstr "Enviar"
 
-#: libraries/sql_query_form.lib.php:449
+#: libraries/sql_query_form.lib.php:436
 msgid "View only"
 msgstr "Solamente ver"
 
@@ -3935,12 +3945,11 @@ msgstr ""
 "El validador de SQL no pudo inicializarse. Por favor revise si ha instalado "
 "las extensiones php necesarias, como están descritas en la %sdocumentación%s."
 
-#: libraries/tbl_links.inc.php:105 libraries/tbl_links.inc.php:138
-#: libraries/tbl_links.inc.php:139
+#: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
 msgstr "La tabla, ¡parece estar vacía!"
 
-#: libraries/tbl_links.inc.php:147
+#: libraries/tbl_links.inc.php:115
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr ""
@@ -8328,40 +8337,54 @@ msgstr "Se ha vaciado el caché de la tabla %s"
 msgid "Flush the table (FLUSH)"
 msgstr "Vaciar el caché de la tabla (\"FLUSH\")"
 
-#: tbl_operations.php:648
+#: tbl_operations.php:642
+#, fuzzy
+#| msgid "Table name"
+msgid "Table removal"
+msgstr "Nombre de la tabla"
+
+#: tbl_operations.php:657
+msgid "Empty the table (TRUNCATE)"
+msgstr ""
+
+#: tbl_operations.php:675
+msgid "Drop the table (DROP)"
+msgstr ""
+
+#: tbl_operations.php:696
 msgid "Partition maintenance"
 msgstr "Mantenimiento de la partición"
 
-#: tbl_operations.php:656
+#: tbl_operations.php:704
 #, php-format
 msgid "Partition %s"
 msgstr "Partición %s"
 
-#: tbl_operations.php:659
+#: tbl_operations.php:707
 msgid "Analyze"
 msgstr "Analice"
 
-#: tbl_operations.php:660
+#: tbl_operations.php:708
 msgid "Check"
 msgstr "Revise"
 
-#: tbl_operations.php:661
+#: tbl_operations.php:709
 msgid "Optimize"
 msgstr "Optimice"
 
-#: tbl_operations.php:662
+#: tbl_operations.php:710
 msgid "Rebuild"
 msgstr "Reconstruya"
 
-#: tbl_operations.php:663
+#: tbl_operations.php:711
 msgid "Repair"
 msgstr "Repare"
 
-#: tbl_operations.php:675
+#: tbl_operations.php:723
 msgid "Remove partitioning"
 msgstr "Remueva la partición"
 
-#: tbl_operations.php:701
+#: tbl_operations.php:749
 msgid "Check referential integrity:"
 msgstr "Comprobar la integridad referencial:"
 
