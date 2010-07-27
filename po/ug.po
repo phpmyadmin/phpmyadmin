@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 12:20+0200\n"
+"PO-Revision-Date: 2010-07-27 12:21+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1593,7 +1593,7 @@ msgstr ""
 #: libraries/common.inc.php:578
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr ""
+msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
 #: libraries/common.inc.php:583
 msgid ""
