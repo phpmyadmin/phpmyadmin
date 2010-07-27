@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 23:37+0200\n"
-"Last-Translator:  <zalex_ua@i.ua>\n"
+"PO-Revision-Date: 2010-07-27 23:40+0200\n"
+"Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -522,12 +522,13 @@ msgid "Delete"
 msgstr "Видалити"
 
 #: db_search.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Разом:</b> <i>%s</i> співпадіння"
-msgstr[1] "<b>Разом:</b> <i>%s</i> співпадіння"
+msgstr[0] "<b>Всього:</b> <i>%s</i> співпадіння"
+msgstr[1] "<b>Всього:</b> <i>%s</i> співпадінь"
+msgstr[2] "<b>Всього:</b> <i>%s</i> співпадінь"
 
 #: db_search.php:281
 msgid "Search in database"
