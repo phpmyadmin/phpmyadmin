@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 23:15+0200\n"
+"PO-Revision-Date: 2010-07-27 23:16+0200\n"
 "Last-Translator:  <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -222,7 +222,7 @@ msgstr "Зняти всі відмітки"
 
 #: db_operations.php:33 tbl_create.php:47
 msgid "The database name is empty!"
-msgstr ""
+msgstr "Ім'я бази даних порожнє!"
 
 #: db_operations.php:231
 #, php-format
