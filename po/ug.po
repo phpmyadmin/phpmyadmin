@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-26 17:18+0200\n"
-"PO-Revision-Date: 2010-07-27 04:49+0200\n"
+"PO-Revision-Date: 2010-07-27 04:51+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1526,7 +1526,7 @@ msgstr "MySQL مۇلازىمىتېرىغا ئۇلىنالمىدى."
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr ""
+msgstr "كىرگۈزگەن ئىسلەتكۈچى ئىسمى\\پارول خاتا، زايارەت رەت قىلىندى."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
