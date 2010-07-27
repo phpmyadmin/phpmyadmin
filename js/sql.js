@@ -5,6 +5,27 @@
  * @version $Id$
  */
 
+function getFieldName(this_field_obj, disp_mode) {
+
+    if(disp_mode == 'vertical') {
+        var field_name = $(this_field_obj).siblings('th').text();
+    }
+    else {
+        var this_field_index = $(this_field_obj).index();
+        if(window.parent.text_dir == 'ltr') {
+            // 3 columns to account for the checkbox, edit and delete anchors
+            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
+        }
+        else {
+            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ this_field_index+')').text();
+        }
+    }
+
+    field_name = $.trim(field_name);
+
+    return field_name;
+}
+
 $(document).ready(function() {
 
     /**
@@ -117,23 +138,8 @@ $(document).ready(function() {
 
             // We need to retrieve the value from the server for truncated/relation fields
             // Find the field name
-            if(disp_mode == 'vertical') {
-                var this_field = $(this);
-                var field_name = $(this).siblings('th').text();
-            }
-            else {
-                var this_field = $(this);
-                var this_field_index = $(this).index();
-                if(window.parent.text_dir == 'ltr') {
-                    // 3 columns to account for the checkbox, edit and delete anchors
-                    var field_name = $(this).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
-                }
-                else {
-                    var field_name = $(this).parents('table').find('thead').find('th:nth('+ this_field_index+')').text();
-                }
-            }
-
-            field_name = $.trim(field_name);
+            var this_field = $(this);
+            var field_name = getFieldName($(this), disp_mode);
 
             // In each input sibling, wrap the current value in a textarea
             // and store the current value in a hidden span
@@ -237,24 +243,12 @@ $(document).ready(function() {
 
         // Collect values of all fields to submit, we don't know which changed
         var params_to_submit = {};
+        var relation_fields = new Array();
 
         $(input_siblings).each(function() {
 
-            if(disp_mode == 'vertical') {
-                var this_field = $(this);
-                var field_name = $(this).siblings('th').text();
-            }
-            else {
-                var this_field = $(this);
-                var this_field_index = $(this).index();
-                if(window.parent.text_dir == 'ltr') {
-                    var field_name = $(this).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
-                }
-                else {
-                    var field_name = $(this).parents('table').find('thead').find('th:nth('+ this_field_index+')').text();
-                }
-            }
-            field_name = $.trim(field_name);
+            var this_field = $(this);
+            var field_name = getFieldName($(this), disp_mode);
 
             var this_field_params = {};
             if($(this).is(":not(.relation, .enum)")) {
@@ -262,6 +256,9 @@ $(document).ready(function() {
             }
             else {
                 this_field_params[field_name] = $(this).find('select').val();
+                if($(this).is('.relation')) {
+                    relation_fields.push(field_name);
+                }
             }
 
             $.extend(params_to_submit, this_field_params);
@@ -276,6 +273,11 @@ $(document).ready(function() {
         sql_query = sql_query.replace(/,\s$/, '');
         sql_query += ' WHERE ' + where_clause;
 
+        var rel_fields_list = '';
+        if(relation_fields.length > 0) {
+            rel_fields_list = relation_fields.join();
+        }
+
         // Make the Ajax post after setting all parameters
         var post_params = {'ajax_request' : true,
                             'sql_query' : sql_query,
@@ -285,6 +287,7 @@ $(document).ready(function() {
                             'table' : window.parent.table,
                             'clause_is_unique' : nonunique,
                             'where_clause' : where_clause,
+                            'rel_fields_list' : rel_fields_list,
                             'goto' : 'sql.php'
                           };
 
@@ -300,6 +303,18 @@ $(document).ready(function() {
                     }
                     else {
                         var new_html = $(this).find('select').val();
+                        if($(this).is('.relation')) {
+                            var field_name = getFieldName($(this), disp_mode);
+                            var this_field = $(this);
+
+                            $.each(data.relations, function(key, value) {
+                                if(key == field_name) {
+                                    alert(value);
+                                    var new_value = $(this_field).find('select').val();
+                                    new_html = $(value).append(new_value);
+                                }
+                            })
+                        }
                     }
                     $(this).html(new_html);
                 })

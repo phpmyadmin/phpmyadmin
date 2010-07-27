@@ -585,7 +585,35 @@ if (0 == $num_rows || $is_affected) {
     }
     
     if( $GLOBALS['is_ajax_request'] == true) {
-        PMA_ajaxResponse($message, $message->isSuccess());
+
+        if(isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
+            //handle relations work here for updated row.
+            // @todo : $where_comparison
+            require_once './libraries/relation.lib.php';
+
+            $map = PMA_getForeigners($db, $table, '', 'both');
+
+            $rel_fields = explode(',', $rel_fields_list);
+
+            foreach( $rel_fields as $rel_field) {
+
+                $_url_params = array(
+                    'db'    => $map[$rel_field]['foreign_db'],
+                    'table' => $map[$rel_field]['foreign_table'],
+                    'pos'   => '0',
+                    'sql_query' => 'SELECT * FROM '
+                                        . PMA_backquote($map[$rel_field]['foreign_db']) . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
+                                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field'])
+                                        . $where_comparison
+                );
+
+                $extra_data['relations'][$rel_field] = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '">';
+                $extra_data['relations'][$rel_field] .= '</a>';
+            }
+        }
+        $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
+
+        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
     }
 
     if ($is_gotofile) {
