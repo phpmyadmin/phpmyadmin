@@ -236,7 +236,7 @@ msgstr "Базу даних %s скопійовано в %s"
 
 #: db_operations.php:347
 msgid "Rename database to"
-msgstr ""
+msgstr "Перейменувати базу даних в"
 
 #: db_operations.php:352 server_processlist.php:56
 msgid "Command"
