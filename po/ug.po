@@ -1693,7 +1693,7 @@ msgstr "SQL دەلىللەشتىن ئاتلاش"
 
 #: libraries/common.lib.php:1237 setup/lib/messages.inc.php:353
 msgid "Validate SQL"
-msgstr ""
+msgstr "SQL دەلىللەش"
 
 #: libraries/common.lib.php:1287
 msgid "Inline edit of this query"
