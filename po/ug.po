@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 12:30+0200\n"
+"PO-Revision-Date: 2010-07-27 12:31+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1641,7 +1641,7 @@ msgstr "en"
 #: libraries/common.lib.php:412
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #: libraries/common.lib.php:425 libraries/common.lib.php:427
 #: libraries/common.lib.php:429 libraries/common.lib.php:445
