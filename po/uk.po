@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 23:22+0200\n"
+"PO-Revision-Date: 2010-07-27 23:28+0200\n"
 "Last-Translator:  <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -303,7 +303,7 @@ msgstr ""
 
 #: db_operations.php:465
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Перейти до скопійованої бази даних"
 
 #: db_operations.php:485 libraries/Index.class.php:447
 #: libraries/db_structure.lib.php:53 libraries/mysql_charsets.lib.php:106
