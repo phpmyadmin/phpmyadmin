@@ -1685,7 +1685,7 @@ msgstr "PHP كودى قۇرۇش"
 #: libraries/common.lib.php:1225 server_status.php:451
 #: setup/lib/messages.inc.php:351
 msgid "Refresh"
-msgstr ""
+msgstr "يېڭلاش"
 
 #: libraries/common.lib.php:1234
 msgid "Skip Validate SQL"
