@@ -217,8 +217,9 @@ function PMA_persist_option($path, $value, $default_value)
  * @param array  $old_settings
  * @param string $file_name
  * @param array  $params
+ * @param string $hash
  */
-function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $params = null)
+function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $params = null, $hash = null)
 {
     $reload_left_frame = isset($params['reload_left_frame']) && $params['reload_left_frame'];
     if (!$reload_left_frame) {
@@ -243,8 +244,11 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $
     if (is_array($params)) {
         $url_params = array_merge($params, $url_params);
     }
+    if ($hash) {
+        $hash = '#' . urlencode($hash);
+    }
     PMA_sendHeaderLocation($GLOBALS['cfg']['PmaAbsoluteUri'] . $file_name
-            . PMA_generate_common_url($url_params, '&'));
+            . PMA_generate_common_url($url_params, '&') . $hash);
 }
 
 function PMA_userprefs_autoload_header()

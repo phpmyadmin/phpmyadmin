@@ -498,6 +498,7 @@ function setTab(tab_id) {
     $('.tabs a').removeClass('active').filter('[href=' + tab_id + ']').addClass('active');
     $('.tabs_contents fieldset').hide().filter(tab_id).show();
     location.hash = 'tab_' + tab_id.substr(1);
+    $('.config-form input[name=tab_hash]').val(location.hash);
 }
 
 $(function() {

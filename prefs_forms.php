@@ -61,8 +61,9 @@ if (!$form_display->process(false)) {
         $old_settings = PMA_load_userprefs();
         $result = PMA_save_userprefs($cf->getConfigArray());
         if ($result === true) {
+            $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
             PMA_userprefs_redirect($forms, $old_settings, 'prefs_forms.php', array(
-                'form' => $form_param));
+                'form' => $form_param), $hash);
             exit;
         } else {
             $result->display();

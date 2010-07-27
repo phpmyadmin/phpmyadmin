@@ -27,6 +27,7 @@ function display_form_top($action = null, $method = 'post', $hidden_fields = nul
     }
 ?>
 <form method="<?php echo $method ?>" action="<?php echo htmlspecialchars($action) ?>" class="config-form">
+<input type="hidden" name="tab_hash" value="" />
 <?php
     // we do validation on page refresh when browser remembers field values,
     // add a field with known value which will be used for checks

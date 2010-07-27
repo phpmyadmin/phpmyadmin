@@ -69,8 +69,8 @@ $msg->display();
 // warn about using session storage for settings
 $cfgRelation = PMA_getRelationsParam();
 if (!$cfgRelation['userconfigwork']) {
-    $msg = __('Your preferences will be saved for current session only. Storing them permanently requires %spmadb%s.');
-    $msg = PMA_sanitize(sprintf($msg, '[a@http://wiki.phpmyadmin.net/pma/pmadb@_blank]', '[/a]'));
+    $msg = __('Your preferences will be saved for current session only. Storing them permanently requires %sphpMyAdmin configuration storage%s.');
+    $msg = PMA_sanitize(sprintf($msg, '[a@./Documentation.html#linked-tables@_blank]', '[/a]'));
     PMA_Message::notice($msg)->display();
 }
 
