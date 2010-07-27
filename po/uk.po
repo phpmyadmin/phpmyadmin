@@ -287,7 +287,7 @@ msgstr ""
 #: libraries/export/sql.php:81 tbl_operations.php:533
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Додати %s"
 
 #: db_operations.php:448 libraries/export/sql.php:77 tbl_operations.php:296
 #: tbl_operations.php:535
