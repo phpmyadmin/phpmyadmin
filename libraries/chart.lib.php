@@ -36,7 +36,7 @@ function PMA_chart_status($data)
     }
     
     $chart = new PMA_pChart_Pie(
-            array_slice($chartData, 0, 18, true),
+            $chartData,
             array('titleText' => __('Query statistics'))
     );
     $chartCode = $chart->toString();
@@ -57,7 +57,7 @@ function PMA_chart_profiling($data)
     }
 
     $chart = new PMA_pChart_Pie(
-            array_slice($chartData, 0, 18, true),
+            $chartData,
             array('titleText' => __('Query execution time comparison (in microseconds)'))
     );
     $chartCode = $chart->toString();
@@ -99,16 +99,22 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
         return __('No data found for the chart.');
     }
 
-    if (count($data[0]) == 2) {
+    if (count($data[0]) == 1 || count($data[0] == 2)) {
         // Two columns in every row.
         // This data is suitable for a simple bar chart.
 
         if ($chartSettings['type'] == 'pie') {
             // loop through the rows, data for pie chart has to be formated
             // in a different way then in other charts.
-            foreach ($data as $row) {
+            foreach ($data as $rowKey => $row) {
                 $values = array_values($row);
-                $chartData[$values[0]] = $values[1];
+
+                if (count($row) == 1) {
+                    $chartData[$rowKey] = $values[0];
+                }
+                else {
+                    $chartData[$values[0]] = $values[1];
+                }
             }
 
             $chartSettings['legend'] = true;
@@ -116,10 +122,17 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
         }
         else {
             // loop through the rows
-            foreach ($data as $row) {
-                // loop through the columns in the row
-                foreach ($row as $key => $value) {
-                    $chartData[$key][] = $value;
+            foreach ($data as $rowKey => $row) {
+
+                // if only one column, we need to add
+                // placeholder data for x axis
+                if (count($row) == 1) {
+                    $chartData[''][] = $rowKey;
+                }
+
+                // loop through the columns in the row                
+                foreach ($row as $valueKey => $value) {
+                    $chartData[$valueKey][] = $value;
                 }
             }
 

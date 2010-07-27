@@ -6,6 +6,7 @@ class PMA_pChart_Pie extends PMA_pChart_multi
 {
     public function __construct($data, $options = null)
     {
+        $data = array_slice($data, 0, 18, true);
         parent::__construct($data, $options);
 
         $this->setAreaMargins(array(20, 10, 20, 20));
