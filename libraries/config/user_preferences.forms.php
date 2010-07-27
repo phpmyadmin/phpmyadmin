@@ -60,10 +60,6 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/ShowAsPHP',
     'SQLQuery/Validate',
     'SQLQuery/Refresh');
-$forms['Sql_queries']['Sql_validator'] = array(
-    'SQLValidator/use',
-    'SQLValidator/username',
-    'SQLValidator/password');
 $forms['Left_frame']['Left_frame'] = array(
     'LeftFrameLight',
     'LeftDisplayLogo',
