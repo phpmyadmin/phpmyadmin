@@ -551,10 +551,9 @@ msgid "Inside table(s):"
 msgstr "Всередині таблиць:"
 
 #: db_search.php:337
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "Всередині таблиць:"
+msgstr "Всередині стовпчика:"
 
 #: db_structure.php:79 db_structure.php:80 db_structure.php:92
 #: db_structure.php:93 db_structure.php:105 db_structure.php:106
