@@ -26,13 +26,13 @@ abstract class PMA_pChart_single extends PMA_pChart_chart
 
         $this->dataSet->SetAbsciseLabelSerie("Keys");
 
-        $xLabel = $this->getXLabel();
-        if (empty($xLabel)) {
-            $this->setXLabel($keys[0]);
-        }
         $yLabel = $this->getYLabel();
         if (empty($yLabel)) {
-            $this->setYLabel($keys[1]);
+            $this->setYLabel($keys[0]);
+        }
+        $xLabel = $this->getXLabel();
+        if (empty($xLabel)) {
+            $this->setXLabel($keys[1]);
         }
 
         $this->dataSet->SetXAxisName($this->getXLabel());
