@@ -18,8 +18,8 @@ abstract class PMA_pChart_single extends PMA_pChart_chart
         $keys = array_keys($this->data);
 
         // Dataset definition
-        $this->dataSet->AddPoint($values[1], "Values");
-        $this->dataSet->AddPoint($values[0], "Keys");
+        $this->dataSet->AddPoint($values[0], "Values");
+        $this->dataSet->AddPoint($values[1], "Keys");
         
         //$this->dataSet->AddAllSeries();
         $this->dataSet->AddSerie("Values");

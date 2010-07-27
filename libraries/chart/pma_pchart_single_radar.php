@@ -18,7 +18,7 @@ class PMA_pChart_single_radar extends PMA_pChart_single
     {
         $maxValue = 0;
         $keys = array_keys($this->data);
-        $valueKey = $keys[1];
+        $valueKey = $keys[0];
         $maxValue = max($this->data[$valueKey]);
 
         foreach ($this->data[$valueKey] as &$value) {

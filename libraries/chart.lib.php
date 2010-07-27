@@ -99,7 +99,7 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
         return __('No data found for the chart.');
     }
 
-    if (count($data[0]) == 1 || count($data[0] == 2)) {
+    if (count($data[0]) == 1 || count($data[0]) == 2) {
         // Two columns in every row.
         // This data is suitable for a simple bar chart.
 
@@ -113,7 +113,7 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
                     $chartData[$rowKey] = $values[0];
                 }
                 else {
-                    $chartData[$values[0]] = $values[1];
+                    $chartData[$values[1]] = $values[0];
                 }
             }
 
@@ -156,8 +156,8 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
         $chartSettings['multi'] = true;
 
         $keys = array_keys($data[0]);
-        $xAxisKey = $keys[0];
-        $yAxisKey = $keys[1];
+        $yAxisKey = $keys[0];
+        $xAxisKey = $keys[1];
         $seriesKey = $keys[2];
         
         // get all the series labels
