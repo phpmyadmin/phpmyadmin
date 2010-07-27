@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-27 12:23+0200\n"
+"PO-Revision-Date: 2010-07-27 12:25+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1604,7 +1604,7 @@ msgstr " <tt>$cfg['PmaAbsoluteUri']</tt> نى تەڭشەڭ !تەڭشەك ھۆج�
 #: libraries/common.inc.php:613
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "ئۈنۈمسىز مۇلازىمىتېر :%s"
 
 #: libraries/common.inc.php:620
 #, php-format
