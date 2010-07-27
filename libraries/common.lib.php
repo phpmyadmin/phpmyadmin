@@ -2894,7 +2894,7 @@ function PMA_expandUserString($string, $escape = NULL, $updates = array()) {
     /* Fetch fields list if required */
     if (strpos($string, '@FIELDS@') !== FALSE) {
         $fields_list = PMA_DBI_fetch_result(
-            'SHOW FULL COLUMNS FROM ' . PMA_backquote($GLOBALS['db'])
+            'SHOW COLUMNS FROM ' . PMA_backquote($GLOBALS['db'])
             . '.' . PMA_backquote($GLOBALS['table']));
 
         $field_names = array();
