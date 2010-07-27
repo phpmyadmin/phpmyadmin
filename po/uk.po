@@ -4,14 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-03-12 09:19+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-07-27 22:11+0200\n"
+"Last-Translator:  <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
-"Language: \n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1510
@@ -256,10 +258,9 @@ msgid "Database %s has been dropped."
 msgstr "Базу даних %s знищено."
 
 #: db_operations.php:396
-#, fuzzy
 #| msgid "No databases"
 msgid "Drop the database (DROP)"
-msgstr "БД відсутні"
+msgstr "Знищити базу даних (DROP)"
 
 #: db_operations.php:424
 msgid "Copy database to"
@@ -8110,240 +8111,3 @@ msgstr ""
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Enabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "дозволено"
-
-#, fuzzy
-#~| msgid "Repair table"
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Ремонтувати таблицю"
-
-#, fuzzy
-#~| msgid "Disabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "заблоковано"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr "не можу завантажити %s,<br />прошу перевірити конфігурацію PHP."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Не можу завантажити iconv чи recode extension необхідні для зміни charset-"
-#~ "у, сконфігуруйте php так, щоб можна було використовувати ці extensions, "
-#~ "або забороніть зміну charset-у у phpMyAdmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Не можу  використати ні/або iconv, ні/або libiconv, ні/або функцію "
-#~ "recode_string поки буде завантажено extension reports. Перевірте Вашу php "
-#~ "конфігурацію."
-
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Додати нове поле"
-
-#~ msgid "Field"
-#~ msgstr "Поле"
-
-#~ msgid "Records"
-#~ msgstr "Записи"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Поля розділені"
-
-#~ msgid "Fields"
-#~ msgstr "Поля"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "Поле %s було видалено"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Див. image/jpeg: inline"
-
-#, fuzzy
-#~| msgid "\"zipped\""
-#~ msgid "zipped"
-#~ msgstr "запакувати в \"zip\""
-
-#, fuzzy
-#~| msgid "\"gzipped\""
-#~ msgid "gzipped"
-#~ msgstr "запакувати в \"gzip\""
-
-#, fuzzy
-#~| msgid "\"bzipped\""
-#~ msgid "bzipped"
-#~ msgstr "запакувати в \"bzip\""
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Створити індекс на&nbsp;%s&nbsp;колонках"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Очистити кеш таблиці (\"FLUSH\")"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Опис"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Схема бази даних \"%s\" - Сторінка %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "Таблиці \"%s\" не існує!"
-
-#~ msgid "running on %s"
-#~ msgstr "на %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "Занадто малий масштаб щоб схема займала цілу сторінку"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Немає"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "Немає"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "Таблиці \"%s\" не існує!"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr "не можу завантажити %s,<br />прошу перевірити конфігурацію PHP."
-
-#, fuzzy
-#~| msgid "Cannot log in to the MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Не можу зареєструватися на MySQL сервері"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Можливо Ви знайшли помилку в парсері SQL. Прошу детальніше перевірити чи "
-#~ "коректно вжиті і не пропущені лапки у Вашому запиті. Іншою можливою "
-#~ "причиною помилки може бути те що Ви завантажили файл з двійковими даними "
-#~ "розміщеними поза взятим в лапки текстом. Спробуйте виконати Ваш запит за "
-#~ "допомогою оболонки MySQL з командної стрічки. Повідомлення MySQL сервера "
-#~ "про помилку подане нижче (якщо є таке) також може допомогти Вам у "
-#~ "визначенні проблеми. Якщо у Вас все ще виникають проблеми чи парсер видає "
-#~ "помилку, а з командної стрічки запити виконуються, прошу скоротити Ваш "
-#~ "ввідний SQL запит до одного запиту, який власне і викликає проблеми, і "
-#~ "відішліть повідомлення про помилку з порцією даних у розділі CUT нижче:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV дані"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Усунути користувачів і перезавантажити права після цього."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Це кращий спосіб, проте перезавантаження прав може потривати певний час."
-
-#~ msgid "has been altered."
-#~ msgstr "була змінена."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "&quot;Усунуті&quot; користувачі все ще матимуть доступ до сервера до тих "
-#~ "пір, поки не будуть перезавантажені права."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Щойно усунуто користувачів з таблиці прав."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Дозволити виконання збережених процедур; Неефективно для цієї версії "
-#~ "MySQL."
-
-#~ msgid "Process list"
-#~ msgstr "Список процесів"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Користувачі все ще будуть мати право КОРИСТУВАННЯ (USAGE) до тих пір, "
-#~ "поки не будуть перезавантажені права."
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "Відмітити все"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "Відмітити все"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "Вставити"
-
-#, fuzzy
-#~| msgid "Update Query"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "Доповнити запит"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "Видалити"
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"
