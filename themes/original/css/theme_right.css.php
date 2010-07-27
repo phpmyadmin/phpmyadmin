@@ -626,6 +626,13 @@ a.tabcaution:hover {
     color: #FFFFFF;
     background-color:   #FF0000;
 }
+fieldset.caution a {
+    color:              #FF0000;
+}
+fieldset.caution a:hover {
+    color:              #ffffff;
+    background-color:   #FF0000;
+}
 
 <?php if ($GLOBALS['cfg']['LightTabs']) { ?>
 /* active tab */
