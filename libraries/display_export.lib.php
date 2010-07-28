@@ -144,7 +144,7 @@ echo PMA_pluginGetJavascript($export_list);
         $trans->addMessage('@SERVER@/');
         $trans->addString(__('server name'));
         if ($export_type == 'database' || $export_type == 'table') {
-            $trans->addMessage('@DB@/');
+            $trans->addMessage('@DATABASE@/');
             $trans->addString(__('database name'));
             if ($export_type == 'table') {
                 $trans->addMessage('@TABLE@/');

@@ -2182,9 +2182,9 @@ setfacl -d -m "g:www-data:rwx" tmp
         <span id="cfg_DefaultQueryDatabase">$cfg['DefaultQueryDatabase']</span> string
     </dt>
     <dd>Default queries that will be displayed in query boxes when user didn't
-        specify any. Use %d for database name, %t for table name and %f for a
-        comma separated list of column names. Note that %t and %f are only
-        applicable to <tt>$cfg['DefaultQueryTable']</tt>.</dd>
+        specify any. You can use standard 
+        <a href="#faq6_27">format string expansion</a>.
+        </dd>
 
     <dt id="cfg_SQP_fmtType">$cfg['SQP']['fmtType'] string [<tt>html</tt>|<tt>none</tt>]</dt>
     <dd>
@@ -4353,6 +4353,8 @@ chmod o+rwx tmp
         <dd>Currently opened database</dd>
     <dt><code>@TABLE@</code></dt>
         <dd>Currently opened table</dd>
+    <dt><code>@FIELDS@</code></dt>
+        <dd>Fields of currently opened table</dd>
     <dt><code>@PHPMYADMIN@</code></dt>
         <dd>phpMyAdmin with version</dd>
 </dl>

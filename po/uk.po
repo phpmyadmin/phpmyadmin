@@ -3,15 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-26 17:18+0200\n"
-"PO-Revision-Date: 2010-03-12 09:19+0100\n"
-"Last-Translator: Automatically generated\n"
+"POT-Creation-Date: 2010-07-28 05:45-0400\n"
+"PO-Revision-Date: 2010-07-27 23:41+0200\n"
+"Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
-"Language: \n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1510
@@ -31,20 +33,23 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"Активне вікно оглядача неможливо оновити. Можливо ви закрили батьківське "
+"вікно, або налаштування безпеки Вашого оглядача блокують між-віконні "
+"оновлення."
 
 #: browse_foreigners.php:148 db_structure.php:77 db_structure.php:78
 #: db_structure.php:89 db_structure.php:91 db_structure.php:102
 #: db_structure.php:104 libraries/common.lib.php:2834
-#: libraries/common.lib.php:2841 libraries/db_links.inc.php:73
+#: libraries/common.lib.php:2841 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "Шукати"
 
 #: browse_foreigners.php:151 db_operations.php:320 db_operations.php:364
-#: db_operations.php:434 db_operations.php:458 db_search.php:344
+#: db_operations.php:468 db_operations.php:492 db_search.php:344
 #: db_structure.php:552 js/messages.php:48 libraries/Config.class.php:1043
 #: libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:278 libraries/common.lib.php:712
+#: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:712
 #: libraries/common.lib.php:1344 libraries/common.lib.php:2294
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
@@ -52,8 +57,8 @@ msgstr "Шукати"
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:530
 #: libraries/display_tbl.lib.php:612 libraries/replication_gui.lib.php:75
 #: libraries/replication_gui.lib.php:371 libraries/select_server.lib.php:101
-#: libraries/sql_query_form.lib.php:390 libraries/sql_query_form.lib.php:460
-#: libraries/sql_query_form.lib.php:525 libraries/tbl_properties.inc.php:780
+#: libraries/sql_query_form.lib.php:377 libraries/sql_query_form.lib.php:447
+#: libraries/sql_query_form.lib.php:512 libraries/tbl_properties.inc.php:780
 #: main.php:127 navigation.php:230 pdf_pages.php:290 pdf_pages.php:326
 #: pdf_pages.php:528 pmd_pdf.php:113 server_binlog.php:128
 #: server_privileges.php:663 server_privileges.php:1620
@@ -63,7 +68,7 @@ msgstr "Шукати"
 #: server_synchronize.php:1207 tbl_change.php:323 tbl_change.php:1070
 #: tbl_change.php:1107 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:496 tbl_operations.php:558
-#: tbl_operations.php:678 tbl_select.php:323 tbl_structure.php:559
+#: tbl_operations.php:726 tbl_select.php:323 tbl_structure.php:559
 #: tbl_structure.php:594 tbl_tracking.php:389 tbl_tracking.php:506
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -83,7 +88,7 @@ msgstr "Опис"
 #: browse_foreigners.php:245 browse_foreigners.php:254
 #: browse_foreigners.php:266 browse_foreigners.php:274
 msgid "Use this value"
-msgstr ""
+msgstr "Використовувати це значення"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 msgid "No blob streaming server configured!"
@@ -91,16 +96,16 @@ msgstr ""
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "Отримання заголовків невдале"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Відкривання зовнішнього посилання URL невдале"
 
 #: db_create.php:44
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "Базу даних %1$s створено."
 
 #: db_datadict.php:48 db_operations.php:313
 msgid "Database comment: "
@@ -119,10 +124,9 @@ msgstr "Коментар до таблиці"
 #: tbl_indexes.php:187 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:132 tbl_structure.php:175 tbl_tracking.php:267
 #: tbl_tracking.php:318
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Назви колонок"
+msgstr "Стовпчик"
 
 #: db_datadict.php:174 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
@@ -220,21 +224,21 @@ msgstr "Зняти всі відмітки"
 
 #: db_operations.php:33 tbl_create.php:47
 msgid "The database name is empty!"
-msgstr ""
+msgstr "Ім'я бази даних порожнє!"
 
 #: db_operations.php:231
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "Базу даних %s перейменовано в %s"
 
 #: db_operations.php:235
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "Базу даних %s скопійовано в %s"
 
 #: db_operations.php:347
 msgid "Rename database to"
-msgstr ""
+msgstr "Перейменувати базу даних в"
 
 #: db_operations.php:352 server_processlist.php:56
 msgid "Command"
@@ -242,49 +246,64 @@ msgstr "Команда"
 
 #: db_operations.php:364 tbl_change.php:1039
 msgid "and then"
-msgstr ""
+msgstr "і потім"
 
-#: db_operations.php:390
+#: db_operations.php:379
+#| msgid "No databases"
+msgid "Remove database"
+msgstr "Видалити базу даних"
+
+#: db_operations.php:391
+#, php-format
+msgid "Database %s has been dropped."
+msgstr "Базу даних %s знищено."
+
+#: db_operations.php:396
+#| msgid "No databases"
+msgid "Drop the database (DROP)"
+msgstr "Знищити базу даних (DROP)"
+
+#: db_operations.php:424
 msgid "Copy database to"
-msgstr ""
+msgstr "Копіювати базу даних в"
 
-#: db_operations.php:397 tbl_operations.php:525 tbl_tracking.php:382
+#: db_operations.php:431 tbl_operations.php:525 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "Лише структуру"
 
-#: db_operations.php:398 tbl_operations.php:526 tbl_tracking.php:384
+#: db_operations.php:432 tbl_operations.php:526 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "Структуру і дані"
 
-#: db_operations.php:399 tbl_operations.php:527 tbl_tracking.php:383
+#: db_operations.php:433 tbl_operations.php:527 tbl_tracking.php:383
 msgid "Data only"
 msgstr "Лише дані"
 
-#: db_operations.php:407
+#: db_operations.php:441
 msgid "CREATE DATABASE before copying"
 msgstr ""
 
-#: db_operations.php:410 libraries/export/sql.php:51
+#: db_operations.php:444 libraries/export/sql.php:51
 #: libraries/export/sql.php:73 libraries/export/sql.php:75
 #: libraries/export/sql.php:81 tbl_operations.php:533
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Додати %s"
 
-#: db_operations.php:414 libraries/export/sql.php:77 tbl_operations.php:296
+#: db_operations.php:448 libraries/export/sql.php:77 tbl_operations.php:296
 #: tbl_operations.php:535
 msgid "Add AUTO_INCREMENT value"
 msgstr ""
 
-#: db_operations.php:418 tbl_operations.php:542
+#: db_operations.php:452 tbl_operations.php:542
 msgid "Add constraints"
 msgstr ""
 
-#: db_operations.php:431
+#: db_operations.php:465
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Перейти до скопійованої бази даних"
 
-#: db_operations.php:451 libraries/Index.class.php:447
+#: db_operations.php:485 libraries/Index.class.php:447
 #: libraries/db_structure.lib.php:53 libraries/mysql_charsets.lib.php:106
 #: libraries/tbl_properties.inc.php:106 libraries/tbl_properties.inc.php:728
 #: server_collations.php:53 server_collations.php:65 server_databases.php:108
@@ -293,7 +312,7 @@ msgstr ""
 msgid "Collation"
 msgstr "Порівняння"
 
-#: db_operations.php:464 pdf_schema.php:32
+#: db_operations.php:498 pdf_schema.php:32
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -305,7 +324,7 @@ msgstr ""
 "Додаткова можливість роботи із залінкованими таблицями деактивована. Для "
 "того, щоб довідатись чому, натисніть %sтут%s."
 
-#: db_operations.php:497
+#: db_operations.php:531
 msgid "Edit PDF Pages"
 msgstr "Редагувати PDF Сторінки"
 
@@ -353,15 +372,16 @@ msgid "Last check"
 msgstr "Перевірено"
 
 #: db_printview.php:220 db_structure.php:465
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s таблиц(і)"
-msgstr[1] "%s таблиц(і)"
+msgstr[0] "%s таблиця"
+msgstr[1] "%s таблиці"
+msgstr[2] "%s таблиць"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
-#: libraries/display_tbl.lib.php:1939 libraries/sql_query_form.lib.php:138
+#: libraries/display_tbl.lib.php:1939 libraries/sql_query_form.lib.php:136
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:129
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -423,16 +443,14 @@ msgid "Modify"
 msgstr "Змінити"
 
 #: db_qbe.php:580
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Додати/забрати рядок критерію"
+msgstr "Додати/Прибрати рядки критеріїв"
 
 #: db_qbe.php:592
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Додати/забрати колонку критерію"
+msgstr "Додати/Прибрати колонки"
 
 #: db_qbe.php:605 db_qbe.php:630
 msgid "Update Query"
@@ -453,7 +471,7 @@ msgstr "Виконати запит"
 
 #: db_search.php:50 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:640 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:182
 msgid "Access denied"
 msgstr "Доступ заборонено"
@@ -496,7 +514,7 @@ msgid "Browse"
 msgstr "Переглянути"
 
 #: db_search.php:254 libraries/display_tbl.lib.php:1163
-#: libraries/display_tbl.lib.php:2014 libraries/sql_query_form.lib.php:453
+#: libraries/display_tbl.lib.php:2014 libraries/sql_query_form.lib.php:440
 #: pdf_pages.php:284 pdf_pages.php:423 pdf_pages.php:459 pdf_pages.php:487
 #: pmd_general.php:376 setup/frames/index.inc.php:125
 #: setup/frames/index.inc.php:216 tbl_row_action.php:62
@@ -504,12 +522,13 @@ msgid "Delete"
 msgstr "Видалити"
 
 #: db_search.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Разом:</b> <i>%s</i> співпадіння"
-msgstr[1] "<b>Разом:</b> <i>%s</i> співпадіння"
+msgstr[0] "<b>Всього:</b> <i>%s</i> співпадіння"
+msgstr[1] "<b>Всього:</b> <i>%s</i> співпадінь"
+msgstr[2] "<b>Всього:</b> <i>%s</i> співпадінь"
 
 #: db_search.php:281
 msgid "Search in database"
@@ -532,21 +551,20 @@ msgid "Inside table(s):"
 msgstr "Всередині таблиць:"
 
 #: db_search.php:337
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "Всередині таблиць:"
+msgstr "Всередині стовпчика:"
 
 #: db_structure.php:79 db_structure.php:80 db_structure.php:92
 #: db_structure.php:93 db_structure.php:105 db_structure.php:106
-#: libraries/common.lib.php:2835 libraries/sql_query_form.lib.php:324
-#: libraries/sql_query_form.lib.php:327 libraries/tbl_links.inc.php:74
+#: libraries/common.lib.php:2835 libraries/sql_query_form.lib.php:311
+#: libraries/sql_query_form.lib.php:314 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Вставити"
 
 #: db_structure.php:81 db_structure.php:94 db_structure.php:107
 #: libraries/common.lib.php:2832 libraries/common.lib.php:2839
-#: libraries/db_links.inc.php:61 libraries/export/htmlword.php:22
+#: libraries/db_links.inc.php:48 libraries/export/htmlword.php:22
 #: libraries/export/latex.php:37 libraries/export/latex.php:341
 #: libraries/export/odt.php:31 libraries/export/sql.php:59
 #: libraries/export/texytext.php:23 libraries/import.lib.php:1136
@@ -559,8 +577,7 @@ msgstr "Структура"
 #: db_structure.php:96 db_structure.php:108 db_structure.php:109
 #: db_structure.php:530 db_structure.php:531 db_tracking.php:86
 #: libraries/Index.class.php:482 libraries/common.lib.php:1663
-#: libraries/db_links.inc.php:98 libraries/mult_submits.inc.php:35
-#: libraries/mult_submits.inc.php:72 libraries/tbl_links.inc.php:125
+#: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
 #: server_databases.php:349 tbl_structure.php:25 tbl_structure.php:149
 #: tbl_structure.php:150 tbl_structure.php:468
 msgid "Drop"
@@ -569,21 +586,21 @@ msgstr "Знищити"
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
 #: db_structure.php:528 db_structure.php:529 libraries/common.lib.php:1662
-#: libraries/mult_submits.inc.php:38 libraries/tbl_links.inc.php:103
+#: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "Очистити"
 
-#: db_structure.php:301 libraries/tbl_links.inc.php:98
+#: db_structure.php:301 tbl_operations.php:653
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Таблицю %s було очищено"
 
-#: db_structure.php:311 libraries/tbl_links.inc.php:131
+#: db_structure.php:311 tbl_operations.php:670
 #, php-format
 msgid "View %s has been dropped"
 msgstr ""
 
-#: db_structure.php:311 libraries/tbl_links.inc.php:131
+#: db_structure.php:311 tbl_operations.php:670
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Таблицю %s було знищено"
@@ -599,8 +616,8 @@ msgstr ""
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:125
@@ -673,7 +690,7 @@ msgstr "Ремонтувати таблицю"
 msgid "Analyze table"
 msgstr "Аналіз таблиці"
 
-#: db_structure.php:542 db_structure.php:543 libraries/db_links.inc.php:69
+#: db_structure.php:542 db_structure.php:543 libraries/db_links.inc.php:56
 #: libraries/display_export.lib.php:76 libraries/display_tbl.lib.php:2052
 #: libraries/display_tbl.lib.php:2183 libraries/mult_submits.inc.php:61
 #: libraries/server_links.inc.php:83 libraries/tbl_links.inc.php:80
@@ -796,8 +813,8 @@ msgstr "Dump збережено у файл %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1383,7 +1400,7 @@ msgid "Databases"
 msgstr "Бази Даних"
 
 #: libraries/Message.class.php:210 libraries/common.lib.php:574
-#: libraries/core.lib.php:236 libraries/import.lib.php:134 pdf_schema.php:30
+#: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
 msgid "Error"
@@ -1486,7 +1503,7 @@ msgid "Cannot connect: invalid settings."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:205 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:206 libraries/auth/http.auth.lib.php:64
 #: test/theme.php:151
 #, php-format
 msgid "Welcome to %s"
@@ -1495,8 +1512,8 @@ msgstr "Ласкаво просимо до %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -1511,56 +1528,56 @@ msgstr ""
 "config.inc.php та впевнитися, що вони відповідають даним отриманим Вами від "
 "адміністратора MySQL сервера."
 
-#: libraries/auth/cookie.auth.lib.php:230
+#: libraries/auth/cookie.auth.lib.php:231
 msgid "Log in"
 msgstr "Вхід в систему"
 
-#: libraries/auth/cookie.auth.lib.php:232
-#: libraries/auth/cookie.auth.lib.php:234
+#: libraries/auth/cookie.auth.lib.php:233
+#: libraries/auth/cookie.auth.lib.php:235
 #: libraries/navigation_header.inc.php:92
 #: libraries/navigation_header.inc.php:94
 msgid "phpMyAdmin documentation"
 msgstr "Документація по phpMyAdmin"
 
-#: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:245
+#: libraries/auth/cookie.auth.lib.php:246
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:245
 msgid "Server:"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:249
+#: libraries/auth/cookie.auth.lib.php:250
 msgid "Username:"
 msgstr "Ім'я користувача:"
 
-#: libraries/auth/cookie.auth.lib.php:253
+#: libraries/auth/cookie.auth.lib.php:254
 msgid "Password:"
 msgstr "Пароль:"
 
-#: libraries/auth/cookie.auth.lib.php:260
+#: libraries/auth/cookie.auth.lib.php:261
 msgid "Server Choice"
 msgstr "Вибір сервера"
 
-#: libraries/auth/cookie.auth.lib.php:306 libraries/header.inc.php:58
+#: libraries/auth/cookie.auth.lib.php:307 libraries/header.inc.php:58
 msgid "Cookies must be enabled past this point."
 msgstr "З цього моменту Cookies повинні бути дозволені."
 
-#: libraries/auth/cookie.auth.lib.php:638
+#: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:642
+#: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:184
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:652
-#: libraries/auth/cookie.auth.lib.php:654
+#: libraries/auth/cookie.auth.lib.php:653
+#: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:190
 msgid "Cannot log in to the MySQL server"
 msgstr "Не можу зареєструватися на MySQL сервері"
@@ -1680,7 +1697,7 @@ msgstr ""
 #: libraries/common.lib.php:447 libraries/dbg/setup.php:24
 #: libraries/display_export.lib.php:157 libraries/engines/pbms.lib.php:72
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:79
-#: libraries/sql_query_form.lib.php:434 libraries/sql_query_form.lib.php:437
+#: libraries/sql_query_form.lib.php:421 libraries/sql_query_form.lib.php:424
 #: main.php:228 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Документація"
@@ -1821,19 +1838,19 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
 #: libraries/common.lib.php:2833 libraries/common.lib.php:2840
-#: libraries/db_links.inc.php:66 libraries/export/sql.php:24
+#: libraries/db_links.inc.php:53 libraries/export/sql.php:24
 #: libraries/import/sql.php:17 libraries/server_links.inc.php:44
 #: libraries/tbl_links.inc.php:58 querywindow.php:88 test/theme.php:96
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2842 libraries/db_links.inc.php:102
-#: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:115
+#: libraries/common.lib.php:2842 libraries/db_links.inc.php:86
+#: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:102
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Операцій"
 
-#: libraries/core.lib.php:259 libraries/dbg/setup.php:21
+#: libraries/core.lib.php:265 libraries/dbg/setup.php:21
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -1849,36 +1866,31 @@ msgstr ""
 msgid "Name"
 msgstr "Назва"
 
-#: libraries/db_links.inc.php:43
-#, php-format
-msgid "Database %s has been dropped."
-msgstr "Базу даних %s знищено."
-
-#: libraries/db_links.inc.php:55 libraries/db_links.inc.php:56
-#: libraries/db_links.inc.php:57
+#: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
+#: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: libraries/db_links.inc.php:79 libraries/relation.lib.php:137
+#: libraries/db_links.inc.php:66 libraries/relation.lib.php:137
 #: libraries/tbl_links.inc.php:67
 msgid "Tracking"
 msgstr ""
 
-#: libraries/db_links.inc.php:84
+#: libraries/db_links.inc.php:71
 msgid "Query"
 msgstr "Запит згідно прикладу"
 
-#: libraries/db_links.inc.php:89 libraries/relation.lib.php:133
+#: libraries/db_links.inc.php:76 libraries/relation.lib.php:133
 msgid "Designer"
 msgstr ""
 
-#: libraries/db_links.inc.php:96 libraries/server_links.inc.php:87
+#: libraries/db_links.inc.php:83 libraries/server_links.inc.php:87
 #: libraries/tbl_links.inc.php:89 pmd_pdf.php:81 pmd_pdf.php:107
 #: setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr ""
 
-#: libraries/db_links.inc.php:109 libraries/server_links.inc.php:65
+#: libraries/db_links.inc.php:93 libraries/server_links.inc.php:65
 #: server_privileges.php:110 server_privileges.php:1718
 #: server_privileges.php:2067 test/theme.php:116
 msgid "Privileges"
@@ -2031,8 +2043,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 
 #: libraries/display_export.lib.php:196
@@ -2040,7 +2052,7 @@ msgid "remember template"
 msgstr "запам'ятати шаблон"
 
 #: libraries/display_export.lib.php:204 libraries/display_import.lib.php:177
-#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:522
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "Кодування файлу:"
 
@@ -2093,7 +2105,7 @@ msgstr ""
 msgid "File to import"
 msgstr ""
 
-#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:497
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:484
 msgid "Location of the text file"
 msgstr "вкажіть розташування текстового файлу"
 
@@ -2101,12 +2113,12 @@ msgstr "вкажіть розташування текстового файлу"
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:506
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Встановлений Вами каталог для завантаження файлів недоступний"
 
-#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:509
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:925
 msgid "web server upload directory"
 msgstr "каталог веб-сервера для завантаження файлів (upload directory)"
@@ -3449,7 +3461,7 @@ msgstr ""
 "За інформацією як поновити Вашу таблицю Column_comments прошу дивитись у "
 "Документації"
 
-#: libraries/relation.lib.php:125 libraries/sql_query_form.lib.php:416
+#: libraries/relation.lib.php:125 libraries/sql_query_form.lib.php:403
 msgid "Bookmarked SQL query"
 msgstr "Закладка на SQL-запит"
 
@@ -3514,7 +3526,7 @@ msgstr ""
 msgid "Slave status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:428
+#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:415
 #: server_status.php:736 server_variables.php:51
 msgid "Variable"
 msgstr "Змінна"
@@ -3641,51 +3653,51 @@ msgstr ""
 msgid "Target database"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:219
+#: libraries/sql_query_form.lib.php:217
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:236 libraries/sql_query_form.lib.php:261
+#: libraries/sql_query_form.lib.php:234 libraries/sql_query_form.lib.php:258
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Виконати SQL запит(и) до БД %s"
 
-#: libraries/sql_query_form.lib.php:307
+#: libraries/sql_query_form.lib.php:294
 #, fuzzy
 #| msgid "Column names"
 msgid "Columns"
 msgstr "Назви колонок"
 
-#: libraries/sql_query_form.lib.php:342 sql.php:657 sql.php:658 sql.php:675
+#: libraries/sql_query_form.lib.php:329 sql.php:657 sql.php:658 sql.php:675
 msgid "Bookmark this SQL query"
 msgstr "Закладка на даний SQL-запит"
 
-#: libraries/sql_query_form.lib.php:349 sql.php:669
+#: libraries/sql_query_form.lib.php:336 sql.php:669
 msgid "Let every user access this bookmark"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:355
+#: libraries/sql_query_form.lib.php:342
 msgid "Replace existing bookmark of same name"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:371
+#: libraries/sql_query_form.lib.php:358
 msgid "Do not overwrite this query from outside the window"
 msgstr "Не перекривати цей запит в інших вікнах"
 
-#: libraries/sql_query_form.lib.php:378
+#: libraries/sql_query_form.lib.php:365
 msgid "Delimiter"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:386
+#: libraries/sql_query_form.lib.php:373
 msgid " Show this query here again "
 msgstr " Показати даний запит знову "
 
-#: libraries/sql_query_form.lib.php:445
+#: libraries/sql_query_form.lib.php:432
 msgid "Submit"
 msgstr "Виконати"
 
-#: libraries/sql_query_form.lib.php:449
+#: libraries/sql_query_form.lib.php:436
 msgid "View only"
 msgstr "Лише перегляд"
 
@@ -3758,12 +3770,11 @@ msgstr ""
 "Не можу запустити перевірку SQL. Прошу проконтролювати чи заінстальовано "
 "необхідні php extensions як описано в %sдокументації%s."
 
-#: libraries/tbl_links.inc.php:105 libraries/tbl_links.inc.php:138
-#: libraries/tbl_links.inc.php:139
+#: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
 msgstr ""
 
-#: libraries/tbl_links.inc.php:147
+#: libraries/tbl_links.inc.php:115
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr ""
@@ -3773,7 +3784,6 @@ msgid "Length/Values"
 msgstr "Довжини/Значення*"
 
 #: libraries/tbl_properties.inc.php:104
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -3785,10 +3795,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Для типів поля \"enum\" та \"set\", введіть значення згідно такого формату: "
-"'a','b','c'...<br />Якщо вам буде потрібно ввести зворотню косу риску (\"\\"
-"\"\") або поодинокі лапки (\"'\") посеред цих значень, поставте перед ними "
-"зворотню косу риску (наприклад, '\\\\xyz' чи 'a\\'b')."
+"Для типів поля \"enum\" або \"set\", введіть значення в такому форматі: "
+"'a','b','c'...<br />Якщо вам буде потрібно ввести зворотню косу риску (\"\\\") "
+"або поодинокі лапки (\"'\") посеред цих значень, поставте перед ними зворотню "
+"косу риску (наприклад, '\\\\xyz' чи 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -3809,8 +3819,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Щоб отримати список можливих опцій і їх MIME-type перетворень, натисніть "
-"%sописи перетворень%s"
+"Щоб отримати список можливих опцій і їх MIME-type перетворень, натисніть %"
+"sописи перетворень%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -3823,10 +3833,10 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Прошу вписати значення опцій перетворення у такому форматі: 'a', 100, "
-"b,'c'...<br />Якщо необхідно подати зворотній слеш (\"\\\") чи поодинокі "
-"лапки (\"'\") у цих значеннях, поставте перед ними додатковий зворотній слеш "
-"(наприклад '\\\\xyz' чи 'a\\'b')."
+"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'...<br "
+"/>Якщо необхідно ввести зворотній слеш (\"\\\") чи поодинокі лапки (\"'\") у цих "
+"значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\\\xyz' "
+"чи 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:391
 #, fuzzy
@@ -3845,7 +3855,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Немає опису для цього перетворення.<br />Прошу питатися автора, що робить %s."
+"Немає опису для цього перетворення.<br />Прошу питатися автора, що робить %"
+"s."
 
 #: libraries/tbl_properties.inc.php:724 server_engines.php:56
 #: tbl_operations.php:352
@@ -3864,10 +3875,10 @@ msgid "Save"
 msgstr "Зберегти"
 
 #: libraries/tbl_properties.inc.php:778 tbl_structure.php:539
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add into comments"
 msgid "Add %s column(s)"
-msgstr "Додати коментар"
+msgstr "Додати %s стовпчик(ів)"
 
 #: libraries/tbl_properties.inc.php:782 tbl_structure.php:533
 #, fuzzy
@@ -3955,14 +3966,15 @@ msgstr ""
 "показано без переформатування (за замовчуванням: 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "Зберігає початкове форматування поля. Не вносяться модифікації."
+msgstr ""
+"Відображує вміст поля як воно є, не пропускаючи його через функцію "
+"htmlspecialchars(). Це значить що поле передбачає містити справжній HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
 #, fuzzy
@@ -4422,7 +4434,7 @@ msgstr "Не вибрано бази даних."
 #: server_databases.php:60
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "%s баз(а\\и) даних успішно знищено."
+msgstr "%s база(и) даних успішно знищено."
 
 #: server_databases.php:85
 msgid "Databases statistics"
@@ -4742,9 +4754,9 @@ msgid "You have added a new user."
 msgstr "Було додано нового користувача."
 
 #: server_privileges.php:1184
-#, fuzzy, php-format
+#, php-format
 msgid "You have updated the privileges for %s."
-msgstr "Було змінено привілеї для"
+msgstr "Ви оновили привілеї для %s."
 
 #: server_privileges.php:1208
 #, php-format
@@ -4821,8 +4833,8 @@ msgstr "Усунути бази даних, які мають такі ж наз
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Примітка: phpMyAdmin отримує права користувачів безпосередньо з таблиці прав "
 "MySQL. Зміст цієї таблиці може відрізнятися від прав, які використовуються "
@@ -7714,40 +7726,56 @@ msgstr "Було очищено кеш таблиці %s"
 msgid "Flush the table (FLUSH)"
 msgstr "Очистити кеш таблиці (\"FLUSH\")"
 
-#: tbl_operations.php:648
+#: tbl_operations.php:642
+#, fuzzy
+#| msgid "Dumping data for table"
+msgid "Delete data or table"
+msgstr "Дамп даних таблиці"
+
+#: tbl_operations.php:657
+msgid "Empty the table (TRUNCATE)"
+msgstr ""
+
+#: tbl_operations.php:675
+#, fuzzy
+#| msgid "No databases"
+msgid "Delete the table (DROP)"
+msgstr "БД відсутні"
+
+#: tbl_operations.php:696
 msgid "Partition maintenance"
 msgstr ""
 
-#: tbl_operations.php:656
+#: tbl_operations.php:704
 #, php-format
 msgid "Partition %s"
 msgstr ""
 
-#: tbl_operations.php:659
+#: tbl_operations.php:707
 msgid "Analyze"
 msgstr ""
 
-#: tbl_operations.php:660
+#: tbl_operations.php:708
 msgid "Check"
 msgstr ""
 
-#: tbl_operations.php:661
+#: tbl_operations.php:709
 msgid "Optimize"
 msgstr ""
 
-#: tbl_operations.php:662
+#: tbl_operations.php:710
 msgid "Rebuild"
 msgstr ""
 
-#: tbl_operations.php:663
+#: tbl_operations.php:711
 msgid "Repair"
 msgstr ""
 
-#: tbl_operations.php:675
+#: tbl_operations.php:723
 msgid "Remove partitioning"
 msgstr ""
 
-#: tbl_operations.php:701
+#: tbl_operations.php:749
 msgid "Check referential integrity:"
 msgstr "Перевір цілісність даних на рівні посилань:"
 
@@ -8088,240 +8116,3 @@ msgstr ""
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Enabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "дозволено"
-
-#, fuzzy
-#~| msgid "Repair table"
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Ремонтувати таблицю"
-
-#, fuzzy
-#~| msgid "Disabled"
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "заблоковано"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr "не можу завантажити %s,<br />прошу перевірити конфігурацію PHP."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Не можу завантажити iconv чи recode extension необхідні для зміни charset-"
-#~ "у, сконфігуруйте php так, щоб можна було використовувати ці extensions, "
-#~ "або забороніть зміну charset-у у phpMyAdmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Не можу  використати ні/або iconv, ні/або libiconv, ні/або функцію "
-#~ "recode_string поки буде завантажено extension reports. Перевірте Вашу php "
-#~ "конфігурацію."
-
-#, fuzzy
-#~| msgid "Add new field"
-#~ msgid "Add field"
-#~ msgstr "Додати нове поле"
-
-#~ msgid "Field"
-#~ msgstr "Поле"
-
-#~ msgid "Records"
-#~ msgstr "Записи"
-
-#~ msgid "Fields terminated by"
-#~ msgstr "Поля розділені"
-
-#~ msgid "Fields"
-#~ msgstr "Поля"
-
-#~ msgid "Field %s has been dropped"
-#~ msgstr "Поле %s було видалено"
-
-#~ msgid "See image/jpeg: inline"
-#~ msgstr "Див. image/jpeg: inline"
-
-#, fuzzy
-#~| msgid "\"zipped\""
-#~ msgid "zipped"
-#~ msgstr "запакувати в \"zip\""
-
-#, fuzzy
-#~| msgid "\"gzipped\""
-#~ msgid "gzipped"
-#~ msgstr "запакувати в \"gzip\""
-
-#, fuzzy
-#~| msgid "\"bzipped\""
-#~ msgid "bzipped"
-#~ msgstr "запакувати в \"bzip\""
-
-#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
-#~ msgstr "Створити індекс на&nbsp;%s&nbsp;колонках"
-
-#~ msgid "Flush the table (\"FLUSH\")"
-#~ msgstr "Очистити кеш таблиці (\"FLUSH\")"
-
-#~ msgctxt "$strMIME_description"
-#~ msgid "Description"
-#~ msgstr "Опис"
-
-#~ msgid "Schema of the \"%s\" database - Page %s"
-#~ msgstr "Схема бази даних \"%s\" - Сторінка %s"
-
-#~ msgid "The \"%s\" table doesn't exist!"
-#~ msgstr "Таблиці \"%s\" не існує!"
-
-#~ msgid "running on %s"
-#~ msgstr "на %s"
-
-#~ msgid "The scale factor is too small to fit the schema on one page"
-#~ msgstr "Занадто малий масштаб щоб схема займала цілу сторінку"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "None action"
-#~ msgid "None"
-#~ msgstr "Немає"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "Немає"
-
-#, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
-#~ msgid "The %s table doesn"
-#~ msgstr "Таблиці \"%s\" не існує!"
-
-#, fuzzy
-#~| msgid ""
-#~| "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~| "extension. Please check your PHP configuration."
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
-#~ "Please check your PHP configuration."
-#~ msgstr "не можу завантажити %s,<br />прошу перевірити конфігурацію PHP."
-
-#, fuzzy
-#~| msgid "Cannot log in to the MySQL server"
-#~ msgid "(or the local MySQL server"
-#~ msgstr "Не можу зареєструватися на MySQL сервері"
-
-#, fuzzy
-#~| msgid ""
-#~| "There is a chance that you may have found a bug in the SQL parser. "
-#~| "Please examine your query closely, and check that the quotes are correct "
-#~| "and not mis-matched. Other possible failure causes may be that you are "
-#~| "uploading a file with binary outside of a quoted text area. You can also "
-#~| "try your query on the MySQL command line interface. The MySQL server "
-#~| "error output below, if there is any, may also help you in diagnosing the "
-#~| "problem. If you still have problems or if the parser fails where the "
-#~| "command line interface succeeds, please reduce your SQL query input to "
-#~| "the single query that causes problems, and submit a bug report with the "
-#~| "data chunk in the CUT section below:"
-#~ msgid ""
-#~ "There is a chance that you may have found a bug in the SQL parser. Please "
-#~ "examine your query closely, and check that the quotes are correct and not "
-#~ "mis-matched. Other possible failure causes may be that you are uploading "
-#~ "a file with binary outside of a quoted text area. You can also try your "
-#~ "query on the MySQL command line interface. The MySQL server error output "
-#~ "be . "
-#~ msgstr ""
-#~ "Можливо Ви знайшли помилку в парсері SQL. Прошу детальніше перевірити чи "
-#~ "коректно вжиті і не пропущені лапки у Вашому запиті. Іншою можливою "
-#~ "причиною помилки може бути те що Ви завантажили файл з двійковими даними "
-#~ "розміщеними поза взятим в лапки текстом. Спробуйте виконати Ваш запит за "
-#~ "допомогою оболонки MySQL з командної стрічки. Повідомлення MySQL сервера "
-#~ "про помилку подане нижче (якщо є таке) також може допомогти Вам у "
-#~ "визначенні проблеми. Якщо у Вас все ще виникають проблеми чи парсер видає "
-#~ "помилку, а з командної стрічки запити виконуються, прошу скоротити Ваш "
-#~ "ввідний SQL запит до одного запиту, який власне і викликає проблеми, і "
-#~ "відішліть повідомлення про помилку з порцією даних у розділі CUT нижче:"
-
-#~ msgctxt "$strStrucCSV"
-#~ msgid "CSV"
-#~ msgstr "CSV дані"
-
-#~ msgid "Delete the users and reload the privileges afterwards."
-#~ msgstr "Усунути користувачів і перезавантажити права після цього."
-
-#~ msgid ""
-#~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "Це кращий спосіб, проте перезавантаження прав може потривати певний час."
-
-#~ msgid "has been altered."
-#~ msgstr "була змінена."
-
-#~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
-#~ "usual until the privileges are reloaded."
-#~ msgstr ""
-#~ "&quot;Усунуті&quot; користувачі все ще матимуть доступ до сервера до тих "
-#~ "пір, поки не будуть перезавантажені права."
-
-#~ msgid "Just delete the users from the privilege tables."
-#~ msgstr "Щойно усунуто користувачів з таблиці прав."
-
-#~ msgid ""
-#~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr ""
-#~ "Дозволити виконання збережених процедур; Неефективно для цієї версії "
-#~ "MySQL."
-
-#~ msgid "Process list"
-#~ msgstr "Список процесів"
-
-#~ msgid ""
-#~ "The users will still have the USAGE privilege until the privileges are "
-#~ "reloaded."
-#~ msgstr ""
-#~ "Користувачі все ще будуть мати право КОРИСТУВАННЯ (USAGE) до тих пір, "
-#~ "поки не будуть перезавантажені права."
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT * query"
-#~ msgid "Select all"
-#~ msgstr "Відмітити все"
-
-#, fuzzy
-#~| msgid "Select All"
-#~ msgctxt "Create SELECT ... query"
-#~ msgid "Select"
-#~ msgstr "Відмітити все"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "Create INSERT query"
-#~ msgid "Insert"
-#~ msgstr "Вставити"
-
-#, fuzzy
-#~| msgid "Update Query"
-#~ msgctxt "Create UPDATE query"
-#~ msgid "Update"
-#~ msgstr "Доповнити запит"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgctxt "Create DELETE query"
-#~ msgid "Delete"
-#~ msgstr "Видалити"
-
-#~ msgid "utf-8"
-#~ msgstr "utf-8"

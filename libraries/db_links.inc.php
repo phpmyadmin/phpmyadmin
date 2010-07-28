@@ -34,19 +34,6 @@ $is_superuser = PMA_isSuperuser();
 /**
  * Prepares links
  */
-// Drop link if allowed
-// Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
-// Don't allow to easilly drop mysql database, RFE #1327514.
-if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_information_schema && ($db != 'mysql')) {
-    $tab_drop['link'] = 'sql.php';
-    $tab_drop['args']['sql_query']  = 'DROP DATABASE ' . PMA_backquote($db);
-    $tab_drop['args']['zero_rows']  = sprintf(__('Database %s has been dropped.'), htmlspecialchars(PMA_backquote($db)));
-    $tab_drop['args']['goto']       = 'main.php';
-    $tab_drop['args']['back']       = 'db' . $sub_part . '.php';
-    $tab_drop['args']['reload']     = 1;
-    $tab_drop['args']['purge']      = 1;
-    $tab_drop['attr'] = 'onclick="return confirmLinkDropDB(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
-}
 
 /**
  * export, search and qbe links if there is at least one table
@@ -95,9 +82,6 @@ if (! $db_is_information_schema) {
     $tab_import['link']     = 'db_import.php';
     $tab_import['text']     = __('Import');
     $tab_import['icon']     = 'b_import.png';
-    $tab_drop['text']       = __('Drop');
-    $tab_drop['icon']       = 'b_deltbl.png';
-    $tab_drop['class']      = 'caution';
     $tab_operation['link']  = 'db_operations.php';
     $tab_operation['text']  = __('Operations');
     $tab_operation['icon']  = 'b_tblops.png';
@@ -131,9 +115,6 @@ if (! $db_is_information_schema) {
     $tabs[] =& $tab_operation;
     if ($is_superuser) {
         $tabs[] =& $tab_privileges;
-    }
-    if ($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) {
-        $tabs[] =& $tab_drop;
     }
 }
 
