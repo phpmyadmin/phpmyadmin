@@ -1794,6 +1794,13 @@ $(document).ready(function() {
         var values = $(this).parent().prev("input").attr("value").split(",");
         $.each(values, function(index, val) {
             if(jQuery.trim(val) != "") {
+                 // enclose the string in single quotes if it's not already
+                 if(val.substr(0, 1) != "'") {
+                      val = "'" + val;
+                 }
+                 if(val.substr(val.length-1, val.length) != "'") {
+                      val = val + "'";
+                 }
                 // escape the single quotes, except the mandatory ones enclosing the entire string
                 val = val.substr(1, val.length-2).replace(/'/g, "&#039;");
                 // escape the greater-than symbol
