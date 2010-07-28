@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-28 04:37+0200\n"
+"PO-Revision-Date: 2010-07-28 04:38+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1888,7 +1888,7 @@ msgstr "تەپسىلاتلار..."
 #: libraries/display_change_password.lib.php:29 main.php:90
 #: user_password.php:106 user_password.php:124
 msgid "Change password"
-msgstr ""
+msgstr "پارولنى ئۆزگەرتىش"
 
 #: libraries/display_change_password.lib.php:34
 #: libraries/replication_gui.lib.php:347 server_privileges.php:806
