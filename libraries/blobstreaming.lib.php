@@ -139,12 +139,14 @@ function checkBLOBStreamingPlugins()
         }
 
         if (function_exists("pbms_connection_pool_size")) {
-            if ( $PMA_Config->settings['pbms_connection_pool_size'] == "") {
-                $pool_size = 1;
-            } else {
+            if ( isset($PMA_Config->settings['pbms_connection_pool_size'])) {
                 $pool_size = $PMA_Config->settings['pbms_connection_pool_size'];
-            }
-                
+                if ($pool_size == "")
+                    $pool_size = 1;
+             } else {
+                $pool_size = 1;
+           }
+               
            pbms_connection_pool_size($pool_size);
         }
 
@@ -317,7 +319,14 @@ function PMA_BS_IsPBMSReference($bs_reference, $db_name)
     }
 
     // You do not really need a connection to the PBMS Daemon
-    // to check if a reference looks valid.
+    // to check if a reference looks valid but unfortunalty the API
+    // requires one  at this point so until the API is updated
+    // we need to oepen one here. If you use pool connections this
+    // will not be a performance problem.
+     if (PMA_do_connect($db_name, FALSE) == FALSE) {
+        return FALSE;
+    }
+   
     $ok = pbms_is_blob_reference($bs_reference);
     return $ok ;
 }
