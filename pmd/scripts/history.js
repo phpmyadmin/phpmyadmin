@@ -357,7 +357,11 @@ function build_query(formtitle, fadin) {
 			q_select += select_field[i] + temp +","; 
 		}
 	}
-	q_select = q_select.substring(0,q_select.length - 1); 
+	q_select = q_select.substring(0,q_select.length - 1);
+	q_select += " FROM WHERE ";
+	q_select += query_where();
+	if(query_groupby() != "") { q_select += "GROUP BY" + query_groupby(); }
+	if(query_orderby() != "") { q_select += "ORDER BY" + query_orderby(); }
 	 var box = document.getElementById('box'); 
   	document.getElementById('filter').style.display='block';
   	var btitle = document.getElementById('boxtitle');
@@ -373,6 +377,48 @@ function build_query(formtitle, fadin) {
   	}  	
 	document.getElementById('textSqlquery').innerHTML = q_select;
 //	document.getElementById('hint').style.visibility = "visible";
+}
+
+function query_groupby() {
+	var i = 0;
+	var str = "";
+	for(i; i < history_array.length;i++) {
+		if(history_array[i].get_type() == "GroupBy") { str +=history_array[i].get_column_name() + ", ";}
+	}
+	str = str.substr(0,str.length -1);
+	return str;
+}
+
+function query_orderby() {
+	var i = 0;
+	var str = "" ;
+	for(i; i < history_array.length;i++) {
+		if(history_array[i].get_type() == "OrderBy") { str += history_array[i].get_column_name() + " , "; }
+	}
+	str = str.substr(0,str.length -1);
+	return str;
+}
+
+function query_where(){
+	var i = 0;
+	var and = "(";
+	var or = "(";
+	for(i; i < history_array.length;i++) {
+		if(history_array[i].get_type() == "Where") {
+			if(history_array[i].get_and_or() == 0) {
+				and += "( " + history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() +" " + history_array[i].get_obj().getquery() + ")"; 		        and += " AND ";
+			}
+			else {
+				or +="( " + history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() +")";                 or +=" OR " ;
+			}
+		}
+	}
+	if ( or != "(") {	or = or.substring(0,(or.length - 4 )) + ")"; }
+	else { or = "" ;}
+	if (and !="(") {and = and.substring(0,(and.length - 5)) + ")"; }
+	else {and = "" ;}
+	and = and + " OR " + or + " )";
+	return and;
 }
 
 function check_aggregate(id_this) {
