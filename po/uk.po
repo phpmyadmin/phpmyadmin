@@ -105,7 +105,7 @@ msgstr "Відкривання зовнішнього посилання URL н�
 #: db_create.php:44
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Базу даних %1$ створено."
+msgstr "Базу даних %1$s створено."
 
 #: db_datadict.php:48 db_operations.php:313
 msgid "Database comment: "
