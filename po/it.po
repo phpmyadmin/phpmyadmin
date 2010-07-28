@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-27 10:12+0200\n"
+"POT-Creation-Date: 2010-07-28 05:45-0400\n"
 "PO-Revision-Date: 2010-05-24 21:25+0200\n"
 "Last-Translator: Fabio <fantonifabio@tiscali.it>\n"
 "Language-Team: italian <it@li.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -622,8 +622,8 @@ msgstr "Il tracking non è attivo."
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Questa visuale ha, come minimo, questo numero di righe. Per informazioni "
 "controlla la %sdocumentazione%s."
@@ -824,8 +824,8 @@ msgstr "Il dump è stato salvato sul file %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Stai probabilmente cercando di caricare sul server un file troppo grosso. "
 "Fai riferimento alla documentazione %sdocumentation%s Per i modi di aggirare "
@@ -1499,8 +1499,8 @@ msgstr "Benvenuto in %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La ragione di questo è che probabilmente non hai creato alcun file di "
 "configurazione. Potresti voler usare %1$ssetup script%2$s per crearne uno."
@@ -2038,8 +2038,8 @@ msgstr "nome tabella"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 "Questo valore è interpretato usando %1$sstrftime%2$s: in questo modo puoi "
 "usare stringhe di formattazione per le date/tempi. Verranno anche aggiunte "
@@ -4311,8 +4311,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Sul server è in esecuzione Suhosin. Controlla la documentazione: "
-"%sdocumentation%s per possibili problemi."
+"Sul server è in esecuzione Suhosin. Controlla la documentazione: %"
+"sdocumentation%s per possibili problemi."
 
 #: navigation.php:60 navigation.php:61 navigation.php:64
 #, fuzzy
@@ -4995,8 +4995,8 @@ msgstr "Elimina i databases gli stessi nomi degli utenti."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "N.B.: phpMyAdmin legge i privilegi degli utenti direttamente nella tabella "
 "dei privilegi di MySQL. Il contenuto di questa tabella può differire dai "
@@ -8096,17 +8096,19 @@ msgstr "Inizializza (\"FLUSH\") la tabella"
 
 #: tbl_operations.php:642
 #, fuzzy
-#| msgid "Table name"
-msgid "Table removal"
-msgstr "Nome tabella"
+#| msgid "Delete tracking data for this table"
+msgid "Delete data or table"
+msgstr "Cancella dati di tracciamento per questa tabella"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:675
-msgid "Drop the table (DROP)"
-msgstr ""
+#, fuzzy
+#| msgid "Go to database"
+msgid "Delete the table (DROP)"
+msgstr "Vai al database"
 
 #: tbl_operations.php:696
 msgid "Partition maintenance"
@@ -8494,6 +8496,11 @@ msgstr "Nome VISTA"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Rinomina la tabella in"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Table removal"
+#~ msgstr "Nome tabella"
 
 #~ msgid "BLOB Repository"
 #~ msgstr "Repository BLOB"

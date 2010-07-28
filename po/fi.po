@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-27 10:12+0200\n"
+"POT-Creation-Date: 2010-07-28 05:45-0400\n"
 "PO-Revision-Date: 2010-04-30 18:08+0200\n"
 "Last-Translator:  <kajouni@gmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -621,11 +621,11 @@ msgstr "Seuranta ei ole käytössä."
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
-"%sohjeista%s."
+"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja %"
+"sohjeista%s."
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:125
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:183 test/theme.php:73
@@ -820,8 +820,8 @@ msgstr "Vedos tallennettiin tiedostoon %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Yritit todennäköisesti lähettää palvelimelle liian suurta tiedostoa. Katso "
 "tämän rajoituksen muuttamisesta lisätietoja %sohjeista%s."
@@ -1544,11 +1544,11 @@ msgstr "Tervetuloa, toivottaa %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
-"%1$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %1"
+"$sasetusskriptillä%2$s."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2091,8 +2091,8 @@ msgstr "taulun nimi"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 "Tämä arvo on %1$sstrftime%2$s-funktion mukainen, joten "
 "ajanmuodostostusmerkkijonoja voi käyttää. Lisäksi tapahtuu seuraavat "
@@ -5027,8 +5027,8 @@ msgstr "Poista tietokannat, joilla on sama nimi kuin käyttäjillä."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen "
 "käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen "
@@ -8320,17 +8320,19 @@ msgstr "Tyhjennä taulun välimuisti (\"FLUSH\")"
 
 #: tbl_operations.php:642
 #, fuzzy
-#| msgid "Table name"
-msgid "Table removal"
-msgstr "Taulun nimi"
+#| msgid "Delete tracking data for this table"
+msgid "Delete data or table"
+msgstr "Poista tämän taulun seurantatiedot"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:675
-msgid "Drop the table (DROP)"
-msgstr ""
+#, fuzzy
+#| msgid "Go to database"
+msgid "Delete the table (DROP)"
+msgstr "Siirry tietokantaan"
 
 #: tbl_operations.php:696
 msgid "Partition maintenance"
@@ -8714,6 +8716,11 @@ msgstr "VIEW-arvon nimi"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Table removal"
+#~ msgstr "Taulun nimi"
 
 #~ msgid "BLOB Repository"
 #~ msgstr "BLOB-tietokanta"

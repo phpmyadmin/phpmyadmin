@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-27 10:12+0200\n"
+"POT-Creation-Date: 2010-07-28 05:45-0400\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: thai <th@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -616,8 +616,8 @@ msgstr ""
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:125
@@ -817,8 +817,8 @@ msgstr ""
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1522,8 +1522,8 @@ msgstr "%s ยินดีต้อนรับ"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -2049,8 +2049,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 
 #: libraries/display_export.lib.php:196
@@ -4809,8 +4809,8 @@ msgstr "โยนฐานข้อมูลที่มีชื่อเดี
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1680
@@ -7732,16 +7732,19 @@ msgid "Flush the table (FLUSH)"
 msgstr "ล้างตาราง (flush)"
 
 #: tbl_operations.php:642
-msgid "Table removal"
-msgstr ""
+#, fuzzy
+#| msgid "Dumping data for table"
+msgid "Delete data or table"
+msgstr "dump ตาราง"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:675
-msgid "Drop the table (DROP)"
-msgstr ""
+#, fuzzy
+msgid "Delete the table (DROP)"
+msgstr "ไม่มีฐานข้อมูล"
 
 #: tbl_operations.php:696
 #, fuzzy

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-27 10:12+0200\n"
+"POT-Creation-Date: 2010-07-28 05:45-0400\n"
 "PO-Revision-Date: 2010-05-29 14:16+0200\n"
 "Last-Translator: Ahmed <aa.mahdawy.10@gmail.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Pootle 2.0.1\n"
@@ -323,8 +323,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
-"%s."
+"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا%"
+"s."
 
 #: db_operations.php:531
 msgid "Edit PDF Pages"
@@ -627,8 +627,8 @@ msgstr ""
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:125
@@ -824,8 +824,8 @@ msgstr "تم حفظ الـDump إلى الملف %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:566
@@ -1517,8 +1517,8 @@ msgstr "أهلا بك في %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -2045,8 +2045,8 @@ msgstr "اسم الجدول"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 
 #: libraries/display_export.lib.php:196
@@ -4140,8 +4140,8 @@ msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
-"%s."
+"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا%"
+"s."
 
 #: main.php:329
 msgid ""
@@ -4819,8 +4819,8 @@ msgstr "احذف قواعد البيانات التي لها نفس أسماء �
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "ملاحظة: يقرأ phpMyAdmin صلاحيات المستخدمين من جداول الصلاحيات من خادم MySQL "
 "مباشرة. محتويات هذه الجداول قد تختلف عن الصلاحيات التي يستخدمها الخادم إذا "
@@ -7709,17 +7709,19 @@ msgstr "إعادة تحميل الجدول (\"FLUSH\")"
 
 #: tbl_operations.php:642
 #, fuzzy
-#| msgid "Table name"
-msgid "Table removal"
-msgstr "اسم الجدول"
+#| msgid "Dumping data for table"
+msgid "Delete data or table"
+msgstr "إرجاع أو استيراد بيانات الجدول"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:675
-msgid "Drop the table (DROP)"
-msgstr ""
+#, fuzzy
+#| msgid "Copy database to"
+msgid "Delete the table (DROP)"
+msgstr "إنسخ قاعدة البيانات إلى"
 
 #: tbl_operations.php:696
 msgid "Partition maintenance"
@@ -8095,6 +8097,11 @@ msgstr ""
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Table removal"
+#~ msgstr "اسم الجدول"
 
 #, fuzzy
 #~| msgid "Enabled"

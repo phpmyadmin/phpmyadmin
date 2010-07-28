@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-27 10:12+0200\n"
+"POT-Creation-Date: 2010-07-28 05:45-0400\n"
 "PO-Revision-Date: 2010-07-22 02:30+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
-"Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: uz@latin\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -622,8 +622,8 @@ msgstr "Kuzatish faol emas."
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Ushbu namoyish kamida ko‘rsatilgan miqdorda qatorlarga ega. Batafsil "
 "ma`lumot uchun %sdokumentatsiyaga%s qarang."
@@ -821,8 +821,8 @@ msgstr "Damp \"%s\" faylida saqlandi."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Ehtimol, yuklanayotgan fayl hajmi juda katta. Bu muammoni yechishning "
 "usullari %sdokumentatsiyada%s keltirilgan."
@@ -1554,8 +1554,8 @@ msgstr "\"%s\" dasturiga xush kelibsiz"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Ehtimol, konfiguratsiya fayli tuzilmagan. Uni tuzish uchun %1$sso‘rnatish "
 "ssenariysidan%2$s foydalanishingiz mumkin."
@@ -1969,8 +1969,8 @@ msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
-"Taxminiy bo‘lishi mumkin. [a@./Documentation."
-"html#faq3_11@Documentation]\"FAQ 3.11\"[/a]ga qarang"
+"Taxminiy bo‘lishi mumkin. [a@./Documentation.html#faq3_11@Documentation]"
+"\"FAQ 3.11\"[/a]ga qarang"
 
 #: libraries/db_structure.lib.php:60 server_databases.php:139
 #: tbl_printview.php:333 tbl_structure.php:679
@@ -2111,8 +2111,8 @@ msgstr "jadval nomi"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 "Qiymat %1$sstrftime%2$s funksiyasi bilan qayta ishlangan, shuning uchun "
 "hozirgi vaqt va sanani qo‘yish mumkin. Qo‘shimcha ravishda quyidagilar "
@@ -5099,8 +5099,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "IZOH: phpMyAdmin foydalanuvchilar privilegiyalari haqidagi ma`lumotlarni "
 "to‘g‘ridan-to‘g‘ri MySQL privilegiyalari jadvalidan oladi. Ushbu jadvaldagi "
@@ -7483,9 +7483,9 @@ msgstr ""
 "real xostlar uchun tavsiya etilmaydi. Serverdagi phpMyAdmin turgan katalog "
 "adresini bilgan yoki taxmin qilgan har kim ushbu dasturga bemalol kirib, "
 "serverdagi ma`lumotlar bazalari bilan istalgan operatsiyalarni amalga "
-"oshirishi mumkin. Server [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki [kbd]http"
-"[/kbd] deb belgilash tavsiya etiladi."
+"oshirishi mumkin. Server [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki [kbd]http[/"
+"kbd] deb belgilash tavsiya etiladi."
 
 #: setup/lib/messages.inc.php:236
 msgid "You should use mysqli for performance reasons"
@@ -7633,9 +7633,9 @@ msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Ko‘proq ma`lumot uchun [a@http://sf.net/support/tracker.php?"
-"aid=1849494]\"PMA bug tracker\"[/a] va [a@http://bugs.mysql."
-"com/19588]\"MySQL Bugs\"[/a]larga qarang"
+"Ko‘proq ma`lumot uchun [a@http://sf.net/support/tracker.php?aid=1849494]"
+"\"PMA bug tracker\"[/a] va [a@http://bugs.mysql.com/19588]\"MySQL Bugs\"[/a]"
+"larga qarang"
 
 #: setup/lib/messages.inc.php:267
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -7754,8 +7754,8 @@ msgstr "\"config\" autentifikatsiya usuli paroli"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
-"[kbd]\"pma_pdf_pages\"[/kbd]"
+"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: [kbd]"
+"\"pma_pdf_pages\"[/kbd]"
 
 #: setup/lib/messages.inc.php:288
 msgid "PDF schema: pages table"
@@ -7769,8 +7769,8 @@ msgid ""
 msgstr ""
 "Aloqalar, xatcho‘plar va PDF imkoniyatlari uchun ishlatiladigan baza.  "
 "Batafsil ma`lumot uchun [a@http://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\"[/a]"
-"ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: "
-"[kbd]\"phpmyadmin\"[/kbd]"
+"ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: [kbd]"
+"\"phpmyadmin\"[/kbd]"
 
 #: setup/lib/messages.inc.php:291
 msgid "Port on which MySQL server is listening, leave empty for default"
@@ -7895,8 +7895,8 @@ msgstr "SSL ulanishdan foydalanish"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: "
-"[kbd]\"pma_table_coords\"[/kbd]"
+"PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: [kbd]"
+"\"pma_table_coords\"[/kbd]"
 
 #: setup/lib/messages.inc.php:316
 msgid "PDF schema: table coordinates"
@@ -8446,17 +8446,19 @@ msgstr "Jadval keshini yangilash (\"FLUSH\")"
 
 #: tbl_operations.php:642
 #, fuzzy
-#| msgid "Table name"
-msgid "Table removal"
-msgstr "Jadval nomi"
+#| msgid "Delete tracking data for this table"
+msgid "Delete data or table"
+msgstr "Ushbu jadval uchun kuzatuv ma’lumotlari o‘chirish"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:675
-msgid "Drop the table (DROP)"
-msgstr ""
+#, fuzzy
+#| msgid "Go to database"
+msgid "Delete the table (DROP)"
+msgstr "Ushbu bazaga o‘tish"
 
 #: tbl_operations.php:696
 msgid "Partition maintenance"
@@ -8845,6 +8847,11 @@ msgstr "Nom ko‘rinishi"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Table removal"
+#~ msgstr "Jadval nomi"
 
 #~ msgid "BLOB Repository"
 #~ msgstr "BLOB ombori"

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-27 10:12+0200\n"
+"POT-Creation-Date: 2010-07-28 05:45-0400\n"
 "PO-Revision-Date: 2010-07-21 14:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -610,11 +610,11 @@ msgstr "Le suivi n'est pas activé."
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Cette vue contient au moins ce nombre d'enregistrements. Veuillez référer à "
-"%sdocumentation%s."
+"Cette vue contient au moins ce nombre d'enregistrements. Veuillez référer à %"
+"sdocumentation%s."
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:125
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:183 test/theme.php:73
@@ -811,8 +811,8 @@ msgstr "Le fichier d'exportation a été sauvegardé sous %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
 "Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
@@ -1488,8 +1488,8 @@ msgstr "Bienvenue sur %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La raison probable est que vous n'avez pas créé de fichier de configuration. "
 "Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but."
@@ -2030,8 +2030,8 @@ msgstr "nom de table"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
@@ -4902,8 +4902,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
@@ -7212,9 +7212,9 @@ msgstr ""
 "La méthode d'authentification [kbd]config[/kbd] permet une connexion "
 "automatique, ce qui n'est pas souhaitable dans un environnement réel. Toute "
 "personne qui connaît l'URL d'accès peut entrer dans votre phpMyAdmin. Il est "
-"suggéré de régler votre [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]type d'authentification[/a] à [kbd]cookie[/kbd] ou [kbd]http"
-"[/kbd]."
+"suggéré de régler votre [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server]type d'authentification[/a] à [kbd]cookie[/kbd] ou [kbd]http[/"
+"kbd]."
 
 #: setup/lib/messages.inc.php:236
 msgid "You should use mysqli for performance reasons"
@@ -8141,17 +8141,19 @@ msgstr "Recharger la table (FLUSH)"
 
 #: tbl_operations.php:642
 #, fuzzy
-#| msgid "Table name"
-msgid "Table removal"
-msgstr "Nom de la table"
+#| msgid "Delete tracking data for this table"
+msgid "Delete data or table"
+msgstr "Supprimer les données de suivi de cette table"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:675
-msgid "Drop the table (DROP)"
-msgstr ""
+#, fuzzy
+#| msgid "Go to database"
+msgid "Delete the table (DROP)"
+msgstr "Aller à la base de données"
 
 #: tbl_operations.php:696
 msgid "Partition maintenance"
@@ -8527,6 +8529,11 @@ msgstr "Nom de la vue"
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
 
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Table removal"
+#~ msgstr "Nom de la table"
+
 #~ msgid "BLOB Repository"
 #~ msgstr "Dépôt BLOB"
 
@@ -8555,8 +8562,8 @@ msgstr "Changer le nom de la vue pour"
 #~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation]"
-#~ "[em]%1$s[/em][/a]. Veuillez vérifier votre configuration de PHP."
+#~ "PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%"
+#~ "1$s[/em][/a]. Veuillez vérifier votre configuration de PHP."
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "
