@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-28 04:33+0200\n"
+"PO-Revision-Date: 2010-07-28 04:37+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1879,7 +1879,7 @@ msgstr "مۇلازىمىتېردا ئىنكاس يوق"
 
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:405
 msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
+msgstr "(يەرلىك MySQL مۇلازىمىتېرى توغرا تەڭشەلمىگەن)"
 
 #: libraries/dbi/mysql.dbi.lib.php:358 tbl_structure.php:605
 msgid "Details..."
