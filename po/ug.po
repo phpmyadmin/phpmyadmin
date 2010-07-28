@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-28 04:50+0200\n"
+"PO-Revision-Date: 2010-07-28 04:52+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1943,7 +1943,7 @@ msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
 
 #: libraries/display_create_table.lib.php:56
 msgid "Number of columns"
-msgstr ""
+msgstr "سۆزلەم سانى"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
