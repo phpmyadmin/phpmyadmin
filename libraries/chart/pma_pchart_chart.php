@@ -93,7 +93,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
     protected function drawTitle()
     {
         // Draw the title
-        $this->chart->drawTextBox(0,0,$this->getWidth(),$this->getLabelHeight(),$this->getTitleText(),0,255,255,255,ALIGN_CENTER,TRUE,0,0,0,30);
+        $this->chart->drawTextBox(0,0,$this->getWidth(),$this->getLabelHeight(),$this->getTitleText(),0,255,255,255,ALIGN_CENTER,FALSE,0,0,0,30);
     }
 
     protected function setGraphAreaDimensions()
