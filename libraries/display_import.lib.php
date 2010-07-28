@@ -123,7 +123,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 
     <div class="exportoptions" id="header">
         <h2>
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_import.png" />
+            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_import.png" alt="import" />
             <?php
             if($import_type == 'server') {
                 echo __('Importing into the current server');

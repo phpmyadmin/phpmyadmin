@@ -130,7 +130,7 @@ if ($GLOBALS['cfg']['ThemeManager']) {
     // see js/main_custom_color.js
     echo '<li id="li_custom_color" class="hide">';
     echo PMA_escapeJsString(__('Background color')) . ': ';
-    echo '<input type="submit" name="custom_color_choose" value="' . __('Choose...') . '"';
+    echo '<input type="submit" name="custom_color_choose" value="' . __('Choose...') . '" />';
     echo '<form name="colorform" id="colorform" method="post" action="index.php" target="_parent">';
     echo PMA_generate_common_hidden_inputs();
     echo '<input type="hidden" id="custom_color" name="custom_color" value="" />';

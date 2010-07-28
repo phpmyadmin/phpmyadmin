@@ -62,7 +62,7 @@ if (! empty($sql_query)) {
 
 <div class="exportoptions" id="header">
     <h2>
-        <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_export.png" />
+        <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_export.png" alt="export" />
         <?php
         if($export_type == 'server') {
             echo __('Exporting databases in the current server');

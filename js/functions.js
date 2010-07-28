@@ -1867,7 +1867,9 @@ $(document).ready(function() {
          var left_offset = cell_right_edge_offset - $(".structure_actions_dropdown").innerWidth();
 
          $.each($(".structure_actions_dropdown"), function() {
-             $(this).offset({ left: left_offset });
+              // The top offset must be set for IE even if it didn't change
+             var top_offset = $(this).parent().offset().top + $(this).parent().innerHeight();
+             $(this).offset({ top: top_offset, left: left_offset });
          });
 
          // When "more" is hovered over, show the hidden actions

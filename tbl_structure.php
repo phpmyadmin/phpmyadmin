@@ -160,15 +160,15 @@ $titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinc
 
 // hidden action titles (image and string)
 $hidden_titles = array();
-$hidden_titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), true, true);
-$hidden_titles['Primary']              = PMA_getIcon('b_primary.png', __('Primary'), true, true);
-$hidden_titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Primary'), true, true);
-$hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Index'), true, true);
-$hidden_titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'), true, true);
-$hidden_titles['Unique']               = PMA_getIcon('b_unique.png', __('Unique'), true, true);
-$hidden_titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'), true, true);
-$hidden_titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Fulltext'), true, true);
-$hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'), true, true);
+$hidden_titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), false, true);
+$hidden_titles['Primary']              = PMA_getIcon('b_primary.png', __('Primary'), false, true);
+$hidden_titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Primary'), false, true);
+$hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Index'), false, true);
+$hidden_titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'), false, true);
+$hidden_titles['Unique']               = PMA_getIcon('b_unique.png', __('Unique'), false, true);
+$hidden_titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'), false, true);
+$hidden_titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Fulltext'), false, true);
+$hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'), false, true);
 
 /**
  * Displays the table structure ('show table' works correct since 3.23.03)
@@ -178,7 +178,16 @@ $hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltex
 $i = 0;
 ?>
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm">
-    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+    <?php echo PMA_generate_common_hidden_inputs($db, $table);
+    echo '<input type="hidden" name="table_type" value=';
+	if($db_is_information_schema) {
+	     echo '"information_schema" />';
+	} else if ($tbl_is_view) {
+	     echo '"view" />';
+	} else {
+	     echo '"table" />';
+	} ?>
+
 <table id="tablestructure" class="data">
 <thead>
 <tr>
@@ -202,14 +211,7 @@ $i = 0;
 
 <?php
 unset($i);
-echo '<input type="hidden" name="table_type" value=';
-if($db_is_information_schema) {
-     echo '"information_schema" />';
-} else if ($tbl_is_view) {
-     echo '"view" />';
-} else {
-     echo '"table" />';
-}
+
 // table body
 
 // prepare comments
@@ -465,8 +467,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         echo "\n";
     } // end if (! $tbl_is_view && ! $db_is_information_schema)
     ?>
-    <td class="more_opts" id="<?php echo $rownum; ?>">
-        More <img src="<?php echo $pmaThemeImage . 'more.png'; ?>">
+    <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
+        More <img src="<?php echo $pmaThemeImage . 'more.png'; ?>" alt="show more actions" />
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
 
             <div class="action_browse">
