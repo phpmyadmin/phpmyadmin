@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
-"PO-Revision-Date: 2010-07-28 04:18+0200\n"
+"PO-Revision-Date: 2010-07-28 04:19+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1771,7 +1771,7 @@ msgstr "باشلا"
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
 #: server_binlog.php:156
 msgid "Previous"
-msgstr ""
+msgstr "ئالدىنقىسى"
 
 #: libraries/common.lib.php:2359 libraries/common.lib.php:2362
 #: libraries/display_tbl.lib.php:351
