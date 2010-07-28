@@ -88,16 +88,6 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
         $chartSettings['barType'] = 'stacked';
     }
 
-    // set default if image is continuous (one part)
-    if (empty($chartSettings['continuous'])) {
-        $chartSettings['continuous'] = 'off';
-    }
-
-    // set default font size if needed
-    if (empty($chartSettings['fontSize'])) {
-        $chartSettings['fontSize'] = 8;
-    }
-
     // default for legend
     $chartSettings['legend'] = false;
 

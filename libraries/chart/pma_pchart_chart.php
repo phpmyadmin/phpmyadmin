@@ -35,6 +35,10 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
         $this->settings['labelHeight'] = 20;
 
+        $this->settings['fontSize'] = 8;
+
+        $this->settings['continuous'] = 'off';
+
         // as in CSS (top, right, bottom, left)
         $this->setAreaMargins(array(20, 20, 40, 60));
     }

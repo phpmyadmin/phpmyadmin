@@ -165,7 +165,7 @@ $url_params['reload'] = 1;
     <?php if ($chartSettings['type'] == 'radar') { ?>
     <tr><td colspan="2">
         <p>
-            <?php echo _('When drawing a radar chart all values are normalized to a range [0..10].'); ?>
+            <?php echo __('When drawing a radar chart all values are normalized to a range [0..10].'); ?>
         </p>
     </td></tr>
     <?php } ?>
