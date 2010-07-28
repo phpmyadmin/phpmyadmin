@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
 "PO-Revision-Date: 2010-07-28 04:22+0200\n"
-"Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
+"Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
@@ -1793,7 +1793,7 @@ msgstr ""
 #: libraries/import/sql.php:17 libraries/server_links.inc.php:44
 #: libraries/tbl_links.inc.php:58 querywindow.php:88 test/theme.php:96
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/common.lib.php:2842 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:102
