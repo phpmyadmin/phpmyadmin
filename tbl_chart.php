@@ -153,9 +153,13 @@ $url_params['reload'] = 1;
 
     <tr><td><label for="continuous"><?php echo __("Continuous image"); ?></label></td>
         <td>
-            <input type="checkbox" name="chartSettings[continuous]" <?php echo ($chartSettings['continuous'] == 'on' ? 'checked="checked"' : ''); ?>>
+            <input type="checkbox" name="chartSettings[continuous]" id="continuous" <?php echo ($chartSettings['continuous'] == 'on' ? 'checked="checked"' : ''); ?>>
             <i><?php echo _('(May not work on IE8)'); ?></i>
         </td>
+    </tr>
+
+    <tr><td><label for="fontSize"><?php echo __("Font size"); ?></label></td>
+        <td><input type="text" name="chartSettings[fontSize]" id="fontSize" value="<?php echo (isset($chartSettings['fontSize']) ? $chartSettings['fontSize'] : ''); ?>" /></td>
     </tr>
 
     <?php if ($chartSettings['type'] == 'radar') { ?>

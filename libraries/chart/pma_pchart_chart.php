@@ -59,7 +59,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
             );
         }
 
-        $this->chart->setFontProperties($this->getFontPath().'tahoma.ttf', 8);
+        $this->chart->setFontProperties($this->getFontPath().'tahoma.ttf', $this->getFontSize());
 
         $this->chart->setImageMap(true, 'mapid');
     }
@@ -200,6 +200,11 @@ abstract class PMA_pChart_Chart extends PMA_Chart
     protected function getScale()
     {
         return $this->settings['scale'];
+    }
+
+    protected function getFontSize()
+    {
+        return $this->settings['fontSize'];
     }
 
     protected function isContinuous()
