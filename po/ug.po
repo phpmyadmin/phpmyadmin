@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-27 12:45+0200\n"
+"PO-Revision-Date: 2010-07-28 04:52+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1699,7 +1699,7 @@ msgstr " ئىچكى بىرلىشىش"
 
 #: libraries/common.lib.php:1343 libraries/common.lib.php:1358
 msgid "Profiling"
-msgstr ""
+msgstr "ئاساسىي مەزمۇن"
 
 #: libraries/common.lib.php:1362 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:57
@@ -1721,61 +1721,61 @@ msgstr "MB"
 
 #: libraries/common.lib.php:1390
 msgid "GiB"
-msgstr ""
+msgstr "GB"
 
 #: libraries/common.lib.php:1390
 msgid "TiB"
-msgstr ""
+msgstr "TB"
 
 #: libraries/common.lib.php:1390
 msgid "PiB"
-msgstr ""
+msgstr "PiB"
 
 #: libraries/common.lib.php:1390
 msgid "EiB"
-msgstr ""
+msgstr "EB"
 
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1428
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/common.lib.php:1430
 msgid "."
-msgstr ""
+msgstr "."
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1607
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
-msgstr ""
+msgstr "%يىل %ئاي %كۈن %سائەت:%مىنۇت"
 
 #: libraries/common.lib.php:1913
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr ""
+msgstr "%s كۈن, %s سائەت, %s مىنىۇ ۋە %s سېكوند"
 
 #: libraries/common.lib.php:2327 libraries/common.lib.php:2330
 #: libraries/display_tbl.lib.php:288 server_status.php:718
 msgid "Begin"
-msgstr ""
+msgstr "باشلا"
 
 #: libraries/common.lib.php:2328 libraries/common.lib.php:2331
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
 #: server_binlog.php:156
 msgid "Previous"
-msgstr ""
+msgstr "ئالدىنقىسى"
 
 #: libraries/common.lib.php:2359 libraries/common.lib.php:2362
 #: libraries/display_tbl.lib.php:351
 msgid "End"
-msgstr ""
+msgstr "ئاخىرقىسى"
 
 #: libraries/common.lib.php:2434
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr ""
+msgstr "ساندان &quot;%s&quot; .غا ئۆتۈش"
 
 #: libraries/common.lib.php:2453
 #, php-format
@@ -1787,105 +1787,107 @@ msgstr ""
 #: libraries/import/sql.php:17 libraries/server_links.inc.php:44
 #: libraries/tbl_links.inc.php:58 querywindow.php:88 test/theme.php:96
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/common.lib.php:2842 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:102
 #: view_operations.php:87
 msgid "Operations"
-msgstr ""
+msgstr "ئىشلەملەر"
 
 #: libraries/core.lib.php:265 libraries/dbg/setup.php:21
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "%s كېڭەيتىلمە كەمكەن، PHP تەڭشەك ھۆججىتىنى تەكشۈرۈپ چىقىڭ."
 
 #: libraries/db_events.inc.php:19 libraries/db_events.inc.php:21
 #: libraries/export/sql.php:412
 msgid "Events"
-msgstr ""
+msgstr "ھادىسە"
 
 #: libraries/db_events.inc.php:29 libraries/db_routines.inc.php:40
 #: libraries/display_create_table.lib.php:52 libraries/tbl_triggers.lib.php:26
 #: setup/frames/index.inc.php:112
 msgid "Name"
-msgstr ""
+msgstr "ئىسمى"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "سانلىق مەلۇمات ئامبىرى قۇرۇق"
 
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:137
 #: libraries/tbl_links.inc.php:67
 msgid "Tracking"
-msgstr ""
+msgstr "ئىز قۇغلاش"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
-msgstr ""
+msgstr "تەكشۈرۈش"
 
 #: libraries/db_links.inc.php:76 libraries/relation.lib.php:133
 msgid "Designer"
-msgstr ""
+msgstr "لايىھەلىگۈچ"
 
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:87
 #: libraries/tbl_links.inc.php:89 pmd_pdf.php:81 pmd_pdf.php:107
 #: setup/frames/menu.inc.php:21
 msgid "Import"
-msgstr ""
+msgstr "كىرگۈزۈش"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:65
 #: server_privileges.php:110 server_privileges.php:1718
 #: server_privileges.php:2067 test/theme.php:116
 msgid "Privileges"
-msgstr ""
+msgstr "ھۇقۇقى"
 
 #: libraries/db_routines.inc.php:29 libraries/db_routines.inc.php:31
 msgid "Routines"
-msgstr ""
+msgstr "دائىملىق"
 
 #: libraries/db_routines.inc.php:42
 msgid "Return type"
-msgstr ""
+msgstr "تۈرگە قايتىش"
 
 #: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1806
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
+"ئېنىقسىزلىك بولۇشى مۇمكىن. [a@./Documentation.html#faq3_11@Documentation]FAQ "
+"3.11[/a] غا قاراڭ."
 
 #: libraries/db_structure.lib.php:60 server_databases.php:139
 #: tbl_printview.php:333 tbl_structure.php:679
 msgid "Overhead"
-msgstr ""
+msgstr "ئېغىر يۈك"
 
 #: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:123
 msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
+msgstr "تەڭشەك ھۆججىتى ئىچىدىكى ئىشلەنكۈچى ئۇلۈنما كونتىرولى مەغلۇب بولدى."
 
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysql.dbi.lib.php:351
 #: libraries/dbi/mysqli.dbi.lib.php:405
 msgid "The server is not responding"
-msgstr ""
+msgstr "مۇلازىمىتېردا ئىنكاس يوق"
 
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:405
 msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
+msgstr "(يەرلىك MySQL مۇلازىمىتېرى توغرا تەڭشەلمىگەن)"
 
 #: libraries/dbi/mysql.dbi.lib.php:358 tbl_structure.php:605
 msgid "Details..."
-msgstr ""
+msgstr "تەپسىلاتلار..."
 
 #: libraries/display_change_password.lib.php:29 main.php:90
 #: user_password.php:106 user_password.php:124
 msgid "Change password"
-msgstr ""
+msgstr "پارولنى ئۆزگەرتىش"
 
 #: libraries/display_change_password.lib.php:34
 #: libraries/replication_gui.lib.php:347 server_privileges.php:806
 msgid "No Password"
-msgstr ""
+msgstr "پارول يوق"
 
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:62
@@ -1894,35 +1896,35 @@ msgstr ""
 #: server_privileges.php:799 server_privileges.php:810
 #: server_privileges.php:1534 server_synchronize.php:1173
 msgid "Password"
-msgstr ""
+msgstr "پارول"
 
 #: libraries/display_change_password.lib.php:45
 #: libraries/replication_gui.lib.php:355 libraries/replication_gui.lib.php:358
 #: server_privileges.php:814 server_privileges.php:817
 msgid "Re-type"
-msgstr ""
+msgstr "قايتا كىرگۈزىش"
 
 #: libraries/display_change_password.lib.php:51
 msgid "Password Hashing"
-msgstr ""
+msgstr "پارول ھېسابلاش"
 
 #: libraries/display_change_password.lib.php:65
 msgid "MySQL 4.0 compatible"
-msgstr ""
+msgstr "MySQL 4.0 بىلەن سەپلەش"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:35
 msgid "Create new database"
-msgstr ""
+msgstr "ساندان قۇرۇش"
 
 #: libraries/display_create_database.lib.php:29
 msgid "Create"
-msgstr ""
+msgstr "قۇرۇش"
 
 #: libraries/display_create_database.lib.php:39 server_privileges.php:112
 #: server_privileges.php:1423 server_replication.php:33
 msgid "No Privileges"
-msgstr ""
+msgstr "ھوقۇقسىز"
 
 #: libraries/display_create_table.lib.php:40
 msgid "Table must have at least one column."
@@ -1931,11 +1933,11 @@ msgstr ""
 #: libraries/display_create_table.lib.php:47
 #, php-format
 msgid "Create table on database %s"
-msgstr ""
+msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
 
 #: libraries/display_create_table.lib.php:56
 msgid "Number of columns"
-msgstr ""
+msgstr "سۆزلەم سانى"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
