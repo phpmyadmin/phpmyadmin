@@ -1765,7 +1765,7 @@ msgstr "%s كۈن, %s سائەت, %s مىنىۇ ۋە %s سېكوند"
 #: libraries/common.lib.php:2327 libraries/common.lib.php:2330
 #: libraries/display_tbl.lib.php:288 server_status.php:718
 msgid "Begin"
-msgstr ""
+msgstr "باشلا"
 
 #: libraries/common.lib.php:2328 libraries/common.lib.php:2331
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
