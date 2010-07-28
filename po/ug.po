@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
 "PO-Revision-Date: 2010-07-28 04:24+0200\n"
-"Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
+"Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
@@ -1804,7 +1804,7 @@ msgstr "ئىشلەملەر"
 #: libraries/core.lib.php:265 libraries/dbg/setup.php:21
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "%s كېڭەيتىلمە كەمكەن، PHP تەڭشەك ھۆججىتىنى تەكشۈرۈپ چىقىڭ."
 
 #: libraries/db_events.inc.php:19 libraries/db_events.inc.php:21
 #: libraries/export/sql.php:412
