@@ -639,7 +639,7 @@ $this_url_params = array_merge($url_params,
 <?php if (! (isset($db_is_information_schema) && $db_is_information_schema)) { ?>
 <div id="div_table_removal">
 <fieldset class="caution">
- <legend><?php echo __('Table removal'); ?></legend>
+ <legend><?php echo __('Delete data or table'); ?></legend>
 
 <ul>
 <?php
@@ -672,7 +672,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
         ));
     ?>
     <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
-            <?php echo __('Drop the table (DROP)'); ?></a>
+            <?php echo __('Delete the table (DROP)'); ?></a>
         <?php echo PMA_showMySQLDocu('SQL-Syntax', 'DROP_TABLE'); ?>
     </li>
 <?php

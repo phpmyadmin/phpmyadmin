@@ -1167,6 +1167,7 @@ li#li_flush_privileges {
 #div_table_copy,
 #div_partition_maintenance,
 #div_referential_integrity,
+#div_table_removal,
 #div_table_maintenance {
     min-width: 48%;
     float: <?php echo $left; ?>;
