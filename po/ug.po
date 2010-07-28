@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-27 10:12+0200\n"
 "PO-Revision-Date: 2010-07-28 04:19+0200\n"
-"Last-Translator:  <gheni@yahoo.cn>\n"
+"Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
@@ -1755,7 +1755,7 @@ msgstr "."
 #: libraries/common.lib.php:1607
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d %B %Y, %H:%M:%S"
+msgstr "%يىل %ئاي %كۈن %سائەت:%مىنۇت"
 
 #: libraries/common.lib.php:1913
 #, php-format
