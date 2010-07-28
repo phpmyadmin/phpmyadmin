@@ -1849,7 +1849,7 @@ msgstr "ھۇقۇقى"
 
 #: libraries/db_routines.inc.php:29 libraries/db_routines.inc.php:31
 msgid "Routines"
-msgstr ""
+msgstr "دائىملىق"
 
 #: libraries/db_routines.inc.php:42
 msgid "Return type"
