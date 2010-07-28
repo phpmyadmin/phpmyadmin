@@ -1875,7 +1875,7 @@ msgstr "تەڭشەك ھۆججىتى ئىچىدىكى ئىشلەنكۈچى ئۇل
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysql.dbi.lib.php:351
 #: libraries/dbi/mysqli.dbi.lib.php:405
 msgid "The server is not responding"
-msgstr ""
+msgstr "مۇلازىمىتېردا ئىنكاس يوق"
 
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:405
 msgid "(or the local MySQL server's socket is not correctly configured)"
