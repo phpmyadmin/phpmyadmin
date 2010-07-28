@@ -1829,7 +1829,7 @@ msgstr "ئىز قۇغلاش"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
-msgstr ""
+msgstr "تەكشۈرۈش"
 
 #: libraries/db_links.inc.php:76 libraries/relation.lib.php:133
 msgid "Designer"
