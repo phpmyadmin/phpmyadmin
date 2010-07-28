@@ -1731,7 +1731,7 @@ msgstr "GB"
 
 #: libraries/common.lib.php:1390
 msgid "TiB"
-msgstr ""
+msgstr "TB"
 
 #: libraries/common.lib.php:1390
 msgid "PiB"
