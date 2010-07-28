@@ -1845,7 +1845,7 @@ msgstr "كىرگۈزۈش"
 #: server_privileges.php:110 server_privileges.php:1718
 #: server_privileges.php:2067 test/theme.php:116
 msgid "Privileges"
-msgstr ""
+msgstr "ھۇقۇقى"
 
 #: libraries/db_routines.inc.php:29 libraries/db_routines.inc.php:31
 msgid "Routines"
