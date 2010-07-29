@@ -133,11 +133,11 @@ $url_params['reload'] = 1;
 
     <tr><td><label for="type"><?php echo __("Type"); ?></label></td>
         <td>
-            <input type="radio" name="chartSettings[type]" value="bar" <?php echo ($chartSettings['type'] == 'bar' ? 'checked' : ''); ?>>Bar
-            <input type="radio" name="chartSettings[type]" value="line" <?php echo ($chartSettings['type'] == 'line' ? 'checked' : ''); ?>>Line
-            <input type="radio" name="chartSettings[type]" value="radar" <?php echo ($chartSettings['type'] == 'radar' ? 'checked' : ''); ?>>Radar
+            <input type="radio" name="chartSettings[type]" value="bar" <?php echo ($chartSettings['type'] == 'bar' ? 'checked' : ''); ?>><?php echo __('Bar'); ?>
+            <input type="radio" name="chartSettings[type]" value="line" <?php echo ($chartSettings['type'] == 'line' ? 'checked' : ''); ?>><?php echo __('Line'); ?>
+            <input type="radio" name="chartSettings[type]" value="radar" <?php echo ($chartSettings['type'] == 'radar' ? 'checked' : ''); ?>><?php echo __('Radar'); ?>
             <?php if ($chartSettings['multi'] == false) { ?>
-            <input type="radio" name="chartSettings[type]" value="pie" <?php echo ($chartSettings['type'] == 'pie' ? 'checked' : ''); ?>>Pie
+            <input type="radio" name="chartSettings[type]" value="pie" <?php echo ($chartSettings['type'] == 'pie' ? 'checked' : ''); ?>><?php echo __('Pie'); ?>
             <?php } ?>
         </td>
     </tr>
@@ -145,8 +145,8 @@ $url_params['reload'] = 1;
     <?php if ($chartSettings['type'] == 'bar' && isset($chartSettings['multi']) && $chartSettings['multi'] == true) { ?>
     <tr><td><label for="barType"><?php echo __("Bar type"); ?></label></td>
         <td>
-            <input type="radio" name="chartSettings[barType]" value="stacked" <?php echo ($chartSettings['barType'] == 'stacked' ? 'checked' : ''); ?>>Stacked
-            <input type="radio" name="chartSettings[barType]" value="multi" <?php echo ($chartSettings['barType'] == 'multi' ? 'checked' : ''); ?>>Multi
+            <input type="radio" name="chartSettings[barType]" value="stacked" <?php echo ($chartSettings['barType'] == 'stacked' ? 'checked' : ''); ?>><?php echo __('Stacked'); ?>
+            <input type="radio" name="chartSettings[barType]" value="multi" <?php echo ($chartSettings['barType'] == 'multi' ? 'checked' : ''); ?>><?php echo __('Multi'); ?>
         </td>
     </tr>
     <?php } ?>
