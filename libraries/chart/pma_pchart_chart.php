@@ -53,6 +53,8 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         // create pData object
         $this->dataSet = new pData;
 
+        $this->chart->reportWarnings('GD');
+
         // initialize colors
         foreach ($this->getColors() as $key => $color) {
             $this->chart->setColorPalette(
