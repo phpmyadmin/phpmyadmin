@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-29 07:59+0200\n"
+"PO-Revision-Date: 2010-07-29 08:01+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -2117,7 +2117,7 @@ msgstr ""
 
 #: libraries/display_pdf_schema.lib.php:46
 msgid "Only show keys"
-msgstr ""
+msgstr "پەقەت كونوپكىنى كورسىتىش"
 
 #: libraries/display_pdf_schema.lib.php:48
 msgid "Data Dictionary Format"
