@@ -974,18 +974,14 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                         $message = PMA_Message::rawError(PMA_DBI_getError());
                         break;
                     }
-<<<<<<< HEAD
+
 
                     if($GLOBALS['is_ajax_request'] != true) {
+                        // this is needed in case tracking is on:
+                        $GLOBALS['db'] = $username;
                         $GLOBALS['reload'] = TRUE;
                         PMA_reloadNavigation();
                     }
-=======
-                    // this is needed in case tracking is on:
-                    $GLOBALS['db'] = $username;
-                    $GLOBALS['reload'] = TRUE;
-                    PMA_reloadNavigation();
->>>>>>> origin/master
 
                     $q = 'GRANT ALL PRIVILEGES ON '
                         . PMA_backquote(PMA_sqlAddslashes($username)) . '.* TO \''
