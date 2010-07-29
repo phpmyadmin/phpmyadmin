@@ -13,9 +13,7 @@
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
-$GLOBALS['js_include'][] = 'functions.js';
 require_once './libraries/header.inc.php';
 
 // Check parameters
@@ -106,7 +104,6 @@ if (isset($_REQUEST['do_save_data'])) {
         /**
          * If comments were sent, enable relation stuff
          */
-        require_once './libraries/relation.lib.php';
         require_once './libraries/transformations.lib.php';
 
         // updaet field names in relation
@@ -206,5 +203,5 @@ if ($abort == false) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

@@ -15,8 +15,6 @@ if (! isset($scale)) {
     include_once 'pmd_save_pos.php';
 }
 
-require_once './libraries/relation.lib.php';
-
 if (isset($scale) && ! isset($createpage)) {
     if (empty($pdf_page_number)) {
         die("<script>alert('Pages not found!');history.go(-2);</script>");

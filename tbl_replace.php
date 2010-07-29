@@ -231,21 +231,21 @@ foreach ($loop_array as $rowcount => $where_clause) {
             $upload_blob_repo = isset($_REQUEST['upload_blob_repo_' . $key]) ? $_REQUEST['upload_blob_repo_' . $key] : NULL;
 
             // checks if an existing blob repository reference should be removed
-            if (isset($remove_blob_repo) && !isset($upload_blob_repo)) {
+            if (isset($remove_blob_repo) && ! isset($upload_blob_repo)) {
                 $remove_blob_reference = $_REQUEST['remove_blob_ref_' . $key];
                 if (isset($remove_blob_reference)) {
                     $val = "''";
                 }
+            }
 
-                // checks if this field requires a bs reference attached to it
-                if (isset($upload_blob_repo)) {
-                    // get the most recent BLOB reference
-                    $bs_reference = PMA_File::getRecentBLOBReference();
+            // checks if this field requires a bs reference attached to it
+            if (isset($upload_blob_repo)) {
+                // get the most recent BLOB reference
+                $bs_reference = PMA_File::getRecentBLOBReference();
 
-                    // if the most recent BLOB reference exists, set it as a field value
-                    if (!is_null($bs_reference)) {
-                        $val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
-                    }
+                // if the most recent BLOB reference exists, set it as a field value
+                if (!is_null($bs_reference)) {
+                    $val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
                 }
             }
         }
@@ -328,7 +328,6 @@ if ($is_insert && count($value_sets) > 0) {
 } elseif (empty($query)) {
     // No change -> move back to the calling script
     $message = PMA_Message::success(__('No change'));
-    $GLOBALS['js_include'][] = 'functions.js';
     $active_page = $goto_include;
     require_once './libraries/header.inc.php';
     require './' . PMA_securePath($goto_include);
@@ -434,7 +433,6 @@ if (isset($return_to_sql_query)) {
 }
 
 $GLOBALS['js_include'][] = 'tbl_change.js';
-$GLOBALS['js_include'][] = 'functions.js';
 // in case we call sql.php which needs those:
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 

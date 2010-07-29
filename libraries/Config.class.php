@@ -9,7 +9,7 @@
 /**
  * Load vendor configuration.
  */
-require_once('./libraries/vendor_config.php');
+require('./libraries/vendor_config.php');
 
 /**
  * Configuration class

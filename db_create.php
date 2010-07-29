@@ -11,6 +11,7 @@
 require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+
 require_once './libraries/mysql_charsets.lib.php';
 
 PMA_checkParameters(array('new_db'));

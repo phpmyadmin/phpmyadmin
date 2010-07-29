@@ -129,42 +129,50 @@ if (!$GLOBALS['is_ajax_request']) {
                             (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table')),
                             (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png');
 
+                echo $separator;
+                printf($item,
+                        $GLOBALS['cfg']['DefaultTabTable'],
+                        PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
+                        str_replace(' ', '&nbsp;', htmlspecialchars($GLOBALS['table'])),
+                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table')),
+                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png');
+
+                /**
+                 * Displays table comment
+                 * @uses $show_comment from libraries/tbl_info.inc.php
+                 * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
+                 */
+                if (!empty($show_comment) && !isset($GLOBALS['avoid_show_comment'])) {
+                    if (strstr($show_comment, '; InnoDB free')) {
+                        $show_comment = preg_replace('@; InnoDB free:.*?$@', '', $show_comment);
+                    }
+                    echo '<span class="table_comment" id="span_table_comment">'
+                        .'&quot;' . htmlspecialchars($show_comment)
+                        .'&quot;</span>' . "\n";
+                } // end if
+            } else {
+                // no table selected, display database comment if present
+                /**
+                 * Settings for relations stuff
+                 */
+                require_once './libraries/relation.lib.php';
+                $cfgRelation = PMA_getRelationsParam();
+
+                // Get additional information about tables for tooltip is done
+                // in libraries/db_info.inc.php only once
+                if ($cfgRelation['commwork']) {
+                    $comment = PMA_getDbComment($GLOBALS['db']);
                     /**
                      * Displays table comment
-                     * @uses $show_comment from libraries/tbl_info.inc.php
-                     * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
                      */
-                    if (!empty($show_comment) && !isset($GLOBALS['avoid_show_comment'])) {
-                        if (strstr($show_comment, '; InnoDB free')) {
-                            $show_comment = preg_replace('@; InnoDB free:.*?$@', '', $show_comment);
-                        }
-                        echo '<span class="table_comment" id="span_table_comment">'
-                            .'&quot;' . htmlspecialchars($show_comment)
-                            .'&quot;</span>' . "\n";
+                    if (! empty($comment)) {
+                        echo '<span class="table_comment"'
+                           . ' id="span_table_comment">&quot;'
+                           . htmlspecialchars($comment)
+                           . '&quot;</span>' . "\n";
                     } // end if
-                } else {
-                    // no table selected, display database comment if present
-                    /**
-                     * Settings for relations stuff
-                     */
-                    require_once './libraries/relation.lib.php';
-                    $cfgRelation = PMA_getRelationsParam();
-
-                    // Get additional information about tables for tooltip is done
-                    // in libraries/db_info.inc.php only once
-                    if ($cfgRelation['commwork']) {
-                        $comment = PMA_getDbComment($GLOBALS['db']);
-                        /**
-                         * Displays table comment
-                         */
-                        if (! empty($comment)) {
-                            echo '<span class="table_comment"'
-                               . ' id="span_table_comment">&quot;'
-                               . htmlspecialchars($comment)
-                               . '&quot;</span>' . "\n";
-                        } // end if
-                    }
                 }
+            }
             }
             echo '</div>';
 

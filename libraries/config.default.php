@@ -137,12 +137,6 @@ $cfg['Servers'][$i]['connect_type'] = 'tcp';
  */
 $cfg['Servers'][$i]['extension'] = 'mysql';
 
-/* added for blobstreaming */
-$cfg['Servers'][$i]['bs_garbage_threshold'] = '';
-$cfg['Servers'][$i]['bs_repository_threshold'] = '';
-$cfg['Servers'][$i]['bs_temp_blob_timeout'] = '';
-$cfg['Servers'][$i]['bs_temp_log_threshold'] = '';
-
 /**
  * Use compressed protocol for the MySQL connection (requires PHP >= 4.3.0)
  *
@@ -1123,7 +1117,7 @@ $cfg['Export']['file_template_table'] = '@TABLE@';
  *
  * @global string $cfg['Export']['file_template_database']
  */
-$cfg['Export']['file_template_database'] = '@DB@';
+$cfg['Export']['file_template_database'] = '@DATABASE@';
 
 /**
  *
@@ -1938,8 +1932,7 @@ $cfg['DefaultLang'] = 'en';
 $cfg['DefaultConnectionCollation'] = 'utf8_general_ci';
 
 /**
- * Force: always use this language - must be defined in
- *        libraries/select_lang.lib.php
+ * Force: always use this language
  * $cfg['Lang'] = 'en';
  *
  * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
@@ -2351,22 +2344,14 @@ $cfg['ThemePerServer'] = false;
  */
 
 /**
- * Default queries
- * %d will be replaced by the database name.
- * %t will be replaced by the table name.
- * %f will be replaced by a list of field names.
- * (%t and %f only applies to DefaultQueryTable)
+ * Default query for table
  *
  * @global string $cfg['DefaultQueryTable']
  */
-$cfg['DefaultQueryTable'] = 'SELECT * FROM %t WHERE 1';
+$cfg['DefaultQueryTable'] = 'SELECT * FROM @TABLE@ WHERE 1';
 
 /**
- * Default queries
- * %d will be replaced by the database name.
- * %t will be replaced by the table name.
- * %f will be replaced by a list of field names.
- * (%t and %f only applies to DefaultQueryTable)
+ * Default query for database
  *
  * @global string $cfg['DefaultQueryDatabase']
  */

@@ -4,6 +4,41 @@
  * @package     BLOBStreaming
  */
 
+function initPBMSDatabase()
+{
+    $query = "create database IF NOT EXISTS pbms;"; // If no other choice then try this.
+    /*
+     * The user may not have privileges to create the 'pbms' database
+     * so if it doesn't exist then we perform a select on a pbms system
+     * table in an already existing database which will cause the PBMS
+     * daemon to create the 'pbms' database.
+     */
+    $db_array = PMA_DBI_fetch_result('SHOW DATABASES;');
+    if (! empty($db_array)) {
+        $target = "";
+        foreach ($db_array as $current_db) {
+            if ($current_db == 'pbms') {
+                return TRUE;
+            }
+            if ($target == "") {
+                if (($current_db != 'pbxt') && ($current_db != 'mysql')  && ($current_db != 'information_schema')) {
+                    $target = $current_db;
+                }
+            }
+        }
+
+        if ($target != "") {
+            $query = "select * from $target.pbms_metadata_header"; // If it exists this table will not contain much
+        }
+    }
+ 
+    $result = PMA_DBI_query($query );
+    if (! $result) {
+        return FALSE;
+    }
+    return TRUE;
+}
+
 /**
  * checks whether the necessary plugins for BLOBStreaming exist
  *
@@ -13,7 +48,6 @@
  * @uses    PMA_Config::set()
  * @uses    PMA_BS_SetVariables()
  * @uses    PMA_BS_GetVariables()
- * @uses    PMA_BS_SetFieldReferences()
  * @uses    PMA_cacheSet()
  * @uses    PMA_cacheGet()
  * @return  boolean
@@ -26,12 +60,6 @@ function checkBLOBStreamingPlugins()
     // return if unable to load PMA configuration
     if (empty($PMA_Config)) {
         return FALSE;
-    }
-
-    // At this point we might already know that plugins do not exist
-    // because this was recorded in the session (cache).
-    if (PMA_cacheGet('skip_blobstreaming', true)) {
-        return false;
     }
 
     // If we don't know that we can skip blobstreaming, we continue
@@ -63,95 +91,66 @@ function checkBLOBStreamingPlugins()
         $serverCfg['socket'] = "";
     }
 
-    $allPluginsExist = false;
+    $has_blobstreaming = false;
     if (PMA_MYSQL_INT_VERSION >= 50109) {
-        $PMA_Config->set('PBXT_NAME', 'pbxt');
-        $PMA_Config->set('PBMS_NAME', 'pbms');
-
-        $required_plugins[$PMA_Config->get('PBXT_NAME')]['Library'] = 'libpbxt.so';
-        $required_plugins[$PMA_Config->get('PBMS_NAME')]['Library'] = 'libpbms.so';
-        $number_of_required_plugins_found = 0;
 
         // Retrieve MySQL plugins
         $existing_plugins = PMA_DBI_fetch_result('SHOW PLUGINS');
 
-        foreach ($existing_plugins as $one_existing_plugin)	{
+        foreach ($existing_plugins as $one_existing_plugin) {
             // check if required plugins exist
-            foreach ($required_plugins as $one_required_plugin) {
-                if ( strtolower($one_existing_plugin['Library']) == strtolower($one_required_plugin['Library'])
-                        && $one_existing_plugin['Status'] == "ACTIVE") {
-                    $number_of_required_plugins_found++;
-                }
-            }
-            if (2 == $number_of_required_plugins_found) {
-                $allPluginsExist = true;
+            if ( strtolower($one_existing_plugin['Library']) == 'libpbms.so'
+                && $one_existing_plugin['Status'] == "ACTIVE") {
+                $has_blobstreaming = true;
                 break;
             }
         }
-       unset($required_plugins, $existing_plugins, $one_required_plugin, $one_existing_plugin, $number_of_required_plugins_found);
+        unset($existing_plugins, $one_existing_plugin);
     }
     
     // set variable indicating BS plugin existence
-    $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', $allPluginsExist);
+    $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', $has_blobstreaming);
 
-    if ($allPluginsExist) {
-        // retrieve BS variables from PMA configuration
-        $bs_set_variables = array();
-
-        $bs_set_variables[$PMA_Config->get('PBMS_NAME') . '_garbage_threshold'] = (isset($serverCfg['bs_garbage_threshold'])) ? $serverCfg['bs_garbage_threshold'] : NULL;
-        $bs_set_variables[$PMA_Config->get('PBMS_NAME') . '_repository_threshold'] = (isset($serverCfg['bs_repository_threshold'])) ? $serverCfg['bs_repository_threshold'] : NULL;
-        $bs_set_variables[$PMA_Config->get('PBMS_NAME') . '_temp_blob_timeout'] = (isset($serverCfg['bs_temp_blob_timeout'])) ? $serverCfg['bs_temp_blob_timeout'] : NULL;
-        $bs_set_variables[$PMA_Config->get('PBMS_NAME') . '_temp_log_threshold'] = (isset($serverCfg['bs_temp_log_threshold'])) ? $serverCfg['bs_temp_log_threshold'] : NULL;
-
-        // set BS variables to PMA configuration defaults
-        PMA_BS_SetVariables($bs_set_variables);
-        
-        // retrieve updated BS variables (configurable and unconfigurable)
+    if ($has_blobstreaming) {
         $bs_variables = PMA_BS_GetVariables();
 
-        // if no BS variables exist, set plugin existence to false and return
+       // if no BS variables exist, set plugin existence to false and return
         if (count($bs_variables) <= 0) {
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', FALSE);
             PMA_cacheSet('skip_blobstreaming', true, true);
             return FALSE;
         } // end if (count($bs_variables) <= 0)
 
-        // switch on BS field references
-        if (strtolower($bs_variables[$PMA_Config->get('PBMS_NAME') . '_field_references']) == "off") {
-            if (! PMA_BS_SetFieldReferences('ON')) {
-                PMA_cacheSet('skip_blobstreaming', true, true);
-                return FALSE;
-            }
-        }
+         // get BS server port
+        $BS_PORT = $bs_variables['pbms_port'];
 
-        // get BS server port
-        $BS_PORT = $bs_variables[$PMA_Config->get('PBMS_NAME') . '_port'];
-
-        // if no BS server port exists, set plugin existance to false and return
-        if (! $BS_PORT) {
+        // if no BS server port or 'pbms' database exists, set plugin existance to false and return
+        if ((! $BS_PORT) || (! initPBMSDatabase())) {
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', FALSE);
             PMA_cacheSet('skip_blobstreaming', true, true);
             return FALSE;
         } // end if (!$BS_PORT)
 
+        // Ping PBMS: the database doesn't need to exist for this to work.
+        if (pbms_connect($serverCfg['host'], $BS_PORT, "anydb") == FALSE) {
+            $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', FALSE);
+            PMA_cacheSet('skip_blobstreaming', true, true);
+            return FALSE;
+        }
+        pbms_close();
+
+        if (function_exists("pbms_pconnect")) {
+            $PMA_Config->set('PBMS_PCONNECT_EXISTS', TRUE);
+        } else {
+            $PMA_Config->set('PBMS_PCONNECT_EXISTS', FALSE);
+        }
+
         // add selected BS, CURL and fileinfo library variables to PMA configuration
         $PMA_Config->set('BLOBSTREAMING_PORT', $BS_PORT);
         $PMA_Config->set('BLOBSTREAMING_HOST', $serverCfg['host']);
         $PMA_Config->set('BLOBSTREAMING_SERVER', $serverCfg['host'] . ':' . $BS_PORT);
-        $PMA_Config->set('CURL_EXISTS', FALSE);
+        $PMA_Config->set('PHP_PBMS_EXISTS', FALSE);
         $PMA_Config->set('FILEINFO_EXISTS', FALSE);
-
-        // check if CURL exists
-        if (function_exists("curl_init")) {
-            // initialize curl handler
-            $curlHnd = curl_init();
-
-            // CURL exists, set necessary variable and close resource
-            if (! empty($curlHnd)) {
-                $PMA_Config->set('CURL_EXISTS', TRUE);
-                curl_close($curlHnd);                
-            } // end if (!empty($curlHnd))
-        } // end if (function_exists("curl_init"))
 
         // check if PECL's fileinfo library exist
         $finfo = NULL;
@@ -165,178 +164,13 @@ function checkBLOBStreamingPlugins()
             $PMA_Config->set('FILEINFO_EXISTS', TRUE);
             finfo_close($finfo);
         } // end if (!empty($finfo))
+
     } else {
         PMA_cacheSet('skip_blobstreaming', true, true);
         return FALSE;
-    } // end if ($allPluginsExist)
-
-    $bs_tables = array();
-
-    // specify table structure for BS reference table
-    $bs_tables[$PMA_Config->get('PBMS_NAME') . '_reference'] = array();
-    $bs_tables[$PMA_Config->get('PBMS_NAME') . '_reference']['struct'] = <<<EOD
-        CREATE TABLE {$PMA_Config->get('PBMS_NAME')}_reference
-        (
-         Table_name        CHAR(64) COMMENT 'The name of the referencing table',
-         Blob_id           BIGINT COMMENT 'The BLOB reference number - part of the BLOB URL',
-         Column_name       CHAR(64) COMMENT 'The column name of the referencing field',
-         Row_condition     VARCHAR(255) COMMENT 'This condition identifies the row in the table',
-         Blob_url          VARCHAR(200) COMMENT 'The BLOB URL for HTTP GET access',
-         Repository_id     INT COMMENT 'The repository file number of the BLOB',
-         Repo_blob_offset  BIGINT COMMENT 'The offset in the repository file',
-         Blob_size         BIGINT COMMENT 'The size of the BLOB in bytes',
-         Deletion_time     TIMESTAMP COMMENT 'The time the BLOB was deleted',
-         Remove_in         INT COMMENT 'The number of seconds before the reference/BLOB is removed perminently',
-         Temp_log_id       INT COMMENT 'Temporary log number of the referencing deletion entry',
-         Temp_log_offset   BIGINT COMMENT 'Temporary log offset of the referencing deletion entry'
-        ) ENGINE=PBMS;
-EOD;
-
-    // specify table structure for BS repository table
-    $bs_tables[$PMA_Config->get('PBMS_NAME') . '_repository'] = array();
-    $bs_tables[$PMA_Config->get('PBMS_NAME') . '_repository']['struct'] = <<<EOD
-        CREATE TABLE {$PMA_Config->get('PBMS_NAME')}_repository
-        (
-         Repository_id     INT COMMENT 'The repository file number',
-         Repo_blob_offset  BIGINT COMMENT 'The offset of the BLOB in the repository file',
-         Blob_size         BIGINT COMMENT 'The size of the BLOB in bytes',
-         Head_size         SMALLINT UNSIGNED COMMENT 'The size of the BLOB header - proceeds the BLOB data',
-         Access_code       INT COMMENT 'The 4-byte authorisation code required to access the BLOB - part of the BLOB URL',
-         Creation_time     TIMESTAMP COMMENT 'The time the BLOB was created',
-         Last_ref_time     TIMESTAMP COMMENT 'The last time the BLOB was referenced',
-         Last_access_time  TIMESTAMP COMMENT 'The last time the BLOB was accessed (read)',
-         Content_type      CHAR(128) COMMENT 'The content type of the BLOB - returned by HTTP GET calls',
-         Blob_data         LONGBLOB COMMENT 'The data of this BLOB'
-        ) ENGINE=PBMS;
-EOD;
-
-    // specify table structure for BS custom content type table
-    $bs_tables[$PMA_Config->get('PBMS_NAME') . '_custom_content_type'] = array();
-    $bs_tables[$PMA_Config->get('PBMS_NAME') . '_custom_content_type']['struct'] = <<<EOD
-        CREATE TABLE {$PMA_Config->get('PBMS_NAME')}_custom_content_type
-        (
-         Blob_url           VARCHAR(200) COMMENT 'The BLOB URL for HTTP GET access',
-         Content_type       VARCHAR(255) COMMENT 'The custom MIME type for a given BLOB reference as specified by the user',
-
-         PRIMARY KEY(Blob_url)
-        );
-EOD;
-
-    // add BS tables to PMA configuration
-    $PMA_Config->set('BLOBSTREAMING_TABLES', $bs_tables);
+    } // end if ($has_blobstreaming)
 
     return TRUE;
-}
-
-/**
- * checks for databases that support BLOBStreaming
- *
- * @access  public
- * @uses    PMA_GetDatabases()
- * @uses    PMA_TablesExist()
- * @uses    PMA_Config::set()
-*/
-function checkBLOBStreamableDatabases()
-{
-    // load PMA configuration
-    $PMA_Config = $GLOBALS['PMA_Config'];
-
-    $serverCfg = $GLOBALS['cfg']['Server'];
-
-    // retrieve BS tables from PMA configuration
-    $session_bs_tables = $PMA_Config->get('BLOBSTREAMING_TABLES');
-
-    $bs_databases = array();
-    $bs_tables = array();
-
-    // return if BS tables do not exist
-    if (!$session_bs_tables)
-        return;
-
-    foreach ($session_bs_tables as $table_key=>$table)
-    {
-        $bs_tables[$table_key] = array();
-        $bs_tables[$table_key]['Exists'] = FALSE;
-    }
-
-    // retrieve MySQL databases
-    $databases = PMA_GetDatabases();
-
-    // check if BS tables exist for each database
-    foreach ($databases as $db_key=>$db_name)
-    {
-        $bs_databases[$db_name] = $bs_tables;
-
-        PMA_TablesExist($bs_databases[$db_name], $db_name);
-    }
-
-    // set BS databases in PMA configuration
-    $PMA_Config->set('BLOBSTREAMABLE_DATABASES', $bs_databases);
-}
-
-
-
-/**
- * checks whether a given set of tables exist in a given database
- *
- * @access  public
- * @param   array - list of tables to look for
- * @param   string - name of database
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_fetch_assoc()
- */
-function PMA_TablesExist(&$tables, $db_name)
-{
-    // select specified database
-    PMA_DBI_select_db($db_name);
-
-    // run query to retrieve tables in specified database
-    $query = "SHOW TABLES";
-    $result = PMA_DBI_query($query);
-
-    // while there are records to parse
-    while ($data = @PMA_DBI_fetch_assoc($result))
-    {
-        $state = TRUE;
-
-        // check if necessary tables exist
-        foreach ($tables as $table_key=>$table)
-            if (!$table['Exists'])
-                if ($data['Tables_in_' . $db_name] == $table_key)
-                    $tables[$table_key]['Exists'] = TRUE;
-                else
-                    if ($state)
-                        $state = FALSE;
-
-        // break if necessary tables are found before all records are parsed
-        if ($state)
-            break;
-    } // end while ($data = @PMA_DBI_fetch_assoc($result))
-}
-
-/**
- * returns a list of databases
- *
- * @access  public
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_fetch_assoc()
- * @return  array - list of databases acquired via MySQL
-*/
-function PMA_GetDatabases()
-{
-    // run query to retrieve databases
-    $query = "SHOW DATABASES";
-    $result = PMA_DBI_query($query);
-
-    $databases = array();
-
-    // while there are records to parse
-    while ($data = @PMA_DBI_fetch_assoc($result))
-        $databases[] = $data['Database'];
-
-    // return list of databases
-    return $databases;
 }
 
 /**
@@ -388,7 +222,7 @@ function PMA_BS_GetVariables()
         return NULL;
 
     // run query to retrieve BS variables
-    $query = "SHOW VARIABLES LIKE '%" . $PMA_Config->get('PBMS_NAME') . "%'";
+    $query = "SHOW VARIABLES LIKE '%pbms%'";
     $result = PMA_DBI_query($query);
 
     $BS_Variables = array();
@@ -401,136 +235,263 @@ function PMA_BS_GetVariables()
     return $BS_Variables;
 }
 
-/**
- * sets the BLOBStreaming global field references to ON/OFF
- *
- * @access  public
- * @param   string - ON or OFF
- * @uses    PMA_Config::get()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_query()
- * @return  boolean - success/failure of query execution
-*/
-function PMA_BS_SetFieldReferences($val)
+//========================
+//========================
+function PMA_BS_ReportPBMSError($msg)
 {
-    // load PMA configuration
+    $tmp_err = pbms_error();
+    PMA_showMessage("PBMS error, $msg $tmp_err");
+}
+
+//------------
+function PMA_do_connect($db_name, $quiet)
+{
     $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
     if (empty($PMA_Config))
         return FALSE;
 
-    // set field references to value specified
-    $query = "SET GLOBAL " . $PMA_Config->get('PBMS_NAME') . "_field_references=" . PMA_sqlAddslashes($val);
-    $result = PMA_DBI_try_query($query, null, 0);
+    // generate bs reference link
+    $pbms_host = $PMA_Config->get('BLOBSTREAMING_HOST');
+    $pbms_port = $PMA_Config->get('BLOBSTREAMING_PORT');
 
-    // get last known error (if applicable)
-    PMA_DBI_getError();
-
-    // return success of query execution
-    if ($result && 0 == $GLOBALS['errno'])
-        return TRUE;
-    else
-        return FALSE;
-}
-
-/**
- * gets the SQL table definition for a given BLOBStreaming table
- *
- * @access  public
- * @param   string - table name
- * @uses    PMA_Config::get()
- * @return  string - SQL table definition
-*/
-function PMA_BS_GetTableStruct($tbl_name)
-{
-    // retrieve table structures for BS tables
-    $bs_tables = $GLOBALS['PMA_Config']->get('BLOBSTREAMING_TABLES');
-   
-    // return if tables don't exist 
-    if (!$bs_tables)
-        return;
-
-    // return if specified table doesn't exist in collection of BS tables
-    if (!isset($bs_tables[$tbl_name]))
-        return;
-
-    // return specified table's structure
-    return $bs_tables[$tbl_name]['struct'];
-}
-
-/**
- * creates the BLOBStreaming tables for a given database
- *
- * @access  public
- * @param   string - database name
- * @uses    PMA_Config::get()
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_DBI_query()
- * @uses    PMA_BS_GetTableStruct()
- * @return  boolean - success/failure of transactional query execution
-*/
-function PMA_BS_CreateTables($db_name)
-{
-    // retrieve BS tables
-    $bs_tables = $GLOBALS['PMA_Config']->get('BLOBSTREAMING_TABLES');
-
-    // select specified database
-    PMA_DBI_select_db($db_name);
-
-    // create necessary BS tables for specified database
-    foreach ($bs_tables as $table_key=>$table)
-    {
-        $result = PMA_DBI_query(PMA_BS_GetTableStruct($table_key));
-
-        // return false if query execution fails
-        if (!$result)
-            return FALSE;
+    if ($PMA_Config->get('PBMS_PCONNECT_EXISTS')) {
+        // Open a persistent connection.
+        $ok = pbms_pconnect($pbms_host, $pbms_port, $db_name);
+    } else {
+        $ok = pbms_connect($pbms_host, $pbms_port, $db_name);
     }
 
-    // return true on success
+    if ($ok == FALSE) {
+        if ($quiet == FALSE) {
+            PMA_BS_ReportPBMSError("PBMS Connection failed: pbms_connect($pbms_host, $pbms_port, $db_name)");
+        }
+        return FALSE;
+    }
     return TRUE;
 }
 
-/**
- * drops BLOBStreaming tables for a given database
- *
- * @access  public
- * @param   string - database name
- * @uses    PMA_Config::get()
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_query()
- * @return  boolean - success/failure of transactional query execution
-*/
-function PMA_BS_DropTables($db_name)
+//------------
+function PMA_do_disconnect()
 {
+    pbms_close();
+}
+
+//------------
+/**
+ * checks whether the BLOB reference looks valid
+ *
+*/
+function PMA_BS_IsPBMSReference($bs_reference, $db_name)
+{
+    if (PMA_cacheGet('skip_blobstreaming', true)) {
+        return FALSE;
+    }
+
+    // You do not really need a connection to the PBMS Daemon
+    // to check if a reference looks valid.
+    $ok = pbms_is_blob_reference($bs_reference);
+    return $ok ;
+}
+
+//------------
+function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
+{
+    if (PMA_do_connect($db_name, FALSE) == FALSE) {
+        return 'Error';
+    }
+
+    if (pbms_get_info(trim($bs_reference)) == FALSE) {
+        PMA_BS_ReportPBMSError("PBMS get BLOB info failed: pbms_get_info($bs_reference)");
+        PMA_do_disconnect();
+        return 'Error';
+    }
+
+    $content_type = pbms_get_metadata_value("Content-Type");
+    if ($content_type == FALSE) {
+        $br = trim($bs_reference);
+        PMA_BS_ReportPBMSError("'$content_type' PMA_BS_CreateReferenceLink('$br', '$db_name'): get BLOB Content-Type failed: ");
+    }
+
+    PMA_do_disconnect();
+
+    if (! $content_type) {
+        $content_type = "image/jpeg";
+    }
+
+    $bs_url = PMA_BS_getURL($bs_reference);
+    if (empty($bs_url)) {
+        PMA_BS_ReportPBMSError("No blob streaming server configured!");
+        return 'Error';
+    }
+
+    $output = "<a href=\"#\" onclick=\"requestMIMETypeChange('" . urlencode($db_name) . "', '" . urlencode($GLOBALS['table']) . "', '" . urlencode($bs_reference) . "', '" . urlencode($content_type) . "')\">$content_type</a>";
+
+    // specify custom HTML for various content types
+    switch ($content_type) {
+        // no content specified
+        case NULL:
+            $output = "NULL";
+            break;
+        // image content
+        case 'image/jpeg':
+        case 'image/png':
+            $output .= ' (<a href="' . $bs_url . '" target="new">' . __('View image') . '</a>)';
+        break;
+        // audio content
+        case 'audio/mpeg':
+            $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . urlencode($content_type) . '\',' . ($is_custom_type ? 1 : 0) . ', 640, 120)">' . __('Play audio'). '</a>)';
+            break;
+        // video content
+        case 'application/x-flash-video':
+        case 'video/mpeg':
+            $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . urlencode($content_type) . '\',' . ($is_custom_type ? 1 : 0) . ', 640, 480)">' . __('View video') . '</a>)';
+            break;
+        // unsupported content. specify download
+        default:
+            $output .= ' (<a href="' . $bs_url . '" target="new">' . __('Download file'). '</a>)';
+    }
+
+    return $output;
+}
+
+//------------
+// In the future there may be server variables to turn on/off PBMS
+// BLOB streaming on a per table or database basis. So in anticipation of this
+// PMA_BS_IsTablePBMSEnabled() passes in the table and database name even though
+// they are not currently needed.
+function PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)
+{
+    if (PMA_cacheGet('skip_blobstreaming', true)) {
+        return FALSE;
+    }
+
+    if ((isset($tbl_type) == FALSE) || (strlen($tbl_type) == 0)) {
+        return FALSE;
+    }
+
     // load PMA configuration
     $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
-    if (empty($PMA_Config))
+    if (empty($PMA_Config)) {
         return FALSE;
+    }
 
-    // retrieve BS tables
-    $bs_tables = $PMA_Config->get('BLOBSTREAMING_TABLES');
+    if (! $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST')) {
+        return FALSE;
+    }
 
-    // select specified database
-    PMA_DBI_select_db($db_name);
+    // This information should be cached rather than selecting it each time.
+    //$query = "SELECT count(*)  FROM information_schema.TABLES T, pbms.pbms_enabled E where T.table_schema = ". PMA_backquote($db_name) . " and T.table_name = ". PMA_backquote($tbl_name) . " and T.engine = E.name"; 
+    $query = "SELECT count(*)  FROM pbms.pbms_enabled E where E.name = '" . PMA_sqlAddslashes($tbl_type) . "'"; 
+    $result = PMA_DBI_query($query);
 
-    // drop BS tables
-    foreach ($bs_tables as $table_key=>$table)
-    {
-        $query = "DROP TABLE IF EXISTS " . PMA_backquote($table_key);
+    $data = PMA_DBI_fetch_row($result);
+    if ($data[0] == 1) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+//------------
+function PMA_BS_UpLoadFile($db_name, $tbl_name, $file_type, $file_name)
+{
+
+    if (PMA_cacheGet('skip_blobstreaming', true)) {
+        return FALSE;
+    }
+
+    if (PMA_do_connect($db_name, FALSE) == FALSE) {
+        return FALSE;
+    }
+
+    $fh = fopen($file_name, 'r');
+    if (! $fh) {
+        PMA_do_disconnect();
+        PMA_showMessage("Could not open file: $file_name");
+        return FALSE;
+    }
+
+    pbms_add_metadata("Content-Type", $file_type);
+
+    $pbms_blob_url = pbms_read_stream($fh, filesize($file_name), $tbl_name);
+    if (! $pbms_blob_url) {
+        PMA_BS_ReportPBMSError("pbms_read_stream() Failed");
+    }
+
+    fclose($fh);
+    PMA_do_disconnect();
+    return $pbms_blob_url;
+}
+
+//------------
+function PMA_BS_SetContentType($db_name, $bsTable, $blobReference, $contentType)
+{
+    if (PMA_cacheGet('skip_blobstreaming', true)) {
+        return FALSE;
+    }
+
+    // This is a really ugly way to do this but currently there is nothing better.
+    // In a future version of PBMS the system tables will be redesigned to make this
+    // more eficient.
+    $query = "SELECT Repository_id, Repo_blob_offset FROM pbms_reference  WHERE Blob_url='" . PMA_sqlAddslashes($blobReference) . "'";
+    //error_log(" PMA_BS_SetContentType: $query\n", 3, "/tmp/mylog");
+    $result = PMA_DBI_query($query);
+    //error_log(" $query\n", 3, "/tmp/mylog");
+
+// if record exists
+    if ($data = PMA_DBI_fetch_assoc($result)) {
+        $where = "WHERE Repository_id=" . $data['Repository_id'] . " AND Repo_blob_offset=" . $data['Repo_blob_offset'] ;
+        $query = "SELECT name from  pbms_metadata $where";
         $result = PMA_DBI_query($query);
 
-        // return false if query execution fails
-        if (!$result)
-            return FALSE;
+        if (PMA_DBI_num_rows($result) == 0) {
+            $query = "INSERT into pbms_metadata Values( ". $data['Repository_id'] . ", " . $data['Repo_blob_offset']  . ", 'Content_type', '" . PMA_sqlAddslashes($contentType)  . "')";
+        } else {
+            $query = "UPDATE pbms_metadata SET name = 'Content_type', Value = '" . PMA_sqlAddslashes($contentType)  . "' $where";
+        }
+//error_log("$query\n", 3, "/tmp/mylog");
+        PMA_DBI_query($query);
+    } else {
+        return FALSE;
+    }
+    return TRUE;
+}
+
+//------------
+function PMA_BS_IsHiddenTable($table)
+{
+    switch ($table) {
+        case 'pbms_repository' :
+        case 'pbms_reference' :
+        case 'pbms_metadata' :
+        case 'pbms_metadata_header' :
+        case 'pbms_dump' :
+            return TRUE;
+    }
+    return FALSE;
+}
+
+//------------
+function PMA_BS_getURL($reference)
+{
+    // load PMA configuration
+    $PMA_Config = $GLOBALS['PMA_Config'];
+    if (empty($PMA_Config)) {
+        return FALSE;
     }
 
-    // return true on success
-    return TRUE;
+    // retrieve BS server variables from PMA configuration
+    $bs_server = $PMA_Config->get('BLOBSTREAMING_SERVER');
+    if (empty($bs_server)) {
+        return FALSE;
+    }
+
+    $bs_url = 'http://' . $bs_server . '/' . rtrim($reference);
+    return $bs_url;
 }
 
 /**
@@ -547,13 +508,6 @@ function PMA_BS_DropTables($db_name)
 */
 function PMA_BS_GetPrimaryField($db_name, $tbl_name)
 {
-    // load PMA configuration
-    $PMA_Config = $GLOBALS['PMA_Config'];
-
-    // return if unable to load PMA configuration
-    if (empty($PMA_Config))
-        return FALSE;
-
     // select specified database
     PMA_DBI_select_db($db_name);
 
@@ -562,152 +516,12 @@ function PMA_BS_GetPrimaryField($db_name, $tbl_name)
     $result = PMA_DBI_query($query);
 
     // while there are records to parse
-    while ($data = PMA_DBI_fetch_assoc($result))
-        if ("PRI" == $data['Key'])
+    while ($data = PMA_DBI_fetch_assoc($result)) {
+        if ("PRI" == $data['Key']) {
             return $data['Field'];
-
+        }
+    }
     // return NULL on no primary key
     return NULL;
 }
-
-/**
- * checks whether a BLOB reference exists in the BLOB repository
- *
- * @access  public
- * @param   string - BLOB reference
- * @param   string - database name
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_backquote()
- * @uses    PMA_Config::get()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_query()
- * @return  boolean - existence of BLOB reference
-*/
-function PMA_BS_ReferenceExists($bs_reference, $db_name)
-{
-    $referenceExists = FALSE;
-
-    // return false on invalid BS reference
-    if (strlen ($bs_reference) < strlen ("~*$db_name/~") || "~*$db_name/~" != substr ($bs_reference, 0, strlen ($db_name) + 4))
-        return $referenceExists;
-
-    // load PMA configuration
-    $PMA_Config = $GLOBALS['PMA_Config'];
-
-    // return if unable to load PMA configuration
-    if (empty($PMA_Config))
-        return $referenceExists;
-
-    // select specified database
-    PMA_DBI_select_db($db_name);
-
-    // run query on BS reference retrieval
-    $query = "SELECT * FROM " . PMA_backquote($PMA_Config->get('PBMS_NAME') . "_reference") . " WHERE Blob_url='" . PMA_sqlAddslashes($bs_reference) . "'";
-    $result = PMA_DBI_query($query);
-
-    // if record exists
-    if ($data = @PMA_DBI_fetch_assoc($result))
-        $referenceExists = TRUE;
-
-    // return reference existance
-    return $referenceExists;
-}
-
-/**
- * creates a HTTP link to a given blob reference for a given database
- *
- * @access  public
- * @param   string - BLOB reference
- * @param   string - database name
- * @uses    PMA_Config::get()
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_backquote()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_fetch_assoc()
- * @return  string - HTTP link or Error
-*/
-function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
-{
-    // load PMA configuration
-    $PMA_Config = $GLOBALS['PMA_Config'];
-
-    // return if unable to load PMA configuration
-    if (empty($PMA_Config))
-        return '';
-
-    // generate bs reference link
-    $bs_ref_link = 'http://' . $PMA_Config->get('BLOBSTREAMING_SERVER') . '/' . $bs_reference;
-
-    // select specified database
-    PMA_DBI_select_db($db_name);
-
-    $pbms_repo_bq = PMA_backquote($PMA_Config->get('PBMS_NAME') . "_repository");
-    $pbms_ref_bq = PMA_backquote($PMA_Config->get('PBMS_NAME') . "_reference");
-    $pbms_cust_content_bq = PMA_backquote($PMA_Config->get('PBMS_NAME') . "_custom_content_type");
-
-    // run query on determining specified BS reference
-    $query = "SELECT $pbms_repo_bq.Content_type, $pbms_cust_content_bq.Content_type AS Custom_type";
-    $query .= " FROM $pbms_repo_bq LEFT JOIN $pbms_ref_bq ON";
-    $query .= "$pbms_repo_bq.Repository_id=$pbms_ref_bq.Repository_id";
-    $query .= " AND $pbms_repo_bq.Blob_size=$pbms_ref_bq.Blob_size";
-    $query .= " AND $pbms_repo_bq.Repo_blob_offset=$pbms_ref_bq.Repo_blob_offset";
-    $query .= " LEFT JOIN $pbms_cust_content_bq ON $pbms_cust_content_bq.Blob_url=$pbms_ref_bq.Blob_url";
-    $query .= " WHERE $pbms_ref_bq.Blob_url='" . PMA_sqlAddslashes($bs_reference) . "'";
-
-    $result = PMA_DBI_query($query);
-
-    // if record exists
-    if ($data = @PMA_DBI_fetch_assoc($result))
-    {
-        // determine content-type for BS repository file (original or custom)
-	$is_custom_type = false;
-
-	if (isset($data['Custom_type']))
-	{
-	        $content_type = $data['Custom_type'];
-		$is_custom_type = true;
-	}
-	else
-		$content_type = $data['Content_type'];
-
-        if (!$content_type)
-            $content_type = NULL;
-
-        $output = "<a href=\"#\" onclick=\"requestMIMETypeChange('" . urlencode($db_name) . "', '" . urlencode($GLOBALS['table']) . "', '" . urlencode($bs_reference) . "', '" . urlencode($content_type) . "')\">$content_type</a>";
-
-        // specify custom HTML for various content types
-        switch ($content_type)
-        {
-            // no content specified
-            case NULL:
-                $output = "NULL";
-                break;
-            // image content
-            case 'image/jpeg':
-            case 'image/png':
-                $output .= ' (<a href="' . $bs_ref_link . '" target="new">' . __('View image') . '</a>)';
-                break;
-            // audio content
-            case 'audio/mpeg':
-                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . urlencode($content_type) . '\',' . ($is_custom_type ? 1 : 0) . ', 640, 120)">' . __('Play audio'). '</a>)';
-                break;
-            // video content
-            case 'application/x-flash-video':
-            case 'video/mpeg':
-                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . urlencode($content_type) . '\',' . ($is_custom_type ? 1 : 0) . ', 640, 480)">' . __('View video') . '</a>)';
-                break;
-            // unsupported content. specify download
-            default:
-                $output .= ' (<a href="' . $bs_ref_link . '" target="new">' . __('Download file'). '</a>)';
-        }
-
-        // return HTML
-        return $output;
-    } // end if ($data = @PMA_DBI_fetch_assoc($result))
-
-    // return on error
-    return 'Error';
-}
-
 ?>

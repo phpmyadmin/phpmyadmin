@@ -9,7 +9,6 @@
  *
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'db_structure.js';
@@ -57,7 +56,7 @@ if ($num_tables == 0) {
     /**
      * Displays the footer
      */
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
     exit;
 }
 
@@ -151,25 +150,12 @@ $hidden_fields = array();
 $odd_row       = true;
 $sum_row_count_pre = '';
 
-// for blobstreaming
-$PMA_Config = $GLOBALS['PMA_Config'];
-
-if (!empty($PMA_Config))
-    $session_bs_tables = $PMA_Config->get('BLOBSTREAMING_TABLES'); // list of blobstreaming tables
-
 $tableReductionCount = 0;   // the amount to reduce the table count by
 
 foreach ($tables as $keyname => $each_table) {
-    if (isset($session_bs_tables))
-    {
-        // compare table name against blobstreaming tables
-        foreach ($session_bs_tables as $table_key=>$table_val)
-            // if the table is a blobstreaming table, reduce table count and skip outer foreach loop
-            if ($table_key == $keyname)
-            {
-                $tableReductionCount++;
-                continue 2;
-            }
+    if (PMA_BS_IsHiddenTable($keyname)) {
+        $tableReductionCount++;
+        continue;
     }
 
     // Get valid statistics whatever is the table type
@@ -611,5 +597,5 @@ if (empty($db_is_information_schema)) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

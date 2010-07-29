@@ -16,6 +16,7 @@ require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+
 $GLOBALS['js_include'][] = 'password_generation.js';
 require './libraries/server_common.inc.php';
 
@@ -112,7 +113,7 @@ if (!$is_superuser) {
        . __('Privileges') . "\n"
        . '</h2>' . "\n";
     PMA_Message::error(__('No Privileges'))->display();
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 }
 
 /**
@@ -973,11 +974,18 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                         $message = PMA_Message::rawError(PMA_DBI_getError());
                         break;
                     }
+<<<<<<< HEAD
 
                     if($GLOBALS['is_ajax_request'] != true) {
                         $GLOBALS['reload'] = TRUE;
                         PMA_reloadNavigation();
                     }
+=======
+                    // this is needed in case tracking is on:
+                    $GLOBALS['db'] = $username;
+                    $GLOBALS['reload'] = TRUE;
+                    PMA_reloadNavigation();
+>>>>>>> origin/master
 
                     $q = 'GRANT ALL PRIVILEGES ON '
                         . PMA_backquote(PMA_sqlAddslashes($username)) . '.* TO \''
@@ -1292,6 +1300,9 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
                     }
                 }
             }
+            // tracking sets this, causing the deleted db to be shown in navi
+            unset($GLOBALS['db']);
+
             $sql_query = join("\n", $queries);
             if (! empty($drop_user_error)) {
                 $message = PMA_Message::rawError($drop_user_error);
@@ -1754,7 +1765,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         if ($user_does_not_exists) {
             PMA_Message::warning(__('The selected user was not found in the privilege table.'))->display();
             PMA_displayLoginInformationFields();
-            //require_once './libraries/footer.inc.php';
+            //require './libraries/footer.inc.php';
         }
 
         echo '<form name="usersForm" id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
@@ -2295,6 +2306,6 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
  * Displays the footer
  */
 echo "\n\n";
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 ?>

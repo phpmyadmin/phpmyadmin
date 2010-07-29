@@ -37,7 +37,6 @@ $err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url($url_params);
 /**
  * Displays headers
  */
-$GLOBALS['js_include'][] = 'functions.js';
 require_once './libraries/header.inc.php';
 
 /**
@@ -92,47 +91,15 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
     $tabs['operation']['icon'] = 'b_tblops.png';
     $tabs['operation']['link'] = 'tbl_operations.php';
     $tabs['operation']['text'] = __('Operations');
-
-    $tabs['empty']['link']  = 'sql.php';
-    $tabs['empty']['args']['reload']    = 1;
-    $tabs['empty']['args']['sql_query'] = 'TRUNCATE TABLE ' . PMA_backquote($table);
-    $tabs['empty']['args']['zero_rows'] = sprintf(__('Table %s has been emptied'), htmlspecialchars($table));
-    $tabs['empty']['id'] = 'empty_table_anchor';
-    $tabs['empty']['args']['goto'] = 'tbl_structure.php';
-    $tabs['empty']['class'] = 'caution';
-    $tabs['empty']['icon'] = 'b_empty.png';
-    $tabs['empty']['text'] = __('Empty');
-    if ($table_info_num_rows == 0) {
-        $tabs['empty']['warning'] = __('Table seems to be empty!');
-    }
 }
 
 /**
- * Views support a limited number of operations 
+ * Views support a limited number of operations
  */
 if ($tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
     $tabs['operation']['icon'] = 'b_tblops.png';
     $tabs['operation']['link'] = 'view_operations.php';
     $tabs['operation']['text'] = __('Operations');
-}
-
-/**
- * no drop in information_schema
- */
-if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
-    $tabs['drop']['icon'] = 'b_deltbl.png';
-    $tabs['drop']['link'] = 'sql.php';
-    $tabs['drop']['url_params'] = array('table' => NULL);
-    $tabs['drop']['text'] = __('Drop');
-    $tabs['drop']['args']['reload']     = 1;
-    $tabs['drop']['args']['purge']      = 1;
-    $drop_command = 'DROP ' . ($tbl_is_view ? 'VIEW' : 'TABLE');
-    $tabs['drop']['args']['sql_query']  = $drop_command . ' ' . PMA_backquote($table);
-    $tabs['drop']['args']['goto']       = 'db_structure.php';
-    $tabs['drop']['args']['zero_rows']  = sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table));
-    $tabs['drop']['id'] = 'drop_table_anchor';
-    unset($drop_command);
-    $tabs['drop']['class'] = 'caution';
 }
 
 if ($table_info_num_rows == 0 && !$tbl_is_view) {

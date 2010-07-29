@@ -16,7 +16,6 @@
  * requirements
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 require_once './libraries/mysql_charsets.lib.php';
 
 // add blobstreaming library functions
@@ -271,71 +270,11 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
     };
 }
 
-/*
- * Enable/Disable/Repair BLOB Repository Monitoring for current database
-*/
-if (strlen($db) > 0 && !empty($db_blob_streaming_op))
-{
-    // load PMA_Config
-    $PMA_Config = $GLOBALS['PMA_Config'];
-
-    if (!empty($PMA_Config))
-    {
-        if ($PMA_Config->get('PBXT_NAME') !== strtolower($db))
-        {
-            // if Blobstreaming plugins exist, begin checking for Blobstreaming tables
-            if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST'))
-            {
-                $bs_tables = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
-                $bs_tables = $bs_tables[$db];
-
-                $oneBSTableExists = FALSE;
-
-                // check if at least one blobstreaming table exists
-                foreach ($bs_tables as $table_key=>$tbl)
-                    if ($bs_tables[$table_key]['Exists'])
-                    {
-                        $oneBSTableExists = TRUE;
-                        break;
-                    }
-
-                switch ($db_blob_streaming_op)
-                {
-                    // enable BLOB repository monitoring
-                    case "enable":
-                        // if blobstreaming tables do not exist, create them
-                        if (!$oneBSTableExists)
-                            PMA_BS_CreateTables($db);
-                    break;
-                    // disable BLOB repository monitoring
-                    case "disable":
-                        // if at least one blobstreaming table exists, execute drop
-                        if ($oneBSTableExists)
-                            PMA_BS_DropTables($db);
-                    break;
-                    // repair BLOB repository
-                    case "repair":
-                        // check if a blobstreaming table is missing
-                        foreach ($bs_tables as $table_key=>$tbl)
-                        if (!$bs_tables[$table_key]['Exists'])
-                        {
-                            PMA_DBI_select_db($db);
-                            PMA_DBI_query(PMA_BS_GetTableStruct($table_key));
-                        }
-                }
-
-                // refresh side menu
-                PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'db_operations.php?' . PMA_generate_common_url ('','', '&') . (isset($db) ? '&db=' . urlencode($db) : '') . (isset($token) ? '&token=' . urlencode($token) : '') . (isset($goto) ? '&goto=' . urlencode($goto) : '') . 'reload=1&purge=1');
-            }   // end  if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST'))
-        }   // end if ($PMA_Config->get('PBXT_NAME') !== strtolower($db))
-    }
-}
 
 /**
  * Settings for relations stuff
  */
 
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -439,7 +378,41 @@ if (!$is_information_schema) {
         <input id="rename_db_input" type="submit" value="<?php echo __('Go'); ?>" />
     </fieldset>
     </form>
+<?php
+// Drop link if allowed
+// Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
+// Don't allow to easilly drop mysql database, RFE #1327514.
+if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_information_schema && ($db != 'mysql')) {
+?>
+<fieldset class="caution">
+ <legend><?php
+if ($cfg['PropertiesIconic']) {
+    echo '<img class="icon" src="' . $pmaThemeImage . 'b_deltbl.png"'
+        .' alt="" width="16" height="16" />';
+}
+echo __('Remove database');
+?></legend>
 
+<ul>
+<?php
+    $this_sql_query = 'DROP DATABASE ' . PMA_backquote($GLOBALS['db']);
+    $this_url_params = array(
+            'sql_query' => $this_sql_query,
+            'back' => 'db_operations.php',
+            'goto' => 'main.php',
+            'reload' => '1',
+            'purge' => '1',
+            'zero_rows' => sprintf(__('Database %s has been dropped.'), htmlspecialchars(PMA_backquote($db))),
+            'db' => NULL,
+        );
+    ?>
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLinkDropDB(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
+            <?php echo __('Drop the database (DROP)'); ?></a>
+        <?php echo PMA_showMySQLDocu('SQL-Syntax', 'DROP_DATABASE'); ?>
+    </li>
+</ul>
+</fieldset>
+<?php } ?>
     <?php
     /**
      * Copy database
@@ -511,92 +484,6 @@ if (!$is_information_schema) {
     </form>
 
     <?php
-    /*
-     * BLOB streaming support
-    */
-
-    // load PMA_Config
-    $PMA_Config = $GLOBALS['PMA_Config'];
-
-    // if all blobstreaming plugins exist, begin checking for blobstreaming tables
-    if (!empty($PMA_Config))
-    {
-        if ($PMA_Config->get('PBXT_NAME') !== strtolower($db))
-        {
-            if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST'))
-            {
-                $bs_tables = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
-                $bs_tables = $bs_tables[$db];
-
-                $oneBSTableExists = FALSE;
-                $allBSTablesExist = TRUE;
-
-                // first check that all blobstreaming tables do not exist
-                foreach ($bs_tables as $table_key=>$tbl)
-                    if ($bs_tables[$table_key]['Exists'])
-                        $oneBSTableExists = TRUE;
-                    else
-                        $allBSTablesExist = FALSE;
-
-                ?>
-
-                    <form method="post" action="./db_operations.php">
-                    <?php echo PMA_generate_common_hidden_inputs($db); ?>
-                    <fieldset>
-                    <legend>
-                    <?php echo PMA_getIcon('b_edit.png', __('BLOB Repository'), false, true); ?>
-                    </legend>
-
-                    <?php echo __('Status'); ?>:
-
-                    <?php
-
-                    // if the blobstreaming tables exist, provide option to disable the BLOB repository
-                    if ($allBSTablesExist)
-                    {
-                        ?>
-                            <?php echo _pgettext('BLOB repository', 'Enabled'); ?>
-                            </fieldset>
-                            <fieldset class="tblFooters">
-                            <input type="hidden" name="db_blob_streaming_op" value="disable" />
-                            <input type="submit" onclick="return confirmDisableRepository('<?php echo $db; ?>');" value="<?php echo __('Disable'); ?>" />
-                            </fieldset>
-                            <?php
-                    }
-                    else
-                    {
-                        // if any of the blobstreaming tables are missing, provide option to repair the BLOB repository
-                        if ($oneBSTableExists && !$allBSTablesExist)
-                        {
-                            ?>
-                                <?php echo __('Damaged'); ?>
-                                </fieldset>
-                                <fieldset class="tblFooters">
-                                <input type="hidden" name="db_blob_streaming_op" value="repair" />
-                                <input type="submit" value="<?php echo _pgettext('BLOB repository', 'Repair'); ?>" />
-                                </fieldset>
-                                <?php
-                        }
-                        // if none of the blobstreaming tables exist, provide option to enable BLOB repository
-                        else
-                        {
-                            ?>
-                                <?php echo _pgettext('BLOB repository', 'Disabled'); ?>
-                                </fieldset>
-                                <fieldset class="tblFooters">
-                                <input type="hidden" name="db_blob_streaming_op" value="enable" />
-                                <input type="submit" value="<?php echo __('Enable'); ?>" />
-                                </fieldset>
-                                <?php
-                        }
-                    }   // end if ($allBSTablesExist)
-
-                ?>
-                    </form>
-                <?php
-            }   // end  if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST'))
-        }   // end if ($PMA_Config->get('PBXT_NAME') !== strtolower($db))
-    }
 
     /**
      * Change database charset
@@ -622,7 +509,7 @@ if (!$is_information_schema) {
 
     if ($num_tables > 0
       && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
-        $message = PMA_Message::notice(__('The additional features for working with linked tables have been deactivated. To find out why click %shere%s.'));
+        $message = PMA_Message::notice(__('The phpMyAdmin configuration storage has been deactivated. To find out why click %shere%s.'));
         $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">', false);
         $message->addParam('</a>', false);
         /* Show error if user has configured something, notice elsewhere */
@@ -661,5 +548,5 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>
