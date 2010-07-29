@@ -3,8 +3,6 @@
 define('ERR_NO_GD', 0);
 define('ERR_UNKNOWN_FORMAT', 1);
 
-require_once './libraries/chart/pma_ofc_pie.php';
-
 require_once './libraries/chart/pma_pchart_pie.php';
 require_once './libraries/chart/pma_pchart_single_bar.php';
 require_once './libraries/chart/pma_pchart_multi_bar.php';
