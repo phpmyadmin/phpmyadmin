@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-29 07:55+0200\n"
+"PO-Revision-Date: 2010-07-29 07:56+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -2019,7 +2019,7 @@ msgstr "gzipپىرىسلاش"
 
 #: libraries/display_export.lib.php:253
 msgid "\"bzipped\""
-msgstr ""
+msgstr "bzip پىرىسلاش"
 
 #: libraries/display_export.lib.php:268 libraries/export/sql.php:42
 #: libraries/import/sql.php:31
