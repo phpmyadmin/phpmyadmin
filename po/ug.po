@@ -2000,7 +2000,7 @@ msgstr "ھۆججەتنىڭ ھەرىپ-بەلگە توپلىمى"
 
 #: libraries/display_export.lib.php:229 setup/lib/messages.inc.php:81
 msgid "Compression"
-msgstr ""
+msgstr "پىرىسلاش"
 
 #: libraries/display_export.lib.php:234 libraries/display_import.lib.php:196
 #: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:528
