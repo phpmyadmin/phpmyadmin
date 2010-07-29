@@ -120,29 +120,48 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
     protected abstract function drawChart();
 
+    /*
+     * Renders the chart, base 64 encodes the output and puts it into
+     * array partsEncoded.
+     *
+     * Parameter can be used to slice the chart vertically into parts. This
+     * solves an issue where some browsers (IE8) accept base64 images only up
+     * to some length.
+     *
+     * @param   integer  $parts         number of parts to render.
+     *                                  Default value 1 means that all the
+     *                                  chart will be in one piece.
+     */
     protected function render($parts = 1)
     {
         $fullWidth = 0;
 
         for ($i = 0; $i < $parts; $i++) {
+
+            // slicing is vertical so part height is the full height
             $partHeight = $this->chart->YSize;
+
+            // there will be some rounding erros, will compensate later
             $partWidth = round($this->chart->XSize / $parts);
             $fullWidth += $partWidth;
             $partX = $partWidth * $i;
 
             if ($i == $parts - 1) {
-                // compensate for the rounding errors in the last part
+                // if this is the last part, compensate for the rounding errors
                 $partWidth += $this->chart->XSize - $fullWidth;
             }
 
+            // get a part from the full chart image
             $part = imagecreatetruecolor($partWidth, $partHeight);
             imagecopy($part, $this->chart->Picture, 0, 0, $partX, 0, $partWidth, $partHeight);
 
+            // render part and save it to variable
             ob_start();
             imagepng($part, NULL, 9, PNG_ALL_FILTERS);
             $output = ob_get_contents();
             ob_end_clean();
 
+            // encode the current part
             $partEncoded = base64_encode($output);
             $this->partsEncoded[$i] = $partEncoded;
         }
