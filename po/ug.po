@@ -2129,7 +2129,7 @@ msgstr "توغرا يۈنىلىشتە"
 
 #: libraries/display_pdf_schema.lib.php:51
 msgid "Portrait"
-msgstr ""
+msgstr "بوي يۈنىلىشتە"
 
 #: libraries/display_pdf_schema.lib.php:54
 msgid "Paper size"
