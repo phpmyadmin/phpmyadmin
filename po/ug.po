@@ -2015,7 +2015,7 @@ msgstr "zipپىرىسلاش"
 
 #: libraries/display_export.lib.php:247
 msgid "\"gzipped\""
-msgstr ""
+msgstr "gzipپىرىسلاش"
 
 #: libraries/display_export.lib.php:253
 msgid "\"bzipped\""
