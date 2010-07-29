@@ -111,6 +111,8 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  * o values - key - value paris for <select> fields
  * o values_escaped - (boolean) tells whether values array is already escaped (defaults to false)
  * o values_disabled -  (array)list of disabled values (keys from values)
+ * o comment - (string) tooltip comment
+ * o comment_warning - (bool) whether this comments warns about something
  * o wiki - (string) wiki link
  *
  * @uses $GLOBALS['_FormDisplayGroup']
@@ -228,6 +230,15 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
                 . htmlspecialchars(implode("\n", $value))
                 . '</textarea>';
             break;
+    }
+    if (isset($opts['comment']) && $opts['comment']) {
+        $class = 'field-comment-mark';
+        if (isset($opts['comment_warning']) && $opts['comment_warning']) {
+            $class .= ' field-comment-warning';
+        }
+        ?>
+        <span class="<?php echo $class ?>" title="<?php echo htmlspecialchars($opts['comment']) ?>">i</span>
+        <?php
     }
     if ($is_setup_script && isset($opts['userprefs_comment']) && $opts['userprefs_comment']) {
         ?>

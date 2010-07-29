@@ -1550,6 +1550,19 @@ fieldset .disabled-field td {
     background: #F7FBFF;
 }
 
+.config-form .field-comment-mark {
+    font-family: serif;
+    color: #00A;
+    cursor: help;
+    padding: 0 0.2em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.config-form .field-comment-warning {
+    color: #A00;
+}
+
 /* error list */
 .config-form dd {
     margin-left: 0.5em;

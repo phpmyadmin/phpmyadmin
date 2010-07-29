@@ -109,6 +109,7 @@ class Form
                 $value = array_combine($keys, $value);
             }
         }
+
         // $value has keys and value names, return it
         return $value;
     }

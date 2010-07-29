@@ -374,6 +374,7 @@ class FormDisplay
                 }
             }
         }
+        $this->_setComments($system_path, $opts);
 
         // send default value to form's JS
         $js_line = '\'' . $translated_path . '\': ';
@@ -703,6 +704,68 @@ class FormDisplay
                 ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
                 : $GLOBALS['cfg']['UserprefsDisallow'];
             $this->userprefs_disallow = array_flip($userprefs_disallow);
+        }
+    }
+
+    /**
+     * Sets field comments and warnings based on current environment
+     *
+     * @param string $system_path
+     * @param array  $opts
+     */
+    private function _setComments($system_path, array &$opts)
+    {
+        // RecodingEngine - mark unavailable types
+        if ($system_path == 'RecodingEngine') {
+            $comment = '';
+            if (!function_exists('iconv')) {
+                $opts['values']['iconv'] .= ' (' . __('unavailable') . ')';
+                $comment = sprintf(__('"%s" requires %s extension'), 'iconv', 'iconv');
+            }
+            if (!function_exists('recode_string')) {
+                $opts['values']['recode'] .= ' (' . __('unavailable') . ')';
+                $comment .= ($comment ? ", " : '') . sprintf(__('"%s" requires %s extension'),
+                    'recode', 'recode');
+            }
+            $opts['comment'] = $comment;
+            $opts['comment_warning'] = true;
+        }
+        // ZipDump, GZipDump, BZipDump - check function availability
+        if ($system_path == 'ZipDump' || $system_path == 'GZipDump' || $system_path == 'BZipDump') {
+            $comment = '';
+            $funcs = array(
+                'ZipDump'  => array('zip_open', 'gzcompress'),
+                'GZipDump' => array('gzopen', 'gzencode'),
+                'BZipDump' => array('bzopen', 'bzcompress'));
+            if (!function_exists($funcs[$system_path][0])) {
+                $comment = sprintf(__('import will not work, missing function (%s)'),
+                    $funcs[$system_path][0]);
+            }
+            if (!function_exists($funcs[$system_path][1])) {
+                $comment .= ($comment ? '; ' : '') . sprintf(__('export will not work, missing function (%s)'),
+                    $funcs[$system_path][1]);
+            }
+            $opts['comment'] = $comment;
+            $opts['comment_warning'] = true;
+        }
+        if ($system_path == 'SQLQuery/Validate' && !$GLOBALS['cfg']['SQLValidator']['use']) {
+            $opts['comment'] = __('SQL Validator is disabled');
+            $opts['comment_warning'] = true;
+        }
+        if ($system_path == 'SQLValidator/use') {
+            if (!class_exists('SOAPClient')) {
+                @include_once 'SOAP/Client.php';
+                if (!class_exists('SOAP_Client')) {
+                    $opts['comment'] = __('SOAP extension not found');
+                    $opts['comment_warning'] = true;
+                }
+            }
+        }
+        if (!defined('PMA_SETUP') || !PMA_SETUP) {
+            if (($system_path == 'MaxDbList' || $system_path == 'MaxTableList'
+                    || $system_path == 'QueryHistoryMax')) {
+                $opts['comment'] = sprintf(__('maximum %s'), $GLOBALS['cfg'][$system_path]);
+            }
         }
     }
 }

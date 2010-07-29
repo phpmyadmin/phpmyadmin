@@ -363,6 +363,22 @@ input[type="text"]:focus, select:focus, textarea:focus {
     background: #F7FBFF;
 }
 
+.field-comment {
+
+    position: relative;
+}
+
+.field-comment-mark {
+    cursor: help;
+    padding: 0 0.2em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.field-comment-warning {
+    color: #A00;
+}
+
 .green { /* default form button */
     color: #080;
 }
