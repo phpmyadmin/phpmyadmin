@@ -3,7 +3,6 @@
 /**
  * dumps a database
  *
- * @version $Id$
  * @uses    libraries/db_common.inc.php
  * @uses    libraries/db_info.inc.php
  * @uses    libraries/display_export.lib.php
@@ -73,5 +72,5 @@ require_once './libraries/display_export.lib.php';
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

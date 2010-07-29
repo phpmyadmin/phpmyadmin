@@ -5,7 +5,6 @@
  *
  * @todo js error when view name is empty (strFormEmpty)
  * @todo (also validate if js is disabled, after form submission?)
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -187,6 +186,6 @@ $url_params['reload'] = 1;
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 ?>

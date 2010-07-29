@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -22,25 +21,7 @@ if ( false === $GLOBALS['cfg']['AllowThirdPartyFraming']) {
 <?php
 }
 // generate title
-$title = str_replace(
-            array(
-                '@HTTP_HOST@',
-                '@SERVER@',
-                '@VERBOSE@',
-                '@VSERVER@',
-                '@DATABASE@',
-                '@TABLE@',
-                '@PHPMYADMIN@',
-                ),
-            array(
-                PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '',
-                isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : '',
-                isset($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : '',
-                !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : (isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : ''),
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                'phpMyAdmin ' . PMA_VERSION,
-                ),
+$title = PMA_expandUserString(
             !empty($GLOBALS['table']) ? $GLOBALS['cfg']['TitleTable'] :
             (!empty($GLOBALS['db']) ? $GLOBALS['cfg']['TitleDatabase'] :
             (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
@@ -49,6 +30,7 @@ $title = str_replace(
 // here, the function does not exist with this configuration: $cfg['ServerDefault'] = 0;
 $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 
+$GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'tooltip.js';
 $params = array('lang' => $GLOBALS['lang']);
 if (isset($GLOBALS['db'])) {
@@ -66,6 +48,9 @@ $GLOBALS['js_events'][] = array(
  * upgrade phpMyAdmin are not stuck with older .js files in their
  * browser cache. This produces an HTTP 304 request for each file.
  */
+
+// avoid loading twice a js file
+$GLOBALS['js_include'] = array_unique($GLOBALS['js_include']);
 foreach ($GLOBALS['js_include'] as $js_script_file) {
     if (strpos($js_script_file, '?') === FALSE) {
         echo '<script src="./js/' . $js_script_file . '?ts=' . filemtime('./js/' . $js_script_file) . '" type="text/javascript"></script>' . "\n";

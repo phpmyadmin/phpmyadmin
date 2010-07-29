@@ -3,7 +3,6 @@
 /**
  * tests for PMA_get_real_size()
  *
- * @version $Id$
  * @package phpMyAdmin-test
  */
 

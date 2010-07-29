@@ -7,23 +7,14 @@
  * http://www.orbis-terrarum.net/?l=people.robbat2
  *
  * All data is transported over HTTP-SOAP
- * And uses the PEAR SOAP Module
+ * And uses either the PEAR SOAP Module or PHP SOAP extension
  *
- * Install instructions for PEAR SOAP
+ * Install instructions for PEAR SOAP:
  * Make sure you have a really recent PHP with PEAR support
  * run this: "pear install Mail_Mime Net_DIME SOAP"
  *
- * If you got this file from somewhere other than phpMyAdmin
- * please be aware that the latest copy will always be in the
- * phpMyAdmin subversion tree as
- *
- * This code that also used to depend on the PHP overload module, but that has been
- * removed now.
- *
  * @access   public
  *
- *
- * @version  $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -33,11 +24,22 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Load SOAP client.
  */
-@include_once 'SOAP/Client.php';
-
-if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
-    $GLOBALS['sqlvalidator_error'] = TRUE;
+if (class_exists('SOAPClient')) {
+    $GLOBALS['sqlvalidator_error'] = false;
+    $GLOBALS['sqlvalidator_soap'] = 'PHP';
 } else {
+    @include_once 'SOAP/Client.php';
+    if (class_exists('SOAP_Client')) {
+        $GLOBALS['sqlvalidator_soap'] = 'PEAR';
+        $GLOBALS['sqlvalidator_error'] = false;
+    } else {
+        $GLOBALS['sqlvalidator_soap'] = 'NONE';
+        $GLOBALS['sqlvalidator_error'] = TRUE;
+        PMA_warnMissingExtension('soap');
+    }
+}
+
+if (!$GLOBALS['sqlvalidator_error']) {
     // Ok, we have SOAP Support, so let's use it!
 
 /**
@@ -79,7 +81,11 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
          */
         function _openService($url)
         {
-            $obj = new SOAP_Client($url, TRUE);
+            if ($GLOBALS['sqlvalidator_soap'] == 'PHP') {
+                $obj = new SOAPClient($url);
+            } else {
+                $obj = new SOAP_Client($url, TRUE);
+            }
             return $obj;
         } // end of the "openService()" function
 
@@ -108,15 +114,23 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
                                       $connection_technology, $connection_technology_version,
                                       $interactive)
         {
-    $use_array = array("a_userName" => $username, "a_password" => $password, "a_callingProgram" => $calling_program, "a_callingProgramVersion" => $calling_program_version, "a_targetDbms" => $target_dbms, "a_targetDbmsVersion" => $target_dbms_version, "a_connectionTechnology" => $connection_technology, "a_connectionTechnologyVersion" => $connection_technology_version, "a_interactive" => $interactive);
-            $ret = $obj->call("openSession", $use_array);
+            $use_array = array(
+                "a_userName" => $username,
+                "a_password" => $password,
+                "a_callingProgram" => $calling_program,
+                "a_callingProgramVersion" => $calling_program_version,
+                "a_targetDbms" => $target_dbms,
+                "a_targetDbmsVersion" => $target_dbms_version,
+                "a_connectionTechnology" => $connection_technology,
+                "a_connectionTechnologyVersion" => $connection_technology_version,
+                "a_interactive" => $interactive,
+            );
 
-           // This is the old version that needed the overload extension
-           /* $ret = $obj->openSession($username, $password,
-                                     $calling_program, $calling_program_version,
-                                     $target_dbms, $target_dbms_version,
-                                     $connection_technology, $connection_technology_version,
-                                     $interactive); */
+            if ($GLOBALS['sqlvalidator_soap'] == 'PHP') {
+                $ret = $obj->__soapCall("openSession", $use_array);
+            } else {
+                $ret = $obj->call("openSession", $use_array);
+            }
 
             return $ret;
         } // end of the "_openSession()" function
@@ -136,11 +150,19 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
          */
         function _validateSQL($obj, $session, $sql, $method)
         {
-    $use_array = array("a_sessionId" => $session->sessionId, "a_sessionKey" => $session->sessionKey, "a_SQL" => $sql, "a_resultType" => $this->output_type);
-            $res = $obj->call("validateSQL", $use_array);
+            $use_array = array(
+                "a_sessionId" => $session->sessionId,
+                "a_sessionKey" => $session->sessionKey,
+                "a_SQL" => $sql,
+                "a_resultType" => $this->output_type,
+            );
 
-           // This is the old version that needed the overload extension
-           // $res = $obj->validateSQL($session->sessionId, $session->sessionKey, $sql, $this->output_type);
+            if ($GLOBALS['sqlvalidator_soap'] == 'PHP') {
+                $res = $obj->__soapCall("validateSQL", $use_array);
+            } else {
+                $res = $obj->call("validateSQL", $use_array);
+            }
+
             return $res;
         } // end of the "validateSQL()" function
 
@@ -184,7 +206,7 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
             $this->username                      = 'anonymous';
             $this->password                      = '';
             $this->calling_program               = 'PHP_SQLValidator';
-            $this->calling_program_version       = '$Revision$';
+            $this->calling_program_version       = PMA_VERSION;
             $this->target_dbms                   = 'N/A';
             $this->target_dbms_version           = 'N/A';
             $this->connection_technology         = 'PHP';

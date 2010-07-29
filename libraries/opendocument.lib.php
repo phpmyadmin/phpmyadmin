@@ -3,7 +3,6 @@
 /**
  * Simple interface for creating OASIS OpenDocument files.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

@@ -4,7 +4,6 @@
  * Set of functions used to run config authentication (ie no authentication).
  *
  * @package phpMyAdmin-Auth-Config
- * @version $Id$
  */
 
 
@@ -132,7 +131,7 @@ function PMA_auth_fails()
         echo '</tr>' . "\n";
     }
     echo '</table>' . "\n";
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
     return TRUE;
 } // end of the 'PMA_auth_fails()' function
 

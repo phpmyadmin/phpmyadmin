@@ -83,9 +83,47 @@ $Id$
 + [core] Include Content Security Policy HTTP headers.
 - bug #3004216 [CSS] Field attributes use inline CSS
 - patch #2999595, rfe #2998130 [interface] Cleanup navigation frame.
-- [core] Update library PHPExcel to version 1.7.3c
+- patch #3025161 [core] Prevent sending of unnecessary cookies, 
+  thanks to Piotr Przybylski  - crackpl
+- bug [password] Generate password only available if JS is enabled
+  (fixed for Privileges and Change password)
+- [core] RecodingEngine now accepts none as valid option.
++ [core] Dropped AllowAnywhereRecoding configuration variable.
+- rfe #3016457 [interface] Define tab order in SQL form to allow easier tab
+  navigation.
++ [core] Centralized format string expansion, @VARIABLES@ are recommended way
+  now, used by file name templates, default queries, export and title
+  generating.
++ [validator] SQL validator works also with SOAP PHP extension.
+- [interface] Better formatting for SQL validator results.
+- [doc] The linked-tables infrastructure is now called phpMyAdmin
+  configuration storage.
+- [interface] Move drop/empty links from being tabs to Operations tab.
+- [interface] Fixed rendering of error/notice/info titles background.
 
-3.3.4.0 (not yet released)
+3.3.6.0 (not yet released)
+- bug #3033063 [core] Navi gets wrong db name
+- bug #3031705 [core] Fix generating condition for real numbers by comparing
+  them to string.
+
+3.3.5.0 (2010-07-26)
+- patch #2932113 [information_schema] Slow export when having lots of
+  databases, thanks to Stéphane Pontier - shadow_walker
+- bug #3022705 [import] Import button does not work in Catalan when there
+  is no progress bar possible
+- bug [replication] Do not offer information_schema in the list of databases
+- bug [js] Avoid loading twice a js file
+- bug #3024344 [setup] Setup forces numeric MemoryLimit
+- bug #3025975 [auth] Odd LoginCookieValidity default value
+- bug #3026400 [PHP] ereg functions are deprecated
+- bug #3027557 [PHP] split() deprecated in PHP 5.3 (backport fixes from master)
+- bug #3023507 [core] No result set display from stored procedure SELECT
+- bug [export] CSV for MS Excel (Windows) should have semi-colon as separator
+- [core] Update library PHPExcel to version 1.7.3c
+- bug #2994885, bug #3029168 [import] Convert Excel column name correctly
+- bug [scripts] MySQL 5.5.5 does not accept TIMESTAMP(14) in create_tables.sql
+
+3.3.4.0 (2010-06-28)
 - bug #2996161 [import] properly escape import value
 - bug #2998889 [import] Import button does not work in Catalan
 - [browse] Fix handling of sort order if only column is specified.
@@ -96,6 +134,11 @@ $Id$
 - bug [synchronize] Rows were deleted in target table regardless of the
   "Would you like to delete..." option
 - bug [privileges] List of tables not shown when the db name has a wildcard
+- bug #3011126 [display] Edit link missing after long query
+- patch #3013264 [doc] FAQ 1.40 uses a comma instead of a period,
+  thanks to Isaac Bennetch - ibennetch
+- [engines] Fix getting InnoDB status.
+- bug #2986422 [import] Results for query are not displayed
 
 3.3.3.0 (2010-05-10)
 - patch #2982480 [navi] Do not group if there would be one table in group,

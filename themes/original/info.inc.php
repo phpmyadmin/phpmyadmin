@@ -3,7 +3,6 @@
 /**
  * Theme information
  *
- * @version $Id$
  * @package phpMyAdmin-theme
  * @subpackage Original
  */

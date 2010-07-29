@@ -12,15 +12,6 @@
  * @uses    $cfg['Confirm']
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['table']
- * @uses    __('SQL')
- * @uses    __('Import files') 
- * @uses    __('SQL history') 
- * @uses    __('All')
- * @uses    __('Change')
- * @uses    __('Missing value in the form!') 
- * @uses    __('This is not a number!') 
- * @uses    __('"DROP DATABASE" statements are disabled.') 
- * @uses    __('Do you really want to ') 
  * @uses    PMA_isSuperuser()
  * @uses    PMA_outBufferPre()
  * @uses    PMA_getRelationsParam()
@@ -37,7 +28,6 @@
  * @uses    strlen()
  * @uses    preg_replace()
  * @uses    htmlspecialchars()
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -60,9 +50,8 @@ require_once './libraries/ob.lib.php';
 PMA_outBufferPre();
 
 /**
- * load relations
+ * load relation params
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -165,7 +154,6 @@ $sql_query = '';
  * prepare JavaScript functionality
  */
 $js_include[] = 'common.js';
-$js_include[] = 'functions.js';
 $js_include[] = 'querywindow.js';
 
 if (PMA_isValid($_REQUEST['auto_commit'], 'identical', 'true')) {

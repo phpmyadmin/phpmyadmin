@@ -4,7 +4,6 @@
  * Core script for import, this is just the glue around all other stuff
  *
  * @uses    PMA_Bookmark_getList()
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -13,7 +12,6 @@
  */
 require_once './libraries/common.inc.php';
 //require_once './libraries/display_import_functions.lib.php';
-$GLOBALS['js_include'][] = 'functions.js';
 
 // reset import messages for ajax request
 $_SESSION['Import_message']['message'] = null;
@@ -343,7 +341,7 @@ if ($import_file != 'none' && !$error) {
 //$_SESSION['Import_message'] = $message->getDisplay();
 
 // Convert the file's charset if necessary
-if ($cfg['AllowAnywhereRecoding'] && isset($charset_of_file)) {
+if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_file)) {
     if ($charset_of_file != $charset) {
         $charset_conversion = TRUE;
     }
@@ -445,6 +443,15 @@ if (isset($my_die)) {
     foreach ($my_die AS $key => $die) {
         PMA_mysqlDie($die['error'], $die['sql'], '', $err_url, $error);
     }
+}
+
+// we want to see the results of the last query that returned at least a row
+if (! empty($last_query_with_results)) {
+    // but we want to show intermediate results too
+    $disp_query = $sql_query;
+    $disp_message = __('Your SQL query has been executed successfully');
+    $sql_query = $last_query_with_results;
+    $go_sql = true;
 }
 
 if ($go_sql) {

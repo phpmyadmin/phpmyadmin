@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -10,9 +9,7 @@
  * Get some core libraries
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
-$GLOBALS['js_include'][] = 'functions.js';
 require_once './libraries/header.inc.php';
 
 // Check parameters
@@ -166,7 +163,6 @@ if (isset($_REQUEST['do_save_data'])) {
 
     if ($result === true) {
         // If comments were sent, enable relation stuff
-        require_once './libraries/relation.lib.php';
         require_once './libraries/transformations.lib.php';
 
         // Update comment table for mime types [MIME]
@@ -227,7 +223,7 @@ if ($abort == false) {
     require_once './libraries/tbl_properties.inc.php';
 
     // Diplays the footer
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 }
 
 ?>

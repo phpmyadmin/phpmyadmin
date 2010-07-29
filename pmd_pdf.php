@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin-Designer
  */
 
@@ -15,8 +14,6 @@ if (! isset($scale)) {
     $no_die_save_pos = 1;
     include_once 'pmd_save_pos.php';
 }
-
-require_once './libraries/relation.lib.php';
 
 if (isset($scale) && ! isset($createpage)) {
     if (empty($pdf_page_number)) {

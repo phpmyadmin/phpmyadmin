@@ -4,7 +4,6 @@
  * Test for supporting foreign key
  *
  * @package phpMyAdmin-test
- * @version $Id$
  */
 
 /**

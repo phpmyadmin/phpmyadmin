@@ -1,10 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * display list of server enignes and additonal information about them
+ * display list of server engines and additonal information about them
  *
- * @version $Id$
- * @todo falcon storage enginge is not listed under dev.mysql.com/doc/refman but dev.mysql.com/doc/falcon/
  * @package phpMyAdmin
  */
 
@@ -81,7 +79,22 @@ if (empty($_REQUEST['engine'])
            . '</tr>' . "\n";
         $odd_row = !$odd_row;
     }
-    unset($odd_row, $engine, $details);
+
+    $PMA_Config = $GLOBALS['PMA_Config'];
+    if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST')) {
+        // Special case for PBMS daemon which is not listed as an engine
+        echo '<tr class="'
+            . ($odd_row ? 'odd' : 'even')
+            .  '">' . "\n"
+            . '    <td><a href="./server_engines.php'
+            . PMA_generate_common_url(array('engine' => "PBMS")) . '">' . "\n"
+            . '            '  . "PBMS\n"
+            . '        </a></td>' . "\n"
+            . '    <td>' . htmlspecialchars("PrimeBase MediaStream (PBMS) daemon") . '</td>' . "\n"
+            . '</tr>' . "\n";  
+    }
+
+   unset($odd_row, $engine, $details);
     echo '</tbody>' . "\n"
        . '</table>' . "\n";
 
@@ -146,6 +159,6 @@ if (empty($_REQUEST['engine'])
 /**
  * Sends the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 ?>

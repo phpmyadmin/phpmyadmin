@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -37,12 +36,19 @@ $err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
  * Ensures the database exists (else move to the "parent" script) and displays
  * headers
  */
-if (!isset($is_db) || !$is_db) {
-    // Not a valid db name -> back to the welcome page
+if (! isset($is_db) || ! $is_db) {
     if (strlen($db)) {
         $is_db = PMA_DBI_select_db($db);
+        // This "Command out of sync" 2014 error may happen, for example
+        // after calling a MySQL procedure; at this point we can't select
+        // the db but it's not necessarily wrong
+        if (PMA_DBI_getError() && $GLOBALS['errno'] == 2014) {
+            $is_db = true;
+            unset($GLOBALS['errno']);
+        }
     }
-    if (! strlen($db) || !$is_db) {
+    // Not a valid db name -> back to the welcome page
+    if (! strlen($db) || ! $is_db) {
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit;
     }
@@ -59,7 +65,6 @@ if (isset($submitcollation) && !empty($db_collation)) {
     unset($db_charset, $db_collation);
 }
 
-$GLOBALS['js_include'][] = 'functions.js';
 require_once './libraries/header.inc.php';
 
 /**

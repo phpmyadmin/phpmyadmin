@@ -3,7 +3,6 @@
 /**
  * Simple script to set correct charset for changelog
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 

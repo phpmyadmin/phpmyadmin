@@ -2,20 +2,19 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
 /**
  * get some globals
  */
-require_once './libraries/common.inc.php';
+require './libraries/common.inc.php';
 
 /* Theme Select */
 $path_to_themes = $cfg['ThemePath'] . '/';
 
 /* set language and charset */
-require_once './libraries/header_http.inc.php';
+require './libraries/header_http.inc.php';
 
 /* HTML header */
 $page_title = 'phpMyAdmin - ' . __('Theme / Style');

@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -128,7 +127,6 @@ if (! empty($submit_mult)
  * Displays the confirmation form if required
  */
 if (!empty($submit_mult) && !empty($what)) {
-    $GLOBALS['js_include'][] = 'functions.js';
     unset($message);
 
     require_once './libraries/header.inc.php';
@@ -263,7 +261,7 @@ if (!empty($submit_mult) && !empty($what)) {
     <input type="submit" name="mult_btn" value="<?php echo __('No'); ?>" id="buttonNo" />
 </fieldset>
     <?php
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 } // end if
 
 

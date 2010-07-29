@@ -16,7 +16,6 @@
  *
  * All directives are explained in Documentation.html
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -137,12 +136,6 @@ $cfg['Servers'][$i]['connect_type'] = 'tcp';
  * @global string $cfg['Servers'][$i]['extension']
  */
 $cfg['Servers'][$i]['extension'] = 'mysql';
-
-/* added for blobstreaming */
-$cfg['Servers'][$i]['bs_garbage_threshold'] = '';
-$cfg['Servers'][$i]['bs_repository_threshold'] = '';
-$cfg['Servers'][$i]['bs_temp_blob_timeout'] = '';
-$cfg['Servers'][$i]['bs_temp_log_threshold'] = '';
 
 /**
  * Use compressed protocol for the MySQL connection (requires PHP >= 4.3.0)
@@ -542,11 +535,13 @@ $cfg['ExecTimeLimit'] = 300;
 $cfg['SessionSavePath'] = '';
 
 /**
- * maximum allocated bytes (0 for no limit)
+ * maximum allocated bytes ('0' for no limit)
+ * this is a string because '16M' is a valid value; we must put here
+ * a string as the default value so that /setup accepts strings
  *
- * @global integer $cfg['MemoryLimit']
+ * @global string $cfg['MemoryLimit']
  */
-$cfg['MemoryLimit'] = 0;
+$cfg['MemoryLimit'] = '0';
 
 /**
  * mark used tables, make possible to show locked tables (since MySQL 3.23.30)
@@ -585,7 +580,8 @@ $cfg['Confirm'] = true;
 $cfg['LoginCookieRecall'] = true;
 
 /**
- * validity of cookie login (in seconds)
+ * validity of cookie login (in seconds; 1440 matches php.ini's
+ * session.gc_maxlifetime)
  *
  * @global integer $cfg['LoginCookieValidity']
  */
@@ -1114,21 +1110,21 @@ $cfg['Export']['remember_file_template'] = true;
  *
  * @global string $cfg['Export']['file_template_table']
  */
-$cfg['Export']['file_template_table'] = '__TABLE__';
+$cfg['Export']['file_template_table'] = '@TABLE@';
 
 /**
  *
  *
  * @global string $cfg['Export']['file_template_database']
  */
-$cfg['Export']['file_template_database'] = '__DB__';
+$cfg['Export']['file_template_database'] = '@DATABASE@';
 
 /**
  *
  *
  * @global string $cfg['Export']['file_template_server']
  */
-$cfg['Export']['file_template_server'] = '__SERVER__';
+$cfg['Export']['file_template_server'] = '@SERVER@';
 
 /**
  *
@@ -1429,14 +1425,14 @@ $cfg['Export']['latex_data_continued_caption'] = 'strLatexContent strLatexContin
  *
  * @global string $cfg['Export']['latex_data_label']
  */
-$cfg['Export']['latex_data_label'] = 'tab:__TABLE__-data';
+$cfg['Export']['latex_data_label'] = 'tab:@TABLE@-data';
 
 /**
  *
  *
  * @global string $cfg['Export']['latex_structure_label']
  */
-$cfg['Export']['latex_structure_label'] = 'tab:__TABLE__-structure';
+$cfg['Export']['latex_structure_label'] = 'tab:@TABLE@-structure';
 
 /**
  *
@@ -1936,8 +1932,7 @@ $cfg['DefaultLang'] = 'en';
 $cfg['DefaultConnectionCollation'] = 'utf8_general_ci';
 
 /**
- * Force: always use this language - must be defined in
- *        libraries/select_lang.lib.php
+ * Force: always use this language
  * $cfg['Lang'] = 'en';
  *
  * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
@@ -1948,32 +1943,13 @@ $cfg['DefaultConnectionCollation'] = 'utf8_general_ci';
 $cfg['FilterLanguages'] = '';
 
 /**
- * Default character set to use for recoding of MySQL queries, does not take
- * any effect when character sets recoding is switched off by
- * $cfg['AllowAnywhereRecoding'] or in language file
- * (see $cfg['AvailableCharsets'] to possible choices, you can add your own)
- *
- * @global string $cfg['DefaultCharset']
- */
-$cfg['DefaultCharset'] = 'utf-8';
-
-/**
- * Allow character set recoding of MySQL queries, must be also enabled in language
- * file to make harder using other language files than Unicode.
- * Default value is false to avoid problems on servers without the iconv
- * extension
- *
- * @global boolean $cfg['AllowAnywhereRecoding']
- */
-$cfg['AllowAnywhereRecoding'] = false;
-
-/**
  * You can select here which functions will be used for character set conversion.
  * Possible values are:
  *      auto   - automatically use available one (first is tested iconv, then
  *               recode)
  *      iconv  - use iconv or libiconv functions
  *      recode - use recode_string function
+ *      none   - disable encoding conversion
  *
  * @global string $cfg['RecodingEngine']
  */
@@ -2275,14 +2251,6 @@ $cfg['InitialSlidersState'] = 'closed';
 
 
 
-//-----------------------------------------------------------------------------
-// custom-setup by mkkeck: 2004-05-04
-//    some specials for new icons and scrolling
-/**
- * @todo We need to rearrange these variables.
- */
-
-
 /*******************************************************************************
  * Window title settings
  */
@@ -2376,22 +2344,14 @@ $cfg['ThemePerServer'] = false;
  */
 
 /**
- * Default queries
- * %d will be replaced by the database name.
- * %t will be replaced by the table name.
- * %f will be replaced by a list of field names.
- * (%t and %f only applies to DefaultQueryTable)
+ * Default query for table
  *
  * @global string $cfg['DefaultQueryTable']
  */
-$cfg['DefaultQueryTable'] = 'SELECT * FROM %t WHERE 1';
+$cfg['DefaultQueryTable'] = 'SELECT * FROM @TABLE@ WHERE 1';
 
 /**
- * Default queries
- * %d will be replaced by the database name.
- * %t will be replaced by the table name.
- * %f will be replaced by a list of field names.
- * (%t and %f only applies to DefaultQueryTable)
+ * Default query for database
  *
  * @global string $cfg['DefaultQueryDatabase']
  */

@@ -3,7 +3,6 @@
 /**
  * DocSQL import plugin for phpMyAdmin
  *
- * @version $Id$
  * @package phpMyAdmin-Import
  */
 if (! defined('PHPMYADMIN')) {
@@ -13,7 +12,6 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Load relations.
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**

@@ -7,7 +7,6 @@
  * not intended to be perfect code and look, only shows how you can
  * integrate this functionality in your application.
  *
- * @version $Id$
  * @package phpMyAdmin
  * @subpackage Example
  */

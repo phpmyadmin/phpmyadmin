@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @todo    too much die here, or?
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -60,7 +59,6 @@ if (empty($_REQUEST['asfile'])) {
 // Does export require to be into file?
 if (isset($export_list[$type]['force_file']) && ! $asfile) {
     $message = PMA_Message::error(__('Selected export type has to be saved in file!'));
-    $GLOBALS['js_include'][] = 'functions.js';
     require_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
@@ -207,7 +205,7 @@ if ($what == 'sql') {
 $output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xls';
 
 // Do we need to convert charset?
-$output_charset_conversion = $asfile && $cfg['AllowAnywhereRecoding']
+$output_charset_conversion = $asfile && $GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE
     && isset($charset_of_file) && $charset_of_file != $charset
     && $type != 'xls';
 
@@ -248,25 +246,19 @@ if ($asfile) {
         if (isset($remember_template)) {
             $GLOBALS['PMA_Config']->setCookie('pma_server_filename_template', $filename_template);
         }
-        $filename = str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template));
     } elseif ($export_type == 'database') {
         if (isset($remember_template)) {
             $GLOBALS['PMA_Config']->setCookie('pma_db_filename_template', $filename_template);
         }
-        $filename = str_replace('__DB__', $db, str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template)));
     } else {
         if (isset($remember_template)) {
             $GLOBALS['PMA_Config']->setCookie('pma_table_filename_template', $filename_template);
         }
-        $filename = str_replace('__TABLE__', $table, str_replace('__DB__', $db, str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template))));
     }
+    $filename = PMA_expandUserString($filename_template);
 
     // convert filename to iso-8859-1, it is safer
-    if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] )) {
-        $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
-    } else {
-        $filename = PMA_convert_string($convcharset, 'iso-8859-1', $filename);
-    }
+    $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
 
     // Grab basic dump extension and mime type
     $filename  .= '.' . $export_list[$type]['extension'];
@@ -305,7 +297,6 @@ if ($save_on_server) {
         }
     }
     if (isset($message)) {
-        $GLOBALS['js_include'][] = 'functions.js';
         require_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
@@ -357,7 +348,6 @@ if (!$save_on_server) {
             $num_tables = count($tables);
             if ($num_tables == 0) {
                 $message = PMA_Message::error(__('No tables found in database.'));
-                $GLOBALS['js_include'][] = 'functions.js';
                 require_once './libraries/header.inc.php';
                 $active_page = 'db_export.php';
                 require './db_export.php';
@@ -393,7 +383,6 @@ $do_relation = isset($GLOBALS[$what . '_relation']);
 $do_comments = isset($GLOBALS[$what . '_comments']);
 $do_mime     = isset($GLOBALS[$what . '_mime']);
 if ($do_relation || $do_comments || $do_mime) {
-    require_once './libraries/relation.lib.php';
     $cfgRelation = PMA_getRelationsParam();
 }
 if ($do_mime) {
@@ -572,7 +561,6 @@ if (!PMA_exportFooter()) {
 // End of fake loop
 
 if ($save_on_server && isset($message)) {
-    $GLOBALS['js_include'][] = 'functions.js';
     require_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
@@ -629,7 +617,6 @@ if (!empty($asfile)) {
             $message = new PMA_Message(__('Dump has been saved to file %s.'), PMA_Message::SUCCESS, $save_filename);
         }
 
-        $GLOBALS['js_include'][] = 'functions.js';
         require_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
@@ -680,6 +667,6 @@ else {
 //]]>
 </script>
 <?php
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 } // end if
 ?>

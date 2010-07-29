@@ -3,7 +3,6 @@
 /**
  * Displays index edit/creation form and handles it
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -112,7 +111,6 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 
 // Displays headers (if needed)
-$GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'indexes.js';
 
 require_once './libraries/tbl_info.inc.php';
@@ -263,5 +261,5 @@ echo '<input type="submit" name="add_fields" value="' . __('Go') . '"'
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

@@ -1,7 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -9,7 +8,6 @@
  * Run common work
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
 require './libraries/db_common.inc.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
@@ -17,9 +15,6 @@ $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 // Get the database structure
 $sub_part = '_structure';
 require './libraries/db_info.inc.php';
-
-// Get relation settings
-require_once './libraries/relation.lib.php';
 
 // Work to do?
 //  (here, do not use $_REQUEST['db] as it can be crafted)
@@ -39,7 +34,7 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
     }
 
     // Display the footer
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
     exit;
 }
 
@@ -203,5 +198,5 @@ if (count($data['ddlog']) > 0) {
 /**
  * Display the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

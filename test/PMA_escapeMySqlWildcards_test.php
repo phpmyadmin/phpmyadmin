@@ -4,7 +4,6 @@
  * Test for MySQL Wildcards escaping/unescaping
  *
  * @package phpMyAdmin-test
- * @version $Id$
  */
 
 /**

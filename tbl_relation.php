@@ -10,7 +10,6 @@
  * @todo check foreign fields to be from same type and size, all other makes no sense
  * @todo add an link to create an index required for constraints, or an option to do automatically
  * @todo if above todos are fullfilled we can add all fields meet requirements in the select dropdown
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -38,8 +37,6 @@ $avoid_show_comment = TRUE;
  * Displays top menu links
  */
 require_once './libraries/tbl_links.inc.php';
-
-require_once './libraries/relation.lib.php';
 
 $options_array = array(
     'CASCADE'   => 'CASCADE',
@@ -572,5 +569,5 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

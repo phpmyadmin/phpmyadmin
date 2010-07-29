@@ -1,7 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @version $Id$
  * @package phpMyAdmin-Designer
  */
 
@@ -14,7 +13,6 @@ require_once './libraries/header_http.inc.php';
 
 $GLOBALS['PMD']['STYLE']          = 'default';
 
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 $GLOBALS['script_display_field'] =

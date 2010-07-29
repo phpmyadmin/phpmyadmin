@@ -5,7 +5,6 @@
  *
  * register_globals_save (mark this file save for disabling register globals)
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -44,11 +43,6 @@ if (isset($_REQUEST['ShowFunctionFields'])) {
 if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
     $cfg['ShowFieldTypesInDataEditView'] = $_REQUEST['ShowFieldTypesInDataEditView'];
 }
-
-/**
- * load relation data, foreign keys
- */
-require_once './libraries/relation.lib.php';
 
 /**
  * file listing
@@ -180,7 +174,7 @@ if (isset($where_clause)) {
             unset($rows[$key_id], $where_clause_array[$key_id]);
             PMA_showMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
             echo "\n";
-            require_once './libraries/footer.inc.php';
+            require './libraries/footer.inc.php';
         } else { // end if (no row returned)
             $meta = PMA_DBI_get_fields_meta($result[$key_id]);
             list($unique_condition, $tmp_clause_is_unique) = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
@@ -197,7 +191,6 @@ if (isset($where_clause)) {
     $rows = array_fill(0, $cfg['InsertRows'], false);
 }
 
-// <markus@noga.de>
 // retrieve keys into foreign fields, if any
 $foreigners  = PMA_getForeigners($db, $table);
 
@@ -458,17 +451,17 @@ foreach ($rows as $row_id => $vrow) {
             } else {
                 // special binary "characters"
                 if ($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary'])) {
-                	if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
-                		$vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
-                		$field['display_binary_as_hex'] = true;
-					} else {
-                    	$vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]);
-					}
+                    if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
+                        $vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
+                        $field['display_binary_as_hex'] = true;
+                    } else {
+                        $vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]);
+                    }
                 } // end if
                 $special_chars   = htmlspecialchars($vrow[$field['Field']]);
 
-		//We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column
-	        $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
+            //We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column
+                $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
 
                 $data            = $vrow[$field['Field']];
             } // end if... else...
@@ -507,7 +500,6 @@ foreach ($rows as $row_id => $vrow) {
 
         // The function column
         // -------------------
-        // Change by Bernard M. Piller <bernard@bmpsystems.com>
         // We don't want binary data to be destroyed
         // Note: from the MySQL manual: "BINARY doesn't affect how the column is
         //       stored or retrieved" so it does not mean that the contents is
@@ -565,9 +557,9 @@ foreach ($rows as $row_id => $vrow) {
                 }
 
                 // this is set only when appropriate and is always true
-				if (isset($field['display_binary_as_hex'])) {
-                	$default_function = 'UNHEX';
-				}
+                if (isset($field['display_binary_as_hex'])) {
+                    $default_function = 'UNHEX';
+                }
 
                 // loop on the dropdown array and print all available options for that field.
                 foreach ($dropdown as $each_dropdown){
@@ -831,58 +823,13 @@ foreach ($rows as $row_id => $vrow) {
                 </select>
             <?php
         }
-        // Change by Bernard M. Piller <bernard@bmpsystems.com>
         // We don't want binary data destroyed
         elseif ($field['is_binary'] || $field['is_blob']) {
             if (($cfg['ProtectBinary'] && $field['is_blob'])
                 || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
                 echo "\n";
                     // for blobstreaming
-                    $bs_reference_exists = FALSE;
-
-                    if (isset ($tbl_type) && strlen ($tbl_type) > 0)
-                    {
-                        // load PMA_Config
-                        $PMA_Config = $GLOBALS['PMA_Config'];
-
-                        if (!empty($PMA_Config))
-                        {
-                            $requiredTblType = $PMA_Config->get('PBXT_NAME');
-
-                            if ($requiredTblType == strtolower ($tbl_type))
-                            {
-                                $pluginsExist = $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST');
-
-                                // check if blobstreaming plugins exist
-                                if ($pluginsExist)
-                                {
-                                    $bs_tables = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
-
-                                    if (!empty($bs_tables) && strlen($db) > 0)
-                                    {
-                                        $bs_tables = $bs_tables[$db];
-
-                                        if (isset($bs_tables))
-                                        {
-                                            $allBSTablesExist = TRUE;
-
-                                            foreach ($bs_tables as $table_key=>$bs_tbl)
-                                                if (!$bs_tables[$table_key]['Exists'])
-                                                {
-                                                    $allBSTablesExist = FALSE;
-                                                    break;
-                                                }
-
-                                            if ($allBSTablesExist)
-                                                $bs_reference_exists = PMA_BS_ReferenceExists($data, $db);
-                                        }   // end if (isset($bs_tables))
-                                    }   // end if (!empty($bs_tables) && strlen($db) > 0)
-                                }   // end if ($pluginsExist)
-                            }   // end if ($requiredTblType == strtolower ($tbl_type))
-                        }   // end if (!empty($PMA_Config))
-                    }   // end if (isset ($tbl_type) && strlen ($tbl_type) > 0)
-
-                    if ($bs_reference_exists)
+                if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
                     {
                         echo '<input type="hidden" name="remove_blob_ref_' . $field['Field_md5'] . $vkey . '" value="' . $data . '" />';
                         echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . __('Remove BLOB Repository Reference') . "<br />";
@@ -898,7 +845,7 @@ foreach ($rows as $row_id => $vrow) {
                                     unset($data_size);
                         }
                         echo "\n";
-                    }   // end if ($bs_reference_exists)
+                    }   // end if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
                 ?>
                 <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="protected" />
                 <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
@@ -936,63 +883,10 @@ foreach ($rows as $row_id => $vrow) {
             // (displayed whatever value the ProtectBinary has)
 
             if ($is_upload && $field['is_blob']) {
-                // check if field type is of longblob
-                if ($field['pma_type'] == "longblob")
-                {
-                    if (isset ($tbl_type) && strlen ($tbl_type) > 0)
-                    {
-                        // load PMA Config
-                        $PMA_Config = $GLOBALS['PMA_Config'];
-
-                        // is PMA_Config's data loaded? continue only if it is
-                        if (!empty($PMA_Config))
-                        {
-                            $requiredTblType = $PMA_Config->get('PBXT_NAME');
-
-                            if ($requiredTblType == strtolower ($tbl_type))
-                            {
-                                $pluginsExist = $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST');
-
-                                // check if blobstreaming plugins exist
-                                if ($pluginsExist)
-                                {
-                                    $curlExists = $PMA_Config->get('CURL_EXISTS');
-
-                                    // check if CURL exists
-                                    if ($curlExists)
-                                    {
-                                        $bs_tables = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
-
-                                        // check for BLOBStreamable databases and if current database name is provided
-                                        if (!empty($bs_tables) && strlen($db) > 0)
-                                        {
-                                            $bs_tables = $bs_tables[$db];
-
-                                            // check if reference to BLOBStreaming tables exists
-                                            if (isset($bs_tables))
-                                            {
-                                                $allBSTablesExist = TRUE;
-
-                                                foreach ($bs_tables as $table_key=>$bs_tbl)
-                                                    if (!$bs_tables[$table_key]['Exists'])
-                                                    {
-                                                        $allBSTablesExist = FALSE;
-                                                        break;
-                                                    }
-
-                                                // check if necessary BLOBStreaming tables exist
-                                                if ($allBSTablesExist)
-                                                {
-                                                    echo '<br />';
-                                                    echo '<input type="checkbox" name="upload_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . __('Upload to BLOB repository');
-                                                }   // end if ($allBSTablesExist)
-                                            }   // end if (isset($bs_tables)
-                                        }   // end if (!empty($bs_tables) && strlen ($db) > 0)
-                                    }   // end if ($curlExists)
-                                }   // end if ($pluginsExist)
-                            }   // end if ($requiredTblType == strtolower ($tbl_type))
-                        }   // end if (!empty($PMA_Config))
-                    }   // end if (isset ($tbl_type) && strlen ($tbl_type) > 0)
+                // check if field type is of longblob and  if the table is PBMS enabled.
+                if (($field['pma_type'] == "longblob") && PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)) {
+                    echo '<br />';
+                    echo '<input type="checkbox" name="upload_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' .  __('Upload to BLOB repository');
                 }
 
                 echo '<br />';
@@ -1083,6 +977,7 @@ foreach ($rows as $row_id => $vrow) {
                 if ($field['pma_type'] == 'date' || $field['pma_type'] == 'datetime' || substr($field['pma_type'], 0, 9) == 'timestamp') {
                     // the _3 suffix points to the date field
                     // the _2 suffix points to the corresponding NULL checkbox
+                    // in dateFormat, 'yy' means the year with 4 digits
                     ?>
 <script type="text/javascript">
 //<![CDATA[
@@ -1093,6 +988,7 @@ $(function() {
 		 stepMinutes: 1,
         stepHours: 1,
         <?php echo ($field['pma_type'] == 'date' ? "showTime: false,":"showTime: true,"); ?>
+        dateFormat: 'yy-mm-dd',
 		altTimeField: '',
         constrainInput: false
      });
@@ -1215,5 +1111,5 @@ if ($insert_mode) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

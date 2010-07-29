@@ -2,11 +2,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Set of functions used to run cookie based authentication.
- * Thanks to Piotr Roszatycki <d3xter at users.sourceforge.net> and
- * Dan Wilson who built this patch for the Debian package.
  *
  * @package phpMyAdmin-Auth-Cookie
- * @version $Id$
  */
 
 if (! defined('PHPMYADMIN')) {
@@ -117,17 +114,6 @@ function PMA_get_blowfish_secret() {
  * @uses    $GLOBALS['target']
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['table']
- * @uses    __('Welcome to %s')
- * @uses    __('The configuration file now needs a secret passphrase (blowfish_secret).')
- * @uses    __('Error')
- * @uses    __('Log in')
- * @uses    __('Server:')
- * @uses    __('Username:')
- * @uses    __('Password:')
- * @uses    __('Server Choice')
- * @uses    __('Go')
- * @uses    __('Cookies must be enabled past this point.')
- * @uses    __('phpMyAdmin documentation')
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    $cfg['Servers']
  * @uses    $cfg['LoginCookieRecall']
@@ -194,6 +180,7 @@ if (top != self) {
 }
 //]]>
 </script>
+<script src="./js/functions.js" type="text/javascript"></script>
 </head>
 
 <body class="loginform">
@@ -326,22 +313,6 @@ if (top != self) {
     }
     ?>
 </div>
-<script type="text/javascript">
-// <![CDATA[
-function PMA_focusInput()
-{
-    var input_username = document.getElementById('input_username');
-    var input_password = document.getElementById('input_password');
-    if (input_username.value == '') {
-        input_username.focus();
-    } else {
-        input_password.focus();
-    }
-}
-
-window.setTimeout('PMA_focusInput()', 500);
-// ]]>
-</script>
     <?php
     if (file_exists(CUSTOM_FOOTER_FILE)) {
         require CUSTOM_FOOTER_FILE;
@@ -646,9 +617,6 @@ function PMA_auth_set_user()
  *
  * @uses    $GLOBALS['server']
  * @uses    $GLOBALS['allowDeny_forbidden']
- * @uses    __('Access denied')
- * @uses    __('No activity within %s seconds; please log in again')
- * @uses    __('Cannot log in to the MySQL server')
  * @uses    $GLOBALS['no_activity']
  * @uses    $cfg['LoginCookieValidity']
  * @uses    $GLOBALS['PMA_Config']->removeCookie()

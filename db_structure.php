@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -10,7 +9,6 @@
  *
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
@@ -57,7 +55,7 @@ if ($num_tables == 0) {
     /**
      * Displays the footer
      */
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
     exit;
 }
 
@@ -151,25 +149,12 @@ $hidden_fields = array();
 $odd_row       = true;
 $sum_row_count_pre = '';
 
-// for blobstreaming
-$PMA_Config = $GLOBALS['PMA_Config'];
-
-if (!empty($PMA_Config))
-    $session_bs_tables = $PMA_Config->get('BLOBSTREAMING_TABLES'); // list of blobstreaming tables
-
 $tableReductionCount = 0;   // the amount to reduce the table count by
 
 foreach ($tables as $keyname => $each_table) {
-    if (isset($session_bs_tables))
-    {
-        // compare table name against blobstreaming tables
-        foreach ($session_bs_tables as $table_key=>$table_val)
-            // if the table is a blobstreaming table, reduce table count and skip outer foreach loop
-            if ($table_key == $keyname)
-            {
-                $tableReductionCount++;
-                continue 2;
-            }
+    if (PMA_BS_IsHiddenTable($keyname)) {
+        $tableReductionCount++;
+        continue;
     }
 
     // Get valid statistics whatever is the table type
@@ -360,24 +345,24 @@ foreach ($tables as $keyname => $each_table) {
         ) {
             $do = true;
         }
-        foreach ($server_slave_Wild_Do_Table as $table) {
-            if (($db == PMA_replication_strout($table)) && (ereg("^".substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true))-1), $truename)))
+        foreach ($server_slave_Wild_Do_Table as $db_table) {
+            $table_part = PMA_extract_db_or_table($db_table, 'table');
+            if (($db == PMA_extract_db_or_table($db_table, 'db')) && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))) {
                 $do = true;
+            }
         }
         ////////////////////////////////////////////////////////////////////
         if ((strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)  || (strlen(array_search($db, $server_slave_Ignore_DB)) > 0)) {
             $ignored = true;
         }
-        foreach ($server_slave_Wild_Ignore_Table as $table) {
-            if (($db == PMA_replication_strout($table)) && (ereg("^".substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true))-1), $truename)))
+        foreach ($server_slave_Wild_Ignore_Table as $db_table) {
+            $table_part = PMA_extract_db_or_table($db_table, 'table');
+            if (($db == PMA_extract_db_or_table($db_table)) && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))) {
                 $ignored = true;
+            }
         }
-    }/* elseif ($server_master_status) {
-        if ((strlen(array_search($db, $server_master_Do_DB))>0) || count($server_master_Do_DB)==1)
-            $do = true;
-        elseif ((strlen(array_search($db, $server_master_Ignore_DB))>0) || count($server_master_Ignore_DB)==1)
-            $ignored = true;
-    }*/
+        unset($table_part);
+    }
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
     <td align="center">
@@ -613,5 +598,5 @@ if (empty($db_is_information_schema)) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

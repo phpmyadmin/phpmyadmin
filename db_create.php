@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -10,7 +9,6 @@
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
-$GLOBALS['js_include'][] = 'functions.js';
 require_once './libraries/mysql_charsets.lib.php';
 
 PMA_checkParameters(array('new_db'));

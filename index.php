@@ -3,8 +3,6 @@
 /**
  * forms frameset
  *
- * @version $Id$
- * @uses    __('phpMyAdmin is more friendly with a <b>frames-capable</b> browser.')
  * @uses    $GLOBALS['cfg']['QueryHistoryDB']
  * @uses    $GLOBALS['cfg']['Server']['user']
  * @uses    $GLOBALS['cfg']['DefaultTabServer']     as src for the mainframe
@@ -34,11 +32,6 @@
  */
 require_once './libraries/common.inc.php';
 
-/**
- * Includes the ThemeManager if it hasn't been included yet
- */
-require_once './libraries/relation.lib.php';
-
 // free the session file, for the other frames to be loaded
 session_write_close();
 
@@ -63,7 +56,7 @@ unset($cfgRelation);
 /**
  * pass variables to child pages
  */
-$drops = array('lang', 'server', 'convcharset', 'collation_connection',
+$drops = array('lang', 'server', 'collation_connection',
     'db', 'table');
 
 foreach ($drops as $each_drop) {

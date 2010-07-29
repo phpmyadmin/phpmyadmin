@@ -28,7 +28,6 @@
  * - db connection
  * - authentication work
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -50,7 +49,7 @@ if (!defined('E_DEPRECATED')) {
 /**
  * the error handler
  */
-require_once './libraries/Error_Handler.class.php';
+require './libraries/Error_Handler.class.php';
 
 /**
  * initialize the error handler
@@ -79,42 +78,42 @@ define('PHPMYADMIN', true);
 /**
  * core functions
  */
-require_once './libraries/core.lib.php';
+require './libraries/core.lib.php';
 
 /**
  * Input sanitizing
  */
-require_once './libraries/sanitizing.lib.php';
+require './libraries/sanitizing.lib.php';
 
 /**
  * the PMA_Theme class
  */
-require_once './libraries/Theme.class.php';
+require './libraries/Theme.class.php';
 
 /**
  * the PMA_Theme_Manager class
  */
-require_once './libraries/Theme_Manager.class.php';
+require './libraries/Theme_Manager.class.php';
 
 /**
  * the PMA_Config class
  */
-require_once './libraries/Config.class.php';
+require './libraries/Config.class.php';
 
 /**
  * the relation lib, tracker needs it
  */
-require_once './libraries/relation.lib.php';
+require './libraries/relation.lib.php';
 
 /**
  * the PMA_Tracker class
  */
-require_once './libraries/Tracker.class.php';
+require './libraries/Tracker.class.php';
 
 /**
  * the PMA_Table class
  */
-require_once './libraries/Table.class.php';
+require './libraries/Table.class.php';
 
 if (!defined('PMA_MINIMUM_COMMON')) {
     /**
@@ -335,7 +334,7 @@ if ($GLOBALS['PMA_Config']->get('ForceSSL')
 /**
  * include session handling after the globals, to prevent overwriting
  */
-require_once './libraries/session.inc.php';
+require './libraries/session.inc.php';
 
 /**
  * init some variables LABEL_variables_init
@@ -454,7 +453,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * f.e. PMA_Config: fontsize
  *
  * @todo variables should be handled by their respective owners (objects)
- * f.e. lang, server, convcharset, collation_connection in PMA_Config
+ * f.e. lang, server, collation_connection in PMA_Config
  */
 if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /**
@@ -468,7 +467,7 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
         /* Session ID */
         'phpMyAdmin',
         /* Cookie preferences */
-        'pma_lang', 'pma_charset', 'pma_collation_connection',
+        'pma_lang', 'pma_collation_connection',
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
         /* for playing blobstreamable media */
@@ -479,7 +478,7 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
     /**
      * Require cleanup functions
      */
-    require_once './libraries/cleanup.lib.php';
+    require './libraries/cleanup.lib.php';
     /**
      * Do actual cleanup
      */
@@ -487,14 +486,6 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
 
 }
 
-
-/**
- * @global string $GLOBALS['convcharset']
- * @see select_lang.lib.php
- */
-if (isset($_REQUEST['convcharset'])) {
-    $GLOBALS['convcharset'] = strip_tags($_REQUEST['convcharset']);
-}
 
 /**
  * current selected database
@@ -564,16 +555,9 @@ $GLOBALS['footnotes'] = array();
 /* loading language file                       LABEL_loading_language_file    */
 
 /**
- * Added messages while developing:
- */
-if (file_exists('./lang/added_messages.php')) {
-    include './lang/added_messages.php';
-}
-
-/**
  * lang detection is done here
  */
-require_once './libraries/select_lang.lib.php';
+require './libraries/select_lang.lib.php';
 
 /**
  * check for errors occurred while loading configuration
@@ -800,7 +784,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * @todo should be done in PMA_Config
      */
     $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
-    $GLOBALS['PMA_Config']->setCookie('pma_charset', $GLOBALS['convcharset']);
     $GLOBALS['PMA_Config']->setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();
@@ -814,7 +797,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         require_once './libraries/logging.lib.php';
 
-        // Gets the authentication library that fits the $cfg['Server'] settings
+       // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
 
         // to allow HTTP or http
@@ -826,14 +809,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * the required auth type plugin
          */
         require_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
-
         if (!PMA_auth_check()) {
             PMA_auth();
         } else {
             PMA_auth_set_user();
         }
 
-        // Check IP-based Allow/Deny rules as soon as possible to reject the
+         // Check IP-based Allow/Deny rules as soon as possible to reject the
         // user
         // Based on mod_access in Apache:
         // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
@@ -970,9 +952,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     // checks for blobstreaming plugins and databases that support
     // blobstreaming (by having the necessary tables for blobstreaming)
-    if (checkBLOBStreamingPlugins()) {
-        checkBLOBStreamableDatabases();
-    }
+    checkBLOBStreamingPlugins();
+
 } // end if !defined('PMA_MINIMUM_COMMON')
 
 // remove sensitive values from session

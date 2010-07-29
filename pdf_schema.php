@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -14,7 +13,6 @@ require_once './libraries/common.inc.php';
 /**
  * Settings for relation stuff
  */
-require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
 require_once './libraries/Index.class.php';
 
@@ -31,7 +29,7 @@ $cfgRelation = PMA_getRelationsParam();
 if (!$cfgRelation['pdfwork']) {
     echo '<font color="red">' . __('Error') . '</font><br />' . "\n";
     $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">';
-    echo sprintf(__('The additional features for working with linked tables have been deactivated. To find out why click %shere%s.'), $url_to_goto, '</a>') . "\n";
+    echo sprintf(__('The phpMyAdmin configuration storage has been deactivated. To find out why click %shere%s.'), $url_to_goto, '</a>') . "\n";
 }
 
 /**
@@ -224,7 +222,7 @@ class PMA_PDF extends TCPDF {
     function PMA_PDF_die($error_message = '')
     {
         global $cfg;
-        global $server, $lang, $convcharset, $db;
+        global $server, $lang, $db;
         global $charset, $text_dir;
 
         require_once './libraries/header.inc.php';
@@ -241,7 +239,7 @@ class PMA_PDF extends TCPDF {
          . '">' . __('Back') . '</a>';
         echo "\n";
 
-        require_once './libraries/footer.inc.php';
+        require './libraries/footer.inc.php';
     } // end of the "PMA_PDF_die()" function
     /**
      * Aliases the "Error()" function from the FPDF class to the

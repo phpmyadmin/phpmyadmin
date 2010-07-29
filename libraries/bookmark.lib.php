@@ -3,14 +3,8 @@
 /**
  * Set of functions used with the bookmark feature
  *
- * @version $Id$
  * @package phpMyAdmin
  */
-
-/**
- *
- */
-require_once './libraries/relation.lib.php';
 
 /**
  * Defines the bookmark parameters for the current user

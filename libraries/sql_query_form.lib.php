@@ -3,7 +3,6 @@
 /**
  * functions for displaying the sql query form
  *
- * @version $Id$
  * @usedby  server_sql.php
  * @usedby  db_sql.php
  * @usedby  tbl_sql.php
@@ -41,10 +40,7 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * @uses    $GLOBALS['cfg']['DefaultQueryDatabase']
  * @uses    $GLOBALS['cfg']['Servers']
  * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
- * @uses    $GLOBALS['cfg']['DefaultQueryDatabase']
- * @uses    $GLOBALS['cfg']['DefaultQueryTable']
  * @uses    $GLOBALS['cfg']['Bookmark']
- * @uses    __('Your SQL query has been executed successfully')
  * @uses    PMA_generate_common_url()
  * @uses    PMA_backquote()
  * @uses    PMA_DBI_fetch_result()
@@ -185,8 +181,6 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
  * @uses    $GLOBALS['cfg']['TextareaAutoSelect']
  * @uses    $GLOBALS['cfg']['TextareaCols']
  * @uses    $GLOBALS['cfg']['TextareaRows']
- * @uses    __(' Show this query here again ')
- * @uses    __('Go')
  * @uses    PMA_USR_OS
  * @uses    PMA_USR_BROWSER_AGENT
  * @uses    PMA_USR_BROWSER_VER
@@ -239,8 +233,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         // $tmp_db_link = htmlspecialchars($db);
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query)) {
-            $query = str_replace('%d',
-                PMA_backquote($db), $GLOBALS['cfg']['DefaultQueryDatabase']);
+            $query = PMA_expandUserString($GLOBALS['cfg']['DefaultQueryDatabase'], 'PMA_backquote');
         }
     } else {
         $table  = $GLOBALS['table'];
@@ -263,18 +256,8 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         // else use
         // $tmp_db_link = htmlspecialchars($db);
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
-        if (empty($query) && count($fields_list)) {
-            $field_names = array();
-            foreach ($fields_list as $field) {
-                $field_names[] = PMA_backquote($field['Field']);
-            }
-            $query =
-                str_replace('%d', PMA_backquote($db),
-                    str_replace('%t', PMA_backquote($table),
-                        str_replace('%f',
-                            implode(', ', $field_names),
-                            $GLOBALS['cfg']['DefaultQueryTable'])));
-            unset($field_names);
+        if (empty($query)) {
+            $query = PMA_expandUserString($GLOBALS['cfg']['DefaultQueryTable'], 'PMA_backquote');
         }
     }
     $legend .= ': ' . PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
@@ -291,7 +274,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     echo '<legend>' . $legend . '</legend>' . "\n";
     echo '<div id="queryfieldscontainer">' . "\n";
     echo '<div id="' . $sqlquerycontainer_id . '">' . "\n"
-        .'<textarea name="sql_query" id="sqlquery"'
+        .'<textarea tabindex="100" name="sql_query" id="sqlquery"'
         .'  cols="' . $GLOBALS['cfg']['TextareaCols'] . '"'
         .'  rows="' . $height . '"'
         .'  dir="' . $GLOBALS['text_dir'] . '"'
@@ -305,12 +288,6 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         echo '<input type="button" value="DELETE" id="delete" class="sqlbutton" />';
     }
     echo '</div>' . "\n";
-
-    echo '<script type="text/javascript">' . "\n"
-        .'//<![CDATA[' . "\n"
-        .'document.getElementById("sqlquery").focus();' . "\n"
-        .'//]]>' . "\n"
-        .'</script>' . "\n";
 
     if (count($fields_list)) {
         echo '<div id="tablefieldscontainer">' . "\n"
@@ -350,16 +327,16 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         <div class="formelement">
         <label for="bkm_label">
             <?php echo __('Bookmark this SQL query'); ?>:</label>
-        <input type="text" name="bkm_label" id="bkm_label" value="" />
+        <input type="text" name="bkm_label" id="bkm_label" tabindex="110" value="" />
         </div>
         <div class="formelement">
-        <input type="checkbox" name="bkm_all_users" id="id_bkm_all_users"
+        <input type="checkbox" name="bkm_all_users" tabindex="111" id="id_bkm_all_users"
             value="true" />
         <label for="id_bkm_all_users">
             <?php echo __('Let every user access this bookmark'); ?></label>
         </div>
         <div class="formelement">
-        <input type="checkbox" name="bkm_replace" id="id_bkm_replace"
+        <input type="checkbox" name="bkm_replace" tabindex="112" id="id_bkm_replace"
             value="true" />
         <label for="id_bkm_replace">
             <?php echo __('Replace existing bookmark of same name'); ?></label>
@@ -378,7 +355,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         ?>
         <script type="text/javascript">
         //<![CDATA[
-            document.writeln(' <input type="checkbox" name="LockFromUpdate" value="1" id="checkbox_lock" /> <label for="checkbox_lock"><?php echo __('Do not overwrite this query from outside the window'); ?></label> ');
+            document.writeln(' <input type="checkbox" name="LockFromUpdate" value="1" tabindex="120" id="checkbox_lock" /> <label for="checkbox_lock"><?php echo __('Do not overwrite this query from outside the window'); ?></label> ');
         //]]>
         </script>
         <?php
@@ -387,17 +364,17 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     echo '<div class="formelement">' . "\n";
     echo '<label for="id_sql_delimiter">[ ' . __('Delimiter')
         .'</label>' . "\n";
-    echo '<input type="text" name="sql_delimiter" size="3" '
+    echo '<input type="text" name="sql_delimiter" tabindex="131" size="3" '
         .'value="' . $delimiter . '" '
         .'id="id_sql_delimiter" /> ]' . "\n";
 
     echo '<input type="checkbox" name="show_query" value="1" '
-        .'id="checkbox_show_query" checked="checked" />' . "\n"
+        .'id="checkbox_show_query" tabindex="132" checked="checked" />' . "\n"
         .'<label for="checkbox_show_query">' . __(' Show this query here again ')
         .'</label>' . "\n";
 
     echo '</div>' . "\n";
-    echo '<input type="submit" name="SQL" value="' . __('Go') . '" />'
+    echo '<input type="submit" name="SQL" tabindex="200" value="' . __('Go') . '" />'
         ."\n";
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</fieldset>' . "\n";
@@ -411,13 +388,6 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    $GLOBALS['cfg']['ReplaceHelpImg']
- * @uses    __('Bookmarked SQL query')
- * @uses    __('View only')
- * @uses    __('Delete')
- * @uses    __('Documentation')
- * @uses    __('Go')
- * @uses    __('Submit')
- * @uses    __('Variable')
  * @uses    count()
  * @uses    htmlspecialchars()
  */
@@ -487,16 +457,6 @@ function PMA_sqlQueryFormBookmark()
  * @uses    $GLOBALS['cfg']['BZipDump']
  * @uses    $GLOBALS['cfg']['UploadDir']
  * @uses    $GLOBALS['cfg']['AvailableCharsets']
- * @uses    $GLOBALS['cfg']['AllowAnywhereRecoding']
- * @uses    __('bzipped')
- * @uses    __('Character set of the file:')
- * @uses    __('Compression')
- * @uses    __('Error')
- * @uses    __('Go')
- * @uses    __('gzipped')
- * @uses    __('Location of the text file')
- * @uses    __('web server upload directory')
- * @uses    __('The directory you set for upload work cannot be reached')
  * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['max_upload_size']
  * @uses    PMA_supportedDecompressions()

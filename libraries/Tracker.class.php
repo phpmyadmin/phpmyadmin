@@ -2,14 +2,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
-
-/**
- * Gets relation settings
- */
-require_once './libraries/relation.lib.php';
 
 /**
  * This class tracks changes on databases, tables and views.

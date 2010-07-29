@@ -19,7 +19,6 @@
  * It's easier to use only uppercase for proper sorting. In case of
  * doubt, use the DEBUG code after this function's definition.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

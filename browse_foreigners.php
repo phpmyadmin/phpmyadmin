@@ -3,7 +3,6 @@
 /**
  * display selection for relational field values
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -23,7 +22,6 @@ require_once './libraries/header_http.inc.php';
  * Displays the frame
  */
 $per_page = 200;
-require_once './libraries/relation.lib.php'; // foreign keys
 require_once './libraries/transformations.lib.php'; // Transformations
 $cfgRelation = PMA_getRelationsParam();
 $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);

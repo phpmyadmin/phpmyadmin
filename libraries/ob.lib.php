@@ -9,7 +9,6 @@
  * Check for all the needed functions for output buffering
  * Make some wrappers for the top and bottoms of our files.
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -41,8 +40,6 @@ function PMA_outBufferModeGet()
             // any right frame file in phpMyAdmin will not be handled properly by
             // the browser. My fix was to check the ini file within the
             // PMA_outBufferModeGet() function.
-            //
-            // (Patch by Garth Gillespie, modified by Marc Delisle)
             $mode = 0;
         } elseif (function_exists('ob_get_level') && ob_get_level() > 0) {
             // If output buffering is enabled in php.ini it's not possible to

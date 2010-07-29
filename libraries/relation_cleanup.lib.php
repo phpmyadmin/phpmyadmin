@@ -3,17 +3,11 @@
 /**
  * Set of functions used for cleaning up phpMyAdmin tables
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/**
- *
- */
-require_once './libraries/relation.lib.php';
 
 /**
  * Cleanu column related relation stuff

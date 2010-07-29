@@ -3,7 +3,6 @@
 /**
  * the navigation frame - displays server, db and table selection tree
  *
- * @version $Id$
  * @package phpMyAdmin
  * @uses $GLOBALS['pma']->databases
  * @uses $GLOBALS['server']
@@ -14,11 +13,6 @@
  * @uses $GLOBALS['text_dir']
  * @uses $GLOBALS['charset']
  * @uses $GLOBALS['pmaThemeImage']
- * @uses __('No databases')
- * @uses __('Database')
- * @uses __('Go')
- * @uses __('Please select a database')
- * @uses __('No tables found in database.')
  * @uses $GLOBALS['cfg']['LeftFrameLight']
  * @uses $GLOBALS['cfg']['ShowTooltip']
  * @uses $GLOBALS['cfg']['ShowTooltipAliasDB']
@@ -116,9 +110,8 @@ if ($GLOBALS['server'] && ! strlen($GLOBALS['db'])) {
 $db_start = $GLOBALS['db'];
 
 /**
- * the relation library
+ * the relation settings
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -352,7 +345,6 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
  *
  * @uses    $_REQUEST['dbgroup']
  * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
- * @uses    __('Please select a database')
  * @uses    strpos()
  * @uses    urlencode()
  * @uses    printf()
@@ -536,8 +528,6 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
  * @uses    $GLOBALS['cfg']['LeftFrameTableSeparator']
  * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
  * @uses    $GLOBALS['cfg']['DefaultTabTable']
- * @uses    __('Rows')
- * @uses    __('Browse')
  * @global  integer the element counter
  * @global  string  html code for '-' image
  * @global  string  html code for '+' image

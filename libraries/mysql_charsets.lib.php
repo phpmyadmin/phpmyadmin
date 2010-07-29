@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -164,7 +163,17 @@ function PMA_getDbCollation($db) {
         return 'utf8_general_ci';
     }
 
-    return PMA_DBI_fetch_value('SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1;');
+    if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        // this is slow with thousands of databases
+        return PMA_DBI_fetch_value('SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1;');
+    } else {
+        PMA_DBI_select_db($db);
+        $return = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'collation_database\'', 0, 1);
+        if ($db !== $GLOBALS['db']) {
+            PMA_DBI_select_db($GLOBALS['db']);
+        }
+        return $return;
+    }
 }
 
 /**
@@ -189,14 +198,6 @@ function PMA_getServerCollation() {
  * @return  string  collation description
  */
 function PMA_getCollationDescr($collation) {
-    static $collation_cache;
-
-    if (!is_array($collation_cache)) {
-        $collation_cache = array();
-    } elseif (isset($collation_cache[$collation])) {
-        return $collation_cache[$collation];
-    }
-
     if ($collation == 'binary') {
         return __('Binary');
     }

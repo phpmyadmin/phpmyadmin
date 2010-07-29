@@ -3,7 +3,6 @@
 /**
  * query by example the whole database
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -11,9 +10,6 @@
  * requirements
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
-require_once './libraries/relation.lib.php';
-
 
 /**
  * Gets the relation settings
@@ -100,7 +96,7 @@ $tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', 
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
 if (0 == $tbl_result_cnt) {
     PMA_Message::error(__('No tables found in database.'))->display();
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
     exit;
 }
 
@@ -941,5 +937,5 @@ if (!empty($qry_orderby)) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

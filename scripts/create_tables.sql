@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `pma_history` (
   `username` varchar(64) NOT NULL default '',
   `db` varchar(64) NOT NULL default '',
   `table` varchar(64) NOT NULL default '',
-  `timevalue` timestamp(14) NOT NULL,
+  `timevalue` timestamp NOT NULL,
   `sqlquery` text NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `username` (`username`,`db`,`table`,`timevalue`)

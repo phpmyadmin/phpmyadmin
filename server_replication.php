@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -15,7 +14,6 @@ require_once './libraries/common.inc.php';
  * Does the common work
  */
 $GLOBALS['js_include'][] = 'server_privileges.js';
-$GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'replication.js';
 
 require './libraries/server_common.inc.php';
@@ -33,7 +31,7 @@ if (! $is_superuser) {
         . __('Replication') . "\n"
         . '</h2>' . "\n";
     PMA_Message::error(__('No Privileges'))->display();
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 }
 
 /**
@@ -236,7 +234,7 @@ if (isset($GLOBALS['mr_configure'])) {
     echo ' </form>';
     echo '</fieldset>';
 
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
     exit;
 }
 
@@ -360,5 +358,5 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
 if (isset($GLOBALS['sl_configure'])) {
     PMA_replication_gui_changemaster("slave_changemaster");
 }
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

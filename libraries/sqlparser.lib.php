@@ -24,7 +24,6 @@
  * page for it to work, I recommend '<link rel="stylesheet" type="text/css"
  * href="syntax.css.php" />' at the moment.)
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -2092,6 +2091,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $docu                               = TRUE;
                 break;
         } // end switch
+        // inner_sql is a span that exists for all cases 
+        // of $cfg['SQP']['fmtType'] to make possible a replacement 
+        // for inline editing
+        $str .= '<span class="inner_sql">';
         $close_docu_link = false;
         $indent                                     = 0;
         $bracketlevel                               = 0;
@@ -2578,7 +2581,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $str .= '</a>';
             $close_docu_link = false;
         }
+        // close inner_sql span
+        $str .= '</span>';
         if ($mode=='color') {
+            // close syntax span
             $str .= '</span>';
         }
 

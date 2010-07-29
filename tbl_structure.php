@@ -3,7 +3,6 @@
 /**
  * Displays table structure infos like fields/columns, indexes, size, rows
  * and allows manipulation of indexes and columns/fields
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -12,7 +11,6 @@
  */
 require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
-require_once './libraries/relation.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
@@ -200,7 +198,6 @@ $comments_map = array();
 $mime_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
-    require_once './libraries/relation.lib.php';
     require_once './libraries/transformations.lib.php';
 
     //$cfgRelation = PMA_getRelationsParam();
@@ -537,7 +534,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . __('Add field') . '"/>';
+        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . __('Add column') . '"/>';
     }
     echo sprintf(__('Add %s column(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
 
@@ -845,5 +842,5 @@ echo '<div class="clearfloat"></div>' . "\n";
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

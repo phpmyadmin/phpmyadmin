@@ -3,7 +3,6 @@
 /**
  * Selenium TestCase for login related tests
  *
- * @version $Id$
  * @package phpMyAdmin-test
  */
 

@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -782,7 +781,6 @@ class PMA_Table
             $GLOBALS['sql_query']      .= "\n\n" . $sql_insert_data . ';';
         }
 
-        require_once './libraries/relation.lib.php';
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
 
         // Drops old table if the user has requested to move it
@@ -1058,7 +1056,6 @@ class PMA_Table
          * @todo move into extra function PMA_Relation::renameTable($new_name, $old_name, $new_db, $old_db)
          */
         // Move old entries from comments to new table
-        require_once './libraries/relation.lib.php';
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         if ($GLOBALS['cfgRelation']['commwork']) {
             $remove_query = '

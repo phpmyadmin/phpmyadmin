@@ -4,14 +4,7 @@
  * displays and handles the form where the user can change his password
  * linked from main.php
  *
- * @uses    __('The profile has been updated.')
- * @uses    __('Back')
  * @uses    $GLOBALS['js_include']
- * @uses    __('Change password')
- * @uses    __('The password is empty!')
- * @uses    __('The passwords aren't the same!')
- * @uses    __('Error')
- * @uses    __('You don\'t have sufficient privileges to be here right now!')
  * @uses    $cfg['ShowChgPassword']
  * @uses    $cfg['Server']['auth_type']
  * @uses    PMA_DBI_select_db()
@@ -25,7 +18,6 @@
  * @uses    PMA_blowfish_encrypt()
  * @uses    PMA_showMessage()
  * @uses    define()
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -42,6 +34,9 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
  */
 require_once './libraries/common.inc.php';
 
+$GLOBALS['js_include'][] = 'server_privileges.js';
+$GLOBALS['js_include'][] = 'password_generation.js';
+
 /**
  * Displays an error message and exits if the user isn't allowed to use this
  * script
@@ -52,7 +47,7 @@ if (!$cfg['ShowChgPassword']) {
 if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
     require_once './libraries/header.inc.php';
     PMA_Message::error(__('You don\'t have sufficient privileges to be here right now!'))->display();
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 } // end if
 
 
@@ -114,7 +109,7 @@ if (isset($_REQUEST['nopass'])) {
         <a href="index.php<?php echo PMA_generate_common_url($_url_params); ?>" target="_parent">
             <strong><?php echo __('Back'); ?></strong></a>
         <?php
-        require_once './libraries/footer.inc.php';
+        require './libraries/footer.inc.php';
     } // end if
 } // end if
 
@@ -124,8 +119,8 @@ if (isset($_REQUEST['nopass'])) {
  * aren't valid -> displays the form
  */
 // Loads the headers
-$GLOBALS['js_include'][] = 'server_privileges.js';
 require_once './libraries/header.inc.php';
+
 echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
 
 // Displays an error message if required
@@ -138,5 +133,5 @@ require_once './libraries/display_change_password.lib.php';
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

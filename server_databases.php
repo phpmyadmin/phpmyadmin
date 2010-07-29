@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -11,8 +10,6 @@
  */
 require_once './libraries/common.inc.php';
 
-
-$GLOBALS['js_include'][] = 'functions.js';
 require './libraries/server_common.inc.php';
 require './libraries/replication.inc.php';
 
@@ -196,7 +193,7 @@ if ($databases_count > 0) {
       elseif($type == "slave")
         $name = __('Slave replication');
       if (${"server_{$type}_status"})
-        echo '    <th>'.$GLOBALS[$name].'</th>' . "\n";
+        echo '    <th>'. $name .'</th>' . "\n";
     }
 
     if ($is_superuser) {
@@ -264,13 +261,13 @@ if ($databases_count > 0) {
                 echo '<td class="tool" style="text-align: center;">' . "\n";
 
                 if (strlen(array_search($current["SCHEMA_NAME"], ${"server_{$type}_Ignore_DB"}))>0) {
-                    echo '<img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="NOT REPLICATED" />' . "\n";
+                    echo '<img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="' . __('Not replicated') . '" />' . "\n";
                 } else {
                     $key = array_search($current["SCHEMA_NAME"], ${"server_{$type}_Do_DB"});
 
                     if (strlen($key) > 0 || (${"server_{$type}_Do_DB"}[0] == "" && count(${"server_{$type}_Do_DB"}) == 1)) {
                         // if ($key != null) did not work for index "0"
-                        echo '<img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="REPLICATED" />' . "\n";
+                        echo '<img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="' . __('Replicated') . '" />' . "\n";
                     } else {
                         echo '';
                     }
@@ -385,6 +382,6 @@ if ($cfg['ShowCreateDb']) {
 /**
  * Sends the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 ?>

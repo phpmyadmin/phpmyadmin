@@ -4,7 +4,6 @@
  * Display form for changing/adding table fields/columns
  *
  * included by tbl_addfield.php, -_alter.php, -_create.php
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -118,7 +117,6 @@ if (!$is_backup) {
 
 $header_cells[] = '<abbr title="AUTO_INCREMENT">' . ($display_type == 'horizontal' ? 'A_I' : 'AUTO_INCREMENT') . '</abbr>';
 
-require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 

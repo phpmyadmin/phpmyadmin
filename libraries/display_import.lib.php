@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -94,9 +93,9 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                 window.setTimeout(perform_upload, 1000);
 
     <?php
-} else { // no plugin avaliable
+} else { // no plugin available
     ?>
-                        $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo __('Please be patient, the file is being uploaded. Details about the upload are not available.') . PMA_showDocu('faq2_9'); ?>');
+                        $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.')) . PMA_showDocu('faq2_9'); ?>');
                         $('#upload_form_status').css("display", "none");
     <?php
 } // else
@@ -174,7 +173,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 
 // charset of file
         echo '<div class="formelementrow">' . "\n";
-        if ($cfg['AllowAnywhereRecoding']) {
+        if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
             echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>';
             reset($cfg['AvailableCharsets']);
             echo '<select id="charset_of_file" name="charset_of_file" size="1">';

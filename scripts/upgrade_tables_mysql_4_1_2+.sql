@@ -143,22 +143,3 @@ ALTER TABLE `pma_table_info`
   CHANGE `table_name` `table_name` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
 ALTER TABLE `pma_table_info`
   CHANGE `display_field` `display_field` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_designer_coords`
---
-
-CREATE TABLE IF NOT EXISTS `pma_designer_coords` (
-  `db_name` varchar(64) NOT NULL default '',
-  `table_name` varchar(64) NOT NULL default '',
-  `x` INT,
-  `y` INT,
-  `v` TINYINT,
-  `h` TINYINT,
-  PRIMARY KEY (`db_name`,`table_name`)
-)
-  ENGINE=MyISAM COMMENT='Table coordinates for Designer'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-

@@ -15,11 +15,6 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Load paths.
- */
-require_once('./libraries/vendor_config.php');
-
 $cfg_db = array();
 
 // path to config file, relative to phpMyAdmin's root path
@@ -40,8 +35,7 @@ $cfg_db['Servers'] = array(1 => array(
     'AllowDeny'    => array(
         'order'    => array('', 'deny,allow', 'allow,deny', 'explicit')),
     'only_db'      => 'array'));
-$cfg_db['RecodingEngine'] = array('auto', 'iconv', 'recode');
-$cfg_db['DefaultCharset'] = $GLOBALS['cfg']['AvailableCharsets'];
+$cfg_db['RecodingEngine'] = array('auto', 'iconv', 'recode', 'none');
 $cfg_db['OBGzip'] = array('auto', true, false);
 $cfg_db['ShowTooltipAliasTB'] = array('nested', true, false);
 $cfg_db['DisplayDatabasesList'] = array('auto', true, false);

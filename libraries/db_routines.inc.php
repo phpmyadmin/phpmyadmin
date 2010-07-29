@@ -12,7 +12,6 @@
  *       our current sql.php.
  *       Of course the interface would need a way to pass calling parameters.
  *       Also, support DEFINER (like we do in export).
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

@@ -7,7 +7,6 @@
  * and include sql.php to execute it
  *
  * @todo display search form again if no results from previous search
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -15,7 +14,6 @@
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/relation.lib.php'; // foreign keys
 require_once './libraries/mysql_charsets.lib.php';
 
 $GLOBALS['js_include'][] = 'tbl_change.js';
@@ -95,7 +93,6 @@ if (!isset($param) || $param[0] == '') {
     PMA_DBI_free_result($result);
     unset($result, $type);
 
-    // <markus@noga.de>
     // retrieve keys into foreign fields, if any
     // check also foreigners even if relwork is FALSE (to get
     // foreign keys from innodb)
@@ -183,7 +180,6 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
             </td>
             <td>
         <?php
-        // <markus@noga.de>
         $field = $fields_list[$i];
 
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
@@ -328,7 +324,7 @@ $(function() {
 </fieldset>
 </form>
     <?php
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 }
 
 

@@ -2,7 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
@@ -30,7 +29,6 @@ if (! isset($the_tables) || ! is_array($the_tables)) {
 /**
  * Gets the relations settings
  */
-require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
 require_once './libraries/Index.class.php';
 
@@ -53,8 +51,7 @@ PMA_DBI_select_db($db);
 
 
 /**
- * Multi-tables printview thanks to Christophe Gesche from the "MySQL Form
- * Generator for PHPMyAdmin" (http://sourceforge.net/projects/phpmysqlformgen/)
+ * Multi-tables printview 
  */
 if (isset($selected_tbl) && is_array($selected_tbl)) {
     $the_tables   = $selected_tbl;
@@ -499,5 +496,5 @@ function printPage()
         onclick="printPage()" /></p>
 
 <?php
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>

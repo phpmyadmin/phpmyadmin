@@ -3,14 +3,13 @@
 /**
  *
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 
 /**
  * Load vendor configuration.
  */
-require_once('./libraries/vendor_config.php');
+require('./libraries/vendor_config.php');
 
 /**
  * Configuration class
@@ -994,7 +993,6 @@ class PMA_Config
      * @uses    $GLOBALS['PMA_Config']
      * @uses    PMA_Config::get()
      * @uses    PMA_Config::_getFontsizeOptions()
-     * @uses    __('Font size')
      * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
@@ -1031,7 +1029,6 @@ class PMA_Config
      *
      * @uses    PMA_generate_common_hidden_inputs()
      * @uses    PMA_Config::_getFontsizeSelection()
-     * @uses    __('Go')
      * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
@@ -1086,10 +1083,13 @@ class PMA_Config
         if ($validity == null) {
             $validity = 2592000;
         }
-        if (strlen($value) && null !== $default && $value === $default
-         && isset($_COOKIE[$cookie])) {
-            // remove cookie, default value is used
-            return $this->removeCookie($cookie);
+        if (strlen($value) && null !== $default && $value === $default) {
+            // default value is used
+            if (isset($_COOKIE[$cookie])) {
+                // remove cookie
+                return $this->removeCookie($cookie);
+            }
+            return false;
         }
 
         if (! strlen($value) && isset($_COOKIE[$cookie])) {

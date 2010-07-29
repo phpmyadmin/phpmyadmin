@@ -2,20 +2,13 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @version $Id$
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- *
- */
-require_once './libraries/Table.class.php';
-
 // Get relations & co. status
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 
@@ -148,13 +141,13 @@ echo PMA_pluginGetJavascript($export_list);
         echo __('File name template');
 
         $trans = new PMA_Message;
-        $trans->addMessage('__SERVER__/');
+        $trans->addMessage('@SERVER@/');
         $trans->addString(__('server name'));
         if ($export_type == 'database' || $export_type == 'table') {
-            $trans->addMessage('__DB__/');
+            $trans->addMessage('@DATABASE@/');
             $trans->addString(__('database name'));
             if ($export_type == 'table') {
-                $trans->addMessage('__TABLE__/');
+                $trans->addMessage('@TABLE@/');
                 $trans->addString(__('table name'));
             }
         }
@@ -194,6 +187,7 @@ echo PMA_pluginGetJavascript($export_list);
     ?>
     />
 
+    <?php echo PMA_showDocu('faq6_27'); ?>
     (
     <input type="checkbox" name="remember_template"
         id="checkbox_remember_template"
@@ -205,7 +199,7 @@ echo PMA_pluginGetJavascript($export_list);
     <div class="formelementrow">
     <?php
     // charset of file
-    if ($cfg['AllowAnywhereRecoding']) {
+    if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
         echo '        <label for="select_charset_of_file">'
             . __('Character set of the file:') . '</label>' . "\n";
 
