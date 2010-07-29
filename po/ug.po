@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-29 07:58+0200\n"
+"PO-Revision-Date: 2010-07-29 07:59+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -2053,7 +2053,7 @@ msgstr "يىزىق ھۆججەتنىڭ ئورنى"
 
 #: libraries/display_import.lib.php:147
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "مۇلازىمىتىرنىڭ ھۆججەت چىقىرىشىنى چەكلەندى"
 
 #: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
