@@ -2011,7 +2011,7 @@ msgstr "يوق"
 
 #: libraries/display_export.lib.php:241
 msgid "\"zipped\""
-msgstr ""
+msgstr "zipپىرىسلاش"
 
 #: libraries/display_export.lib.php:247
 msgid "\"gzipped\""
