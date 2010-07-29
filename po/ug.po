@@ -2105,7 +2105,7 @@ msgstr ""
 
 #: libraries/display_pdf_schema.lib.php:36
 msgid "Show color"
-msgstr ""
+msgstr "رەڭنى كۆرسىتىش"
 
 #: libraries/display_pdf_schema.lib.php:38
 msgid "Show dimension of tables"
