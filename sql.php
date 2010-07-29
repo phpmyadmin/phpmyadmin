@@ -593,7 +593,7 @@ if (0 == $num_rows || $is_affected) {
 
             $map = PMA_getForeigners($db, $table, '', 'both');
 
-            $rel_fields = explode(',', $rel_fields_list);
+            $rel_fields = explode(',', $_REQUEST['rel_fields_list']);
 
             foreach( $rel_fields as $rel_field) {
 
@@ -611,6 +611,36 @@ if (0 == $num_rows || $is_affected) {
                 $extra_data['relations'][$rel_field] .= '</a>';
             }
         }
+
+        if(isset($_REQUEST['do_transformations']) && $_REQUEST['do_transformations'] == true ) {
+            require_once './libraries/transformations.lib.php';
+            //if some posted fields need to be transformed, generate them here.
+            $mime_map = PMA_getMIME($db, $table);
+
+            $edited_values = array();
+            parse_str($_REQUEST['transform_fields_list'], $edited_values);
+
+            foreach($mime_map as $transformation) {
+                $include_file = $transformation['transformation'];
+                $column_name = $transformation['column_name'];
+                $column_data = $edited_values[$column_name];
+
+                if (file_exists('./libraries/transformations/' . $include_file)) {
+                    $transformfunction_name = str_replace('.inc.php', '', $transformation['transformation']);
+
+                    require_once './libraries/transformations/' . $include_file;
+
+                    if (function_exists('PMA_transformation_' . $transformfunction_name)) {
+                        $transform_function = 'PMA_transformation_' . $transformfunction_name;
+                        $transform_options  = PMA_transformation_getOptions((isset($transformation['transformation_options']) ? $transformation['transformation_options'] : ''));
+                        //$meta->mimetype     = str_replace('_', '/', $GLOBALS['mime_map'][$meta->name]['mimetype']);
+                    }
+                }
+
+                $extra_data['transformations'][$column_name] = $transform_function($column_data, $transform_options);
+            }
+        }
+
         $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
 
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);

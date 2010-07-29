@@ -244,6 +244,8 @@ $(document).ready(function() {
         // Collect values of all fields to submit, we don't know which changed
         var params_to_submit = {};
         var relation_fields = new Array();
+        var transform_fields = {};
+        var transformation_fields = false;
 
         $(input_siblings).each(function() {
 
@@ -251,11 +253,20 @@ $(document).ready(function() {
             var field_name = getFieldName($(this), disp_mode);
 
             var this_field_params = {};
+
+            if($(this).is('.transformed')) {
+                transformation_fields =  true;
+            }
+
             if($(this).is(":not(.relation, .enum)")) {
                 this_field_params[field_name] = $(this).find('textarea').val();
+                if($(this).is('.transformed')) {
+                    $.extend(transform_fields, this_field_params);
+                }
             }
             else {
                 this_field_params[field_name] = $(this).find('select').val();
+
                 if($(this).is('.relation')) {
                     relation_fields.push(field_name);
                 }
@@ -277,6 +288,7 @@ $(document).ready(function() {
         if(relation_fields.length > 0) {
             rel_fields_list = relation_fields.join();
         }
+        var transform_fields_list = $.param(transform_fields);
 
         // Make the Ajax post after setting all parameters
         var post_params = {'ajax_request' : true,
@@ -288,6 +300,8 @@ $(document).ready(function() {
                             'clause_is_unique' : nonunique,
                             'where_clause' : where_clause,
                             'rel_fields_list' : rel_fields_list,
+                            'do_transformations' : transformation_fields,
+                            'transform_fields_list' : transform_fields_list,
                             'goto' : 'sql.php'
                           };
 
@@ -300,6 +314,18 @@ $(document).ready(function() {
                     // Inline edit post has been successful.
                     if($(this).is(':not(.relation, .enum)')) {
                         var new_html = $(this).find('textarea').val();
+
+                        if($(this).is('.transformed')) {
+                            var field_name = getFieldName($(this), disp_mode);
+                            var this_field = $(this);
+
+                            $.each(data.transformations, function(key, value) {
+                                if(key == field_name) {
+                                    var new_value = $(this_field).find('textarea').val();
+                                    new_html = $(value).append(new_value);
+                                }
+                            })
+                        }
                     }
                     else {
                         var new_html = $(this).find('select').val();
