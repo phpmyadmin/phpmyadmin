@@ -24,8 +24,8 @@
 var imageMap = {
     'mouseMoved': function(event, cont) {
         // get mouse coordinated relative to image
-        mouseX = event.pageX - cont.offsetLeft;
-        mouseY = event.pageY - cont.offsetTop;
+        var mouseX = event.pageX - cont.offsetLeft;
+        var mouseY = event.pageY - cont.offsetTop;
 
         //console.log("X: " + mouseX + ", Y: " + mouseY);
 
@@ -34,17 +34,19 @@ var imageMap = {
         * point is in any convex polygon.
         * http://www.programmingforums.org/post168124-3.html
         */
-        found = false;
-        for (key in this.imageMap)
+        var found = false;
+        for (var key = 0; key < this.imageMap.length; key++)
         {
-            values = key.split("--");
-            seriesName = values[0];
-            seriesValue = values[1];
+            var seriesName = this.imageMap[key]['n'];
+            var seriesValue = this.imageMap[key]['v'];
 
-            signSum = 0;
-            for (i = 0; i <= this.imageMap[key].length - 1; i++)
+            var signSum = 0;
+            for (var i = 0; i < this.imageMap[key]['p'].length; i++)
             {
-                if (i == this.imageMap[key].length - 1)
+                var index1;
+                var index2;
+
+                if (i == this.imageMap[key]['p'].length - 1)
                 {
                     index1 = i;
                     index2 = 0;
@@ -54,18 +56,18 @@ var imageMap = {
                     index1 = i;
                     index2 = i+1;
                 }
-                result = this.getDeterminant(
-                    this.imageMap[key][index1][0],
-                    this.imageMap[key][index1][1],
-                    this.imageMap[key][index2][0],
-                    this.imageMap[key][index2][1],
+                var result = this.getDeterminant(
+                    this.imageMap[key]['p'][index1][0],
+                    this.imageMap[key]['p'][index1][1],
+                    this.imageMap[key]['p'][index2][0],
+                    this.imageMap[key]['p'][index2][1],
                     mouseX,
                     mouseY
                 );
                 if (result > 0) { signSum += 1; } else { signSum += -1; }
             }
             
-            if (Math.abs(signSum) == this.imageMap[key].length)
+            if (Math.abs(signSum) == this.imageMap[key]['p'].length)
             {
                 found = true;
                 if (this.currentKey != key)

@@ -161,7 +161,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
             $output = ob_get_contents();
             ob_end_clean();
 
-            // encode the current part
+            // base64 encode the current part
             $partEncoded = base64_encode($output);
             $this->partsEncoded[$i] = $partEncoded;
         }
@@ -173,6 +173,8 @@ abstract class PMA_pChart_Chart extends PMA_Chart
             $this->init();
             $this->prepareDataSet();
             $this->prepareChart();
+
+            //$this->chart->debugImageMap();
 
             if ($this->isContinuous()) {
                 $this->render(1);

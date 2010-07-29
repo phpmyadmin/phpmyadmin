@@ -2220,10 +2220,13 @@
            }
            
            $offset = 10;
-           $this->addPointToImageMap($X+$vecX*-$offset,$Y+$vecY*-$offset,$Label,$tooltipValue,'Radar');
-           $this->addPointToImageMap($X+$vecX*+$offset,$Y+$vecY*+$offset,$Label,$tooltipValue,'Radar');
-           $this->addPointToImageMap($XCenter+$vecX*+$offset,$YCenter+$vecY*+$offset,$Label,$tooltipValue,'Radar');
-           $this->addPointToImageMap($XCenter+$vecX*-$offset,$YCenter+$vecY*-$offset,$Label,$tooltipValue,'Radar');
+           $poly = array(
+                array($X+$vecX*-$offset,$Y+$vecY*-$offset),
+                array($X+$vecX*+$offset,$Y+$vecY*+$offset),
+                array($XCenter+$vecX*+$offset,$YCenter+$vecY*+$offset),
+                array($XCenter+$vecX*-$offset,$YCenter+$vecY*-$offset),
+           );
+           $this->addPolyToImageMap($poly,$Label,$tooltipValue,'Radar');
           }
         }
       }
@@ -2777,23 +2780,56 @@
 
      if ( $this->BuildMap )
       {
-     /* Add points to Image Map.
-      * The center point abd the first, middle and last of the arc is taken.
-      */
+       // Add points to Image Map.
        foreach ($TopPlots as $key => $PointArr)
         {
+         $serieName = $Data[$key][$DataDescription['Values'][1]];
+         $serieValue = $Data[$key][$DataDescription['Values'][0]];
+
          // last point of the arc
-         $this->addPointToImageMap($PointArr[count($PointArr)-4],$PointArr[count($PointArr)-3],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+         $lastX = $PointArr[count($PointArr)-4];
+         $lastY = $PointArr[count($PointArr)-3];
 
          // the point at the middle
-         $this->addPointToImageMap($PointArr[0],$PointArr[1],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+         $middleX = $PointArr[0];
+         $middleY = $PointArr[1];
 
-         // firs point in the arc
-         $this->addPointToImageMap($PointArr[2],$PointArr[3],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+         // first point in the arc
+         $firstX = $PointArr[2];
+         $firstY = $PointArr[3];
 
-         // point in the middle of the arc
-         $middle = count($PointArr)/2;
-         $this->addPointToImageMap($PointArr[$middle + ($middle % 2)],$PointArr[$middle + ($middle % 2)+1],$Data[$key][$DataDescription['Values'][1]],$Data[$key][$DataDescription['Values'][0]],"Pie");
+         // point on the first third of the arc
+         $firstThird = count($PointArr)/3;
+         $firstThirdX = $PointArr[$firstThird + ($firstThird % 2)];
+         $firstThirdY = $PointArr[$firstThird + ($firstThird % 2)+1];
+
+         // point on the second third of the arc
+         $secondThird = count($PointArr)/3*2;
+         $secondThirdX = $PointArr[$secondThird + ($secondThird % 2)];
+         $secondThirdY = $PointArr[$secondThird + ($secondThird % 2)+1];
+
+         // Will create three polygons for every piece of the pie. In such way
+         // no polygon will be concave. JS only works with convex polygons.
+         $poly = array(
+             array($middleX,$middleY),
+             array($firstX,$firstY),
+             array($firstThirdX,$firstThirdY),
+         );
+         $this->addPolyToImageMap($poly,$serieName,$serieValue,"Pie");
+
+         $poly = array(
+             array($middleX,$middleY),
+             array($firstThirdX,$firstThirdY),
+             array($secondThirdX,$secondThirdY),
+         );
+         $this->addPolyToImageMap($poly,$serieName,$serieValue,"Pie");
+
+         $poly = array(
+             array($middleX,$middleY),
+             array($secondThirdX,$secondThirdY),
+             array($lastX,$lastY),
+         );
+         $this->addPolyToImageMap($poly,$serieName,$serieValue,"Pie");
         }
       }
      
@@ -3420,19 +3456,39 @@
    /* Add a box into the image map */
    function addToImageMap($X1,$Y1,$X2,$Y2,$SerieName,$Value,$CallerFunction)
     {
-     $this->addPointToImageMap($X1,$Y1,$SerieName,$Value,$CallerFunction);
-     $this->addPointToImageMap($X2,$Y1,$SerieName,$Value,$CallerFunction);
-     $this->addPointToImageMap($X2,$Y2,$SerieName,$Value,$CallerFunction);
-     $this->addPointToImageMap($X1,$Y2,$SerieName,$Value,$CallerFunction);
+     $poly = array(array($X1,$Y1),array($X2,$Y1),array($X2,$Y2),array($X1,$Y2));
+     $this->addPolyToImageMap($poly,$SerieName,$Value,$CallerFunction);
     }
 
-   function addPointToImageMap($X1,$Y1,$SerieName,$Value,$CallerFunction)
+   function addPolyToImageMap($poly,$SerieName,$Value,$CallerFunction)
     {
      if ( $this->MapFunction == NULL || $this->MapFunction == $CallerFunction)
       {       
-       $this->ImageMap["$SerieName--$Value"][] = array(round($X1), round($Y1));
+       $this->ImageMap[] = array(
+           'n' => (string)$SerieName,
+           'v' => (string)$Value,
+           'p' => $poly,
+       );
        $this->MapFunction = $CallerFunction;
       }
+    }
+
+   /* Draw image map to the current chart image */
+   function debugImageMap()
+    {
+     foreach ($this->ImageMap as $polygon)
+      {
+       $points = array();
+       foreach ($polygon['p'] as $point)
+        {
+         $points[] = $point[0];
+         $points[] = $point[1];
+        }
+
+       $color = $this->AllocateColor($this->Picture,rand(0,255),rand(0,255),rand(0,255));
+       imagefilledpolygon($this->Picture,$points,(count($points)+1)/2,$color);
+      }
+
     }
 
    /* Load and cleanup the image map from disk */
