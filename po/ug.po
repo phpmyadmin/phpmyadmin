@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-29 08:08+0200\n"
+"PO-Revision-Date: 2010-07-29 08:10+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -2138,7 +2138,7 @@ msgstr "قەغەزنىڭ چوڭ-كىچىكلىكى"
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:70
 msgid "Language"
-msgstr ""
+msgstr "تىلى"
 
 #: libraries/display_tbl.lib.php:302
 #, php-format
