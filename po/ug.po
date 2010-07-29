@@ -2109,7 +2109,7 @@ msgstr "رەڭنى كۆرسىتىش"
 
 #: libraries/display_pdf_schema.lib.php:38
 msgid "Show dimension of tables"
-msgstr ""
+msgstr "جەدېۋەلنىڭ چوڭ-كىچىكلىكىنى كۆرسىتىش"
 
 #: libraries/display_pdf_schema.lib.php:41
 msgid "Display all tables with the same width"
