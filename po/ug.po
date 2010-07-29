@@ -2007,7 +2007,7 @@ msgstr "پىرىسلاش"
 #: libraries/export/sql.php:865 libraries/tbl_properties.inc.php:573
 #: server_privileges.php:1871 server_processlist.php:74
 msgid "None"
-msgstr ""
+msgstr "يوق"
 
 #: libraries/display_export.lib.php:241
 msgid "\"zipped\""
