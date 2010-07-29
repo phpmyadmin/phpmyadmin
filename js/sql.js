@@ -321,8 +321,15 @@ $(document).ready(function() {
 
                             $.each(data.transformations, function(key, value) {
                                 if(key == field_name) {
-                                    var new_value = $(this_field).find('textarea').val();
-                                    new_html = $(value).append(new_value);
+                                    if($(this_field).hasClass('text_plain')) {
+                                        new_html = value;
+                                        return false;
+                                    }
+                                    else {
+                                        var new_value = $(this_field).find('textarea').val();
+                                        new_html = $(value).append(new_value);
+                                        return false;
+                                    }
                                 }
                             })
                         }
@@ -338,6 +345,7 @@ $(document).ready(function() {
                                     alert(value);
                                     var new_value = $(this_field).find('select').val();
                                     new_html = $(value).append(new_value);
+                                    return false;
                                 }
                             })
                         }
