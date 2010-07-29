@@ -2893,6 +2893,24 @@ function PMA_expandUserString($string, $escape = NULL, $updates = array()) {
         }
     }
 
+    /* Fetch fields list if required */
+    if (strpos($string, '@FIELDS@') !== FALSE) {
+        $fields_list = PMA_DBI_fetch_result(
+            'SHOW COLUMNS FROM ' . PMA_backquote($GLOBALS['db'])
+            . '.' . PMA_backquote($GLOBALS['table']));
+
+        $field_names = array();
+        foreach ($fields_list as $field) {
+            if (!is_null($escape)) {
+                $field_names[] = $escape($field['Field']);
+            } else {
+                $field_names[] = $field['Field'];
+            }
+        }
+
+        $replace['@FIELDS@'] = implode(',', $field_names);
+    }
+
     /* Do the replacement */
     return str_replace(array_keys($replace), array_values($replace), strftime($string));
 }

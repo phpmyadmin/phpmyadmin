@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-26 17:18+0200\n"
+"POT-Creation-Date: 2010-07-28 05:45-0400\n"
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -39,16 +39,16 @@ msgstr ""
 #: browse_foreigners.php:148 db_structure.php:77 db_structure.php:78
 #: db_structure.php:89 db_structure.php:91 db_structure.php:102
 #: db_structure.php:104 libraries/common.lib.php:2834
-#: libraries/common.lib.php:2841 libraries/db_links.inc.php:73
+#: libraries/common.lib.php:2841 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "検索"
 
 #: browse_foreigners.php:151 db_operations.php:320 db_operations.php:364
-#: db_operations.php:434 db_operations.php:458 db_search.php:344
+#: db_operations.php:468 db_operations.php:492 db_search.php:344
 #: db_structure.php:552 js/messages.php:48 libraries/Config.class.php:1043
 #: libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:278 libraries/common.lib.php:712
+#: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:712
 #: libraries/common.lib.php:1344 libraries/common.lib.php:2294
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
@@ -56,8 +56,8 @@ msgstr "検索"
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:530
 #: libraries/display_tbl.lib.php:612 libraries/replication_gui.lib.php:75
 #: libraries/replication_gui.lib.php:371 libraries/select_server.lib.php:101
-#: libraries/sql_query_form.lib.php:390 libraries/sql_query_form.lib.php:460
-#: libraries/sql_query_form.lib.php:525 libraries/tbl_properties.inc.php:780
+#: libraries/sql_query_form.lib.php:377 libraries/sql_query_form.lib.php:447
+#: libraries/sql_query_form.lib.php:512 libraries/tbl_properties.inc.php:780
 #: main.php:127 navigation.php:230 pdf_pages.php:290 pdf_pages.php:326
 #: pdf_pages.php:528 pmd_pdf.php:113 server_binlog.php:128
 #: server_privileges.php:663 server_privileges.php:1620
@@ -67,7 +67,7 @@ msgstr "検索"
 #: server_synchronize.php:1207 tbl_change.php:323 tbl_change.php:1070
 #: tbl_change.php:1107 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:496 tbl_operations.php:558
-#: tbl_operations.php:678 tbl_select.php:323 tbl_structure.php:559
+#: tbl_operations.php:726 tbl_select.php:323 tbl_structure.php:559
 #: tbl_structure.php:594 tbl_tracking.php:389 tbl_tracking.php:506
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -250,47 +250,64 @@ msgstr "コマンド"
 msgid "and then"
 msgstr "続いて"
 
-#: db_operations.php:390
+#: db_operations.php:379
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Remove database"
+msgstr "新しいデータベース名"
+
+#: db_operations.php:391
+#, php-format
+msgid "Database %s has been dropped."
+msgstr "データベース %s を削除しました"
+
+#: db_operations.php:396
+#, fuzzy
+#| msgid "Copy database to"
+msgid "Drop the database (DROP)"
+msgstr "データベースのコピー先"
+
+#: db_operations.php:424
 msgid "Copy database to"
 msgstr "データベースのコピー先"
 
-#: db_operations.php:397 tbl_operations.php:525 tbl_tracking.php:382
+#: db_operations.php:431 tbl_operations.php:525 tbl_tracking.php:382
 msgid "Structure only"
 msgstr "構造のみ"
 
-#: db_operations.php:398 tbl_operations.php:526 tbl_tracking.php:384
+#: db_operations.php:432 tbl_operations.php:526 tbl_tracking.php:384
 msgid "Structure and data"
 msgstr "構造とデータ"
 
-#: db_operations.php:399 tbl_operations.php:527 tbl_tracking.php:383
+#: db_operations.php:433 tbl_operations.php:527 tbl_tracking.php:383
 msgid "Data only"
 msgstr "データのみ"
 
-#: db_operations.php:407
+#: db_operations.php:441
 msgid "CREATE DATABASE before copying"
 msgstr "コピーの前に CREATE DATABASE する"
 
-#: db_operations.php:410 libraries/export/sql.php:51
+#: db_operations.php:444 libraries/export/sql.php:51
 #: libraries/export/sql.php:73 libraries/export/sql.php:75
 #: libraries/export/sql.php:81 tbl_operations.php:533
 #, php-format
 msgid "Add %s"
 msgstr "%s を追加"
 
-#: db_operations.php:414 libraries/export/sql.php:77 tbl_operations.php:296
+#: db_operations.php:448 libraries/export/sql.php:77 tbl_operations.php:296
 #: tbl_operations.php:535
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT 値を追加する"
 
-#: db_operations.php:418 tbl_operations.php:542
+#: db_operations.php:452 tbl_operations.php:542
 msgid "Add constraints"
 msgstr "制約を追加する"
 
-#: db_operations.php:431
+#: db_operations.php:465
 msgid "Switch to copied database"
 msgstr "コピーしたデータベースに切り替える"
 
-#: db_operations.php:451 libraries/Index.class.php:447
+#: db_operations.php:485 libraries/Index.class.php:447
 #: libraries/db_structure.lib.php:53 libraries/mysql_charsets.lib.php:106
 #: libraries/tbl_properties.inc.php:106 libraries/tbl_properties.inc.php:728
 #: server_collations.php:53 server_collations.php:65 server_databases.php:108
@@ -299,7 +316,7 @@ msgstr "コピーしたデータベースに切り替える"
 msgid "Collation"
 msgstr "照合順序"
 
-#: db_operations.php:464 pdf_schema.php:32
+#: db_operations.php:498 pdf_schema.php:32
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -311,7 +328,7 @@ msgstr ""
 "リンクテーブルを処理するための追加機能が無効になっています。理由については%s"
 "こちら%sをご覧ください"
 
-#: db_operations.php:497
+#: db_operations.php:531
 msgid "Edit PDF Pages"
 msgstr "PDF ページを編集する"
 
@@ -366,7 +383,7 @@ msgid_plural "%s tables"
 msgstr[0] "%s テーブル"
 
 #: db_qbe.php:25 import.php:452 libraries/Message.class.php:190
-#: libraries/display_tbl.lib.php:1939 libraries/sql_query_form.lib.php:138
+#: libraries/display_tbl.lib.php:1939 libraries/sql_query_form.lib.php:136
 #: tbl_operations.php:210 tbl_relation.php:289 tbl_row_action.php:129
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -458,7 +475,7 @@ msgstr "クエリを実行する"
 
 #: db_search.php:50 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:640 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:182
 msgid "Access denied"
 msgstr "アクセスは拒否されました"
@@ -500,7 +517,7 @@ msgid "Browse"
 msgstr "表示"
 
 #: db_search.php:254 libraries/display_tbl.lib.php:1163
-#: libraries/display_tbl.lib.php:2014 libraries/sql_query_form.lib.php:453
+#: libraries/display_tbl.lib.php:2014 libraries/sql_query_form.lib.php:440
 #: pdf_pages.php:284 pdf_pages.php:423 pdf_pages.php:459 pdf_pages.php:487
 #: pmd_general.php:376 setup/frames/index.inc.php:125
 #: setup/frames/index.inc.php:216 tbl_row_action.php:62
@@ -542,14 +559,14 @@ msgstr "検索するフィールド:"
 
 #: db_structure.php:79 db_structure.php:80 db_structure.php:92
 #: db_structure.php:93 db_structure.php:105 db_structure.php:106
-#: libraries/common.lib.php:2835 libraries/sql_query_form.lib.php:324
-#: libraries/sql_query_form.lib.php:327 libraries/tbl_links.inc.php:74
+#: libraries/common.lib.php:2835 libraries/sql_query_form.lib.php:311
+#: libraries/sql_query_form.lib.php:314 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "挿入"
 
 #: db_structure.php:81 db_structure.php:94 db_structure.php:107
 #: libraries/common.lib.php:2832 libraries/common.lib.php:2839
-#: libraries/db_links.inc.php:61 libraries/export/htmlword.php:22
+#: libraries/db_links.inc.php:48 libraries/export/htmlword.php:22
 #: libraries/export/latex.php:37 libraries/export/latex.php:341
 #: libraries/export/odt.php:31 libraries/export/sql.php:59
 #: libraries/export/texytext.php:23 libraries/import.lib.php:1136
@@ -562,8 +579,7 @@ msgstr "構造"
 #: db_structure.php:96 db_structure.php:108 db_structure.php:109
 #: db_structure.php:530 db_structure.php:531 db_tracking.php:86
 #: libraries/Index.class.php:482 libraries/common.lib.php:1663
-#: libraries/db_links.inc.php:98 libraries/mult_submits.inc.php:35
-#: libraries/mult_submits.inc.php:72 libraries/tbl_links.inc.php:125
+#: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
 #: server_databases.php:349 tbl_structure.php:25 tbl_structure.php:149
 #: tbl_structure.php:150 tbl_structure.php:468
 msgid "Drop"
@@ -572,21 +588,21 @@ msgstr "削除"
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
 #: db_structure.php:528 db_structure.php:529 libraries/common.lib.php:1662
-#: libraries/mult_submits.inc.php:38 libraries/tbl_links.inc.php:103
+#: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "空にする"
 
-#: db_structure.php:301 libraries/tbl_links.inc.php:98
+#: db_structure.php:301 tbl_operations.php:653
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "テーブル %s を空にしました"
 
-#: db_structure.php:311 libraries/tbl_links.inc.php:131
+#: db_structure.php:311 tbl_operations.php:670
 #, php-format
 msgid "View %s has been dropped"
 msgstr "ビュー %s を破棄しました"
 
-#: db_structure.php:311 libraries/tbl_links.inc.php:131
+#: db_structure.php:311 tbl_operations.php:670
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "テーブル %s を削除しました"
@@ -602,8 +618,8 @@ msgstr ""
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:125
@@ -676,7 +692,7 @@ msgstr "テーブルを修復する"
 msgid "Analyze table"
 msgstr "テーブルを分析する"
 
-#: db_structure.php:542 db_structure.php:543 libraries/db_links.inc.php:69
+#: db_structure.php:542 db_structure.php:543 libraries/db_links.inc.php:56
 #: libraries/display_export.lib.php:76 libraries/display_tbl.lib.php:2052
 #: libraries/display_tbl.lib.php:2183 libraries/mult_submits.inc.php:61
 #: libraries/server_links.inc.php:83 libraries/tbl_links.inc.php:80
@@ -799,8 +815,8 @@ msgstr "ダンプをファイル %s に保存しました"
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください"
@@ -1404,7 +1420,7 @@ msgid "Databases"
 msgstr "データベース"
 
 #: libraries/Message.class.php:210 libraries/common.lib.php:574
-#: libraries/core.lib.php:236 libraries/import.lib.php:134 pdf_schema.php:30
+#: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
 msgid "Error"
@@ -1507,7 +1523,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "接続できません: 設定が無効です"
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:205 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:206 libraries/auth/http.auth.lib.php:64
 #: test/theme.php:151
 #, php-format
 msgid "Welcome to %s"
@@ -1516,11 +1532,11 @@ msgstr "%s へようこそ"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
-"ト%2$s を利用して設定ファイルを作成してください"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
+"$s を利用して設定ファイルを作成してください"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -1533,56 +1549,56 @@ msgstr ""
 "ユーザ名、パスワードが MySQL サーバの管理者から与えられた情報と一致するか確認"
 "してください"
 
-#: libraries/auth/cookie.auth.lib.php:230
+#: libraries/auth/cookie.auth.lib.php:231
 msgid "Log in"
 msgstr "ログイン"
 
-#: libraries/auth/cookie.auth.lib.php:232
-#: libraries/auth/cookie.auth.lib.php:234
+#: libraries/auth/cookie.auth.lib.php:233
+#: libraries/auth/cookie.auth.lib.php:235
 #: libraries/navigation_header.inc.php:92
 #: libraries/navigation_header.inc.php:94
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin のドキュメント"
 
-#: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:245
+#: libraries/auth/cookie.auth.lib.php:246
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:245
 msgid "Server:"
 msgstr "サーバ"
 
-#: libraries/auth/cookie.auth.lib.php:249
+#: libraries/auth/cookie.auth.lib.php:250
 msgid "Username:"
 msgstr "ユーザ名:"
 
-#: libraries/auth/cookie.auth.lib.php:253
+#: libraries/auth/cookie.auth.lib.php:254
 msgid "Password:"
 msgstr "パスワード:"
 
-#: libraries/auth/cookie.auth.lib.php:260
+#: libraries/auth/cookie.auth.lib.php:261
 msgid "Server Choice"
 msgstr "サーバの選択"
 
-#: libraries/auth/cookie.auth.lib.php:306 libraries/header.inc.php:58
+#: libraries/auth/cookie.auth.lib.php:307 libraries/header.inc.php:58
 msgid "Cookies must be enabled past this point."
 msgstr "クッキーを有効にしてください"
 
-#: libraries/auth/cookie.auth.lib.php:638
+#: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:642
+#: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:184
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s 秒以上操作をしませんでした。ログインしなおしてください"
 
-#: libraries/auth/cookie.auth.lib.php:652
-#: libraries/auth/cookie.auth.lib.php:654
+#: libraries/auth/cookie.auth.lib.php:653
+#: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:190
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL サーバにログインできません"
@@ -1702,7 +1718,7 @@ msgstr "en"
 #: libraries/common.lib.php:447 libraries/dbg/setup.php:24
 #: libraries/display_export.lib.php:157 libraries/engines/pbms.lib.php:72
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:79
-#: libraries/sql_query_form.lib.php:434 libraries/sql_query_form.lib.php:437
+#: libraries/sql_query_form.lib.php:421 libraries/sql_query_form.lib.php:424
 #: main.php:228 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "ドキュメント"
@@ -1845,19 +1861,19 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
 #: libraries/common.lib.php:2833 libraries/common.lib.php:2840
-#: libraries/db_links.inc.php:66 libraries/export/sql.php:24
+#: libraries/db_links.inc.php:53 libraries/export/sql.php:24
 #: libraries/import/sql.php:17 libraries/server_links.inc.php:44
 #: libraries/tbl_links.inc.php:58 querywindow.php:88 test/theme.php:96
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2842 libraries/db_links.inc.php:102
-#: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:115
+#: libraries/common.lib.php:2842 libraries/db_links.inc.php:86
+#: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:102
 #: view_operations.php:87
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/core.lib.php:259 libraries/dbg/setup.php:21
+#: libraries/core.lib.php:265 libraries/dbg/setup.php:21
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -1873,36 +1889,31 @@ msgstr "イベント"
 msgid "Name"
 msgstr "名前"
 
-#: libraries/db_links.inc.php:43
-#, php-format
-msgid "Database %s has been dropped."
-msgstr "データベース %s を削除しました"
-
-#: libraries/db_links.inc.php:55 libraries/db_links.inc.php:56
-#: libraries/db_links.inc.php:57
+#: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
+#: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
 msgstr "データベースが空のようです!"
 
-#: libraries/db_links.inc.php:79 libraries/relation.lib.php:137
+#: libraries/db_links.inc.php:66 libraries/relation.lib.php:137
 #: libraries/tbl_links.inc.php:67
 msgid "Tracking"
 msgstr ""
 
-#: libraries/db_links.inc.php:84
+#: libraries/db_links.inc.php:71
 msgid "Query"
 msgstr "クエリ"
 
-#: libraries/db_links.inc.php:89 libraries/relation.lib.php:133
+#: libraries/db_links.inc.php:76 libraries/relation.lib.php:133
 msgid "Designer"
 msgstr "デザイナ"
 
-#: libraries/db_links.inc.php:96 libraries/server_links.inc.php:87
+#: libraries/db_links.inc.php:83 libraries/server_links.inc.php:87
 #: libraries/tbl_links.inc.php:89 pmd_pdf.php:81 pmd_pdf.php:107
 #: setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "インポート"
 
-#: libraries/db_links.inc.php:109 libraries/server_links.inc.php:65
+#: libraries/db_links.inc.php:93 libraries/server_links.inc.php:65
 #: server_privileges.php:110 server_privileges.php:1718
 #: server_privileges.php:2067 test/theme.php:116
 msgid "Privileges"
@@ -2060,8 +2071,8 @@ msgstr "テーブル名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 msgstr ""
 "このテンプレートは %1$sstrftime%2$s を使って解釈されます。そのため、時間の書"
 "式文字列を利用できます。また、次の変換も行われます。%3$s それ以外のテキストは"
@@ -2072,7 +2083,7 @@ msgid "remember template"
 msgstr "テンプレートを記憶させる"
 
 #: libraries/display_export.lib.php:204 libraries/display_import.lib.php:177
-#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:522
+#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "ファイルの文字セット:"
 
@@ -2125,7 +2136,7 @@ msgstr ""
 msgid "File to import"
 msgstr "インポートするファイル"
 
-#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:497
+#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:484
 msgid "Location of the text file"
 msgstr "テキストファイルの位置"
 
@@ -2133,12 +2144,12 @@ msgstr "テキストファイルの位置"
 msgid "File uploads are not allowed on this server."
 msgstr "このサーバではファイルのアップロードはできません"
 
-#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:506
+#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
 msgid "The directory you set for upload work cannot be reached"
 msgstr "指定したアップロードディレクトリが利用できません"
 
-#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:509
+#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:925
 msgid "web server upload directory"
 msgstr "ウェブサーバ上のアップロードディレクトリ"
@@ -3542,7 +3553,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr "column_comments テーブルの更新方法についてはドキュメントをご覧ください"
 
-#: libraries/relation.lib.php:125 libraries/sql_query_form.lib.php:416
+#: libraries/relation.lib.php:125 libraries/sql_query_form.lib.php:403
 msgid "Bookmarked SQL query"
 msgstr "ブックマークされている SQL"
 
@@ -3607,7 +3618,7 @@ msgstr ""
 msgid "Slave status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:428
+#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:415
 #: server_status.php:736 server_variables.php:51
 msgid "Variable"
 msgstr "変数"
@@ -3734,51 +3745,51 @@ msgstr ""
 msgid "Target database"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:219
+#: libraries/sql_query_form.lib.php:217
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "サーバ %s 上でクエリを実行する"
 
-#: libraries/sql_query_form.lib.php:236 libraries/sql_query_form.lib.php:261
+#: libraries/sql_query_form.lib.php:234 libraries/sql_query_form.lib.php:258
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "データベース %s 上でクエリを実行する"
 
-#: libraries/sql_query_form.lib.php:307
+#: libraries/sql_query_form.lib.php:294
 #, fuzzy
 #| msgid "Column names"
 msgid "Columns"
 msgstr "カラム名"
 
-#: libraries/sql_query_form.lib.php:342 sql.php:657 sql.php:658 sql.php:675
+#: libraries/sql_query_form.lib.php:329 sql.php:657 sql.php:658 sql.php:675
 msgid "Bookmark this SQL query"
 msgstr "この SQL をブックマークする"
 
-#: libraries/sql_query_form.lib.php:349 sql.php:669
+#: libraries/sql_query_form.lib.php:336 sql.php:669
 msgid "Let every user access this bookmark"
 msgstr "すべてのユーザがこのブックマークを利用できるようにする"
 
-#: libraries/sql_query_form.lib.php:355
+#: libraries/sql_query_form.lib.php:342
 msgid "Replace existing bookmark of same name"
 msgstr "同名のブックマークは差し替える"
 
-#: libraries/sql_query_form.lib.php:371
+#: libraries/sql_query_form.lib.php:358
 msgid "Do not overwrite this query from outside the window"
 msgstr "他のウィンドウからクエリを上書きすることはできません"
 
-#: libraries/sql_query_form.lib.php:378
+#: libraries/sql_query_form.lib.php:365
 msgid "Delimiter"
 msgstr "デリミタ"
 
-#: libraries/sql_query_form.lib.php:386
+#: libraries/sql_query_form.lib.php:373
 msgid " Show this query here again "
 msgstr " 実行したクエリをここに表示する"
 
-#: libraries/sql_query_form.lib.php:445
+#: libraries/sql_query_form.lib.php:432
 msgid "Submit"
 msgstr "実行する"
 
-#: libraries/sql_query_form.lib.php:449
+#: libraries/sql_query_form.lib.php:436
 msgid "View only"
 msgstr "表示のみ"
 
@@ -3849,12 +3860,11 @@ msgstr ""
 "SQL の検証機能を初期化できません。%sドキュメント%s の記載通りに必要な PHP 拡"
 "張がインストールされているか確認してください"
 
-#: libraries/tbl_links.inc.php:105 libraries/tbl_links.inc.php:138
-#: libraries/tbl_links.inc.php:139
+#: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
 msgstr "テーブルが空のようです!"
 
-#: libraries/tbl_links.inc.php:147
+#: libraries/tbl_links.inc.php:115
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr ""
@@ -4958,8 +4968,8 @@ msgstr "ユーザと同名のデータベースを削除する"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -7950,40 +7960,56 @@ msgstr "テーブル %s をフラッシュしました"
 msgid "Flush the table (FLUSH)"
 msgstr "テーブルをフラッシュする(\"FLUSH\")"
 
-#: tbl_operations.php:648
+#: tbl_operations.php:642
+#, fuzzy
+#| msgid "Dumping data for table"
+msgid "Delete data or table"
+msgstr "テーブルのデータをダンプしています"
+
+#: tbl_operations.php:657
+msgid "Empty the table (TRUNCATE)"
+msgstr ""
+
+#: tbl_operations.php:675
+#, fuzzy
+#| msgid "Copy database to"
+msgid "Delete the table (DROP)"
+msgstr "データベースのコピー先"
+
+#: tbl_operations.php:696
 msgid "Partition maintenance"
 msgstr "パーティション管理"
 
-#: tbl_operations.php:656
+#: tbl_operations.php:704
 #, php-format
 msgid "Partition %s"
 msgstr "パーティション %s"
 
-#: tbl_operations.php:659
+#: tbl_operations.php:707
 msgid "Analyze"
 msgstr "分析"
 
-#: tbl_operations.php:660
+#: tbl_operations.php:708
 msgid "Check"
 msgstr "確認"
 
-#: tbl_operations.php:661
+#: tbl_operations.php:709
 msgid "Optimize"
 msgstr "最適化"
 
-#: tbl_operations.php:662
+#: tbl_operations.php:710
 msgid "Rebuild"
 msgstr "再構築"
 
-#: tbl_operations.php:663
+#: tbl_operations.php:711
 msgid "Repair"
 msgstr "修復"
 
-#: tbl_operations.php:675
+#: tbl_operations.php:723
 msgid "Remove partitioning"
 msgstr "パーティションを削除"
 
-#: tbl_operations.php:701
+#: tbl_operations.php:749
 msgid "Check referential integrity:"
 msgstr "参照整合性の確認:"
 
@@ -8327,6 +8353,11 @@ msgstr "VIEW の名前"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Table removal"
+#~ msgstr "テーブル名"
 
 #, fuzzy
 #~| msgid "Enabled"
