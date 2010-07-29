@@ -2365,12 +2365,17 @@ function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed
         $enum_class = ' enum';
     }
 
+    $mime_type_class = '';
+    if(isset($meta->mimetype)) {
+        $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
+    }
+
     // continue the <td> tag started before calling this function:
     $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap 
     . ' ' . $data_inline_edit_class . ($is_field_truncated ? ' truncated' : '')
     . ($transform_function != $default_function ? ' transformed' : '')
     . (isset($map[$meta->name]) ? ' relation' : '')
-    . $enum_class . '">';
+    . $enum_class . $mime_type_class . '">';
 
     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
         foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
