@@ -120,7 +120,7 @@
    function AddPoint($Value,$Serie="Serie1",$Description="")
     {
      if (is_array($Value) && count($Value) == 1)
-      $Value = $Value[0];
+      $Value = array_pop($Value);
 
      $ID = 0;
      for($i=0;$i<=count($this->Data);$i++)
