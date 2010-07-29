@@ -192,7 +192,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
             $returnData .= '</div>';
             $returnData .= '
                 <script type="text/javascript">
-                imageMap.loadImageMap(\''.json_encode($this->getImageMap()).'\');
+                imageMap.loadImageMap(\''.$this->getImageMap().'\');
                 </script>
             ';
 
@@ -241,7 +241,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
     protected function getImageMap()
     {
-        return $this->chart->ImageMap;
+        return $this->chart->getImageMap();
     }
 }
 

@@ -88,7 +88,8 @@
       drawPieGraph($Data,$DataDescription,$XPos,$YPos,$Radius=100,$DrawLabels=PIE_NOLABEL,$EnhanceColors=TRUE,$Skew=60,$SpliceHeight=20,$SpliceDistance=0,$Decimals=0)
      Other methods :
       setImageMap($Mode=TRUE,$GraphID="MyGraph")
-      getImageMap($MapName,$Flush=TRUE)
+      getImageMap()
+      getSavedImageMap($MapName,$Flush=TRUE)
       Render($FileName)
       Stroke()
  */
@@ -3491,8 +3492,14 @@
 
     }
 
+   /* Get the current image map */
+   function getImageMap()
+   {
+    return json_encode($this->ImageMap);
+   }
+
    /* Load and cleanup the image map from disk */
-   function getImageMap($MapName,$Flush=TRUE)
+   function getSavedImageMap($MapName,$Flush=TRUE)
     {
      /* Strip HTML query strings */
      $Values   = $this->tmpFolder.$MapName;
@@ -3537,8 +3544,7 @@
       }
      else
       {
-       foreach($this->ImageMap as $Key => $Value)
-        fwrite($Handle, htmlentities($Value)."\r");
+       fwrite($Handle, $this->getImageMap());
       }
      fclose ($Handle);
     }
