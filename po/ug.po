@@ -2121,7 +2121,7 @@ msgstr "پەقەت كونوپكىنى كورسىتىش"
 
 #: libraries/display_pdf_schema.lib.php:48
 msgid "Data Dictionary Format"
-msgstr ""
+msgstr "سانلىق مەلۇمات لوغەت شەكلى"
 
 #: libraries/display_pdf_schema.lib.php:50
 msgid "Landscape"
