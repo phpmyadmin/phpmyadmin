@@ -2548,10 +2548,9 @@ msgstr ""
 "after this time, unless they are referenced by a record in the database."
 
 #: libraries/engines/pbms.lib.php:51
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Log file threshold"
+msgstr "Temp Log Threshold"
 
 #: libraries/engines/pbms.lib.php:52
 msgid ""
