@@ -457,7 +457,10 @@ class ConfigFile
                 foreach ($server as $k => $v) {
                     $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
                     $ret .= "\$cfg['Servers'][\$i]['$k'] = "
-                        . var_export($v, true) . ';' . $crlf;
+                        . (is_array($v) && $this->_isZeroBasedArray($v)
+                                ? $this->_exportZeroBasedArray($v, $crlf)
+                                : var_export($v, true))
+                        . ';' . $crlf;
                 }
                 $ret .= $crlf;
             }
@@ -499,39 +502,10 @@ class ConfigFile
         if (!is_array($var_value) || empty($var_value)) {
             return "\$cfg['$var_name'] = " . var_export($var_value, true) . ';' . $crlf;
         }
-        $numeric_keys = true;
-        foreach (array_keys($var_value) as $k) {
-            if (!is_numeric($k)) {
-                $numeric_keys = false;
-                break;
-            }
-        }
-        if ($numeric_keys) {
-            for ($i = 0; $i < count($var_value); $i++) {
-                if (!isset($var_value[$i])) {
-                    $numeric_keys = false;
-                    break;
-                }
-            }
-        }
         $ret = '';
-        if ($numeric_keys) {
-            $retv = array();
-            foreach ($var_value as $v) {
-                $retv[] = var_export($v, true);
-            }
-            $ret = "\$cfg['$var_name'] = array(";
-            if (count($retv) <= 4) {
-                // up to 4 values - one line
-                $ret .= implode(', ', $retv);
-            } else {
-                // more than 4 values - value per line
-                $imax = count($retv)-1;
-                for ($i = 0; $i <= $imax; $i++) {
-                    $ret .= ($i < $imax ? ($i > 0 ? ',' : '') : '') . $crlf . '    ' . $retv[$i];
-                }
-            }
-            $ret .= ');' . $crlf;
+        if ($this->_isZeroBasedArray($var_value)) {
+            $ret = "\$cfg['$var_name'] = " . $this->_exportZeroBasedArray($var_value, $crlf)
+                . ');' . $crlf;
         } else {
             // string keys: $cfg[key][subkey] = value
             foreach ($var_value as $k => $v) {
@@ -539,6 +513,50 @@ class ConfigFile
                 $ret .= "\$cfg['$var_name']['$k'] = " . var_export($v, true) . ';' . $crlf;
             }
         }
+        return $ret;
+    }
+
+    /**
+     * Check whether $array is a continuous 0-based array
+     *
+     * @param array $array
+     * @return boolean
+     */
+    private function _isZeroBasedArray(array $array)
+    {
+        for ($i = 0; $i < count($array); $i++) {
+            if (!isset($array[$i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Exports continuous 0-based array
+     *
+     * @param array $array
+     * @param string $crlf
+     * @return string
+     */
+    private function _exportZeroBasedArray(array $array, $crlf)
+    {
+        $retv = array();
+        foreach ($array as $v) {
+            $retv[] = var_export($v, true);
+        }
+        $ret = "array(";
+        if (count($retv) <= 4) {
+            // up to 4 values - one line
+            $ret .= implode(', ', $retv);
+        } else {
+            // more than 4 values - value per line
+            $imax = count($retv)-1;
+            for ($i = 0; $i <= $imax; $i++) {
+                $ret .= ($i < $imax ? ($i > 0 ? ',' : '') : '') . $crlf . '    ' . $retv[$i];
+            }
+        }
+        $ret .= ')';
         return $ret;
     }
 }
