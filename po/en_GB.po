@@ -2523,7 +2523,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:41
 msgid "Repository Threshold"
-msgstr ""
+msgstr "Repository Threshold"
 
 #: libraries/engines/pbms.lib.php:42
 msgid ""
