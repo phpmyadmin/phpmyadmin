@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-30 06:49+0200\n"
+"PO-Revision-Date: 2010-07-30 06:50+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -2660,7 +2660,7 @@ msgstr ""
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:70 libraries/import/ldi.php:40
 msgid "Columns enclosed by"
-msgstr "مەزمۇن ئايرىش بەلگۈسى"
+msgstr "مەزمۇن ئايرىش بەلگىسى"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:74 libraries/import/ldi.php:41
