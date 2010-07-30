@@ -2497,10 +2497,9 @@ msgstr ""
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
-msgstr "Garbage threshold"
+msgstr "Garbage Threshold"
 
 #: libraries/engines/pbms.lib.php:32
 #, fuzzy
