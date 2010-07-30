@@ -2800,7 +2800,7 @@ msgstr "MediaWikiكۈرۈنىشى"
 
 #: libraries/export/ods.php:17 libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "OpenOffice جەدىۋېلى"
 
 #: libraries/export/odt.php:21
 msgid "Open Document Text"
