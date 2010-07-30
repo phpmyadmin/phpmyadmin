@@ -39,7 +39,7 @@ foreach (array_keys($forms) as $formset) {
         'active' => ($script_name == 'prefs_forms.php' && $formset == $form_param));
     echo PMA_generate_html_tab($tab, array('form' => $formset)) . "\n";
 }
-echo '</ul>';
+echo '</ul><div class="clearfloat"></div>';
 
 // show "configuration saved" message and reload navigation frame if needed
 if (!empty($_GET['saved'])) {

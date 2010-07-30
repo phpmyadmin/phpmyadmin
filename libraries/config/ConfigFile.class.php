@@ -165,7 +165,7 @@ class ConfigFile
         // remove if the path isn't protected and it's empty or has a default value
         $default_value = $this->getDefault($canonical_path);
         if (!isset($this->persistKeys[$canonical_path])
-                && (($value == $default_value) || (empty($value) && empty($default_value)))) {
+                && (($value === $default_value) || (empty($value) && empty($default_value)))) {
             PMA_array_remove($path, $_SESSION[$this->id]);
         } else {
             PMA_array_write($path, $_SESSION[$this->id], $value);
