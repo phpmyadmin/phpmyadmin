@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-30 10:38+0200\n"
+"PO-Revision-Date: 2010-07-30 10:52+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -1959,7 +1959,7 @@ msgstr "ھۆججەتنى باشقا ساقلاش"
 #: libraries/display_export.lib.php:127
 #, php-format
 msgid "Save on server in %s directory"
-msgstr ""
+msgstr "مۇلازىمىتېرنىڭ  %s مۇندەرىجىسىدە ساقلاش"
 
 #: libraries/display_export.lib.php:135 setup/lib/messages.inc.php:87
 msgid "Overwrite existing file(s)"
