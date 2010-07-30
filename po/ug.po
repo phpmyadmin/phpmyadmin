@@ -2751,7 +2751,7 @@ msgstr "جەدېۋەلنىڭ تىمىسى"
 
 #: libraries/export/latex.php:41 libraries/export/latex.php:65
 msgid "Continued table caption"
-msgstr ""
+msgstr "داۋاملاشتۇرىدىغان جەدېۋەلنىڭ تىمىسى"
 
 #: libraries/export/latex.php:43 libraries/export/latex.php:67
 msgid "Label key"
