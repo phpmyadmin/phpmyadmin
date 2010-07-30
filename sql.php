@@ -64,7 +64,7 @@ if(isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values
 
     $dropdown = PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'], $foreignData['foreign_display'], $_REQUEST['curr_value'], $cfg['ForeignKeyMaxLimit']);
 
-    if( $dropdown == '<option value="">&nbsp;</option>') {
+    if( $dropdown == '<option value="">&nbsp;</option>'."\n" ) {
         //Handle the case when number of values is more than $cfg['ForeignKeyMaxLimit']
         $_url_params = array(
                 'db' => $db,
@@ -72,7 +72,9 @@ if(isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values
                 'field' => $column
         );
 
-        $dropdown = '<a href="browse_foreigners.php' . PMA_generate_common_url($_url_params) . '">Search Foreign Data</a>';
+        $dropdown = '<a href="browse_foreigners.php' . PMA_generate_common_url($_url_params) . '"'
+                    . ' target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false"'
+                    .'>Search Foreign Data</a>';
     }
     else {
         $dropdown = '<select>' . $dropdown . '</select>';
