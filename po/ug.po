@@ -2338,7 +2338,7 @@ msgstr "بەت سانى"
 
 #: libraries/engines/innodb.lib.php:180
 msgid "Free pages"
-msgstr ""
+msgstr "ئاق(قۇرۇق)بەت"
 
 #: libraries/engines/innodb.lib.php:186
 msgid "Dirty pages"
