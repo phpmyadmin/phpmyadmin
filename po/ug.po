@@ -2792,7 +2792,7 @@ msgstr "مۇلازىمىتىر نۇسخىسى"
 #: libraries/export/latex.php:136 libraries/export/sql.php:234
 #: libraries/export/xml.php:108
 msgid "PHP Version"
-msgstr ""
+msgstr "PHPنۇسخىسى"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
