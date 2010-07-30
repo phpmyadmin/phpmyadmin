@@ -8,16 +8,16 @@
 function getFieldName(this_field_obj, disp_mode) {
 
     if(disp_mode == 'vertical') {
-        var field_name = $(this_field_obj).siblings('th').text();
+        var field_name = $(this_field_obj).siblings('th').find('a').text();
     }
     else {
         var this_field_index = $(this_field_obj).index();
         if(window.parent.text_dir == 'ltr') {
             // 3 columns to account for the checkbox, edit and delete anchors
-            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+')').text();
+            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+') a').text();
         }
         else {
-            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ this_field_index+')').text();
+            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ this_field_index+') a').text();
         }
     }
 
