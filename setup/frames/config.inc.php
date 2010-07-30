@@ -16,6 +16,7 @@ if (!defined('PHPMYADMIN')) {
  */
 require_once './libraries/config/FormDisplay.class.php';
 require_once './setup/lib/index.lib.php';
+require_once './setup/lib/ConfigGenerator.class.php';
 
 $config_readable = false;
 $config_writable = false;
@@ -29,7 +30,7 @@ check_config_rw($config_readable, $config_writable, $config_exists);
 <tr>
     <td>
         <textarea cols="50" rows="20" name="textconfig" id="textconfig" spellcheck="false"><?php
-            echo htmlspecialchars(ConfigFile::getInstance()->getConfigFile())
+            echo htmlspecialchars(ConfigGenerator::getConfigFile())
         ?></textarea>
     </td>
 </tr>
