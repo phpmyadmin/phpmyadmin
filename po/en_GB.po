@@ -6634,7 +6634,6 @@ msgid "Signon login options"
 msgstr "Signon login options"
 
 #: setup/lib/messages.inc.php:128
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -6645,8 +6644,8 @@ msgid ""
 "in documentation"
 msgstr ""
 "Configure phpMyAdmin database to gain access to additional features, see "
-"[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
-"documentation"
+"[a@../Documentation.html#linked-tables]phpMyAdmin configuration storage[/a] "
+"in documentation"
 
 #: setup/lib/messages.inc.php:129 setup/lib/messages.inc.php:290
 msgid "PMA database"
