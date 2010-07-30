@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-30 11:39+0200\n"
+"PO-Revision-Date: 2010-07-30 11:41+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -2099,7 +2099,7 @@ msgstr "كىرگۈزگەن ھۆججەت شەكلى"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
-msgstr ""
+msgstr "PDF تىزىىسىنى كۆرسىتىش"
 
 #: libraries/display_pdf_schema.lib.php:33
 msgid "Show grid"
