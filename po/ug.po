@@ -2655,7 +2655,7 @@ msgstr "CSV"
 #: libraries/export/csv.php:20 libraries/import/csv.php:26
 #: libraries/import/csv.php:58 libraries/import/ldi.php:39
 msgid "Columns terminated by"
-msgstr ""
+msgstr "خەت ئايرىش بەلگىسى"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:70 libraries/import/ldi.php:40
