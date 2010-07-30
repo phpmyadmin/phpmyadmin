@@ -2531,6 +2531,9 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"The maximum size of a BLOB repository file. You may use Kb, MB or GB to "
+"indicate the unit of the value. A value in bytes is assumed when no unit is "
+"specified."
 
 #: libraries/engines/pbms.lib.php:46
 msgid "Temp Blob Timeout"
