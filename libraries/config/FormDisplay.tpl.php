@@ -36,7 +36,7 @@ function display_form_top($action = null, $method = 'post', $hidden_fields = nul
         echo '<input type="hidden" name="check_page_refresh" id="check_page_refresh"'
             . ' value="" />' . "\n";
     }
-    echo PMA_generate_common_hidden_inputs() . "\n";
+    echo PMA_generate_common_hidden_inputs('', '', 0, 'server') . "\n";
     echo PMA_getHiddenFields((array)$hidden_fields);
 }
 
