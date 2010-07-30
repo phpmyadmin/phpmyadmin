@@ -312,7 +312,7 @@ msgid "Collation"
 msgstr "Collation"
 
 #: db_operations.php:498 pdf_schema.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -320,8 +320,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
+"The phpMyAdmin configuration storage has been deactivated. To find out why "
+"click %shere%s."
 
 #: db_operations.php:531
 msgid "Edit PDF Pages"
