@@ -2358,7 +2358,7 @@ msgstr "يۈك بەت"
 
 #: libraries/engines/innodb.lib.php:213
 msgid "Latched pages"
-msgstr ""
+msgstr "قۇلۇپلانغان بەت"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Buffer Pool Activity"
