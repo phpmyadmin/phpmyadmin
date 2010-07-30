@@ -2808,7 +2808,7 @@ msgstr "OpenOffice ھۆججىتى"
 
 #: libraries/export/pdf.php:17
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: libraries/export/pdf.php:22
 msgid "(Generates a report containing the data of a single table)"
