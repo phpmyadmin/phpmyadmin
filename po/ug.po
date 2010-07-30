@@ -2760,7 +2760,7 @@ msgstr "ئاچقۇچلۇق ئېمزا"
 #: libraries/export/latex.php:46 libraries/export/odt.php:34
 #: libraries/export/sql.php:90 tbl_relation.php:396
 msgid "Relations"
-msgstr ""
+msgstr "مۇناسىۋىتى"
 
 #: libraries/export/latex.php:52 libraries/export/odt.php:40
 #: libraries/export/odt.php:317 libraries/export/sql.php:94
