@@ -2711,7 +2711,7 @@ msgstr "Microsoft Word 2000"
 #: server_privileges.php:575 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:662
 msgid "Data"
-msgstr ""
+msgstr "سانلىق مەلۇمات"
 
 #: libraries/export/htmlword.php:131 libraries/export/odt.php:167
 #: libraries/export/sql.php:878 libraries/export/texytext.php:130
