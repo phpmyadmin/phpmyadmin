@@ -121,14 +121,6 @@ if (!$GLOBALS['is_ajax_request']) {
                 } elseif (strlen($GLOBALS['table'])) {
                     require_once './libraries/tbl_info.inc.php';
 
-                    echo $separator;
-                    printf($item,
-                            $GLOBALS['cfg']['DefaultTabTable'],
-                            PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
-                            str_replace(' ', '&nbsp;', htmlspecialchars($GLOBALS['table'])),
-                            (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table')),
-                            (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png');
-
                 echo $separator;
                 printf($item,
                         $GLOBALS['cfg']['DefaultTabTable'],
