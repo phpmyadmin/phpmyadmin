@@ -2518,6 +2518,8 @@ msgid ""
 "The port for the PBMS stream-based communications. Setting this value to 0 "
 "will disable HTTP communication with the daemon."
 msgstr ""
+"The port for the PBMS stream-based communications. Setting this value to 0 "
+"will disable HTTP communication with the daemon."
 
 #: libraries/engines/pbms.lib.php:41
 msgid "Repository Threshold"
