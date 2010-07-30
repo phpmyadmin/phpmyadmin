@@ -2646,7 +2646,7 @@ msgstr ""
 #: libraries/export/codegen.php:36 setup/lib/messages.inc.php:85
 #: tbl_printview.php:373 tbl_structure.php:734
 msgid "Format"
-msgstr ""
+msgstr "فورماتلاش"
 
 #: libraries/export/csv.php:16 libraries/import/csv.php:21
 msgid "CSV"
