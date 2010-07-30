@@ -2743,7 +2743,7 @@ msgstr "LaTeX"
 
 #: libraries/export/latex.php:30
 msgid "Include table caption"
-msgstr ""
+msgstr "ئۆزئىچىگە ئالغان جەدېۋەلنىڭ تىمىسى"
 
 #: libraries/export/latex.php:39 libraries/export/latex.php:63
 msgid "Table caption"
