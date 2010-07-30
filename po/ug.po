@@ -2820,7 +2820,7 @@ msgstr "دوكلات تېمىسى"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
-msgstr ""
+msgstr "PHP سانلىق گۇرۇپىسى"
 
 #: libraries/export/sql.php:28
 msgid "Add custom comment into header (\\n splits lines)"
