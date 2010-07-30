@@ -2670,7 +2670,7 @@ msgstr "مەزمۇنئايلاندۇرۇش بەلگىسى"
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:78 libraries/import/ldi.php:42
 msgid "Lines terminated by"
-msgstr ""
+msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
 #: libraries/export/csv.php:24 libraries/export/excel.php:21
 #: libraries/export/htmlword.php:24 libraries/export/latex.php:69
