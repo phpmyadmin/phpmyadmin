@@ -2804,7 +2804,7 @@ msgstr "OpenOffice جەدىۋېلى"
 
 #: libraries/export/odt.php:21
 msgid "Open Document Text"
-msgstr ""
+msgstr "OpenOffice ھۆججىتى"
 
 #: libraries/export/pdf.php:17
 msgid "PDF"
