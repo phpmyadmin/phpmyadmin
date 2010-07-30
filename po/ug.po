@@ -2678,7 +2678,7 @@ msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 #: libraries/export/texytext.php:31 libraries/export/xls.php:22
 #: libraries/export/xlsx.php:22
 msgid "Replace NULL by"
-msgstr ""
+msgstr "نى ئالماشتۇرۇش ئۈچۈنNULL "
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 msgid "Remove CRLF characters within columns"
