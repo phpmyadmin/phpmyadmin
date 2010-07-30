@@ -1859,26 +1859,43 @@ $(document).ready(function() {
          // Display the "more" text
          $("table[id='tablestructure'] td[class='more_opts']").show()
 
-         // Move the dropdown to the left so the right edge is aligned with the parent cell's right edge
-         // All the more_opts table cells have the same left offset so choose any
-         var parent_cell = $("table[id='tablestructure'] td[class='more_opts']");
-         var cell_right_edge_offset = parent_cell.offset().left + parent_cell.innerWidth();
-         // All the structure_actions_dropdown divs have the same left offset so choose any
-         var left_offset = cell_right_edge_offset - $(".structure_actions_dropdown").innerWidth();
-
+         // Position the dropdown
          $.each($(".structure_actions_dropdown"), function() {
               // The top offset must be set for IE even if it didn't change
+             var cell_right_edge_offset = $(this).parent().offset().left + $(this).parent().innerWidth();
+             var left_offset = cell_right_edge_offset - $(this).innerWidth();
              var top_offset = $(this).parent().offset().top + $(this).parent().innerHeight();
              $(this).offset({ top: top_offset, left: left_offset });
          });
 
+         // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
+         // positioning an iframe directly on top of it
+         $("iframe[class='IE_hack']").width($("select[name='after_field']").width());
+         $("iframe[class='IE_hack']").height($("select[name='after_field']").height());
+         $("iframe[class='IE_hack']").offset({ top: $("select[name='after_field']").offset().top, left: $("select[name='after_field']").offset().left });
+
          // When "more" is hovered over, show the hidden actions
          $("table[id='tablestructure'] td[class='more_opts']").hover(
              function() {
-                 $(this).children(".structure_actions_dropdown").show();
+                if($.browser.msie && $.browser.version == "6.0") {
+                    $("iframe[class='IE_hack']").show();
+                    $("iframe[class='IE_hack']").width($("select[name='after_field']").width()+4);
+                    $("iframe[class='IE_hack']").height($("select[name='after_field']").height()+4);
+                    $("iframe[class='IE_hack']").offset({ top: $("select[name='after_field']").offset().top, left: $("select[name='after_field']").offset().left});
+                }
+                $(this).children(".structure_actions_dropdown").show();
+                // Need to do this again for IE otherwise the offset is wrong
+                if($.browser.msie) {
+                    var left_offset_IE = $(this).offset().left + $(this).innerWidth() - $(this).children(".structure_actions_dropdown").innerWidth();
+                    var top_offset_IE = $(this).offset().top + $(this).innerHeight();
+                    $(this).children(".structure_actions_dropdown").offset({ top: top_offset_IE, left: left_offset_IE });
+                }
              },
              function() {
-                 $(this).children(".structure_actions_dropdown").hide();
+                  $(this).children(".structure_actions_dropdown").hide();
+                  if($.browser.msie && $.browser.version == "6.0") {
+                      $("iframe[class='IE_hack']").hide();
+                  }
              }
          );
     }

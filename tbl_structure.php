@@ -652,6 +652,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     ?>
 <input type="submit" value="<?php echo __('Go'); ?>" />
 </form>
+<iframe class="IE_hack" scrolling="no"></iframe>
 <hr />
     <?php
 }

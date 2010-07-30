@@ -1426,9 +1426,18 @@ a.close_enum_editor {
     position: absolute;
     padding: 3px;
     display: none;
+    z-index: 100;
 }
 
 td.more_opts {
     display: none;
     white-space: nowrap;
+}
+
+iframe.IE_hack {
+    z-index: 1;
+    position: absolute;
+    display: none;
+    border: 0;
+    filter: alpha(opacity=0);
 }
