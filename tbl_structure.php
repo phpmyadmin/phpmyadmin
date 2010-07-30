@@ -193,17 +193,17 @@ $i = 0;
 <tr>
     <th id="th<?php echo ++$i; ?>"></th>
     <th id="th<?php echo ++$i; ?>">#</th>
-    <th id="th<?php echo ++$i; ?>"><?php echo __('Column'); ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo __('Type'); ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo __('Collation'); ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo __('Attributes'); ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo __('Null'); ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo __('Default'); ?></th>
-    <th id="th<?php echo ++$i; ?>"><?php echo __('Extra'); ?></th>
+    <th id="th<?php echo ++$i; ?>" class="column"><?php echo __('Column'); ?></th>
+    <th id="th<?php echo ++$i; ?>" class="type"><?php echo __('Type'); ?></th>
+    <th id="th<?php echo ++$i; ?>" class="collation"><?php echo __('Collation'); ?></th>
+    <th id="th<?php echo ++$i; ?>" class="attributes"><?php echo __('Attributes'); ?></th>
+    <th id="th<?php echo ++$i; ?>" class="null"><?php echo __('Null'); ?></th>
+    <th id="th<?php echo ++$i; ?>" class="default"><?php echo __('Default'); ?></th>
+    <th id="th<?php echo ++$i; ?>" class="extra"><?php echo __('Extra'); ?></th>
 <?php if ($db_is_information_schema || $tbl_is_view) { ?>
-    <th id="th<?php echo ++$i; ?>"><?php echo __('View'); ?></th>
+    <th id="th<?php echo ++$i; ?>" class="view"><?php echo __('View'); ?></th>
 <?php } else { ?>
-    <th colspan="7" id="th<?php echo ++$i; ?>"><?php echo __('Action'); ?></th>
+    <th colspan="7" id="th<?php echo ++$i; ?>" class="action"><?php echo __('Action'); ?></th>
 <?php } ?>
 </tr>
 </thead>

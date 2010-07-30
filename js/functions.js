@@ -1855,6 +1855,7 @@ $(document).ready(function() {
          $("table[id='tablestructure'] td[class='unique']").remove();
          $("table[id='tablestructure'] td[class='index']").remove();
          $("table[id='tablestructure'] td[class='fulltext']").remove();
+         $("table[id='tablestructure'] th[class='action']").attr("colspan", 3);
 
          // Display the "more" text
          $("table[id='tablestructure'] td[class='more_opts']").show()
