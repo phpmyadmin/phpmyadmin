@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-30 11:12+0200\n"
+"PO-Revision-Date: 2010-07-30 11:17+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -2068,7 +2068,7 @@ msgstr "مۇلازىمىتېردىكى يۈكلەش مۇندەرىجىسى"
 #: libraries/display_import.lib.php:211
 #, php-format
 msgid "Imported file compression will be automatically detected from: %s"
-msgstr ""
+msgstr "ئاپتۇماتىك پەرىق ئىتەلەيدىغان پىرىس ھۆججەت تىپلىرى: %s"
 
 #: libraries/display_import.lib.php:218
 msgid "Partial import"
