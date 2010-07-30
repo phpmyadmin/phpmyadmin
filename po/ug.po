@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-30 06:26+0200\n"
+"PO-Revision-Date: 2010-07-30 06:33+0200\n"
 "Last-Translator:  <ablat7ihlim@yahoo.com.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -2330,7 +2330,7 @@ msgstr ""
 #: server_databases.php:302 server_status.php:524 server_status.php:585
 #: server_status.php:606 tbl_printview.php:348 tbl_structure.php:693
 msgid "Total"
-msgstr ""
+msgstr "يىغىندىسى"
 
 #: libraries/engines/innodb.lib.php:171
 msgid "pages"
