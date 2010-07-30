@@ -2346,7 +2346,7 @@ msgstr "كىرەكسىز(مەينەت)بەت"
 
 #: libraries/engines/innodb.lib.php:192
 msgid "Pages containing data"
-msgstr ""
+msgstr "قۇرۇق ئەمەس بەت"
 
 #: libraries/engines/innodb.lib.php:198
 msgid "Pages to be flushed"
