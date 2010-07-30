@@ -2777,7 +2777,7 @@ msgstr "MIMEشەكلى"
 #: server_privileges.php:1533 server_privileges.php:2065
 #: server_processlist.php:54 server_synchronize.php:1157
 msgid "Host"
-msgstr ""
+msgstr "ئاساسىي ماشىنا"
 
 #: libraries/export/latex.php:134 libraries/export/sql.php:231
 #: libraries/export/xml.php:106 libraries/header_printview.inc.php:58
