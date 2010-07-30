@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-30 11:08+0200\n"
+"PO-Revision-Date: 2010-07-30 11:11+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -2058,7 +2058,7 @@ msgstr "مۇلازىمىتىرنىڭ ھۆججەت چىقىرىشىنى چەكل�
 #: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
 msgid "The directory you set for upload work cannot be reached"
-msgstr ""
+msgstr "كۆرسىتىلگەن مۇندەرىجىگە يۈكلىيەلمىدى"
 
 #: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:925
