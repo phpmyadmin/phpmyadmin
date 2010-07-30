@@ -2721,7 +2721,7 @@ msgstr "ئايلاندۇرۇپ ساقلاش جەدىۋېلىدىكى سانلى�
 #: libraries/export/htmlword.php:184 libraries/export/odt.php:237
 #: libraries/export/sql.php:782 libraries/export/texytext.php:177
 msgid "Table structure for table"
-msgstr ""
+msgstr "جەدېۋەلنىڭ تۈزىلىشى"
 
 #: libraries/export/latex.php:13
 msgid "Content of table @TABLE@"
