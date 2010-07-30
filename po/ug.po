@@ -2782,7 +2782,7 @@ msgstr "ئاساسىي ماشىنا"
 #: libraries/export/latex.php:134 libraries/export/sql.php:231
 #: libraries/export/xml.php:106 libraries/header_printview.inc.php:58
 msgid "Generation Time"
-msgstr ""
+msgstr "قۇرۇلغان ۋاقتى"
 
 #: libraries/export/latex.php:135 libraries/export/sql.php:233
 #: libraries/export/xml.php:107 main.php:185
