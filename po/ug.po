@@ -2702,7 +2702,7 @@ msgstr "Excel  نۇسخىسى"
 
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/export/htmlword.php:23 libraries/export/latex.php:59
 #: libraries/export/latex.php:205 libraries/export/odt.php:47
