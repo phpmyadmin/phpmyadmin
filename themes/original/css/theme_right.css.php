@@ -31,6 +31,8 @@ body {
     margin:             0.5em;
     color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
     background:         <?php echo (isset($_SESSION['tmp_user_values']['custom_color']) ? $_SESSION['tmp_user_values']['custom_color'] : $GLOBALS['cfg']['MainBackground']); ?>;
+    width: 100%;
+    height: 100%;
 }
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
@@ -1371,7 +1373,8 @@ p.enum_notice {
     position: fixed;
     _position: absolute; /* hack for IE */
     z-index: 101;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #enum_editor_no_js {
@@ -1379,8 +1382,6 @@ p.enum_notice {
 }
 
 #enum_editor, #enum_editor_no_js {
-    width: 50%;
-    height: 80%;
     background: #D0DCE0;
     padding: 15px;
 }
@@ -1388,13 +1389,14 @@ p.enum_notice {
 #popup_background {
     display: none;
     position: fixed;
-    _position: absolute; /* hack for IE */
+    _position: absolute; /* hack for IE6 */
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     background: #000;
     z-index: 100;
+    overflow: hidden;
 }
 
 a.close_enum_editor {
@@ -1403,6 +1405,7 @@ a.close_enum_editor {
 
 #enum_editor #values, #enum_editor_no_js #values {
     margin: 15px 0px;
+    width: 100%;
 }
 
 #enum_editor #values input, #enum_editor_no_js #values input {

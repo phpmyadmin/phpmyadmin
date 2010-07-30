@@ -1781,15 +1781,17 @@ $(document).ready(function() {
         // Center the popup
         var windowWidth = document.documentElement.clientWidth;
         var windowHeight = document.documentElement.clientHeight;
-        var popupWidth = $("#enum_editor").width();
-        var popupHeight = $("#enum_editor").height();
-        var top = windowHeight/2 - popupHeight/2;
-        var left = windowWidth/2 - popupWidth/2;
-        $("#enum_editor").css({"position":"absolute", "top": top, "left": left});
+        var popupWidth = windowWidth/2;
+        var popupHeight = windowHeight*0.8;
+        var popupOffsetTop = windowHeight/2 - popupHeight/2;
+        var popupOffsetLeft = windowWidth/2 - popupWidth/2;
+        $("#enum_editor").css({"position":"absolute", "top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
+
         // Make it appear
         $("#popup_background").css({"opacity":"0.7"});
         $("#popup_background").fadeIn("fast");
         $("#enum_editor").fadeIn("fast");
+
         // Get the values
         var values = $(this).parent().prev("input").attr("value").split(",");
         $.each(values, function(index, val) {
