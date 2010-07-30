@@ -41,12 +41,21 @@ if (! $result) {
     // avoid displaying the not-created db name in header or navi panel
     $GLOBALS['db'] = '';
     $GLOBALS['table'] = '';
+
+    if($GLOBALS['is_ajax_request'] == true) {
+        PMA_ajaxResponse($message, FALSE);
+    }
+
     require_once './libraries/header.inc.php';
     require_once './main.php';
 } else {
     $message = PMA_Message::success(__('Database %1$s has been created.'));
     $message->addParam($new_db);
     $GLOBALS['db'] = $new_db;
+
+    if($GLOBALS['is_ajax_request'] == true) {
+        PMA_ajaxResponse($message, true);
+    }
 
     require_once './libraries/header.inc.php';
     require_once './' . $cfg['DefaultTabDatabase'];

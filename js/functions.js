@@ -2050,3 +2050,26 @@ $(document).ready(function() {
         });
     }); //end of Drop Database Ajax action
 })
+
+/**
+ * jQuery coding for 'Create Database'.  Used wherever libraries/
+ * display_create_database.lib.php is used, ie main.php and server_databases.php
+ */
+$(document).ready(function() {
+
+    $('#create_database_form').live('submit', function(event) {
+        event.preventDefault();
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+            }
+            else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        })
+    })
+})

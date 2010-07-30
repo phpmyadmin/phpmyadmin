@@ -17,7 +17,7 @@ require_once './libraries/check_user_privileges.lib.php';
 if ($is_create_db_priv) {
     // The user is allowed to create a db
     ?>
-        <form method="post" action="db_create.php"><strong>
+        <form method="post" action="db_create.php" id="create_database_form" ><strong>
             <?php echo '<label for="text_create_db">' . __('Create new database') . '</label>&nbsp;' . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></strong><br />
             <?php echo PMA_generate_common_hidden_inputs('', '', 5); ?>
             <input type="hidden" name="reload" value="1" />
