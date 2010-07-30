@@ -2577,7 +2577,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:61
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Metadata Headers"
 
 #: libraries/engines/pbms.lib.php:62
 msgid ""
