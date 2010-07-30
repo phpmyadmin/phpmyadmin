@@ -63,8 +63,20 @@ if(isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values
     $foreignData = PMA_getForeignData($foreigners, $column, false, '', '');
 
     $dropdown = PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'], $foreignData['foreign_display'], $_REQUEST['curr_value'], $cfg['ForeignKeyMaxLimit']);
-    
-    $dropdown = '<select>' . $dropdown . '</select>';
+
+    if( $dropdown == '<option value="">&nbsp;</option>') {
+        //Handle the case when number of values is more than $cfg['ForeignKeyMaxLimit']
+        $_url_params = array(
+                'db' => $db,
+                'table' => $table,
+                'field' => $column
+        );
+
+        $dropdown = '<a href="browse_foreigners.php' . PMA_generate_common_url($_url_params) . '">Search Foreign Data</a>';
+    }
+    else {
+        $dropdown = '<select>' . $dropdown . '</select>';
+    }
 
     $extra_data['dropdown'] = $dropdown;
     PMA_ajaxResponse(NULL, true, $extra_data);
@@ -593,10 +605,12 @@ if (0 == $num_rows || $is_affected) {
 
             $map = PMA_getForeigners($db, $table, '', 'both');
 
-            $rel_fields = explode(',', $_REQUEST['rel_fields_list']);
+            $rel_fields = array();
+            parse_str($_REQUEST['rel_fields_list'], $rel_fields);
 
-            foreach( $rel_fields as $rel_field) {
+            foreach( $rel_fields as $rel_field => $rel_field_value) {
 
+                $where_comparison = '=' . $rel_field_value;
                 $_url_params = array(
                     'db'    => $map[$rel_field]['foreign_db'],
                     'table' => $map[$rel_field]['foreign_table'],

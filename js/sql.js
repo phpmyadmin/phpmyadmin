@@ -243,7 +243,7 @@ $(document).ready(function() {
 
         // Collect values of all fields to submit, we don't know which changed
         var params_to_submit = {};
-        var relation_fields = new Array();
+        var relation_fields = {};
         var transform_fields = {};
         var transformation_fields = false;
 
@@ -268,7 +268,7 @@ $(document).ready(function() {
                 this_field_params[field_name] = $(this).find('select').val();
 
                 if($(this).is('.relation')) {
-                    relation_fields.push(field_name);
+                    $.extend(relation_fields, this_field_params);
                 }
             }
 
@@ -284,10 +284,8 @@ $(document).ready(function() {
         sql_query = sql_query.replace(/,\s$/, '');
         sql_query += ' WHERE ' + where_clause;
 
-        var rel_fields_list = '';
-        if(relation_fields.length > 0) {
-            rel_fields_list = relation_fields.join();
-        }
+        var rel_fields_list = $.param(relation_fields);
+        
         var transform_fields_list = $.param(transform_fields);
 
         // Make the Ajax post after setting all parameters
