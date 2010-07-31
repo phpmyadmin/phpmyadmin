@@ -1004,10 +1004,9 @@ msgid "Choose column to display"
 msgstr "Göstermek için sütun seçin"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
-msgstr "Parola Üret"
+msgstr "Parola üret"
 
 #: js/messages.php:67 libraries/replication_gui.lib.php:365
 msgid "Generate"
