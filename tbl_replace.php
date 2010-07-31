@@ -230,7 +230,7 @@ foreach ($loop_array as $rowcount => $where_clause) {
             if (isset($remove_blob_repo) && ! isset($upload_blob_repo)) {
                 $remove_blob_reference = $_REQUEST['remove_blob_ref_' . $key];
                 if (isset($remove_blob_reference)) {
-                    $val = "''";
+                    $val = "NULL";
                 }
             }
 
