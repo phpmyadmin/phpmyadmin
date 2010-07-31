@@ -152,7 +152,7 @@ function confirmQuery(theForm1, sqlQuery1)
             } // end if
         } // end if
 
-        // Confirms a "DROP/DELETE/ALTER" statement
+        // Confirms a "DROP/DELETE/ALTER/TRUNCATE" statement
         //
         // TODO: find a way (if possible) to use the parser-analyser
         // for this kind of verification
@@ -162,22 +162,24 @@ function confirmQuery(theForm1, sqlQuery1)
         var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
         var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
         var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
+        var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
+
         if (do_confirm_re_0.test(sqlQuery1.value)
             || do_confirm_re_1.test(sqlQuery1.value)
-            || do_confirm_re_2.test(sqlQuery1.value)) {
+            || do_confirm_re_2.test(sqlQuery1.value)
+            || do_confirm_re_3.test(sqlQuery1.value)) {
             var message      = (sqlQuery1.value.length > 100)
                              ? sqlQuery1.value.substr(0, 100) + '\n    ...'
                              : sqlQuery1.value;
             var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + message);
-            // drop/delete/alter statement is confirmed -> update the
+            // statement is confirmed -> update the
             // "is_js_confirmed" form field so the confirm test won't be
             // run on the server side and allows to submit the form
             if (is_confirmed) {
                 theForm1.elements['is_js_confirmed'].value = 1;
                 return true;
             }
-            // "DROP/DELETE/ALTER" statement is rejected -> do not submit
-            // the form
+            // statement is rejected -> do not submit the form
             else {
                 window.focus();
                 sqlQuery1.focus();

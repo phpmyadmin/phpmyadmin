@@ -105,6 +105,7 @@ $Id$
 - bug #3033063 [core] Navi gets wrong db name
 - bug #3031705 [core] Fix generating condition for real numbers by comparing
   them to string.
+- bug #3034026 [confirmation] TRUNCATE queries get no confirmation request
 
 3.3.5.0 (2010-07-26)
 - patch #2932113 [information_schema] Slow export when having lots of
