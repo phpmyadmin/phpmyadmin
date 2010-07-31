@@ -2703,7 +2703,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Garbage threshold"
-msgstr "Artık başı"
+msgstr "Artık eşiği"
 
 #: libraries/engines/pbxt.lib.php:58
 msgid ""
