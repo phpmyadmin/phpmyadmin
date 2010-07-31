@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-31 20:39+0200\n"
+"PO-Revision-Date: 2010-07-31 20:40+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8126,7 +8126,7 @@ msgstr "Tabloyu veya veriyi sil"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Tabloyu boşalt (KESİP AT)"
 
 #: tbl_operations.php:675
 #, fuzzy
