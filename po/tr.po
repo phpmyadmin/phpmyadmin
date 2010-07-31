@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-31 20:54+0200\n"
+"PO-Revision-Date: 2010-07-31 20:55+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7899,10 +7899,9 @@ msgid "Showing SQL query"
 msgstr "SQL sorgusu gösteriliyor"
 
 #: sql.php:516
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "SQL'i onayla"
+msgstr "Oanylı SQL"
 
 #: sql.php:631
 #, php-format
