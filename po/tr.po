@@ -248,10 +248,9 @@ msgid "and then"
 msgstr "ve sonra"
 
 #: db_operations.php:379
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Veritabanını şuna yeniden adlandır"
+msgstr "Veritabanını kaldır"
 
 #: db_operations.php:391
 #, php-format
