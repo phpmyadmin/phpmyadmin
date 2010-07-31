@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-31 20:55+0200\n"
+"PO-Revision-Date: 2010-07-31 21:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -109,7 +109,7 @@ msgstr "Veritabanı %1$s oluşturuldu."
 
 #: db_datadict.php:48 db_operations.php:313
 msgid "Database comment: "
-msgstr "Veritabanı yorumu:"
+msgstr "Veritabanı yorumu: "
 
 #: db_datadict.php:164 libraries/tbl_properties.inc.php:722
 #: pdf_schema.php:1234 tbl_operations.php:344 tbl_printview.php:127
