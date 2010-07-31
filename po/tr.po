@@ -8120,10 +8120,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Tabloyu temizle (FLUSH)"
 
 #: tbl_operations.php:642
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
-msgstr "Bu tabloyu izleme verisini sil"
+msgstr "Tabloyu veya veryi sil"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
