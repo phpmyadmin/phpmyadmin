@@ -2570,10 +2570,9 @@ msgstr ""
 "silinir."
 
 #: libraries/engines/pbms.lib.php:51
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Günlük dosyası başı"
+msgstr "Geçici Günlük Eşiği"
 
 #: libraries/engines/pbms.lib.php:52
 msgid ""
