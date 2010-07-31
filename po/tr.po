@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-06-21 19:58+0200\n"
-"Last-Translator: Burak <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2010-07-31 19:53+0200\n"
+"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -91,7 +91,7 @@ msgstr "Bu değeri kullan"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Yapılandırılmış blob akış sunucusu yok!"
 
 #: bs_disp_as_mime_type.php:35
 #, fuzzy
@@ -8497,66 +8497,3 @@ msgstr "GÖRÜNÜM adı"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Görünümü yeniden şuna adlandır"
-
-#, fuzzy
-#~| msgid "Table name"
-#~ msgid "Table removal"
-#~ msgstr "Tablo adı"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "BLOB Havuzu"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Etkinleştirildi"
-
-#~ msgid "Disable"
-#~ msgstr "Etkisiz"
-
-#~ msgid "Damaged"
-#~ msgstr "Hasarlı"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Onar"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Etkisizleştirildi"
-
-#~ msgid "Enable"
-#~ msgstr "Etkin"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] uzantısı "
-#~ "yüklenemiyor. Lütfen PHP yapılandırmanızı kontrol edin."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Karakter grubu dönüşümü için gerekli olan iconv veya recode uzantıları "
-#~ "yüklenemedi. Ya PHP'yi bu uzantıları etkinleştirmek için yapılandırın ya "
-#~ "da phpMyAdmin içinde karakter grubu dönüşümünü etkisizleştirin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Gerekli uzantılar yüklenmiş görünmesine rağmen, ne iconv, ne libinconv, "
-#~ "ne de recode_string işlevi kullanılamadı. PHP yapılandırmanızı kontrol "
-#~ "edin."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Karakter grubu dönüştürmeye izin ver"
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "Dönüştürmeler için kullanılan varsayılan karakter grubu"
-
-#~ msgid "Default character set"
-#~ msgstr "Varsayılan karakter grubu"
