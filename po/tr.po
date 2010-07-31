@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-31 20:29+0200\n"
+"PO-Revision-Date: 2010-07-31 20:32+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2599,7 +2599,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:61
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Üstveri Üstbilgileri"
 
 #: libraries/engines/pbms.lib.php:62
 msgid ""
