@@ -8129,10 +8129,9 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Tabloyu boşalt (KESİP AT)"
 
 #: tbl_operations.php:675
-#, fuzzy
 #| msgid "Go to database"
 msgid "Delete the table (DROP)"
-msgstr "Veritabanına git"
+msgstr "Tabloyu sil (DROP)"
 
 #: tbl_operations.php:696
 msgid "Partition maintenance"
