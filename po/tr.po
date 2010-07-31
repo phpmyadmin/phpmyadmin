@@ -2527,7 +2527,7 @@ msgstr "Artık Eşiği"
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr "Ufaltılmadan önce depolama dosyasındaki artık yüzdesi."
+msgstr "Ufaltılmadan önce depolama dosyasındaki artık yüzdesidir."
 
 #: libraries/engines/pbms.lib.php:36 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
