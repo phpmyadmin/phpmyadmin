@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-31 20:03+0200\n"
+"PO-Revision-Date: 2010-07-31 20:08+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2523,14 +2523,11 @@ msgid "Garbage Threshold"
 msgstr "Artık Eşiği"
 
 #: libraries/engines/pbms.lib.php:32
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr ""
-"Küçültülmeden önce veri günlük dosyasındaki artık yüzdesi. Bu 1 ile 99 "
-"arasında bir değerdir. Varsayılan değer 50'dir."
+msgstr "Ufaltılmadan önce depolama dosyasındaki artık yüzdesi."
 
 #: libraries/engines/pbms.lib.php:36 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
