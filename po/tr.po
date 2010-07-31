@@ -2586,7 +2586,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:56
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "En Fazla Canlı Tutuma"
 
 #: libraries/engines/pbms.lib.php:57
 msgid ""
