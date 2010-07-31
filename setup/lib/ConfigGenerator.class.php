@@ -92,7 +92,7 @@ class ConfigGenerator
         $ret = '';
         if (self::_isZeroBasedArray($var_value)) {
             $ret = "\$cfg['$var_name'] = " . self::_exportZeroBasedArray($var_value, $crlf)
-                . ');' . $crlf;
+                . ';' . $crlf;
         } else {
             // string keys: $cfg[key][subkey] = value
             foreach ($var_value as $k => $v) {
