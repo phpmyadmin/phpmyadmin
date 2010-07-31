@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-31 20:49+0200\n"
+"PO-Revision-Date: 2010-07-31 20:50+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -312,7 +312,7 @@ msgid "Collation"
 msgstr "Karşılaştırma"
 
 #: db_operations.php:498 pdf_schema.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -320,8 +320,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Bağlı tablolar ile çalışan ilave özellikler etkisizleştirildi. Nedenini "
-"öğrenmek için %sburaya%s tıklayın."
+"phpMyAdmin yapılandırma depolaması devre dışı bırakıldı. Nedenini öğrenmek "
+"için %sburaya%s tıklayın."
 
 #: db_operations.php:531
 msgid "Edit PDF Pages"
