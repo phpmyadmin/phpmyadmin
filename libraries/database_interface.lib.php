@@ -1401,7 +1401,7 @@ function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
     // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
         $triggers = PMA_DBI_fetch_result("SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddslashes($db,true) . "' and EVENT_OBJECT_TABLE = '" . PMA_sqlAddslashes($table, true) . "';");
     } else {
-        $triggers = PMA_DBI_fetch_result("SHOW TRIGGERS FROM " . PMA_sqlAddslashes($db,true) . " LIKE '" . PMA_sqlAddslashes($table, true) . "';");
+        $triggers = PMA_DBI_fetch_result("SHOW TRIGGERS FROM " . PMA_backquote(PMA_sqlAddslashes($db,true)) . " LIKE '" . PMA_sqlAddslashes($table, true) . "';");
     }
 
     if ($triggers) {
