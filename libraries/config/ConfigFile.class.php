@@ -33,6 +33,13 @@ class ConfigFile
     private $persistKeys = array();
 
     /**
+     * Changes keys while updating config in {@link updateWithGlobalConfig()} or reading
+     * by {@link getConfig()} or {@link getConfigArray()}
+     * @var array
+     */
+    private $cfgUpdateReadMapping = array();
+
+    /**
      * Key filter for {@link set()}
      * @var array|null
      */
@@ -137,6 +144,16 @@ class ConfigFile
     }
 
     /**
+     * Sets path mapping for updating config in {@link updateWithGlobalConfig()} or reading
+     * by {@link getConfig()} or {@link getConfigArray()}
+     * @var array
+     */
+    public function setCfgUpdateReadMapping(array $mapping)
+    {
+        $this->cfgUpdateReadMapping = $mapping;
+    }
+
+    /**
      * Resets configuration data
      */
     public function resetConfigData()
@@ -216,21 +233,26 @@ class ConfigFile
     }
 
     /**
-     * Updates config with values read from PMA_Config class
+     * Updates config with values read from given array
      * (config will contain differences to defaults from config.defaults.php).
      *
-     * @param PMA_Config $PMA_Config
+     * @param array $cfg
      */
-    public function updateWithGlobalConfig(PMA_Config $PMA_Config)
+    public function updateWithGlobalConfig(array $cfg)
     {
         // load config array and flatten it
         $this->_flattenArrayResult = array();
-        array_walk($PMA_Config->settings, array($this, '_flattenArray'), '');
+        array_walk($cfg, array($this, '_flattenArray'), '');
         $flat_cfg = $this->_flattenArrayResult;
         $this->_flattenArrayResult = null;
 
         // save values
+        // map for translating a few user preferences paths, should be complemented
+        // by code reading from generated config to perform inverse mapping
         foreach ($flat_cfg as $path => $value) {
+            if (isset($this->cfgUpdateReadMapping[$path])) {
+                $path = $this->cfgUpdateReadMapping[$path];
+            }
             $this->set($path, $value, $path);
         }
     }
@@ -426,7 +448,12 @@ class ConfigFile
      */
     public function getConfig()
     {
-        return $_SESSION[$this->id];
+        $c = $_SESSION[$this->id];
+        foreach ($this->cfgUpdateReadMapping as $map_to => $map_from) {
+            PMA_array_write($map_to, $c, PMA_array_read($map_from, $c));
+            PMA_array_remove($map_from, $c);
+        }
+        return $c;
     }
 
     /**
@@ -444,6 +471,14 @@ class ConfigFile
         $persistKeys = array_diff(array_keys($this->persistKeys), array_keys($c));
         foreach ($persistKeys as $k) {
             $c[$k] = $this->getDefault($k);
+        }
+
+        foreach ($this->cfgUpdateReadMapping as $map_to => $map_from) {
+            if (!isset($c[$map_from])) {
+                continue;
+            }
+            $c[$map_to] = $c[$map_from];
+            unset($c[$map_from]);
         }
         return $c;
     }

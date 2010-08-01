@@ -18,6 +18,8 @@ $forms['Features']['General'] = array(
     'InitialSlidersState',
     'ErrorIconic',
     'ReplaceHelpImg',
+    'Servers/1/only_db', // saves to Server/only_db
+    'Servers/1/hide_db', // saves to Server/hide_db
     'SkipLockedTables',
     'MaxDbList',
     'MaxTableList');

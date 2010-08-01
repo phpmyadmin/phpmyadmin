@@ -147,6 +147,8 @@ function PMA_apply_userprefs(array $config_data)
     $whitelist['fontsize'] = true;
     $whitelist['lang'] = true;
     $whitelist['collation_connection'] = true;
+    $whitelist['Server/hide_db'] = true;
+    $whitelist['Server/only_db'] = true;
     foreach ($config_data as $path => $value) {
         if (!isset($whitelist[$path]) || isset($blacklist[$path])) {
             continue;
@@ -230,7 +232,8 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $
         $new_settings = ConfigFile::getInstance()->getConfigArray();
         $diff_keys = array_keys(array_diff_assoc($old_settings, $new_settings)
                 + array_diff_assoc($new_settings, $old_settings));
-        $check_keys = array('NaturalOrder', 'MainPageIconic', 'DefaultTabDatabase');
+        $check_keys = array('NaturalOrder', 'MainPageIconic', 'DefaultTabDatabase',
+            'Server/hide_db', 'Server/only_db');
         $check_keys = array_merge($check_keys, $forms['Left_frame']['Left_frame'],
              $forms['Left_frame']['Left_databases']);
         $diff = array_intersect($check_keys, $diff_keys);

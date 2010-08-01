@@ -30,7 +30,7 @@ foreach ($forms[$form_param] as $form_name => $form) {
     if ($form_name == 'Developer' && !$GLOBALS['cfg']['UserprefsDeveloperTab']) {
         continue;
     }
-    $form_display->registerForm($form_name, $form);
+    $form_display->registerForm($form_name, $form, 1);
 }
 
 if (isset($_POST['revert'])) {
