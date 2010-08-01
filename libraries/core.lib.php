@@ -228,12 +228,18 @@ function PMA_fatalError($error_message, $message_args = null)
     }
     $error_message = strtr($error_message, array('<br />' => '[br]'));
 
+    if (function_exists('__')) {
+        $error_header = __('Error');
+    } else {
+        $error_header = 'Error';
+    }
+
     // Displays the error message
     // (do not use &amp; for parameters sent by header)
     $query_params = array(
         'lang'  => $GLOBALS['available_languages'][$GLOBALS['lang']][1],
         'dir'   => $GLOBALS['text_dir'],
-        'type'  => __('Error'),
+        'type'  => $error_header,
         'error' => $error_message,
     );
     header('Location: ' . (defined('PMA_SETUP') ? '../' : '') . 'error.php?'

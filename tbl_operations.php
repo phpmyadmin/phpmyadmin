@@ -636,6 +636,54 @@ $this_url_params = array_merge($url_params,
 </ul>
 </fieldset>
 </div>
+<?php if (! (isset($db_is_information_schema) && $db_is_information_schema)) { ?>
+<div id="div_table_removal">
+<fieldset class="caution">
+ <legend><?php echo __('Delete data or table'); ?></legend>
+
+<ul>
+<?php
+if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
+    $this_sql_query = 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table']);
+    $this_url_params = array_merge($url_params,
+        array(
+            'sql_query' => $this_sql_query,
+            'goto' => 'tbl_structure.php',
+            'reload' => '1',
+            'zero_rows' => sprintf(__('Table %s has been emptied'), htmlspecialchars($table)),
+        ));
+    ?>
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
+            <?php echo __('Empty the table (TRUNCATE)'); ?></a>
+        <?php echo PMA_showMySQLDocu('SQL-Syntax', 'TRUNCATE_TABLE'); ?>
+    </li>
+<?php
+}
+if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
+    $this_sql_query = 'DROP TABLE ' . PMA_backquote($GLOBALS['table']);
+    $this_url_params = array_merge($url_params,
+        array(
+            'sql_query' => $this_sql_query,
+            'goto' => 'db_operations.php',
+            'reload' => '1',
+            'purge' => '1',
+            'zero_rows' => sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table)),
+            'table' => NULL,
+        ));
+    ?>
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
+            <?php echo __('Delete the table (DROP)'); ?></a>
+        <?php echo PMA_showMySQLDocu('SQL-Syntax', 'DROP_TABLE'); ?>
+    </li>
+<?php
+}
+?>
+</ul>
+</fieldset>
+</div>
+<?php
+}
+?>
 <?php if (PMA_Partition::havePartitioning()) {
     $partition_names = PMA_Partition::getPartitionNames($db, $table);
     // show the Partition maintenance section only if we detect a partition

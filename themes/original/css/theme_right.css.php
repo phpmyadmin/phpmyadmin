@@ -405,6 +405,14 @@ div.success {
     border-color:       #00FF00;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_success.png);
+    background-repeat:  no-repeat;
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    background-position: 5px 50%;
+    padding:            0.2em 0.2em 0.2em 25px;
+        <?php } else { ?>
+    background-position: 97% 50%;
+    padding:            0.2em 25px 0.2em 0.2em;
+        <?php } ?>
     <?php } ?>
 }
 .success h1 {
@@ -420,6 +428,14 @@ div.notice {
     border-color:       #FFD700;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
+    background-repeat:  no-repeat;
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    background-position: 5px 50%;
+    padding:            0.2em 0.2em 0.2em 25px;
+        <?php } else { ?>
+    background-position: 97% 50%;
+    padding:            0.2em 25px 0.2em 0.2em;
+        <?php } ?>
     <?php } ?>
 }
 .notice h1 {
@@ -436,6 +452,14 @@ div.warning {
     border-color:       #CC0000;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
+    background-repeat:  no-repeat;
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    background-position: 5px 50%;
+    padding:            0.2em 0.2em 0.2em 25px;
+        <?php } else { ?>
+    background-position: 97% 50%;
+    padding:            0.2em 25px 0.2em 0.2em;
+        <?php } ?>
     <?php } ?>
 }
 .warning h1 {
@@ -452,6 +476,14 @@ div.error {
     border-color:       #ff0000;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
+    background-repeat:  no-repeat;
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    background-position: 5px 50%;
+    padding:            0.2em 0.2em 0.2em 25px;
+        <?php } else { ?>
+    background-position: 97% 50%;
+    padding:            0.2em 25px 0.2em 0.2em;
+        <?php } ?>
     <?php } ?>
 }
 div.error h1 {
@@ -664,6 +696,13 @@ ul#topmenu a.tabcaution {
 }
 ul#topmenu a.tabcaution:hover {
     color: #FFFFFF;
+    background-color:   #FF0000;
+}
+fieldset.caution a {
+    color:              #FF0000;
+}
+fieldset.caution a:hover {
+    color:              #ffffff;
     background-color:   #FF0000;
 }
 
@@ -1203,6 +1242,7 @@ li#li_user_preferences {
 #div_table_copy,
 #div_partition_maintenance,
 #div_referential_integrity,
+#div_table_removal,
 #div_table_maintenance {
     min-width: 48%;
     float: <?php echo $left; ?>;

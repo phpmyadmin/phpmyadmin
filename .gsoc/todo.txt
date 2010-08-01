@@ -7,3 +7,10 @@ info about setup script in prefs manage, it seems many people still don't know i
 
 
 show blacklist (and debug?) on prefs manage page
+
+
+/*        if (!isset($this->persistKeys[$canonical_path])
+                // equality but only if both values are numeric or not numeric, allows to skip 0 == 'auto'
+                && (($value == $default_value && !(is_numeric($value) xor is_numeric($value)))
+                    ||
+                    (empty($value) && empty($default_value)))) {*/
