@@ -290,7 +290,6 @@ function validate_regex($path, $values)
 
     $matches = array();
     preg_match($values[$path], '', $matches);
-    ob_end_clean();
 
     test_php_errormsg(false);
 
