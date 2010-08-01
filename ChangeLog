@@ -106,6 +106,7 @@ $Id$
 - bug #3031705 [core] Fix generating condition for real numbers by comparing
   them to string.
 - bug #3034026 [confirmation] TRUNCATE queries get no confirmation request
+- bug #3036132 [core] Triggers not fetched if dbname has an hyphen
 
 3.3.5.0 (2010-07-26)
 - patch #2932113 [information_schema] Slow export when having lots of
