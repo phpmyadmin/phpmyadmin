@@ -47,17 +47,8 @@ if (!empty($_GET['saved'])) {
     $message->display();
 }
 
-$forms_all_keys = PMA_read_userprefs_fieldnames($forms);
-$cf = ConfigFile::getInstance();
-$cf->resetConfigData(); // start with a clean instance
-$cf->setAllowedKeys($forms_all_keys);
-$cf->setCfgUpdateReadMapping(array(
-    'Server/hide_db' => 'Servers/1/hide_db',
-    'Server/only_db' => 'Servers/1/only_db'));
-$cf->updateWithGlobalConfig($GLOBALS['cfg']);
-
 // todo: debug - remove
-$arr = $cf->getConfigArray();
+$arr = ConfigFile::getInstance()->getConfigArray();
 $arr2 = array();
 foreach ($arr as $k => $v) {
     $arr2[] = "<b>$k</b> " . var_export($v, true);

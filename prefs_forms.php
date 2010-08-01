@@ -18,11 +18,15 @@ require_once './libraries/config/Form.class.php';
 require_once './libraries/config/FormDisplay.class.php';
 require './libraries/config/user_preferences.forms.php';
 
-$GLOBALS['js_include'][] = 'config.js';
-require_once './libraries/header.inc.php';
-require_once './libraries/user_preferences.inc.php';
+PMA_userprefs_pageinit();
 
-// handle form display and processing
+// handle form processing
+
+$form_param = filter_input(INPUT_GET, 'form');
+if (!isset($forms[$form_param])) {
+    $forms_keys = array_keys($forms);
+    $form_param = array_shift($forms_keys);
+}
 
 $form_display = new FormDisplay();
 foreach ($forms[$form_param] as $form_name => $form) {
@@ -42,35 +46,35 @@ if (isset($_POST['revert'])) {
             . PMA_generate_common_url($url_params, '&'));
     exit;
 }
-if (!$form_display->process(false)) {
-    // handle form view and failed POST
-    $form_display->display(true, true);
-} else {
-    // check for form errors
-    if ($form_display->hasErrors()) {
-        // form has errors
-        ?>
-        <div class="warning config-form">
-            <b><?php echo __('Submitted form contains errors') ?></b>
-            <?php $form_display->displayErrors(); ?>
-        </div>
-        <?php
-        $form_display->display(true, true);
+
+if ($form_display->process(false) && !$form_display->hasErrors()) {
+    // save settings
+    $old_settings = PMA_load_userprefs();
+    $result = PMA_save_userprefs(ConfigFile::getInstance()->getConfigArray());
+    if ($result === true) {
+        $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
+        PMA_userprefs_redirect($forms, $old_settings, 'prefs_forms.php', array(
+            'form' => $form_param), $hash);
+        exit;
     } else {
-        // save settings
-        $old_settings = PMA_load_userprefs();
-        $result = PMA_save_userprefs($cf->getConfigArray());
-        if ($result === true) {
-            $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
-            PMA_userprefs_redirect($forms, $old_settings, 'prefs_forms.php', array(
-                'form' => $form_param), $hash);
-            exit;
-        } else {
-            $result->display();
-        }
-        $form_display->display(true, true);
+        $error = $result;
     }
 }
+
+// display forms
+$GLOBALS['js_include'][] = 'config.js';
+require './libraries/header.inc.php';
+require './libraries/user_preferences.inc.php';
+if ($form_display->hasErrors()) {
+    // form has errors
+    ?>
+    <div class="warning config-form">
+        <b><?php echo __('Submitted form contains errors') ?></b>
+        <?php $form_display->displayErrors(); ?>
+    </div>
+    <?php
+}
+$form_display->display(true, true);
 
 /**
  * Displays the footer

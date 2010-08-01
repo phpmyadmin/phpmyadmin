@@ -7,6 +7,21 @@
  */
 
 /**
+ * Common initialization for user preferences modification pages
+ */
+function PMA_userprefs_pageinit()
+{
+    $forms_all_keys = PMA_read_userprefs_fieldnames($GLOBALS['forms']);
+    $cf = ConfigFile::getInstance();
+    $cf->resetConfigData(); // start with a clean instance
+    $cf->setAllowedKeys($forms_all_keys);
+    $cf->setCfgUpdateReadMapping(array(
+        'Server/hide_db' => 'Servers/1/hide_db',
+        'Server/only_db' => 'Servers/1/only_db'));
+    $cf->updateWithGlobalConfig($GLOBALS['cfg']);
+}
+
+/**
  * Loads user preferences
  *
  * Returns an array:

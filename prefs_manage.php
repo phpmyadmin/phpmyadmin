@@ -18,6 +18,8 @@ require_once './libraries/config/Form.class.php';
 require_once './libraries/config/FormDisplay.class.php';
 require './libraries/config/user_preferences.forms.php';
 
+PMA_userprefs_pageinit();
+
 $error = '';
 if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') == 'text_file') {
     // export to JSON file
@@ -103,8 +105,8 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
         }
         if (!$all_ok) {
             // mimic original form and post json in a hidden field
-            require_once './libraries/header.inc.php';
-            require_once './libraries/user_preferences.inc.php';
+            require './libraries/header.inc.php';
+            require './libraries/user_preferences.inc.php';
             $msg = PMA_Message::warning(__('Configuration contains incorrect data for some fields.'));
             $msg->display();
             echo '<div class="config-form">';
@@ -205,8 +207,8 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
 }
 
 $GLOBALS['js_include'][] = 'config.js';
-require_once './libraries/header.inc.php';
-require_once './libraries/user_preferences.inc.php';
+require './libraries/header.inc.php';
+require './libraries/user_preferences.inc.php';
 ?>
 <script type="text/javascript">
 <?php
