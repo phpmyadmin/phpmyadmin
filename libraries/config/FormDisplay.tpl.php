@@ -199,28 +199,27 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
             $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
             $values_disabled = isset($opts['values_disabled'])
                 ? array_flip($opts['values_disabled']) : array();
-            foreach ($opts['values'] as $opt_value => $opt_name) {
+            foreach ($opts['values'] as $opt_value_key => $opt_value) {
                 // set names for boolean values
-                if (is_bool($opt_name)) {
-                    $opt_name = strtolower($opt_value ? __('Yes') : __('No'));
+                if (is_bool($opt_value)) {
+                    $opt_value = strtolower($opt_value ? __('Yes') : __('No'));
                 }
-                // cast boolean values to integers
-                $display_value = is_bool($opt_value) ? (int) $opt_value : $opt_value;
                 // escape if necessary
                 if ($escape) {
-                    $display = htmlspecialchars($opt_name);
-                    $display_value = htmlspecialchars($display_value);
+                    $display = htmlspecialchars($opt_value);
+                    $display_value = htmlspecialchars($opt_value_key);
                 } else {
-                    $display = $opt_name;
+                    $display = $opt_value;
+                    $display_value = $opt_value_key;
                 }
                 // compare with selected value
                 // boolean values are cast to integers when used as array keys
                 $selected = is_bool($value)
-                    ? (int) $value === $opt_value
-                    : $opt_value === $value;
+                    ? (int) $value === $opt_value_key
+                    : $opt_value_key === $value;
                 echo '<option value="' . $display_value . '"'
                     . ($selected ? ' selected="selected"' : '')
-                    . (isset($values_disabled[$opt_value]) ? ' disabled="disabled"' : '')
+                    . (isset($values_disabled[$opt_value_key]) ? ' disabled="disabled"' : '')
                     . '>' . $display . '</option>';
             }
             echo '</select>';

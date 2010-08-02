@@ -461,8 +461,8 @@ class FormDisplay
      */
     private function _validateSelect(&$value, array $allowed)
     {
-        foreach ($allowed as $v) {
-          if ($value == $v) {
+        foreach ($allowed as $vk => $v) {
+          if ($value == $vk) {
               settype($value, gettype($v));
               return true;
           }
@@ -556,7 +556,7 @@ class FormDisplay
                         }
                         break;
                     case 'select':
-                        if (!$this->_validateSelect($_POST[$key], array_keys($form->getOptionValueList($system_path)))) {
+                        if (!$this->_validateSelect($_POST[$key], $form->getOptionValueList($system_path))) {
                             $this->errors[$work_path][] = __('Incorrect value');
                             $result = false;
                             continue;
