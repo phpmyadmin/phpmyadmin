@@ -1340,6 +1340,15 @@ select#db_select, select#table_select {
     border-bottom: 1px #999999 solid;
 }
 
+.export_sub_options li.subgroup {
+	display: inline-block;
+	margin-top: 0;
+}
+
+.export_sub_options li {
+	margin-bottom: 0;
+}
+
 #quick_or_custom, #output_quick_export {
     display: none;
 }

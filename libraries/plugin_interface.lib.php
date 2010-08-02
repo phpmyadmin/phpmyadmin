@@ -266,7 +266,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         $ret .= '</ul></div>';
     } elseif ($opt['type'] == 'begin_subgroup') {
         /* each subgroup can have a header, which may also be a form element */
-        $ret .=  PMA_pluginGetOneOption($section, $plugin_name, $id, $opt['subgroup_header']) . '<li><ul';
+        $ret .=  PMA_pluginGetOneOption($section, $plugin_name, $id, $opt['subgroup_header']) . '<li class="subgroup"><ul';
         if(isset($opt['subgroup_header']['name'])) {
             $ret .= ' id="ul_' . $opt['subgroup_header']['name'] . '">';
         } else {
