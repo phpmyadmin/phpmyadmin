@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-28 05:45-0400\n"
+"POT-Creation-Date: 2010-07-31 14:12-0400\n"
 "PO-Revision-Date: 2010-03-30 23:16+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -90,6 +90,7 @@ msgid "Use this value"
 msgstr "Χρήση αυτής της τιμής"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
+#: libraries/blobstreaming.lib.php:362
 msgid "No blob streaming server configured!"
 msgstr ""
 
@@ -1406,7 +1407,8 @@ msgstr ""
 msgid "Databases"
 msgstr "Βάσεις Δεδομένων"
 
-#: libraries/Message.class.php:210 libraries/common.lib.php:574
+#: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:339
+#: libraries/blobstreaming.lib.php:345 libraries/common.lib.php:574
 #: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
@@ -1621,21 +1623,44 @@ msgstr "Δεν τοποθετήθηκε κανένα έγκυρο κλειδί �
 msgid "Authenticating..."
 msgstr "Επικύρωση..."
 
-#: libraries/blobstreaming.lib.php:340
+#: libraries/blobstreaming.lib.php:272
+msgid "PBMS error"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:298
+#, fuzzy
+#| msgid "Page creation failed"
+msgid "PBMS connection failed:"
+msgstr "Η δημιουργία σελίδας απέτυχε"
+
+#: libraries/blobstreaming.lib.php:343
+msgid "PBMS get BLOB info failed:"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:351
+msgid "get BLOB Content-Type failed"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:377
 msgid "View image"
 msgstr "Προβολή εικόνας"
 
-#: libraries/blobstreaming.lib.php:344
+#: libraries/blobstreaming.lib.php:381
 msgid "Play audio"
 msgstr "Αναπαραγωγή ήχου"
 
-#: libraries/blobstreaming.lib.php:349
+#: libraries/blobstreaming.lib.php:386
 msgid "View video"
 msgstr "Προβολή βίντεο"
 
-#: libraries/blobstreaming.lib.php:353
+#: libraries/blobstreaming.lib.php:390
 msgid "Download file"
 msgstr "Λήψη αρχείου"
+
+#: libraries/blobstreaming.lib.php:451
+#, php-format
+msgid "Could not open file: %s"
+msgstr ""
 
 #: libraries/common.inc.php:567
 msgid ""
@@ -3323,7 +3348,7 @@ msgstr "Ευρετήριο"
 msgid "Fulltext"
 msgstr "Πλήρες κείμενο"
 
-#: libraries/mult_submits.inc.php:433 tbl_replace.php:330
+#: libraries/mult_submits.inc.php:433 tbl_replace.php:326
 msgid "No change"
 msgstr "Χωρίς αλλαγή"
 
@@ -8126,7 +8151,7 @@ msgstr ""
 msgid "ZIP"
 msgstr "ZIP"
 
-#: sql.php:494 tbl_replace.php:384
+#: sql.php:494 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
@@ -8135,7 +8160,7 @@ msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
 msgid "Showing as PHP code"
 msgstr "Εμφάνιση ως κώδικά PHP"
 
-#: sql.php:514 tbl_replace.php:358
+#: sql.php:514 tbl_replace.php:354
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
