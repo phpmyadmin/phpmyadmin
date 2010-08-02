@@ -1,14 +1,12 @@
 <?php
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Various checks and message functions used on index page.
  *
  * Security checks are the idea of Aung Khant <aungkhant[at]yehg.net>, http://yehg.net/lab
  * Version check taken from the old setup script by Michal Čihař <michal@cihar.com>
  *
- * @package    phpMyAdmin-setup
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
+ * @package phpMyAdmin-setup
  */
 
 if (!defined('PHPMYADMIN')) {

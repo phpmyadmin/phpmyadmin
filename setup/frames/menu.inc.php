@@ -2,9 +2,7 @@
 /**
  * Menu items
  *
- * @package    phpMyAdmin-setup
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
+ * @package phpMyAdmin-setup
  */
 
 if (!defined('PHPMYADMIN')) {

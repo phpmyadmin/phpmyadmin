@@ -1,13 +1,21 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * List of avaible forms, each form is described as an array of fields to display.
  * Fields MUST have their counterparts in the $cfg array.
  *
  * To define form field, use the notatnion below:
- * $forms['Form group']['Form name'] = array('Servers/1/host');
+ * $forms['Form group']['Form name'] = array('Option/path');
  *
  * You can assign default values set by special button ("set value: ..."), eg.:
- * $forms['Server']['pmadb form'] = array('Servers/1/pmadb' => 'phpmyadmin');
+ * 'Servers/1/pmadb' => 'phpmyadmin'
+ *
+ * To group options, use:
+ * ':group:' . __('group name') // just define a group
+ * or
+ * 'option' => ':group' // group starting from this option
+ * End group blocks with:
+ * ':group:end'
  *
  * @package phpMyAdmin
  */

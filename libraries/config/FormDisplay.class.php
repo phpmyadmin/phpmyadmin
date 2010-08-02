@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Form management class, displays and processes forms
  *
@@ -8,8 +9,7 @@
  * o translated_path - work_path modified for HTML field name, a path with
  *                     slashes changed to hyphens, eg. Servers-4-verbose
  *
- * @package    phpMyAdmin
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
+ * @package phpMyAdmin
  */
 
 /**

@@ -1,14 +1,15 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Config file generator
  *
- * @package    phpMyAdmin-setup
+ * @package phpMyAdmin-setup
  */
 
 /**
  * Config file generation class
  *
- * @package    phpMyAdmin
+ * @package phpMyAdmin
  */
 class ConfigGenerator
 {

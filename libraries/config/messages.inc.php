@@ -1,11 +1,13 @@
 <?php
-/* $Id$ */
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Messages for phpMyAdmin.
  *
  * This file is here for easy transition to Gettext. You should not add any
  * new messages here, use instead gettext directly in your template/PHP
  * file.
+ *
+ * @package phpMyAdmin
  */
 
 if (!function_exists('__')) {

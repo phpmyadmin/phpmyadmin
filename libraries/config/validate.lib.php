@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Various validation functions
  *
@@ -11,8 +12,7 @@
  *
  * Valdiation functions are assigned in $cfg_db['_validators'] (config.values.php).
  *
- * @package    phpMyAdmin
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
+ * @package phpMyAdmin
  */
 
 /**

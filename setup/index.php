@@ -5,7 +5,6 @@
  * @package    phpMyAdmin-setup
  * @copyright  Copyright (c) 2008, Piotr Przybylski <piotrprz@gmail.com>
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
  */
 
 /**

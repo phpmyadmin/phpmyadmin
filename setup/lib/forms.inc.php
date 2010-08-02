@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * List of avaible forms, each form is described as an array of fields to display.
  * Fields MUST have their counterparts in the $cfg array.
@@ -12,9 +13,7 @@
  * $forms['Server_pmadb'] = array('Servers' => array(1 => array(
  *  'pmadb' => 'phpmyadmin')));
  *
- * @package    phpMyAdmin-setup
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    $Id$
+ * @package phpMyAdmin-setup
  */
 
 $forms = array();
