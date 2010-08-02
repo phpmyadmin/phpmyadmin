@@ -91,12 +91,7 @@ class PMA_StorageEngine
               && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED')) {
                 continue;
             }
-            // currently (MySQL 5.1.26) there is no way we can be informed
-            // that PBMS does not support normal table creation so
-            // we use an exception here
-            if ('PBMS' == $details['Engine']) {
-                continue;
-            }
+
             $output .= '    <option value="' . htmlspecialchars($key). '"'
                 . (empty($details['Comment'])
                     ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
@@ -144,6 +139,9 @@ class PMA_StorageEngine
      */
     static public function isValid($engine)
     {
+        if ($engine == "PBMS") {
+            return TRUE;
+        }
         $storage_engines = PMA_StorageEngine::getStorageEngines();
         return isset($storage_engines[$engine]);
     }
@@ -265,6 +263,8 @@ class PMA_StorageEngine
         return $mysql_vars;
     }
 
+    function engine_init() {}
+
     /**
      * Constructor
      *
@@ -303,7 +303,9 @@ class PMA_StorageEngine
                 default:
                     $this->support = PMA_ENGINE_SUPPORT_NO;
             }
-        }
+        } else {
+            $this->engine_init();
+		}
     }
 
     /**

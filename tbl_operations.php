@@ -9,7 +9,6 @@
  *
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/Table.class.php';
 
 $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 
@@ -23,7 +22,6 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 /**
  * Gets relation settings
  */
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -638,6 +636,54 @@ $this_url_params = array_merge($url_params,
 </ul>
 </fieldset>
 </div>
+<?php if (! (isset($db_is_information_schema) && $db_is_information_schema)) { ?>
+<div id="div_table_removal">
+<fieldset class="caution">
+ <legend><?php echo __('Delete data or table'); ?></legend>
+
+<ul>
+<?php
+if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
+    $this_sql_query = 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table']);
+    $this_url_params = array_merge($url_params,
+        array(
+            'sql_query' => $this_sql_query,
+            'goto' => 'tbl_structure.php',
+            'reload' => '1',
+            'zero_rows' => sprintf(__('Table %s has been emptied'), htmlspecialchars($table)),
+        ));
+    ?>
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
+            <?php echo __('Empty the table (TRUNCATE)'); ?></a>
+        <?php echo PMA_showMySQLDocu('SQL-Syntax', 'TRUNCATE_TABLE'); ?>
+    </li>
+<?php
+}
+if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
+    $this_sql_query = 'DROP TABLE ' . PMA_backquote($GLOBALS['table']);
+    $this_url_params = array_merge($url_params,
+        array(
+            'sql_query' => $this_sql_query,
+            'goto' => 'db_operations.php',
+            'reload' => '1',
+            'purge' => '1',
+            'zero_rows' => sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table)),
+            'table' => NULL,
+        ));
+    ?>
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">
+            <?php echo __('Delete the table (DROP)'); ?></a>
+        <?php echo PMA_showMySQLDocu('SQL-Syntax', 'DROP_TABLE'); ?>
+    </li>
+<?php
+}
+?>
+</ul>
+</fieldset>
+</div>
+<?php
+}
+?>
 <?php if (PMA_Partition::havePartitioning()) {
     $partition_names = PMA_Partition::getPartitionNames($db, $table);
     // show the Partition maintenance section only if we detect a partition
@@ -744,7 +790,7 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 
 
 function PMA_set_global_variables_for_engine($tbl_type)

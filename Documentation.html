@@ -69,7 +69,7 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
                 </li>
 		<li>To support uploading of ZIP files, you need the PHP <tt>zip</tt> extension.</li>
         <li>For proper support of multibyte strings (eg. UTF-8, which is
-            currently default), you should install mbstring and ctype
+            currently the default), you should install the mbstring and ctype
             extensions.
         </li>
             <li>You need GD2 support in PHP to display inline
@@ -84,6 +84,9 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
                 </li>
                 <li>To support upload progress bars, see <a href="#faq2_9">
                     <abbr title="Frequently Asked Questions">FAQ</abbr> 2.9</a>.</li>
+                <li>To support BLOB streaming, see PHP and MySQL requirements
+                in <a href="#faq6_25">
+                    <abbr title="Frequently Asked Questions">FAQ</abbr> 6.25</a>.</li>
         </ul>
     </li>
     <li><b>MySQL</b> 5.0 or newer (<a href="#faq1_17">details</a>);</li>
@@ -167,7 +170,7 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
 
 <ol><li><a href="#quick_install">Quick Install</a></li>
     <li><a href="#setup_script">Setup script usage</a></li>
-    <li><a href="#linked-tables">Linked-tables infrastructure</a></li>
+    <li><a href="#linked-tables">phpMyAdmin configuration storage</a></li>
     <li><a href="#upgrading">Upgrading from an older version</a></li>
     <li><a href="#authentication_modes">Using authentication modes</a></li>
 </ol>
@@ -323,7 +326,7 @@ rm -rf config                      # remove not needed directory
     </li>
 </ol>
 
-<h3 id="linked-tables">Linked-tables infrastructure</h3>
+<h3 id="linked-tables">phpMyAdmin configuration storage</h3>
 
 <p> For a whole set of new features (bookmarks, comments,
     <abbr title="structured query language">SQL</abbr>-history,
@@ -370,7 +373,7 @@ rm -rf config                      # remove not needed directory
     is version-specific.</p>
 
 <p> If you have upgraded your MySQL server from a version previous to 4.1.2 to
-    version 4.1.2 or newer and if you use the pmadb/linked table infrastructure,
+    version 4.1.2 or newer and if you use the phpMyAdmin configuration storage,
     you should run the SQL script found in
     <tt>scripts/upgrade_tables_mysql_4_1_2+.sql</tt>.</p>
 
@@ -440,8 +443,9 @@ GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
 GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 </pre>
 
-        (this of course requires that your <a href="#linked-tables">linked-tables
-        infrastructure</a> be set up).<br /></li>
+        (this of course requires that your <a href="#linked-tables">phpMyAdmin
+        configuration storage</a> be set up).  
+    <br /></li>
 
     <li>Then each of the <i>true</i> users should be granted a set of privileges
         on a set of particular databases. Normally you shouldn't give global
@@ -862,11 +866,11 @@ since this link provides funding for phpMyAdmin.
     <dt id="pmadb">
         <span id="cfg_Servers_pmadb">$cfg['Servers'][$i]['pmadb']</span> string
     </dt>
-    <dd>The name of the database containing the linked-tables infrastructure.
+    <dd>The name of the database containing the phpMyAdmin configuration storage.
         <br /><br />
 
-        See the <a href="#linked-tables">Linked-tables infrastructure</a>
-        section in this document to see the benefits of this infrastructure,
+        See the <a href="#linked-tables">phpMyAdmin configuration storage</a>
+        section in this document to see the benefits of this feature,
         and for a quick way of creating this database and the needed tables.
         <br /><br />
 
@@ -875,7 +879,7 @@ since this link provides funding for phpMyAdmin.
         case, just put your current database name in
         <tt>$cfg['Servers'][$i]['pmadb']</tt>. For a multi-user installation,
         set this parameter to the name of your central database containing
-        the linked-tables infrastructure.</dd>
+        the phpMyAdmin configuration storage.</dd>
 
     <dt id="bookmark">
         <span id="cfg_Servers_bookmarktable">$cfg['Servers'][$i]['bookmarktable']</span> string
@@ -884,7 +888,7 @@ since this link provides funding for phpMyAdmin.
         useful for queries you often run.<br /><br />
 
         To allow the usage of this functionality:
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>enter the table name in
                 <tt>$cfg['Servers'][$i]['bookmarktable']</tt></li>
         </ul>
@@ -920,8 +924,8 @@ since this link provides funding for phpMyAdmin.
 
         To allow the usage of this functionality:
 
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
-                infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin 
+                configuration storage</li>
             <li>put the relation table name in
                 <tt>$cfg['Servers'][$i]['relation']</tt></li>
             <li>now as normal user open phpMyAdmin and for each one of your
@@ -945,7 +949,7 @@ since this link provides funding for phpMyAdmin.
         cursor over the corresponding key.<br />
         This configuration variable will hold the name of this special
         table. To allow the usage of this functionality:
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in
                 <tt>$cfg['Servers'][$i]['table_info']</tt> (e.g.
                 'pma_table_info')</li>
@@ -972,8 +976,7 @@ since this link provides funding for phpMyAdmin.
 
         To allow the usage of this functionality:
 
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
-                infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the correct table names in
                 <tt>$cfg['Servers'][$i]['table_coords']</tt> and
                 <tt>$cfg['Servers'][$i]['pdf_pages']</tt></li>
@@ -1004,8 +1007,7 @@ since this link provides funding for phpMyAdmin.
         <br /><br />
 
         To allow the usage of this functionality:
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
-                infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in
                 <tt>$cfg['Servers'][$i]['column_info']</tt> (e.g.
                 'pma_column_info')</li>
@@ -1045,8 +1047,7 @@ ALTER TABLE `pma_column_comments`
 
         To allow the usage of this functionality:
 
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
-                infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in <tt>$cfg['Servers'][$i]['history']</tt>
             (e.g. 'pma_history')
                 </li>
@@ -1078,7 +1079,7 @@ ALTER TABLE `pma_column_comments`
         To allow the usage of this functionality:
 
         <ul>
-            <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
+            <li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in <tt>$cfg['Servers'][$i]['tracking']</tt> (e.g. 'pma_tracking')</li>
         </ul>
     </dd>
@@ -1149,8 +1150,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 
         To allow the usage of this functionality:
 
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
-                infrastructure</li>
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in <tt>$cfg['Servers'][$i]['designer_coords']</tt> (e.g. 'pma_designer_coords')
                 </li>
         </ul>
@@ -2182,9 +2182,9 @@ setfacl -d -m "g:www-data:rwx" tmp
         <span id="cfg_DefaultQueryDatabase">$cfg['DefaultQueryDatabase']</span> string
     </dt>
     <dd>Default queries that will be displayed in query boxes when user didn't
-        specify any. Use %d for database name, %t for table name and %f for a
-        comma separated list of column names. Note that %t and %f are only
-        applicable to <tt>$cfg['DefaultQueryTable']</tt>.</dd>
+        specify any. You can use standard 
+        <a href="#faq6_27">format string expansion</a>.
+        </dd>
 
     <dt id="cfg_SQP_fmtType">$cfg['SQP']['fmtType'] string [<tt>html</tt>|<tt>none</tt>]</dt>
     <dd>
@@ -4306,14 +4306,21 @@ chmod o+rwx tmp
 <h4 id="faq6_25">
 	<a href="#faq6_25">6.25 How does BLOB streaming work in phpMyAdmin?</a></h4>
 
-<p> First, for general information about BLOB streaming on MySQL, visit <a href="http://blobstreaming.org">blobstreaming.org</a>. We currently support streaming if you are running MySQL 5.1 with the PBXT and PBMS storage engines. Moreover, only PBMS 0.5.04 is supported.</p>
+<p> For general information about BLOB streaming on MySQL, visit <a href="http://blobstreaming.org">blobstreaming.org</a>. You need the following components:</p>
+<ul>
+    <li>PBMS BLOB Streaming Daemon for MySQL (0.5.15 or later)</li>
+    <li>Streaming enabled PBXT Storage engine for MySQL (1.0.11-6 or
+    later)</li>
+    <li>PBMS Client Library for MySQL (0.5.15 or later)</li>
+    <li>PBMS PHP Extension for MySQL (0.1.1 or later)</li>
+</ul>
+
+<p>Here are details about configuration and operation:</p>
 
 <ol>
-	<li>In <tt>config.inc.php</tt> your host should be defined with a FQDN (fully qualified domain name) instead of something like &quot;localhost&quot;.</li>
-	<li>A current limitation is that your first login via phpMyAdmin to a freshly-started server must be done with an account that has the SUPER privilege.</li>
-	<li>On your target database, go to Operations and in the &quot;BLOB Repository&quot; section, click &quot;Enable&quot;. This creates the PBMS system tables inside your database.</li>
+	<li>In <tt>config.inc.php</tt> your host should be defined with a FQDN (fully qualified domain name) instead of &quot;localhost&quot;.</li>
 	<li>Ensure that your target table is under the PBXT storage engine and has a LONGBLOB column.</li>
-	<li>When you insert or update a row in this table, put a checkmark on the &quot;Upload to BLOB repository&quot; optional choice; otherwise, the upload will be done directly in your column instead of the repository.</li>
+	<li>When you insert or update a row in this table, put a checkmark on the &quot;Upload to BLOB repository&quot; optional choice; otherwise, the upload will be done directly in your LONGBLOB column instead of the repository.</li>
 	<li>Finally when you browse your table, you'll see in your column a link to stream your data, for example &quot;View image&quot;. A header containing the correct MIME-type will be sent to your browser; this MIME-type was stored at upload time but in case it's incorrect, it's possible to edit it by clicking on the displayed MIME-type.</li> 
 </ol>	
 
@@ -4346,6 +4353,8 @@ chmod o+rwx tmp
         <dd>Currently opened database</dd>
     <dt><code>@TABLE@</code></dt>
         <dd>Currently opened table</dd>
+    <dt><code>@FIELDS@</code></dt>
+        <dd>Fields of currently opened table</dd>
     <dt><code>@PHPMYADMIN@</code></dt>
         <dd>phpMyAdmin with version</dd>
 </dl>
@@ -4843,6 +4852,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <li>Tom&#225;&#353; Srnka (Google Summer of Code 2009)
 <ul>
   <li>Replication support</li>
+</ul></li>
+
+<li>Barrie Leslie
+<ul>
+  <li>BLOBstreaming support with PBMS PHP extension</li>
 </ul></li>
 
 </ul>

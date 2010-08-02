@@ -10,11 +10,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- *
- */
-require_once './libraries/relation.lib.php';
-
-/**
  * Cleanu column related relation stuff
  *
  * @uses PMA_getRelationsParam()

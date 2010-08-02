@@ -654,19 +654,19 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
                 $back_url .= '?no_history=true';
             }
 
-	     $_SESSION['Import_message']['go_back_url'] = $back_url;
+            $_SESSION['Import_message']['go_back_url'] = $back_url;
 
             $error_msg_output .= '<fieldset class="tblFooters">';
             $error_msg_output .= '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]';
             $error_msg_output .= '</fieldset>' . "\n\n";
-        }
+       }
 
-        echo $error_msg_output;
-        /**
-         * display footer and exit
-         */
+       echo $error_msg_output;
+       /**
+        * display footer and exit
+        */
 
-        require_once './libraries/footer.inc.php';
+       require './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
     }
@@ -791,18 +791,11 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
     // load PMA configuration
     $PMA_Config = $GLOBALS['PMA_Config'];
 
-    // if PMA configuration exists
-    if (!empty($PMA_Config))
-        $session_bs_tables = $GLOBALS['PMA_Config']->get('BLOBSTREAMING_TABLES');
-
     foreach ($tables as $table_name => $table) {
         // if BS tables exist
-        if (isset($session_bs_tables))
-            // compare table name to tables in list of blobstreaming tables
-            foreach ($session_bs_tables as $table_key=>$table_val)
-                // if table is in list, skip outer foreach loop
-                if ($table_name == $table_key)
-                    continue 2;
+        if (PMA_BS_IsHiddenTable($table_name)) {
+            continue;
+        }
 
         // check for correct row count
         if (null === $table['Rows']) {
@@ -1277,6 +1270,17 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($refresh_link)) {
             PMA_profilingCheckbox($sql_query);
         }
+        // if needed, generate an invisible form that contains controls for the
+        // Inline link; this way, the behavior of the Inline link does not
+        // depend on the profiling support or on the refresh link
+        if (empty($refresh_link) || ! PMA_profilingSupported()) {
+            echo '<form action="sql.php" method="post">';
+            echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+            echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />';
+            echo '</form>';
+        }
+
+        // see in js/functions.js the jQuery code attached to id inline_edit
         $inline_edit = "<script type=\"text/javascript\">\n" .
             "//<![CDATA[\n" .
             "document.write('[<a href=\"#\" title=\"" .
@@ -2101,7 +2105,8 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
             $condition .= 'IS NULL AND';
         } else {
             // timestamp is numeric on some MySQL 4.1
-            if ($meta->numeric && $meta->type != 'timestamp') {
+            // for real we use CONCAT above and it should compare to string
+            if ($meta->numeric && $meta->type != 'timestamp' && $meta->type != 'real') {
                 $condition .= '= ' . $row[$i] . ' AND';
             } elseif (($meta->type == 'blob' || $meta->type == 'string')
                 // hexify only if this is a true not empty BLOB or a BINARY
@@ -2884,6 +2889,24 @@ function PMA_expandUserString($string, $escape = NULL, $updates = array()) {
         foreach($replace as $key => $val) {
             $replace[$key] = $escape($val);
         }
+    }
+
+    /* Fetch fields list if required */
+    if (strpos($string, '@FIELDS@') !== FALSE) {
+        $fields_list = PMA_DBI_fetch_result(
+            'SHOW COLUMNS FROM ' . PMA_backquote($GLOBALS['db'])
+            . '.' . PMA_backquote($GLOBALS['table']));
+
+        $field_names = array();
+        foreach ($fields_list as $field) {
+            if (!is_null($escape)) {
+                $field_names[] = $escape($field['Field']);
+            } else {
+                $field_names[] = $field['Field'];
+            }
+        }
+
+        $replace['@FIELDS@'] = implode(',', $field_names);
     }
 
     /* Do the replacement */

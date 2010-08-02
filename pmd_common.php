@@ -13,7 +13,6 @@ require_once './libraries/header_http.inc.php';
 
 $GLOBALS['PMD']['STYLE']          = 'default';
 
-require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 $GLOBALS['script_display_field'] =

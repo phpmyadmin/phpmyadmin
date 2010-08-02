@@ -28,6 +28,6 @@ require_once './libraries/display_import.lib.php';
 /**
  * Displays the footer
  */
-require_once './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>
 

@@ -59,7 +59,6 @@ if (empty($_REQUEST['asfile'])) {
 // Does export require to be into file?
 if (isset($export_list[$type]['force_file']) && ! $asfile) {
     $message = PMA_Message::error(__('Selected export type has to be saved in file!'));
-    $GLOBALS['js_include'][] = 'functions.js';
     require_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
@@ -298,7 +297,6 @@ if ($save_on_server) {
         }
     }
     if (isset($message)) {
-        $GLOBALS['js_include'][] = 'functions.js';
         require_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
@@ -350,7 +348,6 @@ if (!$save_on_server) {
             $num_tables = count($tables);
             if ($num_tables == 0) {
                 $message = PMA_Message::error(__('No tables found in database.'));
-                $GLOBALS['js_include'][] = 'functions.js';
                 require_once './libraries/header.inc.php';
                 $active_page = 'db_export.php';
                 require './db_export.php';
@@ -386,7 +383,6 @@ $do_relation = isset($GLOBALS[$what . '_relation']);
 $do_comments = isset($GLOBALS[$what . '_comments']);
 $do_mime     = isset($GLOBALS[$what . '_mime']);
 if ($do_relation || $do_comments || $do_mime) {
-    require_once './libraries/relation.lib.php';
     $cfgRelation = PMA_getRelationsParam();
 }
 if ($do_mime) {
@@ -565,7 +561,6 @@ if (!PMA_exportFooter()) {
 // End of fake loop
 
 if ($save_on_server && isset($message)) {
-    $GLOBALS['js_include'][] = 'functions.js';
     require_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
@@ -622,7 +617,6 @@ if (!empty($asfile)) {
             $message = new PMA_Message(__('Dump has been saved to file %s.'), PMA_Message::SUCCESS, $save_filename);
         }
 
-        $GLOBALS['js_include'][] = 'functions.js';
         require_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
@@ -673,6 +667,6 @@ else {
 //]]>
 </script>
 <?php
-    require_once './libraries/footer.inc.php';
+    require './libraries/footer.inc.php';
 } // end if
 ?>
