@@ -38,7 +38,6 @@ if (isset($plugin_list)) {
         array('type' => 'bool', 'name' => 'export_triggers', 'text' => __('Triggers'));
     $plugin_list['xml']['options'][] =
         array('type' => 'bool', 'name' => 'export_views', 'text' => __('Views'));
-    $plugin_list['xml']['options'][] = array('type' => 'end_subgroup');
     $plugin_list['xml']['options'][] = array('type' => 'end_group');
     
     /* Data */
