@@ -55,6 +55,14 @@ if (isset($single_table)) {
 
 echo '<input type="hidden" name="export_type" value="' . $export_type . '" />' . "\n";
 
+// If the export method was not set, the default is quick
+if(!isset($cfg['Export']['method'])) {
+    $cfg['Export']['method'] = 'quick';
+}
+// The export method (quick, custom or custom-no-form)
+echo '<input type="hidden" name="export_method" value="' . $cfg['Export']['method'] . '" />';
+
+
 if (! empty($sql_query)) {
     echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
 }
@@ -78,11 +86,21 @@ if (! empty($sql_query)) {
     <h3><?php echo __('Export Method:'); ?></h3>
     <ul>
         <li>
-            <?php echo '<input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export" checked="checked" />';
-                echo '<label for ="radio_quick_export">' . __('Quick - display only the minimal options to configure') . '</label>'; ?>
+            <?php echo '<input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export"';
+            if($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
+                echo ' />';
+            } else {
+                echo ' checked="checked" />';
+            }
+            echo '<label for ="radio_quick_export">' . __('Quick - display only the minimal options to configure') . '</label>'; ?>
         </li>
         <li>
-            <?php echo '<input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export" />';
+            <?php echo '<input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export"';
+            if($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
+                echo ' checked="checked" />';
+            } else {
+                echo ' />';
+            }
             echo '<label for="radio_custom_export">' . __('Custom - display all possible options to configure') . '</label>';?>
         </li>
     </ul>
