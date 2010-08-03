@@ -13,8 +13,8 @@ function getFieldName(this_field_obj, disp_mode) {
     else {
         var this_field_index = $(this_field_obj).index();
         if(window.parent.text_dir == 'ltr') {
-            // 3 columns to account for the checkbox, edit and delete anchors
-            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ (this_field_index-3 )+') a').text();
+            // 4 columns to account for the checkbox, edit, delete and appended inline edit anchors
+            var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ (this_field_index-4 )+') a').text();
         }
         else {
             var field_name = $(this_field_obj).parents('table').find('thead').find('th:nth('+ this_field_index+') a').text();
@@ -36,6 +36,40 @@ $(document).ready(function() {
     $("#top_direction_dropdown, #bottom_direction_dropdown").live('change', function(event) {
         disp_mode = $(this).val();
     })
+
+    if(disp_mode == 'vertical') {
+        var cloned_row = $('.edit_row_anchor').removeClass('edit_row_anchor').parent('tr').clone();
+        
+        $(cloned_row).find('td').addClass('edit_row_anchor')
+        .find('a').attr('href', '#')
+        .find('img').attr('title', 'Inline Edit');
+
+        $(cloned_row).insertBefore($('.where_clause').parent('tr'));
+
+        $("#table_results").find('tr:first').find('th')
+        .attr('rowspan', '4');
+    }
+    else {
+        $('.edit_row_anchor').each(function() {
+
+            $(this).removeClass('edit_row_anchor');
+
+            var cloned_anchor = $(this).clone();
+
+            $(cloned_anchor).addClass('edit_row_anchor')
+            .find('a').attr('href', '#')
+            .find('img').attr('title', 'Inline Edit');
+
+            $(this).siblings('.where_clause')
+            .before(cloned_anchor);
+        });
+
+        $('#rowsDeleteForm').find('thead').find('th').each(function() {
+            if($(this).attr('colspan') == 3) {
+                $(this).attr('colspan', '4')
+            }
+        })
+    }
 
     $('<span id="togglequerybox"></span>')
     .html(PMA_messages['strToggleQueryBox'])
