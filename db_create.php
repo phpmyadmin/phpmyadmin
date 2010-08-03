@@ -54,7 +54,45 @@ if (! $result) {
     $GLOBALS['db'] = $new_db;
 
     if($GLOBALS['is_ajax_request'] == true) {
-        PMA_ajaxResponse($message, true);
+
+        $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query, 'success');
+
+        //Construct the html for the new database, so that it can be appended to the list of databases on server_databases.php
+
+        $db_url_params['db'] = $new_db;
+
+        $is_superuser = PMA_isSuperuser();
+
+        $new_db_string = '<tr>';
+
+        if ($is_superuser || $cfg['AllowUserDropDatabase']) {
+            $new_db_string .= '<td class="tool">';
+            $new_db_string .= '<input type="checkbox" title="'. $new_db .'" value="' . $new_db . '" name="selected_dbsp[]" />';
+            $new_db_string .='</td>';
+        }
+
+        $new_db_string .= '<td class="name">';
+        $new_db_string .= '<a target="_parent" title="Jump to database" href="index.php' . PMA_generate_common_url($db_url_params) . '">';
+        $new_db_string .= $new_db . '</a>';
+        $new_db_string .= '</td>';
+
+        if($is_superuser) {
+            
+            $db_url_params['checkprivs'] = $new_db;
+
+            $new_db_string .= '<td class="tool">';
+            $new_db_string .= '<a title="Check privileges for database" href="server_privileges.php' . PMA_generate_common_url($db_url_params) . '">';
+            $new_db_string .= ($cfg['PropertiesIconic']
+                                 ? '<img class="icon" src="' . $pmaThemeImage . 's_rights.png" width="16" height="16" alt=" ' . __('Check Privileges') . '" /> '
+                                 : __('Check Privileges'))  . '</a>';
+            $new_db_string .= '</td>';
+        }
+
+        $new_db_string .= '</tr>';
+
+        $extra_data['new_db_string'] = $new_db_string;
+
+        PMA_ajaxResponse($message, true, $extra_data);
     }
 
     require_once './libraries/header.inc.php';

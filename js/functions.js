@@ -2090,9 +2090,10 @@ $(document).ready(function() {
                 $("#tabledatabases")
                 .find('tbody')
                 .append(data.new_db_string)
-                .PMA_sort_table('.name');
-
-                //PMA_sort_table($("#tabledatabases tbody"), '.name');
+                .PMA_sort_table('.name')
+                .find('#db_summary_row')
+                .appendTo('#tabledatabases tbody')
+                .removeClass('odd even');
             }
             else {
                 PMA_ajaxShowMessage(data.error);
