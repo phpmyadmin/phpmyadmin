@@ -103,6 +103,7 @@ $js_messages['strChangeDisplay'] = __('Choose column to display');
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');
 $js_messages['strGenerate'] = __('Generate');
+$js_messages['strChangePassword'] = __('Change Password');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

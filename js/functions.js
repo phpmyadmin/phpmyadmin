@@ -2073,3 +2073,50 @@ $(document).ready(function() {
         })
     })
 })
+
+/**
+ * jQuery coding for 'Change Password' on main.php
+ */
+$(document).ready(function() {
+
+    $('#change_password_anchor').live('click', function(event) {
+        event.preventDefault();
+
+        var button_options = {};
+
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
+
+        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            $('<div id="change_password_dialog></div>')
+            .dialog({
+                title: top.frame_content.PMA_messages['strChangePassword'],
+                width: 600,
+                buttons : button_options
+            })
+            .append(data);
+        })
+    })
+
+    $("#change_password_form").find('input[name=change_pw]').live('click', function(event) {
+        event.preventDefault();
+
+        var the_form = $("#change_password_form");
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+
+        $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
+            if(data.success == true) {
+
+                PMA_ajaxShowMessage(data.message);
+                
+                $("#topmenucontainer").after(data.sql_query);
+
+                $("#change_password_dialog").hide().remove();
+            }
+            else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        })
+    })
+})
