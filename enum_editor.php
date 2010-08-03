@@ -40,6 +40,8 @@ require_once './libraries/header_meta_style.inc.php';
                     for($i = $field_counter+1; $i <= $total_fields; $i++) {
                         echo '<input type="text" size="30" name="field' . $i . '"/>';
                     }
+                } else {
+                    $_GET['extra_fields'] = 0;
                 }
 
             ?>
