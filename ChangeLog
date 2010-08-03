@@ -100,6 +100,8 @@ $Id$
   configuration storage.
 - [interface] Move drop/empty links from being tabs to Operations tab.
 - [interface] Fixed rendering of error/notice/info titles background.
+- patch #3038293 [doc] Language and grammar fixes,
+  thanks to Isaac Bennetch - ibennetch
 
 3.3.6.0 (not yet released)
 - bug #3033063 [core] Navi gets wrong db name

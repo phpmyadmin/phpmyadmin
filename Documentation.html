@@ -2425,11 +2425,11 @@ setfacl -d -m "g:www-data:rwx" tmp
     transformations.</p>
 
 <p> Because the user cannot enter own mimetypes, it is kept sure that transformations
-    always work. It makes no sense to apply a transformation to a mimetype, the
+    always work. It makes no sense to apply a transformation to a mimetype the
     transform-function doesn't know to handle.</p>
 
 <p> One can, however, use empty mime-types and global transformations which should work
-    for many mimetypes. You can also use transforms on a different mimetype they where built
+    for many mimetypes. You can also use transforms on a different mimetype than what they where built
     for, but pay attention to option usage as well as what the transformation does to your
     column.</p>
 
@@ -4337,8 +4337,8 @@ chmod o+rwx tmp
     In all places where phpMyAdmin accepts format strings, you can use
     <code>@VARIABLE@</code> expansion and 
     <a href="http://php.net/strftime">strftime</a> format strings. The
-    expanded variables depend on a context (eg. if you don't have chosen 
-    table, you can not get table name), but following variables can be used:
+    expanded variables depend on a context (for example, if you haven't chosen a 
+    table, you can not get the table name), but the following variables can be used:
 </p>
 <dl>
     <dt><code>@HTTP_HOST@</code></dt>
