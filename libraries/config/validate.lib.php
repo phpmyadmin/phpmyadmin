@@ -132,6 +132,16 @@ function PMA_config_validate($validator_id, &$values, $isPostSource)
 }
 
 /**
+ * Empty error handler, used to temporarily restore PHP internal error handler
+ * 
+ * @return bool
+ */
+function PMA_null_error_handler()
+{
+    return false;
+}
+
+/**
  * Ensures that $php_errormsg variable will be registered in case of an error
  * and enables output buffering (when $start = true).
  * Called with $start = false disables output buffering end restores
@@ -141,17 +151,25 @@ function PMA_config_validate($validator_id, &$values, $isPostSource)
  */
 function test_php_errormsg($start = true)
 {
-    static $old_html_errors, $old_track_errors;
+    static $old_html_errors, $old_track_errors, $old_error_reporting;
+    static $old_display_errors;
     if ($start) {
         $old_html_errors = ini_get('html_errors');
         $old_track_errors = ini_get('track_errors');
+        $old_display_errors = ini_get('display_errors');
+        $old_error_reporting = error_reporting(E_ALL);
         ini_set('html_errors', false);
         ini_set('track_errors', true);
+        ini_set('display_errors', true);
+        set_error_handler("PMA_null_error_handler");
         ob_start();
     } else {
         ob_end_clean();
+        restore_error_handler();
+        error_reporting($old_error_reporting);
         ini_set('html_errors', $old_html_errors);
         ini_set('track_errors', $old_track_errors);
+        ini_set('display_errors', $old_display_errors);
     }
 }
 
