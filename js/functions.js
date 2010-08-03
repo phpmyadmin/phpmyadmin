@@ -1828,6 +1828,47 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
 };
 
 /**
+ * Function to sort a table's body after a new row has been appended to it.
+ * Also fixes the even/odd classes of the table rows at the end.
+ *
+ * @param   jQuery obj  table_body      jQuery object that refers to the table's body
+ * @param   string      text_selector   string to select the sortKey's text
+ */
+function PMA_sort_table(table_body, text_selector) {
+    //collect all rows
+    var rows = $(table_body).find('tr').get();
+
+    //get the text of the field that we will sort by
+    $.each(rows, function(index, row) {
+        row.sortKey = $(row).find(text_selector).text().toLowerCase();
+    })
+
+    //get the sorted order
+    rows.sort(function(a,b) {
+        if(a.sortKey < b.sortKey) {
+            return -1;
+        }
+        if(a.sortKey > b.sortKey) {
+            return 1;
+        }
+        return 0;
+    })
+
+    //pull out each row from the table and then append it according to it's order'
+    $.each(rows, function(index, row) {
+        $(table_body).append(row);
+        row.sortKey = null;
+    })
+
+    //Re-check the classes of each row
+    $(table_body).find('tr:odd')
+    .removeClass('even').addClass('odd')
+    .end()
+    .find('tr:even')
+    .removeClass('odd').addClass('even');
+}
+
+/**
  * jQuery coding for 'Create Table'.  Used on db_operations.php,
  * db_structure.php and db_tracking.php (i.e., wherever
  * libraries/display_create_table.lib.php is used)
@@ -1896,33 +1937,7 @@ $(document).ready(function() {
                     .appendTo(tables_table);
 
                     //sort the table
-                    var rows = $(tables_table).find('tr').get();
-
-                    $.each(rows, function(index, row) {
-                        row.sortKey = $(row).find('th').text().toLowerCase();
-                    })
-
-                    rows.sort(function(a,b) {
-                        if(a.sortKey < b.sortKey) {
-                            return -1;
-                        }
-                        if(a.sortKey > b.sortKey) {
-                            return 1;
-                        }
-                        return 0;
-                    })
-
-                    $.each(rows, function(index, row) {
-                        $(tables_table).append(row);
-                        row.sortKey = null;
-                    })
-
-                    //fix the row classes
-                    $(tables_table)
-                    .find('tr:even')
-                    .removeClass('odd').addClass('even')
-                    .end().find('tr:odd')
-                    .removeClass('even').addClass('odd');
+                    PMA_sort_table(tables_table, 'th');
 
                     //Refresh navigation frame
                     window.parent.refreshNavigation();

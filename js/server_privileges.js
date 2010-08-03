@@ -127,34 +127,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     .end();
 
     //Let us sort the table alphabetically
-    var rows = $("#usersForm").find('tbody tr').get();
-
-    $.each(rows, function(index, row) {
-        row.sortKey = $(row).find('label').text().toLowerCase();
-    })
-
-    rows.sort(function(a,b) {
-        if(a.sortKey < b.sortKey) {
-            return -1;
-        }
-        if(a.sortKey > b.sortKey) {
-            return 1;
-        }
-        return 0;
-    })
-
-    $.each(rows, function(index, row) {
-        $('#usersForm').find('tbody').append(row);
-        row.sortKey = null;
-    })
-
-    //Re-check the classes of each row
-    $("#usersForm")
-    .find('tbody').find('tr:odd')
-    .removeClass('even').addClass('odd')
-    .end()
-    .find('tr:even')
-    .removeClass('odd').addClass('even');
+    PMA_sort_table($("#usersForm").find('tbody'), 'label');
 
     $("#initials_table").find('td:contains('+new_user_initial+')')
     .html(new_user_initial_string);
