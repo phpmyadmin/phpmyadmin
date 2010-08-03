@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 if (isset($plugin_list)) {
     $plugin_list['json'] = array(
         'text'          => 'JSON',
-        'extension'     => 'php',
+        'extension'     => 'json',
         'mime_type'     => 'text/plain',
         'options'       => array(
             array(
