@@ -121,6 +121,35 @@ function checkBLOBStreamingPlugins()
             return FALSE;
         } // end if (count($bs_variables) <= 0)
 
+        // Check that the required pbms functions exist:
+        if ((function_exists("pbms_connect") == FALSE) ||
+            (function_exists("pbms_error") == FALSE) ||
+            (function_exists("pbms_close") == FALSE) ||
+            (function_exists("pbms_is_blob_reference") == FALSE) ||
+            (function_exists("pbms_get_info") == FALSE) ||
+            (function_exists("pbms_get_metadata_value") == FALSE) ||
+            (function_exists("pbms_add_metadata") == FALSE) ||
+            (function_exists("pbms_read_stream") == FALSE)) {
+
+            // We should probably notify the user that they need to install
+            // the pbms client lib and PHP extension to make use of blob streaming.
+            $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', FALSE);
+            PMA_cacheSet('skip_blobstreaming', true, true);
+            return FALSE;
+        }
+
+        if (function_exists("pbms_connection_pool_size")) {
+            if ( isset($PMA_Config->settings['pbms_connection_pool_size'])) {
+                $pool_size = $PMA_Config->settings['pbms_connection_pool_size'];
+                if ($pool_size == "") {
+                    $pool_size = 1;
+                }
+            } else {
+                $pool_size = 1;
+            }
+            pbms_connection_pool_size($pool_size);
+        }
+
          // get BS server port
         $BS_PORT = $bs_variables['pbms_port'];
 
@@ -290,7 +319,14 @@ function PMA_BS_IsPBMSReference($bs_reference, $db_name)
     }
 
     // You do not really need a connection to the PBMS Daemon
-    // to check if a reference looks valid.
+    // to check if a reference looks valid but unfortunalty the API
+    // requires one at this point so until the API is updated
+    // we need to epen one here. If you use pool connections this
+    // will not be a performance problem.
+     if (PMA_do_connect($db_name, FALSE) == FALSE) {
+        return FALSE;
+    }
+   
     $ok = pbms_is_blob_reference($bs_reference);
     return $ok ;
 }
@@ -494,34 +530,4 @@ function PMA_BS_getURL($reference)
     return $bs_url;
 }
 
-/**
- * returns the field name for a primary key of a given table in a given database
- *
- * @access  public
- * @param   string - database name
- * @param   string - table name
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_fetch_assoc()
- * @return  string - field name for primary key
-*/
-function PMA_BS_GetPrimaryField($db_name, $tbl_name)
-{
-    // select specified database
-    PMA_DBI_select_db($db_name);
-
-    // retrieve table fields
-    $query = "SHOW FULL FIELDS FROM " . PMA_backquote($tbl_name);
-    $result = PMA_DBI_query($query);
-
-    // while there are records to parse
-    while ($data = PMA_DBI_fetch_assoc($result)) {
-        if ("PRI" == $data['Key']) {
-            return $data['Field'];
-        }
-    }
-    // return NULL on no primary key
-    return NULL;
-}
 ?>
