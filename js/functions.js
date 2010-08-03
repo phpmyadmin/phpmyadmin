@@ -1828,44 +1828,46 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
 };
 
 /**
- * Function to sort a table's body after a new row has been appended to it.
+ * jQuery function to sort a table's body after a new row has been appended to it.
  * Also fixes the even/odd classes of the table rows at the end.
  *
- * @param   jQuery obj  table_body      jQuery object that refers to the table's body
  * @param   string      text_selector   string to select the sortKey's text
  */
-function PMA_sort_table(table_body, text_selector) {
-    //collect all rows
-    var rows = $(table_body).find('tr').get();
+jQuery.fn.PMA_sort_table = function(text_selector) {
+    return this.each(function() {
+        var table_body = $(this);
+        //collect all rows
+        var rows = $(this).find('tr').get();
 
-    //get the text of the field that we will sort by
-    $.each(rows, function(index, row) {
-        row.sortKey = $(row).find(text_selector).text().toLowerCase();
+        //get the text of the field that we will sort by
+        $.each(rows, function(index, row) {
+            row.sortKey = $.trim($(row).find(text_selector).text().toLowerCase());
+        })
+
+        //get the sorted order
+        rows.sort(function(a,b) {
+            if(a.sortKey < b.sortKey) {
+                return -1;
+            }
+            if(a.sortKey > b.sortKey) {
+                return 1;
+            }
+            return 0;
+        })
+
+        //pull out each row from the table and then append it according to it's order'
+        $.each(rows, function(index, row) {
+            $(table_body).append(row);
+            row.sortKey = null;
+        })
+
+        //Re-check the classes of each row
+        $(this).find('tr:odd')
+        .removeClass('even').addClass('odd')
+        .end()
+        .find('tr:even')
+        .removeClass('odd').addClass('even');
     })
-
-    //get the sorted order
-    rows.sort(function(a,b) {
-        if(a.sortKey < b.sortKey) {
-            return -1;
-        }
-        if(a.sortKey > b.sortKey) {
-            return 1;
-        }
-        return 0;
-    })
-
-    //pull out each row from the table and then append it according to it's order'
-    $.each(rows, function(index, row) {
-        $(table_body).append(row);
-        row.sortKey = null;
-    })
-
-    //Re-check the classes of each row
-    $(table_body).find('tr:odd')
-    .removeClass('even').addClass('odd')
-    .end()
-    .find('tr:even')
-    .removeClass('odd').addClass('even');
 }
 
 /**
@@ -1936,8 +1938,10 @@ $(document).ready(function() {
                     .end()
                     .appendTo(tables_table);
 
+                    $(tables_table).PMA_sort_table('th');
+
                     //sort the table
-                    PMA_sort_table(tables_table, 'th');
+                    //PMA_sort_table(tables_table, 'th');
 
                     //Refresh navigation frame
                     window.parent.refreshNavigation();
@@ -2081,6 +2085,14 @@ $(document).ready(function() {
         $.post($(this).attr('action'), $(this).serialize(), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
+
+                //Append database's row to table
+                $("#tabledatabases")
+                .find('tbody')
+                .append(data.new_db_string)
+                .PMA_sort_table('.name');
+
+                //PMA_sort_table($("#tabledatabases tbody"), '.name');
             }
             else {
                 PMA_ajaxShowMessage(data.error);

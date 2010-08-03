@@ -127,7 +127,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     .end();
 
     //Let us sort the table alphabetically
-    PMA_sort_table($("#usersForm").find('tbody'), 'label');
+    $("#usersForm").find('tbody').PMA_sort_table('label');
 
     $("#initials_table").find('td:contains('+new_user_initial+')')
     .html(new_user_initial_string);
