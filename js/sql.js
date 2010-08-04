@@ -5,6 +5,13 @@
  * @version $Id$
  */
 
+/**
+ * Get the field name for the current field.  Required to construct the query
+ * for inline editing
+ *
+ * @param   this_field_obj  jQuery object that points to the current field's tr
+ * @param   disp_mode       string
+ */
 function getFieldName(this_field_obj, disp_mode) {
 
     if(disp_mode == 'vertical') {
@@ -26,20 +33,16 @@ function getFieldName(this_field_obj, disp_mode) {
     return field_name;
 }
 
-$(document).ready(function() {
-
-    /**
-     * @var disp_mode   current value of the direction in which the table is displayed
-     */
-    var disp_mode = $("#top_direction_dropdown").val();
-
-    $("#top_direction_dropdown, #bottom_direction_dropdown").live('change', function(event) {
-        disp_mode = $(this).val();
-    })
-
+/**
+ * The function that iterates over each row in the table_results and appends a
+ * new inline edit anchor to each table row.
+ *
+ * @param   string  disp_mode
+ */
+function appendInlineAnchor(disp_mode) {
     if(disp_mode == 'vertical') {
         var cloned_row = $('.edit_row_anchor').removeClass('edit_row_anchor').parent('tr').clone();
-        
+
         $(cloned_row).find('td').addClass('edit_row_anchor')
         .find('a').attr('href', '#')
         .find('img').attr('title', 'Inline Edit');
@@ -70,6 +73,24 @@ $(document).ready(function() {
             }
         })
     }
+}
+
+$(document).ready(function() {
+
+    /**
+     * @var disp_mode   current value of the direction in which the table is displayed
+     */
+    var disp_mode = $("#top_direction_dropdown").val();
+
+    $("#top_direction_dropdown, #bottom_direction_dropdown").live('change', function(event) {
+        disp_mode = $(this).val();
+    })
+
+    appendInlineAnchor(disp_mode);
+
+    $("#sqlqueryresults").ajaxSuccess(function() {
+        appendInlineAnchor(disp_mode);
+    })
 
     $('<span id="togglequerybox"></span>')
     .html(PMA_messages['strToggleQueryBox'])
