@@ -462,10 +462,11 @@ class FormDisplay
     private function _validateSelect(&$value, array $allowed)
     {
         foreach ($allowed as $vk => $v) {
-          if ($value == $vk) {
-              settype($value, gettype($v));
-              return true;
-          }
+            // force string comparison so that 0 isn't equal to any string
+            if ((string)$value == (string)$vk) {
+                settype($value, gettype($v));
+                return true;
+            }
         }
         return false;
     }
