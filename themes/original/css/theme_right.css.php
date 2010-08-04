@@ -1273,12 +1273,23 @@ table#serverconnection_trg_local  {
   */
  .ajax_notification {
     top: 0px;
-    left: 45%;
     position: fixed;
-    margin: 0 auto;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
     padding: 3px 5px;
     min-width: 70px;
+    max-width: 350px;
     background-color: #FFD700;
     z-index: 1100;
     text-align: center;
+    display: block;
+    left: 0;
+    right: 0;
+ }
+
+ #loading_parent {
+    position: relative;
+    width: 100%;
  }

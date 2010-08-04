@@ -1771,8 +1771,11 @@ function PMA_ajaxShowMessage(message, timeout) {
 
     if( !ajax_message_init) {
         $(function(){
+            $('<div id="loading_parent"></div>')
+            .insertBefore("#serverinfo");
+
             $('<span id="loading" class="ajax_notification"></span>')
-            .insertBefore("#serverinfo")
+            .appendTo("#loading_parent")
             .html(msg)
             .slideDown('medium')
             .delay(to)
