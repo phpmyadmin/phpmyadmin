@@ -175,6 +175,8 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
             } else {
                 $return_url = 'prefs_manage.php';
             }
+            // reload config
+            $GLOBALS['PMA_Config']->loadUserPreferences();
             PMA_userprefs_redirect($forms, $old_settings, $return_url, $params);
             exit;
         } else {

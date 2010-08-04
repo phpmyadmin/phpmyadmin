@@ -52,6 +52,8 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
     $old_settings = PMA_load_userprefs();
     $result = PMA_save_userprefs(ConfigFile::getInstance()->getConfigArray());
     if ($result === true) {
+        // reload config
+        $GLOBALS['PMA_Config']->loadUserPreferences();
         $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
         PMA_userprefs_redirect($forms, $old_settings, 'prefs_forms.php', array(
             'form' => $form_param), $hash);

@@ -458,6 +458,7 @@ class PMA_Config
         $config_data = $_SESSION['cache'][$cache_key]['userprefs'];
         // type is 'db' or 'session'
         $this->set('user_preferences', $_SESSION['cache'][$cache_key]['userprefs_type']);
+        $this->set('user_preferences_mtime', $_SESSION['cache'][$cache_key]['userprefs_mtime']);
 
         // backup some settings
         $org_fontsize = $this->settings['fontsize'];
@@ -712,7 +713,7 @@ class PMA_Config
             $fontsize +
             $this->source_mtime +
             $this->default_source_mtime +
-            (isset($_SESSION['cache']['userprefs_mtime']) ? $_SESSION['cache']['userprefs_mtime'] : 0) +
+            $this->get('user_preferences_mtime') +
             $_SESSION['PMA_Theme']->mtime_info +
             $_SESSION['PMA_Theme']->filesize_info)
             . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'],1,6) : '');
