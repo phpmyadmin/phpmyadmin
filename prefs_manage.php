@@ -87,14 +87,16 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
             }
         }
         $cf = ConfigFile::getInstance();
-        if (empty($_POST['import_merge'])) {
-            $cf->resetConfigData();
+        $new_config = $cf->getFlatDefaultConfig();
+        if (!empty($_POST['import_merge'])) {
+            $new_config = array_merge($new_config, $cf->getConfigArray());
         }
+        $new_config = array_merge($new_config, $config);
         $_POST_bak = $_POST;
-        foreach ($cf->getFlatDefaultConfig() as $k => $v) {
+        foreach ($new_config as $k => $v) {
             $_POST[str_replace('/', '-', $k)] = $v;
         }
-        $_POST = array_merge($_POST, $config);
+        $cf->resetConfigData();
         $all_ok = $form_display->process(true, false);
         $all_ok = $all_ok && !$form_display->hasErrors();
         $_POST = $_POST_bak;

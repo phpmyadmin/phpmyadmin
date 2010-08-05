@@ -461,9 +461,14 @@ class FormDisplay
      */
     private function _validateSelect(&$value, array $allowed)
     {
+        $value_cmp = is_bool($value)
+            ? (int) $value
+            : $value;
         foreach ($allowed as $vk => $v) {
-            // force string comparison so that 0 isn't equal to any string
-            if ((string)$value == (string)$vk) {
+            // equality comparison only if both values are numeric or not numeric
+            // (allows to skip 0 == 'string' equalling to true) or identity (for string-string)
+            if (($vk == $value && !(is_numeric($value_cmp) xor is_numeric($vk)))
+                    || $vk === $value) {
                 settype($value, gettype($v));
                 return true;
             }
