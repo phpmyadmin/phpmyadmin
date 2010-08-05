@@ -11,6 +11,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   them to string.
 - bug #3034026 [confirmation] TRUNCATE queries get no confirmation request
 - bug #3036132 [core] Triggers not fetched if dbname has an hyphen
+- patch #3039269 [dbi] Wrong variable checked for nopassword option,
+  thanks to Will Palmer - wpalmer
 
 3.3.5.0 (2010-07-26)
 - patch #2932113 [information_schema] Slow export when having lots of
