@@ -641,6 +641,13 @@ if (0 == $num_rows || $is_affected) {
                 $column_name = $transformation['column_name'];
                 $column_data = $edited_values[$column_name];
 
+                $_url_params = array(
+                    'db'            => $db,
+                    'table'         => $table,
+                    'where_clause'  => $_REQUEST['where_clause'],
+                    'transform_key' => $column_name,
+                );
+
                 if (file_exists('./libraries/transformations/' . $include_file)) {
                     $transformfunction_name = str_replace('.inc.php', '', $transformation['transformation']);
 
@@ -649,7 +656,7 @@ if (0 == $num_rows || $is_affected) {
                     if (function_exists('PMA_transformation_' . $transformfunction_name)) {
                         $transform_function = 'PMA_transformation_' . $transformfunction_name;
                         $transform_options  = PMA_transformation_getOptions((isset($transformation['transformation_options']) ? $transformation['transformation_options'] : ''));
-                        //$meta->mimetype     = str_replace('_', '/', $GLOBALS['mime_map'][$meta->name]['mimetype']);
+                        $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
                     }
                 }
 

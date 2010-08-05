@@ -46,7 +46,6 @@ function initPBMSDatabase()
  * @uses    PMA_Config::get()
  * @uses    PMA_Config::settings()
  * @uses    PMA_Config::set()
- * @uses    PMA_BS_SetVariables()
  * @uses    PMA_BS_GetVariables()
  * @uses    PMA_cacheSet()
  * @uses    PMA_cacheGet()
@@ -203,36 +202,6 @@ function checkBLOBStreamingPlugins()
 }
 
 /**
- * sets BLOBStreaming variables to a list of specified arguments
- * @access  public
- * @uses    PMA_DBI_query()
- * @returns boolean - success of variables setup
-*/
-
-function PMA_BS_SetVariables($bs_variables)
-{
-    // if no variables exist in array, return false
-    if (empty($bs_variables) || count($bs_variables) == 0)
-        return FALSE;
-
-    // set BS variables to those specified in array
-    foreach ($bs_variables as $key=>$val)
-        if (!is_null($val) && strlen($val) > 0)
-        {
-            // set BS variable to specified value
-            $query = "SET GLOBAL $key=" . PMA_sqlAddSlashes($val);
-            $result = PMA_DBI_query($query);
-
-            // if query fails execution, return false
-            if (!$result)
-                return FALSE;
-        } // end if (!is_null($val) && strlen($val) > 0)
-
-    // return true on success
-    return TRUE;
-}
-
-/**
  * returns a list of BLOBStreaming variables used by MySQL
  *
  * @access  public
@@ -269,7 +238,7 @@ function PMA_BS_GetVariables()
 function PMA_BS_ReportPBMSError($msg)
 {
     $tmp_err = pbms_error();
-    PMA_showMessage("PBMS error, $msg $tmp_err");
+    PMA_showMessage(__('PBMS error') . " $msg $tmp_err");
 }
 
 //------------
@@ -278,8 +247,9 @@ function PMA_do_connect($db_name, $quiet)
     $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
-    if (empty($PMA_Config))
+    if (empty($PMA_Config)) {
         return FALSE;
+    }
 
     // generate bs reference link
     $pbms_host = $PMA_Config->get('BLOBSTREAMING_HOST');
@@ -294,7 +264,7 @@ function PMA_do_connect($db_name, $quiet)
 
     if ($ok == FALSE) {
         if ($quiet == FALSE) {
-            PMA_BS_ReportPBMSError("PBMS Connection failed: pbms_connect($pbms_host, $pbms_port, $db_name)");
+            PMA_BS_ReportPBMSError(__('PBMS connection failed:') . " pbms_connect($pbms_host, $pbms_port, $db_name)");
         }
         return FALSE;
     }
@@ -335,19 +305,19 @@ function PMA_BS_IsPBMSReference($bs_reference, $db_name)
 function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
 {
     if (PMA_do_connect($db_name, FALSE) == FALSE) {
-        return 'Error';
+        return __('Error');
     }
 
     if (pbms_get_info(trim($bs_reference)) == FALSE) {
-        PMA_BS_ReportPBMSError("PBMS get BLOB info failed: pbms_get_info($bs_reference)");
+        PMA_BS_ReportPBMSError(__('PBMS get BLOB info failed:') . " pbms_get_info($bs_reference)");
         PMA_do_disconnect();
-        return 'Error';
+        return __('Error');
     }
 
     $content_type = pbms_get_metadata_value("Content-Type");
     if ($content_type == FALSE) {
         $br = trim($bs_reference);
-        PMA_BS_ReportPBMSError("'$content_type' PMA_BS_CreateReferenceLink('$br', '$db_name'): get BLOB Content-Type failed: ");
+        PMA_BS_ReportPBMSError("PMA_BS_CreateReferenceLink('$br', '$db_name'): " . __('get BLOB Content-Type failed'));
     }
 
     PMA_do_disconnect();
@@ -358,11 +328,12 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
 
     $bs_url = PMA_BS_getURL($bs_reference);
     if (empty($bs_url)) {
-        PMA_BS_ReportPBMSError("No blob streaming server configured!");
+        PMA_BS_ReportPBMSError(__('No blob streaming server configured!'));
         return 'Error';
     }
 
-    $output = "<a href=\"#\" onclick=\"requestMIMETypeChange('" . urlencode($db_name) . "', '" . urlencode($GLOBALS['table']) . "', '" . urlencode($bs_reference) . "', '" . urlencode($content_type) . "')\">$content_type</a>";
+    //$output = "<a href=\"#\" onclick=\"requestMIMETypeChange('" . urlencode($db_name) . "', '" . urlencode($GLOBALS['table']) . "', '" . urlencode($bs_reference) . "', '" . urlencode($content_type) . "')\">$content_type</a>";
+    $output = $content_type;
 
     // specify custom HTML for various content types
     switch ($content_type) {
@@ -447,7 +418,7 @@ function PMA_BS_UpLoadFile($db_name, $tbl_name, $file_type, $file_name)
     $fh = fopen($file_name, 'r');
     if (! $fh) {
         PMA_do_disconnect();
-        PMA_showMessage("Could not open file: $file_name");
+        PMA_showMessage(sprintf(__('Could not open file: %s'), $file_name));
         return FALSE;
     }
 
@@ -455,7 +426,7 @@ function PMA_BS_UpLoadFile($db_name, $tbl_name, $file_type, $file_name)
 
     $pbms_blob_url = pbms_read_stream($fh, filesize($file_name), $tbl_name);
     if (! $pbms_blob_url) {
-        PMA_BS_ReportPBMSError("pbms_read_stream() Failed");
+        PMA_BS_ReportPBMSError("pbms_read_stream()");
     }
 
     fclose($fh);
@@ -472,7 +443,7 @@ function PMA_BS_SetContentType($db_name, $bsTable, $blobReference, $contentType)
 
     // This is a really ugly way to do this but currently there is nothing better.
     // In a future version of PBMS the system tables will be redesigned to make this
-    // more eficient.
+    // more efficient.
     $query = "SELECT Repository_id, Repo_blob_offset FROM pbms_reference  WHERE Blob_url='" . PMA_sqlAddslashes($blobReference) . "'";
     //error_log(" PMA_BS_SetContentType: $query\n", 3, "/tmp/mylog");
     $result = PMA_DBI_query($query);
