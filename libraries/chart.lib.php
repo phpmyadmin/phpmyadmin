@@ -81,6 +81,11 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
         $chartSettings['type'] = 'bar';
     }
 
+    // set default type if not already set
+    if (empty($chartSettings['continuous'])) {
+        $chartSettings['continuous'] = 'off';
+    }
+
     // set default bar type if needed
     if ($chartSettings['type'] == 'bar' && empty($chartSettings['barType'])) {
         $chartSettings['barType'] = 'stacked';
