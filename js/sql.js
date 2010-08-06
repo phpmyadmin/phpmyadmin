@@ -86,11 +86,11 @@ $(document).ready(function() {
         disp_mode = $(this).val();
     })
 
-    appendInlineAnchor(disp_mode);
-
-    $("#sqlqueryresults").ajaxSuccess(function() {
+    $("#sqlqueryresults").live('appendAnchor',function() {
         appendInlineAnchor(disp_mode);
     })
+
+    $("#sqlqueryresults").trigger('appendAnchor');
 
     $('<span id="togglequerybox"></span>')
     .html(PMA_messages['strToggleQueryBox'])
@@ -117,8 +117,9 @@ $(document).ready(function() {
             }
             else {
                 $("#sqlqueryresults").html(data);
+                $("#sqlqueryresults").trigger('appendAnchor');
                 if($("#togglequerybox").siblings(":visible").length > 0) {
-                $("#togglequerybox").trigger('click');
+                    $("#togglequerybox").trigger('click');
                 }
             }
         })
@@ -134,6 +135,7 @@ $(document).ready(function() {
 
         $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
             $("#sqlqueryresults").html(data);
+            $("#sqlqueryresults").trigger('appendAnchor');
         })
     })// end Paginate results table
 
@@ -145,6 +147,7 @@ $(document).ready(function() {
 
         $.get($(this).attr('href'), $(this).serialize() + '&ajax_request=true', function(data) {
             $("#sqlqueryresults").html(data);
+            $("#sqlqueryresults").trigger('appendAnchor');
         })
     })// end Paginate results with Page Selector
 
@@ -156,6 +159,7 @@ $(document).ready(function() {
 
         $.get($(this).attr('href'), $(this).serialize() + '&ajax_request=true', function(data) {
             $("#sqlqueryresults").html(data);
+            $("#sqlqueryresults").trigger('appendAnchor');
         })
     })//end Sort results table
 
@@ -165,6 +169,7 @@ $(document).ready(function() {
 
         $.post($(this).attr('action'), $(this).serialize() + '&ajax_request=true' , function(data) {
             $("#sqlqueryresults").html(data);
+            $("#sqlqueryresults").trigger('appendAnchor');
         })
     })
     //end displayOptionsForm handler
@@ -374,7 +379,7 @@ $(document).ready(function() {
 
                             $.each(data.transformations, function(key, value) {
                                 if(key == field_name) {
-                                    if($(this_field).hasClass('text_plain')) {
+                                    if($(this_field).is('.text_plain, .application_octetstream')) {
                                         new_html = value;
                                         return false;
                                     }
