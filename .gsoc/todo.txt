@@ -1,9 +1,1 @@
 restore cache'ing in phpmyadmin.css.php
-remove debug from user preferences header
-
-
-info about setup script in prefs manage, it seems many people still don't know it exists
-(and maybe some description in docs on making it work with live configuration?)
-
-
-show blacklist (and debug?) on prefs manage page
