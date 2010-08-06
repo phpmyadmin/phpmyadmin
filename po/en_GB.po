@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-07-26 16:54+0200\n"
+"PO-Revision-Date: 2010-07-30 22:24+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -92,17 +92,16 @@ msgstr "Use this value"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:362
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "No blob streaming server configured!"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Failed to write file to disk."
+msgstr "Failed to fetch headers"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Failed to open remote URL"
 
 #: db_create.php:44
 #, php-format
@@ -250,10 +249,9 @@ msgid "and then"
 msgstr "and then"
 
 #: db_operations.php:379
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Rename database to"
+msgstr "Remove database"
 
 #: db_operations.php:391
 #, php-format
@@ -261,10 +259,9 @@ msgid "Database %s has been dropped."
 msgstr "Database %s has been dropped."
 
 #: db_operations.php:396
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Go to database"
+msgstr "Drop the database (DROP)"
 
 #: db_operations.php:424
 msgid "Copy database to"
@@ -316,7 +313,7 @@ msgid "Collation"
 msgstr "Collation"
 
 #: db_operations.php:498 pdf_schema.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -324,8 +321,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
+"The phpMyAdmin configuration storage has been deactivated. To find out why "
+"click %shere%s."
 
 #: db_operations.php:531
 msgid "Edit PDF Pages"
@@ -2525,20 +2522,16 @@ msgstr ""
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
-msgstr "Garbage threshold"
+msgstr "Garbage Threshold"
 
 #: libraries/engines/pbms.lib.php:32
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr ""
-"The percentage of garbage in a data log file before it is compacted. This is "
-"a value between 1 and 99. The default is 50."
+msgstr "The percentage of garbage in a repository file before it is compacted."
 
 #: libraries/engines/pbms.lib.php:36 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
@@ -2550,10 +2543,12 @@ msgid ""
 "The port for the PBMS stream-based communications. Setting this value to 0 "
 "will disable HTTP communication with the daemon."
 msgstr ""
+"The port for the PBMS stream-based communications. Setting this value to 0 "
+"will disable HTTP communication with the daemon."
 
 #: libraries/engines/pbms.lib.php:41
 msgid "Repository Threshold"
-msgstr ""
+msgstr "Repository Threshold"
 
 #: libraries/engines/pbms.lib.php:42
 msgid ""
@@ -2561,22 +2556,26 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"The maximum size of a BLOB repository file. You may use Kb, MB or GB to "
+"indicate the unit of the value. A value in bytes is assumed when no unit is "
+"specified."
 
 #: libraries/engines/pbms.lib.php:46
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "Temp Blob Timeout"
 
 #: libraries/engines/pbms.lib.php:47
 msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
+"The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
+"after this time, unless they are referenced by a record in the database."
 
 #: libraries/engines/pbms.lib.php:51
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Log file threshold"
+msgstr "Temp Log Threshold"
 
 #: libraries/engines/pbms.lib.php:52
 msgid ""
@@ -2584,26 +2583,34 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"The maximum size of a temporary BLOB log file. You may use Kb, MB or GB to "
+"indicate the unit of the value. A value in bytes is assumed when no unit is "
+"specified."
 
 #: libraries/engines/pbms.lib.php:56
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "Max Keep Alive"
 
 #: libraries/engines/pbms.lib.php:57
 msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"The timeout for inactive connection with the keep-alive flag set. After this "
+"time the connection will be closed. The time-out is in milliseconds "
+"(1/1000)."
 
 #: libraries/engines/pbms.lib.php:61
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Metadata Headers"
 
 #: libraries/engines/pbms.lib.php:62
 msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
+"A \":\" delimited list of metadata headers to be used to initialize the "
+"pbms_metadata_header table when a database is created."
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
@@ -6652,7 +6659,6 @@ msgid "Signon login options"
 msgstr "Signon login options"
 
 #: setup/lib/messages.inc.php:128
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
 #| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -6663,8 +6669,8 @@ msgid ""
 "in documentation"
 msgstr ""
 "Configure phpMyAdmin database to gain access to additional features, see "
-"[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
-"documentation"
+"[a@../Documentation.html#linked-tables]phpMyAdmin configuration storage[/a] "
+"in documentation"
 
 #: setup/lib/messages.inc.php:129 setup/lib/messages.inc.php:290
 msgid "PMA database"
@@ -8054,20 +8060,18 @@ msgid "Flush the table (FLUSH)"
 msgstr "Flush the table (FLUSH)"
 
 #: tbl_operations.php:642
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
-msgstr "Delete tracking data for this table"
+msgstr "Delete data or table"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Empty the table (TRUNCATE)"
 
 #: tbl_operations.php:675
-#, fuzzy
 #| msgid "Go to database"
 msgid "Delete the table (DROP)"
-msgstr "Go to database"
+msgstr "Delete the table (DROP)"
 
 #: tbl_operations.php:696
 msgid "Partition maintenance"
@@ -8438,66 +8442,3 @@ msgstr "VIEW name"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Rename view to"
-
-#, fuzzy
-#~| msgid "Table name"
-#~ msgid "Table removal"
-#~ msgstr "Table name"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "BLOB Repository"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Enabled"
-
-#~ msgid "Disable"
-#~ msgstr "Disable"
-
-#~ msgid "Damaged"
-#~ msgstr "Damaged"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Repair"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Disabled"
-
-#~ msgid "Enable"
-#~ msgstr "Enable"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Allow character set conversion"
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "Default character set used for conversions"
-
-#~ msgid "Default character set"
-#~ msgstr "Default character set"
