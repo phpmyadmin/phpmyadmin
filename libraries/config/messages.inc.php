@@ -14,7 +14,6 @@ if (!function_exists('__')) {
     die('Bad invocation!');
 }
 
-
 $strConfigAllowArbitraryServer_desc = __('If enabled user can enter any MySQL server in login form for cookie auth');
 $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
 $strConfigAllowThirdPartyFraming_desc = __('Enabling this allows a page located on a different domain to call phpMyAdmin inside a frame, and is a potential [strong]security hole[/strong] allowing cross-frame scripting attacks');
@@ -206,8 +205,6 @@ $strConfigForm_Server_pmadb = __('Configuration storage');
 $strConfigForm_Server_pmadb_desc = __('Configure phpMyAdmin configuration storage to gain access to additional features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration storage[/a] in documentation');
 $strConfigForm_Server_tracking = __('Changes tracking');
 $strConfigForm_Server_tracking_desc = __('Tracking of changes made in database. Requires configured PMA database.');
-$strConfigForm_Warnings = __('Warnings');
-$strConfigForm_Warnings_desc = __('Disable some of the warnings shown by phpMyAdmin');
 $strConfigFormset_Export = __('Customize export options');
 $strConfigFormset_Features = __('Features');
 $strConfigFormset_Import = __('Customize import defaults');
@@ -230,6 +227,8 @@ $strConfigForm_Text_fields = __('Text fields');
 $strConfigForm_Text_fields_desc = __('Customize text input fields');
 $strConfigForm_Texy = __('Texy! text');
 $strConfigForm_Texy_desc = __('Customize default options');
+$strConfigForm_Warnings = __('Warnings');
+$strConfigForm_Warnings_desc = __('Disable some of the warnings shown by phpMyAdmin');
 $strConfigGZipDump_desc = __('Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import and export operations');
 $strConfigGZipDump_name = __('GZip');
 $strConfigIconvExtraParams_name = __('Extra parameters for iconv');
@@ -469,12 +468,12 @@ $strConfigSQLQuery_Validate_name = __('Validate SQL');
 $strConfigSQLValidator_password_name = __('Password');
 $strConfigSQLValidator_use_desc = __('[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be installed');
 $strConfigSQLValidator_use_name = __('Enable SQL Validator');
-$strConfigSQLValidator_username_name = __('Username');
 $strConfigSQLValidator_username_desc = __('If you have a custom username, specify it here (defaults to [kbd]anonymous[/kbd])');
-$strConfigSuhosinDisableWarning_desc = __('A warning is displayed on the main page if Suhosin is detected');
-$strConfigSuhosinDisableWarning_name = __('Suhosin warning');
+$strConfigSQLValidator_username_name = __('Username');
 $strConfigSuggestDBName_desc = __('Suggest a database name on the &quot;Create Database&quot; form (if possible) or keep the text field empty');
 $strConfigSuggestDBName_name = __('Suggest new database name');
+$strConfigSuhosinDisableWarning_desc = __('A warning is displayed on the main page if Suhosin is detected');
+$strConfigSuhosinDisableWarning_name = __('Suhosin warning');
 $strConfigTextareaCols_desc = __('Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25)');
 $strConfigTextareaCols_name = __('Textarea columns');
 $strConfigTextareaRows_desc = __('Textarea size (rows) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25)');
@@ -493,8 +492,8 @@ $strConfigUploadDir_desc = __('Directory on server where you can upload files fo
 $strConfigUploadDir_name = __('Upload directory');
 $strConfigUseDbSearch_desc = __('Allow for searching inside the entire database');
 $strConfigUseDbSearch_name = __('Use database search');
-$strConfigUserprefsDeveloperTab_name = __('Enable the Developer tab in settings');
 $strConfigUserprefsDeveloperTab_desc = __('When disabled, users cannot set any of the options below, regardless of the checkbox on the right');
+$strConfigUserprefsDeveloperTab_name = __('Enable the Developer tab in settings');
 $strConfigVerboseMultiSubmit_desc = __('Show affected rows of each statement on multiple-statement queries. See libraries/import.lib.php for defaults on how many queries a statement may contain.');
 $strConfigVerboseMultiSubmit_name = __('Verbose multiple statements');
 $strConfigVersionCheckLink = __('Check for latest version');
