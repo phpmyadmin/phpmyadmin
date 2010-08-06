@@ -1587,7 +1587,7 @@ msgstr "Authentification en cours..."
 
 #: libraries/blobstreaming.lib.php:272
 msgid "PBMS error"
-msgstr ""
+msgstr "Erreur PBMS"
 
 #: libraries/blobstreaming.lib.php:298
 #, fuzzy
