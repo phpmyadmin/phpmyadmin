@@ -2551,7 +2551,6 @@ msgstr ""
 "ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "Seuil des informations parasites"
