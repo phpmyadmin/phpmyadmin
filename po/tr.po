@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-31 14:12-0400\n"
+"POT-Creation-Date: 2010-08-06 08:03-0400\n"
 "PO-Revision-Date: 2010-07-31 21:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -90,12 +90,11 @@ msgid "Use this value"
 msgstr "Bu değeri kullan"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
-#: libraries/blobstreaming.lib.php:362
+#: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
 msgstr "Yapılandırılmış blob akış sunucusu yok!"
 
 #: bs_disp_as_mime_type.php:35
-#| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
 msgstr "Üstbilgileri getirmek başarısız oldu"
 
@@ -249,7 +248,6 @@ msgid "and then"
 msgstr "ve sonra"
 
 #: db_operations.php:379
-#| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Veritabanını kaldır"
 
@@ -259,7 +257,6 @@ msgid "Database %s has been dropped."
 msgstr "%s veritabanı kaldırıldı."
 
 #: db_operations.php:396
-#| msgid "Go to database"
 msgid "Drop the database (DROP)"
 msgstr "Veritabanını kaldır (DROP)"
 
@@ -314,9 +311,6 @@ msgstr "Karşılaştırma"
 
 #: db_operations.php:498 pdf_schema.php:32
 #, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
@@ -494,7 +488,6 @@ msgstr "\"<i>%s</i>\" %s için arama sonuçları:"
 
 #: db_search.php:242
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s eşleşme, <i>%s</i> tablosu içinde"
@@ -517,7 +510,6 @@ msgstr "Sil"
 
 #: db_search.php:267
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Toplam:</b> <i>%s</i> eşleşme"
@@ -1005,7 +997,6 @@ msgid "Choose column to display"
 msgstr "Göstermek için sütun seçin"
 
 #: js/messages.php:66
-#| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Parola üret"
 
@@ -1364,8 +1355,8 @@ msgstr ""
 msgid "Databases"
 msgstr "Veritabanları"
 
-#: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:339
-#: libraries/blobstreaming.lib.php:345 libraries/common.lib.php:574
+#: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
+#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:574
 #: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
@@ -1573,41 +1564,41 @@ msgstr "Geçerli kimlik denetimi anahtarı takılı değil"
 msgid "Authenticating..."
 msgstr "Kimlik doğrulanıyor..."
 
-#: libraries/blobstreaming.lib.php:272
+#: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:298
+#: libraries/blobstreaming.lib.php:267
 #, fuzzy
 #| msgid "Page creation failed"
 msgid "PBMS connection failed:"
 msgstr "Sayfa oluşturma başarısız"
 
-#: libraries/blobstreaming.lib.php:343
+#: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:351
+#: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:377
+#: libraries/blobstreaming.lib.php:347
 msgid "View image"
 msgstr "Resmi göster"
 
-#: libraries/blobstreaming.lib.php:381
+#: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
 msgstr "Ses çal"
 
-#: libraries/blobstreaming.lib.php:386
+#: libraries/blobstreaming.lib.php:356
 msgid "View video"
 msgstr "Görüntüyü göster"
 
-#: libraries/blobstreaming.lib.php:390
+#: libraries/blobstreaming.lib.php:360
 msgid "Download file"
 msgstr "Dosyayı indir"
 
-#: libraries/blobstreaming.lib.php:451
+#: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
 msgstr ""
@@ -1705,7 +1696,6 @@ msgid "MySQL said: "
 msgstr "MySQL çıktısı: "
 
 #: libraries/common.lib.php:1129
-#| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
 msgstr "SQL onaylayıcısına bağlanma başarısız oldu!"
 
@@ -1911,18 +1901,18 @@ msgstr ""
 msgid "Overhead"
 msgstr "Ek Yük"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:123
+#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Yapılandırmanız içinde tanımlanmış denetim kullanıcıları için bağlantı "
 "başarısız."
 
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysqli.dbi.lib.php:404
 msgid "The server is not responding"
 msgstr "Sunucu yanıt vermiyor"
 
-#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:404
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(ya da yerel MySQL sunucusunun soketi doğru olarak yapılandırılmadı)"
 
@@ -2538,14 +2528,10 @@ msgstr ""
 "ara bellek miktarı."
 
 #: libraries/engines/pbms.lib.php:31
-#| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "Artık Eşiği"
 
 #: libraries/engines/pbms.lib.php:32
-#| msgid ""
-#| "The percentage of garbage in a data log file before it is compacted. This "
-#| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr "Ufaltılmadan önce depolama dosyasındaki artık yüzdesidir."
 
@@ -2590,7 +2576,6 @@ msgstr ""
 "silinir."
 
 #: libraries/engines/pbms.lib.php:51
-#| msgid "Log file threshold"
 msgid "Temp Log Threshold"
 msgstr "Geçici Günlük Eşiği"
 
@@ -2859,7 +2844,6 @@ msgid "Table structure for table"
 msgstr "Tablo için tablo yapısı"
 
 #: libraries/export/latex.php:13
-#| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
 msgstr "@TABLE@ tablosunun içeriği"
 
@@ -2868,7 +2852,6 @@ msgid "(continued)"
 msgstr "(devam eden)"
 
 #: libraries/export/latex.php:15
-#| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ tablosunun yapısı"
 
@@ -6708,10 +6691,6 @@ msgid "Signon login options"
 msgstr "Oturum açma seçenekleri"
 
 #: setup/lib/messages.inc.php:128
-#| msgid ""
-#| "Configure phpMyAdmin database to gain access to additional features, see "
-#| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
-#| "in documentation"
 msgid ""
 "Configure phpMyAdmin database to gain access to additional features, see "
 "[a@../Documentation.html#linked-tables]phpMyAdmin configuration storage[/a] "
@@ -7923,7 +7902,6 @@ msgid "Showing SQL query"
 msgstr "SQL sorgusu gösteriliyor"
 
 #: sql.php:516
-#| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Oanylı SQL"
 
@@ -8136,7 +8114,6 @@ msgid "Flush the table (FLUSH)"
 msgstr "Tabloyu temizle (FLUSH)"
 
 #: tbl_operations.php:642
-#| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
 msgstr "Tabloyu veya veriyi sil"
 
@@ -8145,7 +8122,6 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Tabloyu boşalt (TRUNCATE)"
 
 #: tbl_operations.php:675
-#| msgid "Go to database"
 msgid "Delete the table (DROP)"
 msgstr "Tabloyu sil (DROP)"
 
