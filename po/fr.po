@@ -1718,10 +1718,9 @@ msgid "MySQL said: "
 msgstr "MySQL a répondu: "
 
 #: libraries/common.lib.php:1129
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Connexion au serveur MySQL impossible"
+msgstr "Connexion au validateur SQL impossible"
 
 #: libraries/common.lib.php:1167 setup/lib/messages.inc.php:350
 msgid "Explain SQL"
