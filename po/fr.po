@@ -2556,15 +2556,13 @@ msgid "Garbage Threshold"
 msgstr "Seuil des informations parasites"
 
 #: libraries/engines/pbms.lib.php:32
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
 "Le pourcentage d'information parasites dans un journal de données au-delà "
-"duquel il est comprimé. Il s'agit d'une valeur entre 1 et 99. La valeur par "
-"défaut est 50."
+"duquel il est comprimé."
 
 #: libraries/engines/pbms.lib.php:36 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
