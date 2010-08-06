@@ -1905,3 +1905,32 @@ $(document).ready(function() {
          );
     }
 });
+
+/* Displays tooltips */
+$(document).ready(function() {
+    // Hide the footnotes from the footer (which are displayed for
+    // JavaScript-disabled browsers) since the tooltip is sufficient
+    $(".footnotes").hide();
+    $(".footnotes span").each(function() {
+        $(this).children("sup").remove();
+    });
+    // The border and padding must be removed otherwise a thin yellow box remains visible
+    $(".footnotes").css("border", "none");
+    $(".footnotes").css("padding", "0px");
+
+    // Replace the superscripts with the help icon
+    $("sup[class='footnotemarker']").hide();
+    $("img[class='footnotemarker']").show();
+
+    $("img[class='footnotemarker']").each(function() {
+        var span_id = $(this).attr("id");
+        span_id = span_id.split("_")[1];
+        var tooltip_text = $(".footnotes span[id='footnote_" + span_id + "']").html();
+        $(this).qtip({
+            content: tooltip_text,
+            show: { delay: 0 },
+            hide: { when: 'unfocus', delay: 0 },
+            style: { background: '#ffffcc' }
+        });
+    });
+});
