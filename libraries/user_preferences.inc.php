@@ -70,10 +70,3 @@ if (!$cfgRelation['userconfigwork']) {
     $msg = PMA_sanitize(sprintf($msg, '[a@./Documentation.html#linked-tables@_blank]', '[/a]'));
     PMA_Message::notice($msg)->display();
 }
-
-if (isset($error) && $error) {
-    if (!$error instanceof PMA_Message) {
-        $error = PMA_Message::error($error);
-    }
-    $error->display();
-}

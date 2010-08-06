@@ -8,6 +8,13 @@
 
 /**
  * Common initialization for user preferences modification pages
+ *
+ * @uses ConfigFile::getInstance()
+ * @uses ConfigFile::resetConfigData()
+ * @uses ConfigFile::setAllowedKeys()
+ * @uses ConfigFile::setCfgUpdateReadMapping()
+ * @uses ConfigFile::updateWithGlobalConfig()
+ * @uses PMA_read_userprefs_fieldnames()
  */
 function PMA_userprefs_pageinit()
 {
@@ -30,6 +37,7 @@ function PMA_userprefs_pageinit()
  * * type - 'db' (config read from pmadb) or 'session' (read from user session)
  *
  * @uses $_SESSION['userconfig']
+ * @uses $GLOBALS['controllink']
  * @uses PMA_array_merge_recursive
  * @uses PMA_backquote()
  * @uses PMA_DBI_fetch_single_row()
@@ -69,9 +77,11 @@ function PMA_load_userprefs()
 /**
  * Saves user preferences
  *
- * @uses $GLOBALS['controllink']
- * @uses $_SESSION['cache']['userprefs']
+ * @uses $_SESSION['cache'][...]['userprefs']
  * @uses $_SESSION['userconfig']
+ * @uses $GLOBALS['cfg']['ServerDefault']
+ * @uses $GLOBALS['controllink']
+ * @uses $GLOBALS['server']
  * @uses ConfigFile::getConfigArray()
  * @uses ConfigFile::getInstance()
  * @uses PMA_backquote()
@@ -207,6 +217,7 @@ function PMA_read_userprefs_fieldnames(array $forms = null)
  *
  * No validation is done!
  *
+ * @uses PMA_load_userprefs()
  * @uses PMA_save_userprefs()
  * @param string $cfg_name
  * @param mixed $value
@@ -230,6 +241,10 @@ function PMA_persist_option($path, $value, $default_value)
 /**
  * Redirects after saving new user preferences
  *
+ * @uses ConfigFile::getConfigArray()
+ * @uses ConfigFile::getInstance()
+ * @uses PMA_generate_common_url()
+ * @uses PMA_sendHeaderLocation()
  * @param array  $forms
  * @param array  $old_settings
  * @param string $file_name
@@ -269,6 +284,13 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $
             . PMA_generate_common_url($url_params, '&') . $hash);
 }
 
+/**
+ * Shows form which allows to quickly load settings stored in browser's local storage
+ *
+ * @uses $_REQUEST['prefs_autoload']
+ * @uses $_SESSION['userprefs_autoload']
+ * @uses PMA_generate_common_hidden_inputs()
+ */
 function PMA_userprefs_autoload_header()
 {
     if (isset($_REQUEST['prefs_autoload']) && $_REQUEST['prefs_autoload'] == 'hide') {

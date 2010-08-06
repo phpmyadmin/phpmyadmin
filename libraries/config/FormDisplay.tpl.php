@@ -246,7 +246,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     }
     if (isset($opts['setvalue']) && $opts['setvalue']) {
         ?>
-        <a class="set-value" href="#<?php echo "$path={$opts['setvalue']}" ?>" title="<?php echo sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue'])) ?>" style="display:none"><img alt="set-value" src="<?php echo $img_path ?>b_edit.png" width="16" height="16" /></a>
+        <a class="set-value" href="#<?php echo htmlspecialchars("$path={$opts['setvalue']}") ?>" title="<?php echo sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue'])) ?>" style="display:none"><img alt="set-value" src="<?php echo $img_path ?>b_edit.png" width="16" height="16" /></a>
         <?php
     }
     if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
