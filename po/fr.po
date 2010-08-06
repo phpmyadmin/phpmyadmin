@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-06 14:06+0200\n"
+"PO-Revision-Date: 2010-08-06 14:07+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -95,10 +95,9 @@ msgid "No blob streaming server configured!"
 msgstr "Aucun serveur blob streaming configuré!"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Erreur lors de l'écriture du fichier sur disque."
+msgstr "Erreur d'accès aux en-têtes"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
