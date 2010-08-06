@@ -38,11 +38,6 @@ if (isset($GLOBALS['db'])) {
 }
 $GLOBALS['js_include'][] = 'messages.php' . PMA_generate_common_url($params);
 
-$GLOBALS['js_events'][] = array(
-    'event'     => 'load',
-    'function'  => 'PMA_TT_init',
-);
-
 /**
  * Here we add a timestamp when loading the file, so that users who
  * upgrade phpMyAdmin are not stuck with older .js files in their
