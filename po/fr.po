@@ -1600,7 +1600,7 @@ msgstr "L'accès aux informations BLOB de PBMS a échoué :"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "L'accès au Content-Type du BLOB a échoué"
 
 #: libraries/blobstreaming.lib.php:377
 msgid "View image"
