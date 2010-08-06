@@ -23,6 +23,12 @@
 
 var imageMap = {
     'mouseMoved': function(event, cont) {
+        // return if no imageMap set
+        // this can happen if server has no json
+        if (!this.imageMap) {
+            return;
+        }
+        
         // get mouse coordinated relative to image
         var mouseX = event.pageX - cont.offsetLeft;
         var mouseY = event.pageY - cont.offsetTop;

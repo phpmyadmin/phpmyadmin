@@ -171,37 +171,42 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
     public function toString()
     {
-        if (function_exists('gd_info')) {
-            $this->init();
-            $this->prepareDataSet();
-            $this->prepareChart();
-
-            //$this->chart->debugImageMap();
-
-            if ($this->isContinuous()) {
-                $this->render(1);
-            }
-            else {
-                $this->render(20);
-            }
-
-            $returnData = '<div id="chart">';
-            foreach ($this->partsEncoded as $part) {
-                $returnData .= '<img src="data:image/png;base64,'.$part.'" />';
-            }
-            $returnData .= '</div>';
-            $returnData .= '
-                <script type="text/javascript">
-                imageMap.loadImageMap(\''.$this->getImageMap().'\');
-                </script>
-            ';
-
-            return $returnData;
-        }
-        else {
+        if (!function_exists('gd_info')) {
             array_push($this->errors, ERR_NO_GD);
             return '';
         }
+
+        $this->init();
+        $this->prepareDataSet();
+        $this->prepareChart();
+
+        //$this->chart->debugImageMap();
+
+        if ($this->isContinuous()) {
+            $this->render(1);
+        }
+        else {
+            $this->render(20);
+        }
+
+        $returnData = '<div id="chart">';
+        foreach ($this->partsEncoded as $part) {
+            $returnData .= '<img src="data:image/png;base64,'.$part.'" />';
+        }
+        $returnData .= '</div>';
+
+        if (function_exists('json_encode')) {
+            $returnData .= '
+                <script type="text/javascript">
+                imageMap.loadImageMap(\''.json_encode($this->getImageMap()).'\');
+                </script>
+            ';
+        }
+        else {
+            array_push($this->errors, ERR_NO_JSON);
+        }
+
+        return $returnData;
     }
 
     protected function getLabelHeight()

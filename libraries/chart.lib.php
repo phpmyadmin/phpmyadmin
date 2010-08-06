@@ -1,7 +1,7 @@
 <?php
 
 define('ERR_NO_GD', 0);
-define('ERR_UNKNOWN_FORMAT', 1);
+define('ERR_NO_JSON', 1);
 
 require_once './libraries/chart/pma_pchart_pie.php';
 require_once './libraries/chart/pma_pchart_single_bar.php';
@@ -66,7 +66,7 @@ function PMA_chart_profiling($data)
 /*
  * Formats a chart for query results page.
  */
-function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
+function PMA_chart_results($data, &$chartSettings)
 {
     $chartData = array();
     $chart = null;
@@ -103,7 +103,7 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
     }
 
     if (count($data[0]) == 1 || count($data[0]) == 2) {
-        // Two columns in every row.
+        // One or two columns in every row.
         // This data is suitable for a simple bar chart.
 
         if ($chartSettings['type'] == 'pie') {
@@ -220,14 +220,13 @@ function PMA_chart_results($data, &$chartSettings, &$chartErrors = array())
         }
     }
     else {
-        // unknown data
-        array_push($chartErrors, ERR_UNKNOWN_FORMAT);
+        // unknown data format
         return '';
     }
 
     $chartCode = $chart->toString();
     $chartSettings = $chart->getSettings();
-    $chartErrors = array_merge($chartErrors, $chart->getErrors());
+    $chartErrors = $chart->getErrors();
     PMA_handle_chart_err($chartErrors);
     
     return $chartCode;
@@ -240,6 +239,9 @@ function PMA_handle_chart_err($errors)
 {
     if (in_array(ERR_NO_GD, $errors)) {
         PMA_warnMissingExtension('GD', false, 'GD extension is needed for charts.');
+    }
+    else if (in_array(ERR_NO_JSON, $errors)) {
+        PMA_warnMissingExtension('JSON', false, 'JSON encoder is needed for chart tooltips.');
     }
 }
 

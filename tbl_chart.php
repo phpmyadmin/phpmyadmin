@@ -50,11 +50,10 @@ if (PMA_isValid($_REQUEST['chartSettings'], 'array')) {
     $chartSettings = $_REQUEST['chartSettings'];
 }
 
-// get the chart and settings and errors after chart generation
-$chartErrors = array();
-$chart = PMA_chart_results($data, $chartSettings, $chartErrors);
+// get the chart and settings after chart generation
+$chart = PMA_chart_results($data, $chartSettings);
 
-if (empty($chartErrors)) {
+if (!empty($chart)) {
     $message = PMA_Message::success(__('Chart generated successfully.'));
 }
 else {

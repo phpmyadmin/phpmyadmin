@@ -3495,7 +3495,7 @@
    /* Get the current image map */
    function getImageMap()
    {
-    return json_encode($this->ImageMap);
+    return $this->ImageMap;
    }
 
    /* Load and cleanup the image map from disk */
@@ -3544,7 +3544,7 @@
       }
      else
       {
-       fwrite($Handle, $this->getImageMap());
+       fwrite($Handle, serialize($this->getImageMap()));
       }
      fclose ($Handle);
     }
