@@ -249,10 +249,9 @@ msgid "and then"
 msgstr "et ensuite"
 
 #: db_operations.php:379
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Changer le nom de la base de données pour"
+msgstr "Supprimer la base de données"
 
 #: db_operations.php:391
 #, php-format
