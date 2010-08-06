@@ -1287,6 +1287,9 @@ table#serverconnection_trg_local  {
     display: block;
     left: 0;
     right: 0;
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif);
+    background-repeat: no-repeat;
+    background-position: 2%;
  }
 
  #loading_parent {
