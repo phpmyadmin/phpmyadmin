@@ -259,6 +259,23 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: __DATE__'));
                 <input type="submit" name="submit_import" value="<?php echo __('Go'); ?>" />
             </form>
         </div>
+        <?php
+        if (file_exists('./setup/index.php')) {
+            // show only if setup script is available, allows to disable this message
+            // by simply removing setup directory
+        ?>
+        <div class="group">
+            <h2><?php echo __('More settings') ?></h2>
+            <div class="group-cnt">
+                <?php
+                echo sprintf(__('You can set more settings by modifying config.inc.php, eg. by using %sSetup script%s.'), '<a href="setup/index.php">', '</a>');
+                echo PMA_showDocu('setup_script');
+                ?>
+            </div>
+        </div>
+        <?php
+        }
+        ?>
     </div>
     <div id="main_pane_right">
         <div class="group">
