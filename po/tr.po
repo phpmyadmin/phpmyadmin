@@ -6793,8 +6793,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
-"İçeri ve dışarı aktarma işlemleri için [a@http://en.wikipedia.org/wiki/Gzip]"
-"gzip[/a] sıkıştırma etkin"
+"İçe ve dışa aktarma işlemleri için "
+"[a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] sıkıştırma etkin"
 
 #: setup/lib/messages.inc.php:147
 msgid "GZip"
