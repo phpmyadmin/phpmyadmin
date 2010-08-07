@@ -114,6 +114,7 @@ $Id$
 - patch #3039269 [dbi] Wrong variable checked for nopassword option,
   thanks to Will Palmer - wpalmer
 - bug #3040226 [XHTML] LockFromUpdate checkbox not checked by default
+- bug [doc] Withdraw or edit FAQ entries related to older MySQL or PHP 
 
 3.3.5.0 (2010-07-26)
 - patch #2932113 [information_schema] Slow export when having lots of
