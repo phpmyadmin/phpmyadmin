@@ -858,7 +858,7 @@ msgstr "İşaretleme %s oluşturuldu"
 #: import.php:407 import.php:413
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "İçeri aktarma başarılı olarak bitti, %d sorgu çalıştırıldı."
+msgstr "İçe aktarma başarılı olarak bitti, %d sorgu çalıştırıldı."
 
 #: import.php:422
 msgid ""
