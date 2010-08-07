@@ -7177,7 +7177,7 @@ msgstr "Hatalı alanları varsayılan değerlerine döndürmeyi dene"
 
 #: setup/lib/messages.inc.php:233
 msgid "Directory where exports can be saved on server"
-msgstr "Dışarı aktarmaların sunucu üzerinde kaydedilebileceği dizin"
+msgstr "Dışa aktarmaların sunucu üzerinde kaydedilebileceği dizin"
 
 #: setup/lib/messages.inc.php:234
 msgid "Save directory"
