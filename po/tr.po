@@ -6399,7 +6399,7 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
-"Daha fazla belleğe gerek kalmadan gzip/bzip2 dışarı aktarmalarını anında "
+"Daha fazla belleğe gerek kalmadan gzip/bzip2 dışa aktarmalarını anında "
 "sıkıştırır; eğer gzip/bzip2 dosyalarını oluşturmada sorunlarla "
 "karşılaşırsanız bu özelliği etkisizleştirin"
 
