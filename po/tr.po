@@ -4644,7 +4644,7 @@ msgstr "Depolanan yordamların yürütülmesine izin verir."
 #: server_privileges.php:37 server_privileges.php:188
 #: server_privileges.php:508
 msgid "Allows importing data from and exporting data into files."
-msgstr "Verinin içeri ve dışarı aktarılmasına izin verir."
+msgstr "Verinin içe ve dışa aktarılmasına izin verir."
 
 #: server_privileges.php:38 server_privileges.php:539
 msgid ""
