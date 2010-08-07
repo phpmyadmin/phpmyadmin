@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-07 22:24+0200\n"
+"PO-Revision-Date: 2010-08-07 22:25+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1881,7 +1881,7 @@ msgstr "Tasarımcı"
 #: libraries/tbl_links.inc.php:89 pmd_pdf.php:81 pmd_pdf.php:107
 #: setup/frames/menu.inc.php:21
 msgid "Import"
-msgstr "İçeri Aktar"
+msgstr "İçe Aktar"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:65
 #: server_privileges.php:110 server_privileges.php:1718
