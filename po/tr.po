@@ -2150,8 +2150,8 @@ msgid ""
 "however it can break transactions."
 msgstr ""
 "Betiğin PHP zaman aşımı sınırına yaklaşıldığını algılaması durumunda içe "
-"aktarımı kesmeye izin ver. Bu büyük dosyaların içe aktarımı için iyi bir yol "
-"olabilir, ancak hareketleri kesebilir."
+"aktarımı kesmeye izin verir. Bu büyük dosyaların içe aktarımı için iyi bir "
+"yol olabilir, ancak bu işlemleri bozabilir."
 
 #: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:158
 msgid "Number of queries to skip from start"
