@@ -2969,7 +2969,7 @@ msgstr "Dış anahtar kontrolünü etkisizleştir"
 
 #: libraries/export/sql.php:49
 msgid "Database export options"
-msgstr "Veritabanı dışarı aktarma seçenekleri"
+msgstr "Veritabanı dışa aktarma seçenekleri"
 
 #: libraries/export/sql.php:79
 msgid "Enclose table and column names with backquotes"
