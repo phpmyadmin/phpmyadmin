@@ -2159,7 +2159,7 @@ msgstr "Başlangıçtan atlanacak sorgu sayısı"
 
 #: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:157
 msgid "Format of imported file"
-msgstr "İçeri aktarılmış dosyanın biçimi"
+msgstr "İçe aktarılmış dosyanın biçimi"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
