@@ -1608,7 +1608,7 @@ msgstr "Dosyayı indir"
 #: libraries/blobstreaming.lib.php:451
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Açılamayan dosya: %s"
 
 #: libraries/common.inc.php:567
 msgid ""
