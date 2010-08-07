@@ -7801,8 +7801,7 @@ msgstr "IP İzin Verme/Reddetme için güvenilir proksi listesi"
 
 #: setup/lib/messages.inc.php:359
 msgid "Directory on server where you can upload files for import"
-msgstr ""
-"İçeri aktarmak için dosyaları gönderebileceğiniz sunucu üzerindeki dizin"
+msgstr "İçe aktarmak için dosyaları gönderebileceğiniz sunucu üzerindeki dizin"
 
 #: setup/lib/messages.inc.php:360
 msgid "Upload directory"
