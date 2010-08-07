@@ -4393,7 +4393,7 @@ msgstr "Küçüğü/büyüğü değiştir"
 
 #: pmd_general.php:103
 msgid "Import/Export coordinates for PDF schema"
-msgstr "PDF şeması için düzenlemeleri İçeri/Dışarı Aktar"
+msgstr "PDF şeması için düzenlemeleri içe/dışa aktar"
 
 #: pmd_general.php:107
 msgid "Move Menu"
