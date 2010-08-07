@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-07 22:30+0200\n"
+"PO-Revision-Date: 2010-08-07 22:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3228,7 +3228,7 @@ msgstr "Yüzdeleri doğru ondalık olarak içe aktar (%12.00'ı .12'ye)"
 
 #: libraries/import/ods.php:28
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Parasalları içeri aktar ($5.00'dan 5.00'a)"
+msgstr "Parasalları içe aktar ($5.00'ı 5.00'a)"
 
 #: libraries/import/sql.php:41
 msgid "Do not use AUTO_INCREMENT for zero values"
