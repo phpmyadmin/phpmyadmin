@@ -2128,7 +2128,7 @@ msgstr "web sunucusu gönderme dizini"
 #, php-format
 msgid "Imported file compression will be automatically detected from: %s"
 msgstr ""
-"İçeri aktarılmış dosya sıkıştırması otomatik olarak bu dosya türlerinden "
+"İçe aktarılmış dosya sıkıştırması otomatik olarak bu dosya türlerinden "
 "algılanacak: %s"
 
 #: libraries/display_import.lib.php:218
