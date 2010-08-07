@@ -3077,7 +3077,7 @@ msgstr "İşlevleri dışa aktar"
 
 #: libraries/export/xml.php:32
 msgid "Export procedures"
-msgstr "İşlemleri dışarı aktar"
+msgstr "İşlemleri dışa aktar"
 
 #: libraries/export/xml.php:34
 msgid "Export tables"
