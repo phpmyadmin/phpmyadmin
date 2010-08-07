@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-07 22:27+0200\n"
+"PO-Revision-Date: 2010-08-07 22:28+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3216,7 +3216,7 @@ msgstr "YEREL anahtar kelime kullan"
 
 #: libraries/import/ldi.php:54
 msgid "This plugin does not support compressed imports!"
-msgstr "Bu eklenti sıkıştırılmış içeri aktarım dosyalarını desteklemez!"
+msgstr "Bu eklenti sıkıştırılmış içe aktarım dosyalarını desteklemez!"
 
 #: libraries/import/ods.php:26
 msgid "Do not import empty rows"
