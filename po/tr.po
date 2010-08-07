@@ -1574,7 +1574,7 @@ msgstr "Kimlik doğrulanıyor..."
 
 #: libraries/blobstreaming.lib.php:272
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS hatası"
 
 #: libraries/blobstreaming.lib.php:298
 #, fuzzy
