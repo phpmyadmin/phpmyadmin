@@ -840,8 +840,7 @@ msgstr ""
 
 #: import.php:370 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
-"İçeri aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
+msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
 #: import.php:395
 msgid "The bookmark has been deleted."
