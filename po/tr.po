@@ -690,7 +690,7 @@ msgstr "Tabloyu incele"
 #: pmd_pdf.php:81 pmd_pdf.php:106 server_privileges.php:1376
 #: setup/frames/menu.inc.php:22 tbl_row_action.php:58
 msgid "Export"
-msgstr "Dışarı Aktar"
+msgstr "Dışa Aktar"
 
 #: db_structure.php:591 libraries/display_pdf_schema.lib.php:44
 msgid "Data Dictionary"
