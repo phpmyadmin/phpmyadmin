@@ -6630,9 +6630,7 @@ msgstr "İçe aktarma varsayılanları"
 
 #: setup/lib/messages.inc.php:105
 msgid "Set import and export directories and compression options"
-msgstr ""
-"İçeri aktarma ve dışarı aktarma dizinlerini ve sıkıştırma seçeneklerini "
-"ayarlar"
+msgstr "İçe ve dışa aktarma dizinlerini ve sıkıştırma seçeneklerini ayarlar"
 
 #: setup/lib/messages.inc.php:106
 msgid "Import / export"
