@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-07 22:31+0200\n"
+"PO-Revision-Date: 2010-08-07 22:32+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4451,7 +4451,7 @@ msgstr "sayfadan/sayfaya"
 
 #: querywindow.php:93
 msgid "Import files"
-msgstr "Dosyaları içeri aktar"
+msgstr "Dosyaları içe aktar"
 
 #: querywindow.php:104
 msgid "All"
