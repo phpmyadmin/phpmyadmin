@@ -6622,7 +6622,7 @@ msgstr "Dışarı aktarma varsayılanları"
 
 #: setup/lib/messages.inc.php:103
 msgid "Customize default common import options"
-msgstr "Varsayılan genel içeri aktarma seçeneklerini özelleştirir"
+msgstr "Varsayılan genel içe aktarma seçeneklerini özelleştirir"
 
 #: setup/lib/messages.inc.php:104
 msgid "Import defaults"
