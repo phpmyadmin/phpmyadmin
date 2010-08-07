@@ -3089,7 +3089,7 @@ msgstr "Tetikleyicileri dışa aktar"
 
 #: libraries/export/xml.php:38
 msgid "Export views"
-msgstr "Görünümleri dışarı aktar"
+msgstr "Görünümleri dışa aktar"
 
 #: libraries/export/xml.php:44
 msgid "Export contents"
