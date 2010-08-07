@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-07 22:48+0200\n"
+"PO-Revision-Date: 2010-08-07 22:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3093,7 +3093,7 @@ msgstr "Görünümleri dışa aktar"
 
 #: libraries/export/xml.php:44
 msgid "Export contents"
-msgstr "İçerikleri dışarı aktar"
+msgstr "İçerikleri dışa aktar"
 
 #: libraries/footer.inc.php:180 libraries/footer.inc.php:191
 #: libraries/footer.inc.php:194
