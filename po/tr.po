@@ -1991,8 +1991,7 @@ msgstr "Sütun sayısı"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
-msgstr ""
-"Dışarı aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
+msgstr "Dışa aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
 #: libraries/display_export.lib.php:100
 #, php-format
