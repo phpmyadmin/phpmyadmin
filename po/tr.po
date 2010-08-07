@@ -6854,7 +6854,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:159
 msgid "Partial import: skip queries"
-msgstr "Kısmi içeri aktarma: sorguları atla"
+msgstr "Kısmi içe aktarma: sorguları atla"
 
 #: setup/lib/messages.inc.php:160
 msgid "Insecure connection"
