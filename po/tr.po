@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-07 22:28+0200\n"
+"PO-Revision-Date: 2010-08-07 22:29+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3220,7 +3220,7 @@ msgstr "Bu eklenti sıkıştırılmış içe aktarım dosyalarını desteklemez!
 
 #: libraries/import/ods.php:26
 msgid "Do not import empty rows"
-msgstr "Boş sıraları içeri aktarma"
+msgstr "Boş satırları içe aktarma"
 
 #: libraries/import/ods.php:27
 msgid "Import percentages as proper decimals (12.00% to .12)"
