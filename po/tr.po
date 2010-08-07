@@ -2961,7 +2961,7 @@ msgstr "Başlık içine özel yorum ekle (\\n satırları böler)"
 
 #: libraries/export/sql.php:30
 msgid "Enclose export in a transaction"
-msgstr "İşlem içinde dışarı aktarmayı kapsa"
+msgstr "İşlem içinde dışa aktarmayı kapsa"
 
 #: libraries/export/sql.php:31
 msgid "Disable foreign key checks"
