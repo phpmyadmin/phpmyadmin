@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-07 22:32+0200\n"
+"PO-Revision-Date: 2010-08-07 22:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6626,7 +6626,7 @@ msgstr "Varsayılan genel içe aktarma seçeneklerini özelleştirir"
 
 #: setup/lib/messages.inc.php:104
 msgid "Import defaults"
-msgstr "İçeri aktarma varsayılanları"
+msgstr "İçe aktarma varsayılanları"
 
 #: setup/lib/messages.inc.php:105
 msgid "Set import and export directories and compression options"
