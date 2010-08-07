@@ -4439,7 +4439,7 @@ msgstr "Sayfa oluşturma başarısız"
 
 #: pmd_pdf.php:82
 msgid "Export/Import to scale"
-msgstr "Ölçeklemek için İçeri/Dışarı Aktar"
+msgstr "Ölçeklemek için içe/dışa aktar"
 
 #: pmd_pdf.php:86
 msgid "recommended"
