@@ -3180,7 +3180,7 @@ msgstr "Sütun adları"
 #: libraries/import/csv.php:73 libraries/import/csv.php:77
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr "CSV girişi için geçersiz parametre: %s"
+msgstr "CSV içe aktarma için geçersiz parametre: %s"
 
 #: libraries/import/csv.php:118
 #, php-format
