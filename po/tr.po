@@ -3013,7 +3013,7 @@ msgstr "UTC olarak zamanı dışa aktar"
 
 #: libraries/export/sql.php:121
 msgid "Export type"
-msgstr "Dışarı aktarma türü"
+msgstr "Dışa aktarma türü"
 
 #: libraries/export/sql.php:384
 msgid "Procedures"
