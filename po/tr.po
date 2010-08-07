@@ -3085,7 +3085,7 @@ msgstr "Tabloları dışa aktar"
 
 #: libraries/export/xml.php:36
 msgid "Export triggers"
-msgstr "Tetikleyicileri dışarı aktar"
+msgstr "Tetikleyicileri dışa aktar"
 
 #: libraries/export/xml.php:38
 msgid "Export views"
