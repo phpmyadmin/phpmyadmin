@@ -2133,7 +2133,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:218
 msgid "Partial import"
-msgstr "Kısmi içeri aktarma"
+msgstr "Kısmi içe aktarma"
 
 #: libraries/display_import.lib.php:224
 #, php-format
