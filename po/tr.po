@@ -8425,7 +8425,7 @@ msgstr "SQL çalıştırma"
 #: tbl_tracking.php:515
 #, php-format
 msgid "Export as %s"
-msgstr "%s olarak dışarı aktar"
+msgstr "%s olarak dışa aktar"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
