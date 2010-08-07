@@ -3081,7 +3081,7 @@ msgstr "İşlemleri dışa aktar"
 
 #: libraries/export/xml.php:34
 msgid "Export tables"
-msgstr "Tabloları dışarı aktar"
+msgstr "Tabloları dışa aktar"
 
 #: libraries/export/xml.php:36
 msgid "Export triggers"
