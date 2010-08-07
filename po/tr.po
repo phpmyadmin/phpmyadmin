@@ -6617,7 +6617,7 @@ msgstr "Varsayılan dışa aktarma seçeneklerini özelleştirir"
 
 #: setup/lib/messages.inc.php:102
 msgid "Export defaults"
-msgstr "Dışarı aktarma varsayılanları"
+msgstr "Dışa aktarma varsayılanları"
 
 #: setup/lib/messages.inc.php:103
 msgid "Customize default common import options"
