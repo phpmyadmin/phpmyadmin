@@ -3009,7 +3009,7 @@ msgstr "BLOB için onaltılık sistem kullan"
 
 #: libraries/export/sql.php:119
 msgid "Export time in UTC"
-msgstr "UTC olarak zamanı dışarı aktar"
+msgstr "UTC olarak zamanı dışa aktar"
 
 #: libraries/export/sql.php:121
 msgid "Export type"
