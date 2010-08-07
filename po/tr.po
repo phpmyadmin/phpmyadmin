@@ -6634,7 +6634,7 @@ msgstr "İçe ve dışa aktarma dizinlerini ve sıkıştırma seçeneklerini aya
 
 #: setup/lib/messages.inc.php:106
 msgid "Import / export"
-msgstr "İçeri Aktar / Dışarı Aktar"
+msgstr "İçe Aktar / Dışa Aktar"
 
 #: setup/lib/messages.inc.php:108
 msgid "Databases display options"
