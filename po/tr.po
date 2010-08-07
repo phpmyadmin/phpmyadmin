@@ -2104,7 +2104,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:125
 msgid "File to import"
-msgstr "İçeri aktarmak için dosya"
+msgstr "İçe aktarmak için dosya"
 
 #: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:484
 msgid "Location of the text file"
