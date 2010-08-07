@@ -874,7 +874,7 @@ msgid ""
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "Ancak son çalıştırmada hiç veri ayrıştırılmadı, bu genellikle, php zaman "
-"sınırlarını arttırmadığınız sürece phpMyAdmin'in bu içeri aktarmayı "
+"sınırlarını arttırmadığınız sürece phpMyAdmin'in bu içe aktarmayı "
 "biteremeyeceği anlamına gelir."
 
 #: import_status.php:30 libraries/common.lib.php:660 pdf_schema.php:239
