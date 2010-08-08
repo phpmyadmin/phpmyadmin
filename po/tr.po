@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-07 22:53+0200\n"
+"PO-Revision-Date: 2010-08-08 22:05+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3281,7 +3281,7 @@ msgstr "Değişiklik yok"
 
 #: libraries/mysql_charsets.lib.php:106
 msgid "Charset"
-msgstr "Karakter grubu"
+msgstr "Karakter Grubu"
 
 #: libraries/mysql_charsets.lib.php:202 libraries/mysql_charsets.lib.php:403
 #: tbl_change.php:510
