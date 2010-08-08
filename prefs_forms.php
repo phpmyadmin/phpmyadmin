@@ -47,6 +47,7 @@ if (isset($_POST['revert'])) {
     exit;
 }
 
+$error = null;
 if ($form_display->process(false) && !$form_display->hasErrors()) {
     // save settings
     $old_settings = PMA_load_userprefs();
@@ -67,11 +68,14 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
 $GLOBALS['js_include'][] = 'config.js';
 require './libraries/header.inc.php';
 require './libraries/user_preferences.inc.php';
+if ($error) {
+    $error->display();
+}
 if ($form_display->hasErrors()) {
     // form has errors
     ?>
     <div class="warning config-form">
-        <b><?php echo __('Submitted form contains errors') ?></b>
+        <b><?php echo __('Cannot save settings, submitted form contains errors') ?></b>
         <?php $form_display->displayErrors(); ?>
     </div>
     <?php

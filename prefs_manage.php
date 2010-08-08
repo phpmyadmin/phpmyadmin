@@ -213,6 +213,12 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
 $GLOBALS['js_include'][] = 'config.js';
 require './libraries/header.inc.php';
 require './libraries/user_preferences.inc.php';
+if ($error) {
+    if (!$error instanceof PMA_Message) {
+        $error = PMA_Message::error($error);
+    }
+    $error->display();
+}
 ?>
 <script type="text/javascript">
 <?php
