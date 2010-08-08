@@ -400,7 +400,6 @@ $(document).ready(function() {
 
                             $.each(data.relations, function(key, value) {
                                 if(key == field_name) {
-                                    alert(value);
                                     var new_value = $(this_field).find('select').val();
                                     new_html = $(value).append(new_value);
                                     return false;
