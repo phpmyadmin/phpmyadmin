@@ -3683,7 +3683,7 @@ msgstr "Değişkenler"
 
 #: libraries/server_links.inc.php:56 test/theme.php:108
 msgid "Charsets"
-msgstr "Karakter grupları"
+msgstr "Karakter Grupları"
 
 #: libraries/server_links.inc.php:60 test/theme.php:112
 msgid "Engines"
