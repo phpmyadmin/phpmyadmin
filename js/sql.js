@@ -203,7 +203,7 @@ $(document).ready(function() {
 
             // In each input sibling, wrap the current value in a textarea
             // and store the current value in a hidden span
-            if($(this).is(':not(.truncated, .transformed, .relation, .enum)')) {
+            if($(this).is(':not(.truncated, .transformed, .relation, .enum, .null)')) {
                 // handle non-truncated, non-transformed, non-relation values
                 // We don't need to get any more data, just wrap the value
                 $(this).html('<textarea>'+data_value+'</textarea>')
@@ -274,6 +274,12 @@ $(document).ready(function() {
                     $(".original_data").hide();
                 })
             }
+            else if($(this).is('.null')) {
+                //handle null fields
+                $(this_field).html('<textarea></textarea>')
+                .append('<span class="original_data">NULL</span>');
+                $(".original_data").hide();
+            }
         })
     }) // End On click, replace the current field with an input/textarea
 
@@ -339,7 +345,10 @@ $(document).ready(function() {
         var sql_query = 'UPDATE ' + window.parent.table + ' SET ';
 
         $.each(params_to_submit, function(key, value) {
-            sql_query += ' ' + key + "='" + value + "' , ";
+            if(value.length == 0) {
+                value = 'NULL'
+            }
+           sql_query += ' ' + key + "='" + value + "' , ";
         })
         sql_query = sql_query.replace(/,\s$/, '');
         sql_query += ' WHERE ' + where_clause;

@@ -1031,6 +1031,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     $vertical_display['delete']     = array();
     $vertical_display['data']       = array();
     $vertical_display['row_delete'] = array();
+    $data_inline_edit_class = 'data_inline_edit';
 
     // Correction University of Virginia 19991216 in the while below
     // Previous code assumed that all tables have keys, specifically that
@@ -1074,7 +1075,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
          || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
             // pointer code part
             echo '    <tr class="' . $class . '">' . "\n";
-            $class = '';
+            $class = $data_inline_edit_class;
+            if(is_null($row[$i])) {
+                $class .= 'null';
+            }
         }
 
 
@@ -1285,6 +1289,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // PMA_mysql_fetch_fields returns BLOB in place of
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
+
+                // reset $class from $data_inline_edit_class to '' as we can't edit binary data
+                $class = '';
+                
                 if (stristr($field_flags, 'BINARY')) {
                     if (!isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
@@ -2318,7 +2326,6 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  */
 function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated ) {
 
-    $data_inline_edit_class = 'data_inline_edit';
     $enum_class = '';
     if(strpos($meta->flags, 'enum') !== false) {
         $enum_class = ' enum';
@@ -2331,7 +2338,7 @@ function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed
 
     // continue the <td> tag started before calling this function:
     $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap 
-    . ' ' . $data_inline_edit_class . ($is_field_truncated ? ' truncated' : '')
+    . ' ' . ($is_field_truncated ? ' truncated' : '')
     . ($transform_function != $default_function ? ' transformed' : '')
     . (isset($map[$meta->name]) ? ' relation' : '')
     . $enum_class . $mime_type_class . '">';
