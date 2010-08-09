@@ -46,7 +46,6 @@ function initPBMSDatabase()
  * @uses    PMA_Config::get()
  * @uses    PMA_Config::settings()
  * @uses    PMA_Config::set()
- * @uses    PMA_BS_SetVariables()
  * @uses    PMA_BS_GetVariables()
  * @uses    PMA_cacheSet()
  * @uses    PMA_cacheGet()
@@ -203,36 +202,6 @@ function checkBLOBStreamingPlugins()
 }
 
 /**
- * sets BLOBStreaming variables to a list of specified arguments
- * @access  public
- * @uses    PMA_DBI_query()
- * @returns boolean - success of variables setup
-*/
-
-function PMA_BS_SetVariables($bs_variables)
-{
-    // if no variables exist in array, return false
-    if (empty($bs_variables) || count($bs_variables) == 0)
-        return FALSE;
-
-    // set BS variables to those specified in array
-    foreach ($bs_variables as $key=>$val)
-        if (!is_null($val) && strlen($val) > 0)
-        {
-            // set BS variable to specified value
-            $query = "SET GLOBAL $key=" . PMA_sqlAddSlashes($val);
-            $result = PMA_DBI_query($query);
-
-            // if query fails execution, return false
-            if (!$result)
-                return FALSE;
-        } // end if (!is_null($val) && strlen($val) > 0)
-
-    // return true on success
-    return TRUE;
-}
-
-/**
  * returns a list of BLOBStreaming variables used by MySQL
  *
  * @access  public
@@ -363,7 +332,8 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
         return 'Error';
     }
 
-    $output = "<a href=\"#\" onclick=\"requestMIMETypeChange('" . urlencode($db_name) . "', '" . urlencode($GLOBALS['table']) . "', '" . urlencode($bs_reference) . "', '" . urlencode($content_type) . "')\">$content_type</a>";
+    //$output = "<a href=\"#\" onclick=\"requestMIMETypeChange('" . urlencode($db_name) . "', '" . urlencode($GLOBALS['table']) . "', '" . urlencode($bs_reference) . "', '" . urlencode($content_type) . "')\">$content_type</a>";
+    $output = $content_type;
 
     // specify custom HTML for various content types
     switch ($content_type) {

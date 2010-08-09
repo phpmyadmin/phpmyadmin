@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-31 14:12-0400\n"
+"POT-Creation-Date: 2010-08-06 08:03-0400\n"
 "PO-Revision-Date: 2010-07-22 02:26+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: slovak <sk@li.org>\n"
@@ -90,7 +90,7 @@ msgid "Use this value"
 msgstr "Použiť túto hodnotu"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
-#: libraries/blobstreaming.lib.php:362
+#: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
 msgstr ""
 
@@ -1429,8 +1429,8 @@ msgstr ""
 msgid "Databases"
 msgstr "Databázy"
 
-#: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:339
-#: libraries/blobstreaming.lib.php:345 libraries/common.lib.php:574
+#: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
+#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:574
 #: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
@@ -1641,41 +1641,41 @@ msgstr ""
 msgid "Authenticating..."
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:272
+#: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:298
+#: libraries/blobstreaming.lib.php:267
 #, fuzzy
 #| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
 msgstr "Overenie MySQL spojenia"
 
-#: libraries/blobstreaming.lib.php:343
+#: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:351
+#: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:377
+#: libraries/blobstreaming.lib.php:347
 msgid "View image"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:381
+#: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:386
+#: libraries/blobstreaming.lib.php:356
 msgid "View video"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:390
+#: libraries/blobstreaming.lib.php:360
 msgid "Download file"
 msgstr "Stiahnuť súbor"
 
-#: libraries/blobstreaming.lib.php:451
+#: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
 msgstr ""
@@ -1979,16 +1979,16 @@ msgstr "Môže byť nepresné. Pozri FAQ 3.11"
 msgid "Overhead"
 msgstr "Naviac"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:123
+#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Nepodarilo sa pripojiť ku controluser podľa nastavení z konfigurácie."
 
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysqli.dbi.lib.php:404
 msgid "The server is not responding"
 msgstr "Server neodpovedá"
 
-#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:404
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(alebo soket lokálneho MySQL servra nie je správne nastavený)"
 
