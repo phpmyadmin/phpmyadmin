@@ -1580,7 +1580,7 @@ msgstr "Page creation failed"
 
 #: libraries/blobstreaming.lib.php:343
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "PBMS get BLOB info failed:"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "get BLOB Content-Type failed"
