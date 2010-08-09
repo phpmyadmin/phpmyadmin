@@ -109,9 +109,8 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
 
     if (!$server) {
       $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
-
       // Retry with empty password if we're allowed to
-      if ($return_value == false && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword'] && !$is_controluser) {
+      if ($return_value == false && isset($GLOBALS['cfg']['Server']['nopassword']) && $GLOBALS['cfg']['Server']['nopassword'] && !$is_controluser) {
 	  $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, '', false, $server_port, $server_socket, $client_flags);
       }
     } else {

@@ -355,7 +355,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         ?>
         <script type="text/javascript">
         //<![CDATA[
-            document.writeln(' <input type="checkbox" name="LockFromUpdate" value="1" tabindex="120" id="checkbox_lock" /> <label for="checkbox_lock"><?php echo __('Do not overwrite this query from outside the window'); ?></label> ');
+            document.writeln(' <input type="checkbox" name="LockFromUpdate" checked="checked" tabindex="120" id="checkbox_lock" /> <label for="checkbox_lock"><?php echo __('Do not overwrite this query from outside the window'); ?></label> ');
         //]]>
         </script>
         <?php
