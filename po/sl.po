@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 10:13+0200\n"
+"PO-Revision-Date: 2010-08-10 10:14+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -207,7 +207,7 @@ msgstr "Natisni"
 
 #: db_export.php:28
 msgid "View dump (schema) of database"
-msgstr "Preglej povzetek stanja podatkovne zbirke"
+msgstr "Preglej povzetek stanja zbirke podatkov"
 
 #: db_export.php:32 db_printview.php:94 db_qbe.php:98 db_structure.php:49
 #: db_tracking.php:30 export.php:350 navigation.php:325
