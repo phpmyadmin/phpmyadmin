@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 09:45+0200\n"
+"PO-Revision-Date: 2010-08-10 09:46+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -313,7 +313,7 @@ msgid "Collation"
 msgstr "Pravilo za razvrščanje znakov"
 
 #: db_operations.php:498 pdf_schema.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -321,8 +321,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Dodatne funkcije za delo s povezanimi tabelami so bile izkjučene. Če želite "
-"izvedeti zakaj, kliknite %stukaj%s."
+"Hramba konfiguracije phpMyAdmin je bila onemogočena. Če želite izvedeti "
+"zakaj, kliknite %stukaj%s."
 
 #: db_operations.php:531
 msgid "Edit PDF Pages"
