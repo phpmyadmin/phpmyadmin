@@ -2780,10 +2780,9 @@ msgid "(continued)"
 msgstr "(延续的)"
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "__TABLE__ 表的结构"
+msgstr "@TABLE@ 表的结构"
 
 #: libraries/export/latex.php:26
 msgid "LaTeX"
