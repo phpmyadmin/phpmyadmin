@@ -1717,7 +1717,7 @@ msgstr "MySQL je vrnil: "
 #: libraries/common.lib.php:1129
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Ne morem se povezati s preverjalnikom SQL"
+msgstr "Ne morem se povezati s preverjalnikom SQL!"
 
 #: libraries/common.lib.php:1167 setup/lib/messages.inc.php:350
 msgid "Explain SQL"
