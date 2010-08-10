@@ -543,7 +543,6 @@ msgid "Inside table(s):"
 msgstr "于以下表："
 
 #: db_search.php:337
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "包含字段："
