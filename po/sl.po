@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 10:14+0200\n"
+"PO-Revision-Date: 2010-08-10 10:15+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4330,7 +4330,7 @@ msgstr "Prosimo, konfigurirajte koordinate za tabelo %s"
 #: pdf_schema.php:993
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Shema podatkovne zbirke %s - Stran %s"
+msgstr "Shema zbirke podatkov %s - Stran %s"
 
 #: pdf_schema.php:1011
 msgid "No tables"
