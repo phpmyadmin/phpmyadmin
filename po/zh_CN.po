@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 08:00+0200\n"
+"PO-Revision-Date: 2010-08-10 08:01+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -7587,10 +7587,9 @@ msgid "Showing SQL query"
 msgstr "显示 SQL 查询"
 
 #: sql.php:516
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "校验 SQL"
+msgstr "已校验的 SQL"
 
 #: sql.php:631
 #, php-format
