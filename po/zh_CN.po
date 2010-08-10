@@ -7802,7 +7802,7 @@ msgstr "删除数据或数据表"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "清空数据表 (TRUNCATE)"
 
 #: tbl_operations.php:675
 #| msgid "Go to database"
