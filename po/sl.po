@@ -6407,7 +6407,7 @@ msgid ""
 msgstr ""
 "Stisne izvoze gzip/bzip2 med izvajanjem, brez večje porabe spomina; če "
 "naletite na težave z ustvarjenimi datotekami gzip/bzip2, to funkcijo "
-"onemogočite."
+"onemogočite"
 
 #: setup/lib/messages.inc.php:43
 msgid "Compress on the fly"
