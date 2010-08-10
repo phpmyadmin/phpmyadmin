@@ -7707,7 +7707,7 @@ msgstr "Pokaži poizvedbe SQL"
 #: setup/lib/messages.inc.php:340
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
-"Dovoli prikaz statistike podatkovne zbirke in tabele (npr. poraba prostora)"
+"Dovoli prikaz statistike zbirke podatkov in tabele (npr. poraba prostora)"
 
 #: setup/lib/messages.inc.php:341
 msgid "Show statistics"
