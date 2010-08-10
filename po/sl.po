@@ -2595,10 +2595,9 @@ msgstr ""
 "podatkov."
 
 #: libraries/engines/pbms.lib.php:51
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Omejitev dnevniške datoetke"
+msgstr "Prag začasnega dnevnika"
 
 #: libraries/engines/pbms.lib.php:52
 msgid ""
