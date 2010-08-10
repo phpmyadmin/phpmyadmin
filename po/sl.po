@@ -7059,8 +7059,8 @@ msgid ""
 "shown."
 msgstr ""
 "Število prikazanih vrstic med brskanjem po množici rezultatov. Če množica "
-"rezultatov vsebuje več vrstic, se prikažeta povezavi &quot;Prejšnja&quot; in "
-"&quot;Naslednja&quot;"
+"rezultatov vsebuje več vrstic, se prikažeta povezavi &raquo;Prejšnja&laquo; "
+"in &raquo;Naslednja&laquo;."
 
 #: setup/lib/messages.inc.php:202
 msgid "Maximum number of rows to display"
