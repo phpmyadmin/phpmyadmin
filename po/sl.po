@@ -2862,10 +2862,9 @@ msgid "(continued)"
 msgstr "(nadaljevanje)"
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "Struktura tabele __TABLE__"
+msgstr "Struktura tabele @TABLE@"
 
 #: libraries/export/latex.php:26
 msgid "LaTeX"
