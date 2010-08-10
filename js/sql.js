@@ -1,6 +1,9 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * function used wherever an sql query form is used
+ * @fileoverview    functions used wherever an sql query form is used
+ *
+ * @requires    jQuery
+ * @requires    js/functions.js
  *
  * @version $Id$
  */
@@ -75,6 +78,16 @@ function appendInlineAnchor(disp_mode) {
     }
 }
 
+/**
+ * Ajax scripts for sql and browse pages
+ *
+ * Actions ajaxified here:
+ * Retrieve results of an SQL query
+ * Paginate the results table
+ * Sort the results table
+ * Change table according to display options
+ * Inline editing of data
+ */
 $(document).ready(function() {
 
     /**
@@ -86,21 +99,32 @@ $(document).ready(function() {
         disp_mode = $(this).val();
     })
 
+    /**
+     * Attach the {@link appendInlineAnchor} function to a custom event, which
+     * will be triggered manually everytime the table of results is reloaded
+     */
     $("#sqlqueryresults").live('appendAnchor',function() {
         appendInlineAnchor(disp_mode);
     })
 
+    // Trigger the appendAnchor event to prepare the first table for inline edit
     $("#sqlqueryresults").trigger('appendAnchor');
 
+    // Append the Toggle Query Box message to the query input form
     $('<span id="togglequerybox"></span>')
     .html(PMA_messages['strToggleQueryBox'])
     .appendTo("#sqlqueryform");
 
+    // Attach the toggling of the query box visibility to a click
     $("#togglequerybox").live('click', function() {
         $(this).siblings().slideToggle("medium");
     })
     
-    //SQL Query Submit
+    /**
+     * Ajax Event handler for 'SQL Query Submit'
+     *
+     * @uses    PMA_ajaxShowMessage()
+     */
     $("#sqlqueryform").live('submit', function(event) {
         event.preventDefault();
 
@@ -122,13 +146,26 @@ $(document).ready(function() {
                     $("#togglequerybox").trigger('click');
                 }
             }
-        })
+        }) // end $.post()
     }) // end SQL Query submit
 
-    //Paginate the results table
+    /**
+     * Ajax Event handlers for Paginating the results table
+     *
+     * @uses    PMA_ajaxShowMessage()
+     */
+
+    /**
+     * Paginate when we click any of the navigation buttons
+     */
     $("input[name=navig]").live('click', function(event) {
         event.preventDefault();
 
+        PMA_ajaxShowMessage();
+        
+        /**
+         * @var the_form    Object referring to the form element that paginates the results table
+         */
         var the_form = $(this).parent("form");
 
         $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
@@ -136,22 +173,26 @@ $(document).ready(function() {
         $.post($(the_form).attr('action'), $(the_form).serialize(), function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
-        })
+        }) // end $.post()
     })// end Paginate results table
 
-    //Paginate results with Page Selector
+    /**
+     * Paginate results with Page Selector dropdown
+     */
     $("#pageselector").live('change', function(event) {
         event.preventDefault();
 
-        //PMA_ajaxShowMessage();
+        PMA_ajaxShowMessage();
 
         $.get($(this).attr('href'), $(this).serialize() + '&ajax_request=true', function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
-        })
+        }) // end $.get()
     })// end Paginate results with Page Selector
 
-    //Sort results table
+    /**
+     * Ajax Event handler for sorting the results table
+     */
     $("#table_results").find("a[title=Sort]").live('click', function(event) {
         event.preventDefault();
 
@@ -160,23 +201,32 @@ $(document).ready(function() {
         $.get($(this).attr('href'), $(this).serialize() + '&ajax_request=true', function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
-        })
+        }) // end $.get()
     })//end Sort results table
 
-    //displayOptionsForm handler
+    /**
+     * Ajax Event handler for the display options
+     */
     $("#displayOptionsForm").live('submit', function(event) {
         event.preventDefault();
 
         $.post($(this).attr('action'), $(this).serialize() + '&ajax_request=true' , function(data) {
             $("#sqlqueryresults").html(data);
             $("#sqlqueryresults").trigger('appendAnchor');
-        })
+        }) // end $.post()
     })
     //end displayOptionsForm handler
 
-    // Inline Edit
+    /**
+     * Ajax Event handlers for Inline Editing
+     *
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    getFieldName()
+     */
 
-    // On click, replace the current field with an input/textarea
+    /**
+     * On click, replace the current field with an input/textarea
+     */
     $(".edit_row_anchor").live('click', function(event) {
         event.preventDefault();
 
@@ -184,8 +234,18 @@ $(document).ready(function() {
 
         // Initialize some variables
         if(disp_mode == 'vertical') {
+            /**
+             * @var this_row_index  Index of the current <td> in the parent <tr>
+             *                      Current <td> is the inline edit anchor.
+             */
             var this_row_index = $(this).index();
+            /**
+             * @var input_siblings  Object referring to all inline editable events from same row
+             */
             var input_siblings = $(this).parents('tbody').find('tr').find('.data_inline_edit:nth('+this_row_index+')');
+            /**
+             * @var where_clause    String containing the WHERE clause to select this row
+             */
             var where_clause = $(this).parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
         }
         else {
@@ -194,11 +254,22 @@ $(document).ready(function() {
         }
 
         $(input_siblings).each(function() {
+            /**
+             * @var data_value  Current value of this field
+             */
             var data_value = $(this).html();
 
             // We need to retrieve the value from the server for truncated/relation fields
             // Find the field name
+            
+            /**
+             * @var this_field  Object referring to this field (<td>)
+             */
             var this_field = $(this);
+            /**
+             * @var field_name  String containing the name of this field.
+             * @see getFieldName()
+             */
             var field_name = getFieldName($(this), disp_mode);
 
             // In each input sibling, wrap the current value in a textarea
@@ -213,6 +284,9 @@ $(document).ready(function() {
             else if($(this).is('.truncated, .transformed')) {
                 //handle truncated/transformed values values
 
+                /**
+                 * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
+                 */
                 var sql_query = 'SELECT ' + field_name + ' FROM ' + window.parent.table + ' WHERE ' + where_clause;
 
                 // Make the Ajax call and get the data, wrap it and insert it
@@ -231,13 +305,19 @@ $(document).ready(function() {
                     else {
                         PMA_ajaxShowMessage(data.error);
                     }
-                })
+                }) // end $.post()
             }
             else if($(this).is('.relation')) {
                 //handle relations
 
+                /**
+                 * @var curr_value  String containing the current value of this relational field
+                 */
                 var curr_value = $(this).find('a').text();
 
+                /**
+                 * @var post_params Object containing parameters for the POST request
+                 */
                 var post_params = {
                         'ajax_request' : true,
                         'get_relational_values' : true,
@@ -252,12 +332,18 @@ $(document).ready(function() {
                     $(this_field).html(data.dropdown)
                     .append('<span class="original_data">'+data_value+'</span>');
                     $(".original_data").hide();
-                })
+                }) // end $.post()
             }
             else if($(this).is('.enum')) {
                 //handle enum fields
+                /**
+                 * @var curr_value  String containing the current value of this relational field
+                 */
                 var curr_value = $(this).text();
 
+                /**
+                 * @var post_params Object containing parameters for the POST request
+                 */
                 var post_params = {
                         'ajax_request' : true,
                         'get_enum_values' : true,
@@ -272,7 +358,7 @@ $(document).ready(function() {
                     $(this_field).html(data.dropdown)
                     .append('<span class="original_data">'+data_value+'</span>');
                     $(".original_data").hide();
-                })
+                }) // end $.post()
             }
             else if($(this).is('.null')) {
                 //handle null fields
@@ -283,16 +369,31 @@ $(document).ready(function() {
         })
     }) // End On click, replace the current field with an input/textarea
 
-    // After editing, clicking again should post data
+    /**
+     * After editing, clicking again should post data
+     */
     $(".edit_row_anchor_active").live('click', function(event) {
         event.preventDefault();
 
+        /**
+         * @var this_row    Object referring to current row that is being edited
+         */
         var this_row = $(this);
 
         // Initialize variables
         if(disp_mode == 'vertical') {
+            /**
+             * @var this_row_index  Index of the current <td> in the parent <tr>
+             *                      Current <td> is the inline edit anchor.
+             */
             var this_row_index = $(this).index();
+            /**
+             * @var input_siblings  Object referring to all inline editable events from same row
+             */
             var input_siblings = $(this).parents('tbody').find('tr').find('.data_inline_edit:nth('+this_row_index+')');
+            /**
+             * @var where_clause    String containing the WHERE clause to select this row
+             */
             var where_clause = $(this).parents('tbody').find('tr').find('.where_clause:nth('+this_row_index+')').val();
         }
         else {
@@ -300,6 +401,9 @@ $(document).ready(function() {
             var where_clause = $(this).parent('tr').find('.where_clause').val();
         }
 
+        /**
+         * @var nonunique   Boolean, whether this row is unique or not
+         */
         if($(this).is('.nonunique')) {
             var nonunique = 0;
         }
@@ -308,16 +412,38 @@ $(document).ready(function() {
         }
 
         // Collect values of all fields to submit, we don't know which changed
+        /**
+         * @var params_to_submit    Array containing the name/value pairs of all fields
+         */
         var params_to_submit = {};
+        /**
+         * @var relation_fields Array containing the name/value pairs of relational fields
+         */
         var relation_fields = {};
+        /**
+         * @var transform_fields    Array containing the name/value pairs for transformed fields
+         */
         var transform_fields = {};
+        /**
+         * @var transformation_fields   Boolean, if there are any transformed fields in this row
+         */
         var transformation_fields = false;
 
         $(input_siblings).each(function() {
 
+            /**
+             * @var this_field  Object referring to this field (<td>)
+             */
             var this_field = $(this);
+            /**
+             * @var field_name  String containing the name of this field.
+             * @see getFieldName()
+             */
             var field_name = getFieldName($(this), disp_mode);
 
+            /**
+             * @var this_field_params   Array temporary storage for the name/value of current field
+             */
             var this_field_params = {};
 
             if($(this).is('.transformed')) {
@@ -341,7 +467,9 @@ $(document).ready(function() {
             $.extend(params_to_submit, this_field_params);
         })
 
-        //generate the SQL query to update this row
+        /**
+         * @var sql_query   String containing the SQL query to update this row
+         */
         var sql_query = 'UPDATE ' + window.parent.table + ' SET ';
 
         $.each(params_to_submit, function(key, value) {
@@ -350,14 +478,24 @@ $(document).ready(function() {
             }
            sql_query += ' ' + key + "='" + value + "' , ";
         })
+        //Remove the last ',' appended in the above loop
         sql_query = sql_query.replace(/,\s$/, '');
         sql_query += ' WHERE ' + where_clause;
 
+        /**
+         * @var rel_fields_list  String, url encoded representation of {@link relations_fields}
+         */
         var rel_fields_list = $.param(relation_fields);
-        
+
+        /**
+         * @var transform_fields_list  String, url encoded representation of {@link transform_fields}
+         */
         var transform_fields_list = $.param(transform_fields);
 
         // Make the Ajax post after setting all parameters
+        /**
+         * @var post_params Object containing parameters for the POST request
+         */
         var post_params = {'ajax_request' : true,
                             'sql_query' : sql_query,
                             'disp_direction' : disp_mode,
@@ -380,6 +518,9 @@ $(document).ready(function() {
                 $(input_siblings).each(function() {
                     // Inline edit post has been successful.
                     if($(this).is(':not(.relation, .enum)')) {
+                        /**
+                         * @var new_html    String containing value of the data field after edit
+                         */
                         var new_html = $(this).find('textarea').val();
 
                         if($(this).is('.transformed')) {
@@ -422,6 +563,6 @@ $(document).ready(function() {
             else {
                 PMA_ajaxShowMessage(data.error);
             };
-        })
+        }) // end $.post()
     }) // End After editing, clicking again should post data
-})
+}, 'top.frame_content') // end $(document).ready()
