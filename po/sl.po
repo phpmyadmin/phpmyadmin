@@ -1367,7 +1367,7 @@ msgstr ""
 #: server_databases.php:85 server_privileges.php:1656
 #: setup/lib/messages.inc.php:107 test/theme.php:92
 msgid "Databases"
-msgstr "Podatkovne zbirke"
+msgstr "Zbirke podatkov"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:339
 #: libraries/blobstreaming.lib.php:345 libraries/common.lib.php:574
