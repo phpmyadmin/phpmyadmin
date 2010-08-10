@@ -522,14 +522,14 @@ msgid "Delete"
 msgstr "Izbriši"
 
 #: db_search.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Skupaj:</b> <i>%s</i> zadetek(ov)"
-msgstr[1] "<b>Skupaj:</b> <i>%s</i> zadetek(ov)"
-msgstr[2] "<b>Skupaj:</b> <i>%s</i> zadetek(ov)"
-msgstr[3] "<b>Skupaj:</b> <i>%s</i> zadetek(ov)"
+msgstr[0] "<b>Skupaj:</b> <i>%s</i> zadetek"
+msgstr[1] "<b>Skupaj:</b> <i>%s</i> zadetka"
+msgstr[2] "<b>Skupaj:</b> <i>%s</i> zadetki"
+msgstr[3] "<b>Skupaj:</b> <i>%s</i> zadetkov"
 
 #: db_search.php:281
 msgid "Search in database"
