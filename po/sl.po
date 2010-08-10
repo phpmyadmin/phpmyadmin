@@ -4571,7 +4571,7 @@ msgstr "Pogoni skladiščenja"
 
 #: server_export.php:18
 msgid "View dump (schema) of databases"
-msgstr "Pokaži povzetek stanja podatkovnih baz"
+msgstr "Pokaži povzetek stanja zbirk podatkov"
 
 #: server_privileges.php:23 server_privileges.php:265
 msgid "Includes all privileges except GRANT."
