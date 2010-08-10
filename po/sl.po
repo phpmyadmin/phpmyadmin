@@ -8106,10 +8106,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Počisti tabelo (FLUSH)"
 
 #: tbl_operations.php:642
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
-msgstr "Izbriši podatke sledenja te tabele"
+msgstr "Izbriši podatke ali tabelo"
 
 #: tbl_operations.php:657
 msgid "Empty the table (TRUNCATE)"
