@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 07:53+0200\n"
+"PO-Revision-Date: 2010-08-10 07:54+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2771,10 +2771,9 @@ msgid "Table structure for table"
 msgstr "表的结构"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "__TABLE__ 表的内容"
+msgstr "@TABLE@ 表的内容"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
