@@ -4159,10 +4159,9 @@ msgid "Page name"
 msgstr "页面名称"
 
 #: pdf_pages.php:312
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "自动排版"
+msgstr "自动排版，基于"
 
 #: pdf_pages.php:314
 msgid "Internal relations"
