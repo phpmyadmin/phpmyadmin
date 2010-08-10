@@ -1599,7 +1599,7 @@ msgstr "Pridobivanje informacij BLOB PBMS je spodletelo:"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "pridobivanje Content-Type BLOB je spodletelo"
 
 #: libraries/blobstreaming.lib.php:377
 msgid "View image"
