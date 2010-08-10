@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 09:48+0200\n"
+"PO-Revision-Date: 2010-08-10 09:49+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1715,10 +1715,9 @@ msgid "MySQL said: "
 msgstr "MySQL je vrnil: "
 
 #: libraries/common.lib.php:1129
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Ne morem se povezati s strežnikom MySQL"
+msgstr "Ne morem se povezati s preverjalnikom SQL"
 
 #: libraries/common.lib.php:1167 setup/lib/messages.inc.php:350
 msgid "Explain SQL"
