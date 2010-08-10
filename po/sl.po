@@ -4562,7 +4562,7 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Obvestilo: Omogočitev statistike podatkovne zbirke lahko povzroči močno "
+"Obvestilo: Omogočitev statistike zbirke podatkov lahko povzroči močno "
 "povečan promet med spletnim in podatkovnim strežnikom."
 
 #: server_engines.php:47
