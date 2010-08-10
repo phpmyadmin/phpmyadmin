@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 07:54+0200\n"
+"PO-Revision-Date: 2010-08-10 07:56+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4154,10 +4154,9 @@ msgid "Create a page"
 msgstr "创建新页"
 
 #: pdf_pages.php:308
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "页码："
+msgstr "页面名称"
 
 #: pdf_pages.php:312
 #, fuzzy
