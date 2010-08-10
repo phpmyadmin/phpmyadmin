@@ -2037,7 +2037,7 @@ msgstr "ime strežnika"
 
 #: libraries/display_export.lib.php:148
 msgid "database name"
-msgstr "ime podatkovne zbirke"
+msgstr "ime zbirke podatkov"
 
 #: libraries/display_export.lib.php:151
 msgid "table name"
