@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 07:45+0200\n"
+"PO-Revision-Date: 2010-08-10 07:47+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -493,11 +493,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "“<i>%s</i>”的搜索结果 %s："
 
 #: db_search.php:242
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s 个匹配 - 于表 <i>%s</i> 中"
+msgstr[0] "在表 <i>%2$s</i> 中找到 %1$s 个匹配"
 
 #: db_search.php:249 db_structure.php:75 db_structure.php:76
 #: db_structure.php:88 db_structure.php:90 db_structure.php:101
