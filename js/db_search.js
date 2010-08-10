@@ -1,8 +1,25 @@
 /**
- * JavaScript functions used on db_search.php
+ * @fileoverview    JavaScript functions used on Database Search page
+ * @name            Database Search
+ *
+ * @requires    jQuery
+ * @requires    js/functions.js
+ */
+
+/**
+ * AJAX script for the Database Search page.
+ *
+ * Actions ajaxified here:
+ * Retrieve result of SQL query
  */
 
 $(document).ready(function() {
+
+    /**
+     * Ajax Event handler for retrieving the result of an SQL Query
+     *
+     * @uses    PMA_ajaxShowMessage()
+     */
     $("#db_search_form").live('submit', function(event) {
         event.preventDefault();
 
