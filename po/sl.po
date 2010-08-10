@@ -4508,7 +4508,7 @@ msgstr "Ni izbranih zbirk podatkov."
 #: server_databases.php:60
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "%s podatkovne zbirke so uspešno zavržene."
+msgstr "%s zbirke podatkov so uspešno zavržene."
 
 #: server_databases.php:85
 msgid "Databases statistics"
