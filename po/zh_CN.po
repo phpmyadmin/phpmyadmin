@@ -4401,10 +4401,9 @@ msgid "Not replicated"
 msgstr "未复制"
 
 #: server_databases.php:270
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "复制"
+msgstr "已复制"
 
 #: server_databases.php:286
 #, php-format
