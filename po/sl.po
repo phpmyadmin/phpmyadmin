@@ -4684,7 +4684,7 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Omeji število ukazov za spremembo tabel ali podatkovne zbirke, ki jih "
+"Omeji število ukazov za spremembo tabel ali zbirke podatkov, ki jih "
 "uporabnik lahko izvrši v eni uri."
 
 #: server_privileges.php:45 server_privileges.php:651
