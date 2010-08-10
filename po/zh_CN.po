@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 08:07+0200\n"
+"PO-Revision-Date: 2010-08-10 08:08+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1583,7 +1583,7 @@ msgstr "下载文件"
 #: libraries/blobstreaming.lib.php:451
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "无法打开文件：%s"
 
 #: libraries/common.inc.php:567
 msgid ""
