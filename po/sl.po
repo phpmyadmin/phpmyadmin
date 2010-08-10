@@ -1620,7 +1620,7 @@ msgstr "Prenesi datoteko"
 #: libraries/blobstreaming.lib.php:451
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Ne morem odpreti datoteke: %s"
 
 #: libraries/common.inc.php:567
 msgid ""
