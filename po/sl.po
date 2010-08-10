@@ -781,7 +781,7 @@ msgstr "Sledi tabeli"
 
 #: db_tracking.php:195
 msgid "Database Log"
-msgstr "Dnevnik podatkovne zbirke"
+msgstr "Dnevnik zbirke podatkov"
 
 #: export.php:61
 msgid "Selected export type has to be saved in file!"
