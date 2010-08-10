@@ -224,7 +224,7 @@ msgstr "Prekliči izbor vsega"
 
 #: db_operations.php:33 tbl_create.php:47
 msgid "The database name is empty!"
-msgstr "Ime podatkovne zbirke je prazno!"
+msgstr "Ime zbirke podatkov je prazno!"
 
 #: db_operations.php:231
 #, php-format
