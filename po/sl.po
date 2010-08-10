@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 09:51+0200\n"
+"PO-Revision-Date: 2010-08-10 09:52+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2552,7 +2552,7 @@ msgstr "Prag smeti"
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr "Odstotek smeti v hrambeni datoteki, preden je ta stisnjena."
+msgstr "Odstotek smeti v shrambni datoteki, preden je ta stisnjena."
 
 #: libraries/engines/pbms.lib.php:36 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
