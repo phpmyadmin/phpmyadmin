@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 09:47+0200\n"
+"PO-Revision-Date: 2010-08-10 09:48+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1595,7 +1595,7 @@ msgstr "Povezava s PBMS je spodletela:"
 
 #: libraries/blobstreaming.lib.php:343
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "Pridobivanje informacij BLOB PBMS je spodletelo:"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "get BLOB Content-Type failed"
