@@ -1,6 +1,11 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * function used in server privilege pages
+ * @fileoverview    functions used in server privilege pages
+ * @name            Server Privileges
+ *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ * @requires    js/functions.js
  *
  * @version $Id$
  */
@@ -134,7 +139,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
 };
 
 /**
- * Add all AJAX scripts for server_privileges page here.
+ * AJAX scripts for server_privileges page.
  *
  * Actions ajaxified here:
  * Add a new user
@@ -143,23 +148,32 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
  * Export privileges
  * Paginate table of users
  * Flush privileges
+ *
  */
 
 $(document).ready(function() {
     
     /**
-     * Attach AJAX event handlers to 'Add a New User'
+     * AJAX event handler for 'Add a New User'
      *
-     * @todo create standard options for dialog boxes
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    appendNewUser()
+     *
      */
     $("#fieldset_add_user a").live("click", function(event) {
         event.preventDefault();
 
         PMA_ajaxShowMessage();
 
+        /**
+         * @var button_options  Object containing options for jQueryUI dialog buttons
+         */
         var button_options = {};
         button_options[PMA_messages['strCreateUser']] = function() {
 
+                                                        /**
+                                                         * @var the_form    stores reference to current form
+                                                         */
                                                         var the_form = $(this).find("#addUsersForm");
 
                                                         if( ! checkAddUser($(the_form).get(0)) ) {
@@ -206,18 +220,21 @@ $(document).ready(function() {
                 modal: true,
                 buttons: button_options
             }); //dialog options end
-        });
+        }); // end $.get()
 
     });//end of Add New User AJAX event handler
 
 
     /**
-     * Attach Ajax event handler to 'Reload Privileges' anchor
+     * Ajax event handler for 'Reload Privileges' anchor
+     *
+     * @uses    PMA_ajaxShowMessage()
      */
     $("#reload_privileges_anchor").live("click", function(event) {
         event.preventDefault();
 
         PMA_ajaxShowMessage(PMA_messages['strReloadingPrivileges']);
+
         $.get($(this).attr("href"), {'ajax_request': true}, function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
@@ -225,10 +242,16 @@ $(document).ready(function() {
             else {
                 PMA_ajaxShowMessage(data.error);
             }
-        });
+        }); //end $.get()
+
     }); //end of Reload Privileges Ajax event handler
 
-    //Revoke User
+    /**
+     * AJAX handler for 'Revoke User'
+     *
+     * @uses    PMA_ajaxShowMessage()
+     *
+     */
     $("#fieldset_delete_user_footer #buttonGo").live('click', function(event) {
         event.preventDefault();
 
@@ -237,6 +260,8 @@ $(document).ready(function() {
         $.post($("#usersForm").attr('action'), $("#usersForm").serialize() + "&delete=" + $(this).attr('value') + "&ajax_request=true", function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
+
+                //Remove the revoked user from the users list
                 $("#usersForm").find("input:checkbox:checked").parents("tr").slideUp("medium", function() {
                     var this_user_initial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
                     $(this).remove();
@@ -258,10 +283,18 @@ $(document).ready(function() {
             else {
                 PMA_ajaxShowMessage(data.error);
             }
-        })
+        }) // end $.post()
     }) // end Revoke User
 
-    //Edit User
+    /**
+     * AJAX handler for 'Edit User'
+     *
+     * @uses    PMA_ajaxShowMessage()
+     */
+
+    /**
+     * Step 1: Load Edit User Dialog
+     */
     $(".edit_user_anchor").live('click', function(event) {
         event.preventDefault();
 
@@ -269,6 +302,9 @@ $(document).ready(function() {
 
         $(this).parents('tr').addClass('current_row');
 
+        /**
+         * @var button_options  Object containing options for jQueryUI dialog buttons
+         */
         var button_options = {};
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
 
@@ -279,9 +315,14 @@ $(document).ready(function() {
                 width: 900,
                 buttons: button_options
             })
-        })
+        }) // end $.get()
     })
 
+    /**
+     * Step 2: Submit the Edit User Dialog
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     */
     $("#edit_user_dialog").find("form").live('submit', function(event) {
         event.preventDefault();
 
@@ -289,12 +330,22 @@ $(document).ready(function() {
 
         $(this).append('<input type="hidden" name="ajax_request" value="true" />');
 
+        /**
+         * @var curr_submit_name    name of the current button being submitted
+         */
         var curr_submit_name = $(this).find('.tblFooters').find('input:submit').attr('name');
+
+        /**
+         * @var curr_submit_value    value of the current button being submitted
+         */
         var curr_submit_value = $(this).find('.tblFooters').find('input:submit').val();
 
         $.post($(this).attr('action'), $(this).serialize() + '&' + curr_submit_name + '=' + curr_submit_value, function(data) {
             if(data.success == true) {
+
                 PMA_ajaxShowMessage(data.message);
+                
+                //Close the jQueryUI dialog
                 $("#edit_user_dialog").dialog("close").remove();
 
                 if(data.sql_query) {
@@ -307,12 +358,14 @@ $(document).ready(function() {
                     if($(notice_class).text() == '') {
                         $(notice_class).remove();
                     }
-                }
+                } //Show SQL Query that was executed
 
+                //Append new user if necessary
                 if(data.new_user_string) {
                     appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
                 }
 
+                //Change privileges if they were edited
                 if(data.new_privileges) {
                     $("#usersForm")
                     .find('.current_row')
@@ -331,12 +384,19 @@ $(document).ready(function() {
     })
     //end Edit user
 
-    //Export Privileges
+    /**
+     * AJAX handler for 'Export Privileges'
+     *
+     * @uses    PMA_ajaxShowMessage()
+     */
     $(".export_user_anchor").live('click', function(event) {
         event.preventDefault();
 
         PMA_ajaxShowMessage();
 
+        /**
+         * @var button_options  Object containing options for jQueryUI dialog buttons
+         */
         var button_options = {};
         button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
 
@@ -350,7 +410,11 @@ $(document).ready(function() {
         }) //end $.get
     }) //end export privileges
 
-    //Paginate Users Table
+    /**
+     * AJAX handler to Paginate the Users Table
+     *
+     * @uses    PMA_ajaxShowMessage()
+     */
     $("#initials_table").find("a").live('click', function(event) {
         event.preventDefault();
 
@@ -365,7 +429,7 @@ $(document).ready(function() {
             .end()
             .remove();
             $("#initials_table").siblings("h2").not(":first").remove();
-        })
-    })
+        }) // end $.get
+    })// end of the paginate users table
 
-}); //end $(document).ready()
+}, 'top.frame_content'); //end $(document).ready()
