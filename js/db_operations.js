@@ -1,13 +1,19 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * function used in server privilege pages
+ * @fileoverview    function used in server privilege pages
+ * @name            Database Operations
+ *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ * @requires    js/functions.js
  *
  * @version $Id$
  */
 
 /**
- * Add Ajax event handlers here for db_operations.php
+ * Ajax event handlers here for db_operations.php
  *
+ * Actions Ajaxified here:
  * Rename Database
  * Copy Database
  * Change charset
@@ -15,13 +21,21 @@
 
 $(document).ready(function() {
 
-    //Rename Database
+    /**
+     * Ajax event handlers for 'Rename Database'
+     *
+     * @uses    $.PMA_confirm()
+     * @uses    PMA_ajaxShowUser()
+     */
     $("#rename_db_form").live('submit', function(event) {
         event.preventDefault();
 
         var question = 'CREATE DATABASE ... and then DROP DATABASE ' + window.parent.db;
         $(this).append('<input type="hidden" name="ajax_request" value="true" />');
 
+        /**
+         * @var button_options  Object containing options for jQueryUI dialog buttons
+         */
         var button_options = {};
         button_options[PMA_messages['strYes']] = function() {
                                                     $(this).dialog("close").remove();
@@ -37,7 +51,9 @@ $(document).ready(function() {
                 if(data.success == true) {
                     
                     PMA_ajaxShowMessage(data.message);
+
                     window.parent.db = data.newname;
+
                     $("#topmenucontainer")
                     .next('div')
                     .remove()
@@ -61,7 +77,11 @@ $(document).ready(function() {
         })
     }); // end Rename Database
 
-    //Copy Database
+    /**
+     * Ajax Event Handler for 'Copy Database'
+     *
+     * @uses    PMA_ajaxShowMessage()
+     */
     $("#copy_db_form").live('submit', function(event) {
         event.preventDefault();
 
@@ -79,16 +99,21 @@ $(document).ready(function() {
             else {
                 PMA_ajaxShowMessage(data.error);
             }
-        })
+        }) // end $.get
     }) // end copy database
 
-    //Change charset
+    /**
+     * Ajax Event handler for 'Change Charset' of the database
+     *
+     * @uses    PMA_ajaxShowMessage()
+     */
     $("#change_db_charset_form").live('submit', function(event) {
         event.preventDefault();
 
         $(this).append('<input type="hidden" name="ajax_request" value="true" />');
 
         PMA_ajaxShowMessage(PMA_messages['strChangingCharset']);
+
         $.get($(this).attr('action'), $(this).serialize() + "&submitcollation=" + $(this).find("input[name=submitcollation]").attr('value'), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
@@ -96,7 +121,7 @@ $(document).ready(function() {
             else {
                 PMA_ajaxShowMessage(data.error);
             }
-        })
+        }) // end $.get()
     }) // end change charset
     
 }, 'top.frame_content');
