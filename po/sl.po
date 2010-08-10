@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-08-10 10:11+0200\n"
+"PO-Revision-Date: 2010-08-10 10:13+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -3989,7 +3989,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
-msgstr "Pokaže povezavo na grafiko (neposredni BLOB prenos, ipd.)."
+msgstr "Pokaže povezavo za prenos slike."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
 msgid ""
