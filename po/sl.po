@@ -7895,10 +7895,9 @@ msgid "Showing SQL query"
 msgstr "Prikazovanje poizvedbe SQL"
 
 #: sql.php:516
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Preveri pravilnost stavka SQL"
+msgstr "Preverjen SQL"
 
 #: sql.php:631
 #, php-format
