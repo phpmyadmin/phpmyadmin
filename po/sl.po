@@ -249,10 +249,9 @@ msgid "and then"
 msgstr "in potem"
 
 #: db_operations.php:379
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Preimenuj zbirko podatkov v"
+msgstr "Odstrani zbirko podatkov"
 
 #: db_operations.php:391
 #, php-format
