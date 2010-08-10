@@ -5356,7 +5356,7 @@ msgstr "Število zahtev za vstavitev vrstice v tabelo."
 
 #: server_status.php:60
 msgid "The number of pages containing data (dirty or clean)."
-msgstr "Število strani, ki vsebujejo podatke (umazane ali čiste)"
+msgstr "Število strani, ki vsebujejo podatke (umazane ali čiste)."
 
 #: server_status.php:61
 msgid "The number of pages currently dirty."
