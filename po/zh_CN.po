@@ -1549,7 +1549,7 @@ msgstr "正在认证..."
 
 #: libraries/blobstreaming.lib.php:272
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS 错误"
 
 #: libraries/blobstreaming.lib.php:298
 #| msgid "Page creation failed"
