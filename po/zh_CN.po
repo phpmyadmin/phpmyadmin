@@ -259,10 +259,9 @@ msgid "Database %s has been dropped."
 msgstr "已被删除数据库 %s 。"
 
 #: db_operations.php:396
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "转到数据库"
+msgstr "删除数据库 (DROP)"
 
 #: db_operations.php:424
 msgid "Copy database to"
