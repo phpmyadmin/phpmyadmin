@@ -6431,7 +6431,7 @@ msgstr "Zavihek, ki se prikaže ob odprtju zbirke podatkov"
 
 #: setup/lib/messages.inc.php:50
 msgid "Default database tab"
-msgstr "Privzet zavihek podatkovne zbirke"
+msgstr "Privzet zavihek zbirke podatkov"
 
 #: setup/lib/messages.inc.php:51
 msgid "Tab that is displayed when entering a server"
