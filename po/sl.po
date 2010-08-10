@@ -496,14 +496,14 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Rezultati iskanja \"<i>%s</i>\" %s:"
 
 #: db_search.php:242
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s zadetek(ov) v tabeli <i>%s</i>"
-msgstr[1] "%s zadetek(ov) v tabeli <i>%s</i>"
-msgstr[2] "%s zadetek(ov) v tabeli <i>%s</i>"
-msgstr[3] "%s zadetek(ov) v tabeli <i>%s</i>"
+msgstr[0] "%s zadetek v tabeli <i>%s</i>"
+msgstr[1] "%s zadetka v tabeli <i>%s</i>"
+msgstr[2] "%s zadetki v tabeli <i>%s</i>"
+msgstr[3] "%s zadetkov v tabeli <i>%s</i>"
 
 #: db_search.php:249 db_structure.php:75 db_structure.php:76
 #: db_structure.php:88 db_structure.php:90 db_structure.php:101
