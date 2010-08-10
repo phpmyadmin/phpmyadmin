@@ -1589,10 +1589,9 @@ msgid "PBMS error"
 msgstr "Napaka PBMS"
 
 #: libraries/blobstreaming.lib.php:298
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "PBMS connection failed:"
-msgstr "Ustvarjanje strani je spodletelo"
+msgstr "Povezava s PBMS je spodletela:"
 
 #: libraries/blobstreaming.lib.php:343
 msgid "PBMS get BLOB info failed:"
