@@ -459,6 +459,9 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
         if (strlen($table) && strlen($db)) {
             PMA_relationsCleanupTable($db, $table);
+            // this is to avoid counting rows for nothing, below
+            // (do not unset as $table is used further down in the logic) 
+            $table = '';
         } elseif (strlen($db)) {
             PMA_relationsCleanupDatabase($db);
         } else {
