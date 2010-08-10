@@ -4396,10 +4396,9 @@ msgid "Jump to database"
 msgstr "转到数据库"
 
 #: server_databases.php:264
-#, fuzzy
 #| msgid "Master replication"
 msgid "Not replicated"
-msgstr "主复制"
+msgstr "未复制"
 
 #: server_databases.php:270
 #, fuzzy
