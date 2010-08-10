@@ -6541,7 +6541,7 @@ msgstr "Nabor znakov datoteke"
 
 #: setup/lib/messages.inc.php:82
 msgid "Database name template"
-msgstr "Predloga imena podatkovne zbirke"
+msgstr "Predloga imena zbirke podatkov"
 
 #: setup/lib/messages.inc.php:83
 msgid "Server name template"
