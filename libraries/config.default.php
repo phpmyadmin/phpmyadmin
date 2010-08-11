@@ -1101,6 +1101,20 @@ $cfg['Export']['onserver_overwrite'] = false;
 /**
  *
  *
+ * @global boolean $cfg['Export']['quick_export_onserver']
+ */
+$cfg['Export']['quick_export_onserver'] = false;
+
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['quick_export_onserver_overwrite']
+ */
+$cfg['Export']['quick_export_onserver_overwrite'] = false;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['remember_file_template']
  */
 $cfg['Export']['remember_file_template'] = true;
