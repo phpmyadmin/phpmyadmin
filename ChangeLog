@@ -115,6 +115,7 @@ $Id$
   thanks to Will Palmer - wpalmer
 - bug #3040226 [XHTML] LockFromUpdate checkbox not checked by default
 - bug [doc] Withdraw or edit FAQ entries related to older MySQL or PHP 
+- bug #3042706 [pmadb] Relations, bookmarks, etc deleted after table drop
 
 3.3.5.0 (2010-07-26)
 - patch #2932113 [information_schema] Slow export when having lots of
