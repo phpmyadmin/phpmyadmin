@@ -30,8 +30,19 @@ $multi_values .= '<a href="' . $checkall_url . '&amp;selectall=1" onclick="setSe
 $multi_values .= '<select name="db_select[]" id="db_select" size="10" multiple="multiple">';
 $multi_values .= "\n";
 
+if(isset($_GET['db_select'])) {
+    $_GET['db_select'] = urldecode($_GET['db_select']);
+    $_GET['db_select'] = explode(",", $_GET['db_select']);
+}
+
 foreach ($GLOBALS['pma']->databases as $current_db) {
-    if (!empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))) {
+    if(isset($_GET['db_select'])) {
+        if(in_array($current_db, $_GET['db_select'])) {
+            $is_selected = ' selected="selected"';
+        } else {
+            $is_selected = '';
+        }
+    } elseif (!empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))) {
         $is_selected = ' selected="selected"';
     } else {
         $is_selected = '';

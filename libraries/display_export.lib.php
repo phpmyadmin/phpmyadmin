@@ -35,6 +35,10 @@ if (empty($export_list)) {
     PMA_Message::error( __('Could not load export plugins, please check your installation!'))->display();
     require './libraries/footer.inc.php';
 }
+
+foreach($_GET as $name => $value) {
+    $_GET[urldecode($name)] = urldecode($value);
+}
 ?>
 
 <form method="post" action="export.php" name="dump">
@@ -56,14 +60,18 @@ if (isset($single_table)) {
 echo '<input type="hidden" name="export_type" value="' . $export_type . '" />' . "\n";
 
 // If the export method was not set, the default is quick
-if(!isset($cfg['Export']['method'])) {
+if(isset($_GET['export_method'])) {
+    $cfg['Export']['method'] = $_GET['export_method'];
+} elseif(!isset($cfg['Export']['method'])) {
     $cfg['Export']['method'] = 'quick';
 }
 // The export method (quick, custom or custom-no-form)
 echo '<input type="hidden" name="export_method" value="' . $cfg['Export']['method'] . '" />';
 
 
-if (! empty($sql_query)) {
+if(isset($_GET['sql_query'])) {
+    echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars(urldecode($_GET['sql_query'])) . '" />' . "\n";
+} elseif (! empty($sql_query)) {
     echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
 }
 ?>
@@ -87,7 +95,14 @@ if (! empty($sql_query)) {
     <ul>
         <li>
             <?php echo '<input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export"';
-            if($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
+            if(isset($_GET['quick_or_custom'])) {
+                $export_method = $_GET['quick_or_custom'];
+                if($export_method == 'custom' || $export_method == 'custom_no_form') {
+                    echo ' />';
+                } else {
+                    echo ' checked="checked" />';
+                }
+            } elseif($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
                 echo ' />';
             } else {
                 echo ' checked="checked" />';
@@ -96,7 +111,14 @@ if (! empty($sql_query)) {
         </li>
         <li>
             <?php echo '<input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export"';
-            if($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
+            if(isset($_GET['quick_or_custom'])) {
+                $export_method = $_GET['quick_or_custom'];
+                if($export_method == 'custom' || $export_method == 'custom_no_form') {
+                    echo ' checked="checked" />';
+                } else {
+                    echo ' />';
+                }
+            } elseif($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
                 echo ' checked="checked" />';
             } else {
                 echo ' />';
@@ -124,18 +146,27 @@ if (! empty($sql_query)) {
         <h3><?php echo __('Rows:'); ?></h3>
         <ul>
             <li>
-                <?php echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" checked="checked" />';
+                <?php if(isset($_GET['allrows']) && $_GET['allrows'] == 1) {
+                        echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" />';
+                    } else {
+                        echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" checked="checked" />';
+                    }
                     echo '<label for ="radio_allrows_0">' . __('Dump some row(s)') . '</label>'; ?>
                 <ul>
                     <li><label for="limit_to"><?php echo __('Number of rows:') . '</label> <input type="text" id="limit_to" name="limit_to" size="5" value="'
-                . (isset($unlim_num_rows) ? $unlim_num_rows : PMA_Table::countRecords($db, $table))
+                . ((isset($_GET['limit_to'])) ? $_GET['limit_to'] : ((isset($unlim_num_rows) ? $unlim_num_rows : PMA_Table::countRecords($db, $table))))
                 . '" onfocus="this.select()" />' ?></li>
-                    <li><label for="limit_from"><?php echo __('Row to begin at:') . '</label> <input type="text" id="limit_from" name="limit_from" value="0" size="5"'
-                .' onfocus="this.select()" />'; ?></li>
+                    <li><label for="limit_from"><?php echo __('Row to begin at:') . '</label> <input type="text" id="limit_from" name="limit_from" value="'
+                 . ((isset($_GET['limit_from'])) ? $_GET['limit_from'] : '0')
+                 . '" size="5" onfocus="this.select()" />'; ?></li>
                 </ul>
             </li>
             <li>
-                <?php echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1" />';
+                <?php if(isset($_GET['allrows']) && $_GET['allrows'] == 0) {
+                    echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1" />';
+                } else {
+                    echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1" checked="checked" />';
+                }
                 echo ' <label for="radio_allrows_1">' . __('Dump all rows') . '</label>';?>
             </li>
         </ul>
@@ -149,7 +180,7 @@ if (! empty($sql_query)) {
             <li>
                 <input type="checkbox" name="quick_export_onserver" value="saveit"
                     id="checkbox_quick_dump_onserver"
-                    <?php PMA_exportCheckboxCheck('onserver'); ?> />
+                    <?php PMA_exportCheckboxCheck('quick_export_onserver'); ?> />
                 <label for="checkbox_quick_dump_onserver">
                     <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
                 </label>
@@ -157,7 +188,7 @@ if (! empty($sql_query)) {
             <li>
                 <input type="checkbox" name="quick_export_onserverover" value="saveitover"
                 id="checkbox_quick_dump_onserverover"
-                <?php PMA_exportCheckboxCheck('onserver_overwrite'); ?> />
+                <?php PMA_exportCheckboxCheck('quick_export_onserver_overwrite'); ?> />
                 <label for="checkbox_quick_dump_onserverover"><?php echo __('Overwrite existing file(s)'); ?></label>
             </li>
         </ul>
@@ -168,7 +199,7 @@ if (! empty($sql_query)) {
     <h3><?php echo __('Output:'); ?></h3>
     <ul id="ul_output">
         <li>
-            <input type="radio" name="output_format" value="sendit" id="radio_dump_asfile" <?php PMA_exportCheckboxCheck('asfile'); ?> />
+            <input type="radio" name="output_format" value="sendit" id="radio_dump_asfile" <?php isset($_GET['repopulate']) ? '' : PMA_exportCheckboxCheck('asfile'); ?> />
             <label for="radio_dump_asfile"><?php echo __('Save output to a file'); ?></label>
             <ul id="ul_save_asfile">
                 <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
@@ -217,25 +248,29 @@ if (! empty($sql_query)) {
                     <input type="text" name="filename_template" id="filename_template"
                     <?php
                         echo ' value="';
-                        if ($export_type == 'database') {
-                            if (isset($_COOKIE) && !empty($_COOKIE['pma_db_filename_template'])) {
-                                echo htmlspecialchars($_COOKIE['pma_db_filename_template']);
-                            } else {
-                                echo $GLOBALS['cfg']['Export']['file_template_database'];
-                            }
-                        } elseif ($export_type == 'table') {
-                            if (isset($_COOKIE) && !empty($_COOKIE['pma_table_filename_template'])) {
-                                echo htmlspecialchars($_COOKIE['pma_table_filename_template']);
-                            } else {
-                                echo $GLOBALS['cfg']['Export']['file_template_table'];
-                            }
+                        if(isset($_GET['filename_template'])) {
+                            echo $_GET['filename_template'];
                         } else {
-                            if (isset($_COOKIE) && !empty($_COOKIE['pma_server_filename_template'])) {
-                                echo htmlspecialchars($_COOKIE['pma_server_filename_template']);
+                            if ($export_type == 'database') {
+                                if (isset($_COOKIE) && !empty($_COOKIE['pma_db_filename_template'])) {
+                                    echo htmlspecialchars($_COOKIE['pma_db_filename_template']);
+                                } else {
+                                    echo $GLOBALS['cfg']['Export']['file_template_database'];
+                                }
+                            } elseif ($export_type == 'table') {
+                                if (isset($_COOKIE) && !empty($_COOKIE['pma_table_filename_template'])) {
+                                    echo htmlspecialchars($_COOKIE['pma_table_filename_template']);
+                                } else {
+                                    echo $GLOBALS['cfg']['Export']['file_template_table'];
+                                }
                             } else {
-                                echo $GLOBALS['cfg']['Export']['file_template_server'];
+                                if (isset($_COOKIE) && !empty($_COOKIE['pma_server_filename_template'])) {
+                                    echo htmlspecialchars($_COOKIE['pma_server_filename_template']);
+                                } else {
+                                    echo $GLOBALS['cfg']['Export']['file_template_server'];
+                                }
                             }
-                        }
+                    }
                         echo '"';
                     ?>
                     />
@@ -254,7 +289,9 @@ if (! empty($sql_query)) {
                     echo '<select id="select_charset_of_file" name="charset_of_file" size="1">';
                     foreach ($cfg['AvailableCharsets'] as $temp_charset) {
                         echo '<option value="' . $temp_charset . '"';
-                        if ((empty($cfg['Export']['charset']) && $temp_charset == $charset)
+                        if(isset($_GET['charset_of_file']) && ($_GET['charset_of_file'] != $temp_charset)) {
+                            echo '';
+                        } elseif ((empty($cfg['Export']['charset']) && $temp_charset == $charset)
                           || $temp_charset == $cfg['Export']['charset']) {
                             echo ' selected="selected"';
                         }
@@ -264,6 +301,11 @@ if (! empty($sql_query)) {
                 } // end if
                 ?>
                  <?php
+                if(isset($_GET['compression'])) {
+                     $selected_compression = $_GET['compression'];
+                } else {
+                    $selected_compression = "none";
+                }
                 // zip, gzip and bzip2 encode features
                 $is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
                 $is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
@@ -274,20 +316,20 @@ if (! empty($sql_query)) {
                     <select id="compression" name="compression">
                         <option value="none"><?php echo __('None'); ?></option>
                         <?php if ($is_zip) { ?>
-                            <option value="zip"><?php echo __('zipped'); ?></option>
+                            <option value="zip" <?php echo ($selected_compression == "zip") ? 'selected="selected"' : ''; ?>><?php echo __('zipped'); ?></option>
                         <?php } if ($is_gzip) { ?>
-                            <option value="gzip"><?php echo __('gzipped'); ?></option>
+                            <option value="gzip" <?php echo ($selected_compression == "gzip") ? 'selected="selected"' : ''; ?>><?php echo __('gzipped'); ?></option>
                         <?php } if ($is_bzip) { ?>
-                            <option value="bzip"><?php echo __('bzipped'); ?></option>
+                            <option value="bzip" <?php echo ($selected_compression == "bzip") ? 'selected="selected"' : ''; ?>><?php echo __('bzipped'); ?></option>
                         <?php } ?>
                     </select>
                     </li>
                 <?php } else { ?>
-                    <input type="hidden" name="compression" value="none" />
+                    <input type="hidden" name="compression" value="<?php echo $selected_compression; ?>" />
                 <?php } ?>
              </ul>
         </li>
-        <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext" /><label for="radio_view_as_text">View output as text</label></li>
+        <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext" <?php echo isset($_GET['repopulate']) ? 'checked="checked"' : '' ?>/><label for="radio_view_as_text">View output as text</label></li>
     </ul>
  </div>
 

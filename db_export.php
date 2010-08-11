@@ -52,8 +52,19 @@ if (!empty($selected_tbl) && empty($table_select)) {
     $table_select = $selected_tbl;
 }
 
+if(isset($_GET['table_select'])) {
+    $_GET['table_select'] = urldecode($_GET['table_select']);
+    $_GET['table_select'] = explode(",", $_GET['table_select']);
+}
+
 foreach ($tables as $each_table) {
-    if (! empty($unselectall) 
+    if(isset($_GET['table_select'])) {
+        if(in_array($each_table['Name'], $_GET['table_select'])) {
+            $is_selected = ' selected="selected"';
+        } else {
+            $is_selected = '';
+        }
+    } elseif (! empty($unselectall)
             || (! empty($table_select) && !in_array($each_table['Name'], $table_select))) {
         $is_selected = '';
     } else {

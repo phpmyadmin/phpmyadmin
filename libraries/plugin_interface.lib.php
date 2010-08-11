@@ -60,6 +60,7 @@ function PMA_getString($name)
  * returns html input tag option 'checked' if plugin $opt should be set by config or request
  *
  * @uses    $_REQUEST
+ * @uses    $_GET
  * @uses    $GLOBALS['cfg']
  * @uses    $GLOBALS['timeout_passed']
  * @param   string  $section    name of config section in
@@ -69,8 +70,9 @@ function PMA_getString($name)
  */
 function PMA_pluginCheckboxCheck($section, $opt)
 {
-    if ((isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($_REQUEST[$opt])) ||
-        (isset($GLOBALS['cfg'][$section][$opt]) && $GLOBALS['cfg'][$section][$opt])) {
+    // If the form is being repopulated using $_GET data, that is priority
+    if (isset($_GET[$opt]) || !isset($_GET['repopulate']) && ((isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($_REQUEST[$opt])) ||
+        (isset($GLOBALS['cfg'][$section][$opt]) && $GLOBALS['cfg'][$section][$opt]))) {
         return ' checked="checked"';
     }
     return '';
@@ -83,6 +85,7 @@ function PMA_pluginCheckboxCheck($section, $opt)
  *
  * @uses    htmlspecialchars()
  * @uses    $_REQUEST
+ * @uses    $_GET
  * @uses    $GLOBALS['cfg']
  * @uses    $GLOBALS['timeout_passed']
  * @param   string  $section    name of config section in
@@ -92,7 +95,9 @@ function PMA_pluginCheckboxCheck($section, $opt)
  */
 function PMA_pluginGetDefault($section, $opt)
 {
-    if (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($_REQUEST[$opt])) {
+    if(isset($_GET[$opt])) { // If the form is being repopulated using $_GET data, that is priority
+        return htmlspecialchars($_GET[$opt]);
+    } elseif (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($_REQUEST[$opt])) {
         return htmlspecialchars($_REQUEST[$opt]);
     } elseif (isset($GLOBALS['cfg'][$section][$opt])) {
         $matches = array();
@@ -162,7 +167,8 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = NULL)
     $default = PMA_pluginGetDefault($section, $cfgname);
     foreach ($list as $plugin_name => $val) {
         $ret .= '<option';
-        if($plugin_name == $default) {
+         // If the form is being repopulated using $_GET data, that is priority
+        if(isset($_GET[$name]) && $plugin_name == $_GET[$name] || !isset($_GET[$name]) && $plugin_name == $default) {
             $ret .= ' selected="selected"';
         }
          $ret .= ' value="' . $plugin_name . '">' . PMA_getString($val['text']) . '</option>' . "\n";

@@ -661,6 +661,31 @@ else {
     //echo '    </pre>' . "\n";
     echo '</textarea>' . "\n"
        . '    </form>' . "\n";
+    echo '<p>[ <a href="';
+    if ($export_type == 'server') {
+       echo 'server_export.php?' . PMA_generate_common_url();
+     } elseif ($export_type == 'database') {
+        echo 'db_export.php?' . PMA_generate_common_url($db);
+    } else {
+        echo 'tbl_export.php?' . PMA_generate_common_url($db, $table);
+    }
+
+    /**
+     * Displays a back button with all the $_REQUEST data in the URL
+     */
+    // Convert the multiple select elements from an array to a string
+    if($export_type == 'server') {
+        $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
+    } elseif($export_type == 'database') {
+        $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
+    }
+
+    foreach($_REQUEST as $name => $value) {
+        echo '&' . urlencode($name) . '=' . urlencode($value);
+    }
+    echo '&repopulate=1">Back</a> ]</p>';
+
+    echo "\n";
     echo '</div>' . "\n";
     echo "\n";
 ?>
