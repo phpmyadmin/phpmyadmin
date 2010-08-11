@@ -673,9 +673,9 @@ else {
      * Displays a back button with all the $_REQUEST data in the URL
      */
     // Convert the multiple select elements from an array to a string
-    if($export_type == 'server') {
+    if($export_type == 'server' && isset($_REQUEST['db_select'])) {
         $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
-    } elseif($export_type == 'database') {
+    } elseif($export_type == 'database' && isset($_REQUEST['table_select'])) {
         $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
     }
 
