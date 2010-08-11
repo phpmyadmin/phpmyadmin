@@ -33,6 +33,7 @@ var timeoutID;
 var layer_menu_cur_click = 0;
 var step = 10;
 var old_class;
+var from_array = [];
 var downer;
 
 //------------------------------------------------------------------------------
@@ -989,6 +990,7 @@ function Select_all(id_this,owner)
 	var parent= document.form1;
 	downer =owner;
 	var i;
+	var tab = [];
 	for(i = 0; i < parent.elements.length; i++) {
 		if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0,(9 + id_this.length)) == 'select_' + id_this + '._') {
 			if(document.getElementById('select_all_' + id_this).checked == true) {
@@ -1004,11 +1006,21 @@ function Select_all(id_this,owner)
 	}
 	if(document.getElementById('select_all_' + id_this).checked == true) {
 		select_field.push('`' + id_this.substring(owner.length +1) + '`.*');
+		tab = id_this.split(".");
+		from_array.push(tab[1]);
+		
 	}
 	else {
 		for (i =0; i < select_field.length; i++) {
 			if (select_field[i] == ('`' + id_this.substring(owner.length +1) + '`.*')) {
 				select_field.splice(i,1);
+				
+			}
+		}
+		for(k =0 ;k < from_array.length;k++){
+			if(from_array[k] == id_this){ 
+				from_array.splice(k,1); 
+				break;
 			}
 		}
 	}
@@ -1033,13 +1045,21 @@ function Table_onover(id_this,val)
  */
 function store_column(id_this,owner,col) {
 	var i = 0;
+	var k = 0;
 	if (document.getElementById('select_' + owner + '.' + id_this + '._' + col).checked == true) {
 		select_field.push('`' + id_this + '`.`' + col +'`');	
+		from_array.push(id_this);
 	}
 	else {
 		for(i; i < select_field.length ;i++) {
 			if (select_field[i] == ('`' + id_this + '`.`' + col +'`')) {
 				select_field.splice(i,1);
+				break;
+			}
+		}
+		for(k =0 ;k < from_array.length;k++){
+			if(from_array[k] == id_this){ 
+				from_array.splice(k,1); 
 				break;
 			}
 		}
@@ -1094,6 +1114,20 @@ function add_object() {
 		sum = sum + 1;
 		document.getElementById('groupby').checked = false;
 		//make groupby
+	}
+	if (document.getElementById('h_rel_opt').value != '--') {
+		if (document.getElementById('having').value == "") {
+			document.getElementById('hint').innerHTML = "value/subQuery is empty" ;
+		    document.getElementById('hint').style.visibility = "visible";
+			return;
+		}
+		 var p = document.getElementById('having');
+		 var where_obj = new having(document.getElementById('h_rel_opt').value,p.value,document.getElementById('h_operator').value);//make where object
+		 history_array.push(new history(col_name,where_obj,tab_name,h_tabs[downer + '.' + tab_name],"Having"));
+		 sum = sum + 1;
+		 document.getElementById('h_rel_opt').value = '--';
+		 document.getElementById('h_operator').value = '---';
+		 p.value = ""; //make having
 	}
 	if (document.getElementById('orderby').checked == true) {
 		history_array.push(new history(col_name,'OrderBy',tab_name,h_tabs[downer + '.' + tab_name],"OrderBy"));

@@ -100,7 +100,7 @@ function and_or(index) {
 }
 
 /**
- * To display details of obects(where,rename,aggregate,groupby,orderby)
+ * To display details of obects(where,rename,aggregate,groupby,orderby,having)
  * 
  * @param	index	index of history_array where change is to be made
  *
@@ -124,6 +124,16 @@ function detail (index) {
 	if (type == "OrderBy") {
 		str = 'OrderBy ' + history_array[index].get_column_name() ;
 	}
+	if (type == "Having") {
+		str = 'Having ';
+		if (history_array[index].get_obj().get_operator() != 'None') {
+			str += history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )';
+			str += history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
+		}
+		else {
+			str = 'Having ' + history_array[index].get_column_name() + history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
+		}
+	}
 	return str;
 }
 
@@ -137,6 +147,12 @@ function detail (index) {
 **/
 
 function history_delete(index) {
+	for(var k =0 ;k < from_array.length;k++){
+		if(from_array[k] == history_array[index].get_tab()){ 
+			from_array.splice(k,1); 
+			break;
+		}
+	}
 	history_array.splice(index,1);
 	var existingDiv = document.getElementById('ab');
 	existingDiv.innerHTML = display(0,0);
@@ -161,6 +177,16 @@ function history_edit(index) {
 		document.getElementById('query_where').style.position  = 'absolute';
 		document.getElementById('query_where').style.zIndex = '9';
 		document.getElementById('query_where').style.visibility = 'visible';
+	}
+	if (type == "Having") {
+		document.getElementById('hQuery').value = history_array[index].get_obj().getquery();
+		document.getElementById('hrel_opt').value = history_array[index].get_obj().getrelation_operator();
+		document.getElementById('hoperator').value = history_array[index].get_obj().get_operator();
+		document.getElementById('query_having').style.left =  '230px';
+     	document.getElementById('query_having').style.top  = '330px';
+		document.getElementById('query_having').style.position  = 'absolute';
+		document.getElementById('query_having').style.zIndex = '9';
+		document.getElementById('query_having').style.visibility = 'visible';
 	}
 	if (type == "Rename") {
      	document.getElementById('query_rename_to').style.left =  '230px';
@@ -208,6 +234,14 @@ function edit(type) {
 			history_array[g_index].get_obj().setrelation_operator(document.getElementById('erel_opt').value);
 		}
 		document.getElementById('query_where').style.visibility = 'hidden';
+	}
+	if (type == "Having") {
+		if (document.getElementById('hrel_opt').value != '--' && document.getElementById('hQuery').value !="") {
+			history_array[g_index].get_obj().setquery(document.getElementById('hQuery').value);
+			history_array[g_index].get_obj().setrelation_operator(document.getElementById('hrel_opt').value);
+			history_array[g_index].get_obj().set_operator(document.getElementById('hoperator').value);
+		}
+		document.getElementById('query_having').style.visibility = 'hidden';
 	}
 	var existingDiv = document.getElementById('ab');
 	existingDiv.innerHTML = display(0,0);
@@ -287,6 +321,7 @@ function history(ncolumn_name,nobj,ntab,nobj_no,ntype) {
  *
 **/
 
+
 var where = function (nrelation_operator,nquery) {
 	var relation_operator;
 	var query;
@@ -304,6 +339,33 @@ var where = function (nrelation_operator,nquery) {
 	};
 	this.setquery(nquery);
 	this.setrelation_operator(nrelation_operator);
+};
+
+var having = function (nrelation_operator,nquery,noperator) {
+	var relation_operator;
+	var query;
+	var operator;
+	this.set_operator = function(noperator) {
+		operator = noperator;
+	};
+	this.setrelation_operator = function(nrelation_operator) {
+		relation_operator = nrelation_operator;
+	};
+	this.setquery = function(nquery) {
+		query = nquery;
+	};
+	this.getquery = function() {
+		return query;
+	};
+	this.getrelation_operator = function() {
+		return relation_operator;
+	};
+	this.get_operator = function() {
+		return operator;
+	};
+	this.setquery(nquery);
+	this.setrelation_operator(nrelation_operator);
+	this.set_operator(noperator);
 };
 
 /**
@@ -342,7 +404,29 @@ var aggregate = function(noperator) {
 	this.set_operator(noperator);
 };
 
+function unique(arrayName) {
+	var newArray=new Array();
+    label:for(var i=0; i<arrayName.length;i++ )
+    {  
+       for(var j=0; j<newArray.length;j++ )
+       {
+            if(newArray[j]==arrayName[i]) 
+            	continue label;
+        }
+        newArray[newArray.length] = arrayName[i];
+     }
+       return newArray;
+}
+
+function found(arrayName,value) {
+	for(var i=0; i<arrayName.length; i++) {
+		if(arrayName[i] == value) { return 1;}
+	}
+	return -1;
+}
+			
 function build_query(formtitle, fadin) {
+	
 	var q_select = "SELECT ";
 	var temp;
 	for(i = 0;i < select_field.length; i++) {
@@ -358,10 +442,14 @@ function build_query(formtitle, fadin) {
 		}
 	}
 	q_select = q_select.substring(0,q_select.length - 1);
-	q_select += " FROM WHERE ";
-	q_select += query_where();
-	if(query_groupby() != "") { q_select += "GROUP BY" + query_groupby(); }
-	if(query_orderby() != "") { q_select += "ORDER BY" + query_orderby(); }
+	q_select += " FROM " + query_from();
+	if(query_where() != "") {
+		q_select +="\n WHERE";
+		q_select += query_where();
+	}
+	if(query_groupby() != "") { q_select += "\nGROUP BY " + query_groupby(); }
+	if(query_having() != "") { q_select += "\nHAVING " + query_having(); }
+	if(query_orderby() != "") { q_select += "\nORDER BY " + query_orderby(); }
 	 var box = document.getElementById('box'); 
   	document.getElementById('filter').style.display='block';
   	var btitle = document.getElementById('boxtitle');
@@ -379,6 +467,107 @@ function build_query(formtitle, fadin) {
 //	document.getElementById('hint').style.visibility = "visible";
 }
 
+function query_from() {
+	var i =0;
+	var tab_left = [];
+	var tab_used = [];
+	var t_tab_used = [];
+	var t_tab_left = [];
+	var temp;
+	var query = "";
+	var quer = "";
+	var parts = [];
+	var t_array = [];
+	t_array = from_array;
+	var K = 0;
+	for(i; i < history_array.length ; i++) {
+		from_array.push(history_array[i].get_tab());
+	}
+	from_array = unique( from_array );
+	tab_left = from_array;
+	temp = tab_left.shift();
+	quer = temp;
+	tab_used.push(temp);
+	for( i =0; i<2 ; i++) {
+		for (K in contr){
+        	for (key in contr[K]){// contr name
+			// if master table (key2) matches with tab used get all keys and check if tab_left matches 
+			//after this check if master table (key2) matches with tab left then check if any foriegn matches with master . 
+        	    for (key2 in contr[K][key]){// table name
+				   parts = key2.split(".");
+        	       if(found(tab_used,parts[1]) > 0)  {
+				   		for (key3 in contr[K][key][key2]) {
+							parts1 = contr[K][key][key2][key3][0].split(".");
+							if(found(tab_left,parts1[1]) > 0) {
+								query += "\n" + 'LEFT JOIN ';
+								query += '`' + parts1[0] + '`.`' + parts1[1] + '` ON ' ;
+								query += '`' + parts[1] +'`.`' + key3 + '` = ';
+								query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+								t_tab_left.push(parts1[1]);
+							}
+						}
+				   }
+				}
+			}
+		}	
+		K = 0;
+		t_tab_left = unique (t_tab_left);
+		tab_used = add_array(t_tab_left,tab_used);
+		tab_left = remove_array(t_tab_left,tab_left);
+		t_tab_left = [];
+		for (K in contr) {
+    		for (key in contr[K]) {
+			   for (key2 in contr[K][key]){// table name
+				   parts = key2.split(".");
+            	   if(found(tab_left,parts[1]) > 0)
+				   {	
+				   		for (key3 in contr[K][key][key2]) // field name
+            	    	{
+							parts1 = contr[K][key][key2][key3][0].split(".");
+							if(found(tab_used,parts1[1]) > 0) {
+								query += "\n" + 'LEFT JOIN ';
+								query += '`' + parts[0] + '`.`' + parts[1] + '` ON ' ;
+								query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
+								query += '`' + parts[1] + '`.`' + key3 + '` ';
+								
+								t_tab_left.push(parts[1]);
+			         		}
+						}
+					}
+		   		}
+		   	}
+		}
+		t_tab_left = unique (t_tab_left);
+		tab_used = add_array(t_tab_left,tab_used);
+		tab_left = remove_array(t_tab_left,tab_left);
+		t_tab_left = [];
+	}
+	for (k in tab_left) {
+		quer += " , `" + tab_left[k] + "`";
+	}
+			query = quer + query;
+			from_array = t_array;
+			return query;
+}
+				/*		document.write(key3+";"); //master_field
+							document.write(contr[K][key][key2][key3][0]+";"); // foreign_table
+							document.write(contr[K][key][key2][key3][1]+";"); //forieign_feild */
+            
+function add_array(add,arr){
+	for( var i=0; i<add.length; i++){
+		arr.push(add[i]);
+	}
+	return arr;
+}
+
+function remove_array(rem,arr){
+	for(var i=0; i<rem.length; i++){
+		for(var j=0; j<arr.length; j++)
+			if(rem[i] == arr[j]) { arr.splice(j,1); }
+	}
+	return arr;
+}
+
 function query_groupby() {
 	var i = 0;
 	var str = "";
@@ -387,6 +576,25 @@ function query_groupby() {
 	}
 	str = str.substr(0,str.length -1);
 	return str;
+}
+
+function query_having() {
+	var i = 0;
+	var and = "(";
+	for(i; i < history_array.length;i++) {
+		if(history_array[i].get_type() == "Having") {
+			if (history_array[i].get_obj().get_operator() != 'None') {
+				and += history_array[i].get_obj().get_operator() + "(" + history_array[i].get_column_name() + " ) " + history_array[i].get_obj().getrelation_operator();
+				and += " " + history_array[i].get_obj().getquery() + ", " ; 
+			}
+			else {
+				and +=  history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ", ";
+			}
+		}
+	}
+	if (and =="(") { and = "" ;}
+	else { and = and.substr(0,and.length -2) + ")";}
+	return and;
 }
 
 function query_orderby() {
@@ -417,7 +625,7 @@ function query_where(){
 	else { or = "" ;}
 	if (and !="(") {and = and.substring(0,(and.length - 5)) + ")"; }
 	else {and = "" ;}
-	and = and + " OR " + or + " )";
+	if ( or != "" ) { and = and + " OR " + or + " )"; }
 	return and;
 }
 
