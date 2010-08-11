@@ -113,8 +113,14 @@ function toggle_sql_include_comments() {
             $("#ul_include_comments > li").fadeTo('fast', 0.4);
             $("#ul_include_comments > li > input").attr('disabled', 'disabled');
          } else {
-            $("#ul_include_comments > li").fadeTo('fast', 1);
-            $("#ul_include_comments > li > input").removeAttr('disabled');
+            // If structure is not being exported, the comment options for structure should not be enabled
+            if($("#radio_sql_structure_or_data_data:checked").length == 1) {
+                $("#text_sql_header_comment").parent("li").fadeTo('fast', 1);
+                $("#text_sql_header_comment").removeAttr('disabled');
+            } else {
+                $("#ul_include_comments > li").fadeTo('fast', 1);
+                $("#ul_include_comments > li > input").removeAttr('disabled');
+            }
          }
      });
 }
