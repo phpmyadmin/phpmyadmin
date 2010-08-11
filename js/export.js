@@ -50,38 +50,40 @@ $(document).ready(function() {
  * Toggles the hiding and showing of plugin structure-specific and data-specific
  * options
  */
-$(document).ready(function() {
-    function toggleStructureAndDataOpts(pluginName) {
-        var radioFormName = pluginName + "_structure_or_data";
-        var dataDiv = "#" + pluginName + "_data";
-        var structureDiv = "#" + pluginName + "_structure";
-        var show = $("input[type='radio'][name='" + radioFormName + "']:checked").attr("value");
-        if(show == 'data') {
-            $(dataDiv).slideDown('slow');
-            $(structureDiv).slideUp('slow');
+
+function toggle_structure_data_opts(pluginName) {
+    var radioFormName = pluginName + "_structure_or_data";
+    var dataDiv = "#" + pluginName + "_data";
+    var structureDiv = "#" + pluginName + "_structure";
+    var show = $("input[type='radio'][name='" + radioFormName + "']:checked").attr("value");
+    if(show == 'data') {
+        $(dataDiv).slideDown('slow');
+        $(structureDiv).slideUp('slow');
+    } else {
+        $(structureDiv).slideDown('slow');
+        if(show == 'structure') {
+            $(dataDiv).slideUp('slow');
         } else {
-            $(structureDiv).slideDown('slow');
-            if(show == 'structure') {
-                $(dataDiv).slideUp('slow');
-            } else {
-                $(dataDiv).slideDown('slow');
-            }
+            $(dataDiv).slideDown('slow');
         }
     }
+}
+
+$(document).ready(function() {
     $("input[type='radio'][name='latex_structure_or_data']").change(function() {
-        toggleStructureAndDataOpts("latex");
+        toggle_structure_data_opts("latex");
     });
     $("input[type='radio'][name='odt_structure_or_data']").change(function() {
-        toggleStructureAndDataOpts("odt");
+        toggle_structure_data_opts("odt");
     });
     $("input[type='radio'][name='texytext_structure_or_data']").change(function() {
-        toggleStructureAndDataOpts("texytext");
+        toggle_structure_data_opts("texytext");
     });
     $("input[type='radio'][name='htmlword_structure_or_data']").change(function() {
-        toggleStructureAndDataOpts("htmlword");
+        toggle_structure_data_opts("htmlword");
     });
     $("input[type='radio'][name='sql_structure_or_data']").change(function() {
-        toggleStructureAndDataOpts("sql");
+        toggle_structure_data_opts("sql");
     });
 });
 
@@ -105,7 +107,7 @@ $(document).ready(function() {
 /**
  * For SQL plugin, toggles the disabling of the "display comments" options
  */
-$(document).ready(function() {
+function toggle_sql_include_comments() {
     $("#checkbox_sql_include_comments").change(function() {
         if($("#checkbox_sql_include_comments:checked").length == 0) {
             $("#ul_include_comments > li").fadeTo('fast', 0.4);
@@ -115,7 +117,7 @@ $(document).ready(function() {
             $("#ul_include_comments > li > input").removeAttr('disabled');
          }
      });
-});
+}
 
 /**
  * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options 
@@ -189,6 +191,8 @@ $(document).ready(function() {
     $(".format_specific_options").css({ "border": 0, "margin": 0, "padding": 0});
     $(".format_specific_options h3").remove();
     toggle_quick_or_custom();
+    toggle_structure_data_opts($("select[id='plugins']").attr("value"));
+    toggle_sql_include_comments();
 });
 
 /**
