@@ -1,26 +1,12 @@
- /*
-     pMap - a JavaScript to add image map support to pChart graphs!
-     Copyright (C) 2008 Jean-Damien POGOLOTTI
-     Copyright (C) 2010 Martynas Mickevicius
-     Version  1.1 last updated on 08/20/08
-     Version  1.2 last updated on 07/22/10
-
-     http://pchart.sourceforge.net
-
-     This program is free software: you can redistribute it and/or modify
-     it under the terms of the GNU General Public License as published by
-     the Free Software Foundation, either version 1,2,3 of the License, or
-     (at your option) any later version.
-
-     This program is distributed in the hope that it will be useful,
-     but WITHOUT ANY WARRANTY; without even the implied warranty of
-     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-     GNU General Public License for more details.
-
-     You should have received a copy of the GNU General Public License
-     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+/**
+ * Holds the definition and the creation of the imageMap object
+ * @author Martynas Mickevicius <mmartynas@gmail.com>
+ * @package phpMyAdmin
  */
 
+/**
+ * responsible for showing tooltips above the image chart
+ */
 var imageMap = {
     'mouseMoved': function(event, cont) {
         // return if no imageMap set
