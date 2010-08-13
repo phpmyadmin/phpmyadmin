@@ -1,5 +1,13 @@
 <?php
+/**
+ * Chart functions used to generate various types of charts.
+ * @author Martynas Mickevicius <mmartynas@gmail.com>
+ * @package phpMyAdmin
+ */
 
+/**
+ * 
+ */
 define('ERR_NO_GD', 0);
 define('ERR_NO_JSON', 1);
 
@@ -13,15 +21,9 @@ require_once './libraries/chart/pma_pchart_single_radar.php';
 require_once './libraries/chart/pma_pchart_multi_radar.php';
 
 /**
- * Chart functions used to generate various types
- * of charts.
- *
- * @version $Id$
- * @package phpMyAdmin
- */
-
-/*
- * Formats a chart for status page.
+ * Formats a chart for the status page.
+ * @param array $data data for the status chart
+ * @return string HTML and JS code for the chart
  */
 function PMA_chart_status($data)
 {
@@ -42,8 +44,10 @@ function PMA_chart_status($data)
     echo $chartCode;
 }
 
-/*
- * Formats a chart for profiling page.
+/**
+ * Formats a chart for the profiling page.
+ * @param array $data data for the status chart
+ * @return string HTML and JS code for the chart
  */
 function PMA_chart_profiling($data)
 {
@@ -63,8 +67,11 @@ function PMA_chart_profiling($data)
     echo $chartCode;
 }
 
-/*
- * Formats a chart for query results page.
+/**
+ * Formats a chart for the query results page.
+ * @param array $data data for the status chart
+ * @param array $chartSettings settings used to generate the chart
+ * @return string HTML and JS code for the chart
  */
 function PMA_chart_results($data, &$chartSettings)
 {
@@ -232,8 +239,9 @@ function PMA_chart_results($data, &$chartSettings)
     return $chartCode;
 }
 
-/*
+/**
  * Simple handler of chart errors.
+ * @param array $errors all occured errors
  */
 function PMA_handle_chart_err($errors)
 {

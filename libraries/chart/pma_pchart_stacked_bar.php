@@ -1,7 +1,18 @@
 <?php
+/**
+ * @author Martynas Mickevicius <mmartynas@gmail.com>
+ * @package phpMyAdmin
+ */
 
+/**
+ *
+ */
 require_once 'pma_pchart_multi.php';
 
+/**
+ * implements stacked bar chart
+ * @package phpMyAdmin
+ */
 class PMA_pChart_stacked_bar extends PMA_pChart_multi
 {
     public function __construct($data, $options = null)
@@ -9,6 +20,9 @@ class PMA_pChart_stacked_bar extends PMA_pChart_multi
         parent::__construct($data, $options);
     }
 
+    /**
+     * draws stacked bar chart
+     */
     protected function drawChart()
     {
         parent::drawChart();

@@ -1,7 +1,18 @@
 <?php
+/**
+ * @author Martynas Mickevicius <mmartynas@gmail.com>
+ * @package phpMyAdmin
+ */
 
+/**
+ * 
+ */
 require_once 'pma_pchart_single.php';
 
+/**
+ * implements single radar chart
+ * @package phpMyAdmin
+ */
 class PMA_pChart_single_radar extends PMA_pChart_single
 {
     public function __construct($data, $options = null)
@@ -11,7 +22,7 @@ class PMA_pChart_single_radar extends PMA_pChart_single
         $this->normalizeValues();
     }
 
-    /*
+    /**
      * Get the largest value from the data and normalize all the other values.
      */
     private function normalizeValues()
@@ -26,12 +37,28 @@ class PMA_pChart_single_radar extends PMA_pChart_single
         }
     }
 
+    /**
+     * graph area for the radar chart does not include grid lines
+     */
     protected function drawGraphArea()
     {
-        $this->chart->drawGraphArea(213,217,221,FALSE);
-        $this->chart->drawGraphAreaGradient(163,203,167,50);
+        $this->chart->drawGraphArea(
+                $this->getGraphAreaColor(RED),
+                $this->getGraphAreaColor(GREEN),
+                $this->getGraphAreaColor(BLUE),
+                FALSE
+        );
+        $this->chart->drawGraphAreaGradient(
+                $this->getGraphAreaGradientColor(RED),
+                $this->getGraphAreaGradientColor(GREEN),
+                $this->getGraphAreaGradientColor(BLUE),
+                50
+        );
     }
 
+    /**
+     * draws the radar chart
+     */
     protected function drawChart()
     {
         // when drawing radar graph we can specify the border from the top of

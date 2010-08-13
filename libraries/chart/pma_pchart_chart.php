@@ -1,5 +1,14 @@
 <?php
+/**
+ * Holds the base class that all charts using pChart inherit from and some
+ * widely used constants
+ * @author Martynas Mickevicius <mmartynas@gmail.com>
+ * @package phpMyAdmin
+ */
 
+/**
+ * 
+ */
 define('TOP', 0);
 define('RIGHT', 1);
 define('BOTTOM', 2);
@@ -10,17 +19,36 @@ require_once 'pma_chart.php';
 require_once 'pChart/pData.class';
 require_once 'pChart/pChart.class';
 
-/*
+/**
  * Base class for every chart implemented using pChart.
+ * @abstract
+ * @package phpMyAdmin
  */
-abstract class PMA_pChart_Chart extends PMA_Chart
+abstract class PMA_pChart_chart extends PMA_chart
 {
+    /**
+     * @var String  title text
+     */
     protected $titleText;
+
+    /**
+     * @var array   data for the chart
+     */
     protected $data;
 
+    /**
+     * @var object  pData object that holds the description of the data
+     */
     protected $dataSet;
+
+    /**
+     * @var object  pChart object that holds the chart
+     */
     protected $chart;
 
+    /**
+     * @var array   holds base64 encoded chart image parts
+     */
     protected $partsEncoded = array();
 
     public function __construct($data, $options = null)
@@ -41,6 +69,21 @@ abstract class PMA_pChart_Chart extends PMA_Chart
 
         // as in CSS (top, right, bottom, left)
         $this->setAreaMargins(array(20, 20, 40, 60));
+
+        // when graph area gradient is used, this is the color of the graph
+        // area border
+        $this->settings['graphAreaColor'] = '#D5D9DD';
+
+        // the background color of the graph area
+        $this->settings['graphAreaGradientColor'] = '#A3CBA7';
+
+        // the color of the grid lines in the graph area
+        $this->settings['gridColor'] = '#E6E6E6';
+
+        // the color of the scale and the labels
+        $this->settings['scaleColor'] = '#D5D9DD';
+
+        $this->settings['titleBgColor'] = '#000000';
     }
 
     protected function init()
@@ -54,6 +97,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         $this->dataSet = new pData;
 
         $this->chart->reportWarnings('GD');
+        $this->chart->ErrorFontName = $this->getFontPath().'tahoma.ttf';
 
         // initialize colors
         foreach ($this->getColors() as $key => $color) {
@@ -70,14 +114,24 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         $this->chart->setImageMap(true, 'mapid');
     }
 
+    /**
+     * data is put to the $dataSet object according to what type chart is
+     * @abstract
+     */
     abstract protected function prepareDataSet();
 
+    /**
+     * all components of the chart are drawn
+     */
     protected function prepareChart()
     {
         $this->drawBackground();
         $this->drawChart();
     }
 
+    /**
+     * draws the background
+     */
     protected function drawBackground()
     {
         $this->drawCommon();
@@ -86,6 +140,9 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         $this->drawGraphArea();
     }
 
+    /**
+     * draws the part of the background which is common to most of the charts
+     */
     protected function drawCommon()
     {
         $this->chart->drawGraphAreaGradient(
@@ -96,12 +153,34 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         $this->chart->addBorder(2);
     }
 
+    /**
+     * draws the chart title
+     */
     protected function drawTitle()
     {
         // Draw the title
-        $this->chart->drawTextBox(0,0,$this->getWidth(),$this->getLabelHeight(),$this->getTitleText(),0,250,250,250,ALIGN_CENTER,True,0,0,0,30);
+        $this->chart->drawTextBox(
+                0,
+                0,
+                $this->getWidth(),
+                $this->getLabelHeight(),
+                $this->getTitleText(),
+                0,
+                $this->getTitleColor(RED),
+                $this->getTitleColor(GREEN),
+                $this->getTitleColor(BLUE),
+                ALIGN_CENTER,
+                True,
+                $this->getTitleBgColor(RED),
+                $this->getTitleBgColor(GREEN),
+                $this->getTitleBgColor(BLUE),
+                30
+        );
     }
 
+    /**
+     * calculates and sets the dimensions that will be used for the actual graph
+     */
     protected function setGraphAreaDimensions()
     {
         $this->chart->setGraphArea(
@@ -112,17 +191,49 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         );
     }
 
+    /**
+     * draws graph area (the area where all bars, lines, points will be seen)
+     */
     protected function drawGraphArea()
     {
-        $this->chart->drawGraphArea(213,217,221,FALSE);
-        $this->chart->drawScale($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),$this->getScale(),213,217,221,TRUE,0,2,TRUE);
-        $this->chart->drawGraphAreaGradient(163,203,167,50);
-        $this->chart->drawGrid(4,TRUE,230,230,230,20);
+        $this->chart->drawGraphArea(
+                $this->getGraphAreaColor(RED),
+                $this->getGraphAreaColor(GREEN),
+                $this->getGraphAreaColor(BLUE),
+                FALSE
+        );
+        $this->chart->drawScale(
+                $this->dataSet->GetData(),
+                $this->dataSet->GetDataDescription(),
+                $this->getScale(),
+                $this->getScaleColor(RED),
+                $this->getScaleColor(GREEN),
+                $this->getScaleColor(BLUE),
+                TRUE,0,2,TRUE
+        );
+        $this->chart->drawGraphAreaGradient(
+                $this->getGraphAreaGradientColor(RED),
+                $this->getGraphAreaGradientColor(GREEN),
+                $this->getGraphAreaGradientColor(BLUE),
+                50
+        );
+        $this->chart->drawGrid(
+                4,
+                TRUE,
+                $this->getGridColor(RED),
+                $this->getGridColor(GREEN),
+                $this->getGridColor(BLUE),
+                20
+        );
     }
 
+    /**
+     * draws the chart
+     * @abstract
+     */
     protected abstract function drawChart();
 
-    /*
+    /**
      * Renders the chart, base 64 encodes the output and puts it into
      * array partsEncoded.
      *
@@ -169,6 +280,10 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         }
     }
 
+    /**
+     * get the HTML and JS code for the configured chart
+     * @return string   HTML and JS code for the chart
+     */
     public function toString()
     {
         if (!function_exists('gd_info')) {
@@ -181,7 +296,9 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         $this->prepareChart();
 
         //$this->chart->debugImageMap();
+        $this->chart->printErrors('GD');
 
+        // check if a user wanted a chart in one part
         if ($this->isContinuous()) {
             $this->render(1);
         }
@@ -195,6 +312,7 @@ abstract class PMA_pChart_Chart extends PMA_Chart
         }
         $returnData .= '</div>';
 
+        // add tooltips only if json is available
         if (function_exists('json_encode')) {
             $returnData .= '
                 <script type="text/javascript">
@@ -247,6 +365,31 @@ abstract class PMA_pChart_Chart extends PMA_Chart
     protected function getImageMap()
     {
         return $this->chart->getImageMap();
+    }
+
+    protected function getGraphAreaColor($component)
+    {
+        return $this->hexStrToDecComp($this->settings['graphAreaColor'], $component);
+    }
+
+    protected function getGraphAreaGradientColor($component)
+    {
+        return $this->hexStrToDecComp($this->settings['graphAreaGradientColor'], $component);
+    }
+
+    protected function getGridColor($component)
+    {
+        return $this->hexStrToDecComp($this->settings['gridColor'], $component);
+    }
+
+    protected function getScaleColor($component)
+    {
+        return $this->hexStrToDecComp($this->settings['scaleColor'], $component);
+    }
+
+    protected function getTitleBgColor($component)
+    {
+        return $this->hexStrToDecComp($this->settings['titleBgColor'], $component);
     }
 }
 

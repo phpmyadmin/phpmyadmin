@@ -1,17 +1,32 @@
 <?php
+/**
+ * @author Martynas Mickevicius <mmartynas@gmail.com>
+ * @package phpMyAdmin
+ */
 
+/**
+ *
+ */
 require_once 'pma_pchart_multi.php';
 
+/**
+ * implements pie chart
+ * @package phpMyAdmin
+ */
 class PMA_pChart_Pie extends PMA_pChart_multi
 {
     public function __construct($data, $options = null)
     {
+        // limit data size, no more than 18 pie slices
         $data = array_slice($data, 0, 18, true);
         parent::__construct($data, $options);
 
         $this->setAreaMargins(array(20, 10, 20, 20));
     }
 
+    /**
+     * prepare data set for the pie chart
+     */
     protected function prepareDataSet()
     {
         // Dataset definition 
@@ -21,12 +36,28 @@ class PMA_pChart_Pie extends PMA_pChart_multi
         $this->dataSet->SetAbsciseLabelSerie("Keys");
     }
 
+    /**
+     * graph area for the pie chart does not include grid lines
+     */
     protected function drawGraphArea()
     {
-        $this->chart->drawGraphArea(213,217,221,FALSE);
-        $this->chart->drawGraphAreaGradient(163,203,167,50);
+        $this->chart->drawGraphArea(
+                $this->getGraphAreaColor(RED),
+                $this->getGraphAreaColor(GREEN),
+                $this->getGraphAreaColor(BLUE),
+                FALSE
+        );
+        $this->chart->drawGraphAreaGradient(
+                $this->getGraphAreaGradientColor(RED),
+                $this->getGraphAreaGradientColor(GREEN),
+                $this->getGraphAreaGradientColor(BLUE),
+                50
+        );
     }
 
+    /**
+     * draw the pie chart
+     */
     protected function drawChart()
     {
         parent::drawChart();
@@ -46,6 +77,9 @@ class PMA_pChart_Pie extends PMA_pChart_multi
                 120,PIE_PERCENTAGE,FALSE,60,30,10,1);
     }
 
+    /**
+     * draw legend for the pie chart
+     */
     protected function drawLegend()
     {
         $this->chart->drawPieLegend(

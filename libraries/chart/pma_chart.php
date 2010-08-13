@@ -1,29 +1,37 @@
 <?php
+/**
+ * Holds the base class that all charts inherit from and some widely used
+ * constants.
+ * @author Martynas Mickevicius <mmartynas@gmail.com>
+ * @package phpMyAdmin
+ */
 
+/**
+ *
+ */
 define('RED', 0);
 define('GREEN', 1);
 define('BLUE', 2);
 
-class PMA_Chart
+/**
+ * The base class that all charts inherit from.
+ * @abstract
+ * @package phpMyAdmin
+ */
+abstract class PMA_chart
 {
-    /*
-     * The settings array. All the default values are here.
+    /**
+     * @var array   All the default settigs values are here.
      */
     protected $settings = array(
 
-        /*
-         * Default title for every chart.
-         */
+        // Default title for every chart.
         'titleText' => 'Chart',
 
-        /*
-        * The style of the chart title.
-        */
-        'titleStyle' => 'font-size: 12px; font-weight: bold;',
+        // The style of the chart title.
+        'titleColor' => '#FAFAFA',
 
-        /*
-         * Colors for the different slices in the pie chart.
-         */
+        // Colors for the different slices in the pie chart.
         'colors' => array(
             '#BCE02E',
             '#E0642E',
@@ -45,53 +53,50 @@ class PMA_Chart
             '#87C9BF',
         ),
 
-        /*
-         * Chart background color.
-         */
+        // Chart background color.
         'bgColor' => '#84AD83',
 
-        /*
-         * The width of the chart.
-         */
+        // The width of the chart.
         'width' => 520,
 
-         /*
-         * The height of the chart.
-         */
+         // The height of the chart.
         'height' => 325,
 
-        /*
-         * Default X Axis label. If empty, label will be taken from the data.
-         */
+        // Default X Axis label. If empty, label will be taken from the data.
         'xLabel' => '',
 
-        /*
-         * Default Y Axis label. If empty, label will be taken from the data.
-         */
+        // Default Y Axis label. If empty, label will be taken from the data.
         'yLabel' => '',
     );
 
-    /*
-     * Options that the user has specified
+    /**
+     * @var array   Options that the user has specified
      */
     private $userSpecifiedSettings = null;
 
-    /*
-     * Error codes will be stored here
+    /**
+     * @var array   Error codes will be stored here
      */
     protected $errors = array();
 
+    /**
+     * Store user specified options
+     * @param array $options users specified options
+     */
     function __construct($options = null)
     {
         $this->userSpecifiedSettings = $options;
     }
 
+    /**
+     * All the variable initialization has to be done here.
+     */
     protected function init()
     {
         $this->handleOptions();
     }
 
-    /*
+    /**
      * A function which handles passed parameters. Useful if desired
      * chart needs to be a little bit different from the default one.
      */
@@ -109,9 +114,9 @@ class PMA_Chart
         return $this->settings['titleText'];
     }
 
-    protected function getTitleStyle()
+    protected function getTitleColor($component)
     {
-        return $this->settings['titleStyle'];
+        return $this->hexStrToDecComp($this->settings['titleColor'], $component);
     }
 
     protected function getColors()
@@ -131,7 +136,7 @@ class PMA_Chart
 
     protected function getBgColor($component)
     {
-        return hexdec(substr($this->settings['bgColor'], ($component * 2) + 1, 2));
+        return $this->hexStrToDecComp($this->settings['bgColor'], $component);
     }
 
     protected function setXLabel($label)
@@ -162,6 +167,16 @@ class PMA_Chart
     public function getErrors()
     {
         return $this->errors;
+    }
+
+    /**
+     * Get one the dec color component from the hex color string
+     * @param string $colorString   color string, i.e. #5F22A99
+     * @param int    $component     color component to get, i.e. 0 gets red.
+     */
+    protected function hexStrToDecComp($colorString, $component)
+    {
+        return hexdec(substr($colorString, ($component * 2) + 1, 2));
     }
 }
 

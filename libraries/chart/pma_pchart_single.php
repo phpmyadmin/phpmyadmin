@@ -1,9 +1,18 @@
 <?php
+/**
+ * @author Martynas Mickevicius <mmartynas@gmail.com>
+ * @package phpMyAdmin
+ */
 
+/**
+ *
+ */
 require_once 'pma_pchart_chart.php';
 
-/*
+/**
  * Base class for every chart that uses only one series.
+ * @abstract
+ * @package phpMyAdmin
  */
 abstract class PMA_pChart_single extends PMA_pChart_chart
 {
@@ -12,6 +21,9 @@ abstract class PMA_pChart_single extends PMA_pChart_chart
         parent::__construct($data, $options);
     }
 
+    /**
+     * data set preparation for single serie charts
+     */
     protected function prepareDataSet()
     {
         $values = array_values($this->data);

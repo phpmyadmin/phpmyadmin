@@ -1,7 +1,18 @@
 <?php
+/**
+ * @author Martynas Mickevicius <mmartynas@gmail.com>
+ * @package phpMyAdmin
+ */
 
+/**
+ * 
+ */
 require_once 'pma_pchart_multi.php';
 
+/**
+ * implements multi radar chart
+ * @package phpMyAdmin
+ */
 class PMA_pChart_multi_radar extends PMA_pChart_multi
 {
     public function __construct($data, $options = null)
@@ -11,7 +22,7 @@ class PMA_pChart_multi_radar extends PMA_pChart_multi
         $this->normalizeValues();
     }
 
-    /*
+    /**
      * Get the largest value from the data and normalize all the other values.
      */
     private function normalizeValues()
@@ -19,12 +30,15 @@ class PMA_pChart_multi_radar extends PMA_pChart_multi
         $maxValue = 0;
         $keys = array_keys($this->data);
         $valueKey = $keys[1];
+
+        // get the max value
         foreach ($this->data[$valueKey] as $values) {
             if (max($values) > $maxValue) {
                 $maxValue = max($values);
             }
         }
 
+        // normalize all the values according to the max value
         foreach ($this->data[$valueKey] as &$values) {
             foreach ($values as &$value) {
                 $value = $value / $maxValue * 10;
@@ -32,12 +46,28 @@ class PMA_pChart_multi_radar extends PMA_pChart_multi
         }
     }
 
+    /**
+     * graph area for the radar chart does not include grid lines
+     */
     protected function drawGraphArea()
     {
-        $this->chart->drawGraphArea(213,217,221,FALSE);
-        $this->chart->drawGraphAreaGradient(163,203,167,50);
+        $this->chart->drawGraphArea(
+                $this->getGraphAreaColor(RED),
+                $this->getGraphAreaColor(GREEN),
+                $this->getGraphAreaColor(BLUE),
+                FALSE
+        );
+        $this->chart->drawGraphAreaGradient(
+                $this->getGraphAreaGradientColor(RED),
+                $this->getGraphAreaGradientColor(GREEN),
+                $this->getGraphAreaGradientColor(BLUE),
+                50
+        );
     }
 
+    /**
+     * draw multi radar chart
+     */
     protected function drawChart()
     {
         parent::drawChart();

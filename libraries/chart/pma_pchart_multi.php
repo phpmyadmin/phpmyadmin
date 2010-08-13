@@ -1,10 +1,19 @@
 <?php
+/**
+ * @author Martynas Mickevicius <mmartynas@gmail.com>
+ * @package phpMyAdmin
+ */
 
+/**
+ *
+ */
 require_once 'pma_pchart_chart.php';
 
-/*
+/**
  * Base class for every chart that uses multiple series.
  * All of these charts will require legend box.
+ * @abstract
+ * @package phpMyAdmin
  */
 abstract class PMA_pChart_multi extends PMA_pChart_chart
 {
@@ -16,6 +25,9 @@ abstract class PMA_pChart_multi extends PMA_pChart_chart
         $this->setLegendMargins(array(20, 10, 0, 0));
     }
 
+    /**
+     * data set preparation for multi serie graphs
+     */
     protected function prepareDataSet()
     {
         $values = array_values($this->data);
@@ -48,6 +60,9 @@ abstract class PMA_pChart_multi extends PMA_pChart_chart
         $this->dataSet->SetYAxisName($this->getYLabel());
     }
 
+    /**
+     * set graph area dimensions with respect to legend box size
+     */
     protected function setGraphAreaDimensions()
     {
         $this->chart->setGraphArea(
@@ -58,11 +73,17 @@ abstract class PMA_pChart_multi extends PMA_pChart_chart
         );
     }
 
+    /**
+     * multi serie charts need a legend. draw it
+     */
     protected function drawChart()
     {
         $this->drawLegend();
     }
 
+    /**
+     * draws a legend
+     */
     protected function drawLegend()
     {
         // Draw the legend
