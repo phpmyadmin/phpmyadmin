@@ -1757,6 +1757,10 @@ function PMA_ajaxShowMessage(message, timeout) {
         return true;
     }
 
+    /**
+     * @var msg String containing the message that has to be displayed
+     * @default PMA_messages['strLoading']
+     */
     if(!message) {
         var msg = PMA_messages['strLoading'];
     }
@@ -1764,6 +1768,10 @@ function PMA_ajaxShowMessage(message, timeout) {
         var msg = message;
     }
 
+    /**
+     * @var timeout Number of milliseconds for which {@link msg} will be visible
+     * @default 5000 ms
+     */
     if(!timeout) {
         var to = 5000;
     }
@@ -1772,6 +1780,7 @@ function PMA_ajaxShowMessage(message, timeout) {
     }
 
     if( !ajax_message_init) {
+        //For the first time this function is called, append a new div
         $(function(){
             $('<div id="loading_parent"></div>')
             .insertBefore("#serverinfo");
@@ -1790,6 +1799,7 @@ function PMA_ajaxShowMessage(message, timeout) {
         ajax_message_init = true;
     }
     else {
+        //Otherwise, just show the div again after inserting the message
         $("#loading")
         .clearQueue()
         .html(msg)
@@ -1804,7 +1814,8 @@ function PMA_ajaxShowMessage(message, timeout) {
 }
 
 /**
- * jQuery function that uses jQueryUI's dialogs to confirm with user
+ * jQuery function that uses jQueryUI's dialogs to confirm with user. Does not
+ *  return a jQuery object yet and hence cannot be chained
  *
  * @param   string      question
  * @param   string      url         URL to be passed to the callbackFn to make
@@ -1817,6 +1828,10 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
         return true;
     }
 
+    /**
+     *  @var    button_options  Object that stores the options passed to jQueryUI
+     *                          dialog
+     */
     var button_options = {};
     button_options[PMA_messages['strOK']] = function(){
                                                 $(this).dialog("close").remove();
@@ -1837,11 +1852,19 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
  * Also fixes the even/odd classes of the table rows at the end.
  *
  * @param   string      text_selector   string to select the sortKey's text
+ *
+ * @return  jQuery Object for chaining purposes
  */
 jQuery.fn.PMA_sort_table = function(text_selector) {
     return this.each(function() {
+
+        /**
+         * @var table_body  Object referring to the table's <tbody> element
+         */
         var table_body = $(this);
-        //collect all rows
+        /**
+         * @var rows    Object referring to the collection of rows in {@link table_body}
+         */
         var rows = $(this).find('tr').get();
 
         //get the text of the field that we will sort by
@@ -1860,7 +1883,7 @@ jQuery.fn.PMA_sort_table = function(text_selector) {
             return 0;
         })
 
-        //pull out each row from the table and then append it according to it's order'
+        //pull out each row from the table and then append it according to it's order
         $.each(rows, function(index, row) {
             $(table_body).append(row);
             row.sortKey = null;
@@ -1879,15 +1902,26 @@ jQuery.fn.PMA_sort_table = function(text_selector) {
  * jQuery coding for 'Create Table'.  Used on db_operations.php,
  * db_structure.php and db_tracking.php (i.e., wherever
  * libraries/display_create_table.lib.php is used)
+ * 
+ * Attach Ajax Event handlers for Create Table
  */
 $(document).ready(function() {
 
-    //make Ajax call and create the dialog with the full create table form
+    /**
+     * Attach event handler to the submit action of the create table minimal form
+     * and retrieve the full table form and display it in a dialog
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     */
     $("#create_table_form_minimal").live('submit', function(event) {
         event.preventDefault();
 
         /* @todo Validate this form! */
 
+        /**
+         *  @var    button_options  Object that stores the options passed to jQueryUI
+         *                          dialog
+         */
         var button_options = {};
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
 
@@ -1906,9 +1940,19 @@ $(document).ready(function() {
         
     });
 
+    /**
+     * Attach event handler for submission of create table form
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    $.PMA_sort_table()
+     * @uses    window.parent.refreshNavigation()
+     */
     $("#create_table_form").find("input[name=submit_num_fields], input[name=do_save_data]").live('click', function(event) {
         event.preventDefault();
 
+        /**
+         *  @var    the_form    object referring to the create table form
+         */
         var the_form = $("#create_table_form");
 
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
@@ -1918,7 +1962,6 @@ $(document).ready(function() {
             //User wants to add more fields to the table
             $.post($(the_form).attr('action'), $(the_form).serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
                 $("#create_table_dialog").html(data);
-                
             }) //end $.post()
         }
         else if($(this).attr('name') == 'do_save_data') {
@@ -1928,12 +1971,30 @@ $(document).ready(function() {
                     PMA_ajaxShowMessage(data.message);
                     $("#create_table_dialog").dialog("close").remove();
 
+                    /**
+                     * @var tables_table    Object referring to the <tbody> element that holds the list of tables
+                     */
                     var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
 
+                    /**
+                     * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
+                     */
                     var curr_last_row = $(tables_table).find('tr:last');
+                    /**
+                     * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
+                     */
                     var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+                    /**
+                     * @var curr_last_row_index Index of {@link curr_last_row}
+                     */
                     var curr_last_row_index = parseFloat(curr_last_row_index_string);
+                    /**
+                     * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
+                     */
                     var new_last_row_index = curr_last_row_index + 1;
+                    /**
+                     * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
+                     */
                     var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
 
                     //append to table
@@ -1943,33 +2004,39 @@ $(document).ready(function() {
                     .end()
                     .appendTo(tables_table);
 
+                    //Sort the table
                     $(tables_table).PMA_sort_table('th');
 
-                    //sort the table
-                    //PMA_sort_table(tables_table, 'th');
-
-                    //Refresh navigation frame
+                    //Refresh navigation frame as a new table has been added
                     window.parent.refreshNavigation();
                 }
                 else {
                     PMA_ajaxShowMessage(data.error);
                 }
             }) // end $.post()
-        }
+        } // end elseif()
     }) // end create table form submit button actions
 
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
 /**
- * jQuery coding for Empty Table and Drop Table.  Used wherever libraries/
+ * Attach event handlers for Empty Table and Drop Table.  Used wherever libraries/
  * tbl_links.inc.php is used.
  */
 $(document).ready(function() {
 
-    //Empty Table
+    /**
+     * Attach Ajax event handlers for Empty Table
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    $.PMA_confirm()
+     */
     $("#empty_table_anchor").live('click', function(event) {
         event.preventDefault();
 
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
         var question = 'TRUNCATE TABLE ' + window.parent.table;
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
@@ -1988,13 +2055,22 @@ $(document).ready(function() {
                     PMA_ajaxShowMessage(data.error);
                 }
             }) // end $.get
-        })
+        }) // end $.PMA_confirm()
     }) // end Empty Table
 
-    //Drop Table
+    /**
+     * Attach Ajax event handler for Drop Table
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    $.PMA_confirm()
+     * @uses    window.parent.refreshNavigation()
+     */
     $("#drop_table_anchor").live('click', function(event) {
         event.preventDefault();
 
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
         var question = 'DROP TABLE/VIEW ' + window.parent.table;
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
@@ -2014,19 +2090,25 @@ $(document).ready(function() {
                     PMA_ajaxShowMessage(data.error);
                 }
             }) // end $.get
-        })
-    })
+        }) // end $.PMA_confirm()
+    }) // end $().live()
 }, 'top.frame_content'); //end $(document).ready() for libraries/tbl_links.inc.php
 
 /**
- * jQuery coding for Drop Trigger.  Used on tbl_structure.php
+ * Attach Ajax event handlers for Drop Trigger.  Used on tbl_structure.php
  */
 $(document).ready(function() {
 
     $(".drop_trigger_anchor").live('click', function(event) {
         event.preventDefault();
 
+        /**
+         * @var curr_row    Object reference to the current trigger's <tr>
+         */
         var curr_row = $(this).parents('tr');
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
         var question = 'DROP TRIGGER IF EXISTS `' + $(curr_row).children('td:first').text() + '`';
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
@@ -2045,22 +2127,28 @@ $(document).ready(function() {
                 else {
                     PMA_ajaxShowMessage(data.error);
                 }
-            }) // end $.get
-        })
-    })
+            }) // end $.get()
+        }) // end $.PMA_confirm()
+    }) // end $().live()
 }, 'top.frame_content'); //end $(document).ready() for Drop Trigger
 
 /**
- * jQuery coding for Drop Database. Moved here from db_structure.js as it was
- * also required on db_create.php
- *
+ * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js 
+ * as it was also required on db_create.php
+ * 
+ * @uses    $.PMA_confirm()
+ * @uses    PMA_ajaxShowMessage()
+ * @uses    window.parent.refreshNavigation()
+ * @uses    window.parent.refreshMain()
  */
 $(document).ready(function() {
-    //Drop Database
     $("#drop_db_anchor").live('click', function(event) {
         event.preventDefault();
 
         //context is top.frame_content, so we need to use window.parent.db to access the db var
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
         var question = PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP DATABASE ' + window.parent.db;
 
         $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
@@ -2070,14 +2158,16 @@ $(document).ready(function() {
                 //Database deleted successfully, refresh both the frames
                 window.parent.refreshNavigation();
                 window.parent.refreshMain();
-            })
-        });
+            }) // end $.get()
+        }); // end $.PMA_confirm()
     }); //end of Drop Database Ajax action
-})
+}) // end of $(document).ready() for Drop Database
 
 /**
- * jQuery coding for 'Create Database'.  Used wherever libraries/
+ * Attach Ajax event handlers for 'Create Database'.  Used wherever libraries/
  * display_create_database.lib.php is used, ie main.php and server_databases.php
+ *
+ * @uses    PMA_ajaxShowMessage()
  */
 $(document).ready(function() {
 
@@ -2103,18 +2193,24 @@ $(document).ready(function() {
             else {
                 PMA_ajaxShowMessage(data.error);
             }
-        })
-    })
-})
+        }) // end $.post()
+    }) // end $().live()
+})  // end $(document).ready() for Create Database
 
 /**
- * jQuery coding for 'Change Password' on main.php
+ * Attach Ajax event handlers for 'Change Password' on main.php
  */
 $(document).ready(function() {
 
+    /**
+     * Attach Ajax event handler on the change password anchor
+     */
     $('#change_password_anchor').live('click', function(event) {
         event.preventDefault();
 
+        /**
+         * @var button_options  Object containing options to be passed to jQueryUI's dialog
+         */
         var button_options = {};
 
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
@@ -2127,12 +2223,20 @@ $(document).ready(function() {
                 buttons : button_options
             })
             .append(data);
-        })
-    })
+        }) // end $.get()
+    }) // end handler for change password anchor
 
+    /**
+     * Attach Ajax event handler for Change Password form submission
+     * 
+     * @uses    PMA_ajaxShowMessage()
+     */
     $("#change_password_form").find('input[name=change_pw]').live('click', function(event) {
         event.preventDefault();
 
+        /**
+         * @var the_form    Object referring to the change password form
+         */
         var the_form = $("#change_password_form");
 
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
@@ -2150,6 +2254,6 @@ $(document).ready(function() {
             else {
                 PMA_ajaxShowMessage(data.error);
             }
-        })
-    })
-})
+        }) // end $.post()
+    }) // end handler for Change Password form submission
+}) // end $(document).ready() for Change Password

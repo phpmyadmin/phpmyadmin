@@ -40,7 +40,7 @@ function getFieldName(this_field_obj, disp_mode) {
  * The function that iterates over each row in the table_results and appends a
  * new inline edit anchor to each table row.
  *
- * @param   string  disp_mode
+ * @param   disp_mode   string
  */
 function appendInlineAnchor(disp_mode) {
     if(disp_mode == 'vertical') {
@@ -78,17 +78,32 @@ function appendInlineAnchor(disp_mode) {
     }
 }
 
+/**#@+
+ * @memberOf    jQuery
+ * @namespace   jQuery
+ */
+
 /**
- * Ajax scripts for sql and browse pages
+ * @description <p>Ajax scripts for sql and browse pages</p>
  *
  * Actions ajaxified here:
- * Retrieve results of an SQL query
- * Paginate the results table
- * Sort the results table
- * Change table according to display options
- * Inline editing of data
+ * <ul>
+ * <li>Retrieve results of an SQL query</li>
+ * <li>Paginate the results table</li>
+ * <li>Sort the results table</li>
+ * <li>Change table according to display options</li>
+ * <li>Inline editing of data</li>
+ * </ul>
+ *
+ * @name        document.ready
+ * @function
+ * @augments    jQuery.fn
  */
 $(document).ready(function() {
+
+    /**
+     * @lends   jQuery
+     */
 
     /**
      * @var disp_mode   current value of the direction in which the table is displayed
@@ -102,6 +117,8 @@ $(document).ready(function() {
     /**
      * Attach the {@link appendInlineAnchor} function to a custom event, which
      * will be triggered manually everytime the table of results is reloaded
+     * @function
+     * @name    sqlqueryresults_live
      */
     $("#sqlqueryresults").live('appendAnchor',function() {
         appendInlineAnchor(disp_mode);
@@ -123,7 +140,8 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'SQL Query Submit'
      *
-     * @uses    PMA_ajaxShowMessage()
+     * @see    PMA_ajaxShowMessage()
+     * @inner
      */
     $("#sqlqueryform").live('submit', function(event) {
         event.preventDefault();
@@ -220,8 +238,8 @@ $(document).ready(function() {
     /**
      * Ajax Event handlers for Inline Editing
      *
-     * @uses    PMA_ajaxShowMessage()
-     * @uses    getFieldName()
+     * @see    PMA_ajaxShowMessage()
+     * @see    getFieldName()
      */
 
     /**
@@ -566,3 +584,5 @@ $(document).ready(function() {
         }) // end $.post()
     }) // End After editing, clicking again should post data
 }, 'top.frame_content') // end $(document).ready()
+
+/**#@- */

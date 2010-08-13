@@ -111,7 +111,7 @@ if (empty($_REQUEST['field_str']) || ! is_string($_REQUEST['field_str'])) {
 }
 
 /**
- * Displays top links
+ * Displays top links if we are not in an Ajax request
  */
 $sub_part = '';
 
@@ -275,6 +275,9 @@ if (isset($_REQUEST['submit_search'])) {
     }
 } // end 1.
 
+/**
+ * If we are in an Ajax request, we need to exit after displaying all the HTML
+ */
 if($GLOBALS['is_ajax_request'] == true) {
     exit;
 }

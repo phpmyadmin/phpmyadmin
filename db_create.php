@@ -42,6 +42,9 @@ if (! $result) {
     $GLOBALS['db'] = '';
     $GLOBALS['table'] = '';
 
+    /**
+     * If in an Ajax request, just display the message with {@link PMA_ajaxResponse}
+     */
     if($GLOBALS['is_ajax_request'] == true) {
         PMA_ajaxResponse($message, FALSE);
     }
@@ -53,29 +56,55 @@ if (! $result) {
     $message->addParam($new_db);
     $GLOBALS['db'] = $new_db;
 
+    /**
+     * If in an Ajax request, build the output and send it
+     */
     if($GLOBALS['is_ajax_request'] == true) {
 
+        /**
+         * String containing the SQL Query formatted in pretty HTML
+         * @global array $GLOBALS['extra_data']
+         * @name $extra_data 
+         */
         $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query, 'success');
 
         //Construct the html for the new database, so that it can be appended to the list of databases on server_databases.php
 
+        /**
+         * Build the array to be passed to {@link PMA_generate_common_url} to generate the links
+         * @global array $GLOBALS['db_url_params']
+         * @name $db_url_params 
+         */
         $db_url_params['db'] = $new_db;
 
         $is_superuser = PMA_isSuperuser();
 
+        /**
+         * String that will contain the output HTML
+         * @name    $new_db_string
+         */
         $new_db_string = '<tr>';
 
+        /**
+         * Is user allowed to drop the database?
+         */
         if ($is_superuser || $cfg['AllowUserDropDatabase']) {
             $new_db_string .= '<td class="tool">';
-            $new_db_string .= '<input type="checkbox" title="'. $new_db .'" value="' . $new_db . '" name="selected_dbsp[]" />';
+            $new_db_string .= '<input type="checkbox" title="'. $new_db .'" value="' . $new_db . '" name="selected_dbs[]" />';
             $new_db_string .='</td>';
         }
 
+        /**
+         * Link to the database's page
+         */
         $new_db_string .= '<td class="name">';
         $new_db_string .= '<a target="_parent" title="Jump to database" href="index.php' . PMA_generate_common_url($db_url_params) . '">';
         $new_db_string .= $new_db . '</a>';
         $new_db_string .= '</td>';
 
+        /**
+         * If the user has privileges, let him check privileges for the DB
+         */
         if($is_superuser) {
             
             $db_url_params['checkprivs'] = $new_db;
@@ -89,6 +118,8 @@ if (! $result) {
         }
 
         $new_db_string .= '</tr>';
+
+        /** @todo Statistics for newly created DB! */
 
         $extra_data['new_db_string'] = $new_db_string;
 

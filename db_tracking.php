@@ -9,9 +9,12 @@
  */
 require_once './libraries/common.inc.php';
 
-//Get some js files needed for Ajax
+//Get some js files needed for Ajax requests
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
+/**
+ * If we are not in an Ajax request, then do the common work and show the links etc.
+ */
 if($GLOBALS['is_ajax_request'] != true) {
     require './libraries/db_common.inc.php';
 }
@@ -26,6 +29,10 @@ require './libraries/db_info.inc.php';
 if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
     PMA_Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
 
+    /**
+     * If in an Ajax request, generate the success message and use 
+     * {@link PMA_ajaxResponse()} to send the output
+     */
     if($GLOBALS['is_ajax_request'] == true) {
         $message = PMA_Message::success();
         PMA_ajaxResponse($message, true);
