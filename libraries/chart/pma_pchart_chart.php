@@ -296,7 +296,7 @@ abstract class PMA_pChart_chart extends PMA_chart
         $this->prepareChart();
 
         //$this->chart->debugImageMap();
-        $this->chart->printErrors('GD');
+        //$this->chart->printErrors('GD');
 
         // check if a user wanted a chart in one part
         if ($this->isContinuous()) {

@@ -49,6 +49,7 @@ abstract class PMA_pChart_single extends PMA_pChart_chart
 
         $this->dataSet->SetXAxisName($this->getXLabel());
         $this->dataSet->SetYAxisName($this->getYLabel());
+        $this->dataSet->SetSerieName($this->getYLabel(), "Values");
     }
 }
 

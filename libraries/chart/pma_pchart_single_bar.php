@@ -26,6 +26,7 @@ class PMA_pChart_single_bar extends PMA_pChart_single
     protected function drawChart()
     {
         // Draw the bar chart
+        // use stacked bar graph function, because it gives bars with alpha
         $this->chart->drawStackedBarGraph($this->dataSet->GetData(),$this->dataSet->GetDataDescription(),70);
     }
 }
