@@ -36,6 +36,7 @@ if (empty($export_list)) {
     require './libraries/footer.inc.php';
 }
 
+// If the form data is being loaded from GET data, decode it
 foreach($_GET as $name => $value) {
     if(is_string($value)) {
         $_GET[urldecode($name)] = urldecode($value);

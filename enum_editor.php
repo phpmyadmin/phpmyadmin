@@ -1,6 +1,14 @@
 <?php 
-    require_once './libraries/common.inc.php';
-    
+
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Displays a form for editing ENUM and SET values with more space (as an alternative to doing it in tbl_alter.php)
+ * This form is only for users with JavaScript disabled -- users with JavaScript enabled will see a different form
+ * defined in tbl_properties.inc.php
+ * @package phpMyAdmin
+ */
+
+require_once './libraries/common.inc.php';
 require_once './libraries/header_http.inc.php';
 require_once './libraries/header_meta_style.inc.php';
 ?>
@@ -15,16 +23,16 @@ require_once './libraries/header_meta_style.inc.php';
             <div id="values">
             <?php
                 $values = '';
-                if (isset($_GET['values'])) {
+                if (isset($_GET['values'])) { // This page was displayed when the "add a new value" link or the link in tbl_alter.php was clicked
                     $values = urldecode($_GET['values']);
-                } elseif (isset($_GET['num_fields'])) {
+                } elseif (isset($_GET['num_fields'])) { // This page was displayed from submitting this form
                     for($field_num = 1; $field_num <= $_GET['num_fields']; $field_num++) {
                         $values .= $_GET['field' . $field_num] . ",";
                     }
                 }
-
+                // Display the values in text fields, excluding empty strings
                 $field_counter = 0;
-                $stripped_values = array();
+                $stripped_values = array(); // The values to display in the output
                 foreach(split(",", $values) as $value) {
                     if(trim($value) != "") {
                         $field_counter++;
@@ -34,7 +42,7 @@ require_once './libraries/header_meta_style.inc.php';
                 }
 
                 $total_fields = $field_counter;
-                // If extra fields are added, display them
+                // If extra empty fields are added, display them
                 if(isset($_GET['extra_fields'])) {
                     $total_fields += $_GET['extra_fields'];
                     for($i = $field_counter+1; $i <= $total_fields; $i++) {

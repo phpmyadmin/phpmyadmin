@@ -52,6 +52,7 @@ if (!empty($selected_tbl) && empty($table_select)) {
     $table_select = $selected_tbl;
 }
 
+// Check if the selected tables are defined in $_GET (from clicking Back button on export.php)
 if(isset($_GET['table_select'])) {
     $_GET['table_select'] = urldecode($_GET['table_select']);
     $_GET['table_select'] = explode(",", $_GET['table_select']);

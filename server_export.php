@@ -30,6 +30,7 @@ $multi_values .= '<a href="' . $checkall_url . '&amp;selectall=1" onclick="setSe
 $multi_values .= '<select name="db_select[]" id="db_select" size="10" multiple="multiple">';
 $multi_values .= "\n";
 
+// Check if the selected databases are defined in $_GET (from clicking Back button on export.php)
 if(isset($_GET['db_select'])) {
     $_GET['db_select'] = urldecode($_GET['db_select']);
     $_GET['db_select'] = explode(",", $_GET['db_select']);
