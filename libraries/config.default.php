@@ -1004,7 +1004,7 @@ $cfg['LightTabs'] = false;
  *
  * @global boolean $cfg['PropertiesIconic']
  */
-$cfg['PropertiesIconic'] = true;
+$cfg['PropertiesIconic'] = 'both';
 
 /**
  * How many columns should be used for table display of a database?
