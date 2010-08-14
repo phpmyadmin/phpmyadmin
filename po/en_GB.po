@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-06 08:03-0400\n"
-"PO-Revision-Date: 2010-07-30 22:24+0200\n"
+"PO-Revision-Date: 2010-08-09 22:22+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1510
@@ -1564,7 +1564,7 @@ msgstr "Authenticating..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS error"
 
 #: libraries/blobstreaming.lib.php:267
 #, fuzzy
@@ -1574,11 +1574,11 @@ msgstr "Page creation failed"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "PBMS get BLOB info failed:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "get BLOB Content-Type failed"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1599,7 +1599,7 @@ msgstr "Download file"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Could not open file: %s"
 
 #: libraries/common.inc.php:567
 msgid ""
