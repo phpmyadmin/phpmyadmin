@@ -1840,7 +1840,7 @@ $(document).ready(function() {
          $("iframe[class='IE_hack']").offset({ top: $("select[name='after_field']").offset().top, left: $("select[name='after_field']").offset().left });
 
          // When "more" is hovered over, show the hidden actions
-         $("table[id='tablestructure'] td[class='more_opts']").hover(
+         $("table[id='tablestructure'] td[class='more_opts']").mouseenter(
              function() {
                 if($.browser.msie && $.browser.version == "6.0") {
                     $("iframe[class='IE_hack']").show();
@@ -1848,6 +1848,7 @@ $(document).ready(function() {
                     $("iframe[class='IE_hack']").height($("select[name='after_field']").height()+4);
                     $("iframe[class='IE_hack']").offset({ top: $("select[name='after_field']").offset().top, left: $("select[name='after_field']").offset().left});
                 }
+                $(".structure_actions_dropdown").hide(); // Hide all the other ones that may be open
                 $(this).children(".structure_actions_dropdown").show();
                 // Need to do this again for IE otherwise the offset is wrong
                 if($.browser.msie) {
@@ -1855,14 +1856,13 @@ $(document).ready(function() {
                     var top_offset_IE = $(this).offset().top + $(this).innerHeight();
                     $(this).children(".structure_actions_dropdown").offset({ top: top_offset_IE, left: left_offset_IE });
                 }
-             },
-             function() {
-                  $(this).children(".structure_actions_dropdown").hide();
-                  if($.browser.msie && $.browser.version == "6.0") {
-                      $("iframe[class='IE_hack']").hide();
-                  }
-             }
-         );
+         });
+         $(".structure_actions_dropdown").mouseleave(function() {
+              $(this).hide();
+              if($.browser.msie && $.browser.version == "6.0") {
+                  $("iframe[class='IE_hack']").hide();
+              }
+         });
     }
 });
 
