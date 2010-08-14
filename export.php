@@ -378,6 +378,32 @@ if (!$save_on_server) {
         unset($backup_cfgServer);
         echo "\n" . '<div align="' . $cell_align_left . '">' . "\n";
         //echo '    <pre>' . "\n";
+
+        /**
+         * Displays a back button with all the $_REQUEST data in the URL (store in a variable to also display after the textarea)
+         */
+         $back_button = '<p>[ <a href="';
+        if ($export_type == 'server') {
+           $back_button .= 'server_export.php?' . PMA_generate_common_url();
+         } elseif ($export_type == 'database') {
+            $back_button .= 'db_export.php?' . PMA_generate_common_url($db);
+        } else {
+            $back_button .= 'tbl_export.php?' . PMA_generate_common_url($db, $table);
+        }
+
+        // Convert the multiple select elements from an array to a string
+        if($export_type == 'server' && isset($_REQUEST['db_select'])) {
+            $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
+        } elseif($export_type == 'database' && isset($_REQUEST['table_select'])) {
+            $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
+        }
+
+        foreach($_REQUEST as $name => $value) {
+            $back_button .= '&' . urlencode($name) . '=' . urlencode($value);
+        }
+        $back_button .= '&repopulate=1">Back</a> ]</p>';
+
+        echo $back_button;
         echo '    <form name="nofunction">' . "\n"
            // remove auto-select for now: there is no way to select
            // only a part of the text; anyway, it should obey
@@ -660,29 +686,7 @@ else {
      */
     echo '</textarea>' . "\n"
        . '    </form>' . "\n";
-    echo '<p>[ <a href="';
-    if ($export_type == 'server') {
-       echo 'server_export.php?' . PMA_generate_common_url();
-     } elseif ($export_type == 'database') {
-        echo 'db_export.php?' . PMA_generate_common_url($db);
-    } else {
-        echo 'tbl_export.php?' . PMA_generate_common_url($db, $table);
-    }
-
-    /**
-     * Displays a back button with all the $_REQUEST data in the URL
-     */
-    // Convert the multiple select elements from an array to a string
-    if($export_type == 'server' && isset($_REQUEST['db_select'])) {
-        $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
-    } elseif($export_type == 'database' && isset($_REQUEST['table_select'])) {
-        $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
-    }
-
-    foreach($_REQUEST as $name => $value) {
-        echo '&' . urlencode($name) . '=' . urlencode($value);
-    }
-    echo '&repopulate=1">Back</a> ]</p>';
+    echo $back_button;
 
     echo "\n";
     echo '</div>' . "\n";
