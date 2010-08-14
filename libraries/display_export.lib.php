@@ -37,7 +37,9 @@ if (empty($export_list)) {
 }
 
 foreach($_GET as $name => $value) {
-    $_GET[urldecode($name)] = urldecode($value);
+    if(is_string($value)) {
+        $_GET[urldecode($name)] = urldecode($value);
+    }
 }
 ?>
 
