@@ -72,6 +72,9 @@ if (isset($_REQUEST['nopass'])) {
     }
 
     if($GLOBALS['is_ajax_request'] == true && $_error == true) {
+        /**
+         * If in an Ajax request, we don't need to show the rest of the page
+         */
         PMA_ajaxResponse($message, false);
     }
 

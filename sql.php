@@ -51,6 +51,8 @@ if (isset($fields['dbase'])) {
 /**
  * During inline edit, if we have a relational field, show the dropdown for it
  *
+ * Logic taken from libraries/display_tbl_lib.php
+ *
  * This doesn't seem to be the right place to do this, but I can't think of any
  * better place either.
  */
@@ -86,6 +88,8 @@ if(isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values
 
 /**
  * Just like above, find possible values for enum fields during inline edit.
+ *
+ * Logic taken from libraries/display_tbl_lib.php
  */
 if(isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
     $field_info_query = 'SHOW FIELDS FROM `' . $db . '`.`' . $table . '` LIKE \'' . $_REQUEST['column'] . '\' ;';
@@ -600,9 +604,16 @@ if (0 == $num_rows || $is_affected) {
     
     if( $GLOBALS['is_ajax_request'] == true) {
 
+        /**
+         * If we are in inline editing, we need to process the relational and
+         * transformed fields, if they were edited. After that, output the correct
+         * link/transformed value and exit
+         *
+         * Logic taken from libraries/display_tbl.lib.php
+         */
+
         if(isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
             //handle relations work here for updated row.
-            // @todo : $where_comparison
             require_once './libraries/relation.lib.php';
 
             $map = PMA_getForeigners($db, $table, '', 'both');

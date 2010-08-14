@@ -661,6 +661,9 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             $error_msg_output .= '</fieldset>' . "\n\n";
        }
 
+        /**
+         * If in an Ajax request, don't just echo and exit.  Use PMA_ajaxResponse()
+         */
         if($GLOBALS['is_ajax_request'] == true) {
             PMA_ajaxResponse($error_msg_output, false);
         }
@@ -1009,6 +1012,12 @@ if (!$jsonly)
  */
 function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view = false)
 {
+    /*
+     * PMA_ajaxResponse uses this function to collect the string of HTML generated
+     * for showing the message.  Use output buffering to collect it and return it
+     * in a string.  In some special cases on sql.php, buffering has to be disabled
+     * and hence we check with $GLOBALS['buffer_message']
+     */
     if( $GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['buffer_message']) ) {
         ob_start();
     }
@@ -1050,6 +1059,8 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     }
     unset($tbl_status);
 
+    // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
+    // check for it's presence before using it
     echo '<div align="' . ( isset($GLOBALS['cell_align_left']) ? $GLOBALS['cell_align_left'] : '' ) . '">' . "\n";
 
     if ($message instanceof PMA_Message) {
@@ -1286,6 +1297,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         }
 
         // see in js/functions.js the jQuery code attached to id inline_edit
+        // document.write conflicts with jQuery, hence used $().append()
         $inline_edit = "<script type=\"text/javascript\">\n" .
             "//<![CDATA[\n" .
             "$('.tools').append('[<a href=\"#\" title=\"" .
@@ -1300,6 +1312,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     }
     echo '</div><br />' . "\n";
 
+    // If we are in an Ajax request, we have most probably been called in 
+    // PMA_ajaxResponse().  Hence, collect the buffer contents and return it 
+    // to PMA_ajaxResponse(), which will encode it for JSON.
     if( $GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['buffer_message']) ) {
         $buffer_contents =  ob_get_contents();
         ob_end_clean();
@@ -2560,6 +2575,7 @@ function PMA_generate_slider_effect($id, $message)
      * opening the <div> with PHP itself instead of JavaScript.
      *
      * @todo find a better solution that uses $.append(), the recommended method
+     * maybe by using an additional param, the id of the div to append to
      */
     ?>
 <div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?>>
@@ -2966,10 +2982,12 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
         }
     }
 
+    // If extra_data has been provided, append it to the response array
     if( count($extra_data) > 0 ) {
         $response = array_merge($response, $extra_data);
     }
 
+    // Set the Content-Type header to JSON so that jQuery parses the response correctly
     if(!isset($GLOBALS['is_header_sent'])) {
         header("Content-Type: application/json");
     }

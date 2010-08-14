@@ -56,6 +56,10 @@ if ($doWriteModifyAt == 'left') {
            . '    </td>' . "\n";
     }
 }
+/*
+ * Where clause for selecting this row uniquely is provided as a hidden input.
+ * Used by jQuery scripts for handling inline editing
+ */
 if( !empty($where_clause)) {
     echo '<input type="hidden" class="where_clause" value ="' . $where_clause . '" />';
 }

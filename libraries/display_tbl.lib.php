@@ -1031,6 +1031,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     $vertical_display['delete']     = array();
     $vertical_display['data']       = array();
     $vertical_display['row_delete'] = array();
+    // name of the class added to all inline editable elements
     $data_inline_edit_class = 'data_inline_edit';
 
     // Correction University of Virginia 19991216 in the while below
@@ -1118,6 +1119,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                 $edit_str = PMA_getIcon('b_edit.png', __('Edit'), true);
 
+                // Class definitions required for inline editing jQuery scripts
                 $edit_anchor_class = "edit_row_anchor";
                 if( $clause_is_unique == 0) {
                     $edit_anchor_class .= ' nonunique';
@@ -2322,10 +2324,12 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * @param   string  $default_function
  * @param   string  $nowrap
  * @param   string  $where_comparison
+ * @param   bool    $is_field_truncated
  * @return  string  formatted data
  */
 function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated ) {
 
+    // Define classes to be added to this data field based on the type of data
     $enum_class = '';
     if(strpos($meta->flags, 'enum') !== false) {
         $enum_class = ' enum';

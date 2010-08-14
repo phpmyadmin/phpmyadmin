@@ -16,6 +16,7 @@ require_once './libraries/server_common.inc.php';
 
 PMA_checkParameters(array('is_superuser', 'url_query'), TRUE, FALSE);
 
+// Don't print all these links if in an Ajax request
 if (!$GLOBALS['is_ajax_request']) {
     /**
      * Counts amount of navigation tabs

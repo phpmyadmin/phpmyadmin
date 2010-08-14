@@ -269,6 +269,7 @@ unset($each_table, $tbl_group_sql, $db_info_result);
 
 /**
  * Displays top menu links
+ * If in an Ajax request, we do not need to show this
  */
 if($GLOBALS['is_ajax_request'] != true) {
     require './libraries/db_links.inc.php';

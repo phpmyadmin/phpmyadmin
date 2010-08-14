@@ -243,7 +243,12 @@ if (isset($_REQUEST['do_save_data'])) {
 
         if($GLOBALS['is_ajax_request'] == true) {
 
-            //construct the html for the newly created table's row to be appended
+            /**
+             * construct the html for the newly created table's row to be appended
+             * to the list of tables.
+             *
+             * Logic taken from db_structure.php
+             */
 
             $tbl_url_params = array();
             $tbl_url_params['db'] = $db;

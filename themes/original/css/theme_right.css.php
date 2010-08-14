@@ -1272,17 +1272,17 @@ table#serverconnection_trg_local  {
   *  Ajax notification styling
   */
  .ajax_notification {
-    top: 0px;
+    top: 0px;           /** The notification needs to be shown on the top of the page */
     position: fixed;
     margin-top: 0;
     margin-right: auto;
     margin-bottom: 0;
     margin-left: auto;
-    padding: 3px 5px;
+    padding: 3px 5px;   /** Keep a little space on the sides of the text */
     min-width: 70px;
-    max-width: 350px;
+    max-width: 350px;   /** This value might have to be changed */
     background-color: #FFD700;
-    z-index: 1100;
+    z-index: 1100;      /** If this is not kept at a high z-index, the jQueryUI modal dialogs (z-index:1000) might hide this */
     text-align: center;
     display: block;
     left: 0;
@@ -1293,6 +1293,7 @@ table#serverconnection_trg_local  {
  }
 
  #loading_parent {
+    /** Need this parent to properly center the notification division */
     position: relative;
     width: 100%;
  }

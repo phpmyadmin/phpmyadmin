@@ -976,6 +976,9 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                     }
 
 
+                    /**
+                     * If we are not in an Ajax request, we can't reload navigation now
+                     */
                     if($GLOBALS['is_ajax_request'] != true) {
                         // this is needed in case tracking is on:
                         $GLOBALS['db'] = $username;
@@ -1380,7 +1383,9 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUE
     }
 
     if(isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
-        //generate html on the fly for the new user that was just created.
+        /**
+         * generate html on the fly for the new user that was just created.
+         */
         $new_user_string = '<tr>'."\n"
                            .'<td> <input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_" value="' . htmlspecialchars($username) . '&amp;#27;' . htmlspecialchars($hostname) . '" /> </td>'."\n"
                            .'<td><label for="checkbox_sel_users_">' . (empty($username) ? '<span style="color: #FF0000">' . __('Any') . '</span>' : htmlspecialchars($username) ) . '</label></td>' . "\n"
@@ -1414,7 +1419,10 @@ if( $GLOBALS['is_ajax_request'] && !isset($_REQUEST['export']) && !isset($_REQUE
 
         $extra_data['new_user_string'] = $new_user_string;
 
-        //Generate the string for this alphabet's initial
+        /**
+         * Generate the string for this alphabet's initial, to update the user
+         * pagination
+         */
         $new_user_initial = strtoupper(substr($username, 0, 1));
         $new_user_initial_string = '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&initial=' . $new_user_initial
             .'>' . $new_user_initial . '</a>';
@@ -1553,6 +1561,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
             /**
              * Displays the initials
+             * In an Ajax request, we don't need to show this
              */
 
             if( $GLOBALS['is_ajax_request'] != true ) {
