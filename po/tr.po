@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-06 08:03-0400\n"
-"PO-Revision-Date: 2010-07-31 21:00+0200\n"
+"PO-Revision-Date: 2010-08-08 22:05+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1510
@@ -682,7 +682,7 @@ msgstr "Tabloyu incele"
 #: pmd_pdf.php:81 pmd_pdf.php:106 server_privileges.php:1376
 #: setup/frames/menu.inc.php:22 tbl_row_action.php:58
 msgid "Export"
-msgstr "Dışarı Aktar"
+msgstr "Dışa Aktar"
 
 #: db_structure.php:591 libraries/display_pdf_schema.lib.php:44
 msgid "Data Dictionary"
@@ -770,7 +770,7 @@ msgstr "Veritabanı Günlüğü"
 
 #: export.php:61
 msgid "Selected export type has to be saved in file!"
-msgstr "Seçili dışarı aktarma türü dosyaya kaydedilmelidir!"
+msgstr "Seçili dışa aktarma türü dosyaya kaydedilmelidir!"
 
 #: export.php:152 export.php:177 export.php:615
 #, php-format
@@ -826,14 +826,13 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"İçeri aktarmak için veri alınmadı. Ya dosya adı gönderilmedi ya da PHP "
-"yapılandırmanız tarafından izin verilen en fazla boyut aşıldı. [a@./"
-"Documentation.html#faq1_16@Documentation]SSS 1.16[/a]'ya bakın."
+"İçe aktarmak için veri alınmadı. Ya dosya adı gönderilmedi ya da PHP "
+"yapılandırmanız tarafından izin verilen en fazla boyut aşıldı. "
+"[a@./Documentation.html#faq1_16@Documentation]SSS 1.16[/a]'ya bakın."
 
 #: import.php:370 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
-"İçeri aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
+msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
 #: import.php:395
 msgid "The bookmark has been deleted."
@@ -851,15 +850,15 @@ msgstr "İşaretleme %s oluşturuldu"
 #: import.php:407 import.php:413
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "İçeri aktarma başarılı olarak bitti, %d sorgu çalıştırıldı."
+msgstr "İçe aktarma başarılı olarak bitti, %d sorgu çalıştırıldı."
 
 #: import.php:422
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"Küçük program zaman aşımı geçti, eğer içeri aktarmayı bitirmek istiyorsanız, "
-"lütfen aynı dosyayı yeniden gönderin ve içeri aktarma devam edecektir."
+"Betik zaman aşımı geçti, eğer içe aktarmayı bitirmek istiyorsanız, lütfen "
+"aynı dosyayı yeniden gönderin ve içe aktarma devam edecektir."
 
 #: import.php:424
 msgid ""
@@ -867,7 +866,7 @@ msgid ""
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "Ancak son çalıştırmada hiç veri ayrıştırılmadı, bu genellikle, php zaman "
-"sınırlarını arttırmadığınız sürece phpMyAdmin'in bu içeri aktarmayı "
+"sınırlarını arttırmadığınız sürece phpMyAdmin'in bu içe aktarmayı "
 "biteremeyeceği anlamına gelir."
 
 #: import_status.php:30 libraries/common.lib.php:660 pdf_schema.php:239
@@ -1566,21 +1565,19 @@ msgstr "Kimlik doğrulanıyor..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS hatası"
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
-#| msgid "Page creation failed"
 msgid "PBMS connection failed:"
-msgstr "Sayfa oluşturma başarısız"
+msgstr "PBMS bağlantısı başarısız:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "PBMS, BLOB bilgisi alması başarısız:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "BLOB İçerik Türü alma başarısız"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1601,7 +1598,7 @@ msgstr "Dosyayı indir"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Açılamayan dosya: %s"
 
 #: libraries/common.inc.php:567
 msgid ""
@@ -1872,7 +1869,7 @@ msgstr "Tasarımcı"
 #: libraries/tbl_links.inc.php:89 pmd_pdf.php:81 pmd_pdf.php:107
 #: setup/frames/menu.inc.php:21
 msgid "Import"
-msgstr "İçeri Aktar"
+msgstr "İçe Aktar"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:65
 #: server_privileges.php:110 server_privileges.php:1718
@@ -1982,8 +1979,7 @@ msgstr "Sütun sayısı"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
-msgstr ""
-"Dışarı aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
+msgstr "Dışa aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
 #: libraries/display_export.lib.php:100
 #, php-format
@@ -2095,7 +2091,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:125
 msgid "File to import"
-msgstr "İçeri aktarmak için dosya"
+msgstr "İçe aktarmak için dosya"
 
 #: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:484
 msgid "Location of the text file"
@@ -2119,19 +2115,19 @@ msgstr "web sunucusu gönderme dizini"
 #, php-format
 msgid "Imported file compression will be automatically detected from: %s"
 msgstr ""
-"İçeri aktarılmış dosya sıkıştırması otomatik olarak bu dosya türlerinden "
+"İçe aktarılmış dosya sıkıştırması otomatik olarak bu dosya türlerinden "
 "algılanacak: %s"
 
 #: libraries/display_import.lib.php:218
 msgid "Partial import"
-msgstr "Kısmi içeri aktarma"
+msgstr "Kısmi içe aktarma"
 
 #: libraries/display_import.lib.php:224
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
-"Önceki içeri aktarma zaman aşımına uğradı, sonradan yeniden gönderim %d "
+"Önceki içe aktarma zaman aşımına uğradı, sonradan yeniden gönderim %d "
 "konumundan devam edecek."
 
 #: libraries/display_import.lib.php:231
@@ -2140,9 +2136,9 @@ msgid ""
 "to the PHP timeout limit. This might be good way to import large files, "
 "however it can break transactions."
 msgstr ""
-"Küçük programcığın PHP zaman aşımı sınırına yaklaşıldığını algılaması "
-"durumunda içeri aktarımı kesmeye izin ver. Bu büyük dosyaların içeri "
-"aktarımı için iyi bir yol olabilir, ancak hareketleri kesebilir."
+"Betiğin PHP zaman aşımı sınırına yaklaşıldığını algılaması durumunda içe "
+"aktarımı kesmeye izin verir. Bu büyük dosyaların içe aktarımı için iyi bir "
+"yol olabilir, ancak bu işlemleri bozabilir."
 
 #: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:158
 msgid "Number of queries to skip from start"
@@ -2150,7 +2146,7 @@ msgstr "Başlangıçtan atlanacak sorgu sayısı"
 
 #: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:157
 msgid "Format of imported file"
-msgstr "İçeri aktarılmış dosyanın biçimi"
+msgstr "İçe aktarılmış dosyanın biçimi"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
@@ -2946,7 +2942,7 @@ msgstr "Başlık içine özel yorum ekle (\\n satırları böler)"
 
 #: libraries/export/sql.php:30
 msgid "Enclose export in a transaction"
-msgstr "İşlem içinde dışarı aktarmayı kapsa"
+msgstr "İşlem içinde dışa aktarmayı kapsa"
 
 #: libraries/export/sql.php:31
 msgid "Disable foreign key checks"
@@ -2954,7 +2950,7 @@ msgstr "Dış anahtar kontrolünü etkisizleştir"
 
 #: libraries/export/sql.php:49
 msgid "Database export options"
-msgstr "Veritabanı dışarı aktarma seçenekleri"
+msgstr "Veritabanı dışa aktarma seçenekleri"
 
 #: libraries/export/sql.php:79
 msgid "Enclose table and column names with backquotes"
@@ -2994,11 +2990,11 @@ msgstr "BLOB için onaltılık sistem kullan"
 
 #: libraries/export/sql.php:119
 msgid "Export time in UTC"
-msgstr "UTC olarak zamanı dışarı aktar"
+msgstr "UTC olarak zamanı dışa aktar"
 
 #: libraries/export/sql.php:121
 msgid "Export type"
-msgstr "Dışarı aktarma türü"
+msgstr "Dışa aktarma türü"
 
 #: libraries/export/sql.php:384
 msgid "Procedures"
@@ -3054,31 +3050,31 @@ msgstr "XML"
 
 #: libraries/export/xml.php:28
 msgid "Export Structure Schemas (recommended)"
-msgstr "Yapı Şemalarını dışarı aktar (önerilir)"
+msgstr "Yapı Şemalarını dışa aktar (önerilir)"
 
 #: libraries/export/xml.php:30
 msgid "Export functions"
-msgstr "İşlevleri dışarı aktar"
+msgstr "İşlevleri dışa aktar"
 
 #: libraries/export/xml.php:32
 msgid "Export procedures"
-msgstr "İşlemleri dışarı aktar"
+msgstr "İşlemleri dışa aktar"
 
 #: libraries/export/xml.php:34
 msgid "Export tables"
-msgstr "Tabloları dışarı aktar"
+msgstr "Tabloları dışa aktar"
 
 #: libraries/export/xml.php:36
 msgid "Export triggers"
-msgstr "Tetikleyicileri dışarı aktar"
+msgstr "Tetikleyicileri dışa aktar"
 
 #: libraries/export/xml.php:38
 msgid "Export views"
-msgstr "Görünümleri dışarı aktar"
+msgstr "Görünümleri dışa aktar"
 
 #: libraries/export/xml.php:44
 msgid "Export contents"
-msgstr "İçerikleri dışarı aktar"
+msgstr "İçerikleri dışa aktar"
 
 #: libraries/footer.inc.php:180 libraries/footer.inc.php:191
 #: libraries/footer.inc.php:194
@@ -3164,7 +3160,7 @@ msgstr "Sütun adları"
 #: libraries/import/csv.php:73 libraries/import/csv.php:77
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr "CSV girişi için geçersiz parametre: %s"
+msgstr "CSV içe aktarma için geçersiz parametre: %s"
 
 #: libraries/import/csv.php:118
 #, php-format
@@ -3200,19 +3196,19 @@ msgstr "YEREL anahtar kelime kullan"
 
 #: libraries/import/ldi.php:54
 msgid "This plugin does not support compressed imports!"
-msgstr "Bu eklenti sıkıştırılmış içeri aktarım dosyalarını desteklemez!"
+msgstr "Bu eklenti sıkıştırılmış içe aktarım dosyalarını desteklemez!"
 
 #: libraries/import/ods.php:26
 msgid "Do not import empty rows"
-msgstr "Boş sıraları içeri aktarma"
+msgstr "Boş satırları içe aktarma"
 
 #: libraries/import/ods.php:27
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Yüzdeleri doğru ondalık olarak içeri aktar (%12.00'dan .12'ye)"
+msgstr "Yüzdeleri doğru ondalık olarak içe aktar (%12.00'ı .12'ye)"
 
 #: libraries/import/ods.php:28
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Parasalları içeri aktar ($5.00'dan 5.00'a)"
+msgstr "Parasalları içe aktar ($5.00'ı 5.00'a)"
 
 #: libraries/import/sql.php:41
 msgid "Do not use AUTO_INCREMENT for zero values"
@@ -3267,7 +3263,7 @@ msgstr "Değişiklik yok"
 
 #: libraries/mysql_charsets.lib.php:106
 msgid "Charset"
-msgstr "Karakter grubu"
+msgstr "Karakter Grubu"
 
 #: libraries/mysql_charsets.lib.php:202 libraries/mysql_charsets.lib.php:403
 #: tbl_change.php:510
@@ -3669,7 +3665,7 @@ msgstr "Değişkenler"
 
 #: libraries/server_links.inc.php:56 test/theme.php:108
 msgid "Charsets"
-msgstr "Karakter grupları"
+msgstr "Karakter Grupları"
 
 #: libraries/server_links.inc.php:60 test/theme.php:112
 msgid "Engines"
@@ -4377,7 +4373,7 @@ msgstr "Küçüğü/büyüğü değiştir"
 
 #: pmd_general.php:103
 msgid "Import/Export coordinates for PDF schema"
-msgstr "PDF şeması için düzenlemeleri İçeri/Dışarı Aktar"
+msgstr "PDF şeması için düzenlemeleri içe/dışa aktar"
 
 #: pmd_general.php:107
 msgid "Move Menu"
@@ -4423,7 +4419,7 @@ msgstr "Sayfa oluşturma başarısız"
 
 #: pmd_pdf.php:82
 msgid "Export/Import to scale"
-msgstr "Ölçeklemek için İçeri/Dışarı Aktar"
+msgstr "Ölçeklemek için içe/dışa aktar"
 
 #: pmd_pdf.php:86
 msgid "recommended"
@@ -4435,7 +4431,7 @@ msgstr "sayfadan/sayfaya"
 
 #: querywindow.php:93
 msgid "Import files"
-msgstr "Dosyaları içeri aktar"
+msgstr "Dosyaları içe aktar"
 
 #: querywindow.php:104
 msgid "All"
@@ -4628,7 +4624,7 @@ msgstr "Depolanan yordamların yürütülmesine izin verir."
 #: server_privileges.php:37 server_privileges.php:188
 #: server_privileges.php:508
 msgid "Allows importing data from and exporting data into files."
-msgstr "Verinin içeri ve dışarı aktarılmasına izin verir."
+msgstr "Verinin içe ve dışa aktarılmasına izin verir."
 
 #: server_privileges.php:38 server_privileges.php:539
 msgid ""
@@ -6313,8 +6309,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
-"İçeri ve dışarı aktarma işlemleri için [a@http://en.wikipedia.org/wiki/Bzip2]"
-"bzip2[/a] sıkıştırma etkin"
+"İçe ve dışa aktarma işlemleri için "
+"[a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] sıkıştırma etkin"
 
 #: setup/lib/messages.inc.php:30
 msgid "Bzip2"
@@ -6384,7 +6380,7 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
-"Daha fazla belleğe gerek kalmadan gzip/bzip2 dışarı aktarmalarını anında "
+"Daha fazla belleğe gerek kalmadan gzip/bzip2 dışa aktarmalarını anında "
 "sıkıştırır; eğer gzip/bzip2 dosyalarını oluşturmada sorunlarla "
 "karşılaşırsanız bu özelliği etkisizleştirin"
 
@@ -6598,29 +6594,27 @@ msgstr "Düzenleme modu"
 
 #: setup/lib/messages.inc.php:101
 msgid "Customize default export options"
-msgstr "Varsayılan dışarı aktarma seçeneklerini özelleştirir"
+msgstr "Varsayılan dışa aktarma seçeneklerini özelleştirir"
 
 #: setup/lib/messages.inc.php:102
 msgid "Export defaults"
-msgstr "Dışarı aktarma varsayılanları"
+msgstr "Dışa aktarma varsayılanları"
 
 #: setup/lib/messages.inc.php:103
 msgid "Customize default common import options"
-msgstr "Varsayılan genel içeri aktarma seçeneklerini özelleştirir"
+msgstr "Varsayılan genel içe aktarma seçeneklerini özelleştirir"
 
 #: setup/lib/messages.inc.php:104
 msgid "Import defaults"
-msgstr "İçeri aktarma varsayılanları"
+msgstr "İçe aktarma varsayılanları"
 
 #: setup/lib/messages.inc.php:105
 msgid "Set import and export directories and compression options"
-msgstr ""
-"İçeri aktarma ve dışarı aktarma dizinlerini ve sıkıştırma seçeneklerini "
-"ayarlar"
+msgstr "İçe ve dışa aktarma dizinlerini ve sıkıştırma seçeneklerini ayarlar"
 
 #: setup/lib/messages.inc.php:106
 msgid "Import / export"
-msgstr "İçeri Aktar / Dışarı Aktar"
+msgstr "İçe Aktar / Dışa Aktar"
 
 #: setup/lib/messages.inc.php:108
 msgid "Databases display options"
@@ -6720,11 +6714,11 @@ msgstr "Özelleştirme"
 
 #: setup/lib/messages.inc.php:133
 msgid "Customize export options"
-msgstr "Dışarı aktarma seçeneklerini özelleştir"
+msgstr "Dışa aktarma seçeneklerini özelleştir"
 
 #: setup/lib/messages.inc.php:135
 msgid "Customize import defaults"
-msgstr "İçeri aktarma varsayılanlarını özelleştir"
+msgstr "İçe aktarma varsayılanlarını özelleştir"
 
 #: setup/lib/messages.inc.php:136
 msgid "Customize navigation frame"
@@ -6775,8 +6769,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
-"İçeri ve dışarı aktarma işlemleri için [a@http://en.wikipedia.org/wiki/Gzip]"
-"gzip[/a] sıkıştırma etkin"
+"İçe ve dışa aktarma işlemleri için "
+"[a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] sıkıştırma etkin"
 
 #: setup/lib/messages.inc.php:147
 msgid "GZip"
@@ -6818,13 +6812,13 @@ msgid ""
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"İçeri aktarmayı yarıda kesmeye izin verildiği takdirde betik, kapatma zaman "
-"sınırını saptar. Bu büyük dosyaları içeri aktarmak için iyi bir yol "
+"Betiğin zaman sınırına yaklaşıldığını algılaması durumunda içe aktarımı "
+"kesmeye izin verir. Bu büyük dosyaları içe aktarmak için iyi bir yol "
 "olabilir, ancak bu işlemleri bozabilir."
 
 #: setup/lib/messages.inc.php:155
 msgid "Partial import: allow interrupt"
-msgstr "Kısmi içeri aktarma: yarıda kesmeye izin ver"
+msgstr "Kısmi içe aktarma: yarıda kesmeye izin ver"
 
 #: setup/lib/messages.inc.php:156
 msgid ""
@@ -6836,7 +6830,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:159
 msgid "Partial import: skip queries"
-msgstr "Kısmi içeri aktarma: sorguları atla"
+msgstr "Kısmi içe aktarma: sorguları atla"
 
 #: setup/lib/messages.inc.php:160
 msgid "Insecure connection"
@@ -7160,7 +7154,7 @@ msgstr "Hatalı alanları varsayılan değerlerine döndürmeyi dene"
 
 #: setup/lib/messages.inc.php:233
 msgid "Directory where exports can be saved on server"
-msgstr "Dışarı aktarmaların sunucu üzerinde kaydedilebileceği dizin"
+msgstr "Dışa aktarmaların sunucu üzerinde kaydedilebileceği dizin"
 
 #: setup/lib/messages.inc.php:234
 msgid "Save directory"
@@ -7783,8 +7777,7 @@ msgstr "IP İzin Verme/Reddetme için güvenilir proksi listesi"
 
 #: setup/lib/messages.inc.php:359
 msgid "Directory on server where you can upload files for import"
-msgstr ""
-"İçeri aktarmak için dosyaları gönderebileceğiniz sunucu üzerindeki dizin"
+msgstr "İçe aktarmak için dosyaları gönderebileceğiniz sunucu üzerindeki dizin"
 
 #: setup/lib/messages.inc.php:360
 msgid "Upload directory"
@@ -7863,8 +7856,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"İçeri ve dışarı aktarma işlemleri için [a@http://en.wikipedia.org/wiki/ZIP_"
-"(file_format)]ZIP[/a] sıkıştırma etkin"
+"İçe ve dışa aktarma işlemleri için "
+"[a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] sıkıştırma etkin"
 
 #: setup/lib/messages.inc.php:376
 #, php-format
@@ -8350,7 +8343,7 @@ msgstr "Eğer ihtiyacınız yoksa bu iki satırı yorum dışı bırakın."
 #: tbl_tracking.php:225
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
-"SQL ifadeleri dışarı aktarıldı. Lütfen yığını kopyalayın ya da çalıştırın."
+"SQL ifadeleri dışa aktarıldı. Lütfen yığını kopyalayın ya da çalıştırın."
 
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
@@ -8406,7 +8399,7 @@ msgstr "SQL çalıştırma"
 #: tbl_tracking.php:515
 #, php-format
 msgid "Export as %s"
-msgstr "%s olarak dışarı aktar"
+msgstr "%s olarak dışa aktar"
 
 #: tbl_tracking.php:555
 msgid "Show versions"

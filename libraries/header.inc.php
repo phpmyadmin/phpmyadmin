@@ -114,7 +114,10 @@ if (empty($GLOBALS['is_header_sent'])) {
                         __('New table'),
                         '',
                         's_tbl.png');
-            } elseif (strlen($GLOBALS['table'])) {
+                // if the table is being dropped, $_REQUEST['purge'] is set
+                // (it always contains "1")
+                // so do not display the table name in upper div
+            } elseif (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']))) {
                 require_once './libraries/tbl_info.inc.php';
 
                 echo $separator;

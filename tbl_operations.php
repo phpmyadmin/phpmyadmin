@@ -668,7 +668,9 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
             'reload' => '1',
             'purge' => '1',
             'zero_rows' => sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table)),
-            'table' => NULL,
+            // table name is needed to avoid running 
+            // PMA_relationsCleanupDatabase() on the whole db later
+            'table' => $GLOBALS['table'],
         ));
     ?>
     <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($this_sql_query); ?>')">

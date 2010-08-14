@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-06 08:03-0400\n"
-"PO-Revision-Date: 2010-07-21 14:41+0200\n"
+"PO-Revision-Date: 2010-08-06 14:16+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
 #: libraries/display_tbl.lib.php:415 server_privileges.php:1510
@@ -92,17 +92,16 @@ msgstr "Utiliser cette valeur"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Aucun serveur blob streaming configuré!"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Erreur lors de l'écriture du fichier sur disque."
+msgstr "Erreur d'accès aux en-têtes"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Échec d'ouverture du URL distant"
 
 #: db_create.php:44
 #, php-format
@@ -250,10 +249,9 @@ msgid "and then"
 msgstr "et ensuite"
 
 #: db_operations.php:379
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Changer le nom de la base de données pour"
+msgstr "Supprimer la base de données"
 
 #: db_operations.php:391
 #, php-format
@@ -261,10 +259,9 @@ msgid "Database %s has been dropped."
 msgstr "La base de données %s a été effacée."
 
 #: db_operations.php:396
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Aller à la base de données"
+msgstr "Supprimer la base de données (DROP)"
 
 #: db_operations.php:424
 msgid "Copy database to"
@@ -316,7 +313,7 @@ msgid "Collation"
 msgstr "Interclassement"
 
 #: db_operations.php:498 pdf_schema.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -324,8 +321,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Certaines fonctionnalités ayant trait aux tables reliées sont désactivées. "
-"Pour une analyse du problème, cliquez %sici%s."
+"Le stockage des configurations phpMyAdmin a été désactivé. Pour une analyse "
+"du problème, cliquez %sici%s."
 
 #: db_operations.php:531
 msgid "Edit PDF Pages"
@@ -1590,21 +1587,19 @@ msgstr "Authentification en cours..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "Erreur PBMS"
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
-#| msgid "Page creation failed"
 msgid "PBMS connection failed:"
-msgstr "Échec de création de page"
+msgstr "La connexion PBMS a échoué :"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "L'accès aux informations BLOB de PBMS a échoué :"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "L'accès au Content-Type du BLOB a échoué"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1625,7 +1620,7 @@ msgstr "Télécharger"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Échec d'ouverture du fichier %s"
 
 #: libraries/common.inc.php:567
 msgid ""
@@ -1722,10 +1717,9 @@ msgid "MySQL said: "
 msgstr "MySQL a répondu: "
 
 #: libraries/common.lib.php:1129
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Connexion au serveur MySQL impossible"
+msgstr "Connexion au validateur SQL impossible"
 
 #: libraries/common.lib.php:1167 setup/lib/messages.inc.php:350
 msgid "Explain SQL"
@@ -2556,21 +2550,18 @@ msgstr ""
 "ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
 msgstr "Seuil des informations parasites"
 
 #: libraries/engines/pbms.lib.php:32
-#, fuzzy
 #| msgid ""
 #| "The percentage of garbage in a data log file before it is compacted. This "
 #| "is a value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
 "Le pourcentage d'information parasites dans un journal de données au-delà "
-"duquel il est comprimé. Il s'agit d'une valeur entre 1 et 99. La valeur par "
-"défaut est 50."
+"duquel il est comprimé."
 
 #: libraries/engines/pbms.lib.php:36 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
@@ -2582,10 +2573,12 @@ msgid ""
 "The port for the PBMS stream-based communications. Setting this value to 0 "
 "will disable HTTP communication with the daemon."
 msgstr ""
+"Le port de communication PBMS. La valeur 0 désactivera la communication HTTP "
+"avec le serveur."
 
 #: libraries/engines/pbms.lib.php:41
 msgid "Repository Threshold"
-msgstr ""
+msgstr "Seuil du dépôt"
 
 #: libraries/engines/pbms.lib.php:42
 msgid ""
@@ -2593,10 +2586,13 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"La taille maximale d'un fichier de dépôt BLOB. Vous pouvez utiliser Kb, MB "
+"ou GB pour indiquer l'unité de la valeur. Une valeur en octets est assumée "
+"si aucune unité n'est spécifiée."
 
 #: libraries/engines/pbms.lib.php:46
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "Temps limite du Blob temporaire"
 
 #: libraries/engines/pbms.lib.php:47
 msgid ""
@@ -8553,67 +8549,3 @@ msgstr "Nom de la vue"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
-
-#, fuzzy
-#~| msgid "Table name"
-#~ msgid "Table removal"
-#~ msgstr "Nom de la table"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "Dépôt BLOB"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Activé"
-
-#~ msgid "Disable"
-#~ msgstr "Désactiver"
-
-#~ msgid "Damaged"
-#~ msgstr "Endommagé"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Réparer"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Désactivé"
-
-#~ msgid "Enable"
-#~ msgstr "Activer"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "PHP ne peut charger l'extension [a@http://php.net/%1$s@Documentation][em]%"
-#~ "1$s[/em][/a]. Veuillez vérifier votre configuration de PHP."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Erreur lors du chargement de l'extension iconv ou recode, utilisée pour "
-#~ "convertir le jeu de caractères. Veuillez activer l'une de ces extensions "
-#~ "dans PHP, ou désactiver la conversion des jeux de caractères dans "
-#~ "phpMyAdmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Erreur lors de l'utilisation de iconv, libiconv et recode_string, alors "
-#~ "que ces extensions semblent chargées. Veuillez vérifier votre "
-#~ "configuration de PHP."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Active la conversion des caractères"
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "Utilisé pour les conversions"
-
-#~ msgid "Default character set"
-#~ msgstr "Jeu de caractères par défaut"
