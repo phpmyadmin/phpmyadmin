@@ -168,7 +168,13 @@ $url_params['reload'] = 1;
         </p>
     </td></tr>
     <?php } ?>
-    
+
+    <tr><td colspan="2">
+        <p>
+            <?php echo __('Note that not every result table can be put to the chart. See <a href="./Documentation.html#faq6_28" target="Documentation">FAQ 6.28</a>'); ?>
+        </p>
+    </td></tr>
+
     </table>
 
 </fieldset>
