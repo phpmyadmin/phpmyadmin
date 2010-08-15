@@ -100,6 +100,10 @@ $Id$
   configuration storage.
 - [interface] Move drop/empty links from being tabs to Operations tab.
 - [interface] Fixed rendering of error/notice/info titles background.
+- patch #3038293 [doc] Language and grammar fixes,
+  thanks to Isaac Bennetch - ibennetch
+- patch #3038312 [export] JSON export, 
+  thanks to Hauke Henningsen - blubberkeks152
 
 3.3.6.0 (not yet released)
 - bug #3033063 [core] Navi gets wrong db name
@@ -107,6 +111,11 @@ $Id$
   them to string.
 - bug #3034026 [confirmation] TRUNCATE queries get no confirmation request
 - bug #3036132 [core] Triggers not fetched if dbname has an hyphen
+- patch #3039269 [dbi] Wrong variable checked for nopassword option,
+  thanks to Will Palmer - wpalmer
+- bug #3040226 [XHTML] LockFromUpdate checkbox not checked by default
+- bug [doc] Withdraw or edit FAQ entries related to older MySQL or PHP 
+- bug #3042706 [pmadb] Relations, bookmarks, etc deleted after table drop
 
 3.3.5.0 (2010-07-26)
 - patch #2932113 [information_schema] Slow export when having lots of

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-31 14:12-0400\n"
-"PO-Revision-Date: 2010-07-21 14:45+0200\n"
+"POT-Creation-Date: 2010-08-06 08:03-0400\n"
+"PO-Revision-Date: 2010-07-31 21:09+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: german <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -90,7 +90,7 @@ msgid "Use this value"
 msgstr "Diesen Wert verwenden"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
-#: libraries/blobstreaming.lib.php:362
+#: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
 msgstr ""
 
@@ -1376,8 +1376,8 @@ msgstr ""
 msgid "Databases"
 msgstr "Datenbanken"
 
-#: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:339
-#: libraries/blobstreaming.lib.php:345 libraries/common.lib.php:574
+#: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
+#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:574
 #: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
@@ -1594,41 +1594,41 @@ msgstr "Kein gültiger Authentisierungsschlüssel angeschlossen"
 msgid "Authenticating..."
 msgstr "Authentifiziere ..."
 
-#: libraries/blobstreaming.lib.php:272
+#: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:298
+#: libraries/blobstreaming.lib.php:267
 #, fuzzy
 #| msgid "Page creation failed"
 msgid "PBMS connection failed:"
 msgstr "Seitenerstellung fehlgeschlagen"
 
-#: libraries/blobstreaming.lib.php:343
+#: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:351
+#: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:377
+#: libraries/blobstreaming.lib.php:347
 msgid "View image"
 msgstr "Bild anzeigen"
 
-#: libraries/blobstreaming.lib.php:381
+#: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
 msgstr "Tonaufnahme abspielen"
 
-#: libraries/blobstreaming.lib.php:386
+#: libraries/blobstreaming.lib.php:356
 msgid "View video"
 msgstr "Filmaufnahme abspielen"
 
-#: libraries/blobstreaming.lib.php:390
+#: libraries/blobstreaming.lib.php:360
 msgid "Download file"
 msgstr "Datei herunterladen"
 
-#: libraries/blobstreaming.lib.php:451
+#: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
 msgstr ""
@@ -1934,18 +1934,18 @@ msgstr ""
 msgid "Overhead"
 msgstr "Überhang"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:123
+#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Verbindung für den controluser, wie er in Ihrer Konfiguration angegeben ist, "
 "ist fehlgeschlagen."
 
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysqli.dbi.lib.php:404
 msgid "The server is not responding"
 msgstr "Der Server antwortet nicht."
 
-#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:404
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 "(evtl. ist auch der Socket des lokalen MySQL-Servers socket nicht korrekt "
@@ -3147,7 +3147,7 @@ msgstr "Erstellt von"
 #: libraries/import.lib.php:151 sql.php:518 tbl_change.php:175
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL lieferte ein leeres Resultat zurück (d.&nbsp;h. null Zeilen)."
+msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Zeilen)."
 
 #: libraries/import.lib.php:1110
 msgid ""
@@ -8703,68 +8703,3 @@ msgstr "VIEW Name"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "View umbenennen in"
-
-#, fuzzy
-#~| msgid "Table name"
-#~ msgid "Table removal"
-#~ msgstr "Tabellenname"
-
-#~ msgid "BLOB Repository"
-#~ msgstr "BLOB-Repository"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Enabled"
-#~ msgstr "Aktiviert"
-
-#~ msgid "Disable"
-#~ msgstr "Deaktivieren"
-
-#~ msgid "Damaged"
-#~ msgstr "Beschädigt"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Repair"
-#~ msgstr "Reparieren"
-
-#~ msgctxt "BLOB repository"
-#~ msgid "Disabled"
-#~ msgstr "Deaktiviert"
-
-#~ msgid "Enable"
-#~ msgstr "Aktivieren"
-
-#~ msgid ""
-#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "extension. Please check your PHP configuration."
-#~ msgstr ""
-#~ "Die Erweiterung [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
-#~ "kann nicht geladen werden. Bitte überprüfen Sie Ihre PHP-Konfiguration."
-
-#~ msgid ""
-#~ "Couldn't load the iconv or recode extension needed for charset "
-#~ "conversion. Either configure PHP to enable these extensions or disable "
-#~ "charset conversion in phpMyAdmin."
-#~ msgstr ""
-#~ "Die PHP-Erweiterungen iconv und recode, welche für die "
-#~ "Zeichensatzkonvertierung benötigt werden, konnten nicht geladen werden. "
-#~ "Bitte ändern Sie Ihre PHP-Konfiguration und aktivieren Sie diese "
-#~ "Erweiterungen oder deaktivieren Sie die Zeichensatzkonvertierung in "
-#~ "phpMyAdmin."
-
-#~ msgid ""
-#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
-#~ "the necessary extensions appear to be loaded. Check your PHP "
-#~ "configuration."
-#~ msgstr ""
-#~ "Weder die iconv- noch libiconv- oder recode_string-Funktion konnte "
-#~ "verwandt werden, obwohl die benötigten php-Erweiterungen angeblich "
-#~ "geladen wurden. Bitte überprüfen Sie Ihre PHP-Konfiguration."
-
-#~ msgid "Allow character set conversion"
-#~ msgstr "Zeichensatzkonvertierung erlauben."
-
-#~ msgid "Default character set used for conversions"
-#~ msgstr "Standardzeichensatz bei Konvertierung"
-
-#~ msgid "Default character set"
-#~ msgstr "Standardzeichensatz"

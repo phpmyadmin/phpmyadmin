@@ -1667,46 +1667,6 @@ function popupBSMedia(url_params, bs_ref, m_type, is_cust_type, w_width, w_heigh
 }
 
 /**
- * popups a request for changing MIME types for files in the BLOB repository
- *
- * @param   var     db                      database name
- * @param   var     table                   table name
- * @param   var     reference               BLOB repository reference
- * @param   var     current_mime_type       current MIME type associated with BLOB repository reference
- */
-function requestMIMETypeChange(db, table, reference, current_mime_type)
-{
-    // no mime type specified, set to default (nothing)
-    if (undefined == current_mime_type)
-        current_mime_type = "";
-
-    // prompt user for new mime type
-    var new_mime_type = prompt("Enter custom MIME type", current_mime_type);
-
-    // if new mime_type is specified and is not the same as the previous type, request for mime type change
-    if (new_mime_type && new_mime_type != current_mime_type)
-        changeMIMEType(db, table, reference, new_mime_type);
-}
-
-/**
- * changes MIME types for files in the BLOB repository
- *
- * @param   var     db              database name
- * @param   var     table           table name
- * @param   var     reference       BLOB repository reference
- * @param   var     mime_type       new MIME type to be associated with BLOB repository reference
- */
-function changeMIMEType(db, table, reference, mime_type)
-{
-    // specify url and parameters for jQuery POST
-    var mime_chg_url = 'bs_change_mime_type.php';
-    var params = { bs_db: db, bs_table: table, bs_reference: reference, bs_new_mime_type: mime_type };
-
-    // jQuery POST
-    jQuery.post(mime_chg_url, params);
-}
-
-/**
  * Jquery Coding for inline editing SQL_QUERY
  */
 $(document).ready(function(){
