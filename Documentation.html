@@ -373,7 +373,7 @@ rm -rf config                      # remove not needed directory
     is version-specific.</p>
 
 <p> If you have upgraded your MySQL server from a version previous to 4.1.2 to
-    version 4.1.2 or newer and if you use the phpMyAdmin configuration storage,
+    version 5.x or newer and if you use the phpMyAdmin configuration storage,
     you should run the SQL script found in
     <tt>scripts/upgrade_tables_mysql_4_1_2+.sql</tt>.</p>
 
@@ -384,8 +384,7 @@ rm -rf config                      # remove not needed directory
         where you want to give users access to their own database and don't want
         them to play around with others.<br />
         Nevertheless be aware that MS Internet Explorer seems to be really buggy
-        about cookies, at least till version 6, and PHP 4.1.1 is also a bit buggy
-        in this area!<br />
+        about cookies, at least till version 6.<br />
         Even in a <b>single-user environment</b>, you might prefer to use
         <abbr title="HyperText Transfer Protocol">HTTP</abbr> or cookie mode so
         that your user/password pair are not in clear in the configuration file.
@@ -2425,11 +2424,11 @@ setfacl -d -m "g:www-data:rwx" tmp
     transformations.</p>
 
 <p> Because the user cannot enter own mimetypes, it is kept sure that transformations
-    always work. It makes no sense to apply a transformation to a mimetype, the
+    always work. It makes no sense to apply a transformation to a mimetype the
     transform-function doesn't know to handle.</p>
 
 <p> One can, however, use empty mime-types and global transformations which should work
-    for many mimetypes. You can also use transforms on a different mimetype they where built
+    for many mimetypes. You can also use transforms on a different mimetype than what they where built
     for, but pay attention to option usage as well as what the transformation does to your
     column.</p>
 
@@ -2581,18 +2580,14 @@ setfacl -d -m "g:www-data:rwx" tmp
 <h3 id="faqserver">Server</h3>
 
 <h4 id="faq1_1">
-    <a href="#faq1_1">1.1 I'm running PHP 4+ and my server is crashing each time a specific
+    <a href="#faq1_1">1.1 My server is crashing each time a specific
     action is required or phpMyAdmin sends a blank page or a page full of
     cryptic characters to my browser, what can I do?</a></h4>
 
-<p> There are some known PHP bugs with output buffering and compression.<br />
-    Try to set the <a href="#cfg_OBGzip" class="configrule">$cfg['OBGzip']</a>
+<p> Try to set the <a href="#cfg_OBGzip" class="configrule">$cfg['OBGzip']</a>
     directive to <tt>FALSE</tt> in your <i>config.inc.php</i> file and the
     <tt>zlib.output_compression</tt> directive to <tt>Off</tt> in your php
-    configuration file.<br />
-    Furthermore, we know about such problems connected to the release
-    candidates of PHP 4.2.0 (tested with PHP 4.2.0 RC1 to RC4) together with
-    MS Internet Explorer. Please upgrade to the release version PHP 4.2.0.</p>
+    configuration file.<br /></p>
 
 <h4 id="faq1_2">
     <a href="#faq1_2">1.2 My Apache server crashes when using phpMyAdmin.</a></h4>
@@ -2605,14 +2600,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     support groups.</p>
 
 <h4 id="faq1_3">
-    <a href="#faq1_3">1.3 I'm running phpMyAdmin with "cookie" authentication
-    mode under PHP 4.2.0 or 4.2.1 loaded as an Apache 2 module but can't enter the
-    script: I'm always displayed the login screen.</a></h4>
-
-<p> This is a known PHP bug (see this
-    <a href="http://bugs.php.net/bug.php?id=16626">bug report</a>) from the
-    official PHP bug database. It means there is and won't be any phpMyAdmin
-    fix against it because there is no way to code a fix.</p>
+    <a href="#faq1_3">1.3 (withdrawn).</a></h4>
 
 <h4 id="faq1_4">
     <a href="#faq1_4">1.4 Using phpMyAdmin on
@@ -2655,11 +2643,8 @@ setfacl -d -m "g:www-data:rwx" tmp
 
 <p> These features are based on the <tt>gzencode()</tt> and <tt>bzcompress()</tt>
     PHP functions to be more independent of the platform (Unix/Windows, Safe Mode
-    or not, and so on). So, you must have PHP4&nbsp;&gt;=&nbsp;4.0.4 and Zlib/Bzip2
-    support (<tt>--with-zlib</tt> and <tt>--with-bz2</tt>).<br />
-    We faced PHP crashes when trying to download a dump with MS Internet
-    Explorer when phpMyAdmin is run with a release candidate of PHP 4.2.0. In
-    this case you should switch to the release version of PHP 4.2.0.</p>
+    or not, and so on). So, you must have Zlib/Bzip2
+    support (<tt>--with-zlib</tt> and <tt>--with-bz2</tt>).<br /></p>
 
 <h4 id="faq1_8">
     <a href="#faq1_8">1.8 I cannot insert a text file in a table, and I get
@@ -2828,15 +2813,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 </p>
 
 <h4 id="faq1_18">
-    <a href="#faq1_18">1.18 I'm running MySQL&nbsp;&lt;=&nbsp;4.0.1 having
-    <tt>lower_case_table_names</tt> set to 1. If I create a new table with a
-    capital letter in its name it is changed to lowercase as it should. But
-    if I try to DROP this table MySQL is unable to find the corresponding
-    file.</a></h4>
-
-<p> This is a bug of MySQL&nbsp;&lt;=&nbsp;4.0.1. Please upgrade to at least
-    MySQL&nbsp;4.0.2 or turn off your <tt>lower_case_table_names</tt>
-    directive.</p>
+    <a href="#faq1_18">1.18 (withdrawn).</a></h4>
 
 <h4 id="faq1_19">
     <a href="#faq1_19">1.19 I can't run the &quot;display relations&quot; feature because the
@@ -2892,11 +2869,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 <pre>SHOW VARIABLES LIKE 'lower_case_table_names';</pre>
 
 <h4 id="faq1_24">
-    <a href="#faq1_24">1.24 Some characters are being truncated in my queries, or I
-    get characters randomly added. I am running PHP 4.2.3.</a></h4>
-
-<p> This is a <a href="http://bugs.php.net/bug.php?id=19404">PHP 4.2.3 bug</a>.
-    </p>
+    <a href="#faq1_24">1.24 (withdrawn).</a></h4>
 
 <h4 id="faq1_25">
     <a href="#faq1_25">1.25 I am running Apache with mod_gzip-1.3.26.1a on Windows XP,
@@ -3710,11 +3683,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
 </a></h4>
 <p>
     MS Internet Explorer seems to be really buggy about cookies, at least till
-    version 6. And thanks to Andrew Zivolup we've traced also a PHP 4.1.1 bug
-    in this area!
-    <br />
-    Then, if you're running PHP 4.1.1, try to upgrade or downgrade... it may
-    work!
+    version 6.
 </p>
 
 <h4 id="faq5_5">
@@ -4241,11 +4210,11 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 </pre>
 
 <h4 id="faq6_20">
-    <a href="#faq6_20">6.20 In MySQL 4, I see a lot of databases which are not mine, and cannot
+    <a href="#faq6_20">6.20 I see a lot of databases which are not mine, and cannot
     access them.
 </a></h4>
 
-<p> Upgrading to MySQL 4 usually gives users those global privileges: CREATE
+<p> You have one of these global privileges: CREATE
     TEMPORARY TABLES, SHOW DATABASES, LOCK TABLES. Those privileges also
     enable users to see all the database names.
     See this <a href="http://bugs.mysql.com/179">bug report</a>.<br /><br />
@@ -4319,9 +4288,9 @@ chmod o+rwx tmp
 
 <ol>
 	<li>In <tt>config.inc.php</tt> your host should be defined with a FQDN (fully qualified domain name) instead of &quot;localhost&quot;.</li>
-	<li>Ensure that your target table is under the PBXT storage engine and has a LONGBLOB column and a primary key.</li>
-	<li>When you insert or update a row in this table, put a checkmark on the &quot;Upload to BLOB repository&quot; optional choice; otherwise, the upload will be done directly in your column instead of the repository.</li>
-	<li>Finally when you browse your table, you'll see in your column a link to stream your data, for example &quot;View image&quot;. A header containing the correct MIME-type will be sent to your browser; this MIME-type was stored at upload time but in case it's incorrect, it's possible to edit it by clicking on the displayed MIME-type.</li> 
+    <li>Ensure that your target table is under the <tt>PBXT</tt> storage engine and has a <tt>LONGBLOB</tt> column (which must be nullable if you want to remove the BLOB reference from it).</li>
+	<li>When you insert or update a row in this table, put a checkmark on the &quot;Upload to BLOB repository&quot; optional choice; otherwise, the upload will be done directly in your LONGBLOB column instead of the repository.</li>
+	<li>Finally when you browse your table, you'll see in your column a link to stream your data, for example &quot;View image&quot;. A header containing the correct MIME-type will be sent to your browser; this MIME-type was stored at upload time.</li> 
 </ol>	
 
 <h4 id="faq6_26">
@@ -4337,8 +4306,8 @@ chmod o+rwx tmp
     In all places where phpMyAdmin accepts format strings, you can use
     <code>@VARIABLE@</code> expansion and 
     <a href="http://php.net/strftime">strftime</a> format strings. The
-    expanded variables depend on a context (eg. if you don't have chosen 
-    table, you can not get table name), but following variables can be used:
+    expanded variables depend on a context (for example, if you haven't chosen a 
+    table, you can not get the table name), but the following variables can be used:
 </p>
 <dl>
     <dt><code>@HTTP_HOST@</code></dt>
@@ -4416,7 +4385,7 @@ chmod o+rwx tmp
     <a href="http://phpmyadmin.git.sourceforge.net/git/gitweb.cgi?p=phpmyadmin/localized_docs;a=tree;f=po"><code>localized_docs/po</code></a>
     from Git, or just go to the <a href="https://l10n.cihar.com/projects/pmadoc/">translation server</a>
     and translate it online. If your language is missing, just contact
-    <a href="mailto:michal@cihar.com">Michal Čihař</a>; he will add it. If
+    <a href="mailto:michal@cihar.com">Michal &#268;iha&#345;</a>; he will add it. If
     you prefer to directly translate the po files, please put updated ones into our
     <a href="https://sourceforge.net/tracker/?group_id=23067&amp;atid=387645">translation tracker</a>. 
 </p>
@@ -4604,7 +4573,7 @@ Copyright (C) 2001-2010 Marc Delisle &lt;marc_at_infomarc.info&gt;
                         Olivier Müller &lt;om_at_omnis.ch&gt;
                         Robin Johnson &lt;robbat2_at_users.sourceforge.net&gt;
                         Alexander M. Turek &lt;me_at_derrabus.de&gt;
-                        Michal Čihař &lt;michal_at_cihar.com&gt;
+                        Michal &#268;iha&#345; &lt;michal_at_cihar.com&gt;
                         Garvin Hicking &lt;me_at_supergarv.de&gt;
                         Michael Keck &lt;mkkeck_at_users.sourceforge.net&gt;
                         Sebastian Mendel &lt;cybot_tm_at_users.sourceforge.net&gt;

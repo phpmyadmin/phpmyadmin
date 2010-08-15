@@ -531,7 +531,12 @@ if (0 == $num_rows || $is_affected) {
         $goto = PMA_securePath($goto);
         // Checks for a valid target script
         $is_db = $is_table = false;
+        if (isset($_REQUEST['purge'])) {
+            $table = '';
+            unset($url_params['table']);
+        }        
         include 'libraries/db_table_exists.lib.php';
+
         if (strpos($goto, 'tbl_') === 0 && ! $is_table) {
             if (strlen($table)) {
                 $table = '';

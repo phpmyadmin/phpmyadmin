@@ -152,7 +152,7 @@ function confirmQuery(theForm1, sqlQuery1)
             } // end if
         } // end if
 
-        // Confirms a "DROP/DELETE/ALTER" statement
+        // Confirms a "DROP/DELETE/ALTER/TRUNCATE" statement
         //
         // TODO: find a way (if possible) to use the parser-analyser
         // for this kind of verification
@@ -162,22 +162,24 @@ function confirmQuery(theForm1, sqlQuery1)
         var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
         var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
         var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
+        var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
+
         if (do_confirm_re_0.test(sqlQuery1.value)
             || do_confirm_re_1.test(sqlQuery1.value)
-            || do_confirm_re_2.test(sqlQuery1.value)) {
+            || do_confirm_re_2.test(sqlQuery1.value)
+            || do_confirm_re_3.test(sqlQuery1.value)) {
             var message      = (sqlQuery1.value.length > 100)
                              ? sqlQuery1.value.substr(0, 100) + '\n    ...'
                              : sqlQuery1.value;
             var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + message);
-            // drop/delete/alter statement is confirmed -> update the
+            // statement is confirmed -> update the
             // "is_js_confirmed" form field so the confirm test won't be
             // run on the server side and allows to submit the form
             if (is_confirmed) {
                 theForm1.elements['is_js_confirmed'].value = 1;
                 return true;
             }
-            // "DROP/DELETE/ALTER" statement is rejected -> do not submit
-            // the form
+            // statement is rejected -> do not submit the form
             else {
                 window.focus();
                 sqlQuery1.focus();
@@ -1656,46 +1658,6 @@ function popupBSMedia(url_params, bs_ref, m_type, is_cust_type, w_width, w_heigh
 
     // open popup window (for displaying video/playing audio)
     var mediaWin = window.open('bs_play_media.php?' + url_params + '&bs_reference=' + bs_ref + '&media_type=' + m_type + '&custom_type=' + is_cust_type, 'viewBSMedia', 'width=' + w_width + ', height=' + w_height + ', resizable=1, scrollbars=1, status=0');
-}
-
-/**
- * popups a request for changing MIME types for files in the BLOB repository
- *
- * @param   var     db                      database name
- * @param   var     table                   table name
- * @param   var     reference               BLOB repository reference
- * @param   var     current_mime_type       current MIME type associated with BLOB repository reference
- */
-function requestMIMETypeChange(db, table, reference, current_mime_type)
-{
-    // no mime type specified, set to default (nothing)
-    if (undefined == current_mime_type)
-        current_mime_type = "";
-
-    // prompt user for new mime type
-    var new_mime_type = prompt("Enter custom MIME type", current_mime_type);
-
-    // if new mime_type is specified and is not the same as the previous type, request for mime type change
-    if (new_mime_type && new_mime_type != current_mime_type)
-        changeMIMEType(db, table, reference, new_mime_type);
-}
-
-/**
- * changes MIME types for files in the BLOB repository
- *
- * @param   var     db              database name
- * @param   var     table           table name
- * @param   var     reference       BLOB repository reference
- * @param   var     mime_type       new MIME type to be associated with BLOB repository reference
- */
-function changeMIMEType(db, table, reference, mime_type)
-{
-    // specify url and parameters for jQuery POST
-    var mime_chg_url = 'bs_change_mime_type.php';
-    var params = { bs_db: db, bs_table: table, bs_reference: reference, bs_new_mime_type: mime_type };
-
-    // jQuery POST
-    jQuery.post(mime_chg_url, params);
 }
 
 /**

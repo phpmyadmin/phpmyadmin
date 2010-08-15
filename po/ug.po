@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-28 05:45-0400\n"
-"PO-Revision-Date: 2010-07-28 04:52+0200\n"
+"POT-Creation-Date: 2010-08-06 08:03-0400\n"
+"PO-Revision-Date: 2010-07-30 11:41+0200\n"
 "Last-Translator:  <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -92,6 +92,7 @@ msgid "Use this value"
 msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
+#: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
 msgstr "No blob streaming server configured!"
 
@@ -1349,7 +1350,8 @@ msgstr ""
 msgid "Databases"
 msgstr "ساندان"
 
-#: libraries/Message.class.php:210 libraries/common.lib.php:574
+#: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
+#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:574
 #: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
@@ -1553,21 +1555,42 @@ msgstr "No valid authentication key plugged"
 msgid "Authenticating..."
 msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ..."
 
-#: libraries/blobstreaming.lib.php:340
+#: libraries/blobstreaming.lib.php:241
+msgid "PBMS error"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:267
+msgid "PBMS connection failed:"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:312
+msgid "PBMS get BLOB info failed:"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:320
+msgid "get BLOB Content-Type failed"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:347
 msgid "View image"
 msgstr "رەسىمنى كۆرۈش"
 
-#: libraries/blobstreaming.lib.php:344
+#: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
 msgstr "ئاۋاز قۇيۇش"
 
-#: libraries/blobstreaming.lib.php:349
+#: libraries/blobstreaming.lib.php:356
 msgid "View video"
 msgstr "سىن قۇيۇش"
 
-#: libraries/blobstreaming.lib.php:353
+#: libraries/blobstreaming.lib.php:360
 msgid "Download file"
 msgstr "ھۆججەت چۈشۈرۈش"
+
+#: libraries/blobstreaming.lib.php:421
+#, php-format
+msgid "Could not open file: %s"
+msgstr ""
 
 #: libraries/common.inc.php:567
 msgid ""
@@ -1862,16 +1885,16 @@ msgstr ""
 msgid "Overhead"
 msgstr "ئېغىر يۈك"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:123
+#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "تەڭشەك ھۆججىتى ئىچىدىكى ئىشلەنكۈچى ئۇلۈنما كونتىرولى مەغلۇب بولدى."
 
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysqli.dbi.lib.php:404
 msgid "The server is not responding"
 msgstr "مۇلازىمىتېردا ئىنكاس يوق"
 
-#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:404
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(يەرلىك MySQL مۇلازىمىتېرى توغرا تەڭشەلمىگەن)"
 
@@ -1928,7 +1951,7 @@ msgstr "ھوقۇقسىز"
 
 #: libraries/display_create_table.lib.php:40
 msgid "Table must have at least one column."
-msgstr ""
+msgstr "سانلىق مەلۇمات جەدېۋىلىدە ئەڭ ئاز بولغاندا بىر خەت بۇلۇش كىرەك"
 
 #: libraries/display_create_table.lib.php:47
 #, php-format
@@ -1954,32 +1977,32 @@ msgstr ""
 
 #: libraries/display_export.lib.php:118 setup/lib/messages.inc.php:79
 msgid "Save as file"
-msgstr ""
+msgstr "ھۆججەتنى باشقا ساقلاش"
 
 #: libraries/display_export.lib.php:127
 #, php-format
 msgid "Save on server in %s directory"
-msgstr ""
+msgstr "مۇلازىمىتېرنىڭ  %s مۇندەرىجىسىدە ساقلاش"
 
 #: libraries/display_export.lib.php:135 setup/lib/messages.inc.php:87
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "مەۋجۇت ھۆججەت ئۈستىدىن يېزىش"
 
 #: libraries/display_export.lib.php:141
 msgid "File name template"
-msgstr ""
+msgstr "ھۆججەت ئېتى ئەندىزىسى"
 
 #: libraries/display_export.lib.php:145
 msgid "server name"
-msgstr ""
+msgstr "مۇلازىمىتىر ئىسمى"
 
 #: libraries/display_export.lib.php:148
 msgid "database name"
-msgstr ""
+msgstr "ساندان ئىسمى"
 
 #: libraries/display_export.lib.php:151
 msgid "table name"
-msgstr ""
+msgstr "سانلىق مەلۇمات جەدىۋېلى ئىسمى"
 
 #: libraries/display_export.lib.php:155
 #, php-format
@@ -1991,40 +2014,40 @@ msgstr ""
 
 #: libraries/display_export.lib.php:196
 msgid "remember template"
-msgstr ""
+msgstr "ئەستە ساقلاش قېلىپى"
 
 #: libraries/display_export.lib.php:204 libraries/display_import.lib.php:177
 #: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
-msgstr ""
+msgstr "ھۆججەتنىڭ ھەرىپ-بەلگە توپلىمى"
 
 #: libraries/display_export.lib.php:229 setup/lib/messages.inc.php:81
 msgid "Compression"
-msgstr ""
+msgstr "پىرىسلاش"
 
 #: libraries/display_export.lib.php:234 libraries/display_import.lib.php:196
 #: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:865 libraries/tbl_properties.inc.php:573
 #: server_privileges.php:1871 server_processlist.php:74
 msgid "None"
-msgstr ""
+msgstr "يوق"
 
 #: libraries/display_export.lib.php:241
 msgid "\"zipped\""
-msgstr ""
+msgstr "zipپىرىسلاش"
 
 #: libraries/display_export.lib.php:247
 msgid "\"gzipped\""
-msgstr ""
+msgstr "gzipپىرىسلاش"
 
 #: libraries/display_export.lib.php:253
 msgid "\"bzipped\""
-msgstr ""
+msgstr "bzip پىرىسلاش"
 
 #: libraries/display_export.lib.php:268 libraries/export/sql.php:42
 #: libraries/import/sql.php:31
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "SQLئۆز ئىچىگە ئالغان شەكلى"
 
 #: libraries/display_import.lib.php:66
 msgid ""
@@ -2035,50 +2058,52 @@ msgstr ""
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "بىتەرەپ قىلىنىۋاتىدۇ، ساقلاڭ"
 
 #: libraries/display_import.lib.php:98
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr ""
+msgstr "يوللىنىۋاتىدۇ،تەپسىلىي ئۇچۇرى يوق،ساقلاڭ"
 
 #: libraries/display_import.lib.php:125
 msgid "File to import"
-msgstr ""
+msgstr "ئەكىرىشكە تىگىشلىك ھۆججەت"
 
 #: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:484
 msgid "Location of the text file"
-msgstr ""
+msgstr "يىزىق ھۆججەتنىڭ ئورنى"
 
 #: libraries/display_import.lib.php:147
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "مۇلازىمىتىرنىڭ ھۆججەت چىقىرىشىنى چەكلەندى"
 
 #: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
 msgid "The directory you set for upload work cannot be reached"
-msgstr ""
+msgstr "كۆرسىتىلگەن مۇندەرىجىگە يۈكلىيەلمىدى"
 
 #: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:496
 #: tbl_change.php:925
 msgid "web server upload directory"
-msgstr ""
+msgstr "مۇلازىمىتېردىكى يۈكلەش مۇندەرىجىسى"
 
 #: libraries/display_import.lib.php:211
 #, php-format
 msgid "Imported file compression will be automatically detected from: %s"
-msgstr ""
+msgstr "ئاپتۇماتىك پەرىق ئىتەلەيدىغان پىرىس ھۆججەت تىپلىرى: %s"
 
 #: libraries/display_import.lib.php:218
 msgid "Partial import"
-msgstr ""
+msgstr "بۆلۈپ كىرگۈزىش"
 
 #: libraries/display_import.lib.php:224
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"ئالدىنقى قېتىملىق مەشغۇلاتنىڭ ۋاقتى ئېشىپ كەتتى، %d دىن باشلاپ قايتىدىن "
+"تاپشۇرۇڭ."
 
 #: libraries/display_import.lib.php:231
 msgid ""
@@ -2093,11 +2118,11 @@ msgstr ""
 
 #: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:157
 msgid "Format of imported file"
-msgstr ""
+msgstr "كىرگۈزگەن ھۆججەت شەكلى"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
-msgstr ""
+msgstr "PDF تىزىىسىنى كۆرسىتىش"
 
 #: libraries/display_pdf_schema.lib.php:33
 msgid "Show grid"
@@ -2105,11 +2130,11 @@ msgstr ""
 
 #: libraries/display_pdf_schema.lib.php:36
 msgid "Show color"
-msgstr ""
+msgstr "رەڭنى كۆرسىتىش"
 
 #: libraries/display_pdf_schema.lib.php:38
 msgid "Show dimension of tables"
-msgstr ""
+msgstr "جەدېۋەلنىڭ چوڭ-كىچىكلىكىنى كۆرسىتىش"
 
 #: libraries/display_pdf_schema.lib.php:41
 msgid "Display all tables with the same width"
@@ -2117,33 +2142,33 @@ msgstr ""
 
 #: libraries/display_pdf_schema.lib.php:46
 msgid "Only show keys"
-msgstr ""
+msgstr "پەقەت كونوپكىنى كورسىتىش"
 
 #: libraries/display_pdf_schema.lib.php:48
 msgid "Data Dictionary Format"
-msgstr ""
+msgstr "سانلىق مەلۇمات لوغەت شەكلى"
 
 #: libraries/display_pdf_schema.lib.php:50
 msgid "Landscape"
-msgstr ""
+msgstr "توغرا يۈنىلىشتە"
 
 #: libraries/display_pdf_schema.lib.php:51
 msgid "Portrait"
-msgstr ""
+msgstr "بوي يۈنىلىشتە"
 
 #: libraries/display_pdf_schema.lib.php:54
 msgid "Paper size"
-msgstr ""
+msgstr "قەغەزنىڭ چوڭ-كىچىكلىكى"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:70
 msgid "Language"
-msgstr ""
+msgstr "تىلى"
 
 #: libraries/display_tbl.lib.php:302
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
 #: libraries/display_tbl.lib.php:308
 msgid "row(s) starting from row #"
@@ -2253,7 +2278,7 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:1920
 msgid "total"
-msgstr ""
+msgstr "ئۇمۇمىي"
 
 #: libraries/display_tbl.lib.php:1928 sql.php:522
 #, php-format
@@ -2264,7 +2289,7 @@ msgstr ""
 #: querywindow.php:114 querywindow.php:118 querywindow.php:121
 #: tbl_structure.php:23 tbl_structure.php:148 tbl_structure.php:467
 msgid "Change"
-msgstr ""
+msgstr "ئۆزگەرتتىش"
 
 #: libraries/display_tbl.lib.php:2117
 msgid "Query results operations"
@@ -2272,11 +2297,11 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:2145
 msgid "Print view (with full texts)"
-msgstr ""
+msgstr "بېسىپ چىقىرش كۈرۈلمىسى"
 
 #: libraries/display_tbl.lib.php:2318
 msgid "Link not found"
-msgstr ""
+msgstr "ئۇلىنىشنى تاپالمىدى"
 
 #: libraries/engines/bdb.lib.php:20 main.php:227
 msgid "Version information"
@@ -2330,35 +2355,35 @@ msgstr ""
 #: server_databases.php:302 server_status.php:524 server_status.php:585
 #: server_status.php:606 tbl_printview.php:348 tbl_structure.php:693
 msgid "Total"
-msgstr ""
+msgstr "يىغىندىسى"
 
 #: libraries/engines/innodb.lib.php:171
 msgid "pages"
-msgstr ""
+msgstr "بەت سانى"
 
 #: libraries/engines/innodb.lib.php:180
 msgid "Free pages"
-msgstr ""
+msgstr "ئاق(قۇرۇق)بەت"
 
 #: libraries/engines/innodb.lib.php:186
 msgid "Dirty pages"
-msgstr ""
+msgstr "كىرەكسىز(مەينەت)بەت"
 
 #: libraries/engines/innodb.lib.php:192
 msgid "Pages containing data"
-msgstr ""
+msgstr "قۇرۇق ئەمەس بەت"
 
 #: libraries/engines/innodb.lib.php:198
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "يىڭىلايدىغان بەت"
 
 #: libraries/engines/innodb.lib.php:204
 msgid "Busy pages"
-msgstr ""
+msgstr "يۈك بەت"
 
 #: libraries/engines/innodb.lib.php:213
 msgid "Latched pages"
-msgstr ""
+msgstr "قۇلۇپلانغان بەت"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Buffer Pool Activity"
@@ -2366,11 +2391,11 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:228
 msgid "Read requests"
-msgstr ""
+msgstr "ئۇقۇش تەلىپى"
 
 #: libraries/engines/innodb.lib.php:234
 msgid "Write requests"
-msgstr ""
+msgstr "يېزىش تەلىپى"
 
 #: libraries/engines/innodb.lib.php:240
 msgid "Read misses"
@@ -2378,7 +2403,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Write waits"
-msgstr ""
+msgstr "يېزىشنى كۈتۈۋاتقان سانى"
 
 #: libraries/engines/innodb.lib.php:252
 msgid "Read misses in %"
@@ -2390,7 +2415,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:22
 msgid "Data pointer size"
-msgstr ""
+msgstr "سانلىق مەلۇمات قوللانمىسىنىڭ چوڭ كىچىكلىكى"
 
 #: libraries/engines/myisam.lib.php:23
 msgid ""
@@ -2400,7 +2425,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:27
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "ئاپتۇماتىك ئەسلىگە كەلتۈرۈش شەكلى"
 
 #: libraries/engines/myisam.lib.php:28
 msgid ""
@@ -2432,7 +2457,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:41
 msgid "Repair threads"
-msgstr ""
+msgstr "ئەسلىگە كەلتۈرۈش يۇلى"
 
 #: libraries/engines/myisam.lib.php:42
 msgid ""
@@ -2461,7 +2486,7 @@ msgstr ""
 #: libraries/engines/pbms.lib.php:36 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1161
 msgid "Port"
-msgstr ""
+msgstr "ئېغىز"
 
 #: libraries/engines/pbms.lib.php:37
 msgid ""
@@ -2617,7 +2642,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:67
 msgid "Data file grow size"
-msgstr ""
+msgstr "سانلىق مەلۇمات ھۆججىتىنىڭ ئېشىش چوڭ-كىچىكلىكى"
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "The grow size of the handle data (.xtd) files."
@@ -2633,7 +2658,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:77
 msgid "Log file count"
-msgstr ""
+msgstr "كۈندىلىك ھۆججەت ئۇمۇمىي سانى"
 
 #: libraries/engines/pbxt.lib.php:78
 msgid ""
@@ -2646,31 +2671,31 @@ msgstr ""
 #: libraries/export/codegen.php:36 setup/lib/messages.inc.php:85
 #: tbl_printview.php:373 tbl_structure.php:734
 msgid "Format"
-msgstr ""
+msgstr "فورماتلاش"
 
 #: libraries/export/csv.php:16 libraries/import/csv.php:21
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: libraries/export/csv.php:20 libraries/import/csv.php:26
 #: libraries/import/csv.php:58 libraries/import/ldi.php:39
 msgid "Columns terminated by"
-msgstr ""
+msgstr "خەت ئايرىش بەلگىسى"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #: libraries/import/csv.php:70 libraries/import/ldi.php:40
 msgid "Columns enclosed by"
-msgstr ""
+msgstr "مەزمۇن ئايرىش بەلگىسى"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #: libraries/import/csv.php:74 libraries/import/ldi.php:41
 msgid "Columns escaped by"
-msgstr ""
+msgstr "مەزمۇنئايلاندۇرۇش بەلگىسى"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #: libraries/import/csv.php:78 libraries/import/ldi.php:42
 msgid "Lines terminated by"
-msgstr ""
+msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
 #: libraries/export/csv.php:24 libraries/export/excel.php:21
 #: libraries/export/htmlword.php:24 libraries/export/latex.php:69
@@ -2678,7 +2703,7 @@ msgstr ""
 #: libraries/export/texytext.php:31 libraries/export/xls.php:22
 #: libraries/export/xlsx.php:22
 msgid "Replace NULL by"
-msgstr ""
+msgstr "نى ئالماشتۇرۇش ئۈچۈنNULL "
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 msgid "Remove CRLF characters within columns"
@@ -2694,15 +2719,15 @@ msgstr ""
 
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
-msgstr ""
+msgstr "MS Excel دىكى CSVشەكلى"
 
 #: libraries/export/excel.php:31
 msgid "Excel edition"
-msgstr ""
+msgstr "Excel  نۇسخىسى"
 
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/export/htmlword.php:23 libraries/export/latex.php:59
 #: libraries/export/latex.php:205 libraries/export/odt.php:47
@@ -2711,17 +2736,17 @@ msgstr ""
 #: server_privileges.php:575 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:662
 msgid "Data"
-msgstr ""
+msgstr "سانلىق مەلۇمات"
 
 #: libraries/export/htmlword.php:131 libraries/export/odt.php:167
 #: libraries/export/sql.php:878 libraries/export/texytext.php:130
 msgid "Dumping data for table"
-msgstr ""
+msgstr "ئايلاندۇرۇپ ساقلاش جەدىۋېلىدىكى سانلىق مەلۇمات"
 
 #: libraries/export/htmlword.php:184 libraries/export/odt.php:237
 #: libraries/export/sql.php:782 libraries/export/texytext.php:177
 msgid "Table structure for table"
-msgstr ""
+msgstr "جەدېۋەلنىڭ تۈزىلىشى"
 
 #: libraries/export/latex.php:13
 msgid "Content of table @TABLE@"
@@ -2729,7 +2754,7 @@ msgstr ""
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
-msgstr ""
+msgstr "داۋاملاشتۇرلىدىغان"
 
 #: libraries/export/latex.php:15
 #, fuzzy
@@ -2739,34 +2764,34 @@ msgstr "تۈزىلىشىنىلا"
 
 #: libraries/export/latex.php:26
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 #: libraries/export/latex.php:30
 msgid "Include table caption"
-msgstr ""
+msgstr "ئۆزئىچىگە ئالغان جەدېۋەلنىڭ تىمىسى"
 
 #: libraries/export/latex.php:39 libraries/export/latex.php:63
 msgid "Table caption"
-msgstr ""
+msgstr "جەدېۋەلنىڭ تىمىسى"
 
 #: libraries/export/latex.php:41 libraries/export/latex.php:65
 msgid "Continued table caption"
-msgstr ""
+msgstr "داۋاملاشتۇرىدىغان جەدېۋەلنىڭ تىمىسى"
 
 #: libraries/export/latex.php:43 libraries/export/latex.php:67
 msgid "Label key"
-msgstr ""
+msgstr "ئاچقۇچلۇق ئېمزا"
 
 #: libraries/export/latex.php:46 libraries/export/odt.php:34
 #: libraries/export/sql.php:90 tbl_relation.php:396
 msgid "Relations"
-msgstr ""
+msgstr "مۇناسىۋىتى"
 
 #: libraries/export/latex.php:52 libraries/export/odt.php:40
 #: libraries/export/odt.php:317 libraries/export/sql.php:94
 #: libraries/tbl_properties.inc.php:141
 msgid "MIME type"
-msgstr ""
+msgstr "MIMEشەكلى"
 
 #: libraries/export/latex.php:129 libraries/export/sql.php:230
 #: libraries/export/xml.php:101 libraries/header_printview.inc.php:56
@@ -2777,38 +2802,38 @@ msgstr ""
 #: server_privileges.php:1533 server_privileges.php:2065
 #: server_processlist.php:54 server_synchronize.php:1157
 msgid "Host"
-msgstr ""
+msgstr "ئاساسىي ماشىنا"
 
 #: libraries/export/latex.php:134 libraries/export/sql.php:231
 #: libraries/export/xml.php:106 libraries/header_printview.inc.php:58
 msgid "Generation Time"
-msgstr ""
+msgstr "قۇرۇلغان ۋاقتى"
 
 #: libraries/export/latex.php:135 libraries/export/sql.php:233
 #: libraries/export/xml.php:107 main.php:185
 msgid "Server version"
-msgstr ""
+msgstr "مۇلازىمىتىر نۇسخىسى"
 
 #: libraries/export/latex.php:136 libraries/export/sql.php:234
 #: libraries/export/xml.php:108
 msgid "PHP Version"
-msgstr ""
+msgstr "PHPنۇسخىسى"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "MediaWikiكۈرۈنىشى"
 
 #: libraries/export/ods.php:17 libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "OpenOffice جەدىۋېلى"
 
 #: libraries/export/odt.php:21
 msgid "Open Document Text"
-msgstr ""
+msgstr "OpenOffice ھۆججىتى"
 
 #: libraries/export/pdf.php:17
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: libraries/export/pdf.php:22
 msgid "(Generates a report containing the data of a single table)"
@@ -2816,11 +2841,11 @@ msgstr ""
 
 #: libraries/export/pdf.php:23
 msgid "Report title"
-msgstr ""
+msgstr "دوكلات تېمىسى"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
-msgstr ""
+msgstr "PHP سانلىق گۇرۇپىسى"
 
 #: libraries/export/sql.php:28
 msgid "Add custom comment into header (\\n splits lines)"
@@ -3139,7 +3164,7 @@ msgstr ""
 msgid "Fulltext"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:433 tbl_replace.php:330
+#: libraries/mult_submits.inc.php:433 tbl_replace.php:326
 msgid "No change"
 msgstr ""
 
@@ -7280,7 +7305,7 @@ msgstr ""
 msgid "ZIP"
 msgstr ""
 
-#: sql.php:494 tbl_replace.php:384
+#: sql.php:494 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7289,7 +7314,7 @@ msgstr ""
 msgid "Showing as PHP code"
 msgstr ""
 
-#: sql.php:514 tbl_replace.php:358
+#: sql.php:514 tbl_replace.php:354
 msgid "Showing SQL query"
 msgstr ""
 

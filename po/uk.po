@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-28 05:45-0400\n"
+"POT-Creation-Date: 2010-08-06 08:03-0400\n"
 "PO-Revision-Date: 2010-07-27 23:41+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
@@ -91,6 +91,7 @@ msgid "Use this value"
 msgstr "Використовувати це значення"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
+#: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
 msgstr ""
 
@@ -124,7 +125,6 @@ msgstr "Коментар до таблиці"
 #: tbl_indexes.php:187 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:132 tbl_structure.php:175 tbl_tracking.php:267
 #: tbl_tracking.php:318
-#| msgid "Column names"
 msgid "Column"
 msgstr "Стовпчик"
 
@@ -249,7 +249,6 @@ msgid "and then"
 msgstr "і потім"
 
 #: db_operations.php:379
-#| msgid "No databases"
 msgid "Remove database"
 msgstr "Видалити базу даних"
 
@@ -259,7 +258,6 @@ msgid "Database %s has been dropped."
 msgstr "Базу даних %s знищено."
 
 #: db_operations.php:396
-#| msgid "No databases"
 msgid "Drop the database (DROP)"
 msgstr "Знищити базу даних (DROP)"
 
@@ -373,7 +371,6 @@ msgstr "Перевірено"
 
 #: db_printview.php:220 db_structure.php:465
 #, php-format
-#| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s таблиця"
@@ -443,12 +440,10 @@ msgid "Modify"
 msgstr "Змінити"
 
 #: db_qbe.php:580
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Додати/Прибрати рядки критеріїв"
 
 #: db_qbe.php:592
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Додати/Прибрати колонки"
 
@@ -523,7 +518,6 @@ msgstr "Видалити"
 
 #: db_search.php:267
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Всього:</b> <i>%s</i> співпадіння"
@@ -551,7 +545,6 @@ msgid "Inside table(s):"
 msgstr "Всередині таблиць:"
 
 #: db_search.php:337
-#| msgid "Inside table(s):"
 msgid "Inside column:"
 msgstr "Всередині стовпчика:"
 
@@ -1399,7 +1392,8 @@ msgstr ""
 msgid "Databases"
 msgstr "Бази Даних"
 
-#: libraries/Message.class.php:210 libraries/common.lib.php:574
+#: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
+#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:574
 #: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
@@ -1604,20 +1598,41 @@ msgstr ""
 msgid "Authenticating..."
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:340
+#: libraries/blobstreaming.lib.php:241
+msgid "PBMS error"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:267
+msgid "PBMS connection failed:"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:312
+msgid "PBMS get BLOB info failed:"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:320
+msgid "get BLOB Content-Type failed"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:347
 msgid "View image"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:344
+#: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:349
+#: libraries/blobstreaming.lib.php:356
 msgid "View video"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:353
+#: libraries/blobstreaming.lib.php:360
 msgid "Download file"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:421
+#, php-format
+msgid "Could not open file: %s"
 msgstr ""
 
 #: libraries/common.inc.php:567
@@ -1915,16 +1930,16 @@ msgstr ""
 msgid "Overhead"
 msgstr "Надмірні видатки"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:123
+#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysqli.dbi.lib.php:404
 msgid "The server is not responding"
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:404
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 
@@ -3213,7 +3228,7 @@ msgstr "Індекс"
 msgid "Fulltext"
 msgstr "ПовнТекст"
 
-#: libraries/mult_submits.inc.php:433 tbl_replace.php:330
+#: libraries/mult_submits.inc.php:433 tbl_replace.php:326
 msgid "No change"
 msgstr "Змін немає"
 
@@ -3784,11 +3799,6 @@ msgid "Length/Values"
 msgstr "Довжини/Значення*"
 
 #: libraries/tbl_properties.inc.php:104
-#| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -3796,9 +3806,9 @@ msgid ""
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Для типів поля \"enum\" або \"set\", введіть значення в такому форматі: "
-"'a','b','c'...<br />Якщо вам буде потрібно ввести зворотню косу риску (\"\\\") "
-"або поодинокі лапки (\"'\") посеред цих значень, поставте перед ними зворотню "
-"косу риску (наприклад, '\\\\xyz' чи 'a\\'b')."
+"'a','b','c'...<br />Якщо вам буде потрібно ввести зворотню косу риску (\"\\"
+"\") або поодинокі лапки (\"'\") посеред цих значень, поставте перед ними "
+"зворотню косу риску (наприклад, '\\\\xyz' чи 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -3833,10 +3843,10 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'...<br "
-"/>Якщо необхідно ввести зворотній слеш (\"\\\") чи поодинокі лапки (\"'\") у цих "
-"значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\\\xyz' "
-"чи 'a\\'b')."
+"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'...<br /"
+">Якщо необхідно ввести зворотній слеш (\"\\\") чи поодинокі лапки (\"'\") у "
+"цих значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\"
+"\\xyz' чи 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:391
 #, fuzzy
@@ -3855,8 +3865,7 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Немає опису для цього перетворення.<br />Прошу питатися автора, що робить %"
-"s."
+"Немає опису для цього перетворення.<br />Прошу питатися автора, що робить %s."
 
 #: libraries/tbl_properties.inc.php:724 server_engines.php:56
 #: tbl_operations.php:352
@@ -3876,7 +3885,6 @@ msgstr "Зберегти"
 
 #: libraries/tbl_properties.inc.php:778 tbl_structure.php:539
 #, php-format
-#| msgid "Add into comments"
 msgid "Add %s column(s)"
 msgstr "Додати %s стовпчик(ів)"
 
@@ -3966,9 +3974,6 @@ msgstr ""
 "показано без переформатування (за замовчуванням: 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -7499,7 +7504,7 @@ msgstr ""
 msgid "ZIP"
 msgstr ""
 
-#: sql.php:494 tbl_replace.php:384
+#: sql.php:494 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7508,7 +7513,7 @@ msgstr ""
 msgid "Showing as PHP code"
 msgstr ""
 
-#: sql.php:514 tbl_replace.php:358
+#: sql.php:514 tbl_replace.php:354
 msgid "Showing SQL query"
 msgstr ""
 

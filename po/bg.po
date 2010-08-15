@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-07-28 05:45-0400\n"
+"POT-Creation-Date: 2010-08-06 08:03-0400\n"
 "PO-Revision-Date: 2010-06-11 17:28+0200\n"
 "Last-Translator:  <stanprog@stanprog.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -90,6 +90,7 @@ msgid "Use this value"
 msgstr "Използвахте тази стойност"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
+#: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
 msgstr ""
 
@@ -1416,7 +1417,8 @@ msgstr ""
 msgid "Databases"
 msgstr "Бази от данни"
 
-#: libraries/Message.class.php:210 libraries/common.lib.php:574
+#: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
+#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:574
 #: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
@@ -1623,20 +1625,43 @@ msgstr ""
 msgid "Authenticating..."
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:340
+#: libraries/blobstreaming.lib.php:241
+msgid "PBMS error"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:267
+#, fuzzy
+#| msgid "MySQL connection collation"
+msgid "PBMS connection failed:"
+msgstr "Колация на MySQL"
+
+#: libraries/blobstreaming.lib.php:312
+msgid "PBMS get BLOB info failed:"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:320
+msgid "get BLOB Content-Type failed"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:347
 msgid "View image"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:344
+#: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:349
+#: libraries/blobstreaming.lib.php:356
 msgid "View video"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:353
+#: libraries/blobstreaming.lib.php:360
 msgid "Download file"
+msgstr ""
+
+#: libraries/blobstreaming.lib.php:421
+#, php-format
+msgid "Could not open file: %s"
 msgstr ""
 
 #: libraries/common.inc.php:567
@@ -1938,16 +1963,16 @@ msgstr "Може да има приблизителна стойност. Виж
 msgid "Overhead"
 msgstr "Загубено място"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:123
+#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
 #: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysqli.dbi.lib.php:404
 msgid "The server is not responding"
 msgstr "Няма отговор от сървъра"
 
-#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:405
+#: libraries/dbi/mysql.dbi.lib.php:349 libraries/dbi/mysqli.dbi.lib.php:404
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 
@@ -3254,7 +3279,7 @@ msgstr "Индекс"
 msgid "Fulltext"
 msgstr "Пълнотекстово"
 
-#: libraries/mult_submits.inc.php:433 tbl_replace.php:330
+#: libraries/mult_submits.inc.php:433 tbl_replace.php:326
 msgid "No change"
 msgstr "Няма промяна"
 
@@ -7629,7 +7654,7 @@ msgstr ""
 msgid "ZIP"
 msgstr ""
 
-#: sql.php:494 tbl_replace.php:384
+#: sql.php:494 tbl_replace.php:380
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7638,7 +7663,7 @@ msgstr ""
 msgid "Showing as PHP code"
 msgstr "Показване като PHP-код"
 
-#: sql.php:514 tbl_replace.php:358
+#: sql.php:514 tbl_replace.php:354
 msgid "Showing SQL query"
 msgstr ""
 
