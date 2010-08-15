@@ -57,7 +57,7 @@ if (!empty($chart)) {
     $message = PMA_Message::success(__('Chart generated successfully.'));
 }
 else {
-    $message = PMA_Message::error(__('The result of this query can\'t be used for a chart.'));
+    $message = PMA_Message::error(__('The result of this query can\'t be used for a chart. See [a@./Documentation.html#faq6_28@Documentation]FAQ 6.28[/a]'));
 }
 
 /**
