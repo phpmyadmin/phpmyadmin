@@ -98,6 +98,8 @@ class PMA_EPS
             $this->stringCommands .= '%%Orientation: ' . $value . "\n";
         }
         $this->stringCommands .= "%%EndComments \n";
+        $this->stringCommands .= "%%Pages 1 \n";
+        $this->stringCommands .= "%%BoundingBox: 72 150 144 170 \n";
     }
 
     /**
@@ -793,13 +795,14 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 
         $this->_drawTables($this->showColor);
         $eps->endEpsDoc();
+        $eps->showOutput($db.'-'.$this->pageNumber);
+        exit();
         print '<pre>';
         print_r(get_object_vars($eps));
         print_r($alltables);
         print_r(get_object_vars($this));
         print '</pre>';
-        exit();
-        $eps->showOutput($db.'-'.$this->pageNumber);
+
     }
 
     /**
