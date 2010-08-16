@@ -114,11 +114,14 @@ echo $script_tabs . $script_contr . $script_display_field;
             class="M_butt" target="_self"
         ><img src="pmd/images/pdf.png" alt="key" width="20" height="20"
                 title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
-         ><a href="#" onClick="build_query('SQL Query on Database', 0)" onmousedown="return false;" 
-            class="M_butt" target="_self"
-        ><img src="pmd/images/query_builder.png" alt="key" width="20" height="20"
-                title="<?php echo __('Build Query'); ?>" /></a
-        ><a href="javascript:Top_menu_right(document.getElementById('key_Left_Right'));"
+         >
+        <?php if($_REQUEST['query']){
+            echo '<a href="#" onClick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;" 
+            class="M_butt" target="_self">';
+            echo '<img src="pmd/images/query_builder.png" alt="key" width="20" height="20" title="';
+            echo __('Build Query');
+            echo '"/></a>'; }?> 
+         <a href="javascript:Top_menu_right(document.getElementById('key_Left_Right'));"
             onmousedown="return false;" class="M_butt last" target="_self">
             <img src="pmd/images/2rightarrow_m.png" id="key_Left_Right" alt=">"
                 title="<?php echo __('Move Menu'); ?>" /></a>
@@ -227,9 +230,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         onclick="Start_tab_upd('<?php echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]; ?>');">
         <img src="pmd/images/exec_small.png" alt="" /></td>
     <td nowrap="nowrap" id="id_zag_<?php echo $t_n_url ?>" class="tab_zag"
-        onmousedown="cur_click=document.getElementById('<?php echo $t_n_url ?>');"
-        onmouseover="Table_onover('<?php echo $t_n_url ?>',0)"
-        onmouseout="Table_onover('<?php echo $t_n_url ?>',1)">
+        onmousedown="cur_click=document.getElementById('<?php echo $t_n_url ?>');"/
+        onmouseover="Table_onover('<?php echo $t_n_url ?>',0,<?php echo (isset($_REQUEST['query'])? 1 : 0 )?> )"
+        onmouseout="Table_onover('<?php echo $t_n_url ?>',1,<?php echo (isset($_REQUEST['query']) ? 1 : 0 )?>)">
         <span class='owner'>
         <?php
         echo $GLOBALS['PMD_OUT']["OWNER"][$i];
@@ -238,9 +241,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         ?></td>
     <?php 
 	if(isset($_REQUEST['query'])) {
-		echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
+		echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0,1)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
         echo 'onmousedown="cur_click=document.getElementById(\''.htmlspecialchars($t_n_url).'\');"';
-        echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1)">';
+        echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1,1)">';
 	}?>
 </tr>
 </thead>
@@ -810,14 +813,15 @@ if($_REQUEST['query']) {
 	echo '<div id="filter"></div>';
 	echo '<div id="box">';
   	echo '<span id="boxtitle"></span>';
-  	echo '<form method="GET" action="" target="_parent">';
+  	echo '<form method="post" action="pmd_general" target="_parent">';
     echo '<textarea cols="80" name="sql_query" id="textSqlquery" rows="15"></textarea><div id="tblfooter">';
-    echo '  <input type="submit" name="submit" class="btn">';
+    echo '  <input type="submit" name="submit_sql" class="btn">';
     echo '  <input type="button" name="cancel" value="Cancel" onClick="closebox()" class="btn">';
     echo '</div></p>';
     echo '</form></div>';
 	
 } ?>
+
 
 <!-- cache images -->
 <img src="pmd/images/2leftarrow_m.png" width="0" height="0" alt="" />
