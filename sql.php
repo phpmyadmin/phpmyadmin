@@ -175,14 +175,14 @@ if ($do_confirm) {
         .PMA_generate_common_hidden_inputs($db, $table);
     ?>
     <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
-    <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? PMA_sanitize($zero_rows) : ''; ?>" />
+    <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? PMA_sanitize($zero_rows, true) : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-    <input type="hidden" name="back" value="<?php echo isset($back) ? PMA_sanitize($back) : ''; ?>" />
-    <input type="hidden" name="reload" value="<?php echo isset($reload) ? PMA_sanitize($reload) : 0; ?>" />
-    <input type="hidden" name="purge" value="<?php echo isset($purge) ? PMA_sanitize($purge) : ''; ?>" />
-    <input type="hidden" name="cpurge" value="<?php echo isset($cpurge) ? PMA_sanitize($cpurge) : ''; ?>" />
-    <input type="hidden" name="purgekey" value="<?php echo isset($purgekey) ? PMA_sanitize($purgekey) : ''; ?>" />
-    <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? PMA_sanitize($show_query) : ''; ?>" />
+    <input type="hidden" name="back" value="<?php echo isset($back) ? PMA_sanitize($back, true) : ''; ?>" />
+    <input type="hidden" name="reload" value="<?php echo isset($reload) ? PMA_sanitize($reload, true) : 0; ?>" />
+    <input type="hidden" name="purge" value="<?php echo isset($purge) ? PMA_sanitize($purge, true) : ''; ?>" />
+    <input type="hidden" name="cpurge" value="<?php echo isset($cpurge) ? PMA_sanitize($cpurge, true) : ''; ?>" />
+    <input type="hidden" name="purgekey" value="<?php echo isset($purgekey) ? PMA_sanitize($purgekey, true) : ''; ?>" />
+    <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? PMA_sanitize($show_query, true) : ''; ?>" />
     <?php
     echo '<fieldset class="confirmation">' . "\n"
         .'    <legend>' . $strDoYouReally . '</legend>'
