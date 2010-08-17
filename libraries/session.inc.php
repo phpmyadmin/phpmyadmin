@@ -101,5 +101,6 @@ function PMA_secureSession()
 {
     // prevent session fixation and XSS
     session_regenerate_id(true);
+    $_SESSION[' PMA_token '] = md5(uniqid(rand(), true));
 }
 ?>
