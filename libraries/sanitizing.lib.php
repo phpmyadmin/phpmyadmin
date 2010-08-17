@@ -17,7 +17,7 @@
  *
  * @access  public
  */
-function PMA_sanitize($message)
+function PMA_sanitize($message, $escape = false)
 {
     $replace_pairs = array(
         '<'         => '&lt;',
@@ -63,6 +63,10 @@ function PMA_sanitize($message)
         }
 
         $message = preg_replace($pattern, '<a href="\1" target="\2">', $message);
+    }
+
+    if ($escape) {
+        $message = htmlspecialchars($message);
     }
 
     return $message;
