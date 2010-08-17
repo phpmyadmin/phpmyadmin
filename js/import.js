@@ -35,18 +35,12 @@ function matchFile(fname) {
         if (extension == "gz" || extension == "bz2" || extension == "zip") {
             len--;
         }
-        $("#plugins option:selected").removeAttr("selected");
-        switch (fname_array[len - 1]) {
-            case "csv" : $("select[name='format'] option[value='csv']").attr('selected', 'selected'); break;
-            case "docsql" : $("select[name='format'] option[value='docsql']").attr('selected', 'selected'); break;
-            case "ldi" : $("select[name='format'] option[value='ldi']").attr('selected', 'selected'); break;
-            case "ods" : $("select[name='format'] option[value='ods']").attr('selected', 'selected'); break;
-            case "sql" : $("select[name='format'] option[value='sql']").attr('selected', 'selected'); break;
-            case "xls" : $("select[name='format'] option[value='xls']").attr('selected', 'selected'); break;
-            case "xlsx" : $("select[name='format'] option[value='xlsx']").attr('selected', 'selected'); break;
-            case "xml" : $("select[name='format'] option[value='xml']").attr('selected', 'selected'); break;
+        // Only toggle if the format of the file can be imported
+        if($("select[name='format'] option[value='" + fname_array[len - 1] + "']").length == 1) {
+            $("#plugins option:selected").removeAttr("selected");
+            $("select[name='format'] option[value='" + fname_array[len - 1] + "']").attr('selected', 'selected');
+            changePluginOpts();
         }
-        changePluginOpts();
     }
 }
 $(document).ready(function() {
