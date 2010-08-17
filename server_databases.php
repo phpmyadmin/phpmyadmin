@@ -22,7 +22,21 @@ require './libraries/replication.inc.php';
 if (empty($_REQUEST['sort_by'])) {
     $sort_by = 'SCHEMA_NAME';
 } else {
-    $sort_by = PMA_sanitize($_REQUEST['sort_by']);
+    $sort_by_whitelist = array(
+        'SCHEMA_NAME',
+        'DEFAULT_COLLATION_NAME',
+        'SCHEMA_TABLES',
+        'SCHEMA_TABLE_ROWS',
+        'SCHEMA_DATA_LENGTH',
+        'SCHEMA_INDEX_LENGTH',
+        'SCHEMA_LENGTH',
+        'SCHEMA_DATA_FREE'
+    );
+    if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
+        $sort_by = $_REQUEST['sort_by'];
+    } else {
+        $sort_by = 'SCHEMA_NAME';
+    }
 }
 
 if (isset($_REQUEST['sort_order'])
