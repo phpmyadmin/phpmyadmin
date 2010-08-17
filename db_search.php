@@ -355,7 +355,7 @@ $alter_select =
     <tr><td align="right">
             <?php echo $GLOBALS['strSearchInField']; ?></td>
         <td><input type="text" name="field_str" size="60"
-                value="<?php echo ! empty($field_str) ? $field_str : ''; ?>" /></td>
+                value="<?php echo ! empty($field_str) ? htmlspecialchars($field_str) : ''; ?>" /></td>
     </tr>
     </table>
 </fieldset>
