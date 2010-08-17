@@ -65,7 +65,7 @@ class PMA_User_Schema
             case 'edcoord':
                 $this->choosenPage = $_POST['chpage'];
                 $this->c_table_rows = $_POST['c_table_rows'];
-                $this->_editCoordinates($db, $cfgRelation);
+                $this->_editCoordinates($db, $cfgRelation,$query_default_option);
                 break;
             case 'deleteCrap':
                 $this->_deleteTableRows($delrow,$cfgRelation,$db,$this->choosenPage);
@@ -341,7 +341,7 @@ class PMA_User_Schema
     {
         global $cfg,$pmaThemeImage,$db,$test_rs,$chpage;
         ?>
-        <form method="post" action="export_relation_schema.php">
+        <form method="post" action="handle_relation_schema.php">
             <fieldset>
             <legend>
             <?php
@@ -775,7 +775,7 @@ class PMA_User_Schema
      * @return void
      * @access private
      */
-    private function _editCoordinates($db, $cfgRelation)
+    private function _editCoordinates($db, $cfgRelation,$query_default_option)
     {
         for ($i = 0; $i < $this->c_table_rows; $i++) {
             $arrvalue = 'c_table_' . $i;

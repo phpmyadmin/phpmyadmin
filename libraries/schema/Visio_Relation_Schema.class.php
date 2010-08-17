@@ -157,9 +157,9 @@ class PMA_VISIO extends XMLWriter
      */
     function showOutput($fileName)
     {
-         if(ob_get_clean()){
-            ob_end_clean();
-        }
+         //if(ob_get_clean()){
+            //ob_end_clean();
+        //}
         //header('Content-type: text/xml');
         header('Content-Disposition: attachment; filename="'.$fileName.'.vdx"');
         $output = $this->flush();
@@ -535,7 +535,6 @@ class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
         if ($seen_a_relation) {
             $this->_drawRelations($this->showColor);
         }
-        
         $visio->endVisioDoc();
         $visio->showOutput($db.'-'.$this->pageNumber);
         exit();
@@ -543,7 +542,6 @@ class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
         print_r(get_object_vars($visio));
         print_r(get_object_vars($this));
         print '</pre>';
-        
     }
 
     /**

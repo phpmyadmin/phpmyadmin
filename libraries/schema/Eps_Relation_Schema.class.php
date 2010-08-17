@@ -335,9 +335,9 @@ class PMA_EPS
      */
     function showOutput($fileName)
     {
-         if(ob_get_clean()){
-            ob_end_clean();
-        }
+        // if(ob_get_clean()){
+            //ob_end_clean();
+        //}
         //header('Content-type: text/xml');
         header('Content-Disposition: attachment; filename="'.$fileName.'.eps"');
         $output = $this->stringCommands;

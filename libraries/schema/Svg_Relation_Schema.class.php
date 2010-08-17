@@ -172,7 +172,7 @@ class PMA_SVG extends XMLWriter
      */
     function showOutput($fileName)
     {
-        ob_get_clean();
+        //ob_get_clean();
         header('Content-type: image/svg+xml');
         header('Content-Disposition: attachment; filename="'.$fileName.'.svg"');
         $output = $this->flush();
@@ -349,7 +349,7 @@ class Table_Stats
      * @global array     The relations settings
      * @global string    The current db name
      * @access private
-     * @see PMA_PDF, Table_Stats::Table_Stats_setWidth,
+     * @see PMA_SVG, Table_Stats::Table_Stats_setWidth,
             Table_Stats::Table_Stats_setHeight
      */
     function __construct($tableName, $font, $fontSize, $pageNumber, &$same_wide_width, $showKeys = false, $showInfo = false)
