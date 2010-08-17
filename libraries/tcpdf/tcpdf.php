@@ -2980,8 +2980,7 @@ if(!class_exists('TCPDF', false)) {
 					if(ob_get_contents()) {
 						$this->Error('Some data has already been output, can\'t send PDF file');
 					}
-					//ob_end_clean();
-					//ob_start();
+					
 					if(php_sapi_name()!='cli') {
 						//We send to a browser
 						header('Content-Type: application/pdf');
@@ -2996,18 +2995,10 @@ if(!class_exists('TCPDF', false)) {
 				}
 				case 'D': {
 					//Download file
-<<<<<<< HEAD
 					if(ob_get_contents()) {
 						$this->Error(ob_get_contents().'Some data has already been output, can\'t send PDF file');
 					}
-					//ob_end_clean();
-					//ob_start();
-=======
-				//	if(ob_get_contents()) {
-					//	$this->Error(ob_get_contents().'Some data has already been output, can\'t send PDF file');
-					//}
-				
->>>>>>> 14b26e3... TCPDF Class: Clean output buffer before downloading file
+					
 					if(isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'],'MSIE')) {
 						header('Content-Type: application/force-download');
 					} else {
