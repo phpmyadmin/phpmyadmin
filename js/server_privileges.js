@@ -13,8 +13,8 @@
 /**
  * Validates the password field in a form
  *
- * @uses    PMA_messages['strPasswordEmpty']
- * @uses    PMA_messages['strPasswordNotSame']
+ * @see     PMA_messages['strPasswordEmpty']
+ * @see     PMA_messages['strPasswordNotSame']
  * @param   object   the form
  * @return  boolean  whether the field value is valid or not
  */
@@ -138,6 +138,10 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     .html(new_user_initial_string);
 };
 
+/**#@+
+ * @namespace   jQuery
+ */
+
 /**
  * AJAX scripts for server_privileges page.
  *
@@ -149,18 +153,24 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
  * Paginate table of users
  * Flush privileges
  *
+ * @memberOf    jQuery
+ * @name        document.ready
  */
 
 $(document).ready(function() {
+    /** @lends jQuery */
     
     /**
      * AJAX event handler for 'Add a New User'
      *
-     * @uses    PMA_ajaxShowMessage()
-     * @uses    appendNewUser()
+     * @see         PMA_ajaxShowMessage()
+     * @see         appendNewUser()
+     * @memberOf    jQuery
+     * @name        add_user_click
      *
      */
     $("#fieldset_add_user a").live("click", function(event) {
+        /** @lends jQuery */
         event.preventDefault();
 
         PMA_ajaxShowMessage();
@@ -228,7 +238,9 @@ $(document).ready(function() {
     /**
      * Ajax event handler for 'Reload Privileges' anchor
      *
-     * @uses    PMA_ajaxShowMessage()
+     * @see         PMA_ajaxShowMessage()
+     * @memberOf    jQuery
+     * @name        reload_privileges_click
      */
     $("#reload_privileges_anchor").live("click", function(event) {
         event.preventDefault();
@@ -249,8 +261,9 @@ $(document).ready(function() {
     /**
      * AJAX handler for 'Revoke User'
      *
-     * @uses    PMA_ajaxShowMessage()
-     *
+     * @see         PMA_ajaxShowMessage()
+     * @memberOf    jQuery
+     * @name        revoke_user_click
      */
     $("#fieldset_delete_user_footer #buttonGo").live('click', function(event) {
         event.preventDefault();
@@ -289,13 +302,17 @@ $(document).ready(function() {
     /**
      * AJAX handler for 'Edit User'
      *
-     * @uses    PMA_ajaxShowMessage()
+     * @see         PMA_ajaxShowMessage()
+     *
      */
 
     /**
      * Step 1: Load Edit User Dialog
+     * @memberOf    jQuery
+     * @name        edit_user_click
      */
     $(".edit_user_anchor").live('click', function(event) {
+        /** @lends jQuery */
         event.preventDefault();
 
         PMA_ajaxShowMessage();
@@ -321,9 +338,12 @@ $(document).ready(function() {
     /**
      * Step 2: Submit the Edit User Dialog
      * 
-     * @uses    PMA_ajaxShowMessage()
+     * @see         PMA_ajaxShowMessage()
+     * @memberOf    jQuery
+     * @name        edit_user_submit
      */
     $("#edit_user_dialog").find("form").live('submit', function(event) {
+        /** @lends jQuery */
         event.preventDefault();
 
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
@@ -387,9 +407,12 @@ $(document).ready(function() {
     /**
      * AJAX handler for 'Export Privileges'
      *
-     * @uses    PMA_ajaxShowMessage()
+     * @see         PMA_ajaxShowMessage()
+     * @memberOf    jQuery
+     * @name        export_user_click
      */
     $(".export_user_anchor").live('click', function(event) {
+        /** @lends jQuery */
         event.preventDefault();
 
         PMA_ajaxShowMessage();
@@ -413,7 +436,9 @@ $(document).ready(function() {
     /**
      * AJAX handler to Paginate the Users Table
      *
-     * @uses    PMA_ajaxShowMessage()
+     * @see         PMA_ajaxShowMessage()
+     * @name        paginate_users_table_click
+     * @memberOf    jQuery
      */
     $("#initials_table").find("a").live('click', function(event) {
         event.preventDefault();
@@ -433,3 +458,5 @@ $(document).ready(function() {
     })// end of the paginate users table
 
 }, 'top.frame_content'); //end $(document).ready()
+
+/**#@- */

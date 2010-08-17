@@ -105,21 +105,14 @@ if (!$GLOBALS['is_ajax_request']) {
                 printf($item,
                         $GLOBALS['cfg']['DefaultTabDatabase'],
                         PMA_generate_common_url($GLOBALS['db']),
-                        htmlspecialchars($GLOBALS['db']),
-                        __('Database'),
-                        's_db.png');
-
-                if (isset($GLOBALS['action']) && $GLOBALS['action'] == 'tbl_create.php') {
-                    /* We're creating a new table */
-                    echo $separator;
-                    printf($item,
-                            $action,
-                            PMA_generate_common_url($GLOBALS['db']),
-                            __('New table'),
-                            '',
-                            's_tbl.png');
-                } elseif (strlen($GLOBALS['table'])) {
-                    require_once './libraries/tbl_info.inc.php';
+                        __('New table'),
+                        '',
+                        's_tbl.png');
+                // if the table is being dropped, $_REQUEST['purge'] is set
+                // (it always contains "1")
+                // so do not display the table name in upper div
+            } elseif (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']))) {
+                require_once './libraries/tbl_info.inc.php';
 
                 echo $separator;
                 printf($item,

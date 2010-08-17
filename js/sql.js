@@ -79,7 +79,6 @@ function appendInlineAnchor(disp_mode) {
 }
 
 /**#@+
- * @memberOf    jQuery
  * @namespace   jQuery
  */
 
@@ -96,20 +95,24 @@ function appendInlineAnchor(disp_mode) {
  * </ul>
  *
  * @name        document.ready
- * @function
- * @augments    jQuery.fn
+ * @memberOf    jQuery
  */
 $(document).ready(function() {
 
-    /**
-     * @lends   jQuery
-     */
 
     /**
-     * @var disp_mode   current value of the direction in which the table is displayed
+     * current value of the direction in which the table is displayed
+     * @type    String
+     * @fieldOf jQuery
+     * @name    disp_mode
      */
     var disp_mode = $("#top_direction_dropdown").val();
 
+    /**
+     * Update value of {@link jQuery.disp_mode} everytime the direction dropdown changes value
+     * @memberOf    jQuery
+     * @name        direction_dropdown_change
+     */
     $("#top_direction_dropdown, #bottom_direction_dropdown").live('change', function(event) {
         disp_mode = $(this).val();
     })
@@ -117,17 +120,27 @@ $(document).ready(function() {
     /**
      * Attach the {@link appendInlineAnchor} function to a custom event, which
      * will be triggered manually everytime the table of results is reloaded
-     * @function
-     * @name    sqlqueryresults_live
+     * @memberOf    jQuery
+     * @name        sqlqueryresults_live
      */
     $("#sqlqueryresults").live('appendAnchor',function() {
         appendInlineAnchor(disp_mode);
     })
 
-    // Trigger the appendAnchor event to prepare the first table for inline edit
+    /**
+     * Trigger the appendAnchor event to prepare the first table for inline edit
+     *
+     * @memberOf    jQuery
+     * @name        sqlqueryresults_trigger
+     */
     $("#sqlqueryresults").trigger('appendAnchor');
 
-    // Append the Toggle Query Box message to the query input form
+    /**
+     * Append the Toggle Query Box message to the query input form
+     *
+     * @memberOf jQuery
+     * @name    appendToggleSpan
+     */
     $('<span id="togglequerybox"></span>')
     .html(PMA_messages['strToggleQueryBox'])
     .appendTo("#sqlqueryform");
@@ -140,8 +153,9 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'SQL Query Submit'
      *
-     * @see    PMA_ajaxShowMessage()
-     * @inner
+     * @see         PMA_ajaxShowMessage()
+     * @memberOf    jQuery
+     * @name        sqlqueryform_submit
      */
     $("#sqlqueryform").live('submit', function(event) {
         event.preventDefault();
@@ -169,14 +183,16 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handlers for Paginating the results table
-     *
-     * @uses    PMA_ajaxShowMessage()
      */
 
     /**
      * Paginate when we click any of the navigation buttons
+     * @memberOf    jQuery
+     * @name        paginate_nav_button_click
+     * @uses        PMA_ajaxShowMessage()
      */
     $("input[name=navig]").live('click', function(event) {
+        /** @lends jQuery */
         event.preventDefault();
 
         PMA_ajaxShowMessage();
@@ -196,6 +212,8 @@ $(document).ready(function() {
 
     /**
      * Paginate results with Page Selector dropdown
+     * @memberOf    jQuery
+     * @name        paginate_dropdown_change
      */
     $("#pageselector").live('change', function(event) {
         event.preventDefault();
@@ -210,6 +228,8 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handler for sorting the results table
+     * @memberOf    jQuery
+     * @name        table_results_sort_click
      */
     $("#table_results").find("a[title=Sort]").live('click', function(event) {
         event.preventDefault();
@@ -224,6 +244,8 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handler for the display options
+     * @memberOf    jQuery
+     * @name        displayOptionsForm_submit
      */
     $("#displayOptionsForm").live('submit', function(event) {
         event.preventDefault();
@@ -237,15 +259,17 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handlers for Inline Editing
-     *
-     * @see    PMA_ajaxShowMessage()
-     * @see    getFieldName()
      */
 
     /**
      * On click, replace the current field with an input/textarea
+     * @memberOf    jQuery
+     * @name        inline_edit_start
+     * @see         PMA_ajaxShowMessage()
+     * @see         getFieldName()
      */
     $(".edit_row_anchor").live('click', function(event) {
+        /** @lends jQuery */
         event.preventDefault();
 
         $(this).removeClass('edit_row_anchor').addClass('edit_row_anchor_active');
@@ -272,6 +296,7 @@ $(document).ready(function() {
         }
 
         $(input_siblings).each(function() {
+            /** @lends jQuery */
             /**
              * @var data_value  Current value of this field
              */
@@ -300,6 +325,7 @@ $(document).ready(function() {
                 $(".original_data").hide();
             }
             else if($(this).is('.truncated, .transformed')) {
+                /** @lends jQuery */
                 //handle truncated/transformed values values
 
                 /**
@@ -326,6 +352,7 @@ $(document).ready(function() {
                 }) // end $.post()
             }
             else if($(this).is('.relation')) {
+                /** @lends jQuery */
                 //handle relations
 
                 /**
@@ -353,6 +380,7 @@ $(document).ready(function() {
                 }) // end $.post()
             }
             else if($(this).is('.enum')) {
+                /** @lends jQuery */
                 //handle enum fields
                 /**
                  * @var curr_value  String containing the current value of this relational field
@@ -389,8 +417,14 @@ $(document).ready(function() {
 
     /**
      * After editing, clicking again should post data
+     *
+     * @memberOf    jQuery
+     * @name        inline_edit_save
+     * @see         PMA_ajaxShowMessage()
+     * @see         getFieldName()
      */
     $(".edit_row_anchor_active").live('click', function(event) {
+        /** @lends jQuery */
         event.preventDefault();
 
         /**
@@ -448,7 +482,7 @@ $(document).ready(function() {
         var transformation_fields = false;
 
         $(input_siblings).each(function() {
-
+            /** @lends jQuery */
             /**
              * @var this_field  Object referring to this field (<td>)
              */
