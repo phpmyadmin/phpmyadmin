@@ -183,9 +183,29 @@ class PMA_Export_Relation_Schema
 
     /**
      * Displays an error message
+     *
+     * @param integer pageNumber ID of the page choosen
+     * @param string type Schema Type
+     * @param string error_message the error mesage
+     * @global array    the PMA configuration array
+     * @global integer  the current server id
+     * @global string   the current language
+     * @global string   the charset to convert to
+     * @global string   the current database name
+     * @global string   the current charset
+     * @global string   the current text direction
+     * @global string   a localized string
+     * @global string   an other localized string
+     * @access public
+     * @return void
      */
-    function dieSchema($type = '',$error_message = '')
+    function dieSchema($pageNumber, $type = '', $error_message = '')
     {
+        global $cfg;
+        global $server, $lang, $convcharset, $db;
+        global $charset, $text_dir;
+
+        require_once './libraries/header.inc.php';
         echo "<p><strong>" . __("SCHEMA ERROR: ") .  $type ."</strong></p>" . "\n";
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
@@ -193,6 +213,11 @@ class PMA_Export_Relation_Schema
         echo '<p>' . "\n";
         echo '    ' . $error_message . "\n";
         echo '</p>' . "\n";
+        echo '<a href="export_relation_schema.php?' . PMA_generate_common_url($db).'&do=selectpage&chpage='.$pageNumber.'&action_choose=0'
+         . '">' . __('Back') . '</a>';
+        echo "\n";
+        require_once './libraries/footer.inc.php';
+        exit();
     }
 }
 ?>
