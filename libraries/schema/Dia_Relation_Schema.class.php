@@ -713,10 +713,6 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         $dia->endDiaDoc();
         $dia->showOutput($db.'-'.$this->pageNumber);
         exit();
-       // print '<pre>';
-        //print_r(get_object_vars($dia));
-        //print_r(get_object_vars($this));
-        //print '</pre>';
     }
 
     /**

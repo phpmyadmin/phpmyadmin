@@ -949,11 +949,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if ($seen_a_relation) {
             $this->_drawRelations($this->showColor);
         }
-   /*     print '<pre>';
-        print_r(get_object_vars($this));
-        print_r(get_object_vars($pdf));
-        print '</pre>';
-        */
         $this->_drawTables($this->showColor);
         $this->_showOutput($this->pageNumber);
         exit();

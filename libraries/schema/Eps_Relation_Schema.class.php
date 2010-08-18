@@ -797,12 +797,6 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $eps->endEpsDoc();
         $eps->showOutput($db.'-'.$this->pageNumber);
         exit();
-        //print '<pre>';
-        //print_r(get_object_vars($eps));
-        //print_r($alltables);
-        //print_r(get_object_vars($this));
-        //print '</pre>';
-
     }
 
     /**

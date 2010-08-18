@@ -538,10 +538,6 @@ class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
         $visio->endVisioDoc();
         $visio->showOutput($db.'-'.$this->pageNumber);
         exit();
-        print '<pre>';
-        print_r(get_object_vars($visio));
-        print_r(get_object_vars($this));
-        print '</pre>';
     }
 
     /**
