@@ -160,7 +160,7 @@ class PMA_VISIO extends XMLWriter
          //if(ob_get_clean()){
             //ob_end_clean();
         //}
-        //header('Content-type: text/xml');
+        header('Content-type: application/visio');
         header('Content-Disposition: attachment; filename="'.$fileName.'.vdx"');
         $output = $this->flush();
         print $output;
@@ -212,7 +212,7 @@ class Table_Stats
         $sql = 'DESCRIBE ' . PMA_backquote($tableName);
         $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
-            $visio->dieSchema(sprintf(__('The %s table doesn\'t exist!'), $tableName));
+            $visio->dieSchema($pageNumber,"VISIO",sprintf(__('The %s table doesn\'t exist!'), $tableName));
         }
 
         /*
@@ -254,7 +254,7 @@ class Table_Stats
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
 
         if (!$result || !PMA_DBI_num_rows($result)) {
-            //$visio->dieSchema(sprintf(__('Please configure the coordinates for table %s'), $tableName));
+            $visio->dieSchema($pageNumber,"VISIO",sprintf(__('Please configure the coordinates for table %s'), $tableName));
         }
         list($this->x, $this->y) = PMA_DBI_fetch_row($result);
         $this->x = (double) $this->x;

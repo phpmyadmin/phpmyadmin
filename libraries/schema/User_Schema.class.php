@@ -92,7 +92,7 @@ class PMA_User_Schema
         <form method="post" action="export_relation_schema.php" name="frm_create_page">
         <fieldset>
         <legend>
-        <?php echo __('Create a page !') . "\n"; ?>
+        <?php echo __('Create a page') . "\n"; ?>
         </legend>
         <?php echo PMA_generate_common_hidden_inputs($db); ?>
         <input type="hidden" name="do" value="createpage" />
@@ -147,7 +147,7 @@ class PMA_User_Schema
             <form method="get" action="export_relation_schema.php" name="frm_select_page">
             <fieldset>
             <legend>
-            <?php echo __('Please select a page to edit') . "\n"; ?>
+            <?php echo __('Please choose a page to edit') . "\n"; ?>
             </legend>
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="do" value="selectpage" />
@@ -379,6 +379,7 @@ class PMA_User_Schema
             <input type="hidden" name="pdf_page_number" value="<?php echo htmlspecialchars($this->choosenPage); ?>" />
             <?php } ?>
             <input type="hidden" name="do" value="process_export" />
+            <input type="hidden" name="chpage" value="<?php echo $chpage; ?>" />
             <input type="checkbox" name="show_grid" id="show_grid_opt" />
             <label for="show_grid_opt"><?php echo __('Show grid'); ?></label><br />
             <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />

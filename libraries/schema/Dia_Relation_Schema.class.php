@@ -175,7 +175,7 @@ class PMA_DIA extends XMLWriter
          if(ob_get_clean()){
             ob_end_clean();
         }
-        //header('Content-type: text/xml');
+        header('Content-type: application/x-dia-diagram');
         header('Content-Disposition: attachment; filename="'.$fileName.'.dia"');
         $output = $this->flush();
         print $output;
@@ -227,7 +227,7 @@ class Table_Stats
         $sql = 'DESCRIBE ' . PMA_backquote($tableName);
         $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
-            //$dia->Error(sprintf(__('The %s table doesn\'t exist!'), $tableName));
+            $dia->dieSchema($pageNumber,"DIA",sprintf(__('The %s table doesn\'t exist!'), $tableName));
         }
         /* 
          * load fields
@@ -253,7 +253,7 @@ class Table_Stats
              . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
-           // $dia->Error(sprintf(__('Please configure the coordinates for table %s'), $tableName));
+            $dia->dieSchema($pageNumber,"DIA",sprintf(__('Please configure the coordinates for table %s'), $tableName));
         }
         list($this->x, $this->y) = PMA_DBI_fetch_row($result);
         $this->x = (double) $this->x;
@@ -713,10 +713,10 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         $dia->endDiaDoc();
         $dia->showOutput($db.'-'.$this->pageNumber);
         exit();
-        print '<pre>';
-        print_r(get_object_vars($dia));
-        print_r(get_object_vars($this));
-        print '</pre>';
+       // print '<pre>';
+        //print_r(get_object_vars($dia));
+        //print_r(get_object_vars($this));
+        //print '</pre>';
     }
 
     /**

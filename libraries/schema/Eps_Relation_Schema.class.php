@@ -338,7 +338,7 @@ class PMA_EPS
         // if(ob_get_clean()){
             //ob_end_clean();
         //}
-        //header('Content-type: text/xml');
+        header('Content-type: image/x-eps');
         header('Content-Disposition: attachment; filename="'.$fileName.'.eps"');
         $output = $this->stringCommands;
         print $output;
@@ -400,7 +400,7 @@ class Table_Stats
         $sql = 'DESCRIBE ' . PMA_backquote($tableName);
         $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
-            $eps->dieSchema(sprintf(__('The %s table doesn\'t exist!'), $tableName));
+            $eps->dieSchema($pageNumber,"EPS",sprintf(__('The %s table doesn\'t exist!'), $tableName));
         }
 
         /*
@@ -441,7 +441,7 @@ class Table_Stats
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
 
         if (!$result || !PMA_DBI_num_rows($result)) {
-            //$eps->dieSchema(sprintf(__('Please configure the coordinates for table %s'), $tableName));
+            $eps->dieSchema($pageNumber,"EPS",sprintf(__('Please configure the coordinates for table %s'), $tableName));
         }
         list($this->x, $this->y) = PMA_DBI_fetch_row($result);
         $this->x = (double) $this->x;
@@ -797,11 +797,11 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $eps->endEpsDoc();
         $eps->showOutput($db.'-'.$this->pageNumber);
         exit();
-        print '<pre>';
-        print_r(get_object_vars($eps));
-        print_r($alltables);
-        print_r(get_object_vars($this));
-        print '</pre>';
+        //print '<pre>';
+        //print_r(get_object_vars($eps));
+        //print_r($alltables);
+        //print_r(get_object_vars($this));
+        //print '</pre>';
 
     }
 

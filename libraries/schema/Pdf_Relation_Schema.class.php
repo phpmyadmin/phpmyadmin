@@ -75,6 +75,17 @@ class PMA_PDF extends TCPDF
         parent::_putpages();
     }
 
+    // added because tcpdf for PHP 5 has a protected $buffer
+    public function getBuffer()
+    {
+        return $this->buffer;
+    }
+
+    public function getState()
+    {
+        return $this->state;
+    }
+
     /**
      * Sets the scaling factor, defines minimum coordinates and margins
      *
@@ -194,44 +205,6 @@ class PMA_PDF extends TCPDF
 
     /**
      * Displays an error message
-     *
-     * @param string error_message the error mesage
-     * @global array    the PMA configuration array
-     * @global integer  the current server id
-     * @global string   the current language
-     * @global string   the charset to convert to
-     * @global string   the current database name
-     * @global string   the current charset
-     * @global string   the current text direction
-     * @global string   a localized string
-     * @global string   an other localized string
-     * @access public
-     */
-/*    function PMA_PDF_die($error_message = '')
-    {
-        global $cfg;
-        global $server, $lang, $convcharset, $db;
-        global $charset, $text_dir;
-
-        require_once './libraries/header.inc.php';
-
-        echo '<p><strong>PDF - ' . __('Error') . '</strong></p>' . "\n";
-        if (!empty($error_message)) {
-            $error_message = htmlspecialchars($error_message);
-        }
-        echo '<p>' . "\n";
-        echo '    ' . $error_message . "\n";
-        echo '</p>' . "\n";
-
-        echo '<a href="db_structure.php?' . PMA_generate_common_url($db)
-         . '">' . __('Back') . '</a>';
-        echo "\n";
-
-        require_once './libraries/footer.inc.php';
-    }*/ // end of the "PMA_PDF_die()" function
-    /**
-     * Aliases the "Error()" function from the TCPDF class to the
-     * "PMA_PDF_die()" one
      *
      * @param string error_message the error mesage
      * @access public
@@ -480,8 +453,16 @@ class PMA_PDF extends TCPDF
 }
 
 /**
- * Draws tables schema
+ * Table preferences/statistics
+ * 
+ * This class preserves the table co-ordinates,fields 
+ * and helps in drawing/generating the Tables in PDF document.
  *
+ * @name Table_Stats
+ * @author Muhammad Adnan <hiddenpearls@gmail.com>
+ * @copyright
+ * @license
+ * @see PMA_PDF
  */
 class Table_Stats 
 {
@@ -684,10 +665,18 @@ class Table_Stats
 }
 
 /**
- * Draws relation links
+ * Relation preferences/statistics
+ * 
+ * This class fetches the table master and foreign fields positions
+ * and helps in generating the Table references and then connects 
+ * master table's master field to foreign table's foreign key
+ * in PDF document.
  *
- * @access public 
- * @see PMA_PDF
+ * @name Relation_Stats
+ * @author Muhammad Adnan <hiddenpearls@gmail.com>
+ * @copyright
+ * @license
+ * @see PMA_PDF::SetDrawColor,PMA_PDF::PMA_PDF_setLineWidthScale,PMA_PDF::PMA_PDF_lineScale
  */
 class Relation_Stats 
 {
@@ -820,6 +809,20 @@ class Relation_Stats
     }
 }
 
+/**
+ * Pdf Relation Schema Class
+ *
+ * Purpose of this class is to generate the PDF Document. PDF is widely
+ * used format for documenting text,fonts,images and 3d vector graphics.
+ *
+ * This class inherits Export_Relation_Schema class has common functionality added
+ * to this class
+ *
+ * @name Pdf_Relation_Schema
+ * @author Muhammad Adnan <hiddenpearls@gmail.com>
+ * @copyright
+ * @license
+ */
 class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 {
     /**
@@ -1085,7 +1088,12 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if (empty($filename)) {
             $filename = $pageNumber . '.pdf';
         }
-        $pdf->Output($db . '_' . $filename, 'D'); // destination: download
+        // instead of $pdf->Output():
+        $pdfData = $pdf->getPDFData();
+        header('Content-Type: application/pdf');
+        header('Content-Length: '.strlen($pdfData).'');
+        header('Content-disposition: attachment; filename="'.$filename.'"');
+        echo $pdfData;
     }
 
     public function dataDictionaryDoc($alltables)
