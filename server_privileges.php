@@ -1598,7 +1598,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
             $url_dbname = htmlspecialchars(urlencode(str_replace('\_', '_', $dbname)));
             echo ' <i><a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
             if (isset($tablename) && strlen($tablename)) {
-                echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;table=' . urlencode($tablename) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
+                echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;table=' . htmlspecialchars(urlencode($tablename)) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
             }
             unset($url_dbname);
         }
