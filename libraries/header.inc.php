@@ -166,6 +166,5 @@ if (!$GLOBALS['is_ajax_request']) {
          * Sets a variable to remember headers have been sent
          */
         $GLOBALS['is_header_sent'] = true;
-    }
 } //end if(!$GLOBALS['is_ajax_request'])
 ?>
