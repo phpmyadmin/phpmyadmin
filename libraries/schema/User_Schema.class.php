@@ -393,14 +393,12 @@ class PMA_User_Schema
             <label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />
             <input type="checkbox" name="show_keys" id="show_keys" />
             <label for="show_keys"><?php echo __('Only show keys'); ?></label><br />
-            <label for="orientation_opt"><?php echo __('Data Dictionary Format'); ?></label>
             <select name="orientation" id="orientation_opt">
                 <option value="L"><?php echo __('Landscape');?></option>
                 <option value="P"><?php echo __('Portrait');?></option>
             </select>
+            <label for="orientation_opt"><?php echo __('Orientation'); ?></label>
             <br />
-
-            <label for="paper_opt"><?php echo __('Paper size'); ?></label>
             <select name="paper" id="paper_opt">
                 <?php
                 foreach ($cfg['PDFPageSizes'] as $key => $val) {
@@ -412,6 +410,7 @@ class PMA_User_Schema
                 }
                 ?>
             </select>
+            <label for="paper_opt"><?php echo __('Paper size'); ?></label>
             </fieldset>
             <fieldset class="tblFooters">
             <input type="submit" value="<?php echo __('Go'); ?>" />
