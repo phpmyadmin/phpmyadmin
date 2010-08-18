@@ -1923,7 +1923,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             if (isset($tablename)) {
                 echo ' [ ' . $GLOBALS['strTable'] . ' <a href="'
                     . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query']
-                    . '&amp;db=' . $url_dbname . '&amp;table=' . urlencode($tablename)
+                    . '&amp;db=' . $url_dbname . '&amp;table=' . htmlspecialchars(urlencode($tablename))
                     . '&amp;reload=1">' . htmlspecialchars($tablename) . ': '
                     . PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable'])
                     . "</a> ]\n";
