@@ -1600,7 +1600,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             if (isset($tablename)) {
                 echo ' <i><a href="server_privileges.php?' . $GLOBALS['url_query']
                     . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname)
-                    . '&amp;dbname=' . $url_dbname . '&amp;tablename=">' . htmlspecialchars($dbname) . '</a></i>';
+                    . '&amp;dbname=' . htmlspecialchars($url_dbname) . '&amp;tablename=">' . htmlspecialchars($dbname) . '</a></i>';
                 echo ' - ' . $GLOBALS['strTable'] . ' <i>' . htmlspecialchars($tablename) . '</i>';
             } else {
                 echo ' <i>' . htmlspecialchars($dbname) . '</i>';
@@ -1836,14 +1836,14 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                        . '    <td>';
                     printf($link_edit, urlencode($username),
                         urlencode($hostname),
-                        urlencode((! isset($dbname)) ? $row['Db'] : $dbname),
+                        urlencode((! isset($dbname)) ? $row['Db'] : htmlspecialchars($dbname)),
                         urlencode((! isset($dbname)) ? '' : $row['Table_name']));
                     echo '</td>' . "\n"
                        . '    <td>';
                     if (! empty($row['can_delete']) || isset($row['Table_name']) && strlen($row['Table_name'])) {
                         printf($link_revoke, urlencode($username),
                             urlencode($hostname),
-                            urlencode((! isset($dbname)) ? $row['Db'] : $dbname),
+                            urlencode((! isset($dbname)) ? $row['Db'] : htmlspecialchars($dbname)),
                             urlencode((! isset($dbname)) ? '' : $row['Table_name']));
                     }
                     echo '</td>' . "\n"
