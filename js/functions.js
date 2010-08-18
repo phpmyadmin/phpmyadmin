@@ -1695,16 +1695,42 @@ $(document).ready(function(){
     });
 
     $("#export_type").change(function(){
-        if($("#export_type").val()!='pdf'){
+        if($("#export_type").val()=='svg'){
             $("#show_grid_opt").attr("disabled","disabled");
             $("#orientation_opt").attr("disabled","disabled");
             $("#with_doc").attr("disabled","disabled");
-            $(this).css("background-color","yellow");
-        }
-        if($("#export_type").val()=='pdf'){
+            $("#show_table_dim_opt").removeAttr("disabled");
+            $("#all_table_same_wide").removeAttr("disabled");
+            $("#paper_opt").removeAttr("disabled","disabled");
+            $("#show_color_opt").removeAttr("disabled","disabled");
+            //$(this).css("background-color","yellow");
+        }else if($("#export_type").val()=='dia'){
+            $("#show_grid_opt").attr("disabled","disabled");
+            $("#with_doc").attr("disabled","disabled");
+            $("#show_table_dim_opt").attr("disabled","disabled");
+            $("#all_table_same_wide").attr("disabled","disabled");
+            $("#paper_opt").removeAttr("disabled","disabled");
+            $("#show_color_opt").removeAttr("disabled","disabled");
+            $("#orientation_opt").removeAttr("disabled","disabled");
+        }else if($("#export_type").val()=='eps'){
+            $("#show_grid_opt").attr("disabled","disabled");
+            $("#orientation_opt").removeAttr("disabled");
+            $("#with_doc").attr("disabled","disabled");
+            $("#show_table_dim_opt").attr("disabled","disabled");
+            $("#all_table_same_wide").attr("disabled","disabled");
+            $("#paper_opt").attr("disabled","disabled");
+            $("#show_color_opt").attr("disabled","disabled");
+            
+        }else if($("#export_type").val()=='pdf'){
             $("#show_grid_opt").removeAttr("disabled");
             $("#orientation_opt").removeAttr("disabled");
             $("#with_doc").removeAttr("disabled","disabled");
+            $("#show_table_dim_opt").removeAttr("disabled","disabled");
+            $("#all_table_same_wide").removeAttr("disabled","disabled");
+            $("#paper_opt").removeAttr("disabled","disabled");
+            $("#show_color_opt").removeAttr("disabled","disabled");
+        }else{
+            // nothing
         }
     });
 
