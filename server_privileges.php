@@ -1595,7 +1595,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
             } else {
             echo '    - ' . $GLOBALS['strDatabase'];
             }
-            $url_dbname = urlencode(str_replace('\_', '_', $dbname));
+            $url_dbname = htmlspecialchars(urlencode(str_replace('\_', '_', $dbname)));
             echo ' <i><a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
             if (isset($tablename) && strlen($tablename)) {
                 echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;table=' . urlencode($tablename) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
@@ -1841,14 +1841,14 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                        . '    <td>';
                     printf($link_edit, urlencode($username),
                         urlencode($hostname),
-                        urlencode((! isset($dbname) || ! strlen($dbname)) ? $row['Db'] : $dbname),
+                        htmlspecialchars(urlencode((! isset($dbname) || ! strlen($dbname)) ? $row['Db'] : $dbname)),
                         urlencode((! isset($dbname) || ! strlen($dbname)) ? '' : $row['Table_name']));
                     echo '</td>' . "\n"
                        . '    <td>';
                     if (! empty($row['can_delete']) || isset($row['Table_name']) && strlen($row['Table_name'])) {
                         printf($link_revoke, urlencode($username),
                             urlencode($hostname),
-                            urlencode((! isset($dbname) || ! strlen($dbname)) ? $row['Db'] : $dbname),
+                            htmlspecialchars(urlencode((! isset($dbname) || ! strlen($dbname)) ? $row['Db'] : $dbname)),
                             urlencode((! isset($dbname) || ! strlen($dbname)) ? '' : $row['Table_name']));
                     }
                     echo '</td>' . "\n"
