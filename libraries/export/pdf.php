@@ -45,17 +45,6 @@ class PMA_PDF extends TCPDF
     var $headerset;
     var $footerset;
 
-    // added because tcpdf for PHP 5 has a protected $buffer
-    public function getBuffer()
-    {
-        return $this->buffer;
-    }
-
-    public function getState()
-    {
-        return $this->state;
-    }
-
     // overloading of a tcpdf function:
     function _beginpage($orientation)
     {
@@ -466,10 +455,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $pdf->mysql_report($sql_query, $attr);
 
     // instead of $pdf->Output():
-    if ($pdf->getState() < 3) {
-        $pdf->Close();
-    }
-    if (!PMA_exportOutputHandler($pdf->getBuffer())) {
+    if (!PMA_exportOutputHandler($pdf->getPDFData())) {
         return FALSE;
     }
 
