@@ -2915,10 +2915,9 @@ msgid "Columns separated with:"
 msgstr "Laukai atskirti su:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Laukų reikšmės apskliaustos  simboliais"
+msgstr "Laukų reikšmės apskliaustos su:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 #, fuzzy
