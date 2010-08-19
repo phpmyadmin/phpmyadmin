@@ -1072,7 +1072,7 @@ msgstr "sausio"
 
 #: js/messages.php:87
 msgid "February"
-msgstr "vasario"
+msgstr "Vasaris"
 
 #: js/messages.php:88
 #| msgid "Mar"
