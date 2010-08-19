@@ -3866,7 +3866,7 @@ msgstr "Pagrindinio serverio būklė (Master status)"
 
 #: libraries/replication_gui.lib.php:107
 msgid "Slave status"
-msgstr ""
+msgstr "Pavaldžiojo serverio būklė (Slave status)"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:415
 #: server_status.php:736 server_variables.php:51
