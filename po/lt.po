@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:36+0200\n"
+"PO-Revision-Date: 2010-08-19 23:38+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2912,7 +2912,7 @@ msgstr "CSV"
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Stulpeliai atskirti su:"
+msgstr "Laukai atskirti su:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 #, fuzzy
