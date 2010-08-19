@@ -1118,7 +1118,7 @@ msgstr "spalio"
 
 #: js/messages.php:96
 msgid "November"
-msgstr ""
+msgstr "lapkričio"
 
 #: js/messages.php:97
 msgid "December"
