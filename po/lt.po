@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:52+0200\n"
+"PO-Revision-Date: 2010-08-19 23:54+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3457,7 +3457,7 @@ msgstr ""
 #: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "Neteisingas CSV įvedimo formatas eilutėje %d."
 
 #: libraries/import/csv.php:314
 #, php-format
