@@ -121,6 +121,9 @@ function PMA_langCheck()
  */
 function PMA_langSet(&$lang)
 {
+    /* Partial backward compatibility with 3.3 and older branches */
+    $lang = str_replace('-utf-8', '', $lang);
+
     if (!is_string($lang) || empty($lang) || empty($GLOBALS['available_languages'][$lang])) {
         return false;
     }
