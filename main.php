@@ -209,7 +209,7 @@ PMA_printListItem(__('Official Homepage'), 'li_pma_homepage', 'http://www.phpMyA
         [<a href="http://phpmyadmin.git.sourceforge.net/git/gitweb-index.cgi"
             target="_blank">Git</a>]
         [<a href="http://sourceforge.net/mail/?group_id=23067"
-            target="_blank">Lists</a>]
+            target="_blank"><?php echo __('Mailing lists'); ?></a>]
         </bdo>
     </li>
     </ul>

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:47+0200\n"
+"POT-Creation-Date: 2010-08-19 14:18+0200\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -2478,18 +2478,19 @@ msgstr "Индекс бўйича сортировка қилиш"
 
 #: libraries/display_tbl.lib.php:553 libraries/export/codegen.php:40
 #: libraries/export/csv.php:31 libraries/export/excel.php:36
-#: libraries/export/htmlword.php:32 libraries/export/latex.php:34
-#: libraries/export/mediawiki.php:23 libraries/export/ods.php:28
-#: libraries/export/odt.php:26 libraries/export/pdf.php:28
-#: libraries/export/php_array.php:27 libraries/export/sql.php:55
-#: libraries/export/texytext.php:30 libraries/export/xls.php:28
-#: libraries/export/xlsx.php:28 libraries/export/xml.php:25
-#: libraries/export/yaml.php:29 libraries/import.lib.php:1114
-#: libraries/import.lib.php:1136 libraries/import/csv.php:32
-#: libraries/import/docsql.php:34 libraries/import/ldi.php:48
-#: libraries/import/ods.php:32 libraries/import/sql.php:19
-#: libraries/import/xls.php:27 libraries/import/xlsx.php:27
-#: libraries/import/xml.php:25 tbl_select.php:263 tbl_structure.php:845
+#: libraries/export/htmlword.php:32 libraries/export/json.php:26
+#: libraries/export/latex.php:34 libraries/export/mediawiki.php:23
+#: libraries/export/ods.php:28 libraries/export/odt.php:26
+#: libraries/export/pdf.php:28 libraries/export/php_array.php:27
+#: libraries/export/sql.php:55 libraries/export/texytext.php:30
+#: libraries/export/xls.php:28 libraries/export/xlsx.php:28
+#: libraries/export/xml.php:25 libraries/export/yaml.php:29
+#: libraries/import.lib.php:1114 libraries/import.lib.php:1136
+#: libraries/import/csv.php:32 libraries/import/docsql.php:34
+#: libraries/import/ldi.php:48 libraries/import/ods.php:32
+#: libraries/import/sql.php:19 libraries/import/xls.php:27
+#: libraries/import/xlsx.php:27 libraries/import/xml.php:25 tbl_select.php:263
+#: tbl_structure.php:845
 msgid "Options"
 msgstr "Параметрлар"
 
@@ -4641,6 +4642,10 @@ msgstr "Вики"
 #: main.php:205
 msgid "Official Homepage"
 msgstr " phpMyAdmin расмий веб-саҳифаси"
+
+#: main.php:212
+msgid "Mailing lists"
+msgstr ""
 
 #: main.php:238
 msgid ""
