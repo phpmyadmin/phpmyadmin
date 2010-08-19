@@ -32,7 +32,7 @@ $js_messages['strDropDatabaseStrongWarning'] = __('You are about to DESTROY a co
 
 /* For blobstreaming */
 $js_messages['strBLOBRepositoryDisableStrongWarning'] = __('You are about to DISABLE a BLOB Repository!');
-$js_messages['strBLOBRepositoryDisableAreYouSure'] = sprintf(__('Are you sure you want to disable all BLOB references for database %s?'), $GLOBALS['db']);
+$js_messages['strBLOBRepositoryDisableAreYouSure'] = sprintf(__('Are you sure you want to disable all BLOB references for database %s?'), PMA_escapeJsString($GLOBALS['db']));
 
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');

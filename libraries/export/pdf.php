@@ -19,9 +19,11 @@ if (isset($plugin_list)) {
         'mime_type' => 'application/pdf',
         'force_file' => true,
         'options' => array(
+            array('type' => 'begin_group', 'name' => 'general_opts'),
             array('type' => 'message_only', 'name' => 'explanation', 'text' => __('(Generates a report containing the data of a single table)')),
-            array('type' => 'text', 'name' => 'report_title', 'text' => __('Report title')),
-            array('type' => 'hidden', 'name' => 'data'),
+            array('type' => 'text', 'name' => 'report_title', 'text' => __('Report title:')),
+            array('type' => 'hidden', 'name' => 'structure_or_data'),
+            array('type' => 'end_group')
             ),
         'options_text' => __('Options'),
         );
@@ -44,17 +46,6 @@ class PMA_PDF extends TCPDF
     var $tablewidths;
     var $headerset;
     var $footerset;
-
-    // added because tcpdf for PHP 5 has a protected $buffer
-    public function getBuffer()
-    {
-        return $this->buffer;
-    }
-
-    public function getState()
-    {
-        return $this->state;
-    }
 
     // overloading of a tcpdf function:
     function _beginpage($orientation)
@@ -466,10 +457,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $pdf->mysql_report($sql_query, $attr);
 
     // instead of $pdf->Output():
-    if ($pdf->getState() < 3) {
-        $pdf->Close();
-    }
-    if (!PMA_exportOutputHandler($pdf->getBuffer())) {
+    if (!PMA_exportOutputHandler($pdf->getPDFData())) {
         return FALSE;
     }
 

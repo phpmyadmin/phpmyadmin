@@ -41,7 +41,15 @@ $compression = false;
 $onserver = false;
 $save_on_server = false;
 $buffer_needed = false;
-if (empty($_REQUEST['asfile'])) {
+
+// Is it a quick or custom export?
+if($_REQUEST['quick_or_custom'] == 'quick') {
+    $quick_export = true;
+} else {
+    $quick_export = false;
+}
+
+if ($_REQUEST['output_format'] == 'astext') {
     $asfile = false;
 } else {
     $asfile = true;
@@ -49,8 +57,12 @@ if (empty($_REQUEST['asfile'])) {
         $compression = $_REQUEST['compression'];
         $buffer_needed = true;
     }
-    if (!empty($_REQUEST['onserver'])) {
-        $onserver = $_REQUEST['onserver'];
+    if (($quick_export && !empty($_REQUEST['quick_export_onserver'])) || (!$quick_export && !empty($_REQUEST['onserver']))) {
+        if($quick_export) {
+            $onserver = $_REQUEST['quick_export_onserver'];
+        } else {
+            $onserver = $_REQUEST['onserver'];
+        }
         // Will we save dump on server?
         $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
     }
@@ -264,7 +276,13 @@ if ($asfile) {
     $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
 
     // Grab basic dump extension and mime type
-    $filename  .= '.' . $export_list[$type]['extension'];
+    // Check if the user already added extension; get the substring where the extension would be if it was included
+    $extension_start_pos = strlen($filename) - strlen($export_list[$type]['extension']) - 1;
+    $user_extension = substr($filename, $extension_start_pos, strlen($filename));
+    $required_extension = "." . $export_list[$type]['extension'];
+    if(strtolower($user_extension) != $required_extension) {
+        $filename  .= $required_extension;
+    }
     $mime_type  = $export_list[$type]['mime_type'];
 
     // If dump is going to be compressed, set correct mime_type and add
@@ -285,7 +303,7 @@ if ($asfile) {
 if ($save_on_server) {
     $save_filename = PMA_userDir($cfg['SaveDir']) . preg_replace('@[/\\\\]@', '_', $filename);
     unset($message);
-    if (file_exists($save_filename) && empty($onserverover)) {
+    if (file_exists($save_filename) && ((!$quick_export && empty($onserverover)) || ($quick_export && $_REQUEST['quick_export_onserverover'] != 'saveitover'))) {
         $message = PMA_Message::error(__('File %s already exists on server, change filename or check overwrite option.'));
         $message->addParam($save_filename);
     } else {
@@ -363,6 +381,32 @@ if (!$save_on_server) {
         unset($backup_cfgServer);
         echo "\n" . '<div align="' . $cell_align_left . '">' . "\n";
         //echo '    <pre>' . "\n";
+
+        /**
+         * Displays a back button with all the $_REQUEST data in the URL (store in a variable to also display after the textarea)
+         */
+         $back_button = '<p>[ <a href="';
+        if ($export_type == 'server') {
+           $back_button .= 'server_export.php?' . PMA_generate_common_url();
+         } elseif ($export_type == 'database') {
+            $back_button .= 'db_export.php?' . PMA_generate_common_url($db);
+        } else {
+            $back_button .= 'tbl_export.php?' . PMA_generate_common_url($db, $table);
+        }
+
+        // Convert the multiple select elements from an array to a string
+        if($export_type == 'server' && isset($_REQUEST['db_select'])) {
+            $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
+        } elseif($export_type == 'database' && isset($_REQUEST['table_select'])) {
+            $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
+        }
+
+        foreach($_REQUEST as $name => $value) {
+            $back_button .= '&' . urlencode($name) . '=' . urlencode($value);
+        }
+        $back_button .= '&repopulate=1">Back</a> ]</p>';
+
+        echo $back_button;
         echo '    <form name="nofunction">' . "\n"
            // remove auto-select for now: there is no way to select
            // only a part of the text; anyway, it should obey
@@ -383,7 +427,7 @@ if (!PMA_exportHeader()) {
 
 // Will we need relation & co. setup?
 $do_relation = isset($GLOBALS[$what . '_relation']);
-$do_comments = isset($GLOBALS[$what . '_comments']);
+$do_comments = isset($GLOBALS[$what . '_include_comments']);
 $do_mime     = isset($GLOBALS[$what . '_mime']);
 if ($do_relation || $do_comments || $do_mime) {
     $cfgRelation = PMA_getRelationsParam();
@@ -423,7 +467,7 @@ if ($export_type == 'server') {
                 if ($is_view) {
                     $views[] = $table;
                 }
-                if (isset($GLOBALS[$what . '_structure'])) {
+                if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
                     // for a view, export a stand-in definition of the table
                     // to resolve view dependencies
                     if (!PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, $is_view ? 'stand_in' : 'create_table', $export_type)) {
@@ -431,7 +475,7 @@ if ($export_type == 'server') {
                     }
                 }
                 // if this is a view or a merge table, don't export data
-                if (isset($GLOBALS[$what . '_data']) && !($is_view || PMA_Table::isMerge($current_db, $table))) {
+                if (($GLOBALS[$what . '_structure_or_data'] == 'data' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') && !($is_view || PMA_Table::isMerge($current_db, $table))) {
                     $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db) . '.' . PMA_backquote($table);
                     if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                         break 3;
@@ -439,7 +483,7 @@ if ($export_type == 'server') {
                 }
                 // now export the triggers (needs to be done after the data because
                 // triggers can modify already imported tables)
-                if (isset($GLOBALS[$what . '_structure'])) {
+                if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
                     if (!PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'triggers', $export_type)) {
                         break 2;
                     }
@@ -447,7 +491,7 @@ if ($export_type == 'server') {
             }
             foreach($views as $view) {
                 // no data export for a view
-                if (isset($GLOBALS[$what . '_structure'])) {
+                if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
                     if (!PMA_exportStructure($current_db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'create_view', $export_type)) {
                         break 3;
                     }
@@ -472,7 +516,7 @@ if ($export_type == 'server') {
         if ($is_view) {
             $views[] = $table;
         }
-        if (isset($GLOBALS[$what . '_structure'])) {
+        if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
             // for a view, export a stand-in definition of the table
             // to resolve view dependencies
             if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, $is_view ? 'stand_in' : 'create_table', $export_type)) {
@@ -480,7 +524,7 @@ if ($export_type == 'server') {
             }
         }
         // if this is a view or a merge table, don't export data
-        if (isset($GLOBALS[$what . '_data']) && !($is_view || PMA_Table::isMerge($db, $table))) {
+        if (($GLOBALS[$what . '_structure_or_data'] == 'data' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') && !($is_view || PMA_Table::isMerge($db, $table))) {
             $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
             if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
                 break 2;
@@ -488,7 +532,7 @@ if ($export_type == 'server') {
         }
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
-        if (isset($GLOBALS[$what . '_structure'])) {
+        if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
             if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'triggers', $export_type)) {
                 break 2;
             }
@@ -496,7 +540,7 @@ if ($export_type == 'server') {
     }
     foreach ($views as $view) {
         // no data export for a view
-        if (isset($GLOBALS[$what . '_structure'])) {
+        if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
             if (!PMA_exportStructure($db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'create_view', $export_type)) {
                 break 2;
             }
@@ -521,7 +565,7 @@ if ($export_type == 'server') {
     }
 
     $is_view = PMA_Table::isView($db, $table);
-    if (isset($GLOBALS[$what . '_structure'])) {
+    if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
         if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, $is_view ? 'create_view' : 'create_table', $export_type)) {
             break;
         }
@@ -529,7 +573,7 @@ if ($export_type == 'server') {
     // If this is an export of a single view, we have to export data;
     // for example, a PDF report
     // if it is a merge table, no data is exported
-    if (isset($GLOBALS[$what . '_data']) && ! PMA_Table::isMerge($db, $table)) {
+    if (($GLOBALS[$what . '_structure_or_data'] == 'data' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') && ! PMA_Table::isMerge($db, $table)) {
         if (!empty($sql_query)) {
             // only preg_replace if needed
             if (!empty($add_query)) {
@@ -547,7 +591,7 @@ if ($export_type == 'server') {
     }
     // now export the triggers (needs to be done after the data because
     // triggers can modify already imported tables)
-    if (isset($GLOBALS[$what . '_structure'])) {
+    if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
         if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'triggers', $export_type)) {
             break 2;
         }
@@ -643,9 +687,11 @@ else {
     /**
      * Close the html tags and add the footers in dump is displayed on screen
      */
-    //echo '    </pre>' . "\n";
     echo '</textarea>' . "\n"
        . '    </form>' . "\n";
+    echo $back_button;
+
+    echo "\n";
     echo '</div>' . "\n";
     echo "\n";
 ?>
