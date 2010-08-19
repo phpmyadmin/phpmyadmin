@@ -3326,10 +3326,9 @@ msgid "Tables"
 msgstr "Lentelės"
 
 #: libraries/export/xml.php:40
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "View'as"
+msgstr "Rodinys (Views)"
 
 #: libraries/export/xml.php:47
 #, fuzzy
