@@ -80,7 +80,7 @@ if (isset($plugin_list)) {
         $plugin_list['sql']['options'][] = array('type' => 'end_subgroup');
 
         $plugin_list['sql']['options'][] = array('type' => 'end_group');
-        
+
         /* begin Structure options */
          if (!$hide_structure) {
             $plugin_list['sql']['options'][] =
@@ -102,9 +102,9 @@ if (isset($plugin_list)) {
                 }
             }
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'drop_table', 'text' => sprintf(__('%s'), $drop_clause));
+                array('type' => 'bool', 'name' => 'drop_table', 'text' => sprintf(__('Add %s statement'), $drop_clause));
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'procedure_function', 'text' => sprintf(__('%s'), '<code>CREATE PROCEDURE / FUNCTION' . (PMA_MYSQL_INT_VERSION > 50100 ? ' / EVENT</code>' : '</code>')));
+                array('type' => 'bool', 'name' => 'procedure_function', 'text' => sprintf(__('Add %s statement'), '<code>CREATE PROCEDURE / FUNCTION' . (PMA_MYSQL_INT_VERSION > 50100 ? ' / EVENT</code>' : '</code>')));
 
             /* begin CREATE TABLE statements*/
             $plugin_list['sql']['options'][] =
@@ -133,7 +133,7 @@ if (isset($plugin_list)) {
 
         /* begin SQL statements */
         $plugin_list['sql']['options'][] =
-            array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Instead of <code>INSERT</code> statements, use:')));        
+            array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Instead of <code>INSERT</code> statements, use:')));
         $plugin_list['sql']['options'][] =
             array('type' => 'bool', 'name' => 'delayed', 'text' => __('<code>INSERT DELAYED</code> statements'), 'doc' => array('manual_MySQL_Database_Administration', 'insert_delayed'));
         $plugin_list['sql']['options'][] =
@@ -151,10 +151,10 @@ if (isset($plugin_list)) {
             array('type' => 'begin_subgroup', 'subgroup_header' => array('type' => 'message_only', 'text' => __('Syntax to use when inserting data:')));
         $plugin_list['sql']['options'][] =
             array('type' => 'radio', 'name' => 'insert_syntax', 'values' => array(
-                'complete' => __('include column names in every <code>INSERT</code> statement <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>'), 
-                'extended' => __('insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>'), 
-                'both' => __('both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>'), 
-                'none' => __('neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3)</code>')));  
+                'complete' => __('include column names in every <code>INSERT</code> statement <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>'),
+                'extended' => __('insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>'),
+                'both' => __('both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>'),
+                'none' => __('neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3)</code>')));
           $plugin_list['sql']['options'][] =
             array('type' => 'end_subgroup');
 
