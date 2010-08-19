@@ -58,8 +58,8 @@ class PMA_User_Schema
                 break;
             case 'createpage':
                 $this->pageNumber = PMA_REL_create_page($_POST['newpage'], $cfgRelation, $db, $query_default_option);
-                $this->autoLayoutForeign = $_POST['auto_layout_foreign'];
-                $this->autoLayoutInternal = $_POST['auto_layout_internal'];
+                $this->autoLayoutForeign = isset($_POST['auto_layout_foreign']) ? "1":NULL;
+                $this->autoLayoutInternal = isset($_POST['auto_layout_internal']) ? "1":NULL;
                 $this->processRelations($db, $this->pageNumber,$cfgRelation,$query_default_option);
                 break;
             case 'edcoord':
@@ -702,7 +702,7 @@ class PMA_User_Schema
             }
         }
 
-        if (isset($this->autoLayoutInternal) || isset($this->auto_layout_foreign)) {
+        if (isset($this->autoLayoutInternal) || isset($this->autoLayoutForeign)) {
             $this->addRelationCoordinates($all_tables,$pageNumber,$db, $cfgRelation,$query_default_option);
         }
 
