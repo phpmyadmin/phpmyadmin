@@ -3466,7 +3466,7 @@ msgstr "Neteisingas stulpelių skaičius CSV įvedimo eilutėje %d."
 
 #: libraries/import/docsql.php:27
 msgid "DocSQL"
-msgstr ""
+msgstr "docSQL"
 
 #: libraries/import/docsql.php:31 libraries/tbl_properties.inc.php:621
 #: server_synchronize.php:426 server_synchronize.php:869
