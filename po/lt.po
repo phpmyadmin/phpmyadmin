@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:25+0200\n"
+"PO-Revision-Date: 2010-08-19 23:26+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2623,7 +2623,7 @@ msgstr "Skaitymo užklausos"
 
 #: libraries/engines/innodb.lib.php:234
 msgid "Write requests"
-msgstr "Rašymo užklausos"
+msgstr "Įrašymo užklausos"
 
 #: libraries/engines/innodb.lib.php:240
 msgid "Read misses"
