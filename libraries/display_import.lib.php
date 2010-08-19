@@ -152,8 +152,12 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         }
         // We don't have show anything about compression, when no supported
         if ($compressions != array()) {
-             printf(__('<div class="formelementrow" id="compression_info">File may be compressed (%s) or uncompressed.<br />A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b></div>'), implode(", ", $compressions));
-         }?>
+            echo '<div class="formelementrow" id="compression_info">';
+            printf(__('File may be compressed (%s) or uncompressed.'), implode(", ", $compressions));
+            echo '<br />';
+            echo __('A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b>');
+            echo '</div>';
+        }?>
 
         <div class="formelementrow" id="upload_form">
         <?php if($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
