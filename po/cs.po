@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 11:36+0200\n"
-"PO-Revision-Date: 2010-08-17 13:32+0200\n"
+"PO-Revision-Date: 2010-08-19 11:46+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -771,7 +771,7 @@ msgstr "Historie databáze"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "Hodnoty pro pole \"%s\""
 
 #: enum_editor.php:22
 #, fuzzy
@@ -1854,13 +1854,13 @@ msgstr "Úpravy"
 
 #: libraries/common.lib.php:2923
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Procházet váš počítač:"
 
 #: libraries/common.lib.php:2936
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "soubor z adresáře pro upload"
+msgstr "Zvolte soubor z adresáře pro upload na serveru <b>%s</b>:"
 
 #: libraries/common.lib.php:2948 libraries/sql_query_form.lib.php:493
 #: tbl_change.php:922
@@ -2018,54 +2018,49 @@ msgstr ""
 "Nepodařilo se nahrát pluginy pro export, zkontrolujte prosím vaší instalaci!"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases in the current server"
-msgstr "Umožňuje zamknout tabulku pro aktuální vlákno."
+msgstr "Exportuji databáze z aktuálního serveru"
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables in the database \"%s\""
-msgstr "Vytvořit novou tabulku v databázi %s"
+msgstr "Exportuji tabulky z databáze \"%s\""
 
 #: libraries/display_export.lib.php:91
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows in the table \"%s\""
-msgstr "Vytvořit novou tabulku v databázi %s"
+msgstr "Exportuji řádky z tabulky \"%s\""
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Typ vytvořených dotazů"
+msgstr "Způsob exportu:"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Rychlý - zobrazí jen minimum možností nastavení"
 
 #: libraries/display_export.lib.php:129
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "Vlastní - zobrazí všechna možná nastavení"
 
 #: libraries/display_export.lib.php:137
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Databáze"
+msgstr "Databáze:"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Tabulky"
+msgstr "Tabulky:"
 
 #: libraries/display_export.lib.php:149
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Řádků"
+msgstr "Řádky:"
 
 #: libraries/display_export.lib.php:157
 #, fuzzy
@@ -2074,14 +2069,13 @@ msgid "Dump some row(s)"
 msgstr "Všechny řádky"
 
 #: libraries/display_export.lib.php:159
-#, fuzzy
 #| msgid "Number of columns"
 msgid "Number of rows:"
-msgstr "Počet polí"
+msgstr "Počet řádků:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Začít od řádku:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
@@ -2089,13 +2083,13 @@ msgstr "Všechny řádky"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
-msgstr ""
+msgstr "Výstup:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Uložit na serveru v adresáři %s"
+msgstr "Uložit na serveru v adresáři <b>%s</b>"
 
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
 #: setup/lib/messages.inc.php:88
@@ -2103,16 +2097,14 @@ msgid "Overwrite existing file(s)"
 msgstr "Přepsat existující soubory"
 
 #: libraries/display_export.lib.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Uložit jako soubor"
+msgstr "Uložit do souboru"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Vzor pro jméno souboru"
+msgstr "Šablona pro jméno souboru:"
 
 #: libraries/display_export.lib.php:230
 msgid "server name"
@@ -2176,20 +2168,18 @@ msgstr "„zabzipováno“"
 
 #: libraries/display_export.lib.php:340 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Formát"
+msgstr "Formát:"
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
 msgstr ""
 
 #: libraries/display_export.lib.php:354 libraries/display_import.lib.php:260
-#, fuzzy
 #| msgid "Encoding conversion"
 msgid "Encoding Conversion:"
-msgstr "Převod znakové sady"
+msgstr "Převod znakové sady:"
 
 #: libraries/display_export.lib.php:360
 msgid "SQL compatibility mode"
@@ -2236,15 +2226,14 @@ msgid "Importing into the table \"%s\""
 msgstr "Přejít na databázi"
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Soubor pro importování"
+msgstr "Soubor pro importování:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Soubor může být komprimovaný (%s) nebo nekomprimovaný."
 
 #: libraries/display_import.lib.php:158
 msgid ""
@@ -2257,10 +2246,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Upload souborů není na tomto serveru povolen."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Částečný import"
+msgstr "Částečný import:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
@@ -2286,10 +2274,9 @@ msgstr ""
 "může to způsobit problémy s transakcemi."
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Počet dotazů od začátku, které se mají přeskočit"
+msgstr "Počet dotazů od začátku, které se mají přeskočit:"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
@@ -2900,43 +2887,37 @@ msgid "CSV"
 msgstr "CSV"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns separated with:"
-msgstr "Pole oddělené"
+msgstr "Pole oddělené:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Columns enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Pole uzavřené do"
+msgstr "Pole uzavřené do:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Columns escaped by"
 msgid "Columns escaped with:"
-msgstr "Pole escapována"
+msgstr "Pole escapována:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Řádky ukončené"
+msgstr "Řádky ukončené:"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
 #: libraries/export/xls.php:23 libraries/export/xlsx.php:23
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Nahradit NULL hodnoty"
+msgstr "Nahradit NULL hodnoty:"
 
 #: libraries/export/csv.php:26
-#, fuzzy
 #| msgid "Remove CRLF characters within columns"
 msgid "Remove carriage return/line field characters within columns"
-msgstr "Odstranit znaky CRLF z polí"
+msgstr "Odstranit znaky konců řádků z polí:"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:71
@@ -2951,16 +2932,14 @@ msgid "CSV for MS Excel"
 msgstr "CSV pro MS Excel"
 
 #: libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within columns"
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Odstranit znaky CRLF z polí"
+msgstr "Odstranit znaky konců řádek z polí:"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Verze Excelu"
+msgstr "Verze Excelu:"
 
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
@@ -2985,15 +2964,14 @@ msgstr "struktura"
 #: libraries/export/odt.php:33 libraries/export/sql.php:79
 #: libraries/export/texytext.php:23
 msgid "data"
-msgstr ""
+msgstr "data"
 
 #: libraries/export/htmlword.php:24 libraries/export/latex.php:41
 #: libraries/export/odt.php:33 libraries/export/sql.php:79
 #: libraries/export/texytext.php:23
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
-msgstr "Strukturu a data"
+msgstr "struktura a data"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
