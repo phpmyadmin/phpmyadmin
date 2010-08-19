@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:40+0200\n"
+"PO-Revision-Date: 2010-08-19 23:43+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2953,7 +2953,7 @@ msgstr "Stulpelių pavadinimus įrašyti pirmoje eilutėje"
 
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
-msgstr "Duomenys ekselio CSV formatu"
+msgstr "CSV formatas MS Excel programai"
 
 #: libraries/export/excel.php:32
 #, fuzzy
