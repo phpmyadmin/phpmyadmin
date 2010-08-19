@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:04+0200\n"
+"PO-Revision-Date: 2010-08-19 23:08+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2070,10 +2070,9 @@ msgid "Create table on database %s"
 msgstr "Sukurti naują lentelę duombazėje %s"
 
 #: libraries/display_create_table.lib.php:56
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Laukų skaičius"
+msgstr "Stulpelių skaičius"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
