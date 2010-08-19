@@ -1211,7 +1211,7 @@ msgstr "Trečiadienis"
 
 #: js/messages.php:130
 msgid "Thursday"
-msgstr ""
+msgstr "Ketvirtadienis"
 
 #: js/messages.php:131
 #, fuzzy
