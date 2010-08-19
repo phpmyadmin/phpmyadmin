@@ -1436,14 +1436,11 @@ function refreshDragOption(e) {
 function refreshLayout() {
     var elm = $('#pdflayout')
     var orientation = $('#orientation_opt').val();
-    if($('#paper_opt').length==1)
-    {
-    var paper = $('#paper_opt').val();        
-    }
-    else
-    {
+    if($('#paper_opt').length==1){
+        var paper = $('#paper_opt').val();        
+    }else{
         var paper = 'A4';
-        }
+    }
     if (orientation == 'P') {
         posa = 'x';
         posb = 'y';
