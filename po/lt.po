@@ -2208,7 +2208,7 @@ msgstr "Simbolių koduotė faile:"
 #: libraries/display_export.lib.php:318
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Glaudinimas:"
+msgstr "Glaudinti:"
 
 #: libraries/display_export.lib.php:320 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
