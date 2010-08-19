@@ -3580,7 +3580,7 @@ msgstr "simbolių dydis nesvarbus"
 
 #: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:412
 msgid "case-sensitive"
-msgstr "simbolių registras svarbus"
+msgstr "simbolių dydis svarbus"
 
 #: libraries/mysql_charsets.lib.php:230
 msgid "Croatian"
