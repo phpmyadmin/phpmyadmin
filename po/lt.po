@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 22:24+0200\n"
+"PO-Revision-Date: 2010-08-19 22:30+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -447,10 +447,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Įterpti/Trinti požymio eilutę(es)"
 
 #: db_qbe.php:592
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Įterpti/trinti laukus"
+msgstr "Įterpti/trinti stulpelius"
 
 #: db_qbe.php:605 db_qbe.php:630
 msgid "Update Query"
