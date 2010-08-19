@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:21+0200\n"
+"PO-Revision-Date: 2010-08-19 23:23+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2390,10 +2390,9 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/display_tbl.lib.php:308
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr "eilučių pradedant nuo"
+msgstr "eilučių(tės) pradedant nuo #"
 
 #: libraries/display_tbl.lib.php:314
 msgid "horizontal"
