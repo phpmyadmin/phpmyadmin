@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 22:58+0200\n"
+"PO-Revision-Date: 2010-08-19 23:00+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1759,7 +1759,7 @@ msgstr "en"
 #: libraries/sql_query_form.lib.php:421 libraries/sql_query_form.lib.php:424
 #: main.php:201 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
-msgstr "?"
+msgstr "Dokumentacija"
 
 #: libraries/common.lib.php:590 libraries/header_printview.inc.php:60
 #: server_processlist.php:59 server_status.php:357
