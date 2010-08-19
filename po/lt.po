@@ -3110,7 +3110,7 @@ msgstr "Duomenys"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "MediaWiki lentelė"
 
 #: libraries/export/ods.php:17 libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
