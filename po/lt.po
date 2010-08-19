@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:33+0200\n"
+"PO-Revision-Date: 2010-08-19 23:35+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2867,9 +2867,8 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:62
-#, fuzzy
 msgid "Log buffer size"
-msgstr "Rūšiavimo buferio dydis"
+msgstr "Žurnalo (log) buferio dydis"
 
 #: libraries/engines/pbxt.lib.php:63
 msgid ""
