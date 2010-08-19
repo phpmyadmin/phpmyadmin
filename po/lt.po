@@ -1778,7 +1778,7 @@ msgstr "Nepavyko prisijungti prie MySQL serverio"
 
 #: libraries/common.lib.php:1169 setup/lib/messages.inc.php:351
 msgid "Explain SQL"
-msgstr "Paaiškinti"
+msgstr "Paaiškinti SQL"
 
 #: libraries/common.lib.php:1172
 msgid "Skip Explain SQL"
