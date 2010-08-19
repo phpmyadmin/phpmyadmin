@@ -2805,9 +2805,8 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:32
-#, fuzzy
 msgid "Log cache size"
-msgstr "Rūšiavimo buferio dydis"
+msgstr "Žurnalo (log) podėlio (cache) dydis"
 
 #: libraries/engines/pbxt.lib.php:33
 msgid ""
