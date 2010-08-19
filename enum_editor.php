@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
@@ -18,7 +18,7 @@ require_once './libraries/header_meta_style.inc.php';
 <body>
     <form action="enum_editor.php" method="get">
         <div id="enum_editor_no_js">
-            <h3><?php echo __('Values for the column "' . urldecode($_GET['field']) . '"'); ?></h3>
+            <h3><?php printf(__('Values for the column "%s"'), htmlspecialchars($_GET['field'])); ?></h3>
             <p><?php echo __('Enter each value in a separate field, enclosed in single quotes. If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'); ?></p>
             <div id="values">
             <?php
