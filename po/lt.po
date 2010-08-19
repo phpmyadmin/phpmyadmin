@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:23+0200\n"
+"PO-Revision-Date: 2010-08-19 23:24+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2387,7 +2387,7 @@ msgstr "Kalba"
 #: libraries/display_tbl.lib.php:302
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d nėra galimas eilutės numeris."
 
 #: libraries/display_tbl.lib.php:308
 #| msgid "row(s) starting from record #"
