@@ -1073,6 +1073,13 @@ $cfg['Export'] = array();
 $cfg['Export']['format'] = 'sql';
 
 /**
+ * quick/custom
+ *
+ * @global string $cfg['Export']['format']
+ */
+$cfg['Export']['method'] = 'quick';
+
+/**
  * none/zip/gzip/bzip2
  *
  * @global string $cfg['Export']['compression']

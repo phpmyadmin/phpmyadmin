@@ -69,7 +69,7 @@ if(isset($_GET['export_method'])) {
     $cfg['Export']['method'] = 'quick';
 }
 // The export method (quick, custom or custom-no-form)
-echo '<input type="hidden" name="export_method" value="' . $cfg['Export']['method'] . '" />';
+echo '<input type="hidden" name="export_method" value="' . htmlspecialchars($cfg['Export']['method']) . '" />';
 
 
 if(isset($_GET['sql_query'])) {

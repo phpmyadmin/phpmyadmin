@@ -91,12 +91,19 @@ $cfg_db['Import']['ldi_terminated'] = 'short_string';
 $cfg_db['Import']['ldi_enclosed'] = 'short_string';
 $cfg_db['Import']['ldi_escaped'] = 'short_string';
 $cfg_db['Import']['ldi_local_option'] = array('auto', true, false);
+$cfg_db['Export']['_sod_select'] = array(
+    'structure' => __('structure'),
+    'data' => __('data'),
+    'structure_and_data' => __('structure and data'));
+$cfg_db['Export']['method'] = array(
+    'quick' => __('Quick - display only the minimal options to configure'),
+    'custom' => __('Custom - display all possible options to configure'),
+    /*'custom-no-form'*/);
 $cfg_db['Export']['format'] = array('codegen', 'csv', 'excel', 'htmlexcel',
     'htmlword', 'latex', 'ods', 'odt', 'pdf', 'sql', 'texytext', 'xls', 'xml',
     'yaml');
 $cfg_db['Export']['compression'] = array('none', 'zip', 'gzip', 'bzip2');
 $cfg_db['Export']['charset'] = array_merge(array(''), $GLOBALS['cfg']['AvailableCharsets']);
-$cfg_db['Export']['method'] = array('quick', 'custom', 'custom-no-form');
 $cfg_db['Export']['codegen_format'] = array('#', 'NHibernate C# DO', 'NHibernate XML');
 $cfg_db['Export']['csv_separator'] = 'short_string';
 $cfg_db['Export']['csv_terminated'] = 'short_string';
@@ -106,12 +113,21 @@ $cfg_db['Export']['csv_null'] = 'short_string';
 $cfg_db['Export']['excel_null'] = 'short_string';
 $cfg_db['Export']['excel_edition'] = array('win' => 'Windows',
     'mac_excel2003' => 'Excel 2003 / Macintosh', 'mac_excel2008' => 'Excel 2008 / Macintosh');
+$cfg_db['Export']['sql_structure_or_data'] = $cfg_db['Export']['_sod_select'];
 $cfg_db['Export']['sql_type'] = array('INSERT', 'UPDATE', 'REPLACE');
+$cfg_db['Export']['sql_insert_syntax'] = array(
+    'complete' => __('complete inserts'),
+    'extended' => __('extended inserts'),
+    'both' => __('both of the above'),
+    'none' => __('neither of the above'));
 $cfg_db['Export']['xls_null'] = 'short_string';
 $cfg_db['Export']['xlsx_null'] = 'short_string';
+$cfg_db['Export']['htmlword_structure_or_data'] = $cfg_db['Export']['_sod_select'];
 $cfg_db['Export']['htmlword_null'] = 'short_string';
 $cfg_db['Export']['ods_null'] = 'short_string';
 $cfg_db['Export']['odt_null'] = 'short_string';
+$cfg_db['Export']['odt_structure_or_data'] = $cfg_db['Export']['_sod_select'];
+$cfg_db['Export']['texytext_structure_or_data'] = $cfg_db['Export']['_sod_select'];
 $cfg_db['Export']['texytext_null'] = 'short_string';
 
 /**
