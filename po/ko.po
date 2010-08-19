@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:13+0200\n"
+"POT-Creation-Date: 2010-08-19 11:36+0200\n"
 "PO-Revision-Date: 2010-06-16 18:18+0200\n"
 "Last-Translator:  <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -51,7 +51,7 @@ msgstr "검색"
 #: libraries/common.lib.php:1346 libraries/common.lib.php:2296
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:361 libraries/display_import.lib.php:263
+#: libraries/display_export.lib.php:361 libraries/display_import.lib.php:267
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:530
 #: libraries/display_tbl.lib.php:612 libraries/replication_gui.lib.php:75
 #: libraries/replication_gui.lib.php:371 libraries/select_server.lib.php:100
@@ -774,7 +774,8 @@ msgid "Database Log"
 msgstr "데이터베이스"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
-msgid "Values for the column \""
+#, php-format
+msgid "Values for the column \"%s\""
 msgstr ""
 
 #: enum_editor.php:22
@@ -2004,14 +2005,16 @@ msgid "Exporting databases in the current server"
 msgstr "현재 쓰레드에 대한 테이블 잠금(lock) 허용."
 
 #: libraries/display_export.lib.php:89
-#, fuzzy
+#, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting tables in the database \""
+msgid "Exporting tables in the database \"%s\""
 msgstr "데이터베이스 %s에 새로운 테이블을 만듭니다."
 
 #: libraries/display_export.lib.php:91
-msgid "Exporting rows in the table \""
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows in the table \"%s\""
+msgstr "데이터베이스 %s에 새로운 테이블을 만듭니다."
 
 #: libraries/display_export.lib.php:97
 #, fuzzy
@@ -2114,8 +2117,8 @@ msgstr ""
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:290 libraries/display_import.lib.php:184
-#: libraries/display_import.lib.php:197 libraries/sql_query_form.lib.php:509
+#: libraries/display_export.lib.php:290 libraries/display_import.lib.php:188
+#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "파일 문자셋:"
 
@@ -2149,18 +2152,18 @@ msgstr "gz 압축"
 msgid "bzipped"
 msgstr "\"bz 압축\""
 
-#: libraries/display_export.lib.php:340 libraries/display_import.lib.php:240
+#: libraries/display_export.lib.php:340 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "Format"
 
-#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:246
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
 msgstr ""
 
-#: libraries/display_export.lib.php:354 libraries/display_import.lib.php:256
+#: libraries/display_export.lib.php:354 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
 msgstr ""
 
@@ -2192,50 +2195,54 @@ msgid "Importing into the current server"
 msgstr "MySQL 서버에 로그인할 수 없습니다"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy
-msgid "Importing into the database \""
+#, fuzzy, php-format
+msgid "Importing into the database \"%s\""
 msgstr "데이터베이스가 없습니다"
 
 #: libraries/display_import.lib.php:133
-msgid "Importing into the table \""
-msgstr ""
+#, fuzzy, php-format
+msgid "Importing into the table \"%s\""
+msgstr "데이터베이스가 없습니다"
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
 msgstr ""
 
-#: libraries/display_import.lib.php:155
+#: libraries/display_import.lib.php:156
 #, php-format
-msgid ""
-"<div class=\"formelementrow\" id=\"compression_info\">File may be compressed "
-"(%s) or uncompressed.<br />A compressed file's name must end in <b>.[format]."
-"[compression]</b>. Example: <b>.sql.zip</b></div>"
+msgid "File may be compressed (%s) or uncompressed."
 msgstr ""
 
-#: libraries/display_import.lib.php:174
+#: libraries/display_import.lib.php:158
+msgid ""
+"A compressed file's name must end in <b>.[format].[compression]</b>. "
+"Example: <b>.sql.zip</b>"
+msgstr ""
+
+#: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: libraries/display_import.lib.php:204
+#: libraries/display_import.lib.php:208
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
 msgstr "Partial Texts"
 
-#: libraries/display_import.lib.php:210
+#: libraries/display_import.lib.php:214
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: libraries/display_import.lib.php:217
+#: libraries/display_import.lib.php:221
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
 
-#: libraries/display_import.lib.php:224
+#: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
 msgstr ""
 
@@ -3058,7 +3065,8 @@ msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: libraries/export/sql.php:72
+#: libraries/export/sql.php:72 libraries/export/sql.php:105
+#: libraries/export/sql.php:107
 #, fuzzy, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
@@ -3070,24 +3078,9 @@ msgstr "명세"
 msgid "Add statements:"
 msgstr "명세"
 
-#: libraries/export/sql.php:105 libraries/export/sql.php:107
-#, php-format
-msgid "%s"
-msgstr ""
-
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
 msgstr ""
-
-#: libraries/export/sql.php:113
-msgid "<code>IF NOT EXISTS</code>"
-msgstr ""
-
-#: libraries/export/sql.php:115
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
-msgid "<code>AUTO_INCREMENT</code>"
-msgstr "AUTO_INCREMENT 값 추가"
 
 #: libraries/export/sql.php:123
 msgid ""
@@ -3664,7 +3657,7 @@ msgid "Query window"
 msgstr "질의 창"
 
 #: libraries/plugin_interface.lib.php:336
-msgid "<p>This format has no options</p>"
+msgid "This format has no options"
 msgstr ""
 
 #: libraries/relation.lib.php:77
@@ -8387,6 +8380,11 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "테이블 이름 바꾸기"
+
+#, fuzzy
+#~| msgid "Add AUTO_INCREMENT value"
+#~ msgid "<code>AUTO_INCREMENT</code>"
+#~ msgstr "AUTO_INCREMENT 값 추가"
 
 #, fuzzy
 #~| msgid "Dump %s row(s) starting at record # %s"

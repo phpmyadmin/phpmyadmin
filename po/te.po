@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:13+0200\n"
+"POT-Creation-Date: 2010-08-19 11:36+0200\n"
 "PO-Revision-Date: 2010-05-26 14:20+0200\n"
 "Last-Translator:  <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "శోధించు"
 #: libraries/common.lib.php:1346 libraries/common.lib.php:2296
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:361 libraries/display_import.lib.php:263
+#: libraries/display_export.lib.php:361 libraries/display_import.lib.php:267
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:530
 #: libraries/display_tbl.lib.php:612 libraries/replication_gui.lib.php:75
 #: libraries/replication_gui.lib.php:371 libraries/select_server.lib.php:100
@@ -781,7 +781,8 @@ msgid "Database Log"
 msgstr ""
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
-msgid "Values for the column \""
+#, php-format
+msgid "Values for the column \"%s\""
 msgstr ""
 
 #: enum_editor.php:22
@@ -2039,11 +2040,13 @@ msgid "Exporting databases in the current server"
 msgstr ""
 
 #: libraries/display_export.lib.php:89
-msgid "Exporting tables in the database \""
+#, php-format
+msgid "Exporting tables in the database \"%s\""
 msgstr ""
 
 #: libraries/display_export.lib.php:91
-msgid "Exporting rows in the table \""
+#, php-format
+msgid "Exporting rows in the table \"%s\""
 msgstr ""
 
 #: libraries/display_export.lib.php:97
@@ -2139,8 +2142,8 @@ msgstr ""
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:290 libraries/display_import.lib.php:184
-#: libraries/display_import.lib.php:197 libraries/sql_query_form.lib.php:509
+#: libraries/display_export.lib.php:290 libraries/display_import.lib.php:188
+#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr ""
 
@@ -2166,16 +2169,16 @@ msgstr ""
 msgid "bzipped"
 msgstr ""
 
-#: libraries/display_export.lib.php:340 libraries/display_import.lib.php:240
+#: libraries/display_export.lib.php:340 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
 msgid "Format:"
 msgstr ""
 
-#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:246
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
 msgstr ""
 
-#: libraries/display_export.lib.php:354 libraries/display_import.lib.php:256
+#: libraries/display_export.lib.php:354 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
 msgstr ""
 
@@ -2205,49 +2208,54 @@ msgid "Importing into the current server"
 msgstr ""
 
 #: libraries/display_import.lib.php:131
-msgid "Importing into the database \""
+#, php-format
+msgid "Importing into the database \"%s\""
 msgstr ""
 
 #: libraries/display_import.lib.php:133
-msgid "Importing into the table \""
+#, php-format
+msgid "Importing into the table \"%s\""
 msgstr ""
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
 msgstr ""
 
-#: libraries/display_import.lib.php:155
+#: libraries/display_import.lib.php:156
 #, php-format
-msgid ""
-"<div class=\"formelementrow\" id=\"compression_info\">File may be compressed "
-"(%s) or uncompressed.<br />A compressed file's name must end in <b>.[format]."
-"[compression]</b>. Example: <b>.sql.zip</b></div>"
+msgid "File may be compressed (%s) or uncompressed."
 msgstr ""
 
-#: libraries/display_import.lib.php:174
+#: libraries/display_import.lib.php:158
+msgid ""
+"A compressed file's name must end in <b>.[format].[compression]</b>. "
+"Example: <b>.sql.zip</b>"
+msgstr ""
+
+#: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: libraries/display_import.lib.php:204
+#: libraries/display_import.lib.php:208
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
 msgstr "పాక్షిక పాఠ్యాలు"
 
-#: libraries/display_import.lib.php:210
+#: libraries/display_import.lib.php:214
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: libraries/display_import.lib.php:217
+#: libraries/display_import.lib.php:221
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
 
-#: libraries/display_import.lib.php:224
+#: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
 msgstr ""
 
@@ -3044,7 +3052,8 @@ msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: libraries/export/sql.php:72
+#: libraries/export/sql.php:72 libraries/export/sql.php:105
+#: libraries/export/sql.php:107
 #, php-format
 msgid "Add %s statement"
 msgstr ""
@@ -3056,21 +3065,8 @@ msgstr ""
 msgid "Add statements:"
 msgstr "స్పందనలకు చేర్చు"
 
-#: libraries/export/sql.php:105 libraries/export/sql.php:107
-#, php-format
-msgid "%s"
-msgstr ""
-
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
-
-#: libraries/export/sql.php:113
-msgid "<code>IF NOT EXISTS</code>"
-msgstr ""
-
-#: libraries/export/sql.php:115
-msgid "<code>AUTO_INCREMENT</code>"
 msgstr ""
 
 #: libraries/export/sql.php:123
@@ -3650,7 +3646,7 @@ msgid "Query window"
 msgstr ""
 
 #: libraries/plugin_interface.lib.php:336
-msgid "<p>This format has no options</p>"
+msgid "This format has no options"
 msgstr ""
 
 #: libraries/relation.lib.php:77

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:13+0200\n"
+"POT-Creation-Date: 2010-08-19 11:36+0200\n"
 "PO-Revision-Date: 2010-06-07 20:23+0200\n"
 "Last-Translator:  <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
@@ -55,7 +55,7 @@ msgstr "Chwilio"
 #: libraries/common.lib.php:1346 libraries/common.lib.php:2296
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:361 libraries/display_import.lib.php:263
+#: libraries/display_export.lib.php:361 libraries/display_import.lib.php:267
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:530
 #: libraries/display_tbl.lib.php:612 libraries/replication_gui.lib.php:75
 #: libraries/replication_gui.lib.php:371 libraries/select_server.lib.php:100
@@ -778,7 +778,8 @@ msgid "Database Log"
 msgstr "Log cronfa ddata"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
-msgid "Values for the column \""
+#, php-format
+msgid "Values for the column \"%s\""
 msgstr ""
 
 #: enum_editor.php:22
@@ -2009,14 +2010,16 @@ msgid "Exporting databases in the current server"
 msgstr ""
 
 #: libraries/display_export.lib.php:89
-#, fuzzy
+#, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting tables in the database \""
+msgid "Exporting tables in the database \"%s\""
 msgstr "Creu tabl mewn cronfa ddata %s"
 
 #: libraries/display_export.lib.php:91
-msgid "Exporting rows in the table \""
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows in the table \"%s\""
+msgstr "Creu tabl mewn cronfa ddata %s"
 
 #: libraries/display_export.lib.php:97
 #, fuzzy
@@ -2121,8 +2124,8 @@ msgstr ""
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:290 libraries/display_import.lib.php:184
-#: libraries/display_import.lib.php:197 libraries/sql_query_form.lib.php:509
+#: libraries/display_export.lib.php:290 libraries/display_import.lib.php:188
+#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "Set nodau'r ffeil:"
 
@@ -2156,18 +2159,18 @@ msgstr "\"gzip-iwyd\""
 msgid "bzipped"
 msgstr "\"bzip-iwyd\""
 
-#: libraries/display_export.lib.php:340 libraries/display_import.lib.php:240
+#: libraries/display_export.lib.php:340 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "Fformat"
 
-#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:246
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
 msgstr ""
 
-#: libraries/display_export.lib.php:354 libraries/display_import.lib.php:256
+#: libraries/display_export.lib.php:354 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
 msgstr ""
 
@@ -2201,14 +2204,16 @@ msgid "Importing into the current server"
 msgstr "Methu â mewngofnodi i'r gweinydd MySQL"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy
+#, fuzzy, php-format
 #| msgid "Jump to database"
-msgid "Importing into the database \""
+msgid "Importing into the database \"%s\""
 msgstr "Neidiwch i'r gronfa ddata"
 
 #: libraries/display_import.lib.php:133
-msgid "Importing into the table \""
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Jump to database"
+msgid "Importing into the table \"%s\""
+msgstr "Neidiwch i'r gronfa ddata"
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
@@ -2216,38 +2221,41 @@ msgstr ""
 msgid "File to Import:"
 msgstr "Ffeil i'w mewnforio"
 
-#: libraries/display_import.lib.php:155
+#: libraries/display_import.lib.php:156
 #, php-format
-msgid ""
-"<div class=\"formelementrow\" id=\"compression_info\">File may be compressed "
-"(%s) or uncompressed.<br />A compressed file's name must end in <b>.[format]."
-"[compression]</b>. Example: <b>.sql.zip</b></div>"
+msgid "File may be compressed (%s) or uncompressed."
 msgstr ""
 
-#: libraries/display_import.lib.php:174
+#: libraries/display_import.lib.php:158
+msgid ""
+"A compressed file's name must end in <b>.[format].[compression]</b>. "
+"Example: <b>.sql.zip</b>"
+msgstr ""
+
+#: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
 msgstr "Dyw lanlwytho ffeiliau ddim yn cael ei ganiatáu ar y gweinydd hwn."
 
-#: libraries/display_import.lib.php:204
+#: libraries/display_import.lib.php:208
 #, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
 msgstr "Mewnforiad rhannol"
 
-#: libraries/display_import.lib.php:210
+#: libraries/display_import.lib.php:214
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: libraries/display_import.lib.php:217
+#: libraries/display_import.lib.php:221
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
 
-#: libraries/display_import.lib.php:224
+#: libraries/display_import.lib.php:228
 #, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
@@ -3075,7 +3083,8 @@ msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: libraries/export/sql.php:72
+#: libraries/export/sql.php:72 libraries/export/sql.php:105
+#: libraries/export/sql.php:107
 #, php-format
 msgid "Add %s statement"
 msgstr ""
@@ -3086,24 +3095,9 @@ msgstr ""
 msgid "Add statements:"
 msgstr "Ychwanegwch cyfyngiadau"
 
-#: libraries/export/sql.php:105 libraries/export/sql.php:107
-#, php-format
-msgid "%s"
-msgstr ""
-
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
 msgstr ""
-
-#: libraries/export/sql.php:113
-msgid "<code>IF NOT EXISTS</code>"
-msgstr ""
-
-#: libraries/export/sql.php:115
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
-msgid "<code>AUTO_INCREMENT</code>"
-msgstr "Ychwanegwch werth AUTO_INCREMENT"
 
 #: libraries/export/sql.php:123
 msgid ""
@@ -3669,7 +3663,7 @@ msgid "Query window"
 msgstr ""
 
 #: libraries/plugin_interface.lib.php:336
-msgid "<p>This format has no options</p>"
+msgid "This format has no options"
 msgstr ""
 
 #: libraries/relation.lib.php:77
@@ -8265,6 +8259,11 @@ msgstr "Enw VIEW"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Ailenwch golwg i"
+
+#, fuzzy
+#~| msgid "Add AUTO_INCREMENT value"
+#~ msgid "<code>AUTO_INCREMENT</code>"
+#~ msgstr "Ychwanegwch werth AUTO_INCREMENT"
 
 #~ msgid "Dump %s row(s) starting at row # %s"
 #~ msgstr "Dympio %s rhes wrth ddechrau ar res #%s"

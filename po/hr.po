@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:13+0200\n"
+"POT-Creation-Date: 2010-08-19 11:36+0200\n"
 "PO-Revision-Date: 2010-07-21 14:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: croatian <hr@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "Traži"
 #: libraries/common.lib.php:1346 libraries/common.lib.php:2296
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:361 libraries/display_import.lib.php:263
+#: libraries/display_export.lib.php:361 libraries/display_import.lib.php:267
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:530
 #: libraries/display_tbl.lib.php:612 libraries/replication_gui.lib.php:75
 #: libraries/replication_gui.lib.php:371 libraries/select_server.lib.php:100
@@ -792,7 +792,8 @@ msgid "Database Log"
 msgstr "Baza podataka"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
-msgid "Values for the column \""
+#, php-format
+msgid "Values for the column \"%s\""
 msgstr ""
 
 #: enum_editor.php:22
@@ -2112,14 +2113,16 @@ msgid "Exporting databases in the current server"
 msgstr "Dopušta zaključavanje tablica u trenutnoj grani."
 
 #: libraries/display_export.lib.php:89
-#, fuzzy
+#, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Exporting tables in the database \""
+msgid "Exporting tables in the database \"%s\""
 msgstr "Izradi novu tablicu u bazi podataka %s"
 
 #: libraries/display_export.lib.php:91
-msgid "Exporting rows in the table \""
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows in the table \"%s\""
+msgstr "Izradi novu tablicu u bazi podataka %s"
 
 #: libraries/display_export.lib.php:97
 #, fuzzy
@@ -2229,8 +2232,8 @@ msgstr ""
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:290 libraries/display_import.lib.php:184
-#: libraries/display_import.lib.php:197 libraries/sql_query_form.lib.php:509
+#: libraries/display_export.lib.php:290 libraries/display_import.lib.php:188
+#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "Tablica znakova za datoteku:"
 
@@ -2264,18 +2267,18 @@ msgstr "\"gzipano\""
 msgid "bzipped"
 msgstr "\"bzipano\""
 
-#: libraries/display_export.lib.php:340 libraries/display_import.lib.php:240
+#: libraries/display_export.lib.php:340 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "Oblikovanje"
 
-#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:246
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
 msgstr ""
 
-#: libraries/display_export.lib.php:354 libraries/display_import.lib.php:256
+#: libraries/display_export.lib.php:354 libraries/display_import.lib.php:260
 #, fuzzy
 msgid "Encoding Conversion:"
 msgstr "MySQL verzija klijenta"
@@ -2308,13 +2311,14 @@ msgid "Importing into the current server"
 msgstr "Prijavljivanje na MySQL poslužitelj nije moguće"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy
-msgid "Importing into the database \""
+#, fuzzy, php-format
+msgid "Importing into the database \"%s\""
 msgstr "Nema baza podataka"
 
 #: libraries/display_import.lib.php:133
-msgid "Importing into the table \""
-msgstr ""
+#, fuzzy, php-format
+msgid "Importing into the table \"%s\""
+msgstr "Nema baza podataka"
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
@@ -2322,25 +2326,28 @@ msgstr ""
 msgid "File to Import:"
 msgstr "Datoteka za uvoz"
 
-#: libraries/display_import.lib.php:155
+#: libraries/display_import.lib.php:156
 #, php-format
-msgid ""
-"<div class=\"formelementrow\" id=\"compression_info\">File may be compressed "
-"(%s) or uncompressed.<br />A compressed file's name must end in <b>.[format]."
-"[compression]</b>. Example: <b>.sql.zip</b></div>"
+msgid "File may be compressed (%s) or uncompressed."
 msgstr ""
 
-#: libraries/display_import.lib.php:174
+#: libraries/display_import.lib.php:158
+msgid ""
+"A compressed file's name must end in <b>.[format].[compression]</b>. "
+"Example: <b>.sql.zip</b>"
+msgstr ""
+
+#: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
 msgstr "Učitavanje datoteka nije dopušteno na ovom poslužitelju."
 
-#: libraries/display_import.lib.php:204
+#: libraries/display_import.lib.php:208
 #, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
 msgstr "Djelomičan uvoz"
 
-#: libraries/display_import.lib.php:210
+#: libraries/display_import.lib.php:214
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -2348,7 +2355,7 @@ msgstr ""
 "Vrijeme prethodnog uvoza je isteklo. Nakon ponovno podnošenja bit će "
 "nastavljeno od položaja %d."
 
-#: libraries/display_import.lib.php:217
+#: libraries/display_import.lib.php:221
 #, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
@@ -2363,7 +2370,7 @@ msgstr ""
 "ograničenja. Ovo bi mogao biti dobar način uvoza velikih datoteka, ali može "
 "prekinuti transakcije."
 
-#: libraries/display_import.lib.php:224
+#: libraries/display_import.lib.php:228
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
@@ -3253,7 +3260,8 @@ msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: libraries/export/sql.php:72
+#: libraries/export/sql.php:72 libraries/export/sql.php:105
+#: libraries/export/sql.php:107
 #, fuzzy, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
@@ -3265,24 +3273,9 @@ msgstr "Izjave"
 msgid "Add statements:"
 msgstr "Izjave"
 
-#: libraries/export/sql.php:105 libraries/export/sql.php:107
-#, php-format
-msgid "%s"
-msgstr ""
-
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
 msgstr ""
-
-#: libraries/export/sql.php:113
-msgid "<code>IF NOT EXISTS</code>"
-msgstr ""
-
-#: libraries/export/sql.php:115
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
-msgid "<code>AUTO_INCREMENT</code>"
-msgstr "Dodaj vrijednost AUTO_INCREMENT"
 
 #: libraries/export/sql.php:123
 msgid ""
@@ -3863,7 +3856,7 @@ msgstr "Prozor za upite"
 #: libraries/plugin_interface.lib.php:336
 #, fuzzy
 #| msgid "This format has no options"
-msgid "<p>This format has no options</p>"
+msgid "This format has no options"
 msgstr "Ovaj oblik nema raspoložive opcije"
 
 #: libraries/relation.lib.php:77
@@ -8883,6 +8876,11 @@ msgstr "Naziv prikaza"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Preimenuj tablicu u"
+
+#, fuzzy
+#~| msgid "Add AUTO_INCREMENT value"
+#~ msgid "<code>AUTO_INCREMENT</code>"
+#~ msgstr "Dodaj vrijednost AUTO_INCREMENT"
 
 #, fuzzy
 #~| msgid "Dump %s row(s) starting at record # %s"
