@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-05-19 03:54+0200\n"
 "Last-Translator:  <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
@@ -2877,8 +2877,8 @@ msgstr "خطوط منتهي به"
 msgid "Replace NULL with:"
 msgstr ""
 
-#: libraries/export/csv.php:26
-msgid "Remove carriage return/line field characters within columns"
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
+msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -2894,10 +2894,6 @@ msgstr "قراردادن نام ستونها در اولين سطر"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "CSV براي داده‌هاي MS Excel"
-
-#: libraries/export/excel.php:23
-msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
 
 #: libraries/export/excel.php:32
 msgid "Excel edition:"

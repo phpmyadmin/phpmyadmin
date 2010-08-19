@@ -23,7 +23,7 @@ if (isset($plugin_list)) {
             array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped with:')),
             array('type' => 'text', 'name' => 'terminated', 'text' => __('Lines terminated with:')),
             array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:')),
-            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => __('Remove carriage return/line field characters within columns')),
+            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => __('Remove carriage return/line feed characters within columns')),
             array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
             array('type' => 'hidden', 'name' => 'structure_or_data'),
             array('type' => 'end_group'),

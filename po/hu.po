@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-07-22 02:22+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -3032,10 +3032,10 @@ msgstr "Sorok vége"
 msgid "Replace NULL with:"
 msgstr "NULL cseréje ezzel:"
 
-#: libraries/export/csv.php:26
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
 #, fuzzy
 #| msgid "Remove CRLF characters within fields"
-msgid "Remove carriage return/line field characters within columns"
+msgid "Remove carriage return/line feed characters within columns"
 msgstr "A mezőkben lévő CRLF karakterek eltávolítása"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -3051,12 +3051,6 @@ msgstr "A mezőneveket az első sorba teszi"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "MS Excel CSV adat"
-
-#: libraries/export/excel.php:23
-#, fuzzy
-#| msgid "Remove CRLF characters within fields"
-msgid "Remove carriage return/line feed characters within columns"
-msgstr "A mezőkben lévő CRLF karakterek eltávolítása"
 
 #: libraries/export/excel.php:32
 #, fuzzy
@@ -9126,6 +9120,11 @@ msgstr "NÉZET neve"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Tábla átnevezése"
+
+#, fuzzy
+#~| msgid "Remove CRLF characters within fields"
+#~ msgid "Remove carriage return/line field characters within columns"
+#~ msgstr "A mezőkben lévő CRLF karakterek eltávolítása"
 
 #, fuzzy
 #~| msgid "Add AUTO_INCREMENT value"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-07-22 02:30+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
@@ -3054,10 +3054,10 @@ msgstr "Qatorlar bo‘luvchisi"
 msgid "Replace NULL with:"
 msgstr "NULL qiymatni quyidagiga almashtirish"
 
-#: libraries/export/csv.php:26
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
 #, fuzzy
 #| msgid "Remove CRLF characters within fields"
-msgid "Remove carriage return/line field characters within columns"
+msgid "Remove carriage return/line feed characters within columns"
 msgstr "Maydonlar ichidagi satrdan-satrga ko‘chirish belgilarini olib tashlash"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -3073,12 +3073,6 @@ msgstr "Maydon nomlarini birinchi qatorga joylashtirish"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "MS Excel uchun CSV"
-
-#: libraries/export/excel.php:23
-#, fuzzy
-#| msgid "Remove CRLF characters within fields"
-msgid "Remove carriage return/line feed characters within columns"
-msgstr "Maydonlar ichidagi satrdan-satrga ko‘chirish belgilarini olib tashlash"
 
 #: libraries/export/excel.php:32
 #, fuzzy
@@ -9236,6 +9230,12 @@ msgstr "Nom ko‘rinishi"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
+
+#, fuzzy
+#~| msgid "Remove CRLF characters within fields"
+#~ msgid "Remove carriage return/line field characters within columns"
+#~ msgstr ""
+#~ "Maydonlar ichidagi satrdan-satrga ko‘chirish belgilarini olib tashlash"
 
 #, fuzzy
 #~| msgid "Add AUTO_INCREMENT value"

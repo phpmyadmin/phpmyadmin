@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-05-21 05:48+0200\n"
 "Last-Translator:  <u4663530@anu.edu.au>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -2822,8 +2822,8 @@ msgstr "लाईन समाप्त होता है"
 msgid "Replace NULL with:"
 msgstr ""
 
-#: libraries/export/csv.php:26
-msgid "Remove carriage return/line field characters within columns"
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
+msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -2836,10 +2836,6 @@ msgstr ""
 
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
-msgstr ""
-
-#: libraries/export/excel.php:23
-msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/excel.php:32

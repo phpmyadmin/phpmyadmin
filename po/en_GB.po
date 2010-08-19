@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-08-09 22:22+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -2929,10 +2929,10 @@ msgstr "Lines terminated by"
 msgid "Replace NULL with:"
 msgstr "Replace NULL by"
 
-#: libraries/export/csv.php:26
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
 #, fuzzy
 #| msgid "Remove CRLF characters within columns"
-msgid "Remove carriage return/line field characters within columns"
+msgid "Remove carriage return/line feed characters within columns"
 msgstr "Remove CRLF characters within columns"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -2946,12 +2946,6 @@ msgstr "Put columns names in the first row"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "CSV for MS Excel"
-
-#: libraries/export/excel.php:23
-#, fuzzy
-#| msgid "Remove CRLF characters within columns"
-msgid "Remove carriage return/line feed characters within columns"
-msgstr "Remove CRLF characters within columns"
 
 #: libraries/export/excel.php:32
 #, fuzzy
@@ -8804,6 +8798,11 @@ msgstr "VIEW name"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Rename view to"
+
+#, fuzzy
+#~| msgid "Remove CRLF characters within columns"
+#~ msgid "Remove carriage return/line field characters within columns"
+#~ msgstr "Remove CRLF characters within columns"
 
 #, fuzzy
 #~| msgid "<code>@TABLE@</code>"

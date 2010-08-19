@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-07-21 14:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: swedish <sv@li.org>\n"
@@ -3022,10 +3022,10 @@ msgstr "Raderna avslutas med"
 msgid "Replace NULL with:"
 msgstr "Ersätt NULL med"
 
-#: libraries/export/csv.php:26
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
 #, fuzzy
 #| msgid "Remove CRLF characters within fields"
-msgid "Remove carriage return/line field characters within columns"
+msgid "Remove carriage return/line feed characters within columns"
 msgstr "Ta bort CRLF-tecken i fält"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -3041,12 +3041,6 @@ msgstr "Ange fältnamn på första raden"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "CSV för MS Excel"
-
-#: libraries/export/excel.php:23
-#, fuzzy
-#| msgid "Remove CRLF characters within fields"
-msgid "Remove carriage return/line feed characters within columns"
-msgstr "Ta bort CRLF-tecken i fält"
 
 #: libraries/export/excel.php:32
 #, fuzzy
@@ -9050,6 +9044,11 @@ msgstr "Namn på vy"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Döp om tabellen till"
+
+#, fuzzy
+#~| msgid "Remove CRLF characters within fields"
+#~ msgid "Remove carriage return/line field characters within columns"
+#~ msgstr "Ta bort CRLF-tecken i fält"
 
 #, fuzzy
 #~| msgid "Add AUTO_INCREMENT value"

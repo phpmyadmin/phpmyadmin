@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-08-08 22:05+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -2939,10 +2939,10 @@ msgstr "Satırı sonlandıran:"
 msgid "Replace NULL with:"
 msgstr "NULL'u bunla değiştir:"
 
-#: libraries/export/csv.php:26
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
 #, fuzzy
 #| msgid "Remove CRLF characters within columns"
-msgid "Remove carriage return/line field characters within columns"
+msgid "Remove carriage return/line feed characters within columns"
 msgstr "Sütunlardaki CRLF karakterlerini kaldır"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -2956,12 +2956,6 @@ msgstr "İlk satır içine sütun adlarını koy"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "MS Excel için CSV"
-
-#: libraries/export/excel.php:23
-#, fuzzy
-#| msgid "Remove CRLF characters within columns"
-msgid "Remove carriage return/line feed characters within columns"
-msgstr "Sütunlardaki CRLF karakterlerini kaldır"
 
 #: libraries/export/excel.php:32
 #, fuzzy
@@ -8862,6 +8856,11 @@ msgstr "GÖRÜNÜM adı"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Görünümü yeniden şuna adlandır"
+
+#, fuzzy
+#~| msgid "Remove CRLF characters within columns"
+#~ msgid "Remove carriage return/line field characters within columns"
+#~ msgstr "Sütunlardaki CRLF karakterlerini kaldır"
 
 #, fuzzy
 #~| msgid "Add AUTO_INCREMENT value"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
@@ -3031,8 +3031,8 @@ msgstr "Радкі падзеленыя"
 msgid "Replace NULL with:"
 msgstr "Замяняць NULL на"
 
-#: libraries/export/csv.php:26
-msgid "Remove carriage return/line field characters within columns"
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
+msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -3048,10 +3048,6 @@ msgstr "Пазначыць назвы палёў у першым радку"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "CSV для дадзеных MS Excel"
-
-#: libraries/export/excel.php:23
-msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
 
 #: libraries/export/excel.php:32
 #, fuzzy

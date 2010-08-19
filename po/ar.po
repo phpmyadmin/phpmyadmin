@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-05-29 14:16+0200\n"
 "Last-Translator: Ahmed <aa.mahdawy.10@gmail.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
@@ -2892,8 +2892,8 @@ msgstr "خطوط مفصولة بـ"
 msgid "Replace NULL with:"
 msgstr "استبدل NULL بـ"
 
-#: libraries/export/csv.php:26
-msgid "Remove carriage return/line field characters within columns"
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
+msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -2909,10 +2909,6 @@ msgstr "ضع أسماء الحقول في السطر الأول"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "بيانات CSV لبرنامج ميكروسوفت إكسل"
-
-#: libraries/export/excel.php:23
-msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
 
 #: libraries/export/excel.php:32
 #, fuzzy

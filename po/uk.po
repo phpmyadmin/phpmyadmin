@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-07-27 23:41+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
@@ -2883,8 +2883,8 @@ msgstr "Рядки розділено"
 msgid "Replace NULL with:"
 msgstr "Замінити NULL на"
 
-#: libraries/export/csv.php:26
-msgid "Remove carriage return/line field characters within columns"
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
+msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -2900,10 +2900,6 @@ msgstr "Дати назви полів у першому рядку"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "CSV для даних MS Excel"
-
-#: libraries/export/excel.php:23
-msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
 
 #: libraries/export/excel.php:32
 msgid "Excel edition:"

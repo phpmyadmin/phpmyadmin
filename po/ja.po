@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-03-12 11:22+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -2994,8 +2994,8 @@ msgstr "行の終端記号"
 msgid "Replace NULL with:"
 msgstr "NULL の代替文字列"
 
-#: libraries/export/csv.php:26
-msgid "Remove carriage return/line field characters within columns"
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
+msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -3011,10 +3011,6 @@ msgstr "1 行目にフィールド名を追加する"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "MS Excel 用の CSV"
-
-#: libraries/export/excel.php:23
-msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
 
 #: libraries/export/excel.php:32
 #, fuzzy

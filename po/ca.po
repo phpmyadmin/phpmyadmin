@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: catalan <ca@li.org>\n"
@@ -3033,10 +3033,10 @@ msgstr "Línies acabades amb"
 msgid "Replace NULL with:"
 msgstr "Canvía NULL per"
 
-#: libraries/export/csv.php:26
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
 #, fuzzy
 #| msgid "Remove CRLF characters within fields"
-msgid "Remove carriage return/line field characters within columns"
+msgid "Remove carriage return/line feed characters within columns"
 msgstr "Treu caràcters CRLF de dins dels camps"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -3052,12 +3052,6 @@ msgstr "Posa els noms de camp a la primera fila"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "CSV per dades de MS Excel"
-
-#: libraries/export/excel.php:23
-#, fuzzy
-#| msgid "Remove CRLF characters within fields"
-msgid "Remove carriage return/line feed characters within columns"
-msgstr "Treu caràcters CRLF de dins dels camps"
 
 #: libraries/export/excel.php:32
 #, fuzzy
@@ -9127,6 +9121,11 @@ msgstr "Nom de VISTA"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Reanomena les taules a"
+
+#, fuzzy
+#~| msgid "Remove CRLF characters within fields"
+#~ msgid "Remove carriage return/line field characters within columns"
+#~ msgstr "Treu caràcters CRLF de dins dels camps"
 
 #, fuzzy
 #~| msgid "Add AUTO_INCREMENT value"

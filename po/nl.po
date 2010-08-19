@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-19 11:36+0200\n"
+"POT-Creation-Date: 2010-08-19 11:47+0200\n"
 "PO-Revision-Date: 2010-05-31 01:06+0200\n"
 "Last-Translator: Bjorn <inbox@bjornroesbeke.be>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -3008,10 +3008,10 @@ msgstr "Regels beëindigd door"
 msgid "Replace NULL with:"
 msgstr "Vervang NULL door"
 
-#: libraries/export/csv.php:26
+#: libraries/export/csv.php:26 libraries/export/excel.php:23
 #, fuzzy
 #| msgid "Remove CRLF characters within fields"
-msgid "Remove carriage return/line field characters within columns"
+msgid "Remove carriage return/line feed characters within columns"
 msgstr "Verwijder CRLF tekens uit veld-waarden"
 
 #: libraries/export/csv.php:27 libraries/export/excel.php:24
@@ -3027,12 +3027,6 @@ msgstr "Plaats veldnamen in de eerste rij"
 #: libraries/export/excel.php:17
 msgid "CSV for MS Excel"
 msgstr "CSV voor MS Excel data"
-
-#: libraries/export/excel.php:23
-#, fuzzy
-#| msgid "Remove CRLF characters within fields"
-msgid "Remove carriage return/line feed characters within columns"
-msgstr "Verwijder CRLF tekens uit veld-waarden"
 
 #: libraries/export/excel.php:32
 #, fuzzy
@@ -9135,6 +9129,11 @@ msgstr "VIEW-naam"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Tabel hernoemen naar"
+
+#, fuzzy
+#~| msgid "Remove CRLF characters within fields"
+#~ msgid "Remove carriage return/line field characters within columns"
+#~ msgstr "Verwijder CRLF tekens uit veld-waarden"
 
 #, fuzzy
 #~| msgid "Add AUTO_INCREMENT value"
