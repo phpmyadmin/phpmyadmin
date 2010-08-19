@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:08+0200\n"
+"PO-Revision-Date: 2010-08-19 23:10+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2116,10 +2116,9 @@ msgid "Database(s):"
 msgstr "Duombazės"
 
 #: libraries/display_export.lib.php:139
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Lentelės"
+msgstr "Lentelė(s):"
 
 #: libraries/display_export.lib.php:149
 #, fuzzy
