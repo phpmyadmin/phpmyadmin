@@ -333,7 +333,7 @@ function PMA_pluginGetOptions($section, &$list)
             }
         }
         if ($count == 0) {
-            $ret .= __('<p>This format has no options</p>');
+            $ret .= '<p>' . __('This format has no options') . '</p>';
         }
         $ret .= '</div>';
     }
