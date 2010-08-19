@@ -3462,7 +3462,7 @@ msgstr "Neteisingas CSV įvedimo formatas eilutėje %d."
 #: libraries/import/csv.php:314
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Neteisingas stulpelių skaičius CSV įvedime eilutėje %d."
+msgstr "Neteisingas stulpelių skaičius CSV įvedimo eilutėje %d."
 
 #: libraries/import/docsql.php:27
 msgid "DocSQL"
