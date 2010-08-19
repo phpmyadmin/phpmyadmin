@@ -2217,10 +2217,9 @@ msgid "None"
 msgstr "Nėra"
 
 #: libraries/display_export.lib.php:322
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"zip\""
+msgstr "zip"
 
 #: libraries/display_export.lib.php:324
 #, fuzzy
