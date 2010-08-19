@@ -2214,7 +2214,7 @@ msgstr "Glaudinti:"
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
 #: server_privileges.php:1871 server_processlist.php:74
 msgid "None"
-msgstr "Nėra"
+msgstr "Ne (Joks)"
 
 #: libraries/display_export.lib.php:322
 #| msgid "\"zipped\""
