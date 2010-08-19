@@ -1073,7 +1073,7 @@ $cfg['Export'] = array();
 $cfg['Export']['format'] = 'sql';
 
 /**
- * quick/custom
+ * quick/custom/custom-no-form
  *
  * @global string $cfg['Export']['format']
  */
