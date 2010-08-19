@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:46+0200\n"
+"PO-Revision-Date: 2010-08-19 23:49+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3140,7 +3140,7 @@ msgstr "Ataskaitos antraštė"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
-msgstr ""
+msgstr "PHP masyvas"
 
 #: libraries/export/sql.php:33
 msgid ""
