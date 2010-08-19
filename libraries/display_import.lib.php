@@ -128,9 +128,9 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             if($import_type == 'server') {
                 echo __('Importing into the current server');
             } elseif($import_type == 'database') {
-                echo __('Importing into the database "' . $db . '"');
+                printf(__('Importing into the database "%s"'), htmlspecialchars($db));
             } else {
-                echo __('Importing into the table "' . $table . '"');
+                printf(__('Importing into the table "%s"'), htmlspecialchars($table));
             }?>
         </h2>
     </div>

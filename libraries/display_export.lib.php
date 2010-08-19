@@ -86,9 +86,9 @@ if(isset($_GET['sql_query'])) {
         if($export_type == 'server') {
             echo __('Exporting databases in the current server');
         } elseif($export_type == 'database') {
-            echo __('Exporting tables in the database "' . $db . '"');
+            printf(__('Exporting tables in the database "%s"'), htmlspecialchars($db));
         } else {
-            echo __('Exporting rows in the table "' . $table . '"');
+            printf(__('Exporting rows in the table "%s"'), htmlspecialchars($table));
         }?>
     </h2>
 </div>
