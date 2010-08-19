@@ -1082,7 +1082,7 @@ msgstr "Kovas"
 #: js/messages.php:89
 #| msgid "Apr"
 msgid "April"
-msgstr "Balandis"
+msgstr "balandžio"
 
 #: js/messages.php:90
 msgid "May"
