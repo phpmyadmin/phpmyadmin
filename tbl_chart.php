@@ -153,7 +153,7 @@ $url_params['reload'] = 1;
     <tr><td><label for="continuous"><?php echo __("Continuous image"); ?></label></td>
         <td>
             <input type="checkbox" name="chartSettings[continuous]" id="continuous" <?php echo ($chartSettings['continuous'] == 'on' ? 'checked="checked"' : ''); ?>>
-            <i><?php echo _('(May not work on IE8)'); ?></i>
+        <?php echo PMA_showHint(PMA_sanitize(__('For compatibility reasons the chart image is segmented by default, select this to draw the whole chart in one image.'))) ?>
         </td>
     </tr>
 
