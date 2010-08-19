@@ -2623,7 +2623,7 @@ msgstr "Skaitymo užklausos"
 
 #: libraries/engines/innodb.lib.php:234
 msgid "Write requests"
-msgstr "Write užklausos"
+msgstr "Rašymo užklausos"
 
 #: libraries/engines/innodb.lib.php:240
 msgid "Read misses"
