@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 00:27+0200\n"
+"PO-Revision-Date: 2010-08-20 00:29+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3817,7 +3817,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:144
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Sukurti pma naudotoją ir suteikti prieigą prie šių lentelių."
 
 #: libraries/relation.lib.php:145
 msgid ""
