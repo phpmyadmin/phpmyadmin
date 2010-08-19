@@ -2956,10 +2956,9 @@ msgid "CSV for MS Excel"
 msgstr "CSV formatas MS Excel programai"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel variantas"
+msgstr "Excel variantas:"
 
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
