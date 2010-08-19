@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 11:47+0200\n"
-"PO-Revision-Date: 2010-08-19 11:46+0200\n"
+"PO-Revision-Date: 2010-08-19 11:53+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2131,10 +2131,9 @@ msgid "Character set of the file:"
 msgstr "Znaková sada souboru:"
 
 #: libraries/display_export.lib.php:318
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Komprese"
+msgstr "Komprese:"
 
 #: libraries/display_export.lib.php:320 libraries/display_tbl.lib.php:528
 #: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
@@ -2194,22 +2193,21 @@ msgstr ""
 "dostupné."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Nepodařilo se přihlášení k MySQL serveru"
+msgstr "Importuji na aktuální server"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 #| msgid "Jump to database"
 msgid "Importing into the database \"%s\""
-msgstr "Přejít na databázi"
+msgstr "Importuji do databáze \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Jump to database"
 msgid "Importing into the table \"%s\""
-msgstr "Přejít na databázi"
+msgstr "Importuji do tabulky \"%s\""
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
@@ -2993,10 +2991,9 @@ msgid "Table caption"
 msgstr "Titulek tabulky"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Titulek tabulky"
+msgstr "Titulek tabulky (pokračování)"
 
 #: libraries/export/latex.php:53 libraries/export/latex.php:77
 msgid "Label key"
@@ -3004,23 +3001,20 @@ msgstr "Návěstí"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Vypnout kontrolu cizích klíčů"
+msgstr "Zobrazit cizí klíče"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Zobrazuji komentáře polí"
+msgstr "Zobrazit komentáře"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Dostupné MIME typy"
+msgstr "Zobrazit MIME typy"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:281
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
@@ -3079,10 +3073,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Vygeneruje dokument obsahující data jedné tabulky)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "Název výpisu"
+msgstr "Název výpisu:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
@@ -3121,22 +3114,20 @@ msgstr ""
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Údaj"
+msgstr "Přidat příkaz %s"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Údaj"
+msgstr "Přidat příkazy:"
 
 #: libraries/export/sql.php:111
-#, fuzzy
 #| msgid "<code>@TABLE@</code>"
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>@TABLE@</code>"
+msgstr "Parametry <code>CREATE TABLE</code>:"
 
 #: libraries/export/sql.php:123
 msgid ""
@@ -3273,10 +3264,9 @@ msgid "Tables"
 msgstr "Tabulky"
 
 #: libraries/export/xml.php:40
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "Pohled"
+msgstr "Pohledy"
 
 #: libraries/export/xml.php:47
 msgid "Export contents"
@@ -3361,10 +3351,9 @@ msgid ""
 msgstr ""
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Názvy polí"
+msgstr "Názvy polí:"
 
 #: libraries/import/csv.php:60 libraries/import/csv.php:72
 #: libraries/import/csv.php:76 libraries/import/csv.php:80
@@ -3435,28 +3424,25 @@ msgid "Do not import empty rows"
 msgstr "Neimportovat prázdné řádky"
 
 #: libraries/import/ods.php:28
-#, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Importovat procenta jako desetinná čísla (0.12 místo 12.00%)"
+msgstr ""
+"Importovat procenta jako desetinná čísla <i>např. (0.12 místo 12.00%)</i>"
 
 #: libraries/import/ods.php:29
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Importovat měny (5.00 místo $5.00)"
+msgstr "Importovat měny <i>(např. 5.00 místo $5.00)</i>"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "Režim kompatibility SQL"
+msgstr "Režim kompatibility SQL:"
 
 #: libraries/import/sql.php:42
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "Nepoužívat AUTO_INCREMENT pro nulové hodnoty"
+msgstr "Nepoužívat <code>AUTO_INCREMENT</code> pro nulové hodnoty"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
 msgid ""
@@ -3710,7 +3696,6 @@ msgid "Query window"
 msgstr "Okno dotazů"
 
 #: libraries/plugin_interface.lib.php:336
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Tento formát nemá žádná nastavení"
@@ -3896,7 +3881,6 @@ msgid "Unknown language: %1$s."
 msgstr "Neznámý jazyk: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current server"
 msgid "Current Server"
 msgstr "Aktuální server"
@@ -4348,28 +4332,26 @@ msgid "Error in ZIP archive:"
 msgstr "Chyba v ZIP archívu:"
 
 #: main.php:66
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Obecné funkce relací"
+msgstr "Obecná nastavení"
 
 #: main.php:97
 msgid "MySQL connection collation"
 msgstr "Porovnávání pro toto připojení k MySQL"
 
 #: main.php:112
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Jiná důležitá nastavení"
+msgstr "Nastavení vzhledu"
 
 #: main.php:132
 msgid "Background color"
-msgstr ""
+msgstr "Barva pozadí"
 
 #: main.php:133
 msgid "Choose..."
-msgstr ""
+msgstr "Zvolte..."
 
 #: main.php:137 pdf_pages.php:361 setup/lib/FormDisplay.tpl.php:216
 #: tbl_change.php:1071
@@ -6792,7 +6774,7 @@ msgstr "Formát"
 
 #: setup/lib/messages.inc.php:86
 msgid "Method"
-msgstr ""
+msgstr "Způsob exportu"
 
 #: setup/lib/messages.inc.php:87
 msgid "Save on server"
