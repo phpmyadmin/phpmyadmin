@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:43+0200\n"
+"PO-Revision-Date: 2010-08-19 23:44+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2983,7 +2983,7 @@ msgstr "Struktūra"
 #: libraries/export/odt.php:33 libraries/export/sql.php:79
 #: libraries/export/texytext.php:23
 msgid "data"
-msgstr ""
+msgstr "duomenys"
 
 #: libraries/export/htmlword.php:24 libraries/export/latex.php:41
 #: libraries/export/odt.php:33 libraries/export/sql.php:79
