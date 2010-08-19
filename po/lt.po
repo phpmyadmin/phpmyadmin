@@ -1086,7 +1086,7 @@ msgstr "balandžio"
 
 #: js/messages.php:90
 msgid "May"
-msgstr "gegužio"
+msgstr "gegužės"
 
 #: js/messages.php:91
 #, fuzzy
