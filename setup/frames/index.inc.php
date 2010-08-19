@@ -173,7 +173,8 @@ display_fieldset_top('', '', null, array('class' => 'simple'));
 $opts = array(
     'doc' => $form_display->getDocLink('DefaultLang'),
     'wiki' => $form_display->getWikiLink('DefaultLang'),
-    'values' => array());
+    'values' => array(),
+    'values_escaped' => true);
 foreach ($all_languages as $each_lang_key => $each_lang) {
     if (!file_exists($GLOBALS['lang_path'] . $each_lang[1] . '.inc.php')) {
         continue;
