@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:51+0200\n"
+"PO-Revision-Date: 2010-08-19 23:52+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3341,9 +3341,8 @@ msgid "Open new phpMyAdmin window"
 msgstr "Atverti naują phpMyAdmin langą"
 
 #: libraries/header.inc.php:114
-#, fuzzy
 msgid "New table"
-msgstr "No tables"
+msgstr "Nauja lentelė"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
