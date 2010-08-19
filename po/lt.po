@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 00:22+0200\n"
+"PO-Revision-Date: 2010-08-20 00:26+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2182,7 +2182,7 @@ msgid "table name"
 msgstr "lentelės vardas"
 
 #: libraries/display_export.lib.php:240
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -2192,9 +2192,9 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"Ši reikšmė interpretuojama naudojant %1$sstrftime%2$s, taigi, galite naudoti "
-"laiko formatavimo eilutes. Taip pat pakeičiamos šios eilutės: %3$s. Kitas "
-"tekstas bus paliktas kaip yra."
+"Ši reikšmė interpretuojama naudojant %1$sstrftime%2$s, taigi Jūs galite "
+"keisti laiko formatavimą. Taip pat pakeičiamos šios eilutės: %3$s. Kitas "
+"tekstas bus paliktas kaip yra. Žiūrėti %4$sDUK%5$s smulkesnei informacijai."
 
 #: libraries/display_export.lib.php:284
 msgid "use this for future exports"
