@@ -1068,7 +1068,7 @@ msgstr "Šiandien"
 #: js/messages.php:86
 #| msgid "Binary"
 msgid "January"
-msgstr "Sausis"
+msgstr "sausio"
 
 #: js/messages.php:87
 msgid "February"
