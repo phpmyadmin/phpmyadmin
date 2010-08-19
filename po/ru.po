@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-08-06 08:03-0400\n"
+"POT-Creation-Date: 2010-08-19 11:13+0200\n"
 "PO-Revision-Date: 2010-07-22 02:27+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: russian <ru@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:57
@@ -20,9 +20,9 @@ msgstr ""
 msgid "Show all"
 msgstr "Показать все"
 
-#: browse_foreigners.php:80 libraries/common.lib.php:2318
+#: browse_foreigners.php:80 libraries/common.lib.php:2320
 #: libraries/display_pdf_schema.lib.php:17 libraries/display_tbl.lib.php:392
-#: libraries/export/pdf.php:146 pdf_schema.php:281 pdf_schema.php:1121
+#: libraries/export/pdf.php:137 pdf_schema.php:281 pdf_schema.php:1121
 #: pdf_schema.php:1137
 msgid "Page number:"
 msgstr "Номер страницы:"
@@ -39,8 +39,8 @@ msgstr ""
 
 #: browse_foreigners.php:148 db_structure.php:77 db_structure.php:78
 #: db_structure.php:89 db_structure.php:91 db_structure.php:102
-#: db_structure.php:104 libraries/common.lib.php:2834
-#: libraries/common.lib.php:2841 libraries/db_links.inc.php:60
+#: db_structure.php:104 libraries/common.lib.php:2836
+#: libraries/common.lib.php:2843 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "Поиск"
@@ -49,17 +49,17 @@ msgstr "Поиск"
 #: db_operations.php:468 db_operations.php:492 db_search.php:344
 #: db_structure.php:552 js/messages.php:48 libraries/Config.class.php:1043
 #: libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:712
-#: libraries/common.lib.php:1344 libraries/common.lib.php:2294
+#: libraries/auth/cookie.auth.lib.php:279 libraries/common.lib.php:714
+#: libraries/common.lib.php:1346 libraries/common.lib.php:2296
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:62
-#: libraries/display_export.lib.php:269 libraries/display_import.lib.php:275
+#: libraries/display_export.lib.php:361 libraries/display_import.lib.php:263
 #: libraries/display_pdf_schema.lib.php:68 libraries/display_tbl.lib.php:530
 #: libraries/display_tbl.lib.php:612 libraries/replication_gui.lib.php:75
-#: libraries/replication_gui.lib.php:371 libraries/select_server.lib.php:101
+#: libraries/replication_gui.lib.php:371 libraries/select_server.lib.php:100
 #: libraries/sql_query_form.lib.php:377 libraries/sql_query_form.lib.php:447
-#: libraries/sql_query_form.lib.php:512 libraries/tbl_properties.inc.php:780
-#: main.php:127 navigation.php:230 pdf_pages.php:290 pdf_pages.php:326
+#: libraries/sql_query_form.lib.php:512 libraries/tbl_properties.inc.php:785
+#: main.php:103 navigation.php:230 pdf_pages.php:290 pdf_pages.php:326
 #: pdf_pages.php:528 pmd_pdf.php:113 server_binlog.php:128
 #: server_privileges.php:663 server_privileges.php:1620
 #: server_privileges.php:1967 server_privileges.php:2014
@@ -68,8 +68,8 @@ msgstr "Поиск"
 #: server_synchronize.php:1207 tbl_change.php:323 tbl_change.php:1070
 #: tbl_change.php:1107 tbl_indexes.php:252 tbl_operations.php:262
 #: tbl_operations.php:299 tbl_operations.php:496 tbl_operations.php:558
-#: tbl_operations.php:726 tbl_select.php:323 tbl_structure.php:559
-#: tbl_structure.php:594 tbl_tracking.php:389 tbl_tracking.php:506
+#: tbl_operations.php:728 tbl_select.php:323 tbl_structure.php:653
+#: tbl_structure.php:689 tbl_tracking.php:389 tbl_tracking.php:506
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "OK"
@@ -114,18 +114,18 @@ msgstr "База данных %1$s была создана."
 msgid "Database comment: "
 msgstr "Комментарий к базе данных:"
 
-#: db_datadict.php:164 libraries/tbl_properties.inc.php:722
+#: db_datadict.php:164 libraries/tbl_properties.inc.php:727
 #: pdf_schema.php:1234 tbl_operations.php:344 tbl_printview.php:127
 msgid "Table comments"
 msgstr "Комментарий к таблице"
 
 #: db_datadict.php:173 db_qbe.php:170 libraries/Index.class.php:445
-#: libraries/export/htmlword.php:243 libraries/export/latex.php:364
-#: libraries/export/odt.php:293 libraries/export/texytext.php:233
+#: libraries/export/htmlword.php:247 libraries/export/latex.php:374
+#: libraries/export/odt.php:301 libraries/export/texytext.php:226
 #: libraries/tbl_properties.inc.php:98 libraries/tbl_properties.inc.php:273
 #: pdf_schema.php:1260 pdf_schema.php:1281 tbl_change.php:301
 #: tbl_indexes.php:187 tbl_printview.php:139 tbl_relation.php:399
-#: tbl_select.php:132 tbl_structure.php:175 tbl_tracking.php:267
+#: tbl_select.php:132 tbl_structure.php:196 tbl_tracking.php:267
 #: tbl_tracking.php:318
 #, fuzzy
 #| msgid "Column names"
@@ -134,64 +134,62 @@ msgstr "Названия столбцов"
 
 #: db_datadict.php:174 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:30 libraries/db_routines.inc.php:41
-#: libraries/db_structure.lib.php:51 libraries/export/htmlword.php:244
-#: libraries/export/latex.php:364 libraries/export/odt.php:296
-#: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:99
+#: libraries/db_structure.lib.php:51 libraries/export/htmlword.php:248
+#: libraries/export/latex.php:374 libraries/export/odt.php:304
+#: libraries/export/texytext.php:227 libraries/tbl_properties.inc.php:99
 #: pdf_schema.php:1261 pdf_schema.php:1282 server_privileges.php:2066
 #: tbl_change.php:280 tbl_change.php:307 tbl_printview.php:140
-#: tbl_printview.php:310 tbl_select.php:133 tbl_structure.php:176
-#: tbl_structure.php:656 tbl_tracking.php:268 tbl_tracking.php:315
+#: tbl_printview.php:310 tbl_select.php:133 tbl_structure.php:197
+#: tbl_structure.php:751 tbl_tracking.php:268 tbl_tracking.php:315
 msgid "Type"
 msgstr "Тип"
 
 #: db_datadict.php:176 libraries/Index.class.php:448
-#: libraries/export/htmlword.php:245 libraries/export/latex.php:364
-#: libraries/export/odt.php:299 libraries/export/texytext.php:235
+#: libraries/export/htmlword.php:249 libraries/export/latex.php:374
+#: libraries/export/odt.php:307 libraries/export/texytext.php:228
 #: libraries/tbl_properties.inc.php:108 pdf_schema.php:1263
 #: pdf_schema.php:1284 tbl_change.php:316 tbl_printview.php:142
-#: tbl_structure.php:179 tbl_tracking.php:270 tbl_tracking.php:321
+#: tbl_structure.php:200 tbl_tracking.php:270 tbl_tracking.php:321
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:177 db_structure.php:486 libraries/export/htmlword.php:246
-#: libraries/export/latex.php:364 libraries/export/odt.php:302
-#: libraries/export/texytext.php:236 libraries/tbl_properties.inc.php:105
+#: db_datadict.php:177 db_structure.php:486 libraries/export/htmlword.php:250
+#: libraries/export/latex.php:374 libraries/export/odt.php:310
+#: libraries/export/texytext.php:229 libraries/tbl_properties.inc.php:105
 #: pdf_schema.php:1264 pdf_schema.php:1285 tbl_printview.php:143
-#: tbl_structure.php:180 tbl_tracking.php:271
+#: tbl_structure.php:201 tbl_tracking.php:271
 msgid "Default"
 msgstr "По умолчанию"
 
-#: db_datadict.php:181 libraries/export/htmlword.php:248
-#: libraries/export/latex.php:366 libraries/export/odt.php:306
-#: libraries/export/texytext.php:238 pdf_schema.php:1266 pdf_schema.php:1287
+#: db_datadict.php:181 libraries/export/htmlword.php:252
+#: libraries/export/latex.php:376 libraries/export/odt.php:314
+#: libraries/export/texytext.php:231 pdf_schema.php:1266 pdf_schema.php:1287
 #: tbl_printview.php:147
 msgid "Links to"
 msgstr "Связи"
 
-#: db_datadict.php:183 db_printview.php:110 libraries/export/htmlword.php:251
-#: libraries/export/latex.php:49 libraries/export/latex.php:369
-#: libraries/export/odt.php:37 libraries/export/odt.php:311
-#: libraries/export/sql.php:29 libraries/export/texytext.php:241
-#: libraries/tbl_properties.inc.php:128 pdf_schema.php:1277
-#: pdf_schema.php:1288 tbl_printview.php:149
+#: db_datadict.php:183 db_printview.php:110 libraries/export/htmlword.php:255
+#: libraries/export/latex.php:379 libraries/export/odt.php:319
+#: libraries/export/texytext.php:234 libraries/tbl_properties.inc.php:128
+#: pdf_schema.php:1277 pdf_schema.php:1288 tbl_printview.php:149
 msgid "Comments"
 msgstr "Комментарии"
 
 #: db_datadict.php:266 libraries/Index.class.php:358
-#: libraries/Index.class.php:385 libraries/export/htmlword.php:321
-#: libraries/export/latex.php:434 libraries/export/odt.php:367
-#: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:261
+#: libraries/Index.class.php:385 libraries/export/htmlword.php:325
+#: libraries/export/latex.php:444 libraries/export/odt.php:375
+#: libraries/export/texytext.php:304 libraries/mult_submits.inc.php:261
 #: pdf_schema.php:1342 server_privileges.php:1564 server_privileges.php:1575
 #: server_privileges.php:1885 server_privileges.php:1890
 #: server_privileges.php:2183 sql.php:130 sql.php:192 tbl_printview.php:226
-#: tbl_structure.php:347 tbl_tracking.php:331 tbl_tracking.php:336
+#: tbl_structure.php:371 tbl_tracking.php:331 tbl_tracking.php:336
 msgid "No"
 msgstr "Нет"
 
 #: db_datadict.php:266 libraries/Index.class.php:359
-#: libraries/Index.class.php:384 libraries/export/htmlword.php:321
-#: libraries/export/latex.php:434 libraries/export/odt.php:367
-#: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:44
+#: libraries/Index.class.php:384 libraries/export/htmlword.php:325
+#: libraries/export/latex.php:444 libraries/export/odt.php:375
+#: libraries/export/texytext.php:304 libraries/mult_submits.inc.php:44
 #: libraries/mult_submits.inc.php:49 libraries/mult_submits.inc.php:54
 #: libraries/mult_submits.inc.php:59 libraries/mult_submits.inc.php:91
 #: libraries/mult_submits.inc.php:100 libraries/mult_submits.inc.php:105
@@ -200,7 +198,7 @@ msgstr "Нет"
 #: server_databases.php:61 server_privileges.php:1561
 #: server_privileges.php:1575 server_privileges.php:1885
 #: server_privileges.php:1888 server_privileges.php:2183 sql.php:191
-#: tbl_printview.php:226 tbl_structure.php:38 tbl_structure.php:347
+#: tbl_printview.php:226 tbl_structure.php:38 tbl_structure.php:371
 #: tbl_tracking.php:329 tbl_tracking.php:334
 msgid "Yes"
 msgstr "Да"
@@ -209,20 +207,20 @@ msgstr "Да"
 msgid "Print"
 msgstr "Печать"
 
-#: db_export.php:28
+#: db_export.php:30
 msgid "View dump (schema) of database"
 msgstr "Отобразить дамп (схему) базы данных"
 
-#: db_export.php:32 db_printview.php:94 db_qbe.php:98 db_structure.php:49
-#: db_tracking.php:30 export.php:350 navigation.php:325
+#: db_export.php:34 db_printview.php:94 db_qbe.php:98 db_structure.php:49
+#: db_tracking.php:30 export.php:368 navigation.php:320
 msgid "No tables found in database."
 msgstr "Таблиц в базе данных не обнаружено."
 
-#: db_export.php:42 db_search.php:326 server_export.php:24
+#: db_export.php:44 db_search.php:326 server_export.php:26
 msgid "Select All"
 msgstr "Выделить все"
 
-#: db_export.php:44 db_search.php:329 server_export.php:26
+#: db_export.php:46 db_search.php:329 server_export.php:28
 msgid "Unselect All"
 msgstr "Снять выделение"
 
@@ -289,15 +287,12 @@ msgstr "Только данные"
 msgid "CREATE DATABASE before copying"
 msgstr "Перед копированием создать базу данных (CREATE DATABASE)"
 
-#: db_operations.php:444 libraries/export/sql.php:51
-#: libraries/export/sql.php:73 libraries/export/sql.php:75
-#: libraries/export/sql.php:81 tbl_operations.php:533
+#: db_operations.php:444 tbl_operations.php:533
 #, php-format
 msgid "Add %s"
 msgstr "Добавить %s"
 
-#: db_operations.php:448 libraries/export/sql.php:77 tbl_operations.php:296
-#: tbl_operations.php:535
+#: db_operations.php:448 tbl_operations.php:296 tbl_operations.php:535
 msgid "Add AUTO_INCREMENT value"
 msgstr "Добавить AUTO_INCREMENT"
 
@@ -311,10 +306,10 @@ msgstr "Переключиться на скопированную базу да
 
 #: db_operations.php:485 libraries/Index.class.php:447
 #: libraries/db_structure.lib.php:53 libraries/mysql_charsets.lib.php:106
-#: libraries/tbl_properties.inc.php:106 libraries/tbl_properties.inc.php:728
+#: libraries/tbl_properties.inc.php:106 libraries/tbl_properties.inc.php:733
 #: server_collations.php:53 server_collations.php:65 server_databases.php:108
-#: tbl_operations.php:360 tbl_select.php:134 tbl_structure.php:177
-#: tbl_structure.php:764 tbl_tracking.php:269 tbl_tracking.php:320
+#: tbl_operations.php:360 tbl_select.php:134 tbl_structure.php:198
+#: tbl_structure.php:859 tbl_tracking.php:269 tbl_tracking.php:320
 msgid "Collation"
 msgstr "Сравнение"
 
@@ -335,8 +330,8 @@ msgid "Edit PDF Pages"
 msgstr "Редактирование PDF-страниц"
 
 #: db_printview.php:102 db_tracking.php:67 db_tracking.php:152
-#: libraries/db_structure.lib.php:37 libraries/export/xml.php:327
-#: libraries/header.inc.php:125 pdf_pages.php:422 server_privileges.php:1661
+#: libraries/db_structure.lib.php:37 libraries/export/xml.php:331
+#: libraries/header.inc.php:128 pdf_pages.php:422 server_privileges.php:1661
 #: server_privileges.php:1717 server_privileges.php:1981
 #: server_synchronize.php:421 server_synchronize.php:864 tbl_tracking.php:586
 #: test/theme.php:74
@@ -345,8 +340,9 @@ msgstr "Таблица "
 
 #: db_printview.php:103 libraries/db_structure.lib.php:47
 #: libraries/header_printview.inc.php:62 libraries/import.lib.php:145
-#: navigation.php:628 navigation.php:650 server_databases.php:119
-#: tbl_printview.php:391 tbl_structure.php:362 tbl_structure.php:774
+#: navigation.php:623 navigation.php:645 server_databases.php:119
+#: tbl_printview.php:391 tbl_structure.php:386 tbl_structure.php:475
+#: tbl_structure.php:869
 msgid "Rows"
 msgstr "Строки"
 
@@ -354,26 +350,26 @@ msgstr "Строки"
 msgid "Size"
 msgstr "Размер"
 
-#: db_printview.php:160 db_structure.php:442 libraries/export/sql.php:556
-#: libraries/export/sql.php:896
+#: db_printview.php:160 db_structure.php:442 libraries/export/sql.php:607
+#: libraries/export/sql.php:947
 msgid "in use"
 msgstr "используется"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
-#: libraries/export/sql.php:511 pdf_schema.php:1239 tbl_printview.php:431
-#: tbl_structure.php:806
+#: libraries/export/sql.php:562 pdf_schema.php:1239 tbl_printview.php:431
+#: tbl_structure.php:901
 msgid "Creation"
 msgstr "Создание"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
-#: libraries/export/sql.php:516 pdf_schema.php:1244 tbl_printview.php:441
-#: tbl_structure.php:814
+#: libraries/export/sql.php:567 pdf_schema.php:1244 tbl_printview.php:441
+#: tbl_structure.php:909
 msgid "Last update"
 msgstr "Последнее обновление"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
-#: libraries/export/sql.php:521 pdf_schema.php:1249 tbl_printview.php:451
-#: tbl_structure.php:822
+#: libraries/export/sql.php:572 pdf_schema.php:1249 tbl_printview.php:451
+#: tbl_structure.php:917
 msgid "Last check"
 msgstr "Последняя проверка"
 
@@ -439,9 +435,8 @@ msgid "Del"
 msgstr "Удалить"
 
 #: db_qbe.php:366 db_qbe.php:447 db_qbe.php:518 db_qbe.php:549
-#: libraries/display_import.lib.php:165 libraries/tbl_properties.inc.php:777
-#: server_privileges.php:296 tbl_change.php:925 tbl_indexes.php:248
-#: tbl_select.php:284
+#: libraries/tbl_properties.inc.php:782 server_privileges.php:296
+#: tbl_change.php:925 tbl_indexes.php:248 tbl_select.php:284
 msgid "Or"
 msgstr "Или"
 
@@ -474,7 +469,7 @@ msgstr "Использовать таблицы"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-запрос к базе данных <b>%s</b>:"
 
-#: db_qbe.php:930 libraries/common.lib.php:1215
+#: db_qbe.php:930 libraries/common.lib.php:1217
 msgid "Submit Query"
 msgstr "Выполнить запрос"
 
@@ -517,9 +512,9 @@ msgstr[2] "%s вхождения(ий) в таблице <i>%s</i>"
 
 #: db_search.php:249 db_structure.php:75 db_structure.php:76
 #: db_structure.php:88 db_structure.php:90 db_structure.php:101
-#: db_structure.php:103 libraries/common.lib.php:2836
+#: db_structure.php:103 libraries/common.lib.php:2838
 #: libraries/mult_submits.inc.php:115 libraries/tbl_links.inc.php:48
-#: tbl_structure.php:35 tbl_structure.php:47 tbl_structure.php:464
+#: tbl_structure.php:35 tbl_structure.php:47 tbl_structure.php:558
 msgid "Browse"
 msgstr "Обзор"
 
@@ -568,35 +563,33 @@ msgstr "Внутри поля:"
 
 #: db_structure.php:79 db_structure.php:80 db_structure.php:92
 #: db_structure.php:93 db_structure.php:105 db_structure.php:106
-#: libraries/common.lib.php:2835 libraries/sql_query_form.lib.php:311
+#: libraries/common.lib.php:2837 libraries/sql_query_form.lib.php:311
 #: libraries/sql_query_form.lib.php:314 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Вставить"
 
 #: db_structure.php:81 db_structure.php:94 db_structure.php:107
-#: libraries/common.lib.php:2832 libraries/common.lib.php:2839
-#: libraries/db_links.inc.php:48 libraries/export/htmlword.php:22
-#: libraries/export/latex.php:37 libraries/export/latex.php:341
-#: libraries/export/odt.php:31 libraries/export/sql.php:59
-#: libraries/export/texytext.php:23 libraries/import.lib.php:1136
-#: libraries/tbl_links.inc.php:54 pmd_general.php:133
-#: server_privileges.php:592 server_replication.php:313 tbl_tracking.php:263
+#: libraries/common.lib.php:2834 libraries/common.lib.php:2841
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
+#: libraries/import.lib.php:1136 libraries/tbl_links.inc.php:54
+#: pmd_general.php:133 server_privileges.php:592 server_replication.php:313
+#: tbl_tracking.php:263
 msgid "Structure"
 msgstr "Структура"
 
 #: db_structure.php:82 db_structure.php:83 db_structure.php:95
 #: db_structure.php:96 db_structure.php:108 db_structure.php:109
 #: db_structure.php:530 db_structure.php:531 db_tracking.php:86
-#: libraries/Index.class.php:482 libraries/common.lib.php:1663
+#: libraries/Index.class.php:482 libraries/common.lib.php:1665
 #: libraries/mult_submits.inc.php:35 libraries/mult_submits.inc.php:72
 #: server_databases.php:349 tbl_structure.php:25 tbl_structure.php:149
-#: tbl_structure.php:150 tbl_structure.php:468
+#: tbl_structure.php:150 tbl_structure.php:562
 msgid "Drop"
 msgstr "Удалить"
 
 #: db_structure.php:84 db_structure.php:85 db_structure.php:97
 #: db_structure.php:98 db_structure.php:110 db_structure.php:111
-#: db_structure.php:528 db_structure.php:529 libraries/common.lib.php:1662
+#: db_structure.php:528 db_structure.php:529 libraries/common.lib.php:1664
 #: libraries/mult_submits.inc.php:38
 msgid "Empty"
 msgstr "Очистить"
@@ -627,14 +620,14 @@ msgstr "Слежение выключено."
 #: db_structure.php:405 libraries/display_tbl.lib.php:1902
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Данное представление имеет, по меньшей мере, указанное количество строк. "
 "Пожалуйста, обратитесь к %sдокументации%s."
 
-#: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:125
-#: libraries/tbl_info.inc.php:60 tbl_structure.php:183 test/theme.php:73
+#: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:128
+#: libraries/tbl_info.inc.php:60 tbl_structure.php:204 test/theme.php:73
 msgid "View"
 msgstr "Представление"
 
@@ -656,20 +649,20 @@ msgstr "%s - тип таблиц данного MySQL сервера устан�
 #: db_structure.php:509 db_structure.php:526 db_structure.php:527
 #: libraries/display_tbl.lib.php:2039 libraries/display_tbl.lib.php:2044
 #: libraries/mult_submits.inc.php:15 server_databases.php:343
-#: server_databases.php:348 server_privileges.php:1592 tbl_structure.php:452
-#: tbl_structure.php:461
+#: server_databases.php:348 server_privileges.php:1592 tbl_structure.php:546
+#: tbl_structure.php:555
 msgid "With selected:"
 msgstr "С отмеченными:"
 
 #: db_structure.php:512 libraries/display_tbl.lib.php:2034
 #: server_databases.php:345 server_privileges.php:568
-#: server_privileges.php:1595 tbl_structure.php:455
+#: server_privileges.php:1595 tbl_structure.php:549
 msgid "Check All"
 msgstr "Отметить все"
 
 #: db_structure.php:516 libraries/display_tbl.lib.php:2035
 #: libraries/replication_gui.lib.php:35 server_databases.php:347
-#: server_privileges.php:571 server_privileges.php:1599 tbl_structure.php:459
+#: server_privileges.php:571 server_privileges.php:1599 tbl_structure.php:553
 msgid "Uncheck All"
 msgstr "Снять выделение"
 
@@ -679,7 +672,7 @@ msgstr "Отметить требующие оптимизации"
 
 #: db_structure.php:532 db_structure.php:533 db_structure.php:584
 #: libraries/display_tbl.lib.php:2138 libraries/mult_submits.inc.php:27
-#: tbl_structure.php:489 tbl_structure.php:491
+#: tbl_structure.php:583 tbl_structure.php:585
 msgid "Print view"
 msgstr "Версия для печати"
 
@@ -689,7 +682,7 @@ msgid "Check table"
 msgstr "Проверить таблицу"
 
 #: db_structure.php:536 db_structure.php:537 libraries/mult_submits.inc.php:46
-#: tbl_operations.php:618 tbl_structure.php:706 tbl_structure.php:708
+#: tbl_operations.php:618 tbl_structure.php:801 tbl_structure.php:803
 msgid "Optimize table"
 msgstr "Оптимизировать таблицу"
 
@@ -704,11 +697,11 @@ msgid "Analyze table"
 msgstr "Анализ таблицы"
 
 #: db_structure.php:542 db_structure.php:543 libraries/db_links.inc.php:56
-#: libraries/display_export.lib.php:76 libraries/display_tbl.lib.php:2052
-#: libraries/display_tbl.lib.php:2183 libraries/mult_submits.inc.php:61
-#: libraries/server_links.inc.php:83 libraries/tbl_links.inc.php:80
-#: pmd_pdf.php:81 pmd_pdf.php:106 server_privileges.php:1376
-#: setup/frames/menu.inc.php:22 tbl_row_action.php:58
+#: libraries/display_tbl.lib.php:2052 libraries/display_tbl.lib.php:2183
+#: libraries/mult_submits.inc.php:61 libraries/server_links.inc.php:83
+#: libraries/tbl_links.inc.php:80 pmd_pdf.php:81 pmd_pdf.php:106
+#: server_privileges.php:1376 setup/frames/menu.inc.php:22
+#: tbl_row_action.php:58
 msgid "Export"
 msgstr "Экспорт"
 
@@ -720,10 +713,10 @@ msgstr "Словарь данных"
 msgid "Tracked tables"
 msgstr "Отслеживаемые таблицы"
 
-#: db_tracking.php:66 libraries/export/htmlword.php:85
-#: libraries/export/latex.php:152 libraries/export/odt.php:112
-#: libraries/export/sql.php:339 libraries/export/texytext.php:84
-#: libraries/export/xml.php:254 libraries/header.inc.php:105
+#: db_tracking.php:66 libraries/export/htmlword.php:89
+#: libraries/export/latex.php:162 libraries/export/odt.php:120
+#: libraries/export/sql.php:390 libraries/export/texytext.php:77
+#: libraries/export/xml.php:258 libraries/header.inc.php:105
 #: libraries/header_printview.inc.php:57 server_databases.php:166
 #: server_privileges.php:1656 server_privileges.php:1717
 #: server_privileges.php:1975 server_processlist.php:55
@@ -744,7 +737,7 @@ msgstr "Создан"
 msgid "Updated"
 msgstr "Обновлён"
 
-#: db_tracking.php:71 libraries/common.lib.php:1361
+#: db_tracking.php:71 libraries/common.lib.php:1363
 #: libraries/server_links.inc.php:48 server_processlist.php:58
 #: tbl_tracking.php:590 test/theme.php:100
 msgid "Status"
@@ -753,7 +746,7 @@ msgstr "Состояние"
 #: db_tracking.php:72 libraries/Index.class.php:439
 #: libraries/db_structure.lib.php:44 server_databases.php:200
 #: server_privileges.php:1538 server_privileges.php:1721
-#: server_privileges.php:2069 tbl_structure.php:185
+#: server_privileges.php:2069 tbl_structure.php:206
 msgid "Action"
 msgstr "Действие"
 
@@ -787,8 +780,8 @@ msgstr "Обзор структуры"
 msgid "Untracked tables"
 msgstr "Неотслеживаемые таблицы"
 
-#: db_tracking.php:167 db_tracking.php:169 tbl_structure.php:525
-#: tbl_structure.php:527
+#: db_tracking.php:167 db_tracking.php:169 tbl_structure.php:619
+#: tbl_structure.php:621
 msgid "Track table"
 msgstr "Отслеживать таблицу"
 
@@ -796,16 +789,37 @@ msgstr "Отслеживать таблицу"
 msgid "Database Log"
 msgstr "Журнал базы данных"
 
-#: export.php:61
+#: enum_editor.php:21 libraries/tbl_properties.inc.php:798
+msgid "Values for the column \""
+msgstr ""
+
+#: enum_editor.php:22
+#, fuzzy
+#| msgid ""
+#| "Please enter the values for transformation options using this format: "
+#| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
+#| "single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"Enter each value in a separate field, enclosed in single quotes. If you ever "
+"need to put a backslash (\"\\\") or a single quote (\"'\") amongst those "
+"values, precede it with a backslash (for example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Значения параметров преобразований должны иметь формат: 'a', 100, 'b', 'c'..."
+"<br />Символы обратной косой черты (\\) и одинарной кавычки (') необходимо "
+"экранировать (предварять) символом обратной косой черты, например: '\\\\xyz' "
+"или 'a\\'b'."
+
+#: export.php:73
 msgid "Selected export type has to be saved in file!"
 msgstr "Выбранный тип экспорта возможен только в файл!"
 
-#: export.php:152 export.php:177 export.php:615
+#: export.php:164 export.php:189 export.php:659
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Для сохранения файла %s недостаточно дискового пространства."
 
-#: export.php:286
+#: export.php:304
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -813,12 +827,12 @@ msgstr ""
 "Файл %s уже существует на сервере, измените имя или включите параметр "
 "перезаписи."
 
-#: export.php:290 export.php:294
+#: export.php:308 export.php:312
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Не достаточно прав для сохранения файла %s на веб-сервере."
 
-#: export.php:617
+#: export.php:661
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Дамп был сохранен в файл %s."
@@ -826,8 +840,8 @@ msgstr "Дамп был сохранен в файл %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Вероятно, размер загружаемого файла слишком велик. Способы обхода данного "
 "ограничения описаны в %sдокументации%s."
@@ -873,7 +887,7 @@ msgstr "Закладка удалена."
 msgid "Showing bookmark"
 msgstr "Отображение закладки"
 
-#: import.php:401 sql.php:618
+#: import.php:401 sql.php:623
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Закладка &quot;%s&quot; создана"
@@ -901,7 +915,7 @@ msgstr ""
 "означает, что phpMyAdmin не сможет завершить процесс импорта до тех пор, "
 "пока не будет увеличено ограничение времени выполнения php-сценариев."
 
-#: import_status.php:30 libraries/common.lib.php:660 pdf_schema.php:239
+#: import_status.php:30 libraries/common.lib.php:662 pdf_schema.php:239
 #: user_password.php:110
 msgid "Back"
 msgstr "Назад"
@@ -1053,10 +1067,10 @@ msgid "Prev"
 msgstr "Назад"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:81 libraries/common.lib.php:2358
-#: libraries/common.lib.php:2361 libraries/display_tbl.lib.php:336
+#: js/messages.php:81 libraries/common.lib.php:2360
+#: libraries/common.lib.php:2363 libraries/display_tbl.lib.php:336
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
-#: tbl_structure.php:798
+#: tbl_structure.php:893
 msgid "Next"
 msgstr "Следующий"
 
@@ -1130,27 +1144,27 @@ msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:101 libraries/common.lib.php:1566
+#: js/messages.php:101 libraries/common.lib.php:1568
 msgid "Jan"
 msgstr "Янв"
 
 #. l10n: Short month name
-#: js/messages.php:103 libraries/common.lib.php:1568
+#: js/messages.php:103 libraries/common.lib.php:1570
 msgid "Feb"
 msgstr "Фев"
 
 #. l10n: Short month name
-#: js/messages.php:105 libraries/common.lib.php:1570
+#: js/messages.php:105 libraries/common.lib.php:1572
 msgid "Mar"
 msgstr "Мар"
 
 #. l10n: Short month name
-#: js/messages.php:107 libraries/common.lib.php:1572
+#: js/messages.php:107 libraries/common.lib.php:1574
 msgid "Apr"
 msgstr "Апр"
 
 #. l10n: Short month name
-#: js/messages.php:109 libraries/common.lib.php:1574
+#: js/messages.php:109 libraries/common.lib.php:1576
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1158,37 +1172,37 @@ msgid "May"
 msgstr "Май"
 
 #. l10n: Short month name
-#: js/messages.php:111 libraries/common.lib.php:1576
+#: js/messages.php:111 libraries/common.lib.php:1578
 msgid "Jun"
 msgstr "Июн"
 
 #. l10n: Short month name
-#: js/messages.php:113 libraries/common.lib.php:1578
+#: js/messages.php:113 libraries/common.lib.php:1580
 msgid "Jul"
 msgstr "Июл"
 
 #. l10n: Short month name
-#: js/messages.php:115 libraries/common.lib.php:1580
+#: js/messages.php:115 libraries/common.lib.php:1582
 msgid "Aug"
 msgstr "Авг"
 
 #. l10n: Short month name
-#: js/messages.php:117 libraries/common.lib.php:1582
+#: js/messages.php:117 libraries/common.lib.php:1584
 msgid "Sep"
 msgstr "Сен"
 
 #. l10n: Short month name
-#: js/messages.php:119 libraries/common.lib.php:1584
+#: js/messages.php:119 libraries/common.lib.php:1586
 msgid "Oct"
 msgstr "Окт"
 
 #. l10n: Short month name
-#: js/messages.php:121 libraries/common.lib.php:1586
+#: js/messages.php:121 libraries/common.lib.php:1588
 msgid "Nov"
 msgstr "Ноя"
 
 #. l10n: Short month name
-#: js/messages.php:123 libraries/common.lib.php:1588
+#: js/messages.php:123 libraries/common.lib.php:1590
 msgid "Dec"
 msgstr "Дек"
 
@@ -1229,37 +1243,37 @@ msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:136 libraries/common.lib.php:1591
+#: js/messages.php:136 libraries/common.lib.php:1593
 msgid "Sun"
 msgstr "Вс"
 
 #. l10n: Short week day name
-#: js/messages.php:138 libraries/common.lib.php:1593
+#: js/messages.php:138 libraries/common.lib.php:1595
 msgid "Mon"
 msgstr "Пн"
 
 #. l10n: Short week day name
-#: js/messages.php:140 libraries/common.lib.php:1595
+#: js/messages.php:140 libraries/common.lib.php:1597
 msgid "Tue"
 msgstr "Вт"
 
 #. l10n: Short week day name
-#: js/messages.php:142 libraries/common.lib.php:1597
+#: js/messages.php:142 libraries/common.lib.php:1599
 msgid "Wed"
 msgstr "Ср"
 
 #. l10n: Short week day name
-#: js/messages.php:144 libraries/common.lib.php:1599
+#: js/messages.php:144 libraries/common.lib.php:1601
 msgid "Thu"
 msgstr "Чт"
 
 #. l10n: Short week day name
-#: js/messages.php:146 libraries/common.lib.php:1601
+#: js/messages.php:146 libraries/common.lib.php:1603
 msgid "Fri"
 msgstr "Пт"
 
 #. l10n: Short week day name
-#: js/messages.php:148 libraries/common.lib.php:1603
+#: js/messages.php:148 libraries/common.lib.php:1605
 msgid "Sat"
 msgstr "Сб"
 
@@ -1388,9 +1402,9 @@ msgid "Indexes"
 msgstr "Индексы"
 
 #: libraries/Index.class.php:443 libraries/mult_submits.inc.php:102
-#: libraries/tbl_properties.inc.php:517 tbl_structure.php:31
-#: tbl_structure.php:153 tbl_structure.php:157 tbl_structure.php:471
-#: tbl_tracking.php:316
+#: libraries/tbl_properties.inc.php:522 tbl_structure.php:31
+#: tbl_structure.php:153 tbl_structure.php:157 tbl_structure.php:168
+#: tbl_structure.php:169 tbl_structure.php:565 tbl_tracking.php:316
 msgid "Unique"
 msgstr "Уникальный"
 
@@ -1406,11 +1420,11 @@ msgstr "Уникальных элементов"
 msgid "Comment"
 msgstr "Комментарий"
 
-#: libraries/Index.class.php:465 libraries/common.lib.php:609
-#: libraries/common.lib.php:1191 libraries/display_tbl.lib.php:1115
+#: libraries/Index.class.php:465 libraries/common.lib.php:611
+#: libraries/common.lib.php:1193 libraries/display_tbl.lib.php:1115
 #: libraries/import.lib.php:1119 libraries/import.lib.php:1143
 #: pdf_pages.php:283 setup/frames/index.inc.php:124
-#: setup/lib/messages.inc.php:349 tbl_row_action.php:68
+#: setup/lib/messages.inc.php:350 tbl_row_action.php:68
 msgid "Edit"
 msgstr "Изменить"
 
@@ -1432,12 +1446,12 @@ msgstr "Индексы %1$s и %2$s равнозначны и один из ни
 
 #: libraries/List_Database.class.php:430 libraries/server_links.inc.php:40
 #: server_databases.php:85 server_privileges.php:1656
-#: setup/lib/messages.inc.php:107 test/theme.php:92
+#: setup/lib/messages.inc.php:108 test/theme.php:92
 msgid "Databases"
 msgstr "Базы данных"
 
 #: libraries/Message.class.php:210 libraries/blobstreaming.lib.php:308
-#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:574
+#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:576
 #: libraries/core.lib.php:232 libraries/import.lib.php:134 pdf_schema.php:30
 #: pdf_schema.php:230 tbl_change.php:921 tbl_operations.php:210
 #: tbl_relation.php:287 view_operations.php:60
@@ -1554,8 +1568,8 @@ msgstr "Добро пожаловать в %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Возможная причина - отсутствие файла конфигурации. Для его создания вы "
 "можете воспользоваться %1$sсценарием установки%2$s."
@@ -1731,9 +1745,8 @@ msgstr ""
 "Для сервера %1$s указано неверное имя хоста. Исправьте настройки заданные в "
 "конфигурационном файле phpMyAdmin."
 
-#: libraries/common.inc.php:629 libraries/header.inc.php:95
-#: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#: main.php:184 test/theme.php:56
+#: libraries/common.inc.php:629 libraries/header.inc.php:95 main.php:157
+#: test/theme.php:56
 msgid "Server"
 msgstr "Сервер"
 
@@ -1767,165 +1780,180 @@ msgstr "en"
 #: libraries/common.lib.php:425 libraries/common.lib.php:427
 #: libraries/common.lib.php:429 libraries/common.lib.php:445
 #: libraries/common.lib.php:447 libraries/dbg/setup.php:24
-#: libraries/display_export.lib.php:157 libraries/engines/pbms.lib.php:72
+#: libraries/display_export.lib.php:242 libraries/engines/pbms.lib.php:72
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:79
 #: libraries/sql_query_form.lib.php:421 libraries/sql_query_form.lib.php:424
-#: main.php:228 setup/lib/FormDisplay.tpl.php:124
+#: main.php:201 setup/lib/FormDisplay.tpl.php:124
 msgid "Documentation"
 msgstr "Документация"
 
-#: libraries/common.lib.php:588 libraries/header_printview.inc.php:60
+#: libraries/common.lib.php:590 libraries/header_printview.inc.php:60
 #: server_processlist.php:59 server_status.php:357
 msgid "SQL query"
 msgstr "SQL-запрос"
 
-#: libraries/common.lib.php:627
+#: libraries/common.lib.php:629
 msgid "MySQL said: "
 msgstr "Ответ MySQL: "
 
-#: libraries/common.lib.php:1129
+#: libraries/common.lib.php:1131
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
 msgstr "Невозможно соединиться с сервером MySQL"
 
-#: libraries/common.lib.php:1167 setup/lib/messages.inc.php:350
+#: libraries/common.lib.php:1169 setup/lib/messages.inc.php:351
 msgid "Explain SQL"
 msgstr "Анализ запроса"
 
-#: libraries/common.lib.php:1170
+#: libraries/common.lib.php:1172
 msgid "Skip Explain SQL"
 msgstr "Убрать анализ"
 
-#: libraries/common.lib.php:1204
+#: libraries/common.lib.php:1206
 msgid "Without PHP Code"
 msgstr "Убрать PHP-код"
 
-#: libraries/common.lib.php:1207 setup/lib/messages.inc.php:352
+#: libraries/common.lib.php:1209 setup/lib/messages.inc.php:353
 msgid "Create PHP Code"
 msgstr "PHP-код"
 
-#: libraries/common.lib.php:1225 server_status.php:451
-#: setup/lib/messages.inc.php:351
+#: libraries/common.lib.php:1227 server_status.php:451
+#: setup/lib/messages.inc.php:352
 msgid "Refresh"
 msgstr "Обновить"
 
-#: libraries/common.lib.php:1234
+#: libraries/common.lib.php:1236
 msgid "Skip Validate SQL"
 msgstr "Убрать проверку синтаксиса SQL"
 
-#: libraries/common.lib.php:1237 setup/lib/messages.inc.php:353
+#: libraries/common.lib.php:1239 setup/lib/messages.inc.php:354
 msgid "Validate SQL"
 msgstr "Проверка синтаксиса"
 
-#: libraries/common.lib.php:1287
+#: libraries/common.lib.php:1289
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/common.lib.php:1289
+#: libraries/common.lib.php:1291
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline"
 msgstr "Типы таблиц"
 
-#: libraries/common.lib.php:1343 libraries/common.lib.php:1358
+#: libraries/common.lib.php:1345 libraries/common.lib.php:1360
 msgid "Profiling"
 msgstr "Профилирование"
 
-#: libraries/common.lib.php:1362 libraries/tbl_triggers.lib.php:27
+#: libraries/common.lib.php:1364 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:57
 msgid "Time"
 msgstr "Время"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1390
+#: libraries/common.lib.php:1392
 msgid "B"
 msgstr "Байт"
 
-#: libraries/common.lib.php:1390
+#: libraries/common.lib.php:1392
 msgid "KiB"
 msgstr "КБ"
 
-#: libraries/common.lib.php:1390
+#: libraries/common.lib.php:1392
 msgid "MiB"
 msgstr "МБ"
 
-#: libraries/common.lib.php:1390
+#: libraries/common.lib.php:1392
 msgid "GiB"
 msgstr "ГБ"
 
-#: libraries/common.lib.php:1390
+#: libraries/common.lib.php:1392
 msgid "TiB"
 msgstr "ТБ"
 
-#: libraries/common.lib.php:1390
+#: libraries/common.lib.php:1392
 msgid "PiB"
 msgstr "ПБ"
 
-#: libraries/common.lib.php:1390
+#: libraries/common.lib.php:1392
 msgid "EiB"
 msgstr "ЭБ"
 
 #. l10n: Thousands separator
-#: libraries/common.lib.php:1428
+#: libraries/common.lib.php:1430
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/common.lib.php:1430
+#: libraries/common.lib.php:1432
 msgid "."
 msgstr "."
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1607
+#: libraries/common.lib.php:1609
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d %Y г., %H:%M"
 
-#: libraries/common.lib.php:1913
+#: libraries/common.lib.php:1915
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дней, %s часов, %s минут и %s секунд"
 
-#: libraries/common.lib.php:2327 libraries/common.lib.php:2330
+#: libraries/common.lib.php:2329 libraries/common.lib.php:2332
 #: libraries/display_tbl.lib.php:288 server_status.php:718
 msgid "Begin"
 msgstr "Начало"
 
-#: libraries/common.lib.php:2328 libraries/common.lib.php:2331
+#: libraries/common.lib.php:2330 libraries/common.lib.php:2333
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
 #: server_binlog.php:156
 msgid "Previous"
 msgstr "Назад"
 
-#: libraries/common.lib.php:2359 libraries/common.lib.php:2362
+#: libraries/common.lib.php:2361 libraries/common.lib.php:2364
 #: libraries/display_tbl.lib.php:351
 msgid "End"
 msgstr "Конец"
 
-#: libraries/common.lib.php:2434
+#: libraries/common.lib.php:2436
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Перейти к базе данных &quot;%s&quot;"
 
-#: libraries/common.lib.php:2453
+#: libraries/common.lib.php:2455
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 "Работа параметра &quot;%s&quot; подвержена ошибке, описание смотрите на %s"
 
-#: libraries/common.lib.php:2833 libraries/common.lib.php:2840
+#: libraries/common.lib.php:2835 libraries/common.lib.php:2842
 #: libraries/db_links.inc.php:53 libraries/export/sql.php:24
 #: libraries/import/sql.php:17 libraries/server_links.inc.php:44
 #: libraries/tbl_links.inc.php:58 querywindow.php:88 test/theme.php:96
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2842 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:2844 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:102
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Операции"
+
+#: libraries/common.lib.php:2923
+msgid "Browse your computer:"
+msgstr ""
+
+#: libraries/common.lib.php:2936
+#, fuzzy, php-format
+#| msgid "web server upload directory"
+msgid "Select from the web server upload directory <b>%s</b>:"
+msgstr "Из каталога загрузки"
+
+#: libraries/common.lib.php:2948 libraries/sql_query_form.lib.php:493
+#: tbl_change.php:922
+msgid "The directory you set for upload work cannot be reached"
+msgstr "Установленный каталог загрузки не доступен"
 
 #: libraries/core.lib.php:265 libraries/dbg/setup.php:21
 #, php-format
@@ -1933,7 +1961,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
 #: libraries/db_events.inc.php:19 libraries/db_events.inc.php:21
-#: libraries/export/sql.php:412
+#: libraries/export/sql.php:463
 msgid "Events"
 msgstr "События"
 
@@ -1988,7 +2016,7 @@ msgid ""
 msgstr "Может быть приблизительно. См. FAQ 3.11"
 
 #: libraries/db_structure.lib.php:60 server_databases.php:139
-#: tbl_printview.php:333 tbl_structure.php:679
+#: tbl_printview.php:333 tbl_structure.php:774
 msgid "Overhead"
 msgstr "Фрагментировано"
 
@@ -2008,11 +2036,11 @@ msgstr "Сервер не отвечает"
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(либо сокет локального MySQL-сервера некорректно настроен)"
 
-#: libraries/dbi/mysql.dbi.lib.php:358 tbl_structure.php:605
+#: libraries/dbi/mysql.dbi.lib.php:358 tbl_structure.php:700
 msgid "Details..."
 msgstr "Детали..."
 
-#: libraries/display_change_password.lib.php:29 main.php:90
+#: libraries/display_change_password.lib.php:29 main.php:89
 #: user_password.php:106 user_password.php:124
 msgid "Change password"
 msgstr "Изменить пароль"
@@ -2084,90 +2112,185 @@ msgstr ""
 "Модули экспорта, отсутствуют! Проверьте содержимое каталога libraries/export "
 "установленной копии phpMyAdmin."
 
-#: libraries/display_export.lib.php:100
-#, fuzzy, php-format
-#| msgid "Dump %s row(s) starting at record # %s"
-msgid "Dump %s row(s) starting at row # %s"
-msgstr "Дамп из %s строк, начиная с записи # %s."
+#: libraries/display_export.lib.php:87
+#, fuzzy
+#| msgid "Allows locking tables for the current thread."
+msgid "Exporting databases in the current server"
+msgstr "Разрешает блокировку таблиц для текущего потока"
 
-#: libraries/display_export.lib.php:108
+#: libraries/display_export.lib.php:89
+#, fuzzy
+#| msgid "Create table on database %s"
+msgid "Exporting tables in the database \""
+msgstr "Создать новую таблицу в базе данных %s"
+
+#: libraries/display_export.lib.php:91
+msgid "Exporting rows in the table \""
+msgstr ""
+
+#: libraries/display_export.lib.php:97
+#, fuzzy
+#| msgid "Export type"
+msgid "Export Method:"
+msgstr "Тип экспорта"
+
+#: libraries/display_export.lib.php:113
+msgid "Quick - display only the minimal options to configure"
+msgstr ""
+
+#: libraries/display_export.lib.php:129
+msgid "Custom - display all possible options to configure"
+msgstr ""
+
+#: libraries/display_export.lib.php:137
+#, fuzzy
+#| msgid "Databases"
+msgid "Database(s):"
+msgstr "Базы данных"
+
+#: libraries/display_export.lib.php:139
+#, fuzzy
+#| msgid "Tables"
+msgid "Table(s):"
+msgstr "Таблицы"
+
+#: libraries/display_export.lib.php:149
+#, fuzzy
+#| msgid "Rows"
+msgid "Rows:"
+msgstr "Строки"
+
+#: libraries/display_export.lib.php:157
+#, fuzzy
+#| msgid "Dump all rows"
+msgid "Dump some row(s)"
+msgstr "Выгрузить все строки"
+
+#: libraries/display_export.lib.php:159
+#, fuzzy
+#| msgid "Number of fields"
+msgid "Number of rows:"
+msgstr "Количество полей"
+
+#: libraries/display_export.lib.php:162
+msgid "Row to begin at:"
+msgstr ""
+
+#: libraries/display_export.lib.php:173
 msgid "Dump all rows"
 msgstr "Выгрузить все строки"
 
-#: libraries/display_export.lib.php:118 setup/lib/messages.inc.php:79
-msgid "Save as file"
-msgstr "Сохранить как файл"
+#: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
+msgid "Output:"
+msgstr ""
 
-#: libraries/display_export.lib.php:127
-#, php-format
-msgid "Save on server in %s directory"
+#: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
+#, fuzzy, php-format
+#| msgid "Save on server in %s directory"
+msgid "Save on server in the directory <b>%s</b>"
 msgstr "Сохранить на сервере в каталоге %s"
 
-#: libraries/display_export.lib.php:135 setup/lib/messages.inc.php:87
+#: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
+#: setup/lib/messages.inc.php:88
 msgid "Overwrite existing file(s)"
 msgstr "Перезаписать существующий(е) файл(ы)"
 
-#: libraries/display_export.lib.php:141
-msgid "File name template"
+#: libraries/display_export.lib.php:206
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save output to a file"
+msgstr "Сохранить как файл"
+
+#: libraries/display_export.lib.php:227
+#, fuzzy
+#| msgid "File name template"
+msgid "File name template:"
 msgstr "Шаблон имени файла"
 
-#: libraries/display_export.lib.php:145
+#: libraries/display_export.lib.php:230
 msgid "server name"
 msgstr "имя сервера"
 
-#: libraries/display_export.lib.php:148
+#: libraries/display_export.lib.php:233
 msgid "database name"
 msgstr "имя базы данных"
 
-#: libraries/display_export.lib.php:151
+#: libraries/display_export.lib.php:236
 msgid "table name"
 msgstr "имя таблицы"
 
-#: libraries/display_export.lib.php:155
-#, php-format
+#: libraries/display_export.lib.php:240
+#, fuzzy, php-format
+#| msgid ""
+#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
+#| "formatting strings. Additionally the following transformations will "
+#| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
 "вставка текущей даты и времени. Дополнительно могут быть использованы "
 "следующие подстановки: %3$s. Остальной текст останется без изменений."
 
-#: libraries/display_export.lib.php:196
-msgid "remember template"
-msgstr "запомнить шаблон"
+#: libraries/display_export.lib.php:284
+msgid "use this for future exports"
+msgstr ""
 
-#: libraries/display_export.lib.php:204 libraries/display_import.lib.php:177
-#: libraries/display_import.lib.php:190 libraries/sql_query_form.lib.php:509
+#: libraries/display_export.lib.php:290 libraries/display_import.lib.php:184
+#: libraries/display_import.lib.php:197 libraries/sql_query_form.lib.php:509
 msgid "Character set of the file:"
 msgstr "Кодировка файла:"
 
-#: libraries/display_export.lib.php:229 setup/lib/messages.inc.php:81
-msgid "Compression"
+#: libraries/display_export.lib.php:318
+#, fuzzy
+#| msgid "Compression"
+msgid "Compression:"
 msgstr "Упаковать"
 
-#: libraries/display_export.lib.php:234 libraries/display_import.lib.php:196
-#: libraries/display_import.lib.php:209 libraries/display_tbl.lib.php:528
-#: libraries/export/sql.php:865 libraries/tbl_properties.inc.php:573
+#: libraries/display_export.lib.php:320 libraries/display_tbl.lib.php:528
+#: libraries/export/sql.php:916 libraries/tbl_properties.inc.php:578
 #: server_privileges.php:1871 server_processlist.php:74
 msgid "None"
 msgstr "Нет"
 
-#: libraries/display_export.lib.php:241
-msgid "\"zipped\""
+#: libraries/display_export.lib.php:322
+#, fuzzy
+#| msgid "\"zipped\""
+msgid "zipped"
 msgstr "zip"
 
-#: libraries/display_export.lib.php:247
-msgid "\"gzipped\""
+#: libraries/display_export.lib.php:324
+#, fuzzy
+#| msgid "\"gzipped\""
+msgid "gzipped"
 msgstr "gzip"
 
-#: libraries/display_export.lib.php:253
-msgid "\"bzipped\""
+#: libraries/display_export.lib.php:326
+#, fuzzy
+#| msgid "\"bzipped\""
+msgid "bzipped"
 msgstr "bzip"
 
-#: libraries/display_export.lib.php:268 libraries/export/sql.php:42
-#: libraries/import/sql.php:31
+#: libraries/display_export.lib.php:340 libraries/display_import.lib.php:240
+#: libraries/export/codegen.php:37
+#, fuzzy
+#| msgid "Format"
+msgid "Format:"
+msgstr "Формат"
+
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:246
+msgid "Format-Specific Options:"
+msgstr ""
+
+#: libraries/display_export.lib.php:354 libraries/display_import.lib.php:256
+#, fuzzy
+#| msgid "Recoding engine"
+msgid "Encoding Conversion:"
+msgstr "Механизм перекодирования"
+
+#: libraries/display_export.lib.php:360
 msgid "SQL compatibility mode"
 msgstr "Режим совместимости SQL"
 
@@ -2191,38 +2314,47 @@ msgid ""
 "not available."
 msgstr "Пожалуйста, подождите, файл был загружен. Детали загрузки недоступны."
 
-#: libraries/display_import.lib.php:125
-msgid "File to import"
+#: libraries/display_import.lib.php:129
+#, fuzzy
+#| msgid "Cannot log in to the MySQL server"
+msgid "Importing into the current server"
+msgstr "Невозможно подключиться к серверу MySQL"
+
+#: libraries/display_import.lib.php:131
+#, fuzzy
+#| msgid "Go to database"
+msgid "Importing into the database \""
+msgstr "Перейти к базе данных"
+
+#: libraries/display_import.lib.php:133
+msgid "Importing into the table \""
+msgstr ""
+
+#: libraries/display_import.lib.php:139
+#, fuzzy
+#| msgid "File to import"
+msgid "File to Import:"
 msgstr "Импортируемый файл"
 
-#: libraries/display_import.lib.php:136 libraries/sql_query_form.lib.php:484
-msgid "Location of the text file"
-msgstr "Выбор файла"
+#: libraries/display_import.lib.php:155
+#, php-format
+msgid ""
+"<div class=\"formelementrow\" id=\"compression_info\">File may be compressed "
+"(%s) or uncompressed.<br />A compressed file's name must end in <b>.[format]."
+"[compression]</b>. Example: <b>.sql.zip</b></div>"
+msgstr ""
 
-#: libraries/display_import.lib.php:147
+#: libraries/display_import.lib.php:174
 msgid "File uploads are not allowed on this server."
 msgstr "Загрузка файлов на сервер, невозможна."
 
-#: libraries/display_import.lib.php:162 libraries/sql_query_form.lib.php:493
-#: tbl_change.php:922
-msgid "The directory you set for upload work cannot be reached"
-msgstr "Установленный каталог загрузки не доступен"
-
-#: libraries/display_import.lib.php:165 libraries/sql_query_form.lib.php:496
-#: tbl_change.php:925
-msgid "web server upload directory"
-msgstr "Из каталога загрузки"
-
-#: libraries/display_import.lib.php:211
-#, php-format
-msgid "Imported file compression will be automatically detected from: %s"
-msgstr "Автоматическое определение типа сжатия, варианты: %s"
-
-#: libraries/display_import.lib.php:218
-msgid "Partial import"
+#: libraries/display_import.lib.php:204
+#, fuzzy
+#| msgid "Partial import"
+msgid "Partial Import:"
 msgstr "Частичный импорт"
 
-#: libraries/display_import.lib.php:224
+#: libraries/display_import.lib.php:210
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -2230,24 +2362,25 @@ msgstr ""
 "Процесс импорта был прерван из-за приближения временного лимита, после "
 "перезапуска импорт будет продолжен с позиции %d."
 
-#: libraries/display_import.lib.php:231
+#: libraries/display_import.lib.php:217
+#, fuzzy
+#| msgid ""
+#| "Allow the interruption of an import in case the script detects it is "
+#| "close to the PHP timeout limit. This might be good way to import large "
+#| "files, however it can break transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. This might be good way to import large files, "
-"however it can break transactions."
+"to the PHP timeout limit. <i>(This might be good way to import large files, "
+"however it can break transactions.)</i>"
 msgstr ""
 "Разрешить скрипту разбивать процесс импорта при приближении временного "
 "лимита. Может быть использовано при импорте файлов большого размера."
 
-#: libraries/display_import.lib.php:238 setup/lib/messages.inc.php:158
+#: libraries/display_import.lib.php:224
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
-msgid "Number of queries to skip from start"
+msgid "Number of rows to skip, starting from the first row:"
 msgstr "Количество запросов пропускаемых от начала импорта"
-
-#: libraries/display_import.lib.php:254 setup/lib/messages.inc.php:157
-msgid "Format of imported file"
-msgstr "Формат импортируемого файла"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
@@ -2330,20 +2463,20 @@ msgstr "Выполнение данной операции может занят
 msgid "Sort by key"
 msgstr "Сортировать по индексу"
 
-#: libraries/display_tbl.lib.php:553 libraries/export/codegen.php:38
-#: libraries/export/csv.php:29 libraries/export/excel.php:34
-#: libraries/export/htmlword.php:28 libraries/export/latex.php:32
-#: libraries/export/mediawiki.php:21 libraries/export/ods.php:26
-#: libraries/export/odt.php:26 libraries/export/pdf.php:26
-#: libraries/export/php_array.php:25 libraries/export/sql.php:33
-#: libraries/export/texytext.php:37 libraries/export/xls.php:26
-#: libraries/export/xlsx.php:26 libraries/export/xml.php:23
-#: libraries/export/yaml.php:27 libraries/import.lib.php:1114
-#: libraries/import.lib.php:1136 libraries/import/csv.php:31
-#: libraries/import/docsql.php:32 libraries/import/ldi.php:46
-#: libraries/import/ods.php:30 libraries/import/sql.php:19
-#: libraries/import/xls.php:25 libraries/import/xlsx.php:25
-#: libraries/import/xml.php:25 tbl_select.php:263 tbl_structure.php:750
+#: libraries/display_tbl.lib.php:553 libraries/export/codegen.php:40
+#: libraries/export/csv.php:31 libraries/export/excel.php:36
+#: libraries/export/htmlword.php:32 libraries/export/latex.php:34
+#: libraries/export/mediawiki.php:23 libraries/export/ods.php:28
+#: libraries/export/odt.php:26 libraries/export/pdf.php:28
+#: libraries/export/php_array.php:27 libraries/export/sql.php:55
+#: libraries/export/texytext.php:30 libraries/export/xls.php:28
+#: libraries/export/xlsx.php:28 libraries/export/xml.php:25
+#: libraries/export/yaml.php:29 libraries/import.lib.php:1114
+#: libraries/import.lib.php:1136 libraries/import/csv.php:32
+#: libraries/import/docsql.php:34 libraries/import/ldi.php:48
+#: libraries/import/ods.php:32 libraries/import/sql.php:19
+#: libraries/import/xls.php:27 libraries/import/xlsx.php:27
+#: libraries/import/xml.php:25 tbl_select.php:263 tbl_structure.php:845
 msgid "Options"
 msgstr "Параметры"
 
@@ -2420,7 +2553,7 @@ msgstr "запрос занял %01.4f сек."
 
 #: libraries/display_tbl.lib.php:2047 libraries/mult_submits.inc.php:112
 #: querywindow.php:114 querywindow.php:118 querywindow.php:121
-#: tbl_structure.php:23 tbl_structure.php:148 tbl_structure.php:467
+#: tbl_structure.php:23 tbl_structure.php:148 tbl_structure.php:561
 msgid "Change"
 msgstr "Изменить"
 
@@ -2436,7 +2569,7 @@ msgstr "Версия для печати (полностью)"
 msgid "Link not found"
 msgstr "Связь не найдена"
 
-#: libraries/engines/bdb.lib.php:20 main.php:227
+#: libraries/engines/bdb.lib.php:20 main.php:200
 msgid "Version information"
 msgstr "Информация о версии"
 
@@ -2490,7 +2623,7 @@ msgstr "Использование"
 
 #: libraries/engines/innodb.lib.php:168 server_databases.php:134
 #: server_databases.php:302 server_status.php:524 server_status.php:585
-#: server_status.php:606 tbl_printview.php:348 tbl_structure.php:693
+#: server_status.php:606 tbl_printview.php:348 tbl_structure.php:788
 msgid "Total"
 msgstr "Всего"
 
@@ -2862,60 +2995,54 @@ msgstr ""
 "журналы будут удалены, иначе они будут переименованы и получат следующий "
 "порядковый номер."
 
-#: libraries/export/codegen.php:36 setup/lib/messages.inc.php:85
-#: tbl_printview.php:373 tbl_structure.php:734
-msgid "Format"
-msgstr "Формат"
-
 #: libraries/export/csv.php:16 libraries/import/csv.php:21
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/export/csv.php:20 libraries/import/csv.php:26
-#: libraries/import/csv.php:58 libraries/import/ldi.php:39
+#: libraries/export/csv.php:21 libraries/import/csv.php:27
 #, fuzzy
 #| msgid "Lines terminated by"
-msgid "Columns terminated by"
+msgid "Columns separated with:"
 msgstr "Разделитель строк"
-
-#: libraries/export/csv.php:21 libraries/import/csv.php:27
-#: libraries/import/csv.php:70 libraries/import/ldi.php:40
-#, fuzzy
-#| msgid "Fields enclosed by"
-msgid "Columns enclosed by"
-msgstr "Значения полей обрамлены"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#: libraries/import/csv.php:74 libraries/import/ldi.php:41
 #, fuzzy
-#| msgid "Fields escaped by"
-msgid "Columns escaped by"
-msgstr "Символ экранирования"
+#| msgid "Fields enclosed by"
+msgid "Columns enclosed with:"
+msgstr "Значения полей обрамлены"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#: libraries/import/csv.php:78 libraries/import/ldi.php:42
-msgid "Lines terminated by"
+#, fuzzy
+#| msgid "Fields escaped by"
+msgid "Columns escaped with:"
+msgstr "Символ экранирования"
+
+#: libraries/export/csv.php:24 libraries/import/csv.php:30
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "Lines terminated with:"
 msgstr "Разделитель строк"
 
-#: libraries/export/csv.php:24 libraries/export/excel.php:21
-#: libraries/export/htmlword.php:24 libraries/export/latex.php:69
-#: libraries/export/ods.php:22 libraries/export/odt.php:51
-#: libraries/export/texytext.php:31 libraries/export/xls.php:22
-#: libraries/export/xlsx.php:22
-msgid "Replace NULL by"
+#: libraries/export/csv.php:25 libraries/export/excel.php:22
+#: libraries/export/htmlword.php:28 libraries/export/latex.php:79
+#: libraries/export/ods.php:23 libraries/export/odt.php:59
+#: libraries/export/xls.php:23 libraries/export/xlsx.php:23
+#, fuzzy
+#| msgid "Replace NULL by"
+msgid "Replace NULL with:"
 msgstr "Заменить NULL на"
 
-#: libraries/export/csv.php:25 libraries/export/excel.php:22
+#: libraries/export/csv.php:26
 #, fuzzy
 #| msgid "Remove CRLF characters within fields"
-msgid "Remove CRLF characters within columns"
+msgid "Remove carriage return/line field characters within columns"
 msgstr "Удалите из полей символы CRLF"
 
-#: libraries/export/csv.php:26 libraries/export/excel.php:23
-#: libraries/export/htmlword.php:25 libraries/export/latex.php:61
-#: libraries/export/ods.php:23 libraries/export/odt.php:49
-#: libraries/export/texytext.php:34 libraries/export/xls.php:23
-#: libraries/export/xlsx.php:23
+#: libraries/export/csv.php:27 libraries/export/excel.php:24
+#: libraries/export/htmlword.php:29 libraries/export/latex.php:71
+#: libraries/export/ods.php:24 libraries/export/odt.php:57
+#: libraries/export/texytext.php:27 libraries/export/xls.php:24
+#: libraries/export/xlsx.php:24
 #, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
@@ -2925,30 +3052,65 @@ msgstr "Поместить названия полей в первой стро�
 msgid "CSV for MS Excel"
 msgstr "CSV для MS Excel"
 
-#: libraries/export/excel.php:31
-msgid "Excel edition"
+#: libraries/export/excel.php:23
+#, fuzzy
+#| msgid "Remove CRLF characters within fields"
+msgid "Remove carriage return/line feed characters within columns"
+msgstr "Удалите из полей символы CRLF"
+
+#: libraries/export/excel.php:32
+#, fuzzy
+#| msgid "Excel edition"
+msgid "Excel edition:"
 msgstr "Excel-версия"
 
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/export/htmlword.php:23 libraries/export/latex.php:59
-#: libraries/export/latex.php:205 libraries/export/odt.php:47
-#: libraries/export/sql.php:105 libraries/export/sql.php:865
-#: libraries/export/texytext.php:27 server_databases.php:124
-#: server_privileges.php:575 server_replication.php:314 tbl_printview.php:314
-#: tbl_structure.php:662
-msgid "Data"
-msgstr "Данные"
+#: libraries/export/htmlword.php:23 libraries/export/latex.php:39
+#: libraries/export/odt.php:31 libraries/export/sql.php:77
+#: libraries/export/texytext.php:22
+#, fuzzy
+#| msgid "%s table(s)"
+msgid "Dump table"
+msgstr "Таблиц: %s"
 
-#: libraries/export/htmlword.php:131 libraries/export/odt.php:167
-#: libraries/export/sql.php:878 libraries/export/texytext.php:130
+#: libraries/export/htmlword.php:24 libraries/export/latex.php:41
+#: libraries/export/odt.php:33 libraries/export/sql.php:79
+#: libraries/export/texytext.php:23 libraries/import.lib.php:1141
+msgid "structure"
+msgstr "структура"
+
+#: libraries/export/htmlword.php:24 libraries/export/latex.php:41
+#: libraries/export/odt.php:33 libraries/export/sql.php:79
+#: libraries/export/texytext.php:23
+msgid "data"
+msgstr ""
+
+#: libraries/export/htmlword.php:24 libraries/export/latex.php:41
+#: libraries/export/odt.php:33 libraries/export/sql.php:79
+#: libraries/export/texytext.php:23
+#, fuzzy
+#| msgid "Structure and data"
+msgid "structure and data"
+msgstr "Структура и данные"
+
+#: libraries/export/htmlword.php:27 libraries/export/latex.php:69
+#: libraries/export/odt.php:55 libraries/export/sql.php:132
+#: libraries/export/texytext.php:25 libraries/export/xml.php:45
+#, fuzzy
+#| msgid "Databases display options"
+msgid "Data dump options"
+msgstr "Параметры отображения списка баз данных"
+
+#: libraries/export/htmlword.php:135 libraries/export/odt.php:175
+#: libraries/export/sql.php:929 libraries/export/texytext.php:123
 msgid "Dumping data for table"
 msgstr "Дамп данных таблицы"
 
-#: libraries/export/htmlword.php:184 libraries/export/odt.php:237
-#: libraries/export/sql.php:782 libraries/export/texytext.php:177
+#: libraries/export/htmlword.php:188 libraries/export/odt.php:245
+#: libraries/export/sql.php:833 libraries/export/texytext.php:170
 msgid "Table structure for table"
 msgstr "Структура таблицы"
 
@@ -2968,35 +3130,53 @@ msgstr "Структура таблицы @TABLE@"
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/export/latex.php:30
+#: libraries/export/latex.php:31
 msgid "Include table caption"
 msgstr "Добавить заголовок таблицы"
 
-#: libraries/export/latex.php:39 libraries/export/latex.php:63
+#: libraries/export/latex.php:47 libraries/export/odt.php:39
+#: libraries/export/sql.php:87
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Object creation options"
+msgstr "Параметры преобразований"
+
+#: libraries/export/latex.php:49 libraries/export/latex.php:73
 msgid "Table caption"
 msgstr "Заголовок таблицы"
 
-#: libraries/export/latex.php:41 libraries/export/latex.php:65
-msgid "Continued table caption"
-msgstr "Заголовок таблицы (продолжение)"
+#: libraries/export/latex.php:51 libraries/export/latex.php:75
+#, fuzzy
+#| msgid "Table caption"
+msgid "Table caption (continued)"
+msgstr "Заголовок таблицы"
 
-#: libraries/export/latex.php:43 libraries/export/latex.php:67
+#: libraries/export/latex.php:53 libraries/export/latex.php:77
 msgid "Label key"
 msgstr "Идентификатор метки"
 
-#: libraries/export/latex.php:46 libraries/export/odt.php:34
-#: libraries/export/sql.php:90 tbl_relation.php:396
-msgid "Relations"
-msgstr "Связи"
+#: libraries/export/latex.php:56 libraries/export/odt.php:42
+#: libraries/export/sql.php:40
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Display foreign key relationships"
+msgstr "Отключить проверку внешних ключей"
 
-#: libraries/export/latex.php:52 libraries/export/odt.php:40
-#: libraries/export/odt.php:317 libraries/export/sql.php:94
-#: libraries/tbl_properties.inc.php:141
-msgid "MIME type"
-msgstr "MIME-тип"
+#: libraries/export/latex.php:59 libraries/export/odt.php:45
+#, fuzzy
+#| msgid "Displaying Column Comments"
+msgid "Display comments"
+msgstr "Отображать комментарии столбцов"
 
-#: libraries/export/latex.php:129 libraries/export/sql.php:230
-#: libraries/export/xml.php:101 libraries/header_printview.inc.php:56
+#: libraries/export/latex.php:62 libraries/export/odt.php:48
+#: libraries/export/sql.php:44
+#, fuzzy
+#| msgid "Available MIME types"
+msgid "Display MIME types"
+msgstr "Доступные MIME-типы"
+
+#: libraries/export/latex.php:139 libraries/export/sql.php:281
+#: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:176
 #: libraries/replication_gui.lib.php:271 libraries/replication_gui.lib.php:274
 #: libraries/replication_gui.lib.php:331 server_privileges.php:730
@@ -3006,20 +3186,26 @@ msgstr "MIME-тип"
 msgid "Host"
 msgstr "Хост"
 
-#: libraries/export/latex.php:134 libraries/export/sql.php:231
-#: libraries/export/xml.php:106 libraries/header_printview.inc.php:58
+#: libraries/export/latex.php:144 libraries/export/sql.php:282
+#: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr "Время создания"
 
-#: libraries/export/latex.php:135 libraries/export/sql.php:233
-#: libraries/export/xml.php:107 main.php:185
+#: libraries/export/latex.php:145 libraries/export/sql.php:284
+#: libraries/export/xml.php:111 main.php:158
 msgid "Server version"
 msgstr "Версия сервера"
 
-#: libraries/export/latex.php:136 libraries/export/sql.php:234
-#: libraries/export/xml.php:108
+#: libraries/export/latex.php:146 libraries/export/sql.php:285
+#: libraries/export/xml.php:112
 msgid "PHP Version"
 msgstr "Версия PHP"
+
+#: libraries/export/latex.php:215 libraries/export/sql.php:916
+#: server_databases.php:124 server_privileges.php:575
+#: server_replication.php:314 tbl_printview.php:314 tbl_structure.php:757
+msgid "Data"
+msgstr "Данные"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
@@ -3033,123 +3219,202 @@ msgstr "Open Document Spreadsheet"
 msgid "Open Document Text"
 msgstr "OpenDocument текст"
 
+#: libraries/export/odt.php:325 libraries/tbl_properties.inc.php:141
+msgid "MIME type"
+msgstr "MIME-тип"
+
 #: libraries/export/pdf.php:17
 msgid "PDF"
 msgstr "PDF"
 
-#: libraries/export/pdf.php:22
+#: libraries/export/pdf.php:23
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(Создание отчета содержащего данные одной таблицы)"
 
-#: libraries/export/pdf.php:23
-msgid "Report title"
+#: libraries/export/pdf.php:24
+#, fuzzy
+#| msgid "Report title"
+msgid "Report title:"
 msgstr "Заголовок отчета"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
 msgstr "Массив PHP"
 
-#: libraries/export/sql.php:28
-msgid "Add custom comment into header (\\n splits lines)"
+#: libraries/export/sql.php:33
+msgid ""
+"Display comments <i>(includes info such as export timestamp, PHP version, "
+"and server version)</i>"
+msgstr ""
+
+#: libraries/export/sql.php:35
+#, fuzzy
+#| msgid "Add custom comment into header (\\n splits lines)"
+msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Добавить собственный комментарий в заголовок (перевод строки: \\n)"
 
-#: libraries/export/sql.php:30
+#: libraries/export/sql.php:37
+msgid ""
+"Include a timestamp of when databases were created, last updated, and last "
+"checked"
+msgstr ""
+
+#: libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
 msgstr "Заключить экспорт в транзакцию"
 
-#: libraries/export/sql.php:31
+#: libraries/export/sql.php:53
 msgid "Disable foreign key checks"
 msgstr "Отключить проверку внешних ключей"
 
-#: libraries/export/sql.php:49
-msgid "Database export options"
-msgstr "Параметры экспорта базы данных"
+#: libraries/export/sql.php:65
+msgid ""
+"Database system or older MySQL server to maximize output compatibility with:"
+msgstr ""
 
-#: libraries/export/sql.php:79
+#: libraries/export/sql.php:72
+#, fuzzy, php-format
+#| msgid "Statements"
+msgid "Add %s statement"
+msgstr "Характеристика"
+
+#: libraries/export/sql.php:91
 #, fuzzy
-#| msgid "Enclose table and field names with backquotes"
-msgid "Enclose table and column names with backquotes"
-msgstr "Заключить названия таблиц и полей в косые кавычки"
+#| msgid "Statements"
+msgid "Add statements:"
+msgstr "Характеристика"
 
-#: libraries/export/sql.php:85
-msgid "Add into comments"
-msgstr "Добавить в комментарии"
-
-#: libraries/export/sql.php:87
-msgid "Creation/Update/Check dates"
-msgstr "Даты создания, обновления и проверки"
-
-#: libraries/export/sql.php:107
-msgid "Complete inserts"
-msgstr "Полная вставка"
-
-#: libraries/export/sql.php:109
-msgid "Extended inserts"
-msgstr "Расширенные вставки"
+#: libraries/export/sql.php:105 libraries/export/sql.php:107
+#, php-format
+msgid "%s"
+msgstr ""
 
 #: libraries/export/sql.php:111
+msgid "<code>CREATE TABLE</code> options:"
+msgstr ""
+
+#: libraries/export/sql.php:113
+msgid "<code>IF NOT EXISTS</code>"
+msgstr ""
+
+#: libraries/export/sql.php:115
+#, fuzzy
+#| msgid "Add AUTO_INCREMENT value"
+msgid "<code>AUTO_INCREMENT</code>"
+msgstr "Добавить AUTO_INCREMENT"
+
+#: libraries/export/sql.php:123
+msgid ""
+"Enclose table and field names with backquotes <i>(Protects field and table "
+"names formed with special characters)</i>"
+msgstr ""
+
+#: libraries/export/sql.php:136
+msgid "Instead of <code>INSERT</code> statements, use:"
+msgstr ""
+
+#: libraries/export/sql.php:138
+msgid "<code>INSERT DELAYED</code> statements"
+msgstr ""
+
+#: libraries/export/sql.php:140
+msgid "<code>INSERT IGNORE</code> statements"
+msgstr ""
+
+#: libraries/export/sql.php:147
+msgid "Function to use when dumping data:"
+msgstr ""
+
+#: libraries/export/sql.php:151
+msgid "Syntax to use when inserting data:"
+msgstr ""
+
+#: libraries/export/sql.php:154
+msgid ""
+"include column names in every <code>INSERT</code> statement <br /> &nbsp; "
+"&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
+msgstr ""
+
+#: libraries/export/sql.php:155
+msgid ""
+"insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
+"&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
+msgstr ""
+
+#: libraries/export/sql.php:156
+msgid ""
+"both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
+"tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+msgstr ""
+
+#: libraries/export/sql.php:157
+msgid ""
+"neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
+"tbl_name VALUES (1,2,3)</code>"
+msgstr ""
+
+#: libraries/export/sql.php:163
 msgid "Maximal length of created query"
 msgstr "Максимальная длина создаваемого запроса"
 
-#: libraries/export/sql.php:113
-msgid "Use delayed inserts"
-msgstr "Использовать отложенные вставки (DELAYED)"
-
-#: libraries/export/sql.php:115
-msgid "Use ignore inserts"
-msgstr "Использовать игнорирующие вставки (IGNORE)"
-
-#: libraries/export/sql.php:117
-msgid "Use hexadecimal for BLOB"
-msgstr "Использовать шестнадцатеричное отображение для полей типа BLOB"
-
-#: libraries/export/sql.php:119
-msgid "Export time in UTC"
+#: libraries/export/sql.php:167
+msgid ""
+"Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
+"0x616263)</i>"
 msgstr ""
 
-#: libraries/export/sql.php:121
-msgid "Export type"
-msgstr "Тип экспорта"
+#: libraries/export/sql.php:171
+msgid ""
+"Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
+"reloaded between servers in different time zones)</i>"
+msgstr ""
 
-#: libraries/export/sql.php:384
+#: libraries/export/sql.php:435 libraries/export/xml.php:34
 msgid "Procedures"
 msgstr "Процедуры"
 
-#: libraries/export/sql.php:398
+#: libraries/export/sql.php:449 libraries/export/xml.php:32
 msgid "Functions"
 msgstr "Функции"
 
-#: libraries/export/sql.php:615
+#: libraries/export/sql.php:666
 msgid "Constraints for dumped tables"
 msgstr "Ограничения внешнего ключа сохраненных таблиц"
 
-#: libraries/export/sql.php:624
+#: libraries/export/sql.php:675
 msgid "Constraints for table"
 msgstr "Ограничения внешнего ключа таблицы"
 
-#: libraries/export/sql.php:724
+#: libraries/export/sql.php:775
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME-ТИПЫ ТАБЛИЦЫ"
 
-#: libraries/export/sql.php:736
+#: libraries/export/sql.php:787
 msgid "RELATIONS FOR TABLE"
 msgstr "Связи таблицы"
 
-#: libraries/export/sql.php:793 libraries/tbl_triggers.lib.php:18
+#: libraries/export/sql.php:844 libraries/export/xml.php:38
+#: libraries/tbl_triggers.lib.php:18
 msgid "Triggers"
 msgstr "Триггеры"
 
-#: libraries/export/sql.php:805
+#: libraries/export/sql.php:856
 msgid "Structure for view"
 msgstr "Структура для представления"
 
-#: libraries/export/sql.php:814
+#: libraries/export/sql.php:865
 msgid "Stand-in structure for view"
 msgstr "Дублирующая структура для представления"
 
 #: libraries/export/texytext.php:17
 msgid "Texy! text"
 msgstr "Texy! текст"
+
+#: libraries/export/texytext.php:26
+msgid "Replace NULL by"
+msgstr "Заменить NULL на"
 
 #: libraries/export/xls.php:17 libraries/import/xls.php:20
 msgid "Excel 97-2003 XLS Workbook"
@@ -3163,31 +3428,22 @@ msgstr "Excel 2007 XLSX Workbook"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/export/xml.php:28
-msgid "Export Structure Schemas (recommended)"
-msgstr "Экспортировать структуру (рекомендуется)"
-
 #: libraries/export/xml.php:30
-msgid "Export functions"
-msgstr "Экспортировать функции"
+msgid "Object creation options (all are recommended)"
+msgstr ""
 
-#: libraries/export/xml.php:32
-msgid "Export procedures"
-msgstr "Экспортировать процедуры"
+#: libraries/export/xml.php:36 server_databases.php:114 server_status.php:370
+#: setup/lib/messages.inc.php:115
+msgid "Tables"
+msgstr "Таблицы"
 
-#: libraries/export/xml.php:34
-msgid "Export tables"
-msgstr "Экспортировать таблицы"
+#: libraries/export/xml.php:40
+#, fuzzy
+#| msgid "View"
+msgid "Views"
+msgstr "Представление"
 
-#: libraries/export/xml.php:36
-msgid "Export triggers"
-msgstr "Экспортировать триггеры"
-
-#: libraries/export/xml.php:38
-msgid "Export views"
-msgstr "Экспортировать отображения (VIEW)"
-
-#: libraries/export/xml.php:44
+#: libraries/export/xml.php:47
 msgid "Export contents"
 msgstr "Экспортировать содержимое"
 
@@ -3244,49 +3500,79 @@ msgstr "настройки"
 msgid "Go to table"
 msgstr "Перейти к таблице"
 
-#: libraries/import.lib.php:1141
-msgid "structure"
-msgstr "структура"
-
 #: libraries/import.lib.php:1147
 msgid "Go to view"
 msgstr "Перейти к отображению (VIEW)"
 
-#: libraries/import/csv.php:24 libraries/import/ldi.php:37
+#: libraries/import/csv.php:25 libraries/import/ldi.php:38
 msgid "Replace table data with file"
 msgstr "Заместить данные таблицы данными из файла"
 
-#: libraries/import/csv.php:25 libraries/import/ldi.php:38
+#: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Ignore duplicate rows"
 msgstr "Игнорировать повторяющиеся строки"
 
-#: libraries/import/csv.php:36 libraries/import/ods.php:25
-#: libraries/import/xls.php:23 libraries/import/xlsx.php:23
-msgid "Column names in first row"
-msgstr "Имена таблиц в первой строке"
+#: libraries/import/csv.php:37 libraries/import/ods.php:26
+#: libraries/import/xls.php:24 libraries/import/xlsx.php:24
+msgid ""
+"The first line of the file contains the table column names <i>(if this is "
+"unchecked, the first line will become part of the data)</i>"
+msgstr ""
 
-#: libraries/import/csv.php:39 libraries/import/ldi.php:43 pdf_pages.php:500
-#: view_create.php:147
-msgid "Column names"
+#: libraries/import/csv.php:39
+msgid ""
+"If the data in each row of the file is not in the same order as in the "
+"database, list the corresponding column names here. Column names must be "
+"separated by commas and not enclosed in quotations."
+msgstr ""
+
+#: libraries/import/csv.php:41
+#, fuzzy
+#| msgid "Column names"
+msgid "Column names: "
 msgstr "Названия столбцов"
 
-#: libraries/import/csv.php:57 libraries/import/csv.php:69
-#: libraries/import/csv.php:73 libraries/import/csv.php:77
+#: libraries/import/csv.php:60 libraries/import/csv.php:72
+#: libraries/import/csv.php:76 libraries/import/csv.php:80
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Неправильный параметр импорта CSV: %s"
 
-#: libraries/import/csv.php:118
-#, php-format
-msgid "Invalid column (%s) specified!"
-msgstr "Выбран неверный столбец (%s)!"
+#: libraries/import/csv.php:61 libraries/import/ldi.php:40
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "Columns terminated by"
+msgstr "Разделитель строк"
 
-#: libraries/import/csv.php:176 libraries/import/csv.php:423
+#: libraries/import/csv.php:73 libraries/import/ldi.php:41
+#, fuzzy
+#| msgid "Fields enclosed by"
+msgid "Columns enclosed by"
+msgstr "Значения полей обрамлены"
+
+#: libraries/import/csv.php:77 libraries/import/ldi.php:42
+#, fuzzy
+#| msgid "Fields escaped by"
+msgid "Columns escaped by"
+msgstr "Символ экранирования"
+
+#: libraries/import/csv.php:81 libraries/import/ldi.php:43
+msgid "Lines terminated by"
+msgstr "Разделитель строк"
+
+#: libraries/import/csv.php:121
+#, php-format
+msgid ""
+"Invalid column (%s) specified! Ensure that columns names are spelled "
+"correctly, separated by commas, and not enclosed in quotes."
+msgstr ""
+
+#: libraries/import/csv.php:179 libraries/import/csv.php:426
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Неправильный формат входных CSV-данных в строке %d."
 
-#: libraries/import/csv.php:311
+#: libraries/import/csv.php:314
 #, fuzzy, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
@@ -3296,7 +3582,7 @@ msgstr "Неправильное количество полей во входн
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:30 libraries/tbl_properties.inc.php:616
+#: libraries/import/docsql.php:31 libraries/tbl_properties.inc.php:621
 #: server_synchronize.php:426 server_synchronize.php:869
 msgid "Table name"
 msgstr "Имя таблицы"
@@ -3305,28 +3591,44 @@ msgstr "Имя таблицы"
 msgid "CSV using LOAD DATA"
 msgstr "CSV, используя LOAD DATA"
 
-#: libraries/import/ldi.php:44
+#: libraries/import/ldi.php:44 pdf_pages.php:500 view_create.php:147
+msgid "Column names"
+msgstr "Названия столбцов"
+
+#: libraries/import/ldi.php:45
 msgid "Use LOCAL keyword"
 msgstr "Использовать ключевое слово LOCAL"
 
-#: libraries/import/ldi.php:54
+#: libraries/import/ldi.php:56
 msgid "This plugin does not support compressed imports!"
 msgstr "Этот модуль не поддерживает импорт сжатых данных!"
 
-#: libraries/import/ods.php:26
+#: libraries/import/ods.php:27
 msgid "Do not import empty rows"
 msgstr "Пропускать пустые строки"
 
-#: libraries/import/ods.php:27
-msgid "Import percentages as proper decimals (12.00% to .12)"
+#: libraries/import/ods.php:28
+#, fuzzy
+#| msgid "Import percentages as proper decimals (12.00% to .12)"
+msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Импортировать проценты в виде десятичных значений (12.00% в .12)"
 
-#: libraries/import/ods.php:28
-msgid "Import currencies ($5.00 to 5.00)"
+#: libraries/import/ods.php:29
+#, fuzzy
+#| msgid "Import currencies ($5.00 to 5.00)"
+msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Импортировать денежные единицы ($5.00 в 5.00)"
 
-#: libraries/import/sql.php:41
-msgid "Do not use AUTO_INCREMENT for zero values"
+#: libraries/import/sql.php:32
+#, fuzzy
+#| msgid "SQL compatibility mode"
+msgid "SQL compatibility mode:"
+msgstr "Режим совместимости SQL"
+
+#: libraries/import/sql.php:42
+#, fuzzy
+#| msgid "Do not use AUTO_INCREMENT for zero values"
+msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Не используйте параметр AUTO_INCREMENT для нулевых значений"
 
 #: libraries/import/xml.php:74 libraries/import/xml.php:130
@@ -3337,15 +3639,7 @@ msgstr ""
 "Выбранный XML файл некорректен, либо неполон. Проверьте возможные ошибки и "
 "попробуйте ещё раз."
 
-#. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
-#| msgid "Recoding engine"
-msgid "Encoding conversion"
-msgstr "Механизм перекодирования"
-
-#. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:144
 #, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
@@ -3353,26 +3647,27 @@ msgid "None"
 msgstr "Нет"
 
 #. l10n: This is currently used only in Japanese locales
-#: libraries/kanji-encoding.lib.php:150
+#: libraries/kanji-encoding.lib.php:148
 msgid "Convert to Kana"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:75 libraries/tbl_properties.inc.php:511
+#: libraries/mult_submits.inc.php:75 libraries/tbl_properties.inc.php:516
 #: tbl_structure.php:27 tbl_structure.php:151 tbl_structure.php:155
-#: tbl_structure.php:470
+#: tbl_structure.php:164 tbl_structure.php:165 tbl_structure.php:564
 msgid "Primary"
 msgstr "Первичный"
 
 #: libraries/mult_submits.inc.php:97 libraries/tbl_properties.inc.php:115
-#: libraries/tbl_properties.inc.php:523 tbl_printview.php:323
+#: libraries/tbl_properties.inc.php:528 tbl_printview.php:323
 #: tbl_structure.php:29 tbl_structure.php:152 tbl_structure.php:156
-#: tbl_structure.php:472 tbl_structure.php:670
+#: tbl_structure.php:166 tbl_structure.php:167 tbl_structure.php:566
+#: tbl_structure.php:765
 msgid "Index"
 msgstr "Индекс"
 
-#: libraries/mult_submits.inc.php:107 libraries/tbl_properties.inc.php:529
+#: libraries/mult_submits.inc.php:107 libraries/tbl_properties.inc.php:534
 #: tbl_structure.php:33 tbl_structure.php:154 tbl_structure.php:158
-#: tbl_structure.php:475
+#: tbl_structure.php:170 tbl_structure.php:171 tbl_structure.php:569
 msgid "Fulltext"
 msgstr "Полнотекстовый"
 
@@ -3579,18 +3874,20 @@ msgstr "К началу"
 
 #: libraries/navigation_header.inc.php:66
 #: libraries/navigation_header.inc.php:69
-#: libraries/navigation_header.inc.php:70 main.php:98
+#: libraries/navigation_header.inc.php:70
 msgid "Log out"
 msgstr "Выход"
 
 #: libraries/navigation_header.inc.php:79
 #: libraries/navigation_header.inc.php:82
-#: libraries/navigation_header.inc.php:85 setup/lib/messages.inc.php:119
+#: libraries/navigation_header.inc.php:85 setup/lib/messages.inc.php:120
 msgid "Query window"
 msgstr "Окно запроса"
 
-#: libraries/plugin_interface.lib.php:313
-msgid "This format has no options"
+#: libraries/plugin_interface.lib.php:336
+#, fuzzy
+#| msgid "This format has no options"
+msgid "<p>This format has no options</p>"
 msgstr "Для этого формата нет настраиваемых параметров"
 
 #: libraries/relation.lib.php:77
@@ -3697,7 +3994,7 @@ msgstr "Переменная"
 
 #: libraries/replication_gui.lib.php:117 server_status.php:737
 #: tbl_change.php:317 tbl_printview.php:367 tbl_select.php:136
-#: tbl_structure.php:726
+#: tbl_structure.php:821
 msgid "Value"
 msgstr "Значение"
 
@@ -3757,18 +4054,24 @@ msgid "Generate Password"
 msgstr "Создать пароль"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:481
+#: libraries/select_lang.lib.php:484
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:486 libraries/select_lang.lib.php:492
-#: libraries/select_lang.lib.php:498
+#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
+#: libraries/select_lang.lib.php:501
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Неизвестный язык: %1$s."
 
+#: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
+#, fuzzy
+#| msgid "Current server"
+msgid "Current Server"
+msgstr "Текущий сервер"
+
 #: libraries/select_server.lib.php:42 setup/frames/index.inc.php:97
-#: setup/lib/messages.inc.php:112
+#: setup/lib/messages.inc.php:113
 msgid "Servers"
 msgstr "Сервера"
 
@@ -3837,11 +4140,11 @@ msgstr "Выполнить SQL-запрос(ы) к базе данных %s"
 msgid "Columns"
 msgstr "Названия столбцов"
 
-#: libraries/sql_query_form.lib.php:329 sql.php:657 sql.php:658 sql.php:675
+#: libraries/sql_query_form.lib.php:329 sql.php:662 sql.php:663 sql.php:680
 msgid "Bookmark this SQL query"
 msgstr "Создание закладки"
 
-#: libraries/sql_query_form.lib.php:336 sql.php:669
+#: libraries/sql_query_form.lib.php:336 sql.php:674
 msgid "Let every user access this bookmark"
 msgstr "Доступна для всех пользователей"
 
@@ -3868,6 +4171,14 @@ msgstr "Выполнить"
 #: libraries/sql_query_form.lib.php:436
 msgid "View only"
 msgstr "Просмотр"
+
+#: libraries/sql_query_form.lib.php:484
+msgid "Location of the text file"
+msgstr "Выбор файла"
+
+#: libraries/sql_query_form.lib.php:496 tbl_change.php:925
+msgid "web server upload directory"
+msgstr "Из каталога загрузки"
 
 #: libraries/sqlparser.lib.php:136
 msgid ""
@@ -3976,7 +4287,7 @@ msgstr ""
 "кавычек."
 
 #: libraries/tbl_properties.inc.php:107 pdf_schema.php:1262
-#: pdf_schema.php:1283 tbl_printview.php:141 tbl_structure.php:178
+#: pdf_schema.php:1283 tbl_printview.php:141 tbl_structure.php:199
 msgid "Attributes"
 msgstr "Атрибуты"
 
@@ -4005,18 +4316,26 @@ msgstr ""
 "экранировать (предварять) символом обратной косой черты, например: '\\\\xyz' "
 "или 'a\\'b'."
 
-#: libraries/tbl_properties.inc.php:391
+#: libraries/tbl_properties.inc.php:371
+msgid "ENUM or SET data too long?"
+msgstr ""
+
+#: libraries/tbl_properties.inc.php:373
+msgid "Get more editing space"
+msgstr ""
+
+#: libraries/tbl_properties.inc.php:396
 #, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Нет"
 
-#: libraries/tbl_properties.inc.php:392
+#: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
 msgstr "Как определено:"
 
-#: libraries/tbl_properties.inc.php:578 transformation_overview.php:57
+#: libraries/tbl_properties.inc.php:583 transformation_overview.php:57
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -4025,33 +4344,50 @@ msgstr ""
 "На данный момент описание отсутствует.<br />Работа  используемой функции "
 "отображения преобразования %s, будет в скором времени описана."
 
-#: libraries/tbl_properties.inc.php:724 server_engines.php:56
+#: libraries/tbl_properties.inc.php:729 server_engines.php:56
 #: tbl_operations.php:352
 msgid "Storage Engine"
 msgstr "Тип таблиц"
 
-#: libraries/tbl_properties.inc.php:753
+#: libraries/tbl_properties.inc.php:758
 msgid "PARTITION definition"
 msgstr "Определение разделов (PARTITION)"
 
-#: libraries/tbl_properties.inc.php:774 pdf_pages.php:501
+#: libraries/tbl_properties.inc.php:779 pdf_pages.php:501
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:214
 #: setup/lib/FormDisplay.tpl.php:215 tbl_change.php:1022 tbl_indexes.php:246
 #: tbl_relation.php:563
 msgid "Save"
 msgstr "Сохранить"
 
-#: libraries/tbl_properties.inc.php:778 tbl_structure.php:539
+#: libraries/tbl_properties.inc.php:783 tbl_structure.php:633
 #, fuzzy, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
 msgstr "Добавить поле(я)"
 
-#: libraries/tbl_properties.inc.php:782 tbl_structure.php:533
+#: libraries/tbl_properties.inc.php:787 tbl_structure.php:627
 #, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Необходимо добавить хотя бы одно поле."
+
+#: libraries/tbl_properties.inc.php:799
+#, fuzzy
+#| msgid ""
+#| "Please enter the values for transformation options using this format: "
+#| "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
+#| "single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"Enter each value in a separate field. If you ever need to put a backslash "
+"(\"\\\") or a single quote (\"'\") amongst those values, precede it with a "
+"backslash (for example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Значения параметров преобразований должны иметь формат: 'a', 100, 'b', 'c'..."
+"<br />Символы обратной косой черты (\\) и одинарной кавычки (') необходимо "
+"экранировать (предварять) символом обратной косой черты, например: '\\\\xyz' "
+"или 'a\\'b'."
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
@@ -4238,66 +4574,74 @@ msgstr "Файлов внутри ZIP-архива не найдено!"
 msgid "Error in ZIP archive:"
 msgstr "Ошибка в ZIP-архиве:"
 
-#: main.php:67
-msgid "Actions"
-msgstr "Действия"
+#: main.php:66
+#, fuzzy
+#| msgid "General relation features"
+msgid "General Settings"
+msgstr "Основные возможности связей"
 
-#: main.php:124
+#: main.php:97
 msgid "MySQL connection collation"
 msgstr "Сопоставление соединения с MySQL"
 
-#: main.php:138
-msgid "Interface"
-msgstr "Отображение"
+#: main.php:112
+#, fuzzy
+#| msgid "Other core settings"
+msgid "Appearance Settings"
+msgstr "Другие настройки ядра"
 
-#: main.php:158
-msgid "Custom color"
-msgstr "Выбрать цвет"
+#: main.php:132
+msgid "Background color"
+msgstr ""
 
-#: main.php:162 pdf_pages.php:361 setup/lib/FormDisplay.tpl.php:216
+#: main.php:133
+msgid "Choose..."
+msgstr ""
+
+#: main.php:137 pdf_pages.php:361 setup/lib/FormDisplay.tpl.php:216
 #: tbl_change.php:1071
 msgid "Reset"
 msgstr "Сбросить"
 
-#: main.php:186
+#: main.php:159
 msgid "Protocol version"
 msgstr "Версия протокола"
 
-#: main.php:188 server_privileges.php:1385 server_privileges.php:1532
+#: main.php:161 server_privileges.php:1385 server_privileges.php:1532
 #: server_privileges.php:1646 server_privileges.php:2064
 #: server_processlist.php:53
 msgid "User"
 msgstr "Пользователь"
 
-#: main.php:192
+#: main.php:165
 msgid "MySQL charset"
 msgstr "MySQL-кодировка"
 
-#: main.php:204
+#: main.php:177
 msgid "Web server"
 msgstr "Веб-сервер"
 
-#: main.php:210
+#: main.php:183
 msgid "MySQL client version"
 msgstr "Версия MySQL-клиента"
 
-#: main.php:212
+#: main.php:185
 msgid "PHP extension"
 msgstr "PHP расширение"
 
-#: main.php:218
+#: main.php:191
 msgid "Show PHP information"
 msgstr "Показать информацию PHP"
 
-#: main.php:229
+#: main.php:202
 msgid "Wiki"
 msgstr "Вики"
 
-#: main.php:232
+#: main.php:205
 msgid "Official Homepage"
 msgstr "Официальная страница phpMyAdmin"
 
-#: main.php:265
+#: main.php:238
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -4310,7 +4654,7 @@ msgstr ""
 "несанкционированного доступа, поэтому настоятельно рекомендуется установить "
 "пароль для пользователя &quot;root&quot;."
 
-#: main.php:273
+#: main.php:246
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -4320,7 +4664,7 @@ msgstr ""
 "func_overload. Для предотвращения возможной потери данных, данный параметр "
 "должен быть выключен!"
 
-#: main.php:281
+#: main.php:254
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -4331,7 +4675,7 @@ msgstr ""
 "разбиение строк, что может привести к непредсказуемым результатам. "
 "Установите расширение PHP &quot;mbstring&quot;."
 
-#: main.php:289
+#: main.php:262
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -4343,13 +4687,13 @@ msgstr ""
 "cookie определенная в phpMyAdmin, по этой причине, данные входа истекут "
 "быстрее установленных."
 
-#: main.php:297
+#: main.php:270
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "При cookie-аутентификации, в конфигурационном файле необходимо задать "
 "парольную фразу установив значение директивы $cfg['blowfish_secret']."
 
-#: main.php:305
+#: main.php:278
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -4359,7 +4703,7 @@ msgstr ""
 "находится в установочной директории phpMyAdmin. Обязательно удалите его "
 "сразу после настройки phpMyAdmin."
 
-#: main.php:314
+#: main.php:287
 #, php-format
 msgid ""
 "The additional features for working with linked tables have been "
@@ -4368,14 +4712,14 @@ msgstr ""
 "Дополнительные возможности для работы со связанными таблицами недоступны. "
 "Для определения причины нажмите %sздесь%s."
 
-#: main.php:329
+#: main.php:302
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: main.php:344
+#: main.php:317
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -4384,7 +4728,7 @@ msgstr ""
 "Версия клиентской библиотеки MySQL (%s) отличается от версии установленного "
 "MySQL-сервера (%s). Это может привести к некорректной работе."
 
-#: main.php:356
+#: main.php:329
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -4402,23 +4746,23 @@ msgstr "Модифицировать фрейм навигации"
 msgid "No databases"
 msgstr "Базы данных отсутствуют"
 
-#: navigation.php:297
+#: navigation.php:292
 msgid "Filter"
 msgstr "Фильтр"
 
-#: navigation.php:298 setup/frames/index.inc.php:218
+#: navigation.php:293 setup/frames/index.inc.php:218
 #: setup/lib/messages.inc.php:41
 msgid "Clear"
 msgstr "Очистить"
 
-#: navigation.php:329 navigation.php:330
+#: navigation.php:324 navigation.php:325
 #, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
 msgstr "Создать таблицу"
 
-#: navigation.php:332 navigation.php:494
+#: navigation.php:327 navigation.php:489
 msgid "Please select a database"
 msgstr "Выберите базу данных"
 
@@ -4497,7 +4841,7 @@ msgid "Table of contents"
 msgstr "Содержание"
 
 #: pdf_schema.php:1265 pdf_schema.php:1286 tbl_printview.php:144
-#: tbl_structure.php:181 tbl_tracking.php:272
+#: tbl_structure.php:202 tbl_tracking.php:272
 msgid "Extra"
 msgstr "Дополнительно"
 
@@ -4673,11 +5017,6 @@ msgstr "Удалено баз данных: %s"
 msgid "Databases statistics"
 msgstr "Статистика баз данных"
 
-#: server_databases.php:114 server_status.php:370
-#: setup/lib/messages.inc.php:114
-msgid "Tables"
-msgstr "Таблицы"
-
 #: server_databases.php:192 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
@@ -4734,7 +5073,7 @@ msgstr ""
 msgid "Storage Engines"
 msgstr "Типы таблиц"
 
-#: server_export.php:18
+#: server_export.php:20
 msgid "View dump (schema) of databases"
 msgstr "Отобразить дамп (схему) баз данных"
 
@@ -5074,8 +5413,8 @@ msgstr "Удалить базы данных, имена которых совп
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Примечание: phpMyAdmin получает информацию о пользовательских привилегиях "
 "непосредственно из таблиц привилегий MySQL. Содержимое этих таблиц может "
@@ -6208,8 +6547,8 @@ msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
 msgstr ""
-"Статистика запросов: со времени запуска, на сервер было отослано запросов - %"
-"s."
+"Статистика запросов: со времени запуска, на сервер было отослано запросов - "
+"%s."
 
 #: server_status.php:608
 msgid "per minute"
@@ -6363,7 +6702,7 @@ msgstr "Конфигурационный файл"
 msgid "Download"
 msgstr "Скачать"
 
-#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:161
+#: setup/frames/index.inc.php:58 setup/lib/messages.inc.php:162
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -6373,19 +6712,19 @@ msgstr ""
 "незашифрованном виде!"
 
 #: setup/frames/index.inc.php:87 setup/frames/menu.inc.php:17
-#: setup/lib/messages.inc.php:216
+#: setup/lib/messages.inc.php:217
 msgid "Overview"
 msgstr "Обзор"
 
-#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:334
+#: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:335
 msgid "Show hidden messages (#MSG_COUNT)"
 msgstr "Показать скрытые сообщения (#MSG_COUNT)"
 
-#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:210
+#: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:211
 msgid "There are no configured servers"
 msgstr "Отсутствуют настроенные сервера"
 
-#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:209
+#: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:210
 msgid "New server"
 msgstr "Новый сервер"
 
@@ -6393,11 +6732,11 @@ msgstr "Новый сервер"
 msgid "Default language"
 msgstr "Язык по умолчанию"
 
-#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:184
+#: setup/frames/index.inc.php:182 setup/lib/messages.inc.php:185
 msgid "let the user choose"
 msgstr "Предоставить выбор пользователю"
 
-#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:213
+#: setup/frames/index.inc.php:193 setup/lib/messages.inc.php:214
 msgid "- none -"
 msgstr "- не выбран -"
 
@@ -6413,11 +6752,11 @@ msgstr "Конец строки"
 msgid "Display"
 msgstr "Показать"
 
-#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:187
+#: setup/frames/index.inc.php:215 setup/lib/messages.inc.php:188
 msgid "Load"
 msgstr "Загрузить"
 
-#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:149
+#: setup/frames/index.inc.php:226 setup/lib/messages.inc.php:150
 msgid "phpMyAdmin homepage"
 msgstr "Домашняя страница phpMyAdmin"
 
@@ -6425,27 +6764,27 @@ msgstr "Домашняя страница phpMyAdmin"
 msgid "Donate"
 msgstr "Пожертвование"
 
-#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:367
+#: setup/frames/index.inc.php:228 setup/lib/messages.inc.php:368
 msgid "Check for latest version"
 msgstr "Проверить обновление"
 
-#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:134
+#: setup/frames/menu.inc.php:18 setup/lib/messages.inc.php:135
 msgid "Features"
 msgstr "Настройки"
 
-#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:110
+#: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:111
 msgid "Navigation frame"
 msgstr "Фрейм навигации"
 
-#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:115
+#: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:116
 msgid "Main frame"
 msgstr "Основной фрейм"
 
-#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:269
+#: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:270
 msgid "Edit server"
 msgstr "Редактировать сервер"
 
-#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:238
+#: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:239
 msgid "Add a new server"
 msgstr "Добавить новый сервер"
 
@@ -6453,16 +6792,16 @@ msgstr "Добавить новый сервер"
 msgid "Incorrect value"
 msgstr "Некорректное значение"
 
-#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:325
+#: setup/lib/FormDisplay.tpl.php:182 setup/lib/messages.inc.php:326
 #, php-format
 msgid "Set value: %s"
 msgstr "Установить значение: %s"
 
-#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:231
+#: setup/lib/FormDisplay.tpl.php:187 setup/lib/messages.inc.php:232
 msgid "Restore default value"
 msgstr "Восстановить изначальное значение"
 
-#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:374
+#: setup/lib/form_processing.lib.php:43 setup/lib/messages.inc.php:375
 msgid "Warning"
 msgstr "Предупреждение"
 
@@ -6770,9 +7109,17 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr "Максимальное время выполнения"
 
+#: setup/lib/messages.inc.php:79
+msgid "Save as file"
+msgstr "Сохранить как файл"
+
 #: setup/lib/messages.inc.php:80
 msgid "Character set of the file"
 msgstr "Кодировка файла"
+
+#: setup/lib/messages.inc.php:81
+msgid "Compression"
+msgstr "Упаковать"
 
 #: setup/lib/messages.inc.php:82
 msgid "Database name template"
@@ -6786,25 +7133,33 @@ msgstr "Шаблон имени сервера"
 msgid "Table name template"
 msgstr "Шаблон имени таблицы"
 
+#: setup/lib/messages.inc.php:85 tbl_printview.php:373 tbl_structure.php:829
+msgid "Format"
+msgstr "Формат"
+
 #: setup/lib/messages.inc.php:86
+msgid "Method"
+msgstr ""
+
+#: setup/lib/messages.inc.php:87
 msgid "Save on server"
 msgstr "Сохранить на сервере"
 
-#: setup/lib/messages.inc.php:88
+#: setup/lib/messages.inc.php:89
 msgid "Remember file name template"
 msgstr "Запомнить шаблон имени файла"
 
-#: setup/lib/messages.inc.php:89
+#: setup/lib/messages.inc.php:90
 msgid "no"
 msgstr "нет"
 
-#: setup/lib/messages.inc.php:90
+#: setup/lib/messages.inc.php:91
 msgid "Force secured connection while using phpMyAdmin"
 msgstr ""
 "При использовании phpMyAdmin предпочитать использование безопасного "
 "соединения"
 
-#: setup/lib/messages.inc.php:91
+#: setup/lib/messages.inc.php:92
 msgid ""
 "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 "enabled if your web server supports it"
@@ -6812,11 +7167,11 @@ msgstr ""
 "Данный [a@?page=form&amp;formset=features#tab_Security]параметр[/a] должен "
 "быть включен, если ваш сервер его поддерживает"
 
-#: setup/lib/messages.inc.php:92
+#: setup/lib/messages.inc.php:93
 msgid "Force SSL connection"
 msgstr "Предпочитать SSL соединение"
 
-#: setup/lib/messages.inc.php:93
+#: setup/lib/messages.inc.php:94
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
@@ -6824,89 +7179,89 @@ msgstr ""
 "Порядок сортировки значений в списке внешних ключей. [kbd]content[/kbd] - "
 "ссылочные данные, [kbd]id[/kbd] - значение ключа"
 
-#: setup/lib/messages.inc.php:94
+#: setup/lib/messages.inc.php:95
 msgid "Foreign key dropdown order"
 msgstr "Сортировка внешних ключей"
 
-#: setup/lib/messages.inc.php:95
+#: setup/lib/messages.inc.php:96
 msgid "A dropdown will be used if fewer items are present"
 msgstr ""
 "Если значений меньше указанного, то они будут выведены в виде выпадающего "
 "списка"
 
-#: setup/lib/messages.inc.php:96
+#: setup/lib/messages.inc.php:97
 msgid "Foreign key limit"
 msgstr "Лимит внешних ключей"
 
-#: setup/lib/messages.inc.php:97
+#: setup/lib/messages.inc.php:98
 msgid "Browse mode"
 msgstr "Обзор"
 
-#: setup/lib/messages.inc.php:98
+#: setup/lib/messages.inc.php:99
 msgid "Customize browse mode"
 msgstr "Настройка режима обзора данных"
 
-#: setup/lib/messages.inc.php:99
+#: setup/lib/messages.inc.php:100
 msgid "Customize edit mode"
 msgstr "Настройка режима редакции данных"
 
-#: setup/lib/messages.inc.php:100
+#: setup/lib/messages.inc.php:101
 msgid "Edit mode"
 msgstr "Редакция"
 
-#: setup/lib/messages.inc.php:101
+#: setup/lib/messages.inc.php:102
 msgid "Customize default export options"
 msgstr "Настройте параметры экспорта используемые по умолчанию"
 
-#: setup/lib/messages.inc.php:102
+#: setup/lib/messages.inc.php:103
 msgid "Export defaults"
 msgstr "Экспорт"
 
-#: setup/lib/messages.inc.php:103
+#: setup/lib/messages.inc.php:104
 msgid "Customize default common import options"
 msgstr "Настройте параметры импорта используемые по умолчанию"
 
-#: setup/lib/messages.inc.php:104
+#: setup/lib/messages.inc.php:105
 msgid "Import defaults"
 msgstr "Импорт"
 
-#: setup/lib/messages.inc.php:105
+#: setup/lib/messages.inc.php:106
 msgid "Set import and export directories and compression options"
 msgstr "Установите директории импорта и экспорта, а так же параметры архивации"
 
-#: setup/lib/messages.inc.php:106
+#: setup/lib/messages.inc.php:107
 msgid "Import / export"
 msgstr "Импорт / экспорт"
 
-#: setup/lib/messages.inc.php:108
+#: setup/lib/messages.inc.php:109
 msgid "Databases display options"
 msgstr "Параметры отображения списка баз данных"
 
-#: setup/lib/messages.inc.php:109
+#: setup/lib/messages.inc.php:110
 msgid "Customize appearance of the navigation frame"
 msgstr "Настройки отображения фрейма навигации"
 
-#: setup/lib/messages.inc.php:111
+#: setup/lib/messages.inc.php:112
 msgid "Servers display options"
 msgstr "Параметры отображения списка серверов"
 
-#: setup/lib/messages.inc.php:113
+#: setup/lib/messages.inc.php:114
 msgid "Tables display options"
 msgstr "Параметры отображения списка таблиц"
 
-#: setup/lib/messages.inc.php:116
+#: setup/lib/messages.inc.php:117
 msgid "Settings that didn't fit enywhere else"
 msgstr "Настройки не попадающие в другие разделы"
 
-#: setup/lib/messages.inc.php:117
+#: setup/lib/messages.inc.php:118
 msgid "Other core settings"
 msgstr "Другие настройки ядра"
 
-#: setup/lib/messages.inc.php:118
+#: setup/lib/messages.inc.php:119
 msgid "Customize query window options"
 msgstr "Настройте параметры окна запросов"
 
-#: setup/lib/messages.inc.php:120
+#: setup/lib/messages.inc.php:121
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
@@ -6914,15 +7269,15 @@ msgstr ""
 "Пожалуйста, обратите внимание, что phpMyAdmin - это только веб-интерфейс и "
 "его настройки не ограничивают доступ к самой MySQL"
 
-#: setup/lib/messages.inc.php:121
+#: setup/lib/messages.inc.php:122
 msgid "Security"
 msgstr "Безопасность"
 
-#: setup/lib/messages.inc.php:122
+#: setup/lib/messages.inc.php:123
 msgid "Basic settings"
 msgstr "Основные настройки"
 
-#: setup/lib/messages.inc.php:123
+#: setup/lib/messages.inc.php:124
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
@@ -6930,23 +7285,23 @@ msgstr ""
 "Расширенное управление сервером. Не изменяйте данные параметры без "
 "достаточного понимания их назначения."
 
-#: setup/lib/messages.inc.php:124
+#: setup/lib/messages.inc.php:125
 msgid "Server configuration"
 msgstr "Параметры сервера"
 
-#: setup/lib/messages.inc.php:125
+#: setup/lib/messages.inc.php:126
 msgid "Enter server connection parameters"
 msgstr "Введите параметры соединения сервера"
 
-#: setup/lib/messages.inc.php:126
+#: setup/lib/messages.inc.php:127
 msgid "Enter login options for signon authentication"
 msgstr "Введите параметры входа для единого метода идентификации"
 
-#: setup/lib/messages.inc.php:127
+#: setup/lib/messages.inc.php:128
 msgid "Signon login options"
 msgstr "Параметры Signon входа"
 
-#: setup/lib/messages.inc.php:128
+#: setup/lib/messages.inc.php:129
 #, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin database to gain access to additional features, see "
@@ -6961,47 +7316,47 @@ msgstr ""
 "Смотрите в документации раздел описывающий [a@../Documentation.html#linked-"
 "tables]инфраструктуру связанных таблиц[/a]"
 
-#: setup/lib/messages.inc.php:129 setup/lib/messages.inc.php:290
+#: setup/lib/messages.inc.php:130 setup/lib/messages.inc.php:291
 msgid "PMA database"
 msgstr "Расширения PMA"
 
-#: setup/lib/messages.inc.php:130
+#: setup/lib/messages.inc.php:131
 msgid "Tracking of changes made in database. Requires configured PMA database."
 msgstr ""
 
-#: setup/lib/messages.inc.php:131
+#: setup/lib/messages.inc.php:132
 msgid "Changes tracking"
 msgstr ""
 
-#: setup/lib/messages.inc.php:132
+#: setup/lib/messages.inc.php:133
 msgid "Customization"
 msgstr "Модификация"
 
-#: setup/lib/messages.inc.php:133
+#: setup/lib/messages.inc.php:134
 msgid "Customize export options"
 msgstr "Модифицировать параметры экспорта"
 
-#: setup/lib/messages.inc.php:135
+#: setup/lib/messages.inc.php:136
 msgid "Customize import defaults"
 msgstr "Модифицировать изначальлные настройки импорта"
 
-#: setup/lib/messages.inc.php:136
+#: setup/lib/messages.inc.php:137
 msgid "Customize navigation frame"
 msgstr "Модифицировать фрейм навигации"
 
-#: setup/lib/messages.inc.php:137
+#: setup/lib/messages.inc.php:138
 msgid "Customize main frame"
 msgstr "Модифицировать основной фрейм"
 
-#: setup/lib/messages.inc.php:138
+#: setup/lib/messages.inc.php:139
 msgid "Customize links shown in SQL Query boxes"
 msgstr "Настройте ссылки выводимые в блоке SQL запросов"
 
-#: setup/lib/messages.inc.php:139
+#: setup/lib/messages.inc.php:140
 msgid "SQL Query box"
 msgstr "SQL Запрос"
 
-#: setup/lib/messages.inc.php:140
+#: setup/lib/messages.inc.php:141
 msgid ""
 "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
 "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
@@ -7010,27 +7365,27 @@ msgstr ""
 "запросов смотрите настройки [a@?page=form&amp;formset=main_frame#tab_Sql_box]"
 "фрейма Навигации[/a]"
 
-#: setup/lib/messages.inc.php:141
+#: setup/lib/messages.inc.php:142
 msgid "SQL queries"
 msgstr "SQL запросы"
 
-#: setup/lib/messages.inc.php:142
+#: setup/lib/messages.inc.php:143
 msgid "Customize startup page"
 msgstr "Настройка отображения главной страницы"
 
-#: setup/lib/messages.inc.php:143
+#: setup/lib/messages.inc.php:144
 msgid "Startup"
 msgstr "Главная"
 
-#: setup/lib/messages.inc.php:144
+#: setup/lib/messages.inc.php:145
 msgid "Choose how you want tabs to work"
 msgstr "Настройте отображение вкладок"
 
-#: setup/lib/messages.inc.php:145
+#: setup/lib/messages.inc.php:146
 msgid "Tabs"
 msgstr "Вкладки"
 
-#: setup/lib/messages.inc.php:146
+#: setup/lib/messages.inc.php:147
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
@@ -7038,11 +7393,11 @@ msgstr ""
 "Включить [a@http://ru.wikipedia.org/wiki/Gzip]gzip[/a] архивирование для "
 "операций импорта и экспорта"
 
-#: setup/lib/messages.inc.php:147
+#: setup/lib/messages.inc.php:148
 msgid "GZip"
 msgstr "GZip"
 
-#: setup/lib/messages.inc.php:148
+#: setup/lib/messages.inc.php:149
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
@@ -7053,15 +7408,15 @@ msgstr ""
 "GZip архивов[/a] требует наличия функций (%s), которые недоступны на данной "
 "системе."
 
-#: setup/lib/messages.inc.php:150
+#: setup/lib/messages.inc.php:151
 msgid "Extra parameters for iconv"
 msgstr "Добавочные параметры iconv"
 
-#: setup/lib/messages.inc.php:151
+#: setup/lib/messages.inc.php:152
 msgid "Ignore errors"
 msgstr "Игнорировать ошибки"
 
-#: setup/lib/messages.inc.php:152
+#: setup/lib/messages.inc.php:153
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
@@ -7069,11 +7424,11 @@ msgstr ""
 "В случае включения данного параметра, phpMyAdmin продолжит выполнение "
 "составного запроса, даже если одно из выражений вернет ошибку"
 
-#: setup/lib/messages.inc.php:153
+#: setup/lib/messages.inc.php:154
 msgid "Ignore multiple statement errors"
 msgstr "Игнорировать ошибки составных запросов"
 
-#: setup/lib/messages.inc.php:154
+#: setup/lib/messages.inc.php:155
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
@@ -7083,11 +7438,11 @@ msgstr ""
 "временного лимита на выполнение скрипта. Может помочь при импорте файлов "
 "большого размера, однако небезопасно для транзакций."
 
-#: setup/lib/messages.inc.php:155
+#: setup/lib/messages.inc.php:156
 msgid "Partial import: allow interrupt"
 msgstr "Частичный импорт: разрешает прерывание"
 
-#: setup/lib/messages.inc.php:156
+#: setup/lib/messages.inc.php:157
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
@@ -7095,15 +7450,25 @@ msgstr ""
 "Формат по умолчанию; обратите внимание, что список форматов зависит от "
 "положения (база данных, таблица) и только SQL доступен в любом случае"
 
+#: setup/lib/messages.inc.php:158
+msgid "Format of imported file"
+msgstr "Формат импортируемого файла"
+
 #: setup/lib/messages.inc.php:159
+#, fuzzy
+#| msgid "Number of records (queries) to skip from start"
+msgid "Number of queries to skip from start"
+msgstr "Количество запросов пропускаемых от начала импорта"
+
+#: setup/lib/messages.inc.php:160
 msgid "Partial import: skip queries"
 msgstr "Частичный импорт: пропуск запросов"
 
-#: setup/lib/messages.inc.php:160
+#: setup/lib/messages.inc.php:161
 msgid "Insecure connection"
 msgstr "Небезопасное соединение"
 
-#: setup/lib/messages.inc.php:162
+#: setup/lib/messages.inc.php:163
 #, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
@@ -7112,43 +7477,43 @@ msgstr ""
 "Если ваш сервер настроен также и на приём HTTPS запросов, перейдите по [a@%s]"
 "данной ссылке[/a] для использования безопасного соединения."
 
-#: setup/lib/messages.inc.php:163
+#: setup/lib/messages.inc.php:164
 msgid "How many rows can be inserted at one time"
 msgstr "Количество строк при вставке за один раз"
 
-#: setup/lib/messages.inc.php:164
+#: setup/lib/messages.inc.php:165
 msgid "Number of inserted rows"
 msgstr "Количество строк при вставке"
 
-#: setup/lib/messages.inc.php:165
+#: setup/lib/messages.inc.php:166
 msgid "Target for quick access icon"
 msgstr "Цель иконки быстрого доступа"
 
-#: setup/lib/messages.inc.php:166
+#: setup/lib/messages.inc.php:167
 msgid "Show logo in left frame"
 msgstr "Отображать логотип в левом фрейме"
 
-#: setup/lib/messages.inc.php:167
+#: setup/lib/messages.inc.php:168
 msgid "Display logo"
 msgstr "Выводить логотип"
 
-#: setup/lib/messages.inc.php:168
+#: setup/lib/messages.inc.php:169
 msgid "Display server choice at the top of the left frame"
 msgstr "Отображать вверху левого фрейма список доступных серверов"
 
-#: setup/lib/messages.inc.php:169
+#: setup/lib/messages.inc.php:170
 msgid "Display servers selection"
 msgstr "Отображать выбор сервера"
 
-#: setup/lib/messages.inc.php:170
+#: setup/lib/messages.inc.php:171
 msgid "String that separates databases into different tree levels"
 msgstr "Строка разделяющая базы данных на различные уровни дерева"
 
-#: setup/lib/messages.inc.php:171
+#: setup/lib/messages.inc.php:172
 msgid "Database tree separator"
 msgstr "Разделитель дерева баз данных"
 
-#: setup/lib/messages.inc.php:172
+#: setup/lib/messages.inc.php:173
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
@@ -7156,35 +7521,35 @@ msgstr ""
 "Только в облегченном варианте; отображать базы данных в виде дерева "
 "(определяется указанием разделителя ниже)"
 
-#: setup/lib/messages.inc.php:173
+#: setup/lib/messages.inc.php:174
 msgid "Display databases in a tree"
 msgstr "Отображать базы данных в виде дерева"
 
-#: setup/lib/messages.inc.php:174
+#: setup/lib/messages.inc.php:175
 msgid "Disable this if you want to see all databases at once"
 msgstr "Отключите данную функцию, если хотите видеть все базы данных сразу"
 
-#: setup/lib/messages.inc.php:175
+#: setup/lib/messages.inc.php:176
 msgid "Use light version"
 msgstr "Облегченный вариант"
 
-#: setup/lib/messages.inc.php:176
+#: setup/lib/messages.inc.php:177
 msgid "Maximum table tree depth"
 msgstr "Максимальная глубина дерева таблиц"
 
-#: setup/lib/messages.inc.php:177
+#: setup/lib/messages.inc.php:178
 msgid "String that separates tables into different tree levels"
 msgstr "Строка разделяющая таблицы на различные уровни дерева"
 
-#: setup/lib/messages.inc.php:178
+#: setup/lib/messages.inc.php:179
 msgid "Table tree separator"
 msgstr "Разделитель дерева таблиц"
 
-#: setup/lib/messages.inc.php:179
+#: setup/lib/messages.inc.php:180
 msgid "Logo link URL"
 msgstr "URL ссылка логотипа"
 
-#: setup/lib/messages.inc.php:180
+#: setup/lib/messages.inc.php:181
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
@@ -7192,27 +7557,27 @@ msgstr ""
 "Открывать ссылку в основном окне ([kbd]main[/kbd]) или в новом ([kbd]new[/"
 "kbd])"
 
-#: setup/lib/messages.inc.php:181
+#: setup/lib/messages.inc.php:182
 msgid "Logo link target"
 msgstr "Цель ссылки логотипа"
 
-#: setup/lib/messages.inc.php:182
+#: setup/lib/messages.inc.php:183
 msgid "Highlight server under the mouse cursor"
 msgstr "Подсвечивать сервер при наведении курсора"
 
-#: setup/lib/messages.inc.php:183
+#: setup/lib/messages.inc.php:184
 msgid "Enable highlighting"
 msgstr "Включить подсветку"
 
-#: setup/lib/messages.inc.php:185
+#: setup/lib/messages.inc.php:186
 msgid "Use less graphically intense tabs"
 msgstr "Выводить вкладки менее насыщенные графическими элементами"
 
-#: setup/lib/messages.inc.php:186
+#: setup/lib/messages.inc.php:187
 msgid "Light tabs"
 msgstr "Облегченные вкладки"
 
-#: setup/lib/messages.inc.php:188
+#: setup/lib/messages.inc.php:189
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -7223,11 +7588,11 @@ msgstr ""
 "значения в FALSE можно легко забыть отключиться от других серверов при "
 "множественном подключении."
 
-#: setup/lib/messages.inc.php:189
+#: setup/lib/messages.inc.php:190
 msgid "Delete all cookies on logout"
 msgstr "Удалить все cookies при выходе"
 
-#: setup/lib/messages.inc.php:190
+#: setup/lib/messages.inc.php:191
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
@@ -7235,11 +7600,11 @@ msgstr ""
 "Определяет необходимость выводить имя пользователя от предыдущего "
 "подключения при использовании cookie идентификации"
 
-#: setup/lib/messages.inc.php:191
+#: setup/lib/messages.inc.php:192
 msgid "Recall user name"
 msgstr "Выводить имя пользователя"
 
-#: setup/lib/messages.inc.php:192
+#: setup/lib/messages.inc.php:193
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -7252,15 +7617,15 @@ msgstr ""
 "закрытия окна браузера. Хранение в течении сессии рекомендуется для "
 "использования в недружественном окружении."
 
-#: setup/lib/messages.inc.php:193
+#: setup/lib/messages.inc.php:194
 msgid "Login cookie store"
 msgstr "Хранение cookie"
 
-#: setup/lib/messages.inc.php:194
+#: setup/lib/messages.inc.php:195
 msgid "Define how long (in seconds) a login cookie is valid"
 msgstr "Определяет длительность (в секундах) действия cookie идентификации"
 
-#: setup/lib/messages.inc.php:195
+#: setup/lib/messages.inc.php:196
 msgid ""
 "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
 "be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
@@ -7271,30 +7636,30 @@ msgstr ""
 "значения более 1800 может оказаться небезопасным в связи с возможным "
 "использованием сессии другим лицом."
 
-#: setup/lib/messages.inc.php:196
+#: setup/lib/messages.inc.php:197
 msgid "Login cookie validity"
 msgstr "Срок действия cookie"
 
-#: setup/lib/messages.inc.php:197
+#: setup/lib/messages.inc.php:198
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr ""
 "Максимальное количество символов используемых при отображении SQL запроса"
 
-#: setup/lib/messages.inc.php:198
+#: setup/lib/messages.inc.php:199
 msgid "Maximum displayed SQL length"
 msgstr "Максимальная длинна отображаемого SQL"
 
-#: setup/lib/messages.inc.php:199
+#: setup/lib/messages.inc.php:200
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
 "Максимальное количество баз данных отображаемых в левом фрейме и списке баз "
 "данных"
 
-#: setup/lib/messages.inc.php:200
+#: setup/lib/messages.inc.php:201
 msgid "Maximum databases"
 msgstr "Максимальное количество баз данных"
 
-#: setup/lib/messages.inc.php:201
+#: setup/lib/messages.inc.php:202
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
@@ -7303,19 +7668,19 @@ msgstr ""
 "Количество строк при выводе результата запроса. Если строк больше, то будут "
 "выведены ссылки перелистывания страниц."
 
-#: setup/lib/messages.inc.php:202
+#: setup/lib/messages.inc.php:203
 msgid "Maximum number of rows to display"
 msgstr "Максимальное количество строк"
 
-#: setup/lib/messages.inc.php:203
+#: setup/lib/messages.inc.php:204
 msgid "Maximum number of tables displayed in table list"
 msgstr "Максимальное количество таблиц отображаемых в списке"
 
-#: setup/lib/messages.inc.php:204
+#: setup/lib/messages.inc.php:205
 msgid "Maximum tables"
 msgstr "Максимальное количество таблиц"
 
-#: setup/lib/messages.inc.php:205
+#: setup/lib/messages.inc.php:206
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
@@ -7323,28 +7688,28 @@ msgstr ""
 "Максимальное количество байт, которые могут быть выделены скрипту. Пример: "
 "[kbd]32M[/kbd] ([kbd]0[/kbd] без ограничений)"
 
-#: setup/lib/messages.inc.php:206
+#: setup/lib/messages.inc.php:207
 msgid "Memory limit"
 msgstr "Лимит памяти"
 
-#: setup/lib/messages.inc.php:207 setup/lib/messages.inc.php:219
+#: setup/lib/messages.inc.php:208 setup/lib/messages.inc.php:220
 msgid "Use only icons, only text or both"
 msgstr "Использовать только иконки, только текст, или все вместе"
 
-#: setup/lib/messages.inc.php:208
+#: setup/lib/messages.inc.php:209
 msgid "Iconic navigation bar"
 msgstr "Иконки в строке навигации"
 
-#: setup/lib/messages.inc.php:211
+#: setup/lib/messages.inc.php:212
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
 "Используйте буферизацию вывода GZip для увеличения передачи данных по HTTP"
 
-#: setup/lib/messages.inc.php:212
+#: setup/lib/messages.inc.php:213
 msgid "GZip output buffering"
 msgstr "Буферизация вывода GZip"
 
-#: setup/lib/messages.inc.php:214
+#: setup/lib/messages.inc.php:215
 #, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
@@ -7356,35 +7721,35 @@ msgstr ""
 "[kbd]SMART[/kbd] - означает обратный порядок для полей имеющих тип TIME, "
 "DATE, DATETIME и TIMESTAMP; в ином случае порядок будет прямой"
 
-#: setup/lib/messages.inc.php:215
+#: setup/lib/messages.inc.php:216
 msgid "Default sorting order"
 msgstr "Порядок сортировки"
 
-#: setup/lib/messages.inc.php:217
+#: setup/lib/messages.inc.php:218
 msgid "Use persistent connections to MySQL databases"
 msgstr "Использовать постоянные соединения с базами данных MySQL"
 
-#: setup/lib/messages.inc.php:218
+#: setup/lib/messages.inc.php:219
 msgid "Persistent connections"
 msgstr "Постоянные соединения"
 
-#: setup/lib/messages.inc.php:220
+#: setup/lib/messages.inc.php:221
 msgid "Iconic table operations"
 msgstr "Иконки операций над таблицами"
 
-#: setup/lib/messages.inc.php:221
+#: setup/lib/messages.inc.php:222
 #, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Запретить возможность редактирования данных полей типа BLOB и BINARY"
 
-#: setup/lib/messages.inc.php:222
+#: setup/lib/messages.inc.php:223
 #, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Защитить бинарные данные"
 
-#: setup/lib/messages.inc.php:223
+#: setup/lib/messages.inc.php:224
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
 "this utilizes JS-routines to display query history (lost by window close)."
@@ -7393,51 +7758,51 @@ msgstr ""
 "pmadb). При отключении, для истории запросов используется JS (история "
 "теряется при закрытии окна)."
 
-#: setup/lib/messages.inc.php:224
+#: setup/lib/messages.inc.php:225
 msgid "Permanent query history"
 msgstr "Постоянная история запросов"
 
-#: setup/lib/messages.inc.php:225
+#: setup/lib/messages.inc.php:226
 msgid "How many queries are kept in history"
 msgstr "Количество запросов хранимых в истории"
 
-#: setup/lib/messages.inc.php:226
+#: setup/lib/messages.inc.php:227
 msgid "Query history length"
 msgstr "Длинна истории запросов"
 
-#: setup/lib/messages.inc.php:227
+#: setup/lib/messages.inc.php:228
 msgid "Tab displayed when opening a new query window"
 msgstr ""
 "Вкладка отображаемая при открытии нового всплывающего окна выполнения "
 "запросов"
 
-#: setup/lib/messages.inc.php:228
+#: setup/lib/messages.inc.php:229
 msgid "Default query window tab"
 msgstr "Вкладка по умолчанию для окна запросов"
 
-#: setup/lib/messages.inc.php:229
+#: setup/lib/messages.inc.php:230
 msgid "Select which functions will be used for character set conversion"
 msgstr "Выберите функцию, которая будет использоваться при перекодировании"
 
-#: setup/lib/messages.inc.php:230
+#: setup/lib/messages.inc.php:231
 msgid "Recoding engine"
 msgstr "Механизм перекодирования"
 
-#: setup/lib/messages.inc.php:232
+#: setup/lib/messages.inc.php:233
 msgid "Try to revert erroneous fields to their default values"
 msgstr ""
 "Проверка данных на соответствие и возвращение в изначальное значение при "
 "наличии ошибки"
 
-#: setup/lib/messages.inc.php:233
+#: setup/lib/messages.inc.php:234
 msgid "Directory where exports can be saved on server"
 msgstr "Каталог на сервере, в который можно сохранять файлы при экспорте"
 
-#: setup/lib/messages.inc.php:234
+#: setup/lib/messages.inc.php:235
 msgid "Save directory"
 msgstr "Каталог сохранения"
 
-#: setup/lib/messages.inc.php:235
+#: setup/lib/messages.inc.php:236
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -7449,50 +7814,51 @@ msgstr ""
 "Вы установили [kbd]config[/kbd] идентификацию и ввели имя полльзователя с "
 "паролем для автоматического входа, что крайне не рекомендуется для рабочего "
 "хоста. Любой, кто сможет узнать ссылку к phpMyAdmin сможет напрямую попасть "
-"в панель управления. Установите [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]тип идентификации[/a] в [kbd]cookie[/kbd] или [kbd]http[/kbd]."
+"в панель управления. Установите [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]тип идентификации[/a] в [kbd]cookie[/kbd] или [kbd]http[/"
+"kbd]."
 
-#: setup/lib/messages.inc.php:236
+#: setup/lib/messages.inc.php:237
 msgid "You should use mysqli for performance reasons"
 msgstr "По причине улучшения производительности, используйте расширение mysqli"
 
-#: setup/lib/messages.inc.php:237
+#: setup/lib/messages.inc.php:238
 msgid "You allow for connecting to the server without a password."
 msgstr "Вы разрешаете соединение с сервером без пароля."
 
-#: setup/lib/messages.inc.php:239
+#: setup/lib/messages.inc.php:240
 msgid "Leave blank if not used"
 msgstr "Оставьте поле пустым, если не используете данную функцию"
 
-#: setup/lib/messages.inc.php:240
+#: setup/lib/messages.inc.php:241
 msgid "Host authentication order"
 msgstr "Порядок хостов для идентификации"
 
-#: setup/lib/messages.inc.php:241
+#: setup/lib/messages.inc.php:242
 msgid "Leave blank for defaults"
 msgstr "Оставьте поле пустым для использования значения по умолчанию"
 
-#: setup/lib/messages.inc.php:242
+#: setup/lib/messages.inc.php:243
 msgid "Host authentication rules"
 msgstr "Правила хостов для идентификации"
 
-#: setup/lib/messages.inc.php:243
+#: setup/lib/messages.inc.php:244
 msgid "Allow logins without a password"
 msgstr "Разрешать подключения без пароля"
 
-#: setup/lib/messages.inc.php:244
+#: setup/lib/messages.inc.php:245
 msgid "Allow root login"
 msgstr "Разрешить вход под root"
 
-#: setup/lib/messages.inc.php:245
+#: setup/lib/messages.inc.php:246
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
 
-#: setup/lib/messages.inc.php:246
+#: setup/lib/messages.inc.php:247
 msgid "HTTP Realm"
 msgstr ""
 
-#: setup/lib/messages.inc.php:247
+#: setup/lib/messages.inc.php:248
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -7502,19 +7868,19 @@ msgstr ""
 "идентификации SweKey[/a] (пример, если располагается ниже корня хоста: /etc/"
 "swekey.conf)"
 
-#: setup/lib/messages.inc.php:248
+#: setup/lib/messages.inc.php:249
 msgid "SweKey config file"
 msgstr "Конфигурационный файл SweKey"
 
-#: setup/lib/messages.inc.php:249
+#: setup/lib/messages.inc.php:250
 msgid "Authentication method to use"
 msgstr "Используемый метод идентификации"
 
-#: setup/lib/messages.inc.php:250
+#: setup/lib/messages.inc.php:251
 msgid "Authentication type"
 msgstr "Тип идентификации"
 
-#: setup/lib/messages.inc.php:251
+#: setup/lib/messages.inc.php:252
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -7522,11 +7888,11 @@ msgstr ""
 "Для отключения поддержки [a@http://wiki.phpmyadmin.net/pma/bookmark]закладок"
 "[/a] оставьте поле пустым. Рекомендуется: [kbd]pma_bookmark[/kbd]"
 
-#: setup/lib/messages.inc.php:252
+#: setup/lib/messages.inc.php:253
 msgid "Bookmark table"
 msgstr "Таблица закладок"
 
-#: setup/lib/messages.inc.php:253
+#: setup/lib/messages.inc.php:254
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
@@ -7534,31 +7900,31 @@ msgstr ""
 "Для отключения поддержки комментариев/mime-типов полей оставьте поле пустым. "
 "Рекомендуется: [kbd]pma_column_info[/kbd]"
 
-#: setup/lib/messages.inc.php:254
+#: setup/lib/messages.inc.php:255
 msgid "Column information table"
 msgstr "Таблица информации полей"
 
-#: setup/lib/messages.inc.php:255
+#: setup/lib/messages.inc.php:256
 msgid "Compress connection to MySQL server"
 msgstr "Соединение с сервером MySQL с использованием сжатия данных"
 
-#: setup/lib/messages.inc.php:256
+#: setup/lib/messages.inc.php:257
 msgid "Compress connection"
 msgstr "Соединение со сжатием"
 
-#: setup/lib/messages.inc.php:257
+#: setup/lib/messages.inc.php:258
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr "Способ соединения с сервером. Если не уверены, оставьте [kbd]tcp[/kbd]"
 
-#: setup/lib/messages.inc.php:258
+#: setup/lib/messages.inc.php:259
 msgid "Connection type"
 msgstr "Тип соединения"
 
-#: setup/lib/messages.inc.php:259
+#: setup/lib/messages.inc.php:260
 msgid "Control user password"
 msgstr "Пароль выделенного пользователя"
 
-#: setup/lib/messages.inc.php:260
+#: setup/lib/messages.inc.php:261
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -7566,19 +7932,19 @@ msgstr ""
 "Специальный пользователь MySQL с ограниченными привилегиями. Подробнее "
 "смотрите на  [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
-#: setup/lib/messages.inc.php:261
+#: setup/lib/messages.inc.php:262
 msgid "Control user"
 msgstr "Выделенный пользователь"
 
-#: setup/lib/messages.inc.php:262
+#: setup/lib/messages.inc.php:263
 msgid "Count tables when showing database list"
 msgstr "При выводе баз данных показывать количество таблиц в них"
 
-#: setup/lib/messages.inc.php:263
+#: setup/lib/messages.inc.php:264
 msgid "Count tables"
 msgstr "Подсчитывать таблицы"
 
-#: setup/lib/messages.inc.php:264
+#: setup/lib/messages.inc.php:265
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
@@ -7586,11 +7952,11 @@ msgstr ""
 "Для отключения поддержки Дизайнера Связей оставьте поле пустым. "
 "Рекомендуется: [kbd]pma_designer_coords[/kbd]"
 
-#: setup/lib/messages.inc.php:265
+#: setup/lib/messages.inc.php:266
 msgid "Designer table"
 msgstr "Таблица Дизайнера"
 
-#: setup/lib/messages.inc.php:266
+#: setup/lib/messages.inc.php:267
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -7598,11 +7964,11 @@ msgstr ""
 "Подробнее смотрите на [a@http://sf.net/support/tracker.php?aid=1849494]PMA "
 "bug tracker[/a] и [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
-#: setup/lib/messages.inc.php:267
+#: setup/lib/messages.inc.php:268
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Отключить использование INFORMATION_SCHEMA"
 
-#: setup/lib/messages.inc.php:268
+#: setup/lib/messages.inc.php:269
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - [a@?"
@@ -7619,25 +7985,25 @@ msgstr ""
 "если ваш IP не является выделенным и кроме вас принадлежит тысячам "
 "пользователей того же Интернет Провайдера."
 
-#: setup/lib/messages.inc.php:270
+#: setup/lib/messages.inc.php:271
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 "Выберите какое расширение PHP использовать для работы с MySQL. При "
 "возможности, используйте mysqli."
 
-#: setup/lib/messages.inc.php:271
+#: setup/lib/messages.inc.php:272
 msgid "PHP extension to use"
 msgstr "PHP расширение"
 
-#: setup/lib/messages.inc.php:272
+#: setup/lib/messages.inc.php:273
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "Скрыть базы данных подпадающие под регулярное выражение (PCRE)"
 
-#: setup/lib/messages.inc.php:273
+#: setup/lib/messages.inc.php:274
 msgid "Hide databases"
 msgstr "Скрыть базы данных"
 
-#: setup/lib/messages.inc.php:274
+#: setup/lib/messages.inc.php:275
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
@@ -7645,11 +8011,11 @@ msgstr ""
 "Для отключения поддержки истории SQL запросов оставьте поле пустым. "
 "Рекомендуется: [kbd]pma_history[/kbd]"
 
-#: setup/lib/messages.inc.php:275
+#: setup/lib/messages.inc.php:276
 msgid "SQL query history table"
 msgstr "Таблица истории SQL запросов"
 
-#: setup/lib/messages.inc.php:276
+#: setup/lib/messages.inc.php:277
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
@@ -7661,35 +8027,35 @@ msgstr ""
 "Для отключения поддержки истории SQL запросов оставьте поле пустым. "
 "Рекомендуется: [kbd]pma_history[/kbd]"
 
-#: setup/lib/messages.inc.php:277
+#: setup/lib/messages.inc.php:278
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "Таблица истории SQL запросов"
 
-#: setup/lib/messages.inc.php:278
+#: setup/lib/messages.inc.php:279
 msgid "Hostname where MySQL server is running"
 msgstr "Хост на котором работает сервер MySQL"
 
-#: setup/lib/messages.inc.php:279
+#: setup/lib/messages.inc.php:280
 msgid "Server hostname"
 msgstr "Хост сервера"
 
-#: setup/lib/messages.inc.php:280
+#: setup/lib/messages.inc.php:281
 msgid "Logout URL"
 msgstr "URL выхода"
 
-#: setup/lib/messages.inc.php:281
+#: setup/lib/messages.inc.php:282
 msgid "Try to connect without password"
 msgstr ""
 "Пытаться установить соединение без пароля, если пароль не был принят при "
 "идентификации"
 
-#: setup/lib/messages.inc.php:282
+#: setup/lib/messages.inc.php:283
 msgid "Connect without password"
 msgstr "Соединять без пароля"
 
-#: setup/lib/messages.inc.php:283
+#: setup/lib/messages.inc.php:284
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -7698,30 +8064,30 @@ msgstr ""
 "хотите использовать, как обычные литературные символы, т.е. используйте 'my"
 "\\_db' а не 'my_db'"
 
-#: setup/lib/messages.inc.php:284
+#: setup/lib/messages.inc.php:285
 msgid "Show only listed databases"
 msgstr "Показывать только базы данных из списка"
 
-#: setup/lib/messages.inc.php:285 setup/lib/messages.inc.php:319
+#: setup/lib/messages.inc.php:286 setup/lib/messages.inc.php:320
 msgid "Leave empty if not using config auth"
 msgstr "Если не используется идентификация config, оставьте поле пустым"
 
-#: setup/lib/messages.inc.php:286
+#: setup/lib/messages.inc.php:287
 msgid "Password for config auth"
 msgstr "Прописанный пароль"
 
-#: setup/lib/messages.inc.php:287
+#: setup/lib/messages.inc.php:288
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 "Для отключения поддержки PDF схемы оставьте поле пустым. Рекомендуется: [kbd]"
 "pma_pdf_pages[/kbd]"
 
-#: setup/lib/messages.inc.php:288
+#: setup/lib/messages.inc.php:289
 msgid "PDF schema: pages table"
 msgstr "PDF схема: страницы таблицы"
 
-#: setup/lib/messages.inc.php:289
+#: setup/lib/messages.inc.php:290
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -7732,17 +8098,17 @@ msgstr ""
 "pmadb[/a]. Для отключения поддержки, оставьте поле пустым. Рекомендуется: "
 "[kbd]phpmyadmin[/kbd]"
 
-#: setup/lib/messages.inc.php:291
+#: setup/lib/messages.inc.php:292
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Порт на котором работает сервер MySQL. Для значения по умолчанию, оставьте "
 "пустым."
 
-#: setup/lib/messages.inc.php:292
+#: setup/lib/messages.inc.php:293
 msgid "Server port"
 msgstr "Порт сервера"
 
-#: setup/lib/messages.inc.php:293
+#: setup/lib/messages.inc.php:294
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -7751,19 +8117,19 @@ msgstr ""
 "связанных таблиц[/a] оставьте поле пустым. Рекомендуется: [kbd]pma_relation[/"
 "kbd]"
 
-#: setup/lib/messages.inc.php:294
+#: setup/lib/messages.inc.php:295
 msgid "Relation table"
 msgstr "Таблица связей"
 
-#: setup/lib/messages.inc.php:295
+#: setup/lib/messages.inc.php:296
 msgid "SQL command to fetch available databases"
 msgstr "SQL команда для выборки доступных баз данных"
 
-#: setup/lib/messages.inc.php:296
+#: setup/lib/messages.inc.php:297
 msgid "SHOW DATABASES command"
 msgstr "Команда SHOW DATABASES"
 
-#: setup/lib/messages.inc.php:297
+#: setup/lib/messages.inc.php:298
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -7771,101 +8137,101 @@ msgstr ""
 "Для примера смотрите раздел [a@http://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]типы идентификации[/a]"
 
-#: setup/lib/messages.inc.php:298
+#: setup/lib/messages.inc.php:299
 msgid "Signon session name"
 msgstr "Имя сессии для Signon"
 
-#: setup/lib/messages.inc.php:299
+#: setup/lib/messages.inc.php:300
 msgid "Signon URL"
 msgstr "Signon URL"
 
-#: setup/lib/messages.inc.php:300
+#: setup/lib/messages.inc.php:301
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: setup/lib/messages.inc.php:301
+#: setup/lib/messages.inc.php:302
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Режим автоматического восстановления"
 
-#: setup/lib/messages.inc.php:302
+#: setup/lib/messages.inc.php:303
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: setup/lib/messages.inc.php:303
+#: setup/lib/messages.inc.php:304
 #, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
 msgstr "Характеристика"
 
-#: setup/lib/messages.inc.php:304
+#: setup/lib/messages.inc.php:305
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: setup/lib/messages.inc.php:305
+#: setup/lib/messages.inc.php:306
 msgid "Add DROP VIEW"
 msgstr ""
 
-#: setup/lib/messages.inc.php:306
+#: setup/lib/messages.inc.php:307
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
-#: setup/lib/messages.inc.php:307
+#: setup/lib/messages.inc.php:308
 msgid "Add DROP TABLE"
 msgstr ""
 
-#: setup/lib/messages.inc.php:308
+#: setup/lib/messages.inc.php:309
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
-#: setup/lib/messages.inc.php:309
+#: setup/lib/messages.inc.php:310
 msgid "Add DROP DATABASE"
 msgstr ""
 
-#: setup/lib/messages.inc.php:310
+#: setup/lib/messages.inc.php:311
 msgid "You should use SSL connections if your web server supports it"
 msgstr ""
 "Вы должны использовать SSL соединение, если ваш веб-сервер его поддерживает"
 
-#: setup/lib/messages.inc.php:311
+#: setup/lib/messages.inc.php:312
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Сокет на котором работает сервер MySQL. Для значения по умолчанию, оставьте "
 "пустым."
 
-#: setup/lib/messages.inc.php:312
+#: setup/lib/messages.inc.php:313
 msgid "Server socket"
 msgstr "Сокет сервера"
 
-#: setup/lib/messages.inc.php:313
+#: setup/lib/messages.inc.php:314
 msgid "Enable SSL for connection to MySQL server"
 msgstr "Использовать SSL для соединения с MySQL"
 
-#: setup/lib/messages.inc.php:314
+#: setup/lib/messages.inc.php:315
 msgid "Use SSL"
 msgstr "Использовать SSL"
 
-#: setup/lib/messages.inc.php:315
+#: setup/lib/messages.inc.php:316
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 "Для отключения поддержки PDF схемы оставьте поле пустым. Рекомендуется: [kbd]"
 "pma_table_coords[/kbd]"
 
-#: setup/lib/messages.inc.php:316
+#: setup/lib/messages.inc.php:317
 msgid "PDF schema: table coordinates"
 msgstr "PDF схема: координаты таблиц"
 
-#: setup/lib/messages.inc.php:317
+#: setup/lib/messages.inc.php:318
 #, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
@@ -7877,17 +8243,17 @@ msgstr ""
 "Таблица для описания отображаемого поля. Для отключения поддержки данной "
 "функции оставьте поле пустым. Рекомендуется: [kbd]pma_table_info[/kbd]"
 
-#: setup/lib/messages.inc.php:318
+#: setup/lib/messages.inc.php:319
 #, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "Таблица отображения полей"
 
-#: setup/lib/messages.inc.php:320
+#: setup/lib/messages.inc.php:321
 msgid "User for config auth"
 msgstr "Прописанный пользователь"
 
-#: setup/lib/messages.inc.php:321
+#: setup/lib/messages.inc.php:322
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
@@ -7896,11 +8262,11 @@ msgstr ""
 "нуждаются в обновлении. Это предотвратит лишние проверки совместимости и "
 "соответственно увеличит производительность."
 
-#: setup/lib/messages.inc.php:322
+#: setup/lib/messages.inc.php:323
 msgid "Verbose check"
 msgstr "Повторная проверка"
 
-#: setup/lib/messages.inc.php:323
+#: setup/lib/messages.inc.php:324
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -7908,22 +8274,22 @@ msgstr ""
 "Пользовательское описание сервера. Оставьте пустым, чтобы вывести название "
 "хоста."
 
-#: setup/lib/messages.inc.php:324
+#: setup/lib/messages.inc.php:325
 msgid "Verbose name of this server"
 msgstr "Пользовательское имя сервера"
 
-#: setup/lib/messages.inc.php:326
+#: setup/lib/messages.inc.php:327
 #, fuzzy
 #| msgid ""
 #| "Whether a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Позволяет вывести кнопку &quot;показать все (записи)&quot;"
 
-#: setup/lib/messages.inc.php:327
+#: setup/lib/messages.inc.php:328
 msgid "Allow to display all the rows"
 msgstr "Разрешать вывод всех строк"
 
-#: setup/lib/messages.inc.php:328
+#: setup/lib/messages.inc.php:329
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -7934,27 +8300,27 @@ msgstr ""
 "прописанного пароля. Смена пароля в конфигурационном файле напрямую никак не "
 "ограничена."
 
-#: setup/lib/messages.inc.php:329
+#: setup/lib/messages.inc.php:330
 msgid "Show password change form"
 msgstr "Вывести форму изменения пароля"
 
-#: setup/lib/messages.inc.php:330
+#: setup/lib/messages.inc.php:331
 msgid "Show create database form"
 msgstr "Вывести форму создания базы данных"
 
-#: setup/lib/messages.inc.php:331
+#: setup/lib/messages.inc.php:332
 msgid "Show form"
 msgstr "Показать форму"
 
-#: setup/lib/messages.inc.php:332
+#: setup/lib/messages.inc.php:333
 msgid "Display the function fields in edit/insert mode"
 msgstr "Выводить поля функций в режиме редактирования или вставки"
 
-#: setup/lib/messages.inc.php:333
+#: setup/lib/messages.inc.php:334
 msgid "Show function fields"
 msgstr "Выводить поля функций"
 
-#: setup/lib/messages.inc.php:335
+#: setup/lib/messages.inc.php:336
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -7962,33 +8328,33 @@ msgstr ""
 "Вывести ссылку для отображения [a@http://php.net/manual/function.phpinfo.php]"
 "phpinfo()[/a]"
 
-#: setup/lib/messages.inc.php:336
+#: setup/lib/messages.inc.php:337
 msgid "Show phpinfo() link"
 msgstr "Вывести ссылку на phpinfo()"
 
-#: setup/lib/messages.inc.php:337
+#: setup/lib/messages.inc.php:338
 msgid "Show detailed MySQL server information"
 msgstr "Вывести подробную информацию по MySQL серверу"
 
-#: setup/lib/messages.inc.php:338
+#: setup/lib/messages.inc.php:339
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "Определяет вывод SQL запросов генерируемых phpMyAdmin"
 
-#: setup/lib/messages.inc.php:339
+#: setup/lib/messages.inc.php:340
 msgid "Show SQL queries"
 msgstr "Показывать SQL запросы"
 
-#: setup/lib/messages.inc.php:340
+#: setup/lib/messages.inc.php:341
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 "Разрешить вывод статистики по базам данных и таблицам (например, объем "
 "занятого пространства)"
 
-#: setup/lib/messages.inc.php:341
+#: setup/lib/messages.inc.php:342
 msgid "Show statistics"
 msgstr "Показывать статистику"
 
-#: setup/lib/messages.inc.php:342
+#: setup/lib/messages.inc.php:343
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
@@ -7996,11 +8362,11 @@ msgstr ""
 "Если включен вывод всплывающих подсказок и установлен вывод комментария, "
 "произойдет взаимная замена комментария и имени базы данных"
 
-#: setup/lib/messages.inc.php:343
+#: setup/lib/messages.inc.php:344
 msgid "Display database comment instead of its name"
 msgstr "Выводить вместо имени базы данных ее комментарий"
 
-#: setup/lib/messages.inc.php:344
+#: setup/lib/messages.inc.php:345
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -8011,26 +8377,26 @@ msgstr ""
 "корневого значения, разделенных указанной в директиве $cfg"
 "['LeftFrameTableSeparator'] строкой, таблиц."
 
-#: setup/lib/messages.inc.php:345
+#: setup/lib/messages.inc.php:346
 msgid "Display table comment instead of its name"
 msgstr "Комментарий таблицы вместо имени"
 
-#: setup/lib/messages.inc.php:346
+#: setup/lib/messages.inc.php:347
 msgid "Display table comments in tooltips"
 msgstr "Комментарии таблицы во всплывающих подсказках"
 
-#: setup/lib/messages.inc.php:347
+#: setup/lib/messages.inc.php:348
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Отмечать использованные таблицы и делать возможным отображение баз данных с "
 "заблокированными таблицами"
 
-#: setup/lib/messages.inc.php:348
+#: setup/lib/messages.inc.php:349
 msgid "Skip locked tables"
 msgstr "Пропускать заблокированные таблицы"
 
-#: setup/lib/messages.inc.php:354
+#: setup/lib/messages.inc.php:355
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
@@ -8038,15 +8404,15 @@ msgstr ""
 "Предлагать имя создаваемой базы данных при наличии такой возможности, или "
 "сохранение поля пустым"
 
-#: setup/lib/messages.inc.php:355
+#: setup/lib/messages.inc.php:356
 msgid "Suggest new database name"
 msgstr "Предлагать имя новой базы данных"
 
-#: setup/lib/messages.inc.php:356
+#: setup/lib/messages.inc.php:357
 msgid "yes"
 msgstr "да"
 
-#: setup/lib/messages.inc.php:357
+#: setup/lib/messages.inc.php:358
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -8058,29 +8424,29 @@ msgstr ""
 "Forwarded-For) заголовку пришедшему с прокси 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: setup/lib/messages.inc.php:358
+#: setup/lib/messages.inc.php:359
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Список доверенных прокси для IP allow/deny"
 
-#: setup/lib/messages.inc.php:359
+#: setup/lib/messages.inc.php:360
 msgid "Directory on server where you can upload files for import"
 msgstr ""
 "Каталог на сервере, в который вы можете загружать файлы для последующего "
 "импорта"
 
-#: setup/lib/messages.inc.php:360
+#: setup/lib/messages.inc.php:361
 msgid "Upload directory"
 msgstr "Каталог загрузки"
 
-#: setup/lib/messages.inc.php:361
+#: setup/lib/messages.inc.php:362
 msgid "Allow for searching inside the entire database"
 msgstr "Разрешить поиск по всей базе данных"
 
-#: setup/lib/messages.inc.php:362
+#: setup/lib/messages.inc.php:363
 msgid "Use database search"
 msgstr "Использовать поиск по базе данных"
 
-#: setup/lib/messages.inc.php:363
+#: setup/lib/messages.inc.php:364
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -8090,11 +8456,11 @@ msgstr ""
 "запросах. Для определения количества выражений в сложносоставном запросе "
 "смотрите libraries/import.lib.php."
 
-#: setup/lib/messages.inc.php:364
+#: setup/lib/messages.inc.php:365
 msgid "Verbose multiple statements"
 msgstr "Комментировать составные запросы"
 
-#: setup/lib/messages.inc.php:365
+#: setup/lib/messages.inc.php:366
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
@@ -8102,11 +8468,11 @@ msgstr ""
 "Не удалось получить текущую версию. Возможно вы не соединены с сетью, или "
 "сервер обновления не отвечает."
 
-#: setup/lib/messages.inc.php:366
+#: setup/lib/messages.inc.php:367
 msgid "Got invalid version string from server"
 msgstr "От сервера получена некорректная строка версии"
 
-#: setup/lib/messages.inc.php:368
+#: setup/lib/messages.inc.php:369
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -8115,7 +8481,7 @@ msgstr ""
 "Доступна более новая версия phpMyAdmin и вам предлагается ее использовать. "
 "Новейшая версия %s, выпущена %s."
 
-#: setup/lib/messages.inc.php:369
+#: setup/lib/messages.inc.php:370
 #, fuzzy, php-format
 #| msgid ""
 #| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
@@ -8127,25 +8493,25 @@ msgstr ""
 "Вы используете подверсию, запустите [kbd]обновление svn[/kbd] :-)[br]"
 "Последняя стабильная версия %s, выпущена %s."
 
-#: setup/lib/messages.inc.php:370
+#: setup/lib/messages.inc.php:371
 msgid "No newer stable version is available"
 msgstr "Обновление стабильной версии недоступно"
 
-#: setup/lib/messages.inc.php:371
+#: setup/lib/messages.inc.php:372
 msgid "Unparsable version string"
 msgstr "Строка версии не поддаётся разбору"
 
-#: setup/lib/messages.inc.php:372
+#: setup/lib/messages.inc.php:373
 msgid "Version check"
 msgstr "Проверка версии"
 
-#: setup/lib/messages.inc.php:373
+#: setup/lib/messages.inc.php:374
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
 "Недоступны обработчик URL протокола или CURL. Проверка версии невозможна."
 
-#: setup/lib/messages.inc.php:375
+#: setup/lib/messages.inc.php:376
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -8153,7 +8519,7 @@ msgstr ""
 "Включить [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
 "архивирование для операций импорта и экспорта"
 
-#: setup/lib/messages.inc.php:376
+#: setup/lib/messages.inc.php:377
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
@@ -8162,7 +8528,7 @@ msgstr ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Создание Zip архивов[/"
 "a] требует наличия функций (%s), которые недоступны на данной системе."
 
-#: setup/lib/messages.inc.php:377
+#: setup/lib/messages.inc.php:378
 #, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
@@ -8172,7 +8538,7 @@ msgstr ""
 "Zip архивов[/a] требует наличия функций (%s), которые недоступны на данной "
 "системе."
 
-#: setup/lib/messages.inc.php:378
+#: setup/lib/messages.inc.php:379
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -8195,12 +8561,12 @@ msgstr "Отображает SQL-запрос"
 msgid "Validated SQL"
 msgstr "Проверка синтаксиса"
 
-#: sql.php:631
+#: sql.php:636
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблемы с индексами таблицы `%s`"
 
-#: sql.php:663
+#: sql.php:668
 msgid "Label"
 msgstr "Метка"
 
@@ -8291,7 +8657,7 @@ msgstr "Таблица %s уже существует!"
 msgid "Table %1$s has been created."
 msgstr "Таблица %1$s была создана."
 
-#: tbl_export.php:22
+#: tbl_export.php:24
 msgid "View dump (schema) of table"
 msgstr "Отобразить дамп (схему) таблицы"
 
@@ -8333,7 +8699,7 @@ msgstr "(Имя &quot;PRIMARY&quot; должен иметь <b>только</b> 
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "Добавить к индексу&nbsp;%s&nbsp;столбец(ы)"
 
-#: tbl_indexes.php:254 tbl_structure.php:586 tbl_structure.php:597
+#: tbl_indexes.php:254 tbl_structure.php:681 tbl_structure.php:692
 msgid "Column count has to be larger than zero."
 msgstr "Количество столбцов должно быть больше нуля."
 
@@ -8416,46 +8782,46 @@ msgstr "Удалить данные слежения за таблицей"
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: tbl_operations.php:675
+#: tbl_operations.php:677
 #, fuzzy
 #| msgid "Go to database"
 msgid "Delete the table (DROP)"
 msgstr "Перейти к базе данных"
 
-#: tbl_operations.php:696
+#: tbl_operations.php:698
 msgid "Partition maintenance"
 msgstr "Обслуживание разделов"
 
-#: tbl_operations.php:704
+#: tbl_operations.php:706
 #, php-format
 msgid "Partition %s"
 msgstr "Раздел %s"
 
-#: tbl_operations.php:707
+#: tbl_operations.php:709
 msgid "Analyze"
 msgstr "Анализ"
 
-#: tbl_operations.php:708
+#: tbl_operations.php:710
 msgid "Check"
 msgstr "Проверка"
 
-#: tbl_operations.php:709
+#: tbl_operations.php:711
 msgid "Optimize"
 msgstr "Оптимизация"
 
-#: tbl_operations.php:710
+#: tbl_operations.php:712
 msgid "Rebuild"
 msgstr "Перестройка"
 
-#: tbl_operations.php:711
+#: tbl_operations.php:713
 msgid "Repair"
 msgstr "Исправление"
 
-#: tbl_operations.php:723
+#: tbl_operations.php:725
 msgid "Remove partitioning"
 msgstr "Удалить разделение"
 
-#: tbl_operations.php:749
+#: tbl_operations.php:751
 msgid "Check referential integrity:"
 msgstr "Проверить целостность данных:"
 
@@ -8463,39 +8829,39 @@ msgstr "Проверить целостность данных:"
 msgid "Show tables"
 msgstr "Отображение таблиц"
 
-#: tbl_printview.php:307 tbl_structure.php:653
+#: tbl_printview.php:307 tbl_structure.php:748
 msgid "Space usage"
 msgstr "Используемое пространство"
 
-#: tbl_printview.php:311 tbl_structure.php:657
+#: tbl_printview.php:311 tbl_structure.php:752
 msgid "Usage"
 msgstr "Использование"
 
-#: tbl_printview.php:338 tbl_structure.php:684
+#: tbl_printview.php:338 tbl_structure.php:779
 msgid "Effective"
 msgstr "Эффективность"
 
-#: tbl_printview.php:363 tbl_structure.php:722
+#: tbl_printview.php:363 tbl_structure.php:817
 msgid "Row Statistics"
 msgstr "Статистика строк"
 
-#: tbl_printview.php:366 tbl_structure.php:725
+#: tbl_printview.php:366 tbl_structure.php:820
 msgid "Statements"
 msgstr "Характеристика"
 
-#: tbl_printview.php:377 tbl_structure.php:737
+#: tbl_printview.php:377 tbl_structure.php:832
 msgid "static"
 msgstr "статический"
 
-#: tbl_printview.php:379 tbl_structure.php:739
+#: tbl_printview.php:379 tbl_structure.php:834
 msgid "dynamic"
 msgstr "динамический"
 
-#: tbl_printview.php:401 tbl_structure.php:782
+#: tbl_printview.php:401 tbl_structure.php:877
 msgid "Row length"
 msgstr "Длина строки"
 
-#: tbl_printview.php:411 tbl_structure.php:790
+#: tbl_printview.php:411 tbl_structure.php:885
 msgid " Row size "
 msgstr "Размер строки"
 
@@ -8503,6 +8869,10 @@ msgstr "Размер строки"
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Ошибка создания внешнего ключа на %1$s (проверьте типы данных)"
+
+#: tbl_relation.php:396
+msgid "Relations"
+msgstr "Связи"
 
 #: tbl_relation.php:402
 #, fuzzy
@@ -8554,67 +8924,68 @@ msgstr "Количество строк на странице"
 msgid "Display order:"
 msgstr "Сортировка:"
 
-#: tbl_structure.php:159
+#: tbl_structure.php:159 tbl_structure.php:163
 msgid "Browse distinct values"
 msgstr "Обзор уникальных значений"
 
-#: tbl_structure.php:358
+#: tbl_structure.php:382
 #, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Нет"
 
-#: tbl_structure.php:371
+#: tbl_structure.php:395
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr "Таблица %s была удалена"
 
-#: tbl_structure.php:382
+#: tbl_structure.php:407 tbl_structure.php:483
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "Был добавлен первичный ключ к %s"
 
-#: tbl_structure.php:397 tbl_structure.php:411 tbl_structure.php:425
+#: tbl_structure.php:423 tbl_structure.php:438 tbl_structure.php:453
+#: tbl_structure.php:497 tbl_structure.php:510 tbl_structure.php:523
 #, php-format
 msgid "An index has been added on %s"
 msgstr "Был добавлен индекс для %s"
 
-#: tbl_structure.php:503 tbl_structure.php:505
+#: tbl_structure.php:597 tbl_structure.php:599
 msgid "Relation view"
 msgstr "Связи"
 
-#: tbl_structure.php:512 tbl_structure.php:514
+#: tbl_structure.php:606 tbl_structure.php:608
 msgid "Propose table structure"
 msgstr "Анализ структуры таблицы"
 
-#: tbl_structure.php:537
+#: tbl_structure.php:631
 #, fuzzy
 #| msgid "Add column(s)"
 msgid "Add column"
 msgstr "Добавить поле(я)"
 
-#: tbl_structure.php:551
+#: tbl_structure.php:645
 msgid "At End of Table"
 msgstr "В конец таблицы"
 
-#: tbl_structure.php:552
+#: tbl_structure.php:646
 msgid "At Beginning of Table"
 msgstr "В начало таблицы"
 
-#: tbl_structure.php:553
+#: tbl_structure.php:647
 #, php-format
 msgid "After %s"
 msgstr "После %s"
 
-#: tbl_structure.php:591
+#: tbl_structure.php:686
 #, fuzzy, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Создать индекс для &nbsp;%s&nbsp; столбца/ов"
 
-#: tbl_structure.php:753
+#: tbl_structure.php:848
 msgid "partitioned"
 msgstr "разделён"
 
@@ -8763,8 +9134,8 @@ msgid ""
 "No themes support; please check your configuration and/or your themes in "
 "directory %s."
 msgstr ""
-"Поддержка тем не работает, проверьте конфигурацию и наличие тем в каталоге %"
-"s."
+"Поддержка тем не работает, проверьте конфигурацию и наличие тем в каталоге "
+"%s."
 
 #: themes.php:41
 msgid "Get more themes!"
@@ -8809,6 +9180,82 @@ msgid "Rename view to"
 msgstr "Переименовать таблицу в"
 
 #, fuzzy
+#~| msgid "Dump %s row(s) starting at record # %s"
+#~ msgid "Dump %s row(s) starting at row # %s"
+#~ msgstr "Дамп из %s строк, начиная с записи # %s."
+
+#~ msgid "remember template"
+#~ msgstr "запомнить шаблон"
+
+#~ msgid "Imported file compression will be automatically detected from: %s"
+#~ msgstr "Автоматическое определение типа сжатия, варианты: %s"
+
+#~ msgid "Continued table caption"
+#~ msgstr "Заголовок таблицы (продолжение)"
+
+#~ msgid "Database export options"
+#~ msgstr "Параметры экспорта базы данных"
+
+#, fuzzy
+#~| msgid "Enclose table and field names with backquotes"
+#~ msgid "Enclose table and column names with backquotes"
+#~ msgstr "Заключить названия таблиц и полей в косые кавычки"
+
+#~ msgid "Add into comments"
+#~ msgstr "Добавить в комментарии"
+
+#~ msgid "Creation/Update/Check dates"
+#~ msgstr "Даты создания, обновления и проверки"
+
+#~ msgid "Complete inserts"
+#~ msgstr "Полная вставка"
+
+#~ msgid "Extended inserts"
+#~ msgstr "Расширенные вставки"
+
+#~ msgid "Use delayed inserts"
+#~ msgstr "Использовать отложенные вставки (DELAYED)"
+
+#~ msgid "Use ignore inserts"
+#~ msgstr "Использовать игнорирующие вставки (IGNORE)"
+
+#~ msgid "Use hexadecimal for BLOB"
+#~ msgstr "Использовать шестнадцатеричное отображение для полей типа BLOB"
+
+#~ msgid "Export Structure Schemas (recommended)"
+#~ msgstr "Экспортировать структуру (рекомендуется)"
+
+#~ msgid "Export functions"
+#~ msgstr "Экспортировать функции"
+
+#~ msgid "Export procedures"
+#~ msgstr "Экспортировать процедуры"
+
+#~ msgid "Export tables"
+#~ msgstr "Экспортировать таблицы"
+
+#~ msgid "Export triggers"
+#~ msgstr "Экспортировать триггеры"
+
+#~ msgid "Export views"
+#~ msgstr "Экспортировать отображения (VIEW)"
+
+#~ msgid "Column names in first row"
+#~ msgstr "Имена таблиц в первой строке"
+
+#~ msgid "Invalid column (%s) specified!"
+#~ msgstr "Выбран неверный столбец (%s)!"
+
+#~ msgid "Actions"
+#~ msgstr "Действия"
+
+#~ msgid "Interface"
+#~ msgstr "Отображение"
+
+#~ msgid "Custom color"
+#~ msgstr "Выбрать цвет"
+
+#, fuzzy
 #~| msgid "Table name"
 #~ msgid "Table removal"
 #~ msgstr "Имя таблицы"
@@ -8847,8 +9294,8 @@ msgstr "Переименовать таблицу в"
 #~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "Невозможно загрузить расширение [a@http://php.net/%1$s@Documentation][em]%"
-#~ "1$s[/em][/a]! Проверьте настройки PHP."
+#~ "Невозможно загрузить расширение [a@http://php.net/%1$s@Documentation]"
+#~ "[em]%1$s[/em][/a]! Проверьте настройки PHP."
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "
