@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-19 23:13+0200\n"
+"PO-Revision-Date: 2010-08-19 23:15+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2149,10 +2149,10 @@ msgid "Output:"
 msgstr "Išvestis:"
 
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Išsaugoti serveryje, kataloge pavadinimu %s"
+msgstr "Išsaugoti serverio kataloge pavadinimu <b>%s</b>"
 
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
 #: setup/lib/messages.inc.php:88
