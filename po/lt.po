@@ -1077,7 +1077,7 @@ msgstr "Vasaris"
 #: js/messages.php:88
 #| msgid "Mar"
 msgid "March"
-msgstr "Kovas"
+msgstr "kovo"
 
 #: js/messages.php:89
 #| msgid "Apr"
