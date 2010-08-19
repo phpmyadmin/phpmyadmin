@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 00:35+0200\n"
+"PO-Revision-Date: 2010-08-20 00:36+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3858,7 +3858,7 @@ msgstr ""
 #: server_privileges.php:713 server_privileges.php:720
 #: server_synchronize.php:1169
 msgid "User name"
-msgstr "Vartotojo vardas"
+msgstr "Naudotojo vardas"
 
 #: libraries/replication_gui.lib.php:105
 msgid "Master status"
