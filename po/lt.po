@@ -1316,7 +1316,7 @@ msgstr "Wiki"
 
 #: js/messages.php:168
 msgid "Hour"
-msgstr ""
+msgstr "valanda"
 
 #: js/messages.php:169
 #, fuzzy
