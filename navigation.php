@@ -229,18 +229,13 @@ if (! $GLOBALS['server']) {
         echo '<noscript>' . "\n"
             .'<input type="submit" name="Go" value="' . __('Go') . '" />' . "\n"
             .'</noscript>' . "\n"
-            .'</form>' . "\n";
+            .'</form>' . "\n"
+            . '</div>' . "\n";
     } else {
-        if (! empty($db)) {
-            echo '<div id="databaseList">' . "\n";
-        }
         echo $GLOBALS['pma']->databases->getHtmlListGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
     }
     $_url_params = array('pos' => $pos);
     PMA_listNavigator(count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
-    if (! empty($db)) {
-        echo '</div>' . "\n";
-    }
 }
 ?>
 
@@ -294,7 +289,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     if ($table_count) {
         ?>
         <span id="NavFilter">
-        <input type="text" name="fast_filter" id="fast_filter" title="<?php echo __('Filter'); ?>" />
+        <input type="text" name="fast_filter" id="fast_filter" title="<?php echo __('Filter'); ?>" value="filter tables by name" />
         <span id="clear_fast_filter" title="<?php echo __('Clear'); ?>">X</span>
         </span>
         <?php

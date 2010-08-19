@@ -34,6 +34,7 @@ if (isset($plugin_list)) {
         'text' => __('CSV using LOAD DATA'),
         'extension' => 'ldi', // This is nonsense, however we want to default to our parser for csv
         'options' => array(
+            array('type' => 'begin_group', 'name' => 'general_opts'),
             array('type' => 'bool', 'name' => 'replace', 'text' => __('Replace table data with file')),
             array('type' => 'bool', 'name' => 'ignore', 'text' => __('Ignore duplicate rows')),
             array('type' => 'text', 'name' => 'terminated', 'text' => __('Columns terminated by'), 'size' => 2, 'len' => 2),
@@ -42,6 +43,7 @@ if (isset($plugin_list)) {
             array('type' => 'text', 'name' => 'new_line', 'text' => __('Lines terminated by'), 'size' => 2),
             array('type' => 'text', 'name' => 'columns', 'text' => __('Column names')),
             array('type' => 'bool', 'name' => 'local_option', 'text' => __('Use LOCAL keyword')),
+            array('type' => 'end_group')
             ),
         'options_text' => __('Options'),
         );

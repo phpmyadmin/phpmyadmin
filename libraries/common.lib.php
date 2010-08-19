@@ -489,7 +489,9 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
     }
 
     // footnotemarker used in js/tooltip.js
-    return '<sup class="footnotemarker" id="footnote_sup_' . $nr . '_' . $instance . '">' . $nr . '</sup>';
+    return '<sup class="footnotemarker">' . $nr . '</sup>' .
+    '<img class="footnotemarker" id="footnote_' . $nr . '_' . $instance . '" src="' .
+    $GLOBALS['pmaThemeImage'] . 'b_help.png" alt="" />';
 }
 
 /**
@@ -2911,5 +2913,47 @@ function PMA_expandUserString($string, $escape = NULL, $updates = array()) {
 
     /* Do the replacement */
     return str_replace(array_keys($replace), array_values($replace), strftime($string));
+}
+
+/**
+ * Display the form used to browse anywhere on the local server for the file to import
+ */
+function PMA_browseUploadFile($max_upload_size) {
+    $uid = uniqid("");
+    echo '<label for="radio_import_file">' . __("Browse your computer:") . '</label>';
+    echo '<div id="upload_form_status" style="display: none;"></div>';
+    echo '<div id="upload_form_status_info" style="display: none;"></div>';
+    echo '<input type="file" name="import_file" id="input_import_file" />';
+    echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
+    // some browsers should respect this :)
+    echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+}
+
+/**
+ * Display the form used to select a file to import from the server upload directory
+ */
+function PMA_selectUploadFile($import_list, $uploaddir) {
+	echo '<label for="radio_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
+	$extensions = '';
+    foreach ($import_list as $key => $val) {
+        if (!empty($extensions)) {
+            $extensions .= '|';
+        }
+        $extensions .= $val['extension'];
+    }
+    $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
+
+    $files = PMA_getFileSelectOptions(PMA_userDir($uploaddir), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
+    if ($files === FALSE) {
+        PMA_Message::error(__('The directory you set for upload work cannot be reached'))->display();
+    } elseif (!empty($files)) {
+        echo "\n";
+        echo '    <select style="margin: 5px" size="1" name="local_import_file" id="select_local_import_file">' . "\n";
+        echo '        <option value="">&nbsp;</option>' . "\n";
+        echo $files;
+        echo '    </select>' . "\n";
+    } elseif (empty ($files)) {
+        echo '<i>There are no files to upload</i>';
+    }
 }
 ?>
