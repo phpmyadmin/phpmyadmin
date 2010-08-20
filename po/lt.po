@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 11:19+0200\n"
+"PO-Revision-Date: 2010-08-20 11:20+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5452,9 +5452,8 @@ msgid "See slave status table"
 msgstr ""
 
 #: server_replication.php:309
-#, fuzzy
 msgid "Synchronize databases with master"
-msgstr "Sinchronizuoti duomenų bazes"
+msgstr "Sinchronizuoti duombazes su pagrindiniu serveriu master"
 
 #: server_replication.php:320
 msgid "Control slave:"
