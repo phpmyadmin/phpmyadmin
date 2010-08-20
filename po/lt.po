@@ -6316,9 +6316,8 @@ msgid "Alter column(s)"
 msgstr "Pakeisti stulpelį(-ius)"
 
 #: server_synchronize.php:431 server_synchronize.php:874
-#, fuzzy
 msgid "Remove index(s)"
-msgstr "Keisti indeksą(-us)"
+msgstr "Pašalinti žurnalą(us) (indeksą)"
 
 #: server_synchronize.php:432 server_synchronize.php:875
 #, fuzzy
