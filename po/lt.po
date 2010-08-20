@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:36+0200\n"
+"PO-Revision-Date: 2010-08-20 08:37+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1815,7 +1815,7 @@ msgstr "Vidinis"
 
 #: libraries/common.lib.php:1345 libraries/common.lib.php:1360
 msgid "Profiling"
-msgstr ""
+msgstr "Profiliavimas"
 
 #: libraries/common.lib.php:1364 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:57
