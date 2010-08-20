@@ -6875,7 +6875,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:101
 msgid "Edit mode"
-msgstr ""
+msgstr "Redagavimo režimas"
 
 #: setup/lib/messages.inc.php:102
 #, fuzzy
