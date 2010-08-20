@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 18:44+0200\n"
+"PO-Revision-Date: 2010-08-20 18:47+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2741,7 +2741,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:46
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "Baigėsi skirtas laikas laikinam Blob"
 
 #: libraries/engines/pbms.lib.php:47
 msgid ""
