@@ -4926,9 +4926,8 @@ msgstr "Leisti kurti naujas duombazes ir lenteles."
 
 #: server_privileges.php:27 server_privileges.php:206
 #: server_privileges.php:519
-#, fuzzy
 msgid "Allows creating stored routines."
-msgstr "Leidžia sukurti naujus view'us."
+msgstr "Leidžia sukurti naujas saugomas programas (stored routines)."
 
 #: server_privileges.php:28 server_privileges.php:513
 msgid "Allows creating new tables."
