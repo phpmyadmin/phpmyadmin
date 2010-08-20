@@ -4745,7 +4745,7 @@ msgstr "Paslėpti/rodyti visus"
 
 #: pmd_general.php:123
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "Slėpti/rodyti lenteles be sąryšių"
 
 #: pmd_general.php:163
 msgid "Number of tables"
