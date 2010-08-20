@@ -6926,9 +6926,8 @@ msgid "Other core settings"
 msgstr "Kiti branduolio nustatymai"
 
 #: setup/lib/messages.inc.php:119
-#, fuzzy
 msgid "Customize query window options"
-msgstr "Duombazės eksportavimo parinktys"
+msgstr "Adaptuoti užklausos lango nustatymus"
 
 #: setup/lib/messages.inc.php:121
 msgid ""
