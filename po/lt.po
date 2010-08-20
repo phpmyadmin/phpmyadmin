@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:17+0200\n"
+"PO-Revision-Date: 2010-08-20 09:18+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2331,10 +2331,9 @@ msgstr ""
 "sugadinti transakcijas."
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Praleisti įrašų(užklausų) skaičių nuo pradžios"
+msgstr "Praleidžiamų įrašų (eilučių) skaičius, pradedant nuo įrašo:"
 
 #: libraries/display_pdf_schema.lib.php:11
 msgid "Display PDF schema"
