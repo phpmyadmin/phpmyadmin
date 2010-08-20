@@ -6165,7 +6165,6 @@ msgid "Show processes"
 msgstr "Rodyti procesus"
 
 #: server_status.php:454
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
