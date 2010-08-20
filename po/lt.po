@@ -3136,7 +3136,7 @@ msgstr ""
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Įterpti savo komentarą į antraštės sritį (eilutėms atskirti naudokite \\\n"
+"Įterpti savo komentarą į antraštės sritį (eilutėms atskirti naudokite \n"
 ")"
 
 #: libraries/export/sql.php:37
