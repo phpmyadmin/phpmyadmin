@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 20:03+0200\n"
+"PO-Revision-Date: 2010-08-20 20:04+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6673,7 +6673,7 @@ msgstr "Patvirtinti DROP užklausas"
 
 #: setup/lib/messages.inc.php:49
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Kortelė kuri yra rodoma kai įeinama į duombazę"
 
 #: setup/lib/messages.inc.php:50
 #, fuzzy
