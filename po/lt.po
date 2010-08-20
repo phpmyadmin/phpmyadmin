@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 22:32+0200\n"
+"PO-Revision-Date: 2010-08-20 22:33+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7308,6 +7308,7 @@ msgstr "Maksimalus SQL rodymo ilgis"
 #: setup/lib/messages.inc.php:200
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
+"Maksimalus skaičius rodomų duombazių kairiame rėmelyje ir duombazių sąraše"
 
 #: setup/lib/messages.inc.php:201
 #, fuzzy
