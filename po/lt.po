@@ -7005,7 +7005,7 @@ msgstr "Adaptuoti importavimo numatytąsias reikšmes"
 
 #: setup/lib/messages.inc.php:137
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Adaptuoti navigacijos rėmelį"
 
 #: setup/lib/messages.inc.php:138
 msgid "Customize main frame"
