@@ -705,22 +705,23 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
 function PMA_sendHeaderLocation($uri)
 {
     if (PMA_IS_IIS && strlen($uri) > 600) {
+        require_once './libraries/js_escape.lib.php';
 
         echo '<html><head><title>- - -</title>' . "\n";
         echo '<meta http-equiv="expires" content="0">' . "\n";
         echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
         echo '<meta http-equiv="Cache-Control" content="no-cache">' . "\n";
-        echo '<meta http-equiv="Refresh" content="0;url=' .$uri . '">' . "\n";
+        echo '<meta http-equiv="Refresh" content="0;url=' .  htmlspecialchars($uri) . '">' . "\n";
         echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
-        echo 'setTimeout("window.location = unescape(\'"' . $uri . '"\')", 2000);' . "\n";
+        echo 'setTimeout("window.location = unescape(\'"' . PMA_escapeJsString($uri) . '"\')", 2000);' . "\n";
         echo '//]]>' . "\n";
         echo '</script>' . "\n";
         echo '</head>' . "\n";
         echo '<body>' . "\n";
         echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
-        echo 'document.write(\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
+        echo 'document.write(\'<p><a href="' . htmlspecialchars($uri) . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
         echo '//]]>' . "\n";
         echo '</script></body></html>' . "\n";
 
