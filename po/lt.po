@@ -1606,8 +1606,7 @@ msgstr "Slapukai(Cookies) turi būti priimami."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
-"Prisijungimas be slaptažodžio draudžiamas nustatymų (žiūrėti "
-"AllowNoPassword)."
+"Prisijungimą be slaptažodžio draudžia nustatymai (žiūrėti AllowNoPassword)."
 
 #: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:184
