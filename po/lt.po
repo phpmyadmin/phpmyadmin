@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:22+0200\n"
+"PO-Revision-Date: 2010-08-20 10:23+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4402,7 +4402,7 @@ msgstr ""
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "Suformuoti tekstą kaip SQL užklausą su sintaksės paryškinimais."
 
 #: libraries/transformations/text_plain__substr.inc.php:9
 msgid ""
