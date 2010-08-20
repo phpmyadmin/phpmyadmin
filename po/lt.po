@@ -7444,7 +7444,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:235
 msgid "Save directory"
-msgstr ""
+msgstr "Išsaugoti katalogą"
 
 #: setup/lib/messages.inc.php:236
 #, php-format
