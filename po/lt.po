@@ -4864,9 +4864,8 @@ msgid "Jump to database"
 msgstr "Eiti į duombazę"
 
 #: server_databases.php:264
-#, fuzzy
 msgid "Not replicated"
-msgstr "Serverio nustatymai"
+msgstr "Nepadaugintas"
 
 #: server_databases.php:270
 #, fuzzy
