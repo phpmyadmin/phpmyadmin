@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 07:36+0200\n"
+"PO-Revision-Date: 2010-08-20 07:37+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -248,10 +248,9 @@ msgid "and then"
 msgstr "ir tada"
 
 #: db_operations.php:379
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Pervadinti duombazę į"
+msgstr "Pašalinti duombazę"
 
 #: db_operations.php:391
 #, php-format
