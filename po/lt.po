@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 11:08+0200\n"
+"PO-Revision-Date: 2010-08-20 11:11+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5310,7 +5310,7 @@ msgstr "Nėra"
 
 #: server_privileges.php:2034
 msgid "Create database with same name and grant all privileges"
-msgstr ""
+msgstr "Sukurti duombazę su tokiu pat vardu ir jai suteikti visas privilegijas"
 
 #: server_privileges.php:2035
 msgid "Grant all privileges on wildcard name (username\\_%)"
