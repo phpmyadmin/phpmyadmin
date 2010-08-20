@@ -1360,7 +1360,7 @@ msgstr "Failo įkėlimas sustabdytas dėl failo plėtinio (galūnės)."
 
 #: libraries/File.class.php:333
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Nežinoma klaida failų įkėlime."
 
 #: libraries/File.class.php:624
 #, fuzzy
