@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:18+0200\n"
+"PO-Revision-Date: 2010-08-20 10:19+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4016,7 +4016,7 @@ msgstr "Stulpelių vardai"
 
 #: libraries/sql_query_form.lib.php:329 sql.php:662 sql.php:663 sql.php:680
 msgid "Bookmark this SQL query"
-msgstr "Sukurti nuorodą"
+msgstr "Sukurti nuorodą į šią SQL užklausą"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:674
 msgid "Let every user access this bookmark"
