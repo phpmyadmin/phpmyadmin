@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 22:40+0200\n"
+"PO-Revision-Date: 2010-08-20 22:41+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7345,9 +7345,8 @@ msgstr ""
 "[kbd]32M[/kbd] ([kbd]0[/kbd] neriboja)"
 
 #: setup/lib/messages.inc.php:207
-#, fuzzy
 msgid "Memory limit"
-msgstr "Išteklių apribojimai"
+msgstr "Atminties apribojimai"
 
 #: setup/lib/messages.inc.php:208 setup/lib/messages.inc.php:220
 msgid "Use only icons, only text or both"
