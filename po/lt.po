@@ -7013,7 +7013,7 @@ msgstr "Adaptuoti pagrindinė rėmelį"
 
 #: setup/lib/messages.inc.php:139
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Adaptuoti nuorodas rodomas SQL užklausos langelyje"
 
 #: setup/lib/messages.inc.php:140
 msgid "SQL Query box"
