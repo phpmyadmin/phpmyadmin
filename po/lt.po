@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 19:41+0200\n"
+"PO-Revision-Date: 2010-08-20 19:42+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6420,7 +6420,7 @@ msgstr "Apžvalga"
 
 #: setup/frames/index.inc.php:95 setup/lib/messages.inc.php:335
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "Rodyti paslėptas žinutes (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:211
 msgid "There are no configured servers"
