@@ -5461,7 +5461,7 @@ msgstr ""
 
 #: server_replication.php:323
 msgid "Full start"
-msgstr "Pilnas įjungimas"
+msgstr "Pilnas paleidimas"
 
 #: server_replication.php:323
 msgid "Full stop"
