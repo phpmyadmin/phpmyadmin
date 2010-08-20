@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 21:14+0200\n"
+"PO-Revision-Date: 2010-08-20 21:15+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7029,9 +7029,8 @@ msgstr ""
 "nustatymai"
 
 #: setup/lib/messages.inc.php:142
-#, fuzzy
 msgid "SQL queries"
-msgstr "SQL užklausa"
+msgstr "SQL užklausos"
 
 #: setup/lib/messages.inc.php:143
 msgid "Customize startup page"
