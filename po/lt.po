@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:40+0200\n"
+"PO-Revision-Date: 2010-08-20 09:41+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3159,6 +3159,8 @@ msgstr "Atsisakyti išorinių raktų tikrinimo"
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Duombazės sistema arba senesnis MySQL serveris tam, kad maksimaliai "
+"pagerinti išvedimo suderinamumą su:"
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
