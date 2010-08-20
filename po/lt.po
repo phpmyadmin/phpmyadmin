@@ -3382,7 +3382,7 @@ msgstr "Eiti į lentelę"
 
 #: libraries/import.lib.php:1147
 msgid "Go to view"
-msgstr ""
+msgstr "Eiti į rodinį (view)"
 
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
 msgid "Replace table data with file"
