@@ -7153,7 +7153,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:167
 msgid "Show logo in left frame"
-msgstr "Logo rodyti kairiame rėmelyje"
+msgstr "Logotipą rodyti kairiame rėmelyje"
 
 #: setup/lib/messages.inc.php:168
 msgid "Display logo"
