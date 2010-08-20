@@ -6487,9 +6487,8 @@ msgid "Edit server"
 msgstr "Redaguoti serverį"
 
 #: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:239
-#, fuzzy
 msgid "Add a new server"
-msgstr "Sukurti naują vartotoją"
+msgstr "Sukurti naują serverį"
 
 #: setup/lib/FormDisplay.class.php:458 setup/lib/messages.inc.php:73
 msgid "Incorrect value"
