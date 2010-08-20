@@ -3210,7 +3210,7 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"Įtraukti stulpelių vardus kiekviename <code>INSERT</code> sakinyje <br /> "
+"įtraukti stulpelių vardus kiekviename <code>INSERT</code> sakinyje <br /> "
 "&nbsp; &nbsp; &nbsp; Pavyzdžiui: <code>INSERT INTO tbl_name "
 "(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
