@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:57+0200\n"
+"PO-Revision-Date: 2010-08-20 09:58+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3357,7 +3357,7 @@ msgstr "Sekanti struktūra buvo sukurta arba pakeista. Čia galite:"
 
 #: libraries/import.lib.php:1111
 msgid "View a structure`s contents by clicking on its name"
-msgstr ""
+msgstr "Peržiūrėti struktūros turinį paspaudžiant ant vardo"
 
 #: libraries/import.lib.php:1112
 msgid ""
