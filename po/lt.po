@@ -5144,10 +5144,9 @@ msgid "Do not change the password"
 msgstr "Nekeisti slaptažodžio"
 
 #: server_privileges.php:834 server_privileges.php:2201
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
-msgstr "Nerasta vartotojo(ų)."
+msgstr "Nerasta jokių naudotojų."
 
 #: server_privileges.php:878
 #, php-format
