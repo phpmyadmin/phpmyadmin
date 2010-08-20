@@ -6365,10 +6365,10 @@ msgid "Current connection"
 msgstr "Dabartinis prisijungimas"
 
 #: server_synchronize.php:1150
-#, fuzzy, php-format
+#, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
-msgstr "Nustatymų failas"
+msgstr "Konfigūracija: %s"
 
 #: server_synchronize.php:1165
 msgid "Socket"
