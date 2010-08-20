@@ -6424,7 +6424,7 @@ msgstr "Rodyti paslėptas žinutes (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:135 setup/lib/messages.inc.php:211
 msgid "There are no configured servers"
-msgstr ""
+msgstr "Nėra jokių sukonfigūruotų serverių"
 
 #: setup/frames/index.inc.php:143 setup/lib/messages.inc.php:210
 msgid "New server"
