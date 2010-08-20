@@ -4599,7 +4599,6 @@ msgid "Clear"
 msgstr "Išvalyti"
 
 #: navigation.php:324 navigation.php:325
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
