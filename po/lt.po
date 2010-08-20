@@ -4859,10 +4859,9 @@ msgid "Slave replication"
 msgstr "Pavaldžiojo serverio dauginimas (slave replication)"
 
 #: server_databases.php:227
-#, fuzzy
 #| msgid "Go to database"
 msgid "Jump to database"
-msgstr "Eiti į duomenų bazę"
+msgstr "Eiti į duombazę"
 
 #: server_databases.php:264
 #, fuzzy
