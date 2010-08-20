@@ -7072,7 +7072,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:151
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Papildomas parametras iconv"
 
 #: setup/lib/messages.inc.php:152
 msgid "Ignore errors"
