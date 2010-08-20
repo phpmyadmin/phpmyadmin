@@ -779,7 +779,7 @@ msgstr "Patikrinti lentelę"
 
 #: db_tracking.php:195
 msgid "Database Log"
-msgstr "Duombazės žurnalas"
+msgstr "Duombazės žurnalas (log)"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:798
 #, php-format
