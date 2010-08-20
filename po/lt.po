@@ -4399,8 +4399,7 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
-"Konvertuoja (IPv4) interneto tinklo adresą į įprastą interneto standartinį "
-"formatą su taškais."
+"Konvertuoja (IPv4) interneto tinklo adresą į įprastą formatą su taškais."
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
