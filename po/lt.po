@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 11:12+0200\n"
+"PO-Revision-Date: 2010-08-20 11:13+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5316,9 +5316,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Suteikti visas privilegijas pakaitos vardui (username\\_%)"
 
 #: server_privileges.php:2038
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Patikrinti duombazės &quot;%s&quot; privilegijas."
+msgstr "Suteikti visas privilegijas duombazei „%s“"
 
 #: server_privileges.php:2061
 #, php-format
