@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 11:16+0200\n"
+"PO-Revision-Date: 2010-08-20 11:19+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5418,9 +5418,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr ""
 
 #: server_replication.php:223
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Pasirinkite duombazę"
+msgstr "Prašome pasirinkti duombazę:"
 
 #: server_replication.php:226
 msgid ""
