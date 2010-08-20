@@ -7034,7 +7034,7 @@ msgstr "SQL užklausos"
 
 #: setup/lib/messages.inc.php:143
 msgid "Customize startup page"
-msgstr ""
+msgstr "Adaptuoti paleidimo (pagrindinį) puslapį"
 
 #: setup/lib/messages.inc.php:144
 #, fuzzy
