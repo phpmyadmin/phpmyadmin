@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:37+0200\n"
+"PO-Revision-Date: 2010-08-20 10:38+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4721,7 +4721,7 @@ msgstr "Tiesioginės nuorodos"
 
 #: pmd_general.php:90
 msgid "Snap to grid"
-msgstr ""
+msgstr "Pritraukti prie tinklelio"
 
 #: pmd_general.php:94
 msgid "Small/Big All"
