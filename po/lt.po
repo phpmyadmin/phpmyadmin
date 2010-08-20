@@ -2458,7 +2458,7 @@ msgstr "Rodyti dvejetainį turinį"
 
 #: libraries/display_tbl.lib.php:595
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Rodyti BLOB turinį"
 
 #: libraries/display_tbl.lib.php:597
 msgid "Show binary contents as HEX"
