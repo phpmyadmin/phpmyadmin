@@ -5501,7 +5501,7 @@ msgstr ""
 
 #: server_replication.php:334
 msgid "Skip current error"
-msgstr "Praleisti klaidą"
+msgstr "Praleisti šią klaidą"
 
 #: server_replication.php:335
 msgid "Skip next"
