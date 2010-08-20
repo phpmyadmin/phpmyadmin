@@ -1649,10 +1649,9 @@ msgid "PBMS error"
 msgstr "PMBS klaida"
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
-msgstr "MySQL prisijungimo rūšiavimas"
+msgstr "PBMS prisijungimo klaida:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
