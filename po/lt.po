@@ -6483,9 +6483,8 @@ msgid "Main frame"
 msgstr "Pagrindinis rėmelis"
 
 #: setup/frames/servers.inc.php:28 setup/lib/messages.inc.php:270
-#, fuzzy
 msgid "Edit server"
-msgstr "Naujas serveris"
+msgstr "Redaguoti serverį"
 
 #: setup/frames/servers.inc.php:37 setup/lib/messages.inc.php:239
 #, fuzzy
