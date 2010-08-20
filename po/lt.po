@@ -5019,11 +5019,12 @@ msgstr ""
 "Riboti komandų (kurios vienaip ar kitaip modifikuoja lenteles ar duombazes) "
 "kiekį per valandą."
 
+# gal labiau kartu vykstančių
 #: server_privileges.php:45 server_privileges.php:651
 #: server_privileges.php:653
 #, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Riboti prisijungimų kiekį per valandą (gal labiau kartu vykstančių)."
+msgstr "Riboti prisijungimų kiekį per valandą (kartu vykstančių)."
 
 #: server_privileges.php:46 server_privileges.php:187
 #: server_privileges.php:543
