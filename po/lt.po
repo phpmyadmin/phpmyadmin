@@ -6476,7 +6476,7 @@ msgstr "Galimybės"
 
 #: setup/frames/menu.inc.php:19 setup/lib/messages.inc.php:111
 msgid "Navigation frame"
-msgstr ""
+msgstr "Navigacijos rėmelis"
 
 #: setup/frames/menu.inc.php:20 setup/lib/messages.inc.php:116
 msgid "Main frame"
