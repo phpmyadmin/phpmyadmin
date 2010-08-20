@@ -3564,7 +3564,7 @@ msgstr "Supaprastinta kinų"
 
 #: libraries/mysql_charsets.lib.php:220 libraries/mysql_charsets.lib.php:363
 msgid "Traditional Chinese"
-msgstr "Tradicinė kiniečių"
+msgstr "Tradicinė kinų"
 
 #: libraries/mysql_charsets.lib.php:224 libraries/mysql_charsets.lib.php:410
 msgid "case-insensitive"
