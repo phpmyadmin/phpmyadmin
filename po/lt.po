@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:47+0200\n"
+"PO-Revision-Date: 2010-08-20 08:48+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2094,10 +2094,9 @@ msgid "Exporting rows in the table \"%s\""
 msgstr "Sukurti naują lentelę duombazėje %s"
 
 #: libraries/display_export.lib.php:97
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Eksporto tipas"
+msgstr "Eksporto tipas:"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options to configure"
