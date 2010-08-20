@@ -6706,7 +6706,7 @@ msgstr ""
 #: setup/lib/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
 msgstr ""
-"Rodyti duombazės sąrašą kaip paprastą sąrašą vietoj išsiskleidžiančio sąrašo"
+"Rodyti duombazės sąrašą kaip paprastą sąrašą vietoje išskleidžiamojo sąrašo"
 
 #: setup/lib/messages.inc.php:57
 msgid "Display databases as a list"
