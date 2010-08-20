@@ -1348,7 +1348,7 @@ msgstr "Įkeltas failas buvo dalinai (nepilnai) įkeltas"
 
 #: libraries/File.class.php:324
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Trūksta laikino katalogo."
 
 #: libraries/File.class.php:327
 msgid "Failed to write file to disk."
