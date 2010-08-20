@@ -981,7 +981,7 @@ msgstr "Sąryšis ištrintas"
 
 #: js/messages.php:54 pmd_relation_new.php:62
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "FOREIGN KEY sąryšis įdėtas"
 
 #: js/messages.php:55 pmd_relation_new.php:84
 #, fuzzy
