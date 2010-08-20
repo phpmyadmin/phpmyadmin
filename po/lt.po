@@ -7363,7 +7363,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:213
 msgid "GZip output buffering"
-msgstr ""
+msgstr "GZip išvedimo buferis"
 
 #: setup/lib/messages.inc.php:215
 msgid ""
