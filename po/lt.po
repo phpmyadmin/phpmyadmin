@@ -6145,9 +6145,8 @@ msgid "Flush (close) all tables"
 msgstr ""
 
 #: server_status.php:383
-#, fuzzy
 msgid "Show open tables"
-msgstr "Rodyti lentelės"
+msgstr "Rodyti atidarytas lenteles"
 
 #: server_status.php:388
 msgid "Show slave hosts"
