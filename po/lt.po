@@ -1468,7 +1468,7 @@ msgstr "Apie šio Saugojimo Variklio būseną nėra išsamios informacijos."
 #: libraries/StorageEngine.class.php:354
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr "%s nėra galimas šiame MySQL serveryje."
+msgstr "%s galimas šiame MySQL serveryje."
 
 #: libraries/StorageEngine.class.php:357
 #, php-format
