@@ -3506,7 +3506,7 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
-"XHML failo specifikacija yra neteisinga arba neišbaigta. Prašome pataisyti "
+"XML failo specifikacija yra neteisinga arba neišbaigta. Prašome pataisyti "
 "klaidas ir bandyti dar kartą."
 
 #: libraries/kanji-encoding.lib.php:142
