@@ -4198,7 +4198,7 @@ msgstr "ENUM arba SET duomenys per ilgi?"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Padidinti redagavimo vietą"
 
 #: libraries/tbl_properties.inc.php:396
 #, fuzzy
