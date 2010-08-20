@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:00+0200\n"
+"PO-Revision-Date: 2010-08-20 08:02+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1316,10 +1316,9 @@ msgid "Hour"
 msgstr "valanda"
 
 #: js/messages.php:169
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "šiuo metu naudojama"
+msgstr "minutė"
 
 #: js/messages.php:170
 #, fuzzy
