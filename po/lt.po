@@ -1572,7 +1572,7 @@ msgstr "Prisijungti"
 #: libraries/navigation_header.inc.php:92
 #: libraries/navigation_header.inc.php:94
 msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin'o dokumentacija"
+msgstr "phpMyAdmin dokumentacija"
 
 #: libraries/auth/cookie.auth.lib.php:245
 #: libraries/auth/cookie.auth.lib.php:246
