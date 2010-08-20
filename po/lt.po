@@ -6320,9 +6320,8 @@ msgid "Remove index(s)"
 msgstr "Pašalinti žurnalą(us) (indeksą)"
 
 #: server_synchronize.php:432 server_synchronize.php:875
-#, fuzzy
 msgid "Apply index(s)"
-msgstr "Keisti indeksą(-us)"
+msgstr "Keisti žurnalą(us) (indeksą)"
 
 #: server_synchronize.php:433 server_synchronize.php:876
 msgid "Update row(s)"
