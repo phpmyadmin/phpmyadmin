@@ -4855,9 +4855,8 @@ msgid "Master replication"
 msgstr "Pagrindinio serverio dauginimas (master replication)"
 
 #: server_databases.php:194 server_replication.php:246
-#, fuzzy
 msgid "Slave replication"
-msgstr "Serverio nustatymai"
+msgstr "Pavaldžiojo serverio dauginimas (slave replication)"
 
 #: server_databases.php:227
 #, fuzzy
