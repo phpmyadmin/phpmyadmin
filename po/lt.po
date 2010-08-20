@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 22:50+0200\n"
+"PO-Revision-Date: 2010-08-20 22:51+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7410,7 +7410,7 @@ msgstr "Nuolatinė užklausų istorija"
 
 #: setup/lib/messages.inc.php:226
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "Kiek užklausų laikoma istorijoje"
 
 #: setup/lib/messages.inc.php:227
 msgid "Query history length"
