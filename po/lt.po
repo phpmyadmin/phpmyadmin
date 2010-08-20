@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:51+0200\n"
+"PO-Revision-Date: 2010-08-20 08:52+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2103,7 +2103,7 @@ msgstr "Greitas - rodomi tik minimalūs nustatymai"
 
 #: libraries/display_export.lib.php:129
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "Individualizuotas - rodyti visus nustatymus"
 
 #: libraries/display_export.lib.php:137
 #| msgid "Databases"
