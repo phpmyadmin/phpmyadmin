@@ -1646,7 +1646,7 @@ msgstr "Nustatomas tapatumas..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr "PMBS klaida"
+msgstr "PBMS klaida"
 
 #: libraries/blobstreaming.lib.php:267
 #| msgid "MySQL connection collation"
