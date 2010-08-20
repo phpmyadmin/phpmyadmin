@@ -1056,7 +1056,7 @@ msgstr "Ankstesnis"
 #: server_binlog.php:191 server_binlog.php:193 tbl_printview.php:421
 #: tbl_structure.php:893
 msgid "Next"
-msgstr "Sekantis"
+msgstr "Kitas"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:83
