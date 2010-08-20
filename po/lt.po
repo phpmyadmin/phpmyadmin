@@ -4875,7 +4875,7 @@ msgstr "Padaugintas"
 #: server_databases.php:286
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Patikrinti duombazės &quot;%s&quot; privilegijas."
+msgstr "Patikrinti duombazės „%s“ privilegijas."
 
 #: server_databases.php:290 server_databases.php:291
 msgid "Check Privileges"
