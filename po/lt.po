@@ -1811,7 +1811,7 @@ msgstr "Greitas užklausos redagavimas"
 
 #: libraries/common.lib.php:1291
 msgid "Inline"
-msgstr ""
+msgstr "Vidinis"
 
 #: libraries/common.lib.php:1345 libraries/common.lib.php:1360
 msgid "Profiling"
