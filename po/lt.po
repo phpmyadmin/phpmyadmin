@@ -5628,9 +5628,8 @@ msgid ""
 msgstr ""
 
 #: server_status.php:57
-#, fuzzy
 msgid "The number of internal ROLLBACK statements."
-msgstr "Įvykdytų FLUSH užklausų skaičius."
+msgstr "Vidinių ROLLBACK užklausų skaičius."
 
 #: server_status.php:58
 msgid "The number of requests to update a row in a table."
