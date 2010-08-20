@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 10:02+0200\n"
+"PO-Revision-Date: 2010-08-20 10:03+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3435,7 +3435,7 @@ msgstr "Laukų reikšmės baigiasi simboliu"
 
 #: libraries/import/csv.php:81 libraries/import/ldi.php:43
 msgid "Lines terminated by"
-msgstr "Eilutės pabaigos žymė"
+msgstr "Eilutės (įrašai) baigiasi"
 
 #: libraries/import/csv.php:121
 #, php-format
