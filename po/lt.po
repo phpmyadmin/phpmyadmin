@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 21:11+0200\n"
+"PO-Revision-Date: 2010-08-20 21:12+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6993,7 +6993,7 @@ msgstr ""
 
 #: setup/lib/messages.inc.php:133
 msgid "Customization"
-msgstr ""
+msgstr "Adaptavimas"
 
 #: setup/lib/messages.inc.php:134
 #, fuzzy
