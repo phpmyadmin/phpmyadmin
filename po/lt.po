@@ -6871,7 +6871,7 @@ msgstr "Adaptuoti naršymo režimą"
 
 #: setup/lib/messages.inc.php:100
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Adaptuoti redagavimo režimą"
 
 #: setup/lib/messages.inc.php:101
 msgid "Edit mode"
