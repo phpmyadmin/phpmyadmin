@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 09:48+0200\n"
+"PO-Revision-Date: 2010-08-20 09:49+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3274,7 +3274,7 @@ msgstr "MIME TIPAI LENTELEI"
 
 #: libraries/export/sql.php:787
 msgid "RELATIONS FOR TABLE"
-msgstr "RELATIONS FOR TABLE"
+msgstr "SĄRYŠIAI LENTELEI"
 
 #: libraries/export/sql.php:844 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
