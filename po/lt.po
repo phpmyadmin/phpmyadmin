@@ -3533,7 +3533,7 @@ msgstr "Pirminis"
 #: tbl_structure.php:166 tbl_structure.php:167 tbl_structure.php:566
 #: tbl_structure.php:765
 msgid "Index"
-msgstr "Indeksas"
+msgstr "Žurnalas (indeksas)"
 
 #: libraries/mult_submits.inc.php:107 libraries/tbl_properties.inc.php:534
 #: tbl_structure.php:33 tbl_structure.php:154 tbl_structure.php:158
