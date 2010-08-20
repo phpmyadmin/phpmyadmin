@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 08:52+0200\n"
+"PO-Revision-Date: 2010-08-20 08:53+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2121,10 +2121,9 @@ msgid "Rows:"
 msgstr "Eilutės:"
 
 #: libraries/display_export.lib.php:157
-#, fuzzy
 #| msgid "Insert row(s)"
 msgid "Dump some row(s)"
-msgstr "Įterpti eilutę(-es)"
+msgstr "Parodyti keletą eilučių(tes)"
 
 #: libraries/display_export.lib.php:159
 #| msgid "Number of fields"
