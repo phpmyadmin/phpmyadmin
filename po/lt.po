@@ -6788,9 +6788,8 @@ msgid "Save as file"
 msgstr "Išsaugoti į failą"
 
 #: setup/lib/messages.inc.php:80
-#, fuzzy
 msgid "Character set of the file"
-msgstr "Simbolių koduotė faile:"
+msgstr "Failo simbolių koduotė:"
 
 #: setup/lib/messages.inc.php:81
 msgid "Compression"
