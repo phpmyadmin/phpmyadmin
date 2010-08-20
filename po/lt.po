@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 21:31+0200\n"
+"PO-Revision-Date: 2010-08-20 21:32+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7182,9 +7182,8 @@ msgid ""
 msgstr "Tik maža versija; rodyti duombazės medį (skyriklis nustatomas žemiau)"
 
 #: setup/lib/messages.inc.php:174
-#, fuzzy
 msgid "Display databases in a tree"
-msgstr "Rodyti duomenų bazes kaip sąrašą"
+msgstr "Rodyti duombazes medyje"
 
 #: setup/lib/messages.inc.php:175
 msgid "Disable this if you want to see all databases at once"
