@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 19:34+0200\n"
+"PO-Revision-Date: 2010-08-20 19:35+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6297,9 +6297,8 @@ msgid "not present"
 msgstr ""
 
 #: server_synchronize.php:422 server_synchronize.php:865
-#, fuzzy
 msgid "Structure Difference"
-msgstr "Skirtumas"
+msgstr "Struktūros skirtumas"
 
 #: server_synchronize.php:423 server_synchronize.php:866
 #, fuzzy
