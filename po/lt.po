@@ -3202,7 +3202,7 @@ msgstr "Naudoti funkciją kai išvedami duomenys:"
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Naudoti sintaksę kai įterpiami duomenys:"
 
 #: libraries/export/sql.php:154
 msgid ""
