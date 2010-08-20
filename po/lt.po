@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-08-19 14:18+0200\n"
-"PO-Revision-Date: 2010-08-20 07:54+0200\n"
+"PO-Revision-Date: 2010-08-20 07:55+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -984,9 +984,8 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY sąryšis įdėtas"
 
 #: js/messages.php:55 pmd_relation_new.php:84
-#, fuzzy
 msgid "Internal relation added"
-msgstr "Vidiniai sąryšiai"
+msgstr "Vidinis sąryšis įdėtas"
 
 #: js/messages.php:56 pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
